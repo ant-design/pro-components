@@ -4,17 +4,10 @@ import type {
 } from '@ant-design/pro-descriptions';
 import Descriptions from '@ant-design/pro-descriptions';
 import type { RowEditableConfig } from '@ant-design/pro-utils';
-import {
-  act,
-  cleanup,
-  fireEvent,
-  render,
-  waitFor,
-} from '@testing-library/react';
+import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import { Form, InputNumber } from 'antd';
 import useMergedState from 'rc-util/es/hooks/useMergedState';
-import React, { useRef } from 'react';
-
+import React, { act, useRef } from 'react';
 type DataSourceType = {
   id: number;
   title?: string;
@@ -198,7 +191,7 @@ describe('Descriptions', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith(['title']);
+      expect(fn).toHaveBeenCalledWith(['title']);
     });
   });
 
@@ -459,7 +452,7 @@ describe('Descriptions', () => {
         ?.click();
     });
     await waitFor(() => {
-      expect(fn).toBeCalledWith(['state', 'title']);
+      expect(fn).toHaveBeenCalledWith(['state', 'title']);
     });
   });
 
@@ -492,7 +485,7 @@ describe('Descriptions', () => {
         ?.click();
     });
     await waitFor(() => {
-      expect(fn).toBeCalledWith('state');
+      expect(fn).toHaveBeenCalledWith('state');
     });
   });
 
@@ -545,7 +538,7 @@ describe('Descriptions', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith('state');
+      expect(fn).toHaveBeenCalledWith('state');
     });
   });
 
@@ -580,7 +573,7 @@ describe('Descriptions', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith('state');
+      expect(fn).toHaveBeenCalledWith('state');
     });
   });
 
@@ -663,7 +656,7 @@ describe('Descriptions', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith('qixian');
+      expect(fn).toHaveBeenCalledWith('qixian');
     });
   });
 
@@ -705,7 +698,7 @@ describe('Descriptions', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith('2021-05-26 09:42:56');
+      expect(fn).toHaveBeenCalledWith('2021-05-26 09:42:56');
     });
   });
 });

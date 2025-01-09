@@ -3,7 +3,8 @@ import {
   ProFormDependency,
   ProFormText,
 } from '@ant-design/pro-components';
-import { act, cleanup, fireEvent, render } from '@testing-library/react';
+import { cleanup, fireEvent, render } from '@testing-library/react';
+import { act } from 'react';
 import { waitForWaitTime } from '../util';
 
 afterEach(() => {
@@ -165,6 +166,6 @@ describe('ProForm Dependency component', () => {
     });
 
     await waitForWaitTime(100);
-    expect(dependencyFn).toBeCalledWith('second chen');
+    expect(dependencyFn).toHaveBeenCalledWith('second chen');
   });
 });

@@ -1,13 +1,7 @@
 import ProTable from '@ant-design/pro-table';
-import {
-  act,
-  cleanup,
-  fireEvent,
-  render,
-  waitFor,
-} from '@testing-library/react';
+import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import type { FormInstance } from 'antd';
-import React from 'react';
+import React, { act } from 'react';
 
 afterEach(() => {
   cleanup();
@@ -64,7 +58,7 @@ describe('BasicTable Search', () => {
       container.querySelector('.ant-form button.ant-btn-primary')!,
     );
     await waitFor(() => {
-      expect(fn).toBeCalledWith({
+      expect(fn).toHaveBeenCalledWith({
         name: 'name',
       });
     });
@@ -106,7 +100,7 @@ describe('BasicTable Search', () => {
     );
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith({
+      expect(fn).toHaveBeenCalledWith({
         name: 'name',
       });
     });
@@ -152,7 +146,7 @@ describe('BasicTable Search', () => {
     );
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith({
+      expect(fn).toHaveBeenCalledWith({
         name: 'name',
       });
     });
@@ -202,7 +196,7 @@ describe('BasicTable Search', () => {
     );
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith({
+      expect(fn).toHaveBeenCalledWith({
         name: 'name',
       });
     });

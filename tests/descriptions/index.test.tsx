@@ -1,9 +1,8 @@
 import ProDescriptions from '@ant-design/pro-descriptions';
 import type { ProCoreActionType } from '@ant-design/pro-utils';
-import { act, cleanup, render, waitFor } from '@testing-library/react';
+import { cleanup, render, waitFor } from '@testing-library/react';
 import { Button, Input } from 'antd';
-import React from 'react';
-
+import React, { act } from 'react';
 afterEach(() => {
   cleanup();
 });
@@ -415,7 +414,7 @@ describe('descriptions', () => {
     await waitFor(() => {
       expect(
         wrapper.baseElement.querySelector(
-          'span.ant-descriptions-item-content div.ant-typography-copy',
+          'span.ant-descriptions-item-content button.ant-typography-copy',
         ),
       ).toBeTruthy();
     });

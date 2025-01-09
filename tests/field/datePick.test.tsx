@@ -1,12 +1,7 @@
 import Field from '@ant-design/pro-field';
-import {
-  act,
-  cleanup,
-  fireEvent,
-  render,
-  waitFor,
-} from '@testing-library/react';
+import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import dayjs from 'dayjs';
+import { act } from 'react';
 
 function closePicker(container: HTMLElement, index = 0) {
   const input = container.querySelectorAll('input')[index];
@@ -62,7 +57,7 @@ describe('DateField', () => {
       });
 
       await waitFor(() => {
-        expect(openChangeFn).toBeCalledWith(true);
+        expect(openChangeFn).toHaveBeenCalledWith(true);
       });
 
       act(() => {
@@ -70,7 +65,7 @@ describe('DateField', () => {
       });
 
       await waitFor(() => {
-        expect(openChangeFn).toBeCalledWith(false);
+        expect(openChangeFn).toHaveBeenCalledWith(false);
       });
       await act(async () => {
         await fireEvent.click(container.querySelector('.ant-picker-clear')!);
@@ -124,7 +119,7 @@ describe('DateField', () => {
       });
 
       await waitFor(() => {
-        expect(openChangeFn).toBeCalledWith(true);
+        expect(openChangeFn).toHaveBeenCalledWith(true);
       });
 
       act(() => {
@@ -141,7 +136,7 @@ describe('DateField', () => {
       });
 
       await waitFor(() => {
-        expect(openChangeFn).toBeCalledWith(false);
+        expect(openChangeFn).toHaveBeenCalledWith(false);
       });
 
       await waitFor(

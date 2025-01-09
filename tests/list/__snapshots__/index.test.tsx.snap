@@ -10,7 +10,7 @@ exports[`List > 🚏 ProList support rowClassName as a function 1`] = `
     >
       <div
         class="ant-pro-card-body"
-        style="padding-block-start: 0;"
+        style="padding: 0px;"
       >
         <div
           class="ant-list ant-list-split ant-pro-list-container"
@@ -126,7 +126,7 @@ exports[`List > 🚏 ProList support rowClassName as a string 1`] = `
     >
       <div
         class="ant-pro-card-body"
-        style="padding-block-start: 0;"
+        style="padding: 0px;"
       >
         <div
           class="ant-list ant-list-split ant-pro-list-container"
@@ -201,7 +201,7 @@ exports[`List > 🚏 only has content 1`] = `
     >
       <div
         class="ant-pro-card-body"
-        style="padding-block-start: 0;"
+        style="padding: 0px;"
       >
         <div
           class="ant-list ant-list-split ant-pro-list-container"
@@ -253,7 +253,7 @@ exports[`List > 🚏 only has description 1`] = `
     >
       <div
         class="ant-pro-card-body"
-        style="padding-block-start: 0;"
+        style="padding: 0px;"
       >
         <div
           class="ant-list ant-list-split ant-pro-list-container"
@@ -329,7 +329,7 @@ exports[`List > 🚏 show loading state 1`] = `
     >
       <div
         class="ant-pro-card-body"
-        style="padding-block-start: 0;"
+        style="padding: 0px;"
       >
         <div
           class="ant-list ant-list-split ant-list-loading ant-pro-list-container"

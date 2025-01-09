@@ -1,6 +1,5 @@
 ﻿import { ProFormText, StepsForm } from '@ant-design/pro-form';
 import {
-  act,
   cleanup,
   fireEvent,
   render,
@@ -9,7 +8,7 @@ import {
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Button } from 'antd';
-import React from 'react';
+import React, { act } from 'react';
 import { waitForWaitTime } from '../util';
 
 afterEach(() => {
@@ -218,7 +217,7 @@ describe('StepsForm', () => {
 
     await waitFor(() => {
       expect(fn).toBeCalled();
-      expect(currentFn).toBeCalledWith(0);
+      expect(currentFn).toHaveBeenCalledWith(0);
     });
     unmount();
   });
@@ -247,7 +246,7 @@ describe('StepsForm', () => {
     await userEvent.click(await screen.findByText('提 交'));
 
     await waitFor(() => {
-      expect(currentFn).not.toBeCalledWith(0);
+      expect(currentFn).not.toHaveBeenCalledWith(0);
     });
     unmount();
   });
@@ -302,7 +301,7 @@ describe('StepsForm', () => {
 
     fireEvent.click(await screen.getByText('rest'));
 
-    expect(fn).toBeCalledWith(0);
+    expect(fn).toHaveBeenCalledWith(0);
     unmount();
   });
 
@@ -507,7 +506,7 @@ describe('StepsForm', () => {
     });
 
     await waitForWaitTime(100);
-    expect(submit).toBeCalledWith({
+    expect(submit).toHaveBeenCalledWith({
       info: {
         name: 'chenshuai',
         age: '22',

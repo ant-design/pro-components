@@ -5,16 +5,10 @@ import {
 } from '@ant-design/icons';
 import { ProLayout } from '@ant-design/pro-components';
 import { LoginForm, ProFormText } from '@ant-design/pro-form';
-import {
-  act,
-  cleanup,
-  fireEvent,
-  render,
-  waitFor,
-} from '@testing-library/react';
+import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import { Button, ConfigProvider } from 'antd';
 import en_US from 'antd/lib/locale/en_US';
-import React, { useState } from 'react';
+import React, { act, useState } from 'react';
 import { waitForWaitTime } from '../util';
 import { bigDefaultProps } from './defaultProps';
 
@@ -1655,7 +1649,7 @@ describe('BasicLayout', () => {
     await waitForWaitTime(100);
 
     expect(fn).toBeCalledTimes(2);
-    expect(fn).toBeCalledWith({
+    expect(fn).toHaveBeenCalledWith({
       id: '1212',
     });
     act(() => {
@@ -1673,7 +1667,7 @@ describe('BasicLayout', () => {
 
     await waitForWaitTime(100);
     expect(fn).toBeCalledTimes(3);
-    expect(fn).toBeCalledWith({
+    expect(fn).toHaveBeenCalledWith({
       id: '123',
     });
 

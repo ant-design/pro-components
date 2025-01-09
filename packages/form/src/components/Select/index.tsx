@@ -1,7 +1,10 @@
 import { runFunction } from '@ant-design/pro-utils';
 import type { SelectProps } from 'antd';
-import type { BaseOptionType } from 'antd/lib/cascader';
-import type { RefSelectProps } from 'antd/lib/select';
+import type {
+  BaseOptionType,
+  DefaultOptionType,
+  RefSelectProps,
+} from 'antd/lib/select';
 import React, { useContext } from 'react';
 import FieldContext from '../../FieldContext';
 import type {
@@ -12,9 +15,9 @@ import ProFormField from '../Field';
 
 export type ProFormSelectProps<
   ValueType = any,
-  OptionType extends BaseOptionType = any,
+  OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > = ProFormFieldItemProps<
-  SelectProps<ValueType> & {
+  SelectProps<ValueType, OptionType> & {
     /**
      * 是否在输入框聚焦时触发搜索
      *

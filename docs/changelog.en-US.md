@@ -1,3 +1,51 @@
+## @ant-design/pro-components@2.8.3
+
+`2025-01-06`
+
+- feat(layout): Add drawerProps for SettingDrawer (#8953). [#8953](https://github.com/ant-design/pro-components/pull/#8953) [@junyiz](https://github.com/junyiz)
+- fix(field): add preserveOriginalLabel prop to SearchSelect (#8919). [#8919](https://github.com/ant-design/pro-components/pull/#8919) [@DBvc](https://github.com/DBvc)
+
+## @ant-design/pro-components@2.8.2
+
+`2024-11-14`
+
+- fix(table): React does not recognize the `showCount` prop on a DOM element. (#8856). [#8856](https://github.com/ant-design/pro-components/pull/#8856) [@leshalv](https://github.com/leshalv)
+
+## @ant-design/pro-components@2.8.0
+
+`2024-10-17`
+
+- fix(components):修复 ts 定义导致列名获取不到的问题 (#8795). [#8795](https://github.com/ant-design/pro-components/pull/#8795) [@qnnp-me](https://github.com/qnnp-me)
+- fix(form): field 为 checkbox 时设置了 fieldNames 后控制器报错的问题 React does not recognize the `fieldNames` prop on a DOM element (#8785). [#8785](https://github.com/ant-design/pro-components/pull/#8785) [@echoyl](https://github.com/echoyl)
+
+## @ant-design/pro-components@2.7.19
+
+- fix(layout): downgrade path-to-regexp to version 8.0.0 (#8732)
+- fix(layout): missing appListRender props (#8731) @Beeant
+
+## @ant-design/pro-components@2.7.18
+
+- refactor(layout): update path-to-regexp to version 8.1.0 (#8725)
+
+## @ant-design/pro-components@2.7.16
+
+`2024-09-05`
+
+- feat(layout): add menuTextRender props. [1d65e22](https://github.com/ant-design/pro-components/commit/1d65e22)
+- fix(form): props title is not assignable to type ReactNode (#8682). [#8682](https://github.com/ant-design/pro-components/pull/#8682) [@jiAng](https://github.com/jiAng)
+- feat(Form): FormRef support forward nativeElement (#8632). [#8632](https://github.com/ant-design/pro-components/pull/#8632) [@红](https://github.com/红)
+- fix(field): keyboard events of search input in LightSelect (#8629). [#8629](https://github.com/ant-design/pro-components/pull/#8629) [@Anzimu](https://github.com/Anzimu)
+
+## @ant-design/pro-components@2.7.15
+
+`2024-08-05`
+
+- fix(form): pass the OptionType type of ProFormSelect to the inner Select (#8568). [#8568](https://github.com/ant-design/pro-components/pull/#8568) [@dreammaker7](https://github.com/dreammaker7)
+- fix(form): correct line height in list action (#8584). [#8584](https://github.com/ant-design/pro-components/pull/#8584) [@drizzlesconsin](https://github.com/drizzlesconsin)
+- feat(form): export ProFormTreeSelectProps (#8589). [#8589](https://github.com/ant-design/pro-components/pull/#8589) [@fnoopv](https://github.com/fnoopv)
+- fix(table): don't spread key to children (#8588). [#8588](https://github.com/ant-design/pro-components/pull/#8588) [@fnoopv](https://github.com/fnoopv)
+- feat(field): add localizedFormat plugin to dayjs (#8582). [#8582](https://github.com/ant-design/pro-components/pull/#8582) [@lynette-li](https://github.com/lynette-li)
+
 ## @ant-design/pro-components@2.7.12
 
 `2024-07-15`

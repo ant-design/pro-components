@@ -1,11 +1,11 @@
 import ProTable from '@ant-design/pro-table';
 import {
-  act,
   cleanup,
   createEvent,
   fireEvent,
   render,
 } from '@testing-library/react';
+import { act } from 'react';
 import { waitForWaitTime } from '../util';
 import { columns } from './demo';
 
@@ -1449,7 +1449,7 @@ describe('Table ColumnSetting', () => {
       dom?.click();
     });
 
-    expect(onChange).toBeCalledWith('small');
+    expect(onChange).toHaveBeenCalledWith('small');
 
     act(() => {
       const icon = html.baseElement.querySelector<HTMLSpanElement>(
@@ -1463,7 +1463,7 @@ describe('Table ColumnSetting', () => {
       dom?.click();
     });
 
-    expect(onChange).toBeCalledWith('middle');
+    expect(onChange).toHaveBeenCalledWith('middle');
   });
 
   it('🎏 columnSetting ellipsis support showTitle', async () => {

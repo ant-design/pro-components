@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.15.2...@ant-design/pro-provider@2.15.3) (2025-01-06)
+
+### Bug Fixes
+
+- **locale:** add missing newline at end of file for sv_SE, nl_NL, and ro_RO locales ([d0f573f](https://github.com/ant-design/pro-components/commit/d0f573f325db4e863db1fbf70afc25ccf3dde7a7))
+
+## [2.15.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.15.1...@ant-design/pro-provider@2.15.2) (2024-11-14)
+
+### Bug Fixes
+
+- **provider:** support antd csp ([#8855](https://github.com/ant-design/pro-components/issues/8855)) ([f64090a](https://github.com/ant-design/pro-components/commit/f64090a41a88092a8223299ef3c9e8c3dce12b05))
+
+## [2.15.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.15.0...@ant-design/pro-provider@2.15.1) (2024-10-22)
+
+### Bug Fixes
+
+- **package:** 更新 repository URL 格式为 git+ssh 以确保一致性 ([8882d51](https://github.com/ant-design/pro-components/commit/8882d5164d8b14f8971bf9f34a339d282ac766ba))
+
+# [2.15.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.14.9...@ant-design/pro-provider@2.15.0) (2024-10-17)
+
+### Features
+
+- added exports to support ESM environments such as vitest ([#8738](https://github.com/ant-design/pro-components/issues/8738)) ([71c4be9](https://github.com/ant-design/pro-components/commit/71c4be9c9ca5942154e0473e62be608d784d53fc))
+
 ## [2.14.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.14.8...@ant-design/pro-provider@2.14.9) (2024-07-15)
 
 ### Bug Fixes

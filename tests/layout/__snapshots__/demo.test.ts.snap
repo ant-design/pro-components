@@ -82,7 +82,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                   class="ant-space-item"
                 >
                   <button
-                    class="ant-btn ant-btn-default"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                     type="button"
                   >
                     <span>
@@ -94,7 +94,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                   class="ant-space-item"
                 >
                   <button
-                    class="ant-btn ant-btn-default"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                     type="button"
                   >
                     <span>
@@ -106,7 +106,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                   class="ant-space-item"
                 >
                   <button
-                    class="ant-btn ant-btn-primary"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                     type="button"
                   >
                     <span>
@@ -118,7 +118,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                   class="ant-space-item"
                 >
                   <button
-                    class="ant-btn ant-btn-default ant-dropdown-trigger"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
                     style="padding: 0px 8px;"
                     type="button"
                   >
@@ -153,6 +153,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
               class="ant-tabs ant-tabs-top ant-tabs-editable ant-tabs-card ant-tabs-editable-card ant-pro-page-container-tabs"
             >
               <div
+                aria-orientation="horizontal"
                 class="ant-tabs-nav"
                 role="tablist"
               >
@@ -188,14 +189,14 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                         class="ant-tabs-tab-btn"
                         id="rc-tabs-test-tab-info"
                         role="tab"
-                        tabindex="0"
+                        tabindex="-1"
                       >
                         详细信息
                       </div>
                       <button
                         aria-label="remove"
                         class="ant-tabs-tab-remove"
-                        tabindex="0"
+                        tabindex="-1"
                         type="button"
                       >
                         <span
@@ -368,7 +369,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
           class="ant-pro-footer-bar-right"
         >
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
             type="button"
           >
             <span>
@@ -376,7 +377,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-primary"
+            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
             type="button"
           >
             <span>
@@ -479,6 +480,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                     class="ant-tabs ant-tabs-top ant-pro-page-container-tabs"
                   >
                     <div
+                      aria-orientation="horizontal"
                       class="ant-tabs-nav"
                       role="tablist"
                     >
@@ -514,7 +516,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                               class="ant-tabs-tab-btn"
                               id="rc-tabs-test-tab-2"
                               role="tab"
-                              tabindex="0"
+                              tabindex="-1"
                             >
                               可点击
                             </div>
@@ -1346,7 +1348,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                   class="ant-space-item"
                 >
                   <button
-                    class="ant-btn ant-btn-default"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                     type="button"
                   >
                     <span>
@@ -1358,7 +1360,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                   class="ant-space-item"
                 >
                   <button
-                    class="ant-btn ant-btn-default"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                     type="button"
                   >
                     <span>
@@ -1370,7 +1372,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                   class="ant-space-item"
                 >
                   <button
-                    class="ant-btn ant-btn-primary"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                     type="button"
                   >
                     <span>
@@ -1382,7 +1384,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                   class="ant-space-item"
                 >
                   <button
-                    class="ant-btn ant-btn-default ant-dropdown-trigger"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
                     style="padding: 0px 8px;"
                     type="button"
                   >
@@ -1578,7 +1580,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                                               xmlns="http://www.w3.org/2000/svg"
                                             >
                                               <title>
-                                                Simple Empty
+                                                暂无数据
                                               </title>
                                               <g
                                                 fill="none"
@@ -1770,10 +1772,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                             <span
                               class="ant-input-suffix"
                             >
-                              <span
+                              <button
                                 class="ant-input-clear-icon"
-                                role="button"
-                                tabindex="-1"
+                                type="button"
                               >
                                 <span
                                   aria-label="close-circle"
@@ -1795,7 +1796,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                     />
                                   </svg>
                                 </span>
-                              </span>
+                              </button>
                             </span>
                           </span>
                         </div>
@@ -1876,6 +1877,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                         >
                           <div
                             class="ant-slider ant-slider-horizontal"
+                            id="fontSize"
                             style="min-width: 120px;"
                           >
                             <div
@@ -1933,6 +1935,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                         >
                           <div
                             class="ant-slider ant-slider-horizontal"
+                            id="zIndex"
                             style="min-width: 120px;"
                           >
                             <div
@@ -1990,6 +1993,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                         >
                           <div
                             class="ant-slider ant-slider-horizontal"
+                            id="rotate"
                             style="min-width: 120px;"
                           >
                             <div
@@ -2435,12 +2439,10 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                   title=""
                                 >
                                   简短备注文案
-                                  <div
+                                  <button
                                     aria-label="复制"
                                     class="ant-typography-copy"
-                                    role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                    tabindex="0"
+                                    type="button"
                                   >
                                     <span
                                       aria-label="copy"
@@ -2461,7 +2463,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                         />
                                       </svg>
                                     </span>
-                                  </div>
+                                  </button>
                                 </span>
                               </td>
                               <td
@@ -2554,12 +2556,10 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                   title=""
                                 >
                                   很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
-                                  <div
+                                  <button
                                     aria-label="复制"
                                     class="ant-typography-copy"
-                                    role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                    tabindex="0"
+                                    type="button"
                                   >
                                     <span
                                       aria-label="copy"
@@ -2580,7 +2580,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                         />
                                       </svg>
                                     </span>
-                                  </div>
+                                  </button>
                                 </span>
                               </td>
                               <td
@@ -2673,12 +2673,10 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                   title=""
                                 >
                                   简短备注文案
-                                  <div
+                                  <button
                                     aria-label="复制"
                                     class="ant-typography-copy"
-                                    role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                    tabindex="0"
+                                    type="button"
                                   >
                                     <span
                                       aria-label="copy"
@@ -2699,7 +2697,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                         />
                                       </svg>
                                     </span>
-                                  </div>
+                                  </button>
                                 </span>
                               </td>
                               <td
@@ -2792,12 +2790,10 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                   title=""
                                 >
                                   很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
-                                  <div
+                                  <button
                                     aria-label="复制"
                                     class="ant-typography-copy"
-                                    role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                    tabindex="0"
+                                    type="button"
                                   >
                                     <span
                                       aria-label="copy"
@@ -2818,7 +2814,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                         />
                                       </svg>
                                     </span>
-                                  </div>
+                                  </button>
                                 </span>
                               </td>
                               <td
@@ -2911,12 +2907,10 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                   title=""
                                 >
                                   简短备注文案
-                                  <div
+                                  <button
                                     aria-label="复制"
                                     class="ant-typography-copy"
-                                    role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                    tabindex="0"
+                                    type="button"
                                   >
                                     <span
                                       aria-label="copy"
@@ -2937,7 +2931,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                         />
                                       </svg>
                                     </span>
-                                  </div>
+                                  </button>
                                 </span>
                               </td>
                               <td
@@ -3030,12 +3024,10 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                   title=""
                                 >
                                   很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
-                                  <div
+                                  <button
                                     aria-label="复制"
                                     class="ant-typography-copy"
-                                    role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                    tabindex="0"
+                                    type="button"
                                   >
                                     <span
                                       aria-label="copy"
@@ -3056,7 +3048,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                         />
                                       </svg>
                                     </span>
-                                  </div>
+                                  </button>
                                 </span>
                               </td>
                               <td
@@ -3149,12 +3141,10 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                   title=""
                                 >
                                   简短备注文案
-                                  <div
+                                  <button
                                     aria-label="复制"
                                     class="ant-typography-copy"
-                                    role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                    tabindex="0"
+                                    type="button"
                                   >
                                     <span
                                       aria-label="copy"
@@ -3175,7 +3165,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                         />
                                       </svg>
                                     </span>
-                                  </div>
+                                  </button>
                                 </span>
                               </td>
                               <td
@@ -3268,12 +3258,10 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                   title=""
                                 >
                                   很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
-                                  <div
+                                  <button
                                     aria-label="复制"
                                     class="ant-typography-copy"
-                                    role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                    tabindex="0"
+                                    type="button"
                                   >
                                     <span
                                       aria-label="copy"
@@ -3294,7 +3282,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                         />
                                       </svg>
                                     </span>
-                                  </div>
+                                  </button>
                                 </span>
                               </td>
                               <td
@@ -3387,12 +3375,10 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                   title=""
                                 >
                                   简短备注文案
-                                  <div
+                                  <button
                                     aria-label="复制"
                                     class="ant-typography-copy"
-                                    role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                    tabindex="0"
+                                    type="button"
                                   >
                                     <span
                                       aria-label="copy"
@@ -3413,7 +3399,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                         />
                                       </svg>
                                     </span>
-                                  </div>
+                                  </button>
                                 </span>
                               </td>
                               <td
@@ -3506,12 +3492,10 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                   title=""
                                 >
                                   很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
-                                  <div
+                                  <button
                                     aria-label="复制"
                                     class="ant-typography-copy"
-                                    role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                    tabindex="0"
+                                    type="button"
                                   >
                                     <span
                                       aria-label="copy"
@@ -3532,7 +3516,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                         />
                                       </svg>
                                     </span>
-                                  </div>
+                                  </button>
                                 </span>
                               </td>
                               <td
@@ -9104,7 +9088,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/base.tsx correc
                           class="ant-space-item"
                         >
                           <button
-                            class="ant-btn ant-btn-default"
+                            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                             type="button"
                           >
                             <span>
@@ -9116,7 +9100,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/base.tsx correc
                           class="ant-space-item"
                         >
                           <button
-                            class="ant-btn ant-btn-default"
+                            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                             type="button"
                           >
                             <span>
@@ -9128,7 +9112,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/base.tsx correc
                           class="ant-space-item"
                         >
                           <button
-                            class="ant-btn ant-btn-primary"
+                            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                             type="button"
                           >
                             <span>
@@ -9174,7 +9158,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/base.tsx correc
                   class="ant-pro-footer-bar-right"
                 >
                   <button
-                    class="ant-btn ant-btn-default"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                     type="button"
                   >
                     <span>
@@ -9182,7 +9166,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/base.tsx correc
                     </span>
                   </button>
                   <button
-                    class="ant-btn ant-btn-primary"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                     type="button"
                   >
                     <span>
@@ -9539,7 +9523,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/classicMode.tsx
                           class="ant-space-item"
                         >
                           <button
-                            class="ant-btn ant-btn-default"
+                            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                             type="button"
                           >
                             <span>
@@ -9551,7 +9535,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/classicMode.tsx
                           class="ant-space-item"
                         >
                           <button
-                            class="ant-btn ant-btn-default"
+                            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                             type="button"
                           >
                             <span>
@@ -9563,7 +9547,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/classicMode.tsx
                           class="ant-space-item"
                         >
                           <button
-                            class="ant-btn ant-btn-primary"
+                            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                             type="button"
                           >
                             <span>
@@ -9609,7 +9593,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/classicMode.tsx
                   class="ant-pro-footer-bar-right"
                 >
                   <button
-                    class="ant-btn ant-btn-default"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                     type="button"
                   >
                     <span>
@@ -9617,7 +9601,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/classicMode.tsx
                     </span>
                   </button>
                   <button
-                    class="ant-btn ant-btn-primary"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                     type="button"
                   >
                     <span>
@@ -9913,7 +9897,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/collapsedShowTi
                         class="ant-space-item"
                       >
                         <button
-                          class="ant-btn ant-btn-default"
+                          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                           type="button"
                         >
                           <span>
@@ -9925,7 +9909,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/collapsedShowTi
                         class="ant-space-item"
                       >
                         <button
-                          class="ant-btn ant-btn-default"
+                          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                           type="button"
                         >
                           <span>
@@ -9937,7 +9921,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/collapsedShowTi
                         class="ant-space-item"
                       >
                         <button
-                          class="ant-btn ant-btn-primary"
+                          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                           type="button"
                         >
                           <span>
@@ -9983,7 +9967,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/collapsedShowTi
                 class="ant-pro-footer-bar-right"
               >
                 <button
-                  class="ant-btn ant-btn-default"
+                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                   type="button"
                 >
                   <span>
@@ -9991,7 +9975,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/collapsedShowTi
                   </span>
                 </button>
                 <button
-                  class="ant-btn ant-btn-primary"
+                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                   type="button"
                 >
                   <span>
@@ -10279,7 +10263,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/config-provider
                         class="qixian-space-item"
                       >
                         <button
-                          class="qixian-btn qixian-btn-default"
+                          class="qixian-btn qixian-btn-default qixian-btn-color-default qixian-btn-variant-outlined"
                           type="button"
                         >
                           <span>
@@ -10291,7 +10275,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/config-provider
                         class="qixian-space-item"
                       >
                         <button
-                          class="qixian-btn qixian-btn-default"
+                          class="qixian-btn qixian-btn-default qixian-btn-color-default qixian-btn-variant-outlined"
                           type="button"
                         >
                           <span>
@@ -10303,7 +10287,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/config-provider
                         class="qixian-space-item"
                       >
                         <button
-                          class="qixian-btn qixian-btn-primary"
+                          class="qixian-btn qixian-btn-primary qixian-btn-color-primary qixian-btn-variant-solid"
                           type="button"
                         >
                           <span>
@@ -10551,6 +10535,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/config-provider
                     class="qixian-tabs qixian-tabs-top qixian-pro-page-container-tabs"
                   >
                     <div
+                      aria-orientation="horizontal"
                       class="qixian-tabs-nav"
                       role="tablist"
                     >
@@ -10586,7 +10571,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/config-provider
                               class="qixian-tabs-tab-btn"
                               id="rc-tabs-test-tab-info"
                               role="tab"
-                              tabindex="0"
+                              tabindex="-1"
                             >
                               详细信息
                             </div>
@@ -10987,7 +10972,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/config-provider
                           class="qixian-result-extra"
                         >
                           <button
-                            class="qixian-btn qixian-btn-primary"
+                            class="qixian-btn qixian-btn-primary qixian-btn-color-primary qixian-btn-variant-solid"
                             type="button"
                           >
                             <span>
@@ -11012,7 +10997,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/config-provider
                 class="qixian-pro-footer-bar-right"
               >
                 <button
-                  class="qixian-btn qixian-btn-default"
+                  class="qixian-btn qixian-btn-default qixian-btn-color-default qixian-btn-variant-outlined"
                   type="button"
                 >
                   <span>
@@ -11020,7 +11005,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/config-provider
                   </span>
                 </button>
                 <button
-                  class="qixian-btn qixian-btn-primary"
+                  class="qixian-btn qixian-btn-primary qixian-btn-color-primary qixian-btn-variant-solid"
                   type="button"
                 >
                   <span>
@@ -12335,6 +12320,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/customize-colla
                                       <input
                                         checked=""
                                         class="ant-radio-input"
+                                        name="test-id"
                                         type="radio"
                                         value="header"
                                       />
@@ -12354,6 +12340,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/customize-colla
                                     >
                                       <input
                                         class="ant-radio-input"
+                                        name="test-id"
                                         type="radio"
                                         value="menu"
                                       />
@@ -12817,7 +12804,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dark.tsx correc
                         class="ant-space-item"
                       >
                         <button
-                          class="ant-btn ant-btn-default"
+                          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                           type="button"
                         >
                           <span>
@@ -12829,7 +12816,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dark.tsx correc
                         class="ant-space-item"
                       >
                         <button
-                          class="ant-btn ant-btn-default"
+                          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                           type="button"
                         >
                           <span>
@@ -12841,7 +12828,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dark.tsx correc
                         class="ant-space-item"
                       >
                         <button
-                          class="ant-btn ant-btn-primary"
+                          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                           type="button"
                         >
                           <span>
@@ -12887,7 +12874,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dark.tsx correc
                 class="ant-pro-footer-bar-right"
               >
                 <button
-                  class="ant-btn ant-btn-default"
+                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                   type="button"
                 >
                   <span>
@@ -12895,7 +12882,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dark.tsx correc
                   </span>
                 </button>
                 <button
-                  class="ant-btn ant-btn-primary"
+                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                   type="button"
                 >
                   <span>
@@ -13209,7 +13196,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/debug-demo.tsx 
                         class="ant-space-item"
                       >
                         <button
-                          class="ant-btn ant-btn-default"
+                          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                           type="button"
                         >
                           <span>
@@ -13221,7 +13208,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/debug-demo.tsx 
                         class="ant-space-item"
                       >
                         <button
-                          class="ant-btn ant-btn-default"
+                          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                           type="button"
                         >
                           <span>
@@ -13233,7 +13220,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/debug-demo.tsx 
                         class="ant-space-item"
                       >
                         <button
-                          class="ant-btn ant-btn-primary"
+                          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                           type="button"
                         >
                           <span>
@@ -13279,7 +13266,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/debug-demo.tsx 
                 class="ant-pro-footer-bar-right"
               >
                 <button
-                  class="ant-btn ant-btn-default"
+                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                   type="button"
                 >
                   <span>
@@ -13287,7 +13274,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/debug-demo.tsx 
                   </span>
                 </button>
                 <button
-                  class="ant-btn ant-btn-primary"
+                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                   type="button"
                 >
                   <span>
@@ -13622,7 +13609,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/designMenuCss.t
                           class="ant-space-item"
                         >
                           <button
-                            class="ant-btn ant-btn-default"
+                            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                             type="button"
                           >
                             <span>
@@ -13634,7 +13621,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/designMenuCss.t
                           class="ant-space-item"
                         >
                           <button
-                            class="ant-btn ant-btn-default"
+                            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                             type="button"
                           >
                             <span>
@@ -13646,7 +13633,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/designMenuCss.t
                           class="ant-space-item"
                         >
                           <button
-                            class="ant-btn ant-btn-primary"
+                            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                             type="button"
                           >
                             <span>
@@ -13692,7 +13679,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/designMenuCss.t
                   class="ant-pro-footer-bar-right"
                 >
                   <button
-                    class="ant-btn ant-btn-default"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                     type="button"
                   >
                     <span>
@@ -13700,7 +13687,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/designMenuCss.t
                     </span>
                   </button>
                   <button
-                    class="ant-btn ant-btn-primary"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                     type="button"
                   >
                     <span>
@@ -14813,7 +14800,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamic-setting
                           class="ant-space-item"
                         >
                           <button
-                            class="ant-btn ant-btn-default"
+                            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                             type="button"
                           >
                             <span>
@@ -14825,7 +14812,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamic-setting
                           class="ant-space-item"
                         >
                           <button
-                            class="ant-btn ant-btn-default"
+                            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                             type="button"
                           >
                             <span>
@@ -14837,7 +14824,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamic-setting
                           class="ant-space-item"
                         >
                           <button
-                            class="ant-btn ant-btn-primary"
+                            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                             type="button"
                           >
                             <span>
@@ -15085,6 +15072,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamic-setting
                       class="ant-tabs ant-tabs-top ant-pro-page-container-tabs"
                     >
                       <div
+                        aria-orientation="horizontal"
                         class="ant-tabs-nav"
                         role="tablist"
                       >
@@ -15120,7 +15108,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamic-setting
                                 class="ant-tabs-tab-btn"
                                 id="rc-tabs-test-tab-info"
                                 role="tab"
-                                tabindex="0"
+                                tabindex="-1"
                               >
                                 详细信息
                               </div>
@@ -15525,7 +15513,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamic-setting
                               class="ant-result-extra"
                             >
                               <button
-                                class="ant-btn ant-btn-primary"
+                                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                                 type="button"
                               >
                                 <span>
@@ -15555,7 +15543,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamic-setting
                   class="ant-pro-footer-bar-right"
                 >
                   <button
-                    class="ant-btn ant-btn-default"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                     type="button"
                   >
                     <span>
@@ -15563,7 +15551,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamic-setting
                     </span>
                   </button>
                   <button
-                    class="ant-btn ant-btn-primary"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                     type="button"
                   >
                     <span>
@@ -15899,7 +15887,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx
                     </div>
                     Hello World
                     <button
-                      class="ant-btn ant-btn-default"
+                      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                       style="margin: 8px;"
                       type="button"
                     >
@@ -15908,7 +15896,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx
                       </span>
                     </button>
                     <button
-                      class="ant-btn ant-btn-default"
+                      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                       style="margin: 8px;"
                       type="button"
                     >
@@ -16565,7 +16553,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/footer-global-t
                   class="ant-alert-action"
                 >
                   <button
-                    class="ant-btn ant-btn-text"
+                    class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text"
                     style="color: white;"
                     type="button"
                   >
@@ -16864,7 +16852,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/footer-global-t
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-default"
+                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                   type="button"
                 >
                   <span>
@@ -16876,7 +16864,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/footer-global-t
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-primary"
+                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                   type="button"
                 >
                   <span>
@@ -18698,7 +18686,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/immersive-navig
                   class="ant-result-extra"
                 >
                   <button
-                    class="ant-btn ant-btn-primary"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                     type="button"
                   >
                     <span>
@@ -18818,14 +18806,14 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/immersive-navig
                           >
                             <input
                               class="ant-input ant-input-outlined"
-                              type="text"
+                              type="search"
                               value=""
                             />
                             <span
                               class="ant-input-group-addon"
                             >
                               <button
-                                class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+                                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
                                 type="button"
                               >
                                 <span
@@ -18860,7 +18848,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/immersive-navig
                         class="ant-space-item"
                       >
                         <button
-                          class="ant-btn ant-btn-default"
+                          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                           type="button"
                         >
                           <span>
@@ -18872,7 +18860,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/immersive-navig
                         class="ant-space-item"
                       >
                         <button
-                          class="ant-btn ant-btn-primary"
+                          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                           type="button"
                         >
                           <span>
@@ -19219,7 +19207,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/immersive-navig
                           class="ant-result-extra"
                         >
                           <button
-                            class="ant-btn ant-btn-primary"
+                            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                             type="button"
                           >
                             <span>
@@ -19915,7 +19903,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/menu-group.tsx 
                                 class="ant-result-extra"
                               >
                                 <button
-                                  class="ant-btn ant-btn-primary"
+                                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                                   type="button"
                                 >
                                   <span>
@@ -20527,7 +20515,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/morse_debug.tsx
                         class="ant-space-item"
                       >
                         <button
-                          class="ant-btn ant-btn-default"
+                          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                           type="button"
                         >
                           <span>
@@ -20539,7 +20527,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/morse_debug.tsx
                         class="ant-space-item"
                       >
                         <button
-                          class="ant-btn ant-btn-default"
+                          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                           type="button"
                         >
                           <span>
@@ -20551,7 +20539,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/morse_debug.tsx
                         class="ant-space-item"
                       >
                         <button
-                          class="ant-btn ant-btn-primary"
+                          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                           type="button"
                         >
                           <span>
@@ -20597,7 +20585,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/morse_debug.tsx
                 class="ant-pro-footer-bar-right"
               >
                 <button
-                  class="ant-btn ant-btn-default"
+                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                   type="button"
                 >
                   <span>
@@ -20605,7 +20593,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/morse_debug.tsx
                   </span>
                 </button>
                 <button
-                  class="ant-btn ant-btn-primary"
+                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                   type="button"
                 >
                   <span>
@@ -22911,7 +22899,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/theme.tsx corre
                         class="ant-space-item"
                       >
                         <button
-                          class="ant-btn ant-btn-default"
+                          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                           type="button"
                         >
                           <span>
@@ -22923,7 +22911,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/theme.tsx corre
                         class="ant-space-item"
                       >
                         <button
-                          class="ant-btn ant-btn-default"
+                          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                           type="button"
                         >
                           <span>
@@ -22935,7 +22923,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/theme.tsx corre
                         class="ant-space-item"
                       >
                         <button
-                          class="ant-btn ant-btn-primary"
+                          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                           type="button"
                         >
                           <span>
@@ -22981,7 +22969,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/theme.tsx corre
                 class="ant-pro-footer-bar-right"
               >
                 <button
-                  class="ant-btn ant-btn-default"
+                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                   type="button"
                 >
                   <span>
@@ -22989,7 +22977,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/theme.tsx corre
                   </span>
                 </button>
                 <button
-                  class="ant-btn ant-btn-primary"
+                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                   type="button"
                 >
                   <span>

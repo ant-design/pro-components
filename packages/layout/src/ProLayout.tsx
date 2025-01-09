@@ -900,7 +900,6 @@ const ProLayout: React.FC<ProLayoutProps> = (props) => {
       }
     >
       <ProConfigProvider
-        autoClearCache
         {...darkProps}
         token={props.token}
         prefixCls={props.prefixCls}

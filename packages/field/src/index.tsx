@@ -52,6 +52,7 @@ import FieldHOC from './FieldHOC';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
 import isoWeek from 'dayjs/plugin/isoWeek';
 import localeData from 'dayjs/plugin/localeData';
+import localizedFormat from 'dayjs/plugin/localizedFormat';
 import weekday from 'dayjs/plugin/weekday';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
 
@@ -62,6 +63,7 @@ dayjs.extend(advancedFormat);
 dayjs.extend(isoWeek);
 dayjs.extend(weekOfYear);
 dayjs.extend(weekday);
+dayjs.extend(localizedFormat);
 
 export type ProFieldMoneyProps = FieldMoneyProps;
 
@@ -220,7 +222,7 @@ const defaultRenderText = (
           ...props,
           mode: mode || 'read',
         },
-        <>{dataValue}</>,
+        <>{dataValue as any}</>,
       );
     }
     if (mode === 'update' || mode === 'edit') {
@@ -230,7 +232,7 @@ const defaultRenderText = (
           text: dataValue as React.ReactNode,
           ...props,
         },
-        <>{dataValue}</>,
+        <>{dataValue as any}</>,
       );
     }
   }
@@ -670,7 +672,7 @@ const ProFieldComponent: React.ForwardRefRenderFunction<
 };
 
 export const ProField = React.forwardRef(
-  ProFieldComponent,
+  ProFieldComponent as any,
 ) as typeof ProFieldComponent;
 
 export default ProField;

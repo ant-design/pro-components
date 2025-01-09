@@ -495,6 +495,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
           >
             <div
               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-multiple-line"
+              style="-webkit-line-clamp: 2;"
             >
               选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念。
             </div>
@@ -985,7 +986,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
                   class="ant-form-item-control-input-content"
                 >
                   <button
-                    class="ant-btn ant-btn-primary"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                     type="submit"
                   >
                     <span>
@@ -2212,6 +2213,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
           >
             <input
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="large"
             />
@@ -2232,6 +2234,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
             <input
               checked=""
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="default"
             />
@@ -2251,6 +2254,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
           >
             <input
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="small"
             />
@@ -5046,6 +5050,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
           class="ant-tabs ant-tabs-top"
         >
           <div
+            aria-orientation="horizontal"
             class="ant-tabs-nav"
             role="tablist"
           >
@@ -5115,7 +5120,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                     class="ant-tabs-tab-btn"
                     id="rc-tabs-test-tab-2"
                     role="tab"
-                    tabindex="0"
+                    tabindex="-1"
                   >
                     <div
                       class="ant-pro-card-statistic"
@@ -5175,7 +5180,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                     class="ant-tabs-tab-btn"
                     id="rc-tabs-test-tab-3"
                     role="tab"
-                    tabindex="0"
+                    tabindex="-1"
                   >
                     <div
                       class="ant-pro-card-statistic"
@@ -5235,7 +5240,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                     class="ant-tabs-tab-btn"
                     id="rc-tabs-test-tab-4"
                     role="tab"
-                    tabindex="0"
+                    tabindex="-1"
                   >
                     <div
                       class="ant-pro-card-statistic"
@@ -5295,7 +5300,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                     class="ant-tabs-tab-btn"
                     id="rc-tabs-test-tab-5"
                     role="tab"
-                    tabindex="0"
+                    tabindex="-1"
                   >
                     <div
                       class="ant-pro-card-statistic"
@@ -5443,6 +5448,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
           class="ant-tabs ant-tabs-top"
         >
           <div
+            aria-orientation="horizontal"
             class="ant-tabs-nav"
             role="tablist"
           >
@@ -5512,7 +5518,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                     class="ant-tabs-tab-btn"
                     id="rc-tabs-test-tab-2"
                     role="tab"
-                    tabindex="0"
+                    tabindex="-1"
                   >
                     <div
                       class="ant-pro-card-statistic"
@@ -5572,7 +5578,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                     class="ant-tabs-tab-btn"
                     id="rc-tabs-test-tab-3"
                     role="tab"
-                    tabindex="0"
+                    tabindex="-1"
                   >
                     <div
                       class="ant-pro-card-statistic"
@@ -5632,7 +5638,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                     class="ant-tabs-tab-btn"
                     id="rc-tabs-test-tab-4"
                     role="tab"
-                    tabindex="0"
+                    tabindex="-1"
                   >
                     <div
                       class="ant-pro-card-statistic"
@@ -5692,7 +5698,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                     class="ant-tabs-tab-btn"
                     id="rc-tabs-test-tab-5"
                     role="tab"
-                    tabindex="0"
+                    tabindex="-1"
                   >
                     <div
                       class="ant-pro-card-statistic"
@@ -7546,7 +7552,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/collapsible.tsx cor
             class="ant-pro-card-extra"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-sm"
+              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
               type="button"
             >
               <span>
@@ -7595,7 +7601,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/collapsible.tsx cor
             class="ant-pro-card-extra"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-sm"
+              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
               type="button"
             >
               <span>
@@ -7644,7 +7650,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/collapsible.tsx cor
             class="ant-pro-card-extra"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-sm"
+              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
               type="button"
             >
               <span>
@@ -9805,7 +9811,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/steps-v.tsx correct
                   class="ant-space-item"
                 >
                   <button
-                    class="ant-btn ant-btn-primary"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                     type="button"
                   >
                     <span>
@@ -9817,7 +9823,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/steps-v.tsx correct
                   class="ant-space-item"
                 >
                   <button
-                    class="ant-btn ant-btn-default"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                     disabled=""
                     type="button"
                   >
@@ -9864,30 +9870,34 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/tabs.tsx correctly 
               class="ant-select-selector"
             >
               <span
-                class="ant-select-selection-search"
+                class="ant-select-selection-wrap"
               >
-                <input
-                  aria-autocomplete="list"
-                  aria-controls="rc_select_TEST_OR_SSR_list"
-                  aria-expanded="false"
-                  aria-haspopup="listbox"
-                  aria-owns="rc_select_TEST_OR_SSR_list"
-                  autocomplete="off"
-                  class="ant-select-selection-search-input"
-                  id="rc_select_TEST_OR_SSR"
-                  readonly=""
-                  role="combobox"
-                  style="opacity: 0;"
-                  type="search"
-                  unselectable="on"
-                  value=""
-                />
-              </span>
-              <span
-                class="ant-select-selection-item"
-                title="top"
-              >
-                top
+                <span
+                  class="ant-select-selection-search"
+                >
+                  <input
+                    aria-autocomplete="list"
+                    aria-controls="rc_select_TEST_OR_SSR_list"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-owns="rc_select_TEST_OR_SSR_list"
+                    autocomplete="off"
+                    class="ant-select-selection-search-input"
+                    id="rc_select_TEST_OR_SSR"
+                    readonly=""
+                    role="combobox"
+                    style="opacity: 0;"
+                    type="search"
+                    unselectable="on"
+                    value=""
+                  />
+                </span>
+                <span
+                  class="ant-select-selection-item"
+                  title="top"
+                >
+                  top
+                </span>
               </span>
             </div>
             <span
@@ -9929,6 +9939,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/tabs.tsx correctly 
             class="ant-tabs ant-tabs-top"
           >
             <div
+              aria-orientation="horizontal"
               class="ant-tabs-nav"
               role="tablist"
             >
@@ -9949,7 +9960,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/tabs.tsx correctly 
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-tab1"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       产品一
                     </div>
@@ -9979,7 +9990,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/tabs.tsx correctly 
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-tab3"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       产品三
                     </div>
@@ -10078,6 +10089,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/tabs-card.tsx corre
           class="ant-tabs ant-tabs-top ant-tabs-card"
         >
           <div
+            aria-orientation="horizontal"
             class="ant-tabs-nav"
             role="tablist"
           >
@@ -10113,7 +10125,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/tabs-card.tsx corre
                     class="ant-tabs-tab-btn"
                     id="rc-tabs-test-tab-tab2"
                     role="tab"
-                    tabindex="0"
+                    tabindex="-1"
                   >
                     产品二
                   </div>

@@ -12,7 +12,7 @@ exports[`EditorProTable 2 > 📝 columns initialValue alway work 1`] = `
     >
       <div
         class="ant-pro-card-body"
-        style="padding-block-start: 0;"
+        style="padding: 0px;"
       >
         <div
           class="ant-table-wrapper"
@@ -136,10 +136,9 @@ exports[`EditorProTable 2 > 📝 columns initialValue alway work 1`] = `
                                         <span
                                           class="ant-input-suffix"
                                         >
-                                          <span
+                                          <button
                                             class="ant-input-clear-icon"
-                                            role="button"
-                                            tabindex="-1"
+                                            type="button"
                                           >
                                             <span
                                               aria-label="close-circle"
@@ -161,7 +160,7 @@ exports[`EditorProTable 2 > 📝 columns initialValue alway work 1`] = `
                                                 />
                                               </svg>
                                             </span>
-                                          </span>
+                                          </button>
                                         </span>
                                       </span>
                                     </div>
@@ -201,10 +200,9 @@ exports[`EditorProTable 2 > 📝 columns initialValue alway work 1`] = `
                                         <span
                                           class="ant-input-suffix"
                                         >
-                                          <span
+                                          <button
                                             class="ant-input-clear-icon"
-                                            role="button"
-                                            tabindex="-1"
+                                            type="button"
                                           >
                                             <span
                                               aria-label="close-circle"
@@ -226,7 +224,7 @@ exports[`EditorProTable 2 > 📝 columns initialValue alway work 1`] = `
                                                 />
                                               </svg>
                                             </span>
-                                          </span>
+                                          </button>
                                         </span>
                                       </span>
                                     </div>
@@ -266,10 +264,9 @@ exports[`EditorProTable 2 > 📝 columns initialValue alway work 1`] = `
                                         <span
                                           class="ant-input-suffix"
                                         >
-                                          <span
+                                          <button
                                             class="ant-input-clear-icon"
-                                            role="button"
-                                            tabindex="-1"
+                                            type="button"
                                           >
                                             <span
                                               aria-label="close-circle"
@@ -291,7 +288,7 @@ exports[`EditorProTable 2 > 📝 columns initialValue alway work 1`] = `
                                                 />
                                               </svg>
                                             </span>
-                                          </span>
+                                          </button>
                                         </span>
                                       </span>
                                     </div>
@@ -310,7 +307,7 @@ exports[`EditorProTable 2 > 📝 columns initialValue alway work 1`] = `
           </div>
         </div>
         <button
-          class="ant-btn ant-btn-dashed"
+          class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
           style="display: block; margin: 10px 0px; width: 100%;"
           type="button"
         >
@@ -360,7 +357,7 @@ exports[`EditorProTable 2 > 📝 columns support editable test 1`] = `
     >
       <div
         class="ant-pro-card-body"
-        style="padding-block-start: 0;"
+        style="padding: 0px;"
       >
         <div
           class="ant-table-wrapper"
@@ -543,7 +540,7 @@ exports[`EditorProTable 2 > 📝 columns support editable test 1`] = `
           </div>
         </div>
         <button
-          class="ant-btn ant-btn-dashed"
+          class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
           style="display: block; margin: 10px 0px; width: 100%;"
           type="button"
         >
@@ -593,7 +590,7 @@ exports[`EditorProTable 2 > 📝 renderFormItem run defaultRender 1`] = `
     >
       <div
         class="ant-pro-card-body"
-        style="padding-block-start: 0;"
+        style="padding: 0px;"
       >
         <div
           class="ant-table-wrapper"
@@ -754,7 +751,7 @@ exports[`EditorProTable 2 > 📝 renderFormItem run defaultRender 1`] = `
           </div>
         </div>
         <button
-          class="ant-btn ant-btn-dashed"
+          class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
           style="display: block; margin: 10px 0px; width: 100%;"
           type="button"
         >

@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/ban-types */
-import deepMerge from 'lodash.merge';
+import deepMerge from 'lodash-es/merge';
 import get from 'rc-util/lib/utils/get';
 import namePathSet from 'rc-util/lib/utils/set';
 import React from 'react';

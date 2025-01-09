@@ -1,5 +1,6 @@
 import ProTable, { TableDropdown } from '@ant-design/pro-table';
-import { act, cleanup, fireEvent, render } from '@testing-library/react';
+import { cleanup, fireEvent, render } from '@testing-library/react';
+import { act } from 'react';
 import { waitForWaitTime } from '../util';
 import { request } from './demo';
 
@@ -36,14 +37,14 @@ describe('BasicTable pagination', () => {
     );
     await waitForWaitTime(1200);
 
-    expect(fn).toBeCalledWith(1);
+    expect(fn).toHaveBeenCalledWith(1);
 
     await act(async () => {
       (await html.findByText('2'))?.click();
     });
     await waitForWaitTime(200);
 
-    expect(fn).toBeCalledWith(1);
+    expect(fn).toHaveBeenCalledWith(1);
   });
 
   it('🎏 pagination pageSize test ', async () => {
@@ -75,8 +76,8 @@ describe('BasicTable pagination', () => {
     );
     await waitForWaitTime(1200);
 
-    expect(fn).toBeCalledWith(50);
-    expect(currentFn).toBeCalledWith(1);
+    expect(fn).toHaveBeenCalledWith(50);
+    expect(currentFn).toHaveBeenCalledWith(1);
     act(() => {
       html.rerender(
         <ProTable
@@ -105,7 +106,7 @@ describe('BasicTable pagination', () => {
     });
     await waitForWaitTime(200);
 
-    expect(fn).toBeCalledWith(10);
+    expect(fn).toHaveBeenCalledWith(10);
   });
 
   it('🎏 pagination current', async () => {
@@ -134,9 +135,9 @@ describe('BasicTable pagination', () => {
     );
     await waitForWaitTime(1200);
 
-    expect(fn).toBeCalledWith(2);
+    expect(fn).toHaveBeenCalledWith(2);
 
-    expect(pageSizeFn).toBeCalledWith(20);
+    expect(pageSizeFn).toHaveBeenCalledWith(20);
     act(() => {
       html.rerender(
         <ProTable
@@ -163,7 +164,7 @@ describe('BasicTable pagination', () => {
 
     await waitForWaitTime(1200);
 
-    expect(fn).toBeCalledWith(3);
+    expect(fn).toHaveBeenCalledWith(3);
   });
 
   it('🎏 pagination=false, do not have pageParams', async () => {
@@ -191,7 +192,7 @@ describe('BasicTable pagination', () => {
     );
     await waitForWaitTime(1200);
 
-    expect(fn).toBeCalledWith(undefined);
+    expect(fn).toHaveBeenCalledWith(undefined);
 
     act(() => {
       html.rerender(
@@ -219,7 +220,7 @@ describe('BasicTable pagination', () => {
     });
     await waitForWaitTime(200);
 
-    expect(fn).toBeCalledWith(10);
+    expect(fn).toHaveBeenCalledWith(10);
   });
 
   it('🎏 request call once when data.length more then pageSize', async () => {
@@ -326,7 +327,7 @@ describe('BasicTable pagination', () => {
       );
     });
     await waitForWaitTime(200);
-    expect(currentFn).toBeCalledWith(2);
+    expect(currentFn).toHaveBeenCalledWith(2);
   });
 });
 
@@ -358,6 +359,6 @@ describe('TableDropdown', () => {
       button.click();
     });
 
-    expect(fn).toBeCalledWith('copy');
+    expect(fn).toHaveBeenCalledWith('copy');
   });
 });

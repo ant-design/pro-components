@@ -1,13 +1,8 @@
 import ProForm, { ProFormMoney } from '@ant-design/pro-form';
-import {
-  act,
-  cleanup,
-  fireEvent,
-  render,
-  waitFor,
-} from '@testing-library/react';
+import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import { ConfigProvider } from 'antd';
 import enGBIntl from 'antd/lib/locale/en_GB';
+import { act } from 'react';
 
 afterEach(() => {
   cleanup();

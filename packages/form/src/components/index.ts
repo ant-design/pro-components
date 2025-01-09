@@ -60,6 +60,7 @@ export { default as ProFormText } from './Text';
 export { default as ProFormTextArea } from './TextArea';
 export { default as ProFormTimePicker } from './TimePicker';
 export { default as ProFormTreeSelect } from './TreeSelect';
+export type { ProFormTreeSelectProps } from './TreeSelect';
 export { default as ProFormUploadButton } from './UploadButton';
 export type { ProFormUploadButtonProps } from './UploadButton';
 export { default as ProFormUploadDragger } from './UploadDragger';

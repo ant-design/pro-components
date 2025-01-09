@@ -5,7 +5,6 @@
 import { BetaSchemaForm } from '@ant-design/pro-form';
 import { ProProvider } from '@ant-design/pro-provider';
 import {
-  act,
   cleanup,
   fireEvent,
   render,
@@ -14,7 +13,7 @@ import {
 } from '@testing-library/react';
 import type { FormInstance } from 'antd';
 import { Input } from 'antd';
-import React, { createRef, useContext, useEffect } from 'react';
+import React, { act, createRef, useContext, useEffect } from 'react';
 
 const columns: ProFormColumnsType<any>[] = [
   {
@@ -116,7 +115,7 @@ describe('SchemaForm', () => {
     );
 
     await waitFor(() => {
-      expect(requestFn).toBeCalledWith('name');
+      expect(requestFn).toHaveBeenCalledWith('name');
     });
 
     fireEvent.change(container.querySelector('input#title')!, {
@@ -126,7 +125,7 @@ describe('SchemaForm', () => {
     });
 
     await waitFor(() => {
-      expect(requestFn).toBeCalledWith('qixian');
+      expect(requestFn).toHaveBeenCalledWith('qixian');
       expect(formItemPropsFn).toBeCalledTimes(2);
       expect(fieldPropsFn).toBeCalledTimes(2);
     });
@@ -268,7 +267,7 @@ describe('SchemaForm', () => {
       expect(formItemPropsFn).toBeCalledTimes(3);
       expect(fieldPropsFn).toBeCalledTimes(3);
       expect(shouldUpdateFn).toBeCalledTimes(2);
-      expect(shouldUpdateFn).toBeCalledWith(true);
+      expect(shouldUpdateFn).toHaveBeenCalledWith(true);
     });
   });
 

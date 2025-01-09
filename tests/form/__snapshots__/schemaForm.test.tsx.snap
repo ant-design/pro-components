@@ -50,10 +50,9 @@ exports[`SchemaForm > 😊 SchemaForm support columns 1`] = `
                 <span
                   class="ant-input-suffix"
                 >
-                  <span
+                  <button
                     class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                    role="button"
-                    tabindex="-1"
+                    type="button"
                   >
                     <span
                       aria-label="close-circle"
@@ -75,7 +74,7 @@ exports[`SchemaForm > 😊 SchemaForm support columns 1`] = `
                         />
                       </svg>
                     </span>
-                  </span>
+                  </button>
                 </span>
               </span>
             </div>
@@ -117,30 +116,34 @@ exports[`SchemaForm > 😊 SchemaForm support columns 1`] = `
                   class="ant-select-selector"
                 >
                   <span
-                    class="ant-select-selection-search"
+                    class="ant-select-selection-wrap"
                   >
-                    <input
-                      aria-autocomplete="list"
-                      aria-controls="state_list"
-                      aria-expanded="false"
-                      aria-haspopup="listbox"
-                      aria-owns="state_list"
-                      autocomplete="off"
-                      class="ant-select-selection-search-input"
-                      id="state"
-                      readonly=""
-                      role="combobox"
-                      style="opacity: 0;"
-                      type="search"
-                      unselectable="on"
-                      value=""
-                    />
-                  </span>
-                  <span
-                    class="ant-select-selection-item"
-                    title="全部"
-                  >
-                    全部
+                    <span
+                      class="ant-select-selection-search"
+                    >
+                      <input
+                        aria-autocomplete="list"
+                        aria-controls="state_list"
+                        aria-expanded="false"
+                        aria-haspopup="listbox"
+                        aria-owns="state_list"
+                        autocomplete="off"
+                        class="ant-select-selection-search-input"
+                        id="state"
+                        readonly=""
+                        role="combobox"
+                        style="opacity: 0;"
+                        type="search"
+                        unselectable="on"
+                        value=""
+                      />
+                    </span>
+                    <span
+                      class="ant-select-selection-item"
+                      title="全部"
+                    >
+                      全部
+                    </span>
                   </span>
                 </div>
                 <span
@@ -236,29 +239,33 @@ exports[`SchemaForm > 😊 SchemaForm support columns 1`] = `
                   class="ant-select-selector"
                 >
                   <span
-                    class="ant-select-selection-search"
+                    class="ant-select-selection-wrap"
                   >
-                    <input
-                      aria-autocomplete="list"
-                      aria-controls="direction_list"
-                      aria-expanded="false"
-                      aria-haspopup="listbox"
-                      aria-owns="direction_list"
-                      autocomplete="off"
-                      class="ant-select-selection-search-input"
-                      id="direction"
-                      readonly=""
-                      role="combobox"
-                      style="opacity: 0;"
-                      type="search"
-                      unselectable="on"
-                      value=""
-                    />
-                  </span>
-                  <span
-                    class="ant-select-selection-placeholder"
-                  >
-                    请选择
+                    <span
+                      class="ant-select-selection-search"
+                    >
+                      <input
+                        aria-autocomplete="list"
+                        aria-controls="direction_list"
+                        aria-expanded="false"
+                        aria-haspopup="listbox"
+                        aria-owns="direction_list"
+                        autocomplete="off"
+                        class="ant-select-selection-search-input"
+                        id="direction"
+                        readonly=""
+                        role="combobox"
+                        style="opacity: 0;"
+                        type="search"
+                        unselectable="on"
+                        value=""
+                      />
+                    </span>
+                    <span
+                      class="ant-select-selection-placeholder"
+                    >
+                      请选择
+                    </span>
                   </span>
                 </div>
                 <span
@@ -367,7 +374,7 @@ exports[`SchemaForm > 😊 SchemaForm support columns 1`] = `
       style="display: flex; gap: 8px; align-items: center;"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -375,7 +382,7 @@ exports[`SchemaForm > 😊 SchemaForm support columns 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>

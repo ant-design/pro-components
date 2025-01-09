@@ -30,7 +30,7 @@ describe('Table ColumnSetting', () => {
 
     await waitFor(() => {
       expect(callBack).toBeCalled();
-      expect(callBack).toBeCalledWith('Edward King 0');
+      expect(callBack).toHaveBeenCalledWith('Edward King 0');
     });
   });
 
@@ -70,7 +70,7 @@ describe('Table ColumnSetting', () => {
 
     await waitFor(() => {
       expect(callBack).toBeCalled();
-      expect(callBack).toBeCalledWith('2016-11-22');
+      expect(callBack).toHaveBeenCalledWith('2016-11-22');
     });
   });
 
@@ -121,7 +121,7 @@ describe('Table ColumnSetting', () => {
 
     await waitFor(() => {
       expect(callBack).toBeCalled();
-      expect(callBack).toBeCalledWith('Edward King 0');
+      expect(callBack).toHaveBeenCalledWith('Edward King 0');
     });
   });
 

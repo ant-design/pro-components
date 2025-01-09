@@ -2,6 +2,60 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.17.2...@ant-design/pro-field@3.0.0) (2025-01-06)
+
+### Bug Fixes
+
+- **field:** add preserveOriginalLabel prop to SearchSelect ([#8919](https://github.com/ant-design/pro-components/issues/8919)) ([feb8200](https://github.com/ant-design/pro-components/commit/feb8200e162482f8b257a2a80d7ec5aec56b4440))
+- **locale:** add missing newline at end of file for sv_SE, nl_NL, and ro_RO locales ([d0f573f](https://github.com/ant-design/pro-components/commit/d0f573f325db4e863db1fbf70afc25ccf3dde7a7))
+
+### BREAKING CHANGES
+
+- **field:** None
+
+## [2.17.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.17.1...@ant-design/pro-field@2.17.2) (2024-11-14)
+
+### Bug Fixes
+
+- **table:** React does not recognize the `showCount` prop on a DOM element. ([#8856](https://github.com/ant-design/pro-components/issues/8856)) ([143ac69](https://github.com/ant-design/pro-components/commit/143ac692803d7361d0543bfb09918ddb59bff398))
+
+## [2.17.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.17.0...@ant-design/pro-field@2.17.1) (2024-10-22)
+
+### Bug Fixes
+
+- **package:** 更新 repository URL 格式为 git+ssh 以确保一致性 ([8882d51](https://github.com/ant-design/pro-components/commit/8882d5164d8b14f8971bf9f34a339d282ac766ba))
+
+# [2.17.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.16.2...@ant-design/pro-field@2.17.0) (2024-10-17)
+
+### Bug Fixes
+
+- **form:** field 为 checkbox 时设置了 fieldNames 后控制器报错的问题 React does not recognize the `fieldNames` prop on a DOM element ([#8785](https://github.com/ant-design/pro-components/issues/8785)) ([2560090](https://github.com/ant-design/pro-components/commit/25600907e620549079f6aa8618e689258113dd41))
+- replace `lodash-es` imports with `lodash` in CJS builds ([#8754](https://github.com/ant-design/pro-components/issues/8754)) ([3ef9283](https://github.com/ant-design/pro-components/commit/3ef9283a4cf52b8106d049af49f41dc37bb448b1))
+
+### Features
+
+- added exports to support ESM environments such as vitest ([#8738](https://github.com/ant-design/pro-components/issues/8738)) ([71c4be9](https://github.com/ant-design/pro-components/commit/71c4be9c9ca5942154e0473e62be608d784d53fc))
+
+## [2.16.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.16.1...@ant-design/pro-field@2.16.2) (2024-09-12)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [2.16.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.16.0...@ant-design/pro-field@2.16.1) (2024-09-05)
+
+### Bug Fixes
+
+- **field:** keyboard events of search input in LightSelect ([#8629](https://github.com/ant-design/pro-components/issues/8629)) ([92a6f57](https://github.com/ant-design/pro-components/commit/92a6f5746eafdef8f7e4c23b7290dd82cee6ec1c))
+
+# [2.16.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.15.2...@ant-design/pro-field@2.16.0) (2024-08-05)
+
+### Features
+
+- **field:** add localizedFormat plugin to dayjs ([#8582](https://github.com/ant-design/pro-components/issues/8582)) ([806935d](https://github.com/ant-design/pro-components/commit/806935dc207f2f52530f6b9fda0a9be5bbf23151))
+
+### Performance Improvements
+
+- lodash => lodash-es ([#8606](https://github.com/ant-design/pro-components/issues/8606)) ([455b4f1](https://github.com/ant-design/pro-components/commit/455b4f1bb1edfd896c04d98c37da6f97fb2428cb))
+
 ## [2.15.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.15.1...@ant-design/pro-field@2.15.2) (2024-07-15)
 
 ### Bug Fixes

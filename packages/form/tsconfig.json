@@ -16,7 +16,8 @@
     "paths": {
       "@ant-design/pro-field": ["../../packages/field/src/index.tsx"],
       "@ant-design/pro-provider": ["../../packages/provider/src/index.tsx"],
-      "@ant-design/pro-utils": ["../../packages/utils/src/index.tsx"]
+      "@ant-design/pro-utils": ["../../packages/utils/src/index.tsx"],
+      "@ant-design/pro-components": ["../../packages/components/src/index.tsx"]
     }
   },
   "include": ["./src"]

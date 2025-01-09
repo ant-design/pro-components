@@ -51,7 +51,7 @@ type FunctionFieldProps = {
 };
 
 /**
- * 这个方法的主要作用的帮助 Field 增加 FormItem 同时也会处理 lightFilter
+ * 这个方法的主要作用是帮助 Field 增加 FormItem 同时也会处理 lightFilter
  *
  * @param Field
  * @param config
@@ -76,7 +76,7 @@ function createField<P extends ProFormFieldItemProps = any>(
       ignoreWidth,
       defaultProps,
       ...defaultFormItemProps
-    } = { ...props?.filedConfig, ...config } || {};
+    } = { ...props?.filedConfig, ...config };
     const {
       label,
       tooltip,

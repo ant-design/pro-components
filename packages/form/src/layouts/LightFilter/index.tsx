@@ -148,11 +148,15 @@ const LightFilterContainer: React.FC<{
     >
       <div className={`${lightFilterClassName}-container ${hashId}`.trim()}>
         {outsideItems.map((child: any, index) => {
+          if (!child?.props) {
+            return child;
+          }
           const { key } = child;
-          const { fieldProps } = child.props;
+          const { fieldProps } = child?.props || {};
           const newPlacement = fieldProps?.placement
             ? fieldProps?.placement
             : placement;
+
           return (
             <div
               className={`${lightFilterClassName}-item ${hashId}`.trim()}
@@ -282,8 +286,9 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
           <LightFilterContainer
             prefixCls={prefixCls}
             items={items?.flatMap((item: any) => {
+              if (!item || !item?.type) return item;
               /** 如果是 ProFormGroup，直接拼接dom */
-              if (item?.type.displayName === 'ProForm-Group')
+              if (item?.type?.displayName === 'ProForm-Group')
                 return item.props.children;
               return item;
             })}

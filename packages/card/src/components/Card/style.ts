@@ -28,7 +28,7 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
       paddingInline: 0,
       backgroundColor: token.colorBgContainer,
       borderRadius: token.borderRadius,
-      transition: 'all 0.3',
+      transition: 'all 0.3s',
       ...resetComponent?.(token),
 
       '&-box-shadow': {

@@ -41,6 +41,10 @@ atomId: EditableProTable
 
 <code src="./demos/real-time-editing.tsx"  background="var(--main-bg-color)" ></code>
 
+### 复杂的编辑表格
+
+<code src="./demos/fuza.tsx"  background="var(--main-bg-color)" ></code>
+
 ## EditableProTable
 
 | 属性 | 描述 | 类型 | 默认值 |

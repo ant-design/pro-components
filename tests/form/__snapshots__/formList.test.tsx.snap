@@ -88,10 +88,9 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                                     <span
                                       class="ant-input-suffix"
                                     >
-                                      <span
+                                      <button
                                         class="ant-input-clear-icon"
-                                        role="button"
-                                        tabindex="-1"
+                                        type="button"
                                       >
                                         <span
                                           aria-label="close-circle"
@@ -113,7 +112,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                                             />
                                           </svg>
                                         </span>
-                                      </span>
+                                      </button>
                                     </span>
                                   </span>
                                 </div>
@@ -214,10 +213,9 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                                     <span
                                       class="ant-input-suffix"
                                     >
-                                      <span
+                                      <button
                                         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                                        role="button"
-                                        tabindex="-1"
+                                        type="button"
                                       >
                                         <span
                                           aria-label="close-circle"
@@ -239,7 +237,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                                             />
                                           </svg>
                                         </span>
-                                      </span>
+                                      </button>
                                     </span>
                                   </span>
                                 </div>
@@ -340,10 +338,9 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                                     <span
                                       class="ant-input-suffix"
                                     >
-                                      <span
+                                      <button
                                         class="ant-input-clear-icon"
-                                        role="button"
-                                        tabindex="-1"
+                                        type="button"
                                       >
                                         <span
                                           aria-label="close-circle"
@@ -365,7 +362,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                                             />
                                           </svg>
                                         </span>
-                                      </span>
+                                      </button>
                                     </span>
                                   </span>
                                 </div>
@@ -421,7 +418,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                       </div>
                     </div>
                     <button
-                      class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
+                      class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                       type="button"
                     >
                       <span
@@ -465,7 +462,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -473,7 +470,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>

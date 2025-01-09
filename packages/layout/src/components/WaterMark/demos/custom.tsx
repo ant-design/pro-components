@@ -10,7 +10,7 @@ import {
   WaterMark,
 } from '@ant-design/pro-components';
 import { Divider } from 'antd';
-import { ColorFactory } from 'antd/es/color-picker/color';
+import { AggregationColor } from 'antd/es/color-picker/color';
 
 export default () => {
   return (
@@ -40,7 +40,7 @@ export default () => {
                   rotate={rotate}
                   content={content}
                   fontColor={
-                    fontColor instanceof ColorFactory
+                    fontColor instanceof AggregationColor
                       ? fontColor.toHexString()
                       : fontColor
                   }

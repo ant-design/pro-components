@@ -62,13 +62,16 @@ const FieldColorPicker: ProFieldFC<
     text: string;
     /** 是否使用旧版本 */
     old?: boolean;
-  } & Partial<ColorPickerProps>
+  } & Partial<Omit<ColorPickerProps, 'mode'>>
 > = (
   { text, mode: type, render, renderFormItem, fieldProps, old },
   ref: any,
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const ColorPicker = React.useMemo(() => getColorPicker(old), [old]);
+  const ColorPicker = React.useMemo(
+    () => getColorPicker(old) as unknown as typeof ColorPickerV4,
+    [old],
+  );
   const prefixCls = getPrefixCls('pro-field-color-picker');
   // 5.5.0 以上版本追加 className
   const className = useMemo(() => {
@@ -82,7 +85,7 @@ const FieldColorPicker: ProFieldFC<
         mode="read"
         ref={ref}
         className={className}
-        // 设置无法 open
+        // @ts-ignore 设置无法 open
         open={false}
       />
     );

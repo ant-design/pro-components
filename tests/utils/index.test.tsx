@@ -23,18 +23,12 @@ import {
   useDebounceFn,
   useDebounceValue,
 } from '@ant-design/pro-utils';
-import {
-  act,
-  cleanup,
-  fireEvent,
-  render,
-  waitFor,
-} from '@testing-library/react';
+import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import { Form, Input } from 'antd';
 import type { Dayjs } from 'dayjs';
 import dayjs from 'dayjs';
 import moment from 'moment';
-import React, { useEffect, useState } from 'react';
+import React, { act, useEffect, useState } from 'react';
 
 afterEach(() => {
   cleanup();
@@ -300,7 +294,7 @@ describe('utils', () => {
     render(<App />);
 
     await waitFor(() => {
-      expect(catchFn).toBeCalledWith(error);
+      expect(catchFn).toHaveBeenCalledWith(error);
     });
 
     vi.useRealTimers();

@@ -1,18 +1,87 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [2.28.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.28.2...@ant-design/pro-form@2.28.3) (2024-07-16)
-
+## [2.31.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.31.2...@ant-design/pro-form@2.31.3) (2025-01-06)
 
 ### Bug Fixes
 
-* **form:** fix  ConfigProvider.useConfig unsupport antd@4 error ([#8567](https://github.com/ant-design/pro-components/issues/8567)) ([59e9cd5](https://github.com/ant-design/pro-components/commit/59e9cd5c0df0c17f556e9bc4153fa451434993d8))
+- add dateRange type && typo in word ([#8884](https://github.com/ant-design/pro-components/issues/8884)) ([30b6f01](https://github.com/ant-design/pro-components/commit/30b6f01cf0207cc7e378abdae82dbbbb33c925d4))
+- add emptyText fieldItem props ([#8888](https://github.com/ant-design/pro-components/issues/8888)) ([b2627ff](https://github.com/ant-design/pro-components/commit/b2627ff93aa50a51f07b5ee5e899b807cd26c6e2))
+- **locale:** add missing newline at end of file for sv_SE, nl_NL, and ro_RO locales ([d0f573f](https://github.com/ant-design/pro-components/commit/d0f573f325db4e863db1fbf70afc25ccf3dde7a7))
 
+### Performance Improvements
 
+- add pro-componets path ([#8881](https://github.com/ant-design/pro-components/issues/8881)) ([43ceba3](https://github.com/ant-design/pro-components/commit/43ceba3660ddc8465e5f519711583602b9a6ea7a))
 
+## [2.31.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.31.1...@ant-design/pro-form@2.31.2) (2024-11-14)
 
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [2.31.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.31.0...@ant-design/pro-form@2.31.1) (2024-10-22)
+
+### Bug Fixes
+
+- **form:** 优化 URL 参数合并逻辑以提高性能和可读性 ([3e026c6](https://github.com/ant-design/pro-components/commit/3e026c62d9be37732117fa4697e92f174fea87f1))
+- **package:** 更新 repository URL 格式为 git+ssh 以确保一致性 ([8882d51](https://github.com/ant-design/pro-components/commit/8882d5164d8b14f8971bf9f34a339d282ac766ba))
+
+# [2.31.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.30.2...@ant-design/pro-form@2.31.0) (2024-10-17)
+
+### Bug Fixes
+
+- replace `lodash-es` imports with `lodash` in CJS builds ([#8754](https://github.com/ant-design/pro-components/issues/8754)) ([3ef9283](https://github.com/ant-design/pro-components/commit/3ef9283a4cf52b8106d049af49f41dc37bb448b1))
+
+### Features
+
+- added exports to support ESM environments such as vitest ([#8738](https://github.com/ant-design/pro-components/issues/8738)) ([71c4be9](https://github.com/ant-design/pro-components/commit/71c4be9c9ca5942154e0473e62be608d784d53fc))
+
+## [2.30.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.30.1...@ant-design/pro-form@2.30.2) (2024-09-12)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [2.30.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.30.0...@ant-design/pro-form@2.30.1) (2024-09-12)
+
+### Bug Fixes
+
+- **form:** add formRef.current error ([b4c88c5](https://github.com/ant-design/pro-components/commit/b4c88c55b6ae3c9ed977704ddbf45e159434fdbd))
+
+# [2.30.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.29.0...@ant-design/pro-form@2.30.0) (2024-09-05)
+
+### Bug Fixes
+
+- 修复如果没传 backgroundImageUrl 会导致 url("undefined") 发送一次请求 ([#8689](https://github.com/ant-design/pro-components/issues/8689)) ([8acaa16](https://github.com/ant-design/pro-components/commit/8acaa160738fdbe410b85d66cb64375083927e16))
+- **form:** props title is not assignable to type ReactNode ([#8682](https://github.com/ant-design/pro-components/issues/8682)) ([991ab91](https://github.com/ant-design/pro-components/commit/991ab9140478262e1776e5b750993860fa1c297f))
+
+### Features
+
+- **Form:** FormRef support forward nativeElement ([#8632](https://github.com/ant-design/pro-components/issues/8632)) ([d113207](https://github.com/ant-design/pro-components/commit/d1132070c4d7b2df3bfaebe33615faa007ea6ceb))
+
+# [2.29.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.28.4...@ant-design/pro-form@2.29.0) (2024-08-05)
+
+### Bug Fixes
+
+- **form:** correct line height in list action ([#8584](https://github.com/ant-design/pro-components/issues/8584)) ([e2b2ea6](https://github.com/ant-design/pro-components/commit/e2b2ea65185ef6e840f0f26992dae3d7cead27fe))
+- **form:** pass the OptionType type of ProFormSelect to the inner Select ([#8568](https://github.com/ant-design/pro-components/issues/8568)) ([6d8b99f](https://github.com/ant-design/pro-components/commit/6d8b99f356c43d20ce6bc868fe28d300af3f7c29))
+
+### Features
+
+- **form:** export ProFormTreeSelectProps ([#8589](https://github.com/ant-design/pro-components/issues/8589)) ([55b912c](https://github.com/ant-design/pro-components/commit/55b912ccec854824b38f2d6f6a6cd39fb028204d))
+
+### Performance Improvements
+
+- lodash => lodash-es ([#8606](https://github.com/ant-design/pro-components/issues/8606)) ([455b4f1](https://github.com/ant-design/pro-components/commit/455b4f1bb1edfd896c04d98c37da6f97fb2428cb))
+
+## [2.28.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.28.3...@ant-design/pro-form@2.28.4) (2024-07-18)
+
+### Bug Fixes
+
+- **form:** upload use flex style ([d0e410c](https://github.com/ant-design/pro-components/commit/d0e410cff6133e7ae83f48aebf15c86d94e9ad56))
+
+## [2.28.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.28.2...@ant-design/pro-form@2.28.3) (2024-07-16)
+
+### Bug Fixes
+
+- **form:** fix ConfigProvider.useConfig unsupport antd@4 error ([#8567](https://github.com/ant-design/pro-components/issues/8567)) ([59e9cd5](https://github.com/ant-design/pro-components/commit/59e9cd5c0df0c17f556e9bc4153fa451434993d8))
 
 ## [2.28.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.28.1...@ant-design/pro-form@2.28.2) (2024-07-15)
 

@@ -11,7 +11,6 @@ import ProForm, {
   StepsForm,
 } from '@ant-design/pro-form';
 import {
-  act,
   cleanup,
   fireEvent,
   render,
@@ -20,9 +19,9 @@ import {
 } from '@testing-library/react';
 import { Button, Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
-import _ from 'lodash';
+import { pick } from 'lodash-es';
 import moment from 'moment';
-import React from 'react';
+import React, { act } from 'react';
 import { waitForWaitTime } from '../util';
 
 afterEach(() => {
@@ -58,7 +57,7 @@ describe('ProForm List', () => {
     fireEvent.click(await screen.findByText('提 交'));
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith(['name', 'nickName']);
+      expect(fn).toHaveBeenCalledWith(['name', 'nickName']);
     });
   });
 
@@ -244,7 +243,7 @@ describe('ProForm List', () => {
     fireEvent.click(await screen.findByText('提 交'));
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith([]);
+      expect(fn).toHaveBeenCalledWith([]);
     });
   });
 
@@ -282,7 +281,7 @@ describe('ProForm List', () => {
     fireEvent.click(await screen.findByText('提 交'));
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith({
+      expect(fn).toHaveBeenCalledWith({
         name: '1111',
         nickName: '1111',
       });
@@ -355,7 +354,7 @@ describe('ProForm List', () => {
 
     await waitForWaitTime(100);
 
-    expect(fn).toBeCalledWith({
+    expect(fn).toHaveBeenCalledWith({
       name: '1111',
       nickName: '1111',
     });
@@ -374,7 +373,7 @@ describe('ProForm List', () => {
 
     await waitForWaitTime(100);
 
-    expect(fn).toBeCalledWith({
+    expect(fn).toHaveBeenCalledWith({
       name: 'New Name0',
       nickName: 'New Remark0',
     });
@@ -391,7 +390,7 @@ describe('ProForm List', () => {
 
     await waitForWaitTime(100);
 
-    expect(fn).toBeCalledWith({
+    expect(fn).toHaveBeenCalledWith({
       name: undefined,
       nickName: undefined,
     });
@@ -452,7 +451,7 @@ describe('ProForm List', () => {
     fireEvent.click(await screen.findByText('提 交'));
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith({
+      expect(fn).toHaveBeenCalledWith({
         name: '2222',
         nickName: '2222',
       });
@@ -505,7 +504,7 @@ describe('ProForm List', () => {
     fireEvent.click(await screen.findByText('提 交'));
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith([]);
+      expect(fn).toHaveBeenCalledWith([]);
     });
   });
 
@@ -542,7 +541,7 @@ describe('ProForm List', () => {
     fireEvent.click(await screen.findByText('提 交'));
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith({
+      expect(fn).toHaveBeenCalledWith({
         name: '1111',
         nickName: '1111',
       });
@@ -586,7 +585,7 @@ describe('ProForm List', () => {
     fireEvent.click(await screen.findByText('提 交'));
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith({
+      expect(fn).toHaveBeenCalledWith({
         name: '2222',
         nickName: '2222',
       });
@@ -697,7 +696,7 @@ describe('ProForm List', () => {
     fireEvent.click(await screen.findByText('提 交'));
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith([
+      expect(fn).toHaveBeenCalledWith([
         {
           name: '1212',
         },
@@ -747,7 +746,7 @@ describe('ProForm List', () => {
     });
 
     expect(container.querySelectorAll('input.ant-input')).toHaveLength(4);
-    expect(fn).toBeCalledWith('222');
+    expect(fn).toHaveBeenCalledWith('222');
   });
 
   it('⛲ ProForm.List support ProFormDependency2', async () => {
@@ -856,14 +855,14 @@ describe('ProForm List', () => {
 
     expect(container.querySelector('code.case1')).toContainHTML(
       JSON.stringify(
-        _.pick(initialValues, namePaths2PropertyPaths(depName1)),
+        pick(initialValues, namePaths2PropertyPaths(depName1)),
         null,
         2,
       ),
     );
     expect(container.querySelector('code.case2')).toContainHTML(
       JSON.stringify(
-        _.pick(initialValues, namePaths2PropertyPaths(depName2)),
+        pick(initialValues, namePaths2PropertyPaths(depName2)),
         null,
         2,
       ),
@@ -1026,7 +1025,7 @@ describe('ProForm List', () => {
         ?.click?.();
     });
 
-    expect(fnRemove).toBeCalledWith(2);
+    expect(fnRemove).toHaveBeenCalledWith(2);
     expect(html.baseElement.querySelectorAll('input.ant-input').length).toBe(3);
     await waitForWaitTime(1200);
 
@@ -1040,7 +1039,7 @@ describe('ProForm List', () => {
     });
 
     await waitForWaitTime(1200);
-    expect(fnRemove).toBeCalledWith(0);
+    expect(fnRemove).toHaveBeenCalledWith(0);
     expect(html.baseElement.querySelectorAll('input.ant-input').length).toBe(2);
   });
 
@@ -1123,7 +1122,7 @@ describe('ProForm List', () => {
     });
 
     await waitForWaitTime(100);
-    expect(fnRemove).toBeCalledWith(0);
+    expect(fnRemove).toHaveBeenCalledWith(0);
     expect(html.baseElement.querySelectorAll('input.ant-input').length).toBe(0);
 
     await waitForWaitTime(100);
@@ -1233,7 +1232,7 @@ describe('ProForm List', () => {
       html.queryByText('提 交')?.click();
     });
     await waitForWaitTime(100);
-    expect(onFinish).toBeCalledWith({
+    expect(onFinish).toHaveBeenCalledWith({
       list: [
         {
           date: '2020',
@@ -1292,7 +1291,7 @@ describe('ProForm List', () => {
     fireEvent.click(await screen.findByText('提 交')!);
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith({
+      expect(fn).toHaveBeenCalledWith({
         name: '2222',
         nickName: '2222',
       });
@@ -1516,7 +1515,7 @@ describe('ProForm List', () => {
         .querySelectorAll<HTMLDivElement>('.action-remove')[0]
         ?.click?.();
     });
-    expect(handleRemove).toBeCalledWith(0);
+    expect(handleRemove).toHaveBeenCalledWith(0);
 
     // 新增按钮
     await act(async () => {
@@ -1527,7 +1526,7 @@ describe('ProForm List', () => {
         fireEvent.click(createBtn);
       }
     });
-    expect(handleAdd).toBeCalledWith(1);
+    expect(handleAdd).toHaveBeenCalledWith(1);
   });
 
   it(`⛲ ProForm.List display * when required`, () => {
@@ -1725,9 +1724,9 @@ describe('ProForm List', () => {
     });
     await waitForWaitTime(2000);
 
-    expect(handleFinish1).toBeCalledWith(1665568800);
-    expect(handleFinish2).toBeCalledWith(1665568800);
-    expect(handleFinish3).toBeCalledWith(1665568800);
-    expect(handleFinish4).toBeCalledWith(1665568800);
+    expect(handleFinish1).toHaveBeenCalledWith(1665568800);
+    expect(handleFinish2).toHaveBeenCalledWith(1665568800);
+    expect(handleFinish3).toHaveBeenCalledWith(1665568800);
+    expect(handleFinish4).toHaveBeenCalledWith(1665568800);
   });
 });

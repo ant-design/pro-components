@@ -3,9 +3,9 @@ import React from 'react';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProField from '../Field';
 
-export type ProFormSwitchProps = ProFormFieldItemProps<
-  SwitchProps,
-  HTMLElement
+export type ProFormSwitchProps = Omit<
+  ProFormFieldItemProps<SwitchProps, HTMLElement>,
+  'emptyText'
 > & {
   checkedChildren?: SwitchProps['checkedChildren'];
   unCheckedChildren?: SwitchProps['unCheckedChildren'];

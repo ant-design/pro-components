@@ -1,16 +1,10 @@
 import type { ProFormInstance } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
-import {
-  act,
-  cleanup,
-  fireEvent,
-  render,
-  waitFor,
-} from '@testing-library/react';
+import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import type { FormInstance } from 'antd';
 import { Input } from 'antd';
 import dayjs from 'dayjs';
-import React, { createRef } from 'react';
+import React, { act, createRef } from 'react';
 import { waitTime } from '../util';
 
 afterEach(() => {
@@ -77,7 +71,7 @@ describe('BasicTable Search', () => {
 
     await waitFor(() => {
       expect(fn).toBeCalledTimes(1);
-      expect(paramsFn).toBeCalledWith(1, 20);
+      expect(paramsFn).toHaveBeenCalledWith(1, 20);
     });
   });
 
@@ -471,8 +465,8 @@ describe('BasicTable Search', () => {
       );
     });
     await waitFor(() => {
-      expect(onChangeFn).toBeCalledWith('12');
-      expect(fn).toBeCalledWith('12');
+      expect(onChangeFn).toHaveBeenCalledWith('12');
+      expect(fn).toHaveBeenCalledWith('12');
     });
 
     html.unmount();
@@ -726,7 +720,7 @@ describe('BasicTable Search', () => {
     });
 
     await waitFor(() => {
-      expect(fn2).toBeCalledWith('2020-09-11 00:00:00');
+      expect(fn2).toHaveBeenCalledWith('2020-09-11 00:00:00');
     });
   });
 
@@ -777,7 +771,7 @@ describe('BasicTable Search', () => {
     });
 
     await waitFor(() => {
-      expect(onSubmitFn).toBeCalledWith('2020-09-11');
+      expect(onSubmitFn).toHaveBeenCalledWith('2020-09-11');
     });
 
     expect(formRef.current?.getFieldFormatValue?.().since).toBe('2020-09-11');

@@ -1,15 +1,70 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [3.18.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.18.2...@ant-design/pro-table@3.18.3) (2025-01-06)
+
+### Bug Fixes
+
+- **locale:** add missing newline at end of file for sv_SE, nl_NL, and ro_RO locales ([d0f573f](https://github.com/ant-design/pro-components/commit/d0f573f325db4e863db1fbf70afc25ccf3dde7a7))
+
+## [3.18.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.18.1...@ant-design/pro-table@3.18.2) (2024-11-14)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [3.18.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.18.0...@ant-design/pro-table@3.18.1) (2024-10-22)
+
+### Bug Fixes
+
+- **package:** 更新 repository URL 格式为 git+ssh 以确保一致性 ([8882d51](https://github.com/ant-design/pro-components/commit/8882d5164d8b14f8971bf9f34a339d282ac766ba))
+
+# [3.18.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.17.2...@ant-design/pro-table@3.18.0) (2024-10-17)
+
+### Bug Fixes
+
+- replace `lodash-es` imports with `lodash` in CJS builds ([#8754](https://github.com/ant-design/pro-components/issues/8754)) ([3ef9283](https://github.com/ant-design/pro-components/commit/3ef9283a4cf52b8106d049af49f41dc37bb448b1))
+
+### Features
+
+- added exports to support ESM environments such as vitest ([#8738](https://github.com/ant-design/pro-components/issues/8738)) ([71c4be9](https://github.com/ant-design/pro-components/commit/71c4be9c9ca5942154e0473e62be608d784d53fc))
+
+## [3.17.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.17.1...@ant-design/pro-table@3.17.2) (2024-09-12)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [3.17.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.17.0...@ant-design/pro-table@3.17.1) (2024-09-12)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [3.17.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.16.6...@ant-design/pro-table@3.17.0) (2024-09-05)
+
+### Bug Fixes
+
+- columnsState.defaultValue be modified with lodash merge function ([#8659](https://github.com/ant-design/pro-components/issues/8659)) ([9151e33](https://github.com/ant-design/pro-components/commit/9151e33dcbb0ca82e546bf9b930aeed4d73daa85))
+- defaultCurrent 搭配 defaultData 一直为 1 的问题修复 ([#8683](https://github.com/ant-design/pro-components/issues/8683)) ([b16568e](https://github.com/ant-design/pro-components/commit/b16568ef127a2c06d724947efa35a1138983bdf7)), closes [#8677](https://github.com/ant-design/pro-components/issues/8677)
+- **card:** card padding when hideToolbar ([#8635](https://github.com/ant-design/pro-components/issues/8635)) ([5e77886](https://github.com/ant-design/pro-components/commit/5e778863a69913c1e2f6c1297b53d5ae8fd790d9))
+
+### Features
+
+- **Form:** FormRef support forward nativeElement ([#8632](https://github.com/ant-design/pro-components/issues/8632)) ([d113207](https://github.com/ant-design/pro-components/commit/d1132070c4d7b2df3bfaebe33615faa007ea6ceb))
+
+## [3.16.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.16.5...@ant-design/pro-table@3.16.6) (2024-08-05)
+
+### Bug Fixes
+
+- **table:** don't spread key to children ([#8588](https://github.com/ant-design/pro-components/issues/8588)) ([be5d0ad](https://github.com/ant-design/pro-components/commit/be5d0adf4811d5dc59b53af8100c55187e828ca1))
+
+### Performance Improvements
+
+- lodash => lodash-es ([#8606](https://github.com/ant-design/pro-components/issues/8606)) ([455b4f1](https://github.com/ant-design/pro-components/commit/455b4f1bb1edfd896c04d98c37da6f97fb2428cb))
+
+## [3.16.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.16.4...@ant-design/pro-table@3.16.5) (2024-07-18)
+
+**Note:** Version bump only for package @ant-design/pro-table
 
 ## [3.16.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.16.3...@ant-design/pro-table@3.16.4) (2024-07-16)
 
 **Note:** Version bump only for package @ant-design/pro-table
-
-
-
-
 
 ## [3.16.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.16.2...@ant-design/pro-table@3.16.3) (2024-07-15)
 

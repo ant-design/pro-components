@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.9.2...@ant-design/pro-card@2.9.3) (2025-01-06)
+
+### Bug Fixes
+
+- **locale:** add missing newline at end of file for sv_SE, nl_NL, and ro_RO locales ([d0f573f](https://github.com/ant-design/pro-components/commit/d0f573f325db4e863db1fbf70afc25ccf3dde7a7))
+
+## [2.9.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.9.1...@ant-design/pro-card@2.9.2) (2024-11-14)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [2.9.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.9.0...@ant-design/pro-card@2.9.1) (2024-10-22)
+
+### Bug Fixes
+
+- **package:** 更新 repository URL 格式为 git+ssh 以确保一致性 ([8882d51](https://github.com/ant-design/pro-components/commit/8882d5164d8b14f8971bf9f34a339d282ac766ba))
+
+# [2.9.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.8.8...@ant-design/pro-card@2.9.0) (2024-10-17)
+
+### Features
+
+- added exports to support ESM environments such as vitest ([#8738](https://github.com/ant-design/pro-components/issues/8738)) ([71c4be9](https://github.com/ant-design/pro-components/commit/71c4be9c9ca5942154e0473e62be608d784d53fc))
+
+## [2.8.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.8.7...@ant-design/pro-card@2.8.8) (2024-09-12)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [2.8.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.8.6...@ant-design/pro-card@2.8.7) (2024-08-05)
+
+### Bug Fixes
+
+- add unit to transition duration in procard ([#8591](https://github.com/ant-design/pro-components/issues/8591)) ([585fe39](https://github.com/ant-design/pro-components/commit/585fe39bc5bf980da3ee81549a8dafda4925611b))
+
 ## [2.8.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.8.5...@ant-design/pro-card@2.8.6) (2024-07-15)
 
 **Note:** Version bump only for package @ant-design/pro-card

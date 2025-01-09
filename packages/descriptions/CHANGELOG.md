@@ -1,15 +1,56 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.6.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.6.2...@ant-design/pro-descriptions@2.6.3) (2025-01-06)
+
+### Bug Fixes
+
+- **locale:** add missing newline at end of file for sv_SE, nl_NL, and ro_RO locales ([d0f573f](https://github.com/ant-design/pro-components/commit/d0f573f325db4e863db1fbf70afc25ccf3dde7a7))
+
+## [2.6.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.6.1...@ant-design/pro-descriptions@2.6.2) (2024-11-14)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [2.6.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.6.0...@ant-design/pro-descriptions@2.6.1) (2024-10-22)
+
+### Bug Fixes
+
+- **package:** 更新 repository URL 格式为 git+ssh 以确保一致性 ([8882d51](https://github.com/ant-design/pro-components/commit/8882d5164d8b14f8971bf9f34a339d282ac766ba))
+
+# [2.6.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.5.53...@ant-design/pro-descriptions@2.6.0) (2024-10-17)
+
+### Bug Fixes
+
+- **FieldRender:** 将 dataIndex 强制转换为 React.Key 以确保类型安全 ([e2482f7](https://github.com/ant-design/pro-components/commit/e2482f7eec63e975326a57d11aa500092034083e))
+
+### Features
+
+- added exports to support ESM environments such as vitest ([#8738](https://github.com/ant-design/pro-components/issues/8738)) ([71c4be9](https://github.com/ant-design/pro-components/commit/71c4be9c9ca5942154e0473e62be608d784d53fc))
+
+## [2.5.53](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.5.52...@ant-design/pro-descriptions@2.5.53) (2024-09-12)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [2.5.52](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.5.51...@ant-design/pro-descriptions@2.5.52) (2024-09-12)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [2.5.51](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.5.50...@ant-design/pro-descriptions@2.5.51) (2024-09-05)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [2.5.50](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.5.49...@ant-design/pro-descriptions@2.5.50) (2024-08-05)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [2.5.49](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.5.48...@ant-design/pro-descriptions@2.5.49) (2024-07-18)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
 
 ## [2.5.48](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.5.47...@ant-design/pro-descriptions@2.5.48) (2024-07-16)
 
 **Note:** Version bump only for package @ant-design/pro-descriptions
-
-
-
-
 
 ## [2.5.47](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.5.46...@ant-design/pro-descriptions@2.5.47) (2024-07-15)
 

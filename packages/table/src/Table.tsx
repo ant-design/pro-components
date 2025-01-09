@@ -26,6 +26,8 @@ import type {
   TableCurrentDataSource,
 } from 'antd/lib/table/interface';
 import classNames from 'classnames';
+import isEmpty from 'lodash-es/isEmpty';
+import isEqual from 'lodash-es/isEqual';
 import type Summary from 'rc-table/lib/Footer/Summary';
 import React, {
   Key,
@@ -67,6 +69,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     defaultClassName: string;
     tableColumn: any[];
     toolbarDom: JSX.Element | null;
+    hideToolbar: boolean;
     searchNode: JSX.Element | null;
     alertDom: JSX.Element | null;
     isLightFilter: boolean;
@@ -89,6 +92,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     defaultSize,
     tableStyle,
     toolbarDom,
+    hideToolbar,
     searchNode,
     style,
     cardProps: propsCardProps,
@@ -334,6 +338,12 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     if (propsCardProps === false || notNeedCardDom === true || !!props.name)
       return {};
 
+    if (hideToolbar) {
+      return {
+        padding: 0,
+      };
+    }
+
     if (toolbarDom) {
       return {
         paddingBlockStart: 0,
@@ -348,7 +358,14 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     return {
       padding: 0,
     };
-  }, [notNeedCardDom, pagination, props.name, propsCardProps, toolbarDom]);
+  }, [
+    notNeedCardDom,
+    pagination,
+    props.name,
+    propsCardProps,
+    toolbarDom,
+    hideToolbar,
+  ]);
 
   /** Table 区域的 dom，为了方便 render */
   const tableAreaDom =
@@ -669,8 +686,9 @@ const ProTable = <
     // request 存在且params不为空，且已经请求过数据才需要设置。
     if (
       props.request &&
-      params &&
+      !isEmpty(params) &&
       action.dataSource &&
+      !isEqual(action.dataSource, defaultData) &&
       action?.pageInfo?.current !== 1
     ) {
       action.setPageInfo({
@@ -909,18 +927,22 @@ const ProTable = <
     [action.dataSource, selectedRowKeys],
   ) as T[];
 
+  const hideToolbar = useMemo(
+    () =>
+      options === false &&
+      !headerTitle &&
+      !toolBarRender &&
+      !toolbar &&
+      !isLightFilter,
+    [options, headerTitle, toolBarRender, toolbar, isLightFilter],
+  );
+
   /** 内置的工具栏 */
   const toolbarDom =
     toolBarRender === false ? null : (
       <Toolbar<T>
         headerTitle={headerTitle}
-        hideToolbar={
-          options === false &&
-          !headerTitle &&
-          !toolBarRender &&
-          !toolbar &&
-          !isLightFilter
-        }
+        hideToolbar={hideToolbar}
         selectedRows={selectedRows}
         selectedRowKeys={selectedRowKeys!}
         tableColumn={tableColumn}
@@ -968,6 +990,7 @@ const ProTable = <
       action={action}
       alertDom={alertDom}
       toolbarDom={toolbarDom}
+      hideToolbar={hideToolbar}
       onSortChange={(sortConfig) => {
         if (proSort === sortConfig) return;
         setProSort(sortConfig ?? {});

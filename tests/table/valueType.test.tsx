@@ -1,7 +1,8 @@
 import { ProProvider } from '@ant-design/pro-provider';
 import ProTable from '@ant-design/pro-table';
-import { act, cleanup, fireEvent, render } from '@testing-library/react';
+import { cleanup, fireEvent, render } from '@testing-library/react';
 import { Input } from 'antd';
+import { act } from 'react';
 import { waitForWaitTime } from '../util';
 
 const cascaderOptions = [

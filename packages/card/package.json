@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-card",
-  "version": "2.8.6",
+  "version": "2.9.3",
   "description": "@ant-design/pro-card",
   "keywords": [
     "antd",
@@ -12,7 +12,7 @@
   "bugs": "http://github.com/umijs/plugins/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ant-design/pro-components"
+    "url": "git+https://github.com/ant-design/pro-components.git"
   },
   "license": "MIT",
   "sideEffects": false,
@@ -34,9 +34,10 @@
     "ie >= 11"
   ],
   "dependencies": {
+    "@ant-design/cssinjs": "^1.21.1",
     "@ant-design/icons": "^5.0.0",
-    "@ant-design/pro-provider": "2.14.9",
-    "@ant-design/pro-utils": "2.15.16",
+    "@ant-design/pro-provider": "2.15.3",
+    "@ant-design/pro-utils": "2.16.3",
     "@babel/runtime": "^7.18.0",
     "classnames": "^2.3.2",
     "omit.js": "^2.0.2",

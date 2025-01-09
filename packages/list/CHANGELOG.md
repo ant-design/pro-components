@@ -1,15 +1,52 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.6.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.6.2...@ant-design/pro-list@2.6.3) (2025-01-06)
+
+### Bug Fixes
+
+- **locale:** add missing newline at end of file for sv_SE, nl_NL, and ro_RO locales ([d0f573f](https://github.com/ant-design/pro-components/commit/d0f573f325db4e863db1fbf70afc25ccf3dde7a7))
+
+## [2.6.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.6.1...@ant-design/pro-list@2.6.2) (2024-11-14)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [2.6.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.6.0...@ant-design/pro-list@2.6.1) (2024-10-22)
+
+### Bug Fixes
+
+- **package:** 更新 repository URL 格式为 git+ssh 以确保一致性 ([8882d51](https://github.com/ant-design/pro-components/commit/8882d5164d8b14f8971bf9f34a339d282ac766ba))
+
+# [2.6.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.5.69...@ant-design/pro-list@2.6.0) (2024-10-17)
+
+### Features
+
+- added exports to support ESM environments such as vitest ([#8738](https://github.com/ant-design/pro-components/issues/8738)) ([71c4be9](https://github.com/ant-design/pro-components/commit/71c4be9c9ca5942154e0473e62be608d784d53fc))
+
+## [2.5.69](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.5.68...@ant-design/pro-list@2.5.69) (2024-09-12)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [2.5.68](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.5.67...@ant-design/pro-list@2.5.68) (2024-09-12)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [2.5.67](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.5.66...@ant-design/pro-list@2.5.67) (2024-09-05)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [2.5.66](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.5.65...@ant-design/pro-list@2.5.66) (2024-08-05)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [2.5.65](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.5.64...@ant-design/pro-list@2.5.65) (2024-07-18)
+
+**Note:** Version bump only for package @ant-design/pro-list
 
 ## [2.5.64](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.5.63...@ant-design/pro-list@2.5.64) (2024-07-16)
 
 **Note:** Version bump only for package @ant-design/pro-list
-
-
-
-
 
 ## [2.5.63](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.5.62...@ant-design/pro-list@2.5.63) (2024-07-15)
 
