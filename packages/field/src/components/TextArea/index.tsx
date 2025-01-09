@@ -1,6 +1,6 @@
 import { useIntl } from '@ant-design/pro-provider';
 import { Input } from 'antd';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import React from 'react';
 import type { ProFieldFC } from '../../index';
 import FieldTextAreaReadonly from './readonly';

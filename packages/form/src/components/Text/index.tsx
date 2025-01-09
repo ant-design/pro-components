@@ -1,7 +1,7 @@
 import { useMountMergeState } from '@ant-design/pro-utils';
 import { Form, Popover, PopoverProps, type InputProps } from 'antd';
 import type { InputRef, PasswordProps } from 'antd/lib/input';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import React, { useState } from 'react';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProField from '../Field';

@@ -3,7 +3,7 @@ import type { GenerateStyle } from '@ant-design/pro-provider';
 import { isBrowser } from '@ant-design/pro-utils';
 import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import type { ReactNode } from 'react';
 import React, { useContext, useEffect, useMemo } from 'react';
 import { createPortal } from 'react-dom';

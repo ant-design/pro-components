@@ -1,5 +1,5 @@
 import { Segmented, Spin } from 'antd';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import React, { useImperativeHandle, useRef } from 'react';
 import type { ProFieldFC } from '../../index';
 import type { FieldSelectProps } from '../Select';
