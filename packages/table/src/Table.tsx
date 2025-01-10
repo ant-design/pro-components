@@ -213,9 +213,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     rowSelection: rowSelection === false ? undefined : rowSelection,
     className: tableClassName,
     style: tableStyle,
-    columns: columns.map((item) =>
-      item.isExtraColumns ? item.extraColumn : item,
-    ),
+    columns,
     loading: action.loading,
     dataSource: editableUtils.newLineRecord
       ? editableDataSource(action.dataSource)
