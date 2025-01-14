@@ -121,7 +121,7 @@
     "inquirer": "^8.2.6",
     "jest-canvas-mock": "^2.5.2",
     "jest-fetch-mock": "^3.0.3",
-    "jsdom": "^25.0.1",
+    "jsdom": "^26.0.0",
     "lerna": "^3.22.1",
     "lint-staged": "^10.5.4",
     "lodash": "^4.17.21",
