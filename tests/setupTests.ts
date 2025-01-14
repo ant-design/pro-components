@@ -5,15 +5,8 @@ import MockDate from 'mockdate';
 import React from 'react';
 import { vi } from 'vitest';
 import tableData from './table/mock.data.json';
-
 import { defaultConfig } from 'antd/lib/theme/internal';
 
-import jsdom from 'jsdom';
-
-const { JSDOM } = jsdom;
-const { window } = new JSDOM();
-const { document } = new JSDOM('').window;
-global.document = document;
 defaultConfig.hashed = false;
 globalThis.React = React;
 
