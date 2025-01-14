@@ -1709,7 +1709,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                   />
                   <div
                     class="ant-pro-layout-watermark"
-                    style="z-index: 9; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-size: 332px; pointer-events: none; background-repeat: repeat; background-image: url(data:image/png;base64,00);"
+                    style="z-index: 9; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-size: 332px; pointer-events: none; background-repeat: repeat;"
                   />
                 </div>
               </div>
@@ -3657,7 +3657,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
       </div>
       <div
         class="ant-pro-layout-watermark"
-        style="z-index: 9; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-size: 332px; pointer-events: none; background-repeat: repeat; background-image: url(data:image/png;base64,00);"
+        style="z-index: 9; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-size: 332px; pointer-events: none; background-repeat: repeat;"
       />
     </div>
   </div>
@@ -3718,7 +3718,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
       />
       <div
         class="ant-pro-layout-watermark"
-        style="z-index: 9; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-size: 332px; pointer-events: none; background-repeat: repeat; background-image: url(data:image/png;base64,00);"
+        style="z-index: 9; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-size: 332px; pointer-events: none; background-repeat: repeat;"
       />
     </div>
   </div>
@@ -3742,7 +3742,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
       />
       <div
         class="ant-pro-layout-watermark"
-        style="z-index: 9; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-size: 332px; pointer-events: none; background-repeat: repeat; background-image: url(data:image/png;base64,00);"
+        style="z-index: 9; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-size: 332px; pointer-events: none; background-repeat: repeat;"
       />
     </div>
   </div>
@@ -15526,7 +15526,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamic-setting
                       </div>
                       <div
                         class="ant-pro-layout-watermark"
-                        style="z-index: 9; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-size: 332px; pointer-events: none; background-repeat: repeat; background-image: url(data:image/png;base64,00);"
+                        style="z-index: 9; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-size: 332px; pointer-events: none; background-repeat: repeat;"
                       />
                     </div>
                   </div>
@@ -19917,7 +19917,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/menu-group.tsx 
                       </div>
                       <div
                         class="ant-pro-layout-watermark"
-                        style="z-index: 9; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-size: 332px; pointer-events: none; background-repeat: repeat; background-image: url(data:image/png;base64,00);"
+                        style="z-index: 9; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-size: 332px; pointer-events: none; background-repeat: repeat;"
                       />
                     </div>
                   </div>

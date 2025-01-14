@@ -2061,7 +2061,7 @@ describe('EditorProTable 2', () => {
     });
   });
 
-  it.skip('📝 support form rules', async () => {
+  it('📝 support form rules', async () => {
     const fn = vi.fn();
     const wrapper = render(
       <EditorProTableDemo onSave={(key, row) => fn(row.title)} />,
