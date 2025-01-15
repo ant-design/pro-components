@@ -94,7 +94,7 @@
     "@umijs/utils": "^4.4.4",
     "@vitest/coverage-istanbul": "^2.1.8",
     "animated-scroll-to": "^2.3.0",
-    "antd": "^5.23.0",
+    "antd": "^5.23.1",
     "antd-style": "^3.7.1",
     "babel-loader": "^9.2.1",
     "babel-types": "^6.26.0",
@@ -121,7 +121,7 @@
     "inquirer": "^8.2.6",
     "jest-canvas-mock": "^2.5.2",
     "jest-fetch-mock": "^3.0.3",
-    "jsdom": "^25.0.1",
+    "jsdom": "^26.0.0",
     "lerna": "^3.22.1",
     "lint-staged": "^10.5.4",
     "lodash": "^4.17.21",
@@ -176,8 +176,5 @@
     "commit-msg": "fabric verify-commit"
   },
   "packageManager": "pnpm@9.6.0",
-  "version": "",
-  "dependencies": {
-    "nwsapi": "2.2.13"
-  }
+  "version": ""
 }

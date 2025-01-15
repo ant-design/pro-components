@@ -1946,6 +1946,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                     >
                       <div
                         class="ant-input-number ant-input-number-outlined ant-input-number-compact-item ant-input-number-compact-first-item"
+                        style="width: calc((100% - 30px) / 2);"
                       >
                         <div
                           class="ant-input-number-handler-wrap"
@@ -2029,7 +2030,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                       />
                       <div
                         class="ant-input-number ant-input-number-outlined ant-input-number-compact-item ant-input-number-compact-last-item"
-                        style="border-inline-start: 0;"
+                        style="width: calc((100% - 30px) / 2); border-inline-start: 0;"
                       >
                         <div
                           class="ant-input-number-handler-wrap"

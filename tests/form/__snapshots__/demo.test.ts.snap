@@ -3277,6 +3277,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                           >
                             <div
                               class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-compact-item ant-input-number-compact-first-item"
+                              style="width: calc((100% - 60px) / 2);"
                             >
                               <div
                                 class="ant-input-number-handler-wrap"
@@ -3361,7 +3362,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                             />
                             <div
                               class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-compact-item ant-input-number-compact-last-item"
-                              style="border-inline-start: 0;"
+                              style="width: calc((100% - 60px) / 2); border-inline-start: 0;"
                             >
                               <div
                                 class="ant-input-number-handler-wrap"
