@@ -60,7 +60,7 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
   }, [value.collapsed, value.hasSiderMenu, value.isMobile, value.siderWidth]);
 
   const containerDom = useMemo(() => {
-    if (typeof window === undefined || typeof document === undefined)
+    if (typeof window === 'undefined' || typeof document === 'undefined')
       return null;
     // 只读取一次就行了，不然总是的渲染
     return getTargetContainer?.() || document.body;

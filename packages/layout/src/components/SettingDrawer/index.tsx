@@ -218,7 +218,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     onSettingChange,
     enableDarkTheme,
     prefixCls = 'ant-pro',
-    pathname = window.location.pathname,
+    pathname = isBrowser() ? window.location.pathname : '',
     disableUrlParams = true,
     themeOnly,
     drawerProps,
