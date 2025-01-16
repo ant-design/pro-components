@@ -5,7 +5,6 @@ import MockDate from 'mockdate';
 import React from 'react';
 import { vi } from 'vitest';
 import tableData from './table/mock.data.json';
-
 import { defaultConfig } from 'antd/lib/theme/internal';
 
 defaultConfig.hashed = false;

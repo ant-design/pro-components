@@ -17,7 +17,7 @@ import { ConfigProvider, Layout } from 'antd';
 import type { AnyObject } from 'antd/es/_util/type';
 import type { ItemType } from 'antd/es/breadcrumb/Breadcrumb';
 import classNames from 'classnames';
-import Omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import warning from 'rc-util/lib/warning';
 import type { CSSProperties } from 'react';
@@ -600,7 +600,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   );
 
   // Splicing parameters, adding menuData and formatMessage in props
-  const defaultProps = Omit(
+  const defaultProps = omit(
     {
       prefixCls,
       ...props,

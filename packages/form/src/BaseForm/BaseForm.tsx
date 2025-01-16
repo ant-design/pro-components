@@ -27,7 +27,7 @@ import { ConfigProvider, Form, Spin } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
 import classNames from 'classnames';
 import type dayjs from 'dayjs';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import get from 'rc-util/lib/utils/get';
 import { default as namePathSet, default as set } from 'rc-util/lib/utils/set';
 import { noteOnce } from 'rc-util/lib/warning';

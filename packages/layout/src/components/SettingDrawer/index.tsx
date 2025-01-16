@@ -23,7 +23,7 @@ import {
   message,
   version,
 } from 'antd';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useEffect, useRef, useState } from 'react';
 import type { ProSettings } from '../../defaultSettings';
@@ -218,7 +218,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     onSettingChange,
     enableDarkTheme,
     prefixCls = 'ant-pro',
-    pathname = window.location.pathname,
+    pathname = isBrowser() ? window.location.pathname : '',
     disableUrlParams = true,
     themeOnly,
     drawerProps,

@@ -1,7 +1,7 @@
 import { proTheme, useIntl } from '@ant-design/pro-provider';
 import type { ButtonProps } from 'antd';
 import { Button, Form } from 'antd';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import React from 'react';
 
 /** @name 用于配置操作栏 */
@@ -25,15 +25,15 @@ export type SubmitterProps<T = Record<string, any>> = {
   resetButtonProps?: false | (ButtonProps & { preventDefault?: boolean });
   /** @name 自定义操作的渲染 */
   render?:
-    | ((
-        props: SubmitterProps &
-          T & {
-            submit: () => void;
-            reset: () => void;
-          },
-        dom: JSX.Element[],
-      ) => React.ReactNode[] | React.ReactNode | false)
-    | false;
+  | ((
+    props: SubmitterProps &
+      T & {
+        submit: () => void;
+        reset: () => void;
+      },
+    dom: JSX.Element[],
+  ) => React.ReactNode[] | React.ReactNode | false)
+  | false;
 };
 
 /**
@@ -80,7 +80,7 @@ const Submitter: React.FC<SubmitterProps> = (props) => {
   if (resetButtonProps !== false) {
     dom.push(
       <Button
-        {...omit(resetButtonProps, ['preventDefault'] as any)}
+        {...omit(resetButtonProps ?? {}, ['preventDefault'] as any)}
         key="rest"
         onClick={(e) => {
           if (!resetButtonProps?.preventDefault) reset();

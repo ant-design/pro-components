@@ -10,7 +10,7 @@
 import type { FormItemProps } from 'antd';
 import { ConfigProvider, Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import React, { useContext, useEffect, useMemo } from 'react';
 import type { LightWrapperProps } from '../../BaseForm';
 import { LightWrapper } from '../../BaseForm';
