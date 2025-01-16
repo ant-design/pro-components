@@ -23,7 +23,7 @@ import {
   message,
   version,
 } from 'antd';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useEffect, useRef, useState } from 'react';
 import type { ProSettings } from '../../defaultSettings';

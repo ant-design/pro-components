@@ -1,5 +1,5 @@
 import { omitUndefined } from '@ant-design/pro-utils';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import React from 'react';
 import ProFormDependency from '../../Dependency';
 import type { ProFormFieldProps } from '../../Field';

@@ -1,7 +1,7 @@
 import { useIntl } from '@ant-design/pro-provider';
 import type { SwitchProps } from 'antd';
 import { Switch } from 'antd';
-import Omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import React, { useMemo } from 'react';
 import type { ProFieldFC } from '../../index';
 
@@ -40,7 +40,7 @@ const FieldSwitch: ProFieldFC<{ text: boolean; fieldProps?: SwitchProps }> = (
       <Switch
         ref={ref}
         size={light ? 'small' : undefined}
-        {...Omit(fieldProps, ['value'])}
+        {...omit(fieldProps, ['value'])}
         checked={fieldProps?.checked ?? fieldProps?.value}
       />
     );

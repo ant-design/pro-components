@@ -4,7 +4,7 @@ import { ConfigProvider, Tabs } from 'antd';
 
 import useBreakpoint from 'antd/es/grid/hooks/useBreakpoint';
 import classNames from 'classnames';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useContext } from 'react';
 import type { Breakpoint, CardProps, Gutter } from '../../typing';

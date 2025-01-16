@@ -1,7 +1,7 @@
 ﻿import { openVisibleCompatible } from '@ant-design/pro-utils';
 import type { FormProps, ModalProps } from 'antd';
 import { ConfigProvider, Modal } from 'antd';
-import merge from 'lodash-es/merge';
+import { merge } from 'rc-util/lib/utils/set';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { noteOnce } from 'rc-util/lib/warning';
 import React, {
@@ -179,7 +179,7 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
           },
         },
       } as SubmitterProps,
-      rest.submitter,
+      rest.submitter ?? {},
     );
   }, [
     context.locale?.Modal?.cancelText,

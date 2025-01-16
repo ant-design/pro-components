@@ -2,7 +2,7 @@
 import { ProProvider, useIntl } from '@ant-design/pro-provider';
 import { nanoid, runFunction } from '@ant-design/pro-utils';
 import { Button } from 'antd';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import type { CSSProperties } from 'react';
 import { useContext, useMemo, useRef, useState } from 'react';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';

@@ -4,7 +4,7 @@ import { ConfigProvider, Skeleton } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
 import { ProConfigProvider, proTheme } from '@ant-design/pro-provider';
 import classNames from 'classnames';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import React, {
   createContext,
   useCallback,
