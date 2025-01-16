@@ -62,6 +62,20 @@ export type ColumnRenderInterface<T> = {
 
 export type TableRowSelection = TableProps<any>['rowSelection'];
 
+/** Configuration for column statistics feature */
+export interface StatisticsConfig {
+  /** Enable average calculation */
+  average?: boolean;
+  /** Enable median calculation */
+  median?: boolean;
+  /** Enable mode calculation */
+  mode?: boolean;
+  /** Enable distribution visualization */
+  distribution?: boolean;
+  /** Chart type for distribution visualization */
+  chartType?: 'bar' | 'pie' | 'line';
+}
+
 export type ExtraProColumnType<T> = Omit<
   ColumnType<T>,
   'render' | 'children' | 'title' | 'filters' | 'onFilter' | 'sorter'
@@ -75,6 +89,8 @@ export type ExtraProColumnType<T> = Omit<
         /** Config multiple sorter order priority */
         multiple?: number;
       };
+  /** Column statistics configuration */
+  statistics?: boolean | StatisticsConfig;
 };
 
 export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<

@@ -6,6 +6,8 @@ import type {
   UseEditableUtilType,
 } from '@ant-design/pro-utils';
 import { genCopyable, isNil, LabelIconTip } from '@ant-design/pro-utils';
+import { Modal, Tooltip } from 'antd';
+import { BarChartOutlined } from '@ant-design/icons';
 import get from 'rc-util/lib/utils/get';
 import React from 'react';
 import { isMergeCell } from '.';
@@ -31,13 +33,44 @@ type ColumnRenderInterface<T> = {
  *
  * @param item
  */
+const openStatisticsModal = (column: ProColumns<any>) => {
+  Modal.info({
+    title: `Statistics for ${column.title || column.dataIndex}`,
+    content: (
+      <div style={{ minHeight: 300 }}>
+        {/* TODO: Implement statistics chart component in next step */}
+        <p>Statistical analysis for column: {column.dataIndex}</p>
+        <p>Configuration: {JSON.stringify(column.statistics)}</p>
+      </div>
+    ),
+    width: 600,
+  });
+};
+
 export const renderColumnsTitle = (item: ProColumns<any>) => {
-  const { title } = item;
+  const { title, statistics } = item;
   const ellipsis = typeof item?.ellipsis === 'boolean' ? item?.ellipsis : item?.ellipsis?.showTitle;
+  
+  const handleStatisticsClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    openStatisticsModal(item);
+  };
   if (title && typeof title === 'function') {
     return title(item, 'table', <LabelIconTip label={null} tooltip={item.tooltip || item.tip} />);
   }
-  return <LabelIconTip label={title} tooltip={item.tooltip || item.tip} ellipsis={ellipsis} />;
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+      <LabelIconTip label={title} tooltip={item.tooltip || item.tip} ellipsis={ellipsis} />
+      {statistics && !item.render && item.dataIndex && (
+        <Tooltip title="Show column statistics">
+          <BarChartOutlined
+            style={{ cursor: 'pointer' }}
+            onClick={handleStatisticsClick}
+          />
+        </Tooltip>
+      )}
+    </div>
+  );
 };
 
 /** 判断可不可编辑 */
