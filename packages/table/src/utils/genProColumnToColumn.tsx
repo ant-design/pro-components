@@ -23,8 +23,6 @@ import { genColumnKey } from './index';
 
 type ColumnToColumnReturnType<T> = (TableColumnType<T> & {
   index?: number;
-  isExtraColumns?: boolean;
-  extraColumn?: typeof Table.EXPAND_COLUMN | typeof Table.SELECTION_COLUMN;
 })[];
 
 type ColumnToColumnParams<T> = {
@@ -82,25 +80,6 @@ export function genProColumnToColumn<T extends AnyObject>(
         return {
           index: columnsIndex,
           ...columnProps,
-        };
-      }
-
-      /**
-       * 是不是展开行和多选按钮
-       */
-      const isExtraColumns =
-        columnProps === Table.EXPAND_COLUMN ||
-        columnProps === Table.SELECTION_COLUMN;
-
-      if (isExtraColumns) {
-        return {
-          index: columnsIndex,
-          isExtraColumns: true,
-          hideInSearch: true,
-          hideInTable: false,
-          hideInForm: true,
-          hideInSetting: true,
-          extraColumn: columnProps,
         };
       }
       const config = counter.columnsMap[columnKey] || {
@@ -184,9 +163,5 @@ export function genProColumnToColumn<T extends AnyObject>(
       };
       return omitUndefinedAndEmptyArr(tempColumns);
     })
-    ?.filter((item) => !item.hideInTable) as unknown as (TableColumnType<T> & {
-    index?: number;
-    isExtraColumns?: boolean;
-    extraColumn?: typeof Table.EXPAND_COLUMN | typeof Table.SELECTION_COLUMN;
-  })[];
+    ?.filter((item) => !item.hideInTable) as unknown as ColumnToColumnReturnType<T>;
 }
