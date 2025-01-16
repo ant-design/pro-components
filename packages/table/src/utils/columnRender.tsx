@@ -6,7 +6,7 @@ import type {
   UseEditableUtilType,
 } from '@ant-design/pro-utils';
 import { genCopyable, isNil, LabelIconTip } from '@ant-design/pro-utils';
-import { Modal, Tooltip } from 'antd';
+import { Modal, Tooltip, Progress } from 'antd';
 import { BarChartOutlined } from '@ant-design/icons';
 import get from 'rc-util/lib/utils/get';
 import React from 'react';
@@ -33,27 +33,103 @@ type ColumnRenderInterface<T> = {
  *
  * @param item
  */
-const openStatisticsModal = (column: ProColumns<any>) => {
+const openStatisticsModal = (column: ProColumns<any>, counter: ReturnType<ContainerType>) => {
+  if (!counter?.dataSource?.length) return;
+
   Modal.info({
     title: `Statistics for ${column.title || column.dataIndex}`,
     content: (
-      <div style={{ minHeight: 300 }}>
-        {/* TODO: Implement statistics chart component in next step */}
-        <p>Statistical analysis for column: {column.dataIndex}</p>
-        <p>Configuration: {JSON.stringify(column.statistics)}</p>
+      <div style={{ padding: '16px 0' }}>
+        {(() => {
+          const values = counter.dataSource.map(row => row[column.dataIndex]);
+          const isNumeric = values.every(v => !isNaN(Number(v)));
+          
+          if (isNumeric) {
+            const numValues = values.map(Number);
+            const min = Math.min(...numValues);
+            const max = Math.max(...numValues);
+            const avg = numValues.reduce((a, b) => a + b, 0) / numValues.length;
+            
+            // Create 10 buckets for distribution
+            const buckets = Array(10).fill(0);
+            const bucketSize = (max - min) / 10;
+            
+            numValues.forEach(val => {
+              const bucketIndex = Math.min(Math.floor((val - min) / bucketSize), 9);
+              buckets[bucketIndex]++;
+            });
+            
+            const maxCount = Math.max(...buckets);
+            
+            return (
+              <>
+                <div style={{ marginBottom: 16 }}>
+                  <div>Average: {avg.toFixed(2)}</div>
+                  <div>Range: {min.toFixed(2)} - {max.toFixed(2)}</div>
+                </div>
+                <h4>Distribution</h4>
+                {buckets.map((count, i) => {
+                  const start = min + (i * bucketSize);
+                  const end = start + bucketSize;
+                  const percentage = (count / maxCount) * 100;
+                  return (
+                    <div key={i} style={{ marginBottom: 8 }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                        <span>{start.toFixed(1)} - {end.toFixed(1)}</span>
+                        <span>{count} ({((count/values.length)*100).toFixed(1)}%)</span>
+                      </div>
+                      <Progress percent={percentage} showInfo={false} />
+                    </div>
+                  );
+                })}
+              </>
+            );
+          } else {
+            // Categorical data
+            const frequencies: Record<string, number> = {};
+            values.forEach(val => {
+              frequencies[String(val)] = (frequencies[String(val)] || 0) + 1;
+            });
+            
+            const entries = Object.entries(frequencies);
+            const maxCount = Math.max(...entries.map(([_, count]) => count));
+            
+            return (
+              <>
+                <div style={{ marginBottom: 16 }}>
+                  <div>Total categories: {entries.length}</div>
+                  <div>Most common: {entries.sort(([,a], [,b]) => b - a)[0][0]}</div>
+                </div>
+                <h4>Distribution</h4>
+                {entries.map(([value, count]) => {
+                  const percentage = (count / maxCount) * 100;
+                  return (
+                    <div key={value} style={{ marginBottom: 8 }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                        <span>{value}</span>
+                        <span>{count} ({((count/values.length)*100).toFixed(1)}%)</span>
+                      </div>
+                      <Progress percent={percentage} showInfo={false} />
+                    </div>
+                  );
+                })}
+              </>
+            );
+          }
+        })()}
       </div>
     ),
     width: 600,
   });
 };
 
-export const renderColumnsTitle = (item: ProColumns<any>) => {
+export const renderColumnsTitle = (item: ProColumns<any>, counter?: ReturnType<ContainerType>) => {
   const { title, statistics } = item;
   const ellipsis = typeof item?.ellipsis === 'boolean' ? item?.ellipsis : item?.ellipsis?.showTitle;
   
   const handleStatisticsClick = (e: React.MouseEvent) => {
     e.stopPropagation();
-    openStatisticsModal(item);
+    openStatisticsModal(item, counter);
   };
   if (title && typeof title === 'function') {
     return title(item, 'table', <LabelIconTip label={null} tooltip={item.tooltip || item.tip} />);
