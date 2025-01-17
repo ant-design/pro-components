@@ -223,11 +223,14 @@ const columns: ProColumns<DataItem>[] = [
     title: 'Custom Column',
     dataIndex: 'score',
     width: 150,
-    render: (score) => (
-      <div style={{ color: score > 50 ? 'green' : 'red' }}>
-        {score > 50 ? 'High Score' : 'Low Score'}
-      </div>
-    ),
+    render: (score, record: DataItem) => {
+      const value = Number(score);
+      return (
+        <div style={{ color: value > 50 ? 'green' : 'red' }}>
+          {value > 50 ? 'High Score' : 'Low Score'}
+        </div>
+      );
+    },
     statistics: true, // This won't show statistics icon due to custom render
   },
 ];
