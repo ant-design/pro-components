@@ -33,7 +33,7 @@ type ColumnRenderInterface<T> = {
  *
  * @param item
  */
-const openStatisticsModal = (column: ProColumns<any>, counter: ReturnType<ContainerType>) => {
+const openStatisticsModal = (column: ProColumns<any>, counter: ReturnType<ContainerType> & { dataSource?: any[] }) => {
   if (!counter?.dataSource?.length) return;
 
   Modal.info({
@@ -41,20 +41,20 @@ const openStatisticsModal = (column: ProColumns<any>, counter: ReturnType<Contai
     content: (
       <div style={{ padding: '16px 0' }}>
         {(() => {
-          const values = counter.dataSource.map(row => row[column.dataIndex]);
-          const isNumeric = values.every(v => !isNaN(Number(v)));
+          const values = counter.dataSource.map((row: any) => row[column.dataIndex as string]);
+          const isNumeric = values.every((v: any) => !isNaN(Number(v)));
           
           if (isNumeric) {
             const numValues = values.map(Number);
             const min = Math.min(...numValues);
             const max = Math.max(...numValues);
-            const avg = numValues.reduce((a, b) => a + b, 0) / numValues.length;
+            const avg = numValues.reduce((a: number, b: number) => a + b, 0) / numValues.length;
             
             // Create 10 buckets for distribution
             const buckets = Array(10).fill(0);
             const bucketSize = (max - min) / 10;
             
-            numValues.forEach(val => {
+            numValues.forEach((val: number) => {
               const bucketIndex = Math.min(Math.floor((val - min) / bucketSize), 9);
               buckets[bucketIndex]++;
             });
@@ -87,7 +87,7 @@ const openStatisticsModal = (column: ProColumns<any>, counter: ReturnType<Contai
           } else {
             // Categorical data
             const frequencies: Record<string, number> = {};
-            values.forEach(val => {
+            values.forEach((val: any) => {
               frequencies[String(val)] = (frequencies[String(val)] || 0) + 1;
             });
             
@@ -123,13 +123,18 @@ const openStatisticsModal = (column: ProColumns<any>, counter: ReturnType<Contai
   });
 };
 
-export const renderColumnsTitle = (item: ProColumns<any>, counter?: ReturnType<ContainerType>) => {
+export const renderColumnsTitle = (
+  item: ProColumns<any>,
+  counter?: ReturnType<ContainerType> & { dataSource?: any[] }
+) => {
   const { title, statistics } = item;
   const ellipsis = typeof item?.ellipsis === 'boolean' ? item?.ellipsis : item?.ellipsis?.showTitle;
   
   const handleStatisticsClick = (e: React.MouseEvent) => {
     e.stopPropagation();
-    openStatisticsModal(item, counter);
+    if (counter) {
+      openStatisticsModal(item, counter);
+    }
   };
   if (title && typeof title === 'function') {
     return title(item, 'table', <LabelIconTip label={null} tooltip={item.tooltip || item.tip} />);
