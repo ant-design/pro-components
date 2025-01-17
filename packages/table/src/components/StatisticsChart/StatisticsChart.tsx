@@ -62,7 +62,6 @@ const StatisticsChart: React.FC<StatisticsChartProps> = ({
   columnKey,
   columnTitle,
   data,
-  statsConfig,
 }) => {
   // Memoize statistics calculations to optimize performance
   const stats = useMemo(() => {

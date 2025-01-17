@@ -73,7 +73,7 @@ const openStatisticsModal = (column: ProColumns<any>, counter: ReturnType<Contai
                   const end = start + bucketSize;
                   const percentage = (count / maxCount) * 100;
                   return (
-                    <div key={i} style={{ marginBottom: 8 }}>
+                    <div key={`${start}-${end}`} style={{ marginBottom: 8 }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                         <span>{start.toFixed(1)} - {end.toFixed(1)}</span>
                         <span>{count} ({((count/values.length)*100).toFixed(1)}%)</span>
@@ -92,7 +92,7 @@ const openStatisticsModal = (column: ProColumns<any>, counter: ReturnType<Contai
             });
             
             const entries = Object.entries(frequencies);
-            const maxCount = Math.max(...entries.map(([_, count]) => count));
+            const maxCount = Math.max(...entries.map(([, count]) => count));
             
             return (
               <>
