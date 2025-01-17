@@ -30,7 +30,7 @@ type StatisticsResult = NumericStats | CategoricalStats;
 
 // Helper function to calculate statistics
 const calculateStatistics = (data: DataItem[], key: keyof DataItem): StatisticsResult => {
-  const values = data.map(item => item[key]);
+  const values = data.map((item) => item[key]);
   const isNumeric = typeof values[0] === 'number';
 
   if (isNumeric) {
@@ -44,7 +44,7 @@ const calculateStatistics = (data: DataItem[], key: keyof DataItem): StatisticsR
     // Create 5 buckets for distribution
     const bucketSize = (max - min) / 5;
     const buckets = Array(5).fill(0);
-    numValues.forEach(val => {
+    numValues.forEach((val) => {
       const bucketIndex = Math.min(Math.floor((val - min) / bucketSize), 4);
       buckets[bucketIndex]++;
     });
@@ -52,7 +52,7 @@ const calculateStatistics = (data: DataItem[], key: keyof DataItem): StatisticsR
     return { avg, median, min, max, buckets, bucketSize } as NumericStats;
   } else {
     const frequencies: Record<string, number> = {};
-    values.forEach(val => {
+    values.forEach((val) => {
       frequencies[String(val)] = (frequencies[String(val)] || 0) + 1;
     });
     return { frequencies } as CategoricalStats;
@@ -66,12 +66,14 @@ const demoData: DataItem[] = Array.from({ length: 100 }, (_, index) => ({
   age: Math.floor(Math.random() * 40) + 20, // Random age between 20-60
   status: ['active', 'inactive', 'pending'][Math.floor(Math.random() * 3)] as DataItem['status'],
   score: Math.round((Math.random() * 100 + Number.EPSILON) * 100) / 100, // Random score with 2 decimal places
-  joinDate: new Date(Date.now() - Math.floor(Math.random() * 365 * 24 * 60 * 60 * 1000)).toISOString().split('T')[0],
+  joinDate: new Date(Date.now() - Math.floor(Math.random() * 365 * 24 * 60 * 60 * 1000))
+    .toISOString()
+    .split('T')[0],
 }));
 
 const showStatistics = (data: DataItem[], columnKey: keyof DataItem, title: string) => {
   const stats = calculateStatistics(data, columnKey);
-  
+
   if ('avg' in stats) {
     const { avg, median, min, max, buckets, bucketSize } = stats as NumericStats;
     // Numeric data
@@ -83,17 +85,23 @@ const showStatistics = (data: DataItem[], columnKey: keyof DataItem, title: stri
           <div style={{ marginBottom: 16 }}>
             <p>Average: {avg.toFixed(2)}</p>
             <p>Median: {median.toFixed(2)}</p>
-            <p>Range: {min.toFixed(2)} - {max.toFixed(2)}</p>
+            <p>
+              Range: {min.toFixed(2)} - {max.toFixed(2)}
+            </p>
           </div>
           <h4>Distribution</h4>
           {buckets.map((count, i) => {
-            const start = min + (i * bucketSize);
+            const start = min + i * bucketSize;
             const end = start + bucketSize;
             return (
               <div key={i} style={{ marginBottom: 8 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <span>{start.toFixed(1)} - {end.toFixed(1)}</span>
-                  <span>{count} ({((count/data.length)*100).toFixed(1)}%)</span>
+                  <span>
+                    {start.toFixed(1)} - {end.toFixed(1)}
+                  </span>
+                  <span>
+                    {count} ({((count / data.length) * 100).toFixed(1)}%)
+                  </span>
                 </div>
                 <Progress percent={(count / Math.max(...buckets)) * 100} showInfo={false} />
               </div>
@@ -111,17 +119,21 @@ const showStatistics = (data: DataItem[], columnKey: keyof DataItem, title: stri
         <div style={{ padding: '20px 0' }}>
           <div style={{ marginBottom: 16 }}>
             <p>Total categories: {Object.keys(stats.frequencies).length}</p>
-            <p>Most common: {Object.entries(stats.frequencies).sort(([,a], [,b]) => b - a)[0][0]}</p>
+            <p>
+              Most common: {Object.entries(stats.frequencies).sort(([, a], [, b]) => b - a)[0][0]}
+            </p>
           </div>
           <h4>Distribution</h4>
           {Object.entries(stats.frequencies).map(([value, count]) => (
             <div key={value} style={{ marginBottom: 8 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <span>{value}</span>
-                <span>{count} ({((count/data.length)*100).toFixed(1)}%)</span>
+                <span>
+                  {count} ({((count / data.length) * 100).toFixed(1)}%)
+                </span>
               </div>
-              <Progress 
-                percent={(count / Math.max(...Object.values(stats.frequencies))) * 100} 
+              <Progress
+                percent={(count / Math.max(...Object.values(stats.frequencies))) * 100}
                 showInfo={false}
               />
             </div>
@@ -148,12 +160,12 @@ const columns: ProColumns<DataItem>[] = [
       <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
         Age
         <Tooltip title="Show statistics">
-          <BarChartOutlined 
-            style={{ cursor: 'pointer' }} 
+          <BarChartOutlined
+            style={{ cursor: 'pointer' }}
             onClick={(e) => {
               e.stopPropagation();
               showStatistics(demoData, 'age', 'Age');
-            }} 
+            }}
           />
         </Tooltip>
       </div>
@@ -172,12 +184,12 @@ const columns: ProColumns<DataItem>[] = [
       <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
         Status
         <Tooltip title="Show statistics">
-          <BarChartOutlined 
-            style={{ cursor: 'pointer' }} 
+          <BarChartOutlined
+            style={{ cursor: 'pointer' }}
             onClick={(e) => {
               e.stopPropagation();
               showStatistics(demoData, 'status', 'Status');
-            }} 
+            }}
           />
         </Tooltip>
       </div>
@@ -195,12 +207,12 @@ const columns: ProColumns<DataItem>[] = [
       <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
         Score
         <Tooltip title="Show statistics">
-          <BarChartOutlined 
-            style={{ cursor: 'pointer' }} 
+          <BarChartOutlined
+            style={{ cursor: 'pointer' }}
             onClick={(e) => {
               e.stopPropagation();
               showStatistics(demoData, 'score', 'Score');
-            }} 
+            }}
           />
         </Tooltip>
       </div>

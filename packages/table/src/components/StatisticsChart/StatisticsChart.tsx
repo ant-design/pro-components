@@ -16,9 +16,7 @@ export interface StatisticsChartProps {
  * Calculate numeric statistics for a dataset
  */
 const calculateNumericStats = (data: any[], key: string | number) => {
-  const values = data
-    .map(item => Number(item[key]))
-    .filter(val => !isNaN(val));
+  const values = data.map((item) => Number(item[key])).filter((val) => !isNaN(val));
 
   if (values.length === 0) return null;
 
@@ -28,9 +26,10 @@ const calculateNumericStats = (data: any[], key: string | number) => {
 
   return {
     average: values.reduce((sum, val) => sum + val, 0) / values.length,
-    median: sortedValues.length % 2 === 0
-      ? (sortedValues[midIndex - 1] + sortedValues[midIndex]) / 2
-      : sortedValues[midIndex],
+    median:
+      sortedValues.length % 2 === 0
+        ? (sortedValues[midIndex - 1] + sortedValues[midIndex]) / 2
+        : sortedValues[midIndex],
     min: Math.min(...values),
     max: Math.max(...values),
     count: values.length,
@@ -44,7 +43,7 @@ const calculateCategoricalStats = (data: any[], key: string | number) => {
   const frequencies: Record<string, number> = {};
   let totalCount = 0;
 
-  data.forEach(item => {
+  data.forEach((item) => {
     const value = String(item[key]);
     frequencies[value] = (frequencies[value] || 0) + 1;
     totalCount++;
@@ -53,23 +52,18 @@ const calculateCategoricalStats = (data: any[], key: string | number) => {
   return {
     frequencies,
     totalCount,
-    mode: Object.entries(frequencies)
-      .sort(([, a], [, b]) => b - a)[0]?.[0],
+    mode: Object.entries(frequencies).sort(([, a], [, b]) => b - a)[0]?.[0],
   };
 };
 
-const StatisticsChart: React.FC<StatisticsChartProps> = ({
-  columnKey,
-  columnTitle,
-  data,
-}) => {
+const StatisticsChart: React.FC<StatisticsChartProps> = ({ columnKey, columnTitle, data }) => {
   // Memoize statistics calculations to optimize performance
   const stats = useMemo(() => {
     // Sample first few values to determine if numeric
     const sampleSize = Math.min(10, data.length);
     const sample = data.slice(0, sampleSize);
-    const isNumeric = sample.every(item => 
-      !isNaN(Number(item[columnKey])) && item[columnKey] !== ''
+    const isNumeric = sample.every(
+      (item) => !isNaN(Number(item[columnKey])) && item[columnKey] !== '',
     );
 
     return isNumeric
@@ -84,13 +78,15 @@ const StatisticsChart: React.FC<StatisticsChartProps> = ({
   return (
     <div>
       <h3>{columnTitle || columnKey}</h3>
-      
+
       {'average' in stats ? (
         // Numeric statistics
         <div>
           <div>Average: {stats.average.toFixed(2)}</div>
           <div>Median: {stats.median.toFixed(2)}</div>
-          <div>Range: {stats.min.toFixed(2)} - {stats.max.toFixed(2)}</div>
+          <div>
+            Range: {stats.min.toFixed(2)} - {stats.max.toFixed(2)}
+          </div>
           <div>Sample size: {stats.count}</div>
           {/* TODO: Add chart visualization when @ant-design/charts is available */}
           <div style={{ height: 200, background: '#f0f0f0', margin: '16px 0' }}>

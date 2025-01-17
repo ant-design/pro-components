@@ -15,9 +15,9 @@ const columns: ProColumns<DataItem>[] = [
       average: true,
       median: true,
       distribution: true,
-      chartType: 'bar'
-    }
-  }
+      chartType: 'bar',
+    },
+  },
 ];
 ```
 
@@ -33,6 +33,7 @@ const columns: ProColumns<DataItem>[] = [
 ## Example Screenshots
 
 ### Table View
+
 ```
 +-------+--------+-------------+
 | Name  | Age ⚡ | Status ⚡   |
@@ -42,9 +43,11 @@ const columns: ProColumns<DataItem>[] = [
 | User3 | 28     | Pending     |
 +-------+--------+-------------+
 ```
+
 The ⚡ icon indicates statistics are available for the column.
 
 ### Numeric Statistics Modal
+
 ```
 +--------------------------------+
 | Statistics for Age             |
@@ -63,6 +66,7 @@ The ⚡ icon indicates statistics are available for the column.
 ```
 
 ### Categorical Statistics Modal
+
 ```
 +--------------------------------+
 | Statistics for Status          |
@@ -83,6 +87,7 @@ The ⚡ icon indicates statistics are available for the column.
 ## Configuration Options
 
 ### StatisticsConfig Interface
+
 ```typescript
 interface StatisticsConfig {
   /** Enable average calculation */
@@ -99,6 +104,7 @@ interface StatisticsConfig {
 ```
 
 ### Column Configuration
+
 ```typescript
 {
   title: string;
