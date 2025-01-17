@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Key } from 'react';
 import { ProTable } from '@ant-design/pro-components';
 import type { ProColumns } from '@ant-design/pro-components';
-import { Modal, Progress, Tooltip } from 'antd';
+import { Modal, Progress, Tooltip, Tag } from 'antd';
 import { BarChartOutlined } from '@ant-design/icons';
+import type { ProTableProps } from '@ant-design/pro-components';
 
 interface DataItem {
   id: number;
@@ -149,11 +150,16 @@ const columns: ProColumns<DataItem>[] = [
     title: 'ID',
     dataIndex: 'id',
     width: 48,
+    search: false,
+    hideInSearch: true,
   },
   {
     title: 'Name',
     dataIndex: 'name',
     width: 120,
+    search: {
+      transform: (value) => ({ name: value }),
+    },
   },
   {
     title: (
@@ -172,11 +178,26 @@ const columns: ProColumns<DataItem>[] = [
     ),
     dataIndex: 'age',
     width: 80,
+    valueType: 'digit',
+    sorter: (a, b) => a.age - b.age,
     statistics: {
       average: true,
       median: true,
       distribution: true,
       chartType: 'bar',
+    },
+    filters: [
+      { text: '20-30', value: '20-30' },
+      { text: '31-40', value: '31-40' },
+      { text: '41-50', value: '41-50' },
+      { text: '51-60', value: '51-60' },
+    ],
+    onFilter: (value: boolean | React.Key, record: DataItem) => {
+      if (typeof value === 'string') {
+        const [min, max] = value.split('-').map(Number);
+        return record.age >= min && record.age <= max;
+      }
+      return true;
     },
   },
   {
@@ -196,11 +217,28 @@ const columns: ProColumns<DataItem>[] = [
     ),
     dataIndex: 'status',
     width: 100,
+    valueType: 'select',
     statistics: {
       mode: true,
       distribution: true,
       chartType: 'pie',
     },
+    filters: [
+      { text: 'Active', value: 'active' },
+      { text: 'Inactive', value: 'inactive' },
+      { text: 'Pending', value: 'pending' },
+    ],
+    onFilter: (value: boolean | React.Key, record: DataItem) => record.status === value,
+    valueEnum: {
+      active: { text: 'Active', status: 'Success' },
+      inactive: { text: 'Inactive', status: 'Error' },
+      pending: { text: 'Pending', status: 'Processing' },
+    },
+    render: (_, record) => (
+      <Tag color={record.status === 'active' ? 'success' : record.status === 'inactive' ? 'error' : 'processing'}>
+        {record.status.charAt(0).toUpperCase() + record.status.slice(1)}
+      </Tag>
+    ),
   },
   {
     title: (
@@ -219,22 +257,44 @@ const columns: ProColumns<DataItem>[] = [
     ),
     dataIndex: 'score',
     width: 100,
+    valueType: 'digit',
+    sorter: (a, b) => a.score - b.score,
     statistics: {
       average: true,
       median: true,
       distribution: true,
       chartType: 'line',
     },
+    filters: [
+      { text: '0-25', value: '0-25' },
+      { text: '26-50', value: '26-50' },
+      { text: '51-75', value: '51-75' },
+      { text: '76-100', value: '76-100' },
+    ],
+    onFilter: (value: boolean | React.Key, record: DataItem) => {
+      if (typeof value === 'string') {
+        const [min, max] = value.split('-').map(Number);
+        return record.score >= min && record.score <= max;
+      }
+      return true;
+    },
   },
   {
     title: 'Join Date',
     dataIndex: 'joinDate',
     width: 120,
+    valueType: 'date',
+    sorter: (a, b) => new Date(a.joinDate).getTime() - new Date(b.joinDate).getTime(),
+    search: {
+      transform: (value) => ({ joinDate: value }),
+    },
   },
   {
     title: 'Custom Column',
     dataIndex: 'score',
     width: 150,
+    search: false,
+    hideInSearch: true,
     render: (score) => {
       const value = Number(score);
       return (
@@ -261,7 +321,22 @@ export default () => {
         }}
         dateFormatter="string"
         headerTitle="Interactive Demo"
-        toolBarRender={false}
+        search={{
+          filterType: 'query',
+          labelWidth: 'auto',
+        }}
+        options={{
+          search: true,
+          fullScreen: true,
+          reload: true,
+          setting: true,
+          density: true,
+        }}
+        toolBarRender={() => [
+          <div key="description" style={{ marginRight: 16 }}>
+            Click column headers to sort, use filters, or click statistics icons for analysis
+          </div>
+        ]}
       />
     </div>
   );
