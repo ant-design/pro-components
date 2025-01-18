@@ -182,18 +182,64 @@ const WarpFormItem: React.FC<
   help,
   ...props
 }) => {
-  const formDom = useMemo(() => {
-    let getValuePropsFunc: any = (value: any) => {
-      const newValue = convertValue?.(value, props.name!) ?? value;
-      if (props.getValueProps) return props.getValueProps(newValue);
-      return {
-        [valuePropName || 'value']: newValue,
+    const formDom = useMemo(() => {
+      let getValuePropsFunc: any = (value: any) => {
+        const newValue = convertValue?.(value, props.name!) ?? value;
+        if (props.getValueProps) return props.getValueProps(newValue);
+        return {
+          [valuePropName || 'value']: newValue,
+        };
       };
-    };
-    if (!convertValue && !props.getValueProps) {
-      getValuePropsFunc = undefined;
-    }
-    if (!addonAfter && !addonBefore) {
+      if (!convertValue && !props.getValueProps) {
+        getValuePropsFunc = undefined;
+      }
+
+      const prepareItemRender = (
+        inputProps: FormItemProps & {
+          errors: React.ReactNode[];
+          warnings: React.ReactNode[];
+        },
+        doms: {
+          input: JSX.Element;
+          errorList: JSX.Element;
+          extra: JSX.Element;
+        }) => {
+
+        const nextInput = (addonAfter || addonBefore)
+          ? (
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                flexWrap: 'wrap',
+                ...addonWarpStyle,
+              }}
+            >
+              {addonBefore ? (
+                <div style={{ marginInlineEnd: 8 }}>{addonBefore}</div>
+              ) : null}
+              {doms.input}
+              {addonAfter ? (
+                <div style={{ marginInlineStart: 8 }}>{addonAfter}</div>
+              ) : null}
+            </div>
+          )
+          : doms.input
+
+        const nextErrorList = typeof help === 'function'
+          ? help({
+            errors: inputProps.errors,
+            warnings: inputProps.warnings,
+          })
+          : doms.errorList
+
+        return {
+          ...doms,
+          input: nextInput,
+          errorList: nextErrorList
+        }
+      }
+
       return (
         <Form.Item
           {...props}
@@ -203,101 +249,37 @@ const WarpFormItem: React.FC<
           // @ts-ignore
           _internalItemRender={{
             mark: 'pro_table_render',
-            render: (
-              inputProps: FormItemProps & {
-                errors: React.ReactNode[];
-                warnings: React.ReactNode[];
-              },
-              doms: {
-                input: JSX.Element;
-                errorList: JSX.Element;
-                extra: JSX.Element;
-              },
-            ) => (
-              <>
-                {doms.input}
-                {typeof help === 'function'
-                  ? help({
-                      errors: inputProps.errors,
-                      warnings: inputProps.warnings,
-                    })
-                  : doms.errorList}
-                {doms.extra}
-              </>
-            ),
+            prepare: prepareItemRender,
+            // Legacy
+            render(...args: Parameters<typeof prepareItemRender>) {
+              const { input, errorList, extra } = prepareItemRender(...args);
+              return (
+                <>
+                  {input}
+                  {errorList}
+                  {extra}
+                </>
+              )
+            }
           }}
         >
           {children}
         </Form.Item>
       );
-    }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [addonAfter, addonBefore, children, convertValue?.toString(), props]);
 
     return (
-      <Form.Item
-        {...props}
-        help={typeof help !== 'function' ? help : undefined}
-        valuePropName={valuePropName}
-        // @ts-ignore
-        _internalItemRender={{
-          mark: 'pro_table_render',
-          render: (
-            inputProps: FormItemProps & {
-              errors: React.ReactNode[];
-              warnings: React.ReactNode[];
-            },
-            doms: {
-              input: JSX.Element;
-              errorList: JSX.Element;
-              extra: JSX.Element;
-            },
-          ) => (
-            <>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  flexWrap: 'wrap',
-                  ...addonWarpStyle,
-                }}
-              >
-                {addonBefore ? (
-                  <div style={{ marginInlineEnd: 8 }}>{addonBefore}</div>
-                ) : null}
-                {doms.input}
-                {addonAfter ? (
-                  <div style={{ marginInlineStart: 8 }}>{addonAfter}</div>
-                ) : null}
-              </div>
-              {typeof help === 'function'
-                ? help({
-                    errors: inputProps.errors,
-                    warnings: inputProps.warnings,
-                  })
-                : doms.errorList}
-              {doms.extra}
-            </>
-          ),
+      <FormItemProvide.Provider
+        value={{
+          name: props.name,
+          label: props.label,
         }}
-        {...props}
-        getValueProps={getValuePropsFunc}
       >
-        {children}
-      </Form.Item>
+        {formDom}
+      </FormItemProvide.Provider>
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [addonAfter, addonBefore, children, convertValue?.toString(), props]);
-
-  return (
-    <FormItemProvide.Provider
-      value={{
-        name: props.name,
-        label: props.label,
-      }}
-    >
-      {formDom}
-    </FormItemProvide.Provider>
-  );
-};
+  };
 
 export type ProFormItemProps = FormItemProps & {
   ignoreFormItem?: boolean;
