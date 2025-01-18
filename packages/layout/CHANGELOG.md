@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [7.22.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.22.0...@ant-design/pro-layout@7.22.1) (2025-01-18)
 
-
 ### Bug Fixes
 
-* FooterToolbar supports SSR ([#8969](https://github.com/ant-design/pro-components/issues/8969)) ([0ddf168](https://github.com/ant-design/pro-components/commit/0ddf168abc0883c5f9cd56c80096964cc8396a98))
-
-
-
-
+- FooterToolbar supports SSR ([#8969](https://github.com/ant-design/pro-components/issues/8969)) ([0ddf168](https://github.com/ant-design/pro-components/commit/0ddf168abc0883c5f9cd56c80096964cc8396a98))
 
 # [7.22.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.21.2...@ant-design/pro-layout@7.22.0) (2025-01-06)
 

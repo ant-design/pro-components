@@ -1,11 +1,11 @@
 ﻿/* eslint-disable react/no-is-mounted */
 import '@testing-library/jest-dom';
+import { defaultConfig } from 'antd/lib/theme/internal';
 import crypto from 'crypto';
 import MockDate from 'mockdate';
 import React from 'react';
 import { vi } from 'vitest';
 import tableData from './table/mock.data.json';
-import { defaultConfig } from 'antd/lib/theme/internal';
 
 defaultConfig.hashed = false;
 globalThis.React = React;

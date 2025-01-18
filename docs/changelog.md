@@ -1,3 +1,12 @@
+## @ant-design/pro-components@2.8.4
+
+`2025-01-18`
+
+- cleanup: replace omit.js & remove some duplicate util (#8965) (2 天前) <𝑾𝒖𝒙𝒉>
+- fix: remove Table deadCode (#8966) (2 天前) <chenliandong>
+- chore: try fix test (#8974) (4 天前) <𝑾𝒖𝒙𝒉>
+- fix: FooterToolbar supports SSR (#8969) (4 天前) <谭真>
+
 ## @ant-design/pro-components@2.8.3
 
 `2025-01-06`

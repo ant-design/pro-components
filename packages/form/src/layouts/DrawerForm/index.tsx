@@ -7,8 +7,8 @@
 import type { DrawerProps, FormProps } from 'antd';
 import { ConfigProvider, Drawer } from 'antd';
 import classNames from 'classnames';
-import { merge } from 'rc-util/lib/utils/set';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { merge } from 'rc-util/lib/utils/set';
 import { noteOnce } from 'rc-util/lib/warning';
 import React, {
   useCallback,
@@ -112,7 +112,7 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
   );
   const resizeInfo: CustomizeResizeType = React.useMemo(() => {
     const defaultResize: CustomizeResizeType = {
-      onResize: () => { },
+      onResize: () => {},
       maxWidth: isBrowser() ? window.innerWidth * 0.8 : undefined,
       minWidth: 300,
     };

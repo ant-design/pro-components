@@ -163,5 +163,7 @@ export function genProColumnToColumn<T extends AnyObject>(
       };
       return omitUndefinedAndEmptyArr(tempColumns);
     })
-    ?.filter((item) => !item.hideInTable) as unknown as ColumnToColumnReturnType<T>;
+    ?.filter(
+      (item) => !item.hideInTable,
+    ) as unknown as ColumnToColumnReturnType<T>;
 }

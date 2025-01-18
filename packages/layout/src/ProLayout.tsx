@@ -17,8 +17,8 @@ import { ConfigProvider, Layout } from 'antd';
 import type { AnyObject } from 'antd/es/_util/type';
 import type { ItemType } from 'antd/es/breadcrumb/Breadcrumb';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import omit from 'rc-util/lib/omit';
 import warning from 'rc-util/lib/warning';
 import type { CSSProperties } from 'react';
 import React, {

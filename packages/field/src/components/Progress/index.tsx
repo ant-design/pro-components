@@ -1,8 +1,8 @@
 import { useIntl } from '@ant-design/pro-provider';
 import { InputNumber, Progress } from 'antd';
-import { toNumber } from '../Percent/util';
 import React, { useMemo } from 'react';
 import type { ProFieldFC } from '../../index';
+import { toNumber } from '../Percent/util';
 
 // 兼容代码-----------
 import 'antd/lib/input-number/style';

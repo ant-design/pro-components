@@ -25,15 +25,15 @@ export type SubmitterProps<T = Record<string, any>> = {
   resetButtonProps?: false | (ButtonProps & { preventDefault?: boolean });
   /** @name 自定义操作的渲染 */
   render?:
-  | ((
-    props: SubmitterProps &
-      T & {
-        submit: () => void;
-        reset: () => void;
-      },
-    dom: JSX.Element[],
-  ) => React.ReactNode[] | React.ReactNode | false)
-  | false;
+    | ((
+        props: SubmitterProps &
+          T & {
+            submit: () => void;
+            reset: () => void;
+          },
+        dom: JSX.Element[],
+      ) => React.ReactNode[] | React.ReactNode | false)
+    | false;
 };
 
 /**
