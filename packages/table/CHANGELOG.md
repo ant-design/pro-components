@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [3.18.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.18.3...@ant-design/pro-table@3.18.4) (2025-01-18)
+
+
+### Bug Fixes
+
+* remove Table deadCode ([#8966](https://github.com/ant-design/pro-components/issues/8966)) ([5bfd5ca](https://github.com/ant-design/pro-components/commit/5bfd5cadd2f550d26b71a33ba1b66670d5cd7ec6))
+
+
+
+
 
 ## [3.18.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.18.2...@ant-design/pro-table@3.18.3) (2025-01-06)
 
