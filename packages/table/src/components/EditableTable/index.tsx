@@ -529,8 +529,6 @@ function FieldEditableTable<
       style={{
         maxWidth: '100%',
       }}
-      {...props?.formItemProps}
-      name={props.name}
       shouldUpdate={(prev, next) => {
         const name = [props.name].flat(1) as string[];
         try {
@@ -541,6 +539,8 @@ function FieldEditableTable<
           return true;
         }
       }}
+      {...props?.formItemProps}
+      name={props.name}
     >
       <EditableTable<DataType, Params, ValueType>
         tableLayout="fixed"
