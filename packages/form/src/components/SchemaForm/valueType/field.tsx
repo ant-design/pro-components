@@ -35,7 +35,8 @@ export const field: ProSchemaRenderValueTypeFunction<any, any> = (
   } as Omit<ProFormFieldProps, 'fieldProps' | 'formItemProps'>;
 
   const defaultRender = () => {
-    return <ProFormField {...formFieldProps} ignoreFormItem={true} />;
+    const { key, ...rest } = formFieldProps;
+    return <ProFormField key={key} {...rest} ignoreFormItem={true} />;
   };
 
   const renderFormItem = item?.renderFormItem
