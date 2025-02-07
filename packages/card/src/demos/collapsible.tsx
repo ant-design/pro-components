@@ -16,7 +16,7 @@ export default () => {
       }}
     >
       <ProCard
-        title="可折叠"
+        title="Collapsible"
         headerBordered
         collapsible
         defaultCollapsed
@@ -28,14 +28,14 @@ export default () => {
               e.stopPropagation();
             }}
           >
-            提交
+            Submit
           </Button>
         }
       >
-        内容
+        Content
       </ProCard>
       <ProCard
-        title="可折叠"
+        title="Collapsible"
         bordered
         headerBordered
         collapsible
@@ -48,16 +48,16 @@ export default () => {
               e.stopPropagation();
             }}
           >
-            提交
+            Submit
           </Button>
         }
       >
-        内容
+        Content
       </ProCard>
       <ProCard
         bordered
         size="small"
-        title="可折叠"
+        title="Collapsible"
         headerBordered
         collapsible
         defaultCollapsed
@@ -69,14 +69,14 @@ export default () => {
               e.stopPropagation();
             }}
           >
-            提交
+            Submit
           </Button>
         }
       >
-        内容
+        Content
       </ProCard>
       <ProCard
-        title="可折叠-受控自定义"
+        title="Collapsible - Controlled Custom"
         extra={
           <RightOutlined
             rotate={!collapsed ? 90 : undefined}
@@ -89,21 +89,21 @@ export default () => {
         headerBordered
         collapsed={collapsed}
       >
-        内容
+        Content
       </ProCard>
       <ProCard
-        title="可折叠-图标自定义"
+        title="Collapsible - Custom Icon"
         collapsibleIconRender={({
           collapsed: buildInCollapsed,
         }: {
           collapsed: boolean;
-        }) => (buildInCollapsed ? <span>收起 - </span> : <span>展开 - </span>)}
+        }) => (buildInCollapsed ? <span>Collapse - </span> : <span>Expand - </span>)}
         style={{ marginBlockStart: 16 }}
         headerBordered
         collapsible
         defaultCollapsed
       >
-        内容
+        Content
       </ProCard>
     </div>
   );

@@ -17,15 +17,15 @@ export default () => {
       <StatisticCard.Group direction={responsive ? 'column' : 'row'}>
         <StatisticCard
           statistic={{
-            title: '冻结金额',
+            title: 'Frozen Amount',
             value: 20190102,
             precision: 2,
-            suffix: '元',
+            suffix: 'Yuan',
           }}
           chart={
             <img
               src="https://gw.alipayobjects.com/zos/alicdn/RLeBTRNWv/bianzu%25252043x.png"
-              alt="直方图"
+              alt="Histogram"
               width="100%"
             />
           }
@@ -33,13 +33,13 @@ export default () => {
         <Divider type={responsive ? 'horizontal' : 'vertical'} />
         <StatisticCard
           statistic={{
-            title: '设计资源数',
+            title: 'Design Resources',
             value: 234,
           }}
           chart={
             <img
               src="https://gw.alipayobjects.com/zos/alicdn/RLeBTRNWv/bianzu%25252043x.png"
-              alt="直方图"
+              alt="Histogram"
               width="100%"
             />
           }
@@ -47,14 +47,14 @@ export default () => {
         <Divider type={responsive ? 'horizontal' : 'vertical'} />
         <StatisticCard
           statistic={{
-            title: '信息完成度',
+            title: 'Information Completeness',
             value: 5,
             suffix: '/ 100',
           }}
           chart={
             <img
               src="https://gw.alipayobjects.com/zos/alicdn/RLeBTRNWv/bianzu%25252043x.png"
-              alt="直方图"
+              alt="Histogram"
               width="100%"
             />
           }

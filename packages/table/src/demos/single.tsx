@@ -39,48 +39,48 @@ const columns: ProColumns<GithubIssueItem>[] = [
     width: 48,
   },
   {
-    title: '标题',
+    title: 'Title',
     dataIndex: 'title',
     copyable: true,
     ellipsis: true,
-    tooltip: '标题过长会自动收缩',
+    tooltip: 'The title will shrink automatically if it is too long',
     formItemProps: {
       rules: [
         {
           required: true,
-          message: '此项为必填项',
+          message: 'This field is required',
         },
       ],
     },
   },
   {
     disable: true,
-    title: '状态',
+    title: 'Status',
     dataIndex: 'state',
     filters: true,
     onFilter: true,
     ellipsis: true,
     valueType: 'select',
     valueEnum: {
-      all: { text: '超长'.repeat(50) },
+      all: { text: 'Very Long'.repeat(50) },
       open: {
-        text: '未解决',
+        text: 'Unresolved',
         status: 'Error',
       },
       closed: {
-        text: '已解决',
+        text: 'Resolved',
         status: 'Success',
         disabled: true,
       },
       processing: {
-        text: '解决中',
+        text: 'In Progress',
         status: 'Processing',
       },
     },
   },
   {
     disable: true,
-    title: '标签',
+    title: 'Labels',
     dataIndex: 'labels',
     search: false,
     renderFormItem: (_, { defaultRender }) => {
@@ -97,7 +97,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     ),
   },
   {
-    title: '创建时间',
+    title: 'Creation Time',
     key: 'showTime',
     dataIndex: 'created_at',
     valueType: 'date',
@@ -105,7 +105,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     hideInSearch: true,
   },
   {
-    title: '创建时间',
+    title: 'Creation Time',
     dataIndex: 'created_at',
     valueType: 'dateRange',
     hideInTable: true,
@@ -119,7 +119,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     },
   },
   {
-    title: '操作',
+    title: 'Actions',
     valueType: 'option',
     key: 'option',
     render: (text, record, _, action) => [
@@ -129,17 +129,17 @@ const columns: ProColumns<GithubIssueItem>[] = [
           action?.startEditable?.(record.id);
         }}
       >
-        编辑
+        Edit
       </a>,
       <a href={record.url} target="_blank" rel="noopener noreferrer" key="view">
-        查看
+        View
       </a>,
       <TableDropdown
         key="actionGroup"
         onSelect={() => action?.reload()}
         menus={[
-          { key: 'copy', name: '复制' },
-          { key: 'delete', name: '删除' },
+          { key: 'copy', name: 'Copy' },
+          { key: 'delete', name: 'Delete' },
         ]}
       />,
     ],
@@ -185,7 +185,7 @@ export default () => {
         },
       }}
       form={{
-        // 由于配置了 transform，提交的参数与定义的不同这里需要转化一下
+        // Since transform is configured, the submitted parameters are different from the defined ones, so they need to be transformed here
         syncToUrl: (values, type) => {
           if (type === 'get') {
             return {
@@ -201,7 +201,7 @@ export default () => {
         onChange: (page) => console.log(page),
       }}
       dateFormatter="string"
-      headerTitle="高级表格"
+      headerTitle="Advanced Table"
       toolBarRender={() => [
         <Button
           key="button"
@@ -211,7 +211,7 @@ export default () => {
           }}
           type="primary"
         >
-          新建
+          New
         </Button>,
         <Dropdown
           key="menu"
