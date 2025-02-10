@@ -106,7 +106,7 @@
     "dayjs": "^1.11.13",
     "dumi": "~2.4.17",
     "dumi-theme-antd-style": "~0.31.1",
-    "esbuild": "^0.15.18",
+    "esbuild": "^0.25.0",
     "eslint": "^8.57.1",
     "eslint-plugin-jest": "^27.9.0",
     "eslint-plugin-react": "^7.37.4",
