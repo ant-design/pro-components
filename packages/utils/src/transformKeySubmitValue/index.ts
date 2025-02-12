@@ -43,14 +43,17 @@ export const transformKeySubmitValue = <T extends object = any>(
   omit: boolean = true,
 ) => {
   // ignore nil transform
-  const dataFormatMap = Object.keys(dataFormatMapRaw).reduce((ret, key) => {
-    const value = dataFormatMapRaw[key];
-    if (!isNil(value)) {
-      // eslint-disable-next-line no-param-reassign
-      ret[key] = value! as SearchTransformKeyFn; // can't be undefined
-    }
-    return ret;
-  }, {} as Record<string, SearchTransformKeyFn>);
+  const dataFormatMap = Object.keys(dataFormatMapRaw).reduce(
+    (ret, key) => {
+      const value = dataFormatMapRaw[key];
+      if (!isNil(value)) {
+        // eslint-disable-next-line no-param-reassign
+        ret[key] = value! as SearchTransformKeyFn; // can't be undefined
+      }
+      return ret;
+    },
+    {} as Record<string, SearchTransformKeyFn>,
+  );
 
   if (Object.keys(dataFormatMap).length < 1) {
     return values;

@@ -93,7 +93,7 @@ function demoTest(component: string, options?: Options) {
         },
         removeListener: vi.fn(),
         matches: query === '(max-width: 575px)',
-      } as any),
+      }) as any,
   );
 
   describe(`${component} demos`, () => {

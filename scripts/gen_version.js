@@ -28,11 +28,11 @@ export const version = {
 }
 `;
 
-
-prettier.format(file_content, { parser: 'typescript' }).then((formattedCode) => {
-  writeFileSync(
-    join(packagesPath, 'components', '/src/version.ts'),
-    formattedCode,
-  );
-});
-
+prettier
+  .format(file_content, { parser: 'typescript' })
+  .then((formattedCode) => {
+    writeFileSync(
+      join(packagesPath, 'components', '/src/version.ts'),
+      formattedCode,
+    );
+  });

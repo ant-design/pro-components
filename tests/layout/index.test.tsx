@@ -34,7 +34,7 @@ describe('BasicLayout', () => {
           },
           removeListener: vi.fn(),
           matches: query === '(min-width: 768px)',
-        } as any),
+        }) as any,
     );
   });
   it('🥩 base use', async () => {

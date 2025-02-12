@@ -1,3 +1,9 @@
+## @ant-design/pro-components@2.8.5
+
+`2025-02-12`
+
+- 修复 layout 收起 menu 的文字还存在的问题。
+
 ## @ant-design/pro-components@2.8.3
 
 `2025-01-06`

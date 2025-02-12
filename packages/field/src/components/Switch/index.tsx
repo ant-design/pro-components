@@ -23,9 +23,9 @@ const FieldSwitch: ProFieldFC<{ text: boolean; fieldProps?: SwitchProps }> = (
   const dom = useMemo(() => {
     if (text === undefined || text === null || `${text}`.length < 1) return '-';
     return text
-      ? fieldProps?.checkedChildren ?? intl.getMessage('switch.open', '打开')
-      : fieldProps?.unCheckedChildren ??
-          intl.getMessage('switch.close', '关闭');
+      ? (fieldProps?.checkedChildren ?? intl.getMessage('switch.open', '打开'))
+      : (fieldProps?.unCheckedChildren ??
+          intl.getMessage('switch.close', '关闭'));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fieldProps?.checkedChildren, fieldProps?.unCheckedChildren, text]);
 

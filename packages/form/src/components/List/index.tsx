@@ -196,7 +196,7 @@ function ProFormList<T>(props: ProFormListProps<T>) {
         },
         getList: () =>
           proFormContext.formRef!.current!.getFieldValue([...name]),
-      } as any),
+      }) as any,
     [name, proFormContext.formRef],
   );
 

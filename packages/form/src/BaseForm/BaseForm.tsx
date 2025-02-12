@@ -452,16 +452,12 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
   }, [props.initialValues]);
 
   // 初始化给一个默认的 form
-  useImperativeHandle(
-    propsFormRef,
-    () => {
-      return {
-        ...formRef.current,
-        ...formatValues,
-      };
-    },
-    [formatValues, formRef.current],
-  );
+  useImperativeHandle(propsFormRef, () => {
+    return {
+      ...formRef.current,
+      ...formatValues,
+    };
+  }, [formatValues, formRef.current]);
   useEffect(() => {
     const finalValues = transformKey(
       formRef.current?.getFieldsValue?.(true),
@@ -716,13 +712,9 @@ function BaseForm<T = Record<string, any>, U = Record<string, any>>(
   });
 
   // 初始化给一个默认的 form
-  useImperativeHandle(
-    propsFormRef,
-    () => {
-      return formRef.current;
-    },
-    [!initialData],
-  );
+  useImperativeHandle(propsFormRef, () => {
+    return formRef.current;
+  }, [!initialData]);
 
   if (!initialData && props.request) {
     return (

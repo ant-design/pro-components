@@ -71,9 +71,9 @@ const checkDepsByAst = (ast, filePath) => {
                 peerDependencies.every((item) => !importPath.startsWith(item))
               ) {
                 const packageName = importPath.split(posix.sep)[0];
-                const packageJson = require(slash(
-                  join(__dirname, '..', packagePath, 'package.json'),
-                ));
+                const packageJson = require(
+                  slash(join(__dirname, '..', packagePath, 'package.json')),
+                );
                 if (
                   !JSON.stringify(packageJson.dependencies).includes(
                     packageName,

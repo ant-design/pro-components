@@ -327,7 +327,7 @@ const QueryFilterContent: React.FC<{
     ): { itemDom: React.ReactNode; hidden: boolean; colSpan: number } => {
       // 如果 formItem 自己配置了 hidden，默认使用它自己的
       const colSize = React.isValidElement<any>(item)
-        ? item?.props?.colSize ?? 1
+        ? (item?.props?.colSize ?? 1)
         : 1;
       const colSpan = Math.min(spanSize.span * (colSize || 1), 24);
       // 计算总的 totalSpan 长度

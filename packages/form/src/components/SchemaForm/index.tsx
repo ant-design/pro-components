@@ -209,13 +209,9 @@ function BetaSchemaForm<T, ValueType = 'text'>(
     return {};
   }, [columns, layoutType]);
 
-  useImperativeHandle(
-    propsFormRef,
-    () => {
-      return formRef.current;
-    },
-    [formRef.current],
-  );
+  useImperativeHandle(propsFormRef, () => {
+    return formRef.current;
+  }, [formRef.current]);
 
   return (
     <FormRenderComponents

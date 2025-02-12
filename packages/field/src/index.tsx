@@ -633,8 +633,8 @@ const ProFieldComponent: React.ForwardRefRenderFunction<
 
   const renderedDom = defaultRenderText(
     mode === 'edit'
-      ? fieldProps?.value ?? text ?? ''
-      : text ?? fieldProps?.value ?? '',
+      ? (fieldProps?.value ?? text ?? '')
+      : (text ?? fieldProps?.value ?? ''),
     valueType || 'text',
     omitUndefined({
       ref,
@@ -655,13 +655,13 @@ const ProFieldComponent: React.ForwardRefRenderFunction<
         : undefined,
       placeholder: renderFormItem
         ? undefined
-        : rest?.placeholder ?? fieldProps?.placeholder,
+        : (rest?.placeholder ?? fieldProps?.placeholder),
       fieldProps: pickProProps(
         omitUndefined({
           ...fieldProps,
           placeholder: renderFormItem
             ? undefined
-            : rest?.placeholder ?? fieldProps?.placeholder,
+            : (rest?.placeholder ?? fieldProps?.placeholder),
         }),
       ),
     }),
