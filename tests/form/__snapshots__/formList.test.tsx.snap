@@ -125,6 +125,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                         class="ant-pro-form-list-action"
                       >
                         <span
+                          aria-describedby="test-id"
                           aria-label="snippets"
                           class="anticon anticon-snippets ant-pro-form-list-action-icon action-copy"
                           role="img"
@@ -145,6 +146,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                           </svg>
                         </span>
                         <span
+                          aria-describedby="test-id"
                           aria-label="close"
                           class="anticon anticon-close ant-pro-form-list-action-icon action-remove"
                           role="img"
@@ -250,6 +252,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                         class="ant-pro-form-list-action"
                       >
                         <span
+                          aria-describedby="test-id"
                           aria-label="snippets"
                           class="anticon anticon-snippets ant-pro-form-list-action-icon action-copy"
                           role="img"
@@ -270,6 +273,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                           </svg>
                         </span>
                         <span
+                          aria-describedby="test-id"
                           aria-label="close"
                           class="anticon anticon-close ant-pro-form-list-action-icon action-remove"
                           role="img"
@@ -375,6 +379,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                         class="ant-pro-form-list-action"
                       >
                         <span
+                          aria-describedby="test-id"
                           aria-label="snippets"
                           class="anticon anticon-snippets ant-pro-form-list-action-icon action-copy"
                           role="img"
@@ -395,6 +400,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                           </svg>
                         </span>
                         <span
+                          aria-describedby="test-id"
                           aria-label="close"
                           class="anticon anticon-close ant-pro-form-list-action-icon action-remove"
                           role="img"

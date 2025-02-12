@@ -790,6 +790,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/base.tsx correctly 
                                                       class="ant-pro-form-list-action"
                                                     >
                                                       <span
+                                                        aria-describedby="test-id"
                                                         aria-label="delete"
                                                         class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                                                         role="img"
@@ -849,6 +850,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/base.tsx correctly 
                                                       class="ant-pro-form-list-action"
                                                     >
                                                       <span
+                                                        aria-describedby="test-id"
                                                         aria-label="delete"
                                                         class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                                                         role="img"
@@ -1014,7 +1016,9 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                         class="ant-radio-inner"
                       />
                     </span>
-                    <span>
+                    <span
+                      class="ant-radio-label"
+                    >
                       设置为 action
                     </span>
                   </label>
@@ -1035,7 +1039,9 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                         class="ant-radio-inner"
                       />
                     </span>
-                    <span>
+                    <span
+                      class="ant-radio-label"
+                    >
                       设置为 extra
                     </span>
                   </label>
@@ -3208,6 +3214,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/filter.tsx correctl
                                       class="ant-form-item-control-input-content"
                                     >
                                       <span
+                                        aria-describedby="test-id"
                                         class="ant-pro-core-field-dropdown-label"
                                       >
                                         <span

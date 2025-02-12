@@ -418,6 +418,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Dependency/dem
                         class="ant-pro-form-list-action"
                       >
                         <span
+                          aria-describedby="test-id"
                           aria-label="copy"
                           class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
                           role="img"
@@ -438,6 +439,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Dependency/dem
                           </svg>
                         </span>
                         <span
+                          aria-describedby="test-id"
                           aria-label="delete"
                           class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                           role="img"
@@ -1195,6 +1197,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Dependency/dem
                                         class="ant-pro-form-list-action"
                                       >
                                         <span
+                                          aria-describedby="test-id"
                                           aria-label="copy"
                                           class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
                                           role="img"
@@ -1215,6 +1218,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Dependency/dem
                                           </svg>
                                         </span>
                                         <span
+                                          aria-describedby="test-id"
                                           aria-label="delete"
                                           class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                                           role="img"
@@ -1543,6 +1547,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Dependency/dem
                                         class="ant-pro-form-list-action"
                                       >
                                         <span
+                                          aria-describedby="test-id"
                                           aria-label="copy"
                                           class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
                                           role="img"
@@ -1563,6 +1568,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Dependency/dem
                                           </svg>
                                         </span>
                                         <span
+                                          aria-describedby="test-id"
                                           aria-label="delete"
                                           class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                                           role="img"
@@ -2773,7 +2779,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                   class="ant-radio-inner"
                                 />
                               </span>
-                              <span>
+                              <span
+                                class="ant-radio-label"
+                              >
                                 item 1
                               </span>
                             </label>
@@ -2793,7 +2801,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                   class="ant-radio-inner"
                                 />
                               </span>
-                              <span>
+                              <span
+                                class="ant-radio-label"
+                              >
                                 item 2
                               </span>
                             </label>
@@ -2813,7 +2823,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                   class="ant-radio-inner"
                                 />
                               </span>
-                              <span>
+                              <span
+                                class="ant-radio-label"
+                              >
                                 item 3
                               </span>
                             </label>
@@ -2873,7 +2885,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                   class="ant-radio-inner"
                                 />
                               </span>
-                              <span>
+                              <span
+                                class="ant-radio-label"
+                              >
                                 item 1
                               </span>
                             </label>
@@ -2894,7 +2908,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                   class="ant-radio-inner"
                                 />
                               </span>
-                              <span>
+                              <span
+                                class="ant-radio-label"
+                              >
                                 item 2
                               </span>
                             </label>
@@ -2914,7 +2930,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                   class="ant-radio-inner"
                                 />
                               </span>
-                              <span>
+                              <span
+                                class="ant-radio-label"
+                              >
                                 item 3
                               </span>
                             </label>
@@ -2974,7 +2992,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                   class="ant-radio-button-inner"
                                 />
                               </span>
-                              <span>
+                              <span
+                                class="ant-radio-button-label"
+                              >
                                 item 1
                               </span>
                             </label>
@@ -2995,7 +3015,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                   class="ant-radio-button-inner"
                                 />
                               </span>
-                              <span>
+                              <span
+                                class="ant-radio-button-label"
+                              >
                                 item 2
                               </span>
                             </label>
@@ -3015,7 +3037,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                   class="ant-radio-button-inner"
                                 />
                               </span>
-                              <span>
+                              <span
+                                class="ant-radio-button-label"
+                              >
                                 item 3
                               </span>
                             </label>
@@ -3075,7 +3099,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                   class="ant-checkbox-inner"
                                 />
                               </span>
-                              <span>
+                              <span
+                                class="ant-checkbox-label"
+                              >
                                 A
                               </span>
                             </label>
@@ -3095,7 +3121,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                   class="ant-checkbox-inner"
                                 />
                               </span>
-                              <span>
+                              <span
+                                class="ant-checkbox-label"
+                              >
                                 B
                               </span>
                             </label>
@@ -3115,7 +3143,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                   class="ant-checkbox-inner"
                                 />
                               </span>
-                              <span>
+                              <span
+                                class="ant-checkbox-label"
+                              >
                                 C
                               </span>
                             </label>
@@ -3134,7 +3164,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                   class="ant-checkbox-inner"
                                 />
                               </span>
-                              <span>
+                              <span
+                                class="ant-checkbox-label"
+                              >
                                 D
                               </span>
                             </label>
@@ -3153,7 +3185,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                   class="ant-checkbox-inner"
                                 />
                               </span>
-                              <span>
+                              <span
+                                class="ant-checkbox-label"
+                              >
                                 E
                               </span>
                             </label>
@@ -3172,7 +3206,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                   class="ant-checkbox-inner"
                                 />
                               </span>
-                              <span>
+                              <span
+                                class="ant-checkbox-label"
+                              >
                                 F
                               </span>
                             </label>
@@ -3213,6 +3249,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                           class="ant-form-item-control-input-content"
                         >
                           <div
+                            aria-describedby="test-id"
                             class="ant-color-picker-trigger ant-pro-field-color-picker"
                             id="validate_other_color"
                             style="display: table-cell; width: 100%;"
@@ -3683,6 +3720,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                               />
                             </div>
                             <div
+                              aria-describedby="test-id"
                               aria-disabled="false"
                               aria-orientation="horizontal"
                               aria-valuemax="100"
@@ -3772,7 +3810,6 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                           <ul
                             class="ant-rate"
                             id="validate_other_rate"
-                            role="radiogroup"
                             tabindex="0"
                           >
                             <li
@@ -5167,7 +5204,6 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                   <ul
                     class="ant-rate ant-rate-disabled"
                     id="validate_other_rate"
-                    role="radiogroup"
                     tabindex="-1"
                   >
                     <li
@@ -5642,6 +5678,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                         class="ant-upload-list-item-container"
                       >
                         <div
+                          aria-describedby="test-id"
                           class="ant-upload-list-item ant-upload-list-item-error"
                         >
                           <a
@@ -6250,6 +6287,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                         class="ant-upload-list-item-container"
                       >
                         <div
+                          aria-describedby="test-id"
                           class="ant-upload-list-item ant-upload-list-item-error"
                         >
                           <div
@@ -8846,6 +8884,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                         class="ant-form-item-control-input-content"
                       >
                         <span
+                          aria-describedby="test-id"
                           class="ant-pro-core-field-dropdown-label"
                         >
                           <span
@@ -10530,6 +10569,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/ba
                         class="ant-pro-form-list-action"
                       >
                         <span
+                          aria-describedby="test-id"
                           aria-label="copy"
                           class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
                           role="img"
@@ -10550,6 +10590,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/ba
                           </svg>
                         </span>
                         <span
+                          aria-describedby="test-id"
                           aria-label="delete"
                           class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                           role="img"
@@ -10767,6 +10808,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/co
                         class="ant-pro-form-list-action"
                       >
                         <span
+                          aria-describedby="test-id"
                           aria-label="snippets"
                           class="anticon anticon-snippets ant-pro-form-list-action-icon action-copy"
                           role="img"
@@ -11090,6 +11132,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/cu
                                   class="ant-pro-form-list-action"
                                 >
                                   <span
+                                    aria-describedby="test-id"
                                     aria-label="copy"
                                     class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
                                     role="img"
@@ -11110,6 +11153,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/cu
                                     </svg>
                                   </span>
                                   <span
+                                    aria-describedby="test-id"
                                     aria-label="delete"
                                     class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                                     role="img"
@@ -12740,6 +12784,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/de
                         class="ant-pro-form-list-action"
                       >
                         <span
+                          aria-describedby="test-id"
                           aria-label="copy"
                           class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
                           role="img"
@@ -12760,6 +12805,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/de
                           </svg>
                         </span>
                         <span
+                          aria-describedby="test-id"
                           aria-label="delete"
                           class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                           role="img"
@@ -13070,6 +13116,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/ho
                                                       class="ant-pro-form-list-action"
                                                     >
                                                       <span
+                                                        aria-describedby="test-id"
                                                         aria-label="delete"
                                                         class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                                                         role="img"
@@ -13129,6 +13176,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/ho
                                                       class="ant-pro-form-list-action"
                                                     >
                                                       <span
+                                                        aria-describedby="test-id"
                                                         aria-label="delete"
                                                         class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                                                         role="img"
@@ -13281,7 +13329,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/li
                       class="ant-radio-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-label"
+                  >
                     顶部
                   </span>
                 </label>
@@ -13302,7 +13352,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/li
                       class="ant-radio-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-label"
+                  >
                     底部
                   </span>
                 </label>
@@ -14176,6 +14228,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/li
                         class="ant-pro-form-list-action ant-pro-form-list-action-small"
                       >
                         <span
+                          aria-describedby="test-id"
                           aria-label="copy"
                           class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
                           role="img"
@@ -14196,6 +14249,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/li
                           </svg>
                         </span>
                         <span
+                          aria-describedby="test-id"
                           aria-label="delete"
                           class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                           role="img"
@@ -14653,6 +14707,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/li
                           class="ant-pro-form-list-action"
                         >
                           <span
+                            aria-describedby="test-id"
                             aria-label="smile"
                             class="anticon anticon-smile ant-pro-form-list-action-icon action-copy"
                             role="img"
@@ -14673,6 +14728,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/li
                             </svg>
                           </span>
                           <span
+                            aria-describedby="test-id"
                             aria-label="close-circle"
                             class="anticon anticon-close-circle ant-pro-form-list-action-icon action-remove"
                             role="img"
@@ -14899,6 +14955,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/ne
                             class="ant-pro-form-list-action"
                           >
                             <span
+                              aria-describedby="test-id"
                               aria-label="copy"
                               class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
                               role="img"
@@ -14919,6 +14976,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/ne
                               </svg>
                             </span>
                             <span
+                              aria-describedby="test-id"
                               aria-label="delete"
                               class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                               role="img"
@@ -15312,6 +15370,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/ne
                                             class="ant-pro-form-list-action"
                                           >
                                             <span
+                                              aria-describedby="test-id"
                                               aria-label="copy"
                                               class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
                                               role="img"
@@ -15332,6 +15391,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/ne
                                               </svg>
                                             </span>
                                             <span
+                                              aria-describedby="test-id"
                                               aria-label="delete"
                                               class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                                               role="img"
@@ -15594,6 +15654,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/pr
                             class="ant-pro-form-list-action"
                           >
                             <span
+                              aria-describedby="test-id"
                               aria-label="copy"
                               class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
                               role="img"
@@ -15614,6 +15675,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/pr
                               </svg>
                             </span>
                             <span
+                              aria-describedby="test-id"
                               aria-label="delete"
                               class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                               role="img"
@@ -15980,11 +16042,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
                     aria-controls="rc-tabs-test-more-popup"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-hidden="true"
                     class="ant-tabs-nav-more"
                     id="rc-tabs-test-more"
                     style="visibility: hidden; order: 1;"
-                    tabindex="-1"
                     type="button"
                   >
                     <span
@@ -16195,7 +16255,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
                     class="ant-checkbox-inner"
                   />
                 </span>
-                <span>
+                <span
+                  class="ant-checkbox-label"
+                >
                   自动登录
                 </span>
               </label>
@@ -16470,11 +16532,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
                           aria-controls="rc-tabs-test-more-popup"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-hidden="true"
                           class="ant-tabs-nav-more"
                           id="rc-tabs-test-more"
                           style="visibility: hidden; order: 1;"
-                          tabindex="-1"
                           type="button"
                         >
                           <span
@@ -16687,7 +16747,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
                           class="ant-checkbox-inner"
                         />
                       </span>
-                      <span>
+                      <span
+                        class="ant-checkbox-label"
+                      >
                         自动登录
                       </span>
                     </label>
@@ -17218,7 +17280,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             Middle
           </span>
         </label>
@@ -17238,7 +17302,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             Small
           </span>
         </label>
@@ -17730,6 +17796,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                         class="ant-form-item-control-input-content"
                       >
                         <span
+                          aria-describedby="test-id"
                           class="ant-pro-core-field-dropdown-label"
                         >
                           <span
@@ -18137,6 +18204,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                         class="ant-form-item-control-input-content"
                       >
                         <span
+                          aria-describedby="test-id"
                           class="ant-pro-core-field-dropdown-label"
                         >
                           <span
@@ -18189,6 +18257,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                         class="ant-form-item-control-input-content"
                       >
                         <span
+                          aria-describedby="test-id"
                           class="ant-pro-core-field-dropdown-label"
                         >
                           <span
@@ -18285,6 +18354,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                         class="ant-form-item-control-input-content"
                       >
                         <span
+                          aria-describedby="test-id"
                           class="ant-pro-core-field-dropdown-label"
                         >
                           <span
@@ -18372,6 +18442,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                         class="ant-form-item-control-input-content"
                       >
                         <span
+                          aria-describedby="test-id"
                           class="ant-pro-core-field-dropdown-label"
                         >
                           <span
@@ -18988,6 +19059,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                         class="ant-form-item-control-input-content"
                       >
                         <span
+                          aria-describedby="test-id"
                           class="ant-pro-core-field-dropdown-label"
                         >
                           <span
@@ -19025,6 +19097,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
               class="ant-pro-form-light-filter-item"
             >
               <span
+                aria-describedby="test-id"
                 class="ant-pro-core-field-dropdown-label"
               >
                 <span
@@ -19300,7 +19373,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                               class="ant-radio-button-inner"
                             />
                           </span>
-                          <span>
+                          <span
+                            class="ant-radio-button-label"
+                          >
                             每周
                           </span>
                         </label>
@@ -19320,7 +19395,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                               class="ant-radio-button-inner"
                             />
                           </span>
-                          <span>
+                          <span
+                            class="ant-radio-button-label"
+                          >
                             每季度
                           </span>
                         </label>
@@ -19340,7 +19417,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                               class="ant-radio-button-inner"
                             />
                           </span>
-                          <span>
+                          <span
+                            class="ant-radio-button-label"
+                          >
                             每月
                           </span>
                         </label>
@@ -19360,7 +19439,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                               class="ant-radio-button-inner"
                             />
                           </span>
-                          <span>
+                          <span
+                            class="ant-radio-button-label"
+                          >
                             每年
                           </span>
                         </label>
@@ -19468,6 +19549,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                       class="ant-form-item-control-input-content"
                     >
                       <span
+                        aria-describedby="test-id"
                         class="ant-pro-core-field-dropdown-label"
                       >
                         <span
@@ -19581,6 +19663,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             class="ant-pro-form-light-filter-item"
           >
             <span
+              aria-describedby="test-id"
               class="ant-pro-core-field-dropdown-label"
             >
               <span
@@ -19640,7 +19723,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             Middle
           </span>
         </label>
@@ -19660,7 +19745,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             Small
           </span>
         </label>
@@ -19706,6 +19793,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                             class="ant-form-item-control-input-content"
                           >
                             <span
+                              aria-describedby="test-id"
                               class="ant-pro-core-field-dropdown-label"
                             >
                               <span
@@ -19815,6 +19903,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                             class="ant-form-item-control-input-content"
                           >
                             <span
+                              aria-describedby="test-id"
                               class="ant-pro-core-field-dropdown-label"
                             >
                               <span
@@ -19909,6 +19998,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                   class="ant-pro-form-light-filter-item"
                 >
                   <span
+                    aria-describedby="test-id"
                     class="ant-pro-core-field-dropdown-label"
                   >
                     footer为false
@@ -19939,6 +20029,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                   class="ant-pro-form-light-filter-item"
                 >
                   <span
+                    aria-describedby="test-id"
                     class="ant-pro-core-field-dropdown-label"
                   >
                     自定义footer
@@ -19983,7 +20074,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             topLeft
           </span>
         </label>
@@ -20003,7 +20096,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             topRight
           </span>
         </label>
@@ -20023,7 +20118,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             bottomLeft
           </span>
         </label>
@@ -20043,7 +20140,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             bottomRight
           </span>
         </label>
@@ -20333,6 +20432,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                         class="ant-form-item-control-input-content"
                       >
                         <span
+                          aria-describedby="test-id"
                           class="ant-pro-core-field-dropdown-label"
                         >
                           <span
@@ -20385,6 +20485,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                         class="ant-form-item-control-input-content"
                       >
                         <span
+                          aria-describedby="test-id"
                           class="ant-pro-core-field-dropdown-label"
                         >
                           <span
@@ -20437,6 +20538,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                         class="ant-form-item-control-input-content"
                       >
                         <span
+                          aria-describedby="test-id"
                           class="ant-pro-core-field-dropdown-label"
                         >
                           <span
@@ -20489,6 +20591,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                         class="ant-form-item-control-input-content"
                       >
                         <span
+                          aria-describedby="test-id"
                           class="ant-pro-core-field-dropdown-label"
                         >
                           <span
@@ -20839,6 +20942,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                         class="ant-form-item-control-input-content"
                       >
                         <span
+                          aria-describedby="test-id"
                           class="ant-pro-core-field-dropdown-label"
                         >
                           <span
@@ -20876,6 +20980,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
               class="ant-pro-form-light-filter-item"
             >
               <span
+                aria-describedby="test-id"
                 class="ant-pro-core-field-dropdown-label"
               >
                 <span
@@ -20941,7 +21046,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             Middle
           </span>
         </label>
@@ -20961,7 +21068,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             Small
           </span>
         </label>
@@ -21269,6 +21378,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                         class="ant-form-item-control-input-content"
                       >
                         <span
+                          aria-describedby="test-id"
                           class="ant-pro-core-field-dropdown-label"
                         >
                           <span
@@ -21321,6 +21431,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                         class="ant-form-item-control-input-content"
                       >
                         <span
+                          aria-describedby="test-id"
                           class="ant-pro-core-field-dropdown-label"
                         >
                           <span
@@ -21417,6 +21528,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                         class="ant-form-item-control-input-content"
                       >
                         <span
+                          aria-describedby="test-id"
                           class="ant-pro-core-field-dropdown-label"
                         >
                           <span
@@ -21504,6 +21616,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                         class="ant-form-item-control-input-content"
                       >
                         <span
+                          aria-describedby="test-id"
                           class="ant-pro-core-field-dropdown-label"
                         >
                           <span
@@ -27139,7 +27252,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                           class="ant-radio-inner"
                         />
                       </span>
-                      <span>
+                      <span
+                        class="ant-radio-label"
+                      >
                         每周
                       </span>
                     </label>
@@ -27159,7 +27274,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                           class="ant-radio-inner"
                         />
                       </span>
-                      <span>
+                      <span
+                        class="ant-radio-label"
+                      >
                         每季度
                       </span>
                     </label>
@@ -27179,7 +27296,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                           class="ant-radio-inner"
                         />
                       </span>
-                      <span>
+                      <span
+                        class="ant-radio-label"
+                      >
                         每月
                       </span>
                     </label>
@@ -27199,7 +27318,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                           class="ant-radio-inner"
                         />
                       </span>
-                      <span>
+                      <span
+                        class="ant-radio-label"
+                      >
                         每年
                       </span>
                     </label>
@@ -27255,7 +27376,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                           class="ant-checkbox-inner"
                         />
                       </span>
-                      <span>
+                      <span
+                        class="ant-checkbox-label"
+                      >
                         农业
                       </span>
                     </label>
@@ -27274,7 +27397,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                           class="ant-checkbox-inner"
                         />
                       </span>
-                      <span>
+                      <span
+                        class="ant-checkbox-label"
+                      >
                         制造业
                       </span>
                     </label>
@@ -27293,7 +27418,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                           class="ant-checkbox-inner"
                         />
                       </span>
-                      <span>
+                      <span
+                        class="ant-checkbox-label"
+                      >
                         互联网
                       </span>
                     </label>
@@ -27529,11 +27656,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
               aria-controls="rc-tabs-test-more-popup"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-hidden="true"
               class="ant-tabs-nav-more"
               id="rc-tabs-test-more"
               style="visibility: hidden; order: 1;"
-              tabindex="-1"
               type="button"
             >
               <span
@@ -28422,6 +28547,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
             >
               状态
               <span
+                aria-describedby="test-id"
                 aria-label="question-circle"
                 class="anticon anticon-question-circle ant-form-item-tooltip"
                 role="img"
@@ -28540,6 +28666,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
             >
               标签
               <span
+                aria-describedby="test-id"
                 aria-label="question-circle"
                 class="anticon anticon-question-circle ant-form-item-tooltip"
                 role="img"
@@ -29118,6 +29245,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                     class="ant-input-number-input-wrap"
                   >
                     <input
+                      aria-describedby="test-id"
                       autocomplete="off"
                       class="ant-input-number-input"
                       id="money"
@@ -29261,6 +29389,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
             >
               状态
               <span
+                aria-describedby="test-id"
                 aria-label="question-circle"
                 class="anticon anticon-question-circle ant-form-item-tooltip"
                 role="img"
@@ -29379,6 +29508,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
             >
               标签
               <span
+                aria-describedby="test-id"
                 aria-label="question-circle"
                 class="anticon anticon-question-circle ant-form-item-tooltip"
                 role="img"
@@ -30411,6 +30541,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
             >
               状态
               <span
+                aria-describedby="test-id"
                 aria-label="question-circle"
                 class="anticon anticon-question-circle ant-form-item-tooltip"
                 role="img"
@@ -30529,6 +30660,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
             >
               标签
               <span
+                aria-describedby="test-id"
                 aria-label="question-circle"
                 class="anticon anticon-question-circle ant-form-item-tooltip"
                 role="img"
@@ -32073,6 +32205,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                               class="ant-pro-form-list-action"
                             >
                               <span
+                                aria-describedby="test-id"
                                 aria-label="copy"
                                 class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
                                 role="img"
@@ -32093,6 +32226,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                                 </svg>
                               </span>
                               <span
+                                aria-describedby="test-id"
                                 aria-label="delete"
                                 class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                                 role="img"
@@ -32311,6 +32445,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                               >
                                 标题
                                 <span
+                                  aria-describedby="test-id"
                                   aria-label="question-circle"
                                   class="anticon anticon-question-circle ant-form-item-tooltip"
                                   role="img"
@@ -33464,6 +33599,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                                   class="ant-pro-form-list-action"
                                 >
                                   <span
+                                    aria-describedby="test-id"
                                     aria-label="copy"
                                     class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
                                     role="img"
@@ -33484,6 +33620,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                                     </svg>
                                   </span>
                                   <span
+                                    aria-describedby="test-id"
                                     aria-label="delete"
                                     class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                                     role="img"
@@ -33694,6 +33831,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                                     >
                                       标题
                                       <span
+                                        aria-describedby="test-id"
                                         aria-label="question-circle"
                                         class="anticon anticon-question-circle ant-form-item-tooltip"
                                         role="img"
@@ -34957,6 +35095,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                           >
                             实验名称
                             <span
+                              aria-describedby="test-id"
                               aria-label="question-circle"
                               class="anticon anticon-question-circle ant-form-item-tooltip"
                               role="img"
@@ -35316,7 +35455,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                       class="ant-checkbox-inner"
                                     />
                                   </span>
-                                  <span>
+                                  <span
+                                    class="ant-checkbox-label"
+                                  >
                                     结构迁移
                                   </span>
                                 </label>
@@ -35335,7 +35476,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                       class="ant-checkbox-inner"
                                     />
                                   </span>
-                                  <span>
+                                  <span
+                                    class="ant-checkbox-label"
+                                  >
                                     全量迁移
                                   </span>
                                 </label>
@@ -35354,7 +35497,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                       class="ant-checkbox-inner"
                                     />
                                   </span>
-                                  <span>
+                                  <span
+                                    class="ant-checkbox-label"
+                                  >
                                     增量迁移
                                   </span>
                                 </label>
@@ -35373,7 +35518,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                       class="ant-checkbox-inner"
                                     />
                                   </span>
-                                  <span>
+                                  <span
+                                    class="ant-checkbox-label"
+                                  >
                                     全量校验
                                   </span>
                                 </label>
@@ -35588,7 +35735,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                               class="ant-checkbox-inner"
                                             />
                                           </span>
-                                          <span>
+                                          <span
+                                            class="ant-checkbox-label"
+                                          >
                                             完整 LOB
                                           </span>
                                         </label>
@@ -35607,7 +35756,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                               class="ant-checkbox-inner"
                                             />
                                           </span>
-                                          <span>
+                                          <span
+                                            class="ant-checkbox-label"
+                                          >
                                             不同步 LOB
                                           </span>
                                         </label>
@@ -35626,7 +35777,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                               class="ant-checkbox-inner"
                                             />
                                           </span>
-                                          <span>
+                                          <span
+                                            class="ant-checkbox-label"
+                                          >
                                             受限制 LOB
                                           </span>
                                         </label>
@@ -35699,7 +35852,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                       class="ant-checkbox-inner"
                                     />
                                   </span>
-                                  <span>
+                                  <span
+                                    class="ant-checkbox-label"
+                                  >
                                     部署单元1
                                   </span>
                                 </label>
@@ -35718,7 +35873,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                       class="ant-checkbox-inner"
                                     />
                                   </span>
-                                  <span>
+                                  <span
+                                    class="ant-checkbox-label"
+                                  >
                                     部署单元2
                                   </span>
                                 </label>
@@ -35737,7 +35894,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                       class="ant-checkbox-inner"
                                     />
                                   </span>
-                                  <span>
+                                  <span
+                                    class="ant-checkbox-label"
+                                  >
                                     部署单元3
                                   </span>
                                 </label>
@@ -36258,6 +36417,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                           >
                             迁移任务名称
                             <span
+                              aria-describedby="test-id"
                               aria-label="question-circle"
                               class="anticon anticon-question-circle ant-form-item-tooltip"
                               role="img"
@@ -36582,6 +36742,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                           >
                             XS号表单
                             <span
+                              aria-describedby="test-id"
                               aria-label="question-circle"
                               class="anticon anticon-question-circle ant-form-item-tooltip"
                               role="img"
@@ -37165,7 +37326,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                       class="ant-checkbox-inner"
                                     />
                                   </span>
-                                  <span>
+                                  <span
+                                    class="ant-checkbox-label"
+                                  >
                                     结构迁移
                                   </span>
                                 </label>
@@ -37184,7 +37347,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                       class="ant-checkbox-inner"
                                     />
                                   </span>
-                                  <span>
+                                  <span
+                                    class="ant-checkbox-label"
+                                  >
                                     全量迁移
                                   </span>
                                 </label>
@@ -37203,7 +37368,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                       class="ant-checkbox-inner"
                                     />
                                   </span>
-                                  <span>
+                                  <span
+                                    class="ant-checkbox-label"
+                                  >
                                     增量迁移
                                   </span>
                                 </label>
@@ -37222,7 +37389,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                       class="ant-checkbox-inner"
                                     />
                                   </span>
-                                  <span>
+                                  <span
+                                    class="ant-checkbox-label"
+                                  >
                                     全量校验
                                   </span>
                                 </label>
@@ -37437,7 +37606,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                       class="ant-checkbox-inner"
                                     />
                                   </span>
-                                  <span>
+                                  <span
+                                    class="ant-checkbox-label"
+                                  >
                                     完整 LOB
                                   </span>
                                 </label>
@@ -37456,7 +37627,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                       class="ant-checkbox-inner"
                                     />
                                   </span>
-                                  <span>
+                                  <span
+                                    class="ant-checkbox-label"
+                                  >
                                     不同步 LOB
                                   </span>
                                 </label>
@@ -37475,7 +37648,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                       class="ant-checkbox-inner"
                                     />
                                   </span>
-                                  <span>
+                                  <span
+                                    class="ant-checkbox-label"
+                                  >
                                     受限制 LOB
                                   </span>
                                 </label>
@@ -37553,7 +37728,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                       class="ant-checkbox-inner"
                                     />
                                   </span>
-                                  <span>
+                                  <span
+                                    class="ant-checkbox-label"
+                                  >
                                     部署单元1
                                   </span>
                                 </label>
@@ -37572,7 +37749,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                       class="ant-checkbox-inner"
                                     />
                                   </span>
-                                  <span>
+                                  <span
+                                    class="ant-checkbox-label"
+                                  >
                                     部署单元2
                                   </span>
                                 </label>
@@ -37591,7 +37770,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                       class="ant-checkbox-inner"
                                     />
                                   </span>
-                                  <span>
+                                  <span
+                                    class="ant-checkbox-label"
+                                  >
                                     部署单元3
                                   </span>
                                 </label>
@@ -38050,6 +38231,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                             >
                               实验名称
                               <span
+                                aria-describedby="test-id"
                                 aria-label="question-circle"
                                 class="anticon anticon-question-circle ant-form-item-tooltip"
                                 role="img"
@@ -38409,7 +38591,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                         class="ant-checkbox-inner"
                                       />
                                     </span>
-                                    <span>
+                                    <span
+                                      class="ant-checkbox-label"
+                                    >
                                       结构迁移
                                     </span>
                                   </label>
@@ -38428,7 +38612,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                         class="ant-checkbox-inner"
                                       />
                                     </span>
-                                    <span>
+                                    <span
+                                      class="ant-checkbox-label"
+                                    >
                                       全量迁移
                                     </span>
                                   </label>
@@ -38447,7 +38633,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                         class="ant-checkbox-inner"
                                       />
                                     </span>
-                                    <span>
+                                    <span
+                                      class="ant-checkbox-label"
+                                    >
                                       增量迁移
                                     </span>
                                   </label>
@@ -38466,7 +38654,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                         class="ant-checkbox-inner"
                                       />
                                     </span>
-                                    <span>
+                                    <span
+                                      class="ant-checkbox-label"
+                                    >
                                       全量校验
                                     </span>
                                   </label>
@@ -38485,7 +38675,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                         class="ant-checkbox-inner"
                                       />
                                     </span>
-                                    <span>
+                                    <span
+                                      class="ant-checkbox-label"
+                                    >
                                       增量校验
                                     </span>
                                   </label>
@@ -38504,7 +38696,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                         class="ant-checkbox-inner"
                                       />
                                     </span>
-                                    <span>
+                                    <span
+                                      class="ant-checkbox-label"
+                                    >
                                       全量替换
                                     </span>
                                   </label>
@@ -38523,7 +38717,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                         class="ant-checkbox-inner"
                                       />
                                     </span>
-                                    <span>
+                                    <span
+                                      class="ant-checkbox-label"
+                                    >
                                       增量替换
                                     </span>
                                   </label>
@@ -38738,7 +38934,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                         class="ant-checkbox-inner"
                                       />
                                     </span>
-                                    <span>
+                                    <span
+                                      class="ant-checkbox-label"
+                                    >
                                       完整 LOB
                                     </span>
                                   </label>
@@ -38757,7 +38955,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                         class="ant-checkbox-inner"
                                       />
                                     </span>
-                                    <span>
+                                    <span
+                                      class="ant-checkbox-label"
+                                    >
                                       不同步 LOB
                                     </span>
                                   </label>
@@ -38776,7 +38976,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                         class="ant-checkbox-inner"
                                       />
                                     </span>
-                                    <span>
+                                    <span
+                                      class="ant-checkbox-label"
+                                    >
                                       受限制 LOB
                                     </span>
                                   </label>
@@ -38845,7 +39047,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                         class="ant-checkbox-inner"
                                       />
                                     </span>
-                                    <span>
+                                    <span
+                                      class="ant-checkbox-label"
+                                    >
                                       结构迁移
                                     </span>
                                   </label>
@@ -38864,7 +39068,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                         class="ant-checkbox-inner"
                                       />
                                     </span>
-                                    <span>
+                                    <span
+                                      class="ant-checkbox-label"
+                                    >
                                       全量迁移
                                     </span>
                                   </label>
@@ -38883,7 +39089,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                         class="ant-checkbox-inner"
                                       />
                                     </span>
-                                    <span>
+                                    <span
+                                      class="ant-checkbox-label"
+                                    >
                                       全量校验
                                     </span>
                                   </label>
@@ -38902,7 +39110,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                         class="ant-checkbox-inner"
                                       />
                                     </span>
-                                    <span>
+                                    <span
+                                      class="ant-checkbox-label"
+                                    >
                                       增量替换
                                     </span>
                                   </label>
@@ -39117,7 +39327,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                         class="ant-checkbox-inner"
                                       />
                                     </span>
-                                    <span>
+                                    <span
+                                      class="ant-checkbox-label"
+                                    >
                                       完整 LOB
                                     </span>
                                   </label>
@@ -39136,7 +39348,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                         class="ant-checkbox-inner"
                                       />
                                     </span>
-                                    <span>
+                                    <span
+                                      class="ant-checkbox-label"
+                                    >
                                       不同步 LOB
                                     </span>
                                   </label>
@@ -39155,7 +39369,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                         class="ant-checkbox-inner"
                                       />
                                     </span>
-                                    <span>
+                                    <span
+                                      class="ant-checkbox-label"
+                                    >
                                       受限制 LOB
                                     </span>
                                   </label>
@@ -39371,6 +39587,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                           >
                             实验名称
                             <span
+                              aria-describedby="test-id"
                               aria-label="question-circle"
                               class="anticon anticon-question-circle ant-form-item-tooltip"
                               role="img"
@@ -39730,7 +39947,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                       class="ant-checkbox-inner"
                                     />
                                   </span>
-                                  <span>
+                                  <span
+                                    class="ant-checkbox-label"
+                                  >
                                     结构迁移
                                   </span>
                                 </label>
@@ -39749,7 +39968,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                       class="ant-checkbox-inner"
                                     />
                                   </span>
-                                  <span>
+                                  <span
+                                    class="ant-checkbox-label"
+                                  >
                                     全量迁移
                                   </span>
                                 </label>
@@ -39768,7 +39989,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                       class="ant-checkbox-inner"
                                     />
                                   </span>
-                                  <span>
+                                  <span
+                                    class="ant-checkbox-label"
+                                  >
                                     增量迁移
                                   </span>
                                 </label>
@@ -39787,7 +40010,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                       class="ant-checkbox-inner"
                                     />
                                   </span>
-                                  <span>
+                                  <span
+                                    class="ant-checkbox-label"
+                                  >
                                     全量校验
                                   </span>
                                 </label>
@@ -40002,7 +40227,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                               class="ant-checkbox-inner"
                                             />
                                           </span>
-                                          <span>
+                                          <span
+                                            class="ant-checkbox-label"
+                                          >
                                             完整 LOB
                                           </span>
                                         </label>
@@ -40021,7 +40248,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                               class="ant-checkbox-inner"
                                             />
                                           </span>
-                                          <span>
+                                          <span
+                                            class="ant-checkbox-label"
+                                          >
                                             不同步 LOB
                                           </span>
                                         </label>
@@ -40040,7 +40269,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                               class="ant-checkbox-inner"
                                             />
                                           </span>
-                                          <span>
+                                          <span
+                                            class="ant-checkbox-label"
+                                          >
                                             受限制 LOB
                                           </span>
                                         </label>
@@ -40113,7 +40344,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                       class="ant-checkbox-inner"
                                     />
                                   </span>
-                                  <span>
+                                  <span
+                                    class="ant-checkbox-label"
+                                  >
                                     部署单元1
                                   </span>
                                 </label>
@@ -40132,7 +40365,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                       class="ant-checkbox-inner"
                                     />
                                   </span>
-                                  <span>
+                                  <span
+                                    class="ant-checkbox-label"
+                                  >
                                     部署单元2
                                   </span>
                                 </label>
@@ -40151,7 +40386,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                       class="ant-checkbox-inner"
                                     />
                                   </span>
-                                  <span>
+                                  <span
+                                    class="ant-checkbox-label"
+                                  >
                                     部署单元3
                                   </span>
                                 </label>
@@ -40936,6 +41173,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base.tsx correctly 
                     >
                       签约客户名称
                       <span
+                        aria-describedby="test-id"
                         aria-label="question-circle"
                         class="anticon anticon-question-circle ant-form-item-tooltip"
                         role="img"
@@ -41665,6 +41903,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base.tsx correctly 
                             class="ant-input-number-input-wrap"
                           >
                             <input
+                              aria-describedby="test-id"
                               autocomplete="off"
                               class="ant-input-number-input"
                               id="money"
@@ -42374,6 +42613,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base-test.tsx corre
                     >
                       签约客户名称
                       <span
+                        aria-describedby="test-id"
                         aria-label="question-circle"
                         class="anticon anticon-question-circle ant-form-item-tooltip"
                         role="img"
@@ -43103,6 +43343,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base-test.tsx corre
                             class="ant-input-number-input-wrap"
                           >
                             <input
+                              aria-describedby="test-id"
                               autocomplete="off"
                               class="ant-input-number-input"
                               id="money"
@@ -43762,6 +44003,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base-test.tsx corre
                         class="ant-pro-form-list-action"
                       >
                         <span
+                          aria-describedby="test-id"
                           aria-label="copy"
                           class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
                           role="img"
@@ -43782,6 +44024,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base-test.tsx corre
                           </svg>
                         </span>
                         <span
+                          aria-describedby="test-id"
                           aria-label="delete"
                           class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                           role="img"
@@ -44229,6 +44472,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/components-test.tsx
                     class="ant-slider-step"
                   />
                   <div
+                    aria-describedby="test-id"
                     aria-disabled="false"
                     aria-orientation="horizontal"
                     aria-valuemax="100"
@@ -44822,6 +45066,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/config-provider.tsx
         </div>
       </div>
       <span
+        aria-describedby="test-id"
         class="ant-pro-core-field-dropdown-label"
       >
         <span
@@ -44849,6 +45094,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/config-provider.tsx
         </span>
       </span>
       <span
+        aria-describedby="test-id"
         class="ant-pro-core-field-dropdown-label"
       >
         <span
@@ -44917,6 +45163,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/config-provider.tsx
                     class="ant-slider-step"
                   />
                   <div
+                    aria-describedby="test-id"
                     aria-disabled="false"
                     aria-orientation="horizontal"
                     aria-valuemax="100"
@@ -45036,6 +45283,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/dependency.tsx corr
             >
               签约客户名称
               <span
+                aria-describedby="test-id"
                 aria-label="question-circle"
                 class="anticon anticon-question-circle ant-form-item-tooltip"
                 role="img"
@@ -45130,6 +45378,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/dependency.tsx corr
             >
               签约客户名称
               <span
+                aria-describedby="test-id"
                 aria-label="question-circle"
                 class="anticon anticon-question-circle ant-form-item-tooltip"
                 role="img"
@@ -45601,7 +45850,9 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/form-control-render
                       class="ant-checkbox-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-checkbox-label"
+                  >
                     是否
                   </span>
                 </label>
@@ -45655,7 +45906,9 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/form-control-render
                       class="ant-checkbox-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-checkbox-label"
+                  >
                     是否
                   </span>
                 </label>
@@ -46203,7 +46456,9 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/form-layout.tsx cor
                         class="ant-radio-button-inner"
                       />
                     </span>
-                    <span>
+                    <span
+                      class="ant-radio-button-label"
+                    >
                       horizontal
                     </span>
                   </label>
@@ -46223,7 +46478,9 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/form-layout.tsx cor
                         class="ant-radio-button-inner"
                       />
                     </span>
-                    <span>
+                    <span
+                      class="ant-radio-button-label"
+                    >
                       vertical
                     </span>
                   </label>
@@ -46243,7 +46500,9 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/form-layout.tsx cor
                         class="ant-radio-button-inner"
                       />
                     </span>
-                    <span>
+                    <span
+                      class="ant-radio-button-label"
+                    >
                       inline
                     </span>
                   </label>
@@ -46269,6 +46528,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/form-layout.tsx cor
             >
               签约客户名称
               <span
+                aria-describedby="test-id"
                 aria-label="question-circle"
                 class="anticon anticon-question-circle ant-form-item-tooltip"
                 role="img"
@@ -46599,7 +46859,9 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/form-layout-grid.ts
                             class="ant-radio-button-inner"
                           />
                         </span>
-                        <span>
+                        <span
+                          class="ant-radio-button-label"
+                        >
                           horizontal
                         </span>
                       </label>
@@ -46619,7 +46881,9 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/form-layout-grid.ts
                             class="ant-radio-button-inner"
                           />
                         </span>
-                        <span>
+                        <span
+                          class="ant-radio-button-label"
+                        >
                           vertical
                         </span>
                       </label>
@@ -46639,7 +46903,9 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/form-layout-grid.ts
                             class="ant-radio-button-inner"
                           />
                         </span>
-                        <span>
+                        <span
+                          class="ant-radio-button-label"
+                        >
                           inline
                         </span>
                       </label>
@@ -46727,6 +46993,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/form-layout-grid.ts
                 >
                   标题
                   <span
+                    aria-describedby="test-id"
                     aria-label="question-circle"
                     class="anticon anticon-question-circle ant-form-item-tooltip"
                     role="img"
@@ -47483,6 +47750,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/formRef.tsx correct
             >
               签约客户名称
               <span
+                aria-describedby="test-id"
                 aria-label="question-circle"
                 class="anticon anticon-question-circle ant-form-item-tooltip"
                 role="img"
@@ -47965,7 +48233,9 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/label-col.tsx corre
                       class="ant-checkbox-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-checkbox-label"
+                  >
                     Remember me
                   </span>
                 </label>
@@ -48005,7 +48275,9 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/label-col.tsx corre
                       class="ant-radio-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-label"
+                  >
                     Remember me
                   </span>
                 </label>
@@ -48229,7 +48501,9 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-change.tsx c
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     LightFilter
                   </span>
                 </label>
@@ -48250,7 +48524,9 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-change.tsx c
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     ProForm
                   </span>
                 </label>
@@ -48270,7 +48546,9 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-change.tsx c
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     ModalForm
                   </span>
                 </label>
@@ -48290,7 +48568,9 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-change.tsx c
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     DrawerForm
                   </span>
                 </label>
@@ -48310,7 +48590,9 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-change.tsx c
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     QueryFilter
                   </span>
                 </label>
@@ -48330,7 +48612,9 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-change.tsx c
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     StepsForm
                   </span>
                 </label>
@@ -48350,7 +48634,9 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-change.tsx c
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     LoginForm
                   </span>
                 </label>
@@ -48399,6 +48685,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-change.tsx c
                       >
                         签约客户名称
                         <span
+                          aria-describedby="test-id"
                           aria-label="question-circle"
                           class="anticon anticon-question-circle ant-form-item-tooltip"
                           role="img"
@@ -49436,6 +49723,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-footer.tsx c
                                         >
                                           签约客户名称
                                           <span
+                                            aria-describedby="test-id"
                                             aria-label="question-circle"
                                             class="anticon anticon-question-circle ant-form-item-tooltip"
                                             role="img"
@@ -50534,7 +50822,9 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-footer.tsx c
                                                     class="ant-radio-inner"
                                                   />
                                                 </span>
-                                                <span>
+                                                <span
+                                                  class="ant-radio-label"
+                                                >
                                                   发票
                                                 </span>
                                               </label>
@@ -50554,7 +50844,9 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-footer.tsx c
                                                     class="ant-radio-inner"
                                                   />
                                                 </span>
-                                                <span>
+                                                <span
+                                                  class="ant-radio-label"
+                                                >
                                                   普票
                                                 </span>
                                               </label>
@@ -50574,7 +50866,9 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-footer.tsx c
                                                     class="ant-radio-inner"
                                                   />
                                                 </span>
-                                                <span>
+                                                <span
+                                                  class="ant-radio-label"
+                                                >
                                                   无票
                                                 </span>
                                               </label>
@@ -51028,6 +51322,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/linkage-customizati
                           >
                             实验名称
                             <span
+                              aria-describedby="test-id"
                               aria-label="question-circle"
                               class="anticon anticon-question-circle ant-form-item-tooltip"
                               role="img"
@@ -51387,7 +51682,9 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/linkage-customizati
                                       class="ant-checkbox-inner"
                                     />
                                   </span>
-                                  <span>
+                                  <span
+                                    class="ant-checkbox-label"
+                                  >
                                     结构迁移
                                   </span>
                                 </label>
@@ -51406,7 +51703,9 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/linkage-customizati
                                       class="ant-checkbox-inner"
                                     />
                                   </span>
-                                  <span>
+                                  <span
+                                    class="ant-checkbox-label"
+                                  >
                                     全量迁移
                                   </span>
                                 </label>
@@ -51425,7 +51724,9 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/linkage-customizati
                                       class="ant-checkbox-inner"
                                     />
                                   </span>
-                                  <span>
+                                  <span
+                                    class="ant-checkbox-label"
+                                  >
                                     增量迁移
                                   </span>
                                 </label>
@@ -51444,7 +51745,9 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/linkage-customizati
                                       class="ant-checkbox-inner"
                                     />
                                   </span>
-                                  <span>
+                                  <span
+                                    class="ant-checkbox-label"
+                                  >
                                     全量校验
                                   </span>
                                 </label>
@@ -51659,7 +51962,9 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/linkage-customizati
                                       class="ant-checkbox-inner"
                                     />
                                   </span>
-                                  <span>
+                                  <span
+                                    class="ant-checkbox-label"
+                                  >
                                     完整 LOB
                                   </span>
                                 </label>
@@ -51728,7 +52033,9 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/linkage-customizati
                                       class="ant-checkbox-inner"
                                     />
                                   </span>
-                                  <span>
+                                  <span
+                                    class="ant-checkbox-label"
+                                  >
                                     部署单元1
                                   </span>
                                 </label>
@@ -51747,7 +52054,9 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/linkage-customizati
                                       class="ant-checkbox-inner"
                                     />
                                   </span>
-                                  <span>
+                                  <span
+                                    class="ant-checkbox-label"
+                                  >
                                     部署单元2
                                   </span>
                                 </label>
@@ -51766,7 +52075,9 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/linkage-customizati
                                       class="ant-checkbox-inner"
                                     />
                                   </span>
-                                  <span>
+                                  <span
+                                    class="ant-checkbox-label"
+                                  >
                                     部署单元3
                                   </span>
                                 </label>
@@ -52666,6 +52977,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/money.tsx correctly
                     class="ant-input-number-input-wrap"
                   >
                     <input
+                      aria-describedby="test-id"
                       aria-valuemin="0"
                       aria-valuenow="22.22"
                       autocomplete="off"
@@ -52774,6 +53086,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/money.tsx correctly
                     class="ant-input-number-input-wrap"
                   >
                     <input
+                      aria-describedby="test-id"
                       aria-valuemin="0"
                       aria-valuenow="22.22"
                       autocomplete="off"
@@ -52883,6 +53196,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/money.tsx correctly
                     class="ant-input-number-input-wrap"
                   >
                     <input
+                      aria-describedby="test-id"
                       aria-valuemin="0"
                       aria-valuenow="22.22"
                       autocomplete="off"
@@ -52992,6 +53306,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/money.tsx correctly
                     class="ant-input-number-input-wrap"
                   >
                     <input
+                      aria-describedby="test-id"
                       aria-valuenow="22.22"
                       autocomplete="off"
                       class="ant-input-number-input"
@@ -53100,6 +53415,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/money.tsx correctly
                     class="ant-input-number-input-wrap"
                   >
                     <input
+                      aria-describedby="test-id"
                       aria-valuenow="22.22"
                       autocomplete="off"
                       class="ant-input-number-input"
@@ -53208,6 +53524,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/money.tsx correctly
                     class="ant-input-number-input-wrap"
                   >
                     <input
+                      aria-describedby="test-id"
                       aria-valuenow="-22.22"
                       autocomplete="off"
                       class="ant-input-number-input"
@@ -53316,6 +53633,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/money.tsx correctly
                     class="ant-input-number-input-wrap"
                   >
                     <input
+                      aria-describedby="test-id"
                       aria-valuenow="22.22"
                       autocomplete="off"
                       class="ant-input-number-input"
@@ -53424,6 +53742,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/money.tsx correctly
                     class="ant-input-number-input-wrap"
                   >
                     <input
+                      aria-describedby="test-id"
                       aria-valuenow="22.22"
                       autocomplete="off"
                       class="ant-input-number-input"
@@ -53532,6 +53851,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/money.tsx correctly
                     class="ant-input-number-input-wrap"
                   >
                     <input
+                      aria-describedby="test-id"
                       aria-valuenow="2222222222.222222"
                       autocomplete="off"
                       class="ant-input-number-input"
@@ -53640,6 +53960,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/money.tsx correctly
                     class="ant-input-number-input-wrap"
                   >
                     <input
+                      aria-describedby="test-id"
                       aria-valuenow="2222222222.222222"
                       autocomplete="off"
                       class="ant-input-number-input"
@@ -53788,6 +54109,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/params-formref.tsx 
                     class="ant-input-number-input-wrap"
                   >
                     <input
+                      aria-describedby="test-id"
                       autocomplete="off"
                       class="ant-input-number-input"
                       id="money"
@@ -53965,6 +54287,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/pro-form-dependency
                             class="ant-pro-form-list-action"
                           >
                             <span
+                              aria-describedby="test-id"
                               aria-label="copy"
                               class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
                               role="img"
@@ -53985,6 +54308,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/pro-form-dependency
                               </svg>
                             </span>
                             <span
+                              aria-describedby="test-id"
                               aria-label="delete"
                               class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                               role="img"
@@ -54209,6 +54533,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/pro-form-dependency
                                             class="ant-pro-form-list-action"
                                           >
                                             <span
+                                              aria-describedby="test-id"
                                               aria-label="copy"
                                               class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
                                               role="img"
@@ -54229,6 +54554,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/pro-form-dependency
                                               </svg>
                                             </span>
                                             <span
+                                              aria-describedby="test-id"
                                               aria-label="delete"
                                               class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                                               role="img"
@@ -54412,6 +54738,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/pro-form-editableTa
                         >
                           签约客户名称
                           <span
+                            aria-describedby="test-id"
                             aria-label="question-circle"
                             class="anticon anticon-question-circle ant-form-item-tooltip"
                             role="img"
@@ -55085,7 +55412,9 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/pro-form-editableTa
                                         <div
                                           style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                                         >
-                                          <a>
+                                          <a
+                                            aria-describedby="test-id"
+                                          >
                                             删除
                                           </a>
                                         </div>
@@ -55313,7 +55642,9 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/pro-form-editableTa
                                         <div
                                           style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                                         >
-                                          <a>
+                                          <a
+                                            aria-describedby="test-id"
+                                          >
                                             删除
                                           </a>
                                         </div>

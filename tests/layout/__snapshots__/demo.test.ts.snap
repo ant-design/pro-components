@@ -196,6 +196,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                       <button
                         aria-label="remove"
                         class="ant-tabs-tab-remove"
+                        role="tab"
                         tabindex="-1"
                         type="button"
                       >
@@ -234,11 +235,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                     aria-controls="rc-tabs-test-more-popup"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-hidden="true"
                     class="ant-tabs-nav-more"
                     id="rc-tabs-test-more"
                     style="visibility: hidden; order: 1;"
-                    tabindex="-1"
                     type="button"
                   >
                     <span
@@ -549,11 +548,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                           aria-controls="rc-tabs-test-more-popup"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-hidden="true"
                           class="ant-tabs-nav-more"
                           id="rc-tabs-test-more"
                           style="visibility: hidden; order: 1;"
-                          tabindex="-1"
                           type="button"
                         >
                           <span
@@ -1453,6 +1450,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                             >
                               <span>
                                 <span
+                                  aria-describedby="test-id"
                                   aria-label="reload"
                                   class="anticon anticon-reload"
                                   role="img"
@@ -1478,6 +1476,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                             >
                               <span>
                                 <span
+                                  aria-describedby="test-id"
                                   aria-label="column-height"
                                   class="anticon anticon-column-height ant-dropdown-trigger"
                                   role="img"
@@ -1503,6 +1502,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                               class="ant-pro-table-list-toolbar-setting-item"
                             >
                               <span
+                                aria-describedby="test-id"
                                 aria-label="setting"
                                 class="anticon anticon-setting"
                                 role="img"
@@ -1831,6 +1831,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                           class="ant-form-item-control-input-content"
                         >
                           <div
+                            aria-describedby="test-id"
                             class="ant-color-picker-trigger ant-pro-field-color-picker"
                             id="fontColor"
                             style="display: table-cell; width: 100%;"
@@ -1891,6 +1892,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                               class="ant-slider-step"
                             />
                             <div
+                              aria-describedby="test-id"
                               aria-disabled="false"
                               aria-orientation="horizontal"
                               aria-valuemax="100"
@@ -1949,6 +1951,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                               class="ant-slider-step"
                             />
                             <div
+                              aria-describedby="test-id"
                               aria-disabled="false"
                               aria-orientation="horizontal"
                               aria-valuemax="100"
@@ -2007,6 +2010,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                               class="ant-slider-step"
                             />
                             <div
+                              aria-describedby="test-id"
                               aria-disabled="false"
                               aria-orientation="horizontal"
                               aria-valuemax="90"
@@ -2101,6 +2105,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                     >
                       <span>
                         <span
+                          aria-describedby="test-id"
                           aria-label="reload"
                           class="anticon anticon-reload"
                           role="img"
@@ -2126,6 +2131,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                     >
                       <span>
                         <span
+                          aria-describedby="test-id"
                           aria-label="column-height"
                           class="anticon anticon-column-height ant-dropdown-trigger"
                           role="img"
@@ -2151,6 +2157,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                       class="ant-pro-table-list-toolbar-setting-item"
                     >
                       <span
+                        aria-describedby="test-id"
                         aria-label="setting"
                         class="anticon anticon-setting"
                         role="img"
@@ -2305,6 +2312,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                 tabindex="0"
                               >
                                 <div
+                                  aria-describedby="test-id"
                                   class="ant-table-column-sorters"
                                 >
                                   <span
@@ -2433,6 +2441,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                 title="简短备注文案"
                               >
                                 <span
+                                  aria-describedby="test-id"
                                   aria-label="简短备注文案"
                                   class="ant-typography ant-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
@@ -2440,6 +2449,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                 >
                                   简短备注文案
                                   <button
+                                    aria-describedby="test-id"
                                     aria-label="复制"
                                     class="ant-typography-copy"
                                     type="button"
@@ -2550,6 +2560,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                 title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                               >
                                 <span
+                                  aria-describedby="test-id"
                                   aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                                   class="ant-typography ant-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
@@ -2557,6 +2568,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                 >
                                   很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
                                   <button
+                                    aria-describedby="test-id"
                                     aria-label="复制"
                                     class="ant-typography-copy"
                                     type="button"
@@ -2667,6 +2679,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                 title="简短备注文案"
                               >
                                 <span
+                                  aria-describedby="test-id"
                                   aria-label="简短备注文案"
                                   class="ant-typography ant-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
@@ -2674,6 +2687,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                 >
                                   简短备注文案
                                   <button
+                                    aria-describedby="test-id"
                                     aria-label="复制"
                                     class="ant-typography-copy"
                                     type="button"
@@ -2784,6 +2798,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                 title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                               >
                                 <span
+                                  aria-describedby="test-id"
                                   aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                                   class="ant-typography ant-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
@@ -2791,6 +2806,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                 >
                                   很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
                                   <button
+                                    aria-describedby="test-id"
                                     aria-label="复制"
                                     class="ant-typography-copy"
                                     type="button"
@@ -2901,6 +2917,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                 title="简短备注文案"
                               >
                                 <span
+                                  aria-describedby="test-id"
                                   aria-label="简短备注文案"
                                   class="ant-typography ant-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
@@ -2908,6 +2925,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                 >
                                   简短备注文案
                                   <button
+                                    aria-describedby="test-id"
                                     aria-label="复制"
                                     class="ant-typography-copy"
                                     type="button"
@@ -3018,6 +3036,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                 title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                               >
                                 <span
+                                  aria-describedby="test-id"
                                   aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                                   class="ant-typography ant-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
@@ -3025,6 +3044,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                 >
                                   很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
                                   <button
+                                    aria-describedby="test-id"
                                     aria-label="复制"
                                     class="ant-typography-copy"
                                     type="button"
@@ -3135,6 +3155,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                 title="简短备注文案"
                               >
                                 <span
+                                  aria-describedby="test-id"
                                   aria-label="简短备注文案"
                                   class="ant-typography ant-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
@@ -3142,6 +3163,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                 >
                                   简短备注文案
                                   <button
+                                    aria-describedby="test-id"
                                     aria-label="复制"
                                     class="ant-typography-copy"
                                     type="button"
@@ -3252,6 +3274,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                 title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                               >
                                 <span
+                                  aria-describedby="test-id"
                                   aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                                   class="ant-typography ant-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
@@ -3259,6 +3282,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                 >
                                   很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
                                   <button
+                                    aria-describedby="test-id"
                                     aria-label="复制"
                                     class="ant-typography-copy"
                                     type="button"
@@ -3369,6 +3393,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                 title="简短备注文案"
                               >
                                 <span
+                                  aria-describedby="test-id"
                                   aria-label="简短备注文案"
                                   class="ant-typography ant-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
@@ -3376,6 +3401,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                 >
                                   简短备注文案
                                   <button
+                                    aria-describedby="test-id"
                                     aria-label="复制"
                                     class="ant-typography-copy"
                                     type="button"
@@ -3486,6 +3512,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                 title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                               >
                                 <span
+                                  aria-describedby="test-id"
                                   aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                                   class="ant-typography ant-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
@@ -3493,6 +3520,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                 >
                                   很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
                                   <button
+                                    aria-describedby="test-id"
                                     aria-label="复制"
                                     class="ant-typography-copy"
                                     type="button"
@@ -3825,6 +3853,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/AlwaysDefaultOp
                               class="ant-menu-title-content"
                             >
                               <div
+                                aria-describedby="test-id"
                                 class="ant-pro-base-menu-inline-item-title"
                               >
                                 <span
@@ -4701,6 +4730,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/DefaultOpenAllM
                               class="ant-menu-title-content"
                             >
                               <div
+                                aria-describedby="test-id"
                                 class="ant-pro-base-menu-inline-item-title"
                               >
                                 <span
@@ -6200,6 +6230,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/Nested.tsx corr
                               class="ant-menu-title-content"
                             >
                               <div
+                                aria-describedby="test-id"
                                 class="ant-pro-base-menu-inline-item-title"
                               >
                                 <span
@@ -6242,6 +6273,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/Nested.tsx corr
                               class="ant-menu-title-content"
                             >
                               <div
+                                aria-describedby="test-id"
                                 class="ant-pro-base-menu-inline-item-title"
                               >
                                 <span
@@ -6284,6 +6316,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/Nested.tsx corr
                               class="ant-menu-title-content"
                             >
                               <div
+                                aria-describedby="test-id"
                                 class="ant-pro-base-menu-inline-item-title"
                               >
                                 <span
@@ -8339,6 +8372,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/async-load-help
                       role="menu"
                     >
                       <li
+                        aria-describedby="test-id"
                         class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
                         data-menu-id="rc-menu-uuid-test-1"
                         role="menuitem"
@@ -8352,6 +8386,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/async-load-help
                         </span>
                       </li>
                       <li
+                        aria-describedby="test-id"
                         class="ant-menu-item ant-menu-item-only-child"
                         data-menu-id="rc-menu-uuid-test-2"
                         role="menuitem"
@@ -10589,11 +10624,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/config-provider
                           aria-controls="rc-tabs-test-more-popup"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-hidden="true"
                           class="qixian-tabs-nav-more"
                           id="rc-tabs-test-more"
                           style="visibility: hidden; order: 1;"
-                          tabindex="-1"
                           type="button"
                         >
                           <span
@@ -11140,7 +11173,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/customSider.tsx
                             <span
                               class="ant-menu-title-content"
                             >
-                              <div>
+                              <div
+                                aria-describedby="test-id"
+                              >
                                 <div
                                   class="ant-pro-base-menu-inline-item-title"
                                 >
@@ -11662,7 +11697,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/customSider.tsx
                             <span
                               class="ant-menu-title-content"
                             >
-                              <div>
+                              <div
+                                aria-describedby="test-id"
+                              >
                                 <span
                                   class="ant-pro-base-menu-inline-item-title ant-pro-base-menu-inline-item-link"
                                 >
@@ -12328,7 +12365,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/customize-colla
                                         class="ant-radio-inner"
                                       />
                                     </span>
-                                    <span>
+                                    <span
+                                      class="ant-radio-label"
+                                    >
                                       header
                                     </span>
                                   </label>
@@ -12348,7 +12387,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/customize-colla
                                         class="ant-radio-inner"
                                       />
                                     </span>
-                                    <span>
+                                    <span
+                                      class="ant-radio-label"
+                                    >
                                       menu
                                     </span>
                                   </label>
@@ -14250,6 +14291,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/draggableHelp.t
                       role="menu"
                     >
                       <li
+                        aria-describedby="test-id"
                         class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
                         data-menu-id="rc-menu-uuid-test-1"
                         role="menuitem"
@@ -14263,6 +14305,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/draggableHelp.t
                         </span>
                       </li>
                       <li
+                        aria-describedby="test-id"
                         class="ant-menu-item ant-menu-item-only-child"
                         data-menu-id="rc-menu-uuid-test-2"
                         role="menuitem"
@@ -15126,11 +15169,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamic-setting
                             aria-controls="rc-tabs-test-more-popup"
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-hidden="true"
                             class="ant-tabs-nav-more"
                             id="rc-tabs-test-more"
                             style="visibility: hidden; order: 1;"
-                            tabindex="-1"
                             type="button"
                           >
                             <span
@@ -17466,6 +17507,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/help.tsx correc
                       role="menu"
                     >
                       <li
+                        aria-describedby="test-id"
                         class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
                         data-menu-id="rc-menu-uuid-test-1"
                         role="menuitem"
@@ -17479,6 +17521,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/help.tsx correc
                         </span>
                       </li>
                       <li
+                        aria-describedby="test-id"
                         class="ant-menu-item ant-menu-item-only-child"
                         data-menu-id="rc-menu-uuid-test-2"
                         role="menuitem"
@@ -17768,7 +17811,6 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/help.tsx correc
                     这篇文章的质量如何？ 
                     <ul
                       class="ant-rate"
-                      role="radiogroup"
                       tabindex="0"
                     >
                       <li
@@ -20974,6 +21016,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/proHelpModal.ts
             打开
           </button>
           <span
+            aria-describedby="test-id"
             class="ant-pro-help-popover-text"
           >
             Morse

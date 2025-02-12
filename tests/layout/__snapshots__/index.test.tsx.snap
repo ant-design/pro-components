@@ -1500,6 +1500,7 @@ exports[`BasicLayout > 🥩 mix layout hideInMenu render right 1`] = `
                     class="ant-menu-title-content"
                   >
                     <div
+                      aria-describedby=":r6g:"
                       class="ant-pro-base-menu-inline-item-title"
                     >
                       <span

@@ -69,6 +69,7 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
                 class="ant-pro-setting-drawer-block-checkbox"
               >
                 <div
+                  aria-describedby=":r0:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item"
                 >
                   <span
@@ -106,6 +107,7 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
                 class="ant-pro-setting-drawer-theme-color"
               >
                 <div
+                  aria-describedby=":r2:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(22, 119, 255);"
                 >
@@ -130,34 +132,42 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
                   </span>
                 </div>
                 <div
+                  aria-describedby=":r4:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(24, 144, 255);"
                 />
                 <div
+                  aria-describedby=":r6:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(245, 34, 45);"
                 />
                 <div
+                  aria-describedby=":r8:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(250, 84, 28);"
                 />
                 <div
+                  aria-describedby=":ra:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(250, 173, 20);"
                 />
                 <div
+                  aria-describedby=":rc:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(19, 194, 194);"
                 />
                 <div
+                  aria-describedby=":re:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(82, 196, 26);"
                 />
                 <div
+                  aria-describedby=":rg:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(47, 84, 235);"
                 />
                 <div
+                  aria-describedby=":ri:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(114, 46, 209);"
                 />
@@ -179,6 +189,7 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
                 class="ant-pro-setting-drawer-block-checkbox"
               >
                 <div
+                  aria-describedby=":rk:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item"
                 >
                   <span
@@ -203,6 +214,7 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
                   </span>
                 </div>
                 <div
+                  aria-describedby=":rm:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item"
                 >
                   <span
@@ -227,6 +239,7 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
                   </span>
                 </div>
                 <div
+                  aria-describedby=":ro:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item"
                 >
                   <span
@@ -264,6 +277,7 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
                 class="ant-pro-setting-drawer-block-checkbox"
               >
                 <div
+                  aria-describedby=":rq:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-sub ant-pro-setting-drawer-block-checkbox-siderMenuType-item"
                 >
                   <span
@@ -479,6 +493,7 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
                   </div>
                 </div>
                 <div
+                  aria-describedby=":rs:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-group ant-pro-setting-drawer-block-checkbox-siderMenuType-item"
                 >
                   <span
@@ -699,6 +714,7 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
                     class="ant-list-items"
                   >
                     <li
+                      aria-describedby=":ru:"
                       class="ant-list-item"
                     >
                       <span
@@ -779,6 +795,7 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
                       </ul>
                     </li>
                     <li
+                      aria-describedby=":r11:"
                       class="ant-list-item"
                     >
                       <span
@@ -814,6 +831,7 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
                       </ul>
                     </li>
                     <li
+                      aria-describedby=":r13:"
                       class="ant-list-item"
                     >
                       <span
@@ -849,6 +867,7 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
                       </ul>
                     </li>
                     <li
+                      aria-describedby=":r15:"
                       class="ant-list-item"
                     >
                       <span
@@ -913,6 +932,7 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
                       class="ant-list-items"
                     >
                       <li
+                        aria-describedby=":r17:"
                         class="ant-list-item"
                       >
                         <span
@@ -948,6 +968,7 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
                         </ul>
                       </li>
                       <li
+                        aria-describedby=":r19:"
                         class="ant-list-item"
                       >
                         <span
@@ -983,6 +1004,7 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
                         </ul>
                       </li>
                       <li
+                        aria-describedby=":r1b:"
                         class="ant-list-item"
                       >
                         <span
@@ -1018,6 +1040,7 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
                         </ul>
                       </li>
                       <li
+                        aria-describedby=":r1d:"
                         class="ant-list-item"
                       >
                         <span
@@ -1082,6 +1105,7 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
                       class="ant-list-items"
                     >
                       <li
+                        aria-describedby=":r1f:"
                         class="ant-list-item"
                       >
                         <span
@@ -1275,6 +1299,7 @@ exports[`settingDrawer.test > 🌺 drawerProps = undefined 1`] = `
                 class="ant-pro-setting-drawer-block-checkbox"
               >
                 <div
+                  aria-describedby=":rvv:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item"
                 >
                   <span
@@ -1312,6 +1337,7 @@ exports[`settingDrawer.test > 🌺 drawerProps = undefined 1`] = `
                 class="ant-pro-setting-drawer-theme-color"
               >
                 <div
+                  aria-describedby=":r101:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(22, 119, 255);"
                 >
@@ -1336,34 +1362,42 @@ exports[`settingDrawer.test > 🌺 drawerProps = undefined 1`] = `
                   </span>
                 </div>
                 <div
+                  aria-describedby=":r103:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(24, 144, 255);"
                 />
                 <div
+                  aria-describedby=":r105:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(245, 34, 45);"
                 />
                 <div
+                  aria-describedby=":r107:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(250, 84, 28);"
                 />
                 <div
+                  aria-describedby=":r109:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(250, 173, 20);"
                 />
                 <div
+                  aria-describedby=":r10b:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(19, 194, 194);"
                 />
                 <div
+                  aria-describedby=":r10d:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(82, 196, 26);"
                 />
                 <div
+                  aria-describedby=":r10f:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(47, 84, 235);"
                 />
                 <div
+                  aria-describedby=":r10h:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(114, 46, 209);"
                 />
@@ -1385,6 +1419,7 @@ exports[`settingDrawer.test > 🌺 drawerProps = undefined 1`] = `
                 class="ant-pro-setting-drawer-block-checkbox"
               >
                 <div
+                  aria-describedby=":r10j:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item"
                 >
                   <span
@@ -1409,6 +1444,7 @@ exports[`settingDrawer.test > 🌺 drawerProps = undefined 1`] = `
                   </span>
                 </div>
                 <div
+                  aria-describedby=":r10l:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item"
                 >
                   <span
@@ -1433,6 +1469,7 @@ exports[`settingDrawer.test > 🌺 drawerProps = undefined 1`] = `
                   </span>
                 </div>
                 <div
+                  aria-describedby=":r10n:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item"
                 >
                   <span
@@ -1470,6 +1507,7 @@ exports[`settingDrawer.test > 🌺 drawerProps = undefined 1`] = `
                 class="ant-pro-setting-drawer-block-checkbox"
               >
                 <div
+                  aria-describedby=":r10p:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-sub ant-pro-setting-drawer-block-checkbox-siderMenuType-item"
                 >
                   <span
@@ -1685,6 +1723,7 @@ exports[`settingDrawer.test > 🌺 drawerProps = undefined 1`] = `
                   </div>
                 </div>
                 <div
+                  aria-describedby=":r10r:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-group ant-pro-setting-drawer-block-checkbox-siderMenuType-item"
                 >
                   <span
@@ -1905,6 +1944,7 @@ exports[`settingDrawer.test > 🌺 drawerProps = undefined 1`] = `
                     class="ant-list-items"
                   >
                     <li
+                      aria-describedby=":r10t:"
                       class="ant-list-item"
                     >
                       <span
@@ -1985,6 +2025,7 @@ exports[`settingDrawer.test > 🌺 drawerProps = undefined 1`] = `
                       </ul>
                     </li>
                     <li
+                      aria-describedby=":r110:"
                       class="ant-list-item"
                     >
                       <span
@@ -2020,6 +2061,7 @@ exports[`settingDrawer.test > 🌺 drawerProps = undefined 1`] = `
                       </ul>
                     </li>
                     <li
+                      aria-describedby=":r112:"
                       class="ant-list-item"
                     >
                       <span
@@ -2055,6 +2097,7 @@ exports[`settingDrawer.test > 🌺 drawerProps = undefined 1`] = `
                       </ul>
                     </li>
                     <li
+                      aria-describedby=":r114:"
                       class="ant-list-item"
                     >
                       <span
@@ -2119,6 +2162,7 @@ exports[`settingDrawer.test > 🌺 drawerProps = undefined 1`] = `
                       class="ant-list-items"
                     >
                       <li
+                        aria-describedby=":r116:"
                         class="ant-list-item"
                       >
                         <span
@@ -2154,6 +2198,7 @@ exports[`settingDrawer.test > 🌺 drawerProps = undefined 1`] = `
                         </ul>
                       </li>
                       <li
+                        aria-describedby=":r118:"
                         class="ant-list-item"
                       >
                         <span
@@ -2189,6 +2234,7 @@ exports[`settingDrawer.test > 🌺 drawerProps = undefined 1`] = `
                         </ul>
                       </li>
                       <li
+                        aria-describedby=":r11a:"
                         class="ant-list-item"
                       >
                         <span
@@ -2224,6 +2270,7 @@ exports[`settingDrawer.test > 🌺 drawerProps = undefined 1`] = `
                         </ul>
                       </li>
                       <li
+                        aria-describedby=":r11c:"
                         class="ant-list-item"
                       >
                         <span
@@ -2288,6 +2335,7 @@ exports[`settingDrawer.test > 🌺 drawerProps = undefined 1`] = `
                       class="ant-list-items"
                     >
                       <li
+                        aria-describedby=":r11e:"
                         class="ant-list-item"
                       >
                         <span
@@ -2481,6 +2529,7 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
                 class="ant-pro-setting-drawer-block-checkbox"
               >
                 <div
+                  aria-describedby=":r32:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item"
                 >
                   <span
@@ -2522,6 +2571,7 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
                 class="ant-pro-setting-drawer-block-checkbox"
               >
                 <div
+                  aria-describedby=":r34:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item"
                 >
                   <span
@@ -2546,6 +2596,7 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
                   </span>
                 </div>
                 <div
+                  aria-describedby=":r36:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item"
                 >
                   <span
@@ -2570,6 +2621,7 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
                   </span>
                 </div>
                 <div
+                  aria-describedby=":r38:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item"
                 >
                   <span
@@ -2607,6 +2659,7 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
                 class="ant-pro-setting-drawer-block-checkbox"
               >
                 <div
+                  aria-describedby=":r3a:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-sub ant-pro-setting-drawer-block-checkbox-siderMenuType-item"
                 >
                   <span
@@ -2822,6 +2875,7 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
                   </div>
                 </div>
                 <div
+                  aria-describedby=":r3c:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-group ant-pro-setting-drawer-block-checkbox-siderMenuType-item"
                 >
                   <span
@@ -3042,6 +3096,7 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
                     class="ant-list-items"
                   >
                     <li
+                      aria-describedby=":r3e:"
                       class="ant-list-item"
                     >
                       <span
@@ -3122,6 +3177,7 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
                       </ul>
                     </li>
                     <li
+                      aria-describedby=":r3h:"
                       class="ant-list-item"
                     >
                       <span
@@ -3157,6 +3213,7 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
                       </ul>
                     </li>
                     <li
+                      aria-describedby=":r3j:"
                       class="ant-list-item"
                     >
                       <span
@@ -3192,6 +3249,7 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
                       </ul>
                     </li>
                     <li
+                      aria-describedby=":r3l:"
                       class="ant-list-item"
                     >
                       <span
@@ -3256,6 +3314,7 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
                       class="ant-list-items"
                     >
                       <li
+                        aria-describedby=":r3n:"
                         class="ant-list-item"
                       >
                         <span
@@ -3291,6 +3350,7 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
                         </ul>
                       </li>
                       <li
+                        aria-describedby=":r3p:"
                         class="ant-list-item"
                       >
                         <span
@@ -3326,6 +3386,7 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
                         </ul>
                       </li>
                       <li
+                        aria-describedby=":r3r:"
                         class="ant-list-item"
                       >
                         <span
@@ -3361,6 +3422,7 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
                         </ul>
                       </li>
                       <li
+                        aria-describedby=":r3t:"
                         class="ant-list-item"
                       >
                         <span
@@ -3425,6 +3487,7 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
                       class="ant-list-items"
                     >
                       <li
+                        aria-describedby=":r3v:"
                         class="ant-list-item"
                       >
                         <span
@@ -3618,6 +3681,7 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
                 class="ant-pro-setting-drawer-block-checkbox"
               >
                 <div
+                  aria-describedby=":r9k:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item"
                 >
                   <span
@@ -3655,6 +3719,7 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
                 class="ant-pro-setting-drawer-theme-color"
               >
                 <div
+                  aria-describedby=":r9m:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(22, 119, 255);"
                 >
@@ -3679,34 +3744,42 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
                   </span>
                 </div>
                 <div
+                  aria-describedby=":r9o:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(24, 144, 255);"
                 />
                 <div
+                  aria-describedby=":r9q:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(245, 34, 45);"
                 />
                 <div
+                  aria-describedby=":r9s:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(250, 84, 28);"
                 />
                 <div
+                  aria-describedby=":r9u:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(250, 173, 20);"
                 />
                 <div
+                  aria-describedby=":ra0:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(19, 194, 194);"
                 />
                 <div
+                  aria-describedby=":ra2:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(82, 196, 26);"
                 />
                 <div
+                  aria-describedby=":ra4:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(47, 84, 235);"
                 />
                 <div
+                  aria-describedby=":ra6:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(114, 46, 209);"
                 />
@@ -3728,6 +3801,7 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
                 class="ant-pro-setting-drawer-block-checkbox"
               >
                 <div
+                  aria-describedby=":ra8:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item"
                 >
                   <span
@@ -3752,6 +3826,7 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
                   </span>
                 </div>
                 <div
+                  aria-describedby=":raa:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item"
                 >
                   <span
@@ -3776,6 +3851,7 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
                   </span>
                 </div>
                 <div
+                  aria-describedby=":rac:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item"
                 >
                   <span
@@ -3813,6 +3889,7 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
                 class="ant-pro-setting-drawer-block-checkbox"
               >
                 <div
+                  aria-describedby=":rae:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-sub ant-pro-setting-drawer-block-checkbox-siderMenuType-item"
                 >
                   <span
@@ -4028,6 +4105,7 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
                   </div>
                 </div>
                 <div
+                  aria-describedby=":rag:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-group ant-pro-setting-drawer-block-checkbox-siderMenuType-item"
                 >
                   <span
@@ -4248,6 +4326,7 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
                     class="ant-list-items"
                   >
                     <li
+                      aria-describedby=":rai:"
                       class="ant-list-item"
                     >
                       <span
@@ -4328,6 +4407,7 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
                       </ul>
                     </li>
                     <li
+                      aria-describedby=":ral:"
                       class="ant-list-item"
                     >
                       <span
@@ -4363,6 +4443,7 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
                       </ul>
                     </li>
                     <li
+                      aria-describedby=":ran:"
                       class="ant-list-item"
                     >
                       <span
@@ -4398,6 +4479,7 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
                       </ul>
                     </li>
                     <li
+                      aria-describedby=":rap:"
                       class="ant-list-item"
                     >
                       <span
@@ -4462,6 +4544,7 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
                       class="ant-list-items"
                     >
                       <li
+                        aria-describedby=":rar:"
                         class="ant-list-item"
                       >
                         <span
@@ -4497,6 +4580,7 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
                         </ul>
                       </li>
                       <li
+                        aria-describedby=":rat:"
                         class="ant-list-item"
                       >
                         <span
@@ -4532,6 +4616,7 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
                         </ul>
                       </li>
                       <li
+                        aria-describedby=":rav:"
                         class="ant-list-item"
                       >
                         <span
@@ -4567,6 +4652,7 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
                         </ul>
                       </li>
                       <li
+                        aria-describedby=":rb1:"
                         class="ant-list-item"
                       >
                         <span
@@ -4631,6 +4717,7 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
                       class="ant-list-items"
                     >
                       <li
+                        aria-describedby=":rb3:"
                         class="ant-list-item"
                       >
                         <span
@@ -4792,6 +4879,7 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
                 class="ant-pro-setting-drawer-block-checkbox"
               >
                 <div
+                  aria-describedby=":r6h:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item"
                 >
                   <span
@@ -4829,6 +4917,7 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
                 class="ant-pro-setting-drawer-theme-color"
               >
                 <div
+                  aria-describedby=":r6j:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(22, 119, 255);"
                 >
@@ -4853,34 +4942,42 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
                   </span>
                 </div>
                 <div
+                  aria-describedby=":r6l:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(24, 144, 255);"
                 />
                 <div
+                  aria-describedby=":r6n:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(245, 34, 45);"
                 />
                 <div
+                  aria-describedby=":r6p:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(250, 84, 28);"
                 />
                 <div
+                  aria-describedby=":r6r:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(250, 173, 20);"
                 />
                 <div
+                  aria-describedby=":r6t:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(19, 194, 194);"
                 />
                 <div
+                  aria-describedby=":r6v:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(82, 196, 26);"
                 />
                 <div
+                  aria-describedby=":r71:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(47, 84, 235);"
                 />
                 <div
+                  aria-describedby=":r73:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(114, 46, 209);"
                 />
@@ -4902,6 +4999,7 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
                 class="ant-pro-setting-drawer-block-checkbox"
               >
                 <div
+                  aria-describedby=":r75:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item"
                 >
                   <span
@@ -4926,6 +5024,7 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
                   </span>
                 </div>
                 <div
+                  aria-describedby=":r77:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item"
                 >
                   <span
@@ -4950,6 +5049,7 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
                   </span>
                 </div>
                 <div
+                  aria-describedby=":r79:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item"
                 >
                   <span
@@ -4987,6 +5087,7 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
                 class="ant-pro-setting-drawer-block-checkbox"
               >
                 <div
+                  aria-describedby=":r7b:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-sub ant-pro-setting-drawer-block-checkbox-siderMenuType-item"
                 >
                   <span
@@ -5202,6 +5303,7 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
                   </div>
                 </div>
                 <div
+                  aria-describedby=":r7d:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-group ant-pro-setting-drawer-block-checkbox-siderMenuType-item"
                 >
                   <span
@@ -5422,6 +5524,7 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
                     class="ant-list-items"
                   >
                     <li
+                      aria-describedby=":r7f:"
                       class="ant-list-item"
                     >
                       <span
@@ -5502,6 +5605,7 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
                       </ul>
                     </li>
                     <li
+                      aria-describedby=":r7i:"
                       class="ant-list-item"
                     >
                       <span
@@ -5537,6 +5641,7 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
                       </ul>
                     </li>
                     <li
+                      aria-describedby=":r7k:"
                       class="ant-list-item"
                     >
                       <span
@@ -5572,6 +5677,7 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
                       </ul>
                     </li>
                     <li
+                      aria-describedby=":r7m:"
                       class="ant-list-item"
                     >
                       <span
@@ -5636,6 +5742,7 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
                       class="ant-list-items"
                     >
                       <li
+                        aria-describedby=":r7o:"
                         class="ant-list-item"
                       >
                         <span
@@ -5671,6 +5778,7 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
                         </ul>
                       </li>
                       <li
+                        aria-describedby=":r7q:"
                         class="ant-list-item"
                       >
                         <span
@@ -5706,6 +5814,7 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
                         </ul>
                       </li>
                       <li
+                        aria-describedby=":r7s:"
                         class="ant-list-item"
                       >
                         <span
@@ -5741,6 +5850,7 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
                         </ul>
                       </li>
                       <li
+                        aria-describedby=":r7u:"
                         class="ant-list-item"
                       >
                         <span
@@ -5805,6 +5915,7 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
                       class="ant-list-items"
                     >
                       <li
+                        aria-describedby=":r80:"
                         class="ant-list-item"
                       >
                         <span
@@ -5963,6 +6074,7 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
                 class="ant-pro-setting-drawer-block-checkbox"
               >
                 <div
+                  aria-describedby=":r1h:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item"
                 >
                   <span
@@ -6000,6 +6112,7 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
                 class="ant-pro-setting-drawer-theme-color"
               >
                 <div
+                  aria-describedby=":r1j:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(22, 119, 255);"
                 >
@@ -6024,34 +6137,42 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
                   </span>
                 </div>
                 <div
+                  aria-describedby=":r1l:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(24, 144, 255);"
                 />
                 <div
+                  aria-describedby=":r1n:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(245, 34, 45);"
                 />
                 <div
+                  aria-describedby=":r1p:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(250, 84, 28);"
                 />
                 <div
+                  aria-describedby=":r1r:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(250, 173, 20);"
                 />
                 <div
+                  aria-describedby=":r1t:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(19, 194, 194);"
                 />
                 <div
+                  aria-describedby=":r1v:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(82, 196, 26);"
                 />
                 <div
+                  aria-describedby=":r21:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(47, 84, 235);"
                 />
                 <div
+                  aria-describedby=":r23:"
                   class="ant-pro-setting-drawer-theme-color-block"
                   style="background-color: rgb(114, 46, 209);"
                 />
@@ -6073,6 +6194,7 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
                 class="ant-pro-setting-drawer-block-checkbox"
               >
                 <div
+                  aria-describedby=":r25:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item"
                 >
                   <span
@@ -6097,6 +6219,7 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
                   </span>
                 </div>
                 <div
+                  aria-describedby=":r27:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item"
                 >
                   <span
@@ -6121,6 +6244,7 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
                   </span>
                 </div>
                 <div
+                  aria-describedby=":r29:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item"
                 >
                   <span
@@ -6158,6 +6282,7 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
                 class="ant-pro-setting-drawer-block-checkbox"
               >
                 <div
+                  aria-describedby=":r2b:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-sub ant-pro-setting-drawer-block-checkbox-siderMenuType-item"
                 >
                   <span
@@ -6373,6 +6498,7 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
                   </div>
                 </div>
                 <div
+                  aria-describedby=":r2d:"
                   class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-group ant-pro-setting-drawer-block-checkbox-siderMenuType-item"
                 >
                   <span
@@ -6593,6 +6719,7 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
                     class="ant-list-items"
                   >
                     <li
+                      aria-describedby=":r2f:"
                       class="ant-list-item"
                     >
                       <span
@@ -6673,6 +6800,7 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
                       </ul>
                     </li>
                     <li
+                      aria-describedby=":r2i:"
                       class="ant-list-item"
                     >
                       <span
@@ -6708,6 +6836,7 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
                       </ul>
                     </li>
                     <li
+                      aria-describedby=":r2k:"
                       class="ant-list-item"
                     >
                       <span
@@ -6743,6 +6872,7 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
                       </ul>
                     </li>
                     <li
+                      aria-describedby=":r2m:"
                       class="ant-list-item"
                     >
                       <span
@@ -6807,6 +6937,7 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
                       class="ant-list-items"
                     >
                       <li
+                        aria-describedby=":r2o:"
                         class="ant-list-item"
                       >
                         <span
@@ -6842,6 +6973,7 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
                         </ul>
                       </li>
                       <li
+                        aria-describedby=":r2q:"
                         class="ant-list-item"
                       >
                         <span
@@ -6877,6 +7009,7 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
                         </ul>
                       </li>
                       <li
+                        aria-describedby=":r2s:"
                         class="ant-list-item"
                       >
                         <span
@@ -6912,6 +7045,7 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
                         </ul>
                       </li>
                       <li
+                        aria-describedby=":r2u:"
                         class="ant-list-item"
                       >
                         <span
@@ -6976,6 +7110,7 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
                       class="ant-list-items"
                     >
                       <li
+                        aria-describedby=":r30:"
                         class="ant-list-item"
                       >
                         <span

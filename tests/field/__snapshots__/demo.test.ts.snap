@@ -34,7 +34,9 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
                 class="ant-radio-inner"
               />
             </span>
-            <span>
+            <span
+              class="ant-radio-label"
+            >
               只读
             </span>
           </label>
@@ -54,7 +56,9 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
                 class="ant-radio-inner"
               />
             </span>
-            <span>
+            <span
+              class="ant-radio-label"
+            >
               编辑
             </span>
           </label>
@@ -268,6 +272,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
                     class="ant-descriptions-item-content"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-color-picker-trigger ant-pro-field-color-picker"
                     >
                       <div
@@ -395,7 +400,6 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
                   >
                     <ul
                       class="ant-rate ant-rate-disabled"
-                      role="radiogroup"
                       tabindex="-1"
                     >
                       <li
@@ -1133,14 +1137,18 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
                       <div
                         class="ant-space-item"
                       >
-                        <span>
+                        <span
+                          aria-describedby="test-id"
+                        >
                           in 3 years
                         </span>
                       </div>
                       <div
                         class="ant-space-item"
                       >
-                        <span>
+                        <span
+                          aria-describedby="test-id"
+                        >
                           in 4 years
                         </span>
                       </div>
@@ -1459,7 +1467,9 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                 class="ant-radio-inner"
               />
             </span>
-            <span>
+            <span
+              class="ant-radio-label"
+            >
               只读
             </span>
           </label>
@@ -1480,7 +1490,9 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                 class="ant-radio-inner"
               />
             </span>
-            <span>
+            <span
+              class="ant-radio-label"
+            >
               编辑
             </span>
           </label>
@@ -1652,6 +1664,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                     class="ant-descriptions-item-content"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-color-picker-trigger ant-pro-field-color-picker"
                       style="display: table-cell;"
                     >
@@ -1682,6 +1695,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                     class="ant-descriptions-item-content"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-color-picker-trigger ant-pro-field-color-picker ant-color-picker-trigger-disabled"
                       style="display: table-cell;"
                     >
@@ -1690,6 +1704,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                       />
                     </div>
                     <div
+                      aria-describedby="test-id"
                       class="ant-color-picker-trigger ant-pro-field-color-picker"
                     >
                       <div
@@ -1813,6 +1828,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                         class="ant-input-number-input-wrap"
                       >
                         <input
+                          aria-describedby="test-id"
                           autocomplete="off"
                           class="ant-input-number-input"
                           placeholder="请输入"
@@ -2315,7 +2331,6 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                   >
                     <ul
                       class="ant-rate"
-                      role="radiogroup"
                       tabindex="0"
                     >
                       <li
@@ -2646,6 +2661,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                         class="ant-slider-step"
                       />
                       <div
+                        aria-describedby="test-id"
                         aria-disabled="false"
                         aria-orientation="horizontal"
                         aria-valuemax="100"
@@ -2780,7 +2796,9 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                             class="ant-checkbox-inner"
                           />
                         </span>
-                        <span>
+                        <span
+                          class="ant-checkbox-label"
+                        >
                           全部
                         </span>
                       </label>
@@ -2799,7 +2817,9 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                             class="ant-checkbox-inner"
                           />
                         </span>
-                        <span>
+                        <span
+                          class="ant-checkbox-label"
+                        >
                           未解决
                         </span>
                       </label>
@@ -2818,7 +2838,9 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                             class="ant-checkbox-inner"
                           />
                         </span>
-                        <span>
+                        <span
+                          class="ant-checkbox-label"
+                        >
                           已解决
                         </span>
                       </label>
@@ -2837,7 +2859,9 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                             class="ant-checkbox-inner"
                           />
                         </span>
-                        <span>
+                        <span
+                          class="ant-checkbox-label"
+                        >
                           解决中
                         </span>
                       </label>
@@ -2879,7 +2903,9 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                             class="ant-checkbox-inner"
                           />
                         </span>
-                        <span>
+                        <span
+                          class="ant-checkbox-label"
+                        >
                           全部
                         </span>
                       </label>
@@ -2898,7 +2924,9 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                             class="ant-checkbox-inner"
                           />
                         </span>
-                        <span>
+                        <span
+                          class="ant-checkbox-label"
+                        >
                           未解决
                         </span>
                       </label>
@@ -2917,7 +2945,9 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                             class="ant-checkbox-inner"
                           />
                         </span>
-                        <span>
+                        <span
+                          class="ant-checkbox-label"
+                        >
                           已解决
                         </span>
                       </label>
@@ -2936,7 +2966,9 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                             class="ant-checkbox-inner"
                           />
                         </span>
-                        <span>
+                        <span
+                          class="ant-checkbox-label"
+                        >
                           解决中
                         </span>
                       </label>
@@ -2983,7 +3015,9 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                             class="ant-radio-inner"
                           />
                         </span>
-                        <span>
+                        <span
+                          class="ant-radio-label"
+                        >
                           全部
                         </span>
                       </label>
@@ -3003,7 +3037,9 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                             class="ant-radio-inner"
                           />
                         </span>
-                        <span>
+                        <span
+                          class="ant-radio-label"
+                        >
                           未解决
                         </span>
                       </label>
@@ -3023,7 +3059,9 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                             class="ant-radio-inner"
                           />
                         </span>
-                        <span>
+                        <span
+                          class="ant-radio-label"
+                        >
                           已解决
                         </span>
                       </label>
@@ -3043,7 +3081,9 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                             class="ant-radio-inner"
                           />
                         </span>
-                        <span>
+                        <span
+                          class="ant-radio-label"
+                        >
                           解决中
                         </span>
                       </label>
@@ -3086,7 +3126,9 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                             class="ant-radio-button-inner"
                           />
                         </span>
-                        <span>
+                        <span
+                          class="ant-radio-button-label"
+                        >
                           全部
                         </span>
                       </label>
@@ -3106,7 +3148,9 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                             class="ant-radio-button-inner"
                           />
                         </span>
-                        <span>
+                        <span
+                          class="ant-radio-button-label"
+                        >
                           未解决
                         </span>
                       </label>
@@ -3126,7 +3170,9 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                             class="ant-radio-button-inner"
                           />
                         </span>
-                        <span>
+                        <span
+                          class="ant-radio-button-label"
+                        >
                           已解决
                         </span>
                       </label>
@@ -3146,7 +3192,9 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                             class="ant-radio-button-inner"
                           />
                         </span>
-                        <span>
+                        <span
+                          class="ant-radio-button-label"
+                        >
                           解决中
                         </span>
                       </label>

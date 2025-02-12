@@ -45,6 +45,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -70,6 +71,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height ant-dropdown-trigger"
                         role="img"
@@ -95,6 +97,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
                     class="ant-pro-table-list-toolbar-setting-item"
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"
@@ -441,6 +444,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -466,6 +470,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height ant-dropdown-trigger"
                         role="img"
@@ -491,6 +496,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
                     class="ant-pro-table-list-toolbar-setting-item"
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"
@@ -836,6 +842,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -861,6 +868,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height ant-dropdown-trigger"
                         role="img"
@@ -886,6 +894,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
                     class="ant-pro-table-list-toolbar-setting-item"
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"
@@ -1210,6 +1219,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -1235,6 +1245,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height ant-dropdown-trigger"
                         role="img"
@@ -1260,6 +1271,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
                     class="ant-pro-table-list-toolbar-setting-item"
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"
@@ -1631,7 +1643,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                     class="ant-radio-inner"
                                   />
                                 </span>
-                                <span>
+                                <span
+                                  class="ant-radio-label"
+                                >
                                   添加到顶部
                                 </span>
                               </label>
@@ -1652,7 +1666,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                     class="ant-radio-inner"
                                   />
                                 </span>
-                                <span>
+                                <span
+                                  class="ant-radio-label"
+                                >
                                   添加到底部
                                 </span>
                               </label>
@@ -1672,7 +1688,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                     class="ant-radio-inner"
                                   />
                                 </span>
-                                <span>
+                                <span
+                                  class="ant-radio-label"
+                                >
                                   隐藏
                                 </span>
                               </label>
@@ -1739,6 +1757,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                   活动名称
                                 </div>
                                 <span
+                                  aria-describedby="test-id"
                                   class="ant-pro-core-label-tip-icon"
                                 >
                                   <span
@@ -1779,6 +1798,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                   活动名称二
                                 </div>
                                 <span
+                                  aria-describedby="test-id"
                                   class="ant-pro-core-label-tip-icon"
                                 >
                                   <span
@@ -4240,6 +4260,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             title="题库名称一"
                                           >
                                             <span
+                                              aria-describedby="test-id"
                                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
                                               style="width: 100%; margin: 0px; padding: 0px;"
                                               title=""
@@ -4306,6 +4327,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             title="题库名称二"
                                           >
                                             <span
+                                              aria-describedby="test-id"
                                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
                                               style="width: 100%; margin: 0px; padding: 0px;"
                                               title=""
@@ -4372,6 +4394,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             title="题库名称三"
                                           >
                                             <span
+                                              aria-describedby="test-id"
                                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
                                               style="width: 100%; margin: 0px; padding: 0px;"
                                               title=""
@@ -4438,6 +4461,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             title="题库名称四"
                                           >
                                             <span
+                                              aria-describedby="test-id"
                                               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
                                               style="width: 100%; margin: 0px; padding: 0px;"
                                               title=""
@@ -4654,11 +4678,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
               aria-controls="rc-tabs-test-more-popup"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-hidden="true"
               class="ant-tabs-nav-more"
               id="rc-tabs-test-more"
               style="visibility: hidden; order: 1;"
-              tabindex="-1"
               type="button"
             >
               <span
@@ -5345,7 +5367,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                   <div
                                     class="ant-col ant-form-item-control"
                                   >
-                                    <span>
+                                    <span
+                                      aria-describedby="test-id"
+                                    >
                                       <div
                                         class="ant-form-item-control-input"
                                       >
@@ -5585,7 +5609,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                               <div
                                 style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                               >
-                                <a>
+                                <a
+                                  aria-describedby="test-id"
+                                >
                                   删除
                                 </a>
                               </div>
@@ -5608,7 +5634,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                   <div
                                     class="ant-col ant-form-item-control"
                                   >
-                                    <span>
+                                    <span
+                                      aria-describedby="test-id"
+                                    >
                                       <div
                                         class="ant-form-item-control-input"
                                       >
@@ -5848,7 +5876,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                               <div
                                 style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                               >
-                                <a>
+                                <a
+                                  aria-describedby="test-id"
+                                >
                                   删除
                                 </a>
                               </div>
@@ -5871,7 +5901,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                   <div
                                     class="ant-col ant-form-item-control"
                                   >
-                                    <span>
+                                    <span
+                                      aria-describedby="test-id"
+                                    >
                                       <div
                                         class="ant-form-item-control-input"
                                       >
@@ -6111,7 +6143,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                               <div
                                 style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                               >
-                                <a>
+                                <a
+                                  aria-describedby="test-id"
+                                >
                                   删除
                                 </a>
                               </div>
@@ -6134,7 +6168,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                   <div
                                     class="ant-col ant-form-item-control"
                                   >
-                                    <span>
+                                    <span
+                                      aria-describedby="test-id"
+                                    >
                                       <div
                                         class="ant-form-item-control-input"
                                       >
@@ -6374,7 +6410,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                               <div
                                 style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                               >
-                                <a>
+                                <a
+                                  aria-describedby="test-id"
+                                >
                                   删除
                                 </a>
                               </div>
@@ -6397,7 +6435,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                   <div
                                     class="ant-col ant-form-item-control"
                                   >
-                                    <span>
+                                    <span
+                                      aria-describedby="test-id"
+                                    >
                                       <div
                                         class="ant-form-item-control-input"
                                       >
@@ -6637,7 +6677,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                               <div
                                 style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                               >
-                                <a>
+                                <a
+                                  aria-describedby="test-id"
+                                >
                                   删除
                                 </a>
                               </div>
@@ -6660,7 +6702,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                   <div
                                     class="ant-col ant-form-item-control"
                                   >
-                                    <span>
+                                    <span
+                                      aria-describedby="test-id"
+                                    >
                                       <div
                                         class="ant-form-item-control-input"
                                       >
@@ -6900,7 +6944,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                               <div
                                 style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                               >
-                                <a>
+                                <a
+                                  aria-describedby="test-id"
+                                >
                                   删除
                                 </a>
                               </div>
@@ -6923,7 +6969,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                   <div
                                     class="ant-col ant-form-item-control"
                                   >
-                                    <span>
+                                    <span
+                                      aria-describedby="test-id"
+                                    >
                                       <div
                                         class="ant-form-item-control-input"
                                       >
@@ -7163,7 +7211,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                               <div
                                 style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                               >
-                                <a>
+                                <a
+                                  aria-describedby="test-id"
+                                >
                                   删除
                                 </a>
                               </div>
@@ -7186,7 +7236,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                   <div
                                     class="ant-col ant-form-item-control"
                                   >
-                                    <span>
+                                    <span
+                                      aria-describedby="test-id"
+                                    >
                                       <div
                                         class="ant-form-item-control-input"
                                       >
@@ -7426,7 +7478,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                               <div
                                 style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                               >
-                                <a>
+                                <a
+                                  aria-describedby="test-id"
+                                >
                                   删除
                                 </a>
                               </div>
@@ -7449,7 +7503,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                   <div
                                     class="ant-col ant-form-item-control"
                                   >
-                                    <span>
+                                    <span
+                                      aria-describedby="test-id"
+                                    >
                                       <div
                                         class="ant-form-item-control-input"
                                       >
@@ -7689,7 +7745,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                               <div
                                 style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                               >
-                                <a>
+                                <a
+                                  aria-describedby="test-id"
+                                >
                                   删除
                                 </a>
                               </div>
@@ -7712,7 +7770,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                   <div
                                     class="ant-col ant-form-item-control"
                                   >
-                                    <span>
+                                    <span
+                                      aria-describedby="test-id"
+                                    >
                                       <div
                                         class="ant-form-item-control-input"
                                       >
@@ -7952,7 +8012,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                               <div
                                 style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                               >
-                                <a>
+                                <a
+                                  aria-describedby="test-id"
+                                >
                                   删除
                                 </a>
                               </div>
@@ -7975,7 +8037,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                   <div
                                     class="ant-col ant-form-item-control"
                                   >
-                                    <span>
+                                    <span
+                                      aria-describedby="test-id"
+                                    >
                                       <div
                                         class="ant-form-item-control-input"
                                       >
@@ -8215,7 +8279,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                               <div
                                 style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                               >
-                                <a>
+                                <a
+                                  aria-describedby="test-id"
+                                >
                                   删除
                                 </a>
                               </div>
@@ -8238,7 +8304,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                   <div
                                     class="ant-col ant-form-item-control"
                                   >
-                                    <span>
+                                    <span
+                                      aria-describedby="test-id"
+                                    >
                                       <div
                                         class="ant-form-item-control-input"
                                       >
@@ -8478,7 +8546,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                               <div
                                 style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                               >
-                                <a>
+                                <a
+                                  aria-describedby="test-id"
+                                >
                                   删除
                                 </a>
                               </div>
@@ -8501,7 +8571,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                   <div
                                     class="ant-col ant-form-item-control"
                                   >
-                                    <span>
+                                    <span
+                                      aria-describedby="test-id"
+                                    >
                                       <div
                                         class="ant-form-item-control-input"
                                       >
@@ -8741,7 +8813,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                               <div
                                 style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                               >
-                                <a>
+                                <a
+                                  aria-describedby="test-id"
+                                >
                                   删除
                                 </a>
                               </div>
@@ -8764,7 +8838,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                   <div
                                     class="ant-col ant-form-item-control"
                                   >
-                                    <span>
+                                    <span
+                                      aria-describedby="test-id"
+                                    >
                                       <div
                                         class="ant-form-item-control-input"
                                       >
@@ -9004,7 +9080,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                               <div
                                 style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                               >
-                                <a>
+                                <a
+                                  aria-describedby="test-id"
+                                >
                                   删除
                                 </a>
                               </div>
@@ -9027,7 +9105,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                   <div
                                     class="ant-col ant-form-item-control"
                                   >
-                                    <span>
+                                    <span
+                                      aria-describedby="test-id"
+                                    >
                                       <div
                                         class="ant-form-item-control-input"
                                       >
@@ -9267,7 +9347,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                               <div
                                 style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                               >
-                                <a>
+                                <a
+                                  aria-describedby="test-id"
+                                >
                                   删除
                                 </a>
                               </div>
@@ -9290,7 +9372,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                   <div
                                     class="ant-col ant-form-item-control"
                                   >
-                                    <span>
+                                    <span
+                                      aria-describedby="test-id"
+                                    >
                                       <div
                                         class="ant-form-item-control-input"
                                       >
@@ -9530,7 +9614,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                               <div
                                 style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                               >
-                                <a>
+                                <a
+                                  aria-describedby="test-id"
+                                >
                                   删除
                                 </a>
                               </div>
@@ -9553,7 +9639,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                   <div
                                     class="ant-col ant-form-item-control"
                                   >
-                                    <span>
+                                    <span
+                                      aria-describedby="test-id"
+                                    >
                                       <div
                                         class="ant-form-item-control-input"
                                       >
@@ -9793,7 +9881,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                               <div
                                 style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                               >
-                                <a>
+                                <a
+                                  aria-describedby="test-id"
+                                >
                                   删除
                                 </a>
                               </div>
@@ -9816,7 +9906,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                   <div
                                     class="ant-col ant-form-item-control"
                                   >
-                                    <span>
+                                    <span
+                                      aria-describedby="test-id"
+                                    >
                                       <div
                                         class="ant-form-item-control-input"
                                       >
@@ -10056,7 +10148,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                               <div
                                 style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                               >
-                                <a>
+                                <a
+                                  aria-describedby="test-id"
+                                >
                                   删除
                                 </a>
                               </div>
@@ -10079,7 +10173,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                   <div
                                     class="ant-col ant-form-item-control"
                                   >
-                                    <span>
+                                    <span
+                                      aria-describedby="test-id"
+                                    >
                                       <div
                                         class="ant-form-item-control-input"
                                       >
@@ -10319,7 +10415,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                               <div
                                 style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                               >
-                                <a>
+                                <a
+                                  aria-describedby="test-id"
+                                >
                                   删除
                                 </a>
                               </div>
@@ -10342,7 +10440,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                   <div
                                     class="ant-col ant-form-item-control"
                                   >
-                                    <span>
+                                    <span
+                                      aria-describedby="test-id"
+                                    >
                                       <div
                                         class="ant-form-item-control-input"
                                       >
@@ -10582,7 +10682,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                               <div
                                 style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                               >
-                                <a>
+                                <a
+                                  aria-describedby="test-id"
+                                >
                                   删除
                                 </a>
                               </div>
@@ -11193,6 +11295,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/basic
                       这里是子标题
                     </div>
                     <span
+                      aria-describedby="test-id"
                       class="ant-pro-core-label-tip-icon"
                     >
                       <span
@@ -11365,7 +11468,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/basic
                   <div
                     class="ant-pro-table-list-toolbar-setting-item"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       <span
                         aria-label="setting"
                         class="anticon anticon-setting"
@@ -11390,7 +11495,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/basic
                   <div
                     class="ant-pro-table-list-toolbar-setting-item"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       <span
                         aria-label="fullscreen"
                         class="anticon anticon-fullscreen"
@@ -11463,6 +11570,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/basic
                               tabindex="0"
                             >
                               <div
+                                aria-describedby="test-id"
                                 class="ant-table-column-sorters"
                               >
                                 <span
@@ -12111,11 +12219,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/menu.
                         aria-controls="rc-tabs-test-more-popup"
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        aria-hidden="true"
                         class="ant-tabs-nav-more"
                         id="rc-tabs-test-more"
                         style="visibility: hidden; order: 1;"
-                        tabindex="-1"
                         type="button"
                       >
                         <span
@@ -12304,6 +12410,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/menu.
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -12329,6 +12436,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/menu.
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height ant-dropdown-trigger"
                         role="img"
@@ -12354,6 +12462,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/menu.
                     class="ant-pro-table-list-toolbar-setting-item"
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"
@@ -12425,6 +12534,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/menu.
                               tabindex="0"
                             >
                               <div
+                                aria-describedby="test-id"
                                 class="ant-table-column-sorters"
                               >
                                 <span
@@ -13023,6 +13133,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/multi
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -13048,6 +13159,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/multi
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height ant-dropdown-trigger"
                         role="img"
@@ -13073,6 +13185,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/multi
                     class="ant-pro-table-list-toolbar-setting-item"
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"
@@ -13219,6 +13332,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/multi
                               tabindex="0"
                             >
                               <div
+                                aria-describedby="test-id"
                                 class="ant-table-column-sorters"
                               >
                                 <span
@@ -13855,6 +13969,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/no-ti
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -13880,6 +13995,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/no-ti
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height ant-dropdown-trigger"
                         role="img"
@@ -13905,6 +14021,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/no-ti
                     class="ant-pro-table-list-toolbar-setting-item"
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"
@@ -13976,6 +14093,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/no-ti
                               tabindex="0"
                             >
                               <div
+                                aria-describedby="test-id"
                                 class="ant-table-column-sorters"
                               >
                                 <span
@@ -14483,6 +14601,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/tabs.
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -14508,6 +14627,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/tabs.
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height ant-dropdown-trigger"
                         role="img"
@@ -14533,6 +14653,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/tabs.
                     class="ant-pro-table-list-toolbar-setting-item"
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"
@@ -14617,11 +14738,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/tabs.
                       aria-controls="rc-tabs-test-more-popup"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-hidden="true"
                       class="ant-tabs-nav-more"
                       id="rc-tabs-test-more"
                       style="visibility: hidden; order: 1;"
-                      tabindex="-1"
                       type="button"
                     >
                       <span
@@ -14794,6 +14913,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/tabs.
                               tabindex="0"
                             >
                               <div
+                                aria-describedby="test-id"
                                 class="ant-table-column-sorters"
                               >
                                 <span
@@ -15522,6 +15642,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                               tabindex="0"
                             >
                               <div
+                                aria-describedby="test-id"
                                 class="ant-table-column-sorters"
                               >
                                 <span
@@ -15604,6 +15725,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                               tabindex="0"
                             >
                               <div
+                                aria-describedby="test-id"
                                 class="ant-table-column-sorters"
                               >
                                 <span
@@ -15856,6 +15978,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                               title="简短备注文案"
                             >
                               <span
+                                aria-describedby="test-id"
                                 aria-label="简短备注文案"
                                 class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
@@ -15863,6 +15986,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                               >
                                 简短备注文案
                                 <button
+                                  aria-describedby="test-id"
                                   aria-label="复制"
                                   class="ant-typography-copy"
                                   type="button"
@@ -15994,6 +16118,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                               title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                             >
                               <span
+                                aria-describedby="test-id"
                                 aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                                 class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
@@ -16001,6 +16126,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                               >
                                 很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
                                 <button
+                                  aria-describedby="test-id"
                                   aria-label="复制"
                                   class="ant-typography-copy"
                                   type="button"
@@ -16131,6 +16257,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                               title="简短备注文案"
                             >
                               <span
+                                aria-describedby="test-id"
                                 aria-label="简短备注文案"
                                 class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
@@ -16138,6 +16265,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                               >
                                 简短备注文案
                                 <button
+                                  aria-describedby="test-id"
                                   aria-label="复制"
                                   class="ant-typography-copy"
                                   type="button"
@@ -16268,6 +16396,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                               title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                             >
                               <span
+                                aria-describedby="test-id"
                                 aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                                 class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
@@ -16275,6 +16404,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                               >
                                 很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
                                 <button
+                                  aria-describedby="test-id"
                                   aria-label="复制"
                                   class="ant-typography-copy"
                                   type="button"
@@ -16405,6 +16535,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                               title="简短备注文案"
                             >
                               <span
+                                aria-describedby="test-id"
                                 aria-label="简短备注文案"
                                 class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
@@ -16412,6 +16543,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                               >
                                 简短备注文案
                                 <button
+                                  aria-describedby="test-id"
                                   aria-label="复制"
                                   class="ant-typography-copy"
                                   type="button"
@@ -16704,6 +16836,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/card-title.tsx co
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -16729,6 +16862,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/card-title.tsx co
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height ant-dropdown-trigger"
                         role="img"
@@ -16754,6 +16888,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/card-title.tsx co
                     class="ant-pro-table-list-toolbar-setting-item"
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"
@@ -16825,6 +16960,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/card-title.tsx co
                               tabindex="0"
                             >
                               <div
+                                aria-describedby="test-id"
                                 class="ant-table-column-sorters"
                               >
                                 <span
@@ -17378,6 +17514,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/columns-setting-c
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -17403,6 +17540,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/columns-setting-c
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height ant-dropdown-trigger"
                         role="img"
@@ -17659,6 +17797,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/columnsStateMap.t
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -17684,6 +17823,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/columnsStateMap.t
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height ant-dropdown-trigger"
                         role="img"
@@ -17709,6 +17849,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/columnsStateMap.t
                     class="ant-pro-table-list-toolbar-setting-item"
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"
@@ -18395,6 +18536,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/config-provider.t
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -18420,6 +18562,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/config-provider.t
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height qixian-dropdown-trigger"
                         role="img"
@@ -18445,6 +18588,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/config-provider.t
                     class="qixian-pro-table-list-toolbar-setting-item"
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"
@@ -18553,6 +18697,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/config-provider.t
                                   标题
                                 </div>
                                 <span
+                                  aria-describedby="test-id"
                                   class="qixian-pro-core-label-tip-icon"
                                 >
                                   <span
@@ -18794,11 +18939,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/crud.tsx correctl
                 aria-controls="rc-tabs-test-more-popup"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-hidden="true"
                 class="ant-tabs-nav-more"
                 id="rc-tabs-test-more"
                 style="visibility: hidden; order: 1;"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -19354,6 +19497,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/crud.tsx correctl
                       >
                         <span>
                           <span
+                            aria-describedby="test-id"
                             aria-label="reload"
                             class="anticon anticon-reload"
                             role="img"
@@ -19379,6 +19523,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/crud.tsx correctl
                       >
                         <span>
                           <span
+                            aria-describedby="test-id"
                             aria-label="column-height"
                             class="anticon anticon-column-height ant-dropdown-trigger"
                             role="img"
@@ -19404,6 +19549,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/crud.tsx correctl
                         class="ant-pro-table-list-toolbar-setting-item"
                       >
                         <span
+                          aria-describedby="test-id"
                           aria-label="setting"
                           class="anticon anticon-setting"
                           role="img"
@@ -19860,6 +20006,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/customization-val
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -19885,6 +20032,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/customization-val
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height ant-dropdown-trigger"
                         role="img"
@@ -19910,6 +20058,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/customization-val
                     class="ant-pro-table-list-toolbar-setting-item"
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"
@@ -20959,6 +21108,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                       高级表格
                     </div>
                     <span
+                      aria-describedby="test-id"
                       class="ant-pro-core-label-tip-icon"
                     >
                       <span
@@ -21051,6 +21201,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -21076,6 +21227,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height ant-dropdown-trigger"
                         role="img"
@@ -21101,6 +21253,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                     class="ant-pro-table-list-toolbar-setting-item"
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"
@@ -21315,6 +21468,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                               title="简短备注文案"
                             >
                               <span
+                                aria-describedby="test-id"
                                 aria-label="简短备注文案"
                                 class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
@@ -21322,6 +21476,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                               >
                                 简短备注文案
                                 <button
+                                  aria-describedby="test-id"
                                   aria-label="复制"
                                   class="ant-typography-copy"
                                   type="button"
@@ -21435,6 +21590,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                               title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                             >
                               <span
+                                aria-describedby="test-id"
                                 aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                                 class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
@@ -21442,6 +21598,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                               >
                                 很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
                                 <button
+                                  aria-describedby="test-id"
                                   aria-label="复制"
                                   class="ant-typography-copy"
                                   type="button"
@@ -21555,6 +21712,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                               title="简短备注文案"
                             >
                               <span
+                                aria-describedby="test-id"
                                 aria-label="简短备注文案"
                                 class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
@@ -21562,6 +21720,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                               >
                                 简短备注文案
                                 <button
+                                  aria-describedby="test-id"
                                   aria-label="复制"
                                   class="ant-typography-copy"
                                   type="button"
@@ -21675,6 +21834,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                               title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                             >
                               <span
+                                aria-describedby="test-id"
                                 aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                                 class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
@@ -21682,6 +21842,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                               >
                                 很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
                                 <button
+                                  aria-describedby="test-id"
                                   aria-label="复制"
                                   class="ant-typography-copy"
                                   type="button"
@@ -21795,6 +21956,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                               title="简短备注文案"
                             >
                               <span
+                                aria-describedby="test-id"
                                 aria-label="简短备注文案"
                                 class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
@@ -21802,6 +21964,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                               >
                                 简短备注文案
                                 <button
+                                  aria-describedby="test-id"
                                   aria-label="复制"
                                   class="ant-typography-copy"
                                   type="button"
@@ -23753,7 +23916,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                                 class="ant-radio-button-inner"
                               />
                             </span>
-                            <span>
+                            <span
+                              class="ant-radio-button-label"
+                            >
                               关闭
                             </span>
                           </label>
@@ -23773,7 +23938,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                                 class="ant-radio-button-inner"
                               />
                             </span>
-                            <span>
+                            <span
+                              class="ant-radio-button-label"
+                            >
                               运行中
                             </span>
                           </label>
@@ -23804,6 +23971,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                     >
                       创建时间
                       <span
+                        aria-describedby="test-id"
                         aria-label="question-circle"
                         class="anticon anticon-question-circle"
                         role="img"
@@ -24084,6 +24252,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                       高级表格
                     </div>
                     <span
+                      aria-describedby="test-id"
                       class="ant-pro-core-label-tip-icon"
                     >
                       <span
@@ -24124,6 +24293,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -24149,6 +24319,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height ant-dropdown-trigger"
                         role="img"
@@ -24174,6 +24345,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                     class="ant-pro-table-list-toolbar-setting-item"
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"
@@ -24297,6 +24469,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                             >
                               创建时间
                               <span
+                                aria-describedby="test-id"
                                 aria-label="question-circle"
                                 class="anticon anticon-question-circle"
                                 role="img"
@@ -24382,6 +24555,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                               title="简短备注文案"
                             >
                               <span
+                                aria-describedby="test-id"
                                 aria-label="简短备注文案"
                                 class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
@@ -24389,6 +24563,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                               >
                                 简短备注文案
                                 <button
+                                  aria-describedby="test-id"
                                   aria-label="复制"
                                   class="ant-typography-copy"
                                   type="button"
@@ -24467,6 +24642,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                               title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                             >
                               <span
+                                aria-describedby="test-id"
                                 aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                                 class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
@@ -24474,6 +24650,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                               >
                                 很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
                                 <button
+                                  aria-describedby="test-id"
                                   aria-label="复制"
                                   class="ant-typography-copy"
                                   type="button"
@@ -24552,6 +24729,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                               title="简短备注文案"
                             >
                               <span
+                                aria-describedby="test-id"
                                 aria-label="简短备注文案"
                                 class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
@@ -24559,6 +24737,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                               >
                                 简短备注文案
                                 <button
+                                  aria-describedby="test-id"
                                   aria-label="复制"
                                   class="ant-typography-copy"
                                   type="button"
@@ -24637,6 +24816,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                               title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                             >
                               <span
+                                aria-describedby="test-id"
                                 aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                                 class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
@@ -24644,6 +24824,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                               >
                                 很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
                                 <button
+                                  aria-describedby="test-id"
                                   aria-label="复制"
                                   class="ant-typography-copy"
                                   type="button"
@@ -24722,6 +24903,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                               title="简短备注文案"
                             >
                               <span
+                                aria-describedby="test-id"
                                 aria-label="简短备注文案"
                                 class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
@@ -24729,6 +24911,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                               >
                                 简短备注文案
                                 <button
+                                  aria-describedby="test-id"
                                   aria-label="复制"
                                   class="ant-typography-copy"
                                   type="button"
@@ -25274,6 +25457,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                 高级表格
                               </div>
                               <span
+                                aria-describedby="test-id"
                                 class="ant-pro-core-label-tip-icon"
                               >
                                 <span
@@ -25326,6 +25510,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                             >
                               <span>
                                 <span
+                                  aria-describedby="test-id"
                                   aria-label="reload"
                                   class="anticon anticon-reload"
                                   role="img"
@@ -25351,6 +25536,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                             >
                               <span>
                                 <span
+                                  aria-describedby="test-id"
                                   aria-label="column-height"
                                   class="anticon anticon-column-height ant-dropdown-trigger"
                                   role="img"
@@ -25376,6 +25562,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                               class="ant-pro-table-list-toolbar-setting-item"
                             >
                               <span
+                                aria-describedby="test-id"
                                 aria-label="setting"
                                 class="anticon anticon-setting"
                                 role="img"
@@ -25401,6 +25588,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                             >
                               <span>
                                 <span
+                                  aria-describedby="test-id"
                                   aria-label="fullscreen"
                                   class="anticon anticon-fullscreen"
                                   role="img"
@@ -25538,6 +25726,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                         tabindex="0"
                                       >
                                         <div
+                                          aria-describedby="test-id"
                                           class="ant-table-column-sorters"
                                         >
                                           <span
@@ -26334,11 +26523,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                       aria-controls="rc-tabs-test-more-popup"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-hidden="true"
                       class="ant-tabs-nav-more"
                       id="rc-tabs-test-more"
                       style="visibility: hidden; order: 1;"
-                      tabindex="-1"
                       type="button"
                     >
                       <span
@@ -26438,6 +26625,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                         >
                                           边框
                                           <span
+                                            aria-describedby="test-id"
                                             aria-label="question-circle"
                                             class="anticon anticon-question-circle ant-form-item-tooltip"
                                             role="img"
@@ -26517,6 +26705,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                         >
                                           尺寸
                                           <span
+                                            aria-describedby="test-id"
                                             aria-label="question-circle"
                                             class="anticon anticon-question-circle ant-form-item-tooltip"
                                             role="img"
@@ -26570,7 +26759,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                                     class="ant-radio-button-inner"
                                                   />
                                                 </span>
-                                                <span>
+                                                <span
+                                                  class="ant-radio-button-label"
+                                                >
                                                   大
                                                 </span>
                                               </label>
@@ -26590,7 +26781,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                                     class="ant-radio-button-inner"
                                                   />
                                                 </span>
-                                                <span>
+                                                <span
+                                                  class="ant-radio-button-label"
+                                                >
                                                   中
                                                 </span>
                                               </label>
@@ -26611,7 +26804,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                                     class="ant-radio-button-inner"
                                                   />
                                                 </span>
-                                                <span>
+                                                <span
+                                                  class="ant-radio-button-label"
+                                                >
                                                   小
                                                 </span>
                                               </label>
@@ -26641,6 +26836,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                         >
                                           加载中
                                           <span
+                                            aria-describedby="test-id"
                                             aria-label="question-circle"
                                             class="anticon anticon-question-circle ant-form-item-tooltip"
                                             role="img"
@@ -26720,6 +26916,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                         >
                                           显示标题
                                           <span
+                                            aria-describedby="test-id"
                                             aria-label="question-circle"
                                             class="anticon anticon-question-circle ant-form-item-tooltip"
                                             role="img"
@@ -26799,6 +26996,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                         >
                                           页脚
                                           <span
+                                            aria-describedby="test-id"
                                             aria-label="question-circle"
                                             class="anticon anticon-question-circle ant-form-item-tooltip"
                                             role="img"
@@ -26878,6 +27076,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                         >
                                           支持展开
                                           <span
+                                            aria-describedby="test-id"
                                             aria-label="question-circle"
                                             class="anticon anticon-question-circle ant-form-item-tooltip"
                                             role="img"
@@ -26957,6 +27156,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                         >
                                           行选择
                                           <span
+                                            aria-describedby="test-id"
                                             aria-label="question-circle"
                                             class="anticon anticon-question-circle ant-form-item-tooltip"
                                             role="img"
@@ -27061,6 +27261,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                     </div>
                                   </div>
                                   <span
+                                    aria-describedby="test-id"
                                     class="ant-pro-core-label-tip-icon"
                                   >
                                     <span
@@ -27136,6 +27337,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                         >
                                           表格标题
                                           <span
+                                            aria-describedby="test-id"
                                             aria-label="question-circle"
                                             class="anticon anticon-question-circle ant-form-item-tooltip"
                                             role="img"
@@ -27234,6 +27436,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                         >
                                           表格的tooltip
                                           <span
+                                            aria-describedby="test-id"
                                             aria-label="question-circle"
                                             class="anticon anticon-question-circle ant-form-item-tooltip"
                                             role="img"
@@ -27332,6 +27535,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                         >
                                           Icon 显示
                                           <span
+                                            aria-describedby="test-id"
                                             aria-label="question-circle"
                                             class="anticon anticon-question-circle ant-form-item-tooltip"
                                             role="img"
@@ -27411,6 +27615,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                         >
                                           密度 Icon
                                           <span
+                                            aria-describedby="test-id"
                                             aria-label="question-circle"
                                             class="anticon anticon-question-circle ant-form-item-tooltip"
                                             role="img"
@@ -27490,6 +27695,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                         >
                                           keyWords
                                           <span
+                                            aria-describedby="test-id"
                                             aria-label="question-circle"
                                             class="anticon anticon-question-circle ant-form-item-tooltip"
                                             role="img"
@@ -27569,6 +27775,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                         >
                                           全屏 Icon
                                           <span
+                                            aria-describedby="test-id"
                                             aria-label="question-circle"
                                             class="anticon anticon-question-circle ant-form-item-tooltip"
                                             role="img"
@@ -27648,6 +27855,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                         >
                                           列设置 Icon
                                           <span
+                                            aria-describedby="test-id"
                                             aria-label="question-circle"
                                             class="anticon anticon-question-circle ant-form-item-tooltip"
                                             role="img"
@@ -28133,6 +28341,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/error-boundaries-
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -28158,6 +28367,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/error-boundaries-
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height ant-dropdown-trigger"
                         role="img"
@@ -28183,6 +28393,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/error-boundaries-
                     class="ant-pro-table-list-toolbar-setting-item"
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"
@@ -28254,6 +28465,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/error-boundaries-
                               tabindex="0"
                             >
                               <div
+                                aria-describedby="test-id"
                                 class="ant-table-column-sorters"
                               >
                                 <span
@@ -29363,6 +29575,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/intl.tsx correctl
                             class="ant-input-number-input-wrap"
                           >
                             <input
+                              aria-describedby="test-id"
                               autocomplete="off"
                               class="ant-input-number-input"
                               id="title"
@@ -29669,6 +29882,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/intl.tsx correctl
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -29694,6 +29908,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/intl.tsx correctl
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height ant-dropdown-trigger"
                         role="img"
@@ -29719,6 +29934,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/intl.tsx correctl
                     class="ant-pro-table-list-toolbar-setting-item"
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"
@@ -30046,6 +30262,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/lightfilter.tsx c
                                       class="ant-form-item-control-input-content"
                                     >
                                       <span
+                                        aria-describedby="test-id"
                                         class="ant-pro-core-field-dropdown-label"
                                       >
                                         <span
@@ -30098,6 +30315,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/lightfilter.tsx c
                                       class="ant-form-item-control-input-content"
                                     >
                                       <span
+                                        aria-describedby="test-id"
                                         class="ant-pro-core-field-dropdown-label"
                                       >
                                         <span
@@ -30960,6 +31178,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/linkage_form.tsx 
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -30985,6 +31204,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/linkage_form.tsx 
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height ant-dropdown-trigger"
                         role="img"
@@ -31010,6 +31230,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/linkage_form.tsx 
                     class="ant-pro-table-list-toolbar-setting-item"
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"
@@ -31410,11 +31631,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/listToolBar.tsx c
                         aria-controls="rc-tabs-test-more-popup"
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        aria-hidden="true"
                         class="ant-tabs-nav-more"
                         id="rc-tabs-test-more"
                         style="visibility: hidden; order: 1;"
-                        tabindex="-1"
                         type="button"
                       >
                         <span
@@ -31552,6 +31771,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/listToolBar.tsx c
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -31577,6 +31797,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/listToolBar.tsx c
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height ant-dropdown-trigger"
                         role="img"
@@ -31602,6 +31823,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/listToolBar.tsx c
                     class="ant-pro-table-list-toolbar-setting-item"
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"
@@ -31719,6 +31941,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/listToolBar.tsx c
                               tabindex="0"
                             >
                               <div
+                                aria-describedby="test-id"
                                 class="ant-table-column-sorters"
                               >
                                 <span
@@ -32551,6 +32774,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-option.tsx cor
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -32576,6 +32800,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-option.tsx cor
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height ant-dropdown-trigger"
                         role="img"
@@ -32601,6 +32826,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-option.tsx cor
                     class="ant-pro-table-list-toolbar-setting-item"
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"
@@ -32676,6 +32902,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-option.tsx cor
                               tabindex="0"
                             >
                               <div
+                                aria-describedby="test-id"
                                 class="ant-table-column-sorters"
                               >
                                 <span
@@ -32745,6 +32972,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-option.tsx cor
                               tabindex="0"
                             >
                               <div
+                                aria-describedby="test-id"
                                 class="ant-table-column-sorters"
                               >
                                 <span
@@ -32759,6 +32987,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-option.tsx cor
                                       创建时间
                                     </div>
                                     <span
+                                      aria-describedby="test-id"
                                       class="ant-pro-core-label-tip-icon"
                                     >
                                       <span
@@ -33288,7 +33517,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-title.tsx corr
                             <a>
                               编辑
                             </a>
-                            <a>
+                            <a
+                              aria-describedby="test-id"
+                            >
                               移除
                             </a>
                           </div>
@@ -33372,7 +33603,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-title.tsx corr
                             <a>
                               编辑
                             </a>
-                            <a>
+                            <a
+                              aria-describedby="test-id"
+                            >
                               退出
                             </a>
                           </div>
@@ -33456,7 +33689,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-title.tsx corr
                             <a>
                               编辑
                             </a>
-                            <a>
+                            <a
+                              aria-describedby="test-id"
+                            >
                               退出
                             </a>
                           </div>
@@ -33540,7 +33775,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-title.tsx corr
                             <a>
                               编辑
                             </a>
-                            <a>
+                            <a
+                              aria-describedby="test-id"
+                            >
                               退出
                             </a>
                           </div>
@@ -33624,7 +33861,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-title.tsx corr
                             <a>
                               编辑
                             </a>
-                            <a>
+                            <a
+                              aria-describedby="test-id"
+                            >
                               退出
                             </a>
                           </div>
@@ -33819,6 +34058,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/normal.tsx correc
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -33844,6 +34084,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/normal.tsx correc
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height ant-dropdown-trigger"
                         role="img"
@@ -33869,6 +34110,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/normal.tsx correc
                     class="ant-pro-table-list-toolbar-setting-item"
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"
@@ -33947,6 +34189,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/normal.tsx correc
                               tabindex="0"
                             >
                               <div
+                                aria-describedby="test-id"
                                 class="ant-table-column-sorters"
                               >
                                 <span
@@ -34566,6 +34809,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                     >
                       标题
                       <span
+                        aria-describedby="test-id"
                         aria-label="question-circle"
                         class="anticon anticon-question-circle ant-form-item-tooltip"
                         role="img"
@@ -34847,6 +35091,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -34872,6 +35117,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height ant-dropdown-trigger"
                         role="img"
@@ -34897,6 +35143,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                     class="ant-pro-table-list-toolbar-setting-item"
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"
@@ -34964,6 +35211,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                                   标题
                                 </div>
                                 <span
+                                  aria-describedby="test-id"
                                   class="ant-pro-core-label-tip-icon"
                                 >
                                   <span
@@ -35056,6 +35304,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                               title="🐛 [BUG]yarn install命令 antd2.4.5会报错"
                             >
                               <span
+                                aria-describedby="test-id"
                                 aria-label="🐛 [BUG]yarn install命令 antd2.4.5会报错"
                                 class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
@@ -35063,6 +35312,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                               >
                                 🐛 [BUG]yarn install命令 antd2.4.5会报错
                                 <button
+                                  aria-describedby="test-id"
                                   aria-label="复制"
                                   class="ant-typography-copy"
                                   type="button"
@@ -35261,6 +35511,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                     >
                       标题
                       <span
+                        aria-describedby="test-id"
                         aria-label="question-circle"
                         class="anticon anticon-question-circle ant-form-item-tooltip"
                         role="img"
@@ -35542,6 +35793,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -35567,6 +35819,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height ant-dropdown-trigger"
                         role="img"
@@ -35592,6 +35845,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                     class="ant-pro-table-list-toolbar-setting-item"
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"
@@ -35659,6 +35913,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                                   标题
                                 </div>
                                 <span
+                                  aria-describedby="test-id"
                                   class="ant-pro-core-label-tip-icon"
                                 >
                                   <span
@@ -35751,6 +36006,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                               title="🐛 [BUG]yarn install命令 antd2.4.5会报错"
                             >
                               <span
+                                aria-describedby="test-id"
                                 aria-label="🐛 [BUG]yarn install命令 antd2.4.5会报错"
                                 class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
@@ -35758,6 +36014,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                               >
                                 🐛 [BUG]yarn install命令 antd2.4.5会报错
                                 <button
+                                  aria-describedby="test-id"
                                   aria-label="复制"
                                   class="ant-typography-copy"
                                   type="button"
@@ -36503,6 +36760,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/pollinga.tsx corr
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -36528,6 +36786,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/pollinga.tsx corr
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height ant-dropdown-trigger"
                         role="img"
@@ -36553,6 +36812,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/pollinga.tsx corr
                     class="ant-pro-table-list-toolbar-setting-item"
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"
@@ -37479,6 +37739,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/renderTable.tsx c
                   role="group"
                 >
                   <li
+                    aria-describedby="test-id"
                     class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
                     data-menu-id="rc-menu-uuid-test-1"
                     role="menuitem"
@@ -37492,6 +37753,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/renderTable.tsx c
                     </span>
                   </li>
                   <li
+                    aria-describedby="test-id"
                     class="ant-menu-item ant-menu-item-only-child"
                     data-menu-id="rc-menu-uuid-test-2"
                     role="menuitem"
@@ -37522,6 +37784,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/renderTable.tsx c
                   role="group"
                 >
                   <li
+                    aria-describedby="test-id"
                     class="ant-menu-item ant-menu-item-only-child"
                     data-menu-id="rc-menu-uuid-test-3"
                     role="menuitem"
@@ -37535,6 +37798,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/renderTable.tsx c
                     </span>
                   </li>
                   <li
+                    aria-describedby="test-id"
                     class="ant-menu-item ant-menu-item-only-child"
                     data-menu-id="rc-menu-uuid-test-4"
                     role="menuitem"
@@ -37593,6 +37857,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/renderTable.tsx c
                       >
                         <span>
                           <span
+                            aria-describedby="test-id"
                             aria-label="reload"
                             class="anticon anticon-reload"
                             role="img"
@@ -37618,6 +37883,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/renderTable.tsx c
                       >
                         <span>
                           <span
+                            aria-describedby="test-id"
                             aria-label="column-height"
                             class="anticon anticon-column-height ant-dropdown-trigger"
                             role="img"
@@ -37643,6 +37909,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/renderTable.tsx c
                         class="ant-pro-table-list-toolbar-setting-item"
                       >
                         <span
+                          aria-describedby="test-id"
                           aria-label="setting"
                           class="anticon anticon-setting"
                           role="img"
@@ -38383,6 +38650,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/rtl_table.tsx cor
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -38408,6 +38676,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/rtl_table.tsx cor
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height ant-dropdown-trigger ant-dropdown-rtl"
                         role="img"
@@ -38433,6 +38702,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/rtl_table.tsx cor
                     class="ant-pro-table-list-toolbar-setting-item"
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"
@@ -38535,6 +38805,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/rtl_table.tsx cor
                                   العنوان
                                 </div>
                                 <span
+                                  aria-describedby="test-id"
                                   class="ant-pro-core-label-tip-icon"
                                 >
                                   <span
@@ -38786,6 +39057,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/search.tsx correc
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -38811,6 +39083,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/search.tsx correc
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height ant-dropdown-trigger"
                         role="img"
@@ -38836,6 +39109,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/search.tsx correc
                     class="ant-pro-table-list-toolbar-setting-item"
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"
@@ -39220,6 +39494,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/search_option.tsx
                             class="ant-input-number-input-wrap"
                           >
                             <input
+                              aria-describedby="test-id"
                               autocomplete="off"
                               class="ant-input-number-input"
                               id="title"
@@ -39379,6 +39654,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/search_option.tsx
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -39404,6 +39680,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/search_option.tsx
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height ant-dropdown-trigger"
                         role="img"
@@ -39429,6 +39706,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/search_option.tsx
                     class="ant-pro-table-list-toolbar-setting-item"
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"
@@ -39679,6 +39957,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                     >
                       标题
                       <span
+                        aria-describedby="test-id"
                         aria-label="question-circle"
                         class="anticon anticon-question-circle ant-form-item-tooltip"
                         role="img"
@@ -40190,6 +40469,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -40215,6 +40495,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height ant-dropdown-trigger"
                         role="img"
@@ -40240,6 +40521,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                     class="ant-pro-table-list-toolbar-setting-item"
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"
@@ -40339,6 +40621,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                                   标题
                                 </div>
                                 <span
+                                  aria-describedby="test-id"
                                   class="ant-pro-core-label-tip-icon"
                                 >
                                   <span
@@ -40418,6 +40701,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                               tabindex="0"
                             >
                               <div
+                                aria-describedby="test-id"
                                 class="ant-table-column-sorters"
                               >
                                 <span
@@ -41184,6 +41468,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -41209,6 +41494,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height canvas-dropdown-trigger"
                         role="img"
@@ -41234,6 +41520,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                     class="canvas-pro-table-list-toolbar-setting-item"
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"
@@ -41591,6 +41878,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                     >
                       标题
                       <span
+                        aria-describedby="test-id"
                         aria-label="question-circle"
                         class="anticon anticon-question-circle canvas-form-item-tooltip"
                         role="img"
@@ -42066,6 +42354,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -42091,6 +42380,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height canvas-dropdown-trigger"
                         role="img"
@@ -42116,6 +42406,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                     class="canvas-pro-table-list-toolbar-setting-item"
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"
@@ -42203,6 +42494,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                     标题
                                   </div>
                                   <span
+                                    aria-describedby="test-id"
                                     class="canvas-pro-core-label-tip-icon"
                                   >
                                     <span
@@ -42286,6 +42578,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                 class="canvas-table-cell-content"
                               >
                                 <span
+                                  aria-describedby="test-id"
                                   aria-label="🐛 [BUG]yarn install命令 antd2.4.5会报错"
                                   class="canvas-typography canvas-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
@@ -42293,6 +42586,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                 >
                                   🐛 [BUG]yarn install命令 antd2.4.5会报错
                                   <button
+                                    aria-describedby="test-id"
                                     aria-label="复制"
                                     class="canvas-typography-copy"
                                     type="button"
@@ -42333,6 +42627,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                               class="canvas-table-cell canvas-table-cell-ellipsis"
                             >
                               <span
+                                aria-describedby="test-id"
                                 aria-label=""
                                 class="canvas-typography canvas-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
@@ -42351,6 +42646,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                   </span>
                                 </span>
                                 <button
+                                  aria-describedby="test-id"
                                   aria-label="复制"
                                   class="canvas-typography-copy"
                                   type="button"
@@ -42399,6 +42695,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                               colspan="2"
                             >
                               <span
+                                aria-describedby="test-id"
                                 aria-label=""
                                 class="canvas-typography canvas-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
@@ -42406,6 +42703,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                               >
                                 2020-05-26
                                 <button
+                                  aria-describedby="test-id"
                                   aria-label="复制"
                                   class="canvas-typography-copy"
                                   type="button"
@@ -42490,6 +42788,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                 class="canvas-table-cell-content"
                               >
                                 <span
+                                  aria-describedby="test-id"
                                   aria-label="🐛 [BUG]无法创建工程npm create umi"
                                   class="canvas-typography canvas-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
@@ -42497,6 +42796,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                 >
                                   🐛 [BUG]无法创建工程npm create umi
                                   <button
+                                    aria-describedby="test-id"
                                     aria-label="复制"
                                     class="canvas-typography-copy"
                                     type="button"
@@ -42537,6 +42837,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                               class="canvas-table-cell canvas-table-cell-ellipsis"
                             >
                               <span
+                                aria-describedby="test-id"
                                 aria-label=""
                                 class="canvas-typography canvas-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
@@ -42555,6 +42856,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                   </span>
                                 </span>
                                 <button
+                                  aria-describedby="test-id"
                                   aria-label="复制"
                                   class="canvas-typography-copy"
                                   type="button"
@@ -42603,6 +42905,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                               colspan="2"
                             >
                               <span
+                                aria-describedby="test-id"
                                 aria-label=""
                                 class="canvas-typography canvas-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
@@ -42610,6 +42913,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                               >
                                 2020-05-26
                                 <button
+                                  aria-describedby="test-id"
                                   aria-label="复制"
                                   class="canvas-typography-copy"
                                   type="button"
@@ -42694,6 +42998,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                 class="canvas-table-cell-content"
                               >
                                 <span
+                                  aria-describedby="test-id"
                                   aria-label="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
                                   class="canvas-typography canvas-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
@@ -42701,6 +43006,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                 >
                                   🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
                                   <button
+                                    aria-describedby="test-id"
                                     aria-label="复制"
                                     class="canvas-typography-copy"
                                     type="button"
@@ -42741,6 +43047,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                               class="canvas-table-cell canvas-table-cell-ellipsis"
                             >
                               <span
+                                aria-describedby="test-id"
                                 aria-label=""
                                 class="canvas-typography canvas-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
@@ -42759,6 +43066,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                   </span>
                                 </span>
                                 <button
+                                  aria-describedby="test-id"
                                   aria-label="复制"
                                   class="canvas-typography-copy"
                                   type="button"
@@ -42807,6 +43115,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                               colspan="2"
                             >
                               <span
+                                aria-describedby="test-id"
                                 aria-label=""
                                 class="canvas-typography canvas-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
@@ -42814,6 +43123,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                               >
                                 2020-05-26
                                 <button
+                                  aria-describedby="test-id"
                                   aria-label="复制"
                                   class="canvas-typography-copy"
                                   type="button"
@@ -44068,6 +44378,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/table-nested.tsx 
                               tabindex="0"
                             >
                               <div
+                                aria-describedby="test-id"
                                 class="ant-table-column-sorters"
                               >
                                 <span
@@ -44493,6 +44804,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/theme.tsx correct
                       >
                         标题
                         <span
+                          aria-describedby="test-id"
                           aria-label="question-circle"
                           class="anticon anticon-question-circle ant-form-item-tooltip"
                           role="img"
@@ -45004,6 +45316,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/theme.tsx correct
                     >
                       <span>
                         <span
+                          aria-describedby="test-id"
                           aria-label="reload"
                           class="anticon anticon-reload"
                           role="img"
@@ -45029,6 +45342,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/theme.tsx correct
                     >
                       <span>
                         <span
+                          aria-describedby="test-id"
                           aria-label="column-height"
                           class="anticon anticon-column-height ant-dropdown-trigger"
                           role="img"
@@ -45054,6 +45368,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/theme.tsx correct
                       class="ant-pro-table-list-toolbar-setting-item"
                     >
                       <span
+                        aria-describedby="test-id"
                         aria-label="setting"
                         class="anticon anticon-setting"
                         role="img"
@@ -45153,6 +45468,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/theme.tsx correct
                                     标题
                                   </div>
                                   <span
+                                    aria-describedby="test-id"
                                     class="ant-pro-core-label-tip-icon"
                                   >
                                     <span
@@ -45232,6 +45548,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/theme.tsx correct
                                 tabindex="0"
                               >
                                 <div
+                                  aria-describedby="test-id"
                                   class="ant-table-column-sorters"
                                 >
                                   <span
@@ -45731,6 +46048,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType.tsx cor
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -45756,6 +46074,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType.tsx cor
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height ant-dropdown-trigger"
                         role="img"
@@ -45781,6 +46100,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType.tsx cor
                     class="ant-pro-table-list-toolbar-setting-item"
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"
@@ -46594,7 +46914,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                                 class="ant-radio-inner"
                               />
                             </span>
-                            <span>
+                            <span
+                              class="ant-radio-label"
+                            >
                               全部
                             </span>
                           </label>
@@ -46614,7 +46936,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                                 class="ant-radio-inner"
                               />
                             </span>
-                            <span>
+                            <span
+                              class="ant-radio-label"
+                            >
                               运行中
                             </span>
                           </label>
@@ -46634,7 +46958,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                                 class="ant-radio-inner"
                               />
                             </span>
-                            <span>
+                            <span
+                              class="ant-radio-label"
+                            >
                               已上线
                             </span>
                           </label>
@@ -46654,7 +46980,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                                 class="ant-radio-inner"
                               />
                             </span>
-                            <span>
+                            <span
+                              class="ant-radio-label"
+                            >
                               异常
                             </span>
                           </label>
@@ -46715,7 +47043,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                                 class="ant-radio-button-inner"
                               />
                             </span>
-                            <span>
+                            <span
+                              class="ant-radio-button-label"
+                            >
                               全部
                             </span>
                           </label>
@@ -46735,7 +47065,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                                 class="ant-radio-button-inner"
                               />
                             </span>
-                            <span>
+                            <span
+                              class="ant-radio-button-label"
+                            >
                               运行中
                             </span>
                           </label>
@@ -46755,7 +47087,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                                 class="ant-radio-button-inner"
                               />
                             </span>
-                            <span>
+                            <span
+                              class="ant-radio-button-label"
+                            >
                               已上线
                             </span>
                           </label>
@@ -46775,7 +47109,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                                 class="ant-radio-button-inner"
                               />
                             </span>
-                            <span>
+                            <span
+                              class="ant-radio-button-label"
+                            >
                               异常
                             </span>
                           </label>
@@ -46837,7 +47173,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                                 class="ant-checkbox-inner"
                               />
                             </span>
-                            <span>
+                            <span
+                              class="ant-checkbox-label"
+                            >
                               全部
                             </span>
                           </label>
@@ -46856,7 +47194,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                                 class="ant-checkbox-inner"
                               />
                             </span>
-                            <span>
+                            <span
+                              class="ant-checkbox-label"
+                            >
                               运行中
                             </span>
                           </label>
@@ -46875,7 +47215,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                                 class="ant-checkbox-inner"
                               />
                             </span>
-                            <span>
+                            <span
+                              class="ant-checkbox-label"
+                            >
                               已上线
                             </span>
                           </label>
@@ -46894,7 +47236,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                                 class="ant-checkbox-inner"
                               />
                             </span>
-                            <span>
+                            <span
+                              class="ant-checkbox-label"
+                            >
                               异常
                             </span>
                           </label>
@@ -47380,6 +47724,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -47405,6 +47750,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height ant-dropdown-trigger"
                         role="img"
@@ -47430,6 +47776,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                     class="ant-pro-table-list-toolbar-setting-item"
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"
@@ -48733,6 +49080,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -48758,6 +49106,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height ant-dropdown-trigger"
                         role="img"
@@ -48783,6 +49132,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                     class="ant-pro-table-list-toolbar-setting-item"
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"
@@ -48935,7 +49285,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                             <td
                               class="ant-table-cell"
                             >
-                              <span>
+                              <span
+                                aria-describedby="test-id"
+                              >
                                 几秒前
                               </span>
                             </td>
@@ -49003,7 +49355,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                             <td
                               class="ant-table-cell"
                             >
-                              <span>
+                              <span
+                                aria-describedby="test-id"
+                              >
                                 几秒前
                               </span>
                             </td>
@@ -49525,6 +49879,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeNumber.t
                             class="ant-input-number-input-wrap"
                           >
                             <input
+                              aria-describedby="test-id"
                               autocomplete="off"
                               class="ant-input-number-input"
                               id="money"
@@ -50003,6 +50358,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeNumber.t
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -50028,6 +50384,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeNumber.t
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height ant-dropdown-trigger"
                         role="img"
@@ -50053,6 +50410,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeNumber.t
                     class="ant-pro-table-list-toolbar-setting-item"
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"

@@ -226,6 +226,7 @@ exports[`Table ColumnSetting > 🎏 columns proFieldProps support custom 1`] = `
                 >
                   <span>
                     <span
+                      aria-describedby="test-id"
                       aria-label="reload"
                       class="anticon anticon-reload"
                       role="img"
@@ -251,6 +252,7 @@ exports[`Table ColumnSetting > 🎏 columns proFieldProps support custom 1`] = `
                 >
                   <span>
                     <span
+                      aria-describedby="test-id"
                       aria-label="column-height"
                       class="anticon anticon-column-height ant-dropdown-trigger"
                       role="img"
@@ -276,6 +278,7 @@ exports[`Table ColumnSetting > 🎏 columns proFieldProps support custom 1`] = `
                   class="ant-pro-table-list-toolbar-setting-item"
                 >
                   <span
+                    aria-describedby="test-id"
                     aria-label="setting"
                     class="anticon anticon-setting"
                     role="img"
@@ -602,6 +605,7 @@ exports[`Table ColumnSetting > 🎏 config provide render 1`] = `
                 >
                   <span>
                     <span
+                      aria-describedby="test-id"
                       aria-label="reload"
                       class="anticon anticon-reload"
                       role="img"
@@ -627,6 +631,7 @@ exports[`Table ColumnSetting > 🎏 config provide render 1`] = `
                 >
                   <span>
                     <span
+                      aria-describedby="test-id"
                       aria-label="column-height"
                       class="anticon anticon-column-height qixian-dropdown-trigger"
                       role="img"
@@ -652,6 +657,7 @@ exports[`Table ColumnSetting > 🎏 config provide render 1`] = `
                   class="qixian-pro-table-list-toolbar-setting-item"
                 >
                   <span
+                    aria-describedby="test-id"
                     aria-label="setting"
                     class="anticon anticon-setting"
                     role="img"
@@ -978,6 +984,7 @@ exports[`Table ColumnSetting > 🎏 extra columns 1`] = `
                 >
                   <span>
                     <span
+                      aria-describedby="test-id"
                       aria-label="reload"
                       class="anticon anticon-reload"
                       role="img"
@@ -1003,6 +1010,7 @@ exports[`Table ColumnSetting > 🎏 extra columns 1`] = `
                 >
                   <span>
                     <span
+                      aria-describedby="test-id"
                       aria-label="column-height"
                       class="anticon anticon-column-height ant-dropdown-trigger"
                       role="img"
@@ -1028,6 +1036,7 @@ exports[`Table ColumnSetting > 🎏 extra columns 1`] = `
                   class="ant-pro-table-list-toolbar-setting-item"
                 >
                   <span
+                    aria-describedby="test-id"
                     aria-label="setting"
                     class="anticon anticon-setting"
                     role="img"

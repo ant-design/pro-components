@@ -162,6 +162,7 @@ exports[`Table valueEnum > 🎏 customization valueType 1`] = `
                 >
                   <span>
                     <span
+                      aria-describedby="test-id"
                       aria-label="reload"
                       class="anticon anticon-reload"
                       role="img"
@@ -187,6 +188,7 @@ exports[`Table valueEnum > 🎏 customization valueType 1`] = `
                 >
                   <span>
                     <span
+                      aria-describedby="test-id"
                       aria-label="column-height"
                       class="anticon anticon-column-height ant-dropdown-trigger"
                       role="img"
@@ -212,6 +214,7 @@ exports[`Table valueEnum > 🎏 customization valueType 1`] = `
                   class="ant-pro-table-list-toolbar-setting-item"
                 >
                   <span
+                    aria-describedby="test-id"
                     aria-label="setting"
                     class="anticon anticon-setting"
                     role="img"

@@ -100,6 +100,7 @@ exports[`BasicTable SearchGutter > 🎏 ProTable support searchGutter 1`] = `
                     class="ant-input-number-input-wrap"
                   >
                     <input
+                      aria-describedby=":r3:"
                       autocomplete="off"
                       class="ant-input-number-input"
                       id="money"

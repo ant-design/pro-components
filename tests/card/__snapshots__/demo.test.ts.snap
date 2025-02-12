@@ -2221,7 +2221,9 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             Large
           </span>
         </label>
@@ -2242,7 +2244,9 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             Default
           </span>
         </label>
@@ -2262,7 +2266,9 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
               class="ant-radio-button-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-button-label"
+          >
             Small
           </span>
         </label>
@@ -2643,6 +2649,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
               大盘趋势
             </div>
             <span
+              aria-describedby="test-id"
               class="ant-pro-core-label-tip-icon"
             >
               <span
@@ -3236,6 +3243,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                         >
                           今日UV
                           <span
+                            aria-describedby="test-id"
                             aria-label="question-circle"
                             class="anticon anticon-question-circle ant-pro-card-statistic-tip"
                             role="img"
@@ -4740,6 +4748,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                         >
                           全部
                           <span
+                            aria-describedby="test-id"
                             aria-label="question-circle"
                             class="anticon anticon-question-circle ant-pro-card-statistic-tip"
                             role="img"
@@ -5363,11 +5372,9 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                 aria-controls="rc-tabs-test-more-popup"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-hidden="true"
                 class="ant-tabs-nav-more"
                 id="rc-tabs-test-more"
                 style="visibility: hidden; order: 1;"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -5761,11 +5768,9 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                 aria-controls="rc-tabs-test-more-popup"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-hidden="true"
                 class="ant-tabs-nav-more"
                 id="rc-tabs-test-more"
                 style="visibility: hidden; order: 1;"
-                tabindex="-1"
                 type="button"
               >
                 <span
@@ -7215,6 +7220,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/basic.tsx correctly
               默认尺寸
             </div>
             <span
+              aria-describedby="test-id"
               class="ant-pro-core-label-tip-icon"
             >
               <span
@@ -7320,6 +7326,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/basic.tsx correctly
               带卡片阴影
             </div>
             <span
+              aria-describedby="test-id"
               class="ant-pro-core-label-tip-icon"
             >
               <span
@@ -7386,6 +7393,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/basic.tsx correctly
               小尺寸卡片
             </div>
             <span
+              aria-describedby="test-id"
               class="ant-pro-core-label-tip-icon"
             >
               <span
@@ -7464,6 +7472,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/bordered.tsx correc
               标题
             </div>
             <span
+              aria-describedby="test-id"
               class="ant-pro-core-label-tip-icon"
             >
               <span
@@ -8412,6 +8421,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/headerBordered.tsx 
               标题
             </div>
             <span
+              aria-describedby="test-id"
               class="ant-pro-core-label-tip-icon"
             >
               <span
@@ -10008,11 +10018,9 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/tabs.tsx correctly 
                   aria-controls="rc-tabs-test-more-popup"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-hidden="true"
                   class="ant-tabs-nav-more"
                   id="rc-tabs-test-more"
                   style="visibility: hidden; order: 1;"
-                  tabindex="-1"
                   type="button"
                 >
                   <span
@@ -10143,11 +10151,9 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/tabs-card.tsx corre
                 aria-controls="rc-tabs-test-more-popup"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-hidden="true"
                 class="ant-tabs-nav-more"
                 id="rc-tabs-test-more"
                 style="visibility: hidden; order: 1;"
-                tabindex="-1"
                 type="button"
               >
                 <span
