@@ -107,10 +107,10 @@ importers:
         specifier: ^14.18.63
         version: 14.18.63
       '@types/react':
-        specifier: ^18.0.38
+        specifier: ^18.3.18
         version: 18.3.18
       '@types/react-dom':
-        specifier: ^18.0.11
+        specifier: ^18.3.5
         version: 18.3.5(@types/react@18.3.18)
       '@types/react-helmet':
         specifier: ^6.1.11
@@ -244,9 +244,6 @@ importers:
       lint-staged:
         specifier: ^10.5.4
         version: 10.5.4
-      lodash:
-        specifier: ^4.17.21
-        version: 4.17.21
       lodash-es:
         specifier: ^4.17.21
         version: 4.17.21

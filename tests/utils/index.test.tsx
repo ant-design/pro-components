@@ -27,7 +27,6 @@ import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import { Form, Input } from 'antd';
 import type { Dayjs } from 'dayjs';
 import dayjs from 'dayjs';
-import moment from 'moment';
 import React, { act, useEffect, useState } from 'react';
 
 afterEach(() => {
@@ -125,7 +124,7 @@ describe('utils', () => {
 
   it('📅 dateArrayFormatter support moment function', async () => {
     const dateArrayString = dateArrayFormatter(
-      [moment('2020-01-01'), moment('2020-01-01')],
+      [dayjs('2020-01-01'), dayjs('2020-01-01')],
       ['YYYY-MM-DD HH:mm:ss', (value: Dayjs) => value.format('YYYY-MM')],
     );
 
@@ -520,7 +519,7 @@ describe('utils', () => {
 
   it('📅 parseValueToMoment moment to dayjs', async () => {
     const html = parseValueToDay(
-      [moment(1573862400000), moment(1573862400000)] as any[],
+      [dayjs(1573862400000), dayjs(1573862400000)] as any[],
       'YYYY-MM-DD',
     );
     expect((html as Dayjs[]).map((item) => item.valueOf()).join(',')).toBe(

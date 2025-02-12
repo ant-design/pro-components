@@ -19,8 +19,8 @@ import {
 } from '@testing-library/react';
 import { Button, Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
+import dayjs from 'dayjs';
 import { pick } from 'lodash-es';
-import moment from 'moment';
 import React, { act } from 'react';
 import { waitForWaitTime } from '../util';
 
@@ -1655,7 +1655,7 @@ describe('ProForm List', () => {
                   name="date"
                   transform={(value) => {
                     return {
-                      date: moment(value).unix(),
+                      date: dayjs(value).unix(),
                     };
                   }}
                 />
@@ -1667,7 +1667,7 @@ describe('ProForm List', () => {
                           name="date"
                           transform={(value) => {
                             return {
-                              date: moment(value).unix(),
+                              date: dayjs(value).unix(),
                             };
                           }}
                         />
@@ -1680,7 +1680,7 @@ describe('ProForm List', () => {
                                   name="date"
                                   transform={(value) => {
                                     return {
-                                      date: moment(value).unix(),
+                                      date: dayjs(value).unix(),
                                     };
                                   }}
                                 />
@@ -1693,7 +1693,7 @@ describe('ProForm List', () => {
                                           name="date"
                                           transform={(value) => {
                                             return {
-                                              date: moment(value).unix(),
+                                              date: dayjs(value).unix(),
                                             };
                                           }}
                                         />
