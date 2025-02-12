@@ -1,6 +1,15 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.9.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.9.4...@ant-design/pro-card@2.9.5) (2025-02-12)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+
+
+
 
 ## [2.9.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.9.3...@ant-design/pro-card@2.9.4) (2025-01-18)
 
