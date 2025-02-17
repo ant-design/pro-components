@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [3.0.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@3.0.2...@ant-design/pro-field@3.0.3) (2025-02-17)
+
+
+### Bug Fixes
+
+* **form:** 修复刷新之后 label 丢失的情况 ([#8982](https://github.com/ant-design/pro-components/issues/8982)) ([93b2c28](https://github.com/ant-design/pro-components/commit/93b2c28a6d5624be2e57f0ac3ab906b778332a72))
+
+
+
+
 
 ## [3.0.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@3.0.1...@ant-design/pro-field@3.0.2) (2025-02-12)
 
