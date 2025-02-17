@@ -333,7 +333,6 @@ describe('QueryFilter', () => {
       wrapper2.container.querySelectorAll('.ant-row .ant-form-item-hidden'),
     ).toHaveLength(0);
 
-
     const wrapper3 = render(
       <QueryFilter defaultFormItemsNumber={7}>
         <ProFormText label="a" name="a" />

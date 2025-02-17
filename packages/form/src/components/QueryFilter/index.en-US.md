@@ -57,7 +57,7 @@ QueryFilter supports the following properties in addition to the API inherited f
 | hideRequiredMark | Hide the required markers for all form items, **hide by default** | `boolean` | true |
 | submitterColSpanProps | Props of the col where the submit button is located. | ColProps | - |
 | defaultColsNumber | The default number of form controls displayed in a collapsed state. Only one row of controls is displayed at most, and when exceeded, a collapse/hide button is shown. | `number` | - |
-| defaultFormItemsNumber  | The difference from defaultColsNumber is that the specified number of controls will be displayed, and when exceeded, a collapse/hide button will be shown. | `number` | - |
+| defaultFormItemsNumber | The difference from defaultColsNumber is that the specified number of controls will be displayed, and when exceeded, a collapse/hide button will be shown. | `number` | - |
 | labelWidth | label width | `number` \| `'auto'` | `98` |
 | span | width of form items | `number[0 - 24]` | - |
 | split | whether each line has a split line | `boolean` | - |

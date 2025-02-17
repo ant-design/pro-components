@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.31.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.31.5...@ant-design/pro-form@2.31.6) (2025-02-17)
 
-
 ### Bug Fixes
 
-* **SchemaForm:** 修复SchemaForm renderFormItem 警告 ([#8991](https://github.com/ant-design/pro-components/issues/8991)) ([52cab46](https://github.com/ant-design/pro-components/commit/52cab46114861071ff0610ab6ab3cbd69de094c7))
-
-
-
-
+- **SchemaForm:** 修复SchemaForm renderFormItem 警告 ([#8991](https://github.com/ant-design/pro-components/issues/8991)) ([52cab46](https://github.com/ant-design/pro-components/commit/52cab46114861071ff0610ab6ab3cbd69de094c7))
 
 ## [2.31.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.31.4...@ant-design/pro-form@2.31.5) (2025-02-12)
 

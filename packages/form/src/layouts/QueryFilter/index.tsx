@@ -107,7 +107,7 @@ export type BaseQueryFilterProps = Omit<
   layout?: FormProps['layout'];
   /**
    * @name 默认一行显示几个表单项
-  */
+   */
   defaultColsNumber?: number;
   /**
    * @name 默认展示几个表单项
@@ -352,8 +352,7 @@ const QueryFilterContent: React.FC<{
           (firstRowFull ||
             // 如果 超过显示长度 且 总长度超过了 24
             totalSize > showLength) &&
-          !!index
-          );
+          !!index);
 
       itemLength += 1;
 
@@ -542,13 +541,15 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
   );
 
   const showLength = useMemo(() => {
-    if(defaultFormItemsNumber !== undefined) { 
-      return defaultFormItemsNumber
+    if (defaultFormItemsNumber !== undefined) {
+      return defaultFormItemsNumber;
     }
     if (defaultColsNumber !== undefined) {
       // 折叠为一行，需要处理多行的情况请使用 defaultFormItemsNumber
       const oneRowControlsNumber = 24 / spanSize.span - 1;
-      return defaultColsNumber > oneRowControlsNumber ? oneRowControlsNumber : defaultColsNumber
+      return defaultColsNumber > oneRowControlsNumber
+        ? oneRowControlsNumber
+        : defaultColsNumber;
     }
     return Math.max(1, 24 / spanSize.span - 1);
   }, [defaultColsNumber, defaultFormItemsNumber, spanSize.span]);
