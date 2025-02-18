@@ -13,8 +13,8 @@ export default () => {
       }}
     >
       <ProCard
-        title="复杂切分"
-        extra="2019年9月28日"
+        title="Complex Split"
+        extra="September 28, 2019"
         bordered
         headerBordered
         split={responsive ? 'horizontal' : 'vertical'}
@@ -22,24 +22,24 @@ export default () => {
         <ProCard split="horizontal">
           <ProCard split="horizontal">
             <ProCard split={responsive ? 'horizontal' : 'vertical'}>
-              <ProCard title="昨日全部流量">123</ProCard>
-              <ProCard title="本月累计流量">234</ProCard>
-              <ProCard title="今年累计流量">345</ProCard>
+              <ProCard title="Yesterday's Total Traffic">123</ProCard>
+              <ProCard title="Total Traffic This Month">234</ProCard>
+              <ProCard title="Total Traffic This Year">345</ProCard>
             </ProCard>
             <ProCard split="vertical">
-              <ProCard title="运行中试验">12/56</ProCard>
-              <ProCard title="历史试验总数">134 个</ProCard>
+              <ProCard title="Ongoing Experiments">12/56</ProCard>
+              <ProCard title="Total Historical Experiments">134</ProCard>
             </ProCard>
           </ProCard>
-          <ProCard title="流量趋势">
-            <div>图表</div>
-            <div>图表</div>
-            <div>图表</div>
-            <div>图表</div>
-            <div>图表</div>
+          <ProCard title="Traffic Trends">
+            <div>Chart</div>
+            <div>Chart</div>
+            <div>Chart</div>
+            <div>Chart</div>
+            <div>Chart</div>
           </ProCard>
         </ProCard>
-        <ProCard title="流量占用情况">右侧内容</ProCard>
+        <ProCard title="Traffic Usage">Right Side Content</ProCard>
       </ProCard>
     </RcResizeObserver>
   );

@@ -21,7 +21,7 @@ export default () => {
       <StatisticCard.Group direction={responsive ? 'column' : 'row'}>
         <StatisticCard
           statistic={{
-            title: '支付金额',
+            title: 'Payment Amount',
             value: 2176,
             icon: (
               <img
@@ -34,7 +34,7 @@ export default () => {
         />
         <StatisticCard
           statistic={{
-            title: '访客数',
+            title: 'Number of Visitors',
             value: 475,
             icon: (
               <img
@@ -47,7 +47,7 @@ export default () => {
         />
         <StatisticCard
           statistic={{
-            title: '成功订单数',
+            title: 'Number of Successful Orders',
             value: 87,
             icon: (
               <img
@@ -60,7 +60,7 @@ export default () => {
         />
         <StatisticCard
           statistic={{
-            title: '浏览量',
+            title: 'Page Views',
             value: 1754,
             icon: (
               <img

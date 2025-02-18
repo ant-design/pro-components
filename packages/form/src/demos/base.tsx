@@ -82,7 +82,7 @@ export default () => {
         console.log('validateFields:', val1);
         const val2 = await formRef.current?.validateFieldsReturnFormatValue?.();
         console.log('validateFieldsReturnFormatValue:', val2);
-        message.success('提交成功');
+        message.success('Submission successful');
       }}
       formRef={formRef}
       params={{ id: '100' }}
@@ -94,7 +94,7 @@ export default () => {
       request={async () => {
         await waitTime(1500);
         return {
-          name: '蚂蚁设计有限公司',
+          name: 'Ant Design Co., Ltd.',
           useMode: 'chapter',
         };
       }}
@@ -106,34 +106,34 @@ export default () => {
           name="name"
           required
           dependencies={[['contract', 'name']]}
-          addonBefore={<a>客户名称应该怎么获得？</a>}
-          addonAfter={<a>点击查看更多</a>}
-          label="签约客户名称"
-          tooltip="最长为 24 位"
-          placeholder="请输入名称"
-          rules={[{ required: true, message: '这是必填项' }]}
+          addonBefore={<a>How to get the customer name?</a>}
+          addonAfter={<a>Click to see more</a>}
+          label="Contract Customer Name"
+          tooltip="Up to 24 characters"
+          placeholder="Please enter a name"
+          rules={[{ required: true, message: 'This is a required field' }]}
         />
         <ProFormText
           width="md"
           name="company"
-          label="我方公司名称"
-          placeholder="请输入名称"
+          label="Our Company Name"
+          placeholder="Please enter a name"
         />
       </ProForm.Group>
       <ProForm.Group>
-        <ProFormDigit name="count" label="人数" width="lg" />
+        <ProFormDigit name="count" label="Number of People" width="lg" />
       </ProForm.Group>
       <ProForm.Group>
         <ProFormText
           name={['contract', 'name']}
           width="md"
-          label="合同名称"
-          placeholder="请输入名称"
+          label="Contract Name"
+          placeholder="Please enter a name"
         />
         <ProFormDateRangePicker
           width="md"
           name={['contract', 'createTime']}
-          label="合同生效时间"
+          label="Contract Effective Time"
         />
       </ProForm.Group>
       <ProForm.Group>
@@ -141,80 +141,80 @@ export default () => {
           options={[
             {
               value: 'chapter',
-              label: '盖章后生效',
+              label: 'Effective after stamping',
             },
           ]}
           readonly
           width="xs"
           cacheForSwr
           name="useMode"
-          label="合同约定生效方式"
+          label="Contract Agreed Effective Method"
         />
         <ProFormSelect.SearchSelect
           width="xs"
           options={[
             {
               value: 'time',
-              label: '履行完终止',
+              label: 'Terminate after performance',
               type: 'time',
               options: [
                 {
                   value: 'time1',
-                  label: '履行完终止1',
+                  label: 'Terminate after performance 1',
                 },
                 {
                   value: 'time2',
-                  label: '履行完终止2',
+                  label: 'Terminate after performance 2',
                 },
               ],
             },
           ]}
           name="unusedMode"
-          label="合同约定失效方式"
+          label="Contract Agreed Invalid Method"
         />
         <ProFormMoney
           width="md"
           name="money"
-          label="合同约定金额"
+          label="Contract Agreed Amount"
           fieldProps={{
             numberPopoverRender: true,
           }}
         />
       </ProForm.Group>
-      <ProFormText width="sm" name="id" label="主合同编号" />
+      <ProFormText width="sm" name="id" label="Main Contract Number" />
       <ProFormText
         name="project"
         width="md"
         disabled
-        label="项目名称"
-        initialValue="xxxx项目"
+        label="Project Name"
+        initialValue="xxxx Project"
       />
       <ProFormTextArea
         colProps={{ span: 24 }}
         name="address"
-        label="详细的工作地址或家庭住址"
+        label="Detailed Work Address or Home Address"
       />
       <ProFormText
         width="xs"
         name="mangerName"
         disabled
-        label="商务经理"
-        initialValue="启途"
+        label="Business Manager"
+        initialValue="Qitu"
       />
       <ProFormCascader
         width="md"
         request={async () => [
           {
             value: 'zhejiang',
-            label: '浙江',
+            label: 'Zhejiang',
             children: [
               {
                 value: 'hangzhou',
-                label: '杭州',
+                label: 'Hangzhou',
                 children: [
                   {
                     value: 'xihu',
-                    label: '西湖',
+                    label: 'West Lake',
                   },
                 ],
               },
@@ -238,13 +238,13 @@ export default () => {
           },
         ]}
         name="areaList"
-        label="区域"
+        label="Area"
         initialValue={['zhejiang', 'hangzhou', 'xihu']}
         addonAfter={'qixian'}
       />
       <ProFormTreeSelect
         initialValue={['0-0-0']}
-        label="树形下拉选择器"
+        label="Tree Select"
         width={600}
         fieldProps={{
           fieldNames: {

@@ -28,9 +28,9 @@ export default () => {
   return (
     <>
       <ProFormSwitch
-        checkedChildren="开启"
-        unCheckedChildren="关闭"
-        label="是否只读"
+        checkedChildren="On"
+        unCheckedChildren="Off"
+        label="Read Only"
         fieldProps={{
           onChange: setReadonly,
         }}
@@ -48,7 +48,7 @@ export default () => {
           const val2 =
             await formRef.current?.validateFieldsReturnFormatValue?.();
           console.log('validateFieldsReturnFormatValue:', val2);
-          message.success('提交成功');
+          message.success('Submission successful');
         }}
         formRef={formRef}
         params={{ id: '100' }}
@@ -57,14 +57,14 @@ export default () => {
         request={async () => {
           await waitTime(100);
           return {
-            name: '蚂蚁设计有限公司',
+            name: 'Ant Design Co., Ltd.',
             useMode: 'chapter',
           };
         }}
         autoFocusFirstInput
       >
         <ProFormMoney
-          label="不显示符号"
+          label="No Symbol"
           name="amount0"
           fieldProps={{
             moneySymbol: false,
@@ -75,7 +75,7 @@ export default () => {
           width="lg"
         />
         <ProFormMoney
-          label="宽度"
+          label="Width"
           name="amount1"
           locale="en-US"
           initialValue={22.22}
@@ -83,7 +83,7 @@ export default () => {
           width="lg"
         />
         <ProFormMoney
-          label="限制金额最小为0"
+          label="Minimum Amount 0"
           name="amount2"
           locale="en-US"
           initialValue={22.22}
@@ -91,43 +91,43 @@ export default () => {
           trigger="onBlur"
         />
         <ProFormMoney
-          label="不限制金额大小"
+          label="No Limit"
           name="amount3"
           locale="en-GB"
           initialValue={22.22}
         />
         <ProFormMoney
-          label="货币符号跟随全局国际化"
+          label="Follow Global Locale"
           name="amount4"
           initialValue={22.22}
         />
         <ProFormMoney
-          label="货币符号指定为 ms-MY"
+          label="Locale ms-MY"
           name="amount-ms-My"
           locale="ms-MY"
           initialValue={-22.22}
         />
         <ProFormMoney
-          label="货币符号指定为 zh-TW"
+          label="Locale zh-TW"
           name="amount-zh-TW"
           locale="zh-TW"
           initialValue={22.22}
         />
         <ProFormMoney
-          label="自定义货币符号"
+          label="Custom Symbol"
           name="amount5"
           initialValue={22.22}
           customSymbol="💰"
         />
         <ProFormMoney
-          label="小数点精度"
+          label="Precision"
           name="amount6"
           initialValue={2222222222.222222}
           fieldProps={{ precision: 2 }}
           customSymbol="💰"
         />
         <ProFormMoney
-          label="小数点精度-0"
+          label="Precision 0"
           name="amount6"
           initialValue={2222222222.222222}
           fieldProps={{ precision: 0 }}

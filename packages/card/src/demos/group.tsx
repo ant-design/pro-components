@@ -3,15 +3,15 @@ import { ProCard } from '@ant-design/pro-components';
 export default () => {
   return (
     <>
-      <ProCard title="卡片组展开" ghost gutter={8} collapsible>
+      <ProCard title="Card Group Expanded" ghost gutter={8} collapsible>
         <ProCard layout="center" bordered>
-          卡片内容
+          Card Content
         </ProCard>
         <ProCard layout="center" bordered>
-          卡片内容
+          Card Content
         </ProCard>
         <ProCard layout="center" bordered>
-          卡片内容
+          Card Content
         </ProCard>
       </ProCard>
     </>

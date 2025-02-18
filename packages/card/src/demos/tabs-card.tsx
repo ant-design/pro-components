@@ -7,11 +7,11 @@ export default () => {
         type: 'card',
       }}
     >
-      <ProCard.TabPane key="tab1" tab="产品一">
-        内容一
+      <ProCard.TabPane key="tab1" tab="Product One">
+        Content One
       </ProCard.TabPane>
-      <ProCard.TabPane key="tab2" tab="产品二">
-        内容二
+      <ProCard.TabPane key="tab2" tab="Product Two">
+        Content Two
       </ProCard.TabPane>
     </ProCard>
   );

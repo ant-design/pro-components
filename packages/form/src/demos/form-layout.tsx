@@ -50,13 +50,13 @@ export default () => {
       onFinish={async (values) => {
         await waitTime(2000);
         console.log(values);
-        message.success('提交成功');
+        message.success('Submission successful');
       }}
       params={{}}
       request={async () => {
         await waitTime(100);
         return {
-          name: '蚂蚁设计有限公司',
+          name: 'Ant Design Co., Ltd.',
           useMode: 'chapter',
         };
       }}
@@ -65,7 +65,7 @@ export default () => {
         style={{
           margin: 16,
         }}
-        label="标签布局"
+        label="Label Layout"
         radioType="button"
         fieldProps={{
           value: formLayoutType,
@@ -76,21 +76,21 @@ export default () => {
       <ProFormText
         width="md"
         name="name"
-        label="签约客户名称"
-        tooltip="最长为 24 位"
-        placeholder="请输入名称"
+        label="Contract Customer Name"
+        tooltip="Up to 24 characters"
+        placeholder="Please enter a name"
       />
       <ProFormText
         width="md"
         name="company"
-        label="我方公司名称"
-        placeholder="请输入名称"
+        label="Our Company Name"
+        placeholder="Please enter a name"
       />
       <ProFormText
         name={['contract', 'name']}
         width="md"
-        label="合同名称"
-        placeholder="请输入名称"
+        label="Contract Name"
+        placeholder="Please enter a name"
       />
     </ProForm>
   );

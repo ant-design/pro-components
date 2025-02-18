@@ -10,7 +10,7 @@ export default () => {
   return (
     <Space>
       <ProCard
-        title="Actions 操作项"
+        title="Actions"
         style={{ maxWidth: 300 }}
         bordered
         actions={[
@@ -25,7 +25,7 @@ export default () => {
       </ProCard>
 
       <ProCard
-        title="单独的 Actions 操作项"
+        title="Standalone Actions"
         style={{ maxWidth: 300 }}
         bordered
         actions={
@@ -40,7 +40,7 @@ export default () => {
             }}
           >
             <SettingOutlined key="setting" />
-            设置
+            Settings
           </div>
         }
       >
@@ -49,7 +49,7 @@ export default () => {
         <div>Card content</div>
       </ProCard>
 
-      <ProCard bordered title="无 Actions 操作项" style={{ maxWidth: 300 }}>
+      <ProCard bordered title="No Actions" style={{ maxWidth: 300 }}>
         <div>Card content</div>
         <div>Card content</div>
         <div>Card content</div>

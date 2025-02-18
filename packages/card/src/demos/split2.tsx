@@ -12,17 +12,17 @@ export default () => {
       }}
     >
       <ProCard
-        title="左右分栏带标题"
-        extra="2019年9月28日"
+        title="Left and Right Columns with Title"
+        extra="September 28, 2019"
         split={responsive ? 'horizontal' : 'vertical'}
         bordered
         headerBordered
       >
-        <ProCard title="左侧详情" colSpan="50%">
-          <div style={{ height: 360 }}>左侧内容</div>
+        <ProCard title="Left Details" colSpan="50%">
+          <div style={{ height: 360 }}>Left Content</div>
         </ProCard>
-        <ProCard title="流量占用情况">
-          <div style={{ height: 360 }}>右侧内容</div>
+        <ProCard title="Traffic Usage">
+          <div style={{ height: 360 }}>Right Content</div>
         </ProCard>
       </ProCard>
     </RcResizeObserver>

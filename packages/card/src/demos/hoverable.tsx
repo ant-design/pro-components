@@ -4,7 +4,7 @@ export default () => {
   return (
     <>
       <ProCard style={{ maxWidth: 300 }} hoverable bordered>
-        内容
+        Content
       </ProCard>
     </>
   );

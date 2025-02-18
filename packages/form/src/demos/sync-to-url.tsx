@@ -10,12 +10,12 @@ export default () => {
   return (
     <ProForm
       onFinish={async () => {
-        message.success('提交成功');
+        message.success('Submission successful');
       }}
       syncToUrl={(values, type) => {
         if (type === 'get') {
-          // 为了配合 transform
-          // startTime 和 endTime 拼成 createTimeRanger
+          // To cooperate with transform
+          // startTime and endTime are combined into createTimeRanger
           return {
             ...values,
             createTimeRanger:
@@ -24,14 +24,14 @@ export default () => {
                 : undefined,
           };
         }
-        // expirationTime 不同步到 url
+        // expirationTime is not synchronized to the URL
         return {
           ...values,
           expirationTime: undefined,
         };
       }}
       initialValues={{
-        name: '蚂蚁设计有限公司',
+        name: 'Ant Design Co., Ltd.',
         useMode: 'chapter',
       }}
       autoFocusFirstInput
@@ -40,12 +40,12 @@ export default () => {
         options={[
           {
             value: 'chapter',
-            label: '盖章后生效',
+            label: 'Effective after stamping',
           },
         ]}
         width="sm"
         name="useMode"
-        label="合同约定生效方式"
+        label="Contract Agreed Effective Method"
       />
       <ProFormDateRangePicker
         transform={(values) => {
@@ -56,12 +56,12 @@ export default () => {
         }}
         width="md"
         name="createTimeRanger"
-        label="合同生效时间"
+        label="Contract Effective Time"
       />
       <ProFormDatePicker
         width="md"
         name="expirationTime"
-        label="合同失效时间"
+        label="Contract Expiration Time"
       />
     </ProForm>
   );

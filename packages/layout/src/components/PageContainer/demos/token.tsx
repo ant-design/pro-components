@@ -14,29 +14,29 @@ export default () => (
         paddingInlinePageContainerContent: 60,
       }}
       header={{
-        title: '页面标题',
+        title: 'Page Title',
         ghost: true,
         breadcrumb: {
           items: [
             {
               path: '',
-              title: '一级页面',
+              title: 'Primary page',
             },
             {
               path: '',
-              title: '二级页面',
+              title: 'Secondary page',
             },
             {
               path: '',
-              title: '当前页面',
+              title: 'Current page',
             },
           ],
         },
         extra: [
-          <Button key="1">次要按钮</Button>,
-          <Button key="2">次要按钮</Button>,
+          <Button key="1">Secondary button</Button>,
+          <Button key="2">Secondary button</Button>,
           <Button key="3" type="primary">
-            主要按钮
+            Primary button
           </Button>,
           <Dropdown
             key="dropdown"
@@ -44,15 +44,15 @@ export default () => (
             menu={{
               items: [
                 {
-                  label: '下拉菜单',
+                  label: 'Dropdown menu',
                   key: '1',
                 },
                 {
-                  label: '下拉菜单2',
+                  label: 'Dropdown menu 2',
                   key: '2',
                 },
                 {
-                  label: '下拉菜单3',
+                  label: 'Dropdown menu 3',
                   key: '3',
                 },
               ],
