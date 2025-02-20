@@ -15,8 +15,8 @@ export default () => {
       }}
     >
       <ProCard
-        title="数据概览"
-        extra="2019年9月28日 星期五"
+        title="Data Overview"
+        extra="Friday, September 28, 2019"
         split={responsive ? 'horizontal' : 'vertical'}
         headerBordered
         bordered
@@ -26,11 +26,11 @@ export default () => {
             <ProCard split="vertical">
               <StatisticCard
                 statistic={{
-                  title: '昨日全部流量',
+                  title: 'Total Traffic Yesterday',
                   value: 234,
                   description: (
                     <Statistic
-                      title="较本月平均流量"
+                      title="Compared to Monthly Average Traffic"
                       value="8.04%"
                       trend="down"
                     />
@@ -39,10 +39,10 @@ export default () => {
               />
               <StatisticCard
                 statistic={{
-                  title: '本月累计流量',
+                  title: 'Total Traffic This Month',
                   value: 234,
                   description: (
-                    <Statistic title="月同比" value="8.04%" trend="up" />
+                    <Statistic title="Month-on-Month" value="8.04%" trend="up" />
                   ),
                 }}
               />
@@ -50,36 +50,37 @@ export default () => {
             <ProCard split="vertical">
               <StatisticCard
                 statistic={{
-                  title: '运行中实验',
+                  title: 'Ongoing Experiments',
                   value: '12/56',
-                  suffix: '个',
+                  suffix: 'items',
                 }}
               />
               <StatisticCard
                 statistic={{
-                  title: '历史实验总数',
+                  title: 'Total Historical Experiments',
                   value: '134',
-                  suffix: '个',
+                  suffix: 'items',
                 }}
               />
             </ProCard>
           </ProCard>
           <StatisticCard
-            title="流量走势"
+            title="Traffic Trends"
             chart={
               <img
                 src="https://gw.alipayobjects.com/zos/alicdn/_dZIob2NB/zhuzhuangtu.svg"
                 width="100%"
+                alt="Bar Chart"
               />
             }
           />
         </ProCard>
         <StatisticCard
-          title="流量占用情况"
+          title="Traffic Usage"
           chart={
             <img
               src="https://gw.alipayobjects.com/zos/alicdn/qoYmFMxWY/jieping2021-03-29%252520xiawu4.32.34.png"
-              alt="大盘"
+              alt="Dashboard"
               width="100%"
             />
           }

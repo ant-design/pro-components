@@ -7,7 +7,7 @@ export default () => {
         style={{ marginBlockStart: 8 }}
         gutter={[16, 16]}
         wrap
-        title="换行"
+        title="Wrap"
       >
         <ProCard
           colSpan={{ xs: 24, sm: 12, md: 12, lg: 12, xl: 12 }}

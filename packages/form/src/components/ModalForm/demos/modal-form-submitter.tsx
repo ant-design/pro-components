@@ -13,8 +13,8 @@ export default () => {
   return (
     <Space>
       <ModalForm
-        title="新建表单"
-        trigger={<Button type="primary">自己定义 footer 的按钮</Button>}
+        title="Create New Form"
+        trigger={<Button type="primary">Custom Footer Buttons</Button>}
         submitter={{
           render: (props, defaultDoms) => {
             return [
@@ -33,59 +33,59 @@ export default () => {
         onFinish={async (values) => {
           await waitTime(2000);
           console.log(values);
-          message.success('提交成功');
+          message.success('Submission successful');
           return true;
         }}
       >
         <ProFormText
           width="md"
           name="name"
-          label="签约客户名称"
-          tooltip="最长为 24 位"
-          placeholder="请输入名称"
+          label="Contract Customer Name"
+          tooltip="Up to 24 characters"
+          placeholder="Please enter a name"
         />
 
         <ProFormText
           width="md"
           name="company"
-          label="我方公司名称"
-          placeholder="请输入名称"
+          label="Our Company Name"
+          placeholder="Please enter a name"
         />
       </ModalForm>
       <ModalForm
-        title="新建表单"
-        trigger={<Button type="primary">自定义文字</Button>}
+        title="Create New Form"
+        trigger={<Button type="primary">Custom Text</Button>}
         submitter={{
           searchConfig: {
-            submitText: '确认',
-            resetText: '取消',
+            submitText: 'Confirm',
+            resetText: 'Cancel',
           },
         }}
         onFinish={async (values) => {
           await waitTime(2000);
           console.log(values);
-          message.success('提交成功');
+          message.success('Submission successful');
           return true;
         }}
       >
         <ProFormText
           width="md"
           name="name"
-          label="签约客户名称"
-          tooltip="最长为 24 位"
-          placeholder="请输入名称"
+          label="Contract Customer Name"
+          tooltip="Up to 24 characters"
+          placeholder="Please enter a name"
         />
 
         <ProFormText
           width="md"
           name="company"
-          label="我方公司名称"
-          placeholder="请输入名称"
+          label="Our Company Name"
+          placeholder="Please enter a name"
         />
       </ModalForm>
       <ModalForm
-        title="新建表单"
-        trigger={<Button type="primary">隐藏或修改按钮样式</Button>}
+        title="Create New Form"
+        trigger={<Button type="primary">Hide or Modify Button Style</Button>}
         submitter={{
           resetButtonProps: {
             type: 'dashed',
@@ -99,43 +99,43 @@ export default () => {
         onFinish={async (values) => {
           await waitTime(2000);
           console.log(values);
-          message.success('提交成功');
+          message.success('Submission successful');
           return true;
         }}
       >
         <ProFormText
           width="md"
           name="name"
-          label="签约客户名称"
-          tooltip="最长为 24 位"
-          placeholder="请输入名称"
+          label="Contract Customer Name"
+          tooltip="Up to 24 characters"
+          placeholder="Please enter a name"
         />
 
         <ProFormText
           width="md"
           name="company"
-          label="我方公司名称"
-          placeholder="请输入名称"
+          label="Our Company Name"
+          placeholder="Please enter a name"
         />
       </ModalForm>
       <ModalForm
-        title="隐藏footer"
-        trigger={<Button type="primary">隐藏footer</Button>}
+        title="Hide Footer"
+        trigger={<Button type="primary">Hide Footer</Button>}
         submitter={false}
       >
         <ProFormText
           width="md"
           name="name"
-          label="签约客户名称"
-          tooltip="最长为 24 位"
-          placeholder="请输入名称"
+          label="Contract Customer Name"
+          tooltip="Up to 24 characters"
+          placeholder="Please enter a name"
         />
 
         <ProFormText
           width="md"
           name="company"
-          label="我方公司名称"
-          placeholder="请输入名称"
+          label="Our Company Name"
+          placeholder="Please enter a name"
         />
       </ModalForm>
     </Space>

@@ -4,7 +4,7 @@ export default () => {
   return (
     <>
       <ProCard
-        title="标题"
+        title="Title"
         extra="extra"
         layout="center"
         direction="column"

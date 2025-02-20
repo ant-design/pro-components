@@ -20,29 +20,29 @@ export default () => {
       onFinish={async (values) => {
         await waitTime(2000);
         console.log(values);
-        message.success('提交成功');
+        message.success('Submission successful');
       }}
       initialValues={{
-        name: '蚂蚁设计有限公司',
-        name2: '蚂蚁设计集团',
+        name: 'Ant Design Co., Ltd.',
+        name2: 'Ant Design Group',
         useMode: 'chapter',
       }}
     >
       <ProFormText
         width="md"
         name="name"
-        label="签约客户名称"
-        tooltip="最长为 24 位"
-        placeholder="请输入名称"
+        label="Contract Customer Name"
+        tooltip="Up to 24 characters"
+        placeholder="Please enter a name"
       />
       <ProFormText
         width="md"
         name={['name2', 'text']}
-        label="签约客户名称"
-        tooltip="最长为 24 位"
-        placeholder="请输入名称"
+        label="Contract Customer Name"
+        tooltip="Up to 24 characters"
+        placeholder="Please enter a name"
       />
-      {/*  ProFormDependency 会自动注入并且 进行 shouldUpdate 的比对  */}
+      {/* ProFormDependency will automatically inject and perform shouldUpdate comparison */}
       <ProFormDependency name={['name', ['name2', 'text']]}>
         {({ name, name2 }) => {
           return (
@@ -50,19 +50,17 @@ export default () => {
               options={[
                 {
                   value: 'chapter',
-                  label: '盖章后生效',
+                  label: 'Effective after stamping',
                 },
               ]}
               width="md"
               name="useMode"
-              label={`与《${name || ''}》 与 《${
-                name2?.text || ''
-              }》合同约定生效方式`}
+              label={`Effective method agreed in the contract with "${name || ''}" and "${name2?.text || ''}"`}
             />
           );
         }}
       </ProFormDependency>
-      {/* noStyle shouldUpdate 是必选的，写了 name 就会失效 */}
+      {/* noStyle shouldUpdate is required, writing name will invalidate it */}
       <ProForm.Item noStyle shouldUpdate>
         {(form) => {
           return (
@@ -70,12 +68,12 @@ export default () => {
               options={[
                 {
                   value: 'chapter',
-                  label: '盖章后生效',
+                  label: 'Effective after stamping',
                 },
               ]}
               width="md"
               name="useMode"
-              label={`与《${form.getFieldValue('name')}》合同约定生效方式`}
+              label={`Effective method agreed in the contract with "${form.getFieldValue('name')}"`}
             />
           );
         }}
