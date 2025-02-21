@@ -7,27 +7,13 @@ nav:
   title: Components
 ---
 
-# ProFormFields
+# Structured data
 
-ProForm comes with a significant number of form items, which are essentially a combination of Form.Item and components. Each form item supports the `fieldProps` property to support setting the `props` of the input component. We support pass-through of `placeholder`, so you can set `placeholder` directly on the component.
+We also provide components for structured data input:
 
-Each form item also supports `readonly`, which has different read-only styles for different components, making `readonly` display more friendly compared to `disable`. The generated dom is also smaller, e.g. ProFormDigit automatically formats decimal digits.
-
-ProFormText is the product of FormItem + Input and can be analogous to the following code.
-
-```tsx | pure
-const ProFormText = (props) => {
-  return (
-    <ProForm.Item {. .props}>
-      <Input placeholder={props.placeholder} {. .props.fieldProps} />
-    </ProForm.Item
-  );
-};
-```
-
-So the props we set for ProFormText are actually for Form.Item, and the fieldProps are for the included Input, remember.
-
-In addition to display type form items, we also provide form items for combining data:
+- ProFormList: Used for inputting structured multidimensional array data.
+- ProFormFieldSet: Used for inputting structured one-dimensional array data.
+- ProFormDependency: Components for managing data dependencies.
 
 ## ProFormList
 
@@ -72,6 +58,7 @@ ProFormList is basically the same as the [Form.List](https://ant.design/componen
 
 | Parameters | Description | Type | Default Value |
 | --- | --- | --- | --- |
+| itemRender | custom Item, it can be used to place actions in other locations | `(doms,listMeta)=> ReactNode` | - |
 | creatorRecord | Default value of a new line | `Record<string, any>` | - |
 | creatorButtonProps | Configuration of a new line of buttons | `buttonProps & {creatorButtonText:string,position:"top"\|"bottom" }` | `{creatorButtonText:"Create a new line"}` |
 | label | Same as From.Item | `ReactNode` | - |
@@ -84,6 +71,8 @@ ProFormList is basically the same as the [Form.List](https://ant.design/componen
 | copyIconProps | Copy button configuration, false to cancel | `{ Icon?: React.FC<any>; tooltipText?: string; } \| false` | - |
 | deleteIconProps | Delete button configuration, false can cancel | `{ Icon?: React.FC<any>; tooltipText?: string; } \| false` | - |
 | actionRender | custom action button | `(field,action,defaultActionDom,count)=>React.ReactNode[]` | - |
+| onAfterAdd | Hook after adding data | `(defaultValue: StoreValue, insertIndex: number, count: number) => void` | - |
+| onAfterRemove | Hook after deleting data | `(index: number, count: number) => void` | - |
 
 ### actionRef Action item instance
 
@@ -324,3 +313,63 @@ ProFormFieldSet can combine the values of multiple children inside and store the
   <ProFormText width="md" />
 </ProFormFieldSet
 ```
+
+## ProFormDependency
+
+ProFormDependency is a simplified version of Form.Item. It comes with noStyle and shouldUpdate built-in by default. You only need to configure the name parameter to specify which data to depend on. ProFormDependency will automatically handle differences and extract the corresponding values from the form.
+
+The name parameter must be an array. For nested structures, you can configure it like this: `name={['name', ['name2', 'text']]}`. The values of the configured name will be passed into renderProps. For example, if `name={['name', ['name2', 'text']]}`, the values passed will be `{ name: string, name2: { text: string } }`.
+
+```tsx | pure
+<ProFormDependency name={['name']}>
+  {({ name }) => {
+    return (
+      <ProFormSelect
+        options={[
+          {
+            value: 'chapter',
+            label: 'Effective after stamping.',
+          },
+        ]}
+        width="md"
+        name="useMode"
+        label={`Effective as per the agreement in the contract with《${name}》`}
+      />
+    );
+  }}
+</ProFormDependency>
+```
+
+## Code examples
+
+### Custom tooltip for delete and copy
+
+<code src="./demos/list-tooltip" title="ProForm.List" ></code>
+
+### FormList with dependent fields
+
+<code src="./demos/base-use" title="ProForm.List" ></code>
+
+### Adjustable position for the create button
+
+<code src="./demos/list.tsx" title="ProForm.List-position" ></code>
+
+### Forms nested within each other
+
+<code src="./demos/nested-list.tsx" title="ProForm.List-ProFormList" ></code>
+
+### Complex field dependencies
+
+<code src="./demos/dependency.tsx" title="ProForm.List-dependency" ></code>
+
+### Behavior guard
+
+<code src="./demos/pro-form-list.tsx" title="Behavior guard"></code>
+
+### Limitations on adding or deleting items
+
+<code src="./demos/countLimit.tsx" title="Limitations on adding or deleting items"></code>
+
+### Horizontal layout
+
+<code src="./demos/horizontal-layout.tsx" title="Horizontal layout" ></code>
