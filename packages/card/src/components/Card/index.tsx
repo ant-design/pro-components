@@ -52,7 +52,6 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     ...rest
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);  
-  console.log(collapsible);
   
   const screens = useBreakpoint() || {
     lg: true,
