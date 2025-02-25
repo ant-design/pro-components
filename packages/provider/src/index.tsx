@@ -426,10 +426,10 @@ export const ProConfigProvider: React.FC<{
   const mergeAlgorithm = () => {
     const isDark = dark ?? proProvide.dark;
     if (isDark && !Array.isArray(theme?.algorithm)) {
-      return [proTheme.darkAlgorithm, theme?.algorithm].filter(Boolean);
+      return [theme?.algorithm, proTheme.darkAlgorithm].filter(Boolean);
     }
     if (isDark && Array.isArray(theme?.algorithm)) {
-      return [proTheme.darkAlgorithm, ...(theme?.algorithm || [])].filter(
+      return [...(theme?.algorithm || []), proTheme.darkAlgorithm].filter(
         Boolean,
       );
     }
