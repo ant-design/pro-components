@@ -35,7 +35,7 @@ const Demo = () => {
             },
           ]}
           arrowSort={true}
-          upIconProps={{ tooltipText: null }}
+          upIconProps={{ tooltipText: '' }}
         >
           <ProFormGroup key="group">
             <ProFormText name="value" label="值" />
