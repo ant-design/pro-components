@@ -303,7 +303,7 @@ Same as [upload](https://ant.design/components/upload/). The Button style is pre
 | ---------- | --------------------- | ----------- | --------------- |
 | icon       | The chart of Dragger. | `ReactNode` | UploadOutlined  |
 | title      | Dragger's title       | `ReactNode` | Click to upload |
-| max | 最大上传数量，超过最大数量就会隐藏上传按钮 | `number` | - |
+| max | The maximum number of uploads, beyond which the upload button will be hidden. | `number` | - |
 | imageProps      | Additional configuration for the preview [Image](https://ant-design.antgroup.com/components/image#image) component. You can customize the preview behavior, toolbar, and other Image component properties.      | `ImageProps` | - |
 
 ```tsx | pure
