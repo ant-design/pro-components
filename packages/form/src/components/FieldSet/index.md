@@ -60,10 +60,6 @@ const ProFormText = (props) => {
 
 <code src="./demos/upload.tsx" title="上传表单"></code>
 
-<code src="./demos/components-other-readonly.tsx" title="只读表单" ></code>
-
-<code src="./demos/fieldSet-light.tsx" title="轻量筛选中使用 light" ></code>
-
 ## API
 
 ProForm 自带的 Filed , 与 valueType 基本上一一对应。
@@ -561,7 +557,8 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 | --- | --- | --- | --- |
 | icon | Button 的图标 | `ReactNode` | UploadOutlined |
 | title | Button 的标题 | `ReactNode` | 单击上传 |
-| max | 最大上传数量，超过最大数量就会隐藏上传按钮 | `number` | - |
+| max | The maximum number of uploads, beyond which the upload button will be hidden. | `number` | - |
+| imageProps | 预览 [Image](https://ant-design.antgroup.com/components/image-cn#image) 组件的额外配置，可以自定义预览行为、工具栏以及其他 Image 组件的属性。 | `ImageProps` | - |
 
 ```tsx | pure
 <ProFormUploadButton label="upload" name="upload" action="upload.do" />
