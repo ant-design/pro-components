@@ -13,6 +13,8 @@
     "declaration": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
+    "resolvePackageJsonExports": false,
+    "resolvePackageJsonImports": false,
     "paths": {
       "@ant-design/pro-provider": ["../../packages/provider/src/index.tsx"],
       "@ant-design/pro-components": ["../../packages/components/src/index.tsx"],
