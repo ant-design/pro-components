@@ -11,7 +11,7 @@ export default {
     },
   },
   tableForm: {
-    search: 'Dotaz',
+    search: 'Hledat',
     reset: 'Resetovat',
     submit: 'Odeslat',
     collapsed: 'Zvětšit',
@@ -21,7 +21,7 @@ export default {
   },
   alert: {
     clear: 'Vymazat',
-    selected: 'Vybraný',
+    selected: 'Vybráno',
     item: 'Položka',
   },
   pagination: {
@@ -37,12 +37,12 @@ export default {
     noPin: 'Odepnuto',
     leftFixedTitle: 'Fixováno nalevo',
     rightFixedTitle: 'Fixováno napravo',
-    noFixedTitle: 'Neopraveno',
+    noFixedTitle: 'Nefixováno',
     reset: 'Resetovat',
     columnDisplay: 'Zobrazení sloupců',
     columnSetting: 'Nastavení',
     fullScreen: 'Celá obrazovka',
-    exitFullScreen: 'Ukončete celou obrazovku',
+    exitFullScreen: 'Ukončit celou obrazovku',
     reload: 'Obnovit',
     density: 'Hustota',
     densityDefault: 'Výchozí',
@@ -64,11 +64,11 @@ export default {
       save: 'Uložit',
       cancel: 'Zrušit',
       delete: 'Vymazat',
-      add: 'přidat řádek dat',
+      add: 'Přidat řádek',
     },
   },
   switch: {
-    open: 'otevřít',
-    close: 'zavřít',
+    open: 'Otevřít',
+    close: 'Zavřít',
   },
 };
