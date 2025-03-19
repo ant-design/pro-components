@@ -746,10 +746,13 @@ const ProTable = <
     resetAll: () => {
       // 清空选中行
       onCleanSelected();
+      
+      const { sort, filter } = parseDefaultColumnConfig(propsColumns);
       // 清空筛选
-      setProFilter({});
+      setProFilter(filter);
       // 清空排序
-      setProSort({});
+      setProSort(sort);
+
       // 清空 toolbar 搜索
       counter.setKeyWords(undefined);
       // 重置页码
