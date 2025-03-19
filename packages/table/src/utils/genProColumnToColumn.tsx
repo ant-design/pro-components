@@ -20,6 +20,7 @@ import {
   renderColumnsTitle,
 } from './columnRender';
 import { genColumnKey } from './index';
+import { SortOrder } from 'antd/lib/table/interface';
 
 type ColumnToColumnReturnType<T> = (TableColumnType<T> & {
   index?: number;
@@ -31,7 +32,8 @@ type ColumnToColumnParams<T> = {
   columnEmptyText: ProFieldEmptyText;
   type: ProSchemaComponentTypes;
   editableUtils: UseEditableUtilType;
-  proFilter: Record<string, (string | number)[] | null>;
+  proFilter: Record<string, (string | number)[] | null>; 
+  proSort: Record<string, SortOrder>;
 } & Pick<TableProps<T>, 'rowKey' | 'childrenColumnName'>;
 
 /**
@@ -55,6 +57,7 @@ export function genProColumnToColumn<T extends AnyObject>(
     rowKey = 'id',
     childrenColumnName = 'children',
     proFilter,
+    proSort,
   } = params;
 
   const subNameRecord = new Map();
@@ -71,6 +74,7 @@ export function genProColumnToColumn<T extends AnyObject>(
         children,
         onFilter,
         filters = [],
+        sorter,
       } = columnProps as ProColumns<T, any>;
       const columnKey = genColumnKey(
         key || dataIndex?.toString(),
@@ -96,10 +100,14 @@ export function genProColumnToColumn<T extends AnyObject>(
         return omitBoolean(onFilter);
       };
 
-      // 對應篩選值，用作雙向綁定
+      // 对应筛选值，用作双向绑定
       const filteredValue = columnKey && proFilter[columnKey] !== undefined 
         ? proFilter[columnKey] 
         : null;
+      // 对应排序值，用作双向绑定
+      const sortOrder = columnKey && proSort[columnKey] !== undefined 
+      ? proSort[columnKey] 
+      : null;
 
       let keyName: string | number | symbol = rowKey as string;
 
@@ -117,6 +125,7 @@ export function genProColumnToColumn<T extends AnyObject>(
             : filters,
         onFilter: genOnFilter(),
         filteredValue: genOnFilter() != null ? undefined : filteredValue,
+        sortOrder: sorter !== true ? undefined : sortOrder,
         fixed: config.fixed,
         width: columnProps.width || (columnProps.fixed ? 200 : undefined),
         children: (columnProps as ProColumns<T, any>).children

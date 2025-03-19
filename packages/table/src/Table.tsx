@@ -779,6 +779,7 @@ const ProTable = <
       rowKey,
       childrenColumnName: props.expandable?.childrenColumnName,
       proFilter,
+      proSort,
     }).sort(columnSort(counter.columnsMap));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
@@ -790,6 +791,7 @@ const ProTable = <
     // eslint-disable-next-line react-hooks/exhaustive-deps
     editableUtils.editableKeys && editableUtils.editableKeys.join(','),
     proFilter,
+    proSort,
   ]);
 
   /** Table Column 变化的时候更新一下，这个参数将会用于渲染 */
@@ -992,7 +994,7 @@ const ProTable = <
       toolbarDom={toolbarDom}
       hideToolbar={hideToolbar}
       onSortChange={(sortConfig) => {
-        if (proSort === sortConfig) return;
+        if (sortConfig === proSort) return;
         setProSort(sortConfig ?? {});
       }}
       onFilterChange={(filterConfig) => {
