@@ -31,6 +31,7 @@ type ColumnToColumnParams<T> = {
   columnEmptyText: ProFieldEmptyText;
   type: ProSchemaComponentTypes;
   editableUtils: UseEditableUtilType;
+  proFilter: Record<string, (string | number)[] | null>;
 } & Pick<TableProps<T>, 'rowKey' | 'childrenColumnName'>;
 
 /**
@@ -53,6 +54,7 @@ export function genProColumnToColumn<T extends AnyObject>(
     marginSM,
     rowKey = 'id',
     childrenColumnName = 'children',
+    proFilter,
   } = params;
 
   const subNameRecord = new Map();
@@ -94,6 +96,11 @@ export function genProColumnToColumn<T extends AnyObject>(
         return omitBoolean(onFilter);
       };
 
+      // 對應篩選值，用作雙向綁定
+      const filteredValue = columnKey && proFilter[columnKey] !== undefined 
+        ? proFilter[columnKey] 
+        : null;
+
       let keyName: string | number | symbol = rowKey as string;
 
       const tempColumns = {
@@ -109,6 +116,7 @@ export function genProColumnToColumn<T extends AnyObject>(
               ).filter((valueItem) => valueItem && valueItem.value !== 'all')
             : filters,
         onFilter: genOnFilter(),
+        filteredValue: genOnFilter() != null ? undefined : filteredValue,
         fixed: config.fixed,
         width: columnProps.width || (columnProps.fixed ? 200 : undefined),
         children: (columnProps as ProColumns<T, any>).children
