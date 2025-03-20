@@ -132,7 +132,7 @@ describe('BasicTable Search', () => {
             title: '状态',
             dataIndex: 'status',
             filters: [{ text: '关闭', value: 0 }],
-            onFilter: true,
+            onFilter: false,
             valueEnum: {
               0: { text: '关闭', status: 'Default' },
               1: { text: '运行中', status: 'Processing' },
