@@ -124,7 +124,7 @@ export function genProColumnToColumn<T extends AnyObject>(
               ).filter((valueItem) => valueItem && valueItem.value !== 'all')
             : filters,
         onFilter: genOnFilter(),
-        filteredValue: filters === true && genOnFilter() == null? filteredValue : undefined,
+        filteredValue: filters && genOnFilter() == null? filteredValue : undefined,
         sortOrder: sorter === true ? sortOrder : undefined,
         fixed: config.fixed,
         width: columnProps.width || (columnProps.fixed ? 200 : undefined),
