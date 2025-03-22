@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.18.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.18.5...@ant-design/pro-table@3.18.6) (2025-02-17)
+
+### Bug Fixes
+
+- **table:** resolve EditableProTable Form.Item shouldUpdate conflict with dependencies ([#8986](https://github.com/ant-design/pro-components/issues/8986)) ([3840629](https://github.com/ant-design/pro-components/commit/384062949a0f002521488eff891dc8e1e2a47779))
+
 ## [3.18.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.18.4...@ant-design/pro-table@3.18.5) (2025-02-12)
 
 **Note:** Version bump only for package @ant-design/pro-table

@@ -41,8 +41,8 @@ const Demo = () => {
           marginBlockEnd: 16,
         }}
         checked={readonly}
-        checkedChildren="编辑"
-        unCheckedChildren="只读"
+        checkedChildren="Edit"
+        unCheckedChildren="Read Only"
         onChange={setReadonly}
       />
       <ProForm
@@ -53,7 +53,7 @@ const Demo = () => {
           password: '1ixian',
           select: 'china',
           select2: '520000201604258831',
-          useMode: { label: '未解决', value: 'open', key: 'open' },
+          useMode: { label: 'Unresolved', value: 'open', key: 'open' },
           'select-multiple': ['green', 'blue'],
           radio: 'a',
           'radio-vertical': 'b',
@@ -72,12 +72,12 @@ const Demo = () => {
         }}
         onFinish={async (value) => console.log(value)}
       >
-        <ProFormGroup title="文本类">
-          <ProFormText width="md" name="name" label="name" />
-          <ProFormText.Password width="md" name="password" label="password" />
+        <ProFormGroup title="Text Types">
+          <ProFormText width="md" name="name" label="Name" />
+          <ProFormText.Password width="md" name="password" label="Password" />
         </ProFormGroup>
         <ProFormGroup
-          title="选择类"
+          title="Selection Types"
           collapsible
           style={{
             gap: '0 32px',
@@ -95,7 +95,7 @@ const Demo = () => {
           />
           <ProFormSelect
             name="select2"
-            label="支持搜索查询的 Select"
+            label="Select with Search"
             showSearch
             debounceTime={300}
             request={async ({ keyWords }) => {
@@ -110,7 +110,7 @@ const Demo = () => {
                   ],
                 }).data.concat({
                   value: keyWords,
-                  label: '目标_target',
+                  label: 'Target',
                 }),
               );
               return Mock.mock({
@@ -123,7 +123,7 @@ const Demo = () => {
               }).data.concat([
                 {
                   value: keyWords,
-                  label: '目标_target',
+                  label: 'Target',
                 },
                 { value: '520000201604258831', label: 'Patricia Lopez' },
                 { value: '520000198509222123', label: 'Jose Martinez' },
@@ -132,7 +132,7 @@ const Demo = () => {
                 { value: '500000198703236285', label: 'George Jackson' },
                 { value: '610000199906148074', label: 'Linda Hernandez' },
                 { value: '150000197210168659', label: 'Sandra Hall' },
-                { label: '目标_target' },
+                { label: 'Target' },
               ]);
             }}
             placeholder="Please select a country"
@@ -144,13 +144,13 @@ const Demo = () => {
               labelInValue: true,
             }}
             request={async () => [
-              { label: '全部', value: 'all' },
-              { label: '未解决', value: 'open' },
-              { label: '已解决', value: 'closed' },
-              { label: '解决中', value: 'processing' },
+              { label: 'All', value: 'all' },
+              { label: 'Unresolved', value: 'open' },
+              { label: 'Resolved', value: 'closed' },
+              { label: 'In Progress', value: 'processing' },
             ]}
             name="useMode"
-            label="合同约定生效方式"
+            label="Contract Agreed Effective Method"
           />
           <ProFormSelect
             name="select-multiple"
@@ -173,19 +173,19 @@ const Demo = () => {
             ]}
           />
           <ProFormCascader
-            label="地址"
+            label="Address"
             request={async () => [
               {
                 value: 'zhejiang',
-                label: '浙江',
+                label: 'Zhejiang',
                 children: [
                   {
                     value: 'hangzhou',
-                    label: '杭州',
+                    label: 'Hangzhou',
                     children: [
                       {
                         value: 'xihu',
-                        label: '西湖',
+                        label: 'West Lake',
                       },
                     ],
                   },
@@ -275,14 +275,14 @@ const Demo = () => {
             label="Checkbox.Group"
             options={['A', 'B', 'C', 'D', 'E', 'F']}
           />
-          <ProFormColorPicker label="颜色选择" name="color" />
+          <ProFormColorPicker label="Color Picker" name="color" />
         </ProFormGroup>
-        <ProFormGroup label="数字类">
+        <ProFormGroup label="Number Types">
           <ProFormDigitRange
             label="InputNumberRange"
             name="input-number-range"
             separator="-"
-            placeholder={['最小值', '最大值']}
+            placeholder={['Min', 'Max']}
             separatorWidth={60}
           />
           <ProFormDigit
@@ -307,24 +307,24 @@ const Demo = () => {
             }}
           />
           <ProFormRate name="rate" label="Rate" />
-          <ProFormUploadButton name="pic" label="上传" />
-          <ProFormUploadDragger name="drag-pic" label="拖拽上传" />
+          <ProFormUploadButton name="pic" label="Upload" />
+          <ProFormUploadDragger name="drag-pic" label="Drag and Drop Upload" />
           <ProFormSegmented
             name="segmented"
-            label="分段控制器"
+            label="Segmented Control"
             valueEnum={{
-              open: '未解决',
-              closed: '已解决',
+              open: 'Unresolved',
+              closed: 'Resolved',
             }}
           />
           <ProFormSegmented
             name="segmented2"
-            label="分段控制器-远程数据"
+            label="Segmented Control - Remote Data"
             request={async () => [
-              { label: '全部', value: 'all' },
-              { label: '未解决', value: 'open' },
-              { label: '已解决', value: 'closed' },
-              { label: '解决中', value: 'processing' },
+              { label: 'All', value: 'all' },
+              { label: 'Unresolved', value: 'open' },
+              { label: 'Resolved', value: 'closed' },
+              { label: 'In Progress', value: 'processing' },
             ]}
           />
         </ProFormGroup>

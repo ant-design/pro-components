@@ -3,13 +3,13 @@ import { ProCard } from '@ant-design/pro-components';
 export default () => {
   return (
     <ProCard
-      title="标题"
+      title="Title"
       extra="extra"
-      tooltip="这是提示"
+      tooltip="This is a tooltip"
       style={{ maxWidth: 300 }}
       bordered
     >
-      内容
+      Content
     </ProCard>
   );
 };

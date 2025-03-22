@@ -15,13 +15,13 @@ export default () => {
       }}
     >
       <StatisticCard.Group
-        title="核心指标"
+        title="Core Metrics"
         direction={responsive ? 'column' : 'row'}
       >
         <StatisticCard
           statistic={{
-            title: '今日UV',
-            tip: '供应商信息',
+            title: 'Today\'s UV',
+            tip: 'Supplier Information',
             value: 79,
             precision: 2,
           }}
@@ -29,26 +29,26 @@ export default () => {
         <Divider type={responsive ? 'horizontal' : 'vertical'} />
         <StatisticCard
           statistic={{
-            title: '冻结金额',
+            title: 'Frozen Amount',
             value: 112893,
             precision: 2,
-            suffix: '元',
+            suffix: 'Yuan',
           }}
         />
         <Divider type={responsive ? 'horizontal' : 'vertical'} />
         <StatisticCard
           statistic={{
-            title: '信息完整度',
+            title: 'Information Completeness',
             value: 92,
             suffix: '/ 100',
           }}
         />
         <StatisticCard
           statistic={{
-            title: '冻结金额',
+            title: 'Frozen Amount',
             value: 112893,
             precision: 2,
-            suffix: '元',
+            suffix: 'Yuan',
           }}
         />
       </StatisticCard.Group>

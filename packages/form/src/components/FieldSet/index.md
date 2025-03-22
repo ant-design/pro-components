@@ -282,7 +282,7 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 
 联动的 ProFormSelect
 
-````tsx | pure
+```tsx | pure
   <ProFormText name="name" label="姓名" />
   <ProFormSelect
     name="addr"
@@ -318,7 +318,7 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
   placeholder="Please select a country"
   rules={[{ required: true, message: 'Please select your country!' }]}
 />
-````
+```
 
 ### ProFormTreeSelect
 
@@ -506,11 +506,11 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 
 ### ProFormRate
 
+与 [rate](https://ant.design/components/rate-cn/) 相同，通过 fieldProps 配置 rate 的数据。
+
 | 参数       | 说明              | 类型        | 默认值 |
 | ---------- | ----------------- | ----------- | ------ |
 | fieldProps | antd 组件的 props | `RateProps` | -      |
-
-与 [rate](https://ant.design/components/rate-cn/) 相同，通过 fieldProps 配置 rate 的数据。
 
 ```tsx | pure
 <ProFormRate name="rate" label="Rate" />

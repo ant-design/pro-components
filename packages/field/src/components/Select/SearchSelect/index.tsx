@@ -296,7 +296,10 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
             const changedValue = value
               ? {
                   ...value,
-                  label: preserveOriginalLabel ? dataItem?.label : value.label,
+                  // 这里有一种情况，如果用户使用了 request和labelInValue，保存之后，刷新页面，正常回显，但是再次添加会出现 label 丢失的情况。所以需要兼容
+                  label: preserveOriginalLabel
+                    ? dataItem?.label || value.label
+                    : value.label,
                 }
               : value;
             onChange?.(changedValue, optionList, ...rest);

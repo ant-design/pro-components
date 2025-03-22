@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.22.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.22.2...@ant-design/pro-layout@7.22.3) (2025-02-17)
+
+### Bug Fixes
+
+- **SiderMenu:** 优化 collapsed 状态下菜单项文本的渲染逻辑 ([1f3428d](https://github.com/ant-design/pro-components/commit/1f3428d0142c6f4f121ae728b108af2b7656dee5))
+
 ## [7.22.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.22.1...@ant-design/pro-layout@7.22.2) (2025-02-12)
 
 **Note:** Version bump only for package @ant-design/pro-layout

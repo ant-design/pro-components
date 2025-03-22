@@ -3,11 +3,11 @@ import { ProCard } from '@ant-design/pro-components';
 export default () => {
   return (
     <ProCard split="vertical">
-      <ProCard title="左侧详情" colSpan="30%">
-        左侧内容
+      <ProCard title="Left Details" colSpan="30%">
+        Left Content
       </ProCard>
-      <ProCard title="左右分栏子卡片带标题" headerBordered>
-        <div style={{ height: 360 }}>右侧内容</div>
+      <ProCard title="Left and Right Columns with Title" headerBordered>
+        <div style={{ height: 360 }}>Right Content</div>
       </ProCard>
     </ProCard>
   );

@@ -1,3 +1,11 @@
+## @ant-design/pro-components@2.8.6
+
+`2025-02-17`
+
+- fix(form):fixed an issue where queryFilter controls were abnormally hidden (#8564). [#8564](https://github.com/ant-design/pro-components/pull/#8564) [@Lemonnnnnnnnnnn](https://github.com/Lemonnnnnnnnnnn)
+- fix(form): 修复刷新之后 label 丢失的情况 (#8982). [#8982](https://github.com/ant-design/pro-components/pull/#8982) [@LovePlayCode](https://github.com/LovePlayCode)
+- fix(table): resolve EditableProTable Form.Item shouldUpdate conflict with dependencies (#8986). [#8986](https://github.com/ant-design/pro-components/pull/#8986) [@drizzlesconsin](https://github.com/drizzlesconsin)
+
 ## @ant-design/pro-components@2.8.5
 
 `2025-02-12`

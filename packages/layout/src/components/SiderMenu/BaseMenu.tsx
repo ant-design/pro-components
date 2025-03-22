@@ -424,20 +424,18 @@ class MenuUtil {
         >
           {icon || <span className="anticon">{defaultIcon}</span>}
         </span>
-        {collapsed ? null : (
-          <span
-            className={classNames(
-              `${baseClassName}-item-text`,
-              this.props?.hashId,
-              {
-                [`${baseClassName}-item-text-has-icon`]:
-                  hasIcon && (icon || defaultIcon),
-              },
-            )}
-          >
-            {menuItemTitle}
-          </span>
-        )}
+        <span
+          className={classNames(
+            `${baseClassName}-item-text`,
+            this.props?.hashId,
+            {
+              [`${baseClassName}-item-text-has-icon`]:
+                hasIcon && (icon || defaultIcon),
+            },
+          )}
+        >
+          {menuItemTitle}
+        </span>
       </div>
     );
     const isHttpUrl = isUrl(itemPath);
@@ -471,20 +469,18 @@ class MenuUtil {
           >
             {icon || <span className="anticon">{defaultIcon}</span>}
           </span>
-          {collapsed ? null : (
-            <span
-              className={classNames(
-                `${baseClassName}-item-text`,
-                this.props?.hashId,
-                {
-                  [`${baseClassName}-item-text-has-icon`]:
-                    hasIcon && (icon || defaultIcon),
-                },
-              )}
-            >
-              {menuItemTitle}
-            </span>
-          )}
+          <span
+            className={classNames(
+              `${baseClassName}-item-text`,
+              this.props?.hashId,
+              {
+                [`${baseClassName}-item-text-has-icon`]:
+                  hasIcon && (icon || defaultIcon),
+              },
+            )}
+          >
+            {menuItemTitle}
+          </span>
         </span>
       );
     }

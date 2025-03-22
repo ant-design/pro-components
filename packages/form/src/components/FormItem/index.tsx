@@ -197,35 +197,35 @@ const WarpFormItem: React.FC<
       return (
         <Form.Item
           {...props}
-          help={typeof help !== 'function' ? help : undefined}
+          //help={typeof help !== 'function' ? help : undefined}
           valuePropName={valuePropName}
           getValueProps={getValuePropsFunc}
           // @ts-ignore
-          _internalItemRender={{
-            mark: 'pro_table_render',
-            render: (
-              inputProps: FormItemProps & {
-                errors: React.ReactNode[];
-                warnings: React.ReactNode[];
-              },
-              doms: {
-                input: JSX.Element;
-                errorList: JSX.Element;
-                extra: JSX.Element;
-              },
-            ) => (
-              <>
-                {doms.input}
-                {typeof help === 'function'
-                  ? help({
-                      errors: inputProps.errors,
-                      warnings: inputProps.warnings,
-                    })
-                  : doms.errorList}
-                {doms.extra}
-              </>
-            ),
-          }}
+          // _internalItemRender={{
+          //   mark: 'pro_table_render',
+          //   render: (
+          //     inputProps: FormItemProps & {
+          //       errors: React.ReactNode[];
+          //       warnings: React.ReactNode[];
+          //     },
+          //     doms: {
+          //       input: JSX.Element;
+          //       errorList: JSX.Element;
+          //       extra: JSX.Element;
+          //     },
+          //   ) => (
+          //     <>
+          //       {doms.input}
+          //       {typeof help === 'function'
+          //         ? help({
+          //             errors: inputProps.errors,
+          //             warnings: inputProps.warnings,
+          //           })
+          //         : doms.errorList}
+          //       {doms.extra}
+          //     </>
+          //   ),
+          // }}
         >
           {children}
         </Form.Item>

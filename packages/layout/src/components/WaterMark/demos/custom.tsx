@@ -1,4 +1,4 @@
-/** Title: 自定义配置 */
+/** Title: Custom Configuration */
 import {
   ProCard,
   ProForm,
@@ -16,7 +16,7 @@ export default () => {
   return (
     <ProForm
       initialValues={{
-        content: '示例水印',
+        content: 'Example Watermark',
         fontColor: 'rgba(0,0,0,.15)',
         fontSize: '16',
         zIndex: 9,
@@ -26,7 +26,7 @@ export default () => {
     >
       <ProCard
         split="vertical"
-        title="水印自定义配置器"
+        title="Watermark Custom Configurator"
         headerBordered
         bordered
       >
@@ -77,13 +77,12 @@ export default () => {
                     </p>
                   </div>
                   <h4>
-                    下面是一张zIndex 为 10 的 position 为 relative 图片，
-                    <br /> 如果要在图片中展示水印尝试调大右侧的 zIndex
-                    滑块试试。
+                    Below is an image with zIndex of 10 and position relative,
+                    <br /> If you want to display the watermark in the image, try increasing the zIndex slider on the right.
                   </h4>
                   <img
                     src="https://gw.alipayobjects.com/zos/bmw-prod/d283f09a-64d6-4d59-bfc7-37b49ea0da2b.svg"
-                    alt="示例图片"
+                    alt="Example Image"
                     width={600}
                     style={{
                       zIndex: 10,
@@ -96,12 +95,12 @@ export default () => {
             }}
           </ProFormDependency>
         </ProCard>
-        <ProCard title="配置面板">
-          <ProFormText label="水印文字" name="content" />
-          <ProFormColorPicker label="字体颜色" name="fontColor" />
-          <ProFormSlider label="字体大小" name="fontSize" />
+        <ProCard title="Configuration Panel">
+          <ProFormText label="Watermark Text" name="content" />
+          <ProFormColorPicker label="Font Color" name="fontColor" />
+          <ProFormSlider label="Font Size" name="fontSize" />
           <ProFormSlider label="zIndex" name="zIndex" min={0} max={100} />
-          <ProFormSlider label="旋转角度" name="rotate" min={-90} max={90} />
+          <ProFormSlider label="Rotation Angle" name="rotate" min={-90} max={90} />
           <Divider />
           <ProFormDependency
             name={['rotate', 'content', 'fontColor', 'fontSize', 'zIndex']}

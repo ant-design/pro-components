@@ -26,24 +26,24 @@ export default () => {
         onFinish={async (values) => {
           console.log(values);
           await waitTime(1000);
-          message.success('提交成功');
+          message.success('Submission successful');
         }}
         formProps={{
           validateMessages: {
-            required: '此项为必填项',
+            required: 'This field is required',
           },
         }}
       >
         <StepsForm.StepForm
           name="base"
-          title="第一步骤"
+          title="First Step"
           onFinish={async () => {
             await waitTime(2000);
             return true;
           }}
         >
           <ProCard
-            title="源和目标"
+            title="Source and Target"
             bordered
             headerBordered
             collapsible
@@ -56,27 +56,27 @@ export default () => {
             <ProFormText
               name="name"
               width="md"
-              label="迁移任务名称"
-              tooltip="最长为 24 位，用于标定的唯一 id"
-              placeholder="请输入名称"
+              label="Migration Task Name"
+              tooltip="Up to 24 characters, used as a unique id"
+              placeholder="Please enter a name"
               rules={[{ required: true }]}
             />
-            <ProForm.Group title="节点" size={8}>
+            <ProForm.Group title="Nodes" size={8}>
               <ProFormSelect
                 width="sm"
                 name="source"
-                placeholder="选择来源节点"
+                placeholder="Select Source Node"
               />
               <ProFormSelect
                 width="sm"
                 name="target"
-                placeholder="选择目标节点"
+                placeholder="Select Target Node"
               />
             </ProForm.Group>
           </ProCard>
 
           <ProCard
-            title="顶部对齐"
+            title="Top Alignment"
             bordered
             headerBordered
             collapsible
@@ -87,35 +87,35 @@ export default () => {
           >
             <ProFormDigit
               name="xs"
-              label="XS号表单"
+              label="XS Form"
               initialValue={9999}
-              tooltip="悬浮出现的气泡。"
-              placeholder="请输入名称"
+              tooltip="Tooltip that appears on hover."
+              placeholder="Please enter a name"
               width="xs"
             />
             <ProFormText
               name="s"
-              label="S号表单"
-              placeholder="请输入名称"
+              label="S Form"
+              placeholder="Please enter a name"
               width="sm"
             />
-            <ProFormDateRangePicker name="m" label="M 号表单" />
+            <ProFormDateRangePicker name="m" label="M Form" />
             <ProFormSelect
               name="l"
-              label="L 号表单"
+              label="L Form"
               fieldProps={{
                 mode: 'tags',
               }}
               width="lg"
-              initialValue={['吴家豪', '周星星']}
-              options={['吴家豪', '周星星', '陈拉风'].map((item) => ({
+              initialValue={['Wu Jiahao', 'Zhou Xingxing']}
+              options={['Wu Jiahao', 'Zhou Xingxing', 'Chen Lafeng'].map((item) => ({
                 label: item,
                 value: item,
               }))}
             />
           </ProCard>
         </StepsForm.StepForm>
-        <StepsForm.StepForm name="checkbox" title="第二步骤">
+        <StepsForm.StepForm name="checkbox" title="Second Step">
           <ProCard
             style={{
               minWidth: 800,
@@ -125,26 +125,26 @@ export default () => {
           >
             <ProFormCheckbox.Group
               name="checkbox"
-              label="迁移类型"
+              label="Migration Type"
               width="lg"
-              options={['结构迁移', '全量迁移', '增量迁移', '全量校验']}
+              options={['Structural Migration', 'Full Migration', 'Incremental Migration', 'Full Verification']}
             />
             <ProForm.Group>
-              <ProFormText name="dbname" label="业务 DB 用户名" />
+              <ProFormText name="dbname" label="Business DB Username" />
               <ProFormDatePicker
                 name="datetime"
-                label="记录保存时间"
+                label="Record Retention Time"
                 width="sm"
               />
             </ProForm.Group>
             <ProFormCheckbox.Group
               name="checkbox"
-              label="迁移类型"
-              options={['完整 LOB', '不同步 LOB', '受限制 LOB']}
+              label="Migration Type"
+              options={['Complete LOB', 'Do Not Sync LOB', 'Restricted LOB']}
             />
           </ProCard>
         </StepsForm.StepForm>
-        <StepsForm.StepForm name="time" title="第三步骤">
+        <StepsForm.StepForm name="time" title="Third Step">
           <ProCard
             style={{
               marginBlockEnd: 16,
@@ -154,16 +154,16 @@ export default () => {
           >
             <ProFormCheckbox.Group
               name="checkbox"
-              label="部署单元"
+              label="Deployment Units"
               rules={[
                 {
                   required: true,
                 },
               ]}
-              options={['部署单元1', '部署单元2', '部署单元3']}
+              options={['Deployment Unit 1', 'Deployment Unit 2', 'Deployment Unit 3']}
             />
             <ProFormSelect
-              label="部署分组策略"
+              label="Deployment Group Strategy"
               name="remark"
               rules={[
                 {
@@ -175,22 +175,22 @@ export default () => {
               options={[
                 {
                   value: '1',
-                  label: '策略一',
+                  label: 'Strategy One',
                 },
-                { value: '2', label: '策略二' },
+                { value: '2', label: 'Strategy Two' },
               ]}
             />
             <ProFormSelect
-              label="Pod 调度策略"
+              label="Pod Scheduling Strategy"
               name="remark2"
               width="md"
               initialValue="2"
               options={[
                 {
                   value: '1',
-                  label: '策略一',
+                  label: 'Strategy One',
                 },
-                { value: '2', label: '策略二' },
+                { value: '2', label: 'Strategy Two' },
               ]}
             />
           </ProCard>

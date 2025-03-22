@@ -1,4 +1,4 @@
-/** Title: 前置水印 */
+/** Title: Front Watermark */
 import type { ProColumns } from '@ant-design/pro-components';
 import {
   LightFilter,
@@ -26,7 +26,7 @@ export interface TableListItem {
 }
 const tableListDataSource: TableListItem[] = [];
 
-const creators = ['付小小', '曲丽丽', '林东东', '陈帅帅', '兼某某'];
+const creators = ['Fu Xiaoxiao', 'Qu Lili', 'Lin Dongdong', 'Chen Shuai', 'Jian Moumou'];
 
 for (let i = 0; i < 10; i += 1) {
   tableListDataSource.push({
@@ -38,70 +38,70 @@ for (let i = 0; i < 10; i += 1) {
     createdAt: Date.now() - Math.floor(Math.random() * 100000),
     memo:
       i % 2 === 1
-        ? '很长很长很长很长很长很长很长的文字要展示但是要留下尾巴'
-        : '简短备注文案',
+        ? 'A very long text that needs to be displayed but needs to leave a tail'
+        : 'Short memo text',
   });
 }
 
 const columns: ProColumns<TableListItem>[] = [
   {
-    title: '应用名称',
+    title: 'AppName',
     width: 80,
     dataIndex: 'name',
     render: (_) => <a>{_}</a>,
   },
   {
-    title: '容器数量',
+    title: 'Number of Containers',
     dataIndex: 'containers',
     align: 'right',
     sorter: (a, b) => a.containers - b.containers,
   },
   {
-    title: '状态',
+    title: 'Status',
     width: 80,
     dataIndex: 'status',
     initialValue: 'all',
     valueEnum: {
-      all: { text: '全部', status: 'Default' },
-      close: { text: '关闭', status: 'Default' },
-      running: { text: '运行中', status: 'Processing' },
-      online: { text: '已上线', status: 'Success' },
-      error: { text: '异常', status: 'Error' },
+      all: { text: 'All', status: 'Default' },
+      close: { text: 'Close', status: 'Default' },
+      running: { text: 'Running', status: 'Processing' },
+      online: { text: 'Online', status: 'Success' },
+      error: { text: 'Error', status: 'Error' },
     },
   },
   {
-    title: '创建者',
+    title: 'Creator',
     width: 80,
     dataIndex: 'creator',
     valueEnum: {
-      all: { text: '全部' },
-      付小小: { text: '付小小' },
-      曲丽丽: { text: '曲丽丽' },
-      林东东: { text: '林东东' },
-      陈帅帅: { text: '陈帅帅' },
-      兼某某: { text: '兼某某' },
+      all: { text: 'All' },
+      'Fu Xiaoxiao': { text: 'Fu Xiaoxiao' },
+      'Qu Lili': { text: 'Qu Lili' },
+      'Lin Dongdong': { text: 'Lin Dongdong' },
+      'Chen Shuai': { text: 'Chen Shuai' },
+      'Jian Moumou': { text: 'Jian Moumou' },
     },
   },
   {
-    title: '备注',
+    title: 'Memo',
     dataIndex: 'memo',
     ellipsis: true,
     copyable: true,
   },
   {
-    title: '操作',
+    title: 'Actions',
     width: 180,
     key: 'option',
     valueType: 'option',
     render: () => [
-      <a key="link">链路</a>,
-      <a key="link2">报警</a>,
-      <a key="link3">监控</a>,
+      <a key="link">Link</a>,
+      <a key="link2">Alert</a>,
+      <a key="link3">Monitor</a>,
       <TableDropdown
         key="actionGroup"
         menus={[
-          { key: 'copy', name: '复制' },
-          { key: 'delete', name: '删除' },
+          { key: 'copy', name: 'Copy' },
+          { key: 'delete', name: 'Delete' },
         ]}
       />,
     ],
@@ -110,7 +110,7 @@ const columns: ProColumns<TableListItem>[] = [
 
 export default () => (
   <>
-    <WaterMark content="蚂蚁集团">
+    <WaterMark content="Ant Group">
       <ProTable<TableListItem>
         columns={columns}
         dataSource={tableListDataSource}
@@ -119,11 +119,11 @@ export default () => (
           showQuickJumper: true,
         }}
         toolbar={{
-          title: '标签',
+          title: 'Tags',
           multipleLine: true,
           filter: (
             <LightFilter>
-              <ProFormDatePicker name="startdate" label="响应日期" />
+              <ProFormDatePicker name="startdate" label="Response Date" />
             </LightFilter>
           ),
         }}
