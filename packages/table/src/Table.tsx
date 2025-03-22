@@ -216,7 +216,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
           }),
           {},
         );
-        onSortChange(omitUndefined<any>(data));
+        onSortChange(omitUndefined<any>(data) ?? {});
       } else {
         const sorterOfColumn = sorter.column?.sorter;
         const isSortByField = sorterOfColumn?.toString() === sorterOfColumn;
@@ -225,7 +225,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
           omitUndefined({
             [`${isSortByField ? sorterOfColumn : sorter.field}`]:
               sorter.order as SortOrder,
-          }),
+          }) ?? {},
         );
       }
     },
