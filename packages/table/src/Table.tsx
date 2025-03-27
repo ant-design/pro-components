@@ -127,6 +127,12 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
               children: loopFilter(item.children),
             };
           }
+          if (item.tip && !item.tooltip) {
+            return {
+              ...item,
+              tooltip: item.tip,
+            };
+          }
           return item;
         })
         .filter(Boolean);
