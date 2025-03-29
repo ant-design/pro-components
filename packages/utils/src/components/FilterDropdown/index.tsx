@@ -62,9 +62,7 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
       placement={placement}
       trigger={['click']}
       {...dropdownOpenProps}
-      overlayInnerStyle={{
-        padding: 0,
-      }}
+      styles={{ body: {padding: 0} }}
       content={
         <div
           ref={htmlRef}
