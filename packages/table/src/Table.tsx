@@ -127,12 +127,6 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
               children: loopFilter(item.children),
             };
           }
-          if (item.tip && !item.tooltip) {
-            return {
-              ...item,
-              tooltip: item.tip,
-            };
-          }
           return item;
         })
         .filter(Boolean);
@@ -795,6 +789,7 @@ const ProTable = <
     // eslint-disable-next-line react-hooks/exhaustive-deps
     editableUtils.editableKeys && editableUtils.editableKeys.join(','),
   ]);
+
 
   /** Table Column 变化的时候更新一下，这个参数将会用于渲染 */
   useDeepCompareEffectDebounce(

@@ -1823,6 +1823,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                                       >
                                         <button
                                           class="ant-input-clear-icon"
+                                          tabindex="-1"
                                           type="button"
                                         >
                                           <span
@@ -3484,7 +3485,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/req
               class="ant-space-item"
             >
               <button
-                class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link"
+                class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link"
                 type="button"
               >
                 <span>
