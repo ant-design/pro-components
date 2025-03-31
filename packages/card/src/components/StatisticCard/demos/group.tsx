@@ -20,7 +20,7 @@ export default () => {
       >
         <StatisticCard
           statistic={{
-            title: 'Today\'s UV',
+            title: "Today's UV",
             tip: 'Supplier Information',
             value: 79,
             precision: 2,

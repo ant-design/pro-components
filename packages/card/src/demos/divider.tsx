@@ -14,7 +14,10 @@ export default () => {
         setResponsive(offset.width < 596);
       }}
     >
-      <ProCard.Group title="Core Metrics" direction={responsive ? 'column' : 'row'}>
+      <ProCard.Group
+        title="Core Metrics"
+        direction={responsive ? 'column' : 'row'}
+      >
         <ProCard>
           <Statistic title="Today's UV" value={79.0} precision={2} />
         </ProCard>
@@ -24,7 +27,11 @@ export default () => {
         </ProCard>
         <Divider type={responsive ? 'horizontal' : 'vertical'} />
         <ProCard>
-          <Statistic title="Information Completeness" value={93} suffix="/ 100" />
+          <Statistic
+            title="Information Completeness"
+            value={93}
+            suffix="/ 100"
+          />
         </ProCard>
         <Divider type={responsive ? 'horizontal' : 'vertical'} />
         <ProCard>
