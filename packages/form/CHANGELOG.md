@@ -1,6 +1,19 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.31.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.31.6...@ant-design/pro-form@2.31.7) (2025-03-31)
+
+
+### Bug Fixes
+
+* **SchemaForm:** 移除不必要的类型错误注释，确保 tooltip 属性正常使用 ([c005a52](https://github.com/ant-design/pro-components/commit/c005a526d4e866937d0342c90c098fe6fde13fc7))
+* **tests:** 移除多余的空行以清理代码 ([32cb3b8](https://github.com/ant-design/pro-components/commit/32cb3b8f85d38e5ee60e73440207617340890def))
+
+
+
+
 
 ## [2.31.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.31.5...@ant-design/pro-form@2.31.6) (2025-02-17)
 

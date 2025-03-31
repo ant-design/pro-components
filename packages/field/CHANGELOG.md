@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [3.0.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@3.0.3...@ant-design/pro-field@3.0.4) (2025-03-31)
+
+
+### Bug Fixes
+
+* **tests:** 移除多余的空行以清理代码 ([32cb3b8](https://github.com/ant-design/pro-components/commit/32cb3b8f85d38e5ee60e73440207617340890def))
+
+
+
+
 
 ## [3.0.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@3.0.2...@ant-design/pro-field@3.0.3) (2025-02-17)
 

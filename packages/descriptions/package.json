@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-descriptions",
-  "version": "2.6.6",
+  "version": "2.6.7",
   "description": "@ant-design/pro-descriptions",
   "keywords": [
     "antd",
@@ -34,11 +34,11 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "@ant-design/pro-field": "3.0.3",
-    "@ant-design/pro-form": "2.31.6",
-    "@ant-design/pro-provider": "2.15.3",
+    "@ant-design/pro-field": "3.0.4",
+    "@ant-design/pro-form": "2.31.7",
+    "@ant-design/pro-provider": "2.15.4",
     "@ant-design/pro-skeleton": "2.2.1",
-    "@ant-design/pro-utils": "2.16.4",
+    "@ant-design/pro-utils": "2.17.0",
     "@babel/runtime": "^7.18.0",
     "rc-resize-observer": "^0.2.3",
     "rc-util": "^5.0.6"

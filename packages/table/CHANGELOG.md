@@ -1,6 +1,25 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [3.19.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.18.6...@ant-design/pro-table@3.19.0) (2025-03-31)
+
+
+### Bug Fixes
+
+* **table:** ensure valueType has higher priority than valueEnum ([#9027](https://github.com/ant-design/pro-components/issues/9027)) ([156c6a1](https://github.com/ant-design/pro-components/commit/156c6a16ee987387c68f43ed7b8a1a02af1df459))
+* **Table:** 为按钮添加 tabindex="-1" 属性以改善可访问性 ([6658fb0](https://github.com/ant-design/pro-components/commit/6658fb0b9623293ef999a6fd8e61553fec59585d))
+* **tests:** 移除多余的空行以清理代码 ([32cb3b8](https://github.com/ant-design/pro-components/commit/32cb3b8f85d38e5ee60e73440207617340890def))
+
+
+### Features
+
+* **Table:** 添加 tooltip 属性以支持从 tip 属性生成提示信息 ([4b253ac](https://github.com/ant-design/pro-components/commit/4b253ac64034628b77a9396719e583e84965cb74))
+
+
+
+
 
 ## [3.18.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.18.5...@ant-design/pro-table@3.18.6) (2025-02-17)
 
