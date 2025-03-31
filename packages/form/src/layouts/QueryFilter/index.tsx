@@ -583,50 +583,52 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
         }
       }}
     >
-      <BaseForm
-        isKeyPressSubmit
-        preserve={preserve}
-        {...rest}
-        className={classNames(baseClassName, hashId, rest.className)}
-        onReset={onReset}
-        style={style}
-        layout={spanSize.layout}
-        fieldProps={{
-          style: {
-            width: '100%',
-          },
-        }}
-        formItemProps={formItemFixStyle}
-        groupProps={{
-          titleStyle: {
-            display: 'inline-block',
-            marginInlineEnd: 16,
-          },
-        }}
-        contentRender={(items, renderSubmitter, form) => (
-          <QueryFilterContent
-            spanSize={spanSize}
-            collapsed={controlCollapsed}
-            form={form}
-            submitterColSpanProps={submitterColSpanProps}
-            collapseRender={collapseRender}
-            defaultCollapsed={defaultCollapsed}
-            onCollapse={onCollapse}
-            optionRender={optionRender}
-            submitter={renderSubmitter}
-            items={items}
-            split={split}
-            baseClassName={baseClassName}
-            resetText={props.resetText}
-            searchText={props.searchText}
-            searchGutter={searchGutter}
-            preserve={preserve}
-            ignoreRules={ignoreRules}
-            showLength={showLength}
-            showHiddenNum={showHiddenNum}
-          />
-        )}
-      />
+      <div className={`${baseClassName}-container ${hashId}`}>
+        <BaseForm
+          isKeyPressSubmit
+          preserve={preserve}
+          {...rest}
+          className={classNames(baseClassName, hashId, rest.className)}
+          onReset={onReset}
+          style={style}
+          layout={spanSize.layout}
+          fieldProps={{
+            style: {
+              width: '100%',
+            },
+          }}
+          formItemProps={formItemFixStyle}
+          groupProps={{
+            titleStyle: {
+              display: 'inline-block',
+              marginInlineEnd: 16,
+            },
+          }}
+          contentRender={(items, renderSubmitter, form) => (
+            <QueryFilterContent
+              spanSize={spanSize}
+              collapsed={controlCollapsed}
+              form={form}
+              submitterColSpanProps={submitterColSpanProps}
+              collapseRender={collapseRender}
+              defaultCollapsed={defaultCollapsed}
+              onCollapse={onCollapse}
+              optionRender={optionRender}
+              submitter={renderSubmitter}
+              items={items}
+              split={split}
+              baseClassName={baseClassName}
+              resetText={props.resetText}
+              searchText={props.searchText}
+              searchGutter={searchGutter}
+              preserve={preserve}
+              ignoreRules={ignoreRules}
+              showLength={showLength}
+              showHiddenNum={showHiddenNum}
+            />
+          )}
+        />
+      </div>
     </RcResizeObserver>,
   );
 }
