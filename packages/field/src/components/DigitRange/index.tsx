@@ -1,7 +1,7 @@
 import { proTheme, useIntl } from '@ant-design/pro-provider';
 import { Input, InputNumber, Space } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import React from 'react';
+import React, { useRef } from 'react';
 import type { ProFieldFC } from '../../index';
 
 // 兼容代码-----------
@@ -45,6 +45,7 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
     value: value,
     onChange: onChange,
   });
+  const valuePairRef = useRef(valuePair);
 
   if (type === 'read') {
     const getContent = (number: Value) => {
@@ -68,9 +69,9 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
 
   if (type === 'edit' || type === 'update') {
     const handleGroupBlur = () => {
-      if (Array.isArray(valuePair)) {
+      if (Array.isArray(valuePairRef.current)) {
         //   仅在两个值均为数字时才做比较并转换
-        const [value0, value1] = valuePair;
+        const [value0, value1] = valuePairRef.current;
         if (
           typeof value0 === 'number' &&
           typeof value1 === 'number' &&
@@ -87,6 +88,7 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
     const handleChange = (index: number, changedValue: Value) => {
       const newValuePair = [...(valuePair || [])];
       newValuePair[index] = changedValue === null ? undefined : changedValue;
+      valuePairRef.current = newValuePair;
       setValuePair(newValuePair);
     };
     const placeholderValue = fieldProps?.placeholder ||
