@@ -26,7 +26,11 @@ export default () => {
           Col
         </ProCard>
       </ProCard>
-      <ProCard style={{ marginBlockStart: 8 }} gutter={8} title="Specified Width px">
+      <ProCard
+        style={{ marginBlockStart: 8 }}
+        gutter={8}
+        title="Specified Width px"
+      >
         <ProCard
           colSpan={{
             xs: '50px',

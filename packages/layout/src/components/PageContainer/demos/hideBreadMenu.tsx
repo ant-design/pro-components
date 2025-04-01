@@ -19,7 +19,9 @@ export default () => (
           <Descriptions.Item label="Associated form">
             <a>421421</a>
           </Descriptions.Item>
-          <Descriptions.Item label="Creation Date">2017-01-10</Descriptions.Item>
+          <Descriptions.Item label="Creation Date">
+            2017-01-10
+          </Descriptions.Item>
           <Descriptions.Item label="Document remarks">
             浙江省杭州市西湖区工专路
           </Descriptions.Item>

@@ -5390,6 +5390,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             >
                                               <button
                                                 class="ant-input-clear-icon"
+                                                tabindex="-1"
                                                 type="button"
                                               >
                                                 <span
@@ -5572,6 +5573,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           >
                                             <button
                                               class="ant-input-clear-icon"
+                                              tabindex="-1"
                                               type="button"
                                             >
                                               <span
@@ -5657,6 +5659,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             >
                                               <button
                                                 class="ant-input-clear-icon"
+                                                tabindex="-1"
                                                 type="button"
                                               >
                                                 <span
@@ -5839,6 +5842,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           >
                                             <button
                                               class="ant-input-clear-icon"
+                                              tabindex="-1"
                                               type="button"
                                             >
                                               <span
@@ -5924,6 +5928,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             >
                                               <button
                                                 class="ant-input-clear-icon"
+                                                tabindex="-1"
                                                 type="button"
                                               >
                                                 <span
@@ -6106,6 +6111,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           >
                                             <button
                                               class="ant-input-clear-icon"
+                                              tabindex="-1"
                                               type="button"
                                             >
                                               <span
@@ -6191,6 +6197,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             >
                                               <button
                                                 class="ant-input-clear-icon"
+                                                tabindex="-1"
                                                 type="button"
                                               >
                                                 <span
@@ -6373,6 +6380,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           >
                                             <button
                                               class="ant-input-clear-icon"
+                                              tabindex="-1"
                                               type="button"
                                             >
                                               <span
@@ -6458,6 +6466,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             >
                                               <button
                                                 class="ant-input-clear-icon"
+                                                tabindex="-1"
                                                 type="button"
                                               >
                                                 <span
@@ -6640,6 +6649,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           >
                                             <button
                                               class="ant-input-clear-icon"
+                                              tabindex="-1"
                                               type="button"
                                             >
                                               <span
@@ -6725,6 +6735,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             >
                                               <button
                                                 class="ant-input-clear-icon"
+                                                tabindex="-1"
                                                 type="button"
                                               >
                                                 <span
@@ -6907,6 +6918,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           >
                                             <button
                                               class="ant-input-clear-icon"
+                                              tabindex="-1"
                                               type="button"
                                             >
                                               <span
@@ -6992,6 +7004,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             >
                                               <button
                                                 class="ant-input-clear-icon"
+                                                tabindex="-1"
                                                 type="button"
                                               >
                                                 <span
@@ -7174,6 +7187,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           >
                                             <button
                                               class="ant-input-clear-icon"
+                                              tabindex="-1"
                                               type="button"
                                             >
                                               <span
@@ -7259,6 +7273,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             >
                                               <button
                                                 class="ant-input-clear-icon"
+                                                tabindex="-1"
                                                 type="button"
                                               >
                                                 <span
@@ -7441,6 +7456,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           >
                                             <button
                                               class="ant-input-clear-icon"
+                                              tabindex="-1"
                                               type="button"
                                             >
                                               <span
@@ -7526,6 +7542,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             >
                                               <button
                                                 class="ant-input-clear-icon"
+                                                tabindex="-1"
                                                 type="button"
                                               >
                                                 <span
@@ -7708,6 +7725,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           >
                                             <button
                                               class="ant-input-clear-icon"
+                                              tabindex="-1"
                                               type="button"
                                             >
                                               <span
@@ -7793,6 +7811,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             >
                                               <button
                                                 class="ant-input-clear-icon"
+                                                tabindex="-1"
                                                 type="button"
                                               >
                                                 <span
@@ -7975,6 +7994,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           >
                                             <button
                                               class="ant-input-clear-icon"
+                                              tabindex="-1"
                                               type="button"
                                             >
                                               <span
@@ -8060,6 +8080,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             >
                                               <button
                                                 class="ant-input-clear-icon"
+                                                tabindex="-1"
                                                 type="button"
                                               >
                                                 <span
@@ -8242,6 +8263,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           >
                                             <button
                                               class="ant-input-clear-icon"
+                                              tabindex="-1"
                                               type="button"
                                             >
                                               <span
@@ -8327,6 +8349,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             >
                                               <button
                                                 class="ant-input-clear-icon"
+                                                tabindex="-1"
                                                 type="button"
                                               >
                                                 <span
@@ -8509,6 +8532,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           >
                                             <button
                                               class="ant-input-clear-icon"
+                                              tabindex="-1"
                                               type="button"
                                             >
                                               <span
@@ -8594,6 +8618,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             >
                                               <button
                                                 class="ant-input-clear-icon"
+                                                tabindex="-1"
                                                 type="button"
                                               >
                                                 <span
@@ -8776,6 +8801,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           >
                                             <button
                                               class="ant-input-clear-icon"
+                                              tabindex="-1"
                                               type="button"
                                             >
                                               <span
@@ -8861,6 +8887,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             >
                                               <button
                                                 class="ant-input-clear-icon"
+                                                tabindex="-1"
                                                 type="button"
                                               >
                                                 <span
@@ -9043,6 +9070,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           >
                                             <button
                                               class="ant-input-clear-icon"
+                                              tabindex="-1"
                                               type="button"
                                             >
                                               <span
@@ -9128,6 +9156,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             >
                                               <button
                                                 class="ant-input-clear-icon"
+                                                tabindex="-1"
                                                 type="button"
                                               >
                                                 <span
@@ -9310,6 +9339,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           >
                                             <button
                                               class="ant-input-clear-icon"
+                                              tabindex="-1"
                                               type="button"
                                             >
                                               <span
@@ -9395,6 +9425,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             >
                                               <button
                                                 class="ant-input-clear-icon"
+                                                tabindex="-1"
                                                 type="button"
                                               >
                                                 <span
@@ -9577,6 +9608,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           >
                                             <button
                                               class="ant-input-clear-icon"
+                                              tabindex="-1"
                                               type="button"
                                             >
                                               <span
@@ -9662,6 +9694,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             >
                                               <button
                                                 class="ant-input-clear-icon"
+                                                tabindex="-1"
                                                 type="button"
                                               >
                                                 <span
@@ -9844,6 +9877,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           >
                                             <button
                                               class="ant-input-clear-icon"
+                                              tabindex="-1"
                                               type="button"
                                             >
                                               <span
@@ -9929,6 +9963,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             >
                                               <button
                                                 class="ant-input-clear-icon"
+                                                tabindex="-1"
                                                 type="button"
                                               >
                                                 <span
@@ -10111,6 +10146,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           >
                                             <button
                                               class="ant-input-clear-icon"
+                                              tabindex="-1"
                                               type="button"
                                             >
                                               <span
@@ -10196,6 +10232,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             >
                                               <button
                                                 class="ant-input-clear-icon"
+                                                tabindex="-1"
                                                 type="button"
                                               >
                                                 <span
@@ -10378,6 +10415,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           >
                                             <button
                                               class="ant-input-clear-icon"
+                                              tabindex="-1"
                                               type="button"
                                             >
                                               <span
@@ -10463,6 +10501,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             >
                                               <button
                                                 class="ant-input-clear-icon"
+                                                tabindex="-1"
                                                 type="button"
                                               >
                                                 <span
@@ -10645,6 +10684,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           >
                                             <button
                                               class="ant-input-clear-icon"
+                                              tabindex="-1"
                                               type="button"
                                             >
                                               <span
@@ -18347,6 +18387,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/config-provider.t
                           >
                             <button
                               class="qixian-input-clear-icon qixian-input-clear-icon-hidden"
+                              tabindex="-1"
                               type="button"
                             >
                               <span
@@ -19280,6 +19321,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/crud.tsx correctl
                             >
                               <button
                                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                                tabindex="-1"
                                 type="button"
                               >
                                 <span
@@ -20648,6 +20690,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                           >
                             <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                              tabindex="-1"
                               type="button"
                             >
                               <span
@@ -20953,6 +20996,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                           >
                             <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                              tabindex="-1"
                               type="button"
                             >
                               <span
@@ -22207,6 +22251,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                           >
                             <button
                               class="ant-input-clear-icon"
+                              tabindex="-1"
                               type="button"
                             >
                               <span
@@ -22721,6 +22766,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                           >
                             <button
                               class="ant-input-clear-icon"
+                              tabindex="-1"
                               type="button"
                             >
                               <span
@@ -23235,6 +23281,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                           >
                             <button
                               class="ant-input-clear-icon"
+                              tabindex="-1"
                               type="button"
                             >
                               <span
@@ -23757,6 +23804,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                           >
                             <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                              tabindex="-1"
                               type="button"
                             >
                               <span
@@ -23834,6 +23882,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                           >
                             <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                              tabindex="-1"
                               type="button"
                             >
                               <span
@@ -24097,6 +24146,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                           >
                             <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                              tabindex="-1"
                               type="button"
                             >
                               <span
@@ -25130,6 +25180,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                     >
                                       <button
                                         class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                                        tabindex="-1"
                                         type="button"
                                       >
                                         <span
@@ -27386,6 +27437,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                               >
                                                 <button
                                                   class="ant-input-clear-icon"
+                                                  tabindex="-1"
                                                   type="button"
                                                 >
                                                   <span
@@ -27485,6 +27537,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                               >
                                                 <button
                                                   class="ant-input-clear-icon"
+                                                  tabindex="-1"
                                                   type="button"
                                                 >
                                                   <span
@@ -29003,6 +29056,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/form.tsx correctl
                           >
                             <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                              tabindex="-1"
                               type="button"
                             >
                               <span
@@ -29638,6 +29692,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/intl.tsx correctl
                           >
                             <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                              tabindex="-1"
                               type="button"
                             >
                               <span
@@ -30744,6 +30799,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/linkage_form.tsx 
                           >
                             <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                              tabindex="-1"
                               type="button"
                             >
                               <span
@@ -32448,6 +32504,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-option.tsx cor
                           >
                             <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                              tabindex="-1"
                               type="button"
                             >
                               <span
@@ -32528,6 +32585,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-option.tsx cor
                           >
                             <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                              tabindex="-1"
                               type="button"
                             >
                               <span
@@ -34859,6 +34917,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                           >
                             <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                              tabindex="-1"
                               type="button"
                             >
                               <span
@@ -35561,6 +35620,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                           >
                             <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                              tabindex="-1"
                               type="button"
                             >
                               <span
@@ -38457,6 +38517,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/rtl_table.tsx cor
                           >
                             <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                              tabindex="-1"
                               type="button"
                             >
                               <span
@@ -39367,6 +39428,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/search_option.tsx
                           >
                             <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                              tabindex="-1"
                               type="button"
                             >
                               <span
@@ -39953,9 +40015,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                     <label
                       class=""
                       for="title"
-                      title="标题"
+                      title="Title"
                     >
-                      标题
+                      Title
                       <span
                         aria-describedby="test-id"
                         aria-label="question-circle"
@@ -40007,6 +40069,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                           >
                             <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                              tabindex="-1"
                               type="button"
                             >
                               <span
@@ -40054,9 +40117,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                     <label
                       class=""
                       for="state"
-                      title="状态"
+                      title="Status"
                     >
-                      状态
+                      Status
                     </label>
                   </div>
                   <div
@@ -40150,9 +40213,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                   <label
                     class=""
                     for="created_at"
-                    title="创建时间"
+                    title="Creation Time"
                   >
-                    创建时间
+                    Creation Time
                   </label>
                 </div>
                 <div
@@ -40392,7 +40455,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                 <div
                   class="ant-pro-table-list-toolbar-title"
                 >
-                  高级表格
+                  Advanced Table
                 </div>
               </div>
               <div
@@ -40433,7 +40496,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                       </span>
                     </span>
                     <span>
-                      新建
+                      New
                     </span>
                   </button>
                   <button
@@ -40618,7 +40681,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                                 <div
                                   class="ant-pro-core-label-tip-title ant-pro-core-label-tip-title-ellipsis"
                                 >
-                                  标题
+                                  Title
                                 </div>
                                 <span
                                   aria-describedby="test-id"
@@ -40659,7 +40722,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                                 <span
                                   class="ant-table-column-title"
                                 >
-                                  状态
+                                  Status
                                 </span>
                                 <span
                                   class="ant-dropdown-trigger ant-table-filter-trigger"
@@ -40692,7 +40755,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                               class="ant-table-cell"
                               scope="col"
                             >
-                              标签
+                              Labels
                             </th>
                             <th
                               aria-label=""
@@ -40707,7 +40770,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                                 <span
                                   class="ant-table-column-title"
                                 >
-                                  创建时间
+                                  Creation Time
                                 </span>
                                 <span
                                   class="ant-table-column-sorter ant-table-column-sorter-full"
@@ -40763,7 +40826,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                               scope="col"
                               style="position: sticky; right: 0px;"
                             >
-                              操作
+                              Actions
                             </th>
                           </tr>
                         </thead>
@@ -41103,6 +41166,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                       >
                         <button
                           class="canvas-input-clear-icon canvas-input-clear-icon-hidden"
+                          tabindex="-1"
                           type="button"
                         >
                           <span
@@ -41147,6 +41211,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
             >
               <button
                 class="canvas-input-clear-icon canvas-input-clear-icon-hidden"
+                tabindex="-1"
                 type="button"
               >
                 <span
@@ -41262,6 +41327,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                           >
                             <button
                               class="canvas-input-clear-icon canvas-input-clear-icon-hidden"
+                              tabindex="-1"
                               type="button"
                             >
                               <span
@@ -41342,6 +41408,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                           >
                             <button
                               class="canvas-input-clear-icon canvas-input-clear-icon-hidden"
+                              tabindex="-1"
                               type="button"
                             >
                               <span
@@ -41929,6 +41996,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                           >
                             <button
                               class="canvas-input-clear-icon canvas-input-clear-icon-hidden"
+                              tabindex="-1"
                               type="button"
                             >
                               <span
@@ -42086,6 +42154,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                         >
                           <button
                             class="canvas-input-clear-icon canvas-input-clear-icon-hidden"
+                            tabindex="-1"
                             type="button"
                           >
                             <span
@@ -42160,6 +42229,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                         >
                           <button
                             class="canvas-input-clear-icon canvas-input-clear-icon-hidden"
+                            tabindex="-1"
                             type="button"
                           >
                             <span
@@ -44854,6 +44924,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/theme.tsx correct
                             >
                               <button
                                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                                tabindex="-1"
                                 type="button"
                               >
                                 <span
@@ -45765,6 +45836,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType.tsx cor
                           >
                             <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                              tabindex="-1"
                               type="button"
                             >
                               <span
@@ -45845,6 +45917,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType.tsx cor
                           >
                             <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                              tabindex="-1"
                               type="button"
                             >
                               <span

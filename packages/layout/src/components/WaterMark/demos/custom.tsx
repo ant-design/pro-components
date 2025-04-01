@@ -78,7 +78,8 @@ export default () => {
                   </div>
                   <h4>
                     Below is an image with zIndex of 10 and position relative,
-                    <br /> If you want to display the watermark in the image, try increasing the zIndex slider on the right.
+                    <br /> If you want to display the watermark in the image,
+                    try increasing the zIndex slider on the right.
                   </h4>
                   <img
                     src="https://gw.alipayobjects.com/zos/bmw-prod/d283f09a-64d6-4d59-bfc7-37b49ea0da2b.svg"
@@ -100,7 +101,12 @@ export default () => {
           <ProFormColorPicker label="Font Color" name="fontColor" />
           <ProFormSlider label="Font Size" name="fontSize" />
           <ProFormSlider label="zIndex" name="zIndex" min={0} max={100} />
-          <ProFormSlider label="Rotation Angle" name="rotate" min={-90} max={90} />
+          <ProFormSlider
+            label="Rotation Angle"
+            name="rotate"
+            min={-90}
+            max={90}
+          />
           <Divider />
           <ProFormDependency
             name={['rotate', 'content', 'fontColor', 'fontSize', 'zIndex']}

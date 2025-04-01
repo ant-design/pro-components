@@ -60,6 +60,7 @@ exports[`Descriptions > 📝 columns support editable test 1`] = `
                                   >
                                     <button
                                       class="ant-input-clear-icon"
+                                      tabindex="-1"
                                       type="button"
                                     >
                                       <span
@@ -225,6 +226,7 @@ exports[`Descriptions > 📝 renderFormItem run defaultRender 1`] = `
                                   >
                                     <button
                                       class="ant-input-clear-icon"
+                                      tabindex="-1"
                                       type="button"
                                     >
                                       <span

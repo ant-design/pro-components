@@ -479,6 +479,7 @@ exports[`Table ColumnSetting > 🎏 config provide render 1`] = `
                         >
                           <button
                             class="qixian-input-clear-icon qixian-input-clear-icon-hidden"
+                            tabindex="-1"
                             type="button"
                           >
                             <span
@@ -858,6 +859,7 @@ exports[`Table ColumnSetting > 🎏 extra columns 1`] = `
                         >
                           <button
                             class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                            tabindex="-1"
                             type="button"
                           >
                             <span

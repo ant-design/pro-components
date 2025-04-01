@@ -97,7 +97,9 @@ export default () => {
           collapsed: buildInCollapsed,
         }: {
           collapsed: boolean;
-        }) => (buildInCollapsed ? <span>Collapse - </span> : <span>Expand - </span>)}
+        }) =>
+          buildInCollapsed ? <span>Collapse - </span> : <span>Expand - </span>
+        }
         style={{ marginBlockStart: 16 }}
         headerBordered
         collapsible

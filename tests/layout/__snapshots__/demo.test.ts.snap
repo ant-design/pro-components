@@ -26,7 +26,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                   class="ant-breadcrumb-link"
                   href="#/"
                 >
-                  一级页面
+                  Primary page
                 </a>
               </li>
               <li
@@ -40,7 +40,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                   class="ant-breadcrumb-link"
                   href="#//"
                 >
-                  二级页面
+                  Secondary page
                 </a>
               </li>
               <li
@@ -54,7 +54,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                   class="ant-breadcrumb-link"
                   href="#///"
                 >
-                  当前页面
+                  Current page
                 </a>
               </li>
             </ol>
@@ -67,9 +67,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
             >
               <span
                 class="ant-page-header-heading-title"
-                title="页面标题"
+                title="Page Title"
               >
-                页面标题
+                Page Title
               </span>
             </div>
             <span
@@ -86,7 +86,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                     type="button"
                   >
                     <span>
-                      次要按钮
+                      Secondary button
                     </span>
                   </button>
                 </div>
@@ -98,7 +98,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                     type="button"
                   >
                     <span>
-                      次要按钮
+                      Secondary button
                     </span>
                   </button>
                 </div>
@@ -110,7 +110,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                     type="button"
                   >
                     <span>
-                      主要按钮
+                      Primary button
                     </span>
                   </button>
                 </div>
@@ -176,7 +176,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                         role="tab"
                         tabindex="0"
                       >
-                        基本信息
+                        Basic information
                       </div>
                     </div>
                     <div
@@ -191,7 +191,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                         role="tab"
                         tabindex="-1"
                       >
-                        详细信息
+                        Detailed information
                       </div>
                       <button
                         aria-label="remove"
@@ -264,7 +264,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                 <div
                   class="ant-tabs-extra-content"
                 >
-                  测试tabBarExtraContent
+                  Test tabBarExtraContent
                 </div>
               </div>
               <div
@@ -372,7 +372,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
             type="button"
           >
             <span>
-              重 置
+              Reset
             </span>
           </button>
           <button
@@ -380,7 +380,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
             type="button"
           >
             <span>
-              提 交
+              Submit
             </span>
           </button>
         </div>
@@ -425,7 +425,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                         class="ant-breadcrumb-link"
                         href="#/"
                       >
-                        一级页面
+                        Primary page
                       </a>
                     </li>
                     <li
@@ -439,7 +439,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                         class="ant-breadcrumb-link"
                         href="#//"
                       >
-                        二级页面
+                        Secondary page
                       </a>
                     </li>
                     <li
@@ -453,7 +453,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                         class="ant-breadcrumb-link"
                         href="#///"
                       >
-                        当前页面
+                        Current page
                       </a>
                     </li>
                   </ol>
@@ -466,9 +466,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                   >
                     <span
                       class="ant-page-header-heading-title"
-                      title="页面标题"
+                      title="Page Title"
                     >
-                      页面标题
+                      Page Title
                     </span>
                   </div>
                 </div>
@@ -502,7 +502,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                               role="tab"
                               tabindex="0"
                             >
-                              已选择
+                              Selected
                             </div>
                           </div>
                           <div
@@ -517,7 +517,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                               role="tab"
                               tabindex="-1"
                             >
-                              可点击
+                              Clickable
                             </div>
                           </div>
                           <div
@@ -532,7 +532,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                               id="rc-tabs-test-tab-3"
                               role="tab"
                             >
-                              禁用
+                              Disabled
                             </div>
                           </div>
                           <div
@@ -739,9 +739,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
             >
               <span
                 class="ant-page-header-heading-title"
-                title="页面标题"
+                title="Page Title"
               >
-                页面标题
+                Page Title
               </span>
             </div>
           </div>
@@ -782,7 +782,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                                   <span
                                     class="ant-descriptions-item-label"
                                   >
-                                    创建人
+                                    Creator
                                   </span>
                                   <span
                                     class="ant-descriptions-item-content"
@@ -801,7 +801,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                                   <span
                                     class="ant-descriptions-item-label"
                                   >
-                                    关联表单
+                                    Associated form
                                   </span>
                                   <span
                                     class="ant-descriptions-item-content"
@@ -826,7 +826,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                                   <span
                                     class="ant-descriptions-item-label"
                                   >
-                                    创建时间
+                                    Creation Date
                                   </span>
                                   <span
                                     class="ant-descriptions-item-content"
@@ -845,7 +845,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                                   <span
                                     class="ant-descriptions-item-label"
                                   >
-                                    单据备注
+                                    Document remarks
                                   </span>
                                   <span
                                     class="ant-descriptions-item-content"
@@ -974,7 +974,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                       class="ant-breadcrumb-link"
                       href="#/"
                     >
-                      一级页面
+                      Primary page
                     </a>
                   </li>
                   <li
@@ -988,7 +988,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                       class="ant-breadcrumb-link"
                       href="#//"
                     >
-                      二级页面
+                      Secondary page
                     </a>
                   </li>
                   <li
@@ -1002,7 +1002,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                       class="ant-breadcrumb-link"
                       href="#///"
                     >
-                      当前页面
+                      Current page
                     </a>
                   </li>
                 </ol>
@@ -1015,9 +1015,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                 >
                   <span
                     class="ant-page-header-heading-title"
-                    title="默认loading"
+                    title="Default loading"
                   >
-                    默认loading
+                    Default loading
                   </span>
                 </div>
               </div>
@@ -1084,7 +1084,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                       class="ant-breadcrumb-link"
                       href="#/"
                     >
-                      一级页面
+                      Primary page
                     </a>
                   </li>
                   <li
@@ -1098,7 +1098,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                       class="ant-breadcrumb-link"
                       href="#//"
                     >
-                      二级页面
+                      Secondary page
                     </a>
                   </li>
                   <li
@@ -1112,7 +1112,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                       class="ant-breadcrumb-link"
                       href="#///"
                     >
-                      当前页面
+                      Current page
                     </a>
                   </li>
                 </ol>
@@ -1125,9 +1125,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                 >
                   <span
                     class="ant-page-header-heading-title"
-                    title="自定义loading属性"
+                    title="Custom loading property"
                   >
-                    自定义loading属性
+                    Custom loading property
                   </span>
                 </div>
               </div>
@@ -1194,7 +1194,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                       class="ant-breadcrumb-link"
                       href="#/"
                     >
-                      一级页面
+                      Primary page
                     </a>
                   </li>
                   <li
@@ -1208,7 +1208,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                       class="ant-breadcrumb-link"
                       href="#//"
                     >
-                      二级页面
+                      Secondary page
                     </a>
                   </li>
                   <li
@@ -1222,7 +1222,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                       class="ant-breadcrumb-link"
                       href="#///"
                     >
-                      当前页面
+                      Current page
                     </a>
                   </li>
                 </ol>
@@ -1235,9 +1235,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                 >
                   <span
                     class="ant-page-header-heading-title"
-                    title="自定义loading，3s后显示内容"
+                    title="Custom loading, display content after 3 seconds"
                   >
-                    自定义loading，3s后显示内容
+                    Custom loading, display content after 3 seconds
                   </span>
                 </div>
               </div>
@@ -1251,7 +1251,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                 <div
                   style="color: red; padding: 30px; text-align: center;"
                 >
-                  自定义加载...
+                  Custom loading...
                 </div>
               </div>
             </div>
@@ -1289,7 +1289,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                   class="ant-breadcrumb-link"
                   href="#/"
                 >
-                  一级页面
+                  Primary page
                 </a>
               </li>
               <li
@@ -1303,7 +1303,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                   class="ant-breadcrumb-link"
                   href="#//"
                 >
-                  二级页面
+                  Secondary page
                 </a>
               </li>
               <li
@@ -1317,7 +1317,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                   class="ant-breadcrumb-link"
                   href="#///"
                 >
-                  当前页面
+                  Current page
                 </a>
               </li>
             </ol>
@@ -1330,9 +1330,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
             >
               <span
                 class="ant-page-header-heading-title"
-                title="页面标题"
+                title="Page Title"
               >
-                页面标题
+                Page Title
               </span>
             </div>
             <span
@@ -1349,7 +1349,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                     type="button"
                   >
                     <span>
-                      次要按钮
+                      Secondary button
                     </span>
                   </button>
                 </div>
@@ -1361,7 +1361,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                     type="button"
                   >
                     <span>
-                      次要按钮
+                      Secondary button
                     </span>
                   </button>
                 </div>
@@ -1373,7 +1373,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                     type="button"
                   >
                     <span>
-                      主要按钮
+                      Primary button
                     </span>
                   </button>
                 </div>
@@ -1662,7 +1662,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
           <div
             class="ant-pro-card-title"
           >
-            水印自定义配置器
+            Watermark Custom Configurator
           </div>
         </div>
         <div
@@ -1697,12 +1697,12 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                     </p>
                   </div>
                   <h4>
-                    下面是一张zIndex 为 10 的 position 为 relative 图片，
+                    Below is an image with zIndex of 10 and position relative,
                     <br />
-                     如果要在图片中展示水印尝试调大右侧的 zIndex 滑块试试。
+                     If you want to display the watermark in the image, try increasing the zIndex slider on the right.
                   </h4>
                   <img
-                    alt="示例图片"
+                    alt="Example Image"
                     src="https://gw.alipayobjects.com/zos/bmw-prod/d283f09a-64d6-4d59-bfc7-37b49ea0da2b.svg"
                     style="z-index: 10; max-width: 100%; position: relative;"
                     width="600"
@@ -1727,7 +1727,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                 <div
                   class="ant-pro-card-title"
                 >
-                  配置面板
+                  Configuration Panel
                 </div>
               </div>
               <div
@@ -1745,9 +1745,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                       <label
                         class=""
                         for="content"
-                        title="水印文字"
+                        title="Watermark Text"
                       >
-                        水印文字
+                        Watermark Text
                       </label>
                     </div>
                     <div
@@ -1767,13 +1767,14 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                               id="content"
                               placeholder="请输入"
                               type="text"
-                              value="示例水印"
+                              value="Example Watermark"
                             />
                             <span
                               class="ant-input-suffix"
                             >
                               <button
                                 class="ant-input-clear-icon"
+                                tabindex="-1"
                                 type="button"
                               >
                                 <span
@@ -1816,9 +1817,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                       <label
                         class=""
                         for="fontColor"
-                        title="字体颜色"
+                        title="Font Color"
                       >
-                        字体颜色
+                        Font Color
                       </label>
                     </div>
                     <div
@@ -1862,9 +1863,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                       <label
                         class=""
                         for="fontSize"
-                        title="字体大小"
+                        title="Font Size"
                       >
-                        字体大小
+                        Font Size
                       </label>
                     </div>
                     <div
@@ -1980,9 +1981,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                       <label
                         class=""
                         for="rotate"
-                        title="旋转角度"
+                        title="Rotation Angle"
                       >
-                        旋转角度
+                        Rotation Angle
                       </label>
                     </div>
                     <div
@@ -2037,7 +2038,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                   <code>
                     &lt;WaterMark
   rotate={-22}
-  content='示例水印'
+  content='Example Watermark'
   fontColor='rgba(0,0,0,.15)'
   fontSize={16}
   zIndex={9}
@@ -2090,7 +2091,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                   <div
                     class="ant-pro-table-list-toolbar-title"
                   >
-                    标签
+                    Tags
                   </div>
                 </div>
                 <div
@@ -2223,7 +2224,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                       <span
                                         class="ant-pro-core-field-label ant-pro-core-field-label-middle"
                                       >
-                                        响应日期
+                                        Response Date
                                         <span
                                           aria-label="down"
                                           class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
@@ -2302,7 +2303,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                 class="ant-table-cell"
                                 scope="col"
                               >
-                                应用名称
+                                AppName
                               </th>
                               <th
                                 aria-label=""
@@ -2318,7 +2319,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                   <span
                                     class="ant-table-column-title"
                                   >
-                                    容器数量
+                                    Number of Containers
                                   </span>
                                   <span
                                     class="ant-table-column-sorter ant-table-column-sorter-full"
@@ -2373,25 +2374,25 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                 class="ant-table-cell"
                                 scope="col"
                               >
-                                状态
+                                Status
                               </th>
                               <th
                                 class="ant-table-cell"
                                 scope="col"
                               >
-                                创建者
+                                Creator
                               </th>
                               <th
                                 class="ant-table-cell ant-table-cell-ellipsis"
                                 scope="col"
                               >
-                                备注
+                                Memo
                               </th>
                               <th
                                 class="ant-table-cell"
                                 scope="col"
                               >
-                                操作
+                                Actions
                               </th>
                             </tr>
                           </thead>
@@ -2427,27 +2428,27 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                   <span
                                     class="ant-badge-status-text"
                                   >
-                                    关闭
+                                    Close
                                   </span>
                                 </span>
                               </td>
                               <td
                                 class="ant-table-cell"
                               >
-                                兼某某
+                                Jian Moumou
                               </td>
                               <td
                                 class="ant-table-cell ant-table-cell-ellipsis"
-                                title="简短备注文案"
+                                title="Short memo text"
                               >
                                 <span
                                   aria-describedby="test-id"
-                                  aria-label="简短备注文案"
+                                  aria-label="Short memo text"
                                   class="ant-typography ant-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
                                   title=""
                                 >
-                                  简短备注文案
+                                  Short memo text
                                   <button
                                     aria-describedby="test-id"
                                     aria-label="复制"
@@ -2483,13 +2484,13 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                   style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                 >
                                   <a>
-                                    链路
+                                    Link
                                   </a>
                                   <a>
-                                    报警
+                                    Alert
                                   </a>
                                   <a>
-                                    监控
+                                    Monitor
                                   </a>
                                   <a
                                     class="ant-dropdown-trigger ant-pro-table-dropdown"
@@ -2546,27 +2547,27 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                   <span
                                     class="ant-badge-status-text"
                                   >
-                                    关闭
+                                    Close
                                   </span>
                                 </span>
                               </td>
                               <td
                                 class="ant-table-cell"
                               >
-                                兼某某
+                                Jian Moumou
                               </td>
                               <td
                                 class="ant-table-cell ant-table-cell-ellipsis"
-                                title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
+                                title="A very long text that needs to be displayed but needs to leave a tail"
                               >
                                 <span
                                   aria-describedby="test-id"
-                                  aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
+                                  aria-label="A very long text that needs to be displayed but needs to leave a tail"
                                   class="ant-typography ant-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
                                   title=""
                                 >
-                                  很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
+                                  A very long text that needs to be displayed but needs to leave a tail
                                   <button
                                     aria-describedby="test-id"
                                     aria-label="复制"
@@ -2602,13 +2603,13 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                   style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                 >
                                   <a>
-                                    链路
+                                    Link
                                   </a>
                                   <a>
-                                    报警
+                                    Alert
                                   </a>
                                   <a>
-                                    监控
+                                    Monitor
                                   </a>
                                   <a
                                     class="ant-dropdown-trigger ant-pro-table-dropdown"
@@ -2665,27 +2666,27 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                   <span
                                     class="ant-badge-status-text"
                                   >
-                                    关闭
+                                    Close
                                   </span>
                                 </span>
                               </td>
                               <td
                                 class="ant-table-cell"
                               >
-                                兼某某
+                                Jian Moumou
                               </td>
                               <td
                                 class="ant-table-cell ant-table-cell-ellipsis"
-                                title="简短备注文案"
+                                title="Short memo text"
                               >
                                 <span
                                   aria-describedby="test-id"
-                                  aria-label="简短备注文案"
+                                  aria-label="Short memo text"
                                   class="ant-typography ant-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
                                   title=""
                                 >
-                                  简短备注文案
+                                  Short memo text
                                   <button
                                     aria-describedby="test-id"
                                     aria-label="复制"
@@ -2721,13 +2722,13 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                   style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                 >
                                   <a>
-                                    链路
+                                    Link
                                   </a>
                                   <a>
-                                    报警
+                                    Alert
                                   </a>
                                   <a>
-                                    监控
+                                    Monitor
                                   </a>
                                   <a
                                     class="ant-dropdown-trigger ant-pro-table-dropdown"
@@ -2784,27 +2785,27 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                   <span
                                     class="ant-badge-status-text"
                                   >
-                                    关闭
+                                    Close
                                   </span>
                                 </span>
                               </td>
                               <td
                                 class="ant-table-cell"
                               >
-                                兼某某
+                                Jian Moumou
                               </td>
                               <td
                                 class="ant-table-cell ant-table-cell-ellipsis"
-                                title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
+                                title="A very long text that needs to be displayed but needs to leave a tail"
                               >
                                 <span
                                   aria-describedby="test-id"
-                                  aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
+                                  aria-label="A very long text that needs to be displayed but needs to leave a tail"
                                   class="ant-typography ant-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
                                   title=""
                                 >
-                                  很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
+                                  A very long text that needs to be displayed but needs to leave a tail
                                   <button
                                     aria-describedby="test-id"
                                     aria-label="复制"
@@ -2840,13 +2841,13 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                   style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                 >
                                   <a>
-                                    链路
+                                    Link
                                   </a>
                                   <a>
-                                    报警
+                                    Alert
                                   </a>
                                   <a>
-                                    监控
+                                    Monitor
                                   </a>
                                   <a
                                     class="ant-dropdown-trigger ant-pro-table-dropdown"
@@ -2903,27 +2904,27 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                   <span
                                     class="ant-badge-status-text"
                                   >
-                                    关闭
+                                    Close
                                   </span>
                                 </span>
                               </td>
                               <td
                                 class="ant-table-cell"
                               >
-                                兼某某
+                                Jian Moumou
                               </td>
                               <td
                                 class="ant-table-cell ant-table-cell-ellipsis"
-                                title="简短备注文案"
+                                title="Short memo text"
                               >
                                 <span
                                   aria-describedby="test-id"
-                                  aria-label="简短备注文案"
+                                  aria-label="Short memo text"
                                   class="ant-typography ant-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
                                   title=""
                                 >
-                                  简短备注文案
+                                  Short memo text
                                   <button
                                     aria-describedby="test-id"
                                     aria-label="复制"
@@ -2959,13 +2960,13 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                   style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                 >
                                   <a>
-                                    链路
+                                    Link
                                   </a>
                                   <a>
-                                    报警
+                                    Alert
                                   </a>
                                   <a>
-                                    监控
+                                    Monitor
                                   </a>
                                   <a
                                     class="ant-dropdown-trigger ant-pro-table-dropdown"
@@ -3022,27 +3023,27 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                   <span
                                     class="ant-badge-status-text"
                                   >
-                                    关闭
+                                    Close
                                   </span>
                                 </span>
                               </td>
                               <td
                                 class="ant-table-cell"
                               >
-                                兼某某
+                                Jian Moumou
                               </td>
                               <td
                                 class="ant-table-cell ant-table-cell-ellipsis"
-                                title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
+                                title="A very long text that needs to be displayed but needs to leave a tail"
                               >
                                 <span
                                   aria-describedby="test-id"
-                                  aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
+                                  aria-label="A very long text that needs to be displayed but needs to leave a tail"
                                   class="ant-typography ant-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
                                   title=""
                                 >
-                                  很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
+                                  A very long text that needs to be displayed but needs to leave a tail
                                   <button
                                     aria-describedby="test-id"
                                     aria-label="复制"
@@ -3078,13 +3079,13 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                   style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                 >
                                   <a>
-                                    链路
+                                    Link
                                   </a>
                                   <a>
-                                    报警
+                                    Alert
                                   </a>
                                   <a>
-                                    监控
+                                    Monitor
                                   </a>
                                   <a
                                     class="ant-dropdown-trigger ant-pro-table-dropdown"
@@ -3141,27 +3142,27 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                   <span
                                     class="ant-badge-status-text"
                                   >
-                                    关闭
+                                    Close
                                   </span>
                                 </span>
                               </td>
                               <td
                                 class="ant-table-cell"
                               >
-                                兼某某
+                                Jian Moumou
                               </td>
                               <td
                                 class="ant-table-cell ant-table-cell-ellipsis"
-                                title="简短备注文案"
+                                title="Short memo text"
                               >
                                 <span
                                   aria-describedby="test-id"
-                                  aria-label="简短备注文案"
+                                  aria-label="Short memo text"
                                   class="ant-typography ant-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
                                   title=""
                                 >
-                                  简短备注文案
+                                  Short memo text
                                   <button
                                     aria-describedby="test-id"
                                     aria-label="复制"
@@ -3197,13 +3198,13 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                   style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                 >
                                   <a>
-                                    链路
+                                    Link
                                   </a>
                                   <a>
-                                    报警
+                                    Alert
                                   </a>
                                   <a>
-                                    监控
+                                    Monitor
                                   </a>
                                   <a
                                     class="ant-dropdown-trigger ant-pro-table-dropdown"
@@ -3260,27 +3261,27 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                   <span
                                     class="ant-badge-status-text"
                                   >
-                                    关闭
+                                    Close
                                   </span>
                                 </span>
                               </td>
                               <td
                                 class="ant-table-cell"
                               >
-                                兼某某
+                                Jian Moumou
                               </td>
                               <td
                                 class="ant-table-cell ant-table-cell-ellipsis"
-                                title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
+                                title="A very long text that needs to be displayed but needs to leave a tail"
                               >
                                 <span
                                   aria-describedby="test-id"
-                                  aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
+                                  aria-label="A very long text that needs to be displayed but needs to leave a tail"
                                   class="ant-typography ant-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
                                   title=""
                                 >
-                                  很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
+                                  A very long text that needs to be displayed but needs to leave a tail
                                   <button
                                     aria-describedby="test-id"
                                     aria-label="复制"
@@ -3316,13 +3317,13 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                   style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                 >
                                   <a>
-                                    链路
+                                    Link
                                   </a>
                                   <a>
-                                    报警
+                                    Alert
                                   </a>
                                   <a>
-                                    监控
+                                    Monitor
                                   </a>
                                   <a
                                     class="ant-dropdown-trigger ant-pro-table-dropdown"
@@ -3379,27 +3380,27 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                   <span
                                     class="ant-badge-status-text"
                                   >
-                                    关闭
+                                    Close
                                   </span>
                                 </span>
                               </td>
                               <td
                                 class="ant-table-cell"
                               >
-                                兼某某
+                                Jian Moumou
                               </td>
                               <td
                                 class="ant-table-cell ant-table-cell-ellipsis"
-                                title="简短备注文案"
+                                title="Short memo text"
                               >
                                 <span
                                   aria-describedby="test-id"
-                                  aria-label="简短备注文案"
+                                  aria-label="Short memo text"
                                   class="ant-typography ant-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
                                   title=""
                                 >
-                                  简短备注文案
+                                  Short memo text
                                   <button
                                     aria-describedby="test-id"
                                     aria-label="复制"
@@ -3435,13 +3436,13 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                   style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                 >
                                   <a>
-                                    链路
+                                    Link
                                   </a>
                                   <a>
-                                    报警
+                                    Alert
                                   </a>
                                   <a>
-                                    监控
+                                    Monitor
                                   </a>
                                   <a
                                     class="ant-dropdown-trigger ant-pro-table-dropdown"
@@ -3498,27 +3499,27 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                   <span
                                     class="ant-badge-status-text"
                                   >
-                                    关闭
+                                    Close
                                   </span>
                                 </span>
                               </td>
                               <td
                                 class="ant-table-cell"
                               >
-                                兼某某
+                                Jian Moumou
                               </td>
                               <td
                                 class="ant-table-cell ant-table-cell-ellipsis"
-                                title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
+                                title="A very long text that needs to be displayed but needs to leave a tail"
                               >
                                 <span
                                   aria-describedby="test-id"
-                                  aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
+                                  aria-label="A very long text that needs to be displayed but needs to leave a tail"
                                   class="ant-typography ant-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
                                   title=""
                                 >
-                                  很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
+                                  A very long text that needs to be displayed but needs to leave a tail
                                   <button
                                     aria-describedby="test-id"
                                     aria-label="复制"
@@ -3554,13 +3555,13 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                   style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                                 >
                                   <a>
-                                    链路
+                                    Link
                                   </a>
                                   <a>
-                                    报警
+                                    Alert
                                   </a>
                                   <a>
-                                    监控
+                                    Monitor
                                   </a>
                                   <a
                                     class="ant-dropdown-trigger ant-pro-table-dropdown"

@@ -122,6 +122,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                     >
                       <button
                         class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                        tabindex="-1"
                         type="button"
                       >
                         <span
@@ -1346,6 +1347,7 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                     >
                       <button
                         class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                        tabindex="-1"
                         type="button"
                       >
                         <span

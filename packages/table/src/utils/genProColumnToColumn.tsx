@@ -57,45 +57,6 @@ export function genProColumnToColumn<T extends AnyObject>(
 
   const subNameRecord = new Map();
 
-  // 需要配合 valueEnum 使用的 valueType 类型
-  const needValueEnumTypes = [
-    'select',
-    'radio',
-    'radioButton',
-    'checkbox',
-    'treeSelect',
-  ];
-
-  // 基础的 valueType，不需要 valueEnum
-  const basicValueTypes = [
-    'text',
-    'password',
-    'money',
-    'textarea',
-    'date',
-    'dateTime',
-    'dateWeek',
-    'dateMonth',
-    'dateQuarter',
-    'dateYear',
-    'dateRange',
-    'dateTimeRange',
-    'time',
-    'timeRange',
-    'digit',
-    'progress',
-    'percent',
-    'second',
-    'avatar',
-    'code',
-    'switch',
-    'fromNow',
-    'image',
-    'jsonCode',
-    'color',
-    'cascader',
-  ];
-
   return columns
     ?.map((columnProps, columnsIndex) => {
       if (columnProps === Table.EXPAND_COLUMN) return columnProps;
@@ -113,12 +74,8 @@ export function genProColumnToColumn<T extends AnyObject>(
         key || dataIndex?.toString(),
         [parents?.key, columnsIndex].filter(Boolean).join('-'),
       );
-      // 修改判断逻辑：
-      // 1. 如果是基础类型，不需要 Pro 处理
-      // 2. 如果有 valueEnum 但 valueType 不是需要 valueEnum 的类型，也不需要特殊处理
-      const noNeedPro = 
-        (basicValueTypes.includes(valueType) || !needValueEnumTypes.includes(valueType)) && 
-        !children;
+      // 这些都没有，说明是普通的表格不需要 pro 管理
+      const noNeedPro = !valueEnum && !valueType && !children;
       if (noNeedPro) {
         return {
           index: columnsIndex,

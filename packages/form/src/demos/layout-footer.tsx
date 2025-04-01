@@ -159,7 +159,11 @@ export default () => {
               label="Number of Copies"
               initialValue={5}
             />
-            <ProFormTextArea width="xl" label="Contract Remarks" name="remark" />
+            <ProFormTextArea
+              width="xl"
+              label="Contract Remarks"
+              name="remark"
+            />
           </ProForm>
         </Card>
       </PageContainer>

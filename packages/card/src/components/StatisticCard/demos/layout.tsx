@@ -42,7 +42,11 @@ export default () => {
                   title: 'Total Traffic This Month',
                   value: 234,
                   description: (
-                    <Statistic title="Month-on-Month" value="8.04%" trend="up" />
+                    <Statistic
+                      title="Month-on-Month"
+                      value="8.04%"
+                      trend="up"
+                    />
                   ),
                 }}
               />

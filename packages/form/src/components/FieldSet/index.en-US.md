@@ -499,9 +499,9 @@ Same as [cascader](https://ant.design/components/cascader-cn/), configure Cascad
 
 Same as [switch](https://ant.design/components/switch/), configure Switch data through `fieldProps`.
 
-| Parameters | Description | Type | Default |
-| ---------- | ----------------- | ------------- | ------ |
-| fieldProps | Props of Ant Design component | `SwitchProps` | -      |
+| Parameters | Description                   | Type          | Default |
+| ---------- | ----------------------------- | ------------- | ------- |
+| fieldProps | Props of Ant Design component | `SwitchProps` | -       |
 
 ```tsx | pure
 <ProFormSwitch name="switch" label="Switch" />
@@ -511,9 +511,9 @@ Same as [switch](https://ant.design/components/switch/), configure Switch data t
 
 Same as [rate](https://ant.design/components/rate/), configure Rate data through `fieldProps`.
 
-| Parameters | Description | Type | Default |
-| ---------- | ----------------- | ------------- | ------ |
-| fieldProps | Props of Ant Design component | `RateProps` | -      |
+| Parameters | Description                   | Type        | Default |
+| ---------- | ----------------------------- | ----------- | ------- |
+| fieldProps | Props of Ant Design component | `RateProps` | -       |
 
 ```tsx | pure
 <ProFormRate name="rate" label="Rate" />
@@ -523,9 +523,9 @@ Same as [rate](https://ant.design/components/rate/), configure Rate data through
 
 Same as [slider](https://ant.design/components/slider/), configure Slider data through `fieldProps`.
 
-| Parameters | Description | Type | Default |
-| ---------- | ----------------- | ------------- | ------ |
-| fieldProps | Props of Ant Design component | `SliderProps` | -      |
+| Parameters | Description                   | Type          | Default |
+| ---------- | ----------------------------- | ------------- | ------- |
+| fieldProps | Props of Ant Design component | `SliderProps` | -       |
 
 ```tsx | pure
 <ProFormSlider
@@ -560,10 +560,10 @@ Same as [upload](https://ant.design/components/upload/). Dragger style is preset
 
 Same as [upload](https://ant.design/components/upload/). The Button style is preset, otherwise it is the same as Upload.
 
-| Parameters | Description           | Type        | Default         |
-| ---------- | --------------------- | ----------- | --------------- |
-| icon       | The chart of Dragger. | `ReactNode` | UploadOutlined  |
-| title      | Dragger's title       | `ReactNode` | Click to upload |
+| Parameters | Description | Type | Default |
+| --- | --- | --- | --- |
+| icon | The chart of Dragger. | `ReactNode` | UploadOutlined |
+| title | Dragger's title | `ReactNode` | Click to upload |
 | max | Maximum upload quantity. The upload button will be hidden if the maximum quantity is exceeded | `number` | - |
 
 ```tsx | pure
