@@ -1481,6 +1481,7 @@ exports[`docs/components demos > 📸 renders ./docs/components/valueType.tsx co
                           >
                             <button
                               class="ant-input-clear-icon"
+                              tabindex="-1"
                               type="button"
                             >
                               <span

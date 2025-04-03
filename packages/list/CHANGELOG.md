@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.6.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.6.6...@ant-design/pro-list@2.6.7) (2025-03-31)
+
+### Bug Fixes
+
+- **tests:** 移除多余的空行以清理代码 ([32cb3b8](https://github.com/ant-design/pro-components/commit/32cb3b8f85d38e5ee60e73440207617340890def))
+
 ## [2.6.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.6.5...@ant-design/pro-list@2.6.6) (2025-02-17)
 
 **Note:** Version bump only for package @ant-design/pro-list

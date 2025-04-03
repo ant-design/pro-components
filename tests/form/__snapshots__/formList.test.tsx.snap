@@ -90,6 +90,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                                     >
                                       <button
                                         class="ant-input-clear-icon"
+                                        tabindex="-1"
                                         type="button"
                                       >
                                         <span
@@ -217,6 +218,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                                     >
                                       <button
                                         class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                                        tabindex="-1"
                                         type="button"
                                       >
                                         <span
@@ -344,6 +346,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                                     >
                                       <button
                                         class="ant-input-clear-icon"
+                                        tabindex="-1"
                                         type="button"
                                       >
                                         <span

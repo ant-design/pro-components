@@ -2437,7 +2437,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
               class="ant-space-item"
             >
               <span>
-                部门一
+                Department One
               </span>
             </div>
             <div
@@ -2551,7 +2551,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                               <div
                                 class="ant-statistic-title"
                               >
-                                实际完成度
+                                Actual Completion
                               </div>
                               <div
                                 class="ant-statistic-content"
@@ -2585,7 +2585,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                               <div
                                 class="ant-statistic-title"
                               >
-                                当前目标
+                                Current Target
                               </div>
                               <div
                                 class="ant-statistic-content"
@@ -2646,7 +2646,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
             <div
               class="ant-pro-core-label-tip-title"
             >
-              大盘趋势
+              Market Trend
             </div>
             <span
               aria-describedby="test-id"
@@ -2711,7 +2711,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
             class="ant-pro-statistic-card-chart"
           >
             <img
-              alt="柱状图"
+              alt="Bar Chart"
               src="https://gw.alipayobjects.com/zos/alicdn/a-LN9RTYq/zhuzhuangtu.svg"
               width="100%"
             />
@@ -2765,7 +2765,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                         <div
                           class="ant-statistic-title"
                         >
-                          服务网格数
+                          Service Mesh Count
                         </div>
                         <div
                           class="ant-statistic-content"
@@ -2820,7 +2820,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                         <div
                           class="ant-statistic-title"
                         >
-                          未发布
+                          Unpublished
                         </div>
                         <div
                           class="ant-statistic-content"
@@ -2875,7 +2875,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                         <div
                           class="ant-statistic-title"
                         >
-                          发布中
+                          Publishing
                         </div>
                         <div
                           class="ant-statistic-content"
@@ -2930,7 +2930,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                         <div
                           class="ant-statistic-title"
                         >
-                          已发布
+                          Published
                         </div>
                         <div
                           class="ant-statistic-content"
@@ -3207,7 +3207,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
         <div
           class="ant-pro-card-title"
         >
-          核心指标
+          Core Metrics
         </div>
       </div>
       <div
@@ -3241,7 +3241,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                         <div
                           class="ant-statistic-title"
                         >
-                          今日UV
+                          Today's UV
                           <span
                             aria-describedby="test-id"
                             aria-label="question-circle"
@@ -3322,7 +3322,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                         <div
                           class="ant-statistic-title"
                         >
-                          冻结金额
+                          Frozen Amount
                         </div>
                         <div
                           class="ant-statistic-content"
@@ -3344,7 +3344,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                           <span
                             class="ant-statistic-content-suffix"
                           >
-                            元
+                            Yuan
                           </span>
                         </div>
                       </div>
@@ -3385,7 +3385,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                         <div
                           class="ant-statistic-title"
                         >
-                          信息完整度
+                          Information Completeness
                         </div>
                         <div
                           class="ant-statistic-content"
@@ -3440,7 +3440,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                         <div
                           class="ant-statistic-title"
                         >
-                          冻结金额
+                          Frozen Amount
                         </div>
                         <div
                           class="ant-statistic-content"
@@ -3462,7 +3462,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                           <span
                             class="ant-statistic-content-suffix"
                           >
-                            元
+                            Yuan
                           </span>
                         </div>
                       </div>
@@ -3521,7 +3521,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                         <div
                           class="ant-statistic-title"
                         >
-                          冻结金额
+                          Frozen Amount
                         </div>
                         <div
                           class="ant-statistic-content"
@@ -3543,7 +3543,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                           <span
                             class="ant-statistic-content-suffix"
                           >
-                            元
+                            Yuan
                           </span>
                         </div>
                       </div>
@@ -3554,7 +3554,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                   class="ant-pro-statistic-card-chart"
                 >
                   <img
-                    alt="直方图"
+                    alt="Histogram"
                     src="https://gw.alipayobjects.com/zos/alicdn/RLeBTRNWv/bianzu%25252043x.png"
                     width="100%"
                   />
@@ -3593,7 +3593,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                         <div
                           class="ant-statistic-title"
                         >
-                          设计资源数
+                          Design Resources
                         </div>
                         <div
                           class="ant-statistic-content"
@@ -3616,7 +3616,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                   class="ant-pro-statistic-card-chart"
                 >
                   <img
-                    alt="直方图"
+                    alt="Histogram"
                     src="https://gw.alipayobjects.com/zos/alicdn/RLeBTRNWv/bianzu%25252043x.png"
                     width="100%"
                   />
@@ -3655,7 +3655,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                         <div
                           class="ant-statistic-title"
                         >
-                          信息完成度
+                          Information Completeness
                         </div>
                         <div
                           class="ant-statistic-content"
@@ -3683,7 +3683,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                   class="ant-pro-statistic-card-chart"
                 >
                   <img
-                    alt="直方图"
+                    alt="Histogram"
                     src="https://gw.alipayobjects.com/zos/alicdn/RLeBTRNWv/bianzu%25252043x.png"
                     width="100%"
                   />
@@ -3731,7 +3731,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                   <div
                     class="ant-statistic-title"
                   >
-                    冻结金额
+                    Frozen Amount
                   </div>
                   <div
                     class="ant-statistic-content"
@@ -3753,7 +3753,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                     <span
                       class="ant-statistic-content-suffix"
                     >
-                      元
+                      Yuan
                     </span>
                   </div>
                 </div>
@@ -3775,7 +3775,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                           <div
                             class="ant-statistic-title"
                           >
-                            周同比
+                            Weekly Comparison
                           </div>
                           <div
                             class="ant-statistic-content"
@@ -3812,7 +3812,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                           <div
                             class="ant-statistic-title"
                           >
-                            月同比
+                            Monthly Comparison
                           </div>
                           <div
                             class="ant-statistic-content"
@@ -3842,7 +3842,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
             class="ant-pro-statistic-card-chart ant-pro-statistic-card-chart-right"
           >
             <img
-              alt="折线图"
+              alt="Line Chart"
               src="https://gw.alipayobjects.com/zos/alicdn/snEBTn9ax/zhexiantuchang.svg"
               width="100%"
             />
@@ -3876,7 +3876,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
             class="ant-pro-statistic-card-chart ant-pro-statistic-card-chart-left"
           >
             <img
-              alt="折线图"
+              alt="Line Chart"
               src="https://gw.alipayobjects.com/zos/alicdn/snEBTn9ax/zhexiantuchang.svg"
               width="100%"
             />
@@ -3896,7 +3896,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                   <div
                     class="ant-statistic-title"
                   >
-                    冻结金额
+                    Frozen Amount
                   </div>
                   <div
                     class="ant-statistic-content"
@@ -3918,7 +3918,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                     <span
                       class="ant-statistic-content-suffix"
                     >
-                      元
+                      Yuan
                     </span>
                   </div>
                 </div>
@@ -3940,7 +3940,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                           <div
                             class="ant-statistic-title"
                           >
-                            周同比
+                            Weekly Comparison
                           </div>
                           <div
                             class="ant-statistic-content"
@@ -3977,7 +3977,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                           <div
                             class="ant-statistic-title"
                           >
-                            月同比
+                            Monthly Comparison
                           </div>
                           <div
                             class="ant-statistic-content"
@@ -4061,7 +4061,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                         <div
                           class="ant-statistic-title"
                         >
-                          支付金额
+                          Payment Amount
                         </div>
                         <div
                           class="ant-statistic-content"
@@ -4120,7 +4120,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                         <div
                           class="ant-statistic-title"
                         >
-                          访客数
+                          Number of Visitors
                         </div>
                         <div
                           class="ant-statistic-content"
@@ -4179,7 +4179,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                         <div
                           class="ant-statistic-title"
                         >
-                          成功订单数
+                          Number of Successful Orders
                         </div>
                         <div
                           class="ant-statistic-content"
@@ -4238,7 +4238,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                         <div
                           class="ant-statistic-title"
                         >
-                          浏览量
+                          Page Views
                         </div>
                         <div
                           class="ant-statistic-content"
@@ -4284,12 +4284,12 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
         <div
           class="ant-pro-card-title"
         >
-          数据概览
+          Data Overview
         </div>
         <div
           class="ant-pro-card-extra"
         >
-          2019年9月28日 星期五
+          Friday, September 28, 2019
         </div>
       </div>
       <div
@@ -4349,7 +4349,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                                           <div
                                             class="ant-statistic-title"
                                           >
-                                            昨日全部流量
+                                            Total Traffic Yesterday
                                           </div>
                                           <div
                                             class="ant-statistic-content"
@@ -4383,7 +4383,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                                                   <div
                                                     class="ant-statistic-title"
                                                   >
-                                                    较本月平均流量
+                                                    Compared to Monthly Average Traffic
                                                   </div>
                                                   <div
                                                     class="ant-statistic-content"
@@ -4440,7 +4440,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                                           <div
                                             class="ant-statistic-title"
                                           >
-                                            本月累计流量
+                                            Total Traffic This Month
                                           </div>
                                           <div
                                             class="ant-statistic-content"
@@ -4474,7 +4474,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                                                   <div
                                                     class="ant-statistic-title"
                                                   >
-                                                    月同比
+                                                    Month-on-Month
                                                   </div>
                                                   <div
                                                     class="ant-statistic-content"
@@ -4543,7 +4543,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                                           <div
                                             class="ant-statistic-title"
                                           >
-                                            运行中实验
+                                            Ongoing Experiments
                                           </div>
                                           <div
                                             class="ant-statistic-content"
@@ -4556,7 +4556,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                                             <span
                                               class="ant-statistic-content-suffix"
                                             >
-                                              个
+                                              items
                                             </span>
                                           </div>
                                         </div>
@@ -4594,7 +4594,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                                           <div
                                             class="ant-statistic-title"
                                           >
-                                            历史实验总数
+                                            Total Historical Experiments
                                           </div>
                                           <div
                                             class="ant-statistic-content"
@@ -4611,7 +4611,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                                             <span
                                               class="ant-statistic-content-suffix"
                                             >
-                                              个
+                                              items
                                             </span>
                                           </div>
                                         </div>
@@ -4640,7 +4640,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                     <div
                       class="ant-pro-card-title"
                     >
-                      流量走势
+                      Traffic Trends
                     </div>
                   </div>
                   <div
@@ -4653,6 +4653,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                         class="ant-pro-statistic-card-chart"
                       >
                         <img
+                          alt="Bar Chart"
                           src="https://gw.alipayobjects.com/zos/alicdn/_dZIob2NB/zhuzhuangtu.svg"
                           width="100%"
                         />
@@ -4676,7 +4677,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
               <div
                 class="ant-pro-card-title"
               >
-                流量占用情况
+                Traffic Usage
               </div>
             </div>
             <div
@@ -4689,7 +4690,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                   class="ant-pro-statistic-card-chart"
                 >
                   <img
-                    alt="大盘"
+                    alt="Dashboard"
                     src="https://gw.alipayobjects.com/zos/alicdn/qoYmFMxWY/jieping2021-03-29%252520xiawu4.32.34.png"
                     width="100%"
                   />
@@ -4746,7 +4747,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                         <div
                           class="ant-statistic-title"
                         >
-                          全部
+                          All
                           <span
                             aria-describedby="test-id"
                             aria-label="question-circle"
@@ -4833,7 +4834,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                         <div
                           class="ant-statistic-title"
                         >
-                          未发布
+                          Unpublished
                         </div>
                         <div
                           class="ant-statistic-content"
@@ -4894,7 +4895,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                         <div
                           class="ant-statistic-title"
                         >
-                          发布中
+                          Publishing
                         </div>
                         <div
                           class="ant-statistic-content"
@@ -4955,7 +4956,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                         <div
                           class="ant-statistic-title"
                         >
-                          发布异常
+                          Publishing Error
                         </div>
                         <div
                           class="ant-statistic-content"
@@ -5016,7 +5017,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                         <div
                           class="ant-statistic-title"
                         >
-                          发布成功
+                          Published Successfully
                         </div>
                         <div
                           class="ant-statistic-content"
@@ -5494,7 +5495,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                             <div
                               class="ant-statistic-title"
                             >
-                              全部
+                              All
                             </div>
                             <div
                               class="ant-statistic-content"
@@ -5554,7 +5555,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                             <div
                               class="ant-statistic-title"
                             >
-                              未发布
+                              Unpublished
                             </div>
                             <div
                               class="ant-statistic-content"
@@ -5614,7 +5615,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                             <div
                               class="ant-statistic-title"
                             >
-                              发布中
+                              Publishing
                             </div>
                             <div
                               class="ant-statistic-content"
@@ -5674,7 +5675,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                             <div
                               class="ant-statistic-title"
                             >
-                              发布异常
+                              Publishing Error
                             </div>
                             <div
                               class="ant-statistic-content"
@@ -5734,7 +5735,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                             <div
                               class="ant-statistic-title"
                             >
-                              发布成功
+                              Published Successfully
                             </div>
                             <div
                               class="ant-statistic-content"
@@ -5819,7 +5820,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                     <div
                       style="display: flex; align-items: center; justify-content: center; background-color: rgb(250, 250, 250); height: 100px;"
                     >
-                      关联展示内容 全部
+                      Related display content All
                     </div>
                   </div>
                 </div>
@@ -5875,7 +5876,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                         <div
                           class="ant-statistic-title"
                         >
-                          总流量(人次)
+                          Total Traffic (Visits)
                         </div>
                         <div
                           class="ant-statistic-content"
@@ -5917,7 +5918,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                   class="ant-pro-statistic-card-chart ant-pro-statistic-card-chart-left"
                 >
                   <img
-                    alt="百分比"
+                    alt="Percentage"
                     src="https://gw.alipayobjects.com/zos/alicdn/ShNDpDTik/huan.svg"
                     width="100%"
                   />
@@ -5937,7 +5938,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                         <div
                           class="ant-statistic-title"
                         >
-                          付费流量
+                          Paid Traffic
                         </div>
                         <div
                           class="ant-statistic-content"
@@ -5971,7 +5972,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                                 <div
                                   class="ant-statistic-title"
                                 >
-                                  占比
+                                  Proportion
                                 </div>
                                 <div
                                   class="ant-statistic-content"
@@ -6010,7 +6011,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                   class="ant-pro-statistic-card-chart ant-pro-statistic-card-chart-left"
                 >
                   <img
-                    alt="百分比"
+                    alt="Percentage"
                     src="https://gw.alipayobjects.com/zos/alicdn/6YR18tCxJ/huanlv.svg"
                     width="100%"
                   />
@@ -6030,7 +6031,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                         <div
                           class="ant-statistic-title"
                         >
-                          免费流量
+                          Free Traffic
                         </div>
                         <div
                           class="ant-statistic-content"
@@ -6064,7 +6065,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                                 <div
                                   class="ant-statistic-title"
                                 >
-                                  占比
+                                  Proportion
                                 </div>
                                 <div
                                   class="ant-statistic-content"
@@ -6119,7 +6120,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
               <div
                 class="ant-pro-card-title"
               >
-                财年业绩目标
+                Fiscal Year Performance Target
               </div>
             </div>
             <div
@@ -6160,7 +6161,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                           <span
                             class="ant-statistic-content-suffix"
                           >
-                            亿
+                            Billion
                           </span>
                         </div>
                       </div>
@@ -6182,7 +6183,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                                 <div
                                   class="ant-statistic-title"
                                 >
-                                  日同比
+                                  Daily Comparison
                                 </div>
                                 <div
                                   class="ant-statistic-content"
@@ -6212,7 +6213,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                   class="ant-pro-statistic-card-chart"
                 >
                   <img
-                    alt="进度条"
+                    alt="Progress Bar"
                     src="https://gw.alipayobjects.com/zos/alicdn/PmKfn4qvD/mubiaowancheng-lan.svg"
                     width="100%"
                   />
@@ -6236,7 +6237,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                         <div
                           class="ant-statistic-title"
                         >
-                          财年业绩完成率
+                          Fiscal Year Performance Completion Rate
                         </div>
                         <div
                           class="ant-statistic-content"
@@ -6266,7 +6267,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                         <div
                           class="ant-statistic-title"
                         >
-                          去年同期业绩完成率
+                          Performance Completion Rate Same Period Last Year
                         </div>
                         <div
                           class="ant-statistic-content"
@@ -6296,7 +6297,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                         <div
                           class="ant-statistic-title"
                         >
-                          前年同期业绩完成率
+                          Performance Completion Rate Same Period Year Before Last
                         </div>
                         <div
                           class="ant-statistic-content"
@@ -6349,7 +6350,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                             <div
                               class="ant-statistic-title"
                             >
-                              财年总收入
+                              Total Revenue for the Fiscal Year
                             </div>
                             <div
                               class="ant-statistic-content"
@@ -6383,7 +6384,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                                     <div
                                       class="ant-statistic-title"
                                     >
-                                      日同比
+                                      Daily Comparison
                                     </div>
                                     <div
                                       class="ant-statistic-content"
@@ -6413,7 +6414,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                       class="ant-pro-statistic-card-chart"
                     >
                       <img
-                        alt="折线图"
+                        alt="Line Chart"
                         src="https://gw.alipayobjects.com/zos/alicdn/zevpN7Nv_/xiaozhexiantu.svg"
                         width="100%"
                       />
@@ -6434,7 +6435,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                           <div
                             class="ant-statistic-title"
                           >
-                            大盘总收入
+                            Total Market Revenue
                           </div>
                           <div
                             class="ant-statistic-content"
@@ -6468,7 +6469,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                                   <div
                                     class="ant-statistic-title"
                                   >
-                                    日同比
+                                    Daily Comparison
                                   </div>
                                   <div
                                     class="ant-statistic-content"
@@ -6524,7 +6525,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                             <div
                               class="ant-statistic-title"
                             >
-                              当日排名
+                              Daily Ranking
                             </div>
                             <div
                               class="ant-statistic-content"
@@ -6558,7 +6559,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                                     <div
                                       class="ant-statistic-title"
                                     >
-                                      日同比
+                                      Daily Comparison
                                     </div>
                                     <div
                                       class="ant-statistic-content"
@@ -6588,7 +6589,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                       class="ant-pro-statistic-card-chart"
                     >
                       <img
-                        alt="折线图"
+                        alt="Line Chart"
                         src="https://gw.alipayobjects.com/zos/alicdn/zevpN7Nv_/xiaozhexiantu.svg"
                         width="100%"
                       />
@@ -6609,7 +6610,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                           <div
                             class="ant-statistic-title"
                           >
-                            近7日收入
+                            Revenue in the Last 7 Days
                           </div>
                           <div
                             class="ant-statistic-content"
@@ -6643,7 +6644,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                                   <div
                                     class="ant-statistic-title"
                                   >
-                                    日同比
+                                    Daily Comparison
                                   </div>
                                   <div
                                     class="ant-statistic-content"
@@ -6699,7 +6700,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                             <div
                               class="ant-statistic-title"
                             >
-                              财年业绩收入排名
+                              Fiscal Year Performance Revenue Ranking
                             </div>
                             <div
                               class="ant-statistic-content"
@@ -6733,7 +6734,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                                     <div
                                       class="ant-statistic-title"
                                     >
-                                      日同比
+                                      Daily Comparison
                                     </div>
                                     <div
                                       class="ant-statistic-content"
@@ -6763,7 +6764,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                       class="ant-pro-statistic-card-chart"
                     >
                       <img
-                        alt="折线图"
+                        alt="Line Chart"
                         src="https://gw.alipayobjects.com/zos/alicdn/zevpN7Nv_/xiaozhexiantu.svg"
                         width="100%"
                       />
@@ -6784,7 +6785,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                           <div
                             class="ant-statistic-title"
                           >
-                            月付费个数
+                            Monthly Payment Count
                           </div>
                           <div
                             class="ant-statistic-content"
@@ -6818,7 +6819,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                                   <div
                                     class="ant-statistic-title"
                                   >
-                                    日同比
+                                    Daily Comparison
                                   </div>
                                   <div
                                     class="ant-statistic-content"
@@ -6885,7 +6886,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                 <div
                   class="ant-statistic-title"
                 >
-                  日环比
+                  Daily Comparison
                 </div>
                 <div
                   class="ant-statistic-content"
@@ -6922,7 +6923,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                 <div
                   class="ant-statistic-title"
                 >
-                  周环比
+                  Weekly Comparison
                 </div>
                 <div
                   class="ant-statistic-content"
@@ -6959,7 +6960,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                 <div
                   class="ant-statistic-title"
                 >
-                  周环比
+                  Weekly Comparison
                 </div>
                 <div
                   class="ant-statistic-content"
@@ -7004,7 +7005,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/actions.tsx correct
             <div
               class="ant-pro-card-title"
             >
-              Actions 操作项
+              Actions
             </div>
           </div>
           <div
@@ -7111,7 +7112,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/actions.tsx correct
             <div
               class="ant-pro-card-title"
             >
-              单独的 Actions 操作项
+              Standalone Actions
             </div>
           </div>
           <div
@@ -7152,7 +7153,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/actions.tsx correct
                   />
                 </svg>
               </span>
-              设置
+              Settings
             </div>
           </ul>
         </div>
@@ -7170,7 +7171,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/actions.tsx correct
             <div
               class="ant-pro-card-title"
             >
-              无 Actions 操作项
+              No Actions
             </div>
           </div>
           <div
@@ -7217,7 +7218,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/basic.tsx correctly
             <div
               class="ant-pro-core-label-tip-title"
             >
-              默认尺寸
+              Default Size
             </div>
             <span
               aria-describedby="test-id"
@@ -7278,12 +7279,12 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/basic.tsx correctly
                       <span
                         class="ant-switch-inner-checked"
                       >
-                        启用
+                        Enabled
                       </span>
                       <span
                         class="ant-switch-inner-unchecked"
                       >
-                        禁用
+                        Disabled
                       </span>
                     </span>
                   </button>
@@ -7323,7 +7324,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/basic.tsx correctly
             <div
               class="ant-pro-core-label-tip-title"
             >
-              带卡片阴影
+              Card with Shadow
             </div>
             <span
               aria-describedby="test-id"
@@ -7390,7 +7391,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/basic.tsx correctly
             <div
               class="ant-pro-core-label-tip-title"
             >
-              小尺寸卡片
+              Small Size Card
             </div>
             <span
               aria-describedby="test-id"
@@ -7469,7 +7470,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/bordered.tsx correc
             <div
               class="ant-pro-core-label-tip-title"
             >
-              标题
+              Title
             </div>
             <span
               aria-describedby="test-id"
@@ -7509,7 +7510,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/bordered.tsx correc
       <div
         class="ant-pro-card-body"
       >
-        内容
+        Content
       </div>
     </div>
   </div>
@@ -7555,7 +7556,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/collapsible.tsx cor
                 />
               </svg>
             </span>
-            可折叠
+            Collapsible
           </div>
           <div
             class="ant-pro-card-extra"
@@ -7565,7 +7566,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/collapsible.tsx cor
               type="button"
             >
               <span>
-                提 交
+                Submit
               </span>
             </button>
           </div>
@@ -7573,7 +7574,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/collapsible.tsx cor
         <div
           class="ant-pro-card-body"
         >
-          内容
+          Content
         </div>
       </div>
       <div
@@ -7604,7 +7605,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/collapsible.tsx cor
                 />
               </svg>
             </span>
-            可折叠
+            Collapsible
           </div>
           <div
             class="ant-pro-card-extra"
@@ -7614,7 +7615,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/collapsible.tsx cor
               type="button"
             >
               <span>
-                提 交
+                Submit
               </span>
             </button>
           </div>
@@ -7622,7 +7623,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/collapsible.tsx cor
         <div
           class="ant-pro-card-body"
         >
-          内容
+          Content
         </div>
       </div>
       <div
@@ -7653,7 +7654,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/collapsible.tsx cor
                 />
               </svg>
             </span>
-            可折叠
+            Collapsible
           </div>
           <div
             class="ant-pro-card-extra"
@@ -7663,7 +7664,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/collapsible.tsx cor
               type="button"
             >
               <span>
-                提 交
+                Submit
               </span>
             </button>
           </div>
@@ -7671,7 +7672,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/collapsible.tsx cor
         <div
           class="ant-pro-card-body"
         >
-          内容
+          Content
         </div>
       </div>
       <div
@@ -7684,7 +7685,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/collapsible.tsx cor
           <div
             class="ant-pro-card-title"
           >
-            可折叠-受控自定义
+            Collapsible - Controlled Custom
           </div>
           <div
             class="ant-pro-card-extra"
@@ -7714,7 +7715,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/collapsible.tsx cor
         <div
           class="ant-pro-card-body"
         >
-          内容
+          Content
         </div>
       </div>
       <div
@@ -7728,15 +7729,15 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/collapsible.tsx cor
             class="ant-pro-card-title"
           >
             <span>
-              收起 - 
+              Collapse - 
             </span>
-            可折叠-图标自定义
+            Collapsible - Custom Icon
           </div>
         </div>
         <div
           class="ant-pro-card-body"
         >
-          内容
+          Content
         </div>
       </div>
     </div>
@@ -7826,7 +7827,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/colspan.tsx correct
         <div
           class="ant-pro-card-title"
         >
-          24栅格
+          24 grids
         </div>
       </div>
       <div
@@ -7971,7 +7972,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/divider.tsx correct
         <div
           class="ant-pro-card-title"
         >
-          核心指标
+          Core Metrics
         </div>
       </div>
       <div
@@ -7993,7 +7994,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/divider.tsx correct
                 <div
                   class="ant-statistic-title"
                 >
-                  今日UV
+                  Today's UV
                 </div>
                 <div
                   class="ant-statistic-content"
@@ -8035,7 +8036,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/divider.tsx correct
                 <div
                   class="ant-statistic-title"
                 >
-                  冻结金额
+                  Frozen Amount
                 </div>
                 <div
                   class="ant-statistic-content"
@@ -8077,7 +8078,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/divider.tsx correct
                 <div
                   class="ant-statistic-title"
                 >
-                  信息完整度
+                  Information Completeness
                 </div>
                 <div
                   class="ant-statistic-content"
@@ -8119,7 +8120,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/divider.tsx correct
                 <div
                   class="ant-statistic-title"
                 >
-                  冻结金额
+                  Frozen Amount
                 </div>
                 <div
                   class="ant-statistic-content"
@@ -8181,7 +8182,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/group.tsx correctly
               />
             </svg>
           </span>
-          卡片组展开
+          Card Group Expanded
         </div>
       </div>
       <div
@@ -8197,7 +8198,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/group.tsx correctly
             <div
               class="ant-pro-card-body ant-pro-card-body-center"
             >
-              卡片内容
+              Card Content
             </div>
           </div>
         </div>
@@ -8211,7 +8212,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/group.tsx correctly
             <div
               class="ant-pro-card-body ant-pro-card-body-center"
             >
-              卡片内容
+              Card Content
             </div>
           </div>
         </div>
@@ -8225,7 +8226,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/group.tsx correctly
             <div
               class="ant-pro-card-body ant-pro-card-body-center"
             >
-              卡片内容
+              Card Content
             </div>
           </div>
         </div>
@@ -8418,7 +8419,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/headerBordered.tsx 
             <div
               class="ant-pro-core-label-tip-title"
             >
-              标题
+              Title
             </div>
             <span
               aria-describedby="test-id"
@@ -8458,7 +8459,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/headerBordered.tsx 
       <div
         class="ant-pro-card-body"
       >
-        内容
+        Content
       </div>
     </div>
   </div>
@@ -8480,7 +8481,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/headless.tsx correc
       <div
         class="ant-pro-card-body"
       >
-        内容
+        Content
       </div>
     </div>
   </div>
@@ -8502,7 +8503,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/hoverable.tsx corre
       <div
         class="ant-pro-card-body"
       >
-        内容
+        Content
       </div>
     </div>
   </div>
@@ -8526,7 +8527,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/inner.tsx correctly
         <div
           class="ant-pro-card-title"
         >
-          横向内部卡片
+          Horizontal Inner Card
         </div>
       </div>
       <div
@@ -8545,13 +8546,13 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/inner.tsx correctly
               <div
                 class="ant-pro-card-title"
               >
-                内部卡片标题
+                Inner Card Title
               </div>
             </div>
             <div
               class="ant-pro-card-body"
             >
-              内部卡片内容
+              Inner Card Content
             </div>
           </div>
         </div>
@@ -8568,13 +8569,13 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/inner.tsx correctly
               <div
                 class="ant-pro-card-title"
               >
-                内部卡片标题
+                Inner Card Title
               </div>
             </div>
             <div
               class="ant-pro-card-body"
             >
-              内部卡片内容
+              Inner Card Content
             </div>
           </div>
         </div>
@@ -8590,7 +8591,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/inner.tsx correctly
         <div
           class="ant-pro-card-title"
         >
-          竖向内部卡片
+          Vertical Inner Card
         </div>
       </div>
       <div
@@ -8609,13 +8610,13 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/inner.tsx correctly
               <div
                 class="ant-pro-card-title"
               >
-                内部卡片标题
+                Inner Card Title
               </div>
             </div>
             <div
               class="ant-pro-card-body"
             >
-              内部卡片内容
+              Inner Card Content
             </div>
           </div>
         </div>
@@ -8632,13 +8633,13 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/inner.tsx correctly
               <div
                 class="ant-pro-card-title"
               >
-                内部卡片标题
+                Inner Card Title
               </div>
             </div>
             <div
               class="ant-pro-card-body"
             >
-              内部卡片内容
+              Inner Card Content
             </div>
           </div>
         </div>
@@ -8666,7 +8667,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/layout.tsx correctl
         <div
           class="ant-pro-card-title"
         >
-          标题
+          Title
         </div>
         <div
           class="ant-pro-card-extra"
@@ -8943,7 +8944,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/loading.tsx correct
         <div
           class="ant-pro-card-title"
         >
-          自定义 Loading
+          Custom Loading
         </div>
         <div
           class="ant-pro-card-extra"
@@ -8955,7 +8956,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/loading.tsx correct
         class="ant-pro-card-body"
       >
         <div>
-          加载中
+          Loading
         </div>
       </div>
     </div>
@@ -8981,7 +8982,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/multipleLine.tsx co
         <div
           class="ant-pro-card-title"
         >
-          换行
+          Wrap
         </div>
       </div>
       <div
@@ -9067,7 +9068,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/responsive.tsx corr
         <div
           class="ant-pro-card-title"
         >
-          24栅格
+          24 Grid
         </div>
       </div>
       <div
@@ -9127,7 +9128,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/responsive.tsx corr
         <div
           class="ant-pro-card-title"
         >
-          指定宽度px
+          Specified Width px
         </div>
       </div>
       <div
@@ -9173,7 +9174,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/responsive.tsx corr
         <div
           class="ant-pro-card-title"
         >
-          指定宽度百分比
+          Specified Width Percentage
         </div>
       </div>
       <div
@@ -9203,7 +9204,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/responsive.tsx corr
             <div
               class="ant-pro-card-body ant-pro-card-body-center"
             >
-              Col - 百分比
+              Col - Percentage
             </div>
           </div>
         </div>
@@ -9230,12 +9231,12 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/split.tsx correctly
         <div
           class="ant-pro-card-title"
         >
-          复杂切分
+          Complex Split
         </div>
         <div
           class="ant-pro-card-extra"
         >
-          2019年9月28日
+          September 28, 2019
         </div>
       </div>
       <div
@@ -9280,7 +9281,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/split.tsx correctly
                                 <div
                                   class="ant-pro-card-title"
                                 >
-                                  昨日全部流量
+                                  Yesterday's Total Traffic
                                 </div>
                               </div>
                               <div
@@ -9302,7 +9303,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/split.tsx correctly
                                 <div
                                   class="ant-pro-card-title"
                                 >
-                                  本月累计流量
+                                  Total Traffic This Month
                                 </div>
                               </div>
                               <div
@@ -9324,7 +9325,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/split.tsx correctly
                                 <div
                                   class="ant-pro-card-title"
                                 >
-                                  今年累计流量
+                                  Total Traffic This Year
                                 </div>
                               </div>
                               <div
@@ -9358,7 +9359,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/split.tsx correctly
                                 <div
                                   class="ant-pro-card-title"
                                 >
-                                  运行中试验
+                                  Ongoing Experiments
                                 </div>
                               </div>
                               <div
@@ -9380,13 +9381,13 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/split.tsx correctly
                                 <div
                                   class="ant-pro-card-title"
                                 >
-                                  历史试验总数
+                                  Total Historical Experiments
                                 </div>
                               </div>
                               <div
                                 class="ant-pro-card-body"
                               >
-                                134 个
+                                134
                               </div>
                             </div>
                           </div>
@@ -9408,26 +9409,26 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/split.tsx correctly
                     <div
                       class="ant-pro-card-title"
                     >
-                      流量趋势
+                      Traffic Trends
                     </div>
                   </div>
                   <div
                     class="ant-pro-card-body"
                   >
                     <div>
-                      图表
+                      Chart
                     </div>
                     <div>
-                      图表
+                      Chart
                     </div>
                     <div>
-                      图表
+                      Chart
                     </div>
                     <div>
-                      图表
+                      Chart
                     </div>
                     <div>
-                      图表
+                      Chart
                     </div>
                   </div>
                 </div>
@@ -9447,13 +9448,13 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/split.tsx correctly
               <div
                 class="ant-pro-card-title"
               >
-                流量占用情况
+                Traffic Usage
               </div>
             </div>
             <div
               class="ant-pro-card-body"
             >
-              右侧内容
+              Right Side Content
             </div>
           </div>
         </div>
@@ -9480,12 +9481,12 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/split2.tsx correctl
         <div
           class="ant-pro-card-title"
         >
-          左右分栏带标题
+          Left and Right Columns with Title
         </div>
         <div
           class="ant-pro-card-extra"
         >
-          2019年9月28日
+          September 28, 2019
         </div>
       </div>
       <div
@@ -9504,7 +9505,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/split2.tsx correctl
               <div
                 class="ant-pro-card-title"
               >
-                左侧详情
+                Left Details
               </div>
             </div>
             <div
@@ -9513,7 +9514,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/split2.tsx correctl
               <div
                 style="height: 360px;"
               >
-                左侧内容
+                Left Content
               </div>
             </div>
           </div>
@@ -9530,7 +9531,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/split2.tsx correctl
               <div
                 class="ant-pro-card-title"
               >
-                流量占用情况
+                Traffic Usage
               </div>
             </div>
             <div
@@ -9539,7 +9540,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/split2.tsx correctl
               <div
                 style="height: 360px;"
               >
-                右侧内容
+                Right Content
               </div>
             </div>
           </div>
@@ -9577,13 +9578,13 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/split23.tsx correct
               <div
                 class="ant-pro-card-title"
               >
-                左侧详情
+                Left Details
               </div>
             </div>
             <div
               class="ant-pro-card-body"
             >
-              左侧内容
+              Left Content
             </div>
           </div>
         </div>
@@ -9599,7 +9600,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/split23.tsx correct
               <div
                 class="ant-pro-card-title"
               >
-                左右分栏子卡片带标题
+                Left and Right Columns with Title
               </div>
             </div>
             <div
@@ -9608,7 +9609,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/split23.tsx correct
               <div
                 style="height: 360px;"
               >
-                右侧内容
+                Right Content
               </div>
             </div>
           </div>
@@ -9671,7 +9672,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/steps-v.tsx correct
                       <div
                         class="ant-steps-item-title"
                       >
-                        填写基本信息
+                        Fill in Basic Information
                       </div>
                     </div>
                   </div>
@@ -9700,7 +9701,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/steps-v.tsx correct
                       <div
                         class="ant-steps-item-title"
                       >
-                        配置模板
+                        Configure Template
                       </div>
                     </div>
                   </div>
@@ -9729,7 +9730,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/steps-v.tsx correct
                       <div
                         class="ant-steps-item-title"
                       >
-                        配置访问
+                        Configure Access
                       </div>
                     </div>
                   </div>
@@ -9758,7 +9759,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/steps-v.tsx correct
                       <div
                         class="ant-steps-item-title"
                       >
-                        配置部署和调度
+                        Configure Deployment and Scheduling
                       </div>
                     </div>
                   </div>
@@ -9787,7 +9788,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/steps-v.tsx correct
                       <div
                         class="ant-steps-item-title"
                       >
-                        预览
+                        Preview
                       </div>
                     </div>
                   </div>
@@ -9808,7 +9809,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/steps-v.tsx correct
               <div
                 class="ant-pro-card-title"
               >
-                流量占用情况
+                Traffic Usage
               </div>
             </div>
             <div
@@ -9825,7 +9826,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/steps-v.tsx correct
                     type="button"
                   >
                     <span>
-                      下一步
+                      Next
                     </span>
                   </button>
                 </div>
@@ -9838,7 +9839,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/steps-v.tsx correct
                     type="button"
                   >
                     <span>
-                      上一步
+                      Previous
                     </span>
                   </button>
                 </div>
@@ -9972,7 +9973,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/tabs.tsx correctly 
                       role="tab"
                       tabindex="-1"
                     >
-                      产品一
+                      Product One
                     </div>
                   </div>
                   <div
@@ -9987,7 +9988,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/tabs.tsx correctly 
                       role="tab"
                       tabindex="0"
                     >
-                      产品二
+                      Product Two
                     </div>
                   </div>
                   <div
@@ -10002,7 +10003,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/tabs.tsx correctly 
                       role="tab"
                       tabindex="-1"
                     >
-                      产品三
+                      Product Three
                     </div>
                   </div>
                   <div
@@ -10065,7 +10066,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/tabs.tsx correctly 
                     <div
                       class="ant-pro-card-body"
                     >
-                      内容二
+                      Content Two
                     </div>
                   </div>
                 </div>
@@ -10120,7 +10121,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/tabs-card.tsx corre
                     role="tab"
                     tabindex="0"
                   >
-                    产品一
+                    Product One
                   </div>
                 </div>
                 <div
@@ -10135,7 +10136,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/tabs-card.tsx corre
                     role="tab"
                     tabindex="-1"
                   >
-                    产品二
+                    Product Two
                   </div>
                 </div>
                 <div
@@ -10198,7 +10199,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/tabs-card.tsx corre
                   <div
                     class="ant-pro-card-body"
                   >
-                    内容一
+                    Content One
                   </div>
                 </div>
               </div>

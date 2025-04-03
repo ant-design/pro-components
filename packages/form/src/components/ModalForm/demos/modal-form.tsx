@@ -67,7 +67,10 @@ export default () => {
           label="Contract Name"
           placeholder="Please enter a name"
         />
-        <ProFormDateRangePicker name="contractTime" label="Contract Effective Time" />
+        <ProFormDateRangePicker
+          name="contractTime"
+          label="Contract Effective Time"
+        />
       </ProForm.Group>
       <ProForm.Group>
         <ProFormSelect

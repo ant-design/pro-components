@@ -62,7 +62,10 @@ export default () => {
           <ProFormDatePicker.Week name="dateWeek" label="Week" />
           <ProFormDateWeekRangePicker name="dateWeekRange" label="Week Range" />
           <ProFormDatePicker.Month name="dateMonth" label="Month" />
-          <ProFormDateMonthRangePicker name="dateMonthRange" label="Month Range" />
+          <ProFormDateMonthRangePicker
+            name="dateMonthRange"
+            label="Month Range"
+          />
           <ProFormDatePicker.Quarter name="dateQuarter" label="Quarter" />
           <ProFormDateQuarterRangePicker
             name="dateQuarterRange"

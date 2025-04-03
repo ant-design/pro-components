@@ -553,6 +553,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/base.tsx correctly 
                   >
                     <button
                       class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                      tabindex="-1"
                       type="button"
                     >
                       <span
@@ -675,6 +676,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/base.tsx correctly 
                                       >
                                         <button
                                           class="ant-input-clear-icon"
+                                          tabindex="-1"
                                           type="button"
                                         >
                                           <span
@@ -873,7 +875,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/base.tsx correctly 
                                                     </div>
                                                   </div>
                                                   <button
-                                                    class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-block ant-pro-form-list-creator-button-bottom"
+                                                    class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-block ant-pro-form-list-creator-button-bottom"
                                                     type="button"
                                                   >
                                                     <span>
@@ -5217,6 +5219,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/search.tsx correctl
                           >
                             <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                              tabindex="-1"
                               type="button"
                             >
                               <span

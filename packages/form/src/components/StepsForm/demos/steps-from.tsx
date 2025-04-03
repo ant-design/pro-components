@@ -88,7 +88,12 @@ export default () => {
             name="checkbox"
             label="Migration Type"
             width="lg"
-            options={['Structural Migration', 'Full Migration', 'Incremental Migration', 'Full Verification']}
+            options={[
+              'Structural Migration',
+              'Full Migration',
+              'Incremental Migration',
+              'Full Verification',
+            ]}
           />
           <ProForm.Group>
             <ProFormText name="dbname" label="Business DB Username" />
@@ -119,7 +124,11 @@ export default () => {
                 required: true,
               },
             ]}
-            options={['Deployment Unit 1', 'Deployment Unit 2', 'Deployment Unit 3']}
+            options={[
+              'Deployment Unit 1',
+              'Deployment Unit 2',
+              'Deployment Unit 3',
+            ]}
           />
           <ProFormSelect
             label="Deployment Group Strategy"
