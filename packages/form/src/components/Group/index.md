@@ -70,6 +70,9 @@ ProFormList 与 [Form.List](https://ant.design/components/form-cn/#Form.List) AP
 | actionRender | 自定义操作按钮 | `(field,action,defaultActionDom,count)=>React.ReactNode[]` | - |
 | onAfterAdd | 新增数据后的钩子 | `(defaultValue: StoreValue, insertIndex: number, count: number) => void` | - |
 | onAfterRemove | 删除数据后的钩子 | `(index: number, count: number) => void` | - |
+| arrowSort | 是否开启箭头按钮排序 | `boolean` | - |
+| upIconProps | 向上排序按钮的配置，false 可以取消 | `{ Icon?: React.FC<any>; tooltipText?: string; } \| false` | - |
+| downIconProps | 向下排序按钮的配置，false 可以取消 | `{ Icon?: React.FC<any>; tooltipText?: string; } \| false` | - |
 
 ### actionRef 操作项目实例
 
@@ -362,12 +365,16 @@ name 参数必须要是一个数组，如果是嵌套的结构可以这样配置
 
 ### 行为守卫
 
-<code src="./demos/pro-form-list.tsx" title="行为守卫"></code>
+<code src="./demos/pro-form-list.tsx" ></code>
 
 ### 增删条目限制
 
-<code src="./demos/countLimit.tsx" title="增删条目限制"></code>
+<code src="./demos/countLimit.tsx" ></code>
 
 ### 横向布局
 
-<code src="./demos/horizontal-layout.tsx" title="横向布局" ></code>
+<code src="./demos/horizontal-layout.tsx" ></code>
+
+### 箭头排序
+
+<code src="./demos/list-arrowsort.tsx" ></code>
