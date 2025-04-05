@@ -41,7 +41,6 @@ export function defaultGetValueFromEvent(valuePropName: string, ...args: any) {
 const FieldSet: React.FC<ProFormFieldSetProps> = (props) => {
   const {
     children,
-    value = [],
     valuePropName,
     onChange,
     fieldProps,
@@ -50,8 +49,12 @@ const FieldSet: React.FC<ProFormFieldSetProps> = (props) => {
     transform,
     convertValue,
     lightProps,
+    value: propsValue,
     ...rest
   } = props;
+
+  const value = propsValue ?? [];
+
   /**
    * 使用方法的引用防止闭包
    *
