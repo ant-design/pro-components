@@ -22,6 +22,8 @@ export type ProFormFieldSetProps<T = any> = {
     | ((value: T[], props: ProFormFieldSetProps) => React.ReactNode)
     | React.ReactNode;
   lightProps?: LightWrapperProps;
+  // HIP: Render object fix
+  labelFormatter?: (val: any) => React.ReactNode;
 };
 
 const FieldSetType = {
@@ -80,6 +82,7 @@ const FieldSet: React.FC<ProFormFieldSetProps> = (props) => {
       const isProFromItem =
         // @ts-ignore
         item?.type?.displayName === 'ProFormComponent' || item?.props?.readonly;
+
       const forkProps = isProFromItem
         ? {
             key: index,
@@ -110,7 +113,12 @@ const FieldSet: React.FC<ProFormFieldSetProps> = (props) => {
   });
   const Components = FieldSetType[type] as React.FC<SpaceProps>;
 
-  const { RowWrapper } = useGridHelpers(rest);
+  // HIP: Render object fix
+  // This is so that typescript doesn't complain.
+  const { RowWrapper } = useGridHelpers(
+    rest as Omit<typeof rest, 'labelFormatter'>
+  )
+
 
   /** Input.Group 需要配置 compact */
   const typeProps = useMemo(
@@ -134,10 +142,18 @@ const BaseProFormFieldSet: React.FC<
   Omit<ProFormItemProps, 'children'> & ProFormFieldSetProps
 > = React.forwardRef(({ children, space, valuePropName, ...rest }, ref) => {
   useImperativeHandle(ref, () => ({}));
+
+
+
   return (
     <FieldSet
       space={space}
       valuePropName={valuePropName}
+      // HIP: Render object fix
+      lightProps={{
+        ...(rest.lightProps || {}),
+        labelFormatter: rest.labelFormatter, // inject it here
+      }}
       {...rest.fieldProps}
       // 把 fieldProps 里的重置掉
       onChange={undefined}
