@@ -55,7 +55,11 @@ const FieldSet: React.FC<ProFormFieldSetProps> = (props) => {
     ...rest
   } = props;
 
+  console.log('Contains object null fix');
   const value = propsValue ?? [];
+
+  console.log('Here 11111');
+  console.log(value);
 
   /**
    * 使用方法的引用防止闭包
@@ -159,6 +163,7 @@ const BaseProFormFieldSet: React.FC<
       onChange={undefined}
       {...rest}
     >
+      v3
       {children}
     </FieldSet>
   );

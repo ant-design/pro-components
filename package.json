@@ -180,5 +180,5 @@
     "commit-msg": "fabric verify-commit"
   },
   "packageManager": "pnpm@9.6.0",
-  "version": "2.8.6-hip.2"
+  "version": "2.8.6-hip.4"
 }
