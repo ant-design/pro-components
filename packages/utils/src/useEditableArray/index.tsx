@@ -108,7 +108,7 @@ export type RowEditableConfig<DataType> = {
     newLineConfig?: NewLineConfig<DataType>,
   ) => Promise<any | void>;
 
-  /** 行保存的时候 */
+  /** 行取消的时候 */
   onCancel?: (
     /** 行 id，一般是唯一id */
     key: RecordKey,
