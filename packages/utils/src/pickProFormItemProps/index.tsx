@@ -26,6 +26,7 @@ const antdFormItemPropsList = [
   'valuePropName',
   'wrapperCol',
   'hidden',
+  'validateDebounce',
   // 我自定义的
   'addonBefore',
   'addonAfter',
