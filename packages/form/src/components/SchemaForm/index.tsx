@@ -191,7 +191,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(
     if (columns.length && Array.isArray(columns[0])) return;
     return genItems(columns as ProFormColumnsType<T, ValueType>[]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [columns, restProps?.open, action, type, formDomsDeps, !!formRef.current]);
+  }, [columns, restProps?.open, action, type, formDomsDeps]);
 
   /**
    * Append layoutType component specific props
