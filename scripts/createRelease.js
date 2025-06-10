@@ -46,9 +46,9 @@ const getMds = async (allVersion = false) => {
 
   const content = fs.readFileSync(path.join(docDir, mdFile)).toString();
   let versions = [
-    require(path.join(
-      path.join(__dirname, '..', 'packages', pkg, 'package.json'),
-    )).version,
+    require(
+      path.join(path.join(__dirname, '..', 'packages', pkg, 'package.json')),
+    ).version,
   ];
   if (allVersion) {
     versions = exec('git tag')

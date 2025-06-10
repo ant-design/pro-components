@@ -3,7 +3,7 @@ import { ProCard } from '@ant-design/pro-components';
 export default () => {
   return (
     <>
-      <ProCard style={{ marginBlockStart: 8 }} gutter={8} title="24栅格">
+      <ProCard style={{ marginBlockStart: 8 }} gutter={8} title="24 Grid">
         <ProCard
           colSpan={{ xs: 2, sm: 4, md: 6, lg: 8, xl: 10 }}
           layout="center"
@@ -26,7 +26,11 @@ export default () => {
           Col
         </ProCard>
       </ProCard>
-      <ProCard style={{ marginBlockStart: 8 }} gutter={8} title="指定宽度px">
+      <ProCard
+        style={{ marginBlockStart: 8 }}
+        gutter={8}
+        title="Specified Width px"
+      >
         <ProCard
           colSpan={{
             xs: '50px',
@@ -48,7 +52,7 @@ export default () => {
       <ProCard
         style={{ marginBlockStart: 8 }}
         gutter={8}
-        title="指定宽度百分比"
+        title="Specified Width Percentage"
       >
         <ProCard layout="center" bordered>
           Auto
@@ -64,7 +68,7 @@ export default () => {
           }}
           bordered
         >
-          Col - 百分比
+          Col - Percentage
         </ProCard>
       </ProCard>
     </>

@@ -211,8 +211,8 @@ export function warpField<P extends ProFormFieldItemProps = any>(
           width && !WIDTH_SIZE_ENUM[width as 'xs']
             ? width
             : contextValue.grid
-            ? '100%'
-            : undefined,
+              ? '100%'
+              : undefined,
         ...fieldProps?.style,
       };
 

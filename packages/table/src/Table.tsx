@@ -134,29 +134,6 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     return loopFilter(tableColumns);
   }, [counter.columnsMap, tableColumns]);
 
-  /** 如果所有列中的 filters = true | undefined 说明是用的是本地筛选 任何一列配置 filters=false，就能绕过这个判断 */
-  const useLocaleFilter = useMemo(() => {
-    const _columns: any[] = [];
-    // 平铺所有columns, 用于判断是用的是本地筛选
-    const loopColumns = (data: any[]) => {
-      for (let i = 0; i < data.length; i++) {
-        const _curItem = data[i];
-        if (_curItem.children) {
-          loopColumns(_curItem.children);
-        } else {
-          _columns.push(_curItem);
-        }
-      }
-    };
-    loopColumns(columns);
-    return _columns?.every((column) => {
-      return (
-        (!!column.filters && !!column.onFilter) ||
-        (column.filters === undefined && column.onFilter === undefined)
-      );
-    });
-  }, [columns]);
-
   /**
    * 如果是分页的新增，总是加到最后一行
    *
@@ -213,9 +190,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     rowSelection: rowSelection === false ? undefined : rowSelection,
     className: tableClassName,
     style: tableStyle,
-    columns: columns.map((item) =>
-      item.isExtraColumns ? item.extraColumn : item,
-    ),
+    columns,
     loading: action.loading,
     dataSource: editableUtils.newLineRecord
       ? editableDataSource(action.dataSource)
@@ -228,9 +203,8 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
       extra: TableCurrentDataSource<T>,
     ) => {
       rest.onChange?.(changePagination, filters, sorter, extra);
-      if (!useLocaleFilter) {
-        onFilterChange(omitUndefined<any>(filters));
-      }
+
+      onFilterChange(omitUndefined<any>(filters));
 
       // 制造筛选的数据
       // 制造一个排序的数据
@@ -242,7 +216,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
           }),
           {},
         );
-        onSortChange(omitUndefined<any>(data));
+        onSortChange(omitUndefined<any>(data) ?? {});
       } else {
         const sorterOfColumn = sorter.column?.sorter;
         const isSortByField = sorterOfColumn?.toString() === sorterOfColumn;
@@ -251,7 +225,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
           omitUndefined({
             [`${isSortByField ? sorterOfColumn : sorter.field}`]:
               sorter.order as SortOrder,
-          }),
+          }) ?? {},
         );
       }
     },
@@ -524,11 +498,44 @@ const ProTable = <
     {},
   );
 
-  /** 设置默认排序和筛选值 */
+  // 平铺所有columns, 用于判断是用的是本地筛选/排序
+  const loopColumns = useCallback((data: any[]) => {
+    const _columns: any[] = [];
+
+    for (let i = 0; i < data.length; i++) {
+      const _curItem = data[i];
+      if (_curItem.children) {
+        loopColumns(_curItem.children);
+      } else {
+        _columns.push(_curItem);
+      }
+    }
+
+    return _columns;
+  }, []);
+
+  /** 如果所有列中的 filters = true | undefined 说明是用的是本地筛选 任何一列配置 filters=false，就能绕过这个判断 */
+  const useLocaleFilter = useMemo(() => {
+    const _columns: any[] = loopColumns(propsColumns);
+    return _columns?.every((column) => {
+      return (
+        (!!column.filters && !!column.onFilter) ||
+        (column.filters === undefined && column.onFilter === undefined)
+      );
+    });
+  }, [loopColumns, propsColumns]);
+
+  /** 如果所有列中的 sorter != true 说明是用的是本地排序 任何一列配置 sorter=true，就能绕过这个判断 */
+  const useLocaleSorter = useMemo(() => {
+    const _columns: any[] = loopColumns(propsColumns);
+    return _columns?.every((column) => column.sorter !== true);
+  }, [loopColumns, propsColumns]);
+
+  /** 设置默认的服務端排序和筛选值 */
   useEffect(() => {
     const { sort, filter } = parseDefaultColumnConfig(propsColumns);
-    setProFilter(filter);
-    setProSort(sort);
+    if (!useLocaleFilter) setProFilter(filter);
+    if (!useLocaleSorter) setProSort(sort);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -748,10 +755,13 @@ const ProTable = <
     resetAll: () => {
       // 清空选中行
       onCleanSelected();
+
+      const { sort, filter } = parseDefaultColumnConfig(propsColumns);
       // 清空筛选
-      setProFilter({});
+      setProFilter(filter);
       // 清空排序
-      setProSort({});
+      setProSort(sort);
+
       // 清空 toolbar 搜索
       counter.setKeyWords(undefined);
       // 重置页码
@@ -780,6 +790,8 @@ const ProTable = <
       editableUtils,
       rowKey,
       childrenColumnName: props.expandable?.childrenColumnName,
+      proFilter,
+      proSort,
     }).sort(columnSort(counter.columnsMap));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
@@ -790,6 +802,8 @@ const ProTable = <
     type,
     // eslint-disable-next-line react-hooks/exhaustive-deps
     editableUtils.editableKeys && editableUtils.editableKeys.join(','),
+    proFilter,
+    proSort,
   ]);
 
   /** Table Column 变化的时候更新一下，这个参数将会用于渲染 */
@@ -992,11 +1006,11 @@ const ProTable = <
       toolbarDom={toolbarDom}
       hideToolbar={hideToolbar}
       onSortChange={(sortConfig) => {
-        if (proSort === sortConfig) return;
-        setProSort(sortConfig ?? {});
+        if (useLocaleSorter || sortConfig === proSort) return;
+        setProSort(sortConfig);
       }}
       onFilterChange={(filterConfig) => {
-        if (filterConfig === proFilter) return;
+        if (useLocaleFilter || filterConfig === proFilter) return;
         setProFilter(filterConfig);
       }}
       editableUtils={editableUtils}

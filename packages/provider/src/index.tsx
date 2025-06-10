@@ -102,7 +102,7 @@ export type BaseProFieldFC = {
    * @option read 渲染只读模式
    * @option edit 渲染编辑模式
    * */
-  mode: ProFieldFCMode;
+  mode?: ProFieldFCMode;
   /**
    * 简约模式
    */

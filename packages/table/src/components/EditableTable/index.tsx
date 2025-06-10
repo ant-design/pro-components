@@ -230,77 +230,73 @@ function EditableTable<
   );
 
   // 设置 editableFormRef
-  useImperativeHandle(
-    editableFormRef,
-    () => {
+  useImperativeHandle(editableFormRef, () => {
+    /**
+     * 获取一行数据的
+     * @param rowIndex
+     * @returns T | undefined
+     */
+    const getRowData = (rowIndex: string | number): DataType | undefined => {
+      if (rowIndex == undefined) {
+        throw new Error('rowIndex is required');
+      }
+
+      const finlayRowKey = coverRowKey(rowIndex);
+
+      const rowKeyName = [props.name, finlayRowKey?.toString() ?? '']
+        .flat(1)
+        .filter(Boolean) as NamePath;
+      return formRef.current?.getFieldValue(rowKeyName) as DataType;
+    };
+
+    /**
+     * 获取整个 table 的数据
+     * @returns T[] | undefined
+     */
+    const getRowsData = (): DataType[] | undefined => {
+      const rowKeyName = [props.name].flat(1).filter(Boolean) as NamePath;
+      if (Array.isArray(rowKeyName) && rowKeyName.length === 0) {
+        const rowData = formRef.current?.getFieldsValue();
+        if (Array.isArray(rowData)) return rowData;
+        return Object.keys(rowData).map((key) => {
+          return rowData[key];
+        });
+      }
+      return formRef.current?.getFieldValue(rowKeyName) as DataType[];
+    };
+    return {
+      ...formRef.current,
+      getRowData,
+      getRowsData,
       /**
-       * 获取一行数据的
+       * 设置一行的数据，会将数据进行简单的 merge
        * @param rowIndex
-       * @returns T | undefined
+       * @param data
+       * @returns void
        */
-      const getRowData = (rowIndex: string | number): DataType | undefined => {
+      setRowData: (rowIndex, data) => {
         if (rowIndex == undefined) {
           throw new Error('rowIndex is required');
         }
-
         const finlayRowKey = coverRowKey(rowIndex);
-
         const rowKeyName = [props.name, finlayRowKey?.toString() ?? '']
           .flat(1)
-          .filter(Boolean) as NamePath;
-        return formRef.current?.getFieldValue(rowKeyName) as DataType;
-      };
+          .filter(Boolean) as string[];
 
-      /**
-       * 获取整个 table 的数据
-       * @returns T[] | undefined
-       */
-      const getRowsData = (): DataType[] | undefined => {
-        const rowKeyName = [props.name].flat(1).filter(Boolean) as NamePath;
-        if (Array.isArray(rowKeyName) && rowKeyName.length === 0) {
-          const rowData = formRef.current?.getFieldsValue();
-          if (Array.isArray(rowData)) return rowData;
-          return Object.keys(rowData).map((key) => {
-            return rowData[key];
-          });
-        }
-        return formRef.current?.getFieldValue(rowKeyName) as DataType[];
-      };
-      return {
-        ...formRef.current,
-        getRowData,
-        getRowsData,
-        /**
-         * 设置一行的数据，会将数据进行简单的 merge
-         * @param rowIndex
-         * @param data
-         * @returns void
-         */
-        setRowData: (rowIndex, data) => {
-          if (rowIndex == undefined) {
-            throw new Error('rowIndex is required');
-          }
-          const finlayRowKey = coverRowKey(rowIndex);
-          const rowKeyName = [props.name, finlayRowKey?.toString() ?? '']
-            .flat(1)
-            .filter(Boolean) as string[];
-
-          const newRowData = Object.assign(
-            {},
-            {
-              // 只是简单的覆盖，如果很复杂的话，需要自己处理
-              ...getRowData(rowIndex),
-              ...(data || {}),
-            },
-          );
-          const updateValues = set({}, rowKeyName, newRowData);
-          formRef.current?.setFieldsValue(updateValues);
-          return true;
-        },
-      } as EditableFormInstance<DataType>;
-    },
-    [coverRowKey, props.name, formRef.current],
-  );
+        const newRowData = Object.assign(
+          {},
+          {
+            // 只是简单的覆盖，如果很复杂的话，需要自己处理
+            ...getRowData(rowIndex),
+            ...(data || {}),
+          },
+        );
+        const updateValues = set({}, rowKeyName, newRowData);
+        formRef.current?.setFieldsValue(updateValues);
+        return true;
+      },
+    } as EditableFormInstance<DataType>;
+  }, [coverRowKey, props.name, formRef.current]);
 
   useEffect(() => {
     if (!props.controlled) return;
@@ -529,8 +525,6 @@ function FieldEditableTable<
       style={{
         maxWidth: '100%',
       }}
-      {...props?.formItemProps}
-      name={props.name}
       shouldUpdate={(prev, next) => {
         const name = [props.name].flat(1) as string[];
         try {
@@ -541,6 +535,8 @@ function FieldEditableTable<
           return true;
         }
       }}
+      {...props?.formItemProps}
+      name={props.name}
     >
       <EditableTable<DataType, Params, ValueType>
         tableLayout="fixed"

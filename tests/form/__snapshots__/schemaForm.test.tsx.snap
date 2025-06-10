@@ -50,10 +50,10 @@ exports[`SchemaForm > 😊 SchemaForm support columns 1`] = `
                 <span
                   class="ant-input-suffix"
                 >
-                  <span
+                  <button
                     class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                    role="button"
                     tabindex="-1"
+                    type="button"
                   >
                     <span
                       aria-label="close-circle"
@@ -75,7 +75,7 @@ exports[`SchemaForm > 😊 SchemaForm support columns 1`] = `
                         />
                       </svg>
                     </span>
-                  </span>
+                  </button>
                 </span>
               </span>
             </div>

@@ -178,7 +178,7 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
           },
         },
       } as SubmitterProps,
-      rest.submitter,
+      rest.submitter ?? {},
     );
   }, [
     context.locale?.Modal?.cancelText,

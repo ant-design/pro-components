@@ -20,6 +20,8 @@ atomId: QueryFilter,LightFilter
 
 <code src="./demos/search-filter.tsx" background="var(--main-bg-color)" title="查询筛选-搜索"></code>
 
+<code src="./demos/query-filter-defaultFormItemsNumber.tsx" background="var(--main-bg-color)" title="查询筛选-自定义渲染的控件数量"></code>
+
 ## 轻量筛选
 
 <code src="./demos/light-filter.tsx" title="基本使用"></code>
@@ -49,7 +51,8 @@ QueryFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
 | onCollapse | 切换表单折叠状态时的回调 | `(collapsed)=>void` | - |
 | hideRequiredMark | 隐藏所有表单项的必选标记，**默认隐藏** | `boolean` | true |
 | submitterColSpanProps | 提交按钮所在 col 的 props | ColProps | - |
-| defaultColsNumber | 自定义折叠状态下默认显示的表单控件数量，没有设置或小于 0，则显示一行控件；数量大于等于控件数量则隐藏展开按钮 | `number` | - |
+| defaultColsNumber | 自定义折叠状态下默认显示的表单控件数量，**最多只展示一行控件**，超出时展示收起/隐藏按钮 | `number` | - |
+| defaultFormItemsNumber | 与 defaultColsNumber 的不同点在于，设置多少就展示多少个控件，超出时展示收起/隐藏按钮 | `number` | - |
 | labelWidth | label 宽度 | `number` \| `'auto'` | `80` |
 | span | 表单项宽度 | `number[0 - 24]` | - |
 | split | 每一行是否有分割线 | `boolean` | - |

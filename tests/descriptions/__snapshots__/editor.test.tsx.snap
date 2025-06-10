@@ -58,10 +58,10 @@ exports[`Descriptions > 📝 columns support editable test 1`] = `
                                   <span
                                     class="ant-input-suffix"
                                   >
-                                    <span
+                                    <button
                                       class="ant-input-clear-icon"
-                                      role="button"
                                       tabindex="-1"
+                                      type="button"
                                     >
                                       <span
                                         aria-label="close-circle"
@@ -83,7 +83,7 @@ exports[`Descriptions > 📝 columns support editable test 1`] = `
                                           />
                                         </svg>
                                       </span>
-                                    </span>
+                                    </button>
                                   </span>
                                 </span>
                               </div>
@@ -224,10 +224,10 @@ exports[`Descriptions > 📝 formItemRender run defaultRender 1`] = `
                                   <span
                                     class="ant-input-suffix"
                                   >
-                                    <span
+                                    <button
                                       class="ant-input-clear-icon"
-                                      role="button"
                                       tabindex="-1"
+                                      type="button"
                                     >
                                       <span
                                         aria-label="close-circle"
@@ -249,7 +249,7 @@ exports[`Descriptions > 📝 formItemRender run defaultRender 1`] = `
                                           />
                                         </svg>
                                       </span>
-                                    </span>
+                                    </button>
                                   </span>
                                 </span>
                               </div>

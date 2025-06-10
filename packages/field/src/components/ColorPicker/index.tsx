@@ -40,7 +40,8 @@ const DEFAULT_PRESETS = {
 const FieldColorPicker: ProFieldFC<
   {
     text: string;
-  } & Partial<ColorPickerProps>
+    mode?: 'read' | 'edit' | 'update';
+  } & Partial<Omit<ColorPickerProps, 'value' | 'mode'>>
 > = ({ text, mode: type, render, formItemRender, fieldProps }, ref: any) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-color-picker');

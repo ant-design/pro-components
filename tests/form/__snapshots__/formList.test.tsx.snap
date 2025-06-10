@@ -88,10 +88,10 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                                     <span
                                       class="ant-input-suffix"
                                     >
-                                      <span
+                                      <button
                                         class="ant-input-clear-icon"
-                                        role="button"
                                         tabindex="-1"
+                                        type="button"
                                       >
                                         <span
                                           aria-label="close-circle"
@@ -113,7 +113,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                                             />
                                           </svg>
                                         </span>
-                                      </span>
+                                      </button>
                                     </span>
                                   </span>
                                 </div>
@@ -126,6 +126,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                         class="ant-pro-form-list-action"
                       >
                         <span
+                          aria-describedby="test-id"
                           aria-label="snippets"
                           class="anticon anticon-snippets ant-pro-form-list-action-icon action-copy"
                           role="img"
@@ -146,6 +147,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                           </svg>
                         </span>
                         <span
+                          aria-describedby="test-id"
                           aria-label="close"
                           class="anticon anticon-close ant-pro-form-list-action-icon action-remove"
                           role="img"
@@ -214,10 +216,10 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                                     <span
                                       class="ant-input-suffix"
                                     >
-                                      <span
+                                      <button
                                         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                                        role="button"
                                         tabindex="-1"
+                                        type="button"
                                       >
                                         <span
                                           aria-label="close-circle"
@@ -239,7 +241,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                                             />
                                           </svg>
                                         </span>
-                                      </span>
+                                      </button>
                                     </span>
                                   </span>
                                 </div>
@@ -252,6 +254,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                         class="ant-pro-form-list-action"
                       >
                         <span
+                          aria-describedby="test-id"
                           aria-label="snippets"
                           class="anticon anticon-snippets ant-pro-form-list-action-icon action-copy"
                           role="img"
@@ -272,6 +275,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                           </svg>
                         </span>
                         <span
+                          aria-describedby="test-id"
                           aria-label="close"
                           class="anticon anticon-close ant-pro-form-list-action-icon action-remove"
                           role="img"
@@ -340,10 +344,10 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                                     <span
                                       class="ant-input-suffix"
                                     >
-                                      <span
+                                      <button
                                         class="ant-input-clear-icon"
-                                        role="button"
                                         tabindex="-1"
+                                        type="button"
                                       >
                                         <span
                                           aria-label="close-circle"
@@ -365,7 +369,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                                             />
                                           </svg>
                                         </span>
-                                      </span>
+                                      </button>
                                     </span>
                                   </span>
                                 </div>
@@ -378,6 +382,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                         class="ant-pro-form-list-action"
                       >
                         <span
+                          aria-describedby="test-id"
                           aria-label="snippets"
                           class="anticon anticon-snippets ant-pro-form-list-action-icon action-copy"
                           role="img"
@@ -398,6 +403,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                           </svg>
                         </span>
                         <span
+                          aria-describedby="test-id"
                           aria-label="close"
                           class="anticon anticon-close ant-pro-form-list-action-icon action-remove"
                           role="img"

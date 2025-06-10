@@ -6,8 +6,8 @@
 import type { DrawerProps, FormProps } from 'antd';
 import { ConfigProvider, Drawer } from 'antd';
 import classNames from 'classnames';
-import merge from 'lodash-es/merge';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { merge } from 'rc-util/lib/utils/set';
 import { noteOnce } from 'rc-util/lib/warning';
 import React, {
   useCallback,
@@ -229,7 +229,7 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
           },
         },
       } as SubmitterProps,
-      rest.submitter,
+      rest.submitter ?? {},
     );
   }, [
     rest.submitter,

@@ -208,6 +208,7 @@ exports[`Field > 🐴 base use 1`] = `
       class="ant-input-number-input-wrap"
     >
       <input
+        aria-describedby="test-id"
         autocomplete="off"
         class="ant-input-number-input"
         placeholder="请输入"
@@ -260,10 +261,10 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                     <span
                       class="ant-input-suffix"
                     >
-                      <span
+                      <button
                         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                        role="button"
                         tabindex="-1"
+                        type="button"
                       >
                         <span
                           aria-label="close-circle"
@@ -285,7 +286,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                             />
                           </svg>
                         </span>
-                      </span>
+                      </button>
                     </span>
                   </span>
                 </span>
@@ -553,6 +554,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                       class="ant-input-number-input-wrap"
                     >
                       <input
+                        aria-describedby="test-id"
                         autocomplete="off"
                         class="ant-input-number-input"
                         placeholder="请输入"
@@ -1485,10 +1487,10 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                     <span
                       class="ant-input-suffix"
                     >
-                      <span
+                      <button
                         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                        role="button"
                         tabindex="-1"
+                        type="button"
                       >
                         <span
                           aria-label="close-circle"
@@ -1510,7 +1512,7 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                             />
                           </svg>
                         </span>
-                      </span>
+                      </button>
                     </span>
                   </span>
                 </span>
@@ -1778,6 +1780,7 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                       class="ant-input-number-input-wrap"
                     >
                       <input
+                        aria-describedby="test-id"
                         autocomplete="off"
                         class="ant-input-number-input"
                         placeholder="请输入"
@@ -2738,6 +2741,7 @@ exports[`Field > 🐴 money valueType is Object 1`] = `
       class="ant-input-number-input-wrap"
     >
       <input
+        aria-describedby="test-id"
         autocomplete="off"
         class="ant-input-number-input"
         placeholder="Please enter"
@@ -2833,6 +2837,7 @@ exports[`Field > 🐴 money valueType is Object 4`] = `
       class="ant-input-number-input-wrap"
     >
       <input
+        aria-describedby="test-id"
         autocomplete="off"
         class="ant-input-number-input"
         placeholder="Введите значение"
@@ -2928,6 +2933,7 @@ exports[`Field > 🐴 money valueType is Object 7`] = `
       class="ant-input-number-input-wrap"
     >
       <input
+        aria-describedby="test-id"
         autocomplete="off"
         class="ant-input-number-input"
         placeholder="Sila masuk"
@@ -3023,6 +3029,7 @@ exports[`Field > 🐴 money valueType is Object 10`] = `
       class="ant-input-number-input-wrap"
     >
       <input
+        aria-describedby="test-id"
         autocomplete="off"
         class="ant-input-number-input"
         placeholder="Molimo unesite"

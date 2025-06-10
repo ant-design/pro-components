@@ -136,10 +136,10 @@ exports[`EditorProTable 2 > 📝 columns initialValue alway work 1`] = `
                                         <span
                                           class="ant-input-suffix"
                                         >
-                                          <span
+                                          <button
                                             class="ant-input-clear-icon"
-                                            role="button"
                                             tabindex="-1"
+                                            type="button"
                                           >
                                             <span
                                               aria-label="close-circle"
@@ -161,7 +161,7 @@ exports[`EditorProTable 2 > 📝 columns initialValue alway work 1`] = `
                                                 />
                                               </svg>
                                             </span>
-                                          </span>
+                                          </button>
                                         </span>
                                       </span>
                                     </div>
@@ -201,10 +201,10 @@ exports[`EditorProTable 2 > 📝 columns initialValue alway work 1`] = `
                                         <span
                                           class="ant-input-suffix"
                                         >
-                                          <span
+                                          <button
                                             class="ant-input-clear-icon"
-                                            role="button"
                                             tabindex="-1"
+                                            type="button"
                                           >
                                             <span
                                               aria-label="close-circle"
@@ -226,7 +226,7 @@ exports[`EditorProTable 2 > 📝 columns initialValue alway work 1`] = `
                                                 />
                                               </svg>
                                             </span>
-                                          </span>
+                                          </button>
                                         </span>
                                       </span>
                                     </div>
@@ -266,10 +266,10 @@ exports[`EditorProTable 2 > 📝 columns initialValue alway work 1`] = `
                                         <span
                                           class="ant-input-suffix"
                                         >
-                                          <span
+                                          <button
                                             class="ant-input-clear-icon"
-                                            role="button"
                                             tabindex="-1"
+                                            type="button"
                                           >
                                             <span
                                               aria-label="close-circle"
@@ -291,7 +291,7 @@ exports[`EditorProTable 2 > 📝 columns initialValue alway work 1`] = `
                                                 />
                                               </svg>
                                             </span>
-                                          </span>
+                                          </button>
                                         </span>
                                       </span>
                                     </div>

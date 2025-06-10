@@ -159,7 +159,7 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
             </a>
           </div>
           <div
-            style="flex: 1; overflow-y: auto; overflow-x: hidden;"
+            style="flex: 1 1 0%; overflow-y: auto; overflow-x: hidden;"
           >
             <div
               style="padding: 24px;"
@@ -378,7 +378,7 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
               </div>
               <div
                 class="ant-pro-top-nav-header-menu"
-                style="flex: 1;"
+                style="flex: 1 1 0%;"
               >
                 <div
                   style="margin-block-start: 16px;"
@@ -430,7 +430,7 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
           class="ant-layout-sider-children"
         >
           <div
-            style="flex: 1; overflow-y: auto; overflow-x: hidden;"
+            style="flex: 1 1 0%; overflow-y: auto; overflow-x: hidden;"
           >
             <div
               style="padding: 24px;"
@@ -624,7 +624,7 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
               </a>
             </div>
             <div
-              style="flex: 1;"
+              style="flex: 1 1 0%;"
             />
           </div>
         </header>
@@ -796,7 +796,7 @@ exports[`BasicLayout > 🥩 base use 1`] = `
             </a>
           </div>
           <div
-            style="flex: 1; overflow-y: auto; overflow-x: hidden;"
+            style="flex: 1 1 0%; overflow-y: auto; overflow-x: hidden;"
           >
             <div
               style="padding: 24px;"
@@ -1012,7 +1012,7 @@ exports[`BasicLayout > 🥩 contentStyle should change dom 1`] = `
             </a>
           </div>
           <div
-            style="flex: 1; overflow-y: auto; overflow-x: hidden;"
+            style="flex: 1 1 0%; overflow-y: auto; overflow-x: hidden;"
           >
             <div
               style="padding: 24px;"
@@ -1230,7 +1230,7 @@ exports[`BasicLayout > 🥩 mix layout hideInMenu render right 1`] = `
               </a>
             </div>
             <div
-              style="flex: 1; overflow-y: auto; overflow-x: hidden;"
+              style="flex: 1 1 0%; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
                 class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
@@ -1282,6 +1282,7 @@ exports[`BasicLayout > 🥩 mix layout hideInMenu render right 1`] = `
                     class="ant-menu-title-content"
                   >
                     <div
+                      aria-describedby=":r6g:"
                       class="ant-pro-base-menu-inline-item-title"
                     >
                       <span

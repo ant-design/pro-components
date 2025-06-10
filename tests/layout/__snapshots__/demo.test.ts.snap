@@ -26,7 +26,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                   class="ant-breadcrumb-link"
                   href="#/"
                 >
-                  一级页面
+                  Primary page
                 </a>
               </li>
               <li
@@ -40,7 +40,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                   class="ant-breadcrumb-link"
                   href="#//"
                 >
-                  二级页面
+                  Secondary page
                 </a>
               </li>
               <li
@@ -54,7 +54,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                   class="ant-breadcrumb-link"
                   href="#///"
                 >
-                  当前页面
+                  Current page
                 </a>
               </li>
             </ol>
@@ -67,9 +67,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
             >
               <span
                 class="ant-page-header-heading-title"
-                title="页面标题"
+                title="Page Title"
               >
-                页面标题
+                Page Title
               </span>
             </div>
             <span
@@ -86,7 +86,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                     type="button"
                   >
                     <span>
-                      次要按钮
+                      Secondary button
                     </span>
                   </button>
                 </div>
@@ -98,7 +98,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                     type="button"
                   >
                     <span>
-                      次要按钮
+                      Secondary button
                     </span>
                   </button>
                 </div>
@@ -110,7 +110,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                     type="button"
                   >
                     <span>
-                      主要按钮
+                      Primary button
                     </span>
                   </button>
                 </div>
@@ -153,6 +153,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
               class="ant-tabs ant-tabs-top ant-tabs-editable ant-tabs-card ant-tabs-editable-card ant-pro-page-container-tabs"
             >
               <div
+                aria-orientation="horizontal"
                 class="ant-tabs-nav"
                 role="tablist"
               >
@@ -175,7 +176,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                         role="tab"
                         tabindex="0"
                       >
-                        基本信息
+                        Basic information
                       </div>
                     </div>
                     <div
@@ -188,14 +189,15 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                         class="ant-tabs-tab-btn"
                         id="rc-tabs-test-tab-info"
                         role="tab"
-                        tabindex="0"
+                        tabindex="-1"
                       >
-                        详细信息
+                        Detailed information
                       </div>
                       <button
                         aria-label="remove"
                         class="ant-tabs-tab-remove"
-                        tabindex="0"
+                        role="tab"
+                        tabindex="-1"
                         type="button"
                       >
                         <span
@@ -232,11 +234,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                     aria-controls="rc-tabs-test-more-popup"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-hidden="true"
                     class="ant-tabs-nav-more"
                     id="rc-tabs-test-more"
                     style="visibility: hidden; order: 1;"
-                    tabindex="-1"
                     type="button"
                   >
                     <span
@@ -263,7 +263,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                 <div
                   class="ant-tabs-extra-content"
                 >
-                  测试tabBarExtraContent
+                  Test tabBarExtraContent
                 </div>
               </div>
               <div
@@ -371,7 +371,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
             type="button"
           >
             <span>
-              重 置
+              Reset
             </span>
           </button>
           <button
@@ -379,7 +379,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
             type="button"
           >
             <span>
-              提 交
+              Submit
             </span>
           </button>
         </div>
@@ -424,7 +424,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                         class="ant-breadcrumb-link"
                         href="#/"
                       >
-                        一级页面
+                        Primary page
                       </a>
                     </li>
                     <li
@@ -438,7 +438,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                         class="ant-breadcrumb-link"
                         href="#//"
                       >
-                        二级页面
+                        Secondary page
                       </a>
                     </li>
                     <li
@@ -452,7 +452,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                         class="ant-breadcrumb-link"
                         href="#///"
                       >
-                        当前页面
+                        Current page
                       </a>
                     </li>
                   </ol>
@@ -465,9 +465,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                   >
                     <span
                       class="ant-page-header-heading-title"
-                      title="页面标题"
+                      title="Page Title"
                     >
-                      页面标题
+                      Page Title
                     </span>
                   </div>
                 </div>
@@ -478,6 +478,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                     class="ant-tabs ant-tabs-top ant-pro-page-container-tabs"
                   >
                     <div
+                      aria-orientation="horizontal"
                       class="ant-tabs-nav"
                       role="tablist"
                     >
@@ -500,7 +501,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                               role="tab"
                               tabindex="0"
                             >
-                              已选择
+                              Selected
                             </div>
                           </div>
                           <div
@@ -513,9 +514,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                               class="ant-tabs-tab-btn"
                               id="rc-tabs-test-tab-2"
                               role="tab"
-                              tabindex="0"
+                              tabindex="-1"
                             >
-                              可点击
+                              Clickable
                             </div>
                           </div>
                           <div
@@ -530,7 +531,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                               id="rc-tabs-test-tab-3"
                               role="tab"
                             >
-                              禁用
+                              Disabled
                             </div>
                           </div>
                           <div
@@ -545,11 +546,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                           aria-controls="rc-tabs-test-more-popup"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-hidden="true"
                           class="ant-tabs-nav-more"
                           id="rc-tabs-test-more"
                           style="visibility: hidden; order: 1;"
-                          tabindex="-1"
                           type="button"
                         >
                           <span
@@ -738,9 +737,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
             >
               <span
                 class="ant-page-header-heading-title"
-                title="页面标题"
+                title="Page Title"
               >
-                页面标题
+                Page Title
               </span>
             </div>
           </div>
@@ -781,7 +780,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                                   <span
                                     class="ant-descriptions-item-label"
                                   >
-                                    创建人
+                                    Creator
                                   </span>
                                   <span
                                     class="ant-descriptions-item-content"
@@ -800,7 +799,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                                   <span
                                     class="ant-descriptions-item-label"
                                   >
-                                    关联表单
+                                    Associated form
                                   </span>
                                   <span
                                     class="ant-descriptions-item-content"
@@ -825,7 +824,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                                   <span
                                     class="ant-descriptions-item-label"
                                   >
-                                    创建时间
+                                    Creation Date
                                   </span>
                                   <span
                                     class="ant-descriptions-item-content"
@@ -844,7 +843,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                                   <span
                                     class="ant-descriptions-item-label"
                                   >
-                                    单据备注
+                                    Document remarks
                                   </span>
                                   <span
                                     class="ant-descriptions-item-content"
@@ -973,7 +972,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                       class="ant-breadcrumb-link"
                       href="#/"
                     >
-                      一级页面
+                      Primary page
                     </a>
                   </li>
                   <li
@@ -987,7 +986,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                       class="ant-breadcrumb-link"
                       href="#//"
                     >
-                      二级页面
+                      Secondary page
                     </a>
                   </li>
                   <li
@@ -1001,7 +1000,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                       class="ant-breadcrumb-link"
                       href="#///"
                     >
-                      当前页面
+                      Current page
                     </a>
                   </li>
                 </ol>
@@ -1014,9 +1013,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                 >
                   <span
                     class="ant-page-header-heading-title"
-                    title="默认loading"
+                    title="Default loading"
                   >
-                    默认loading
+                    Default loading
                   </span>
                 </div>
               </div>
@@ -1083,7 +1082,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                       class="ant-breadcrumb-link"
                       href="#/"
                     >
-                      一级页面
+                      Primary page
                     </a>
                   </li>
                   <li
@@ -1097,7 +1096,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                       class="ant-breadcrumb-link"
                       href="#//"
                     >
-                      二级页面
+                      Secondary page
                     </a>
                   </li>
                   <li
@@ -1111,7 +1110,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                       class="ant-breadcrumb-link"
                       href="#///"
                     >
-                      当前页面
+                      Current page
                     </a>
                   </li>
                 </ol>
@@ -1124,9 +1123,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                 >
                   <span
                     class="ant-page-header-heading-title"
-                    title="自定义loading属性"
+                    title="Custom loading property"
                   >
-                    自定义loading属性
+                    Custom loading property
                   </span>
                 </div>
               </div>
@@ -1193,7 +1192,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                       class="ant-breadcrumb-link"
                       href="#/"
                     >
-                      一级页面
+                      Primary page
                     </a>
                   </li>
                   <li
@@ -1207,7 +1206,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                       class="ant-breadcrumb-link"
                       href="#//"
                     >
-                      二级页面
+                      Secondary page
                     </a>
                   </li>
                   <li
@@ -1221,7 +1220,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                       class="ant-breadcrumb-link"
                       href="#///"
                     >
-                      当前页面
+                      Current page
                     </a>
                   </li>
                 </ol>
@@ -1234,9 +1233,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                 >
                   <span
                     class="ant-page-header-heading-title"
-                    title="自定义loading，3s后显示内容"
+                    title="Custom loading, display content after 3 seconds"
                   >
-                    自定义loading，3s后显示内容
+                    Custom loading, display content after 3 seconds
                   </span>
                 </div>
               </div>
@@ -1250,7 +1249,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                 <div
                   style="color: red; padding: 30px; text-align: center;"
                 >
-                  自定义加载...
+                  Custom loading...
                 </div>
               </div>
             </div>
@@ -1288,7 +1287,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                   class="ant-breadcrumb-link"
                   href="#/"
                 >
-                  一级页面
+                  Primary page
                 </a>
               </li>
               <li
@@ -1302,7 +1301,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                   class="ant-breadcrumb-link"
                   href="#//"
                 >
-                  二级页面
+                  Secondary page
                 </a>
               </li>
               <li
@@ -1316,7 +1315,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                   class="ant-breadcrumb-link"
                   href="#///"
                 >
-                  当前页面
+                  Current page
                 </a>
               </li>
             </ol>
@@ -1329,9 +1328,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
             >
               <span
                 class="ant-page-header-heading-title"
-                title="页面标题"
+                title="Page Title"
               >
-                页面标题
+                Page Title
               </span>
             </div>
             <span
@@ -1348,7 +1347,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                     type="button"
                   >
                     <span>
-                      次要按钮
+                      Secondary button
                     </span>
                   </button>
                 </div>
@@ -1360,7 +1359,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                     type="button"
                   >
                     <span>
-                      次要按钮
+                      Secondary button
                     </span>
                   </button>
                 </div>
@@ -1372,7 +1371,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                     type="button"
                   >
                     <span>
-                      主要按钮
+                      Primary button
                     </span>
                   </button>
                 </div>
@@ -1449,6 +1448,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                             >
                               <span>
                                 <span
+                                  aria-describedby="test-id"
                                   aria-label="reload"
                                   class="anticon anticon-reload"
                                   role="img"
@@ -1474,6 +1474,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                             >
                               <span>
                                 <span
+                                  aria-describedby="test-id"
                                   aria-label="column-height"
                                   class="anticon anticon-column-height ant-dropdown-trigger"
                                   role="img"
@@ -1499,6 +1500,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                               class="ant-pro-table-list-toolbar-setting-item"
                             >
                               <span
+                                aria-describedby="test-id"
                                 aria-label="setting"
                                 class="anticon anticon-setting"
                                 role="img"
@@ -1709,6 +1711,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/AlwaysDefaultOp
                               class="ant-menu-title-content"
                             >
                               <div
+                                aria-describedby="test-id"
                                 class="ant-pro-base-menu-inline-item-title"
                               >
                                 <span
@@ -2585,6 +2588,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/DefaultOpenAllM
                               class="ant-menu-title-content"
                             >
                               <div
+                                aria-describedby="test-id"
                                 class="ant-pro-base-menu-inline-item-title"
                               >
                                 <span
@@ -4084,6 +4088,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/Nested.tsx corr
                               class="ant-menu-title-content"
                             >
                               <div
+                                aria-describedby="test-id"
                                 class="ant-pro-base-menu-inline-item-title"
                               >
                                 <span
@@ -4126,6 +4131,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/Nested.tsx corr
                               class="ant-menu-title-content"
                             >
                               <div
+                                aria-describedby="test-id"
                                 class="ant-pro-base-menu-inline-item-title"
                               >
                                 <span
@@ -4168,6 +4174,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/Nested.tsx corr
                               class="ant-menu-title-content"
                             >
                               <div
+                                aria-describedby="test-id"
                                 class="ant-pro-base-menu-inline-item-title"
                               >
                                 <span
@@ -6223,6 +6230,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/async-load-help
                       role="menu"
                     >
                       <li
+                        aria-describedby="test-id"
                         class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
                         data-menu-id="rc-menu-uuid-test-1"
                         role="menuitem"
@@ -6236,6 +6244,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/async-load-help
                         </span>
                       </li>
                       <li
+                        aria-describedby="test-id"
                         class="ant-menu-item ant-menu-item-only-child"
                         data-menu-id="rc-menu-uuid-test-2"
                         role="menuitem"
@@ -8269,6 +8278,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/config-provider
                     class="qixian-tabs qixian-tabs-top qixian-pro-page-container-tabs"
                   >
                     <div
+                      aria-orientation="horizontal"
                       class="qixian-tabs-nav"
                       role="tablist"
                     >
@@ -8304,7 +8314,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/config-provider
                               class="qixian-tabs-tab-btn"
                               id="rc-tabs-test-tab-info"
                               role="tab"
-                              tabindex="0"
+                              tabindex="-1"
                             >
                               详细信息
                             </div>
@@ -8321,11 +8331,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/config-provider
                           aria-controls="rc-tabs-test-more-popup"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-hidden="true"
                           class="qixian-tabs-nav-more"
                           id="rc-tabs-test-more"
                           style="visibility: hidden; order: 1;"
-                          tabindex="-1"
                           type="button"
                         >
                           <span
@@ -8872,7 +8880,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/customSider.tsx
                             <span
                               class="ant-menu-title-content"
                             >
-                              <div>
+                              <div
+                                aria-describedby="test-id"
+                              >
                                 <div
                                   class="ant-pro-base-menu-inline-item-title"
                                 >
@@ -9394,7 +9404,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/customSider.tsx
                             <span
                               class="ant-menu-title-content"
                             >
-                              <div>
+                              <div
+                                aria-describedby="test-id"
+                              >
                                 <span
                                   class="ant-pro-base-menu-inline-item-title ant-pro-base-menu-inline-item-link"
                                 >
@@ -10053,10 +10065,10 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/customize-colla
                                   <span
                                     class="ant-input-suffix"
                                   >
-                                    <span
+                                    <button
                                       class="ant-input-clear-icon"
-                                      role="button"
                                       tabindex="-1"
+                                      type="button"
                                     >
                                       <span
                                         aria-label="close-circle"
@@ -10078,7 +10090,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/customize-colla
                                           />
                                         </svg>
                                       </span>
-                                    </span>
+                                    </button>
                                   </span>
                                 </span>
                               </div>
@@ -11978,6 +11990,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/draggableHelp.t
                       role="menu"
                     >
                       <li
+                        aria-describedby="test-id"
                         class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
                         data-menu-id="rc-menu-uuid-test-1"
                         role="menuitem"
@@ -11991,6 +12004,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/draggableHelp.t
                         </span>
                       </li>
                       <li
+                        aria-describedby="test-id"
                         class="ant-menu-item ant-menu-item-only-child"
                         data-menu-id="rc-menu-uuid-test-2"
                         role="menuitem"
@@ -12794,6 +12808,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamic-setting
                       class="ant-tabs ant-tabs-top ant-pro-page-container-tabs"
                     >
                       <div
+                        aria-orientation="horizontal"
                         class="ant-tabs-nav"
                         role="tablist"
                       >
@@ -12829,7 +12844,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamic-setting
                                 class="ant-tabs-tab-btn"
                                 id="rc-tabs-test-tab-info"
                                 role="tab"
-                                tabindex="0"
+                                tabindex="-1"
                               >
                                 详细信息
                               </div>
@@ -12846,11 +12861,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamic-setting
                             aria-controls="rc-tabs-test-more-popup"
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-hidden="true"
                             class="ant-tabs-nav-more"
                             id="rc-tabs-test-more"
                             style="visibility: hidden; order: 1;"
-                            tabindex="-1"
                             type="button"
                           >
                             <span
@@ -15185,6 +15198,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/help.tsx correc
                       role="menu"
                     >
                       <li
+                        aria-describedby="test-id"
                         class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
                         data-menu-id="rc-menu-uuid-test-1"
                         role="menuitem"
@@ -15198,6 +15212,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/help.tsx correc
                         </span>
                       </li>
                       <li
+                        aria-describedby="test-id"
                         class="ant-menu-item ant-menu-item-only-child"
                         data-menu-id="rc-menu-uuid-test-2"
                         role="menuitem"
@@ -15481,7 +15496,6 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/help.tsx correc
                     这篇文章的质量如何？ 
                     <ul
                       class="ant-rate"
-                      role="radiogroup"
                       tabindex="0"
                     >
                       <li
@@ -16519,7 +16533,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/immersive-navig
                           >
                             <input
                               class="ant-input ant-input-outlined"
-                              type="text"
+                              type="search"
                               value=""
                             />
                             <span
@@ -18276,6 +18290,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/proHelpModal.ts
             打开
           </button>
           <span
+            aria-describedby="test-id"
             class="ant-pro-help-popover-text"
           >
             Morse

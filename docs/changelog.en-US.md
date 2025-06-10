@@ -1,3 +1,36 @@
+## @ant-design/pro-components@2.8.8
+
+`2025-06-10`
+
+- feat(form): extend the input argument of the render method in the read mode of select (#9059). [#9059](https://github.com/ant-design/pro-components/pull/#9059) [@rubbishmaker](https://github.com/rubbishmaker)
+- fix(form): 修复 StrictMode 模式下，BetaSchemaForm-ModalForm 渲染表单项失败的问题 (#9069). [#9069](https://github.com/ant-design/pro-components/pull/#9069) [@Lemonnnnnnnnnnn](https://github.com/Lemonnnnnnnnnnn)
+- fix(form): 修复 validateDebounce 属性不生效的问题 (#9072). [#9072](https://github.com/ant-design/pro-components/pull/#9072) [@Lemonnnnnnnnnnn](https://github.com/Lemonnnnnnnnnnn)
+- fix(form): 修复使用QueryFilter时报findDOMNode is deprecated的问题。 (#9065). [#9065](https://github.com/ant-design/pro-components/pull/#9065) [@Jarod-Xie](https://github.com/Jarod-Xie)
+- fix(form): 给 select readonly 模式下 render 方法提供组件内部计算好的 options (#9068). [#9068](https://github.com/ant-design/pro-components/pull/#9068) [@zwmmm](https://github.com/zwmmm)
+- fix(form): 使用useRef优化valuePair的处理逻辑，确保在边界值外的值更新更为准确 (#9058). [#9058](https://github.com/ant-design/pro-components/pull/#9058) [@Lemonnnnnnnnnnn](https://github.com/Lemonnnnnnnnnnn)
+- feat(table): 新增 filter 與 sort 受控方式 (#9060). [#9060](https://github.com/ant-design/pro-components/pull/#9060) [@leadingtw273](https://github.com/leadingtw273)
+
+## @ant-design/pro-components@2.8.6
+
+`2025-02-17`
+
+- fix(form):fixed an issue where queryFilter controls were abnormally hidden (#8564). [#8564](https://github.com/ant-design/pro-components/pull/#8564) [@Lemonnnnnnnnnnn](https://github.com/Lemonnnnnnnnnnn)
+- fix(form): 修复刷新之后 label 丢失的情况 (#8982). [#8982](https://github.com/ant-design/pro-components/pull/#8982) [@LovePlayCode](https://github.com/LovePlayCode)
+- fix(table): resolve EditableProTable Form.Item shouldUpdate conflict with dependencies (#8986). [#8986](https://github.com/ant-design/pro-components/pull/#8986) [@drizzlesconsin](https://github.com/drizzlesconsin)
+
+## @ant-design/pro-components@2.8.5
+
+`2025-02-12`
+
+- 修复 layout 收起 menu 的文字还存在的问题。
+
+## @ant-design/pro-components@2.8.3
+
+`2025-01-06`
+
+- feat(layout): Add drawerProps for SettingDrawer (#8953). [#8953](https://github.com/ant-design/pro-components/pull/#8953) [@junyiz](https://github.com/junyiz)
+- fix(field): add preserveOriginalLabel prop to SearchSelect (#8919). [#8919](https://github.com/ant-design/pro-components/pull/#8919) [@DBvc](https://github.com/DBvc)
+
 ## @ant-design/pro-components@2.8.2
 
 `2024-11-14`

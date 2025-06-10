@@ -91,6 +91,7 @@ exports[`💵 ProFormMoney > 💵 ProFormMoney value expect number 1`] = `
                   class="ant-input-number-input-wrap"
                 >
                   <input
+                    aria-describedby="test-id"
                     aria-valuenow="44.33"
                     autocomplete="off"
                     class="ant-input-number-input"
@@ -222,6 +223,7 @@ exports[`💵 ProFormMoney > 💵 can input negative 1`] = `
                   class="ant-input-number-input-wrap"
                 >
                   <input
+                    aria-describedby="test-id"
                     aria-valuenow="-55.33"
                     autocomplete="off"
                     class="ant-input-number-input"
@@ -353,6 +355,7 @@ exports[`💵 ProFormMoney > 💵 can not input negative 1`] = `
                   class="ant-input-number-input-wrap"
                 >
                   <input
+                    aria-describedby="test-id"
                     aria-valuemin="0"
                     autocomplete="off"
                     class="ant-input-number-input"
@@ -484,6 +487,7 @@ exports[`💵 ProFormMoney > 💵 moneySymbol with custom locale 1`] = `
                   class="ant-input-number-input-wrap"
                 >
                   <input
+                    aria-describedby="test-id"
                     aria-valuenow="44.33"
                     autocomplete="off"
                     class="ant-input-number-input"
@@ -615,6 +619,7 @@ exports[`💵 ProFormMoney > 💵 moneySymbol with custom symbol 1`] = `
                   class="ant-input-number-input-wrap"
                 >
                   <input
+                    aria-describedby="test-id"
                     aria-valuenow="44.33"
                     autocomplete="off"
                     class="ant-input-number-input"
@@ -746,6 +751,7 @@ exports[`💵 ProFormMoney > 💵 moneySymbol with global locale 1`] = `
                   class="ant-input-number-input-wrap"
                 >
                   <input
+                    aria-describedby="test-id"
                     aria-valuenow="44.33"
                     autocomplete="off"
                     class="ant-input-number-input"
@@ -877,6 +883,7 @@ exports[`💵 ProFormMoney > 💵 update money precision when init 1`] = `
                   class="ant-input-number-input-wrap"
                 >
                   <input
+                    aria-describedby="test-id"
                     aria-valuenow="444444444.3333333"
                     autocomplete="off"
                     class="ant-input-number-input"

@@ -2,6 +2,44 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@3.0.4...@ant-design/pro-field@3.0.5) (2025-06-10)
+
+### Bug Fixes
+
+- **form:** 使用useRef优化valuePair的处理逻辑，确保在边界值外的值更新更为准确 ([#9058](https://github.com/ant-design/pro-components/issues/9058)) ([e2b398f](https://github.com/ant-design/pro-components/commit/e2b398f49187a5ef522601487731c9de9e1470c2))
+- **form:** 给 select readonly 模式下 render 方法提供组件内部计算好的 options ([#9068](https://github.com/ant-design/pro-components/issues/9068)) ([d7f4ae2](https://github.com/ant-design/pro-components/commit/d7f4ae2382e201bf8b646aa4599fef312728c697))
+
+## [3.0.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@3.0.3...@ant-design/pro-field@3.0.4) (2025-03-31)
+
+### Bug Fixes
+
+- **tests:** 移除多余的空行以清理代码 ([32cb3b8](https://github.com/ant-design/pro-components/commit/32cb3b8f85d38e5ee60e73440207617340890def))
+
+## [3.0.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@3.0.2...@ant-design/pro-field@3.0.3) (2025-02-17)
+
+### Bug Fixes
+
+- **form:** 修复刷新之后 label 丢失的情况 ([#8982](https://github.com/ant-design/pro-components/issues/8982)) ([93b2c28](https://github.com/ant-design/pro-components/commit/93b2c28a6d5624be2e57f0ac3ab906b778332a72))
+
+## [3.0.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@3.0.1...@ant-design/pro-field@3.0.2) (2025-02-12)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [3.0.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@3.0.0...@ant-design/pro-field@3.0.1) (2025-01-18)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+# [3.0.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.17.2...@ant-design/pro-field@3.0.0) (2025-01-06)
+
+### Bug Fixes
+
+- **field:** add preserveOriginalLabel prop to SearchSelect ([#8919](https://github.com/ant-design/pro-components/issues/8919)) ([feb8200](https://github.com/ant-design/pro-components/commit/feb8200e162482f8b257a2a80d7ec5aec56b4440))
+- **locale:** add missing newline at end of file for sv_SE, nl_NL, and ro_RO locales ([d0f573f](https://github.com/ant-design/pro-components/commit/d0f573f325db4e863db1fbf70afc25ccf3dde7a7))
+
+### BREAKING CHANGES
+
+- **field:** None
+
 ## [2.17.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.17.1...@ant-design/pro-field@2.17.2) (2024-11-14)
 
 ### Bug Fixes

@@ -54,11 +54,11 @@ export function mergePagination<T>(
     ...(defaultPagination as TablePaginationConfig),
     current:
       pagination !== true && pagination
-        ? pagination.current ?? current
+        ? (pagination.current ?? current)
         : current,
     pageSize:
       pagination !== true && pagination
-        ? pagination.pageSize ?? pageSize
+        ? (pagination.pageSize ?? pageSize)
         : pageSize,
     onChange: (page: number, newPageSize?: number) => {
       const { onChange } = pagination as TablePaginationConfig;

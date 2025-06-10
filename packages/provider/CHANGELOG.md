@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.16.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.15.4...@ant-design/pro-provider@2.16.0) (2025-06-10)
+
+### Bug Fixes
+
+- updated translations in cs_CZ locale ([#9049](https://github.com/ant-design/pro-components/issues/9049)) ([7894844](https://github.com/ant-design/pro-components/commit/78948446955d03a61d56e3e3a3d09203dbbb9b1d))
+
+### Features
+
+- 增加香港繁体支持 ([#9100](https://github.com/ant-design/pro-components/issues/9100)) ([3ec7bf4](https://github.com/ant-design/pro-components/commit/3ec7bf4315d6df4c363a6e9466ca21e8edd01696))
+
+## [2.15.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.15.3...@ant-design/pro-provider@2.15.4) (2025-03-31)
+
+**Note:** Version bump only for package @ant-design/pro-provider
+
+## [2.15.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.15.2...@ant-design/pro-provider@2.15.3) (2025-01-06)
+
+### Bug Fixes
+
+- **locale:** add missing newline at end of file for sv_SE, nl_NL, and ro_RO locales ([d0f573f](https://github.com/ant-design/pro-components/commit/d0f573f325db4e863db1fbf70afc25ccf3dde7a7))
+
 ## [2.15.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.15.1...@ant-design/pro-provider@2.15.2) (2024-11-14)
 
 ### Bug Fixes

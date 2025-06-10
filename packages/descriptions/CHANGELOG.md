@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.6.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.6.7...@ant-design/pro-descriptions@2.6.8) (2025-06-10)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [2.6.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.6.6...@ant-design/pro-descriptions@2.6.7) (2025-03-31)
+
+### Bug Fixes
+
+- **tests:** 移除多余的空行以清理代码 ([32cb3b8](https://github.com/ant-design/pro-components/commit/32cb3b8f85d38e5ee60e73440207617340890def))
+
+## [2.6.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.6.5...@ant-design/pro-descriptions@2.6.6) (2025-02-17)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [2.6.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.6.4...@ant-design/pro-descriptions@2.6.5) (2025-02-12)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [2.6.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.6.3...@ant-design/pro-descriptions@2.6.4) (2025-01-18)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [2.6.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.6.2...@ant-design/pro-descriptions@2.6.3) (2025-01-06)
+
+### Bug Fixes
+
+- **locale:** add missing newline at end of file for sv_SE, nl_NL, and ro_RO locales ([d0f573f](https://github.com/ant-design/pro-components/commit/d0f573f325db4e863db1fbf70afc25ccf3dde7a7))
+
 ## [2.6.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.6.1...@ant-design/pro-descriptions@2.6.2) (2024-11-14)
 
 **Note:** Version bump only for package @ant-design/pro-descriptions

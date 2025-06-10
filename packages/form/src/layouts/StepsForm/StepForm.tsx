@@ -1,7 +1,7 @@
 import type { FormInstance, FormProps } from 'antd';
-import omit from 'omit.js';
 import type { StepProps } from 'rc-steps/es/Step';
 import { noteOnce } from 'rc-util/es/warning';
+import omit from 'rc-util/lib/omit';
 import { useContext, useEffect, useImperativeHandle, useRef } from 'react';
 import type { CommonFormProps } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';

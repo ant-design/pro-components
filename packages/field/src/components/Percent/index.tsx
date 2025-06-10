@@ -1,6 +1,5 @@
 import { useIntl } from '@ant-design/pro-provider';
 import { InputNumber } from 'antd';
-import toNumber from 'lodash-es/toNumber';
 import type { ReactNode } from 'react';
 import React, { Fragment, useMemo } from 'react';
 import type { ProFieldFC } from '../../PureProField';
@@ -8,6 +7,7 @@ import {
   getColorByRealValue,
   getRealTextWithPrecision,
   getSymbolByRealValue,
+  toNumber,
 } from './util';
 
 export type PercentPropInt = {

@@ -46,66 +46,88 @@ dayjs.extend(weekday);
 
 const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
   progress: {
-    render: (text, props) => (
-      <FieldProgress
-        {...props}
-        text={text}
-        fieldProps={{
-          ...(props?.status && { status: props.status }),
-          ...pickProProps(props.fieldProps),
-        }}
-      />
-    ),
-    formItemRender: (text, props) => (
-      <FieldProgress
-        {...props}
-        text={text}
-        fieldProps={{
-          ...(props?.status && { status: props.status }),
-          ...pickProProps(props.fieldProps),
-        }}
-      />
-    ),
+    render: (text, props) => {
+      const fieldProps = pickProProps(props.fieldProps);
+      const placeholder =
+        typeof props.placeholder === 'string' ? props.placeholder : undefined;
+      return (
+        <FieldProgress
+          mode={props.mode}
+          text={text}
+          placeholder={placeholder}
+          fieldProps={fieldProps}
+        />
+      );
+    },
+    formItemRender: (text, props) => {
+      const fieldProps = pickProProps(props.fieldProps);
+      const placeholder =
+        typeof props.placeholder === 'string' ? props.placeholder : undefined;
+      return (
+        <FieldProgress
+          mode={props.mode}
+          text={text}
+          placeholder={placeholder}
+          fieldProps={fieldProps}
+        />
+      );
+    },
   },
   money: {
-    render: (text, props) => (
-      <FieldMoney
-        {...props}
-        text={text}
-        fieldProps={{
-          ...pickProProps(props.fieldProps),
-        }}
-      />
-    ),
-    formItemRender: (text, props) => (
-      <FieldMoney
-        {...props}
-        text={text}
-        fieldProps={{
-          ...pickProProps(props.fieldProps),
-        }}
-      />
-    ),
+    render: (text, props) => {
+      const fieldProps = pickProProps(props.fieldProps);
+      const placeholder =
+        typeof props.placeholder === 'string' ? props.placeholder : undefined;
+      return (
+        <FieldMoney
+          mode={props.mode}
+          text={text}
+          placeholder={placeholder}
+          fieldProps={fieldProps}
+        />
+      );
+    },
+    formItemRender: (text, props) => {
+      const fieldProps = pickProProps(props.fieldProps);
+      const placeholder =
+        typeof props.placeholder === 'string' ? props.placeholder : undefined;
+      return (
+        <FieldMoney
+          mode={props.mode}
+          text={text}
+          placeholder={placeholder}
+          fieldProps={fieldProps}
+        />
+      );
+    },
   },
   percent: {
-    render: (text, props) => (
-      <FieldPercent
-        {...props}
-        text={text}
-        fieldProps={{
-          ...pickProProps(props.fieldProps),
-        }}
-      />
-    ),
-    formItemRender: (text, props) => (
-      <FieldPercent
-        {...props}
-        text={text}
-        fieldProps={{
-          ...pickProProps(props.fieldProps),
-        }}
-      />
-    ),
+    render: (text, props) => {
+      const fieldProps = pickProProps(props.fieldProps);
+      const placeholder =
+        typeof props.placeholder === 'string' ? props.placeholder : undefined;
+      return (
+        <FieldPercent
+          mode={props.mode}
+          text={text}
+          placeholder={placeholder}
+          fieldProps={fieldProps}
+        />
+      );
+    },
+    formItemRender: (text, props) => {
+      const fieldProps = pickProProps(props.fieldProps);
+      const placeholder =
+        typeof props.placeholder === 'string' ? props.placeholder : undefined;
+      return (
+        <FieldPercent
+          mode={props.mode}
+          text={text}
+          placeholder={placeholder}
+          fieldProps={fieldProps}
+        />
+      );
+    },
   },
   image: {
     render: (text, props) => <FieldImage {...props} text={text} />,
@@ -416,16 +438,60 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
     formItemRender: (text, props) => <FieldTextArea {...props} text={text} />,
   },
   digit: {
-    render: (text, props) => <FieldDigit {...props} text={text} />,
-    formItemRender: (text, props) => <FieldDigit {...props} text={text} />,
+    render: (text, props) => {
+      const fieldProps = pickProProps(props.fieldProps);
+      const placeholder = Array.isArray(props.placeholder)
+        ? props.placeholder[0]
+        : typeof props.placeholder === 'string'
+          ? props.placeholder
+          : undefined;
+      const textValue = typeof text === 'number' ? text : Number(text) || 0;
+      return (
+        <FieldDigit
+          text={textValue}
+          placeholder={placeholder}
+          mode={props.mode}
+          fieldProps={fieldProps}
+        />
+      );
+    },
+    formItemRender: (text, props) => {
+      const fieldProps = pickProProps(props.fieldProps);
+      const placeholder = Array.isArray(props.placeholder)
+        ? props.placeholder[0]
+        : typeof props.placeholder === 'string'
+          ? props.placeholder
+          : undefined;
+      const textValue = typeof text === 'number' ? text : Number(text) || 0;
+      return (
+        <FieldDigit
+          text={textValue}
+          placeholder={placeholder}
+          mode={props.mode}
+          fieldProps={fieldProps}
+        />
+      );
+    },
   },
   digitRange: {
     render: (text, props) => <FieldDigitRange {...props} text={text} />,
     formItemRender: (text, props) => <FieldDigitRange {...props} text={text} />,
   },
   second: {
-    render: (text, props) => <FieldSecond {...props} text={text} />,
-    formItemRender: (text, props) => <FieldSecond {...props} text={text} />,
+    render: (text, props) => (
+      <FieldSecond
+        {...props}
+        text={text}
+        placeholder={props.placeholder as string}
+      />
+    ),
+    formItemRender: (text, props) => (
+      <FieldSecond
+        {...props}
+        text={text}
+        placeholder={props.placeholder as string}
+      />
+    ),
   },
   select: {
     render: (text, props) => (
@@ -441,20 +507,20 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
   },
   text: {
     render: (text, props) =>
-      props.valueEnum || props.request ? (
+      'valueEnum' in props ? (
         <FieldHOC isLight={props.light}>
           <FieldSelect {...props} text={text} />
         </FieldHOC>
       ) : (
-        <FieldText text={text as string} {...props} />
+        <FieldText {...props} text={text as string} />
       ),
     formItemRender: (text, props) =>
-      props.valueEnum || props.request ? (
+      'valueEnum' in props ? (
         <FieldHOC isLight={props.light}>
           <FieldSelect {...props} text={text} />
         </FieldHOC>
       ) : (
-        <FieldText text={text as string} {...props} />
+        <FieldText {...props} text={text as string} />
       ),
   },
   checkbox: {
@@ -494,8 +560,32 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
     formItemRender: (text, props) => <FieldPassword {...props} text={text} />,
   },
   cascader: {
-    render: (text, props) => <FieldCascader {...props} text={text} />,
-    formItemRender: (text, props) => <FieldCascader {...props} text={text} />,
+    render: (text, props) => {
+      const fieldProps = pickProProps(props.fieldProps);
+      const placeholder =
+        typeof props.placeholder === 'string' ? props.placeholder : undefined;
+      return (
+        <FieldCascader
+          mode={props.mode}
+          text={text}
+          placeholder={placeholder}
+          fieldProps={fieldProps}
+        />
+      );
+    },
+    formItemRender: (text, props) => {
+      const fieldProps = pickProProps(props.fieldProps);
+      const placeholder =
+        typeof props.placeholder === 'string' ? props.placeholder : undefined;
+      return (
+        <FieldCascader
+          mode={props.mode}
+          text={text}
+          placeholder={placeholder}
+          fieldProps={fieldProps}
+        />
+      );
+    },
   },
   treeSelect: {
     render: (text, props) => <FieldTreeSelect {...props} text={text} />,

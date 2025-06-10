@@ -23,11 +23,11 @@ export default () => {
       name: string;
       company: string;
     }>
-      title="新建表单"
+      title="Create New Form"
       trigger={
         <Button type="primary">
           <PlusOutlined />
-          新建表单
+          Create New Form
         </Button>
       }
       form={form}
@@ -40,7 +40,7 @@ export default () => {
       onFinish={async (values) => {
         await waitTime(2000);
         console.log(values.name);
-        message.success('提交成功');
+        message.success('Submission successful');
         return true;
       }}
     >
@@ -48,64 +48,67 @@ export default () => {
         <ProFormText
           width="md"
           name="name"
-          label="签约客户名称"
-          tooltip="最长为 24 位"
-          placeholder="请输入名称"
+          label="Contract Customer Name"
+          tooltip="Up to 24 characters"
+          placeholder="Please enter a name"
         />
 
         <ProFormText
           width="md"
           name="company"
-          label="我方公司名称"
-          placeholder="请输入名称"
+          label="Our Company Name"
+          placeholder="Please enter a name"
         />
       </ProForm.Group>
       <ProForm.Group>
         <ProFormText
           width="md"
           name="contract"
-          label="合同名称"
-          placeholder="请输入名称"
+          label="Contract Name"
+          placeholder="Please enter a name"
         />
-        <ProFormDateRangePicker name="contractTime" label="合同生效时间" />
+        <ProFormDateRangePicker
+          name="contractTime"
+          label="Contract Effective Time"
+        />
       </ProForm.Group>
       <ProForm.Group>
         <ProFormSelect
           request={async () => [
             {
               value: 'chapter',
-              label: '盖章后生效',
+              label: 'Effective after stamping',
             },
           ]}
           width="xs"
           name="useMode"
-          label="合同约定生效方式"
+          label="Contract Agreed Effective Method"
         />
         <ProFormSelect
           width="xs"
           options={[
             {
               value: 'time',
-              label: '履行完终止',
+              label: 'Terminate after performance',
             },
           ]}
           name="unusedMode"
-          label="合同约定失效效方式"
+          label="Contract Agreed Invalid Method"
         />
       </ProForm.Group>
-      <ProFormText width="sm" name="id" label="主合同编号" />
+      <ProFormText width="sm" name="id" label="Main Contract Number" />
       <ProFormText
         name="project"
         disabled
-        label="项目名称"
-        initialValue="xxxx项目"
+        label="Project Name"
+        initialValue="xxxx Project"
       />
       <ProFormText
         width="xs"
         name="mangerName"
         disabled
-        label="商务经理"
-        initialValue="启途"
+        label="Business Manager"
+        initialValue="Qitu"
       />
     </ModalForm>
   );

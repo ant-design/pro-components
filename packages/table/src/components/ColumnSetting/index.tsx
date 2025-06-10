@@ -19,7 +19,7 @@ import {
 import type { CheckboxChangeEvent } from 'antd/es/checkbox';
 import type { DataNode } from 'antd/es/tree';
 import classNames from 'classnames';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import React, { useContext, useEffect, useMemo, useRef } from 'react';
 import type { ColumnsState } from '../../Store/Provide';
 import { TableContext } from '../../Store/Provide';

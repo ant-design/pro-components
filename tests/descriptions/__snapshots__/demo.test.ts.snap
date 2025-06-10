@@ -266,6 +266,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/bas
               高级定义列表
             </div>
             <span
+              aria-describedby="test-id"
               class="ant-pro-core-label-tip-icon"
             >
               <span
@@ -378,6 +379,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/bas
               高级定义列表
             </div>
             <span
+              aria-describedby="test-id"
               class="ant-pro-core-label-tip-icon"
             >
               <span
@@ -443,6 +445,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/bas
                     style="min-width: 0; max-width: 80%;"
                   >
                     <span
+                      aria-describedby="test-id"
                       class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
                       style="width: 100%; margin: 0px; padding: 0px;"
                       title=""
@@ -475,6 +478,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/bas
                         金额
                       </div>
                       <span
+                        aria-describedby="test-id"
                         class="ant-pro-core-label-tip-icon"
                       >
                         <span
@@ -1707,6 +1711,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                 class="ant-tabs ant-tabs-top"
               >
                 <div
+                  aria-orientation="horizontal"
                   class="ant-tabs-nav"
                   role="tablist"
                 >
@@ -1742,7 +1747,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                           class="ant-tabs-tab-btn"
                           id="rc-tabs-test-tab-columns"
                           role="tab"
-                          tabindex="0"
+                          tabindex="-1"
                         >
                           列配置
                         </div>
@@ -1759,11 +1764,9 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                       aria-controls="rc-tabs-test-more-popup"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-hidden="true"
                       class="ant-tabs-nav-more"
                       id="rc-tabs-test-more"
                       style="visibility: hidden; order: 1;"
-                      tabindex="-1"
                       type="button"
                     >
                       <span
@@ -1847,10 +1850,10 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                                       <span
                                         class="ant-input-suffix"
                                       >
-                                        <span
+                                        <button
                                           class="ant-input-clear-icon"
-                                          role="button"
                                           tabindex="-1"
+                                          type="button"
                                         >
                                           <span
                                             aria-label="close-circle"
@@ -1872,7 +1875,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                                               />
                                             </svg>
                                           </span>
-                                        </span>
+                                        </button>
                                       </span>
                                     </span>
                                   </div>
@@ -2034,6 +2037,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                                         >
                                           加载中
                                           <span
+                                            aria-describedby="test-id"
                                             aria-label="question-circle"
                                             class="anticon anticon-question-circle ant-form-item-tooltip"
                                             role="img"
@@ -2240,6 +2244,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                                         >
                                           边框
                                           <span
+                                            aria-describedby="test-id"
                                             aria-label="question-circle"
                                             class="anticon anticon-question-circle ant-form-item-tooltip"
                                             role="img"
@@ -2516,6 +2521,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/edi
                         class="ant-space-item"
                       >
                         <span
+                          aria-describedby="test-id"
                           aria-label="这是一段文本columns"
                           class="ant-typography ant-typography-ellipsis"
                           style="width: 100%; margin: 0px; padding: 0px;"
@@ -2523,6 +2529,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/edi
                         >
                           这是一段文本columns
                           <button
+                            aria-describedby="test-id"
                             aria-label="复制"
                             class="ant-typography-copy"
                             type="button"
@@ -2808,7 +2815,6 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/edi
                       >
                         <ul
                           class="ant-rate ant-rate-disabled"
-                          role="radiogroup"
                           tabindex="-1"
                         >
                           <li
@@ -3157,7 +3163,9 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/edi
                       <div
                         class="ant-space-item"
                       >
-                        <div>
+                        <div
+                          aria-describedby="test-id"
+                        >
                           1212100
                         </div>
                       </div>
@@ -3283,6 +3291,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/for
               高级定义列表
             </div>
             <span
+              aria-describedby="test-id"
               class="ant-pro-core-label-tip-icon"
             >
               <span
@@ -3434,7 +3443,9 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/for
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       1 个月前
                     </span>
                   </span>
@@ -3503,7 +3514,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/req
               class="ant-space-item"
             >
               <button
-                class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link"
+                class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link"
                 type="button"
               >
                 <span>
@@ -3668,6 +3679,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/use
                     style="min-width: 0;"
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="这是一段文本columns"
                       class="ant-typography ant-typography-ellipsis"
                       style="width: 100%; margin: 0px; padding: 0px;"
@@ -3675,6 +3687,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/use
                     >
                       这是一段文本columns
                       <button
+                        aria-describedby="test-id"
                         aria-label="复制"
                         class="ant-typography-copy"
                         type="button"

@@ -20,8 +20,8 @@ import {
 } from '@testing-library/react';
 import { Button, Form } from 'antd';
 import type { NamePath } from 'antd/es/form/interface';
+import dayjs from 'dayjs';
 import { pick } from 'lodash';
-import moment from 'moment';
 import React, { act } from 'react';
 import { waitForWaitTime } from '../util';
 
@@ -1655,7 +1655,9 @@ describe('ProForm List', () => {
                 <ProFormDatePicker
                   name="date"
                   transform={(value) => {
-                    return moment(value).unix();
+                    return {
+                      date: dayjs(value).unix(),
+                    };
                   }}
                 />
                 <ProFormList name="datas">
@@ -1665,7 +1667,9 @@ describe('ProForm List', () => {
                         <ProFormDatePicker
                           name="date"
                           transform={(value) => {
-                            return moment(value).unix();
+                            return {
+                              date: dayjs(value).unix(),
+                            };
                           }}
                         />
 
@@ -1676,7 +1680,9 @@ describe('ProForm List', () => {
                                 <ProFormDatePicker
                                   name="date"
                                   transform={(value) => {
-                                    return moment(value).unix();
+                                    return {
+                                      date: dayjs(value).unix(),
+                                    };
                                   }}
                                 />
 
@@ -1687,7 +1693,9 @@ describe('ProForm List', () => {
                                         <ProFormDatePicker
                                           name="date"
                                           transform={(value) => {
-                                            return moment(value).unix();
+                                            return {
+                                              date: dayjs(value).unix(),
+                                            };
                                           }}
                                         />
                                       </div>

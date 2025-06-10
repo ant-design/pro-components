@@ -273,10 +273,13 @@ const useFetchData = <DataSource extends RequestData<any>>(
        * 其中 Math.max(needPolling, 2000) 用于确定最小的轮询时间为 2000ms，避免频繁请求导致一直处于 loading 状态。
        */
       if (needPolling && !umountRef.current) {
-        pollingSetTimeRef.current = setTimeout(() => {
-          fetchListDebounce.run(needPolling);
-          // 这里判断最小要2000ms，不然一直loading
-        }, Math.max(needPolling, 2000));
+        pollingSetTimeRef.current = setTimeout(
+          () => {
+            fetchListDebounce.run(needPolling);
+            // 这里判断最小要2000ms，不然一直loading
+          },
+          Math.max(needPolling, 2000),
+        );
       }
 
       return msg;

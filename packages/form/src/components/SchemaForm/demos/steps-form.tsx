@@ -1,6 +1,6 @@
 ﻿import type {
-  FormInstance,
   ProFormColumnsType,
+  ProFormInstance,
 } from '@ant-design/pro-components';
 import { BetaSchemaForm } from '@ant-design/pro-components';
 import { message } from 'antd';
@@ -167,7 +167,7 @@ const columns: ProFormColumnsType<DataItem>[][] = [
 ];
 
 export default () => {
-  const formRef = useRef<FormInstance>();
+  const formRef = useRef<ProFormInstance>();
 
   return (
     <BetaSchemaForm<DataItem>

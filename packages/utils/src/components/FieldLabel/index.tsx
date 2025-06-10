@@ -205,7 +205,7 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
         />
       )}
       {downIcon !== false
-        ? downIcon ?? (
+        ? (downIcon ?? (
             <DownOutlined
               className={classNames(
                 `${prefixCls}-icon`,
@@ -213,7 +213,7 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
                 `${prefixCls}-arrow`,
               )}
             />
-          )
+          ))
         : null}
     </span>,
   );

@@ -3,6 +3,7 @@ import { LoadingOutlined } from '@ant-design/icons';
 import { useIntl } from '@ant-design/pro-provider';
 import type { FormInstance, FormProps } from 'antd';
 import { Form, Popconfirm, message } from 'antd';
+import { AnyObject } from 'antd/es/_util/type';
 import type { NamePath } from 'antd/es/form/interface';
 import useLazyKVMap from 'antd/es/table/hooks/useLazyKVMap';
 import type { GetRowKey } from 'antd/es/table/interface';
@@ -107,7 +108,7 @@ export type RowEditableConfig<DataType> = {
     newLineConfig?: NewLineConfig<DataType>,
   ) => Promise<any | void>;
 
-  /** 行保存的时候 */
+  /** 行取消的时候 */
   onCancel?: (
     /** 行 id，一般是唯一id */
     key: RecordKey,

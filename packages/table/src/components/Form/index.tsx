@@ -1,6 +1,6 @@
 import { isDeepEqualReact, omitUndefined } from '@ant-design/pro-utils';
 import type { TablePaginationConfig } from 'antd';
-import omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import React from 'react';
 import type { ActionType, ProTableProps } from '../../typing';
 import { isBordered } from '../../utils/index';

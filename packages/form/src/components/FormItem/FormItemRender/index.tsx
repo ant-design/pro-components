@@ -68,20 +68,23 @@ export function useControlModel<
     };
   }
 
-  return model.reduce((acc, k) => {
-    const p = getControlConfigProps(k);
-    const name = p.name || (k as string);
-    acc[name] = {
-      [p.valuePropName]: value?.[name],
-      [p.trigger]: (v: any) => {
-        onChange?.({
-          ...value,
-          [name]: v?.target ? v.target[p.valuePropName] : v,
-        });
-      },
-    };
-    return acc;
-  }, {} as Record<string, unknown>) as unknown;
+  return model.reduce(
+    (acc, k) => {
+      const p = getControlConfigProps(k);
+      const name = p.name || (k as string);
+      acc[name] = {
+        [p.valuePropName]: value?.[name],
+        [p.trigger]: (v: any) => {
+          onChange?.({
+            ...value,
+            [name]: v?.target ? v.target[p.valuePropName] : v,
+          });
+        },
+      };
+      return acc;
+    },
+    {} as Record<string, unknown>,
+  ) as unknown;
 }
 
 export type FormControlFC<P> = (

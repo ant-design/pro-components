@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.17.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.17.0...@ant-design/pro-utils@2.17.1) (2025-06-10)
+
+### Bug Fixes
+
+- **form:** 修复 validateDebounce 属性不生效的问题 ([#9072](https://github.com/ant-design/pro-components/issues/9072)) ([ec3f506](https://github.com/ant-design/pro-components/commit/ec3f506ed5aaa66be5db0c80ea1241f4db2234e2))
+- correct comment for onCancel in EditableProTable ([#9117](https://github.com/ant-design/pro-components/issues/9117)) ([efd3e8c](https://github.com/ant-design/pro-components/commit/efd3e8c34247a95d8fcb461dab16393b468cb056))
+
+# [2.17.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.16.4...@ant-design/pro-utils@2.17.0) (2025-03-31)
+
+### Bug Fixes
+
+- **tests:** 移除多余的空行以清理代码 ([32cb3b8](https://github.com/ant-design/pro-components/commit/32cb3b8f85d38e5ee60e73440207617340890def))
+
+### Features
+
+- **Table:** 添加 tooltip 属性以支持从 tip 属性生成提示信息 ([4b253ac](https://github.com/ant-design/pro-components/commit/4b253ac64034628b77a9396719e583e84965cb74))
+
+## [2.16.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.16.3...@ant-design/pro-utils@2.16.4) (2025-02-17)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [2.16.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.16.2...@ant-design/pro-utils@2.16.3) (2025-01-06)
+
+### Bug Fixes
+
+- **locale:** add missing newline at end of file for sv_SE, nl_NL, and ro_RO locales ([d0f573f](https://github.com/ant-design/pro-components/commit/d0f573f325db4e863db1fbf70afc25ccf3dde7a7))
+
+### Performance Improvements
+
+- replace substr with splice ([#8882](https://github.com/ant-design/pro-components/issues/8882)) ([53e5cc7](https://github.com/ant-design/pro-components/commit/53e5cc7afb1af484c8e446db3e03885bb77b5248))
+
 ## [2.16.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.16.1...@ant-design/pro-utils@2.16.2) (2024-11-14)
 
 **Note:** Version bump only for package @ant-design/pro-utils

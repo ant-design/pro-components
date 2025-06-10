@@ -10,17 +10,19 @@ export default () => (
     <PageContainer
       ghost
       header={{
-        title: '页面标题',
+        title: 'Page Title',
         breadcrumb: {},
       }}
       content={
         <Descriptions column={2} style={{ marginBlockEnd: -16 }}>
-          <Descriptions.Item label="创建人">曲丽丽</Descriptions.Item>
-          <Descriptions.Item label="关联表单">
+          <Descriptions.Item label="Creator">曲丽丽</Descriptions.Item>
+          <Descriptions.Item label="Associated form">
             <a>421421</a>
           </Descriptions.Item>
-          <Descriptions.Item label="创建时间">2017-01-10</Descriptions.Item>
-          <Descriptions.Item label="单据备注">
+          <Descriptions.Item label="Creation Date">
+            2017-01-10
+          </Descriptions.Item>
+          <Descriptions.Item label="Document remarks">
             浙江省杭州市西湖区工专路
           </Descriptions.Item>
         </Descriptions>

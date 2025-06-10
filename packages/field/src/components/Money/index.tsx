@@ -1,8 +1,8 @@
 import { intlMap as allIntlMap, useIntl } from '@ant-design/pro-provider';
 import type { InputNumberProps } from 'antd';
 import { InputNumber, Popover } from 'antd';
-import omit from 'omit.js';
-import useMergedState from 'rc-util/es/hooks/useMergedState';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import omit from 'rc-util/lib/omit';
 import React, { useCallback, useMemo } from 'react';
 import type { ProFieldFC } from '../../PureProField';
 

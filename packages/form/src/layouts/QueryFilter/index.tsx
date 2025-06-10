@@ -110,6 +110,10 @@ export type BaseQueryFilterProps = Omit<
    */
   defaultColsNumber?: number;
   /**
+   * @name 默认展示几个表单项
+   */
+  defaultFormItemsNumber?: number;
+  /**
    * @name 文字标签的宽度
    *
    * @example 文字标签宽 80 ，一般用于只有两个字
@@ -327,7 +331,7 @@ const QueryFilterContent: React.FC<{
     ): { itemDom: React.ReactNode; hidden: boolean; colSpan: number } => {
       // 如果 formItem 自己配置了 hidden，默认使用它自己的
       const colSize = React.isValidElement<any>(item)
-        ? item?.props?.colSize ?? 1
+        ? (item?.props?.colSize ?? 1)
         : 1;
       const colSpan = Math.min(spanSize.span * (colSize || 1), 24);
       // 计算总的 totalSpan 长度
@@ -347,9 +351,8 @@ const QueryFilterContent: React.FC<{
         (collapsed &&
           (firstRowFull ||
             // 如果 超过显示长度 且 总长度超过了 24
-            totalSize > showLength - 1) &&
-          !!index &&
-          totalSpan >= 24);
+            totalSize > showLength) &&
+          !!index);
 
       itemLength += 1;
 
@@ -502,6 +505,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
     layout,
     defaultCollapsed = true,
     defaultColsNumber,
+    defaultFormItemsNumber,
     span,
     searchGutter = 24,
     searchText,
@@ -537,12 +541,18 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
   );
 
   const showLength = useMemo(() => {
-    // 查询重置按钮也会占一个spanSize格子，需要减掉计算
+    if (defaultFormItemsNumber !== undefined) {
+      return defaultFormItemsNumber;
+    }
     if (defaultColsNumber !== undefined) {
-      return defaultColsNumber - 1;
+      // 折叠为一行，需要处理多行的情况请使用 defaultFormItemsNumber
+      const oneRowControlsNumber = 24 / spanSize.span - 1;
+      return defaultColsNumber > oneRowControlsNumber
+        ? oneRowControlsNumber
+        : defaultColsNumber;
     }
     return Math.max(1, 24 / spanSize.span - 1);
-  }, [defaultColsNumber, spanSize.span]);
+  }, [defaultColsNumber, defaultFormItemsNumber, spanSize.span]);
 
   /** 计算最大宽度防止溢出换行 */
   const formItemFixStyle: FormItemProps<any> | undefined = useMemo(() => {
@@ -573,50 +583,52 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
         }
       }}
     >
-      <BaseForm
-        isKeyPressSubmit
-        preserve={preserve}
-        {...rest}
-        className={classNames(baseClassName, hashId, rest.className)}
-        onReset={onReset}
-        style={style}
-        layout={spanSize.layout}
-        fieldProps={{
-          style: {
-            width: '100%',
-          },
-        }}
-        formItemProps={formItemFixStyle}
-        groupProps={{
-          titleStyle: {
-            display: 'inline-block',
-            marginInlineEnd: 16,
-          },
-        }}
-        contentRender={(items, renderSubmitter, form) => (
-          <QueryFilterContent
-            spanSize={spanSize}
-            collapsed={controlCollapsed}
-            form={form}
-            submitterColSpanProps={submitterColSpanProps}
-            collapseRender={collapseRender}
-            defaultCollapsed={defaultCollapsed}
-            onCollapse={onCollapse}
-            optionRender={optionRender}
-            submitter={renderSubmitter}
-            items={items}
-            split={split}
-            baseClassName={baseClassName}
-            resetText={props.resetText}
-            searchText={props.searchText}
-            searchGutter={searchGutter}
-            preserve={preserve}
-            ignoreRules={ignoreRules}
-            showLength={showLength}
-            showHiddenNum={showHiddenNum}
-          />
-        )}
-      />
+      <div className={`${baseClassName}-container ${hashId}`}>
+        <BaseForm
+          isKeyPressSubmit
+          preserve={preserve}
+          {...rest}
+          className={classNames(baseClassName, hashId, rest.className)}
+          onReset={onReset}
+          style={style}
+          layout={spanSize.layout}
+          fieldProps={{
+            style: {
+              width: '100%',
+            },
+          }}
+          formItemProps={formItemFixStyle}
+          groupProps={{
+            titleStyle: {
+              display: 'inline-block',
+              marginInlineEnd: 16,
+            },
+          }}
+          contentRender={(items, renderSubmitter, form) => (
+            <QueryFilterContent
+              spanSize={spanSize}
+              collapsed={controlCollapsed}
+              form={form}
+              submitterColSpanProps={submitterColSpanProps}
+              collapseRender={collapseRender}
+              defaultCollapsed={defaultCollapsed}
+              onCollapse={onCollapse}
+              optionRender={optionRender}
+              submitter={renderSubmitter}
+              items={items}
+              split={split}
+              baseClassName={baseClassName}
+              resetText={props.resetText}
+              searchText={props.searchText}
+              searchGutter={searchGutter}
+              preserve={preserve}
+              ignoreRules={ignoreRules}
+              showLength={showLength}
+              showHiddenNum={showHiddenNum}
+            />
+          )}
+        />
+      </div>
     </RcResizeObserver>,
   );
 }

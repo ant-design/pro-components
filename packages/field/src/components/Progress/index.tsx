@@ -1,8 +1,8 @@
 import { useIntl } from '@ant-design/pro-provider';
 import { InputNumber, Progress } from 'antd';
-import toNumber from 'lodash-es/toNumber';
 import React, { useMemo } from 'react';
 import type { ProFieldFC } from '../../PureProField';
+import { toNumber } from '../Percent/util';
 
 export function getProgressStatus(
   text: number,

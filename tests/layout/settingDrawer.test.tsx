@@ -501,4 +501,35 @@ describe('settingDrawer.test', () => {
 
     window.localStorage.setItem('umi_locale', 'zh-CN');
   });
+
+  it('🌺 drawerProps = undefined', async () => {
+    const html = render(
+      <SettingDrawer
+        disableUrlParams
+        collapse
+        getContainer={false}
+        drawerProps={undefined as any}
+      />,
+    );
+
+    expect(html.asFragment()).toMatchSnapshot();
+  });
+
+  it('🌺 drawerProps has extra', async () => {
+    const { container } = render(
+      <SettingDrawer
+        disableUrlParams
+        collapse
+        getContainer={false}
+        drawerProps={{
+          closable: true,
+          extra: 'extra',
+        }}
+      />,
+    );
+
+    expect(
+      container.querySelectorAll('div.ant-drawer-extra')[0].innerHTML,
+    ).toEqual('extra');
+  });
 });

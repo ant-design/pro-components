@@ -1,7 +1,7 @@
 import { ProProvider } from '@ant-design/pro-provider';
 import { ConfigProvider, Drawer } from 'antd';
 import classNames from 'classnames';
-import Omit from 'omit.js';
+import omit from 'rc-util/lib/omit';
 import React, { useContext, useEffect } from 'react';
 import type { PrivateSiderMenuProps, SiderMenuProps } from './SiderMenu';
 import { SiderMenu } from './SiderMenu';
@@ -31,7 +31,7 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isMobile]);
 
-  const omitProps = Omit(props, ['className', 'style']);
+  const omitProps = omit(props, ['className', 'style']);
 
   const { direction } = React.useContext(ConfigProvider.ConfigContext);
 

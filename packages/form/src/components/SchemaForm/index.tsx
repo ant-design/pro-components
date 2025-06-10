@@ -107,7 +107,6 @@ function BetaSchemaForm<T, ValueType = 'text'>(
             'form',
             <LabelIconTip
               label={originItem.title as string}
-              //@ts-expect-error
               tooltip={originItem.tooltip || originItem.tip}
             />,
           );
@@ -129,7 +128,6 @@ function BetaSchemaForm<T, ValueType = 'text'>(
             colProps: originItem.colProps,
             rowProps: originItem.rowProps,
             className: originItem.className,
-            //@ts-expect-error
             tooltip: originItem.tooltip || originItem.tip,
             dependencies: originItem.dependencies,
             proFieldProps: originItem.proFieldProps,
@@ -196,7 +194,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(
     if (columns.length && Array.isArray(columns[0])) return;
     return genItems(columns as ProFormColumnsType<T, ValueType>[]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [columns, restProps?.open, action, type, formDomsDeps, !!formRef.current]);
+  }, [columns, restProps?.open, action, type, formDomsDeps]);
 
   /**
    * Append layoutType component specific props
@@ -212,13 +210,9 @@ function BetaSchemaForm<T, ValueType = 'text'>(
     return {};
   }, [columns, layoutType]);
 
-  useImperativeHandle(
-    propsFormRef,
-    () => {
-      return formRef.current;
-    },
-    [formRef.current],
-  );
+  useImperativeHandle(propsFormRef, () => {
+    return formRef.current;
+  }, [formRef.current]);
 
   const context = useContext(ProConfigContext);
 

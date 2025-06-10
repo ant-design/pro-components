@@ -9,35 +9,35 @@ export default () => (
     <PageContainer
       fixedHeader
       header={{
-        title: '页面标题',
+        title: 'Page Title',
         breadcrumb: {
           items: [
             {
               path: '',
-              title: '一级页面',
+              title: 'Primary page',
             },
             {
               path: '',
-              title: '二级页面',
+              title: 'Secondary page',
             },
             {
               path: '',
-              title: '当前页面',
+              title: 'Current page',
             },
           ],
         },
       }}
       tabList={[
         {
-          tab: '已选择',
+          tab: 'Selected',
           key: '1',
         },
         {
-          tab: '可点击',
+          tab: 'Clickable',
           key: '2',
         },
         {
-          tab: '禁用',
+          tab: 'Disabled',
           key: '3',
           disabled: true,
         },

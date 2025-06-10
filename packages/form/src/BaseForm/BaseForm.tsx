@@ -27,10 +27,10 @@ import { ConfigProvider, Form, Spin } from 'antd';
 import type { NamePath } from 'antd/es/form/interface';
 import classNames from 'classnames';
 import type dayjs from 'dayjs';
-import omit from 'omit.js';
 import get from 'rc-util/es/utils/get';
 import { default as namePathSet, default as set } from 'rc-util/es/utils/set';
 import { noteOnce } from 'rc-util/es/warning';
+import omit from 'rc-util/lib/omit';
 import React, {
   useContext,
   useEffect,
@@ -50,6 +50,12 @@ import type {
 import { EditOrReadOnlyContext } from './EditOrReadOnlyContext';
 import type { SubmitterProps } from './Submitter';
 import Submitter from './Submitter';
+
+// Define ProFormInstance and ProFormRef
+export type ProFormInstance<T = any> = FormInstance<T> & ProFormInstanceType<T>;
+type ProFormRef<T> = ProFormInstance<T> & {
+  nativeElement?: HTMLElement;
+};
 
 export type CommonFormProps<
   T = Record<string, any>,
@@ -220,8 +226,6 @@ const genParams = (
   return runFunction(syncUrl, params, type);
 };
 
-export type ProFormInstance<T = any> = FormInstance<T> & ProFormInstanceType<T>;
-
 /**
  * It takes a name path and converts it to an array.
  * @param {NamePath} name - The name of the form.
@@ -279,7 +283,7 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
   };
 
   /** 同步 url 上的参数 */
-  const formRef = useRef<ProFormInstance<any>>((form || formInstance) as any);
+  const formRef = useRef<ProFormRef<any>>((form || formInstance) as any);
 
   /**
    * 获取布局
@@ -451,16 +455,12 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
   }, [props.initialValues]);
 
   // 初始化给一个默认的 form
-  useImperativeHandle(
-    propsFormRef,
-    () => {
-      return {
-        ...formRef.current,
-        ...formatValues,
-      };
-    },
-    [formatValues, formRef.current],
-  );
+  useImperativeHandle(propsFormRef, () => {
+    return {
+      ...formRef.current,
+      ...formatValues,
+    };
+  }, [formatValues, formRef.current]);
   useEffect(() => {
     const finalValues = transformKey(
       formRef.current?.getFieldsValue?.(true),
@@ -714,13 +714,9 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
   });
 
   // 初始化给一个默认的 form
-  useImperativeHandle(
-    propsFormRef,
-    () => {
-      return formRef.current;
-    },
-    [!initialData],
-  );
+  useImperativeHandle(propsFormRef, () => {
+    return formRef.current;
+  }, [!initialData]);
 
   if (!initialData && props.request) {
     return (

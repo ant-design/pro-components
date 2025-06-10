@@ -35,8 +35,11 @@ export function useDeepCompareEffectDebounce(
   const effectDn = useDebounceFn(async () => {
     effect();
   }, waitTime || 16);
-  useEffect(() => {
-    effectDn.run();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, useDeepCompareMemoize(dependencies || [], ignoreKeys));
+  useEffect(
+    () => {
+      effectDn.run();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    },
+    useDeepCompareMemoize(dependencies || [], ignoreKeys),
+  );
 }

@@ -246,6 +246,8 @@ ref.current.cancelEditable(rowKey);
 | onFilter | Filter the form, use the built-in ProTable when it is true, turn off local filtering when it is false | `(value, record) => boolean` \|`false` | false |
 | request | Request enumeration from server | [request](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params) | - |
 | initialValue | Initial value of query form item | `any` | - |
+| disable | Status of `disabled` in column settings | `boolean` \| `{ checkbox: boolean; }` | - |
+| ignoreRules | gnore rules, LightFilter should not support rules, the default is false. | `any` | - |
 
 ### valueType value type
 

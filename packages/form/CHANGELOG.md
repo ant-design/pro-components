@@ -2,6 +2,46 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.31.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.31.7...@ant-design/pro-form@2.31.8) (2025-06-10)
+
+### Bug Fixes
+
+- **form:** 修复 StrictMode 模式下，BetaSchemaForm-ModalForm 渲染表单项失败的问题 ([#9069](https://github.com/ant-design/pro-components/issues/9069)) ([8417ad0](https://github.com/ant-design/pro-components/commit/8417ad0f26842acf36da859e4627c761356a5b78))
+- **form:** 修复使用QueryFilter时报findDOMNode is deprecated的问题。 ([#9065](https://github.com/ant-design/pro-components/issues/9065)) ([06ece53](https://github.com/ant-design/pro-components/commit/06ece53d3870f174779a1551873b69b0ca1d4b1f))
+
+## [2.31.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.31.6...@ant-design/pro-form@2.31.7) (2025-03-31)
+
+### Bug Fixes
+
+- **SchemaForm:** 移除不必要的类型错误注释，确保 tooltip 属性正常使用 ([c005a52](https://github.com/ant-design/pro-components/commit/c005a526d4e866937d0342c90c098fe6fde13fc7))
+- **tests:** 移除多余的空行以清理代码 ([32cb3b8](https://github.com/ant-design/pro-components/commit/32cb3b8f85d38e5ee60e73440207617340890def))
+
+## [2.31.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.31.5...@ant-design/pro-form@2.31.6) (2025-02-17)
+
+### Bug Fixes
+
+- **SchemaForm:** 修复SchemaForm renderFormItem 警告 ([#8991](https://github.com/ant-design/pro-components/issues/8991)) ([52cab46](https://github.com/ant-design/pro-components/commit/52cab46114861071ff0610ab6ab3cbd69de094c7))
+
+## [2.31.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.31.4...@ant-design/pro-form@2.31.5) (2025-02-12)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [2.31.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.31.3...@ant-design/pro-form@2.31.4) (2025-01-18)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [2.31.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.31.2...@ant-design/pro-form@2.31.3) (2025-01-06)
+
+### Bug Fixes
+
+- add dateRange type && typo in word ([#8884](https://github.com/ant-design/pro-components/issues/8884)) ([30b6f01](https://github.com/ant-design/pro-components/commit/30b6f01cf0207cc7e378abdae82dbbbb33c925d4))
+- add emptyText fieldItem props ([#8888](https://github.com/ant-design/pro-components/issues/8888)) ([b2627ff](https://github.com/ant-design/pro-components/commit/b2627ff93aa50a51f07b5ee5e899b807cd26c6e2))
+- **locale:** add missing newline at end of file for sv_SE, nl_NL, and ro_RO locales ([d0f573f](https://github.com/ant-design/pro-components/commit/d0f573f325db4e863db1fbf70afc25ccf3dde7a7))
+
+### Performance Improvements
+
+- add pro-componets path ([#8881](https://github.com/ant-design/pro-components/issues/8881)) ([43ceba3](https://github.com/ant-design/pro-components/commit/43ceba3660ddc8465e5f519711583602b9a6ea7a))
+
 ## [2.31.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.31.1...@ant-design/pro-form@2.31.2) (2024-11-14)
 
 **Note:** Version bump only for package @ant-design/pro-form

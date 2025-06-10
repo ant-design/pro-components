@@ -50,22 +50,25 @@ function deepOmit(obj: Record<string, any>, keysToOmit: string[]) {
     }
 
     // 对于对象，创建一个新对象，且不包含特定的键
-    return Object.entries(values).reduce((acc, [key, value]) => {
-      const currentKeys = [...(parentKeys || []), key];
-      if (keysToOmit.join('-') !== currentKeys.join('-')) {
-        if (
-          isPlainObj(value) &&
-          value !== null &&
-          value !== undefined &&
-          Object.keys(value).length > 0
-        ) {
-          acc[key] = omitHelper(value, currentKeys); // 递归处理子对象
-        } else {
-          acc[key] = value; // 递归处理子对象
+    return Object.entries(values).reduce(
+      (acc, [key, value]) => {
+        const currentKeys = [...(parentKeys || []), key];
+        if (keysToOmit.join('-') !== currentKeys.join('-')) {
+          if (
+            isPlainObj(value) &&
+            value !== null &&
+            value !== undefined &&
+            Object.keys(value).length > 0
+          ) {
+            acc[key] = omitHelper(value, currentKeys); // 递归处理子对象
+          } else {
+            acc[key] = value; // 递归处理子对象
+          }
         }
-      }
-      return acc;
-    }, {} as Record<string, any>);
+        return acc;
+      },
+      {} as Record<string, any>,
+    );
   }
 
   return omitHelper(obj, []);
@@ -78,14 +81,17 @@ const generateDataFormatMap = (
   >,
 ) => {
   // ignore nil transform
-  const dataFormatMap = Object.keys(dataFormatMapRaw).reduce((ret, key) => {
-    const value = dataFormatMapRaw[key];
-    if (!isNil(value)) {
-      // eslint-disable-next-line no-param-reassign
-      ret[key] = value! as SearchTransformKeyFn; // can't be undefined
-    }
-    return ret;
-  }, {} as Record<string, SearchTransformKeyFn>);
+  const dataFormatMap = Object.keys(dataFormatMapRaw).reduce(
+    (ret, key) => {
+      const value = dataFormatMapRaw[key];
+      if (!isNil(value)) {
+        // eslint-disable-next-line no-param-reassign
+        ret[key] = value! as SearchTransformKeyFn; // can't be undefined
+      }
+      return ret;
+    },
+    {} as Record<string, SearchTransformKeyFn>,
+  );
   return dataFormatMap;
 };
 

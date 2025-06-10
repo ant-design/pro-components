@@ -86,8 +86,8 @@ type ProHelpDataSourceContentProps<ValueTypeMap, ValueType> =
   ValueType extends ProHelpDataSourceChildrenType
     ? ProHelpDataSourceContentType[ValueType]
     : ValueType extends keyof ValueTypeMap
-    ? ValueTypeMap[ValueType]
-    : ProHelpDataSourceContentType[ProHelpDataSourceChildrenType];
+      ? ValueTypeMap[ValueType]
+      : ProHelpDataSourceContentType[ProHelpDataSourceChildrenType];
 
 /**
  * ProHelp 数据源子项类型。

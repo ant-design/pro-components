@@ -473,7 +473,7 @@ const FieldSelect: ProFieldFC<
     );
 
     if (render) {
-      return render(dom, { mode, ...fieldProps }, dom) ?? null;
+      return render(dom, { mode, ...fieldProps, options }, dom) ?? null;
     }
     return dom;
   }

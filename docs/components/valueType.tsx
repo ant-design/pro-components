@@ -198,12 +198,12 @@ export default () => {
                         ],
                       }
                     : valueType === 'divider'
-                    ? {
-                        style: {
-                          width: '200px',
-                        },
-                      }
-                    : undefined,
+                      ? {
+                          style: {
+                            width: '200px',
+                          },
+                        }
+                      : undefined,
                 formItemProps: {
                   rules: [
                     {

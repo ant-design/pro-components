@@ -12,6 +12,7 @@ import {
 import type { TableColumnType, TableProps } from 'antd';
 import { Table } from 'antd';
 import { AnyObject } from 'antd/es/_util/type';
+import { SortOrder } from 'antd/lib/table/interface';
 import type { ContainerType } from '../Store/Provide';
 import type { ProColumns } from '../typing';
 import {
@@ -23,8 +24,6 @@ import { genColumnKey } from './index';
 
 type ColumnToColumnReturnType<T> = (TableColumnType<T> & {
   index?: number;
-  isExtraColumns?: boolean;
-  extraColumn?: typeof Table.EXPAND_COLUMN | typeof Table.SELECTION_COLUMN;
 })[];
 
 type ColumnToColumnParams<T> = {
@@ -33,6 +32,8 @@ type ColumnToColumnParams<T> = {
   columnEmptyText: ProFieldEmptyText;
   type: ProSchemaComponentTypes;
   editableUtils: UseEditableUtilType;
+  proFilter: Record<string, (string | number)[] | null>;
+  proSort: Record<string, SortOrder>;
 } & Pick<TableProps<T>, 'rowKey' | 'childrenColumnName'>;
 
 /**
@@ -55,6 +56,8 @@ export function genProColumnToColumn<T extends AnyObject>(
     marginSM,
     rowKey = 'id',
     childrenColumnName = 'children',
+    proFilter,
+    proSort,
   } = params;
 
   const subNameRecord = new Map();
@@ -71,6 +74,7 @@ export function genProColumnToColumn<T extends AnyObject>(
         children,
         onFilter,
         filters = [],
+        sorter,
       } = columnProps as ProColumns<T, any>;
       const columnKey = genColumnKey(
         key || dataIndex?.toString(),
@@ -84,25 +88,6 @@ export function genProColumnToColumn<T extends AnyObject>(
           ...columnProps,
         };
       }
-
-      /**
-       * 是不是展开行和多选按钮
-       */
-      const isExtraColumns =
-        columnProps === Table.EXPAND_COLUMN ||
-        columnProps === Table.SELECTION_COLUMN;
-
-      if (isExtraColumns) {
-        return {
-          index: columnsIndex,
-          isExtraColumns: true,
-          hideInSearch: true,
-          hideInTable: false,
-          hideInForm: true,
-          hideInSetting: true,
-          extraColumn: columnProps,
-        };
-      }
       const config = counter.columnsMap[columnKey] || {
         fixed: columnProps.fixed,
       };
@@ -114,6 +99,17 @@ export function genProColumnToColumn<T extends AnyObject>(
         }
         return omitBoolean(onFilter);
       };
+
+      // 对应筛选值，用作双向绑定
+      const filteredValue =
+        columnKey && proFilter[columnKey] !== undefined
+          ? proFilter[columnKey]
+          : null;
+      // 对应排序值，用作双向绑定
+      const sortOrder =
+        columnKey && proSort[columnKey] !== undefined
+          ? proSort[columnKey]
+          : null;
 
       let keyName: string | number | symbol = rowKey as string;
 
@@ -130,6 +126,9 @@ export function genProColumnToColumn<T extends AnyObject>(
               ).filter((valueItem) => valueItem && valueItem.value !== 'all')
             : filters,
         onFilter: genOnFilter(),
+        filteredValue:
+          filters && genOnFilter() == null ? filteredValue : undefined,
+        sortOrder: sorter === true ? sortOrder : undefined,
         fixed: config.fixed,
         width: columnProps.width || (columnProps.fixed ? 200 : undefined),
         children: (columnProps as ProColumns<T, any>).children
@@ -184,9 +183,7 @@ export function genProColumnToColumn<T extends AnyObject>(
       };
       return omitUndefinedAndEmptyArr(tempColumns);
     })
-    ?.filter((item) => !item.hideInTable) as unknown as (TableColumnType<T> & {
-    index?: number;
-    isExtraColumns?: boolean;
-    extraColumn?: typeof Table.EXPAND_COLUMN | typeof Table.SELECTION_COLUMN;
-  })[];
+    ?.filter(
+      (item) => !item.hideInTable,
+    ) as unknown as ColumnToColumnReturnType<T>;
 }

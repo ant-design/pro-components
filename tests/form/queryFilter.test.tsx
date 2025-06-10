@@ -260,8 +260,43 @@ describe('QueryFilter', () => {
   });
 
   it('🕵️‍♀️ defaultColsNumber should work', async () => {
-    const { container } = render(
-      <QueryFilter defaultColsNumber={5}>
+    const wrapper0 = render(
+      <QueryFilter defaultColsNumber={1}>
+        <ProFormText label="a" name="a" />
+        <ProFormText label="b" name="b" />
+        <ProFormText label="c" name="c" />
+      </QueryFilter>,
+    );
+    expect(
+      wrapper0.container.querySelectorAll('.ant-row .ant-form-item-hidden'),
+    ).toHaveLength(2);
+
+    const wrapper1 = render(
+      <QueryFilter defaultColsNumber={2}>
+        <ProFormText label="a" name="a" />
+        <ProFormText label="b" name="b" />
+        <ProFormText label="c" name="c" />
+      </QueryFilter>,
+    );
+    expect(
+      wrapper1.container.querySelectorAll('.ant-row .ant-form-item-hidden'),
+    ).toHaveLength(1);
+
+    const wrapper2 = render(
+      <QueryFilter defaultColsNumber={3}>
+        <ProFormText label="a" name="a" />
+        <ProFormText label="b" name="b" />
+        <ProFormText label="c" name="c" />
+      </QueryFilter>,
+    );
+    expect(
+      wrapper2.container.querySelectorAll('.ant-row .ant-form-item-hidden'),
+    ).toHaveLength(1);
+  });
+
+  it('🕵️‍♀️ defaultFormItemsNumber should work', async () => {
+    const wrapper0 = render(
+      <QueryFilter defaultFormItemsNumber={5}>
         <ProFormText label="a" name="a" />
         <ProFormText label="b" name="b" />
         <ProFormText label="c" name="c" />
@@ -271,8 +306,50 @@ describe('QueryFilter', () => {
       </QueryFilter>,
     );
     expect(
-      container.querySelectorAll('.ant-row .ant-form-item-hidden'),
-    ).toHaveLength(3);
+      wrapper0.container.querySelectorAll('.ant-row .ant-form-item-hidden'),
+    ).toHaveLength(1);
+
+    const wrapper1 = render(
+      <QueryFilter defaultFormItemsNumber={1}>
+        <ProFormText label="a" name="a" />
+        <ProFormText label="b" name="b" />
+        <ProFormText label="c" name="c" />
+        <ProFormText label="d" name="d" />
+        <ProFormText label="e" name="e" />
+        <ProFormText label="f" name="f" />
+      </QueryFilter>,
+    );
+    expect(
+      wrapper1.container.querySelectorAll('.ant-row .ant-form-item-hidden'),
+    ).toHaveLength(5);
+
+    const wrapper2 = render(
+      <QueryFilter defaultFormItemsNumber={6}>
+        <ProFormText label="a" name="a" />
+        <ProFormText label="b" name="b" />
+        <ProFormText label="c" name="c" />
+        <ProFormText label="d" name="d" />
+        <ProFormText label="e" name="e" />
+        <ProFormText label="f" name="f" />
+      </QueryFilter>,
+    );
+    expect(
+      wrapper2.container.querySelectorAll('.ant-row .ant-form-item-hidden'),
+    ).toHaveLength(0);
+
+    const wrapper3 = render(
+      <QueryFilter defaultFormItemsNumber={7}>
+        <ProFormText label="a" name="a" />
+        <ProFormText label="b" name="b" />
+        <ProFormText label="c" name="c" />
+        <ProFormText label="d" name="d" />
+        <ProFormText label="e" name="e" />
+        <ProFormText label="f" name="f" />
+      </QueryFilter>,
+    );
+    expect(
+      wrapper3.container.querySelectorAll('.ant-row .ant-form-item-hidden'),
+    ).toHaveLength(0);
   });
 
   it('🕵️‍♀️ colSize不全都是1，collapseRender应该存在', async () => {
@@ -334,13 +411,10 @@ describe('QueryFilter', () => {
 
   it('🕵️‍♀️ collapseRender', async () => {
     const wrapper0 = render(
-      <QueryFilter defaultColsNumber={3}>
+      <QueryFilter defaultColsNumber={2}>
         <ProFormText label="a" name="a" />
         <ProFormText label="b" name="b" />
         <ProFormText label="c" name="c" />
-        <ProFormText label="d" name="d" />
-        <ProFormText label="e" name="e" />
-        <ProFormText label="f" name="f" />
       </QueryFilter>,
     );
     expect(
@@ -349,7 +423,7 @@ describe('QueryFilter', () => {
       ),
     ).toHaveLength(1);
     const wrapper1 = render(
-      <QueryFilter defaultColsNumber={6}>
+      <QueryFilter defaultFormItemsNumber={5}>
         <ProFormText label="a" name="a" />
         <ProFormText label="b" name="b" />
         <ProFormText label="c" name="c" />
@@ -364,7 +438,7 @@ describe('QueryFilter', () => {
       ),
     ).toHaveLength(1);
     const wrapper2 = render(
-      <QueryFilter defaultColsNumber={7}>
+      <QueryFilter defaultFormItemsNumber={6}>
         <ProFormText label="a" name="a" />
         <ProFormText label="b" name="b" />
         <ProFormText label="c" name="c" />

@@ -135,7 +135,13 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     );
 
     if (render) {
-      return render(rest.text, { mode, ...(fieldProps as any) }, dom) ?? null;
+      return (
+        render(
+          rest.text,
+          { mode, ...(fieldProps as any), treeData: options },
+          dom,
+        ) ?? null
+      );
     }
     return dom;
   }

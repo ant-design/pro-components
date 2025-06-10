@@ -6,9 +6,18 @@ import {
 } from '@ant-design/icons';
 import { isBrowser, merge } from '@ant-design/pro-utils';
 import { useUrlSearchParams } from '@umijs/use-params';
-import { Alert, Button, Divider, Drawer, List, Switch, message } from 'antd';
-import omit from 'omit.js';
+import {
+  Alert,
+  Button,
+  Divider,
+  Drawer,
+  DrawerProps,
+  List,
+  Switch,
+  message,
+} from 'antd';
 import useMergedState from 'rc-util/es/hooks/useMergedState';
+import omit from 'rc-util/lib/omit';
 import React, { useEffect, useRef, useState } from 'react';
 import type { ProSettings } from '../../defaultSettings';
 import { defaultSettings } from '../../defaultSettings';
@@ -64,6 +73,7 @@ export type SettingDrawerProps = {
   pathname?: string;
   disableUrlParams?: boolean;
   themeOnly?: boolean;
+  drawerProps?: DrawerProps;
 };
 
 export type SettingDrawerState = {
@@ -201,9 +211,10 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     onSettingChange,
     enableDarkTheme,
     prefixCls = 'ant-pro',
-    pathname = window.location.pathname,
+    pathname = isBrowser() ? window.location.pathname : '',
     disableUrlParams = true,
     themeOnly,
+    drawerProps,
   } = props;
   const firstRender = useRef<boolean>(true);
 
@@ -360,6 +371,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
         style={{
           zIndex: 999,
         }}
+        {...drawerProps}
       >
         <div className={`${baseClassName}-drawer-content ${hashId}`.trim()}>
           <Body

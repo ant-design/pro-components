@@ -10,12 +10,15 @@ const pkgList = readdirSync(join(__dirname, 'packages')).filter(
   (pkg) => pkg.charAt(0) !== '.' && !headPkgList.includes(pkg),
 );
 
-const alias = pkgList.reduce((pre, pkg) => {
-  pre[`@ant-design/pro-${pkg}`] = join(__dirname, 'packages', pkg, 'src');
-  return {
-    ...pre,
-  };
-}, {} as Record<string, string>);
+const alias = pkgList.reduce(
+  (pre, pkg) => {
+    pre[`@ant-design/pro-${pkg}`] = join(__dirname, 'packages', pkg, 'src');
+    return {
+      ...pre,
+    };
+  },
+  {} as Record<string, string>,
+);
 
 console.log(`🌼 alias list \n${chalk.blue(Object.keys(alias).join('\n'))}`);
 

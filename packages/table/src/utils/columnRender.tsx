@@ -6,6 +6,7 @@ import type {
   UseEditableUtilType,
 } from '@ant-design/pro-utils';
 import { LabelIconTip, genCopyable, isNil } from '@ant-design/pro-utils';
+import { AnyObject } from 'antd/es/_util/type';
 import get from 'rc-util/es/utils/get';
 import React from 'react';
 import { isMergeCell } from '.';
@@ -42,14 +43,12 @@ export const renderColumnsTitle = (item: ProColumns<any>) => {
     return title(
       item,
       'table',
-      //@ts-expect-error
       <LabelIconTip label={null} tooltip={item.tooltip || item.tip} />,
     );
   }
   return (
     <LabelIconTip
       label={title}
-      //@ts-expect-error
       tooltip={item.tooltip || item.tip}
       ellipsis={ellipsis}
     />
