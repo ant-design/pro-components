@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [3.20.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.20.0...@ant-design/pro-table@3.20.1) (2025-06-10)
+
+
+### Bug Fixes
+
+* **table:** ensure proFilter is initialized to an empty object and safely access filter values ([4763394](https://github.com/ant-design/pro-components/commit/47633947ec98530009dd774f0d043dad0265f617))
+
+
+
+
 
 # [3.20.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.19.0...@ant-design/pro-table@3.20.0) (2025-06-10)
 
