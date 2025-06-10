@@ -58,7 +58,11 @@ describe('transformKeySubmitValue', () => {
     };
     const transforms = {
       'events.0.name': (value: string) => ({ eventName: value }),
-      'events.0.date': (value: any) => ({ timestamp: value.valueOf() }),
+      'events.0.date': (value: string) => {
+        return {
+          timestamp: dayjs(value).valueOf(),
+        };
+      },
     };
     expect(transformKeySubmitValue(values, transforms)).toEqual({
       events: [
