@@ -568,7 +568,7 @@ describe('Field', () => {
             ].map((item) => {
               return item.value;
             }),
-            onDropdownVisibleChange: (e: boolean) => {
+            onOpenChange: (e: boolean) => {
               fn(e);
             },
           }}

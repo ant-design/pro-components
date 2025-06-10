@@ -635,6 +635,7 @@ const ProDescriptions = <
           <Descriptions
             className={className}
             {...rest}
+            styles={{}}
             contentStyle={{
               minWidth: 0,
               ...(contentStyle || {}),

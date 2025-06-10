@@ -153,8 +153,8 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
       <Spin spinning={loading}>
         <TreeSelect<string | undefined>
           open={open}
-          onDropdownVisibleChange={(isOpen) => {
-            fieldProps?.onDropdownVisibleChange?.(isOpen);
+          onOpenChange={(isOpen) => {
+            fieldProps?.onOpenChange?.(isOpen);
             setOpen(isOpen);
           }}
           ref={treeSelectRef}
@@ -234,7 +234,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
           placeholder={placeholder}
           onClick={() => {
             setOpen(true);
-            fieldProps?.onDropdownVisibleChange?.(true);
+            fieldProps?.onOpenChange?.(true);
           }}
           bordered={rest.bordered}
           value={notEmpty || open ? dom : null}

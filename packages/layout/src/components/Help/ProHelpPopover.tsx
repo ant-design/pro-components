@@ -48,8 +48,10 @@ export const ProHelpPopover: React.FC<ProHelpPopoverProps> = (props) => {
   const { wrapSSR } = useStyle(className);
   return wrapSSR(
     <Popover
-      overlayInnerStyle={{
-        padding: 0,
+      styles={{
+        body: {
+          padding: 0,
+        },
       }}
       content={
         <div

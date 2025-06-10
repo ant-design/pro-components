@@ -182,7 +182,7 @@ export const LightSelect: React.ForwardRefRenderFunction<
             : void 0
         }
         style={style}
-        dropdownRender={(menuNode) => {
+        popupRender={(menuNode) => {
           return (
             <div ref={ref}>
               {showSearch && (
@@ -217,7 +217,7 @@ export const LightSelect: React.ForwardRefRenderFunction<
           );
         }}
         open={mergeOpen}
-        onDropdownVisibleChange={(isOpen) => {
+        onOpenChange={(isOpen) => {
           if (!isOpen) {
             //  测试环境下直接跑
             setKeyword('');
@@ -225,7 +225,7 @@ export const LightSelect: React.ForwardRefRenderFunction<
           if (!labelTrigger) {
             setOpen(isOpen);
           }
-          restProps?.onDropdownVisibleChange?.(isOpen);
+          restProps?.onOpenChange?.(isOpen);
         }}
         prefixCls={customizePrefixCls}
         options={

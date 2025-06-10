@@ -124,8 +124,8 @@ const FieldCascader: ProFieldFC<GroupProps> = (
         }
         allowClear={rest.fieldProps?.allowClear !== false}
         {...rest.fieldProps}
-        onDropdownVisibleChange={(isOpen) => {
-          rest?.fieldProps?.onDropdownVisibleChange?.(isOpen);
+        onOpenChange={(isOpen) => {
+          rest?.fieldProps?.onOpenChange?.(isOpen);
           setOpen(isOpen);
         }}
         className={classNames(rest.fieldProps?.className, layoutClassName)}
@@ -162,7 +162,7 @@ const FieldCascader: ProFieldFC<GroupProps> = (
           downIcon={notEmpty || open ? false : undefined}
           onClick={() => {
             setOpen(true);
-            rest?.fieldProps?.onDropdownVisibleChange?.(true);
+            rest?.fieldProps?.onOpenChange?.(true);
           }}
         />
       );

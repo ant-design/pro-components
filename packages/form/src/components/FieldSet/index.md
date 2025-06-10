@@ -327,7 +327,7 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 
 > 请求远程数据比较复杂，详细可以看[这里](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params)。
 
-> 使用 fieldProps 中 onDropdownVisibleChange 时需要另外维护 open 状态，具体看 [#8876](https://github.com/ant-design/pro-components/issues/8876)
+> 使用 fieldProps 中 onOpenChange 时需要另外维护 open 状态，具体看 [#8876](https://github.com/ant-design/pro-components/issues/8876)
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |

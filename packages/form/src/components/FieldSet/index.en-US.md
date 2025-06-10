@@ -329,7 +329,7 @@ Same as [tree-select](https://ant.design/components/tree-select/). Both request 
 
 > Requesting remote data is more complicated, see [here](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params) for details.
 
-> When using `onDropdownVisibleChange` in `fieldProps`, you need to separately manage the `open` state. For details, refer to [#8876](https://github.com/ant-design/pro-components/issues/8876)
+> When using `onOpenChange` in `fieldProps`, you need to separately manage the `open` state. For details, refer to [#8876](https://github.com/ant-design/pro-components/issues/8876)
 
 | Parameters | Description | Type | Default |
 | --- | --- | --- | --- |
