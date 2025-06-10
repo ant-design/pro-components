@@ -91,10 +91,10 @@
     "checkPublish": "npm run sync:tnpm && node ./scripts/checkPublish.js && npm run sync:tnpm",
     "createRelease": "node ./scripts/createRelease.js",
     "deploy": "cross-env SITE_DEPLOY='TRUE' npm run site && gh-pages -d ./dist",
-    "dev": "npm run version && dumi dev",
+    "dev": "dumi dev",
     "dumi": "node ./scripts/preDeploy && cross-env SITE_DEPLOY='TRUE' dumi build",
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx  --fix --format=pretty ./ && npm run tsc && npm run lint:prettier",
-    "lint:prettier": "npm run prettier &&  git diff && prettier --versionpn && prettier --check \"packages/**/**.{js,jsx,tsx,ts,less,md,json}\" --end-of-line auto",
+    "lint:prettier": "npm run prettier &&  git diff  && prettier --check \"packages/**/**.{js,jsx,tsx,ts,less,md,json}\" --end-of-line auto",
     "prettier": "prettier --write \"**/**.{js,jsx,tsx,ts,less,md,yaml,json}\" --loglevel warn",
     "publishOnly": "node ./scripts/release.js --publishOnly",
     "release": "npm run test && node ./scripts/release.js",
@@ -106,8 +106,7 @@
     "test:coverage": "npm run version && cross-env TZ=UTC TEST_LOG=none vitest  --coverage",
     "test:update": "npm run version && cross-env TZ=UTC  vitest -u",
     "tsc:duplicate": "tsc -p ./tests/tsconfig.duplicate.json",
-    "update:deps": "pnpm up --latest",
-    "version": "node ./scripts/gen_version.js"
+    "update:deps": "pnpm up --latest"
   },
   "resolutions": {
     "@types/react": "^18.0.38",
