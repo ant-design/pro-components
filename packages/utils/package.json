@@ -34,8 +34,9 @@
     "ie >= 11"
   ],
   "dependencies": {
+    "@ant-design/cssinjs": "^1.21.1",
     "@ant-design/icons": "^5.0.0",
-    "@ant-design/pro-provider": "2.16.1",
+    "@ant-design/pro-provider": "workspace:*",
     "@babel/runtime": "^7.18.0",
     "classnames": "^2.3.2",
     "dayjs": "^1.11.13",

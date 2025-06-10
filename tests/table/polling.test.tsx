@@ -8,10 +8,17 @@ afterEach(() => {
   cleanup();
 });
 
+beforeAll(() => {
+  vi.useFakeTimers();
+});
+afterAll(() => {
+  vi.useRealTimers();
+});
+
 describe('polling', () => {
   it('⏱️ polling should clearTime', async () => {
     const fn = vi.fn();
-    vi.useFakeTimers();
+
     const html = render(
       <ProTable
         size="small"
@@ -80,7 +87,6 @@ describe('polling', () => {
 
   it('⏱️ polling should clearTime when useFetchData', async () => {
     const fn = vi.fn();
-    vi.useFakeTimers();
 
     const App = (props: { getData: () => void }) => {
       useFetchData(
@@ -129,7 +135,7 @@ describe('polling', () => {
 
   it('⏱️ polling min time is 2000', async () => {
     const fn = vi.fn();
-    vi.useFakeTimers();
+
     const html = render(
       <ProTable
         size="small"
@@ -173,7 +179,7 @@ describe('polling', () => {
 
   it('⏱️ polling time=3000', async () => {
     const fn = vi.fn();
-    vi.useFakeTimers();
+
     const html = render(
       <ProTable
         polling={3000}
@@ -236,7 +242,7 @@ describe('polling', () => {
 
   it('⏱️ polling support function', async () => {
     const fn = vi.fn();
-    vi.useFakeTimers();
+
     const html = render(
       <ProTable
         polling={() => {
