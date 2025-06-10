@@ -6,13 +6,9 @@
     "url": "git+ssh://git@github.com/ant-design/pro-components.git"
   },
   "license": "MIT",
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
     "bootstrap": "node ./scripts/bootstrap.js",
-    "build": "npm run version && npm run build-components && node ./scripts/readApi.mjs",
-    "build-components": "pnpm --filter \"@ant-design/**\" build",
+    "build": "npm run version && cd packages/components && npm run build && cd ../.. && node ./scripts/readApi.mjs",
     "changelog": "node ./scripts/changelogs.js",
     "check-deps": "node ./scripts/checkDeps.js",
     "checkPublish": "npm run sync:tnpm && node ./scripts/checkPublish.js && npm run sync:tnpm",
@@ -30,7 +26,7 @@
     "sync:tnpm": "node -e 'require(\"./scripts/syncTNPM\")()'",
     "test:ui": "npm run version && cross-env TZ=UTC vitest --ui",
     "test": "npm run version && cross-env TZ=UTC vitest --run",
-    "test:coverage": "npm run version && pnpm --filter \"@ant-design/**\" build && cross-env TZ=UTC TEST_LOG=none vitest  --coverage",
+    "test:coverage": "npm run version && cross-env TZ=UTC TEST_LOG=none vitest  --coverage",
     "test:update": "npm run version && cross-env TZ=UTC  vitest -u",
     "tsc": "tsc --noEmit",
     "tsc:duplicate": "tsc -p ./tests/tsconfig.duplicate.json",
