@@ -1709,7 +1709,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                   />
                   <div
                     class="ant-pro-layout-watermark"
-                    style="z-index: 9; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-size: 332px; pointer-events: none; background-repeat: repeat; background-image: url(data:image/png;base64,00);"
+                    style="z-index: 9; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-size: 332px; pointer-events: none; background-repeat: repeat; background-image: url("data:image/png;base64,00");"
                   />
                 </div>
               </div>
@@ -2033,7 +2033,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                   role="separator"
                 />
                 <pre
-                  style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px;"
+                  style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px; width: min-content;"
                 >
                   <code>
                     &lt;WaterMark
@@ -3686,7 +3686,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
       </div>
       <div
         class="ant-pro-layout-watermark"
-        style="z-index: 9; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-size: 332px; pointer-events: none; background-repeat: repeat; background-image: url(data:image/png;base64,00);"
+        style="z-index: 9; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-size: 332px; pointer-events: none; background-repeat: repeat; background-image: url("data:image/png;base64,00");"
       />
     </div>
   </div>
@@ -3747,7 +3747,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
       />
       <div
         class="ant-pro-layout-watermark"
-        style="z-index: 9; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-size: 332px; pointer-events: none; background-repeat: repeat; background-image: url(data:image/png;base64,00);"
+        style="z-index: 9; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-size: 332px; pointer-events: none; background-repeat: repeat; background-image: url("data:image/png;base64,00");"
       />
     </div>
   </div>
@@ -3771,7 +3771,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
       />
       <div
         class="ant-pro-layout-watermark"
-        style="z-index: 9; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-size: 332px; pointer-events: none; background-repeat: repeat; background-image: url(data:image/png;base64,00);"
+        style="z-index: 9; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-size: 332px; pointer-events: none; background-repeat: repeat; background-image: url("data:image/png;base64,00");"
       />
     </div>
   </div>
@@ -3834,7 +3834,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/AlwaysDefaultOp
                       class="ant-layout-sider-children"
                     >
                       <div
-                        style="flex: 1; overflow-y: auto; overflow-x: hidden;"
+                        style="flex: 1 1 0%; overflow-y: auto; overflow-x: hidden;"
                       >
                         <ul
                           class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
@@ -4290,7 +4290,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/AlwaysDefaultOp
                   </a>
                 </span>
                 <div
-                  style="flex: 1;"
+                  style="flex: 1 1 0%;"
                 />
               </div>
             </header>
@@ -4537,7 +4537,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/BreadcrumbsRepe
                   </a>
                 </span>
                 <div
-                  style="flex: 1;"
+                  style="flex: 1 1 0%;"
                 />
               </div>
             </header>
@@ -4711,7 +4711,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/DefaultOpenAllM
                       class="ant-layout-sider-children"
                     >
                       <div
-                        style="flex: 1; overflow-y: auto; overflow-x: hidden;"
+                        style="flex: 1 1 0%; overflow-y: auto; overflow-x: hidden;"
                       >
                         <ul
                           class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
@@ -5332,7 +5332,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/DefaultOpenAllM
                   </a>
                 </span>
                 <div
-                  style="flex: 1;"
+                  style="flex: 1 1 0%;"
                 />
               </div>
             </header>
@@ -5579,7 +5579,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/IconFont.tsx co
                   </a>
                 </span>
                 <div
-                  style="flex: 1;"
+                  style="flex: 1 1 0%;"
                 />
               </div>
             </header>
@@ -5826,7 +5826,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/MenuGroup.tsx c
                   </a>
                 </span>
                 <div
-                  style="flex: 1;"
+                  style="flex: 1 1 0%;"
                 />
               </div>
             </header>
@@ -6073,7 +6073,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/MultipleMenuOne
                   </a>
                 </span>
                 <div
-                  style="flex: 1;"
+                  style="flex: 1 1 0%;"
                 />
               </div>
             </header>
@@ -6211,7 +6211,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/Nested.tsx corr
                       class="ant-layout-sider-children"
                     >
                       <div
-                        style="flex: 1; overflow-y: auto; overflow-x: hidden;"
+                        style="flex: 1 1 0%; overflow-y: auto; overflow-x: hidden;"
                       >
                         <ul
                           class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
@@ -6418,7 +6418,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/Nested.tsx corr
                           </span>
                         </span>
                         <div
-                          style="flex: 1;"
+                          style="flex: 1 1 0%;"
                         />
                         <div
                           class="ant-pro-global-header-right-content"
@@ -6752,7 +6752,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/TopmenuNested.t
                   </a>
                 </span>
                 <div
-                  style="flex: 1;"
+                  style="flex: 1 1 0%;"
                 />
               </div>
             </header>
@@ -6803,7 +6803,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/TopmenuNested.t
                           </span>
                         </span>
                         <div
-                          style="flex: 1;"
+                          style="flex: 1 1 0%;"
                         />
                       </div>
                     </header>
@@ -7087,7 +7087,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/antd@4MenuIconF
                 </a>
               </span>
               <div
-                style="flex: 1;"
+                style="flex: 1 1 0%;"
               />
             </div>
           </header>
@@ -7568,7 +7568,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/api.tsx correct
                 </a>
               </span>
               <div
-                style="flex: 1;"
+                style="flex: 1 1 0%;"
               />
               <div
                 class="ant-pro-global-header-right-content"
@@ -7944,7 +7944,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/appList-group.t
                   </a>
                 </span>
                 <div
-                  style="flex: 1;"
+                  style="flex: 1 1 0%;"
                 />
                 <div
                   class="ant-pro-global-header-right-content"
@@ -8187,7 +8187,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/appList-group-s
                   </a>
                 </span>
                 <div
-                  style="flex: 1;"
+                  style="flex: 1 1 0%;"
                 />
                 <div
                   class="ant-pro-global-header-right-content"
@@ -8675,7 +8675,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/background-cont
                   </a>
                 </span>
                 <div
-                  style="flex: 1;"
+                  style="flex: 1 1 0%;"
                 />
                 <div
                   class="ant-pro-global-header-right-content"
@@ -9011,7 +9011,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/base.tsx correc
                   </a>
                 </span>
                 <div
-                  style="flex: 1;"
+                  style="flex: 1 1 0%;"
                 />
                 <div
                   class="ant-pro-global-header-right-content"
@@ -9454,7 +9454,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/classicMode.tsx
                   </a>
                 </span>
                 <div
-                  style="flex: 1;"
+                  style="flex: 1 1 0%;"
                 />
                 <div
                   class="ant-pro-global-header-right-content"
@@ -9868,7 +9868,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/collapsedShowTi
                 </a>
               </span>
               <div
-                style="flex: 1;"
+                style="flex: 1 1 0%;"
               />
               <div
                 class="ant-pro-global-header-right-content"
@@ -10216,7 +10216,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/config-provider
                 </a>
               </span>
               <div
-                style="flex: 1;"
+                style="flex: 1 1 0%;"
               />
               <div
                 class="qixian-pro-global-header-right-content"
@@ -11155,7 +11155,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/customSider.tsx
                       class="ant-layout-sider-children"
                     >
                       <div
-                        style="flex: 1; overflow-y: auto; overflow-x: hidden;"
+                        style="flex: 1 1 0%; overflow-y: auto; overflow-x: hidden;"
                       >
                         <ul
                           class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
@@ -11935,7 +11935,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/customSider.tsx
                   </a>
                 </span>
                 <div
-                  style="flex: 1;"
+                  style="flex: 1 1 0%;"
                 />
                 <div
                   class="ant-pro-global-header-right-content"
@@ -12257,7 +12257,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/customize-colla
                 </a>
               </span>
               <div
-                style="flex: 1;"
+                style="flex: 1 1 0%;"
               >
                 <div
                   style="cursor: pointer; font-size: 16px;"
@@ -12485,7 +12485,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/customizeMenu.t
                   </span>
                 </div>
                 <div
-                  style="flex: 1;"
+                  style="flex: 1 1 0%;"
                 />
               </div>
             </header>
@@ -12741,7 +12741,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dark.tsx correc
                 </a>
               </span>
               <div
-                style="flex: 1;"
+                style="flex: 1 1 0%;"
               />
               <div
                 class="ant-pro-global-header-right-content"
@@ -13133,7 +13133,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/debug-demo.tsx 
                 </a>
               </span>
               <div
-                style="flex: 1;"
+                style="flex: 1 1 0%;"
               />
               <div
                 class="ant-pro-global-header-right-content"
@@ -13542,7 +13542,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/designMenuCss.t
                   </a>
                 </span>
                 <div
-                  style="flex: 1;"
+                  style="flex: 1 1 0%;"
                 />
                 <div
                   class="ant-pro-global-header-right-content"
@@ -13977,7 +13977,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/designSiderMenu
                   </a>
                 </span>
                 <div
-                  style="flex: 1;"
+                  style="flex: 1 1 0%;"
                 />
                 <div
                   class="ant-pro-global-header-right-content"
@@ -14761,7 +14761,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamic-setting
                   </a>
                 </span>
                 <div
-                  style="flex: 1;"
+                  style="flex: 1 1 0%;"
                 />
                 <div
                   class="ant-pro-global-header-right-content"
@@ -15568,7 +15568,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamic-setting
                       </div>
                       <div
                         class="ant-pro-layout-watermark"
-                        style="z-index: 9; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-size: 332px; pointer-events: none; background-repeat: repeat; background-image: url(data:image/png;base64,00);"
+                        style="z-index: 9; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-size: 332px; pointer-events: none; background-repeat: repeat; background-image: url("data:image/png;base64,00");"
                       />
                     </div>
                   </div>
@@ -15824,7 +15824,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx
                 </a>
               </span>
               <div
-                style="flex: 1;"
+                style="flex: 1 1 0%;"
               />
             </div>
           </header>
@@ -16146,7 +16146,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/error-boundarie
                   </a>
                 </span>
                 <div
-                  style="flex: 1;"
+                  style="flex: 1 1 0%;"
                 />
               </div>
             </header>
@@ -16380,7 +16380,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/footer.tsx corr
                 </a>
               </span>
               <div
-                style="flex: 1;"
+                style="flex: 1 1 0%;"
               />
             </div>
           </header>
@@ -16765,7 +16765,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/footer-global-t
                   </a>
                 </span>
                 <div
-                  style="flex: 1;"
+                  style="flex: 1 1 0%;"
                 />
                 <div
                   class="ant-pro-global-header-right-content"
@@ -17110,7 +17110,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/ghost.tsx corre
                   </a>
                 </span>
                 <div
-                  style="flex: 1;"
+                  style="flex: 1 1 0%;"
                 />
               </div>
             </header>
@@ -17807,7 +17807,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/help.tsx correc
                   class=" ant-pro-help-footer"
                 >
                   <div
-                    style="text-align: center; border-top: 1px solid #EEE; padding: 12px; margin-top: 24px;"
+                    style="text-align: center; border-top: 1px solid rgb(238, 238, 238); padding: 12px; margin-top: 24px;"
                   >
                     这篇文章的质量如何？ 
                     <ul
@@ -18304,7 +18304,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/hideMenu.tsx co
                 </a>
               </span>
               <div
-                style="flex: 1;"
+                style="flex: 1 1 0%;"
               />
             </div>
           </header>
@@ -19460,7 +19460,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/menu-group.tsx 
                   </a>
                 </span>
                 <div
-                  style="flex: 1;"
+                  style="flex: 1 1 0%;"
                 />
                 <div
                   class="ant-pro-global-header-right-content"
@@ -19960,7 +19960,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/menu-group.tsx 
                       </div>
                       <div
                         class="ant-pro-layout-watermark"
-                        style="z-index: 9; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-size: 332px; pointer-events: none; background-repeat: repeat; background-image: url(data:image/png;base64,00);"
+                        style="z-index: 9; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-size: 332px; pointer-events: none; background-repeat: repeat; background-image: url("data:image/png;base64,00");"
                       />
                     </div>
                   </div>
@@ -20180,7 +20180,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/mixMode.tsx cor
                   </a>
                 </span>
                 <div
-                  style="flex: 1;"
+                  style="flex: 1 1 0%;"
                 />
                 <div
                   class="ant-pro-global-header-right-content"
@@ -20493,7 +20493,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/morse_debug.tsx
                 </a>
               </span>
               <div
-                style="flex: 1;"
+                style="flex: 1 1 0%;"
               />
               <div
                 class="ant-pro-global-header-right-content"
@@ -20862,7 +20862,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/pageSimplify.ts
                   </a>
                 </span>
                 <div
-                  style="flex: 1;"
+                  style="flex: 1 1 0%;"
                 />
                 <div
                   class="ant-pro-global-header-right-content"
@@ -21216,7 +21216,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/searchMenu.tsx 
                   </a>
                 </span>
                 <div
-                  style="flex: 1;"
+                  style="flex: 1 1 0%;"
                 />
               </div>
             </header>
@@ -21513,7 +21513,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/siderMode.tsx c
                   </a>
                 </span>
                 <div
-                  style="flex: 1;"
+                  style="flex: 1 1 0%;"
                 />
                 <div
                   class="ant-pro-global-header-right-content"
@@ -21847,7 +21847,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/siteMenu.tsx co
                   </a>
                 </span>
                 <div
-                  style="flex: 1;"
+                  style="flex: 1 1 0%;"
                 />
                 <div
                   class="ant-pro-global-header-right-content"
@@ -22165,7 +22165,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/splitMenus.tsx 
                 </a>
               </span>
               <div
-                style="flex: 1;"
+                style="flex: 1 1 0%;"
               />
             </div>
           </header>
@@ -22246,7 +22246,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/splitMenus.tsx 
               </span>
               <div />
               <div
-                style="flex: 1;"
+                style="flex: 1 1 0%;"
               />
             </div>
           </header>
@@ -22300,7 +22300,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/splitMenus.tsx 
                 </span>
               </span>
               <div
-                style="flex: 1;"
+                style="flex: 1 1 0%;"
               />
               <div
                 class="ant-pro-global-header-right-content"
@@ -22389,7 +22389,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/splitMenus.tsx 
                 </span>
               </span>
               <div
-                style="flex: 1;"
+                style="flex: 1 1 0%;"
               />
               <div
                 class="ant-pro-global-header-right-content"
@@ -22480,7 +22480,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/splitMenus.tsx 
                 </span>
               </span>
               <div
-                style="flex: 1;"
+                style="flex: 1 1 0%;"
               />
               <div
                 class="ant-pro-global-header-right-content"
@@ -22578,7 +22578,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/splitMenus.tsx 
                 </span>
               </span>
               <div
-                style="flex: 1;"
+                style="flex: 1 1 0%;"
               />
             </div>
           </header>
@@ -22838,7 +22838,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/theme.tsx corre
                 </a>
               </span>
               <div
-                style="flex: 1;"
+                style="flex: 1 1 0%;"
               />
               <div
                 class="ant-pro-global-header-right-content"
@@ -23233,7 +23233,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/top-breadcrumb.
                   </a>
                 </span>
                 <div
-                  style="flex: 1;"
+                  style="flex: 1 1 0%;"
                 >
                   <div
                     style="height: 100%; display: flex; align-items: center;"
@@ -23568,7 +23568,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/topMode.tsx cor
                   </a>
                 </span>
                 <div
-                  style="flex: 1;"
+                  style="flex: 1 1 0%;"
                 />
                 <div
                   class="ant-pro-global-header-right-content"

@@ -40,7 +40,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    style="max-width: 100%; min-width: 100%;"
+                    style="width: max-content; max-width: 100%; min-width: 100%;"
                   >
                     <div
                       class="ant-pro-form-list-item ant-pro-form-list-item-default"

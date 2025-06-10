@@ -7132,7 +7132,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/actions.tsx correct
             class="ant-pro-card-actions"
           >
             <div
-              style="display: flex; align-items: center; justify-content: center; padding: 12px; flex: 1; gap: 8px;"
+              style="display: flex; align-items: center; justify-content: center; padding: 12px; flex: 1 1 0%; gap: 8px;"
             >
               <span
                 aria-label="setting"
@@ -8710,7 +8710,6 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/loading.tsx correct
         >
           <div
             class="ant-row"
-            style="margin-left: -4px; margin-right: -4px;"
           >
             <div
               class="ant-col ant-col-22"
@@ -8723,7 +8722,6 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/loading.tsx correct
           </div>
           <div
             class="ant-row"
-            style="margin-left: -4px; margin-right: -4px;"
           >
             <div
               class="ant-col ant-col-8"
@@ -8744,7 +8742,6 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/loading.tsx correct
           </div>
           <div
             class="ant-row"
-            style="margin-left: -4px; margin-right: -4px;"
           >
             <div
               class="ant-col ant-col-6"
@@ -8765,7 +8762,6 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/loading.tsx correct
           </div>
           <div
             class="ant-row"
-            style="margin-left: -4px; margin-right: -4px;"
           >
             <div
               class="ant-col ant-col-13"
@@ -8786,7 +8782,6 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/loading.tsx correct
           </div>
           <div
             class="ant-row"
-            style="margin-left: -4px; margin-right: -4px;"
           >
             <div
               class="ant-col ant-col-4"
@@ -8828,7 +8823,6 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/loading.tsx correct
         >
           <div
             class="ant-row"
-            style="margin-left: -4px; margin-right: -4px;"
           >
             <div
               class="ant-col ant-col-22"
@@ -8841,7 +8835,6 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/loading.tsx correct
           </div>
           <div
             class="ant-row"
-            style="margin-left: -4px; margin-right: -4px;"
           >
             <div
               class="ant-col ant-col-8"
@@ -8862,7 +8855,6 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/loading.tsx correct
           </div>
           <div
             class="ant-row"
-            style="margin-left: -4px; margin-right: -4px;"
           >
             <div
               class="ant-col ant-col-6"
@@ -8883,7 +8875,6 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/loading.tsx correct
           </div>
           <div
             class="ant-row"
-            style="margin-left: -4px; margin-right: -4px;"
           >
             <div
               class="ant-col ant-col-13"
@@ -8904,7 +8895,6 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/loading.tsx correct
           </div>
           <div
             class="ant-row"
-            style="margin-left: -4px; margin-right: -4px;"
           >
             <div
               class="ant-col ant-col-4"

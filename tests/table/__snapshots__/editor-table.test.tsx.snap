@@ -32,7 +32,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                     style="overflow-x: auto; overflow-y: hidden;"
                   >
                     <table
-                      style="min-width: 100%; table-layout: fixed;"
+                      style="width: max-content; min-width: 100%; table-layout: fixed;"
                     >
                       <colgroup>
                         <col
@@ -576,7 +576,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                     style="overflow-x: auto; overflow-y: hidden;"
                   >
                     <table
-                      style="min-width: 100%; table-layout: fixed;"
+                      style="width: max-content; min-width: 100%; table-layout: fixed;"
                     >
                       <colgroup>
                         <col
