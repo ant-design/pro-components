@@ -589,7 +589,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/bas
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    已解决
+                    closed
                   </span>
                 </div>
               </td>
@@ -3163,11 +3163,9 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/edi
                       <div
                         class="ant-space-item"
                       >
-                        <div
-                          aria-describedby="test-id"
-                        >
-                          1212100
-                        </div>
+                        <span>
+                          ¥1,212,100.00
+                        </span>
                       </div>
                       <div
                         class="ant-space-item"

@@ -4757,46 +4757,14 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                 <div
                                                   class="ant-form-item-control-input-content"
                                                 >
-                                                  <span
-                                                    class="ant-input-affix-wrapper ant-input-outlined"
+                                                  <textarea
+                                                    class="ant-input ant-input-outlined"
+                                                    id="table_0_columnsInfo_0_supplementComment"
+                                                    maxlength="200"
+                                                    placeholder="请输入补充说明"
                                                   >
-                                                    <input
-                                                      class="ant-input"
-                                                      placeholder="请输入"
-                                                      type="text"
-                                                      value="系统自动生成-自增主键"
-                                                    />
-                                                    <span
-                                                      class="ant-input-suffix"
-                                                    >
-                                                      <button
-                                                        class="ant-input-clear-icon"
-                                                        tabindex="-1"
-                                                        type="button"
-                                                      >
-                                                        <span
-                                                          aria-label="close-circle"
-                                                          class="anticon anticon-close-circle"
-                                                          role="img"
-                                                        >
-                                                          <svg
-                                                            aria-hidden="true"
-                                                            data-icon="close-circle"
-                                                            fill="currentColor"
-                                                            fill-rule="evenodd"
-                                                            focusable="false"
-                                                            height="1em"
-                                                            viewBox="64 64 896 896"
-                                                            width="1em"
-                                                          >
-                                                            <path
-                                                              d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
-                                                            />
-                                                          </svg>
-                                                        </span>
-                                                      </button>
-                                                    </span>
-                                                  </span>
+                                                    系统自动生成-自增主键
+                                                  </textarea>
                                                 </div>
                                               </div>
                                             </div>
@@ -4846,46 +4814,14 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                 <div
                                                   class="ant-form-item-control-input-content"
                                                 >
-                                                  <span
-                                                    class="ant-input-affix-wrapper ant-input-outlined"
+                                                  <textarea
+                                                    class="ant-input ant-input-outlined"
+                                                    id="table_0_columnsInfo_1_supplementComment"
+                                                    maxlength="200"
+                                                    placeholder="请输入补充说明"
                                                   >
-                                                    <input
-                                                      class="ant-input"
-                                                      placeholder="请输入"
-                                                      type="text"
-                                                      value="project; 保险项目名称，包括赔款支出、保险金额、总资产、责任险、农业保险、原保险保费收入、健康险、意外险等。"
-                                                    />
-                                                    <span
-                                                      class="ant-input-suffix"
-                                                    >
-                                                      <button
-                                                        class="ant-input-clear-icon"
-                                                        tabindex="-1"
-                                                        type="button"
-                                                      >
-                                                        <span
-                                                          aria-label="close-circle"
-                                                          class="anticon anticon-close-circle"
-                                                          role="img"
-                                                        >
-                                                          <svg
-                                                            aria-hidden="true"
-                                                            data-icon="close-circle"
-                                                            fill="currentColor"
-                                                            fill-rule="evenodd"
-                                                            focusable="false"
-                                                            height="1em"
-                                                            viewBox="64 64 896 896"
-                                                            width="1em"
-                                                          >
-                                                            <path
-                                                              d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
-                                                            />
-                                                          </svg>
-                                                        </span>
-                                                      </button>
-                                                    </span>
-                                                  </span>
+                                                    project; 保险项目名称，包括赔款支出、保险金额、总资产、责任险、农业保险、原保险保费收入、健康险、意外险等。
+                                                  </textarea>
                                                 </div>
                                               </div>
                                             </div>
@@ -4935,46 +4871,14 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                 <div
                                                   class="ant-form-item-control-input-content"
                                                 >
-                                                  <span
-                                                    class="ant-input-affix-wrapper ant-input-outlined"
+                                                  <textarea
+                                                    class="ant-input ant-input-outlined"
+                                                    id="table_0_columnsInfo_2_supplementComment"
+                                                    maxlength="200"
+                                                    placeholder="请输入补充说明"
                                                   >
-                                                    <input
-                                                      class="ant-input"
-                                                      placeholder="请输入"
-                                                      type="text"
-                                                      value="amount; 数值金额，代表各种保险项目的金额。"
-                                                    />
-                                                    <span
-                                                      class="ant-input-suffix"
-                                                    >
-                                                      <button
-                                                        class="ant-input-clear-icon"
-                                                        tabindex="-1"
-                                                        type="button"
-                                                      >
-                                                        <span
-                                                          aria-label="close-circle"
-                                                          class="anticon anticon-close-circle"
-                                                          role="img"
-                                                        >
-                                                          <svg
-                                                            aria-hidden="true"
-                                                            data-icon="close-circle"
-                                                            fill="currentColor"
-                                                            fill-rule="evenodd"
-                                                            focusable="false"
-                                                            height="1em"
-                                                            viewBox="64 64 896 896"
-                                                            width="1em"
-                                                          >
-                                                            <path
-                                                              d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
-                                                            />
-                                                          </svg>
-                                                        </span>
-                                                      </button>
-                                                    </span>
-                                                  </span>
+                                                    amount; 数值金额，代表各种保险项目的金额。
+                                                  </textarea>
                                                 </div>
                                               </div>
                                             </div>
@@ -15795,7 +15699,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                                 aria-valuemax="100"
                                 aria-valuemin="0"
                                 aria-valuenow="86"
-                                class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
+                                class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
                                 role="progressbar"
                                 style="min-width: 100px; max-width: 320px;"
                               >
@@ -15934,7 +15838,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                                 aria-valuemax="100"
                                 aria-valuemin="0"
                                 aria-valuenow="86"
-                                class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
+                                class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
                                 role="progressbar"
                                 style="min-width: 100px; max-width: 320px;"
                               >
@@ -16073,7 +15977,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                                 aria-valuemax="100"
                                 aria-valuemin="0"
                                 aria-valuenow="86"
-                                class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
+                                class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
                                 role="progressbar"
                                 style="min-width: 100px; max-width: 320px;"
                               >
@@ -16212,7 +16116,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                                 aria-valuemax="100"
                                 aria-valuemin="0"
                                 aria-valuenow="86"
-                                class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
+                                class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
                                 role="progressbar"
                                 style="min-width: 100px; max-width: 320px;"
                               >
@@ -16351,7 +16255,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                                 aria-valuemax="100"
                                 aria-valuemin="0"
                                 aria-valuenow="86"
-                                class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
+                                class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
                                 role="progressbar"
                                 style="min-width: 100px; max-width: 320px;"
                               >
@@ -43768,21 +43672,21 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/split.tsx correct
                                         class="ant-table-cell"
                                       >
                                         <span>
-                                          10%
+                                          10.00%
                                         </span>
                                       </td>
                                       <td
                                         class="ant-table-cell"
                                       >
                                         <span>
-                                          20%
+                                          20.00%
                                         </span>
                                       </td>
                                       <td
                                         class="ant-table-cell"
                                       >
                                         <span>
-                                          30%
+                                          30.00%
                                         </span>
                                       </td>
                                     </tr>
@@ -43810,21 +43714,21 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/split.tsx correct
                                         class="ant-table-cell"
                                       >
                                         <span>
-                                          10%
+                                          10.00%
                                         </span>
                                       </td>
                                       <td
                                         class="ant-table-cell"
                                       >
                                         <span>
-                                          20%
+                                          20.00%
                                         </span>
                                       </td>
                                       <td
                                         class="ant-table-cell"
                                       >
                                         <span>
-                                          30%
+                                          30.00%
                                         </span>
                                       </td>
                                     </tr>
@@ -43852,21 +43756,21 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/split.tsx correct
                                         class="ant-table-cell"
                                       >
                                         <span>
-                                          10%
+                                          10.00%
                                         </span>
                                       </td>
                                       <td
                                         class="ant-table-cell"
                                       >
                                         <span>
-                                          20%
+                                          20.00%
                                         </span>
                                       </td>
                                       <td
                                         class="ant-table-cell"
                                       >
                                         <span>
-                                          30%
+                                          30.00%
                                         </span>
                                       </td>
                                     </tr>
@@ -43894,21 +43798,21 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/split.tsx correct
                                         class="ant-table-cell"
                                       >
                                         <span>
-                                          10%
+                                          10.00%
                                         </span>
                                       </td>
                                       <td
                                         class="ant-table-cell"
                                       >
                                         <span>
-                                          20%
+                                          20.00%
                                         </span>
                                       </td>
                                       <td
                                         class="ant-table-cell"
                                       >
                                         <span>
-                                          30%
+                                          30.00%
                                         </span>
                                       </td>
                                     </tr>
@@ -43936,21 +43840,21 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/split.tsx correct
                                         class="ant-table-cell"
                                       >
                                         <span>
-                                          10%
+                                          10.00%
                                         </span>
                                       </td>
                                       <td
                                         class="ant-table-cell"
                                       >
                                         <span>
-                                          20%
+                                          20.00%
                                         </span>
                                       </td>
                                       <td
                                         class="ant-table-cell"
                                       >
                                         <span>
-                                          30%
+                                          30.00%
                                         </span>
                                       </td>
                                     </tr>
@@ -43978,21 +43882,21 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/split.tsx correct
                                         class="ant-table-cell"
                                       >
                                         <span>
-                                          10%
+                                          10.00%
                                         </span>
                                       </td>
                                       <td
                                         class="ant-table-cell"
                                       >
                                         <span>
-                                          20%
+                                          20.00%
                                         </span>
                                       </td>
                                       <td
                                         class="ant-table-cell"
                                       >
                                         <span>
-                                          30%
+                                          30.00%
                                         </span>
                                       </td>
                                     </tr>
@@ -44020,21 +43924,21 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/split.tsx correct
                                         class="ant-table-cell"
                                       >
                                         <span>
-                                          10%
+                                          10.00%
                                         </span>
                                       </td>
                                       <td
                                         class="ant-table-cell"
                                       >
                                         <span>
-                                          20%
+                                          20.00%
                                         </span>
                                       </td>
                                       <td
                                         class="ant-table-cell"
                                       >
                                         <span>
-                                          30%
+                                          30.00%
                                         </span>
                                       </td>
                                     </tr>
@@ -44062,21 +43966,21 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/split.tsx correct
                                         class="ant-table-cell"
                                       >
                                         <span>
-                                          10%
+                                          10.00%
                                         </span>
                                       </td>
                                       <td
                                         class="ant-table-cell"
                                       >
                                         <span>
-                                          20%
+                                          20.00%
                                         </span>
                                       </td>
                                       <td
                                         class="ant-table-cell"
                                       >
                                         <span>
-                                          30%
+                                          30.00%
                                         </span>
                                       </td>
                                     </tr>
@@ -44104,21 +44008,21 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/split.tsx correct
                                         class="ant-table-cell"
                                       >
                                         <span>
-                                          10%
+                                          10.00%
                                         </span>
                                       </td>
                                       <td
                                         class="ant-table-cell"
                                       >
                                         <span>
-                                          20%
+                                          20.00%
                                         </span>
                                       </td>
                                       <td
                                         class="ant-table-cell"
                                       >
                                         <span>
-                                          30%
+                                          30.00%
                                         </span>
                                       </td>
                                     </tr>
@@ -44146,21 +44050,21 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/split.tsx correct
                                         class="ant-table-cell"
                                       >
                                         <span>
-                                          10%
+                                          10.00%
                                         </span>
                                       </td>
                                       <td
                                         class="ant-table-cell"
                                       >
                                         <span>
-                                          20%
+                                          20.00%
                                         </span>
                                       </td>
                                       <td
                                         class="ant-table-cell"
                                       >
                                         <span>
-                                          30%
+                                          30.00%
                                         </span>
                                       </td>
                                     </tr>
