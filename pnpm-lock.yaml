@@ -52,6 +52,9 @@ importers:
       '@umijs/route-utils':
         specifier: ^4.0.1
         version: 4.0.1
+      '@umijs/use-params':
+        specifier: ^1.0.9
+        version: 1.0.9(react@18.3.1)
       classnames:
         specifier: ^2.3.2
         version: 2.5.1
