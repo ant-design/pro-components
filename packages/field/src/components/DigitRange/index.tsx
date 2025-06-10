@@ -1,6 +1,6 @@
 import { proTheme, useIntl } from '@ant-design/pro-provider';
 import { Input, InputNumber, Space } from 'antd';
-import useMergedState from 'rc-util/es/hooks/useMergedState';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useRef } from 'react';
 import type { ProFieldFC } from '../../PureProField';
 

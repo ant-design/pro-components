@@ -17,7 +17,7 @@ import {
   waitFor,
 } from '@testing-library/react';
 import { Button, Input, InputNumber } from 'antd';
-import useMergedState from 'rc-util/es/hooks/useMergedState';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useRef } from 'react';
 import { waitTime } from '../util';
 type DataSourceType = {

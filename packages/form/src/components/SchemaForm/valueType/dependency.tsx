@@ -1,4 +1,4 @@
-import { noteOnce } from 'rc-util/es/warning';
+import { noteOnce } from 'rc-util/lib/warning';
 import ProFormDependency from '../../Dependency';
 import type { ItemType, ProFormRenderValueTypeHelpers } from '../typing';
 

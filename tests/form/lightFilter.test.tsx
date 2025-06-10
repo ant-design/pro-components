@@ -11,7 +11,7 @@ import {
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import dayjs from 'dayjs';
-import KeyCode from 'rc-util/es/KeyCode';
+import KeyCode from 'rc-util/lib/KeyCode';
 import { act } from 'react';
 
 describe('LightFilter', () => {

@@ -13,7 +13,7 @@ import {
 } from '@ant-design/pro-utils';
 import { Form } from 'antd';
 import { AnyObject } from 'antd/lib/_util/type';
-import get from 'rc-util/es/utils/get';
+import get from 'rc-util/lib/utils/get';
 import React, {
   useCallback,
   useContext,

@@ -2,7 +2,7 @@
 import type { SpaceProps } from 'antd';
 import { Input, Space } from 'antd';
 import type { GroupProps } from 'antd/lib/input';
-import toArray from 'rc-util/es/Children/toArray';
+import toArray from 'rc-util/lib/Children/toArray';
 import React, { useCallback, useImperativeHandle, useMemo } from 'react';
 import type { LightWrapperProps } from '../../BaseForm';
 import { useGridHelpers } from '../../helpers';

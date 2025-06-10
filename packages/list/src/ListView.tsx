@@ -13,7 +13,7 @@ import usePagination from 'antd/lib/table/hooks/usePagination';
 import useSelection from 'antd/lib/table/hooks/useSelection';
 import type { GetRowKey, TableRowSelection } from 'antd/lib/table/interface';
 import classNames from 'classnames';
-import get from 'rc-util/es/utils/get';
+import get from 'rc-util/lib/utils/get';
 import React, { useContext } from 'react';
 import type { ItemProps } from './Item';
 import ProListItem from './Item';

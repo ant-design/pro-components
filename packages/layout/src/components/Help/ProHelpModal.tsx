@@ -1,6 +1,6 @@
 ﻿import type { ModalProps } from 'antd';
 import { Modal } from 'antd';
-import useMergedState from 'rc-util/es/hooks/useMergedState';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { ProHelpPanelProps } from './ProHelpPanel';
 import { ProHelpPanel } from './ProHelpPanel';
 export type ProHelpModalProps = {

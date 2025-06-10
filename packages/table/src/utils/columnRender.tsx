@@ -7,7 +7,7 @@ import type {
 } from '@ant-design/pro-utils';
 import { LabelIconTip, genCopyable, isNil } from '@ant-design/pro-utils';
 import { AnyObject } from 'antd/lib/_util/type';
-import get from 'rc-util/es/utils/get';
+import get from 'rc-util/lib/utils/get';
 import React from 'react';
 import { isMergeCell } from '.';
 import type { ContainerType } from '../Store/Provide';

@@ -1,8 +1,8 @@
 ﻿import type { FormProps, ModalProps } from 'antd';
 import { ConfigProvider, Modal } from 'antd';
 import { merge } from 'lodash-es';
-import useMergedState from 'rc-util/es/hooks/useMergedState';
-import { noteOnce } from 'rc-util/es/warning';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { noteOnce } from 'rc-util/lib/warning';
 import React, {
   useCallback,
   useContext,

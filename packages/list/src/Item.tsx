@@ -7,7 +7,7 @@ import { ConfigProvider, List, Skeleton } from 'antd';
 import type { ListGridType } from 'antd/lib/list';
 import type { ExpandableConfig } from 'antd/lib/table/interface';
 import classNames from 'classnames';
-import useMergedState from 'rc-util/es/hooks/useMergedState';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useContext, useMemo } from 'react';
 import type { GetComponentProps } from './index';
 

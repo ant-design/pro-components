@@ -2,7 +2,7 @@
 import { ProProvider, isNeedOpenHash } from '@ant-design/pro-provider';
 import { coverToNewToken } from '@ant-design/pro-utils';
 import { Card, ConfigProvider, Menu } from 'antd';
-import useMergedState from 'rc-util/es/hooks/useMergedState';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useContext, useMemo, useState } from 'react';
 import type { ProHelpDataSource } from './HelpProvide';
 import { ProHelpProvide } from './HelpProvide';

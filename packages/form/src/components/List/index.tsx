@@ -12,7 +12,7 @@ import type {
 import type { NamePath } from 'antd/lib/form/interface';
 import classNames from 'classnames';
 
-import { noteOnce } from 'rc-util/es/warning';
+import { noteOnce } from 'rc-util/lib/warning';
 import type { ReactNode } from 'react';
 import React, {
   useContext,

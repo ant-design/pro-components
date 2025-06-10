@@ -6,7 +6,7 @@ import Descriptions from '@ant-design/pro-descriptions';
 import type { RowEditableConfig } from '@ant-design/pro-utils';
 import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import { Form, InputNumber } from 'antd';
-import useMergedState from 'rc-util/es/hooks/useMergedState';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { act, useRef } from 'react';
 type DataSourceType = {
   id: number;

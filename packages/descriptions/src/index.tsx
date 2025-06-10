@@ -21,8 +21,8 @@ import {
 import type { DescriptionsProps, FormInstance, FormProps } from 'antd';
 import { ConfigProvider, Descriptions, Space } from 'antd';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
-import toArray from 'rc-util/es/Children/toArray';
-import get from 'rc-util/es/utils/get';
+import toArray from 'rc-util/lib/Children/toArray';
+import get from 'rc-util/lib/utils/get';
 import React, { useContext, useEffect } from 'react';
 import type { RequestData } from './useFetchData';
 import useFetchData from './useFetchData';
