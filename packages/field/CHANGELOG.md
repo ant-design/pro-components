@@ -1,6 +1,19 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [3.0.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@3.0.4...@ant-design/pro-field@3.0.5) (2025-06-10)
+
+
+### Bug Fixes
+
+* **form:** 使用useRef优化valuePair的处理逻辑，确保在边界值外的值更新更为准确 ([#9058](https://github.com/ant-design/pro-components/issues/9058)) ([e2b398f](https://github.com/ant-design/pro-components/commit/e2b398f49187a5ef522601487731c9de9e1470c2))
+* **form:** 给 select readonly 模式下 render 方法提供组件内部计算好的 options ([#9068](https://github.com/ant-design/pro-components/issues/9068)) ([d7f4ae2](https://github.com/ant-design/pro-components/commit/d7f4ae2382e201bf8b646aa4599fef312728c697))
+
+
+
+
 
 ## [3.0.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@3.0.3...@ant-design/pro-field@3.0.4) (2025-03-31)
 
