@@ -56,7 +56,7 @@ export function genProColumnToColumn<T extends AnyObject>(
     marginSM,
     rowKey = 'id',
     childrenColumnName = 'children',
-    proFilter,
+    proFilter = {},
     proSort,
   } = params;
 
@@ -102,8 +102,8 @@ export function genProColumnToColumn<T extends AnyObject>(
 
       // 对应筛选值，用作双向绑定
       const filteredValue =
-        columnKey && proFilter[columnKey] !== undefined
-          ? proFilter[columnKey]
+        columnKey && proFilter?.[columnKey] !== undefined
+          ? proFilter?.[columnKey]
           : null;
       // 对应排序值，用作双向绑定
       const sortOrder =
