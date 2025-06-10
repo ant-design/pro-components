@@ -12,7 +12,7 @@ export default {
   },
   tableForm: {
     search: '搜尋', // 「查詢」 → 「搜尋」
-    reset: '重設',  // 「重置」 → 「重設」
+    reset: '重設', // 「重置」 → 「重設」
     submit: '提交',
     collapsed: '展開',
     expand: '收起',
@@ -39,11 +39,11 @@ export default {
     rightFixedTitle: '固定在右側',
     noFixedTitle: '不固定',
     reset: '重設',
-    columnDisplay: '列顯示',     // 「列展示」→「列顯示」
-    columnSetting: '列設定',     // 「設置」→「設定」
-    fullScreen: '全螢幕',         // 「全屏」→「全螢幕」
+    columnDisplay: '列顯示', // 「列展示」→「列顯示」
+    columnSetting: '列設定', // 「設置」→「設定」
+    fullScreen: '全螢幕', // 「全屏」→「全螢幕」
     exitFullScreen: '退出全螢幕', // 「退出全屏」→「退出全螢幕」
-    reload: '重新整理',           // 「刷新」→「重新整理」
+    reload: '重新整理', // 「刷新」→「重新整理」
     density: '密度',
     densityDefault: '正常',
     densityLarger: '寬鬆',

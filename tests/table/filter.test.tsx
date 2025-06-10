@@ -1,9 +1,15 @@
 import ProTable, { ActionType } from '@ant-design/pro-table';
-import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import {
+  cleanup,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { getFetchData } from './demo';
 import { Button } from 'antd';
 import { useRef } from 'react';
+import { getFetchData } from './demo';
 
 afterEach(() => {
   cleanup();
@@ -137,7 +143,7 @@ describe('BasicTable filter', () => {
             valueEnum: {
               0: { text: '已上线', status: 'online' },
               1: { text: '未上线', status: 'not_online' },
-            }
+            },
           },
           {
             title: '运行状态',
@@ -153,7 +159,7 @@ describe('BasicTable filter', () => {
         ]}
         request={async () => {
           fn();
-          
+
           return {
             total: 4,
             success: true,
@@ -162,25 +168,25 @@ describe('BasicTable filter', () => {
                 key: '1',
                 onlineStatus: 0,
                 processStatus: 1,
-                name: '项目 A'
+                name: '项目 A',
               },
               {
                 key: '2',
                 onlineStatus: 1,
                 processStatus: 1,
-                name: '项目 B'
+                name: '项目 B',
               },
               {
                 key: '3',
                 onlineStatus: 0,
                 processStatus: 0,
-                name: '项目 C'
+                name: '项目 C',
               },
               {
                 key: '4',
                 onlineStatus: 0,
                 processStatus: 1,
-                name: '项目 D'
+                name: '项目 D',
               },
             ],
           };
@@ -188,25 +194,37 @@ describe('BasicTable filter', () => {
         rowKey="key"
       />,
     );
-    
-    await waitFor(() => {
-      expect(screen.queryByText('项目 A')).toBeInTheDocument();
-      expect(screen.queryByText('项目 B')).toBeInTheDocument();
-      expect(screen.queryByText('项目 D')).toBeInTheDocument();
-      expect(screen.queryByText('项目 C')).not.toBeInTheDocument();
-      
-      fn.mockClear(); // 清除初始 request 調用
-    }, { timeout: 1000 });
 
-    await userEvent.click(container.querySelectorAll('span.ant-table-filter-trigger')[0]);
+    await waitFor(
+      () => {
+        expect(screen.queryByText('项目 A')).toBeInTheDocument();
+        expect(screen.queryByText('项目 B')).toBeInTheDocument();
+        expect(screen.queryByText('项目 D')).toBeInTheDocument();
+        expect(screen.queryByText('项目 C')).not.toBeInTheDocument();
+
+        fn.mockClear(); // 清除初始 request 調用
+      },
+      { timeout: 1000 },
+    );
+
+    await userEvent.click(
+      container.querySelectorAll('span.ant-table-filter-trigger')[0],
+    );
     await userEvent.click(screen.getByRole('menuitem', { name: /已上线/i }));
-    await userEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn.ant-btn-primary.ant-btn-sm')!);
+    await userEvent.click(
+      container.querySelector(
+        '.ant-table-filter-dropdown-btns .ant-btn.ant-btn-primary.ant-btn-sm',
+      )!,
+    );
 
-    await waitFor(() => {
-      expect(screen.queryByText('项目 A')).toBeInTheDocument();
-      expect(screen.queryByText('项目 D')).toBeInTheDocument();
-      expect(screen.queryByText('项目 B')).not.toBeInTheDocument();
-    }, { timeout: 1000 });
+    await waitFor(
+      () => {
+        expect(screen.queryByText('项目 A')).toBeInTheDocument();
+        expect(screen.queryByText('项目 D')).toBeInTheDocument();
+        expect(screen.queryByText('项目 B')).not.toBeInTheDocument();
+      },
+      { timeout: 1000 },
+    );
 
     // 验证 fn 沒被调用，因为筛选是在本地进行的
     expect(fn).not.toHaveBeenCalled();
@@ -234,27 +252,27 @@ describe('BasicTable filter', () => {
         ]}
         request={async (_, sort, filter) => {
           fn();
-          
+
           const data = [
             {
               key: '1',
               onlineStatus: 0,
-              name: '项目 A'
+              name: '项目 A',
             },
             {
               key: '2',
               onlineStatus: 1,
-              name: '项目 B'
+              name: '项目 B',
             },
             {
               key: '3',
               onlineStatus: 0,
-              name: '项目 C'
+              name: '项目 C',
             },
             {
               key: '4',
               onlineStatus: 1,
-              name: '项目 D'
+              name: '项目 D',
             },
           ].filter((item) => {
             if (filter.onlineStatus == null) return true;
@@ -271,144 +289,182 @@ describe('BasicTable filter', () => {
       />,
     );
 
-    await waitFor(() => {
-      expect(screen.queryByText('项目 A')).toBeInTheDocument();
-      expect(screen.queryByText('项目 B')).toBeInTheDocument();
-      expect(screen.queryByText('项目 D')).toBeInTheDocument();
-      expect(screen.queryByText('项目 C')).toBeInTheDocument();
+    await waitFor(
+      () => {
+        expect(screen.queryByText('项目 A')).toBeInTheDocument();
+        expect(screen.queryByText('项目 B')).toBeInTheDocument();
+        expect(screen.queryByText('项目 D')).toBeInTheDocument();
+        expect(screen.queryByText('项目 C')).toBeInTheDocument();
 
-      fn.mockClear(); // 清除初始 request 調用
-    }, { timeout: 1000 });
+        fn.mockClear(); // 清除初始 request 調用
+      },
+      { timeout: 1000 },
+    );
 
-    await userEvent.click(container.querySelectorAll('span.ant-table-filter-trigger')[0]);
+    await userEvent.click(
+      container.querySelectorAll('span.ant-table-filter-trigger')[0],
+    );
     await userEvent.click(screen.getByRole('menuitem', { name: /已上线/i }));
-    await userEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn.ant-btn-primary.ant-btn-sm')!);
+    await userEvent.click(
+      container.querySelector(
+        '.ant-table-filter-dropdown-btns .ant-btn.ant-btn-primary.ant-btn-sm',
+      )!,
+    );
 
-    await waitFor(() => {
-      expect(screen.queryByText('项目 A')).toBeInTheDocument();
-      expect(screen.queryByText('项目 C')).toBeInTheDocument();
-      expect(screen.queryByText('项目 D')).not.toBeInTheDocument();
-      expect(screen.queryByText('项目 B')).not.toBeInTheDocument();
+    await waitFor(
+      () => {
+        expect(screen.queryByText('项目 A')).toBeInTheDocument();
+        expect(screen.queryByText('项目 C')).toBeInTheDocument();
+        expect(screen.queryByText('项目 D')).not.toBeInTheDocument();
+        expect(screen.queryByText('项目 B')).not.toBeInTheDocument();
 
-      // 验证 fn 有被调用，因为筛选是透过服务端进行的
-      expect(fn).toHaveBeenCalledTimes(1);
-    }, { timeout: 1000 });
+        // 验证 fn 有被调用，因为筛选是透过服务端进行的
+        expect(fn).toHaveBeenCalledTimes(1);
+      },
+      { timeout: 1000 },
+    );
   });
 
   it('🎏 should reset to defaultFilteredValue when use request filter', async () => {
     const TestComponent = () => {
       const actionRef = useRef<ActionType>();
 
-      return (<ProTable
-        size="small"
-        actionRef={actionRef}
-        columns={[
-          {
-            title: 'Name',
-            dataIndex: 'name',
-          },
-          {
-            title: '上线状态',
-            dataIndex: 'onlineStatus',
-            filters: true,
-            valueEnum: {
-              0: { text: '已上线', status: 'online' },
-              1: { text: '未上线', status: 'not_online' },
-            },
-          },
-          {
-            title: '运行状态',
-            dataIndex: 'processStatus',
-            filters: true,
-            valueEnum: {
-              0: { text: '运行中', status: 'Processing' },
-              1: { text: '异常', status: 'Error' },
-            },
-            defaultFilteredValue: ['1'],
-          },
-        ]}
-        request={async (_, sort, filter) => {
-          const data = [
+      return (
+        <ProTable
+          size="small"
+          actionRef={actionRef}
+          columns={[
             {
-              key: '1',
-              onlineStatus: 0,
-              processStatus: 1,
-              name: '项目 A'
+              title: 'Name',
+              dataIndex: 'name',
             },
             {
-              key: '2',
-              onlineStatus: 1,
-              processStatus: 0,
-              name: '项目 B'
+              title: '上线状态',
+              dataIndex: 'onlineStatus',
+              filters: true,
+              valueEnum: {
+                0: { text: '已上线', status: 'online' },
+                1: { text: '未上线', status: 'not_online' },
+              },
             },
             {
-              key: '3',
-              onlineStatus: 0,
-              processStatus: 0,
-              name: '项目 C'
+              title: '运行状态',
+              dataIndex: 'processStatus',
+              filters: true,
+              valueEnum: {
+                0: { text: '运行中', status: 'Processing' },
+                1: { text: '异常', status: 'Error' },
+              },
+              defaultFilteredValue: ['1'],
             },
-            {
-              key: '4',
-              onlineStatus: 1,
-              processStatus: 1,
-              name: '项目 D'
-            },
-          ].filter((item) => {
-            if (filter.onlineStatus != null) {
-              return filter.onlineStatus.includes(item.onlineStatus.toString());
-            }
-            return true;
-          }).filter((item) => {
-            if (filter.processStatus != null) {
-              return filter.processStatus.includes(item.processStatus.toString());
-            }
-            return true;
-          });
+          ]}
+          request={async (_, sort, filter) => {
+            const data = [
+              {
+                key: '1',
+                onlineStatus: 0,
+                processStatus: 1,
+                name: '项目 A',
+              },
+              {
+                key: '2',
+                onlineStatus: 1,
+                processStatus: 0,
+                name: '项目 B',
+              },
+              {
+                key: '3',
+                onlineStatus: 0,
+                processStatus: 0,
+                name: '项目 C',
+              },
+              {
+                key: '4',
+                onlineStatus: 1,
+                processStatus: 1,
+                name: '项目 D',
+              },
+            ]
+              .filter((item) => {
+                if (filter.onlineStatus != null) {
+                  return filter.onlineStatus.includes(
+                    item.onlineStatus.toString(),
+                  );
+                }
+                return true;
+              })
+              .filter((item) => {
+                if (filter.processStatus != null) {
+                  return filter.processStatus.includes(
+                    item.processStatus.toString(),
+                  );
+                }
+                return true;
+              });
 
-          return {
-            total: data.length,
-            success: true,
-            data,
-          };
-        }}
-        rowKey="key"
-        toolBarRender={() => [
-          <Button
-            key="button"
-            onClick={() => {
-              actionRef.current?.reset?.();
-            }}
-          >
-            重置表格
-          </Button>,
-        ]}
-      />)
-    }
-    const { container } = render(<TestComponent/>);
+            return {
+              total: data.length,
+              success: true,
+              data,
+            };
+          }}
+          rowKey="key"
+          toolBarRender={() => [
+            <Button
+              key="button"
+              onClick={() => {
+                actionRef.current?.reset?.();
+              }}
+            >
+              重置表格
+            </Button>,
+          ]}
+        />
+      );
+    };
+    const { container } = render(<TestComponent />);
 
-    await userEvent.click(container.querySelectorAll('span.ant-table-filter-trigger')[0]);
+    await userEvent.click(
+      container.querySelectorAll('span.ant-table-filter-trigger')[0],
+    );
     await userEvent.click(screen.getByRole('menuitem', { name: /已上线/i }));
-    await userEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn.ant-btn-primary.ant-btn-sm')!);
+    await userEvent.click(
+      container.querySelector(
+        '.ant-table-filter-dropdown-btns .ant-btn.ant-btn-primary.ant-btn-sm',
+      )!,
+    );
 
-    await userEvent.click(container.querySelectorAll('span.ant-table-filter-trigger')[1]);
+    await userEvent.click(
+      container.querySelectorAll('span.ant-table-filter-trigger')[1],
+    );
     await userEvent.click(screen.getByRole('menuitem', { name: /异常/i }));
-    await userEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn.ant-btn-primary.ant-btn-sm')!);
+    await userEvent.click(
+      container.querySelector(
+        '.ant-table-filter-dropdown-btns .ant-btn.ant-btn-primary.ant-btn-sm',
+      )!,
+    );
 
-    await waitFor(() => {
-      expect(screen.queryByText('项目 A')).toBeInTheDocument();
-      expect(screen.queryByText('项目 C')).toBeInTheDocument();
-      expect(screen.queryByText('项目 D')).not.toBeInTheDocument();
-      expect(screen.queryByText('项目 B')).not.toBeInTheDocument();
-    }, { timeout: 1000 });
+    await waitFor(
+      () => {
+        expect(screen.queryByText('项目 A')).toBeInTheDocument();
+        expect(screen.queryByText('项目 C')).toBeInTheDocument();
+        expect(screen.queryByText('项目 D')).not.toBeInTheDocument();
+        expect(screen.queryByText('项目 B')).not.toBeInTheDocument();
+      },
+      { timeout: 1000 },
+    );
 
     await userEvent.click(screen.getByRole('button', { name: /重置表格/i }));
 
-    await waitFor(() => {
-      expect(screen.queryByText('项目 A')).toBeInTheDocument();
-      expect(screen.queryByText('项目 D')).toBeInTheDocument();
-      expect(screen.queryByText('项目 B')).not.toBeInTheDocument();
-      expect(screen.queryByText('项目 C')).not.toBeInTheDocument();
-    }, { timeout: 1000 });
+    await waitFor(
+      () => {
+        expect(screen.queryByText('项目 A')).toBeInTheDocument();
+        expect(screen.queryByText('项目 D')).toBeInTheDocument();
+        expect(screen.queryByText('项目 B')).not.toBeInTheDocument();
+        expect(screen.queryByText('项目 C')).not.toBeInTheDocument();
+      },
+      { timeout: 1000 },
+    );
   });
 
   it('🎏 should pass filter parameters to request function with nested dataIndex', async () => {
@@ -493,7 +549,7 @@ describe('BasicTable filter', () => {
         '.ant-table-filter-dropdown-btns .ant-btn.ant-btn-primary.ant-btn-sm',
       )!,
     );
-    
+
     expect(fn).toHaveBeenCalled();
   });
 });
@@ -619,7 +675,7 @@ describe('BasicTable sorter', () => {
   it('🎏 should sort data locally', async () => {
     const fn = vi.fn();
     const { container } = render(
-      <ProTable<{ money: number, count: number }>
+      <ProTable<{ money: number; count: number }>
         size="small"
         columns={[
           {
@@ -643,7 +699,7 @@ describe('BasicTable sorter', () => {
         ]}
         request={async () => {
           fn();
-          
+
           return {
             total: 3,
             success: true,
@@ -651,20 +707,20 @@ describe('BasicTable sorter', () => {
               {
                 key: '1',
                 name: '项目 A',
-                money: 100, 
-                count: 50
+                money: 100,
+                count: 50,
               },
               {
                 key: '2',
                 name: '项目 B',
-                money: 250, 
-                count: 10
+                money: 250,
+                count: 10,
               },
               {
                 key: '3',
                 name: '项目 C',
-                money: 150, 
-                count: 65
+                money: 150,
+                count: 65,
               },
             ],
           };
@@ -672,25 +728,32 @@ describe('BasicTable sorter', () => {
         rowKey="key"
       />,
     );
-    
-    await waitFor(() => {  
-      const rows = container.querySelectorAll('.ant-table-row');
-      expect(rows[0].firstChild?.textContent).toContain('项目 B');
-      expect(rows[1].firstChild?.textContent).toContain('项目 C');
-      expect(rows[2].firstChild?.textContent).toContain('项目 A');
-    
-      fn.mockClear(); // 清除初始 request 調用
-    }, { timeout: 1000 });
 
-    await userEvent.click(container.querySelectorAll('span.ant-table-column-sorter-down')[0]);
+    await waitFor(
+      () => {
+        const rows = container.querySelectorAll('.ant-table-row');
+        expect(rows[0].firstChild?.textContent).toContain('项目 B');
+        expect(rows[1].firstChild?.textContent).toContain('项目 C');
+        expect(rows[2].firstChild?.textContent).toContain('项目 A');
+
+        fn.mockClear(); // 清除初始 request 調用
+      },
+      { timeout: 1000 },
+    );
+
+    await userEvent.click(
+      container.querySelectorAll('span.ant-table-column-sorter-down')[0],
+    );
 
     const rowsAfterMoneySort = container.querySelectorAll('.ant-table-row');
     expect(rowsAfterMoneySort[0].firstChild?.textContent).toContain('项目 A');
     expect(rowsAfterMoneySort[1].firstChild?.textContent).toContain('项目 B');
     expect(rowsAfterMoneySort[2].firstChild?.textContent).toContain('项目 C');
 
-    await userEvent.click(container.querySelectorAll('span.ant-table-column-sorter-down')[1]);
-    
+    await userEvent.click(
+      container.querySelectorAll('span.ant-table-column-sorter-down')[1],
+    );
+
     const rowsAfterCountSort = container.querySelectorAll('.ant-table-row');
     expect(rowsAfterCountSort[0].firstChild?.textContent).toContain('项目 B');
     expect(rowsAfterCountSort[1].firstChild?.textContent).toContain('项目 A');
@@ -703,7 +766,7 @@ describe('BasicTable sorter', () => {
   it('🎏 should sort data request', async () => {
     const fn = vi.fn();
     const { container } = render(
-      <ProTable<{ money: number, count: number }>
+      <ProTable<{ money: number; count: number }>
         size="small"
         columns={[
           {
@@ -727,88 +790,7 @@ describe('BasicTable sorter', () => {
         ]}
         request={async (_, sort) => {
           fn();
-          
-          return {
-            total: 3,
-            success: true,
-            data: [
-              {
-                key: '1',
-                name: '项目 A',
-                money: 100, 
-                count: 50
-              },
-              {
-                key: '2',
-                name: '项目 B',
-                money: 250, 
-                count: 10
-              },
-              {
-                key: '3',
-                name: '项目 C',
-                money: 150, 
-                count: 65
-              },
-            ].sort((a, b) => {
-                if (sort?.money) {
-                  return sort.money === 'ascend' ? a.money - b.money : b.money - a.money;
-                } else if (sort?.count) {
-                  return sort.count === 'ascend' ? a.count - b.count : b.count - a.count;
-                } else {
-                  return 0;
-                }
-            }),
-          };
-        }}
-        rowKey="key"
-      />,
-    );
 
-    await waitFor(() => {  
-      const rows = container.querySelectorAll('.ant-table-row');
-      expect(rows[0].firstChild?.textContent).toContain('项目 B');
-      expect(rows[1].firstChild?.textContent).toContain('项目 C');
-      expect(rows[2].firstChild?.textContent).toContain('项目 A');
-    
-      fn.mockClear(); // 清除初始 request 調用
-    }, { timeout: 1000 });
-
-    await userEvent.click(container.querySelectorAll('span.ant-table-column-sorter-down')[0]);
-
-    await waitFor(() => {  
-      const rows = container.querySelectorAll('.ant-table-row');
-      expect(rows[0].firstChild?.textContent).toContain('项目 A');
-      expect(rows[1].firstChild?.textContent).toContain('项目 B');
-      expect(rows[2].firstChild?.textContent).toContain('项目 C');
-
-      // 验证 fn 有被调用，因为排序是透过服务端进行的
-      expect(fn).toHaveBeenCalledTimes(1);
-    }, { timeout: 1000 });
-  });
-
-  it('🎏 should reset to defaultSortOrder when use request sort', async () => {
-    const TestComponent = () => {
-      const actionRef = useRef<ActionType>();
-
-      return (<ProTable<{ money: number }>
-        size="small"
-        actionRef={actionRef}
-        columns={[
-          {
-            title: 'Name',
-            key: 'name',
-            dataIndex: 'name',
-          },
-          {
-            title: 'money',
-            key: 'money',
-            dataIndex: 'money',
-            sorter: true,
-            defaultSortOrder: 'descend',
-          },
-        ]}
-        request={async (_, sort) => {
           return {
             total: 3,
             success: true,
@@ -817,64 +799,172 @@ describe('BasicTable sorter', () => {
                 key: '1',
                 name: '项目 A',
                 money: 100,
+                count: 50,
               },
               {
                 key: '2',
                 name: '项目 B',
                 money: 250,
+                count: 10,
               },
               {
                 key: '3',
                 name: '项目 C',
                 money: 150,
+                count: 65,
               },
             ].sort((a, b) => {
-                if (sort?.money) {
-                  return sort.money === 'ascend' ? a.money - b.money : b.money - a.money;
-                } else {
-                  return 0;
-                }
+              if (sort?.money) {
+                return sort.money === 'ascend'
+                  ? a.money - b.money
+                  : b.money - a.money;
+              } else if (sort?.count) {
+                return sort.count === 'ascend'
+                  ? a.count - b.count
+                  : b.count - a.count;
+              } else {
+                return 0;
+              }
             }),
           };
         }}
         rowKey="key"
-        toolBarRender={() => [
-          <Button
-            key="button"
-            onClick={() => {
-              actionRef.current?.reset?.();
-            }}
-          >
-            重置表格
-          </Button>,
-        ]}
-      />)
-    }
-    const { container } = render(<TestComponent/>);
+      />,
+    );
 
-    await waitFor(() => {  
-      const rows = container.querySelectorAll('.ant-table-row');
-      expect(rows[0].firstChild?.textContent).toContain('项目 B');
-      expect(rows[1].firstChild?.textContent).toContain('项目 C');
-      expect(rows[2].firstChild?.textContent).toContain('项目 A');
-    }, { timeout: 1000 });
+    await waitFor(
+      () => {
+        const rows = container.querySelectorAll('.ant-table-row');
+        expect(rows[0].firstChild?.textContent).toContain('项目 B');
+        expect(rows[1].firstChild?.textContent).toContain('项目 C');
+        expect(rows[2].firstChild?.textContent).toContain('项目 A');
 
-    await userEvent.click(container.querySelectorAll('span.ant-table-column-sorter-down')[0]);
+        fn.mockClear(); // 清除初始 request 調用
+      },
+      { timeout: 1000 },
+    );
 
-    await waitFor(() => {  
-      const rows = container.querySelectorAll('.ant-table-row');
-      expect(rows[0].firstChild?.textContent).toContain('项目 A');
-      expect(rows[1].firstChild?.textContent).toContain('项目 B');
-      expect(rows[2].firstChild?.textContent).toContain('项目 C');
-    }, { timeout: 1000 });
+    await userEvent.click(
+      container.querySelectorAll('span.ant-table-column-sorter-down')[0],
+    );
+
+    await waitFor(
+      () => {
+        const rows = container.querySelectorAll('.ant-table-row');
+        expect(rows[0].firstChild?.textContent).toContain('项目 A');
+        expect(rows[1].firstChild?.textContent).toContain('项目 B');
+        expect(rows[2].firstChild?.textContent).toContain('项目 C');
+
+        // 验证 fn 有被调用，因为排序是透过服务端进行的
+        expect(fn).toHaveBeenCalledTimes(1);
+      },
+      { timeout: 1000 },
+    );
+  });
+
+  it('🎏 should reset to defaultSortOrder when use request sort', async () => {
+    const TestComponent = () => {
+      const actionRef = useRef<ActionType>();
+
+      return (
+        <ProTable<{ money: number }>
+          size="small"
+          actionRef={actionRef}
+          columns={[
+            {
+              title: 'Name',
+              key: 'name',
+              dataIndex: 'name',
+            },
+            {
+              title: 'money',
+              key: 'money',
+              dataIndex: 'money',
+              sorter: true,
+              defaultSortOrder: 'descend',
+            },
+          ]}
+          request={async (_, sort) => {
+            return {
+              total: 3,
+              success: true,
+              data: [
+                {
+                  key: '1',
+                  name: '项目 A',
+                  money: 100,
+                },
+                {
+                  key: '2',
+                  name: '项目 B',
+                  money: 250,
+                },
+                {
+                  key: '3',
+                  name: '项目 C',
+                  money: 150,
+                },
+              ].sort((a, b) => {
+                if (sort?.money) {
+                  return sort.money === 'ascend'
+                    ? a.money - b.money
+                    : b.money - a.money;
+                } else {
+                  return 0;
+                }
+              }),
+            };
+          }}
+          rowKey="key"
+          toolBarRender={() => [
+            <Button
+              key="button"
+              onClick={() => {
+                actionRef.current?.reset?.();
+              }}
+            >
+              重置表格
+            </Button>,
+          ]}
+        />
+      );
+    };
+    const { container } = render(<TestComponent />);
+
+    await waitFor(
+      () => {
+        const rows = container.querySelectorAll('.ant-table-row');
+        expect(rows[0].firstChild?.textContent).toContain('项目 B');
+        expect(rows[1].firstChild?.textContent).toContain('项目 C');
+        expect(rows[2].firstChild?.textContent).toContain('项目 A');
+      },
+      { timeout: 1000 },
+    );
+
+    await userEvent.click(
+      container.querySelectorAll('span.ant-table-column-sorter-down')[0],
+    );
+
+    await waitFor(
+      () => {
+        const rows = container.querySelectorAll('.ant-table-row');
+        expect(rows[0].firstChild?.textContent).toContain('项目 A');
+        expect(rows[1].firstChild?.textContent).toContain('项目 B');
+        expect(rows[2].firstChild?.textContent).toContain('项目 C');
+      },
+      { timeout: 1000 },
+    );
 
     await userEvent.click(screen.getByRole('button', { name: /重置表格/i }));
 
-    await waitFor(() => { 
-      const rows = container.querySelectorAll('.ant-table-row'); 
-      expect(rows[0].firstChild?.textContent).toContain('项目 B');
-      expect(rows[1].firstChild?.textContent).toContain('项目 C');
-      expect(rows[2].firstChild?.textContent).toContain('项目 A');
-    }, { timeout: 1000 });
+    await waitFor(
+      () => {
+        const rows = container.querySelectorAll('.ant-table-row');
+        expect(rows[0].firstChild?.textContent).toContain('项目 B');
+        expect(rows[1].firstChild?.textContent).toContain('项目 C');
+        expect(rows[2].firstChild?.textContent).toContain('项目 A');
+      },
+      { timeout: 1000 },
+    );
   });
 });

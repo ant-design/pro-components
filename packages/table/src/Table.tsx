@@ -511,7 +511,7 @@ const ProTable = <
       }
     }
 
-    return _columns
+    return _columns;
   }, []);
 
   /** 如果所有列中的 filters = true | undefined 说明是用的是本地筛选 任何一列配置 filters=false，就能绕过这个判断 */
@@ -534,8 +534,8 @@ const ProTable = <
   /** 设置默认的服務端排序和筛选值 */
   useEffect(() => {
     const { sort, filter } = parseDefaultColumnConfig(propsColumns);
-    if(!useLocaleFilter) setProFilter(filter);
-    if(!useLocaleSorter) setProSort(sort);
+    if (!useLocaleFilter) setProFilter(filter);
+    if (!useLocaleSorter) setProSort(sort);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -755,7 +755,7 @@ const ProTable = <
     resetAll: () => {
       // 清空选中行
       onCleanSelected();
-      
+
       const { sort, filter } = parseDefaultColumnConfig(propsColumns);
       // 清空筛选
       setProFilter(filter);

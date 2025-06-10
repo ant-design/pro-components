@@ -156,7 +156,7 @@ export default () => {
             ? {
                 position: position as 'top',
                 record: () => ({ id: (Math.random() * 1000000).toFixed(0) }),
-                newRecordType:"dataSource",
+                newRecordType: 'dataSource',
               }
             : false
         }
