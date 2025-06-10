@@ -6,7 +6,7 @@ import {
 import { App } from 'antd';
 import glob from 'glob';
 import MockDate from 'mockdate';
-import { act, useEffect } from 'react';
+import { act } from 'react';
 
 import {
   StyleProvider,
@@ -61,12 +61,7 @@ function demoTest(component: string, options?: Options) {
   const files = glob.sync(`./packages/${component}/**/demos/**/[!_]*.tsx`);
   files.push(...glob.sync(`./${component}/**/**/[!_]*.tsx`));
 
-  const TestApp = (props: { children: any; onInit: () => void }) => {
-    useEffect(() => {
-      setTimeout(() => {
-        props.onInit?.();
-      }, 1000);
-    }, []);
+  const TestApp = (props: { children: any }) => {
     return (
       <StyleProvider
         hashPriority="high"
@@ -104,12 +99,11 @@ function demoTest(component: string, options?: Options) {
       testMethod(`📸 renders ${file} correctly`, async () => {
         vi.useFakeTimers().setSystemTime(new Date('2016-11-22 15:22:44'));
 
-        const fn = vi.fn();
         Math.random = () => 0.8404419276253765;
 
         const Demo = (await import(`.${file}`)).default;
         const wrapper = reactRender(
-          <TestApp onInit={fn}>
+          <TestApp>
             <Demo />
           </TestApp>,
         );
@@ -128,10 +122,6 @@ function demoTest(component: string, options?: Options) {
 
         await waitFor(() => {
           return wrapper.findAllByText('test');
-        });
-
-        await waitFor(() => {
-          expect(fn).toHaveBeenCalled();
         });
 
         await waitFor(() => {

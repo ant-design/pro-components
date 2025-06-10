@@ -1,4 +1,3 @@
-import legacy from '@vitejs/plugin-legacy';
 import { join } from 'path';
 import { defineConfig } from 'vitest/config';
 const moduleNameMapper = {} as Record<string, any>;
@@ -18,7 +17,6 @@ const moduleNameMapper = {} as Record<string, any>;
   const name = `@ant-design/pro-${shortName}`;
   moduleNameMapper[name] = join(__dirname, `./packages/${shortName}/src`);
 });
-console.log(moduleNameMapper);
 
 export default defineConfig({
   resolve: {
@@ -27,17 +25,12 @@ export default defineConfig({
   esbuild: {
     format: 'esm',
   },
-  plugins: [
-    legacy({
-      targets: ['defaults', 'not IE 11'],
-    }) as any,
-  ],
   test: {
     globals: true,
     setupFiles: ['./tests/setupTests.ts'],
     environment: 'happy-dom',
     environmentOptions: {
-      jsdom: {
+      happyDOM: {
         url: 'http://localhost?navTheme=realDark&layout=mix&colorPrimary=techBlue&splitMenus=false&fixedHeader=true',
       },
     },
