@@ -1,151 +1,101 @@
-/* eslint-disable @typescript-eslint/ban-types */
+import deepMerge from 'lodash-es/merge';
 import get from 'rc-util/lib/utils/get';
-import namePathSet from 'rc-util/lib/utils/set';
 import React from 'react';
 import { isNil } from '../isNil';
 import { merge } from '../merge';
 import type { SearchTransformKeyFn } from '../typing';
+
 export type DataFormatMapType = Record<
   string,
   SearchTransformKeyFn | undefined
 >;
 
 /**
- * 暂时还不支持 Set和 Map 结构 判断是不是一个能遍历的对象
- *
- * @param itemValue
- * @returns Boolean
+ * 检查一个值是否是可以遍历的普通对象。
+ * 它会排除 React 元素、正则表达式、Map、Set、HTML 元素、Blob、File 和数组。
+ * @param itemValue - 要检查的值。
+ * @returns {boolean} - 如果值是普通对象，则返回 true，否则返回 false。
  */
-export function isPlainObj(itemValue: any) {
-  if (typeof itemValue !== 'object') return false;
+export function isPlainObj(itemValue: any): boolean {
+  if (typeof itemValue !== 'object' || itemValue === null) {
+    return false;
+  }
 
-  /** Null 也要处理，不然omit空会失效 */
-  if (itemValue === null) return true;
+  // Exclude special object types
+  if (
+    React.isValidElement(itemValue) ||
+    itemValue.constructor === RegExp ||
+    itemValue instanceof Map ||
+    itemValue instanceof Set ||
+    itemValue instanceof HTMLElement ||
+    itemValue instanceof Blob ||
+    itemValue instanceof File ||
+    Array.isArray(itemValue)
+  ) {
+    return false;
+  }
 
-  if (React.isValidElement(itemValue)) return false;
-  if (itemValue.constructor === RegExp) return false;
-  if (itemValue instanceof Map) return false;
-  if (itemValue instanceof Set) return false;
-  if (itemValue instanceof HTMLElement) return false;
-  if (itemValue instanceof Blob) return false;
-  if (itemValue instanceof File) return false;
-  if (Array.isArray(itemValue)) return false;
   return true;
 }
 
-const generateDataFormatMap = (
-  dataFormatMapRaw: Record<
-    string,
-    SearchTransformKeyFn | undefined | DataFormatMapType
-  >,
-) => {
-  // ignore nil transform
-  const dataFormatMap = Object.keys(dataFormatMapRaw).reduce(
-    (ret, key) => {
-      const value = dataFormatMapRaw[key];
-      if (!isNil(value)) {
-        // eslint-disable-next-line no-param-reassign
-        ret[key] = value! as SearchTransformKeyFn; // can't be undefined
-      }
-      return ret;
-    },
-    {} as Record<string, SearchTransformKeyFn>,
-  );
-  return dataFormatMap;
-};
-
-const mergeValues = <T = Record<string, any>>(
-  allValues: T,
-  entityKey: (string | number)[],
-  value: any,
-) => {
-  const keyAsStringArray = entityKey.map((k) => String(k));
-
-  // if transform returns an object, we need to merge it
-  if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
-    const parentKey = keyAsStringArray.slice(0, -1);
-    const lastKey = keyAsStringArray[keyAsStringArray.length - 1];
-
-    if (parentKey.length === 0) {
-      const newAllValues = { ...(allValues as any) };
-      delete newAllValues[lastKey];
-      return merge(newAllValues, value);
-    }
-
-    const parentObject = get(allValues, parentKey);
-    if (
-      parentObject &&
-      typeof parentObject === 'object' &&
-      !Array.isArray(parentObject)
-    ) {
-      const newParent = { ...parentObject };
-      delete newParent[lastKey];
-      const mergedParent = merge(newParent, value);
-      return namePathSet(allValues, parentKey, mergedParent);
-    }
+/**
+ * 递归地转换对象的值。
+ * @param values - 要转换的对象
+ * @param dataFormatMap - 转换映射
+ * @param finalValues - 用于收集键名改变的转换结果的共享对象
+ * @param parentsKey - 父键路径
+ */
+function recursiveTransform(
+  values: any,
+  dataFormatMap: Record<string, SearchTransformKeyFn>,
+  finalValues: any,
+  parentsKey: (string | number)[] = [],
+): any {
+  if (values === null || values === undefined) {
+    return values;
   }
 
-  return namePathSet(allValues, keyAsStringArray, value);
-};
+  const result: any = Array.isArray(values) ? [] : {};
 
-const loopRunTransform = <T = Record<string, any>>(
-  {
-    currentValues,
-    parentsKey,
-    dataFormatMap,
-  }: {
-    currentValues: any;
-    parentsKey: (string | number)[];
-    dataFormatMap: Record<string, SearchTransformKeyFn>;
-  },
-  allValues: T,
-): T => {
-  let finalValues = allValues;
+  Object.keys(values).forEach((key) => {
+    const currentPath = [...parentsKey, key];
+    const itemValue = values[key];
+    const transformFunction = get(dataFormatMap, currentPath);
 
-  const keys = Array.isArray(currentValues)
-    ? currentValues.map((_, i) => i)
-    : Object.keys(currentValues);
-
-  for (const key of keys) {
-    const newParentsKey = [...parentsKey, key];
-    const originalChild = get(currentValues, [key]);
-
-    // Recurse first (post-order traversal)
-    if (originalChild && typeof originalChild === 'object') {
-      finalValues = loopRunTransform(
-        {
-          currentValues: originalChild,
-          parentsKey: newParentsKey,
-          dataFormatMap,
-        },
-        finalValues,
-      );
-    }
-
-    // Apply transform for the current path
-    const pathString = newParentsKey.join('.');
-    const transformFunction = dataFormatMap[pathString];
-
-    if (typeof transformFunction === 'function') {
-      const valueToTransform = get(finalValues, newParentsKey);
-      const transformedValue = transformFunction(
-        valueToTransform,
-        newParentsKey.map(String),
-        finalValues,
-      );
-
-      if (transformedValue !== undefined) {
-        finalValues = mergeValues(finalValues, newParentsKey, transformedValue);
+    if (transformFunction && typeof transformFunction === 'function') {
+      const transformed = transformFunction(itemValue, key, values);
+      if (
+        typeof transformed === 'object' &&
+        transformed !== null &&
+        !React.isValidElement(transformed)
+      ) {
+        deepMerge(finalValues, transformed);
+      } else {
+        result[key] = transformed;
       }
+    } else if (isPlainObj(itemValue)) {
+      result[key] = recursiveTransform(
+        itemValue,
+        dataFormatMap,
+        finalValues,
+        currentPath,
+      );
+    } else {
+      result[key] = itemValue;
     }
-  }
+  });
 
-  return finalValues;
-};
+  return result;
+}
 
 /**
- * @param values
- * @param dataFormatMapRaw
+ * 根据给定的映射转换对象的键。
+ * 此函数递归地遍历值并应用转换。
+ *
+ * @template T - values 对象的类型。
+ * @param {T} values - 包含要转换的值的对象。
+ * @param {Record<string, SearchTransformKeyFn | undefined | DataFormatMapType>} dataFormatMapRaw - 转换映射。
+ * @returns {T} - 包含已转换值的对象。
  */
 export const transformKeySubmitValue = <T extends object = any>(
   values: T,
@@ -153,22 +103,30 @@ export const transformKeySubmitValue = <T extends object = any>(
     string,
     SearchTransformKeyFn | undefined | DataFormatMapType
   >,
-) => {
-  const dataFormatMap = generateDataFormatMap(dataFormatMapRaw);
+): T => {
+  // 过滤掉值为 nil 的转换
+  const dataFormatMap = Object.entries(dataFormatMapRaw).reduce(
+    (acc, [key, value]) => {
+      if (!isNil(value)) {
+        acc[key] = value as SearchTransformKeyFn;
+      }
+      return acc;
+    },
+    {} as Record<string, SearchTransformKeyFn>,
+  );
 
-  if (Object.keys(dataFormatMap).length === 0) {
+  if (
+    Object.keys(dataFormatMap).length === 0 ||
+    typeof window === 'undefined' ||
+    typeof values !== 'object' ||
+    values === null ||
+    values instanceof Blob
+  ) {
     return values;
   }
 
-  // deep clone
-  const finalValues = loopRunTransform<T>(
-    {
-      currentValues: values,
-      parentsKey: [],
-      dataFormatMap,
-    },
-    JSON.parse(JSON.stringify(values)),
-  );
+  const finalValues = {};
+  const result = recursiveTransform(values, dataFormatMap, finalValues);
 
-  return finalValues;
+  return merge({}, result, finalValues) as T;
 };
