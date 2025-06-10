@@ -103,7 +103,34 @@ const runTransform = (
   if (typeof transformFunction === 'function') {
     const keyAsStringArray = entityKey.map((k) => String(k));
     const value = get(allValues, keyAsStringArray);
-    return transformFunction(value, keyAsStringArray, allValues);
+    const transformedValue = transformFunction(
+      value,
+      keyAsStringArray,
+      allValues,
+    );
+    // 如果转换函数返回了一个对象，我们需要把它合并到父级对象中
+    if (
+      transformedValue &&
+      typeof transformedValue === 'object' &&
+      !Array.isArray(transformedValue)
+    ) {
+      const parentKey = keyAsStringArray.slice(0, -1);
+      const lastKey = keyAsStringArray[keyAsStringArray.length - 1];
+      const parentValue =
+        parentKey.length > 0 ? get(allValues, parentKey) : allValues;
+      if (
+        parentValue &&
+        typeof parentValue === 'object' &&
+        !Array.isArray(parentValue)
+      ) {
+        // 删除原始的键
+        const newParentValue = { ...parentValue };
+        delete newParentValue[lastKey];
+        // 合并转换后的值
+        return merge({}, newParentValue, transformedValue);
+      }
+    }
+    return transformedValue;
   }
   return get(
     allValues,
@@ -230,7 +257,7 @@ const loopRunTransform = <T = Record<string, any>>(
               finalValues,
             );
             if (transformedValue !== undefined) {
-              finalValues = mergeValues(
+              finalValues = namePathSet(
                 finalValues,
                 arrayItemKey,
                 transformedValue,
@@ -238,16 +265,35 @@ const loopRunTransform = <T = Record<string, any>>(
             }
           }
 
-          // 如果数组元素是对象，递归处理
-          if (arrayItemValue && typeof arrayItemValue === 'object') {
-            finalValues = loopRunTransform(
-              {
-                parentsKey: arrayItemKey,
-                currentValues: arrayItemValue,
+          // 如果数组元素是对象，递归处理其属性
+          if (
+            arrayItemValue &&
+            typeof arrayItemValue === 'object' &&
+            !Array.isArray(arrayItemValue)
+          ) {
+            const arrayItemKeys = Object.keys(arrayItemValue);
+            for (const propKey of arrayItemKeys) {
+              const propPath = [...arrayItemKey, propKey];
+              const propTransform = get(
                 dataFormatMap,
-              },
-              finalValues,
-            );
+                propPath as (number | string)[],
+              ) as SearchTransformKeyFn;
+
+              if (propTransform && typeof propTransform === 'function') {
+                const transformedValue = runTransform(
+                  propTransform,
+                  propPath,
+                  finalValues,
+                );
+                if (transformedValue !== undefined) {
+                  finalValues = mergeValues(
+                    finalValues,
+                    propPath,
+                    transformedValue,
+                  );
+                }
+              }
+            }
           }
         }
       } else {
