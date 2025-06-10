@@ -64,7 +64,6 @@ export const field: ProSchemaRenderValueTypeFunction<any, any> = (
   const getField = () => {
     if (item?.formItemRender) {
       const dom = formItemRender?.(null, {});
-
       if (!dom || item.ignoreFormItem) return dom;
     }
 

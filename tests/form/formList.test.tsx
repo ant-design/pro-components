@@ -21,7 +21,7 @@ import {
 import { Button, Form } from 'antd';
 import type { NamePath } from 'antd/es/form/interface';
 import dayjs from 'dayjs';
-import { pick } from 'lodash';
+import { pick } from 'lodash-es';
 import React, { act } from 'react';
 import { waitForWaitTime } from '../util';
 
@@ -1630,16 +1630,16 @@ describe('ProForm List', () => {
           name="datas"
           initialValue={[
             {
-              date: '2022-10-12 10:00:00',
+              date: dayjs('2022-10-12 10:00:00'),
               datas: [
                 {
-                  date: '2022-10-12 10:00:00',
+                  date: dayjs('2022-10-12 10:00:00'),
                   datas: [
                     {
-                      date: '2022-10-12 10:00:00',
+                      date: dayjs('2022-10-12 10:00:00'),
                       datas: [
                         {
-                          date: '2022-10-12 10:00:00',
+                          date: dayjs('2022-10-12 10:00:00'),
                         },
                       ],
                     },
@@ -1655,6 +1655,7 @@ describe('ProForm List', () => {
                 <ProFormDatePicker
                   name="date"
                   transform={(value) => {
+                    if (!value) return { date: value };
                     return {
                       date: dayjs(value).unix(),
                     };
@@ -1667,6 +1668,7 @@ describe('ProForm List', () => {
                         <ProFormDatePicker
                           name="date"
                           transform={(value) => {
+                            if (!value) return { date: value };
                             return {
                               date: dayjs(value).unix(),
                             };
@@ -1680,6 +1682,7 @@ describe('ProForm List', () => {
                                 <ProFormDatePicker
                                   name="date"
                                   transform={(value) => {
+                                    if (!value) return { date: value };
                                     return {
                                       date: dayjs(value).unix(),
                                     };
@@ -1693,6 +1696,7 @@ describe('ProForm List', () => {
                                         <ProFormDatePicker
                                           name="date"
                                           transform={(value) => {
+                                            if (!value) return { date: value };
                                             return {
                                               date: dayjs(value).unix(),
                                             };

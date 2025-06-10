@@ -884,29 +884,24 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/col
         <div
           class="ant-descriptions-extra"
         >
-          <div
-            class="ant-pro-field-option"
-            style="display: flex; gap: 16px; align-items: center;"
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
           >
-            <a
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              链路
-            </a>
-            <a
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              报警
-            </a>
-            <a
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              查看
-            </a>
-          </div>
+            链路
+          </a>
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            报警
+          </a>
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            查看
+          </a>
         </div>
       </div>
       <div
@@ -1300,14 +1295,9 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/cus
             <div
               class="ant-space-item"
             >
-              <div
-                class="ant-pro-field-option"
-                style="display: flex; gap: 16px; align-items: center;"
-              >
-                <a>
-                  刷新
-                </a>
-              </div>
+              <a>
+                刷新
+              </a>
             </div>
           </div>
         </div>
@@ -1487,29 +1477,24 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                   <div
                     class="ant-descriptions-extra"
                   >
-                    <div
-                      class="ant-pro-field-option"
-                      style="display: flex; gap: 16px; align-items: center;"
+                    <a
+                      rel="noopener noreferrer"
+                      target="_blank"
                     >
-                      <a
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        链路
-                      </a>
-                      <a
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        报警
-                      </a>
-                      <a
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        查看
-                      </a>
-                    </div>
+                      链路
+                    </a>
+                    <a
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      报警
+                    </a>
+                    <a
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      查看
+                    </a>
                   </div>
                 </div>
                 <div
@@ -2463,29 +2448,24 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/edi
             <div
               class="ant-space-item"
             >
-              <div
-                class="ant-pro-field-option"
-                style="display: flex; gap: 16px; align-items: center;"
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
               >
-                <a
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  链路
-                </a>
-                <a
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  报警
-                </a>
-                <a
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  查看
-                </a>
-              </div>
+                链路
+              </a>
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                报警
+              </a>
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                查看
+              </a>
             </div>
           </div>
         </div>
@@ -3163,9 +3143,11 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/edi
                       <div
                         class="ant-space-item"
                       >
-                        <span>
-                          ¥1,212,100.00
-                        </span>
+                        <div
+                          aria-describedby="test-id"
+                        >
+                          1212100
+                        </div>
                       </div>
                       <div
                         class="ant-space-item"
@@ -3627,29 +3609,24 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/use
         <div
           class="ant-descriptions-extra"
         >
-          <div
-            class="ant-pro-field-option"
-            style="display: flex; gap: 16px; align-items: center;"
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
           >
-            <a
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              链路
-            </a>
-            <a
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              报警
-            </a>
-            <a
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              查看
-            </a>
-          </div>
+            链路
+          </a>
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            报警
+          </a>
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            查看
+          </a>
         </div>
       </div>
       <div

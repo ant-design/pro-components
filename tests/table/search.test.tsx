@@ -438,8 +438,26 @@ describe('BasicTable Search', () => {
                 onChangeFn(e.target.value);
               },
             },
+            search: {
+              transform: (value) => ({ money: value }),
+            },
+            formItemProps: {
+              required: true,
+            },
             formItemRender: () => {
-              return <Input id="formItemRender" placeholder="formItemRender" />;
+              return (
+                <div id="formItemRender">
+                  <Input
+                    id="formItemRender"
+                    placeholder="formItemRender"
+                    data-testid="formItemRender"
+                    onChange={(e) => {
+                      onChangeFn(e.target.value);
+                      fn(e.target.value);
+                    }}
+                  />
+                </div>
+              );
             },
           },
         ]}
@@ -448,17 +466,13 @@ describe('BasicTable Search', () => {
       />,
     );
 
-    await html.findAllByPlaceholderText('formItemRender');
-
-    expect(html.baseElement.querySelector('input#formItemRender')).toBeTruthy();
+    const input = await html.findByTestId('formItemRender');
+    expect(input).toBeTruthy();
 
     act(() => {
-      fireEvent.change(
-        html.baseElement.querySelector('input#formItemRender')!,
-        {
-          target: { value: '12' },
-        },
-      );
+      fireEvent.change(input, {
+        target: { value: '12' },
+      });
     });
     await waitFor(() => {
       expect(onChangeFn).toHaveBeenCalledWith('12');

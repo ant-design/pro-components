@@ -130,11 +130,12 @@ export const pureRenderText = (
 
   const customValueTypeConfig =
     valueTypeMap && valueTypeMap[valueType as string];
+
   if (customValueTypeConfig) {
     // eslint-disable-next-line no-param-reassign
     delete props.ref;
     if (mode === 'read') {
-      return customValueTypeConfig.render?.(
+      const readDom = customValueTypeConfig.render?.(
         dataValue,
         {
           text: dataValue as React.ReactNode,
@@ -143,9 +144,20 @@ export const pureRenderText = (
         },
         <>{dataValue}</>,
       );
+      if (props?.render) {
+        return props.render?.(
+          dataValue,
+          {
+            text: dataValue as React.ReactNode,
+            ...props,
+          },
+          readDom as JSX.Element,
+        );
+      }
+      return readDom;
     }
     if (mode === 'update' || mode === 'edit') {
-      return customValueTypeConfig.formItemRender?.(
+      const dom = customValueTypeConfig.formItemRender?.(
         dataValue,
         {
           text: dataValue as React.ReactNode,
@@ -153,6 +165,17 @@ export const pureRenderText = (
         },
         <>{dataValue}</>,
       );
+      if (props?.formItemRender) {
+        return props.formItemRender?.(
+          dataValue,
+          {
+            text: dataValue as React.ReactNode,
+            ...props,
+          },
+          dom as JSX.Element,
+        );
+      }
+      return dom;
     }
   }
   return <FieldText text={dataValue as string} {...props} />;

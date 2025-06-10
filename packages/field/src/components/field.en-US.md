@@ -38,5 +38,5 @@ return <Field text="100" valueType="money" mode={state} />;
 | valueType | The type of formatting | ValueType | - |
 | mode | The mode of the component | - | - |
 | plain | Simplified mode | - | - |
-| renderFormItem | Custom DOM rendering when `mode=update \| edit`, typically used for rendering input boxes | - | - |
+| formItemRender | Custom DOM rendering when `mode=update \| edit`, typically used for rendering input boxes | - | - |
 | render | Custom DOM rendering when `mode=read`, purely for display purposes | - | - |
