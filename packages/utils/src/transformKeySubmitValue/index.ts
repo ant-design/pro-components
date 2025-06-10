@@ -117,20 +117,42 @@ const mergeValues = <T = Record<string, any>>(
   value: any,
 ) => {
   const keyAsStringArray = entityKey.map((k) => String(k));
+  const parentKey = keyAsStringArray.slice(0, -1);
+  const lastKey = keyAsStringArray[keyAsStringArray.length - 1];
+
+  // 如果是对象，且不是数组，且有属性
   if (
     typeof value === 'object' &&
     !Array.isArray(value) &&
     Object.keys(value).length > 0
   ) {
+    // 如果是数组，只更新当前路径的值
     if (Array.isArray(allValues)) {
-      return namePathSet(allValues, keyAsStringArray.slice(0, -1), value);
+      return namePathSet(allValues, keyAsStringArray, value);
     }
-    return merge(
-      deepOmit(allValues as Record<string, any>, keyAsStringArray),
-      value,
-    );
+
+    // 如果是对象，我们需要把转换后的值合并到父级对象中
+    const parentValue =
+      parentKey.length > 0
+        ? get(allValues as Record<string, any>, parentKey)
+        : allValues;
+    if (
+      parentValue &&
+      typeof parentValue === 'object' &&
+      !Array.isArray(parentValue)
+    ) {
+      // 删除原始的键
+      const newParentValue = { ...parentValue };
+      delete newParentValue[lastKey];
+      // 合并转换后的值
+      const mergedValue = merge({}, newParentValue, value);
+      return parentKey.length > 0
+        ? namePathSet(allValues, parentKey, mergedValue)
+        : (mergedValue as T);
+    }
   }
 
+  // 如果是基本类型或数组，直接设置值
   return namePathSet(allValues, keyAsStringArray, value);
 };
 
@@ -170,44 +192,75 @@ const loopRunTransform = <T = Record<string, any>>(
 
     const itemValue = get(allValues as any, key);
 
-    // 新增：如果是数组，递归处理每个元素
-    if (Array.isArray(itemValue)) {
-      for (let idx = 0; idx < itemValue.length; idx++) {
-        const subItem = itemValue[idx];
-        finalValues = loopRunTransform(
-          {
-            currentValues: subItem,
-            parentsKey: [...key, idx],
-            dataFormatMap,
-          },
-          finalValues,
-        );
-      }
-      continue;
-    }
-
-    if (isPlainObj(itemValue)) {
-      finalValues = loopRunTransform(
-        {
-          currentValues: itemValue,
-          parentsKey: key,
-          dataFormatMap,
-        },
-        finalValues,
-      );
-    }
-
+    // 先处理当前层级的 transform
     const transformFunction = get(
       dataFormatMap,
       key as (number | string)[],
     ) as SearchTransformKeyFn;
 
     if (transformFunction && typeof transformFunction === 'function') {
-      finalValues = mergeValues(
-        finalValues,
+      const transformedValue = runTransform(
+        transformFunction,
         key,
-        runTransform(transformFunction, key, finalValues),
+        finalValues,
       );
+      if (transformedValue !== undefined) {
+        finalValues = mergeValues(finalValues, key, transformedValue);
+      }
+    }
+
+    // 如果是对象或数组，递归处理子级
+    if (itemValue && typeof itemValue === 'object') {
+      if (Array.isArray(itemValue)) {
+        // 处理数组的每个元素
+        for (let i = 0; i < itemValue.length; i++) {
+          const arrayItemKey = [...key, i];
+          const arrayItemValue = itemValue[i];
+
+          // 处理数组元素本身的 transform
+          const arrayItemTransform = get(
+            dataFormatMap,
+            arrayItemKey as (number | string)[],
+          ) as SearchTransformKeyFn;
+
+          if (arrayItemTransform && typeof arrayItemTransform === 'function') {
+            const transformedValue = runTransform(
+              arrayItemTransform,
+              arrayItemKey,
+              finalValues,
+            );
+            if (transformedValue !== undefined) {
+              finalValues = mergeValues(
+                finalValues,
+                arrayItemKey,
+                transformedValue,
+              );
+            }
+          }
+
+          // 如果数组元素是对象，递归处理
+          if (arrayItemValue && typeof arrayItemValue === 'object') {
+            finalValues = loopRunTransform(
+              {
+                parentsKey: arrayItemKey,
+                currentValues: arrayItemValue,
+                dataFormatMap,
+              },
+              finalValues,
+            );
+          }
+        }
+      } else {
+        // 处理对象的子级
+        finalValues = loopRunTransform(
+          {
+            parentsKey: key,
+            currentValues: itemValue,
+            dataFormatMap,
+          },
+          finalValues,
+        );
+      }
     }
   }
 
