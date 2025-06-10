@@ -97,33 +97,41 @@ const generateDataFormatMap = (
 
 const runTransform = (
   transformFunction: SearchTransformKeyFn,
-  entityKey: string[],
+  entityKey: (string | number)[],
   allValues: any,
 ) => {
   if (typeof transformFunction === 'function') {
-    const value = get(allValues, entityKey);
-    return transformFunction(value, entityKey, allValues);
+    const keyAsStringArray = entityKey.map((k) => String(k));
+    const value = get(allValues, keyAsStringArray);
+    return transformFunction(value, keyAsStringArray, allValues);
   }
-  return get(allValues, entityKey);
+  return get(
+    allValues,
+    entityKey.map((k) => String(k)),
+  );
 };
 
 const mergeValues = <T = Record<string, any>>(
   allValues: T,
-  entityKey: string[],
+  entityKey: (string | number)[],
   value: any,
 ) => {
+  const keyAsStringArray = entityKey.map((k) => String(k));
   if (
     typeof value === 'object' &&
     !Array.isArray(value) &&
     Object.keys(value).length > 0
   ) {
     if (Array.isArray(allValues)) {
-      return namePathSet(allValues, entityKey.slice(0, -1), value);
+      return namePathSet(allValues, keyAsStringArray.slice(0, -1), value);
     }
-    return merge(deepOmit(allValues as Record<string, any>, entityKey), value);
+    return merge(
+      deepOmit(allValues as Record<string, any>, keyAsStringArray),
+      value,
+    );
   }
 
-  return namePathSet(allValues, entityKey, value);
+  return namePathSet(allValues, keyAsStringArray, value);
 };
 
 /**
@@ -143,7 +151,7 @@ const loopRunTransform = <T = Record<string, any>>(
     dataFormatMap,
   }: {
     currentValues: T;
-    parentsKey: string[];
+    parentsKey: (string | number)[];
     dataFormatMap: Record<string, SearchTransformKeyFn>;
   },
   allValues: T,
@@ -156,12 +164,29 @@ const loopRunTransform = <T = Record<string, any>>(
   const fieldKeys = Object.keys(currentValues);
 
   for (const entityKey of fieldKeys) {
-    const key: string[] = [parentsKey, entityKey]
+    const key: (string | number)[] = [parentsKey, entityKey]
       .flat(1)
       .filter((item) => item !== undefined && item !== null);
 
     const itemValue = get(allValues as any, key);
-    if (isPlainObj(itemValue) || Array.isArray(itemValue)) {
+
+    // 新增：如果是数组，递归处理每个元素
+    if (Array.isArray(itemValue)) {
+      for (let idx = 0; idx < itemValue.length; idx++) {
+        const subItem = itemValue[idx];
+        finalValues = loopRunTransform(
+          {
+            currentValues: subItem,
+            parentsKey: [...key, idx],
+            dataFormatMap,
+          },
+          finalValues,
+        );
+      }
+      continue;
+    }
+
+    if (isPlainObj(itemValue)) {
       finalValues = loopRunTransform(
         {
           currentValues: itemValue,
