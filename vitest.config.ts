@@ -36,7 +36,7 @@ export default defineConfig({
     },
     server: {
       deps: {
-        inline: ['antd'],
+        inline: true,
       },
     },
     coverage: {
