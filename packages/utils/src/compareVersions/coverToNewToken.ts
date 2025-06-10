@@ -1,4 +1,4 @@
-﻿import { ComponentToken } from 'antd/es/menu/style';
+﻿import { ComponentToken } from 'antd/lib/menu/style';
 
 export function coverToNewToken(
   token: Partial<ComponentToken>,

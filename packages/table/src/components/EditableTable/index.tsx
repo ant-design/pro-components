@@ -13,8 +13,8 @@ import {
 } from '@ant-design/pro-utils';
 import type { ButtonProps, FormItemProps } from 'antd';
 import { Button, Form } from 'antd';
-import type { NamePath } from 'antd/es/form/interface';
-import type { GetRowKey } from 'antd/es/table/interface';
+import type { NamePath } from 'antd/lib/form/interface';
+import type { GetRowKey } from 'antd/lib/table/interface';
 import useMergedState from 'rc-util/es/hooks/useMergedState';
 import get from 'rc-util/es/utils/get';
 import set from 'rc-util/es/utils/set';

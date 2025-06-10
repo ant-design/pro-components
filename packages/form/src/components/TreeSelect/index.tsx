@@ -1,7 +1,7 @@
 ﻿import { FieldTreeSelect } from '@ant-design/pro-field';
 import { ProConfigProvider } from '@ant-design/pro-provider';
 import type { TreeSelectProps } from 'antd';
-import type { RefSelectProps } from 'antd/es/select';
+import type { RefSelectProps } from 'antd/lib/select';
 import React from 'react';
 import type {
   ProFormFieldItemProps,

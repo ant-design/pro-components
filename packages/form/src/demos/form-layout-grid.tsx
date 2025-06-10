@@ -10,7 +10,7 @@ import {
   ProFormTextArea,
 } from '@ant-design/pro-components';
 import { Col, Row, Space, message } from 'antd';
-import type { FormLayout } from 'antd/es/form/Form';
+import type { FormLayout } from 'antd/lib/form/Form';
 import { useState } from 'react';
 
 const LAYOUT_TYPE_HORIZONTAL = 'horizontal';

@@ -30,7 +30,7 @@ export default defineConfig({
   plugins: [
     legacy({
       targets: ['defaults', 'not IE 11'],
-    }),
+    }) as any,
   ],
   test: {
     globals: true,
@@ -39,6 +39,11 @@ export default defineConfig({
     environmentOptions: {
       jsdom: {
         url: 'http://localhost?navTheme=realDark&layout=mix&colorPrimary=techBlue&splitMenus=false&fixedHeader=true',
+      },
+    },
+    server: {
+      deps: {
+        inline: ['antd'],
       },
     },
     coverage: {

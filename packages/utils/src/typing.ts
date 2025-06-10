@@ -1,7 +1,7 @@
 import type { ColorPickerProps, InputProps, SpaceProps } from 'antd';
-import type { FormInstance, FormItemProps } from 'antd/es/form';
-import type { LabelTooltipType } from 'antd/es/form/FormItemLabel';
-import type { NamePath } from 'antd/es/form/interface';
+import type { FormInstance, FormItemProps } from 'antd/lib/form';
+import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
+import type { NamePath } from 'antd/lib/form/interface';
 import type { ReactNode } from 'react';
 
 import type { UseEditableUtilType } from './useEditableArray';
@@ -26,9 +26,9 @@ import type {
   TimeRangePickerProps,
   TreeSelectProps,
 } from 'antd';
-import type { RangePickerProps } from 'antd/es/date-picker';
-import type { PasswordProps, TextAreaProps } from 'antd/es/input';
-import type { SliderRangeProps } from 'antd/es/slider';
+import type { RangePickerProps } from 'antd/lib/date-picker';
+import type { PasswordProps, TextAreaProps } from 'antd/lib/input';
+import type { SliderRangeProps } from 'antd/lib/slider';
 
 export type ProFormBaseGroupProps = {
   /**

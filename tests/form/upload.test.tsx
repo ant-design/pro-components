@@ -5,7 +5,7 @@
 } from '@ant-design/pro-components';
 import { cleanup, fireEvent, render } from '@testing-library/react';
 import { Form } from 'antd';
-import type { UploadFile } from 'antd/es/upload/interface';
+import type { UploadFile } from 'antd/lib/upload/interface';
 import { act } from 'react';
 import mock from 'xhr-mock';
 import { waitForWaitTime } from '../util';

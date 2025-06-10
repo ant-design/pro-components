@@ -11,7 +11,7 @@ import {
 } from '@ant-design/pro-utils';
 import type { TableColumnType, TableProps } from 'antd';
 import { Table } from 'antd';
-import { AnyObject } from 'antd/es/_util/type';
+import { AnyObject } from 'antd/lib/_util/type';
 import { SortOrder } from 'antd/lib/table/interface';
 import type { ContainerType } from '../Store/Provide';
 import type { ProColumns } from '../typing';

@@ -4,7 +4,7 @@ import { ProProvider } from '@ant-design/pro-provider';
 import { isImg, isUrl, useMountMergeState } from '@ant-design/pro-utils';
 import type { MenuProps } from 'antd';
 import { Menu, Skeleton, Tooltip } from 'antd';
-import { ItemType } from 'antd/es/menu/interface';
+import { ItemType } from 'antd/lib/menu/interface';
 import classNames from 'classnames';
 import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import type { PureSettings } from '../../defaultSettings';

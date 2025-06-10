@@ -12,7 +12,7 @@ import {
   runFunction,
 } from '@ant-design/pro-utils';
 import { Form } from 'antd';
-import { AnyObject } from 'antd/es/_util/type';
+import { AnyObject } from 'antd/lib/_util/type';
 import get from 'rc-util/es/utils/get';
 import React, {
   useCallback,

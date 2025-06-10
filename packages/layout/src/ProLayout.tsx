@@ -14,8 +14,8 @@ import {
 import { getMatchMenu } from '@umijs/route-utils';
 import type { BreadcrumbProps, WatermarkProps } from 'antd';
 import { ConfigProvider, Layout } from 'antd';
-import type { AnyObject } from 'antd/es/_util/type';
-import type { ItemType } from 'antd/es/breadcrumb/Breadcrumb';
+import type { AnyObject } from 'antd/lib/_util/type';
+import type { ItemType } from 'antd/lib/breadcrumb/Breadcrumb';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/es/hooks/useMergedState';
 import warning from 'rc-util/es/warning';

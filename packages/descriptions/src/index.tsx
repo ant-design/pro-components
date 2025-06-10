@@ -20,7 +20,7 @@ import {
 } from '@ant-design/pro-utils';
 import type { DescriptionsProps, FormInstance, FormProps } from 'antd';
 import { ConfigProvider, Descriptions, Space } from 'antd';
-import type { LabelTooltipType } from 'antd/es/form/FormItemLabel';
+import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import toArray from 'rc-util/es/Children/toArray';
 import get from 'rc-util/es/utils/get';
 import React, { useContext, useEffect } from 'react';
@@ -32,7 +32,7 @@ import ProConfigContext, {
   ProConfigProvider,
   proTheme,
 } from '@ant-design/pro-provider';
-import type { DescriptionsItemType } from 'antd/es/descriptions';
+import type { DescriptionsItemType } from 'antd/lib/descriptions';
 import ValueTypeToComponent from '../../field/src/ValueTypeToComponent';
 
 // todo remove it

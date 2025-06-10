@@ -2,7 +2,7 @@ import { FieldPassword } from '@ant-design/pro-field';
 import { ProConfigProvider } from '@ant-design/pro-provider';
 import { useMountMergeState } from '@ant-design/pro-utils';
 import { Form, Popover, PopoverProps, type InputProps } from 'antd';
-import type { InputRef, PasswordProps } from 'antd/es/input';
+import type { InputRef, PasswordProps } from 'antd/lib/input';
 import omit from 'rc-util/lib/omit';
 import React, { useState } from 'react';
 import type { ProFormFieldItemProps } from '../../typing';

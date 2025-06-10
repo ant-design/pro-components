@@ -1,4 +1,4 @@
-import type { InternalNamePath, NamePath } from 'antd/es/form/interface';
+import type { InternalNamePath, NamePath } from 'antd/lib/form/interface';
 import dayjs from 'dayjs';
 import quarterOfYear from 'dayjs/plugin/quarterOfYear';
 import get from 'rc-util/es/utils/get';

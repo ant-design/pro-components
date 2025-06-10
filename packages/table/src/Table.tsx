@@ -23,7 +23,7 @@ import type {
   GetRowKey,
   SortOrder,
   TableCurrentDataSource,
-} from 'antd/es/table/interface';
+} from 'antd/lib/table/interface';
 import classNames from 'classnames';
 import isEmpty from 'lodash-es/isEmpty';
 import isEqual from 'lodash-es/isEqual';

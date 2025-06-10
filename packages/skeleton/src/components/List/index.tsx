@@ -1,5 +1,5 @@
 import { Card, Divider, Skeleton, Space } from 'antd';
-import useBreakpoint from 'antd/es/grid/hooks/useBreakpoint';
+import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint';
 import React, { useMemo } from 'react';
 
 /** 一条分割线 */

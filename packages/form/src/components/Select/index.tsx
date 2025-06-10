@@ -2,8 +2,8 @@ import { FieldSelect } from '@ant-design/pro-field';
 import { ProConfigProvider } from '@ant-design/pro-provider';
 import { runFunction } from '@ant-design/pro-utils';
 import type { SelectProps } from 'antd';
-import type { BaseOptionType } from 'antd/es/cascader';
-import type { DefaultOptionType, RefSelectProps } from 'antd/es/select';
+import type { BaseOptionType } from 'antd/lib/cascader';
+import type { DefaultOptionType, RefSelectProps } from 'antd/lib/select';
 import React, { useContext } from 'react';
 import FieldContext from '../../FieldContext';
 import type {

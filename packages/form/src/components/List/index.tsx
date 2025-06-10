@@ -3,13 +3,13 @@ import { useIntl } from '@ant-design/pro-provider';
 import { ProFormContext } from '@ant-design/pro-utils';
 import type { ColProps } from 'antd';
 import { ConfigProvider, Form } from 'antd';
-import type { LabelTooltipType } from 'antd/es/form/FormItemLabel';
+import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type {
   FormListFieldData,
   FormListOperation,
   FormListProps,
-} from 'antd/es/form/FormList';
-import type { NamePath } from 'antd/es/form/interface';
+} from 'antd/lib/form/FormList';
+import type { NamePath } from 'antd/lib/form/interface';
 import classNames from 'classnames';
 
 import { noteOnce } from 'rc-util/es/warning';
