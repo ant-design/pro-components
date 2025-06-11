@@ -10,12 +10,7 @@ import React, {
   useState,
 } from 'react';
 import { useIntl } from '../../../provider';
-import {
-  FieldLabel,
-  compatibleBorder,
-  objectToMap,
-  proFieldParsingText,
-} from '../../../utils';
+import { FieldLabel, objectToMap, proFieldParsingText } from '../../../utils';
 import type { ProFieldFC } from '../../PureProField';
 import type { FieldSelectProps } from '../Select';
 import { useFieldFetchData } from '../Select';
@@ -24,6 +19,7 @@ export type GroupProps = {
   options?: RadioGroupProps['options'];
   radioType?: 'button' | 'radio';
   placeholder?: string;
+  variant?: 'outlined' | 'borderless' | 'filled';
 } & FieldSelectProps;
 
 /**
@@ -41,6 +37,7 @@ const FieldCascader: ProFieldFC<GroupProps> = (
     render,
     label,
     light,
+    variant,
     ...rest
   },
   ref,
@@ -114,7 +111,7 @@ const FieldCascader: ProFieldFC<GroupProps> = (
   if (mode === 'edit') {
     let dom = (
       <Cascader
-        {...compatibleBorder(!light)}
+        variant={!light ? 'outlined' : 'borderless'}
         ref={cascaderRef}
         open={open}
         suffixIcon={loading ? <LoadingOutlined /> : undefined}
@@ -149,7 +146,7 @@ const FieldCascader: ProFieldFC<GroupProps> = (
         <FieldLabel
           label={label}
           disabled={disabled}
-          bordered={rest.bordered}
+          bordered={variant !== 'borderless'}
           value={notEmpty || open ? dom : null}
           style={
             notEmpty

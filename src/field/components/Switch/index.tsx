@@ -11,8 +11,12 @@ import type { ProFieldFC } from '../../PureProField';
  *
  * @param
  */
-const FieldSwitch: ProFieldFC<{ text: boolean; fieldProps?: SwitchProps }> = (
-  { text, mode, render, light, label, formItemRender, fieldProps },
+const FieldSwitch: ProFieldFC<{
+  text: boolean;
+  fieldProps?: SwitchProps;
+  variant?: 'outlined' | 'borderless' | 'filled';
+}> = (
+  { text, mode, render, light, label, formItemRender, fieldProps, variant },
   ref,
 ) => {
   const intl = useIntl();
@@ -41,12 +45,12 @@ const FieldSwitch: ProFieldFC<{ text: boolean; fieldProps?: SwitchProps }> = (
       />
     );
     if (light) {
-      const { disabled, bordered } = fieldProps;
+      const { disabled } = fieldProps;
       return (
         <FieldLabel
           label={label}
           disabled={disabled}
-          bordered={bordered}
+          bordered={variant !== 'borderless'}
           downIcon={false}
           value={
             <div
