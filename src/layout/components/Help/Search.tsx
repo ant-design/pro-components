@@ -4,7 +4,7 @@ import { ConfigProvider, Select } from 'antd';
 import classNames from 'classnames';
 import React, { useContext, useState } from 'react';
 import { ProProvider, useStyle } from '../../../provider';
-import { compatibleBorder, useDebounceFn } from '../../../utils';
+import { useDebounceFn } from '../../../utils';
 import { ProHelpProvide } from './HelpProvide';
 
 /**
@@ -41,7 +41,18 @@ export const Highlight: React.FC<{
     };
   });
 
-  if (words.length === 0) return <>{label}</>;
+  if (!words.length || !words[0]) {
+    return wrapSSR(
+      React.createElement(
+        'div',
+        {
+          title: label,
+          className: optionCls,
+        },
+        label,
+      ),
+    );
+  }
 
   // 创建正则表达式匹配关键词
   const matchKeywordsRE = new RegExp(
@@ -99,7 +110,7 @@ export const ProHelpSelect: React.FC<
   }
 > = ({ iconClassName, ...props }) => {
   const { dataSource } = useContext(ProHelpProvide);
-  const [keyWord, setKeyWork] = useState<string>('');
+  const [keyWord, setKeyWork] = useState<string>(props.defaultValue ?? '');
   const { hashId } = useContext(ProProvider);
   const debounceSetKeyWork = useDebounceFn(async (key) => setKeyWork(key), 20);
 
@@ -126,7 +137,6 @@ export const ProHelpSelect: React.FC<
         }>
           placeholder="please input search text"
           showSearch
-          {...compatibleBorder(false)}
           onBlur={() => {
             setOpen(false);
           }}
@@ -145,7 +155,7 @@ export const ProHelpSelect: React.FC<
               label: (
                 <Highlight
                   label={item.title}
-                  words={[keyWord].filter(Boolean)}
+                  words={keyWord ? [keyWord] : []}
                 />
               ),
               title: item.title,
@@ -155,7 +165,7 @@ export const ProHelpSelect: React.FC<
                   label: (
                     <Highlight
                       label={sunItem.title}
-                      words={[keyWord].filter(Boolean)}
+                      words={keyWord ? [keyWord] : []}
                     />
                   ),
                   title: sunItem.title,

@@ -909,7 +909,7 @@ describe('👍🏻 ProHelpPanel', () => {
     });
   });
 
-  it('🎏 ProHelpSelect', async () => {
+  it('🎏 Base ProHelpSelect', async () => {
     const html = render(
       <DefaultProHelp>
         <div
@@ -944,6 +944,8 @@ describe('👍🏻 ProHelpPanel', () => {
       });
     });
 
+    await new Promise((resolve) => setTimeout(resolve, 100));
+
     expect(
       html.baseElement.querySelector(
         '.ant-pro-help-search-list-item-content-light',
@@ -953,6 +955,7 @@ describe('👍🏻 ProHelpPanel', () => {
     await act(async () => {
       fireEvent.blur(html.container.querySelector('.ant-select-selector')!);
     });
+
     expect(!!html.container.querySelector('.ant-select-selector')!).toBeFalsy();
   });
 
@@ -992,6 +995,8 @@ describe('👍🏻 ProHelpPanel', () => {
         },
       });
     });
+
+    await new Promise((resolve) => setTimeout(resolve, 100));
 
     expect(
       html.baseElement.querySelector(
