@@ -7,4 +7,4 @@ nav:
 
 # ProDescriptions Playground
 
-<code src="../../packages/descriptions/src/demos/dynamic-descriptions.tsx"  background="var(--main-bg-color)" title="属性展示"></code>
+<code src="../../demos/descriptions/dynamic-descriptions.tsx"  background="var(--main-bg-color)" title="属性展示"></code>

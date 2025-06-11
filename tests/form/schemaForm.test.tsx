@@ -1,9 +1,8 @@
 ﻿import type {
   ProFormColumnsType,
   ProFormLayoutType,
-} from '@ant-design/pro-form';
-import { BetaSchemaForm } from '@ant-design/pro-form';
-import { ProProvider } from '@ant-design/pro-provider';
+} from '@ant-design/pro-components';
+import { BetaSchemaForm, ProProvider } from '@ant-design/pro-components';
 import {
   cleanup,
   fireEvent,
@@ -14,6 +13,7 @@ import {
 import type { FormInstance } from 'antd';
 import { Input } from 'antd';
 import React, { act, createRef, useContext, useEffect } from 'react';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 const columns: ProFormColumnsType<any>[] = [
   {
@@ -126,15 +126,15 @@ describe('SchemaForm', () => {
 
     await waitFor(() => {
       expect(requestFn).toHaveBeenCalledWith('qixian');
-      expect(formItemPropsFn).toBeCalledTimes(2);
-      expect(fieldPropsFn).toBeCalledTimes(2);
+      expect(formItemPropsFn).toHaveBeenCalledTimes(2);
+      expect(fieldPropsFn).toHaveBeenCalledTimes(2);
     });
   });
 
   it('😊 SchemaForm support shouldUpdate as true', async () => {
     const fieldPropsFn = vi.fn();
     const formItemPropsFn = vi.fn();
-    const renderFormItemFn = vi.fn();
+    const formItemRenderFn = vi.fn();
     const onValuesChangeFn = vi.fn();
     const { container } = render(
       <BetaSchemaForm
@@ -147,8 +147,8 @@ describe('SchemaForm', () => {
             fieldProps: {
               id: 'title',
             },
-            renderFormItem: (schema, { defaultRender }) => {
-              renderFormItemFn();
+            formItemRender: (schema, { defaultRender }) => {
+              formItemRenderFn();
               return defaultRender(schema);
             },
           },
@@ -166,9 +166,9 @@ describe('SchemaForm', () => {
     );
 
     await waitFor(() => {
-      expect(fieldPropsFn).toBeCalledTimes(1);
-      expect(formItemPropsFn).toBeCalledTimes(1);
-      expect(renderFormItemFn).toBeCalledTimes(4);
+      expect(fieldPropsFn).toHaveBeenCalledTimes(1);
+      expect(formItemPropsFn).toHaveBeenCalledTimes(1);
+      expect(formItemRenderFn).toHaveBeenCalledTimes(4);
     });
 
     fireEvent.change(container.querySelector('input#title')!, {
@@ -178,17 +178,17 @@ describe('SchemaForm', () => {
     });
 
     await waitFor(() => {
-      expect(renderFormItemFn).toBeCalledTimes(5);
-      expect(fieldPropsFn).toBeCalledTimes(1);
-      expect(formItemPropsFn).toBeCalledTimes(1);
-      expect(onValuesChangeFn).toBeCalled();
+      expect(formItemRenderFn).toHaveBeenCalledTimes(5);
+      expect(fieldPropsFn).toHaveBeenCalledTimes(1);
+      expect(formItemPropsFn).toHaveBeenCalledTimes(1);
+      expect(onValuesChangeFn).toHaveBeenCalled();
     });
   });
 
   it('😊 SchemaForm support shouldUpdate as function', async () => {
     const fieldPropsFn = vi.fn();
     const formItemPropsFn = vi.fn();
-    const renderFormItemFn = vi.fn();
+    const formItemRenderFn = vi.fn();
     const shouldUpdateFn = vi.fn();
     const { container } = render(
       <BetaSchemaForm
@@ -215,8 +215,8 @@ describe('SchemaForm', () => {
             fieldProps: {
               id: 'title',
             },
-            renderFormItem: (schema, { defaultRender }) => {
-              renderFormItemFn();
+            formItemRender: (schema, { defaultRender }) => {
+              formItemRenderFn();
               return defaultRender(schema);
             },
           },
@@ -237,10 +237,10 @@ describe('SchemaForm', () => {
     );
 
     await waitFor(() => {
-      expect(shouldUpdateFn).toBeCalledTimes(0);
-      expect(fieldPropsFn).toBeCalledTimes(1);
-      expect(formItemPropsFn).toBeCalledTimes(1);
-      expect(renderFormItemFn).toBeCalledTimes(4);
+      expect(shouldUpdateFn).not.toHaveBeenCalled();
+      expect(fieldPropsFn).toHaveBeenCalledTimes(1);
+      expect(formItemPropsFn).toHaveBeenCalledTimes(1);
+      expect(formItemRenderFn).toHaveBeenCalledTimes(4);
     });
 
     fireEvent.change(container.querySelector('input#title')!, {
@@ -250,10 +250,10 @@ describe('SchemaForm', () => {
     });
     // Although shouldUpdate returns false, but using dependencies will still update
     await waitFor(() => {
-      expect(renderFormItemFn).toBeCalledTimes(5);
-      expect(formItemPropsFn).toBeCalledTimes(2);
-      expect(fieldPropsFn).toBeCalledTimes(2);
-      expect(shouldUpdateFn).toBeCalledTimes(1);
+      expect(formItemRenderFn).toHaveBeenCalledTimes(5);
+      expect(formItemPropsFn).toHaveBeenCalledTimes(2);
+      expect(fieldPropsFn).toHaveBeenCalledTimes(2);
+      expect(shouldUpdateFn).toHaveBeenCalledTimes(1);
     });
 
     fireEvent.change(container.querySelector('input#subtitle')!, {
@@ -263,10 +263,10 @@ describe('SchemaForm', () => {
     });
 
     await waitFor(() => {
-      expect(renderFormItemFn).toBeCalledTimes(6);
-      expect(formItemPropsFn).toBeCalledTimes(3);
-      expect(fieldPropsFn).toBeCalledTimes(3);
-      expect(shouldUpdateFn).toBeCalledTimes(2);
+      expect(formItemRenderFn).toHaveBeenCalledTimes(6);
+      expect(formItemPropsFn).toHaveBeenCalledTimes(3);
+      expect(fieldPropsFn).toHaveBeenCalledTimes(3);
+      expect(shouldUpdateFn).toHaveBeenCalledTimes(2);
       expect(shouldUpdateFn).toHaveBeenCalledWith(true);
     });
   });
@@ -274,7 +274,7 @@ describe('SchemaForm', () => {
   it('😊 SchemaForm columns do not interfere with each other', async () => {
     const fieldPropsFn = vi.fn();
     const formItemPropsFn = vi.fn();
-    const renderFormItemFn = vi.fn();
+    const formItemRenderFn = vi.fn();
     const { container } = render(
       <BetaSchemaForm
         shouldUpdate={false}
@@ -287,8 +287,8 @@ describe('SchemaForm', () => {
             fieldProps: {
               id: 'title',
             },
-            renderFormItem: (schema, { defaultRender }) => {
-              renderFormItemFn();
+            formItemRender: (schema, { defaultRender }) => {
+              formItemRenderFn();
               return defaultRender(schema);
             },
           },
@@ -305,9 +305,9 @@ describe('SchemaForm', () => {
     );
 
     await waitFor(() => {
-      expect(fieldPropsFn).toBeCalledTimes(1);
-      expect(formItemPropsFn).toBeCalledTimes(1);
-      expect(renderFormItemFn).toBeCalledTimes(4);
+      expect(fieldPropsFn).toHaveBeenCalledTimes(1);
+      expect(formItemPropsFn).toHaveBeenCalledTimes(1);
+      expect(formItemRenderFn).toHaveBeenCalledTimes(4);
     });
 
     fireEvent.change(container.querySelector('input#title')!, {
@@ -317,9 +317,9 @@ describe('SchemaForm', () => {
     });
 
     await waitFor(() => {
-      expect(renderFormItemFn).toBeCalledTimes(5);
-      expect(formItemPropsFn).toBeCalledTimes(1);
-      expect(fieldPropsFn).toBeCalledTimes(1);
+      expect(formItemRenderFn).toHaveBeenCalledTimes(5);
+      expect(formItemPropsFn).toHaveBeenCalledTimes(1);
+      expect(fieldPropsFn).toHaveBeenCalledTimes(1);
     });
   });
 
@@ -407,7 +407,7 @@ describe('SchemaForm', () => {
             title: '标题',
             dataIndex: 'title',
             width: 200,
-            renderFormItem: () => {
+            formItemRender: () => {
               return <Input data-testid="test" />;
             },
           },
@@ -417,7 +417,7 @@ describe('SchemaForm', () => {
     expect(screen.findByTestId('test')).toBeTruthy();
   });
 
-  it('😊 support SchemaForm renderFormItem return false', async () => {
+  it('😊 support SchemaForm formItemRender return false', async () => {
     const formRef = createRef<FormInstance>();
     const { container } = render(
       <BetaSchemaForm
@@ -428,7 +428,7 @@ describe('SchemaForm', () => {
             dataIndex: 'title',
             width: 200,
             dependencies: ['title2'],
-            renderFormItem: (_, __, form) => {
+            formItemRender: (_, __, form) => {
               if (form.getFieldValue('title2') === 'show') {
                 return <Input />;
               }
@@ -439,7 +439,7 @@ describe('SchemaForm', () => {
             title: '标题',
             dataIndex: 'title2',
             width: 200,
-            renderFormItem: () => {
+            formItemRender: () => {
               return <Input id="test-input" />;
             },
           },
@@ -466,7 +466,7 @@ describe('SchemaForm', () => {
             title: '标题',
             dataIndex: 'title',
             width: 200,
-            renderFormItem: (_, { defaultRender }) => {
+            formItemRender: (_, { defaultRender }) => {
               return defaultRender(_);
             },
           },
@@ -485,7 +485,7 @@ describe('SchemaForm', () => {
             title: '标题',
             dataIndex: 'title',
             width: 200,
-            renderFormItem: () => {
+            formItemRender: () => {
               return <Input data-testid="title" />;
             },
           },
@@ -494,7 +494,7 @@ describe('SchemaForm', () => {
             dataIndex: 'category',
             width: 200,
             hideInForm: true,
-            renderFormItem: () => {
+            formItemRender: () => {
               return <Input id="category" />;
             },
           },
@@ -584,8 +584,6 @@ describe('SchemaForm', () => {
       state: string;
     };
 
-    vi.useFakeTimers();
-
     const curColumns: ProFormColumnsType<DataItem>[] = [
       {
         title: '测试',
@@ -622,7 +620,7 @@ describe('SchemaForm', () => {
     });
 
     await waitFor(() => {
-      expect(onFinish).toBeCalledTimes(0);
+      expect(onFinish).not.toHaveBeenCalled();
     });
     await waitFor(async () => {
       expect((await wrapper.findAllByText('请填写列表')).length).toBe(1);
@@ -632,7 +630,7 @@ describe('SchemaForm', () => {
     });
 
     await act(() => {
-      return vi.runOnlyPendingTimers();
+      return;
     });
 
     await act(async () => {
@@ -640,7 +638,7 @@ describe('SchemaForm', () => {
     });
 
     await act(() => {
-      return vi.runOnlyPendingTimers();
+      return;
     });
 
     await waitFor(async () => {
@@ -659,17 +657,12 @@ describe('SchemaForm', () => {
       );
     });
 
-    act(() => {
-      vi.runOnlyPendingTimers();
-    });
-
     await waitFor(async () => {
       expect((await wrapper.findAllByText('请填写列表')).length).toBe(1);
     });
-
-    vi.useRealTimers();
   });
 
+  // need jsdom
   ['ModalForm', 'DrawerForm'].forEach((layoutType) => {
     it(`😊 ${layoutType} support destroyOnClose rerender`, async () => {
       const formColumns = [
@@ -740,7 +733,6 @@ describe('SchemaForm', () => {
     'QueryFilter',
   ].forEach((layoutType) => {
     it(`😊 When SchemaForm's layoutType property is ${layoutType}, make sure it is valid to get the form instance through formRef`, async () => {
-      vi.useFakeTimers();
       const formColumns = [
         [
           {
@@ -804,10 +796,6 @@ describe('SchemaForm', () => {
           button?.click();
         });
 
-        act(() => {
-          vi.runOnlyPendingTimers();
-        });
-
         const stepsValue = {
           next: 'Step 2',
         };
@@ -821,7 +809,6 @@ describe('SchemaForm', () => {
             stepsValue,
           );
         });
-        vi.useRealTimers();
       }
     });
   });
@@ -858,7 +845,7 @@ describe('SchemaForm', () => {
       },
       /**
        * 构造20个耗时组件测试一下 不要在`columns`中使用
-       *     1、renderFormItem
+       *     1、formItemRender
        *     2、fieldProps（typeof fieldProps === 'function'时）
        *     3、formItemProps（typeof formItemProps === 'function'时） 以上三种用法会导致每个onValuesChange都去重复构建DomList。 目前只能先这样workaround了
        */
@@ -881,7 +868,7 @@ describe('SchemaForm', () => {
             ...values,
             valueTypeMap: {
               test: {
-                renderFormItem: (text, props) => {
+                formItemRender: (text, props) => {
                   return <ExpensiveCustomComp {...props?.fieldProps} />;
                 },
               },
@@ -898,7 +885,7 @@ describe('SchemaForm', () => {
 
     const wrapper = render(<App />);
 
-    expect(fibonacci).toBeCalledTimes(1);
+    expect(fibonacci).toHaveBeenCalledTimes(1);
 
     fireEvent.change(wrapper.baseElement.querySelector('input#name')!, {
       target: {
@@ -906,6 +893,6 @@ describe('SchemaForm', () => {
       },
     });
 
-    expect(fibonacci).toBeCalledTimes(1);
+    expect(fibonacci).toHaveBeenCalledTimes(1);
   });
 });

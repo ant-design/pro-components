@@ -210,7 +210,7 @@ exports[`PageContainer > 🐛 className prop should not be passed to its page he
 exports[`PageContainer > 🐲 FooterToolbar should know width 1`] = `
 <div>
   <div
-    class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-top-menu ant-pro-layout-fix-siderbar ant-pro-layout-top"
+    class="ant-design-pro ant-pro-layout screen-lg ant-pro-layout-top-menu ant-pro-layout-fix-siderbar ant-pro-layout-top"
   >
     <div
       class="ant-pro-layout-bg-list"
@@ -374,7 +374,7 @@ exports[`PageContainer > 🐲 FooterToolbar should know width 1`] = `
               </div>
               <div
                 class="ant-pro-top-nav-header-menu"
-                style="flex: 1 1 0%;"
+                style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
               >
                 <div
                   style="margin-block-start: 16px;"
@@ -554,7 +554,7 @@ exports[`PageContainer > 🐲 footer is null, do not render footerToolbar  2`] =
 exports[`PageContainer > 🐲 footer should know width 1`] = `
 <div>
   <div
-    class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-top-menu ant-pro-layout-fix-siderbar ant-pro-layout-top"
+    class="ant-design-pro ant-pro-layout screen-lg ant-pro-layout-top-menu ant-pro-layout-fix-siderbar ant-pro-layout-top"
   >
     <div
       class="ant-pro-layout-bg-list"
@@ -718,7 +718,7 @@ exports[`PageContainer > 🐲 footer should know width 1`] = `
               </div>
               <div
                 class="ant-pro-top-nav-header-menu"
-                style="flex: 1 1 0%;"
+                style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
               >
                 <div
                   style="margin-block-start: 16px;"
@@ -799,7 +799,7 @@ exports[`PageContainer > 🐲 footer should know width 1`] = `
 exports[`PageContainer > 🐲 pro-layout support breadcrumbProps 1`] = `
 <DocumentFragment>
   <div
-    class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
+    class="ant-design-pro ant-pro-layout screen-lg ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
       class="ant-pro-layout-bg-list"
@@ -809,11 +809,11 @@ exports[`PageContainer > 🐲 pro-layout support breadcrumbProps 1`] = `
       style="min-height: 100%; flex-direction: row;"
     >
       <div
-        style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
+        style="width: 256px; overflow: hidden; flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
       />
       <aside
         class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
-        style="flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
+        style="flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; width: 256px;"
       >
         <div
           class="ant-layout-sider-children"
@@ -955,7 +955,7 @@ exports[`PageContainer > 🐲 pro-layout support breadcrumbProps 1`] = `
             </a>
           </div>
           <div
-            style="flex: 1 1 0%; overflow-y: auto; overflow-x: hidden;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; overflow-y: auto; overflow-x: hidden;"
           >
             <div
               style="padding: 24px;"

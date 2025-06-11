@@ -1,6 +1,7 @@
+import { ProSkeleton } from '@ant-design/pro-components';
 import { cleanup, render } from '@testing-library/react';
 import { act } from 'react';
-import ProSkeleton from '../../packages/skeleton/src/index';
+import { afterEach, describe, expect, it } from 'vitest';
 
 afterEach(() => {
   cleanup();

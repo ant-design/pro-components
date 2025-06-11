@@ -1,4 +1,6 @@
-import ProTable, { ActionType } from '@ant-design/pro-table';
+import type { ActionType } from '@ant-design/pro-components';
+import { ProTable } from '@ant-design/pro-components';
+/// <reference types="@vitest/browser/context" />
 import {
   cleanup,
   fireEvent,
@@ -9,6 +11,7 @@ import {
 import userEvent from '@testing-library/user-event';
 import { Button } from 'antd';
 import { useRef } from 'react';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { getFetchData } from './demo';
 
 afterEach(() => {
@@ -614,7 +617,7 @@ describe('BasicTable sorter', () => {
       container.querySelectorAll('span.ant-table-column-sorter-down')[1],
     );
 
-    expect(fn).toBeCalledTimes(4);
+    expect(fn).toHaveBeenCalledTimes(4);
   });
 
   it('🎏 should trigger onChange when sorting with function sorters', async () => {

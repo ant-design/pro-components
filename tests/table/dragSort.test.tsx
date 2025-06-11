@@ -1,7 +1,16 @@
 import { MenuOutlined } from '@ant-design/icons';
-import { DragSortTable } from '@ant-design/pro-table';
+import { DragSortTable } from '@ant-design/pro-components';
 import { cleanup, fireEvent, render } from '@testing-library/react';
 import { act } from 'react';
+import {
+  afterAll,
+  afterEach,
+  beforeAll,
+  describe,
+  expect,
+  it,
+  vi,
+} from 'vitest';
 import { waitForWaitTime } from '../util';
 
 async function dragAndDrop(cell: Element) {
@@ -128,7 +137,6 @@ describe('dragSort', () => {
     const draggables = container.querySelectorAll(
       '[aria-roledescription="sortable"]',
     );
-    Object.setPrototypeOf(window, Window.prototype);
 
     draggables.forEach((draggable, index) => {
       mockGetBoundingClientRect(draggable, index);
@@ -147,10 +155,6 @@ describe('dragSort', () => {
     await act(() => {
       return dragAndDrop(dragHandle);
     });
-
-    // await waitFor(() => {
-    //   expect(onDragSortEndFn).toBeCalled();
-    // });
 
     expect(container.querySelector('.dragSortDefaultHandle')).toMatchSnapshot();
   });
@@ -200,7 +204,7 @@ describe('dragSort', () => {
     );
 
     expect(container.querySelector('.dragSortCustomHandle')).toMatchSnapshot();
-    expect(callback).toBeCalled();
+    expect(callback).toHaveBeenCalled();
     expect(callback).toHaveBeenCalledWith('kiner', 0);
   });
 
@@ -265,7 +269,7 @@ describe('dragSort', () => {
 
     expect(container.querySelector('.dragSortCustomHandle')).toMatchSnapshot();
     expect(container.querySelector('.customRender')).toMatchSnapshot();
-    expect(callback).toBeCalled();
+    expect(callback).toHaveBeenCalled();
     expect(callback).toHaveBeenCalledWith('kiner', 0);
   });
 });

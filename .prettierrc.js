@@ -1,7 +1,19 @@
-const fabric = require('@umijs/fabric');
-
 module.exports = {
-  ...fabric.prettier,
+  plugins: [
+    require.resolve('prettier-plugin-organize-imports'),
+    require.resolve('prettier-plugin-packagejson'),
+  ],
   printWidth: 80,
-  plugins: [require.resolve('prettier-plugin-organize-imports')],
+  proseWrap: 'never',
+  singleQuote: true,
+  trailingComma: 'all',
+  overrides: [
+    {
+      files: '*.md',
+      options: {
+        proseWrap: 'preserve',
+      },
+    },
+  ],
+  endOfLine: 'lf',
 };

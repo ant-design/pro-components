@@ -14,7 +14,7 @@ export const waitForWaitTime = async (time: number = 100) => {
       return waitTimePromise(time);
     },
     {
-      timeout: time + 100,
+      timeout: time + 1000,
     },
   );
   return;

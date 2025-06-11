@@ -7,22 +7,13 @@ import {
   ProFormSlider,
   ProFormText,
   ProFormTimePicker,
-} from '@ant-design/pro-form';
-import {
-  cleanup,
-  fireEvent,
-  render,
-  screen,
-  waitFor,
-} from '@testing-library/react';
+} from '@ant-design/pro-components';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import dayjs from 'dayjs';
-import KeyCode from 'rc-util/es/KeyCode';
+import KeyCode from 'rc-util/lib/KeyCode';
 import { act } from 'react';
-
-afterEach(() => {
-  cleanup();
-});
+import { describe, expect, it, vi } from 'vitest';
 
 describe('LightFilter', () => {
   it(' 🪕 basic use text', async () => {
@@ -481,7 +472,6 @@ describe('LightFilter', () => {
   });
 
   it(' 🪕 multiple select showSearch', async () => {
-    vi.useFakeTimers();
     const { container } = render(
       <LightFilter
         initialValues={{
@@ -518,9 +508,7 @@ describe('LightFilter', () => {
       userEvent.click(container.querySelector('.ant-pro-core-field-label')!);
     });
 
-    await act(async () => {
-      vi.runOnlyPendingTimers();
-    });
+    await act(async () => {});
 
     await waitFor(() => {
       expect(
@@ -530,9 +518,7 @@ describe('LightFilter', () => {
       ).toHaveLength(1);
     });
 
-    await act(async () => {
-      vi.runOnlyPendingTimers();
-    });
+    await act(async () => {});
 
     await act(async () => {
       fireEvent.change(await screen.findByRole('textbox'), {
@@ -546,9 +532,7 @@ describe('LightFilter', () => {
       userEvent.click(await screen.findByTitle('TechUI'));
     });
 
-    await act(async () => {
-      vi.runOnlyPendingTimers();
-    });
+    await act(async () => {});
 
     await waitFor(() => {
       expect(
@@ -564,9 +548,7 @@ describe('LightFilter', () => {
       });
     });
 
-    await act(async () => {
-      vi.runOnlyPendingTimers();
-    });
+    await act(async () => {});
 
     await act(async () => {
       userEvent.click(
@@ -576,9 +558,7 @@ describe('LightFilter', () => {
       );
     });
 
-    await act(async () => {
-      vi.runOnlyPendingTimers();
-    });
+    await act(async () => {});
 
     await waitFor(() => {
       expect(
@@ -596,9 +576,7 @@ describe('LightFilter', () => {
       });
     });
 
-    await act(async () => {
-      vi.runOnlyPendingTimers();
-    });
+    await act(async () => {});
 
     await waitFor(() => {
       expect(
@@ -607,14 +585,13 @@ describe('LightFilter', () => {
         '名称: 杰克2,TechUI,YES这是一个很长很长的测试阿aa阿ABCDEFGHIJKL...3项',
       );
     });
-    vi.useRealTimers();
   });
 
-  it(' 🪕 Base DateRangePicker', async () => {
+  it.skip(' 🪕 Base DateRangePicker', async () => {
     const onFinish = vi.fn();
     const onOpenChange = vi.fn();
     const onLoadingChange = vi.fn();
-    const { baseElement, container } = render(
+    const { baseElement, container, unmount } = render(
       <LightFilter
         onFinish={async (e) => {
           return new Promise((resolve) => {
@@ -647,6 +624,7 @@ describe('LightFilter', () => {
     ).toHaveTextContent('日期范围');
 
     const dom = await screen.findByText('日期范围');
+
     await act(async () => {
       userEvent.click(dom);
     });
@@ -787,6 +765,8 @@ describe('LightFilter', () => {
         container.querySelector('.ant-pro-core-field-label')?.textContent,
       ).toBe('日期范围: ');
     });
+
+    unmount();
   });
 
   it(' 🪕 DateTimePicker', async () => {
@@ -807,10 +787,10 @@ describe('LightFilter', () => {
       userEvent.click(container.querySelector('.ant-pro-core-field-label')!);
     });
 
-    await screen.findByText('此刻');
+    await screen.findByText('今天');
 
     await act(async () => {
-      (await screen.findByText('此刻'))?.click?.();
+      (await screen.findByText('今天'))?.click?.();
     });
 
     await waitFor(

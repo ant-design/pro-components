@@ -1,4 +1,4 @@
-import ProList, { BaseProList } from '@ant-design/pro-list';
+import { BaseProList, ProList } from '@ant-design/pro-components';
 import {
   cleanup,
   fireEvent,
@@ -9,7 +9,8 @@ import {
 import { Tag } from 'antd';
 import type { Key } from 'react';
 import { act, useState } from 'react';
-import PaginationDemo from '../../packages/list/src/demos/pagination';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import PaginationDemo from '../../demos/list/pagination';
 import { waitForWaitTime } from '../util';
 
 type DataSourceType = {
@@ -577,7 +578,7 @@ describe('List', () => {
 
     fireEvent.click(container.querySelector('.ant-list-item')!);
 
-    expect(onClick).toBeCalled();
+    expect(onClick).toHaveBeenCalled();
 
     fireEvent.mouseEnter(container.querySelector('.ant-list-item')!);
 

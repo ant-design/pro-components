@@ -1,33 +1,27 @@
-import { readdirSync } from 'fs';
 import { join } from 'path';
 import { defineConfig } from 'vitest/config';
-
-const pkgList = readdirSync(join(__dirname, './packages')).filter(
-  (pkg: string) => pkg.charAt(0) !== '.',
-);
-
-const moduleNameMapper = {} as Record<string, any>;
-
-pkgList.forEach((shortName: string) => {
-  const name = `@ant-design/pro-${shortName}`;
-  moduleNameMapper[name] = join(__dirname, `./packages/${shortName}/src`);
-});
+/// <reference types="@vitest/browser/context" />
 
 export default defineConfig({
   resolve: {
-    alias: moduleNameMapper,
+    alias: {
+      '@ant-design/pro-components': join(__dirname, './src'),
+    },
   },
-  define: {
-    ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION: false,
-    IS_REACT_ACT_ENVIRONMENT: true,
+  esbuild: {
+    format: 'esm',
   },
   test: {
-    globals: true,
     setupFiles: ['./tests/setupTests.ts'],
-    environment: 'jsdom',
+    environment: 'happy-dom',
     environmentOptions: {
-      jsdom: {
+      happyDOM: {
         url: 'http://localhost?navTheme=realDark&layout=mix&colorPrimary=techBlue&splitMenus=false&fixedHeader=true',
+      },
+    },
+    server: {
+      deps: {
+        inline: true,
       },
     },
     coverage: {
@@ -43,6 +37,7 @@ export default defineConfig({
         'packages/utils/src/useMountMergeState/*.{ts,tsx}',
       ],
     },
-    testTimeout: 60_000,
+    testTimeout: 60_000, // 60 seconds
+    globals: true,
   },
 });

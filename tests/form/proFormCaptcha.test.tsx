@@ -1,7 +1,8 @@
-import ProForm, { ProFormCaptcha } from '@ant-design/pro-form';
+import { ProForm, ProFormCaptcha } from '@ant-design/pro-components';
 import { cleanup, fireEvent, render } from '@testing-library/react';
 import { Button, message } from 'antd';
 import React, { act } from 'react';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 afterEach(() => {
   cleanup();
@@ -11,7 +12,7 @@ describe('ProFormCaptcha', () => {
   it('😊 ProFormCaptcha Manual open', async () => {
     const captchaRef = React.createRef<any>();
     const fn = vi.fn();
-    vi.useFakeTimers();
+
     const TimingText = '获取验证码';
 
     const html = render(
@@ -94,14 +95,8 @@ describe('ProFormCaptcha', () => {
 
     expect(captchaRef.current).toBeTruthy();
 
-    act(() => {
-      vi.runOnlyPendingTimers();
-    });
-
     expect(
       html.container.querySelectorAll('#captchaButton')[0],
     ).toHaveTextContent('获取验证码');
-
-    vi.useRealTimers();
   });
 });

@@ -21,6 +21,7 @@ exports[`Table valueEnum > 🎏 customization valueType 1`] = `
           />
           <div
             class="ant-row ant-row-start ant-pro-query-filter-row"
+            style="margin-left: -12px; margin-right: -12px;"
           >
             <div
               class="ant-col ant-col-8 ant-pro-query-filter-row-split"
@@ -35,7 +36,7 @@ exports[`Table valueEnum > 🎏 customization valueType 1`] = `
                 >
                   <div
                     class="ant-col ant-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
