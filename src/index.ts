@@ -1,11 +1,12 @@
-export * as ProCard from './card';
-export * as ProDescriptions from './descriptions';
-export * as ProField from './field';
-export * as ProForm from './form';
-export * as ProLayout from './layout';
-export * as ProList from './list';
-export * as ProProvider from './provider';
-export * as ProSkeleton from './skeleton';
-export * as ProTable from './table';
-export * as ProUtils from './utils';
+export * from './card';
+export * from './descriptions';
+export * from './field';
+export * from './form';
+export * from './layout';
+export * from './list';
+export * from './provider';
+export * from './skeleton';
+export * from './table';
+export * from './utils';
+
 export { version } from './version';

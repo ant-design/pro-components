@@ -18,7 +18,7 @@ ProComponents was developed to reduce the cost of implementing CRUD in the middl
 
 The main feature of ProForm is that it has a lot of pre-defined layouts, so if you need to switch you just need to change the Layout of the outer wrapper, here is a demo.
 
-<code src="../packages/form/src/demos/layout-change.tsx"></code>
+<code src="../demos/form/layout-change.tsx"></code>
 
 ## Configuring Use with the Web Request Library
 

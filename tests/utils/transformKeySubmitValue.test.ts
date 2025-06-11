@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import { transformKeySubmitValue } from '../../packages/utils/src/transformKeySubmitValue';
+import { transformKeySubmitValue } from '../../src/utils/transformKeySubmitValue';
 
 describe('transformKeySubmitValue', () => {
   it('transforms single-level values', () => {
