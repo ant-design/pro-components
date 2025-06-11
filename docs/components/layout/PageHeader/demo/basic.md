@@ -1,5 +1,5 @@
 ---
-group: Layout
+group: PageHeader
 order: 1
 title: 标准样式
 ---

@@ -1,5 +1,5 @@
 ---
-group: Layout
+group: PageHeader
 order: 4
 title: 组合示例
 ---

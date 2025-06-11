@@ -2,7 +2,6 @@
 nav:
   title: Components
 group: Card
-
 title: CheckCard - Multi-select Card
 order: 1
 atomId: CheckCard

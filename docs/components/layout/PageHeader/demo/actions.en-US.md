@@ -1,5 +1,5 @@
 ---
-group: Layout
+group: PageHeader
 order: 5
 title: Various forms of PageHeader
 ---

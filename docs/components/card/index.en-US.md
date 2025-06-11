@@ -2,7 +2,6 @@
 nav:
   title: Components
 group: Card
-
 title: ProCard
 atomId: ProCard
 ---

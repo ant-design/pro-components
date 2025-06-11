@@ -1,5 +1,5 @@
 ---
-group: Layout
+group: PageHeader
 order: 6
 iframe: 228
 title: 响应式
