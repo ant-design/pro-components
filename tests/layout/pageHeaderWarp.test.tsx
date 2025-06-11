@@ -1,7 +1,7 @@
 import { PageContainer, ProLayout } from '@ant-design/pro-components';
 import { cleanup, render } from '@testing-library/react';
-import { ActionsContent } from 'src/layout/components/GlobalHeader/ActionsContent';
 import { afterEach, describe, expect, it } from 'vitest';
+import { ActionsContent } from '../../src/layout/components/GlobalHeader/ActionsContent';
 import defaultProps from './defaultProps';
 
 afterEach(() => {

@@ -644,15 +644,16 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
           );
         }
         setOpenKeys(newKeys);
-      } else if (menu?.ignoreFlatMenu && defaultOpenAll) {
+      } else if (menu?.ignoreFlatMenu && defaultOpenAll && !props.collapsed) {
         // 忽略用户手动折叠过的菜单状态，折叠按钮切换之后也可实现默认展开所有菜单
+        // 但是如果用户手动点击关闭菜单，则应该遵循用户的选择
         setOpenKeys(getOpenKeysFromMenuData(menuData));
       } else {
         setDefaultOpenAll(false);
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [matchMenuKeys.join('-')],
+    [matchMenuKeys.join('-'), props.collapsed],
   );
 
   const openKeysProps = useMemo(
