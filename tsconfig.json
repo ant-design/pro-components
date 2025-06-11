@@ -14,8 +14,9 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "paths": {
-      "@@/*": [".dumi/tmp/*"]
+      "@@/*": [".dumi/tmp/*"],
+      "@ant-design/pro-components": ["src"]
     }
   },
-  "include": [".dumirc.ts", "typings.d.ts", "src/**/*"]
+  "include": [".dumirc.ts", "typings.d.ts", "src/**/*", "demos/**/*"]
 }

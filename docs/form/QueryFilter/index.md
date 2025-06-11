@@ -10,33 +10,33 @@ atomId: QueryFilter,LightFilter
 
 ## 查询筛选
 
-<code src="./demos/query-filter.tsx" title="基本使用"></code>
+<code src="../../../demos/form/QueryFilter/query-filter.tsx" title="基本使用"></code>
 
-<code src="./demos/query-filter-test.tsx" title="基本使用" debug></code>
+<code src="../../../demos/form/QueryFilter/query-filter-test.tsx" title="基本使用" debug></code>
 
-<code src="./demos/query-filter-collapsed.tsx" title="查询筛选-默认收起"></code>
+<code src="../../../demos/form/QueryFilter/query-filter-collapsed.tsx" title="查询筛选-默认收起"></code>
 
-<code src="./demos/query-filter-vertical.tsx" title="查询筛选-垂直布局"></code>
+<code src="../../../demos/form/QueryFilter/query-filter-vertical.tsx" title="查询筛选-垂直布局"></code>
 
-<code src="./demos/search-filter.tsx" background="var(--main-bg-color)" title="查询筛选-搜索"></code>
+<code src="../../../demos/form/QueryFilter/search-filter.tsx" background="var(--main-bg-color)" title="查询筛选-搜索"></code>
 
-<code src="./demos/query-filter-defaultFormItemsNumber.tsx" background="var(--main-bg-color)" title="查询筛选-自定义渲染的控件数量"></code>
+<code src="../../../demos/form/QueryFilter/query-filter-defaultFormItemsNumber.tsx" background="var(--main-bg-color)" title="查询筛选-自定义渲染的控件数量"></code>
 
 ## 轻量筛选
 
-<code src="./demos/light-filter.tsx" title="基本使用"></code>
+<code src="../../../demos/form/QueryFilter/light-filter.tsx" title="基本使用"></code>
 
-<code src="./demos/light-filter-footer.tsx" title="轻量筛选-自定义footer"></code>
+<code src="../../../demos/form/QueryFilter/light-filter-footer.tsx" title="轻量筛选-自定义footer"></code>
 
-<code src="./demos/light-filter-bordered.tsx" title="轻量筛选-边框模式"></code>
+<code src="../../../demos/form/QueryFilter/light-filter-bordered.tsx" title="轻量筛选-边框模式"></code>
 
 折叠模式下所有的选项都会默认折叠，不管是否有值，控件的 `secondary` 将不再有效。
 
-<code src="./demos/light-filter-collapse.tsx" title="轻量筛选-折叠模式"></code>
+<code src="../../../demos/form/QueryFilter/light-filter-collapse.tsx" title="轻量筛选-折叠模式"></code>
 
 手动设置轻量筛选的弹出框，默认为 `bottomLeft`
 
-<code src="./demos/light-filter-placement.tsx" title="轻量筛选-弹出框对齐方式"></code>
+<code src="../../../demos/form/QueryFilter/light-filter-placement.tsx" title="轻量筛选-弹出框对齐方式"></code>
 
 ## API
 

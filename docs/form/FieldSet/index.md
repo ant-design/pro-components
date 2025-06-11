@@ -50,19 +50,19 @@ const ProFormText = (props) => {
 
 ## 代码示例
 
-<code src="./demos/components-other.tsx" title="表单项" ></code>
+<code src="../../../demos/form/FieldSet/components-other.tsx" title="表单项" ></code>
 
-<code src="./demos/search-select.tsx" title="查询表单" ></code>
+<code src="../../../demos/form/FieldSet/search-select.tsx" title="查询表单" ></code>
 
-<code src="./demos/form-fieldset.tsx" title="结构化数据" ></code>
+<code src="../../../demos/form/FieldSet/form-fieldset.tsx" title="结构化数据" ></code>
 
-<code src="./demos/datatime.tsx" title="日期表单"></code>
+<code src="../../../demos/form/FieldSet/datatime.tsx" title="日期表单"></code>
 
-<code src="./demos/upload.tsx" title="上传表单"></code>
+<code src="../../../demos/form/FieldSet/upload.tsx" title="上传表单"></code>
 
-<code src="./demos/components-other-readonly.tsx" title="只读表单" ></code>
+<code src="../../../demos/form/FieldSet/components-other-readonly.tsx" title="只读表单" ></code>
 
-<code src="./demos/fieldSet-light.tsx" title="轻量筛选中使用 light" ></code>
+<code src="../../../demos/form/FieldSet/fieldSet-light.tsx" title="轻量筛选中使用 light" ></code>
 
 ## API
 
@@ -108,7 +108,7 @@ ProForm 自带的 Filed , 与 valueType 基本上一一对应。
 
 ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组件。
 
-<code src="./demos/pro-form-captCha.tsx" title="captcha"></code>
+<code src="../../../demos/form/FieldSet/pro-form-captCha.tsx" title="captcha"></code>
 
 ```tsx | pure
 <ProFormCaptcha

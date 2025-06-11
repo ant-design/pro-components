@@ -156,37 +156,37 @@ ProForm is the best choice when you want to implement a form quickly but don't w
 
 ### Basic Usage
 
-<code src="../demos/base.tsx" ></code>
+<code src="../../demos/form/base.tsx" ></code>
 
 ### Grid mode
 
 supported in `ProForm`, `SchemaForm`, `ModalForm`, `DrawerForm`, `StepsForm`
 
-<code src="../demos/form-layout-grid.tsx" oldtitle="Grid layout"></code>
+<code src="../../demos/form/form-layout-grid.tsx" oldtitle="Grid layout"></code>
 
 ### Form's layout toggle
 
-<code src="../demos/layout-change.tsx" ></code>
+<code src="../../demos/form/layout-change.tsx" ></code>
 
 ### Interdependent form entries
 
-<code src="../demos/dependency.tsx" ></code>
+<code src="../../demos/form/dependency.tsx" ></code>
 
 ### Sync submission results to url
 
-<code src="../demos/sync-to-url.tsx" ></code>
+<code src="../../demos/form/sync-to-url.tsx" ></code>
 
 ### Fixed footer
 
-<code src="../demos/layout-footer.tsx" iframe="580"></code>
+<code src="../../demos/form/layout-footer.tsx" iframe="580"></code>
 
 ### Money
 
-<code src="../demos/money.tsx" oldtitle="Money"></code>
+<code src="../../demos/form/money.tsx" oldtitle="Money"></code>
 
 ### Form linkage
 
-<code src="../demos/linkage-customization.tsx" ></code>
+<code src="../../demos/form/linkage-customization.tsx" ></code>
 
 ## Layouts API
 

@@ -342,32 +342,32 @@ name 参数必须要是一个数组，如果是嵌套的结构可以这样配置
 
 ### 自定义删除和复制的 tooltip
 
-<code src="./demos/list-tooltip" title="ProForm.List" ></code>
+<code src="../../../demos/form/Group/list-tooltip.tsx" title="ProForm.List" ></code>
 
 ### 联动的 FormList
 
-<code src="./demos/base-use" title="ProForm.List" ></code>
+<code src="../../../demos/form/Group/base-use.tsx" title="ProForm.List" ></code>
 
 ### 可调整的新建按钮位置
 
-<code src="./demos/list.tsx" title="ProForm.List-position" ></code>
+<code src="../../../demos/form/Group/list.tsx" title="ProForm.List-position" ></code>
 
 ### 表单互相嵌套
 
-<code src="./demos/nested-list.tsx" title="ProForm.List-ProFormList" ></code>
+<code src="../../../demos/form/Group/nested-list.tsx" title="ProForm.List-ProFormList" ></code>
 
 ### 复杂联动
 
-<code src="./demos/dependency.tsx" title="ProForm.List-dependency" ></code>
+<code src="../../../demos/form/Group/dependency.tsx" title="ProForm.List-dependency" ></code>
 
 ### 行为守卫
 
-<code src="./demos/pro-form-list.tsx" title="行为守卫"></code>
+<code src="../../../demos/form/Group/pro-form-list.tsx" title="行为守卫"></code>
 
 ### 增删条目限制
 
-<code src="./demos/countLimit.tsx" title="增删条目限制"></code>
+<code src="../../../demos/form/Group/countLimit.tsx" title="增删条目限制"></code>
 
 ### 横向布局
 
-<code src="./demos/horizontal-layout.tsx" title="横向布局" ></code>
+<code src="../../../demos/form/Group/horizontal-layout.tsx" title="横向布局" ></code>

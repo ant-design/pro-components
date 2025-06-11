@@ -46,23 +46,23 @@ PageContainer 封装了 antd 的 PageHeader 组件，增加了 tabList 和 conte
 
 ### 基本使用
 
-<code src="./demos/basic.tsx" title="基本使用" iframe="650" desc="基本使用"></code>
+<code src="../../../demos/layout/PageContainer/basic.tsx" title="基本使用" iframe="650" desc="基本使用"></code>
 
 ### 固定表头
 
-<code src="./demos/fixHeader.tsx" title="固定表头" iframe="650" desc="通过 `fixedHeader` 固定表头，只有在溢出容器时才会开始计算。"></code>
+<code src="../../../demos/layout/PageContainer/fixHeader.tsx" title="固定表头" iframe="650" desc="通过 `fixedHeader` 固定表头，只有在溢出容器时才会开始计算。"></code>
 
 ### 隐藏面包屑
 
-<code src="./demos/hideBreadMenu.tsx" title="隐藏面包屑" iframe="650" desc="不配置 `header` 属性中的 `breadcrumb` 即可。"></code>
+<code src="../../../demos/layout/PageContainer/hideBreadMenu.tsx" title="隐藏面包屑" iframe="650" desc="不配置 `header` 属性中的 `breadcrumb` 即可。"></code>
 
 ### 页面加载中
 
-<code src="./demos/loading.tsx" title="页面加载中" iframe="650" desc="通过 `loading` 属性配置页面加载。"></code>
+<code src="../../../demos/layout/PageContainer/loading.tsx" title="页面加载中" iframe="650" desc="通过 `loading` 属性配置页面加载。"></code>
 
 ### 修改 Token
 
-<code src="./demos/token.tsx" title="token" iframe="650" desc="通过 `token` 调整间距。"></code>
+<code src="../../../demos/layout/PageContainer/token.tsx" title="token" iframe="650" desc="通过 `token` 调整间距。"></code>
 
 ## PageContainer
 

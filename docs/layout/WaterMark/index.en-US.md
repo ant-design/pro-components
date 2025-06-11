@@ -19,31 +19,31 @@ Use when you need to add a watermark to indicate copyright on a page.
 
 The watermark component is implemented as a frontend watermark by default, which means the watermark will be displayed on top of the content. The default `zIndex` is set to 9. If you don't want the watermark to cover the content on top, you can adjust this value to a value lower than the `zIndex` of the content on top.
 
-<code src="./demos/frontend.tsx" ></code>
+<code src="../../../demos/layout/WaterMark/frontend.tsx" ></code>
 
 ### Text Watermark
 
 Specify the text watermark content using the `content` property.
 
-<code src="./demos/text.tsx" ></code>
+<code src="../../../demos/layout/WaterMark/text.tsx" ></code>
 
 ### Multiline Text Watermark
 
 Specify the multiline text watermark content using the `content` property as an array of strings.
 
-<code src="./demos/textRows.tsx" ></code>
+<code src="../../../demos/layout/WaterMark/textRows.tsx" ></code>
 
 ### Image Watermark
 
 Specify the image URL using the `image` property. To ensure the image is high-definition and not stretched, please provide the width and height of the watermark image, and upload a logo image with at least double the width and height.
 
-<code src="./demos/image.tsx" ></code>
+<code src="../../../demos/layout/WaterMark/image.tsx" ></code>
 
 ### Custom Configuration
 
 Here are some common configuration options. If you need further customization, please contact us.
 
-<code src="./demos/custom.tsx" background="var(--main-bg-color)"></code>
+<code src="../../../demos/layout/WaterMark/custom.tsx" background="var(--main-bg-color)"></code>
 
 ## WaterMark
 

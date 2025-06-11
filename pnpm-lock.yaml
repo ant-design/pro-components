@@ -65,8 +65,8 @@ importers:
         specifier: ^4.17.21
         version: 4.17.21
       path-to-regexp:
-        specifier: ^8.2.0
-        version: 8.2.0
+        specifier: ^6.2.1
+        version: 6.3.0
       rc-field-form:
         specifier: ^2.2.1
         version: 2.7.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -10075,6 +10075,9 @@ packages:
 
   path-to-regexp@1.7.0:
     resolution: {integrity: sha512-nifX1uj4S9IrK/w3Xe7kKvNEepXivANs9ng60Iq7PU/BlouV3yL/VUhFqTuTq33ykwUqoNcTeGo5vdOBP4jS/Q==}
+
+  path-to-regexp@6.3.0:
+    resolution: {integrity: sha512-Yhpw4T9C6hPpgPeA28us07OJeqZ5EzQTkbfwuhsUg0c237RomFoETJgmp2sa3F/41gfLE6G5cqcYwznmeEeOlQ==}
 
   path-to-regexp@8.2.0:
     resolution: {integrity: sha512-TdrF7fW9Rphjq4RjrW0Kp2AW0Ahwu9sRGTkS6bvDi0SCwZlEZYmcfDbEsTz8RVk0EHIS/Vd1bv3JhG+1xZuAyQ==}
@@ -25503,6 +25506,8 @@ snapshots:
   path-to-regexp@1.7.0:
     dependencies:
       isarray: 0.0.1
+
+  path-to-regexp@6.3.0: {}
 
   path-to-regexp@8.2.0: {}
 

@@ -48,23 +48,23 @@ We have added a footer attribute to make it easier to do things like forms, so y
 
 ### Basic usage
 
-<code src="./demos/basic.tsx" title="Basic usage" iframe="650"></code>
+<code src="../../../demos/layout/PageContainer/basic.tsx" title="Basic usage" iframe="650"></code>
 
 ### Fixed table headers
 
-<code src="./demos/fixHeader.tsx" title="Fixed table headers" iframe="650"></code>
+<code src="../../../demos/layout/PageContainer/fixHeader.tsx" title="Fixed table headers" iframe="650"></code>
 
 ### Hide breadcrumbs
 
-<code src="./demos/hideBreadMenu.tsx" title="Hide breadcrumbs" iframe="650">
+<code src="../../../demos/layout/PageContainer/hideBreadMenu.tsx" title="Hide breadcrumbs" iframe="650">
 
 ### Page loading
 
-<code src="./demos/loading.tsx" title="Page loading" iframe="650"></code>
+<code src="../../../demos/layout/PageContainer/loading.tsx" title="Page loading" iframe="650"></code>
 
 ### Modify Token
 
-<code src="./demos/token.tsx" title="token" iframe="650"></code>
+<code src="../../../demos/layout/PageContainer/token.tsx" title="token" iframe="650"></code>
 
 ## PageContainer
 

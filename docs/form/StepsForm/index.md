@@ -12,27 +12,27 @@ StepsForm 通过 Provider 来管理子表单的数据，每个子表单都是完
 
 ## 分步表单
 
-<code src="./demos/steps-from.tsx" title="分步表单"></code>
+<code src="../../../demos/form/StepsForm/steps-from.tsx" title="分步表单"></code>
 
 ## 分步表单垂直模式
 
-<code src="./demos/steps-form-vertical.tsx" title="分步表单垂直模式"></code>
+<code src="../../../demos/form/StepsForm/steps-form-vertical.tsx" title="分步表单垂直模式"></code>
 
 ## 自定义分步表单按钮
 
-<code src="./demos/customize-steps-from.tsx" title="自定义分步表单按钮"></code>
+<code src="../../../demos/form/StepsForm/customize-steps-from.tsx" title="自定义分步表单按钮"></code>
 
 ## 分步表单 - 多卡片
 
-<code src="./demos/multi-card-step-form.tsx"  background="var(--main-bg-color)" title="分步表单-多卡片"></code>
+<code src="../../../demos/form/StepsForm/multi-card-step-form.tsx"  background="var(--main-bg-color)" title="分步表单-多卡片"></code>
 
 ## 分步表单 - 与 Modal 配合使用
 
-<code src="./demos/modal-step-form.tsx"  background="var(--main-bg-color)" title="分步表单-与 Modal 配合使用"></code>
+<code src="../../../demos/form/StepsForm/modal-step-form.tsx"  background="var(--main-bg-color)" title="分步表单-与 Modal 配合使用"></code>
 
 ## 编辑场景下的分步表单
 
-<code src="./demos/add-or-edit-step-form.tsx" title="自定义分步表单按钮"></code>
+<code src="../../../demos/form/StepsForm/add-or-edit-step-form.tsx" title="自定义分步表单按钮"></code>
 
 ## StepsForm
 

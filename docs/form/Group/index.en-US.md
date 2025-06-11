@@ -344,32 +344,32 @@ The name parameter must be an array. For nested structures, you can configure it
 
 ### Custom tooltip for delete and copy
 
-<code src="./demos/list-tooltip" title="ProForm.List" ></code>
+<code src="../../../demos/form/Group/list-tooltip.tsx" title="ProForm.List" ></code>
 
 ### FormList with dependent fields
 
-<code src="./demos/base-use" title="ProForm.List" ></code>
+<code src="../../../demos/form/Group/base-use.tsx" title="ProForm.List" ></code>
 
 ### Adjustable position for the create button
 
-<code src="./demos/list.tsx" title="ProForm.List-position" ></code>
+<code src="../../../demos/form/Group/list.tsx" title="ProForm.List-position" ></code>
 
 ### Forms nested within each other
 
-<code src="./demos/nested-list.tsx" title="ProForm.List-ProFormList" ></code>
+<code src="../../../demos/form/Group/nested-list.tsx" title="ProForm.List-ProFormList" ></code>
 
 ### Complex field dependencies
 
-<code src="./demos/dependency.tsx" title="ProForm.List-dependency" ></code>
+<code src="../../../demos/form/Group/dependency.tsx" title="ProForm.List-dependency" ></code>
 
 ### Behavior guard
 
-<code src="./demos/pro-form-list.tsx" title="Behavior guard"></code>
+<code src="../../../demos/form/Group/pro-form-list.tsx" title="Behavior guard"></code>
 
 ### Limitations on adding or deleting items
 
-<code src="./demos/countLimit.tsx" title="Limitations on adding or deleting items"></code>
+<code src="../../../demos/form/Group/countLimit.tsx" title="Limitations on adding or deleting items"></code>
 
 ### Horizontal layout
 
-<code src="./demos/horizontal-layout.tsx" title="Horizontal layout" ></code>
+<code src="../../../demos/form/Group/horizontal-layout.tsx" title="Horizontal layout" ></code>

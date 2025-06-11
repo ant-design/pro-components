@@ -11,37 +11,37 @@ QueryFilter and LightFilter solve the problem of using the form with other compo
 
 ### Query Filter
 
-<code src="./demos/query-filter.tsx" ></code>
+<code src="../../../demos/form/QueryFilter/query-filter.tsx" ></code>
 
 ### Query filter - put away by default
 
-<code src="./demos/query-filter-collapsed.tsx" ></code>
+<code src="../../../demos/form/QueryFilter/query-filter-collapsed.tsx" ></code>
 
 ### query-filter-vertical-layout
 
-<code src="./demos/query-filter-vertical.tsx" ></code>
+<code src="../../../demos/form/QueryFilter/query-filter-vertical.tsx" ></code>
 
 ### query-filter-search
 
-<code src="./demos/search-filter.tsx" background="var(--main-bg-color)" ></code>
+<code src="../../../demos/form/QueryFilter/search-filter.tsx" background="var(--main-bg-color)" ></code>
 
 ### query-filter-defaultFormItemsNumber
 
-<code src="./demos/query-filter-defaultFormItemsNumber.tsx" background="var(--main-bg-color)"></code>
+<code src="../../../demos/form/QueryFilter/query-filter-defaultFormItemsNumber.tsx" background="var(--main-bg-color)"></code>
 
 ### Lightweight filtering
 
-<code src="./demos/light-filter.tsx" ></code>
+<code src="../../../demos/form/QueryFilter/light-filter.tsx" ></code>
 
 ### Light filtering - border mode
 
-<code src="./demos/light-filter-bordered.tsx" ></code>
+<code src="../../../demos/form/QueryFilter/light-filter-bordered.tsx" ></code>
 
 ### Light filtering - collapsed mode
 
 All options in collapsed mode are collapsed by default, with or without values, and the control's `secondary` will no longer be valid.
 
-<code src="./demos/light-filter-collapse.tsx" ></code>
+<code src="../../../demos/form/QueryFilter/light-filter-collapse.tsx" ></code>
 
 ## API
 
