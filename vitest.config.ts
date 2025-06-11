@@ -1,5 +1,6 @@
 import { join } from 'path';
 import { defineConfig } from 'vitest/config';
+/// <reference types="@vitest/browser/context" />
 
 export default defineConfig({
   resolve: {
@@ -36,6 +37,7 @@ export default defineConfig({
         'packages/utils/src/useMountMergeState/*.{ts,tsx}',
       ],
     },
-    testTimeout: 60,
+    testTimeout: 60_000, // 60 seconds
+    globals: true,
   },
 });

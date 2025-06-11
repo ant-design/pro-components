@@ -1,8 +1,7 @@
-import { ProTable } from '@ant-design/pro-components';
+import { ProTable, RequestOptionsType } from '@ant-design/pro-components';
 import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import { ConfigProvider, Table } from 'antd';
 import dayjs from 'dayjs';
-import type { RequestOptionsType } from 'packages/utils/src/typing';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { request } from './demo';
 

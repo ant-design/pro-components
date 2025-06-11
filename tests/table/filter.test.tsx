@@ -1,5 +1,6 @@
 import type { ActionType } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
+/// <reference types="@vitest/browser/context" />
 import {
   cleanup,
   fireEvent,
