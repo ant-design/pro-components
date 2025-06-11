@@ -1,31 +1,11 @@
-import chalk from 'chalk';
 import { defineConfig } from 'dumi';
-import { readdirSync } from 'fs';
-import { join } from 'path';
-
-const headPkgList: string[] = [];
-// utils must build before core
-// runtime must build before renderer-react
-const pkgList = readdirSync(join(__dirname, 'packages')).filter(
-  (pkg) => pkg.charAt(0) !== '.' && !headPkgList.includes(pkg),
-);
-
-const alias = pkgList.reduce(
-  (pre, pkg) => {
-    pre[`@ant-design/pro-${pkg}`] = join(__dirname, 'packages', pkg, 'src');
-    return {
-      ...pre,
-    };
-  },
-  {} as Record<string, string>,
-);
-
-console.log(`🌼 alias list \n${chalk.blue(Object.keys(alias).join('\n'))}`);
-
-const tailPkgList = pkgList.map((path) => `packages/${path}/src/components`);
+import path from 'path';
 
 export default defineConfig({
   sitemap: { hostname: 'https://procomponents.ant.design' },
+  alias: {
+    '@ant-design/pro-components': path.resolve(__dirname, 'src'),
+  },
   metas: [
     {
       property: 'og:site_name',
@@ -71,10 +51,8 @@ export default defineConfig({
   favicons: [
     'https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png',
   ],
-  alias,
   resolve: {
     docDirs: ['docs'],
-    atomDirs: tailPkgList.map((dir) => ({ type: 'component', dir })),
   },
   styles: [`.markdown table{table-layout: fixed;}`],
   locales: [

@@ -19,13 +19,13 @@ return <Skeleton type="list" />;
 
 ## DEMO
 
-<code src="../demos/list.tsx" title="列表页面" ></code>
+<code src="../demos/skeletonlist.tsx" title="列表页面" ></code>
 
-<code src="../demos/list.static.tsx" title="静态列表" debug></code>
+<code src="../demos/skeletonlist.static.tsx" title="静态列表" debug></code>
 
-<code src="../demos/result.tsx" title="结果页"></code>
+<code src="../demos/skeletonresult.tsx" title="结果页"></code>
 
-<code src="../demos/descriptions.tsx" title="详情页"></code>
+<code src="../demos/skeletondescriptions.tsx" title="详情页"></code>
 
 ## API
 

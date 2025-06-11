@@ -1,4 +1,4 @@
-import { CheckCard } from '../../../../components';
+import { CheckCard } from '@ant-design/pro-components';
 import { Divider } from 'antd';
 
 export default () => (

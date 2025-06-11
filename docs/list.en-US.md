@@ -16,47 +16,47 @@ Based on ProTable implementation, it can be considered as a special case of ProT
 
 ### Basic usage
 
-<code src="../demos/base.tsx"  background="var(--main-bg-color)" oldtitle="Basic usage"></code>
+<code src="../demos/list/base.tsx"  background="var(--main-bg-color)" oldtitle="Basic usage"></code>
 
 ### Edit list
 
-<code src="../demos/editable.tsx"  background="var(--main-bg-color)" oldtitle="Edit list"></code>
+<code src="../demos/list/editable.tsx"  background="var(--main-bg-color)" oldtitle="Edit list"></code>
 
 ### Support for expanded lists
 
-<code src="../demos/expand.tsx"  background="var(--main-bg-color)" oldtitle="Expandable list"></code>
+<code src="../demos/list/expand.tsx"  background="var(--main-bg-color)" oldtitle="Expandable list"></code>
 
 ### Supports checked list
 
-<code src="../demos/selectedRow.tsx"  background="var(--main-bg-color)" oldtitle="Support selected list"></code>
+<code src="../demos/list/selectedRow.tsx"  background="var(--main-bg-color)" oldtitle="Support selected list"></code>
 
 ### Query list
 
-<code src="../demos/search.tsx"  background="var(--main-bg-color)" oldtitle="Search list"></code>
+<code src="../demos/list/search.tsx"  background="var(--main-bg-color)" oldtitle="Search list"></code>
 
 ### List with filters and asynchronous requests
 
-<code src="../demos/filter.tsx"  background="var(--main-bg-color)" oldtitle="List with filtering and asynchronous requests"></code>
+<code src="../demos/list/filter.tsx"  background="var(--main-bg-color)" oldtitle="List with filtering and asynchronous requests"></code>
 
 ### Size and dividing line
 
-<code src="../demos/size.tsx"  background="var(--main-bg-color)" oldtitle="Size and divider"></code>
+<code src="../demos/list/size.tsx"  background="var(--main-bg-color)" oldtitle="Size and divider"></code>
 
 ### Vertical style
 
-<code src="../demos/layout.tsx"  background="var(--main-bg-color)" oldtitle="vertical style"></code>
+<code src="../demos/list/layout.tsx"  background="var(--main-bg-color)" oldtitle="vertical style"></code>
 
 ### some preset modes
 
-<code src="../demos/special.tsx"  background="var(--main-bg-color)" oldtitle="Some preset modes"></code>
+<code src="../demos/list/special.tsx"  background="var(--main-bg-color)" oldtitle="Some preset modes"></code>
 
 ### page turn
 
-<code src="../demos/pagination.tsx"  background="var(--main-bg-color)" oldtitle="Pagination"></code>
+<code src="../demos/list/pagination.tsx"  background="var(--main-bg-color)" oldtitle="Pagination"></code>
 
 ### Card List
 
-<code src="../demos/card-list.tsx"  background="var(--main-bg-color)" oldtitle="Card list"></code>
+<code src="../demos/list/card-list.tsx"  background="var(--main-bg-color)" oldtitle="Card list"></code>
 
 \##API
 

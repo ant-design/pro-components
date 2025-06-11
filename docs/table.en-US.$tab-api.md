@@ -8,53 +8,53 @@ legacy: /table
 
 ### Querying a table
 
-<code src="../demos/single.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../demos/table/single.tsx"  background="var(--main-bg-color)" ></code>
 
-<code src="../demos/dataSource.tsx"  background="var(--main-bg-color)" debug></code>
+<code src="../demos/table/dataSource.tsx"  background="var(--main-bg-color)" debug></code>
 
 ### Downgrade to a normal table
 
-<code src="../demos/normal.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../demos/table/normal.tsx"  background="var(--main-bg-color)" ></code>
 
 ### Lightweight filter replacement query form
 
-<code src="../demos/lightfilter.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../demos/table/lightfilter.tsx"  background="var(--main-bg-color)" ></code>
 
 ### Forms without ToolBar
 
-<code src="../demos/no-title.tsx" ></code>
+<code src="../demos/table/no-title.tsx" ></code>
 
 ### Nested tables
 
-<code src="../demos/table-nested.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../demos/table/table-nested.tsx"  background="var(--main-bg-color)" ></code>
 
 ### Left and right structure
 
-<code src="../demos/split.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../demos/table/split.tsx"  background="var(--main-bg-color)" ></code>
 
 ### Batch manipulation of tables
 
-<code src="../demos/batchOption.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../demos/table/batchOption.tsx"  background="var(--main-bg-color)" ></code>
 
 ### Manipulating query forms with formRef
 
-<code src="../demos/form.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../demos/table/form.tsx"  background="var(--main-bg-color)" ></code>
 
 ### RTL (النسخة العربية)
 
 RTL means right-to-left.
 
-<code src="../demos/rtl_table.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../demos/table/rtl_table.tsx"  background="var(--main-bg-color)" ></code>
 
 ### Controlled table settings columns
 
 You can hide some columns by default, but in the action column you can select
 
-<code src="../demos/columnsStateMap.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../demos/table/columnsStateMap.tsx"  background="var(--main-bg-color)" ></code>
 
 ### Tables polling network data
 
-<code src="../demos/pollinga.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../demos/table/pollinga.tsx"  background="var(--main-bg-color)" ></code>
 
 ### Search form customization
 
@@ -93,27 +93,27 @@ The definition of `formItemRender`, the exact value of which can be seen by open
   ) => JSX.Element | false | null;
 ```
 
-<code src="../demos/linkage_form.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../demos/table/linkage_form.tsx"  background="var(--main-bg-color)" ></code>
 
 ### Form action customization
 
-<code src="../demos/search_option.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../demos/table/search_option.tsx"  background="var(--main-bg-color)" ></code>
 
 ### Toolbar Customization
 
 Configure toolbar rendering using the `toolbar` property extension.
 
-<code src="../demos/listToolBar.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../demos/table/listToolBar.tsx"  background="var(--main-bg-color)" ></code>
 
 ### Required Inquiry Form
 
 Try to use initialValue to solve the problem, required fields are more frustrating
 
-<code src="../demos/open-rules.tsx" ></code>
+<code src="../demos/table/open-rules.tsx" ></code>
 
 ### Form body customization
 
-<code src="../demos/renderTable.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../demos/table/renderTable.tsx"  background="var(--main-bg-color)" ></code>
 
 ### Internationalization-related configuration
 
@@ -167,44 +167,44 @@ const values = useContext(ProProvider)
 </ProProvider.Provider>;
 ```
 
-<code src="../demos/intl.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../demos/table/intl.tsx"  background="var(--main-bg-color)" ></code>
 
 ### Table using self-contained keyWords search
 
-<code src="../demos/search.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../demos/table/search.tsx"  background="var(--main-bg-color)" ></code>
 
 ### Value type examples
 
 #### valueType - Date class
 
-<code src="../demos/valueTypeDate.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../demos/table/valueTypeDate.tsx"  background="var(--main-bg-color)" ></code>
 
 #### valueType - numeric class
 
-<code src="../demos/valueTypeNumber.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../demos/table/valueTypeNumber.tsx"  background="var(--main-bg-color)" ></code>
 
 #### valueType - Style Classes
 
-<code src="../demos/valueType.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../demos/table/valueType.tsx"  background="var(--main-bg-color)" ></code>
 
 #### valueType - Selection Classes
 
-<code src="../demos/valueType_select.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../demos/table/valueType_select.tsx"  background="var(--main-bg-color)" ></code>
 
-<code src="../demos/config-provider.tsx" debug  background="var(--main-bg-color)" ></code>
+<code src="../demos/table/config-provider.tsx" debug  background="var(--main-bg-color)" ></code>
 
 ## List ToolBar
 
-<code src="../demos/ListToolBar/basic.tsx" background="var(--main-bg-color)" title="列表工具栏-基本使用"></code>
+<code src="../demos/table/ListToolBar/basic.tsx" background="var(--main-bg-color)" title="列表工具栏-基本使用"></code>
 
-<code src="../demos/ListToolBar/no-title.tsx" background="var(--main-bg-color)" title="无标题" desc="列表工具栏-没有标题的情况下搜索框会前置。"></code>
+<code src="../demos/table/ListToolBar/no-title.tsx" background="var(--main-bg-color)" title="无标题" desc="列表工具栏-没有标题的情况下搜索框会前置。"></code>
 
-<code src="../demos/ListToolBar/multipleLine.tsx" background="var(--main-bg-color)" title="双行布局" desc="列表工具栏-双行的情况下会有双行的布局形式。"></code>
+<code src="../demos/table/ListToolBar/multipleLine.tsx" background="var(--main-bg-color)" title="双行布局" desc="列表工具栏-双行的情况下会有双行的布局形式。"></code>
 
-<code src="../demos/ListToolBar/tabs.tsx" background="var(--main-bg-color)" title="带标签" desc="列表工具栏-标签需配合 `multipleLine` 为 `true` 时使用。"></code>
+<code src="../demos/table/ListToolBar/tabs.tsx" background="var(--main-bg-color)" title="带标签" desc="列表工具栏-标签需配合 `multipleLine` 为 `true` 时使用。"></code>
 
-<code src="../demos/ListToolBar/menu.tsx" background="var(--main-bg-color)" title="列表工具栏-标题下拉菜单"></code>
+<code src="../demos/table/ListToolBar/menu.tsx" background="var(--main-bg-color)" title="列表工具栏-标题下拉菜单"></code>
 
 #### TableDropdown
 
-<code src="../demos/edittable-rules.tsx" background="var(--main-bg-color)" title="列表工具栏-标题下拉菜单" debug></code>
+<code src="../demos/table/edittable-rules.tsx" background="var(--main-bg-color)" title="列表工具栏-标题下拉菜单" debug></code>

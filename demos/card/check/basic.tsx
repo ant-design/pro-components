@@ -1,6 +1,6 @@
 /** Title: 基本使用 */
 
-import { CheckCard } from '../../../../components';
+import { CheckCard } from '@ant-design/pro-components';
 
 export default () => (
   <CheckCard

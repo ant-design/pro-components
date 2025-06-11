@@ -1,5 +1,5 @@
 import { EllipsisOutlined, RightOutlined } from '@ant-design/icons';
-import { StatisticCard } from '../../../../components';
+import { StatisticCard } from '@ant-design/pro-components';
 import { Space, theme } from 'antd';
 
 const { Statistic } = StatisticCard;

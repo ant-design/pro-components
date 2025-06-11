@@ -1,7 +1,7 @@
 import { ProTable } from '@ant-design/pro-components';
 import { cleanup, render, waitFor } from '@testing-library/react';
 import { act } from 'react';
-import useFetchData from '../../packages/table/src/useFetchData';
+import useFetchData from '../../demos/table/useFetchData';
 import { columns } from './demo';
 
 afterEach(() => {

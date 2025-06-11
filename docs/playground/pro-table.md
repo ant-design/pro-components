@@ -8,4 +8,4 @@ nav:
 
 # ProTable Playground
 
-<code src="../../packages/table/src/demos/dynamic-settings.tsx"  background="var(--main-bg-color)" title="属性展示"></code>
+<code src="../../demos/table/demos/dynamic-settings.tsx"  background="var(--main-bg-color)" title="属性展示"></code>
