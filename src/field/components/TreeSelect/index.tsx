@@ -18,6 +18,7 @@ import { useFieldFetchData } from '../Select';
 export type GroupProps = {
   options?: RadioGroupProps['options'];
   radioType?: 'button' | 'radio';
+  variant?: 'outlined' | 'borderless' | 'filled';
 } & FieldSelectProps;
 
 export type TreeSelectFieldProps = TreeSelectProps<any> & {
@@ -34,7 +35,7 @@ export type TreeSelectFieldProps = TreeSelectProps<any> & {
  * @param ref
  */
 const FieldTreeSelect: ProFieldFC<GroupProps> = (
-  { radioType, formItemRender, mode, light, label, render, ...rest },
+  { radioType, formItemRender, mode, light, label, render, variant, ...rest },
   ref,
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -232,7 +233,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
             setOpen(true);
             fieldProps?.onOpenChange?.(true);
           }}
-          bordered={rest.bordered}
+          bordered={variant !== 'borderless'}
           value={notEmpty || open ? dom : null}
           style={
             notEmpty

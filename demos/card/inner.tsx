@@ -5,30 +5,30 @@ export default () => {
     <>
       <ProCard
         title="Horizontal Inner Card"
-        bordered
+        variant="outlined"
         headerBordered
         gutter={16}
       >
-        <ProCard title="Inner Card Title" type="inner" bordered>
+        <ProCard title="Inner Card Title" type="inner" variant="outlined">
           Inner Card Content
         </ProCard>
-        <ProCard title="Inner Card Title" type="inner" bordered>
+        <ProCard title="Inner Card Title" type="inner" variant="outlined">
           Inner Card Content
         </ProCard>
       </ProCard>
 
       <ProCard
         title="Vertical Inner Card"
-        bordered
+        variant="outlined"
         headerBordered
         direction="column"
         gutter={[0, 16]}
         style={{ marginBlockStart: 8 }}
       >
-        <ProCard title="Inner Card Title" type="inner" bordered>
+        <ProCard title="Inner Card Title" type="inner" variant="outlined">
           Inner Card Content
         </ProCard>
-        <ProCard title="Inner Card Title" type="inner" bordered>
+        <ProCard title="Inner Card Title" type="inner" variant="outlined">
           Inner Card Content
         </ProCard>
       </ProCard>

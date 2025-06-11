@@ -47,7 +47,7 @@ export const ProHelpDrawer: React.FC<ProHelpDrawerProps> = ({
       <ProHelpPanel
         {...props}
         onClose={() => setDrawerOpen(false)}
-        bordered={false}
+        variant="borderless"
       />
     </Drawer>
   );

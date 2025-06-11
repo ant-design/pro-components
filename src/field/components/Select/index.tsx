@@ -1,5 +1,5 @@
 import type { SelectProps } from 'antd';
-import { ConfigProvider, Spin } from 'antd';
+import { ConfigProvider } from 'antd';
 import type { ReactNode } from 'react';
 import React, {
   useContext,
@@ -12,7 +12,6 @@ import React, {
 import useSWR from 'swr';
 import { useIntl } from '../../../provider';
 import {
-  compatibleBorder,
   nanoid,
   objectToMap,
   proFieldParsingText,
@@ -47,8 +46,16 @@ export type FieldSelectProps<FieldProps = any> = {
   /** 组件的全局设置 */
   fieldProps?: FieldProps;
 
+  /** @deprecated 请使用 variant */
   bordered?: boolean;
+  /** 变体类型 */
+  variant?: 'outlined' | 'borderless';
   id?: string;
+
+  /** 是否禁用 */
+  disabled?: boolean;
+  /** 当前值 */
+  value?: any;
 
   children?: ReactNode;
   /** 默认搜素条件 */
@@ -393,31 +400,33 @@ const FieldSelect: ProFieldFC<
   const {
     mode,
     valueEnum,
-    render,
-    formItemRender,
     request,
-    fieldProps,
-    plain,
-    children,
-    light,
-    proFieldKey,
     params,
-    label,
+    fieldProps: originFieldProps,
+    proFieldKey,
     bordered,
-    id,
+    variant = bordered === false ? 'borderless' : 'outlined',
+    id = nanoid(),
+    label,
     lightLabel,
     labelTrigger,
-    ...rest
+    light,
+    disabled,
+    value,
+    render,
+    formItemRender,
+    children,
+    defaultKeyWords,
   } = props;
 
   const inputRef = useRef();
   const intl = useIntl();
   const keyWordsRef = useRef<string>('');
-  const { fieldNames } = fieldProps;
+  const { fieldNames } = originFieldProps;
 
   useEffect(() => {
-    keyWordsRef.current = fieldProps?.searchValue;
-  }, [fieldProps?.searchValue]);
+    keyWordsRef.current = originFieldProps?.searchValue;
+  }, [originFieldProps?.searchValue]);
 
   const [loading, options, fetchData, resetData] = useFieldFetchData(props);
   const { componentSize } = ConfigProvider?.useConfig?.() || {
@@ -464,7 +473,7 @@ const FieldSelect: ProFieldFC<
     const dom = (
       <>
         {proFieldParsingText(
-          rest.text,
+          props.text,
           objectToMap(
             valueEnum || optionsValueEnum,
           ) as unknown as ProSchemaValueEnumObj,
@@ -473,7 +482,7 @@ const FieldSelect: ProFieldFC<
     );
 
     if (render) {
-      return render(dom, { mode, ...fieldProps, options }, dom) ?? null;
+      return render(dom, { mode, ...originFieldProps, options }, dom) ?? null;
     }
     return dom;
   }
@@ -483,60 +492,31 @@ const FieldSelect: ProFieldFC<
       if (light) {
         return (
           <LightSelect
-            {...compatibleBorder(bordered)}
-            id={id}
-            loading={loading}
-            ref={inputRef}
-            allowClear
-            size={componentSize}
-            options={options}
+            {...originFieldProps}
             label={label}
             placeholder={intl.getMessage(
               'tableForm.selectPlaceholder',
               '请选择',
             )}
-            lightLabel={lightLabel}
-            labelTrigger={labelTrigger}
-            fetchData={fetchData}
-            {...fieldProps}
+            disabled={disabled}
+            mode={mode}
+            options={options}
+            loading={loading}
+            variant={variant}
           />
         );
       }
       return (
         <SearchSelect
           key="SearchSelect"
-          className={rest.className}
-          style={{
-            minWidth: 100,
-            ...rest.style,
-          }}
-          {...compatibleBorder(bordered)}
-          id={id}
-          loading={loading}
-          ref={inputRef}
-          allowClear
-          defaultSearchValue={props.defaultKeyWords}
-          notFoundContent={
-            loading ? <Spin size="small" /> : fieldProps?.notFoundContent
-          }
-          fetchData={(keyWord) => {
-            keyWordsRef.current = keyWord ?? '';
-            fetchData(keyWord);
-          }}
-          resetData={resetData}
-          preserveOriginalLabel
-          optionItemRender={(item) => {
-            if (typeof item.label === 'string' && keyWordsRef.current) {
-              return (
-                <Highlight label={item.label} words={[keyWordsRef.current]} />
-              );
-            }
-            return item.label;
-          }}
-          placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
-          label={label}
-          {...fieldProps}
+          {...originFieldProps}
+          variant={variant}
+          disabled={disabled}
+          mode={mode}
+          value={value}
           options={options}
+          loading={loading}
+          fetchData={fetchData}
         />
       );
     };
@@ -544,8 +524,8 @@ const FieldSelect: ProFieldFC<
     if (formItemRender) {
       return (
         formItemRender(
-          rest.text,
-          { mode, ...fieldProps, options, loading },
+          props.text,
+          { mode, ...originFieldProps, options, loading },
           dom,
         ) ?? null
       );

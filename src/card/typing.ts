@@ -42,8 +42,8 @@ type CardPropsBase = {
   actions?: React.ReactNode[] | React.ReactNode;
   /** 拆分卡片方式 */
   split?: 'vertical' | 'horizontal';
-  /** 是否有边框 */
-  bordered?: boolean;
+  /** Card variants */
+  variant?: 'outlined' | 'borderless';
   /**
    * 鼠标移过时可浮起
    *

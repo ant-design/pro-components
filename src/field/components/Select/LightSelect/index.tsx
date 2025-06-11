@@ -19,7 +19,10 @@ export type LightSelectProps = {
    * @default true
    */
   fetchDataOnSearch?: boolean;
-} & ProFieldLightProps;
+  /** 变体类型 */
+  variant?: 'outlined' | 'borderless' | 'filled' | 'underlined';
+} & ProFieldLightProps &
+  SelectProps;
 
 /**
  * 如果有 label 就优先使用 label
@@ -71,6 +74,7 @@ export const LightSelect: React.ForwardRefRenderFunction<
     valueMaxLength = 41,
     fetchDataOnSearch = false,
     fetchData,
+    variant = 'outlined',
     ...restProps
   } = props;
   const { placeholder = label } = props;
@@ -118,7 +122,7 @@ export const LightSelect: React.ForwardRefRenderFunction<
   }, [labelPropsName, options, valuePropsName, optionLabelProp]);
 
   // 修复用户在使用ProFormSelect组件时，在fieldProps中使用open属性，不生效。
-  // ProComponents文档中写到“与select相同，且fieldProps同antd组件中的props”描述方案不相符
+  // ProComponents文档中写到"与select相同，且fieldProps同antd组件中的props"描述方案不相符
   const mergeOpen = useMemo(() => {
     if (Reflect.has(restProps, 'open')) {
       return restProps?.open;
@@ -163,6 +167,7 @@ export const LightSelect: React.ForwardRefRenderFunction<
         labelInValue={labelInValue}
         size={size}
         disabled={disabled}
+        variant={variant}
         onChange={(v, option) => {
           onChange?.(v, option);
           if (mode !== 'multiple') {
@@ -254,9 +259,7 @@ export const LightSelect: React.ForwardRefRenderFunction<
         label={label}
         placeholder={placeholder}
         disabled={disabled}
-        bordered={
-          restProps.variant !== 'borderless' && restProps.variant !== undefined
-        }
+        bordered={variant !== 'borderless' && variant !== undefined}
         allowClear={!!allowClear}
         value={filterValue || value?.label || value}
         onClear={() => {

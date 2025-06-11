@@ -7,7 +7,7 @@ export default () => {
       extra="extra"
       tooltip="This is a tooltip"
       style={{ maxWidth: 300 }}
-      bordered
+      variant="outlined"
     >
       Content
     </ProCard>

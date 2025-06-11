@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
 import React, { useState } from 'react';
 import { useIntl } from '../../../provider';
-import { FieldLabel, compatibleBorder, parseValueToDay } from '../../../utils';
+import { FieldLabel, parseValueToDay } from '../../../utils';
 import type { ProFieldFC, ProFieldLightProps } from '../../PureProField';
 
 dayjs.extend(weekOfYear);
@@ -29,7 +29,7 @@ const FieldDatePicker: ProFieldFC<
     text: string | number;
     format?: string;
     showTime?: boolean;
-    bordered?: boolean;
+    variant?: 'outlined' | 'borderless' | 'filled';
     picker?: 'time' | 'date' | 'week' | 'month' | 'quarter' | 'year';
   } & ProFieldLightProps
 > = (
@@ -45,7 +45,7 @@ const FieldDatePicker: ProFieldFC<
     showTime,
     fieldProps,
     picker,
-    bordered,
+    variant,
     lightLabel,
   },
   ref,
@@ -100,14 +100,14 @@ const FieldDatePicker: ProFieldFC<
                   setOpen(isOpen);
                   fieldProps?.onOpenChange?.(isOpen);
                 }}
-                {...compatibleBorder(false)}
+                variant="borderless"
                 open={open}
               />
             ) : undefined
           }
           allowClear={false}
           downIcon={dayValue || open ? false : undefined}
-          bordered={bordered}
+          bordered={variant !== 'borderless'}
           ref={lightLabel}
         />
       );
@@ -118,7 +118,9 @@ const FieldDatePicker: ProFieldFC<
           showTime={showTime}
           format={format}
           placeholder={placeholder}
-          {...compatibleBorder(plain === undefined ? true : !plain)}
+          variant={
+            plain === undefined ? 'outlined' : plain ? 'borderless' : 'outlined'
+          }
           ref={ref}
           {...fieldProps}
           value={dayValue}

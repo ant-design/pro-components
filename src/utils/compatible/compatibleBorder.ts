@@ -1,17 +1,15 @@
 ﻿import { Variant } from 'antd/lib/config-provider';
 
 /**
- * 兼容 antd 5.13.0 以下版本的 bordered 属性
+ * 将 bordered 属性转换为 variant 属性
+ * @deprecated 请直接使用 variant 属性
  * @param bordered
  * @returns
  */
 export const compatibleBorder = (bordered?: boolean) => {
-  if (bordered === undefined) {
-    return {};
-  }
   return {
-    variant: bordered ? undefined : 'borderless',
+    variant: bordered === false ? 'borderless' : 'outlined',
   } as {
-    variant?: Variant;
+    variant: Variant;
   };
 };

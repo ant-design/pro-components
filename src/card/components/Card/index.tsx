@@ -30,7 +30,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     tooltip,
     split,
     headerBordered = false,
-    bordered = false,
+    variant = 'outlined',
     boxShadow = false,
     children,
     size,
@@ -185,7 +185,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   });
 
   const cardCls = classNames(`${prefixCls}`, className, hashId, {
-    [`${prefixCls}-border`]: bordered,
+    [`${prefixCls}-border`]: variant === 'outlined',
     [`${prefixCls}-box-shadow`]: boxShadow,
     [`${prefixCls}-contain-card`]: containProCard,
     [`${prefixCls}-loading`]: loading,

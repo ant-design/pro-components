@@ -2,7 +2,7 @@ import { DatePicker } from 'antd';
 import dayjs from 'dayjs';
 import React, { useCallback } from 'react';
 import { useIntl } from '../../../provider';
-import { FieldLabel, compatibleBorder, parseValueToDay } from '../../../utils';
+import { FieldLabel, parseValueToDay } from '../../../utils';
 import type { ProFieldFC, ProFieldLightProps } from '../../PureProField';
 
 /**
@@ -14,7 +14,7 @@ const FieldRangePicker: ProFieldFC<
   {
     text: string[];
     format?: string;
-    bordered?: boolean;
+    variant?: 'outlined' | 'borderless' | 'filled';
     showTime?: boolean;
     picker?: 'time' | 'date' | 'week' | 'month' | 'quarter' | 'year';
   } & ProFieldLightProps
@@ -31,7 +31,7 @@ const FieldRangePicker: ProFieldFC<
     plain,
     showTime,
     lightLabel,
-    bordered,
+    variant,
     fieldProps,
   },
   ref,
@@ -105,7 +105,7 @@ const FieldRangePicker: ProFieldFC<
                 picker={picker}
                 showTime={showTime}
                 format={format}
-                {...compatibleBorder(false)}
+                variant="borderless"
                 {...fieldProps}
                 placeholder={
                   fieldProps.placeholder ?? [
@@ -126,7 +126,7 @@ const FieldRangePicker: ProFieldFC<
             ) : null
           }
           allowClear={false}
-          bordered={bordered}
+          bordered={variant !== 'borderless'}
           ref={lightLabel}
           downIcon={dayValue || open ? false : undefined}
         />
@@ -141,7 +141,9 @@ const FieldRangePicker: ProFieldFC<
             intl.getMessage('tableForm.selectPlaceholder', '请选择'),
             intl.getMessage('tableForm.selectPlaceholder', '请选择'),
           ]}
-          {...compatibleBorder(plain === undefined ? true : !plain)}
+          variant={
+            plain === undefined ? 'outlined' : plain ? 'borderless' : 'outlined'
+          }
           {...fieldProps}
           value={dayValue}
         />

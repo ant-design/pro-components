@@ -44,9 +44,9 @@ export type ProHelpPanelProps = {
    */
   onShowLeftPanelChange?: (show: boolean) => void;
   /**
-   * 是否显示边框
+   * 卡片的变体类型
    */
-  bordered?: boolean;
+  variant?: 'outlined' | 'borderless';
 
   /**
    * 当帮助面板关闭时调用的回调函数。
@@ -92,7 +92,7 @@ export type ProHelpPanelProps = {
  */
 export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
   title = '帮助中心',
-  bordered = true,
+  variant = 'outlined',
   onClose,
   footer,
   height,
@@ -204,7 +204,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
       }}
     >
       <Card
-        bordered={bordered}
+        variant={variant}
         title={title}
         styles={{
           body: {
