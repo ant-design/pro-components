@@ -3,8 +3,6 @@ import { Button, Space, Steps } from 'antd';
 import RcResizeObserver from 'rc-resize-observer';
 import { useState } from 'react';
 
-const { Step } = Steps;
-
 export default () => {
   const [current, setCurrent] = useState(0);
   const [responsive, setResponsive] = useState(false);
@@ -26,13 +24,14 @@ export default () => {
             size="small"
             current={current}
             style={{ height: '100%' }}
-          >
-            <Step title="Fill in Basic Information" />
-            <Step title="Configure Template" />
-            <Step title="Configure Access" />
-            <Step title="Configure Deployment and Scheduling" />
-            <Step title="Preview" />
-          </Steps>
+            items={[
+              { title: 'Fill in Basic Information' },
+              { title: 'Configure Template' },
+              { title: 'Configure Access' },
+              { title: 'Configure Deployment and Scheduling' },
+              { title: 'Preview' },
+            ]}
+          />
         </ProCard>
         <ProCard title="Traffic Usage" colSpan={responsive ? 24 : 18}>
           <Space>

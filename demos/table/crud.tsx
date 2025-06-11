@@ -114,11 +114,15 @@ export default () => {
   const [type, setType] = useState('table');
   return (
     <ProCard>
-      <Tabs activeKey={type} onChange={(e) => setType(e)}>
-        <Tabs.TabPane tab="table" key="table" />
-        <Tabs.TabPane tab="form" key="form" />
-        <Tabs.TabPane tab="descriptions" key="descriptions" />
-      </Tabs>
+      <Tabs
+        activeKey={type}
+        onChange={(e) => setType(e)}
+        items={[
+          { key: 'table', label: 'table' },
+          { key: 'form', label: 'form' },
+          { key: 'descriptions', label: 'descriptions' },
+        ]}
+      />
       {['table', 'form'].includes(type) && (
         <ProTable<GithubIssueItem>
           columns={columns}

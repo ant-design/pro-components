@@ -1,6 +1,5 @@
 import { ProTable } from '@ant-design/pro-components';
 import { cleanup, render, waitFor } from '@testing-library/react';
-import { act } from 'react';
 import {
   afterAll,
   afterEach,
@@ -104,16 +103,8 @@ describe('polling', () => {
       return html.findAllByText('暂无数据');
     });
 
-    await act(() => {
-      vi.advanceTimersByTime(1000);
-    });
-
     await waitFor(() => {
       expect(fn).toHaveBeenCalledTimes(1);
-    });
-
-    await act(() => {
-      vi.advanceTimersByTime(2000);
     });
 
     await waitFor(() => {
@@ -158,24 +149,12 @@ describe('polling', () => {
       return html.findAllByText('暂无数据');
     });
 
-    await act(() => {
-      return vi.advanceTimersByTime(1000);
-    });
-
     await waitFor(() => {
       expect(fn).toHaveBeenCalledTimes(1);
     });
 
-    await act(() => {
-      return vi.advanceTimersByTime(1000);
-    });
-
     await waitFor(() => {
       expect(fn).toHaveBeenCalledTimes(1);
-    });
-
-    await act(() => {
-      return vi.advanceTimersByTime(2000);
     });
 
     await waitFor(() => {

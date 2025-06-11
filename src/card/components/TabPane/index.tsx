@@ -1,6 +1,5 @@
 import type { TabPaneProps, TabsProps } from 'antd';
-import { ConfigProvider, Tabs, version } from 'antd';
-import classNames from 'classnames';
+import { ConfigProvider, version } from 'antd';
 import toArray from 'rc-util/lib/Children/toArray';
 import { noteOnce } from 'rc-util/lib/warning';
 import React, { useContext } from 'react';
@@ -56,34 +55,8 @@ const TabPane: React.FC<ProCardTabPaneProps> = (props) => {
   if (version.startsWith('5')) {
     return <></>;
   } else {
-    const {
-      key,
-      tab,
-      tabKey,
-      disabled,
-      destroyInactiveTabPane,
-      children,
-      className,
-      style,
-      cardProps,
-      ...rest
-    } = props;
-    const prefixCls = getPrefixCls('pro-card-tabpane');
-    const tabPaneClassName = classNames(prefixCls, className);
-    return (
-      <Tabs.TabPane
-        key={key}
-        tabKey={tabKey}
-        tab={tab}
-        className={tabPaneClassName}
-        style={style}
-        disabled={disabled}
-        destroyInactiveTabPane={destroyInactiveTabPane}
-        {...rest}
-      >
-        <Card {...cardProps}>{children}</Card>
-      </Tabs.TabPane>
-    );
+    // 兼容性提示，直接返回 null
+    return null;
   }
 };
 

@@ -112,7 +112,7 @@
                     type="text"
                   />
                   <div
-                    class="ant-tabs ant-tabs-top ant-tabs-centered"
+                    class="ant-tabs ant-tabs-top"
                   >
                     <div
                       aria-orientation="horizontal"
@@ -127,31 +127,31 @@
                           style="transform: translate(0px, 0px);"
                         >
                           <div
-                            class="ant-tabs-tab"
+                            class="ant-tabs-tab ant-tabs-tab-active"
                             data-node-key="account"
                           >
                             <div
                               aria-controls="rc-tabs-test-panel-account"
-                              aria-selected="false"
+                              aria-selected="true"
                               class="ant-tabs-tab-btn"
                               id="rc-tabs-test-tab-account"
                               role="tab"
-                              tabindex="-1"
+                              tabindex="0"
                             >
                               账号密码登录
                             </div>
                           </div>
                           <div
-                            class="ant-tabs-tab ant-tabs-tab-active"
+                            class="ant-tabs-tab"
                             data-node-key="phone"
                           >
                             <div
                               aria-controls="rc-tabs-test-panel-phone"
-                              aria-selected="true"
+                              aria-selected="false"
                               class="ant-tabs-tab-btn"
                               id="rc-tabs-test-tab-phone"
                               role="tab"
-                              tabindex="0"
+                              tabindex="-1"
                             >
                               手机号登录
                             </div>
@@ -204,9 +204,9 @@
                       >
                         <div
                           aria-hidden="false"
-                          aria-labelledby="rc-tabs-test-tab-phone"
+                          aria-labelledby="rc-tabs-test-tab-account"
                           class="ant-tabs-tabpane ant-tabs-tabpane-active"
-                          id="rc-tabs-test-panel-phone"
+                          id="rc-tabs-test-panel-account"
                           role="tabpanel"
                           tabindex="0"
                         />
