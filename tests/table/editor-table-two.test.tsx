@@ -922,7 +922,7 @@ describe('EditorProTable 2', () => {
 
   it('📝 EditableProTable columns support dependencies', async () => {
     const fn = vi.fn();
-    vi.useFakeTimers();
+
     const wrapper = render(
       <EditableProTable<DataSourceType>
         rowKey="id"
@@ -982,9 +982,7 @@ describe('EditorProTable 2', () => {
       );
     });
 
-    await act(async () => {
-      vi.runOnlyPendingTimers();
-    });
+    await act(async () => {});
 
     await waitFor(
       () => {
@@ -994,7 +992,6 @@ describe('EditorProTable 2', () => {
         timeout: 1000,
       },
     );
-    vi.useRealTimers();
   });
 
   it('📝 support onValuesChange when is string key', async () => {
@@ -1688,7 +1685,7 @@ describe('EditorProTable 2', () => {
 
   it('📝 support onDelete', async () => {
     const fn = vi.fn();
-    vi.useFakeTimers();
+
     const wrapper = render(
       <EditorProTableDemo
         hideRules
@@ -1738,13 +1735,12 @@ describe('EditorProTable 2', () => {
       expect(fn).toHaveBeenCalledWith(624691229);
     });
     wrapper.unmount();
-    vi.useRealTimers();
   });
 
   it('📝 support onSave when add newLine', async () => {
     const onSave = vi.fn();
     const onDataSourceChange = vi.fn();
-    vi.useFakeTimers();
+
     const wrapper = render(
       <EditorProTableDemo
         hideRules
@@ -1794,7 +1790,6 @@ describe('EditorProTable 2', () => {
       expect(onDataSourceChange).toHaveBeenCalledWith(3);
     });
 
-    vi.useRealTimers();
     wrapper.unmount();
   });
 

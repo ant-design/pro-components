@@ -249,7 +249,7 @@ describe('EditorProTable', () => {
   it('📝 EditableProTable saveEditable should save and quit editing', async () => {
     const actionRef = React.createRef<ActionType>();
     let changedDataSource: DataSourceType[] = [];
-    vi.useFakeTimers();
+
     const onChange = vi.fn((value) => {
       changedDataSource = value;
     });
@@ -362,7 +362,7 @@ describe('EditorProTable', () => {
     await waitFor(() => {
       expect(changedDataSource[0]?.title).toBe('test value2');
     });
-    vi.useRealTimers();
+
     wrapper.unmount();
   });
 

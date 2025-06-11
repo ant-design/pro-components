@@ -538,7 +538,7 @@ describe('ModalForm', () => {
 
   it('📦 DrawerForm submitTimeout is number will disabled close button when submit', async () => {
     const fn = vi.fn();
-    vi.useFakeTimers();
+
     const html = render(
       <ModalForm
         visible
@@ -573,10 +573,6 @@ describe('ModalForm', () => {
 
     expect(fn).not.toHaveBeenCalled();
 
-    act(() => {
-      vi.runOnlyPendingTimers();
-    });
-
     expect(
       (html.queryAllByText('取 消').at(0)?.parentElement as HTMLButtonElement)
         ?.disabled,
@@ -586,11 +582,7 @@ describe('ModalForm', () => {
       (await html.queryByText('取 消'))?.click();
     });
 
-    act(() => {
-      vi.runOnlyPendingTimers();
-    });
     expect(fn).toHaveBeenCalled();
-    vi.useRealTimers();
   });
 
   it('📦 modal submitTimeout is null no disable close button when submit', async () => {

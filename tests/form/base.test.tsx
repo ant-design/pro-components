@@ -233,7 +233,7 @@ describe('ProForm', () => {
 
   it('📦 onFinish should simulate button loading', async () => {
     const fn = vi.fn();
-    vi.useFakeTimers();
+
     const wrapper = render(
       <ProForm
         onFinish={async () => {
@@ -254,12 +254,9 @@ describe('ProForm', () => {
     expect(dom?.className.includes('ant-btn-loading')).toBe(true);
     expect(fn).toHaveBeenCalled();
     wrapper.unmount();
-    vi.useRealTimers();
   });
 
   it('📦 onFinish should simulate button close loading', async () => {
-    vi.useFakeTimers();
-
     const fn = vi.fn();
     const wrapper = render(
       <ProForm
@@ -284,16 +281,11 @@ describe('ProForm', () => {
     expect(dom?.className.includes('ant-btn-loading')).toBe(true);
     expect(fn).toHaveBeenCalled();
 
-    act(() => {
-      vi.runOnlyPendingTimers();
-    });
-
     await act(async () => {
       dom = await (await wrapper.findByText('提 交')).parentElement;
     });
 
     expect(dom?.className.includes('ant-btn-loading')).toBe(false);
-    vi.useRealTimers();
   });
 
   it('📦 onFinish support params and request', async () => {
@@ -632,7 +624,6 @@ describe('ProForm', () => {
   });
 
   it('📦 ProFormCaptcha support onGetCaptcha', async () => {
-    vi.useFakeTimers();
     const wrapper = render(
       <ProForm>
         <ProFormCaptcha
@@ -663,27 +654,13 @@ describe('ProForm', () => {
       (await wrapper.findByText('获取验证码'))?.click();
     });
 
-    act(() => {
-      vi.runOnlyPendingTimers();
-    });
-
     await wrapper.findByText('2 秒后重新获取');
-
-    act(() => {
-      vi.runOnlyPendingTimers();
-    });
-
-    act(() => {
-      vi.runOnlyPendingTimers();
-    });
 
     captcha = await wrapper.findByText('获取验证码');
 
     expect(!!captcha).toBeTruthy();
 
     wrapper.unmount();
-
-    vi.useRealTimers();
   });
 
   it('📦 ProFormCaptcha support value and onchange', async () => {
@@ -722,7 +699,6 @@ describe('ProForm', () => {
   });
 
   it('📦 ProFormCaptcha support captchaTextRender', async () => {
-    vi.useFakeTimers();
     const wrapper = render(
       <ProForm>
         <ProFormCaptcha
@@ -752,17 +728,8 @@ describe('ProForm', () => {
       captcha?.click();
     });
 
-    act(() => {
-      vi.runOnlyPendingTimers();
-    });
-
-    act(() => {
-      vi.runOnlyPendingTimers();
-    });
-
     const captcha = await wrapper.findByText('重新获取');
     expect(!!captcha).toBeTruthy();
-    vi.useRealTimers();
   });
 
   it('📦 ProFormCaptcha onGetCaptcha throw error', async () => {

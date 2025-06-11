@@ -384,7 +384,6 @@ describe('👍🏻 ProHelpPanel', () => {
   });
 
   it('🎏 infiniteScrollFull panel', async () => {
-    vi.useFakeTimers();
     const onSelectedKeyChangeFn = vi.fn();
     const html = render(
       <ProHelp
@@ -764,9 +763,7 @@ describe('👍🏻 ProHelpPanel', () => {
         { target: { scrollY: 1000 } },
       );
     });
-    await act(() => {
-      vi.runOnlyPendingTimers();
-    });
+    await 
 
     const dom = await html.findByTestId('navigation-switch');
 
@@ -777,8 +774,6 @@ describe('👍🏻 ProHelpPanel', () => {
     expect(onSelectedKeyChangeFn).toHaveBeenCalledWith('name9');
 
     html.unmount();
-
-    vi.useRealTimers();
   });
 
   it('🎏 click menuItem show demo', async () => {
@@ -916,7 +911,6 @@ describe('👍🏻 ProHelpPanel', () => {
   });
 
   it('🎏 ProHelpSelect', async () => {
-    vi.useFakeTimers();
     const html = render(
       <DefaultProHelp>
         <div
@@ -939,7 +933,6 @@ describe('👍🏻 ProHelpPanel', () => {
       fireEvent.mouseDown(
         html.container.querySelector('.ant-select-selector')!,
       );
-      vi.runOnlyPendingTimers();
     });
 
     await html.findByText('常见问题');
@@ -950,8 +943,6 @@ describe('👍🏻 ProHelpPanel', () => {
           value: '如何',
         },
       });
-
-      vi.runOnlyPendingTimers();
     });
 
     expect(
@@ -962,13 +953,11 @@ describe('👍🏻 ProHelpPanel', () => {
 
     await act(async () => {
       fireEvent.blur(html.container.querySelector('.ant-select-selector')!);
-      vi.runOnlyPendingTimers();
     });
     expect(!!html.container.querySelector('.ant-select-selector')!).toBeFalsy();
   });
 
   it('🎏 ProHelpSelect in panel', async () => {
-    vi.useFakeTimers();
     const html = render(
       <DefaultProHelp>
         <div
@@ -993,7 +982,6 @@ describe('👍🏻 ProHelpPanel', () => {
       fireEvent.mouseDown(
         html.container.querySelector('.ant-select-selector')!,
       );
-      vi.runOnlyPendingTimers();
     });
 
     await html.findAllByText('常见问题');
@@ -1004,8 +992,6 @@ describe('👍🏻 ProHelpPanel', () => {
           value: '证据包内包含哪些内容，如何下载证据包',
         },
       });
-
-      vi.runOnlyPendingTimers();
     });
 
     expect(
@@ -1022,9 +1008,7 @@ describe('👍🏻 ProHelpPanel', () => {
         ?.parentElement?.click();
     });
 
-    act(() => {
-      vi.runOnlyPendingTimers();
-    });
+    
 
     await waitFor(() => {
       expect(
@@ -1034,7 +1018,6 @@ describe('👍🏻 ProHelpPanel', () => {
 
     await act(async () => {
       fireEvent.blur(html.container.querySelector('.ant-select-selector')!);
-      vi.runOnlyPendingTimers();
     });
     expect(!!html.container.querySelector('.ant-select-selector')!).toBeFalsy();
   });

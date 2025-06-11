@@ -59,9 +59,8 @@ describe('ProConfigProvider', () => {
       </ConfigProvider>,
     );
 
-    expect(container.querySelectorAll('input#amount')[0]).toHaveAttribute(
-      'value',
-      '!? 44.33',
-    );
+    const input = container.querySelector('input#amount') as HTMLInputElement;
+    expect(input).toBeTruthy();
+    expect(input.value).toBe('!? 44.33');
   });
 });

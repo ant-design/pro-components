@@ -472,7 +472,6 @@ describe('LightFilter', () => {
   });
 
   it(' 🪕 multiple select showSearch', async () => {
-    vi.useFakeTimers();
     const { container } = render(
       <LightFilter
         initialValues={{
@@ -509,9 +508,7 @@ describe('LightFilter', () => {
       userEvent.click(container.querySelector('.ant-pro-core-field-label')!);
     });
 
-    await act(async () => {
-      vi.runOnlyPendingTimers();
-    });
+    await act(async () => {});
 
     await waitFor(() => {
       expect(
@@ -521,9 +518,7 @@ describe('LightFilter', () => {
       ).toHaveLength(1);
     });
 
-    await act(async () => {
-      vi.runOnlyPendingTimers();
-    });
+    await act(async () => {});
 
     await act(async () => {
       fireEvent.change(await screen.findByRole('textbox'), {
@@ -537,9 +532,7 @@ describe('LightFilter', () => {
       userEvent.click(await screen.findByTitle('TechUI'));
     });
 
-    await act(async () => {
-      vi.runOnlyPendingTimers();
-    });
+    await act(async () => {});
 
     await waitFor(() => {
       expect(
@@ -555,9 +548,7 @@ describe('LightFilter', () => {
       });
     });
 
-    await act(async () => {
-      vi.runOnlyPendingTimers();
-    });
+    await act(async () => {});
 
     await act(async () => {
       userEvent.click(
@@ -567,9 +558,7 @@ describe('LightFilter', () => {
       );
     });
 
-    await act(async () => {
-      vi.runOnlyPendingTimers();
-    });
+    await act(async () => {});
 
     await waitFor(() => {
       expect(
@@ -587,9 +576,7 @@ describe('LightFilter', () => {
       });
     });
 
-    await act(async () => {
-      vi.runOnlyPendingTimers();
-    });
+    await act(async () => {});
 
     await waitFor(() => {
       expect(
@@ -598,7 +585,6 @@ describe('LightFilter', () => {
         '名称: 杰克2,TechUI,YES这是一个很长很长的测试阿aa阿ABCDEFGHIJKL...3项',
       );
     });
-    vi.useRealTimers();
   });
 
   it.skip(' 🪕 Base DateRangePicker', async () => {

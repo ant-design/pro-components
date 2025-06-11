@@ -122,7 +122,7 @@ describe('BasicTable Search', () => {
   it('🎏 reset test when pagination is false', async () => {
     const fn = vi.fn();
     const resetFn = vi.fn();
-    vi.useFakeTimers();
+
     const html = render(
       <ProTable
         size="small"
@@ -151,9 +151,7 @@ describe('BasicTable Search', () => {
     );
 
     await html.findAllByText('重 置');
-    act(() => {
-      vi.runOnlyPendingTimers();
-    });
+
     const dom = await (await html.findAllByText('重 置')).at(0);
 
     act(() => {
@@ -164,7 +162,6 @@ describe('BasicTable Search', () => {
       expect(fn).toHaveBeenCalledTimes(2);
       expect(resetFn).toHaveBeenCalledTimes(1);
     });
-    vi.useRealTimers();
   });
 
   it('🎏 table will render loading dom', async () => {
@@ -270,7 +267,7 @@ describe('BasicTable Search', () => {
 
   it('🎏 manualRequest test', async () => {
     const requestFn = vi.fn();
-    vi.useFakeTimers();
+
     const actionRef = React.createRef<any>();
     const html = render(
       <ProTable
@@ -305,10 +302,6 @@ describe('BasicTable Search', () => {
     });
 
     act(() => {
-      vi.runOnlyPendingTimers();
-    });
-
-    act(() => {
       actionRef.current?.reload();
     });
 
@@ -316,8 +309,6 @@ describe('BasicTable Search', () => {
     await waitFor(() => {
       expect(requestFn).toHaveBeenCalledTimes(1);
     });
-
-    vi.useRealTimers();
   });
 
   it('🎏 search span test', async () => {

@@ -9,9 +9,6 @@ afterEach(() => {
 });
 
 describe('descriptions', () => {
-  afterEach(() => {
-    cleanup();
-  });
   it('🥩 descriptions render valueEnum when data = 0', async () => {
     const { container } = render(
       <ProDescriptions
@@ -68,7 +65,6 @@ describe('descriptions', () => {
   });
 
   it('🎏 loading test', async () => {
-    vi.useFakeTimers();
     const html = render(
       <ProDescriptions
         columns={[
@@ -87,10 +83,6 @@ describe('descriptions', () => {
         }}
       />,
     );
-
-    act(() => {
-      vi.advanceTimersByTime(2000);
-    });
 
     await waitFor(() => {
       expect(!!html.baseElement.querySelector('.ant-skeleton')).toBeTruthy();
@@ -118,21 +110,15 @@ describe('descriptions', () => {
       );
     });
 
-    act(() => {
-      vi.advanceTimersByTime(2000);
-    });
-
     await waitFor(() => {
       // props 指定为 false 后，无论 request 完成与否都不会出现 spin
       expect(!!html.baseElement.querySelector('.ant-skeleton')).toBeFalsy();
     });
-
-    vi.useRealTimers();
   });
 
   it('🥩 test reload', async () => {
     const fn = vi.fn();
-    vi.useFakeTimers();
+
     const actionRef = React.createRef<ProCoreActionType>();
     const Reload = () => {
       return (
@@ -184,10 +170,6 @@ describe('descriptions', () => {
     };
     const html = render(<Reload />);
 
-    await act(() => {
-      return vi.runOnlyPendingTimers();
-    });
-
     await html.findAllByText('这是一段文本');
     await waitFor(() => {
       expect(fn).toHaveBeenCalledTimes(1);
@@ -206,13 +188,11 @@ describe('descriptions', () => {
       // 因为有 loading 的控制，所有只会触发两次
       expect(fn).toHaveBeenCalledTimes(2);
     });
-
-    vi.useRealTimers();
   });
 
   it('🥩 test reload by params', async () => {
     const fn = vi.fn();
-    vi.useFakeTimers();
+
     const html = render(
       <ProDescriptions
         title="高级定义列表 request"
@@ -240,10 +220,6 @@ describe('descriptions', () => {
     );
 
     await html.findAllByText('这是一段文本');
-
-    act(() => {
-      vi.runOnlyPendingTimers();
-    });
 
     await waitFor(() => {
       expect(fn).toHaveBeenCalledTimes(1);
@@ -282,17 +258,11 @@ describe('descriptions', () => {
       );
     });
 
-    act(() => {
-      vi.runOnlyPendingTimers();
-    });
-
     await html.findAllByText('这是一段文本');
 
     await waitFor(() => {
       expect(fn).toHaveBeenCalledTimes(2);
     });
-
-    vi.useRealTimers();
   });
 
   it('🥩 test request error', async () => {

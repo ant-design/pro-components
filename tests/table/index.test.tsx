@@ -232,7 +232,7 @@ describe('BasicTable', () => {
 
   it('🎏 onLoadingChange should work', async () => {
     const loadingChangerFn = vi.fn();
-    vi.useFakeTimers();
+
     const html = render(
       <ProTable
         size="small"
@@ -266,9 +266,6 @@ describe('BasicTable', () => {
       expect(loadingChangerFn).toHaveBeenCalledWith(true, false);
     });
 
-    act(() => {
-      vi.runOnlyPendingTimers();
-    });
     await waitFor(() => {
       return html.findByText('序号');
     });
@@ -276,7 +273,6 @@ describe('BasicTable', () => {
       expect(loadingChangerFn).toHaveBeenCalledWith(false, true);
     });
 
-    vi.useRealTimers();
     html.unmount();
   });
 
@@ -644,7 +640,7 @@ describe('BasicTable', () => {
 
   it('🎏 onLoadingChange test', async () => {
     const fn = vi.fn();
-    vi.useFakeTimers();
+
     const html = render(
       <ProTable
         size="small"
@@ -674,20 +670,14 @@ describe('BasicTable', () => {
     );
     await html.findByText('查 询');
 
-    act(() => {
-      vi.runOnlyPendingTimers();
-    });
-
     await waitFor(() => {
       expect(fn).toHaveBeenCalled();
     });
-
-    vi.useFakeTimers();
   });
 
   it('🎏 reload request test', async () => {
     const fn = vi.fn();
-    vi.useFakeTimers();
+
     const Reload = () => {
       const actionRef = useRef<ActionType>();
       return (
@@ -753,10 +743,6 @@ describe('BasicTable', () => {
       fireEvent.click(html.baseElement.querySelector('#reload')!);
     });
 
-    act(() => {
-      vi.runOnlyPendingTimers();
-    });
-
     await waitFor(() => {
       // 因为有 loading 的控制，所有只会触发两次
       expect(fn).toHaveBeenCalledTimes(2);
@@ -765,14 +751,10 @@ describe('BasicTable', () => {
     act(() => {
       fireEvent.click(html.baseElement.querySelector('#reset')!);
     });
-    act(() => {
-      vi.runOnlyPendingTimers();
-    });
+
     await waitFor(() => {
       expect(fn).toHaveBeenCalledTimes(3);
     });
-
-    vi.useRealTimers();
 
     html.unmount();
   });
@@ -1048,7 +1030,6 @@ describe('BasicTable', () => {
     const fn = vi.fn();
     const actionRef = React.createRef<ActionType>();
 
-    vi.useFakeTimers();
     const html = render(
       <ProTable
         size="small"
@@ -1074,9 +1055,7 @@ describe('BasicTable', () => {
       />,
     );
     await html.findByText('查 询');
-    act(() => {
-      vi.runOnlyPendingTimers();
-    });
+
     await waitFor(() => {
       expect(fn).toHaveBeenCalledTimes(1);
     });
@@ -1089,14 +1068,9 @@ describe('BasicTable', () => {
       actionRef.current?.reload(true);
     });
 
-    act(() => {
-      vi.runOnlyPendingTimers();
-    });
-
     await waitFor(() => {
       expect(fn).toHaveBeenCalledTimes(2);
     });
-    vi.useRealTimers();
   });
 
   it('🎏 request should use postData', async () => {
@@ -1643,7 +1617,7 @@ describe('BasicTable', () => {
   it('🎏 debounce time', async () => {
     const ref = React.createRef<ActionType>();
     const fn = vi.fn();
-    vi.useFakeTimers();
+
     const html = render(
       <ProTable
         actionRef={ref as any}
@@ -1673,20 +1647,12 @@ describe('BasicTable', () => {
       expect(fn).toHaveBeenCalled();
     });
 
-    act(() => {
-      vi.runOnlyPendingTimers();
-    });
-
     await waitFor(() => {
       return html.findAllByText('暂无数据');
     });
 
     await waitFor(() => {
       expect(fn).toHaveBeenCalledTimes(1);
-    });
-
-    act(() => {
-      vi.runOnlyPendingTimers();
     });
 
     await waitFor(() => {
@@ -1697,16 +1663,11 @@ describe('BasicTable', () => {
       ref.current?.reload();
     }
 
-    act(() => {
-      vi.runOnlyPendingTimers();
-    });
-
     await waitFor(() => {
       expect(fn).toHaveBeenCalledTimes(2);
     });
 
     await html.findAllByText('暂无数据');
-    vi.useRealTimers();
   });
 
   it('🎏 support showHiddenNum', async () => {

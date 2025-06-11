@@ -1,14 +1,184 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`PageContainer > ⚡️ support fixHeader 1`] = `<DocumentFragment />`;
+exports[`PageContainer > ⚡️ support fixHeader 1`] = `
+<DocumentFragment>
+  <div
+    class="ant-pro-page-container"
+  >
+    <div
+      class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
+    >
+      <div
+        class="ant-page-header-heading "
+      >
+        <div
+          class="ant-page-header-heading-left"
+        >
+          <span
+            class="ant-page-header-heading-title"
+            title="期贤"
+          >
+            期贤
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
 
 exports[`PageContainer > ⚡️ support fixedHeader 1`] = `null`;
 
+exports[`PageContainer > ⚡️ support footer 1`] = `
+<div>
+  <div
+    class="ant-pro-page-container ant-pro-page-container-with-footer"
+  >
+    <div
+      class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
+    >
+      <div
+        class="ant-page-header-heading "
+      >
+        <div
+          class="ant-page-header-heading-left"
+        >
+          <span
+            class="ant-page-header-heading-title"
+            title="期贤"
+          >
+            期贤
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-pro-footer-bar"
+  >
+    <div
+      class="ant-pro-footer-bar-left"
+    />
+    <div
+      class="ant-pro-footer-bar-right"
+    >
+      <button
+        type="button"
+      >
+        right
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`PageContainer > ⚡️ support loading 1`] = `null`;
 
-exports[`PageContainer > ⚡️ support more loading props 1`] = `<DocumentFragment />`;
+exports[`PageContainer > ⚡️ support more loading props 1`] = `
+<DocumentFragment>
+  <div
+    class="ant-pro-page-container"
+  >
+    <div
+      class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
+    >
+      <div
+        class="ant-page-header-heading "
+      >
+        <div
+          class="ant-page-header-heading-left"
+        >
+          <span
+            class="ant-page-header-heading-title"
+            title="期贤"
+          >
+            期贤
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-pro-grid-content"
+    >
+      <div
+        class="ant-pro-grid-content-children"
+      >
+        <div
+          style="padding-block-start: 100px; text-align: center;"
+        >
+          <div
+            aria-busy="true"
+            aria-live="polite"
+            class="ant-spin ant-spin-lg ant-spin-spinning ant-spin-show-text"
+          >
+            <span
+              class="ant-spin-dot-holder"
+            >
+              <span
+                class="ant-spin-dot ant-spin-dot-spin"
+              >
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
 
-exports[`PageContainer > 🌛 PageContainer with custom loading 1`] = `<DocumentFragment />`;
+exports[`PageContainer > 🌛 PageContainer with custom loading 1`] = `
+<DocumentFragment>
+  <div
+    class="ant-pro-page-container custom-className"
+  >
+    <div
+      class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
+    >
+      <div
+        class="ant-page-header-heading "
+      >
+        <div
+          class="ant-page-header-heading-left"
+        >
+          <span
+            class="ant-page-header-heading-title"
+            title="页面标题"
+          >
+            页面标题
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-pro-grid-content"
+    >
+      <div
+        class="ant-pro-grid-content-children"
+      >
+        <div
+          id="customLoading"
+          style="color: red; padding: 30px; text-align: center;"
+        >
+          自定义加载...
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
 
 exports[`PageContainer > 🐛 className prop should not be passed to its page header, fix #3493 1`] = `
 <div>
@@ -104,6 +274,38 @@ exports[`PageContainer > 🐲 content is text and title is null 2`] = `
       </div>
     </div>
   </div>
+</DocumentFragment>
+`;
+
+exports[`PageContainer > 🐲 footer is null, do not render footerToolbar  1`] = `
+<DocumentFragment>
+  <div
+    class="ant-pro-page-container ant-pro-page-container-with-footer"
+  />
+  <div
+    class="ant-pro-footer-bar"
+  >
+    <div
+      class="ant-pro-footer-bar-left"
+    />
+    <div
+      class="ant-pro-footer-bar-right"
+    >
+      <button
+        type="button"
+      >
+        qixian
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`PageContainer > 🐲 footer is null, do not render footerToolbar  2`] = `
+<DocumentFragment>
+  <div
+    class="ant-pro-page-container"
+  />
 </DocumentFragment>
 `;
 
@@ -400,8 +602,95 @@ exports[`PageContainer > 💄 config is null 1`] = `
 </DocumentFragment>
 `;
 
-exports[`PageContainer > 🔥 footer bar support extra 1`] = `<DocumentFragment />`;
+exports[`PageContainer > 🔥 footer bar support extra 1`] = `
+<DocumentFragment>
+  <div
+    class="qixian_footer ant-pro-footer-bar"
+  >
+    <div
+      class="ant-pro-footer-bar-left"
+    >
+      <img
+        alt="logo"
+        src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+      />
+    </div>
+    <div
+      class="ant-pro-footer-bar-right"
+    >
+      <button
+        type="button"
+      >
+        right
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
 
-exports[`PageContainer > 🔥 footer bar support renderContent 1`] = `<DocumentFragment />`;
+exports[`PageContainer > 🔥 footer bar support renderContent 1`] = `
+<DocumentFragment>
+  <div
+    class="qixian_footer ant-pro-footer-bar"
+  >
+    home_toolbar
+  </div>
+</DocumentFragment>
+`;
 
-exports[`PageContainer > 🔥 support footer and breadcrumb 1`] = `<DocumentFragment />`;
+exports[`PageContainer > 🔥 support footer and breadcrumb 1`] = `
+<DocumentFragment>
+  <div
+    class="ant-pro-page-container ant-pro-page-container-with-footer"
+  >
+    <div
+      class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
+    >
+      <nav
+        class="ant-breadcrumb ant-page-header-breadcrumb"
+      >
+        <ol>
+          <li>
+            <a
+              class="ant-breadcrumb-link"
+              href="#/"
+            >
+              home
+            </a>
+          </li>
+        </ol>
+      </nav>
+      <div
+        class="ant-page-header-heading "
+      >
+        <div
+          class="ant-page-header-heading-left"
+        >
+          <span
+            class="ant-page-header-heading-title"
+            title="期贤"
+          >
+            期贤
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-pro-footer-bar"
+  >
+    <div
+      class="ant-pro-footer-bar-left"
+    />
+    <div
+      class="ant-pro-footer-bar-right"
+    >
+      <button
+        type="button"
+      >
+        right
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;

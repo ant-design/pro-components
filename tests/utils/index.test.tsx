@@ -30,6 +30,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 
 afterEach(() => {
   cleanup();
+  vi.useRealTimers();
 });
 
 describe('utils', () => {
@@ -51,7 +52,6 @@ describe('utils', () => {
   });
 
   it('📅 useDebounceValue', async () => {
-    vi.useFakeTimers();
     const App = (props: { deps: string[] }) => {
       const value = useDebounceValue(props.deps?.[0], 200, props.deps);
 
@@ -73,10 +73,6 @@ describe('utils', () => {
     expect(html.baseElement?.textContent).toEqual('name');
 
     await html.findByText('string');
-
-    await act(() => {
-      return vi.runOnlyPendingTimers();
-    });
 
     await waitFor(() => {
       expect(html.baseElement?.textContent).toEqual('string');
@@ -110,8 +106,6 @@ describe('utils', () => {
   });
 
   it('📅 useDebounceValue without deps', async () => {
-    vi.useFakeTimers();
-
     const App = (props: { deps: string[] }) => {
       const [, forceUpdate] = useState([]);
       const value = useDebounceValue(props.deps?.[0]);
@@ -146,8 +140,6 @@ describe('utils', () => {
     await waitFor(() => {
       expect(html.baseElement?.textContent).toEqual('string');
     });
-
-    vi.useRealTimers();
   });
 
   it('📅 useDebounceFn', async () => {
@@ -157,7 +149,6 @@ describe('utils', () => {
       },
     });
 
-    vi.useFakeTimers();
     const fn = vi.fn();
     const App = ({ wait }: { wait?: number }) => {
       const fetchData = useDebounceFn(async () => fn(), wait);
@@ -194,16 +185,8 @@ describe('utils', () => {
       html.rerender(<App wait={80} />);
     });
 
-    await act(() => {
-      return vi.runOnlyPendingTimers();
-    });
-
     act(() => {
       html.baseElement.querySelector<HTMLDivElement>('#test')?.click();
-    });
-
-    await act(() => {
-      return vi.runOnlyPendingTimers();
     });
 
     await html.findByText('test');
@@ -234,15 +217,9 @@ describe('utils', () => {
       html.baseElement.querySelector<HTMLDivElement>('#test')?.click();
     });
 
-    await act(() => {
-      return vi.runOnlyPendingTimers();
-    });
-
     html.unmount();
 
     expect(fn).toHaveBeenCalledTimes(7);
-
-    vi.useRealTimers();
   });
 
   it('📅 useDebounceFn execution has errors', async () => {
@@ -251,8 +228,6 @@ describe('utils', () => {
         name: 'string',
       },
     });
-
-    vi.useFakeTimers();
 
     const error = new Error('debounce error');
     const catchFn = vi.fn();
@@ -273,8 +248,6 @@ describe('utils', () => {
     await waitFor(() => {
       expect(catchFn).toHaveBeenCalledWith(error);
     });
-
-    vi.useRealTimers();
   });
 
   it('📅 conversionSubmitValue nil', async () => {

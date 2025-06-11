@@ -16,9 +16,7 @@ afterEach(() => {
   cleanup();
 });
 
-beforeAll(() => {
-  vi.useFakeTimers();
-});
+beforeAll(() => {});
 afterAll(() => {
   vi.useRealTimers();
 });
@@ -64,24 +62,13 @@ describe('polling', () => {
     await waitFor(() => {
       expect(fn).toHaveBeenCalledTimes(1);
     });
-    act(() => {
-      vi.runOnlyPendingTimers();
-    });
 
     await waitFor(() => {
       expect(fn).toHaveBeenCalled();
     });
 
-    act(() => {
-      vi.runOnlyPendingTimers();
-    });
-
     await waitFor(() => {
       expect(fn).toHaveBeenCalled();
-    });
-
-    act(() => {
-      vi.runOnlyPendingTimers();
     });
 
     await waitFor(() => {
@@ -89,8 +76,6 @@ describe('polling', () => {
     });
 
     expect(fn).toHaveBeenCalledTimes(2);
-
-    vi.useRealTimers();
   });
 
   it('⏱️ polling min time is 2000', async () => {
@@ -134,7 +119,6 @@ describe('polling', () => {
     await waitFor(() => {
       expect(fn).toHaveBeenCalledTimes(2);
     });
-    vi.useRealTimers();
   });
 
   it('⏱️ polling time=3000', async () => {
@@ -197,7 +181,6 @@ describe('polling', () => {
     await waitFor(() => {
       expect(fn).toHaveBeenCalledTimes(2);
     });
-    vi.useRealTimers();
   });
 
   it('⏱️ polling support function', async () => {
@@ -239,16 +222,8 @@ describe('polling', () => {
       return html.findAllByText('暂无数据');
     });
 
-    await act(() => {
-      return vi.runOnlyPendingTimers();
-    });
-
     await waitFor(() => {
       expect(fn).toHaveBeenCalledTimes(1);
-    });
-
-    await act(() => {
-      return vi.runOnlyPendingTimers();
     });
 
     await waitFor(() => {
@@ -258,7 +233,5 @@ describe('polling', () => {
     await waitFor(() => {
       expect(fn).toHaveBeenCalledTimes(2);
     });
-
-    vi.useRealTimers();
   });
 });

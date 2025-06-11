@@ -317,7 +317,6 @@ describe('Field', () => {
     });
 
     it(`🐴 ${valueType} read mode support request function`, async () => {
-      vi.useFakeTimers();
       const ref = React.createRef<{
         fetchData: (keyWord?: string) => void;
       }>();
@@ -345,10 +344,6 @@ describe('Field', () => {
         />,
       );
 
-      act(() => {
-        vi.runOnlyPendingTimers();
-      });
-
       await html.findAllByText('default');
 
       expect(fn).toHaveBeenCalledTimes(1);
@@ -357,13 +352,8 @@ describe('Field', () => {
         ref.current?.fetchData?.('test');
       });
 
-      act(() => {
-        vi.runOnlyPendingTimers();
-      });
-
       expect(fn).toHaveBeenCalledTimes(2);
       html.unmount();
-      vi.useRealTimers();
     });
 
     it(`🐴 ${valueType}  edit model support formItemRender function`, async () => {
@@ -816,7 +806,6 @@ describe('Field', () => {
   });
 
   it(`🐴 treeSelect options single value`, async () => {
-    vi.useFakeTimers();
     const onChangeFn = vi.fn();
     const TreeSelectChangeDemo = () => {
       const [value, setValue] = useState();
@@ -868,7 +857,7 @@ describe('Field', () => {
     expect(html.queryAllByText('Child Node5').length > 0).toBeTruthy();
 
     expect(onChangeFn).toHaveBeenCalledWith(false);
-    vi.useRealTimers();
+
     html.unmount();
   });
 
@@ -878,8 +867,6 @@ describe('Field', () => {
       onBlurFn = vi.fn(),
       loadDataFn = vi.fn(),
       onClearFn = vi.fn();
-
-    vi.useFakeTimers();
 
     const TreeSelectChangeDemo = () => {
       const [value, setValue] = useState();
@@ -902,10 +889,6 @@ describe('Field', () => {
     };
 
     const html = render(<TreeSelectChangeDemo />);
-
-    act(() => {
-      vi.runOnlyPendingTimers();
-    });
 
     await waitFor(() => {
       expect(requestFn).toHaveBeenCalledTimes(1);
@@ -1027,7 +1010,6 @@ describe('Field', () => {
 
     expect(onBlurFn).toHaveBeenCalledTimes(1);
     html.unmount();
-    vi.useRealTimers();
   });
 
   it('🐴 edit and no plain', async () => {

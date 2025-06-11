@@ -15,6 +15,9 @@ afterEach(() => {
 });
 
 describe('💵 ProFormMoney', () => {
+  const getMoneyInput = (container: HTMLElement) =>
+    container.querySelector('input#amount') as HTMLInputElement;
+
   it('💵 ProFormMoney value expect number', async () => {
     const fn = vi.fn();
     const { container } = render(
@@ -27,10 +30,7 @@ describe('💵 ProFormMoney', () => {
       </ProForm>,
     );
 
-    expect(container.querySelectorAll('input#amount')[0]).toHaveAttribute(
-      'value',
-      '¥ 44.33',
-    );
+    expect(getMoneyInput(container).value).toBe('¥ 44.33');
 
     act(() => {
       fireEvent.click(container.querySelector('button.ant-btn-primary')!);
@@ -56,10 +56,7 @@ describe('💵 ProFormMoney', () => {
       </ConfigProvider>,
     );
 
-    expect(container.querySelectorAll('input#amount')[0]).toHaveAttribute(
-      'value',
-      '£ 44.33',
-    );
+    expect(getMoneyInput(container).value).toBe('£ 44.33');
 
     act(() => {
       fireEvent.click(container.querySelector('button.ant-btn-primary')!);
@@ -83,10 +80,7 @@ describe('💵 ProFormMoney', () => {
       </ProForm>,
     );
 
-    expect(container.querySelectorAll('input#amount')[0]).toHaveAttribute(
-      'value',
-      '$ 44.33',
-    );
+    expect(getMoneyInput(container).value).toBe('$ 44.33');
 
     fireEvent.click(container.querySelector('button.ant-btn-primary')!);
 
@@ -95,6 +89,7 @@ describe('💵 ProFormMoney', () => {
     });
     expect(container).toMatchSnapshot();
   });
+
   it('💵 moneySymbol with custom symbol', async () => {
     const fn = vi.fn();
     const { container } = render(
@@ -107,10 +102,8 @@ describe('💵 ProFormMoney', () => {
       </ProForm>,
     );
 
-    expect(container.querySelectorAll('input#amount')[0]).toHaveAttribute(
-      'value',
-      '💰 44.33',
-    );
+    expect(getMoneyInput(container).value).toBe('💰 44.33');
+
     act(() => {
       fireEvent.click(container.querySelector('button.ant-btn-primary')!);
     });
@@ -119,6 +112,7 @@ describe('💵 ProFormMoney', () => {
     });
     expect(container).toMatchSnapshot();
   });
+
   it('💵 can not input negative', async () => {
     const fn = vi.fn();
     const { container } = render(
@@ -131,12 +125,9 @@ describe('💵 ProFormMoney', () => {
       </ProForm>,
     );
 
-    expect(container.querySelectorAll('input#amount')[0]).toHaveAttribute(
-      'value',
-      '',
-    );
+    expect(getMoneyInput(container).value).toBe('');
 
-    await fireEvent.change(container.querySelector('input#amount')!, {
+    await fireEvent.change(getMoneyInput(container), {
       target: {
         value: '-55.33',
       },
@@ -149,6 +140,7 @@ describe('💵 ProFormMoney', () => {
     });
     expect(container).toMatchSnapshot();
   });
+
   it('💵 can input negative', async () => {
     const fn = vi.fn();
     const { container } = render(
@@ -161,21 +153,15 @@ describe('💵 ProFormMoney', () => {
       </ProForm>,
     );
 
-    expect(container.querySelectorAll('input#amount')[0]).toHaveAttribute(
-      'value',
-      '',
-    );
+    expect(getMoneyInput(container).value).toBe('');
 
-    await fireEvent.change(container.querySelector('input#amount')!, {
+    await fireEvent.change(getMoneyInput(container), {
       target: {
         value: '-55.33',
       },
     });
 
-    expect(container.querySelectorAll('input#amount')[0]).toHaveAttribute(
-      'value',
-      '¥ -55.33',
-    );
+    expect(getMoneyInput(container).value).toBe('¥ -55.33');
 
     fireEvent.click(container.querySelector('button.ant-btn-primary')!);
 
@@ -202,10 +188,7 @@ describe('💵 ProFormMoney', () => {
       </ProForm>,
     );
 
-    expect(container.querySelectorAll('input#amount')[0]).toHaveAttribute(
-      'value',
-      '💰 444,444,444.33',
-    );
+    expect(getMoneyInput(container).value).toBe('💰 444,444,444.33');
 
     fireEvent.click(container.querySelector('button.ant-btn-primary')!);
 

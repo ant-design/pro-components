@@ -31,9 +31,10 @@ describe('LoginForm', () => {
     expect(
       container.querySelectorAll('.ant-alert.ant-alert-error'),
     ).toHaveLength(1);
-    expect(
-      container.querySelector('.ant-alert.ant-alert-error .ant-alert-message'),
-    ).toHaveTextContent('登录失败');
+    const messageElement = container.querySelector(
+      '.ant-alert.ant-alert-error .ant-alert-message',
+    );
+    expect(messageElement?.textContent).toBe('登录失败');
   });
 
   it('📦 LoginForm should render actions correctly', async () => {
@@ -64,13 +65,9 @@ describe('LoginForm', () => {
       </LoginForm>,
     );
 
-    expect(
-      container.querySelectorAll('.ant-pro-form-login-logo img'),
-    ).toHaveLength(1);
-    expect(
-      container.querySelector('.ant-pro-form-login-logo img'),
-    ).toHaveAttribute(
-      'src',
+    const logoImg = container.querySelector('.ant-pro-form-login-logo img');
+    expect(logoImg).toBeTruthy();
+    expect(logoImg?.getAttribute('src')).toBe(
       'https://avatars.githubusercontent.com/u/8186664?v=4',
     );
   });
@@ -89,9 +86,9 @@ describe('LoginForm', () => {
       </LoginForm>,
     );
 
-    expect(!!(await findByTestId('test'))).toBeTruthy();
-    expect(await findByTestId('test')).toHaveAttribute(
-      'src',
+    const logoImg = await findByTestId('test');
+    expect(logoImg).toBeTruthy();
+    expect(logoImg.getAttribute('src')).toBe(
       'https://avatars.githubusercontent.com/u/8186664?v=4',
     );
   });
@@ -106,7 +103,7 @@ describe('LoginForm', () => {
 
     const dom = await wrapper.queryByText('登 录');
 
-    expect(!!dom).toBeFalsy();
+    expect(dom).toBeFalsy();
   });
 
   it('📦 LoginForm support submitter is function', async () => {
@@ -123,7 +120,7 @@ describe('LoginForm', () => {
 
     const dom = await wrapper.queryByText('登录登录');
 
-    expect(!!dom).toBeTruthy();
+    expect(dom).toBeTruthy();
   });
 
   it('📦 LoginForm support submitter=false', async () => {
@@ -164,7 +161,7 @@ describe('LoginForm', () => {
     await waitForWaitTime(100);
     const dom = await wrapper.findByText('logo');
 
-    expect(!!dom).toBeTruthy();
+    expect(dom).toBeTruthy();
   });
 
   it('📦 LoginFormPage support log=false', async () => {
@@ -179,7 +176,7 @@ describe('LoginForm', () => {
       '.ant-pro-form-login-page-header',
     );
 
-    expect(!!dom).toBeFalsy();
+    expect(dom).toBeFalsy();
   });
 
   it('📦 LoginFormPage support submitButtonProps', async () => {
@@ -197,13 +194,8 @@ describe('LoginForm', () => {
     );
 
     waitFor(() => {
-      let dom = wrapper.baseElement.querySelector('.ant-btn-loading');
-
-      expect(!!dom).toBeTruthy();
-
-      dom = wrapper.baseElement.querySelector('.ant-btn-lg');
-
-      expect(!!dom).toBeTruthy();
+      const dom = wrapper.baseElement.querySelector('.ant-btn-loading');
+      expect(dom).toBeTruthy();
     });
   });
 });

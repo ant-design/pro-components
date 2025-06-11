@@ -584,8 +584,6 @@ describe('SchemaForm', () => {
       state: string;
     };
 
-    vi.useFakeTimers();
-
     const curColumns: ProFormColumnsType<DataItem>[] = [
       {
         title: '测试',
@@ -632,7 +630,7 @@ describe('SchemaForm', () => {
     });
 
     await act(() => {
-      return vi.runOnlyPendingTimers();
+      return;
     });
 
     await act(async () => {
@@ -640,7 +638,7 @@ describe('SchemaForm', () => {
     });
 
     await act(() => {
-      return vi.runOnlyPendingTimers();
+      return;
     });
 
     await waitFor(async () => {
@@ -659,15 +657,9 @@ describe('SchemaForm', () => {
       );
     });
 
-    act(() => {
-      vi.runOnlyPendingTimers();
-    });
-
     await waitFor(async () => {
       expect((await wrapper.findAllByText('请填写列表')).length).toBe(1);
     });
-
-    vi.useRealTimers();
   });
 
   // need jsdom
@@ -741,7 +733,6 @@ describe('SchemaForm', () => {
     'QueryFilter',
   ].forEach((layoutType) => {
     it(`😊 When SchemaForm's layoutType property is ${layoutType}, make sure it is valid to get the form instance through formRef`, async () => {
-      vi.useFakeTimers();
       const formColumns = [
         [
           {
@@ -805,10 +796,6 @@ describe('SchemaForm', () => {
           button?.click();
         });
 
-        act(() => {
-          vi.runOnlyPendingTimers();
-        });
-
         const stepsValue = {
           next: 'Step 2',
         };
@@ -822,7 +809,6 @@ describe('SchemaForm', () => {
             stepsValue,
           );
         });
-        vi.useRealTimers();
       }
     });
   });

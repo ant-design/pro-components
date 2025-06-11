@@ -12,7 +12,7 @@ describe('ProFormCaptcha', () => {
   it('😊 ProFormCaptcha Manual open', async () => {
     const captchaRef = React.createRef<any>();
     const fn = vi.fn();
-    vi.useFakeTimers();
+
     const TimingText = '获取验证码';
 
     const html = render(
@@ -95,14 +95,8 @@ describe('ProFormCaptcha', () => {
 
     expect(captchaRef.current).toBeTruthy();
 
-    act(() => {
-      vi.runOnlyPendingTimers();
-    });
-
     expect(
       html.container.querySelectorAll('#captchaButton')[0],
     ).toHaveTextContent('获取验证码');
-
-    vi.useRealTimers();
   });
 });
