@@ -5,6 +5,6 @@
 **/lib
 **/es
 **\__snapshots__\**
+**\snapshots\**
 pnpm-lock.yaml
 server
-snapshots

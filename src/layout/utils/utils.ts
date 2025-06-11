@@ -1,7 +1,16 @@
 import type { MenuDataItem } from '../typing';
 
-export const getOpenKeysFromMenuData = (menuData?: MenuDataItem[]) => {
+export const getOpenKeysFromMenuData = (
+  menuData?: MenuDataItem[],
+): string[] => {
   return (menuData || []).reduce((pre, item) => {
+    // 如果是 flatMenu，跳过自己，只递归 children
+    if (item.flatMenu) {
+      if (item.children) {
+        return pre.concat(getOpenKeysFromMenuData(item.children) || []);
+      }
+      return pre;
+    }
     if (item.key) {
       pre.push(item.key);
     }

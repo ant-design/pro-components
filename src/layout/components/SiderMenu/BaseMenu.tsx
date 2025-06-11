@@ -652,7 +652,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         setDefaultOpenAll(false);
       }
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // 依赖项加上 props.collapsed，保证折叠时能正确响应
     [matchMenuKeys.join('-'), props.collapsed],
   );
 
@@ -731,7 +731,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       items={menuUtils.getNavMenuItems(finallyData, 0, 0)}
       onOpenChange={(_openKeys) => {
         if (!props.collapsed) {
-          // 如果点击菜单项时关闭了所有子菜单，则不应该再自动展开
+          // 如果用户手动关闭所有菜单，则关闭自动展开
           if (_openKeys.length === 0) {
             setDefaultOpenAll(false);
           }
