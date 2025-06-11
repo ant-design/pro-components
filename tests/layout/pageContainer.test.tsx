@@ -454,6 +454,9 @@ describe('PageContainer', () => {
       <PageContainer
         title="标题"
         onTabChange={fn}
+        tabProps={{
+          type: 'card',
+        }}
         tabList={[
           {
             tab: '基本信息',
@@ -467,9 +470,9 @@ describe('PageContainer', () => {
       />,
     );
 
-    fireEvent.click(
-      container.querySelectorAll('.ant-tabs-nav-list .ant-tabs-tab')[1],
-    );
+    // In Ant Design v5, the tab button is inside a div with role="tab"
+    const tabs = container.querySelectorAll('[role="tab"]');
+    fireEvent.click(tabs[1]);
 
     await waitFor(() => {
       expect(fn).toHaveBeenCalledWith('info');

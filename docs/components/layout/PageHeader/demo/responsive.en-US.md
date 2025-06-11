@@ -11,7 +11,7 @@ title: responsive
 
 Under different screen sizes, there should be different performance
 
-```tsx | pureimport { afterEach, describe, expect, it, vi } from 'vitest';
+```tsx
 import { Button, Descriptions, PageHeader, Statistic, Tabs } from 'antd';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import React from 'react';

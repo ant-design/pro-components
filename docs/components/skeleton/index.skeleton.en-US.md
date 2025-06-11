@@ -14,7 +14,7 @@ Page-level skeleton screen, does not support customization
 
 ## Installation and initialization
 
-```typescript | pureimport { afterEach, describe, expect, it, vi } from 'vitest';
+```typescript | pure
 import   Skeleton from '@ant-design/pro-skeleton';
 
 return <Skeleton type="list" />;

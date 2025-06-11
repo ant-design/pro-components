@@ -11,7 +11,7 @@ title: 响应式
 
 在不同大小的屏幕下，应该有不同的表现。
 
-```tsx | pureimport { afterEach, describe, expect, it, vi } from 'vitest';
+```tsx
 import { Button, Descriptions, PageHeader, Statistic, Tabs } from 'antd';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import React from 'react';

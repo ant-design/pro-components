@@ -151,7 +151,7 @@ A simple loading page
 
 RouteContext can provide built-in data for Layout. For example, isMobile and collapsed, which you can consume to customize some of the behavior.
 
-```tsx | pureimport { afterEach, describe, expect, it, vi } from 'vitest';
+```tsx | pure
 import   { RouteContext, RouteContextType } from '@ant-design/pro-components';
 
 const Page = () => (
@@ -195,7 +195,7 @@ const { breadcrumb, menuData } = getMenuData(
 
 getPageTitle encapsulates the logic of the title generated on the menuData.
 
-```js | pureimport { afterEach, describe, expect, it, vi } from 'vitest';
+```js | pure
 import { getPageTitle } from '@ant-design/pro-components';
 
 const title = getPageTitle({
@@ -283,7 +283,7 @@ export interface Route {
 
 The default ProLayout does not provide a footer, but does provide a DefaultFooter component that supports the configuration of some hyperlinks and some copyright information.
 
-```tsx | pureimport { afterEach, describe, expect, it, vi } from 'vitest';
+```tsx | pure
 import { GithubOutlined } from '@ant-design/icons';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { DefaultFooter } from '@ant-design/pro-components';
@@ -327,7 +327,7 @@ Usage.
 
 RouteContext provides a way to perform operations based on the layout's data, PageContainer and FooterToolbar both rely on RouteContext's data for their functionality.
 
-```tsx | pureimport { afterEach, describe, expect, it, vi } from 'vitest';
+```tsx | pure
 import   { RouteContext, RouteContextType } from '@ant-design/pro-components';
 
 const Page = () => (

@@ -42,7 +42,7 @@ const msg: {
 
 If your backend data uses a familiar url, we could use a request to convert it, but it would be a pain to configure each table. If you're using umi's request, we can define a global transformer. We need to configure this in app.tsx
 
-```tsx | pureimport { afterEach, describe, expect, it, vi } from 'vitest';
+```tsx | pure
 import   { RequestConfig } from 'umi';
 
 export const request: RequestConfig = {

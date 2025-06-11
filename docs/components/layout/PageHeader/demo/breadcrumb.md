@@ -10,9 +10,8 @@ title: 带面包屑页头
 
 带面包屑页头，适合层级比较深的页面，让用户可以快速导航。
 
-```tsx | pureimport { afterEach, describe, expect, it, vi } from 'vitest';
-import { PageHeader } from 'antd';
-import { afterEach, describe, expect, it, vi } from 'vitest';
+```tsx
+import { PageHeader } from '@ant-design/pro-components';
 import React from 'react';
 
 const routes = [

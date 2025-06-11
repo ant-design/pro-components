@@ -10,9 +10,8 @@ title: Basic Page Header
 
 Standard header, suitable for use in scenarios that require a brief description.
 
-```tsx | pureimport { afterEach, describe, expect, it, vi } from 'vitest';
-import { PageHeader } from 'antd';
-import { afterEach, describe, expect, it, vi } from 'vitest';
+```tsx
+import { PageHeader } from '@ant-design/pro-components';
 import React from 'react';
 
 const App: React.FC = () => (

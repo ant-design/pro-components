@@ -130,7 +130,7 @@ const colorList = [
 
 根据 router 信息来生成 menuData 和 breadcrumb。
 
-```js | pureimport { afterEach, describe, expect, it, vi } from 'vitest';
+```js | pure
 import { getMenuData } from '@ant-design/pro-components';
 
 const { breadcrumb, menuData } = getMenuData(
@@ -152,7 +152,7 @@ const { breadcrumb, menuData } = getMenuData(
 
 getPageTitle 封装了根据 menuData 上生成的 title 的逻辑。
 
-```js | pureimport { afterEach, describe, expect, it, vi } from 'vitest';
+```js | pure
 import { getPageTitle } from '@ant-design/pro-components';
 
 const title = getPageTitle({
@@ -240,7 +240,7 @@ export interface Route {
 
 页脚一般会展示一些公司和版权信息，默认的 ProLayout 不提供 Footer，但是提供了一个 DefaultFooter 组件，支持配置一些超链接和版权信息。
 
-```tsx | pureimport { afterEach, describe, expect, it, vi } from 'vitest';
+```tsx | pure
 import { GithubOutlined } from '@ant-design/icons';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { DefaultFooter } from '@ant-design/pro-components';
@@ -292,7 +292,7 @@ RouteContext 可以提供 Layout 的内置的数据。例如 isMobile 和 collap
 
 另外 RouteContext 也可以根据 layout 的数据来进行一些操作，PageContainer 和 FooterToolbar 都是依赖 RouteContext 的数据来实现功能。
 
-```tsx | pureimport { afterEach, describe, expect, it, vi } from 'vitest';
+```tsx | pure
 import { RouteContext, RouteContextType } from '@ant-design/pro-components';
 
 const Page = () => (

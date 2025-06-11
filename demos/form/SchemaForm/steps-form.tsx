@@ -1,6 +1,6 @@
 ﻿import type {
-  ProFormInstance,
   ProFormColumnsType,
+  ProFormInstance,
 } from '@ant-design/pro-components';
 import { BetaSchemaForm } from '@ant-design/pro-components';
 import { message } from 'antd';

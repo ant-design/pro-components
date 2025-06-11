@@ -10,7 +10,7 @@ title: Complete example
 
 Show all props provided by PageHeader.
 
-```tsx | pureimport { afterEach, describe, expect, it, vi } from 'vitest';
+```tsx
 import { MoreOutlined } from '@ant-design/icons';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { Button, Dropdown, Menu, PageHeader, Row, Tag, Typography } from 'antd';

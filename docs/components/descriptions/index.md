@@ -17,8 +17,8 @@ ProDescriptions 的诞生是为了解决项目中需要写很多 Descriptions �
 
 比如 ProDescriptions 封装了请求网络的行为，ProDescriptions 会将 props.params 中的数据默认带入到请求中，如果接口恰好与我们的定义相同，实现一个查询会非常简单。
 
-```tsx | pureimport { afterEach, describe, expect, it, vi } from 'vitest';
-import   request from 'umi-request';
+```tsx | pure
+import  request from 'umi-request';
 
 const fetchData = (params) =>
   request<{

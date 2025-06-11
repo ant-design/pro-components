@@ -16,7 +16,7 @@ ProDescriptions was born to solve the problem of writing a lot of boilerplate co
 
 For example, ProDescriptions encapsulates the behavior of the request network, and ProDescriptions will bring the data in props.params into the request by default. If the interface happens to be the same as our definition, it will be very simple to implement a query.
 
-```tsx | pureimport { afterEach, describe, expect, it, vi } from 'vitest';
+```tsx | pure
 import   request from'umi-request';
 
 const fetchData = (params) =>

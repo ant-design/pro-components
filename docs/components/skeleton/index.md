@@ -14,7 +14,7 @@ atomId: ProSkeleton
 
 ## 安装和初始化
 
-```typescript | pureimport { afterEach, describe, expect, it, vi } from 'vitest';
+```typescript | pure
 import   Skeleton from '@ant-design/pro-skeleton';
 
 return <Skeleton type="list" />;

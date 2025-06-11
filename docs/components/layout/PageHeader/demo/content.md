@@ -10,7 +10,7 @@ title: 组合示例
 
 使用了 PageHeader 提供的所有能力。
 
-```tsx | pureimport { afterEach, describe, expect, it, vi } from 'vitest';
+```tsx
 import { MoreOutlined } from '@ant-design/icons';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { Button, Dropdown, Menu, PageHeader, Row, Tag, Typography } from 'antd';

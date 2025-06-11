@@ -10,7 +10,7 @@ title: 多种形态的 PageHeader
 
 使用操作区，并自定义子节点，适合使用在需要展示一些复杂的信息，帮助用户快速了解这个页面的信息和操作。
 
-```tsx | pureimport { afterEach, describe, expect, it, vi } from 'vitest';
+```tsx
 import { Button, Descriptions, PageHeader, Row, Statistic, Tag } from 'antd';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import React from 'react';
