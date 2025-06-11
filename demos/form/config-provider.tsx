@@ -13,7 +13,7 @@ import {
 } from '@ant-design/pro-components';
 import { ConfigProvider, Input } from 'antd';
 import enUS from 'antd/lib/locale/en_US';
-import { LightWrapper } from '../BaseForm/LightWrapper';
+import { LightWrapper } from 'src/form/BaseForm';
 
 export default () => (
   <ConfigProvider locale={enUS}>

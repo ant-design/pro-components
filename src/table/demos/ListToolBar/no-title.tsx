@@ -1,7 +1,6 @@
 import { EllipsisOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
-import type { ProColumns } from '../../../components';
-import { LightFilter, ProFormDatePicker, ProTable } from '../../../components';
+import { LightFilter, ProColumns, ProFormDatePicker, ProTable } from '@ant-design/pro-components';
 
 export type TableListItem = {
   key: number;
