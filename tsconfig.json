@@ -18,5 +18,12 @@
       "@ant-design/pro-components": ["src"]
     }
   },
-  "include": [".dumirc.ts", "typings.d.ts", "src/**/*", "demos/**/*"]
+  "include": [
+    ".dumirc.ts",
+    "vitest.config.ts",
+    "tests/**/*",
+    "typings.d.ts",
+    "src/**/*",
+    "demos/**/*"
+  ]
 }

@@ -1,9 +1,9 @@
-import type { IntlType } from '../../provider';
-import type { UseEditableUtilType } from '../../utils';
 import type { TablePaginationConfig } from 'antd';
 import type { SortOrder } from 'antd/lib/table/interface';
 import type React from 'react';
 import { Key } from 'react';
+import type { IntlType } from '../../provider';
+import type { UseEditableUtilType } from '../../utils';
 import type {
   ActionType,
   Bordered,
@@ -205,14 +205,14 @@ export function parseDefaultColumnConfig<T, Value>(
     }
     // 当 column 启用 filters 功能时，取出默认的筛选值
     if (column.filters) {
-      const defaultFilteredValue = column.defaultFilteredValue as (
+      const defaultfilteredValue = column.defaultfilteredValue as (
         | string
         | number
       )[];
-      if (defaultFilteredValue === undefined) {
+      if (defaultfilteredValue === undefined) {
         filter[dataIndex] = null;
       } else {
-        filter[dataIndex] = column.defaultFilteredValue as (string | number)[];
+        filter[dataIndex] = column.defaultfilteredValue as (string | number)[];
       }
     }
     // 当 column 启用 sorter 功能时，取出默认的排序值

@@ -20,7 +20,9 @@ const moduleNameMapper = {} as Record<string, any>;
 
 export default defineConfig({
   resolve: {
-    alias: moduleNameMapper,
+    alias: {
+      '@ant-design/pro-components': join(__dirname, './src'),
+    },
   },
   esbuild: {
     format: 'esm',

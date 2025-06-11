@@ -6,12 +6,20 @@ import {
 import { App } from 'antd';
 import glob from 'glob';
 import MockDate from 'mockdate';
-import { act } from 'react';
 
 import {
   StyleProvider,
   legacyLogicalPropertiesTransformer,
 } from '@ant-design/cssinjs';
+import {
+  afterAll,
+  afterEach,
+  beforeAll,
+  describe,
+  expect,
+  test,
+  vi,
+} from 'vitest';
 
 type Options = {
   skip?: boolean;
@@ -58,7 +66,7 @@ function demoTest(component: string, options?: Options) {
     window.getComputedStyle = originGetComputedStyle;
   });
   // 支持 demos 下的所有非_开头的tsx文件
-  const files = glob.sync(`./packages/${component}/**/demos/**/[!_]*.tsx`);
+  const files = glob.sync(`./demos/${component}/**/[!_]*.tsx`);
   files.push(...glob.sync(`./${component}/**/**/[!_]*.tsx`));
 
   const TestApp = (props: { children: any }) => {
@@ -97,8 +105,6 @@ function demoTest(component: string, options?: Options) {
         testMethod = test.skip;
       }
       testMethod(`📸 renders ${file} correctly`, async () => {
-        vi.useFakeTimers().setSystemTime(new Date('2016-11-22 15:22:44'));
-
         Math.random = () => 0.8404419276253765;
 
         const Demo = (await import(`.${file}`)).default;
@@ -108,27 +114,22 @@ function demoTest(component: string, options?: Options) {
           </TestApp>,
         );
 
-        act(() => {
-          vi.runAllTimers();
+        await waitFor(() => {
+          return wrapper.findAllByText('test');
         });
 
         await waitFor(() => {
           return wrapper.findAllByText('test');
         });
 
-        act(() => {
-          vi.runAllTimers();
-        });
-
-        await waitFor(() => {
-          return wrapper.findAllByText('test');
-        });
-
-        await waitFor(() => {
-          expect(wrapper.asFragment()).toMatchSnapshot();
-        });
+        await expect(wrapper.asFragment()).toMatchFileSnapshot(
+          `snapshot/snapshot-${file
+            .split('/')
+            .filter((part) => !part.startsWith('_') && !part.startsWith('.'))
+            .map((part) => part.replace(/\.tsx$/, ''))
+            .join('-')}.html`,
+        );
         wrapper.unmount();
-        vi.useRealTimers();
         cleanup();
       });
     });
