@@ -1,7 +1,7 @@
 import { ColumnHeightOutlined } from '@ant-design/icons';
-import { useIntl } from '../../../provider';
 import { Dropdown, Tooltip } from 'antd';
 import React, { useContext } from 'react';
+import { useIntl } from '../../../provider';
 import { TableContext } from '../../Store/Provide';
 
 export type DensitySize = 'middle' | 'small' | 'large' | undefined;

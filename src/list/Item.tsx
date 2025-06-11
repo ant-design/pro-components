@@ -1,14 +1,13 @@
 import { RightOutlined } from '@ant-design/icons';
-import type { CheckCardProps } from '../card';
-import { CheckCard } from '../card';
-import { ProProvider } from '../provider';
 import { ConfigProvider, List, Skeleton } from 'antd';
-
 import type { ListGridType } from 'antd/lib/list';
 import type { ExpandableConfig } from 'antd/lib/table/interface';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useContext, useMemo } from 'react';
+import type { CheckCardProps } from '../card';
+import { CheckCard } from '../card';
+import { ProProvider } from '../provider';
 import type { GetComponentProps } from './index';
 
 export type RenderExpandIconProps<RecordType> = {

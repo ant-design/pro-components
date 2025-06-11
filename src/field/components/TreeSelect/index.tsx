@@ -1,9 +1,3 @@
-import { useIntl } from '../../../provider';
-import {
-  FieldLabel,
-  objectToMap,
-  proFieldParsingText,
-} from '../../../utils';
 import type { RadioGroupProps, TreeSelectProps } from 'antd';
 import { ConfigProvider, Spin, TreeSelect } from 'antd';
 import classNames from 'classnames';
@@ -15,6 +9,8 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import { useIntl } from '../../../provider';
+import { FieldLabel, objectToMap, proFieldParsingText } from '../../../utils';
 import type { ProFieldFC } from '../../PureProField';
 import type { FieldSelectProps } from '../Select';
 import { useFieldFetchData } from '../Select';

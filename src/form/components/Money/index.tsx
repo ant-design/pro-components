@@ -1,7 +1,7 @@
-import { FieldMoney, FieldMoneyProps } from '../../../field';
-import { ProConfigProvider } from '../../../provider';
 import type { InputNumberProps } from 'antd';
 import React from 'react';
+import { FieldMoney, FieldMoneyProps } from '../../../field';
+import { ProConfigProvider } from '../../../provider';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProFormField from '../Field';
 

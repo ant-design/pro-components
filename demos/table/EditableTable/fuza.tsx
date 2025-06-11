@@ -222,7 +222,7 @@ export default () => {
                             {
                               title: '补充说明',
                               dataIndex: 'supplementComment',
-                              renderFormItem: () => {
+                              formItemRender: () => {
                                 return (
                                   <Input.TextArea
                                     placeholder="请输入补充说明"

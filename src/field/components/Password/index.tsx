@@ -1,8 +1,8 @@
 import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons';
-import { useIntl } from '../../../provider';
 import { Input, Space } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React from 'react';
+import { useIntl } from '../../../provider';
 import type { ProFieldFC } from '../../PureProField';
 
 /**

@@ -1,6 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { LoadingOutlined } from '@ant-design/icons';
-import { useIntl } from '../../provider';
+/* eslint-disable react-hooks/exhaustive-deps */ import { LoadingOutlined } from '@ant-design/icons';
 import type { FormInstance, FormProps } from 'antd';
 import { Form, Popconfirm, message } from 'antd';
 import { AnyObject } from 'antd/lib/_util/type';
@@ -22,6 +20,7 @@ import React, {
   useState,
 } from 'react';
 import { useDebounceFn, useRefFunction } from '..';
+import { useIntl } from '../../provider';
 import { ProFormContext } from '../components/ProFormContext';
 import { useDeepCompareEffectDebounce } from '../hooks/useDeepCompareEffect';
 import { usePrevious } from '../hooks/usePrevious';

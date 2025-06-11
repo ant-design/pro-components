@@ -25,12 +25,43 @@
     "lib",
     "es"
   ],
+  "scripts": {
+    "bootstrap": "node ./scripts/bootstrap.js",
+    "build": "father build",
+    "changelog": "node ./scripts/changelogs.js",
+    "check-deps": "node ./scripts/checkDeps.js",
+    "checkPublish": "npm run sync:tnpm && node ./scripts/checkPublish.js && npm run sync:tnpm",
+    "createRelease": "node ./scripts/createRelease.js",
+    "deploy": "cross-env SITE_DEPLOY='TRUE' npm run site && gh-pages -d ./dist",
+    "dev": "dumi dev",
+    "dumi": "node ./scripts/preDeploy && cross-env SITE_DEPLOY='TRUE' dumi build",
+    "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx  --fix --format=pretty ./ && npm run tsc && npm run lint:prettier",
+    "lint:prettier": "npm run prettier &&  git diff && prettier --versionpn && prettier --check \"packages/**/**.{js,jsx,tsx,ts,less,md,json}\" --end-of-line auto",
+    "prettier": "prettier --write \"**/**.{js,jsx,tsx,ts,less,md,yaml,json}\" --loglevel warn",
+    "publishOnly": "node ./scripts/release.js --publishOnly",
+    "release": "npm run test && node ./scripts/release.js",
+    "site": "npm run build && cross-env SITE_DEPLOY='TRUE' dumi build",
+    "start": "dumi dev",
+    "sync:tnpm": "node -e 'require(\"./scripts/syncTNPM\")()'",
+    "test": "cross-env TZ=UTC vitest --run",
+    "test:coverage": "cross-env TZ=UTC TEST_LOG=none vitest  --coverage",
+    "test:ui": "cross-env TZ=UTC vitest --ui",
+    "test:update": "cross-env TZ=UTC  vitest -u",
+    "tsc": "tsc --noEmit",
+    "tsc:duplicate": "tsc -p ./tests/tsconfig.duplicate.json",
+    "update:deps": "pnpm up --latest"
+  },
   "browserslist": [
     "last 2 versions",
     "Firefox ESR",
     "> 1%",
     "ie >= 11"
   ],
+  "resolutions": {
+    "@types/react": "^18.0.38",
+    "@types/react-dom": "^18.0.11",
+    "@types/responselike": "^1.0.0"
+  },
   "dependencies": {
     "@ant-design/cssinjs": "^1.21.1",
     "@ant-design/icons": "^5.6.1",
@@ -70,49 +101,6 @@
     "unified": "^11.0.5",
     "unist-util-visit": "^5.0.0",
     "zustand": "^4.5.7"
-  },
-  "peerDependencies": {
-    "antd": "^5.11.2",
-    "react": ">=17.0.0",
-    "react-dom": ">=17.0.0"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "authors": [
-    "chencheng <sorrycc@gmail.com> (https://github.com/sorrycc)",
-    "chenshuai2144 <qixian.cs@outlook.com> (https://github.com/chenshuai2144)"
-  ],
-  "scripts": {
-    "bootstrap": "node ./scripts/bootstrap.js",
-    "build": "father build",
-    "changelog": "node ./scripts/changelogs.js",
-    "tsc": "tsc --noEmit",
-    "check-deps": "node ./scripts/checkDeps.js",
-    "checkPublish": "npm run sync:tnpm && node ./scripts/checkPublish.js && npm run sync:tnpm",
-    "createRelease": "node ./scripts/createRelease.js",
-    "deploy": "cross-env SITE_DEPLOY='TRUE' npm run site && gh-pages -d ./dist",
-    "dev": "dumi dev",
-    "dumi": "node ./scripts/preDeploy && cross-env SITE_DEPLOY='TRUE' dumi build",
-    "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx  --fix --format=pretty ./ && npm run tsc && npm run lint:prettier",
-    "lint:prettier": "npm run prettier &&  git diff && prettier --versionpn && prettier --check \"packages/**/**.{js,jsx,tsx,ts,less,md,json}\" --end-of-line auto",
-    "prettier": "prettier --write \"**/**.{js,jsx,tsx,ts,less,md,yaml,json}\" --loglevel warn",
-    "publishOnly": "node ./scripts/release.js --publishOnly",
-    "release": "npm run test && node ./scripts/release.js",
-    "site": "npm run build && cross-env SITE_DEPLOY='TRUE' dumi build",
-    "start": "dumi dev",
-    "sync:tnpm": "node -e 'require(\"./scripts/syncTNPM\")()'",
-    "test:ui": "cross-env TZ=UTC vitest --ui",
-    "test": "cross-env TZ=UTC vitest --run",
-    "test:coverage": "cross-env TZ=UTC TEST_LOG=none vitest  --coverage",
-    "test:update": "cross-env TZ=UTC  vitest -u",
-    "tsc:duplicate": "tsc -p ./tests/tsconfig.duplicate.json",
-    "update:deps": "pnpm up --latest"
-  },
-  "resolutions": {
-    "@types/react": "^18.0.38",
-    "@types/react-dom": "^18.0.11",
-    "@types/responselike": "^1.0.0"
   },
   "devDependencies": {
     "@ant-design/antd-theme-variable": "^1.0.0",
@@ -236,9 +224,21 @@
     "yorkie": "^2.0.0",
     "zustand": "^4.5.7"
   },
+  "peerDependencies": {
+    "antd": "^5.11.2",
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
+  },
+  "packageManager": "pnpm@9.6.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "authors": [
+    "chencheng <sorrycc@gmail.com> (https://github.com/sorrycc)",
+    "chenshuai2144 <qixian.cs@outlook.com> (https://github.com/chenshuai2144)"
+  ],
   "gitHooks": {
     "pre-commit": "pretty-quick --staged",
     "commit-msg": "fabric verify-commit"
-  },
-  "packageManager": "pnpm@9.6.0"
+  }
 }

@@ -1,9 +1,9 @@
-import { isDeepEqualReact, merge, ProFormContext } from '../../../utils';
 import type { FormItemProps } from 'antd';
 import { Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
 import { get, set } from 'rc-util';
 import { useContext, useMemo } from 'react';
+import { isDeepEqualReact, merge, ProFormContext } from '../../../utils';
 import type { ProFormInstance } from '../../BaseForm';
 import { FormListContext } from '../List';
 

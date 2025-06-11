@@ -1,9 +1,9 @@
 ﻿import { CloseOutlined, ProfileOutlined } from '@ant-design/icons';
-import { ProProvider, isNeedOpenHash } from '../../../provider';
-import { coverToNewToken } from '../../../utils';
 import { Card, ConfigProvider, Menu } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useContext, useMemo, useState } from 'react';
+import { ProProvider, isNeedOpenHash } from '../../../provider';
+import { coverToNewToken } from '../../../utils';
 import type { ProHelpDataSource } from './HelpProvide';
 import { ProHelpProvide } from './HelpProvide';
 import { ProHelpContentPanel } from './ProHelpContentPanel';

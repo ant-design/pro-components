@@ -10,8 +10,9 @@ title: Various forms of PageHeader
 
 Use the operating area and customize the sub-nodes, suitable for use in the need to display some complex information to help users quickly understand the information and operations of this page.
 
-```tsx | pure
+```tsx | pureimport { afterEach, describe, expect, it, vi } from 'vitest';
 import { Button, Descriptions, PageHeader, Row, Statistic, Tag } from 'antd';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import React from 'react';
 
 const App: React.FC = () => (

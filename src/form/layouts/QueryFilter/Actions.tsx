@@ -1,10 +1,9 @@
 import { DownOutlined } from '@ant-design/icons';
+import { ConfigProvider, Space } from 'antd';
+import React, { useContext } from 'react';
 import type { IntlType } from '../../../provider';
 import { ProProvider, useIntl } from '../../../provider';
 import { omitBoolean } from '../../../utils';
-import { ConfigProvider, Space } from 'antd';
-
-import React, { useContext } from 'react';
 
 export type ActionsProps = {
   submitter: React.ReactNode;

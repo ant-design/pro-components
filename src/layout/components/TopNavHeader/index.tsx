@@ -1,9 +1,8 @@
-import { isNeedOpenHash, ProProvider } from '../../../provider';
-import { coverToNewToken } from '../../../utils';
 import { ConfigProvider } from 'antd';
-
 import classNames from 'classnames';
 import React, { useContext, useMemo, useRef } from 'react';
+import { isNeedOpenHash, ProProvider } from '../../../provider';
+import { coverToNewToken } from '../../../utils';
 import { AppsLogoComponents } from '../AppsLogoComponents';
 import type { GlobalHeaderProps } from '../GlobalHeader';
 import { ActionsContent } from '../GlobalHeader/ActionsContent';

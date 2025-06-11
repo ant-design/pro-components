@@ -1,6 +1,6 @@
-import { useIntl } from '../../../provider';
 import { Image, Input } from 'antd';
 import React from 'react';
+import { useIntl } from '../../../provider';
 import type { ProFieldFC } from '../../PureProField';
 
 export type FieldImageProps = {

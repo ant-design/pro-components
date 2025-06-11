@@ -1,7 +1,7 @@
-import { FieldSwitch } from '../../../field';
-import { ProConfigProvider } from '../../../provider';
 import type { SwitchProps } from 'antd';
 import React from 'react';
+import { FieldSwitch } from '../../../field';
+import { ProConfigProvider } from '../../../provider';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProField from '../Field';
 

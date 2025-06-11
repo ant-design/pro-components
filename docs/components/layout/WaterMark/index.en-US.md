@@ -50,26 +50,26 @@ Here are some common configuration options. If you need further customization, p
 
 ## WaterMark
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| width | Width of the watermark | number | 120 | 2.2.0 |
-| height | Height of the watermark | number | 64 | 2.2.0 |
-| rotate | Rotation angle of the watermark in degrees | number | -22 | 2.2.0 |
-| image | Image source, it is recommended to export a 2x or 3x image, the watermark will be rendered with the image if specified | `string` | - | 2.2.0 |
-| zIndex | The `z-index` of the appended watermark elements | number | 9 | 2.2.0 |
-| content | Text content of the watermark | `string` \| `string[]` | - | 2.2.0 |
-| fontColor | Text color of the watermark | `string` | `rgba(0,0,0,.15)` | 2.2.0 |
-| fontSize | Font size | `string` \| `number` | 16 | 2.2.0 |
-| markStyle | Style of the watermark layer | React.CSSProperties | - | 2.3.0 |
-| markClassName | Class name of the watermark layer | string | - | 2.3.0 |
-| gapX | Horizontal spacing between watermarks | number | 212 | 2.4.0 |
-| gapY | Vertical spacing between watermarks | number | 222 | 2.4.0 |
-| offsetLeft | Horizontal offset of the watermark when drawing on the canvas. Normally, the watermark is drawn in the middle position, i.e. `offsetTop = gapX / 2` | number | `offsetTop = gapX / 2` | 2.4.0 |
-| offsetTop | Vertical offset of the watermark when drawing on the canvas. Normally, the watermark is drawn in the middle position, i.e. `offsetTop = gapY / 2` | number | `offsetTop = gapY / 2` | 2.4.0 |
+| Property      | Description                                                                                                                                         | Type                   | Default                | Version |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ---------------------- | ------- |
+| width         | Width of the watermark                                                                                                                              | number                 | 120                    | 2.2.0   |
+| height        | Height of the watermark                                                                                                                             | number                 | 64                     | 2.2.0   |
+| rotate        | Rotation angle of the watermark in degrees                                                                                                          | number                 | -22                    | 2.2.0   |
+| image         | Image source, it is recommended to export a 2x or 3x image, the watermark will be rendered with the image if specified                              | `string`               | -                      | 2.2.0   |
+| zIndex        | The `z-index` of the appended watermark elements                                                                                                    | number                 | 9                      | 2.2.0   |
+| content       | Text content of the watermark                                                                                                                       | `string` \| `string[]` | -                      | 2.2.0   |
+| fontColor     | Text color of the watermark                                                                                                                         | `string`               | `rgba(0,0,0,.15)`      | 2.2.0   |
+| fontSize      | Font size                                                                                                                                           | `string` \| `number`   | 16                     | 2.2.0   |
+| markStyle     | Style of the watermark layer                                                                                                                        | React.CSSProperties    | -                      | 2.3.0   |
+| markClassName | Class name of the watermark layer                                                                                                                   | string                 | -                      | 2.3.0   |
+| gapX          | Horizontal spacing between watermarks                                                                                                               | number                 | 212                    | 2.4.0   |
+| gapY          | Vertical spacing between watermarks                                                                                                                 | number                 | 222                    | 2.4.0   |
+| offsetLeft    | Horizontal offset of the watermark when drawing on the canvas. Normally, the watermark is drawn in the middle position, i.e. `offsetTop = gapX / 2` | number                 | `offsetTop = gapX / 2` | 2.4.0   |
+| offsetTop     | Vertical offset of the watermark when drawing on the canvas. Normally, the watermark is drawn in the middle position, i.e. `offsetTop = gapY / 2`   | number                 | `offsetTop = gapY / 2` | 2.4.0   |
 
 ### Watermark API Visualization
 
-```jsx | inline
+```jsx | inlineimport { afterEach, describe, expect, it, vi } from 'vitest';
 import react from 'react';
 
 export default () => (

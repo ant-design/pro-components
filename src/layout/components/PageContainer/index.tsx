@@ -1,5 +1,3 @@
-import type { GenerateStyle } from '../../../provider';
-import { ProConfigProvider, ProProvider } from '../../../provider';
 import type {
   AffixProps,
   BreadcrumbProps,
@@ -18,6 +16,8 @@ import {
 import classNames from 'classnames';
 import type { ReactNode } from 'react';
 import React, { useContext, useEffect, useMemo } from 'react';
+import type { GenerateStyle } from '../../../provider';
+import { ProConfigProvider, ProProvider } from '../../../provider';
 import { RouteContext } from '../../context/RouteContext';
 import type { WithFalse } from '../../typing';
 import type { FooterToolbarProps } from '../FooterToolbar';

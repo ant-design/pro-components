@@ -1,7 +1,7 @@
-import { useIntl } from '../../../provider';
 import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import React, { useContext, useMemo } from 'react';
+import { useIntl } from '../../../provider';
 import type { ProFormProps } from '../ProForm';
 import { ProForm } from '../ProForm';
 import { useStyle } from './style';

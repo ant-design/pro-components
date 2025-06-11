@@ -1,5 +1,4 @@
-/** Title: Front Watermark */
-import type { ProColumns } from '@ant-design/pro-components';
+/** Title: Front Watermark */ import type { ProColumns } from '@ant-design/pro-components';
 import {
   LightFilter,
   ProFormDatePicker,

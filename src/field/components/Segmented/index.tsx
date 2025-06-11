@@ -1,11 +1,10 @@
 import { Segmented, Spin } from 'antd';
 import omit from 'rc-util/lib/omit';
 import React, { useImperativeHandle, useRef } from 'react';
+import { objectToMap, proFieldParsingText } from '../../../utils';
 import type { ProFieldFC } from '../../PureProField';
 import type { FieldSelectProps } from '../Select';
 import { useFieldFetchData } from '../Select';
-
-import { objectToMap, proFieldParsingText } from '../../../utils';
 
 /**
  * Segmented https://ant.design/components/segmented-cn/

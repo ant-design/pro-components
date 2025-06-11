@@ -1,5 +1,5 @@
-import { isUrl } from '../../../utils';
 import React from 'react';
+import { isUrl } from '../../../utils';
 import type { AppItemProps, AppListProps } from './types';
 
 /**

@@ -1,8 +1,8 @@
-import { useMountMergeState } from '../../../utils';
 import { Avatar, ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import type { MouseEventHandler } from 'react';
 import React, { useContext, useEffect, useMemo } from 'react';
+import { useMountMergeState } from '../../../utils';
 import ProCardActions from '../Actions';
 import type { CheckCardGroupProps } from './Group';
 import CheckCardGroup, { CardLoading, CheckCardGroupConnext } from './Group';

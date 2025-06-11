@@ -27,19 +27,19 @@ It is an atomic information component that standardizes field definitions across
 
 ## API
 
-```typescript | pure
-import Field from '@ant-design/pro-field';
+```typescript | pureimport { afterEach, describe, expect, it, vi } from 'vitest';
+import   Field from '@ant-design/pro-field';
 
 return <Field text="100" valueType="money" mode={state} />;
 ```
 
 ### Properties
 
-| Parameters | Description | Type | Default Value |
-| --- | --- | --- | --- |
-| text | The value to be formatted | any | - |
-| valueType | The type of formatting | ValueType | - |
-| mode | The mode of the component | - | - |
-| plain | Simplified mode | - | - |
-| renderFormItem | Custom DOM rendering when `mode=update \| edit`, typically used for rendering input boxes | - | - |
-| render | Custom DOM rendering when `mode=read`, purely for display purposes | - | - |
+| Parameters     | Description                                                                               | Type      | Default Value |
+| -------------- | ----------------------------------------------------------------------------------------- | --------- | ------------- |
+| text           | The value to be formatted                                                                 | any       | -             |
+| valueType      | The type of formatting                                                                    | ValueType | -             |
+| mode           | The mode of the component                                                                 | -         | -             |
+| plain          | Simplified mode                                                                           | -         | -             |
+| formItemRender | Custom DOM rendering when `mode=update \| edit`, typically used for rendering input boxes | -         | -             |
+| render         | Custom DOM rendering when `mode=read`, purely for display purposes                        | -         | -             |

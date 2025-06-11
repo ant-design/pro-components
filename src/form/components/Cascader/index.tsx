@@ -1,7 +1,7 @@
-﻿import { FieldCascader } from '../../../field';
-import { ProConfigProvider } from '../../../provider';
-import type { CascaderProps } from 'antd';
+﻿import type { CascaderProps } from 'antd';
 import React, { useContext } from 'react';
+import { FieldCascader } from '../../../field';
+import { ProConfigProvider } from '../../../provider';
 import FieldContext from '../../FieldContext';
 import type {
   ProFormFieldItemProps,

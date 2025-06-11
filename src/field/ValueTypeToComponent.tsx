@@ -1,4 +1,13 @@
 import { Avatar } from 'antd';
+import dayjs from 'dayjs';
+import advancedFormat from 'dayjs/plugin/advancedFormat';
+import isoWeek from 'dayjs/plugin/isoWeek';
+import localeData from 'dayjs/plugin/localeData';
+import weekday from 'dayjs/plugin/weekday';
+import weekOfYear from 'dayjs/plugin/weekOfYear';
+import { FieldText } from '.';
+import { ProRenderFieldPropsType } from '../provider';
+import { pickProProps } from '../utils';
 import FieldCascader from './components/Cascader';
 import FieldCheckbox from './components/Checkbox';
 import FieldCode from './components/Code';
@@ -26,17 +35,6 @@ import FieldTextArea from './components/TextArea';
 import FieldTimePicker, { FieldTimeRangePicker } from './components/TimePicker';
 import FieldTreeSelect from './components/TreeSelect';
 import FieldHOC from './FieldHOC';
-
-import advancedFormat from 'dayjs/plugin/advancedFormat';
-import isoWeek from 'dayjs/plugin/isoWeek';
-import localeData from 'dayjs/plugin/localeData';
-import weekday from 'dayjs/plugin/weekday';
-import weekOfYear from 'dayjs/plugin/weekOfYear';
-
-import { ProRenderFieldPropsType } from '../provider';
-import { pickProProps } from '../utils';
-import dayjs from 'dayjs';
-import { FieldText } from '.';
 
 dayjs.extend(localeData);
 dayjs.extend(advancedFormat);

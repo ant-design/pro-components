@@ -14,8 +14,8 @@ Page-level skeleton screen, does not support customization
 
 ## Installation and initialization
 
-```typescript | pure
-import Skeleton from '@ant-design/pro-skeleton';
+```typescript | pureimport { afterEach, describe, expect, it, vi } from 'vitest';
+import   Skeleton from '@ant-design/pro-skeleton';
 
 return <Skeleton type="list" />;
 ```
@@ -38,13 +38,13 @@ return <Skeleton type="list" />;
 
 ## API
 
-| parameter | description | type | default value |
-| --- | --- | --- | --- |
-| type | Different types of skeleton screens | `'list' \| 'result' \| 'descriptions'` | list |
-| active | Whether to show dynamic | boolean | true |
-| pageHeader | Whether to display pageHeader's skeleton screen descriptions and list are valid | - | - |
-| statistic | number of statistic skeleton screens | `number` \| `false` | - |
-| list | skeleton screen of the list, you can control the number | `number` \| `false` | - |
-| toolbar | Action bar skeleton screen of the list | boolean | - |
-| renderFormItem | Customize the dom performance under `mode=update or edit`, generally used to render edit boxes | - | - |
-| render | Customize the dom performance under `mode=read`, which is just a simple form of expression | - | - |
+| parameter      | description                                                                                    | type                                   | default value |
+| -------------- | ---------------------------------------------------------------------------------------------- | -------------------------------------- | ------------- |
+| type           | Different types of skeleton screens                                                            | `'list' \| 'result' \| 'descriptions'` | list          |
+| active         | Whether to show dynamic                                                                        | boolean                                | true          |
+| pageHeader     | Whether to display pageHeader's skeleton screen descriptions and list are valid                | -                                      | -             |
+| statistic      | number of statistic skeleton screens                                                           | `number` \| `false`                    | -             |
+| list           | skeleton screen of the list, you can control the number                                        | `number` \| `false`                    | -             |
+| toolbar        | Action bar skeleton screen of the list                                                         | boolean                                | -             |
+| formItemRender | Customize the dom performance under `mode=update or edit`, generally used to render edit boxes | -                                      | -             |
+| render         | Customize the dom performance under `mode=read`, which is just a simple form of expression     | -                                      | -             |

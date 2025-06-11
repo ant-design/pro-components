@@ -90,7 +90,7 @@ const columns: ProFormColumnsType<DataItem>[] = [
               title: 'title为hidden时隐藏',
               dataIndex: 'hidden',
               valueType: 'date',
-              renderFormItem: () => {
+              formItemRender: () => {
                 return <Input />;
               },
             },

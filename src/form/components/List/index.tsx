@@ -1,6 +1,4 @@
 ﻿import { CopyOutlined, DeleteOutlined } from '@ant-design/icons';
-import { useIntl } from '../../../provider';
-import { ProFormContext } from '../../../utils';
 import type { ColProps } from 'antd';
 import { ConfigProvider, Form } from 'antd';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
@@ -11,7 +9,6 @@ import type {
 } from 'antd/lib/form/FormList';
 import type { NamePath } from 'antd/lib/form/interface';
 import classNames from 'classnames';
-
 import { noteOnce } from 'rc-util/lib/warning';
 import type { ReactNode } from 'react';
 import React, {
@@ -21,6 +18,8 @@ import React, {
   useMemo,
   useRef,
 } from 'react';
+import { useIntl } from '../../../provider';
+import { ProFormContext } from '../../../utils';
 import FieldContext from '../../FieldContext';
 import { useGridHelpers } from '../../helpers';
 import type { ProFormGridConfig } from '../../typing';

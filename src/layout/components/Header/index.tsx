@@ -1,7 +1,7 @@
-import { isNeedOpenHash, ProProvider } from '../../../provider';
 import { ConfigProvider, Layout } from 'antd';
 import classNames from 'classnames';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
+import { isNeedOpenHash, ProProvider } from '../../../provider';
 import type { WithFalse } from '../../typing';
 import { clearMenuItem } from '../../utils/utils';
 import type { GlobalHeaderProps } from '../GlobalHeader';

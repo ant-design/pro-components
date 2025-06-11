@@ -1,8 +1,8 @@
-import { proTheme, useIntl } from '../../../provider';
 import type { ButtonProps } from 'antd';
 import { Button, Form } from 'antd';
 import omit from 'rc-util/lib/omit';
 import React from 'react';
+import { proTheme, useIntl } from '../../../provider';
 
 /** @name 用于配置操作栏 */
 export type SearchConfig = {

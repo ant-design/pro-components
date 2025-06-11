@@ -20,7 +20,7 @@ import {
   transformKeySubmitValue,
   useDebounceFn,
   useDebounceValue,
-} from '@ant-design/pro-utils';
+} from '@ant-design/pro-components';
 import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import { Form, Input } from 'antd';
 import type { Dayjs } from 'dayjs';

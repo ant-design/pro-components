@@ -1,7 +1,7 @@
-import { isDeepEqualReact, omitUndefined } from '../../../utils';
 import type { TablePaginationConfig } from 'antd';
 import omit from 'rc-util/lib/omit';
 import React from 'react';
+import { isDeepEqualReact, omitUndefined } from '../../../utils';
 import type { ActionType, ProTableProps } from '../../typing';
 import { isBordered } from '../../utils/index';
 import FormRender from './FormRender';

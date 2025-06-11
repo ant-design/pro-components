@@ -1,8 +1,8 @@
-import { ProProvider } from '../../../provider';
 import { ConfigProvider, Drawer } from 'antd';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import React, { useContext, useEffect } from 'react';
+import { ProProvider } from '../../../provider';
 import type { PrivateSiderMenuProps, SiderMenuProps } from './SiderMenu';
 import { SiderMenu } from './SiderMenu';
 import { useStyle } from './style/index';

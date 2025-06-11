@@ -1,3 +1,11 @@
+import { Avatar } from 'antd';
+import dayjs from 'dayjs';
+import advancedFormat from 'dayjs/plugin/advancedFormat';
+import isoWeek from 'dayjs/plugin/isoWeek';
+import localeData from 'dayjs/plugin/localeData';
+import weekday from 'dayjs/plugin/weekday';
+import weekOfYear from 'dayjs/plugin/weekOfYear';
+import React, { useContext } from 'react';
 import type {
   BaseProFieldFC,
   ProFieldFCRenderProps,
@@ -14,8 +22,6 @@ import {
   useDeepCompareMemo,
   useRefFunction,
 } from '../utils';
-import { Avatar } from 'antd';
-import React, { useContext } from 'react';
 import FieldCascader from './components/Cascader';
 import FieldCheckbox from './components/Checkbox';
 import FieldCode from './components/Code';
@@ -44,14 +50,6 @@ import FieldTextArea from './components/TextArea';
 import FieldTimePicker, { FieldTimeRangePicker } from './components/TimePicker';
 import FieldTreeSelect from './components/TreeSelect';
 import FieldHOC from './FieldHOC';
-
-import advancedFormat from 'dayjs/plugin/advancedFormat';
-import isoWeek from 'dayjs/plugin/isoWeek';
-import localeData from 'dayjs/plugin/localeData';
-import weekday from 'dayjs/plugin/weekday';
-import weekOfYear from 'dayjs/plugin/weekOfYear';
-
-import dayjs from 'dayjs';
 import { ProFieldPropsType } from './PureProField';
 
 dayjs.extend(localeData);

@@ -29,27 +29,27 @@ So the props we set for ProFormText are actually for Form.Item, and the fieldPro
 
 ## Component List
 
-| Component | Usage Scenario |
-| --- | --- |
-| [ProFormText](https://ant.design/components/input-cn/#Input.Password) | Suitable for various text inputs |
-| [ProFormDigit](https://ant.design/components/input-number-cn/) | Numeric input component with formatting support (default: two decimal places, minimum value: 0), formatting can be disabled if needed. |
-| [ProFormText.Password](https://ant.design/components/input-cn/#Input.Password) | Suitable for password input |
-| [ProFormTextArea](https://ant.design/components/input-cn/#Input.Password) | Supports multi-line text input, ideal for longer text content |
-| ProFormCaptcha | Used for verification code input, typically combined with a verification code API |
-| [ProFormDatePicker](https://ant.design/components/date-picker-cn/) | Date picker, suitable for selecting a single date |
-| [ProFormDateTimePicker](https://ant.design/components/date-picker-cn/) | Date + Time picker, suitable for combined date and time selection scenarios |
-| [ProFormDateRangePicker](https://ant.design/components/date-picker-cn/) | Date range picker, suitable for selecting a date range |
-| [ProFormDateTimeRangePicker](https://ant.design/components/date-picker-cn/) | Date + Time range picker, suitable for selecting a date and time range |
-| [ProFormSelect](https://ant.design/components/select-cn/) | Supports generating options using `request` and `valueEnum`, suitable for selecting one item from multiple options. |
-| [ProFormTreeSelect](https://ant.design/components/tree-select-cn/) | Supports generating options using `request` and `valueEnum`, suitable for tree-structured option selection. |
-| [ProFormCheckbox](https://ant.design/components/checkbox-cn/) | Supports `layout`, and options can be generated using `request` and `valueEnum` |
-| [ProFormRadio.Group](https://ant.design/components/radio-cn/) | Supports generating options using `request` and `valueEnum`, suitable for single-option selection with all options displayed |
-| [ProFormSlider](https://ant.design/components/slider-cn/) | Suitable for selecting values within a numeric or custom range, supports continuous and discrete values. |
-| [ProFormSwitch](https://ant.design/components/switch-cn/) | Suitable for toggling between two mutually exclusive options, typically `true` and `false` |
-| [ProFormUploadButton](https://ant.design/components/upload-cn/) | Button-style file uploader |
-| [ProFormUploadDragger](https://ant.design/components/upload-cn/) | Drag-and-drop file uploader, commonly used in prominent upload form areas |
-| ProFormMoney | General-purpose monetary input component |
-| [ProFormSegmented](https://ant.design/components/segmented-cn/) | Segmented control for dividing options into sections |
+| Component                                                                      | Usage Scenario                                                                                                                         |
+| ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| [ProFormText](https://ant.design/components/input-cn/#Input.Password)          | Suitable for various text inputs                                                                                                       |
+| [ProFormDigit](https://ant.design/components/input-number-cn/)                 | Numeric input component with formatting support (default: two decimal places, minimum value: 0), formatting can be disabled if needed. |
+| [ProFormText.Password](https://ant.design/components/input-cn/#Input.Password) | Suitable for password input                                                                                                            |
+| [ProFormTextArea](https://ant.design/components/input-cn/#Input.Password)      | Supports multi-line text input, ideal for longer text content                                                                          |
+| ProFormCaptcha                                                                 | Used for verification code input, typically combined with a verification code API                                                      |
+| [ProFormDatePicker](https://ant.design/components/date-picker-cn/)             | Date picker, suitable for selecting a single date                                                                                      |
+| [ProFormDateTimePicker](https://ant.design/components/date-picker-cn/)         | Date + Time picker, suitable for combined date and time selection scenarios                                                            |
+| [ProFormDateRangePicker](https://ant.design/components/date-picker-cn/)        | Date range picker, suitable for selecting a date range                                                                                 |
+| [ProFormDateTimeRangePicker](https://ant.design/components/date-picker-cn/)    | Date + Time range picker, suitable for selecting a date and time range                                                                 |
+| [ProFormSelect](https://ant.design/components/select-cn/)                      | Supports generating options using `request` and `valueEnum`, suitable for selecting one item from multiple options.                    |
+| [ProFormTreeSelect](https://ant.design/components/tree-select-cn/)             | Supports generating options using `request` and `valueEnum`, suitable for tree-structured option selection.                            |
+| [ProFormCheckbox](https://ant.design/components/checkbox-cn/)                  | Supports `layout`, and options can be generated using `request` and `valueEnum`                                                        |
+| [ProFormRadio.Group](https://ant.design/components/radio-cn/)                  | Supports generating options using `request` and `valueEnum`, suitable for single-option selection with all options displayed           |
+| [ProFormSlider](https://ant.design/components/slider-cn/)                      | Suitable for selecting values within a numeric or custom range, supports continuous and discrete values.                               |
+| [ProFormSwitch](https://ant.design/components/switch-cn/)                      | Suitable for toggling between two mutually exclusive options, typically `true` and `false`                                             |
+| [ProFormUploadButton](https://ant.design/components/upload-cn/)                | Button-style file uploader                                                                                                             |
+| [ProFormUploadDragger](https://ant.design/components/upload-cn/)               | Drag-and-drop file uploader, commonly used in prominent upload form areas                                                              |
+| ProFormMoney                                                                   | General-purpose monetary input component                                                                                               |
+| [ProFormSegmented](https://ant.design/components/segmented-cn/)                | Segmented control for dividing options into sections                                                                                   |
 
 ## Code examples
 
@@ -73,14 +73,14 @@ ProForm comes with Filed , which basically corresponds to the valueType one by o
 
 ### Generic properties
 
-| Parameters | Description | Type | Default |
-| --- | --- | --- | --- |
-| width | The length of the Field, we summarize the common Field lengths and suitable scenarios, support some enumeration "xs" , "s" , "m" , "l" , "x" | `number \| "xs" \| "s" \| "m" \| "l" \| "x"` | - |
-| rowProps | Passed to `Row` when `grid` mode is enabled, Applies only to `ProFormGroup`, `ProFormList`, `ProFormFieldSet` | [RowProps](https://ant.design/components/grid/#Row) | { gutter: 8 } |
-| colProps | Passed to `Col` when `grid` mode is enabled | [ColProps](https://ant.design/components/grid/#Col) | { xs: 24 } |
-| tooltip | will add an icon next to the label to show the configured information when hovered | `string \| tooltipProps` | - |
-| secondary | Whether secondary control, only valid for LightFilter | `boolean` | `false` |
-| allowClear | Support for clearing, valid for LightFilter, will also be passed to `fieldProps` if actively set. | `boolean` | `true` |
+| Parameters | Description                                                                                                                                  | Type                                                | Default       |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- | ------------- |
+| width      | The length of the Field, we summarize the common Field lengths and suitable scenarios, support some enumeration "xs" , "s" , "m" , "l" , "x" | `number \| "xs" \| "s" \| "m" \| "l" \| "x"`        | -             |
+| rowProps   | Passed to `Row` when `grid` mode is enabled, Applies only to `ProFormGroup`, `ProFormList`, `ProFormFieldSet`                                | [RowProps](https://ant.design/components/grid/#Row) | { gutter: 8 } |
+| colProps   | Passed to `Col` when `grid` mode is enabled                                                                                                  | [ColProps](https://ant.design/components/grid/#Col) | { xs: 24 }    |
+| tooltip    | will add an icon next to the label to show the configured information when hovered                                                           | `string \| tooltipProps`                            | -             |
+| secondary  | Whether secondary control, only valid for LightFilter                                                                                        | `boolean`                                           | `false`       |
+| allowClear | Support for clearing, valid for LightFilter, will also be passed to `fieldProps` if actively set.                                            | `boolean`                                           | `true`        |
 
 ### Width
 
@@ -143,12 +143,12 @@ ProFormCaptcha is a component developed to support common CAPTCHA functionality 
 />
 ```
 
-| Parameters | Description | Type | Default |
-| --- | --- | --- | --- |
-| onGetCaptcha | The event to click to get the captcha, if phoneName is configured it will be injected automatically | `(phone)=>Promise<any>` | - |
-| captchaProps | The props of the Get Captcha button, same as antd's props | `ButtonProps` | - |
-| countDown | The number of seconds to count down | number | 60 |
-| captchaTextRender | Render the text of the timer | `(timing: boolean, count: number) => React.ReactNode` | - |
+| Parameters        | Description                                                                                         | Type                                                  | Default |
+| ----------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------------------------- | ------- |
+| onGetCaptcha      | The event to click to get the captcha, if phoneName is configured it will be injected automatically | `(phone)=>Promise<any>`                               | -       |
+| captchaProps      | The props of the Get Captcha button, same as antd's props                                           | `ButtonProps`                                         | -       |
+| countDown         | The number of seconds to count down                                                                 | number                                                | 60      |
+| captchaTextRender | Render the text of the timer                                                                        | `(timing: boolean, count: number) => React.ReactNode` | -       |
 
 ### ProFormText.Password
 
@@ -245,13 +245,13 @@ Same as [select](https://ant.design/components/select/). Both request and valueE
 
 > Requesting remote data is more complicated, see [here](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params) for details.
 
-| Parameters | Description | Type | Default |
-| --- | --- | --- | --- |
-| valueEnum | Enumeration of current values [valueEnum](/components/table#valueenum) | `Record` | - |
-| request | Enumerate data from network requests | `()=>Promise<{[key:string`\|`number]:any}>` | - |
-| debounceTime | Debounce time, used in conjunction with `request` | `number` | - |
-| params | Parameters for initiating network requests, used in conjunction with `request`. | `Record` | - |
-| fieldProps | Props of Ant Design component | `SelectProps ` | - |
+| Parameters   | Description                                                                     | Type                                        | Default |
+| ------------ | ------------------------------------------------------------------------------- | ------------------------------------------- | ------- |
+| valueEnum    | Enumeration of current values [valueEnum](/components/table#valueenum)          | `Record`                                    | -       |
+| request      | Enumerate data from network requests                                            | `()=>Promise<{[key:string`\|`number]:any}>` | -       |
+| debounceTime | Debounce time, used in conjunction with `request`                               | `number`                                    | -       |
+| params       | Parameters for initiating network requests, used in conjunction with `request`. | `Record`                                    | -       |
+| fieldProps   | Props of Ant Design component                                                   | `SelectProps `                              | -       |
 
 > Why support valueEnum when you have options? valueEnum can be used with tables, descriptions, and has engineering advantages.
 
@@ -332,13 +332,13 @@ Same as [tree-select](https://ant.design/components/tree-select/). Both request 
 
 > When using `onDropdownVisibleChange` in `fieldProps`, you need to separately manage the `open` state. For details, refer to [#8876](https://github.com/ant-design/pro-components/issues/8876)
 
-| Parameters | Description | Type | Default |
-| --- | --- | --- | --- |
-| valueEnum | Enumeration of current values [valueEnum](/components/table#valueenum) | `Record` | - |
-| request | Enumerate data from network requests | `()=>Promise<{[key:string`\|`number]:any}>` | - |
-| debounceTime | Debounce time, used in conjunction with `request` | `number` | - |
-| params | Parameters for initiating network requests, used in conjunction with `request`. | `Record` | - |
-| fieldProps | Props of Ant Design component | `TreeSelectProps` | - |
+| Parameters   | Description                                                                     | Type                                        | Default |
+| ------------ | ------------------------------------------------------------------------------- | ------------------------------------------- | ------- |
+| valueEnum    | Enumeration of current values [valueEnum](/components/table#valueenum)          | `Record`                                    | -       |
+| request      | Enumerate data from network requests                                            | `()=>Promise<{[key:string`\|`number]:any}>` | -       |
+| debounceTime | Debounce time, used in conjunction with `request`                               | `number`                                    | -       |
+| params       | Parameters for initiating network requests, used in conjunction with `request`. | `Record`                                    | -       |
+| fieldProps   | Props of Ant Design component                                                   | `TreeSelectProps`                           | -       |
 
 > Why support valueEnum when you have options? valueEnum can be used with tables, descriptions, and has engineering advantages.
 
@@ -404,13 +404,13 @@ Same as [tree-select](https://ant.design/components/tree-select/). Both request 
 
 Same as [checkbox](https://ant.design/components/checkbox/), but supports `options` and `layout`.
 
-| Parameters | Description | Type | Default |
-| --- | --- | --- | --- |
-| options | Same as select, generates child nodes based on options, recommended. | `string[]` \| `{label:ReactNode,value:string}[]` | - |
-| layout | Configure the look of the checkbox to support vertical `vertical` and `horizontal` | `horizontal` \| `vertical` | - |
-| request | Enumerate data from network requests | `()=>Promise<{label,value}>` | - |
-| params | Parameters for initiating network requests, used in conjunction with `request`. | `Record` | - |
-| fieldProps | Props of Ant Design component | `CheckboxProps` | - |
+| Parameters | Description                                                                        | Type                                             | Default |
+| ---------- | ---------------------------------------------------------------------------------- | ------------------------------------------------ | ------- |
+| options    | Same as select, generates child nodes based on options, recommended.               | `string[]` \| `{label:ReactNode,value:string}[]` | -       |
+| layout     | Configure the look of the checkbox to support vertical `vertical` and `horizontal` | `horizontal` \| `vertical`                       | -       |
+| request    | Enumerate data from network requests                                               | `()=>Promise<{label,value}>`                     | -       |
+| params     | Parameters for initiating network requests, used in conjunction with `request`.    | `Record`                                         | -       |
+| fieldProps | Props of Ant Design component                                                      | `CheckboxProps`                                  | -       |
 
 ```tsx | pure
 <ProFormCheckbox.Group
@@ -427,13 +427,13 @@ Same as [checkbox](https://ant.design/components/checkbox/), but supports `optio
 
 Same as [radio](https://ant.design/components/radio/) but with support for `options`.
 
-| Parameters | Description | Type | Default |
-| --- | --- | --- | --- |
-| options | Same as select, generates child nodes based on options, recommended. | `string[]` \| `{label:ReactNode,value:string}[]` | - |
-| request | Enumerate data from network requests | `()=>Promise<{label,value}>` | - |
-| radioType | Set whether button mode or radio mode | `default` \| `button` | `default` |
-| params | Parameters for initiating network requests, used in conjunction with `request`. | `Record` | - |
-| fieldProps | Props of Ant Design component | `RadioProps` | - |
+| Parameters | Description                                                                     | Type                                             | Default   |
+| ---------- | ------------------------------------------------------------------------------- | ------------------------------------------------ | --------- |
+| options    | Same as select, generates child nodes based on options, recommended.            | `string[]` \| `{label:ReactNode,value:string}[]` | -         |
+| request    | Enumerate data from network requests                                            | `()=>Promise<{label,value}>`                     | -         |
+| radioType  | Set whether button mode or radio mode                                           | `default` \| `button`                            | `default` |
+| params     | Parameters for initiating network requests, used in conjunction with `request`. | `Record`                                         | -         |
+| fieldProps | Props of Ant Design component                                                   | `RadioProps`                                     | -         |
 
 ```tsx | pure
 <ProFormRadio.Group
@@ -489,12 +489,12 @@ Same as [cascader](https://ant.design/components/cascader-cn/), configure Cascad
 />
 ```
 
-| Parameters | Description | Type | Default |
-| --- | --- | --- | --- |
-| options | Similar to Cascader, generates child nodes based on options. It is recommended to use. | `string[]` \| `{label:ReactNode,value:string}[]` | - |
-| request | Enumerate data from network requests | `()=>Promise<{label,value}>` | - |
-| params | Parameters for initiating network requests, used in conjunction with `request`. | `Record` | - |
-| fieldProps | Props of Ant Design component | `CascaderProps` | - |
+| Parameters | Description                                                                            | Type                                             | Default |
+| ---------- | -------------------------------------------------------------------------------------- | ------------------------------------------------ | ------- |
+| options    | Similar to Cascader, generates child nodes based on options. It is recommended to use. | `string[]` \| `{label:ReactNode,value:string}[]` | -       |
+| request    | Enumerate data from network requests                                                   | `()=>Promise<{label,value}>`                     | -       |
+| params     | Parameters for initiating network requests, used in conjunction with `request`.        | `Record`                                         | -       |
+| fieldProps | Props of Ant Design component                                                          | `CascaderProps`                                  | -       |
 
 ### ProFormSwitch
 
@@ -547,11 +547,11 @@ Same as [slider](https://ant.design/components/slider/), configure Slider data t
 
 Same as [upload](https://ant.design/components/upload/). Dragger style is preset, otherwise it is the same as Upload.
 
-| Parameters | Description | Type | Default |
-| --- | --- | --- | --- |
-| icon | The chart of the Dragger. | `ReactNode` | InboxOutlined |
-| title | Dragger's title | `ReactNode` | 'Click or drag files to this area to upload' |
-| description | Dragger's description | `ReactNode` | 'Support single or bulk uploads' |
+| Parameters  | Description               | Type        | Default                                      |
+| ----------- | ------------------------- | ----------- | -------------------------------------------- |
+| icon        | The chart of the Dragger. | `ReactNode` | InboxOutlined                                |
+| title       | Dragger's title           | `ReactNode` | 'Click or drag files to this area to upload' |
+| description | Dragger's description     | `ReactNode` | 'Support single or bulk uploads'             |
 
 ```tsx | pure
 <ProFormUploadDragger label="Dragger" name="dragger" action="upload.do" />
@@ -561,11 +561,11 @@ Same as [upload](https://ant.design/components/upload/). Dragger style is preset
 
 Same as [upload](https://ant.design/components/upload/). The Button style is preset, otherwise it is the same as Upload.
 
-| Parameters | Description | Type | Default |
-| --- | --- | --- | --- |
-| icon | The chart of Dragger. | `ReactNode` | UploadOutlined |
-| title | Dragger's title | `ReactNode` | Click to upload |
-| max | Maximum upload quantity. The upload button will be hidden if the maximum quantity is exceeded | `number` | - |
+| Parameters | Description                                                                                   | Type        | Default         |
+| ---------- | --------------------------------------------------------------------------------------------- | ----------- | --------------- |
+| icon       | The chart of Dragger.                                                                         | `ReactNode` | UploadOutlined  |
+| title      | Dragger's title                                                                               | `ReactNode` | Click to upload |
+| max        | Maximum upload quantity. The upload button will be hidden if the maximum quantity is exceeded | `number`    | -               |
 
 ```tsx | pure
 <ProFormUploadButton label="upload" name="upload" action="upload.do" />
@@ -602,14 +602,14 @@ ProFormMoney's input box for entering amounts supports the display of currency s
 />
 ```
 
-| Parameters | Description | Type | Default |
-| --- | --- | --- | --- |
-| locale | The internationalized region values set separately show different currency symbols depending on the region, as detailed in the region directory below | `string` | `zh-Hans-CN` |
-| customSymbol | Custom amount symbol | `string` | - |
-| numberPopoverRender | Custom Popover's value, false, can close his | `((props: InputNumberProps, defaultText: string) => React.ReactNode)` \| `boolean` | false |
-| numberFormatOptions | The configuration of NumberFormat, where the documentation can view the of the [mdn](https://developer.mozilla.org/zh-CN/docs/web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)) | NumberFormatOptions | - |
-| min | The minimum value is | `number` | - |
-| max | The maximum value is | `number` | - |
+| Parameters          | Description                                                                                                                                                                               | Type                                                                               | Default      |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ------------ |
+| locale              | The internationalized region values set separately show different currency symbols depending on the region, as detailed in the region directory below                                     | `string`                                                                           | `zh-Hans-CN` |
+| customSymbol        | Custom amount symbol                                                                                                                                                                      | `string`                                                                           | -            |
+| numberPopoverRender | Custom Popover's value, false, can close his                                                                                                                                              | `((props: InputNumberProps, defaultText: string) => React.ReactNode)` \| `boolean` | false        |
+| numberFormatOptions | The configuration of NumberFormat, where the documentation can view the of the [mdn](https://developer.mozilla.org/zh-CN/docs/web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)) | NumberFormatOptions                                                                | -            |
+| min                 | The minimum value is                                                                                                                                                                      | `number`                                                                           | -            |
+| max                 | The maximum value is                                                                                                                                                                      | `number`                                                                           | -            |
 
 #### Below is a table of regional codes and currency symbols
 
@@ -647,13 +647,13 @@ Same as [Segmented](https://ant.design/components/segmented-cn/). Supports both 
 
 > Requesting remote data is more complicated, see [here](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params) for details.
 
-| Parameters | Description | Type | Default |
-| --- | --- | --- | --- |
-| valueEnum | Enumeration of current values [valueEnum](/components/table#valueenum) | `Record` | - |
-| request | Enumerate data from network requests | `()=>Promise<{[key:string`\|`number]:any}>` | - |
-| debounceTime | Debounce time, used in conjunction with `request` | `number` | - |
-| params | Parameters for initiating network requests, used in conjunction with `request`. | `Record` | - |
-| fieldProps | Props of Ant Design component | `Segmented ` | - |
+| Parameters   | Description                                                                     | Type                                        | Default |
+| ------------ | ------------------------------------------------------------------------------- | ------------------------------------------- | ------- |
+| valueEnum    | Enumeration of current values [valueEnum](/components/table#valueenum)          | `Record`                                    | -       |
+| request      | Enumerate data from network requests                                            | `()=>Promise<{[key:string`\|`number]:any}>` | -       |
+| debounceTime | Debounce time, used in conjunction with `request`                               | `number`                                    | -       |
+| params       | Parameters for initiating network requests, used in conjunction with `request`. | `Record`                                    | -       |
+| fieldProps   | Props of Ant Design component                                                   | `Segmented `                                | -       |
 
 > Why support valueEnum when you have options? valueEnum can be used with tables, descriptions, and has engineering advantages.
 

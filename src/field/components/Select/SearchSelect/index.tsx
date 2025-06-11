@@ -1,8 +1,5 @@
-import type { RequestOptionsType } from '../../../../utils';
-import { nanoid } from '../../../../utils';
 import type { SelectProps } from 'antd';
 import { ConfigProvider, Select } from 'antd';
-
 import type { DefaultOptionType, LabeledValue } from 'antd/lib/select';
 import classNames from 'classnames';
 import React, {
@@ -12,6 +9,8 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import type { RequestOptionsType } from '../../../../utils';
+import { nanoid } from '../../../../utils';
 
 // 支持 key, value, label，兼容 UserSearch 中只填写了 key 的情况。
 export type KeyLabel = Partial<LabeledValue> & RequestOptionsType;

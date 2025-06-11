@@ -1,6 +1,6 @@
-import { dateArrayFormatter } from '../../../utils';
 import type { RangePickerProps } from 'antd/lib/date-picker';
 import React from 'react';
+import { dateArrayFormatter } from '../../../utils';
 import type { ProFormFieldItemProps } from '../../typing';
 import { BaseDateRanger } from './BaseDateRanger';
 

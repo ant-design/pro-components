@@ -1,7 +1,8 @@
-/* eslint-disable no-param-reassign */
-import { ProProvider, useIntl } from '../../../provider';
-import { isBrowser, useMountMergeState } from '../../../utils';
-import type { ColProps, FormItemProps, RowProps } from 'antd';
+/* eslint-disable no-param-reassign */ import type {
+  ColProps,
+  FormItemProps,
+  RowProps,
+} from 'antd';
 import { Col, ConfigProvider, Form, Row } from 'antd';
 import type { FormInstance, FormProps } from 'antd/lib/form/Form';
 import classNames from 'classnames';
@@ -9,6 +10,8 @@ import RcResizeObserver from 'rc-resize-observer';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { ReactElement } from 'react';
 import React, { useContext, useMemo } from 'react';
+import { ProProvider, useIntl } from '../../../provider';
+import { isBrowser, useMountMergeState } from '../../../utils';
 import type { CommonFormProps } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import type { ActionsProps } from './Actions';

@@ -1,5 +1,5 @@
-﻿import { omitUndefined } from '../../utils';
-import { useEffect, useState } from 'react';
+﻿import { useEffect, useState } from 'react';
+import { omitUndefined } from '../../utils';
 import type { ProSettings } from '../defaultSettings';
 
 const useCurrentMenuLayoutProps = (currentMenu: ProSettings) => {

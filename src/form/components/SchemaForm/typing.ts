@@ -1,3 +1,5 @@
+import type { FormInstance, FormProps } from 'antd';
+import type { NamePath } from 'antd/lib/form/interface';
 import type {
   ProCoreActionType,
   ProSchema,
@@ -5,8 +7,6 @@ import type {
   SearchConvertKeyFn,
   SearchTransformKeyFn,
 } from '../../../utils';
-import type { FormInstance, FormProps } from 'antd';
-import type { NamePath } from 'antd/lib/form/interface';
 import type { CommonFormProps } from '../../BaseForm';
 import type {
   DrawerFormProps,

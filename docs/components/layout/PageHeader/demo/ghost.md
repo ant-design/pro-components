@@ -10,8 +10,9 @@ title: 白底模式
 
 默认 PageHeader 是透明底色的。在某些情况下，PageHeader 需要自己的背景颜色。
 
-```tsx | pure
+```tsx | pureimport { afterEach, describe, expect, it, vi } from 'vitest';
 import { Button, Descriptions, PageHeader } from 'antd';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import React from 'react';
 
 const App: React.FC = () => (

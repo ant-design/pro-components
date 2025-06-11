@@ -1,8 +1,8 @@
-import { useIntl } from '../../../provider';
-import { isNil } from '../../../utils';
 import { InputNumber } from 'antd';
 import omit from 'rc-util/lib/omit';
 import React, { useCallback } from 'react';
+import { useIntl } from '../../../provider';
+import { isNil } from '../../../utils';
 import type { ProFieldFC } from '../../PureProField';
 
 export type FieldDigitProps = {

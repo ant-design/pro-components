@@ -1,8 +1,5 @@
 import type { GenerateStyle, ProAliasToken } from '../../../provider';
-import {
-  resetComponent,
-  useStyle as useAntdStyle,
-} from '../../../utils';
+import { resetComponent, useStyle as useAntdStyle } from '../../../utils';
 
 interface ProCardToken extends ProAliasToken {
   componentCls: string;

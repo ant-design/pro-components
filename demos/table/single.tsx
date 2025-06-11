@@ -83,7 +83,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     title: 'Labels',
     dataIndex: 'labels',
     search: false,
-    renderFormItem: (_, { defaultRender }) => {
+    formItemRender: (_, { defaultRender }) => {
       return defaultRender(_);
     },
     render: (_, record) => (

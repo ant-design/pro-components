@@ -1,10 +1,10 @@
-import type { GenerateStyle } from '../../../provider';
-import { ProProvider } from '../../../provider';
 import type { AvatarProps, SiderProps } from 'antd';
 import { Avatar, Layout, Menu, Space, version } from 'antd';
 import classNames from 'classnames';
 import type { CSSProperties, FC, ReactNode } from 'react';
 import React, { useContext, useMemo } from 'react';
+import type { GenerateStyle } from '../../../provider';
+import { ProProvider } from '../../../provider';
 import type { WithFalse } from '../../typing';
 import { AppsLogoComponents, defaultRenderLogo } from '../AppsLogoComponents';
 import type { AppItemProps, AppListProps } from '../AppsLogoComponents/types';

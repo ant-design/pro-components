@@ -67,7 +67,7 @@ const columns: ProColumns<DataSourceType>[] = [
   {
     title: '描述',
     dataIndex: 'decs',
-    renderFormItem: (_, { record }) => {
+    formItemRender: (_, { record }) => {
       console.log('----===>', record);
       return <Input addonBefore={(record as any)?.addonBefore} />;
     },

@@ -1,6 +1,6 @@
-import { useIntl } from '../../../provider';
 import { InputNumber, Progress } from 'antd';
 import React, { useMemo } from 'react';
+import { useIntl } from '../../../provider';
 import type { ProFieldFC } from '../../PureProField';
 import { toNumber } from '../Percent/util';
 

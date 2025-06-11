@@ -1,10 +1,10 @@
-import { FieldCheckbox } from '../../../field';
-import { ProConfigProvider } from '../../../provider';
-import { runFunction } from '../../../utils';
 import type { CheckboxProps, CheckboxRef } from 'antd';
 import { Checkbox } from 'antd';
 import type { CheckboxGroupProps } from 'antd/lib/checkbox';
 import React from 'react';
+import { FieldCheckbox } from '../../../field';
+import { ProConfigProvider } from '../../../provider';
+import { runFunction } from '../../../utils';
 import type {
   ProFormFieldItemProps,
   ProFormFieldRemoteProps,

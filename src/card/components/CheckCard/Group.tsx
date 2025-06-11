@@ -1,8 +1,5 @@
-import { useMountMergeState } from '../../../utils';
-import { ConfigProvider, Skeleton } from 'antd';
-
 import { RightOutlined } from '@ant-design/icons';
-import { ProConfigProvider, proTheme } from '../../../provider';
+import { ConfigProvider, Skeleton } from 'antd';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import React, {
@@ -13,6 +10,8 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import { ProConfigProvider, proTheme } from '../../../provider';
+import { useMountMergeState } from '../../../utils';
 import CheckCard from './index';
 import { useStyle } from './style';
 

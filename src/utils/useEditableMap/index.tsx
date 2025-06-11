@@ -1,9 +1,8 @@
-﻿/* eslint-disable react-hooks/exhaustive-deps */
-import { useIntl } from '../../provider';
-import { message } from 'antd';
+﻿/* eslint-disable react-hooks/exhaustive-deps */ import { message } from 'antd';
 import { get, useMergedState } from 'rc-util';
 import type React from 'react';
 import { useCallback, useMemo, useRef } from 'react';
+import { useIntl } from '../../provider';
 import type {
   ActionRenderConfig,
   ActionTypeText,

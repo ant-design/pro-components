@@ -1,4 +1,8 @@
 import {
+  StyleProvider,
+  legacyLogicalPropertiesTransformer,
+} from '@ant-design/cssinjs';
+import {
   cleanup,
   render as reactRender,
   waitFor,
@@ -6,11 +10,6 @@ import {
 import { App } from 'antd';
 import glob from 'glob';
 import MockDate from 'mockdate';
-
-import {
-  StyleProvider,
-  legacyLogicalPropertiesTransformer,
-} from '@ant-design/cssinjs';
 import {
   afterAll,
   afterEach,

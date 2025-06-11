@@ -1,11 +1,10 @@
 import { SearchOutlined } from '@ant-design/icons';
-import { FieldLabel, useStyle } from '../../../../utils';
 import type { SelectProps } from 'antd';
 import { ConfigProvider, Input, Select } from 'antd';
-
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 import React, { useContext, useMemo, useState } from 'react';
+import { FieldLabel, useStyle } from '../../../../utils';
 import type { ProFieldLightProps } from '../../../PureProField';
 
 export type LightSelectProps = {

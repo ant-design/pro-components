@@ -1,3 +1,13 @@
+import { Form } from 'antd';
+import { AnyObject } from 'antd/lib/_util/type';
+import get from 'rc-util/lib/utils/get';
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 import type { ProFieldEmptyText } from '../../field';
 import type { ProFormFieldProps } from '../../form';
 import { FieldContext, ProForm, ProFormField } from '../../form';
@@ -11,18 +21,8 @@ import {
   getFieldPropsOrFormItemProps,
   runFunction,
 } from '../../utils';
-import { Form } from 'antd';
-import { AnyObject } from 'antd/lib/_util/type';
-import get from 'rc-util/lib/utils/get';
-import React, {
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
-import type { ContainerType } from '../Store/Provide';
 import type { ProColumnType } from '../index';
+import type { ContainerType } from '../Store/Provide';
 
 const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
 

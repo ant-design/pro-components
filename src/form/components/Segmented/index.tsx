@@ -1,7 +1,7 @@
-﻿import { FieldSegmented } from '../../../field';
-import { ProConfigProvider } from '../../../provider';
-import type { SegmentedProps } from 'antd';
+﻿import type { SegmentedProps } from 'antd';
 import React from 'react';
+import { FieldSegmented } from '../../../field';
+import { ProConfigProvider } from '../../../provider';
 import type {
   ProFormFieldItemProps,
   ProFormFieldRemoteProps,

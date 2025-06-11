@@ -1,10 +1,9 @@
-import ProDescriptions from '@ant-design/pro-descriptions';
-import type { ProCoreActionType } from '@ant-design/pro-utils';
+import type { ProCoreActionType } from '@ant-design/pro-components';
+import { ProDescriptions } from '@ant-design/pro-components';
 import { cleanup, render, waitFor } from '@testing-library/react';
 import { Button, Input } from 'antd';
 import React, { act } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-
 afterEach(() => {
   cleanup();
 });

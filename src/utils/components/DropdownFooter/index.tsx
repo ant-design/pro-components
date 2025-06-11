@@ -1,7 +1,7 @@
-import { useIntl } from '../../../provider';
 import { Button, ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import React, { useContext } from 'react';
+import { useIntl } from '../../../provider';
 import { useStyle } from './style';
 
 type LightFilterFooterRender =

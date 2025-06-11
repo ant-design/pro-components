@@ -42,8 +42,8 @@ const msg: {
 
 If your backend data uses a familiar url, we could use a request to convert it, but it would be a pain to configure each table. If you're using umi's request, we can define a global transformer. We need to configure this in app.tsx
 
-```tsx | pure
-import { RequestConfig } from 'umi';
+```tsx | pureimport { afterEach, describe, expect, it, vi } from 'vitest';
+import   { RequestConfig } from 'umi';
 
 export const request: RequestConfig = {
   errorConfig: {
@@ -59,8 +59,8 @@ export const request: RequestConfig = {
   },
 };
 
-// when used
-import { request } from 'umi';
+// when usedimport { afterEach, describe, expect, it, vi } from 'vitest';
+import   { request } from 'umi';
 
 <ProTable request={request('/list')} />;
 ```
@@ -142,7 +142,7 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
    * @name Customize the edit schema
    * @description returns a node that will automatically wrap value and onChange
    */
-  renderFormItem?: (
+  formItemRender?: (
     item: ProSchema<T, U, Extra>,
     config: {
       index?: number;

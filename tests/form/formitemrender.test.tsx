@@ -1,5 +1,6 @@
 import { pickControlProps, useControlModel } from '@ant-design/pro-components';
 import { cleanup, renderHook } from '@testing-library/react';
+import { afterEach, describe, expect, test, vi } from 'vitest';
 
 afterEach(() => {
   cleanup();

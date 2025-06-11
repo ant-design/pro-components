@@ -1,9 +1,6 @@
 import { FilterOutlined } from '@ant-design/icons';
-import { useIntl } from '../../../provider';
-import { FieldLabel, FilterDropdown } from '../../../utils';
 import type { FormProps } from 'antd';
 import { ConfigProvider } from 'antd';
-
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import type { TooltipPlacement } from 'antd/lib/tooltip';
 import classNames from 'classnames';
@@ -16,6 +13,8 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import { useIntl } from '../../../provider';
+import { FieldLabel, FilterDropdown } from '../../../utils';
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import type { LightFilterFooterRender } from '../../typing';

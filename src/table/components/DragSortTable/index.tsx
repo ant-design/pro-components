@@ -1,8 +1,8 @@
 import { HolderOutlined } from '@ant-design/icons';
-import type { ParamsType } from '../../../provider';
 import { ConfigProvider } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useContext, useMemo } from 'react';
+import type { ParamsType } from '../../../provider';
 import ProTable from '../../Table';
 import type { ProTableProps } from '../../typing';
 import { useDragSort } from '../../utils/useDragSort';

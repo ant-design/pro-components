@@ -4,7 +4,7 @@
   ProFormList,
   ProFormSelect,
   ProFormText,
-} from '../../../../components';
+} from '@ant-design/pro-components';
 
 const Demo = () => {
   return (

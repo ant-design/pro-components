@@ -1,3 +1,15 @@
+import type { SelectProps } from 'antd';
+import { ConfigProvider, Spin } from 'antd';
+import type { ReactNode } from 'react';
+import React, {
+  useContext,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
+import useSWR from 'swr';
 import { useIntl } from '../../../provider';
 import {
   compatibleBorder,
@@ -15,18 +27,6 @@ import {
   useRefFunction,
   useStyle,
 } from '../../../utils';
-import type { SelectProps } from 'antd';
-import { ConfigProvider, Spin } from 'antd';
-import type { ReactNode } from 'react';
-import React, {
-  useContext,
-  useEffect,
-  useImperativeHandle,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
-import useSWR from 'swr';
 import type { ProFieldFC, ProFieldLightProps } from '../../PureProField';
 import LightSelect from './LightSelect';
 import SearchSelect from './SearchSelect';

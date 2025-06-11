@@ -1,5 +1,5 @@
-import { useLatest } from '../../../../utils';
 import React, { useCallback, useMemo } from 'react';
+import { useLatest } from '../../../../utils';
 import { StepsForm as ProStepsForm } from '../../../layouts/StepsForm';
 import type { ProFormGridConfig } from '../../../typing';
 import BetaSchemaForm from '../index';

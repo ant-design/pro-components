@@ -1,12 +1,8 @@
-﻿import {
-  objectToMap,
-  proFieldParsingText,
-  useStyle,
-} from '../../../utils';
-import { Checkbox, ConfigProvider, Form, Spin, theme } from 'antd';
+﻿import { Checkbox, ConfigProvider, Form, Spin, theme } from 'antd';
 import type { CheckboxGroupProps } from 'antd/lib/checkbox';
 import classNames from 'classnames';
 import React, { useContext, useImperativeHandle, useRef } from 'react';
+import { objectToMap, proFieldParsingText, useStyle } from '../../../utils';
 import type { ProFieldFC } from '../../PureProField';
 import type { FieldSelectProps } from '../Select';
 import { useFieldFetchData } from '../Select';

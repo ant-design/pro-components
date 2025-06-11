@@ -10,8 +10,9 @@ title: 标准样式
 
 标准页头，适合使用在需要简单描述的场景。
 
-```tsx | pure
+```tsx | pureimport { afterEach, describe, expect, it, vi } from 'vitest';
 import { PageHeader } from 'antd';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import React from 'react';
 
 const App: React.FC = () => (

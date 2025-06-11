@@ -21,87 +21,87 @@ ProLayout 可以提供一个标准又不失灵活的中后台标准布局，同�
 
 > 所有以 `Render` 为后缀的方法都可以通过传入 `false` 来使其不渲染。
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| title | layout 的左上角的 title | `ReactNode` | `'Ant Design Pro'` |
-| logo | layout 的左上角 logo 的 url | `ReactNode` \| `()=> ReactNode` | - |
-| pure | 是否删除掉所有的自带界面 | `boolean` | - |
-| loading | layout 的加载态 | `boolean` | - |
-| location | 当前应用会话的位置信息。如果你的应用创建了自定义的 history，则需要显示指定 location 属性，详见 [issue](https://github.com/ant-design/pro-components/issues/327) | [history.location](https://reactrouter.com/web/api/history) | isBrowser ? window\.location : undefined |
-| appList | 跨站点导航列表 | `{ icon, title, desc, url, target, children }[]` | - |
-| appListRender | 自定义跨站点导航列表的 render 方法 | `(props: AppListProps, defaultDom: React.ReactNode) => ReactNode` | - |
-| menuHeaderRender | 渲染 logo 和 title, 优先级比 `headerTitleRender` 更高 | `ReactNode` \| `(logo,title)=>ReactNode` | - |
-| menuFooterRender | 在 layout 底部渲染一个块 | `(menuProps)=>ReactNode` | - |
-| onMenuHeaderClick | menu 菜单的头部点击事件 | `(e: React.MouseEvent<HTMLDivElement>) => void` | - |
-| menuExtraRender | 在菜单标题的下面渲染一个区域 | `(menuProps)=>ReactNode` | - |
-| onTopMixMenuHeaderClick | mix 模式下顶部栏的头部点击事件 | `(e: React.MouseEvent<HTMLDivElement>) => void` | - |
-| contentStyle | layout 的内容区 style | CSSProperties | - |
-| layout | layout 的菜单模式，side：右侧导航，top：顶部导航 | `side` \| `top`\|`mix` | `side` |
-| contentWidth | layout 的内容模式，Fluid：自适应，Fixed：定宽 1200px | `Fluid` \| `Fixed` | `Fluid` |
-| actionRef | layout 的常见操作，比如刷新菜单 | `MutableRefObject<ActionType>` | - |
-| fixedHeader | 是否固定 header 到顶部 | `boolean` | `false` |
-| fixSiderbar | 是否固定导航 | `boolean` | `false` |
-| breakpoint | 触发响应式布局的[断点](https://ant.design/components/grid-cn/#Col) | `Enum { 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' }` | `lg` |
-| menu | 关于 [menu](#menu) 的配置，暂时只有 locale，locale 可以关闭 menu 的自带的全球化 | [`menuConfig`](#menu) | `{ locale: true }` |
-| iconfontUrl | 使用 [IconFont](https://ant.design/components/icon-cn/#components-icon-demo-iconfont) 的图标配置 | `URL` | - |
-| locale | 当前 layout 的语言设置 | `zh-CN` \| `zh-TW` \| `en-US` | navigator.language |
-| settings | layout 的设置 | [`Settings`](#Settings) | - |
-| siderWidth | 侧边菜单宽度 | `number` | 208 |
-| suppressSiderWhenMenuEmpty | 在菜单为空时隐藏 Sider | `boolean` | - |
-| defaultCollapsed | 默认的菜单的收起和展开，会受到 `breakpoint` 的影响，`breakpoint=false` 生效 | `boolean` | - |
-| collapsed | 控制菜单的收起和展开 | `boolean` | - |
-| onCollapse | 菜单的折叠收起事件 | `(collapsed: boolean) => void` | - |
-| onPageChange | 页面切换时触发 | `(location: Location) => void` | - |
-| headerRender | 自定义头的 render 方法 | `(props: ProLayoutProps) => ReactNode` | - |
-| headerTitleRender | 自定义头标题的方法，mix 模式和 top 模式下生效 | `(logo,title,props)=>ReactNode` | - |
-| headerContentRender | 自定义头内容的方法 | `(props: ProLayoutProps) => ReactNode` | - |
-| avatarProps | layout 的头像设置，不同的 layout 放在不同的位置 | [`AvatarProps`](https://ant.design/components/avatar-cn/) | - |
-| actionsRender | 自定义操作列表 | `(layoutProps)=>ReactNode[]` | - |
-| collapsedButtonRender | 自定义 collapsed button 的方法 | `(collapsed: boolean) => ReactNode` | - |
-| footerRender | 自定义页脚的 render 方法 | `(props: ProLayoutProps) => JSX.Element \| false` | - |
-| pageTitleRender | 自定义页面标题的显示方法 | `(props: ProLayoutProps) => string` | - |
-| menuRender | 自定义菜单的 render 方法 | `(props: HeaderViewProps) => ReactNode` | - |
-| postMenuData | 在显示前对菜单数据进行查看，修改不会触发重新渲染 | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
-| menuItemRender | 自定义菜单项的 render 方法 | [`(itemProps: MenuDataItem, defaultDom: React.ReactNode, props: BaseMenuProps) => ReactNode`](/components/layout/#menudataitem) | - |
-| subMenuItemRender | 自定义拥有子菜单菜单项的 render 方法 | [`(itemProps: MenuDataItem) => ReactNode`](/components/layout/#menudataitem) | - |
-| menuDataRender | menuData 的 render 方法，用来自定义 menuData | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
-| breadcrumbRender | 自定义面包屑的数据 | `(route)=>route` | - |
-| breadcrumbProps | 传递到 antd Breadcrumb 组件的 props, 参考 [面包屑](https://ant.design/components/breadcrumb-cn/) | `breadcrumbProps` | undefined |
-| route | 用于生成菜单和面包屑。Umi 的 Layout 会自动带有 | [route](#route) | - |
-| disableMobile | 禁止自动切换到移动页面 | `boolean` | false |
-| ErrorBoundary | 自带了错误处理功能，防止白屏，`ErrorBoundary=false` 关闭默认错误边界 | `ReactNode` | 内置 ErrorBoundary |
-| links | 显示在菜单右下角的快捷操作 | `ReactNode[]` | - |
-| menuProps | 传递到 antd menu 组件的 props, 参考 [导航菜单](https://ant.design/components/menu-cn/) | `MenuProps` | undefined |
-| waterMarkProps | 配置水印，水印是 PageContainer 的功能，layout 只是透传给 PageContainer | [WaterMarkProps](/components/water-mark) | - |
+| 参数                       | 说明                                                                                                                                                            | 类型                                                                                                                            | 默认值                                   |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| title                      | layout 的左上角的 title                                                                                                                                         | `ReactNode`                                                                                                                     | `'Ant Design Pro'`                       |
+| logo                       | layout 的左上角 logo 的 url                                                                                                                                     | `ReactNode` \| `()=> ReactNode`                                                                                                 | -                                        |
+| pure                       | 是否删除掉所有的自带界面                                                                                                                                        | `boolean`                                                                                                                       | -                                        |
+| loading                    | layout 的加载态                                                                                                                                                 | `boolean`                                                                                                                       | -                                        |
+| location                   | 当前应用会话的位置信息。如果你的应用创建了自定义的 history，则需要显示指定 location 属性，详见 [issue](https://github.com/ant-design/pro-components/issues/327) | [history.location](https://reactrouter.com/web/api/history)                                                                     | isBrowser ? window\.location : undefined |
+| appList                    | 跨站点导航列表                                                                                                                                                  | `{ icon, title, desc, url, target, children }[]`                                                                                | -                                        |
+| appListRender              | 自定义跨站点导航列表的 render 方法                                                                                                                              | `(props: AppListProps, defaultDom: React.ReactNode) => ReactNode`                                                               | -                                        |
+| menuHeaderRender           | 渲染 logo 和 title, 优先级比 `headerTitleRender` 更高                                                                                                           | `ReactNode` \| `(logo,title)=>ReactNode`                                                                                        | -                                        |
+| menuFooterRender           | 在 layout 底部渲染一个块                                                                                                                                        | `(menuProps)=>ReactNode`                                                                                                        | -                                        |
+| onMenuHeaderClick          | menu 菜单的头部点击事件                                                                                                                                         | `(e: React.MouseEvent<HTMLDivElement>) => void`                                                                                 | -                                        |
+| menuExtraRender            | 在菜单标题的下面渲染一个区域                                                                                                                                    | `(menuProps)=>ReactNode`                                                                                                        | -                                        |
+| onTopMixMenuHeaderClick    | mix 模式下顶部栏的头部点击事件                                                                                                                                  | `(e: React.MouseEvent<HTMLDivElement>) => void`                                                                                 | -                                        |
+| contentStyle               | layout 的内容区 style                                                                                                                                           | CSSProperties                                                                                                                   | -                                        |
+| layout                     | layout 的菜单模式，side：右侧导航，top：顶部导航                                                                                                                | `side` \| `top`\|`mix`                                                                                                          | `side`                                   |
+| contentWidth               | layout 的内容模式，Fluid：自适应，Fixed：定宽 1200px                                                                                                            | `Fluid` \| `Fixed`                                                                                                              | `Fluid`                                  |
+| actionRef                  | layout 的常见操作，比如刷新菜单                                                                                                                                 | `MutableRefObject<ActionType>`                                                                                                  | -                                        |
+| fixedHeader                | 是否固定 header 到顶部                                                                                                                                          | `boolean`                                                                                                                       | `false`                                  |
+| fixSiderbar                | 是否固定导航                                                                                                                                                    | `boolean`                                                                                                                       | `false`                                  |
+| breakpoint                 | 触发响应式布局的[断点](https://ant.design/components/grid-cn/#Col)                                                                                              | `Enum { 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' }`                                                                                  | `lg`                                     |
+| menu                       | 关于 [menu](#menu) 的配置，暂时只有 locale，locale 可以关闭 menu 的自带的全球化                                                                                 | [`menuConfig`](#menu)                                                                                                           | `{ locale: true }`                       |
+| iconfontUrl                | 使用 [IconFont](https://ant.design/components/icon-cn/#components-icon-demo-iconfont) 的图标配置                                                                | `URL`                                                                                                                           | -                                        |
+| locale                     | 当前 layout 的语言设置                                                                                                                                          | `zh-CN` \| `zh-TW` \| `en-US`                                                                                                   | navigator.language                       |
+| settings                   | layout 的设置                                                                                                                                                   | [`Settings`](#Settings)                                                                                                         | -                                        |
+| siderWidth                 | 侧边菜单宽度                                                                                                                                                    | `number`                                                                                                                        | 208                                      |
+| suppressSiderWhenMenuEmpty | 在菜单为空时隐藏 Sider                                                                                                                                          | `boolean`                                                                                                                       | -                                        |
+| defaultCollapsed           | 默认的菜单的收起和展开，会受到 `breakpoint` 的影响，`breakpoint=false` 生效                                                                                     | `boolean`                                                                                                                       | -                                        |
+| collapsed                  | 控制菜单的收起和展开                                                                                                                                            | `boolean`                                                                                                                       | -                                        |
+| onCollapse                 | 菜单的折叠收起事件                                                                                                                                              | `(collapsed: boolean) => void`                                                                                                  | -                                        |
+| onPageChange               | 页面切换时触发                                                                                                                                                  | `(location: Location) => void`                                                                                                  | -                                        |
+| headerRender               | 自定义头的 render 方法                                                                                                                                          | `(props: ProLayoutProps) => ReactNode`                                                                                          | -                                        |
+| headerTitleRender          | 自定义头标题的方法，mix 模式和 top 模式下生效                                                                                                                   | `(logo,title,props)=>ReactNode`                                                                                                 | -                                        |
+| headerContentRender        | 自定义头内容的方法                                                                                                                                              | `(props: ProLayoutProps) => ReactNode`                                                                                          | -                                        |
+| avatarProps                | layout 的头像设置，不同的 layout 放在不同的位置                                                                                                                 | [`AvatarProps`](https://ant.design/components/avatar-cn/)                                                                       | -                                        |
+| actionsRender              | 自定义操作列表                                                                                                                                                  | `(layoutProps)=>ReactNode[]`                                                                                                    | -                                        |
+| collapsedButtonRender      | 自定义 collapsed button 的方法                                                                                                                                  | `(collapsed: boolean) => ReactNode`                                                                                             | -                                        |
+| footerRender               | 自定义页脚的 render 方法                                                                                                                                        | `(props: ProLayoutProps) => JSX.Element \| false`                                                                               | -                                        |
+| pageTitleRender            | 自定义页面标题的显示方法                                                                                                                                        | `(props: ProLayoutProps) => string`                                                                                             | -                                        |
+| menuRender                 | 自定义菜单的 render 方法                                                                                                                                        | `(props: HeaderViewProps) => ReactNode`                                                                                         | -                                        |
+| postMenuData               | 在显示前对菜单数据进行查看，修改不会触发重新渲染                                                                                                                | `(menuData: MenuDataItem[]) => MenuDataItem[]`                                                                                  | -                                        |
+| menuItemRender             | 自定义菜单项的 render 方法                                                                                                                                      | [`(itemProps: MenuDataItem, defaultDom: React.ReactNode, props: BaseMenuProps) => ReactNode`](/components/layout/#menudataitem) | -                                        |
+| subMenuItemRender          | 自定义拥有子菜单菜单项的 render 方法                                                                                                                            | [`(itemProps: MenuDataItem) => ReactNode`](/components/layout/#menudataitem)                                                    | -                                        |
+| menuDataRender             | menuData 的 render 方法，用来自定义 menuData                                                                                                                    | `(menuData: MenuDataItem[]) => MenuDataItem[]`                                                                                  | -                                        |
+| breadcrumbRender           | 自定义面包屑的数据                                                                                                                                              | `(route)=>route`                                                                                                                | -                                        |
+| breadcrumbProps            | 传递到 antd Breadcrumb 组件的 props, 参考 [面包屑](https://ant.design/components/breadcrumb-cn/)                                                                | `breadcrumbProps`                                                                                                               | undefined                                |
+| route                      | 用于生成菜单和面包屑。Umi 的 Layout 会自动带有                                                                                                                  | [route](#route)                                                                                                                 | -                                        |
+| disableMobile              | 禁止自动切换到移动页面                                                                                                                                          | `boolean`                                                                                                                       | false                                    |
+| ErrorBoundary              | 自带了错误处理功能，防止白屏，`ErrorBoundary=false` 关闭默认错误边界                                                                                            | `ReactNode`                                                                                                                     | 内置 ErrorBoundary                       |
+| links                      | 显示在菜单右下角的快捷操作                                                                                                                                      | `ReactNode[]`                                                                                                                   | -                                        |
+| menuProps                  | 传递到 antd menu 组件的 props, 参考 [导航菜单](https://ant.design/components/menu-cn/)                                                                          | `MenuProps`                                                                                                                     | undefined                                |
+| waterMarkProps             | 配置水印，水印是 PageContainer 的功能，layout 只是透传给 PageContainer                                                                                          | [WaterMarkProps](/components/water-mark)                                                                                        | -                                        |
 
 ### menu
 
 menu 中支持了部分常用的 menu 配置，可以帮助我们更好的管理 menu
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| locale | menu 是否使用国际化，还需要 formatMessage 的配合。 | `boolean` | `true` |
-| defaultOpenAll | 默认打开所有的菜单项，要注意只有 layout 挂载之前生效，异步加载菜单是不支持的 | `boolean` | `false` |
-| ignoreFlatMenu | 是否忽略手动折叠过的菜单状态，结合 defaultOpenAll 可实现折叠按钮切换后，同样可以展开所有子菜单 | `boolean` | `false` |
-| type | 菜单的类型 | `sub` \| `group` | `group` |
-| autoClose | 选中菜单是否自动关闭菜单 | `boolean` | `true` |
-| loading | 菜单是否正在加载中 | `boolean` | `false` |
-| onLoadingChange | 菜单的加载状态变更 | `(loading)=>void` | - |
-| request | 远程加载菜单的方法，会自动修改 loading 状态 | `(params,defaultMenuDat) => Promise<MenuDataItem[]>` | - |
+| 参数            | 说明                                                                                           | 类型                                                 | 默认值  |
+| --------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------- | ------- |
+| locale          | menu 是否使用国际化，还需要 formatMessage 的配合。                                             | `boolean`                                            | `true`  |
+| defaultOpenAll  | 默认打开所有的菜单项，要注意只有 layout 挂载之前生效，异步加载菜单是不支持的                   | `boolean`                                            | `false` |
+| ignoreFlatMenu  | 是否忽略手动折叠过的菜单状态，结合 defaultOpenAll 可实现折叠按钮切换后，同样可以展开所有子菜单 | `boolean`                                            | `false` |
+| type            | 菜单的类型                                                                                     | `sub` \| `group`                                     | `group` |
+| autoClose       | 选中菜单是否自动关闭菜单                                                                       | `boolean`                                            | `true`  |
+| loading         | 菜单是否正在加载中                                                                             | `boolean`                                            | `false` |
+| onLoadingChange | 菜单的加载状态变更                                                                             | `(loading)=>void`                                    | -       |
+| request         | 远程加载菜单的方法，会自动修改 loading 状态                                                    | `(params,defaultMenuDat) => Promise<MenuDataItem[]>` | -       |
 
 ### SettingDrawer
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| collapse | 控制 SettingDrawer 的收起和展开 | `boolean` | - |
-| onCollapseChange | SettingDrawer 的折叠收起事件 | `(collapsed: boolean) => void` | - |
-| settings | layout 的设置 | [`Settings`](#Settings) \| [`Settings`](#Settings) | - |
-| onSettingChange | [`Settings`](#Settings) 发生更改事件 | `(settings: [`Settings`](#Settings) ) => void` | - |
-| hideHintAlert | 删除下方的提示信息 | `boolean` | - |
-| hideCopyButton | 不展示 copy 功能 | `boolean` | - |
-| disableUrlParams | 禁止同步设置到查询参数 | `boolean` | `false` |
-| enableDarkTheme | 打开黑色主题切换功能 ｜ `boolean` | `false` |  |
-| colorList | 自带的颜色切换系统 (ColorList 的 title 会作为 Tooltip 显示) ｜ `{key,color,title?}[]` | `ColorList` |  |
+| 参数             | 说明                                                                                  | 类型                                               | 默认值  |
+| ---------------- | ------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
+| collapse         | 控制 SettingDrawer 的收起和展开                                                       | `boolean`                                          | -       |
+| onCollapseChange | SettingDrawer 的折叠收起事件                                                          | `(collapsed: boolean) => void`                     | -       |
+| settings         | layout 的设置                                                                         | [`Settings`](#Settings) \| [`Settings`](#Settings) | -       |
+| onSettingChange  | [`Settings`](#Settings) 发生更改事件                                                  | `(settings: [`Settings`](#Settings) ) => void`     | -       |
+| hideHintAlert    | 删除下方的提示信息                                                                    | `boolean`                                          | -       |
+| hideCopyButton   | 不展示 copy 功能                                                                      | `boolean`                                          | -       |
+| disableUrlParams | 禁止同步设置到查询参数                                                                | `boolean`                                          | `false` |
+| enableDarkTheme  | 打开黑色主题切换功能 ｜ `boolean`                                                     | `false`                                            |         |
+| colorList        | 自带的颜色切换系统 (ColorList 的 title 会作为 Tooltip 显示) ｜ `{key,color,title?}[]` | `ColorList`                                        |         |
 
 自带的颜色列表
 
@@ -122,15 +122,15 @@ const colorList = [
 
 一个简单的加载页面
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| [(...)](https://ant.design/components/spin-cn/#API) | 支持所有的 antd `Spin` 组件参数 | - | - |
+| 参数                                                | 说明                            | 类型 | 默认值 |
+| --------------------------------------------------- | ------------------------------- | ---- | ------ |
+| [(...)](https://ant.design/components/spin-cn/#API) | 支持所有的 antd `Spin` 组件参数 | -    | -      |
 
 ### getMenuData
 
 根据 router 信息来生成 menuData 和 breadcrumb。
 
-```js | pure
+```js | pureimport { afterEach, describe, expect, it, vi } from 'vitest';
 import { getMenuData } from '@ant-design/pro-components';
 
 const { breadcrumb, menuData } = getMenuData(
@@ -141,18 +141,18 @@ const { breadcrumb, menuData } = getMenuData(
 );
 ```
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| routes | 路由的配置信息 | [route\[\]](#route) | - |
-| menu | menu 的配置项，默认 `{locale: true}` | `{ locale: boolean }` | - |
-| menuDataRender | menuData 的 render 方法，用来自定义 menuData | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
-| formatMessage | react-intl 的 formatMessage 方法 | `(data: { id: any; defaultMessage?: string }) => string;` | - |
+| 参数           | 说明                                         | 类型                                                      | 默认值 |
+| -------------- | -------------------------------------------- | --------------------------------------------------------- | ------ |
+| routes         | 路由的配置信息                               | [route\[\]](#route)                                       | -      |
+| menu           | menu 的配置项，默认 `{locale: true}`         | `{ locale: boolean }`                                     | -      |
+| menuDataRender | menuData 的 render 方法，用来自定义 menuData | `(menuData: MenuDataItem[]) => MenuDataItem[]`            | -      |
+| formatMessage  | react-intl 的 formatMessage 方法             | `(data: { id: any; defaultMessage?: string }) => string;` | -      |
 
 ### getPageTitle
 
 getPageTitle 封装了根据 menuData 上生成的 title 的逻辑。
 
-```js | pure
+```js | pureimport { afterEach, describe, expect, it, vi } from 'vitest';
 import { getPageTitle } from '@ant-design/pro-components';
 
 const title = getPageTitle({
@@ -164,13 +164,13 @@ const title = getPageTitle({
 });
 ```
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| pathname | 当前的 pathname | location.pathname | - |
-| breadcrumb | MenuDataItem 的合集 | `{ [path: string]: MenuDataItem }` | - |
-| menu | menu 的配置项，默认 `{locale: true}` | `{ locale: boolean }` | - |
-| title | title 的类型 | string | 'Ant Design Pro' |
-| formatMessage | react-intl 的 formatMessage 方法 | `(data: { id: any; defaultMessage?: string }) => string;` | - |
+| 参数          | 说明                                 | 类型                                                      | 默认值           |
+| ------------- | ------------------------------------ | --------------------------------------------------------- | ---------------- |
+| pathname      | 当前的 pathname                      | location.pathname                                         | -                |
+| breadcrumb    | MenuDataItem 的合集                  | `{ [path: string]: MenuDataItem }`                        | -                |
+| menu          | menu 的配置项，默认 `{locale: true}` | `{ locale: boolean }`                                     | -                |
+| title         | title 的类型                         | string                                                    | 'Ant Design Pro' |
+| formatMessage | react-intl 的 formatMessage 方法     | `(data: { id: any; defaultMessage?: string }) => string;` | -                |
 
 ### Settings
 
@@ -240,8 +240,9 @@ export interface Route {
 
 页脚一般会展示一些公司和版权信息，默认的 ProLayout 不提供 Footer，但是提供了一个 DefaultFooter 组件，支持配置一些超链接和版权信息。
 
-```tsx | pure
+```tsx | pureimport { afterEach, describe, expect, it, vi } from 'vitest';
 import { GithubOutlined } from '@ant-design/icons';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { DefaultFooter } from '@ant-design/pro-components';
 
 <DefaultFooter
@@ -291,7 +292,7 @@ RouteContext 可以提供 Layout 的内置的数据。例如 isMobile 和 collap
 
 另外 RouteContext 也可以根据 layout 的数据来进行一些操作，PageContainer 和 FooterToolbar 都是依赖 RouteContext 的数据来实现功能。
 
-```tsx | pure
+```tsx | pureimport { afterEach, describe, expect, it, vi } from 'vitest';
 import { RouteContext, RouteContextType } from '@ant-design/pro-components';
 
 const Page = () => (
@@ -311,59 +312,59 @@ Token 是一种设计系统的基本元素，可以使用 Token 来快速地修�
 
 ### Layout 的 token
 
-| token | 说明 | 默认值 |
-| --- | --- | --- |
-| bgLayout | layout 的背景颜色 | `linear-gradient(${antdToken.colorBgContainer}, ${antdToken.colorBgLayout} 28%)` |
-| colorTextAppListIcon | 跨站点应用的图标颜色 | `#666` |
-| colorTextAppListIconHover | 跨站点应用的图标 hover 颜色 | `rgba(0, 0, 0, 0.65)` |
-| colorBgAppListIconHover | 跨站点应用的图标 hover 背景颜色 | `rgba(0, 0, 0, 0.04)` |
+| token                     | 说明                            | 默认值                                                                           |
+| ------------------------- | ------------------------------- | -------------------------------------------------------------------------------- |
+| bgLayout                  | layout 的背景颜色               | `linear-gradient(${antdToken.colorBgContainer}, ${antdToken.colorBgLayout} 28%)` |
+| colorTextAppListIcon      | 跨站点应用的图标颜色            | `#666`                                                                           |
+| colorTextAppListIconHover | 跨站点应用的图标 hover 颜色     | `rgba(0, 0, 0, 0.65)`                                                            |
+| colorBgAppListIconHover   | 跨站点应用的图标 hover 背景颜色 | `rgba(0, 0, 0, 0.04)`                                                            |
 
 ### Sider Token
 
 Sider Token 是侧边菜单的色值，与顶部菜单不同。
 
-| token | 说明 | 默认值 |
-| --- | --- | --- |
-| colorMenuBackground | menu 的背景颜色 | `transparent` |
-| colorTextMenuTitle | sider 的标题字体颜色 | `colorTextHeading` |
-| colorMenuItemDivider | menuItem 分割线的颜色 | `colorSplit` |
-| colorTextMenu | menuItem 的字体颜色 | `colorText` |
-| colorTextMenuSecondary | menu 的二级字体颜色，比如 footer 和 action 的 icon | `colorText` |
-| colorTextMenuSelected | menuItem 的选中字体颜色 | `rgb(0,0,0)` |
-| colorTextMenuActive | menuItem hover 的选中字体颜色 | `rgba(0, 0, 0, 0.85)` |
-| colorTextMenuItemHover | menuItem 的 hover 字体颜色 | `rgba(255,255,255,0.75)` |
-| colorBgMenuItemActive | menuItem 的点击时背景颜色 | `rgba(0, 0, 0, 0.15)` |
-| colorBgMenuItemHover | menuItem 的 hover 背景颜色 | `rgba(90, 75, 75, 0.03)` |
-| colorBgMenuItemSelected | menuItem 的选中背景颜色 | `rgba(0, 0, 0, 0.04)` |
-| colorBgMenuItemCollapsedElevated | 收起 menuItem 的弹出菜单背景颜色 | `transparent` |
-| colorBgCollapsedButton | 展开收起按钮背景颜色 | `#fff` |
-| colorTextCollapsedButton | 展开收起按钮字体颜色 | `colorTextMenuSecondary` |
-| colorTextCollapsedButtonHover | 展开收起按钮 hover 时字体颜色 | `colorTextMenu` |
+| token                            | 说明                                               | 默认值                   |
+| -------------------------------- | -------------------------------------------------- | ------------------------ |
+| colorMenuBackground              | menu 的背景颜色                                    | `transparent`            |
+| colorTextMenuTitle               | sider 的标题字体颜色                               | `colorTextHeading`       |
+| colorMenuItemDivider             | menuItem 分割线的颜色                              | `colorSplit`             |
+| colorTextMenu                    | menuItem 的字体颜色                                | `colorText`              |
+| colorTextMenuSecondary           | menu 的二级字体颜色，比如 footer 和 action 的 icon | `colorText`              |
+| colorTextMenuSelected            | menuItem 的选中字体颜色                            | `rgb(0,0,0)`             |
+| colorTextMenuActive              | menuItem hover 的选中字体颜色                      | `rgba(0, 0, 0, 0.85)`    |
+| colorTextMenuItemHover           | menuItem 的 hover 字体颜色                         | `rgba(255,255,255,0.75)` |
+| colorBgMenuItemActive            | menuItem 的点击时背景颜色                          | `rgba(0, 0, 0, 0.15)`    |
+| colorBgMenuItemHover             | menuItem 的 hover 背景颜色                         | `rgba(90, 75, 75, 0.03)` |
+| colorBgMenuItemSelected          | menuItem 的选中背景颜色                            | `rgba(0, 0, 0, 0.04)`    |
+| colorBgMenuItemCollapsedElevated | 收起 menuItem 的弹出菜单背景颜色                   | `transparent`            |
+| colorBgCollapsedButton           | 展开收起按钮背景颜色                               | `#fff`                   |
+| colorTextCollapsedButton         | 展开收起按钮字体颜色                               | `colorTextMenuSecondary` |
+| colorTextCollapsedButtonHover    | 展开收起按钮 hover 时字体颜色                      | `colorTextMenu`          |
 
 ### Header Token
 
-| token | 说明 | 默认值 |
-| --- | --- | --- |
-| colorBgHeader | header 的背景颜色 | `rgba(240, 242, 245, 0.4)` |
-| colorHeaderTitle | sider 的标题字体颜色 | `colorTextHeading` |
-| colorTextMenu | menuItem 的字体颜色 | `colorText` |
-| colorTextMenuSecondary | menu 的二级字体颜色，比如 footer 和 action 的 icon | `colorText` |
-| colorTextMenuSelected | menuItem 的选中字体颜色 | `rgb(0,0,0)` |
-| colorTextMenuActive | menuItem hover 的选中字体颜色 | `rgba(0, 0, 0, 0.85)` |
-| colorBgMenuItemHover | menuItem 的 hover 背景颜色 | `rgba(90, 75, 75, 0.03)` |
-| colorBgMenuItemSelected | menuItem 的选中背景颜色 | `rgba(0, 0, 0, 0.04)` |
-| colorTextRightActionsItem | 右上角字体颜色 | `colorTextSecondary` |
-| colorBgRightActionsItemHover | 右上角选中的 hover 颜色 | `rgba(0, 0, 0, 0.03)` |
-| heightLayoutHeader | header 高度 | 56 |
+| token                        | 说明                                               | 默认值                     |
+| ---------------------------- | -------------------------------------------------- | -------------------------- |
+| colorBgHeader                | header 的背景颜色                                  | `rgba(240, 242, 245, 0.4)` |
+| colorHeaderTitle             | sider 的标题字体颜色                               | `colorTextHeading`         |
+| colorTextMenu                | menuItem 的字体颜色                                | `colorText`                |
+| colorTextMenuSecondary       | menu 的二级字体颜色，比如 footer 和 action 的 icon | `colorText`                |
+| colorTextMenuSelected        | menuItem 的选中字体颜色                            | `rgb(0,0,0)`               |
+| colorTextMenuActive          | menuItem hover 的选中字体颜色                      | `rgba(0, 0, 0, 0.85)`      |
+| colorBgMenuItemHover         | menuItem 的 hover 背景颜色                         | `rgba(90, 75, 75, 0.03)`   |
+| colorBgMenuItemSelected      | menuItem 的选中背景颜色                            | `rgba(0, 0, 0, 0.04)`      |
+| colorTextRightActionsItem    | 右上角字体颜色                                     | `colorTextSecondary`       |
+| colorBgRightActionsItemHover | 右上角选中的 hover 颜色                            | `rgba(0, 0, 0, 0.03)`      |
+| heightLayoutHeader           | header 高度                                        | 56                         |
 
 ### pageContainer Token
 
-| token | 说明 | 默认值 |
-| --- | --- | --- |
-| paddingBlockPageContainerContent | pageContainer 自带的 padding block | `24` |
-| paddingInlinePageContainerContent | pageContainer 自带的 padding inline | `40` |
-| colorBgPageContainer | pageContainer 的背景颜色 | `transparent` |
-| colorBgPageContainerFixed | pageContainer 被固定时的背景颜色 | `#FFF` |
+| token                             | 说明                                | 默认值        |
+| --------------------------------- | ----------------------------------- | ------------- |
+| paddingBlockPageContainerContent  | pageContainer 自带的 padding block  | `24`          |
+| paddingInlinePageContainerContent | pageContainer 自带的 padding inline | `40`          |
+| colorBgPageContainer              | pageContainer 的背景颜色            | `transparent` |
+| colorBgPageContainerFixed         | pageContainer 被固定时的背景颜色    | `#FFF`        |
 
 ## FAQ
 

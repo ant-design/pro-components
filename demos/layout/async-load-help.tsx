@@ -1,6 +1,5 @@
 ﻿import { ProHelp, ProHelpPanel } from '@ant-design/pro-components';
 import { App } from 'antd';
-
 import ReactMarkdown from 'react-markdown';
 
 export const waitTimePromise = async (time: number = 100) => {

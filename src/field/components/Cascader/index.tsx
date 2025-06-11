@@ -1,11 +1,4 @@
 ﻿import { LoadingOutlined } from '@ant-design/icons';
-import { useIntl } from '../../../provider';
-import {
-  FieldLabel,
-  compatibleBorder,
-  objectToMap,
-  proFieldParsingText,
-} from '../../../utils';
 import type { RadioGroupProps } from 'antd';
 import { Cascader, ConfigProvider } from 'antd';
 import classNames from 'classnames';
@@ -16,6 +9,13 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import { useIntl } from '../../../provider';
+import {
+  FieldLabel,
+  compatibleBorder,
+  objectToMap,
+  proFieldParsingText,
+} from '../../../utils';
 import type { ProFieldFC } from '../../PureProField';
 import type { FieldSelectProps } from '../Select';
 import { useFieldFetchData } from '../Select';

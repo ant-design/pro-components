@@ -3,9 +3,10 @@ import {
   ProFormDatePicker,
   ProFormList,
   ProFormText,
-} from '@ant-design/pro-form';
+} from '@ant-design/pro-components';
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import dayjs from 'dayjs';
+import { describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
 
 describe('ProForm Transform Tests', () => {

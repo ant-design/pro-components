@@ -1,8 +1,8 @@
-import { useStyle } from '../../../utils';
 import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import React, { useContext } from 'react';
+import { useStyle } from '../../../utils';
 import type { ProFieldFC } from '../../PureProField';
 
 /**

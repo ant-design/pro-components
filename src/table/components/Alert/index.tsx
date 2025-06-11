@@ -1,7 +1,7 @@
-import type { IntlType } from '../../../provider';
-import { useIntl } from '../../../provider';
 import { ConfigProvider, Space } from 'antd';
 import React, { Key, useContext } from 'react';
+import type { IntlType } from '../../../provider';
+import { useIntl } from '../../../provider';
 import { useStyle } from './style';
 
 export type AlertRenderType<T> =

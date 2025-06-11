@@ -2,8 +2,12 @@ import type {
   AppItemProps,
   AppListProps,
 } from './components/AppsLogoComponents/types';
+import type { FooterProps } from './components/Footer';
+import { DefaultFooter } from './components/Footer';
 import { FooterToolbar } from './components/FooterToolbar';
 import { GridContent } from './components/GridContent';
+import type { HeaderViewProps as HeaderProps } from './components/Header';
+import { DefaultHeader } from './components/Header';
 import type { PageContainerProps } from './components/PageContainer';
 import {
   PageContainer,
@@ -12,13 +16,6 @@ import {
 } from './components/PageContainer';
 import type { PageHeaderProps } from './components/PageHeader';
 import { PageHeader } from './components/PageHeader';
-
-import type { ProLayoutProps } from './ProLayout';
-import { ProLayout } from './ProLayout';
-import type { FooterProps } from './components/Footer';
-import { DefaultFooter } from './components/Footer';
-import type { HeaderViewProps as HeaderProps } from './components/Header';
-import { DefaultHeader } from './components/Header';
 import { PageLoading } from './components/PageLoading';
 import type {
   SettingDrawerProps,
@@ -30,8 +27,11 @@ import { TopNavHeader } from './components/TopNavHeader';
 import type { RouteContextType } from './context/RouteContext';
 import { RouteContext } from './context/RouteContext';
 import { getPageTitle } from './getPageTitle';
+import type { ProLayoutProps } from './ProLayout';
+import { ProLayout } from './ProLayout';
 import { getMenuData } from './utils/getMenuData';
 
+export { Watermark as WaterMark } from 'antd';
 export * from './components/Help';
 export type { ProSettings, ProSettings as Settings } from './defaultSettings';
 export type { MenuDataItem } from './typing';
@@ -65,5 +65,4 @@ export type {
   SettingDrawerState,
   TopNavHeaderProps,
 };
-
 export default ProLayout;

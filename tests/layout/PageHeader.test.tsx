@@ -5,6 +5,7 @@ import {
   _rs as onEsResize,
   _rs as onLibResize,
 } from 'rc-resize-observer/es/utils/observerUtil';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 export const triggerResize = (target: Element) => {
   const originGetBoundingClientRect = target.getBoundingClientRect;

@@ -1,10 +1,4 @@
 ﻿import { ProField, defaultRenderText } from './AllProField';
-import {
-  ProFieldEmptyText,
-  ProFieldMoneyProps,
-  ProFieldPropsType,
-  PureProField,
-} from './PureProField';
 import FieldCascader from './components/Cascader';
 import FieldCheckbox from './components/Checkbox';
 import FieldCode from './components/Code';
@@ -35,6 +29,12 @@ import FieldText from './components/Text';
 import FieldTextArea from './components/TextArea';
 import FieldTimePicker, { FieldTimeRangePicker } from './components/TimePicker';
 import FieldTreeSelect from './components/TreeSelect';
+import {
+  ProFieldEmptyText,
+  ProFieldMoneyProps,
+  ProFieldPropsType,
+  PureProField,
+} from './PureProField';
 
 export type {
   FieldMoneyProps,

@@ -24,12 +24,12 @@ import { defaultSettings } from '../../defaultSettings';
 import { gLocaleObject, getLanguage } from '../../locales';
 import { genStringToTheme } from '../../utils/utils';
 import { BlockCheckbox } from './BlockCheckbox';
-import { LayoutSetting, renderLayoutSettingItem } from './LayoutChange';
-import { RegionalSetting } from './RegionalChange';
-import { ThemeColor } from './ThemeColor';
 import { GroupIcon } from './icon/group';
 import { SubIcon } from './icon/sub';
+import { LayoutSetting, renderLayoutSettingItem } from './LayoutChange';
+import { RegionalSetting } from './RegionalChange';
 import { useStyle } from './style/index';
+import { ThemeColor } from './ThemeColor';
 
 type BodyProps = {
   title: string;

@@ -1,8 +1,7 @@
 import { Input } from 'antd';
 import React from 'react';
-import type { ProFieldFC } from '../../PureProField';
-
 import { proTheme } from '../../../provider';
+import type { ProFieldFC } from '../../PureProField';
 
 const languageFormat = (text: string, language: string) => {
   if (typeof text !== 'string') {

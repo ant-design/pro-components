@@ -1,5 +1,4 @@
-/* eslint-disable no-console */
-import { PlusOutlined } from '@ant-design/icons';
+/* eslint-disable no-console */ import { PlusOutlined } from '@ant-design/icons';
 import type { ProColumns } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
 import { Button, Input, Select } from 'antd';
@@ -81,7 +80,7 @@ export default () => {
       key: 'direction',
       hideInTable: true,
       dataIndex: 'direction',
-      renderFormItem: (item, { type, defaultRender, ...rest }, form) => {
+      formItemRender: (item, { type, defaultRender, ...rest }, form) => {
         if (type === 'form') {
           return null;
         }

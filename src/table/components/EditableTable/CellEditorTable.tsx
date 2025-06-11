@@ -1,6 +1,6 @@
-﻿import { ParamsType } from '../../../provider';
-import { GetRowKey } from 'antd/lib/table/interface';
+﻿import { GetRowKey } from 'antd/lib/table/interface';
 import React from 'react';
+import { ParamsType } from '../../../provider';
 import { ProColumns } from '../../typing';
 import EditableProTable, { EditableProTableProps } from './index';
 

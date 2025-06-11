@@ -1,4 +1,9 @@
-﻿import type {
+﻿import type { FormItemProps } from 'antd';
+import { ConfigProvider, Table } from 'antd';
+import classNames from 'classnames';
+import omit from 'rc-util/lib/omit';
+import React, { useContext, useMemo } from 'react';
+import type {
   BaseQueryFilterProps,
   ProFormInstance,
   ProFormProps,
@@ -6,11 +11,6 @@
 import { BetaSchemaForm } from '../../../form';
 import { ProProvider } from '../../../provider';
 import type { ProSchemaComponentTypes } from '../../../utils';
-import type { FormItemProps } from 'antd';
-import { ConfigProvider, Table } from 'antd';
-import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
-import React, { useContext, useMemo } from 'react';
 import type { ActionType, ProColumns, ProTableProps } from '../../typing';
 
 function toLowerLine(str: string) {

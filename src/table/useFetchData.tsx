@@ -1,3 +1,5 @@
+import { useEffect, useRef } from 'react';
+import { unstable_batchedUpdates } from 'react-dom';
 import {
   runFunction,
   useDebounceFn,
@@ -6,8 +8,6 @@ import {
   usePrevious,
   useRefFunction,
 } from '../utils';
-import { useEffect, useRef } from 'react';
-import { unstable_batchedUpdates } from 'react-dom';
 import type {
   PageInfo,
   RequestData,

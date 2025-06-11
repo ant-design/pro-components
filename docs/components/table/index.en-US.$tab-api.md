@@ -61,14 +61,14 @@ You can hide some columns by default, but in the action column you can select
 
 ### Search form customization
 
-When the built-in form items don't meet our basic needs, we need to customize the default components, which we can use with `fieldProps` and `renderFormItem`.
+When the built-in form items don't meet our basic needs, we need to customize the default components, which we can use with `fieldProps` and `formItemRender`.
 
 `fieldProps` can pass the props through and set the select style and multi-select issues.
 
-`renderFormItem` does the rewriting logic, passing in item and props for rendering, but note that we have to assign `value` and `onChange` to the props, otherwise the form won't get the parameters.
+`formItemRender` does the rewriting logic, passing in item and props for rendering, but note that we have to assign `value` and `onChange` to the props, otherwise the form won't get the parameters.
 
 ```tsx | pure
-renderFormItem: (_, { type, defaultRender, formItemProps, fieldProps, . .rest }, form) => {
+formItemRender: (_, { type, defaultRender, formItemProps, fieldProps, . .rest }, form) => {
   if (type === 'form') {
     return null;
   }
@@ -80,10 +80,10 @@ renderFormItem: (_, { type, defaultRender, formItemProps, fieldProps, . .rest },
 };
 ```
 
-The definition of `renderFormItem`, the exact value of which can be seen by opening the console.
+The definition of `formItemRender`, the exact value of which can be seen by opening the console.
 
 ```tsx | pure
- renderFormItem?: (
+ formItemRender?: (
     item: ProColumns<T>,
     config: {
       value?: any;
@@ -159,8 +159,8 @@ const enLocale = {
   },
 };
 
-// Generate the intl object
-import { ProProvider } from '@ant-design/pro-components';
+// Generate the intl objectimport { afterEach, describe, expect, it, vi } from 'vitest';
+import   { ProProvider } from '@ant-design/pro-components';
 const enUSIntl = createIntl('en_US', enUS);
 const values = useContext(ProProvider)
 

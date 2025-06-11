@@ -1,9 +1,9 @@
 import { DownOutlined } from '@ant-design/icons';
-import { ProProvider } from '../../../provider';
 import { Dropdown, Space, Tabs } from 'antd';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useContext } from 'react';
+import { ProProvider } from '../../../provider';
 
 export type ListToolBarMenuItem = {
   key: React.Key;

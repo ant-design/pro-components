@@ -1,9 +1,9 @@
 import type {
   ProDescriptionsActionType,
   ProDescriptionsItemProps,
-} from '@ant-design/pro-descriptions';
-import Descriptions from '@ant-design/pro-descriptions';
-import type { RowEditableConfig } from '@ant-design/pro-utils';
+  RowEditableConfig,
+} from '@ant-design/pro-components';
+import { ProDescriptions } from '@ant-design/pro-components';
 import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import { Form, InputNumber } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -107,7 +107,7 @@ const DescriptionsDemo = (
     onChange: props.onDataSourceChange,
   });
   return (
-    <Descriptions<DataSourceType>
+    <ProDescriptions<DataSourceType>
       columns={columns}
       actionRef={actionRef}
       request={async () => ({
@@ -150,7 +150,7 @@ describe('Descriptions', () => {
 
   it('📝 Descriptions close editable', async () => {
     const wrapper = render(
-      <Descriptions<DataSourceType>
+      <ProDescriptions<DataSourceType>
         title="基本使用"
         columns={columns}
         dataSource={defaultData}
@@ -163,7 +163,7 @@ describe('Descriptions', () => {
 
   it('📝 Descriptions support editable', async () => {
     const wrapper = render(
-      <Descriptions<DataSourceType>
+      <ProDescriptions<DataSourceType>
         title="基本使用"
         columns={columns}
         dataSource={defaultData}
@@ -227,7 +227,7 @@ describe('Descriptions', () => {
 
   it('📝 formItemRender run defaultRender', async () => {
     const wrapper = render(
-      <Descriptions<DataSourceType>
+      <ProDescriptions<DataSourceType>
         editable={{
           editableKeys: ['title'],
         }}
@@ -247,7 +247,7 @@ describe('Descriptions', () => {
 
   it('📝 columns support editable test', async () => {
     const wrapper = render(
-      <Descriptions
+      <ProDescriptions
         editable={{
           editableKeys: ['title'],
         }}
@@ -271,7 +271,7 @@ describe('Descriptions', () => {
 
   it('📝 support actionRender', async () => {
     const wrapper = render(
-      <Descriptions
+      <ProDescriptions
         editable={{
           editableKeys: ['title'],
           actionRender: () => [

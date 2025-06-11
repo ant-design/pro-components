@@ -50,15 +50,15 @@ atomId: EditableProTable
 
 ## EditableProTable
 
-| 属性 | 描述 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| `value` | 同 dataSource，传入一个数组，是 table 渲染的元数据 | `T[]` | `undefined` |
-| `onChange` | dataSource 修改时触发，删除和修改都会触发，如果设置了 value，Table 会成为一个受控组件。 | `(value:T[])=>void` | `undefined` |
-| `recordCreatorProps` | 新建一行数据的相关配置 | [RecordCreatorProps](#recordcreator) & [ButtonProps](https://ant.design/components/button-cn/#API) | - |
-| `maxLength` | 最大的行数，到达最大行数新建按钮会自动消失 | number | - |
-| `editable` | 可编辑表格的相关配置 | [TableRowEditable](#editable-编辑行配置) | - |
-| `controlled` | 是否受控，如果受控每次编辑都会触发 onChange，并且会修改 dataSource | `boolean` | false |
-| `editableFormRef` | table 所有的 form，带了一些表格特有的操作 | `React.Ref<EditableFormInstance<T>>` | `undefined` |
+| 属性                 | 描述                                                                                    | 类型                                                                                               | 默认值      |
+| -------------------- | --------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ----------- |
+| `value`              | 同 dataSource，传入一个数组，是 table 渲染的元数据                                      | `T[]`                                                                                              | `undefined` |
+| `onChange`           | dataSource 修改时触发，删除和修改都会触发，如果设置了 value，Table 会成为一个受控组件。 | `(value:T[])=>void`                                                                                | `undefined` |
+| `recordCreatorProps` | 新建一行数据的相关配置                                                                  | [RecordCreatorProps](#recordcreator) & [ButtonProps](https://ant.design/components/button-cn/#API) | -           |
+| `maxLength`          | 最大的行数，到达最大行数新建按钮会自动消失                                              | number                                                                                             | -           |
+| `editable`           | 可编辑表格的相关配置                                                                    | [TableRowEditable](#editable-编辑行配置)                                                           | -           |
+| `controlled`         | 是否受控，如果受控每次编辑都会触发 onChange，并且会修改 dataSource                      | `boolean`                                                                                          | false       |
+| `editableFormRef`    | table 所有的 form，带了一些表格特有的操作                                               | `React.Ref<EditableFormInstance<T>>`                                                               | `undefined` |
 
 > 别的 API 与 ProTable 相同。
 
@@ -123,23 +123,23 @@ atomId: EditableProTable
 
 ### TableRowEditable
 
-| 属性 | 描述 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| type | 可编辑表格的类型，单行编辑或者多行编辑 | `single` \| `multiple` | - |
-| form | 可编辑表格的 form 实例，使用 `Form.useForm` 生成后使用 | `FormInstance` | - |
-| formProps | 可以配置 form 的属性，但是不支持 onFinish | [`FormProps`](https://procomponents.ant.design/components/form#proform) | - |
-| editableKeys | 正在编辑的行，受控属性。 默认 `key` 会使用 `rowKey` 的配置，如果没有配置会使用 `index`，建议使用 rowKey | `Key[]` | - |
-| onChange | 行数据被修改的时候触发 | `(editableKeys: Key[], editableRows: T[]) => void` | - |
-| onSave | 保存一行的时候触发 | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |
-| saveText | 保存一行的文字 | `React.ReactNode` | `保存` |
-| onDelete | 删除一行的时候触发 | `(key: Key, row: T) => Promise<any>` | - |
-| deleteText | 删除一行的文字 | `React.ReactNode` | `删除` |
-| onCancel | 取消编辑一行时触发 | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |
-| cancelText | 取消编辑一行的文字 | `React.ReactNode` | `取消` |
-| actionRender | 自定义编辑模式的操作栏 | `(row: T, config: ActionRenderConfig<T>) => ReactNode[]` | - |
-| deletePopconfirmMessage | 删除时弹出的确认框提示消息 | `ReactNode` | `删除此项？` |
-| onlyOneLineEditorAlertMessage | 只能编辑一行的的提示 | `ReactNode` | `只能同时编辑一行` |
-| onlyAddOneLineAlertMessage | 只能同时新增一行的提示 | `ReactNode` | `只能新增一行` |
+| 属性                          | 描述                                                                                                    | 类型                                                                    | 默认值             |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | ------------------ |
+| type                          | 可编辑表格的类型，单行编辑或者多行编辑                                                                  | `single` \| `multiple`                                                  | -                  |
+| form                          | 可编辑表格的 form 实例，使用 `Form.useForm` 生成后使用                                                  | `FormInstance`                                                          | -                  |
+| formProps                     | 可以配置 form 的属性，但是不支持 onFinish                                                               | [`FormProps`](https://procomponents.ant.design/components/form#proform) | -                  |
+| editableKeys                  | 正在编辑的行，受控属性。 默认 `key` 会使用 `rowKey` 的配置，如果没有配置会使用 `index`，建议使用 rowKey | `Key[]`                                                                 | -                  |
+| onChange                      | 行数据被修改的时候触发                                                                                  | `(editableKeys: Key[], editableRows: T[]) => void`                      | -                  |
+| onSave                        | 保存一行的时候触发                                                                                      | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | -                  |
+| saveText                      | 保存一行的文字                                                                                          | `React.ReactNode`                                                       | `保存`             |
+| onDelete                      | 删除一行的时候触发                                                                                      | `(key: Key, row: T) => Promise<any>`                                    | -                  |
+| deleteText                    | 删除一行的文字                                                                                          | `React.ReactNode`                                                       | `删除`             |
+| onCancel                      | 取消编辑一行时触发                                                                                      | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | -                  |
+| cancelText                    | 取消编辑一行的文字                                                                                      | `React.ReactNode`                                                       | `取消`             |
+| actionRender                  | 自定义编辑模式的操作栏                                                                                  | `(row: T, config: ActionRenderConfig<T>) => ReactNode[]`                | -                  |
+| deletePopconfirmMessage       | 删除时弹出的确认框提示消息                                                                              | `ReactNode`                                                             | `删除此项？`       |
+| onlyOneLineEditorAlertMessage | 只能编辑一行的的提示                                                                                    | `ReactNode`                                                             | `只能同时编辑一行` |
+| onlyAddOneLineAlertMessage    | 只能同时新增一行的提示                                                                                  | `ReactNode`                                                             | `只能新增一行`     |
 
 ### RecordCreatorProps
 
@@ -170,19 +170,19 @@ recordCreatorProps = {
 };
 ```
 
-### renderFormItem 自定义编辑组件
+### formItemRender 自定义编辑组件
 
-虽然我们很希望默认的 valueType 可以满足所有的需求，但是现实往往不尽如人意。所以我们也提供了 `renderFormItem` 来自定义编辑输入组件。
+虽然我们很希望默认的 valueType 可以满足所有的需求，但是现实往往不尽如人意。所以我们也提供了 `formItemRender` 来自定义编辑输入组件。
 
-`renderFormItem` 可以理解为在 Form.Item 下面加入一个元素， 伪代码实现是下面这样的：
+`formItemRender` 可以理解为在 Form.Item 下面加入一个元素， 伪代码实现是下面这样的：
 
 ```typescript
-const dom = renderFormItem();
+const dom = formItemRender();
 
 <Form.Item>{dom}</Form.Item>;
 ```
 
-所以与 Form.Item 相同，我们认为 `renderFormItem` 返回的组件都是拥有的 `value` 和 `onChange` 的，我们接下来将看到用 `renderFormItem` 将一个简单的 TagList 组件放入可编辑表格中。
+所以与 Form.Item 相同，我们认为 `formItemRender` 返回的组件都是拥有的 `value` 和 `onChange` 的，我们接下来将看到用 `formItemRender` 将一个简单的 TagList 组件放入可编辑表格中。
 
 > 没有 `value` 将会无法注入值，没有 `onChange` 会无法修改行数据
 
@@ -257,7 +257,7 @@ const TagList: React.FC<{
     title: '标签',
     dataIndex: 'labels',
     width: '40%',
-    renderFormItem: () => <TagList />,
+    formItemRender: () => <TagList />,
     render: (_, row) => row?.labels?.map((item) => <Tag key={item.key}>{item.label}</Tag>),
   },
 ```
@@ -268,7 +268,7 @@ const TagList: React.FC<{
 
 value 和 onChange 会自动注入，我们不需要显式的注入。数据绑定也是由编辑表格自己注入的，我们在 `onSave` 中可以拿到处理完成的数据。虽然我们可以行内的写很复杂的逻辑甚至网路请求，但是我们推荐使用拆分组件，这样不仅性能更好，逻辑也可以拆分的很简单。
 
-> `renderFormItem` 同时也用来生成查询表单，如果我们需要区分这两种情况，可以使用 `renderFormItem: (_, { isEditable }) => (isEditable ? <TagList /> : <Input /> )` 这样的方式来进行分别渲染。
+> `formItemRender` 同时也用来生成查询表单，如果我们需要区分这两种情况，可以使用 `formItemRender: (_, { isEditable }) => (isEditable ? <TagList /> : <Input /> )` 这样的方式来进行分别渲染。
 
 ### actionRender 自定义操作栏
 

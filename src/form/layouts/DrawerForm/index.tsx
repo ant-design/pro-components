@@ -1,9 +1,4 @@
-﻿import {
-  isBrowser,
-  omitUndefined,
-  useRefFunction,
-} from '../../../utils';
-import type { DrawerProps, FormProps } from 'antd';
+﻿import type { DrawerProps, FormProps } from 'antd';
 import { ConfigProvider, Drawer } from 'antd';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -19,6 +14,7 @@ import React, {
   useState,
 } from 'react';
 import { createPortal } from 'react-dom';
+import { isBrowser, omitUndefined, useRefFunction } from '../../../utils';
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import { SubmitterProps } from '../../BaseForm/Submitter';

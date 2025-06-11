@@ -1,16 +1,4 @@
 ﻿import { PlusOutlined } from '@ant-design/icons';
-import ProForm, {
-  ProFormDependency,
-  ProFormInstance,
-} from '../../../form';
-import type { ParamsType } from '../../../provider';
-import { useIntl } from '../../../provider';
-import {
-  isDeepEqualReact,
-  runFunction,
-  stringify,
-  useRefFunction,
-} from '../../../utils';
 import type { ButtonProps, FormItemProps } from 'antd';
 import { Button, Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
@@ -25,6 +13,15 @@ import React, {
   useMemo,
   useRef,
 } from 'react';
+import ProForm, { ProFormDependency, ProFormInstance } from '../../../form';
+import type { ParamsType } from '../../../provider';
+import { useIntl } from '../../../provider';
+import {
+  isDeepEqualReact,
+  runFunction,
+  stringify,
+  useRefFunction,
+} from '../../../utils';
 import ProTable from '../../Table';
 import type { ActionType, ProTableProps } from '../../typing';
 

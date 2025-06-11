@@ -1,7 +1,7 @@
-import { runFunction } from '../../../utils';
 import type { RadioGroupProps, RadioProps } from 'antd';
 import { Radio } from 'antd';
 import React from 'react';
+import { runFunction } from '../../../utils';
 import type {
   ProFormFieldItemProps,
   ProFormFieldRemoteProps,

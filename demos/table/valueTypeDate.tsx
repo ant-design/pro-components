@@ -70,7 +70,7 @@ export default () => (
           fieldProps: {
             // placeholder: ['1', '2']
           },
-          renderFormItem: (_, { type, defaultRender }) => {
+          formItemRender: (_, { type, defaultRender }) => {
             if (type === 'form') {
               return null;
             }

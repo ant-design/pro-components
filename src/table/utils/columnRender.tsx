@@ -1,4 +1,8 @@
-﻿import type { ProFieldEmptyText } from '../../field';
+﻿import { AnyObject } from 'antd/lib/_util/type';
+import get from 'rc-util/lib/utils/get';
+import React from 'react';
+import { isMergeCell } from '.';
+import type { ProFieldEmptyText } from '../../field';
 import type {
   ProFieldValueType,
   ProSchemaComponentTypes,
@@ -6,10 +10,6 @@ import type {
   UseEditableUtilType,
 } from '../../utils';
 import { LabelIconTip, genCopyable, isNil } from '../../utils';
-import { AnyObject } from 'antd/lib/_util/type';
-import get from 'rc-util/lib/utils/get';
-import React from 'react';
-import { isMergeCell } from '.';
 import type { ContainerType } from '../Store/Provide';
 import type { ActionType, ProColumns } from '../typing';
 import cellRenderToFromItem from './cellRenderToFromItem';

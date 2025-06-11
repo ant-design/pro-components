@@ -59,14 +59,14 @@ RTL means right-to-left.
 
 ## 搜索表单自定义
 
-当内置的表单项无法满足我们的基本需求，这时候我们就需要来自定义一下默认的组件，我们可以通过 `fieldProps` 和 `renderFormItem` 配合来使用。
+当内置的表单项无法满足我们的基本需求，这时候我们就需要来自定义一下默认的组件，我们可以通过 `fieldProps` 和 `formItemRender` 配合来使用。
 
 `fieldProps` 可以把 props 透传，可以设置 select 的样式和多选等问题。
 
-`renderFormItem` 可以完成重写渲染逻辑，传入 item 和 props 来进行渲染，需要注意的是我们必须要将 props 中的 `value` 和 `onChange` 必须要被赋值，否则 form 无法拿到参数。如果你需要自定义需要先了解 antd 表单的[工作原理](https://ant.design/components/form-cn/#Form.Item)。
+`formItemRender` 可以完成重写渲染逻辑，传入 item 和 props 来进行渲染，需要注意的是我们必须要将 props 中的 `value` 和 `onChange` 必须要被赋值，否则 form 无法拿到参数。如果你需要自定义需要先了解 antd 表单的[工作原理](https://ant.design/components/form-cn/#Form.Item)。
 
 ```tsx | pure
-renderFormItem: (
+formItemRender: (
   _,
   { type, defaultRender, formItemProps, fieldProps, ...rest },
   form,
@@ -90,10 +90,10 @@ renderFormItem: (
 };
 ```
 
-`renderFormItem` 的定义，具体的值可以打开控制台查看。
+`formItemRender` 的定义，具体的值可以打开控制台查看。
 
 ```tsx | pure
- renderFormItem?: (
+ formItemRender?: (
     item: ProColumns<T>,
     config: {
       value?: any;
@@ -180,8 +180,8 @@ const enLocale = {
   },
 };
 
-// 生成 intl 对象
-import { ProProvider } from '@ant-design/pro-components';
+// 生成 intl 对象import { afterEach, describe, expect, it, vi } from 'vitest';
+import   { ProProvider } from '@ant-design/pro-components';
 const enUSIntl = createIntl('en_US', enUS);
 const values = useContext(ProProvider)
 

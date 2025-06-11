@@ -1,8 +1,8 @@
 import { List, Switch } from 'antd';
 import React from 'react';
 import type { ProSettings } from '../../defaultSettings';
-import { renderLayoutSettingItem } from './LayoutChange';
 import { getFormatMessage } from './index';
+import { renderLayoutSettingItem } from './LayoutChange';
 
 const RegionalSetting: React.FC<{
   settings: Partial<ProSettings>;

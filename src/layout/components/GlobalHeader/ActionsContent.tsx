@@ -1,10 +1,9 @@
-﻿import { useDebounceFn } from '../../../utils';
-import { Avatar, ConfigProvider } from 'antd';
-
+﻿import { Avatar, ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import React, { useContext, useMemo, useState } from 'react';
 import type { GlobalHeaderProps } from '.';
+import { useDebounceFn } from '../../../utils';
 import { useStyle } from './rightContentStyle';
 /**
  * 抽离出来是为了防止 rightSize 经常改变导致菜单 render

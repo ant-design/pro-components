@@ -1,7 +1,7 @@
-import { proTheme, useIntl } from '../../../provider';
 import { Input, InputNumber, Space } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useRef } from 'react';
+import { proTheme, useIntl } from '../../../provider';
 import type { ProFieldFC } from '../../PureProField';
 
 export type Value = string | number | undefined | null;

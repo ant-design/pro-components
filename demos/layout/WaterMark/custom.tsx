@@ -1,5 +1,4 @@
-/** Title: Custom Configuration */
-import {
+/** Title: Custom Configuration */ import {
   ProCard,
   ProForm,
   ProFormColorPicker,

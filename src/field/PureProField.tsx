@@ -1,3 +1,10 @@
+import dayjs from 'dayjs';
+import advancedFormat from 'dayjs/plugin/advancedFormat';
+import isoWeek from 'dayjs/plugin/isoWeek';
+import localeData from 'dayjs/plugin/localeData';
+import weekday from 'dayjs/plugin/weekday';
+import weekOfYear from 'dayjs/plugin/weekOfYear';
+import React, { useContext } from 'react';
 import type {
   BaseProFieldFC,
   ProFieldFCRenderProps,
@@ -14,17 +21,8 @@ import {
   useDeepCompareMemo,
   useRefFunction,
 } from '../utils';
-import React, { useContext } from 'react';
 import type { FieldMoneyProps } from './components/Money';
 import FieldText from './components/Text';
-
-import advancedFormat from 'dayjs/plugin/advancedFormat';
-import isoWeek from 'dayjs/plugin/isoWeek';
-import localeData from 'dayjs/plugin/localeData';
-import weekday from 'dayjs/plugin/weekday';
-import weekOfYear from 'dayjs/plugin/weekOfYear';
-
-import dayjs from 'dayjs';
 
 dayjs.extend(localeData);
 dayjs.extend(advancedFormat);

@@ -1,6 +1,6 @@
-import { useIntl } from '../../../provider';
 import { Input } from 'antd';
 import React, { useEffect, useImperativeHandle, useRef } from 'react';
+import { useIntl } from '../../../provider';
 import type { ProFieldFC } from '../../PureProField';
 
 /**

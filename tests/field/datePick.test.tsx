@@ -7,6 +7,7 @@ import {
   waitFor,
 } from '@testing-library/react';
 import dayjs from 'dayjs';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 function closePicker(container: HTMLElement, index = 0) {
   const input = container.querySelectorAll('input')[index];

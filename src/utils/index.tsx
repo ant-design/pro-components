@@ -1,3 +1,12 @@
+import {
+  lighten,
+  operationUnit,
+  resetComponent,
+  setAlpha,
+  useStyle,
+} from '../provider';
+import { compareVersions } from './compareVersions';
+import { coverToNewToken } from './compareVersions/coverToNewToken';
 import { DropdownFooter } from './components/DropdownFooter';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { FieldLabel } from './components/FieldLabel';
@@ -14,16 +23,6 @@ import {
 import { dateArrayFormatter } from './dateArrayFormatter';
 import { genCopyable } from './genCopyable';
 import { getFieldPropsOrFormItemProps } from './getFieldPropsOrFormItemProps';
-/** Hooks */
-import {
-  lighten,
-  operationUnit,
-  resetComponent,
-  setAlpha,
-  useStyle,
-} from '../provider';
-import { compareVersions } from './compareVersions';
-import { coverToNewToken } from './compareVersions/coverToNewToken';
 import { useDebounceFn } from './hooks/useDebounceFn';
 import { useDebounceValue } from './hooks/useDebounceValue';
 import {
@@ -57,9 +56,6 @@ import { objectToMap, proFieldParsingText } from './proFieldParsingText';
 import { runFunction } from './runFunction';
 import stringify from './stringify';
 import { transformKeySubmitValue } from './transformKeySubmitValue';
-
-export { compatibleBorder } from './compatible/compatibleBorder';
-
 import type {
   RowEditableConfig,
   RowEditableType,
@@ -78,6 +74,8 @@ import type {
 import { useEditableMap } from './useEditableMap';
 import { useBreakpoint } from './useMediaQuery';
 import { useMountMergeState } from './useMountMergeState';
+
+export { compatibleBorder } from './compatible/compatibleBorder';
 
 export * from './typing';
 export {

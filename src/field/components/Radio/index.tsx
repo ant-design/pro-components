@@ -1,12 +1,8 @@
-import {
-  objectToMap,
-  proFieldParsingText,
-  useStyle,
-} from '../../../utils';
 import type { RadioGroupProps } from 'antd';
 import { ConfigProvider, Form, Radio, Spin } from 'antd';
 import classNames from 'classnames';
 import React, { useContext, useImperativeHandle, useRef } from 'react';
+import { objectToMap, proFieldParsingText, useStyle } from '../../../utils';
 import type { ProFieldFC } from '../../PureProField';
 import type { FieldSelectProps } from '../Select';
 import { useFieldFetchData } from '../Select';

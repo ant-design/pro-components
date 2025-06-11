@@ -1,12 +1,8 @@
-import { useIntl } from '../../../provider';
-import {
-  FieldLabel,
-  compatibleBorder,
-  parseValueToDay,
-} from '../../../utils';
 import { DatePicker } from 'antd';
 import dayjs from 'dayjs';
 import React, { useCallback } from 'react';
+import { useIntl } from '../../../provider';
+import { FieldLabel, compatibleBorder, parseValueToDay } from '../../../utils';
 import type { ProFieldFC, ProFieldLightProps } from '../../PureProField';
 
 /**

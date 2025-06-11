@@ -1,16 +1,3 @@
-import type { GenerateStyle, ProTokenType } from '../provider';
-import {
-  ProConfigProvider,
-  ProProvider,
-  isNeedOpenHash,
-} from '../provider';
-import {
-  coverToNewToken,
-  isBrowser,
-  useBreakpoint,
-  useDocumentTitle,
-  useMountMergeState,
-} from '../utils';
 import { getMatchMenu } from '@umijs/route-utils';
 import type { BreadcrumbProps, WatermarkProps } from 'antd';
 import { ConfigProvider, Layout } from 'antd';
@@ -29,7 +16,15 @@ import React, {
   useState,
 } from 'react';
 import useSWR, { useSWRConfig } from 'swr';
-import { WrapContent } from './WrapContent';
+import type { GenerateStyle, ProTokenType } from '../provider';
+import { ProConfigProvider, ProProvider, isNeedOpenHash } from '../provider';
+import {
+  coverToNewToken,
+  isBrowser,
+  useBreakpoint,
+  useDocumentTitle,
+  useMountMergeState,
+} from '../utils';
 import { Logo } from './assert/Logo';
 import { DefaultFooter as Footer } from './components/Footer';
 import type { HeaderViewProps } from './components/Header';
@@ -57,6 +52,7 @@ import { getBreadcrumbProps } from './utils/getBreadcrumbProps';
 import { getMenuData } from './utils/getMenuData';
 import { useCurrentMenuLayoutProps } from './utils/useCurrentMenuLayoutProps';
 import { clearMenuItem } from './utils/utils';
+import { WrapContent } from './WrapContent';
 
 let layoutIndex = 0;
 

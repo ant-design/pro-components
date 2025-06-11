@@ -1,22 +1,5 @@
 import { join } from 'path';
 import { defineConfig } from 'vitest/config';
-const moduleNameMapper = {} as Record<string, any>;
-
-[
-  'components',
-  'skeleton',
-  'form',
-  'field',
-  'card',
-  'provider',
-  'utils',
-  'descriptions',
-  'table',
-  'layout',
-].forEach((shortName: string) => {
-  const name = `@ant-design/pro-${shortName}`;
-  moduleNameMapper[name] = join(__dirname, `./packages/${shortName}/src`);
-});
 
 export default defineConfig({
   resolve: {
@@ -28,7 +11,6 @@ export default defineConfig({
     format: 'esm',
   },
   test: {
-    globals: true,
     setupFiles: ['./tests/setupTests.ts'],
     environment: 'happy-dom',
     environmentOptions: {
@@ -54,6 +36,6 @@ export default defineConfig({
         'packages/utils/src/useMountMergeState/*.{ts,tsx}',
       ],
     },
-    testTimeout: 60_000,
+    testTimeout: 60,
   },
 });

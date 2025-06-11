@@ -1,3 +1,5 @@
+import type { ColProps, FormItemProps, RowProps } from 'antd';
+import type React from 'react';
 import type {
   ProFieldProps,
   ProFieldValueType,
@@ -5,8 +7,6 @@ import type {
   ProSchema,
   SearchConvertKeyFn,
 } from '../utils';
-import type { ColProps, FormItemProps, RowProps } from 'antd';
-import type React from 'react';
 import type { ProFormInstance } from './BaseForm';
 import type { ProFormItemProps } from './components';
 import type { CaptFieldRef } from './components/Captcha';

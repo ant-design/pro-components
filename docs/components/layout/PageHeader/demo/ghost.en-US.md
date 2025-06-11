@@ -10,8 +10,9 @@ title: white background mode
 
 The default PageHeader is a transparent background. In some cases, PageHeader needs its own background color.
 
-```tsx | pure
+```tsx | pureimport { afterEach, describe, expect, it, vi } from 'vitest';
 import { Button, Descriptions, PageHeader } from 'antd';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import React from 'react';
 
 const App: React.FC = () => (

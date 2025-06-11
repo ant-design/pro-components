@@ -1,9 +1,9 @@
-import { ProProvider } from '../provider';
-import { ErrorBoundary } from '../utils';
 import { Layout } from 'antd';
 import classNames from 'classnames';
 import type { CSSProperties } from 'react';
 import React, { useContext } from 'react';
+import { ProProvider } from '../provider';
+import { ErrorBoundary } from '../utils';
 
 const WrapContent: React.FC<{
   hasPageContainer?: number;

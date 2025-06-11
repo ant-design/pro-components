@@ -1,7 +1,7 @@
-﻿import { FieldColorPicker } from '../../../field';
-import { ProConfigProvider } from '../../../provider';
-import type { PopoverProps } from 'antd';
+﻿import type { PopoverProps } from 'antd';
 import React from 'react';
+import { FieldColorPicker } from '../../../field';
+import { ProConfigProvider } from '../../../provider';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProFromField from '../Field';
 type ColorPickerProps = {

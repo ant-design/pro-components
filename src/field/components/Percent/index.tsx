@@ -1,7 +1,7 @@
-import { useIntl } from '../../../provider';
 import { InputNumber } from 'antd';
 import type { ReactNode } from 'react';
 import React, { Fragment, useMemo } from 'react';
+import { useIntl } from '../../../provider';
 import type { ProFieldFC } from '../../PureProField';
 import {
   getColorByRealValue,

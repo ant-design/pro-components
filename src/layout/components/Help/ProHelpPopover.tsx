@@ -1,8 +1,8 @@
-﻿import { ProProvider } from '../../../provider';
-import type { PopoverProps } from 'antd';
+﻿import type { PopoverProps } from 'antd';
 import { ConfigProvider, Popover } from 'antd';
 import classNames from 'classnames';
 import React, { useContext } from 'react';
+import { ProProvider } from '../../../provider';
 import { ProHelpContentPanel } from './ProHelpContentPanel';
 import { useStyle } from './style';
 

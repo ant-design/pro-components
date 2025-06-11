@@ -18,12 +18,7 @@ import {
   zhCNIntl,
   zhTWIntl,
 } from '../provider';
-import type {
-  ProFieldValueType,
-  RowEditableConfig,
-} from '../utils';
-import type { ColumnsState } from './Store/Provide';
-import ProTable from './Table';
+import type { ProFieldValueType, RowEditableConfig } from '../utils';
 import type { DragTableProps } from './components/DragSortTable';
 import DragSortTable from './components/DragSortTable';
 import TableDropdown from './components/Dropdown';
@@ -37,6 +32,8 @@ import { RowEditorTable } from './components/EditableTable/RowEditorTable';
 import Search from './components/Form';
 import type { ListToolBarProps } from './components/ListToolBar';
 import ListToolBar from './components/ListToolBar';
+import type { ColumnsState } from './Store/Provide';
+import ProTable from './Table';
 import type {
   ActionType,
   ProColumnType,

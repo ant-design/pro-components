@@ -1,9 +1,9 @@
-import { useIntl } from '../../../provider';
-import { compatibleBorder, parseValueToDay } from '../../../utils';
 import { DatePicker, Tooltip } from 'antd';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import React from 'react';
+import { useIntl } from '../../../provider';
+import { compatibleBorder, parseValueToDay } from '../../../utils';
 import type { ProFieldFC } from '../../PureProField';
 
 dayjs.extend(relativeTime);

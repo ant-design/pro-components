@@ -1,11 +1,7 @@
+import React, { memo, useContext, useMemo } from 'react';
 import { PureProField } from '../../../field';
 import type { ProSchema } from '../../../utils';
-import {
-  isDeepEqualReact,
-  runFunction,
-  useRefFunction,
-} from '../../../utils';
-import React, { memo, useContext, useMemo } from 'react';
+import { isDeepEqualReact, runFunction, useRefFunction } from '../../../utils';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
 import type { ProFormFieldItemProps } from '../../typing';
 import warpField from '../FormItem/warpField';

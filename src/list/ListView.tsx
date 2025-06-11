@@ -1,6 +1,3 @@
-import type { CheckCardProps } from '../card';
-import { ProProvider } from '../provider';
-import type { ActionType } from '../table';
 import type {
   ListProps,
   TableColumnType,
@@ -8,6 +5,8 @@ import type {
   TableProps,
 } from 'antd';
 import { ConfigProvider, List } from 'antd';
+import type { AnyObject } from 'antd/lib/_util/type';
+import type { PaginationConfig } from 'antd/lib/pagination';
 import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
 import usePagination from 'antd/lib/table/hooks/usePagination';
 import useSelection from 'antd/lib/table/hooks/useSelection';
@@ -15,13 +14,13 @@ import type { GetRowKey, TableRowSelection } from 'antd/lib/table/interface';
 import classNames from 'classnames';
 import get from 'rc-util/lib/utils/get';
 import React, { useContext } from 'react';
-import type { ItemProps } from './Item';
-import ProListItem from './Item';
+import type { CheckCardProps } from '../card';
+import { ProProvider } from '../provider';
+import type { ActionType } from '../table';
 import { PRO_LIST_KEYS_MAP } from './constants';
 import type { GetComponentProps } from './index';
-
-import type { AnyObject } from 'antd/lib/_util/type';
-import type { PaginationConfig } from 'antd/lib/pagination';
+import type { ItemProps } from './Item';
+import ProListItem from './Item';
 
 type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
 type Key = React.Key;

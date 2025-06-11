@@ -1,10 +1,10 @@
-import { FieldPassword } from '../../../field';
-import { ProConfigProvider } from '../../../provider';
-import { useMountMergeState } from '../../../utils';
 import { Form, Popover, PopoverProps, type InputProps } from 'antd';
 import type { InputRef, PasswordProps } from 'antd/lib/input';
 import omit from 'rc-util/lib/omit';
 import React, { useState } from 'react';
+import { FieldPassword } from '../../../field';
+import { ProConfigProvider } from '../../../provider';
+import { useMountMergeState } from '../../../utils';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProField from '../Field';
 

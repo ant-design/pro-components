@@ -1,11 +1,15 @@
 import { CheckOutlined, CloseOutlined, EditOutlined } from '@ant-design/icons';
 import type { DescriptionsProps, FormInstance, FormProps } from 'antd';
 import { ConfigProvider, Descriptions, Space } from 'antd';
+import type { DescriptionsItemType } from 'antd/lib/descriptions';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import toArray from 'rc-util/lib/Children/toArray';
 import get from 'rc-util/lib/utils/get';
 import React, { useContext, useEffect } from 'react';
+import ValueTypeToComponent from '../field/ValueTypeToComponent';
 import ProForm, { ProFormField } from '../form';
+import type { ProFieldFCMode } from '../provider';
+import ProConfigContext, { ProConfigProvider, proTheme } from '../provider';
 import ProSkeleton from '../skeleton';
 import type {
   ProCoreActionType,
@@ -26,11 +30,6 @@ import {
 } from '../utils';
 import type { RequestData } from './useFetchData';
 import useFetchData from './useFetchData';
-
-import type { DescriptionsItemType } from 'antd/lib/descriptions';
-import ValueTypeToComponent from '../field/ValueTypeToComponent';
-import type { ProFieldFCMode } from '../provider';
-import ProConfigContext, { ProConfigProvider, proTheme } from '../provider';
 
 // todo remove it
 export interface DescriptionsItemProps {
