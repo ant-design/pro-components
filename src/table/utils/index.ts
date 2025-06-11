@@ -205,14 +205,14 @@ export function parseDefaultColumnConfig<T, Value>(
     }
     // 当 column 启用 filters 功能时，取出默认的筛选值
     if (column.filters) {
-      const defaultfilteredValue = column.defaultfilteredValue as (
+      const defaultFilteredValue = column.defaultFilteredValue as (
         | string
         | number
       )[];
-      if (defaultfilteredValue === undefined) {
+      if (defaultFilteredValue === undefined) {
         filter[dataIndex] = null;
       } else {
-        filter[dataIndex] = column.defaultfilteredValue as (string | number)[];
+        filter[dataIndex] = column.defaultFilteredValue as (string | number)[];
       }
     }
     // 当 column 启用 sorter 功能时，取出默认的排序值

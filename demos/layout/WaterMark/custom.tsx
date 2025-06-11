@@ -9,7 +9,6 @@
   WaterMark,
 } from '@ant-design/pro-components';
 import { Divider } from 'antd';
-import { AggregationColor } from 'antd/es/color-picker/color';
 
 export default () => {
   return (
@@ -33,19 +32,9 @@ export default () => {
           <ProFormDependency
             name={['rotate', 'content', 'fontColor', 'fontSize', 'zIndex']}
           >
-            {({ rotate, content, fontColor, fontSize, zIndex }) => {
+            {({ rotate, content, zIndex }) => {
               return (
-                <WaterMark
-                  rotate={rotate}
-                  content={content}
-                  fontColor={
-                    fontColor instanceof AggregationColor
-                      ? fontColor.toHexString()
-                      : fontColor
-                  }
-                  fontSize={fontSize}
-                  zIndex={zIndex}
-                >
+                <WaterMark rotate={rotate} content={content} zIndex={zIndex}>
                   <div>
                     <p>
                       Lorem ipsum dolor sit, amet consectetur adipisicing elit.

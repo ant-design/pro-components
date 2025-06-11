@@ -1,4 +1,5 @@
-﻿import { defaultConfig } from 'antd/lib/theme/internal';
+﻿import '@testing-library/jest-dom/vitest';
+import { defaultConfig } from 'antd/lib/theme/internal';
 import crypto from 'crypto';
 import MockDate from 'mockdate';
 import React from 'react';
@@ -117,7 +118,7 @@ console.error = (...args: any[]) => {
       (args[0].includes('was not wrapped in act') ||
         args[0].includes('inside a test was not wrapped in act') ||
         args[0].includes('Warning: An update to'))) ||
-    args[0].includes('act(...)')
+    args?.[0]?.includes?.('act(...)')
   ) {
     return;
   }
