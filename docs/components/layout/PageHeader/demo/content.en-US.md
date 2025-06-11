@@ -1,4 +1,5 @@
 ---
+group: Layout
 order: 4
 title: Complete example
 ---

@@ -4,7 +4,7 @@ order: 1
 atomId: ProFormText
 nav:
   title: Components
-  path: /components
+group: Form
 ---
 
 # ProFormFields

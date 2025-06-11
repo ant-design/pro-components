@@ -1,4 +1,5 @@
 ---
+group: Layout
 category: Components
 type: Navigation
 title: PageHeader

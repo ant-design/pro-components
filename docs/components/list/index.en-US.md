@@ -4,7 +4,7 @@ order: 12
 atomId: ProList
 nav:
   title: Components
-  path: /components
+group: List
 ---
 
 # ProList - Advanced List

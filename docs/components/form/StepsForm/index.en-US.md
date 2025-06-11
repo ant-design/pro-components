@@ -4,7 +4,7 @@ order: 1
 atomId: StepsForm
 nav:
   title: Components
-  path: /components
+group: Form
 ---
 
 # StepsForm

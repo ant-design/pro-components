@@ -5,7 +5,7 @@ legacy: /table
 atomId: ProTable
 nav:
   title: Components
-  path: /components
+group: Table
 ---
 
 # ProTable - Advanced Tables

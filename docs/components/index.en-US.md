@@ -3,7 +3,6 @@ title: Component Overview
 order: 0
 nav:
   title: Components
-  path: /components
 ---
 
 # Architecture Design

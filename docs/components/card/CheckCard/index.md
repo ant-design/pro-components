@@ -1,7 +1,8 @@
 ---
 nav:
   title: Components
-  path: /components
+group: Card
+
 title: CheckCard - 多选卡片
 order: 1
 atomId: CheckCard

@@ -4,6 +4,7 @@ order: 1
 atomId: ProFormDependency
 nav:
   title: component
+group: Form
 ---
 
 # ProFormDependency - Data Linkage

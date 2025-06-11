@@ -4,7 +4,7 @@ atomId: ProDescriptions
 order: 1
 nav:
   title: Components
-  path: /components
+group: Descriptions
 ---
 
 # ProDescriptions - 高级定义列表

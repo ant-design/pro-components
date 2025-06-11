@@ -1,7 +1,8 @@
 ---
 nav:
   title: Components
-  path: /components
+group: Card
+
 title: StatisticCard - 指标卡
 order: 1
 atomId: StatisticCard

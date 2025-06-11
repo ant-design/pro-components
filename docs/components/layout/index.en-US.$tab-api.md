@@ -5,7 +5,7 @@ legacy: /layout
 
 nav:
   title: Components
-  path: /components
+group: Layout
 ---
 
 # ProLayout - Advanced Layout

@@ -4,6 +4,7 @@ order: 1
 atomId: BetaSchemaForm
 nav:
   title: component
+group: Form
 ---
 
 # JSON form

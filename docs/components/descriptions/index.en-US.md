@@ -3,7 +3,7 @@ title: ProDescriptions
 atomId: ProDescriptions
 nav:
   title: Components
-  path: /components
+group: Descriptions
 ---
 
 # ProDescriptions

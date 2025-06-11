@@ -4,7 +4,6 @@ apiHeader: false
 order: 0
 nav:
   title: Components
-  path: /components
 ---
 
 # 架构设计

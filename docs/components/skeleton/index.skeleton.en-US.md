@@ -3,7 +3,7 @@ title: ProSkeleton
 atomId: ProSkeleton
 nav:
   title: Components
-  path: /components
+group: Skeleton
 ---
 
 # ProSkeleton

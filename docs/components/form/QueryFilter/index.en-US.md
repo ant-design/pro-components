@@ -3,7 +3,7 @@ title: Query/LightFilter
 atomId: QueryFilter,LightFilter
 nav:
   title: Components
-  path: /components
+group: Form
 ---
 
 # QueryFilter / LightFilter

@@ -1,4 +1,5 @@
 ---
+group: Form
 title: StepsForm - 分步表单
 atomId: StepsForm
 order: 1

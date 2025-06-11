@@ -3,7 +3,7 @@ title: Modal/DrawerForm
 atomId: ModalForm,DrawerForm
 nav:
   title: Components
-  path: /components
+group: Form
 ---
 
 # Modal/DrawerForm - Floating Forms

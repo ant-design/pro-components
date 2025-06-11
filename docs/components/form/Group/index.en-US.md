@@ -5,7 +5,7 @@ order: 1
 
 nav:
   title: Components
-  path: /components
+group: Form
 ---
 
 # Structured data

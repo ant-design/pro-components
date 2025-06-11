@@ -1,4 +1,5 @@
 ---
+group: Layout
 order: 3
 title: Use with breadcrumbs
 ---

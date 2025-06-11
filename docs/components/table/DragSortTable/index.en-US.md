@@ -3,6 +3,7 @@ title: DragSortTable
 atomId: DragSortTable
 nav:
   title: component
+group: Table
 ---
 
 # DragSortTable - Drag Sort Table

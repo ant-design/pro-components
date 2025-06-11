@@ -3,7 +3,7 @@ title: EditableProTable
 atomId: EditableProTable
 nav:
   title: Components
-  path: /components
+group: Table
 ---
 
 # EditableProTable - Editable Tables

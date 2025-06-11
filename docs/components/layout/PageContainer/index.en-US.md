@@ -3,6 +3,7 @@ title: PageContainer
 atomId: PageContainer
 nav:
   title: Component
+group: Layout
 ---
 
 # PageContainer

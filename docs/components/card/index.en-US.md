@@ -1,7 +1,8 @@
 ---
 nav:
   title: Components
-  path: /components
+group: Card
+
 title: ProCard
 atomId: ProCard
 ---

@@ -1,4 +1,5 @@
 ---
+group: Table
 title: Demo
 order: 0
 legacy: /table

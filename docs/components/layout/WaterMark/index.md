@@ -1,4 +1,5 @@
 ---
+group: Layout
 title: WaterMark - 水印组件
 order: 0
 legacy: /layout

@@ -1,4 +1,5 @@
 ---
+group: Layout
 title: WaterMark - Watermark Component
 order: 0
 atomId: WaterMark

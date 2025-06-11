@@ -1,4 +1,5 @@
 ---
+group: Form
 title: LoginForm/Page
 Order: 2
 atomId: LoginForm,PageForm
