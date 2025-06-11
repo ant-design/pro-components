@@ -2,7 +2,7 @@
 
 exports[`LightFilter >  🪕 DateTimePicker 1`] = `
 <span
-  class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active"
+  class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-bordered"
   style="padding-inline-end: 0;"
 >
   <span

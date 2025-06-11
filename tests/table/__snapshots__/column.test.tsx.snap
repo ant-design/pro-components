@@ -96,9 +96,7 @@ exports[`Table ColumnSetting > 🎏 columns proFieldProps support custom 1`] = `
                               </span>
                               <span
                                 class="ant-select-selection-placeholder"
-                              >
-                                请选择
-                              </span>
+                              />
                             </span>
                           </div>
                           <span
