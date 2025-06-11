@@ -1,6 +1,5 @@
 module.exports = {
-  extends: [require.resolve('@umijs/fabric/dist/eslint')],
   rules: {
-    '@typescript-eslint/consistent-type-imports': 'off',
+    'no-console': 'off', // Allow console statements
   },
 };

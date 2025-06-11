@@ -1,7 +1,3 @@
-/**
- * @vitest-environment jsdom
- */
-
 import { SettingDrawer } from '@ant-design/pro-components';
 import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import { act } from 'react';

@@ -1,8 +1,4 @@
-﻿/**
- * @vitest-environment jsdom
- */
-
-import { ModalForm, ProFormText } from '@ant-design/pro-components';
+﻿import { ModalForm, ProFormText } from '@ant-design/pro-components';
 import {
   act,
   cleanup,

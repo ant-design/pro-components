@@ -1,8 +1,4 @@
-﻿/**
- * @vitest-environment jsdom
- */
-
-import { DrawerForm, ModalForm, ProFormText } from '@ant-design/pro-components';
+﻿import { DrawerForm, ModalForm, ProFormText } from '@ant-design/pro-components';
 import {
   cleanup,
   fireEvent,

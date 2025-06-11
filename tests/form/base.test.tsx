@@ -1,7 +1,3 @@
-/**
- * @vitest-environment jsdom
- */
-
 import { FontSizeOutlined } from '@ant-design/icons';
 import type { ProFormInstance } from '@ant-design/pro-components';
 import {

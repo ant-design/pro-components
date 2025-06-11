@@ -1,11 +1,8 @@
-﻿/* eslint-disable react/no-is-mounted */
-import '@testing-library/jest-dom';
-import { defaultConfig } from 'antd/lib/theme/internal';
+﻿import { defaultConfig } from 'antd/lib/theme/internal';
 import crypto from 'crypto';
 import MockDate from 'mockdate';
 import React from 'react';
 import { vi } from 'vitest';
-import tableData from './table/mock.data.json';
 
 defaultConfig.hashed = false;
 globalThis.React = React;
@@ -134,10 +131,3 @@ globalThis.getComputedStyle = (elt) => getComputedStyle(elt);
 // with jest-canvas-mock
 (globalThis as any).jest = vi;
 await import('jest-canvas-mock');
-
-// with jest-fetch-mock
-(await import('jest-fetch-mock')).enableFetchMocks();
-//@ts-ignore
-fetch.mockResponse(async () => {
-  return { body: JSON.stringify(tableData) };
-});

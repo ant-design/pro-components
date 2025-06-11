@@ -1,13 +1,8 @@
-﻿/**
- * @vitest-environment jsdom
- */
-
-import type {
+﻿import type {
   ProFormColumnsType,
   ProFormLayoutType,
 } from '@ant-design/pro-components';
-import { BetaSchemaForm } from '@ant-design/pro-components';
-import { ProProvider } from '@ant-design/pro-provider';
+import { BetaSchemaForm, ProProvider } from '@ant-design/pro-components';
 import {
   cleanup,
   fireEvent,

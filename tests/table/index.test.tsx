@@ -1,8 +1,5 @@
 /* eslint-disable @babel/no-unused-expressions */
 /* eslint-disable @typescript-eslint/no-unused-expressions */
-/**
- * @vitest-environment jsdom
- */
 
 import type { ActionType } from '@ant-design/pro-components';
 import { ProTable, TableDropdown } from '@ant-design/pro-components';
