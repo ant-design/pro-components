@@ -1,4 +1,6 @@
 ---
+nav:
+  title: Table
 group: Table
 title: Demo
 order: 0

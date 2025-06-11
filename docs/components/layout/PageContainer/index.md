@@ -1,4 +1,6 @@
 ---
+nav:
+  title: Layout
 group: Layout
 title: PageContainer - 页容器
 atomId: PageContainer

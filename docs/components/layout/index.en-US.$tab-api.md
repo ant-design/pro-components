@@ -1,10 +1,10 @@
 ---
+nav:
+  title: Layout
 title: Demos
 order: 0
 legacy: /layout
 
-nav:
-  title: Components
 group: Layout
 ---
 

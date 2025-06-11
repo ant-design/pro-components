@@ -1,4 +1,6 @@
 ---
+nav:
+  title: Layout
 group: PageHeader
 order: 2
 title: white background mode

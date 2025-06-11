@@ -1,10 +1,10 @@
 ---
+nav:
+  title: Form
 title: ProForm
 atomId: ProForm
 order: 1
 
-nav:
-  title: Components
 group: Form
 ---
 

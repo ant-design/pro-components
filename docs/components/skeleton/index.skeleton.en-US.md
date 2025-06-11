@@ -1,8 +1,8 @@
 ---
+nav:
+  title: Skeleton
 title: ProSkeleton
 atomId: ProSkeleton
-nav:
-  title: Components
 group: Skeleton
 ---
 

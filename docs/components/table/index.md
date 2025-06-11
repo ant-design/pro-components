@@ -1,4 +1,6 @@
 ---
+nav:
+  title: Table
 group: Table
 title: ProTable - 高级表格
 order: 0

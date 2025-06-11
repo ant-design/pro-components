@@ -1,10 +1,10 @@
 ---
+nav:
+  title: Form
 title: Structured data
 atomId: ProFormList
 order: 1
 
-nav:
-  title: Components
 group: Form
 ---
 

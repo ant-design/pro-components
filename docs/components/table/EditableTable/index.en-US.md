@@ -1,8 +1,8 @@
 ---
+nav:
+  title: Table
 title: EditableProTable
 atomId: EditableProTable
-nav:
-  title: Components
 group: Table
 ---
 

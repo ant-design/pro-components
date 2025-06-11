@@ -1,4 +1,6 @@
 ---
+nav:
+  title: List
 group: List
 title: ProList - 高级列表
 order: 12

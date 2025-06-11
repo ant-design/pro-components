@@ -1,10 +1,10 @@
 ---
+nav:
+  title: Table
 title: ProTable
 order: 0
 legacy: /table
 atomId: ProTable
-nav:
-  title: Components
 group: Table
 ---
 

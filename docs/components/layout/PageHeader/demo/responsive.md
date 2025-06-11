@@ -1,4 +1,6 @@
 ---
+nav:
+  title: Layout
 group: PageHeader
 order: 6
 iframe: 228

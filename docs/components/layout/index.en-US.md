@@ -1,11 +1,11 @@
 ---
+nav:
+  title: Layout
 title: ProLayout
 atomId: ProLayout
 order: 0
 legacy: /layout
 
-nav:
-  title: Components
 group: Layout
 ---
 

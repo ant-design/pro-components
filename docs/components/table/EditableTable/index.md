@@ -1,4 +1,6 @@
 ---
+nav:
+  title: Table
 group: Table
 title: EditableProTable - 可编辑表格
 atomId: EditableProTable

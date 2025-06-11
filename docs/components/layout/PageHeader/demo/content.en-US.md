@@ -1,4 +1,6 @@
 ---
+nav:
+  title: Layout
 group: PageHeader
 order: 4
 title: Complete example

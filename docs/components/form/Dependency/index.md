@@ -1,4 +1,6 @@
 ---
+nav:
+  title: Form
 group: Form
 title: ProFormDependency - 数据联动
 order: 1

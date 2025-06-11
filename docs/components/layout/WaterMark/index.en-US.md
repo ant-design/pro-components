@@ -1,4 +1,6 @@
 ---
+nav:
+  title: Layout
 group: Layout
 title: WaterMark - Watermark Component
 order: 0

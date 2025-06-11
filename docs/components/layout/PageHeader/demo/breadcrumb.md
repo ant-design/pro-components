@@ -1,4 +1,6 @@
 ---
+nav:
+  title: Layout
 group: PageHeader
 order: 3
 title: 带面包屑页头

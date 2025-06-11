@@ -1,9 +1,9 @@
 ---
+nav:
+  title: Descriptions
 title: ProDescriptions - 定义列表
 atomId: ProDescriptions
 order: 1
-nav:
-  title: Components
 group: Descriptions
 ---
 

@@ -1,9 +1,9 @@
 ---
+nav:
+  title: Form
 title: Schema Form
 order: 1
 atomId: BetaSchemaForm
-nav:
-  title: component
 group: Form
 ---
 

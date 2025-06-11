@@ -1,8 +1,8 @@
 ---
+nav:
+  title: Form
 title: Modal/DrawerForm
 atomId: ModalForm,DrawerForm
-nav:
-  title: Components
 group: Form
 ---
 

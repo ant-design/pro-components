@@ -1,9 +1,9 @@
 ---
+nav:
+  title: Form
 title: ProFormFields
 order: 1
 atomId: ProFormText
-nav:
-  title: Components
 group: Form
 ---
 

@@ -1,4 +1,6 @@
 ---
+nav:
+  title: Layout
 group: PageHeader
 order: 5
 title: 多种形态的 PageHeader

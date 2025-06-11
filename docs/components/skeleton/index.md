@@ -1,4 +1,6 @@
 ---
+nav:
+  title: Skeleton
 group: Skeleton
 title: ProSkeleton - 骨架屏
 atomId: ProSkeleton

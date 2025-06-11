@@ -1,8 +1,8 @@
 ---
+nav:
+  title: Table
 title: DragSortTable
 atomId: DragSortTable
-nav:
-  title: component
 group: Table
 ---
 

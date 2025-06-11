@@ -1,8 +1,8 @@
 ---
+nav:
+  title: Descriptions
 title: ProDescriptions
 atomId: ProDescriptions
-nav:
-  title: Components
 group: Descriptions
 ---
 
