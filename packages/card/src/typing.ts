@@ -5,7 +5,7 @@ import type { ReactNode } from 'react';
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type Gutter = number | Partial<Record<Breakpoint, number>>;
 export type ColSpanType = number | string;
-
+type CollapsibleType = 'icon' | 'header' | boolean;
 type CardPropsBase = {
   /** 标题样式 */
   headStyle?: React.CSSProperties;
@@ -53,7 +53,7 @@ type CardPropsBase = {
   /** 幽灵模式，即是否取消卡片内容区域的 padding 和 背景颜色。 */
   ghost?: boolean;
   /** 是否可折叠 */
-  collapsible?: boolean;
+  collapsible?: CollapsibleType;
   /** 受控 collapsed 属性 */
   collapsed?: boolean;
   /** 折叠按钮自定义节点 */
