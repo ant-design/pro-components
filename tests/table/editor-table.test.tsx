@@ -18,6 +18,7 @@ import {
 import { InputNumber } from 'antd';
 import crypto from 'crypto';
 import React from 'react';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
 
 type DataSourceType = {

@@ -1,7 +1,7 @@
 import { ProTable } from '@ant-design/pro-components';
 import { cleanup, render } from '@testing-library/react';
+import { afterEach,beforeAll,afterAll, describe, expect, it } from 'vitest';
 import { waitForWaitTime } from '../util';
-
 afterEach(() => {
   cleanup();
 });

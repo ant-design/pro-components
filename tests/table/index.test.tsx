@@ -12,6 +12,7 @@ import {
 } from '@testing-library/react';
 import { Button, Input } from 'antd';
 import React, { act, useRef } from 'react';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { columns, request } from './demo';
 
 afterEach(() => {

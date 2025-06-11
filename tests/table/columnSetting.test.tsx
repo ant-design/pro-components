@@ -6,6 +6,7 @@ import {
   render,
 } from '@testing-library/react';
 import { act } from 'react';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
 import { columns } from './demo';
 

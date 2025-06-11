@@ -13,6 +13,7 @@ import userEvent from '@testing-library/user-event';
 import dayjs from 'dayjs';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { act } from 'react';
+import { describe, expect, it, vi } from 'vitest';
 
 describe('LightFilter', () => {
   it(' 🪕 basic use text', async () => {

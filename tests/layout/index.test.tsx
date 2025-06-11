@@ -14,6 +14,7 @@ import {
 import { Button, ConfigProvider } from 'antd';
 import en_US from 'antd/lib/locale/en_US';
 import React, { useState } from 'react';
+import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
 import { bigDefaultProps } from './defaultProps';
 

@@ -6,6 +6,7 @@ import {
 import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import { Button } from 'antd';
 import React, { act, useEffect, useMemo, useState } from 'react';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
 
 afterEach(() => {

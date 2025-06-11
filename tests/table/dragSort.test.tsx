@@ -2,6 +2,15 @@ import { MenuOutlined } from '@ant-design/icons';
 import { DragSortTable } from '@ant-design/pro-components';
 import { cleanup, fireEvent, render } from '@testing-library/react';
 import { act } from 'react';
+import {
+  afterAll,
+  afterEach,
+  beforeAll,
+  describe,
+  expect,
+  it,
+  vi,
+} from 'vitest';
 import { waitForWaitTime } from '../util';
 
 async function dragAndDrop(cell: Element) {

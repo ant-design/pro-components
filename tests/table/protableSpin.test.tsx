@@ -4,8 +4,8 @@ import { ProTable } from '@ant-design/pro-components';
 import { cleanup, render } from '@testing-library/react';
 import { Button } from 'antd';
 import { act, useRef, useState } from 'react';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
-
 export type TableListItem = {
   key: number;
   name: string;

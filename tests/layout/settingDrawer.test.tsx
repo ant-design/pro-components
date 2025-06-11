@@ -1,6 +1,7 @@
 import { SettingDrawer } from '@ant-design/pro-components';
 import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import { act } from 'react';
+import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
 import { defaultSettings } from './defaultSettings';
 
 afterEach(() => {

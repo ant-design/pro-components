@@ -10,6 +10,7 @@ import {
 import userEvent from '@testing-library/user-event';
 import { Button } from 'antd';
 import { useRef } from 'react';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { getFetchData } from './demo';
 
 afterEach(() => {

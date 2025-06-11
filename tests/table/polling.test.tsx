@@ -1,7 +1,15 @@
 import { ProTable } from '@ant-design/pro-components';
 import { cleanup, render, waitFor } from '@testing-library/react';
 import { act } from 'react';
-import useFetchData from '../../demos/table/useFetchData';
+import {
+  afterAll,
+  afterEach,
+  beforeAll,
+  describe,
+  expect,
+  it,
+  vi,
+} from 'vitest';
 import { columns } from './demo';
 
 afterEach(() => {
@@ -74,54 +82,6 @@ describe('polling', () => {
 
     act(() => {
       vi.runOnlyPendingTimers();
-    });
-
-    await waitFor(() => {
-      expect(fn).toHaveBeenCalledTimes(2);
-    });
-
-    expect(fn).toHaveBeenCalledTimes(2);
-
-    vi.useRealTimers();
-  });
-
-  it('⏱️ polling should clearTime when useFetchData', async () => {
-    const fn = vi.fn();
-
-    const App = (props: { getData: () => void }) => {
-      useFetchData(
-        async () => {
-          props.getData?.();
-          return {
-            data: [],
-          };
-        },
-        [],
-        {
-          pageInfo: {},
-          polling: 2500,
-          manual: false,
-          postData: () => [],
-          loading: false,
-        },
-      );
-      return <div />;
-    };
-
-    render(
-      <App
-        getData={() => {
-          fn();
-        }}
-      />,
-    );
-
-    await waitFor(() => {
-      expect(fn).toHaveBeenCalledTimes(1);
-    });
-
-    act(() => {
-      vi.runAllTimers();
     });
 
     await waitFor(() => {

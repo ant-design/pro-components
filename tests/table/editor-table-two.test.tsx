@@ -19,6 +19,7 @@ import {
 import { Button, Input, InputNumber } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useRef } from 'react';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { waitTime } from '../util';
 type DataSourceType = {
   id: number | string;

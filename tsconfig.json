@@ -21,7 +21,10 @@
   "include": [
     ".dumirc.ts",
     "vitest.config.ts",
-    "tests/**/*",
+    "tests/**/**/*.tsx",
+    "tests/**/**/*.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx",
     "typings.d.ts",
     "src/**/*",
     "demos/**/*"
