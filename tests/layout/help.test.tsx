@@ -763,7 +763,6 @@ describe('👍🏻 ProHelpPanel', () => {
         { target: { scrollY: 1000 } },
       );
     });
-    await 
 
     const dom = await html.findByTestId('navigation-switch');
 
@@ -1007,8 +1006,6 @@ describe('👍🏻 ProHelpPanel', () => {
         )
         ?.parentElement?.click();
     });
-
-    
 
     await waitFor(() => {
       expect(
