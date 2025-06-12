@@ -199,6 +199,7 @@ export type BaseQueryFilterProps = Omit<
   submitterColSpanProps?: Omit<ColProps, 'span'> & {
     span: number;
   };
+  containerStyle?: React.CSSProperties;
 };
 
 const flatMapItems = (
@@ -516,6 +517,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
     onCollapse,
     labelWidth = '80',
     style,
+
     split,
     preserve = true,
     ignoreRules,
@@ -583,7 +585,10 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
         }
       }}
     >
-      <div className={`${baseClassName}-container ${hashId}`}>
+      <div
+        className={`${baseClassName}-container ${hashId}`}
+        style={props.containerStyle}
+      >
         <BaseForm
           isKeyPressSubmit
           preserve={preserve}
