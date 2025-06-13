@@ -2,6 +2,8 @@
   CopyOutlined,
   DeleteOutlined,
   LoadingOutlined,
+  ArrowUpOutlined,
+  ArrowDownOutlined
 } from '@ant-design/icons';
 import { ProProvider } from '@ant-design/pro-provider';
 import { SearchTransformKeyFn } from '@ant-design/pro-utils';
@@ -158,6 +160,24 @@ export type ProFromListCommonProps = {
    * @type {IconConfig|false}
    */
   deleteIconProps?: IconConfig | false;
+  /**
+   * @name 向上排序按钮的配置
+   * @description 可以自定义向上排序按钮的文案，图标，tooltip，设置为 false 就会消失
+   * @type {IconConfig|false}
+   */
+  upIconProps?: IconConfig | false;
+  /**
+   * @name 向下排序按钮的配置
+   * @description 可以自定义向下排序按钮的文案，图标，tooltip，设置为 false 就会消失
+   * @type {IconConfig|false}
+   */
+  downIconProps?: IconConfig | false;
+  /**
+   * @name 箭头排序是否开启开关
+   * @description 是否开启箭头排序 默认关闭
+   * @type {boolean}
+   */
+  arrowSort?: boolean;
 
   /**
    * @name 新建增加的默认数据
@@ -294,6 +314,9 @@ const ProFormListItem: React.FC<
     creatorButtonProps,
     deleteIconProps,
     copyIconProps,
+    arrowSort,
+    upIconProps,
+    downIconProps,
     itemContainerRender,
     itemRender,
     alwaysShowItemLabel,
@@ -458,13 +481,80 @@ const ProFormListItem: React.FC<
     action,
     field.name,
   ]);
+  const upIcon = useMemo(() => {
+    if(!arrowSort)
+    {
+      return null;
+    }
+    if (mode === 'read') return null;
+    if (upIconProps === false) return null;
+    const toIndex = index - 1;
+    if(toIndex < 0)
+    {
+      return null;
+    }
+    const { Icon = ArrowUpOutlined, tooltipText } = upIconProps!;
+    return (
+      <Tooltip title={tooltipText} key="up">
+        <Icon
+            className={classNames(
+              `${prefixCls}-action-icon action-up`,
+              hashId,
+            )}
+            onClick={async () => {
+              await action.move(index,toIndex);
+            }}
+          />
+      </Tooltip>
+    );
+  }, [
+    upIconProps,
+    prefixCls,
+    hashId,
+    action,
+    arrowSort
+  ]);
+
+  const downIcon = useMemo(() => {
+    if(!arrowSort)
+    {
+      return null;
+    }
+    if (mode === 'read') return null;
+    if (downIconProps === false) return null;
+    const toIndex = index + 1;
+    if(toIndex >= count)
+    {
+      return null;
+    }
+    const { Icon = ArrowDownOutlined, tooltipText } = downIconProps!;
+    return (
+      <Tooltip title={tooltipText} key="down">
+        <Icon
+            className={classNames(
+              `${prefixCls}-action-icon action-down`,
+              hashId,
+            )}
+            onClick={async () => {
+              await action.move(index,toIndex);
+            }}
+          />
+      </Tooltip>
+    );
+  }, [
+    upIconProps,
+    prefixCls,
+    hashId,
+    action,
+    arrowSort
+  ]);
 
   const defaultActionDom: React.ReactNode[] = useMemo(
     () =>
-      [copyIcon, deleteIcon].filter(
+      [copyIcon, deleteIcon, upIcon, downIcon].filter(
         (item) => item !== null && item !== undefined,
       ),
-    [copyIcon, deleteIcon],
+    [copyIcon, deleteIcon, upIcon, downIcon],
   );
 
   const actions =
