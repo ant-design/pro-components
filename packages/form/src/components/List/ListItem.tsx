@@ -402,7 +402,7 @@ const ProFormListItem: React.FC<
                   .filter((item) => item !== undefined)
                   .flat(1),
               );
-              await action.add(row, count - 1);
+              await action.add(row, count);
               setLoadingCopy(false);
             }}
           />
