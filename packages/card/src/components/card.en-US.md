@@ -86,7 +86,7 @@ When adding a divider it automatically increases the height of the header to sep
 
 ### Collapsible
 
-- You can use `collapsible` to configure whether the card is collapsible or not, and configure whether the card is collapsed by default through the `defaultCollapsed` property.
+- You can use `collapsible` to configure whether the card is collapsible or not,or to specify the area that triggers the collapse. and configure whether the card is collapsed by default through the `defaultCollapsed` property.
 - Or you can customize it by controlling the `collapsed` property.
 
 <code src="../demos/collapsible.tsx" background="var(--main-bg-color)" oldtitle="collapsible"></code>
@@ -179,7 +179,7 @@ The `Steps` component is combined with the `ProCard` component to complete the v
 | ghost | Ghost mode, that is, whether to cancel the padding of the card content area and the background color of the card. | `boolean` | false |  |
 | headerBordered | Whether the header has a dividing line | `boolean` | false |  |
 | collapsed | Controlled property, whether to collapse | `boolean` | false |  |
-| collapsible | Whether the configuration is collapsible, invalid when controlled | `boolean` | false |  |
+| collapsible | Whether the configuration is collapsible or specifies the trigger area for collapsing | `icon \| header \| boolean`, when the value is `true`, the default trigger area is `header` | false |
 | collapsibleIconRender | Replaces default collapsed icon | `({ collapsed }: { collapsed: boolean }) => React.ReactNode` | - |  |
 | defaultCollapsed | Default collapsing, invalid when controlled | `boolean` | false |  |
 | onCollapse | Collapsed card event, invalid when controlled | `(collapsed: boolean) => void` | - |  |
