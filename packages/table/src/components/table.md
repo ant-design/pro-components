@@ -251,7 +251,7 @@ ref.current.cancelEditable(rowKey);
 | request | 从服务器请求枚举 | [request](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params) | - |
 | initialValue | 查询表单项初始值 | `any` | - |
 | disable | 列设置中`disabled`的状态 | `boolean` \| `{ checkbox: boolean; }` | - |
-| ignoreRules | 忽略rules，LightFilter 应该不支持rules，默认是 false。| `boolean` \| - |
+| ignoreRules | 忽略rules，LightFilter 应该不支持rules，默认是 false。 | `boolean` \| - |
 
 ### valueType 值类型
 

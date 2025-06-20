@@ -34,7 +34,7 @@ exports[`EditorProTable 2 > 📝 columns initialValue alway work 1`] = `
                     style="overflow-x: auto; overflow-y: hidden;"
                   >
                     <table
-                      style="min-width: 100%; table-layout: fixed;"
+                      style="width: max-content; min-width: 100%; table-layout: fixed;"
                     >
                       <colgroup>
                         <col
@@ -138,6 +138,7 @@ exports[`EditorProTable 2 > 📝 columns initialValue alway work 1`] = `
                                         >
                                           <button
                                             class="ant-input-clear-icon"
+                                            tabindex="-1"
                                             type="button"
                                           >
                                             <span
@@ -202,6 +203,7 @@ exports[`EditorProTable 2 > 📝 columns initialValue alway work 1`] = `
                                         >
                                           <button
                                             class="ant-input-clear-icon"
+                                            tabindex="-1"
                                             type="button"
                                           >
                                             <span
@@ -266,6 +268,7 @@ exports[`EditorProTable 2 > 📝 columns initialValue alway work 1`] = `
                                         >
                                           <button
                                             class="ant-input-clear-icon"
+                                            tabindex="-1"
                                             type="button"
                                           >
                                             <span
@@ -379,7 +382,7 @@ exports[`EditorProTable 2 > 📝 columns support editable test 1`] = `
                     style="overflow-x: auto; overflow-y: hidden;"
                   >
                     <table
-                      style="min-width: 100%; table-layout: fixed;"
+                      style="width: max-content; min-width: 100%; table-layout: fixed;"
                     >
                       <colgroup>
                         <col
@@ -612,7 +615,7 @@ exports[`EditorProTable 2 > 📝 renderFormItem run defaultRender 1`] = `
                     style="overflow-x: auto; overflow-y: hidden;"
                   >
                     <table
-                      style="min-width: 100%; table-layout: fixed;"
+                      style="width: max-content; min-width: 100%; table-layout: fixed;"
                     >
                       <colgroup>
                         <col

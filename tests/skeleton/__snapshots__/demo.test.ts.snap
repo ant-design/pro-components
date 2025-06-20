@@ -56,7 +56,7 @@ exports[`skeleton demos > 📸 renders ./packages/skeleton/src/demos/description
               style="width: 100%; justify-content: space-between; display: flex;"
             >
               <div
-                style="flex: 1; padding-inline-start: 0; padding-inline-end: 0;"
+                style="flex: 1 1 0%; padding-inline-start: 0; padding-inline-end: 0;"
               >
                 <div
                   class="ant-skeleton ant-skeleton-active"
@@ -111,7 +111,7 @@ exports[`skeleton demos > 📸 renders ./packages/skeleton/src/demos/description
                 style="width: 100%; justify-content: space-between; display: flex;"
               >
                 <div
-                  style="flex: 1; margin-inline-end: 24px; max-width: 300px;"
+                  style="flex: 1 1 0%; margin-inline-end: 24px; max-width: 300px;"
                 >
                   <div
                     class="ant-skeleton ant-skeleton-active"
@@ -151,7 +151,7 @@ exports[`skeleton demos > 📸 renders ./packages/skeleton/src/demos/description
                   </div>
                 </div>
                 <div
-                  style="flex: 1; align-items: center; justify-content: center;"
+                  style="flex: 1 1 0%; align-items: center; justify-content: center;"
                 >
                   <div
                     style="max-width: 300px; margin: auto;"
@@ -213,7 +213,7 @@ exports[`skeleton demos > 📸 renders ./packages/skeleton/src/demos/description
               style="display: flex; background: rgba(0, 0, 0, 0.02); padding: 24px 8px;"
             >
               <div
-                style="flex: 1; padding-inline-start: 0; padding-inline-end: 32px;"
+                style="flex: 1 1 0%; padding-inline-start: 0; padding-inline-end: 32px;"
               >
                 <div
                   class="ant-skeleton ant-skeleton-active"
@@ -229,7 +229,7 @@ exports[`skeleton demos > 📸 renders ./packages/skeleton/src/demos/description
                 </div>
               </div>
               <div
-                style="flex: 3; padding-inline-start: 32px;"
+                style="flex: 3 1 0%; padding-inline-start: 32px;"
               >
                 <div
                   class="ant-skeleton ant-skeleton-active"
@@ -258,7 +258,7 @@ exports[`skeleton demos > 📸 renders ./packages/skeleton/src/demos/description
               style="display: flex; background: none; padding: 24px 8px;"
             >
               <div
-                style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+                style="flex: 1 1 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
               >
                 <div
                   class="ant-skeleton ant-skeleton-active"
@@ -274,52 +274,7 @@ exports[`skeleton demos > 📸 renders ./packages/skeleton/src/demos/description
                 </div>
               </div>
               <div
-                style="flex: 3; padding-inline-start: 32px;"
-              >
-                <div
-                  class="ant-skeleton ant-skeleton-active"
-                >
-                  <div
-                    class="ant-skeleton-content"
-                  >
-                    <h3
-                      class="ant-skeleton-title"
-                      style="width: 100%; margin: 0px; height: 24px;"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              style="padding: 0px 0px;"
-            >
-              <div
-                class="ant-divider ant-divider-horizontal"
-                role="separator"
-                style="margin: 0px;"
-              />
-            </div>
-            <div
-              style="display: flex; background: none; padding: 24px 8px;"
-            >
-              <div
-                style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
-              >
-                <div
-                  class="ant-skeleton ant-skeleton-active"
-                >
-                  <div
-                    class="ant-skeleton-content"
-                  >
-                    <h3
-                      class="ant-skeleton-title"
-                      style="width: 100%; margin: 0px; height: 24px;"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div
-                style="flex: 3; padding-inline-start: 32px;"
+                style="flex: 3 1 0%; padding-inline-start: 32px;"
               >
                 <div
                   class="ant-skeleton ant-skeleton-active"
@@ -348,7 +303,7 @@ exports[`skeleton demos > 📸 renders ./packages/skeleton/src/demos/description
               style="display: flex; background: none; padding: 24px 8px;"
             >
               <div
-                style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+                style="flex: 1 1 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
               >
                 <div
                   class="ant-skeleton ant-skeleton-active"
@@ -364,7 +319,7 @@ exports[`skeleton demos > 📸 renders ./packages/skeleton/src/demos/description
                 </div>
               </div>
               <div
-                style="flex: 3; padding-inline-start: 32px;"
+                style="flex: 3 1 0%; padding-inline-start: 32px;"
               >
                 <div
                   class="ant-skeleton ant-skeleton-active"
@@ -393,7 +348,7 @@ exports[`skeleton demos > 📸 renders ./packages/skeleton/src/demos/description
               style="display: flex; background: none; padding: 24px 8px;"
             >
               <div
-                style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+                style="flex: 1 1 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
               >
                 <div
                   class="ant-skeleton ant-skeleton-active"
@@ -409,7 +364,52 @@ exports[`skeleton demos > 📸 renders ./packages/skeleton/src/demos/description
                 </div>
               </div>
               <div
-                style="flex: 3; padding-inline-start: 32px;"
+                style="flex: 3 1 0%; padding-inline-start: 32px;"
+              >
+                <div
+                  class="ant-skeleton ant-skeleton-active"
+                >
+                  <div
+                    class="ant-skeleton-content"
+                  >
+                    <h3
+                      class="ant-skeleton-title"
+                      style="width: 100%; margin: 0px; height: 24px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="padding: 0px 0px;"
+            >
+              <div
+                class="ant-divider ant-divider-horizontal"
+                role="separator"
+                style="margin: 0px;"
+              />
+            </div>
+            <div
+              style="display: flex; background: none; padding: 24px 8px;"
+            >
+              <div
+                style="flex: 1 1 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
+              >
+                <div
+                  class="ant-skeleton ant-skeleton-active"
+                >
+                  <div
+                    class="ant-skeleton-content"
+                  >
+                    <h3
+                      class="ant-skeleton-title"
+                      style="width: 100%; margin: 0px; height: 24px;"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                style="flex: 3 1 0%; padding-inline-start: 32px;"
               >
                 <div
                   class="ant-skeleton ant-skeleton-active"
@@ -506,7 +506,7 @@ exports[`skeleton demos > 📸 renders ./packages/skeleton/src/demos/list.static
               style="width: 100%; justify-content: space-between; display: flex;"
             >
               <div
-                style="padding-inline-start: 0; flex: 1; margin-inline-end: 16px;"
+                style="padding-inline-start: 0; flex: 1 1 0%; margin-inline-end: 16px;"
               >
                 <div
                   class="ant-skeleton ant-skeleton-active"
@@ -530,7 +530,7 @@ exports[`skeleton demos > 📸 renders ./packages/skeleton/src/demos/list.static
                 </div>
               </div>
               <div
-                style="padding-inline-start: 16px; flex: 1; margin-inline-end: 0;"
+                style="padding-inline-start: 16px; flex: 1 1 0%; margin-inline-end: 0;"
               >
                 <div
                   class="ant-skeleton ant-skeleton-active"
@@ -641,7 +641,7 @@ exports[`skeleton demos > 📸 renders ./packages/skeleton/src/demos/list.static
                       style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
                     >
                       <div
-                        style="max-width: 100%; flex: 1;"
+                        style="max-width: 100%; flex: 1 1 0%;"
                       >
                         <div
                           class="ant-skeleton ant-skeleton-active"
@@ -696,7 +696,7 @@ exports[`skeleton demos > 📸 renders ./packages/skeleton/src/demos/list.static
                       style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
                     >
                       <div
-                        style="max-width: 100%; flex: 1;"
+                        style="max-width: 100%; flex: 1 1 0%;"
                       >
                         <div
                           class="ant-skeleton ant-skeleton-active"
@@ -751,7 +751,7 @@ exports[`skeleton demos > 📸 renders ./packages/skeleton/src/demos/list.static
                       style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
                     >
                       <div
-                        style="max-width: 100%; flex: 1;"
+                        style="max-width: 100%; flex: 1 1 0%;"
                       >
                         <div
                           class="ant-skeleton ant-skeleton-active"
@@ -806,7 +806,7 @@ exports[`skeleton demos > 📸 renders ./packages/skeleton/src/demos/list.static
                       style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
                     >
                       <div
-                        style="max-width: 100%; flex: 1;"
+                        style="max-width: 100%; flex: 1 1 0%;"
                       >
                         <div
                           class="ant-skeleton ant-skeleton-active"
@@ -861,7 +861,7 @@ exports[`skeleton demos > 📸 renders ./packages/skeleton/src/demos/list.static
                       style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
                     >
                       <div
-                        style="max-width: 100%; flex: 1;"
+                        style="max-width: 100%; flex: 1 1 0%;"
                       >
                         <div
                           class="ant-skeleton ant-skeleton-active"
@@ -980,7 +980,7 @@ exports[`skeleton demos > 📸 renders ./packages/skeleton/src/demos/list.tsx co
               style="width: 100%; justify-content: space-between; display: flex;"
             >
               <div
-                style="padding-inline-start: 0; flex: 1; margin-inline-end: 16px;"
+                style="padding-inline-start: 0; flex: 1 1 0%; margin-inline-end: 16px;"
               >
                 <div
                   class="ant-skeleton ant-skeleton-active"
@@ -1004,7 +1004,7 @@ exports[`skeleton demos > 📸 renders ./packages/skeleton/src/demos/list.tsx co
                 </div>
               </div>
               <div
-                style="padding-inline-start: 16px; flex: 1; margin-inline-end: 0;"
+                style="padding-inline-start: 16px; flex: 1 1 0%; margin-inline-end: 0;"
               >
                 <div
                   class="ant-skeleton ant-skeleton-active"
@@ -1115,7 +1115,7 @@ exports[`skeleton demos > 📸 renders ./packages/skeleton/src/demos/list.tsx co
                       style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
                     >
                       <div
-                        style="max-width: 100%; flex: 1;"
+                        style="max-width: 100%; flex: 1 1 0%;"
                       >
                         <div
                           class="ant-skeleton ant-skeleton-active"
@@ -1170,7 +1170,7 @@ exports[`skeleton demos > 📸 renders ./packages/skeleton/src/demos/list.tsx co
                       style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
                     >
                       <div
-                        style="max-width: 100%; flex: 1;"
+                        style="max-width: 100%; flex: 1 1 0%;"
                       >
                         <div
                           class="ant-skeleton ant-skeleton-active"
@@ -1225,7 +1225,7 @@ exports[`skeleton demos > 📸 renders ./packages/skeleton/src/demos/list.tsx co
                       style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
                     >
                       <div
-                        style="max-width: 100%; flex: 1;"
+                        style="max-width: 100%; flex: 1 1 0%;"
                       >
                         <div
                           class="ant-skeleton ant-skeleton-active"
@@ -1280,7 +1280,7 @@ exports[`skeleton demos > 📸 renders ./packages/skeleton/src/demos/list.tsx co
                       style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
                     >
                       <div
-                        style="max-width: 100%; flex: 1;"
+                        style="max-width: 100%; flex: 1 1 0%;"
                       >
                         <div
                           class="ant-skeleton ant-skeleton-active"
@@ -1335,7 +1335,7 @@ exports[`skeleton demos > 📸 renders ./packages/skeleton/src/demos/list.tsx co
                       style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
                     >
                       <div
-                        style="max-width: 100%; flex: 1;"
+                        style="max-width: 100%; flex: 1 1 0%;"
                       >
                         <div
                           class="ant-skeleton ant-skeleton-active"

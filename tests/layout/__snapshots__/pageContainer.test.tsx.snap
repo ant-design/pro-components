@@ -374,7 +374,7 @@ exports[`PageContainer > 🐲 FooterToolbar should know width 1`] = `
               </div>
               <div
                 class="ant-pro-top-nav-header-menu"
-                style="flex: 1;"
+                style="flex: 1 1 0%;"
               >
                 <div
                   style="margin-block-start: 16px;"
@@ -718,7 +718,7 @@ exports[`PageContainer > 🐲 footer should know width 1`] = `
               </div>
               <div
                 class="ant-pro-top-nav-header-menu"
-                style="flex: 1;"
+                style="flex: 1 1 0%;"
               >
                 <div
                   style="margin-block-start: 16px;"
@@ -955,7 +955,7 @@ exports[`PageContainer > 🐲 pro-layout support breadcrumbProps 1`] = `
             </a>
           </div>
           <div
-            style="flex: 1; overflow-y: auto; overflow-x: hidden;"
+            style="flex: 1 1 0%; overflow-y: auto; overflow-x: hidden;"
           >
             <div
               style="padding: 24px;"

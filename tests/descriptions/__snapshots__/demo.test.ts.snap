@@ -760,7 +760,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/bas
                     style="min-width: 0;"
                   >
                     <pre
-                      style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px;"
+                      style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px; width: min-content;"
                     >
                       <code>
                         
@@ -794,7 +794,7 @@ Done in 9.70s.
                     style="min-width: 0;"
                   >
                     <pre
-                      style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px;"
+                      style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px; width: min-content;"
                     >
                       <code>
                         {
@@ -1823,6 +1823,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                                       >
                                         <button
                                           class="ant-input-clear-icon"
+                                          tabindex="-1"
                                           type="button"
                                         >
                                           <span
@@ -3484,7 +3485,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/req
               class="ant-space-item"
             >
               <button
-                class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link"
+                class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link"
                 type="button"
               >
                 <span>

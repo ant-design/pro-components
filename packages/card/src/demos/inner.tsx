@@ -3,7 +3,12 @@ import { ProCard } from '@ant-design/pro-components';
 export default () => {
   return (
     <>
-      <ProCard title="Horizontal Inner Card" bordered headerBordered gutter={16}>
+      <ProCard
+        title="Horizontal Inner Card"
+        bordered
+        headerBordered
+        gutter={16}
+      >
         <ProCard title="Inner Card Title" type="inner" bordered>
           Inner Card Content
         </ProCard>

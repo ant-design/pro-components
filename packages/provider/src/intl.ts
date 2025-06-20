@@ -30,6 +30,7 @@ import ukUA from './locale/uk_UA';
 import uzUZ from './locale/uz_UZ';
 import viVN from './locale/vi_VN';
 import zhCN from './locale/zh_CN';
+import zhHK from './locale/zh_HK';
 import zhTW from './locale/zh_TW';
 
 export type IntlType = {
@@ -76,6 +77,7 @@ const ruRUIntl = createIntl('ru_RU', ruRU);
 const srRSIntl = createIntl('sr_RS', srRS);
 const msMYIntl = createIntl('ms_MY', msMY);
 const zhTWIntl = createIntl('zh_TW', zhTW);
+const zhHKIntl = createIntl('zh_HK', zhHK);
 const frFRIntl = createIntl('fr_FR', frFR);
 const ptBRIntl = createIntl('pt_BR', ptBR);
 const koKRIntl = createIntl('ko_KR', koKR);
@@ -110,6 +112,7 @@ const intlMap = {
   'sr-RS': srRSIntl,
   'ms-MY': msMYIntl,
   'zh-TW': zhTWIntl,
+  'zh-HK': zhHKIntl,
   'fr-FR': frFRIntl,
   'pt-BR': ptBRIntl,
   'ko-KR': koKRIntl,

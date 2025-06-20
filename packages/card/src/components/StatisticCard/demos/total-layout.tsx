@@ -21,7 +21,9 @@ export default () => {
           statistic={{
             value: 82.6,
             suffix: 'Billion',
-            description: <Statistic title="Daily Comparison" value="6.47%" trend="up" />,
+            description: (
+              <Statistic title="Daily Comparison" value="6.47%" trend="up" />
+            ),
           }}
           chart={
             <img
@@ -75,7 +77,11 @@ export default () => {
               value={1982312}
               layout="vertical"
               description={
-                <Statistic title="Daily Comparison" value="6.15%" trend="down" />
+                <Statistic
+                  title="Daily Comparison"
+                  value="6.15%"
+                  trend="down"
+                />
               }
             />
           </StatisticCard>
@@ -84,7 +90,11 @@ export default () => {
               title: 'Daily Ranking',
               value: 6,
               description: (
-                <Statistic title="Daily Comparison" value="3.85%" trend="down" />
+                <Statistic
+                  title="Daily Comparison"
+                  value="3.85%"
+                  trend="down"
+                />
               ),
             }}
             chart={
@@ -125,7 +135,11 @@ export default () => {
               value={601}
               layout="vertical"
               description={
-                <Statistic title="Daily Comparison" value="6.47%" trend="down" />
+                <Statistic
+                  title="Daily Comparison"
+                  value="6.47%"
+                  trend="down"
+                />
               }
             />
           </StatisticCard>

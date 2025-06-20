@@ -12,6 +12,7 @@ import {
 import type { TableColumnType, TableProps } from 'antd';
 import { Table } from 'antd';
 import { AnyObject } from 'antd/es/_util/type';
+import { SortOrder } from 'antd/lib/table/interface';
 import type { ContainerType } from '../Store/Provide';
 import type { ProColumns } from '../typing';
 import {
@@ -31,6 +32,8 @@ type ColumnToColumnParams<T> = {
   columnEmptyText: ProFieldEmptyText;
   type: ProSchemaComponentTypes;
   editableUtils: UseEditableUtilType;
+  proFilter: Record<string, (string | number)[] | null>;
+  proSort: Record<string, SortOrder>;
 } & Pick<TableProps<T>, 'rowKey' | 'childrenColumnName'>;
 
 /**
@@ -53,48 +56,11 @@ export function genProColumnToColumn<T extends AnyObject>(
     marginSM,
     rowKey = 'id',
     childrenColumnName = 'children',
+    proFilter = {},
+    proSort,
   } = params;
 
   const subNameRecord = new Map();
-
-  // 需要配合 valueEnum 使用的 valueType 类型
-  const needValueEnumTypes = [
-    'select',
-    'radio',
-    'radioButton',
-    'checkbox',
-    'treeSelect',
-  ];
-
-  // 基础的 valueType，不需要 valueEnum
-  const basicValueTypes = [
-    'text',
-    'password',
-    'money',
-    'textarea',
-    'date',
-    'dateTime',
-    'dateWeek',
-    'dateMonth',
-    'dateQuarter',
-    'dateYear',
-    'dateRange',
-    'dateTimeRange',
-    'time',
-    'timeRange',
-    'digit',
-    'progress',
-    'percent',
-    'second',
-    'avatar',
-    'code',
-    'switch',
-    'fromNow',
-    'image',
-    'jsonCode',
-    'color',
-    'cascader',
-  ];
 
   return columns
     ?.map((columnProps, columnsIndex) => {
@@ -108,17 +74,14 @@ export function genProColumnToColumn<T extends AnyObject>(
         children,
         onFilter,
         filters = [],
+        sorter,
       } = columnProps as ProColumns<T, any>;
       const columnKey = genColumnKey(
         key || dataIndex?.toString(),
         [parents?.key, columnsIndex].filter(Boolean).join('-'),
       );
-      // 修改判断逻辑：
-      // 1. 如果是基础类型，不需要 Pro 处理
-      // 2. 如果有 valueEnum 但 valueType 不是需要 valueEnum 的类型，也不需要特殊处理
-      const noNeedPro = 
-        (basicValueTypes.includes(valueType) || !needValueEnumTypes.includes(valueType)) && 
-        !children;
+      // 这些都没有，说明是普通的表格不需要 pro 管理
+      const noNeedPro = !valueEnum && !valueType && !children;
       if (noNeedPro) {
         return {
           index: columnsIndex,
@@ -137,6 +100,17 @@ export function genProColumnToColumn<T extends AnyObject>(
         return omitBoolean(onFilter);
       };
 
+      // 对应筛选值，用作双向绑定
+      const filteredValue =
+        columnKey && proFilter?.[columnKey] !== undefined
+          ? proFilter?.[columnKey]
+          : null;
+      // 对应排序值，用作双向绑定
+      const sortOrder =
+        columnKey && proSort[columnKey] !== undefined
+          ? proSort[columnKey]
+          : null;
+
       let keyName: string | number | symbol = rowKey as string;
 
       const tempColumns = {
@@ -152,6 +126,9 @@ export function genProColumnToColumn<T extends AnyObject>(
               ).filter((valueItem) => valueItem && valueItem.value !== 'all')
             : filters,
         onFilter: genOnFilter(),
+        filteredValue:
+          filters && genOnFilter() == null ? filteredValue : undefined,
+        sortOrder: sorter === true ? sortOrder : undefined,
         fixed: config.fixed,
         width: columnProps.width || (columnProps.fixed ? 200 : undefined),
         children: (columnProps as ProColumns<T, any>).children

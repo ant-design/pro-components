@@ -26,7 +26,13 @@ export interface TableListItem {
 }
 const tableListDataSource: TableListItem[] = [];
 
-const creators = ['Fu Xiaoxiao', 'Qu Lili', 'Lin Dongdong', 'Chen Shuai', 'Jian Moumou'];
+const creators = [
+  'Fu Xiaoxiao',
+  'Qu Lili',
+  'Lin Dongdong',
+  'Chen Shuai',
+  'Jian Moumou',
+];
 
 for (let i = 0; i < 10; i += 1) {
   tableListDataSource.push({

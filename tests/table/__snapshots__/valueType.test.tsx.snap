@@ -8,216 +8,72 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
     <div
       class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
     >
-      <form
-        autocomplete="off"
-        class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
+      <div
+        class="ant-pro-query-filter-container "
       >
-        <input
-          style="display: none;"
-          type="text"
-        />
-        <div
-          class="ant-row ant-row-start ant-pro-query-filter-row"
-          style="margin-left: -12px; margin-right: -12px;"
+        <form
+          autocomplete="off"
+          class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
         >
+          <input
+            style="display: none;"
+            type="text"
+          />
           <div
-            class="ant-col ant-col-8 ant-pro-query-filter-row-split"
-            style="padding-left: 12px; padding-right: 12px;"
+            class="ant-row ant-row-start ant-pro-query-filter-row"
           >
             <div
-              class="ant-form-item"
-              style="flex-wrap: nowrap;"
+              class="ant-col ant-col-8 ant-pro-query-filter-row-split"
+              style="padding-left: 12px; padding-right: 12px;"
             >
               <div
-                class="ant-row ant-form-item-row"
+                class="ant-form-item"
+                style="flex-wrap: nowrap;"
               >
                 <div
-                  class="ant-col ant-form-item-label"
-                  style="flex: 0 0 80px;"
-                >
-                  <label
-                    class=""
-                    for="name"
-                    title="标签"
-                  >
-                    标签
-                  </label>
-                </div>
-                <div
-                  class="ant-col ant-form-item-control"
-                  style="max-width: calc(100% - 80px);"
+                  class="ant-row ant-form-item-row"
                 >
                   <div
-                    class="ant-form-item-control-input"
+                    class="ant-col ant-form-item-label"
+                    style="flex: 0 0 80px;"
                   >
-                    <div
-                      class="ant-form-item-control-input-content"
+                    <label
+                      class=""
+                      for="name"
+                      title="标签"
                     >
-                      <span
-                        class="ant-input-affix-wrapper ant-input-outlined"
-                        style="width: 100%;"
-                      >
-                        <input
-                          class="ant-input"
-                          color="red"
-                          id="name"
-                          placeholder="请输入"
-                          type="text"
-                          value=""
-                        />
-                        <span
-                          class="ant-input-suffix"
-                        >
-                          <button
-                            class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                            type="button"
-                          >
-                            <span
-                              aria-label="close-circle"
-                              class="anticon anticon-close-circle"
-                              role="img"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="close-circle"
-                                fill="currentColor"
-                                fill-rule="evenodd"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
-                              >
-                                <path
-                                  d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
-                                />
-                              </svg>
-                            </span>
-                          </button>
-                        </span>
-                      </span>
-                    </div>
+                      标签
+                    </label>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="ant-col ant-col-8 ant-pro-query-filter-row-split"
-            style="padding-left: 12px; padding-right: 12px;"
-          >
-            <div
-              class="ant-form-item"
-              style="flex-wrap: nowrap;"
-            >
-              <div
-                class="ant-row ant-form-item-row"
-              >
-                <div
-                  class="ant-col ant-form-item-label"
-                  style="flex: 0 0 80px;"
-                >
-                  <label
-                    class=""
-                    for="treeSelect"
-                    title="树形下拉框"
-                  >
-                    树形下拉框
-                  </label>
-                </div>
-                <div
-                  class="ant-col ant-form-item-control"
-                  style="max-width: calc(100% - 80px);"
-                >
                   <div
-                    class="ant-form-item-control-input"
+                    class="ant-col ant-form-item-control"
+                    style="max-width: calc(100% - 80px);"
                   >
                     <div
-                      class="ant-form-item-control-input-content"
+                      class="ant-form-item-control-input"
                     >
                       <div
-                        class="ant-spin-nested-loading"
+                        class="ant-form-item-control-input-content"
                       >
-                        <div
-                          class="ant-spin-container"
+                        <span
+                          class="ant-input-affix-wrapper ant-input-outlined"
+                          style="width: 100%;"
                         >
-                          <div
-                            class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item ant-pro-field-tree-select ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-open ant-select-show-search"
-                            options="[object Object],[object Object]"
-                            style="min-width: 60px; width: 100%;"
+                          <input
+                            class="ant-input"
+                            color="red"
+                            id="name"
+                            placeholder="请输入"
+                            type="text"
+                            value=""
+                          />
+                          <span
+                            class="ant-input-suffix"
                           >
-                            <div
-                              class="ant-select-selector"
-                            >
-                              <span
-                                class="ant-select-selection-wrap"
-                              >
-                                <div
-                                  class="ant-select-selection-overflow"
-                                >
-                                  <div
-                                    class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-                                    style="opacity: 1;"
-                                  >
-                                    <div
-                                      class="ant-select-selection-search"
-                                      style="width: 0px;"
-                                    >
-                                      <input
-                                        aria-autocomplete="list"
-                                        aria-controls="treeSelect_list"
-                                        aria-expanded="true"
-                                        aria-haspopup="listbox"
-                                        aria-owns="treeSelect_list"
-                                        autocomplete="off"
-                                        class="ant-select-selection-search-input"
-                                        id="treeSelect"
-                                        role="combobox"
-                                        style=""
-                                        type="search"
-                                        value="Javasc"
-                                      />
-                                      <span
-                                        aria-hidden="true"
-                                        class="ant-select-selection-search-mirror"
-                                      >
-                                        Javasc 
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                              </span>
-                            </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-arrow"
-                              style="user-select: none;"
-                              unselectable="on"
-                            >
-                              <span
-                                aria-label="search"
-                                class="anticon anticon-search ant-select-suffix"
-                                role="img"
-                              >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="search"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="64 64 896 896"
-                                  width="1em"
-                                >
-                                  <path
-                                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-                                  />
-                                </svg>
-                              </span>
-                            </span>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-clear"
-                              style="user-select: none;"
-                              unselectable="on"
+                            <button
+                              class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                              tabindex="-1"
+                              type="button"
                             >
                               <span
                                 aria-label="close-circle"
@@ -239,71 +95,219 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                                   />
                                 </svg>
                               </span>
-                            </span>
-                          </div>
-                        </div>
+                            </button>
+                          </span>
+                        </span>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div
-            class="ant-col ant-col-8"
-            style="padding-left: 12px; padding-right: 12px; text-align: end;"
-          >
             <div
-              class="ant-form-item ant-pro-query-filter-actions"
+              class="ant-col ant-col-8 ant-pro-query-filter-row-split"
+              style="padding-left: 12px; padding-right: 12px;"
             >
               <div
-                class="ant-row ant-form-item-row"
+                class="ant-form-item"
+                style="flex-wrap: nowrap;"
               >
                 <div
-                  class="ant-col ant-form-item-label"
-                >
-                  <label
-                    class="ant-form-item-no-colon"
-                    title=" "
-                  >
-                     
-                  </label>
-                </div>
-                <div
-                  class="ant-col ant-form-item-control"
+                  class="ant-row ant-form-item-row"
                 >
                   <div
-                    class="ant-form-item-control-input"
+                    class="ant-col ant-form-item-label"
+                    style="flex: 0 0 80px;"
+                  >
+                    <label
+                      class=""
+                      for="treeSelect"
+                      title="树形下拉框"
+                    >
+                      树形下拉框
+                    </label>
+                  </div>
+                  <div
+                    class="ant-col ant-form-item-control"
+                    style="max-width: calc(100% - 80px);"
                   >
                     <div
-                      class="ant-form-item-control-input-content"
+                      class="ant-form-item-control-input"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
-                        style="column-gap: 16px; row-gap: 16px;"
+                        class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-space-item"
+                          class="ant-spin-nested-loading"
                         >
                           <div
-                            style="display: flex; gap: 8px; align-items: center;"
+                            class="ant-spin-container"
                           >
-                            <button
-                              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-                              type="button"
+                            <div
+                              class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item ant-pro-field-tree-select ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-open ant-select-show-search"
+                              options="[object Object],[object Object]"
+                              style="min-width: 60px; width: 100%;"
                             >
-                              <span>
-                                重 置
+                              <div
+                                class="ant-select-selector"
+                              >
+                                <span
+                                  class="ant-select-selection-wrap"
+                                >
+                                  <div
+                                    class="ant-select-selection-overflow"
+                                  >
+                                    <div
+                                      class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
+                                      style="opacity: 1;"
+                                    >
+                                      <div
+                                        class="ant-select-selection-search"
+                                        style="width: 0px;"
+                                      >
+                                        <input
+                                          aria-autocomplete="list"
+                                          aria-controls="treeSelect_list"
+                                          aria-expanded="true"
+                                          aria-haspopup="listbox"
+                                          aria-owns="treeSelect_list"
+                                          autocomplete="off"
+                                          class="ant-select-selection-search-input"
+                                          id="treeSelect"
+                                          role="combobox"
+                                          style=""
+                                          type="search"
+                                          value="Javasc"
+                                        />
+                                        <span
+                                          aria-hidden="true"
+                                          class="ant-select-selection-search-mirror"
+                                        >
+                                          Javasc 
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </span>
+                              </div>
+                              <span
+                                aria-hidden="true"
+                                class="ant-select-arrow"
+                                style="user-select: none;"
+                                unselectable="on"
+                              >
+                                <span
+                                  aria-label="search"
+                                  class="anticon anticon-search ant-select-suffix"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="search"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                                    />
+                                  </svg>
+                                </span>
                               </span>
-                            </button>
-                            <button
-                              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-                              type="button"
+                              <span
+                                aria-hidden="true"
+                                class="ant-select-clear"
+                                style="user-select: none;"
+                                unselectable="on"
+                              >
+                                <span
+                                  aria-label="close-circle"
+                                  class="anticon anticon-close-circle"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="close-circle"
+                                    fill="currentColor"
+                                    fill-rule="evenodd"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+                                    />
+                                  </svg>
+                                </span>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-col ant-col-8"
+              style="padding-left: 12px; padding-right: 12px; text-align: end;"
+            >
+              <div
+                class="ant-form-item ant-pro-query-filter-actions"
+              >
+                <div
+                  class="ant-row ant-form-item-row"
+                >
+                  <div
+                    class="ant-col ant-form-item-label"
+                  >
+                    <label
+                      class="ant-form-item-no-colon"
+                      title=" "
+                    >
+                       
+                    </label>
+                  </div>
+                  <div
+                    class="ant-col ant-form-item-control"
+                  >
+                    <div
+                      class="ant-form-item-control-input"
+                    >
+                      <div
+                        class="ant-form-item-control-input-content"
+                      >
+                        <div
+                          class="ant-space ant-space-horizontal ant-space-align-center"
+                          style="column-gap: 16px; row-gap: 16px;"
+                        >
+                          <div
+                            class="ant-space-item"
+                          >
+                            <div
+                              style="display: flex; gap: 8px; align-items: center;"
                             >
-                              <span>
-                                查 询
-                              </span>
-                            </button>
+                              <button
+                                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
+                                </span>
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -313,8 +317,8 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
               </div>
             </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
     <div
       class="ant-pro-card"

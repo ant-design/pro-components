@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.31.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.31.8...@ant-design/pro-form@2.31.9) (2025-06-10)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [2.31.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.31.7...@ant-design/pro-form@2.31.8) (2025-06-10)
+
+### Bug Fixes
+
+- **form:** 修复 StrictMode 模式下，BetaSchemaForm-ModalForm 渲染表单项失败的问题 ([#9069](https://github.com/ant-design/pro-components/issues/9069)) ([8417ad0](https://github.com/ant-design/pro-components/commit/8417ad0f26842acf36da859e4627c761356a5b78))
+- **form:** 修复使用QueryFilter时报findDOMNode is deprecated的问题。 ([#9065](https://github.com/ant-design/pro-components/issues/9065)) ([06ece53](https://github.com/ant-design/pro-components/commit/06ece53d3870f174779a1551873b69b0ca1d4b1f))
+
+## [2.31.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.31.6...@ant-design/pro-form@2.31.7) (2025-03-31)
+
+### Bug Fixes
+
+- **SchemaForm:** 移除不必要的类型错误注释，确保 tooltip 属性正常使用 ([c005a52](https://github.com/ant-design/pro-components/commit/c005a526d4e866937d0342c90c098fe6fde13fc7))
+- **tests:** 移除多余的空行以清理代码 ([32cb3b8](https://github.com/ant-design/pro-components/commit/32cb3b8f85d38e5ee60e73440207617340890def))
+
 ## [2.31.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.31.5...@ant-design/pro-form@2.31.6) (2025-02-17)
 
 ### Bug Fixes
