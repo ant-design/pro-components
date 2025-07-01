@@ -663,6 +663,7 @@ const ProFieldComponent: React.ForwardRefRenderFunction<
             ? undefined
             : (rest?.placeholder ?? fieldProps?.placeholder),
         }),
+        Object.keys(context.valueTypeMap || {})?.includes(valueType as string),
       ),
     }),
     context.valueTypeMap || {},
