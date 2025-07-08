@@ -36,7 +36,6 @@ const SortableRow = (props: any) => {
   const style = {
     transform: CSS.Transform.toString(transform),
     transition,
-    border:'1px solid red',
     ...props?.style,
   };
   const { DragHandle, dragSortKey, ...rest } = props;
