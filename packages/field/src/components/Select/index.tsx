@@ -271,7 +271,7 @@ export const useFieldFetchData = (
 
     if (children) traverseFieldKey(data, 'children');
     if (label) traverseFieldKey(data, 'label');
-    if (value) traverseFieldKey(data, 'value');
+    if (value) traverseFieldKey(data, 'value');    
     return data;
   }, [fieldProps]);
 
@@ -372,10 +372,23 @@ export const useFieldFetchData = (
 
     return opt;
   }, [options, keyWords, props.fieldProps?.filterOption]);
+  const applyFieldNamesMapping = (item: any) => {
+    if (!fieldProps?.fieldNames) return item;
 
+    const { label: labelKey = 'label', value: valueKey = 'value' } = fieldProps.fieldNames;
+
+    return {
+      ...item,
+      label: item[labelKey],
+      value: item[valueKey],
+    };
+  };
+  const finalData = props.request
+    ? (data as SelectOptionType)?.map((item) => applyFieldNamesMapping(item))
+    : undefined;
   return [
     isValidating,
-    props.request ? (data as SelectOptionType) : resOptions,
+    finalData || resOptions,
     (fetchKeyWords?: string) => {
       setKeyWords(fetchKeyWords);
     },
@@ -417,8 +430,6 @@ const FieldSelect: ProFieldFC<
   const inputRef = useRef();
   const intl = useIntl();
   const keyWordsRef = useRef<string>('');
-  const { fieldNames } = fieldProps;
-
   useEffect(() => {
     keyWordsRef.current = fieldProps?.searchValue;
   }, [fieldProps?.searchValue]);
@@ -439,30 +450,32 @@ const FieldSelect: ProFieldFC<
   const optionsValueEnum = useMemo(() => {
     if (mode !== 'read') return;
 
-    const {
-      label: labelPropsName = 'label',
-      value: valuePropsName = 'value',
-      options: optionsPropsName = 'options',
-    } = fieldNames || {};
-
-    const valuesMap = new Map();
-
     const traverseOptions = (_options: typeof options) => {
+      const localMap = new Map();
+
       if (!_options?.length) {
-        return valuesMap;
+        return localMap;
       }
+
       const length = _options.length;
-      let i = 0;
-      while (i < length) {
-        const cur = _options[i++];
-        valuesMap.set(cur[valuePropsName], cur[labelPropsName]);
-        traverseOptions(cur[optionsPropsName]);
+      for (let i = 0; i < length; i++) {
+        const cur = _options[i];
+
+        if (cur.value !== undefined && cur.label !== undefined) {
+          localMap.set(cur.value, cur.label);
+        }
+
+        if (cur.options?.length) {
+          const childMap = traverseOptions(cur.options);
+          childMap.forEach((v, k) => localMap.set(k, v));
+        }
       }
-      return valuesMap;
+
+      return localMap;
     };
 
     return traverseOptions(options);
-  }, [fieldNames, mode, options]);
+  }, [mode, options]);
 
   if (mode === 'read') {
     const dom = (
