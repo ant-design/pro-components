@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.17.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.17.1...@ant-design/pro-utils@2.17.2) (2025-06-10)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [2.17.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.17.0...@ant-design/pro-utils@2.17.1) (2025-06-10)
+
+### Bug Fixes
+
+- **form:** 修复 validateDebounce 属性不生效的问题 ([#9072](https://github.com/ant-design/pro-components/issues/9072)) ([ec3f506](https://github.com/ant-design/pro-components/commit/ec3f506ed5aaa66be5db0c80ea1241f4db2234e2))
+- correct comment for onCancel in EditableProTable ([#9117](https://github.com/ant-design/pro-components/issues/9117)) ([efd3e8c](https://github.com/ant-design/pro-components/commit/efd3e8c34247a95d8fcb461dab16393b468cb056))
+
 # [2.17.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.16.4...@ant-design/pro-utils@2.17.0) (2025-03-31)
 
 ### Bug Fixes

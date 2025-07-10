@@ -956,9 +956,9 @@ describe('ProForm List', () => {
             Icon: CloseOutlined,
           }}
           actionGuard={{
-            beforeAddRow: async (defaultValue, insertIndex) => {
+            beforeAddRow: async (defaultValue, insertIndex, count) => {
               return new Promise((resolve) => {
-                fnAdd(defaultValue?.name, insertIndex);
+                fnAdd(defaultValue?.name, insertIndex, count);
                 setTimeout(() => resolve(true), 1000);
               });
             },
@@ -994,7 +994,7 @@ describe('ProForm List', () => {
       (await html.findByText('添加一行数据')).parentElement?.click();
     });
 
-    expect(fnAdd).toHaveBeenLastCalledWith(undefined, 1);
+    expect(fnAdd).toHaveBeenLastCalledWith(undefined, 1, 1);
     expect(html.baseElement.querySelectorAll('input.ant-input').length).toBe(1);
     await waitForWaitTime(1200);
 
@@ -1007,7 +1007,7 @@ describe('ProForm List', () => {
         ?.click?.();
     });
 
-    expect(fnAdd).toHaveBeenLastCalledWith('1111', 2);
+    expect(fnAdd).toHaveBeenLastCalledWith('1111', 2, 2);
 
     await waitForWaitTime(1200);
 

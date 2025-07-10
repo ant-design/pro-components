@@ -156,6 +156,7 @@ export default () => {
             ? {
                 position: position as 'top',
                 record: () => ({ id: (Math.random() * 1000000).toFixed(0) }),
+                newRecordType: 'dataSource',
               }
             : false
         }
@@ -190,7 +191,20 @@ export default () => {
           success: true,
         })}
         value={dataSource}
-        onChange={setDataSource}
+        onChange={(value) => {
+          setDataSource((data) => {
+            const newMap = new Map(value.map((item) => [item.id, item]));
+            const merged = data.map((item) => {
+              return newMap.get(item.id) || item;
+            });
+            value.forEach((item) => {
+              if (!data.find((old) => old.id === item.id)) {
+                merged.push(item);
+              }
+            });
+            return merged;
+          });
+        }}
         editable={{
           type: 'multiple',
           editableKeys,

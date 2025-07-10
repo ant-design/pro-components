@@ -72,7 +72,7 @@ atomId: ProCard
 
 ### 可折叠
 
-- 你可以使用 `collapsible` 来配置卡片是否可折叠，通过 `defaultCollapsed` 属性配置是否默认折叠。
+- 你可以使用 `collapsible` 来配置卡片是否可折叠或者指定触发折叠的区域，通过 `defaultCollapsed` 属性配置是否默认折叠。
 - 或者你可以通过 `collapsed` 属性受控进行自定义。
 
 <code src="../demos/collapsible.tsx" background="var(--main-bg-color)" ></code>
@@ -163,7 +163,7 @@ atomId: ProCard
 | ghost | 幽灵模式，即是否取消卡片内容区域的 padding 和 卡片的背景颜色。 | `boolean` | false |  |
 | headerBordered | 页头是否有分割线 | `boolean` | false |  |
 | collapsed | 受控属性，是否折叠 | `boolean` | false |  |
-| collapsible | 配置是否可折叠，受控时无效 | `boolean` | false |  |
+| collapsible | 配置是否可折叠或者指定可折叠触发的区域 | `icon \| header \| boolean`,当值为`true`时默认触发区域为`header` | false |  |
 | collapsibleIconRender | 替换默认折叠图标 | `({ collapsed }: { collapsed: boolean }) => React.ReactNode` | - |  |
 | defaultCollapsed | 默认折叠，受控时无效 | `boolean` | false |  |
 | onCollapse | 收起卡片的事件，受控时无效 | `(collapsed: boolean) => void` | - |  |

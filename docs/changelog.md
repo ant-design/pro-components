@@ -1,3 +1,15 @@
+## @ant-design/pro-components@2.8.8
+
+`2025-06-10`
+
+- feat(form): extend the input argument of the render method in the read mode of select (#9059). [#9059](https://github.com/ant-design/pro-components/pull/#9059) [@rubbishmaker](https://github.com/rubbishmaker)
+- fix(form): 修复 StrictMode 模式下，BetaSchemaForm-ModalForm 渲染表单项失败的问题 (#9069). [#9069](https://github.com/ant-design/pro-components/pull/#9069) [@Lemonnnnnnnnnnn](https://github.com/Lemonnnnnnnnnnn)
+- fix(form): 修复 validateDebounce 属性不生效的问题 (#9072). [#9072](https://github.com/ant-design/pro-components/pull/#9072) [@Lemonnnnnnnnnnn](https://github.com/Lemonnnnnnnnnnn)
+- fix(form): 修复使用QueryFilter时报findDOMNode is deprecated的问题。 (#9065). [#9065](https://github.com/ant-design/pro-components/pull/#9065) [@Jarod-Xie](https://github.com/Jarod-Xie)
+- fix(form): 给 select readonly 模式下 render 方法提供组件内部计算好的 options (#9068). [#9068](https://github.com/ant-design/pro-components/pull/#9068) [@zwmmm](https://github.com/zwmmm)
+- fix(form): 使用useRef优化valuePair的处理逻辑，确保在边界值外的值更新更为准确 (#9058). [#9058](https://github.com/ant-design/pro-components/pull/#9058) [@Lemonnnnnnnnnnn](https://github.com/Lemonnnnnnnnnnn)
+- feat(table): 新增 filter 與 sort 受控方式 (#9060). [#9060](https://github.com/ant-design/pro-components/pull/#9060) [@leadingtw273](https://github.com/leadingtw273)
+
 ## @ant-design/pro-components@2.8.6
 
 `2025-02-17`

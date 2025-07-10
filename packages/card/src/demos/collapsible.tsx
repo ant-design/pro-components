@@ -36,6 +36,25 @@ export default () => {
       </ProCard>
       <ProCard
         title="Collapsible"
+        headerBordered
+        collapsible="icon"
+        defaultCollapsed
+        onCollapse={(collapse) => console.log(collapse)}
+        extra={
+          <Button
+            size="small"
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+          >
+            Submit
+          </Button>
+        }
+      >
+        Content
+      </ProCard>
+      <ProCard
+        title="Collapsible"
         bordered
         headerBordered
         collapsible
