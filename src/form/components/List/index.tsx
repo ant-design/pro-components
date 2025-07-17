@@ -1,15 +1,9 @@
-<<<<<<< HEAD:src/form/components/List/index.tsx
-﻿import { CopyOutlined, DeleteOutlined } from '@ant-design/icons';
-=======
-﻿import {
+import {
   ArrowDownOutlined,
   ArrowUpOutlined,
   CopyOutlined,
   DeleteOutlined,
 } from '@ant-design/icons';
-import { useIntl } from '@ant-design/pro-provider';
-import { ProFormContext } from '@ant-design/pro-utils';
->>>>>>> master:packages/form/src/components/List/index.tsx
 import type { ColProps } from 'antd';
 import { ConfigProvider, Form } from 'antd';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';

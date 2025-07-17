@@ -177,7 +177,7 @@ const DynamicSettings = () => {
   return (
     <ProCard
       split="vertical"
-      bordered
+      variant="outlined"
       headerBordered
       style={{
         height: '100vh',
@@ -602,7 +602,7 @@ const DynamicSettings = () => {
                     itemRender={({ listDom, action }) => {
                       return (
                         <ProCard
-                          bordered
+                          variant="outlined"
                           style={{
                             marginBlockEnd: 8,
                             position: 'relative',

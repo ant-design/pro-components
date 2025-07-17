@@ -12,28 +12,28 @@ export default () => {
         <ProCard
           colSpan={{ xs: 24, sm: 12, md: 12, lg: 12, xl: 12 }}
           layout="center"
-          bordered
+          variant="outlined"
         >
           Col
         </ProCard>
         <ProCard
           colSpan={{ xs: 24, sm: 12, md: 12, lg: 12, xl: 12 }}
           layout="center"
-          bordered
+          variant="outlined"
         >
           Col
         </ProCard>
         <ProCard
           colSpan={{ xs: 24, sm: 12, md: 12, lg: 12, xl: 12 }}
           layout="center"
-          bordered
+          variant="outlined"
         >
           Col
         </ProCard>
         <ProCard
           colSpan={{ xs: 24, sm: 12, md: 12, lg: 12, xl: 12 }}
           layout="center"
-          bordered
+          variant="outlined"
         >
           Col
         </ProCard>

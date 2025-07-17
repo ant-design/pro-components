@@ -55,7 +55,7 @@ export default () => {
       </ProCard>
       <ProCard
         title="Collapsible"
-        bordered
+        variant="outlined"
         headerBordered
         collapsible
         defaultCollapsed
@@ -74,7 +74,7 @@ export default () => {
         Content
       </ProCard>
       <ProCard
-        bordered
+        variant="outlined"
         size="small"
         title="Collapsible"
         headerBordered

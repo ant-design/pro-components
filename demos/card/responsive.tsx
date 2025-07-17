@@ -7,21 +7,21 @@ export default () => {
         <ProCard
           colSpan={{ xs: 2, sm: 4, md: 6, lg: 8, xl: 10 }}
           layout="center"
-          bordered
+          variant="outlined"
         >
           Col
         </ProCard>
         <ProCard
           colSpan={{ xs: 20, sm: 16, md: 12, lg: 8, xl: 4 }}
           layout="center"
-          bordered
+          variant="outlined"
         >
           Col
         </ProCard>
         <ProCard
           colSpan={{ xs: 2, sm: 4, md: 6, lg: 8, xl: 10 }}
           layout="center"
-          bordered
+          variant="outlined"
         >
           Col
         </ProCard>
@@ -40,11 +40,11 @@ export default () => {
             xl: '400px',
           }}
           layout="center"
-          bordered
+          variant="outlined"
         >
           Col
         </ProCard>
-        <ProCard layout="center" bordered>
+        <ProCard layout="center" variant="outlined">
           Auto
         </ProCard>
       </ProCard>
@@ -54,7 +54,7 @@ export default () => {
         gutter={8}
         title="Specified Width Percentage"
       >
-        <ProCard layout="center" bordered>
+        <ProCard layout="center" variant="outlined">
           Auto
         </ProCard>
         <ProCard
@@ -66,7 +66,7 @@ export default () => {
             lg: '40%',
             xl: '50%',
           }}
-          bordered
+          variant="outlined"
         >
           Col - Percentage
         </ProCard>

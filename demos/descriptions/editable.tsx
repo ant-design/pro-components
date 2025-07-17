@@ -7,7 +7,7 @@ export default () => {
   return (
     <ProDescriptions
       actionRef={actionRef}
-      // bordered
+      //   variant="outlined"
       formProps={{
         onValuesChange: (e, f) => console.log(f),
       }}

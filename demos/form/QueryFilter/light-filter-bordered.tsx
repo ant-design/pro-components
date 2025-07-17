@@ -53,7 +53,7 @@ export default () => {
       initialValues={{
         sex: 'man',
       }}
-      bordered
+      variant="outlined"
       collapseLabel={<FilterOutlined />}
       onFinish={async (values) => console.log(values)}
     >

@@ -146,7 +146,7 @@ describe('ProForm List', () => {
             min={1}
             itemRender={({ listDom, action }) => (
               <ProCard
-                bordered
+                variant="outlined"
                 style={{ marginBlockEnd: 8 }}
                 extra={action}
                 bodyStyle={{ paddingBlockEnd: 0 }}

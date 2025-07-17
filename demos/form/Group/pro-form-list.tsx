@@ -100,7 +100,7 @@ const Demo = () => {
           itemRender={({ listDom, action }, { record }) => {
             return (
               <ProCard
-                bordered
+                variant="outlined"
                 extra={action}
                 title={record?.name}
                 style={{

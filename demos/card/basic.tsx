@@ -9,7 +9,7 @@ export default () => {
     <>
       <ProCard
         title="Default Size"
-        bordered
+        variant="outlined"
         extra={
           <ProFormGroup>
             <ProFormSwitch

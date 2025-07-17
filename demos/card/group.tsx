@@ -4,13 +4,13 @@ export default () => {
   return (
     <>
       <ProCard title="Card Group Expanded" ghost gutter={8} collapsible>
-        <ProCard layout="center" bordered>
+        <ProCard layout="center" variant="outlined">
           Card Content
         </ProCard>
-        <ProCard layout="center" bordered>
+        <ProCard layout="center" variant="outlined">
           Card Content
         </ProCard>
-        <ProCard layout="center" bordered>
+        <ProCard layout="center" variant="outlined">
           Card Content
         </ProCard>
       </ProCard>

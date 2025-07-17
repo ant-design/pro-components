@@ -15,7 +15,7 @@ export default () => {
         title="Left and Right Columns with Title"
         extra="September 28, 2019"
         split={responsive ? 'horizontal' : 'vertical'}
-        bordered
+        variant="outlined"
         headerBordered
       >
         <ProCard title="Left Details" colSpan="50%">

@@ -26,7 +26,7 @@ export default () => {
         split="vertical"
         title="Watermark Custom Configurator"
         headerBordered
-        bordered
+        variant="outlined"
       >
         <ProCard colSpan="70%">
           <ProFormDependency

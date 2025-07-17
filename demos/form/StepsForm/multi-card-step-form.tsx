@@ -44,7 +44,7 @@ export default () => {
         >
           <ProCard
             title="Source and Target"
-            bordered
+            variant="outlined"
             headerBordered
             collapsible
             style={{
@@ -77,7 +77,7 @@ export default () => {
 
           <ProCard
             title="Top Alignment"
-            bordered
+            variant="outlined"
             headerBordered
             collapsible
             style={{

@@ -434,16 +434,14 @@ const FieldSelect: ProFieldFC<
     formItemRender,
     children,
     defaultKeyWords,
+    fieldProps = {},
   } = props;
 
   const inputRef = useRef();
   const intl = useIntl();
   const keyWordsRef = useRef<string>('');
-<<<<<<< HEAD:src/field/components/Select/index.tsx
   const { fieldNames } = originFieldProps;
 
-=======
->>>>>>> master:packages/field/src/components/Select/index.tsx
   useEffect(() => {
     keyWordsRef.current = originFieldProps?.searchValue;
   }, [originFieldProps?.searchValue]);

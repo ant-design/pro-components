@@ -74,7 +74,7 @@ export default () => {
           success: true,
         });
       }}
-      cardProps={{ title: '业务定制', bordered: true }}
+      cardProps={{ title: '业务定制', variant: 'outlined' }}
       headerTitle={
         <Button
           key="primary"

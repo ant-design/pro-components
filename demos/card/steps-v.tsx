@@ -15,7 +15,7 @@ export default () => {
     >
       <ProCard
         split={responsive ? 'horizontal' : 'vertical'}
-        bordered
+        variant="outlined"
         style={{ height: 320 }}
       >
         <ProCard colSpan={responsive ? 24 : 6}>

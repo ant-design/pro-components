@@ -19,7 +19,7 @@ export default () => {
         extra="Friday, September 28, 2019"
         split={responsive ? 'horizontal' : 'vertical'}
         headerBordered
-        bordered
+        variant="outlined"
       >
         <ProCard split="horizontal">
           <ProCard split="horizontal">

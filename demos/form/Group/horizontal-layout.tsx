@@ -18,7 +18,7 @@ const Demo = () => {
         copyIconProps={false}
         itemRender={({ listDom, action }, { index }) => (
           <ProCard
-            bordered
+            variant="outlined"
             style={{ marginBlockEnd: 8 }}
             title={`规格${index + 1}`}
             extra={action}

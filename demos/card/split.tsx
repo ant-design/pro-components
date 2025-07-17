@@ -15,7 +15,7 @@ export default () => {
       <ProCard
         title="Complex Split"
         extra="September 28, 2019"
-        bordered
+        variant="outlined"
         headerBordered
         split={responsive ? 'horizontal' : 'vertical'}
       >

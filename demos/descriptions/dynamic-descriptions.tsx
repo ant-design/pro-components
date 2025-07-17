@@ -118,7 +118,7 @@ export default () => {
   const [values, setValues] = useState<Record<string, any>>(initialValues);
   return (
     <ProCard
-      bordered
+      variant="outlined"
       split="vertical"
       headerBordered
       style={{
@@ -227,7 +227,7 @@ export default () => {
                     itemRender={({ listDom, action }) => {
                       return (
                         <ProCard
-                          bordered
+                          variant="outlined"
                           style={{
                             marginBlockEnd: 8,
                             position: 'relative',

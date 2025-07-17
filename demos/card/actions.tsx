@@ -12,7 +12,6 @@ export default () => {
       <ProCard
         title="Actions"
         style={{ maxWidth: 300 }}
-        bordered
         actions={[
           <SettingOutlined key="setting" />,
           <EditOutlined key="edit" />,
@@ -27,7 +26,7 @@ export default () => {
       <ProCard
         title="Standalone Actions"
         style={{ maxWidth: 300 }}
-        bordered
+        variant="outlined"
         actions={
           <div
             style={{
@@ -49,7 +48,7 @@ export default () => {
         <div>Card content</div>
       </ProCard>
 
-      <ProCard bordered title="No Actions" style={{ maxWidth: 300 }}>
+      <ProCard variant="outlined" title="No Actions" style={{ maxWidth: 300 }}>
         <div>Card content</div>
         <div>Card content</div>
         <div>Card content</div>

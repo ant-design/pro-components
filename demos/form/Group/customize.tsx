@@ -53,7 +53,7 @@ const Demo = () => {
   const [stateValue, setStateValue] = useState({});
   const [json, setJson] = useState(() => JSON.stringify(initialValue));
   return (
-    <ProCard bordered split="vertical" headerBordered>
+    <ProCard variant="outlined" split="vertical" headerBordered>
       <ProCard colSpan="calc(100% - 400px)">
         <ProForm>
           <ProFormList
