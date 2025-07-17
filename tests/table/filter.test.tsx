@@ -986,7 +986,10 @@ describe('BasicTable sorter', () => {
           >
             只显示运行中
           </button>
-          <button data-testid="filter-all" onClick={() => setFilteredValue(['0', '1'])}>
+          <button
+            data-testid="filter-all"
+            onClick={() => setFilteredValue(['0', '1'])}
+          >
             显示全部
           </button>
           <ProTable
@@ -1003,7 +1006,7 @@ describe('BasicTable sorter', () => {
                   { text: '运行中', value: '1' },
                 ],
                 filteredValue: filteredValue, // 用户直接设置 filteredValue
-                onFilter: (value: string, record: any) => {
+                onFilter: (value: any, record: any) => {
                   return record.status === value;
                 },
               },
