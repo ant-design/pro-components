@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [2.18.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.17.2...@ant-design/pro-utils@2.18.0) (2025-07-17)
+
+
+### Features
+
+* **field:** custom valuetypemap should not cull any props ([#9149](https://github.com/ant-design/pro-components/issues/9149)) ([6c09de8](https://github.com/ant-design/pro-components/commit/6c09de86cd1872b582d190a44c33c6fa31cd6643))
+
+
+
+
 
 ## [2.17.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.17.1...@ant-design/pro-utils@2.17.2) (2025-06-10)
 

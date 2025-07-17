@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [2.10.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.9.9...@ant-design/pro-card@2.10.0) (2025-07-17)
+
+
+### Features
+
+* **card:** ProCard collapsible now supports specifying trigger area ([#9029](https://github.com/ant-design/pro-components/issues/9029)) ([a9c1cc5](https://github.com/ant-design/pro-components/commit/a9c1cc58a256683a5075bba5712253c5fa3818cb))
+
+
+
+
 
 ## [2.9.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.9.8...@ant-design/pro-card@2.9.9) (2025-06-10)
 
