@@ -75,6 +75,7 @@ export function genProColumnToColumn<T extends AnyObject>(
         onFilter,
         filters = [],
         sorter,
+        filteredValue: columnFilteredValue,
       } = columnProps as ProColumns<T, any>;
       const columnKey = genColumnKey(
         key || dataIndex?.toString(),
@@ -127,7 +128,13 @@ export function genProColumnToColumn<T extends AnyObject>(
             : filters,
         onFilter: genOnFilter(),
         filteredValue:
-          filters && genOnFilter() == null ? filteredValue : undefined,
+          // 优先使用用户明确设置的 filteredValue
+          columnFilteredValue !== undefined
+            ? columnFilteredValue
+            : // 否则，只有在服务端筛选时才使用计算的 filteredValue
+              filters && genOnFilter() == null
+              ? filteredValue
+              : undefined,
         sortOrder: sorter === true ? sortOrder : undefined,
         fixed: config.fixed,
         width: columnProps.width || (columnProps.fixed ? 200 : undefined),

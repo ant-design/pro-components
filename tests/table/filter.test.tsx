@@ -8,7 +8,7 @@ import {
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Button } from 'antd';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { getFetchData } from './demo';
 
 afterEach(() => {
@@ -966,5 +966,90 @@ describe('BasicTable sorter', () => {
       },
       { timeout: 1000 },
     );
+  });
+
+  it('🎏 should support controlled filteredValue in columns', async () => {
+    const TestComponent = () => {
+      const [filteredValue, setFilteredValue] = useState<string[]>(['0']);
+
+      return (
+        <div>
+          <button
+            data-testid="filter-closed"
+            onClick={() => setFilteredValue(['0'])}
+          >
+            只显示关闭
+          </button>
+          <button
+            data-testid="filter-running"
+            onClick={() => setFilteredValue(['1'])}
+          >
+            只显示运行中
+          </button>
+          <button data-testid="filter-all" onClick={() => setFilteredValue(['0', '1'])}>
+            显示全部
+          </button>
+          <ProTable
+            columns={[
+              {
+                title: 'Name',
+                dataIndex: 'name',
+              },
+              {
+                title: '状态',
+                dataIndex: 'status',
+                filters: [
+                  { text: '关闭', value: '0' },
+                  { text: '运行中', value: '1' },
+                ],
+                filteredValue: filteredValue, // 用户直接设置 filteredValue
+                onFilter: (value: string, record: any) => {
+                  return record.status === value;
+                },
+              },
+            ]}
+            dataSource={[
+              { id: 1, name: '项目 A', status: '0' },
+              { id: 2, name: '项目 B', status: '1' },
+              { id: 3, name: '项目 C', status: '0' },
+            ]}
+            rowKey="id"
+            pagination={false}
+            search={false}
+          />
+        </div>
+      );
+    };
+
+    const { container } = render(<TestComponent />);
+
+    // 初始状态应该只显示状态为 '0' 的项目（项目 A 和项目 C）
+    await waitFor(() => {
+      expect(screen.queryByText('项目 A')).toBeInTheDocument();
+      expect(screen.queryByText('项目 C')).toBeInTheDocument();
+      expect(screen.queryByText('项目 B')).not.toBeInTheDocument();
+    });
+
+    // 点击显示运行中
+    await userEvent.click(screen.getByTestId('filter-running'));
+
+    await waitFor(() => {
+      expect(screen.queryByText('项目 B')).toBeInTheDocument();
+      expect(screen.queryByText('项目 A')).not.toBeInTheDocument();
+      expect(screen.queryByText('项目 C')).not.toBeInTheDocument();
+    });
+
+    // 点击显示全部
+    await userEvent.click(screen.getByTestId('filter-all'));
+
+    await waitFor(() => {
+      expect(screen.queryByText('项目 A')).toBeInTheDocument();
+      expect(screen.queryByText('项目 B')).toBeInTheDocument();
+      expect(screen.queryByText('项目 C')).toBeInTheDocument();
+    });
+
+    // 验证筛选器状态是否正确同步
+    const filterTrigger = container.querySelector('.ant-table-filter-trigger');
+    expect(filterTrigger).toBeInTheDocument();
   });
 });
