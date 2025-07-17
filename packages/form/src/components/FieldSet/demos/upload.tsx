@@ -16,7 +16,7 @@ export default () => {
           name: 'file',
         }}
         action="/upload.do"
-        extra="longgggggggggggggggggggggggggggggggggg"
+        extra="extra"
       />
       <ProFormUploadButton
         name="upload"
@@ -27,7 +27,7 @@ export default () => {
           listType: 'picture-card',
         }}
         action="/upload.do"
-        extra="longgggggggggggggggggggggggggggggggggg"
+        extra="extra"
       />
       <ProFormUploadDragger max={4} label="Dragger" name="dragger" />
     </ProForm>
