@@ -89,14 +89,14 @@ const FieldRangePicker: ProFieldFC<
 
   if (mode === 'edit' || mode === 'update') {
     const dayValue = parseValueToDay(fieldProps.value) as dayjs.Dayjs[];
-    let dom; 
+    let dom;
     const handleRangeChange = (value: any) => {
       fieldProps?.onChange?.(value);
 
       if (!value) {
         setOpen(false);
       }
-    };  
+    };
     if (light) {
       dom = (
         <FieldLabel

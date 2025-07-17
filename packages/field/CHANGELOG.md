@@ -1,23 +1,16 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [3.1.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@3.0.6...@ant-design/pro-field@3.1.0) (2025-07-17)
 
-
 ### Bug Fixes
 
-* **form:** ProSelect 开启 showSearch 默认情况会同时匹配 label 和 value ([#9162](https://github.com/ant-design/pro-components/issues/9162)) ([851826d](https://github.com/ant-design/pro-components/commit/851826d22454961d69c464251d52bcc81f437f8c))
-
+- **form:** ProSelect 开启 showSearch 默认情况会同时匹配 label 和 value ([#9162](https://github.com/ant-design/pro-components/issues/9162)) ([851826d](https://github.com/ant-design/pro-components/commit/851826d22454961d69c464251d52bcc81f437f8c))
 
 ### Features
 
-* **field:** custom valuetypemap should not cull any props ([#9149](https://github.com/ant-design/pro-components/issues/9149)) ([6c09de8](https://github.com/ant-design/pro-components/commit/6c09de86cd1872b582d190a44c33c6fa31cd6643))
-
-
-
-
+- **field:** custom valuetypemap should not cull any props ([#9149](https://github.com/ant-design/pro-components/issues/9149)) ([6c09de8](https://github.com/ant-design/pro-components/commit/6c09de86cd1872b582d190a44c33c6fa31cd6643))
 
 ## [3.0.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@3.0.5...@ant-design/pro-field@3.0.6) (2025-06-10)
 

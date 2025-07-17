@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.32.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.31.9...@ant-design/pro-form@2.32.0) (2025-07-17)
 
-
 ### Features
 
-* **QueryFilter:** add containerStyle prop for customizable container styles ([dc22c7f](https://github.com/ant-design/pro-components/commit/dc22c7f73fe1d114dac31e8505282cfe2cb6401a))
-
-
-
-
+- **QueryFilter:** add containerStyle prop for customizable container styles ([dc22c7f](https://github.com/ant-design/pro-components/commit/dc22c7f73fe1d114dac31e8505282cfe2cb6401a))
 
 ## [2.31.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.31.8...@ant-design/pro-form@2.31.9) (2025-06-10)
 

@@ -1,3 +1,20 @@
+## @ant-design/pro-components@2.8.10
+
+`2025-07-17`
+
+- feat(form):增加箭头上下排序功能 (#9037). [#9037](https://github.com/ant-design/pro-components/pull/#9037) [@echoyl](https://github.com/echoyl)
+- fix(form):The ProFormUploadButton component cannot be previewed (#9040). [#9040](https://github.com/ant-design/pro-components/pull/#9040) [@chenJJ-88](https://github.com/chenJJ-88)
+- fix(form):The DatePicker component returns to the initial state after the data is clear. (#9134). [#9134](https://github.com/ant-design/pro-components/pull/#9134) [@chenJJ-88](https://github.com/chenJJ-88)
+- fix(form):Bug when ProField uses fieldNames (#9158). [#9158](https://github.com/ant-design/pro-components/pull/#9158) [@chenJJ-88](https://github.com/chenJJ-88)
+- fix(form): ProSelect 开启 showSearch 默认情况会同时匹配 label 和 value (#9162). [#9162](https://github.com/ant-design/pro-components/pull/#9162) [@zwmmm](https://github.com/zwmmm)
+- fix(form) :increase the parame of the actions function to maintain consistency. (#9137). [#9137](https://github.com/ant-design/pro-components/pull/#9137) [@rubbishmaker](https://github.com/rubbishmaker)
+- fix(table): 修复过滤按钮的 onClick 事件格式和 onFilter 参数类型. [ae2475b](https://github.com/ant-design/pro-components/commit/ae2475b)
+- feat(table): 支持在列中使用受控的 filteredValue. [775ecc7](https://github.com/ant-design/pro-components/commit/775ecc7)
+- fix(table):Dragging the table causes the page to scroll wirelessly. (#9157). [#9157](https://github.com/ant-design/pro-components/pull/#9157) [@chenJJ-88](https://github.com/chenJJ-88)
+- feat(table): add ContentWordsItem demo with ProTable integration. [37b2602](https://github.com/ant-design/pro-components/commit/37b2602)
+- feat(field): custom valuetypemap should not cull any props (#9149). [#9149](https://github.com/ant-design/pro-components/pull/#9149) [@rubbishmaker](https://github.com/rubbishmaker)
+- feat(card): ProCard collapsible now supports specifying trigger area (#9029). [#9029](https://github.com/ant-design/pro-components/pull/#9029) [@chenJJ-88](https://github.com/chenJJ-88)
+
 ## @ant-design/pro-components@2.8.8
 
 `2025-06-10`

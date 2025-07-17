@@ -1,10 +1,10 @@
 import { useRefFunction } from '@ant-design/pro-utils';
 import type { DragEndEvent } from '@dnd-kit/core';
 import {
-  rectIntersection,
   DndContext,
   MouseSensor,
   PointerSensor,
+  rectIntersection,
   useSensor,
   useSensors,
 } from '@dnd-kit/core';

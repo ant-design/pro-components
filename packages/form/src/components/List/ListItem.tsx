@@ -1,9 +1,9 @@
 ﻿import {
+  ArrowDownOutlined,
+  ArrowUpOutlined,
   CopyOutlined,
   DeleteOutlined,
   LoadingOutlined,
-  ArrowUpOutlined,
-  ArrowDownOutlined
 } from '@ant-design/icons';
 import { ProProvider } from '@ant-design/pro-provider';
 import { SearchTransformKeyFn } from '@ant-design/pro-utils';
@@ -482,72 +482,50 @@ const ProFormListItem: React.FC<
     field.name,
   ]);
   const upIcon = useMemo(() => {
-    if(!arrowSort)
-    {
+    if (!arrowSort) {
       return null;
     }
     if (mode === 'read') return null;
     if (upIconProps === false) return null;
     const toIndex = index - 1;
-    if(toIndex < 0)
-    {
+    if (toIndex < 0) {
       return null;
     }
     const { Icon = ArrowUpOutlined, tooltipText } = upIconProps!;
     return (
       <Tooltip title={tooltipText} key="up">
         <Icon
-            className={classNames(
-              `${prefixCls}-action-icon action-up`,
-              hashId,
-            )}
-            onClick={async () => {
-              await action.move(index,toIndex);
-            }}
-          />
+          className={classNames(`${prefixCls}-action-icon action-up`, hashId)}
+          onClick={async () => {
+            await action.move(index, toIndex);
+          }}
+        />
       </Tooltip>
     );
-  }, [
-    upIconProps,
-    prefixCls,
-    hashId,
-    action,
-    arrowSort
-  ]);
+  }, [upIconProps, prefixCls, hashId, action, arrowSort]);
 
   const downIcon = useMemo(() => {
-    if(!arrowSort)
-    {
+    if (!arrowSort) {
       return null;
     }
     if (mode === 'read') return null;
     if (downIconProps === false) return null;
     const toIndex = index + 1;
-    if(toIndex >= count)
-    {
+    if (toIndex >= count) {
       return null;
     }
     const { Icon = ArrowDownOutlined, tooltipText } = downIconProps!;
     return (
       <Tooltip title={tooltipText} key="down">
         <Icon
-            className={classNames(
-              `${prefixCls}-action-icon action-down`,
-              hashId,
-            )}
-            onClick={async () => {
-              await action.move(index,toIndex);
-            }}
-          />
+          className={classNames(`${prefixCls}-action-icon action-down`, hashId)}
+          onClick={async () => {
+            await action.move(index, toIndex);
+          }}
+        />
       </Tooltip>
     );
-  }, [
-    upIconProps,
-    prefixCls,
-    hashId,
-    action,
-    arrowSort
-  ]);
+  }, [upIconProps, prefixCls, hashId, action, arrowSort]);
 
   const defaultActionDom: React.ReactNode[] = useMemo(
     () =>

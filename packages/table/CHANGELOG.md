@@ -1,19 +1,13 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [3.21.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.20.1...@ant-design/pro-table@3.21.0) (2025-07-17)
 
-
 ### Features
 
-* **table:** add ContentWordsItem demo with ProTable integration ([37b2602](https://github.com/ant-design/pro-components/commit/37b26024ed51eb740f91a705f53f8e25d1604401))
-* **table:** 支持在列中使用受控的 filteredValue ([775ecc7](https://github.com/ant-design/pro-components/commit/775ecc7991c7796ec403730438870f59f81268be))
-
-
-
-
+- **table:** add ContentWordsItem demo with ProTable integration ([37b2602](https://github.com/ant-design/pro-components/commit/37b26024ed51eb740f91a705f53f8e25d1604401))
+- **table:** 支持在列中使用受控的 filteredValue ([775ecc7](https://github.com/ant-design/pro-components/commit/775ecc7991c7796ec403730438870f59f81268be))
 
 ## [3.20.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.20.0...@ant-design/pro-table@3.20.1) (2025-06-10)
 

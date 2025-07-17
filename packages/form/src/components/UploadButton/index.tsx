@@ -1,6 +1,12 @@
 import { UploadOutlined } from '@ant-design/icons';
-import type { ButtonProps, UploadProps, GetProp, UploadFile, ImageProps } from 'antd';
-import { Button, Upload ,Image} from 'antd';
+import type {
+  ButtonProps,
+  GetProp,
+  ImageProps,
+  UploadFile,
+  UploadProps,
+} from 'antd';
+import { Button, Image, Upload } from 'antd';
 import React, { useContext, useMemo, useState } from 'react';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
 import { createField } from '../../BaseForm/createField';
@@ -57,10 +63,10 @@ export type ProFormUploadButtonProps = ProFormFieldItemProps<
    */
   disabled?: ButtonProps['disabled'];
   /**
-    * @name 图片预览组件的配置
-    * @example imageProps={{ preview: { toolbarRender: () => null } }}
-    */
-  imageProps?: Omit<ImageProps, "src">
+   * @name 图片预览组件的配置
+   * @example imageProps={{ preview: { toolbarRender: () => null } }}
+   */
+  imageProps?: Omit<ImageProps, 'src'>;
 } & PickUploadProps;
 const getBase64 = (file: FileType): Promise<string> =>
   new Promise((resolve, reject) => {
@@ -135,13 +141,16 @@ const BaseProFormUploadButton: React.ForwardRefRenderFunction<
               {icon} {title}
             </span>
           ) : (
-            <Button disabled={disabled || fieldProps?.disabled} {...buttonProps}>
+            <Button
+              disabled={disabled || fieldProps?.disabled}
+              {...buttonProps}
+            >
               {icon}
               {title}
             </Button>
           ))}
       </Upload>
-    {previewImage && (
+      {previewImage && (
         <Image
           wrapperStyle={{ display: 'none' }}
           {...imageProps}
@@ -149,13 +158,12 @@ const BaseProFormUploadButton: React.ForwardRefRenderFunction<
             visible: previewOpen,
             onVisibleChange: (visible) => setPreviewOpen(visible),
             afterOpenChange: (visible) => !visible && setPreviewImage(''),
-            ...(imageProps?.preview as any || {})
+            ...((imageProps?.preview as any) || {}),
           }}
           src={previewImage}
         />
       )}
     </>
-
   );
 };
 

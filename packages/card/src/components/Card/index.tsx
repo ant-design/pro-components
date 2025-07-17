@@ -51,8 +51,8 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     type,
     ...rest
   } = props;
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);  
-  
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+
   const screens = useBreakpoint() || {
     lg: true,
     md: true,
@@ -228,9 +228,9 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       collapsibleIconRender({ collapsed })
     ) : (
       <RightOutlined
-      onClick={()=>{
-            if (collapsible === 'icon') setCollapsed(!collapsed);
-      }}
+        onClick={() => {
+          if (collapsible === 'icon') setCollapsed(!collapsed);
+        }}
         rotate={!collapsed ? 90 : undefined}
         className={`${prefixCls}-collapsible-icon ${hashId}`.trim()}
       />
@@ -255,10 +255,11 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
           })}
           style={headStyle}
           onClick={() => {
-            if (collapsible === 'header' || collapsible === true) setCollapsed(!collapsed);
+            if (collapsible === 'header' || collapsible === true)
+              setCollapsed(!collapsed);
           }}
         >
-          <div className={`${prefixCls}-title ${hashId}`.trim()} >
+          <div className={`${prefixCls}-title ${hashId}`.trim()}>
             {collapsibleButton}
             <LabelIconTip label={title} tooltip={tooltip} subTitle={subTitle} />
           </div>
