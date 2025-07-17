@@ -262,12 +262,15 @@ export const useFieldFetchData = (
       let i = 0;
       while (i < length) {
         const cur = _options[i++];
-        if (cur[children] || cur[label] || cur[value]) {
-          cur[type] =
-            cur[
-              type === 'children' ? children : type === 'label' ? label : value
-            ];
-          traverseFieldKey(cur[children], type);
+        const customFieldName =
+          type === 'children' ? children : type === 'label' ? label : value;
+        if (customFieldName && cur[customFieldName] !== undefined) {
+          cur[type] = cur[customFieldName];
+          if (type === 'children') {
+            traverseFieldKey(cur[customFieldName], 'children');
+            traverseFieldKey(cur[customFieldName], 'label');
+            traverseFieldKey(cur[customFieldName], 'value');
+          }
         }
       }
     };
@@ -375,10 +378,24 @@ export const useFieldFetchData = (
 
     return opt;
   }, [options, keyWords, props.fieldProps?.filterOption]);
+  const applyFieldNamesMapping = (item: any) => {
+    if (!fieldProps?.fieldNames) return item;
 
+    const { label: labelKey = 'label', value: valueKey = 'value' } =
+      fieldProps.fieldNames;
+
+    return {
+      ...item,
+      label: item[labelKey],
+      value: item[valueKey],
+    };
+  };
+  const finalData = props.request
+    ? (data as SelectOptionType)?.map((item) => applyFieldNamesMapping(item))
+    : undefined;
   return [
     isValidating,
-    props.request ? (data as SelectOptionType) : resOptions,
+    finalData || resOptions,
     (fetchKeyWords?: string) => {
       setKeyWords(fetchKeyWords);
     },
@@ -422,8 +439,11 @@ const FieldSelect: ProFieldFC<
   const inputRef = useRef();
   const intl = useIntl();
   const keyWordsRef = useRef<string>('');
+<<<<<<< HEAD:src/field/components/Select/index.tsx
   const { fieldNames } = originFieldProps;
 
+=======
+>>>>>>> master:packages/field/src/components/Select/index.tsx
   useEffect(() => {
     keyWordsRef.current = originFieldProps?.searchValue;
   }, [originFieldProps?.searchValue]);
@@ -444,30 +464,48 @@ const FieldSelect: ProFieldFC<
   const optionsValueEnum = useMemo(() => {
     if (mode !== 'read') return;
 
+    /**
+     * Support select fieldNames
+     * Similar to cascader fieldNames support
+     */
     const {
-      label: labelPropsName = 'label',
       value: valuePropsName = 'value',
+      label: labelPropsName = 'label',
       options: optionsPropsName = 'options',
-    } = fieldNames || {};
-
-    const valuesMap = new Map();
+    } = fieldProps?.fieldNames || {};
 
     const traverseOptions = (_options: typeof options) => {
+      const localMap = new Map();
+
       if (!_options?.length) {
-        return valuesMap;
+        return localMap;
       }
+
       const length = _options.length;
-      let i = 0;
-      while (i < length) {
-        const cur = _options[i++];
-        valuesMap.set(cur[valuePropsName], cur[labelPropsName]);
-        traverseOptions(cur[optionsPropsName]);
+      for (let i = 0; i < length; i++) {
+        const cur = _options[i];
+
+        // Use fieldNames mapping to get correct value and label
+        const curValue = cur[valuePropsName];
+        const curLabel = cur[labelPropsName];
+
+        if (curValue !== undefined && curLabel !== undefined) {
+          localMap.set(curValue, curLabel);
+        }
+
+        // Handle nested options with fieldNames mapping
+        const childOptions = cur[optionsPropsName] || cur.options;
+        if (childOptions?.length) {
+          const childMap = traverseOptions(childOptions);
+          childMap.forEach((v, k) => localMap.set(k, v));
+        }
       }
-      return valuesMap;
+
+      return localMap;
     };
 
     return traverseOptions(options);
-  }, [fieldNames, mode, options]);
+  }, [mode, options, fieldProps?.fieldNames]);
 
   if (mode === 'read') {
     const dom = (

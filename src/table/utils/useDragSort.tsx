@@ -1,9 +1,9 @@
 import type { DragEndEvent } from '@dnd-kit/core';
 import {
-  closestCenter,
   DndContext,
   MouseSensor,
   PointerSensor,
+  rectIntersection,
   useSensor,
   useSensors,
 } from '@dnd-kit/core';
@@ -33,7 +33,6 @@ const SortableItemContextValue = createContext<{
 const SortableRow = (props: any) => {
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({ id: props.id });
-
   const style = {
     transform: CSS.Transform.toString(transform),
     transition,
@@ -193,7 +192,7 @@ export function useDragSort<T>(props: UseDragSortOptions<T>) {
         <DndContext
           modifiers={[restrictToVerticalAxis]}
           sensors={sensors}
-          collisionDetection={closestCenter}
+          collisionDetection={rectIntersection}
           onDragEnd={handleDragEnd}
         >
           {contextProps.children}

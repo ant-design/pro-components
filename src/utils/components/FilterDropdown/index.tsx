@@ -45,6 +45,7 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
     <Popover
       placement={placement}
       trigger={['click']}
+<<<<<<< HEAD:src/utils/components/FilterDropdown/index.tsx
       open={open || false}
       onOpenChange={onOpenChange}
       styles={{
@@ -52,6 +53,10 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
           padding: 0,
         },
       }}
+=======
+      {...dropdownOpenProps}
+      styles={{ body: { padding: 0 } }}
+>>>>>>> master:packages/utils/src/components/FilterDropdown/index.tsx
       content={
         <div
           ref={htmlRef}

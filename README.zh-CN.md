@@ -150,6 +150,10 @@ $ pnpm dev
   </table>
 </a>
 
+<a href="https://openomy.app/github/ant-design/pro-components" target="_blank" style="display: block; width: 100%;" align="center">
+  <img src="https://openomy.app/svg?repo=ant-design/pro-components&chart=bubble&latestMonth=3" target="_blank" alt="Contribution Leaderboard" style="display: block; width: 100%;" />
+</a>
+
 ## 🛣️ 生态系统
 
 - **[ProComponents](https://github.com/ant-design/pro-components)** - 专为企业级应用设计，像专业人士一样使用 Ant Design！

@@ -1,4 +1,15 @@
+<<<<<<< HEAD:src/form/components/List/index.tsx
 ﻿import { CopyOutlined, DeleteOutlined } from '@ant-design/icons';
+=======
+﻿import {
+  ArrowDownOutlined,
+  ArrowUpOutlined,
+  CopyOutlined,
+  DeleteOutlined,
+} from '@ant-design/icons';
+import { useIntl } from '@ant-design/pro-provider';
+import { ProFormContext } from '@ant-design/pro-utils';
+>>>>>>> master:packages/form/src/components/List/index.tsx
 import type { ColProps } from 'antd';
 import { ConfigProvider, Form } from 'antd';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
@@ -149,6 +160,15 @@ function ProFormList<T>(props: ProFormListProps<T>) {
       Icon: DeleteOutlined,
       tooltipText: intl.getMessage('deleteThisLine', '删除此项'),
     },
+    arrowSort,
+    upIconProps = {
+      Icon: ArrowUpOutlined,
+      tooltipText: intl.getMessage('sortUpThisLine', '向上排序'),
+    },
+    downIconProps = {
+      Icon: ArrowDownOutlined,
+      tooltipText: intl.getMessage('sortDownThisLine', '向下排序'),
+    },
     actionRef,
     style,
     prefixCls,
@@ -271,6 +291,9 @@ function ProFormList<T>(props: ProFormListProps<T>) {
                     originName={rest.name}
                     copyIconProps={copyIconProps}
                     deleteIconProps={deleteIconProps}
+                    arrowSort={arrowSort}
+                    upIconProps={upIconProps}
+                    downIconProps={downIconProps}
                     formInstance={proFormContext.formRef!.current!}
                     prefixCls={baseClassName}
                     meta={meta}

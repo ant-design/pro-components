@@ -150,6 +150,10 @@ Every contribution, big or small, is celebrated. Join us in our mission to refin
   </table>
 </a>
 
+<a href="https://openomy.app/github/ant-design/pro-components" target="_blank" style="display: block; width: 100%;" align="center">
+  <img src="https://openomy.app/svg?repo=ant-design/pro-components&chart=bubble&latestMonth=3" target="_blank" alt="Contribution Leaderboard" style="display: block; width: 100%;" />
+</a>
+
 ## 🛣️ Ecosystem
 
 - **[ProComponents](https://github.com/ant-design/pro-components)** - Designed for Enterprise-Level Application, Use Ant Design like a Pro!.

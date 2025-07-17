@@ -227,6 +227,9 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       collapsibleIconRender({ collapsed })
     ) : (
       <RightOutlined
+        onClick={() => {
+          if (collapsible === 'icon') setCollapsed(!collapsed);
+        }}
         rotate={!collapsed ? 90 : undefined}
         className={`${prefixCls}-collapsible-icon ${hashId}`.trim()}
       />
@@ -251,7 +254,8 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
           })}
           style={headStyle}
           onClick={() => {
-            if (collapsibleButton) setCollapsed(!collapsed);
+            if (collapsible === 'header' || collapsible === true)
+              setCollapsed(!collapsed);
           }}
         >
           <div className={`${prefixCls}-title ${hashId}`.trim()}>
