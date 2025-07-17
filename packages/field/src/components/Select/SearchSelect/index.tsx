@@ -163,15 +163,18 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
   const getMergeValue: SelectProps<any>['onChange'] = (value, option) => {
     if (Array.isArray(value) && Array.isArray(option) && value.length > 0) {
       // 多选情况且用户有选择
+
       return value.map((item, index) => {
         const optionItem = (option as DefaultOptionType[])?.[
           index
         ] as DefaultOptionType;
-        const dataItem = optionItem?.['data-item'] || {};
+        const dataItem = optionItem?.['data-item'];
+
         return {
-          ...dataItem,
+          ...(dataItem || {}),
           ...item,
-          label: preserveOriginalLabel ? dataItem.label : item.label,
+          label:
+            preserveOriginalLabel && dataItem ? dataItem.label : item.label,
         };
       });
     }
@@ -253,11 +256,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
                   ?.toString()
                   .toLowerCase()
                   .includes(inputValue.toLowerCase()) ||
-                option?.label
-                  ?.toString()
-                  .toLowerCase()
-                  .includes(inputValue.toLowerCase()) ||
-                option?.value
+                option?.[optionFilterProp]
                   ?.toString()
                   .toLowerCase()
                   .includes(inputValue.toLowerCase())
@@ -297,9 +296,10 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
               ? {
                   ...value,
                   // 这里有一种情况，如果用户使用了 request和labelInValue，保存之后，刷新页面，正常回显，但是再次添加会出现 label 丢失的情况。所以需要兼容
-                  label: preserveOriginalLabel
-                    ? dataItem?.label || value.label
-                    : value.label,
+                  label:
+                    preserveOriginalLabel && dataItem
+                      ? dataItem?.label || value.label
+                      : value.label,
                 }
               : value;
             onChange?.(changedValue, optionList, ...rest);
@@ -308,7 +308,10 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
               {
                 ...value,
                 ...dataItem,
-                label: preserveOriginalLabel ? dataItem.label : value.label,
+                label:
+                  preserveOriginalLabel && dataItem
+                    ? dataItem.label
+                    : value.label,
               },
               optionList,
               ...rest,
