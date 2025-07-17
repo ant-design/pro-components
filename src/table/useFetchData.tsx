@@ -413,7 +413,11 @@ const useFetchData = <DataSource extends RequestData<any>>(
      */
     reload: async () => {
       abortFetch();
-      return fetchListDebounce.run(false);
+      // 对于手动 reload，我们需要强制执行请求，即使在 manualRequest 模式下
+      manualRequestRef.current = false;
+      const result = await fetchListDebounce.run(false);
+      // 如果之前是手动模式，不要重置为 true，因为用户已经手动触发了请求
+      return result;
     },
     /**
      * 当前的分页信息。

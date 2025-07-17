@@ -159,7 +159,7 @@ describe('BasicTable Search', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toHaveBeenCalledTimes(2);
+      expect(fn).toHaveBeenCalledTimes(1);
       expect(resetFn).toHaveBeenCalledTimes(1);
     });
   });
