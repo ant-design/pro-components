@@ -259,19 +259,22 @@ export const useFieldFetchData = (
       let i = 0;
       while (i < length) {
         const cur = _options[i++];
-        if (cur[children] || cur[label] || cur[value]) {
-          cur[type] =
-            cur[
-              type === 'children' ? children : type === 'label' ? label : value
-            ];
-          traverseFieldKey(cur[children], type);
+        const customFieldName =
+          type === 'children' ? children : type === 'label' ? label : value;
+        if (customFieldName && cur[customFieldName] !== undefined) {
+          cur[type] = cur[customFieldName];
+          if (type === 'children') {
+            traverseFieldKey(cur[customFieldName], 'children');
+            traverseFieldKey(cur[customFieldName], 'label');
+            traverseFieldKey(cur[customFieldName], 'value');
+          }
         }
       }
     };
 
     if (children) traverseFieldKey(data, 'children');
     if (label) traverseFieldKey(data, 'label');
-    if (value) traverseFieldKey(data, 'value');    
+    if (value) traverseFieldKey(data, 'value');
     return data;
   }, [fieldProps]);
 
@@ -375,7 +378,8 @@ export const useFieldFetchData = (
   const applyFieldNamesMapping = (item: any) => {
     if (!fieldProps?.fieldNames) return item;
 
-    const { label: labelKey = 'label', value: valueKey = 'value' } = fieldProps.fieldNames;
+    const { label: labelKey = 'label', value: valueKey = 'value' } =
+      fieldProps.fieldNames;
 
     return {
       ...item,
@@ -450,6 +454,16 @@ const FieldSelect: ProFieldFC<
   const optionsValueEnum = useMemo(() => {
     if (mode !== 'read') return;
 
+    /**
+     * Support select fieldNames
+     * Similar to cascader fieldNames support
+     */
+    const {
+      value: valuePropsName = 'value',
+      label: labelPropsName = 'label',
+      options: optionsPropsName = 'options',
+    } = fieldProps?.fieldNames || {};
+
     const traverseOptions = (_options: typeof options) => {
       const localMap = new Map();
 
@@ -461,12 +475,18 @@ const FieldSelect: ProFieldFC<
       for (let i = 0; i < length; i++) {
         const cur = _options[i];
 
-        if (cur.value !== undefined && cur.label !== undefined) {
-          localMap.set(cur.value, cur.label);
+        // Use fieldNames mapping to get correct value and label
+        const curValue = cur[valuePropsName];
+        const curLabel = cur[labelPropsName];
+
+        if (curValue !== undefined && curLabel !== undefined) {
+          localMap.set(curValue, curLabel);
         }
 
-        if (cur.options?.length) {
-          const childMap = traverseOptions(cur.options);
+        // Handle nested options with fieldNames mapping
+        const childOptions = cur[optionsPropsName] || cur.options;
+        if (childOptions?.length) {
+          const childMap = traverseOptions(childOptions);
           childMap.forEach((v, k) => localMap.set(k, v));
         }
       }
@@ -475,7 +495,7 @@ const FieldSelect: ProFieldFC<
     };
 
     return traverseOptions(options);
-  }, [mode, options]);
+  }, [mode, options, fieldProps?.fieldNames]);
 
   if (mode === 'read') {
     const dom = (
