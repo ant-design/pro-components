@@ -3541,7 +3541,7 @@ describe('ProForm', () => {
 
     const dom =
       html.baseElement.querySelector<HTMLInputElement>('input#count')!;
-    
+
     await act(async () => {
       fireEvent.change(dom, {
         target: {
