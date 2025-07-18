@@ -75,10 +75,10 @@ const BaseProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef(
     }));
 
     useEffect(() => {
-      let interval: number = 0;
+      let interval: any = 0;
       const { countDown } = props;
       if (timing) {
-        interval = window.setInterval(() => {
+        interval = setInterval(() => {
           setCount((preSecond) => {
             if (preSecond <= 1) {
               setTiming(false);

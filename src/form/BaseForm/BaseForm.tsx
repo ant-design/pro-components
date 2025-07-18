@@ -703,8 +703,8 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
       const response = propRest.onFinish(finalValues);
       if (response instanceof Promise) {
         setLoading(true);
+        await response;
       }
-      await response;
       if (syncToUrl) {
         // 把没有的值设置为未定义可以删掉 url 的参数
         const syncToUrlParams = Object.keys(
