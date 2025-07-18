@@ -872,7 +872,7 @@ describe('utils', () => {
       time: undefined,
     });
     expect((html as any)['new-dataTime']).toBe('2019-11-16 12:50:26');
-    expect(html.file).toBe(null);
+    expect(html.file).toBe(undefined);
   });
 
   it('📅 isNil', async () => {
