@@ -12,6 +12,9 @@ vi.stubGlobal('IS_REACT_ACT_ENVIRONMENT', true);
 vi.stubGlobal('ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION', true);
 vi.stubEnv('TZ', 'UTC');
 
+// 设置全局假定时器
+vi.useFakeTimers();
+
 //@ts-ignore
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
