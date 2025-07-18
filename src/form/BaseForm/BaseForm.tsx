@@ -295,25 +295,30 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
       /**
        * 获取被 ProForm 格式化后的所有数据
        * @param allData boolean
+       * @param omitNilParam boolean
        * @returns T
        *
        * @example  getFieldsFormatValue(true) ->返回所有数据，即使没有被 form 托管的
        */
-      getFieldsFormatValue: (allData?: true) => {
+      getFieldsFormatValue: (allData?: true, omitNilParam?: boolean) => {
         return transformKey(
           getFormInstance()?.getFieldsValue(allData!),
-          omitNil,
+          omitNilParam !== undefined ? omitNilParam : omitNil,
         );
       },
       /**
        * 获取被 ProForm 格式化后的单个数据
        * @param nameList (string|number)[]
+       * @param omitNilParam boolean
        * @returns T
        *
        * @example {a:{b:value}} -> getFieldFormatValue(['a', 'b']) -> value
        */
       /** 获取格式化之后的单个数据 */
-      getFieldFormatValue: (paramsNameList: NamePath = []) => {
+      getFieldFormatValue: (
+        paramsNameList: NamePath = [],
+        omitNilParam?: boolean,
+      ) => {
         const nameList = covertFormName(paramsNameList);
         if (!nameList) throw new Error('nameList is require');
         const value = getFormInstance()?.getFieldValue(nameList!);
@@ -322,38 +327,57 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
         const newNameList = [...nameList];
         newNameList.shift();
         return get(
-          transformKey(obj, omitNil, newNameList),
+          transformKey(
+            obj,
+            omitNilParam !== undefined ? omitNilParam : omitNil,
+            newNameList,
+          ),
           nameList as string[],
         );
       },
       /**
        * 获取被 ProForm 格式化后的单个数据, 包含他的 name
        * @param nameList (string|number)[]
+       * @param omitNilParam boolean
        * @returns T
        *
        * @example  {a:{b:value}} -> getFieldFormatValueObject(['a', 'b']) -> {a:{b:value}}
        */
       /** 获取格式化之后的单个数据 */
-      getFieldFormatValueObject: (paramsNameList?: NamePath) => {
+      getFieldFormatValueObject: (
+        paramsNameList?: NamePath,
+        omitNilParam?: boolean,
+      ) => {
         const nameList = covertFormName(paramsNameList);
         const value = getFormInstance()?.getFieldValue(nameList!);
         const obj = nameList ? set({}, nameList as string[], value) : value;
-        return transformKey(obj, omitNil, nameList);
+        return transformKey(
+          obj,
+          omitNilParam !== undefined ? omitNilParam : omitNil,
+          nameList,
+        );
       },
       /** 
       /**
        *验字段后返回格式化之后的所有数据
        * @param nameList (string|number)[]
+       * @param omitNilParam boolean
        * @returns T
        * 
        * @example validateFieldsReturnFormatValue -> {a:{b:value}}
        */
-      validateFieldsReturnFormatValue: async (nameList?: NamePath[]) => {
+      validateFieldsReturnFormatValue: async (
+        nameList?: NamePath[],
+        omitNilParam?: boolean,
+      ) => {
         if (!Array.isArray(nameList) && nameList)
           throw new Error('nameList must be array');
 
         const values = await getFormInstance()?.validateFields(nameList);
-        const transformedKey = transformKey(values, omitNil);
+        const transformedKey = transformKey(
+          values,
+          omitNilParam !== undefined ? omitNilParam : omitNil,
+        );
         return transformedKey ? transformedKey : {};
       },
     }),
@@ -684,7 +708,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
       if (syncToUrl) {
         // 把没有的值设置为未定义可以删掉 url 的参数
         const syncToUrlParams = Object.keys(
-          formRef?.current?.getFieldsFormatValue?.(undefined, false),
+          formRef?.current?.getFieldsFormatValue?.(true, false) || {},
         ).reduce((pre, next) => {
           return {
             ...pre,
