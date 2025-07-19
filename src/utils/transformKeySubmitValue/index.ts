@@ -134,7 +134,7 @@ export const transformKeySubmitValue = <T extends object = any>(
           const parentPath = pathArray.slice(0, -1);
           const parentObj = get(result, parentPath);
           const lastKey = pathArray[pathArray.length - 1];
-          
+
           if (Array.isArray(parentObj) && typeof lastKey === 'number') {
             parentObj[lastKey] = transformed;
           } else {

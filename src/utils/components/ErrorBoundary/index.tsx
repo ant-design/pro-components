@@ -2,7 +2,6 @@ import { Result } from 'antd';
 import type { ErrorInfo } from 'react';
 import React from 'react';
 
-
 class ErrorBoundary extends React.Component<
   { children?: React.ReactNode },
   { hasError: boolean; errorInfo: string }

@@ -33,7 +33,6 @@ const antdFormItemPropsList = [
   'addonWarpStyle',
 ];
 
-
 export function pickProFormItemProps(props: {}) {
   const attrs = {} as Record<string, any>;
   antdFormItemPropsList.forEach((key) => {

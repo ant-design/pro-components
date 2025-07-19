@@ -101,10 +101,8 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
         ? placeholderValue[index]
         : placeholderValue;
 
-    const Compact = Space.Compact || Input.Group;
-    const compactProps = Space.Compact ? {} : { compact: true };
     const dom = (
-      <Compact {...compactProps} onBlur={handleGroupBlur}>
+      <Space.Compact onBlur={handleGroupBlur}>
         <InputNumber<number>
           {...fieldProps}
           placeholder={getInputNumberPlaceholder(0)}
@@ -138,7 +136,7 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
           defaultValue={defaultValue?.[1]}
           onChange={(changedValue) => handleChange(1, changedValue)}
         />
-      </Compact>
+      </Space.Compact>
     );
     if (formItemRender) {
       return formItemRender(text, { mode: type, ...fieldProps }, dom);
