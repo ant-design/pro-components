@@ -12,7 +12,7 @@ export function useFetchData<T, U = Record<string, any>>(props: {
   proFieldKey?: React.Key;
   params?: U;
   request?: ProRequestData<T, U>;
-}): [T | undefined] {
+}): [T | undefined, boolean] {
   const abortRef = useRef<AbortController | null>(null);
   /** Key 是用来缓存请求的，如果不在是有问题 */
   const [cacheKey] = useState(() => {
@@ -29,15 +29,22 @@ export function useFetchData<T, U = Record<string, any>>(props: {
     abortRef.current?.abort();
     const abort = new AbortController();
     abortRef.current = abort;
-    const loadData = await Promise.race([
-      props.request?.(props.params as U, props),
-      new Promise((_, reject) => {
-        abortRef.current?.signal?.addEventListener('abort', () => {
-          reject(new Error('aborted'));
-        });
-      }),
-    ]);
-    return loadData as T;
+    try {
+      const loadData = await Promise.race([
+        props.request?.(props.params as U, props),
+        new Promise((_, reject) => {
+          abortRef.current?.signal?.addEventListener('abort', () => {
+            reject(new Error('aborted'));
+          });
+        }),
+      ]);
+      return loadData as T;
+    } catch (error) {
+      if (abortRef.current?.signal?.aborted) {
+        throw error;
+      }
+      return error as T;
+    }
   };
 
   useEffect(() => {
@@ -46,8 +53,10 @@ export function useFetchData<T, U = Record<string, any>>(props: {
     };
   }, []);
 
-  const { data, error } = useSWR<T | undefined>(
-    [proFieldKeyRef.current, props.params],
+  const { data, error, isValidating } = useSWR<T | undefined>(
+    props.request
+      ? [proFieldKeyRef.current, JSON.stringify(props.params || {})]
+      : null,
     fetchData,
     {
       revalidateOnFocus: false,
@@ -56,5 +65,5 @@ export function useFetchData<T, U = Record<string, any>>(props: {
     },
   );
 
-  return [data || error];
+  return [data || error, isValidating];
 }

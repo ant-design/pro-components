@@ -571,7 +571,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
   useEffect(() => {
     requestFormCacheId += 0;
   }, []);
-  const [initialData] = useFetchData<T, U>({
+  const [initialData, initialDataLoading] = useFetchData<T, U>({
     request,
     params,
     proFieldKey: formKey,
@@ -699,11 +699,21 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     // 防止重复提交
     if (loading) return;
     try {
+      setLoading(true);
       const finalValues = formRef?.current?.getFieldsFormatValue?.();
       const response = propRest.onFinish(finalValues);
-      if (response instanceof Promise) {
-        setLoading(true);
-        await response;
+      if (
+        response &&
+        typeof response === 'object' &&
+        typeof response.then === 'function'
+      ) {
+        try {
+          await response;
+        } finally {
+          setLoading(false);
+        }
+      } else {
+        setLoading(false);
       }
       if (syncToUrl) {
         // 把没有的值设置为未定义可以删掉 url 的参数
@@ -728,10 +738,9 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
         /** 在同步到 url 上时对参数进行转化 */
         setUrlSearch(genParams(syncToUrl, syncToUrlParams, 'set'));
       }
-      setLoading(false);
     } catch (error) {
-      console.log(error);
       setLoading(false);
+      console.log(error);
     }
   });
 
@@ -740,7 +749,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     return formRef.current;
   }, [!initialData]);
 
-  if (!initialData && props.request) {
+  if (props.request && initialDataLoading) {
     return (
       <div style={{ paddingTop: 50, paddingBottom: 50, textAlign: 'center' }}>
         <Spin />
@@ -834,7 +843,9 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
               <BaseFormComponents<T, U>
                 transformKey={transformKey}
                 autoComplete="off"
-                loading={loading}
+                loading={
+                  loading || !!(request && !initialData && initialDataLoading)
+                }
                 onUrlSearchChange={setUrlSearch}
                 {...props}
                 formRef={formRef}

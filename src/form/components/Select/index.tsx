@@ -120,17 +120,19 @@ const SearchSelect = React.forwardRef<any, ProFormSelectProps<any>>(
     },
     ref,
   ) => {
+    const finalMode = fieldProps?.mode || mode || 'multiple';
     const props: Omit<SelectProps<any>, 'options'> & {
       options?: ProFormSelectProps['options'];
     } = {
       options,
-      mode: (mode as 'multiple') || 'multiple',
       labelInValue: true,
       showSearch: true,
       suffixIcon: null,
       autoClearSearchValue: true,
       optionLabelProp: 'label',
       ...fieldProps,
+      mode:
+        finalMode === 'single' ? undefined : (finalMode as 'multiple' | 'tags'), // 确保mode正确设置
     };
     const context = useContext(FieldContext);
     return (

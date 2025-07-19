@@ -663,6 +663,11 @@ describe('ProForm', () => {
       (await wrapper.findByText('获取验证码'))?.click();
     });
 
+    // 等待onGetCaptcha Promise完成（2秒）
+    await act(async () => {
+      vi.advanceTimersByTime(2000);
+    });
+
     // 推进计时器以显示倒计时
     await act(async () => {
       vi.advanceTimersByTime(1000);
