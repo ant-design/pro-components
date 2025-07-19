@@ -396,7 +396,7 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
           if (value && moneySymbol) {
             return `${moneySymbol} ${getFormateValue(value)}`;
           }
-          return value!?.toString();
+          return value?.toString();
         }}
         parser={(value) => {
           if (moneySymbol && value) {

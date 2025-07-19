@@ -78,7 +78,6 @@ type CardPropsBase = {
   boxShadow?: boolean;
 };
 
-// eslint-disable-next-line @typescript-eslint/ban-types
 export type ProCardTabsProps = {
   // 透传的card样式props
   cardProps?: CardPropsBase;

@@ -33,7 +33,7 @@ const antdFormItemPropsList = [
   'addonWarpStyle',
 ];
 
-// eslint-disable-next-line @typescript-eslint/ban-types
+
 export function pickProFormItemProps(props: {}) {
   const attrs = {} as Record<string, any>;
   antdFormItemPropsList.forEach((key) => {

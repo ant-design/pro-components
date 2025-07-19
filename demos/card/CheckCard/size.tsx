@@ -3,7 +3,7 @@ import { Radio } from 'antd';
 import { useState } from 'react';
 
 export default () => {
-  const [size, setSize] = useState('default' as 'default');
+  const [size, setSize] = useState('default' as const);
   return (
     <>
       <div style={{ marginBlockEnd: 16 }}>

@@ -59,7 +59,7 @@ dayjs.extend(weekOfYear);
 dayjs.extend(weekday);
 
 /** 默认的 Field 需要实现的功能 */
-// eslint-disable-next-line @typescript-eslint/ban-types
+
 export type ProFieldFC<T = {}> = React.ForwardRefRenderFunction<
   any,
   BaseProFieldFC & ProRenderFieldPropsType & T
