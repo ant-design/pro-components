@@ -1,7 +1,13 @@
-import Field from '@ant-design/pro-field';
-import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
+import { ProField as Field } from '@ant-design/pro-components';
+import {
+  act,
+  cleanup,
+  fireEvent,
+  render,
+  waitFor,
+} from '@testing-library/react';
 import dayjs from 'dayjs';
-import { act } from 'react';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 function closePicker(container: HTMLElement, index = 0) {
   const input = container.querySelectorAll('input')[index];
@@ -75,7 +81,7 @@ describe('DateField', () => {
 
       await waitFor(
         () => {
-          expect(fn).toBeCalled();
+          expect(fn).toHaveBeenCalled();
         },
         {
           timeout: 1000,
@@ -141,7 +147,7 @@ describe('DateField', () => {
 
       await waitFor(
         () => {
-          expect(onChangeFn).toBeCalled();
+          expect(onChangeFn).toHaveBeenCalled();
         },
         {
           timeout: 1000,

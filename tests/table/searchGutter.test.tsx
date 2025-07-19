@@ -1,7 +1,7 @@
-import ProTable from '@ant-design/pro-table';
+import { ProTable } from '@ant-design/pro-components';
 import { cleanup, render } from '@testing-library/react';
+import { afterAll, afterEach, beforeAll, describe, expect, it } from 'vitest';
 import { waitForWaitTime } from '../util';
-
 afterEach(() => {
   cleanup();
 });
@@ -27,7 +27,6 @@ describe('BasicTable SearchGutter', () => {
   const originGetComputedStyle = window.getComputedStyle;
   window.getComputedStyle = (ele) => {
     const style = originGetComputedStyle(ele);
-    style.lineHeight = '16px';
     return style;
   };
 

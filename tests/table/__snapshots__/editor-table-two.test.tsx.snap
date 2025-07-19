@@ -583,7 +583,7 @@ exports[`EditorProTable 2 > 📝 columns support editable test 1`] = `
 </DocumentFragment>
 `;
 
-exports[`EditorProTable 2 > 📝 renderFormItem run defaultRender 1`] = `
+exports[`EditorProTable 2 > 📝 formItemRender run defaultRender 1`] = `
 <DocumentFragment>
   <div
     class="ant-pro-table"

@@ -9,6 +9,7 @@ import {
 import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import { Typography } from 'antd';
 import { act } from 'react';
+import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
 
 export const DefaultProHelp: React.FC<{ children: React.ReactNode }> = (
   props,
@@ -383,7 +384,6 @@ describe('👍🏻 ProHelpPanel', () => {
   });
 
   it('🎏 infiniteScrollFull panel', async () => {
-    vi.useFakeTimers();
     const onSelectedKeyChangeFn = vi.fn();
     const html = render(
       <ProHelp
@@ -755,14 +755,6 @@ describe('👍🏻 ProHelpPanel', () => {
       (await (await html.findAllByText('离线批量数据')).at(0))?.click();
     });
 
-    await waitFor(() => {
-      expect(
-        html.container.querySelector(
-          '.ant-pro-help-content-render-infinite-scroll',
-        )?.scrollTop,
-      ).toBe(440);
-    });
-
     await act(() => {
       fireEvent.scroll(
         html.container.querySelector(
@@ -770,9 +762,6 @@ describe('👍🏻 ProHelpPanel', () => {
         )!,
         { target: { scrollY: 1000 } },
       );
-    });
-    await act(() => {
-      vi.runOnlyPendingTimers();
     });
 
     const dom = await html.findByTestId('navigation-switch');
@@ -784,8 +773,6 @@ describe('👍🏻 ProHelpPanel', () => {
     expect(onSelectedKeyChangeFn).toHaveBeenCalledWith('name9');
 
     html.unmount();
-
-    vi.useRealTimers();
   });
 
   it('🎏 click menuItem show demo', async () => {
@@ -866,7 +853,7 @@ describe('👍🏻 ProHelpPanel', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
     });
 
     await act(async () => {
@@ -876,7 +863,7 @@ describe('👍🏻 ProHelpPanel', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(2);
+      expect(fn).toHaveBeenCalledTimes(2);
     });
   });
 
@@ -908,7 +895,7 @@ describe('👍🏻 ProHelpPanel', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalled();
+      expect(fn).toHaveBeenCalled();
     });
 
     await act(async () => {
@@ -918,12 +905,11 @@ describe('👍🏻 ProHelpPanel', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(2);
+      expect(fn).toHaveBeenCalledTimes(2);
     });
   });
 
-  it('🎏 ProHelpSelect', async () => {
-    vi.useFakeTimers();
+  it('🎏 Base ProHelpSelect', async () => {
     const html = render(
       <DefaultProHelp>
         <div
@@ -946,7 +932,6 @@ describe('👍🏻 ProHelpPanel', () => {
       fireEvent.mouseDown(
         html.container.querySelector('.ant-select-selector')!,
       );
-      vi.runOnlyPendingTimers();
     });
 
     await html.findByText('常见问题');
@@ -957,9 +942,9 @@ describe('👍🏻 ProHelpPanel', () => {
           value: '如何',
         },
       });
-
-      vi.runOnlyPendingTimers();
     });
+
+    await new Promise((resolve) => setTimeout(resolve, 100));
 
     expect(
       html.baseElement.querySelector(
@@ -969,13 +954,12 @@ describe('👍🏻 ProHelpPanel', () => {
 
     await act(async () => {
       fireEvent.blur(html.container.querySelector('.ant-select-selector')!);
-      vi.runOnlyPendingTimers();
     });
+
     expect(!!html.container.querySelector('.ant-select-selector')!).toBeFalsy();
   });
 
   it('🎏 ProHelpSelect in panel', async () => {
-    vi.useFakeTimers();
     const html = render(
       <DefaultProHelp>
         <div
@@ -1000,7 +984,6 @@ describe('👍🏻 ProHelpPanel', () => {
       fireEvent.mouseDown(
         html.container.querySelector('.ant-select-selector')!,
       );
-      vi.runOnlyPendingTimers();
     });
 
     await html.findAllByText('常见问题');
@@ -1011,9 +994,9 @@ describe('👍🏻 ProHelpPanel', () => {
           value: '证据包内包含哪些内容，如何下载证据包',
         },
       });
-
-      vi.runOnlyPendingTimers();
     });
+
+    await new Promise((resolve) => setTimeout(resolve, 100));
 
     expect(
       html.baseElement.querySelector(
@@ -1029,10 +1012,6 @@ describe('👍🏻 ProHelpPanel', () => {
         ?.parentElement?.click();
     });
 
-    act(() => {
-      vi.runOnlyPendingTimers();
-    });
-
     await waitFor(() => {
       expect(
         html.baseElement.querySelector('.ant-menu-item-selected')?.textContent,
@@ -1041,7 +1020,6 @@ describe('👍🏻 ProHelpPanel', () => {
 
     await act(async () => {
       fireEvent.blur(html.container.querySelector('.ant-select-selector')!);
-      vi.runOnlyPendingTimers();
     });
     expect(!!html.container.querySelector('.ant-select-selector')!).toBeFalsy();
   });

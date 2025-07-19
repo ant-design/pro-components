@@ -1,5 +1,5 @@
-import type { ProColumns } from '@ant-design/pro-table';
-import { TableDropdown, TableStatus } from '@ant-design/pro-table';
+import type { ProColumns } from '@ant-design/pro-components';
+import { TableDropdown, TableStatus } from '@ant-design/pro-components';
 import { Input, message } from 'antd';
 import dayjs from 'dayjs';
 
@@ -112,7 +112,7 @@ export const columns: ProColumns[] = [
     key: 'date',
     dataIndex: 'date',
     valueType: 'date',
-    renderFormItem: () => <Input />,
+    formItemRender: () => <Input />,
   },
   {
     title: 'dateTime',

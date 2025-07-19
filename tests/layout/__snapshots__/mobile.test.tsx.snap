@@ -178,7 +178,7 @@ exports[`mobile BasicLayout > 📱 base use 1`] = `
               </a>
             </span>
             <div
-              style="flex: 1 1 0%;"
+              style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
             />
           </div>
         </header>
@@ -210,16 +210,16 @@ exports[`mobile BasicLayout > 📱 collapsed=false 1`] = `
         tabindex="-1"
       >
         <div
-          class="ant-drawer-mask"
+          class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-active ant-drawer-mask-motion"
         />
         <div
           aria-hidden="true"
           data-sentinel="start"
-          style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+          style="width: 0px; height: 0px; overflow: hidden; outline-color: none; outline-style: none; outline-width: initial; position: absolute;"
           tabindex="0"
         />
         <div
-          class="ant-drawer-content-wrapper"
+          class="ant-drawer-content-wrapper ant-drawer-panel-motion-left-appear ant-drawer-panel-motion-left-appear-active ant-drawer-panel-motion-left"
           style="width: 256px;"
         >
           <div
@@ -234,19 +234,19 @@ exports[`mobile BasicLayout > 📱 collapsed=false 1`] = `
             >
               <aside
                 class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light"
-                style="flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; width: 256px;"
               >
                 <div
                   class="ant-layout-sider-children"
                 >
                   <div
-                    style="flex: 1 1 0%; overflow-y: auto; overflow-x: hidden;"
+                    style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; overflow-y: auto; overflow-x: hidden;"
                   >
                     <ul
                       class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
                       data-menu-list="true"
                       role="menu"
-                      style="background-color: transparent; width: 100%;"
+                      style="background-color: transparent; border: none none; width: 100%;"
                       tabindex="0"
                     >
                       <li
@@ -254,11 +254,11 @@ exports[`mobile BasicLayout > 📱 collapsed=false 1`] = `
                         role="none"
                       >
                         <div
-                          aria-controls="rc-menu-uuid-84044-1-/e6588ef55196e07dc333fd4ea6f17be36f1337c871c6991386e7814897305d46-popup"
+                          aria-controls="rc-menu-uuid-84044-1-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925-popup"
                           aria-expanded="true"
                           aria-haspopup="true"
                           class="ant-menu-submenu-title"
-                          data-menu-id="rc-menu-uuid-84044-1-/e6588ef55196e07dc333fd4ea6f17be36f1337c871c6991386e7814897305d46"
+                          data-menu-id="rc-menu-uuid-84044-1-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925"
                           role="menuitem"
                           style="padding-left: 16px;"
                           tabindex="-1"
@@ -283,7 +283,7 @@ exports[`mobile BasicLayout > 📱 collapsed=false 1`] = `
                         <ul
                           class="ant-menu ant-menu-sub ant-menu-inline"
                           data-menu-list="true"
-                          id="rc-menu-uuid-84044-1-/e6588ef55196e07dc333fd4ea6f17be36f1337c871c6991386e7814897305d46-popup"
+                          id="rc-menu-uuid-84044-1-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925-popup"
                           role="menu"
                         >
                           <li
@@ -349,7 +349,7 @@ exports[`mobile BasicLayout > 📱 collapsed=false 1`] = `
         <div
           aria-hidden="true"
           data-sentinel="end"
-          style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+          style="width: 0px; height: 0px; overflow: hidden; outline-color: none; outline-style: none; outline-width: initial; position: absolute;"
           tabindex="0"
         />
       </div>
@@ -519,7 +519,7 @@ exports[`mobile BasicLayout > 📱 collapsed=false 1`] = `
               </a>
             </span>
             <div
-              style="flex: 1 1 0%;"
+              style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
             />
           </div>
         </header>
@@ -583,7 +583,7 @@ exports[`mobile BasicLayout > 📱 layout menuHeaderRender 1`] = `
             </span>
             title
             <div
-              style="flex: 1 1 0%;"
+              style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
             />
           </div>
         </header>
@@ -649,7 +649,7 @@ exports[`mobile BasicLayout > 📱 layout menuHeaderRender 2`] = `
             </span>
             title
             <div
-              style="flex: 1 1 0%;"
+              style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
             />
           </div>
         </header>
@@ -714,7 +714,7 @@ exports[`mobile BasicLayout > 📱 layout menuHeaderRender=false 1`] = `
               </span>
             </span>
             <div
-              style="flex: 1 1 0%;"
+              style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
             />
           </div>
         </header>
@@ -746,16 +746,16 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
         tabindex="-1"
       >
         <div
-          class="ant-drawer-mask"
+          class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-active ant-drawer-mask-motion"
         />
         <div
           aria-hidden="true"
           data-sentinel="start"
-          style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+          style="width: 0px; height: 0px; overflow: hidden; outline-color: none; outline-style: none; outline-width: initial; position: absolute;"
           tabindex="0"
         />
         <div
-          class="ant-drawer-content-wrapper"
+          class="ant-drawer-content-wrapper ant-drawer-panel-motion-left-appear ant-drawer-panel-motion-left-appear-active ant-drawer-panel-motion-left"
           style="width: 215px;"
         >
           <div
@@ -770,19 +770,19 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
             >
               <aside
                 class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light"
-                style="flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 215px; max-width: 215px; min-width: 215px; width: 215px;"
               >
                 <div
                   class="ant-layout-sider-children"
                 >
                   <div
-                    style="flex: 1 1 0%; overflow-y: auto; overflow-x: hidden;"
+                    style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; overflow-y: auto; overflow-x: hidden;"
                   >
                     <ul
                       class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
                       data-menu-list="true"
                       role="menu"
-                      style="background-color: transparent; width: 100%;"
+                      style="background-color: transparent; border: none none; width: 100%;"
                       tabindex="0"
                     >
                       <li
@@ -790,11 +790,11 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
                         role="none"
                       >
                         <div
-                          aria-controls="rc-menu-uuid-84044-2-/e6588ef55196e07dc333fd4ea6f17be36f1337c871c6991386e7814897305d46-popup"
+                          aria-controls="rc-menu-uuid-84044-2-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925-popup"
                           aria-expanded="true"
                           aria-haspopup="true"
                           class="ant-menu-submenu-title"
-                          data-menu-id="rc-menu-uuid-84044-2-/e6588ef55196e07dc333fd4ea6f17be36f1337c871c6991386e7814897305d46"
+                          data-menu-id="rc-menu-uuid-84044-2-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925"
                           role="menuitem"
                           style="padding-left: 16px;"
                           tabindex="-1"
@@ -819,7 +819,7 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
                         <ul
                           class="ant-menu ant-menu-sub ant-menu-inline"
                           data-menu-list="true"
-                          id="rc-menu-uuid-84044-2-/e6588ef55196e07dc333fd4ea6f17be36f1337c871c6991386e7814897305d46-popup"
+                          id="rc-menu-uuid-84044-2-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925-popup"
                           role="menu"
                         >
                           <li
@@ -885,7 +885,7 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
         <div
           aria-hidden="true"
           data-sentinel="end"
-          style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+          style="width: 0px; height: 0px; overflow: hidden; outline-color: none; outline-style: none; outline-width: initial; position: absolute;"
           tabindex="0"
         />
       </div>
@@ -1059,7 +1059,7 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
               </a>
             </span>
             <div
-              style="flex: 1 1 0%;"
+              style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
             />
           </div>
         </header>
@@ -1089,16 +1089,16 @@ exports[`mobile BasicLayout > 📱 layout=mix and splitMenus 1`] = `
         tabindex="-1"
       >
         <div
-          class="ant-drawer-mask"
+          class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-active ant-drawer-mask-motion"
         />
         <div
           aria-hidden="true"
           data-sentinel="start"
-          style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+          style="width: 0px; height: 0px; overflow: hidden; outline-color: none; outline-style: none; outline-width: initial; position: absolute;"
           tabindex="0"
         />
         <div
-          class="ant-drawer-content-wrapper"
+          class="ant-drawer-content-wrapper ant-drawer-panel-motion-left-appear ant-drawer-panel-motion-left-appear-active ant-drawer-panel-motion-left"
           style="width: 215px;"
         >
           <div
@@ -1113,19 +1113,19 @@ exports[`mobile BasicLayout > 📱 layout=mix and splitMenus 1`] = `
             >
               <aside
                 class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light"
-                style="flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 215px; max-width: 215px; min-width: 215px; width: 215px;"
               >
                 <div
                   class="ant-layout-sider-children"
                 >
                   <div
-                    style="flex: 1 1 0%; overflow-y: auto; overflow-x: hidden;"
+                    style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; overflow-y: auto; overflow-x: hidden;"
                   >
                     <ul
                       class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
                       data-menu-list="true"
                       role="menu"
-                      style="background-color: transparent; width: 100%;"
+                      style="background-color: transparent; border: none none; width: 100%;"
                       tabindex="0"
                     >
                       <li
@@ -1133,11 +1133,11 @@ exports[`mobile BasicLayout > 📱 layout=mix and splitMenus 1`] = `
                         role="none"
                       >
                         <div
-                          aria-controls="rc-menu-uuid-84044-3-/e6588ef55196e07dc333fd4ea6f17be36f1337c871c6991386e7814897305d46-popup"
+                          aria-controls="rc-menu-uuid-84044-3-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925-popup"
                           aria-expanded="true"
                           aria-haspopup="true"
                           class="ant-menu-submenu-title"
-                          data-menu-id="rc-menu-uuid-84044-3-/e6588ef55196e07dc333fd4ea6f17be36f1337c871c6991386e7814897305d46"
+                          data-menu-id="rc-menu-uuid-84044-3-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925"
                           role="menuitem"
                           style="padding-left: 16px;"
                           tabindex="-1"
@@ -1162,7 +1162,7 @@ exports[`mobile BasicLayout > 📱 layout=mix and splitMenus 1`] = `
                         <ul
                           class="ant-menu ant-menu-sub ant-menu-inline"
                           data-menu-list="true"
-                          id="rc-menu-uuid-84044-3-/e6588ef55196e07dc333fd4ea6f17be36f1337c871c6991386e7814897305d46-popup"
+                          id="rc-menu-uuid-84044-3-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925-popup"
                           role="menu"
                         >
                           <li
@@ -1228,7 +1228,7 @@ exports[`mobile BasicLayout > 📱 layout=mix and splitMenus 1`] = `
         <div
           aria-hidden="true"
           data-sentinel="end"
-          style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+          style="width: 0px; height: 0px; overflow: hidden; outline-color: none; outline-style: none; outline-width: initial; position: absolute;"
           tabindex="0"
         />
       </div>
@@ -1402,7 +1402,7 @@ exports[`mobile BasicLayout > 📱 layout=mix and splitMenus 1`] = `
               </a>
             </span>
             <div
-              style="flex: 1 1 0%;"
+              style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
             />
           </div>
         </header>

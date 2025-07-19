@@ -1,6 +1,9 @@
-﻿import { DrawerForm, ProFormText } from '@ant-design/pro-form';
+﻿import { DrawerForm, ProFormText } from '@ant-design/pro-components';
 import { cleanup, render } from '@testing-library/react';
 import { act } from 'react';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+
+beforeEach(() => {});
 
 afterEach(() => {
   cleanup();
@@ -9,7 +12,6 @@ afterEach(() => {
 describe('DrawerForm', () => {
   it('📦 DrawerForm submitTimeout is number will disabled close button when submit', async () => {
     const fn = vi.fn();
-    vi.useFakeTimers();
     const html = render(
       <DrawerForm
         open
@@ -33,38 +35,28 @@ describe('DrawerForm', () => {
       (await html.queryByText('确 认'))?.click();
     });
 
-    expect(
-      (html.queryAllByText('取 消').at(0)?.parentElement as HTMLButtonElement)
-        .disabled,
-    ).toEqual(true);
+    const cancelButton = html.queryAllByText('取 消').at(0)
+      ?.parentElement as HTMLButtonElement;
+    expect(cancelButton.disabled).toBe(true);
 
     await act(async () => {
       (await html.queryByText('取 消'))?.click();
     });
 
-    act(() => {
-      vi.advanceTimersByTime(3000);
-    });
+    expect(fn).not.toHaveBeenCalled();
 
-    expect(fn).not.toBeCalled();
-
-    expect(
-      (html.queryAllByText('取 消').at(0)?.parentElement as HTMLButtonElement)
-        ?.disabled,
-    ).toEqual(false);
+    expect(cancelButton.disabled).toBe(false);
 
     await act(async () => {
       (await html.queryByText('取 消'))?.click();
     });
 
-    expect(fn).toBeCalled();
+    expect(fn).toHaveBeenCalled();
     html.unmount();
-    vi.useRealTimers();
   });
 
   it('📦 DrawerForm submitTimeout is null no disable close button when submit', async () => {
     const fn = vi.fn();
-    vi.useFakeTimers();
     const wrapper = render(
       <DrawerForm
         open
@@ -87,18 +79,16 @@ describe('DrawerForm', () => {
       (await wrapper.queryByText('确 认'))?.click();
     });
 
-    expect(
-      (wrapper.queryAllByText('取 消').at(0) as HTMLButtonElement)?.disabled,
-    ).toEqual(undefined);
-
-    act(() => {
-      vi.advanceTimersByTime(3000);
-    });
+    const cancelButton = wrapper
+      .queryAllByText('取 消')
+      .at(0) as HTMLButtonElement;
+    expect(cancelButton.disabled).toBe(false);
 
     await act(async () => {
       (await wrapper.queryByText('取 消'))?.click();
     });
 
-    expect(fn).toBeCalled();
+    expect(fn).toHaveBeenCalled();
+    wrapper.unmount();
   });
 });

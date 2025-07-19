@@ -1,6 +1,7 @@
-import ProForm, { ProFormText } from '@ant-design/pro-form';
+import { ProForm, ProFormText } from '@ant-design/pro-components';
 import { cleanup, fireEvent, render } from '@testing-library/react';
 import { Input } from 'antd';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 afterEach(() => {
   cleanup();
@@ -29,7 +30,7 @@ describe('ProForm.Item', () => {
     fireEvent.blur(container.querySelector('input#navTheme')!);
 
     expect(onBlur).toHaveBeenCalledWith('dark');
-    expect(onBlur).toBeCalledTimes(1);
+    expect(onBlur).toHaveBeenCalledTimes(1);
   });
 
   it('📦 ProForm.Item supports onChange', async () => {
@@ -55,8 +56,8 @@ describe('ProForm.Item', () => {
     });
 
     expect(onChange).toHaveBeenCalledWith('1212');
-    expect(onChange).toBeCalledTimes(1);
+    expect(onChange).toHaveBeenCalledTimes(1);
     expect(onValuesChange).toHaveBeenCalledWith('1212');
-    expect(onValuesChange).toBeCalledTimes(1);
+    expect(onValuesChange).toHaveBeenCalledTimes(1);
   });
 });

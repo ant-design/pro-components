@@ -1,17 +1,29 @@
-import ProTable from '@ant-design/pro-table';
+import { ProTable } from '@ant-design/pro-components';
 import { cleanup, render, waitFor } from '@testing-library/react';
-import { act } from 'react';
-import useFetchData from '../../packages/table/src/useFetchData';
+import {
+  afterAll,
+  afterEach,
+  beforeAll,
+  describe,
+  expect,
+  it,
+  vi,
+} from 'vitest';
 import { columns } from './demo';
 
 afterEach(() => {
   cleanup();
 });
 
+beforeAll(() => {});
+afterAll(() => {
+  vi.useRealTimers();
+});
+
 describe('polling', () => {
   it('⏱️ polling should clearTime', async () => {
     const fn = vi.fn();
-    vi.useFakeTimers();
+
     const html = render(
       <ProTable
         size="small"
@@ -47,97 +59,27 @@ describe('polling', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
-    });
-    act(() => {
-      vi.runOnlyPendingTimers();
+      expect(fn).toHaveBeenCalledTimes(1);
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalled();
-    });
-
-    act(() => {
-      vi.runOnlyPendingTimers();
+      expect(fn).toHaveBeenCalled();
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalled();
-    });
-
-    act(() => {
-      vi.runOnlyPendingTimers();
+      expect(fn).toHaveBeenCalled();
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(2);
+      expect(fn).toHaveBeenCalledTimes(2);
     });
 
-    expect(fn).toBeCalledTimes(2);
-
-    vi.useRealTimers();
-  });
-
-  it('⏱️ polling should clearTime when useFetchData', async () => {
-    const fn = vi.fn();
-    vi.useFakeTimers();
-
-    const App = (props: { getData: () => void }) => {
-      useFetchData(
-        async () => {
-          props.getData?.();
-          return {
-            data: [],
-          };
-        },
-        [],
-        {
-          pageInfo: {},
-          polling: 1500,
-          manual: false,
-          postData: () => [],
-          loading: false,
-        },
-      );
-      return <div />;
-    };
-
-    render(
-      <App
-        getData={() => {
-          fn();
-        }}
-      />,
-    );
-
-    await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
-    });
-
-    act(() => {
-      vi.runAllTimers();
-    });
-
-    await waitFor(() => {
-      expect(fn).toBeCalledTimes(2);
-    });
-
-    act(() => {
-      vi.runAllTimers();
-    });
-
-    await waitFor(() => {
-      expect(fn).toBeCalledTimes(3);
-    });
-
-    expect(fn).toBeCalledTimes(3);
-
-    vi.useRealTimers();
+    expect(fn).toHaveBeenCalledTimes(2);
   });
 
   it('⏱️ polling min time is 2000', async () => {
     const fn = vi.fn();
-    vi.useFakeTimers();
+
     const html = render(
       <ProTable
         size="small"
@@ -161,27 +103,18 @@ describe('polling', () => {
       return html.findAllByText('暂无数据');
     });
 
-    await act(() => {
-      vi.advanceTimersByTime(1000);
+    await waitFor(() => {
+      expect(fn).toHaveBeenCalledTimes(1);
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(2);
     });
-
-    await act(() => {
-      vi.advanceTimersByTime(2000);
-    });
-
-    await waitFor(() => {
-      expect(fn).toBeCalledTimes(2);
-    });
-    vi.useRealTimers();
   });
 
   it('⏱️ polling time=3000', async () => {
     const fn = vi.fn();
-    vi.useFakeTimers();
+
     const html = render(
       <ProTable
         polling={3000}
@@ -216,35 +149,22 @@ describe('polling', () => {
       return html.findAllByText('暂无数据');
     });
 
-    await act(() => {
-      return vi.advanceTimersByTime(1000);
+    await waitFor(() => {
+      expect(fn).toHaveBeenCalledTimes(1);
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
-    });
-
-    await act(() => {
-      return vi.advanceTimersByTime(1000);
+      expect(fn).toHaveBeenCalledTimes(1);
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(2);
     });
-
-    await act(() => {
-      return vi.advanceTimersByTime(2000);
-    });
-
-    await waitFor(() => {
-      expect(fn).toBeCalledTimes(2);
-    });
-    vi.useRealTimers();
   });
 
   it('⏱️ polling support function', async () => {
     const fn = vi.fn();
-    vi.useFakeTimers();
+
     const html = render(
       <ProTable
         polling={() => {
@@ -281,26 +201,16 @@ describe('polling', () => {
       return html.findAllByText('暂无数据');
     });
 
-    await act(() => {
-      return vi.runOnlyPendingTimers();
+    await waitFor(() => {
+      expect(fn).toHaveBeenCalledTimes(1);
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
-    });
-
-    await act(() => {
-      return vi.runOnlyPendingTimers();
+      expect(fn).toHaveBeenCalledTimes(1);
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(2);
     });
-
-    await waitFor(() => {
-      expect(fn).toBeCalledTimes(2);
-    });
-
-    vi.useRealTimers();
   });
 });

@@ -1,11 +1,11 @@
-// import { LoadingOutlined, ReloadOutlined } from '@ant-design/icons';
+// import { afterEach, describe, expect, test, vi } from 'vitest'; import { LoadingOutlined, ReloadOutlined } from '@ant-design/icons';import { afterEach, describe, expect, test, vi } from 'vitest'; import { afterEach, describe, expect, it, vi } from 'vitest';
 import type { ProColumns, ProFormInstance } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
 import { cleanup, render } from '@testing-library/react';
 import { Button } from 'antd';
 import { act, useRef, useState } from 'react';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
-
 export type TableListItem = {
   key: number;
   name: string;
@@ -121,7 +121,7 @@ describe('ProTable test', () => {
       />,
     );
     await waitForWaitTime(1200);
-    expect(fn).toBeCalledTimes(1);
+    expect(fn).toHaveBeenCalledTimes(1);
     act(() => {
       html.rerender(
         <ProTable

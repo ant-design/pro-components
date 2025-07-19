@@ -4,14 +4,23 @@ import type {
   ProColumns,
   TableRowEditable,
 } from '@ant-design/pro-components';
-import { ProForm, ProFormText } from '@ant-design/pro-components';
-import { EditableProTable } from '@ant-design/pro-table';
-import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
+import {
+  EditableProTable,
+  ProForm,
+  ProFormText,
+} from '@ant-design/pro-components';
+import {
+  act,
+  cleanup,
+  fireEvent,
+  render,
+  waitFor,
+} from '@testing-library/react';
 import { Button, Input, InputNumber } from 'antd';
-import useMergedState from 'rc-util/es/hooks/useMergedState';
-import React, { act, useRef } from 'react';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import React, { useRef } from 'react';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { waitTime } from '../util';
-
 type DataSourceType = {
   id: number | string;
   title?: string;
@@ -83,7 +92,7 @@ const columns: ProColumns<DataSourceType>[] = [
     dataIndex: 'index',
     valueType: 'indexBorder',
     width: 48,
-    renderFormItem: () => <InputNumber />,
+    formItemRender: () => <InputNumber />,
   },
   {
     title: '标题',
@@ -198,7 +207,7 @@ const EditorProTableDemo = (
         </Button>,
       ]}
       columns={columns.map((item) => {
-        if (!props.hideRules) {
+        if (props.hideRules) {
           // eslint-disable-next-line no-param-reassign
           delete item.formItemProps;
         }
@@ -230,6 +239,69 @@ afterEach(() => {
 });
 
 describe('EditorProTable 2', () => {
+  // 放到中间会报错，那就放到第一个吧
+  it('📝 support form rules', async () => {
+    const fn = vi.fn();
+    const wrapper = render(
+      <EditorProTableDemo
+        onSave={(key, row) => {
+          return fn(row.title);
+        }}
+      />,
+    );
+    await wrapper.findAllByText('编辑');
+
+    await act(() => {
+      wrapper.queryAllByText('编辑')[0]?.click();
+    });
+
+    const row0input = wrapper.container
+      .querySelectorAll('.ant-table-tbody tr.ant-table-row')[0]
+      .querySelectorAll('input');
+
+    await waitFor(() => {
+      expect(row0input.length === 4).toBeTruthy();
+    });
+
+    await act(() => {
+      // 只有title那一列设置了校验rule，title列下标是1
+      fireEvent.change(row0input[1], {
+        target: {
+          value: '',
+        },
+      });
+    });
+
+    await wrapper.findAllByText('保存');
+
+    await act(() => {
+      wrapper.queryAllByText('保存')[0]?.click();
+    });
+
+    await waitFor(() => {
+      // 不能为空，不会通过通过验证，不触发 onSave
+      expect(fn).not.toHaveBeenCalled();
+    });
+
+    await act(() => {
+      fireEvent.change(row0input[1], {
+        target: {
+          value: 'qixian',
+        },
+      });
+    });
+
+    await wrapper.findAllByText('保存');
+
+    await act(() => {
+      wrapper.queryAllByText('保存')[0]?.click();
+    });
+
+    await waitFor(() => {
+      expect(fn).toHaveBeenCalledWith('qixian');
+    });
+    wrapper.unmount();
+  });
   it('📝 EditableProTable controlled will trigger onchange', async () => {
     const onChange = vi.fn();
     const wrapper = render(
@@ -278,7 +350,7 @@ describe('EditorProTable 2', () => {
 
     await waitFor(
       () => {
-        expect(onChange).toBeCalled();
+        expect(onChange).toHaveBeenCalled();
       },
       {
         timeout: 1000,
@@ -317,7 +389,7 @@ describe('EditorProTable 2', () => {
             fieldProps: {
               onChange: () => null,
             },
-            renderFormItem: () => <Input />,
+            formItemRender: () => <Input />,
             ellipsis: true,
             tooltip: '标题过长会自动收缩',
             formItemProps: {
@@ -368,7 +440,7 @@ describe('EditorProTable 2', () => {
 
     await waitFor(
       () => {
-        expect(onChange).toBeCalled();
+        expect(onChange).toHaveBeenCalled();
       },
       {
         timeout: 1000,
@@ -408,7 +480,7 @@ describe('EditorProTable 2', () => {
             fieldProps: {
               onChange: () => null,
             },
-            renderFormItem: () => <ProFormText />,
+            formItemRender: () => <ProFormText />,
             ellipsis: true,
             tooltip: '标题过长会自动收缩',
             formItemProps: {
@@ -456,7 +528,7 @@ describe('EditorProTable 2', () => {
     });
 
     await waitFor(() => {
-      expect(onChange).toBeCalled();
+      expect(onChange).toHaveBeenCalled();
     });
     await waitFor(() => {
       expect(onChange).toHaveBeenCalledWith({
@@ -517,7 +589,7 @@ describe('EditorProTable 2', () => {
     });
 
     await waitFor(() => {
-      expect(onChange).toBeCalled();
+      expect(onChange).toHaveBeenCalled();
     });
 
     await waitFor(() => {
@@ -641,7 +713,7 @@ describe('EditorProTable 2', () => {
         dataIndex: 'index',
         valueType: 'indexBorder',
         width: 48,
-        renderFormItem: () => <InputNumber />,
+        formItemRender: () => <InputNumber />,
       },
       {
         title: '标题',
@@ -675,9 +747,9 @@ describe('EditorProTable 2', () => {
     );
 
     await waitFor(() => {
-      expect(formItemPropsFn).toBeCalled();
-      expect(fieldPropsFn).toBeCalled();
-      expect(errorSpy).not.toBeCalled();
+      expect(formItemPropsFn).toHaveBeenCalled();
+      expect(fieldPropsFn).toHaveBeenCalled();
+      expect(errorSpy).not.toHaveBeenCalled();
     });
 
     errorSpy.mockRestore();
@@ -748,7 +820,7 @@ describe('EditorProTable 2', () => {
     await waitFor(() => {
       expect(answerTitle).toMatch(resultTitle);
 
-      expect(errorSpy).not.toBeCalled();
+      expect(errorSpy).not.toHaveBeenCalled();
     });
     errorSpy.mockRestore();
   });
@@ -850,7 +922,7 @@ describe('EditorProTable 2', () => {
 
   it('📝 EditableProTable columns support dependencies', async () => {
     const fn = vi.fn();
-    vi.useFakeTimers();
+
     const wrapper = render(
       <EditableProTable<DataSourceType>
         rowKey="id"
@@ -910,9 +982,7 @@ describe('EditorProTable 2', () => {
       );
     });
 
-    await act(async () => {
-      vi.runOnlyPendingTimers();
-    });
+    await act(async () => {});
 
     await waitFor(
       () => {
@@ -922,7 +992,6 @@ describe('EditorProTable 2', () => {
         timeout: 1000,
       },
     );
-    vi.useRealTimers();
   });
 
   it('📝 support onValuesChange when is string key', async () => {
@@ -1259,7 +1328,7 @@ describe('EditorProTable 2', () => {
     wrapper.unmount();
   });
 
-  it('📝 renderFormItem run defaultRender', async () => {
+  it('📝 formItemRender run defaultRender', async () => {
     const wrapper = render(
       <EditableProTable<DataSourceType>
         rowKey="id"
@@ -1272,7 +1341,7 @@ describe('EditorProTable 2', () => {
             valueType: 'indexBorder',
             width: 48,
             title: '序号',
-            renderFormItem: (item, config) => {
+            formItemRender: (item, config) => {
               return config.defaultRender(item);
             },
           },
@@ -1486,7 +1555,7 @@ describe('EditorProTable 2', () => {
 
     await waitFor(
       () => {
-        expect(fn).not.toBeCalled();
+        expect(fn).not.toHaveBeenCalled();
       },
       {
         timeout: 1000,
@@ -1535,7 +1604,7 @@ describe('EditorProTable 2', () => {
           .querySelectorAll('input').length > 0,
       ).toBeFalsy();
 
-      expect(fn).toBeCalled();
+      expect(fn).toHaveBeenCalled();
     });
     wrapper.unmount();
   });
@@ -1601,7 +1670,7 @@ describe('EditorProTable 2', () => {
     });
 
     await waitFor(() => {
-      expect(fn).not.toBeCalled();
+      expect(fn).not.toHaveBeenCalled();
     });
     await waitFor(
       () => {
@@ -1616,7 +1685,7 @@ describe('EditorProTable 2', () => {
 
   it('📝 support onDelete', async () => {
     const fn = vi.fn();
-    vi.useFakeTimers();
+
     const wrapper = render(
       <EditorProTableDemo
         hideRules
@@ -1653,7 +1722,7 @@ describe('EditorProTable 2', () => {
     await act(async () => vi.runOnlyPendingTimers());
 
     await waitFor(() => {
-      expect(fn).not.toBeCalled();
+      expect(fn).not.toHaveBeenCalled();
     });
 
     act(() => {
@@ -1666,13 +1735,12 @@ describe('EditorProTable 2', () => {
       expect(fn).toHaveBeenCalledWith(624691229);
     });
     wrapper.unmount();
-    vi.useRealTimers();
   });
 
   it('📝 support onSave when add newLine', async () => {
     const onSave = vi.fn();
     const onDataSourceChange = vi.fn();
-    vi.useFakeTimers();
+
     const wrapper = render(
       <EditorProTableDemo
         hideRules
@@ -1722,7 +1790,6 @@ describe('EditorProTable 2', () => {
       expect(onDataSourceChange).toHaveBeenCalledWith(3);
     });
 
-    vi.useRealTimers();
     wrapper.unmount();
   });
 
@@ -2022,6 +2089,7 @@ describe('EditorProTable 2', () => {
       expect(fn).toHaveBeenCalledWith(624691229);
       expect(wrapper.queryAllByText('删除').length > 0).toBeFalsy();
     });
+    wrapper.unmount();
   });
 
   it('📝 support onDelete return false', async () => {
@@ -2058,71 +2126,6 @@ describe('EditorProTable 2', () => {
 
     await waitFor(() => {
       expect(fn).toHaveBeenCalledWith(624691229);
-    });
-  });
-
-  it.skip('📝 support form rules', async () => {
-    const fn = vi.fn();
-    const wrapper = render(
-      <EditorProTableDemo onSave={(key, row) => fn(row.title)} />,
-    );
-    await wrapper.findAllByText('编辑');
-
-    act(() => {
-      wrapper.queryAllByText('编辑')[0]?.click();
-    });
-
-    await waitFor(() => {
-      expect(
-        wrapper.container
-          .querySelectorAll('.ant-table-tbody tr.ant-table-row')[0]
-          .querySelectorAll('input').length > 0,
-      ).toBeTruthy();
-    });
-
-    act(() => {
-      fireEvent.change(
-        wrapper.container
-          .querySelectorAll('.ant-table-tbody tr.ant-table-row')[0]
-          .querySelectorAll(`input`)[0],
-        {
-          target: {
-            value: '',
-          },
-        },
-      );
-    });
-
-    await wrapper.findAllByText('保存');
-
-    act(() => {
-      wrapper.queryAllByText('保存')[0]?.click();
-    });
-
-    await waitFor(() => {
-      // 没有通过验证，不触发 onSave
-      expect(fn).not.toBeCalled();
-    });
-
-    act(() => {
-      fireEvent.change(
-        wrapper.container
-          .querySelectorAll('.ant-table-tbody tr.ant-table-row')[0]
-          .querySelectorAll(`td .ant-input`)[0],
-        {
-          target: {
-            value: 'qixian',
-          },
-        },
-      );
-    });
-
-    act(() => {
-      wrapper.queryAllByText('保存')[0]?.click();
-    });
-
-    await waitFor(() => {
-      expect(fn).toHaveBeenCalledWith('qixian');
     });
     wrapper.unmount();
   });
@@ -2186,8 +2189,9 @@ describe('EditorProTable 2', () => {
         ?.click();
     });
     await waitFor(() => {
-      expect(fn).toBeCalled();
+      expect(fn).toHaveBeenCalled();
     });
+    wrapper.unmount();
   });
 
   it('📝 support add line for bottom', async () => {
@@ -2311,8 +2315,9 @@ describe('EditorProTable 2', () => {
       );
     });
     await waitFor(() => {
-      expect(fn).toBeCalled();
+      expect(fn).toHaveBeenCalled();
     });
+    wrapper.unmount();
   });
 
   it('📝 support add line when single line edit when keys', async () => {
@@ -2349,6 +2354,7 @@ describe('EditorProTable 2', () => {
           .querySelectorAll('input').length,
       ).toBe(4);
     });
+    wrapper.unmount();
   });
 
   it('📝 support add line when single line edit', async () => {
@@ -2387,5 +2393,6 @@ describe('EditorProTable 2', () => {
         timeout: 1000,
       },
     );
+    wrapper.unmount();
   });
 });

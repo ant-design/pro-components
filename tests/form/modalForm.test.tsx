@@ -1,8 +1,15 @@
-﻿import { ModalForm, ProFormText } from '@ant-design/pro-form';
-import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
+﻿import { ModalForm, ProFormText } from '@ant-design/pro-components';
+import {
+  act,
+  cleanup,
+  fireEvent,
+  render,
+  waitFor,
+} from '@testing-library/react';
 import type { FormInstance } from 'antd';
 import { Button } from 'antd';
-import React, { act, createRef } from 'react';
+import React, { createRef } from 'react';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
 
 afterEach(() => {
@@ -462,7 +469,7 @@ describe('ModalForm', () => {
 
     expect(await wrapper.findByDisplayValue('test')).toBeTruthy();
   });
-
+  // need jsdom
   it('📦 ModalForm destroyOnClose close will rerender from', async () => {
     const wrapper = render(
       <ModalForm
@@ -531,7 +538,7 @@ describe('ModalForm', () => {
 
   it('📦 DrawerForm submitTimeout is number will disabled close button when submit', async () => {
     const fn = vi.fn();
-    vi.useFakeTimers();
+
     const html = render(
       <ModalForm
         visible
@@ -564,11 +571,7 @@ describe('ModalForm', () => {
       (await html.queryByText('取 消'))?.click();
     });
 
-    expect(fn).not.toBeCalled();
-
-    act(() => {
-      vi.runOnlyPendingTimers();
-    });
+    expect(fn).not.toHaveBeenCalled();
 
     expect(
       (html.queryAllByText('取 消').at(0)?.parentElement as HTMLButtonElement)
@@ -579,11 +582,7 @@ describe('ModalForm', () => {
       (await html.queryByText('取 消'))?.click();
     });
 
-    act(() => {
-      vi.runOnlyPendingTimers();
-    });
-    expect(fn).toBeCalled();
-    vi.useRealTimers();
+    expect(fn).toHaveBeenCalled();
   });
 
   it('📦 modal submitTimeout is null no disable close button when submit', async () => {
@@ -628,7 +627,7 @@ describe('ModalForm', () => {
       await waitForWaitTime(500);
     });
 
-    expect(fn).toBeCalled();
+    expect(fn).toHaveBeenCalled();
 
     act(() => {
       wrapper.unmount();

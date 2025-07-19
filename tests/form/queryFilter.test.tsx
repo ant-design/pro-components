@@ -1,5 +1,10 @@
-import { ProFormGroup, ProFormText, QueryFilter } from '@ant-design/pro-form';
+import {
+  ProFormGroup,
+  ProFormText,
+  QueryFilter,
+} from '@ant-design/pro-components';
 import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 afterEach(() => {
   cleanup();
@@ -210,7 +215,7 @@ describe('QueryFilter', () => {
     fireEvent.click(await findByText('重置'));
 
     await waitFor(() => {
-      expect(fn).toBeCalled();
+      expect(fn).toHaveBeenCalled();
     });
   });
 

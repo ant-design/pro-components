@@ -29,6 +29,7 @@ exports[`Table ColumnSetting > 🎏 columns proFieldProps support custom 1`] = `
           />
           <div
             class="ant-row ant-row-start ant-pro-query-filter-row"
+            style="margin-left: -12px; margin-right: -12px;"
           >
             <div
               class="ant-col ant-col-8 ant-pro-query-filter-row-split"
@@ -43,7 +44,7 @@ exports[`Table ColumnSetting > 🎏 columns proFieldProps support custom 1`] = `
                 >
                   <div
                     class="ant-col ant-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
@@ -95,9 +96,7 @@ exports[`Table ColumnSetting > 🎏 columns proFieldProps support custom 1`] = `
                               </span>
                               <span
                                 class="ant-select-selection-placeholder"
-                              >
-                                请选择
-                              </span>
+                              />
                             </span>
                           </div>
                           <span
@@ -434,6 +433,7 @@ exports[`Table ColumnSetting > 🎏 config provide render 1`] = `
           />
           <div
             class="qixian-row qixian-row-start qixian-pro-query-filter-row"
+            style="margin-left: -12px; margin-right: -12px;"
           >
             <div
               class="qixian-col qixian-col-8 qixian-pro-query-filter-row-split"
@@ -448,7 +448,7 @@ exports[`Table ColumnSetting > 🎏 config provide render 1`] = `
                 >
                   <div
                     class="qixian-col qixian-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
@@ -817,6 +817,7 @@ exports[`Table ColumnSetting > 🎏 extra columns 1`] = `
           />
           <div
             class="ant-row ant-row-start ant-pro-query-filter-row"
+            style="margin-left: -12px; margin-right: -12px;"
           >
             <div
               class="ant-col ant-col-8 ant-pro-query-filter-row-split"
@@ -831,7 +832,7 @@ exports[`Table ColumnSetting > 🎏 extra columns 1`] = `
                 >
                   <div
                     class="ant-col ant-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
