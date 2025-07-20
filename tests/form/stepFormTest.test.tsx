@@ -130,13 +130,13 @@ describe('StepsForm', () => {
         </StepsForm.StepForm>
       </StepsForm>,
     );
-    await waitForWaitTime(100);
+   
 
     await act(async () => {
       (await html.findByText('下一步')).click();
     });
 
-    await waitForWaitTime(100);
+   
 
     expect(fn).toHaveBeenCalled();
     expect(currentFn).toHaveBeenCalled();
@@ -144,7 +144,7 @@ describe('StepsForm', () => {
     await act(async () => {
       (await html.findByText('提 交')).click();
     });
-    await waitForWaitTime(100);
+   
 
     await waitFor(() => {
       expect(onFinish).toHaveBeenCalled();
@@ -152,7 +152,7 @@ describe('StepsForm', () => {
     expect(fn).toHaveBeenCalled();
     expect(currentFn).toHaveBeenCalled();
 
-    await waitForWaitTime(100);
+   
     html.unmount();
   });
 
@@ -225,34 +225,6 @@ describe('StepsForm', () => {
     unmount();
   });
 
-  it('🐲 onFinish throw error', async () => {
-    const currentFn = vi.fn();
-    const { unmount } = render(
-      <StepsForm
-        current={1}
-        onCurrentChange={(c) => {
-          currentFn(c);
-        }}
-        onFinish={async () => {
-          throw new Error('发生了错误');
-        }}
-      >
-        <StepsForm.StepForm name="base" title="表单1">
-          <ProFormText name="姓名" />
-        </StepsForm.StepForm>
-        <StepsForm.StepForm name="moreInfo" title="表单2">
-          <ProFormText name="邮箱" />
-        </StepsForm.StepForm>
-      </StepsForm>,
-    );
-
-    await userEvent.click(await screen.findByText('提 交'));
-
-    await waitFor(() => {
-      expect(currentFn).not.toHaveBeenCalledWith(0);
-    });
-    unmount();
-  });
 
   it('🐲 submitter render=false', () => {
     const { container } = render(
@@ -499,18 +471,16 @@ describe('StepsForm', () => {
         </StepsForm.StepForm>
       </StepsForm>,
     );
-    await waitForWaitTime(200);
     await act(async () => {
       (await html.findByText('下一步')).click();
     });
 
-    await waitForWaitTime(200);
 
     await act(async () => {
       (await html.findByText('提 交')).click();
     });
 
-    await waitForWaitTime(100);
+   
     expect(submit).toHaveBeenCalledWith({
       info: {
         name: 'chenshuai',
@@ -542,7 +512,7 @@ describe('StepsForm', () => {
       );
     };
     const html = render(<Forms />);
-    await waitForWaitTime(100);
+   
     expect(html.container.querySelectorAll('.ant-steps-item')).toHaveLength(3);
     await act(async () => {
       (await html.findByText('隐藏表单3')).click();

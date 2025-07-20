@@ -37,7 +37,7 @@ export default defineConfig({
         'packages/utils/src/useMountMergeState/*.{ts,tsx}',
       ],
     },
-    testTimeout: 60_000, // 60 seconds
+    testTimeout: 60_00, // 60 seconds
     globals: true,
   },
 });
