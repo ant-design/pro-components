@@ -819,9 +819,9 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
           // 确保在 Promise 被拒绝时也重置 loading 状态
           setLoading(false);
           throw error;
-        } finally {
-          setLoading(false);
         }
+        // 只有在 Promise 成功完成时才重置 loading 状态
+        setLoading(false);
       } else {
         setLoading(false);
       }

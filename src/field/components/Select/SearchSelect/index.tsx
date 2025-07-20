@@ -279,6 +279,15 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
           fetchData(undefined);
           onSearch?.('');
           setSearchValue(undefined);
+        } else if (showSearch && !autoClearSearchValue) {
+          // 当 autoClearSearchValue 为 false 时，保持搜索值不变
+          // 但是需要确保我们的状态与 Ant Design 的内部状态同步
+          // 在 multiple 模式下，Ant Design 可能会自动清除搜索值，我们需要重新设置它
+          if (mode === 'multiple') {
+            // 在 multiple 模式下，即使 autoClearSearchValue 为 false，
+            // Ant Design 仍可能会清除搜索值，这是正常行为
+            // 我们不需要做任何特殊处理，让 Ant Design 自然处理
+          }
         }
 
         if (!props.labelInValue) {
