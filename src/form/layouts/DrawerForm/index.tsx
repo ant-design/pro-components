@@ -161,10 +161,10 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
   const resetFields = useCallback(() => {
     const form = rest.formRef?.current ?? rest.form ?? formRef.current;
     // 重置表单
-    if (form && drawerProps?.destroyOnClose) {
+    if (form && drawerProps?.destroyOnHidden) {
       form.resetFields();
     }
-  }, [drawerProps?.destroyOnClose, rest.form, rest.formRef]);
+  }, [drawerProps?.destroyOnHidden, rest.form, rest.formRef]);
 
   useEffect(() => {
     if (open && (propsOpen || propVisible)) {

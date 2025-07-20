@@ -116,10 +116,10 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
   const resetFields = useCallback(() => {
     const form = rest.form ?? rest.formRef?.current ?? formRef.current;
     // 重置表单
-    if (form && modalProps?.destroyOnClose) {
+    if (form && modalProps?.destroyOnHidden) {
       form.resetFields();
     }
-  }, [modalProps?.destroyOnClose, rest.form, rest.formRef]);
+  }, [modalProps?.destroyOnHidden, rest.form, rest.formRef]);
 
   useImperativeHandle(
     rest.formRef,
