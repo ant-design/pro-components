@@ -107,7 +107,7 @@ const FieldDatePicker: ProFieldFC<
           }
           allowClear={false}
           downIcon={dayValue || open ? false : undefined}
-          bordered={variant !== 'borderless'}
+          variant={variant}
           ref={lightLabel}
         />
       );

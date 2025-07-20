@@ -29,9 +29,9 @@ export type LightFilterProps<T, U = Record<string, any>> = {
    */
   collapseLabel?: React.ReactNode;
   /**
-   * @name 是否有边框
+   * @name 组件样式变体
    */
-  bordered?: boolean;
+  variant?: 'outlined' | 'filled' | 'borderless';
   /**
    * @name 忽略rules，一般而言 LightFilter 应该不支持rules，默认是 false。
    */
@@ -66,7 +66,7 @@ const LightFilterContainer: React.FC<{
   onValuesChange: (values: Record<string, any>) => void;
   collapse?: boolean;
   collapseLabel?: React.ReactNode;
-  bordered?: boolean;
+  variant?: 'outlined' | 'filled' | 'borderless';
   footerRender?: LightFilterFooterRender;
   placement?: TooltipPlacement;
 }> = (props) => {
@@ -77,7 +77,7 @@ const LightFilterContainer: React.FC<{
     collapse,
     collapseLabel,
     onValuesChange,
-    bordered,
+    variant,
     values,
     footerRender,
     placement,
@@ -171,9 +171,9 @@ const LightFilterContainer: React.FC<{
                   ...child.props.proFieldProps,
                   light: true,
                   label: child.props.label,
-                  bordered,
+                  variant,
                 },
-                bordered,
+                variant,
               })}
             </div>
           );
@@ -261,7 +261,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
     form: userForm,
     placement,
     formRef: userFormRef,
-    bordered,
+    variant,
     ignoreRules,
     footerRender,
     ...reset
@@ -292,7 +292,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
               return item;
             })}
             size={size}
-            bordered={bordered}
+            variant={variant}
             collapse={collapse}
             collapseLabel={collapseLabel}
             placement={placement}

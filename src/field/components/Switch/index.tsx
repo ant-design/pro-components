@@ -50,7 +50,7 @@ const FieldSwitch: ProFieldFC<{
         <FieldLabel
           label={label}
           disabled={disabled}
-          bordered={variant !== 'borderless'}
+          variant={variant}
           downIcon={false}
           value={
             <div

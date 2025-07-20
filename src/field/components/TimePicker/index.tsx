@@ -2,7 +2,7 @@ import { DatePicker, TimePicker } from 'antd';
 import dayjs from 'dayjs';
 import React, { useState } from 'react';
 import { useIntl } from '../../../provider';
-import { FieldLabel, compatibleBorder, parseValueToDay } from '../../../utils';
+import { FieldLabel, parseValueToDay } from '../../../utils';
 import type { ProFieldFC, ProFieldLightProps } from '../../PureProField';
 
 /**
@@ -75,7 +75,7 @@ const FieldTimePicker: ProFieldFC<
           value={
             dayValue || open ? (
               <TimePicker
-                {...compatibleBorder(false)}
+                variant="borderless"
                 format={format}
                 ref={ref}
                 {...fieldProps}
@@ -102,7 +102,9 @@ const FieldTimePicker: ProFieldFC<
         <DatePicker.TimePicker
           ref={ref}
           format={format}
-          {...compatibleBorder(plain === undefined ? true : !plain)}
+          variant={
+            plain === undefined ? 'outlined' : plain ? 'borderless' : 'outlined'
+          }
           {...fieldProps}
           value={dayValue}
         />
@@ -208,7 +210,7 @@ const FieldTimeRangePickerComponents: ProFieldFC<
           value={
             dayValue || open ? (
               <TimePicker.RangePicker
-                {...compatibleBorder(false)}
+                variant="borderless"
                 format={format}
                 ref={ref}
                 {...fieldProps}
@@ -232,7 +234,9 @@ const FieldTimeRangePickerComponents: ProFieldFC<
         <TimePicker.RangePicker
           ref={ref}
           format={format}
-          {...compatibleBorder(plain === undefined ? true : !plain)}
+          variant={
+            plain === undefined ? 'outlined' : plain ? 'borderless' : 'outlined'
+          }
           {...fieldProps}
           value={dayValue}
         />

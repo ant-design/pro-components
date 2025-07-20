@@ -75,8 +75,6 @@ import { useEditableMap } from './useEditableMap';
 import { useBreakpoint } from './useMediaQuery';
 import { useMountMergeState } from './useMountMergeState';
 
-export { compatibleBorder } from './compatible/compatibleBorder';
-
 export * from './typing';
 export {
   compareVersions,

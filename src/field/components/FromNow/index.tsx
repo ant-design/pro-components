@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import React from 'react';
 import { useIntl } from '../../../provider';
-import { compatibleBorder, parseValueToDay } from '../../../utils';
+import { parseValueToDay } from '../../../utils';
 import type { ProFieldFC } from '../../PureProField';
 
 dayjs.extend(relativeTime);
@@ -47,7 +47,9 @@ const FieldFromNow: ProFieldFC<{
         ref={ref}
         placeholder={placeholder}
         showTime
-        {...compatibleBorder(plain === undefined ? true : !plain)}
+        variant={
+          plain === undefined ? 'outlined' : plain ? 'borderless' : 'outlined'
+        }
         {...fieldProps}
         value={momentValue}
       />

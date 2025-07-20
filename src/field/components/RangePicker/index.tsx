@@ -133,7 +133,7 @@ const FieldRangePicker: ProFieldFC<
             ) : null
           }
           allowClear={false}
-          bordered={variant !== 'borderless'}
+          variant={variant}
           ref={lightLabel}
           downIcon={dayValue || open ? false : undefined}
         />

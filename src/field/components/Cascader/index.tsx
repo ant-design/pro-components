@@ -146,7 +146,7 @@ const FieldCascader: ProFieldFC<GroupProps> = (
         <FieldLabel
           label={label}
           disabled={disabled}
-          bordered={variant !== 'borderless'}
+          variant={variant}
           value={notEmpty || open ? dom : null}
           style={
             notEmpty

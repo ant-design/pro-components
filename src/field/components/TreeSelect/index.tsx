@@ -233,7 +233,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
             setOpen(true);
             fieldProps?.onOpenChange?.(true);
           }}
-          bordered={variant !== 'borderless'}
+          variant={variant}
           value={notEmpty || open ? dom : null}
           style={
             notEmpty

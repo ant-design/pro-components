@@ -259,11 +259,11 @@ export const LightSelect: React.ForwardRefRenderFunction<
         label={label}
         placeholder={placeholder}
         disabled={disabled}
-        bordered={variant !== 'borderless' && variant !== undefined}
+        variant={variant}
         allowClear={!!allowClear}
         value={filterValue || value?.label || value}
         onClear={() => {
-          onChange?.(undefined, undefined as any);
+          onChange?.(undefined, undefined);
         }}
         ref={lightLabel}
         valueMaxLength={valueMaxLength}

@@ -17,7 +17,7 @@ export type FieldLabelProps = {
   className?: string;
   formatter?: (value: any) => React.ReactNode;
   style?: React.CSSProperties;
-  bordered?: boolean;
+  variant?:"outlined" | "borderless" | "filled" | "underlined";
   allowClear?: boolean;
   downIcon?: React.ReactNode | false;
   onClick?: () => void;
@@ -42,7 +42,7 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
     placeholder,
     className,
     formatter,
-    bordered,
+    variant,
     style,
     downIcon,
     allowClear = true,
@@ -176,7 +176,7 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
           [`${prefixCls}-active`]:
             (Array.isArray(value) ? value.length > 0 : !!value) || value === 0,
           [`${prefixCls}-disabled`]: disabled,
-          [`${prefixCls}-bordered`]: bordered,
+          [`${prefixCls}-bordered`]: variant !== 'borderless',
           [`${prefixCls}-allow-clear`]: allowClear,
         },
         className,

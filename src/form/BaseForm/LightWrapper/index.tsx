@@ -35,7 +35,7 @@ export type LightWrapperProps = {
    * labelFormatter={(value) =>value.join('-')} }
    */
   labelFormatter?: (value: any) => React.ReactNode;
-  bordered?: boolean;
+  variant?: 'outlined' | 'filled' | 'borderless';
   otherFieldProps?: any;
   valueType?: string;
   allowClear?: boolean;
@@ -57,7 +57,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
     valuePropName,
     placeholder,
     labelFormatter,
-    bordered,
+    variant,
     footerRender,
     allowClear,
     otherFieldProps,
@@ -119,7 +119,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
             onChange?.();
             setTempValue(null);
           }}
-          bordered={bordered}
+          variant={variant}
           style={style}
           className={className}
           label={label}

@@ -1,5 +1,5 @@
 import type { SelectProps } from 'antd';
-import { ConfigProvider } from 'antd';
+import { ConfigProvider, Spin } from 'antd';
 import type { ReactNode } from 'react';
 import React, {
   useContext,
@@ -46,16 +46,8 @@ export type FieldSelectProps<FieldProps = any> = {
   /** 组件的全局设置 */
   fieldProps?: FieldProps;
 
-  /** @deprecated 请使用 variant */
-  bordered?: boolean;
-  /** 变体类型 */
-  variant?: 'outlined' | 'borderless';
+  variant?: 'outlined' | 'filled' | 'borderless';
   id?: string;
-
-  /** 是否禁用 */
-  disabled?: boolean;
-  /** 当前值 */
-  value?: any;
 
   children?: ReactNode;
   /** 默认搜素条件 */
@@ -262,15 +254,12 @@ export const useFieldFetchData = (
       let i = 0;
       while (i < length) {
         const cur = _options[i++];
-        const customFieldName =
-          type === 'children' ? children : type === 'label' ? label : value;
-        if (customFieldName && cur[customFieldName] !== undefined) {
-          cur[type] = cur[customFieldName];
-          if (type === 'children') {
-            traverseFieldKey(cur[customFieldName], 'children');
-            traverseFieldKey(cur[customFieldName], 'label');
-            traverseFieldKey(cur[customFieldName], 'value');
-          }
+        if (cur[children] || cur[label] || cur[value]) {
+          cur[type] =
+            cur[
+              type === 'children' ? children : type === 'label' ? label : value
+            ];
+          traverseFieldKey(cur[children], type);
         }
       }
     };
@@ -378,24 +367,10 @@ export const useFieldFetchData = (
 
     return opt;
   }, [options, keyWords, props.fieldProps?.filterOption]);
-  const applyFieldNamesMapping = (item: any) => {
-    if (!fieldProps?.fieldNames) return item;
 
-    const { label: labelKey = 'label', value: valueKey = 'value' } =
-      fieldProps.fieldNames;
-
-    return {
-      ...item,
-      label: item[labelKey],
-      value: item[valueKey],
-    };
-  };
-  const finalData = props.request
-    ? (data as SelectOptionType)?.map((item) => applyFieldNamesMapping(item))
-    : undefined;
   return [
     isValidating,
-    finalData || resOptions,
+    props.request ? (data as SelectOptionType) : resOptions,
     (fetchKeyWords?: string) => {
       setKeyWords(fetchKeyWords);
     },
@@ -417,34 +392,31 @@ const FieldSelect: ProFieldFC<
   const {
     mode,
     valueEnum,
-    request,
-    params,
-    fieldProps: originFieldProps,
-    proFieldKey,
-    bordered,
-    variant = bordered === false ? 'borderless' : 'outlined',
-    id = nanoid(),
-    label,
-    lightLabel,
-    labelTrigger,
-    light,
-    disabled,
-    value,
     render,
     formItemRender,
+    request,
+    fieldProps,
+    plain,
     children,
-    defaultKeyWords,
-    fieldProps = {},
+    light,
+    proFieldKey,
+    params,
+    label,
+    variant,
+    id,
+    lightLabel,
+    labelTrigger,
+    ...rest
   } = props;
 
   const inputRef = useRef();
   const intl = useIntl();
   const keyWordsRef = useRef<string>('');
-  const { fieldNames } = originFieldProps;
+  const { fieldNames } = fieldProps;
 
   useEffect(() => {
-    keyWordsRef.current = originFieldProps?.searchValue;
-  }, [originFieldProps?.searchValue]);
+    keyWordsRef.current = fieldProps?.searchValue;
+  }, [fieldProps?.searchValue]);
 
   const [loading, options, fetchData, resetData] = useFieldFetchData(props);
   const { componentSize } = ConfigProvider?.useConfig?.() || {
@@ -462,54 +434,36 @@ const FieldSelect: ProFieldFC<
   const optionsValueEnum = useMemo(() => {
     if (mode !== 'read') return;
 
-    /**
-     * Support select fieldNames
-     * Similar to cascader fieldNames support
-     */
     const {
-      value: valuePropsName = 'value',
       label: labelPropsName = 'label',
+      value: valuePropsName = 'value',
       options: optionsPropsName = 'options',
-    } = fieldProps?.fieldNames || {};
+    } = fieldNames || {};
+
+    const valuesMap = new Map();
 
     const traverseOptions = (_options: typeof options) => {
-      const localMap = new Map();
-
       if (!_options?.length) {
-        return localMap;
+        return valuesMap;
       }
-
       const length = _options.length;
-      for (let i = 0; i < length; i++) {
-        const cur = _options[i];
-
-        // Use fieldNames mapping to get correct value and label
-        const curValue = cur[valuePropsName];
-        const curLabel = cur[labelPropsName];
-
-        if (curValue !== undefined && curLabel !== undefined) {
-          localMap.set(curValue, curLabel);
-        }
-
-        // Handle nested options with fieldNames mapping
-        const childOptions = cur[optionsPropsName] || cur.options;
-        if (childOptions?.length) {
-          const childMap = traverseOptions(childOptions);
-          childMap.forEach((v, k) => localMap.set(k, v));
-        }
+      let i = 0;
+      while (i < length) {
+        const cur = _options[i++];
+        valuesMap.set(cur[valuePropsName], cur[labelPropsName]);
+        traverseOptions(cur[optionsPropsName]);
       }
-
-      return localMap;
+      return valuesMap;
     };
 
     return traverseOptions(options);
-  }, [mode, options, fieldProps?.fieldNames]);
+  }, [fieldNames, mode, options]);
 
   if (mode === 'read') {
     const dom = (
       <>
         {proFieldParsingText(
-          props.text,
+          rest.text,
           objectToMap(
             valueEnum || optionsValueEnum,
           ) as unknown as ProSchemaValueEnumObj,
@@ -518,7 +472,7 @@ const FieldSelect: ProFieldFC<
     );
 
     if (render) {
-      return render(dom, { mode, ...originFieldProps, options }, dom) ?? null;
+      return render(dom, { mode, ...fieldProps }, dom) ?? null;
     }
     return dom;
   }
@@ -528,32 +482,59 @@ const FieldSelect: ProFieldFC<
       if (light) {
         return (
           <LightSelect
-            {...originFieldProps}
+            variant={variant}
+            id={id}
+            loading={loading}
+            ref={inputRef}
+            allowClear
+            size={componentSize}
+            options={options}
             label={label}
             placeholder={intl.getMessage(
               'tableForm.selectPlaceholder',
               '请选择',
             )}
-            disabled={disabled}
-            mode={mode}
-            options={options}
-            loading={loading}
-            variant={variant}
-            allowClear={originFieldProps?.allowClear}
+            lightLabel={lightLabel}
+            labelTrigger={labelTrigger}
+            fetchData={fetchData}
+            {...fieldProps}
           />
         );
       }
       return (
         <SearchSelect
           key="SearchSelect"
-          {...originFieldProps}
+          className={rest.className}
+          style={{
+            minWidth: 100,
+            ...rest.style,
+          }}
           variant={variant}
-          disabled={disabled}
-          mode={mode}
-          value={value}
-          options={options}
+          id={id}
           loading={loading}
-          fetchData={fetchData}
+          ref={inputRef}
+          allowClear
+          defaultSearchValue={props.defaultKeyWords}
+          notFoundContent={
+            loading ? <Spin size="small" /> : fieldProps?.notFoundContent
+          }
+          fetchData={(keyWord) => {
+            keyWordsRef.current = keyWord ?? '';
+            fetchData(keyWord);
+          }}
+          resetData={resetData}
+          optionItemRender={(item) => {
+            if (typeof item.label === 'string' && keyWordsRef.current) {
+              return (
+                <Highlight label={item.label} words={[keyWordsRef.current]} />
+              );
+            }
+            return item.label;
+          }}
+          placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
+          label={label}
+          {...fieldProps}
+          options={options}
         />
       );
     };
@@ -561,8 +542,8 @@ const FieldSelect: ProFieldFC<
     if (formItemRender) {
       return (
         formItemRender(
-          props.text,
-          { mode, ...originFieldProps, options, loading },
+          rest.text,
+          { mode, ...fieldProps, options, loading },
           dom,
         ) ?? null
       );
