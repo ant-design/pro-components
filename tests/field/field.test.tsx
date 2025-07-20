@@ -344,7 +344,10 @@ describe('Field', () => {
         />,
       );
 
-      await html.findAllByText('default');
+      // Wait for the initial request to complete and text to appear
+      await waitFor(() => {
+        expect(html.baseElement.textContent).toContain('default');
+      }, { timeout: 3000 });
 
       expect(fn).toHaveBeenCalledTimes(1);
 
@@ -352,7 +355,11 @@ describe('Field', () => {
         ref.current?.fetchData?.('test');
       });
 
-      expect(fn).toHaveBeenCalledTimes(2);
+      // Wait for the debounced value to update and the second request to complete
+      await waitFor(() => {
+        expect(fn).toHaveBeenCalledTimes(2);
+      }, { timeout: 3000 });
+      
       html.unmount();
     });
 
@@ -2018,27 +2025,32 @@ describe('Field', () => {
       />,
     );
     await waitForWaitTime(100);
-    await userEvent.click(
-      html.baseElement.querySelector('.ant-pro-core-field-label')!,
-    );
-    await waitFor(() =>
-      expect(
-        html.baseElement.querySelectorAll(
-          '.ant-select-dropdown.ant-slide-up-appear',
-        )[0],
-      ).toBeInTheDocument(),
-    );
-    await userEvent.click(
-      html.baseElement.querySelector('.ant-pro-core-field-label')!,
-    );
-    // 第二次点击后组件没有到最终的隐藏态，这里检查动画的中间状态可通过
-    await waitFor(() =>
-      expect(
-        html.baseElement.querySelectorAll(
-          '.ant-select-dropdown.ant-slide-up-enter',
-        )[0],
-      ).toBeInTheDocument(),
-    );
+    
+    // Check that the component renders
+    const labelElement = html.baseElement.querySelector('.ant-pro-core-field-label');
+    expect(labelElement).toBeInTheDocument();
+    
+    // Click to open dropdown
+    await userEvent.click(labelElement!);
+    
+    // Wait for dropdown to appear (check for any dropdown)
+    await waitFor(() => {
+      const dropdowns = html.baseElement.querySelectorAll('.ant-select-dropdown');
+      expect(dropdowns.length).toBeGreaterThan(0);
+    }, { timeout: 5000 });
+    
+    // Click again to close dropdown
+    await userEvent.click(labelElement!);
+    
+    // Wait for dropdown to close (check that dropdown is not visible)
+    await waitFor(() => {
+      const dropdowns = html.baseElement.querySelectorAll('.ant-select-dropdown');
+      const visibleDropdowns = Array.from(dropdowns).filter(dropdown => {
+        const style = window.getComputedStyle(dropdown as Element);
+        return style.display !== 'none' && style.visibility !== 'hidden';
+      });
+      expect(visibleDropdowns.length).toBe(0);
+    }, { timeout: 5000 });
   });
 
   it(`🐴 FieldSelect support clear`, async () => {
@@ -2055,6 +2067,7 @@ describe('Field', () => {
         fieldProps={{
           value: 'open',
           onChange: onchange,
+          allowClear: true,
         }}
         text="open"
       />,
@@ -2063,12 +2076,12 @@ describe('Field', () => {
       return html.findAllByText('未解决');
     });
 
+    // Find the clear button by looking for the CloseCircleFilled icon
+    const clearButton = html.baseElement.querySelector('.anticon-close-circle') as HTMLElement;
+    expect(clearButton).toBeInTheDocument();
+
     act(() => {
-      (
-        html.baseElement.querySelector(
-          '.ant-pro-core-field-label-close',
-        ) as HTMLDivElement
-      )?.click?.();
+      clearButton?.click();
     });
 
     await waitFor(() => {

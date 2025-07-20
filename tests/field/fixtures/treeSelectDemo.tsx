@@ -22,7 +22,7 @@ export function TreeSelectDemo(
         treeNodeFilterProp: 'title',
         filterTreeNode: true,
         open: true,
-        showArrow: false,
+        suffixIcon: null,
         ...fieldProps,
       }}
       value={value}

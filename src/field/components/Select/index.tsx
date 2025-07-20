@@ -539,6 +539,7 @@ const FieldSelect: ProFieldFC<
             options={options}
             loading={loading}
             variant={variant}
+            allowClear={originFieldProps?.allowClear}
           />
         );
       }
