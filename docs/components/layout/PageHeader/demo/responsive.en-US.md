@@ -16,8 +16,6 @@ import { Button, Descriptions, PageHeader, Statistic, Tabs } from 'antd';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import React from 'react';
 
-const { TabPane } = Tabs;
-
 const renderContent = (column = 2) => (
   <Descriptions size="small" column={column}>
     <Descriptions.Item label="Created">Lili Qu</Descriptions.Item>
@@ -75,10 +73,19 @@ const App: React.FC = () => (
       </Button>,
     ]}
     footer={
-      <Tabs defaultActiveKey="1">
-        <TabPane tab="Details" key="1" />
-        <TabPane tab="Rule" key="2" />
-      </Tabs>
+      <Tabs
+        defaultActiveKey="1"
+        items={[
+          {
+            key: '1',
+            label: 'Details',
+          },
+          {
+            key: '2',
+            label: 'Rule',
+          },
+        ]}
+      />
     }
   >
     <Content extra={extraContent}>{renderContent()}</Content>

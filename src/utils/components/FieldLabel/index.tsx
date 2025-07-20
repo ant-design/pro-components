@@ -17,7 +17,7 @@ export type FieldLabelProps = {
   className?: string;
   formatter?: (value: any) => React.ReactNode;
   style?: React.CSSProperties;
-  variant?:"outlined" | "borderless" | "filled" | "underlined";
+  variant?: 'outlined' | 'borderless' | 'filled' | 'underlined';
   allowClear?: boolean;
   downIcon?: React.ReactNode | false;
   onClick?: () => void;

@@ -5,14 +5,19 @@ export default () => {
     <ProCard
       tabs={{
         type: 'card',
+        items: [
+          {
+            key: 'tab1',
+            label: 'Product One',
+            children: 'Content One',
+          },
+          {
+            key: 'tab2',
+            label: 'Product Two',
+            children: 'Content Two',
+          },
+        ],
       }}
-    >
-      <ProCard.TabPane key="tab1" tab="Product One">
-        Content One
-      </ProCard.TabPane>
-      <ProCard.TabPane key="tab2" tab="Product Two">
-        Content Two
-      </ProCard.TabPane>
-    </ProCard>
+    />
   );
 };

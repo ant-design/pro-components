@@ -18,13 +18,9 @@ export default () => {
         onChange: (key) => {
           console.log('key', key);
         },
-      }}
-    >
-      {items.map((item) => (
-        <ProCard.TabPane
-          style={{ width: '100%' }}
-          key={item.key}
-          tab={
+        items: items.map((item) => ({
+          key: item.key,
+          label: (
             <Statistic
               layout="vertical"
               title={item.title}
@@ -35,21 +31,22 @@ export default () => {
                 borderInlineEnd: item.total ? '1px solid #f0f0f0' : undefined,
               }}
             />
-          }
-        >
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              backgroundColor: '#fafafa',
-              height: 100,
-            }}
-          >
-            关联展示内容 {item.title}
-          </div>
-        </ProCard.TabPane>
-      ))}
-    </ProCard>
+          ),
+          children: (
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: '#fafafa',
+                height: 100,
+              }}
+            >
+              关联展示内容 {item.title}
+            </div>
+          ),
+        })),
+      }}
+    />
   );
 };

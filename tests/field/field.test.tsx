@@ -2044,7 +2044,7 @@ describe('Field', () => {
 
     // Test that the component can be clicked (basic functionality)
     await userEvent.click(labelElement!);
-    
+
     // Verify that the component responds to clicks
     expect(labelElement).toBeInTheDocument();
   });
