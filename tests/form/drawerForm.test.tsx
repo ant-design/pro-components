@@ -11,9 +11,6 @@ import React, { act } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
 
-afterEach(() => {
-  cleanup();
-});
 
 describe('DrawerForm', () => {
   it('📦 trigger will simulate onOpenChange', async () => {
