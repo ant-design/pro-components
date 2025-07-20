@@ -61,13 +61,16 @@ function StepForm<T = Record<string, any>>(stepNativeProps: StepFormProps<T>) {
         }
         if (onFinish) {
           context?.setLoading(true);
-          // 如果报错，直接抛出
-          const success = await onFinish?.(values);
+          try {
+            // 如果报错，直接抛出
+            const success = await onFinish?.(values);
 
-          if (success) {
-            context?.next();
+            if (success) {
+              context?.next();
+            }
+          } finally {
+            context?.setLoading(false);
           }
-          context?.setLoading(false);
           return;
         }
 

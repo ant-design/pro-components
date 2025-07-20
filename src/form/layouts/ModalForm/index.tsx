@@ -169,11 +169,9 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
         },
         resetButtonProps: {
           preventDefault: true,
-          // 提交表单loading时，不可关闭弹框
-          disabled: submitTimeout ? loading : undefined,
+          disabled: submitTimeout && loading,
           onClick: (e: any) => {
             setOpen(false);
-            // fix: #6006 点击取消按钮时,那么必然会触发弹窗关闭，我们无需在 此处重置表单，只需在弹窗关闭时重置即可
             modalProps?.onCancel?.(e);
           },
         },
@@ -213,10 +211,38 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
         setLoading(true);
 
         const timer = setTimeout(() => setLoading(false), submitTimeout);
-        response.finally(() => {
+        try {
+          const result = await response;
           clearTimeout(timer);
           setLoading(false);
-        });
+          // 返回真值，关闭弹框
+          if (result) {
+            setOpen(false);
+          }
+          return result;
+        } catch (error) {
+          clearTimeout(timer);
+          setLoading(false);
+          throw error;
+        }
+      } else if (submitTimeout) {
+        // 如果 submitTimeout 存在但 response 不是 Promise，也要设置 loading
+        setLoading(true);
+        const timer = setTimeout(() => setLoading(false), submitTimeout);
+        try {
+          const result = await response;
+          clearTimeout(timer);
+          setLoading(false);
+          // 返回真值，关闭弹框
+          if (result) {
+            setOpen(false);
+          }
+          return result;
+        } catch (error) {
+          clearTimeout(timer);
+          setLoading(false);
+          throw error;
+        }
       }
       const result = await response;
       // 返回真值，关闭弹框
@@ -242,6 +268,7 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
           modalProps?.onCancel?.(e);
         }}
         afterClose={() => {
+          // 确保在关闭时立即重置表单
           resetFields();
           if (open) {
             setOpen(false);

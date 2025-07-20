@@ -367,6 +367,8 @@ function StepsForm<T = Record<string, any>>(
   }, [intl, loading, onSubmit, submitter]);
 
   const nextPage = useRefFunction(() => {
+    // Ensure we have forms registered before checking step bounds
+    if (formArray.length === 0) return;
     if (step > formArray.length - 2) return;
     setStep(step + 1);
   });
