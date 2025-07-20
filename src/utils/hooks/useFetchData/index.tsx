@@ -30,40 +30,35 @@ export function useFetchData<T, U = Record<string, any>>(props: {
     const abort = new AbortController();
     abortRef.current = abort;
     try {
-      const loadData = await Promise.race([
-        props.request?.(props.params as U, props),
-        new Promise((_, reject) => {
-          abortRef.current?.signal?.addEventListener('abort', () => {
-            reject(new Error('aborted'));
-          });
-        }),
-      ]);
-      return loadData as T;
-    } catch (error) {
-      if (abortRef.current?.signal?.aborted) {
-        throw error;
+      if (!props.request) {
+        return undefined;
       }
-      return error as T;
+      const response = await props.request(props.params as U, abort.signal);
+      return response;
+    } catch (error: any) {
+      if (error.name === 'AbortError') {
+        return undefined;
+      }
+      throw error;
     }
   };
 
-  useEffect(() => {
-    return () => {
-      testId += 1;
-    };
-  }, []);
-
-  const { data, error, isValidating } = useSWR<T | undefined>(
-    props.request
-      ? [proFieldKeyRef.current, JSON.stringify(props.params || {})]
-      : null,
+  const { data, error, isValidating } = useSWR(
+    props.request ? [cacheKey, props.params] : null,
     fetchData,
     {
       revalidateOnFocus: false,
       shouldRetryOnError: false,
-      revalidateOnReconnect: false,
+      onError: () => {
+        // 这里可以添加错误处理逻辑
+      },
     },
   );
 
-  return [data || error, isValidating];
+  // 如果没有请求，返回 [undefined, false]
+  if (!props.request) {
+    return [undefined, false];
+  }
+
+  return [data, isValidating];
 }

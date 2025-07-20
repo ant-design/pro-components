@@ -75,7 +75,11 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
         placeholder={placeholderValue}
         {...omit(fieldProps, ['onChange', 'onBlur'])}
         onChange={(e) => fieldProps?.onChange?.(proxyChange(e))}
-        onBlur={(e) => fieldProps?.onBlur?.(proxyChange(e.target.value))}
+        onBlur={(e) => {
+          const value = e.target.value;
+          const processedValue = proxyChange(value);
+          fieldProps?.onBlur?.(processedValue);
+        }}
       />
     );
     if (formItemRender) {

@@ -301,8 +301,13 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
        * @example  getFieldsFormatValue(true) ->返回所有数据，即使没有被 form 托管的
        */
       getFieldsFormatValue: (allData?: true, omitNilParam?: boolean) => {
+        const formInstance = getFormInstance();
+        if (!formInstance) {
+          return {};
+        }
+        const values = formInstance.getFieldsValue(allData!);
         return transformKey(
-          getFormInstance()?.getFieldsValue(allData!),
+          values,
           omitNilParam !== undefined ? omitNilParam : omitNil,
         );
       },
@@ -319,9 +324,13 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
         paramsNameList: NamePath = [],
         omitNilParam?: boolean,
       ) => {
+        const formInstance = getFormInstance();
+        if (!formInstance) {
+          return undefined;
+        }
         const nameList = covertFormName(paramsNameList);
         if (!nameList) throw new Error('nameList is require');
-        const value = getFormInstance()?.getFieldValue(nameList!);
+        const value = formInstance.getFieldValue(nameList!);
         const obj = nameList ? set({}, nameList as string[], value) : value;
         //transformKey会将keys重新和nameList拼接，所以这里要将nameList的首个元素弹出
         const newNameList = [...nameList];
@@ -348,8 +357,12 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
         paramsNameList?: NamePath,
         omitNilParam?: boolean,
       ) => {
+        const formInstance = getFormInstance();
+        if (!formInstance) {
+          return {};
+        }
         const nameList = covertFormName(paramsNameList);
-        const value = getFormInstance()?.getFieldValue(nameList!);
+        const value = formInstance.getFieldValue(nameList!);
         const obj = nameList ? set({}, nameList as string[], value) : value;
         return transformKey(
           obj,
@@ -370,10 +383,14 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
         nameList?: NamePath[],
         omitNilParam?: boolean,
       ) => {
+        const formInstance = getFormInstance();
+        if (!formInstance) {
+          return {};
+        }
         if (!Array.isArray(nameList) && nameList)
           throw new Error('nameList must be array');
 
-        const values = await getFormInstance()?.validateFields(nameList);
+        const values = await formInstance.validateFields(nameList);
         const transformedKey = transformKey(
           values,
           omitNilParam !== undefined ? omitNilParam : omitNil,
@@ -381,7 +398,7 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
         return transformedKey ? transformedKey : {};
       },
     }),
-    [omitNil, transformKey],
+    [omitNil, transformKey, getFormInstance],
   );
 
   const items = useMemo(() => {
@@ -480,9 +497,78 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
   useImperativeHandle(propsFormRef, () => {
     return {
       ...formRef.current,
-      ...formatValues,
+      getFieldsFormatValue: (allData?: true, omitNilParam?: boolean) => {
+        const formInstance = formRef.current;
+        if (!formInstance) {
+          return {};
+        }
+        const values = formInstance.getFieldsValue(allData!);
+        return transformKey(
+          values,
+          omitNilParam !== undefined ? omitNilParam : omitNil,
+        );
+      },
+      getFieldFormatValue: (
+        paramsNameList: NamePath = [],
+        omitNilParam?: boolean,
+      ) => {
+        const formInstance = formRef.current;
+        if (!formInstance) {
+          return undefined;
+        }
+        const nameList = covertFormName(paramsNameList);
+        if (!nameList) throw new Error('nameList is require');
+        const value = formInstance.getFieldValue(nameList!);
+        const obj = nameList ? set({}, nameList as string[], value) : value;
+        //transformKey会将keys重新和nameList拼接，所以这里要将nameList的首个元素弹出
+        const newNameList = [...nameList];
+        newNameList.shift();
+        return get(
+          transformKey(
+            obj,
+            omitNilParam !== undefined ? omitNilParam : omitNil,
+            newNameList,
+          ),
+          nameList as string[],
+        );
+      },
+      getFieldFormatValueObject: (
+        paramsNameList?: NamePath,
+        omitNilParam?: boolean,
+      ) => {
+        const formInstance = formRef.current;
+        if (!formInstance) {
+          return {};
+        }
+        const nameList = covertFormName(paramsNameList);
+        const value = formInstance.getFieldValue(nameList!);
+        const obj = nameList ? set({}, nameList as string[], value) : value;
+        return transformKey(
+          obj,
+          omitNilParam !== undefined ? omitNilParam : omitNil,
+          nameList,
+        );
+      },
+      validateFieldsReturnFormatValue: async (
+        nameList?: NamePath[],
+        omitNilParam?: boolean,
+      ) => {
+        const formInstance = formRef.current;
+        if (!formInstance) {
+          return {};
+        }
+        if (!Array.isArray(nameList) && nameList)
+          throw new Error('nameList must be array');
+
+        const values = await formInstance.validateFields(nameList);
+        const transformedKey = transformKey(
+          values,
+          omitNilParam !== undefined ? omitNilParam : omitNil,
+        );
+        return transformedKey ? transformedKey : {};
+      },
     };
-  }, [formatValues, formRef.current]);
+  }, [omitNil, transformKey, formRef.current]);
   useEffect(() => {
     const finalValues = transformKey(
       formRef.current?.getFieldsValue?.(true),
@@ -652,6 +738,9 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
   /** 使用 callback 的类型 */
   const transformKey = useRefFunction(
     (values: any, paramsOmitNil: boolean, parentKey?: NamePath) => {
+      if (!values || typeof values !== 'object') {
+        return values;
+      }
       return transformKeySubmitValue(
         conversionMomentValue(
           values,
@@ -661,6 +750,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
           parentKey,
         ),
         transformKeyRef.current,
+        paramsOmitNil,
       );
     },
   );
@@ -709,6 +799,10 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
       ) {
         try {
           await response;
+        } catch (error) {
+          // 确保在 Promise 被拒绝时也重置 loading 状态
+          setLoading(false);
+          throw error;
         } finally {
           setLoading(false);
         }
@@ -749,7 +843,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     return formRef.current;
   }, [!initialData]);
 
-  if (props.request && initialDataLoading) {
+  if (request && initialDataLoading) {
     return (
       <div style={{ paddingTop: 50, paddingBottom: 50, textAlign: 'center' }}>
         <Spin />

@@ -277,22 +277,14 @@ export const transformKeySubmitValue = <T extends object = any>(
           return;
         }
         tempResult = namePathSet(tempResult, [entityKey], genValues);
-        return;
+      } else {
+        tempResult = namePathSet(tempResult, [entityKey], itemValue);
       }
-      transform();
     });
-    // namePath、transform在omit为false时需正常返回 https://github.com/ant-design/pro-components/issues/2901#issue-908097115
-    return omit ? tempResult : tempValues;
+
+    return tempResult;
   };
 
-  // 如果有嵌套转换，应用它们
-  if (Object.keys(nestedTransforms).length > 0) {
-    const nestedResult = gen(result);
-    result =
-      Array.isArray(result) && Array.isArray(finalValues)
-        ? [...nestedResult]
-        : merge({}, nestedResult, finalValues);
-  }
-
-  return result as T;
+  const genResult = gen(result);
+  return Object.keys(genResult).length > 0 ? genResult : result;
 };
