@@ -153,6 +153,10 @@ export const conversionMomentValue = <T extends {} = any>(
     if (isNil(itemValue) && omitNil) {
       return;
     }
+    // 如果 omitNil 为 true，也过滤掉空字符串
+    if (omitNil && itemValue === '') {
+      return;
+    }
     // 处理嵌套的情况
     if (
       isPlainObject(itemValue) &&
@@ -194,7 +198,7 @@ export const conversionMomentValue = <T extends {} = any>(
     }
     (tmpValue as any)[valueKey] = convertMoment(
       itemValue,
-      dateFormat || dateFormatter,
+      dateFormat || (dateFormatter === 'string' ? dateFormatterMap[valueType as keyof typeof dateFormatterMap] : dateFormatter),
       valueType,
     );
   });

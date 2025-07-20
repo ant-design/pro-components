@@ -216,10 +216,76 @@ export const transformKeySubmitValue = <T extends object = any>(
         : [entityKey].flat(1);
       const itemValue = (tempValues as any)[entityKey];
 
-      const transformFunction = get(
+      // 查找 transform 函数，支持多种键名格式
+      let transformFunction = get(
         nestedTransforms,
         key as (number | string)[],
       );
+
+      // 如果没找到，尝试用字符串键名查找
+      if (!transformFunction) {
+        const stringKey = Array.isArray(key) ? key.join('.') : key;
+        transformFunction = nestedTransforms[stringKey];
+      }
+
+      // 如果还没找到，尝试用数组键名查找
+      if (!transformFunction && Array.isArray(key)) {
+        transformFunction = get(nestedTransforms, key as (string | number)[]);
+      }
+
+      // 如果还没找到，尝试递归查找嵌套对象
+      if (!transformFunction) {
+        const findTransformInNested = (obj: any, path: (string | number)[]): any => {
+          if (!obj || typeof obj !== 'object') return undefined;
+          
+          // 尝试直接匹配路径
+          const directMatch = get(obj, path);
+          if (typeof directMatch === 'function') return directMatch;
+          
+          // 递归查找
+          for (const [key, value] of Object.entries(obj)) {
+            if (typeof value === 'function') {
+              // 检查是否是我们要找的路径
+              if (Array.isArray(path) && path.length === 1 && path[0] === key) {
+                return value;
+              }
+            } else if (typeof value === 'object' && value !== null) {
+              const nestedResult = findTransformInNested(value, path);
+              if (nestedResult) return nestedResult;
+            }
+          }
+          return undefined;
+        };
+        
+        transformFunction = findTransformInNested(nestedTransforms, key as (string | number)[]);
+      }
+
+      // 如果还没找到，尝试在 dataFormatMapRaw 中查找
+      if (!transformFunction) {
+        const findTransformInRaw = (obj: any, path: (string | number)[]): any => {
+          if (!obj || typeof obj !== 'object') return undefined;
+          
+          // 尝试直接匹配路径
+          const directMatch = get(obj, path);
+          if (typeof directMatch === 'function') return directMatch;
+          
+          // 递归查找
+          for (const [key, value] of Object.entries(obj)) {
+            if (typeof value === 'function') {
+              // 检查是否是我们要找的路径
+              if (Array.isArray(path) && path.length === 1 && path[0] === key) {
+                return value;
+              }
+            } else if (typeof value === 'object' && value !== null) {
+              const nestedResult = findTransformInRaw(value, path);
+              if (nestedResult) return nestedResult;
+            }
+          }
+          return undefined;
+        };
+        
+        transformFunction = findTransformInRaw(dataFormatMapRaw, key as (string | number)[]);
+      }
 
       const transform = () => {
         let tempKey,
@@ -286,5 +352,11 @@ export const transformKeySubmitValue = <T extends object = any>(
   };
 
   const genResult = gen(result);
+  
+  // 合并 finalValues 和 genResult
+  if (Object.keys(finalValues).length > 0) {
+    return deepMerge(genResult, finalValues);
+  }
+  
   return Object.keys(genResult).length > 0 ? genResult : result;
 };

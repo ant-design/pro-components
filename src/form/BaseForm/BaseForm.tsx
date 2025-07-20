@@ -335,14 +335,22 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
         //transformKey会将keys重新和nameList拼接，所以这里要将nameList的首个元素弹出
         const newNameList = [...nameList];
         newNameList.shift();
-        return get(
-          transformKey(
-            obj,
-            omitNilParam !== undefined ? omitNilParam : omitNil,
-            newNameList,
-          ),
-          nameList as string[],
+        const transformed = transformKey(
+          obj,
+          omitNilParam !== undefined ? omitNilParam : omitNil,
+          newNameList,
         );
+        const result = get(transformed, nameList as string[]);
+        // 如果结果是对象，返回对象的值
+        if (result && typeof result === 'object' && !Array.isArray(result)) {
+          const objValue = Object.values(result)[0];
+          // 如果对象的值是数组，返回数组
+          if (Array.isArray(objValue)) {
+            return objValue;
+          }
+          return objValue;
+        }
+        return result;
       },
       /**
        * 获取被 ProForm 格式化后的单个数据, 包含他的 name
@@ -523,14 +531,22 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
         //transformKey会将keys重新和nameList拼接，所以这里要将nameList的首个元素弹出
         const newNameList = [...nameList];
         newNameList.shift();
-        return get(
-          transformKey(
-            obj,
-            omitNilParam !== undefined ? omitNilParam : omitNil,
-            newNameList,
-          ),
-          nameList as string[],
+        const transformed = transformKey(
+          obj,
+          omitNilParam !== undefined ? omitNilParam : omitNil,
+          newNameList,
         );
+        const result = get(transformed, nameList as string[]);
+        // 如果结果是对象，返回对象的值
+        if (result && typeof result === 'object' && !Array.isArray(result)) {
+          const objValue = Object.values(result)[0];
+          // 如果对象的值是数组，返回数组
+          if (Array.isArray(objValue)) {
+            return objValue;
+          }
+          return objValue;
+        }
+        return result;
       },
       getFieldFormatValueObject: (
         paramsNameList?: NamePath,
@@ -790,7 +806,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     if (loading) return;
     try {
       setLoading(true);
-      const finalValues = formRef?.current?.getFieldsFormatValue?.();
+      const finalValues = formRef?.current?.getFieldsFormatValue?.()||{};
       const response = propRest.onFinish(finalValues);
       if (
         response &&

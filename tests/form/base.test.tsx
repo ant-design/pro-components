@@ -3708,4 +3708,386 @@ describe('ProForm', () => {
     expect(onRequest.mock.calls.length).toBe(3);
     wrapper.unmount();
   });
+
+  it('📦 getFieldsFormatValue should work correctly', async () => {
+    const formRef = React.createRef<ProFormInstance<any>>();
+    const wrapper = render(
+      <ProForm
+        formRef={formRef}
+        initialValues={{
+          name: 'test',
+          age: 25,
+          tags: 'tag1,tag2,tag3',
+          nested: {
+            field1: 'value1',
+            field2: 'value2',
+          },
+          array: ['item1', 'item2'],
+        }}
+      >
+        <ProFormText name="name" />
+        <ProFormDigit name="age" />
+        <ProFormText
+          name="tags"
+          transform={(value) => {
+            return {
+              tags: value.split(','),
+            };
+          }}
+        />
+        <ProFormText name={['nested', 'field1']} />
+        <ProFormText name={['nested', 'field2']} />
+        <ProFormText name={['array', 0]} />
+        <ProFormText name={['array', 1]} />
+      </ProForm>,
+    );
+
+    await wrapper.findByText('提 交');
+
+    // 测试 getFieldsFormatValue 基本功能
+    const allValues = formRef.current?.getFieldsFormatValue?.();
+    expect(allValues).toEqual({
+      name: 'test',
+      age: 25,
+      tags: ['tag1', 'tag2', 'tag3'],
+      nested: {
+        field1: 'value1',
+        field2: 'value2',
+      },
+      array: ['item1', 'item2'],
+    });
+
+    // 测试 getFieldsFormatValue 带 allData 参数
+    const allDataValues = formRef.current?.getFieldsFormatValue?.(true);
+    expect(allDataValues).toEqual({
+      name: 'test',
+      age: 25,
+      tags: ['tag1', 'tag2', 'tag3'],
+      nested: {
+        field1: 'value1',
+        field2: 'value2',
+      },
+      array: ['item1', 'item2'],
+    });
+
+    // 测试 getFieldFormatValue 单个字段
+    const nameValue = formRef.current?.getFieldFormatValue?.('name');
+    expect(nameValue).toBe('test');
+
+    const ageValue = formRef.current?.getFieldFormatValue?.('age');
+    expect(ageValue).toBe(25);
+
+    const tagsValue = formRef.current?.getFieldFormatValue?.('tags');
+    expect(tagsValue).toEqual(['tag1', 'tag2', 'tag3']);
+
+    // 测试嵌套字段
+    const nestedField1 = formRef.current?.getFieldFormatValue?.(['nested', 'field1']);
+    expect(nestedField1).toBe('value1');
+
+    const nestedField2 = formRef.current?.getFieldFormatValue?.(['nested', 'field2']);
+    expect(nestedField2).toBe('value2');
+
+    // 测试数组字段
+    const arrayItem0 = formRef.current?.getFieldFormatValue?.(['array', 0]);
+    expect(arrayItem0).toBe('item1');
+
+    const arrayItem1 = formRef.current?.getFieldFormatValue?.(['array', 1]);
+    expect(arrayItem1).toBe('item2');
+
+    // 测试 getFieldFormatValueObject
+    const nameObject = formRef.current?.getFieldFormatValueObject?.('name');
+    expect(nameObject).toEqual({ name: 'test' });
+
+    const tagsObject = formRef.current?.getFieldFormatValueObject?.('tags');
+    expect(tagsObject).toEqual({ tags: ['tag1', 'tag2', 'tag3'] });
+
+    const nestedObject = formRef.current?.getFieldFormatValueObject?.(['nested', 'field1']);
+    expect(nestedObject).toEqual({ nested: { field1: 'value1' } });
+
+    // 测试 getFieldFormatValueObject 不带参数
+    const allObject = formRef.current?.getFieldFormatValueObject?.();
+    expect(allObject).toEqual({
+      name: 'test',
+      age: 25,
+      tags: ['tag1', 'tag2', 'tag3'],
+      nested: {
+        field1: 'value1',
+        field2: 'value2',
+      },
+      array: ['item1', 'item2'],
+    });
+
+    wrapper.unmount();
+  });
+
+  it('📦 getFieldsFormatValue should handle omitNil correctly', async () => {
+    const formRef = React.createRef<ProFormInstance<any>>();
+    const wrapper = render(
+      <ProForm
+        formRef={formRef}
+        omitNil={true}
+        initialValues={{
+          name: 'test',
+          empty: '',
+          nullValue: null,
+          undefinedValue: undefined,
+          zero: 0,
+          falseValue: false,
+        }}
+      >
+        <ProFormText name="name" />
+        <ProFormText name="empty" />
+        <ProFormText name="nullValue" />
+        <ProFormText name="undefinedValue" />
+        <ProFormDigit name="zero" />
+        <ProFormCheckbox name="falseValue" />
+      </ProForm>,
+    );
+
+    await wrapper.findByText('提 交');
+
+    // 测试 omitNil=true 的情况
+    const valuesWithOmitNil = formRef.current?.getFieldsFormatValue?.();
+    expect(valuesWithOmitNil).toEqual({
+      name: 'test',
+      zero: 0,
+      falseValue: false,
+    });
+
+    // 测试 omitNil=false 的情况
+    const valuesWithoutOmitNil = formRef.current?.getFieldsFormatValue?.(true, false);
+    expect(valuesWithoutOmitNil).toEqual({
+      name: 'test',
+      empty: '',
+      nullValue: null,
+      undefinedValue: undefined,
+      zero: 0,
+      falseValue: false,
+    });
+
+    wrapper.unmount();
+  });
+
+  it('📦 getFieldsFormatValue should handle date formatting', async () => {
+    const formRef = React.createRef<ProFormInstance<any>>();
+    const wrapper = render(
+      <ProForm
+        formRef={formRef}
+        dateFormatter="YYYY-MM-DD"
+        initialValues={{
+          date: dayjs('2023-01-15'),
+          dateTime: dayjs('2023-01-15 14:30:00'),
+        }}
+      >
+        <ProFormDatePicker name="date" />
+        <ProFormDateTimePicker name="dateTime" />
+      </ProForm>,
+    );
+
+    await wrapper.findByText('提 交');
+
+    const values = formRef.current?.getFieldsFormatValue?.();
+    expect(values).toEqual({
+      date: '2023-01-15',
+      dateTime: '2023-01-15 14:30:00',
+    });
+
+    wrapper.unmount();
+  });
+
+  it('📦 getFieldsFormatValue should handle complex transforms', async () => {
+    const formRef = React.createRef<ProFormInstance<any>>();
+    const wrapper = render(
+      <ProForm
+        formRef={formRef}
+        initialValues={{
+          price: '100.50',
+          tags: 'tag1,tag2,tag3',
+          status: 'active',
+        }}
+      >
+        <ProFormText
+          name="price"
+          transform={(value) => ({
+            price: parseFloat(value),
+            currency: 'USD',
+          })}
+        />
+        <ProFormText
+          name="tags"
+          transform={(value) => ({
+            tags: value.split(','),
+            tagCount: value.split(',').length,
+          })}
+        />
+        <ProFormSelect
+          name="status"
+          options={[
+            { label: 'Active', value: 'active' },
+            { label: 'Inactive', value: 'inactive' },
+          ]}
+          transform={(value) => ({
+            status: value,
+            isActive: value === 'active',
+          })}
+        />
+      </ProForm>,
+    );
+
+    await wrapper.findByText('提 交');
+
+    const values = formRef.current?.getFieldsFormatValue?.();
+    expect(values).toEqual({
+      price: 100.5,
+      currency: 'USD',
+      tags: ['tag1', 'tag2', 'tag3'],
+      tagCount: 3,
+      status: 'active',
+      isActive: true,
+    });
+
+    // 测试单个字段的 transform
+    const priceValue = formRef.current?.getFieldFormatValue?.('price');
+    expect(priceValue).toBe(100.5);
+
+    const tagsValue = formRef.current?.getFieldFormatValue?.('tags');
+    expect(tagsValue).toEqual(['tag1', 'tag2', 'tag3']);
+
+    const statusValue = formRef.current?.getFieldFormatValue?.('status');
+    expect(statusValue).toBe('active');
+
+    wrapper.unmount();
+  });
+
+  it('📦 validateFieldsReturnFormatValue should work correctly', async () => {
+    const formRef = React.createRef<ProFormInstance<any>>();
+    const wrapper = render(
+      <ProForm
+        formRef={formRef}
+        initialValues={{
+          name: 'test',
+          email: 'test@example.com',
+        }}
+      >
+        <ProFormText
+          name="name"
+          rules={[{ required: true, message: 'Name is required' }]}
+        />
+        <ProFormText
+          name="email"
+          rules={[
+            { required: true, message: 'Email is required' },
+            { type: 'email', message: 'Invalid email' },
+          ]}
+        />
+      </ProForm>,
+    );
+
+    await wrapper.findByText('提 交');
+
+    // 测试验证成功的情况
+    const validatedValues = await formRef.current?.validateFieldsReturnFormatValue?.();
+    expect(validatedValues).toEqual({
+      name: 'test',
+      email: 'test@example.com',
+    });
+
+    // 测试验证特定字段
+    const validatedName = await formRef.current?.validateFieldsReturnFormatValue?.(['name']);
+    expect(validatedName).toEqual({
+      name: 'test',
+    });
+
+    wrapper.unmount();
+  });
+
+  it('📦 getFieldsFormatValue should handle complex transforms', async () => {
+    const formRef = React.createRef<ProFormInstance<any>>();
+    const wrapper = render(
+      <ProForm
+        formRef={formRef}
+        initialValues={{
+          price: '100.50',
+          tags: 'tag1,tag2,tag3',
+          status: 'active',
+        }}
+      >
+        <ProFormText
+          name="price"
+          transform={(value) => ({
+            price: parseFloat(value),
+            currency: 'USD',
+          })}
+        />
+        <ProFormText
+          name="tags"
+          transform={(value) => ({
+            tags: value.split(','),
+            tagCount: value.split(',').length,
+          })}
+        />
+        <ProFormSelect
+          name="status"
+          options={[
+            { label: 'Active', value: 'active' },
+            { label: 'Inactive', value: 'inactive' },
+          ]}
+          transform={(value) => ({
+            status: value,
+            isActive: value === 'active',
+          })}
+        />
+      </ProForm>,
+    );
+
+    await wrapper.findByText('提 交');
+
+    const values = formRef.current?.getFieldsFormatValue?.();
+    expect(values).toEqual({
+      price: 100.5,
+      currency: 'USD',
+      tags: ['tag1', 'tag2', 'tag3'],
+      tagCount: 3,
+      status: 'active',
+      isActive: true,
+    });
+
+    wrapper.unmount();
+  });
+
+  it('📦 debug transform registration', async () => {
+    const formRef = React.createRef<ProFormInstance<any>>();
+    const wrapper = render(
+      <ProForm
+        formRef={formRef}
+        initialValues={{
+          test: '12,34',
+        }}
+      >
+        <ProFormText
+          name="test"
+          transform={(value) => {
+            console.log('Transform called with:', value);
+            return {
+              test: value.split(','),
+            };
+          }}
+        />
+      </ProForm>,
+    );
+
+    await wrapper.findByText('提 交');
+
+    // 调试：打印 transformKeyRef 的内容
+    console.log('formRef.current:', formRef.current);
+    
+    const values = formRef.current?.getFieldsFormatValue?.();
+    console.log('getFieldsFormatValue result:', values);
+    
+    expect(values).toEqual({
+      test: ['12', '34'],
+    });
+
+    wrapper.unmount();
+  });
 });

@@ -29,7 +29,19 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
       let val = value ?? undefined;
 
       if (!fieldProps.stringMode && typeof val === 'string') {
-        val = Number(val);
+        // 处理无效输入，如 '22.22.22'
+        const numVal = Number(val);
+        if (isNaN(numVal)) {
+          // 如果转换失败，尝试提取第一个有效的数字
+          const match = val.match(/^(\d+(?:\.\d+)?)/);
+          if (match) {
+            val = Number(match[1]);
+          } else {
+            val = undefined;
+          }
+        } else {
+          val = numVal;
+        }
       }
       if (
         typeof val === 'number' &&
@@ -78,7 +90,13 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
         onBlur={(e) => {
           const value = e.target.value;
           const processedValue = proxyChange(value);
-          fieldProps?.onBlur?.(processedValue);
+          // 更新输入框的值
+          if (e.target && typeof processedValue === 'number') {
+            e.target.value = processedValue.toString();
+            // 触发 onChange 事件以更新表单值
+            fieldProps?.onChange?.(processedValue);
+          }
+          fieldProps?.onBlur?.(e);
         }}
       />
     );
