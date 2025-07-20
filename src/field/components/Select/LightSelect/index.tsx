@@ -148,13 +148,11 @@ export const LightSelect: React.ForwardRefRenderFunction<
       style={style}
       onClick={(e) => {
         if (disabled) return;
-        // 点击label切换下拉菜单
+        // Only handle clicks outside the label
         const isLabelClick = lightLabel?.current?.labelRef?.current?.contains(
           e.target as HTMLElement,
         );
-        if (isLabelClick) {
-          setOpen(!open);
-        } else {
+        if (!isLabelClick) {
           setOpen(true);
         }
       }}
@@ -264,6 +262,10 @@ export const LightSelect: React.ForwardRefRenderFunction<
         value={filterValue || value?.label || value}
         onClear={() => {
           onChange?.(undefined, undefined);
+        }}
+        onClick={() => {
+          if (disabled) return;
+          setOpen(!open);
         }}
         ref={lightLabel}
         valueMaxLength={valueMaxLength}
