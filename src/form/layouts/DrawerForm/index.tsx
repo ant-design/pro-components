@@ -332,8 +332,7 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
         width={drawerWidth}
         open={open}
         afterOpenChange={(open) => {
-          if (!open) {
-            // 确保在关闭时立即重置表单
+          if (!open && drawerProps?.destroyOnHidden) {
             resetFields();
           }
           drawerProps?.afterOpenChange?.(open);

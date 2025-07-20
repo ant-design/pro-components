@@ -269,7 +269,9 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
         }}
         afterClose={() => {
           // 确保在关闭时立即重置表单
-          resetFields();
+          if (modalProps?.destroyOnHidden) {
+            resetFields();
+          }
           if (open) {
             setOpen(false);
           }
