@@ -51,7 +51,7 @@ ModalForm 组合了 Modal 和 ProForm 可以减少繁琐的状态管理。
 | modalProps    | Modal 的 props，使用方式与 [antd](https://ant.design/components/modal-cn/) 相同。注意：不支持 'visible'，请使用全局的 visible | [props](https://ant.design/components/modal-cn/#API)        | -      |
 | title         | 弹框的标题                                                                                                                    | `ReactNode`                                                 | -      |
 | width         | 弹框的宽度                                                                                                                    | `Number`                                                    | -      |
-| onFinish      | 提交数据时触发，如果返回一个 true。会关掉抽屉，如果配置了 `destroyOnClose` 还会重置表单。                                     | `async (values)=>boolean`                                   | -      |
+| onFinish      | 提交数据时触发，如果返回一个 true。会关掉抽屉，如果配置了 `destroyOnHidden` 还会重置表单。                                    | `async (values)=>boolean`                                   | -      |
 | submitTimeout | 提交数据时，禁用取消按钮的超时时间（毫秒）。                                                                                  | `Number`                                                    | -      |
 | submitter     | 提交按钮相关配置，使用方式与 [ProForm](https://procomponents.ant.design/components/form) 相同。                               | [ProForm](https://procomponents.ant.design/components/form) | -      |
 

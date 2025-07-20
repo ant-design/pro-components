@@ -175,7 +175,7 @@ describe('ModalForm', () => {
         initialValues={{
           name: '1234',
         }}
-        modalProps={{ destroyOnClose: true }}
+        modalProps={{ destroyOnHidden: true }}
         onOpenChange={(open) => fn(open)}
       >
         <ProFormText
@@ -200,7 +200,7 @@ describe('ModalForm', () => {
             name: '1234',
           }}
           visible
-          modalProps={{ destroyOnClose: true }}
+          modalProps={{ destroyOnHidden: true }}
           onOpenChange={(open) => fn(open)}
         >
           <ProFormText
@@ -227,7 +227,7 @@ describe('ModalForm', () => {
             name: '1234',
           }}
           open={false}
-          modalProps={{ destroyOnClose: true }}
+          modalProps={{ destroyOnHidden: true }}
           onOpenChange={(open) => fn(open)}
         >
           <ProFormText
@@ -475,7 +475,7 @@ describe('ModalForm', () => {
       <ModalForm
         modalProps={{
           getContainer: false,
-          destroyOnClose: true,
+          destroyOnHidden: true,
         }}
         initialValues={{
           name: '1234',
@@ -634,11 +634,11 @@ describe('ModalForm', () => {
     });
   });
 
-  it('📦 model no render Form when destroyOnClose', () => {
+  it('📦 model no render Form when destroyOnHidden', () => {
     const { container } = render(
       <ModalForm
         modalProps={{
-          destroyOnClose: true,
+          destroyOnHidden: true,
         }}
         trigger={
           <Button id="new" type="primary">
@@ -652,14 +652,14 @@ describe('ModalForm', () => {
     expect(container.querySelector('form')).toBeFalsy();
   });
 
-  it('📦 ModelForm get formRef when destroyOnClose', async () => {
+  it('📦 ModelForm get formRef when destroyOnHidden', async () => {
     const ref = React.createRef<any>();
 
     const html = render(
       <ModalForm
         formRef={ref}
         modalProps={{
-          destroyOnClose: true,
+          destroyOnHidden: true,
         }}
         trigger={
           <Button id="new" type="primary">

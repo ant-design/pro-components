@@ -664,7 +664,7 @@ describe('SchemaForm', () => {
 
   // need jsdom
   ['ModalForm', 'DrawerForm'].forEach((layoutType) => {
-    it(`😊 ${layoutType} support destroyOnClose rerender`, async () => {
+    it(`😊 ${layoutType} support destroyOnHidden rerender`, async () => {
       const formColumns = [
         {
           dataIndex: 'name',
@@ -683,10 +683,10 @@ describe('SchemaForm', () => {
           columns={formColumns}
           {...(layoutType === 'ModalForm'
             ? {
-                modalProps: { destroyOnClose: true },
+                modalProps: { destroyOnHidden: true },
               }
             : {
-                drawerProps: { destroyOnClose: true },
+                drawerProps: { destroyOnHidden: true },
               })}
         />,
       );

@@ -107,12 +107,12 @@ describe('DrawerForm', () => {
     ).toBeFalsy();
   });
 
-  it('📦 DrawerForm destroyOnClose', async () => {
+  it('📦 DrawerForm destroyOnHidden', async () => {
     const wrapper = render(
       <DrawerForm
         width={600}
         open={false}
-        drawerProps={{ destroyOnClose: true }}
+        drawerProps={{ destroyOnHidden: true }}
       >
         <ProFormText
           name="name"
@@ -127,7 +127,7 @@ describe('DrawerForm', () => {
 
     act(() => {
       wrapper.rerender(
-        <DrawerForm width={600} open drawerProps={{ destroyOnClose: true }}>
+        <DrawerForm width={600} open drawerProps={{ destroyOnHidden: true }}>
           <ProFormText
             name="name"
             fieldProps={{
@@ -146,7 +146,7 @@ describe('DrawerForm', () => {
           key="reset"
           width={600}
           open={false}
-          drawerProps={{ destroyOnClose: true }}
+          drawerProps={{ destroyOnHidden: true }}
         >
           <ProFormText
             name="name"
@@ -451,11 +451,11 @@ describe('DrawerForm', () => {
     ).toEqual('test');
   });
 
-  it('📦 DrawerForm destroyOnClose close will rerender from', async () => {
+  it('📦 DrawerForm destroyOnHidden close will rerender from', async () => {
     const wrapper = render(
       <DrawerForm
         drawerProps={{
-          destroyOnClose: true,
+          destroyOnHidden: true,
         }}
         initialValues={{
           name: '1234',
@@ -497,7 +497,7 @@ describe('DrawerForm', () => {
       wrapper.rerender(
         <DrawerForm
           drawerProps={{
-            destroyOnClose: true,
+            destroyOnHidden: true,
           }}
           initialValues={{
             name: '1234',
@@ -521,7 +521,7 @@ describe('DrawerForm', () => {
         <DrawerForm
           key="reset"
           drawerProps={{
-            destroyOnClose: true,
+            destroyOnHidden: true,
           }}
           initialValues={{
             name: '1234',
@@ -549,11 +549,11 @@ describe('DrawerForm', () => {
     ).toEqual('1234');
   });
 
-  it('📦 drawer no render Form when destroyOnClose', () => {
+  it('📦 drawer no render Form when destroyOnHidden', () => {
     const { container } = render(
       <DrawerForm
         drawerProps={{
-          destroyOnClose: true,
+          destroyOnHidden: true,
         }}
         trigger={
           <Button id="new" type="primary">
@@ -568,14 +568,14 @@ describe('DrawerForm', () => {
     expect(container.querySelector('form')).toBeFalsy();
   });
 
-  it('📦 drawerForm get formRef when destroyOnClose', async () => {
+  it('📦 drawerForm get formRef when destroyOnHidden', async () => {
     const ref = React.createRef<any>();
 
     const html = render(
       <DrawerForm
         formRef={ref}
         drawerProps={{
-          destroyOnClose: true,
+          destroyOnHidden: true,
         }}
         trigger={
           <Button id="new" type="primary">
@@ -600,7 +600,7 @@ describe('DrawerForm', () => {
         <DrawerForm
           formRef={ref}
           drawerProps={{
-            destroyOnClose: true,
+            destroyOnHidden: true,
           }}
           trigger={
             <Button id="new" type="primary">
@@ -705,7 +705,7 @@ describe('DrawerForm', () => {
         const [form] = Form.useForm();
         const prop = {
           [props]: {
-            destroyOnClose: true,
+            destroyOnHidden: true,
           },
         };
         return (
