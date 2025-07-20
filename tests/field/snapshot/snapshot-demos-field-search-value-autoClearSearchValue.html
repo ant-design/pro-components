@@ -22,7 +22,7 @@
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+                  class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
                   style="width: 330px;"
                 >
                   <div
@@ -31,23 +31,39 @@
                     <span
                       class="ant-select-selection-wrap"
                     >
-                      <span
-                        class="ant-select-selection-search"
+                      <div
+                        class="ant-select-selection-overflow"
                       >
-                        <input
-                          aria-autocomplete="list"
-                          aria-controls="name_list"
-                          aria-expanded="false"
-                          aria-haspopup="listbox"
-                          aria-owns="name_list"
-                          autocomplete="off"
-                          class="ant-select-selection-search-input"
-                          id="name"
-                          role="combobox"
-                          type="search"
-                          value=""
-                        />
-                      </span>
+                        <div
+                          class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
+                          style="opacity: 1;"
+                        >
+                          <div
+                            class="ant-select-selection-search"
+                            style="width: 0px;"
+                          >
+                            <input
+                              aria-autocomplete="list"
+                              aria-controls="name_list"
+                              aria-expanded="false"
+                              aria-haspopup="listbox"
+                              aria-owns="name_list"
+                              autocomplete="off"
+                              class="ant-select-selection-search-input"
+                              id="name"
+                              role="combobox"
+                              type="search"
+                              value=""
+                            />
+                            <span
+                              aria-hidden="true"
+                              class="ant-select-selection-search-mirror"
+                            >
+                               
+                            </span>
+                          </div>
+                        </div>
+                      </div>
                       <span
                         class="ant-select-selection-placeholder"
                       >

@@ -680,6 +680,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                 >
                   <div
                     class="ant-select ant-select-outlined ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                    style="min-width: 100px;"
                   >
                     <div
                       class="ant-select-selector"
@@ -709,7 +710,9 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                         </span>
                         <span
                           class="ant-select-selection-placeholder"
-                        />
+                        >
+                          请选择
+                        </span>
                       </span>
                     </div>
                     <span
@@ -763,6 +766,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                 >
                   <div
                     class="ant-select ant-select-outlined ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-loading"
+                    style="min-width: 100px;"
                   >
                     <div
                       class="ant-select-selector"
@@ -792,7 +796,9 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                         </span>
                         <span
                           class="ant-select-selection-placeholder"
-                        />
+                        >
+                          请选择
+                        </span>
                       </span>
                     </div>
                     <span
@@ -1900,6 +1906,7 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                 >
                   <div
                     class="ant-select ant-select-outlined ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                    style="min-width: 100px;"
                   >
                     <div
                       class="ant-select-selector"
@@ -1929,7 +1936,9 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                         </span>
                         <span
                           class="ant-select-selection-placeholder"
-                        />
+                        >
+                          请选择
+                        </span>
                       </span>
                     </div>
                     <span
@@ -1983,6 +1992,7 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                 >
                   <div
                     class="ant-select ant-select-outlined ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-loading"
+                    style="min-width: 100px;"
                   >
                     <div
                       class="ant-select-selector"
@@ -2012,7 +2022,9 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                         </span>
                         <span
                           class="ant-select-selection-placeholder"
-                        />
+                        >
+                          请选择
+                        </span>
                       </span>
                     </div>
                     <span

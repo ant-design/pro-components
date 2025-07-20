@@ -96,8 +96,6 @@ ProFormList 与 [Form.List](https://ant.design/components/form-cn/#Form.List) AP
 | upIconProps | 向上排序按钮的配置，false 可以取消 | `{ Icon?: React.FC<any>; tooltipText?: string; } \| false` | - |
 | downIconProps | 向下排序按钮的配置，false 可以取消 | `{ Icon?: React.FC<any>; tooltipText?: string; } \| false` | - |
 
-> > > > > > > master:packages/form/src/components/Group/index.md
-
 ### actionRef 操作项目实例
 
 ```tsx | pure
@@ -400,18 +398,14 @@ name 参数必须要是一个数组，如果是嵌套的结构可以这样配置
 
 # <code src="../../../../demos/form/Group/horizontal-layout.tsx" title="横向布局" ></code>
 
-<code src="./demos/pro-form-list.tsx" ></code>
-
 ### 增删条目限制
 
-<code src="./demos/countLimit.tsx" ></code>
+<code src=../../../../demos/form/Group/countLimit.tsx" ></code>
 
 ### 横向布局
 
-<code src="./demos/horizontal-layout.tsx" ></code>
+<code src="../../../../demos/form/Group//horizontal-layout.tsx" ></code>
 
 ### 箭头排序
 
-<code src="./demos/list-arrowsort.tsx" ></code>
-
-> > > > > > > master:packages/form/src/components/Group/index.md
+<code src="../../../../demos/form/Group//list-arrowsort.tsx" ></code>

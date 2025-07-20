@@ -9,8 +9,7 @@
 export function isDeepEqualReact(
   a: any,
   b: any,
-  ignoreKeys?: string[],
-  debug?: boolean,
+  ignoreKeys?: string[]
 ) {
   if (a === b) return true;
 
@@ -24,7 +23,7 @@ export function isDeepEqualReact(
       length = a.length;
       if (length != b.length) return false;
       for (i = length; i-- !== 0; )
-        if (!isDeepEqualReact(a[i], b[i], ignoreKeys, debug)) return false;
+        if (!isDeepEqualReact(a[i], b[i], ignoreKeys, )) return false;
       return true;
     }
 
@@ -32,7 +31,7 @@ export function isDeepEqualReact(
       if (a.size !== b.size) return false;
       for (i of a.entries()) if (!b.has(i[0])) return false;
       for (i of a.entries())
-        if (!isDeepEqualReact(i[1], b.get(i[0]), ignoreKeys, debug))
+        if (!isDeepEqualReact(i[1], b.get(i[0]), ignoreKeys, ))
           return false;
       return true;
     }
@@ -80,10 +79,7 @@ export function isDeepEqualReact(
         continue;
       }
 
-      if (!isDeepEqualReact(a[key], b[key], ignoreKeys, debug)) {
-        if (debug) {
-          console.log(key);
-        }
+      if (!isDeepEqualReact(a[key], b[key], ignoreKeys)) {
         return false;
       }
     }
