@@ -891,11 +891,15 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
             ) => {
               if (!Array.isArray(name)) return;
 
-              transformKeyRef.current = namePathSet(
-                transformKeyRef.current,
-                name,
-                transform,
-              );
+              // Store transform function in the correct nested structure
+              if (transform) {
+                transformKeyRef.current = namePathSet(
+                  transformKeyRef.current,
+                  name,
+                  transform,
+                );
+
+              }
 
               fieldsValueType.current = namePathSet(
                 fieldsValueType.current,
