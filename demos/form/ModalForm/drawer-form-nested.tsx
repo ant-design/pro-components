@@ -42,7 +42,7 @@ export default () => {
           }
           drawerProps={{
             forceRender: true,
-            destroyOnClose: true,
+            destroyOnHidden: true,
           }}
           onFinish={async (values) => {
             await waitTime(2000);
@@ -66,7 +66,7 @@ export default () => {
             }
             drawerProps={{
               forceRender: true,
-              destroyOnClose: true,
+              destroyOnHidden: true,
             }}
             onFinish={async (values) => {
               await waitTime(2000);
@@ -158,7 +158,7 @@ export default () => {
           }
           modalProps={{
             forceRender: true,
-            destroyOnClose: true,
+            destroyOnHidden: true,
           }}
           onFinish={async (values) => {
             await waitTime(2000);
@@ -182,7 +182,7 @@ export default () => {
             }
             modalProps={{
               forceRender: true,
-              destroyOnClose: true,
+              destroyOnHidden: true,
             }}
             onFinish={async (values) => {
               await waitTime(2000);

@@ -48,7 +48,7 @@ export default () => {
               onCancel={() => setVisible(false)}
               open={visible}
               footer={submitter}
-              destroyOnClose
+              destroyOnHidden
             >
               {dom}
             </Modal>

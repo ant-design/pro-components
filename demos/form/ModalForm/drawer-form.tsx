@@ -41,7 +41,7 @@ export default () => {
       }
       autoFocusFirstInput
       drawerProps={{
-        destroyOnClose: true,
+        destroyOnHidden: true,
       }}
       submitTimeout={2000}
       onFinish={async (values) => {

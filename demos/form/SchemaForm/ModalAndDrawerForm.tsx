@@ -42,10 +42,10 @@ export default () => {
         }}
         {...(layoutType === 'ModalForm'
           ? {
-              modalProps: { destroyOnClose: true },
+              modalProps: { destroyOnHidden: true },
             }
           : {
-              drawerProps: { destroyOnClose: true },
+              drawerProps: { destroyOnHidden: true },
             })}
         columns={[
           {
