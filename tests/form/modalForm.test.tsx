@@ -259,11 +259,11 @@ describe('ModalForm', () => {
     });
   });
 
-  it('📦 ModalForm destroyOnClose', async () => {
+  it('📦 ModalForm destroyOnHidden', async () => {
     const wrapper = render(
       <ModalForm
         width={600}
-        modalProps={{ destroyOnClose: true }}
+        modalProps={{ destroyOnHidden: true }}
         trigger={<Button id="new">新建</Button>}
       >
         <ProFormText name="test" />
@@ -305,7 +305,8 @@ describe('ModalForm', () => {
       const inputs = wrapper
         .getAllByDisplayValue('')
         .filter((el) => el.className.includes('ant-input'));
-      expect(inputs.length).toBeGreaterThan(0);
+
+      expect(inputs.length).toBe(0);
     });
   });
 
@@ -446,11 +447,11 @@ describe('ModalForm', () => {
     });
   });
 
-  it('📦 ModalForm destroyOnClose close will rerender from', async () => {
+  it('📦 ModalForm destroyOnHidden close will rerender from', async () => {
     const wrapper = render(
       <ModalForm
         width={600}
-        modalProps={{ destroyOnClose: true }}
+        modalProps={{ destroyOnHidden: true }}
         trigger={<Button id="new">新建</Button>}
         onFinish={async () => {
           return true;
