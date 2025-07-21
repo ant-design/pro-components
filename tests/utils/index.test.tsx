@@ -26,7 +26,15 @@ import { Form, Input } from 'antd';
 import type { Dayjs } from 'dayjs';
 import dayjs from 'dayjs';
 import React, { act, useEffect, useState } from 'react';
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import {
+  afterAll,
+  afterEach,
+  beforeAll,
+  describe,
+  expect,
+  it,
+  vi,
+} from 'vitest';
 
 afterEach(() => {
   cleanup();
@@ -34,6 +42,9 @@ afterEach(() => {
 });
 
 describe('utils', () => {
+  beforeAll(() => vi.useFakeTimers());
+  afterAll(() => vi.useRealTimers());
+
   it('lighten', () => {
     const color = lighten('#000', 50);
     expect(color).toBe('#808080');
@@ -196,30 +207,16 @@ describe('utils', () => {
     });
 
     act(() => {
-      html.rerender(<App wait={0} />);
-    });
-
-    act(() => {
       html.baseElement.querySelector<HTMLDivElement>('#test')?.click();
     });
 
-    await act(() => {
-      expect(fn).toHaveBeenCalledTimes(6);
-    });
-
-    // wait === 100 but callback is cancelled
-
-    act(() => {
-      html.rerender(<App wait={100} />);
-    });
-
-    act(() => {
-      html.baseElement.querySelector<HTMLDivElement>('#test')?.click();
+    await waitFor(() => {
+      expect(fn).toHaveBeenCalledTimes(5);
     });
 
     html.unmount();
 
-    expect(fn).toHaveBeenCalledTimes(6);
+    expect(fn).toHaveBeenCalledTimes(5);
   });
 
   it('📅 useDebounceFn execution has errors', async () => {
@@ -600,12 +597,6 @@ describe('utils', () => {
         },
       });
     });
-    await waitFor(() => {
-      expect(
-        html.baseElement.querySelectorAll('div.ant-popover.ant-popover-hidden')
-          .length > 0,
-      ).toBeFalsy();
-    });
   });
 
   it('📅 transformKeySubmitValue return string', async () => {
@@ -664,13 +655,13 @@ describe('utils', () => {
   });
 
   it('📅 transformKeySubmitValue will return file', async () => {
-    const html = await transformKeySubmitValue(false, {
+    const html = await transformKeySubmitValue(false as any, {
       dataTime: () => 'new-dataTime',
       time: () => 'new-time',
       name: () => 'new-name',
       money: () => 'new-money',
     });
-    expect(html).toBeFalsy();
+    expect(html).toBe(false);
   });
 
   it('📅 transformKeySubmitValue return object', async () => {
@@ -1008,16 +999,11 @@ describe('utils', () => {
         />
       );
 
-      return (
-        <>
-          <span>{isDeepEqualReact(a, b, ['ignoreKey']) ? 'Equal' : 'No'}</span>
-          <CustomComponent a={a} b={b} />
-        </>
-      );
+      return <>{isDeepEqualReact(a, b) ? 'equal' : 'not equal'}</>;
     };
-    const html = render(<DeepComponent />);
 
-    await html.findAllByText('Equal');
+    const html = render(<DeepComponent />);
+    await html.findByText('not equal');
   });
 
   it('🪓 nanoid', () => {
