@@ -201,9 +201,13 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
     breadcrumbRender?.({ ...props, prefixCls }, defaultBreadcrumbDom) ??
     defaultBreadcrumbDom;
 
+  // 如果 breadcrumbRender 返回的是数组，需要转换为 Breadcrumb 组件
+  // 如果返回的是 React.ReactNode，直接使用
   const breadcrumbDom = isBreadcrumbComponent
     ? breadcrumb
-    : breadcrumbRenderDomFromProps;
+    : Array.isArray(breadcrumbRenderDomFromProps)
+      ? renderBreadcrumb({ items: breadcrumbRenderDomFromProps }, prefixCls)
+      : breadcrumbRenderDomFromProps;
 
   const className = classNames(prefixCls, hashId, customizeClassName, {
     [`${prefixCls}-has-breadcrumb`]: !!breadcrumbDom,
