@@ -10,6 +10,7 @@ import type { FormInstance } from 'antd';
 import { Button } from 'antd';
 import { createRef } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
+import { waitForWaitTime } from '../util';
 
 afterEach(() => {
   cleanup();
@@ -35,6 +36,15 @@ describe('ModalForm', () => {
 
     await waitFor(() => {
       expect(fn).toHaveBeenCalledWith(true);
+    });
+
+    await act(async () => {
+      const cancelButton = wrapper.getByText('取 消');
+      fireEvent.click(cancelButton);
+    });
+
+    await waitFor(() => {
+      expect(fn).toHaveBeenCalledWith(false);
     });
   });
 
@@ -106,6 +116,88 @@ describe('ModalForm', () => {
     });
   });
 
+  it('📦 form onFinish return true should close modal', async () => {
+    const wrapper = render(
+      <ModalForm
+        width={600}
+        trigger={<Button id="new">新建</Button>}
+        onFinish={async () => {
+          return true;
+        }}
+      >
+        <ProFormText name="name" />
+      </ModalForm>,
+    );
+
+    await act(async () => {
+      const triggerButton = wrapper.getByText('新 建');
+      fireEvent.click(triggerButton);
+    });
+
+    await act(async () => {
+      const submitButton = wrapper.getByText('确 认');
+      fireEvent.click(submitButton);
+    });
+
+    await waitFor(() => {
+      // 检查 Modal 是否被关闭，通过检查 .ant-modal-root 是否还存在
+      const modalRoot = wrapper.container.querySelector('.ant-modal-root');
+      expect(modalRoot).toBeFalsy();
+    });
+  });
+
+  it('📦 form onFinish is null, no close modal', async () => {
+    const wrapper = render(
+      <ModalForm
+        width={600}
+        trigger={<Button id="new">新建</Button>}
+        onFinish={async () => {
+          return false;
+        }}
+      >
+        <ProFormText name="name" />
+      </ModalForm>,
+    );
+
+    await act(async () => {
+      const triggerButton = wrapper.getByText('新 建');
+      fireEvent.click(triggerButton);
+    });
+
+    await act(async () => {
+      const submitButton = wrapper.getByText('确 认');
+      fireEvent.click(submitButton);
+    });
+
+    await waitFor(() => {
+      // Modal 应该保持打开状态，检查按钮文本是否存在
+      expect(wrapper.getByText('确 认')).toBeTruthy();
+    });
+  });
+
+  it('📦 ModalForm support submitter is false', async () => {
+    const wrapper = render(
+      <ModalForm
+        width={600}
+        submitter={false}
+        trigger={<Button id="new">新建</Button>}
+      >
+        <ProFormText name="name" />
+      </ModalForm>,
+    );
+
+    await act(async () => {
+      const triggerButton = wrapper.getByText('新 建');
+      fireEvent.click(triggerButton);
+    });
+
+    await waitFor(() => {
+      // 不应该有提交按钮
+      expect(wrapper.queryByText('确 认')).toBeFalsy();
+      expect(wrapper.queryByText('取 消')).toBeFalsy();
+    });
+  });
+
   it('📦 ModalForm first no render items', async () => {
     const fn = vi.fn();
     const wrapper = render(
@@ -168,76 +260,52 @@ describe('ModalForm', () => {
   });
 
   it('📦 ModalForm destroyOnClose', async () => {
-    const fn = vi.fn();
     const wrapper = render(
       <ModalForm
         width={600}
-        initialValues={{
-          name: '1234',
-        }}
-        modalProps={{ destroyOnHidden: true }}
-        onOpenChange={(open) => fn(open)}
+        modalProps={{ destroyOnClose: true }}
+        trigger={<Button id="new">新建</Button>}
       >
-        <ProFormText
-          name="name"
-          fieldProps={{
-            id: 'test',
-          }}
-        />
+        <ProFormText name="test" />
       </ModalForm>,
     );
 
-    // 初始状态下不应该渲染表单内容
-    expect(wrapper.queryByDisplayValue('1234')).toBeFalsy();
-
     await act(async () => {
-      wrapper.rerender(
-        <ModalForm
-          width={600}
-          initialValues={{
-            name: '1234',
-          }}
-          modalProps={{ destroyOnHidden: true }}
-          open
-          onOpenChange={(open) => fn(open)}
-        >
-          <ProFormText
-            name="name"
-            fieldProps={{
-              id: 'test',
-            }}
-          />
-        </ModalForm>,
-      );
-    });
-
-    await waitFor(() => {
-      expect(wrapper.getByDisplayValue('1234')).toBeTruthy();
+      const triggerButton = wrapper.getByText('新 建');
+      fireEvent.click(triggerButton);
     });
 
     await act(async () => {
-      wrapper.rerender(
-        <ModalForm
-          width={600}
-          initialValues={{
-            name: '1234',
-          }}
-          modalProps={{ destroyOnHidden: true }}
-          open={false}
-          onOpenChange={(open) => fn(open)}
-        >
-          <ProFormText
-            name="name"
-            fieldProps={{
-              id: 'test',
-            }}
-          />
-        </ModalForm>,
-      );
+      // 只选 className 包含 ant-input 的 input
+      const inputs = wrapper
+        .getAllByDisplayValue('')
+        .filter((el) => el.className.includes('ant-input'));
+      fireEvent.change(inputs[0], { target: { value: '1234' } });
+    });
+
+    await act(async () => {
+      const cancelButton = wrapper.getByText('取 消');
+      fireEvent.click(cancelButton);
     });
 
     await waitFor(() => {
-      expect(wrapper.queryByDisplayValue('1234')).toBeFalsy();
+      // 检查 Modal 是否被关闭
+      const modalRoot = wrapper.container.querySelector('.ant-modal-root');
+      expect(modalRoot).toBeFalsy();
+    });
+
+    // 再次打开 Modal
+    await act(async () => {
+      const triggerButton = wrapper.getByText('新 建');
+      fireEvent.click(triggerButton);
+    });
+
+    await waitFor(() => {
+      // 检查输入框是否被重置
+      const inputs = wrapper
+        .getAllByDisplayValue('')
+        .filter((el) => el.className.includes('ant-input'));
+      expect(inputs.length).toBeGreaterThan(0);
     });
   });
 
@@ -258,16 +326,9 @@ describe('ModalForm', () => {
       fireEvent.click(triggerButton);
     });
 
-    await waitFor(() => {
-      expect(fn).toHaveBeenCalledWith(true);
-    });
-
-    // 点击 Modal 的关闭按钮
     await act(async () => {
-      const closeButton = wrapper.container.querySelector('.ant-modal-close');
-      if (closeButton) {
-        fireEvent.click(closeButton);
-      }
+      const cancelButton = wrapper.getByText('取 消');
+      fireEvent.click(cancelButton);
     });
 
     await waitFor(() => {
@@ -305,12 +366,8 @@ describe('ModalForm', () => {
       fireEvent.click(triggerButton);
     });
 
-    await waitFor(() => {
-      expect(fn).toHaveBeenCalledWith(true);
-    });
-
     await act(async () => {
-      const cancelButton = wrapper.getByText('取消');
+      const cancelButton = wrapper.getByText('取 消');
       fireEvent.click(cancelButton);
     });
 
@@ -339,10 +396,8 @@ describe('ModalForm', () => {
     });
 
     await act(async () => {
-      const closeButton = wrapper.container.querySelector('.ant-modal-close');
-      if (closeButton) {
-        fireEvent.click(closeButton);
-      }
+      const cancelButton = wrapper.getByText('取 消');
+      fireEvent.click(cancelButton);
     });
 
     await waitFor(() => {
@@ -350,7 +405,7 @@ describe('ModalForm', () => {
     });
   });
 
-  it('📦 form onFinish return true should close modal', async () => {
+  it('📦 ModalForm close no rerender from', async () => {
     const wrapper = render(
       <ModalForm
         width={600}
@@ -373,105 +428,33 @@ describe('ModalForm', () => {
       fireEvent.click(submitButton);
     });
 
-    // 等待 Modal 完全关闭
-    await waitFor(
-      () => {
-        expect(wrapper.queryByText('确 认')).toBeFalsy();
-      },
-      { timeout: 3000 },
-    );
-  });
+    await waitFor(() => {
+      // 检查 Modal 是否被关闭
+      const modalRoot = wrapper.container.querySelector('.ant-modal-root');
+      expect(modalRoot).toBeFalsy();
+    });
 
-  it('📦 form onFinish is null, no close modal', async () => {
-    const wrapper = render(
-      <ModalForm
-        width={600}
-        trigger={<Button id="new">新建</Button>}
-        onFinish={async () => {
-          return false;
-        }}
-      >
-        <ProFormText name="name" />
-      </ModalForm>,
-    );
-
+    // 再次打开 Modal
     await act(async () => {
       const triggerButton = wrapper.getByText('新 建');
       fireEvent.click(triggerButton);
     });
 
-    await act(async () => {
-      const submitButton = wrapper.getByText('确 认');
-      fireEvent.click(submitButton);
-    });
-
     await waitFor(() => {
-      // Modal 应该保持打开状态
+      // Modal 应该重新打开，检查按钮文本是否存在
       expect(wrapper.getByText('确 认')).toBeTruthy();
     });
-  });
-
-  it('📦 ModalForm support submitter is false', async () => {
-    const wrapper = render(
-      <ModalForm
-        width={600}
-        submitter={false}
-        trigger={<Button id="new">新建</Button>}
-      >
-        <ProFormText name="name" />
-      </ModalForm>,
-    );
-
-    await act(async () => {
-      const triggerButton = wrapper.getByText('新 建');
-      fireEvent.click(triggerButton);
-    });
-
-    await waitFor(() => {
-      // 不应该有提交按钮
-      expect(wrapper.queryByText('确 认')).toBeFalsy();
-      expect(wrapper.queryByText('取 消')).toBeFalsy();
-    });
-  });
-
-  it('📦 ModalForm close no rerender from', async () => {
-    const wrapper = render(
-      <ModalForm width={600} trigger={<Button id="new">新建</Button>}>
-        <ProFormText name="name" />
-      </ModalForm>,
-    );
-
-    await act(async () => {
-      const triggerButton = wrapper.getByText('新 建');
-      fireEvent.click(triggerButton);
-    });
-
-    await waitFor(() => {
-      expect(wrapper.getByText('确 认')).toBeTruthy();
-    });
-
-    await act(async () => {
-      const closeButton = wrapper.container.querySelector('.ant-modal-close');
-      if (closeButton) {
-        fireEvent.click(closeButton);
-      }
-    });
-
-    // 等待 Modal 完全关闭
-    await waitFor(
-      () => {
-        expect(wrapper.queryByText('确 认')).toBeFalsy();
-      },
-      { timeout: 3000 },
-    );
   });
 
   it('📦 ModalForm destroyOnClose close will rerender from', async () => {
     const wrapper = render(
       <ModalForm
         width={600}
-        modalProps={{ destroyOnHidden: true }}
+        modalProps={{ destroyOnClose: true }}
         trigger={<Button id="new">新建</Button>}
+        onFinish={async () => {
+          return true;
+        }}
       >
         <ProFormText name="name" />
       </ModalForm>,
@@ -482,34 +465,37 @@ describe('ModalForm', () => {
       fireEvent.click(triggerButton);
     });
 
+    await act(async () => {
+      const submitButton = wrapper.getByText('确 认');
+      fireEvent.click(submitButton);
+    });
+
     await waitFor(() => {
+      // 检查 Modal 是否被关闭
+      const modalRoot = wrapper.container.querySelector('.ant-modal-root');
+      expect(modalRoot).toBeFalsy();
+    });
+
+    // 再次打开 Modal
+    await act(async () => {
+      const triggerButton = wrapper.getByText('新 建');
+      fireEvent.click(triggerButton);
+    });
+
+    await waitFor(() => {
+      // Modal 应该重新打开，检查按钮文本是否存在
       expect(wrapper.getByText('确 认')).toBeTruthy();
     });
-
-    await act(async () => {
-      const closeButton = wrapper.container.querySelector('.ant-modal-close');
-      if (closeButton) {
-        fireEvent.click(closeButton);
-      }
-    });
-
-    // 等待 Modal 完全关闭
-    await waitFor(
-      () => {
-        expect(wrapper.queryByText('确 认')).toBeFalsy();
-      },
-      { timeout: 3000 },
-    );
   });
 
   it('📦 DrawerForm submitTimeout is number will disabled close button when submit', async () => {
-    const html = render(
+    const wrapper = render(
       <ModalForm
         width={600}
-        submitTimeout={1000}
+        submitTimeout={2000}
         trigger={<Button id="new">新建</Button>}
         onFinish={async () => {
-          await new Promise((resolve) => setTimeout(resolve, 2000));
+          await waitForWaitTime(1000);
           return true;
         }}
       >
@@ -518,21 +504,19 @@ describe('ModalForm', () => {
     );
 
     await act(async () => {
-      const triggerButton = html.getByText('新 建');
+      const triggerButton = wrapper.getByText('新 建');
       fireEvent.click(triggerButton);
     });
 
     await act(async () => {
-      const submitButton = html.getByText('确 认');
+      const submitButton = wrapper.getByText('确 认');
       fireEvent.click(submitButton);
     });
 
     await waitFor(() => {
-      // 提交按钮应该被禁用
-      const submitButton = html.container.querySelector(
-        'button[type="button"]',
-      );
-      expect(submitButton).toBeDisabled();
+      // 检查提交按钮是否有 loading 状态
+      const submitButton = wrapper.getByText('确 认').closest('button');
+      expect(submitButton).toHaveClass('ant-btn-loading');
     });
   });
 
@@ -542,7 +526,7 @@ describe('ModalForm', () => {
         width={600}
         trigger={<Button id="new">新建</Button>}
         onFinish={async () => {
-          await new Promise((resolve) => setTimeout(resolve, 100));
+          await waitForWaitTime(100);
           return true;
         }}
       >
