@@ -43,10 +43,10 @@
     "site": "npm run build && cross-env SITE_DEPLOY='TRUE' dumi build",
     "start": "dumi dev",
     "sync:tnpm": "node -e 'require(\"./scripts/syncTNPM\")()'",
-    "test": "cross-env TZ=UTC vitest --run --no-file-parallelism",
-    "test:coverage": "cross-env TZ=UTC TEST_LOG=none vitest --no-file-parallelism  --coverage",
+    "test": "cross-env TZ=UTC vitest --run",
+    "test:coverage": "cross-env TZ=UTC TEST_LOG=none vitest  --coverage",
     "test:ui": "cross-env TZ=UTC vitest --ui",
-    "test:update": "cross-env TZ=UTC  vitest -u --no-file-parallelism",
+    "test:update": "cross-env TZ=UTC  vitest -u",
     "tsc": "tsc --noEmit",
     "tsc:duplicate": "tsc -p ./tests/tsconfig.duplicate.json",
     "update:deps": "pnpm up --latest"

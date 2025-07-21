@@ -37,6 +37,7 @@ export default defineConfig({
         'packages/utils/src/useMountMergeState/*.{ts,tsx}',
       ],
     },
+    maxWorkers: 3,
     testTimeout: 60_00, // 60 seconds
     globals: true,
   },
