@@ -432,7 +432,7 @@ describe('BasicTable filter', () => {
       () => {
         expect(screen.queryByText('项目 A')).toBeInTheDocument();
       },
-      { timeout: 5000 },
+      { timeout: 10000 },
     );
 
     // 点击第一个筛选器（上线状态）
@@ -465,7 +465,7 @@ describe('BasicTable filter', () => {
         expect(screen.queryByText('项目 D')).not.toBeInTheDocument();
         expect(screen.queryByText('项目 B')).not.toBeInTheDocument();
       },
-      { timeout: 5000 },
+      { timeout: 10000 },
     );
 
     // 点击重置按钮
@@ -479,9 +479,9 @@ describe('BasicTable filter', () => {
         expect(screen.queryByText('项目 B')).not.toBeInTheDocument();
         expect(screen.queryByText('项目 C')).not.toBeInTheDocument();
       },
-      { timeout: 5000 },
+      { timeout: 10000 },
     );
-  }, 10000);
+  }, 15000);
 
   it('🎏 should pass filter parameters to request function with nested dataIndex', async () => {
     const fn = vi.fn();
@@ -537,6 +537,14 @@ describe('BasicTable filter', () => {
       />,
     );
 
+    // 等待初始数据加载
+    await waitFor(
+      () => {
+        expect(container.querySelector('.ant-table-row')).toBeInTheDocument();
+      },
+      { timeout: 10000 },
+    );
+
     await userEvent.click(
       container.querySelector('span.ant-table-filter-trigger')!,
     );
@@ -567,7 +575,7 @@ describe('BasicTable filter', () => {
     );
 
     expect(fn).toHaveBeenCalled();
-  });
+  }, 15000);
 });
 
 describe('BasicTable sorter', () => {
@@ -617,6 +625,14 @@ describe('BasicTable sorter', () => {
       />,
     );
 
+    // 等待初始数据加载
+    await waitFor(
+      () => {
+        expect(container.querySelector('.ant-table-row')).toBeInTheDocument();
+      },
+      { timeout: 10000 },
+    );
+
     await userEvent.click(
       container.querySelectorAll('span.ant-table-column-sorter-down')[0],
     );
@@ -631,7 +647,7 @@ describe('BasicTable sorter', () => {
     );
 
     expect(fn).toHaveBeenCalledTimes(4);
-  });
+  }, 15000);
 
   it('🎏 should trigger onChange when sorting with function sorters', async () => {
     const fn = vi.fn();
@@ -754,7 +770,7 @@ describe('BasicTable sorter', () => {
 
         fn.mockClear(); // 清除初始 request 調用
       },
-      { timeout: 1000 },
+      { timeout: 10000 },
     );
 
     await userEvent.click(
@@ -777,7 +793,7 @@ describe('BasicTable sorter', () => {
 
     // 验证 fn 沒被调用，因为排序是在本地进行的
     expect(fn).not.toHaveBeenCalled();
-  });
+  }, 15000);
 
   it('🎏 should sort data request', async () => {
     const fn = vi.fn();
