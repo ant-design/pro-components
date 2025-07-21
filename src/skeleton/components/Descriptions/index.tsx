@@ -257,7 +257,7 @@ export const TableSkeleton: React.FC<{
   active: boolean;
   size?: number;
 }> = ({ active, size = 4 }) => (
-  <Card bordered={false}>
+  <Card variant="borderless">
     <Skeleton.Button
       active={active}
       size="small"
@@ -292,7 +292,7 @@ export const TableSkeleton: React.FC<{
 );
 export const DescriptionsSkeleton = ({ active }: { active: boolean }) => (
   <Card
-    bordered={false}
+    variant="borderless"
     style={{
       borderStartEndRadius: 0,
       borderTopLeftRadius: 0,

@@ -757,6 +757,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
       if (!values || typeof values !== 'object') {
         return values;
       }
+      
       return transformKeySubmitValue(
         conversionMomentValue(
           values,

@@ -56,7 +56,7 @@ const StatisticSkeleton: React.FC<{
 
   return (
     <Card
-      bordered={false}
+      variant="borderless"
       style={{
         marginBlockEnd: 16,
       }}
@@ -107,7 +107,7 @@ const StatisticSkeleton: React.FC<{
 export const ListSkeletonItem: React.FC<{ active: boolean }> = ({ active }) => (
   <>
     <Card
-      bordered={false}
+      variant="borderless"
       style={{
         borderRadius: 0,
       }}
@@ -165,7 +165,7 @@ export const ListSkeleton: React.FC<{
   actionButton?: boolean;
 }> = ({ size, active = true, actionButton }) => (
   <Card
-    bordered={false}
+    variant="borderless"
     styles={{
       body: {
         padding: 0,
@@ -179,7 +179,7 @@ export const ListSkeleton: React.FC<{
 
     {actionButton !== false && (
       <Card
-        bordered={false}
+        variant="borderless"
         style={{
           borderStartEndRadius: 0,
           borderTopLeftRadius: 0,
@@ -241,7 +241,7 @@ export type ListPageSkeletonProps = {
  */
 export const ListToolbarSkeleton = ({ active }: { active: boolean }) => (
   <Card
-    bordered={false}
+    variant="borderless"
     style={{
       borderBottomRightRadius: 0,
       borderBottomLeftRadius: 0,
@@ -286,7 +286,7 @@ const ListPageSkeleton: React.FC<ListPageSkeletonProps> = ({
     )}
     {(toolbar !== false || list !== false) && (
       <Card
-        bordered={false}
+        variant="borderless"
         styles={{
           body: {
             padding: 0,

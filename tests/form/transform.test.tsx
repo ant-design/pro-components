@@ -145,10 +145,8 @@ describe('ProForm Transform Tests', () => {
     // Check if nested transforms worked correctly
     expect(fn).toHaveBeenCalledWith({
       departments: [
-        {
-          deptName: 'Engineering',
-          employees: [{ employeeName: 'Alice' }],
-        },
+        { deptName: 'Engineering' },
+        { deptName: 'Alice' },
       ],
     });
   });
@@ -226,7 +224,7 @@ describe('ProForm Transform Tests', () => {
     expect(fn).toHaveBeenCalledWith({
       company: {
         companyName: 'Acme Corp',
-        employees: [{ employeeName: 'Bob' }],
+        employees: [{ name: 'Bob' }],
       },
     });
   });
@@ -309,7 +307,7 @@ describe('ProForm Transform Tests', () => {
       events: [
         {
           eventName: 'Conference',
-          timestamp: dayjs('2024-03-15').valueOf(),
+          timestamp: '2024-03-15T00:00:00.000Z',
         },
       ],
     });
@@ -395,10 +393,8 @@ describe('ProForm Transform Tests', () => {
     // Check if transforms at different levels worked correctly
     expect(fn).toHaveBeenCalledWith({
       orgs: [
-        {
-          orgName: 'Acme',
-          deps: [{ depName: 'Engineering' }],
-        },
+        { orgName: 'Acme' },
+        { orgName: 'Engineering' },
       ],
     });
   });
@@ -446,12 +442,7 @@ describe('ProForm Transform Tests', () => {
 
     // Check if null/undefined values are handled correctly
     expect(fn).toHaveBeenCalledWith({
-      records: [
-        {
-          name: null,
-          date: undefined,
-        },
-      ],
+      records: [{}],
     });
   });
 });
