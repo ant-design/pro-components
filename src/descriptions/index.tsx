@@ -631,10 +631,11 @@ const ProDescriptions = <
           <Descriptions
             className={className}
             {...rest}
-            styles={{}}
-            contentStyle={{
-              minWidth: 0,
-              ...(contentStyle || {}),
+            styles={{
+              content: {
+                minWidth: 0,
+                ...(contentStyle || {}),
+              },
             }}
             extra={
               rest.extra ? (

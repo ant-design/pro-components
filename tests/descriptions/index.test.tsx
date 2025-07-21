@@ -170,10 +170,19 @@ describe('descriptions', () => {
     };
     const html = render(<Reload />);
 
-    await html.findAllByText('这是一段文本');
+    // 等待数据加载完成，而不是直接查找文本
     await waitFor(() => {
       expect(fn).toHaveBeenCalledTimes(1);
     });
+
+    // 等待文本出现，增加超时时间以处理2秒延迟
+    await waitFor(
+      () => {
+        expect(html.getByText('这是一段文本')).toBeInTheDocument();
+      },
+      { timeout: 5000 },
+    );
+
     act(() => {
       html.queryByText('刷新')?.click();
     });
@@ -219,10 +228,14 @@ describe('descriptions', () => {
       </ProDescriptions>,
     );
 
-    await html.findAllByText('这是一段文本');
-
+    // 等待数据加载完成
     await waitFor(() => {
       expect(fn).toHaveBeenCalledTimes(1);
+    });
+
+    // 等待文本出现
+    await waitFor(() => {
+      expect(html.getByText('这是一段文本')).toBeInTheDocument();
     });
 
     act(() => {
@@ -258,7 +271,10 @@ describe('descriptions', () => {
       );
     });
 
-    await html.findAllByText('这是一段文本');
+    // 等待重新渲染后的文本出现
+    await waitFor(() => {
+      expect(html.getByText('这是一段文本')).toBeInTheDocument();
+    });
 
     await waitFor(() => {
       expect(fn).toHaveBeenCalledTimes(2);

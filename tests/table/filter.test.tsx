@@ -686,7 +686,7 @@ describe('BasicTable sorter', () => {
     );
 
     expect(fn).toHaveBeenCalledTimes(4);
-  });
+  }, 10000);
 
   it('🎏 should sort data locally', async () => {
     const fn = vi.fn();

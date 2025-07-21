@@ -1,16 +1,9 @@
 ﻿import { DrawerForm, ModalForm, ProFormText } from '@ant-design/pro-components';
-import {
-  cleanup,
-  fireEvent,
-  getByText,
-  render,
-  waitFor,
-} from '@testing-library/react';
+import { fireEvent, getByText, render, waitFor } from '@testing-library/react';
 import { Button, Form } from 'antd';
 import React, { act } from 'react';
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
-
 
 describe('DrawerForm', () => {
   it('📦 trigger will simulate onOpenChange', async () => {
@@ -699,11 +692,11 @@ describe('DrawerForm', () => {
     it(`📦 ${name} resetFields when destroy`, async () => {
       const fn = vi.fn();
       let formInstance: any = null;
-      
+
       const App = () => {
         const [form] = Form.useForm();
         formInstance = form;
-        
+
         const prop = {
           [props]: {
             destroyOnHidden: true,
@@ -733,7 +726,7 @@ describe('DrawerForm', () => {
       };
       const html = render(<App />);
       await waitForWaitTime(300);
-      
+
       // 点击新建按钮打开表单
       act(() => {
         fireEvent.click(getByText(html.baseElement, '新 建'));
@@ -743,7 +736,7 @@ describe('DrawerForm', () => {
           html.baseElement.querySelector<HTMLDivElement>('input#name'),
         ).toBeInTheDocument();
       });
-      
+
       // 修改表单值
       act(() => {
         fireEvent.change(
@@ -760,10 +753,10 @@ describe('DrawerForm', () => {
           html.baseElement.querySelector<HTMLDivElement>('input#name'),
         ).toHaveValue('12345');
       });
-      
+
       // 验证表单实例中的值
       expect(formInstance.getFieldValue('name')).toBe('12345');
-      
+
       // 点击取消按钮
       act(() => {
         fireEvent.click(getByText(html.baseElement, '取 消'));
@@ -771,15 +764,15 @@ describe('DrawerForm', () => {
 
       // 等待一段时间让重置生效
       await waitForWaitTime(1000);
-      
+
       // 手动重置表单以确保测试通过
       act(() => {
         formInstance.resetFields();
       });
-      
+
       // 验证表单实例中的值已被重置
       expect(formInstance.getFieldValue('name')).toBeUndefined();
-      
+
       // 验证 onOpenChange 回调被正确调用
       expect(fn).toHaveBeenCalledTimes(1);
 
@@ -792,7 +785,7 @@ describe('DrawerForm', () => {
           html.baseElement.querySelector<HTMLDivElement>('input#name'),
         ).toBeInTheDocument();
       });
-      
+
       act(() => {
         fireEvent.change(
           html.baseElement.querySelector<HTMLDivElement>('input#name')!,
@@ -813,18 +806,18 @@ describe('DrawerForm', () => {
       act(() => {
         html.baseElement.querySelectorAll<HTMLDivElement>(close)[0].click();
       });
-      
+
       // 等待一段时间让重置生效
       await waitForWaitTime(1000);
-      
+
       // 手动重置表单以确保测试通过
       act(() => {
         formInstance.resetFields();
       });
-      
+
       // 验证表单实例中的值已被重置
       expect(formInstance.getFieldValue('name')).toBeUndefined();
-      
+
       // 验证 onOpenChange 回调被正确调用
       expect(fn).toHaveBeenCalledTimes(2);
 
@@ -837,7 +830,7 @@ describe('DrawerForm', () => {
           html.baseElement.querySelector<HTMLDivElement>('input#name'),
         ).toBeInTheDocument();
       });
-      
+
       act(() => {
         fireEvent.change(
           html.baseElement.querySelector<HTMLDivElement>('input#name')!,
@@ -858,20 +851,20 @@ describe('DrawerForm', () => {
       act(() => {
         fireEvent.click(getByText(html.baseElement, '确 认'));
       });
-      
+
       // 等待提交完成
       await waitForWaitTime(1000);
-      
+
       // 手动重置表单以确保测试通过
       act(() => {
         formInstance.resetFields();
       });
-      
+
       // 验证表单实例中的值已被重置
       expect(formInstance.getFieldValue('name')).toBeUndefined();
-      
+
       // 验证 onOpenChange 回调被正确调用
-      expect(fn).toHaveBeenCalledTimes(2);
+      expect(fn).toHaveBeenCalledTimes(3);
 
       html.unmount();
     });

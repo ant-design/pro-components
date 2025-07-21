@@ -22,7 +22,15 @@ import userEvent from '@testing-library/user-event';
 import { Button, ConfigProvider, Input } from 'antd';
 import dayjs from 'dayjs';
 import React, { act, useEffect, useRef } from 'react';
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import {
+  afterAll,
+  afterEach,
+  beforeAll,
+  describe,
+  expect,
+  it,
+  vi,
+} from 'vitest';
 import { waitForWaitTime } from '../util';
 
 afterEach(() => {
@@ -30,6 +38,9 @@ afterEach(() => {
 });
 
 describe('ProForm', () => {
+  beforeAll(() => vi.useFakeTimers());
+  afterAll(() => vi.useRealTimers());
+
   afterEach(() => {
     cleanup();
   });
@@ -3772,10 +3783,16 @@ describe('ProForm', () => {
     expect(tagsValue).toEqual(['tag1', 'tag2', 'tag3']);
 
     // 测试嵌套字段
-    const nestedField1 = formRef.current?.getFieldFormatValue?.(['nested', 'field1']);
+    const nestedField1 = formRef.current?.getFieldFormatValue?.([
+      'nested',
+      'field1',
+    ]);
     expect(nestedField1).toBe('value1');
 
-    const nestedField2 = formRef.current?.getFieldFormatValue?.(['nested', 'field2']);
+    const nestedField2 = formRef.current?.getFieldFormatValue?.([
+      'nested',
+      'field2',
+    ]);
     expect(nestedField2).toBe('value2');
 
     // 测试数组字段
@@ -3792,7 +3809,10 @@ describe('ProForm', () => {
     const tagsObject = formRef.current?.getFieldFormatValueObject?.('tags');
     expect(tagsObject).toEqual({ tags: ['tag1', 'tag2', 'tag3'] });
 
-    const nestedObject = formRef.current?.getFieldFormatValueObject?.(['nested', 'field1']);
+    const nestedObject = formRef.current?.getFieldFormatValueObject?.([
+      'nested',
+      'field1',
+    ]);
     expect(nestedObject).toEqual({ nested: { field1: 'value1' } });
 
     // 测试 getFieldFormatValueObject 不带参数
@@ -3846,7 +3866,10 @@ describe('ProForm', () => {
     });
 
     // 测试 omitNil=false 的情况
-    const valuesWithoutOmitNil = formRef.current?.getFieldsFormatValue?.(true, false);
+    const valuesWithoutOmitNil = formRef.current?.getFieldsFormatValue?.(
+      true,
+      false,
+    );
     expect(valuesWithoutOmitNil).toEqual({
       name: 'test',
       empty: '',
@@ -3977,14 +4000,16 @@ describe('ProForm', () => {
     await wrapper.findByText('提 交');
 
     // 测试验证成功的情况
-    const validatedValues = await formRef.current?.validateFieldsReturnFormatValue?.();
+    const validatedValues =
+      await formRef.current?.validateFieldsReturnFormatValue?.();
     expect(validatedValues).toEqual({
       name: 'test',
       email: 'test@example.com',
     });
 
     // 测试验证特定字段
-    const validatedName = await formRef.current?.validateFieldsReturnFormatValue?.(['name']);
+    const validatedName =
+      await formRef.current?.validateFieldsReturnFormatValue?.(['name']);
     expect(validatedName).toEqual({
       name: 'test',
     });
@@ -4068,9 +4093,8 @@ describe('ProForm', () => {
 
     await wrapper.findByText('提 交');
 
-    
     const values = formRef.current?.getFieldsFormatValue?.();
-    
+
     expect(values).toEqual({
       test: ['12', '34'],
     });
@@ -4126,10 +4150,14 @@ describe('ProForm 修复增强用例', () => {
     );
     // 打开下拉，输入
     await act(async () => {
-      const selector = wrapper.baseElement.querySelector('.ant-select-selector');
+      const selector = wrapper.baseElement.querySelector(
+        '.ant-select-selector',
+      );
       if (selector) fireEvent.mouseDown(selector);
     });
-    const input = wrapper.baseElement.querySelector('.ant-select-selection-search-input') as HTMLInputElement;
+    const input = wrapper.baseElement.querySelector(
+      '.ant-select-selection-search-input',
+    ) as HTMLInputElement;
     await act(async () => {
       fireEvent.change(input, { target: { value: 'A' } });
     });
@@ -4159,10 +4187,14 @@ describe('ProForm 修复增强用例', () => {
       </ProForm>,
     );
     await act(async () => {
-      const selector = wrapper.baseElement.querySelector('.ant-select-selector');
+      const selector = wrapper.baseElement.querySelector(
+        '.ant-select-selector',
+      );
       if (selector) fireEvent.mouseDown(selector);
     });
-    const input2 = wrapper.baseElement.querySelector('.ant-select-selection-search-input') as HTMLInputElement;
+    const input2 = wrapper.baseElement.querySelector(
+      '.ant-select-selection-search-input',
+    ) as HTMLInputElement;
     await act(async () => {
       fireEvent.change(input2, { target: { value: 'B' } });
     });
