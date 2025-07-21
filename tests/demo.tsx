@@ -3,6 +3,7 @@ import {
   legacyLogicalPropertiesTransformer,
 } from '@ant-design/cssinjs';
 import {
+  act,
   cleanup,
   render as reactRender,
   waitFor,
@@ -95,6 +96,8 @@ function demoTest(component: string, options?: Options) {
   );
 
   describe(`${component} demos`, () => {
+    beforeAll(() => vi.useFakeTimers());
+    afterAll(() => vi.useRealTimers());
     files.forEach((file) => {
       let testMethod = options?.skip === true ? test.skip : test;
       if (
@@ -116,11 +119,16 @@ function demoTest(component: string, options?: Options) {
         await waitFor(() => {
           return wrapper.findAllByText('test');
         });
-
+        act(() => {
+          vi.runAllTimers();
+        });
         await waitFor(() => {
           return wrapper.findAllByText('test');
         });
 
+        act(() => {
+          vi.runAllTimers();
+        });
         await expect(wrapper.asFragment()).toMatchFileSnapshot(
           `snapshot/snapshot-${file
             .split('/')

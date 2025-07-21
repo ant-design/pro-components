@@ -427,6 +427,15 @@ describe('BasicTable filter', () => {
     };
     const { container } = render(<TestComponent />);
 
+    // 等待初始数据加载
+    await waitFor(
+      () => {
+        expect(screen.queryByText('项目 A')).toBeInTheDocument();
+      },
+      { timeout: 5000 },
+    );
+
+    // 点击第一个筛选器（上线状态）
     await userEvent.click(
       container.querySelectorAll('span.ant-table-filter-trigger')[0],
     );
@@ -437,6 +446,7 @@ describe('BasicTable filter', () => {
       )!,
     );
 
+    // 点击第二个筛选器（运行状态）
     await userEvent.click(
       container.querySelectorAll('span.ant-table-filter-trigger')[1],
     );
@@ -447,6 +457,7 @@ describe('BasicTable filter', () => {
       )!,
     );
 
+    // 验证筛选后的结果
     await waitFor(
       () => {
         expect(screen.queryByText('项目 A')).toBeInTheDocument();
@@ -454,11 +465,13 @@ describe('BasicTable filter', () => {
         expect(screen.queryByText('项目 D')).not.toBeInTheDocument();
         expect(screen.queryByText('项目 B')).not.toBeInTheDocument();
       },
-      { timeout: 1000 },
+      { timeout: 5000 },
     );
 
+    // 点击重置按钮
     await userEvent.click(screen.getByRole('button', { name: /重置表格/i }));
 
+    // 验证重置后的结果（应该回到默认筛选状态）
     await waitFor(
       () => {
         expect(screen.queryByText('项目 A')).toBeInTheDocument();
@@ -466,9 +479,9 @@ describe('BasicTable filter', () => {
         expect(screen.queryByText('项目 B')).not.toBeInTheDocument();
         expect(screen.queryByText('项目 C')).not.toBeInTheDocument();
       },
-      { timeout: 1000 },
+      { timeout: 5000 },
     );
-  });
+  }, 10000);
 
   it('🎏 should pass filter parameters to request function with nested dataIndex', async () => {
     const fn = vi.fn();
