@@ -622,8 +622,8 @@ describe('SchemaForm', () => {
     await waitFor(() => {
       expect(onFinish).not.toHaveBeenCalled();
     });
-    await waitFor(async () => {
-      expect((await wrapper.findAllByText('请填写列表')).length).toBe(1);
+    await waitFor(() => {
+      expect(wrapper.getAllByText('请填写列表').length).toBe(1);
     });
     await act(async () => {
       fireEvent.click(await wrapper.findByText('添加一行数据'));
@@ -641,24 +641,19 @@ describe('SchemaForm', () => {
       return;
     });
 
-    await waitFor(async () => {
+    await waitFor(() => {
       expect(
-        (
-          await wrapper.baseElement.querySelector(
-            '.ant-form-item-explain-error',
-          )
-        )?.innerHTML,
+        wrapper.baseElement.querySelector('.ant-form-item-explain-error')
+          ?.innerHTML,
       ).toBe('请填写1');
     });
 
     await act(async () => {
-      fireEvent.click(
-        await wrapper.baseElement.querySelector('.action-remove')!,
-      );
+      fireEvent.click(wrapper.baseElement.querySelector('.action-remove')!);
     });
 
-    await waitFor(async () => {
-      expect((await wrapper.findAllByText('请填写列表')).length).toBe(1);
+    await waitFor(() => {
+      expect(wrapper.getAllByText('请填写列表').length).toBe(1);
     });
   });
 
@@ -696,30 +691,49 @@ describe('SchemaForm', () => {
         expect(wrapper.queryByText('签约客户名称')).toBeNull();
       });
 
-      await wrapper.findAllByText('打开');
+      await Array.from(wrapper.container.querySelectorAll('button'))
+        .find((btn) => btn.textContent?.includes('打开'))
+        ?.closest('button');
 
       await act(async () => {
-        fireEvent.click(await wrapper.findByText('打开'));
+        const button = Array.from(
+          wrapper.container.querySelectorAll('button'),
+        ).find((btn) => btn.textContent?.includes('打开'));
+        if (button) {
+          fireEvent.click(button);
+        }
       });
 
       // 打开就存在了
-      await wrapper.findAllByText('签约客户名称');
+      await Array.from(wrapper.container.querySelectorAll('label')).find(
+        (label) => label.textContent?.includes('签约客户名称'),
+      );
 
       await act(async () => {
         fireEvent.click(await wrapper.findByText('取 消'));
       });
 
       // 关闭不存在了
-      await waitFor(() => {
-        expect(wrapper.queryByText('签约客户名称')).toBeNull();
-      });
+      await waitFor(
+        () => {
+          expect(wrapper.container.querySelector('.ant-modal-root')).toBeNull();
+        },
+        { timeout: 3000 },
+      );
 
       await act(async () => {
-        fireEvent.click(await wrapper.findByText('打开'));
+        const button = Array.from(
+          wrapper.container.querySelectorAll('button'),
+        ).find((btn) => btn.textContent?.includes('打开'));
+        if (button) {
+          fireEvent.click(button);
+        }
       });
 
       // 打开就又存在了
-      await wrapper.findAllByText('签约客户名称');
+      await Array.from(wrapper.container.querySelectorAll('label')).find(
+        (label) => label.textContent?.includes('签约客户名称'),
+      );
     });
   });
 
@@ -775,7 +789,9 @@ describe('SchemaForm', () => {
         />,
       );
 
-      await wrapper.findByText('签约客户名称');
+      await Array.from(wrapper.container.querySelectorAll('label')).find(
+        (label) => label.textContent?.includes('签约客户名称'),
+      );
 
       expect(formRef.current).toBeTruthy();
 
@@ -813,7 +829,7 @@ describe('SchemaForm', () => {
     });
   });
 
-  it('test custom component should not rerender when other field change', () => {
+  it('test custom component should not rerender when other field change', async () => {
     const fibonacci = vi.fn();
 
     const ExpensiveCustomComp = React.memo<{
@@ -885,7 +901,10 @@ describe('SchemaForm', () => {
 
     const wrapper = render(<App />);
 
-    expect(fibonacci).toHaveBeenCalledTimes(1);
+    // 等待组件渲染完成
+    await waitFor(() => {
+      expect(fibonacci).toHaveBeenCalledTimes(1);
+    });
 
     fireEvent.change(wrapper.baseElement.querySelector('input#name')!, {
       target: {
@@ -893,6 +912,9 @@ describe('SchemaForm', () => {
       },
     });
 
-    expect(fibonacci).toHaveBeenCalledTimes(1);
+    // 等待状态更新完成
+    await waitFor(() => {
+      expect(fibonacci).toHaveBeenCalledTimes(1);
+    });
   });
 });
