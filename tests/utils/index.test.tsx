@@ -302,7 +302,9 @@ describe('utils', () => {
         dateQuarter: 'dateQuarter',
       },
     );
-    expect(html.dataTime).toBe('2019-11-16 12:50:26');
+    expect(html.dataTime?.format('YYYY-MM-DD HH:mm:ss')).toBe(
+      '2019-11-16 12:50:26',
+    );
     expect(html.time).toBe('12:50:26');
     expect(html.name).toBe('qixian');
     expect(html.money).toBe(20);
