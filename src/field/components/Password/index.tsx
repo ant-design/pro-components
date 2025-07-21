@@ -12,23 +12,18 @@ import type { ProFieldFC } from '../../PureProField';
  */
 const FieldPassword: ProFieldFC<{
   text: string;
-  visible?: boolean;
-  onVisible?: (visible: boolean) => void;
   open?: boolean;
-  onOpenChange?: (visible: boolean) => void;
+  onOpenChange?: (open: boolean) => void;
 }> = (
   { text, mode, render, formItemRender, fieldProps, proFieldKey, ...rest },
   ref,
 ) => {
   const intl = useIntl();
 
-  const [open, setOpen] = useMergedState<boolean>(
-    () => rest.open || rest.visible || false,
-    {
-      value: rest.open || rest.visible,
-      onChange: rest.onOpenChange || rest.onVisible,
-    },
-  );
+  const [open, setOpen] = useMergedState<boolean>(() => rest.open || false, {
+    value: rest.open,
+    onChange: rest.onOpenChange,
+  });
 
   if (mode === 'read') {
     let dom = <>-</>;

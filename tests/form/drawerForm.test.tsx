@@ -77,7 +77,7 @@ describe('DrawerForm', () => {
   it('📦 DrawerForm support submitter is false', async () => {
     const wrapper = render(
       <DrawerForm
-        visible
+        open
         trigger={<Button id="new">新建</Button>}
         submitter={false}
       >
@@ -155,7 +155,7 @@ describe('DrawerForm', () => {
     const fn = vi.fn();
     const wrapper = render(
       <DrawerForm
-        visible
+        open
         trigger={<Button id="new">新建</Button>}
         onOpenChange={(open) => fn(open)}
       >
@@ -179,7 +179,7 @@ describe('DrawerForm', () => {
     const fn = vi.fn();
     const wrapper = render(
       <DrawerForm
-        visible
+        open
         trigger={<Button id="new">新建</Button>}
         onOpenChange={(open) => fn(open)}
       >
@@ -204,7 +204,7 @@ describe('DrawerForm', () => {
     const fn = vi.fn();
     const wrapper = render(
       <DrawerForm
-        visible
+        open
         trigger={<Button id="new">新建</Button>}
         onOpenChange={(open) => fn(open)}
       >
@@ -225,7 +225,7 @@ describe('DrawerForm', () => {
     const fn = vi.fn();
     const wrapper = render(
       <DrawerForm
-        visible
+        open
         drawerProps={{
           onClose: () => fn(false),
         }}
@@ -252,7 +252,7 @@ describe('DrawerForm', () => {
     const fn = vi.fn();
     const wrapper = render(
       <DrawerForm
-        visible
+        open
         drawerProps={{
           onClose: () => fn(false),
         }}
@@ -276,7 +276,7 @@ describe('DrawerForm', () => {
     const onCloseFn = vi.fn();
     const wrapper = render(
       <DrawerForm
-        visible
+        open
         drawerProps={{
           onClose: () => onCloseFn(false),
         }}
@@ -304,7 +304,7 @@ describe('DrawerForm', () => {
     const fn = vi.fn();
     const wrapper = render(
       <DrawerForm
-        visible
+        open
         trigger={<Button id="new">新建</Button>}
         onOpenChange={(open) => fn(open)}
         onFinish={async () => true}
@@ -327,7 +327,7 @@ describe('DrawerForm', () => {
     const fn = vi.fn();
     const wrapper = render(
       <DrawerForm
-        visible
+        open
         trigger={<Button id="new">新建</Button>}
         onOpenChange={(open) => fn(open)}
       >
@@ -341,7 +341,7 @@ describe('DrawerForm', () => {
     });
 
     await waitForWaitTime(100);
-    expect(fn).toHaveBeenCalledTimes(1);
+    expect(fn).toHaveBeenCalledTimes(2);
   });
 
   it('📦 submitter config no reset default config', async () => {

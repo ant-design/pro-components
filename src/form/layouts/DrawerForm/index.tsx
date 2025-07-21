@@ -50,27 +50,14 @@ export type DrawerFormProps<
     /** @name 用于触发抽屉打开的 dom ，只能设置一个*/
     trigger?: JSX.Element;
 
-    /**
-     * @deprecated use onOpenChange replace
-     */
-    onVisibleChange?: (visible: boolean) => void;
-    /**
-     * @deprecated use open replace
-     */
-    visible?: boolean;
-
     /** @name 受控的打开关闭 */
     open?: DrawerProps['open'];
 
-    /**
-     * @name 打开关闭的事件 */
-    onOpenChange?: (visible: boolean) => void;
-    /**
-     * 不支持 'visible'，请使用全局的 visible
-     *
-     * @name 抽屉的配置
-     */
-    drawerProps?: Omit<DrawerProps, 'visible'>;
+    /** @name 打开关闭的事件 */
+    onOpenChange?: (open: boolean) => void;
+
+    /** @name 抽屉的配置 */
+    drawerProps?: Omit<DrawerProps, 'open'>;
 
     /** @name 抽屉的标题 */
     title?: DrawerProps['title'];
@@ -88,7 +75,6 @@ export type DrawerFormProps<
 function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
   children,
   trigger,
-  onVisibleChange,
   drawerProps,
   onFinish,
   submitTimeout,
@@ -96,7 +82,6 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
   width,
   resize,
   onOpenChange,
-  visible: propVisible,
   open: propsOpen,
   ...rest
 }: DrawerFormProps<T, U>) {
@@ -139,9 +124,9 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
     width ? width : resize ? resizeInfo?.minWidth : 800,
   );
 
-  const [open, setOpen] = useMergedState<boolean>(!!propVisible, {
-    value: propsOpen || propVisible,
-    onChange: onOpenChange || onVisibleChange,
+  const [open, setOpen] = useMergedState<boolean>(!!propsOpen, {
+    value: propsOpen,
+    onChange: onOpenChange,
   });
 
   const footerRef = useRef<HTMLDivElement | null>(null);
@@ -167,9 +152,8 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
   }, [drawerProps?.destroyOnHidden, rest.form, rest.formRef]);
 
   useEffect(() => {
-    if (open && (propsOpen || propVisible)) {
+    if (open && propsOpen) {
       onOpenChange?.(true);
-      onVisibleChange?.(true);
     }
 
     if (resizableDrawer) {
@@ -177,7 +161,7 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [propVisible, open, resizableDrawer]);
+  }, [propsOpen, open, resizableDrawer]);
 
   useImperativeHandle(
     rest.formRef,
@@ -336,7 +320,7 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
             resetFields();
           }
           drawerProps?.afterOpenChange?.(open);
-          onVisibleChange?.(open);
+          onOpenChange?.(open);
         }}
         onClose={(e) => {
           // 提交表单loading时，阻止弹框关闭

@@ -155,9 +155,9 @@ const BaseProFormUploadButton: React.ForwardRefRenderFunction<
           wrapperStyle={{ display: 'none' }}
           {...imageProps}
           preview={{
-            visible: previewOpen,
-            onVisibleChange: (visible) => setPreviewOpen(visible),
-            afterOpenChange: (visible) => !visible && setPreviewImage(''),
+            open: previewOpen,
+            onOpenChange: (open: boolean) => setPreviewOpen(open),
+            afterOpenChange: (open: boolean) => !open && setPreviewImage(''),
             ...((imageProps?.preview as any) || {}),
           }}
           src={previewImage}

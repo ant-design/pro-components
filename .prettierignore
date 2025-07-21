@@ -8,3 +8,4 @@
 **\snapshots\**
 pnpm-lock.yaml
 server
+snapshots/**

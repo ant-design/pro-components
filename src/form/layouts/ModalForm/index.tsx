@@ -44,23 +44,11 @@ export type ModalFormProps<
     /** @name 受控的打开关闭 */
     open?: ModalProps['open'];
 
-    /**
-     * @deprecated use onOpenChange replace
-     */
-    onVisibleChange?: (visible: boolean) => void;
-    /**
-     * @deprecated use open replace
-     */
-    visible?: boolean;
-
     /** @name 打开关闭的事件 */
     onOpenChange?: (open: boolean) => void;
-    /**
-     * 不支持 'visible'，请使用全局的 visible
-     *
-     * @name 弹框的属性
-     */
-    modalProps?: Omit<ModalProps, 'visible'>;
+
+    /** @name 弹框的属性 */
+    modalProps?: Omit<ModalProps, 'open'>;
 
     /** @name 弹框的标题 */
     title?: ModalProps['title'];
@@ -72,14 +60,12 @@ export type ModalFormProps<
 function ModalForm<T = Record<string, any>, U = Record<string, any>>({
   children,
   trigger,
-  onVisibleChange,
   onOpenChange,
   modalProps,
   onFinish,
   submitTimeout,
   title,
   width,
-  visible: propVisible,
   open: propsOpen,
   ...rest
 }: ModalFormProps<T, U>) {
@@ -94,9 +80,9 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
   const [, forceUpdate] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const [open, setOpen] = useMergedState<boolean>(!!propVisible, {
-    value: propsOpen || propVisible,
-    onChange: onOpenChange || onVisibleChange,
+  const [open, setOpen] = useMergedState<boolean>(false, {
+    value: propsOpen,
+    onChange: onOpenChange,
   });
 
   const footerRef = useRef<HTMLDivElement | null>(null);
@@ -130,12 +116,11 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
   );
 
   useEffect(() => {
-    if (propsOpen || propVisible) {
+    if (propsOpen) {
       onOpenChange?.(true);
-      onVisibleChange?.(true);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [propVisible, propsOpen]);
+  }, [propsOpen]);
 
   const triggerDom = useMemo(() => {
     if (!trigger) {

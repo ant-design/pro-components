@@ -20,7 +20,7 @@ export type DropdownProps = {
   padding?: number;
   disabled?: boolean;
 
-  onOpenChange?: (visible: boolean) => void;
+  onOpenChange?: (open: boolean) => void;
   open?: boolean;
   placement?: TooltipPlacement;
   children?: React.ReactNode;

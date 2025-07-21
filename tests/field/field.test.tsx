@@ -1461,7 +1461,7 @@ describe('Field', () => {
     });
   });
 
-  it('🐴 password support visible', async () => {
+  it('🐴 password support open', async () => {
     const html = render(
       <Field text={123456} valueType="password" mode="read" />,
     );
@@ -1504,32 +1504,6 @@ describe('Field', () => {
       expect(fn).toHaveBeenCalledWith(false);
     });
 
-    html.unmount();
-  });
-
-  it('🐴 password support controlled visible', async () => {
-    const fn = vi.fn();
-    const html = render(
-      <Field
-        text={123456}
-        onVisible={(visible) => fn(visible)}
-        visible
-        valueType="password"
-        mode="read"
-      />,
-    );
-    await html.findByText('123456');
-    act(() => {
-      fireEvent.click(html.baseElement.querySelector('span.anticon-eye')!);
-    });
-    await html.findByText('123456');
-
-    await waitFor(() => {
-      expect(
-        !!html.baseElement.querySelector('span.anticon-eye-invisible'),
-      ).toBeFalsy();
-      expect(fn).toHaveBeenCalledWith(false);
-    });
     html.unmount();
   });
 

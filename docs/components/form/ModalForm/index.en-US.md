@@ -30,7 +30,7 @@ ModalForm and DrawerForm both provide triggers to reduce state usage, if you nee
 
 ## Use open and onOpenChange
 
-<code src="../../../../demos/form/ModalForm/visible-on-visible-change.tsx"  background="var(--main-bg-color)" oldtitle="Use open and onOpenChange"></code>
+<code src="../../../../demos/form/ModalForm/open-on-open-change.tsx"  background="var(--main-bg-color)" oldtitle="Use open and onOpenChange"></code>
 
 ## Reset Form
 
@@ -42,17 +42,17 @@ ModalForm and DrawerForm both provide triggers to reduce state usage, if you nee
 
 ModalForm combines Modal and ProForm to reduce tedious state management.
 
-| Parameters    | Description                                                                                                                                          | Type                                                        | Default |
-| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------- |
-| trigger       | The dom used to trigger the Modal to open, usually the button                                                                                        | `ReactNode`                                                 | -       |
-| open          | whether to open                                                                                                                                      | `boolean`                                                   | -       |
-| onOpenChange  | trigger when visible changes                                                                                                                         | `(visible:boolean)=>void`                                   | -       |
-| modalProps    | Modal's props, used in the same way as [antd](https://ant.design/components/modal/). Note: 'visible' is not supported, please use the global visible | [props](https://ant.design/components/modal/#API)           | -       |
-| title         | The title of the popup box                                                                                                                           | `ReactNode`                                                 | -       |
-| width         | the width of the popup box（Controlled attribute, when used, the weight is higher than resize）                                                      | `Number`                                                    | -       |
-| onFinish      | Triggered when submitting data, if returns a true, will close the popup and reset the form                                                           | `async (values)=>boolean`                                   | -       |
-| submitTimeout | Disable timeout for the Cancel button when submitting data (ms)                                                                                      | `Number`                                                    | -       |
-| submitter     | Submit button configurations in the same way as [ProForm](https://procomponents.ant.design/components/form)                                          | [ProForm](https://procomponents.ant.design/components/form) | -       |
+| Parameters    | Description                                                                                                                                    | Type                                                        | Default |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------- |
+| trigger       | The dom used to trigger the Modal to open, usually the button                                                                                  | `ReactNode`                                                 | -       |
+| open          | whether to open                                                                                                                                | `boolean`                                                   | -       |
+| onOpenChange  | trigger when open changes                                                                                                                      | `(open:boolean)=>void`                                      | -       |
+| modalProps    | Modal's props, used in the same way as [antd](https://ant.design/components/modal/). Note: 'open' is not supported, please use the global open | [props](https://ant.design/components/modal/#API)           | -       |
+| title         | The title of the popup box                                                                                                                     | `ReactNode`                                                 | -       |
+| width         | the width of the popup box（Controlled attribute, when used, the weight is higher than resize）                                                | `Number`                                                    | -       |
+| onFinish      | Triggered when submitting data, if returns a true, will close the popup and reset the form                                                     | `async (values)=>boolean`                                   | -       |
+| submitTimeout | Disable timeout for the Cancel button when submitting data (ms)                                                                                | `Number`                                                    | -       |
+| submitter     | Submit button configurations in the same way as [ProForm](https://procomponents.ant.design/components/form)                                    | [ProForm](https://procomponents.ant.design/components/form) | -       |
 
 ### DrawerForm
 
