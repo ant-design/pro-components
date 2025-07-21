@@ -2,6 +2,7 @@ import { isDeepEqualReact, merge, ProFormContext } from '@ant-design/pro-utils';
 import type { FormItemProps } from 'antd';
 import { Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
+import { isNil } from 'lodash-es';
 import get from 'rc-util/lib/utils/get';
 import set from 'rc-util/lib/utils/set';
 import { useContext, useMemo } from 'react';
@@ -87,7 +88,7 @@ const ProFormDependency = <T,>({
           if (value && Object.keys(value).length) {
             // transform 会生成多余的value，这里需要注入一下
             values = merge({}, values, value);
-            if (get(value, itemName)) {
+            if (!isNil(get(value, itemName))) {
               values = set(values, finalName, get(value, itemName));
             }
           } else {
