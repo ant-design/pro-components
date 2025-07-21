@@ -757,7 +757,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
       if (!values || typeof values !== 'object') {
         return values;
       }
-      
+
       return transformKeySubmitValue(
         conversionMomentValue(
           values,
@@ -767,7 +767,6 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
           parentKey,
         ),
         transformKeyRef.current,
-        paramsOmitNil,
       );
     },
   );
@@ -807,7 +806,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     if (loading) return;
     try {
       setLoading(true);
-      const finalValues = formRef?.current?.getFieldsFormatValue?.()||{};
+      const finalValues = formRef?.current?.getFieldsFormatValue?.() || {};
       const response = propRest.onFinish(finalValues);
       if (
         response &&
@@ -899,7 +898,6 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
                   name,
                   transform,
                 );
-
               }
 
               fieldsValueType.current = namePathSet(
