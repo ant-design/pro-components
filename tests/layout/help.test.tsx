@@ -922,41 +922,70 @@ describe('👍🏻 ProHelpPanel', () => {
       </DefaultProHelp>,
     );
 
+    // 等待组件完全渲染
+    await waitFor(async () => {
+      await html.findByTitle('search panel');
+    });
+
     await act(async () => {
-      (await html.findByTitle('search panel'))?.click();
+      const searchPanel = await html.findByTitle('search panel');
+      searchPanel?.click();
+    });
+
+    // 等待搜索面板打开
+    await waitFor(async () => {
+      await html.findByText('please input search text');
     });
 
     const input = await html.findByText('please input search text');
 
+    // 等待选择器出现
+    await waitFor(() => {
+      expect(html.container.querySelector('.ant-select-selector')).toBeTruthy();
+    });
+
     await act(async () => {
-      fireEvent.mouseDown(
-        html.container.querySelector('.ant-select-selector')!,
-      );
+      const selector = html.container.querySelector('.ant-select-selector');
+      if (selector) {
+        fireEvent.mouseDown(selector);
+      }
     });
 
-    await html.findByText('常见问题');
-
-    act(() => {
-      fireEvent.change(input.parentElement!.querySelector('input')!, {
-        target: {
-          value: '如何',
-        },
-      });
+    // 等待下拉选项出现
+    await waitFor(async () => {
+      await html.findByText('常见问题');
     });
 
-    await new Promise((resolve) => setTimeout(resolve, 100));
+    await act(async () => {
+      const inputElement = input.parentElement?.querySelector('input');
+      if (inputElement) {
+        fireEvent.change(inputElement, {
+          target: {
+            value: '如何',
+          },
+        });
+      }
+    });
 
-    expect(
-      html.baseElement.querySelector(
+    // 等待搜索结果更新
+    await waitFor(() => {
+      const resultElement = html.baseElement.querySelector(
         '.ant-pro-help-search-list-item-content-light',
-      )?.textContent,
-    ).toBe('如何');
-
-    await act(async () => {
-      fireEvent.blur(html.container.querySelector('.ant-select-selector')!);
+      );
+      expect(resultElement?.textContent).toBe('如何');
     });
 
-    expect(!!html.container.querySelector('.ant-select-selector')!).toBeFalsy();
+    await act(async () => {
+      const selector = html.container.querySelector('.ant-select-selector');
+      if (selector) {
+        fireEvent.blur(selector);
+      }
+    });
+
+    // 等待选择器关闭
+    await waitFor(() => {
+      expect(html.container.querySelector('.ant-select-selector')).toBeFalsy();
+    });
   });
 
   it('🎏 ProHelpSelect in panel', async () => {
@@ -972,55 +1001,96 @@ describe('👍🏻 ProHelpPanel', () => {
       </DefaultProHelp>,
     );
 
-    await html.findAllByText('常见问题');
+    // 等待常见问题出现
+    await waitFor(async () => {
+      await html.findAllByText('常见问题');
+    });
+
+    // 等待搜索面板按钮出现
+    await waitFor(async () => {
+      await html.findByTitle('search panel');
+    });
 
     await act(async () => {
-      (await html.findByTitle('search panel'))?.click();
+      const searchPanel = await html.findByTitle('search panel');
+      searchPanel?.click();
+    });
+
+    // 等待搜索输入框出现
+    await waitFor(async () => {
+      await html.findByText('please input search text');
     });
 
     const input = await html.findByText('please input search text');
 
+    // 等待选择器出现
+    await waitFor(() => {
+      expect(html.container.querySelector('.ant-select-selector')).toBeTruthy();
+    });
+
     await act(async () => {
-      fireEvent.mouseDown(
-        html.container.querySelector('.ant-select-selector')!,
+      const selector = html.container.querySelector('.ant-select-selector');
+      if (selector) {
+        fireEvent.mouseDown(selector);
+      }
+    });
+
+    // 等待下拉选项出现
+    await waitFor(async () => {
+      await html.findAllByText('常见问题');
+    });
+
+    await act(async () => {
+      const inputElement = input.parentElement?.querySelector('input');
+      if (inputElement) {
+        fireEvent.change(inputElement, {
+          target: {
+            value: '证据包内包含哪些内容，如何下载证据包',
+          },
+        });
+      }
+    });
+
+    // 等待搜索结果更新
+    await waitFor(() => {
+      const resultElement = html.baseElement.querySelector(
+        '.ant-pro-help-search-list-item-content-light',
+      );
+      expect(resultElement?.textContent).toBe(
+        '证据包内包含哪些内容，如何下载证据包',
       );
     });
 
-    await html.findAllByText('常见问题');
-
-    act(() => {
-      fireEvent.change(input.parentElement!.querySelector('input')!, {
-        target: {
-          value: '证据包内包含哪些内容，如何下载证据包',
-        },
-      });
-    });
-
-    await new Promise((resolve) => setTimeout(resolve, 100));
-
-    expect(
-      html.baseElement.querySelector(
+    // 点击搜索结果
+    await act(async () => {
+      const resultElement = html.baseElement.querySelector<HTMLDivElement>(
         '.ant-pro-help-search-list-item-content-light',
-      )?.textContent,
-    ).toBe('证据包内包含哪些内容，如何下载证据包');
-
-    act(() => {
-      html.baseElement
-        .querySelector<HTMLDivElement>(
-          '.ant-pro-help-search-list-item-content-light',
-        )
-        ?.parentElement?.click();
+      );
+      if (resultElement?.parentElement) {
+        resultElement.parentElement.click();
+      }
     });
 
+    // 等待菜单项被选中
     await waitFor(() => {
-      expect(
-        html.baseElement.querySelector('.ant-menu-item-selected')?.textContent,
-      ).toBe('证据包内包含哪些内容，如何下载证据包？');
+      const selectedItem = html.baseElement.querySelector(
+        '.ant-menu-item-selected',
+      );
+      expect(selectedItem?.textContent).toBe(
+        '证据包内包含哪些内容，如何下载证据包？',
+      );
     });
 
     await act(async () => {
-      fireEvent.blur(html.container.querySelector('.ant-select-selector')!);
+      const selector = html.container.querySelector('.ant-select-selector');
+      if (selector) {
+        fireEvent.blur(selector);
+      }
     });
-    expect(!!html.container.querySelector('.ant-select-selector')!).toBeFalsy();
+
+    // 等待选择器关闭
+    await waitFor(() => {
+      expect(html.container.querySelector('.ant-select-selector')).toBeFalsy();
+    });
   });
 });
