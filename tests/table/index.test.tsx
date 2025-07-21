@@ -269,7 +269,7 @@ describe('BasicTable', () => {
       return html.findByText('序号');
     });
     await waitFor(() => {
-      expect(loadingChangerFn).toHaveBeenCalledWith(false, true);
+      expect(loadingChangerFn).toHaveBeenCalledWith(true, false);
     });
 
     html.unmount();
