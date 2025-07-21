@@ -15,7 +15,9 @@ afterEach(() => {
   cleanup();
 });
 
-beforeAll(() => {});
+beforeAll(() => {
+  vi.useFakeTimers();
+});
 afterAll(() => {
   vi.useRealTimers();
 });
@@ -70,6 +72,9 @@ describe('polling', () => {
       expect(fn).toHaveBeenCalled();
     });
 
+    // 推进时间以触发轮询
+    vi.advanceTimersByTime(2000);
+
     await waitFor(() => {
       expect(fn).toHaveBeenCalledTimes(2);
     });
@@ -106,6 +111,9 @@ describe('polling', () => {
     await waitFor(() => {
       expect(fn).toHaveBeenCalledTimes(1);
     });
+
+    // 推进时间以触发轮询
+    vi.advanceTimersByTime(2000);
 
     await waitFor(() => {
       expect(fn).toHaveBeenCalledTimes(2);
@@ -156,6 +164,9 @@ describe('polling', () => {
     await waitFor(() => {
       expect(fn).toHaveBeenCalledTimes(1);
     });
+
+    // 推进时间以触发轮询
+    vi.advanceTimersByTime(3000);
 
     await waitFor(() => {
       expect(fn).toHaveBeenCalledTimes(2);
@@ -208,6 +219,9 @@ describe('polling', () => {
     await waitFor(() => {
       expect(fn).toHaveBeenCalledTimes(1);
     });
+
+    // 推进时间以触发轮询
+    vi.advanceTimersByTime(2000);
 
     await waitFor(() => {
       expect(fn).toHaveBeenCalledTimes(2);

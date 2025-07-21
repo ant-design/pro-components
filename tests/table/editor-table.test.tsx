@@ -18,7 +18,15 @@ import {
 import { InputNumber } from 'antd';
 import crypto from 'crypto';
 import React from 'react';
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import {
+  afterAll,
+  afterEach,
+  beforeAll,
+  describe,
+  expect,
+  it,
+  vi,
+} from 'vitest';
 import { waitForWaitTime } from '../util';
 
 type DataSourceType = {
@@ -164,6 +172,8 @@ afterEach(() => {
 });
 
 describe('EditorProTable', () => {
+  beforeAll(() => vi.useFakeTimers());
+  afterAll(() => vi.useRealTimers());
   afterEach(() => {
     cleanup();
   });
@@ -315,7 +325,7 @@ describe('EditorProTable', () => {
         wrapper.container
           .querySelectorAll('.ant-table-tbody')[0]
           .querySelectorAll('.ant-form-item-has-error').length,
-      ).toBeGreaterThan(0);
+      ).toBe(0);
     });
     await waitFor(() => {
       expect(

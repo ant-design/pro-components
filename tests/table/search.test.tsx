@@ -5,7 +5,15 @@ import type { FormInstance } from 'antd';
 import { Input } from 'antd';
 import dayjs from 'dayjs';
 import React, { act, createRef } from 'react';
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import {
+  afterAll,
+  afterEach,
+  beforeAll,
+  describe,
+  expect,
+  it,
+  vi,
+} from 'vitest';
 import { waitTime } from '../util';
 
 afterEach(() => {
@@ -13,6 +21,8 @@ afterEach(() => {
 });
 
 describe('BasicTable Search', () => {
+  beforeAll(() => vi.useFakeTimers());
+  afterAll(() => vi.useRealTimers());
   process.env.NODE_ENV = 'TEST';
   const LINE_STR_COUNT = 20;
 
