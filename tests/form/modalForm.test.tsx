@@ -14,6 +14,10 @@ import { waitForWaitTime } from '../util';
 
 afterEach(() => {
   cleanup();
+  // 清理所有定时器
+  vi.clearAllTimers();
+  // 清理所有模拟
+  vi.clearAllMocks();
 });
 
 describe('ModalForm', () => {
@@ -46,6 +50,10 @@ describe('ModalForm', () => {
     await waitFor(() => {
       expect(fn).toHaveBeenCalledWith(false);
     });
+
+    // 确保组件完全卸载
+    wrapper.unmount();
+    await waitForWaitTime(100);
   });
 
   it('📦 ModelForm get formRef when use request', async () => {
