@@ -346,7 +346,8 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
     if (formListField.name !== undefined) {
       return [formListField.name, props.name].flat(1) as string[];
     }
-    return props.name as string[];
+    // 确保返回的是数组格式
+    return Array.isArray(props.name) ? props.name : [props.name];
   }, [formListField.name, props.name]);
 
   /** 从 context 中拿到的值 */
@@ -359,22 +360,12 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
     }
     // Field.type === 'ProField' 时 props 里面是有 valueType 的，所以要设置一下
     // 写一个 ts 比较麻烦，用 any 顶一下
-    setFieldValueType(
-      name,
-      {
-        valueType: valueType || 'text',
-        dateFormat: dataFormat,
-        transform,
-      },
-    );
-  }, [
-    name,
-    dataFormat,
-    props.name,
-    setFieldValueType,
-    transform,
-    valueType,
-  ]);
+    setFieldValueType(name, {
+      valueType: valueType || 'text',
+      dateFormat: dataFormat,
+      transform,
+    });
+  }, [name, dataFormat, props.name, setFieldValueType, transform, valueType]);
 
   const isDropdown =
     React.isValidElement(props.children) &&

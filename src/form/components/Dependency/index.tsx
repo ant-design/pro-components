@@ -1,9 +1,10 @@
 import type { FormItemProps } from 'antd';
 import { Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
+import { merge } from 'lodash-es';
 import { get, set } from 'rc-util';
-import { useContext, useMemo } from 'react';
-import { isDeepEqualReact, merge, ProFormContext } from '../../../utils';
+import React, { useContext, useMemo } from 'react';
+import { isDeepEqualReact, ProFormContext } from '../../../utils';
 import type { ProFormInstance } from '../../BaseForm';
 import { FormListContext } from '../List';
 
@@ -77,22 +78,21 @@ const ProFormDependency = <T,>({
       }}
     >
       {(form) => {
-        let values: Record<string, any> = {} as Record<string, any>;
+        let values: Record<string, any> = {};
         for (let i = 0; i < nameList.length; i++) {
-          const itemName = flattenNames[i],
-            itemOriginName = originDependencies[i];
-          const finalName = [itemOriginName].flat(1);
+          const itemName = flattenNames[i];
+          const originName = originDependencies[i];
           let value = context.getFieldFormatValueObject?.(itemName);
           if (value && Object.keys(value).length) {
             // transform 会生成多余的value，这里需要注入一下
             values = merge({}, values, value);
             if (get(value, itemName)) {
-              values = set(values, finalName, get(value, itemName));
+              values = set(values, [originName].flat(1), get(value, itemName));
             }
           } else {
             value = form.getFieldValue?.(itemName);
             if (typeof value !== 'undefined') {
-              values = set(values, finalName, value);
+              values = set(values, [originName].flat(1), value);
             }
           }
         }

@@ -875,6 +875,8 @@ describe('ProForm List', () => {
           c: {
             d: [
               {
+                a: 6,
+                b: 7,
                 c: {},
               },
             ],
