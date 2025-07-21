@@ -1,9 +1,7 @@
-import deepMerge from 'lodash-es/merge';
 import get from 'rc-util/lib/utils/get';
 import namePathSet from 'rc-util/lib/utils/set';
 import React from 'react';
 import { isNil } from '../isNil';
-import { merge } from '../merge';
 import type { SearchTransformKeyFn } from '../typing';
 
 export type DataFormatMapType = Record<
@@ -40,7 +38,6 @@ export const transformKeySubmitValue = <T extends object = any>(
     string,
     SearchTransformKeyFn | undefined | DataFormatMapType
   >,
-  omit: boolean = true,
 ) => {
   // ignore nil transform
   const dataFormatMap = Object.keys(dataFormatMapRaw).reduce(
@@ -48,7 +45,7 @@ export const transformKeySubmitValue = <T extends object = any>(
       const value = dataFormatMapRaw[key];
       if (!isNil(value)) {
         // eslint-disable-next-line no-param-reassign
-        ret[key] = value! as SearchTransformKeyFn; // can't be undefined
+        ret[key] = value as SearchTransformKeyFn; // can't be undefined
       }
       return ret;
     },
@@ -66,297 +63,172 @@ export const transformKeySubmitValue = <T extends object = any>(
     return values;
   }
 
-  let finalValues: any = Array.isArray(values) ? [] : ({} as T);
-
-  // 首先处理点号路径格式的转换
-  const dotPathTransforms: Record<string, SearchTransformKeyFn> = {};
-  const nestedTransforms: Record<string, any> = {};
-
-  Object.keys(dataFormatMap).forEach((key) => {
-    if (key.includes('.')) {
-      dotPathTransforms[key] = dataFormatMap[key];
-    } else {
-      nestedTransforms[key] = dataFormatMap[key];
-    }
-  });
-
-  // 深拷贝值以避免修改原始对象
+  // 创建一个深拷贝来避免修改原始数据
   let result = JSON.parse(JSON.stringify(values));
 
-  // 处理点号路径转换
-  Object.keys(dotPathTransforms).forEach((dotPath) => {
-    const transform = dotPathTransforms[dotPath];
-    const pathArray = dotPath.split('.').map((segment, index, arr) => {
-      // 检查父路径是否指向数组
-      if (index > 0) {
-        const parentPath = arr.slice(0, index);
-        const parentValue = get(result, parentPath);
-        if (Array.isArray(parentValue) && /^\d+$/.test(segment)) {
-          return parseInt(segment, 10);
-        }
-      }
-      return segment;
-    });
+  // 分别处理不同格式的转换配置
+  const dotPathTransforms: Record<string, SearchTransformKeyFn> = {};
+  const objectTransforms: Record<string, any> = {};
 
-    // 获取当前路径的值
-    const currentValue = get(result, pathArray);
+  Object.keys(dataFormatMapRaw).forEach((key) => {
+    const value = dataFormatMapRaw[key];
+    if (isNil(value)) return;
 
-    if (currentValue !== undefined && typeof transform === 'function') {
-      // 执行转换
-      const transformed = transform(
-        currentValue,
-        pathArray.map(String),
-        result,
-      );
-
-      if (
-        typeof transformed === 'object' &&
-        transformed !== null &&
-        !Array.isArray(transformed)
-      ) {
-        // 如果返回对象，将其键值对合并到父级对象中
-        const parentPath = pathArray.slice(0, -1);
-        const parentObj =
-          parentPath.length > 0 ? get(result, parentPath) : result;
-
-        if (parentObj && typeof parentObj === 'object') {
-          // 删除原来的键
-          const keyToDelete = pathArray[pathArray.length - 1];
-          delete parentObj[keyToDelete];
-
-          // 将转换结果的所有键值对添加到父对象
-          Object.assign(parentObj, transformed);
-        }
-      } else {
-        // 如果返回原始值，直接设置
-        // 特殊处理数组索引 - 直接修改数组元素
-        if (pathArray.length > 1) {
-          const parentPath = pathArray.slice(0, -1);
-          const parentObj = get(result, parentPath);
-          const lastKey = pathArray[pathArray.length - 1];
-
-          if (Array.isArray(parentObj) && typeof lastKey === 'number') {
-            parentObj[lastKey] = transformed;
-          } else {
-            namePathSet(result, pathArray, transformed);
-          }
-        } else {
-          namePathSet(result, pathArray, transformed);
-        }
-      }
+    if (key.includes('.')) {
+      dotPathTransforms[key] = value as SearchTransformKeyFn;
+    } else {
+      objectTransforms[key] = value;
     }
   });
 
-  // 处理传统的嵌套对象格式的转换（向后兼容）
-  const gen = (tempValues: T, parentsKey?: React.Key[]) => {
+  // 处理点号路径格式的转换（如 'users.0.name'）
+  Object.keys(dotPathTransforms).forEach((dotPath) => {
+    const transform = dotPathTransforms[dotPath];
+    if (typeof transform !== 'function') return;
+
+    // 将点号路径转换为数组路径
+    const pathArray = dotPath.split('.').map((segment) => {
+      // 如果是纯数字，转换为数字类型用于数组索引
+      return /^\d+$/.test(segment) ? parseInt(segment, 10) : segment;
+    });
+
+    // 获取要转换的值
+    const currentValue = get(result, pathArray);
+    if (currentValue === undefined) return;
+
+    // 执行转换
+    const transformed = transform(currentValue, pathArray.map(String), result);
+
+    if (
+      typeof transformed === 'object' &&
+      transformed !== null &&
+      !Array.isArray(transformed)
+    ) {
+      // 如果返回对象，删除原键并将对象的键值对合并到父级
+      const parentPath = pathArray.slice(0, -1);
+      const parentObj =
+        parentPath.length > 0 ? get(result, parentPath) : result;
+
+      if (parentObj && typeof parentObj === 'object') {
+        const keyToDelete = pathArray[pathArray.length - 1];
+        delete parentObj[keyToDelete];
+        Object.assign(parentObj, transformed);
+      }
+    } else {
+      // 如果返回原始值，直接替换
+      result = namePathSet(result, pathArray, transformed);
+    }
+  });
+
+  // 存储需要在根级别合并的对象
+  const rootMergeObjects: any[] = [];
+
+  // 处理传统的嵌套对象格式转换（向后兼容）
+  const gen = (
+    tempValues: any,
+    parentsKey?: React.Key[],
+    currentTransforms: any = objectTransforms,
+  ): any => {
     const isArrayValues = Array.isArray(tempValues);
-    let tempResult = isArrayValues ? ([] as any) : ({} as T);
+    let tempResult: any = isArrayValues ? [] : {};
+
     if (tempValues == null || tempValues === undefined) {
       return tempResult;
     }
 
-    Object.keys(tempValues).forEach((entityKey) => {
-      const transformForArray = (transformList: any, subItemValue: any) => {
-        if (!Array.isArray(transformList)) return entityKey;
-        transformList.forEach(
-          (transform: Function | Record<string, any> | any[], idx: number) => {
-            // 如果不存在直接返回
-            if (!transform) return;
+    const keysToProcess = isArrayValues
+      ? tempValues.map((_, index) => index.toString())
+      : Object.keys(tempValues);
 
-            const subTransformItem = subItemValue?.[idx];
+    keysToProcess.forEach((entityKey) => {
+      const key = parentsKey ? [...parentsKey, entityKey] : [entityKey];
+      const itemValue = tempValues[entityKey];
 
-            // 如果是个方法，把key设置为方法的返回值
-            if (typeof transform === 'function') {
-              subItemValue[idx] = transform(
-                subItemValue,
-                entityKey,
-                tempValues,
-              );
-            }
-            if (typeof transform === 'object' && !Array.isArray(transform)) {
-              Object.keys(transform).forEach((transformArrayItem) => {
-                const subTransformItemValue =
-                  subTransformItem?.[transformArrayItem];
-                if (
-                  typeof transform[transformArrayItem] === 'function' &&
-                  subTransformItemValue
-                ) {
-                  const res = transform[transformArrayItem](
-                    subTransformItem[transformArrayItem],
-                    entityKey,
-                    tempValues,
-                  );
-                  subTransformItem[transformArrayItem] =
-                    typeof res === 'object' ? res[transformArrayItem] : res;
-                } else if (
-                  typeof transform[transformArrayItem] === 'object' &&
-                  Array.isArray(transform[transformArrayItem]) &&
-                  subTransformItemValue
-                ) {
-                  transformForArray(
-                    transform[transformArrayItem],
-                    subTransformItemValue,
-                  );
-                }
-              });
-            }
-            if (
-              typeof transform === 'object' &&
-              Array.isArray(transform) &&
-              subTransformItem
-            ) {
-              transformForArray(transform, subTransformItem);
-            }
-          },
-        );
-        return entityKey;
-      };
-      const key = parentsKey
-        ? [parentsKey, entityKey].flat(1)
-        : [entityKey].flat(1);
-      const itemValue = (tempValues as any)[entityKey];
+      // 查找转换函数
+      let transformFunction = currentTransforms[entityKey];
 
-      // 查找 transform 函数，支持多种键名格式
-      let transformFunction = get(
-        nestedTransforms,
-        key as (number | string)[],
-      );
-
-      // 如果没找到，尝试用字符串键名查找
-      if (!transformFunction) {
-        const stringKey = Array.isArray(key) ? key.join('.') : key;
-        transformFunction = nestedTransforms[stringKey];
-      }
-
-      // 如果还没找到，尝试用数组键名查找
-      if (!transformFunction && Array.isArray(key)) {
-        transformFunction = get(nestedTransforms, key as (string | number)[]);
-      }
-
-      // 如果还没找到，尝试递归查找嵌套对象
-      if (!transformFunction) {
-        const findTransformInNested = (obj: any, path: (string | number)[]): any => {
-          if (!obj || typeof obj !== 'object') return undefined;
-          
-          // 尝试直接匹配路径
-          const directMatch = get(obj, path);
-          if (typeof directMatch === 'function') return directMatch;
-          
-          // 递归查找
-          for (const [key, value] of Object.entries(obj)) {
-            if (typeof value === 'function') {
-              // 检查是否是我们要找的路径
-              if (Array.isArray(path) && path.length === 1 && path[0] === key) {
-                return value;
-              }
-            } else if (typeof value === 'object' && value !== null) {
-              const nestedResult = findTransformInNested(value, path);
-              if (nestedResult) return nestedResult;
-            }
-          }
-          return undefined;
-        };
-        
-        transformFunction = findTransformInNested(nestedTransforms, key as (string | number)[]);
-      }
-
-      // 如果还没找到，尝试在 dataFormatMapRaw 中查找
-      if (!transformFunction) {
-        const findTransformInRaw = (obj: any, path: (string | number)[]): any => {
-          if (!obj || typeof obj !== 'object') return undefined;
-          
-          // 尝试直接匹配路径
-          const directMatch = get(obj, path);
-          if (typeof directMatch === 'function') return directMatch;
-          
-          // 递归查找
-          for (const [key, value] of Object.entries(obj)) {
-            if (typeof value === 'function') {
-              // 检查是否是我们要找的路径
-              if (Array.isArray(path) && path.length === 1 && path[0] === key) {
-                return value;
-              }
-            } else if (typeof value === 'object' && value !== null) {
-              const nestedResult = findTransformInRaw(value, path);
-              if (nestedResult) return nestedResult;
-            }
-          }
-          return undefined;
-        };
-        
-        transformFunction = findTransformInRaw(dataFormatMapRaw, key as (string | number)[]);
-      }
-
-      const transform = () => {
-        let tempKey,
-          transformedResult,
-          isTransformedResultPrimitive = false;
-
-        /**
-         * 先判断是否是方法，是的话执行后拿到值，如果是基本类型，则认为是直接 transform 为新的值，
-         * 如果返回是 Object 则认为是 transform 为新的 {newKey: newValue}
-         */
-        if (typeof transformFunction === 'function') {
-          transformedResult = transformFunction?.(
-            itemValue,
-            entityKey,
-            tempValues,
-          );
-          const typeOfResult = typeof transformedResult;
-          if (typeOfResult !== 'object' && typeOfResult !== 'undefined') {
-            tempKey = entityKey;
-            isTransformedResultPrimitive = true;
+      // 如果没找到并且是嵌套路径，尝试在嵌套对象中查找
+      if (!transformFunction && parentsKey) {
+        let nestedTransforms: any = currentTransforms;
+        for (const parentKey of parentsKey) {
+          const parentKeyStr = String(parentKey);
+          if (
+            nestedTransforms &&
+            typeof nestedTransforms[parentKeyStr] === 'object'
+          ) {
+            nestedTransforms = nestedTransforms[parentKeyStr];
           } else {
-            tempKey = transformedResult;
+            nestedTransforms = null;
+            break;
+          }
+        }
+        if (
+          nestedTransforms &&
+          typeof nestedTransforms[entityKey] === 'function'
+        ) {
+          transformFunction = nestedTransforms[entityKey];
+        }
+      }
+
+      if (transformFunction && typeof transformFunction === 'function') {
+        // 执行转换
+        const transformed = transformFunction(itemValue, entityKey, tempValues);
+
+        if (
+          typeof transformed === 'object' &&
+          transformed !== null &&
+          !Array.isArray(transformed)
+        ) {
+          // 检查当前项是否在数组中（通过检查parentsKey的路径）
+          const isInArray =
+            parentsKey && parentsKey.some((key) => !isNaN(Number(key)));
+
+          if (isInArray) {
+            // 如果是数组元素内的转换，直接合并到当前结果
+            Object.assign(tempResult, transformed);
+          } else {
+            // 如果不是数组元素，将其存储到rootMergeObjects以便在根级别合并
+            rootMergeObjects.push(transformed);
           }
         } else {
-          tempKey = transformForArray(transformFunction, itemValue);
+          // 如果返回原始值，用新键替换
+          tempResult[entityKey] = transformed;
         }
-
-        // { [key:string]:any } 数组也能通过编译
-        if (Array.isArray(tempKey)) {
-          tempResult = namePathSet(tempResult, tempKey, itemValue);
-          return;
+      } else if (isPlainObj(itemValue) && !isNil(itemValue)) {
+        // 递归处理嵌套对象（但跳过null值）
+        const nestedTransforms = currentTransforms[entityKey];
+        if (nestedTransforms && typeof nestedTransforms === 'object') {
+          // 如果当前键有嵌套转换配置，传递嵌套配置
+          const nested = gen(itemValue, key, nestedTransforms);
+          // 检查是否有任何子属性被转换为对象（会被添加到rootMergeObjects）
+          // 如果nested为空或只包含被转换的属性，我们不保留这个对象
+          const hasRemainingContent = Object.keys(nested).length > 0;
+          if (hasRemainingContent) {
+            tempResult[entityKey] = nested;
+          }
+        } else {
+          // 否则继续使用当前转换配置递归
+          const nested = gen(itemValue, key, currentTransforms);
+          tempResult[entityKey] = nested;
         }
-        if (typeof tempKey === 'object' && !Array.isArray(finalValues)) {
-          finalValues = deepMerge(finalValues, tempKey);
-        } else if (typeof tempKey === 'object' && Array.isArray(finalValues)) {
-          tempResult = { ...tempResult, ...tempKey };
-        } else if (tempKey !== null || tempKey !== undefined) {
-          tempResult = namePathSet(
-            tempResult,
-            [tempKey],
-            isTransformedResultPrimitive ? transformedResult : itemValue,
-          );
-        }
-      };
-
-      /** 如果存在转化器提前渲染一下 */
-      if (transformFunction && typeof transformFunction === 'function') {
-        transform();
-      }
-
-      if (typeof window === 'undefined') return;
-      if (isPlainObj(itemValue)) {
-        const genValues = gen(itemValue, key);
-        if (Object.keys(genValues).length < 1) {
-          return;
-        }
-        tempResult = namePathSet(tempResult, [entityKey], genValues);
-      } else {
-        tempResult = namePathSet(tempResult, [entityKey], itemValue);
+      } else if (!isNil(itemValue)) {
+        // 保留非null/undefined原始值
+        tempResult[entityKey] = itemValue;
       }
     });
 
     return tempResult;
   };
 
-  const genResult = gen(result);
-  
-  // 合并 finalValues 和 genResult
-  if (Object.keys(finalValues).length > 0) {
-    return deepMerge(genResult, finalValues);
+  // 应用嵌套对象转换
+  if (Object.keys(objectTransforms).length > 0) {
+    result = gen(result);
   }
-  
-  return Object.keys(genResult).length > 0 ? genResult : result;
+
+  // 将所有根级别合并对象合并到最终结果
+  rootMergeObjects.forEach((obj) => {
+    Object.assign(result, obj);
+  });
+
+  return result;
 };

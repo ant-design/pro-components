@@ -662,7 +662,6 @@ describe('utils', () => {
   });
 
   it('📅 transformKeySubmitValue will return file', async () => {
-    //@ts-expect-error
     const html = await transformKeySubmitValue(false, {
       dataTime: () => 'new-dataTime',
       time: () => 'new-time',
