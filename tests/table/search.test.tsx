@@ -778,6 +778,13 @@ describe('BasicTable Search', () => {
 
     await html.findAllByText('创建时间');
 
+    // 等待formRef初始化完成
+    await waitFor(() => {
+      expect(formRef.current).toBeDefined();
+      expect(typeof formRef.current?.submit).toBe('function');
+    });
+
+    // 测试formRef的submit方法
     act(() => {
       formRef.current?.submit();
     });
@@ -786,6 +793,52 @@ describe('BasicTable Search', () => {
       expect(onSubmitFn).toHaveBeenCalledWith('2020-09-11');
     });
 
-    expect(formRef.current?.getFieldFormatValue?.().since).toBe('2020-09-11');
+    // 测试formRef的getFieldsValue方法
+    const fieldsValue = formRef.current?.getFieldsValue?.();
+    expect(fieldsValue).toBeDefined();
+    expect(fieldsValue?.since).toBeDefined();
+    expect(fieldsValue?.since?.format?.('YYYY-MM-DD')).toBe('2020-09-11');
+
+    // 测试formRef的setFieldsValue方法
+    act(() => {
+      formRef.current?.setFieldsValue?.({
+        since: dayjs('2020-10-15 00:00:00'),
+      });
+    });
+
+    // 验证字段值已更新
+    await waitFor(() => {
+      const updatedFieldsValue = formRef.current?.getFieldsValue?.();
+      expect(updatedFieldsValue?.since?.format?.('YYYY-MM-DD')).toBe(
+        '2020-10-15',
+      );
+    });
+
+    // 测试formRef的resetFields方法
+    act(() => {
+      formRef.current?.resetFields?.();
+    });
+
+    // 验证字段已重置
+    await waitFor(() => {
+      const resetFieldsValue = formRef.current?.getFieldsValue?.();
+      expect(resetFieldsValue?.since?.format?.('YYYY-MM-DD')).toBe(
+        '2020-09-11',
+      );
+    });
+
+    // 测试formRef的getFieldValue方法
+    const fieldValue = formRef.current?.getFieldValue?.('since');
+    expect(fieldValue?.format?.('YYYY-MM-DD')).toBe('2020-09-11');
+
+    // 测试formRef的setFieldValue方法
+    act(() => {
+      formRef.current?.setFieldValue?.('since', dayjs('2020-12-25 00:00:00'));
+    });
+
+    await waitFor(() => {
+      const newFieldValue = formRef.current?.getFieldValue?.('since');
+      expect(newFieldValue?.format?.('YYYY-MM-DD')).toBe('2020-12-25');
+    });
   });
 });
