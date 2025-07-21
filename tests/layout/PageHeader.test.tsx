@@ -1,24 +1,7 @@
 ﻿import { PageHeader } from '@ant-design/pro-components';
-import { act, cleanup, fireEvent, render } from '@testing-library/react';
+import { cleanup, fireEvent, render } from '@testing-library/react';
 import { Breadcrumb, ConfigProvider } from 'antd';
-import {
-  _rs as onEsResize,
-  _rs as onLibResize,
-} from 'rc-resize-observer/es/utils/observerUtil';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-
-export const triggerResize = (target: Element) => {
-  const originGetBoundingClientRect = target.getBoundingClientRect;
-
-  target.getBoundingClientRect = () => ({ width: 510, height: 903 }) as DOMRect;
-
-  act(() => {
-    onLibResize([{ target } as ResizeObserverEntry]);
-    onEsResize([{ target } as ResizeObserverEntry]);
-  });
-
-  target.getBoundingClientRect = originGetBoundingClientRect;
-};
 
 afterEach(() => {
   cleanup();
@@ -154,13 +137,4 @@ describe('PageContainer', () => {
     const { container } = render(<PageHeader title="Page Title" />);
     expect(container.firstChild).toMatchSnapshot();
   });
-
-  // it('change container width', async () => {
-  //   const { container } = render(<PageHeader title="Page Title" extra="extra" />);
-  //   triggerResize(container.firstChild as HTMLDivElement);
-  //   await waitForWaitTime(1000);
-  //   expect(
-  //     container.querySelector('div.ant-page-header')?.className.includes('ant-page-header-compact'),
-  //   ).toBeTruthy();
-  // });
 });
