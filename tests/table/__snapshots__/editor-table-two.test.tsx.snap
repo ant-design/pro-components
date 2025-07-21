@@ -1,3 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.position 1`] = `[Function]`;
+
 exports[`EditorProTable 2 > 📝 columns initialValue alway work 1`] = `<DocumentFragment />`;
