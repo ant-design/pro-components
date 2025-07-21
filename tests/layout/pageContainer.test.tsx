@@ -558,11 +558,10 @@ describe('PageContainer', () => {
       />,
     );
 
-    await waitFor(() => {
-      html.findByAltText('diss');
-    });
-
-    expect(!!html.container.innerText).toBe(false);
+    // 当 breadcrumbRender={false} 时，面包屑应该被禁用
+    expect(
+      html.container.querySelector('.ant-page-header-has-breadcrumb'),
+    ).toBeNull();
 
     html.rerender(
       <PageContainer
