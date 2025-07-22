@@ -1,6 +1,6 @@
 name: Publish Any Commit
 
-on: 
+on:
   push:
     branches:
       - master
@@ -34,4 +34,4 @@ jobs:
         run: pnpm build
 
       # https://github.com/stackblitz-labs/pkg.pr.new#readme
-      - run: pnpx pkg-pr-new publish './packages/*' --no-template --compact
+      - run: pnpx pkg-pr-new publish './*' --no-template --compact
