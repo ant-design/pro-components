@@ -13,6 +13,9 @@ jobs:
       fail-fast: false
     steps:
       - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 10.13.1
       - uses: actions/setup-node@v4
         with:
           node-version: 20
