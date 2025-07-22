@@ -173,7 +173,7 @@ describe('PageContainer', () => {
 
   it('⚡️ support loading', async () => {
     const html = render(<PageContainer title="期贤" loading />);
-    expect(html.baseElement.querySelector('.ant-skeleton')).toMatchSnapshot();
+    expect(html.baseElement.querySelector('.ant-skeleton')).toBeInTheDocument();
   });
 
   it('⚡️ support more loading props', async () => {

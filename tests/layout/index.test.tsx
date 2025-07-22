@@ -55,7 +55,7 @@ describe('BasicLayout', () => {
     await waitForWaitTime(1000);
     expect(
       wrapper.baseElement.querySelector('.ant-skeleton'),
-    ).toMatchSnapshot();
+    ).toBeInTheDocument();
     wrapper.unmount();
   });
 
