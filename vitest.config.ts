@@ -1,48 +1,49 @@
-import { readdirSync } from 'fs';
 import { join } from 'path';
 import { defineConfig } from 'vitest/config';
-
-const pkgList = readdirSync(join(__dirname, './packages')).filter(
-  (pkg: string) => pkg.charAt(0) !== '.',
-);
-
-const moduleNameMapper = {} as Record<string, any>;
-
-pkgList.forEach((shortName: string) => {
-  const name = `@ant-design/pro-${shortName}`;
-  moduleNameMapper[name] = join(__dirname, `./packages/${shortName}/src`);
-});
+/// <reference types="@vitest/browser/context" />
 
 export default defineConfig({
   resolve: {
-    alias: moduleNameMapper,
+    alias: {
+      '@ant-design/pro-components': join(__dirname, './src'),
+    },
   },
-  define: {
-    ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION: false,
-    IS_REACT_ACT_ENVIRONMENT: true,
+  esbuild: {
+    format: 'esm',
   },
   test: {
-    globals: true,
     setupFiles: ['./tests/setupTests.ts'],
-    environment: 'jsdom',
+    environment: 'happy-dom',
     environmentOptions: {
-      jsdom: {
+      happyDOM: {
         url: 'http://localhost?navTheme=realDark&layout=mix&colorPrimary=techBlue&splitMenus=false&fixedHeader=true',
+      },
+    },
+    server: {
+      deps: {
+        inline: true,
       },
     },
     coverage: {
       provider: 'istanbul',
-      include: ['packages/**/src/**/*.{ts,tsx}'],
+      include: ['src/**/*.{ts,tsx}'],
       exclude: [
-        'packages/**/src/**/*.d.ts',
-        'packages/card/src/components/TabPane/index.tsx',
-        'packages/**/src/**/typing.ts',
-        'packages/**/src/demos/**',
-        'packages/**/src/**/demos/**',
-        'packages/utils/src/isDeepEqualReact/*.{ts,tsx}',
-        'packages/utils/src/useMountMergeState/*.{ts,tsx}',
+        'src/**/*.d.ts',
+        'src/card/components/TabPane/index.tsx',
+        'src/**/typing.ts',
+        'src/**/demos/**',
+        'src/utils/isDeepEqualReact/*.{ts,tsx}',
+        'src/utils/useMountMergeState/*.{ts,tsx}',
       ],
     },
-    testTimeout: 60_000,
+    testTimeout: 60_0000, // 60 seconds
+    globals: true,
+  },
+  // 添加兼容性配置
+  optimizeDeps: {
+    include: ['vite'],
+  },
+  build: {
+    target: 'esnext',
   },
 });

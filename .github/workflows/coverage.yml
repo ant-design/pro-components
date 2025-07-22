@@ -7,22 +7,18 @@ jobs:
     if: github.repository == 'ant-design/pro-components'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 1
-      - uses: actions/setup-node@v3
+      - uses: pnpm/action-setup@v2
         with:
-          node-version: 20.x
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
+          version: 10.13.1
+      - uses: actions/setup-node@v4
         with:
-          version: 8.12.1
-
+          node-version: 20
+          cache: 'pnpm'
       - run: pnpm install
-        if: |
-          steps.cache-pnpm-cache.outputs.cache-hit != 'true' ||
-          steps.cache-node-modules.outputs.cache-hit != 'true'
-      - run: pnpm run test:coverage
+      - run: pnpm run test:coverage --maxWorkers=1
         env:
           CI: true
           PROGRESS: none

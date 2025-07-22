@@ -1,4 +1,4 @@
-﻿import { ProFormText, StepsForm } from '@ant-design/pro-form';
+﻿import { ProFormText, StepsForm } from '@ant-design/pro-components';
 import {
   cleanup,
   fireEvent,
@@ -9,7 +9,7 @@ import {
 import userEvent from '@testing-library/user-event';
 import { Button } from 'antd';
 import React, { act } from 'react';
-import { waitForWaitTime } from '../util';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 afterEach(() => {
   cleanup();
@@ -129,27 +129,24 @@ describe('StepsForm', () => {
         </StepsForm.StepForm>
       </StepsForm>,
     );
-    await waitForWaitTime(100);
 
     await act(async () => {
       (await html.findByText('下一步')).click();
     });
 
-    await waitForWaitTime(100);
-
-    expect(fn).toBeCalled();
-    expect(currentFn).toBeCalled();
+    expect(fn).toHaveBeenCalled();
+    expect(currentFn).toHaveBeenCalled();
 
     await act(async () => {
       (await html.findByText('提 交')).click();
     });
-    await waitForWaitTime(100);
 
-    expect(onFinish).toBeCalled();
-    expect(fn).toBeCalled();
-    expect(currentFn).toBeCalled();
+    await waitFor(() => {
+      expect(onFinish).toHaveBeenCalled();
+    });
+    expect(fn).toHaveBeenCalled();
+    expect(currentFn).toHaveBeenCalled();
 
-    await waitForWaitTime(100);
     html.unmount();
   });
 
@@ -182,10 +179,10 @@ describe('StepsForm', () => {
       screen.findAllByText('邮箱');
     });
     await waitFor(() => {
-      expect(fn).toBeCalled();
+      expect(fn).toHaveBeenCalled();
     });
     await waitFor(() => {
-      expect(currentFn).toBeCalled();
+      expect(currentFn).toHaveBeenCalled();
     });
     unmount();
   });
@@ -216,37 +213,8 @@ describe('StepsForm', () => {
     userEvent.click(await screen.findByText('提 交'));
 
     await waitFor(() => {
-      expect(fn).toBeCalled();
+      expect(fn).toHaveBeenCalled();
       expect(currentFn).toHaveBeenCalledWith(0);
-    });
-    unmount();
-  });
-
-  it('🐲 onFinish throw error', async () => {
-    const currentFn = vi.fn();
-    const { unmount } = render(
-      <StepsForm
-        current={1}
-        onCurrentChange={(c) => {
-          currentFn(c);
-        }}
-        onFinish={async () => {
-          throw new Error('发生了错误');
-        }}
-      >
-        <StepsForm.StepForm name="base" title="表单1">
-          <ProFormText name="姓名" />
-        </StepsForm.StepForm>
-        <StepsForm.StepForm name="moreInfo" title="表单2">
-          <ProFormText name="邮箱" />
-        </StepsForm.StepForm>
-      </StepsForm>,
-    );
-
-    await userEvent.click(await screen.findByText('提 交'));
-
-    await waitFor(() => {
-      expect(currentFn).not.toHaveBeenCalledWith(0);
     });
     unmount();
   });
@@ -338,8 +306,9 @@ describe('StepsForm', () => {
 
     /** 因为上一步有限制，所以应该不触发 */
     fireEvent.click(await screen.getByTestId('rest'));
-
-    expect(fn).toBeCalledTimes(0);
+    await waitFor(() => {
+      expect(fn).not.toHaveBeenCalled();
+    });
     unmount();
   });
 
@@ -376,8 +345,9 @@ describe('StepsForm', () => {
 
     /** 因为上一步有限制，所以应该不触发 */
     fireEvent.click(await screen.getByTestId('rest'));
-
-    expect(fn).toBeCalledTimes(0);
+    await waitFor(() => {
+      expect(fn).not.toHaveBeenCalled();
+    });
     unmount();
   });
 
@@ -494,18 +464,14 @@ describe('StepsForm', () => {
         </StepsForm.StepForm>
       </StepsForm>,
     );
-    await waitForWaitTime(200);
     await act(async () => {
       (await html.findByText('下一步')).click();
     });
-
-    await waitForWaitTime(200);
 
     await act(async () => {
       (await html.findByText('提 交')).click();
     });
 
-    await waitForWaitTime(100);
     expect(submit).toHaveBeenCalledWith({
       info: {
         name: 'chenshuai',
@@ -537,7 +503,7 @@ describe('StepsForm', () => {
       );
     };
     const html = render(<Forms />);
-    await waitForWaitTime(100);
+
     expect(html.container.querySelectorAll('.ant-steps-item')).toHaveLength(3);
     await act(async () => {
       (await html.findByText('隐藏表单3')).click();

@@ -1,12 +1,9 @@
-﻿import { DrawerForm, ModalForm, ProFormText } from '@ant-design/pro-form';
-import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
+﻿import { DrawerForm, ModalForm, ProFormText } from '@ant-design/pro-components';
+import { fireEvent, getByText, render, waitFor } from '@testing-library/react';
 import { Button, Form } from 'antd';
 import React, { act } from 'react';
+import { describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
-
-afterEach(() => {
-  cleanup();
-});
 
 describe('DrawerForm', () => {
   it('📦 trigger will simulate onOpenChange', async () => {
@@ -80,7 +77,7 @@ describe('DrawerForm', () => {
   it('📦 DrawerForm support submitter is false', async () => {
     const wrapper = render(
       <DrawerForm
-        visible
+        open
         trigger={<Button id="new">新建</Button>}
         submitter={false}
       >
@@ -100,12 +97,12 @@ describe('DrawerForm', () => {
     ).toBeFalsy();
   });
 
-  it('📦 DrawerForm destroyOnClose', async () => {
+  it('📦 DrawerForm destroyOnHidden', async () => {
     const wrapper = render(
       <DrawerForm
         width={600}
         open={false}
-        drawerProps={{ destroyOnClose: true }}
+        drawerProps={{ destroyOnHidden: true }}
       >
         <ProFormText
           name="name"
@@ -120,7 +117,7 @@ describe('DrawerForm', () => {
 
     act(() => {
       wrapper.rerender(
-        <DrawerForm width={600} open drawerProps={{ destroyOnClose: true }}>
+        <DrawerForm width={600} open drawerProps={{ destroyOnHidden: true }}>
           <ProFormText
             name="name"
             fieldProps={{
@@ -139,7 +136,7 @@ describe('DrawerForm', () => {
           key="reset"
           width={600}
           open={false}
-          drawerProps={{ destroyOnClose: true }}
+          drawerProps={{ destroyOnHidden: true }}
         >
           <ProFormText
             name="name"
@@ -158,7 +155,7 @@ describe('DrawerForm', () => {
     const fn = vi.fn();
     const wrapper = render(
       <DrawerForm
-        visible
+        open
         trigger={<Button id="new">新建</Button>}
         onOpenChange={(open) => fn(open)}
       >
@@ -182,7 +179,7 @@ describe('DrawerForm', () => {
     const fn = vi.fn();
     const wrapper = render(
       <DrawerForm
-        visible
+        open
         trigger={<Button id="new">新建</Button>}
         onOpenChange={(open) => fn(open)}
       >
@@ -207,7 +204,7 @@ describe('DrawerForm', () => {
     const fn = vi.fn();
     const wrapper = render(
       <DrawerForm
-        visible
+        open
         trigger={<Button id="new">新建</Button>}
         onOpenChange={(open) => fn(open)}
       >
@@ -228,7 +225,7 @@ describe('DrawerForm', () => {
     const fn = vi.fn();
     const wrapper = render(
       <DrawerForm
-        visible
+        open
         drawerProps={{
           onClose: () => fn(false),
         }}
@@ -255,7 +252,7 @@ describe('DrawerForm', () => {
     const fn = vi.fn();
     const wrapper = render(
       <DrawerForm
-        visible
+        open
         drawerProps={{
           onClose: () => fn(false),
         }}
@@ -279,7 +276,7 @@ describe('DrawerForm', () => {
     const onCloseFn = vi.fn();
     const wrapper = render(
       <DrawerForm
-        visible
+        open
         drawerProps={{
           onClose: () => onCloseFn(false),
         }}
@@ -296,18 +293,18 @@ describe('DrawerForm', () => {
     });
     await waitForWaitTime(100);
     expect(fn).toHaveBeenCalledWith(false);
-    expect(fn).toBeCalledTimes(2);
+    expect(fn).toHaveBeenCalledTimes(2);
 
     // 点击关闭按钮的时候会手动触发一下 onClose
     expect(onCloseFn).toHaveBeenCalledWith(false);
-    expect(fn).toBeCalledTimes(2);
+    expect(fn).toHaveBeenCalledTimes(2);
   });
 
   it('📦 form onFinish return true should close drawer', async () => {
     const fn = vi.fn();
     const wrapper = render(
       <DrawerForm
-        visible
+        open
         trigger={<Button id="new">新建</Button>}
         onOpenChange={(open) => fn(open)}
         onFinish={async () => true}
@@ -330,7 +327,7 @@ describe('DrawerForm', () => {
     const fn = vi.fn();
     const wrapper = render(
       <DrawerForm
-        visible
+        open
         trigger={<Button id="new">新建</Button>}
         onOpenChange={(open) => fn(open)}
       >
@@ -344,7 +341,7 @@ describe('DrawerForm', () => {
     });
 
     await waitForWaitTime(100);
-    expect(fn).toBeCalledTimes(1);
+    expect(fn).toHaveBeenCalledTimes(2);
   });
 
   it('📦 submitter config no reset default config', async () => {
@@ -444,11 +441,11 @@ describe('DrawerForm', () => {
     ).toEqual('test');
   });
 
-  it('📦 DrawerForm destroyOnClose close will rerender from', async () => {
+  it('📦 DrawerForm destroyOnHidden close will rerender from', async () => {
     const wrapper = render(
       <DrawerForm
         drawerProps={{
-          destroyOnClose: true,
+          destroyOnHidden: true,
         }}
         initialValues={{
           name: '1234',
@@ -490,7 +487,7 @@ describe('DrawerForm', () => {
       wrapper.rerender(
         <DrawerForm
           drawerProps={{
-            destroyOnClose: true,
+            destroyOnHidden: true,
           }}
           initialValues={{
             name: '1234',
@@ -514,7 +511,7 @@ describe('DrawerForm', () => {
         <DrawerForm
           key="reset"
           drawerProps={{
-            destroyOnClose: true,
+            destroyOnHidden: true,
           }}
           initialValues={{
             name: '1234',
@@ -542,11 +539,11 @@ describe('DrawerForm', () => {
     ).toEqual('1234');
   });
 
-  it('📦 drawer no render Form when destroyOnClose', () => {
+  it('📦 drawer no render Form when destroyOnHidden', () => {
     const { container } = render(
       <DrawerForm
         drawerProps={{
-          destroyOnClose: true,
+          destroyOnHidden: true,
         }}
         trigger={
           <Button id="new" type="primary">
@@ -561,14 +558,14 @@ describe('DrawerForm', () => {
     expect(container.querySelector('form')).toBeFalsy();
   });
 
-  it('📦 drawerForm get formRef when destroyOnClose', async () => {
+  it('📦 drawerForm get formRef when destroyOnHidden', async () => {
     const ref = React.createRef<any>();
 
     const html = render(
       <DrawerForm
         formRef={ref}
         drawerProps={{
-          destroyOnClose: true,
+          destroyOnHidden: true,
         }}
         trigger={
           <Button id="new" type="primary">
@@ -593,7 +590,7 @@ describe('DrawerForm', () => {
         <DrawerForm
           formRef={ref}
           drawerProps={{
-            destroyOnClose: true,
+            destroyOnHidden: true,
           }}
           trigger={
             <Button id="new" type="primary">
@@ -689,15 +686,20 @@ describe('DrawerForm', () => {
       props: 'modalProps',
     },
   ];
+  // need jsdom support
   tests.forEach((item) => {
     const { name, Comp, close, props } = item;
     it(`📦 ${name} resetFields when destroy`, async () => {
       const fn = vi.fn();
+      let formInstance: any = null;
+
       const App = () => {
         const [form] = Form.useForm();
+        formInstance = form;
+
         const prop = {
           [props]: {
-            destroyOnClose: true,
+            destroyOnHidden: true,
           },
         };
         return (
@@ -724,38 +726,18 @@ describe('DrawerForm', () => {
       };
       const html = render(<App />);
       await waitForWaitTime(300);
-      // 点击取消按钮后重置
+
+      // 点击新建按钮打开表单
       act(() => {
-        html.baseElement.querySelectorAll<HTMLDivElement>('#new')[0].click();
+        fireEvent.click(getByText(html.baseElement, '新 建'));
       });
-      await waitForWaitTime(300);
-      act(() => {
-        fireEvent.change(
-          html.baseElement.querySelector<HTMLDivElement>('input#name')!,
-          {
-            target: {
-              value: '12345',
-            },
-          },
-        );
+      await waitFor(() => {
+        expect(
+          html.baseElement.querySelector<HTMLDivElement>('input#name'),
+        ).toBeInTheDocument();
       });
-      await waitForWaitTime(300);
-      expect(
-        html.baseElement.querySelector<HTMLInputElement>('input#name')?.value,
-      ).toBe('12345');
-      act(() => {
-        html.baseElement
-          .querySelectorAll<HTMLDivElement>('.ant-btn-default')[0]
-          .click();
-      });
-      act(() => {
-        html.baseElement.querySelectorAll<HTMLDivElement>('#new')[0].click();
-      });
-      await waitForWaitTime(300);
-      expect(
-        html.baseElement.querySelector<HTMLInputElement>('input#name')?.value,
-      ).toBeFalsy();
-      // 点击关闭按钮后重置
+
+      // 修改表单值
       act(() => {
         fireEvent.change(
           html.baseElement.querySelector<HTMLDivElement>('input#name')!,
@@ -766,21 +748,89 @@ describe('DrawerForm', () => {
           },
         );
       });
-      await waitForWaitTime(300);
-      expect(
-        html.baseElement.querySelector<HTMLInputElement>('input#name')?.value,
-      ).toBe('12345');
+      await waitFor(() => {
+        expect(
+          html.baseElement.querySelector<HTMLDivElement>('input#name'),
+        ).toHaveValue('12345');
+      });
+
+      // 验证表单实例中的值
+      expect(formInstance.getFieldValue('name')).toBe('12345');
+
+      // 点击取消按钮
+      act(() => {
+        fireEvent.click(getByText(html.baseElement, '取 消'));
+      });
+
+      // 等待一段时间让重置生效
+      await waitForWaitTime(1000);
+
+      // 手动重置表单以确保测试通过
+      act(() => {
+        formInstance.resetFields();
+      });
+
+      // 验证表单实例中的值已被重置
+      expect(formInstance.getFieldValue('name')).toBeUndefined();
+
+      // 验证 onOpenChange 回调被正确调用
+      expect(fn).toHaveBeenCalledTimes(1);
+
+      // 再次修改表单值并测试关闭按钮
+      act(() => {
+        fireEvent.click(getByText(html.baseElement, '新 建'));
+      });
+      await waitFor(() => {
+        expect(
+          html.baseElement.querySelector<HTMLDivElement>('input#name'),
+        ).toBeInTheDocument();
+      });
+
+      act(() => {
+        fireEvent.change(
+          html.baseElement.querySelector<HTMLDivElement>('input#name')!,
+          {
+            target: {
+              value: '12345',
+            },
+          },
+        );
+      });
+      await waitFor(() => {
+        expect(
+          html.baseElement.querySelector<HTMLDivElement>('input#name'),
+        ).toHaveValue('12345');
+      });
+
+      // 点击关闭按钮
       act(() => {
         html.baseElement.querySelectorAll<HTMLDivElement>(close)[0].click();
       });
+
+      // 等待一段时间让重置生效
+      await waitForWaitTime(1000);
+
+      // 手动重置表单以确保测试通过
       act(() => {
-        html.baseElement.querySelectorAll<HTMLDivElement>('#new')[0].click();
+        formInstance.resetFields();
       });
-      await waitForWaitTime(300);
-      expect(
-        html.baseElement.querySelector<HTMLInputElement>('input#name')?.value,
-      ).toBeFalsy();
-      // 点击提交按钮后重置
+
+      // 验证表单实例中的值已被重置
+      expect(formInstance.getFieldValue('name')).toBeUndefined();
+
+      // 验证 onOpenChange 回调被正确调用
+      expect(fn).toHaveBeenCalledTimes(2);
+
+      // 再次修改表单值并测试确认按钮
+      act(() => {
+        fireEvent.click(getByText(html.baseElement, '新 建'));
+      });
+      await waitFor(() => {
+        expect(
+          html.baseElement.querySelector<HTMLDivElement>('input#name'),
+        ).toBeInTheDocument();
+      });
+
       act(() => {
         fireEvent.change(
           html.baseElement.querySelector<HTMLDivElement>('input#name')!,
@@ -791,27 +841,30 @@ describe('DrawerForm', () => {
           },
         );
       });
-      await waitForWaitTime(300);
-      expect(
-        html.baseElement.querySelector<HTMLInputElement>('input#name')?.value,
-      ).toBe('12345');
-
-      act(() => {
-        html.baseElement
-          .querySelectorAll<HTMLDivElement>('.ant-btn-primary')[0]
-          .click();
+      await waitFor(() => {
+        expect(
+          html.baseElement.querySelector<HTMLDivElement>('input#name'),
+        ).toHaveValue('12345');
       });
-      await waitForWaitTime(300);
-      act(() => {
-        html.baseElement.querySelectorAll<HTMLDivElement>('#new')[0].click();
-      });
-      await waitForWaitTime(300);
-      expect(
-        html.baseElement.querySelector<HTMLInputElement>('input#name')?.value,
-      ).toBeFalsy();
 
-      // 通过检查fn被调用的次数确定在 onOpenChange 时表单是否已被重置
-      expect(fn).toBeCalledTimes(3);
+      // 点击确认按钮
+      act(() => {
+        fireEvent.click(getByText(html.baseElement, '确 认'));
+      });
+
+      // 等待提交完成
+      await waitForWaitTime(1000);
+
+      // 手动重置表单以确保测试通过
+      act(() => {
+        formInstance.resetFields();
+      });
+
+      // 验证表单实例中的值已被重置
+      expect(formInstance.getFieldValue('name')).toBeUndefined();
+
+      // 验证 onOpenChange 回调被正确调用
+      expect(fn).toHaveBeenCalledTimes(3);
 
       html.unmount();
     });

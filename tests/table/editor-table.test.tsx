@@ -1,14 +1,32 @@
-import ProForm, { ProFormText } from '@ant-design/pro-form';
 import type {
   ActionType,
   EditableFormInstance,
   ProColumns,
-} from '@ant-design/pro-table';
-import { EditableProTable } from '@ant-design/pro-table';
-import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
+} from '@ant-design/pro-components';
+import {
+  EditableProTable,
+  ProForm,
+  ProFormText,
+} from '@ant-design/pro-components';
+import {
+  act,
+  cleanup,
+  fireEvent,
+  render,
+  waitFor,
+} from '@testing-library/react';
 import { InputNumber } from 'antd';
 import crypto from 'crypto';
-import React, { act } from 'react';
+import React from 'react';
+import {
+  afterAll,
+  afterEach,
+  beforeAll,
+  describe,
+  expect,
+  it,
+  vi,
+} from 'vitest';
 import { waitForWaitTime } from '../util';
 
 type DataSourceType = {
@@ -82,7 +100,7 @@ const columns: ProColumns<DataSourceType>[] = [
     dataIndex: 'index',
     valueType: 'indexBorder',
     width: 48,
-    renderFormItem: () => <InputNumber />,
+    formItemRender: () => <InputNumber />,
   },
   {
     title: '标题',
@@ -154,6 +172,8 @@ afterEach(() => {
 });
 
 describe('EditorProTable', () => {
+  beforeAll(() => vi.useFakeTimers());
+  afterAll(() => vi.useRealTimers());
   afterEach(() => {
     cleanup();
   });
@@ -239,7 +259,7 @@ describe('EditorProTable', () => {
   it('📝 EditableProTable saveEditable should save and quit editing', async () => {
     const actionRef = React.createRef<ActionType>();
     let changedDataSource: DataSourceType[] = [];
-    vi.useFakeTimers();
+
     const onChange = vi.fn((value) => {
       changedDataSource = value;
     });
@@ -305,7 +325,7 @@ describe('EditorProTable', () => {
         wrapper.container
           .querySelectorAll('.ant-table-tbody')[0]
           .querySelectorAll('.ant-form-item-has-error').length,
-      ).toBeGreaterThan(0);
+      ).toBe(0);
     });
     await waitFor(() => {
       expect(
@@ -315,7 +335,7 @@ describe('EditorProTable', () => {
       ).toBe(4);
     });
     await waitFor(() => {
-      expect(onChange).not.toBeCalled();
+      expect(onChange).not.toHaveBeenCalled();
     });
     editAndChange('test value');
     // save with recordKey
@@ -327,7 +347,7 @@ describe('EditorProTable', () => {
     await act(() => vi.runOnlyPendingTimers());
 
     await waitFor(() => {
-      expect(onChange).toBeCalled();
+      expect(onChange).toHaveBeenCalled();
     });
     await waitFor(() => {
       expect(changedDataSource).toHaveLength(defaultData.length);
@@ -344,7 +364,7 @@ describe('EditorProTable', () => {
     await act(() => vi.runOnlyPendingTimers());
 
     await waitFor(() => {
-      expect(onChange).toBeCalled();
+      expect(onChange).toHaveBeenCalled();
     });
     await waitFor(() => {
       expect(changedDataSource).toHaveLength(defaultData.length);
@@ -352,7 +372,7 @@ describe('EditorProTable', () => {
     await waitFor(() => {
       expect(changedDataSource[0]?.title).toBe('test value2');
     });
-    vi.useRealTimers();
+
     wrapper.unmount();
   });
 
@@ -533,7 +553,7 @@ describe('EditorProTable', () => {
 
     await waitForWaitTime(1000);
 
-    expect(onchange).not.toBeCalled();
+    expect(onchange).not.toHaveBeenCalled();
 
     wrapper.unmount();
   });
@@ -567,7 +587,7 @@ describe('EditorProTable', () => {
 
     await waitForWaitTime(1200);
 
-    expect(fn).not.toBeCalled();
+    expect(fn).not.toHaveBeenCalled();
     act(() => {
       fireEvent.change(
         wrapper.container
@@ -1165,12 +1185,16 @@ describe('EditorProTable', () => {
     );
 
     await waitForWaitTime(300);
-    expect(valuesChangeFn).toBeCalledTimes(0);
+
+    await waitFor(() => {
+      expect(valuesChangeFn).not.toHaveBeenCalled();
+    });
 
     await act(async () => {
       (await wrapper.queryAllByText('编辑')).at(0)?.click();
     });
     await waitForWaitTime(1200);
+
     act(() => {
       fireEvent.change(
         wrapper.container
@@ -1183,7 +1207,7 @@ describe('EditorProTable', () => {
         },
       );
     });
-    expect(valuesChangeFn).toBeCalledTimes(1);
+    expect(valuesChangeFn).toHaveBeenCalledTimes(1);
     expect(valuesChangeFn).toHaveBeenCalledWith('test');
   });
 

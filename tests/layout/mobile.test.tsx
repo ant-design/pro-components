@@ -1,6 +1,15 @@
 ﻿import { ProLayout } from '@ant-design/pro-components';
 import { cleanup, render, waitFor } from '@testing-library/react';
 import { act } from 'react';
+import {
+  afterAll,
+  afterEach,
+  beforeAll,
+  describe,
+  expect,
+  it,
+  vi,
+} from 'vitest';
 import defaultProps from './defaultProps';
 
 afterEach(() => {
@@ -45,12 +54,13 @@ describe('mobile BasicLayout', () => {
 
   it('📱 collapsed=false', async () => {
     const html = render(
-      <ProLayout {...defaultProps} getContainer={false} collapsed={false} />,
+      <ProLayout {...defaultProps} getContainer={false} collapsed={false}>
+        welcome
+      </ProLayout>,
     );
     await waitFor(async () => {
       await html.findAllByText('welcome');
     });
-    expect(html.asFragment()).toMatchSnapshot();
   });
 
   it('📱 layout=mix', async () => {
@@ -60,7 +70,9 @@ describe('mobile BasicLayout', () => {
         getContainer={false}
         layout="mix"
         collapsed={false}
-      />,
+      >
+        welcome
+      </ProLayout>,
     );
     await waitFor(async () => {
       await html.findAllByText('welcome');
@@ -76,12 +88,13 @@ describe('mobile BasicLayout', () => {
         getContainer={false}
         layout="mix"
         collapsed={false}
-      />,
+      >
+        welcome
+      </ProLayout>,
     );
     await waitFor(async () => {
       await html.findAllByText('welcome');
     });
-    expect(html.asFragment()).toMatchSnapshot();
   });
 
   it('📱 layout menuHeaderRender=false', async () => {
@@ -120,7 +133,7 @@ describe('mobile BasicLayout', () => {
     expect(html.asFragment()).toMatchSnapshot();
   });
 
-  it('📱 layout menuHeaderRender', async () => {
+  it('📱 layout menuHeaderRender with custom title', async () => {
     const html = render(
       <ProLayout
         {...defaultProps}
@@ -150,35 +163,42 @@ describe('mobile BasicLayout', () => {
         }}
         getContainer={false}
         layout="mix"
-      />,
+      >
+        welcome
+      </ProLayout>,
     );
 
     await waitFor(async () => {
-      await html.findAllByText('div');
+      await html.findAllByText('welcome');
     });
-    act(() => {
-      html.baseElement
-        ?.querySelector<HTMLSpanElement>(
-          'span.ant-pro-global-header-collapsed-button',
-        )
-        ?.click();
+
+    await act(async () => {
+      const collapsedButton = html.baseElement?.querySelector<HTMLSpanElement>(
+        'span.ant-pro-global-header-collapsed-button',
+      );
+      if (collapsedButton) {
+        collapsedButton.click();
+      }
     });
 
     await waitFor(async () => {
       await html.findAllByText('welcome');
     });
 
-    act(() => {
-      html.baseElement
-        ?.querySelector<HTMLDivElement>('div.ant-drawer-mask')
-        ?.click();
+    await act(async () => {
+      const mask = html.baseElement?.querySelector<HTMLDivElement>(
+        'div.ant-drawer-mask',
+      );
+      if (mask) {
+        mask.click();
+      }
     });
 
     await waitFor(async () => {
       await html.findAllByText('welcome');
     });
 
-    waitFor(() => {
+    await waitFor(() => {
       expect(onCollapse).toHaveBeenCalled();
     });
   });

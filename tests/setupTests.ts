@@ -1,11 +1,9 @@
-﻿/* eslint-disable react/no-is-mounted */
-import '@testing-library/jest-dom';
+﻿import '@testing-library/jest-dom/vitest';
 import { defaultConfig } from 'antd/lib/theme/internal';
 import crypto from 'crypto';
 import MockDate from 'mockdate';
 import React from 'react';
 import { vi } from 'vitest';
-import tableData from './table/mock.data.json';
 
 defaultConfig.hashed = false;
 globalThis.React = React;
@@ -13,6 +11,9 @@ globalThis.React = React;
 vi.stubGlobal('IS_REACT_ACT_ENVIRONMENT', true);
 vi.stubGlobal('ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION', true);
 vi.stubEnv('TZ', 'UTC');
+
+//@ts-ignore
+globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
 vi.mock('antd', async (importActual) => {
   const antd = await importActual<typeof import('antd')>();
@@ -79,10 +80,6 @@ Object.defineProperty(globalThis, 'localStorage', {
   writable: true,
 });
 
-Object.defineProperty(globalThis, 'cancelAnimationFrame', {
-  value: () => null,
-});
-
 // 2016-11-22 15:22:44
 MockDate.set(1479828164000);
 
@@ -109,6 +106,21 @@ if (process.env.TEST_LOG === 'none') {
   console.log = () => {};
 }
 
+// 重写 console.error 来过滤 act() 警告
+const originalError = console.error;
+console.error = (...args: any[]) => {
+  if (
+    (typeof args[0] === 'string' &&
+      (args[0].includes('was not wrapped in act') ||
+        args[0].includes('inside a test was not wrapped in act') ||
+        args[0].includes('Warning: An update to'))) ||
+    args?.[0]?.includes?.('act(...)')
+  ) {
+    return;
+  }
+  originalError.call(console, args[0]);
+};
+
 // https://github.com/nickcolley/jest-axe/issues/147#issuecomment-758804533
 const { getComputedStyle } = globalThis;
 globalThis.getComputedStyle = (elt) => getComputedStyle(elt);
@@ -116,10 +128,3 @@ globalThis.getComputedStyle = (elt) => getComputedStyle(elt);
 // with jest-canvas-mock
 (globalThis as any).jest = vi;
 await import('jest-canvas-mock');
-
-// with jest-fetch-mock
-(await import('jest-fetch-mock')).enableFetchMocks();
-//@ts-ignore
-fetch.mockResponse(async () => {
-  return { body: JSON.stringify(tableData) };
-});

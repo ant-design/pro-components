@@ -1,5 +1,146 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`Field > 🐴 FieldStatus status  default 1`] = `
+<DocumentFragment>
+  <span
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  >
+    <span
+      class="ant-badge-status-dot ant-badge-status-default"
+    />
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Field > 🐴 FieldStatus status  error 1`] = `
+<DocumentFragment>
+  <span
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  >
+    <span
+      class="ant-badge-status-dot ant-badge-status-error"
+    />
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Field > 🐴 FieldStatus status  processing 1`] = `
+<DocumentFragment>
+  <span
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  >
+    <span
+      class="ant-badge-status-dot ant-badge-status-processing"
+    />
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Field > 🐴 FieldStatus status  success 1`] = `
+<DocumentFragment>
+  <span
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  >
+    <span
+      class="ant-badge-status-dot ant-badge-status-success"
+    />
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Field > 🐴 FieldStatus status  warning 1`] = `
+<DocumentFragment>
+  <span
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  >
+    <span
+      class="ant-badge-status-dot ant-badge-status-warning"
+    />
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Field > 🐴 FieldStatus status Default 1`] = `
+<DocumentFragment>
+  <span
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  >
+    <span
+      class="ant-badge-status-dot ant-badge-status-default"
+    />
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Field > 🐴 FieldStatus status Error 1`] = `
+<DocumentFragment>
+  <span
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  >
+    <span
+      class="ant-badge-status-dot ant-badge-status-error"
+    />
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Field > 🐴 FieldStatus status Processing 1`] = `
+<DocumentFragment>
+  <span
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  >
+    <span
+      class="ant-badge-status-dot ant-badge-status-processing"
+    />
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Field > 🐴 FieldStatus status Success 1`] = `
+<DocumentFragment>
+  <span
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  >
+    <span
+      class="ant-badge-status-dot ant-badge-status-success"
+    />
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Field > 🐴 FieldStatus status Warning 1`] = `
+<DocumentFragment>
+  <span
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  >
+    <span
+      class="ant-badge-status-dot ant-badge-status-warning"
+    />
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Field > 🐴 FieldTimePicker text support is null 1`] = `
+<DocumentFragment>
+  <span>
+    -
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Field > 🐴 ProFieldBadgeColor status 1`] = `
+<DocumentFragment>
+  <span
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  >
+    <span
+      class="ant-badge-status-dot"
+      style="color: #1890ff; background: #1890ff;"
+    />
+  </span>
+</DocumentFragment>
+`;
+
 exports[`Field > 🐴 base use 1`] = `
 <DocumentFragment>
   <div
@@ -1245,7 +1386,8 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                     class="ant-input ant-input-outlined"
                     rows="5"
                   >
-                    yarn run v1.22.0
+                    
+yarn run v1.22.0
 $ eslint --format=pretty ./packages
 Done in 9.70s.
           
@@ -2494,29 +2636,32 @@ Done in 9.70s.
                   class="ant-descriptions-item-content"
                 >
                   <input
+                    .eslintrc.js=""
+                    :=""
                     class="ant-input ant-input-outlined"
+                    compileroptions=""
+                    declaration=""
+                    demo=""
+                    docs=""
+                    esmoduleinterop=""
+                    esnext=""
+                    experimentaldecorators=""
+                    forceconsistentcasinginfilenames=""
+                    include=""
+                    jsx=""
+                    moduleresolution=""
+                    node=""
+                    noimplicitreturns=""
+                    preserve=""
+                    scripts=""
+                    skiplibcheck=""
+                    src=""
+                    strict=""
+                    target=""
+                    true=""
                     type="text"
                     value="{
-  "compilerOptions": {
-    "target": "esnext",
-    "moduleResolution": "node",
-    "jsx": "preserve",
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": true,
-    "declaration": true,
-    "skipLibCheck": true
-  },
-  "include": [
-    "**/src",
-    "**/docs",
-    "scripts",
-    "**/demo",
-    ".eslintrc.js"
-  ]
-}"
+  "
                   />
                 </span>
               </div>
@@ -3070,7 +3215,7 @@ exports[`Field > 🐴 percent valueType is Object 1`] = `
 exports[`Field > 🐴 percent=0 1`] = `
 <DocumentFragment>
   <span
-    style="color: rgb(89, 89, 89);"
+    style="color: #595959;"
   >
      0.00%
   </span>
@@ -3664,7 +3809,22 @@ exports[`Field > 🐴 read and plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <pre
-                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px; width: min-content;"
+                    0.1=""
+                    150=""
+                    3px=""
+                    background-color:=""
+                    border-radius:=""
+                    consolas=""
+                    courier=""
+                    liberation=""
+                    menlo=""
+                    min-content=""
+                    mono=""
+                    monospace=""
+                    rgba=""
+                    sfmono-regular=""
+                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: "
+                    width:=""
                   >
                     <code>
                       
@@ -3693,7 +3853,22 @@ Done in 9.70s.
                   class="ant-descriptions-item-content"
                 >
                   <pre
-                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px; width: min-content;"
+                    0.1=""
+                    150=""
+                    3px=""
+                    background-color:=""
+                    border-radius:=""
+                    consolas=""
+                    courier=""
+                    liberation=""
+                    menlo=""
+                    min-content=""
+                    mono=""
+                    monospace=""
+                    rgba=""
+                    sfmono-regular=""
+                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: "
+                    width:=""
                   >
                     <code>
                       {
@@ -4220,7 +4395,22 @@ exports[`Field > 🐴 read ant no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <pre
-                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px; width: min-content;"
+                    0.1=""
+                    150=""
+                    3px=""
+                    background-color:=""
+                    border-radius:=""
+                    consolas=""
+                    courier=""
+                    liberation=""
+                    menlo=""
+                    min-content=""
+                    mono=""
+                    monospace=""
+                    rgba=""
+                    sfmono-regular=""
+                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: "
+                    width:=""
                   >
                     <code>
                       
@@ -4249,7 +4439,22 @@ Done in 9.70s.
                   class="ant-descriptions-item-content"
                 >
                   <pre
-                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px; width: min-content;"
+                    0.1=""
+                    150=""
+                    3px=""
+                    background-color:=""
+                    border-radius:=""
+                    consolas=""
+                    courier=""
+                    liberation=""
+                    menlo=""
+                    min-content=""
+                    mono=""
+                    monospace=""
+                    rgba=""
+                    sfmono-regular=""
+                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: "
+                    width:=""
                   >
                     <code>
                       {

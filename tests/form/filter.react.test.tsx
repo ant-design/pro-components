@@ -4,11 +4,17 @@ import {
   ProFormText,
   ProFormTreeSelect,
   QueryFilter,
-} from '@ant-design/pro-form';
-import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
+} from '@ant-design/pro-components';
+import {
+  act,
+  cleanup,
+  fireEvent,
+  render,
+  waitFor,
+} from '@testing-library/react';
 import { TreeSelect } from 'antd';
-import { _el, _rs } from 'rc-resize-observer/lib/utils/observerUtil';
-import { act } from 'react';
+import { _el, _rs } from 'rc-resize-observer/es/utils/observerUtil';
+import { afterEach, describe, expect, it } from 'vitest';
 import { waitForWaitTime } from '../util';
 
 afterEach(() => {

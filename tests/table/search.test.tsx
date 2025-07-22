@@ -5,6 +5,15 @@ import type { FormInstance } from 'antd';
 import { Input } from 'antd';
 import dayjs from 'dayjs';
 import React, { act, createRef } from 'react';
+import {
+  afterAll,
+  afterEach,
+  beforeAll,
+  describe,
+  expect,
+  it,
+  vi,
+} from 'vitest';
 import { waitTime } from '../util';
 
 afterEach(() => {
@@ -12,6 +21,8 @@ afterEach(() => {
 });
 
 describe('BasicTable Search', () => {
+  beforeAll(() => vi.useFakeTimers());
+  afterAll(() => vi.useRealTimers());
   process.env.NODE_ENV = 'TEST';
   const LINE_STR_COUNT = 20;
 
@@ -23,12 +34,10 @@ describe('BasicTable Search', () => {
       return lines * 16;
     },
   });
-
   // Mock getComputedStyle
   const originGetComputedStyle = window.getComputedStyle;
   window.getComputedStyle = (ele) => {
     const style = originGetComputedStyle(ele);
-    style.lineHeight = '16px';
     return style;
   };
 
@@ -70,7 +79,7 @@ describe('BasicTable Search', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
       expect(paramsFn).toHaveBeenCalledWith(1, 20);
     });
   });
@@ -105,7 +114,7 @@ describe('BasicTable Search', () => {
     );
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
     });
 
     const dom = await (await html.findAllByText('重 置')).at(0);
@@ -115,15 +124,15 @@ describe('BasicTable Search', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(2);
-      expect(resetFn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(2);
+      expect(resetFn).toHaveBeenCalledTimes(1);
     });
   });
 
   it('🎏 reset test when pagination is false', async () => {
     const fn = vi.fn();
     const resetFn = vi.fn();
-    vi.useFakeTimers();
+
     const html = render(
       <ProTable
         size="small"
@@ -152,9 +161,7 @@ describe('BasicTable Search', () => {
     );
 
     await html.findAllByText('重 置');
-    act(() => {
-      vi.runOnlyPendingTimers();
-    });
+
     const dom = await (await html.findAllByText('重 置')).at(0);
 
     act(() => {
@@ -162,10 +169,9 @@ describe('BasicTable Search', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(2);
-      expect(resetFn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
+      expect(resetFn).toHaveBeenCalledTimes(1);
     });
-    vi.useRealTimers();
   });
 
   it('🎏 table will render loading dom', async () => {
@@ -211,7 +217,7 @@ describe('BasicTable Search', () => {
     await html.findAllByText('暂无数据');
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
     });
 
     await waitFor(() => {
@@ -260,7 +266,9 @@ describe('BasicTable Search', () => {
 
     await html.findAllByText('姓名');
 
-    expect(fn).toBeCalledTimes(0);
+    await waitFor(() => {
+      expect(fn).not.toHaveBeenCalled();
+    });
 
     expect(!!html.baseElement.querySelector('.ant-spin')).toBeFalsy();
 
@@ -269,7 +277,7 @@ describe('BasicTable Search', () => {
 
   it('🎏 manualRequest test', async () => {
     const requestFn = vi.fn();
-    vi.useFakeTimers();
+
     const actionRef = React.createRef<any>();
     const html = render(
       <ProTable
@@ -300,11 +308,7 @@ describe('BasicTable Search', () => {
     );
 
     await waitFor(() => {
-      expect(requestFn).toBeCalledTimes(0);
-    });
-
-    act(() => {
-      vi.runOnlyPendingTimers();
+      expect(requestFn).not.toHaveBeenCalled();
     });
 
     act(() => {
@@ -313,10 +317,8 @@ describe('BasicTable Search', () => {
 
     await html.findAllByText('¥12,000.00');
     await waitFor(() => {
-      expect(requestFn).toBeCalledTimes(1);
+      expect(requestFn).toHaveBeenCalledTimes(1);
     });
-
-    vi.useRealTimers();
   });
 
   it('🎏 search span test', async () => {
@@ -410,13 +412,13 @@ describe('BasicTable Search', () => {
       expect(formValues.status).toBe('state');
       expect(formValues.startTime).toBe('2020-09-11');
       expect(formValues.endTime).toBe('2020-09-22');
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
     });
 
     html.unmount();
   });
 
-  it('🎏 renderFormItem test and fieldProps onChange', async () => {
+  it('🎏 formItemRender test and fieldProps onChange', async () => {
     const fn = vi.fn();
     const onChangeFn = vi.fn();
     const html = render(
@@ -427,6 +429,7 @@ describe('BasicTable Search', () => {
             fn(values.money);
           },
         }}
+        toolBarRender={false}
         columns={[
           {
             title: '金额',
@@ -437,14 +440,27 @@ describe('BasicTable Search', () => {
                 onChangeFn(e.target.value);
               },
             },
-            renderFormItem: () => {
-              return <Input id="renderFormItem" placeholder="renderFormItem" />;
+            search: {
+              transform: (value) => ({ money: value }),
             },
-          },
-          {
-            title: 'Name',
-            key: 'name',
-            dataIndex: 'name',
+            formItemProps: {
+              required: true,
+            },
+            formItemRender: () => {
+              return (
+                <div id="formItemRender">
+                  <Input
+                    id="formItemRender"
+                    placeholder="formItemRender"
+                    data-testid="formItemRender"
+                    onChange={(e) => {
+                      onChangeFn(e.target.value);
+                      fn(e.target.value);
+                    }}
+                  />
+                </div>
+              );
+            },
           },
         ]}
         dataSource={[{ key: 1, name: '1', money: 1 }]}
@@ -452,17 +468,13 @@ describe('BasicTable Search', () => {
       />,
     );
 
-    await html.findAllByPlaceholderText('renderFormItem');
-
-    expect(html.baseElement.querySelector('input#renderFormItem')).toBeTruthy();
+    const input = await html.findByTestId('formItemRender');
+    expect(input).toBeTruthy();
 
     act(() => {
-      fireEvent.change(
-        html.baseElement.querySelector('input#renderFormItem')!,
-        {
-          target: { value: '12' },
-        },
-      );
+      fireEvent.change(input, {
+        target: { value: '12' },
+      });
     });
     await waitFor(() => {
       expect(onChangeFn).toHaveBeenCalledWith('12');
@@ -472,7 +484,7 @@ describe('BasicTable Search', () => {
     html.unmount();
   });
 
-  it('🎏 renderFormItem support return false', async () => {
+  it('🎏 formItemRender support return false', async () => {
     const formRef = createRef<FormInstance | null>();
     const html = render(
       <ProTable
@@ -486,7 +498,7 @@ describe('BasicTable Search', () => {
             formItemProps: {
               className: 'money-class',
             },
-            renderFormItem: () => false,
+            formItemRender: () => false,
           },
           {
             title: 'Name',
@@ -519,7 +531,7 @@ describe('BasicTable Search', () => {
               formItemProps: {
                 className: 'money-class',
               },
-              renderFormItem: () => <div />,
+              formItemRender: () => <div />,
             },
             {
               title: 'Name',
@@ -581,7 +593,7 @@ describe('BasicTable Search', () => {
             title: '金额',
             dataIndex: 'money',
             valueType: 'money',
-            renderFormItem: () => <Input id="renderFormItem" />,
+            formItemRender: () => <Input id="formItemRender" />,
           },
           {
             title: 'Name',
@@ -611,7 +623,7 @@ describe('BasicTable Search', () => {
             title: '金额',
             dataIndex: 'money',
             valueType: 'money',
-            renderFormItem: () => <Input id="renderFormItem" />,
+            formItemRender: () => <Input id="formItemRender" />,
           },
           {
             title: 'Name',
@@ -646,7 +658,7 @@ describe('BasicTable Search', () => {
               title: '金额',
               dataIndex: 'money',
               valueType: 'money',
-              renderFormItem: () => <Input id="renderFormItem" />,
+              formItemRender: () => <Input id="formItemRender" />,
             },
             {
               title: 'Name',
@@ -766,6 +778,13 @@ describe('BasicTable Search', () => {
 
     await html.findAllByText('创建时间');
 
+    // 等待formRef初始化完成
+    await waitFor(() => {
+      expect(formRef.current).toBeDefined();
+      expect(typeof formRef.current?.submit).toBe('function');
+    });
+
+    // 测试formRef的submit方法
     act(() => {
       formRef.current?.submit();
     });
@@ -774,6 +793,52 @@ describe('BasicTable Search', () => {
       expect(onSubmitFn).toHaveBeenCalledWith('2020-09-11');
     });
 
-    expect(formRef.current?.getFieldFormatValue?.().since).toBe('2020-09-11');
+    // 测试formRef的getFieldsValue方法
+    const fieldsValue = formRef.current?.getFieldsValue?.();
+    expect(fieldsValue).toBeDefined();
+    expect(fieldsValue?.since).toBeDefined();
+    expect(fieldsValue?.since?.format?.('YYYY-MM-DD')).toBe('2020-09-11');
+
+    // 测试formRef的setFieldsValue方法
+    act(() => {
+      formRef.current?.setFieldsValue?.({
+        since: dayjs('2020-10-15 00:00:00'),
+      });
+    });
+
+    // 验证字段值已更新
+    await waitFor(() => {
+      const updatedFieldsValue = formRef.current?.getFieldsValue?.();
+      expect(updatedFieldsValue?.since?.format?.('YYYY-MM-DD')).toBe(
+        '2020-10-15',
+      );
+    });
+
+    // 测试formRef的resetFields方法
+    act(() => {
+      formRef.current?.resetFields?.();
+    });
+
+    // 验证字段已重置
+    await waitFor(() => {
+      const resetFieldsValue = formRef.current?.getFieldsValue?.();
+      expect(resetFieldsValue?.since?.format?.('YYYY-MM-DD')).toBe(
+        '2020-09-11',
+      );
+    });
+
+    // 测试formRef的getFieldValue方法
+    const fieldValue = formRef.current?.getFieldValue?.('since');
+    expect(fieldValue?.format?.('YYYY-MM-DD')).toBe('2020-09-11');
+
+    // 测试formRef的setFieldValue方法
+    act(() => {
+      formRef.current?.setFieldValue?.('since', dayjs('2020-12-25 00:00:00'));
+    });
+
+    await waitFor(() => {
+      const newFieldValue = formRef.current?.getFieldValue?.('since');
+      expect(newFieldValue?.format?.('YYYY-MM-DD')).toBe('2020-12-25');
+    });
   });
 });

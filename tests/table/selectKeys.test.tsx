@@ -1,6 +1,7 @@
-import ProTable from '@ant-design/pro-table';
+import { ProTable } from '@ant-design/pro-components';
 import { cleanup, render, waitFor } from '@testing-library/react';
 import React, { act, useState } from 'react';
+import { afterAll, afterEach, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
 import { getFetchData } from './demo';
 
@@ -29,7 +30,6 @@ describe('BasicTable Search', () => {
   const originGetComputedStyle = window.getComputedStyle;
   window.getComputedStyle = (ele) => {
     const style = originGetComputedStyle(ele);
-    style.lineHeight = '16px';
     return style;
   };
 
@@ -80,7 +80,7 @@ describe('BasicTable Search', () => {
         ?.click();
     });
     await waitForWaitTime(200);
-    expect(fn).toBeCalledTimes(1);
+    expect(fn).toHaveBeenCalledTimes(1);
   });
 
   it('✔️ selected rows support row is function', async () => {

@@ -1,4 +1,4 @@
-import Field from '@ant-design/pro-field';
+import { ProField as Field } from '@ant-design/pro-components';
 import type { TreeSelectProps } from 'antd';
 import { waitTime } from '../../util';
 
@@ -22,7 +22,7 @@ export function TreeSelectDemo(
         treeNodeFilterProp: 'title',
         filterTreeNode: true,
         open: true,
-        showArrow: false,
+        suffixIcon: null,
         ...fieldProps,
       }}
       value={value}

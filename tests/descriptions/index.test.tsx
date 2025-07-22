@@ -1,16 +1,14 @@
-import ProDescriptions from '@ant-design/pro-descriptions';
-import type { ProCoreActionType } from '@ant-design/pro-utils';
+import type { ProCoreActionType } from '@ant-design/pro-components';
+import { ProDescriptions } from '@ant-design/pro-components';
 import { cleanup, render, waitFor } from '@testing-library/react';
 import { Button, Input } from 'antd';
 import React, { act } from 'react';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 afterEach(() => {
   cleanup();
 });
 
 describe('descriptions', () => {
-  afterEach(() => {
-    cleanup();
-  });
   it('🥩 descriptions render valueEnum when data = 0', async () => {
     const { container } = render(
       <ProDescriptions
@@ -62,12 +60,11 @@ describe('descriptions', () => {
     );
 
     await waitFor(() => {
-      expect(fn).toBeCalled();
+      expect(fn).toHaveBeenCalled();
     });
   });
 
   it('🎏 loading test', async () => {
-    vi.useFakeTimers();
     const html = render(
       <ProDescriptions
         columns={[
@@ -86,10 +83,6 @@ describe('descriptions', () => {
         }}
       />,
     );
-
-    act(() => {
-      vi.advanceTimersByTime(2000);
-    });
 
     await waitFor(() => {
       expect(!!html.baseElement.querySelector('.ant-skeleton')).toBeTruthy();
@@ -117,21 +110,15 @@ describe('descriptions', () => {
       );
     });
 
-    act(() => {
-      vi.advanceTimersByTime(2000);
-    });
-
     await waitFor(() => {
       // props 指定为 false 后，无论 request 完成与否都不会出现 spin
       expect(!!html.baseElement.querySelector('.ant-skeleton')).toBeFalsy();
     });
-
-    vi.useRealTimers();
   });
 
   it('🥩 test reload', async () => {
     const fn = vi.fn();
-    vi.useFakeTimers();
+
     const actionRef = React.createRef<ProCoreActionType>();
     const Reload = () => {
       return (
@@ -176,21 +163,26 @@ describe('descriptions', () => {
             label="money"
             dataIndex="money"
             valueType="money"
-            renderFormItem={() => <Input />}
+            formItemRender={() => <Input />}
           />
         </ProDescriptions>
       );
     };
     const html = render(<Reload />);
 
-    await act(() => {
-      return vi.runOnlyPendingTimers();
+    // 等待数据加载完成，而不是直接查找文本
+    await waitFor(() => {
+      expect(fn).toHaveBeenCalledTimes(1);
     });
 
-    await html.findAllByText('这是一段文本');
-    await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
-    });
+    // 等待文本出现，增加超时时间以处理2秒延迟
+    await waitFor(
+      () => {
+        expect(html.getByText('这是一段文本')).toBeInTheDocument();
+      },
+      { timeout: 5000 },
+    );
+
     act(() => {
       html.queryByText('刷新')?.click();
     });
@@ -203,15 +195,13 @@ describe('descriptions', () => {
 
     await waitFor(() => {
       // 因为有 loading 的控制，所有只会触发两次
-      expect(fn).toBeCalledTimes(2);
+      expect(fn).toHaveBeenCalledTimes(2);
     });
-
-    vi.useRealTimers();
   });
 
   it('🥩 test reload by params', async () => {
     const fn = vi.fn();
-    vi.useFakeTimers();
+
     const html = render(
       <ProDescriptions
         title="高级定义列表 request"
@@ -238,14 +228,14 @@ describe('descriptions', () => {
       </ProDescriptions>,
     );
 
-    await html.findAllByText('这是一段文本');
-
-    act(() => {
-      vi.runOnlyPendingTimers();
+    // 等待数据加载完成
+    await waitFor(() => {
+      expect(fn).toHaveBeenCalledTimes(1);
     });
 
+    // 等待文本出现
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
+      expect(html.getByText('这是一段文本')).toBeInTheDocument();
     });
 
     act(() => {
@@ -281,17 +271,14 @@ describe('descriptions', () => {
       );
     });
 
-    act(() => {
-      vi.runOnlyPendingTimers();
+    // 等待重新渲染后的文本出现
+    await waitFor(() => {
+      expect(html.getByText('这是一段文本')).toBeInTheDocument();
     });
-
-    await html.findAllByText('这是一段文本');
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(2);
+      expect(fn).toHaveBeenCalledTimes(2);
     });
-
-    vi.useRealTimers();
   });
 
   it('🥩 test request error', async () => {
@@ -321,7 +308,7 @@ describe('descriptions', () => {
     );
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
     });
   });
 

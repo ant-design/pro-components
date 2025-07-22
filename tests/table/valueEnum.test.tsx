@@ -1,8 +1,8 @@
-import ProProvider from '@ant-design/pro-provider';
-import ProTable from '@ant-design/pro-table';
+import { ProProvider, ProTable } from '@ant-design/pro-components';
 import { cleanup, render, waitFor } from '@testing-library/react';
 import { Input } from 'antd';
 import { act, useContext } from 'react';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
 
 const Demo = () => {
@@ -14,7 +14,7 @@ const Demo = () => {
         valueTypeMap: {
           link: {
             render: (text) => <a>{text}</a>,
-            renderFormItem: (text, props) => (
+            formItemRender: (text, props) => (
               <Input placeholder="请输入链接" {...props?.fieldProps} />
             ),
           },
@@ -78,10 +78,11 @@ describe('Table valueEnum', () => {
         rowKey="key"
       />,
     );
-    await waitFor(() => {
-      return html.findAllByText('2');
-    });
 
+    // 等待组件完全渲染
+    await waitForWaitTime(1000);
+
+    // 重新渲染组件，添加 valueEnum
     act(() => {
       html.rerender(
         <ProTable
@@ -115,6 +116,9 @@ describe('Table valueEnum', () => {
       );
     });
 
+    // 等待重新渲染完成
+    await waitForWaitTime(1000);
+
     await waitFor(() => {
       return html.findAllByText('已上线');
     });
@@ -124,6 +128,9 @@ describe('Table valueEnum', () => {
         .querySelector<HTMLDivElement>('form.ant-form div.ant-select')
         ?.click();
     });
+
+    await waitForWaitTime(500);
+
     act(() => {
       expect(
         html.baseElement.querySelector<HTMLDivElement>(
@@ -180,8 +187,14 @@ describe('Table valueEnum', () => {
       />,
     );
 
-    await waitFor(() => {
-      expect(request).toHaveBeenCalledTimes(1);
-    });
+    // 等待组件完全渲染和异步操作完成
+    await waitForWaitTime(1000);
+
+    await waitFor(
+      () => {
+        expect(request).toHaveBeenCalledTimes(1);
+      },
+      { timeout: 5000 },
+    );
   });
 });

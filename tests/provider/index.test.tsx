@@ -7,6 +7,7 @@ import {
 } from '@ant-design/pro-components';
 import { cleanup, render } from '@testing-library/react';
 import { ConfigProvider } from 'antd';
+import { afterEach, describe, expect, it } from 'vitest';
 
 afterEach(() => {
   cleanup();
@@ -58,9 +59,8 @@ describe('ProConfigProvider', () => {
       </ConfigProvider>,
     );
 
-    expect(container.querySelectorAll('input#amount')[0]).toHaveAttribute(
-      'value',
-      '!? 44.33',
-    );
+    const input = container.querySelector('input#amount') as HTMLInputElement;
+    expect(input).toBeTruthy();
+    expect(input.value).toBe('!? 44.33');
   });
 });

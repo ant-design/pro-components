@@ -1,4 +1,9 @@
 import {
+  StyleProvider,
+  legacyLogicalPropertiesTransformer,
+} from '@ant-design/cssinjs';
+import {
+  act,
   cleanup,
   render as reactRender,
   waitFor,
@@ -6,12 +11,15 @@ import {
 import { App } from 'antd';
 import glob from 'glob';
 import MockDate from 'mockdate';
-import { act, useEffect } from 'react';
-
 import {
-  StyleProvider,
-  legacyLogicalPropertiesTransformer,
-} from '@ant-design/cssinjs';
+  afterAll,
+  afterEach,
+  beforeAll,
+  describe,
+  expect,
+  test,
+  vi,
+} from 'vitest';
 
 type Options = {
   skip?: boolean;
@@ -39,11 +47,7 @@ function demoTest(component: string, options?: Options) {
 
   // Mock getComputedStyle
   const originGetComputedStyle = window.getComputedStyle;
-  window.getComputedStyle = (ele) => {
-    const style = originGetComputedStyle(ele);
-    style.lineHeight = '16px';
-    return style;
-  };
+
   beforeAll(() => {
     MockDate.set(1479828164000);
   });
@@ -62,15 +66,10 @@ function demoTest(component: string, options?: Options) {
     window.getComputedStyle = originGetComputedStyle;
   });
   // 支持 demos 下的所有非_开头的tsx文件
-  const files = glob.sync(`./packages/${component}/**/demos/**/[!_]*.tsx`);
+  const files = glob.sync(`./demos/${component}/**/[!_]*.tsx`);
   files.push(...glob.sync(`./${component}/**/**/[!_]*.tsx`));
 
-  const TestApp = (props: { children: any; onInit: () => void }) => {
-    useEffect(() => {
-      setTimeout(() => {
-        props.onInit?.();
-      }, 1000);
-    }, []);
+  const TestApp = (props: { children: any }) => {
     return (
       <StyleProvider
         hashPriority="high"
@@ -97,6 +96,8 @@ function demoTest(component: string, options?: Options) {
   );
 
   describe(`${component} demos`, () => {
+    beforeAll(() => vi.useFakeTimers());
+    afterAll(() => vi.useRealTimers());
     files.forEach((file) => {
       let testMethod = options?.skip === true ? test.skip : test;
       if (
@@ -106,22 +107,21 @@ function demoTest(component: string, options?: Options) {
         testMethod = test.skip;
       }
       testMethod(`📸 renders ${file} correctly`, async () => {
-        vi.useFakeTimers().setSystemTime(new Date('2016-11-22 15:22:44'));
-
-        const fn = vi.fn();
         Math.random = () => 0.8404419276253765;
 
         const Demo = (await import(`.${file}`)).default;
         const wrapper = reactRender(
-          <TestApp onInit={fn}>
+          <TestApp>
             <Demo />
           </TestApp>,
         );
 
+        await waitFor(() => {
+          return wrapper.findAllByText('test');
+        });
         act(() => {
           vi.runAllTimers();
         });
-
         await waitFor(() => {
           return wrapper.findAllByText('test');
         });
@@ -129,20 +129,14 @@ function demoTest(component: string, options?: Options) {
         act(() => {
           vi.runAllTimers();
         });
-
-        await waitFor(() => {
-          return wrapper.findAllByText('test');
-        });
-
-        await waitFor(() => {
-          expect(fn).toBeCalled();
-        });
-        await waitFor(() => {
-          expect(wrapper.asFragment()).toMatchSnapshot();
-        });
-
+        await expect(wrapper.asFragment()).toMatchFileSnapshot(
+          `snapshot/snapshot-${file
+            .split('/')
+            .filter((part) => !part.startsWith('_') && !part.startsWith('.'))
+            .map((part) => part.replace(/\.tsx$/, ''))
+            .join('-')}.html`,
+        );
         wrapper.unmount();
-        vi.useRealTimers();
         cleanup();
       });
     });

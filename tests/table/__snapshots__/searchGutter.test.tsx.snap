@@ -11,7 +11,7 @@ exports[`BasicTable SearchGutter > 🎏 ProTable support searchGutter 1`] = `
   />
   <div
     class="ant-row ant-row-start ant-pro-query-filter-row"
-    style="row-gap: 24px;"
+    style="margin-left: -8px; margin-right: -8px; row-gap: 24px;"
   >
     <div
       class="ant-col ant-col-8 ant-pro-query-filter-row-split"
@@ -100,7 +100,7 @@ exports[`BasicTable SearchGutter > 🎏 ProTable support searchGutter 1`] = `
                     class="ant-input-number-input-wrap"
                   >
                     <input
-                      aria-describedby=":r3:"
+                      aria-describedby=":r5:"
                       autocomplete="off"
                       class="ant-input-number-input"
                       id="money"

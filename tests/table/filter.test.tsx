@@ -1,4 +1,6 @@
-import ProTable, { ActionType } from '@ant-design/pro-table';
+import type { ActionType } from '@ant-design/pro-components';
+import { ProTable } from '@ant-design/pro-components';
+/// <reference types="@vitest/browser/context" />
 import {
   cleanup,
   fireEvent,
@@ -9,6 +11,7 @@ import {
 import userEvent from '@testing-library/user-event';
 import { Button } from 'antd';
 import { useRef, useState } from 'react';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { getFetchData } from './demo';
 
 afterEach(() => {
@@ -424,6 +427,15 @@ describe('BasicTable filter', () => {
     };
     const { container } = render(<TestComponent />);
 
+    // 等待初始数据加载
+    await waitFor(
+      () => {
+        expect(screen.queryByText('项目 A')).toBeInTheDocument();
+      },
+      { timeout: 10000 },
+    );
+
+    // 点击第一个筛选器（上线状态）
     await userEvent.click(
       container.querySelectorAll('span.ant-table-filter-trigger')[0],
     );
@@ -434,6 +446,7 @@ describe('BasicTable filter', () => {
       )!,
     );
 
+    // 点击第二个筛选器（运行状态）
     await userEvent.click(
       container.querySelectorAll('span.ant-table-filter-trigger')[1],
     );
@@ -444,6 +457,7 @@ describe('BasicTable filter', () => {
       )!,
     );
 
+    // 验证筛选后的结果
     await waitFor(
       () => {
         expect(screen.queryByText('项目 A')).toBeInTheDocument();
@@ -451,11 +465,13 @@ describe('BasicTable filter', () => {
         expect(screen.queryByText('项目 D')).not.toBeInTheDocument();
         expect(screen.queryByText('项目 B')).not.toBeInTheDocument();
       },
-      { timeout: 1000 },
+      { timeout: 10000 },
     );
 
+    // 点击重置按钮
     await userEvent.click(screen.getByRole('button', { name: /重置表格/i }));
 
+    // 验证重置后的结果（应该回到默认筛选状态）
     await waitFor(
       () => {
         expect(screen.queryByText('项目 A')).toBeInTheDocument();
@@ -463,9 +479,9 @@ describe('BasicTable filter', () => {
         expect(screen.queryByText('项目 B')).not.toBeInTheDocument();
         expect(screen.queryByText('项目 C')).not.toBeInTheDocument();
       },
-      { timeout: 1000 },
+      { timeout: 10000 },
     );
-  });
+  }, 15000);
 
   it('🎏 should pass filter parameters to request function with nested dataIndex', async () => {
     const fn = vi.fn();
@@ -521,6 +537,14 @@ describe('BasicTable filter', () => {
       />,
     );
 
+    // 等待初始数据加载
+    await waitFor(
+      () => {
+        expect(container.querySelector('.ant-table-row')).toBeInTheDocument();
+      },
+      { timeout: 10000 },
+    );
+
     await userEvent.click(
       container.querySelector('span.ant-table-filter-trigger')!,
     );
@@ -551,7 +575,7 @@ describe('BasicTable filter', () => {
     );
 
     expect(fn).toHaveBeenCalled();
-  });
+  }, 15000);
 });
 
 describe('BasicTable sorter', () => {
@@ -601,6 +625,14 @@ describe('BasicTable sorter', () => {
       />,
     );
 
+    // 等待初始数据加载
+    await waitFor(
+      () => {
+        expect(container.querySelector('.ant-table-row')).toBeInTheDocument();
+      },
+      { timeout: 10000 },
+    );
+
     await userEvent.click(
       container.querySelectorAll('span.ant-table-column-sorter-down')[0],
     );
@@ -614,8 +646,8 @@ describe('BasicTable sorter', () => {
       container.querySelectorAll('span.ant-table-column-sorter-down')[1],
     );
 
-    expect(fn).toBeCalledTimes(4);
-  });
+    expect(fn).toHaveBeenCalledTimes(4);
+  }, 15000);
 
   it('🎏 should trigger onChange when sorting with function sorters', async () => {
     const fn = vi.fn();
@@ -670,7 +702,7 @@ describe('BasicTable sorter', () => {
     );
 
     expect(fn).toHaveBeenCalledTimes(4);
-  });
+  }, 10000);
 
   it('🎏 should sort data locally', async () => {
     const fn = vi.fn();
@@ -738,7 +770,7 @@ describe('BasicTable sorter', () => {
 
         fn.mockClear(); // 清除初始 request 調用
       },
-      { timeout: 1000 },
+      { timeout: 10000 },
     );
 
     await userEvent.click(
@@ -761,7 +793,7 @@ describe('BasicTable sorter', () => {
 
     // 验证 fn 沒被调用，因为排序是在本地进行的
     expect(fn).not.toHaveBeenCalled();
-  });
+  }, 15000);
 
   it('🎏 should sort data request', async () => {
     const fn = vi.fn();

@@ -1,8 +1,8 @@
-import { ProProvider } from '@ant-design/pro-provider';
-import ProTable from '@ant-design/pro-table';
+import { ProProvider, ProTable } from '@ant-design/pro-components';
 import { cleanup, fireEvent, render } from '@testing-library/react';
 import { Input } from 'antd';
 import { act } from 'react';
+import { afterEach, describe, expect, it } from 'vitest';
 import { waitForWaitTime } from '../util';
 
 const cascaderOptions = [
@@ -94,7 +94,7 @@ describe('BasicTable valueType', () => {
             valueTypeMap: {
               link: {
                 render: (text: any) => <a id="link">{text}</a>,
-                renderFormItem: (_: any, props: any) => (
+                formItemRender: (_: any, props: any) => (
                   <Input
                     placeholder="请输入链接"
                     id="name"
@@ -140,7 +140,7 @@ describe('BasicTable valueType', () => {
                     {fieldProps.color}
                   </a>
                 ),
-                renderFormItem: (_: any, props: any) => (
+                formItemRender: (_: any, props: any) => (
                   <Input
                     placeholder="请输入链接"
                     id="name"

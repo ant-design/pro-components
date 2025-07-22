@@ -6,6 +6,7 @@ import {
 import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import { Button } from 'antd';
 import React, { act, useEffect, useMemo, useState } from 'react';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
 
 afterEach(() => {
@@ -453,6 +454,9 @@ describe('PageContainer', () => {
       <PageContainer
         title="标题"
         onTabChange={fn}
+        tabProps={{
+          type: 'card',
+        }}
         tabList={[
           {
             tab: '基本信息',
@@ -466,9 +470,9 @@ describe('PageContainer', () => {
       />,
     );
 
-    fireEvent.click(
-      container.querySelectorAll('.ant-tabs-nav-list .ant-tabs-tab')[1],
-    );
+    // In Ant Design v5, the tab button is inside a div with role="tab"
+    const tabs = container.querySelectorAll('[role="tab"]');
+    fireEvent.click(tabs[1]);
 
     await waitFor(() => {
       expect(fn).toHaveBeenCalledWith('info');
@@ -554,7 +558,10 @@ describe('PageContainer', () => {
       />,
     );
 
-    expect(html.container.innerText).toBe(undefined);
+    // 当 breadcrumbRender={false} 时，面包屑应该被禁用
+    expect(
+      html.container.querySelector('.ant-page-header-has-breadcrumb'),
+    ).toBeNull();
 
     html.rerender(
       <PageContainer
