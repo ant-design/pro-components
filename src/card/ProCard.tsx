@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from 'react';
 import Card from './components/Card';
 import Divider from './components/Divider';
-import TabPane from './components/TabPane';
+
 import type { CardProps, CardType } from './typing';
 
 export type ProCardProps = CardProps;
@@ -9,7 +9,7 @@ export type ProCardProps = CardProps;
 export type ProCardType = CardType & {
   isProCard: boolean;
   Divider: typeof Divider;
-  TabPane: typeof TabPane;
+  TabPane: () => null;
   Group: typeof Group;
 };
 
@@ -23,7 +23,8 @@ const ProCard: ProCardType = Card;
 
 ProCard.isProCard = true;
 ProCard.Divider = Divider;
-ProCard.TabPane = TabPane;
+// @deprecated TabPane 已废弃，请使用 tabs.items 属性
+ProCard.TabPane = () => null;
 ProCard.Group = Group;
 
 export default ProCard;

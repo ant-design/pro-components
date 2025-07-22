@@ -102,7 +102,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     dataIndex: 'created_at',
     valueType: 'date',
     sorter: true,
-    hideInSearch: true,
+    search: false,
   },
   {
     title: 'Creation Time',

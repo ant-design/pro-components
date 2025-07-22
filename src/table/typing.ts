@@ -107,9 +107,6 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
     /** @name 是否拷贝 */
     copyable?: boolean;
 
-    /** @deprecated Use `search=false` instead 在查询表单中隐藏 */
-    hideInSearch?: boolean;
-
     /** 在查询表单中隐藏 */
     search?:
       | boolean

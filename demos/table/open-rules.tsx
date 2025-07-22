@@ -94,7 +94,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     key: 'showTime',
     dataIndex: 'created_at',
     valueType: 'date',
-    hideInSearch: true,
+    search: false,
     formItemProps: {
       rules: [
         {

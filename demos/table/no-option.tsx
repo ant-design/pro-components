@@ -69,7 +69,7 @@ const columns: ProColumns<TableListItem>[] = [
     tooltip: '这是一段描述',
     width: 140,
     key: 'since',
-    hideInSearch: true,
+    search: false,
     dataIndex: 'createdAt',
     valueType: 'date',
     sorter: (a, b) => a.createdAt - b.createdAt,

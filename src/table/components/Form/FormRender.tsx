@@ -149,7 +149,7 @@ const FormRender = <T, U = any>({
         if (item === Table.EXPAND_COLUMN || item === Table.SELECTION_COLUMN) {
           return false;
         }
-        if ((item.hideInSearch || item.search === false) && type !== 'form') {
+        if (item.search === false && type !== 'form') {
           return false;
         }
         if (type === 'form' && item.hideInForm) {

@@ -46,12 +46,6 @@ export type PageHeaderTabConfig = {
   /** @name tabs 的其他配置 */
   tabProps?: TabsProps;
 
-  /**
-   * @deprecated 请使用 fixedHeader
-   * @name fixHeader 固定 PageHeader 到页面顶部
-   */
-  fixHeader?: boolean;
-
   /** @name fixedHeader 固定 PageHeader 到页面顶部 */
   fixedHeader?: boolean;
 };

@@ -171,8 +171,8 @@ describe('PageContainer', () => {
     ).toMatchSnapshot();
   });
 
-  it('⚡️ support fixHeader', async () => {
-    const wrapper = render(<PageContainer title="期贤" fixHeader />);
+  it('⚡️ support fixedHeader', async () => {
+    const wrapper = render(<PageContainer title="期贤" fixedHeader />);
     expect(wrapper.asFragment()).toMatchSnapshot();
   });
 
