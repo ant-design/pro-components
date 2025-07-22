@@ -1337,26 +1337,3 @@ exports[`BasicLayout > 🥩 mix layout hideInMenu render right 1`] = `
   </div>
 </body>
 `;
-
-exports[`BasicLayout > 🥩 support loading 1`] = `
-<div
-  class="ant-skeleton ant-skeleton-active"
->
-  <div
-    class="ant-skeleton-content"
-  >
-    <ul
-      class="ant-skeleton-paragraph"
-    >
-      <li />
-      <li />
-      <li />
-      <li />
-      <li />
-      <li
-        style="width: 61%;"
-      />
-    </ul>
-  </div>
-</div>
-`;

@@ -45,8 +45,6 @@ exports[`PageContainer > ⚡️ support footer 1`] = `
 </div>
 `;
 
-exports[`PageContainer > ⚡️ support loading 1`] = `null`;
-
 exports[`PageContainer > ⚡️ support more loading props 1`] = `
 <DocumentFragment>
   <div
