@@ -77,7 +77,6 @@ export const getBreadcrumb = (
           if (path?.startsWith('http')) return false;
           return match(path.replace('?', ''))(url);
         } catch (error) {
-          console.log('path', path, error);
           return false;
         }
       },

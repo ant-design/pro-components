@@ -125,11 +125,6 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
    */
   tooltip?: LabelTooltipType | string;
 
-  /**
-   * @deprecated you can use tooltip, this change is for consistency with antd
-   */
-  tip?: string;
-
   render?: (
     dom: React.ReactNode,
     entity: T,

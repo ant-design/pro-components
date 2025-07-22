@@ -578,7 +578,6 @@ export type ProSchema<
       ) => React.ReactNode)
     | React.ReactNode;
 
-  tip?: string;
   /** @name 展示一个 icon，hover 是展示一些提示信息 */
   tooltip?: LabelTooltipType | string;
 

@@ -106,8 +106,6 @@ export type ProDescriptionsProps<
   onLoadingChange?: (loading?: boolean) => void;
 
   tooltip?: LabelTooltipType | string;
-  /** @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一 */
-  tip?: string;
   /** Form props 的相关配置 */
   formProps?: FormProps;
   /** @name 编辑相关的配置 */
@@ -253,7 +251,6 @@ export const FieldRender: React.FC<
         >
           <ProFormField
             {...fieldConfig}
-            // @ts-ignore
             proFieldProps={{ ...fieldConfig.proFieldProps }}
             formItemRender={
               formItemRender
@@ -565,8 +562,7 @@ const ProDescriptions = <
           !itemRequest &&
           !ellipsis &&
           !copyable &&
-          // @ts-ignore
-          item.type.displayName !== 'ProDescriptionsItem'
+          (item as any).type?.displayName !== 'ProDescriptionsItem'
         ) {
           return item;
         }
@@ -608,10 +604,8 @@ const ProDescriptions = <
 
   /** 即使组件返回null了, 在传递的过程中还是会被Description检测到为有值 */
   let title = null;
-  if (rest.title || rest.tooltip || rest.tip) {
-    title = (
-      <LabelIconTip label={rest.title} tooltip={rest.tooltip || rest.tip} />
-    );
+  if (rest.title || rest.tooltip) {
+    title = <LabelIconTip label={rest.title} tooltip={rest.tooltip} />;
   }
 
   const className = context.getPrefixCls('pro-descriptions');

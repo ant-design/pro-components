@@ -48,8 +48,6 @@ export type OptionsType = OptionsFunctionType | boolean;
 export type ToolBarProps<T = unknown> = {
   headerTitle?: React.ReactNode;
   tooltip?: string | LabelTooltipType;
-  /** @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一 */
-  tip?: string;
   toolbar?: ListToolBarProps;
   toolBarRender?: (
     action: ActionType | undefined,
@@ -270,7 +268,7 @@ function ToolBar<T>({
   return (
     <ListToolBar
       title={headerTitle}
-      tooltip={tooltip || rest.tip}
+      tooltip={tooltip}
       search={searchConfig}
       onSearch={onSearch}
       actions={actions}

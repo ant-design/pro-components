@@ -214,19 +214,6 @@ export type ProTableProps<DataSource, U, ValueType = 'text'> = {
    */
   params?: U;
 
-  /**
-   * 列状态配置，可以配置是否浮动和是否展示
-   *
-   * @deprecated 请使用 columnsState.value 代替
-   */
-  columnsStateMap?: Record<string, ColumnsState>;
-  /**
-   * 列状态配置修改触发事件
-   *
-   * @deprecated 请使用 columnsState.onChange 代替
-   */
-  onColumnsStateChange?: (map: Record<string, ColumnsState>) => void;
-
   /** @name 列状态的配置，可以用来操作列功能 */
   columnsState?: ColumnStateType;
 

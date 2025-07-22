@@ -850,7 +850,6 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
       }
     } catch (error) {
       setLoading(false);
-      console.log(error);
     }
   });
 

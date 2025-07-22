@@ -18,8 +18,7 @@ const Group = (props: PropsWithChildren<CardProps>) => (
 );
 
 // 当前不对底层 Card 做封装，仅挂载子组件，直接导出
-// @ts-ignore
-const ProCard: ProCardType = Card;
+const ProCard = Card as ProCardType;
 
 ProCard.isProCard = true;
 ProCard.Divider = Divider;
