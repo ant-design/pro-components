@@ -23,7 +23,7 @@ jobs:
         if: |
           steps.cache-pnpm-cache.outputs.cache-hit != 'true' ||
           steps.cache-node-modules.outputs.cache-hit != 'true'
-      - run: pnpm run test:coverage
+      - run: pnpm run test:coverage --maxWorkers=1
         env:
           CI: true
           PROGRESS: none
