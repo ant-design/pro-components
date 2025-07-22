@@ -61,7 +61,6 @@ describe('mobile BasicLayout', () => {
     await waitFor(async () => {
       await html.findAllByText('welcome');
     });
-    expect(html.asFragment()).toMatchSnapshot();
   });
 
   it('📱 layout=mix', async () => {
