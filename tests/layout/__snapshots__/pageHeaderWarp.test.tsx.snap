@@ -5,11 +5,7 @@ exports[`BasicLayout > ActionsContent support contentRender 1`] = `
   <div
     class="ant-pro-global-header-right-content"
     style="min-width: auto; height: 100%;"
-  >
-    <div
-      style="height: 100%;"
-    />
-  </div>
+  />
 </div>
 `;
 

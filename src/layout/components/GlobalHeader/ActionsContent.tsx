@@ -115,35 +115,40 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
         height: '100%',
       }}
     >
-      <div
-        style={{
-          height: '100%',
-        }}
-      >
-        <ResizeObserver
-          onResize={({ width }: { width: number }) => {
-            setRightSizeDebounceFn.run(width);
+      {contentRender ? (
+        <div
+          style={{
+            height: '100%',
           }}
         >
-          {contentRender ? (
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                height: '100%',
-                justifyContent: 'flex-end',
-              }}
-            >
-              {contentRender({
-                ...props,
-                // 测试专用
-                //@ts-ignore
-                rightContentSize: rightSize,
-              })}
-            </div>
-          ) : null}
-        </ResizeObserver>
-      </div>
+          <ResizeObserver
+            onResize={({ width }: { width: number }) => {
+              setRightSizeDebounceFn.run(width);
+            }}
+          >
+            {(ref) => (
+              <div
+                ref={ref}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  height: '100%',
+                  justifyContent: 'flex-end',
+                }}
+              >
+                {contentRender
+                  ? contentRender({
+                      ...props,
+                      // 测试专用
+                      //@ts-ignore
+                      rightContentSize: rightSize,
+                    })
+                  : null}
+              </div>
+            )}
+          </ResizeObserver>
+        </div>
+      ) : null}
     </div>
   );
 };

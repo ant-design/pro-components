@@ -4,9 +4,9 @@ import { Avatar, Breadcrumb, ConfigProvider, Space } from 'antd';
 import type { DirectionType } from 'antd/lib/config-provider';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
-import * as React from 'react';
+import React from 'react';
 import type { ContentWidth } from '../../defaultSettings';
-import useStyle from './style/index';
+import useStyle from './style';
 
 export interface PageHeaderProps {
   backIcon?: React.ReactNode;
@@ -226,12 +226,14 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
 
   return wrapSSR(
     <ResizeObserver onResize={onResize}>
-      <div className={className} style={style}>
-        {breadcrumbDom}
-        {title}
-        {childDom}
-        {footerDom}
-      </div>
+      {(ref) => (
+        <div ref={ref} className={className} style={style}>
+          {breadcrumbDom}
+          {title}
+          {childDom}
+          {footerDom}
+        </div>
+      )}
     </ResizeObserver>,
   );
 };

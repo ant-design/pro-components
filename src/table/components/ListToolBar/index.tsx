@@ -391,15 +391,21 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
         }
       }}
     >
-      <div style={style} className={classNames(prefixCls, hashId, className)}>
-        {titleNode}
-        <ListToolBarTabBar
-          filtersNode={filtersNode}
-          prefixCls={prefixCls}
-          tabs={tabs}
-          multipleLine={multipleLine}
-        />
-      </div>
+      {(ref) => (
+        <div
+          ref={ref}
+          style={style}
+          className={classNames(prefixCls, hashId, className)}
+        >
+          {titleNode}
+          <ListToolBarTabBar
+            filtersNode={filtersNode}
+            prefixCls={prefixCls}
+            tabs={tabs}
+            multipleLine={multipleLine}
+          />
+        </div>
+      )}
     </ResizeObserver>,
   );
 };
