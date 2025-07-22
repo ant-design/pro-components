@@ -43,15 +43,11 @@ export const renderColumnsTitle = (item: ProColumns<any>) => {
     return title(
       item,
       'table',
-      <LabelIconTip label={null} tooltip={item.tooltip || item.tip} />,
+      <LabelIconTip label={null} tooltip={item.tooltip} />,
     );
   }
   return (
-    <LabelIconTip
-      label={title}
-      tooltip={item.tooltip || item.tip}
-      ellipsis={ellipsis}
-    />
+    <LabelIconTip label={title} tooltip={item.tooltip} ellipsis={ellipsis} />
   );
 };
 

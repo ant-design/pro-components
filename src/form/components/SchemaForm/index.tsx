@@ -107,7 +107,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(
             'form',
             <LabelIconTip
               label={originItem.title as string}
-              tooltip={originItem.tooltip || originItem.tip}
+              tooltip={originItem.tooltip}
             />,
           );
 
@@ -128,7 +128,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(
             colProps: originItem.colProps,
             rowProps: originItem.rowProps,
             className: originItem.className,
-            tooltip: originItem.tooltip || originItem.tip,
+            tooltip: originItem.tooltip,
             dependencies: originItem.dependencies,
             proFieldProps: originItem.proFieldProps,
             ignoreFormItem: originItem.ignoreFormItem,

@@ -434,8 +434,7 @@ const ProTable = <
     cardProps,
     tableStyle,
     tableClassName,
-    columnsStateMap,
-    onColumnsStateChange,
+
     options,
     search,
     name: isEditorTable,

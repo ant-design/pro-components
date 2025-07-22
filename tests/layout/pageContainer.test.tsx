@@ -4,7 +4,7 @@ import {
   ProLayout,
 } from '@ant-design/pro-components';
 import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
-import { Button } from 'antd';
+import { Button, Skeleton } from 'antd';
 import React, { act, useEffect, useMemo, useState } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
@@ -172,7 +172,7 @@ describe('PageContainer', () => {
   });
 
   it('⚡️ support loading', async () => {
-    const html = render(<PageContainer title="期贤" loading />);
+    const html = render(<PageContainer title="期贤" loading={<Skeleton />} />);
     expect(html.baseElement.querySelector('.ant-skeleton')).toBeInTheDocument();
   });
 

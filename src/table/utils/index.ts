@@ -209,9 +209,7 @@ export function parseDefaultColumnConfig<T, Value>(
         | string
         | number
       )[];
-      if (defaultFilteredValue === undefined) {
-        filter[dataIndex] = null;
-      } else {
+      if (defaultFilteredValue !== undefined) {
         filter[dataIndex] = column.defaultFilteredValue as (string | number)[];
       }
     }

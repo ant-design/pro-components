@@ -129,7 +129,7 @@ export function genProColumnToColumn<T extends AnyObject>(
           columnFilteredValue !== undefined
             ? columnFilteredValue
             : // 否则，只有在服务端筛选时才使用计算的 filteredValue
-              filters && genOnFilter() == null
+              filters && genOnFilter() == null && filteredValue !== null
               ? filteredValue
               : undefined,
         sortOrder: sorter === true ? sortOrder : undefined,
