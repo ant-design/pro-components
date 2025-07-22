@@ -198,7 +198,10 @@ export const conversionMomentValue = <T extends {} = any>(
     }
     (tmpValue as any)[valueKey] = convertMoment(
       itemValue,
-      dateFormat || (dateFormatter === 'string' ? dateFormatterMap[valueType as keyof typeof dateFormatterMap] : dateFormatter),
+      dateFormat ||
+        (dateFormatter === 'string'
+          ? dateFormatterMap[valueType as keyof typeof dateFormatterMap]
+          : dateFormatter),
       valueType,
     );
   });

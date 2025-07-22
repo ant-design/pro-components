@@ -95,21 +95,23 @@ API 与 ProTable 相同
 
 > 更多功能查看 antd 的 [Descriptions](https://ant.design/components/descriptions-cn/)
 
-| 参数           | 说明                                                                                              | 类型                                 | 默认值       |
-| -------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------ | ------------ |
-| title          | 描述列表的标题，显示在最顶部                                                                      | `ReactNode`                          | -            |
-| tooltip        | 内容的补充描述，hover 后显示                                                                      | `string`                             | -            |
-| loading        | 展示一个加载的骨架屏，骨架屏和 dom 不会一一对应                                                   | `boolean`                            | -            |
-| extra          | 描述列表的操作区域，显示在右上方                                                                  | `string` \| `ReactNode`              | -            |
-| bordered       | 是否展示边框                                                                                      | boolean                              | false        |
-| column         | 一行的 `ProDescriptionsItems` 数量，可以写成像素值或支持响应式的对象写法 `{ xs: 1, sm: 2, md: 3}` | number                               | 3            |
-| size           | 设置列表的大小。可以设置为 `middle` 、`small`，或不填（只有设置 `bordered={true}` 生效）          | `default` \| `middle` \| `small`     | -            |
-| layout         | 描述布局                                                                                          | `horizontal` \| `vertical`           | `horizontal` |
-| colon          | 配置 `ProDescriptions.Item` 的 `colon` 的默认值                                                   | boolean                              | true         |
-| request        | 请求数据，不设置 columns 时 ProDescriptions.Item 需设置对应的 dataIndex                           | -                                    | -            |
-| onRequestError | 处理 request 的错误，默认会直接抛出错误                                                           | -                                    | -            |
-| columns        | 列定义，与 request 配合使用 [columns](/components/table#columns)                                  | -                                    | -            |
-| editable       | 编辑的相关配置                                                                                    | [EditableConfig](#editable-编辑配置) | -            |
+| 参数           | 说明                                                                                              | 类型                                     | 默认值       |
+| -------------- | ------------------------------------------------------------------------------------------------- | ---------------------------------------- | ------------ |
+| title          | 描述列表的标题，显示在最顶部                                                                      | `ReactNode`                              | -            |
+| tooltip        | 内容的补充描述，hover 后显示                                                                      | `string`                                 | -            |
+| loading        | 展示一个加载的骨架屏，骨架屏和 dom 不会一一对应                                                   | `boolean`                                | -            |
+| extra          | 描述列表的操作区域，显示在右上方                                                                  | `string` \| `ReactNode`                  | -            |
+| bordered       | 是否展示边框                                                                                      | boolean                                  | false        |
+| column         | 一行的 `ProDescriptionsItems` 数量，可以写成像素值或支持响应式的对象写法 `{ xs: 1, sm: 2, md: 3}` | number                                   | 3            |
+| size           | 设置列表的大小。可以设置为 `middle` 、`small`，或不填（只有设置 `bordered={true}` 生效）          | `default` \| `middle` \| `small`         | -            |
+| layout         | 描述布局                                                                                          | `horizontal` \| `vertical`               | `horizontal` |
+| colon          | 配置 `ProDescriptions.Item` 的 `colon` 的默认值                                                   | boolean                                  | true         |
+| request        | 请求数据，不设置 columns 时 ProDescriptions.Item 需设置对应的 dataIndex                           | `(params: U) => Promise<RequestData<T>>` | -            |
+| onRequestError | 处理 request 的错误，默认会直接抛出错误                                                           | `(error: Error) => void`                 | -            |
+| columns        | 列定义，与 request 配合使用 [columns](/components/table#columns)                                  | `ProColumns<T>[]`                        | -            |
+| editable       | 编辑的相关配置                                                                                    | [EditableConfig](#editable-编辑配置)     | -            |
+| dataSource     | 数据源                                                                                            | `T[]`                                    | -            |
+| actionRef      | 操作引用                                                                                          | `MutableRefObject<ActionType>`           | -            |
 
 ### editable 编辑配置
 

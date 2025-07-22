@@ -1,4 +1,4 @@
-﻿import { useEffect, useRef, useState } from 'react';
+﻿import { useRef, useState } from 'react';
 import useSWR from 'swr';
 
 let testId = 0;

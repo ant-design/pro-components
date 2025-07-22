@@ -9,3 +9,4 @@
 pnpm-lock.yaml
 server
 snapshots/**
+package.json

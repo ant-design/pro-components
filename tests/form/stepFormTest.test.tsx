@@ -10,7 +10,6 @@ import userEvent from '@testing-library/user-event';
 import { Button } from 'antd';
 import React, { act } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { waitForWaitTime } from '../util';
 
 afterEach(() => {
   cleanup();
@@ -130,13 +129,10 @@ describe('StepsForm', () => {
         </StepsForm.StepForm>
       </StepsForm>,
     );
-   
 
     await act(async () => {
       (await html.findByText('下一步')).click();
     });
-
-   
 
     expect(fn).toHaveBeenCalled();
     expect(currentFn).toHaveBeenCalled();
@@ -144,7 +140,6 @@ describe('StepsForm', () => {
     await act(async () => {
       (await html.findByText('提 交')).click();
     });
-   
 
     await waitFor(() => {
       expect(onFinish).toHaveBeenCalled();
@@ -152,7 +147,6 @@ describe('StepsForm', () => {
     expect(fn).toHaveBeenCalled();
     expect(currentFn).toHaveBeenCalled();
 
-   
     html.unmount();
   });
 
@@ -224,7 +218,6 @@ describe('StepsForm', () => {
     });
     unmount();
   });
-
 
   it('🐲 submitter render=false', () => {
     const { container } = render(
@@ -475,12 +468,10 @@ describe('StepsForm', () => {
       (await html.findByText('下一步')).click();
     });
 
-
     await act(async () => {
       (await html.findByText('提 交')).click();
     });
 
-   
     expect(submit).toHaveBeenCalledWith({
       info: {
         name: 'chenshuai',
@@ -512,7 +503,7 @@ describe('StepsForm', () => {
       );
     };
     const html = render(<Forms />);
-   
+
     expect(html.container.querySelectorAll('.ant-steps-item')).toHaveLength(3);
     await act(async () => {
       (await html.findByText('隐藏表单3')).click();

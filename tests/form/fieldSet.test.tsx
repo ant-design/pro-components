@@ -3,9 +3,15 @@
   ProFormFieldSet,
   ProFormText,
 } from '@ant-design/pro-components';
-import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import {
+  cleanup,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from '@testing-library/react';
 import { Input } from 'antd';
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, it } from 'vitest';
 
 afterEach(() => {
   cleanup();
@@ -178,9 +184,7 @@ describe('ProFormFieldSet', () => {
 
   it('😊 ProFormFieldSet convertValue', async () => {
     const { container } = render(
-      <ProForm
-        initialValues={{ list: '1,2', listKey: '2' }}
-      >
+      <ProForm initialValues={{ list: '1,2', listKey: '2' }}>
         <ProFormFieldSet
           name="list"
           convertValue={(value: string) => {

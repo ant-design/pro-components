@@ -40,4 +40,11 @@ export default defineConfig({
     testTimeout: 60_00, // 60 seconds
     globals: true,
   },
+  // 添加兼容性配置
+  optimizeDeps: {
+    include: ['vite'],
+  },
+  build: {
+    target: 'esnext',
+  },
 });

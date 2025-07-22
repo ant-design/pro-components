@@ -1,5 +1,6 @@
 import { SmileOutlined } from '@ant-design/icons';
 import {
+  LightWrapper,
   ProForm,
   ProFormCheckbox,
   ProFormField,
@@ -10,7 +11,6 @@ import {
   ProFormUploadButton,
   ProFormUploadDragger,
   StepsForm,
-  LightWrapper,
 } from '@ant-design/pro-components';
 import { ConfigProvider, Input } from 'antd';
 import enUS from 'antd/lib/locale/en_US';

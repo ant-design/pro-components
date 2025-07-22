@@ -2,8 +2,8 @@ import { GridContext } from './helpers';
 import { ProForm } from './layouts';
 import type { ProFormGroupProps } from './typing';
 export { ProFormContext } from '../utils';
-export type { LightWrapperProps, ProFormInstance } from './BaseForm';
 export { LightWrapper } from './BaseForm';
+export type { LightWrapperProps, ProFormInstance } from './BaseForm';
 
 export * from './components';
 export type {

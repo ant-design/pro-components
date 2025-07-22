@@ -155,7 +155,7 @@ describe('Table valueEnum', () => {
 
   it('🎏 dynamic request', async () => {
     const request = vi.fn();
-    const html = render(
+    render(
       <ProTable
         size="small"
         columns={[
