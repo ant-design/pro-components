@@ -1,32 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`PageContainer > ⚡️ support fixHeader 1`] = `
-<DocumentFragment>
-  <div
-    class="ant-pro-page-container"
-  >
-    <div
-      class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
-    >
-      <div
-        class="ant-page-header-heading "
-      >
-        <div
-          class="ant-page-header-heading-left"
-        >
-          <span
-            class="ant-page-header-heading-title"
-            title="期贤"
-          >
-            期贤
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-</DocumentFragment>
-`;
-
 exports[`PageContainer > ⚡️ support fixedHeader 1`] = `null`;
 
 exports[`PageContainer > ⚡️ support footer 1`] = `

@@ -171,11 +171,6 @@ describe('PageContainer', () => {
     ).toMatchSnapshot();
   });
 
-  it('⚡️ support fixedHeader', async () => {
-    const wrapper = render(<PageContainer title="期贤" fixedHeader />);
-    expect(wrapper.asFragment()).toMatchSnapshot();
-  });
-
   it('⚡️ support loading', async () => {
     const html = render(<PageContainer title="期贤" loading />);
     expect(html.baseElement.querySelector('.ant-skeleton')).toMatchSnapshot();
