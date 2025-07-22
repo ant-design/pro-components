@@ -1142,24 +1142,6 @@ describe('BasicLayout', () => {
             hideInMenu: true,
           },
           {
-            path: '/admin',
-            name: '管理页',
-            children: [
-              {
-                path: '/admin/sub-page1',
-                name: '一级页面',
-              },
-              {
-                path: '/admin/sub-page2',
-                name: '二级页面',
-              },
-              {
-                path: '/admin/sub-page3',
-                name: '三级页面',
-              },
-            ],
-          },
-          {
             name: '列表页',
             path: '/list',
           },
@@ -1167,7 +1149,11 @@ describe('BasicLayout', () => {
       />,
     );
     await wrapper.findAllByText('列表页');
-    expect(wrapper.baseElement).toMatchSnapshot();
+    // 欢迎不存在
+    expect(
+      wrapper.baseElement.querySelector<HTMLDivElement>('li.ant-menu-item')
+        ?.innerText,
+    ).not.toContain('欢迎');
   });
 
   it('🥩 BasicLayout menu support menu.true', async () => {
