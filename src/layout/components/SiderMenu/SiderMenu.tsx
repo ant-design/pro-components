@@ -214,8 +214,6 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     prefixCls,
     avatarProps,
 
-    //@ts-ignore
-    rightContentRender,
     actionsRender,
     onOpenChange,
     stylish,
@@ -448,20 +446,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
             />
           </div>
         ) : null}
-        {showSiderExtraDom && (
-          <>
-            {actionAreaDom}
-            {!actionsDom && rightContentRender ? (
-              <div
-                className={classNames(`${baseClassName}-actions`, hashId, {
-                  [`${baseClassName}-actions-collapsed`]: collapsed,
-                })}
-              >
-                {rightContentRender?.(props)}
-              </div>
-            ) : null}
-          </>
-        )}
+        {showSiderExtraDom && <>{actionAreaDom}</>}
         {menuFooterDom && (
           <div
             className={classNames([

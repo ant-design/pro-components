@@ -54,7 +54,6 @@ export default () => {
         location={{
           pathname: '/welcome',
         }}
-        rightContentRender={() => 'dom'}
         style={{
           height: '100vh',
         }}

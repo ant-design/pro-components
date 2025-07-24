@@ -26,7 +26,6 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
   const {
     onMenuHeaderClick,
     contentWidth,
-    rightContentRender,
     className: propsClassName,
     style,
     headerContentRender,
@@ -179,12 +178,8 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
         >
           {contentDom}
         </div>
-        {(rightContentRender || actionsRender || props.avatarProps) && (
-          <ActionsContent
-            rightContentRender={rightContentRender}
-            {...props}
-            prefixCls={prefixCls}
-          />
+        {(actionsRender || props.avatarProps) && (
+          <ActionsContent {...props} prefixCls={prefixCls} />
         )}
       </div>
     </div>,
