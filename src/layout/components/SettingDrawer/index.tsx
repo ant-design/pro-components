@@ -4,6 +4,7 @@ import {
   NotificationOutlined,
   SettingOutlined,
 } from '@ant-design/icons';
+import { omit, useMergedState } from '@rc-component/util';
 import { useUrlSearchParams } from '@umijs/use-params';
 import {
   Alert,
@@ -15,8 +16,6 @@ import {
   Switch,
   message,
 } from 'antd';
-import { useMergedState } from 'rc-util';
-import omit from 'rc-util/lib/omit';
 import React, { useEffect, useRef, useState } from 'react';
 import { isBrowser, merge } from '../../../utils';
 import type { ProSettings } from '../../defaultSettings';

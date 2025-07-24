@@ -1,4 +1,4 @@
-import omit from 'rc-util/lib/omit';
+import { omit } from '@rc-component/util';
 import React from 'react';
 import { omitUndefined } from '../../../../utils';
 import ProFormDependency from '../../Dependency';

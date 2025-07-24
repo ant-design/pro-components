@@ -1,3 +1,4 @@
+import { get } from '@rc-component/util';
 import type {
   ListProps,
   TableColumnType,
@@ -12,7 +13,6 @@ import usePagination from 'antd/lib/table/hooks/usePagination';
 import useSelection from 'antd/lib/table/hooks/useSelection';
 import type { GetRowKey, TableRowSelection } from 'antd/lib/table/interface';
 import classNames from 'classnames';
-import { get } from 'rc-util';
 import React, { useContext } from 'react';
 import type { CheckCardProps } from '../card';
 import { ProProvider } from '../provider';

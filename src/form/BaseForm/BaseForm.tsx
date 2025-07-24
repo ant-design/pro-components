@@ -1,11 +1,16 @@
-/* eslint-disable react-hooks/exhaustive-deps */ import { useUrlSearchParams } from '@umijs/use-params';
+/* eslint-disable react-hooks/exhaustive-deps */ import {
+  get,
+  set as namePathSet,
+  omit,
+  set,
+  warning,
+} from '@rc-component/util';
+import { useUrlSearchParams } from '@umijs/use-params';
 import type { FormInstance, FormItemProps, FormProps } from 'antd';
 import { ConfigProvider, Form, Spin } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
 import classNames from 'classnames';
 import type dayjs from 'dayjs';
-import { get, set as namePathSet, set, warning } from 'rc-util';
-import omit from 'rc-util/lib/omit';
 import React, {
   useContext,
   useEffect,

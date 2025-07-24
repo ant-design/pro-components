@@ -1,7 +1,7 @@
-﻿import type { FormItemProps } from 'antd';
+﻿import { omit } from '@rc-component/util';
+import type { FormItemProps } from 'antd';
 import { ConfigProvider, Table } from 'antd';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
 import React, { useContext, useMemo } from 'react';
 import type {
   BaseQueryFilterProps,

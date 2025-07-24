@@ -1,4 +1,4 @@
-﻿import { get } from 'rc-util';
+﻿import { get } from '@rc-component/util';
 import arEG from './locale/ar_EG';
 import caES from './locale/ca_ES';
 import csCZ from './locale/cs_CZ';

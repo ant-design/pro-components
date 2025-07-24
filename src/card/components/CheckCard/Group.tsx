@@ -1,7 +1,7 @@
 import { RightOutlined } from '@ant-design/icons';
+import { omit } from '@rc-component/util';
 import { ConfigProvider, Skeleton } from 'antd';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
 import React, {
   createContext,
   useCallback,

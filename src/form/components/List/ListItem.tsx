@@ -5,6 +5,7 @@
   DeleteOutlined,
   LoadingOutlined,
 } from '@ant-design/icons';
+import { set, toArray } from '@rc-component/util';
 import type { ButtonProps, FormInstance } from 'antd';
 import { ConfigProvider, Tooltip } from 'antd';
 import type {
@@ -13,8 +14,6 @@ import type {
   FormListProps,
 } from 'antd/lib/form/FormList';
 import classNames from 'classnames';
-import { set } from 'rc-util';
-import toArray from 'rc-util/lib/Children/toArray';
 import type { CSSProperties, ReactNode } from 'react';
 import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { FormListContext } from '.';

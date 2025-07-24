@@ -1,10 +1,9 @@
 import { CheckOutlined, CloseOutlined, EditOutlined } from '@ant-design/icons';
+import { get, toArray } from '@rc-component/util';
 import type { DescriptionsProps, FormInstance, FormProps } from 'antd';
 import { ConfigProvider, Descriptions, Space } from 'antd';
 import type { DescriptionsItemType } from 'antd/lib/descriptions';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
-import { get } from 'rc-util';
-import toArray from 'rc-util/lib/Children/toArray';
 import React, { useContext, useEffect } from 'react';
 import ValueTypeToComponent from '../field/ValueTypeToComponent';
 import ProForm, { ProFormField } from '../form';

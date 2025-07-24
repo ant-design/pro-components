@@ -1,6 +1,6 @@
+import { get } from '@rc-component/util';
 import { Form } from 'antd';
 import { AnyObject } from 'antd/lib/_util/type';
-import { get } from 'rc-util';
 import React, {
   useCallback,
   useContext,

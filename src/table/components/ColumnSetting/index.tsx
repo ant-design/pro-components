@@ -4,6 +4,7 @@ import {
   VerticalAlignMiddleOutlined,
   VerticalAlignTopOutlined,
 } from '@ant-design/icons';
+import { omit } from '@rc-component/util';
 import {
   Checkbox,
   ConfigProvider,
@@ -17,7 +18,6 @@ import {
 import type { CheckboxChangeEvent } from 'antd/lib/checkbox';
 import type { DataNode } from 'antd/lib/tree';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
 import React, { useContext, useEffect, useMemo, useRef } from 'react';
 import { ProProvider, useIntl } from '../../../provider';
 import { runFunction, useRefFunction } from '../../../utils';

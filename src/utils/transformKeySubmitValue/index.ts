@@ -1,4 +1,4 @@
-import { get } from 'rc-util';
+import { get } from '@rc-component/util';
 import React from 'react';
 import { isNil } from '../isNil';
 import type { SearchTransformKeyFn } from '../typing';

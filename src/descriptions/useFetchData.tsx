@@ -1,4 +1,4 @@
-import { useMergedState } from 'rc-util';
+import { useMergedState } from '@rc-component/util';
 import { useEffect } from 'react';
 
 export type RequestData<T = any> = {

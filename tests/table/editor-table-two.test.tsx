@@ -9,6 +9,7 @@ import {
   ProForm,
   ProFormText,
 } from '@ant-design/pro-components';
+import { useMergedState } from '@rc-component/util';
 import {
   act,
   cleanup,
@@ -17,7 +18,6 @@ import {
   waitFor,
 } from '@testing-library/react';
 import { Button, Input, InputNumber } from 'antd';
-import { useMergedState } from 'rc-util';
 import React, { useRef } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';

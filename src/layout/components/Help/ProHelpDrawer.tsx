@@ -1,6 +1,6 @@
-﻿import type { DrawerProps } from 'antd';
+﻿import { useMergedState } from '@rc-component/util';
+import type { DrawerProps } from 'antd';
 import { Drawer } from 'antd';
-import { useMergedState } from 'rc-util';
 import type { ProHelpPanelProps } from './ProHelpPanel';
 import { ProHelpPanel } from './ProHelpPanel';
 

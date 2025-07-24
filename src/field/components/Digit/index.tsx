@@ -1,5 +1,5 @@
+import { omit } from '@rc-component/util';
 import { InputNumber } from 'antd';
-import omit from 'rc-util/lib/omit';
 import React, { useCallback } from 'react';
 import { useIntl } from '../../../provider';
 import { isNil } from '../../../utils';

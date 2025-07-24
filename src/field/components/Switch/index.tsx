@@ -1,6 +1,6 @@
+import { omit } from '@rc-component/util';
 import type { SwitchProps } from 'antd';
 import { Switch } from 'antd';
-import omit from 'rc-util/lib/omit';
 import React, { useMemo } from 'react';
 import { useIntl } from '../../../provider';
 import { FieldLabel } from '../../../utils';

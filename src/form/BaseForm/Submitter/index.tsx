@@ -1,6 +1,6 @@
+import { omit } from '@rc-component/util';
 import type { ButtonProps } from 'antd';
 import { Button, Form } from 'antd';
-import omit from 'rc-util/lib/omit';
 import React from 'react';
 import { proTheme, useIntl } from '../../../provider';
 

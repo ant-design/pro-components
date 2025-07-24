@@ -4,6 +4,7 @@ import {
   CopyOutlined,
   DeleteOutlined,
 } from '@ant-design/icons';
+import { warning } from '@rc-component/util';
 import type { ColProps } from 'antd';
 import { ConfigProvider, Form } from 'antd';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
@@ -14,7 +15,6 @@ import type {
 } from 'antd/lib/form/FormList';
 import type { NamePath } from 'antd/lib/form/interface';
 import classNames from 'classnames';
-import { warning } from 'rc-util';
 import type { ReactNode } from 'react';
 import React, {
   useContext,

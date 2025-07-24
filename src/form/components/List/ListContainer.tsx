@@ -1,6 +1,6 @@
 ﻿import { PlusOutlined } from '@ant-design/icons';
+import { omit } from '@rc-component/util';
 import { Button } from 'antd';
-import omit from 'rc-util/lib/omit';
 import type { CSSProperties } from 'react';
 import { useContext, useMemo, useRef, useState } from 'react';
 import { ProProvider, useIntl } from '../../../provider';

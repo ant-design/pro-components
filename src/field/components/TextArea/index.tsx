@@ -1,5 +1,5 @@
+import { omit } from '@rc-component/util';
 import { Input } from 'antd';
-import omit from 'rc-util/lib/omit';
 import React from 'react';
 import { useIntl } from '../../../provider';
 import type { ProFieldFC } from '../../PureProField';

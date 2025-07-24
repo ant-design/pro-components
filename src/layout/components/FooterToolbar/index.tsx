@@ -1,6 +1,6 @@
-/* eslint-disable react-hooks/exhaustive-deps */ import { ConfigProvider } from 'antd';
+/* eslint-disable react-hooks/exhaustive-deps */ import { omit } from '@rc-component/util';
+import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
 import type { ReactNode } from 'react';
 import React, { useContext, useEffect, useMemo } from 'react';
 import { createPortal } from 'react-dom';

@@ -1,8 +1,8 @@
 ﻿import { LoadingOutlined } from '@ant-design/icons';
+import { get } from '@rc-component/util';
 import type { FormItemProps, PopoverProps } from 'antd';
 import { ConfigProvider, Form, Popover, theme } from 'antd';
 import type { NamePath } from 'rc-field-form/es/interface';
-import { get } from 'rc-util';
 import React, { useContext, useEffect, useState } from 'react';
 import { useStyle } from './style';
 

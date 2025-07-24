@@ -1,6 +1,6 @@
-﻿import type { TableColumnType } from 'antd';
+﻿import { useMergedState } from '@rc-component/util';
+import type { TableColumnType } from 'antd';
 import merge from 'lodash-es/merge';
-import { useMergedState } from 'rc-util';
 import {
   createContext,
   useCallback,

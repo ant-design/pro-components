@@ -1,5 +1,5 @@
+import { omit } from '@rc-component/util';
 import { Segmented, Spin } from 'antd';
-import omit from 'rc-util/lib/omit';
 import React, { useImperativeHandle, useRef } from 'react';
 import { objectToMap, proFieldParsingText } from '../../../utils';
 import type { ProFieldFC } from '../../PureProField';

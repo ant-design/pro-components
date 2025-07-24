@@ -1,10 +1,10 @@
 import { FilterOutlined } from '@ant-design/icons';
+import { omit } from '@rc-component/util';
 import type { FormProps } from 'antd';
 import { ConfigProvider } from 'antd';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import type { TooltipPlacement } from 'antd/lib/tooltip';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
 import React, {
   useContext,
   useEffect,
