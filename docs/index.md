@@ -4,14 +4,14 @@ hero:
   title: ProComponents
   description: 🏆 让中后台开发更简单
   actions:
-    - text: 🏮🏮 快速开始 →
+    - text: 🚀 快速开始 →
       link: /docs/intro
 
 footer: Open-source MIT Licensed | © 2017-present
 
 ## 📚 迁移指南
 
-如果你正在从 ProComponents 2.0 升级到 3.0，请查看我们的迁移指南：
+如果你正在从 ProComponents 2.0 升级到 3.0，我们为你准备了详细的迁移指南：
 
 - [📋 API 变更总结](./api-changes.md) - 快速查看所有变更
 - [🚀 详细迁移指南](./migration-guide.md) - 完整的迁移步骤和示例
@@ -19,37 +19,51 @@ footer: Open-source MIT Licensed | © 2017-present
 - [🚀 Migration Guide (EN)](./migration-guide.en-US.md) - Complete migration guide in English
 ---
 
-ProComponents 是一个基于 React 的企业级 UI 组件库，它具有以下优点：
+## 🎯 什么是 ProComponents？
 
-- 丰富的组件库：ProComponents 提供了大量的 UI 组件，包括表格、表单、图表、地图、树形控件等，能够满足大多数企业应用的需求。
+ProComponents 是一个专为企业级应用打造的 React UI 组件库。我们深知中后台开发的痛点，所以精心设计了一系列开箱即用的组件，让你能够专注于业务逻辑，而不是重复造轮子。
 
-- 功能强大：ProComponents 的组件不仅提供了基本的 UI 展示功能，还具备了复杂的数据操作和业务逻辑处理能力，能够快速构建出功能强大的企业应用。
+### ✨ 为什么选择 ProComponents？
 
-- 易于使用：ProComponents 提供了简单易用的 API 和完善的文档，使得开发者能够快速上手并使用其中的组件。
+**🎨 丰富的组件生态**
+从表格、表单到图表、地图，我们提供了 50+ 个精心设计的组件。无论你是构建数据管理系统、运营后台还是企业门户，都能找到合适的组件。
 
-- 支持可视化配置：ProComponents 提供了一些组件的可视化配置工具，能够使开发者更快速地完成一些简单的组件配置工作。
+**⚡ 强大的业务能力**
+我们的组件不仅仅是 UI 展示，更内置了复杂的数据处理逻辑。比如 ProTable 支持列状态管理、数据导出、批量操作等企业级功能，让你事半功倍。
 
-- 高度可定制：ProComponents 的组件支持多种配置和样式自定义，能够满足不同项目的需求。
+**🚀 极简的开发体验**
+简单易用的 API 设计，完善的 TypeScript 支持，再加上详细的文档和示例，让你能够快速上手并高效开发。
 
-总之，ProComponents 是一个功能丰富、易于使用、支持可视化配置和高度可定制的企业级 UI 组件库，适用于各种规模和类型的企业应用开发。
+**🎛️ 灵活的可视化配置**
+很多组件都支持可视化配置，通过简单的配置就能实现复杂的功能，大大降低了开发门槛。
 
-### 缺点
+**🎨 高度可定制**
+基于 Ant Design 设计体系，支持主题定制、样式覆盖，能够完美融入你的设计系统。
 
-ProComponents 是一个基于 React 和 Ant Design 的组件库，它提供了很多常用的 UI 组件和业务组件，可以方便地帮助开发者快速搭建前端页面。虽然 ProComponents 具有很多优点，但是也有以下一些缺点：
+### 🤔 需要注意的地方
 
-- 学习成本高：ProComponents 的组件库非常庞大，学习所有组件可能需要花费较长时间。因此，对于新手开发者来说，学习成本可能会比较高。
+我们相信透明是最好的策略，所以也想和你聊聊 ProComponents 的一些限制：
 
-- 样式定制难度大：ProComponents 组件库提供了很多可定制的属性，但是如果需要修改样式的话，可能需要较高的 CSS 技能水平，因为 Ant Design 的样式风格非常复杂，需要深入了解其样式系统才能进行定制。
+**📚 学习曲线**
+由于组件功能丰富，初次接触可能需要一些时间来熟悉。不过别担心，我们有详细的文档和活跃的社区支持。
 
-- 依赖项过多：ProComponents 依赖了很多第三方库和组件，这可能会增加项目的体积和加载时间。
+**🎨 样式定制**
+虽然支持定制，但深度定制可能需要一定的 CSS 功底。Ant Design 的样式系统相对复杂，建议先熟悉其设计理念。
 
-- 不支持 IE8 及以下浏览器：由于 ProComponents 采用了现代化的技术栈，所以不支持 IE8 及以下的浏览器，这可能会影响一些用户的体验。
+**📦 包体积**
+为了提供完整的功能，我们依赖了一些第三方库。如果你的项目对包体积要求极高，可以考虑按需引入。
 
-- 组件更新不够及时：虽然 ProComponents 提供了很多常用组件，但是一些新的 UI 组件可能不会及时添加到组件库中。
+**🌐 浏览器支持**
+我们专注于现代浏览器，不再支持 IE8 等老旧浏览器。如果你的用户群体还在使用这些浏览器，可能需要考虑兼容性方案。
 
-总之，ProComponents 是一个非常优秀的组件库，但是也有一些缺点，开发者需要根据自己的具体情况权衡其利弊。
+**🔄 更新节奏**
+我们会持续更新组件，但新功能的添加会经过充分测试。如果你需要最新的实验性功能，可以关注我们的 beta 版本。
 
-## 组件看板
+## 📊 组件看板
+
+## 📊 组件看板
+
+看看我们的组件有多受欢迎：
 
 | 组件           | 下载量                                                                                                                              | 版本                                                                                                                                                                        |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -57,9 +71,22 @@ ProComponents 是一个基于 React 和 Ant Design 的组件库，它提供了�
 
 ## 🖥 浏览器兼容性
 
-- 现代浏览器
-- [Electron](https://www.electronjs.org/)
+我们支持所有现代浏览器，让你的应用在各种环境下都能稳定运行：
+
+- 🌐 现代浏览器（Chrome、Firefox、Safari、Edge）
+- ⚡ [Electron](https://www.electronjs.org/) 桌面应用
 
 | [![edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![Edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![electron_48x48](https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png)](http://godban.github.io/browsers-support-badges/) |
 | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Edge                                                                                                                                              | last 2 versions                                                                                                                                         | last 2 versions                                                                                                                                         | last 2 versions                                                                                                                                         | last 2 versions                                                                                                                                                     |
+
+## 🤝 加入我们
+
+ProComponents 是一个开源项目，我们欢迎所有形式的贡献：
+
+- 🐛 [报告 Bug](https://github.com/ant-design/pro-components/issues)
+- 💡 [提出建议](https://github.com/ant-design/pro-components/issues)
+- 📝 [贡献代码](https://github.com/ant-design/pro-components/pulls)
+- 📖 [完善文档](https://github.com/ant-design/pro-components/pulls)
+
+让我们一起让中后台开发变得更简单！ 🚀
