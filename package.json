@@ -45,6 +45,7 @@
     "test:update": "cross-env TZ=UTC  vitest -u",
     "tsc": "tsc --noEmit",
     "prepublishOnly": "npm run test && npm run build",
+    "publish:beta": "npm publish --tag beta",
     "update:deps": "pnpm up --latest"
   },
   "browserslist": [
