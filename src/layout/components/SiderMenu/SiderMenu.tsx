@@ -1,5 +1,5 @@
 import type { AvatarProps, SiderProps } from 'antd';
-import { Avatar, Layout, Menu, Space, version } from 'antd';
+import { Avatar, Layout, Menu, Space } from 'antd';
 import classNames from 'classnames';
 import type { CSSProperties, FC, ReactNode } from 'react';
 import React, { useContext, useMemo } from 'react';
@@ -17,12 +17,6 @@ import { useStylish } from './style/stylish';
 
 const _SafetyWarningProvider: FC<{ children: ReactNode }> = React.memo(
   (props) => {
-    if (process.env.NODE_ENV !== 'production') {
-      console.warn(
-        `[pro-layout] SiderMenu required antd@^5.11.2 for access the menu context, please upgrade your antd version (current ${version}).`,
-      );
-    }
-
     return <>{props.children}</>;
   },
 );

@@ -87,7 +87,7 @@ export const operationUnit = (token: ProAliasToken): CSSObject => ({
 });
 
 /**
- * 封装了一下 antd 的 useStyle，支持了一下antd@4
+ * 封装了一下 antd 的 useStyle
  * @param componentName {string} 组件的名字
  * @param styleFn {GenerateStyle} 生成样式的函数
  * @returns UseStyleResult

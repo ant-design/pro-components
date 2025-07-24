@@ -5,8 +5,7 @@ import {
   setAlpha,
   useStyle,
 } from '../provider';
-import { compareVersions } from './compareVersions';
-import { coverToNewToken } from './compareVersions/coverToNewToken';
+
 import { DropdownFooter } from './components/DropdownFooter';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { FieldLabel } from './components/FieldLabel';
@@ -77,11 +76,9 @@ import { useMountMergeState } from './useMountMergeState';
 
 export * from './typing';
 export {
-  compareVersions,
   conversionMomentValue,
   conversionMomentValue as conversionSubmitValue,
   convertMoment,
-  coverToNewToken,
   dateArrayFormatter,
   dateFormatterMap,
   DropdownFooter,

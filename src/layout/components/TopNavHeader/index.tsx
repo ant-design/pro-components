@@ -2,7 +2,7 @@ import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import React, { useContext, useMemo, useRef } from 'react';
 import { isNeedOpenHash, ProProvider } from '../../../provider';
-import { coverToNewToken } from '../../../utils';
+
 import { AppsLogoComponents } from '../AppsLogoComponents';
 import type { GlobalHeaderProps } from '../GlobalHeader';
 import { ActionsContent } from '../GlobalHeader/ActionsContent';
@@ -62,47 +62,40 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
               bodyBg: 'transparent',
             },
             Menu: {
-              ...coverToNewToken({
-                colorItemBg:
-                  token.layout?.header?.colorBgHeader || 'transparent',
-                colorSubItemBg:
-                  token.layout?.header?.colorBgHeader || 'transparent',
-                radiusItem: token.borderRadius,
-                colorItemBgSelected:
-                  token.layout?.header?.colorBgMenuItemSelected ||
-                  token?.colorBgTextHover,
-                itemHoverBg:
-                  token.layout?.header?.colorBgMenuItemHover ||
-                  token?.colorBgTextHover,
-                colorItemBgSelectedHorizontal:
-                  token.layout?.header?.colorBgMenuItemSelected ||
-                  token?.colorBgTextHover,
-                colorActiveBarWidth: 0,
-                colorActiveBarHeight: 0,
-                colorActiveBarBorderSize: 0,
-                colorItemText:
-                  token.layout?.header?.colorTextMenu ||
-                  token?.colorTextSecondary,
-                colorItemTextHoverHorizontal:
-                  token.layout?.header?.colorTextMenuActive || token?.colorText,
-                colorItemTextSelectedHorizontal:
-                  token.layout?.header?.colorTextMenuSelected ||
-                  token?.colorTextBase,
-                horizontalItemBorderRadius: 4,
-                colorItemTextHover:
-                  token.layout?.header?.colorTextMenuActive ||
-                  'rgba(0, 0, 0, 0.85)',
-                horizontalItemHoverBg:
-                  token.layout?.header?.colorBgMenuItemHover ||
-                  'rgba(0, 0, 0, 0.04)',
-                colorItemTextSelected:
-                  token.layout?.header?.colorTextMenuSelected ||
-                  'rgba(0, 0, 0, 1)',
-                popupBg: token?.colorBgElevated,
-                subMenuItemBg: token?.colorBgElevated,
-                darkSubMenuItemBg: 'transparent',
-                darkPopupBg: token?.colorBgElevated,
-              }),
+              itemBg: token.layout?.header?.colorBgHeader || 'transparent',
+              subMenuItemBg:
+                token.layout?.header?.colorBgHeader || 'transparent',
+              itemBorderRadius: token.borderRadius,
+              itemSelectedBg:
+                token.layout?.header?.colorBgMenuItemSelected ||
+                token?.colorBgTextHover,
+              horizontalItemSelectedBg:
+                token.layout?.header?.colorBgMenuItemSelected ||
+                token?.colorBgTextHover,
+              activeBarWidth: 0,
+              activeBarHeight: 0,
+              activeBarBorderWidth: 0,
+              itemColor:
+                token.layout?.header?.colorTextMenu ||
+                token?.colorTextSecondary,
+              horizontalItemHoverColor:
+                token.layout?.header?.colorTextMenuActive || token?.colorText,
+              horizontalItemSelectedColor:
+                token.layout?.header?.colorTextMenuSelected ||
+                token?.colorTextBase,
+              horizontalItemBorderRadius: 4,
+              itemHoverColor:
+                token.layout?.header?.colorTextMenuActive ||
+                'rgba(0, 0, 0, 0.85)',
+              horizontalItemHoverBg:
+                token.layout?.header?.colorBgMenuItemHover ||
+                'rgba(0, 0, 0, 0.04)',
+              itemSelectedColor:
+                token.layout?.header?.colorTextMenuSelected ||
+                'rgba(0, 0, 0, 1)',
+              popupBg: token?.colorBgElevated,
+              darkSubMenuItemBg: 'transparent',
+              darkPopupBg: token?.colorBgElevated,
             },
           },
           token: {

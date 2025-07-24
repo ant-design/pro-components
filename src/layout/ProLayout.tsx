@@ -19,7 +19,6 @@ import useSWR, { useSWRConfig } from 'swr';
 import type { GenerateStyle, ProTokenType } from '../provider';
 import { ProConfigProvider, ProProvider, isNeedOpenHash } from '../provider';
 import {
-  coverToNewToken,
   isBrowser,
   useBreakpoint,
   useDocumentTitle,
@@ -797,42 +796,42 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                     token.layout?.sider?.menuHeight || token?.controlHeightLG,
                 },
                 components: {
-                  Menu: coverToNewToken({
+                  Menu: {
                     colorItemBg:
                       token.layout?.sider?.colorMenuBackground || 'transparent',
                     colorSubItemBg:
                       token.layout?.sider?.colorMenuBackground || 'transparent',
-                    radiusItem: token.borderRadius,
+                    itemBorderRadius: token.borderRadius,
 
-                    colorItemBgSelected:
+                    itemSelectedBg:
                       token.layout?.sider?.colorBgMenuItemSelected ||
                       token?.colorBgTextHover,
-                    colorItemBgHover:
+                    itemHoverBg:
                       token.layout?.sider?.colorBgMenuItemHover ||
                       token?.colorBgTextHover,
-                    colorItemBgActive:
+                    itemActiveBg:
                       token.layout?.sider?.colorBgMenuItemActive ||
                       token?.colorBgTextActive,
-                    colorItemBgSelectedHorizontal:
+                    horizontalItemSelectedBg:
                       token.layout?.sider?.colorBgMenuItemSelected ||
                       token?.colorBgTextHover,
-                    colorActiveBarWidth: 0,
-                    colorActiveBarHeight: 0,
-                    colorActiveBarBorderSize: 0,
-                    colorItemText:
+                    activeBarWidth: 0,
+                    activeBarHeight: 0,
+                    activeBarBorderWidth: 0,
+                    itemColor:
                       token.layout?.sider?.colorTextMenu ||
                       token?.colorTextSecondary,
-                    colorItemTextHover:
+                    itemHoverColor:
                       token.layout?.sider?.colorTextMenuItemHover ||
                       'rgba(0, 0, 0, 0.85)', // 悬浮态
-                    colorItemTextSelected:
+                    itemSelectedColor:
                       token.layout?.sider?.colorTextMenuSelected ||
                       'rgba(0, 0, 0, 1)',
                     popupBg: token?.colorBgElevated,
                     subMenuItemBg: token?.colorBgElevated,
                     darkSubMenuItemBg: 'transparent',
                     darkPopupBg: token?.colorBgElevated,
-                  }),
+                  },
                 },
               }}
             >

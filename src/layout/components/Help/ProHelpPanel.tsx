@@ -3,7 +3,7 @@ import { Card, ConfigProvider, Menu } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useContext, useMemo, useState } from 'react';
 import { ProProvider, isNeedOpenHash } from '../../../provider';
-import { coverToNewToken } from '../../../utils';
+
 import type { ProHelpDataSource } from './HelpProvide';
 import { ProHelpProvide } from './HelpProvide';
 import { ProHelpContentPanel } from './ProHelpContentPanel';
@@ -234,30 +234,30 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
                   controlHeightLG: 26,
                 },
                 components: {
-                  Menu: coverToNewToken({
-                    radiusItem: token.borderRadius,
-                    colorActiveBarWidth: 0,
-                    colorActiveBarBorderSize: 0,
-                    colorItemBgSelected:
+                  Menu: {
+                    itemBorderRadius: token.borderRadius,
+                    activeBarWidth: 0,
+                    activeBarBorderWidth: 0,
+                    itemSelectedBg:
                       token.layout?.sider?.colorBgMenuItemSelected ||
                       'rgba(0, 0, 0, 0.04)',
-                    colorItemBgActive:
+                    itemActiveBg:
                       token.layout?.sider?.colorBgMenuItemHover ||
                       'rgba(0, 0, 0, 0.04)',
-                    colorItemText:
+                    itemColor:
                       token.layout?.sider?.colorTextMenu ||
                       'rgba(0, 0, 0, 0.65)',
-                    colorItemTextHover:
+                    itemHoverColor:
                       token.layout?.sider?.colorTextMenuActive ||
                       'rgba(0, 0, 0, 0.85)',
-                    colorItemTextSelected:
+                    itemSelectedColor:
                       token.layout?.sider?.colorTextMenuSelected ||
                       'rgba(0, 0, 0, 1)',
-                    colorItemBg: 'transparent',
-                    colorSubItemBg: 'transparent',
+                    itemBg: 'transparent',
+                    subMenuItemBg: 'transparent',
                     popupBg: token?.colorBgElevated,
                     darkPopupBg: token?.colorBgElevated,
-                  }),
+                  },
                 },
               }}
             >

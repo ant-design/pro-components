@@ -28,12 +28,11 @@ import { merge } from '../merge';
 import { useMountMergeState } from '../useMountMergeState';
 
 /**
- * 兼容antd@4 和 antd@5 的warning
+ * 显示警告信息
  * @param messageStr
  */
 const warning = (messageStr: React.ReactNode) => {
-  // @ts-ignore
-  return (message.warn || message.warning)(messageStr);
+  return message.warning(messageStr);
 };
 
 export type RowEditableType = 'single' | 'multiple';

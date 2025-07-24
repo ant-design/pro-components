@@ -1,5 +1,5 @@
 import type { TabPaneProps, TabsProps } from 'antd';
-import { ConfigProvider, version } from 'antd';
+import { ConfigProvider } from 'antd';
 import toArray from 'rc-util/lib/Children/toArray';
 import { noteOnce } from 'rc-util/lib/warning';
 import React, { useContext } from 'react';
@@ -51,13 +51,8 @@ export function useLegacyItems(
  */
 const TabPane: React.FC<ProCardTabPaneProps> = (props) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  // 如果是antd v5 则返回为空
-  if (version.startsWith('5')) {
-    return <></>;
-  } else {
-    // 兼容性提示，直接返回 null
-    return null;
-  }
+  // 已废弃的组件，直接返回空
+  return <></>;
 };
 
 if (typeof process !== 'undefined' && process.env.NODE_ENV !== 'production') {

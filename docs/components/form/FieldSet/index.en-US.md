@@ -641,8 +641,6 @@ ProFormMoney's input box for entering amounts supports the display of currency s
 
 ### ProFormSegmented
 
-> Ant Design version needs to be >= antd\@4.20.0."
-
 Same as [Segmented](https://ant.design/components/segmented-cn/). Supports both `request` and `valueEnum` methods to generate options.
 
 > Requesting remote data is more complicated, see [here](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params) for details.

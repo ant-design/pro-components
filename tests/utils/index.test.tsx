@@ -1,6 +1,5 @@
 import { CodeFilled } from '@ant-design/icons';
 import {
-  compareVersions,
   conversionSubmitValue,
   dateArrayFormatter,
   DropdownFooter,
@@ -48,13 +47,6 @@ describe('utils', () => {
   it('lighten', () => {
     const color = lighten('#000', 50);
     expect(color).toBe('#808080');
-  });
-
-  it('compareVersions', () => {
-    expect(compareVersions('2.0.0', '1.0.0')).toBe(1);
-    expect(compareVersions('1.0.0', '2.0.0')).toBe(-1);
-    expect(compareVersions('1.0.0', '1.0.0')).toBe(0);
-    expect(compareVersions('1.0.0', '1.0.0-beta.6')).toBe(1);
   });
 
   it('setAlpha', () => {
