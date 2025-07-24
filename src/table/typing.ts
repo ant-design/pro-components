@@ -184,9 +184,9 @@ export type ColumnStateType = {
   persistenceType?: 'localStorage' | 'sessionStorage';
   /** 持久化的key，用于存储到 storage 中 */
   persistenceKey?: string;
-  /** ColumnsState 的值，columnsStateMap将会废弃 */
+  /** ColumnsState 的值 */
   defaultValue?: Record<string, ColumnsState>;
-  /** ColumnsState 的值，columnsStateMap将会废弃 */
+  /** ColumnsState 的值 */
   value?: Record<string, ColumnsState>;
   onChange?: (map: Record<string, ColumnsState>) => void;
 };

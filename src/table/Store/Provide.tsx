@@ -1,7 +1,6 @@
 ﻿import type { TableColumnType } from 'antd';
 import merge from 'lodash-es/merge';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import { noteOnce } from 'rc-util/lib/warning';
 import {
   createContext,
   useCallback,
@@ -29,7 +28,6 @@ export type ColumnsState = {
 export type ProTableColumn<T> = ColumnsState & TableColumnType<T>;
 
 export type UseContainerProps<T = any> = {
-  columnsStateMap?: Record<string, ColumnsState>;
   onColumnsStateChange?: (map: Record<string, ColumnsState>) => void;
   size?: DensitySize;
   defaultSize?: DensitySize;
@@ -105,14 +103,13 @@ function useContainer(props: UseContainerProps = {} as Record<string, any>) {
         }
       }
       return (
-        props.columnsStateMap ||
         props.columnsState?.value ||
         props.columnsState?.defaultValue ||
         defaultColumnKeyMap
       );
     },
     {
-      value: props.columnsState?.value || props.columnsStateMap,
+      value: props.columnsState?.value,
       onChange: props.columnsState?.onChange || props.onColumnsStateChange,
     },
   );
@@ -151,15 +148,6 @@ function useContainer(props: UseContainerProps = {} as Record<string, any>) {
     props.columnsState?.persistenceType,
     defaultColumnKeyMap,
   ]);
-
-  noteOnce(
-    !props.columnsStateMap,
-    'columnsStateMap已经废弃，请使用 columnsState.value 替换',
-  );
-  noteOnce(
-    !props.columnsStateMap,
-    'columnsStateMap has been discarded, please use columnsState.value replacement',
-  );
 
   /** 清空一下当前的 key */
   const clearPersistenceStorage = useCallback(() => {

@@ -53,8 +53,6 @@ RTL means right-to-left.
 
 You can hide some columns by default, but in the action column you can select
 
-<code src="../../../demos/table/columnsStateMap.tsx"  background="var(--main-bg-color)" ></code>
-
 ### Tables polling network data
 
 <code src="../../../demos/table/pollinga.tsx"  background="var(--main-bg-color)" ></code>

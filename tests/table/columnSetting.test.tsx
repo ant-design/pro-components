@@ -82,126 +82,6 @@ describe('Table ColumnSetting', () => {
     expect(titleList.length).toBe(2);
   });
 
-  it('🎏 columnSetting columnsStateMap props', async () => {
-    const html = render(
-      <ProTable
-        size="small"
-        columnsStateMap={{
-          index: { fixed: 'left' },
-          Age: { show: false },
-          option: { fixed: 'right' },
-        }}
-        columns={columns}
-        request={async () => {
-          return {
-            data: [
-              {
-                key: 1,
-                name: `TradeCode ${1}`,
-                createdAt: 1602572994055,
-              },
-            ],
-            success: true,
-          };
-        }}
-        rowKey="key"
-      />,
-    );
-    await waitForWaitTime(100);
-
-    act(() => {
-      html.baseElement
-        .querySelector<HTMLDivElement>(
-          '.ant-pro-table-list-toolbar-setting-item .anticon-setting',
-        )
-        ?.click();
-    });
-    await waitForWaitTime(100);
-    let overlay = html.baseElement.querySelectorAll<HTMLDivElement>(
-      '.ant-pro-table-column-setting-overlay .ant-pro-table-column-setting-list-title',
-    );
-    expect(overlay.length).toBe(3);
-
-    act(() => {
-      html.rerender(
-        <ProTable
-          size="small"
-          columnsStateMap={{
-            index: { fixed: 'left' },
-          }}
-          columns={columns}
-          request={async () => {
-            return {
-              data: [
-                {
-                  key: 1,
-                  name: `TradeCode ${1}`,
-                  createdAt: 1602572994055,
-                },
-              ],
-              success: true,
-            };
-          }}
-          rowKey="key"
-        />,
-      );
-    });
-    await waitForWaitTime(100);
-    overlay = html.baseElement.querySelectorAll<HTMLDivElement>(
-      '.ant-pro-table-column-setting-overlay .ant-pro-table-column-setting-list-title',
-    );
-    expect(overlay.length).toBe(2);
-  });
-
-  it('🎏 columnSetting columnsStateMap onChange', async () => {
-    const callBack = vi.fn();
-    const html = render(
-      <ProTable
-        size="small"
-        columnsStateMap={{
-          index: { fixed: 'left' },
-          Age: { show: false },
-          option: { fixed: 'right' },
-        }}
-        onColumnsStateChange={callBack}
-        columns={columns}
-        request={async () => {
-          return {
-            data: [
-              {
-                key: 1,
-                name: `TradeCode ${1}`,
-                createdAt: 1602572994055,
-              },
-            ],
-            success: true,
-          };
-        }}
-        rowKey="key"
-      />,
-    );
-
-    await waitForWaitTime(200);
-    act(() => {
-      html.baseElement
-        .querySelector<HTMLDivElement>(
-          '.ant-pro-table-list-toolbar-setting-item .anticon-setting',
-        )
-        ?.click();
-    });
-    await waitForWaitTime(100);
-
-    const reset = html.baseElement.querySelector<HTMLDivElement>(
-      '.ant-pro-table-column-setting-title a',
-    );
-    act(() => {
-      reset?.click();
-    });
-    await waitForWaitTime(100);
-
-    expect(callBack).toHaveBeenCalled();
-  });
-
   it('🎏 columnSetting columnsState.value props', async () => {
     const html = render(
       <ProTable
@@ -692,8 +572,10 @@ describe('Table ColumnSetting', () => {
     const html = render(
       <ProTable
         size="small"
-        onColumnsStateChange={() => {
-          callBack();
+        columnsState={{
+          onChange: () => {
+            callBack();
+          },
         }}
         columns={[
           {
@@ -1003,8 +885,10 @@ describe('Table ColumnSetting', () => {
     const html = render(
       <ProTable
         size="small"
-        onColumnsStateChange={() => {
-          callBack();
+        columnsState={{
+          onChange: () => {
+            callBack();
+          },
         }}
         columns={[
           {

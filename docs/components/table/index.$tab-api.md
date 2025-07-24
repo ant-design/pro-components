@@ -51,8 +51,6 @@ RTL means right-to-left.
 
 可以默认隐藏某些栏，但是在操作栏中可以选择
 
-<code src="../../../demos/table/columnsStateMap.tsx"  background="var(--main-bg-color)" ></code>
-
 <code src="../../../demos/table/pollinga.tsx"  background="var(--main-bg-color)" title="表格轮询"></code>
 
 <code src="../../../demos/table/dateFormatter.tsx"  background="var(--main-bg-color)" title="dateFormatter-日期格式化"></code>
