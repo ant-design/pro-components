@@ -20,9 +20,6 @@ export type StatisticCardProps = {
   footer?: React.ReactNode;
 } & CardProps;
 
-/** @deprecated */
-export type StatisticsCardProps = StatisticCardProps;
-
 const StatisticCard: React.FC<StatisticCardProps> & {
   Statistic: typeof Statistic;
   Divider: typeof Divider;

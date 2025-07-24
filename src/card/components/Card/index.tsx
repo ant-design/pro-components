@@ -9,7 +9,7 @@ import { LabelIconTip } from '../../../utils';
 import type { Breakpoint, CardProps, Gutter } from '../../typing';
 import Actions from '../Actions';
 import Loading from '../Loading';
-import { useLegacyItems } from '../TabPane';
+
 import useStyle from './style';
 
 type ProCardChildType = React.ReactElement<CardProps, any>;
@@ -68,9 +68,8 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
 
   // 顺序决定如何进行响应式取值，按最大响应值依次取值，请勿修改。
   const responsiveArray: Breakpoint[] = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
-  // 修改组合传给antd tabs的参数
-  // @ts-ignore
-  const ModifyTabItemsContent = useLegacyItems(tabs?.items, children, tabs);
+  // 直接使用 tabs.items，不再支持旧的 TabPane 写法
+  const ModifyTabItemsContent = tabs?.items;
 
   /**
    * 根据响应式获取 gutter, 参考 antd 实现

@@ -9,7 +9,6 @@ export type ProCardProps = CardProps;
 export type ProCardType = CardType & {
   isProCard: boolean;
   Divider: typeof Divider;
-  TabPane: () => null;
   Group: typeof Group;
 };
 
@@ -22,8 +21,7 @@ const ProCard = Card as ProCardType;
 
 ProCard.isProCard = true;
 ProCard.Divider = Divider;
-// @deprecated TabPane 已废弃，请使用 tabs.items 属性
-ProCard.TabPane = () => null;
+
 ProCard.Group = Group;
 
 export default ProCard;

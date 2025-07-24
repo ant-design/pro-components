@@ -33,11 +33,7 @@ export type GlobalHeaderProps = {
   menuRender?: WithFalse<
     (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
   >;
-  /**
-   * @deprecated
-   * 使用 actionsRender 和 avatarProps 代替
-   */
-  rightContentRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
+
   className?: string;
   prefixCls?: string;
   /** 相关品牌的列表 */
@@ -103,7 +99,6 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (
     logo,
     collapsed,
     onCollapse,
-    rightContentRender,
     menuHeaderRender,
     onMenuHeaderClick,
     className: propClassName,
@@ -174,8 +169,8 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (
         </>
       )}
       <div style={{ flex: 1 }}>{children}</div>
-      {(rightContentRender || props.actionsRender || props.avatarProps) && (
-        <ActionsContent rightContentRender={rightContentRender} {...props} />
+      {(props.actionsRender || props.avatarProps) && (
+        <ActionsContent {...props} />
       )}
     </div>,
   );

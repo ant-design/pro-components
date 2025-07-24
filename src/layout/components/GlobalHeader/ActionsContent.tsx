@@ -11,7 +11,6 @@ import { useStyle } from './rightContentStyle';
  * @param param0
  */
 export const ActionsContent: React.FC<GlobalHeaderProps> = ({
-  rightContentRender,
   avatarProps,
   actionsRender,
   headerContentRender,
@@ -106,7 +105,7 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
     setRightSize(width);
   }, 160);
 
-  const contentRender = rightActionsRender || rightContentRender;
+  const contentRender = rightActionsRender;
   return (
     <div
       className={`${prefixCls}-right-content ${hashId}`.trim()}
