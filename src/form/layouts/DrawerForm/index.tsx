@@ -1,9 +1,8 @@
 ﻿import type { DrawerProps, FormProps } from 'antd';
 import { ConfigProvider, Drawer } from 'antd';
 import classNames from 'classnames';
-import { useMergedState } from 'rc-util';
+import { useMergedState, warning } from 'rc-util';
 import { merge } from 'rc-util/lib/utils/set';
-import { noteOnce } from 'rc-util/lib/warning';
 import React, {
   useCallback,
   useContext,
@@ -19,6 +18,7 @@ import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import { SubmitterProps } from '../../BaseForm/Submitter';
 import { useStyle } from './style';
+const { noteOnce } = warning;
 
 export type CustomizeResizeType = {
   onResize?: () => void;

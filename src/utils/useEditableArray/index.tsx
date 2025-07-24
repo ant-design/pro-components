@@ -5,8 +5,7 @@ import { AnyObject } from 'antd/lib/_util/type';
 import type { NamePath } from 'antd/lib/form/interface';
 import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
 import type { GetRowKey } from 'antd/lib/table/interface';
-import { get, set, useMergedState } from 'rc-util';
-import { noteOnce } from 'rc-util/lib/warning';
+import { get, warning as rcWarning, set, useMergedState } from 'rc-util';
 import React, {
   createRef,
   forwardRef,
@@ -24,6 +23,7 @@ import { useDeepCompareEffectDebounce } from '../hooks/useDeepCompareEffect';
 import { usePrevious } from '../hooks/usePrevious';
 import { merge } from '../merge';
 import { useMountMergeState } from '../useMountMergeState';
+const { noteOnce } = rcWarning;
 
 /**
  * 显示警告信息

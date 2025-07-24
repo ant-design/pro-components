@@ -14,7 +14,7 @@ import type {
 } from 'antd/lib/form/FormList';
 import type { NamePath } from 'antd/lib/form/interface';
 import classNames from 'classnames';
-import { noteOnce } from 'rc-util/lib/warning';
+import { warning } from 'rc-util';
 import type { ReactNode } from 'react';
 import React, {
   useContext,
@@ -35,6 +35,7 @@ import type {
   ProFromListCommonProps,
 } from './ListItem';
 import { useStyle } from './style';
+const { noteOnce } = warning;
 
 const FormListContext = React.createContext<
   | (FormListFieldData & {

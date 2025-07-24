@@ -1,11 +1,12 @@
 import type { FormInstance, FormProps } from 'antd';
 import type { StepProps } from 'rc-steps/es/Step';
+import { warning } from 'rc-util';
 import omit from 'rc-util/lib/omit';
-import { noteOnce } from 'rc-util/lib/warning';
 import { useContext, useEffect, useImperativeHandle, useRef } from 'react';
 import type { CommonFormProps } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import { StepFormProvide, StepsFormProps, StepsFormProvide } from './index';
+const { noteOnce } = warning;
 
 export type StepFormProps<T = Record<string, any>, U = Record<string, any>> = {
   step?: number;

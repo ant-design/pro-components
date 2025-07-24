@@ -4,10 +4,8 @@ import { ConfigProvider, Form, Spin } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
 import classNames from 'classnames';
 import type dayjs from 'dayjs';
-import { get } from 'rc-util';
+import { get, set as namePathSet, set, warning } from 'rc-util';
 import omit from 'rc-util/lib/omit';
-import { default as namePathSet, default as set } from 'rc-util/lib/utils/set';
-import { noteOnce } from 'rc-util/lib/warning';
 import React, {
   useContext,
   useEffect,
@@ -48,6 +46,7 @@ import type {
 import { EditOrReadOnlyContext } from './EditOrReadOnlyContext';
 import type { SubmitterProps } from './Submitter';
 import Submitter from './Submitter';
+const { noteOnce } = warning;
 
 // Define ProFormInstance and ProFormRef
 export type ProFormInstance<T = any> = FormInstance<T> & ProFormInstanceType<T>;

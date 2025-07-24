@@ -1,8 +1,7 @@
 ﻿import type { FormProps, ModalProps } from 'antd';
 import { ConfigProvider, Modal } from 'antd';
 import { merge } from 'lodash-es';
-import { useMergedState } from 'rc-util';
-import { noteOnce } from 'rc-util/lib/warning';
+import { useMergedState, warning } from 'rc-util';
 import React, {
   useCallback,
   useContext,
@@ -16,6 +15,7 @@ import { createPortal } from 'react-dom';
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import { SubmitterProps } from '../../BaseForm/Submitter';
+const { noteOnce } = warning;
 
 export type ModalFormProps<
   T = Record<string, any>,
