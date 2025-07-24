@@ -795,9 +795,9 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                 },
                 components: {
                   Menu: {
-                    colorItemBg:
+                    itemBg:
                       token.layout?.sider?.colorMenuBackground || 'transparent',
-                    colorSubItemBg:
+                    subMenuItemBg:
                       token.layout?.sider?.colorMenuBackground || 'transparent',
                     itemBorderRadius: token.borderRadius,
 
@@ -826,7 +826,6 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                       token.layout?.sider?.colorTextMenuSelected ||
                       'rgba(0, 0, 0, 1)',
                     popupBg: token?.colorBgElevated,
-                    subMenuItemBg: token?.colorBgElevated,
                     darkSubMenuItemBg: 'transparent',
                     darkPopupBg: token?.colorBgElevated,
                   },
