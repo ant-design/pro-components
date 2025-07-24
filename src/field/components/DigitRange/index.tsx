@@ -1,5 +1,5 @@
 import { Input, InputNumber, Space } from 'antd';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { useMergedState } from 'rc-util';
 import React, { useRef } from 'react';
 import { proTheme, useIntl } from '../../../provider';
 import type { ProFieldFC } from '../../PureProField';

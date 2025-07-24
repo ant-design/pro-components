@@ -6,7 +6,7 @@ import type {
 import { ProDescriptions } from '@ant-design/pro-components';
 import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import { Form, InputNumber } from 'antd';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { useMergedState } from 'rc-util';
 import React, { act, useRef } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 type DataSourceType = {

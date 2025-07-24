@@ -5,9 +5,7 @@ import { AnyObject } from 'antd/lib/_util/type';
 import type { NamePath } from 'antd/lib/form/interface';
 import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
 import type { GetRowKey } from 'antd/lib/table/interface';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import get from 'rc-util/lib/utils/get';
-import set from 'rc-util/lib/utils/set';
+import { get, set, useMergedState } from 'rc-util';
 import { noteOnce } from 'rc-util/lib/warning';
 import React, {
   createRef,

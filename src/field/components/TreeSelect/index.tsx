@@ -1,7 +1,7 @@
 import type { RadioGroupProps, TreeSelectProps } from 'antd';
 import { ConfigProvider, Spin, TreeSelect } from 'antd';
 import classNames from 'classnames';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { useMergedState } from 'rc-util';
 import React, {
   useContext,
   useImperativeHandle,

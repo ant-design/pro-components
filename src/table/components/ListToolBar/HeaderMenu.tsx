@@ -1,7 +1,7 @@
 import { DownOutlined } from '@ant-design/icons';
 import { Dropdown, Space, Tabs } from 'antd';
 import classNames from 'classnames';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { useMergedState } from 'rc-util';
 import React, { useContext } from 'react';
 import { ProProvider } from '../../../provider';
 

@@ -1,7 +1,7 @@
 ﻿import type { DrawerProps, FormProps } from 'antd';
 import { ConfigProvider, Drawer } from 'antd';
 import classNames from 'classnames';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { useMergedState } from 'rc-util';
 import { merge } from 'rc-util/lib/utils/set';
 import { noteOnce } from 'rc-util/lib/warning';
 import React, {

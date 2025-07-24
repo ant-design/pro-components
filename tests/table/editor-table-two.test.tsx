@@ -17,7 +17,7 @@ import {
   waitFor,
 } from '@testing-library/react';
 import { Button, Input, InputNumber } from 'antd';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { useMergedState } from 'rc-util';
 import React, { useRef } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';

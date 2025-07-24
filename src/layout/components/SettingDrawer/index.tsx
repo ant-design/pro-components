@@ -15,7 +15,7 @@ import {
   Switch,
   message,
 } from 'antd';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { useMergedState } from 'rc-util';
 import omit from 'rc-util/lib/omit';
 import React, { useEffect, useRef, useState } from 'react';
 import { isBrowser, merge } from '../../../utils';

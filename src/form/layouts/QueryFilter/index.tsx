@@ -7,7 +7,7 @@ import { Col, ConfigProvider, Form, Row } from 'antd';
 import type { FormInstance, FormProps } from 'antd/lib/form/Form';
 import classNames from 'classnames';
 import RcResizeObserver from 'rc-resize-observer';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { useMergedState } from 'rc-util';
 import type { ReactElement } from 'react';
 import React, { useContext, useMemo } from 'react';
 import { ProProvider, useIntl } from '../../../provider';

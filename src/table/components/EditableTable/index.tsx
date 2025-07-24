@@ -3,9 +3,7 @@ import type { ButtonProps, FormItemProps } from 'antd';
 import { Button, Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
 import type { GetRowKey } from 'antd/lib/table/interface';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import get from 'rc-util/lib/utils/get';
-import set from 'rc-util/lib/utils/set';
+import { get, set, useMergedState } from 'rc-util';
 import React, {
   useContext,
   useEffect,

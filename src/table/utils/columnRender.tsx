@@ -1,5 +1,5 @@
 ﻿import { AnyObject } from 'antd/lib/_util/type';
-import get from 'rc-util/lib/utils/get';
+import { get } from 'rc-util';
 import React from 'react';
 import { isMergeCell } from '.';
 import type { ProFieldEmptyText } from '../../field';

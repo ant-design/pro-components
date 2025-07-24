@@ -1,6 +1,6 @@
 import type { InputNumberProps } from 'antd';
 import { InputNumber, Popover } from 'antd';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { useMergedState } from 'rc-util';
 import omit from 'rc-util/lib/omit';
 import React, { useCallback, useMemo } from 'react';
 import { intlMap as allIntlMap, useIntl } from '../../../provider';

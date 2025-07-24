@@ -1,6 +1,6 @@
 import { HolderOutlined } from '@ant-design/icons';
 import { ConfigProvider } from 'antd';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { useMergedState } from 'rc-util';
 import React, { useContext, useMemo } from 'react';
 import type { ParamsType } from '../../../provider';
 import ProTable from '../../Table';
