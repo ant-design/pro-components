@@ -8,6 +8,15 @@ hero:
       link: /docs/intro
 
 footer: Open-source MIT Licensed | © 2017-present
+
+## 📚 迁移指南
+
+如果你正在从 ProComponents 2.0 升级到 3.0，请查看我们的迁移指南：
+
+- [📋 API 变更总结](./api-changes.md) - 快速查看所有变更
+- [🚀 详细迁移指南](./migration-guide.md) - 完整的迁移步骤和示例
+- [📋 API Changes Summary (EN)](./api-changes.en-US.md) - API changes in English
+- [🚀 Migration Guide (EN)](./migration-guide.en-US.md) - Complete migration guide in English
 ---
 
 ProComponents 是一个基于 React 的企业级 UI 组件库，它具有以下优点：
