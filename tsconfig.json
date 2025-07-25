@@ -19,8 +19,8 @@
     }
   },
   "include": [
-    ".dumirc.ts",
-    "vitest.config.ts",
+    ".dumirc.mts",
+    "vitest.config.mts",
     "tests/**/**/*.tsx",
     "tests/**/**/*.ts",
     "src/**/*.ts",

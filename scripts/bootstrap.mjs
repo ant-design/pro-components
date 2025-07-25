@@ -1,6 +1,6 @@
-const { existsSync, writeFileSync, readdirSync } = require('fs');
-const { join } = require('path');
-const { yParser } = require('@umijs/utils');
+import { existsSync, writeFileSync, readdirSync } from 'fs';
+import { join } from 'path';
+import { yParser } from '@umijs/utils';
 
 (async () => {
   const args = yParser(process.argv);
@@ -53,7 +53,7 @@ const { yParser } = require('@umijs/utils');
       };
       writeFileSync(pkgJSONPath, `${JSON.stringify(json, null, 2)}\n`);
     } else if (pkgJSONExists) {
-      const pkg = require(pkgJSONPath);
+      const pkg = JSON.parse(readFileSync(pkgJSONPath, 'utf-8'));
       [
         'dependencies',
         'devDependencies',

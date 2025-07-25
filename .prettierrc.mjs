@@ -1,7 +1,7 @@
-module.exports = {
+export default {
   plugins: [
-    require.resolve('prettier-plugin-organize-imports'),
-    require.resolve('prettier-plugin-packagejson'),
+    (await import('prettier-plugin-organize-imports')).default,
+    (await import('prettier-plugin-packagejson')).default,
   ],
   printWidth: 80,
   proseWrap: 'always',

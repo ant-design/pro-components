@@ -1,6 +1,6 @@
-const { spawn } = require('child_process');
+import { spawn } from 'child_process';
 
-module.exports = function exec(command, args, opts) {
+export default function exec(command, args, opts) {
   return new Promise((resolve, reject) => {
     const child = spawn(command, args, {
       shell: true,
