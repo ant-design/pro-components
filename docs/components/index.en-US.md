@@ -5,7 +5,7 @@ nav:
   title: Components
 ---
 
-# Architecture Design
+# Component Overview
 
 ProComponents was developed to reduce the cost of implementing CRUD in the middle and backend, with the idea of reducing the necessary state maintenance and focusing more on the business.
 

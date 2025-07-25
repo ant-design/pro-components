@@ -2,6 +2,7 @@ import { defineConfig } from 'dumi';
 import path from 'path';
 
 export default defineConfig({
+  title: 'ProComponents',
   sitemap: { hostname: 'https://procomponents.ant.design' },
   alias: {
     '@ant-design/pro-components': path.resolve(__dirname, 'src'),
@@ -52,7 +53,7 @@ export default defineConfig({
     'https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png',
   ],
   resolve: {
-    docDirs: ['docs', 'docs/components/**'],
+    docDirs: ['docs'],
   },
   styles: [`.markdown table{table-layout: fixed;}`],
   locales: [

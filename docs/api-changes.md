@@ -1,3 +1,8 @@
+---
+title: ProComponents API 变更总结 (2.0 → 3.0)
+order: 2
+---
+
 # ProComponents API 变更总结 (2.0 → 3.0)
 
 ## 快速参考

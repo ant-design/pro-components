@@ -1,3 +1,8 @@
+---
+title: ProComponents API Changes Summary (2.0 → 3.0)
+order: 2
+---
+
 # ProComponents API Changes Summary (2.0 → 3.0)
 
 ## Quick Reference

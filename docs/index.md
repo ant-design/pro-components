@@ -6,8 +6,8 @@ hero:
   actions:
     - text: 🚀 快速开始 →
       link: /docs/intro
-
 footer: Open-source MIT Licensed | © 2017-present
+---
 
 ## 📚 迁移指南
 
@@ -17,7 +17,6 @@ footer: Open-source MIT Licensed | © 2017-present
 - [🚀 详细迁移指南](./migration-guide.md) - 完整的迁移步骤和示例
 - [📋 API Changes Summary (EN)](./api-changes.en-US.md) - API changes in English
 - [🚀 Migration Guide (EN)](./migration-guide.en-US.md) - Complete migration guide in English
----
 
 ## 🎯 什么是 ProComponents？
 

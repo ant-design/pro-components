@@ -1,3 +1,8 @@
+---
+title: ProComponents 2.0 to 3.0 Migration Guide
+order: 3
+---
+
 # ProComponents 2.0 to 3.0 Migration Guide
 
 ## Overview

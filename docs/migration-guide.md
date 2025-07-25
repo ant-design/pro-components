@@ -1,3 +1,8 @@
+---
+title: ProComponents 2.0 到 3.0 迁移指南
+order: 3
+---
+
 # ProComponents 2.0 到 3.0 迁移指南
 
 ## 概述
