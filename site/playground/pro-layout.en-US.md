@@ -11,6 +11,16 @@ nav:
 
 <code src="../../demos/layout/dynamic-settings.tsx"  background="var(--main-bg-color)" title="属性展示"></code>
 
-## 水印自定义
+## Watermark Customization
 
-<code src="../../demos/layout/WaterMark/custom.tsx" background="var(--main-bg-color)"></code>
+> Watermark component has been removed, please use antd Watermark component directly: [Watermark Documentation](https://ant.design/components/watermark/)
+
+```tsx
+import { Watermark } from 'antd';
+
+export default () => (
+  <Watermark content="Ant Design">
+    <div style={{ height: 500 }} />
+  </Watermark>
+);
+```

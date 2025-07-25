@@ -164,10 +164,7 @@ export default defineConfig({
               title: 'ProCard',
               link: '/en-US/components/card',
             },
-            {
-              title: 'WaterMark',
-              link: '/en-US/components/water-mark',
-            },
+
             {
               title: 'StatisticCard',
               link: '/en-US/components/statistic-card',
@@ -287,10 +284,7 @@ export default defineConfig({
               title: 'ProCard - 高级卡片',
               link: '/components/card',
             },
-            {
-              title: 'WaterMark - 水印组件',
-              link: '/components/water-mark',
-            },
+
             {
               title: 'StatisticCard - 指标卡',
               link: '/components/statistic-card',

@@ -42,10 +42,10 @@ More usage examples...
 
 ## API
 
-| Parameter | Description | Type | Default |
-| --------- | ----------- | ---- | ------- |
-| prop1 | Property description | `string` | - |
-| prop2 | Property description | `boolean` | `false` |
+| Parameter | Description          | Type      | Default |
+| --------- | -------------------- | --------- | ------- |
+| prop1     | Property description | `string`  | -       |
+| prop2     | Property description | `boolean` | `false` |
 
 ## Design Guidelines
 
