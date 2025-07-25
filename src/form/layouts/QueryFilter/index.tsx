@@ -591,6 +591,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
           style={props.containerStyle}
         >
           <BaseForm
+            
             isKeyPressSubmit
             preserve={preserve}
             {...rest}

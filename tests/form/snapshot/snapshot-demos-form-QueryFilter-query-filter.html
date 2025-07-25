@@ -5,177 +5,237 @@
     <div>
       test
     </div>
-    <form
-      autocomplete="off"
-      class="ant-form ant-form-vertical ant-pro-form"
+    <div
+      class="ant-pro-query-filter-container "
     >
-      <input
-        style="display: none;"
-        type="text"
-      />
-      <div
-        class="ant-row"
-        style="margin-left: -4px; margin-right: -4px;"
+      <form
+        autocomplete="off"
+        class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
       >
+        <input
+          style="display: none;"
+          type="text"
+        />
         <div
-          class="ant-col ant-col-xs-24"
-          style="padding-left: 4px; padding-right: 4px;"
+          class="ant-row ant-row-start ant-pro-query-filter-row"
+          style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="ant-pro-form-group"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split"
+            style="padding-left: 12px; padding-right: 12px;"
           >
-            <div>
+            <div
+              class="ant-form-item"
+              style="flex-wrap: nowrap;"
+            >
               <div
-                class="ant-row"
-                style="margin-left: -4px; margin-right: -4px;"
+                class="ant-row ant-form-item-row"
               >
                 <div
-                  class="ant-col ant-col-xs-24 ant-col-xl-12"
-                  style="padding-left: 4px; padding-right: 4px;"
+                  class="ant-col ant-form-item-label"
+                  style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
+                >
+                  <label
+                    class="ant-form-item-required"
+                    for="orderTime"
+                    title="下单时间"
+                  >
+                    下单时间
+                  </label>
+                </div>
+                <div
+                  class="ant-col ant-form-item-control"
+                  style="max-width: calc(100% - 80px);"
                 >
                   <div
-                    class="ant-form-item"
+                    class="ant-form-item-control-input"
                   >
                     <div
-                      class="ant-row ant-form-item-row"
+                      class="ant-form-item-control-input-content"
                     >
                       <div
-                        class="ant-col ant-form-item-label"
-                      >
-                        <label
-                          class="ant-form-item-required"
-                          for="orderTime"
-                          title="下单时间"
-                        >
-                          下单时间
-                        </label>
-                      </div>
-                      <div
-                        class="ant-col ant-form-item-control"
+                        class="ant-picker ant-picker-focused ant-picker-outlined"
+                        style="width: 100%;"
                       >
                         <div
-                          class="ant-form-item-control-input"
+                          class="ant-picker-input"
                         >
-                          <div
-                            class="ant-form-item-control-input-content"
+                          <input
+                            aria-invalid="false"
+                            autocomplete="off"
+                            id="orderTime"
+                            placeholder="请选择"
+                            size="12"
+                            value=""
+                          />
+                          <span
+                            class="ant-picker-suffix"
                           >
-                            <div
-                              class="ant-picker ant-picker-focused ant-picker-outlined"
+                            <span
+                              aria-label="calendar"
+                              class="anticon anticon-calendar"
+                              role="img"
                             >
-                              <div
-                                class="ant-picker-input"
+                              <svg
+                                aria-hidden="true"
+                                data-icon="calendar"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
                               >
-                                <input
-                                  aria-invalid="false"
-                                  autocomplete="off"
-                                  id="orderTime"
-                                  placeholder="请选择"
-                                  size="12"
-                                  value=""
+                                <path
+                                  d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
                                 />
-                                <span
-                                  class="ant-picker-suffix"
-                                >
-                                  <span
-                                    aria-label="calendar"
-                                    class="anticon anticon-calendar"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="calendar"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="64 64 896 896"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </span>
-                              </div>
-                            </div>
-                          </div>
+                              </svg>
+                            </span>
+                          </span>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split"
+            style="padding-left: 12px; padding-right: 12px;"
+          >
+            <div
+              class="ant-form-item"
+              style="flex-wrap: nowrap;"
+            >
+              <div
+                class="ant-row ant-form-item-row"
+              >
                 <div
-                  class="ant-col ant-col-xs-24 ant-col-xl-12"
-                  style="padding-left: 4px; padding-right: 4px;"
+                  class="ant-col ant-form-item-label"
+                  style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
+                >
+                  <label
+                    class=""
+                    for="pay"
+                    title="支付方式"
+                  >
+                    支付方式
+                  </label>
+                </div>
+                <div
+                  class="ant-col ant-form-item-control"
+                  style="max-width: calc(100% - 80px);"
                 >
                   <div
-                    class="ant-form-item"
+                    class="ant-form-item-control-input"
                   >
                     <div
-                      class="ant-row ant-form-item-row"
+                      class="ant-form-item-control-input-content"
                     >
-                      <div
-                        class="ant-col ant-form-item-label"
+                      <span
+                        class="ant-input-affix-wrapper ant-input-disabled ant-input-affix-wrapper-disabled ant-input-outlined"
+                        style="width: 100%;"
                       >
-                        <label
-                          class=""
-                          for="pay"
-                          title="支付方式"
+                        <input
+                          class="ant-input ant-input-disabled"
+                          disabled=""
+                          id="pay"
+                          placeholder="请输入"
+                          type="text"
+                          value=""
+                        />
+                        <span
+                          class="ant-input-suffix"
                         >
-                          支付方式
-                        </label>
-                      </div>
-                      <div
-                        class="ant-col ant-form-item-control"
-                      >
-                        <div
-                          class="ant-form-item-control-input"
-                        >
-                          <div
-                            class="ant-form-item-control-input-content"
+                          <button
+                            class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                            tabindex="-1"
+                            type="button"
                           >
                             <span
-                              class="ant-input-affix-wrapper ant-input-disabled ant-input-affix-wrapper-disabled ant-input-outlined"
+                              aria-label="close-circle"
+                              class="anticon anticon-close-circle"
+                              role="img"
                             >
-                              <input
-                                class="ant-input ant-input-disabled"
-                                disabled=""
-                                id="pay"
-                                placeholder="请输入"
-                                type="text"
-                                value=""
-                              />
-                              <span
-                                class="ant-input-suffix"
+                              <svg
+                                aria-hidden="true"
+                                data-icon="close-circle"
+                                fill="currentColor"
+                                fill-rule="evenodd"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
                               >
-                                <button
-                                  class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                                  tabindex="-1"
-                                  type="button"
-                                >
-                                  <span
-                                    aria-label="close-circle"
-                                    class="anticon anticon-close-circle"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="close-circle"
-                                      fill="currentColor"
-                                      fill-rule="evenodd"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="64 64 896 896"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </button>
-                              </span>
+                                <path
+                                  d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+                                />
+                              </svg>
                             </span>
+                          </button>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-col ant-col-8"
+            style="padding-left: 12px; padding-right: 12px; text-align: end;"
+          >
+            <div
+              class="ant-form-item ant-pro-query-filter-actions"
+            >
+              <div
+                class="ant-row ant-form-item-row"
+              >
+                <div
+                  class="ant-col ant-form-item-label"
+                >
+                  <label
+                    class="ant-form-item-no-colon"
+                    title=" "
+                  >
+                     
+                  </label>
+                </div>
+                <div
+                  class="ant-col ant-form-item-control"
+                >
+                  <div
+                    class="ant-form-item-control-input"
+                  >
+                    <div
+                      class="ant-form-item-control-input-content"
+                    >
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="column-gap: 16px; row-gap: 16px;"
+                      >
+                        <div
+                          class="ant-space-item"
+                        >
+                          <div
+                            style="display: flex; gap: 8px; align-items: center;"
+                          >
+                            <button
+                              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+                              type="button"
+                            >
+                              <span>
+                                重 置
+                              </span>
+                            </button>
+                            <button
+                              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+                              type="button"
+                            >
+                              <span>
+                                查 询
+                              </span>
+                            </button>
                           </div>
                         </div>
                       </div>
@@ -186,27 +246,7 @@
             </div>
           </div>
         </div>
-      </div>
-      <div
-        style="display: flex; gap: 8px; align-items: center;"
-      >
-        <button
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-        <button
-          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-    </form>
+      </form>
+    </div>
   </div>
 </DocumentFragment>
