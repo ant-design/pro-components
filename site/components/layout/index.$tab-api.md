@@ -58,7 +58,6 @@ ProLayout 提供了强大的菜单功能，但是这样必然会封装很多行�
 
 <code src="../../../demos/layout/dynamicMenu.tsx" iframe="650"></code>
 
-
 ### 自定义 menu 的内容
 
 通过 `menuItemRender`, `subMenuItemRender`,`title`,`logo`,`menuHeaderRender` 可以非常方便的自定义 menu 的样式。如果实在是不满意，可以使用 `menuRender` 完全的自定义。

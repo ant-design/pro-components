@@ -26,7 +26,6 @@ The main APIs used to load menu from the server are `menuDataRender` and `menuRe
 
 <code src="../../../demos/layout/dynamicMenu.tsx" iframe="580"></code>
 
-
 ### Customize the content of the menu
 
 With `menuItemRender`, `subMenuItemRender`, `title`, `logo`, `menuHeaderRender` you can customize the menu style very easily. If you are really not satisfied, you can use `menuRender` to fully customize it.

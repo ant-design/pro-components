@@ -1,6 +1,11 @@
 ---
 title: 文档编写指南
 order: 100
+nav:
+  title: 文档
+  order: 100
+  path: /docs
+  icon: file
 ---
 
 # 文档编写指南
@@ -11,7 +16,7 @@ order: 100
 
 每个组件文档应包含以下内容：
 
-```markdown
+````markdown
 # 组件名称
 
 ## 何时使用
@@ -29,6 +34,7 @@ export default () => {
   return <ComponentName />;
 };
 ```
+````
 
 ### 进阶用法
 
@@ -36,15 +42,16 @@ export default () => {
 
 ## API
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| prop1 | 属性说明 | `string` | - |
+| 参数  | 说明     | 类型      | 默认值  |
+| ----- | -------- | --------- | ------- |
+| prop1 | 属性说明 | `string`  | -       |
 | prop2 | 属性说明 | `boolean` | `false` |
 
 ## 设计规范
 
 组件的设计原则和使用建议。
-```
+
+````
 
 ### 2. 文件命名规范
 
@@ -71,7 +78,7 @@ export default () => {
     </ComponentName>
   );
 };
-```
+````
 
 ### 2. 演示文件位置
 
@@ -141,4 +148,4 @@ demos/
 
 - [dumi 官方文档](https://d.umijs.org/)
 - [Ant Design 设计规范](https://ant.design/docs/spec/introduce-cn)
-- [Markdown 语法指南](https://www.markdownguide.org/) 
+- [Markdown 语法指南](https://www.markdownguide.org/)
