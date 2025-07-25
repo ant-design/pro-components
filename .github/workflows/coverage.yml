@@ -18,7 +18,7 @@ jobs:
           node-version: 20
           cache: 'pnpm'
       - run: pnpm install
-      - run: pnpm run test:coverage --maxWorkers=1
+      - run: pnpm run test:coverage --maxWorkers=5
         env:
           CI: true
           PROGRESS: none
