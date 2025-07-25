@@ -800,7 +800,6 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                     subMenuItemBg:
                       token.layout?.sider?.colorMenuBackground || 'transparent',
                     itemBorderRadius: token.borderRadius,
-
                     itemSelectedBg:
                       token.layout?.sider?.colorBgMenuItemSelected ||
                       token?.colorBgTextHover,
