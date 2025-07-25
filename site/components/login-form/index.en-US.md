@@ -1,32 +1,48 @@
 ---
-title: LoginForm/Page - Login Form
-order: 13
 nav:
-  title: Components
-  order: 100
-  path: /components
+  title: Form
+group: Form
+title: LoginForm/Page
+Order: 2
+atomId: LoginForm,PageForm
+navigation:
+  Title: Components
 ---
 
-# LoginForm/Page - Login Form
+# LoginForm/Page
 
-## When to Use
+LoginForm and LoginFormPage are variants of ProForm. They are specially implemented to adapt to common login form layouts. They are suitable for various login scenarios and reduce layout pressure.
 
-LoginForm/Page - Login Form is a powerful component suitable for the following scenarios:
+## Login form
 
-- Scenario description 1
-- Scenario description 2
-- Scenario description 3
+<code src="../../../demos/form/LoginForm/login-form.tsx"  background="var(--main-bg-color)" oldtitle="login-form"></code>
 
-## Code Examples
+## page level LoginForm
 
+<code src="../../../demos/form/LoginForm/login-form-page.tsx"  background="var(--main-bg-color)" oldtitle="Page level form"></code>
 
+### LoginForm
 
-## API
+LoginForm represents the more common centered layout style.
 
-| Parameter | Description          | Type     | Default |
-| --------- | -------------------- | -------- | ------- |
-| prop1     | Property description | `string` | -       |
+| parameter | description                                                                         | type               | default value |
+| --------- | ----------------------------------------------------------------------------------- | ------------------ | ------------- |
+| logo      | Configuration of logo, supports ReactNode and string                                | `ReactNode \| url` | -             |
+| title     | title, can be empty                                                                 | `ReactNode`        | -             |
+| subTitle  | Secondary title, can be configured as empty                                         | `ReactNode`        | -             |
+| actions   | Customize additional login functionality                                            | `ReactNode`        |               |
+| message   | A prompt configuration at the top of the form, you can configure some error message | `ReactNode`        | -             |
 
-## Design Guidelines
+### LoginFormPage
 
-LoginForm/Page - Login Form follows Ant Design design guidelines, providing a consistent user experience.
+LoginFormPage uses the left and right layout, and adds some ad slot configuration.
+
+| parameter          | description                                                                                                                                                                                             | type                            | default value |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | ------------- |
+| logo               | Configuration of logo, supports ReactNode and string                                                                                                                                                    | `ReactNode \| url`              | -             |
+| title              | title, can be empty                                                                                                                                                                                     | `ReactNode`                     | -             |
+| subTitle           | Secondary title, can be configured as empty                                                                                                                                                             | `ReactNode`                     | -             |
+| actions            | Customize additional login functionality                                                                                                                                                                | `ReactNode`                     |               |
+| message            | A prompt configuration at the top of the form, you can configure some error message                                                                                                                     | `ReactNode`                     | -             |
+| backgroundImageUrl | The background image configuration of the entire area, it will not be displayed on the mobile phone                                                                                                     | `url`                           | -             |
+| activityConfig     | The configuration of the activity, including title, subTitle, action, which represent the title, subtitle and action button respectively. You can also configure style to control the style of the area | `{title,subTitle,action,style}` | -             |

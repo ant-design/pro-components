@@ -1,40 +1,51 @@
 ---
-title: StepsForm - Step Form
-order: 11
 nav:
-  title: Components
-  order: 100
-  path: /components
+  title: Form
+title: StepsForm
+order: 1
+atomId: StepsForm
+group: Form
 ---
 
-# StepsForm - Step Form
+# StepsForm
 
-## When to Use
+StepsForm manages the data of sub forms through a Provider, each word form is a complete set of data that is combined in StepsForm to form the final data. It also comes with a progress bar and a related API to manage the progress bar.
 
-StepsForm - Step Form is a powerful component suitable for the following scenarios:
+> StepsForm inherits from Form.Provider, see the documentation [here](https://ant.design/components/form/#Form.Provider), the value of the transformed moment is a function provided by ProForm, so `onFormFinish` and `onFormChange` where the values are untransformed.
 
-- Scenario description 1
-- Scenario description 2
-- Scenario description 3
+## Step-by-Step Forms
 
-## Code Examples
+<code src="../../../demos/form/StepsForm/steps-from.tsx" ></code>
 
-### Basic Usage
+## Step-by-Step Forms - Multi-Card
 
-```tsx
-import { StepsForm } from '@ant-design/pro-components';
+<code src="../../../demos/form/StepsForm/multi-card-step-form.tsx"  background="var(--main-bg-color)" ></code>
 
-export default () => {
-  return <StepsForm />;
-};
-```
+## Step-by-Step Forms - Works with Modal
 
-## API
+<code src="../../../demos/form/StepsForm/modal-step-form.tsx"  background="var(--main-bg-color)" ></code>
 
-| Parameter | Description          | Type     | Default |
-| --------- | -------------------- | -------- | ------- |
-| prop1     | Property description | `string` | -       |
+## StepForm in edit scene
 
-## Design Guidelines
+<code src="../../../demos/form/StepsForm/add-or-edit-step-form.tsx" oldtitle="自定义分步表单按钮"></code>
 
-StepsForm - Step Form follows Ant Design design guidelines, providing a consistent user experience.
+## StepsForm
+
+| Parameters      | Description                                                                                                                                 | Type                                               | Default |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
+| current         | The number of steps in the current form, starting from `0`                                                                                  | `number`                                           | 0       |
+| onCurrentChange | current The event that changed                                                                                                              | `(current:number)=>void`                           | -       |
+| onFinish        | Triggered when the last step of the form was submitted successfully                                                                         | `(values:T)=>void`                                 | -       |
+| stepsProps      | StepsForm's own props for Steps, used in the same way as [antd](https://ant.design/components/steps/), but without the current and onChange | [ props](https://ant.design/components/steps/#API) | -       |
+| stepFormRender  | Customize the currently displayed form, return dom inside the form                                                                          | `(form) => ReactNode`                              | -       |
+| stepsFormRender | Customize the entire form area, returning the dom on the outside of the form                                                                | `(form,submitter) => ReactNode`                    | -       |
+| stepsRender     | Customize the stepsizer                                                                                                                     | `(steps,dom)=> ReactNode`                          | -       |
+| formRef         | A reference to the StepForm action for custom triggering                                                                                    | `MutableRefObject<FormInstance>`                   | -       |
+
+### StepForm
+
+Exactly the same as [ProForm](/components/form), except that onFinish supports Promise, so if it returns `false`, it won't jump to the next step.
+
+| Parameters | Description                 | Type                         | Default |
+| ---------- | --------------------------- | ---------------------------- | ------- |
+| onFinish   | form submit success trigger | `(values:T)=>Promise<false>` | -       |

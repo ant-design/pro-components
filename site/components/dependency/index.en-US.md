@@ -1,40 +1,55 @@
 ---
-title: ProFormDependency - Data Dependency
-order: 8
 nav:
-  title: Components
-  order: 100
-  path: /components
+  title: Form
+title: ProFormDependency
+order: 1
+atomId: ProFormDependency
+group: Form
 ---
 
-# ProFormDependency - Data Dependency
+# ProFormDependency - Data Linkage
 
-## When to Use
+Data linkage in Form is very common, so we encapsulate a component for data processing.
 
-ProFormDependency - Data Dependency is a powerful component suitable for the following scenarios:
+## ProFormDependency
 
-- Scenario description 1
-- Scenario description 2
-- Scenario description 3
+ProFormDependency is a simplified version of Form.Item. It has noStyle and shouldUpdate built in by default. We only need to configure the name to determine which data we rely on. ProFormDependency will automatically process the diff and extract the corresponding value from the form.
 
-## Code Examples
+The name parameter must be an array. If it is a nested structure, it can be configured like `name={['name', ['name2', 'text']]}`. The value of the configured name will be passed in renderProps . `name={['name', ['name2', 'text']]}` The value of the passed in values ​​is `{ name: string,name2: { text:string } }`.
 
-### Basic Usage
-
-```tsx
-import { ProFormDependency } from '@ant-design/pro-components';
-
-export default () => {
-  return <ProFormDependency />;
-};
+```tsx | pure
+<ProFormDependency name={['name']}>
+  {({ name }) => {
+    return (
+      <ProFormSelect
+        options={[
+          {
+            value: 'chapter',
+            label: 'It will take effect after stamping',
+          },
+        ]}
+        width="md"
+        name="useMode"
+        label={`The contract with "${name}" agreed on the effective method`}
+      />
+    );
+  }}
+</ProFormDependency>
 ```
 
-## API
+## code example
 
-| Parameter | Description          | Type     | Default |
-| --------- | -------------------- | -------- | ------- |
-| prop1     | Property description | `string` | -       |
+### Interdependent Forms
 
-## Design Guidelines
+<code src="../../../demos/form/Dependency/dependency.tsx" oldtitle="ProForm.List"></code>
 
-ProFormDependency - Data Dependency follows Ant Design design guidelines, providing a consistent user experience.
+### Get form dependency values
+
+The following examples demonstrate the order in which dependencies are evaluated in different situations:
+
+- `<ProFormDependency>`\*\* is not in\*\*`<ProFormList>`: according to the dependency declared by `name`, the value is taken from the global (case 1)
+- `<ProFormDependency>`\*\* in \*\*`<ProFormList>`
+  - `ignoreFormListField` of `<ProFormDependency>` is `true`: according to the dependency declared by `name`, the value is taken from the global (case 2)
+  - `ignoreFormListField` of `<ProFormDependency>` is `false`: according to the dependency declared by `name`, the value is taken locally (case 3)
+
+<code src="../../../demos/form/Dependency/dependency2.tsx" oldtitle="ProForm.List"></code>

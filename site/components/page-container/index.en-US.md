@@ -35,31 +35,31 @@ PageContainer is a page container component that provides a unified page layout 
 
 ### PageContainer
 
-| Parameter | Description | Type | Default |
-| --------- | ----------- | ---- | ------- |
-| title | Page title | `ReactNode` | - |
-| subTitle | Page subtitle | `ReactNode` | - |
-| extra | Page operation area | `ReactNode` | - |
-| content | Page content | `ReactNode` | - |
-| loading | Loading state | `boolean \| SpinProps` | false |
-| header | Header configuration | `PageHeaderProps` | - |
-| breadcrumb | Breadcrumb configuration | `BreadcrumbProps` | - |
-| breadcrumbRender | Custom breadcrumb rendering | `(props: PageContainerProps) => ReactNode` | - |
-| waterMarkProps | Watermark configuration | `WatermarkProps` | - |
-| children | Children | `ReactNode` | - |
+| Parameter        | Description                 | Type                                       | Default |
+| ---------------- | --------------------------- | ------------------------------------------ | ------- |
+| title            | Page title                  | `ReactNode`                                | -       |
+| subTitle         | Page subtitle               | `ReactNode`                                | -       |
+| extra            | Page operation area         | `ReactNode`                                | -       |
+| content          | Page content                | `ReactNode`                                | -       |
+| loading          | Loading state               | `boolean \| SpinProps`                     | false   |
+| header           | Header configuration        | `PageHeaderProps`                          | -       |
+| breadcrumb       | Breadcrumb configuration    | `BreadcrumbProps`                          | -       |
+| breadcrumbRender | Custom breadcrumb rendering | `(props: PageContainerProps) => ReactNode` | -       |
+| waterMarkProps   | Watermark configuration     | `WatermarkProps`                           | -       |
+| children         | Children                    | `ReactNode`                                | -       |
 
 ### PageHeaderProps
 
-| Parameter | Description | Type | Default |
-| --------- | ----------- | ---- | ------- |
-| title | Title | `ReactNode` | - |
-| subTitle | Subtitle | `ReactNode` | - |
-| extra | Operation area | `ReactNode` | - |
-| breadcrumb | Breadcrumb | `BreadcrumbProps` | - |
-| tags | Tags | `TagProps[]` | - |
-| avatar | Avatar | `AvatarProps` | - |
-| backIcon | Back icon | `ReactNode` | - |
-| onBack | Back event | `() => void` | - |
+| Parameter  | Description    | Type              | Default |
+| ---------- | -------------- | ----------------- | ------- |
+| title      | Title          | `ReactNode`       | -       |
+| subTitle   | Subtitle       | `ReactNode`       | -       |
+| extra      | Operation area | `ReactNode`       | -       |
+| breadcrumb | Breadcrumb     | `BreadcrumbProps` | -       |
+| tags       | Tags           | `TagProps[]`      | -       |
+| avatar     | Avatar         | `AvatarProps`     | -       |
+| backIcon   | Back icon      | `ReactNode`       | -       |
+| onBack     | Back event     | `() => void`      | -       |
 
 ## Design Guidelines
 

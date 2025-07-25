@@ -1,40 +1,29 @@
 ---
-title: DragSortTable - Drag Sort Table
-order: 15
 nav:
-  title: Components
-  order: 100
-  path: /components
+  title: Table
+title: DragSortTable
+atomId: DragSortTable
+group: Table
 ---
 
 # DragSortTable - Drag Sort Table
 
-## When to Use
+`DragSortTable` uses [dnd-kit](https://dndkit.com/) for sorting, you need to provide `rowKey` to determine the unique value of the data, otherwise it will not work properly.
 
-DragSortTable - Drag Sort Table is a powerful component suitable for the following scenarios:
+## Demo
 
-- Scenario description 1
-- Scenario description 2
-- Scenario description 3
+### Drag to sort
 
-## Code Examples
+<code src="../../../demos/table/DragSortTable/drag.tsx"  background="var(--main-bg-color)" oldtitle="Drag sort"></code>
 
-### Basic Usage
+### Drag and drop to sort and edit the table
 
-```tsx
-import { DragSortTable } from '@ant-design/pro-components';
+<code src="../../../demos/table/DragSortTable/drag-sort-table.tsx"  background="var(--main-bg-color)" oldtitle="Editable table"></code>
 
-export default () => {
-  return <DragSortTable />;
-};
-```
+## DragSortTable
 
-## API
-
-| Parameter | Description          | Type     | Default |
-| --------- | -------------------- | -------- | ------- |
-| prop1     | Property description | `string` | -       |
-
-## Design Guidelines
-
-DragSortTable - Drag Sort Table follows Ant Design design guidelines, providing a consistent user experience.
+| property              | description                                                                                                                                                | type                                                                                     | default value                                                                                   |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| dragSortKey           | If this parameter is configured, the drag sorting handle will be displayed in the row corresponding to the key, allowing drag sorting                      | `string`                                                                                 | -                                                                                               |
+| dragSortHandlerRender | The function for rendering custom drag sorting handles. If dragSortKey is configured but this parameter is not configured, the default handle icon is used | `(rowData: T, idx: number) => React.ReactNode`                                           | `<MenuOutlined className= "dragSortDefaultHandle" style={{ cursor: 'grab', color: '#999' }} />` |
+| onDragSortEnd         | Drag sort completion callback                                                                                                                              | `(beforeIndex: number, afterIndex: number, newDataSource: T[]) => Promise<void> \| void` | -                                                                                               |

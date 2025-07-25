@@ -21,20 +21,19 @@ Schema is a universal configuration system for defining and managing component c
 - When you need to implement configuration-driven interfaces
 - When you need to support runtime configuration modifications
 
-
 ## API
 
 ### Schema Configuration
 
-| Parameter | Description | Type | Default |
-| --------- | ----------- | ---- | ------- |
-| type | Field type | `string` | - |
-| title | Field title | `string` | - |
-| description | Field description | `string` | - |
-| required | Whether required | `boolean` | false |
-| default | Default value | `any` | - |
-| properties | Sub-field configuration | `object` | - |
-| dependencies | Dependency relationships | `object` | - |
+| Parameter    | Description              | Type      | Default |
+| ------------ | ------------------------ | --------- | ------- |
+| type         | Field type               | `string`  | -       |
+| title        | Field title              | `string`  | -       |
+| description  | Field description        | `string`  | -       |
+| required     | Whether required         | `boolean` | false   |
+| default      | Default value            | `any`     | -       |
+| properties   | Sub-field configuration  | `object`  | -       |
+| dependencies | Dependency relationships | `object`  | -       |
 
 ### Supported Types
 

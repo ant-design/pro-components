@@ -1,34 +1,99 @@
 ---
-title: Query/LightFilter - Filter Form
-order: 10
 nav:
-  title: Components
-  order: 100
-  path: /components
+  title: Form
+title: Query/LightFilter
+atomId: QueryFilter,LightFilter
+group: Form
 ---
 
-# Query/LightFilter - Filter Form
+# QueryFilter / LightFilter
 
-## When to Use
+QueryFilter and LightFilter solve the problem of using the form with other components, such as Table, List, etc., and avoid complicated style settings. QueryFilter and LightFilter are supported by default in ProTable as their own filter forms.
 
-Query/LightFilter - Filter Form is a powerful component suitable for the following scenarios:
+### Query Filter
 
-- Scenario description 1
-- Scenario description 2
-- Scenario description 3
+<code src="../../../demos/form/QueryFilter/query-filter.tsx" ></code>
 
-## Code Examples
+### Query filter - put away by default
 
-### Basic Usage
+<code src="../../../demos/form/QueryFilter/query-filter-collapsed.tsx" ></code>
 
+### query-filter-vertical-layout
 
+<code src="../../../demos/form/QueryFilter/query-filter-vertical.tsx" ></code>
+
+### query-filter-search
+
+<code src="../../../demos/form/QueryFilter/search-filter.tsx" background="var(--main-bg-color)" ></code>
+
+### query-filter-defaultFormItemsNumber
+
+<code src="../../../demos/form/QueryFilter/query-filter-defaultFormItemsNumber.tsx" background="var(--main-bg-color)"></code>
+
+### Lightweight filtering
+
+<code src="../../../demos/form/QueryFilter/light-filter.tsx" ></code>
+
+### Light filtering - border mode
+
+<code src="../../../demos/form/QueryFilter/light-filter-bordered.tsx" ></code>
+
+### Light filtering - collapsed mode
+
+All options in collapsed mode are collapsed by default, with or without values, and the control's `secondary` will no longer be valid.
+
+<code src="../../../demos/form/QueryFilter/light-filter-collapse.tsx" ></code>
 
 ## API
 
-| Parameter | Description          | Type     | Default |
-| --------- | -------------------- | -------- | ------- |
-| prop1     | Property description | `string` | -       |
+### QueryFilter
 
-## Design Guidelines
+QueryFilter supports the following properties in addition to the API inherited from ProForm.
 
-Query/LightFilter - Filter Form follows Ant Design design guidelines, providing a consistent user experience.
+| Parameters             | Description                                                                                                                                                            | Type                 | Default |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | ------- |
+| collapsed              | Whether or not to collapse out-of-bounds form items for controlled mode                                                                                                | `boolean`            | -       |
+| defaultCollapsed       | Whether or not to collapse out-of-order form items in default state                                                                                                    | `boolean`            | true    |
+| onCollapse             | Callback when toggling the collapsed state of the form                                                                                                                 | `(collapsed)=>void`  | -       |
+| hideRequiredMark       | Hide the required markers for all form items, **hide by default**                                                                                                      | `boolean`            | true    |
+| submitterColSpanProps  | Props of the col where the submit button is located.                                                                                                                   | ColProps             | -       |
+| defaultColsNumber      | The default number of form controls displayed in a collapsed state. Only one row of controls is displayed at most, and when exceeded, a collapse/hide button is shown. | `number`             | -       |
+| defaultFormItemsNumber | The difference from defaultColsNumber is that the specified number of controls will be displayed, and when exceeded, a collapse/hide button will be shown.             | `number`             | -       |
+| labelWidth             | label width                                                                                                                                                            | `number` \| `'auto'` | `98`    |
+| span                   | width of form items                                                                                                                                                    | `number[0 - 24]`     | -       |
+| split                  | whether each line has a split line                                                                                                                                     | `boolean`            | -       |
+| preserve               | If set to false, the form data will be lost after being put away                                                                                                       | `boolean`            | true    |
+
+#### Responsive Breakpoint Rules
+
+Note that the values of the breakpoints are the size of the form container and not the viewport size.
+
+##### Rules for default layout
+
+| container-width breakpoint | single-row display form single-column count (including action area) | default layout |
+| -------------------------- | ------------------------------------------------------------------- | -------------- |
+| `≧ 1352px`                 | 4 columns                                                           | `horizontal`   |
+| `≧ 1062px`                 | 3 columns                                                           | `horizontal`   |
+| `≧ 701px && < 1063px`      | 3 columns                                                           | `horizontal`   |
+| `≧ 701px && < 1063px`      | 3 columns                                                           | `horizontal`   |
+| `≧ 513px && < 701px`       | 2 columns                                                           | `vertical`     |
+| `< 513px`                  | 1 column                                                            | `vertical`     |
+
+##### Rules when forcing top and bottom layout
+
+| container width breakpoint | single row display table single column count (including operation area) |
+| -------------------------- | ----------------------------------------------------------------------- |
+| `≧ 1057px`                 | 4 columns                                                               |
+| `≧ 785px && < 1057px`      | 3 columns                                                               |
+| `≧ 513px && < 785px`       | 2 columns                                                               |
+| < 513px\`                  | 1 column                                                                |
+
+### LightFilter
+
+LightFilter supports the following properties in addition to the API inherited from ProForm.
+
+| Parameters    | Description                                                                                   | Type        | Default                      |
+| ------------- | --------------------------------------------------------------------------------------------- | ----------- | ---------------------------- |
+| collapse      | whether to collapse all fields by default                                                     | `boolean`   | `false`                      |
+| collapseLabel | label of collapsed area                                                                       | `ReactNode` | `MoreFilter <DownOutlined/>` |
+| placement     | The position where the selection box pops up: `bottomLeft` `bottomRight` `topLeft` `topRight` | string      | bottomLeft                   |
