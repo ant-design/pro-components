@@ -392,6 +392,9 @@ const defaultPageTitleRender = (
       typeof title === 'string',
       'pro-layout: renderPageTitle return value should be a string',
     );
+    // 当 pageTitleRender 返回非字符串值时，返回默认的 pageTitleInfo
+    // 而不是使用可能包含非字符串值的 title
+    return pageTitleInfo;
   }
   return pageTitleInfo;
 };

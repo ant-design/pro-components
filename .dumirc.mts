@@ -71,56 +71,331 @@ export default defineConfig({
         link: '/docs/intro',
       },
     },
-    features: [
-      {
-        image:
-          'https://mdn.alipayobjects.com/yuyan_qk0oxh/afts/img/q48YQ5X4ytAAAAAAAAAAAAAAFl94AQBr',
-        title: '简单易用',
-        description: '在 Ant Design 上进行了自己的封装，更加易用',
-      },
-      {
-        image:
-          'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
-        title: 'Ant Design',
-        description: '与 Ant Design 设计体系一脉相承，无缝对接 Ant Design 项目',
-      },
-      {
-        image:
-          'https://mdn.alipayobjects.com/yuyan_qk0oxh/afts/img/UKqDTIp55HYAAAAAAAAAAAAAFl94AQBr',
-        title: '国际化',
-        description: '提供完备的国际化，与 Ant Design 体系打通，无需多余配置',
-      },
-
-      {
-        image:
-          'https://mdn.alipayobjects.com/yuyan_qk0oxh/afts/img/Y_NMQKxw7OgAAAAAAAAAAAAAFl94AQBr',
-        title: '预设样式',
-        description:
-          '样式风格与 Ant Design 一脉相承，无需魔改，浑然天成。默认好用的主题系统',
-      },
-      {
-        image:
-          'https://mdn.alipayobjects.com/yuyan_qk0oxh/afts/img/U3XjS5IA1tUAAAAAAAAAAAAAFl94AQBr',
-        title: '预设行为',
-        description: '更少的代码，更少的 Bug，更多的功能',
-      },
-
-      {
-        image:
-          'https://gw.alipayobjects.com/zos/antfincdn/Eb8IHpb9jE/Typescript_logo_2020.svg',
-        title: 'TypeScript',
-        description:
-          '使用 TypeScript 开发，提供完整的类型定义文件，无需频繁打开官网',
-      },
-    ],
-    siteToken: { demoInheritSiteTheme: true },
-    name: 'ProComponents',
-    logo: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
-    socialLinks: {
-      github: 'https://github.com/ant-design/pro-components',
-    },
-    apiHeader: false,
-  },
+    
   hash: true,
   ignoreMomentLocale: true,
+  features: [
+    {
+      image:
+        'https://mdn.alipayobjects.com/yuyan_qk0oxh/afts/img/q48YQ5X4ytAAAAAAAAAAAAAAFl94AQBr',
+      title: '简单易用',
+      description: '在 Ant Design 上进行了自己的封装，更加易用',
+    },
+    {
+      image:
+        'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+      title: 'Ant Design',
+      description: '与 Ant Design 设计体系一脉相承，无缝对接 Ant Design 项目',
+    },
+    {
+      image:
+        'https://mdn.alipayobjects.com/yuyan_qk0oxh/afts/img/UKqDTIp55HYAAAAAAAAAAAAAFl94AQBr',
+      title: '国际化',
+      description: '提供完备的国际化，与 Ant Design 体系打通，无需多余配置',
+    },
+
+    {
+      image:
+        'https://mdn.alipayobjects.com/yuyan_qk0oxh/afts/img/Y_NMQKxw7OgAAAAAAAAAAAAAFl94AQBr',
+      title: '预设样式',
+      description:
+        '样式风格与 Ant Design 一脉相承，无需魔改，浑然天成。默认好用的主题系统',
+    },
+    {
+      image:
+        'https://mdn.alipayobjects.com/yuyan_qk0oxh/afts/img/U3XjS5IA1tUAAAAAAAAAAAAAFl94AQBr',
+      title: '预设行为',
+      description: '更少的代码，更少的 Bug，更多的功能',
+    },
+
+    {
+      image:
+        'https://gw.alipayobjects.com/zos/antfincdn/Eb8IHpb9jE/Typescript_logo_2020.svg',
+      title: 'TypeScript',
+      description:
+        '使用 TypeScript 开发，提供完整的类型定义文件，无需频繁打开官网',
+    },
+  ],
+  nav: {
+    'zh-CN': [
+      { title: '文档', link: '/docs' },
+      { title: '组件', link: '/components' },
+      { title: 'Changelog', link: '/changelog' },
+      { title: 'Playground', link: '/playground' },
+      {
+        title: '国内镜像',
+        link: 'https://pro-components.antdigital.dev',
+      },
+    ],
+    'en-US': [
+      { title: 'Docs', link: '/en-US/docs' },
+      { title: 'Components', link: '/en-US/components' },
+      { title: 'Changelog', link: '/en-US/changelog' },
+      { title: 'Playground', link: '/en-US/playground' },
+    ],
+  },
+  sidebar: {
+    '/en-US/components': [
+      {
+        title: 'Architecture Design',
+        children: [
+          {
+            title: 'Component Design',
+            link: '/en-US/components',
+          },
+          {
+            title: 'General Schema',
+            link: '/en-US/components/schema',
+          },
+        ],
+      },
+      {
+        title: 'Layout',
+        children: [
+          {
+            title: 'ProLayout',
+            link: '/en-US/components/layout',
+          },
+          {
+            title: 'PageContainer',
+            link: '/en-US/components/page-container',
+          },
+          {
+            title: 'ProCard',
+            link: '/en-US/components/card',
+          },
+          {
+            title: 'WaterMark',
+            link: '/en-US/components/water-mark',
+          },
+          {
+            title: 'StatisticCard',
+            link: '/en-US/components/statistic-card',
+          },
+          {
+            title: 'CheckCard',
+            link: '/en-US/components/check-card',
+          },
+        ],
+      },
+      {
+        title: 'Data Entry',
+        children: [
+          {
+            title: 'ProForm',
+            link: '/en-US/components/form',
+          },
+          {
+            title: 'ProFormFields',
+            link: '/en-US/components/field-set',
+          },
+          {
+            title: 'ProFormList',
+            link: '/en-US/components/group',
+          },
+          {
+            title: 'ProFormDependency',
+            link: '/en-US/components/dependency',
+          },
+          {
+            title: 'Schema Form',
+            link: '/en-US/components/schema-form',
+          },
+          {
+            title: 'Query/LightFilter',
+            link: '/en-US/components/query-filter',
+          },
+          {
+            title: 'StepsForm',
+            link: '/en-US/components/steps-form',
+          },
+          {
+            title: 'Modal/Drawer Form',
+            link: '/en-US/components/modal-form',
+          },
+          {
+            title: 'LoginForm/LoginPageForm',
+            link: '/en-US/components/login-form',
+          },
+        ],
+      },
+      {
+        title: 'Data Display',
+        children: [
+          {
+            title: 'ProTable',
+            link: '/en-US/components/table',
+          },
+          {
+            title: 'EditableProTable',
+            link: '/en-US/components/editable-table',
+          },
+          {
+            title: 'DragSortTable',
+            link: '/en-US/components/drag-sort-table',
+          },
+          {
+            title: 'ProList',
+            link: '/en-US/components/list',
+          },
+          {
+            title: 'ProDescriptions',
+            link: '/en-US/components/descriptions',
+          },
+        ],
+      },
+      {
+        title: 'Universal',
+        children: [
+          {
+            title: 'ProSkeleton',
+            link: '/en-US/components/skeleton',
+          },
+          {
+            title: 'ProField',
+            link: '/en-US/components/field',
+          },
+        ],
+      },
+    ],
+    '/components': [
+      {
+        title: '架构设计',
+        children: [
+          {
+            title: 'Components - 组件设计',
+            link: '/components',
+          },
+          {
+            title: 'Schema - 通用配置',
+            link: '/components/schema',
+          },
+        ],
+      },
+      {
+        title: '布局',
+        children: [
+          {
+            title: 'ProLayout - 高级布局',
+            link: '/components/layout',
+          },
+          {
+            title: 'PageContainer - 页容器',
+            link: '/components/page-container',
+          },
+          {
+            title: 'ProCard - 高级卡片',
+            link: '/components/card',
+          },
+          {
+            title: 'WaterMark - 水印组件',
+            link: '/components/water-mark',
+          },
+          {
+            title: 'StatisticCard - 指标卡',
+            link: '/components/statistic-card',
+          },
+          {
+            title: 'CheckCard - 多选卡片',
+            link: '/components/check-card',
+          },
+        ],
+      },
+      {
+        title: '数据录入',
+        children: [
+          {
+            title: 'ProForm - 高级表单',
+            link: '/components/form',
+          },
+          {
+            title: 'ProFormFields - 表单项',
+            link: '/components/field-set',
+          },
+          {
+            title: 'ProFormList - 数据结构化',
+            link: '/components/group',
+          },
+          {
+            title: 'ProFormDependency - 数据联动',
+            link: '/components/dependency',
+          },
+          {
+            title: 'Schema Form - JSON 表单',
+            link: '/components/schema-form',
+          },
+          {
+            title: ' Query/LightFilter - 筛选表单',
+            link: '/components/query-filter',
+          },
+          {
+            title: 'StepsForm - 分步表单',
+            link: '/components/steps-form',
+          },
+          {
+            title: 'Modal/Drawer - 浮层表单',
+            link: '/components/modal-form',
+          },
+          {
+            title: 'LoginForm/Page - 登录表单',
+            link: '/components/login-form',
+          },
+        ],
+      },
+      {
+        title: '数据展示',
+        children: [
+          {
+            title: 'ProTable - 高级表格',
+            link: '/components/table',
+          },
+          {
+            title: 'EditableProTable - 可编辑表格',
+            link: '/components/editable-table',
+          },
+          {
+            title: ' DragSortTable - 拖动排序表格',
+            link: '/components/drag-sort-table',
+          },
+          {
+            title: 'ProList - 高级列表',
+            link: '/components/list',
+          },
+          {
+            title: 'ProDescriptions - 定义列表',
+            link: '/components/descriptions',
+          },
+        ],
+      },
+      {
+        title: '通用',
+        children: [
+          {
+            title: 'ProSkeleton - 骨架屏',
+            link: '/components/skeleton',
+          },
+          {
+            title: 'ProField - 原子组件',
+            link: '/components/field',
+          },
+        ],
+      },
+    ],
+  },
+  navs: {
+    'en-US': [
+      null,
+      {
+        title: 'GitHub',
+        path: 'https://github.com/ant-design/pro-components',
+      },
+    ],
+    'zh-CN': [
+      null,
+      {
+        title: 'GitHub',
+        path: 'https://github.com/ant-design/pro-components',
+      },
+    ],
+  },
 });
