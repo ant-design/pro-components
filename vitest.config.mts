@@ -1,15 +1,13 @@
 import { join } from 'path';
 import { defineConfig } from 'vitest/config';
+import { resolve } from 'path';
 /// <reference types="@vitest/browser/context" />
 
 export default defineConfig({
   resolve: {
     alias: {
-      '@ant-design/pro-components': join(__dirname, './src'),
+      '@ant-design/pro-components': join(process.cwd(), './src'),
     },
-  },
-  esbuild: {
-    format: 'esm',
   },
   test: {
     setupFiles: ['./tests/setupTests.ts'],
@@ -38,12 +36,5 @@ export default defineConfig({
     },
     testTimeout: 60_0000, // 60 seconds
     globals: true,
-  },
-  // 添加兼容性配置
-  optimizeDeps: {
-    include: ['vite'],
-  },
-  build: {
-    target: 'esnext',
   },
 });
