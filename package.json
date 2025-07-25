@@ -147,7 +147,7 @@
     "copy-to-clipboard": "^3.3.3",
     "cross-env": "^7.0.3",
     "dumi": "~2.4.21",
-    "esbuild": "^0.15.18",
+    "esbuild": "^0.25.0",
     "eslint": "^8.57.1",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^4.6.2",
