@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
@@ -12,7 +12,9 @@ export default {
     ecmaFeatures: {
       jsx: true,
     },
+    project: './tsconfig.json',
   },
+  ignorePatterns: ['typings.d.ts', 'dist/**', 'lib/**', 'es/**', 'coverage/**'],
   plugins: ['react', 'react-hooks', '@typescript-eslint'],
   settings: {
     react: {
