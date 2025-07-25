@@ -7,6 +7,7 @@ export default defineConfig({
   alias: {
     '@ant-design/pro-components': path.resolve(__dirname, 'src'),
   },
+
   metas: [
     {
       property: 'og:site_name',
@@ -62,6 +63,11 @@ export default defineConfig({
   ],
   // ssr: {},
   themeConfig: {
+    name: 'ProComponents',
+    logo: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
+    socialLinks: {
+      github: 'https://github.com/ant-design/pro-components',
+    },
     lastUpdated: true,
     hero: {
       title: 'ProComponents',
