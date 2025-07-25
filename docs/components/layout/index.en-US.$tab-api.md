@@ -26,11 +26,6 @@ The main APIs used to load menu from the server are `menuDataRender` and `menuRe
 
 <code src="../../../demos/layout/dynamicMenu.tsx" iframe="580"></code>
 
-### Load the menu from the server and use the icon
-
-Here is mainly a demo where we need to prepare an enumeration for icon rendering, which can significantly reduce the size of the package
-
-<code src="../../../demos/layout/antd@4MenuIconFormServe.tsx" iframe="580"></code>
 
 ### Customize the content of the menu
 

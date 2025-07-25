@@ -33,7 +33,7 @@
     "checkPublish": "npm run sync:tnpm && node ./scripts/checkPublish.mjs && npm run sync:tnpm",
     "deploy": "cross-env SITE_DEPLOY='TRUE' npm run site && gh-pages -d ./dist",
     "dev": "dumi dev",
-    "dumi": "node ./scripts/preDeploy.mjs && cross-env SITE_DEPLOY='TRUE' dumi build",
+    "dumi": "cross-env SITE_DEPLOY='TRUE' dumi build",
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx  --fix ./ && npm run tsc",
     "prettier": "prettier --write \"**/**.{js,jsx,tsx,ts,less,md,yaml,json}\" --loglevel warn",
     "createRelease": "node ./scripts/createRelease.mjs",

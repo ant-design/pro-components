@@ -34,7 +34,7 @@ ProComponents 3.0 是一个主要版本升级，包含了一些破坏性变更�
 
 **变更原因**: 统一 API 命名，提高一致性
 
-```tsx
+```tsx | pure
 // ❌ 旧版本
 <ProTable
   columnsStateMap={{
@@ -60,7 +60,7 @@ ProComponents 3.0 是一个主要版本升级，包含了一些破坏性变更�
 
 **变更原因**: 统一搜索相关属性
 
-```tsx
+```tsx | pure
 // ❌ 旧版本
 const columns = [
   {
@@ -84,7 +84,7 @@ const columns = [
 
 **变更原因**: 使用更标准的 antd Table 滚动属性
 
-```tsx
+```tsx | pure
 // ❌ 旧版本
 <ProTable
   fixHeader={true}
@@ -102,7 +102,7 @@ const columns = [
 
 **变更原因**: 统一提示信息属性命名
 
-```tsx
+```tsx | pure
 // ❌ 旧版本
 const columns = [
   {
@@ -128,7 +128,7 @@ const columns = [
 
 **变更原因**: 简化 API，使用标准的 antd Tabs 配置
 
-```tsx
+```tsx | pure
 // ❌ 旧版本
 <ProCard>
   <ProCard.TabPane tab="标签1" key="1">
@@ -162,7 +162,7 @@ const columns = [
 
 **变更原因**: 简化类型定义
 
-```tsx
+```tsx | pure
 // ❌ 旧版本
 import { StatisticsCardProps } from '@ant-design/pro-components';
 
@@ -176,7 +176,7 @@ import { StatisticCardProps } from '@ant-design/pro-components';
 
 **变更原因**: 分离关注点，提供更灵活的配置
 
-```tsx
+```tsx | pure
 // ❌ 旧版本
 <ProLayout
   rightContentRender={() => (
@@ -204,7 +204,7 @@ import { StatisticCardProps } from '@ant-design/pro-components';
 
 **变更原因**: 统一命名规范
 
-```tsx
+```tsx | pure
 // ❌ 旧版本
 const token = {
   layout: {
@@ -240,7 +240,7 @@ const token = {
 
 ### 1. 改进的类型支持
 
-```tsx
+```tsx | pure
 // 更好的 TypeScript 支持
 interface DataType {
   id: number;
@@ -261,7 +261,7 @@ interface DataType {
 
 ### 2. 简化的 API 设计
 
-```tsx
+```tsx | pure
 // 更简洁的配置
 <ProForm
   layout="vertical"

@@ -58,11 +58,6 @@ ProLayout 提供了强大的菜单功能，但是这样必然会封装很多行�
 
 <code src="../../../demos/layout/dynamicMenu.tsx" iframe="650"></code>
 
-### 从服务器加载 menu 并且使用 icon
-
-这里主要是一个演示，我们需要准备一个枚举来进行 icon 的渲染，可以显著的减少打包的大小
-
-<code src="../../../demos/layout/antd@4MenuIconFormServe.tsx" iframe="610"></code>
 
 ### 自定义 menu 的内容
 

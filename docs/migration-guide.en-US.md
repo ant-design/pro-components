@@ -34,7 +34,7 @@ ProComponents 3.0 is a major version upgrade that includes some breaking changes
 
 **Reason for change**: Unify API naming for better consistency
 
-```tsx
+```tsx | pure
 // ❌ Old version
 <ProTable
   columnsStateMap={{
@@ -60,7 +60,7 @@ ProComponents 3.0 is a major version upgrade that includes some breaking changes
 
 **Reason for change**: Unify search-related properties
 
-```tsx
+```tsx | pure
 // ❌ Old version
 const columns = [
   {
@@ -84,7 +84,7 @@ const columns = [
 
 **Reason for change**: Use more standard antd Table scroll properties
 
-```tsx
+```tsx | pure
 // ❌ Old version
 <ProTable
   fixHeader={true}
@@ -102,7 +102,7 @@ const columns = [
 
 **Reason for change**: Unify tooltip property naming
 
-```tsx
+```tsx | pure
 // ❌ Old version
 const columns = [
   {
@@ -128,7 +128,7 @@ const columns = [
 
 **Reason for change**: Simplify API by using standard antd Tabs configuration
 
-```tsx
+```tsx | pure
 // ❌ Old version
 <ProCard>
   <ProCard.TabPane tab="Tab 1" key="1">
@@ -162,7 +162,7 @@ const columns = [
 
 **Reason for change**: Simplify type definitions
 
-```tsx
+```tsx | pure
 // ❌ Old version
 import { StatisticsCardProps } from '@ant-design/pro-components';
 
@@ -176,7 +176,7 @@ import { StatisticCardProps } from '@ant-design/pro-components';
 
 **Reason for change**: Separate concerns for more flexible configuration
 
-```tsx
+```tsx | pure
 // ❌ Old version
 <ProLayout
   rightContentRender={() => (
@@ -204,7 +204,7 @@ import { StatisticCardProps } from '@ant-design/pro-components';
 
 **Reason for change**: Unify naming conventions
 
-```tsx
+```tsx | pure
 // ❌ Old version
 const token = {
   layout: {
@@ -240,7 +240,7 @@ const token = {
 
 ### 1. Improved Type Support
 
-```tsx
+```tsx | pure
 // Better TypeScript support
 interface DataType {
   id: number;
@@ -261,7 +261,7 @@ interface DataType {
 
 ### 2. Simplified API Design
 
-```tsx
+```tsx | pure
 // More concise configuration
 <ProForm
   layout="vertical"
