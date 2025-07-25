@@ -21,13 +21,6 @@ Schema 是一个通用的配置系统，用于定义和管理组件的配置结�
 - 需要实现配置驱动的界面时
 - 需要支持运行时配置修改时
 
-## 代码演示
-
-<code src="../../../demos/form/SchemaForm/basic.tsx" background="var(--main-bg-color)" title="基础用法" description="使用 Schema 配置来生成表单"></code>
-
-<code src="../../../demos/form/SchemaForm/dependency.tsx" background="var(--main-bg-color)" title="依赖配置" description="Schema 支持字段间的依赖关系配置"></code>
-
-<code src="../../../demos/form/SchemaForm/customization-value-type.tsx" background="var(--main-bg-color)" title="自定义值类型" description="可以自定义字段的值类型和渲染方式"></code>
 
 ## API
 

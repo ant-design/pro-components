@@ -19,15 +19,7 @@ LoginForm/Page - Login Form is a powerful component suitable for the following s
 
 ## Code Examples
 
-### Basic Usage
 
-```tsx
-import { LoginFormPage } from '@ant-design/pro-components';
-
-export default () => {
-  return <LoginForm/Page />;
-};
-```
 
 ## API
 

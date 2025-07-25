@@ -19,15 +19,7 @@ LoginForm/Page - 登录表单 是一个功能强大的组件，适用于以下�
 
 ## 代码演示
 
-### 基础用法
 
-```tsx
-import { LoginForm/Page } from '@ant-design/pro-components';
-
-export default () => {
-  return <LoginForm/Page />;
-};
-```
 
 ## API
 

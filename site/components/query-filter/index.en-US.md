@@ -21,13 +21,7 @@ Query/LightFilter - Filter Form is a powerful component suitable for the followi
 
 ### Basic Usage
 
-```tsx
-import { Query/LightFilter } from '@ant-design/pro-components';
 
-export default () => {
-  return <Query/LightFilter />;
-};
-```
 
 ## API
 

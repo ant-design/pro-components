@@ -21,14 +21,6 @@ Query/LightFilter - 筛选表单 是一个功能强大的组件，适用于以�
 
 ### 基础用法
 
-```tsx
-import { Query/LightFilter } from '@ant-design/pro-components';
-
-export default () => {
-  return <Query/LightFilter />;
-};
-```
-
 ## API
 
 | 参数  | 说明     | 类型     | 默认值 |

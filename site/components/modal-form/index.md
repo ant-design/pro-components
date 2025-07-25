@@ -21,13 +21,6 @@ Modal/Drawer - 浮层表单 是一个功能强大的组件，适用于以下场�
 
 ### 基础用法
 
-```tsx
-import { Modal/Drawer } from '@ant-design/pro-components';
-
-export default () => {
-  return <Modal/Drawer />;
-};
-```
 
 ## API
 

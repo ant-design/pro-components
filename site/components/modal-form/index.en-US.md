@@ -19,15 +19,7 @@ Modal/Drawer - Modal Form is a powerful component suitable for the following sce
 
 ## Code Examples
 
-### Basic Usage
 
-```tsx
-import { Modal/Drawer } from '@ant-design/pro-components';
-
-export default () => {
-  return <Modal/Drawer />;
-};
-```
 
 ## API
 

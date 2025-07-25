@@ -21,13 +21,6 @@ Schema is a universal configuration system for defining and managing component c
 - When you need to implement configuration-driven interfaces
 - When you need to support runtime configuration modifications
 
-## Code Demo
-
-<code src="../../../demos/form/SchemaForm/basic.tsx" background="var(--main-bg-color)" title="Basic Usage" description="Use Schema configuration to generate forms"></code>
-
-<code src="../../../demos/form/SchemaForm/dependency.tsx" background="var(--main-bg-color)" title="Dependency Configuration" description="Schema supports dependency relationship configuration between fields"></code>
-
-<code src="../../../demos/form/SchemaForm/customization-value-type.tsx" background="var(--main-bg-color)" title="Custom Value Types" description="You can customize field value types and rendering methods"></code>
 
 ## API
 
