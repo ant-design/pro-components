@@ -1,23 +1,17 @@
 import {
-  ProForm,
   ProFormDateTimePicker,
   ProFormText,
+  QueryFilter,
 } from '@ant-design/pro-components';
 
 export default () => {
   return (
-    <ProForm grid={true}>
-      <ProForm.Group>
+    <QueryFilter >
         <ProFormDateTimePicker
           label="下单时间"
           colProps={{ xl: 12 }}
           name="orderTime"
           required
-          fieldProps={{
-            style: {
-              width: '100%',
-            },
-          }}
         />
         <ProFormText
           disabled
@@ -25,7 +19,6 @@ export default () => {
           name="pay"
           label="支付方式"
         />
-      </ProForm.Group>
-    </ProForm>
+    </QueryFilter>
   );
 };
