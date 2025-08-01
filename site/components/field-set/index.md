@@ -561,13 +561,6 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 
 与 [upload](https://ant.design/components/upload-cn/) 相同。预设了 Button 的样式，其他与 Upload 相同。
 
-<<<<<<< HEAD:docs/components/form/FieldSet/index.md
-| 参数 | 说明 | 类型 | 默认值 |
-| ----- | ------------------------------------------ | ----------- | -------------- |
-| icon | Button 的图标 | `ReactNode` | UploadOutlined |
-| title | Button 的标题 | `ReactNode` | 单击上传 |
-| max | 最大上传数量，超过最大数量就会隐藏上传按钮 | `number` | - |
-=======
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | icon | Button 的图标 | `ReactNode` | UploadOutlined |
