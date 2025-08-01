@@ -1,6 +1,8 @@
 import type { RadioGroupProps, RadioProps } from 'antd';
 import { Radio } from 'antd';
 import React from 'react';
+import FieldRadio from '../../../field/components/Radio';
+import { ProConfigProvider } from '../../../provider';
 import { runFunction } from '../../../utils';
 import type {
   ProFormFieldItemProps,
@@ -32,21 +34,41 @@ const RadioGroup: React.FC<ProFormRadioGroupProps> = React.forwardRef(
     ref: any,
   ) => {
     return (
-      <ProField
-        valueType={radioType === 'button' ? 'radioButton' : 'radio'}
-        ref={ref}
-        valueEnum={runFunction<[any]>(valueEnum, undefined)}
-        {...rest}
-        fieldProps={{
-          options,
-          layout,
-          ...fieldProps,
+      <ProConfigProvider
+        valueTypeMap={{
+          radio: {
+            render: (text, props) => <FieldRadio {...props} text={text} />,
+            formItemRender: (text, props) => (
+              <FieldRadio {...props} text={text} />
+            ),
+          },
+          radioButton: {
+            render: (text, props) => {
+              console.log(props);
+              return <FieldRadio radioType={'button'} {...props} text={text} />;
+            },
+            formItemRender: (text, props) => (
+              <FieldRadio radioType={'button'} {...props} text={text} />
+            ),
+          },
         }}
-        proFieldProps={proFieldProps}
-        filedConfig={{
-          customLightMode: true,
-        }}
-      />
+      >
+        <ProField
+          valueType={radioType === 'button' ? 'radioButton' : 'radio'}
+          ref={ref}
+          valueEnum={runFunction<[any]>(valueEnum, undefined)}
+          {...rest}
+          fieldProps={{
+            options,
+            layout,
+            ...fieldProps,
+          }}
+          proFieldProps={proFieldProps}
+          filedConfig={{
+            customLightMode: true,
+          }}
+        />
+      </ProConfigProvider>
     );
   },
 );
