@@ -19,7 +19,7 @@ const ProFormDatePicker: React.FC<ProFormFieldItemProps<DatePickerProps>> =
           ...fieldProps,
         }}
         proFieldProps={proFieldProps}
-        filedConfig={{
+        fieldConfig={{
           valueType,
           customLightMode: true,
         }}

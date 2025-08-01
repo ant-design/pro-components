@@ -22,7 +22,7 @@ const ProFormDateRangePicker: React.FC<
       }}
       valueType={valueType}
       proFieldProps={proFieldProps}
-      filedConfig={{
+      fieldConfig={{
         valueType,
         customLightMode: true,
         lightFilterLabelFormatter: (value) =>

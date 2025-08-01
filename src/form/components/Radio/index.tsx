@@ -64,7 +64,7 @@ const RadioGroup: React.FC<ProFormRadioGroupProps> = React.forwardRef(
             ...fieldProps,
           }}
           proFieldProps={proFieldProps}
-          filedConfig={{
+          fieldConfig={{
             customLightMode: true,
           }}
         />

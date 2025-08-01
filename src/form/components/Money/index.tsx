@@ -55,7 +55,7 @@ const ProFormMoney: React.ForwardRefRenderFunction<any, ProFormMoneyProps> = (
           ...fieldProps,
         }}
         ref={ref}
-        filedConfig={{
+        fieldConfig={{
           defaultProps: {
             width: '100%',
           },

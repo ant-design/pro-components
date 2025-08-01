@@ -62,7 +62,7 @@ const ProFormSlider = React.forwardRef<any, ProFormSliderProps>(
           }}
           ref={ref}
           proFieldProps={proFieldProps}
-          filedConfig={{
+          fieldConfig={{
             ignoreWidth: true,
           }}
           {...rest}

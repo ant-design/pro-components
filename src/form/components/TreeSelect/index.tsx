@@ -48,7 +48,7 @@ const ProFormTreeSelect: React.ForwardRefRenderFunction<
         ref={ref}
         request={request}
         params={params}
-        filedConfig={{ customLightMode: true }}
+        fieldConfig={{ customLightMode: true }}
         proFieldProps={proFieldProps}
         {...rest}
       />

@@ -23,7 +23,7 @@ const ProFormText: React.FC<ProFormFieldItemProps<InputProps, InputRef>> = ({
     <ProField
       valueType={valueType}
       fieldProps={fieldProps}
-      filedConfig={
+      fieldConfig={
         {
           valueType,
         } as const
@@ -148,7 +148,7 @@ const Password: React.FC<
                 },
               }}
               proFieldProps={proFieldProps}
-              filedConfig={
+              fieldConfig={
                 {
                   valueType,
                 } as const
@@ -176,7 +176,7 @@ const Password: React.FC<
         valueType="password"
         fieldProps={fieldProps}
         proFieldProps={proFieldProps}
-        filedConfig={
+        fieldConfig={
           {
             valueType,
           } as const

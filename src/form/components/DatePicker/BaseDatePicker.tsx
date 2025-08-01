@@ -45,7 +45,7 @@ export const BaseDatePicker: React.FC<
             ...fieldProps,
           }}
           proFieldProps={proFieldProps}
-          filedConfig={{
+          fieldConfig={{
             valueType,
             customLightMode: true,
           }}

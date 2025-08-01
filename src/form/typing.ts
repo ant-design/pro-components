@@ -83,7 +83,7 @@ export type ExtendsProps = {
    */
   formItemProps?: FormItemProps;
   /** 给自定义组件行为开的口子 */
-  filedConfig?: ProFormItemCreateConfig;
+  fieldConfig?: ProFormItemCreateConfig;
 
   // 给proForm添加fieldRef,用来获取暴露的方法
   fieldRef?: React.Ref<CaptFieldRef | null | undefined>;

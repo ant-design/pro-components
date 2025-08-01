@@ -27,7 +27,7 @@ const ProFormRate: React.ForwardRefRenderFunction<
         fieldProps={fieldProps}
         ref={ref}
         proFieldProps={proFieldProps}
-        filedConfig={{
+        fieldConfig={{
           ignoreWidth: true,
         }}
         {...rest}

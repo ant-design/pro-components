@@ -35,7 +35,7 @@ export const ProFormTimeRangePicker: React.FC<
         }}
         valueType={valueType}
         proFieldProps={proFieldProps}
-        filedConfig={
+        fieldConfig={
           {
             valueType,
             customLightMode: true,

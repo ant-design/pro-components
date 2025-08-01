@@ -44,7 +44,7 @@ const ProFormColorPicker: React.ForwardRefRenderFunction<
         }}
         ref={ref}
         proFieldProps={proFieldProps}
-        filedConfig={{
+        fieldConfig={{
           defaultProps: {
             width: '100%',
           },

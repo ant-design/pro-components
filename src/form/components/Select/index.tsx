@@ -85,7 +85,7 @@ const ProFormSelectComponents = <T, OptionType extends BaseOptionType = any>(
         request={request}
         params={params}
         valueType="select"
-        filedConfig={{ customLightMode: true }}
+        fieldConfig={{ customLightMode: true }}
         fieldProps={
           {
             options,
@@ -153,7 +153,7 @@ const SearchSelect = React.forwardRef<any, ProFormSelectProps<any>>(
           request={request}
           params={params}
           valueType="select"
-          filedConfig={{ customLightMode: true }}
+          fieldConfig={{ customLightMode: true }}
           fieldProps={{
             getPopupContainer: context.getPopupContainer,
             ...props,

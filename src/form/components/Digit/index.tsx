@@ -49,7 +49,7 @@ const ProFormDigit: React.ForwardRefRenderFunction<any, ProFormDigitProps> = (
           ...fieldProps,
         }}
         ref={ref}
-        filedConfig={{
+        fieldConfig={{
           defaultProps: {
             width: '100%',
           },

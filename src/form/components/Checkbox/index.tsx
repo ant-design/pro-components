@@ -48,7 +48,7 @@ const CheckboxGroup: React.FC<ProFormCheckboxGroupProps> = React.forwardRef(
                 valueType="checkbox"
                 mode="read"
                 valueEnum={runFunction<[any]>(valueEnum, undefined)}
-                filedConfig={{
+                fieldConfig={{
                   customLightMode: true,
                 }}
                 fieldProps={{

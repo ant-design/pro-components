@@ -43,7 +43,7 @@ const ProFormSwitch: React.FC<ProFormSwitchProps> = React.forwardRef(
           ref={ref}
           valuePropName="checked"
           proFieldProps={proFieldProps}
-          filedConfig={{
+          fieldConfig={{
             valuePropName: 'checked',
             ignoreWidth: true,
             customLightMode: true,
