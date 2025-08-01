@@ -199,8 +199,6 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     return [...action.dataSource, row];
   };
 
-  console.log('[test] columns', columns);
-
   const getTableProps = () => ({
     ...rest,
     size,
@@ -220,7 +218,6 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
       extra: TableCurrentDataSource<T>,
     ) => {
       rest.onChange?.(changePagination, filters, sorter, extra);
-      console.log('[test] sorter', sorter);
 
       // 制造筛选的数据
       if (!useLocaleFilter) {
@@ -989,7 +986,6 @@ const ProTable = <
       toolbarDom={toolbarDom}
       hideToolbar={hideToolbar}
       onSortChange={(sortConfig) => {
-        console.log('[test] onSortChange', sortConfig, proSort, isEqual(sortConfig, proSort));
         if (isEqual(sortConfig, proSort)) return;
         setProSort(sortConfig);
       }}
