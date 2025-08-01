@@ -305,6 +305,7 @@ export const FieldRender: React.FC<
         marginBottom: -5,
         marginLeft: 0,
         marginRight: 0,
+        width: '100%',
       }}
     >
       {renderDom()}
