@@ -10,6 +10,8 @@ import type {
   BorderedType,
   ProColumns,
   ProColumnType,
+  ProSorter,
+  ProSorterResult,
   UseFetchDataAction,
 } from '../typing';
 
@@ -175,9 +177,9 @@ export const genColumnKey = (
  *
  * @param dataIndex Column 中的 dataIndex
  */
-function parseDataIndex(
+export const parseDataIndex = (
   dataIndex: ProColumnType['dataIndex'],
-): string | undefined {
+): string | undefined => {
   if (Array.isArray(dataIndex)) {
     return dataIndex.join(',');
   }
@@ -185,11 +187,55 @@ function parseDataIndex(
 }
 
 /**
- * 从 ProColumns 数组中取出默认的排序和筛选数据
- *
+ * 平铺所有columns, 用于判断是用的是本地筛选/排序
+ * @param data 列配置
+ * @returns 平铺后的列配置
+ */
+export const flattenColumns = (data: any[]) => {
+  const _columns: any[] = [];
+
+  for (let i = 0; i < data.length; i++) {
+    const _curItem = data[i];
+    if (_curItem.children) {
+      flattenColumns(_curItem.children);
+    } else {
+      _columns.push(_curItem);
+    }
+  }
+
+  return _columns
+};
+
+/**
+ * 判断是否为本地排序
+ * @param sorter 排序配置
+ * @returns 是否为本地排序
+ */
+export const isLocaleSorter = <T>(sorter: ProSorter<T>) => {
+  return typeof sorter === 'function' || typeof sorter === 'object';
+}
+
+/**
+ * 获取服务端排序数据
+ * @param sorterResult 排序数据
+ * @returns 服务端排序数据
+ */
+export const getServerSorterResult = <T>(sorterResult: ProSorterResult<T> | ProSorterResult<T>[]) => {
+  // 多列排序仅限于本地排序
+  if(Array.isArray(sorterResult)) return undefined
+
+  // 当 sorter 为 Compare Function 或多选配置时，不为服务端排序
+  const sorter = sorterResult.column?.sorter;
+  if(sorter != null && isLocaleSorter<T>(sorter)) return undefined;
+
+  return sorterResult;
+}
+
+/**
+ * 从 ProColumns 数组中取出默认的服务端排序和筛选数据
  * @param columns ProColumns
  */
-export function parseDefaultColumnConfig<T, Value>(
+export function parseServerDefaultColumnConfig<T, Value>(
   columns: ProColumns<T, Value>[],
 ) {
   const filter: Record<string, (string | number)[] | null> = {} as Record<
@@ -200,10 +246,9 @@ export function parseDefaultColumnConfig<T, Value>(
   columns.forEach((column) => {
     // 转换 dataIndex
     const dataIndex = parseDataIndex(column.dataIndex);
-    if (!dataIndex) {
-      return;
-    }
-    // 当 column 启用 filters 功能时，取出默认的筛选值
+    if (!dataIndex) return; // 没有 dataIndex 的列不参与服务端排序/筛选
+
+    // 当 column 启用服务端 filters 功能时，取出默认的筛选值
     if (column.filters) {
       const defaultFilteredValue = column.defaultFilteredValue as (
         | string
@@ -213,9 +258,14 @@ export function parseDefaultColumnConfig<T, Value>(
         filter[dataIndex] = column.defaultFilteredValue as (string | number)[];
       }
     }
-    // 当 column 启用 sorter 功能时，取出默认的排序值
-    if (column.sorter && column.defaultSortOrder) {
-      sort[dataIndex] = column.defaultSortOrder!;
+
+    // 当 column 启用服务端 sorter 功能时，取出默认的排序值
+    if (column.sorter && column.defaultSortOrder && !isLocaleSorter(column.sorter)) {
+      if(typeof column.sorter === 'string') {
+        sort[column.sorter] = column.defaultSortOrder;
+      } else {
+        sort[dataIndex] = column.defaultSortOrder;
+      }
     }
   });
   return { sort, filter };

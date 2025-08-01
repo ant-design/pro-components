@@ -7,6 +7,7 @@ import type {
   ColumnFilterItem,
   ColumnType,
   CompareFn,
+  SorterResult,
   SortOrder,
 } from 'antd/lib/table/interface';
 import type dayjs from 'dayjs';
@@ -71,19 +72,27 @@ export type ColumnRenderInterface<T> = {
 
 export type TableRowSelection = TableProps<any>['rowSelection'];
 
+export type ProSorter<T> = 
+| string // 支持变更请求时字段名称
+| boolean
+| CompareFn<T>
+| {
+    compare?: CompareFn<T>;
+    /** Config multiple sorter order priority */
+    multiple?: number;
+  };
+
+export type ProSorterResult<T> = Omit<SorterResult<T>, 'column'> & {
+  column?: ColumnType<T> & {
+    sorter?: ProSorter<T>;
+  };
+};
+
 export type ExtraProColumnType<T> = Omit<
   ColumnType<T>,
   'render' | 'children' | 'title' | 'filters' | 'onFilter' | 'sorter'
 > & {
-  sorter?:
-    | string
-    | boolean
-    | CompareFn<T>
-    | {
-        compare?: CompareFn<T>;
-        /** Config multiple sorter order priority */
-        multiple?: number;
-      };
+  sorter?: ProSorter<T>;
 };
 
 export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<

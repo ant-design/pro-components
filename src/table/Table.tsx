@@ -47,6 +47,7 @@ import { useStyle } from './style';
 import type {
   OptionSearchProps,
   PageInfo,
+  ProSorterResult,
   ProTableProps,
   RequestData,
   TableRowSelection,
@@ -54,14 +55,17 @@ import type {
 } from './typing';
 import useFetchData from './useFetchData';
 import {
+  flattenColumns,
   genColumnKey,
+  getServerSorterResult,
   isBordered,
   mergePagination,
-  parseDefaultColumnConfig,
+  parseServerDefaultColumnConfig,
   useActionType,
 } from './utils';
 import { columnSort } from './utils/columnSort';
 import { genProColumnToColumn } from './utils/genProColumnToColumn';
+import { SorterResult } from 'antd/es/table/interface';
 
 function TableRender<T extends Record<string, any>, U, ValueType>(
   props: ProTableProps<T, U, ValueType> & {
@@ -134,6 +138,17 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     return loopFilter(tableColumns);
   }, [counter.columnsMap, tableColumns]);
 
+  /** 如果所有列中的 filters = true | undefined 说明是用的是本地筛选 任何一列配置 filters=false，就能绕过这个判断 */
+  const useLocaleFilter = useMemo(() => {
+    const _columns: any[] = flattenColumns(columns);
+    return _columns?.every((column) => {
+      return (
+        (!!column.filters && !!column.onFilter) ||
+        (column.filters === undefined && column.onFilter === undefined)
+      );
+    });
+  }, [columns]);
+
   /**
    * 如果是分页的新增，总是加到最后一行
    *
@@ -184,6 +199,8 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     return [...action.dataSource, row];
   };
 
+  console.log('[test] columns', columns);
+
   const getTableProps = () => ({
     ...rest,
     size,
@@ -199,34 +216,33 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     onChange: (
       changePagination: TablePaginationConfig,
       filters: Record<string, (React.Key | boolean)[] | null>,
-      sorter: any,
+      sorter: SorterResult<T> | SorterResult<T>[],
       extra: TableCurrentDataSource<T>,
     ) => {
       rest.onChange?.(changePagination, filters, sorter, extra);
-
-      onFilterChange(omitUndefined<any>(filters));
+      console.log('[test] sorter', sorter);
 
       // 制造筛选的数据
-      // 制造一个排序的数据
-      if (Array.isArray(sorter)) {
-        const data = sorter.reduce<Record<string, any>>(
-          (pre, value) => ({
-            ...pre,
-            [`${value.field}`]: value.order,
-          }),
-          {},
-        );
-        onSortChange(omitUndefined<any>(data) ?? {});
-      } else {
-        const sorterOfColumn = sorter.column?.sorter;
+      if (!useLocaleFilter) {
+        onFilterChange(omitUndefined(filters) ?? {});
+      }
+
+      // 传递服务端排序数据
+      // ProSorterResult 实际上就是 SorterResult 的扩展，使其支持 sorter 字串功能，而 antd 的 SorterResult 不支持但实际会传字串
+      const serverSorter = getServerSorterResult<T>(sorter as ProSorterResult<T> | ProSorterResult<T>[]);
+      if (serverSorter != null) {
+        // 如果 sorter 是字串，則將 key 替換為 sorter 的值，否則使用 sorter.field
+        const sorterOfColumn = serverSorter.column?.sorter;
         const isSortByField = sorterOfColumn?.toString() === sorterOfColumn;
 
         onSortChange(
           omitUndefined({
-            [`${isSortByField ? sorterOfColumn : sorter.field}`]:
-              sorter.order as SortOrder,
+            [`${isSortByField ? sorterOfColumn : serverSorter.field}`]:
+                serverSorter.order,
           }) ?? {},
         );
+      } else {
+        onSortChange({});
       }
     },
   });
@@ -497,44 +513,12 @@ const ProTable = <
     {},
   );
 
-  // 平铺所有columns, 用于判断是用的是本地筛选/排序
-  const loopColumns = useCallback((data: any[]) => {
-    const _columns: any[] = [];
 
-    for (let i = 0; i < data.length; i++) {
-      const _curItem = data[i];
-      if (_curItem.children) {
-        loopColumns(_curItem.children);
-      } else {
-        _columns.push(_curItem);
-      }
-    }
-
-    return _columns;
-  }, []);
-
-  /** 如果所有列中的 filters = true | undefined 说明是用的是本地筛选 任何一列配置 filters=false，就能绕过这个判断 */
-  const useLocaleFilter = useMemo(() => {
-    const _columns: any[] = loopColumns(propsColumns);
-    return _columns?.every((column) => {
-      return (
-        (!!column.filters && !!column.onFilter) ||
-        (column.filters === undefined && column.onFilter === undefined)
-      );
-    });
-  }, [loopColumns, propsColumns]);
-
-  /** 如果所有列中的 sorter != true 说明是用的是本地排序 任何一列配置 sorter=true，就能绕过这个判断 */
-  const useLocaleSorter = useMemo(() => {
-    const _columns: any[] = loopColumns(propsColumns);
-    return _columns?.every((column) => column.sorter !== true);
-  }, [loopColumns, propsColumns]);
-
-  /** 设置默认的服務端排序和筛选值 */
+  /** 设置默认的服务端排序和筛选值 */
   useEffect(() => {
-    const { sort, filter } = parseDefaultColumnConfig(propsColumns);
-    if (!useLocaleFilter) setProFilter(filter);
-    if (!useLocaleSorter) setProSort(sort);
+    const { sort, filter } = parseServerDefaultColumnConfig(propsColumns);
+    setProFilter(filter);
+    setProSort(sort);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -755,7 +739,7 @@ const ProTable = <
       // 清空选中行
       onCleanSelected();
 
-      const { sort, filter } = parseDefaultColumnConfig(propsColumns);
+      const { sort, filter } = parseServerDefaultColumnConfig(propsColumns);
       // 清空筛选
       setProFilter(filter);
       // 清空排序
@@ -1005,11 +989,12 @@ const ProTable = <
       toolbarDom={toolbarDom}
       hideToolbar={hideToolbar}
       onSortChange={(sortConfig) => {
-        if (useLocaleSorter || sortConfig === proSort) return;
+        console.log('[test] onSortChange', sortConfig, proSort, isEqual(sortConfig, proSort));
+        if (isEqual(sortConfig, proSort)) return;
         setProSort(sortConfig);
       }}
       onFilterChange={(filterConfig) => {
-        if (useLocaleFilter || filterConfig === proFilter) return;
+        if (isEqual(filterConfig, proFilter)) return;
         setProFilter(filterConfig);
       }}
       editableUtils={editableUtils}
