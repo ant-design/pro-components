@@ -407,7 +407,7 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
         tabindex="-1"
       >
         <div
-          class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-start ant-drawer-mask-motion"
+          class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-active ant-drawer-mask-motion"
         />
         <div
           aria-hidden="true"
@@ -416,7 +416,7 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
           tabindex="0"
         />
         <div
-          class="ant-drawer-content-wrapper ant-drawer-panel-motion-left-appear ant-drawer-panel-motion-left-appear-start ant-drawer-panel-motion-left"
+          class="ant-drawer-content-wrapper ant-drawer-panel-motion-left-appear ant-drawer-panel-motion-left-appear-active ant-drawer-panel-motion-left"
           style="width: 215px;"
         >
           <div
@@ -447,13 +447,15 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
                       tabindex="0"
                     >
                       <li
-                        class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-inline-submenu ant-menu-submenu-open"
+                        class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-inline-submenu ant-menu-submenu-open ant-menu-submenu-selected"
                         role="none"
                       >
                         <div
+                          aria-controls="rc-menu-uuid-84044-2-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925-popup"
                           aria-expanded="true"
                           aria-haspopup="true"
                           class="ant-menu-submenu-title"
+                          data-menu-id="rc-menu-uuid-84044-2-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925"
                           role="menuitem"
                           style="padding-left: 16px;"
                           tabindex="-1"
@@ -478,6 +480,7 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
                         <ul
                           class="ant-menu ant-menu-sub ant-menu-inline"
                           data-menu-list="true"
+                          id="rc-menu-uuid-84044-2-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925-popup"
                           role="menu"
                         >
                           <li
@@ -485,9 +488,11 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
                             role="none"
                           >
                             <div
+                              aria-controls="rc-menu-uuid-84044-2-/welcome-popup"
                               aria-expanded="false"
                               aria-haspopup="true"
                               class="ant-menu-submenu-title"
+                              data-menu-id="rc-menu-uuid-84044-2-/welcome"
                               role="menuitem"
                               style="padding-left: 32px;"
                               tabindex="-1"
