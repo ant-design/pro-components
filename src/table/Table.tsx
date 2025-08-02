@@ -228,7 +228,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
       // ProSorterResult 实际上就是 SorterResult 的扩展，使其支持 sorter 字串功能，而 antd 的 SorterResult 不支持但实际会传字串
       const serverSorter = getServerSorterResult<T>(sorter as ProSorterResult<T> | ProSorterResult<T>[]);
       if (serverSorter != null) {
-        // 如果 sorter 是字串，則將 key 替換為 sorter 的值，否則使用 sorter.field
+        // 如果 sorter 是字串，则将 key 替换为 sorter 的值，否则使用 sorter.field
         const sorterOfColumn = serverSorter.column?.sorter;
         const isSortByField = sorterOfColumn?.toString() === sorterOfColumn;
 

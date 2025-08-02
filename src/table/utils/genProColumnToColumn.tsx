@@ -17,7 +17,7 @@ import {
   defaultOnFilter,
   renderColumnsTitle,
 } from './columnRender';
-import { genColumnKey } from './index';
+import { genColumnKey, parseDataIndex, parseProSortOrder } from './index';
 
 type ColumnToColumnReturnType<T> = (TableColumnType<T> & {
   index?: number;
@@ -71,7 +71,6 @@ export function genProColumnToColumn<T extends AnyObject>(
         children,
         onFilter,
         filters = [],
-        sorter,
         filteredValue: columnFilteredValue,
       } = columnProps as ProColumns<T, any>;
       const columnKey = genColumnKey(
@@ -98,15 +97,11 @@ export function genProColumnToColumn<T extends AnyObject>(
         return omitBoolean(onFilter);
       };
 
+      const strDataIndex = parseDataIndex(columnProps.dataIndex);
       // 对应筛选值，用作双向绑定
       const filteredValue =
-        columnKey && proFilter?.[columnKey] !== undefined
-          ? proFilter?.[columnKey]
-          : null;
-      // 对应排序值，用作双向绑定
-      const sortOrder =
-        columnKey && proSort[columnKey] !== undefined
-          ? proSort[columnKey]
+        strDataIndex && proFilter?.[strDataIndex] !== undefined
+          ? proFilter?.[strDataIndex]
           : null;
 
       let keyName: string | number | symbol = rowKey as string;
@@ -132,7 +127,7 @@ export function genProColumnToColumn<T extends AnyObject>(
               filters && genOnFilter() == null && filteredValue !== null
               ? filteredValue
               : undefined,
-        sortOrder: sorter === true ? sortOrder : undefined,
+        sortOrder: parseProSortOrder(proSort, columnProps),
         fixed: config.fixed,
         width: columnProps.width || (columnProps.fixed ? 200 : undefined),
         children: (columnProps as ProColumns<T, any>).children
