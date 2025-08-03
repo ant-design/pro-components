@@ -980,12 +980,10 @@ const ProTable = <
       hideToolbar={hideToolbar}
       onSortChange={(sortConfig) => {
         if (isEqual(sortConfig, proSort)) return;
-        console.log('[test] onSortChange', sortConfig);
         setProSort(sortConfig);
       }}
       onFilterChange={(filterConfig) => {
         if (isEqual(filterConfig, proFilter)) return;
-        console.log('[test] onFilterChange', filterConfig);
         setProFilter(filterConfig);
       }}
       editableUtils={editableUtils}

@@ -9,9 +9,10 @@ import {
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Button } from 'antd';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { getFetchData } from './demo';
+import { SortOrder } from 'antd/es/table/interface';
 
 afterEach(() => {
   cleanup();
@@ -439,4 +440,191 @@ describe('BasicTable sorter', () => {
     );
   });
 
+  it('🎏 should pass string sorter parameters to request function', async () => {
+    const fn = vi.fn();
+    const TestComponent = () => {
+      const actionRef = useRef<ActionType>();
+
+      return (
+        <ProTable
+          size="small"
+          actionRef={actionRef}
+          columns={[
+            {
+              title: 'Name',
+              key: 'name',
+              dataIndex: 'name',
+            },
+            {
+              title: 'money',
+              key: 'money',
+              dataIndex: 'money',
+              sorter: 'amount',
+              defaultSortOrder: 'descend',
+            },
+          ]}
+          request={async (_, sort) => {
+            fn(sort);
+
+            return {
+              total: 3,
+              success: true,
+              data: [
+                {
+                  key: '1',
+                  name: '项目 A',
+                  money: 100,
+                },
+                {
+                  key: '2',
+                  name: '项目 B',
+                  money: 250,
+                },
+                {
+                  key: '3',
+                  name: '项目 C',
+                  money: 150,
+                },
+              ].sort((a, b) => {
+                if (sort?.amount) {
+                  return sort.amount === 'ascend'
+                    ? a.money - b.money
+                    : b.money - a.money;
+                } else {
+                  return 0;
+                }
+              }),
+            };
+          }}
+          rowKey="key"
+          toolBarRender={() => [
+            <Button
+              key="button"
+              onClick={() => {
+                actionRef.current?.reset?.();
+              }}
+            >
+              重置表格
+            </Button>,
+          ]}
+          pagination={false}
+          search={false}
+        />
+      );
+    };
+    const { container } = render(<TestComponent />);
+
+    await waitFor(
+      () => {
+        const rows = container.querySelectorAll('.ant-table-row');
+        expect(rows[0].firstChild?.textContent).toContain('项目 B');
+        expect(rows[1].firstChild?.textContent).toContain('项目 C');
+        expect(rows[2].firstChild?.textContent).toContain('项目 A');
+      },
+      { timeout: 1000 },
+    );
+
+    // 验证 fn 有被调用，且参数正确
+    expect(fn).toBeCalledWith({
+      amount: 'descend',
+    });
+  });
+
+  it('🎏 should support controlled sortOrder in columns', async () => {
+    const TestComponent = () => {
+      const [sortOrder, setSortOrder] = useState<SortOrder>('descend');
+
+      return (
+        <ProTable
+          columns={[
+            {
+              title: 'Name',
+              dataIndex: 'name',
+            },
+            {
+              title: 'money',
+              key: 'money',
+              dataIndex: 'money',
+              sorter: (a, b) => a.money - b.money,
+              sortOrder: sortOrder,
+            },
+          ]}
+          dataSource={[
+            {
+              key: '1',
+              name: '项目 A',
+              money: 100,
+            },
+            {
+              key: '2',
+              name: '项目 B',
+              money: 250,
+            },
+            {
+              key: '3',
+              name: '项目 C',
+              money: 150,
+            },
+          ]}
+          rowKey="id"
+          toolBarRender={() => [
+            <button
+              key="sort-descend"
+              data-testid="sort-descend"
+              onClick={() => setSortOrder('descend')}
+            >
+              倒序
+            </button>,
+            <button
+              key="sort-ascend"
+              data-testid="sort-ascend"
+              onClick={() => setSortOrder('ascend')}
+            >
+              正序
+            </button>,
+            <button
+              key="sort-clear"
+              data-testid="sort-clear"
+              onClick={() => setSortOrder(null)}
+            >
+              清空
+            </button>
+          ]}
+          pagination={false}
+          search={false}
+        />
+      );
+    };
+
+    const { container } = render(<TestComponent />);
+
+    await waitFor(() => {
+      const rows = container.querySelectorAll('.ant-table-row');
+      expect(rows[0].firstChild?.textContent).toContain('项目 B');
+      expect(rows[1].firstChild?.textContent).toContain('项目 C');
+      expect(rows[2].firstChild?.textContent).toContain('项目 A');
+    });
+
+    await userEvent.click(screen.getByTestId('sort-ascend'));
+
+    await waitFor(() => {
+      const rows = container.querySelectorAll('.ant-table-row');
+      expect(rows[0].firstChild?.textContent).toContain('项目 A');
+      expect(rows[1].firstChild?.textContent).toContain('项目 C');
+      expect(rows[2].firstChild?.textContent).toContain('项目 B');
+    });
+
+    await userEvent.click(screen.getByTestId('sort-clear'));
+
+    await waitFor(() => {
+      const rows = container.querySelectorAll('.ant-table-row');
+      expect(rows[0].firstChild?.textContent).toContain('项目 A');
+      expect(rows[1].firstChild?.textContent).toContain('项目 B');
+      expect(rows[2].firstChild?.textContent).toContain('项目 C');
+    });
+
+    // 验证排序器状态是否正确同步
+    const sortTrigger = container.querySelector('.ant-table-column-has-sorters');
+    expect(sortTrigger).not.toHaveAttribute('aria-sort');
+  });
 });
