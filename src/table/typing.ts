@@ -72,6 +72,12 @@ export type ColumnRenderInterface<T> = {
 
 export type TableRowSelection = TableProps<any>['rowSelection'];
 
+/**
+ * Request filter 參數
+ * @description 与 antd 不同，Pro 有自己定义的 request FilterValue 类型，主要做了值内容的转换
+ */
+export type FilterValue = (string | number)[] | null;
+
 export type ProSorter<T> = 
 | string // 支持变更请求时字段名称
 | boolean
@@ -283,7 +289,7 @@ export type ProTableProps<DataSource, U, ValueType = 'text'> = {
       keyword?: string;
     },
     sort: Record<string, SortOrder>,
-    filter: Record<string, (string | number)[] | null>,
+    filter: Record<string, FilterValue>,
   ) => Promise<Partial<RequestData<DataSource>>>;
 
   /** @name 对数据进行一些处理 */

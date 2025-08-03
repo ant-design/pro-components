@@ -45,6 +45,7 @@ import Toolbar from './components/ToolBar';
 import { Container, TableContext } from './Store/Provide';
 import { useStyle } from './style';
 import type {
+  FilterValue,
   OptionSearchProps,
   PageInfo,
   ProSorterResult,
@@ -57,6 +58,7 @@ import useFetchData from './useFetchData';
 import {
   flattenColumns,
   genColumnKey,
+  getServerFilterResult,
   getServerSorterResult,
   isBordered,
   mergePagination,
@@ -138,15 +140,10 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     return loopFilter(tableColumns);
   }, [counter.columnsMap, tableColumns]);
 
-  /** 如果所有列中的 filters = true | undefined 说明是用的是本地筛选 任何一列配置 filters=false，就能绕过这个判断 */
-  const useLocaleFilter = useMemo(() => {
+  // 需要进行筛选的列
+  const useFilterColumns = useMemo(() => {
     const _columns: any[] = flattenColumns(columns);
-    return _columns?.every((column) => {
-      return (
-        (!!column.filters && !!column.onFilter) ||
-        (column.filters === undefined && column.onFilter === undefined)
-      );
-    });
+    return _columns.filter((column) => !!column.filters);
   }, [columns]);
 
   /**
@@ -219,9 +216,10 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     ) => {
       rest.onChange?.(changePagination, filters, sorter, extra);
 
-      // 制造筛选的数据
-      if (!useLocaleFilter) {
-        onFilterChange(omitUndefined(filters) ?? {});
+      // 传递服务端筛选数据
+      const serverFilter = getServerFilterResult(filters, useFilterColumns);
+      if(serverFilter != null) {
+        onFilterChange(omitUndefined(serverFilter) ?? {});
       }
 
       // 传递服务端排序数据
@@ -503,12 +501,8 @@ const ProTable = <
     return {};
   });
 
-  const [proFilter, setProFilter] = useMountMergeState<
-    Record<string, (string | number)[] | null>
-  >({});
-  const [proSort, setProSort] = useMountMergeState<Record<string, SortOrder>>(
-    {},
-  );
+  const [proFilter, setProFilter] = useMountMergeState<Record<string, FilterValue>>({});
+  const [proSort, setProSort] = useMountMergeState<Record<string, SortOrder>>({});
 
 
   /** 设置默认的服务端排序和筛选值 */

@@ -1,5 +1,5 @@
 import type { TablePaginationConfig } from 'antd';
-import type { SortOrder } from 'antd/lib/table/interface';
+import type { FilterValue as AntFilterValue, SortOrder } from 'antd/lib/table/interface';
 import type React from 'react';
 import { Key } from 'react';
 import type { IntlType } from '../../provider';
@@ -8,12 +8,14 @@ import type {
   ActionType,
   Bordered,
   BorderedType,
+  FilterValue,
   ProColumns,
   ProColumnType,
   ProSorter,
   ProSorterResult,
   UseFetchDataAction,
 } from '../typing';
+import { isEmpty } from 'lodash-es';
 
 /**
  * 检查值是否存在 为了 避开 0 和 false
@@ -207,12 +209,39 @@ export const flattenColumns = (data: any[]) => {
 };
 
 /**
+ * 判断是否为本地筛选
+ * @param filters 筛选配置
+ * @returns 是否为本地筛选
+ */
+export const isLocaleFilter = <T>(filters: ProColumnType<T>['filters'], onFilter: ProColumnType<T>['onFilter']) => {
+  return !!filters && !!onFilter;
+}
+
+/**
  * 判断是否为本地排序
  * @param sorter 排序配置
  * @returns 是否为本地排序
  */
 export const isLocaleSorter = <T>(sorter: ProSorter<T>) => {
   return typeof sorter === 'function' || typeof sorter === 'object';
+}
+
+/**
+ * 获取服务端筛选数据
+ * @param filters 筛选数据
+ * @param columns 列配置
+ * @returns 服务端筛选数据
+ */
+export const getServerFilterResult = <T>(filters: Record<string, AntFilterValue | null>, columns: ProColumnType<T>[]) => {
+  if(isEmpty(filters)) return undefined;
+
+  // 过滤掉本地筛选的列
+  return Object.entries(filters).reduce<Record<string, FilterValue>>((acc, [key, value]) => {
+    const column = columns.find((column) => parseDataIndex(column.dataIndex) === key);
+    if(column != null && !isLocaleFilter(column.filters, column.onFilter)) acc[key] = value as FilterValue;
+
+    return acc;
+  }, {});
 }
 
 /**
@@ -235,13 +264,10 @@ export const getServerSorterResult = <T>(sorterResult: ProSorterResult<T> | ProS
  * 从 ProColumns 数组中取出默认的服务端排序和筛选数据
  * @param columns ProColumns
  */
-export function parseServerDefaultColumnConfig<T, Value>(
+export const parseServerDefaultColumnConfig = <T, Value>(
   columns: ProColumns<T, Value>[],
-) {
-  const filter: Record<string, (string | number)[] | null> = {} as Record<
-    string,
-    any
-  >;
+) => {
+  const filter: Record<string, FilterValue> = {};
   const sort: Record<string, SortOrder> = {} as Record<string, any>;
   columns.forEach((column) => {
     // 转换 dataIndex
@@ -249,14 +275,8 @@ export function parseServerDefaultColumnConfig<T, Value>(
     if (!dataIndex) return; // 没有 dataIndex 的列不参与服务端排序/筛选
 
     // 当 column 启用服务端 filters 功能时，取出默认的筛选值
-    if (column.filters) {
-      const defaultFilteredValue = column.defaultFilteredValue as (
-        | string
-        | number
-      )[];
-      if (defaultFilteredValue !== undefined) {
-        filter[dataIndex] = column.defaultFilteredValue as (string | number)[];
-      }
+    if (column.filters && column.defaultFilteredValue && !isLocaleFilter(column.filters, column.onFilter)) {
+      filter[dataIndex] = column.defaultFilteredValue as FilterValue;
     }
 
     // 当 column 启用服务端 sorter 功能时，取出默认的排序值
@@ -269,4 +289,60 @@ export function parseServerDefaultColumnConfig<T, Value>(
     }
   });
   return { sort, filter };
+}
+
+/**
+ * 解析对应排序值，用作双向绑定
+ * @param proSort 排序配置
+ * @param columnProps 列配置
+ * @returns 排序值
+ */
+export const parseProSortOrder = <T>(
+  proSort: Record<string, SortOrder>, 
+  columnProps: ProColumnType<T>
+): SortOrder | undefined => {
+  const { sorter, sortOrder: columnSortOrder, dataIndex } = columnProps;
+  
+  // 优先使用用户明确设置的 sortOrder
+  if (columnSortOrder !== undefined) return columnSortOrder;
+  
+  // 如果没有排序器配置，直接返回 undefined
+  if (sorter == null) return undefined;
+  
+  // 如果是本地排序，不使用 proSort 中的值
+  if (isLocaleSorter(sorter)) return undefined;
+  
+  // 服务端排序：确定排序键
+  const sortKey = typeof sorter === 'string' ? sorter : parseDataIndex(dataIndex);
+  
+  // 返回对应的排序值
+  return sortKey && proSort[sortKey] !== undefined ? proSort[sortKey] : undefined;
+}
+
+/**
+ * 解析对应筛选值，用作双向绑定
+ * @param proFilter 筛选配置
+ * @param columnProps 列配置
+ * @returns 筛选值
+ */
+export const parseProFilter = <T>(
+  proFilter: Record<string, FilterValue>,
+  columnProps: ProColumnType<T>,
+): FilterValue | undefined => {
+  const { filters, onFilter, filteredValue: columnFilteredValue, dataIndex } = columnProps;
+  
+  // 优先使用用户设置的 filteredValue
+  if(columnFilteredValue !== undefined) return columnFilteredValue as FilterValue;
+
+  // 如果没有筛选配置，直接返回 undefined
+  if(filters == null) return undefined;
+  
+  // 如果是本地筛选，不使用 proFilter 中的值
+  if(isLocaleFilter(filters, onFilter)) return undefined;
+
+  // 服务端排序：获取筛选键
+  const filterKey = parseDataIndex(dataIndex);
+
+  // 返回对应的筛选值
+  return filterKey && proFilter[filterKey] !== undefined ? proFilter[filterKey] : undefined;
 }
