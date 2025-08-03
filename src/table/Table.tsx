@@ -730,12 +730,6 @@ const ProTable = <
       // 清空选中行
       onCleanSelected();
 
-      const { sort, filter } = parseServerDefaultColumnConfig(propsColumns);
-      // 清空筛选
-      setProFilter(filter);
-      // 清空排序
-      setProSort(sort);
-
       // 清空 toolbar 搜索
       counter.setKeyWords(undefined);
       // 重置页码
@@ -743,9 +737,14 @@ const ProTable = <
         current: 1,
       });
 
+      const { sort, filter } = parseServerDefaultColumnConfig(propsColumns);
+      // 重置绑定筛选值
+      setProFilter(filter);
+      // 重置绑定排序值
+      setProSort(sort);
+
       // 重置表单
       formRef?.current?.resetFields();
-      setFormSearch({});
     },
     editableUtils,
   });
@@ -981,10 +980,12 @@ const ProTable = <
       hideToolbar={hideToolbar}
       onSortChange={(sortConfig) => {
         if (isEqual(sortConfig, proSort)) return;
+        console.log('[test] onSortChange', sortConfig);
         setProSort(sortConfig);
       }}
       onFilterChange={(filterConfig) => {
         if (isEqual(filterConfig, proFilter)) return;
+        console.log('[test] onFilterChange', filterConfig);
         setProFilter(filterConfig);
       }}
       editableUtils={editableUtils}
