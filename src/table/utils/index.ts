@@ -315,8 +315,8 @@ export const parseProSortOrder = <T>(
   // 服务端排序：确定排序键
   const sortKey = typeof sorter === 'string' ? sorter : parseDataIndex(dataIndex);
   
-  // 返回对应的排序值
-  return sortKey && proSort[sortKey] !== undefined ? proSort[sortKey] : undefined;
+  // 返回对应的排序值，null 為清空排序
+  return sortKey && proSort[sortKey] !== undefined ? proSort[sortKey] : null;
 }
 
 /**
@@ -343,6 +343,6 @@ export const parseProFilter = <T>(
   // 服务端排序：获取筛选键
   const filterKey = parseDataIndex(dataIndex);
 
-  // 返回对应的筛选值
-  return filterKey && proFilter[filterKey] !== undefined ? proFilter[filterKey] : undefined;
+  // 返回对应的筛选值，null 為清空筛选
+  return filterKey && proFilter[filterKey] !== undefined ? proFilter[filterKey] : null;
 }
