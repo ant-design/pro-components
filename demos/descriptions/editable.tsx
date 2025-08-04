@@ -22,6 +22,7 @@ export default () => {
             money: '1212100',
             state: 'all',
             state2: 'open',
+            textarea: '这是一个文本域-这是一个文本域-这是一个文本域-这是一个文本域-这是一个文本域-这是一个文本域-这是一个文本域-这是一个文本域-这是一个文本域',
           },
         });
       }}
@@ -49,6 +50,17 @@ export default () => {
             closed: {
               text: '已解决',
               status: 'Success',
+            },
+          },
+        },
+        {
+          title: '文本域',
+          key: 'textarea',
+          dataIndex: 'textarea',
+          valueType: 'textarea',
+          formItemProps: {
+            style: {
+             flex: 1,
             },
           },
         },
