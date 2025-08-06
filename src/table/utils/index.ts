@@ -223,7 +223,7 @@ export const isLocaleFilter = <T>(filters: ProColumnType<T>['filters'], onFilter
  * @returns 是否为本地排序
  */
 export const isLocaleSorter = <T>(sorter: ProSorter<T>) => {
-  return typeof sorter === 'function' || typeof sorter === 'object';
+  return typeof sorter === 'function' || (typeof sorter === 'object' && typeof sorter.compare === 'function');
 }
 
 /**
@@ -250,14 +250,18 @@ export const getServerFilterResult = <T>(filters: Record<string, AntFilterValue 
  * @returns 服务端排序数据
  */
 export const getServerSorterResult = <T>(sorterResult: ProSorterResult<T> | ProSorterResult<T>[]) => {
-  // 多列排序仅限于本地排序
-  if(Array.isArray(sorterResult)) return undefined
+  const result = Array.isArray(sorterResult) ? sorterResult : [sorterResult];
 
-  // 当 sorter 为 Compare Function 或多选配置时，不为服务端排序
-  const sorter = sorterResult.column?.sorter;
-  if(sorter != null && isLocaleSorter<T>(sorter)) return undefined;
+  const serverSorter = result.reduce<Record<string, SortOrder | undefined>>((acc, item) => {
+    const sorter = item.column?.sorter;
+    if(sorter != null && isLocaleSorter<T>(sorter)) return acc;
 
-  return sorterResult;
+    const sortKey = typeof sorter === 'string' ? sorter : parseDataIndex(item.column?.dataIndex);
+    if(sortKey != null) acc[sortKey] = item.order;
+
+    return acc;
+  }, {});
+  return serverSorter;
 }
 
 /**
@@ -280,11 +284,11 @@ export const parseServerDefaultColumnConfig = <T, Value>(
     }
 
     // 当 column 启用服务端 sorter 功能时，取出默认的排序值
-    if (column.sorter && column.defaultSortOrder && !isLocaleSorter(column.sorter)) {
+    if (column.sorter && !isLocaleSorter(column.sorter)) {
       if(typeof column.sorter === 'string') {
-        sort[column.sorter] = column.defaultSortOrder;
+        sort[column.sorter] = column.defaultSortOrder ?? null;
       } else {
-        sort[dataIndex] = column.defaultSortOrder;
+        sort[dataIndex] = column.defaultSortOrder ?? null;
       }
     }
   });
@@ -314,9 +318,9 @@ export const parseProSortOrder = <T>(
   
   // 服务端排序：确定排序键
   const sortKey = typeof sorter === 'string' ? sorter : parseDataIndex(dataIndex);
-  
-  // 返回对应的排序值，null 為清空排序
-  return sortKey && proSort[sortKey] !== undefined ? proSort[sortKey] : null;
+
+  // 返回对应的排序值
+  return sortKey ? proSort[sortKey] : undefined;
 }
 
 /**

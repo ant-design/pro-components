@@ -79,8 +79,8 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     searchNode: JSX.Element | null;
     alertDom: JSX.Element | null;
     isLightFilter: boolean;
-    onSortChange: (sort: any) => void;
-    onFilterChange: (sort: any) => void;
+    onSortChange: (sort?: Record<string, SortOrder>) => void;
+    onFilterChange: (filter: Record<string, FilterValue>) => void;
     editableUtils: any;
     getRowKey: GetRowKey<any>;
   },
@@ -225,20 +225,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
       // 传递服务端排序数据
       // ProSorterResult 实际上就是 SorterResult 的扩展，使其支持 sorter 字串功能，而 antd 的 SorterResult 不支持但实际会传字串
       const serverSorter = getServerSorterResult<T>(sorter as ProSorterResult<T> | ProSorterResult<T>[]);
-      if (serverSorter != null) {
-        // 如果 sorter 是字串，则将 key 替换为 sorter 的值，否则使用 sorter.field
-        const sorterOfColumn = serverSorter.column?.sorter;
-        const isSortByField = sorterOfColumn?.toString() === sorterOfColumn;
-
-        onSortChange(
-          omitUndefined({
-            [`${isSortByField ? sorterOfColumn : serverSorter.field}`]:
-                serverSorter.order,
-          }) ?? {},
-        );
-      } else {
-        onSortChange({});
-      }
+      onSortChange(omitUndefined(serverSorter));
     },
   });
 
@@ -501,17 +488,15 @@ const ProTable = <
     return {};
   });
 
-  const [proFilter, setProFilter] = useMountMergeState<Record<string, FilterValue>>({});
-  const [proSort, setProSort] = useMountMergeState<Record<string, SortOrder>>({});
-
-
-  /** 设置默认的服务端排序和筛选值 */
-  useEffect(() => {
+  const { defaultProFilter, defaultProSort } = useMemo(() => {
     const { sort, filter } = parseServerDefaultColumnConfig(propsColumns);
-    setProFilter(filter);
-    setProSort(sort);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    return {
+      defaultProFilter: filter,
+      defaultProSort: sort,
+    };
+  }, [propsColumns]);
+  const [proFilter, setProFilter] = useMountMergeState<Record<string, FilterValue>>(defaultProFilter);
+  const [proSort, setProSort] = useMountMergeState<Record<string, SortOrder>>(defaultProSort);
 
   const intl = useIntl();
 
@@ -737,11 +722,10 @@ const ProTable = <
         current: 1,
       });
 
-      const { sort, filter } = parseServerDefaultColumnConfig(propsColumns);
       // 重置绑定筛选值
-      setProFilter(filter);
+      setProFilter(defaultProFilter);
       // 重置绑定排序值
-      setProSort(sort);
+      setProSort(defaultProSort);
 
       // 重置表单
       formRef?.current?.resetFields();
@@ -980,7 +964,7 @@ const ProTable = <
       hideToolbar={hideToolbar}
       onSortChange={(sortConfig) => {
         if (isEqual(sortConfig, proSort)) return;
-        setProSort(sortConfig);
+        setProSort(sortConfig ?? {});
       }}
       onFilterChange={(filterConfig) => {
         if (isEqual(filterConfig, proFilter)) return;
