@@ -17,7 +17,7 @@ import {
   defaultOnFilter,
   renderColumnsTitle,
 } from './columnRender';
-import { genColumnKey, parseProFilter, parseProSortOrder } from './index';
+import { genColumnKey, parseProFilteredValue, parseProSortOrder } from './index';
 
 type ColumnToColumnReturnType<T> = (TableColumnType<T> & {
   index?: number;
@@ -111,7 +111,7 @@ export function genProColumnToColumn<T extends AnyObject>(
               ).filter((valueItem) => valueItem && valueItem.value !== 'all')
             : filters,
         onFilter: genOnFilter(),
-        filteredValue: parseProFilter(proFilter, columnProps),
+        filteredValue: parseProFilteredValue(proFilter, columnProps),
         sortOrder: parseProSortOrder(proSort, columnProps),
         fixed: config.fixed,
         width: columnProps.width || (columnProps.fixed ? 200 : undefined),

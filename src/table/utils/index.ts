@@ -326,7 +326,7 @@ export const parseProSortOrder = <T>(
  * @param columnProps 列配置
  * @returns 筛选值
  */
-export const parseProFilter = <T>(
+export const parseProFilteredValue = <T>(
   proFilter: Record<string, FilterValue>,
   columnProps: ProColumnType<T>,
 ): FilterValue | undefined => {
