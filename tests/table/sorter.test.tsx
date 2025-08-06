@@ -532,7 +532,7 @@ describe('BasicTable sorter', () => {
 
   it('🎏 should support controlled sortOrder in columns', async () => {
     const TestComponent = () => {
-      const [sortOrder, setSortOrder] = useState<SortOrder>('descend');
+      const [sortOrder, setSortOrder] = useState<SortOrder | null>('descend');
 
       return (
         <ProTable
