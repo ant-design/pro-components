@@ -48,7 +48,6 @@ import type {
   FilterValue,
   OptionSearchProps,
   PageInfo,
-  ProSorterResult,
   ProTableProps,
   RequestData,
   TableRowSelection,
@@ -67,7 +66,7 @@ import {
 } from './utils';
 import { columnSort } from './utils/columnSort';
 import { genProColumnToColumn } from './utils/genProColumnToColumn';
-import { SorterResult } from 'antd/es/table/interface';
+import { FilterValue as AntFilterValue, SorterResult } from 'antd/es/table/interface';
 
 function TableRender<T extends Record<string, any>, U, ValueType>(
   props: ProTableProps<T, U, ValueType> & {
@@ -210,7 +209,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     pagination,
     onChange: (
       changePagination: TablePaginationConfig,
-      filters: Record<string, (React.Key | boolean)[] | null>,
+      filters: Record<string, AntFilterValue | null>,
       sorter: SorterResult<T> | SorterResult<T>[],
       extra: TableCurrentDataSource<T>,
     ) => {
@@ -218,13 +217,10 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
 
       // 传递服务端筛选数据
       const serverFilter = getServerFilterResult(filters, useFilterColumns);
-      if(serverFilter != null) {
-        onFilterChange(omitUndefined(serverFilter) ?? {});
-      }
-
+      onFilterChange(omitUndefined(serverFilter));
+      
       // 传递服务端排序数据
-      // ProSorterResult 实际上就是 SorterResult 的扩展，使其支持 sorter 字串功能，而 antd 的 SorterResult 不支持但实际会传字串
-      const serverSorter = getServerSorterResult<T>(sorter as ProSorterResult<T> | ProSorterResult<T>[]);
+      const serverSorter = getServerSorterResult(sorter);
       onSortChange(omitUndefined(serverSorter));
     },
   });
@@ -968,7 +964,7 @@ const ProTable = <
       }}
       onFilterChange={(filterConfig) => {
         if (isEqual(filterConfig, proFilter)) return;
-        setProFilter(filterConfig);
+        setProFilter(filterConfig ?? {});
       }}
       editableUtils={editableUtils}
       getRowKey={getRowKey}

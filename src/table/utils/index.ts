@@ -1,5 +1,5 @@
 import type { TablePaginationConfig } from 'antd';
-import type { FilterValue as AntFilterValue, SortOrder } from 'antd/lib/table/interface';
+import type { FilterValue as AntFilterValue, SorterResult, SortOrder } from 'antd/lib/table/interface';
 import type React from 'react';
 import { Key } from 'react';
 import type { IntlType } from '../../provider';
@@ -12,10 +12,8 @@ import type {
   ProColumns,
   ProColumnType,
   ProSorter,
-  ProSorterResult,
   UseFetchDataAction,
 } from '../typing';
-import { isEmpty } from 'lodash-es';
 
 /**
  * 检查值是否存在 为了 避开 0 和 false
@@ -211,6 +209,7 @@ export const flattenColumns = (data: any[]) => {
 /**
  * 判断是否为本地筛选
  * @param filters 筛选配置
+ * @param onFilter 筛选函数
  * @returns 是否为本地筛选
  */
 export const isLocaleFilter = <T>(filters: ProColumnType<T>['filters'], onFilter: ProColumnType<T>['onFilter']) => {
@@ -233,8 +232,6 @@ export const isLocaleSorter = <T>(sorter: ProSorter<T>) => {
  * @returns 服务端筛选数据
  */
 export const getServerFilterResult = <T>(filters: Record<string, AntFilterValue | null>, columns: ProColumnType<T>[]) => {
-  if(isEmpty(filters)) return undefined;
-
   // 过滤掉本地筛选的列
   return Object.entries(filters).reduce<Record<string, FilterValue>>((acc, [key, value]) => {
     const column = columns.find((column) => parseDataIndex(column.dataIndex) === key);
@@ -249,7 +246,7 @@ export const getServerFilterResult = <T>(filters: Record<string, AntFilterValue 
  * @param sorterResult 排序数据
  * @returns 服务端排序数据
  */
-export const getServerSorterResult = <T>(sorterResult: ProSorterResult<T> | ProSorterResult<T>[]) => {
+export const getServerSorterResult = <T>(sorterResult: SorterResult<T> | SorterResult<T>[]) => {
   const result = Array.isArray(sorterResult) ? sorterResult : [sorterResult];
 
   const serverSorter = result.reduce<Record<string, SortOrder | undefined>>((acc, item) => {
@@ -272,15 +269,15 @@ export const parseServerDefaultColumnConfig = <T, Value>(
   columns: ProColumns<T, Value>[],
 ) => {
   const filter: Record<string, FilterValue> = {};
-  const sort: Record<string, SortOrder> = {} as Record<string, any>;
+  const sort: Record<string, SortOrder> = {};
   columns.forEach((column) => {
     // 转换 dataIndex
     const dataIndex = parseDataIndex(column.dataIndex);
     if (!dataIndex) return; // 没有 dataIndex 的列不参与服务端排序/筛选
 
     // 当 column 启用服务端 filters 功能时，取出默认的筛选值
-    if (column.filters && column.defaultFilteredValue && !isLocaleFilter(column.filters, column.onFilter)) {
-      filter[dataIndex] = column.defaultFilteredValue as FilterValue;
+    if (column.filters && !isLocaleFilter(column.filters, column.onFilter)) {
+      filter[dataIndex] = (column.defaultFilteredValue as FilterValue) ?? null;
     }
 
     // 当 column 启用服务端 sorter 功能时，取出默认的排序值
@@ -347,6 +344,6 @@ export const parseProFilter = <T>(
   // 服务端排序：获取筛选键
   const filterKey = parseDataIndex(dataIndex);
 
-  // 返回对应的筛选值，null 為清空筛选
-  return filterKey && proFilter[filterKey] !== undefined ? proFilter[filterKey] : null;
+  // 返回对应的筛选值
+  return filterKey ? proFilter[filterKey] : undefined;
 }
