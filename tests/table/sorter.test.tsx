@@ -1,4 +1,4 @@
-import type { ActionType } from '@ant-design/pro-components';
+import type { ActionType, ProColumns } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
 /// <reference types="@vitest/browser/context" />
 import {
@@ -626,5 +626,393 @@ describe('BasicTable sorter', () => {
     // 验证排序器状态是否正确同步
     const sortTrigger = container.querySelector('.ant-table-column-has-sorters');
     expect(sortTrigger).not.toHaveAttribute('aria-sort');
+  });
+
+  describe('Multiple column sorting', () => {
+    type DataSource = {
+      key: string;
+      name: string;
+      money: number;
+      serial: number;
+      code: number;
+    }
+    const TestComponent = ({ columns, dataSource, request }: { columns: ProColumns<DataSource, "text">[], dataSource?: DataSource[], request?: (params: any, sort: any) => Promise<{ total: number, success: boolean, data: DataSource[] }> }) => (
+      <ProTable<DataSource, any, "text">
+        columns={columns}
+        dataSource={dataSource}
+        rowKey="key"
+        pagination={false}
+        search={false}
+        request={request}
+      />
+    );
+
+    it('🎏 should support multiple locale sort in columns', async () => {
+      const { container } = render(
+        <TestComponent 
+          columns={[
+            {
+              title: 'Name',
+              dataIndex: 'name',
+            },
+            {
+              title: 'money',
+              key: 'money',
+              dataIndex: 'money',
+              sorter: (a, b) => a.money - b.money,
+            },
+            {
+              title: 'serial',
+              dataIndex: 'serial',
+              sorter: {
+                compare: (a, b) => a.serial - b.serial,
+                multiple: 1,
+              },
+            },
+            {
+              title: 'code',
+              dataIndex: 'code',
+              sorter: {
+                compare: (a, b) => a.code - b.code,
+                multiple: 2,
+              },
+            },
+          ]}
+          dataSource={[
+            {
+              key: '1',
+              name: '项目 A',
+              money: 100,
+              serial: 1,
+              code: 5482,
+            },
+            {
+              key: '2',
+              name: '项目 B',
+              money: 250,
+              serial: 2,
+              code: 2789,
+            },
+            {
+              key: '3',
+              name: '项目 C',
+              money: 150,
+              serial: 3,
+              code: 8832,
+            },
+          ]}
+        />
+      );
+
+      // 等待初始數據渲染
+      await waitFor(() => {
+        const rows = container.querySelectorAll('.ant-table-row');
+        expect(rows).toHaveLength(3);
+      });
+
+      const [moneySorter, serialSorter, codeSorter] = container.querySelectorAll('th.ant-table-column-has-sorters');
+      
+      await userEvent.click(serialSorter);
+      await waitFor(() => {
+        const rows = container.querySelectorAll('.ant-table-row');
+        expect(rows[0].firstChild?.textContent).toContain('项目 A');
+        expect(rows[1].firstChild?.textContent).toContain('项目 B');
+        expect(rows[2].firstChild?.textContent).toContain('项目 C');
+      });
+
+      await userEvent.click(codeSorter);
+      await waitFor(() => {
+        const rows = container.querySelectorAll('.ant-table-row');
+        expect(rows[0].firstChild?.textContent).toContain('项目 B');
+        expect(rows[1].firstChild?.textContent).toContain('项目 A');
+        expect(rows[2].firstChild?.textContent).toContain('项目 C');
+      });
+
+      await userEvent.click(moneySorter);
+      await waitFor(() => {
+        const rows = container.querySelectorAll('.ant-table-row');
+        expect(rows[0].firstChild?.textContent).toContain('项目 A');
+        expect(rows[1].firstChild?.textContent).toContain('项目 C');
+        expect(rows[2].firstChild?.textContent).toContain('项目 B');
+      });
+    });
+
+    it('🎏 should support multiple request sort in columns', async () => {
+      const fn = vi.fn();
+      const { container } = render(
+        <TestComponent 
+          columns={[
+            {
+              title: 'Name',
+              dataIndex: 'name',
+            },
+            {
+              title: 'money',
+              key: 'money',
+              dataIndex: 'money',
+              sorter: true,
+            },
+            {
+              title: 'serial',
+              dataIndex: 'serial',
+              sorter: { multiple: 2 },
+            },
+            {
+              title: 'code',
+              dataIndex: 'code',
+              sorter: { multiple: 3 },
+            },
+          ]} 
+          request={async (_, sort) => {
+            fn(sort);
+            return {
+              total: 1,
+              success: true,
+              data: [
+                {
+                  key: '1',
+                  name: '项目 A',
+                  money: 100,
+                  serial: 1,
+                  code: 5482,
+                },
+              ],
+            };
+          }}
+        />
+      );
+
+      // 等待初始數據渲染
+      await waitFor(() => {
+        const rows = container.querySelectorAll('.ant-table-row');
+        expect(rows).toHaveLength(1);
+      });
+
+      // 獲取排序元素
+      const [moneySorter, serialSorter, codeSorter] = container.querySelectorAll('th.ant-table-column-has-sorters');
+      
+      await userEvent.click(moneySorter);
+      await waitFor(() => { 
+        expect(fn).toHaveBeenCalledWith({
+          money: 'ascend',
+        });
+      });
+
+      await userEvent.click(serialSorter);
+      await waitFor(() => {
+        expect(fn).toHaveBeenCalledWith({
+          serial: 'ascend',
+        });
+      });
+
+      await userEvent.click(codeSorter);
+      await waitFor(() => {
+        expect(fn).toHaveBeenCalledWith({
+          serial: 'ascend',
+          code: 'ascend',
+        });
+      });
+    });
+
+    it('🎏 should support single locale sort with multiple request sort in columns', async () => {
+      const fn = vi.fn();
+      const { container } = render(
+        <TestComponent
+          columns={[
+            {
+              title: 'Name',
+              dataIndex: 'name',
+            },
+            {
+              title: 'money',
+              key: 'money',
+              dataIndex: 'money',
+              sorter: (a, b) => a.money - b.money,
+            },
+            {
+              title: 'serial',
+              dataIndex: 'serial',
+              sorter: { multiple: 1 }
+            },
+            {
+              title: 'code',
+              dataIndex: 'code',
+              sorter: { multiple: 1 }
+            },
+          ]} 
+          request={async (_, sort) => {
+            fn(sort);
+            return {
+              total: 3,
+              success: true,
+              data: [
+                {
+                  key: '1',
+                  name: '项目 A',
+                  money: 100,
+                  serial: 1,
+                  code: 5482,
+                },
+                {
+                  key: '2',
+                  name: '项目 B',
+                  money: 250,
+                  serial: 2,
+                  code: 2789,
+                },
+                {
+                  key: '3',
+                  name: '项目 C',
+                  money: 150,
+                  serial: 3,
+                  code: 8832,
+                },
+              ].sort((a, b) => {
+                if(sort?.code) {
+                  return sort.code === 'ascend' ? a.code - b.code : b.code - a.code;
+                }
+                if(sort?.serial) {
+                  return sort.serial === 'ascend' ? a.serial - b.serial : b.serial - a.serial;
+                }
+                return 0
+              }),
+            };
+          }}
+        />
+      );
+
+      // 等待初始數據渲染
+      await waitFor(() => {
+        const rows = container.querySelectorAll('.ant-table-row');
+        expect(rows).toHaveLength(3);
+      });
+
+      const [moneySorter, serialSorter, codeSorter] = container.querySelectorAll('th.ant-table-column-has-sorters');
+      
+      await userEvent.click(moneySorter);
+      await waitFor(() => {
+        const rows = container.querySelectorAll('.ant-table-row');
+        expect(rows[0].firstChild?.textContent).toContain('项目 A');
+        expect(rows[1].firstChild?.textContent).toContain('项目 C');
+        expect(rows[2].firstChild?.textContent).toContain('项目 B');
+      });
+
+      await userEvent.click(serialSorter);
+      await waitFor(() => {
+        expect(fn).toHaveBeenCalledWith({
+          serial: 'ascend',
+        });
+      });
+
+      await userEvent.click(codeSorter);
+      await waitFor(() => {
+        expect(fn).toHaveBeenCalledWith({
+          serial: 'ascend',
+          code: 'ascend',
+        });
+      });
+    });
+
+    it('🎏 should support single request sort with multiple locale sort in columns', async () => {
+      const fn = vi.fn();
+      const { container } = render(
+        <TestComponent
+          columns={[
+            {
+              title: 'Name',
+              dataIndex: 'name',
+            },
+            {
+              title: 'money',
+              key: 'money',
+              dataIndex: 'money',
+              sorter: true,
+            },
+            {
+              title: 'serial',
+              dataIndex: 'serial',
+              sorter: { 
+                compare: (a, b) => a.serial - b.serial,
+                multiple: 2,
+              }
+            },
+            {
+              title: 'code',
+              dataIndex: 'code',
+              sorter: { 
+                compare: (a, b) => a.code - b.code,
+                multiple: 1,
+              }
+            },
+          ]} 
+          request={async (_, sort) => {
+            fn(sort);
+            return {
+              total: 3,
+              success: true,
+              data: [
+                {
+                  key: '1',
+                  name: '项目 A',
+                  money: 100,
+                  serial: 1,
+                  code: 5482,
+                },
+                {
+                  key: '2',
+                  name: '项目 B',
+                  money: 250,
+                  serial: 2,
+                  code: 2789,
+                },
+                {
+                  key: '3',
+                  name: '项目 C',
+                  money: 150,
+                  serial: 3,
+                  code: 8832,
+                },
+              ].sort((a, b) => {
+                if(sort?.money) {
+                  return sort.money === 'ascend' ? a.money - b.money : b.money - a.money;
+                }
+                return 0
+              }),
+            };
+          }}
+        />
+      );
+
+      // 等待初始數據渲染
+      await waitFor(() => {
+        const rows = container.querySelectorAll('.ant-table-row');
+        expect(rows).toHaveLength(3);
+      });
+
+      const [moneySorter, serialSorter, codeSorter] = container.querySelectorAll('th.ant-table-column-has-sorters');
+
+      await userEvent.click(moneySorter);
+      await waitFor(() => {
+        expect(fn).toHaveBeenCalledWith({
+          money: 'ascend',
+        });
+      });
+
+      await userEvent.click(codeSorter);
+      await waitFor(() => {
+        const rows = container.querySelectorAll('.ant-table-row');
+        expect(rows[0].firstChild?.textContent).toContain('项目 B');
+        expect(rows[1].firstChild?.textContent).toContain('项目 A');
+        expect(rows[2].firstChild?.textContent).toContain('项目 C');
+      });
+
+      await userEvent.click(serialSorter);
+      await waitFor(() => {
+        const rows = container.querySelectorAll('.ant-table-row');
+        expect(rows[0].firstChild?.textContent).toContain('项目 A');
+        expect(rows[1].firstChild?.textContent).toContain('项目 B');
+        expect(rows[2].firstChild?.textContent).toContain('项目 C');
+      });
+    });
   });
 });
