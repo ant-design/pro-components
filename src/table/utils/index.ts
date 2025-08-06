@@ -197,7 +197,7 @@ export const flattenColumns = (data: any[]) => {
   for (let i = 0; i < data.length; i++) {
     const _curItem = data[i];
     if (_curItem.children) {
-      flattenColumns(_curItem.children);
+      _columns.push(...flattenColumns(_curItem.children));
     } else {
       _columns.push(_curItem);
     }
