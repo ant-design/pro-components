@@ -139,7 +139,10 @@ const CheckboxList: React.FC<{
   const treeDataConfig = useMemo(() => {
     if (!show) return {};
     const checkedKeys: string[] = [];
-    const treeMap = new Map<string | number, DataNode>();
+    const treeMap = new Map<
+      string | number,
+      DataNode & { parentKey?: string }
+    >();
 
     const loopData = (
       data: any[],
@@ -183,7 +186,7 @@ const CheckboxList: React.FC<{
             checkedKeys.push(columnKey);
           }
         }
-        treeMap.set(key, item);
+        treeMap.set(key, { ...item, parentKey: parentConfig?.columnKey });
         return item;
       });
     return { list: loopData(list), keys: checkedKeys, map: treeMap };
@@ -235,6 +238,13 @@ const CheckboxList: React.FC<{
           .get(key)
           ?.children?.forEach((item) => loopSetShow(item.key as string));
       }
+
+      // 如果子节点选择，那父节点也应该选中
+      const parentKey = treeDataConfig.map?.get(key)?.parentKey;
+      if (parentKey) {
+        newColumnMap[parentKey] = { ...newColumnMap[parentKey], show: true };
+      }
+
       newColumnMap[key] = newSetting;
     };
     loopSetShow(e.node.key);
