@@ -84,7 +84,7 @@ const columns: ProColumns<TableListItem>[] = [
       },
       {
         title: '更新时间',
-        key: 'createdAt',
+        key: 'updatedAt',
         dataIndex: 'updatedAt',
         valueType: 'date',
       },
