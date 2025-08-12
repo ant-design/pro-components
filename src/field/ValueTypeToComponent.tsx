@@ -564,6 +564,7 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
         typeof props.placeholder === 'string' ? props.placeholder : undefined;
       return (
         <FieldCascader
+          {...props}
           mode={props.mode}
           text={text}
           placeholder={placeholder}
@@ -577,6 +578,7 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
         typeof props.placeholder === 'string' ? props.placeholder : undefined;
       return (
         <FieldCascader
+          {...props}
           mode={props.mode}
           text={text}
           placeholder={placeholder}
