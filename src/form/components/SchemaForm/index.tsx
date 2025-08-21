@@ -189,12 +189,11 @@ function BetaSchemaForm<T, ValueType = 'text'>(
   );
 
   const formChildrenDoms = useDeepCompareMemo(() => {
-    if (!formRef.current) return;
     // like StepsForm's columns but not only for StepsForm
     if (columns.length && Array.isArray(columns[0])) return;
     return genItems(columns as ProFormColumnsType<T, ValueType>[]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [columns, restProps?.open, action, type, formDomsDeps]);
+  }, [columns, restProps?.open, action, type, formDomsDeps, formRef.current]);
 
   /**
    * Append layoutType component specific props
