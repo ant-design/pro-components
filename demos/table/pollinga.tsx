@@ -73,16 +73,22 @@ const columns: ProColumns<TableListItem>[] = [
     }),
   },
   {
-    title: '更新时间',
-    key: 'since2',
-    dataIndex: 'createdAt',
-    valueType: 'date',
-  },
-  {
-    title: '创建时间',
-    key: 'since3',
-    dataIndex: 'createdAt',
-    valueType: 'dateMonth',
+    title: '时间',
+    key: 'since',
+    children: [
+      {
+        title: '创建时间',
+        key: 'createdAt',
+        dataIndex: 'createdAt',
+        valueType: 'date',
+      },
+      {
+        title: '更新时间',
+        key: 'updatedAt',
+        dataIndex: 'updatedAt',
+        valueType: 'date',
+      },
+    ],
   },
 ];
 
