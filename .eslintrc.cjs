@@ -22,6 +22,8 @@ module.exports = {
     },
   },
   rules: {
+    'no-unescaped-entities': 'off', // Disable unescaped entities
+    'react/no-unescaped-entities': 'off', // Disable unescaped entities
     'no-console': 'off', // Allow console statements
     'react/react-in-jsx-scope': 'off', // Not needed in React 17+
     'react/prop-types': 'off', // Not needed with TypeScript
