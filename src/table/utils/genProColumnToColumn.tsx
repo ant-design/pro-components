@@ -11,13 +11,13 @@ import {
   runFunction,
 } from '../../utils';
 import type { ContainerType } from '../Store/Provide';
-import type { ProColumns } from '../typing';
+import type { FilterValue, ProColumns } from '../typing';
 import {
   columnRender,
   defaultOnFilter,
   renderColumnsTitle,
 } from './columnRender';
-import { genColumnKey } from './index';
+import { genColumnKey, parseProFilteredValue, parseProSortOrder } from './index';
 
 type ColumnToColumnReturnType<T> = (TableColumnType<T> & {
   index?: number;
@@ -29,7 +29,7 @@ type ColumnToColumnParams<T> = {
   columnEmptyText: ProFieldEmptyText;
   type: ProSchemaComponentTypes;
   editableUtils: UseEditableUtilType;
-  proFilter: Record<string, (string | number)[] | null>;
+  proFilter: Record<string, FilterValue>;
   proSort: Record<string, SortOrder>;
 } & Pick<TableProps<T>, 'rowKey' | 'childrenColumnName'>;
 
@@ -53,7 +53,7 @@ export function genProColumnToColumn<T extends AnyObject>(
     marginSM,
     rowKey = 'id',
     childrenColumnName = 'children',
-    proFilter = {},
+    proFilter,
     proSort,
   } = params;
 
@@ -71,8 +71,6 @@ export function genProColumnToColumn<T extends AnyObject>(
         children,
         onFilter,
         filters = [],
-        sorter,
-        filteredValue: columnFilteredValue,
       } = columnProps as ProColumns<T, any>;
       const columnKey = genColumnKey(
         key || dataIndex?.toString(),
@@ -98,17 +96,6 @@ export function genProColumnToColumn<T extends AnyObject>(
         return omitBoolean(onFilter);
       };
 
-      // 对应筛选值，用作双向绑定
-      const filteredValue =
-        columnKey && proFilter?.[columnKey] !== undefined
-          ? proFilter?.[columnKey]
-          : null;
-      // 对应排序值，用作双向绑定
-      const sortOrder =
-        columnKey && proSort[columnKey] !== undefined
-          ? proSort[columnKey]
-          : null;
-
       let keyName: string | number | symbol = rowKey as string;
 
       const tempColumns = {
@@ -124,15 +111,8 @@ export function genProColumnToColumn<T extends AnyObject>(
               ).filter((valueItem) => valueItem && valueItem.value !== 'all')
             : filters,
         onFilter: genOnFilter(),
-        filteredValue:
-          // 优先使用用户明确设置的 filteredValue
-          columnFilteredValue !== undefined
-            ? columnFilteredValue
-            : // 否则，只有在服务端筛选时才使用计算的 filteredValue
-              filters && genOnFilter() == null && filteredValue !== null
-              ? filteredValue
-              : undefined,
-        sortOrder: sorter === true ? sortOrder : undefined,
+        filteredValue: parseProFilteredValue(proFilter, columnProps),
+        sortOrder: parseProSortOrder(proSort, columnProps),
         fixed: config.fixed,
         width: columnProps.width || (columnProps.fixed ? 200 : undefined),
         children: (columnProps as ProColumns<T, any>).children
