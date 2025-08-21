@@ -56,7 +56,6 @@ ProFormList 与 [Form.List](https://ant.design/components/form-cn/#Form.List) AP
 
 ### ProFormList API
 
-<<<<<<< HEAD:docs/components/form/Group/index.md
 | 参数 | 说明 | 类型 | 默认值 |
 | ------------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | -------------------------------- |
 | itemRender | 自定义 Item，可以用来将 action 放到别的地方 | `(doms,listMeta)=> ReactNode` | - |
@@ -74,7 +73,6 @@ ProFormList 与 [Form.List](https://ant.design/components/form-cn/#Form.List) AP
 | actionRender | 自定义操作按钮 | `(field,action,defaultActionDom,count)=>React.ReactNode[]` | - |
 | onAfterAdd | 新增数据后的钩子 | `(defaultValue: StoreValue, insertIndex: number, count: number) => void` | - |
 | onAfterRemove | 删除数据后的钩子 | `(index: number, count: number) => void` | - |
-=======
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | itemRender | 自定义 Item，可以用来将 action 放到别的地方 | `(doms,listMeta)=> ReactNode` | - |
@@ -387,7 +385,6 @@ name 参数必须要是一个数组，如果是嵌套的结构可以这样配置
 
 ### 行为守卫
 
-<<<<<<< HEAD:docs/components/form/Group/index.md
 <code src="../../../../demos/form/Group/pro-form-list.tsx" title="行为守卫"></code>
 
 ### 增删条目限制
