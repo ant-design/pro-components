@@ -171,4 +171,92 @@ export default () => {
       ]}
     />
   );
+
+  <div
+    style={{
+      marginTop: '20px',
+      padding: '20px',
+      backgroundColor: '#f5f5f5',
+      borderRadius: '6px',
+    }}
+  >
+    <h4>ProTable 联动表单 Props 说明：</h4>
+    <ul>
+      <li>
+        <strong>ProTable</strong>: 专业表格组件
+      </li>
+      <li>
+        <strong>Button</strong>: 按钮组件
+      </li>
+      <li>
+        <strong>Input</strong>: 输入框组件
+      </li>
+      <li>
+        <strong>Select</strong>: 选择器组件
+      </li>
+      <li>
+        <strong>联动表单</strong>: 展示联动表单功能
+      </li>
+    </ul>
+    <h4>ProTable 配置：</h4>
+    <ul>
+      <li>
+        <strong>columns</strong>: 列配置
+      </li>
+      <li>
+        <strong>request</strong>: 请求函数
+      </li>
+      <li>
+        <strong>rowKey</strong>: 行键
+      </li>
+      <li>
+        <strong>tableLayout</strong>: 表格布局
+      </li>
+      <li>
+        <strong>dateFormatter</strong>: 日期格式化
+      </li>
+      <li>
+        <strong>headerTitle</strong>: 表格标题
+      </li>
+      <li>
+        <strong>search</strong>: 搜索配置
+      </li>
+      <li>
+        <strong>toolBarRender</strong>: 工具栏渲染
+      </li>
+    </ul>
+    <h4>联动表单特点：</h4>
+    <ul>
+      <li>
+        <strong>动态表单</strong>: 支持动态表单
+      </li>
+      <li>
+        <strong>条件渲染</strong>: 支持条件渲染
+      </li>
+      <li>
+        <strong>表单联动</strong>: 支持表单联动
+      </li>
+      <li>
+        <strong>自定义组件</strong>: 支持自定义组件
+      </li>
+      <li>
+        <strong>状态管理</strong>: 支持状态管理
+      </li>
+      <li>
+        <strong>选项渲染</strong>: 支持选项渲染
+      </li>
+    </ul>
+    <h4>使用场景：</h4>
+    <ul>
+      <li>
+        <strong>复杂表单</strong>: 复杂表单需求
+      </li>
+      <li>
+        <strong>动态配置</strong>: 动态配置功能
+      </li>
+      <li>
+        <strong>条件展示</strong>: 条件展示需求
+      </li>
+    </ul>
+  </div>;
 };

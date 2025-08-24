@@ -184,5 +184,80 @@ export default () => (
       rowKey="key"
       headerTitle="样式类"
     />
+    <div
+      style={{
+        marginTop: '20px',
+        padding: '20px',
+        backgroundColor: '#f5f5f5',
+        borderRadius: '6px',
+      }}
+    >
+      <h4>ProTable 值类型选择 Props 说明：</h4>
+      <ul>
+        <li>
+          <strong>ProTable</strong>: 专业表格组件
+        </li>
+        <li>
+          <strong>值类型选择</strong>: 展示值类型选择功能
+        </li>
+      </ul>
+      <h4>ProTable 配置：</h4>
+      <ul>
+        <li>
+          <strong>columns</strong>: 列配置
+        </li>
+        <li>
+          <strong>request</strong>: 请求函数
+        </li>
+        <li>
+          <strong>search</strong>: 搜索配置
+        </li>
+        <li>
+          <strong>editable</strong>: 可编辑配置
+        </li>
+        <li>
+          <strong>rowKey</strong>: 行键
+        </li>
+        <li>
+          <strong>headerTitle</strong>: 表格标题
+        </li>
+      </ul>
+      <h4>值类型选择特点：</h4>
+      <ul>
+        <li>
+          <strong>选择器</strong>: 支持选择器
+        </li>
+        <li>
+          <strong>单选按钮</strong>: 支持单选按钮
+        </li>
+        <li>
+          <strong>多选框</strong>: 支持多选框
+        </li>
+        <li>
+          <strong>级联选择</strong>: 支持级联选择
+        </li>
+        <li>
+          <strong>树形选择</strong>: 支持树形选择
+        </li>
+        <li>
+          <strong>时间范围</strong>: 支持时间范围
+        </li>
+        <li>
+          <strong>多行编辑</strong>: 支持多行编辑
+        </li>
+      </ul>
+      <h4>使用场景：</h4>
+      <ul>
+        <li>
+          <strong>表单选择</strong>: 表单选择需求
+        </li>
+        <li>
+          <strong>数据筛选</strong>: 数据筛选功能
+        </li>
+        <li>
+          <strong>复杂选择</strong>: 复杂选择需求
+        </li>
+      </ul>
+    </div>
   </>
 );

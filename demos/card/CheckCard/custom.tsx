@@ -1,9 +1,87 @@
 import { CheckCard } from '@ant-design/pro-components';
 
 export default () => (
-  <CheckCard
-    title="Card title"
-    description="This is the description"
-    style={{ width: 200, height: 200 }}
-  />
+  <>
+    <CheckCard
+      title="Card title"
+      description="This is the description"
+      style={{ width: 200, height: 200 }}
+    />
+
+    <div
+      style={{
+        marginTop: '20px',
+        padding: '20px',
+        backgroundColor: '#f5f5f5',
+        borderRadius: '6px',
+      }}
+    >
+      <h4>CheckCard 自定义样式说明：</h4>
+      <ul>
+        <li>
+          <strong>style</strong>: 自定义样式对象，可以覆盖默认样式
+        </li>
+        <li>
+          <strong>title</strong>: 卡片标题
+        </li>
+        <li>
+          <strong>description</strong>: 卡片描述信息
+        </li>
+      </ul>
+      <h4>Style 属性说明：</h4>
+      <ul>
+        <li>
+          <strong>width</strong>: 卡片宽度，可以是数字（像素）或字符串
+        </li>
+        <li>
+          <strong>height</strong>: 卡片高度，可以是数字（像素）或字符串
+        </li>
+        <li>
+          <strong>backgroundColor</strong>: 背景颜色
+        </li>
+        <li>
+          <strong>border</strong>: 边框样式
+        </li>
+        <li>
+          <strong>borderRadius</strong>: 圆角半径
+        </li>
+        <li>
+          <strong>padding</strong>: 内边距
+        </li>
+        <li>
+          <strong>margin</strong>: 外边距
+        </li>
+      </ul>
+      <h4>自定义样式特点：</h4>
+      <ul>
+        <li>
+          <strong>优先级</strong>: style 属性会覆盖组件的默认样式
+        </li>
+        <li>
+          <strong>响应式</strong>: 可以使用媒体查询实现响应式样式
+        </li>
+        <li>
+          <strong>主题适配</strong>: 可以结合 CSS 变量实现主题切换
+        </li>
+        <li>
+          <strong>灵活控制</strong>: 可以精确控制卡片的尺寸和外观
+        </li>
+      </ul>
+      <h4>使用建议：</h4>
+      <ul>
+        <li>
+          <strong>固定尺寸</strong>: 使用 width 和 height 设置固定尺寸
+        </li>
+        <li>
+          <strong>百分比布局</strong>: 使用百分比值实现响应式布局
+        </li>
+        <li>
+          <strong>主题定制</strong>: 结合 CSS 变量实现主题定制
+        </li>
+        <li>
+          <strong>动画效果</strong>: 可以添加 transition 等动画效果
+        </li>
+      </ul>
+    </div>
+  </>
 );

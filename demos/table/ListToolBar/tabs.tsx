@@ -173,4 +173,77 @@ export default () => {
       search={false}
     />
   );
+
+  <div
+    style={{
+      marginTop: '20px',
+      padding: '20px',
+      backgroundColor: '#f5f5f5',
+      borderRadius: '6px',
+    }}
+  >
+    <h4>ProTable 标签工具栏 Props 说明：</h4>
+    <ul>
+      <li>
+        <strong>ProTable</strong>: 专业表格组件
+      </li>
+      <li>
+        <strong>LightFilter</strong>: 轻量过滤器组件
+      </li>
+      <li>
+        <strong>ProFormDatePicker</strong>: 专业表单日期选择器组件
+      </li>
+      <li>
+        <strong>标签工具栏</strong>: 展示标签工具栏功能
+      </li>
+    </ul>
+    <h4>ProTable 配置：</h4>
+    <ul>
+      <li>
+        <strong>columns</strong>: 列配置
+      </li>
+      <li>
+        <strong>request</strong>: 请求函数
+      </li>
+      <li>
+        <strong>toolbar</strong>: 工具栏配置
+      </li>
+      <li>
+        <strong>rowKey</strong>: 行键
+      </li>
+      <li>
+        <strong>search</strong>: 搜索配置
+      </li>
+    </ul>
+    <h4>标签工具栏特点：</h4>
+    <ul>
+      <li>
+        <strong>标签切换</strong>: 支持标签切换
+      </li>
+      <li>
+        <strong>多行布局</strong>: 支持多行布局
+      </li>
+      <li>
+        <strong>过滤器</strong>: 支持过滤器
+      </li>
+      <li>
+        <strong>动态列</strong>: 支持动态列配置
+      </li>
+      <li>
+        <strong>状态管理</strong>: 支持状态管理
+      </li>
+    </ul>
+    <h4>使用场景：</h4>
+    <ul>
+      <li>
+        <strong>分类展示</strong>: 分类展示需求
+      </li>
+      <li>
+        <strong>多视图切换</strong>: 多视图切换功能
+      </li>
+      <li>
+        <strong>数据分组</strong>: 数据分组管理
+      </li>
+    </ul>
+  </div>;
 };

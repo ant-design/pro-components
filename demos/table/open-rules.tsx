@@ -184,4 +184,86 @@ export default () => {
       />
     </>
   );
+
+  <div
+    style={{
+      marginTop: '20px',
+      padding: '20px',
+      backgroundColor: '#f5f5f5',
+      borderRadius: '6px',
+    }}
+  >
+    <h4>ProTable 开放规则 Props 说明：</h4>
+    <ul>
+      <li>
+        <strong>ProTable</strong>: 专业表格组件
+      </li>
+      <li>
+        <strong>Space</strong>: 间距组件
+      </li>
+      <li>
+        <strong>Tag</strong>: 标签组件
+      </li>
+      <li>
+        <strong>开放规则</strong>: 展示开放规则功能
+      </li>
+    </ul>
+    <h4>ProTable 配置：</h4>
+    <ul>
+      <li>
+        <strong>columns</strong>: 列配置
+      </li>
+      <li>
+        <strong>request</strong>: 请求函数
+      </li>
+      <li>
+        <strong>rowKey</strong>: 行键
+      </li>
+      <li>
+        <strong>search</strong>: 搜索配置
+      </li>
+      <li>
+        <strong>form</strong>: 表单配置
+      </li>
+      <li>
+        <strong>dateFormatter</strong>: 日期格式化
+      </li>
+      <li>
+        <strong>headerTitle</strong>: 表格标题
+      </li>
+    </ul>
+    <h4>开放规则特点：</h4>
+    <ul>
+      <li>
+        <strong>表单验证</strong>: 支持表单验证
+      </li>
+      <li>
+        <strong>必填校验</strong>: 支持必填校验
+      </li>
+      <li>
+        <strong>标签显示</strong>: 支持标签显示
+      </li>
+      <li>
+        <strong>复制功能</strong>: 支持复制功能
+      </li>
+      <li>
+        <strong>省略号显示</strong>: 支持省略号显示
+      </li>
+      <li>
+        <strong>状态过滤</strong>: 支持状态过滤
+      </li>
+    </ul>
+    <h4>使用场景：</h4>
+    <ul>
+      <li>
+        <strong>表单验证</strong>: 表单验证需求
+      </li>
+      <li>
+        <strong>数据校验</strong>: 数据校验功能
+      </li>
+      <li>
+        <strong>规则配置</strong>: 规则配置需求
+      </li>
+    </ul>
+  </div>;
 };

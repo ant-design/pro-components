@@ -177,4 +177,80 @@ export default () => {
       toolBarRender={() => [<Button key="show">查看日志</Button>]}
     />
   );
+
+  <div
+    style={{
+      marginTop: '20px',
+      padding: '20px',
+      backgroundColor: '#f5f5f5',
+      borderRadius: '6px',
+    }}
+  >
+    <h4>ProTable 批量操作 Props 说明：</h4>
+    <ul>
+      <li>
+        <strong>ProTable</strong>: 专业表格组件
+      </li>
+      <li>
+        <strong>批量操作</strong>: 展示批量操作功能
+      </li>
+    </ul>
+    <h4>ProTable 配置：</h4>
+    <ul>
+      <li>
+        <strong>columns</strong>: 列配置
+      </li>
+      <li>
+        <strong>rowSelection</strong>: 行选择配置
+      </li>
+      <li>
+        <strong>tableAlertRender</strong>: 表格提醒渲染函数
+      </li>
+      <li>
+        <strong>tableAlertOptionRender</strong>: 表格提醒操作渲染函数
+      </li>
+      <li>
+        <strong>dataSource</strong>: 数据源
+      </li>
+      <li>
+        <strong>scroll</strong>: 滚动配置
+      </li>
+      <li>
+        <strong>pagination</strong>: 分页配置
+      </li>
+      <li>
+        <strong>headerTitle</strong>: 表格标题
+      </li>
+      <li>
+        <strong>toolBarRender</strong>: 工具栏渲染函数
+      </li>
+    </ul>
+    <h4>批量操作特点：</h4>
+    <ul>
+      <li>
+        <strong>行选择</strong>: 支持行选择功能
+      </li>
+      <li>
+        <strong>批量提醒</strong>: 支持批量提醒
+      </li>
+      <li>
+        <strong>批量操作</strong>: 支持批量操作
+      </li>
+      <li>
+        <strong>统计信息</strong>: 支持统计信息展示
+      </li>
+    </ul>
+    <h4>使用场景：</h4>
+    <ul>
+      <li>
+        <strong>数据管理</strong>: 数据管理系统
+      </li>
+      <li>
+        <strong>批量处理</strong>: 批量处理需求
+      </li>
+      <li>
+        <strong>操作确认</strong>: 操作确认功能
+      </li>
+    </ul>
+  </div>;
 };

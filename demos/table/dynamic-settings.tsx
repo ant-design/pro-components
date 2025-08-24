@@ -720,4 +720,108 @@ const DynamicSettings = () => {
   );
 };
 
-export default DynamicSettings;
+const DynamicSettingsWithDocs = () => {
+  return (
+    <>
+      <DynamicSettings />
+      <div
+        style={{
+          marginTop: '20px',
+          padding: '20px',
+          backgroundColor: '#f5f5f5',
+          borderRadius: '6px',
+        }}
+      >
+        <h4>ProTable 动态设置 Props 说明：</h4>
+        <ul>
+          <li>
+            <strong>ProTable</strong>: 专业表格组件
+          </li>
+          <li>
+            <strong>ProCard</strong>: 专业卡片组件
+          </li>
+          <li>
+            <strong>ProForm</strong>: 专业表单组件
+          </li>
+          <li>
+            <strong>ProFormList</strong>: 专业表单列表组件
+          </li>
+          <li>
+            <strong>动态设置</strong>: 展示动态设置功能
+          </li>
+        </ul>
+        <h4>ProTable 配置：</h4>
+        <ul>
+          <li>
+            <strong>formRef</strong>: 表单引用
+          </li>
+          <li>
+            <strong>pagination</strong>: 分页配置
+          </li>
+          <li>
+            <strong>search</strong>: 搜索配置
+          </li>
+          <li>
+            <strong>expandable</strong>: 展开配置
+          </li>
+          <li>
+            <strong>options</strong>: 选项配置
+          </li>
+          <li>
+            <strong>toolBarRender</strong>: 工具栏渲染
+          </li>
+          <li>
+            <strong>footer</strong>: 页脚配置
+          </li>
+          <li>
+            <strong>headerTitle</strong>: 表格标题
+          </li>
+          <li>
+            <strong>columns</strong>: 列配置
+          </li>
+          <li>
+            <strong>dataSource</strong>: 数据源
+          </li>
+          <li>
+            <strong>scroll</strong>: 滚动配置
+          </li>
+        </ul>
+        <h4>动态设置特点：</h4>
+        <ul>
+          <li>
+            <strong>实时配置</strong>: 支持实时配置
+          </li>
+          <li>
+            <strong>可视化配置</strong>: 支持可视化配置
+          </li>
+          <li>
+            <strong>分组配置</strong>: 支持分组配置
+          </li>
+          <li>
+            <strong>表单联动</strong>: 支持表单联动
+          </li>
+          <li>
+            <strong>防抖处理</strong>: 支持防抖处理
+          </li>
+          <li>
+            <strong>动态列</strong>: 支持动态列配置
+          </li>
+        </ul>
+        <h4>使用场景：</h4>
+        <ul>
+          <li>
+            <strong>配置工具</strong>: 配置工具开发
+          </li>
+          <li>
+            <strong>表格定制</strong>: 表格定制需求
+          </li>
+          <li>
+            <strong>开发调试</strong>: 开发调试工具
+          </li>
+        </ul>
+      </div>
+    </>
+  );
+};
+
+export default DynamicSettingsWithDocs;

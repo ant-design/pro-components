@@ -148,4 +148,86 @@ export default () => {
       }}
     />
   );
+
+  <div
+    style={{
+      marginTop: '20px',
+      padding: '20px',
+      backgroundColor: '#f5f5f5',
+      borderRadius: '6px',
+    }}
+  >
+    <h4>ProTable 动态列状态 Props 说明：</h4>
+    <ul>
+      <li>
+        <strong>ProTable</strong>: 专业表格组件
+      </li>
+      <li>
+        <strong>Tooltip</strong>: 提示组件
+      </li>
+      <li>
+        <strong>动态列状态</strong>: 展示动态列状态功能
+      </li>
+    </ul>
+    <h4>ProTable 配置：</h4>
+    <ul>
+      <li>
+        <strong>columns</strong>: 列配置
+      </li>
+      <li>
+        <strong>request</strong>: 请求函数
+      </li>
+      <li>
+        <strong>rowKey</strong>: 行键
+      </li>
+      <li>
+        <strong>search</strong>: 搜索配置
+      </li>
+      <li>
+        <strong>onSubmit</strong>: 提交事件
+      </li>
+      <li>
+        <strong>columnsState</strong>: 列状态配置
+      </li>
+      <li>
+        <strong>dateFormatter</strong>: 日期格式化
+      </li>
+      <li>
+        <strong>toolbar</strong>: 工具栏配置
+      </li>
+    </ul>
+    <h4>动态列状态特点：</h4>
+    <ul>
+      <li>
+        <strong>状态持久化</strong>: 支持状态持久化
+      </li>
+      <li>
+        <strong>动态列配置</strong>: 支持动态列配置
+      </li>
+      <li>
+        <strong>条件渲染</strong>: 支持条件渲染
+      </li>
+      <li>
+        <strong>自定义筛选</strong>: 支持自定义筛选
+      </li>
+      <li>
+        <strong>状态管理</strong>: 支持状态管理
+      </li>
+      <li>
+        <strong>会话存储</strong>: 支持会话存储
+      </li>
+    </ul>
+    <h4>使用场景：</h4>
+    <ul>
+      <li>
+        <strong>个性化配置</strong>: 个性化配置需求
+      </li>
+      <li>
+        <strong>状态保持</strong>: 状态保持功能
+      </li>
+      <li>
+        <strong>用户体验</strong>: 用户体验优化
+      </li>
+    </ul>
+  </div>
 };

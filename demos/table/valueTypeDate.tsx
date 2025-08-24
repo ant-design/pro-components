@@ -134,5 +134,77 @@ export default () => (
       rowKey="key"
       headerTitle="日期类"
     />
+    <div
+      style={{
+        marginTop: '20px',
+        padding: '20px',
+        backgroundColor: '#f5f5f5',
+        borderRadius: '6px',
+      }}
+    >
+      <h4>ProTable 值类型日期 Props 说明：</h4>
+      <ul>
+        <li>
+          <strong>ProTable</strong>: 专业表格组件
+        </li>
+        <li>
+          <strong>值类型日期</strong>: 展示值类型日期功能
+        </li>
+      </ul>
+      <h4>ProTable 配置：</h4>
+      <ul>
+        <li>
+          <strong>columns</strong>: 列配置
+        </li>
+        <li>
+          <strong>request</strong>: 请求函数
+        </li>
+        <li>
+          <strong>rowKey</strong>: 行键
+        </li>
+        <li>
+          <strong>headerTitle</strong>: 表格标题
+        </li>
+      </ul>
+      <h4>值类型日期特点：</h4>
+      <ul>
+        <li>
+          <strong>日期时间</strong>: 支持日期时间
+        </li>
+        <li>
+          <strong>日期区间</strong>: 支持日期区间
+        </li>
+        <li>
+          <strong>时间范围</strong>: 支持时间范围
+        </li>
+        <li>
+          <strong>时间区间</strong>: 支持时间区间
+        </li>
+        <li>
+          <strong>日期</strong>: 支持日期
+        </li>
+        <li>
+          <strong>相对时间</strong>: 支持相对时间
+        </li>
+        <li>
+          <strong>时间</strong>: 支持时间
+        </li>
+        <li>
+          <strong>搜索转换</strong>: 支持搜索转换
+        </li>
+      </ul>
+      <h4>使用场景：</h4>
+      <ul>
+        <li>
+          <strong>日期类</strong>: 日期类数据展示
+        </li>
+        <li>
+          <strong>时间筛选</strong>: 时间筛选功能
+        </li>
+        <li>
+          <strong>时间范围</strong>: 时间范围查询
+        </li>
+      </ul>
+    </div>
   </>
 );

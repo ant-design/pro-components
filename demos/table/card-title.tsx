@@ -90,4 +90,71 @@ export default () => {
       search={false}
     />
   );
+
+  <div
+    style={{
+      marginTop: '20px',
+      padding: '20px',
+      backgroundColor: '#f5f5f5',
+      borderRadius: '6px',
+    }}
+  >
+    <h4>ProTable 卡片标题 Props 说明：</h4>
+    <ul>
+      <li>
+        <strong>ProTable</strong>: 专业表格组件
+      </li>
+      <li>
+        <strong>卡片标题</strong>: 展示卡片标题功能
+      </li>
+    </ul>
+    <h4>ProTable 配置：</h4>
+    <ul>
+      <li>
+        <strong>columns</strong>: 列配置
+      </li>
+      <li>
+        <strong>request</strong>: 请求函数
+      </li>
+      <li>
+        <strong>cardProps</strong>: 卡片属性配置
+      </li>
+      <li>
+        <strong>headerTitle</strong>: 表格标题
+      </li>
+      <li>
+        <strong>rowKey</strong>: 行键
+      </li>
+      <li>
+        <strong>search</strong>: 搜索配置
+      </li>
+    </ul>
+    <h4>卡片标题特点：</h4>
+    <ul>
+      <li>
+        <strong>卡片包装</strong>: 支持卡片包装
+      </li>
+      <li>
+        <strong>自定义标题</strong>: 支持自定义标题
+      </li>
+      <li>
+        <strong>请求处理</strong>: 支持请求处理
+      </li>
+      <li>
+        <strong>简洁配置</strong>: 简洁的配置方式
+      </li>
+    </ul>
+    <h4>使用场景：</h4>
+    <ul>
+      <li>
+        <strong>业务定制</strong>: 业务定制需求
+      </li>
+      <li>
+        <strong>卡片展示</strong>: 卡片展示功能
+      </li>
+      <li>
+        <strong>数据管理</strong>: 数据管理系统
+      </li>
+    </ul>
+  </div>;
 };

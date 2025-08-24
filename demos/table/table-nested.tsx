@@ -159,4 +159,95 @@ export default () => {
       ]}
     />
   );
+
+  <div
+    style={{
+      marginTop: '20px',
+      padding: '20px',
+      backgroundColor: '#f5f5f5',
+      borderRadius: '6px',
+    }}
+  >
+    <h4>ProTable 嵌套表格 Props 说明：</h4>
+    <ul>
+      <li>
+        <strong>ProTable</strong>: 专业表格组件
+      </li>
+      <li>
+        <strong>Button</strong>: 按钮组件
+      </li>
+      <li>
+        <strong>Tag</strong>: 标签组件
+      </li>
+      <li>
+        <strong>嵌套表格</strong>: 展示嵌套表格功能
+      </li>
+    </ul>
+    <h4>ProTable 配置：</h4>
+    <ul>
+      <li>
+        <strong>columns</strong>: 列配置
+      </li>
+      <li>
+        <strong>request</strong>: 请求函数
+      </li>
+      <li>
+        <strong>rowKey</strong>: 行键
+      </li>
+      <li>
+        <strong>pagination</strong>: 分页配置
+      </li>
+      <li>
+        <strong>expandable</strong>: 展开配置
+      </li>
+      <li>
+        <strong>search</strong>: 搜索配置
+      </li>
+      <li>
+        <strong>dateFormatter</strong>: 日期格式化
+      </li>
+      <li>
+        <strong>headerTitle</strong>: 表格标题
+      </li>
+      <li>
+        <strong>options</strong>: 选项配置
+      </li>
+      <li>
+        <strong>toolBarRender</strong>: 工具栏渲染
+      </li>
+    </ul>
+    <h4>嵌套表格特点：</h4>
+    <ul>
+      <li>
+        <strong>展开行</strong>: 支持展开行
+      </li>
+      <li>
+        <strong>嵌套表格</strong>: 支持嵌套表格
+      </li>
+      <li>
+        <strong>状态标签</strong>: 支持状态标签
+      </li>
+      <li>
+        <strong>排序功能</strong>: 支持排序功能
+      </li>
+      <li>
+        <strong>枚举值</strong>: 支持枚举值
+      </li>
+      <li>
+        <strong>快速跳转</strong>: 支持快速跳转
+      </li>
+    </ul>
+    <h4>使用场景：</h4>
+    <ul>
+      <li>
+        <strong>层级数据</strong>: 层级数据展示
+      </li>
+      <li>
+        <strong>详情展示</strong>: 详情展示需求
+      </li>
+      <li>
+        <strong>复杂结构</strong>: 复杂结构数据
+      </li>
+    </ul>
+  </div>;
 };

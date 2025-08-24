@@ -52,4 +52,68 @@ export default () => {
       search={false}
     />
   );
+
+  <div
+    style={{
+      marginTop: '20px',
+      padding: '20px',
+      backgroundColor: '#f5f5f5',
+      borderRadius: '6px',
+    }}
+  >
+    <h4>ProTable 列设置自定义图标 Props 说明：</h4>
+    <ul>
+      <li>
+        <strong>ProTable</strong>: 专业表格组件
+      </li>
+      <li>
+        <strong>列设置自定义图标</strong>: 展示列设置自定义图标功能
+      </li>
+    </ul>
+    <h4>ProTable 配置：</h4>
+    <ul>
+      <li>
+        <strong>columns</strong>: 列配置
+      </li>
+      <li>
+        <strong>request</strong>: 请求函数
+      </li>
+      <li>
+        <strong>options</strong>: 选项配置
+      </li>
+      <li>
+        <strong>rowKey</strong>: 行键
+      </li>
+      <li>
+        <strong>search</strong>: 搜索配置
+      </li>
+    </ul>
+    <h4>列设置自定义图标特点：</h4>
+    <ul>
+      <li>
+        <strong>自定义图标</strong>: 支持自定义图标
+      </li>
+      <li>
+        <strong>列设置</strong>: 支持列设置功能
+      </li>
+      <li>
+        <strong>搜索功能</strong>: 支持搜索功能
+      </li>
+      <li>
+        <strong>SVG图标</strong>: 支持SVG图标
+      </li>
+    </ul>
+    <h4>使用场景：</h4>
+    <ul>
+      <li>
+        <strong>界面定制</strong>: 界面定制需求
+      </li>
+      <li>
+        <strong>用户体验</strong>: 用户体验优化
+      </li>
+      <li>
+        <strong>品牌展示</strong>: 品牌展示需求
+      </li>
+    </ul>
+  </div>;
 };

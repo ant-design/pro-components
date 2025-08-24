@@ -6,6 +6,94 @@ export default () => {
       <ProCard style={{ maxWidth: 300 }} hoverable variant="outlined">
         Content
       </ProCard>
+
+      <div
+        style={{
+          marginTop: '20px',
+          padding: '20px',
+          backgroundColor: '#f5f5f5',
+          borderRadius: '6px',
+        }}
+      >
+        <h4>ProCard Hoverable Props 说明：</h4>
+        <ul>
+          <li>
+            <strong>hoverable</strong>: 是否启用悬停效果，布尔值
+          </li>
+          <li>
+            <strong>variant</strong>: 卡片变体样式，'outlined' 表示带边框
+          </li>
+          <li>
+            <strong>style</strong>: 卡片样式对象，设置最大宽度
+          </li>
+          <li>
+            <strong>children</strong>: 卡片内容
+          </li>
+        </ul>
+        <h4>Hoverable 特点：</h4>
+        <ul>
+          <li>
+            <strong>悬停效果</strong>: 鼠标悬停时显示阴影和边框效果
+          </li>
+          <li>
+            <strong>交互反馈</strong>: 提供视觉反馈，增强用户体验
+          </li>
+          <li>
+            <strong>可点击提示</strong>: 暗示卡片可以点击或交互
+          </li>
+        </ul>
+        <h4>Variant 变体说明：</h4>
+        <ul>
+          <li>
+            <strong>outlined</strong>: 带边框的卡片样式
+          </li>
+          <li>
+            <strong>filled</strong>: 填充式卡片样式
+          </li>
+          <li>
+            <strong>elevated</strong>: 提升式卡片样式，带有阴影
+          </li>
+        </ul>
+        <h4>悬停效果：</h4>
+        <ul>
+          <li>
+            <strong>阴影变化</strong>: 悬停时阴影加深或出现
+          </li>
+          <li>
+            <strong>边框变化</strong>: 边框颜色或样式发生变化
+          </li>
+          <li>
+            <strong>背景变化</strong>: 背景色可能发生轻微变化
+          </li>
+        </ul>
+        <h4>使用场景：</h4>
+        <ul>
+          <li>
+            <strong>可点击卡片</strong>: 需要点击交互的卡片
+          </li>
+          <li>
+            <strong>导航卡片</strong>: 作为导航链接的卡片
+          </li>
+          <li>
+            <strong>选择卡片</strong>: 需要选择的卡片
+          </li>
+          <li>
+            <strong>产品卡片</strong>: 产品展示卡片
+          </li>
+        </ul>
+        <h4>最佳实践：</h4>
+        <ul>
+          <li>
+            <strong>交互一致性</strong>: 确保悬停效果与实际的交互行为一致
+          </li>
+          <li>
+            <strong>视觉层次</strong>: 使用悬停效果突出重要的卡片
+          </li>
+          <li>
+            <strong>用户体验</strong>: 提供清晰的交互反馈
+          </li>
+        </ul>
+      </div>
     </>
   );
 };

@@ -169,4 +169,92 @@ export default () => {
       )}
     </ProCard>
   );
+
+  <div
+    style={{
+      marginTop: '20px',
+      padding: '20px',
+      backgroundColor: '#f5f5f5',
+      borderRadius: '6px',
+    }}
+  >
+    <h4>ProTable CRUD Props 说明：</h4>
+    <ul>
+      <li>
+        <strong>ProTable</strong>: 专业表格组件
+      </li>
+      <li>
+        <strong>ProCard</strong>: 专业卡片组件
+      </li>
+      <li>
+        <strong>ProDescriptions</strong>: 专业描述组件
+      </li>
+      <li>
+        <strong>TableDropdown</strong>: 表格下拉菜单组件
+      </li>
+      <li>
+        <strong>Tabs</strong>: 标签页组件
+      </li>
+      <li>
+        <strong>CRUD操作</strong>: 展示增删改查功能
+      </li>
+    </ul>
+    <h4>ProTable 配置：</h4>
+    <ul>
+      <li>
+        <strong>columns</strong>: 列配置
+      </li>
+      <li>
+        <strong>type</strong>: 表格类型
+      </li>
+      <li>
+        <strong>request</strong>: 请求函数
+      </li>
+      <li>
+        <strong>pagination</strong>: 分页配置
+      </li>
+      <li>
+        <strong>rowKey</strong>: 行键
+      </li>
+      <li>
+        <strong>dateFormatter</strong>: 日期格式化
+      </li>
+      <li>
+        <strong>headerTitle</strong>: 表格标题
+      </li>
+      <li>
+        <strong>toolBarRender</strong>: 工具栏渲染
+      </li>
+    </ul>
+    <h4>CRUD特点：</h4>
+    <ul>
+      <li>
+        <strong>多视图切换</strong>: 支持表格、表单、描述视图
+      </li>
+      <li>
+        <strong>动态列配置</strong>: 支持动态列配置
+      </li>
+      <li>
+        <strong>标签过滤</strong>: 支持标签过滤
+      </li>
+      <li>
+        <strong>状态管理</strong>: 支持状态管理
+      </li>
+      <li>
+        <strong>操作集成</strong>: 支持操作集成
+      </li>
+    </ul>
+    <h4>使用场景：</h4>
+    <ul>
+      <li>
+        <strong>数据管理</strong>: 数据管理系统
+      </li>
+      <li>
+        <strong>内容管理</strong>: 内容管理平台
+      </li>
+      <li>
+        <strong>后台管理</strong>: 后台管理系统
+      </li>
+    </ul>
+  </div>
 };

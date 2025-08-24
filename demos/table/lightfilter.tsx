@@ -78,4 +78,83 @@ export default () => {
       dateFormatter="string"
     />
   );
+
+  <div
+    style={{
+      marginTop: '20px',
+      padding: '20px',
+      backgroundColor: '#f5f5f5',
+      borderRadius: '6px',
+    }}
+  >
+    <h4>ProTable 轻量过滤器 Props 说明：</h4>
+    <ul>
+      <li>
+        <strong>ProTable</strong>: 专业表格组件
+      </li>
+      <li>
+        <strong>轻量过滤器</strong>: 展示轻量过滤器功能
+      </li>
+    </ul>
+    <h4>ProTable 配置：</h4>
+    <ul>
+      <li>
+        <strong>columns</strong>: 列配置
+      </li>
+      <li>
+        <strong>request</strong>: 请求函数
+      </li>
+      <li>
+        <strong>headerTitle</strong>: 表格标题
+      </li>
+      <li>
+        <strong>rowKey</strong>: 行键
+      </li>
+      <li>
+        <strong>pagination</strong>: 分页配置
+      </li>
+      <li>
+        <strong>options</strong>: 选项配置
+      </li>
+      <li>
+        <strong>search</strong>: 搜索配置
+      </li>
+      <li>
+        <strong>dateFormatter</strong>: 日期格式化
+      </li>
+    </ul>
+    <h4>轻量过滤器特点：</h4>
+    <ul>
+      <li>
+        <strong>轻量设计</strong>: 轻量级设计
+      </li>
+      <li>
+        <strong>标签格式化</strong>: 支持标签格式化
+      </li>
+      <li>
+        <strong>日期范围</strong>: 支持日期范围
+      </li>
+      <li>
+        <strong>选择器</strong>: 支持选择器
+      </li>
+      <li>
+        <strong>初始值</strong>: 支持初始值
+      </li>
+      <li>
+        <strong>隐藏列</strong>: 支持隐藏列
+      </li>
+    </ul>
+    <h4>使用场景：</h4>
+    <ul>
+      <li>
+        <strong>快速筛选</strong>: 快速筛选需求
+      </li>
+      <li>
+        <strong>简洁界面</strong>: 简洁界面需求
+      </li>
+      <li>
+        <strong>轻量应用</strong>: 轻量应用场景
+      </li>
+    </ul>
+  </div>;
 };

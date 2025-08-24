@@ -171,4 +171,80 @@ export default () => {
       />
     </ProProvider.Provider>
   );
+
+  <div
+    style={{
+      marginTop: '20px',
+      padding: '20px',
+      backgroundColor: '#f5f5f5',
+      borderRadius: '6px',
+    }}
+  >
+    <h4>ProTable 自定义值类型 Props 说明：</h4>
+    <ul>
+      <li>
+        <strong>ProTable</strong>: 专业表格组件
+      </li>
+      <li>
+        <strong>ProProvider</strong>: 专业提供者组件
+      </li>
+      <li>
+        <strong>Input</strong>: 输入框组件
+      </li>
+      <li>
+        <strong>Tag</strong>: 标签组件
+      </li>
+      <li>
+        <strong>自定义值类型</strong>: 展示自定义值类型功能
+      </li>
+    </ul>
+    <h4>ProTable 配置：</h4>
+    <ul>
+      <li>
+        <strong>columns</strong>: 列配置
+      </li>
+      <li>
+        <strong>request</strong>: 请求函数
+      </li>
+      <li>
+        <strong>rowKey</strong>: 行键
+      </li>
+      <li>
+        <strong>headerTitle</strong>: 表格标题
+      </li>
+    </ul>
+    <h4>自定义值类型特点：</h4>
+    <ul>
+      <li>
+        <strong>valueTypeMap</strong>: 值类型映射
+      </li>
+      <li>
+        <strong>自定义渲染</strong>: 支持自定义渲染
+      </li>
+      <li>
+        <strong>表单项渲染</strong>: 支持表单项渲染
+      </li>
+      <li>
+        <strong>链接类型</strong>: 支持链接类型
+      </li>
+      <li>
+        <strong>标签类型</strong>: 支持标签类型
+      </li>
+      <li>
+        <strong>可编辑</strong>: 支持可编辑功能
+      </li>
+    </ul>
+    <h4>使用场景：</h4>
+    <ul>
+      <li>
+        <strong>自定义展示</strong>: 自定义展示需求
+      </li>
+      <li>
+        <strong>特殊数据类型</strong>: 特殊数据类型处理
+      </li>
+      <li>
+        <strong>业务定制</strong>: 业务定制需求
+      </li>
+    </ul>
+  </div>
 };

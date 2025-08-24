@@ -197,4 +197,105 @@ const Demo: React.FC = () => {
   );
 };
 
-export default Demo;
+const DemoWithDocs = () => {
+  return (
+    <>
+      <Demo />
+      <div
+        style={{
+          marginTop: '20px',
+          padding: '20px',
+          backgroundColor: '#f5f5f5',
+          borderRadius: '6px',
+        }}
+      >
+        <h4>ProTable 分割表格 Props 说明：</h4>
+        <ul>
+          <li>
+            <strong>ProTable</strong>: 专业表格组件
+          </li>
+          <li>
+            <strong>ProCard</strong>: 专业卡片组件
+          </li>
+          <li>
+            <strong>Badge</strong>: 徽章组件
+          </li>
+          <li>
+            <strong>Button</strong>: 按钮组件
+          </li>
+          <li>
+            <strong>分割表格</strong>: 展示分割表格功能
+          </li>
+        </ul>
+        <h4>ProTable 配置：</h4>
+        <ul>
+          <li>
+            <strong>columns</strong>: 列配置
+          </li>
+          <li>
+            <strong>dataSource</strong>: 数据源
+          </li>
+          <li>
+            <strong>pagination</strong>: 分页配置
+          </li>
+          <li>
+            <strong>rowKey</strong>: 行键
+          </li>
+          <li>
+            <strong>toolBarRender</strong>: 工具栏渲染
+          </li>
+          <li>
+            <strong>options</strong>: 选项配置
+          </li>
+          <li>
+            <strong>search</strong>: 搜索配置
+          </li>
+          <li>
+            <strong>onRow</strong>: 行事件
+          </li>
+          <li>
+            <strong>request</strong>: 请求函数
+          </li>
+          <li>
+            <strong>toolbar</strong>: 工具栏配置
+          </li>
+        </ul>
+        <h4>分割表格特点：</h4>
+        <ul>
+          <li>
+            <strong>垂直分割</strong>: 支持垂直分割
+          </li>
+          <li>
+            <strong>主从结构</strong>: 支持主从结构
+          </li>
+          <li>
+            <strong>联动显示</strong>: 支持联动显示
+          </li>
+          <li>
+            <strong>状态管理</strong>: 支持状态管理
+          </li>
+          <li>
+            <strong>百分比显示</strong>: 支持百分比显示
+          </li>
+          <li>
+            <strong>代码展示</strong>: 支持代码展示
+          </li>
+        </ul>
+        <h4>使用场景：</h4>
+        <ul>
+          <li>
+            <strong>监控系统</strong>: 监控系统需求
+          </li>
+          <li>
+            <strong>详情展示</strong>: 详情展示功能
+          </li>
+          <li>
+            <strong>主从界面</strong>: 主从界面需求
+          </li>
+        </ul>
+      </div>
+    </>
+  );
+};
+
+export default DemoWithDocs;

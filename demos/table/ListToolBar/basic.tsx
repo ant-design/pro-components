@@ -121,4 +121,77 @@ export default () => {
       search={false}
     />
   );
+
+  <div
+    style={{
+      marginTop: '20px',
+      padding: '20px',
+      backgroundColor: '#f5f5f5',
+      borderRadius: '6px',
+    }}
+  >
+    <h4>ProTable 基础工具栏 Props 说明：</h4>
+    <ul>
+      <li>
+        <strong>ProTable</strong>: 专业表格组件
+      </li>
+      <li>
+        <strong>LightFilter</strong>: 轻量过滤器组件
+      </li>
+      <li>
+        <strong>ProFormDatePicker</strong>: 专业表单日期选择器组件
+      </li>
+      <li>
+        <strong>基础工具栏</strong>: 展示基础工具栏功能
+      </li>
+    </ul>
+    <h4>ProTable 配置：</h4>
+    <ul>
+      <li>
+        <strong>columns</strong>: 列配置
+      </li>
+      <li>
+        <strong>request</strong>: 请求函数
+      </li>
+      <li>
+        <strong>toolbar</strong>: 工具栏配置
+      </li>
+      <li>
+        <strong>rowKey</strong>: 行键
+      </li>
+      <li>
+        <strong>search</strong>: 搜索配置
+      </li>
+    </ul>
+    <h4>基础工具栏特点：</h4>
+    <ul>
+      <li>
+        <strong>标题和子标题</strong>: 支持标题和子标题
+      </li>
+      <li>
+        <strong>搜索功能</strong>: 支持搜索功能
+      </li>
+      <li>
+        <strong>过滤器</strong>: 支持过滤器
+      </li>
+      <li>
+        <strong>操作按钮</strong>: 支持操作按钮
+      </li>
+      <li>
+        <strong>设置选项</strong>: 支持设置选项
+      </li>
+    </ul>
+    <h4>使用场景：</h4>
+    <ul>
+      <li>
+        <strong>数据管理</strong>: 数据管理系统
+      </li>
+      <li>
+        <strong>列表展示</strong>: 列表展示功能
+      </li>
+      <li>
+        <strong>操作工具</strong>: 操作工具集合
+      </li>
+    </ul>
+  </div>;
 };

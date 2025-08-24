@@ -2,126 +2,276 @@ import { ProDescriptions } from '@ant-design/pro-components';
 
 export default () => {
   return (
-    <ProDescriptions
-      title="高级定义列表request columns"
-      request={async () => {
-        return Promise.resolve({
-          success: true,
-          data: {
-            date: '20200809',
-            money: '1212100',
-            money2: -12345.33,
-            state: 'all',
-            switch: true,
-            state2: 'open',
-          },
-        });
-      }}
-      emptyText={'空'}
-      columns={[
-        {
-          title: '文本',
-          key: 'text',
-          dataIndex: 'id',
-        },
-        {
-          title: '状态',
-          key: 'state',
-          dataIndex: 'state',
-          valueType: 'select',
-          valueEnum: {
-            all: { text: '全部', status: 'Default' },
-            open: {
-              text: '未解决',
-              status: 'Error',
+    <>
+      <ProDescriptions
+        title="高级定义列表request columns"
+        request={async () => {
+          return Promise.resolve({
+            success: true,
+            data: {
+              date: '20200809',
+              money: '1212100',
+              money2: -12345.33,
+              state: 'all',
+              switch: true,
+              state2: 'open',
             },
-            closed: {
-              text: '已解决',
-              status: 'Success',
+          });
+        }}
+        emptyText={'空'}
+        columns={[
+          {
+            title: '文本',
+            key: 'text',
+            dataIndex: 'id',
+          },
+          {
+            title: '状态',
+            key: 'state',
+            dataIndex: 'state',
+            valueType: 'select',
+            valueEnum: {
+              all: { text: '全部', status: 'Default' },
+              open: {
+                text: '未解决',
+                status: 'Error',
+              },
+              closed: {
+                text: '已解决',
+                status: 'Success',
+              },
             },
           },
-        },
-        {
-          title: '状态2',
-          key: 'state2',
-          dataIndex: 'state2',
-        },
-        {
-          title: '时间',
-          key: 'date',
-          dataIndex: 'date',
-          valueType: 'date',
-        },
-        {
-          title: '时间',
-          key: 'date',
-          dataIndex: 'date',
-          valueType: 'date',
-          fieldProps: {
-            format: 'DD.MM.YYYY',
+          {
+            title: '状态2',
+            key: 'state2',
+            dataIndex: 'state2',
           },
-        },
-        {
-          title: '开关',
-          key: 'switch',
-          dataIndex: 'switch',
-          valueType: 'switch',
-        },
-        {
-          title: 'money',
-          key: 'money',
-          dataIndex: 'money',
-          valueType: 'money',
-          fieldProps: {
-            moneySymbol: '$',
+          {
+            title: '时间',
+            key: 'date',
+            dataIndex: 'date',
+            valueType: 'date',
           },
-        },
-        {
-          title: 'money无符号',
-          key: 'money',
-          dataIndex: 'money',
-          valueType: 'money',
-          fieldProps: {
-            moneySymbol: false,
+          {
+            title: '时间',
+            key: 'date',
+            dataIndex: 'date',
+            valueType: 'date',
+            fieldProps: {
+              format: 'DD.MM.YYYY',
+            },
           },
-        },
-        {
-          title: 'money负数无符号',
-          key: 'money2',
-          dataIndex: 'money2',
-          valueType: 'money',
-          fieldProps: {
-            moneySymbol: false,
+          {
+            title: '开关',
+            key: 'switch',
+            dataIndex: 'switch',
+            valueType: 'switch',
           },
-        },
-        {
-          title: '操作',
-          valueType: 'option',
-          render: () => [
-            <a target="_blank" rel="noopener noreferrer" key="link">
-              链路
-            </a>,
-            <a target="_blank" rel="noopener noreferrer" key="warning">
-              报警
-            </a>,
-            <a target="_blank" rel="noopener noreferrer" key="view">
-              查看
-            </a>,
-          ],
-        },
-      ]}
-    >
-      <ProDescriptions.Item
-        dataIndex="percent"
-        label="百分比"
-        valueType="percent"
+          {
+            title: 'money',
+            key: 'money',
+            dataIndex: 'money',
+            valueType: 'money',
+            fieldProps: {
+              moneySymbol: '$',
+            },
+          },
+          {
+            title: 'money无符号',
+            key: 'money',
+            dataIndex: 'money',
+            valueType: 'money',
+            fieldProps: {
+              moneySymbol: false,
+            },
+          },
+          {
+            title: 'money负数无符号',
+            key: 'money2',
+            dataIndex: 'money2',
+            valueType: 'money',
+            fieldProps: {
+              moneySymbol: false,
+            },
+          },
+          {
+            title: '操作',
+            valueType: 'option',
+            render: () => [
+              <a target="_blank" rel="noopener noreferrer" key="link">
+                链路
+              </a>,
+              <a target="_blank" rel="noopener noreferrer" key="warning">
+                报警
+              </a>,
+              <a target="_blank" rel="noopener noreferrer" key="view">
+                查看
+              </a>,
+            ],
+          },
+        ]}
       >
-        100
-      </ProDescriptions.Item>
-      <div>多余的dom</div>
-      <ProDescriptions.Item label="超链接">
-        <a href="alipay.com">超链接</a>
-      </ProDescriptions.Item>
-    </ProDescriptions>
+        <ProDescriptions.Item
+          dataIndex="percent"
+          label="百分比"
+          valueType="percent"
+        >
+          100
+        </ProDescriptions.Item>
+        <div>多余的dom</div>
+        <ProDescriptions.Item label="超链接">
+          <a href="alipay.com">超链接</a>
+        </ProDescriptions.Item>
+      </ProDescriptions>
+
+      <div
+        style={{
+          marginTop: '20px',
+          padding: '20px',
+          backgroundColor: '#f5f5f5',
+          borderRadius: '6px',
+        }}
+      >
+        <h4>ProDescriptions Columns 配置 Props 说明：</h4>
+        <ul>
+          <li>
+            <strong>title</strong>: 描述列表标题
+          </li>
+          <li>
+            <strong>request</strong>: 异步请求函数，返回数据
+          </li>
+          <li>
+            <strong>emptyText</strong>: 空数据时显示的文本
+          </li>
+          <li>
+            <strong>columns</strong>: 列配置数组，定义每列的属性
+          </li>
+        </ul>
+        <h4>Column 配置项：</h4>
+        <ul>
+          <li>
+            <strong>title</strong>: 列标题
+          </li>
+          <li>
+            <strong>key</strong>: 列的唯一标识
+          </li>
+          <li>
+            <strong>dataIndex</strong>: 数据字段名
+          </li>
+          <li>
+            <strong>valueType</strong>: 值类型，决定如何渲染
+          </li>
+          <li>
+            <strong>valueEnum</strong>: 枚举值配置
+          </li>
+          <li>
+            <strong>fieldProps</strong>: 字段属性配置
+          </li>
+          <li>
+            <strong>render</strong>: 自定义渲染函数
+          </li>
+        </ul>
+        <h4>ValueType 类型：</h4>
+        <ul>
+          <li>
+            <strong>select</strong>: 选择框，配合 valueEnum 使用
+          </li>
+          <li>
+            <strong>date</strong>: 日期格式
+          </li>
+          <li>
+            <strong>switch</strong>: 开关组件
+          </li>
+          <li>
+            <strong>money</strong>: 金额格式
+          </li>
+          <li>
+            <strong>option</strong>: 操作按钮
+          </li>
+          <li>
+            <strong>percent</strong>: 百分比格式
+          </li>
+        </ul>
+        <h4>FieldProps 字段属性：</h4>
+        <ul>
+          <li>
+            <strong>format</strong>: 日期格式化字符串，如 'DD.MM.YYYY'
+          </li>
+          <li>
+            <strong>moneySymbol</strong>: 货币符号，可以是字符串或 false
+          </li>
+          <li>
+            <strong>自定义属性</strong>: 根据 valueType 传递相应属性
+          </li>
+        </ul>
+        <h4>ValueEnum 枚举配置：</h4>
+        <ul>
+          <li>
+            <strong>text</strong>: 显示的文本
+          </li>
+          <li>
+            <strong>status</strong>: 状态类型，影响显示样式
+          </li>
+          <li>
+            <strong>支持状态</strong>: Default, Error, Success, Processing
+          </li>
+        </ul>
+        <h4>Render 自定义渲染：</h4>
+        <ul>
+          <li>
+            <strong>函数返回</strong>: 返回 React 节点数组
+          </li>
+          <li>
+            <strong>操作按钮</strong>: 常用于渲染操作链接或按钮
+          </li>
+          <li>
+            <strong>样式控制</strong>: 完全控制渲染内容的样式
+          </li>
+        </ul>
+        <h4>混合使用特点：</h4>
+        <ul>
+          <li>
+            <strong>Columns 配置</strong>: 通过 columns 数组定义列
+          </li>
+          <li>
+            <strong>Item 组件</strong>: 同时支持 ProDescriptions.Item
+          </li>
+          <li>
+            <strong>优先级</strong>: Item 组件会覆盖 columns 中的配置
+          </li>
+        </ul>
+        <h4>使用场景：</h4>
+        <ul>
+          <li>
+            <strong>动态列</strong>: 根据数据动态生成列配置
+          </li>
+          <li>
+            <strong>复杂展示</strong>: 展示各种类型的数据
+          </li>
+          <li>
+            <strong>操作列</strong>: 添加操作按钮或链接
+          </li>
+          <li>
+            <strong>格式化显示</strong>: 自定义数据格式化方式
+          </li>
+        </ul>
+        <h4>最佳实践：</h4>
+        <ul>
+          <li>
+            <strong>列配置</strong>: 使用 columns 配置批量定义列
+          </li>
+          <li>
+            <strong>字段属性</strong>: 通过 fieldProps 传递组件属性
+          </li>
+          <li>
+            <strong>自定义渲染</strong>: 使用 render 函数实现复杂渲染
+          </li>
+          <li>
+            <strong>类型匹配</strong>: 选择合适的 valueType 展示数据
+          </li>
+        </ul>
+      </div>
+    </>
   );
 };

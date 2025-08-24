@@ -156,4 +156,95 @@ export default () => {
       headerTitle="自定义表格主体"
     />
   );
+
+  <div
+    style={{
+      marginTop: '20px',
+      padding: '20px',
+      backgroundColor: '#f5f5f5',
+      borderRadius: '6px',
+    }}
+  >
+    <h4>ProTable 渲染表格 Props 说明：</h4>
+    <ul>
+      <li>
+        <strong>ProTable</strong>: 专业表格组件
+      </li>
+      <li>
+        <strong>Card</strong>: 卡片组件
+      </li>
+      <li>
+        <strong>Descriptions</strong>: 描述组件
+      </li>
+      <li>
+        <strong>Menu</strong>: 菜单组件
+      </li>
+      <li>
+        <strong>渲染表格</strong>: 展示渲染表格功能
+      </li>
+    </ul>
+    <h4>ProTable 配置：</h4>
+    <ul>
+      <li>
+        <strong>columns</strong>: 列配置
+      </li>
+      <li>
+        <strong>rowKey</strong>: 行键
+      </li>
+      <li>
+        <strong>pagination</strong>: 分页配置
+      </li>
+      <li>
+        <strong>tableRender</strong>: 表格渲染
+      </li>
+      <li>
+        <strong>tableExtraRender</strong>: 表格额外渲染
+      </li>
+      <li>
+        <strong>params</strong>: 参数配置
+      </li>
+      <li>
+        <strong>request</strong>: 请求函数
+      </li>
+      <li>
+        <strong>dateFormatter</strong>: 日期格式化
+      </li>
+      <li>
+        <strong>headerTitle</strong>: 表格标题
+      </li>
+    </ul>
+    <h4>渲染表格特点：</h4>
+    <ul>
+      <li>
+        <strong>自定义渲染</strong>: 支持自定义渲染
+      </li>
+      <li>
+        <strong>侧边菜单</strong>: 支持侧边菜单
+      </li>
+      <li>
+        <strong>额外内容</strong>: 支持额外内容
+      </li>
+      <li>
+        <strong>布局控制</strong>: 支持布局控制
+      </li>
+      <li>
+        <strong>状态管理</strong>: 支持状态管理
+      </li>
+      <li>
+        <strong>参数传递</strong>: 支持参数传递
+      </li>
+    </ul>
+    <h4>使用场景：</h4>
+    <ul>
+      <li>
+        <strong>复杂布局</strong>: 复杂布局需求
+      </li>
+      <li>
+        <strong>自定义界面</strong>: 自定义界面功能
+      </li>
+      <li>
+        <strong>导航系统</strong>: 导航系统需求
+      </li>
+    </ul>
+  </div>;
 };

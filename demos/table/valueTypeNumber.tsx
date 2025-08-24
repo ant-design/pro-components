@@ -45,7 +45,7 @@ for (let i = 0; i < 2; i += 1) {
   });
 }
 
-export default () => (
+const ValueTypeNumberTable = () => (
   <ProTable<TableListItem>
     columns={[
       {
@@ -115,3 +115,79 @@ export default () => (
     headerTitle="数字类"
   />
 );
+
+const ValueTypeNumberWithDocs = () => {
+  return (
+    <>
+      {ValueTypeNumberTable()}
+      <div
+        style={{
+          marginTop: '20px',
+          padding: '20px',
+          backgroundColor: '#f5f5f5',
+          borderRadius: '6px',
+        }}
+      >
+        <h4>ProTable 值类型数字 Props 说明：</h4>
+        <ul>
+          <li>
+            <strong>ProTable</strong>: 专业表格组件
+          </li>
+          <li>
+            <strong>值类型数字</strong>: 展示值类型数字功能
+          </li>
+        </ul>
+        <h4>ProTable 配置：</h4>
+        <ul>
+          <li>
+            <strong>columns</strong>: 列配置
+          </li>
+          <li>
+            <strong>request</strong>: 请求函数
+          </li>
+          <li>
+            <strong>rowKey</strong>: 行键
+          </li>
+          <li>
+            <strong>headerTitle</strong>: 表格标题
+          </li>
+        </ul>
+        <h4>值类型数字特点：</h4>
+        <ul>
+          <li>
+            <strong>进度条</strong>: 支持进度条
+          </li>
+          <li>
+            <strong>金额</strong>: 支持金额
+          </li>
+          <li>
+            <strong>数字</strong>: 支持数字
+          </li>
+          <li>
+            <strong>秒数</strong>: 支持秒数
+          </li>
+          <li>
+            <strong>百分比</strong>: 支持百分比
+          </li>
+          <li>
+            <strong>动态状态</strong>: 支持动态状态
+          </li>
+        </ul>
+        <h4>使用场景：</h4>
+        <ul>
+          <li>
+            <strong>数字类</strong>: 数字类数据展示
+          </li>
+          <li>
+            <strong>统计展示</strong>: 统计展示功能
+          </li>
+          <li>
+            <strong>进度监控</strong>: 进度监控需求
+          </li>
+        </ul>
+      </div>
+    </>
+  );
+};
+
+export default ValueTypeNumberWithDocs;

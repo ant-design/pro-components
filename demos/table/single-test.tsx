@@ -251,4 +251,107 @@ export default () => {
       />
     </ConfigProvider>
   );
+
+  <div
+    style={{
+      marginTop: '20px',
+      padding: '20px',
+      backgroundColor: '#f5f5f5',
+      borderRadius: '6px',
+    }}
+  >
+    <h4>ProTable 单表格测试 Props 说明：</h4>
+    <ul>
+      <li>
+        <strong>ProTable</strong>: 专业表格组件
+      </li>
+      <li>
+        <strong>TableDropdown</strong>: 表格下拉菜单组件
+      </li>
+      <li>
+        <strong>ConfigProvider</strong>: 配置提供者组件
+      </li>
+      <li>
+        <strong>Button</strong>: 按钮组件
+      </li>
+      <li>
+        <strong>Input</strong>: 输入框组件
+      </li>
+      <li>
+        <strong>Space</strong>: 间距组件
+      </li>
+      <li>
+        <strong>Tag</strong>: 标签组件
+      </li>
+      <li>
+        <strong>单表格测试</strong>: 展示单表格测试功能
+      </li>
+    </ul>
+    <h4>ProTable 配置：</h4>
+    <ul>
+      <li>
+        <strong>columns</strong>: 列配置
+      </li>
+      <li>
+        <strong>pagination</strong>: 分页配置
+      </li>
+      <li>
+        <strong>actionRef</strong>: 操作引用
+      </li>
+      <li>
+        <strong>request</strong>: 请求函数
+      </li>
+      <li>
+        <strong>type</strong>: 表格类型
+      </li>
+      <li>
+        <strong>rowKey</strong>: 行键
+      </li>
+      <li>
+        <strong>dateFormatter</strong>: 日期格式化
+      </li>
+      <li>
+        <strong>headerTitle</strong>: 表格标题
+      </li>
+      <li>
+        <strong>toolBarRender</strong>: 工具栏渲染
+      </li>
+      <li>
+        <strong>dataSource</strong>: 数据源
+      </li>
+    </ul>
+    <h4>单表格测试特点：</h4>
+    <ul>
+      <li>
+        <strong>表单模式</strong>: 支持表单模式
+      </li>
+      <li>
+        <strong>嵌套表格</strong>: 支持嵌套表格
+      </li>
+      <li>
+        <strong>静态数据</strong>: 支持静态数据
+      </li>
+      <li>
+        <strong>动态表单</strong>: 支持动态表单
+      </li>
+      <li>
+        <strong>固定列</strong>: 支持固定列
+      </li>
+      <li>
+        <strong>自定义渲染</strong>: 支持自定义渲染
+      </li>
+    </ul>
+    <h4>使用场景：</h4>
+    <ul>
+      <li>
+        <strong>测试验证</strong>: 测试验证需求
+      </li>
+      <li>
+        <strong>复杂表单</strong>: 复杂表单功能
+      </li>
+      <li>
+        <strong>开发调试</strong>: 开发调试工具
+      </li>
+    </ul>
+  </div>;
 };

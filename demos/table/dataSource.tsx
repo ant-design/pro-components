@@ -175,4 +175,89 @@ export default () => {
       ]}
     />
   );
+
+  <div
+    style={{
+      marginTop: '20px',
+      padding: '20px',
+      backgroundColor: '#f5f5f5',
+      borderRadius: '6px',
+    }}
+  >
+    <h4>ProTable 数据源 Props 说明：</h4>
+    <ul>
+      <li>
+        <strong>ProTable</strong>: 专业表格组件
+      </li>
+      <li>
+        <strong>TableDropdown</strong>: 表格下拉菜单组件
+      </li>
+      <li>
+        <strong>Dropdown</strong>: 下拉菜单组件
+      </li>
+      <li>
+        <strong>数据源</strong>: 展示数据源功能
+      </li>
+    </ul>
+    <h4>ProTable 配置：</h4>
+    <ul>
+      <li>
+        <strong>columns</strong>: 列配置
+      </li>
+      <li>
+        <strong>request</strong>: 请求函数
+      </li>
+      <li>
+        <strong>rowKey</strong>: 行键
+      </li>
+      <li>
+        <strong>pagination</strong>: 分页配置
+      </li>
+      <li>
+        <strong>search</strong>: 搜索配置
+      </li>
+      <li>
+        <strong>dateFormatter</strong>: 日期格式化
+      </li>
+      <li>
+        <strong>toolbar</strong>: 工具栏配置
+      </li>
+      <li>
+        <strong>toolBarRender</strong>: 工具栏渲染
+      </li>
+    </ul>
+    <h4>数据源特点：</h4>
+    <ul>
+      <li>
+        <strong>自定义筛选</strong>: 支持自定义筛选
+      </li>
+      <li>
+        <strong>搜索功能</strong>: 支持搜索功能
+      </li>
+      <li>
+        <strong>状态过滤</strong>: 支持状态过滤
+      </li>
+      <li>
+        <strong>省略号显示</strong>: 支持省略号显示
+      </li>
+      <li>
+        <strong>复制功能</strong>: 支持复制功能
+      </li>
+      <li>
+        <strong>下拉操作</strong>: 支持下拉操作
+      </li>
+    </ul>
+    <h4>使用场景：</h4>
+    <ul>
+      <li>
+        <strong>数据展示</strong>: 数据展示系统
+      </li>
+      <li>
+        <strong>内容管理</strong>: 内容管理平台
+      </li>
+      <li>
+        <strong>应用管理</strong>: 应用管理系统
+      </li>
+    </ul>
+  </div>
 };
