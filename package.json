@@ -123,7 +123,6 @@
     "@umijs/test": "^3.5.43",
     "@umijs/test-utils": "^3.5.43",
     "@umijs/utils": "^4.4.12",
-    "@vitejs/plugin-legacy": "^6.1.1",
     "@vitest/browser": "^3.2.4",
     "@vitest/coverage-istanbul": "^3.2.4",
     "@vitest/ui": "^3.2.4",
