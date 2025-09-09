@@ -35,7 +35,7 @@ import { yParser } from '@umijs/utils';
           type: 'git',
           url: 'https://github.com/ant-design/pro-components',
         },
-        browserslist: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 11'],
+        browserslist: ['last 2 versions', 'Firefox ESR', '> 1%'],
         keywords: ['antd', 'admin', 'ant-design', 'ant-design-pro'],
         authors: [
           'chencheng <sorrycc@gmail.com> (https://github.com/sorrycc)',
