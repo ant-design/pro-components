@@ -18,7 +18,7 @@ exports[`BasicTable SearchGutter > 🎏 ProTable support searchGutter 1`] = `
       style="padding-left: 8px; padding-right: 8px;"
     >
       <div
-        class="ant-form-item"
+        class="ant-form-item ant-form-item-horizontal"
         style="flex-wrap: nowrap;"
       >
         <div
@@ -122,7 +122,7 @@ exports[`BasicTable SearchGutter > 🎏 ProTable support searchGutter 1`] = `
       style="padding-left: 8px; padding-right: 8px; text-align: end;"
     >
       <div
-        class="ant-form-item ant-pro-query-filter-actions"
+        class="ant-form-item ant-pro-query-filter-actions ant-form-item-horizontal"
       >
         <div
           class="ant-row ant-form-item-row"

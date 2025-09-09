@@ -31,7 +31,7 @@ exports[`Descriptions > 📝 columns support editable test 1`] = `
                       style="display: flex; gap: 8px; align-items: baseline;"
                     >
                       <div
-                        class="ant-form-item"
+                        class="ant-form-item ant-form-item-vertical"
                         style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0; margin: 0px;"
                       >
                         <div
@@ -197,7 +197,7 @@ exports[`Descriptions > 📝 formItemRender run defaultRender 1`] = `
                       style="display: flex; gap: 8px; align-items: baseline;"
                     >
                       <div
-                        class="ant-form-item"
+                        class="ant-form-item ant-form-item-vertical"
                         style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0; margin: 0px;"
                       >
                         <div

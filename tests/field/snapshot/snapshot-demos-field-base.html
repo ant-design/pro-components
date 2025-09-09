@@ -1456,5 +1456,371 @@ Done in 9.70s.
         </table>
       </div>
     </div>
+    <div
+      style="margin-top: 20px; padding: 20px; background-color: #f5f5f5; border-radius: 6px;"
+    >
+      <h4>
+        ProField 基础用法 Props 说明：
+      </h4>
+      <ul>
+        <li>
+          <strong>
+            text
+          </strong>
+          : 显示的文本内容
+        </li>
+        <li>
+          <strong>
+            mode
+          </strong>
+          : 显示模式，'read' 表示只读，'edit' 表示编辑
+        </li>
+        <li>
+          <strong>
+            valueType
+          </strong>
+          : 值类型，决定如何渲染内容
+        </li>
+        <li>
+          <strong>
+            plain
+          </strong>
+          : 是否使用简约模式
+        </li>
+        <li>
+          <strong>
+            valueEnum
+          </strong>
+          : 枚举值配置，用于选择框等组件
+        </li>
+      </ul>
+      <h4>
+        Radio.Group 配置：
+      </h4>
+      <ul>
+        <li>
+          <strong>
+            onChange
+          </strong>
+          : 值变化回调函数
+        </li>
+        <li>
+          <strong>
+            value
+          </strong>
+          : 当前选中的值
+        </li>
+        <li>
+          <strong>
+            模式切换
+          </strong>
+          : 用于切换 ProField 的显示模式
+        </li>
+      </ul>
+      <h4>
+        Switch 配置：
+      </h4>
+      <ul>
+        <li>
+          <strong>
+            checked
+          </strong>
+          : 是否选中
+        </li>
+        <li>
+          <strong>
+            onChange
+          </strong>
+          : 值变化回调函数
+        </li>
+        <li>
+          <strong>
+            简约模式
+          </strong>
+          : 控制是否使用简约模式
+        </li>
+      </ul>
+      <h4>
+        Descriptions 配置：
+      </h4>
+      <ul>
+        <li>
+          <strong>
+            column
+          </strong>
+          : 列数配置
+        </li>
+        <li>
+          <strong>
+            内容展示
+          </strong>
+          : 用于展示各种 ProField 组件
+        </li>
+      </ul>
+      <h4>
+        支持的 valueType 类型：
+      </h4>
+      <ul>
+        <li>
+          <strong>
+            text
+          </strong>
+          : 文本类型
+        </li>
+        <li>
+          <strong>
+            avatar
+          </strong>
+          : 头像类型
+        </li>
+        <li>
+          <strong>
+            image
+          </strong>
+          : 图片类型
+        </li>
+        <li>
+          <strong>
+            money
+          </strong>
+          : 金额类型
+        </li>
+        <li>
+          <strong>
+            color
+          </strong>
+          : 颜色类型
+        </li>
+        <li>
+          <strong>
+            digit
+          </strong>
+          : 数字类型
+        </li>
+        <li>
+          <strong>
+            digitRange
+          </strong>
+          : 数字范围类型
+        </li>
+        <li>
+          <strong>
+            second
+          </strong>
+          : 秒格式化类型
+        </li>
+        <li>
+          <strong>
+            percent
+          </strong>
+          : 百分比类型
+        </li>
+        <li>
+          <strong>
+            rate
+          </strong>
+          : 评分类型
+        </li>
+        <li>
+          <strong>
+            select
+          </strong>
+          : 选择框类型
+        </li>
+        <li>
+          <strong>
+            date
+          </strong>
+          : 日期类型
+        </li>
+        <li>
+          <strong>
+            dateRange
+          </strong>
+          : 日期区间类型
+        </li>
+        <li>
+          <strong>
+            dateTimeRange
+          </strong>
+          : 日期时间区间类型
+        </li>
+        <li>
+          <strong>
+            time
+          </strong>
+          : 时间类型
+        </li>
+        <li>
+          <strong>
+            timeRange
+          </strong>
+          : 时间区间类型
+        </li>
+        <li>
+          <strong>
+            password
+          </strong>
+          : 密码类型
+        </li>
+        <li>
+          <strong>
+            code
+          </strong>
+          : 代码块类型
+        </li>
+        <li>
+          <strong>
+            jsonCode
+          </strong>
+          : JSON 代码块类型
+        </li>
+      </ul>
+      <h4>
+        valueEnum 配置：
+      </h4>
+      <ul>
+        <li>
+          <strong>
+            text
+          </strong>
+          : 显示文本
+        </li>
+        <li>
+          <strong>
+            status
+          </strong>
+          : 状态类型
+        </li>
+        <li>
+          <strong>
+            disabled
+          </strong>
+          : 是否禁用
+        </li>
+        <li>
+          <strong>
+            枚举映射
+          </strong>
+          : 将值映射为显示文本和状态
+        </li>
+      </ul>
+      <h4>
+        显示模式特点：
+      </h4>
+      <ul>
+        <li>
+          <strong>
+            只读模式
+          </strong>
+          : 仅显示内容，不可编辑
+        </li>
+        <li>
+          <strong>
+            编辑模式
+          </strong>
+          : 可以编辑内容
+        </li>
+        <li>
+          <strong>
+            简约模式
+          </strong>
+          : 使用简约的显示样式
+        </li>
+        <li>
+          <strong>
+            动态切换
+          </strong>
+          : 支持动态切换显示模式
+        </li>
+      </ul>
+      <h4>
+        布局特点：
+      </h4>
+      <ul>
+        <li>
+          <strong>
+            控制区域
+          </strong>
+          : 顶部显示模式切换控制
+        </li>
+        <li>
+          <strong>
+            展示区域
+          </strong>
+          : 使用 Descriptions 展示各种字段类型
+        </li>
+        <li>
+          <strong>
+            响应式设计
+          </strong>
+          : 自动适配不同屏幕尺寸
+        </li>
+        <li>
+          <strong>
+            网格布局
+          </strong>
+          : 使用网格布局展示多个字段
+        </li>
+      </ul>
+      <h4>
+        使用场景：
+      </h4>
+      <ul>
+        <li>
+          <strong>
+            字段展示
+          </strong>
+          : 展示各种类型的字段内容
+        </li>
+        <li>
+          <strong>
+            模式切换
+          </strong>
+          : 测试只读和编辑模式的切换
+        </li>
+        <li>
+          <strong>
+            样式测试
+          </strong>
+          : 测试简约模式和普通模式的样式差异
+        </li>
+        <li>
+          <strong>
+            功能演示
+          </strong>
+          : 演示各种字段类型的功能
+        </li>
+      </ul>
+      <h4>
+        最佳实践：
+      </h4>
+      <ul>
+        <li>
+          <strong>
+            类型选择
+          </strong>
+          : 根据数据类型选择合适的 valueType
+        </li>
+        <li>
+          <strong>
+            枚举配置
+          </strong>
+          : 合理配置 valueEnum 映射关系
+        </li>
+        <li>
+          <strong>
+            模式设计
+          </strong>
+          : 合理设计只读和编辑模式
+        </li>
+        <li>
+          <strong>
+            用户体验
+          </strong>
+          : 提供清晰的模式切换和内容展示
+        </li>
+      </ul>
+    </div>
   </div>
 </DocumentFragment>

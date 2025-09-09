@@ -15,7 +15,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
         class="ant-pro-form-list"
       >
         <div
-          class="ant-form-item"
+          class="ant-form-item ant-form-item-vertical"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -50,7 +50,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                         class="ant-pro-form-list-container"
                       >
                         <div
-                          class="ant-form-item"
+                          class="ant-form-item ant-form-item-vertical"
                         >
                           <div
                             class="ant-row ant-form-item-row"
@@ -178,7 +178,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                         class="ant-pro-form-list-container"
                       >
                         <div
-                          class="ant-form-item"
+                          class="ant-form-item ant-form-item-vertical"
                         >
                           <div
                             class="ant-row ant-form-item-row"
@@ -306,7 +306,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                         class="ant-pro-form-list-container"
                       >
                         <div
-                          class="ant-form-item"
+                          class="ant-form-item ant-form-item-vertical"
                         >
                           <div
                             class="ant-row ant-form-item-row"

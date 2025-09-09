@@ -1,5 +1,11 @@
 import { ProForm, ProFormRadio } from '@ant-design/pro-components';
-import { cleanup, fireEvent, render, screen } from '@testing-library/react';
+import {
+  cleanup,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Form } from 'antd';
 import { afterEach, describe, expect, it, vi } from 'vitest';
@@ -339,8 +345,10 @@ describe('ProFormRadio', () => {
     expect(onFinishFailed).toHaveBeenCalled();
     expect(onFinish).not.toHaveBeenCalled();
 
-    // 检查错误信息
-    expect(screen.getByText('Please select an option')).toBeTruthy();
+    await waitFor(() => {
+      // 检查错误信息
+      expect(screen.getByText('Please select an option')).toBeTruthy();
+    });
   });
 
   it('📦 ProFormRadio.Group should pass validation when value is selected', async () => {

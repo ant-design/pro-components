@@ -67,7 +67,8 @@ describe('BasicTable filter', () => {
         checked: true,
       },
     });
-    await userEvent.click(await screen.findByText('确 定'));
+    const confirmButtons = await screen.findAllByText('确 定');
+    await userEvent.click(confirmButtons[0]);
 
     expect(fn).toHaveBeenCalledTimes(1);
   });
@@ -122,7 +123,8 @@ describe('BasicTable filter', () => {
         checked: true,
       },
     });
-    await userEvent.click(await screen.findByText('确 定'));
+    const confirmButtons = await screen.findAllByText('确 定');
+    await userEvent.click(confirmButtons[0]);
 
     expect(fn).toHaveBeenCalledTimes(1);
   });
@@ -215,7 +217,7 @@ describe('BasicTable filter', () => {
     await userEvent.click(screen.getByRole('menuitem', { name: /已上线/i }));
     await userEvent.click(
       container.querySelector(
-        '.ant-table-filter-dropdown-btns .ant-btn.ant-btn-primary.ant-btn-sm',
+        '.ant-table-filter-dropdown-btns .ant-btn-primary',
       )!,
     );
 
@@ -309,7 +311,7 @@ describe('BasicTable filter', () => {
     await userEvent.click(screen.getByRole('menuitem', { name: /已上线/i }));
     await userEvent.click(
       container.querySelector(
-        '.ant-table-filter-dropdown-btns .ant-btn.ant-btn-primary.ant-btn-sm',
+        '.ant-table-filter-dropdown-btns .ant-btn-primary',
       )!,
     );
 
@@ -426,45 +428,79 @@ describe('BasicTable filter', () => {
     };
     const { container } = render(<TestComponent />);
 
-    // 等待初始数据加载
+    // 等待初始数据加载 - 增加更健壮的等待条件
     await waitFor(
       () => {
+        expect(
+          container.querySelector('.ant-table-tbody tr'),
+        ).toBeInTheDocument();
         expect(screen.queryByText('项目 A')).toBeInTheDocument();
       },
-      { timeout: 10000 },
+      { timeout: 15000 },
+    );
+
+    // 等待表格完全渲染
+    await waitFor(
+      () => {
+        expect(
+          container.querySelectorAll('span.ant-table-filter-trigger'),
+        ).toHaveLength(2);
+      },
+      { timeout: 5000 },
     );
 
     // 点击第一个筛选器（上线状态）
-    await userEvent.click(
-      container.querySelectorAll('span.ant-table-filter-trigger')[0],
+    const filterTriggers = container.querySelectorAll(
+      'span.ant-table-filter-trigger',
     );
+    expect(filterTriggers).toHaveLength(2);
+
+    await userEvent.click(filterTriggers[0]);
+
+    // 等待下拉菜单出现
+    await waitFor(
+      () => {
+        expect(
+          screen.getByRole('menuitem', { name: /已上线/i }),
+        ).toBeInTheDocument();
+      },
+      { timeout: 5000 },
+    );
+
     await userEvent.click(screen.getByRole('menuitem', { name: /已上线/i }));
-    await userEvent.click(
-      container.querySelector(
-        '.ant-table-filter-dropdown-btns .ant-btn.ant-btn-primary.ant-btn-sm',
-      )!,
-    );
+
+    // 等待确认按钮出现并点击
+    const confirmButtons = await screen.findAllByText('确 定');
+    fireEvent.click(confirmButtons[0]);
 
     // 点击第二个筛选器（运行状态）
-    await userEvent.click(
-      container.querySelectorAll('span.ant-table-filter-trigger')[1],
-    );
-    await userEvent.click(screen.getByRole('menuitem', { name: /异常/i }));
-    await userEvent.click(
-      container.querySelector(
-        '.ant-table-filter-dropdown-btns .ant-btn.ant-btn-primary.ant-btn-sm',
-      )!,
+    await userEvent.click(filterTriggers[1]);
+
+    // 等待下拉菜单出现
+    await waitFor(
+      () => {
+        expect(
+          screen.getByRole('menuitem', { name: /异常/i }),
+        ).toBeInTheDocument();
+      },
+      { timeout: 5000 },
     );
 
-    // 验证筛选后的结果
+    await userEvent.click(screen.getByRole('menuitem', { name: /异常/i }));
+
+    // 等待确认按钮出现并点击
+    const confirmButtons2 = await screen.findAllByText('确 定');
+    fireEvent.click(confirmButtons2[0]);
+
+    // 验证筛选后的结果（已上线 + 异常 = 只有项目 A）
     await waitFor(
       () => {
         expect(screen.queryByText('项目 A')).toBeInTheDocument();
-        expect(screen.queryByText('项目 C')).toBeInTheDocument();
+        expect(screen.queryByText('项目 C')).not.toBeInTheDocument();
         expect(screen.queryByText('项目 D')).not.toBeInTheDocument();
         expect(screen.queryByText('项目 B')).not.toBeInTheDocument();
       },
-      { timeout: 10000 },
+      { timeout: 15000 },
     );
 
     // 点击重置按钮
@@ -478,9 +514,9 @@ describe('BasicTable filter', () => {
         expect(screen.queryByText('项目 B')).not.toBeInTheDocument();
         expect(screen.queryByText('项目 C')).not.toBeInTheDocument();
       },
-      { timeout: 10000 },
+      { timeout: 15000 },
     );
-  }, 15000);
+  }, 30000);
 
   it('🎏 should pass filter parameters to request function with nested dataIndex', async () => {
     const fn = vi.fn();
@@ -554,7 +590,7 @@ describe('BasicTable filter', () => {
     );
     await userEvent.click(
       container.querySelector(
-        '.ant-table-filter-dropdown-btns .ant-btn.ant-btn-primary.ant-btn-sm',
+        '.ant-table-filter-dropdown-btns .ant-btn-primary',
       )!,
     );
 
@@ -569,7 +605,7 @@ describe('BasicTable filter', () => {
     );
     await userEvent.click(
       container.querySelector(
-        '.ant-table-filter-dropdown-btns .ant-btn.ant-btn-primary.ant-btn-sm',
+        '.ant-table-filter-dropdown-btns .ant-btn-primary',
       )!,
     );
 

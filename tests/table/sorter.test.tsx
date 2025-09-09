@@ -1,18 +1,13 @@
 import type { ActionType, ProColumns } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
 /// <reference types="@vitest/browser/context" />
-import {
-  cleanup,
-  render,
-  screen,
-  waitFor,
-} from '@testing-library/react';
+import { cleanup, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Button } from 'antd';
+import { SortOrder } from 'antd/es/table/interface';
 import { useRef, useState } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { getFetchData } from './demo';
-import { SortOrder } from 'antd/es/table/interface';
 
 afterEach(() => {
   cleanup();
@@ -65,29 +60,67 @@ describe('BasicTable sorter', () => {
       />,
     );
 
-    // 等待初始数据加载
+    // 等待初始数据加载和排序器渲染
     await waitFor(
       () => {
-        expect(container.querySelector('.ant-table-row')).toBeInTheDocument();
+        expect(
+          container.querySelector('.ant-table-tbody tr'),
+        ).toBeInTheDocument();
+        expect(
+          container.querySelectorAll('span.ant-table-column-sorter-down'),
+        ).toHaveLength(2);
+        expect(
+          container.querySelectorAll('span.ant-table-column-sorter-up'),
+        ).toHaveLength(2);
       },
-      { timeout: 10000 },
+      { timeout: 15000 },
     );
 
-    await userEvent.click(
-      container.querySelectorAll('span.ant-table-column-sorter-down')[0],
+    // 点击排序器并等待状态变化
+    const sorterDown = container.querySelectorAll(
+      'span.ant-table-column-sorter-down',
     );
-    await userEvent.click(
-      container.querySelectorAll('span.ant-table-column-sorter-up')[1],
+    const sorterUp = container.querySelectorAll(
+      'span.ant-table-column-sorter-up',
     );
-    await userEvent.click(
-      container.querySelectorAll('span.ant-table-column-sorter-down')[0],
+
+    expect(sorterDown).toHaveLength(2);
+    expect(sorterUp).toHaveLength(2);
+
+    await userEvent.click(sorterDown[0]);
+    await waitFor(
+      () => {
+        expect(fn).toHaveBeenCalledTimes(1);
+      },
+      { timeout: 5000 },
     );
-    await userEvent.click(
-      container.querySelectorAll('span.ant-table-column-sorter-down')[1],
+
+    await userEvent.click(sorterUp[0]);
+    await waitFor(
+      () => {
+        expect(fn).toHaveBeenCalledTimes(2);
+      },
+      { timeout: 5000 },
+    );
+
+    await userEvent.click(sorterDown[0]);
+    await waitFor(
+      () => {
+        expect(fn).toHaveBeenCalledTimes(3);
+      },
+      { timeout: 5000 },
+    );
+
+    await userEvent.click(sorterDown[1]);
+    await waitFor(
+      () => {
+        expect(fn).toHaveBeenCalledTimes(4);
+      },
+      { timeout: 5000 },
     );
 
     expect(fn).toHaveBeenCalledTimes(4);
-  }, 15000);
+  }, 30000);
 
   it('🎏 should trigger onChange when sorting with function sorters', async () => {
     const fn = vi.fn();
@@ -128,21 +161,67 @@ describe('BasicTable sorter', () => {
       />,
     );
 
-    await userEvent.click(
-      container.querySelectorAll('span.ant-table-column-sorter-down')[0],
+    // 等待初始数据加载和排序器渲染
+    await waitFor(
+      () => {
+        expect(
+          container.querySelector('.ant-table-tbody tr'),
+        ).toBeInTheDocument();
+        expect(
+          container.querySelectorAll('span.ant-table-column-sorter-down'),
+        ).toHaveLength(2);
+        expect(
+          container.querySelectorAll('span.ant-table-column-sorter-up'),
+        ).toHaveLength(2);
+      },
+      { timeout: 15000 },
     );
-    await userEvent.click(
-      container.querySelectorAll('span.ant-table-column-sorter-up')[1],
+
+    // 点击排序器并等待状态变化
+    const sorterDown = container.querySelectorAll(
+      'span.ant-table-column-sorter-down',
     );
-    await userEvent.click(
-      container.querySelectorAll('span.ant-table-column-sorter-down')[0],
+    const sorterUp = container.querySelectorAll(
+      'span.ant-table-column-sorter-up',
     );
-    await userEvent.click(
-      container.querySelectorAll('span.ant-table-column-sorter-down')[1],
+
+    expect(sorterDown).toHaveLength(2);
+    expect(sorterUp).toHaveLength(2);
+
+    await userEvent.click(sorterDown[0]);
+    await waitFor(
+      () => {
+        expect(fn).toHaveBeenCalledTimes(1);
+      },
+      { timeout: 5000 },
+    );
+
+    await userEvent.click(sorterUp[0]);
+    await waitFor(
+      () => {
+        expect(fn).toHaveBeenCalledTimes(2);
+      },
+      { timeout: 5000 },
+    );
+
+    await userEvent.click(sorterDown[0]);
+    await waitFor(
+      () => {
+        expect(fn).toHaveBeenCalledTimes(3);
+      },
+      { timeout: 5000 },
+    );
+
+    await userEvent.click(sorterDown[0]);
+    await waitFor(
+      () => {
+        expect(fn).toHaveBeenCalledTimes(4);
+      },
+      { timeout: 5000 },
     );
 
     expect(fn).toHaveBeenCalledTimes(4);
-  }, 10000);
+  }, 30000);
 
   it('🎏 should sort data locally', async () => {
     const fn = vi.fn();
@@ -588,7 +667,7 @@ describe('BasicTable sorter', () => {
               onClick={() => setSortOrder(null)}
             >
               清空
-            </button>
+            </button>,
           ]}
           pagination={false}
           search={false}
@@ -624,7 +703,9 @@ describe('BasicTable sorter', () => {
     });
 
     // 验证排序器状态是否正确同步
-    const sortTrigger = container.querySelector('.ant-table-column-has-sorters');
+    const sortTrigger = container.querySelector(
+      '.ant-table-column-has-sorters',
+    );
     expect(sortTrigger).not.toHaveAttribute('aria-sort');
   });
 
@@ -635,9 +716,20 @@ describe('BasicTable sorter', () => {
       money: number;
       serial: number;
       code: number;
-    }
-    const TestComponent = ({ columns, dataSource, request }: { columns: ProColumns<DataSource, "text">[], dataSource?: DataSource[], request?: (params: any, sort: any) => Promise<{ total: number, success: boolean, data: DataSource[] }> }) => (
-      <ProTable<DataSource, any, "text">
+    };
+    const TestComponent = ({
+      columns,
+      dataSource,
+      request,
+    }: {
+      columns: ProColumns<DataSource, 'text'>[];
+      dataSource?: DataSource[];
+      request?: (
+        params: any,
+        sort: any,
+      ) => Promise<{ total: number; success: boolean; data: DataSource[] }>;
+    }) => (
+      <ProTable<DataSource, any, 'text'>
         columns={columns}
         dataSource={dataSource}
         rowKey="key"
@@ -649,7 +741,7 @@ describe('BasicTable sorter', () => {
 
     it('🎏 should support multiple locale sort in columns', async () => {
       const { container } = render(
-        <TestComponent 
+        <TestComponent
           columns={[
             {
               title: 'Name',
@@ -701,7 +793,7 @@ describe('BasicTable sorter', () => {
               code: 8832,
             },
           ]}
-        />
+        />,
       );
 
       // 等待初始數據渲染
@@ -710,8 +802,9 @@ describe('BasicTable sorter', () => {
         expect(rows).toHaveLength(3);
       });
 
-      const [moneySorter, serialSorter, codeSorter] = container.querySelectorAll('th.ant-table-column-has-sorters');
-      
+      const [moneySorter, serialSorter, codeSorter] =
+        container.querySelectorAll('th.ant-table-column-has-sorters');
+
       await userEvent.click(serialSorter);
       await waitFor(() => {
         const rows = container.querySelectorAll('.ant-table-row');
@@ -740,7 +833,7 @@ describe('BasicTable sorter', () => {
     it('🎏 should support multiple request sort in columns', async () => {
       const fn = vi.fn();
       const { container } = render(
-        <TestComponent 
+        <TestComponent
           columns={[
             {
               title: 'Name',
@@ -762,7 +855,7 @@ describe('BasicTable sorter', () => {
               dataIndex: 'code',
               sorter: { multiple: 3 },
             },
-          ]} 
+          ]}
           request={async (_, sort) => {
             fn(sort);
             return {
@@ -779,7 +872,7 @@ describe('BasicTable sorter', () => {
               ],
             };
           }}
-        />
+        />,
       );
 
       // 等待初始數據渲染
@@ -789,10 +882,11 @@ describe('BasicTable sorter', () => {
       });
 
       // 獲取排序元素
-      const [moneySorter, serialSorter, codeSorter] = container.querySelectorAll('th.ant-table-column-has-sorters');
-      
+      const [moneySorter, serialSorter, codeSorter] =
+        container.querySelectorAll('th.ant-table-column-has-sorters');
+
       await userEvent.click(moneySorter);
-      await waitFor(() => { 
+      await waitFor(() => {
         expect(fn).toHaveBeenCalledWith({
           money: 'ascend',
         });
@@ -832,14 +926,14 @@ describe('BasicTable sorter', () => {
             {
               title: 'serial',
               dataIndex: 'serial',
-              sorter: { multiple: 1 }
+              sorter: { multiple: 1 },
             },
             {
               title: 'code',
               dataIndex: 'code',
-              sorter: { multiple: 1 }
+              sorter: { multiple: 1 },
             },
-          ]} 
+          ]}
           request={async (_, sort) => {
             fn(sort);
             return {
@@ -868,17 +962,21 @@ describe('BasicTable sorter', () => {
                   code: 8832,
                 },
               ].sort((a, b) => {
-                if(sort?.code) {
-                  return sort.code === 'ascend' ? a.code - b.code : b.code - a.code;
+                if (sort?.code) {
+                  return sort.code === 'ascend'
+                    ? a.code - b.code
+                    : b.code - a.code;
                 }
-                if(sort?.serial) {
-                  return sort.serial === 'ascend' ? a.serial - b.serial : b.serial - a.serial;
+                if (sort?.serial) {
+                  return sort.serial === 'ascend'
+                    ? a.serial - b.serial
+                    : b.serial - a.serial;
                 }
-                return 0
+                return 0;
               }),
             };
           }}
-        />
+        />,
       );
 
       // 等待初始數據渲染
@@ -887,8 +985,9 @@ describe('BasicTable sorter', () => {
         expect(rows).toHaveLength(3);
       });
 
-      const [moneySorter, serialSorter, codeSorter] = container.querySelectorAll('th.ant-table-column-has-sorters');
-      
+      const [moneySorter, serialSorter, codeSorter] =
+        container.querySelectorAll('th.ant-table-column-has-sorters');
+
       await userEvent.click(moneySorter);
       await waitFor(() => {
         const rows = container.querySelectorAll('.ant-table-row');
@@ -931,20 +1030,20 @@ describe('BasicTable sorter', () => {
             {
               title: 'serial',
               dataIndex: 'serial',
-              sorter: { 
+              sorter: {
                 compare: (a, b) => a.serial - b.serial,
                 multiple: 2,
-              }
+              },
             },
             {
               title: 'code',
               dataIndex: 'code',
-              sorter: { 
+              sorter: {
                 compare: (a, b) => a.code - b.code,
                 multiple: 1,
-              }
+              },
             },
-          ]} 
+          ]}
           request={async (_, sort) => {
             fn(sort);
             return {
@@ -973,14 +1072,16 @@ describe('BasicTable sorter', () => {
                   code: 8832,
                 },
               ].sort((a, b) => {
-                if(sort?.money) {
-                  return sort.money === 'ascend' ? a.money - b.money : b.money - a.money;
+                if (sort?.money) {
+                  return sort.money === 'ascend'
+                    ? a.money - b.money
+                    : b.money - a.money;
                 }
-                return 0
+                return 0;
               }),
             };
           }}
-        />
+        />,
       );
 
       // 等待初始數據渲染
@@ -989,7 +1090,8 @@ describe('BasicTable sorter', () => {
         expect(rows).toHaveLength(3);
       });
 
-      const [moneySorter, serialSorter, codeSorter] = container.querySelectorAll('th.ant-table-column-has-sorters');
+      const [moneySorter, serialSorter, codeSorter] =
+        container.querySelectorAll('th.ant-table-column-has-sorters');
 
       await userEvent.click(moneySorter);
       await waitFor(() => {

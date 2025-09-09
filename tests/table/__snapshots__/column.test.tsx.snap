@@ -36,7 +36,7 @@ exports[`Table ColumnSetting > 🎏 columns proFieldProps support custom 1`] = `
               style="padding-left: 12px; padding-right: 12px;"
             >
               <div
-                class="ant-form-item"
+                class="ant-form-item ant-form-item-horizontal"
                 style="flex-wrap: nowrap;"
               >
                 <div
@@ -139,7 +139,7 @@ exports[`Table ColumnSetting > 🎏 columns proFieldProps support custom 1`] = `
               style="padding-left: 12px; padding-right: 12px; text-align: end;"
             >
               <div
-                class="ant-form-item ant-pro-query-filter-actions"
+                class="ant-form-item ant-pro-query-filter-actions ant-form-item-horizontal"
               >
                 <div
                   class="ant-row ant-form-item-row"
@@ -328,7 +328,6 @@ exports[`Table ColumnSetting > 🎏 columns proFieldProps support custom 1`] = `
                     <table
                       style="table-layout: auto;"
                     >
-                      <colgroup />
                       <thead
                         class="ant-table-thead"
                       >
@@ -442,7 +441,7 @@ exports[`Table ColumnSetting > 🎏 config provide render 1`] = `
               style="padding-left: 12px; padding-right: 12px;"
             >
               <div
-                class="qixian-form-item"
+                class="qixian-form-item qixian-form-item-horizontal"
                 style="flex-wrap: nowrap;"
               >
                 <div
@@ -523,7 +522,7 @@ exports[`Table ColumnSetting > 🎏 config provide render 1`] = `
               style="padding-left: 12px; padding-right: 12px; text-align: end;"
             >
               <div
-                class="qixian-form-item qixian-pro-query-filter-actions"
+                class="qixian-form-item qixian-pro-query-filter-actions qixian-form-item-horizontal"
               >
                 <div
                   class="qixian-row qixian-form-item-row"
@@ -712,7 +711,6 @@ exports[`Table ColumnSetting > 🎏 config provide render 1`] = `
                     <table
                       style="table-layout: auto;"
                     >
-                      <colgroup />
                       <thead
                         class="qixian-table-thead"
                       >
@@ -826,7 +824,7 @@ exports[`Table ColumnSetting > 🎏 extra columns 1`] = `
               style="padding-left: 12px; padding-right: 12px;"
             >
               <div
-                class="ant-form-item"
+                class="ant-form-item ant-form-item-horizontal"
                 style="flex-wrap: nowrap;"
               >
                 <div
@@ -907,7 +905,7 @@ exports[`Table ColumnSetting > 🎏 extra columns 1`] = `
               style="padding-left: 12px; padding-right: 12px; text-align: end;"
             >
               <div
-                class="ant-form-item ant-pro-query-filter-actions"
+                class="ant-form-item ant-pro-query-filter-actions ant-form-item-horizontal"
               >
                 <div
                   class="ant-row ant-form-item-row"

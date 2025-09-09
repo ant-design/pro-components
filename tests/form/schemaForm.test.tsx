@@ -126,8 +126,8 @@ describe('SchemaForm', () => {
 
     await waitFor(() => {
       expect(requestFn).toHaveBeenCalledWith('qixian');
-      expect(formItemPropsFn).toHaveBeenCalledTimes(2);
-      expect(fieldPropsFn).toHaveBeenCalledTimes(2);
+      expect(formItemPropsFn).toHaveBeenCalledTimes(3);
+      expect(fieldPropsFn).toHaveBeenCalledTimes(3);
     });
   });
 
@@ -166,9 +166,9 @@ describe('SchemaForm', () => {
     );
 
     await waitFor(() => {
-      expect(fieldPropsFn).toHaveBeenCalledTimes(1);
-      expect(formItemPropsFn).toHaveBeenCalledTimes(1);
-      expect(formItemRenderFn).toHaveBeenCalledTimes(4);
+      expect(fieldPropsFn).toHaveBeenCalledTimes(2);
+      expect(formItemPropsFn).toHaveBeenCalledTimes(2);
+      expect(formItemRenderFn).toHaveBeenCalledTimes(5);
     });
 
     fireEvent.change(container.querySelector('input#title')!, {
@@ -178,9 +178,9 @@ describe('SchemaForm', () => {
     });
 
     await waitFor(() => {
-      expect(formItemRenderFn).toHaveBeenCalledTimes(5);
-      expect(fieldPropsFn).toHaveBeenCalledTimes(1);
-      expect(formItemPropsFn).toHaveBeenCalledTimes(1);
+      expect(formItemRenderFn).toHaveBeenCalledTimes(6);
+      expect(fieldPropsFn).toHaveBeenCalledTimes(2);
+      expect(formItemPropsFn).toHaveBeenCalledTimes(2);
       expect(onValuesChangeFn).toHaveBeenCalled();
     });
   });
@@ -238,9 +238,9 @@ describe('SchemaForm', () => {
 
     await waitFor(() => {
       expect(shouldUpdateFn).not.toHaveBeenCalled();
-      expect(fieldPropsFn).toHaveBeenCalledTimes(1);
-      expect(formItemPropsFn).toHaveBeenCalledTimes(1);
-      expect(formItemRenderFn).toHaveBeenCalledTimes(4);
+      expect(fieldPropsFn).toHaveBeenCalledTimes(2);
+      expect(formItemPropsFn).toHaveBeenCalledTimes(2);
+      expect(formItemRenderFn).toHaveBeenCalledTimes(5);
     });
 
     fireEvent.change(container.querySelector('input#title')!, {
@@ -250,9 +250,9 @@ describe('SchemaForm', () => {
     });
     // Although shouldUpdate returns false, but using dependencies will still update
     await waitFor(() => {
-      expect(formItemRenderFn).toHaveBeenCalledTimes(5);
-      expect(formItemPropsFn).toHaveBeenCalledTimes(2);
-      expect(fieldPropsFn).toHaveBeenCalledTimes(2);
+      expect(formItemRenderFn).toHaveBeenCalledTimes(6);
+      expect(formItemPropsFn).toHaveBeenCalledTimes(3);
+      expect(fieldPropsFn).toHaveBeenCalledTimes(3);
       expect(shouldUpdateFn).toHaveBeenCalledTimes(1);
     });
 
@@ -263,9 +263,9 @@ describe('SchemaForm', () => {
     });
 
     await waitFor(() => {
-      expect(formItemRenderFn).toHaveBeenCalledTimes(6);
-      expect(formItemPropsFn).toHaveBeenCalledTimes(3);
-      expect(fieldPropsFn).toHaveBeenCalledTimes(3);
+      expect(formItemRenderFn).toHaveBeenCalledTimes(7);
+      expect(formItemPropsFn).toHaveBeenCalledTimes(4);
+      expect(fieldPropsFn).toHaveBeenCalledTimes(4);
       expect(shouldUpdateFn).toHaveBeenCalledTimes(2);
       expect(shouldUpdateFn).toHaveBeenCalledWith(true);
     });
@@ -305,9 +305,9 @@ describe('SchemaForm', () => {
     );
 
     await waitFor(() => {
-      expect(fieldPropsFn).toHaveBeenCalledTimes(1);
-      expect(formItemPropsFn).toHaveBeenCalledTimes(1);
-      expect(formItemRenderFn).toHaveBeenCalledTimes(4);
+      expect(fieldPropsFn).toHaveBeenCalledTimes(2);
+      expect(formItemPropsFn).toHaveBeenCalledTimes(2);
+      expect(formItemRenderFn).toHaveBeenCalledTimes(5);
     });
 
     fireEvent.change(container.querySelector('input#title')!, {
@@ -317,9 +317,9 @@ describe('SchemaForm', () => {
     });
 
     await waitFor(() => {
-      expect(formItemRenderFn).toHaveBeenCalledTimes(5);
-      expect(formItemPropsFn).toHaveBeenCalledTimes(1);
-      expect(fieldPropsFn).toHaveBeenCalledTimes(1);
+      expect(formItemRenderFn).toHaveBeenCalledTimes(6);
+      expect(formItemPropsFn).toHaveBeenCalledTimes(2);
+      expect(fieldPropsFn).toHaveBeenCalledTimes(2);
     });
   });
 

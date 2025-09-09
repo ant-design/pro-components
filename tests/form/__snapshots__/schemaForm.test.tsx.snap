@@ -11,7 +11,7 @@ exports[`SchemaForm > 😊 SchemaForm support columns 1`] = `
       type="text"
     />
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -84,7 +84,7 @@ exports[`SchemaForm > 😊 SchemaForm support columns 1`] = `
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -207,7 +207,7 @@ exports[`SchemaForm > 😊 SchemaForm support columns 1`] = `
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -302,7 +302,7 @@ exports[`SchemaForm > 😊 SchemaForm support columns 1`] = `
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row"

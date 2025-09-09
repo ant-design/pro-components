@@ -11,7 +11,7 @@ exports[`💵 ProFormMoney > 💵 ProFormMoney value expect number 1`] = `
       type="text"
     />
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -143,7 +143,7 @@ exports[`💵 ProFormMoney > 💵 can input negative 1`] = `
       type="text"
     />
     <div
-      class="ant-form-item ant-form-item-has-success"
+      class="ant-form-item ant-form-item-has-success ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -275,7 +275,7 @@ exports[`💵 ProFormMoney > 💵 can not input negative 1`] = `
       type="text"
     />
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -407,7 +407,7 @@ exports[`💵 ProFormMoney > 💵 moneySymbol with custom locale 1`] = `
       type="text"
     />
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -539,7 +539,7 @@ exports[`💵 ProFormMoney > 💵 moneySymbol with custom symbol 1`] = `
       type="text"
     />
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -671,7 +671,7 @@ exports[`💵 ProFormMoney > 💵 moneySymbol with global locale 1`] = `
       type="text"
     />
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -803,7 +803,7 @@ exports[`💵 ProFormMoney > 💵 update money precision when init 1`] = `
       type="text"
     />
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row"

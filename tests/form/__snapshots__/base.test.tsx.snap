@@ -107,7 +107,7 @@ exports[`ProForm > 📦 submitted value should be consistent with input when pre
       type="text"
     />
     <div
-      class="ant-form-item ant-form-item-has-success"
+      class="ant-form-item ant-form-item-has-success ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -318,7 +318,7 @@ exports[`ProForm > 📦 validateFieldsReturnFormatValue 1`] = `
       type="text"
     />
     <div
-      class="ant-form-item ant-form-item-has-success"
+      class="ant-form-item ant-form-item-has-success ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -436,7 +436,7 @@ exports[`ProForm > 📦 valueType digit with precision value 1`] = `
       type="text"
     />
     <div
-      class="ant-form-item ant-form-item-has-success"
+      class="ant-form-item ant-form-item-has-success ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -579,7 +579,7 @@ exports[`ProForm > 📦 when dateFormatter is a Function 1`] = `
       type="text"
     />
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -663,7 +663,7 @@ exports[`ProForm > 📦 when dateFormatter is a Function 1`] = `
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row"
