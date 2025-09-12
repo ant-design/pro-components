@@ -168,7 +168,7 @@ const BaseProFormUploadButton: React.ForwardRefRenderFunction<
 };
 
 const ProFormUploadButton = warpField<ProFormUploadButtonProps>?.(
-  React.forwardRef(BaseProFormUploadButton),
+  BaseProFormUploadButton,
   {
     getValueFromEvent: (value: { fileList: UploadProps['fileList'] }) =>
       value.fileList,
