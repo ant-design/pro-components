@@ -82,6 +82,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     onFilterChange: (filter: Record<string, FilterValue>) => void;
     editableUtils: any;
     getRowKey: GetRowKey<any>;
+    tableRef: React.MutableRefObject<any>;
   },
 ) {
   const {
@@ -111,6 +112,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     cardBordered,
     editableUtils,
     getRowKey,
+    tableRef,
     ...rest
   } = props;
   const counter = useContext(TableContext);
@@ -248,7 +250,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
         rowProps: undefined,
       }}
     >
-      <Table<T> {...getTableProps()} rowKey={rowKey} />
+      <Table<T> {...getTableProps()} rowKey={rowKey} ref={tableRef as any} />
     </GridContext.Provider>
   );
 
@@ -455,6 +457,8 @@ const ProTable = <
 
   /** 通用的来操作子节点的工具类 */
   const actionRef = useRef<ActionType>();
+  // antd Table 实例 ref（仅用于转发 scrollTo 能力）
+  const antTableRef = useRef<any>(null);
 
   const defaultFormRef = useRef();
   const formRef = propRef || defaultFormRef;
@@ -727,6 +731,7 @@ const ProTable = <
       formRef?.current?.resetFields();
     },
     editableUtils,
+    scrollTo: (arg) => (antTableRef as any)?.current?.scrollTo?.(arg),
   });
 
   /** 同步 action */
@@ -968,6 +973,7 @@ const ProTable = <
       }}
       editableUtils={editableUtils}
       getRowKey={getRowKey}
+      tableRef={antTableRef}
     />,
   );
 };

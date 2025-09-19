@@ -1,8 +1,8 @@
 ﻿import type { SpinProps, TableProps } from 'antd';
-import type { SizeType } from 'antd/lib/config-provider/SizeContext';
-import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
-import type { NamePath } from 'antd/lib/form/interface';
-import type { SearchProps } from 'antd/lib/input';
+import type { SizeType } from 'antd/es/config-provider/SizeContext';
+import type { LabelTooltipType } from 'antd/es/form/FormItemLabel';
+import type { NamePath } from 'antd/es/form/interface';
+import type { SearchProps } from 'antd/es/input';
 import type {
   ColumnFilterItem,
   ColumnType,
@@ -12,6 +12,7 @@ import type {
 } from 'antd/lib/table/interface';
 import type dayjs from 'dayjs';
 import type React from 'react';
+import type { Key } from 'react';
 import type { CSSProperties } from 'react';
 import type { ProCardProps } from '../card';
 import type { ProFieldEmptyText } from '../field';
@@ -458,6 +459,20 @@ export type ProTableProps<DataSource, U, ValueType = 'text'> = {
 export type ActionType = ProCoreActionType & {
   fullScreen?: () => void;
   setPageInfo?: (page: Partial<PageInfo>) => void;
+  /**
+   * 对齐 antd Table ScrollConfig
+   * - number: 作为 top 处理
+   * - { index?, key?, top? }
+   */
+  scrollTo?: (
+    arg:
+      | number
+      | {
+          index?: number;
+          key?: Key;
+          top?: number;
+        },
+  ) => void;
 };
 
 /**
