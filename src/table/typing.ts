@@ -12,6 +12,7 @@ import type {
 } from 'antd/lib/table/interface';
 import type dayjs from 'dayjs';
 import type React from 'react';
+import type { Key } from 'react';
 import type { CSSProperties } from 'react';
 import type { ProCardProps } from '../card';
 import type { ProFieldEmptyText } from '../field';
@@ -458,6 +459,20 @@ export type ProTableProps<DataSource, U, ValueType = 'text'> = {
 export type ActionType = ProCoreActionType & {
   fullScreen?: () => void;
   setPageInfo?: (page: Partial<PageInfo>) => void;
+  /**
+   * 对齐 antd Table ScrollConfig
+   * - number: 作为 top 处理
+   * - { index?, key?, top? }
+   */
+  scrollTo?: (
+    arg:
+      | number
+      | {
+          index?: number;
+          key?: Key;
+          top?: number;
+        },
+  ) => void;
 };
 
 /**

@@ -88,6 +88,8 @@ export function useActionType<T>(
     onCleanSelected: () => void;
     resetAll: () => void;
     editableUtils: UseEditableUtilType;
+    /** 透传给 ActionType 的滚动能力 */
+    scrollTo?: ActionType['scrollTo'];
   },
 ) {
   /** 这里生成action的映射，保证 action 总是使用的最新 只需要渲染一次即可 */
@@ -119,6 +121,8 @@ export function useActionType<T>(
     fullScreen: () => props.fullScreen(),
     clearSelected: () => props.onCleanSelected(),
     setPageInfo: (rest) => action.setPageInfo(rest),
+    // 透出 scrollTo（如上层提供）
+    scrollTo: props.scrollTo,
   };
   // eslint-disable-next-line no-param-reassign
   ref.current = userAction;
