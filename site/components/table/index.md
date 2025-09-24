@@ -253,7 +253,6 @@ ref.current.cancelEditable(rowKey);
 | search.transform                       | 转化值的 key, 一般用于时间区间的转化                                                                                                             | `(value: any) => any`                                                                                 | -      |
 | [editable](/components/editable-table) | 在编辑表格中是否可编辑的，函数的参数和 table 的 render 一样                                                                                      | `false` \| `(text: any, record: T,index: number) => boolean`                                          | true   |
 | colSize                                | 一个表单项占用的格子数量，`占比= colSize*span`，`colSize` 默认为 1 ，`span` 为 8，`span`是`form={{span:8}}` 全局设置的                           | `number`                                                                                              | -      |
-
 | hideInTable | 在 Table 中不展示此列 | `boolean` | - |
 | hideInForm | 在 Form 中不展示此列 | `boolean` | - |
 | hideInDescriptions | 在 Descriptions 中不展示此列 | `boolean` | - |
