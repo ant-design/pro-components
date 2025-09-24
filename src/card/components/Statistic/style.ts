@@ -37,11 +37,6 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
       },
       '&-content': {
         width: '100%',
-        [`${token.antCls}-statistic-content`]: {
-          '&-value-int': {
-            fontSize: token.fontSizeHeading3,
-          },
-        },
       },
       '&-description': {
         width: '100%',
