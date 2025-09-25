@@ -633,7 +633,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
   props: BaseFormProps<T, U>,
 ) {
   const {
-    extraUrlParams = {} as Record<string, any>,
+    extraUrlParams = defaultExtraUrlParams,
     syncToUrl,
     isKeyPressSubmit,
     syncToUrlAsImportant = false,
