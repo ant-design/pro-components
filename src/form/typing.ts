@@ -1,12 +1,7 @@
 import type { ColProps, FormItemProps, RowProps } from 'antd';
 import type React from 'react';
-import type {
-  ProFieldProps,
-  ProFieldValueType,
-  ProFormBaseGroupProps,
-  ProSchema,
-  SearchConvertKeyFn,
-} from '../utils';
+import type { JSX } from 'react';
+import type { ProFieldProps, ProFieldValueType, ProFormBaseGroupProps, ProSchema, SearchConvertKeyFn } from '../utils';
 import type { ProFormInstance } from './BaseForm';
 import type { ProFormItemProps } from './components';
 import type { CaptFieldRef } from './components/Captcha';
@@ -57,9 +52,7 @@ export type ExtendsProps = {
    *
    * @name 网络请求用的输出，会触发reload
    */
-  params?:
-    | ((form: ProFormInstance) => Record<string, any>)
-    | Record<string, any>;
+  params?: ((form: ProFormInstance) => Record<string, any>) | Record<string, any>;
 
   /** @name 需要放在formItem 时使用 */
   ignoreFormItem?: boolean;
@@ -165,6 +158,8 @@ export type ProFormFieldItemProps<T = Record<string, any>, K = any> = {
   footerRender?: LightFilterFooterRender;
 
   children?: any;
+
+  ref?: React.Ref<any>;
 } & Omit<ProFormItemProps, 'valueType'> &
   Pick<ProFormGridConfig, 'colProps'> &
   ExtendsProps;
@@ -172,7 +167,4 @@ export type ProFormFieldItemProps<T = Record<string, any>, K = any> = {
 /**
  * load remote data props
  */
-export type ProFormFieldRemoteProps = Pick<
-  ProSchema,
-  'debounceTime' | 'request' | 'valueEnum' | 'params'
->;
+export type ProFormFieldRemoteProps = Pick<ProSchema, 'debounceTime' | 'request' | 'valueEnum' | 'params'>;

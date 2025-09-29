@@ -1,15 +1,6 @@
-import {
-  AlipayCircleOutlined,
-  TaobaoCircleOutlined,
-  UserAddOutlined,
-  WeiboCircleOutlined,
-} from '@ant-design/icons';
-import {
-  LoginForm,
-  LoginFormPage,
-  ProFormText,
-} from '@ant-design/pro-components';
+import { AlipayCircleOutlined, TaobaoCircleOutlined, UserAddOutlined, WeiboCircleOutlined } from '@ant-design/icons';
 import { cleanup, render, waitFor } from '@testing-library/react';
+import { LoginForm, LoginFormPage, ProFormText } from '@xxlabs/pro-components';
 import { Alert, Space } from 'antd';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
@@ -20,7 +11,7 @@ afterEach(() => {
 
 describe('LoginForm', () => {
   it('📦 LoginForm should show login message correctly', async () => {
-    const loginMessage = <Alert type="error" message="登录失败" />;
+    const loginMessage = <Alert message="登录失败" type="error" />;
 
     const { container } = render(
       <LoginForm message={loginMessage}>
@@ -28,12 +19,8 @@ describe('LoginForm', () => {
       </LoginForm>,
     );
 
-    expect(
-      container.querySelectorAll('.ant-alert.ant-alert-error'),
-    ).toHaveLength(1);
-    const messageElement = container.querySelector(
-      '.ant-alert.ant-alert-error .ant-alert-message',
-    );
+    expect(container.querySelectorAll('.ant-alert.ant-alert-error')).toHaveLength(1);
+    const messageElement = container.querySelector('.ant-alert.ant-alert-error .ant-alert-message');
     expect(messageElement?.textContent).toBe('登录失败');
   });
 
@@ -53,9 +40,7 @@ describe('LoginForm', () => {
       </LoginForm>,
     );
 
-    expect(
-      container.querySelectorAll('.ant-pro-form-login-main-other .anticon'),
-    ).toHaveLength(3);
+    expect(container.querySelectorAll('.ant-pro-form-login-main-other .anticon')).toHaveLength(3);
   });
 
   it('📦 LoginForm support string logo', async () => {
@@ -67,30 +52,19 @@ describe('LoginForm', () => {
 
     const logoImg = container.querySelector('.ant-pro-form-login-logo img');
     expect(logoImg).toBeTruthy();
-    expect(logoImg?.getAttribute('src')).toBe(
-      'https://avatars.githubusercontent.com/u/8186664?v=4',
-    );
+    expect(logoImg?.getAttribute('src')).toBe('https://avatars.githubusercontent.com/u/8186664?v=4');
   });
 
   it('📦 LoginForm support react node logo', async () => {
     const { findByTestId } = render(
-      <LoginForm
-        logo={
-          <img
-            data-testid="test"
-            src="https://avatars.githubusercontent.com/u/8186664?v=4"
-          />
-        }
-      >
+      <LoginForm logo={<img data-testid="test" src="https://avatars.githubusercontent.com/u/8186664?v=4" />}>
         <ProFormText name="name" />
       </LoginForm>,
     );
 
     const logoImg = await findByTestId('test');
     expect(logoImg).toBeTruthy();
-    expect(logoImg.getAttribute('src')).toBe(
-      'https://avatars.githubusercontent.com/u/8186664?v=4',
-    );
+    expect(logoImg.getAttribute('src')).toBe('https://avatars.githubusercontent.com/u/8186664?v=4');
   });
 
   it('📦 LoginForm support submitter=false', async () => {
@@ -172,9 +146,7 @@ describe('LoginForm', () => {
     );
 
     await waitForWaitTime(100);
-    const dom = await wrapper.baseElement.querySelector(
-      '.ant-pro-form-login-page-header',
-    );
+    const dom = await wrapper.baseElement.querySelector('.ant-pro-form-login-page-header');
 
     expect(dom).toBeFalsy();
   });

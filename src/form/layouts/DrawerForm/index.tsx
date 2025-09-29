@@ -2,21 +2,15 @@
 import type { DrawerProps, FormProps } from 'antd';
 import { ConfigProvider, Drawer } from 'antd';
 import classNames from 'classnames';
-import React, {
-  useCallback,
-  useContext,
-  useEffect,
-  useImperativeHandle,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import type { JSX } from 'react';
+import React, { useCallback, useContext, useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { isBrowser, omitUndefined, useRefFunction } from '../../../utils';
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
-import { SubmitterProps } from '../../BaseForm/Submitter';
+import type { SubmitterProps } from '../../BaseForm/Submitter';
 import { useStyle } from './style';
+
 const { noteOnce } = warning;
 
 export type CustomizeResizeType = {
@@ -25,10 +19,7 @@ export type CustomizeResizeType = {
   minWidth?: DrawerProps['width'];
 };
 
-export type DrawerFormProps<
-  T = Record<string, any>,
-  U = Record<string, any>,
-> = Omit<FormProps, 'onFinish' | 'title'> &
+export type DrawerFormProps<T = Record<string, any>, U = Record<string, any>> = Omit<FormProps, 'onFinish' | 'title'> &
   CommonFormProps<T, U> & {
     /**
      * 接收任意值，返回 真值 会关掉这个抽屉
@@ -85,7 +76,6 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
   ...rest
 }: DrawerFormProps<T, U>) {
   noteOnce(
-    // eslint-disable-next-line @typescript-eslint/dot-notation
     !(rest as any)['footer'] || !drawerProps?.footer,
     'DrawerForm 是一个 ProForm 的特殊布局，如果想自定义按钮，请使用 submit.render 自定义。',
   );
@@ -112,8 +102,7 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
   const context = useContext(ConfigProvider.ConfigContext);
   const baseClassName = context.getPrefixCls('pro-form-drawer');
   const { wrapSSR, hashId } = useStyle(baseClassName);
-  const getCls = (className: string) =>
-    `${baseClassName}-${className} ${hashId}`;
+  const getCls = (className: string) => `${baseClassName}-${className} ${hashId}`;
 
   const [, forceUpdate] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -130,17 +119,14 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
 
   const footerRef = useRef<HTMLDivElement | null>(null);
 
-  const footerDomRef: React.RefCallback<HTMLDivElement> = useCallback(
-    (element) => {
-      if (footerRef.current === null && element) {
-        forceUpdate([]);
-      }
-      footerRef.current = element;
-    },
-    [],
-  );
+  const footerDomRef: React.RefCallback<HTMLDivElement> = useCallback((element) => {
+    if (footerRef.current === null && element) {
+      forceUpdate([]);
+    }
+    footerRef.current = element;
+  }, []);
 
-  const formRef = useRef<ProFormInstance>();
+  const formRef = useRef<ProFormInstance>(undefined);
 
   const resetFields = useCallback(() => {
     const form = rest.formRef?.current ?? rest.form ?? formRef.current;
@@ -158,8 +144,6 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
     if (resizableDrawer) {
       setDrawerWidth(resizeInfo?.minWidth);
     }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [propsOpen, open, resizableDrawer]);
 
   useImperativeHandle(
@@ -223,9 +207,7 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
       <>
         {formDom}
         {footerRef.current && submitter ? (
-          <React.Fragment key="submitter">
-            {createPortal(submitter, footerRef.current)}
-          </React.Fragment>
+          <React.Fragment key="submitter">{createPortal(submitter, footerRef.current)}</React.Fragment>
         ) : (
           submitter
         )}
@@ -281,8 +263,7 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
 
   const cbHandleMouseMove = useCallback(
     (e: MouseEvent) => {
-      const offsetRight: number | string = ((document.body.offsetWidth ||
-        1000) -
+      const offsetRight: number | string = ((document.body.offsetWidth || 1000) -
         (e.clientX - document.body.offsetLeft)) as number | string;
       const minWidth = resizeInfo?.minWidth ?? (width || 800);
       const maxWidth = resizeInfo?.maxWidth ?? window.innerWidth * 0.8;
@@ -310,10 +291,6 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
     <>
       <Drawer
         {...drawerProps}
-        destroyOnHidden={drawerProps?.destroyOnHidden}
-        title={title}
-        width={drawerWidth}
-        open={open}
         afterOpenChange={(open) => {
           if (!open && drawerProps?.destroyOnHidden) {
             resetFields();
@@ -321,12 +298,7 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
           drawerProps?.afterOpenChange?.(open);
           onOpenChange?.(open);
         }}
-        onClose={(e) => {
-          // 提交表单loading时，阻止弹框关闭
-          if (submitTimeout && loading) return;
-          setOpen(false);
-          drawerProps?.onClose?.(e);
-        }}
+        destroyOnHidden={drawerProps?.destroyOnHidden}
         footer={
           rest.submitter !== false && (
             <div
@@ -338,14 +310,21 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
             />
           )
         }
+        open={open}
+        title={title}
+        width={drawerWidth}
+        onClose={(e) => {
+          // 提交表单loading时，阻止弹框关闭
+          if (submitTimeout && loading) return;
+          setOpen(false);
+          drawerProps?.onClose?.(e);
+        }}
       >
         {resize ? (
           <div
             className={classNames(getCls('sidebar-dragger'), hashId, {
-              [getCls('sidebar-dragger-min-disabled')]:
-                drawerWidth === resizeInfo?.minWidth,
-              [getCls('sidebar-dragger-max-disabled')]:
-                drawerWidth === resizeInfo?.maxWidth,
+              [getCls('sidebar-dragger-min-disabled')]: drawerWidth === resizeInfo?.minWidth,
+              [getCls('sidebar-dragger-max-disabled')]: drawerWidth === resizeInfo?.maxWidth,
             })}
             onMouseDown={(e) => {
               resizeInfo?.onResize?.();
@@ -362,23 +341,21 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
             formComponentType="DrawerForm"
             layout="vertical"
             {...rest}
+            contentRender={contentRender}
             formRef={formRef}
-            onInit={(_, form) => {
-              if (rest.formRef) {
-                (
-                  rest.formRef as React.MutableRefObject<ProFormInstance<T>>
-                ).current = form;
-              }
-              rest?.onInit?.(_, form);
-              formRef.current = form;
-            }}
             submitter={submitterConfig}
             onFinish={async (values) => {
               const result = await onFinishHandle(values);
               // fix: #6006 如果 result 为 true,那么必然会触发抽屉关闭，我们无需在 此处重置表单，只需在抽屉关闭时重置即可
               return result;
             }}
-            contentRender={contentRender}
+            onInit={(_, form) => {
+              if (rest.formRef) {
+                (rest.formRef as React.RefObject<ProFormInstance<T>>).current = form;
+              }
+              rest?.onInit?.(_, form);
+              formRef.current = form;
+            }}
           >
             {children}
           </BaseForm>

@@ -18,59 +18,43 @@ export type RangeInputNumberProps = Omit<
   onChange?: (value?: ValuePair) => void;
 };
 
-export type ProFormDigitRangeProps =
-  ProFormFieldItemProps<RangeInputNumberProps> & {
-    separator?: string;
-    separatorWidth?: number;
-  };
+export type ProFormDigitRangeProps = ProFormFieldItemProps<RangeInputNumberProps> & {
+  separator?: string;
+  separatorWidth?: number;
+};
 /**
  * 数组选择组件
  *
  * @param
  */
-const ProFormDigit: React.ForwardRefRenderFunction<
-  any,
-  ProFormDigitRangeProps
-> = ({ fieldProps, proFieldProps, ...rest }, ref) => {
+const ProFormDigit: React.FC<ProFormDigitRangeProps> = ({ fieldProps, proFieldProps, ref, ...rest }) => {
   return (
     <ProConfigProvider
       valueTypeMap={{
         digitRange: {
-          render: (text, props) => (
-            <FieldDigitRange
-              {...props}
-              text={text}
-              placeholder={props.placeholder as string}
-            />
-          ),
+          render: (text, props) => <FieldDigitRange {...props} placeholder={props.placeholder as string} text={text} />,
           formItemRender: (text, props) => (
-            <FieldDigitRange
-              {...props}
-              text={text}
-              placeholder={props.placeholder as string}
-            />
+            <FieldDigitRange {...props} placeholder={props.placeholder as string} text={text} />
           ),
         },
       }}
     >
       <ProFormField
-        valueType="digitRange"
-        fieldProps={{
-          ...fieldProps,
-        }}
         ref={ref}
         fieldConfig={{
           defaultProps: {
             width: '100%',
           },
         }}
+        fieldProps={{
+          ...fieldProps,
+        }}
         proFieldProps={proFieldProps}
+        valueType="digitRange"
         {...rest}
       />
     </ProConfigProvider>
   );
 };
 
-const ForwardRefProFormDigit = React.forwardRef(ProFormDigit);
-
-export default ForwardRefProFormDigit;
+export default ProFormDigit;

@@ -1,5 +1,5 @@
-import type { ProColumns } from '@ant-design/pro-components';
-import { ProCard, ProTable } from '@ant-design/pro-components';
+import type { ProColumns } from '@xxlabs/pro-components';
+import { ProCard, ProTable } from '@xxlabs/pro-components';
 import type { BadgeProps } from 'antd';
 import { Badge, Button } from 'antd';
 import React, { useEffect, useState } from 'react';
@@ -16,9 +16,7 @@ type DetailListProps = {
 
 const DetailList: React.FC<DetailListProps> = (props) => {
   const { ip } = props;
-  const [tableListDataSource, setTableListDataSource] = useState<
-    TableListItem[]
-  >([]);
+  const [tableListDataSource, setTableListDataSource] = useState<TableListItem[]>([]);
 
   const columns: ProColumns<TableListItem>[] = [
     {
@@ -68,8 +66,8 @@ const DetailList: React.FC<DetailListProps> = (props) => {
         showSizeChanger: false,
       }}
       rowKey="key"
-      toolBarRender={false}
       search={false}
+      toolBarRender={false}
     />
   );
 };
@@ -146,6 +144,8 @@ const IPList: React.FC<IPListProps> = (props) => {
   return (
     <ProTable<IpListItem>
       columns={columns}
+      options={false}
+      pagination={false}
       request={(params, sorter, filter) => {
         // 表单搜索项会从 params 传入，传递给后端接口。
         console.log(params, sorter, filter);
@@ -155,6 +155,7 @@ const IPList: React.FC<IPListProps> = (props) => {
         });
       }}
       rowKey="ip"
+      search={false}
       toolbar={{
         search: {
           onSearch: (value) => {
@@ -167,9 +168,6 @@ const IPList: React.FC<IPListProps> = (props) => {
           </Button>,
         ],
       }}
-      options={false}
-      pagination={false}
-      search={false}
       onRow={(record) => {
         return {
           onClick: () => {
@@ -187,8 +185,8 @@ const Demo: React.FC = () => {
   const [ip, setIp] = useState('0.0.0.0');
   return (
     <ProCard split="vertical">
-      <ProCard colSpan="384px" ghost>
-        <IPList onChange={(cIp) => setIp(cIp)} ip={ip} />
+      <ProCard ghost colSpan="384px">
+        <IPList ip={ip} onChange={(cIp) => setIp(cIp)} />
       </ProCard>
       <ProCard title={ip}>
         <DetailList ip={ip} />

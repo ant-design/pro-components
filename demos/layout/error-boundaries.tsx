@@ -1,12 +1,9 @@
-﻿import { PageContainer, ProLayout } from '@ant-design/pro-components';
+﻿import { PageContainer, ProLayout } from '@xxlabs/pro-components';
 import { Button, Result } from 'antd';
 import type { ErrorInfo } from 'react';
 import React, { useState } from 'react';
 
-class CustomBoundary extends React.Component<
-  Record<string, any>,
-  { hasError: boolean; errorInfo: string }
-> {
+class CustomBoundary extends React.Component<Record<string, any>, { hasError: boolean; errorInfo: string }> {
   state = { hasError: false, errorInfo: '' };
 
   static getDerivedStateFromError(error: Error) {
@@ -15,7 +12,7 @@ class CustomBoundary extends React.Component<
 
   componentDidCatch(error: any, errorInfo: ErrorInfo) {
     // You can also log the error to an error reporting service
-    // eslint-disable-next-line no-console
+
     console.log(error, errorInfo);
   }
 
@@ -24,17 +21,6 @@ class CustomBoundary extends React.Component<
       // You can render any custom fallback UI
       return (
         <Result
-          icon={
-            <img
-              width={256}
-              src="https://gw.alipayobjects.com/zos/antfincdn/zIgkN%26mpMZ/shibaizhuangtaizuo.png"
-            />
-          }
-          style={{
-            height: '100%',
-            background: '#fff',
-          }}
-          title="错误处理"
           extra={
             <>
               <div
@@ -68,8 +54,7 @@ class CustomBoundary extends React.Component<
                     ）
                   </li>
                   <li>
-                    异步代码（例如 <code>setTimeout</code> 或{' '}
-                    <code>requestAnimationFrame</code> 回调函数）
+                    异步代码（例如 <code>setTimeout</code> 或 <code>requestAnimationFrame</code> 回调函数）
                   </li>
                   <li>服务端渲染</li>
                   <li>它自身抛出来的错误（并非它的子组件）</li>
@@ -86,6 +71,14 @@ class CustomBoundary extends React.Component<
               </Button>
             </>
           }
+          icon={
+            <img src="https://gw.alipayobjects.com/zos/antfincdn/zIgkN%26mpMZ/shibaizhuangtaizuo.png" width={256} />
+          }
+          style={{
+            height: '100%',
+            background: '#fff',
+          }}
+          title="错误处理"
         />
       );
     }
@@ -120,6 +113,19 @@ export default () => {
       }}
     >
       <ProLayout
+        ErrorBoundary={pathname === '/custom' ? CustomBoundary : undefined}
+        location={{
+          pathname,
+        }}
+        menuItemRender={(item, dom) => (
+          <a
+            onClick={() => {
+              setPathname(item.path || '/welcome');
+            }}
+          >
+            {dom}
+          </a>
+        )}
         route={{
           path: '/',
           routes: [
@@ -133,19 +139,6 @@ export default () => {
             },
           ],
         }}
-        location={{
-          pathname,
-        }}
-        menuItemRender={(item, dom) => (
-          <a
-            onClick={() => {
-              setPathname(item.path || '/welcome');
-            }}
-          >
-            {dom}
-          </a>
-        )}
-        ErrorBoundary={pathname === '/custom' ? CustomBoundary : undefined}
       >
         <PageContainer>
           <ErrorTriggerTestPage />

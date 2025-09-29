@@ -13,11 +13,9 @@ import type { AppItemProps, AppListProps } from './types';
  * @param logo
  * @returns
  */
-export const defaultRenderLogo = (
-  logo: React.ReactNode | (() => React.ReactNode),
-): React.ReactNode => {
+export const defaultRenderLogo = (logo: React.ReactNode | (() => React.ReactNode)): React.ReactNode => {
   if (typeof logo === 'string') {
-    return <img width="auto" height={22} src={logo} alt="logo" />;
+    return <img alt="logo" height={22} src={logo} width="auto" />;
   }
   if (typeof logo === 'function') {
     return logo();
@@ -33,14 +31,8 @@ export const defaultRenderLogo = (
  */
 export const AppsLogoComponents: React.FC<{
   appList?: AppListProps;
-  appListRender?: (
-    props: AppListProps,
-    defaultDom: React.ReactNode,
-  ) => React.ReactNode;
-  onItemClick?: (
-    item: AppItemProps,
-    popoverRef?: React.RefObject<HTMLSpanElement>,
-  ) => void;
+  appListRender?: (props: AppListProps, defaultDom: React.ReactNode) => React.ReactNode;
+  onItemClick?: (item: AppItemProps, popoverRef?: React.RefObject<HTMLSpanElement | null>) => void;
   prefixCls?: string;
 }> = (props) => {
   const { appList, appListRender, prefixCls, onItemClick: itemClick } = props;
@@ -62,50 +54,48 @@ export const AppsLogoComponents: React.FC<{
     if (isSimple) {
       return (
         <SimpleContent
-          hashId={hashId}
           appList={appList}
-          itemClick={itemClick ? cloneItemClick : undefined}
           baseClassName={`${baseClassName}-simple`}
+          hashId={hashId}
+          itemClick={itemClick ? cloneItemClick : undefined}
         />
       );
     }
     return (
       <DefaultContent
-        hashId={hashId}
         appList={appList}
-        itemClick={itemClick ? cloneItemClick : undefined}
         baseClassName={`${baseClassName}-default`}
+        hashId={hashId}
+        itemClick={itemClick ? cloneItemClick : undefined}
       />
     );
   }, [appList, baseClassName, hashId]);
 
   if (!props?.appList?.length) return null;
 
-  const popoverContent = appListRender
-    ? appListRender(props?.appList, defaultDomContent)
-    : defaultDomContent;
+  const popoverContent = appListRender ? appListRender(props?.appList, defaultDomContent) : defaultDomContent;
 
   return wrapSSR(
     <>
       <div ref={ref} />
       <Popover
+        arrow={false}
+        content={popoverContent}
+        getPopupContainer={() => ref.current || document.body}
+        overlayClassName={`${baseClassName}-popover ${hashId}`.trim()}
         placement="bottomRight"
         trigger={['click']}
         zIndex={9999}
-        arrow={false}
         onOpenChange={(openChange: boolean) => setOpen(openChange)}
-        overlayClassName={`${baseClassName}-popover ${hashId}`.trim()}
-        content={popoverContent}
-        getPopupContainer={() => ref.current || document.body}
       >
         <span
           ref={popoverRef}
-          onClick={(e) => {
-            e.stopPropagation();
-          }}
           className={classNames(`${baseClassName}-icon`, hashId, {
             [`${baseClassName}-icon-active`]: open,
           })}
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
         >
           <AppsLogo />
         </span>

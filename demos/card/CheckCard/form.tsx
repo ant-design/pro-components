@@ -1,4 +1,4 @@
-import { CheckCard } from '@ant-design/pro-components';
+import { CheckCard } from '@xxlabs/pro-components';
 import { Avatar, Button, Form } from 'antd';
 
 export default () => {
@@ -10,46 +10,46 @@ export default () => {
   return (
     <>
       <div>
-        <Form form={form} onFinish={handleSubmit} layout="vertical">
-          <Form.Item name="checkbox-group" label="技术栈">
+        <Form form={form} layout="vertical" onFinish={handleSubmit}>
+          <Form.Item label="技术栈" name="checkbox-group">
             <CheckCard.Group style={{ width: '100%' }}>
               <CheckCard
-                title="Spring Boot"
                 avatar={
                   <Avatar
-                    src="https://gw.alipayobjects.com/zos/bmw-prod/2dd637c7-5f50-4d89-a819-33b3d6da73b6.svg"
                     size="large"
+                    src="https://gw.alipayobjects.com/zos/bmw-prod/2dd637c7-5f50-4d89-a819-33b3d6da73b6.svg"
                   />
                 }
                 description="通过业界流行的技术栈来快速构建 Java 后端应用"
+                title="Spring Boot"
                 value="SpringBoot"
               />
               <CheckCard
-                title="SOFA Boot"
                 avatar={
                   <Avatar
-                    src="https://gw.alipayobjects.com/zos/bmw-prod/6935b98e-96f6-464f-9d4f-215b917c6548.svg"
                     size="large"
+                    src="https://gw.alipayobjects.com/zos/bmw-prod/6935b98e-96f6-464f-9d4f-215b917c6548.svg"
                   />
                 }
                 description="使用 SOFAStack 中间件来快速构建分布式后端应用"
+                title="SOFA Boot"
                 value="SOFABoot"
               />
               <CheckCard
-                title="Node JS"
                 avatar={
                   <Avatar
-                    src="https://gw.alipayobjects.com/zos/bmw-prod/d12c3392-61fa-489e-a82c-71de0f888a8e.svg"
                     size="large"
+                    src="https://gw.alipayobjects.com/zos/bmw-prod/d12c3392-61fa-489e-a82c-71de0f888a8e.svg"
                   />
                 }
                 description="使用前后端统一的语言方案快速构建后端应用"
+                title="Node JS"
                 value="NodeJS"
               />
             </CheckCard.Group>
           </Form.Item>
           <Form.Item>
-            <Button type="primary" htmlType="submit">
+            <Button htmlType="submit" type="primary">
               Submit
             </Button>
           </Form.Item>
@@ -67,8 +67,7 @@ export default () => {
         <h4>CheckCard 与 Form 集成说明：</h4>
         <ul>
           <li>
-            <strong>Form.Item</strong>: 将 CheckCard.Group 包装在 Form.Item
-            中作为表单控件
+            <strong>Form.Item</strong>: 将 CheckCard.Group 包装在 Form.Item 中作为表单控件
           </li>
           <li>
             <strong>name</strong>: Form.Item 的 name 属性用于标识表单字段
@@ -95,8 +94,7 @@ export default () => {
             <strong>自动绑定</strong>: 自动与 Form 的 name 字段绑定
           </li>
           <li>
-            <strong>值收集</strong>: 选中的 CheckCard 的 value
-            会自动收集到表单数据中
+            <strong>值收集</strong>: 选中的 CheckCard 的 value 会自动收集到表单数据中
           </li>
           <li>
             <strong>验证支持</strong>: 支持 Form 的验证规则

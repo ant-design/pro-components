@@ -1,5 +1,5 @@
 // @vitest-environment node
-import { DrawerForm, ModalForm, ProForm } from '@ant-design/pro-components';
+import { DrawerForm, ModalForm, ProForm } from '@xxlabs/pro-components';
 import { renderToString } from 'react-dom/server';
 import { expect, test } from 'vitest';
 

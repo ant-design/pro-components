@@ -3,6 +3,7 @@ import { get } from '@rc-component/util';
 import type { FormItemProps, PopoverProps } from 'antd';
 import { ConfigProvider, Form, Popover, theme } from 'antd';
 import type { NamePath } from 'rc-field-form/es/interface';
+import type { JSX } from 'react';
 import React, { useContext, useEffect, useState } from 'react';
 import { useStyle } from './style';
 
@@ -50,15 +51,6 @@ const InlineErrorFormItemPopover: React.FC<{
   return (
     <Popover
       key="popover"
-      open={errorStringList.length < 1 ? false : open}
-      onOpenChange={(changeOpen: boolean) => {
-        if (changeOpen === open) return;
-        setOpen(changeOpen);
-      }}
-      trigger={popoverProps?.trigger || ['click']}
-      placement={popoverProps?.placement || 'topLeft'}
-      getPopupContainer={popoverProps?.getPopupContainer}
-      getTooltipContainer={popoverProps?.getTooltipContainer}
       content={wrapSSR(
         <div
           className={`${prefixCls}-form-item ${hashId} ${token.hashId}`.trim()}
@@ -67,14 +59,21 @@ const InlineErrorFormItemPopover: React.FC<{
             padding: 0,
           }}
         >
-          <div
-            className={`${prefixCls}-form-item-with-help ${hashId} ${token.hashId}`.trim()}
-          >
+          <div className={`${prefixCls}-form-item-with-help ${hashId} ${token.hashId}`.trim()}>
             {loading ? <LoadingOutlined /> : null}
             {errorList}
           </div>
         </div>,
       )}
+      getPopupContainer={popoverProps?.getPopupContainer}
+      getTooltipContainer={popoverProps?.getTooltipContainer}
+      open={errorStringList.length < 1 ? false : open}
+      placement={popoverProps?.placement || 'topLeft'}
+      trigger={popoverProps?.trigger || ['click']}
+      onOpenChange={(changeOpen: boolean) => {
+        if (changeOpen === open) return;
+        setOpen(changeOpen);
+      }}
       {...popoverProps}
     >
       <>
@@ -94,24 +93,6 @@ const InternalFormItemFunction: React.FC<InternalProps & FormItemProps> = ({
 }) => {
   return (
     <Form.Item
-      name={name}
-      rules={rules}
-      hasFeedback={false}
-      shouldUpdate={(prev, next) => {
-        if (prev === next) return false;
-        const shouldName = [name].flat(1);
-        if (shouldName.length > 1) {
-          shouldName.pop();
-        }
-        try {
-          return (
-            JSON.stringify(get(prev, shouldName)) !==
-            JSON.stringify(get(next, shouldName))
-          );
-        } catch (error) {
-          return true;
-        }
-      }}
       // @ts-ignore
       _internalItemRender={{
         mark: 'pro_table_render',
@@ -124,13 +105,22 @@ const InternalFormItemFunction: React.FC<InternalProps & FormItemProps> = ({
             errorList: JSX.Element;
             extra: JSX.Element;
           },
-        ) => (
-          <InlineErrorFormItemPopover
-            inputProps={inputProps}
-            popoverProps={popoverProps}
-            {...doms}
-          />
-        ),
+        ) => <InlineErrorFormItemPopover inputProps={inputProps} popoverProps={popoverProps} {...doms} />,
+      }}
+      hasFeedback={false}
+      name={name}
+      rules={rules}
+      shouldUpdate={(prev, next) => {
+        if (prev === next) return false;
+        const shouldName = [name].flat(1);
+        if (shouldName.length > 1) {
+          shouldName.pop();
+        }
+        try {
+          return JSON.stringify(get(prev, shouldName)) !== JSON.stringify(get(next, shouldName));
+        } catch (error) {
+          return true;
+        }
       }}
       {...rest}
       style={{
@@ -148,12 +138,7 @@ export const InlineErrorFormItem = (props: InlineErrorFormItemProps) => {
 
   if (name && rules?.length && errorType === 'popover') {
     return (
-      <InternalFormItemFunction
-        name={name}
-        rules={rules!}
-        popoverProps={popoverProps}
-        {...rest}
-      >
+      <InternalFormItemFunction name={name} popoverProps={popoverProps} rules={rules!} {...rest}>
         {children}
       </InternalFormItemFunction>
     );
@@ -170,10 +155,7 @@ export const InlineErrorFormItem = (props: InlineErrorFormItemProps) => {
                 shouldName.pop();
               }
               try {
-                return (
-                  JSON.stringify(get(prev, shouldName)) !==
-                  JSON.stringify(get(next, shouldName))
-                );
+                return JSON.stringify(get(prev, shouldName)) !== JSON.stringify(get(next, shouldName));
               } catch (error) {
                 return true;
               }
@@ -181,8 +163,8 @@ export const InlineErrorFormItem = (props: InlineErrorFormItemProps) => {
           : undefined
       }
       {...rest}
-      style={{ ...FIX_INLINE_STYLE, ...rest.style }}
       name={name}
+      style={{ ...FIX_INLINE_STYLE, ...rest.style }}
     >
       {children}
     </Form.Item>

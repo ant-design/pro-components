@@ -1,12 +1,6 @@
-﻿import type { FormListActionType } from '@ant-design/pro-components';
-import {
-  ProCard,
-  ProForm,
-  ProFormGroup,
-  ProFormList,
-  ProFormText,
-} from '@ant-design/pro-components';
-import { Button, Space, message } from 'antd';
+﻿import type { FormListActionType } from '@xxlabs/pro-components';
+import { ProCard, ProForm, ProFormGroup, ProFormList, ProFormText } from '@xxlabs/pro-components';
+import { Button, message, Space } from 'antd';
 import { useRef } from 'react';
 
 const Demo = () => {
@@ -14,7 +8,7 @@ const Demo = () => {
     FormListActionType<{
       name: string;
     }>
-  >();
+  >(undefined);
   return (
     <>
       <Space
@@ -69,16 +63,6 @@ const Demo = () => {
       </Space>
       <ProForm onFinish={async (e) => console.log(e)}>
         <ProFormList
-          name="users"
-          label="用户信息"
-          initialValue={[
-            {
-              name: '1111',
-            },
-          ]}
-          creatorRecord={{
-            name: '222',
-          }}
           actionGuard={{
             beforeAddRow: async (defaultValue, insertIndex) => {
               return new Promise((resolve) => {
@@ -97,25 +81,35 @@ const Demo = () => {
               });
             },
           }}
+          actionRef={actionRef}
+          creatorRecord={{
+            name: '222',
+          }}
+          initialValue={[
+            {
+              name: '1111',
+            },
+          ]}
           itemRender={({ listDom, action }, { record }) => {
             return (
               <ProCard
-                variant="outlined"
                 extra={action}
-                title={record?.name}
                 style={{
                   marginBlockEnd: 8,
                 }}
+                title={record?.name}
+                variant="outlined"
               >
                 {listDom}
               </ProCard>
             );
           }}
-          actionRef={actionRef}
+          label="用户信息"
+          name="users"
         >
           <ProFormGroup key="group">
-            <ProFormText name="name" label="姓名" />
-            <ProFormText name="age" label="年龄" />
+            <ProFormText label="姓名" name="name" />
+            <ProFormText label="年龄" name="age" />
           </ProFormGroup>
         </ProFormList>
       </ProForm>

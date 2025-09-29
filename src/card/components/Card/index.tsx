@@ -1,7 +1,7 @@
 import { RightOutlined } from '@ant-design/icons';
 import { omit, useMergedState } from '@rc-component/util';
 import { ConfigProvider, Tabs } from 'antd';
-import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint';
+import useBreakpoint from 'antd/es/grid/hooks/useBreakpoint';
 import classNames from 'classnames';
 import React, { useContext } from 'react';
 import { LabelIconTip } from '../../../utils';
@@ -13,7 +13,7 @@ import useStyle from './style';
 
 type ProCardChildType = React.ReactElement<CardProps, any>;
 
-const Card = React.forwardRef((props: CardProps, ref: any) => {
+const Card = ({ ref, ...props }: CardProps) => {
   const {
     className,
     style,
@@ -119,13 +119,10 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     }
 
     // 当 colSpan 为 30% 或 300px 时
-    const colSpanStyle = getStyle(
-      typeof span === 'string' && /\d%|\dpx/i.test(span),
-      {
-        width: span as string,
-        flexShrink: 0,
-      },
-    );
+    const colSpanStyle = getStyle(typeof span === 'string' && /\d%|\dpx/i.test(span), {
+      width: span as string,
+      flexShrink: 0,
+    });
 
     return { span, colSpanStyle };
   };
@@ -148,16 +145,14 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       const { span, colSpanStyle } = getColSpanStyle(colSpan);
 
       const columnClassName = classNames([`${prefixCls}-col`], hashId, {
-        [`${prefixCls}-split-vertical`]:
-          split === 'vertical' && index !== childrenArray.length - 1,
-        [`${prefixCls}-split-horizontal`]:
-          split === 'horizontal' && index !== childrenArray.length - 1,
-        [`${prefixCls}-col-${span}`]:
-          typeof span === 'number' && span >= 0 && span <= 24,
+        [`${prefixCls}-split-vertical`]: split === 'vertical' && index !== childrenArray.length - 1,
+        [`${prefixCls}-split-horizontal`]: split === 'horizontal' && index !== childrenArray.length - 1,
+        [`${prefixCls}-col-${span}`]: typeof span === 'number' && span >= 0 && span <= 24,
       });
 
       const wrappedElement = wrapSSR(
         <div
+          className={columnClassName}
           style={{
             ...colSpanStyle,
             ...getStyle(horizontalGutter! > 0, {
@@ -170,7 +165,6 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
             }),
             ...colStyle,
           }}
-          className={columnClassName}
         >
           {React.cloneElement(element)}
         </div>,
@@ -198,8 +192,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
 
   const bodyCls = classNames(`${prefixCls}-body`, hashId, {
     [`${prefixCls}-body-center`]: layout === 'center',
-    [`${prefixCls}-body-direction-column`]:
-      split === 'horizontal' || direction === 'column',
+    [`${prefixCls}-body-direction-column`]: split === 'horizontal' || direction === 'column',
     [`${prefixCls}-body-wrap`]: wrap && containProCard,
   });
 
@@ -210,11 +203,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   ) : (
     <Loading
       prefix={prefixCls}
-      style={
-        bodyStyle?.padding === 0 || bodyStyle?.padding === '0px'
-          ? { padding: 24 }
-          : undefined
-      }
+      style={bodyStyle?.padding === 0 || bodyStyle?.padding === '0px' ? { padding: 24 } : undefined}
     />
   );
   // 非受控情况下展示
@@ -225,19 +214,19 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       collapsibleIconRender({ collapsed })
     ) : (
       <RightOutlined
+        className={`${prefixCls}-collapsible-icon ${hashId}`.trim()}
+        rotate={!collapsed ? 90 : undefined}
         onClick={() => {
           if (collapsible === 'icon') setCollapsed(!collapsed);
         }}
-        rotate={!collapsed ? 90 : undefined}
-        className={`${prefixCls}-collapsible-icon ${hashId}`.trim()}
       />
     ));
 
   return wrapSSR(
     <div
+      ref={ref}
       className={cardCls}
       style={style}
-      ref={ref}
       onClick={(e) => {
         onChecked?.(e);
         rest?.onClick?.(e);
@@ -252,19 +241,15 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
           })}
           style={headStyle}
           onClick={() => {
-            if (collapsible === 'header' || collapsible === true)
-              setCollapsed(!collapsed);
+            if (collapsible === 'header' || collapsible === true) setCollapsed(!collapsed);
           }}
         >
           <div className={`${prefixCls}-title ${hashId}`.trim()}>
             {collapsibleButton}
-            <LabelIconTip label={title} tooltip={tooltip} subTitle={subTitle} />
+            <LabelIconTip label={title} subTitle={subTitle} tooltip={tooltip} />
           </div>
           {extra && (
-            <div
-              className={`${prefixCls}-extra ${hashId}`.trim()}
-              onClick={(e) => e.stopPropagation()}
-            >
+            <div className={`${prefixCls}-extra ${hashId}`.trim()} onClick={(e) => e.stopPropagation()}>
               {extra}
             </div>
           )}
@@ -272,12 +257,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       )}
       {tabs ? (
         <div className={`${prefixCls}-tabs ${hashId}`.trim()}>
-          <Tabs
-            onChange={tabs.onChange}
-            {...omit(tabs, ['cardProps'])}
-            // @ts-ignore
-            items={ModifyTabItemsContent}
-          >
+          <Tabs onChange={tabs.onChange} {...omit(tabs, ['cardProps'])} items={ModifyTabItemsContent}>
             {loading ? loadingDOM : children}
           </Tabs>
         </div>
@@ -289,6 +269,6 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       {actions ? <Actions actions={actions} prefixCls={prefixCls} /> : null}
     </div>,
   );
-});
+};
 
 export default Card;

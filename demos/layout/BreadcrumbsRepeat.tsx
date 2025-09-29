@@ -1,4 +1,4 @@
-import { PageContainer, ProLayout } from '@ant-design/pro-components';
+import { PageContainer, ProLayout } from '@xxlabs/pro-components';
 
 export default () => (
   <div
@@ -7,9 +7,6 @@ export default () => (
     }}
   >
     <ProLayout
-      location={{
-        pathname: '/admin/process/edit/123',
-      }}
       breadcrumbRender={(routes) => [
         {
           path: '/',
@@ -17,6 +14,9 @@ export default () => (
         },
         ...(routes || []),
       ]}
+      location={{
+        pathname: '/admin/process/edit/123',
+      }}
       menuDataRender={() => [
         {
           path: '/welcome',

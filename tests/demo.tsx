@@ -1,25 +1,9 @@
-import {
-  StyleProvider,
-  legacyLogicalPropertiesTransformer,
-} from '@ant-design/cssinjs';
-import {
-  act,
-  cleanup,
-  render as reactRender,
-  waitFor,
-} from '@testing-library/react';
+import { legacyLogicalPropertiesTransformer, StyleProvider } from '@ant-design/cssinjs';
+import { act, cleanup, render as reactRender, waitFor } from '@testing-library/react';
 import { App } from 'antd';
-import glob from 'glob';
+import { sync } from 'glob';
 import MockDate from 'mockdate';
-import {
-  afterAll,
-  afterEach,
-  beforeAll,
-  describe,
-  expect,
-  test,
-  vi,
-} from 'vitest';
+import { afterAll, afterEach, beforeAll, describe, expect, test, vi } from 'vitest';
 
 type Options = {
   skip?: boolean;
@@ -32,10 +16,7 @@ function demoTest(component: string, options?: Options) {
 
   // Mock offsetHeight
   // @ts-expect-error
-  const originOffsetHeight = Object.getOwnPropertyDescriptor(
-    HTMLElement.prototype,
-    'offsetHeight',
-  ).get;
+  const originOffsetHeight = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'offsetHeight').get;
   Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
     get() {
       let html = this.innerHTML;
@@ -66,15 +47,12 @@ function demoTest(component: string, options?: Options) {
     window.getComputedStyle = originGetComputedStyle;
   });
   // 支持 demos 下的所有非_开头的tsx文件
-  const files = glob.sync(`./demos/${component}/**/[!_]*.tsx`);
-  files.push(...glob.sync(`./${component}/**/**/[!_]*.tsx`));
+  const files = sync(`./demos/${component}/**/[!_]*.tsx`);
+  files.push(...sync(`./${component}/**/**/[!_]*.tsx`));
 
   const TestApp = (props: { children: any }) => {
     return (
-      <StyleProvider
-        hashPriority="high"
-        transformers={[legacyLogicalPropertiesTransformer]}
-      >
+      <StyleProvider hashPriority="high" transformers={[legacyLogicalPropertiesTransformer]}>
         <App>
           <div>test</div>
           {props.children}
@@ -100,16 +78,13 @@ function demoTest(component: string, options?: Options) {
     afterAll(() => vi.useRealTimers());
     files.forEach((file) => {
       let testMethod = options?.skip === true ? test.skip : test;
-      if (
-        Array.isArray(options?.skip) &&
-        options?.skip.some((c) => file.includes(c))
-      ) {
+      if (Array.isArray(options?.skip) && options?.skip.some((c) => file.includes(c))) {
         testMethod = test.skip;
       }
       testMethod(`📸 renders ${file} correctly`, async () => {
         Math.random = () => 0.8404419276253765;
 
-        const Demo = (await import(`.${file}`)).default;
+        const Demo = (await import(`./${file}`)).default;
         const wrapper = reactRender(
           <TestApp>
             <Demo />

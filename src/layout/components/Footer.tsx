@@ -22,17 +22,9 @@ export type FooterProps = {
   prefixCls?: string;
 };
 
-const DefaultFooter: React.FC<FooterProps> = ({
-  links,
-  copyright,
-  style,
-  className,
-  prefixCls,
-}: FooterProps) => (
+const DefaultFooter: React.FC<FooterProps> = ({ links, copyright, style, className, prefixCls }: FooterProps) => (
   <Footer className={className} style={{ padding: 0, ...style }}>
     <GlobalFooter
-      links={links}
-      prefixCls={prefixCls}
       copyright={
         copyright === false ? null : (
           <Fragment>
@@ -40,6 +32,8 @@ const DefaultFooter: React.FC<FooterProps> = ({
           </Fragment>
         )
       }
+      links={links}
+      prefixCls={prefixCls}
     />
   </Footer>
 );

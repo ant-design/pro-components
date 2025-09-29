@@ -1,7 +1,7 @@
 ﻿import type { ColorPickerProps } from 'antd';
 import { ColorPicker, ConfigProvider } from 'antd';
 import classNames from 'classnames';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import type { ProFieldFC } from '../../PureProField';
 
 const DEFAULT_PRESETS = {
@@ -33,33 +33,25 @@ const DEFAULT_PRESETS = {
 /**
  * 颜色组件
  * Antd > 5.5.0 的版本 使用 antd 的 ColorPicker
- * @param FieldColorPicker {
- *     text: number;
- *     moneySymbol?: string; }
+ *
  */
 const FieldColorPicker: ProFieldFC<
   {
     text: string;
     mode?: 'read' | 'edit' | 'update';
   } & Partial<Omit<ColorPickerProps, 'value' | 'mode'>>
-> = ({ text, mode: type, render, formItemRender, fieldProps }, ref: any) => {
+> = ({ text, mode: type, render, formItemRender, fieldProps, ref }) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-color-picker');
 
   if (type === 'read') {
-    const dom = (
-      <ColorPicker
-        value={text}
-        className={classNames({ [prefixCls]: true })}
-        // 设置无法 open
-        open={false}
-      />
-    );
+    const dom = <ColorPicker className={classNames({ [prefixCls]: true })} open={false} value={text} />;
     if (render) {
       return render(text, { mode: type, ...fieldProps }, dom);
     }
     return dom;
   }
+
   if (type === 'edit' || type === 'update') {
     // 解决 默认的 width 100% 问题
     const style = { display: 'table-cell', ...fieldProps.style };
@@ -68,8 +60,8 @@ const FieldColorPicker: ProFieldFC<
         ref={ref}
         presets={[DEFAULT_PRESETS]}
         {...fieldProps}
-        style={style}
         className={classNames({ [prefixCls]: true })}
+        style={style}
       />
     );
     if (formItemRender) {
@@ -77,7 +69,8 @@ const FieldColorPicker: ProFieldFC<
     }
     return dom;
   }
+
   return null;
 };
 
-export default React.forwardRef(FieldColorPicker);
+export default FieldColorPicker;

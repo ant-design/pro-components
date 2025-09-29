@@ -1,11 +1,11 @@
-import { ProCard } from '@ant-design/pro-components';
+import { ProCard } from '@xxlabs/pro-components';
 
 export default () => {
   return (
     <>
       <ProCard
-        direction="column"
         ghost
+        direction="column"
         gutter={{
           xs: 8,
           sm: 8,
@@ -48,7 +48,7 @@ export default () => {
           colSpan - 0
         </ProCard>
       </ProCard>
-      <ProCard gutter={8} title="24 grids" style={{ marginBlockStart: 8 }}>
+      <ProCard gutter={8} style={{ marginBlockStart: 8 }} title="24 grids">
         <ProCard colSpan={12} layout="center" variant="outlined">
           colSpan-12
         </ProCard>
@@ -59,7 +59,7 @@ export default () => {
           colSpan-6
         </ProCard>
       </ProCard>
-      <ProCard style={{ marginBlockStart: 8 }} gutter={8} ghost>
+      <ProCard ghost gutter={8} style={{ marginBlockStart: 8 }}>
         <ProCard colSpan="200px" layout="center" variant="outlined">
           colSpan - 200px
         </ProCard>
@@ -67,8 +67,8 @@ export default () => {
           Auto
         </ProCard>
       </ProCard>
-      <ProCard style={{ marginBlockStart: 8 }} gutter={8} ghost>
-        <ProCard variant="outlined" layout="center">
+      <ProCard ghost gutter={8} style={{ marginBlockStart: 8 }}>
+        <ProCard layout="center" variant="outlined">
           Auto
         </ProCard>
         <ProCard colSpan="30%" variant="outlined">

@@ -1,7 +1,7 @@
 import type { TablePaginationConfig } from 'antd';
-import type { FilterValue as AntFilterValue, SorterResult, SortOrder } from 'antd/lib/table/interface';
+import type { FilterValue as AntFilterValue, SorterResult, SortOrder } from 'antd/es/table/interface';
 import type React from 'react';
-import { Key } from 'react';
+import type { Key } from 'react';
 import type { IntlType } from '../../provider';
 import type { UseEditableUtilType } from '../../utils';
 import type {
@@ -20,8 +20,7 @@ import type {
  *
  * @param value
  */
-export const checkUndefinedOrNull = (value: any) =>
-  value !== undefined && value !== null;
+export const checkUndefinedOrNull = (value: any) => value !== undefined && value !== null;
 
 /**
  * 合并用户 props 和 预设的 props
@@ -41,27 +40,18 @@ export function mergePagination<T>(
     return false;
   }
   const { total, current, pageSize, setPageInfo } = pageInfo;
-  const defaultPagination: TablePaginationConfig =
-    typeof pagination === 'object' ? pagination : {};
+  const defaultPagination: TablePaginationConfig = typeof pagination === 'object' ? pagination : {};
 
   return {
     showTotal: (all, range) =>
-      `${intl.getMessage('pagination.total.range', '第')} ${range[0]}-${
-        range[1]
-      } ${intl.getMessage(
+      `${intl.getMessage('pagination.total.range', '第')} ${range[0]}-${range[1]} ${intl.getMessage(
         'pagination.total.total',
         '条/总共',
       )} ${all} ${intl.getMessage('pagination.total.item', '条')}`,
     total,
     ...(defaultPagination as TablePaginationConfig),
-    current:
-      pagination !== true && pagination
-        ? (pagination.current ?? current)
-        : current,
-    pageSize:
-      pagination !== true && pagination
-        ? (pagination.pageSize ?? pageSize)
-        : pageSize,
+    current: pagination !== true && pagination ? (pagination.current ?? current) : current,
+    pageSize: pagination !== true && pagination ? (pagination.pageSize ?? pageSize) : pageSize,
     onChange: (page: number, newPageSize?: number) => {
       const { onChange } = pagination as TablePaginationConfig;
       onChange?.(page, newPageSize || 20);
@@ -81,7 +71,7 @@ export function mergePagination<T>(
  * @param onCleanSelected
  */
 export function useActionType<T>(
-  ref: React.MutableRefObject<ActionType | undefined>,
+  ref: React.RefObject<ActionType | undefined>,
   action: UseFetchDataAction<T>,
   props: {
     fullScreen: () => void;
@@ -120,11 +110,11 @@ export function useActionType<T>(
     },
     fullScreen: () => props.fullScreen(),
     clearSelected: () => props.onCleanSelected(),
-    setPageInfo: (rest) => action.setPageInfo(rest),
+    setPageInfo: (rest: any) => action.setPageInfo(rest),
     // 透出 scrollTo（如上层提供）
     scrollTo: props.scrollTo,
   };
-  // eslint-disable-next-line no-param-reassign
+
   ref.current = userAction;
 }
 
@@ -166,10 +156,7 @@ export const isMergeCell = (
  * @param dataIndex 在对象中的数据
  * @param index 序列号，理论上唯一
  */
-export const genColumnKey = (
-  key?: string | number | Key,
-  index?: number | string,
-): string => {
+export const genColumnKey = (key?: string | number | Key, index?: number | string): string => {
   if (key) {
     return Array.isArray(key) ? key.join('-') : key.toString();
   }
@@ -181,14 +168,12 @@ export const genColumnKey = (
  *
  * @param dataIndex Column 中的 dataIndex
  */
-export const parseDataIndex = (
-  dataIndex: ProColumnType['dataIndex'],
-): string | undefined => {
+export const parseDataIndex = (dataIndex: ProColumnType['dataIndex']): string | undefined => {
   if (Array.isArray(dataIndex)) {
     return dataIndex.join(',');
   }
   return dataIndex?.toString();
-}
+};
 
 /**
  * 平铺所有columns, 用于判断是用的是本地筛选/排序
@@ -207,7 +192,7 @@ export const flattenColumns = (data: any[]) => {
     }
   }
 
-  return _columns
+  return _columns;
 };
 
 /**
@@ -218,7 +203,7 @@ export const flattenColumns = (data: any[]) => {
  */
 export const isLocaleFilter = <T>(filters: ProColumnType<T>['filters'], onFilter: ProColumnType<T>['onFilter']) => {
   return !!filters && !!onFilter;
-}
+};
 
 /**
  * 判断是否为本地排序
@@ -227,7 +212,7 @@ export const isLocaleFilter = <T>(filters: ProColumnType<T>['filters'], onFilter
  */
 export const isLocaleSorter = <T>(sorter: ProSorter<T>) => {
   return typeof sorter === 'function' || (typeof sorter === 'object' && typeof sorter.compare === 'function');
-}
+};
 
 /**
  * 获取服务端筛选数据
@@ -235,15 +220,18 @@ export const isLocaleSorter = <T>(sorter: ProSorter<T>) => {
  * @param columns 列配置
  * @returns 服务端筛选数据
  */
-export const getServerFilterResult = <T>(filters: Record<string, AntFilterValue | null>, columns: ProColumnType<T>[]) => {
+export const getServerFilterResult = <T>(
+  filters: Record<string, AntFilterValue | null>,
+  columns: ProColumnType<T>[],
+) => {
   // 过滤掉本地筛选的列
   return Object.entries(filters).reduce<Record<string, FilterValue>>((acc, [key, value]) => {
     const column = columns.find((column) => parseDataIndex(column.dataIndex) === key);
-    if(column != null && !isLocaleFilter(column.filters, column.onFilter)) acc[key] = value as FilterValue;
+    if (column != null && !isLocaleFilter(column.filters, column.onFilter)) acc[key] = value as FilterValue;
 
     return acc;
   }, {});
-}
+};
 
 /**
  * 获取服务端排序数据
@@ -255,23 +243,21 @@ export const getServerSorterResult = <T>(sorterResult: SorterResult<T> | SorterR
 
   const serverSorter = result.reduce<Record<string, SortOrder | undefined>>((acc, item) => {
     const sorter = item.column?.sorter;
-    if(sorter != null && isLocaleSorter<T>(sorter)) return acc;
+    if (sorter != null && isLocaleSorter<T>(sorter)) return acc;
 
     const sortKey = typeof sorter === 'string' ? sorter : parseDataIndex(item.column?.dataIndex);
-    if(sortKey != null) acc[sortKey] = item.order;
+    if (sortKey != null) acc[sortKey] = item.order;
 
     return acc;
   }, {});
   return serverSorter;
-}
+};
 
 /**
  * 从 ProColumns 数组中取出默认的服务端排序和筛选数据
  * @param columns ProColumns
  */
-export const parseServerDefaultColumnConfig = <T, Value>(
-  columns: ProColumns<T, Value>[],
-) => {
+export const parseServerDefaultColumnConfig = <T, Value>(columns: ProColumns<T, Value>[]) => {
   const filter: Record<string, FilterValue> = {};
   const sort: Record<string, SortOrder> = {};
   columns.forEach((column) => {
@@ -286,7 +272,7 @@ export const parseServerDefaultColumnConfig = <T, Value>(
 
     // 当 column 启用服务端 sorter 功能时，取出默认的排序值
     if (column.sorter && !isLocaleSorter(column.sorter)) {
-      if(typeof column.sorter === 'string') {
+      if (typeof column.sorter === 'string') {
         sort[column.sorter] = column.defaultSortOrder ?? null;
       } else {
         sort[dataIndex] = column.defaultSortOrder ?? null;
@@ -294,7 +280,7 @@ export const parseServerDefaultColumnConfig = <T, Value>(
     }
   });
   return { sort, filter };
-}
+};
 
 /**
  * 解析对应排序值，用作双向绑定
@@ -303,26 +289,26 @@ export const parseServerDefaultColumnConfig = <T, Value>(
  * @returns 排序值
  */
 export const parseProSortOrder = <T>(
-  proSort: Record<string, SortOrder>, 
-  columnProps: ProColumnType<T>
+  proSort: Record<string, SortOrder>,
+  columnProps: ProColumnType<T>,
 ): SortOrder | undefined => {
   const { sorter, sortOrder: columnSortOrder, dataIndex } = columnProps;
-  
+
   // 优先使用用户明确设置的 sortOrder
   if (columnSortOrder !== undefined) return columnSortOrder;
-  
+
   // 如果没有排序器配置，直接返回 undefined
   if (sorter == null) return undefined;
-  
+
   // 如果是本地排序，不使用 proSort 中的值
   if (isLocaleSorter(sorter)) return undefined;
-  
+
   // 服务端排序：确定排序键
   const sortKey = typeof sorter === 'string' ? sorter : parseDataIndex(dataIndex);
 
   // 返回对应的排序值
   return sortKey ? proSort[sortKey] : undefined;
-}
+};
 
 /**
  * 解析对应筛选值，用作双向绑定
@@ -335,19 +321,19 @@ export const parseProFilteredValue = <T>(
   columnProps: ProColumnType<T>,
 ): FilterValue | undefined => {
   const { filters, onFilter, filteredValue: columnFilteredValue, dataIndex } = columnProps;
-  
+
   // 优先使用用户设置的 filteredValue
-  if(columnFilteredValue !== undefined) return columnFilteredValue as FilterValue;
+  if (columnFilteredValue !== undefined) return columnFilteredValue as FilterValue;
 
   // 如果没有筛选配置，直接返回 undefined
-  if(filters == null) return undefined;
-  
+  if (filters == null) return undefined;
+
   // 如果是本地筛选，不使用 proFilter 中的值
-  if(isLocaleFilter(filters, onFilter)) return undefined;
+  if (isLocaleFilter(filters, onFilter)) return undefined;
 
   // 服务端排序：获取筛选键
   const filterKey = parseDataIndex(dataIndex);
 
   // 返回对应的筛选值
   return filterKey ? proFilter[filterKey] : undefined;
-}
+};

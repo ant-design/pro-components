@@ -1,4 +1,4 @@
-﻿import { ProForm, ProFormTreeSelect } from '@ant-design/pro-components';
+﻿import { ProForm, ProFormTreeSelect } from '@xxlabs/pro-components';
 import { useState } from 'react';
 
 const treeData = [
@@ -74,16 +74,8 @@ export default function App() {
         onFinish={async (e) => console.log(e)}
       >
         <ProFormTreeSelect
-          name="name"
-          placeholder="请输入搜索关键字"
           allowClear
-          width={330}
-          label="TreeSelect异步加载"
           secondary
-          request={async () => {
-            await waitTime(1000);
-            return treeData;
-          }}
           fieldProps={{
             suffixIcon: null,
             filterTreeNode: true,
@@ -103,14 +95,17 @@ export default function App() {
             onFocus: () => onFocus(),
             onSearch: (val) => onSearch(val),
           }}
+          label="TreeSelect异步加载"
+          name="name"
+          placeholder="请输入搜索关键字"
+          request={async () => {
+            await waitTime(1000);
+            return treeData;
+          }}
+          width={330}
         />
         <ProFormTreeSelect
-          name="name2"
-          initialValue={['0-0', '0-1']}
-          label="TreeSelect treeData"
-          placeholder="请输入搜索关键字"
           allowClear
-          width={330}
           secondary
           fieldProps={{
             treeData,
@@ -127,6 +122,11 @@ export default function App() {
               value: 'treeValue',
             },
           }}
+          initialValue={['0-0', '0-1']}
+          label="TreeSelect treeData"
+          name="name2"
+          placeholder="请输入搜索关键字"
+          width={330}
         />
         <div className="keys">
           <b>常用关键字：</b>
@@ -134,11 +134,11 @@ export default function App() {
             return (
               <span
                 key={item}
-                onClick={onClick}
                 style={{
                   marginInlineStart: 8,
                   cursor: 'pointer',
                 }}
+                onClick={onClick}
               >
                 {item}
               </span>

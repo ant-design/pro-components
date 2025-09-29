@@ -1,7 +1,7 @@
 ﻿import { Badge, Space } from 'antd';
 import type { CSSProperties, ReactNode } from 'react';
 import React from 'react';
-import { ProFieldValueEnumType, ProSchemaValueEnumMap } from '../typing';
+import type { ProFieldValueEnumType, ProSchemaValueEnumMap } from '../typing';
 
 /**
  * 获取类型的 type
@@ -26,14 +26,11 @@ type StatusProps = {
   children?: React.ReactNode;
 };
 
-export const ProFieldBadgeColor: React.FC<StatusProps & { color: string }> = ({
-  color,
-  children,
-}) => <Badge color={color} text={children} />;
+export const ProFieldBadgeColor: React.FC<StatusProps & { color: string }> = ({ color, children }) => (
+  <Badge color={color} text={children} />
+);
 
-export const objectToMap = (
-  value: ProFieldValueEnumType | undefined,
-): ProSchemaValueEnumMap => {
+export const objectToMap = (value: ProFieldValueEnumType | undefined): ProSchemaValueEnumMap => {
   if (getType(value) === 'map') {
     return value as ProSchemaValueEnumMap;
   }
@@ -90,7 +87,7 @@ export const proFieldParsingText = (
 ): React.ReactNode => {
   if (Array.isArray(text)) {
     return (
-      <Space key={key} split="," size={2} wrap>
+      <Space key={key} wrap size={2} split=",">
         {text.map((value, index) =>
           // @ts-ignore
           proFieldParsingText(value, valueEnumParams, index),
@@ -135,9 +132,5 @@ export const proFieldParsingText = (
     );
   }
   // 什么都没有使用 text
-  return (
-    <React.Fragment key={key}>
-      {domText.text || (domText as any as React.ReactNode)}
-    </React.Fragment>
-  );
+  return <React.Fragment key={key}>{domText.text || (domText as any as React.ReactNode)}</React.Fragment>;
 };

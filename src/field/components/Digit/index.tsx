@@ -1,6 +1,6 @@
 import { omit } from '@rc-component/util';
 import { InputNumber } from 'antd';
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 import { useIntl } from '../../../provider';
 import { isNil } from '../../../utils';
 import type { ProFieldFC } from '../../PureProField';
@@ -13,17 +13,20 @@ export type FieldDigitProps = {
 /**
  * 数字组件
  *
- * @param FieldDigitProps {
- *     text: number;
- *     moneySymbol?: string; }
  */
-const FieldDigit: ProFieldFC<FieldDigitProps> = (
-  { text, mode: type, render, placeholder, formItemRender, fieldProps },
+const FieldDigit: ProFieldFC<FieldDigitProps> = ({
+  text,
+  mode: type,
+  render,
+  placeholder,
+  formItemRender,
+  fieldProps,
   ref,
-) => {
+}) => {
   const intl = useIntl();
-  const placeholderValue =
-    placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入');
+
+  const placeholderValue = placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入');
+
   const proxyChange = useCallback(
     (value: number | string | null) => {
       let val = value ?? undefined;
@@ -43,17 +46,14 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
           val = numVal;
         }
       }
-      if (
-        typeof val === 'number' &&
-        !isNil(val) &&
-        !isNil(fieldProps.precision)
-      ) {
+      if (typeof val === 'number' && !isNil(val) && !isNil(fieldProps.precision)) {
         val = Number(val.toFixed(fieldProps.precision));
       }
       return val;
     },
     [fieldProps],
   );
+
   if (type === 'read') {
     let fractionDigits = {} as Record<string, any> as any;
     if (fieldProps?.precision) {
@@ -79,6 +79,7 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
     }
     return dom;
   }
+
   if (type === 'edit' || type === 'update') {
     const dom = (
       <InputNumber<number | string>
@@ -86,7 +87,6 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
         min={0}
         placeholder={placeholderValue}
         {...omit(fieldProps, ['onChange', 'onBlur'])}
-        onChange={(e) => fieldProps?.onChange?.(proxyChange(e))}
         onBlur={(e) => {
           const value = e.target.value;
           const processedValue = proxyChange(value);
@@ -98,6 +98,7 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
           }
           fieldProps?.onBlur?.(e);
         }}
+        onChange={(e) => fieldProps?.onChange?.(proxyChange(e))}
       />
     );
     if (formItemRender) {
@@ -105,7 +106,8 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
     }
     return dom;
   }
+
   return null;
 };
 
-export default React.forwardRef(FieldDigit);
+export default FieldDigit;

@@ -3,15 +3,17 @@ import classnames from 'classnames';
 import React, { useContext } from 'react';
 import { useStyle } from '../../../utils';
 
+export interface FieldIndexColumnProps {
+  border?: boolean;
+  children: number;
+  ref?: React.Ref<any>;
+}
+
 /**
  * 默认的 index 列容器，提供一个好看的 index
  *
- * @param param0
  */
-const IndexColumn: React.ForwardRefRenderFunction<
-  any,
-  { border?: boolean; children: number }
-> = ({ border = false, children }, ref) => {
+const IndexColumn: React.FC<FieldIndexColumnProps> = ({ border = false, children, ref }) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
   const className = getPrefixCls('pro-field-index-column');
@@ -38,6 +40,7 @@ const IndexColumn: React.ForwardRefRenderFunction<
       },
     };
   });
+
   return wrapSSR(
     <div
       ref={ref}
@@ -51,4 +54,4 @@ const IndexColumn: React.ForwardRefRenderFunction<
   );
 };
 
-export default React.forwardRef(IndexColumn);
+export default IndexColumn;

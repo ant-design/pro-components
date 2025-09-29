@@ -1,5 +1,5 @@
-import type { ProColumns, ProFormInstance } from '@ant-design/pro-components';
-import { ProTable } from '@ant-design/pro-components';
+import type { ProColumns, ProFormInstance } from '@xxlabs/pro-components';
+import { ProTable } from '@xxlabs/pro-components';
 import { useRef, useState } from 'react';
 
 export type TableListItem = {
@@ -23,16 +23,20 @@ const columns: ProColumns<TableListItem>[] = [
 ];
 
 export default () => {
-  const ref = useRef<ProFormInstance>();
+  const ref = useRef<ProFormInstance>(undefined);
   const [collapsed, setCollapsed] = useState(false);
 
   return (
     <>
       <ProTable<TableListItem>
-        style={{
-          margin: '16px',
-        }}
         columns={columns}
+        dateFormatter="string"
+        formRef={ref}
+        headerTitle="日期格式化为字符串"
+        options={false}
+        pagination={{
+          showSizeChanger: true,
+        }}
         request={(params) => {
           console.log('-->', params);
           return Promise.resolve({
@@ -47,24 +51,24 @@ export default () => {
           });
         }}
         rowKey="key"
-        pagination={{
-          showSizeChanger: true,
-        }}
         search={{
           collapsed,
           onCollapse: setCollapsed,
         }}
-        formRef={ref}
-        options={false}
-        dateFormatter="string"
-        headerTitle="日期格式化为字符串"
+        style={{
+          margin: '16px',
+        }}
       />
 
       <ProTable<TableListItem>
-        style={{
-          margin: '16px',
-        }}
         columns={columns}
+        dateFormatter="number"
+        formRef={ref}
+        headerTitle="日期格式化为数字"
+        options={false}
+        pagination={{
+          showSizeChanger: true,
+        }}
         request={(params) => {
           console.log('-->', params);
           return Promise.resolve({
@@ -79,51 +83,47 @@ export default () => {
           });
         }}
         rowKey="key"
-        pagination={{
-          showSizeChanger: true,
-        }}
         search={{
           collapsed,
           onCollapse: setCollapsed,
         }}
-        formRef={ref}
-        options={false}
-        dateFormatter="number"
-        headerTitle="日期格式化为数字"
+        style={{
+          margin: '16px',
+        }}
       />
       <ProTable<TableListItem>
-        style={{
-          margin: '16px',
-        }}
         columns={columns}
-        request={(params) => {
-          console.log('-->', params);
-          return Promise.resolve({
-            data: [
-              {
-                key: 1,
-                name: `TradeCode ${1}`,
-                createdAt: '2022-09-22',
-              },
-            ],
-            success: true,
-          });
-        }}
-        rowKey="key"
-        pagination={{
-          showSizeChanger: true,
-        }}
-        search={{
-          collapsed,
-          onCollapse: setCollapsed,
-        }}
-        formRef={ref}
-        options={false}
         dateFormatter={(value, valueType) => {
           console.log('====>', value, valueType);
           return value.format('YYYY-MM-DD HH:mm:ss');
         }}
+        formRef={ref}
         headerTitle="使用自定义函数进行日期格式化"
+        options={false}
+        pagination={{
+          showSizeChanger: true,
+        }}
+        request={(params) => {
+          console.log('-->', params);
+          return Promise.resolve({
+            data: [
+              {
+                key: 1,
+                name: `TradeCode ${1}`,
+                createdAt: '2022-09-22',
+              },
+            ],
+            success: true,
+          });
+        }}
+        rowKey="key"
+        search={{
+          collapsed,
+          onCollapse: setCollapsed,
+        }}
+        style={{
+          margin: '16px',
+        }}
       />
     </>
   );
@@ -205,5 +205,5 @@ export default () => {
         <strong>国际化</strong>: 国际化日期处理
       </li>
     </ul>
-  </div>
+  </div>;
 };

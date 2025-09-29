@@ -1,5 +1,5 @@
 import { UserOutlined } from '@ant-design/icons';
-import { PageContainer, ProLayout } from '@ant-design/pro-components';
+import { PageContainer, ProLayout } from '@xxlabs/pro-components';
 import complexMenu from './complexMenu';
 
 export default () => (
@@ -9,13 +9,14 @@ export default () => (
     }}
   >
     <ProLayout
+      collapsed={false}
+      collapsedButtonRender={false}
+      fixSiderbar={false}
+      headerRender={false}
+      iconfontUrl="//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js"
       location={{
         pathname: '/home',
       }}
-      fixSiderbar={false}
-      collapsedButtonRender={false}
-      collapsed={false}
-      iconfontUrl="//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js"
       route={{
         routes: [
           {
@@ -35,26 +36,25 @@ export default () => (
           },
         ],
       }}
-      headerRender={false}
     >
       <ProLayout
+        avatarProps={{
+          icon: <UserOutlined />,
+        }}
+        fixSiderbar={false}
         location={{
           pathname: '/home/overview',
         }}
-        fixSiderbar={false}
+        menu={{
+          hideMenuWhenCollapsed: true,
+        }}
+        menuHeaderRender={false}
         route={{
           routes: complexMenu,
         }}
         style={{
           height: '400px',
         }}
-        menu={{
-          hideMenuWhenCollapsed: true,
-        }}
-        avatarProps={{
-          icon: <UserOutlined />,
-        }}
-        menuHeaderRender={false}
       >
         <PageContainer content="欢迎使用">
           <div>Hello World</div>

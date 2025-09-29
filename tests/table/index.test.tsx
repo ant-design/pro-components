@@ -1,13 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-expressions */
-import type { ActionType } from '@ant-design/pro-components';
-import { ProTable, TableDropdown } from '@ant-design/pro-components';
-import {
-  cleanup,
-  fireEvent,
-  render,
-  screen,
-  waitFor,
-} from '@testing-library/react';
+import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import type { ActionType } from '@xxlabs/pro-components';
+import { ProTable, TableDropdown } from '@xxlabs/pro-components';
 import { Button, Input } from 'antd';
 import React, { act, useRef } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
@@ -22,17 +15,17 @@ describe('BasicTable', () => {
     const pageSizeOnchange = vi.fn();
     const html = render(
       <ProTable
-        size="small"
         columns={columns}
-        request={request}
-        rowKey="key"
-        params={{ keyword: 'test' }}
         pagination={{
           defaultCurrent: 10,
           onChange: (e) => {
             pageSizeOnchange(e);
           },
         }}
+        params={{ keyword: 'test' }}
+        request={request}
+        rowKey="key"
+        size="small"
         toolBarRender={() => [
           <Input.Search
             key="search"
@@ -71,12 +64,12 @@ describe('BasicTable', () => {
     act(() => {
       html.rerender(
         <ProTable
-          size="small"
           columns={columns}
+          pagination={false}
+          params={{ keyword: 'test2' }}
           request={request}
           rowKey="key"
-          params={{ keyword: 'test2' }}
-          pagination={false}
+          size="small"
           toolBarRender={() => [
             <Input.Search
               key="search"
@@ -121,13 +114,13 @@ describe('BasicTable', () => {
         </TableDropdown.Button>
         <TableDropdown
           key="tableDropdown"
-          // eslint-disable-next-line react/no-children-prop
-          children="其他操作"
           menus={[
             { key: 'edit', name: '编辑' },
             { key: 'create', name: '新建' },
           ]}
-        />
+        >
+          其他操作
+        </TableDropdown>
       </div>,
     );
 
@@ -156,31 +149,27 @@ describe('BasicTable', () => {
 
   it('🎏 table support visibilitychange', async () => {
     const requestFfn = vi.fn();
-    let fn: Function | null = null;
+    let fn: (() => void) | null = null;
     const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
-    const addEventListenerSpy = vi
-      .spyOn(document, 'addEventListener')
-      .mockImplementation((eventName, eventFn) => {
-        if (eventName === 'visibilitychange') {
-          //@ts-expect-error
-          fn = eventFn;
-        }
-      });
+    const addEventListenerSpy = vi.spyOn(document, 'addEventListener').mockImplementation((eventName, eventFn) => {
+      if (eventName === 'visibilitychange') {
+        //@ts-expect-error
+        fn = eventFn;
+      }
+    });
 
-    vi.spyOn(document, 'visibilityState' as any, 'get').mockReturnValue(
-      'visible',
-    );
+    vi.spyOn(document, 'visibilityState' as any, 'get').mockReturnValue('visible');
 
     const html = render(
       <ProTable
-        size="small"
+        revalidateOnFocus
         columns={columns}
         request={async () => {
           requestFfn();
           return request;
         }}
         rowKey="key"
-        revalidateOnFocus
+        size="small"
       />,
     );
 
@@ -206,25 +195,23 @@ describe('BasicTable', () => {
   it('🎏 do not render Search', async () => {
     const html = render(
       <ProTable
-        size="small"
         columns={columns}
+        pagination={{
+          defaultCurrent: 10,
+        }}
+        params={{ keyword: 'test' }}
         request={request}
         rowKey="key"
         rowSelection={{
           selectedRowKeys: ['1'],
         }}
         search={false}
-        params={{ keyword: 'test' }}
-        pagination={{
-          defaultCurrent: 10,
-        }}
+        size="small"
       />,
     );
 
     await waitFor(() => {
-      expect(
-        !!html.baseElement.querySelector('.ant-pro-table-search'),
-      ).toBeFalsy();
+      expect(!!html.baseElement.querySelector('.ant-pro-table-search')).toBeFalsy();
     });
     html.unmount();
   });
@@ -234,7 +221,6 @@ describe('BasicTable', () => {
 
     const html = render(
       <ProTable
-        size="small"
         columns={[
           {
             title: '序号',
@@ -243,6 +229,7 @@ describe('BasicTable', () => {
             valueType: 'index',
           },
         ]}
+        params={{ keyword: 'test' }}
         request={async (params) => {
           return new Promise((resolve) => {
             setTimeout(() => {
@@ -251,12 +238,12 @@ describe('BasicTable', () => {
           });
         }}
         rowKey="key"
-        onLoadingChange={loadingChangerFn}
         rowSelection={{
           selectedRowKeys: ['1'],
         }}
         search={false}
-        params={{ keyword: 'test' }}
+        size="small"
+        onLoadingChange={loadingChangerFn}
       />,
     );
 
@@ -278,13 +265,6 @@ describe('BasicTable', () => {
   it('🎏 do not render default option', async () => {
     const html = render(
       <ProTable
-        size="small"
-        options={{
-          fullScreen: false,
-          reload: false,
-          setting: false,
-        }}
-        search={false}
         columns={[
           {
             title: 'money title',
@@ -292,8 +272,15 @@ describe('BasicTable', () => {
             valueType: 'money',
           },
         ]}
+        options={{
+          fullScreen: false,
+          reload: false,
+          setting: false,
+        }}
         request={request}
         rowKey="key"
+        search={false}
+        size="small"
       />,
     );
 
@@ -310,16 +297,6 @@ describe('BasicTable', () => {
   it('🎏 ProTable support searchText and resetText', async () => {
     const html = render(
       <ProTable
-        size="small"
-        options={{
-          fullScreen: false,
-          reload: false,
-          setting: false,
-        }}
-        form={{
-          searchText: 'test',
-          resetText: 'test2',
-        }}
         columns={[
           {
             title: 'money title',
@@ -328,7 +305,17 @@ describe('BasicTable', () => {
           },
         ]}
         dataSource={[]}
+        form={{
+          searchText: 'test',
+          resetText: 'test2',
+        }}
+        options={{
+          fullScreen: false,
+          reload: false,
+          setting: false,
+        }}
         rowKey="key"
+        size="small"
       />,
     );
 
@@ -339,18 +326,18 @@ describe('BasicTable', () => {
   it('🎏 ProTable support card props is false', async () => {
     const html = render(
       <ProTable
-        size="small"
         cardProps={false}
-        toolBarRender={false}
         columns={[
           {
             dataIndex: 'money',
             valueType: 'money',
           },
         ]}
-        search={false}
         dataSource={[]}
         rowKey="key"
+        search={false}
+        size="small"
+        toolBarRender={false}
       />,
     );
 
@@ -359,17 +346,17 @@ describe('BasicTable', () => {
     act(() => {
       html.rerender(
         <ProTable
-          size="small"
-          toolBarRender={false}
           columns={[
             {
               dataIndex: 'money',
               valueType: 'money',
             },
           ]}
-          search={false}
           dataSource={[]}
           rowKey="key"
+          search={false}
+          size="small"
+          toolBarRender={false}
         />,
       );
     });
@@ -381,10 +368,6 @@ describe('BasicTable', () => {
     act(() => {
       html.rerender(
         <ProTable
-          size="small"
-          toolBarRender={() => {
-            return [<a key="submit">submit</a>];
-          }}
           columns={[
             {
               dataIndex: 'money',
@@ -393,6 +376,10 @@ describe('BasicTable', () => {
           ]}
           dataSource={[]}
           rowKey="key"
+          size="small"
+          toolBarRender={() => {
+            return [<a key="submit">submit</a>];
+          }}
         />,
       );
     });
@@ -406,20 +393,20 @@ describe('BasicTable', () => {
   it('🎏 do not render setting', async () => {
     const html = render(
       <ProTable
-        size="small"
-        options={{
-          fullScreen: true,
-          reload: true,
-          setting: false,
-        }}
         columns={[
           {
             dataIndex: 'money',
             valueType: 'money',
           },
         ]}
+        options={{
+          fullScreen: true,
+          reload: true,
+          setting: false,
+        }}
         request={request}
         rowKey="key"
+        size="small"
       />,
     );
     await html.findByText('查 询');
@@ -431,8 +418,6 @@ describe('BasicTable', () => {
   it('🎏 valueEnum support function', async () => {
     const html = render(
       <ProTable
-        size="small"
-        options={false}
         columns={[
           {
             title: '状态',
@@ -479,8 +464,10 @@ describe('BasicTable', () => {
             },
           },
         ]}
+        options={false}
         request={request}
         rowKey="key"
+        size="small"
       />,
     );
 
@@ -514,18 +501,17 @@ describe('BasicTable', () => {
   it('🎏 do not render pagination', async () => {
     const html = render(
       <ProTable
-        size="small"
-        options={{
-          fullScreen: true,
-          reload: true,
-          setting: false,
-        }}
         columns={[
           {
             dataIndex: 'money',
             valueType: 'money',
           },
         ]}
+        options={{
+          fullScreen: true,
+          reload: true,
+          setting: false,
+        }}
         pagination={false}
         request={async () => ({
           data: [
@@ -536,6 +522,7 @@ describe('BasicTable', () => {
           success: true,
         })}
         rowKey="key"
+        size="small"
       />,
     );
 
@@ -545,18 +532,17 @@ describe('BasicTable', () => {
     act(() => {
       html.rerender(
         <ProTable
-          size="small"
-          options={{
-            fullScreen: true,
-            reload: true,
-            setting: false,
-          }}
           columns={[
             {
               dataIndex: 'money',
               valueType: 'money',
             },
           ]}
+          options={{
+            fullScreen: true,
+            reload: true,
+            setting: false,
+          }}
           request={async () => ({
             data: [
               {
@@ -566,14 +552,13 @@ describe('BasicTable', () => {
             success: true,
           })}
           rowKey="key"
+          size="small"
         />,
       );
     });
 
     await waitFor(() => {
-      expect(
-        !!html.baseElement.querySelector('ul.ant-pagination'),
-      ).toBeTruthy();
+      expect(!!html.baseElement.querySelector('ul.ant-pagination')).toBeTruthy();
     });
   });
 
@@ -610,18 +595,17 @@ describe('BasicTable', () => {
     const fn = vi.fn();
     const html = render(
       <ProTable
-        size="small"
-        options={{
-          fullScreen: true,
-          reload: true,
-          setting: false,
-        }}
         columns={[
           {
             dataIndex: 'money',
             valueType: 'money',
           },
         ]}
+        options={{
+          fullScreen: true,
+          reload: true,
+          setting: false,
+        }}
         request={async () => {
           fn();
           return {
@@ -629,6 +613,7 @@ describe('BasicTable', () => {
           };
         }}
         rowKey="key"
+        size="small"
       />,
     );
     await html.findByText('查 询');
@@ -642,19 +627,17 @@ describe('BasicTable', () => {
 
     const html = render(
       <ProTable
-        size="small"
-        onLoadingChange={fn}
-        options={{
-          fullScreen: true,
-          reload: true,
-          setting: false,
-        }}
         columns={[
           {
             dataIndex: 'money',
             valueType: 'money',
           },
         ]}
+        options={{
+          fullScreen: true,
+          reload: true,
+          setting: false,
+        }}
         request={async () => {
           return new Promise((resolve) => {
             setTimeout(() => {
@@ -665,6 +648,8 @@ describe('BasicTable', () => {
           });
         }}
         rowKey="key"
+        size="small"
+        onLoadingChange={fn}
       />,
     );
     await html.findByText('查 询');
@@ -678,42 +663,21 @@ describe('BasicTable', () => {
     const fn = vi.fn();
 
     const Reload = () => {
-      const actionRef = useRef<ActionType>();
+      const actionRef = useRef<ActionType>(undefined);
       return (
         <ProTable
           actionRef={actionRef}
-          toolBarRender={() => [
-            <Button
-              onClick={() => {
-                actionRef.current?.reloadAndRest?.();
-              }}
-              key="reload"
-              id="reload"
-            >
-              刷新
-            </Button>,
-            <Button
-              onClick={() => {
-                actionRef.current?.reset?.();
-              }}
-              key="reset"
-              id="reset"
-            >
-              刷新
-            </Button>,
-          ]}
-          size="small"
-          options={{
-            fullScreen: true,
-            reload: true,
-            setting: false,
-          }}
           columns={[
             {
               dataIndex: 'money',
               valueType: 'money',
             },
           ]}
+          options={{
+            fullScreen: true,
+            reload: true,
+            setting: false,
+          }}
           request={async () => {
             fn();
             return new Promise((resolve) => {
@@ -723,6 +687,27 @@ describe('BasicTable', () => {
             });
           }}
           rowKey="key"
+          size="small"
+          toolBarRender={() => [
+            <Button
+              key="reload"
+              id="reload"
+              onClick={() => {
+                actionRef.current?.reloadAndRest?.();
+              }}
+            >
+              刷新
+            </Button>,
+            <Button
+              key="reset"
+              id="reset"
+              onClick={() => {
+                actionRef.current?.reset?.();
+              }}
+            >
+              刷新
+            </Button>,
+          ]}
         />
       );
     };
@@ -762,7 +747,6 @@ describe('BasicTable', () => {
     const fn = vi.fn();
     render(
       <ProTable
-        size="small"
         columns={[
           {
             dataIndex: 'money',
@@ -772,8 +756,9 @@ describe('BasicTable', () => {
         request={async () => {
           throw new Error('load error');
         }}
-        onRequestError={fn}
         rowKey="key"
+        size="small"
+        onRequestError={fn}
       />,
     );
 
@@ -788,25 +773,24 @@ describe('BasicTable', () => {
     const actionRef = React.createRef<ActionType>();
     const html = render(
       <ProTable
-        size="small"
+        actionRef={(ref) => {
+          actionRef.current = ref;
+        }}
         columns={[
           {
             dataIndex: 'money',
             valueType: 'money',
           },
         ]}
-        actionRef={(ref) => {
-          // @ts-expect-error
-          actionRef.current = ref;
-        }}
         request={async () => {
           throw new Error('load error');
         }}
+        rowKey="key"
         rowSelection={{
           onChange: onChangeFn,
         }}
+        size="small"
         onRequestError={fn}
-        rowKey="key"
       />,
     );
     await html.findByText('查 询');
@@ -827,7 +811,6 @@ describe('BasicTable', () => {
     const fn = vi.fn();
     const html = render(
       <ProTable
-        size="small"
         columns={[
           {
             title: 'money',
@@ -838,10 +821,6 @@ describe('BasicTable', () => {
         options={{
           reload: true,
         }}
-        rowSelection={{
-          selectedRowKeys: ['first'],
-        }}
-        tableAlertRender={false}
         request={async () => {
           fn();
           return {
@@ -853,6 +832,11 @@ describe('BasicTable', () => {
           };
         }}
         rowKey="key"
+        rowSelection={{
+          selectedRowKeys: ['first'],
+        }}
+        size="small"
+        tableAlertRender={false}
       />,
     );
     await html.findByText('查 询');
@@ -862,11 +846,7 @@ describe('BasicTable', () => {
     });
 
     act(() => {
-      fireEvent.click(
-        html.baseElement.querySelector(
-          '.ant-pro-table-list-toolbar-setting-item span.anticon-reload',
-        )!,
-      );
+      fireEvent.click(html.baseElement.querySelector('.ant-pro-table-list-toolbar-setting-item span.anticon-reload')!);
     });
 
     await waitFor(() => {
@@ -880,7 +860,7 @@ describe('BasicTable', () => {
     const actionRef = React.createRef<any>();
     const html = render(
       <ProTable
-        size="small"
+        actionRef={actionRef}
         columns={[
           {
             title: 'money',
@@ -892,40 +872,28 @@ describe('BasicTable', () => {
           reload: reloadFn,
           fullScreen: fullScreenFn,
         }}
-        actionRef={actionRef}
         rowKey="key"
+        size="small"
       />,
     );
     await html.findByText('查 询');
 
     act(() => {
-      fireEvent.click(
-        html.baseElement.querySelector(
-          '.ant-pro-table-list-toolbar-setting-item span.anticon-reload',
-        )!,
-      );
+      fireEvent.click(html.baseElement.querySelector('.ant-pro-table-list-toolbar-setting-item span.anticon-reload')!);
     });
 
     await waitFor(() => {
-      expect(reloadFn).toHaveBeenCalledWith(
-        expect.anything(),
-        actionRef.current,
-      );
+      expect(reloadFn).toHaveBeenCalledWith(expect.anything(), actionRef.current);
     });
 
     act(() => {
       fireEvent.click(
-        html.baseElement.querySelector(
-          '.ant-pro-table-list-toolbar-setting-item span.anticon-fullscreen',
-        )!,
+        html.baseElement.querySelector('.ant-pro-table-list-toolbar-setting-item span.anticon-fullscreen')!,
       );
     });
 
     await waitFor(() => {
-      expect(fullScreenFn).toHaveBeenCalledWith(
-        expect.anything(),
-        actionRef.current,
-      );
+      expect(fullScreenFn).toHaveBeenCalledWith(expect.anything(), actionRef.current);
     });
   });
 
@@ -933,7 +901,6 @@ describe('BasicTable', () => {
     const fn = vi.fn();
     const html = render(
       <ProTable
-        size="small"
         columns={[
           {
             title: 'money',
@@ -941,10 +908,6 @@ describe('BasicTable', () => {
             valueType: 'money',
           },
         ]}
-        rowSelection={{
-          selectedRowKeys: ['first'],
-        }}
-        tableAlertRender={false}
         request={async () => {
           fn();
           return {
@@ -956,6 +919,11 @@ describe('BasicTable', () => {
           };
         }}
         rowKey="key"
+        rowSelection={{
+          selectedRowKeys: ['first'],
+        }}
+        size="small"
+        tableAlertRender={false}
       />,
     );
     await html.findByText('查 询');
@@ -965,11 +933,7 @@ describe('BasicTable', () => {
     });
 
     act(() => {
-      fireEvent.click(
-        html.baseElement.querySelector(
-          '.ant-pro-table-list-toolbar-setting-item span.anticon-reload',
-        )!,
-      );
+      fireEvent.click(html.baseElement.querySelector('.ant-pro-table-list-toolbar-setting-item span.anticon-reload')!);
     });
 
     await waitFor(() => {
@@ -988,7 +952,6 @@ describe('BasicTable', () => {
             valueType: 'money',
           },
         ]}
-        onSizeChange={(size) => fn(size)}
         request={async () => {
           return {
             data: [
@@ -999,14 +962,13 @@ describe('BasicTable', () => {
           };
         }}
         rowKey="key"
+        onSizeChange={(size) => fn(size)}
       />,
     );
 
     act(() => {
       html.baseElement
-        .querySelector<HTMLDivElement>(
-          '.ant-pro-table-list-toolbar-setting-item span.anticon-column-height',
-        )
+        .querySelector<HTMLDivElement>('.ant-pro-table-list-toolbar-setting-item span.anticon-column-height')
         ?.click();
     });
 
@@ -1015,11 +977,7 @@ describe('BasicTable', () => {
     });
 
     act(() => {
-      html.baseElement
-        .querySelector<HTMLDivElement>(
-          '.ant-dropdown-menu .ant-dropdown-menu-item',
-        )
-        ?.click();
+      html.baseElement.querySelector<HTMLDivElement>('.ant-dropdown-menu .ant-dropdown-menu-item')?.click();
     });
 
     expect(fn).toHaveBeenCalledWith('large');
@@ -1031,7 +989,6 @@ describe('BasicTable', () => {
 
     const html = render(
       <ProTable
-        size="small"
         // @ts-ignore
         actionRef={actionRef}
         columns={[
@@ -1051,6 +1008,7 @@ describe('BasicTable', () => {
           });
         }}
         rowKey="key"
+        size="small"
       />,
     );
     await html.findByText('查 询');
@@ -1076,7 +1034,6 @@ describe('BasicTable', () => {
     const postFn = vi.fn();
     const html = render(
       <ProTable
-        size="small"
         columns={[
           {
             title: 'money',
@@ -1091,6 +1048,7 @@ describe('BasicTable', () => {
           };
         }}
         rowKey="key"
+        size="small"
       />,
     );
 
@@ -1105,7 +1063,6 @@ describe('BasicTable', () => {
     const fn = vi.fn();
     const html = render(
       <ProTable
-        size="small"
         columns={[
           {
             title: 'money',
@@ -1122,15 +1079,14 @@ describe('BasicTable', () => {
           };
         }}
         rowKey="key"
+        size="small"
       />,
     );
     await html.findByText('查 询');
 
     act(() => {
       fireEvent.click(
-        html.baseElement.querySelector(
-          '.ant-pro-table-list-toolbar-setting-item span.anticon-fullscreen',
-        )!,
+        html.baseElement.querySelector('.ant-pro-table-list-toolbar-setting-item span.anticon-fullscreen')!,
       );
     });
 
@@ -1145,7 +1101,6 @@ describe('BasicTable', () => {
     document.fullscreenEnabled = false;
     const html = render(
       <ProTable
-        size="small"
         columns={[
           {
             title: 'money',
@@ -1162,14 +1117,13 @@ describe('BasicTable', () => {
           };
         }}
         rowKey="key"
+        size="small"
       />,
     );
 
     act(() => {
       fireEvent.click(
-        html.baseElement.querySelector(
-          '.ant-pro-table-list-toolbar-setting-item span.anticon-fullscreen',
-        )!,
+        html.baseElement.querySelector('.ant-pro-table-list-toolbar-setting-item span.anticon-fullscreen')!,
       );
     });
     await html.findByText('查 询');
@@ -1278,7 +1232,6 @@ describe('BasicTable', () => {
     const fn = vi.fn();
     const html = render(
       <ProTable
-        size="small"
         columns={[
           {
             title: 'money',
@@ -1291,26 +1244,23 @@ describe('BasicTable', () => {
             data: [],
           };
         }}
+        rowKey="key"
+        size="small"
         onSizeChange={(size) => {
           fn(size);
         }}
-        rowKey="key"
       />,
     );
     await html.findByText('查 询');
 
     act(() => {
       fireEvent.click(
-        html.baseElement.querySelector(
-          '.ant-pro-table-list-toolbar-setting-item span.anticon-column-height',
-        )!,
+        html.baseElement.querySelector('.ant-pro-table-list-toolbar-setting-item span.anticon-column-height')!,
       );
     });
 
     act(() => {
-      fireEvent.click(
-        html.baseElement.querySelectorAll('li.ant-dropdown-menu-item')[1],
-      );
+      fireEvent.click(html.baseElement.querySelectorAll('li.ant-dropdown-menu-item')[1]);
     });
 
     await waitFor(() => {
@@ -1321,6 +1271,7 @@ describe('BasicTable', () => {
   it('🎏 loading test', async () => {
     const html = render(
       <ProTable
+        loading
         columns={[
           {
             title: 'money',
@@ -1328,7 +1279,6 @@ describe('BasicTable', () => {
             valueType: 'money',
           },
         ]}
-        loading
         dataSource={[]}
         rowKey="key"
       />,
@@ -1346,8 +1296,8 @@ describe('BasicTable', () => {
               valueType: 'money',
             },
           ]}
-          loading={false}
           dataSource={[]}
+          loading={false}
           rowKey="key"
         />,
       );
@@ -1368,9 +1318,9 @@ describe('BasicTable', () => {
         request={async () => {
           return { data: [] };
         }}
+        rowKey="key"
         search={false}
         toolBarRender={false}
-        rowKey="key"
       />,
     );
     await waitFor(() => {
@@ -1403,27 +1353,20 @@ describe('BasicTable', () => {
     await html.findByText('查 询');
 
     act(() => {
-      fireEvent.change(
-        html.baseElement.querySelector(
-          '.ant-pro-table-list-toolbar-search input',
-        )!,
-        {
-          target: {
-            value: 'name',
-          },
+      fireEvent.change(html.baseElement.querySelector('.ant-pro-table-list-toolbar-search input')!, {
+        target: {
+          value: 'name',
         },
-      );
+      });
     });
 
     await html.findByDisplayValue('name');
 
     act(() => {
-      fireEvent.keyDown(
-        html.baseElement.querySelector(
-          '.ant-pro-table-list-toolbar-search input',
-        )!,
-        { key: 'Enter', keyCode: 13 },
-      );
+      fireEvent.keyDown(html.baseElement.querySelector('.ant-pro-table-list-toolbar-search input')!, {
+        key: 'Enter',
+        keyCode: 13,
+      });
     });
 
     await waitFor(() => {
@@ -1457,26 +1400,19 @@ describe('BasicTable', () => {
     await html.findByText('查 询');
 
     act(() => {
-      fireEvent.change(
-        html.baseElement.querySelector(
-          '.ant-pro-table-list-toolbar-search input',
-        )!,
-        {
-          target: {
-            value: 'name',
-          },
+      fireEvent.change(html.baseElement.querySelector('.ant-pro-table-list-toolbar-search input')!, {
+        target: {
+          value: 'name',
         },
-      );
+      });
     });
     await html.findByDisplayValue('name');
 
     act(() => {
-      fireEvent.keyDown(
-        html.baseElement.querySelector(
-          '.ant-pro-table-list-toolbar-search input',
-        )!,
-        { key: 'Enter', keyCode: 13 },
-      );
+      fireEvent.keyDown(html.baseElement.querySelector('.ant-pro-table-list-toolbar-search input')!, {
+        key: 'Enter',
+        keyCode: 13,
+      });
     });
 
     await waitFor(() => {
@@ -1507,12 +1443,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    const input = await waitFor(
-      () =>
-        html.baseElement.querySelector(
-          '.ant-pro-table-list-toolbar-search input',
-        )!,
-    );
+    const input = await waitFor(() => html.baseElement.querySelector('.ant-pro-table-list-toolbar-search input')!);
     await html.findByText('查 询');
 
     act(() => {
@@ -1558,59 +1489,47 @@ describe('BasicTable', () => {
   it('🎏 bordered = true', async () => {
     const html = render(
       <ProTable
-        size="small"
         cardBordered
         columns={columns}
+        pagination={{
+          defaultCurrent: 10,
+        }}
+        params={{ keyword: 'test' }}
         request={request}
         rowKey="key"
         rowSelection={{
           selectedRowKeys: ['1'],
         }}
-        params={{ keyword: 'test' }}
-        pagination={{
-          defaultCurrent: 10,
-        }}
+        size="small"
       />,
     );
 
-    expect(
-      !!html.baseElement.querySelector(
-        '.ant-pro-table-search-query-filter.ant-pro-card-bordered',
-      ),
-    ).toBeTruthy();
-    expect(
-      !!html.baseElement.querySelector('.ant-pro-card.ant-pro-card-border'),
-    ).toBeTruthy();
+    expect(!!html.baseElement.querySelector('.ant-pro-table-search-query-filter.ant-pro-card-bordered')).toBeTruthy();
+    expect(!!html.baseElement.querySelector('.ant-pro-card.ant-pro-card-border')).toBeTruthy();
   });
 
   it('🎏 bordered = {search = true, table = false}', async () => {
     const html = render(
       <ProTable
-        size="small"
         cardBordered={{
           search: true,
           table: false,
         }}
         columns={columns}
         dataSource={[]}
+        pagination={{
+          defaultCurrent: 10,
+        }}
+        params={{ keyword: 'test' }}
         rowKey="key"
         rowSelection={{
           selectedRowKeys: ['1'],
         }}
-        params={{ keyword: 'test' }}
-        pagination={{
-          defaultCurrent: 10,
-        }}
+        size="small"
       />,
     );
-    expect(
-      !!html.baseElement.querySelector('.ant-pro-card.ant-card-bordered'),
-    ).toBeFalsy();
-    expect(
-      !!html.baseElement.querySelector(
-        '.ant-pro-table-search-query-filter.ant-pro-card-bordered',
-      ),
-    ).toBeTruthy();
+    expect(!!html.baseElement.querySelector('.ant-pro-card.ant-card-bordered')).toBeFalsy();
+    expect(!!html.baseElement.querySelector('.ant-pro-table-search-query-filter.ant-pro-card-bordered')).toBeTruthy();
   });
 
   it('🎏 debounce time', async () => {
@@ -1619,9 +1538,8 @@ describe('BasicTable', () => {
 
     const html = render(
       <ProTable
-        actionRef={ref as any}
-        size="small"
         cardBordered
+        actionRef={ref as any}
         columns={[
           {
             title: 'Name',
@@ -1629,6 +1547,7 @@ describe('BasicTable', () => {
             dataIndex: 'name',
           },
         ]}
+        debounceTime={500}
         request={async () => {
           fn();
           return Promise.resolve({
@@ -1638,7 +1557,7 @@ describe('BasicTable', () => {
           });
         }}
         rowKey="key"
-        debounceTime={500}
+        size="small"
       />,
     );
 
@@ -1674,10 +1593,10 @@ describe('BasicTable', () => {
     const fn = vi.fn();
     const html = render(
       <ProTable
-        actionRef={ref as any}
-        size="small"
         cardBordered
+        actionRef={ref as any}
         columns={columns}
+        debounceTime={500}
         request={async () => {
           fn();
           return Promise.resolve({
@@ -1686,17 +1605,14 @@ describe('BasicTable', () => {
             success: true,
           });
         }}
+        rowKey="key"
         search={{
           showHiddenNum: true,
         }}
-        rowKey="key"
-        debounceTime={500}
+        size="small"
       />,
     );
     await html.findByText('展开(9)');
-    expect(
-      html.baseElement.querySelector('.ant-pro-query-filter-collapse-button')
-        ?.textContent,
-    ).toBe('展开(9)');
+    expect(html.baseElement.querySelector('.ant-pro-query-filter-collapse-button')?.textContent).toBe('展开(9)');
   });
 });

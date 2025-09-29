@@ -1,4 +1,4 @@
-import { CheckCard } from '@ant-design/pro-components';
+import { CheckCard } from '@xxlabs/pro-components';
 import { Avatar } from 'antd';
 
 const dataSource = [
@@ -6,8 +6,8 @@ const dataSource = [
     title: '图像分类',
     avatar: (
       <Avatar
-        size={32}
         shape="square"
+        size={32}
         src="https://gw.alipayobjects.com/zos/bmw-prod/ae0adacf-9456-4ed3-b1ab-51e4417d8d0c.svg"
       />
     ),
@@ -18,8 +18,8 @@ const dataSource = [
     title: '物体检测',
     avatar: (
       <Avatar
-        size={32}
         shape="square"
+        size={32}
         src="https://gw.alipayobjects.com/zos/bmw-prod/ae0adacf-9456-4ed3-b1ab-51e4417d8d0c.svg"
       />
     ),
@@ -30,8 +30,8 @@ const dataSource = [
     title: 'OCR自定义',
     avatar: (
       <Avatar
-        size={32}
         shape="square"
+        size={32}
         src="https://gw.alipayobjects.com/zos/bmw-prod/ae0adacf-9456-4ed3-b1ab-51e4417d8d0c.svg"
       />
     ),
@@ -42,8 +42,8 @@ const dataSource = [
     title: 'OCR',
     avatar: (
       <Avatar
-        size={32}
         shape="square"
+        size={32}
         src="https://gw.alipayobjects.com/zos/bmw-prod/ae0adacf-9456-4ed3-b1ab-51e4417d8d0c.svg"
       />
     ),
@@ -54,8 +54,8 @@ const dataSource = [
     title: '视频分类',
     avatar: (
       <Avatar
-        size={32}
         shape="square"
+        size={32}
         src="https://gw.alipayobjects.com/zos/bmw-prod/ae0adacf-9456-4ed3-b1ab-51e4417d8d0c.svg"
       />
     ),
@@ -66,8 +66,8 @@ const dataSource = [
     title: '关键点检测',
     avatar: (
       <Avatar
-        size={32}
         shape="square"
+        size={32}
         src="https://gw.alipayobjects.com/zos/bmw-prod/ae0adacf-9456-4ed3-b1ab-51e4417d8d0c.svg"
       />
     ),

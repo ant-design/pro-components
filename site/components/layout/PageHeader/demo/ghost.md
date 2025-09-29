@@ -13,7 +13,7 @@ title: 白底模式
 ```tsx
 import { Button, Descriptions } from 'antd';
 import React from 'react';
-import { PageHeader } from '@ant-design/pro-components';
+import { PageHeader } from '@xxlabs/pro-components';
 
 const App: React.FC = () => (
   <div className="site-page-header-ghost-wrapper">

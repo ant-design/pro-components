@@ -1,5 +1,5 @@
-﻿import type { ProColumns } from '@ant-design/pro-components';
-import { CellEditorTable } from '@ant-design/pro-components';
+﻿import type { ProColumns } from '@xxlabs/pro-components';
+import { CellEditorTable } from '@xxlabs/pro-components';
 import React, { useState } from 'react';
 
 type DataSourceType = {
@@ -22,9 +22,7 @@ const defaultData: DataSourceType[] = new Array(5).fill(1).map((_, index) => {
 });
 
 export default () => {
-  const [dataSource, setDataSource] = useState<readonly DataSourceType[]>(
-    () => defaultData,
-  );
+  const [dataSource, setDataSource] = useState<readonly DataSourceType[]>(() => defaultData);
 
   const columns: ProColumns<DataSourceType>[] = [
     {
@@ -81,20 +79,20 @@ export default () => {
   return (
     <>
       <CellEditorTable<DataSourceType>
-        headerTitle="可编辑表格"
         columns={columns}
-        rowKey="id"
-        scroll={{
-          x: 960,
-        }}
-        value={dataSource}
-        onChange={setDataSource}
+        headerTitle="可编辑表格"
         recordCreatorProps={{
           newRecordType: 'dataSource',
           record: () => ({
             id: Date.now(),
           }),
         }}
+        rowKey="id"
+        scroll={{
+          x: 960,
+        }}
+        value={dataSource}
+        onChange={setDataSource}
       />
     </>
   );

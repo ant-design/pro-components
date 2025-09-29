@@ -1,15 +1,6 @@
-﻿import type {
-  ProFormColumnsType,
-  ProFormLayoutType,
-} from '@ant-design/pro-components';
-import { BetaSchemaForm, ProProvider } from '@ant-design/pro-components';
-import {
-  cleanup,
-  fireEvent,
-  render,
-  screen,
-  waitFor,
-} from '@testing-library/react';
+﻿import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import type { ProFormColumnsType, ProFormLayoutType } from '@xxlabs/pro-components';
+import { BetaSchemaForm, ProProvider } from '@xxlabs/pro-components';
 import type { FormInstance } from 'antd';
 import { Input } from 'antd';
 import React, { act, createRef, useContext, useEffect } from 'react';
@@ -192,20 +183,6 @@ describe('SchemaForm', () => {
     const shouldUpdateFn = vi.fn();
     const { container } = render(
       <BetaSchemaForm
-        shouldUpdate={(value: any, oldValue?: any) => {
-          shouldUpdateFn(
-            value.subtitle === 'rerender' &&
-              value.subtitle !== oldValue?.subtitle,
-          );
-          if (
-            value.subtitle === 'rerender' &&
-            value.subtitle !== oldValue?.subtitle
-          ) {
-            return true;
-          } else {
-            return false;
-          }
-        }}
         columns={[
           {
             title: '标题',
@@ -233,6 +210,14 @@ describe('SchemaForm', () => {
             dependencies: ['title'],
           },
         ]}
+        shouldUpdate={(value: any, oldValue?: any) => {
+          shouldUpdateFn(value.subtitle === 'rerender' && value.subtitle !== oldValue?.subtitle);
+          if (value.subtitle === 'rerender' && value.subtitle !== oldValue?.subtitle) {
+            return true;
+          } else {
+            return false;
+          }
+        }}
       />,
     );
 
@@ -277,7 +262,6 @@ describe('SchemaForm', () => {
     const formItemRenderFn = vi.fn();
     const { container } = render(
       <BetaSchemaForm
-        shouldUpdate={false}
         columns={[
           {
             title: '标题',
@@ -301,6 +285,7 @@ describe('SchemaForm', () => {
             formItemProps: formItemPropsFn,
           },
         ]}
+        shouldUpdate={false}
       />,
     );
 
@@ -326,18 +311,6 @@ describe('SchemaForm', () => {
   it('🐲 SchemaForm support StepsForm', async () => {
     const { container, unmount } = render(
       <BetaSchemaForm
-        layoutType="StepsForm"
-        steps={[
-          {
-            title: '表单1',
-          },
-          {
-            title: '表单2',
-          },
-          {
-            title: '表单3',
-          },
-        ]}
         columns={[
           [
             {
@@ -358,19 +331,25 @@ describe('SchemaForm', () => {
             },
           ],
         ]}
+        layoutType="StepsForm"
+        steps={[
+          {
+            title: '表单1',
+          },
+          {
+            title: '表单2',
+          },
+          {
+            title: '表单3',
+          },
+        ]}
       />,
     );
 
     expect(container.querySelectorAll('span.ant-steps-icon')).toHaveLength(3);
-    expect(
-      container.querySelectorAll('div.ant-steps-item-title')[0],
-    ).toHaveTextContent('表单1');
-    expect(
-      container.querySelectorAll('div.ant-steps-item-title')[1],
-    ).toHaveTextContent('表单2');
-    expect(
-      container.querySelectorAll('div.ant-steps-item-title')[2],
-    ).toHaveTextContent('表单3');
+    expect(container.querySelectorAll('div.ant-steps-item-title')[0]).toHaveTextContent('表单1');
+    expect(container.querySelectorAll('div.ant-steps-item-title')[1]).toHaveTextContent('表单2');
+    expect(container.querySelectorAll('div.ant-steps-item-title')[2]).toHaveTextContent('表单3');
     unmount();
   });
 
@@ -421,7 +400,6 @@ describe('SchemaForm', () => {
     const formRef = createRef<FormInstance>();
     const { container } = render(
       <BetaSchemaForm
-        formRef={formRef as any}
         columns={[
           {
             title: '标题',
@@ -444,6 +422,7 @@ describe('SchemaForm', () => {
             },
           },
         ]}
+        formRef={formRef as any}
       />,
     );
 
@@ -510,12 +489,6 @@ describe('SchemaForm', () => {
     const onFinish = vi.fn();
     const { container } = render(
       <BetaSchemaForm
-        onFinish={onFinish}
-        initialValues={{
-          name: '蚂蚁设计有限公司',
-          name2: '蚂蚁设计集团',
-          useMode: 'chapter',
-        }}
         columns={[
           {
             dataIndex: 'name',
@@ -558,6 +531,12 @@ describe('SchemaForm', () => {
             ],
           },
         ]}
+        initialValues={{
+          name: '蚂蚁设计有限公司',
+          name2: '蚂蚁设计集团',
+          useMode: 'chapter',
+        }}
+        onFinish={onFinish}
       />,
     );
 
@@ -573,9 +552,7 @@ describe('SchemaForm', () => {
       },
     });
 
-    expect(container.querySelector('span#label_text')).toHaveTextContent(
-      '与《test》 与 《test2》合同约定生效方式',
-    );
+    expect(container.querySelector('span#label_text')).toHaveTextContent('与《test》 与 《test2》合同约定生效方式');
   });
 
   it('😊 SchemaForm support validate formList empty', async () => {
@@ -605,12 +582,7 @@ describe('SchemaForm', () => {
     ];
     const onFinish = vi.fn();
     const wrapper = render(
-      <BetaSchemaForm
-        shouldUpdate={false}
-        layoutType="Form"
-        onFinish={onFinish}
-        columns={curColumns}
-      />,
+      <BetaSchemaForm columns={curColumns} layoutType="Form" shouldUpdate={false} onFinish={onFinish} />,
     );
 
     await wrapper.findAllByText('测试');
@@ -642,10 +614,7 @@ describe('SchemaForm', () => {
     });
 
     await waitFor(() => {
-      expect(
-        wrapper.baseElement.querySelector('.ant-form-item-explain-error')
-          ?.innerHTML,
-      ).toBe('请填写1');
+      expect(wrapper.baseElement.querySelector('.ant-form-item-explain-error')?.innerHTML).toBe('请填写1');
     });
 
     await act(async () => {
@@ -673,9 +642,9 @@ describe('SchemaForm', () => {
       ];
       const wrapper = render(
         <BetaSchemaForm
-          trigger={<button>打开</button>}
-          layoutType={layoutType as 'DrawerForm'}
           columns={formColumns}
+          layoutType={layoutType as 'DrawerForm'}
+          trigger={<button>打开</button>}
           {...(layoutType === 'ModalForm'
             ? {
                 modalProps: { destroyOnHidden: true },
@@ -696,17 +665,17 @@ describe('SchemaForm', () => {
         ?.closest('button');
 
       await act(async () => {
-        const button = Array.from(
-          wrapper.container.querySelectorAll('button'),
-        ).find((btn) => btn.textContent?.includes('打开'));
+        const button = Array.from(wrapper.container.querySelectorAll('button')).find((btn) =>
+          btn.textContent?.includes('打开'),
+        );
         if (button) {
           fireEvent.click(button);
         }
       });
 
       // 打开就存在了
-      await Array.from(wrapper.container.querySelectorAll('label')).find(
-        (label) => label.textContent?.includes('签约客户名称'),
+      await Array.from(wrapper.container.querySelectorAll('label')).find((label) =>
+        label.textContent?.includes('签约客户名称'),
       );
 
       await act(async () => {
@@ -722,30 +691,22 @@ describe('SchemaForm', () => {
       );
 
       await act(async () => {
-        const button = Array.from(
-          wrapper.container.querySelectorAll('button'),
-        ).find((btn) => btn.textContent?.includes('打开'));
+        const button = Array.from(wrapper.container.querySelectorAll('button')).find((btn) =>
+          btn.textContent?.includes('打开'),
+        );
         if (button) {
           fireEvent.click(button);
         }
       });
 
       // 打开就又存在了
-      await Array.from(wrapper.container.querySelectorAll('label')).find(
-        (label) => label.textContent?.includes('签约客户名称'),
+      await Array.from(wrapper.container.querySelectorAll('label')).find((label) =>
+        label.textContent?.includes('签约客户名称'),
       );
     });
   });
 
-  [
-    'Form',
-    'ModalForm',
-    'DrawerForm',
-    'StepsForm',
-    'StepForm',
-    'LightFilter',
-    'QueryFilter',
-  ].forEach((layoutType) => {
+  ['Form', 'ModalForm', 'DrawerForm', 'StepsForm', 'StepForm', 'LightFilter', 'QueryFilter'].forEach((layoutType) => {
     it(`😊 When SchemaForm's layoutType property is ${layoutType}, make sure it is valid to get the form instance through formRef`, async () => {
       const formColumns = [
         [
@@ -774,10 +735,10 @@ describe('SchemaForm', () => {
       const formRef = React.createRef<FormInstance>();
       const wrapper = render(
         <BetaSchemaForm
-          open={true}
+          columns={formColumns.flat(layoutType !== 'StepsForm' ? 1 : 0) as any}
           formRef={formRef as any}
           layoutType={layoutType as ProFormLayoutType}
-          columns={formColumns.flat(layoutType !== 'StepsForm' ? 1 : 0) as any}
+          open={true}
           steps={[
             {
               title: '一步',
@@ -789,8 +750,8 @@ describe('SchemaForm', () => {
         />,
       );
 
-      await Array.from(wrapper.container.querySelectorAll('label')).find(
-        (label) => label.textContent?.includes('签约客户名称'),
+      await Array.from(wrapper.container.querySelectorAll('label')).find((label) =>
+        label.textContent?.includes('签约客户名称'),
       );
 
       expect(formRef.current).toBeTruthy();
@@ -821,9 +782,7 @@ describe('SchemaForm', () => {
         });
 
         waitFor(() => {
-          expect(formRef.current!.getFieldsValue(true)).toMatchObject(
-            stepsValue,
-          );
+          expect(formRef.current!.getFieldsValue(true)).toMatchObject(stepsValue);
         });
       }
     });
@@ -891,10 +850,7 @@ describe('SchemaForm', () => {
             },
           }}
         >
-          <BetaSchemaForm<any, 'test'>
-            columns={formColumns}
-            title="自定义 valueType"
-          />
+          <BetaSchemaForm<any, 'test'> columns={formColumns} title="自定义 valueType" />
         </ProProvider.Provider>
       );
     };

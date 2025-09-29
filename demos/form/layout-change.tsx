@@ -18,8 +18,8 @@ import {
   ProFormText,
   QueryFilter,
   StepsForm,
-} from '@ant-design/pro-components';
-import { Button, Space, message } from 'antd';
+} from '@xxlabs/pro-components';
+import { Button, message, Space } from 'antd';
 import { useState } from 'react';
 
 const iconStyles = {
@@ -54,23 +54,15 @@ export default () => {
     return (
       <>
         <ProFormRadio.Group
-          style={{
-            margin: 16,
-          }}
-          radioType="button"
           fieldProps={{
             value: type,
             onChange: (e) => setType(e.target.value),
           }}
-          options={[
-            'LightFilter',
-            'ProForm',
-            'ModalForm',
-            'DrawerForm',
-            'QueryFilter',
-            'StepsForm',
-            'LoginForm',
-          ]}
+          options={['LightFilter', 'ProForm', 'ModalForm', 'DrawerForm', 'QueryFilter', 'StepsForm', 'LoginForm']}
+          radioType="button"
+          style={{
+            margin: 16,
+          }}
         />
         <StepsForm
           onFinish={async (values: any) => {
@@ -82,76 +74,55 @@ export default () => {
           <StepsForm.StepForm title="Step One">
             <ProForm.Group>
               <ProFormText
-                width="md"
-                name="name"
                 label="Contract Customer Name"
+                name="name"
+                placeholder="Please enter a name"
                 tooltip="Up to 24 characters"
-                placeholder="Please enter a name"
-              />
-              <ProFormText
                 width="md"
-                name="company"
-                label="Our Company Name"
-                placeholder="Please enter a name"
               />
+              <ProFormText label="Our Company Name" name="company" placeholder="Please enter a name" width="md" />
             </ProForm.Group>
             <ProForm.Group>
               <ProFormText
-                name={['contract', 'name']}
-                width="md"
                 label="Contract Name"
+                name={['contract', 'name']}
                 placeholder="Please enter a name"
-              />
-              <ProFormDateRangePicker
                 width="md"
-                name={['contract', 'createTime']}
-                label="Contract Effective Time"
               />
+              <ProFormDateRangePicker label="Contract Effective Time" name={['contract', 'createTime']} width="md" />
             </ProForm.Group>
           </StepsForm.StepForm>
           <StepsForm.StepForm title="Step Two">
             <ProForm.Group>
               <ProFormSelect
+                readonly
+                label="Contract Agreed Effective Method"
+                name="useMode"
                 options={[
                   {
                     value: 'chapter',
                     label: 'Effective after stamping',
                   },
                 ]}
-                readonly
                 width="xs"
-                name="useMode"
-                label="Contract Agreed Effective Method"
               />
               <ProFormSelect
-                width="xs"
+                label="Contract Agreed Invalid Method"
+                name="unusedMode"
                 options={[
                   {
                     value: 'time',
                     label: 'Terminate after performance',
                   },
                 ]}
-                name="unusedMode"
-                label="Contract Agreed Invalid Method"
+                width="xs"
               />
             </ProForm.Group>
           </StepsForm.StepForm>
           <StepsForm.StepForm title="Step Three">
-            <ProFormText width="sm" name="id" label="Main Contract Number" />
-            <ProFormText
-              name="project"
-              width="md"
-              disabled
-              label="Project Name"
-              initialValue="xxxx Project"
-            />
-            <ProFormText
-              width="xs"
-              name="mangerName"
-              disabled
-              label="Business Manager"
-              initialValue="Qitu"
-            />
+            <ProFormText label="Main Contract Number" name="id" width="sm" />
+            <ProFormText disabled initialValue="xxxx Project" label="Project Name" name="project" width="md" />
+            <ProFormText disabled initialValue="Qitu" label="Business Manager" name="mangerName" width="xs" />
           </StepsForm.StepForm>
         </StepsForm>
       </>
@@ -164,27 +135,17 @@ export default () => {
     return (
       <>
         <ProFormRadio.Group
-          style={{
-            margin: 16,
-          }}
-          radioType="button"
           fieldProps={{
             value: type,
             onChange: (e) => setType(e.target.value),
           }}
-          options={[
-            'LightFilter',
-            'ProForm',
-            'ModalForm',
-            'DrawerForm',
-            'QueryFilter',
-            'StepsForm',
-            'LoginForm',
-          ]}
+          options={['LightFilter', 'ProForm', 'ModalForm', 'DrawerForm', 'QueryFilter', 'StepsForm', 'LoginForm']}
+          radioType="button"
+          style={{
+            margin: 16,
+          }}
         />
         <FormComponents
-          title="Github"
-          subTitle="The world's largest code hosting platform"
           actions={
             <Space>
               Other login methods
@@ -193,14 +154,16 @@ export default () => {
               <WeiboCircleOutlined style={iconStyles} />
             </Space>
           }
+          subTitle="The world's largest code hosting platform"
+          title="Github"
         >
           <ProFormText
-            name="username"
             fieldProps={{
               size: 'large',
-              prefix: <UserOutlined className={'prefixIcon'} />,
+              prefix: <UserOutlined className="prefixIcon" />,
             }}
-            placeholder={'Username: admin or user'}
+            name="username"
+            placeholder="Username: admin or user"
             rules={[
               {
                 required: true,
@@ -209,12 +172,12 @@ export default () => {
             ]}
           />
           <ProFormText.Password
-            name="password"
             fieldProps={{
               size: 'large',
-              prefix: <LockOutlined className={'prefixIcon'} />,
+              prefix: <LockOutlined className="prefixIcon" />,
             }}
-            placeholder={'Password: ant.design'}
+            name="password"
+            placeholder="Password: ant.design"
             rules={[
               {
                 required: true,
@@ -230,23 +193,15 @@ export default () => {
   return (
     <>
       <ProFormRadio.Group
-        style={{
-          margin: 16,
-        }}
-        radioType="button"
         fieldProps={{
           value: type,
           onChange: (e) => setType(e.target.value),
         }}
-        options={[
-          'LightFilter',
-          'ProForm',
-          'ModalForm',
-          'DrawerForm',
-          'QueryFilter',
-          'StepsForm',
-          'LoginForm',
-        ]}
+        options={['LightFilter', 'ProForm', 'ModalForm', 'DrawerForm', 'QueryFilter', 'StepsForm', 'LoginForm']}
+        radioType="button"
+        style={{
+          margin: 16,
+        }}
       />
       <div
         style={{
@@ -254,6 +209,10 @@ export default () => {
         }}
       >
         <FormComponents
+          initialValues={{
+            name: 'Ant Design Co., Ltd.',
+            useMode: 'chapter',
+          }}
           // @ts-ignore
           labelWidth="auto"
           trigger={
@@ -267,79 +226,54 @@ export default () => {
             console.log(values);
             message.success('Submission successful');
           }}
-          initialValues={{
-            name: 'Ant Design Co., Ltd.',
-            useMode: 'chapter',
-          }}
         >
           <ProForm.Group>
             <ProFormText
-              width="md"
-              name="name"
               label="Contract Customer Name"
+              name="name"
+              placeholder="Please enter a name"
               tooltip="Up to 24 characters"
-              placeholder="Please enter a name"
-            />
-            <ProFormText
               width="md"
-              name="company"
-              label="Our Company Name"
-              placeholder="Please enter a name"
             />
+            <ProFormText label="Our Company Name" name="company" placeholder="Please enter a name" width="md" />
           </ProForm.Group>
           <ProForm.Group>
             <ProFormText
-              name={['contract', 'name']}
-              width="md"
               label="Contract Name"
+              name={['contract', 'name']}
               placeholder="Please enter a name"
-            />
-            <ProFormDateRangePicker
               width="md"
-              name={['contract', 'createTime']}
-              label="Contract Effective Time"
             />
+            <ProFormDateRangePicker label="Contract Effective Time" name={['contract', 'createTime']} width="md" />
           </ProForm.Group>
           <ProForm.Group>
             <ProFormSelect
+              readonly
+              label="Contract Agreed Effective Method"
+              name="useMode"
               options={[
                 {
                   value: 'chapter',
                   label: 'Effective after stamping',
                 },
               ]}
-              readonly
               width="xs"
-              name="useMode"
-              label="Contract Agreed Effective Method"
             />
             <ProFormSelect
-              width="xs"
+              label="Contract Agreed Invalid Method"
+              name="unusedMode"
               options={[
                 {
                   value: 'time',
                   label: 'Terminate after performance',
                 },
               ]}
-              name="unusedMode"
-              label="Contract Agreed Invalid Method"
+              width="xs"
             />
           </ProForm.Group>
-          <ProFormText width="sm" name="id" label="Main Contract Number" />
-          <ProFormText
-            name="project"
-            width="md"
-            disabled
-            label="Project Name"
-            initialValue="xxxx Project"
-          />
-          <ProFormText
-            width="xs"
-            name="mangerName"
-            disabled
-            label="Business Manager"
-            initialValue="Qitu"
-          />
+          <ProFormText label="Main Contract Number" name="id" width="sm" />
+          <ProFormText disabled initialValue="xxxx Project" label="Project Name" name="project" width="md" />
+          <ProFormText disabled initialValue="Qitu" label="Business Manager" name="mangerName" width="xs" />
         </FormComponents>
       </div>
     </>

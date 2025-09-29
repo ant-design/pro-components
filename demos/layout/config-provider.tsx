@@ -1,46 +1,31 @@
 import { LikeOutlined, UserOutlined } from '@ant-design/icons';
-import type { ProSettings } from '@ant-design/pro-components';
-import {
-  PageContainer,
-  ProLayout,
-  SettingDrawer,
-} from '@ant-design/pro-components';
-import {
-  Button,
-  ConfigProvider,
-  Descriptions,
-  Result,
-  Space,
-  Statistic,
-} from 'antd';
+import type { ProSettings } from '@xxlabs/pro-components';
+import { PageContainer, ProLayout, SettingDrawer } from '@xxlabs/pro-components';
+import { Button, ConfigProvider, Descriptions, Result, Space, Statistic } from 'antd';
 import { useState } from 'react';
 import defaultProps from './_defaultProps';
 
 const content = (
-  <Descriptions size="small" column={2}>
+  <Descriptions column={2} size="small">
     <Descriptions.Item label="创建人">张三</Descriptions.Item>
     <Descriptions.Item label="联系方式">
       <a>421421</a>
     </Descriptions.Item>
     <Descriptions.Item label="创建时间">2017-01-10</Descriptions.Item>
     <Descriptions.Item label="更新时间">2017-10-10</Descriptions.Item>
-    <Descriptions.Item label="备注">
-      中国浙江省杭州市西湖区古翠路
-    </Descriptions.Item>
+    <Descriptions.Item label="备注">中国浙江省杭州市西湖区古翠路</Descriptions.Item>
   </Descriptions>
 );
 
 export default () => {
-  const [settings, setSetting] = useState<Partial<ProSettings> | undefined>(
-    undefined,
-  );
+  const [settings, setSetting] = useState<Partial<ProSettings> | undefined>(undefined);
   const [pathname, setPathname] = useState('/welcome');
   return (
     <ConfigProvider prefixCls="qixian">
       <ProLayout
         {...defaultProps}
-        style={{
-          maxHeight: '100vh',
+        avatarProps={{
+          icon: <UserOutlined />,
         }}
         location={{
           pathname,
@@ -48,6 +33,8 @@ export default () => {
         menuFooterRender={(props) => {
           return (
             <a
+              href="https://preview.pro.ant.design/dashboard/analysis"
+              rel="noreferrer"
               style={{
                 lineHeight: '48rpx',
                 display: 'flex',
@@ -55,9 +42,7 @@ export default () => {
                 color: 'rgba(255, 255, 255, 0.65)',
                 alignItems: 'center',
               }}
-              href="https://preview.pro.ant.design/dashboard/analysis"
               target="_blank"
-              rel="noreferrer"
             >
               <img
                 alt="pro-logo"
@@ -73,7 +58,6 @@ export default () => {
             </a>
           );
         }}
-        onMenuHeaderClick={(e) => console.log(e)}
         menuItemRender={(item, dom) => (
           <a
             onClick={() => {
@@ -83,13 +67,33 @@ export default () => {
             {dom}
           </a>
         )}
-        avatarProps={{
-          icon: <UserOutlined />,
+        style={{
+          maxHeight: '100vh',
         }}
+        onMenuHeaderClick={(e) => console.log(e)}
         {...settings}
       >
         <PageContainer
           content={content}
+          extra={[
+            <Button key="3">操作</Button>,
+            <Button key="2">操作</Button>,
+            <Button key="1" type="primary">
+              主操作
+            </Button>,
+          ]}
+          extraContent={
+            <Space size={24}>
+              <Statistic prefix={<LikeOutlined />} title="Feedback" value={1128} />
+              <Statistic suffix="/ 100" title="Unmerged" value={93} />
+            </Space>
+          }
+          footer={[
+            <Button key="3">重置</Button>,
+            <Button key="2" type="primary">
+              提交
+            </Button>,
+          ]}
           tabList={[
             {
               tab: '基本信息',
@@ -100,29 +104,6 @@ export default () => {
               key: 'info',
             },
           ]}
-          extraContent={
-            <Space size={24}>
-              <Statistic
-                title="Feedback"
-                value={1128}
-                prefix={<LikeOutlined />}
-              />
-              <Statistic title="Unmerged" value={93} suffix="/ 100" />
-            </Space>
-          }
-          extra={[
-            <Button key="3">操作</Button>,
-            <Button key="2">操作</Button>,
-            <Button key="1" type="primary">
-              主操作
-            </Button>,
-          ]}
-          footer={[
-            <Button key="3">重置</Button>,
-            <Button key="2" type="primary">
-              提交
-            </Button>,
-          ]}
         >
           <div
             style={{
@@ -131,14 +112,14 @@ export default () => {
             }}
           >
             <Result
+              extra={<Button type="primary">Back Home</Button>}
               status="404"
               style={{
                 height: '100%',
                 background: '#fff',
               }}
-              title="Hello World"
               subTitle="Sorry, you are not authorized to access this page."
-              extra={<Button type="primary">Back Home</Button>}
+              title="Hello World"
             />
           </div>
         </PageContainer>

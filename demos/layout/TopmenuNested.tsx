@@ -1,4 +1,4 @@
-import { PageContainer, ProLayout } from '@ant-design/pro-components';
+import { PageContainer, ProLayout } from '@xxlabs/pro-components';
 import complexMenu from './complexMenu';
 
 export default () => (
@@ -9,22 +9,22 @@ export default () => (
     }}
   >
     <ProLayout
+      layout="top"
       location={{
         pathname: '/articles/new',
       }}
       route={{
         routes: complexMenu,
       }}
-      layout="top"
     >
       <ProLayout
         location={{
           pathname: '/home/overview',
         }}
+        menuHeaderRender={false}
         route={{
           routes: complexMenu,
         }}
-        menuHeaderRender={false}
       >
         <PageContainer content="欢迎使用">
           <div>Hello World</div>

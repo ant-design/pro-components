@@ -4,23 +4,12 @@ import isoWeek from 'dayjs/plugin/isoWeek';
 import localeData from 'dayjs/plugin/localeData';
 import weekday from 'dayjs/plugin/weekday';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
+import type { JSX } from 'react';
 import React, { useContext } from 'react';
-import type {
-  BaseProFieldFC,
-  ProFieldFCRenderProps,
-  ProRenderFieldPropsType,
-} from '../provider';
+import type { BaseProFieldFC, ProFieldFCRenderProps, ProRenderFieldPropsType } from '../provider';
 import ProConfigContext from '../provider';
-import {
-  omitUndefined,
-  pickProProps,
-  ProFieldRequestData,
-  ProFieldTextType,
-  ProFieldValueObjectType,
-  ProFieldValueType,
-  useDeepCompareMemo,
-  useRefFunction,
-} from '../utils';
+import type { ProFieldRequestData, ProFieldTextType, ProFieldValueObjectType, ProFieldValueType } from '../utils';
+import { omitUndefined, pickProProps, useDeepCompareMemo, useRefFunction } from '../utils';
 import type { FieldMoneyProps } from './components/Money';
 import FieldText from './components/Text';
 
@@ -35,9 +24,11 @@ export type ProFieldMoneyProps = FieldMoneyProps;
 export type ProFieldEmptyText = string | false;
 
 /** 默认的 Field 需要实现的功能 */
-export type ProFieldFC<T = {}> = React.ForwardRefRenderFunction<
-  any,
-  BaseProFieldFC & ProRenderFieldPropsType & T
+export type ProFieldFC<T = object> = React.FC<
+  BaseProFieldFC &
+    ProRenderFieldPropsType & {
+      ref?: React.Ref<any>;
+    } & T
 >;
 
 /** 轻量筛选的field属性 */
@@ -53,9 +44,7 @@ export type ProFieldLightProps = {
 };
 
 /** Value type by function */
-export type ProFieldValueTypeFunction<T> = (
-  item: T,
-) => ProFieldValueType | ProFieldValueObjectType;
+export type ProFieldValueTypeFunction<T> = (item: T) => ProFieldValueType | ProFieldValueObjectType;
 
 type RenderProps = Omit<ProFieldFCRenderProps, 'text' | 'placeholder'> &
   ProRenderFieldPropsType & {
@@ -73,7 +62,7 @@ type RenderProps = Omit<ProFieldFCRenderProps, 'text' | 'placeholder'> &
  * @param dataValue
  * @param valueType
  */
-export const pureRenderText = (
+const pureRenderText = (
   dataValue: ProFieldTextType,
   valueType: ProFieldValueType | ProFieldValueObjectType,
   props: RenderProps,
@@ -81,17 +70,8 @@ export const pureRenderText = (
 ): React.ReactNode => {
   const { mode = 'read', emptyText = '-' } = props;
 
-  if (
-    emptyText !== false &&
-    mode === 'read' &&
-    valueType !== 'option' &&
-    valueType !== 'switch'
-  ) {
-    if (
-      typeof dataValue !== 'boolean' &&
-      typeof dataValue !== 'number' &&
-      !dataValue
-    ) {
+  if (emptyText !== false && mode === 'read' && valueType !== 'option' && valueType !== 'switch') {
+    if (typeof dataValue !== 'boolean' && typeof dataValue !== 'number' && !dataValue) {
       const { fieldProps, render } = props;
       if (render) {
         return render(dataValue, { mode, ...fieldProps }, <>{emptyText}</>);
@@ -100,11 +80,9 @@ export const pureRenderText = (
     }
   }
 
-  // eslint-disable-next-line no-param-reassign
   delete props.emptyText;
 
   if (typeof valueType === 'object') {
-    // eslint-disable-next-line @typescript-eslint/no-use-before-define
     return pureRenderText(
       dataValue,
       valueType.type,
@@ -116,11 +94,9 @@ export const pureRenderText = (
     );
   }
 
-  const customValueTypeConfig =
-    valueTypeMap && valueTypeMap[valueType as string];
+  const customValueTypeConfig = valueTypeMap && valueTypeMap[valueType as string];
 
   if (customValueTypeConfig) {
-    // eslint-disable-next-line no-param-reassign
     delete props.ref;
     if (mode === 'read') {
       const readDom = customValueTypeConfig.render?.(
@@ -175,23 +151,18 @@ export type ProFieldPropsType = {
   valueType?: ProFieldValueType | ProFieldValueObjectType;
 } & RenderProps;
 
-const ProFieldComponent: React.ForwardRefRenderFunction<
-  any,
-  ProFieldPropsType
-> = (
-  {
-    text,
-    valueType = 'text',
-    mode = 'read',
-    onChange,
-    formItemRender,
-    value,
-    readonly,
-    fieldProps: restFieldProps,
-    ...rest
-  },
-  ref: any,
-) => {
+const ProFieldComponent: React.FC<ProFieldPropsType> = ({
+  text,
+  valueType = 'text',
+  mode = 'read',
+  onChange,
+  formItemRender,
+  value,
+  readonly,
+  fieldProps: restFieldProps,
+  ref,
+  ...rest
+}) => {
   const context = useContext(ProConfigContext);
 
   const onChangeCallBack = useRefFunction((...restParams: any[]) => {
@@ -208,13 +179,10 @@ const ProFieldComponent: React.ForwardRefRenderFunction<
         onChange: onChangeCallBack,
       }
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value, restFieldProps, onChangeCallBack]);
 
   const renderedDom = pureRenderText(
-    mode === 'edit'
-      ? (fieldProps?.value ?? text ?? '')
-      : (text ?? fieldProps?.value ?? ''),
+    mode === 'edit' ? (fieldProps?.value ?? text ?? '') : (text ?? fieldProps?.value ?? ''),
     valueType || 'text',
     omitUndefined({
       ref,
@@ -233,15 +201,11 @@ const ProFieldComponent: React.ForwardRefRenderFunction<
             return newDom;
           }
         : undefined,
-      placeholder: formItemRender
-        ? undefined
-        : (rest?.placeholder ?? fieldProps?.placeholder),
+      placeholder: formItemRender ? undefined : (rest?.placeholder ?? fieldProps?.placeholder),
       fieldProps: pickProProps(
         omitUndefined({
           ...fieldProps,
-          placeholder: formItemRender
-            ? undefined
-            : (rest?.placeholder ?? fieldProps?.placeholder),
+          placeholder: formItemRender ? undefined : (rest?.placeholder ?? fieldProps?.placeholder),
         }),
       ),
     }),
@@ -251,6 +215,4 @@ const ProFieldComponent: React.ForwardRefRenderFunction<
   return <React.Fragment>{renderedDom}</React.Fragment>;
 };
 
-export const PureProField = React.forwardRef(
-  ProFieldComponent,
-) as typeof ProFieldComponent;
+export const PureProField = ProFieldComponent;

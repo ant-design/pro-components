@@ -1,9 +1,5 @@
-﻿import {
-  GenerateStyle,
-  ProAliasToken,
-  setAlpha,
-  useStyle as useAntdStyle,
-} from '../../../provider';
+﻿import type { GenerateStyle, ProAliasToken } from '../../../provider';
+import { setAlpha, useStyle as useAntdStyle } from '../../../provider';
 
 export interface LoginFormToken extends ProAliasToken {
   componentCls: string;

@@ -1,11 +1,6 @@
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import type { StatisticProps as AntdStatisticProps, BadgeProps } from 'antd';
-import {
-  Statistic as AntdStatistic,
-  Badge,
-  ConfigProvider,
-  Tooltip,
-} from 'antd';
+import { Statistic as AntdStatistic, Badge, ConfigProvider, Tooltip } from 'antd';
 import classNames from 'classnames';
 import React, { useContext } from 'react';
 import { useStyle } from './style';
@@ -96,14 +91,7 @@ const Statistic: React.FC<StatisticProps> = (props) => {
         {statusDom}
         <div className={contentClass}>
           <AntdStatistic
-            title={
-              (title || tipDom) && (
-                <>
-                  {title}
-                  {tipDom}
-                </>
-              )
-            }
+            className={statisticClassName}
             prefix={
               (trendDom || prefix) && (
                 <>
@@ -112,13 +100,18 @@ const Statistic: React.FC<StatisticProps> = (props) => {
                 </>
               )
             }
-            className={statisticClassName}
+            title={
+              (title || tipDom) && (
+                <>
+                  {title}
+                  {tipDom}
+                </>
+              )
+            }
             {...others}
           />
           {description && (
-            <div className={`${prefixCls}-description ${hashId}`.trim()}>
-              {description as React.ReactNode}
-            </div>
+            <div className={`${prefixCls}-description ${hashId}`.trim()}>{description as React.ReactNode}</div>
           )}
         </div>
       </div>

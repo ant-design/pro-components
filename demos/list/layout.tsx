@@ -1,5 +1,5 @@
 import { LikeOutlined, MessageOutlined, StarOutlined } from '@ant-design/icons';
-import { ProList } from '@ant-design/pro-components';
+import { ProList } from '@xxlabs/pro-components';
 import { Button, Tag } from 'antd';
 import React from 'react';
 
@@ -28,17 +28,9 @@ const dataSource = [
 export default () => {
   return (
     <ProList<{ title: string }>
-      toolBarRender={() => {
-        return [
-          <Button key="3" type="primary">
-            新建
-          </Button>,
-        ];
-      }}
-      itemLayout="vertical"
-      rowKey="id"
-      headerTitle="竖排样式"
       dataSource={dataSource}
+      headerTitle="竖排样式"
+      itemLayout="vertical"
       metas={{
         title: {},
         description: {
@@ -52,30 +44,14 @@ export default () => {
         },
         actions: {
           render: () => [
-            <IconText
-              icon={StarOutlined}
-              text="156"
-              key="list-vertical-star-o"
-            />,
-            <IconText
-              icon={LikeOutlined}
-              text="156"
-              key="list-vertical-like-o"
-            />,
-            <IconText
-              icon={MessageOutlined}
-              text="2"
-              key="list-vertical-message"
-            />,
+            <IconText key="list-vertical-star-o" icon={StarOutlined} text="156" />,
+            <IconText key="list-vertical-like-o" icon={LikeOutlined} text="156" />,
+            <IconText key="list-vertical-message" icon={MessageOutlined} text="2" />,
           ],
         },
         extra: {
           render: () => (
-            <img
-              width={272}
-              alt="logo"
-              src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
-            />
+            <img alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png" width={272} />
           ),
         },
         content: {
@@ -89,6 +65,14 @@ export default () => {
             );
           },
         },
+      }}
+      rowKey="id"
+      toolBarRender={() => {
+        return [
+          <Button key="3" type="primary">
+            新建
+          </Button>,
+        ];
       }}
     />
   );

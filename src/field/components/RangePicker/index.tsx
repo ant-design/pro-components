@@ -18,24 +18,22 @@ const FieldRangePicker: ProFieldFC<
     showTime?: boolean;
     picker?: 'time' | 'date' | 'week' | 'month' | 'quarter' | 'year';
   } & ProFieldLightProps
-> = (
-  {
-    text,
-    mode,
-    light,
-    label,
-    format = 'YYYY-MM-DD',
-    render,
-    picker,
-    formItemRender,
-    plain,
-    showTime,
-    lightLabel,
-    variant,
-    fieldProps,
-  },
+> = ({
+  text,
+  mode,
+  light,
+  label,
+  format = 'YYYY-MM-DD',
+  render,
+  picker,
+  formItemRender,
+  plain,
+  showTime,
+  lightLabel,
+  variant,
+  fieldProps,
   ref,
-) => {
+}) => {
   const intl = useIntl();
 
   const [startText, endText] = Array.isArray(text) ? text : [];
@@ -51,12 +49,8 @@ const FieldRangePicker: ProFieldFC<
     [fieldProps, format],
   );
   // activePickerIndex for https://github.com/ant-design/ant-design/issues/22158
-  const parsedStartText: string = startText
-    ? dayjs(startText).format(genFormatText(dayjs(startText)))
-    : '';
-  const parsedEndText: string = endText
-    ? dayjs(endText).format(genFormatText(dayjs(endText)))
-    : '';
+  const parsedStartText: string = startText ? dayjs(startText).format(genFormatText(dayjs(startText))) : '';
+  const parsedEndText: string = endText ? dayjs(endText).format(genFormatText(dayjs(endText))) : '';
 
   if (mode === 'read') {
     const dom = (
@@ -92,11 +86,11 @@ const FieldRangePicker: ProFieldFC<
     if (light) {
       dom = (
         <FieldLabel
+          ref={lightLabel}
+          allowClear={false}
+          disabled={fieldProps.disabled}
+          downIcon={dayValue || open ? false : undefined}
           label={label}
-          onClick={() => {
-            fieldProps?.onOpenChange?.(true);
-            setOpen(true);
-          }}
           style={
             dayValue
               ? {
@@ -104,13 +98,12 @@ const FieldRangePicker: ProFieldFC<
                 }
               : undefined
           }
-          disabled={fieldProps.disabled}
           value={
             dayValue || open ? (
               <DatePicker.RangePicker
+                format={format}
                 picker={picker}
                 showTime={showTime}
-                format={format}
                 variant="borderless"
                 {...fieldProps}
                 placeholder={
@@ -124,18 +117,19 @@ const FieldRangePicker: ProFieldFC<
                 //   fieldProps?.onClear?.();
                 // }}
                 value={dayValue}
+                onChange={handleRangeChange}
                 onOpenChange={(isOpen) => {
                   if (dayValue) setOpen(isOpen);
                   fieldProps?.onOpenChange?.(isOpen);
                 }}
-                onChange={handleRangeChange}
               />
             ) : null
           }
-          allowClear={false}
           variant={variant}
-          ref={lightLabel}
-          downIcon={dayValue || open ? false : undefined}
+          onClick={() => {
+            fieldProps?.onOpenChange?.(true);
+            setOpen(true);
+          }}
         />
       );
     } else {
@@ -143,14 +137,12 @@ const FieldRangePicker: ProFieldFC<
         <DatePicker.RangePicker
           ref={ref}
           format={format}
-          showTime={showTime}
           placeholder={[
             intl.getMessage('tableForm.selectPlaceholder', '请选择'),
             intl.getMessage('tableForm.selectPlaceholder', '请选择'),
           ]}
-          variant={
-            plain === undefined ? 'outlined' : plain ? 'borderless' : 'outlined'
-          }
+          showTime={showTime}
+          variant={plain === undefined ? 'outlined' : plain ? 'borderless' : 'outlined'}
           {...fieldProps}
           value={dayValue}
         />
@@ -164,4 +156,4 @@ const FieldRangePicker: ProFieldFC<
   return null;
 };
 
-export default React.forwardRef(FieldRangePicker);
+export default FieldRangePicker;

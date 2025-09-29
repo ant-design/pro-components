@@ -1,3 +1,5 @@
+import type React from 'react';
+
 export type AppItemProps = {
   title: React.ReactNode;
   desc?: React.ReactNode;

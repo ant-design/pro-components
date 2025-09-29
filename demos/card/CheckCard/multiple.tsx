@@ -1,24 +1,24 @@
-import { CheckCard } from '@ant-design/pro-components';
+import { CheckCard } from '@xxlabs/pro-components';
 import { ConfigProvider, Flex } from 'antd';
 
 export default () => (
   <>
-    <Flex gap={24} vertical>
+    <Flex vertical gap={24}>
       <CheckCard.Group
         multiple
+        defaultValue={['A']}
         onChange={(value) => {
           console.log('value', value);
         }}
-        defaultValue={['A']}
       >
         <CheckCard
-          title="Card A"
           description="选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念"
+          title="Card A"
           value="A"
         />
         <CheckCard
-          title="Card B"
           description="选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念"
+          title="Card B"
           value="B"
         />
       </CheckCard.Group>
@@ -31,19 +31,19 @@ export default () => (
       >
         <CheckCard.Group
           multiple
+          defaultValue={['A']}
           onChange={(value) => {
             console.log('value', value);
           }}
-          defaultValue={['A']}
         >
           <CheckCard
-            title="Card A"
             description="选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念"
+            title="Card A"
             value="A"
           />
           <CheckCard
-            title="Card B"
             description="选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念"
+            title="Card B"
             value="B"
           />
         </CheckCard.Group>
@@ -61,12 +61,10 @@ export default () => (
       <h4>CheckCard.Group 多选模式 Props 说明：</h4>
       <ul>
         <li>
-          <strong>multiple</strong>: 设置为 true 启用多选模式，默认为
-          false（单选）
+          <strong>multiple</strong>: 设置为 true 启用多选模式，默认为 false（单选）
         </li>
         <li>
-          <strong>onChange</strong>:
-          选中值改变时的回调函数，多选模式下参数为数组
+          <strong>onChange</strong>: 选中值改变时的回调函数，多选模式下参数为数组
         </li>
         <li>
           <strong>defaultValue</strong>: 默认选中的值，多选模式下为数组格式

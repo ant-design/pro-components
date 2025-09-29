@@ -1,4 +1,4 @@
-import { ProCard, StatisticCard } from '@ant-design/pro-components';
+import { ProCard, StatisticCard } from '@xxlabs/pro-components';
 import RcResizeObserver from 'rc-resize-observer';
 import { useState } from 'react';
 
@@ -17,143 +17,98 @@ export default () => {
       >
         <ProCard split={responsive ? 'horizontal' : 'vertical'}>
           <StatisticCard
-            colSpan={responsive ? 24 : 6}
-            title="Fiscal Year Performance Target"
-            statistic={{
-              value: 82.6,
-              suffix: 'Billion',
-              description: (
-                <Statistic title="Daily Comparison" value="6.47%" trend="up" />
-              ),
-            }}
             chart={
               <img
-                src="https://gw.alipayobjects.com/zos/alicdn/PmKfn4qvD/mubiaowancheng-lan.svg"
                 alt="Progress Bar"
+                src="https://gw.alipayobjects.com/zos/alicdn/PmKfn4qvD/mubiaowancheng-lan.svg"
                 width="100%"
               />
             }
+            colSpan={responsive ? 24 : 6}
             footer={
               <>
+                <Statistic layout="horizontal" title="Fiscal Year Performance Completion Rate" value="70.98%" />
                 <Statistic
-                  value="70.98%"
-                  title="Fiscal Year Performance Completion Rate"
                   layout="horizontal"
-                />
-                <Statistic
-                  value="86.98%"
                   title="Performance Completion Rate Same Period Last Year"
-                  layout="horizontal"
+                  value="86.98%"
                 />
                 <Statistic
-                  value="88.98%"
-                  title="Performance Completion Rate Same Period Year Before Last"
                   layout="horizontal"
+                  title="Performance Completion Rate Same Period Year Before Last"
+                  value="88.98%"
                 />
               </>
             }
+            statistic={{
+              value: 82.6,
+              suffix: 'Billion',
+              description: <Statistic title="Daily Comparison" trend="up" value="6.47%" />,
+            }}
+            title="Fiscal Year Performance Target"
           />
-          <StatisticCard.Group
-            colSpan={responsive ? 24 : 18}
-            direction={responsive ? 'column' : undefined}
-          >
+          <StatisticCard.Group colSpan={responsive ? 24 : 18} direction={responsive ? 'column' : undefined}>
             <StatisticCard
+              chart={
+                <img
+                  alt="Line Chart"
+                  src="https://gw.alipayobjects.com/zos/alicdn/zevpN7Nv_/xiaozhexiantu.svg"
+                  width="100%"
+                />
+              }
               statistic={{
                 title: 'Total Revenue for the Fiscal Year',
                 value: 601987768,
-                description: (
-                  <Statistic
-                    title="Daily Comparison"
-                    value="6.15%"
-                    trend="up"
-                  />
-                ),
+                description: <Statistic title="Daily Comparison" trend="up" value="6.15%" />,
               }}
-              chart={
-                <img
-                  src="https://gw.alipayobjects.com/zos/alicdn/zevpN7Nv_/xiaozhexiantu.svg"
-                  alt="Line Chart"
-                  width="100%"
-                />
-              }
             >
               <Statistic
+                description={<Statistic title="Daily Comparison" trend="down" value="6.15%" />}
+                layout="vertical"
                 title="Total Market Revenue"
                 value={1982312}
-                layout="vertical"
-                description={
-                  <Statistic
-                    title="Daily Comparison"
-                    value="6.15%"
-                    trend="down"
-                  />
-                }
               />
             </StatisticCard>
             <StatisticCard
+              chart={
+                <img
+                  alt="Line Chart"
+                  src="https://gw.alipayobjects.com/zos/alicdn/zevpN7Nv_/xiaozhexiantu.svg"
+                  width="100%"
+                />
+              }
               statistic={{
                 title: 'Daily Ranking',
                 value: 6,
-                description: (
-                  <Statistic
-                    title="Daily Comparison"
-                    value="3.85%"
-                    trend="down"
-                  />
-                ),
+                description: <Statistic title="Daily Comparison" trend="down" value="3.85%" />,
               }}
-              chart={
-                <img
-                  src="https://gw.alipayobjects.com/zos/alicdn/zevpN7Nv_/xiaozhexiantu.svg"
-                  alt="Line Chart"
-                  width="100%"
-                />
-              }
             >
               <Statistic
+                description={<Statistic title="Daily Comparison" trend="up" value="6.47%" />}
+                layout="vertical"
                 title="Revenue in the Last 7 Days"
                 value={17458}
-                layout="vertical"
-                description={
-                  <Statistic
-                    title="Daily Comparison"
-                    value="6.47%"
-                    trend="up"
-                  />
-                }
               />
             </StatisticCard>
             <StatisticCard
-              statistic={{
-                title: 'Fiscal Year Performance Revenue Ranking',
-                value: 2,
-                description: (
-                  <Statistic
-                    title="Daily Comparison"
-                    value="6.47%"
-                    trend="up"
-                  />
-                ),
-              }}
               chart={
                 <img
-                  src="https://gw.alipayobjects.com/zos/alicdn/zevpN7Nv_/xiaozhexiantu.svg"
                   alt="Line Chart"
+                  src="https://gw.alipayobjects.com/zos/alicdn/zevpN7Nv_/xiaozhexiantu.svg"
                   width="100%"
                 />
               }
+              statistic={{
+                title: 'Fiscal Year Performance Revenue Ranking',
+                value: 2,
+                description: <Statistic title="Daily Comparison" trend="up" value="6.47%" />,
+              }}
             >
               <Statistic
+                description={<Statistic title="Daily Comparison" trend="down" value="6.47%" />}
+                layout="vertical"
                 title="Monthly Payment Count"
                 value={601}
-                layout="vertical"
-                description={
-                  <Statistic
-                    title="Daily Comparison"
-                    value="6.47%"
-                    trend="down"
-                  />
-                }
               />
             </StatisticCard>
           </StatisticCard.Group>
@@ -174,8 +129,7 @@ export default () => {
             <strong>split</strong>: 分割方式，根据响应式状态自动调整
           </li>
           <li>
-            <strong>children</strong>: StatisticCard 和 StatisticCard.Group
-            子组件
+            <strong>children</strong>: StatisticCard 和 StatisticCard.Group 子组件
           </li>
         </ul>
         <h4>StatisticCard 配置：</h4>
@@ -211,8 +165,7 @@ export default () => {
         <h4>嵌套 Statistic 组件：</h4>
         <ul>
           <li>
-            <strong>layout</strong>: 布局方式，'vertical'
-            表示垂直布局，'horizontal' 表示水平布局
+            <strong>layout</strong>: 布局方式，'vertical' 表示垂直布局，'horizontal' 表示水平布局
           </li>
           <li>
             <strong>title</strong>: 统计项标题
@@ -242,8 +195,7 @@ export default () => {
             <strong>24 栅格</strong>: 使用 24 栅格系统，colSpan 表示占用的列数
           </li>
           <li>
-            <strong>响应式适配</strong>: 小屏幕时 colSpan 自动调整为
-            24（占满宽度）
+            <strong>响应式适配</strong>: 小屏幕时 colSpan 自动调整为 24（占满宽度）
           </li>
           <li>
             <strong>比例控制</strong>: 通过 colSpan 控制各部分的宽度比例

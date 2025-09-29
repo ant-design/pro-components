@@ -1,5 +1,5 @@
 import { CrownOutlined, SmileOutlined, UserOutlined } from '@ant-design/icons';
-import { PageContainer, ProLayout } from '@ant-design/pro-components';
+import { PageContainer, ProLayout } from '@xxlabs/pro-components';
 import { Button, Input, Result, Tag } from 'antd';
 import { useState } from 'react';
 
@@ -31,13 +31,14 @@ export default () => {
   return (
     <>
       <ProLayout
-        route={defaultProps}
+        fixSiderbar
+        avatarProps={{
+          icon: <UserOutlined />,
+        }}
+        headerRender={false}
         location={{
           pathname,
         }}
-        fixSiderbar
-        headerRender={false}
-        onMenuHeaderClick={(e) => console.log(e)}
         menuItemRender={(item, dom) => (
           <a
             onClick={() => {
@@ -47,13 +48,22 @@ export default () => {
             {dom}
           </a>
         )}
-        avatarProps={{
-          icon: <UserOutlined />,
-        }}
+        route={defaultProps}
+        onMenuHeaderClick={(e) => console.log(e)}
       >
         <PageContainer
-          onBack={() => null}
-          tags={<Tag color="blue">状态一</Tag>}
+          extra={[
+            <Input.Search
+              key="search"
+              style={{
+                width: 240,
+              }}
+            />,
+            <Button key="3">操作一</Button>,
+            <Button key="2" type="primary">
+              操作一
+            </Button>,
+          ]}
           header={{
             style: {
               padding: '8px 16px',
@@ -69,18 +79,8 @@ export default () => {
           style={{
             paddingBlockStart: 48,
           }}
-          extra={[
-            <Input.Search
-              key="search"
-              style={{
-                width: 240,
-              }}
-            />,
-            <Button key="3">操作一</Button>,
-            <Button key="2" type="primary">
-              操作一
-            </Button>,
-          ]}
+          tags={<Tag color="blue">状态一</Tag>}
+          onBack={() => null}
         >
           <div
             style={{
@@ -89,14 +89,14 @@ export default () => {
             }}
           >
             <Result
+              extra={<Button type="primary">Back Home</Button>}
               status="404"
               style={{
                 height: '100%',
                 background: '#fff',
               }}
-              title="Hello World"
               subTitle="Sorry, you are not authorized to access this page."
-              extra={<Button type="primary">Back Home</Button>}
+              title="Hello World"
             />
           </div>
         </PageContainer>

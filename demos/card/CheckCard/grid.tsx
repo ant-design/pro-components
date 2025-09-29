@@ -1,30 +1,18 @@
-import { CheckCard } from '@ant-design/pro-components';
+import { CheckCard } from '@xxlabs/pro-components';
 import { Col, Row } from 'antd';
 
 export default () => (
   <>
-    <CheckCard.Group style={{ width: '100%' }} size="small">
+    <CheckCard.Group size="small" style={{ width: '100%' }}>
       <Row>
         <Col span={8}>
-          <CheckCard
-            title="Card A"
-            description="This is the description"
-            value="A"
-          />
+          <CheckCard description="This is the description" title="Card A" value="A" />
         </Col>
         <Col span={8}>
-          <CheckCard
-            title="Card B"
-            description="This is the description"
-            value="B"
-          />
+          <CheckCard description="This is the description" title="Card B" value="B" />
         </Col>
         <Col span={8}>
-          <CheckCard
-            title="Card C"
-            description="This is the description"
-            value="C"
-          />
+          <CheckCard description="This is the description" title="Card C" value="C" />
         </Col>
       </Row>
     </CheckCard.Group>

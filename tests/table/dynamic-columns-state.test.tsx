@@ -1,5 +1,5 @@
-import { ProTable } from '@ant-design/pro-components';
 import { cleanup, render } from '@testing-library/react';
+import { ProTable } from '@xxlabs/pro-components';
 import { act } from 'react';
 import { afterEach, describe, expect, it } from 'vitest';
 import { waitForWaitTime } from '../util';
@@ -35,10 +35,7 @@ for (let i = 0; i < 5; i += 1) {
     createdAt: Date.now() - Math.floor(Math.random() * 2000),
     money: Math.floor(Math.random() * 2000) * i,
     progress: Math.ceil(Math.random() * 100) + 1,
-    memo:
-      i % 2 === 1
-        ? '很长很长很长很长很长很长很长的文字要展示但是要留下尾巴'
-        : '简短备注文案',
+    memo: i % 2 === 1 ? '很长很长很长很长很长很长很长的文字要展示但是要留下尾巴' : '简短备注文案',
     statusText: '这是一段很随意的文字',
   });
 }
@@ -63,6 +60,11 @@ describe('Dynamic Persistence', () => {
             dataIndex: 'statusText',
           },
         ]}
+        columnsState={{
+          persistenceKey: `table_dynamic_status_close`,
+          persistenceType: 'sessionStorage',
+        }}
+        dateFormatter="string"
         request={() => {
           return Promise.resolve({
             data: tableListDataSource,
@@ -74,11 +76,6 @@ describe('Dynamic Persistence', () => {
           layout: 'vertical',
           defaultCollapsed: false,
         }}
-        columnsState={{
-          persistenceKey: `table_dynamic_status_close`,
-          persistenceType: 'sessionStorage',
-        }}
-        dateFormatter="string"
         toolbar={{
           title: '高级表格',
           tooltip: '动态列持久化',
@@ -90,9 +87,7 @@ describe('Dynamic Persistence', () => {
 
     act(() => {
       html.baseElement
-        .querySelector<HTMLDivElement>(
-          '.ant-pro-table-list-toolbar-setting-item .anticon-setting',
-        )
+        .querySelector<HTMLDivElement>('.ant-pro-table-list-toolbar-setting-item .anticon-setting')
         ?.click();
     });
 
@@ -104,9 +99,7 @@ describe('Dynamic Persistence', () => {
 
     act(() => {
       html.baseElement
-        .querySelectorAll<HTMLDivElement>(
-          '.ant-tree-treenode > .ant-tree-node-content-wrapper',
-        )?.[1]
+        .querySelectorAll<HTMLDivElement>('.ant-tree-treenode > .ant-tree-node-content-wrapper')?.[1]
         ?.click();
     });
 
@@ -131,6 +124,11 @@ describe('Dynamic Persistence', () => {
               dataIndex: 'statusText',
             },
           ]}
+          columnsState={{
+            persistenceKey: 'table_dynamic_status_running',
+            persistenceType: 'sessionStorage',
+          }}
+          dateFormatter="string"
           request={() => {
             return Promise.resolve({
               data: tableListDataSource,
@@ -142,11 +140,6 @@ describe('Dynamic Persistence', () => {
             layout: 'vertical',
             defaultCollapsed: false,
           }}
-          columnsState={{
-            persistenceKey: 'table_dynamic_status_running',
-            persistenceType: 'sessionStorage',
-          }}
-          dateFormatter="string"
           toolbar={{
             title: '高级表格',
             tooltip: '动态列持久化',
@@ -156,8 +149,8 @@ describe('Dynamic Persistence', () => {
     });
     await waitForWaitTime(100);
 
-    expect(
-      window.sessionStorage.getItem('table_dynamic_status_running'),
-    ).toMatch('{"index":{"show":true},"statusText":{"show":true}}');
+    expect(window.sessionStorage.getItem('table_dynamic_status_running')).toMatch(
+      '{"index":{"show":true},"statusText":{"show":true}}',
+    );
   });
 });

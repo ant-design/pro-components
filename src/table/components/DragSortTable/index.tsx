@@ -14,18 +14,12 @@ export type DragTableProps<T, U> = {
   /** @name 渲染自定义拖动排序把手的函数 如配置了 dragSortKey 但未配置此参数，则使用默认把手图标 */
   dragSortHandlerRender?: (rowData: T, idx: number) => React.ReactNode;
   /** @name 拖动排序完成回调 */
-  onDragSortEnd?: (
-    beforeIndex: number,
-    afterIndex: number,
-    newDataSource: T[],
-  ) => Promise<void> | void;
+  onDragSortEnd?: (beforeIndex: number, afterIndex: number, newDataSource: T[]) => Promise<void> | void;
 } & ProTableProps<T, U>;
 
-function DragSortTable<
-  T extends Record<string, any>,
-  U extends ParamsType = ParamsType,
-  ValueType = 'text',
->(props: DragTableProps<T, U>) {
+function DragSortTable<T extends Record<string, any>, U extends ParamsType = ParamsType, ValueType = 'text'>(
+  props: DragTableProps<T, U>,
+) {
   const {
     rowKey,
     dragSortKey,
@@ -38,13 +32,10 @@ function DragSortTable<
     ...otherProps
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const [dataSource, setDataSource] = useMergedState<T[]>(
-    () => defaultData || [],
-    {
-      value: originDataSource as T[],
-      onChange: onDataSourceChange,
-    },
-  );
+  const [dataSource, setDataSource] = useMergedState<T[]>(() => defaultData || [], {
+    value: originDataSource as T[],
+    onChange: onDataSourceChange,
+  });
 
   const { wrapSSR, hashId } = useStyle(getPrefixCls('pro-table-drag'));
 
@@ -55,17 +46,12 @@ function DragSortTable<
       const defaultDom = (
         <HolderOutlined
           {...rest}
-          className={`${getPrefixCls('pro-table-drag-icon')} ${
-            className || ''
-          } ${hashId || ''}`.trim()}
+          className={`${getPrefixCls('pro-table-drag-icon')} ${className || ''} ${hashId || ''}`.trim()}
         />
       );
 
       const handel = dragSortHandlerRender
-        ? dragSortHandlerRender(
-            dragHandleProps?.rowData,
-            dragHandleProps?.index,
-          )
+        ? dragSortHandlerRender(dragHandleProps?.rowData, dragHandleProps?.index)
         : defaultDom;
       return <div {...rest}>{handel}</div>;
     };
@@ -97,14 +83,14 @@ function DragSortTable<
         }
         return item;
       })}
-      onLoad={wrapOnload}
+      components={components}
+      dataSource={dataSource}
       rowKey={rowKey}
       tableViewRender={(_, defaultDom) => {
         return <DndContext>{defaultDom}</DndContext>;
       }}
-      dataSource={dataSource}
-      components={components}
       onDataSourceChange={onDataSourceChange}
+      onLoad={wrapOnload}
     />,
   );
 }

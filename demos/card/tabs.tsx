@@ -1,5 +1,5 @@
-import type { ProCardTabsProps } from '@ant-design/pro-components';
-import { ProCard } from '@ant-design/pro-components';
+import type { ProCardTabsProps } from '@xxlabs/pro-components';
+import { ProCard } from '@xxlabs/pro-components';
 import { Select, Space } from 'antd';
 import { useState } from 'react';
 
@@ -7,19 +7,14 @@ const { Option } = Select;
 
 export default () => {
   const [tab, setTab] = useState('tab2');
-  const [tabPosition, setTabPosition] =
-    useState<ProCardTabsProps['tabPosition']>('top');
+  const [tabPosition, setTabPosition] = useState<ProCardTabsProps['tabPosition']>('top');
 
   return (
     <>
       <div>
         <Space style={{ marginBlockEnd: 16 }}>
           Tab position：
-          <Select
-            value={tabPosition}
-            onChange={(value) => setTabPosition(value)}
-            popupMatchSelectWidth={false}
-          >
+          <Select popupMatchSelectWidth={false} value={tabPosition} onChange={(value) => setTabPosition(value)}>
             <Option value="top">top</Option>
             <Option value="bottom">bottom</Option>
             <Option value="left">left</Option>
@@ -65,8 +60,7 @@ export default () => {
         <h4>ProCard Tabs 动态位置 Props 说明：</h4>
         <ul>
           <li>
-            <strong>tabs.tabPosition</strong>: 标签页位置，可选值：'top' |
-            'bottom' | 'left' | 'right'
+            <strong>tabs.tabPosition</strong>: 标签页位置，可选值：'top' | 'bottom' | 'left' | 'right'
           </li>
           <li>
             <strong>tabs.activeKey</strong>: 当前激活的标签页 key
@@ -102,8 +96,7 @@ export default () => {
             <strong>onChange</strong>: 值改变时的回调函数
           </li>
           <li>
-            <strong>popupMatchSelectWidth</strong>:
-            下拉菜单宽度是否与选择框宽度一致
+            <strong>popupMatchSelectWidth</strong>: 下拉菜单宽度是否与选择框宽度一致
           </li>
         </ul>
         <h4>状态管理：</h4>

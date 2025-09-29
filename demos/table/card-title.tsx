@@ -1,6 +1,6 @@
 import { EllipsisOutlined } from '@ant-design/icons';
-import type { ProColumns } from '@ant-design/pro-components';
-import { ProTable } from '@ant-design/pro-components';
+import type { ProColumns } from '@xxlabs/pro-components';
+import { ProTable } from '@xxlabs/pro-components';
 import { Button } from 'antd';
 
 export type TableListItem = {
@@ -65,16 +65,8 @@ const columns: ProColumns<TableListItem>[] = [
 export default () => {
   return (
     <ProTable<TableListItem>
-      columns={columns}
-      request={(params, sorter, filter) => {
-        // 表单搜索项会从 params 传入，传递给后端接口。
-        console.log(params, sorter, filter);
-        return Promise.resolve({
-          data: tableListDataSource,
-          success: true,
-        });
-      }}
       cardProps={{ title: '业务定制', variant: 'outlined' }}
+      columns={columns}
       headerTitle={
         <Button
           key="primary"
@@ -86,6 +78,14 @@ export default () => {
           添加
         </Button>
       }
+      request={(params, sorter, filter) => {
+        // 表单搜索项会从 params 传入，传递给后端接口。
+        console.log(params, sorter, filter);
+        return Promise.resolve({
+          data: tableListDataSource,
+          success: true,
+        });
+      }}
       rowKey="key"
       search={false}
     />

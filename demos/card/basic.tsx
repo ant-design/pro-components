@@ -1,49 +1,34 @@
-import {
-  ProCard,
-  ProFormGroup,
-  ProFormSwitch,
-} from '@ant-design/pro-components';
+import { ProCard, ProFormGroup, ProFormSwitch } from '@xxlabs/pro-components';
 
 export default () => {
   return (
     <>
       <ProCard
-        title="Default Size"
-        variant="outlined"
         extra={
           <ProFormGroup>
-            <ProFormSwitch
-              name="Enable"
-              noStyle
-              checkedChildren={'Enabled'}
-              unCheckedChildren={'Disabled'}
-            />
+            <ProFormSwitch noStyle checkedChildren="Enabled" name="Enable" unCheckedChildren="Disabled" />
           </ProFormGroup>
         }
-        tooltip="This is a tooltip"
         style={{ maxWidth: 300 }}
+        title="Default Size"
+        tooltip="This is a tooltip"
+        variant="outlined"
       >
         <div>Card content</div>
         <div>Card content</div>
         <div>Card content</div>
       </ProCard>
-      <ProCard
-        title="Card with Shadow"
-        extra="extra"
-        tooltip="This is a tooltip"
-        style={{ maxWidth: 300 }}
-        boxShadow
-      >
+      <ProCard boxShadow extra="extra" style={{ maxWidth: 300 }} title="Card with Shadow" tooltip="This is a tooltip">
         <div>Card content</div>
         <div>Card content</div>
         <div>Card content</div>
       </ProCard>
       <ProCard
-        title="Small Size Card"
         extra="extra"
-        tooltip="This is a tooltip"
-        style={{ maxWidth: 300, marginBlockStart: 24 }}
         size="small"
+        style={{ maxWidth: 300, marginBlockStart: 24 }}
+        title="Small Size Card"
+        tooltip="This is a tooltip"
       >
         <div>Card content</div>
         <div>Card content</div>
@@ -64,12 +49,10 @@ export default () => {
             <strong>title</strong>: 卡片标题，可以是字符串或 React 节点
           </li>
           <li>
-            <strong>variant</strong>: 卡片变体样式，可选值：'outlined' |
-            'filled' | 'elevated'
+            <strong>variant</strong>: 卡片变体样式，可选值：'outlined' | 'filled' | 'elevated'
           </li>
           <li>
-            <strong>extra</strong>: 卡片右上角操作区域，可以是字符串或 React
-            节点
+            <strong>extra</strong>: 卡片右上角操作区域，可以是字符串或 React 节点
           </li>
           <li>
             <strong>tooltip</strong>: 卡片的提示信息

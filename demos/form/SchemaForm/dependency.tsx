@@ -1,5 +1,5 @@
-﻿import type { ProFormColumnsType } from '@ant-design/pro-components';
-import { BetaSchemaForm, ProForm } from '@ant-design/pro-components';
+﻿import type { ProFormColumnsType } from '@xxlabs/pro-components';
+import { BetaSchemaForm, ProForm } from '@xxlabs/pro-components';
 
 const valueEnum = {
   money: { text: '按金额' },
@@ -66,10 +66,10 @@ export default () => {
     <>
       <h1>普通json表单</h1>
       <BetaSchemaForm<DataItem>
+        columns={columns}
         onFinish={async (values) => {
           console.log(values);
         }}
-        columns={columns}
       />
       <h1>嵌套json表单</h1>
       <ProForm
@@ -78,11 +78,11 @@ export default () => {
         }}
       >
         <BetaSchemaForm<DataItem>
+          columns={columns}
           layoutType="Embed"
           onFinish={async (values) => {
             console.log(values);
           }}
-          columns={columns}
         />
       </ProForm>
     </>

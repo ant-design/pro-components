@@ -1,6 +1,6 @@
-import { LightFilter, ProFormText } from '@ant-design/pro-components';
+import { LightFilter, ProFormText } from '@xxlabs/pro-components';
 import { Button, Radio, Space } from 'antd';
-import type { SizeType } from 'antd/lib/config-provider/SizeContext';
+import type { SizeType } from 'antd/es/config-provider/SizeContext';
 import React from 'react';
 
 export default () => {
@@ -22,14 +22,12 @@ export default () => {
 
       <Space direction="vertical">
         <LightFilter
-          size={size}
           initialValues={{
             name: 'Jack2',
           }}
+          size={size}
         >
           <ProFormText
-            name="name"
-            label="名称"
             footerRender={(_, onClear) => (
               <Button
                 onClick={() => {
@@ -39,35 +37,33 @@ export default () => {
                 自定义footer
               </Button>
             )}
+            label="名称"
+            name="name"
           />
         </LightFilter>
 
         <LightFilter
-          size={size}
           initialValues={{
             name: 'Jack2',
           }}
+          size={size}
         >
-          <ProFormText name="name" label="名称" footerRender={false} />
+          <ProFormText footerRender={false} label="名称" name="name" />
         </LightFilter>
 
         <LightFilter
-          size={size}
-          initialValues={{
-            name: 'Jack2',
-          }}
           collapse
           collapseLabel="footer为false"
           footerRender={false}
-        >
-          <ProFormText name="name" label="名称" />
-        </LightFilter>
-
-        <LightFilter
-          size={size}
           initialValues={{
             name: 'Jack2',
           }}
+          size={size}
+        >
+          <ProFormText label="名称" name="name" />
+        </LightFilter>
+
+        <LightFilter
           collapse
           collapseLabel="自定义footer"
           footerRender={(_, onClear) => (
@@ -79,8 +75,12 @@ export default () => {
               自定义footer
             </Button>
           )}
+          initialValues={{
+            name: 'Jack2',
+          }}
+          size={size}
         >
-          <ProFormText name="name" label="名称" />
+          <ProFormText label="名称" name="name" />
         </LightFilter>
       </Space>
     </div>

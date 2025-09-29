@@ -1,12 +1,11 @@
-import { join } from 'path';
+import { join } from 'node:path';
 import { defineConfig } from 'vitest/config';
-import { resolve } from 'path';
 /// <reference types="@vitest/browser/context" />
 
 export default defineConfig({
   resolve: {
     alias: {
-      '@ant-design/pro-components': join(process.cwd(), './src'),
+      '@xxlabs/pro-components': join(process.cwd(), './src'),
     },
   },
   test: {

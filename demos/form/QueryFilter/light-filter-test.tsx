@@ -1,13 +1,6 @@
-import {
-  LightFilter,
-  ProForm,
-  ProFormDigit,
-  ProFormSelect,
-  ProFormSlider,
-  ProFormText,
-} from '@ant-design/pro-components';
+import { LightFilter, ProForm, ProFormDigit, ProFormSelect, ProFormSlider, ProFormText } from '@xxlabs/pro-components';
 import { Radio } from 'antd';
-import type { SizeType } from 'antd/lib/config-provider/SizeContext';
+import type { SizeType } from 'antd/es/config-provider/SizeContext';
 import dayjs from 'dayjs';
 import React from 'react';
 
@@ -44,35 +37,29 @@ export default () => {
               label: '关闭',
             },
           ],
-          datetimeRanger: [
-            dayjs('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
-            dayjs('2019-11-16 12:50:26').valueOf(),
-          ],
-          timeRanger: [
-            dayjs('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
-            dayjs('2019-11-16 12:50:26').valueOf(),
-          ],
+          datetimeRanger: [dayjs('2019-11-16 12:50:26').add(-1, 'd').valueOf(), dayjs('2019-11-16 12:50:26').valueOf()],
+          timeRanger: [dayjs('2019-11-16 12:50:26').add(-1, 'd').valueOf(), dayjs('2019-11-16 12:50:26').valueOf()],
         }}
         size={size}
         onFinish={async (values) => console.log(values.sex)}
       >
         <ProFormSelect
-          name="sex"
-          label="性别"
           showSearch
           allowClear={false}
           fieldProps={{
             labelInValue: true,
           }}
+          label="性别"
+          name="sex"
           valueEnum={{
             man: '男',
             woman: '女',
           }}
         />
         <ProFormSelect
-          name="area"
           label="地区"
           mode="multiple"
+          name="area"
           valueEnum={{
             beijing: '北京',
             shanghai: '上海',
@@ -81,11 +68,11 @@ export default () => {
           }}
         />
         <ProForm.Group label="范围组">
-          <ProFormDigit name="count" label="数量" />
-          <ProFormSlider name="range" label="范围" range />
-          <ProFormSlider name="slider" label="范围" />
+          <ProFormDigit label="数量" name="count" />
+          <ProFormSlider range label="范围" name="range" />
+          <ProFormSlider label="范围" name="slider" />
         </ProForm.Group>
-        <ProFormText name="name1" label="名称" />
+        <ProFormText label="名称" name="name1" />
       </LightFilter>
     </div>
   );

@@ -1,6 +1,6 @@
 import { EllipsisOutlined, PlusOutlined } from '@ant-design/icons';
-import type { ActionType, ProColumns } from '@ant-design/pro-components';
-import { ProTable, TableDropdown } from '@ant-design/pro-components';
+import type { ActionType, ProColumns } from '@xxlabs/pro-components';
+import { ProTable, TableDropdown } from '@xxlabs/pro-components';
 import { Button, ConfigProvider, Dropdown, Space, Tag, theme } from 'antd';
 import { useRef } from 'react';
 import request from 'umi-request';
@@ -78,7 +78,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     render: (_, record) => (
       <Space>
         {record.labels.map(({ name, color }) => (
-          <Tag color={color} key={name}>
+          <Tag key={name} color={color}>
             {name}
           </Tag>
         ))}
@@ -120,23 +120,23 @@ const columns: ProColumns<GithubIssueItem>[] = [
       >
         编辑
       </a>,
-      <a href={record.url} target="_blank" rel="noopener noreferrer" key="view">
+      <a key="view" href={record.url} rel="noopener noreferrer" target="_blank">
         查看
       </a>,
       <TableDropdown
         key="actionGroup"
-        onSelect={() => action?.reload()}
         menus={[
           { key: 'copy', name: '复制' },
           { key: 'delete', name: '删除' },
         ]}
+        onSelect={() => action?.reload()}
       />,
     ],
   },
 ];
 
 export default () => {
-  const actionRef = useRef<ActionType>();
+  const actionRef = useRef<ActionType>(undefined);
   const themeConfig = {
     token: {
       colorPrimary: 'red',
@@ -152,20 +152,9 @@ export default () => {
     >
       <ConfigProvider theme={themeConfig}>
         <ProTable<GithubIssueItem>
-          columns={columns}
-          actionRef={actionRef}
           cardBordered
-          request={async (params, sort, filter) => {
-            console.log(sort, filter);
-            return request<{
-              data: GithubIssueItem[];
-            }>('https://proapi.azurewebsites.net/github/issues', {
-              params,
-            });
-          }}
-          editable={{
-            type: 'multiple',
-          }}
+          actionRef={actionRef}
+          columns={columns}
           columnsState={{
             persistenceKey: 'pro-table-singe-demos',
             persistenceType: 'localStorage',
@@ -173,14 +162,9 @@ export default () => {
               console.log('value: ', value);
             },
           }}
-          rowKey="id"
-          search={{
-            labelWidth: 'auto',
-          }}
-          options={{
-            setting: {
-              listsHeight: 400,
-            },
+          dateFormatter="string"
+          editable={{
+            type: 'multiple',
           }}
           form={{
             // 由于配置了 transform，提交的参数与定义的不同这里需要转化一下
@@ -194,12 +178,28 @@ export default () => {
               return values;
             },
           }}
+          headerTitle="高级表格"
+          options={{
+            setting: {
+              listsHeight: 400,
+            },
+          }}
           pagination={{
             pageSize: 5,
             onChange: (page) => console.log(page),
           }}
-          dateFormatter="string"
-          headerTitle="高级表格"
+          request={async (params, sort, filter) => {
+            console.log(sort, filter);
+            return request<{
+              data: GithubIssueItem[];
+            }>('https://proapi.azurewebsites.net/github/issues', {
+              params,
+            });
+          }}
+          rowKey="id"
+          search={{
+            labelWidth: 'auto',
+          }}
           toolBarRender={() => [
             <Button key="button" icon={<PlusOutlined />} type="primary">
               新建

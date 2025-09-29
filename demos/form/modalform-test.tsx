@@ -1,11 +1,5 @@
 ﻿import { PlusOutlined } from '@ant-design/icons';
-import {
-  ModalForm,
-  ProCard,
-  ProForm,
-  ProFormList,
-  ProFormText,
-} from '@ant-design/pro-components';
+import { ModalForm, ProCard, ProForm, ProFormList, ProFormText } from '@xxlabs/pro-components';
 import { Button } from 'antd';
 
 // 弹窗表单
@@ -28,7 +22,7 @@ const FormModal = () => {
         return true;
       }}
     >
-      <ProFormText width="sm" name="id" label="主合同编号" />
+      <ProFormText label="主合同编号" name="id" width="sm" />
     </ModalForm>
   );
 };
@@ -45,48 +39,37 @@ const Demo = () => {
         <ProForm layout="horizontal">
           <FormModal />
           <ProFormList
-            name="attributes"
-            label="规格"
+            copyIconProps={false}
             creatorButtonProps={{
               creatorButtonText: '添加规格项',
             }}
-            min={1}
-            copyIconProps={false}
+            creatorRecord={{ name: '', items: [{ name: '' }] }}
+            initialValue={[{ name: '颜色', items: [{ name: '红' }] }]}
             itemRender={({ listDom, action }, { index }) => (
               <ProCard
-                variant="outlined"
+                bodyStyle={{ paddingBlockEnd: 0 }}
+                extra={action}
                 style={{ marginBlockEnd: 8 }}
                 title={`规格${index + 1}`}
-                extra={action}
-                bodyStyle={{ paddingBlockEnd: 0 }}
+                variant="outlined"
               >
                 {listDom}
               </ProCard>
             )}
-            creatorRecord={{ name: '', items: [{ name: '' }] }}
-            initialValue={[{ name: '颜色', items: [{ name: '红' }] }]}
+            label="规格"
+            min={1}
+            name="attributes"
           >
-            <ProFormText
-              style={{ padding: 0 }}
-              width="md"
-              name="name"
-              label="规格名"
-            />
-            <ProForm.Item
-              isListField
-              style={{ marginBlockEnd: 0 }}
-              label="规格值"
-            >
+            <ProFormText label="规格名" name="name" style={{ padding: 0 }} width="md" />
+            <ProForm.Item isListField label="规格值" style={{ marginBlockEnd: 0 }}>
               <ProFormList
-                name="items"
+                copyIconProps={false}
                 creatorButtonProps={{
                   creatorButtonText: '新建',
                   icon: false,
                   type: 'link',
                   style: { width: 'unset' },
                 }}
-                min={1}
-                copyIconProps={false}
                 deleteIconProps={{ tooltipText: '删除' }}
                 itemRender={({ listDom, action }) => (
                   <div
@@ -99,8 +82,10 @@ const Demo = () => {
                     {action}
                   </div>
                 )}
+                min={1}
+                name="items"
               >
-                <ProFormText allowClear={false} width="xs" name={['name']} />
+                <ProFormText allowClear={false} name={['name']} width="xs" />
                 <div>
                   在内层formlist拿不到
                   <FormModal />

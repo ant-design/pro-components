@@ -2,17 +2,10 @@ import { FilterOutlined } from '@ant-design/icons';
 import { omit } from '@rc-component/util';
 import type { FormProps } from 'antd';
 import { ConfigProvider } from 'antd';
-import type { SizeType } from 'antd/lib/config-provider/SizeContext';
-import type { TooltipPlacement } from 'antd/lib/tooltip';
+import type { SizeType } from 'antd/es/config-provider/SizeContext';
+import type { TooltipPlacement } from 'antd/es/tooltip';
 import classNames from 'classnames';
-import React, {
-  useContext,
-  useEffect,
-  useImperativeHandle,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import React, { useContext, useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react';
 import { useIntl } from '../../../provider';
 import { FieldLabel, FilterDropdown } from '../../../utils';
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
@@ -109,7 +102,6 @@ const LightFilterContainer: React.FC<{
       collapseItems: collapseItemsArr,
       outsideItems: outsideItemsArr,
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.items]);
 
   const renderCollapseLabelRender = () => {
@@ -117,33 +109,18 @@ const LightFilterContainer: React.FC<{
       return collapseLabel;
     }
     if (collapse) {
-      return (
-        <FilterOutlined
-          className={`${lightFilterClassName}-collapse-icon ${hashId}`.trim()}
-        />
-      );
+      return <FilterOutlined className={`${lightFilterClassName}-collapse-icon ${hashId}`.trim()} />;
     }
-    return (
-      <FieldLabel
-        size={size}
-        label={intl.getMessage('form.lightFilter.more', '更多筛选')}
-      />
-    );
+    return <FieldLabel label={intl.getMessage('form.lightFilter.more', '更多筛选')} size={size} />;
   };
 
   return wrapSSR(
     <div
-      className={classNames(
-        lightFilterClassName,
-        hashId,
-        `${lightFilterClassName}-${size}`,
-        {
-          [`${lightFilterClassName}-effective`]: Object.keys(values).some(
-            (key) =>
-              Array.isArray(values[key]) ? values[key].length > 0 : values[key],
-          ),
-        },
-      )}
+      className={classNames(lightFilterClassName, hashId, `${lightFilterClassName}-${size}`, {
+        [`${lightFilterClassName}-effective`]: Object.keys(values).some((key) =>
+          Array.isArray(values[key]) ? values[key].length > 0 : values[key],
+        ),
+      })}
     >
       <div className={`${lightFilterClassName}-container ${hashId}`.trim()}>
         {outsideItems.map((child: any, index) => {
@@ -152,15 +129,10 @@ const LightFilterContainer: React.FC<{
           }
           const { key } = child;
           const { fieldProps } = child?.props || {};
-          const newPlacement = fieldProps?.placement
-            ? fieldProps?.placement
-            : placement;
+          const newPlacement = fieldProps?.placement ? fieldProps?.placement : placement;
 
           return (
-            <div
-              className={`${lightFilterClassName}-item ${hashId}`.trim()}
-              key={key || index}
-            >
+            <div key={key || index} className={`${lightFilterClassName}-item ${hashId}`.trim()}>
               {React.cloneElement(child, {
                 fieldProps: {
                   ...child.props.fieldProps,
@@ -179,19 +151,8 @@ const LightFilterContainer: React.FC<{
           );
         })}
         {collapseItems.length ? (
-          <div
-            className={`${lightFilterClassName}-item ${hashId}`.trim()}
-            key="more"
-          >
+          <div key="more" className={`${lightFilterClassName}-item ${hashId}`.trim()}>
             <FilterDropdown
-              padding={24}
-              open={open}
-              onOpenChange={(changeOpen) => {
-                setOpen(changeOpen);
-              }}
-              placement={placement}
-              label={renderCollapseLabelRender()}
-              footerRender={footerRender}
               footer={{
                 onConfirm: () => {
                   onValuesChange({
@@ -208,6 +169,14 @@ const LightFilterContainer: React.FC<{
                   onValuesChange(clearValues);
                 },
               }}
+              footerRender={footerRender}
+              label={renderCollapseLabelRender()}
+              open={open}
+              padding={24}
+              placement={placement}
+              onOpenChange={(changeOpen) => {
+                setOpen(changeOpen);
+              }}
             >
               {collapseItems.map((child: any) => {
                 const { key } = child;
@@ -222,18 +191,12 @@ const LightFilterContainer: React.FC<{
                     return false;
                   },
                 };
-                if (moreValues.hasOwnProperty(name)) {
-                  newFieldProps[child.props.valuePropName || 'value'] =
-                    moreValues[name];
+                if (Object.prototype.hasOwnProperty.call(moreValues, name)) {
+                  newFieldProps[child.props.valuePropName || 'value'] = moreValues[name];
                 }
-                const newPlacement = fieldProps?.placement
-                  ? fieldProps?.placement
-                  : placement;
+                const newPlacement = fieldProps?.placement ? fieldProps?.placement : placement;
                 return (
-                  <div
-                    className={`${lightFilterClassName}-line ${hashId}`.trim()}
-                    key={key}
-                  >
+                  <div key={key} className={`${lightFilterClassName}-line ${hashId}`.trim()}>
                     {React.cloneElement(child, {
                       fieldProps: {
                         ...newFieldProps,
@@ -271,33 +234,29 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
   const [values, setValues] = useState<Record<string, any>>(() => {
     return { ...initialValues };
   });
-  const formRef = useRef<ProFormInstance>();
+  const formRef = useRef<ProFormInstance>(undefined);
 
   useImperativeHandle(userFormRef, () => formRef.current, [formRef.current]);
 
   return (
     <BaseForm
-      size={size}
-      initialValues={initialValues}
-      form={userForm}
       contentRender={(items) => {
         return (
           <LightFilterContainer
-            prefixCls={prefixCls}
+            collapse={collapse}
+            collapseLabel={collapseLabel}
+            footerRender={footerRender}
             items={items?.flatMap((item: any) => {
               if (!item || !item?.type) return item;
               /** 如果是 ProFormGroup，直接拼接dom */
-              if (item?.type?.displayName === 'ProForm-Group')
-                return item.props.children;
+              if (item?.type?.displayName === 'ProForm-Group') return item.props.children;
               return item;
             })}
-            size={size}
-            variant={variant}
-            collapse={collapse}
-            collapseLabel={collapseLabel}
             placement={placement}
+            prefixCls={prefixCls}
+            size={size}
             values={values || {}}
-            footerRender={footerRender}
+            variant={variant}
             onValuesChange={(newValues: any) => {
               const newAllValues = {
                 ...values,
@@ -313,16 +272,19 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
           />
         );
       }}
-      formRef={formRef}
-      formItemProps={{
-        colon: false,
-        labelAlign: 'left',
-      }}
       fieldProps={{
         style: {
           width: undefined,
         },
       }}
+      form={userForm}
+      formItemProps={{
+        colon: false,
+        labelAlign: 'left',
+      }}
+      formRef={formRef}
+      initialValues={initialValues}
+      size={size}
       {...omit(reset, ['labelWidth'] as any[])}
       onValuesChange={(_, allValues) => {
         setValues(allValues);

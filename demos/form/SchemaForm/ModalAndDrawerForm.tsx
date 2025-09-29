@@ -1,5 +1,5 @@
-﻿import type { ProFormLayoutType } from '@ant-design/pro-components';
-import { BetaSchemaForm, ProFormSelect } from '@ant-design/pro-components';
+﻿import type { ProFormLayoutType } from '@xxlabs/pro-components';
+import { BetaSchemaForm, ProFormSelect } from '@xxlabs/pro-components';
 import { Alert, Button, Space } from 'antd';
 import { useState } from 'react';
 
@@ -13,30 +13,30 @@ export default () => {
   return (
     <>
       <Space
+        direction="vertical"
         style={{
           width: '100%',
         }}
-        direction="vertical"
       >
         <Alert
-          type="warning"
           message="QueryFilter 和 lightFilter 暂不支持grid模式"
           style={{
             marginBlockEnd: 24,
           }}
+          type="warning"
         />
         <ProFormSelect
-          label="布局方式"
-          options={['ModalForm', 'DrawerForm']}
           fieldProps={{
             value: layoutType,
             onChange: (e) => setLayoutType(e),
           }}
+          label="布局方式"
+          options={['ModalForm', 'DrawerForm']}
         />
       </Space>
       <BetaSchemaForm<DataItem>
-        trigger={<Button>点击我</Button>}
         layoutType={layoutType as 'ModalForm'}
+        trigger={<Button>点击我</Button>}
         onFinish={async (values) => {
           console.log(values);
         }}

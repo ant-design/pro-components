@@ -1,6 +1,7 @@
 import type { InputNumberProps } from 'antd';
 import React from 'react';
-import { FieldMoney, FieldMoneyProps } from '../../../field';
+import type { FieldMoneyProps } from '../../../field';
+import { FieldMoney } from '../../../field';
 import { ProConfigProvider } from '../../../provider';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProFormField from '../Field';
@@ -19,52 +20,39 @@ export type ProFormMoneyProps = ProFormFieldItemProps<
  *
  * @param
  */
-const ProFormMoney: React.ForwardRefRenderFunction<any, ProFormMoneyProps> = (
-  { fieldProps, proFieldProps, locale, min, max, ...rest },
-  ref,
-) => {
+const ProFormMoney: React.FC<ProFormMoneyProps> = ({ fieldProps, proFieldProps, locale, min, max, ref, ...rest }) => {
   return (
     <ProConfigProvider
       valueTypeMap={{
         money: {
-          render: (text, props) => (
-            <FieldMoney
-              {...props}
-              placeholder={props.placeholder as string}
-              text={text}
-            />
-          ),
+          render: (text, props) => <FieldMoney {...props} placeholder={props.placeholder as string} text={text} />,
           formItemRender: (text, props) => (
-            <FieldMoney
-              {...props}
-              placeholder={props.placeholder as string}
-              text={text}
-            />
+            <FieldMoney {...props} placeholder={props.placeholder as string} text={text} />
           ),
         },
       }}
     >
       <ProFormField
-        valueType={{
-          type: 'money',
-          locale,
-        }}
-        fieldProps={{
-          min,
-          max,
-          ...fieldProps,
-        }}
         ref={ref}
         fieldConfig={{
           defaultProps: {
             width: '100%',
           },
         }}
+        fieldProps={{
+          min,
+          max,
+          ...fieldProps,
+        }}
         proFieldProps={proFieldProps}
+        valueType={{
+          type: 'money',
+          locale,
+        }}
         {...rest}
       />
     </ProConfigProvider>
   );
 };
 
-export default React.forwardRef(ProFormMoney);
+export default ProFormMoney;

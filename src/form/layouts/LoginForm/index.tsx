@@ -87,10 +87,7 @@ function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
           },
           render: (_, dom) => {
             const loginButton = dom.pop();
-            if (
-              typeof (proFormProps?.submitter as SubmitterProps)?.render ===
-              'function'
-            ) {
+            if (typeof (proFormProps?.submitter as SubmitterProps)?.render === 'function') {
               return (
                 proFormProps?.submitter as {
                   render: Exclude<SubmitterProps['render'], false>;
@@ -104,8 +101,7 @@ function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
   const context = useContext(ConfigProvider.ConfigContext);
   const baseClassName = context.getPrefixCls('pro-form-login');
   const { wrapSSR, hashId } = useStyle(baseClassName);
-  const getCls = (className: string) =>
-    `${baseClassName}-${className} ${hashId}`;
+  const getCls = (className: string) => `${baseClassName}-${className} ${hashId}`;
 
   /** 生成logo 的dom，如果是string 设置为图片 如果是个 dom 就原样保留 */
   const logoDom = useMemo(() => {
@@ -117,10 +113,7 @@ function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
   }, [logo]);
 
   return wrapSSR(
-    <div
-      className={classNames(getCls('container'), hashId)}
-      style={containerStyle}
-    >
+    <div className={classNames(getCls('container'), hashId)} style={containerStyle}>
       <div className={`${getCls('top')} ${hashId}`.trim()}>
         {title || logoDom ? (
           <div className={`${getCls('header')}`}>

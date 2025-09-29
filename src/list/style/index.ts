@@ -92,8 +92,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           },
         },
         [`&${token.componentCls}-row-type-top`]: {
-          backgroundImage:
-            "url('https://gw.alipayobjects.com/zos/antfincdn/DehQfMbOJb/icon.svg')",
+          backgroundImage: "url('https://gw.alipayobjects.com/zos/antfincdn/DehQfMbOJb/icon.svg')",
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'left top',
           backgroundSize: '12px 12px',

@@ -14,7 +14,7 @@ export const renderLogo = (
   title?: React.ReactNode,
 ): React.ReactNode => {
   if (logo && typeof logo === 'string' && isUrl(logo)) {
-    return <img src={logo} alt="logo" />;
+    return <img alt="logo" src={logo} />;
   }
 
   if (typeof logo === 'function') {
@@ -45,28 +45,19 @@ export const SimpleContent: React.FC<{
         {appList?.map((app, index) => {
           if (app?.children?.length) {
             return (
-              <div
-                // eslint-disable-next-line react/no-array-index-key
-                key={index}
-                className={`${baseClassName}-content-list-item-group ${hashId}`.trim()}
-              >
-                <div
-                  className={`${baseClassName}-content-list-item-group-title ${hashId}`.trim()}
-                >
-                  {app.title}
-                </div>
+              <div key={index} className={`${baseClassName}-content-list-item-group ${hashId}`.trim()}>
+                <div className={`${baseClassName}-content-list-item-group-title ${hashId}`.trim()}>{app.title}</div>
                 <SimpleContent
-                  hashId={hashId}
-                  itemClick={itemClick}
                   appList={app?.children}
                   baseClassName={baseClassName}
+                  hashId={hashId}
+                  itemClick={itemClick}
                 />
               </div>
             );
           }
           return (
             <li
-              // eslint-disable-next-line react/no-array-index-key
               key={index}
               className={`${baseClassName}-content-list-item ${hashId}`.trim()}
               onClick={(e) => {
@@ -74,11 +65,7 @@ export const SimpleContent: React.FC<{
                 itemClick?.(app);
               }}
             >
-              <a
-                href={itemClick ? 'javascript:;' : app.url}
-                target={app.target}
-                rel="noreferrer"
-              >
+              <a href={itemClick ? 'javascript:;' : app.url} rel="noreferrer" target={app.target}>
                 {renderLogo(app.icon, app.title)}
                 <div>
                   <div>{app.title}</div>

@@ -45,10 +45,12 @@ const getValueOrLabel = (
   return valueMap[v?.value] || v.label;
 };
 
-export const LightSelect: React.ForwardRefRenderFunction<
-  any,
-  SelectProps<any> & LightSelectProps
-> = (props, ref) => {
+export const LightSelect: React.FC<
+  SelectProps<any> &
+    LightSelectProps & {
+      ref?: React.Ref<any>;
+    }
+> = ({ ref, ...props }) => {
   const {
     label,
     prefixCls: customizePrefixCls,
@@ -78,8 +80,7 @@ export const LightSelect: React.ForwardRefRenderFunction<
     ...restProps
   } = props;
   const { placeholder = label } = props;
-  const { label: labelPropsName = 'label', value: valuePropsName = 'value' } =
-    fieldNames || {};
+  const { label: labelPropsName = 'label', value: valuePropsName = 'value' } = fieldNames || {};
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-select-light-select');
   const [open, setOpen] = useState<boolean>(false);
@@ -149,9 +150,7 @@ export const LightSelect: React.ForwardRefRenderFunction<
       onClick={(e) => {
         if (disabled) return;
         // Only handle clicks outside the label
-        const isLabelClick = lightLabel?.current?.labelRef?.current?.contains(
-          e.target as HTMLElement,
-        );
+        const isLabelClick = lightLabel?.current?.labelRef?.current?.contains(e.target as HTMLElement);
         if (!isLabelClick) {
           setOpen(true);
         }
@@ -160,38 +159,33 @@ export const LightSelect: React.ForwardRefRenderFunction<
       <Select
         {...restProps}
         allowClear={allowClear}
-        value={value}
-        mode={mode}
-        labelInValue={labelInValue}
-        size={size}
         disabled={disabled}
-        variant={variant}
-        onChange={(v, option) => {
-          onChange?.(v, option);
-          if (mode !== 'multiple') {
-            setOpen(false);
-          }
-        }}
-        showSearch={showSearch}
-        onSearch={
-          showSearch
-            ? (keyValue) => {
-                if (fetchDataOnSearch && fetchData) {
-                  fetchData(keyValue);
+        labelInValue={labelInValue}
+        mode={mode}
+        open={mergeOpen}
+        options={
+          onSearch || !keyword
+            ? options
+            : options?.filter((o) => {
+                if (optionFilterProp) {
+                  return toArray(o[optionFilterProp]).join('').toLowerCase().includes(keyword);
                 }
-                onSearch?.(keyValue);
-              }
-            : void 0
+                return (
+                  String(o[labelPropsName])?.toLowerCase()?.includes(keyword?.toLowerCase()) ||
+                  o[valuePropsName]?.toString()?.toLowerCase()?.includes(keyword?.toLowerCase())
+                );
+              })
         }
-        style={style}
         popupRender={(menuNode) => {
           return (
             <div ref={ref}>
               {showSearch && (
                 <div style={{ margin: '4px 8px' }}>
                   <Input
-                    value={keyword}
                     allowClear={!!allowClear}
+                    prefix={<SearchOutlined />}
+                    style={{ width: '100%' }}
+                    value={keyword}
                     onChange={(e) => {
                       setKeyword(e.target.value);
                       if (fetchDataOnSearch && fetchData) {
@@ -209,8 +203,6 @@ export const LightSelect: React.ForwardRefRenderFunction<
                         e.preventDefault();
                       }
                     }}
-                    style={{ width: '100%' }}
-                    prefix={<SearchOutlined />}
                   />
                 </div>
               )}
@@ -218,7 +210,18 @@ export const LightSelect: React.ForwardRefRenderFunction<
             </div>
           );
         }}
-        open={mergeOpen}
+        prefixCls={customizePrefixCls}
+        showSearch={showSearch}
+        size={size}
+        style={style}
+        value={value}
+        variant={variant}
+        onChange={(v, option) => {
+          onChange?.(v, option);
+          if (mode !== 'multiple') {
+            setOpen(false);
+          }
+        }}
         onOpenChange={(isOpen) => {
           if (!isOpen) {
             //  测试环境下直接跑
@@ -229,37 +232,27 @@ export const LightSelect: React.ForwardRefRenderFunction<
           }
           restProps?.onOpenChange?.(isOpen);
         }}
-        prefixCls={customizePrefixCls}
-        options={
-          onSearch || !keyword
-            ? options
-            : options?.filter((o) => {
-                if (optionFilterProp) {
-                  return toArray(o[optionFilterProp])
-                    .join('')
-                    .toLowerCase()
-                    .includes(keyword);
+        onSearch={
+          showSearch
+            ? (keyValue) => {
+                if (fetchDataOnSearch && fetchData) {
+                  fetchData(keyValue);
                 }
-                return (
-                  String(o[labelPropsName])
-                    ?.toLowerCase()
-                    ?.includes(keyword?.toLowerCase()) ||
-                  o[valuePropsName]
-                    ?.toString()
-                    ?.toLowerCase()
-                    ?.includes(keyword?.toLowerCase())
-                );
-              })
+                onSearch?.(keyValue);
+              }
+            : void 0
         }
       />
       <FieldLabel
+        ref={lightLabel}
         ellipsis
+        allowClear={!!allowClear}
+        disabled={disabled}
         label={label}
         placeholder={placeholder}
-        disabled={disabled}
-        variant={variant}
-        allowClear={!!allowClear}
         value={filterValue || value?.label || value}
+        valueMaxLength={valueMaxLength}
+        variant={variant}
         onClear={() => {
           onChange?.(undefined, undefined);
         }}
@@ -267,11 +260,9 @@ export const LightSelect: React.ForwardRefRenderFunction<
           if (disabled) return;
           setOpen(!open);
         }}
-        ref={lightLabel}
-        valueMaxLength={valueMaxLength}
       />
     </div>,
   );
 };
 
-export default React.forwardRef(LightSelect);
+export default LightSelect;

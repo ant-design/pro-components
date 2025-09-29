@@ -83,10 +83,7 @@ export type PureSettings = {
     /**
      * @name 菜单远程请求的方法，只有 params 变化才会重新触发 request
      */
-    request?: (
-      params: Record<string, any>,
-      defaultMenuData: MenuDataItem[],
-    ) => Promise<MenuDataItem[]>;
+    request?: (params: Record<string, any>, defaultMenuData: MenuDataItem[]) => Promise<MenuDataItem[]>;
 
     /**
      * @name 菜单聚合的模式

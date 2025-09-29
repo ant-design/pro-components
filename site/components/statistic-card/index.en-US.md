@@ -22,7 +22,7 @@ StatisticCard - Statistic Card is a powerful component suitable for the followin
 ### Basic Usage
 
 ```tsx
-import { StatisticCard } from '@ant-design/pro-components';
+import { StatisticCard } from '@xxlabs/pro-components';
 
 export default () => {
   return <StatisticCard />;

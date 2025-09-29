@@ -6,10 +6,7 @@ import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
 import type { ProFormFieldItemProps } from '../../typing';
 import warpField from '../FormItem/warpField';
 
-export type ProFormFieldProps<
-  T = any,
-  FiledProps = Record<string, any>,
-> = ProSchema<
+export type ProFormFieldProps<T = any, FiledProps = Record<string, any>> = ProSchema<
   T,
   ProFormFieldItemProps<FiledProps> & {
     mode?: 'edit' | 'read' | 'update';
@@ -114,13 +111,13 @@ const BaseProFormField: React.FC<
 
   return (
     <PureProField
-      text={fieldProps?.[valuePropName]}
-      render={render as any}
-      formItemRender={formItemRender as any}
-      valueType={(valueType as 'text') || 'text'}
       cacheForSwr={cacheForSwr}
       fieldProps={memoFieldProps}
+      formItemRender={formItemRender as any}
+      render={render as any}
+      text={fieldProps?.[valuePropName]}
       valueEnum={runFunction(valueEnum)}
+      valueType={(valueType as 'text') || 'text'}
       {...proFieldProps}
       {...restProps}
       mode={proFieldProps?.mode || modeContext.mode || 'edit'}
@@ -133,8 +130,6 @@ const ProFormField = warpField<ProFormFieldProps>?.(
   memo(BaseProFormField, (prevProps, nextProps) => {
     return isDeepEqualReact(nextProps, prevProps, ['onChange', 'onBlur']);
   }),
-) as <FiledProps, DataType = Record<string, any>>(
-  props: ProFormFieldProps<DataType, FiledProps>,
-) => React.ReactElement;
+) as <FiledProps, DataType = Record<string, any>>(props: ProFormFieldProps<DataType, FiledProps>) => React.ReactElement;
 
 export default ProFormField;

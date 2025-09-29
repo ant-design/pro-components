@@ -1,9 +1,5 @@
-import {
-  GithubFilled,
-  InfoCircleFilled,
-  QuestionCircleFilled,
-} from '@ant-design/icons';
-import { PageContainer, ProCard, ProLayout } from '@ant-design/pro-components';
+import { GithubFilled, InfoCircleFilled, QuestionCircleFilled } from '@ant-design/icons';
+import { PageContainer, ProCard, ProLayout } from '@xxlabs/pro-components';
 import { useState } from 'react';
 import defaultProps from './_defaultProps';
 
@@ -18,7 +14,6 @@ export default () => {
       }}
     >
       <ProLayout
-        siderWidth={216}
         bgLayoutImgList={[
           {
             src: 'https://img.alicdn.com/imgextra/i2/O1CN01O4etvp1DvpFLKfuWq_!!6000000000279-2-tps-609-606.png',
@@ -39,15 +34,8 @@ export default () => {
             width: '331px',
           },
         ]}
+        siderWidth={216}
         {...defaultProps}
-        location={{
-          pathname,
-        }}
-        avatarProps={{
-          src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
-          title: '七妮妮',
-          size: 'small',
-        }}
         actionsRender={(props) => {
           if (props.isMobile) return [];
           return [
@@ -55,6 +43,14 @@ export default () => {
             <QuestionCircleFilled key="QuestionCircleFilled" />,
             <GithubFilled key="GithubFilled" />,
           ];
+        }}
+        avatarProps={{
+          src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+          title: '七妮妮',
+          size: 'small',
+        }}
+        location={{
+          pathname,
         }}
         menuItemRender={(item, dom) => (
           <div

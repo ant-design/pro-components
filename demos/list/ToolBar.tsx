@@ -1,5 +1,5 @@
-import type { ActionType } from '@ant-design/pro-components';
-import { ProList } from '@ant-design/pro-components';
+import type { ActionType } from '@xxlabs/pro-components';
+import { ProList } from '@xxlabs/pro-components';
 import { Badge, Button } from 'antd';
 import React, { useRef, useState } from 'react';
 
@@ -79,10 +79,9 @@ const renderBadge = (count: number, active = false) => {
 
 export default () => {
   const [activeKey, setActiveKey] = useState<React.Key | undefined>('tab1');
-  const action = useRef<ActionType>();
+  const action = useRef<ActionType>(undefined);
   return (
     <ProList<any>
-      rowKey="name"
       actionRef={action}
       dataSource={dataSource}
       editable={{}}
@@ -107,10 +106,7 @@ export default () => {
         content: {
           dataIndex: 'content',
           render: (text) => (
-            <div
-              key="label"
-              style={{ display: 'flex', justifyContent: 'space-around' }}
-            >
+            <div key="label" style={{ display: 'flex', justifyContent: 'space-around' }}>
               {(text as any[]).map((t) => (
                 <div key={t.label}>
                   <div>{t.label}</div>
@@ -137,42 +133,37 @@ export default () => {
         actions: {
           render: (text, row) => [
             <a
-              href={row.html_url}
-              target="_blank"
-              rel="noopener noreferrer"
               key="link"
+              href={row.html_url}
+              rel="noopener noreferrer"
+              target="_blank"
               onClick={() => {
                 action.current?.startEditable(row.name);
               }}
             >
               编辑
             </a>,
-            <a target="_blank" rel="noopener noreferrer" key="warning">
+            <a key="warning" rel="noopener noreferrer" target="_blank">
               复制
             </a>,
-            <a target="_blank" rel="noopener noreferrer" key="view">
+            <a key="view" rel="noopener noreferrer" target="_blank">
               删除
             </a>,
           ],
         },
       }}
+      rowKey="name"
       toolbar={{
         menu: {
           activeKey,
           items: [
             {
               key: 'tab1',
-              label: (
-                <span>全部实验室{renderBadge(99, activeKey === 'tab1')}</span>
-              ),
+              label: <span>全部实验室{renderBadge(99, activeKey === 'tab1')}</span>,
             },
             {
               key: 'tab2',
-              label: (
-                <span>
-                  我创建的实验室{renderBadge(32, activeKey === 'tab2')}
-                </span>
-              ),
+              label: <span>我创建的实验室{renderBadge(32, activeKey === 'tab2')}</span>,
             },
           ],
           onChange(key) {
@@ -185,7 +176,7 @@ export default () => {
           },
         },
         actions: [
-          <Button type="primary" key="primary">
+          <Button key="primary" type="primary">
             新建实验
           </Button>,
         ],

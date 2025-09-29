@@ -3,57 +3,48 @@ import React, { useContext } from 'react';
 import { FieldCascader } from '../../../field';
 import { ProConfigProvider } from '../../../provider';
 import FieldContext from '../../FieldContext';
-import type {
-  ProFormFieldItemProps,
-  ProFormFieldRemoteProps,
-} from '../../typing';
+import type { ProFormFieldItemProps, ProFormFieldRemoteProps } from '../../typing';
 import ProField from '../Field';
+
 /**
  * 级联选择框
  *
- * @param
  */
-const ProFormCascader: React.ForwardRefRenderFunction<
-  any,
-  ProFormFieldItemProps<CascaderProps<any>> & ProFormFieldRemoteProps
-> = ({ fieldProps, request, params, proFieldProps, ...rest }, ref) => {
+const ProFormCascader: React.FC<ProFormFieldItemProps<CascaderProps<any>> & ProFormFieldRemoteProps> = ({
+  fieldProps,
+  request,
+  params,
+  proFieldProps,
+  ref,
+  ...rest
+}) => {
   const context = useContext(FieldContext);
   return (
     <ProConfigProvider
       valueTypeMap={{
         cascader: {
-          render: (text, props) => (
-            <FieldCascader
-              {...props}
-              text={text}
-              placeholder={props.placeholder as string}
-            />
-          ),
+          render: (text, props) => <FieldCascader {...props} placeholder={props.placeholder as string} text={text} />,
           formItemRender: (text, props) => (
-            <FieldCascader
-              {...props}
-              text={text}
-              placeholder={props.placeholder as string}
-            />
+            <FieldCascader {...props} placeholder={props.placeholder as string} text={text} />
           ),
         },
       }}
     >
       <ProField
-        valueType="cascader"
+        ref={ref}
+        fieldConfig={{ customLightMode: true }}
         fieldProps={{
           getPopupContainer: context.getPopupContainer,
           ...fieldProps,
         }}
-        ref={ref}
-        request={request}
         params={params}
-        fieldConfig={{ customLightMode: true }}
         proFieldProps={proFieldProps}
+        request={request}
+        valueType="cascader"
         {...rest}
       />
     </ProConfigProvider>
   );
 };
 
-export default React.forwardRef(ProFormCascader);
+export default ProFormCascader;

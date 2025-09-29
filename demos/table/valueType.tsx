@@ -1,5 +1,5 @@
-import type { ProColumns } from '@ant-design/pro-components';
-import { ProTable } from '@ant-design/pro-components';
+import type { ProColumns } from '@xxlabs/pro-components';
+import { ProTable } from '@xxlabs/pro-components';
 import { Space } from 'antd';
 import dayjs from 'dayjs';
 
@@ -29,16 +29,12 @@ const tableListDataSource: TableListItem[] = [];
 for (let i = 0; i < 2; i += 1) {
   tableListDataSource.push({
     key: i,
-    avatar:
-      'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
-    image:
-      'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+    avatar: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+    image: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
     name: `TradeCode ${i}`,
     status: valueEnum[((Math.floor(Math.random() * 10) % 4) + '') as '0'],
-    updatedAt:
-      dayjs('2019-11-16 12:50:26').valueOf() - Math.floor(Math.random() * 1000),
-    createdAt:
-      dayjs('2019-11-16 12:50:26').valueOf() - Math.floor(Math.random() * 2000),
+    updatedAt: dayjs('2019-11-16 12:50:26').valueOf() - Math.floor(Math.random() * 1000),
+    createdAt: dayjs('2019-11-16 12:50:26').valueOf() - Math.floor(Math.random() * 2000),
     createdAtRange: [
       dayjs('2019-11-16 12:50:26').valueOf() - Math.floor(Math.random() * 2000),
       dayjs('2019-11-16 12:50:26').valueOf() - Math.floor(Math.random() * 2000),
@@ -46,9 +42,7 @@ for (let i = 0; i < 2; i += 1) {
     money: Math.floor(Math.random() * 2000) * i,
     progress: Math.ceil(Math.random() * 100) + 1,
     percent:
-      Math.random() > 0.5
-        ? ((i + 1) * 10 + Math.random()).toFixed(3)
-        : -((i + 1) * 10 + Math.random()).toFixed(2),
+      Math.random() > 0.5 ? ((i + 1) * 10 + Math.random()).toFixed(3) : -((i + 1) * 10 + Math.random()).toFixed(2),
     code: `const getData = async params => {
   const data = await getData(params);
   return { list: data.data, ...data };
@@ -84,11 +78,7 @@ const columns: ProColumns<TableListItem>[] = [
     render: (dom) => (
       <Space>
         <span>{dom}</span>
-        <a
-          href="https://github.com/chenshuai2144"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="https://github.com/chenshuai2144" rel="noopener noreferrer" target="_blank">
           chenshuai2144
         </a>
       </Space>
@@ -122,6 +112,7 @@ export default () => (
   <>
     <ProTable<TableListItem>
       columns={columns}
+      headerTitle="样式类"
       request={() => {
         return Promise.resolve({
           total: 200,
@@ -130,7 +121,6 @@ export default () => (
         });
       }}
       rowKey="key"
-      headerTitle="样式类"
     />
     <div
       style={{

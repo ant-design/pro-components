@@ -1,17 +1,9 @@
-import { ProDescriptions } from '@ant-design/pro-components';
+import { ProDescriptions } from '@xxlabs/pro-components';
 
 export default () => {
   return (
     <>
       <ProDescriptions
-        title="dataSource and columns"
-        dataSource={{
-          id: '这是一段文本columns',
-          date: '20200809',
-          money: '1212100',
-          state: 'all',
-          state2: 'open',
-        }}
         columns={[
           {
             title: '文本',
@@ -58,18 +50,26 @@ export default () => {
             title: '操作',
             valueType: 'option',
             render: () => [
-              <a target="_blank" rel="noopener noreferrer" key="link">
+              <a key="link" rel="noopener noreferrer" target="_blank">
                 链路
               </a>,
-              <a target="_blank" rel="noopener noreferrer" key="warning">
+              <a key="warning" rel="noopener noreferrer" target="_blank">
                 报警
               </a>,
-              <a target="_blank" rel="noopener noreferrer" key="view">
+              <a key="view" rel="noopener noreferrer" target="_blank">
                 查看
               </a>,
             ],
           },
         ]}
+        dataSource={{
+          id: '这是一段文本columns',
+          date: '20200809',
+          money: '1212100',
+          state: 'all',
+          state2: 'open',
+        }}
+        title="dataSource and columns"
       >
         <ProDescriptions.Item label="百分比" valueType="percent">
           100
@@ -198,8 +198,7 @@ export default () => {
             <strong>数据来源</strong>: dataSource 直接提供数据，request 异步获取
           </li>
           <li>
-            <strong>使用场景</strong>: dataSource 适合静态数据，request
-            适合动态数据
+            <strong>使用场景</strong>: dataSource 适合静态数据，request 适合动态数据
           </li>
           <li>
             <strong>性能差异</strong>: dataSource 性能更好，无需网络请求

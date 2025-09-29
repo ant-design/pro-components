@@ -1,9 +1,6 @@
 ﻿import { Spin } from 'antd';
 import { useContext, useEffect, useState } from 'react';
-import type {
-  ProHelpDataSource,
-  ProHelpDataSourceChildren,
-} from './HelpProvide';
+import type { ProHelpDataSource, ProHelpDataSourceChildren } from './HelpProvide';
 import { ProHelpProvide } from './HelpProvide';
 import { RenderContentPanel } from './RenderContentPanel';
 
@@ -53,10 +50,10 @@ export const AsyncContentPanel: React.FC<{
   // 加载完成后，渲染内容面板
   return (
     <RenderContentPanel
+      dataSourceChildren={content!}
       onInit={(ref) => {
         onInit?.(ref);
       }}
-      dataSourceChildren={content!}
     />
   );
 };

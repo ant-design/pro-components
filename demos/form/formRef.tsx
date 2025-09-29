@@ -1,9 +1,5 @@
-import type { ProFormInstance } from '@ant-design/pro-components';
-import {
-  ProForm,
-  ProFormDatePicker,
-  ProFormText,
-} from '@ant-design/pro-components';
+import type { ProFormInstance } from '@xxlabs/pro-components';
+import { ProForm, ProFormDatePicker, ProFormText } from '@xxlabs/pro-components';
 import { Button, message } from 'antd';
 import dayjs from 'dayjs';
 import { useRef } from 'react';
@@ -17,7 +13,7 @@ const waitTime = (time: number = 100) => {
 };
 
 export default () => {
-  const formRef = useRef<ProFormInstance>();
+  const formRef = useRef<ProFormInstance>(undefined);
   const onFill = () => {
     formRef?.current?.setFieldsValue({
       name: '张三',
@@ -30,10 +26,7 @@ export default () => {
   };
 
   const getFormatValues = () => {
-    console.log(
-      '格式化后的所有数据：',
-      formRef.current?.getFieldsFormatValue?.(),
-    );
+    console.log('格式化后的所有数据：', formRef.current?.getFieldsFormatValue?.());
   };
 
   const validateAndGetFormatValue = () => {
@@ -44,33 +37,29 @@ export default () => {
 
   return (
     <ProForm
-      title="新建表单"
       formRef={formRef}
       submitter={{
         render: (props, doms) => {
           return [
             ...doms,
-            <Button htmlType="button" onClick={onFill} key="edit">
+            <Button key="edit" htmlType="button" onClick={onFill}>
               一键填写
             </Button>,
-            <Button htmlType="button" onClick={getCompanyName} key="read">
+            <Button key="read" htmlType="button" onClick={getCompanyName}>
               读取公司
             </Button>,
             <Button.Group key="refs" style={{ display: 'block' }}>
-              <Button htmlType="button" onClick={getFormatValues} key="format">
+              <Button key="format" htmlType="button" onClick={getFormatValues}>
                 获取格式化后的所有数据
               </Button>
-              <Button
-                htmlType="button"
-                onClick={validateAndGetFormatValue}
-                key="format2"
-              >
+              <Button key="format2" htmlType="button" onClick={validateAndGetFormatValue}>
                 校验表单并返回格式化后的所有数据
               </Button>
             </Button.Group>,
           ];
         },
       }}
+      title="新建表单"
       onFinish={async (values) => {
         await waitTime(2000);
         console.log(values);
@@ -78,21 +67,10 @@ export default () => {
         return true;
       }}
     >
-      <ProFormText
-        width="md"
-        name="name"
-        label="签约客户名称"
-        tooltip="最长为 24 位"
-        placeholder="请输入名称"
-      />
+      <ProFormText label="签约客户名称" name="name" placeholder="请输入名称" tooltip="最长为 24 位" width="md" />
 
-      <ProFormText
-        width="md"
-        name="company"
-        label="我方公司名称"
-        placeholder="请输入名称"
-      />
-      <ProFormDatePicker name="date" initialValue={dayjs('2021-08-09')} />
+      <ProFormText label="我方公司名称" name="company" placeholder="请输入名称" width="md" />
+      <ProFormDatePicker initialValue={dayjs('2021-08-09')} name="date" />
     </ProForm>
   );
 };

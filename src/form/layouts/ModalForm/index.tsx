@@ -2,25 +2,19 @@
 import type { FormProps, ModalProps } from 'antd';
 import { ConfigProvider, Modal } from 'antd';
 import { merge } from 'lodash-es';
-import React, {
-  useCallback,
-  useContext,
-  useEffect,
-  useImperativeHandle,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import type { JSX } from 'react';
+import React, { useCallback, useContext, useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
-import { SubmitterProps } from '../../BaseForm/Submitter';
+import type { SubmitterProps } from '../../BaseForm/Submitter';
+
 const { noteOnce } = warning;
 
-export type ModalFormProps<
-  T = Record<string, any>,
-  U = Record<string, any>,
-> = Omit<FormProps<T>, 'onFinish' | 'title'> &
+export type ModalFormProps<T = Record<string, any>, U = Record<string, any>> = Omit<
+  FormProps<T>,
+  'onFinish' | 'title'
+> &
   CommonFormProps<T, U> & {
     /**
      * 接收任意值，返回 真值 会关掉这个抽屉
@@ -70,7 +64,6 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
   ...rest
 }: ModalFormProps<T, U>) {
   noteOnce(
-    // eslint-disable-next-line @typescript-eslint/dot-notation
     !(rest as any)['footer'] || !modalProps?.footer,
     'ModalForm 是一个 ProForm 的特殊布局，如果想自定义按钮，请使用 submit.render 自定义。',
   );
@@ -87,17 +80,14 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
 
   const footerRef = useRef<HTMLDivElement | null>(null);
 
-  const footerDomRef: React.RefCallback<HTMLDivElement> = useCallback(
-    (element) => {
-      if (footerRef.current === null && element) {
-        forceUpdate([]);
-      }
-      footerRef.current = element;
-    },
-    [],
-  );
+  const footerDomRef: React.RefCallback<HTMLDivElement> = useCallback((element) => {
+    if (footerRef.current === null && element) {
+      forceUpdate([]);
+    }
+    footerRef.current = element;
+  }, []);
 
-  const formRef = useRef<ProFormInstance>();
+  const formRef = useRef<ProFormInstance>(undefined);
 
   const resetFields = useCallback(() => {
     const form = rest.form ?? rest.formRef?.current ?? formRef.current;
@@ -119,7 +109,6 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
     if (propsOpen) {
       onOpenChange?.(true);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [propsOpen]);
 
   const triggerDom = useMemo(() => {
@@ -145,12 +134,8 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
     return merge(
       {
         searchConfig: {
-          submitText:
-            modalProps?.okText ?? context.locale?.Modal?.okText ?? '确认',
-          resetText:
-            modalProps?.cancelText ??
-            context.locale?.Modal?.cancelText ??
-            '取消',
+          submitText: modalProps?.okText ?? context.locale?.Modal?.okText ?? '确认',
+          resetText: modalProps?.cancelText ?? context.locale?.Modal?.cancelText ?? '取消',
         },
         resetButtonProps: {
           preventDefault: true,
@@ -178,9 +163,7 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
       <>
         {formDom}
         {footerRef.current && submitter ? (
-          <React.Fragment key="submitter">
-            {createPortal(submitter, footerRef.current)}
-          </React.Fragment>
+          <React.Fragment key="submitter">{createPortal(submitter, footerRef.current)}</React.Fragment>
         ) : (
           submitter
         )}
@@ -245,13 +228,6 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
         title={title}
         width={width || 800}
         {...modalProps}
-        open={open}
-        onCancel={(e) => {
-          // 提交表单loading时，阻止弹框关闭
-          if (submitTimeout && loading) return;
-          setOpen(false);
-          modalProps?.onCancel?.(e);
-        }}
         afterClose={() => {
           // 确保在关闭时立即重置表单
           if (modalProps?.destroyOnHidden) {
@@ -273,20 +249,19 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
             />
           ) : null
         }
+        open={open}
+        onCancel={(e) => {
+          // 提交表单loading时，阻止弹框关闭
+          if (submitTimeout && loading) return;
+          setOpen(false);
+          modalProps?.onCancel?.(e);
+        }}
       >
         <BaseForm<T, U>
           formComponentType="ModalForm"
           layout="vertical"
           {...rest}
-          onInit={(_, form) => {
-            if (rest.formRef) {
-              (
-                rest.formRef as React.MutableRefObject<ProFormInstance<T>>
-              ).current = form;
-            }
-            rest?.onInit?.(_, form);
-            formRef.current = form;
-          }}
+          contentRender={contentRender}
           formRef={formRef}
           submitter={submitterConfig}
           onFinish={async (values) => {
@@ -294,7 +269,13 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
             // fix: #6006 如果 result 为 true,那么必然会触发弹窗关闭，我们无需在 此处重置表单，只需在弹窗关闭时重置即可
             return result;
           }}
-          contentRender={contentRender}
+          onInit={(_, form) => {
+            if (rest.formRef) {
+              (rest.formRef as React.RefObject<ProFormInstance<T>>).current = form;
+            }
+            rest?.onInit?.(_, form);
+            formRef.current = form;
+          }}
         >
           {children}
         </BaseForm>

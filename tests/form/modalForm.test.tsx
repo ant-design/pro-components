@@ -1,11 +1,5 @@
-﻿import { ModalForm, ProFormText } from '@ant-design/pro-components';
-import {
-  act,
-  cleanup,
-  fireEvent,
-  render,
-  waitFor,
-} from '@testing-library/react';
+﻿import { act, cleanup, fireEvent, render, waitFor } from '@testing-library/react';
+import { ModalForm, ProFormText } from '@xxlabs/pro-components';
 import type { FormInstance } from 'antd';
 import { Button } from 'antd';
 import { createRef } from 'react';
@@ -24,11 +18,7 @@ describe('ModalForm', () => {
   it('📦 trigger will simulate onOpenChange', async () => {
     const fn = vi.fn();
     const wrapper = render(
-      <ModalForm
-        width={600}
-        trigger={<Button id="new">新建</Button>}
-        onOpenChange={(open) => fn(open)}
-      >
+      <ModalForm trigger={<Button id="new">新建</Button>} width={600} onOpenChange={(open) => fn(open)}>
         <ProFormText name="name" />
       </ModalForm>,
     );
@@ -61,12 +51,13 @@ describe('ModalForm', () => {
     const wrapper = render(
       <ModalForm
         open
+        // @ts-ignore
         formRef={formRef}
-        request={async (params) => {
-          return params;
-        }}
         params={{
           name: 'test',
+        }}
+        request={async (params) => {
+          return params;
         }}
       >
         <ProFormText label="名称" name="name" />
@@ -85,7 +76,6 @@ describe('ModalForm', () => {
     const fn = vi.fn();
     const wrapper = render(
       <ModalForm
-        width={600}
         submitter={{
           searchConfig: {
             submitText: '确认',
@@ -99,6 +89,7 @@ describe('ModalForm', () => {
           },
         }}
         trigger={<Button id="new">新建</Button>}
+        width={600}
         onOpenChange={(open) => fn(open)}
       >
         <ProFormText name="name" />
@@ -127,8 +118,8 @@ describe('ModalForm', () => {
   it('📦 form onFinish return true should close modal', async () => {
     const wrapper = render(
       <ModalForm
-        width={600}
         trigger={<Button id="new">新建</Button>}
+        width={600}
         onFinish={async () => {
           return true;
         }}
@@ -157,8 +148,8 @@ describe('ModalForm', () => {
   it('📦 form onFinish is null, no close modal', async () => {
     const wrapper = render(
       <ModalForm
-        width={600}
         trigger={<Button id="new">新建</Button>}
+        width={600}
         onFinish={async () => {
           return false;
         }}
@@ -185,11 +176,7 @@ describe('ModalForm', () => {
 
   it('📦 ModalForm support submitter is false', async () => {
     const wrapper = render(
-      <ModalForm
-        width={600}
-        submitter={false}
-        trigger={<Button id="new">新建</Button>}
-      >
+      <ModalForm submitter={false} trigger={<Button id="new">新建</Button>} width={600}>
         <ProFormText name="name" />
       </ModalForm>,
     );
@@ -210,18 +197,18 @@ describe('ModalForm', () => {
     const fn = vi.fn();
     const wrapper = render(
       <ModalForm
-        width={600}
-        trigger={<Button id="new">新建</Button>}
         initialValues={{
           name: '1234',
         }}
+        trigger={<Button id="new">新建</Button>}
+        width={600}
         onOpenChange={(open) => fn(open)}
       >
         <ProFormText
-          name="name"
           fieldProps={{
             id: 'test',
           }}
+          name="name"
         />
       </ModalForm>,
     );
@@ -243,21 +230,21 @@ describe('ModalForm', () => {
     const fn = vi.fn();
     const wrapper = render(
       <ModalForm
-        width={600}
-        modalProps={{
-          forceRender: true,
-        }}
+        open
         initialValues={{
           name: '1234',
         }}
-        open
+        modalProps={{
+          forceRender: true,
+        }}
+        width={600}
         onOpenChange={(open) => fn(open)}
       >
         <ProFormText
-          name="name"
           fieldProps={{
             id: 'test',
           }}
+          name="name"
         />
       </ModalForm>,
     );
@@ -269,11 +256,7 @@ describe('ModalForm', () => {
 
   it('📦 ModalForm destroyOnHidden', async () => {
     const wrapper = render(
-      <ModalForm
-        width={600}
-        modalProps={{ destroyOnHidden: true }}
-        trigger={<Button id="new">新建</Button>}
-      >
+      <ModalForm modalProps={{ destroyOnHidden: true }} trigger={<Button id="new">新建</Button>} width={600}>
         <ProFormText name="test" />
       </ModalForm>,
     );
@@ -285,9 +268,7 @@ describe('ModalForm', () => {
 
     await act(async () => {
       // 只选 className 包含 ant-input 的 input
-      const inputs = wrapper
-        .getAllByDisplayValue('')
-        .filter((el) => el.className.includes('ant-input'));
+      const inputs = wrapper.getAllByDisplayValue('').filter((el) => el.className.includes('ant-input'));
       fireEvent.change(inputs[0], { target: { value: '1234' } });
     });
 
@@ -310,9 +291,7 @@ describe('ModalForm', () => {
 
     await waitFor(() => {
       // 检查输入框是否被重置
-      const inputs = wrapper
-        .getAllByDisplayValue('')
-        .filter((el) => el.className.includes('ant-input'));
+      const inputs = wrapper.getAllByDisplayValue('').filter((el) => el.className.includes('ant-input'));
 
       expect(inputs.length).toBe(0);
     });
@@ -321,11 +300,7 @@ describe('ModalForm', () => {
   it('📦 modal close button will simulate onOpenChange', async () => {
     const fn = vi.fn();
     const wrapper = render(
-      <ModalForm
-        width={600}
-        trigger={<Button id="new">新建</Button>}
-        onOpenChange={(open) => fn(open)}
-      >
+      <ModalForm trigger={<Button id="new">新建</Button>} width={600} onOpenChange={(open) => fn(open)}>
         <ProFormText name="name" />
       </ModalForm>,
     );
@@ -348,7 +323,7 @@ describe('ModalForm', () => {
   it('📦 modal open=true simulate onOpenChange', async () => {
     const fn = vi.fn();
     render(
-      <ModalForm width={600} open onOpenChange={(open) => fn(open)}>
+      <ModalForm open width={600} onOpenChange={(open) => fn(open)}>
         <ProFormText name="name" />
       </ModalForm>,
     );
@@ -361,11 +336,7 @@ describe('ModalForm', () => {
   it('📦 reset button will simulate onOpenChange', async () => {
     const fn = vi.fn();
     const wrapper = render(
-      <ModalForm
-        width={600}
-        trigger={<Button id="new">新建</Button>}
-        onOpenChange={(open) => fn(open)}
-      >
+      <ModalForm trigger={<Button id="new">新建</Button>} width={600} onOpenChange={(open) => fn(open)}>
         <ProFormText name="name" />
       </ModalForm>,
     );
@@ -389,11 +360,11 @@ describe('ModalForm', () => {
     const fn = vi.fn();
     const wrapper = render(
       <ModalForm
-        width={600}
-        trigger={<Button id="new">新建</Button>}
         modalProps={{
           onCancel: () => fn(false),
         }}
+        trigger={<Button id="new">新建</Button>}
+        width={600}
       >
         <ProFormText name="name" />
       </ModalForm>,
@@ -417,8 +388,8 @@ describe('ModalForm', () => {
   it('📦 ModalForm close no rerender from', async () => {
     const wrapper = render(
       <ModalForm
-        width={600}
         trigger={<Button id="new">新建</Button>}
+        width={600}
         onFinish={async () => {
           return true;
         }}
@@ -458,9 +429,9 @@ describe('ModalForm', () => {
   it('📦 ModalForm destroyOnHidden close will rerender from', async () => {
     const wrapper = render(
       <ModalForm
-        width={600}
         modalProps={{ destroyOnHidden: true }}
         trigger={<Button id="new">新建</Button>}
+        width={600}
         onFinish={async () => {
           return true;
         }}
@@ -500,9 +471,9 @@ describe('ModalForm', () => {
   it('📦 DrawerForm submitTimeout is number will disabled close button when submit', async () => {
     const wrapper = render(
       <ModalForm
-        width={600}
         submitTimeout={2000}
         trigger={<Button id="new">新建</Button>}
+        width={600}
         onFinish={async () => {
           await waitForWaitTime(1000);
           return true;
@@ -532,8 +503,8 @@ describe('ModalForm', () => {
   it('📦 modal submitTimeout is null no disable close button when submit', async () => {
     const wrapper = render(
       <ModalForm
-        width={600}
         trigger={<Button id="new">新建</Button>}
+        width={600}
         onFinish={async () => {
           await waitForWaitTime(100);
           return true;
@@ -555,20 +526,14 @@ describe('ModalForm', () => {
 
     await waitFor(() => {
       // 提交按钮不应该被禁用
-      const submitButton = wrapper.container.querySelector(
-        'button[type="button"]',
-      );
+      const submitButton = wrapper.container.querySelector('button[type="button"]');
       expect(submitButton).not.toBeDisabled();
     });
   });
 
   it('📦 model no render Form when destroyOnHidden', async () => {
     const wrapper = render(
-      <ModalForm
-        width={600}
-        modalProps={{ destroyOnHidden: true }}
-        trigger={<Button id="new">新建</Button>}
-      >
+      <ModalForm modalProps={{ destroyOnHidden: true }} trigger={<Button id="new">新建</Button>} width={600}>
         <ProFormText name="name" />
       </ModalForm>,
     );
@@ -581,10 +546,11 @@ describe('ModalForm', () => {
     const formRef = createRef<FormInstance>();
     const html = render(
       <ModalForm
-        width={600}
+        // @ts-ignore
         formRef={formRef}
         modalProps={{ destroyOnHidden: true }}
         trigger={<Button id="new">新建</Button>}
+        width={600}
       >
         <ProFormText name="name" />
       </ModalForm>,

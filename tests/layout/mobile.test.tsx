@@ -1,15 +1,7 @@
-﻿import { ProLayout } from '@ant-design/pro-components';
-import { cleanup, render, waitFor } from '@testing-library/react';
+﻿import { cleanup, render, waitFor } from '@testing-library/react';
+import { ProLayout } from '@xxlabs/pro-components';
 import { act } from 'react';
-import {
-  afterAll,
-  afterEach,
-  beforeAll,
-  describe,
-  expect,
-  it,
-  vi,
-} from 'vitest';
+import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
 import defaultProps from './defaultProps';
 
 afterEach(() => {
@@ -54,7 +46,7 @@ describe('mobile BasicLayout', () => {
 
   it('📱 collapsed=false', async () => {
     const html = render(
-      <ProLayout {...defaultProps} getContainer={false} collapsed={false}>
+      <ProLayout {...defaultProps} collapsed={false} getContainer={false}>
         welcome
       </ProLayout>,
     );
@@ -65,12 +57,7 @@ describe('mobile BasicLayout', () => {
 
   it('📱 layout=mix', async () => {
     const html = render(
-      <ProLayout
-        {...defaultProps}
-        getContainer={false}
-        layout="mix"
-        collapsed={false}
-      >
+      <ProLayout {...defaultProps} collapsed={false} getContainer={false} layout="mix">
         welcome
       </ProLayout>,
     );
@@ -82,13 +69,7 @@ describe('mobile BasicLayout', () => {
 
   it('📱 layout=mix and splitMenus', async () => {
     const html = render(
-      <ProLayout
-        {...defaultProps}
-        splitMenus
-        getContainer={false}
-        layout="mix"
-        collapsed={false}
-      >
+      <ProLayout {...defaultProps} splitMenus collapsed={false} getContainer={false} layout="mix">
         welcome
       </ProLayout>,
     );
@@ -99,13 +80,7 @@ describe('mobile BasicLayout', () => {
 
   it('📱 layout menuHeaderRender=false', async () => {
     const html = render(
-      <ProLayout
-        {...defaultProps}
-        collapsed
-        getContainer={false}
-        layout="mix"
-        menuHeaderRender={false}
-      >
+      <ProLayout {...defaultProps} collapsed getContainer={false} layout="mix" menuHeaderRender={false}>
         welcome
       </ProLayout>,
     );
@@ -117,13 +92,7 @@ describe('mobile BasicLayout', () => {
 
   it('📱 layout menuHeaderRender', async () => {
     const html = render(
-      <ProLayout
-        {...defaultProps}
-        collapsed
-        getContainer={false}
-        layout="mix"
-        menuHeaderRender={() => 'title'}
-      >
+      <ProLayout {...defaultProps} collapsed getContainer={false} layout="mix" menuHeaderRender={() => 'title'}>
         welcome
       </ProLayout>,
     );
@@ -135,13 +104,7 @@ describe('mobile BasicLayout', () => {
 
   it('📱 layout menuHeaderRender with custom title', async () => {
     const html = render(
-      <ProLayout
-        {...defaultProps}
-        collapsed
-        getContainer={false}
-        layout="mix"
-        menuHeaderRender={() => 'title'}
-      >
+      <ProLayout {...defaultProps} collapsed getContainer={false} layout="mix" menuHeaderRender={() => 'title'}>
         welcome
       </ProLayout>,
     );
@@ -156,13 +119,13 @@ describe('mobile BasicLayout', () => {
     const html = render(
       <ProLayout
         {...defaultProps}
-        onCollapse={onCollapse}
         collapsed={false}
         collapsedButtonRender={() => {
           return 'div';
         }}
         getContainer={false}
         layout="mix"
+        onCollapse={onCollapse}
       >
         welcome
       </ProLayout>,
@@ -186,9 +149,7 @@ describe('mobile BasicLayout', () => {
     });
 
     await act(async () => {
-      const mask = html.baseElement?.querySelector<HTMLDivElement>(
-        'div.ant-drawer-mask',
-      );
+      const mask = html.baseElement?.querySelector<HTMLDivElement>('div.ant-drawer-mask');
       if (mask) {
         mask.click();
       }

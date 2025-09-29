@@ -1,14 +1,11 @@
 import { PlusCircleFilled, SearchOutlined } from '@ant-design/icons';
-import type { MenuDataItem } from '@ant-design/pro-components';
-import { PageContainer, ProLayout } from '@ant-design/pro-components';
+import type { MenuDataItem } from '@xxlabs/pro-components';
+import { PageContainer, ProLayout } from '@xxlabs/pro-components';
 import { Input, Space } from 'antd';
 import { useState } from 'react';
 import complexMenu from './complexMenu';
 
-const filterByMenuData = (
-  data: MenuDataItem[],
-  keyWord: string,
-): MenuDataItem[] =>
+const filterByMenuData = (data: MenuDataItem[], keyWord: string): MenuDataItem[] =>
   data
     .map((item) => {
       if (item.name?.includes(keyWord)) {
@@ -43,19 +40,17 @@ export default () => {
         menu={{
           hideMenuWhenCollapsed: true,
         }}
+        menuDataRender={() => loopMenuItem(complexMenu)}
         menuExtraRender={({ collapsed }) =>
           !collapsed && (
             <Space
+              align="center"
               style={{
                 marginBlockStart: 16,
               }}
-              align="center"
             >
               <Input
-                style={{
-                  borderRadius: 4,
-                  backgroundColor: 'rgba(0,0,0,0.03)',
-                }}
+                placeholder="搜索方案"
                 prefix={
                   <SearchOutlined
                     style={{
@@ -63,7 +58,10 @@ export default () => {
                     }}
                   />
                 }
-                placeholder="搜索方案"
+                style={{
+                  borderRadius: 4,
+                  backgroundColor: 'rgba(0,0,0,0.03)',
+                }}
                 variant="borderless"
                 onPressEnter={(e) => {
                   setKeyWord((e.target as HTMLInputElement).value);
@@ -78,7 +76,6 @@ export default () => {
             </Space>
           )
         }
-        menuDataRender={() => loopMenuItem(complexMenu)}
         postMenuData={(menus) => filterByMenuData(menus || [], keyWord)}
       >
         <PageContainer content="欢迎使用">

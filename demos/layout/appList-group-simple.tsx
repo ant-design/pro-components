@@ -1,5 +1,5 @@
-import type { ProSettings } from '@ant-design/pro-components';
-import { ProConfigProvider, ProLayout } from '@ant-design/pro-components';
+import type { ProSettings } from '@xxlabs/pro-components';
+import { ProConfigProvider, ProLayout } from '@xxlabs/pro-components';
 import defaultProps from './_defaultProps';
 
 const AppGroupList: any = [
@@ -17,9 +17,7 @@ const AppGroupList: any = [
         url: 'https://ant.design',
       },
       {
-        icon: () => (
-          <img src="https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg" />
-        ),
+        icon: () => <img src="https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg" />,
         title: 'Pro Components',
         url: 'https://procomponents.ant.design/',
       },
@@ -88,14 +86,14 @@ export default () => {
         <ProLayout
           {...defaultProps}
           appList={AppGroupList}
-          location={{ pathname: '/list/sub-page/sub-sub-page1' }}
-          siderMenuType="group"
-          menu={{ collapsedShowGroupTitle: true }}
           avatarProps={{
             src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
             size: 'small',
             title: '七妮妮',
           }}
+          location={{ pathname: '/list/sub-page/sub-sub-page1' }}
+          menu={{ collapsedShowGroupTitle: true }}
+          siderMenuType="group"
           {...settings}
         />
       </ProConfigProvider>

@@ -1,10 +1,5 @@
 ﻿import { CloseCircleOutlined, SmileOutlined } from '@ant-design/icons';
-import {
-  ProForm,
-  ProFormGroup,
-  ProFormList,
-  ProFormText,
-} from '@ant-design/pro-components';
+import { ProForm, ProFormGroup, ProFormList, ProFormText } from '@xxlabs/pro-components';
 import { Segmented } from 'antd';
 import { useState } from 'react';
 
@@ -18,7 +13,7 @@ const Demo = () => {
         gap: 16,
       }}
     >
-      <ProForm.Item name="mode" label="模式">
+      <ProForm.Item label="模式" name="mode">
         <Segmented
           block
           options={[
@@ -39,26 +34,26 @@ const Demo = () => {
         />
       </ProForm.Item>
       <ProForm readonly={readonly} onFinish={async (e) => console.log(e)}>
-        <ProFormText name="name" label="姓名" />
+        <ProFormText label="姓名" name="name" />
 
         <ProFormList
-          name="labels"
-          label="用户信息"
+          copyIconProps={{ Icon: SmileOutlined, tooltipText: '复制此项到末尾' }}
+          deleteIconProps={{
+            Icon: CloseCircleOutlined,
+            tooltipText: '不需要这行了',
+          }}
           initialValue={[
             {
               value: '333',
               label: '333',
             },
           ]}
-          copyIconProps={{ Icon: SmileOutlined, tooltipText: '复制此项到末尾' }}
-          deleteIconProps={{
-            Icon: CloseCircleOutlined,
-            tooltipText: '不需要这行了',
-          }}
+          label="用户信息"
+          name="labels"
         >
           <ProFormGroup key="group">
-            <ProFormText name="value" label="值" />
-            <ProFormText name="label" label="显示名称" />
+            <ProFormText label="值" name="value" />
+            <ProFormText label="显示名称" name="label" />
           </ProFormGroup>
         </ProFormList>
       </ProForm>

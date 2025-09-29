@@ -6,15 +6,13 @@
   ProFormList,
   ProFormSwitch,
   ProFormText,
-} from '@ant-design/pro-components';
+} from '@xxlabs/pro-components';
 
 const Demo = () => {
   return (
     <ProForm onFinish={async (e) => console.log(e)}>
-      <ProFormText name="name" label="姓名" />
+      <ProFormText label="姓名" name="name" />
       <ProFormList
-        name="users"
-        label="用户信息"
         initialValue={[
           {
             name: '1111',
@@ -23,39 +21,41 @@ const Demo = () => {
         itemRender={({ listDom, action }, { record }) => {
           return (
             <ProCard
-              variant="outlined"
               extra={action}
-              title={record?.name}
               style={{
                 marginBlockEnd: 8,
               }}
+              title={record?.name}
+              variant="outlined"
             >
               {listDom}
             </ProCard>
           );
         }}
+        label="用户信息"
+        name="users"
       >
         <ProFormGroup>
-          <ProFormText name="name" label="姓名" />
+          <ProFormText label="姓名" name="name" />
         </ProFormGroup>
         <ProFormList
-          name="labels"
-          label="用户信息"
-          initialValue={[
-            {
-              value: '333',
-              label: '333',
-            },
-          ]}
           copyIconProps={{
             tooltipText: '复制此项到末尾',
           }}
           deleteIconProps={{
             tooltipText: '不需要这行了',
           }}
+          initialValue={[
+            {
+              value: '333',
+              label: '333',
+            },
+          ]}
+          label="用户信息"
+          name="labels"
         >
           <ProFormGroup>
-            <ProFormSwitch name="is_show" label="显示名称" />
+            <ProFormSwitch label="显示名称" name="is_show" />
           </ProFormGroup>
           <ProFormDependency name={['is_show']}>
             {({ is_show }) => {
@@ -63,24 +63,24 @@ const Demo = () => {
               if (!is_show) return null;
               return (
                 <ProFormList
-                  name="labels"
-                  label="用户信息"
-                  initialValue={[
-                    {
-                      value: '333',
-                      label: '333',
-                    },
-                  ]}
                   copyIconProps={{
                     tooltipText: '复制此项到末尾',
                   }}
                   deleteIconProps={{
                     tooltipText: '不需要这行了',
                   }}
+                  initialValue={[
+                    {
+                      value: '333',
+                      label: '333',
+                    },
+                  ]}
+                  label="用户信息"
+                  name="labels"
                 >
                   <ProFormGroup>
-                    <ProFormText name="value" label="值" />
-                    <ProFormSwitch name="is_show" label="显示名称" />
+                    <ProFormText label="值" name="value" />
+                    <ProFormSwitch label="显示名称" name="is_show" />
                   </ProFormGroup>
                 </ProFormList>
               );

@@ -1,4 +1,4 @@
-import { PageContainer, ProLayout } from '@ant-design/pro-components';
+import { PageContainer, ProLayout } from '@xxlabs/pro-components';
 import complexMenu from './complexMenu';
 
 export default () => (
@@ -11,10 +11,10 @@ export default () => (
       location={{
         pathname: '/data_hui/data_hui2',
       }}
+      menu={{ type: 'group' }}
       route={{
         routes: complexMenu,
       }}
-      menu={{ type: 'group' }}
     >
       <PageContainer content="欢迎使用">
         <div>Hello World</div>

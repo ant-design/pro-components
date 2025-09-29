@@ -1,22 +1,14 @@
 ﻿import type { TableColumnType, TableProps } from 'antd';
 import { Table } from 'antd';
-import { AnyObject } from 'antd/lib/_util/type';
-import { SortOrder } from 'antd/lib/table/interface';
+import type { AnyObject } from 'antd/es/_util/type';
+import type { SortOrder } from 'antd/es/table/interface';
 import type { ProFieldEmptyText } from '../../field';
-import { proFieldParsingValueEnumToArray } from '../../field';
+import { proFieldParsingValueEnumToArray } from '../../field/components/Select/useFieldFetchData';
 import type { ProSchemaComponentTypes, UseEditableUtilType } from '../../utils';
-import {
-  omitBoolean,
-  omitUndefinedAndEmptyArr,
-  runFunction,
-} from '../../utils';
+import { omitBoolean, omitUndefinedAndEmptyArr, runFunction } from '../../utils';
 import type { ContainerType } from '../Store/Provide';
 import type { FilterValue, ProColumns } from '../typing';
-import {
-  columnRender,
-  defaultOnFilter,
-  renderColumnsTitle,
-} from './columnRender';
+import { columnRender, defaultOnFilter, renderColumnsTitle } from './columnRender';
 import { genColumnKey, parseProFilteredValue, parseProSortOrder } from './index';
 
 type ColumnToColumnReturnType<T> = (TableColumnType<T> & {
@@ -90,8 +82,7 @@ export function genProColumnToColumn<T extends AnyObject>(
 
       const genOnFilter = () => {
         if (onFilter === true) {
-          return (value: string, row: T) =>
-            defaultOnFilter(value, row, dataIndex as string[]);
+          return (value: string, row: T) => defaultOnFilter(value, row, dataIndex as string[]);
         }
         return omitBoolean(onFilter);
       };
@@ -106,9 +97,9 @@ export function genProColumnToColumn<T extends AnyObject>(
         valueEnum,
         filters:
           filters === true
-            ? proFieldParsingValueEnumToArray(
-                runFunction<[undefined]>(valueEnum, undefined),
-              ).filter((valueItem) => valueItem && valueItem.value !== 'all')
+            ? proFieldParsingValueEnumToArray(runFunction<[undefined]>(valueEnum, undefined)).filter(
+                (valueItem) => valueItem && valueItem.value !== 'all',
+              )
             : filters,
         onFilter: genOnFilter(),
         filteredValue: parseProFilteredValue(proFilter, columnProps),
@@ -130,24 +121,15 @@ export function genProColumnToColumn<T extends AnyObject>(
           }
 
           let uniqueKey: any;
-          if (
-            typeof rowData === 'object' &&
-            rowData !== null &&
-            Reflect.has(rowData as any, keyName)
-          ) {
+          if (typeof rowData === 'object' && rowData !== null && Reflect.has(rowData as any, keyName)) {
             uniqueKey = (rowData as Record<string, any>)[keyName as string];
             const parentInfo = subNameRecord.get(uniqueKey) || [];
-            (rowData as Record<string, any>)[childrenColumnName]?.forEach(
-              (item: any) => {
-                const itemUniqueKey = item[keyName];
-                if (!subNameRecord.has(itemUniqueKey)) {
-                  subNameRecord.set(
-                    itemUniqueKey,
-                    parentInfo.concat([index, childrenColumnName]),
-                  );
-                }
-              },
-            );
+            (rowData as Record<string, any>)[childrenColumnName]?.forEach((item: any) => {
+              const itemUniqueKey = item[keyName];
+              if (!subNameRecord.has(itemUniqueKey)) {
+                subNameRecord.set(itemUniqueKey, parentInfo.concat([index, childrenColumnName]));
+              }
+            });
           }
 
           const renderProps = {
@@ -167,7 +149,5 @@ export function genProColumnToColumn<T extends AnyObject>(
       };
       return omitUndefinedAndEmptyArr(tempColumns);
     })
-    ?.filter(
-      (item) => !item.hideInTable,
-    ) as unknown as ColumnToColumnReturnType<T>;
+    ?.filter((item) => !item.hideInTable) as unknown as ColumnToColumnReturnType<T>;
 }

@@ -1,4 +1,4 @@
-import { PageContainer, ProCard } from '@ant-design/pro-components';
+import { PageContainer, ProCard } from '@xxlabs/pro-components';
 
 export default () => (
   <div
@@ -43,13 +43,13 @@ export default () => (
         },
       ]}
     >
-      <ProCard direction="column" ghost gutter={[0, 16]}>
+      <ProCard ghost direction="column" gutter={[0, 16]}>
         <ProCard style={{ height: 200 }} />
-        <ProCard gutter={16} ghost>
+        <ProCard ghost gutter={16}>
           <ProCard colSpan={16} style={{ height: 200 }} />
           <ProCard colSpan={8} style={{ height: 200 }} />
         </ProCard>
-        <ProCard gutter={16} ghost>
+        <ProCard ghost gutter={16}>
           <ProCard colSpan={8} style={{ height: 200 }} />
           <ProCard colSpan={16} style={{ height: 200 }} />
         </ProCard>

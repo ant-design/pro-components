@@ -1,17 +1,11 @@
 ﻿import { omit } from '@rc-component/util';
 import type { FormItemProps } from 'antd';
 import { ConfigProvider, Form } from 'antd';
-import type { NamePath } from 'antd/lib/form/interface';
+import type { NamePath } from 'antd/es/form/interface';
+import type { JSX } from 'react';
 import React, { useContext, useEffect, useMemo } from 'react';
-import {
-  isDropdownValueType,
-  omitUndefined,
-  ProFieldValueType,
-  SearchConvertKeyFn,
-  SearchTransformKeyFn,
-  useDeepCompareMemo,
-  useRefFunction,
-} from '../../../utils';
+import type { ProFieldValueType, SearchConvertKeyFn, SearchTransformKeyFn } from '../../../utils';
+import { isDropdownValueType, omitUndefined, useDeepCompareMemo, useRefFunction } from '../../../utils';
 import type { LightWrapperProps } from '../../BaseForm';
 import { LightWrapper } from '../../BaseForm';
 import FieldContext from '../../FieldContext';
@@ -52,21 +46,19 @@ const WithValueFomFiledProps: React.FC<
     onChange?.(...restParams);
     if (isProFormComponent) return;
     if (isValidElementForFiledChildren) return undefined;
+    // @ts-ignore
     filedChildren?.props?.onChange?.(...restParams);
 
-    (filedChildren?.props as Record<string, any>)?.fieldProps?.onChange?.(
-      ...restParams,
-    );
+    (filedChildren?.props as Record<string, any>)?.fieldProps?.onChange?.(...restParams);
   });
 
   const onBlurMemo = useRefFunction(function (...restParams: any[]): void {
     if (isProFormComponent) return;
     if (isValidElementForFiledChildren) return;
     onBlur?.(...restParams);
+    // @ts-ignore
     filedChildren?.props?.onBlur?.(...restParams);
-    (filedChildren?.props as Record<string, any>)?.fieldProps?.onBlur?.(
-      ...restParams,
-    );
+    (filedChildren?.props as Record<string, any>)?.fieldProps?.onBlur?.(...restParams);
   });
 
   const omitOnBlurAndOnChangeProps = useDeepCompareMemo(
@@ -100,20 +92,14 @@ const WithValueFomFiledProps: React.FC<
       // 要通过 fieldProps 透传给 ProField 调用
       onChange: onChangeMemo,
     });
-  }, [
-    propsValuePropName,
-    omitOnBlurAndOnChangeProps,
-    onBlurMemo,
-    onChangeMemo,
-    restProps.id,
-    valuePropName,
-  ]);
+  }, [propsValuePropName, omitOnBlurAndOnChangeProps, onBlurMemo, onChangeMemo, restProps.id, valuePropName]);
 
   const finalChange = useMemo(() => {
     if (fieldProps) return undefined;
     if (!React.isValidElement(filedChildren)) return undefined;
     return (...restParams: any[]) => {
       onChange?.(...restParams);
+      // @ts-ignore
       filedChildren?.props?.onChange?.(...restParams);
     };
   }, [fieldProps, filedChildren, onChange]);
@@ -125,6 +111,7 @@ const WithValueFomFiledProps: React.FC<
     omitUndefined({
       ...restProps,
       [valuePropName]: formFieldProps[valuePropName],
+      // @ts-ignore
       ...filedChildren.props,
       onChange: finalChange,
       fieldProps,
@@ -156,12 +143,7 @@ type WarpFormItemProps = {
    * @example  string => object   convertValue: (value,namePath)=> { return {value,label:value} }
    */
   convertValue?: SearchConvertKeyFn;
-  help?:
-    | React.ReactNode
-    | ((params: {
-        errors: React.ReactNode[];
-        warnings: React.ReactNode[];
-      }) => React.ReactNode);
+  help?: React.ReactNode | ((params: { errors: React.ReactNode[]; warnings: React.ReactNode[] }) => React.ReactNode);
 };
 
 /**
@@ -170,9 +152,7 @@ type WarpFormItemProps = {
  * @param WarpFormItemProps
  * @returns
  */
-const WarpFormItem: React.FC<
-  Omit<FormItemProps, 'help'> & WarpFormItemProps
-> = ({
+const WarpFormItem: React.FC<Omit<FormItemProps, 'help'> & WarpFormItemProps> = ({
   children,
   addonAfter,
   addonBefore,
@@ -197,35 +177,9 @@ const WarpFormItem: React.FC<
       return (
         <Form.Item
           {...props}
-          //help={typeof help !== 'function' ? help : undefined}
-          valuePropName={valuePropName}
           getValueProps={getValuePropsFunc}
-          // @ts-ignore
-          // _internalItemRender={{
-          //   mark: 'pro_table_render',
-          //   render: (
-          //     inputProps: FormItemProps & {
-          //       errors: React.ReactNode[];
-          //       warnings: React.ReactNode[];
-          //     },
-          //     doms: {
-          //       input: JSX.Element;
-          //       errorList: JSX.Element;
-          //       extra: JSX.Element;
-          //     },
-          //   ) => (
-          //     <>
-          //       {doms.input}
-          //       {typeof help === 'function'
-          //         ? help({
-          //             errors: inputProps.errors,
-          //             warnings: inputProps.warnings,
-          //           })
-          //         : doms.errorList}
-          //       {doms.extra}
-          //     </>
-          //   ),
-          // }}
+          help={typeof help !== 'function' ? help : undefined}
+          valuePropName={valuePropName}
         >
           {children}
         </Form.Item>
@@ -235,8 +189,6 @@ const WarpFormItem: React.FC<
     return (
       <Form.Item
         {...props}
-        help={typeof help !== 'function' ? help : undefined}
-        valuePropName={valuePropName}
         // @ts-ignore
         _internalItemRender={{
           mark: 'pro_table_render',
@@ -260,13 +212,9 @@ const WarpFormItem: React.FC<
                   ...addonWarpStyle,
                 }}
               >
-                {addonBefore ? (
-                  <div style={{ marginInlineEnd: 8 }}>{addonBefore}</div>
-                ) : null}
+                {addonBefore ? <div style={{ marginInlineEnd: 8 }}>{addonBefore}</div> : null}
                 {doms.input}
-                {addonAfter ? (
-                  <div style={{ marginInlineStart: 8 }}>{addonAfter}</div>
-                ) : null}
+                {addonAfter ? <div style={{ marginInlineStart: 8 }}>{addonAfter}</div> : null}
               </div>
               {typeof help === 'function'
                 ? help({
@@ -278,13 +226,14 @@ const WarpFormItem: React.FC<
             </>
           ),
         }}
+        help={typeof help !== 'function' ? help : undefined}
+        valuePropName={valuePropName}
         {...props}
         getValueProps={getValuePropsFunc}
       >
         {children}
       </Form.Item>
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [addonAfter, addonBefore, children, convertValue?.toString(), props]);
 
   return (
@@ -328,15 +277,7 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
     componentSize: 'middle',
   };
   const size = componentSize;
-  const {
-    valueType,
-    transform,
-    dataFormat,
-    ignoreFormItem,
-    lightProps,
-    children: unusedChildren,
-    ...rest
-  } = props;
+  const { valueType, transform, dataFormat, ignoreFormItem, lightProps, children: unusedChildren, ...rest } = props;
   const formListField = useContext(FormListContext);
 
   // ProFromList 的 filed，里面有name和key
@@ -368,8 +309,8 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
   }, [name, dataFormat, props.name, setFieldValueType, transform, valueType]);
 
   const isDropdown =
-    React.isValidElement(props.children) &&
-    isDropdownValueType(valueType || props.children.props.valueType);
+    // @ts-ignore
+    React.isValidElement(props.children) && isDropdownValueType(valueType || props.children.props.valueType);
 
   const noLightFormItem = useMemo(() => {
     if (!lightProps?.light || lightProps?.customLightMode || isDropdown) {
@@ -381,21 +322,14 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
   // formItem 支持function，如果是function 我就直接不管了
   if (typeof props.children === 'function') {
     return (
-      <WarpFormItem
-        {...rest}
-        name={name}
-        key={rest.proFormFieldKey || rest.name?.toString()}
-      >
+      <WarpFormItem {...rest} key={rest.proFormFieldKey || rest.name?.toString()} name={name}>
         {props.children}
       </WarpFormItem>
     );
   }
 
   const children = (
-    <WithValueFomFiledProps
-      key={rest.proFormFieldKey || rest.name?.toString()}
-      valuePropName={props.valuePropName}
-    >
+    <WithValueFomFiledProps key={rest.proFormFieldKey || rest.name?.toString()} valuePropName={props.valuePropName}>
       {props.children}
     </WithValueFomFiledProps>
   );
@@ -403,11 +337,7 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
   const lightDom = noLightFormItem ? (
     children
   ) : (
-    <LightWrapper
-      {...lightProps}
-      key={rest.proFormFieldKey || rest.name?.toString()}
-      size={size}
-    >
+    <LightWrapper {...lightProps} key={rest.proFormFieldKey || rest.name?.toString()} size={size}>
       {children}
     </LightWrapper>
   );
@@ -421,8 +351,8 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
       key={rest.proFormFieldKey || rest.name?.toString()}
       {...formItemProps}
       {...rest}
-      name={name}
       isListField={formListField.name !== undefined}
+      name={name}
     >
       {lightDom}
     </WarpFormItem>

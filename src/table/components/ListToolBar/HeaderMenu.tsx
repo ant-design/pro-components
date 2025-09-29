@@ -22,21 +22,12 @@ export type ListToolBarHeaderMenuProps = {
 
 const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
   const { hashId } = useContext(ProProvider);
-  const {
-    items = [],
-    type = 'inline',
-    prefixCls,
-    activeKey: propActiveKey,
-    defaultActiveKey,
-  } = props;
+  const { items = [], type = 'inline', prefixCls, activeKey: propActiveKey, defaultActiveKey } = props;
 
-  const [activeKey, setActiveKey] = useMergedState<React.Key>(
-    propActiveKey || (defaultActiveKey as React.Key),
-    {
-      value: propActiveKey,
-      onChange: props.onChange,
-    },
-  );
+  const [activeKey, setActiveKey] = useMergedState<React.Key>(propActiveKey || (defaultActiveKey as React.Key), {
+    value: propActiveKey,
+    onChange: props.onChange,
+  });
 
   if (items.length < 1) {
     return null;
@@ -49,26 +40,18 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
 
   if (type === 'inline') {
     return (
-      <div
-        className={classNames(
-          `${prefixCls}-menu`,
-          `${prefixCls}-inline-menu`,
-          hashId,
-        )}
-      >
+      <div className={classNames(`${prefixCls}-menu`, `${prefixCls}-inline-menu`, hashId)}>
         {items.map((item, index) => (
           <div
             key={item.key || index}
+            className={classNames(
+              `${prefixCls}-inline-menu-item`,
+              activeItem.key === item.key ? `${prefixCls}-inline-menu-item-active` : undefined,
+              hashId,
+            )}
             onClick={() => {
               setActiveKey(item.key);
             }}
-            className={classNames(
-              `${prefixCls}-inline-menu-item`,
-              activeItem.key === item.key
-                ? `${prefixCls}-inline-menu-item-active`
-                : undefined,
-              hashId,
-            )}
           >
             {item.label}
           </div>
@@ -80,22 +63,19 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
   if (type === 'tab') {
     return (
       <Tabs
+        activeKey={activeItem.key as string}
         items={items.map((item) => ({
           ...item,
           key: item.key?.toString(),
         }))}
-        activeKey={activeItem.key as string}
         onTabClick={(key) => setActiveKey(key)}
       />
     );
   }
 
   return (
-    <div
-      className={classNames(`${prefixCls}-menu`, `${prefixCls}-dropdownmenu`)}
-    >
+    <div className={classNames(`${prefixCls}-menu`, `${prefixCls}-dropdownmenu`)}>
       <Dropdown
-        trigger={['click']}
         menu={{
           selectedKeys: [activeItem.key as string],
           onClick: (item) => {
@@ -107,6 +87,7 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
             label: item.label,
           })),
         }}
+        trigger={['click']}
       >
         <Space className={`${prefixCls}-dropdownmenu-label`}>
           {activeItem.label}

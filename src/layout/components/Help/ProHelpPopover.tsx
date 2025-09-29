@@ -48,33 +48,19 @@ export const ProHelpPopover: React.FC<ProHelpPopoverProps> = (props) => {
   const { wrapSSR } = useStyle(className);
   return wrapSSR(
     <Popover
+      content={
+        <div className={classNames(`${className}-popover-content`, hashId, props.popoverContextClassName)}>
+          <ProHelpContentPanel selectedKey={props.selectedKey} />
+        </div>
+      }
       styles={{
         body: {
           padding: 0,
         },
       }}
-      content={
-        <div
-          className={classNames(
-            `${className}-popover-content`,
-            hashId,
-            props.popoverContextClassName,
-          )}
-        >
-          <ProHelpContentPanel selectedKey={props.selectedKey} />
-        </div>
-      }
       {...props.popoverProps}
     >
-      <span
-        className={classNames(
-          `${className}-popover-text`,
-          hashId,
-          props.textClassName,
-        )}
-      >
-        {props.children}
-      </span>
+      <span className={classNames(`${className}-popover-text`, hashId, props.textClassName)}>{props.children}</span>
     </Popover>,
   );
 };

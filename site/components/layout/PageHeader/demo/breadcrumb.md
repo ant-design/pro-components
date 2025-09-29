@@ -11,7 +11,7 @@ title: 带面包屑页头
 带面包屑页头，适合层级比较深的页面，让用户可以快速导航。
 
 ```tsx
-import { PageHeader } from '@ant-design/pro-components';
+import { PageHeader } from '@xxlabs/pro-components';
 import React from 'react';
 
 const routes = [

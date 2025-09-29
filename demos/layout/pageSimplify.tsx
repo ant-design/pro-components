@@ -5,8 +5,8 @@ import {
   QuestionCircleFilled,
   SearchOutlined,
 } from '@ant-design/icons';
-import type { ProSettings } from '@ant-design/pro-components';
-import { PageContainer, ProCard, ProLayout } from '@ant-design/pro-components';
+import type { ProSettings } from '@xxlabs/pro-components';
+import { PageContainer, ProCard, ProLayout } from '@xxlabs/pro-components';
 import { Input } from 'antd';
 import { useState } from 'react';
 import defaultProps from './_defaultProps';
@@ -28,18 +28,6 @@ export default () => {
       }}
     >
       <ProLayout
-        token={{
-          bgLayout: '#fff',
-          header: {
-            colorBgHeader: '#fff',
-          },
-          sider: {
-            colorMenuBackground: '#fff',
-          },
-          pageContainer: {
-            colorBgPageContainer: '#fff',
-          },
-        }}
         bgLayoutImgList={[
           {
             src: 'https://img.alicdn.com/imgextra/i2/O1CN01O4etvp1DvpFLKfuWq_!!6000000000279-2-tps-609-606.png',
@@ -60,18 +48,19 @@ export default () => {
             width: '331px',
           },
         ]}
+        token={{
+          bgLayout: '#fff',
+          header: {
+            colorBgHeader: '#fff',
+          },
+          sider: {
+            colorMenuBackground: '#fff',
+          },
+          pageContainer: {
+            colorBgPageContainer: '#fff',
+          },
+        }}
         {...defaultProps}
-        location={{
-          pathname,
-        }}
-        menu={{
-          type: 'group',
-        }}
-        avatarProps={{
-          src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
-          size: 'small',
-          title: <div>七妮妮</div>,
-        }}
         actionsRender={(props) => {
           if (props.isMobile) return [];
           return [
@@ -90,12 +79,12 @@ export default () => {
                 }}
               >
                 <Input
+                  placeholder="搜索方案"
+                  prefix={<SearchOutlined />}
                   style={{
                     borderRadius: 4,
                     marginInlineEnd: 12,
                   }}
-                  prefix={<SearchOutlined />}
-                  placeholder="搜索方案"
                   variant="borderless"
                 />
                 <PlusCircleFilled
@@ -111,6 +100,17 @@ export default () => {
             <GithubFilled key="GithubFilled" />,
           ];
         }}
+        avatarProps={{
+          src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+          size: 'small',
+          title: <div>七妮妮</div>,
+        }}
+        location={{
+          pathname,
+        }}
+        menu={{
+          type: 'group',
+        }}
         menuFooterRender={(props) => {
           if (props?.collapsed) return undefined;
           return (
@@ -125,7 +125,6 @@ export default () => {
             </div>
           );
         }}
-        onMenuHeaderClick={(e) => console.log(e)}
         menuItemRender={(item, dom) => (
           <a
             onClick={() => {
@@ -135,6 +134,7 @@ export default () => {
             {dom}
           </a>
         )}
+        onMenuHeaderClick={(e) => console.log(e)}
         {...settings}
       >
         <PageContainer>

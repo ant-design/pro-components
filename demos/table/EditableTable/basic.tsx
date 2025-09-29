@@ -1,10 +1,5 @@
-import type { ProColumns } from '@ant-design/pro-components';
-import {
-  EditableProTable,
-  ProCard,
-  ProFormField,
-  ProFormRadio,
-} from '@ant-design/pro-components';
+import type { ProColumns } from '@xxlabs/pro-components';
+import { EditableProTable, ProCard, ProFormField, ProFormRadio } from '@xxlabs/pro-components';
 import React, { useState } from 'react';
 
 const waitTime = (time: number = 100) => {
@@ -50,9 +45,7 @@ const defaultData: DataSourceType[] = [
 export default () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>([]);
   const [dataSource, setDataSource] = useState<readonly DataSourceType[]>([]);
-  const [position, setPosition] = useState<'top' | 'bottom' | 'hidden'>(
-    'bottom',
-  );
+  const [position, setPosition] = useState<'top' | 'bottom' | 'hidden'>('bottom');
 
   const columns: ProColumns<DataSourceType>[] = [
     {
@@ -61,8 +54,7 @@ export default () => {
       tooltip: '只读，使用form.getFieldValue获取不到值',
       formItemProps: (form, { rowIndex }) => {
         return {
-          rules:
-            rowIndex > 1 ? [{ required: true, message: '此项为必填项' }] : [],
+          rules: rowIndex > 1 ? [{ required: true, message: '此项为必填项' }] : [],
         };
       },
       // 第一行不允许编辑
@@ -145,12 +137,19 @@ export default () => {
   return (
     <>
       <EditableProTable<DataSourceType>
-        rowKey="id"
-        headerTitle="可编辑表格"
-        maxLength={5}
-        scroll={{
-          x: 960,
+        columns={columns}
+        editable={{
+          type: 'multiple',
+          editableKeys,
+          onSave: async (rowKey, data, row) => {
+            console.log(rowKey, data, row);
+            await waitTime(2000);
+          },
+          onChange: setEditableRowKeys,
         }}
+        headerTitle="可编辑表格"
+        loading={false}
+        maxLength={5}
         recordCreatorProps={
           position !== 'hidden'
             ? {
@@ -160,7 +159,15 @@ export default () => {
               }
             : false
         }
-        loading={false}
+        request={async () => ({
+          data: defaultData,
+          total: 3,
+          success: true,
+        })}
+        rowKey="id"
+        scroll={{
+          x: 960,
+        }}
         toolBarRender={() => [
           <ProFormRadio.Group
             key="render"
@@ -184,12 +191,6 @@ export default () => {
             ]}
           />,
         ]}
-        columns={columns}
-        request={async () => ({
-          data: defaultData,
-          total: 3,
-          success: true,
-        })}
         value={dataSource}
         onChange={(value) => {
           setDataSource((data) => {
@@ -205,17 +206,8 @@ export default () => {
             return merged;
           });
         }}
-        editable={{
-          type: 'multiple',
-          editableKeys,
-          onSave: async (rowKey, data, row) => {
-            console.log(rowKey, data, row);
-            await waitTime(2000);
-          },
-          onChange: setEditableRowKeys,
-        }}
       />
-      <ProCard title="表格数据" headerBordered collapsible defaultCollapsed>
+      <ProCard collapsible defaultCollapsed headerBordered title="表格数据">
         <ProFormField
           ignoreFormItem
           fieldProps={{
@@ -224,8 +216,8 @@ export default () => {
             },
           }}
           mode="read"
-          valueType="jsonCode"
           text={JSON.stringify(dataSource)}
+          valueType="jsonCode"
         />
       </ProCard>
     </>

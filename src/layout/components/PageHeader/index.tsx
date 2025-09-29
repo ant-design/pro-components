@@ -1,7 +1,7 @@
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import type { AvatarProps, BreadcrumbProps, TagType } from 'antd';
 import { Avatar, Breadcrumb, ConfigProvider, Space } from 'antd';
-import type { DirectionType } from 'antd/lib/config-provider';
+import type { DirectionType } from 'antd/es/config-provider';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import React from 'react';
@@ -16,10 +16,7 @@ export interface PageHeaderProps {
   style?: React.CSSProperties;
   childrenContentStyle?: React.CSSProperties;
   breadcrumb?: Partial<BreadcrumbProps> | React.ReactElement<typeof Breadcrumb>;
-  breadcrumbRender?: (
-    props: PageHeaderProps,
-    defaultDom: React.ReactNode,
-  ) => React.ReactNode;
+  breadcrumbRender?: (props: PageHeaderProps, defaultDom: React.ReactNode) => React.ReactNode;
   tags?: React.ReactElement<TagType> | React.ReactElement<TagType>[];
   footer?: React.ReactNode;
   extra?: React.ReactNode;
@@ -44,12 +41,12 @@ const renderBack = (
   return (
     <div className={`${prefixCls}-back ${hashId}`.trim()}>
       <div
+        aria-label="back"
+        className={`${prefixCls}-back-button ${hashId}`.trim()}
         role="button"
         onClick={(e) => {
           onBack?.(e);
         }}
-        className={`${prefixCls}-back-button ${hashId}`.trim()}
-        aria-label="back"
       >
         {backIcon}
       </div>
@@ -59,30 +56,17 @@ const renderBack = (
 
 const renderBreadcrumb = (breadcrumb: BreadcrumbProps, prefixCls: string) => {
   if (!breadcrumb.items?.length) return null;
-  return (
-    <Breadcrumb
-      {...breadcrumb}
-      className={classNames(`${prefixCls}-breadcrumb`, breadcrumb.className)}
-    />
-  );
+  return <Breadcrumb {...breadcrumb} className={classNames(`${prefixCls}-breadcrumb`, breadcrumb.className)} />;
 };
 
-const getBackIcon = (
-  props: PageHeaderProps,
-  direction: DirectionType = 'ltr',
-) => {
+const getBackIcon = (props: PageHeaderProps, direction: DirectionType = 'ltr') => {
   if (props.backIcon !== undefined) {
     return props.backIcon;
   }
   return direction === 'rtl' ? <ArrowRightOutlined /> : <ArrowLeftOutlined />;
 };
 
-const renderTitle = (
-  prefixCls: string,
-  props: PageHeaderProps,
-  direction: DirectionType = 'ltr',
-  hashId: string,
-) => {
+const renderTitle = (prefixCls: string, props: PageHeaderProps, direction: DirectionType = 'ltr', hashId: string) => {
   const { title, avatar, subTitle, tags, extra, onBack } = props;
   const headingPrefixCls = `${prefixCls}-heading`;
   const hasHeading = title || subTitle || tags || extra;
@@ -99,14 +83,7 @@ const renderTitle = (
         <div className={`${headingPrefixCls}-left ${hashId}`.trim()}>
           {backIconDom}
           {avatar && (
-            <Avatar
-              className={classNames(
-                `${headingPrefixCls}-avatar`,
-                hashId,
-                avatar.className,
-              )}
-              {...avatar}
-            />
+            <Avatar className={classNames(`${headingPrefixCls}-avatar`, hashId, avatar.className)} {...avatar} />
           )}
           {title && (
             <span
@@ -124,11 +101,7 @@ const renderTitle = (
               {subTitle}
             </span>
           )}
-          {tags && (
-            <span className={`${headingPrefixCls}-tags ${hashId}`.trim()}>
-              {tags}
-            </span>
-          )}
+          {tags && <span className={`${headingPrefixCls}-tags ${hashId}`.trim()}>{tags}</span>}
         </div>
       )}
       {extra && (
@@ -140,33 +113,23 @@ const renderTitle = (
   );
 };
 
-const renderFooter = (
-  prefixCls: string,
-  footer: React.ReactNode,
-  hashId: string,
-) => {
+const renderFooter = (prefixCls: string, footer: React.ReactNode, hashId: string) => {
   if (footer) {
-    return (
-      <div className={`${prefixCls}-footer ${hashId}`.trim()}>{footer}</div>
-    );
+    return <div className={`${prefixCls}-footer ${hashId}`.trim()}>{footer}</div>;
   }
   return null;
 };
 
-const renderChildren = (
-  prefixCls: string,
-  children: React.ReactNode,
-  hashId: string,
-) => <div className={`${prefixCls}-content ${hashId}`.trim()}>{children}</div>;
+const renderChildren = (prefixCls: string, children: React.ReactNode, hashId: string) => (
+  <div className={`${prefixCls}-content ${hashId}`.trim()}>{children}</div>
+);
 
 const PageHeader: React.FC<PageHeaderProps> = (props) => {
   const [compact, updateCompact] = React.useState<boolean>(false);
 
   const onResize = ({ width }: { width: number }) => updateCompact(width < 768);
 
-  const { getPrefixCls, direction } = React.useContext(
-    ConfigProvider.ConfigContext,
-  );
+  const { getPrefixCls, direction } = React.useContext(ConfigProvider.ConfigContext);
 
   const {
     prefixCls: customizePrefixCls,
@@ -197,8 +160,7 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
 
   // support breadcrumbRender function
   const breadcrumbRenderDomFromProps =
-    breadcrumbRender?.({ ...props, prefixCls }, defaultBreadcrumbDom) ??
-    defaultBreadcrumbDom;
+    breadcrumbRender?.({ ...props, prefixCls }, defaultBreadcrumbDom) ?? defaultBreadcrumbDom;
 
   // 如果 breadcrumbRender 返回的是数组，需要转换为 Breadcrumb 组件
   // 如果返回的是 React.ReactNode，直接使用

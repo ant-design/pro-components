@@ -15,28 +15,19 @@ export const DefaultContent: React.FC<{
         {appList?.map((app, index) => {
           if (app?.children?.length) {
             return (
-              <div
-                // eslint-disable-next-line react/no-array-index-key
-                key={index}
-                className={`${baseClassName}-content-list-item-group ${hashId}`.trim()}
-              >
-                <div
-                  className={`${baseClassName}-content-list-item-group-title ${hashId}`.trim()}
-                >
-                  {app.title}
-                </div>
+              <div key={index} className={`${baseClassName}-content-list-item-group ${hashId}`.trim()}>
+                <div className={`${baseClassName}-content-list-item-group-title ${hashId}`.trim()}>{app.title}</div>
                 <DefaultContent
-                  hashId={hashId}
-                  itemClick={itemClick}
                   appList={app?.children}
                   baseClassName={baseClassName}
+                  hashId={hashId}
+                  itemClick={itemClick}
                 />
               </div>
             );
           }
           return (
             <li
-              // eslint-disable-next-line react/no-array-index-key
               key={index}
               className={`${baseClassName}-content-list-item ${hashId}`.trim()}
               onClick={(e) => {
@@ -44,11 +35,7 @@ export const DefaultContent: React.FC<{
                 itemClick?.(app);
               }}
             >
-              <a
-                href={itemClick ? undefined : app.url}
-                target={app.target}
-                rel="noreferrer"
-              >
+              <a href={itemClick ? undefined : app.url} rel="noreferrer" target={app.target}>
                 {defaultRenderLogo(app.icon)}
                 <div>
                   <div>{app.title}</div>

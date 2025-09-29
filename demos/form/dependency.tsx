@@ -1,9 +1,4 @@
-import {
-  ProForm,
-  ProFormDependency,
-  ProFormSelect,
-  ProFormText,
-} from '@ant-design/pro-components';
+import { ProForm, ProFormDependency, ProFormSelect, ProFormText } from '@xxlabs/pro-components';
 import { message } from 'antd';
 
 const waitTime = (time: number = 100) => {
@@ -17,36 +12,38 @@ const waitTime = (time: number = 100) => {
 export default () => {
   return (
     <ProForm
-      onFinish={async (values) => {
-        await waitTime(2000);
-        console.log(values);
-        message.success('Submission successful');
-      }}
       initialValues={{
         name: 'Ant Design Co., Ltd.',
         name2: 'Ant Design Group',
         useMode: 'chapter',
       }}
+      onFinish={async (values) => {
+        await waitTime(2000);
+        console.log(values);
+        message.success('Submission successful');
+      }}
     >
       <ProFormText
-        width="md"
-        name="name"
         label="Contract Customer Name"
-        tooltip="Up to 24 characters"
+        name="name"
         placeholder="Please enter a name"
+        tooltip="Up to 24 characters"
+        width="md"
       />
       <ProFormText
-        width="md"
-        name={['name2', 'text']}
         label="Contract Customer Name"
-        tooltip="Up to 24 characters"
+        name={['name2', 'text']}
         placeholder="Please enter a name"
+        tooltip="Up to 24 characters"
+        width="md"
       />
       {/* ProFormDependency will automatically inject and perform shouldUpdate comparison */}
       <ProFormDependency name={['name', ['name2', 'text']]}>
         {({ name, name2 }) => {
           return (
             <ProFormSelect
+              label={`Effective method agreed in the contract with "${name || ''}" and "${name2?.text || ''}"`}
+              name="useMode"
               options={[
                 {
                   value: 'chapter',
@@ -54,8 +51,6 @@ export default () => {
                 },
               ]}
               width="md"
-              name="useMode"
-              label={`Effective method agreed in the contract with "${name || ''}" and "${name2?.text || ''}"`}
             />
           );
         }}
@@ -65,6 +60,8 @@ export default () => {
         {(form) => {
           return (
             <ProFormSelect
+              label={`Effective method agreed in the contract with "${form.getFieldValue('name')}"`}
+              name="useMode"
               options={[
                 {
                   value: 'chapter',
@@ -72,8 +69,6 @@ export default () => {
                 },
               ]}
               width="md"
-              name="useMode"
-              label={`Effective method agreed in the contract with "${form.getFieldValue('name')}"`}
             />
           );
         }}

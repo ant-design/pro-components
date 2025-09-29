@@ -1,9 +1,5 @@
-﻿import type { ProHelpDataSourceChildren } from '@ant-design/pro-components';
-import {
-  ProHelp,
-  ProHelpPanel,
-  ProHelpSelect,
-} from '@ant-design/pro-components';
+﻿import type { ProHelpDataSourceChildren } from '@xxlabs/pro-components';
+import { ProHelp, ProHelpPanel, ProHelpSelect } from '@xxlabs/pro-components';
 import { App, Typography } from 'antd';
 import Draggable from 'react-draggable';
 
@@ -29,10 +25,10 @@ export default () => {
     return (
       <video
         key=""
+        controls
         style={{
           width: '100%',
         }}
-        controls
         {...(item.children as React.VideoHTMLAttributes<HTMLVideoElement>)}
       />
     );
@@ -65,13 +61,7 @@ export default () => {
           {listConfig.children.map((child, index) => {
             return (
               <div key={index}>
-                <Typography.Text>
-                  {child.href ? (
-                    <a href={child.href}>{child.title}</a>
-                  ) : (
-                    child.title
-                  )}
-                </Typography.Text>
+                <Typography.Text>{child.href ? <a href={child.href}>{child.title}</a> : child.title}</Typography.Text>
               </div>
             );
           })}

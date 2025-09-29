@@ -1,8 +1,5 @@
 import { DownOutlined } from '@ant-design/icons';
-import type {
-  ProColumnType,
-  ProFormInstance,
-} from '@ant-design/pro-components';
+import type { ProColumnType, ProFormInstance } from '@xxlabs/pro-components';
 import {
   ProCard,
   ProForm,
@@ -17,7 +14,7 @@ import {
   ProFormTextArea,
   ProTable,
   useDebounceFn,
-} from '@ant-design/pro-components';
+} from '@xxlabs/pro-components';
 import { Button } from 'antd';
 import { useRef, useState } from 'react';
 
@@ -160,7 +157,7 @@ const initData = {
 };
 
 const DynamicSettings = () => {
-  const ref = useRef<ProFormInstance>();
+  const ref = useRef<ProFormInstance>(undefined);
 
   const [config, setConfig] = useState<any>(initData);
 
@@ -176,13 +173,13 @@ const DynamicSettings = () => {
 
   return (
     <ProCard
-      split="vertical"
-      variant="outlined"
       headerBordered
+      split="vertical"
       style={{
         height: '100vh',
         overflow: 'hidden',
       }}
+      variant="outlined"
     >
       <ProCard
         style={{
@@ -192,7 +189,17 @@ const DynamicSettings = () => {
       >
         <ProTable
           {...config}
+          columns={tableColumns}
+          dataSource={genData(config.pagination?.total || 10)}
+          expandable={
+            config.expandable && {
+              expandedRowRender: (record: DataType) => <p>{record.description}</p>,
+            }
+          }
+          footer={config.footer ? () => 'Here is footer' : false}
           formRef={ref}
+          headerTitle={config.headerTitle}
+          options={config.options?.show ? config.options : false}
           pagination={
             config.pagination?.show
               ? config.pagination
@@ -200,15 +207,8 @@ const DynamicSettings = () => {
                   pageSize: 5,
                 }
           }
+          scroll={config.scroll}
           search={config.search?.show ? config.search : {}}
-          expandable={
-            config.expandable && {
-              expandedRowRender: (record: DataType) => (
-                <p>{record.description}</p>
-              ),
-            }
-          }
-          options={config.options?.show ? config.options : false}
           toolBarRender={
             config?.toolBarRender
               ? () => [
@@ -218,18 +218,13 @@ const DynamicSettings = () => {
                 ]
               : false
           }
-          footer={config.footer ? () => 'Here is footer' : false}
-          headerTitle={config.headerTitle}
-          columns={tableColumns}
-          dataSource={genData(config.pagination?.total || 10)}
-          scroll={config.scroll}
         />
       </ProCard>
       <ProForm
-        layout="inline"
-        initialValues={initData}
-        submitter={false}
         colon={false}
+        initialValues={initData}
+        layout="inline"
+        submitter={false}
         onValuesChange={(_, values) => updateConfig.run(values)}
       >
         <ProCard
@@ -249,28 +244,21 @@ const DynamicSettings = () => {
                 key: 'tab1',
                 children: (
                   <>
-                    <ProForm.Group
-                      title="表格配置"
-                      size={0}
-                      collapsible
-                      direction="horizontal"
-                      labelLayout="twoLine"
-                    >
+                    <ProForm.Group collapsible direction="horizontal" labelLayout="twoLine" size={0} title="表格配置">
                       <ProFormSwitch
                         fieldProps={{
                           size: 'small',
                         }}
                         label="边框"
-                        tooltip="bordered"
                         name="bordered"
+                        tooltip="bordered"
                       />
                       <ProFormRadio.Group
-                        tooltip={`size="middle"`}
-                        radioType="button"
                         fieldProps={{
                           size: 'small',
                         }}
                         label="尺寸"
+                        name="size"
                         options={[
                           {
                             label: '大',
@@ -285,65 +273,66 @@ const DynamicSettings = () => {
                             value: 'small',
                           },
                         ]}
-                        name="size"
+                        radioType="button"
+                        tooltip={`size="middle"`}
                       />
                       <ProFormSwitch
                         fieldProps={{
                           size: 'small',
                         }}
                         label="加载中"
-                        tooltip="loading"
                         name="loading"
+                        tooltip="loading"
                       />
                       <ProFormSwitch
                         fieldProps={{
                           size: 'small',
                         }}
                         label="显示标题"
-                        tooltip="showHeader"
                         name="showHeader"
+                        tooltip="showHeader"
                       />
                       <ProFormSwitch
                         fieldProps={{
                           size: 'small',
                         }}
                         label="页脚"
-                        tooltip="footer"
                         name="footer"
+                        tooltip="footer"
                       />
                       <ProFormSwitch
                         fieldProps={{
                           size: 'small',
                         }}
                         label="支持展开"
-                        tooltip="expandable"
                         name="expandable"
+                        tooltip="expandable"
                       />
                       <ProFormSwitch
                         fieldProps={{
                           size: 'small',
                         }}
                         label="行选择"
-                        tooltip="rowSelection"
                         name="rowSelection"
+                        tooltip="rowSelection"
                       />
                     </ProForm.Group>
                     <ProForm.Group
-                      size={0}
                       collapsible
                       direction="horizontal"
-                      labelLayout="twoLine"
-                      tooltip="toolBarRender={false}"
-                      title="工具栏"
                       extra={
                         <ProFormSwitch
+                          noStyle
                           fieldProps={{
                             size: 'small',
                           }}
-                          noStyle
                           name="toolBarRender"
                         />
                       }
+                      labelLayout="twoLine"
+                      size={0}
+                      title="工具栏"
+                      tooltip="toolBarRender={false}"
                     >
                       <ProFormText
                         fieldProps={{
@@ -387,20 +376,20 @@ const DynamicSettings = () => {
                         tooltip="options={{ search:'keyWords' }}"
                       />
                       <ProFormSwitch
-                        label="全屏 Icon"
                         fieldProps={{
                           size: 'small',
                         }}
+                        label="全屏 Icon"
                         name={['options', 'fullScreen']}
                         tooltip="options={{ fullScreen:false }}"
                       />
                       <ProFormSwitch
-                        label="列设置 Icon"
                         fieldProps={{
                           size: 'small',
                         }}
-                        tooltip="options={{ setting:false }}"
+                        label="列设置 Icon"
                         name={['options', 'setting']}
+                        tooltip="options={{ setting:false }}"
                       />
                     </ProForm.Group>
                   </>
@@ -411,45 +400,45 @@ const DynamicSettings = () => {
                 key: 'tab3',
                 children: (
                   <ProForm.Group
-                    title="查询表单"
-                    size={0}
                     collapsible
-                    tooltip="search={false}"
                     direction="horizontal"
-                    labelLayout="twoLine"
                     extra={
                       <ProFormSwitch
+                        noStyle
                         fieldProps={{
                           size: 'small',
                         }}
-                        noStyle
                         name={['search', 'show']}
                       />
                     }
+                    labelLayout="twoLine"
+                    size={0}
+                    title="查询表单"
+                    tooltip="search={false}"
                   >
                     <ProFormText
-                      label="查询按钮文案"
                       fieldProps={{
                         size: 'small',
                       }}
-                      tooltip={`search={{searchText:"查询"}}`}
+                      label="查询按钮文案"
                       name={['search', 'searchText']}
+                      tooltip={`search={{searchText:"查询"}}`}
                     />
                     <ProFormText
-                      label="重置按钮文案"
                       fieldProps={{
                         size: 'small',
                       }}
-                      tooltip={`search={{resetText:"重置"}}`}
+                      label="重置按钮文案"
                       name={['search', 'resetText']}
+                      tooltip={`search={{resetText:"重置"}}`}
                     />
                     <ProFormSwitch
                       fieldProps={{
                         size: 'small',
                       }}
                       label="收起按钮"
-                      tooltip={`search={{collapseRender:false}}`}
                       name={['search', 'collapseRender']}
+                      tooltip="search={{collapseRender:false}}"
                     />
                     <ProFormSwitch
                       fieldProps={{
@@ -457,13 +446,14 @@ const DynamicSettings = () => {
                       }}
                       label="表单收起"
                       name={['search', 'collapsed']}
-                      tooltip={`search={{collapsed:false}}`}
+                      tooltip="search={{collapsed:false}}"
                     />
                     <ProFormSelect
                       fieldProps={{
                         size: 'small',
                       }}
-                      tooltip={`search={{span:8}}`}
+                      label="表单栅格"
+                      name={['search', 'span']}
                       options={[
                         {
                           label: '24',
@@ -482,16 +472,14 @@ const DynamicSettings = () => {
                           value: 6,
                         },
                       ]}
-                      label="表单栅格"
-                      name={['search', 'span']}
+                      tooltip="search={{span:8}}"
                     />
                     <ProFormRadio.Group
-                      radioType="button"
                       fieldProps={{
                         size: 'small',
                       }}
+                      label="表单布局"
                       name={['search', 'layout']}
-                      tooltip={`search={{layout:"${config.search?.layout}"}}`}
                       options={[
                         {
                           label: '垂直',
@@ -502,15 +490,15 @@ const DynamicSettings = () => {
                           value: 'horizontal',
                         },
                       ]}
-                      label="表单布局"
+                      radioType="button"
+                      tooltip={`search={{layout:"${config.search?.layout}"}}`}
                     />
                     <ProFormRadio.Group
-                      radioType="button"
                       fieldProps={{
                         size: 'small',
                       }}
+                      label="表单类型"
                       name={['search', 'filterType']}
-                      tooltip={`search={{filterType:"light"}}`}
                       options={[
                         {
                           label: '默认',
@@ -521,7 +509,8 @@ const DynamicSettings = () => {
                           value: 'light',
                         },
                       ]}
-                      label="表单类型"
+                      radioType="button"
+                      tooltip={`search={{filterType:"light"}}`}
                     />
                   </ProForm.Group>
                 ),
@@ -531,29 +520,28 @@ const DynamicSettings = () => {
                 key: 'tab2',
                 children: (
                   <ProForm.Group
-                    title="分页器"
-                    size={0}
                     collapsible
-                    tooltip="pagination={}"
                     direction="horizontal"
-                    labelLayout="twoLine"
                     extra={
                       <ProFormSwitch
+                        noStyle
                         fieldProps={{
                           size: 'small',
                         }}
-                        noStyle
                         name={['pagination', 'show']}
                       />
                     }
+                    labelLayout="twoLine"
+                    size={0}
+                    title="分页器"
+                    tooltip="pagination={}"
                   >
                     <ProFormRadio.Group
-                      tooltip={`pagination={size:"middle"}`}
-                      radioType="button"
                       fieldProps={{
                         size: 'small',
                       }}
                       label="尺寸"
+                      name={['pagination', 'size']}
                       options={[
                         {
                           label: '默认',
@@ -564,31 +552,32 @@ const DynamicSettings = () => {
                           value: 'small',
                         },
                       ]}
-                      name={['pagination', 'size']}
+                      radioType="button"
+                      tooltip={`pagination={size:"middle"}`}
                     />
                     <ProFormDigit
                       fieldProps={{
                         size: 'small',
                       }}
                       label="页码"
-                      tooltip={`pagination={{ current:10 }}`}
                       name={['pagination', 'current']}
+                      tooltip="pagination={{ current:10 }}"
                     />
                     <ProFormDigit
                       fieldProps={{
                         size: 'small',
                       }}
                       label="每页数量"
-                      tooltip={`pagination={{ pageSize:10 }}`}
                       name={['pagination', 'pageSize']}
+                      tooltip="pagination={{ pageSize:10 }}"
                     />
                     <ProFormDigit
                       fieldProps={{
                         size: 'small',
                       }}
                       label="数据总数"
-                      tooltip={`pagination={{ total:100 }}`}
                       name={['pagination', 'total']}
+                      tooltip="pagination={{ total:100 }}"
                     />
                   </ProForm.Group>
                 ),
@@ -598,20 +587,19 @@ const DynamicSettings = () => {
                 key: 'tab4',
                 children: (
                   <ProFormList
-                    name="columns"
                     itemRender={({ listDom, action }) => {
                       return (
                         <ProCard
-                          variant="outlined"
-                          style={{
-                            marginBlockEnd: 8,
-                            position: 'relative',
-                          }}
                           bodyStyle={{
                             padding: 8,
                             paddingInlineEnd: 16,
                             paddingBlockStart: 16,
                           }}
+                          style={{
+                            marginBlockEnd: 8,
+                            position: 'relative',
+                          }}
+                          variant="outlined"
                         >
                           <div
                             style={{
@@ -626,15 +614,16 @@ const DynamicSettings = () => {
                         </ProCard>
                       );
                     }}
+                    name="columns"
                   >
                     <ProFormText
+                      label="标题"
+                      name="title"
                       rules={[
                         {
                           required: true,
                         },
                       ]}
-                      name="title"
-                      label="标题"
                     />
                     <ProFormGroup
                       style={{
@@ -645,14 +634,13 @@ const DynamicSettings = () => {
                       <ProFormSwitch label="复制按钮" name="copyable" />
                     </ProFormGroup>
                     <ProFormGroup
+                      size={8}
                       style={{
                         marginBlockStart: 8,
                       }}
-                      size={8}
                     >
                       <ProFormSelect
                         label="dataIndex"
-                        width="xs"
                         name="dataIndex"
                         valueEnum={{
                           age: 'age',
@@ -661,29 +649,30 @@ const DynamicSettings = () => {
                           time: 'time',
                           description: 'string',
                         }}
+                        width="xs"
                       />
                       <ProFormSelect
-                        width="xs"
-                        label="值类型"
-                        name="valueType"
                         fieldProps={{
                           onChange: () => {
                             ref.current?.resetFields();
                           },
                         }}
+                        label="值类型"
+                        name="valueType"
                         options={valueTypeArray.map((value) => ({
                           label: value,
                           value,
                         }))}
+                        width="xs"
                       />
                     </ProFormGroup>
                     <ProFormGroup
+                      size={8}
                       style={{
                         marginBlockStart: 8,
                       }}
-                      size={8}
                     >
-                      <ProFormText width="xs" label="列提示" name="tooltip" />
+                      <ProFormText label="列提示" name="tooltip" width="xs" />
                     </ProFormGroup>
                     <ProFormDependency name={['valueType', 'valueEnum']}>
                       {({ valueType, valueEnum }) => {
@@ -692,19 +681,19 @@ const DynamicSettings = () => {
                         }
                         return (
                           <ProFormTextArea
+                            fieldProps={{
+                              value: JSON.stringify(valueEnum),
+                            }}
                             formItemProps={{
                               style: {
                                 marginBlockStart: 8,
                               },
                             }}
-                            fieldProps={{
-                              value: JSON.stringify(valueEnum),
-                            }}
+                            label="数据枚举"
+                            name="valueEnum"
                             normalize={(value) => {
                               return JSON.parse(value);
                             }}
-                            label="数据枚举"
-                            name="valueEnum"
                           />
                         );
                       }}

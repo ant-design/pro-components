@@ -1,14 +1,11 @@
 ﻿import { EllipsisOutlined } from '@ant-design/icons';
-import type { ProColumns } from '@ant-design/pro-components';
-import { ProTable } from '@ant-design/pro-components';
+import type { ProColumns } from '@xxlabs/pro-components';
+import { ProTable } from '@xxlabs/pro-components';
 import { Button, Result, Switch } from 'antd';
 import type { ErrorInfo } from 'react';
 import React, { useState } from 'react';
 
-class CustomBoundary extends React.Component<
-  Record<string, any>,
-  { hasError: boolean; errorInfo: string }
-> {
+class CustomBoundary extends React.Component<Record<string, any>, { hasError: boolean; errorInfo: string }> {
   state = { hasError: false, errorInfo: '' };
 
   static getDerivedStateFromError(error: Error) {
@@ -17,7 +14,7 @@ class CustomBoundary extends React.Component<
 
   componentDidCatch(error: any, errorInfo: ErrorInfo) {
     // You can also log the error to an error reporting service
-    // eslint-disable-next-line no-console
+
     console.log(error, errorInfo);
   }
 
@@ -26,17 +23,6 @@ class CustomBoundary extends React.Component<
       // You can render any custom fallback UI
       return (
         <Result
-          icon={
-            <img
-              width={256}
-              src="https://gw.alipayobjects.com/zos/antfincdn/zIgkN%26mpMZ/shibaizhuangtaizuo.png"
-            />
-          }
-          style={{
-            height: '100%',
-            background: '#fff',
-          }}
-          title="错误处理"
           extra={
             <>
               <div
@@ -70,8 +56,7 @@ class CustomBoundary extends React.Component<
                     ）
                   </li>
                   <li>
-                    异步代码（例如 <code>setTimeout</code> 或{' '}
-                    <code>requestAnimationFrame</code> 回调函数）
+                    异步代码（例如 <code>setTimeout</code> 或 <code>requestAnimationFrame</code> 回调函数）
                   </li>
                   <li>服务端渲染</li>
                   <li>它自身抛出来的错误（并非它的子组件）</li>
@@ -88,6 +73,14 @@ class CustomBoundary extends React.Component<
               </Button>
             </>
           }
+          icon={
+            <img src="https://gw.alipayobjects.com/zos/antfincdn/zIgkN%26mpMZ/shibaizhuangtaizuo.png" width={256} />
+          }
+          style={{
+            height: '100%',
+            background: '#fff',
+          }}
+          title="错误处理"
         />
       );
     }
@@ -176,13 +169,15 @@ export default () => {
   return (
     <>
       <Switch
+        checked={custom}
         checkedChildren="使用自定义错误边界"
         unCheckedChildren="使用默认错误边界"
-        checked={custom}
         onChange={(checked) => setCustom(checked)}
       />
       <ProTable<TableListItem>
+        ErrorBoundary={custom ? CustomBoundary : undefined}
         columns={columns}
+        headerTitle={<ErrorTrigger />}
         request={(params, sorter, filter) => {
           // 表单搜索项会从 params 传入，传递给后端接口。
           console.log(params, sorter, filter);
@@ -191,8 +186,6 @@ export default () => {
             success: true,
           });
         }}
-        ErrorBoundary={custom ? CustomBoundary : undefined}
-        headerTitle={<ErrorTrigger />}
         rowKey="key"
         search={false}
       />

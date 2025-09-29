@@ -1,11 +1,6 @@
-import {
-  ProCard,
-  ProForm,
-  ProFormDependency,
-  ProFormField,
-  ProTable,
-} from '@ant-design/pro-components';
-import { FormInstance, Input, Tabs } from 'antd';
+import { ProCard, ProForm, ProFormDependency, ProFormField, ProTable } from '@xxlabs/pro-components';
+import type { FormInstance } from 'antd';
+import { Input, Tabs } from 'antd';
 import { useRef } from 'react';
 
 const defaultData = [
@@ -118,24 +113,20 @@ const defaultData = [
 ];
 
 export default () => {
-  const formRef = useRef<FormInstance>();
+  const formRef = useRef<FormInstance>(undefined);
   return (
     <ProForm
       formRef={formRef}
+      initialValues={{ columnsInfo: defaultData, table: defaultData }}
       onValuesChange={(_, e) => {
         console.log(e);
       }}
-      initialValues={{ columnsInfo: defaultData, table: defaultData }}
     >
       <ProFormDependency name={['columnsInfo']}>
         {({ columnsInfo }) => {
           const list = (columnsInfo || []) as any[];
           return (
             <Tabs
-              style={{
-                padding: '0 8px',
-                maxWidth: '100%',
-              }}
               items={list.map((item: any, index) => {
                 return {
                   key: item.name || '',
@@ -171,17 +162,6 @@ export default () => {
                         }}
                       >
                         <ProTable
-                          scroll={{ x: 'max-content' }}
-                          size="small"
-                          pagination={false}
-                          search={false}
-                          editable={{
-                            editableKeys: item?.columnsInfo?.map(
-                              (row: any) => row.name || '',
-                            ),
-                          }}
-                          rowKey="name"
-                          name={['table', index, 'columnsInfo']}
                           columns={[
                             {
                               title: '字段名称',
@@ -212,9 +192,7 @@ export default () => {
                                       wordBreak: 'break-all',
                                     }}
                                   >
-                                    {record.description
-                                      ? record.description
-                                      : '-'}
+                                    {record.description ? record.description : '-'}
                                   </div>
                                 );
                               },
@@ -223,33 +201,41 @@ export default () => {
                               title: '补充说明',
                               dataIndex: 'supplementComment',
                               formItemRender: () => {
-                                return (
-                                  <Input.TextArea
-                                    placeholder="请输入补充说明"
-                                    maxLength={200}
-                                  />
-                                );
+                                return <Input.TextArea maxLength={200} placeholder="请输入补充说明" />;
                               },
                             },
                           ]}
-                          toolBarRender={false}
+                          editable={{
+                            editableKeys: item?.columnsInfo?.map((row: any) => row.name || ''),
+                          }}
+                          name={['table', index, 'columnsInfo']}
+                          pagination={false}
                           request={async () => {
                             return {
                               data: item.columnsInfo,
                             };
                           }}
+                          rowKey="name"
+                          scroll={{ x: 'max-content' }}
+                          search={false}
+                          size="small"
+                          toolBarRender={false}
                         />
                       </div>
                     </div>
                   ),
                 };
               })}
+              style={{
+                padding: '0 8px',
+                maxWidth: '100%',
+              }}
             />
           );
         }}
       </ProFormDependency>
 
-      <ProCard title="表格数据" headerBordered collapsible defaultCollapsed>
+      <ProCard collapsible defaultCollapsed headerBordered title="表格数据">
         <ProFormDependency name={['table']}>
           {({ table }) => {
             return (
@@ -261,8 +247,8 @@ export default () => {
                   },
                 }}
                 mode="read"
-                valueType="jsonCode"
                 text={JSON.stringify(table, null, 2)}
+                valueType="jsonCode"
               />
             );
           }}

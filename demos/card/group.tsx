@@ -1,9 +1,9 @@
-import { ProCard } from '@ant-design/pro-components';
+import { ProCard } from '@xxlabs/pro-components';
 
 export default () => {
   return (
     <>
-      <ProCard title="Card Group Expanded" ghost gutter={8} collapsible>
+      <ProCard collapsible ghost gutter={8} title="Card Group Expanded">
         <ProCard layout="center" variant="outlined">
           Card Content
         </ProCard>

@@ -9,7 +9,7 @@
   ProFormDateWeekRangePicker,
   ProFormDateYearRangePicker,
   ProFormTimePicker,
-} from '@ant-design/pro-components';
+} from '@xxlabs/pro-components';
 import { Switch } from 'antd';
 import { useState } from 'react';
 
@@ -22,16 +22,15 @@ export default () => {
       }}
     >
       <Switch
+        checked={readonly}
+        checkedChildren="Edit"
         style={{
           marginBlockEnd: 16,
         }}
-        checked={readonly}
-        checkedChildren="Edit"
         unCheckedChildren="Read Only"
         onChange={setReadonly}
       />
       <ProForm
-        readonly={readonly}
         initialValues={{
           date: Date.now(),
           dateWeek: Date.now(),
@@ -44,47 +43,39 @@ export default () => {
           dateTimeRange: [Date.now(), Date.now() - 1000 * 60 * 60 * 24],
           dateRange: [Date.now(), Date.now() - 1000 * 60 * 60 * 24],
         }}
+        readonly={readonly}
         onFinish={async (values) => {
           console.log(values);
         }}
       >
         <ProForm.Group title="Date Related Group">
-          <ProFormDatePicker name="date" label="Date" />
+          <ProFormDatePicker label="Date" name="date" />
           <ProFormDatePicker
-            name="date"
             fieldProps={{
               format: 'YY-MM',
             }}
             label="Year-Month"
+            name="date"
           />
-          <ProFormTimePicker name="time" label="Time" />
-          <ProFormTimePicker.RangePicker name="timeRange" label="Time Range" />
-          <ProFormDatePicker.Week name="dateWeek" label="Week" />
-          <ProFormDateWeekRangePicker name="dateWeekRange" label="Week Range" />
-          <ProFormDatePicker.Month name="dateMonth" label="Month" />
-          <ProFormDateMonthRangePicker
-            name="dateMonthRange"
-            label="Month Range"
-          />
-          <ProFormDatePicker.Quarter name="dateQuarter" label="Quarter" />
-          <ProFormDateQuarterRangePicker
-            name="dateQuarterRange"
-            label="Quarter Range"
-          />
-          <ProFormDatePicker.Year name="dateYear" label="Year" />
-          <ProFormDateYearRangePicker name="dateYearRange" label="Year Range" />
+          <ProFormTimePicker label="Time" name="time" />
+          <ProFormTimePicker.RangePicker label="Time Range" name="timeRange" />
+          <ProFormDatePicker.Week label="Week" name="dateWeek" />
+          <ProFormDateWeekRangePicker label="Week Range" name="dateWeekRange" />
+          <ProFormDatePicker.Month label="Month" name="dateMonth" />
+          <ProFormDateMonthRangePicker label="Month Range" name="dateMonthRange" />
+          <ProFormDatePicker.Quarter label="Quarter" name="dateQuarter" />
+          <ProFormDateQuarterRangePicker label="Quarter Range" name="dateQuarterRange" />
+          <ProFormDatePicker.Year label="Year" name="dateYear" />
+          <ProFormDateYearRangePicker label="Year Range" name="dateYearRange" />
           <ProFormDateTimePicker
-            name="dateTime"
-            label="Date Time"
             fieldProps={{
               format: (value) => value.format('YYYY-MM-DD'),
             }}
+            label="Date Time"
+            name="dateTime"
           />
-          <ProFormDateRangePicker name="dateRange" label="Date Range" />
-          <ProFormDateTimeRangePicker
-            name="dateTimeRange"
-            label="Date Time Range"
-          />
+          <ProFormDateRangePicker label="Date Range" name="dateRange" />
+          <ProFormDateTimeRangePicker label="Date Time Range" name="dateTimeRange" />
         </ProForm.Group>
       </ProForm>
     </div>

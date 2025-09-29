@@ -1,7 +1,4 @@
-﻿/* eslint-disable react-hooks/exhaustive-deps */ import {
-  get,
-  useMergedState,
-} from '@rc-component/util';
+﻿import { get, useMergedState } from '@rc-component/util';
 import { message } from 'antd';
 import type React from 'react';
 import { useCallback, useMemo, useRef } from 'react';
@@ -28,13 +25,7 @@ const warning = (messageStr: React.ReactNode) => {
  * @param params
  * @param action
  */
-function editableRowByKey<RecordType>({
-  data,
-  row,
-}: {
-  data: RecordType;
-  row: RecordType;
-}) {
+function editableRowByKey<RecordType>({ data, row }: { data: RecordType; row: RecordType }) {
   return { ...data, ...row };
 }
 
@@ -79,8 +70,7 @@ export function useEditableMap<RecordType>(
   });
   /** 一个用来标志的set 提供了方便的 api 来去重什么的 */
   const editableKeysSet = useMemo(() => {
-    const keys =
-      editableType === 'single' ? editableKeys?.slice(0, 1) : editableKeys;
+    const keys = editableType === 'single' ? editableKeys?.slice(0, 1) : editableKeys;
     return new Set(keys);
   }, [(editableKeys || []).join(','), editableType]);
 
@@ -102,22 +92,13 @@ export function useEditableMap<RecordType>(
     // 如果是单行的话，不允许多行编辑
     if (editableKeysSet.size > 0 && editableType === 'single') {
       warning(
-        props.onlyOneLineEditorAlertMessage ||
-          intl.getMessage(
-            'editableTable.onlyOneLineEditor',
-            '只能同时编辑一行',
-          ),
+        props.onlyOneLineEditorAlertMessage || intl.getMessage('editableTable.onlyOneLineEditor', '只能同时编辑一行'),
       );
       return false;
     }
     preEditRowRef.current =
       recordValue ??
-      get(
-        props.dataSource,
-        Array.isArray(recordKey)
-          ? (recordKey as string[])
-          : [recordKey as string],
-      ) ??
+      get(props.dataSource, Array.isArray(recordKey) ? (recordKey as string[]) : [recordKey as string]) ??
       null;
     editableKeysSet.add(recordKeyToString(recordKey));
     setEditableRowKeys(Array.from(editableKeysSet));
@@ -144,12 +125,7 @@ export function useEditableMap<RecordType>(
     originRow: RecordType & { index?: number },
     newLine?: NewLineConfig<any>,
   ) => {
-    const success = await props?.onCancel?.(
-      recordKey,
-      editRow,
-      originRow,
-      newLine,
-    );
+    const success = await props?.onCancel?.(recordKey, editRow, originRow, newLine);
     if (success === false) {
       return false;
     }
@@ -186,10 +162,7 @@ export function useEditableMap<RecordType>(
 
   const actionRender = useCallback(
     (key: RecordKey, config?: ActionTypeText<RecordType>) => {
-      const renderConfig: ActionRenderConfig<
-        RecordType,
-        NewLineConfig<RecordType>
-      > = {
+      const renderConfig: ActionRenderConfig<RecordType, NewLineConfig<RecordType>> = {
         recordKey: key,
         cancelEditable,
         onCancel,
@@ -200,10 +173,7 @@ export function useEditableMap<RecordType>(
         cancelText,
         preEditRowRef,
         deleteText,
-        deletePopconfirmMessage: `${intl.getMessage(
-          'deleteThisLine',
-          '删除此项',
-        )}?`,
+        deletePopconfirmMessage: `${intl.getMessage('deleteThisLine', '删除此项')}?`,
         editorType: 'Map',
         ...config,
       };

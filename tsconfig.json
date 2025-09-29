@@ -15,18 +15,8 @@
     "resolveJsonModule": true,
     "paths": {
       "@@/*": [".dumi/tmp/*"],
-      "@ant-design/pro-components": ["src"]
+      "@xxlabs/pro-components": ["src"]
     }
   },
-  "include": [
-    ".dumirc.ts",
-    "vitest.config.mts",
-    "tests/**/**/*.tsx",
-    "tests/**/**/*.ts",
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "typings.d.ts",
-    "src/**/*",
-    "demos/**/*"
-  ]
+  "include": ["demos", "src", "tests", ".dumirc.ts", ".fatherrc.ts", "vitest.config.mts"]
 }

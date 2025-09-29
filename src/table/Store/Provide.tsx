@@ -1,14 +1,7 @@
 ﻿import { useMergedState } from '@rc-component/util';
 import type { TableColumnType } from 'antd';
 import merge from 'lodash-es/merge';
-import {
-  createContext,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import { createContext, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { DensitySize } from '../components/ToolBar/DensityIcon';
 import type { ProTableProps } from '../index';
 import type { ActionType, ProColumns } from '../typing';
@@ -37,31 +30,27 @@ export type UseContainerProps<T = any> = {
 };
 
 function useContainer(props: UseContainerProps = {} as Record<string, any>) {
-  const actionRef = useRef<ActionType>();
+  const actionRef = useRef<ActionType>(undefined);
   const rootDomRef = useRef<HTMLDivElement>(null);
   /** 父 form item 的 name */
-  const prefixNameRef = useRef<any>();
+  const prefixNameRef = useRef<any>(undefined);
 
   /** 自己 props 的引用 */
-  const propsRef = useRef<ProTableProps<any, any, any>>();
+  const propsRef = useRef<ProTableProps<any, any, any>>(undefined);
 
   // 共享状态比较难，就放到这里了
   const [keyWords, setKeyWords] = useState<string | undefined>('');
   // 用于排序的数组
   const sortKeyColumns = useRef<string[]>([]);
 
-  const [tableSize, setTableSize] = useMergedState<DensitySize>(
-    () => props.size || props.defaultSize || 'middle',
-    {
-      value: props.size,
-      onChange: props.onSizeChange,
-    },
-  );
+  const [tableSize, setTableSize] = useMergedState<DensitySize>(() => props.size || props.defaultSize || 'middle', {
+    value: props.size,
+    onChange: props.onSizeChange,
+  });
 
   /** 默认全选中 */
   const defaultColumnKeyMap = useMemo(() => {
-    if (props?.columnsState?.defaultValue)
-      return props.columnsState.defaultValue;
+    if (props?.columnsState?.defaultValue) return props.columnsState.defaultValue;
     const columnKeyMap = {} as Record<string, any>;
     props.columns?.forEach(({ key, dataIndex, fixed, disable }, index) => {
       const columnKey = genColumnKey(key ?? (dataIndex as React.Key), index);
@@ -76,9 +65,7 @@ function useContainer(props: UseContainerProps = {} as Record<string, any>) {
     return columnKeyMap;
   }, [props.columns]);
 
-  const [columnsMap, setColumnsMap] = useMergedState<
-    Record<string, ColumnsState>
-  >(
+  const [columnsMap, setColumnsMap] = useMergedState<Record<string, ColumnsState>>(
     () => {
       const { persistenceType, persistenceKey } = props.columnsState || {};
 
@@ -90,11 +77,7 @@ function useContainer(props: UseContainerProps = {} as Record<string, any>) {
           if (storageValue) {
             if (props?.columnsState?.defaultValue) {
               // 实际生产中，defaultValue往往作为系统方默认配置，则优先级不应高于用户配置的storageValue
-              return merge(
-                {},
-                props?.columnsState?.defaultValue,
-                JSON.parse(storageValue),
-              );
+              return merge({}, props?.columnsState?.defaultValue, JSON.parse(storageValue));
             }
             return JSON.parse(storageValue);
           }
@@ -102,11 +85,7 @@ function useContainer(props: UseContainerProps = {} as Record<string, any>) {
           console.warn(error);
         }
       }
-      return (
-        props.columnsState?.value ||
-        props.columnsState?.defaultValue ||
-        defaultColumnKeyMap
-      );
+      return props.columnsState?.value || props.columnsState?.defaultValue || defaultColumnKeyMap;
     },
     {
       value: props.columnsState?.value,
@@ -125,13 +104,7 @@ function useContainer(props: UseContainerProps = {} as Record<string, any>) {
         const storageValue = storage?.getItem(persistenceKey);
         if (storageValue) {
           if (props?.columnsState?.defaultValue) {
-            setColumnsMap(
-              merge(
-                {},
-                props?.columnsState?.defaultValue,
-                JSON.parse(storageValue),
-              ),
-            );
+            setColumnsMap(merge({}, props?.columnsState?.defaultValue, JSON.parse(storageValue)));
           } else {
             setColumnsMap(JSON.parse(storageValue));
           }
@@ -142,19 +115,13 @@ function useContainer(props: UseContainerProps = {} as Record<string, any>) {
         console.warn(error);
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [
-    props.columnsState?.persistenceKey,
-    props.columnsState?.persistenceType,
-    defaultColumnKeyMap,
-  ]);
+  }, [props.columnsState?.persistenceKey, props.columnsState?.persistenceType, defaultColumnKeyMap]);
 
   /** 清空一下当前的 key */
   const clearPersistenceStorage = useCallback(() => {
     const { persistenceType, persistenceKey } = props.columnsState || {};
 
-    if (!persistenceKey || !persistenceType || typeof window === 'undefined')
-      return;
+    if (!persistenceKey || !persistenceType || typeof window === 'undefined') return;
 
     /** 给持久化中设置数据 */
     const storage = window[persistenceType];
@@ -166,10 +133,7 @@ function useContainer(props: UseContainerProps = {} as Record<string, any>) {
   }, [props.columnsState]);
 
   useEffect(() => {
-    if (
-      !props.columnsState?.persistenceKey ||
-      !props.columnsState?.persistenceType
-    ) {
+    if (!props.columnsState?.persistenceKey || !props.columnsState?.persistenceType) {
       return;
     }
     if (typeof window === 'undefined') return;
@@ -182,12 +146,7 @@ function useContainer(props: UseContainerProps = {} as Record<string, any>) {
       console.warn(error);
       clearPersistenceStorage();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [
-    props.columnsState?.persistenceKey,
-    columnsMap,
-    props.columnsState?.persistenceType,
-  ]);
+  }, [props.columnsState?.persistenceKey, columnsMap, props.columnsState?.persistenceType]);
   const renderValue = {
     action: actionRef.current,
     setAction: (newAction?: ActionType) => {
@@ -239,11 +198,7 @@ const Container: React.FC<{
   children: React.ReactNode;
 }> = (props) => {
   const value = useContainer(props.initValue);
-  return (
-    <TableContext.Provider value={value}>
-      {props.children}
-    </TableContext.Provider>
-  );
+  return <TableContext.Provider value={value}>{props.children}</TableContext.Provider>;
 };
 
 export { Container, TableContext };

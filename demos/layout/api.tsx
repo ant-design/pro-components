@@ -1,9 +1,5 @@
 import { GithubOutlined } from '@ant-design/icons';
-import {
-  DefaultFooter,
-  PageContainer,
-  ProLayout,
-} from '@ant-design/pro-components';
+import { DefaultFooter, PageContainer, ProLayout } from '@xxlabs/pro-components';
 import { Switch } from 'antd';
 import { useState } from 'react';
 import defaultProps from './_defaultProps';
@@ -22,101 +18,90 @@ export default () => {
     <>
       <Switch
         checked={loading}
-        onChange={(e) => setLoading(e)}
         style={{
           margin: 8,
         }}
+        onChange={(e) => setLoading(e)}
       />
       loading 状态
       <Switch
         checked={collapsed}
-        onChange={(e) => setCollapsed(e)}
         style={{
           margin: 8,
         }}
+        onChange={(e) => setCollapsed(e)}
       />
       折叠layout
       <Switch
         checked={menu}
-        onChange={(e) => setMenu(e)}
         style={{
           margin: 8,
         }}
+        onChange={(e) => setMenu(e)}
       />
       显示菜单
       <Switch
         checked={collapsedButtonRender}
-        onChange={(e) => setCollapsedButtonRender(e)}
         style={{
           margin: 8,
         }}
+        onChange={(e) => setCollapsedButtonRender(e)}
       />
       显示折叠按钮
       <Switch
         checked={header}
-        onChange={(e) => setHeader(e)}
         style={{
           margin: 8,
         }}
+        onChange={(e) => setHeader(e)}
       />
       显示顶栏
       <Switch
         checked={menuHeader}
-        onChange={(e) => setMenuHeader(e)}
         style={{
           margin: 8,
         }}
+        onChange={(e) => setMenuHeader(e)}
       />
       显示菜单头
       <Switch
         checked={footer}
-        onChange={(e) => setFooter(e)}
         style={{
           margin: 8,
         }}
+        onChange={(e) => setFooter(e)}
       />
       显示页脚
       <Switch
         checked={right}
-        onChange={(e) => setRight(e)}
         style={{
           margin: 8,
         }}
+        onChange={(e) => setRight(e)}
       />
       显示顶栏右侧
       <Switch
         checked={pure}
-        onChange={(e) => setPure(e)}
         style={{
           margin: 8,
         }}
+        onChange={(e) => setPure(e)}
       />
       清爽模式
       <br />
       <br />
       <ProLayout
         {...defaultProps}
-        style={{
-          height: '100vh',
-        }}
-        menuHeaderRender={menuHeader ? undefined : false}
-        headerRender={header ? undefined : false}
-        collapsedButtonRender={collapsedButtonRender ? undefined : false}
-        menuRender={(_, dom) => (menu ? dom : null)}
-        breakpoint={false}
-        collapsed={collapsed}
-        loading={loading}
-        onCollapse={setCollapsed}
         avatarProps={{
           src: 'https://avatars1.githubusercontent.com/u/8186664?s=460&v=4',
         }}
-        location={{
-          pathname: '/welcome',
-        }}
-        pure={pure}
+        breakpoint={false}
+        collapsed={collapsed}
+        collapsedButtonRender={collapsedButtonRender ? undefined : false}
         footerRender={() =>
           footer ? (
             <DefaultFooter
+              copyright="2022 蚂蚁金服体验技术部出品"
               links={[
                 {
                   key: 'Ant Design Pro',
@@ -137,10 +122,21 @@ export default () => {
                   blankTarget: true,
                 },
               ]}
-              copyright="2022 蚂蚁金服体验技术部出品"
             />
           ) : null
         }
+        headerRender={header ? undefined : false}
+        loading={loading}
+        location={{
+          pathname: '/welcome',
+        }}
+        menuHeaderRender={menuHeader ? undefined : false}
+        menuRender={(_, dom) => (menu ? dom : null)}
+        pure={pure}
+        style={{
+          height: '100vh',
+        }}
+        onCollapse={setCollapsed}
       >
         <PageContainer content="欢迎使用">Hello World</PageContainer>
       </ProLayout>

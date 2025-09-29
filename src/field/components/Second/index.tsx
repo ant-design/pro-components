@@ -1,5 +1,4 @@
 import { InputNumber } from 'antd';
-import React from 'react';
 import { useIntl } from '../../../provider';
 import type { ProFieldFC } from '../../PureProField';
 
@@ -11,10 +10,8 @@ export type FieldDigitProps = {
 /**
  * 格式化秒
  *
- * @param result
- * @returns {string}
  */
-export function formatSecond(result: number) {
+function formatSecond(result: number) {
   let newResult = result;
   let formatText = '';
   let past = false;
@@ -47,13 +44,18 @@ export function formatSecond(result: number) {
  *
  * @param FieldSecond
  */
-const Second: ProFieldFC<FieldDigitProps> = (
-  { text, mode: type, render, formItemRender, fieldProps, placeholder },
+const Second: ProFieldFC<FieldDigitProps> = ({
+  text,
+  mode: type,
+  render,
+  formItemRender,
+  fieldProps,
+  placeholder,
   ref,
-) => {
+}) => {
   const intl = useIntl();
-  const placeholderValue =
-    placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入');
+  const placeholderValue = placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入');
+
   if (type === 'read') {
     const secondText = formatSecond(Number(text) as number);
     const dom = <span ref={ref}>{secondText}</span>;
@@ -62,15 +64,16 @@ const Second: ProFieldFC<FieldDigitProps> = (
     }
     return dom;
   }
+
   if (type === 'edit' || type === 'update') {
     const dom = (
       <InputNumber
         ref={ref}
         min={0}
+        placeholder={placeholderValue}
         style={{
           width: '100%',
         }}
-        placeholder={placeholderValue}
         {...fieldProps}
       />
     );
@@ -82,4 +85,4 @@ const Second: ProFieldFC<FieldDigitProps> = (
   return null;
 };
 
-export default React.forwardRef(Second);
+export default Second;

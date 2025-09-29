@@ -1,10 +1,4 @@
-﻿import {
-  ProForm,
-  ProFormDependency,
-  ProFormFieldSet,
-  ProFormSelect,
-  ProFormText,
-} from '@ant-design/pro-components';
+﻿import { ProForm, ProFormDependency, ProFormFieldSet, ProFormSelect, ProFormText } from '@xxlabs/pro-components';
 import { Switch } from 'antd';
 import { useState } from 'react';
 
@@ -17,19 +11,19 @@ export default () => {
       }}
     >
       <Switch
+        checked={readonly}
+        checkedChildren="编辑"
         style={{
           marginBlockEnd: 16,
         }}
-        checked={readonly}
-        checkedChildren="编辑"
         unCheckedChildren="只读"
         onChange={setReadonly}
       />
       <ProForm
-        readonly={readonly}
         initialValues={{
           list: ['1', '2', '3'],
         }}
+        readonly={readonly}
       >
         <ProForm.Item label="互相依赖的表单">
           <ProFormDependency name={['list']}>
@@ -38,26 +32,25 @@ export default () => {
             }}
           </ProFormDependency>
         </ProForm.Item>
-        <ProFormFieldSet name="list" label="组件列表">
+        <ProFormFieldSet label="组件列表" name="list">
           <ProFormText width="md" />
           <ProFormSelect
-            width="md"
+            label="合同约定生效方式"
+            name="useMode"
             request={async () => [
               { label: '全部', value: 'all' },
               { label: '未解决', value: 'open' },
               { label: '已解决', value: 'closed' },
               { label: '解决中', value: 'processing' },
             ]}
-            name="useMode"
-            label="合同约定生效方式"
+            width="md"
           />
           <ProFormText width="md" />
         </ProFormFieldSet>
 
         <ProFormFieldSet
-          name="list"
           label="组件列表- Input.Group"
-          type="group"
+          name="list"
           rules={[
             {
               validator: (_, value) => {
@@ -79,6 +72,7 @@ export default () => {
             startTime: value[0],
             endTime: value[1],
           })}
+          type="group"
         >
           <ProFormText width="md" />
           <ProFormText width="md" />
@@ -86,19 +80,19 @@ export default () => {
         </ProFormFieldSet>
 
         <ProFormFieldSet
-          name="list"
           label="组件列表"
+          name="list"
           transform={(value: any) => ({
             list: value,
             startTime: value[0],
             endTime: value[1],
           })}
         >
-          <ProFormText width="md" readonly />
+          <ProFormText readonly width="md" />
           -
-          <ProFormText width="md" readonly />
+          <ProFormText readonly width="md" />
           -
-          <ProFormText width="md" readonly />
+          <ProFormText readonly width="md" />
         </ProFormFieldSet>
       </ProForm>
     </div>

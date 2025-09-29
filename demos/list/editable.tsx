@@ -1,4 +1,4 @@
-import { ProList } from '@ant-design/pro-components';
+import { ProList } from '@xxlabs/pro-components';
 import { Space, Tag } from 'antd';
 import { useState } from 'react';
 
@@ -6,29 +6,25 @@ const defaultData = [
   {
     id: '1',
     name: '语雀的天空',
-    image:
-      'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+    image: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
     desc: '我是一条测试的描述',
   },
   {
     id: '2',
     name: 'Ant Design',
-    image:
-      'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+    image: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
     desc: '我是一条测试的描述',
   },
   {
     id: '3',
     name: '蚂蚁金服体验科技',
-    image:
-      'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+    image: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
     desc: '我是一条测试的描述',
   },
   {
     id: '4',
     name: 'TechUI',
-    image:
-      'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+    image: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
     desc: '我是一条测试的描述',
   },
 ];
@@ -39,17 +35,14 @@ export default () => {
   const [dataSource, setDataSource] = useState<DataItem[]>(defaultData);
   return (
     <ProList<DataItem>
-      rowKey="id"
-      headerTitle="基础列表"
       dataSource={dataSource}
-      showActions="hover"
       editable={{
         onSave: async (key, record, originRow) => {
           console.log(key, record, originRow);
           return true;
         },
       }}
-      onDataSourceChange={setDataSource}
+      headerTitle="基础列表"
       metas={{
         title: {
           dataIndex: 'name',
@@ -74,16 +67,19 @@ export default () => {
         actions: {
           render: (text, row, index, action) => [
             <a
+              key="link"
               onClick={() => {
                 action?.startEditable(row.id);
               }}
-              key="link"
             >
               编辑
             </a>,
           ],
         },
       }}
+      rowKey="id"
+      showActions="hover"
+      onDataSourceChange={setDataSource}
     />
   );
 };

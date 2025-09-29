@@ -1,18 +1,10 @@
-﻿import {
-  ProCard,
-  ProForm,
-  ProFormGroup,
-  ProFormList,
-  ProFormText,
-} from '@ant-design/pro-components';
+﻿import { ProCard, ProForm, ProFormGroup, ProFormList, ProFormText } from '@xxlabs/pro-components';
 
 const Demo = () => {
   return (
     <ProForm onFinish={async (e) => console.log(e)}>
-      <ProFormText name="name" label="姓名" />
+      <ProFormText label="姓名" name="name" />
       <ProFormList
-        name="users"
-        label="用户信息"
         initialValue={[
           {
             name: '1111',
@@ -21,41 +13,43 @@ const Demo = () => {
         itemRender={({ listDom, action }, { record }) => {
           return (
             <ProCard
-              variant="outlined"
               extra={action}
-              title={record?.name}
               style={{
                 marginBlockEnd: 8,
               }}
+              title={record?.name}
+              variant="outlined"
             >
               {listDom}
             </ProCard>
           );
         }}
+        label="用户信息"
+        name="users"
       >
         <ProFormGroup>
-          <ProFormText name="name" label="姓名" />
-          <ProFormText name="nickName" label="昵称" />
+          <ProFormText label="姓名" name="name" />
+          <ProFormText label="昵称" name="nickName" />
         </ProFormGroup>
         <ProFormList
-          name="labels"
-          label="用户信息"
-          initialValue={[
-            {
-              value: '333',
-              label: '333',
-            },
-          ]}
           copyIconProps={{
             tooltipText: '复制此项到末尾',
           }}
           deleteIconProps={{
             tooltipText: '不需要这行了',
           }}
+          initialValue={[
+            {
+              value: '333',
+              label: '333',
+            },
+          ]}
+          label="用户信息"
+          name="labels"
         >
           <ProFormGroup key="group">
-            <ProFormText name="value" label="值" />
-            <ProFormText name="label" label="显示名称" />
+            <ProFormText label="值" name="value" />
+            <ProFormText label="显示名称" name="label" />
           </ProFormGroup>
         </ProFormList>
       </ProFormList>

@@ -1,15 +1,6 @@
-import {
-  GithubFilled,
-  InfoCircleFilled,
-  QuestionCircleFilled,
-} from '@ant-design/icons';
-import type { ProSettings } from '@ant-design/pro-components';
-import {
-  PageContainer,
-  ProCard,
-  ProLayout,
-  SettingDrawer,
-} from '@ant-design/pro-components';
+import { GithubFilled, InfoCircleFilled, QuestionCircleFilled } from '@ant-design/icons';
+import type { ProSettings } from '@xxlabs/pro-components';
+import { PageContainer, ProCard, ProLayout, SettingDrawer } from '@xxlabs/pro-components';
 import { Avatar, Image, Space } from 'antd';
 import { useState } from 'react';
 import defaultProps from './_defaultProps';
@@ -50,13 +41,6 @@ export default () => {
           },
         ]}
         {...defaultProps}
-        location={{
-          pathname,
-        }}
-        collapsed={false}
-        menu={{
-          type: 'group',
-        }}
         actionsRender={(props) => {
           if (props.isMobile) return [];
           return [
@@ -67,10 +51,10 @@ export default () => {
               }}
             >
               <Image
-                width={'100%'}
-                preview={false}
                 height={132}
+                preview={false}
                 src="https://gw.alipayobjects.com/zos/bmw-prod/d283f09a-64d6-4d59-bfc7-37b49ea0da2b.svg"
+                width="100%"
               />
               <Space
                 align="center"
@@ -81,8 +65,8 @@ export default () => {
                 }}
               >
                 <Avatar
-                  src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
                   size="small"
+                  src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
                 />
                 <div
                   style={{
@@ -99,9 +83,12 @@ export default () => {
             </div>,
           ];
         }}
-        menuRender={(props, defaultDom) => {
-          console.log('defaultDom', defaultDom);
-          return defaultDom;
+        collapsed={false}
+        location={{
+          pathname,
+        }}
+        menu={{
+          type: 'group',
         }}
         menuItemRender={(item, dom) => (
           <div
@@ -112,6 +99,10 @@ export default () => {
             {dom}
           </div>
         )}
+        menuRender={(props, defaultDom) => {
+          console.log('defaultDom', defaultDom);
+          return defaultDom;
+        }}
         {...settings}
       >
         <PageContainer>
@@ -126,14 +117,14 @@ export default () => {
         </PageContainer>
       </ProLayout>
       <SettingDrawer
-        pathname={pathname}
         enableDarkTheme
+        disableUrlParams={false}
         getContainer={() => document.getElementById('test-pro-layout')}
+        pathname={pathname}
         settings={settings}
         onSettingChange={(changeSetting) => {
           setSetting(changeSetting);
         }}
-        disableUrlParams={false}
       />
     </div>
   );

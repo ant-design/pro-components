@@ -1,16 +1,5 @@
-import type {
-  ActionType,
-  EditableFormInstance,
-  ProColumns,
-  ProFormInstance,
-} from '@ant-design/pro-components';
-import {
-  EditableProTable,
-  ProCard,
-  ProForm,
-  ProFormDependency,
-  ProFormDigit,
-} from '@ant-design/pro-components';
+import type { ActionType, EditableFormInstance, ProColumns, ProFormInstance } from '@xxlabs/pro-components';
+import { EditableProTable, ProCard, ProForm, ProFormDependency, ProFormDigit } from '@xxlabs/pro-components';
 import React, { useRef, useState } from 'react';
 
 type DataSourceType = {
@@ -59,9 +48,9 @@ const defaultData: DataSourceType[] = [
 
 export default () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>(() => []);
-  const formRef = useRef<ProFormInstance<any>>();
-  const actionRef = useRef<ActionType>();
-  const editableFormRef = useRef<EditableFormInstance>();
+  const formRef = useRef<ProFormInstance<any>>(undefined);
+  const actionRef = useRef<ActionType>(undefined);
+  const editableFormRef = useRef<EditableFormInstance>(undefined);
   const columns: ProColumns<DataSourceType>[] = [
     {
       title: '关联题库',
@@ -140,9 +129,7 @@ export default () => {
         <a
           key="delete"
           onClick={() => {
-            const tableDataSource = formRef.current?.getFieldValue(
-              'table',
-            ) as DataSourceType[];
+            const tableDataSource = formRef.current?.getFieldValue('table') as DataSourceType[];
             formRef.current?.setFieldsValue({
               table: tableDataSource.filter((item) => item.id !== row?.id),
             });
@@ -183,12 +170,8 @@ export default () => {
               const info = (table as DataSourceType[]).reduce(
                 (pre, item) => {
                   return {
-                    totalScore:
-                      pre.totalScore +
-                      parseInt((item?.fraction || 0).toString(), 10),
-                    questions:
-                      pre.questions +
-                      parseInt((item?.questionsNum || 0).toString(), 10),
+                    totalScore: pre.totalScore + parseInt((item?.fraction || 0).toString(), 10),
+                    questions: pre.questions + parseInt((item?.questionsNum || 0).toString(), 10),
                   };
                 },
                 { totalScore: 0, questions: 0 },
@@ -215,13 +198,15 @@ export default () => {
             }}
           </ProFormDependency>
           <EditableProTable<DataSourceType>
-            rowKey="id"
-            scroll={{
-              x: true,
-            }}
-            editableFormRef={editableFormRef}
             controlled
             actionRef={actionRef}
+            columns={columns}
+            editable={{
+              type: 'multiple',
+              editableKeys,
+              onChange: setEditableRowKeys,
+            }}
+            editableFormRef={editableFormRef}
             formItemProps={{
               label: '题库编辑',
               rules: [
@@ -240,16 +225,14 @@ export default () => {
             }}
             maxLength={10}
             name="table"
-            columns={columns}
             recordCreatorProps={{
               record: (index) => {
                 return { id: index + 1 };
               },
             }}
-            editable={{
-              type: 'multiple',
-              editableKeys,
-              onChange: setEditableRowKeys,
+            rowKey="id"
+            scroll={{
+              x: true,
             }}
           />
         </ProForm>

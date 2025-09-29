@@ -7,10 +7,7 @@ type ResultPageSkeletonProps = {
   pageHeader?: false;
 };
 
-const ResultPageSkeleton: React.FC<ResultPageSkeletonProps> = ({
-  active = true,
-  pageHeader,
-}) => (
+const ResultPageSkeleton: React.FC<ResultPageSkeletonProps> = ({ active = true, pageHeader }) => (
   <div
     style={{
       width: '100%',
@@ -33,11 +30,8 @@ const ResultPageSkeleton: React.FC<ResultPageSkeletonProps> = ({
             marginBlockEnd: 32,
           }}
         />
-        <Skeleton.Button
-          active={active}
-          style={{ width: 214, marginBlockEnd: 8 }}
-        />
-        <Skeleton.Button active={active} style={{ width: 328 }} size="small" />
+        <Skeleton.Button active={active} style={{ width: 214, marginBlockEnd: 8 }} />
+        <Skeleton.Button active={active} size="small" style={{ width: 328 }} />
         <Space
           style={{
             marginBlockStart: 24,

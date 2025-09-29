@@ -1,5 +1,5 @@
-import type { ProColumns, ProFormInstance } from '@ant-design/pro-components';
-import { ProTable } from '@ant-design/pro-components';
+import type { ProColumns, ProFormInstance } from '@xxlabs/pro-components';
+import { ProTable } from '@xxlabs/pro-components';
 import { Button } from 'antd';
 import { useRef, useState } from 'react';
 
@@ -23,12 +23,19 @@ const columns: ProColumns<TableListItem>[] = [
 ];
 
 export default () => {
-  const ref = useRef<ProFormInstance>();
+  const ref = useRef<ProFormInstance>(undefined);
   const [collapsed, setCollapsed] = useState(false);
 
   return (
     <ProTable<TableListItem>
       columns={columns}
+      dateFormatter="string"
+      formRef={ref}
+      headerTitle="表单赋值"
+      options={false}
+      pagination={{
+        showSizeChanger: true,
+      }}
       request={() =>
         Promise.resolve({
           data: [
@@ -42,14 +49,10 @@ export default () => {
         })
       }
       rowKey="key"
-      pagination={{
-        showSizeChanger: true,
-      }}
       search={{
         collapsed,
         onCollapse: setCollapsed,
       }}
-      formRef={ref}
       toolBarRender={() => [
         <Button
           key="set"
@@ -74,9 +77,6 @@ export default () => {
           提交
         </Button>,
       ]}
-      options={false}
-      dateFormatter="string"
-      headerTitle="表单赋值"
     />
   );
 

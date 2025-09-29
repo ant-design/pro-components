@@ -1,21 +1,8 @@
-import {
-  CloseOutlined,
-  CopyOutlined,
-  NotificationOutlined,
-  SettingOutlined,
-} from '@ant-design/icons';
+import { CloseOutlined, CopyOutlined, NotificationOutlined, SettingOutlined } from '@ant-design/icons';
 import { omit, useMergedState } from '@rc-component/util';
 import { useUrlSearchParams } from '@umijs/use-params';
-import {
-  Alert,
-  Button,
-  Divider,
-  Drawer,
-  DrawerProps,
-  List,
-  Switch,
-  message,
-} from 'antd';
+import type { DrawerProps } from 'antd';
+import { Alert, Button, Divider, Drawer, List, Switch, message } from 'antd';
 import React, { useEffect, useRef, useState } from 'react';
 import { isBrowser, merge } from '../../../utils';
 import type { ProSettings } from '../../defaultSettings';
@@ -82,9 +69,7 @@ export type SettingDrawerState = {
 
 type StateKey = keyof ProSettings;
 
-const getDifferentSetting = (
-  state: Partial<ProSettings>,
-): Record<string, any> => {
+const getDifferentSetting = (state: Partial<ProSettings>): Record<string, any> => {
   const stateObj = {} as typeof state;
   (Object.keys(state) as StateKey[]).forEach((key) => {
     if (
@@ -96,24 +81,14 @@ const getDifferentSetting = (
     } else {
       stateObj[key] = undefined;
     }
-    if (key.includes('Render'))
-      stateObj[key as 'headerRender'] =
-        state[key] === false ? false : undefined;
+    if (key.includes('Render')) stateObj[key as 'headerRender'] = state[key] === false ? false : undefined;
   });
   stateObj.menu = undefined;
   return stateObj;
 };
 
-export const getFormatMessage = (): ((data: {
-  id: string;
-  defaultMessage?: string;
-}) => string) => {
-  const formatMessage = ({
-    id,
-  }: {
-    id: string;
-    defaultMessage?: string;
-  }): string => {
+export const getFormatMessage = (): ((data: { id: string; defaultMessage?: string }) => string) => {
+  const formatMessage = ({ id }: { id: string; defaultMessage?: string }): string => {
     const locales = gLocaleObject();
     return locales[id];
   };
@@ -134,10 +109,7 @@ const initState = (
 
   const replaceSetting = {} as Record<string, any>;
   Object.keys(urlParams).forEach((key) => {
-    if (
-      defaultSettings[key as 'navTheme'] ||
-      defaultSettings[key as 'navTheme'] === undefined
-    ) {
+    if (defaultSettings[key as 'navTheme'] || defaultSettings[key as 'navTheme'] === undefined) {
       if (key === 'colorPrimary') {
         replaceSetting[key] = genStringToTheme(urlParams[key]);
         return;
@@ -145,11 +117,7 @@ const initState = (
       replaceSetting[key] = urlParams[key];
     }
   });
-  const newSettings: MergerSettingsType<ProSettings> = merge(
-    {},
-    settings,
-    replaceSetting,
-  );
+  const newSettings: MergerSettingsType<ProSettings> = merge({}, settings, replaceSetting);
   delete newSettings.menu;
   delete newSettings.title;
   delete newSettings.iconfontUrl;
@@ -158,10 +126,7 @@ const initState = (
   onSettingChange?.(newSettings);
 };
 
-const getParamsFromUrl = (
-  urlParams: Record<string, any>,
-  settings?: MergerSettingsType<ProSettings>,
-) => {
+const getParamsFromUrl = (urlParams: Record<string, any>, settings?: MergerSettingsType<ProSettings>) => {
   if (!isBrowser()) return defaultSettings;
 
   return {
@@ -238,8 +203,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     },
   );
 
-  const { navTheme, colorPrimary, siderMenuType, layout, colorWeak } =
-    settingState || {};
+  const { navTheme, colorPrimary, siderMenuType, layout, colorWeak } = settingState || {};
 
   useEffect(() => {
     // 语言修改，这个是和 locale 是配置起来的
@@ -251,18 +215,12 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
 
     /** 如果不是浏览器 都没有必要做了 */
     if (!isBrowser()) return () => null;
-    initState(
-      getParamsFromUrl(urlParams, propsSettings),
-      settingState,
-      setSettingState,
-    );
+    initState(getParamsFromUrl(urlParams, propsSettings), settingState, setSettingState);
     window.document.addEventListener('languagechange', onLanguageChange, {
       passive: true,
     });
 
-    return () =>
-      window.document.removeEventListener('languagechange', onLanguageChange);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    return () => window.document.removeEventListener('languagechange', onLanguageChange);
   }, []);
 
   /**
@@ -338,11 +296,11 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     <>
       <div
         className={`${baseClassName}-handle ${hashId}`.trim()}
-        onClick={() => setOpen(!open)}
         style={{
           width: 48,
           height: 48,
         }}
+        onClick={() => setOpen(!open)}
       >
         {open ? (
           <CloseOutlined
@@ -361,29 +319,30 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
         )}
       </div>
       <Drawer
-        open={open}
-        width={300}
-        onClose={() => setOpen(false)}
         closable={false}
-        placement="right"
         getContainer={getContainer}
+        open={open}
+        placement="right"
         style={{
           zIndex: 999,
         }}
+        width={300}
+        onClose={() => setOpen(false)}
         {...drawerProps}
       >
         <div className={`${baseClassName}-drawer-content ${hashId}`.trim()}>
           <Body
+            hashId={hashId}
+            prefixCls={baseClassName}
             title={formatMessage({
               id: 'app.setting.pagestyle',
               defaultMessage: 'Page style setting',
             })}
-            hashId={hashId}
-            prefixCls={baseClassName}
           >
             <BlockCheckbox
+              key="navTheme"
+              configType="theme"
               hashId={hashId}
-              prefixCls={baseClassName}
               list={[
                 {
                   key: 'light',
@@ -400,32 +359,30 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
                   }),
                 },
               ].filter((item) => {
-                if (item.key === 'dark' && settingState.layout === 'mix')
-                  return false;
+                if (item.key === 'dark' && settingState.layout === 'mix') return false;
                 if (item.key === 'realDark' && !enableDarkTheme) return false;
                 return true;
               })}
+              prefixCls={baseClassName}
               value={navTheme!}
-              configType="theme"
-              key="navTheme"
               onChange={(value) => changeSetting('navTheme', value)}
             />
           </Body>
           {colorList !== false && (
             <Body
               hashId={hashId}
+              prefixCls={baseClassName}
               title={formatMessage({
                 id: 'app.setting.themecolor',
                 defaultMessage: 'Theme color',
               })}
-              prefixCls={baseClassName}
             >
               <ThemeColor
+                colorList={colorList}
+                formatMessage={formatMessage}
                 hashId={hashId}
                 prefixCls={baseClassName}
-                colorList={colorList}
                 value={genStringToTheme(colorPrimary)!}
-                formatMessage={formatMessage}
                 onChange={(color) => changeSetting('colorPrimary', color)}
               />
             </Body>
@@ -439,11 +396,9 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
                 title={formatMessage({ id: 'app.setting.navigationmode' })}
               >
                 <BlockCheckbox
-                  prefixCls={baseClassName}
-                  value={layout!}
                   key="layout"
-                  hashId={hashId}
                   configType="layout"
+                  hashId={hashId}
                   list={[
                     {
                       key: 'side',
@@ -458,6 +413,8 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
                       title: formatMessage({ id: 'app.setting.mixmenu' }),
                     },
                   ]}
+                  prefixCls={baseClassName}
+                  value={layout!}
                   onChange={(value) => changeSetting('layout', value)}
                 />
               </Body>
@@ -468,11 +425,9 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
                   title={formatMessage({ id: 'app.setting.sidermenutype' })}
                 >
                   <BlockCheckbox
-                    prefixCls={baseClassName}
-                    value={siderMenuType!}
                     key="siderMenuType"
-                    hashId={hashId}
                     configType="siderMenuType"
+                    hashId={hashId}
                     list={[
                       {
                         key: 'sub',
@@ -489,15 +444,17 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
                         }),
                       },
                     ]}
+                    prefixCls={baseClassName}
+                    value={siderMenuType!}
                     onChange={(value) => changeSetting('siderMenuType', value)}
                   />
                 </Body>
               ) : null}
               <LayoutSetting
-                prefixCls={baseClassName}
-                hashId={hashId}
-                settings={settingState}
                 changeSetting={changeSetting}
+                hashId={hashId}
+                prefixCls={baseClassName}
+                settings={settingState}
               />
               <Divider />
 
@@ -507,10 +464,10 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
                 title={formatMessage({ id: 'app.setting.regionalsettings' })}
               >
                 <RegionalSetting
+                  changeSetting={changeSetting}
                   hashId={hashId}
                   prefixCls={baseClassName}
                   settings={settingState}
-                  changeSetting={changeSetting}
                 />
               </Body>
 
@@ -523,17 +480,14 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
               >
                 <List
                   className={`${baseClassName}-list ${hashId}`.trim()}
-                  split={false}
-                  size="small"
-                  renderItem={renderLayoutSettingItem}
                   dataSource={[
                     {
                       title: formatMessage({ id: 'app.setting.weakmode' }),
                       action: (
                         <Switch
-                          size="small"
-                          className="color-weak"
                           checked={!!colorWeak}
+                          className="color-weak"
+                          size="small"
                           onChange={(checked) => {
                             changeSetting('colorWeak', checked);
                           }}
@@ -541,19 +495,22 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
                       ),
                     },
                   ]}
+                  renderItem={renderLayoutSettingItem}
+                  size="small"
+                  split={false}
                 />
               </Body>
               {hideHintAlert && hideCopyButton ? null : <Divider />}
 
               {hideHintAlert ? null : (
                 <Alert
-                  type="warning"
+                  showIcon
+                  icon={<NotificationOutlined />}
                   message={formatMessage({
                     id: 'app.setting.production.hint',
                   })}
-                  icon={<NotificationOutlined />}
-                  showIcon
                   style={{ marginBlockEnd: 16 }}
+                  type="warning"
                 />
               )}
 
@@ -564,12 +521,8 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
                   style={{ marginBlockEnd: 24 }}
                   onClick={async () => {
                     try {
-                      await navigator.clipboard.writeText(
-                        genCopySettingJson(settingState),
-                      );
-                      message.success(
-                        formatMessage({ id: 'app.setting.copyinfo' }),
-                      );
+                      await navigator.clipboard.writeText(genCopySettingJson(settingState));
+                      message.success(formatMessage({ id: 'app.setting.copyinfo' }));
                     } catch (error) {
                       // console.log(error);
                     }

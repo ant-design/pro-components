@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import React, { useCallback, useRef, useState } from 'react';
 import type { ProFieldLightProps } from '../PureProField';
 
@@ -18,12 +19,8 @@ function FieldHOC<T extends ProFieldLightProps>(
   const isTriggeredByLabel = useCallback(
     (e: React.MouseEvent) => {
       // 两条语句结果分别命名，可读性好点
-      const isLabelMouseDown = lightLabel.current?.labelRef?.current?.contains(
-        e.target as HTMLElement,
-      );
-      const isClearMouseDown = lightLabel.current?.clearRef?.current?.contains(
-        e.target as HTMLElement,
-      );
+      const isLabelMouseDown = lightLabel.current?.labelRef?.current?.contains(e.target as HTMLElement);
+      const isClearMouseDown = lightLabel.current?.clearRef?.current?.contains(e.target as HTMLElement);
       return isLabelMouseDown && !isClearMouseDown;
     },
     [lightLabel],

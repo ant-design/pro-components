@@ -1,12 +1,9 @@
-import { PageContainer, ProLayout } from '@ant-design/pro-components';
+import { PageContainer, ProLayout } from '@xxlabs/pro-components';
 import defaultProps from './_defaultProps';
 
 export default () => (
   <ProLayout
     {...defaultProps}
-    style={{
-      height: '100vh',
-    }}
     location={{
       pathname: '/welcome',
     }}
@@ -23,6 +20,9 @@ export default () => (
         {dom}
       </div>
     )}
+    style={{
+      height: '100vh',
+    }}
   >
     <PageContainer content="欢迎使用">Hello World</PageContainer>
   </ProLayout>

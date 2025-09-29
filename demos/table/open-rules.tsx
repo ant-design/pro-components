@@ -1,5 +1,5 @@
-import type { ProColumns } from '@ant-design/pro-components';
-import { ProTable } from '@ant-design/pro-components';
+import type { ProColumns } from '@xxlabs/pro-components';
+import { ProTable } from '@xxlabs/pro-components';
 import { Space, Tag } from 'antd';
 
 type GithubIssueItem = {
@@ -82,7 +82,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     render: (_, record) => (
       <Space>
         {record.labels.map(({ name, color }) => (
-          <Tag color={color} key={name}>
+          <Tag key={name} color={color}>
             {name}
           </Tag>
         ))}
@@ -111,44 +111,11 @@ export default () => {
     <>
       <ProTable<GithubIssueItem>
         columns={columns}
-        request={async () => ({
-          success: true,
-          data: [
-            {
-              id: 624748504,
-              number: 6689,
-              title: '🐛 [BUG]yarn install命令 antd2.4.5会报错',
-              labels: [
-                {
-                  name: 'bug',
-                  color: 'error',
-                },
-              ],
-              state: 'open',
-              locked: false,
-              comments: 1,
-              created_at: 1590486176000,
-              updated_at: 1590487382000,
-              closed_at: null,
-              author_association: 'NONE',
-              user: 'chenshuai2144',
-              avatar:
-                'https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png',
-            },
-          ],
-        })}
-        rowKey="id"
-        search={{
-          labelWidth: 'auto',
-        }}
+        dateFormatter="string"
         form={{
           ignoreRules: false,
         }}
-        dateFormatter="string"
         headerTitle="高级表格"
-      />
-      <ProTable<GithubIssueItem>
-        columns={columns}
         request={async () => ({
           success: true,
           data: [
@@ -170,8 +137,7 @@ export default () => {
               closed_at: null,
               author_association: 'NONE',
               user: 'chenshuai2144',
-              avatar:
-                'https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png',
+              avatar: 'https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png',
             },
           ],
         })}
@@ -179,8 +145,40 @@ export default () => {
         search={{
           labelWidth: 'auto',
         }}
+      />
+      <ProTable<GithubIssueItem>
+        columns={columns}
         dateFormatter="string"
         headerTitle="高级表格"
+        request={async () => ({
+          success: true,
+          data: [
+            {
+              id: 624748504,
+              number: 6689,
+              title: '🐛 [BUG]yarn install命令 antd2.4.5会报错',
+              labels: [
+                {
+                  name: 'bug',
+                  color: 'error',
+                },
+              ],
+              state: 'open',
+              locked: false,
+              comments: 1,
+              created_at: 1590486176000,
+              updated_at: 1590487382000,
+              closed_at: null,
+              author_association: 'NONE',
+              user: 'chenshuai2144',
+              avatar: 'https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png',
+            },
+          ],
+        })}
+        rowKey="id"
+        search={{
+          labelWidth: 'auto',
+        }}
       />
     </>
   );

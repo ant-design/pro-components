@@ -1,4 +1,4 @@
-import type { DatePickerProps } from 'antd/lib/date-picker';
+import type { DatePickerProps } from 'antd/es/date-picker';
 import React, { useContext } from 'react';
 import { FieldTimePicker } from '../../../field';
 import { ProConfigProvider } from '../../../provider';
@@ -12,7 +12,6 @@ const valueType = 'time' as const;
 /**
  * 时间选择组件
  *
- * @param
  */
 const ProFormTimePicker: React.FC<ProFormFieldItemProps<DatePickerProps>> = ({
   fieldProps,
@@ -25,25 +24,23 @@ const ProFormTimePicker: React.FC<ProFormFieldItemProps<DatePickerProps>> = ({
       valueTypeMap={{
         [valueType]: {
           render: (text, props) => <FieldTimePicker {...props} text={text} />,
-          formItemRender: (text, props) => (
-            <FieldTimePicker {...props} text={text} />
-          ),
+          formItemRender: (text, props) => <FieldTimePicker {...props} text={text} />,
         },
       }}
     >
       <ProField
-        fieldProps={{
-          getPopupContainer: context.getPopupContainer,
-          ...fieldProps,
-        }}
-        valueType={valueType}
-        proFieldProps={proFieldProps}
         fieldConfig={
           {
             customLightMode: true,
             valueType,
           } as const
         }
+        fieldProps={{
+          getPopupContainer: context.getPopupContainer,
+          ...fieldProps,
+        }}
+        proFieldProps={proFieldProps}
+        valueType={valueType}
         {...rest}
       />
     </ProConfigProvider>

@@ -1,6 +1,6 @@
 import { InboxOutlined } from '@ant-design/icons';
 import { ConfigProvider, Upload } from 'antd';
-import type { DraggerProps, UploadProps } from 'antd/lib/upload';
+import type { DraggerProps, UploadProps } from 'antd/es/upload';
 import React, { useContext } from 'react';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
 import type { ProFormFieldItemProps } from '../../typing';
@@ -53,82 +53,69 @@ export type ProFormUploadDraggerProps = ProFormFieldItemProps<DraggerProps> & {
  *
  * @param
  */
-const BaseProFormUploadDragger: React.FC<ProFormUploadDraggerProps> =
-  React.forwardRef(
-    (
-      {
-        fieldProps,
-        title = '单击或拖动文件到此区域进行上传',
-        icon = <InboxOutlined />,
-        description = '支持单次或批量上传',
-        action,
-        accept,
-        onChange,
-        value,
-        children,
-        max,
-        proFieldProps,
-      },
-      ref: any,
-    ) => {
-      const context = useContext(ConfigProvider.ConfigContext);
-      const modeContext = useContext(EditOrReadOnlyContext);
-      const mode = proFieldProps?.mode || modeContext.mode || 'edit';
+const BaseProFormUploadDragger: React.FC<ProFormUploadDraggerProps> = ({
+  fieldProps,
+  title = '单击或拖动文件到此区域进行上传',
+  icon = <InboxOutlined />,
+  description = '支持单次或批量上传',
+  action,
+  accept,
+  onChange,
+  value,
+  children,
+  max,
+  proFieldProps,
+  ref,
+}) => {
+  const context = useContext(ConfigProvider.ConfigContext);
+  const modeContext = useContext(EditOrReadOnlyContext);
+  const mode = proFieldProps?.mode || modeContext.mode || 'edit';
 
-      const baseClassName = context.getPrefixCls('upload');
-      // 如果配置了 max ，并且 超过了文件列表的大小，就不展示按钮
-      const showUploadButton =
-        (max === undefined || !value || value?.length < max) &&
-        mode !== 'read' &&
-        proFieldProps?.readonly !== true;
-      return (
-        <Upload.Dragger
-          // @ts-ignore
-          ref={ref}
-          name="files"
-          action={action}
-          accept={accept}
-          fileList={value}
-          {...fieldProps}
-          onChange={(info) => {
-            onChange?.(info);
-            if (fieldProps?.onChange) {
-              fieldProps?.onChange(info);
-            }
-          }}
+  const baseClassName = context.getPrefixCls('upload');
+  // 如果配置了 max ，并且 超过了文件列表的大小，就不展示按钮
+  const showUploadButton =
+    (max === undefined || !value || value?.length < max) && mode !== 'read' && proFieldProps?.readonly !== true;
+  return (
+    <Upload.Dragger
+      // @ts-ignore
+      ref={ref}
+      accept={accept}
+      action={action}
+      fileList={value}
+      name="files"
+      {...fieldProps}
+      style={{
+        flexDirection: 'column',
+        alignItems: 'center',
+        ...fieldProps?.style,
+        display: !showUploadButton ? 'none' : fieldProps?.style?.display || 'flex',
+      }}
+      onChange={(info) => {
+        onChange?.(info);
+        if (fieldProps?.onChange) {
+          fieldProps?.onChange(info);
+        }
+      }}
+    >
+      <p className={`${baseClassName}-drag-icon`}>{icon}</p>
+      <p className={`${baseClassName}-text`}>{title}</p>
+      <p className={`${baseClassName}-hint`}>{description}</p>
+      {children ? (
+        <div
+          className={`${baseClassName}-extra`}
           style={{
-            flexDirection: 'column',
-            alignItems: 'center',
-            ...fieldProps?.style,
-            display: !showUploadButton
-              ? 'none'
-              : fieldProps?.style?.display || 'flex',
+            padding: 16,
           }}
         >
-          <p className={`${baseClassName}-drag-icon`}>{icon}</p>
-          <p className={`${baseClassName}-text`}>{title}</p>
-          <p className={`${baseClassName}-hint`}>{description}</p>
-          {children ? (
-            <div
-              className={`${baseClassName}-extra`}
-              style={{
-                padding: 16,
-              }}
-            >
-              {children}
-            </div>
-          ) : null}
-        </Upload.Dragger>
-      );
-    },
+          {children}
+        </div>
+      ) : null}
+    </Upload.Dragger>
   );
+};
 
-const ProFormUploadDragger = warpField<ProFormUploadDraggerProps>?.(
-  BaseProFormUploadDragger,
-  {
-    getValueFromEvent: (value: { fileList: UploadProps['fileList'] }) =>
-      value.fileList,
-  },
-) as typeof BaseProFormUploadDragger;
+const ProFormUploadDragger = warpField<ProFormUploadDraggerProps>?.(BaseProFormUploadDragger, {
+  getValueFromEvent: (value: { fileList: UploadProps['fileList'] }) => value.fileList,
+});
 
 export default ProFormUploadDragger;

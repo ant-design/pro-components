@@ -1,24 +1,14 @@
-﻿import {
-  ArrowDownOutlined,
-  ArrowUpOutlined,
-  CopyOutlined,
-  DeleteOutlined,
-  LoadingOutlined,
-} from '@ant-design/icons';
+﻿import { ArrowDownOutlined, ArrowUpOutlined, CopyOutlined, DeleteOutlined, LoadingOutlined } from '@ant-design/icons';
 import { set, toArray } from '@rc-component/util';
 import type { ButtonProps, FormInstance } from 'antd';
 import { ConfigProvider, Tooltip } from 'antd';
-import type {
-  FormListFieldData,
-  FormListOperation,
-  FormListProps,
-} from 'antd/lib/form/FormList';
+import type { FormListFieldData, FormListOperation, FormListProps } from 'antd/es/form/FormList';
 import classNames from 'classnames';
 import type { CSSProperties, ReactNode } from 'react';
 import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { FormListContext } from '.';
 import { ProProvider } from '../../../provider';
-import { SearchTransformKeyFn } from '../../../utils';
+import type { SearchTransformKeyFn } from '../../../utils';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
 import { useGridHelpers } from '../../helpers';
 
@@ -101,17 +91,13 @@ export type FormListActionGuard = {
    *
    * @example 阻止新增 beforeAddRow={()=> return false}
    */
-  beforeAddRow?: (
-    ...params: [...Parameters<FormListOperation['add']>, number]
-  ) => boolean | Promise<boolean>;
+  beforeAddRow?: (...params: [...Parameters<FormListOperation['add']>, number]) => boolean | Promise<boolean>;
   /**
    * @name 删除行之前的钩子，返回false，会阻止这个行为
    *
    * @example 阻止删除 beforeAddRow={()=> return false}
    */
-  beforeRemoveRow?: (
-    ...params: [...Parameters<FormListOperation['remove']>, number]
-  ) => boolean | Promise<boolean>;
+  beforeRemoveRow?: (...params: [...Parameters<FormListOperation['remove']>, number]) => boolean | Promise<boolean>;
 };
 
 export type ProFromListCommonProps = {
@@ -224,10 +210,7 @@ export type ProFromListCommonProps = {
    * @example 全部包再一个卡片里面
    * itemContainerRender: (doms,listMeta) => <Card title={listMeta.field.name}>{doms}</Card>
    */
-  itemContainerRender?: (
-    doms: ReactNode,
-    listMeta: FormListListListMete,
-  ) => ReactNode;
+  itemContainerRender?: (doms: ReactNode, listMeta: FormListListListMete) => ReactNode;
   /**
    * @name 自定义Item，可以用来将 action 放到别的地方
    *
@@ -289,15 +272,11 @@ export type ProFormListItemProps = ProFromListCommonProps & {
   /**
    * 数据新增成功回调
    */
-  onAfterAdd?: (
-    ...params: [...Parameters<FormListOperation['add']>, number]
-  ) => void;
+  onAfterAdd?: (...params: [...Parameters<FormListOperation['add']>, number]) => void;
   /**
    * 数据移除成功回调
    */
-  onAfterRemove?: (
-    ...params: [...Parameters<FormListOperation['remove']>, number]
-  ) => void;
+  onAfterRemove?: (...params: [...Parameters<FormListOperation['remove']>, number]) => void;
 
   /** 是否只读模式 */
   readonly: boolean;
@@ -396,6 +375,7 @@ const ProFormListItem: React.FC<
     .map((childrenItem, itemIndex) => {
       if (React.isValidElement(childrenItem)) {
         return React.cloneElement(childrenItem, {
+          // @ts-ignore
           key: childrenItem.key || childrenItem?.props?.name || itemIndex,
           ...(childrenItem?.props || {}),
         });
@@ -408,21 +388,16 @@ const ProFormListItem: React.FC<
     if (copyIconProps === false || max === count) return null;
     const { Icon = CopyOutlined, tooltipText } = copyIconProps as IconConfig;
     return (
-      <Tooltip title={tooltipText} key="copy">
+      <Tooltip key="copy" title={tooltipText}>
         {loadingCopy ? (
           <LoadingOutlined />
         ) : (
           <Icon
-            className={classNames(
-              `${prefixCls}-action-icon action-copy`,
-              hashId,
-            )}
+            className={classNames(`${prefixCls}-action-icon action-copy`, hashId)}
             onClick={async () => {
               setLoadingCopy(true);
               const row = formInstance?.getFieldValue(
-                [listContext.listName, originName, field.name]
-                  .filter((item) => item !== undefined)
-                  .flat(1),
+                [listContext.listName, originName, field.name].filter((item) => item !== undefined).flat(1),
               );
               await action.add(row, count);
               setLoadingCopy(false);
@@ -450,15 +425,12 @@ const ProFormListItem: React.FC<
     if (deleteIconProps === false || min === count) return null;
     const { Icon = DeleteOutlined, tooltipText } = deleteIconProps!;
     return (
-      <Tooltip title={tooltipText} key="delete">
+      <Tooltip key="delete" title={tooltipText}>
         {loadingRemove ? (
           <LoadingOutlined />
         ) : (
           <Icon
-            className={classNames(
-              `${prefixCls}-action-icon action-remove`,
-              hashId,
-            )}
+            className={classNames(`${prefixCls}-action-icon action-remove`, hashId)}
             onClick={async () => {
               setLoadingRemove(true);
               await action.remove(field.name);
@@ -470,16 +442,7 @@ const ProFormListItem: React.FC<
         )}
       </Tooltip>
     );
-  }, [
-    deleteIconProps,
-    min,
-    count,
-    loadingRemove,
-    prefixCls,
-    hashId,
-    action,
-    field.name,
-  ]);
+  }, [deleteIconProps, min, count, loadingRemove, prefixCls, hashId, action, field.name]);
   const upIcon = useMemo(() => {
     if (!arrowSort) {
       return null;
@@ -492,7 +455,7 @@ const ProFormListItem: React.FC<
     }
     const { Icon = ArrowUpOutlined, tooltipText } = upIconProps!;
     return (
-      <Tooltip title={tooltipText} key="up">
+      <Tooltip key="up" title={tooltipText}>
         <Icon
           className={classNames(`${prefixCls}-action-icon action-up`, hashId)}
           onClick={async () => {
@@ -515,7 +478,7 @@ const ProFormListItem: React.FC<
     }
     const { Icon = ArrowDownOutlined, tooltipText } = downIconProps!;
     return (
-      <Tooltip title={tooltipText} key="down">
+      <Tooltip key="down" title={tooltipText}>
         <Icon
           className={classNames(`${prefixCls}-action-icon action-down`, hashId)}
           onClick={async () => {
@@ -527,15 +490,11 @@ const ProFormListItem: React.FC<
   }, [upIconProps, prefixCls, hashId, action, arrowSort]);
 
   const defaultActionDom: React.ReactNode[] = useMemo(
-    () =>
-      [copyIcon, deleteIcon, upIcon, downIcon].filter(
-        (item) => item !== null && item !== undefined,
-      ),
+    () => [copyIcon, deleteIcon, upIcon, downIcon].filter((item) => item !== null && item !== undefined),
     [copyIcon, deleteIcon, upIcon, downIcon],
   );
 
-  const actions =
-    actionRender?.(field, action, defaultActionDom, count) || defaultActionDom;
+  const actions = actionRender?.(field, action, defaultActionDom, count) || defaultActionDom;
 
   const dom =
     actions.length > 0 && mode !== 'read' ? (
@@ -557,9 +516,7 @@ const ProFormListItem: React.FC<
     field,
     index,
     record: formInstance?.getFieldValue?.(
-      [listContext.listName, originName, field.name]
-        .filter((item) => item !== undefined)
-        .flat(1),
+      [listContext.listName, originName, field.name].filter((item) => item !== undefined).flat(1),
     ),
     fields,
     operation: action,
@@ -568,18 +525,13 @@ const ProFormListItem: React.FC<
 
   const { grid } = useGridHelpers();
 
-  const itemContainer =
-    itemContainerRender?.(childrenArray, options) || childrenArray;
+  const itemContainer = itemContainerRender?.(childrenArray, options) || childrenArray;
 
   const contentDom = itemRender?.(
     {
       listDom: (
         <div
-          className={classNames(
-            `${prefixCls}-container`,
-            containerClassName,
-            hashId,
-          )}
+          className={classNames(`${prefixCls}-container`, containerClassName, hashId)}
           style={{
             width: grid ? '100%' : undefined,
             ...containerStyle,
@@ -603,11 +555,7 @@ const ProFormListItem: React.FC<
       }}
     >
       <div
-        className={classNames(
-          `${prefixCls}-container`,
-          containerClassName,
-          hashId,
-        )}
+        className={classNames(`${prefixCls}-container`, containerClassName, hashId)}
         style={{
           width: grid ? '100%' : undefined,
           ...containerStyle,
@@ -623,9 +571,7 @@ const ProFormListItem: React.FC<
     <FormListContext.Provider
       value={{
         ...field,
-        listName: [listContext.listName, originName, field.name]
-          .filter((item) => item !== undefined)
-          .flat(1),
+        listName: [listContext.listName, originName, field.name].filter((item) => item !== undefined).flat(1),
       }}
     >
       {contentDom}

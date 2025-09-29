@@ -1,11 +1,5 @@
-import { BaseProList, ProList } from '@ant-design/pro-components';
-import {
-  cleanup,
-  fireEvent,
-  render as reactRender,
-  screen,
-  waitFor,
-} from '@testing-library/react';
+import { cleanup, fireEvent, render as reactRender, screen, waitFor } from '@testing-library/react';
+import { BaseProList, ProList } from '@xxlabs/pro-components';
 import { Tag } from 'antd';
 import type { Key } from 'react';
 import { act, useState } from 'react';
@@ -46,12 +40,8 @@ describe('List', () => {
         }}
       />,
     );
-    expect(
-      container.querySelector('.ant-pro-list-row-title')!.innerHTML,
-    ).toEqual('我是名称');
-    expect(
-      container.querySelector('.ant-pro-list-row-description')!.innerHTML,
-    ).toEqual('desc text');
+    expect(container.querySelector('.ant-pro-list-row-title')!.innerHTML).toEqual('我是名称');
+    expect(container.querySelector('.ant-pro-list-row-description')!.innerHTML).toEqual('desc text');
   });
 
   it('🚏 BaseList', async () => {
@@ -81,12 +71,8 @@ describe('List', () => {
         }}
       />,
     );
-    expect(
-      container.querySelector('.ant-pro-list-row-title')!.innerHTML,
-    ).toEqual('我是名称');
-    expect(
-      container.querySelector('.ant-pro-list-row-description')!.innerHTML,
-    ).toEqual('desc text');
+    expect(container.querySelector('.ant-pro-list-row-title')!.innerHTML).toEqual('我是名称');
+    expect(container.querySelector('.ant-pro-list-row-description')!.innerHTML).toEqual('desc text');
     expect(container.querySelectorAll('.ant-pro-card')!.length).toBe(0);
   });
 
@@ -101,6 +87,7 @@ describe('List', () => {
             },
           },
         ]}
+        loading={true}
         metas={{
           title: {
             dataIndex: 'name',
@@ -109,7 +96,6 @@ describe('List', () => {
             dataIndex: ['desc', 'text'],
           },
         }}
-        loading={true}
       />,
     );
     expect(container).toMatchSnapshot();
@@ -181,17 +167,13 @@ describe('List', () => {
         }}
       />,
     );
-    expect(
-      container.querySelector('.ant-empty-description')!.innerHTML,
-    ).toEqual('暂无数据');
+    expect(container.querySelector('.ant-empty-description')!.innerHTML).toEqual('暂无数据');
   });
 
   it('🚏 expandable', async () => {
     const onExpand = vi.fn();
     const Wrapper = () => {
-      const [expandedRowKeys, onExpandedRowsChange] = useState<readonly Key[]>(
-        [],
-      );
+      const [expandedRowKeys, onExpandedRowsChange] = useState<readonly Key[]>([]);
       return (
         <ProList
           dataSource={[
@@ -200,38 +182,27 @@ describe('List', () => {
               content: <div>我是内容</div>,
             },
           ]}
+          expandable={{ expandedRowKeys, onExpandedRowsChange, onExpand }}
           metas={{
             title: {
               dataIndex: 'name',
             },
             content: {},
           }}
-          expandable={{ expandedRowKeys, onExpandedRowsChange, onExpand }}
         />
       );
     };
     const { container } = reactRender(<Wrapper />);
-    expect(
-      container.querySelectorAll('.ant-pro-list-row-description').length,
-    ).toEqual(0);
-    await fireEvent.click(
-      container.querySelector('.ant-pro-list-row-expand-icon')!,
-    );
-    expect(
-      container.querySelector('.ant-pro-list-row-content')!.innerHTML,
-    ).toEqual('<div>我是内容</div>');
-    expect(onExpand).toHaveBeenCalledWith(
-      true,
-      expect.objectContaining({ name: '我是名称' }),
-    );
+    expect(container.querySelectorAll('.ant-pro-list-row-description').length).toEqual(0);
+    await fireEvent.click(container.querySelector('.ant-pro-list-row-expand-icon')!);
+    expect(container.querySelector('.ant-pro-list-row-content')!.innerHTML).toEqual('<div>我是内容</div>');
+    expect(onExpand).toHaveBeenCalledWith(true, expect.objectContaining({ name: '我是名称' }));
   });
 
   it('🚏 expandable support expandRowByClick', async () => {
     const onExpand = vi.fn();
     const Wrapper = () => {
-      const [expandedRowKeys, onExpandedRowsChange] = useState<readonly Key[]>(
-        [],
-      );
+      const [expandedRowKeys, onExpandedRowsChange] = useState<readonly Key[]>([]);
       return (
         <ProList
           dataSource={[
@@ -240,33 +211,26 @@ describe('List', () => {
               content: <div>我是内容</div>,
             },
           ]}
-          metas={{
-            title: {
-              dataIndex: 'name',
-            },
-            content: {},
-          }}
           expandable={{
             expandedRowKeys,
             onExpandedRowsChange,
             onExpand,
             expandRowByClick: true,
           }}
+          metas={{
+            title: {
+              dataIndex: 'name',
+            },
+            content: {},
+          }}
         />
       );
     };
     const { container } = reactRender(<Wrapper />);
-    expect(
-      container.querySelectorAll('.ant-pro-list-row-description').length,
-    ).toEqual(0);
+    expect(container.querySelectorAll('.ant-pro-list-row-description').length).toEqual(0);
     await fireEvent.click(container.querySelector('.ant-list-item')!);
-    expect(
-      container.querySelector('.ant-pro-list-row-content')!.innerHTML,
-    ).toEqual('<div>我是内容</div>');
-    expect(onExpand).toHaveBeenCalledWith(
-      true,
-      expect.objectContaining({ name: '我是名称' }),
-    );
+    expect(container.querySelector('.ant-pro-list-row-content')!.innerHTML).toEqual('<div>我是内容</div>');
+    expect(onExpand).toHaveBeenCalledWith(true, expect.objectContaining({ name: '我是名称' }));
   });
 
   it('🚏 expandable with defaultExpandedRowKeys', async () => {
@@ -285,30 +249,26 @@ describe('List', () => {
               itemKey: 'b',
             },
           ]}
-          rowKey="itemKey"
+          expandable={{
+            defaultExpandedRowKeys: ['b'],
+          }}
           metas={{
             title: {
               dataIndex: 'name',
             },
             content: {},
           }}
-          expandable={{
-            defaultExpandedRowKeys: ['b'],
-          }}
+          rowKey="itemKey"
         />
       );
     };
     const { container } = reactRender(<Wrapper />);
-    expect(
-      container.querySelector('.ant-pro-list-row-content')!.innerHTML,
-    ).toEqual('<div>我是内容b</div>');
+    expect(container.querySelector('.ant-pro-list-row-content')!.innerHTML).toEqual('<div>我是内容b</div>');
   });
 
   it('🚏 expandable with expandedRowRender', async () => {
     const Wrapper = () => {
-      const [expandedRowKeys, onExpandedRowsChange] = useState<readonly Key[]>(
-        [],
-      );
+      const [expandedRowKeys, onExpandedRowsChange] = useState<readonly Key[]>([]);
       return (
         <ProList
           dataSource={[
@@ -317,12 +277,6 @@ describe('List', () => {
               content: <div>我是内容</div>,
             },
           ]}
-          metas={{
-            title: {
-              dataIndex: 'name',
-            },
-            content: {},
-          }}
           expandable={{
             expandedRowKeys,
             onExpandedRowsChange,
@@ -333,6 +287,12 @@ describe('List', () => {
               return <div>expand:{index}</div>;
             },
           }}
+          metas={{
+            title: {
+              dataIndex: 'name',
+            },
+            content: {},
+          }}
           rowKey={(item) => {
             return item.name;
           }}
@@ -340,18 +300,12 @@ describe('List', () => {
       );
     };
     const { container } = reactRender(<Wrapper />);
-    expect(
-      container.querySelectorAll('.ant-pro-list-row-description').length,
-    ).toEqual(0);
+    expect(container.querySelectorAll('.ant-pro-list-row-description').length).toEqual(0);
     // html.find('.ant-pro-list-row-expand-icon').simulate('click');
-    await fireEvent.click(
-      container.querySelector('.ant-pro-list-row-expand-icon')!,
+    await fireEvent.click(container.querySelector('.ant-pro-list-row-expand-icon')!);
+    expect(container.querySelector('.ant-pro-list-row-content .test-custom-class-name')!.innerHTML).toEqual(
+      '<div>expand:0</div>',
     );
-    expect(
-      container.querySelector(
-        '.ant-pro-list-row-content .test-custom-class-name',
-      )!.innerHTML,
-    ).toEqual('<div>expand:0</div>');
   });
 
   it('🚏 expandable with expandIcon', async () => {
@@ -365,20 +319,14 @@ describe('List', () => {
               content: <div>我是内容</div>,
             },
           ]}
+          expandable={{
+            expandIcon: ({ record }) => <div className="expand-icon" id="test_click" onClick={() => fn(record.name)} />,
+          }}
           metas={{
             title: {
               dataIndex: 'name',
             },
             content: {},
-          }}
-          expandable={{
-            expandIcon: ({ record }) => (
-              <div
-                id="test_click"
-                onClick={() => fn(record.name)}
-                className="expand-icon"
-              />
-            ),
           }}
           rowKey={(item) => {
             return item.name;
@@ -432,21 +380,19 @@ describe('List', () => {
               description: '我是描述',
             },
           ]}
-          rowSelection={{}}
           metas={{
             title: {
               dataIndex: 'name',
             },
             description: {},
           }}
+          rowSelection={{}}
         />
       );
     };
     const { container } = reactRender(<Wrapper />);
 
-    expect(container.querySelectorAll('.ant-checkbox-input')!.length).toEqual(
-      2,
-    );
+    expect(container.querySelectorAll('.ant-checkbox-input')!.length).toEqual(2);
 
     fireEvent.change(container.querySelectorAll('.ant-checkbox-input')[0], {
       target: {
@@ -455,9 +401,7 @@ describe('List', () => {
     });
 
     expect(container.querySelectorAll('.ant-checkbox-input')[0]).toBeChecked();
-    expect(
-      container.querySelectorAll('.ant-checkbox-input')[1],
-    ).not.toBeChecked();
+    expect(container.querySelectorAll('.ant-checkbox-input')[1]).not.toBeChecked();
   });
 
   it('🚏 support pagination', async () => {
@@ -484,6 +428,10 @@ describe('List', () => {
             title: '标题',
           },
         }}
+        pagination={{
+          pageSize: 5,
+          onShowSizeChange: () => {},
+        }}
         request={(params, sort, filter) => {
           if (params.title) {
             onRequest(params, sort, filter);
@@ -500,10 +448,6 @@ describe('List', () => {
             ],
           });
         }}
-        pagination={{
-          pageSize: 5,
-          onShowSizeChange: () => {},
-        }}
         search={{
           filterType: 'light',
         }}
@@ -511,9 +455,7 @@ describe('List', () => {
     );
 
     await waitFor(async () => {
-      expect(
-        container.querySelectorAll('.ant-pro-list-row-title').length,
-      ).toEqual(2);
+      expect(container.querySelectorAll('.ant-pro-list-row-title').length).toEqual(2);
     });
 
     fireEvent.click(container.querySelector('.ant-pro-core-field-label')!);
@@ -609,15 +551,12 @@ describe('List', () => {
       />,
     );
 
-    expect(container.querySelector('li.ant-pro-list-row')!).toHaveClass(
-      customizedRowClassName,
-    );
+    expect(container.querySelector('li.ant-pro-list-row')!).toHaveClass(customizedRowClassName);
     expect(container).toMatchSnapshot();
   });
 
   it('🚏 ProList support rowClassName as a function', async () => {
-    const customizedRowClassName = (_: any, index: number): string =>
-      index % 2 === 0 ? 'even' : 'odd';
+    const customizedRowClassName = (_: any, index: number): string => (index % 2 === 0 ? 'even' : 'odd');
     const { container } = reactRender(
       <ProList
         dataSource={[
@@ -646,12 +585,8 @@ describe('List', () => {
       />,
     );
 
-    expect(container.querySelectorAll('li.ant-pro-list-row')[0]).toHaveClass(
-      'even',
-    );
-    expect(container.querySelectorAll('li.ant-pro-list-row')[1]).toHaveClass(
-      'odd',
-    );
+    expect(container.querySelectorAll('li.ant-pro-list-row')[0]).toHaveClass('even');
+    expect(container.querySelectorAll('li.ant-pro-list-row')[1]).toHaveClass('odd');
     expect(container).toMatchSnapshot();
   });
 
@@ -679,9 +614,7 @@ describe('List', () => {
     );
 
     await waitForWaitTime(1200);
-    expect(
-      html.baseElement.textContent?.includes('qixian:我是名称'),
-    ).toBeTruthy();
+    expect(html.baseElement.textContent?.includes('qixian:我是名称')).toBeTruthy();
   });
 
   it('🚏 ProList support itemTitleRender', async () => {
@@ -709,15 +642,12 @@ describe('List', () => {
 
     await waitForWaitTime(1200);
 
-    expect(
-      html.baseElement.textContent?.includes('qixian:我是名称'),
-    ).toBeTruthy();
+    expect(html.baseElement.textContent?.includes('qixian:我是名称')).toBeTruthy();
   });
 
   it('🚏 list support actions render to extra props', async () => {
     const html = reactRender(
       <ProList
-        grid={{ gutter: 16, column: 2 }}
         dataSource={[
           {
             name: '我是名称',
@@ -731,6 +661,7 @@ describe('List', () => {
             ],
           },
         ]}
+        grid={{ gutter: 16, column: 2 }}
         metas={{
           title: {
             dataIndex: 'name',
@@ -749,15 +680,12 @@ describe('List', () => {
       (await html.findByText('修复'))?.click();
     });
     expect(html.baseElement.textContent?.includes('修复')).toBeTruthy();
-    expect(
-      !!html.baseElement.querySelector('.ant-pro-card-actions'),
-    ).toBeFalsy();
+    expect(!!html.baseElement.querySelector('.ant-pro-card-actions')).toBeFalsy();
   });
 
   it('🚏 list support actions render to actions props', async () => {
     const html = reactRender(
       <ProList
-        grid={{ gutter: 16, column: 2 }}
         dataSource={[
           {
             name: '我是名称',
@@ -767,6 +695,7 @@ describe('List', () => {
             actions: {},
           },
         ]}
+        grid={{ gutter: 16, column: 2 }}
         metas={{
           title: {
             dataIndex: 'name',
@@ -799,17 +728,6 @@ describe('List', () => {
     const fn2 = vi.fn();
     const html = reactRender(
       <ProList
-        grid={{ gutter: 16, column: 2 }}
-        onItem={(record: any) => {
-          return {
-            onMouseEnter: () => {
-              fn1(record.name);
-            },
-            onClick: () => {
-              fn2(record.name);
-            },
-          };
-        }}
         dataSource={[
           {
             name: '我是名称',
@@ -819,6 +737,7 @@ describe('List', () => {
             actions: {},
           },
         ]}
+        grid={{ gutter: 16, column: 2 }}
         metas={{
           title: {
             dataIndex: 'name',
@@ -835,23 +754,23 @@ describe('List', () => {
             ],
           },
         }}
+        onItem={(record: any) => {
+          return {
+            onMouseEnter: () => {
+              fn1(record.name);
+            },
+            onClick: () => {
+              fn2(record.name);
+            },
+          };
+        }}
       />,
     );
     await waitForWaitTime(1000);
 
     act(() => {
-      fireEvent.mouseEnter(
-        html.baseElement.querySelector(
-          '.ant-pro-list-row-card .ant-pro-checkcard',
-        )!,
-        {},
-      );
-      fireEvent.click(
-        html.baseElement.querySelector(
-          '.ant-pro-list-row-card .ant-pro-checkcard',
-        )!,
-        {},
-      );
+      fireEvent.mouseEnter(html.baseElement.querySelector('.ant-pro-list-row-card .ant-pro-checkcard')!, {});
+      fireEvent.click(html.baseElement.querySelector('.ant-pro-list-row-card .ant-pro-checkcard')!, {});
     });
 
     await waitFor(() => {

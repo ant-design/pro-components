@@ -13,7 +13,7 @@ import {
   ProFormCheckbox,
   ProFormText,
   setAlpha,
-} from '@ant-design/pro-components';
+} from '@xxlabs/pro-components';
 import { Space, Tabs, message, theme } from 'antd';
 import type { CSSProperties } from 'react';
 import { useState } from 'react';
@@ -36,9 +36,6 @@ export default () => {
     <ProConfigProvider hashed={false}>
       <div style={{ backgroundColor: token.colorBgContainer }}>
         <LoginForm
-          logo="https://github.githubassets.com/favicons/favicon.png"
-          title="Github"
-          subTitle="全球最大的代码托管平台"
           actions={
             <Space>
               其他登录方式
@@ -47,25 +44,28 @@ export default () => {
               <WeiboCircleOutlined style={iconStyles} />
             </Space>
           }
+          logo="https://github.githubassets.com/favicons/favicon.png"
+          subTitle="全球最大的代码托管平台"
+          title="Github"
         >
           <Tabs
             centered
             activeKey={loginType}
-            onChange={(activeKey) => setLoginType(activeKey as LoginType)}
             items={[
               { key: 'account', label: '账号密码登录' },
               { key: 'phone', label: '手机号登录' },
             ]}
+            onChange={(activeKey) => setLoginType(activeKey as LoginType)}
           />
           {loginType === 'account' && (
             <>
               <ProFormText
-                name="username"
                 fieldProps={{
                   size: 'large',
-                  prefix: <UserOutlined className={'prefixIcon'} />,
+                  prefix: <UserOutlined className="prefixIcon" />,
                 }}
-                placeholder={'用户名: admin or user'}
+                name="username"
+                placeholder="用户名: admin or user"
                 rules={[
                   {
                     required: true,
@@ -74,10 +74,9 @@ export default () => {
                 ]}
               />
               <ProFormText.Password
-                name="password"
                 fieldProps={{
                   size: 'large',
-                  prefix: <LockOutlined className={'prefixIcon'} />,
+                  prefix: <LockOutlined className="prefixIcon" />,
                   strengthText:
                     'Password should contain numbers, letters and special characters, at least 8 characters long.',
                   statusRender: (value) => {
@@ -92,25 +91,16 @@ export default () => {
                     };
                     const status = getStatus();
                     if (status === 'pass') {
-                      return (
-                        <div style={{ color: token.colorWarning }}>
-                          强度：中
-                        </div>
-                      );
+                      return <div style={{ color: token.colorWarning }}>强度：中</div>;
                     }
                     if (status === 'ok') {
-                      return (
-                        <div style={{ color: token.colorSuccess }}>
-                          强度：强
-                        </div>
-                      );
+                      return <div style={{ color: token.colorSuccess }}>强度：强</div>;
                     }
-                    return (
-                      <div style={{ color: token.colorError }}>强度：弱</div>
-                    );
+                    return <div style={{ color: token.colorError }}>强度：弱</div>;
                   },
                 }}
-                placeholder={'密码: ant.design'}
+                name="password"
+                placeholder="密码: ant.design"
                 rules={[
                   {
                     required: true,
@@ -125,10 +115,10 @@ export default () => {
               <ProFormText
                 fieldProps={{
                   size: 'large',
-                  prefix: <MobileOutlined className={'prefixIcon'} />,
+                  prefix: <MobileOutlined className="prefixIcon" />,
                 }}
                 name="mobile"
-                placeholder={'手机号'}
+                placeholder="手机号"
                 rules={[
                   {
                     required: true,
@@ -141,21 +131,21 @@ export default () => {
                 ]}
               />
               <ProFormCaptcha
-                fieldProps={{
-                  size: 'large',
-                  prefix: <LockOutlined className={'prefixIcon'} />,
-                }}
                 captchaProps={{
                   size: 'large',
                 }}
-                placeholder={'请输入验证码'}
                 captchaTextRender={(timing, count) => {
                   if (timing) {
                     return `${count} ${'获取验证码'}`;
                   }
                   return '获取验证码';
                 }}
+                fieldProps={{
+                  size: 'large',
+                  prefix: <LockOutlined className="prefixIcon" />,
+                }}
                 name="captcha"
+                placeholder="请输入验证码"
                 rules={[
                   {
                     required: true,

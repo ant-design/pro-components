@@ -1,5 +1,5 @@
-import type { ProColumns } from '@ant-design/pro-components';
-import { DragSortTable } from '@ant-design/pro-components';
+import type { ProColumns } from '@xxlabs/pro-components';
+import { DragSortTable } from '@xxlabs/pro-components';
 import { message } from 'antd';
 import { useState } from 'react';
 
@@ -49,11 +49,7 @@ const data = [
 export default () => {
   const [dataSource, setDataSource] = useState(data);
 
-  const handleDragSortEnd = (
-    beforeIndex: number,
-    afterIndex: number,
-    newDataSource: any,
-  ) => {
+  const handleDragSortEnd = (beforeIndex: number, afterIndex: number, newDataSource: any) => {
     console.log('排序后的数据', newDataSource);
     setDataSource(newDataSource);
     message.success('修改列表排序成功');
@@ -61,13 +57,13 @@ export default () => {
 
   return (
     <DragSortTable
-      headerTitle="拖拽排序(默认把手)"
       columns={columns}
-      rowKey="key"
-      search={false}
-      pagination={false}
       dataSource={dataSource}
       dragSortKey="sort"
+      headerTitle="拖拽排序(默认把手)"
+      pagination={false}
+      rowKey="key"
+      search={false}
       onDragSortEnd={handleDragSortEnd}
     />
   );

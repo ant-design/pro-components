@@ -70,9 +70,7 @@ export type LoginFormPageProps<T> = {
   otherStyle?: React.CSSProperties;
 } & Omit<ProFormProps<T>, 'title'>;
 
-export function LoginFormPage<T = Record<string, any>>(
-  props: Partial<LoginFormPageProps<T>>,
-) {
+export function LoginFormPage<T = Record<string, any>>(props: Partial<LoginFormPageProps<T>>) {
   const {
     logo,
     message,
@@ -117,8 +115,7 @@ export function LoginFormPage<T = Record<string, any>>(
   const baseClassName = context.getPrefixCls('pro-form-login-page');
   const { wrapSSR, hashId } = useStyle(baseClassName);
 
-  const getCls = (className: string) =>
-    `${baseClassName}-${className} ${hashId}`.trim();
+  const getCls = (className: string) => `${baseClassName}-${className} ${hashId}`.trim();
 
   /** 生成logo 的dom，如果是string 设置为图片 如果是个 dom 就原样保留 */
   const logoDom = useMemo(() => {
@@ -135,9 +132,7 @@ export function LoginFormPage<T = Record<string, any>>(
       style={{
         ...style,
         position: 'relative',
-        backgroundImage: backgroundImageUrl
-          ? `url("${backgroundImageUrl}")`
-          : undefined,
+        backgroundImage: backgroundImageUrl ? `url("${backgroundImageUrl}")` : undefined,
       }}
     >
       {backgroundVideoUrl ? (
@@ -154,13 +149,13 @@ export function LoginFormPage<T = Record<string, any>>(
           }}
         >
           <video
-            src={backgroundVideoUrl}
-            controls={false}
             autoPlay
-            playsInline
             loop
-            muted={true}
+            playsInline
+            controls={false}
             crossOrigin="anonymous"
+            muted={true}
+            src={backgroundVideoUrl}
             style={{
               width: '100%',
               height: '100%',
@@ -172,25 +167,12 @@ export function LoginFormPage<T = Record<string, any>>(
       <div className={classNames(baseClassName, hashId)}>
         <div className={getCls('notice')}>
           {activityConfig && (
-            <div
-              className={getCls('notice-activity')}
-              style={activityConfig.style}
-            >
-              {activityConfig.title && (
-                <div className={getCls('notice-activity-title')}>
-                  {activityConfig.title}
-                </div>
-              )}
+            <div className={getCls('notice-activity')} style={activityConfig.style}>
+              {activityConfig.title && <div className={getCls('notice-activity-title')}>{activityConfig.title}</div>}
               {activityConfig.subTitle && (
-                <div className={getCls('notice-activity-subTitle')}>
-                  {activityConfig.subTitle}
-                </div>
+                <div className={getCls('notice-activity-subTitle')}>{activityConfig.subTitle}</div>
               )}
-              {activityConfig.action && (
-                <div className={getCls('notice-activity-action')}>
-                  {activityConfig.action}
-                </div>
-              )}
+              {activityConfig.action && <div className={getCls('notice-activity-action')}>{activityConfig.action}</div>}
             </div>
           )}
         </div>
@@ -199,17 +181,11 @@ export function LoginFormPage<T = Record<string, any>>(
             <div className={getCls('top')}>
               {title || logoDom ? (
                 <div className={getCls('header')}>
-                  {logoDom ? (
-                    <span className={getCls('logo')}>{logoDom}</span>
-                  ) : null}
-                  {title ? (
-                    <span className={getCls('title')}>{title}</span>
-                  ) : null}
+                  {logoDom ? <span className={getCls('logo')}>{logoDom}</span> : null}
+                  {title ? <span className={getCls('title')}>{title}</span> : null}
                 </div>
               ) : null}
-              {subTitle ? (
-                <div className={getCls('desc')}>{subTitle}</div>
-              ) : null}
+              {subTitle ? <div className={getCls('desc')}>{subTitle}</div> : null}
             </div>
             <div className={getCls('main')} style={mainStyle}>
               <ProForm isKeyPressSubmit {...proFormProps} submitter={submitter}>

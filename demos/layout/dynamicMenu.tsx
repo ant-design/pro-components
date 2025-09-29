@@ -1,4 +1,4 @@
-import { PageContainer, ProLayout } from '@ant-design/pro-components';
+import { PageContainer, ProLayout } from '@xxlabs/pro-components';
 import { Button, Switch } from 'antd';
 import { useRef, useState } from 'react';
 import customMenuDate from './customMenu';
@@ -16,25 +16,25 @@ let serviceData: any[] = customMenuDate;
 export default () => {
   const actionRef = useRef<{
     reload: () => void;
-  }>();
+  }>(undefined);
   const [toggle, setToggle] = useState(false);
   return (
     <>
       <ProLayout
-        style={{
-          height: '100vh',
-        }}
         actionRef={actionRef}
-        suppressSiderWhenMenuEmpty={toggle}
+        location={{
+          pathname: '/welcome/welcome',
+        }}
         menu={{
           request: async () => {
             await waitTime(2000);
             return serviceData;
           },
         }}
-        location={{
-          pathname: '/welcome/welcome',
+        style={{
+          height: '100vh',
         }}
+        suppressSiderWhenMenuEmpty={toggle}
       >
         <PageContainer content="欢迎使用">
           <div>

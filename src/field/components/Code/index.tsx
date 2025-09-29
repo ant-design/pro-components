@@ -1,5 +1,4 @@
 import { Input } from 'antd';
-import React from 'react';
 import { proTheme } from '../../../provider';
 import type { ProFieldFC } from '../../PureProField';
 
@@ -25,12 +24,10 @@ const languageFormat = (text: string, language: string) => {
 const FieldCode: ProFieldFC<{
   text: string;
   language?: 'json' | 'text';
-}> = (
-  { text, mode, render, language = 'text', formItemRender, plain, fieldProps },
-  ref,
-) => {
+}> = ({ text, mode, render, language = 'text', formItemRender, plain, fieldProps, ref }) => {
   const code = languageFormat(text, language);
   const { token } = proTheme.useToken();
+
   if (mode === 'read') {
     const dom = (
       <pre
@@ -57,6 +54,7 @@ const FieldCode: ProFieldFC<{
     }
     return dom;
   }
+
   if (mode === 'edit' || mode === 'update') {
     fieldProps.value = code;
     let dom = <Input.TextArea rows={5} {...fieldProps} ref={ref} />;
@@ -68,7 +66,8 @@ const FieldCode: ProFieldFC<{
     }
     return dom;
   }
+
   return null;
 };
 
-export default React.forwardRef(FieldCode);
+export default FieldCode;

@@ -6,7 +6,7 @@ import {
   ProFormDateRangePicker,
   ProFormSelect,
   ProFormText,
-} from '@ant-design/pro-components';
+} from '@xxlabs/pro-components';
 import { Button, Space, message } from 'antd';
 import { useState } from 'react';
 
@@ -37,8 +37,8 @@ export default () => {
         </Button>
       </Space>
       <ModalForm
-        title="Create New Form"
         open={modalVisit}
+        title="Create New Form"
         onFinish={async () => {
           message.success('Submission successful');
           return true;
@@ -47,34 +47,23 @@ export default () => {
       >
         <ProForm.Group>
           <ProFormText
-            width="md"
-            name="name"
             label="Contract Customer Name"
-            tooltip="Up to 24 characters"
+            name="name"
             placeholder="Please enter a name"
+            tooltip="Up to 24 characters"
+            width="md"
           />
 
-          <ProFormText
-            width="md"
-            name="company"
-            label="Our Company Name"
-            placeholder="Please enter a name"
-          />
+          <ProFormText label="Our Company Name" name="company" placeholder="Please enter a name" width="md" />
         </ProForm.Group>
         <ProForm.Group>
-          <ProFormText
-            width="md"
-            name="contract"
-            label="Contract Name"
-            placeholder="Please enter a name"
-          />
-          <ProFormDateRangePicker
-            name="contractTime"
-            label="Contract Effective Time"
-          />
+          <ProFormText label="Contract Name" name="contract" placeholder="Please enter a name" width="md" />
+          <ProFormDateRangePicker label="Contract Effective Time" name="contractTime" />
         </ProForm.Group>
         <ProForm.Group>
           <ProFormSelect
+            label="Contract Agreed Effective Method"
+            name="useMode"
             options={[
               {
                 value: 'chapter',
@@ -82,75 +71,51 @@ export default () => {
               },
             ]}
             width="xs"
-            name="useMode"
-            label="Contract Agreed Effective Method"
           />
           <ProFormSelect
-            width="xs"
+            label="Contract Agreed Invalid Method"
+            name="unusedMode"
             options={[
               {
                 value: 'time',
                 label: 'Terminate after performance',
               },
             ]}
-            name="unusedMode"
-            label="Contract Agreed Invalid Method"
+            width="xs"
           />
         </ProForm.Group>
-        <ProFormText width="sm" name="id" label="Main Contract Number" />
-        <ProFormText
-          name="project"
-          disabled
-          label="Project Name"
-          initialValue="xxxx Project"
-        />
-        <ProFormText
-          width="xs"
-          name="mangerName"
-          disabled
-          label="Business Manager"
-          initialValue="Qitu"
-        />
+        <ProFormText label="Main Contract Number" name="id" width="sm" />
+        <ProFormText disabled initialValue="xxxx Project" label="Project Name" name="project" />
+        <ProFormText disabled initialValue="Qitu" label="Business Manager" name="mangerName" width="xs" />
       </ModalForm>
       <DrawerForm
-        onOpenChange={setDrawerVisit}
-        title="Create New Form"
         open={drawerVisit}
+        title="Create New Form"
         onFinish={async () => {
           message.success('Submission successful');
           return true;
         }}
+        onOpenChange={setDrawerVisit}
       >
         <ProForm.Group>
           <ProFormText
-            width="md"
-            name="name"
             label="Contract Customer Name"
-            tooltip="Up to 24 characters"
+            name="name"
             placeholder="Please enter a name"
+            tooltip="Up to 24 characters"
+            width="md"
           />
 
-          <ProFormText
-            width="md"
-            name="company"
-            label="Our Company Name"
-            placeholder="Please enter a name"
-          />
+          <ProFormText label="Our Company Name" name="company" placeholder="Please enter a name" width="md" />
         </ProForm.Group>
         <ProForm.Group>
-          <ProFormText
-            width="md"
-            name="contract"
-            label="Contract Name"
-            placeholder="Please enter a name"
-          />
-          <ProFormDateRangePicker
-            name="contractTime"
-            label="Contract Effective Time"
-          />
+          <ProFormText label="Contract Name" name="contract" placeholder="Please enter a name" width="md" />
+          <ProFormDateRangePicker label="Contract Effective Time" name="contractTime" />
         </ProForm.Group>
         <ProForm.Group>
           <ProFormSelect
+            label="Contract Agreed Effective Method"
+            name="useMode"
             options={[
               {
                 value: 'chapter',
@@ -158,35 +123,22 @@ export default () => {
               },
             ]}
             width="xs"
-            name="useMode"
-            label="Contract Agreed Effective Method"
           />
           <ProFormSelect
-            width="xs"
+            label="Contract Agreed Invalid Method"
+            name="unusedMode"
             options={[
               {
                 value: 'time',
                 label: 'Terminate after performance',
               },
             ]}
-            name="unusedMode"
-            label="Contract Agreed Invalid Method"
+            width="xs"
           />
         </ProForm.Group>
-        <ProFormText width="sm" name="id" label="Main Contract Number" />
-        <ProFormText
-          name="project"
-          disabled
-          label="Project Name"
-          initialValue="xxxx Project"
-        />
-        <ProFormText
-          width="xs"
-          name="mangerName"
-          disabled
-          label="Business Manager"
-          initialValue="Qitu"
-        />
+        <ProFormText label="Main Contract Number" name="id" width="sm" />
+        <ProFormText disabled initialValue="xxxx Project" label="Project Name" name="project" />
+        <ProFormText disabled initialValue="Qitu" label="Business Manager" name="mangerName" width="xs" />
       </DrawerForm>
     </>
   );

@@ -1,4 +1,5 @@
 import { CodeFilled } from '@ant-design/icons';
+import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import {
   conversionSubmitValue,
   dateArrayFormatter,
@@ -19,21 +20,12 @@ import {
   transformKeySubmitValue,
   useDebounceFn,
   useDebounceValue,
-} from '@ant-design/pro-components';
-import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
+} from '@xxlabs/pro-components';
 import { Form, Input } from 'antd';
 import type { Dayjs } from 'dayjs';
 import dayjs from 'dayjs';
 import React, { act, useEffect, useState } from 'react';
-import {
-  afterAll,
-  afterEach,
-  beforeAll,
-  describe,
-  expect,
-  it,
-  vi,
-} from 'vitest';
+import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
 
 afterEach(() => {
   cleanup();
@@ -157,7 +149,6 @@ describe('utils', () => {
       const fetchData = useDebounceFn(async () => fn(), wait);
       useEffect(() => {
         fetchData.run();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
       return (
         <div
@@ -227,7 +218,6 @@ describe('utils', () => {
 
       useEffect(() => {
         fetchData.run().catch(catchFn);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
       return <div />;
     };
@@ -269,16 +259,10 @@ describe('utils', () => {
         time: dayjs('2019-11-16 12:50:26'),
         name: 'qixian',
         money: 20,
-        dateTimeRange: [
-          dayjs('2019-11-16 12:50:26'),
-          dayjs('2019-11-16 12:50:26'),
-        ],
+        dateTimeRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
         dateRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
         timeRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
-        timeRange2: [
-          dayjs('2019-11-16 12:50:26'),
-          dayjs('2019-11-16 12:50:26'),
-        ],
+        timeRange2: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
         dateQuarter: dayjs('2019-11-16 12:50:26'),
       },
       'string',
@@ -291,19 +275,13 @@ describe('utils', () => {
         dateQuarter: 'dateQuarter',
       },
     );
-    expect(html.dataTime?.format('YYYY-MM-DD HH:mm:ss')).toBe(
-      '2019-11-16 12:50:26',
-    );
+    expect(html.dataTime?.format('YYYY-MM-DD HH:mm:ss')).toBe('2019-11-16 12:50:26');
     expect(html.time).toBe('12:50:26');
     expect(html.name).toBe('qixian');
     expect(html.money).toBe(20);
-    expect(html.dateTimeRange.join(',')).toBe(
-      '2019-11-16 12:50:26,2019-11-16 12:50:26',
-    );
+    expect(html.dateTimeRange.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:50:26');
     expect(html.dateRange.join(',')).toBe('2019-11-16,2019-11-16');
-    expect(html.timeRange2.join(',')).toBe(
-      '2019-11-16 12:50:26,2019-11-16 12:50:26',
-    );
+    expect(html.timeRange2.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:50:26');
     expect(html.dateQuarter).toBe('2019-Q4');
   });
 
@@ -331,22 +309,10 @@ describe('utils', () => {
       {
         date: {
           dataTime: dayjs('2019-11-16 12:50:26'),
-          dateTimeRange: [
-            dayjs('2019-11-16 12:50:26'),
-            dayjs('2019-11-16 12:50:26'),
-          ],
-          dateRange: [
-            dayjs('2019-11-16 12:50:26'),
-            dayjs('2019-11-16 12:50:26'),
-          ],
-          timeRange: [
-            dayjs('2019-11-16 12:50:26'),
-            dayjs('2019-11-16 12:50:26'),
-          ],
-          timeRange2: [
-            dayjs('2019-11-16 12:50:26'),
-            dayjs('2019-11-16 12:50:26'),
-          ],
+          dateTimeRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+          dateRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+          timeRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+          timeRange2: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
         },
       },
       'string',
@@ -361,13 +327,9 @@ describe('utils', () => {
       },
     );
     expect(html.date.dataTime).toBe('2019-11-16 12:50:26');
-    expect(html.date.dateTimeRange.join(',')).toBe(
-      '2019-11-16 12:50:26,2019-11-16 12:50:26',
-    );
+    expect(html.date.dateTimeRange.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:50:26');
     expect(html.date.dateRange.join(',')).toBe('2019-11-16,2019-11-16');
-    expect(html.date.timeRange2.join(',')).toBe(
-      '2019-11-16 12:50:26,2019-11-16 12:50:26',
-    );
+    expect(html.date.timeRange2.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:50:26');
   });
 
   it('📅 conversionSubmitValue number', async () => {
@@ -377,16 +339,10 @@ describe('utils', () => {
         time: dayjs('2019-11-16 12:50:26'),
         name: 'qixian',
         money: 20,
-        dateTimeRange: [
-          dayjs('2019-11-16 12:50:26'),
-          dayjs('2019-11-16 12:50:26'),
-        ],
+        dateTimeRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
         dateRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
         timeRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
-        timeRange2: [
-          dayjs('2019-11-16 12:50:26'),
-          dayjs('2019-11-16 12:50:26'),
-        ],
+        timeRange2: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
       },
       'number',
       {
@@ -413,16 +369,10 @@ describe('utils', () => {
         time: dayjs('2019-11-16 12:50:26'),
         name: 'qixian',
         money: 20,
-        dateTimeRange: [
-          dayjs('2019-11-16 12:50:26'),
-          dayjs('2019-11-16 12:50:26'),
-        ],
+        dateTimeRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
         dateRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
         timeRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
-        timeRange2: [
-          dayjs('2019-11-16 12:50:26'),
-          dayjs('2019-11-16 12:50:26'),
-        ],
+        timeRange2: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
       },
       false,
       {
@@ -438,35 +388,19 @@ describe('utils', () => {
     expect(html.name).toBe('qixian');
     expect(html.money).toBe(20);
 
-    expect(html.dateTimeRange.map((item) => item.valueOf()).join(',')).toBe(
-      '1573908626000,1573908626000',
-    );
-    expect(html.dateTimeRange.map((item) => item.valueOf()).join(',')).toBe(
-      '1573908626000,1573908626000',
-    );
-    expect(html.dateTimeRange.map((item) => item.valueOf()).join(',')).toBe(
-      '1573908626000,1573908626000',
-    );
+    expect(html.dateTimeRange.map((item) => item.valueOf()).join(',')).toBe('1573908626000,1573908626000');
+    expect(html.dateTimeRange.map((item) => item.valueOf()).join(',')).toBe('1573908626000,1573908626000');
+    expect(html.dateTimeRange.map((item) => item.valueOf()).join(',')).toBe('1573908626000,1573908626000');
   });
 
   it('📅 parseValueToMoment dayjs', async () => {
-    const html = parseValueToDay(
-      ['2019-11-16 12:50:26', '2019-11-16 12:50:26'],
-      'YYYY-MM-DD',
-    );
-    expect((html as Dayjs[]).map((item) => item.valueOf()).join(',')).toBe(
-      '1573862400000,1573862400000',
-    );
+    const html = parseValueToDay(['2019-11-16 12:50:26', '2019-11-16 12:50:26'], 'YYYY-MM-DD');
+    expect((html as Dayjs[]).map((item) => item.valueOf()).join(',')).toBe('1573862400000,1573862400000');
   });
 
   it('📅 parseValueToMoment moment to dayjs', async () => {
-    const html = parseValueToDay(
-      [dayjs(1573862400000), dayjs(1573862400000)] as any[],
-      'YYYY-MM-DD',
-    );
-    expect((html as Dayjs[]).map((item) => item.valueOf()).join(',')).toBe(
-      '1573862400000,1573862400000',
-    );
+    const html = parseValueToDay([dayjs(1573862400000), dayjs(1573862400000)] as any[], 'YYYY-MM-DD');
+    expect((html as Dayjs[]).map((item) => item.valueOf()).join(',')).toBe('1573862400000,1573862400000');
   });
 
   it('📅 DropdownFooter click', async () => {
@@ -476,15 +410,9 @@ describe('utils', () => {
       </DropdownFooter>,
     );
     act(() => {
-      html.baseElement
-        .querySelector<HTMLDivElement>('.ant-pro-core-dropdown-footer')
-        ?.click();
+      html.baseElement.querySelector<HTMLDivElement>('.ant-pro-core-dropdown-footer')?.click();
     });
-    expect(
-      !!html.baseElement.querySelector<HTMLDivElement>(
-        '.ant-pro-core-dropdown-footer',
-      ),
-    ).toBeTruthy();
+    expect(!!html.baseElement.querySelector<HTMLDivElement>('.ant-pro-core-dropdown-footer')).toBeTruthy();
   });
 
   it('📅 InlineErrorFormItem onValuesChange', async () => {
@@ -499,6 +427,8 @@ describe('utils', () => {
         <span>text</span>
         <InlineErrorFormItem
           errorType="popover"
+          name="title"
+          popoverProps={{ trigger: 'focus' }}
           rules={[
             {
               required: true,
@@ -517,8 +447,6 @@ describe('utils', () => {
               pattern: /[a-zA-Z]/,
             },
           ]}
-          popoverProps={{ trigger: 'focus' }}
-          name="title"
         >
           <Input id="test" role="test_input" />
         </InlineErrorFormItem>
@@ -575,10 +503,7 @@ describe('utils', () => {
       });
     });
     await waitFor(() => {
-      expect(
-        html.baseElement.querySelectorAll('div.ant-popover.ant-popover-hidden')
-          .length > 0,
-      ).toBeFalsy();
+      expect(html.baseElement.querySelectorAll('div.ant-popover.ant-popover-hidden').length > 0).toBeFalsy();
     });
 
     await act(async () => {
@@ -613,37 +538,17 @@ describe('utils', () => {
     );
     const htmlKeys = Object.keys(html).sort();
     expect(htmlKeys).toEqual(
-      [
-        'new-dataTime',
-        'new-time',
-        'dateRange2',
-        'name',
-        'new-money',
-        'dateTimeRange',
-        'dateRange',
-      ].sort(),
+      ['new-dataTime', 'new-time', 'dateRange2', 'name', 'new-money', 'dateTimeRange', 'dateRange'].sort(),
     );
     expect(htmlKeys).not.toEqual(
-      [
-        'dataTime',
-        'time',
-        'new-name',
-        'dateRange2',
-        'money',
-        'dateTimeRange',
-        'dateRange',
-      ].sort(),
+      ['dataTime', 'time', 'new-name', 'dateRange2', 'money', 'dateTimeRange', 'dateRange'].sort(),
     );
     expect((html as any)['new-dataTime']).toBe('2019-11-16 12:50:26');
     expect((html as any)['new-time']).toBe('2019-11-16 12:50:26');
     expect((html as any).name).toBe('new-name');
     expect((html as any)['new-money']).toBe(20);
-    expect(html.dateTimeRange.join(',')).toBe(
-      '2019-11-16 12:50:26,2019-11-16 12:55:26',
-    );
-    expect(html.dateRange.join(',')).toBe(
-      '2019-11-16 12:50:26,2019-11-16 12:55:26',
-    );
+    expect(html.dateTimeRange.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:55:26');
+    expect(html.dateRange.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:55:26');
   });
 
   it('📅 transformKeySubmitValue will return file', async () => {
@@ -699,16 +604,7 @@ describe('utils', () => {
       ].sort(),
     );
 
-    expect(htmlKeys).not.toEqual(
-      [
-        'dataTime',
-        'time',
-        'name',
-        'money',
-        'dateTimeRange',
-        'dateRange',
-      ].sort(),
-    );
+    expect(htmlKeys).not.toEqual(['dataTime', 'time', 'name', 'money', 'dateTimeRange', 'dateRange'].sort());
     expect(html.dataTime).toBe('2019-11-16 12:50:26');
     expect(html.time).toBe('2019-11-16 12:50:26');
     expect(html.name).toBe('qixian');
@@ -871,20 +767,10 @@ describe('utils', () => {
   });
 
   it('🪓 isUrl', async () => {
-    expect(isUrl('https://procomponents.ant.design/components/layout')).toBe(
-      true,
-    );
-    expect(
-      isUrl(
-        'https://procomponents.ant.design/en-US/components/layout#basic-usage',
-      ),
-    ).toBe(true);
-    expect(isUrl('procomponents.ant.design/en-US/components/layout')).toBe(
-      false,
-    );
-    expect(
-      isUrl('https:://procomponents.ant.design/en-US/components/layout'),
-    ).toBe(false);
+    expect(isUrl('https://procomponents.ant.design/components/layout')).toBe(true);
+    expect(isUrl('https://procomponents.ant.design/en-US/components/layout#basic-usage')).toBe(true);
+    expect(isUrl('procomponents.ant.design/en-US/components/layout')).toBe(false);
+    expect(isUrl('https:://procomponents.ant.design/en-US/components/layout')).toBe(false);
   });
 
   it('🪓 isDropdownValueType', async () => {
@@ -935,13 +821,11 @@ describe('utils', () => {
     const DeepComponent = () => {
       const a = (
         <CustomComponent
-          array={[
-            1,
-            2,
-            3,
-            4,
-            { deep: true, nested: { deep: true, ignoreKey: false } },
-          ]}
+          array={[1, 2, 3, 4, { deep: true, nested: { deep: true, ignoreKey: false } }]}
+          arrayBuffer={new Int8Array([1, 2, 3, 4, 5])}
+          class={Deep}
+          classInstance={new Deep()}
+          className="class-name"
           map={
             new Map([
               ['key', 'value'],
@@ -949,28 +833,22 @@ describe('utils', () => {
               ['key3', 'value3'],
             ])
           }
-          set={new Set([1, 2, 3, 4, 5])}
-          regexp={new RegExp('test', 'ig')}
-          arrayBuffer={new Int8Array([1, 2, 3, 4, 5])}
-          string="compare"
-          number={0}
-          null={null}
           nan={NaN}
-          class={Deep}
-          classInstance={new Deep()}
-          className="class-name"
+          null={null}
+          number={0}
+          regexp={new RegExp('test', 'ig')}
+          set={new Set([1, 2, 3, 4, 5])}
+          string="compare"
         />
       );
 
       const b = (
         <CustomComponent
-          array={[
-            1,
-            2,
-            3,
-            4,
-            { deep: true, nested: { deep: true, ignoreKey: true } },
-          ]}
+          array={[1, 2, 3, 4, { deep: true, nested: { deep: true, ignoreKey: true } }]}
+          arrayBuffer={new Int8Array([1, 2, 3, 4, 5])}
+          class={Deep}
+          classInstance={new Deep()}
+          className="class-name"
           map={
             new Map([
               ['key', 'value'],
@@ -978,16 +856,12 @@ describe('utils', () => {
               ['key3', 'value3'],
             ])
           }
-          set={new Set([1, 2, 3, 4, 5])}
-          regexp={new RegExp('test', 'ig')}
-          arrayBuffer={new Int8Array([1, 2, 3, 4, 5])}
-          string="compare"
-          number={0}
-          null={null}
           nan={NaN}
-          class={Deep}
-          classInstance={new Deep()}
-          className="class-name"
+          null={null}
+          number={0}
+          regexp={new RegExp('test', 'ig')}
+          set={new Set([1, 2, 3, 4, 5])}
+          string="compare"
         />
       );
 
@@ -1018,18 +892,14 @@ describe('utils', () => {
         favs: ['Reading', 'Running'],
         userInfo: { fullName: 'kinertang' },
       }),
-    ).toBe(
-      '{"name":"kiner","age":28,"liked":false,"favs":["Reading","Running"],"userInfo":{"fullName":"kinertang"}}',
-    );
+    ).toBe('{"name":"kiner","age":28,"liked":false,"favs":["Reading","Running"],"userInfo":{"fullName":"kinertang"}}');
 
     const json: any = {
       name: 'kiner',
       age: 28,
     };
     json.detail = json;
-    expect(stringify(json)).toBe(
-      '{"name":"kiner","age":28,"detail":"Magic circle!"}',
-    );
+    expect(stringify(json)).toBe('{"name":"kiner","age":28,"detail":"Magic circle!"}');
 
     expect(
       stringify({

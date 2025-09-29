@@ -1,16 +1,11 @@
 import { EllipsisOutlined } from '@ant-design/icons';
-import { ProList } from '@ant-design/pro-components';
+import { ProList } from '@xxlabs/pro-components';
 import { Button, Progress, Tag } from 'antd';
-import type { Key } from 'react';
+import type { JSX, Key } from 'react';
 import { useState } from 'react';
 
 const types = ['top', 'inline', 'new'];
-const data = [
-  '语雀的天空（top）',
-  'Ant Design（inline）',
-  '蚂蚁金服体验科技（new）',
-  'TechUI',
-].map((item, index) => ({
+const data = ['语雀的天空（top）', 'Ant Design（inline）', '蚂蚁金服体验科技（new）', 'TechUI'].map((item, index) => ({
   title: item,
   subTitle: <Tag color="#5BD8A6">语雀专栏</Tag>,
   actions: [
@@ -28,8 +23,7 @@ const data = [
     </div>
   ),
   type: types[index],
-  avatar:
-    'https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg',
+  avatar: 'https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg',
   content: (
     <div
       style={{
@@ -70,6 +64,12 @@ export default () => {
         avatar: string;
         children: JSX.Element;
       }>
+        dataSource={dataSource}
+        expandable={{
+          expandedRowKeys,
+          onExpandedRowsChange: setExpandedRowKeys,
+        }}
+        headerTitle="预设的列状态"
         metas={{
           title: {},
           subTitle: {},
@@ -79,6 +79,8 @@ export default () => {
           content: {},
           actions: {},
         }}
+        rowKey="id"
+        rowSelection={rowSelection}
         toolBarRender={() => [
           <Button
             key="3"
@@ -95,14 +97,6 @@ export default () => {
             刷新
           </Button>,
         ]}
-        rowKey="id"
-        headerTitle="预设的列状态"
-        rowSelection={rowSelection}
-        dataSource={dataSource}
-        expandable={{
-          expandedRowKeys,
-          onExpandedRowsChange: setExpandedRowKeys,
-        }}
       />
     </>
   );

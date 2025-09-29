@@ -42,10 +42,7 @@ export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({
     const div = scrollHeightMap.current.get(selectedKey);
 
     if (div?.offsetTop && divRef.current) {
-      if (
-        Math.abs(divRef.current!.scrollTop - div?.offsetTop + 40) >
-        div?.clientHeight
-      ) {
+      if (Math.abs(divRef.current!.scrollTop - div?.offsetTop + 40) > div?.clientHeight) {
         divRef.current!.scrollTop = div?.offsetTop - 40;
       }
     }
@@ -58,14 +55,12 @@ export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({
     const dom = e?.target as HTMLDivElement;
 
     // 根据滚动位置来找到当前列表的 key
-    const list = Array.from(scrollHeightMap.current.entries()).find(
-      ([, value]) => {
-        if (dom?.scrollTop < value.offsetTop) {
-          return true;
-        }
-        return false;
-      },
-    );
+    const list = Array.from(scrollHeightMap.current.entries()).find(([, value]) => {
+      if (dom?.scrollTop < value.offsetTop) {
+        return true;
+      }
+      return false;
+    });
 
     if (!list) {
       return;
@@ -131,11 +126,11 @@ export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({
     return (
       <div className={classNames(className, hashId)} id={item.title}>
         <RenderContentPanel
+          dataSourceChildren={item?.children || []}
           onInit={(ref) => {
             if (!scrollHeightMap.current) return;
             scrollHeightMap.current.set(item.key, ref);
           }}
-          dataSourceChildren={item?.children || []}
         />
       </div>
     );
@@ -151,9 +146,7 @@ export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({
         }}
       >
         {parentItem.children?.map((item) => {
-          return (
-            <React.Fragment key={item.key}>{renderItem(item)}</React.Fragment>
-          );
+          return <React.Fragment key={item.key}>{renderItem(item)}</React.Fragment>;
         })}
       </div>
     );

@@ -1,5 +1,6 @@
-import { ProTable, RequestOptionsType } from '@ant-design/pro-components';
 import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
+import type { RequestOptionsType } from '@xxlabs/pro-components';
+import { ProTable } from '@xxlabs/pro-components';
 import { ConfigProvider, Table } from 'antd';
 import dayjs from 'dayjs';
 import { afterEach, describe, expect, it, vi } from 'vitest';
@@ -14,7 +15,6 @@ describe('Table ColumnSetting', () => {
     const callBack = vi.fn();
     render(
       <ProTable
-        size="small"
         columns={[
           {
             title: 'Name',
@@ -25,6 +25,7 @@ describe('Table ColumnSetting', () => {
         ]}
         request={request}
         rowKey="key"
+        size="small"
       />,
     );
 
@@ -38,7 +39,6 @@ describe('Table ColumnSetting', () => {
     const callBack = vi.fn();
     render(
       <ProTable
-        size="small"
         columns={[
           {
             title: 'date',
@@ -65,6 +65,7 @@ describe('Table ColumnSetting', () => {
           };
         }}
         rowKey="key"
+        size="small"
       />,
     );
 
@@ -78,7 +79,6 @@ describe('Table ColumnSetting', () => {
     const { container } = render(
       <ConfigProvider prefixCls="qixian">
         <ProTable
-          size="small"
           columns={[
             {
               title: 'Name',
@@ -88,6 +88,7 @@ describe('Table ColumnSetting', () => {
           ]}
           request={request}
           rowKey="key"
+          size="small"
         />
       </ConfigProvider>,
     );
@@ -99,7 +100,6 @@ describe('Table ColumnSetting', () => {
     const callBack = vi.fn();
     render(
       <ProTable
-        size="small"
         columns={[
           {
             title: 'Name',
@@ -116,6 +116,7 @@ describe('Table ColumnSetting', () => {
         ]}
         request={request}
         rowKey="key"
+        size="small"
       />,
     );
 
@@ -128,7 +129,6 @@ describe('Table ColumnSetting', () => {
   it('🎏 change text by renderText', async () => {
     const { container } = render(
       <ProTable
-        size="small"
         columns={[
           {
             title: 'Name',
@@ -137,7 +137,6 @@ describe('Table ColumnSetting', () => {
             renderText: (text) => `${text}2144`,
           },
         ]}
-        search={false}
         dataSource={[
           {
             key: '1',
@@ -148,6 +147,8 @@ describe('Table ColumnSetting', () => {
           },
         ]}
         rowKey="key"
+        search={false}
+        size="small"
       />,
     );
 
@@ -158,7 +159,6 @@ describe('Table ColumnSetting', () => {
     const paramsKeys: string[] = [];
     render(
       <ProTable
-        size="small"
         columns={[
           {
             title: 'Name',
@@ -183,7 +183,6 @@ describe('Table ColumnSetting', () => {
             },
           },
         ]}
-        search={false}
         dataSource={[
           {
             key: '1',
@@ -201,6 +200,8 @@ describe('Table ColumnSetting', () => {
           },
         ]}
         rowKey="key"
+        search={false}
+        size="small"
       />,
     );
 
@@ -211,7 +212,6 @@ describe('Table ColumnSetting', () => {
   it('🎏 extra columns', async () => {
     const { container } = render(
       <ProTable
-        rowKey="key"
         columns={[
           {
             title: 'Name',
@@ -234,6 +234,7 @@ describe('Table ColumnSetting', () => {
         expandable={{
           expandedRowRender: (record) => <div>{record.name}</div>,
         }}
+        rowKey="key"
         rowSelection={{}}
       />,
     );
@@ -270,7 +271,6 @@ describe('Table ColumnSetting', () => {
     };
     const { container } = render(
       <ProTable
-        rowKey="key"
         columns={[
           {
             title: 'Name',
@@ -287,19 +287,17 @@ describe('Table ColumnSetting', () => {
             },
           },
         ]}
+        rowKey="key"
       />,
     );
 
     expect(container).toMatchSnapshot();
 
-    fireEvent.change(
-      container.querySelector('.ant-select-selection-search-input')!,
-      {
-        target: {
-          value: '1',
-        },
+    fireEvent.change(container.querySelector('.ant-select-selection-search-input')!, {
+      target: {
+        value: '1',
       },
-    );
+    });
     expect(container.querySelectorAll('.ant-select-item')).toHaveLength(0);
 
     setTimeout(() => {

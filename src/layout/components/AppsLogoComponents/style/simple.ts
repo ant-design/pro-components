@@ -1,9 +1,7 @@
 ﻿import type { GenerateStyle } from '../../../../provider';
 import type { AppsLogoComponentsToken } from './index';
 
-const genAppsLogoComponentsSimpleListStyle: GenerateStyle<
-  AppsLogoComponentsToken
-> = (token) => {
+const genAppsLogoComponentsSimpleListStyle: GenerateStyle<AppsLogoComponentsToken> = (token) => {
   return {
     '&-content': {
       maxHeight: 'calc(100vh - 48px)',
@@ -61,8 +59,7 @@ const genAppsLogoComponentsSimpleListStyle: GenerateStyle<
               fontSize: 22,
               lineHeight: '40px',
               textAlign: 'center',
-              backgroundImage:
-                'linear-gradient(180deg, #E8F0FB 0%, #F6F8FC 100%)',
+              backgroundImage: 'linear-gradient(180deg, #E8F0FB 0%, #F6F8FC 100%)',
               borderRadius: token.borderRadius,
             },
             '& > img': {

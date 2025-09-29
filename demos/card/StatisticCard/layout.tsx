@@ -1,4 +1,4 @@
-import { ProCard, StatisticCard } from '@ant-design/pro-components';
+import { ProCard, StatisticCard } from '@xxlabs/pro-components';
 import RcResizeObserver from 'rc-resize-observer';
 import { useState } from 'react';
 
@@ -16,10 +16,10 @@ export default () => {
         }}
       >
         <ProCard
-          title="Data Overview"
+          headerBordered
           extra="Friday, September 28, 2019"
           split={responsive ? 'horizontal' : 'vertical'}
-          headerBordered
+          title="Data Overview"
           variant="outlined"
         >
           <ProCard split="horizontal">
@@ -29,26 +29,14 @@ export default () => {
                   statistic={{
                     title: 'Total Traffic Yesterday',
                     value: 234,
-                    description: (
-                      <Statistic
-                        title="Compared to Monthly Average Traffic"
-                        value="8.04%"
-                        trend="down"
-                      />
-                    ),
+                    description: <Statistic title="Compared to Monthly Average Traffic" trend="down" value="8.04%" />,
                   }}
                 />
                 <StatisticCard
                   statistic={{
                     title: 'Total Traffic This Month',
                     value: 234,
-                    description: (
-                      <Statistic
-                        title="Month-on-Month"
-                        value="8.04%"
-                        trend="up"
-                      />
-                    ),
+                    description: <Statistic title="Month-on-Month" trend="up" value="8.04%" />,
                   }}
                 />
               </ProCard>
@@ -70,25 +58,25 @@ export default () => {
               </ProCard>
             </ProCard>
             <StatisticCard
-              title="Traffic Trends"
               chart={
                 <img
+                  alt="Bar Chart"
                   src="https://gw.alipayobjects.com/zos/alicdn/_dZIob2NB/zhuzhuangtu.svg"
                   width="100%"
-                  alt="Bar Chart"
                 />
               }
+              title="Traffic Trends"
             />
           </ProCard>
           <StatisticCard
-            title="Traffic Usage"
             chart={
               <img
-                src="https://gw.alipayobjects.com/zos/alicdn/qoYmFMxWY/jieping2021-03-29%252520xiawu4.32.34.png"
                 alt="Dashboard"
+                src="https://gw.alipayobjects.com/zos/alicdn/qoYmFMxWY/jieping2021-03-29%252520xiawu4.32.34.png"
                 width="100%"
               />
             }
+            title="Traffic Usage"
           />
         </ProCard>
       </RcResizeObserver>
@@ -110,8 +98,7 @@ export default () => {
             <strong>extra</strong>: 卡片右上角额外信息
           </li>
           <li>
-            <strong>split</strong>: 分割方式，'horizontal'
-            表示水平分割，'vertical' 表示垂直分割
+            <strong>split</strong>: 分割方式，'horizontal' 表示水平分割，'vertical' 表示垂直分割
           </li>
           <li>
             <strong>headerBordered</strong>: 是否显示头部边框
@@ -129,8 +116,7 @@ export default () => {
             <strong>statistic.value</strong>: 统计数值
           </li>
           <li>
-            <strong>statistic.description</strong>: 统计描述，可以是 Statistic
-            组件
+            <strong>statistic.description</strong>: 统计描述，可以是 Statistic 组件
           </li>
           <li>
             <strong>statistic.suffix</strong>: 数值后缀

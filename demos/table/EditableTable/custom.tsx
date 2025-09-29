@@ -1,10 +1,6 @@
 import { PlusOutlined } from '@ant-design/icons';
-import type { ActionType, ProColumns } from '@ant-design/pro-components';
-import {
-  EditableProTable,
-  ProCard,
-  ProFormField,
-} from '@ant-design/pro-components';
+import type { ActionType, ProColumns } from '@xxlabs/pro-components';
+import { EditableProTable, ProCard, ProFormField } from '@xxlabs/pro-components';
 import type { InputRef } from 'antd';
 import { Button, Form, Input, Space, Tag } from 'antd';
 import React, { useRef, useState } from 'react';
@@ -44,14 +40,8 @@ const TagList: React.FC<{
 
   const handleInputConfirm = () => {
     let tempsTags = [...(value || [])];
-    if (
-      inputValue &&
-      tempsTags.filter((tag) => tag.label === inputValue).length === 0
-    ) {
-      tempsTags = [
-        ...tempsTags,
-        { key: `new-${tempsTags.length}`, label: inputValue },
-      ];
+    if (inputValue && tempsTags.filter((tag) => tag.label === inputValue).length === 0) {
+      tempsTags = [...tempsTags, { key: `new-${tempsTags.length}`, label: inputValue }];
     }
     onChange?.(tempsTags);
     setNewTags([]);
@@ -65,12 +55,12 @@ const TagList: React.FC<{
       ))}
       <Input
         ref={ref}
-        type="text"
         size="small"
         style={{ width: 78 }}
+        type="text"
         value={inputValue}
-        onChange={handleInputChange}
         onBlur={handleInputConfirm}
+        onChange={handleInputChange}
         onPressEnter={handleInputConfirm}
       />
     </Space>
@@ -152,8 +142,7 @@ const columns: ProColumns<DataSourceType>[] = [
     formItemRender: (_, { isEditable }) => {
       return isEditable ? <TagList /> : <Input />;
     },
-    render: (_, row) =>
-      row?.labels?.map((item) => <Tag key={item.key}>{item.label}</Tag>),
+    render: (_, row) => row?.labels?.map((item) => <Tag key={item.key}>{item.label}</Tag>),
   },
   {
     title: '操作',
@@ -182,7 +171,7 @@ const columns: ProColumns<DataSourceType>[] = [
 ];
 
 export default () => {
-  const actionRef = useRef<ActionType>();
+  const actionRef = useRef<ActionType>(undefined);
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>([]);
   const [dataSource, setDataSource] = useState<readonly DataSourceType[]>([]);
   const [form] = Form.useForm();
@@ -190,6 +179,7 @@ export default () => {
     <>
       <Space>
         <Button
+          icon={<PlusOutlined />}
           type="primary"
           onClick={() => {
             actionRef.current?.addEditRecord?.({
@@ -197,7 +187,6 @@ export default () => {
               title: '新的一行',
             });
           }}
-          icon={<PlusOutlined />}
         >
           新建一行
         </Button>
@@ -212,23 +201,8 @@ export default () => {
       </Space>
 
       <EditableProTable<DataSourceType>
-        rowKey="id"
-        scroll={{
-          x: 960,
-        }}
         actionRef={actionRef}
-        headerTitle="可编辑表格"
-        maxLength={5}
-        // 关闭默认的新建按钮
-        recordCreatorProps={false}
         columns={columns}
-        request={async () => ({
-          data: defaultData,
-          total: 3,
-          success: true,
-        })}
-        value={dataSource}
-        onChange={setDataSource}
         editable={{
           form,
           editableKeys,
@@ -238,8 +212,22 @@ export default () => {
           onChange: setEditableRowKeys,
           actionRender: (row, config, dom) => [dom.save, dom.cancel],
         }}
+        headerTitle="可编辑表格"
+        maxLength={5}
+        recordCreatorProps={false}
+        request={async () => ({
+          data: defaultData,
+          total: 3,
+          success: true,
+        })}
+        rowKey="id"
+        scroll={{
+          x: 960,
+        }}
+        value={dataSource}
+        onChange={setDataSource}
       />
-      <ProCard title="表格数据" headerBordered collapsible defaultCollapsed>
+      <ProCard collapsible defaultCollapsed headerBordered title="表格数据">
         <ProFormField
           ignoreFormItem
           fieldProps={{
@@ -248,8 +236,8 @@ export default () => {
             },
           }}
           mode="read"
-          valueType="jsonCode"
           text={JSON.stringify(dataSource)}
+          valueType="jsonCode"
         />
       </ProCard>
     </>

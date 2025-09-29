@@ -6,20 +6,10 @@ import type { ProFormFieldProps } from '../../Field';
 import ProFormField from '../../Field';
 import type { ProSchemaRenderValueTypeFunction } from '../typing';
 
-export const field: ProSchemaRenderValueTypeFunction<any, any> = (
-  item,
-  { action, formRef, type, originItem },
-) => {
+export const field: ProSchemaRenderValueTypeFunction<any, any> = (item, { action, formRef, type, originItem }) => {
   /** 公用的 类型 props */
   const formFieldProps = {
-    ...omit(item, [
-      'dataIndex',
-      'width',
-      'render',
-      'formItemRender',
-      'renderText',
-      'title',
-    ]),
+    ...omit(item, ['dataIndex', 'width', 'render', 'formItemRender', 'renderText', 'title']),
     name: item.name || item.key || item.dataIndex,
     width: item.width as 'md',
     render: item?.render
@@ -68,20 +58,13 @@ export const field: ProSchemaRenderValueTypeFunction<any, any> = (
     }
 
     return (
-      <ProFormField
-        {...formFieldProps}
-        key={[item.key, item.index || 0].join('-')}
-        formItemRender={formItemRender}
-      />
+      <ProFormField {...formFieldProps} key={[item.key, item.index || 0].join('-')} formItemRender={formItemRender} />
     );
   };
 
   if (item.dependencies) {
     return (
-      <ProFormDependency
-        name={item.dependencies || []}
-        key={item.key as React.Key}
-      >
+      <ProFormDependency key={item.key as React.Key} name={item.dependencies || []}>
         {getField}
       </ProFormDependency>
     );

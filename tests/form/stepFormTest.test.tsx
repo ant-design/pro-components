@@ -1,12 +1,6 @@
-﻿import { ProFormText, StepsForm } from '@ant-design/pro-components';
-import {
-  cleanup,
-  fireEvent,
-  render,
-  screen,
-  waitFor,
-} from '@testing-library/react';
+﻿import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { ProFormText, StepsForm } from '@xxlabs/pro-components';
 import { Button } from 'antd';
 import React, { act } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
@@ -32,15 +26,9 @@ describe('StepsForm', () => {
     );
 
     expect(container.querySelectorAll('span.ant-steps-icon')).toHaveLength(3);
-    expect(
-      container.querySelectorAll('div.ant-steps-item-title')[0],
-    ).toHaveTextContent('表单1');
-    expect(
-      container.querySelectorAll('div.ant-steps-item-title')[1],
-    ).toHaveTextContent('表单2');
-    expect(
-      container.querySelectorAll('div.ant-steps-item-title')[2],
-    ).toHaveTextContent('表单3');
+    expect(container.querySelectorAll('div.ant-steps-item-title')[0]).toHaveTextContent('表单1');
+    expect(container.querySelectorAll('div.ant-steps-item-title')[1]).toHaveTextContent('表单2');
+    expect(container.querySelectorAll('div.ant-steps-item-title')[2]).toHaveTextContent('表单3');
     unmount();
   });
 
@@ -235,9 +223,7 @@ describe('StepsForm', () => {
       </StepsForm>,
     );
 
-    expect(
-      !!container.querySelectorAll('button.ant-btn.ant-btn-primary').length,
-    ).toBeFalsy();
+    expect(!!container.querySelectorAll('button.ant-btn.ant-btn-primary').length).toBeFalsy();
   });
 
   it('🐲 submitter render props', async () => {
@@ -245,16 +231,16 @@ describe('StepsForm', () => {
     const { unmount } = render(
       <StepsForm
         current={1}
-        onCurrentChange={(current) => fn(current)}
         submitter={{
           render: (props) => {
             return (
-              <button type="button" id="rest" onClick={() => props?.onPre?.()}>
+              <button id="rest" type="button" onClick={() => props?.onPre?.()}>
                 rest
               </button>
             );
           },
         }}
+        onCurrentChange={(current) => fn(current)}
       >
         <StepsForm.StepForm name="base" title="表单1">
           <ProFormText name="姓名" />
@@ -278,21 +264,17 @@ describe('StepsForm', () => {
     const { unmount } = render(
       <StepsForm
         current={0}
-        onCurrentChange={(current) => {
-          fn(current);
-        }}
         submitter={{
           render: (props) => {
             return (
-              <button
-                type="button"
-                data-testid="rest"
-                onClick={() => props?.onReset?.()}
-              >
+              <button data-testid="rest" type="button" onClick={() => props?.onReset?.()}>
                 rest
               </button>
             );
           },
+        }}
+        onCurrentChange={(current) => {
+          fn(current);
         }}
       >
         <StepsForm.StepForm name="base" title="表单1">
@@ -317,21 +299,17 @@ describe('StepsForm', () => {
     const { unmount } = render(
       <StepsForm
         current={1}
-        onCurrentChange={(current) => {
-          fn(current);
-        }}
         submitter={{
           render: (props) => {
             return (
-              <button
-                type="button"
-                data-testid="rest"
-                onClick={() => props?.onSubmit?.()}
-              >
+              <button data-testid="rest" type="button" onClick={() => props?.onSubmit?.()}>
                 rest
               </button>
             );
           },
+        }}
+        onCurrentChange={(current) => {
+          fn(current);
         }}
       >
         <StepsForm.StepForm name="base" title="表单1">
@@ -363,11 +341,7 @@ describe('StepsForm', () => {
       </StepsForm>,
     );
 
-    expect(
-      !!container.querySelector(
-        '.ant-pro-steps-form-step-active button.ant-btn.ant-btn-primary',
-      ),
-    ).toBeFalsy();
+    expect(!!container.querySelector('.ant-pro-steps-form-step-active button.ant-btn.ant-btn-primary')).toBeFalsy();
     unmount();
   });
 
@@ -377,7 +351,7 @@ describe('StepsForm', () => {
         submitter={{
           render: () => {
             return (
-              <Button id="next" key="next">
+              <Button key="next" id="next">
                 下一步
               </Button>
             );
@@ -457,10 +431,10 @@ describe('StepsForm', () => {
         onFinish={submit}
       >
         <StepsForm.StepForm name="base" title="表单1">
-          <ProFormText name={['info', 'name']} initialValue={'chenshuai'} />
+          <ProFormText initialValue="chenshuai" name={['info', 'name']} />
         </StepsForm.StepForm>
         <StepsForm.StepForm name="moreInfo" title="表单2">
-          <ProFormText name={['info', 'age']} initialValue={'22'} />
+          <ProFormText initialValue="22" name={['info', 'age']} />
         </StepsForm.StepForm>
       </StepsForm>,
     );

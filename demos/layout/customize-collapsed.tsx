@@ -1,10 +1,6 @@
 ﻿import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
-import type { ProLayoutProps } from '@ant-design/pro-components';
-import {
-  PageContainer,
-  ProFormRadio,
-  ProLayout,
-} from '@ant-design/pro-components';
+import type { ProLayoutProps } from '@xxlabs/pro-components';
+import { PageContainer, ProFormRadio, ProLayout } from '@xxlabs/pro-components';
 import { useState } from 'react';
 import defaultProps from './_defaultProps';
 
@@ -21,15 +17,15 @@ export default () => {
         }}
       >
         <ProFormRadio.Group
+          fieldProps={{
+            value: position,
+            onChange: (e) => setPosition(e.target.value),
+          }}
           label="按钮的位置"
           options={['header', 'menu'].map((value) => ({
             label: value,
             value,
           }))}
-          fieldProps={{
-            value: position,
-            onChange: (e) => setPosition(e.target.value),
-          }}
         />
       </div>
     </PageContainer>
@@ -57,7 +53,6 @@ export default () => {
       <ProLayout
         {...props}
         layout="mix"
-        onCollapse={setCollapsed}
         postMenuData={(menuData) => {
           return [
             {
@@ -68,6 +63,7 @@ export default () => {
             ...(menuData || []),
           ];
         }}
+        onCollapse={setCollapsed}
       >
         {children}
       </ProLayout>
@@ -76,21 +72,21 @@ export default () => {
   return (
     <ProLayout
       {...props}
-      layout="mix"
-      onCollapse={setCollapsed}
       headerContentRender={() => {
         return (
           <div
-            onClick={() => setCollapsed(!collapsed)}
             style={{
               cursor: 'pointer',
               fontSize: '16px',
             }}
+            onClick={() => setCollapsed(!collapsed)}
           >
             {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
           </div>
         );
       }}
+      layout="mix"
+      onCollapse={setCollapsed}
     >
       {children}
     </ProLayout>

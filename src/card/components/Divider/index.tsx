@@ -2,6 +2,7 @@ import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import React, { useContext } from 'react';
 import useStyle from './style';
+
 export type ProCardDividerProps = {
   /**
    * 样式

@@ -1,4 +1,4 @@
-import { PageContainer, ProLayout } from '@ant-design/pro-components';
+import { PageContainer, ProLayout } from '@xxlabs/pro-components';
 
 export default () => (
   <div
@@ -7,11 +7,16 @@ export default () => (
     }}
   >
     <ProLayout
+      collapsed={false}
+      collapsedButtonRender={false}
       location={{
         pathname: '/data_hui/data_hui2',
       }}
-      collapsed={false}
-      collapsedButtonRender={false}
+      menu={{
+        defaultOpenAll: true,
+        hideMenuWhenCollapsed: true,
+        ignoreFlatMenu: true,
+      }}
       route={{
         routes: [
           {
@@ -73,11 +78,6 @@ export default () => (
             ],
           },
         ],
-      }}
-      menu={{
-        defaultOpenAll: true,
-        hideMenuWhenCollapsed: true,
-        ignoreFlatMenu: true,
       }}
     >
       <PageContainer content="欢迎使用">

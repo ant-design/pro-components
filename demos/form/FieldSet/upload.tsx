@@ -1,35 +1,31 @@
-﻿import {
-  ProForm,
-  ProFormUploadButton,
-  ProFormUploadDragger,
-} from '@ant-design/pro-components';
+﻿import { ProForm, ProFormUploadButton, ProFormUploadDragger } from '@xxlabs/pro-components';
 
 export default () => {
   return (
     <ProForm>
       <ProFormUploadButton
-        title="上传按钮的文本变啦"
-        name="upload"
-        label="Upload"
-        max={2}
+        action="/upload.do"
+        extra="extra"
         fieldProps={{
           name: 'file',
         }}
-        action="/upload.do"
-        extra="extra"
-      />
-      <ProFormUploadButton
-        name="upload"
         label="Upload"
         max={2}
+        name="upload"
+        title="上传按钮的文本变啦"
+      />
+      <ProFormUploadButton
+        action="/upload.do"
+        extra="extra"
         fieldProps={{
           name: 'file',
           listType: 'picture-card',
         }}
-        action="/upload.do"
-        extra="extra"
+        label="Upload"
+        max={2}
+        name="upload"
       />
-      <ProFormUploadDragger max={4} label="Dragger" name="dragger" />
+      <ProFormUploadDragger label="Dragger" max={4} name="dragger" />
     </ProForm>
   );
 };

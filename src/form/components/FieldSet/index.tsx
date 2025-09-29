@@ -1,7 +1,7 @@
 ﻿import { toArray } from '@rc-component/util';
 import type { SpaceProps } from 'antd';
 import { Space } from 'antd';
-import type { GroupProps } from 'antd/lib/input';
+import type { GroupProps } from 'antd/es/input';
 import React, { useCallback, useImperativeHandle } from 'react';
 import { runFunction, useRefFunction } from '../../../utils';
 import type { LightWrapperProps } from '../../BaseForm';
@@ -18,9 +18,7 @@ export type ProFormFieldSetProps<T = any> = {
   fieldProps?: any;
   convertValue?: ProFormItemProps['convertValue'];
   transform?: ProFormItemProps['transform'];
-  children?:
-    | ((value: T[], props: ProFormFieldSetProps) => React.ReactNode)
-    | React.ReactNode;
+  children?: ((value: T[], props: ProFormFieldSetProps) => React.ReactNode) | React.ReactNode;
   lightProps?: LightWrapperProps;
 };
 
@@ -29,7 +27,7 @@ const FieldSetType = {
   group: Space.Compact,
 };
 
-export function defaultGetValueFromEvent(valuePropName: string, ...args: any) {
+function defaultGetValueFromEvent(valuePropName: string, ...args: any) {
   const event = args[0];
   if (event && event.target && valuePropName in event.target) {
     // @ts-ignore
@@ -60,10 +58,7 @@ const FieldSet: React.FC<ProFormFieldSetProps> = (props) => {
    */
   const fieldSetOnChange = useRefFunction((fileValue: any, index: number) => {
     const newValues = [...value];
-    newValues[index] = defaultGetValueFromEvent(
-      valuePropName || 'value',
-      fileValue,
-    );
+    newValues[index] = defaultGetValueFromEvent(valuePropName || 'value', fileValue);
 
     onChange?.(newValues);
     fieldProps?.onChange?.(newValues);
@@ -111,7 +106,7 @@ const FieldSet: React.FC<ProFormFieldSetProps> = (props) => {
 
   const Wrapper: React.FC = useCallback(
     ({ children: dom }: { children?: React.ReactNode }) => (
-      <Components {...(space as SpaceProps)} align="start" wrap>
+      <Components {...(space as SpaceProps)} wrap align="start">
         {dom}
       </Components>
     ),
@@ -122,8 +117,11 @@ const FieldSet: React.FC<ProFormFieldSetProps> = (props) => {
 };
 
 const BaseProFormFieldSet: React.FC<
-  Omit<ProFormItemProps, 'children'> & ProFormFieldSetProps
-> = React.forwardRef(({ children, space, valuePropName, ...rest }, ref) => {
+  Omit<ProFormItemProps, 'children'> &
+    ProFormFieldSetProps & {
+      ref?: React.Ref<any>;
+    }
+> = ({ children, space, valuePropName, ref, ...rest }) => {
   useImperativeHandle(ref, () => ({}));
   return (
     <FieldSet
@@ -137,10 +135,8 @@ const BaseProFormFieldSet: React.FC<
       {children}
     </FieldSet>
   );
-});
+};
 
-const ProFormFieldSet = warpField<Omit<ProFormItemProps, 'children'>>?.(
-  BaseProFormFieldSet,
-);
+const ProFormFieldSet = warpField<Omit<ProFormItemProps, 'children'>>?.(BaseProFormFieldSet);
 
 export default ProFormFieldSet as typeof BaseProFormFieldSet;

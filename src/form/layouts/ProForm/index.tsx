@@ -6,10 +6,8 @@ import { BaseForm } from '../../BaseForm';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
 import { Group, ProFormItem } from '../../components';
 
-export type ProFormProps<
-  T = Record<string, any>,
-  U = Record<string, any>,
-> = Omit<FormProps<T>, 'onFinish'> & CommonFormProps<T, U>;
+export type ProFormProps<T = Record<string, any>, U = Record<string, any>> = Omit<FormProps<T>, 'onFinish'> &
+  CommonFormProps<T, U>;
 
 function ProForm<T = Record<string, any>>(
   props: ProFormProps<T> & {
@@ -18,7 +16,6 @@ function ProForm<T = Record<string, any>>(
 ) {
   return (
     <BaseForm
-      layout="vertical"
       contentRender={(items, submitter) => {
         return (
           <>
@@ -27,6 +24,7 @@ function ProForm<T = Record<string, any>>(
           </>
         );
       }}
+      layout="vertical"
       {...props}
     />
   );

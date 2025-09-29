@@ -5,62 +5,45 @@ import { ProConfigProvider } from '../../../provider';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProFormField from '../Field';
 
-export type ProFormDigitProps = ProFormFieldItemProps<
-  InputNumberProps<number>
-> & {
+export type ProFormDigitProps = ProFormFieldItemProps<InputNumberProps<number>> & {
   min?: InputNumberProps['min'];
   max?: InputNumberProps['max'];
 };
+
 /**
  * 数组选择组件
  *
- * @param
  */
-const ProFormDigit: React.ForwardRefRenderFunction<any, ProFormDigitProps> = (
-  { fieldProps, min, proFieldProps, max, ...rest },
-  ref,
-) => {
+const ProFormDigit: React.FC<ProFormDigitProps> = ({ fieldProps, min, proFieldProps, max, ref, ...rest }) => {
   return (
     <ProConfigProvider
       valueTypeMap={{
         digit: {
-          render: (text, props) => (
-            <FieldDigit
-              {...props}
-              text={text}
-              placeholder={props.placeholder as string}
-            />
-          ),
+          render: (text, props) => <FieldDigit {...props} placeholder={props.placeholder as string} text={text} />,
           formItemRender: (text, props) => (
-            <FieldDigit
-              {...props}
-              text={text}
-              placeholder={props.placeholder as string}
-            />
+            <FieldDigit {...props} placeholder={props.placeholder as string} text={text} />
           ),
         },
       }}
     >
       <ProFormField
-        valueType="digit"
-        fieldProps={{
-          min,
-          max,
-          ...fieldProps,
-        }}
         ref={ref}
         fieldConfig={{
           defaultProps: {
             width: '100%',
           },
         }}
+        fieldProps={{
+          min,
+          max,
+          ...fieldProps,
+        }}
         proFieldProps={proFieldProps}
+        valueType="digit"
         {...rest}
       />
     </ProConfigProvider>
   );
 };
 
-const ForwardRefProFormDigit = React.forwardRef(ProFormDigit);
-
-export default ForwardRefProFormDigit;
+export default ProFormDigit;

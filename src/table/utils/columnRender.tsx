@@ -1,5 +1,5 @@
 ﻿import { get } from '@rc-component/util';
-import { AnyObject } from 'antd/lib/_util/type';
+import type { AnyObject } from 'antd/es/_util/type';
 import React from 'react';
 import { isMergeCell } from '.';
 import type { ProFieldEmptyText } from '../../field';
@@ -9,7 +9,7 @@ import type {
   ProTableEditableFnType,
   UseEditableUtilType,
 } from '../../utils';
-import { LabelIconTip, genCopyable, isNil } from '../../utils';
+import { genCopyable, isNil, LabelIconTip } from '../../utils';
 import type { ContainerType } from '../Store/Provide';
 import type { ActionType, ProColumns } from '../typing';
 import cellRenderToFromItem from './cellRenderToFromItem';
@@ -35,29 +35,15 @@ type ColumnRenderInterface<T> = {
  */
 export const renderColumnsTitle = (item: ProColumns<any>) => {
   const { title } = item;
-  const ellipsis =
-    typeof item?.ellipsis === 'boolean'
-      ? item?.ellipsis
-      : item?.ellipsis?.showTitle;
+  const ellipsis = typeof item?.ellipsis === 'boolean' ? item?.ellipsis : item?.ellipsis?.showTitle;
   if (title && typeof title === 'function') {
-    return title(
-      item,
-      'table',
-      <LabelIconTip label={null} tooltip={item.tooltip} />,
-    );
+    return title(item, 'table', <LabelIconTip label={null} tooltip={item.tooltip} />);
   }
-  return (
-    <LabelIconTip label={title} tooltip={item.tooltip} ellipsis={ellipsis} />
-  );
+  return <LabelIconTip ellipsis={ellipsis} label={title} tooltip={item.tooltip} />;
 };
 
 /** 判断是否为不可编辑的单元格 */
-function isNotEditableCell<T>(
-  text: any,
-  rowData: T,
-  index: number,
-  editable?: ProTableEditableFnType<T> | boolean,
-) {
+function isNotEditableCell<T>(text: any, rowData: T, index: number, editable?: ProTableEditableFnType<T> | boolean) {
   if (typeof editable === 'boolean') {
     return editable === false;
   }
@@ -72,14 +58,8 @@ function isNotEditableCell<T>(
  * @param dataIndex
  * @returns
  */
-export const defaultOnFilter = (
-  value: string,
-  record: any,
-  dataIndex: string | string[],
-) => {
-  const recordElement = Array.isArray(dataIndex)
-    ? get(record, dataIndex as string[])
-    : record[dataIndex];
+export const defaultOnFilter = (value: string, record: any, dataIndex: string | string[]) => {
+  const recordElement = Array.isArray(dataIndex) ? get(record, dataIndex as string[]) : record[dataIndex];
   const itemValue = String(recordElement) as string;
 
   return String(itemValue) === String(value);
@@ -110,11 +90,7 @@ export function columnRender<T extends AnyObject>({
   const { renderText = (val: any) => val } = columnProps;
 
   const renderTextStr = renderText(text, rowData, index, action as ActionType);
-  const mode =
-    isEditable &&
-    !isNotEditableCell(text, rowData, index, columnProps?.editable)
-      ? 'edit'
-      : 'read';
+  const mode = isEditable && !isNotEditableCell(text, rowData, index, columnProps?.editable) ? 'edit' : 'read';
 
   const textDom = cellRenderToFromItem<T>({
     text: renderTextStr,
@@ -138,10 +114,7 @@ export function columnRender<T extends AnyObject>({
     editableUtils,
   });
 
-  const dom: React.ReactNode =
-    mode === 'edit'
-      ? textDom
-      : genCopyable(textDom, columnProps, renderTextStr);
+  const dom: React.ReactNode = mode === 'edit' ? textDom : genCopyable(textDom, columnProps, renderTextStr);
 
   /** 如果是编辑模式，并且 formItemRender 存在直接走 formItemRender */
   if (mode === 'edit') {
@@ -152,8 +125,7 @@ export function columnRender<T extends AnyObject>({
             display: 'flex',
             alignItems: 'center',
             gap: marginSM,
-            justifyContent:
-              columnProps.align === 'center' ? 'center' : 'flex-start',
+            justifyContent: columnProps.align === 'center' ? 'center' : 'flex-start',
           }}
         >
           {editableUtils.actionRender({
@@ -167,8 +139,7 @@ export function columnRender<T extends AnyObject>({
   }
 
   if (!columnProps.render) {
-    const isReactRenderNode =
-      React.isValidElement(dom) || ['string', 'number'].includes(typeof dom);
+    const isReactRenderNode = React.isValidElement(dom) || ['string', 'number'].includes(typeof dom);
     return !isNil(dom) && isReactRenderNode ? dom : null;
   }
 
@@ -192,11 +163,7 @@ export function columnRender<T extends AnyObject>({
     return renderDom;
   }
 
-  if (
-    renderDom &&
-    columnProps.valueType === 'option' &&
-    Array.isArray(renderDom)
-  ) {
+  if (renderDom && columnProps.valueType === 'option' && Array.isArray(renderDom)) {
     return (
       <div
         style={{

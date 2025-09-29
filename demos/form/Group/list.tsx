@@ -8,7 +8,7 @@
   ProFormRadio,
   ProFormSelect,
   ProFormText,
-} from '@ant-design/pro-components';
+} from '@xxlabs/pro-components';
 import { ConfigProvider } from 'antd';
 import { useState } from 'react';
 
@@ -37,34 +37,10 @@ const Demo = () => {
           console.log('Received values of form:', values);
         }}
       >
-        <ProFormText width="sm" name="id" label="主合同编号" />
-        <ProFormText
-          name="project"
-          width="md"
-          label="项目名称"
-          initialValue="xxxx项目"
-        />
-        <ProFormText
-          width="xs"
-          name="mangerName"
-          label="商务经理"
-          initialValue="启途"
-        />
+        <ProFormText label="主合同编号" name="id" width="sm" />
+        <ProFormText initialValue="xxxx项目" label="项目名称" name="project" width="md" />
+        <ProFormText initialValue="启途" label="商务经理" name="mangerName" width="xs" />
         <ProFormList
-          name="users"
-          label="用户信息"
-          rules={[
-            {
-              required: true,
-              validator: async (_, value) => {
-                console.log(value);
-                if (value && value.length > 0) {
-                  return;
-                }
-                throw new Error('至少要有一项！');
-              },
-            },
-          ]}
           creatorButtonProps={{
             position,
           }}
@@ -81,29 +57,43 @@ const Demo = () => {
               addrList: [{ addr: ['taiyuan', 'changfeng'] }],
             },
           ]}
+          label="用户信息"
+          name="users"
+          rules={[
+            {
+              required: true,
+              validator: async (_, value) => {
+                console.log(value);
+                if (value && value.length > 0) {
+                  return;
+                }
+                throw new Error('至少要有一项！');
+              },
+            },
+          ]}
         >
           <ProFormGroup key="group">
             <ProFormText
+              label="姓名"
+              name="name"
               rules={[
                 {
                   required: true,
                 },
               ]}
-              name="name"
-              label="姓名"
             />
-            <ProFormDigit name="age" label="年龄" width="sm" />
+            <ProFormDigit label="年龄" name="age" width="sm" />
             <ProFormSelect
               label="性别"
               name="sex"
-              width="xs"
               valueEnum={{
                 man: '男性',
                 woman: '女性',
               }}
+              width="xs"
             />
-            <ProFormDatePicker name="birth" label="出生日期" />
-            <ProFormFieldSet name="addr" label="地址">
+            <ProFormDatePicker label="出生日期" name="birth" />
+            <ProFormFieldSet label="地址" name="addr">
               <ProFormSelect
                 valueEnum={{
                   taiyuan: '山西',

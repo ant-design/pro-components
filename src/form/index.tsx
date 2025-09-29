@@ -32,10 +32,7 @@ export type {
 export { FormListContext } from './components/List';
 export { FieldContext } from './FieldContext';
 export * from './layouts';
-export type {
-  LightFilterFooterRender,
-  ProFormFieldItemProps as ProFormItemProps,
-} from './typing';
+export type { LightFilterFooterRender, ProFormFieldItemProps as ProFormItemProps } from './typing';
 export { GridContext, ProForm };
 export type { ProFormGroupProps as GroupProps };
 

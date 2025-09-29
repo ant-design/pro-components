@@ -5,8 +5,8 @@ import {
   QuestionCircleFilled,
   SearchOutlined,
 } from '@ant-design/icons';
-import type { ProSettings } from '@ant-design/pro-components';
-import { PageContainer, ProCard, ProLayout } from '@ant-design/pro-components';
+import type { ProSettings } from '@xxlabs/pro-components';
+import { PageContainer, ProCard, ProLayout } from '@xxlabs/pro-components';
 import { Alert, Button, Input, Space } from 'antd';
 import React, { useState } from 'react';
 import defaultProps from './_defaultProps';
@@ -28,70 +28,6 @@ export default () => {
         }}
       >
         <ProLayout
-          token={{
-            header: {
-              heightLayoutHeader: 108,
-            },
-          }}
-          headerRender={(props, defaultDom) => (
-            <>
-              <Alert
-                message={
-                  <div
-                    style={{
-                      color: 'white',
-                    }}
-                  >
-                    本网站提供的部分服务在你当前浏览器中无法使用，建议你更换为
-                    Chrome 浏览器查看本网站。
-                  </div>
-                }
-                icon={
-                  <InfoCircleFilled
-                    style={{
-                      color: 'white',
-                    }}
-                  />
-                }
-                banner
-                style={{
-                  backgroundColor: 'black',
-                }}
-                action={
-                  <Button
-                    type="text"
-                    style={{
-                      color: 'white',
-                    }}
-                  >
-                    查看详情
-                  </Button>
-                }
-              />
-              {React.cloneElement(defaultDom as any, {
-                style: {
-                  height: '56px',
-                  lineHeight: '56px',
-                },
-              })}
-            </>
-          )}
-          footerRender={() => (
-            <Space
-              style={{
-                height: 64,
-                display: 'flex',
-                justifyContent: 'end',
-                alignItems: 'center',
-                marginInlineEnd: 24,
-              }}
-            >
-              <Button key="1">上一步</Button>
-              <Button key="2" type="primary">
-                保存
-              </Button>
-            </Space>
-          )}
           bgLayoutImgList={[
             {
               src: 'https://img.alicdn.com/imgextra/i2/O1CN01O4etvp1DvpFLKfuWq_!!6000000000279-2-tps-609-606.png',
@@ -112,18 +48,70 @@ export default () => {
               width: '331px',
             },
           ]}
+          footerRender={() => (
+            <Space
+              style={{
+                height: 64,
+                display: 'flex',
+                justifyContent: 'end',
+                alignItems: 'center',
+                marginInlineEnd: 24,
+              }}
+            >
+              <Button key="1">上一步</Button>
+              <Button key="2" type="primary">
+                保存
+              </Button>
+            </Space>
+          )}
+          headerRender={(props, defaultDom) => (
+            <>
+              <Alert
+                banner
+                action={
+                  <Button
+                    style={{
+                      color: 'white',
+                    }}
+                    type="text"
+                  >
+                    查看详情
+                  </Button>
+                }
+                icon={
+                  <InfoCircleFilled
+                    style={{
+                      color: 'white',
+                    }}
+                  />
+                }
+                message={
+                  <div
+                    style={{
+                      color: 'white',
+                    }}
+                  >
+                    本网站提供的部分服务在你当前浏览器中无法使用，建议你更换为 Chrome 浏览器查看本网站。
+                  </div>
+                }
+                style={{
+                  backgroundColor: 'black',
+                }}
+              />
+              {React.cloneElement(defaultDom as any, {
+                style: {
+                  height: '56px',
+                  lineHeight: '56px',
+                },
+              })}
+            </>
+          )}
+          token={{
+            header: {
+              heightLayoutHeader: 108,
+            },
+          }}
           {...defaultProps}
-          location={{
-            pathname,
-          }}
-          menu={{
-            type: 'group',
-          }}
-          avatarProps={{
-            src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
-            size: 'small',
-            title: '七妮妮',
-          }}
           actionsRender={(props) => {
             if (props.isMobile) return [];
             return [
@@ -142,11 +130,7 @@ export default () => {
                   }}
                 >
                   <Input
-                    style={{
-                      borderRadius: 4,
-                      marginInlineEnd: 12,
-                      backgroundColor: 'rgba(0,0,0,0.03)',
-                    }}
+                    placeholder="搜索方案"
                     prefix={
                       <SearchOutlined
                         style={{
@@ -154,7 +138,11 @@ export default () => {
                         }}
                       />
                     }
-                    placeholder="搜索方案"
+                    style={{
+                      borderRadius: 4,
+                      marginInlineEnd: 12,
+                      backgroundColor: 'rgba(0,0,0,0.03)',
+                    }}
                     variant="borderless"
                   />
                   <PlusCircleFilled
@@ -169,6 +157,17 @@ export default () => {
               <QuestionCircleFilled key="QuestionCircleFilled" />,
               <GithubFilled key="GithubFilled" />,
             ];
+          }}
+          avatarProps={{
+            src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+            size: 'small',
+            title: '七妮妮',
+          }}
+          location={{
+            pathname,
+          }}
+          menu={{
+            type: 'group',
           }}
           menuFooterRender={(props) => {
             if (props?.collapsed) return undefined;

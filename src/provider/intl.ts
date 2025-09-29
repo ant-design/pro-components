@@ -44,19 +44,15 @@ export type IntlType = {
  * @param locale
  * @param localeMap
  */
-export const createIntl = (
-  locale: string,
-  localeMap: Record<string, any>,
-): IntlType => ({
+export const createIntl = (locale: string, localeMap: Record<string, any>): IntlType => ({
   getMessage: (id: string, defaultMessage: string) => {
-    const msg =
-      get(localeMap, id.replace(/\[(\d+)\]/g, '.$1').split('.')) || '';
+    const msg = get(localeMap, id.replace(/\[(\d+)\]/g, '.$1').split('.')) || '';
     if (msg) return msg;
     const localKey = locale.replace('_', '-');
     if (localKey === 'zh-CN') {
       return defaultMessage;
     }
-    // eslint-disable-next-line @typescript-eslint/no-use-before-define
+
     const intl = intlMap['zh-CN'];
     return intl ? intl.getMessage(id, defaultMessage) : defaultMessage;
   },

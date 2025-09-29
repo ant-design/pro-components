@@ -1,4 +1,4 @@
-import { ProForm, ProFormCaptcha } from '@ant-design/pro-components';
+import { ProForm, ProFormCaptcha } from '@xxlabs/pro-components';
 import { Button, message } from 'antd';
 import { useRef } from 'react';
 
@@ -11,39 +11,39 @@ const waitTime = (time: number = 100) => {
 };
 
 export default () => {
-  const captchaRef = useRef();
-  const inputRef = useRef();
+  const captchaRef = useRef(undefined);
+  const inputRef = useRef(undefined);
 
   return (
     <ProForm
-      title="新建表单"
       submitter={{
         render: (props, doms) => {
           return [
             ...doms,
             <Button
+              key="edit"
               htmlType="button"
               onClick={() => {
                 // @ts-ignore
                 captchaRef.current?.startTiming();
               }}
-              key="edit"
             >
               手动开始计数
             </Button>,
             <Button
+              key="edit2"
               htmlType="button"
               onClick={() => {
                 // @ts-ignore
                 captchaRef.current?.endTiming();
               }}
-              key="edit2"
             >
               手动结束计数
             </Button>,
           ];
         },
       }}
+      title="新建表单"
       onFinish={async (values) => {
         await waitTime(2000);
         console.log(values);
@@ -52,15 +52,15 @@ export default () => {
       }}
     >
       <ProFormCaptcha
+        fieldProps={{ ref: inputRef }}
+        fieldRef={captchaRef}
+        name="code"
         onGetCaptcha={() => {
           // dosomething()
           return new Promise((resolve, reject) => {
             reject();
           });
         }}
-        fieldRef={captchaRef}
-        fieldProps={{ ref: inputRef }}
-        name="code"
       />
     </ProForm>
   );

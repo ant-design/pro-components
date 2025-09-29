@@ -7,7 +7,7 @@ import {
   ProFormRadio,
   ProFormSelect,
   ProFormTreeSelect,
-} from '@ant-design/pro-components';
+} from '@xxlabs/pro-components';
 import { TreeSelect } from 'antd';
 
 const treeData = [
@@ -50,25 +50,24 @@ const treeData = [
 export default () => {
   return (
     <LightFilter
+      collapseLabel={<FilterOutlined />}
       initialValues={{
         sex: 'man',
       }}
       variant="outlined"
-      collapseLabel={<FilterOutlined />}
       onFinish={async (values) => console.log(values)}
     >
       <ProFormSelect
-        name="sex"
         showSearch
+        name="sex"
+        placeholder="性别"
         valueEnum={{
           man: '男',
           woman: '女',
         }}
-        placeholder="性别"
       />
       <ProFormRadio.Group
         name="radio"
-        radioType="button"
         options={[
           {
             value: 'weekly',
@@ -87,10 +86,10 @@ export default () => {
             label: '每年',
           },
         ]}
+        radioType="button"
       />
       <ProFormDatePicker name="time" placeholder="日期" />
       <ProFormTreeSelect
-        request={async () => treeData}
         fieldProps={{
           fieldNames: {
             label: 'title',
@@ -100,14 +99,16 @@ export default () => {
           placeholder: 'Please select',
         }}
         name="treeSelect"
+        request={async () => treeData}
       />
       <ProFormCheckbox.Group
-        name="checkbox"
         label="迁移类型"
-        width="lg"
+        name="checkbox"
         options={['结构迁移', '全量迁移', '增量迁移', '全量校验']}
+        width="lg"
       />
       <ProFormCascader
+        name="area"
         request={async () => [
           {
             value: 'zhejiang',
@@ -142,7 +143,6 @@ export default () => {
             ],
           },
         ]}
-        name="area"
       />
     </LightFilter>
   );

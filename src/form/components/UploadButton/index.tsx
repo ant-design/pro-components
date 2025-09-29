@@ -1,26 +1,14 @@
 import { UploadOutlined } from '@ant-design/icons';
-import type {
-  ButtonProps,
-  GetProp,
-  ImageProps,
-  UploadFile,
-  UploadProps,
-} from 'antd';
+import type { ButtonProps, GetProp, ImageProps, UploadFile, UploadProps } from 'antd';
 import { Button, Image, Upload } from 'antd';
 import React, { useContext, useMemo, useState } from 'react';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
 import type { ProFormFieldItemProps } from '../../typing';
 import warpField from '../FormItem/warpField';
 
-type PickUploadProps = Pick<
-  UploadProps<any>,
-  'listType' | 'action' | 'accept' | 'fileList' | 'onChange'
->;
+type PickUploadProps = Pick<UploadProps<any>, 'listType' | 'action' | 'accept' | 'fileList' | 'onChange'>;
 type FileType = Parameters<GetProp<UploadProps, 'beforeUpload'>>[0];
-export type ProFormUploadButtonProps = ProFormFieldItemProps<
-  UploadProps<any>,
-  HTMLElement
-> & {
+export type ProFormUploadButtonProps = ProFormFieldItemProps<UploadProps<any>, HTMLElement> & {
   /**
    * @name  上传文件的图标
    * @default UploadOutlined
@@ -80,26 +68,21 @@ const getBase64 = (file: FileType): Promise<string> =>
  *
  * @param
  */
-const BaseProFormUploadButton: React.ForwardRefRenderFunction<
-  any,
-  ProFormUploadButtonProps
-> = (
-  {
-    fieldProps,
-    action,
-    accept,
-    listType,
-    title = '单击上传',
-    max,
-    icon = <UploadOutlined />,
-    buttonProps,
-    disabled,
-    proFieldProps,
-    imageProps,
-    ...restProps
-  },
+const BaseProFormUploadButton: React.FC<ProFormUploadButtonProps> = ({
+  fieldProps,
+  action,
+  accept,
+  listType,
+  title = '单击上传',
+  max,
+  icon = <UploadOutlined />,
+  buttonProps,
+  disabled,
+  proFieldProps,
+  imageProps,
   ref,
-) => {
+  ...restProps
+}) => {
   const [previewOpen, setPreviewOpen] = useState(false);
   const [previewImage, setPreviewImage] = useState('');
   const value = useMemo(() => {
@@ -117,17 +100,16 @@ const BaseProFormUploadButton: React.ForwardRefRenderFunction<
   const mode = proFieldProps?.mode || modeContext.mode || 'edit';
 
   // 如果配置了 max ，并且 超过了文件列表的大小，就不展示按钮
-  const showUploadButton =
-    (max === undefined || !value || value?.length < max) && mode !== 'read';
+  const showUploadButton = (max === undefined || !value || value?.length < max) && mode !== 'read';
   const isPictureCard = (listType ?? fieldProps?.listType) === 'picture-card';
   return (
     <>
       <Upload
-        action={action}
-        accept={accept}
         ref={ref}
-        listType={listType || 'picture'}
+        accept={accept}
+        action={action}
         fileList={value}
+        listType={listType || 'picture'}
         onPreview={handlePreview}
         {...fieldProps}
         name={fieldProps?.name ?? 'file'}
@@ -141,10 +123,7 @@ const BaseProFormUploadButton: React.ForwardRefRenderFunction<
               {icon} {title}
             </span>
           ) : (
-            <Button
-              disabled={disabled || fieldProps?.disabled}
-              {...buttonProps}
-            >
+            <Button disabled={disabled || fieldProps?.disabled} {...buttonProps}>
               {icon}
               {title}
             </Button>
@@ -167,12 +146,8 @@ const BaseProFormUploadButton: React.ForwardRefRenderFunction<
   );
 };
 
-const ProFormUploadButton = warpField<ProFormUploadButtonProps>?.(
-  React.forwardRef(BaseProFormUploadButton),
-  {
-    getValueFromEvent: (value: { fileList: UploadProps['fileList'] }) =>
-      value.fileList,
-  },
-) as typeof BaseProFormUploadButton;
+const ProFormUploadButton = warpField<ProFormUploadButtonProps>?.(BaseProFormUploadButton, {
+  getValueFromEvent: (value: { fileList: UploadProps['fileList'] }) => value.fileList,
+}) as typeof BaseProFormUploadButton;
 
 export default ProFormUploadButton;

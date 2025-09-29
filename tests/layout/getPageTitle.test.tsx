@@ -1,5 +1,5 @@
-﻿import { getPageTitle } from '@ant-design/pro-components';
-import { cleanup } from '@testing-library/react';
+﻿import { cleanup } from '@testing-library/react';
+import { getPageTitle } from '@xxlabs/pro-components';
 import { afterEach, describe, expect, it } from 'vitest';
 
 const pageProps = {
@@ -24,10 +24,7 @@ const pageProps = {
       key: '/welcome/welcome',
 
       exact: true,
-      pro_layout_parentKeys: [
-        '/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925',
-        '/welcome',
-      ],
+      pro_layout_parentKeys: ['/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925', '/welcome'],
     },
     '/welcome': {
       path: '/welcome',
@@ -42,15 +39,10 @@ const pageProps = {
           key: '/welcome/welcome',
 
           exact: true,
-          pro_layout_parentKeys: [
-            '/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925',
-            '/welcome',
-          ],
+          pro_layout_parentKeys: ['/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925', '/welcome'],
         },
       ],
-      pro_layout_parentKeys: [
-        '/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925',
-      ],
+      pro_layout_parentKeys: ['/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925'],
     },
     '/': {
       path: '/',
@@ -68,15 +60,10 @@ const pageProps = {
               locale: 'menu.welcome.one.two',
               key: '/welcome/welcome',
               exact: true,
-              pro_layout_parentKeys: [
-                '/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925',
-                '/welcome',
-              ],
+              pro_layout_parentKeys: ['/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925', '/welcome'],
             },
           ],
-          pro_layout_parentKeys: [
-            '/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925',
-          ],
+          pro_layout_parentKeys: ['/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925'],
         },
       ],
       locale: 'menu.welcome',

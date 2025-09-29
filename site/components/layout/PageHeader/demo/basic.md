@@ -11,7 +11,7 @@ title: 标准样式
 标准页头，适合使用在需要简单描述的场景。
 
 ```tsx
-import { PageHeader } from '@ant-design/pro-components';
+import { PageHeader } from '@xxlabs/pro-components';
 import React from 'react';
 
 const App: React.FC = () => (

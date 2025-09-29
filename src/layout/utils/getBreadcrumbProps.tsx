@@ -1,9 +1,5 @@
 import type { BreadcrumbProps } from 'antd';
-import type {
-  BreadcrumbItemType,
-  ItemType,
-} from 'antd/lib/breadcrumb/Breadcrumb';
-import type H from 'history';
+import type { BreadcrumbItemType, ItemType } from 'antd/es/breadcrumb/Breadcrumb';
 import { match } from 'path-to-regexp';
 import type { ProSettings } from '../defaultSettings';
 import type { ProLayoutProps } from '../ProLayout';
@@ -14,16 +10,14 @@ export type BreadcrumbProLayoutProps = {
   breadcrumbList?: { title: string; href: string }[];
   home?: string;
   location?:
-    | H.Location
+    | Location
     | {
         pathname?: string;
       };
   menu?: ProSettings['menu'];
   breadcrumbMap?: Map<string, MenuDataItem>;
   formatMessage?: (message: MessageDescriptor) => string;
-  breadcrumbRender?: WithFalse<
-    (routers: BreadcrumbProps['items']) => BreadcrumbProps['items']
-  >;
+  breadcrumbRender?: WithFalse<(routers: BreadcrumbProps['items']) => BreadcrumbProps['items']>;
   itemRender?: BreadcrumbProps['itemRender'];
 };
 
@@ -45,16 +39,11 @@ const defaultItemRender: BreadcrumbProps['itemRender'] = (route, _, routes) => {
   return last ? (
     <span>{title || breadcrumbName}</span>
   ) : (
-    <span onClick={path ? () => (location.href = path) : undefined}>
-      {title || breadcrumbName}
-    </span>
+    <span onClick={path ? () => (location.href = path) : undefined}>{title || breadcrumbName}</span>
   );
 };
 
-const renderItemLocal = (
-  item: MenuDataItem,
-  props: BreadcrumbProLayoutProps,
-): string => {
+const renderItemLocal = (item: MenuDataItem, props: BreadcrumbProLayoutProps): string => {
   const { formatMessage, menu } = props;
   if (item.locale && formatMessage && menu?.locale !== false) {
     return formatMessage({ id: item.locale, defaultMessage: item.name });
@@ -62,10 +51,7 @@ const renderItemLocal = (
   return item.name as string;
 };
 
-export const getBreadcrumb = (
-  breadcrumbMap: Map<string, MenuDataItem>,
-  url: string,
-): MenuDataItem => {
+export const getBreadcrumb = (breadcrumbMap: Map<string, MenuDataItem>, url: string): MenuDataItem => {
   let breadcrumbItem = breadcrumbMap.get(url);
   if (!breadcrumbItem) {
     // Find the first matching path in the order defined by route config
@@ -127,15 +113,10 @@ const conversionFromLocation = (
   return extraBreadcrumbItems;
 };
 
-export type BreadcrumbListReturn = Pick<
-  BreadcrumbProps,
-  Extract<keyof BreadcrumbProps, 'items' | 'itemRender'>
->;
+export type BreadcrumbListReturn = Pick<BreadcrumbProps, Extract<keyof BreadcrumbProps, 'items' | 'itemRender'>>;
 
 /** 将参数转化为面包屑 Convert parameters into breadcrumbs */
-export const genBreadcrumbProps = (
-  props: BreadcrumbProLayoutProps,
-): BreadcrumbProps['items'] => {
+export const genBreadcrumbProps = (props: BreadcrumbProLayoutProps): BreadcrumbProps['items'] => {
   const { location, breadcrumbMap } = getBreadcrumbFromProps(props);
 
   // 根据 location 生成 面包屑
@@ -149,9 +130,7 @@ export const genBreadcrumbProps = (
 // 声明一个导出函数，接收两个参数：BreadcrumbProps和ProLayoutProps，返回一个BreadcrumbListReturn类型的对象
 export const getBreadcrumbProps = (
   props: Omit<BreadcrumbProLayoutProps, 'breadcrumbRender'> & {
-    breadcrumbRender?: WithFalse<
-      (routers: BreadcrumbProps['items']) => BreadcrumbProps['items']
-    >;
+    breadcrumbRender?: WithFalse<(routers: BreadcrumbProps['items']) => BreadcrumbProps['items']>;
   }, // BreadcrumbProps类型的props
   layoutPros: ProLayoutProps, // ProLayoutProps类型的layoutPros
 ): BreadcrumbListReturn => {

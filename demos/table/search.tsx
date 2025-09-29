@@ -1,5 +1,5 @@
-import type { ProColumns } from '@ant-design/pro-components';
-import { ProTable } from '@ant-design/pro-components';
+import type { ProColumns } from '@xxlabs/pro-components';
+import { ProTable } from '@xxlabs/pro-components';
 
 type GithubIssueItem = {
   key: number;
@@ -23,6 +23,10 @@ const columns: ProColumns<GithubIssueItem>[] = [
 const SearchTable = () => (
   <ProTable<GithubIssueItem>
     columns={columns}
+    headerTitle="toolbar 中搜索"
+    options={{
+      search: true,
+    }}
     request={async (params) => {
       console.log(params);
       return {
@@ -36,12 +40,8 @@ const SearchTable = () => (
         success: true,
       };
     }}
-    search={false}
     rowKey="key"
-    options={{
-      search: true,
-    }}
-    headerTitle="toolbar 中搜索"
+    search={false}
   />
 );
 

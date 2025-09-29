@@ -23,36 +23,32 @@ export const BaseDatePicker: React.FC<
       | 'dateQuarter'
       | 'dateYear';
   }
-> = React.forwardRef(
-  ({ proFieldProps, fieldProps, valueType, ...rest }, ref) => {
-    const context = useContext(FieldContext);
+> = ({ proFieldProps, fieldProps, valueType, ref, ...rest }) => {
+  const context = useContext(FieldContext);
 
-    return (
-      <ProConfigProvider
-        valueTypeMap={{
-          [valueType]: {
-            render: (text, props) => <FieldDatePicker {...props} text={text} />,
-            formItemRender: (text, props) => (
-              <FieldDatePicker {...props} text={text} />
-            ),
-          },
+  return (
+    <ProConfigProvider
+      valueTypeMap={{
+        [valueType]: {
+          render: (text, props) => <FieldDatePicker {...props} text={text} />,
+          formItemRender: (text, props) => <FieldDatePicker {...props} text={text} />,
+        },
+      }}
+    >
+      <ProFormField
+        fieldConfig={{
+          valueType,
+          customLightMode: true,
         }}
-      >
-        <ProFormField
-          valueType={valueType}
-          fieldProps={{
-            getPopupContainer: context.getPopupContainer,
-            ...fieldProps,
-          }}
-          proFieldProps={proFieldProps}
-          fieldConfig={{
-            valueType,
-            customLightMode: true,
-          }}
-          {...rest}
-          ref={ref}
-        />
-      </ProConfigProvider>
-    );
-  },
-);
+        fieldProps={{
+          getPopupContainer: context.getPopupContainer,
+          ...fieldProps,
+        }}
+        proFieldProps={proFieldProps}
+        valueType={valueType}
+        {...rest}
+        ref={ref}
+      />
+    </ProConfigProvider>
+  );
+};

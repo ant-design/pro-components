@@ -11,9 +11,9 @@ import {
   ProFormUploadButton,
   ProFormUploadDragger,
   StepsForm,
-} from '@ant-design/pro-components';
+} from '@xxlabs/pro-components';
 import { ConfigProvider, Input } from 'antd';
-import enUS from 'antd/lib/locale/en_US';
+import enUS from 'antd/es/locale/en_US';
 
 export default () => (
   <ConfigProvider locale={enUS}>
@@ -24,7 +24,6 @@ export default () => (
     </StepsForm>
 
     <ProForm
-      name="validate_other"
       initialValues={{
         'input-number': 3,
         'checkbox-group': ['A', 'B'],
@@ -32,32 +31,33 @@ export default () => (
         range: 5,
         name: 'qixian',
       }}
+      name="validate_other"
       onFinish={async (value) => console.log(value)}
     >
       <ProFormUploadButton
-        name="upload"
-        icon={<SmileOutlined />}
-        label="Upload"
-        title="点击上传"
         action="/upload.do"
         extra="longgggggggggggggggggggggggggggggggggg"
+        icon={<SmileOutlined />}
+        label="Upload"
+        name="upload"
+        title="点击上传"
       />
       <ProFormRadio name="test" />
       <ProFormCheckbox name="test2" />
-      <ProFormSwitch width="lg" label="是否打开" />
+      <ProFormSwitch label="是否打开" width="lg" />
       <ProFormUploadDragger
-        title="拖动上传"
-        icon={<SmileOutlined />}
         description="支持 text"
-        label="Dragger"
-        name="dragger"
         fieldProps={{
           showUploadList: true,
         }}
+        icon={<SmileOutlined />}
+        label="Dragger"
+        name="dragger"
+        title="拖动上传"
       />
       <LightWrapper valuePropName="value">test</LightWrapper>
       <LightWrapper valuePropName="value">test</LightWrapper>
-      <ProFormSlider name="range" label="范围" />
+      <ProFormSlider label="范围" name="range" />
       <ProFormField>test</ProFormField>
       <ProFormField>
         <Input />

@@ -1,6 +1,6 @@
 import { QuestionCircleOutlined, SearchOutlined } from '@ant-design/icons';
-import type { ProColumns } from '@ant-design/pro-components';
-import { ProTable } from '@ant-design/pro-components';
+import type { ProColumns } from '@xxlabs/pro-components';
+import { ProTable } from '@xxlabs/pro-components';
 import { Input, Tooltip } from 'antd';
 import { useState } from 'react';
 
@@ -35,10 +35,7 @@ for (let i = 0; i < 5; i += 1) {
     createdAt: Date.now() - Math.floor(Math.random() * 2000),
     money: Math.floor(Math.random() * 2000) * i,
     progress: Math.ceil(Math.random() * 100) + 1,
-    memo:
-      i % 2 === 1
-        ? '很长很长很长很长很长很长很长的文字要展示但是要留下尾巴'
-        : '简短备注文案',
+    memo: i % 2 === 1 ? '很长很长很长很长很长很长很长的文字要展示但是要留下尾巴' : '简短备注文案',
     statusText: '这是一段很随意的文字',
   });
 }
@@ -54,9 +51,7 @@ const columns: ProColumns<TableListItem>[] = [
         <Input style={{ width: 188, marginBottom: 8, display: 'block' }} />
       </div>
     ),
-    filterIcon: (filtered) => (
-      <SearchOutlined style={{ color: filtered ? '#1890ff' : undefined }} />
-    ),
+    filterIcon: (filtered) => <SearchOutlined style={{ color: filtered ? '#1890ff' : undefined }} />,
   },
   {
     title: '状态',
@@ -123,6 +118,11 @@ export default () => {
   return (
     <ProTable<TableListItem>
       columns={currentStatus === 'close' ? closeColumns : runningColumns}
+      columnsState={{
+        persistenceKey: `table_dynamic_status_${currentStatus}`,
+        persistenceType: 'sessionStorage',
+      }}
+      dateFormatter="string"
       request={() => {
         return Promise.resolve({
           data: tableListDataSource,
@@ -134,17 +134,12 @@ export default () => {
         layout: 'vertical',
         defaultCollapsed: false,
       }}
-      onSubmit={({ status }) => {
-        setCurrentStatus(status);
-      }}
-      columnsState={{
-        persistenceKey: `table_dynamic_status_${currentStatus}`,
-        persistenceType: 'sessionStorage',
-      }}
-      dateFormatter="string"
       toolbar={{
         title: '高级表格',
         tooltip: '动态列持久化',
+      }}
+      onSubmit={({ status }) => {
+        setCurrentStatus(status);
       }}
     />
   );
@@ -229,5 +224,5 @@ export default () => {
         <strong>用户体验</strong>: 用户体验优化
       </li>
     </ul>
-  </div>
+  </div>;
 };

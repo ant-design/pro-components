@@ -16,13 +16,16 @@ vi.stubEnv('TZ', 'UTC');
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
 vi.mock('antd', async (importActual) => {
+  // eslint-disable-next-line @typescript-eslint/consistent-type-imports
   const antd = await importActual<typeof import('antd')>();
   antd.theme.defaultConfig.hashed = false;
   return antd;
 });
 
 vi.mock('react', async (importActual) => ({
+  // eslint-disable-next-line @typescript-eslint/consistent-type-imports
   ...(await importActual<typeof import('react')>()),
+  // eslint-disable-next-line @typescript-eslint/consistent-type-imports
   useLayoutEffect: (await importActual<typeof import('react')>()).useEffect,
 }));
 

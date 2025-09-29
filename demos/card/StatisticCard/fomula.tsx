@@ -1,4 +1,4 @@
-import { StatisticCard } from '@ant-design/pro-components';
+import { StatisticCard } from '@xxlabs/pro-components';
 
 const { Operation } = StatisticCard;
 
@@ -46,8 +46,7 @@ export default () => {
         <h4>StatisticCard Operation Props 说明：</h4>
         <ul>
           <li>
-            <strong>children</strong>: 操作符内容，可以是数学符号如
-            '='、'+'、'-'、'×'、'÷' 等
+            <strong>children</strong>: 操作符内容，可以是数学符号如 '='、'+'、'-'、'×'、'÷' 等
           </li>
         </ul>
         <h4>Operation 组件特点：</h4>

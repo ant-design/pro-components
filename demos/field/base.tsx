@@ -1,5 +1,5 @@
-import type { ProFieldFCMode } from '@ant-design/pro-components';
-import { ProField } from '@ant-design/pro-components';
+import type { ProFieldFCMode } from '@xxlabs/pro-components';
+import { ProField } from '@xxlabs/pro-components';
 import { Descriptions, Radio, Space, Switch } from 'antd';
 import dayjs from 'dayjs';
 import { useState } from 'react';
@@ -10,10 +10,7 @@ export default () => {
   return (
     <>
       <Space>
-        <Radio.Group
-          onChange={(e) => setState(e.target.value as ProFieldFCMode)}
-          value={state}
-        >
+        <Radio.Group value={state} onChange={(e) => setState(e.target.value as ProFieldFCMode)}>
           <Radio value="read">只读</Radio>
           <Radio value="edit">编辑</Radio>
         </Radio.Group>
@@ -24,71 +21,47 @@ export default () => {
       <br />
       <Descriptions column={2}>
         <Descriptions.Item label="空字符串">
-          <ProField text="" mode="read" />
+          <ProField mode="read" text="" />
         </Descriptions.Item>
         <Descriptions.Item label="头像">
-          <ProField
-            text="https://avatars2.githubusercontent.com/u/8186664?s=60&v=4"
-            mode="read"
-            valueType="avatar"
-          />
+          <ProField mode="read" text="https://avatars2.githubusercontent.com/u/8186664?s=60&v=4" valueType="avatar" />
         </Descriptions.Item>
         <Descriptions.Item label="文本">
-          <ProField
-            text="这是一段文本"
-            valueType="text"
-            mode={state}
-            plain={plain}
-          />
+          <ProField mode={state} plain={plain} text="这是一段文本" valueType="text" />
         </Descriptions.Item>
         <Descriptions.Item label="图片">
           <ProField
-            text="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-            valueType="image"
             mode={state}
             plain={plain}
+            text="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+            valueType="image"
           />
         </Descriptions.Item>
         <Descriptions.Item label="金额">
-          <ProField text="100" valueType="money" mode={state} plain={plain} />
+          <ProField mode={state} plain={plain} text="100" valueType="money" />
         </Descriptions.Item>
         <Descriptions.Item label="颜色">
-          <ProField text="blue" valueType="color" mode={state} plain={plain} />
+          <ProField mode={state} plain={plain} text="blue" valueType="color" />
         </Descriptions.Item>
         <Descriptions.Item label="数字">
-          <ProField
-            text="19897979797979"
-            valueType="digit"
-            mode={state}
-            plain={plain}
-          />
+          <ProField mode={state} plain={plain} text="19897979797979" valueType="digit" />
         </Descriptions.Item>
         <Descriptions.Item label="数字范围">
-          <ProField
-            text={[123, 456]}
-            valueType="digitRange"
-            mode={state}
-            plain={plain}
-          />
+          <ProField mode={state} plain={plain} text={[123, 456]} valueType="digitRange" />
         </Descriptions.Item>
         <Descriptions.Item label="秒格式化">
-          <ProField
-            text={2000000}
-            valueType="second"
-            mode={state}
-            plain={plain}
-          />
+          <ProField mode={state} plain={plain} text={2000000} valueType="second" />
         </Descriptions.Item>
         <Descriptions.Item label="百分比">
-          <ProField text="100" valueType="percent" mode={state} plain={plain} />
+          <ProField mode={state} plain={plain} text="100" valueType="percent" />
         </Descriptions.Item>
         <Descriptions.Item label="评分">
-          <ProField text={3.5} valueType="rate" mode={state} plain={plain} />
+          <ProField mode={state} plain={plain} text={3.5} valueType="rate" />
         </Descriptions.Item>
         <Descriptions.Item label="选择框">
           <ProField
-            text="open"
             mode={state}
+            text="open"
             valueEnum={{
               all: { text: '全部', disabled: true, status: 'Default' },
               open: {
@@ -108,9 +81,8 @@ export default () => {
         </Descriptions.Item>
         <Descriptions.Item label="多选">
           <ProField
-            text={['open', 'closed']}
             mode={state}
-            valueType="checkbox"
+            text={['open', 'closed']}
             valueEnum={{
               all: { text: '全部', disabled: true, status: 'Default' },
               open: {
@@ -126,10 +98,12 @@ export default () => {
                 status: 'Processing',
               },
             }}
+            valueType="checkbox"
           />
         </Descriptions.Item>
         <Descriptions.Item label="多选 labelInValue">
           <ProField
+            mode={state}
             text={[
               {
                 value: 'open1',
@@ -140,8 +114,6 @@ export default () => {
                 label: '关闭',
               },
             ]}
-            mode={state}
-            valueType="checkbox"
             valueEnum={{
               all: { text: '全部', disabled: true, status: 'Default' },
               open: {
@@ -157,13 +129,13 @@ export default () => {
                 status: 'Processing',
               },
             }}
+            valueType="checkbox"
           />
         </Descriptions.Item>
         <Descriptions.Item label="单选">
           <ProField
-            text="open"
             mode={state}
-            valueType="radio"
+            text="open"
             valueEnum={{
               all: { text: '全部', disabled: true, status: 'Default' },
               open: {
@@ -179,13 +151,13 @@ export default () => {
                 status: 'Processing',
               },
             }}
+            valueType="radio"
           />
         </Descriptions.Item>
         <Descriptions.Item label="单选按钮">
           <ProField
-            text="open"
             mode={state}
-            valueType="radioButton"
+            text="open"
             valueEnum={{
               all: { text: '全部', disabled: true, status: 'Default' },
               open: {
@@ -201,13 +173,12 @@ export default () => {
                 status: 'Processing',
               },
             }}
+            valueType="radioButton"
           />
         </Descriptions.Item>
         <Descriptions.Item label="远程选择框">
           <ProField
-            text="open"
             mode={state}
-            valueType="select"
             request={async () => [
               { label: '全部', value: 'all' },
               { label: '未解决', value: 'open' },
@@ -223,18 +194,18 @@ export default () => {
                 ],
               },
             ]}
+            text="open"
+            valueType="select"
           />
         </Descriptions.Item>
         <Descriptions.Item label="级联选择框">
           <ProField
-            text={['zhejiang', 'hangzhou', 'xihu']}
-            mode={state}
-            valueType="cascader"
             fieldProps={{
               fieldNames: {
                 label: 'name',
               },
             }}
+            mode={state}
             request={async () => [
               {
                 value: 'zhejiang',
@@ -269,140 +240,105 @@ export default () => {
                 ],
               },
             ]}
+            text={['zhejiang', 'hangzhou', 'xihu']}
+            valueType="cascader"
           />
         </Descriptions.Item>
         <Descriptions.Item label="进度条">
-          <ProField text="40" valueType="progress" mode={state} plain={plain} />
+          <ProField mode={state} plain={plain} text="40" valueType="progress" />
         </Descriptions.Item>
         <Descriptions.Item label="slider">
-          <ProField text="40" valueType="slider" mode={state} plain={plain} />
+          <ProField mode={state} plain={plain} text="40" valueType="slider" />
         </Descriptions.Item>
         <Descriptions.Item label="百分比">
           <Space>
             <ProField
+              mode="read"
               text={10}
               valueType={{
                 type: 'percent',
                 showSymbol: true,
                 showColor: true,
               }}
-              mode="read"
             />
             <ProField
+              mode="read"
               text={0}
               valueType={{
                 type: 'percent',
                 showSymbol: true,
                 showColor: true,
               }}
-              mode="read"
             />
             <ProField
+              mode="read"
               text={-10}
               valueType={{
                 type: 'percent',
                 showSymbol: true,
                 showColor: true,
               }}
-              mode="read"
             />
           </Space>
         </Descriptions.Item>
         <Descriptions.Item label="日期时间">
-          <ProField
-            text={dayjs('2019-11-16 12:50:26').valueOf()}
-            valueType="dateTime"
-            mode={state}
-            plain={plain}
-          />
+          <ProField mode={state} plain={plain} text={dayjs('2019-11-16 12:50:26').valueOf()} valueType="dateTime" />
         </Descriptions.Item>
         <Descriptions.Item label="相对于当前时间">
           <Space>
-            <ProField
-              text={dayjs('2019-11-16 12:50:26').valueOf()}
-              valueType="fromNow"
-              mode={state}
-              plain={plain}
-            />
-            <ProField
-              text={dayjs('2020-11-16 12:50:26').valueOf()}
-              valueType="fromNow"
-              mode={state}
-              plain={plain}
-            />
+            <ProField mode={state} plain={plain} text={dayjs('2019-11-16 12:50:26').valueOf()} valueType="fromNow" />
+            <ProField mode={state} plain={plain} text={dayjs('2020-11-16 12:50:26').valueOf()} valueType="fromNow" />
           </Space>
         </Descriptions.Item>
         <Descriptions.Item label="日期">
-          <ProField
-            text={dayjs('2019-11-16 12:50:26').valueOf()}
-            valueType="date"
-            mode={state}
-            plain={plain}
-          />
+          <ProField mode={state} plain={plain} text={dayjs('2019-11-16 12:50:26').valueOf()} valueType="date" />
         </Descriptions.Item>
         <Descriptions.Item label="日期区间">
           <ProField
-            text={[
-              dayjs('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
-              dayjs('2019-11-16 12:50:26').valueOf(),
-            ]}
-            plain={plain}
-            valueType="dateRange"
             mode={state}
+            plain={plain}
+            text={[dayjs('2019-11-16 12:50:26').add(-1, 'd').valueOf(), dayjs('2019-11-16 12:50:26').valueOf()]}
+            valueType="dateRange"
           />
         </Descriptions.Item>
         <Descriptions.Item label="日期时间区间">
           <ProField
-            text={[
-              dayjs('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
-              dayjs('2019-11-16 12:50:26').valueOf(),
-            ]}
-            plain={plain}
-            valueType="dateTimeRange"
             mode={state}
+            plain={plain}
+            text={[dayjs('2019-11-16 12:50:26').add(-1, 'd').valueOf(), dayjs('2019-11-16 12:50:26').valueOf()]}
+            valueType="dateTimeRange"
           />
         </Descriptions.Item>
         <Descriptions.Item label="时间">
-          <ProField
-            text={dayjs('2019-11-16 12:50:26').valueOf()}
-            plain={plain}
-            valueType="time"
-            mode={state}
-          />
+          <ProField mode={state} plain={plain} text={dayjs('2019-11-16 12:50:26').valueOf()} valueType="time" />
         </Descriptions.Item>
         <Descriptions.Item label="时间区间">
           <ProField
-            text={[
-              dayjs('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
-              dayjs('2019-11-16 12:50:26').valueOf(),
-            ]}
-            plain={plain}
-            valueType="timeRange"
             mode={state}
+            plain={plain}
+            text={[dayjs('2019-11-16 12:50:26').add(-1, 'd').valueOf(), dayjs('2019-11-16 12:50:26').valueOf()]}
+            valueType="timeRange"
           />
         </Descriptions.Item>
         <Descriptions.Item label="密码">
-          <ProField
-            text="password"
-            plain={plain}
-            valueType="password"
-            mode={state}
-          />
+          <ProField mode={state} plain={plain} text="password" valueType="password" />
         </Descriptions.Item>
         <Descriptions.Item label="代码块">
           <ProField
+            mode={state}
+            plain={plain}
             text={`
 yarn run v1.22.0            
 $ eslint --format=pretty ./packages
 Done in 9.70s.
           `}
             valueType="code"
-            mode={state}
-            plain={plain}
           />
         </Descriptions.Item>
         <Descriptions.Item label="JSON 代码块">
           <ProField
+            mode={state}
+            plain={plain}
             text={`{
   "compilerOptions": {
     "target": "esnext",
@@ -421,8 +357,6 @@ Done in 9.70s.
 }
 `}
             valueType="jsonCode"
-            mode={state}
-            plain={plain}
           />
         </Descriptions.Item>
       </Descriptions>

@@ -1,17 +1,5 @@
-import {
-  LightFilter,
-  ProFormCascader,
-  ProFormText,
-  ProFormTreeSelect,
-  QueryFilter,
-} from '@ant-design/pro-components';
-import {
-  act,
-  cleanup,
-  fireEvent,
-  render,
-  waitFor,
-} from '@testing-library/react';
+import { act, cleanup, fireEvent, render, waitFor } from '@testing-library/react';
+import { LightFilter, ProFormCascader, ProFormText, ProFormTreeSelect, QueryFilter } from '@xxlabs/pro-components';
 import { TreeSelect } from 'antd';
 import { _el, _rs } from 'rc-resize-observer/es/utils/observerUtil';
 import { afterEach, describe, expect, it } from 'vitest';
@@ -29,11 +17,11 @@ describe('✔️ ProFormLightFilter', () => {
     const html = render(
       <LightFilter>
         <ProFormText
-          name="name1"
-          label="名称"
           fieldProps={{
             role: 'name_input',
           }}
+          label="名称"
+          name="name1"
         />
       </LightFilter>,
     );
@@ -83,7 +71,7 @@ describe('✔️ ProFormLightFilter', () => {
   it(' ✔️ QueryFilter resize', async () => {
     const html = render(
       <QueryFilter>
-        <ProFormText name="name1" label="名称" />
+        <ProFormText label="名称" name="name1" />
       </QueryFilter>,
     );
 
@@ -137,6 +125,9 @@ describe('✔️ ProFormLightFilter', () => {
             showCheckedStrategy: TreeSelect.SHOW_PARENT,
             placeholder: 'Please select',
           }}
+          initialValue={['0-0', '0-1']}
+          label="名称"
+          name="area"
           request={async () => {
             return [
               {
@@ -169,24 +160,17 @@ describe('✔️ ProFormLightFilter', () => {
               },
             ];
           }}
-          initialValue={['0-0', '0-1']}
-          name="area"
-          label="名称"
         />
       </LightFilter>,
     );
     expect(html.baseElement.querySelector('.ant-select-open')).toBe(null);
 
     await act(async () => {
-      const dom = await html.baseElement.querySelector<HTMLSpanElement>(
-        '.ant-pro-core-field-label-text',
-      );
+      const dom = await html.baseElement.querySelector<HTMLSpanElement>('.ant-pro-core-field-label-text');
       dom?.click?.();
     });
     await act(async () => {
-      const dom = await html.baseElement.querySelector<HTMLSpanElement>(
-        '.ant-pro-core-field-label-close',
-      );
+      const dom = await html.baseElement.querySelector<HTMLSpanElement>('.ant-pro-core-field-label-close');
       dom?.click?.();
     });
     expect(html.baseElement.querySelector('.ant-select-open')).not.toBe(null);
@@ -196,6 +180,9 @@ describe('✔️ ProFormLightFilter', () => {
     const html = render(
       <LightFilter>
         <ProFormCascader
+          initialValue={['zhejiang', 'hangzhou', 'xihu']}
+          label="名称"
+          name="area"
           request={async () => [
             {
               value: 'zhejiang',
@@ -230,24 +217,17 @@ describe('✔️ ProFormLightFilter', () => {
               ],
             },
           ]}
-          name="area"
-          initialValue={['zhejiang', 'hangzhou', 'xihu']}
-          label="名称"
         />
       </LightFilter>,
     );
     expect(html.baseElement.querySelector('.ant-select-open')).toBe(null);
 
     await act(async () => {
-      const dom = await html.baseElement.querySelector<HTMLSpanElement>(
-        '.ant-pro-core-field-label-text',
-      );
+      const dom = await html.baseElement.querySelector<HTMLSpanElement>('.ant-pro-core-field-label-text');
       dom?.click?.();
     });
     await act(async () => {
-      const dom = await html.baseElement.querySelector<HTMLSpanElement>(
-        '.ant-pro-core-field-label-close',
-      );
+      const dom = await html.baseElement.querySelector<HTMLSpanElement>('.ant-pro-core-field-label-close');
       dom?.click?.();
     });
 

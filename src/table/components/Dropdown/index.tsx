@@ -23,19 +23,14 @@ export type DropdownProps = {
  *
  * @param param0
  */
-const DropdownButton: React.FC<DropdownProps> = ({
-  children,
-  menus,
-  onSelect,
-  className,
-  style,
-}) => {
+const DropdownButton: React.FC<DropdownProps> = ({ children, menus, onSelect, className, style }) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
   const tempClassName = getPrefixCls('pro-table-dropdown');
 
   return (
     <Dropdown
+      className={classnames(tempClassName, className)}
       menu={{
         onClick: (params) => onSelect && onSelect(params.key as string),
         items: menus?.map((item) => ({
@@ -43,7 +38,6 @@ const DropdownButton: React.FC<DropdownProps> = ({
           key: item.key,
         })),
       }}
-      className={classnames(tempClassName, className)}
     >
       <Button style={style}>
         {children} <DownOutlined />
@@ -59,6 +53,7 @@ const TableDropdown: React.FC<DropdownProps> & {
   const className = getPrefixCls('pro-table-dropdown');
   return (
     <Dropdown
+      className={classnames(className, propsClassName)}
       menu={{
         onClick: (params) => {
           onSelect?.(params.key as string);
@@ -70,7 +65,6 @@ const TableDropdown: React.FC<DropdownProps> & {
           label: name,
         })),
       }}
-      className={classnames(className, propsClassName)}
     >
       <a style={style}>{children || <EllipsisOutlined />}</a>
     </Dropdown>

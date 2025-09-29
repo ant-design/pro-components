@@ -1,30 +1,26 @@
-import {
-  DefaultFooter,
-  PageContainer,
-  ProLayout,
-} from '@ant-design/pro-components';
+import { DefaultFooter, PageContainer, ProLayout } from '@xxlabs/pro-components';
 import defaultProps from './_defaultProps';
 
 export default () => (
   <ProLayout
     {...defaultProps}
-    style={{
-      height: '100vh',
-    }}
-    breakpoint={false}
     collapsed
-    location={{
-      pathname: '/welcome',
-    }}
+    breakpoint={false}
     footerRender={() => (
       <DefaultFooter
+        copyright="这是一条测试文案"
         links={[
           { key: 'test', title: 'layout', href: 'www.alipay.com' },
           { key: 'test2', title: 'layout2', href: 'www.alipay.com' },
         ]}
-        copyright="这是一条测试文案"
       />
     )}
+    location={{
+      pathname: '/welcome',
+    }}
+    style={{
+      height: '100vh',
+    }}
   >
     <PageContainer content="欢迎使用">Hello World</PageContainer>
   </ProLayout>

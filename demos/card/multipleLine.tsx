@@ -1,39 +1,19 @@
-import { ProCard } from '@ant-design/pro-components';
+import { ProCard } from '@xxlabs/pro-components';
 
 export default () => {
   return (
     <>
-      <ProCard
-        style={{ marginBlockStart: 8 }}
-        gutter={[16, 16]}
-        wrap
-        title="Wrap"
-      >
-        <ProCard
-          colSpan={{ xs: 24, sm: 12, md: 12, lg: 12, xl: 12 }}
-          layout="center"
-          variant="outlined"
-        >
+      <ProCard wrap gutter={[16, 16]} style={{ marginBlockStart: 8 }} title="Wrap">
+        <ProCard colSpan={{ xs: 24, sm: 12, md: 12, lg: 12, xl: 12 }} layout="center" variant="outlined">
           Col
         </ProCard>
-        <ProCard
-          colSpan={{ xs: 24, sm: 12, md: 12, lg: 12, xl: 12 }}
-          layout="center"
-          variant="outlined"
-        >
+        <ProCard colSpan={{ xs: 24, sm: 12, md: 12, lg: 12, xl: 12 }} layout="center" variant="outlined">
           Col
         </ProCard>
-        <ProCard
-          colSpan={{ xs: 24, sm: 12, md: 12, lg: 12, xl: 12 }}
-          layout="center"
-          variant="outlined"
-        >
+        <ProCard colSpan={{ xs: 24, sm: 12, md: 12, lg: 12, xl: 12 }} layout="center" variant="outlined">
           Col
         </ProCard>
-        <ProCard
-          colSpan={{ xs: 24, sm: 12, md: 12, lg: 12, xl: 12 }}
-          variant="outlined"
-        >
+        <ProCard colSpan={{ xs: 24, sm: 12, md: 12, lg: 12, xl: 12 }} variant="outlined">
           Col
         </ProCard>
       </ProCard>
@@ -49,8 +29,7 @@ export default () => {
         <h4>ProCard 多行布局 Props 说明：</h4>
         <ul>
           <li>
-            <strong>gutter</strong>: 间距设置，[16, 16] 表示水平和垂直间距都是
-            16px
+            <strong>gutter</strong>: 间距设置，[16, 16] 表示水平和垂直间距都是 16px
           </li>
           <li>
             <strong>wrap</strong>: 是否允许换行，布尔值

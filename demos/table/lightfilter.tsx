@@ -1,5 +1,5 @@
-import type { ProColumns } from '@ant-design/pro-components';
-import { ProTable } from '@ant-design/pro-components';
+import type { ProColumns } from '@xxlabs/pro-components';
+import { ProTable } from '@xxlabs/pro-components';
 import dayjs from 'dayjs';
 
 export type TableListItem = {
@@ -58,6 +58,12 @@ export default () => {
   return (
     <ProTable<TableListItem>
       columns={columns}
+      dateFormatter="string"
+      headerTitle="Light Filter"
+      options={false}
+      pagination={{
+        showQuickJumper: true,
+      }}
       request={(params, sorter, filter) => {
         // 表单搜索项会从 params 传入，传递给后端接口。
         console.log(params, sorter, filter);
@@ -66,16 +72,10 @@ export default () => {
           success: true,
         });
       }}
-      headerTitle="Light Filter"
       rowKey="key"
-      pagination={{
-        showQuickJumper: true,
-      }}
-      options={false}
       search={{
         filterType: 'light',
       }}
-      dateFormatter="string"
     />
   );
 

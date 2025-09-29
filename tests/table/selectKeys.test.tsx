@@ -1,5 +1,5 @@
-import { ProTable } from '@ant-design/pro-components';
 import { cleanup, render, waitFor } from '@testing-library/react';
+import { ProTable } from '@xxlabs/pro-components';
 import React, { act, useState } from 'react';
 import { afterAll, afterEach, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
@@ -13,10 +13,7 @@ describe('BasicTable Search', () => {
   const LINE_STR_COUNT = 20;
   // Mock offsetHeight
   // @ts-expect-error
-  const originOffsetHeight = Object.getOwnPropertyDescriptor(
-    HTMLElement.prototype,
-    'offsetHeight',
-  ).get;
+  const originOffsetHeight = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'offsetHeight').get;
   Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
     get() {
       let html = this.innerHTML;
@@ -44,7 +41,6 @@ describe('BasicTable Search', () => {
     const fn = vi.fn();
     const html = render(
       <ProTable
-        size="small"
         columns={[
           {
             title: 'Name',
@@ -64,19 +60,18 @@ describe('BasicTable Search', () => {
             },
           },
         ]}
+        dataSource={getFetchData(60)}
+        rowKey="key"
         rowSelection={{
           onChange: fn,
         }}
-        dataSource={getFetchData(60)}
-        rowKey="key"
+        size="small"
       />,
     );
     await waitForWaitTime(200);
     act(() => {
       html.baseElement
-        .querySelectorAll<HTMLInputElement>(
-          '.ant-table-cell label.ant-checkbox-wrapper input',
-        )[1]
+        .querySelectorAll<HTMLInputElement>('.ant-table-cell label.ant-checkbox-wrapper input')[1]
         ?.click();
     });
     await waitForWaitTime(200);
@@ -112,10 +107,7 @@ describe('BasicTable Search', () => {
           id: '002',
         },
       ];
-      const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([
-        '001',
-        '002',
-      ]);
+      const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>(['001', '002']);
       return (
         <ProTable
           columns={columns}

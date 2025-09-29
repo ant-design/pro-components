@@ -6,7 +6,7 @@ import {
   TabletOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import { PageContainer, ProCard, ProLayout } from '@ant-design/pro-components';
+import { PageContainer, ProCard, ProLayout } from '@xxlabs/pro-components';
 import { Button, Result } from 'antd';
 import { useState } from 'react';
 
@@ -21,6 +21,42 @@ export default () => {
     >
       <ProLayout
         fixSiderbar
+        actionsRender={() => [
+          <InfoCircleOutlined key="InfoCircleOutlined" />,
+          <QuestionCircleOutlined key="QuestionCircleOutlined" />,
+          <MergeCellsOutlined key="MergeCellsOutlined" />,
+        ]}
+        avatarProps={{
+          icon: <UserOutlined />,
+          size: 'small',
+          title: '七妮妮',
+        }}
+        location={{
+          pathname,
+        }}
+        menuFooterRender={(props) => {
+          if (props?.collapsed) return undefined;
+          return (
+            <p
+              style={{
+                textAlign: 'center',
+                color: 'rgba(0,0,0,0.6)',
+                paddingBlockStart: 12,
+              }}
+            >
+              Power by Ant Design
+            </p>
+          );
+        }}
+        menuItemRender={(item, dom) => (
+          <a
+            onClick={() => {
+              setPathname(item.path || '/welcome');
+            }}
+          >
+            {dom}
+          </a>
+        )}
         route={{
           path: '/',
           routes: [
@@ -73,46 +109,10 @@ export default () => {
             },
           ],
         }}
-        location={{
-          pathname,
-        }}
         waterMarkProps={{
           content: 'Pro Layout',
         }}
-        avatarProps={{
-          icon: <UserOutlined />,
-          size: 'small',
-          title: '七妮妮',
-        }}
-        actionsRender={() => [
-          <InfoCircleOutlined key="InfoCircleOutlined" />,
-          <QuestionCircleOutlined key="QuestionCircleOutlined" />,
-          <MergeCellsOutlined key="MergeCellsOutlined" />,
-        ]}
-        menuFooterRender={(props) => {
-          if (props?.collapsed) return undefined;
-          return (
-            <p
-              style={{
-                textAlign: 'center',
-                color: 'rgba(0,0,0,0.6)',
-                paddingBlockStart: 12,
-              }}
-            >
-              Power by Ant Design
-            </p>
-          );
-        }}
         onMenuHeaderClick={(e) => console.log(e)}
-        menuItemRender={(item, dom) => (
-          <a
-            onClick={() => {
-              setPathname(item.path || '/welcome');
-            }}
-          >
-            {dom}
-          </a>
-        )}
       >
         <PageContainer>
           <ProCard
@@ -122,13 +122,13 @@ export default () => {
             }}
           >
             <Result
+              extra={<Button type="primary">Back Home</Button>}
               status="404"
               style={{
                 height: '100%',
               }}
-              title="Hello World"
               subTitle="Sorry, you are not authorized to access this page."
-              extra={<Button type="primary">Back Home</Button>}
+              title="Hello World"
             />
           </ProCard>
         </PageContainer>

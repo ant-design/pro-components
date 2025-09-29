@@ -1,16 +1,14 @@
 import { EllipsisOutlined } from '@ant-design/icons';
-import { CheckCard } from '@ant-design/pro-components';
+import { CheckCard } from '@xxlabs/pro-components';
 import { Dropdown, message } from 'antd';
 
 export default () => (
   <>
     <CheckCard
       avatar="https://gw.alipayobjects.com/zos/bmw-prod/f601048d-61c2-44d0-bf57-ca1afe7fd92e.svg"
-      title="示例一"
       description="选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念。"
       extra={
         <Dropdown
-          placement="topCenter"
           menu={{
             onClick: ({ domEvent }) => {
               domEvent.stopPropagation();
@@ -31,13 +29,12 @@ export default () => (
               },
             ],
           }}
+          placement="topCenter"
         >
-          <EllipsisOutlined
-            style={{ fontSize: 22, color: 'rgba(0,0,0,0.5)' }}
-            onClick={(e) => e.stopPropagation()}
-          />
+          <EllipsisOutlined style={{ fontSize: 22, color: 'rgba(0,0,0,0.5)' }} onClick={(e) => e.stopPropagation()} />
         </Dropdown>
       }
+      title="示例一"
     />
 
     <div
@@ -69,8 +66,7 @@ export default () => (
           <strong>字符串</strong>: 直接传入字符串，显示简单文本
         </li>
         <li>
-          <strong>组件</strong>: 传入 React
-          节点，可以包含下拉菜单、按钮等复杂操作
+          <strong>组件</strong>: 传入 React 节点，可以包含下拉菜单、按钮等复杂操作
         </li>
       </ul>
       <h4>Dropdown 组件 Props：</h4>

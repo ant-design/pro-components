@@ -1,15 +1,9 @@
-import {
-  WithControlPropsType,
-  useControlModel,
-} from '@ant-design/pro-components';
+import type { WithControlPropsType } from '@xxlabs/pro-components';
+import { useControlModel } from '@xxlabs/pro-components';
 import { Button, Form, Input, Select } from 'antd';
 import React from 'react';
 
-export function PriceInput(
-  props: WithControlPropsType<{
-    // other props...
-  }>,
-) {
+export function PriceInput(props: WithControlPropsType) {
   const model = useControlModel(props, ['number', 'currency']);
 
   return (
@@ -37,21 +31,21 @@ const App: React.FC = () => {
 
   return (
     <Form
-      name="customized_form_controls"
-      layout="inline"
-      onFinish={onFinish}
       initialValues={{
         price: {
           number: 0,
           currency: 'rmb',
         },
       }}
+      layout="inline"
+      name="customized_form_controls"
+      onFinish={onFinish}
     >
-      <Form.Item name="price" label="Price" rules={[{ validator: checkPrice }]}>
+      <Form.Item label="Price" name="price" rules={[{ validator: checkPrice }]}>
         <PriceInput />
       </Form.Item>
       <Form.Item>
-        <Button type="primary" htmlType="submit">
+        <Button htmlType="submit" type="primary">
           Submit
         </Button>
       </Form.Item>

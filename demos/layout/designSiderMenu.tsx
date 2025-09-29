@@ -1,15 +1,6 @@
-import {
-  GithubFilled,
-  InfoCircleFilled,
-  QuestionCircleFilled,
-} from '@ant-design/icons';
-import type { ProSettings } from '@ant-design/pro-components';
-import {
-  PageContainer,
-  ProCard,
-  ProLayout,
-  SettingDrawer,
-} from '@ant-design/pro-components';
+import { GithubFilled, InfoCircleFilled, QuestionCircleFilled } from '@ant-design/icons';
+import type { ProSettings } from '@xxlabs/pro-components';
+import { PageContainer, ProCard, ProLayout, SettingDrawer } from '@xxlabs/pro-components';
 import { useState } from 'react';
 import defaultProps from './_defaultProps';
 
@@ -28,7 +19,6 @@ export default () => {
       }}
     >
       <ProLayout
-        siderWidth={256}
         bgLayoutImgList={[
           {
             src: 'https://img.alicdn.com/imgextra/i2/O1CN01O4etvp1DvpFLKfuWq_!!6000000000279-2-tps-609-606.png',
@@ -49,17 +39,8 @@ export default () => {
             width: '331px',
           },
         ]}
+        siderWidth={256}
         {...defaultProps}
-        location={{
-          pathname,
-        }}
-        menu={{
-          type: 'group',
-        }}
-        avatarProps={{
-          src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
-          title: '七妮妮',
-        }}
         actionsRender={(props) => {
           if (props.isMobile) return [];
           return [
@@ -67,6 +48,16 @@ export default () => {
             <QuestionCircleFilled key="QuestionCircleFilled" />,
             <GithubFilled key="GithubFilled" />,
           ];
+        }}
+        avatarProps={{
+          src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+          title: '七妮妮',
+        }}
+        location={{
+          pathname,
+        }}
+        menu={{
+          type: 'group',
         }}
         menuItemRender={(item, dom) => (
           <div
@@ -91,14 +82,14 @@ export default () => {
         </PageContainer>
       </ProLayout>
       <SettingDrawer
-        pathname={pathname}
         enableDarkTheme
+        disableUrlParams={false}
         getContainer={() => document.getElementById('test-pro-layout')}
+        pathname={pathname}
         settings={settings}
         onSettingChange={(changeSetting) => {
           setSetting(changeSetting);
         }}
-        disableUrlParams={false}
       />
     </div>
   );

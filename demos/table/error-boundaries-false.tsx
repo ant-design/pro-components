@@ -1,6 +1,6 @@
 ﻿import { EllipsisOutlined } from '@ant-design/icons';
-import type { ProColumns } from '@ant-design/pro-components';
-import { ProTable } from '@ant-design/pro-components';
+import type { ProColumns } from '@xxlabs/pro-components';
+import { ProTable } from '@xxlabs/pro-components';
 
 export type TableListItem = {
   key: number;
@@ -64,6 +64,7 @@ const columns: ProColumns<TableListItem>[] = [
 export default () => {
   return (
     <ProTable<TableListItem>
+      ErrorBoundary={false}
       columns={columns}
       request={(params, sorter, filter) => {
         // 表单搜索项会从 params 传入，传递给后端接口。
@@ -73,7 +74,6 @@ export default () => {
           success: true,
         });
       }}
-      ErrorBoundary={false}
       rowKey="key"
       search={false}
     />
@@ -144,5 +144,5 @@ export default () => {
         <strong>用户体验</strong>: 用户体验优化
       </li>
     </ul>
-  </div>
+  </div>;
 };

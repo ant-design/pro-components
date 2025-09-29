@@ -1,4 +1,4 @@
-import type { RangePickerProps } from 'antd/lib/date-picker';
+import type { RangePickerProps } from 'antd/es/date-picker';
 import React, { useContext } from 'react';
 import { FieldRangePicker } from '../../../field';
 import { ProConfigProvider } from '../../../provider';
@@ -18,39 +18,32 @@ export const BaseDateRanger: React.FC<
       | 'dateWeekRange'
       | 'dateTimeRange';
   }
-> = React.forwardRef(
-  ({ fieldProps, proFieldProps, valueType, ...rest }, ref) => {
-    const context = useContext(FieldContext);
-    return (
-      <ProConfigProvider
-        valueTypeMap={{
-          [valueType]: {
-            render: (text, props) => (
-              <FieldRangePicker {...props} text={text} />
-            ),
-            formItemRender: (text, props) => (
-              <FieldRangePicker {...props} text={text} />
-            ),
-          },
+> = ({ fieldProps, proFieldProps, valueType, ref, ...rest }) => {
+  const context = useContext(FieldContext);
+  return (
+    <ProConfigProvider
+      valueTypeMap={{
+        [valueType]: {
+          render: (text, props) => <FieldRangePicker {...props} text={text} />,
+          formItemRender: (text, props) => <FieldRangePicker {...props} text={text} />,
+        },
+      }}
+    >
+      <ProField
+        fieldConfig={{
+          valueType,
+          customLightMode: true,
+          lightFilterLabelFormatter: (value) => dateArrayFormatter(value, fieldProps?.format || 'YYYY-MM'),
         }}
-      >
-        <ProField
-          fieldProps={{
-            getPopupContainer: context.getPopupContainer,
-            ...fieldProps,
-          }}
-          valueType={valueType}
-          proFieldProps={proFieldProps}
-          fieldConfig={{
-            valueType,
-            customLightMode: true,
-            lightFilterLabelFormatter: (value) =>
-              dateArrayFormatter(value, fieldProps?.format || 'YYYY-MM'),
-          }}
-          {...rest}
-          ref={ref}
-        />
-      </ProConfigProvider>
-    );
-  },
-);
+        fieldProps={{
+          getPopupContainer: context.getPopupContainer,
+          ...fieldProps,
+        }}
+        proFieldProps={proFieldProps}
+        valueType={valueType}
+        {...rest}
+        ref={ref}
+      />
+    </ProConfigProvider>
+  );
+};

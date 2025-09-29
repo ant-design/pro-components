@@ -2,7 +2,7 @@ import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { useStyleRegister } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 import { ConfigProvider as AntdConfigProvider, theme as antdTheme } from 'antd';
-import type { GlobalToken } from 'antd/lib/theme/interface';
+import type { GlobalToken } from 'antd/es/theme/interface';
 import type React from 'react';
 import { useContext } from 'react';
 import { ProProvider } from '../index';
@@ -15,8 +15,7 @@ import type { ProTokenType } from '../typing/layoutToken';
  * @param alpha {0-1}
  * @returns rgba {string}
  */
-export const setAlpha = (baseColor: string, alpha: number) =>
-  new TinyColor(baseColor).setAlpha(alpha).toRgbString();
+export const setAlpha = (baseColor: string, alpha: number) => new TinyColor(baseColor).setAlpha(alpha).toRgbString();
 
 /**
  * 把一个颜色修改一些明度
@@ -30,10 +29,10 @@ export const lighten = (baseColor: string, brightness: number) => {
   return instance.lighten(brightness).toHexString();
 };
 
-export type GenerateStyle<
-  ComponentToken extends object = GlobalToken,
-  ReturnType = CSSInterpolation,
-> = (token: ComponentToken, ...rest: any[]) => ReturnType;
+export type GenerateStyle<ComponentToken extends object = GlobalToken, ReturnType = CSSInterpolation> = (
+  token: ComponentToken,
+  ...rest: any[]
+) => ReturnType;
 
 export const proTheme = antdTheme as typeof antdTheme;
 
@@ -92,13 +91,9 @@ export const operationUnit = (token: ProAliasToken): CSSObject => ({
  * @param styleFn {GenerateStyle} 生成样式的函数
  * @returns UseStyleResult
  */
-export function useStyle(
-  componentName: string,
-  styleFn: (token: ProAliasToken) => CSSInterpolation,
-) {
+export function useStyle(componentName: string, styleFn: (token: ProAliasToken) => CSSInterpolation) {
   // eslint-disable-next-line prefer-const
-  let { token = {} as Record<string, any> as ProAliasToken, hashed } =
-    useContext(ProProvider);
+  let { token = {} as Record<string, any> as ProAliasToken, hashed } = useContext(ProProvider);
 
   const { token: antdToken, hashId, theme } = antdTheme.useToken();
 

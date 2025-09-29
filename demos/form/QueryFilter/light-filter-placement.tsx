@@ -11,7 +11,7 @@ import {
   ProFormSwitch,
   ProFormText,
   ProFormTimePicker,
-} from '@ant-design/pro-components';
+} from '@xxlabs/pro-components';
 import { Radio } from 'antd';
 import React from 'react';
 
@@ -37,22 +37,22 @@ export default () => {
         }}
       >
         <ProFormSelect
-          name="sex"
-          label="性别"
           showSearch
           allowClear={false}
           fieldProps={{
             labelInValue: true,
           }}
+          label="性别"
+          name="sex"
           valueEnum={{
             man: '男',
             woman: '女',
           }}
         />
         <ProFormSelect
-          name="area"
           label="地区"
           mode="multiple"
+          name="area"
           valueEnum={{
             beijing: '北京',
             shanghai: '上海',
@@ -60,26 +60,19 @@ export default () => {
             long: '这是一个很长的用来测试溢出的项目',
           }}
         />
-        <ProFormDigit name="count" label="数量" />
-        <ProFormSlider name="range" label="范围" range />
-        <ProFormSlider name="slider" label="范围" />
-        <ProFormText name="name1" label="名称" />
-        <ProFormSwitch name="open" label="开关" secondary />
-        <ProFormText name="name2" label="地址" secondary />
-        <ProFormDatePicker
-          name="name3"
-          label="不能清空的日期"
-          allowClear={false}
-        />
-        <ProFormDateRangePicker name="date" label="日期范围" />
-        <ProFormDateTimePicker name="datetime" label="日期时间" />
-        <ProFormDateTimeRangePicker
-          name="datetimeRanger"
-          label="日期时间范围"
-        />
-        <ProFormTimePicker name="time" label="时间" />
-        <ProFormTimePicker.RangePicker name="timeRanger" label="时间范围" />
-        <ProFormFieldSet name="name" label="姓名">
+        <ProFormDigit label="数量" name="count" />
+        <ProFormSlider range label="范围" name="range" />
+        <ProFormSlider label="范围" name="slider" />
+        <ProFormText label="名称" name="name1" />
+        <ProFormSwitch secondary label="开关" name="open" />
+        <ProFormText secondary label="地址" name="name2" />
+        <ProFormDatePicker allowClear={false} label="不能清空的日期" name="name3" />
+        <ProFormDateRangePicker label="日期范围" name="date" />
+        <ProFormDateTimePicker label="日期时间" name="datetime" />
+        <ProFormDateTimeRangePicker label="日期时间范围" name="datetimeRanger" />
+        <ProFormTimePicker label="时间" name="time" />
+        <ProFormTimePicker.RangePicker label="时间范围" name="timeRanger" />
+        <ProFormFieldSet label="姓名" name="name">
           <ProFormText />
           <ProFormText />
         </ProFormFieldSet>

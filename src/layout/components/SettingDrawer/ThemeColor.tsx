@@ -7,14 +7,13 @@ export type TagProps = {
   check: boolean;
   className?: string;
   onClick?: () => void;
+  ref?: React.Ref<HTMLDivElement>;
 };
 
-const Tag: React.FC<TagProps> = React.forwardRef(
-  ({ color, check, ...rest }, ref) => (
-    <div {...rest} style={{ backgroundColor: color }} ref={ref as any}>
-      {check ? <CheckOutlined /> : ''}
-    </div>
-  ),
+const Tag: React.FC<TagProps> = ({ color, check, ref, ...rest }) => (
+  <div {...rest} ref={ref} style={{ backgroundColor: color }}>
+    {check ? <CheckOutlined /> : ''}
+  </div>
 );
 
 export type ThemeColorProps = {
@@ -28,12 +27,10 @@ export type ThemeColorProps = {
   onChange: (color: string) => void;
   formatMessage: (data: { id: any; defaultMessage?: string }) => string;
   hashId: string;
+  ref?: React.Ref<HTMLDivElement>;
 };
 
-const ThemeColor: React.ForwardRefRenderFunction<
-  HTMLDivElement,
-  ThemeColorProps
-> = ({ value, colorList, onChange, prefixCls, formatMessage, hashId }) => {
+const ThemeColor: React.FC<ThemeColorProps> = ({ value, colorList, onChange, prefixCls, formatMessage, hashId }) => {
   if (!colorList || colorList?.length < 1) {
     return null;
   }
@@ -53,9 +50,9 @@ const ThemeColor: React.ForwardRefRenderFunction<
             }
           >
             <Tag
+              check={value === color}
               className={`${baseClassName}-block ${hashId}`.trim()}
               color={color}
-              check={value === color}
               onClick={() => onChange && onChange(color)}
             />
           </Tooltip>

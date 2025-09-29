@@ -1,15 +1,22 @@
-﻿import { ProFormSelect } from '@ant-design/pro-components';
+﻿import { ProFormSelect } from '@xxlabs/pro-components';
 
 export default function App() {
   return (
     <div>
       <ProFormSelect
-        name="name"
-        placeholder="请输入搜索关键字"
         allowClear
-        width={330}
         secondary
+        fieldProps={{
+          fieldNames: {
+            value: 'v',
+            label: 'l',
+            options: 'options',
+          },
+          showSearch: true, // 使单选模式可搜索
+          autoClearSearchValue: true,
+        }}
         mode="tags"
+        name="name"
         options={
           [
             {
@@ -26,15 +33,8 @@ export default function App() {
             },
           ] as any
         }
-        fieldProps={{
-          fieldNames: {
-            value: 'v',
-            label: 'l',
-            options: 'options',
-          },
-          showSearch: true, // 使单选模式可搜索
-          autoClearSearchValue: true,
-        }}
+        placeholder="请输入搜索关键字"
+        width={330}
       />
 
       <div

@@ -1,36 +1,27 @@
 import type { TablePaginationConfig } from 'antd';
 import { ConfigProvider, Table } from 'antd';
 import type {
+  FilterValue as AntFilterValue,
   GetRowKey,
+  SorterResult,
   SortOrder,
   TableCurrentDataSource,
-} from 'antd/lib/table/interface';
+} from 'antd/es/table/interface';
 import classNames from 'classnames';
 import isEmpty from 'lodash-es/isEmpty';
 import isEqual from 'lodash-es/isEqual';
 import type Summary from 'rc-table/lib/Footer/Summary';
-import React, {
-  Key,
-  useCallback,
-  useContext,
-  useEffect,
-  useImperativeHandle,
-  useMemo,
-  useRef,
-} from 'react';
+import type { JSX, Key } from 'react';
+import React, { useCallback, useContext, useEffect, useImperativeHandle, useMemo, useRef } from 'react';
 import type { ActionType } from '.';
 import ProCard from '../card';
 import ValueTypeToComponent from '../field/ValueTypeToComponent';
 import ProForm, { GridContext } from '../form';
 import type { ParamsType } from '../provider';
-import ProConfigContext, {
-  ProConfigProvider,
-  proTheme,
-  useIntl,
-} from '../provider';
+import ProConfigContext, { ProConfigProvider, proTheme, useIntl } from '../provider';
 import {
-  ErrorBoundary,
   editableRowByKey,
+  ErrorBoundary,
   omitUndefined,
   recordKeyToString,
   stringify,
@@ -66,7 +57,6 @@ import {
 } from './utils';
 import { columnSort } from './utils/columnSort';
 import { genProColumnToColumn } from './utils/genProColumnToColumn';
-import { FilterValue as AntFilterValue, SorterResult } from 'antd/es/table/interface';
 
 function TableRender<T extends Record<string, any>, U, ValueType>(
   props: ProTableProps<T, U, ValueType> & {
@@ -82,7 +72,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     onFilterChange: (filter: Record<string, FilterValue>) => void;
     editableUtils: any;
     getRowKey: GetRowKey<any>;
-    tableRef: React.MutableRefObject<any>;
+    tableRef: React.RefObject<any>;
   },
 ) {
   const {
@@ -153,8 +143,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
    * @returns
    */
   const editableDataSource = (dataSource: any[]): T[] => {
-    const { options: newLineOptions, defaultValue: row } =
-      editableUtils.newLineRecord || {};
+    const { options: newLineOptions, defaultValue: row } = editableUtils.newLineRecord || {};
     const isNewLineRecordAtTop = newLineOptions?.position === 'top';
     if (newLineOptions?.parentKey) {
       const actionProps = {
@@ -162,18 +151,13 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
         getRowKey: getRowKey,
         row: {
           ...row,
-          map_row_parentKey: recordKeyToString(
-            newLineOptions.parentKey,
-          )?.toString(),
+          map_row_parentKey: recordKeyToString(newLineOptions.parentKey)?.toString(),
         },
         key: newLineOptions?.recordKey,
         childrenColumnName: props.expandable?.childrenColumnName || 'children',
       };
 
-      return editableRowByKey(
-        actionProps,
-        isNewLineRecordAtTop ? 'top' : 'update',
-      );
+      return editableRowByKey(actionProps, isNewLineRecordAtTop ? 'top' : 'update');
     }
 
     if (isNewLineRecordAtTop) {
@@ -186,11 +170,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
         newDataSource.push(row);
         return newDataSource;
       }
-      newDataSource.splice(
-        pagination?.current * pagination?.pageSize - 1,
-        0,
-        row,
-      );
+      newDataSource.splice(pagination?.current * pagination?.pageSize - 1, 0, row);
       return newDataSource;
     }
 
@@ -205,9 +185,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     style: tableStyle,
     columns,
     loading: action.loading,
-    dataSource: editableUtils.newLineRecord
-      ? editableDataSource(action.dataSource)
-      : action.dataSource,
+    dataSource: editableUtils.newLineRecord ? editableDataSource(action.dataSource) : action.dataSource,
     pagination,
     onChange: (
       changePagination: TablePaginationConfig,
@@ -220,7 +198,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
       // 传递服务端筛选数据
       const serverFilter = getServerFilterResult(filters, useFilterColumns);
       onFilterChange(omitUndefined(serverFilter));
-      
+
       // 传递服务端排序数据
       const serverSorter = getServerSorterResult(sorter);
       onSortChange(omitUndefined(serverSorter));
@@ -231,11 +209,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
    * 是否需要 card 来包裹
    */
   const notNeedCardDom = useMemo(() => {
-    if (
-      props.search === false &&
-      !props.headerTitle &&
-      props.toolBarRender === false
-    ) {
+    if (props.search === false && !props.headerTitle && props.toolBarRender === false) {
       return true;
     }
     return false;
@@ -250,7 +224,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
         rowProps: undefined,
       }}
     >
-      <Table<T> {...getTableProps()} rowKey={rowKey} ref={tableRef as any} />
+      <Table<T> {...getTableProps()} ref={tableRef as any} rowKey={rowKey} />
     </GridContext.Provider>
   );
 
@@ -278,14 +252,14 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
           {alertDom}
           <ProForm
             {...props.editable?.formProps}
-            formRef={props.editable?.formProps?.formRef as any}
-            component={false}
-            form={props.editable?.form}
-            onValuesChange={editableUtils.onValuesChange}
             key="table"
-            submitter={false}
-            omitNil={false}
+            component={false}
             dateFormatter={props.dateFormatter}
+            form={props.editable?.form}
+            formRef={props.editable?.formProps?.formRef as any}
+            omitNil={false}
+            submitter={false}
+            onValuesChange={editableUtils.onValuesChange}
           >
             {tableDom}
           </ProForm>
@@ -301,12 +275,10 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
         {tableDom}
       </>
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [alertDom, props.loading, !!props.editable, tableDom, toolbarDom]);
 
   const cardBodyStyle = useMemo(() => {
-    if (propsCardProps === false || notNeedCardDom === true || !!props.name)
-      return {};
+    if (propsCardProps === false || notNeedCardDom === true || !!props.name) return {};
 
     if (hideToolbar) {
       return {
@@ -328,14 +300,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     return {
       padding: 0,
     };
-  }, [
-    notNeedCardDom,
-    pagination,
-    props.name,
-    propsCardProps,
-    toolbarDom,
-    hideToolbar,
-  ]);
+  }, [notNeedCardDom, pagination, props.name, propsCardProps, toolbarDom, hideToolbar]);
 
   /** Table 区域的 dom，为了方便 render */
   const tableAreaDom =
@@ -344,9 +309,9 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
       tableContentDom
     ) : (
       <ProCard
+        bodyStyle={cardBodyStyle}
         ghost={props.ghost}
         variant={isBordered('table', cardBordered) ? 'outlined' : 'borderless'}
-        bodyStyle={cardBodyStyle}
         {...propsCardProps}
       >
         {tableContentDom}
@@ -366,11 +331,11 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
 
   const proTableDom = (
     <div
+      ref={counter.rootDomRef}
       className={classNames(className, {
         [`${defaultClassName}-polling`]: action.pollingLoading,
       })}
       style={style}
-      ref={counter.rootDomRef}
     >
       {isLightFilter ? null : searchNode}
       {/* 渲染一个额外的区域，用于一些自定义 */}
@@ -390,8 +355,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
   return (
     <ConfigProvider
       getPopupContainer={() => {
-        return (counter.rootDomRef.current ||
-          document.body) as any as HTMLElement;
+        return (counter.rootDomRef.current || document.body) as any as HTMLElement;
       }}
     >
       {proTableDom}
@@ -401,11 +365,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
 
 const emptyObj = {} as Record<string, any>;
 
-const ProTable = <
-  T extends Record<string, any>,
-  U extends ParamsType,
-  ValueType,
->(
+const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType>(
   props: ProTableProps<T, U, ValueType> & {
     defaultClassName: string;
   },
@@ -456,30 +416,24 @@ const ProTable = <
   const className = classNames(defaultClassName, propsClassName, hashId);
 
   /** 通用的来操作子节点的工具类 */
-  const actionRef = useRef<ActionType>();
+  const actionRef = useRef<ActionType>(undefined);
   // antd Table 实例 ref（仅用于转发 scrollTo 能力）
   const antTableRef = useRef<any>(null);
 
-  const defaultFormRef = useRef();
+  const defaultFormRef = useRef(undefined);
   const formRef = propRef || defaultFormRef;
 
   useImperativeHandle(propsActionRef, () => actionRef.current);
 
   /** 单选多选的相关逻辑 */
-  const [selectedRowKeys, setSelectedRowKeys] = useMountMergeState<
-    (string | number)[] | Key[] | undefined
-  >(
-    propsRowSelection
-      ? propsRowSelection?.defaultSelectedRowKeys || []
-      : undefined,
+  const [selectedRowKeys, setSelectedRowKeys] = useMountMergeState<(string | number)[] | Key[] | undefined>(
+    propsRowSelection ? propsRowSelection?.defaultSelectedRowKeys || [] : undefined,
     {
       value: propsRowSelection ? propsRowSelection.selectedRowKeys : undefined,
     },
   );
 
-  const [formSearch, setFormSearch] = useMountMergeState<
-    Record<string, any> | undefined
-  >(() => {
+  const [formSearch, setFormSearch] = useMountMergeState<Record<string, any> | undefined>(() => {
     // 如果手动模式，或者 search 不存在的时候设置为 undefined
     // undefined 就不会触发首次加载
     if (manualRequest || search !== false) {
@@ -518,13 +472,8 @@ const ProTable = <
         ...params,
       };
 
-      // eslint-disable-next-line no-underscore-dangle
       delete (actionParams as any)._timestamp;
-      const response = await request(
-        actionParams as unknown as U,
-        proSort,
-        proFilter,
-      );
+      const response = await request(actionParams as unknown as U, proSort, proFilter);
       return response as RequestData<T>;
     };
   }, [formSearch, params, proFilter, proSort, request]);
@@ -541,12 +490,7 @@ const ProTable = <
     revalidateOnFocus,
     manual: formSearch === undefined,
     polling,
-    effects: [
-      stringify(params),
-      stringify(formSearch),
-      stringify(proFilter),
-      stringify(proSort),
-    ],
+    effects: [stringify(params), stringify(formSearch), stringify(proFilter), stringify(proSort)],
     debounceTime: props.debounceTime,
     onPageInfoChange: (pageInfo) => {
       if (!propsPagination || !fetchData) return;
@@ -562,13 +506,7 @@ const ProTable = <
   /** 聚焦的时候重新请求数据，这样可以保证数据都是最新的。 */
   useEffect(() => {
     // 手动模式和 request 为空都不生效
-    if (
-      props.manualRequest ||
-      !props.request ||
-      !revalidateOnFocus ||
-      props.form?.ignoreRules
-    )
-      return;
+    if (props.manualRequest || !props.request || !revalidateOnFocus || props.form?.ignoreRules) return;
 
     // 聚焦时重新请求事件
     const visibilitychange = () => {
@@ -578,9 +516,7 @@ const ProTable = <
     };
 
     document.addEventListener('visibilitychange', visibilitychange);
-    return () =>
-      document.removeEventListener('visibilitychange', visibilitychange);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    return () => document.removeEventListener('visibilitychange', visibilitychange);
   }, []);
 
   /** SelectedRowKeys受控处理selectRows */
@@ -617,8 +553,7 @@ const ProTable = <
 
   /** 页面编辑的计算 */
   const pagination = useMemo(() => {
-    const newPropsPagination =
-      propsPagination === false ? false : { ...propsPagination };
+    const newPropsPagination = propsPagination === false ? false : { ...propsPagination };
     const pageConfig = {
       ...action.pageInfo,
       setPageInfo: ({ pageSize, current }: PageInfo) => {
@@ -646,7 +581,6 @@ const ProTable = <
       delete newPropsPagination.onShowSizeChange;
     }
     return mergePagination<T>(newPropsPagination, pageConfig, intl);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [propsPagination, action, intl]);
   useDeepCompareEffect(() => {
     // request 存在且params不为空，且已经请求过数据才需要设置。
@@ -661,7 +595,6 @@ const ProTable = <
         current: 1,
       });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params]);
 
   // 设置 name 到 store 中，里面用了 ref ，所以不用担心直接 set
@@ -693,7 +626,7 @@ const ProTable = <
   });
 
   // ============================ Render ============================
-  const { token } = proTheme?.useToken();
+  const { token } = proTheme?.useToken() || {};
 
   /** 绑定 action */
   useActionType(actionRef, action, {
@@ -731,7 +664,7 @@ const ProTable = <
       formRef?.current?.resetFields();
     },
     editableUtils,
-    scrollTo: (arg) => (antTableRef as any)?.current?.scrollTo?.(arg),
+    scrollTo: (arg: any) => (antTableRef as any)?.current?.scrollTo?.(arg),
   });
 
   /** 同步 action */
@@ -751,14 +684,13 @@ const ProTable = <
       proFilter,
       proSort,
     }).sort(columnSort(counter.columnsMap));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     propsColumns,
     counter?.sortKeyColumns,
     counter?.columnsMap,
     columnEmptyText,
     type,
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
     editableUtils.editableKeys && editableUtils.editableKeys.join(','),
     proFilter,
     proSort,
@@ -769,9 +701,7 @@ const ProTable = <
     () => {
       if (tableColumn && tableColumn.length > 0) {
         // 重新生成key的字符串用于排序
-        const columnKeys = tableColumn.map((item) =>
-          genColumnKey(item.key, item.index),
-        );
+        const columnKeys = tableColumn.map((item) => genColumnKey(item.key, item.index));
         counter.setSortKeyColumns(columnKeys);
       }
     },
@@ -783,8 +713,7 @@ const ProTable = <
   /** 同步 Pagination，支持受控的 页码 和 pageSize */
   useDeepCompareEffect(() => {
     const { pageInfo } = action;
-    const { current = pageInfo?.current, pageSize = pageInfo?.pageSize } =
-      propsPagination || {};
+    const { current = pageInfo?.current, pageSize = pageInfo?.pageSize } = propsPagination || {};
     if (
       propsPagination &&
       (current || pageSize) &&
@@ -795,10 +724,7 @@ const ProTable = <
         current: current || pageInfo.current,
       });
     }
-  }, [
-    propsPagination && propsPagination.pageSize,
-    propsPagination && propsPagination.current,
-  ]);
+  }, [propsPagination && propsPagination.pageSize, propsPagination && propsPagination.current]);
 
   /** 行选择相关的问题 */
   const rowSelection: TableRowSelection = {
@@ -813,20 +739,16 @@ const ProTable = <
   };
 
   /** 是不是 LightFilter, LightFilter 有一些特殊的处理 */
-  const isLightFilter: boolean =
-    search !== false && search?.filterType === 'light';
+  const isLightFilter: boolean = search !== false && search?.filterType === 'light';
 
   const onFormSearchSubmit = useCallback(
     <Y extends ParamsType>(values: Y): any => {
       // 判断search.onSearch返回值决定是否更新formSearch
       if (options && options.search) {
-        const { name = 'keyword' } =
-          options.search === true ? {} : options.search;
+        const { name = 'keyword' } = options.search === true ? {} : options.search;
 
         /** 如果传入的 onSearch 返回值为 false，则不要把options.search.name对应的值set到formSearch */
-        const success = (options.search as OptionSearchProps)?.onSearch?.(
-          counter.keyWords!,
-        );
+        const success = (options.search as OptionSearchProps)?.onSearch?.(counter.keyWords!);
 
         if (success !== false) {
           setFormSearch({
@@ -853,24 +775,24 @@ const ProTable = <
     const node =
       search === false && type !== 'form' ? null : (
         <FormRender<T, U>
-          pagination={pagination}
-          beforeSearchSubmit={beforeSearchSubmit}
           action={actionRef}
+          beforeSearchSubmit={beforeSearchSubmit}
+          cardBordered={props.cardBordered}
           columns={propsColumns}
+          dateFormatter={props.dateFormatter}
+          form={props.form}
+          formRef={formRef}
+          ghost={ghost}
+          loading={!!loading}
+          manualRequest={manualRequest}
+          pagination={pagination}
+          search={search}
+          type={props.type || 'table'}
           onFormSearchSubmit={(values) => {
             onFormSearchSubmit(values);
           }}
-          ghost={ghost}
           onReset={props.onReset}
           onSubmit={props.onSubmit}
-          loading={!!loading}
-          manualRequest={manualRequest}
-          search={search}
-          form={props.form}
-          formRef={formRef}
-          type={props.type || 'table'}
-          cardBordered={props.cardBordered}
-          dateFormatter={props.dateFormatter}
         />
       );
 
@@ -900,12 +822,7 @@ const ProTable = <
   ) as T[];
 
   const hideToolbar = useMemo(
-    () =>
-      options === false &&
-      !headerTitle &&
-      !toolBarRender &&
-      !toolbar &&
-      !isLightFilter,
+    () => options === false && !headerTitle && !toolBarRender && !toolbar && !isLightFilter,
     [options, headerTitle, toolBarRender, toolbar, isLightFilter],
   );
 
@@ -913,24 +830,24 @@ const ProTable = <
   const toolbarDom =
     toolBarRender === false ? null : (
       <Toolbar<T>
+        actionRef={actionRef}
         headerTitle={headerTitle}
         hideToolbar={hideToolbar}
-        selectedRows={selectedRows}
+        options={options}
+        optionsRender={optionsRender}
+        searchNode={isLightFilter ? searchNode : null}
         selectedRowKeys={selectedRowKeys!}
+        selectedRows={selectedRows}
         tableColumn={tableColumn}
-        tooltip={tooltip}
+        toolBarRender={toolBarRender}
         toolbar={toolbar}
+        tooltip={tooltip}
         onFormSearchSubmit={(newValues) => {
           setFormSearch({
             ...formSearch,
             ...newValues,
           });
         }}
-        searchNode={isLightFilter ? searchNode : null}
-        options={options}
-        optionsRender={optionsRender}
-        actionRef={actionRef}
-        toolBarRender={toolBarRender}
       />
     );
 
@@ -938,42 +855,42 @@ const ProTable = <
   const alertDom =
     propsRowSelection !== false ? (
       <Alert<T>
+        alertInfoRender={tableAlertRender}
+        alertOptionRender={rest.tableAlertOptionRender}
+        alwaysShowAlert={propsRowSelection?.alwaysShowAlert}
         selectedRowKeys={selectedRowKeys!}
         selectedRows={selectedRows}
         onCleanSelected={onCleanSelected}
-        alertOptionRender={rest.tableAlertOptionRender}
-        alertInfoRender={tableAlertRender}
-        alwaysShowAlert={propsRowSelection?.alwaysShowAlert}
       />
     ) : null;
   return wrapSSR(
     <TableRender
       {...props}
-      name={isEditorTable}
-      defaultClassName={defaultClassName}
-      size={counter.tableSize}
-      onSizeChange={counter.setTableSize}
-      pagination={pagination}
-      searchNode={searchNode}
-      rowSelection={propsRowSelection !== false ? rowSelection : undefined}
-      className={className}
-      tableColumn={tableColumn}
-      isLightFilter={isLightFilter}
       action={action}
       alertDom={alertDom}
-      toolbarDom={toolbarDom}
+      className={className}
+      defaultClassName={defaultClassName}
+      editableUtils={editableUtils}
+      getRowKey={getRowKey}
       hideToolbar={hideToolbar}
-      onSortChange={(sortConfig) => {
-        if (isEqual(sortConfig, proSort)) return;
-        setProSort(sortConfig ?? {});
-      }}
+      isLightFilter={isLightFilter}
+      name={isEditorTable}
+      pagination={pagination}
+      rowSelection={propsRowSelection !== false ? rowSelection : undefined}
+      searchNode={searchNode}
+      size={counter.tableSize}
+      tableColumn={tableColumn}
+      tableRef={antTableRef}
+      toolbarDom={toolbarDom}
       onFilterChange={(filterConfig) => {
         if (isEqual(filterConfig, proFilter)) return;
         setProFilter(filterConfig ?? {});
       }}
-      editableUtils={editableUtils}
-      getRowKey={getRowKey}
-      tableRef={antTableRef}
+      onSizeChange={counter.setTableSize}
+      onSortChange={(sortConfig) => {
+        if (isEqual(sortConfig, proSort)) return;
+        setProSort(sortConfig ?? {});
+      }}
     />,
   );
 };
@@ -992,23 +909,14 @@ const ProviderTableContainer = <
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
-  const ErrorComponent =
-    props.ErrorBoundary === false
-      ? React.Fragment
-      : props.ErrorBoundary || ErrorBoundary;
+  const ErrorComponent = props.ErrorBoundary === false ? React.Fragment : props.ErrorBoundary || ErrorBoundary;
 
   const context = useContext(ProConfigContext);
   return (
     <Container initValue={props}>
-      <ProConfigProvider
-        valueTypeMap={{ ...context.valueTypeMap, ...ValueTypeToComponent }}
-        needDeps
-      >
+      <ProConfigProvider needDeps valueTypeMap={{ ...context.valueTypeMap, ...ValueTypeToComponent }}>
         <ErrorComponent>
-          <ProTable<DataType, Params, ValueType>
-            defaultClassName={`${getPrefixCls('pro-table')}`}
-            {...props}
-          />
+          <ProTable<DataType, Params, ValueType> defaultClassName={`${getPrefixCls('pro-table')}`} {...props} />
         </ErrorComponent>
       </ProConfigProvider>
     </Container>

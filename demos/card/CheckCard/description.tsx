@@ -1,4 +1,4 @@
-import { CheckCard } from '@ant-design/pro-components';
+import { CheckCard } from '@xxlabs/pro-components';
 import { Typography } from 'antd';
 
 const { Paragraph } = Typography;
@@ -7,7 +7,6 @@ export default () => (
   <>
     <CheckCard
       avatar="https://gw.alipayobjects.com/zos/bmw-prod/f601048d-61c2-44d0-bf57-ca1afe7fd92e.svg"
-      title="默认描述区域不会进行折行"
       description={
         <span>
           选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念。
@@ -21,15 +20,16 @@ export default () => (
           </a>
         </span>
       }
+      title="默认描述区域不会进行折行"
     />
     <CheckCard
       avatar="https://gw.alipayobjects.com/zos/bmw-prod/f601048d-61c2-44d0-bf57-ca1afe7fd92e.svg"
-      title="你可以通过排版组件进行省略"
       description={
         <Paragraph ellipsis={{ rows: 2 }}>
           选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念。
         </Paragraph>
       }
+      title="你可以通过排版组件进行省略"
     />
 
     <div
@@ -64,8 +64,7 @@ export default () => (
       <h4>复杂 Description 示例：</h4>
       <ul>
         <li>
-          <strong>链接</strong>: 在描述中添加可点击的链接，使用 stopPropagation
-          阻止事件冒泡
+          <strong>链接</strong>: 在描述中添加可点击的链接，使用 stopPropagation 阻止事件冒泡
         </li>
         <li>
           <strong>排版组件</strong>: 使用 Typography.Paragraph 组件控制文本显示

@@ -123,9 +123,7 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
           insetInlineEnd: 2,
           width: 0,
           height: 0,
-          border: `${token.borderRadius + 4}px solid ${
-            token.colorTextDisabled
-          }`,
+          border: `${token.borderRadius + 4}px solid ${token.colorTextDisabled}`,
           borderBlockEnd: `${token.borderRadius + 4}px  solid transparent`,
           borderInlineStart: `${token.borderRadius + 4}px  solid transparent`,
           borderStartEndRadius: `${token.borderRadius}px`,

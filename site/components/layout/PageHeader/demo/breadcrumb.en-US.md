@@ -11,7 +11,7 @@ title: Use with breadcrumbs
 With breadcrumbs, it is suitable for deeper pages, allowing users to navigate quickly.
 
 ```tsx
-import { PageHeader } from '@ant-design/pro-components';
+import { PageHeader } from '@xxlabs/pro-components';
 import React from 'react';
 
 const routes = [

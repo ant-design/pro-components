@@ -1,7 +1,8 @@
 import { CloseCircleFilled, DownOutlined } from '@ant-design/icons';
 import { ConfigProvider } from 'antd';
-import type { SizeType } from 'antd/lib/config-provider/SizeContext';
+import type { SizeType } from 'antd/es/config-provider/SizeContext';
 import classNames from 'classnames';
+import type { JSX } from 'react';
 import React, { useContext, useImperativeHandle, useRef } from 'react';
 import { useIntl } from '../../../provider';
 import { useStyle } from './style';
@@ -28,10 +29,7 @@ export type FieldLabelProps = {
   onLabelClick?: () => void;
 };
 
-const FieldLabelFunction: React.ForwardRefRenderFunction<
-  any,
-  FieldLabelProps
-> = (props, ref) => {
+const FieldLabelFunction: React.ForwardRefRenderFunction<any, FieldLabelProps> = (props, ref) => {
   const {
     label,
     onClear,
@@ -64,9 +62,7 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
     clearRef,
   }));
 
-  const wrapElements = (
-    array: (string | JSX.Element)[],
-  ): JSX.Element[] | string => {
+  const wrapElements = (array: (string | JSX.Element)[]): JSX.Element[] | string => {
     if (array.every((item) => typeof item === 'string')) return array.join(',');
 
     return array.map((item, index) => {
@@ -99,18 +95,13 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
     aLabel?: React.ReactNode | React.ReactNode[],
     aValue?: string | string[],
   ): React.ReactNode => {
-    if (
-      aValue !== undefined &&
-      aValue !== null &&
-      aValue !== '' &&
-      (!Array.isArray(aValue) || aValue.length)
-    ) {
+    if (aValue !== undefined && aValue !== null && aValue !== '' && (!Array.isArray(aValue) || aValue.length)) {
       const prefix = aLabel ? (
         <span
+          className={`${prefixCls}-text`}
           onClick={() => {
             onLabelClick?.();
           }}
-          className={`${prefixCls}-text`}
         >
           {aLabel}
           {': '}
@@ -135,11 +126,7 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
       const getText = () => {
         const isArrayValue = Array.isArray(aValue) && aValue.length > 1;
         const unitText = intl.getMessage('form.lightFilter.itemUnit', '项');
-        if (
-          typeof str === 'string' &&
-          str.length > valueMaxLength &&
-          isArrayValue
-        ) {
+        if (typeof str === 'string' && str.length > valueMaxLength && isArrayValue) {
           return `...${aValue.length}${unitText}`;
         }
         return '';
@@ -148,17 +135,15 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
 
       return (
         <span
-          title={typeof str === 'string' ? str : undefined}
           style={{
             display: 'inline-flex',
             alignItems: 'center',
           }}
+          title={typeof str === 'string' ? str : undefined}
         >
           {prefix}
           <span style={{ paddingInlineStart: 4, display: 'flex' }}>
-            {typeof str === 'string'
-              ? str?.toString()?.slice?.(0, valueMaxLength)
-              : str}
+            {typeof str === 'string' ? str?.toString()?.slice?.(0, valueMaxLength) : str}
           </span>
           {tail}
         </span>
@@ -168,13 +153,13 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
   };
   return wrapSSR(
     <span
+      ref={labelRef}
       className={classNames(
         prefixCls,
         hashId,
         `${prefixCls}-${props.size ?? size ?? 'middle'}`,
         {
-          [`${prefixCls}-active`]:
-            (Array.isArray(value) ? value.length > 0 : !!value) || value === 0,
+          [`${prefixCls}-active`]: (Array.isArray(value) ? value.length > 0 : !!value) || value === 0,
           [`${prefixCls}-disabled`]: disabled,
           [`${prefixCls}-bordered`]: variant !== 'borderless',
           [`${prefixCls}-allow-clear`]: allowClear,
@@ -182,7 +167,6 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
         className,
       )}
       style={style}
-      ref={labelRef}
       onClick={() => {
         props?.onClick?.();
       }}
@@ -190,30 +174,18 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
       {getTextByValue(label, value)}
       {(value || value === 0) && allowClear && (
         <CloseCircleFilled
+          ref={clearRef}
+          className={classNames(`${prefixCls}-icon`, hashId, `${prefixCls}-close`)}
           role="button"
           title={intl.getMessage('form.lightFilter.clear', '清除')}
-          className={classNames(
-            `${prefixCls}-icon`,
-            hashId,
-            `${prefixCls}-close`,
-          )}
           onClick={(e) => {
             if (!disabled) onClear?.();
             e.stopPropagation();
           }}
-          ref={clearRef}
         />
       )}
       {downIcon !== false
-        ? (downIcon ?? (
-            <DownOutlined
-              className={classNames(
-                `${prefixCls}-icon`,
-                hashId,
-                `${prefixCls}-arrow`,
-              )}
-            />
-          ))
+        ? (downIcon ?? <DownOutlined className={classNames(`${prefixCls}-icon`, hashId, `${prefixCls}-arrow`)} />)
         : null}
     </span>,
   );

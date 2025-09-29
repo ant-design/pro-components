@@ -44,24 +44,20 @@ export const genCopyable = (dom: React.ReactNode, item: any, text: string) => {
         ? {
             tooltip:
               // 支持一下 tooltip 的关闭
-              item?.tooltip !== false && needTranText ? (
-                <div className="pro-table-tooltip-text">{dom}</div>
-              ) : (
-                text
-              ),
+              item?.tooltip !== false && needTranText ? <div className="pro-table-tooltip-text">{dom}</div> : text,
           }
         : false;
 
     return (
       <Typography.Text
+        copyable={copyable}
+        ellipsis={ellipsis}
         style={{
           width: '100%',
           margin: 0,
           padding: 0,
         }}
         title=""
-        copyable={copyable}
-        ellipsis={ellipsis}
       >
         {dom}
       </Typography.Text>

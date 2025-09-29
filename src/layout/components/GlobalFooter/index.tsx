@@ -19,22 +19,14 @@ export type GlobalFooterProps = {
   className?: string;
 };
 
-const GlobalFooter = ({
-  className,
-  prefixCls,
-  links,
-  copyright,
-  style,
-}: GlobalFooterProps) => {
+const GlobalFooter = ({ className, prefixCls, links, copyright, style }: GlobalFooterProps) => {
   const context = useContext(ConfigProvider.ConfigContext);
   const baseClassName = context.getPrefixCls(prefixCls || 'pro-global-footer');
 
   const { wrapSSR, hashId } = useStyle(baseClassName);
 
   if (
-    (links == null ||
-      links === false ||
-      (Array.isArray(links) && links.length === 0)) &&
+    (links == null || links === false || (Array.isArray(links) && links.length === 0)) &&
     (copyright == null || copyright === false)
   ) {
     return null;
@@ -46,23 +38,19 @@ const GlobalFooter = ({
         <div className={`${baseClassName}-list ${hashId}`.trim()}>
           {links.map((link) => (
             <a
-              className={`${baseClassName}-list-link ${hashId}`.trim()}
               key={link.key}
-              title={link.key}
-              target={link.blankTarget ? '_blank' : '_self'}
+              className={`${baseClassName}-list-link ${hashId}`.trim()}
               href={link.href}
               rel="noreferrer"
+              target={link.blankTarget ? '_blank' : '_self'}
+              title={link.key}
             >
               {link.title}
             </a>
           ))}
         </div>
       )}
-      {copyright && (
-        <div className={`${baseClassName}-copyright ${hashId}`.trim()}>
-          {copyright}
-        </div>
-      )}
+      {copyright && <div className={`${baseClassName}-copyright ${hashId}`.trim()}>{copyright}</div>}
     </div>,
   );
 };

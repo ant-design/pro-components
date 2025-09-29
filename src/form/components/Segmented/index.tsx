@@ -2,10 +2,7 @@
 import React from 'react';
 import { FieldSegmented } from '../../../field';
 import { ProConfigProvider } from '../../../provider';
-import type {
-  ProFormFieldItemProps,
-  ProFormFieldRemoteProps,
-} from '../../typing';
+import type { ProFormFieldItemProps, ProFormFieldRemoteProps } from '../../typing';
 import ProFormField from '../Field';
 
 /**
@@ -13,37 +10,35 @@ import ProFormField from '../Field';
  *
  * @param
  */
-const ProFormSegmented: React.ForwardRefRenderFunction<
-  any,
-  ProFormFieldItemProps<SegmentedProps> & ProFormFieldRemoteProps
-> = ({ fieldProps, request, params, proFieldProps, ...rest }, ref) => {
+const ProFormSegmented: React.FC<ProFormFieldItemProps<SegmentedProps> & ProFormFieldRemoteProps> = ({
+  fieldProps,
+  request,
+  params,
+  proFieldProps,
+  ref,
+  ...rest
+}) => {
   return (
     <ProConfigProvider
       valueTypeMap={{
         segmented: {
           render: (text, props) => <FieldSegmented {...props} text={text} />,
-          formItemRender: (text, props) => (
-            <FieldSegmented {...props} text={text} />
-          ),
+          formItemRender: (text, props) => <FieldSegmented {...props} text={text} />,
         },
       }}
     >
       <ProFormField
-        valueType="segmented"
-        fieldProps={fieldProps}
         ref={ref}
-        request={request}
-        params={params}
         fieldConfig={{ customLightMode: true }}
+        fieldProps={fieldProps}
+        params={params}
         proFieldProps={proFieldProps}
+        request={request}
+        valueType="segmented"
         {...rest}
       />
     </ProConfigProvider>
   );
 };
 
-const WarpProFormSegmented: React.FC<
-  ProFormFieldItemProps<SegmentedProps> & ProFormFieldRemoteProps
-> = React.forwardRef(ProFormSegmented);
-
-export default WarpProFormSegmented;
+export default ProFormSegmented;

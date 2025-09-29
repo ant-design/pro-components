@@ -1,16 +1,8 @@
 import { EllipsisOutlined } from '@ant-design/icons';
-import { ProList } from '@ant-design/pro-components';
+import { ProList } from '@xxlabs/pro-components';
 import { Progress, Tag } from 'antd';
 
-const data = [
-  '语雀的天空',
-  'Ant Design',
-  '蚂蚁金服体验科技',
-  'TechUI',
-  'TechUI 2.0',
-  'Bigfish',
-  'Umi',
-].map((item) => ({
+const data = ['语雀的天空', 'Ant Design', '蚂蚁金服体验科技', 'TechUI', 'TechUI 2.0', 'Bigfish', 'Umi'].map((item) => ({
   title: item,
   subTitle: <Tag color="#5BD8A6">语雀专栏</Tag>,
   actions: [
@@ -20,8 +12,7 @@ const data = [
       <EllipsisOutlined />
     </a>,
   ],
-  avatar:
-    'https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg',
+  avatar: 'https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg',
   content: (
     <div
       style={{
@@ -45,10 +36,8 @@ const data = [
 export default () => {
   return (
     <ProList<any>
-      pagination={{
-        defaultPageSize: 5,
-        showSizeChanger: true,
-      }}
+      dataSource={data}
+      headerTitle="翻页"
       metas={{
         title: {},
         subTitle: {},
@@ -57,8 +46,10 @@ export default () => {
         content: {},
         actions: {},
       }}
-      headerTitle="翻页"
-      dataSource={data}
+      pagination={{
+        defaultPageSize: 5,
+        showSizeChanger: true,
+      }}
     />
   );
 };

@@ -1,11 +1,5 @@
-import { ProTable } from '@ant-design/pro-components';
-import {
-  act,
-  cleanup,
-  fireEvent,
-  render,
-  waitFor,
-} from '@testing-library/react';
+import { act, cleanup, fireEvent, render, waitFor } from '@testing-library/react';
+import { ProTable } from '@xxlabs/pro-components';
 import type { FormInstance } from 'antd';
 import React from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
@@ -19,8 +13,6 @@ describe('BasicTable Search', () => {
     const fn = vi.fn();
     const { container } = render(
       <ProTable
-        type="form"
-        size="small"
         columns={[
           {
             title: 'Name',
@@ -40,30 +32,25 @@ describe('BasicTable Search', () => {
             },
           },
         ]}
-        onSubmit={fn}
         rowKey="key"
+        size="small"
+        type="form"
+        onSubmit={fn}
       />,
     );
 
-    fireEvent.click(
-      container.querySelector('.ant-form button.ant-btn-primary')!,
-    );
+    fireEvent.click(container.querySelector('.ant-form button.ant-btn-primary')!);
 
     await waitFor(() => {
       expect(fn).toHaveBeenCalledTimes(1);
     });
 
-    fireEvent.change(
-      container.querySelectorAll('.ant-form input.ant-input')[0],
-      {
-        target: {
-          value: 'name',
-        },
+    fireEvent.change(container.querySelectorAll('.ant-form input.ant-input')[0], {
+      target: {
+        value: 'name',
       },
-    );
-    fireEvent.click(
-      container.querySelector('.ant-form button.ant-btn-primary')!,
-    );
+    });
+    fireEvent.click(container.querySelector('.ant-form button.ant-btn-primary')!);
     await waitFor(() => {
       expect(fn).toHaveBeenCalledWith({
         name: 'name',
@@ -75,7 +62,6 @@ describe('BasicTable Search', () => {
     const fn = vi.fn();
     render(
       <ProTable
-        size="small"
         columns={[
           {
             title: 'Name',
@@ -103,6 +89,7 @@ describe('BasicTable Search', () => {
           return { data: [], success: true };
         }}
         rowKey="key"
+        size="small"
       />,
     );
 
@@ -117,7 +104,6 @@ describe('BasicTable Search', () => {
     const fn = vi.fn();
     render(
       <ProTable
-        size="small"
         columns={[
           {
             title: 'Name',
@@ -137,6 +123,11 @@ describe('BasicTable Search', () => {
             },
           },
         ]}
+        form={{
+          initialValues: {
+            name: 'name',
+          },
+        }}
         request={async (params) => {
           fn({
             name: params.name,
@@ -144,11 +135,7 @@ describe('BasicTable Search', () => {
           return { data: [], success: true };
         }}
         rowKey="key"
-        form={{
-          initialValues: {
-            name: 'name',
-          },
-        }}
+        size="small"
       />,
     );
 
@@ -165,9 +152,6 @@ describe('BasicTable Search', () => {
     const { container } = render(
       <ProTable
         // @ts-ignore
-        formRef={ref}
-        type="form"
-        size="small"
         columns={[
           {
             title: 'Name',
@@ -187,8 +171,12 @@ describe('BasicTable Search', () => {
             },
           },
         ]}
-        onSubmit={fn}
+        // @ts-ignore
+        formRef={ref}
         rowKey="key"
+        size="small"
+        type="form"
+        onSubmit={fn}
       />,
     );
     /** 修改值 */
@@ -198,9 +186,7 @@ describe('BasicTable Search', () => {
       });
     });
 
-    fireEvent.click(
-      container.querySelector('.ant-form button.ant-btn-primary')!,
-    );
+    fireEvent.click(container.querySelector('.ant-form button.ant-btn-primary')!);
 
     await waitFor(() => {
       expect(fn).toHaveBeenCalledWith({
@@ -213,10 +199,6 @@ describe('BasicTable Search', () => {
     const ref = React.createRef<FormInstance | undefined>();
     const { container } = render(
       <ProTable
-        type="form"
-        // @ts-ignore
-        formRef={ref}
-        size="small"
         columns={[
           {
             title: 'Name',
@@ -258,7 +240,11 @@ describe('BasicTable Search', () => {
             },
           },
         ]}
+        // @ts-ignore
+        formRef={ref}
         rowKey="key"
+        size="small"
+        type="form"
       />,
     );
 
@@ -268,26 +254,13 @@ describe('BasicTable Search', () => {
       });
     });
 
-    expect(
-      !!container.querySelectorAll('.ant-select-disabled').length,
-    ).toBeTruthy();
+    expect(!!container.querySelectorAll('.ant-select-disabled').length).toBeTruthy();
   });
 
   it('🎏 make sure formItemProps have the highest priority', async () => {
     const ref = React.createRef<FormInstance | undefined>();
     render(
       <ProTable
-        type="form"
-        // @ts-ignore
-        formRef={ref}
-        size="small"
-        form={{
-          onValuesChange(changedValue) {
-            expect(changedValue).toEqual({
-              changedName: 'Pro Components',
-            });
-          },
-        }}
         columns={[
           {
             title: 'Name',
@@ -301,7 +274,18 @@ describe('BasicTable Search', () => {
             dataIndex: 'name',
           },
         ]}
+        form={{
+          onValuesChange(changedValue) {
+            expect(changedValue).toEqual({
+              changedName: 'Pro Components',
+            });
+          },
+        }}
+        // @ts-ignore
+        formRef={ref}
         rowKey="key"
+        size="small"
+        type="form"
       />,
     );
 

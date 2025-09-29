@@ -1,6 +1,5 @@
 import { omit } from '@rc-component/util';
 import { Input } from 'antd';
-import React from 'react';
 import { useIntl } from '../../../provider';
 import type { ProFieldFC } from '../../PureProField';
 import FieldTextAreaReadonly from './readonly';
@@ -12,18 +11,14 @@ import FieldTextAreaReadonly from './readonly';
  */
 const FieldTextArea: ProFieldFC<{
   text: string;
-}> = (props, ref) => {
+}> = ({ ref, ...props }) => {
   const { text, mode, render, formItemRender, fieldProps } = props;
   const intl = useIntl();
 
   if (mode === 'read') {
     const dom = <FieldTextAreaReadonly {...props} ref={ref} />;
     if (render) {
-      return render(
-        text,
-        { mode, ...(omit(fieldProps, ['showCount']) as any) },
-        dom,
-      );
+      return render(text, { mode, ...(omit(fieldProps, ['showCount']) as any) }, dom);
     }
     return dom;
   }
@@ -31,11 +26,11 @@ const FieldTextArea: ProFieldFC<{
     const dom = (
       <Input.TextArea
         ref={ref}
+        placeholder={intl.getMessage('tableForm.inputPlaceholder', '请输入')}
         rows={3}
         onKeyPress={(e) => {
           if (e.key === 'Enter') e.stopPropagation();
         }}
-        placeholder={intl.getMessage('tableForm.inputPlaceholder', '请输入')}
         {...fieldProps}
       />
     );
@@ -47,4 +42,4 @@ const FieldTextArea: ProFieldFC<{
   return null;
 };
 
-export default React.forwardRef(FieldTextArea);
+export default FieldTextArea;

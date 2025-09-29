@@ -1,14 +1,9 @@
 import { InputNumber } from 'antd';
 import type { ReactNode } from 'react';
-import React, { Fragment, useMemo } from 'react';
+import { Fragment, useMemo } from 'react';
 import { useIntl } from '../../../provider';
 import type { ProFieldFC } from '../../PureProField';
-import {
-  getColorByRealValue,
-  getRealTextWithPrecision,
-  getSymbolByRealValue,
-  toNumber,
-} from './util';
+import { getColorByRealValue, getRealTextWithPrecision, getSymbolByRealValue, toNumber } from './util';
 
 export type PercentPropInt = {
   prefix?: ReactNode;
@@ -25,25 +20,22 @@ export type PercentPropInt = {
  *
  * @param PercentPropInt
  */
-const FieldPercent: ProFieldFC<PercentPropInt> = (
-  {
-    text,
-    prefix,
-    precision,
-    suffix = '%',
-    mode,
-    showColor = false,
-    render,
-    formItemRender,
-    fieldProps,
-    placeholder,
-    showSymbol: propsShowSymbol,
-  },
+const FieldPercent: ProFieldFC<PercentPropInt> = ({
+  text,
+  prefix,
+  precision,
+  suffix = '%',
+  mode,
+  showColor = false,
+  render,
+  formItemRender,
+  fieldProps,
+  placeholder,
+  showSymbol: propsShowSymbol,
   ref,
-) => {
+}) => {
   const intl = useIntl();
-  const placeholderValue =
-    placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入');
+  const placeholderValue = placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入');
   const realValue = useMemo(
     () =>
       typeof text === 'string' && (text as string).includes('%')
@@ -63,7 +55,7 @@ const FieldPercent: ProFieldFC<PercentPropInt> = (
     const style = showColor ? { color: getColorByRealValue(realValue) } : {};
 
     const dom = (
-      <span style={style} ref={ref}>
+      <span ref={ref} style={style}>
         {prefix && <span>{prefix}</span>}
         {showSymbol && <Fragment>{getSymbolByRealValue(realValue)} </Fragment>}
         {getRealTextWithPrecision(Math.abs(realValue), precision)}
@@ -71,11 +63,7 @@ const FieldPercent: ProFieldFC<PercentPropInt> = (
       </span>
     );
     if (render) {
-      return render(
-        text,
-        { mode, ...fieldProps, prefix, precision, showSymbol, suffix },
-        dom,
-      );
+      return render(text, { mode, ...fieldProps, prefix, precision, showSymbol, suffix }, dom);
     }
     return dom;
   }
@@ -102,4 +90,4 @@ const FieldPercent: ProFieldFC<PercentPropInt> = (
   return null;
 };
 
-export default React.forwardRef(FieldPercent);
+export default FieldPercent;

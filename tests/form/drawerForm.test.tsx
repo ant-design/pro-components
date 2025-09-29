@@ -1,5 +1,5 @@
-﻿import { DrawerForm, ModalForm, ProFormText } from '@ant-design/pro-components';
-import { fireEvent, getByText, render, waitFor } from '@testing-library/react';
+﻿import { fireEvent, getByText, render, waitFor } from '@testing-library/react';
+import { DrawerForm, ModalForm, ProFormText } from '@xxlabs/pro-components';
 import { Button, Form } from 'antd';
 import React, { act } from 'react';
 import { describe, expect, it, vi } from 'vitest';
@@ -9,11 +9,7 @@ describe('DrawerForm', () => {
   it('📦 trigger will simulate onOpenChange', async () => {
     const fn = vi.fn();
     const wrapper = render(
-      <DrawerForm
-        width={600}
-        trigger={<Button id="new">新建</Button>}
-        onOpenChange={(open) => fn(open)}
-      >
+      <DrawerForm trigger={<Button id="new">新建</Button>} width={600} onOpenChange={(open) => fn(open)}>
         <ProFormText name="name" />
       </DrawerForm>,
     );
@@ -29,16 +25,12 @@ describe('DrawerForm', () => {
   it('📦 DrawerForm first no render items', async () => {
     const fn = vi.fn();
     const wrapper = render(
-      <DrawerForm
-        width={600}
-        trigger={<Button id="new">新建</Button>}
-        onOpenChange={(open) => fn(open)}
-      >
+      <DrawerForm trigger={<Button id="new">新建</Button>} width={600} onOpenChange={(open) => fn(open)}>
         <ProFormText
-          name="name"
           fieldProps={{
             id: 'test',
           }}
+          name="name"
         />
       </DrawerForm>,
     );
@@ -57,16 +49,16 @@ describe('DrawerForm', () => {
   it('📦 DrawerForm first render items', async () => {
     const wrapper = render(
       <DrawerForm
-        width={600}
         drawerProps={{
           forceRender: true,
         }}
+        width={600}
       >
         <ProFormText
-          name="name"
           fieldProps={{
             id: 'test',
           }}
+          name="name"
         />
       </DrawerForm>,
     );
@@ -76,11 +68,7 @@ describe('DrawerForm', () => {
 
   it('📦 DrawerForm support submitter is false', async () => {
     const wrapper = render(
-      <DrawerForm
-        open
-        trigger={<Button id="new">新建</Button>}
-        submitter={false}
-      >
+      <DrawerForm open submitter={false} trigger={<Button id="new">新建</Button>}>
         <ProFormText name="name" />
       </DrawerForm>,
     );
@@ -92,23 +80,17 @@ describe('DrawerForm', () => {
 
     await waitForWaitTime(300);
 
-    expect(
-      !!wrapper.baseElement.querySelector('.ant-drawer-footer'),
-    ).toBeFalsy();
+    expect(!!wrapper.baseElement.querySelector('.ant-drawer-footer')).toBeFalsy();
   });
 
   it('📦 DrawerForm destroyOnHidden', async () => {
     const wrapper = render(
-      <DrawerForm
-        width={600}
-        open={false}
-        drawerProps={{ destroyOnHidden: true }}
-      >
+      <DrawerForm drawerProps={{ destroyOnHidden: true }} open={false} width={600}>
         <ProFormText
-          name="name"
           fieldProps={{
             id: 'test',
           }}
+          name="name"
         />
       </DrawerForm>,
     );
@@ -117,12 +99,12 @@ describe('DrawerForm', () => {
 
     act(() => {
       wrapper.rerender(
-        <DrawerForm width={600} open drawerProps={{ destroyOnHidden: true }}>
+        <DrawerForm open drawerProps={{ destroyOnHidden: true }} width={600}>
           <ProFormText
-            name="name"
             fieldProps={{
               id: 'test',
             }}
+            name="name"
           />
         </DrawerForm>,
       );
@@ -132,17 +114,12 @@ describe('DrawerForm', () => {
 
     act(() => {
       wrapper.rerender(
-        <DrawerForm
-          key="reset"
-          width={600}
-          open={false}
-          drawerProps={{ destroyOnHidden: true }}
-        >
+        <DrawerForm key="reset" drawerProps={{ destroyOnHidden: true }} open={false} width={600}>
           <ProFormText
-            name="name"
             fieldProps={{
               id: 'test',
             }}
+            name="name"
           />
         </DrawerForm>,
       );
@@ -154,22 +131,14 @@ describe('DrawerForm', () => {
   it('📦 drawer close button will simulate onOpenChange', async () => {
     const fn = vi.fn();
     const wrapper = render(
-      <DrawerForm
-        open
-        trigger={<Button id="new">新建</Button>}
-        onOpenChange={(open) => fn(open)}
-      >
+      <DrawerForm open trigger={<Button id="new">新建</Button>} onOpenChange={(open) => fn(open)}>
         <ProFormText name="name" />
       </DrawerForm>,
     );
     await waitForWaitTime(100);
 
     act(() => {
-      (
-        wrapper.baseElement.querySelector(
-          'button.ant-drawer-close',
-        ) as HTMLButtonElement
-      ).click();
+      (wrapper.baseElement.querySelector('button.ant-drawer-close') as HTMLButtonElement).click();
     });
     await waitForWaitTime(100);
     expect(fn).toHaveBeenCalledWith(false);
@@ -178,11 +147,7 @@ describe('DrawerForm', () => {
   it('📦 drawer close button will simulate onOpenChange', async () => {
     const fn = vi.fn();
     const wrapper = render(
-      <DrawerForm
-        open
-        trigger={<Button id="new">新建</Button>}
-        onOpenChange={(open) => fn(open)}
-      >
+      <DrawerForm open trigger={<Button id="new">新建</Button>} onOpenChange={(open) => fn(open)}>
         <ProFormText name="name" />
       </DrawerForm>,
     );
@@ -190,11 +155,7 @@ describe('DrawerForm', () => {
     await waitForWaitTime(100);
 
     act(() => {
-      (
-        wrapper.baseElement.querySelector(
-          'button.ant-drawer-close',
-        ) as HTMLButtonElement
-      ).click();
+      (wrapper.baseElement.querySelector('button.ant-drawer-close') as HTMLButtonElement).click();
     });
     await waitForWaitTime(100);
     expect(fn).toHaveBeenCalledWith(false);
@@ -203,11 +164,7 @@ describe('DrawerForm', () => {
   it('📦 reset button will simulate onOpenChange', async () => {
     const fn = vi.fn();
     const wrapper = render(
-      <DrawerForm
-        open
-        trigger={<Button id="new">新建</Button>}
-        onOpenChange={(open) => fn(open)}
-      >
+      <DrawerForm open trigger={<Button id="new">新建</Button>} onOpenChange={(open) => fn(open)}>
         <ProFormText name="name" />
       </DrawerForm>,
     );
@@ -238,11 +195,7 @@ describe('DrawerForm', () => {
     await waitForWaitTime(100);
 
     act(() => {
-      (
-        wrapper.baseElement.querySelector(
-          'button.ant-drawer-close',
-        ) as HTMLButtonElement
-      ).click();
+      (wrapper.baseElement.querySelector('button.ant-drawer-close') as HTMLButtonElement).click();
     });
     await waitForWaitTime(100);
     expect(fn).toHaveBeenCalledWith(false);
@@ -306,8 +259,8 @@ describe('DrawerForm', () => {
       <DrawerForm
         open
         trigger={<Button id="new">新建</Button>}
-        onOpenChange={(open) => fn(open)}
         onFinish={async () => true}
+        onOpenChange={(open) => fn(open)}
       >
         <ProFormText name="name" />
       </DrawerForm>,
@@ -326,11 +279,7 @@ describe('DrawerForm', () => {
   it('📦 form onFinish is null, no close drawer', async () => {
     const fn = vi.fn();
     const wrapper = render(
-      <DrawerForm
-        open
-        trigger={<Button id="new">新建</Button>}
-        onOpenChange={(open) => fn(open)}
-      >
+      <DrawerForm open trigger={<Button id="new">新建</Button>} onOpenChange={(open) => fn(open)}>
         <ProFormText name="name" />
       </DrawerForm>,
     );
@@ -348,7 +297,6 @@ describe('DrawerForm', () => {
     const fn = vi.fn();
     const wrapper = render(
       <DrawerForm
-        width={600}
         submitter={{
           searchConfig: {
             submitText: '确认',
@@ -362,6 +310,7 @@ describe('DrawerForm', () => {
           },
         }}
         trigger={<Button id="new">新建</Button>}
+        width={600}
         onOpenChange={(open) => fn(open)}
       >
         <ProFormText name="name" />
@@ -376,9 +325,7 @@ describe('DrawerForm', () => {
     expect(fn).toHaveBeenCalledWith(true);
 
     act(() => {
-      wrapper.baseElement
-        .querySelector<HTMLButtonElement>('button#reset')
-        ?.click?.();
+      wrapper.baseElement.querySelector<HTMLButtonElement>('button#reset')?.click?.();
     });
     await waitForWaitTime(100);
     expect(fn).toHaveBeenCalledWith(false);
@@ -393,10 +340,10 @@ describe('DrawerForm', () => {
         trigger={<Button id="new">新建</Button>}
       >
         <ProFormText
-          name="name"
           fieldProps={{
             id: 'test',
           }}
+          name="name"
         />
       </DrawerForm>,
     );
@@ -416,16 +363,11 @@ describe('DrawerForm', () => {
     });
     await waitForWaitTime(200);
 
-    expect(
-      wrapper.baseElement.querySelector<HTMLInputElement>('.ant-input#test')
-        ?.value,
-    ).toEqual('test');
+    expect(wrapper.baseElement.querySelector<HTMLInputElement>('.ant-input#test')?.value).toEqual('test');
     await waitForWaitTime(100);
 
     act(() => {
-      wrapper.baseElement
-        .querySelector<HTMLInputElement>('.ant-drawer-close')
-        ?.click();
+      wrapper.baseElement.querySelector<HTMLInputElement>('.ant-drawer-close')?.click();
     });
     await waitForWaitTime(100);
 
@@ -435,10 +377,7 @@ describe('DrawerForm', () => {
 
     await waitForWaitTime(200);
 
-    expect(
-      wrapper.baseElement.querySelector<HTMLInputElement>('.ant-input#test')
-        ?.value,
-    ).toEqual('test');
+    expect(wrapper.baseElement.querySelector<HTMLInputElement>('.ant-input#test')?.value).toEqual('test');
   });
 
   it('📦 DrawerForm destroyOnHidden close will rerender from', async () => {
@@ -453,10 +392,10 @@ describe('DrawerForm', () => {
         trigger={<Button id="new">新建</Button>}
       >
         <ProFormText
-          name="name"
           fieldProps={{
             id: 'test',
           }}
+          name="name"
         />
       </DrawerForm>,
     );
@@ -477,9 +416,7 @@ describe('DrawerForm', () => {
     });
 
     await waitForWaitTime(100);
-    expect(
-      wrapper.baseElement.querySelector<HTMLInputElement>('input#test')?.value,
-    ).toEqual('1111');
+    expect(wrapper.baseElement.querySelector<HTMLInputElement>('input#test')?.value).toEqual('1111');
 
     await waitForWaitTime(100);
 
@@ -496,10 +433,10 @@ describe('DrawerForm', () => {
           trigger={<Button id="new">新建</Button>}
         >
           <ProFormText
-            name="name"
             fieldProps={{
               id: 'test',
             }}
+            name="name"
           />
         </DrawerForm>,
       );
@@ -520,10 +457,10 @@ describe('DrawerForm', () => {
           trigger={<Button id="new">新建</Button>}
         >
           <ProFormText
-            name="name"
             fieldProps={{
               id: 'test',
             }}
+            name="name"
           />
         </DrawerForm>,
       );
@@ -534,9 +471,7 @@ describe('DrawerForm', () => {
 
     await waitForWaitTime(300);
 
-    expect(
-      wrapper.baseElement.querySelector<HTMLInputElement>('input#test')?.value,
-    ).toEqual('1234');
+    expect(wrapper.baseElement.querySelector<HTMLInputElement>('input#test')?.value).toEqual('1234');
   });
 
   it('📦 drawer no render Form when destroyOnHidden', () => {
@@ -563,10 +498,10 @@ describe('DrawerForm', () => {
 
     const html = render(
       <DrawerForm
-        formRef={ref}
         drawerProps={{
           destroyOnHidden: true,
         }}
+        formRef={ref}
         trigger={
           <Button id="new" type="primary">
             新建
@@ -588,10 +523,10 @@ describe('DrawerForm', () => {
     act(() => {
       html.rerender(
         <DrawerForm
-          formRef={ref}
           drawerProps={{
             destroyOnHidden: true,
           }}
+          formRef={ref}
           trigger={
             <Button id="new" type="primary">
               新建
@@ -611,12 +546,12 @@ describe('DrawerForm', () => {
 
     const html = render(
       <DrawerForm
+        open
         formRef={ref}
         resize={{
           minWidth: 200,
           maxWidth: 400,
         }}
-        open
         trigger={
           <Button id="new" type="primary">
             新建
@@ -630,17 +565,13 @@ describe('DrawerForm', () => {
     await html.findByText('新 建');
 
     act(() => {
-      const handle = html.baseElement.querySelector(
-        '.ant-pro-form-drawer-sidebar-dragger',
-      );
+      const handle = html.baseElement.querySelector('.ant-pro-form-drawer-sidebar-dragger');
 
       fireEvent.mouseDown(handle!, {});
     });
 
     act(() => {
-      const handle = html.baseElement.querySelector(
-        '.ant-pro-form-drawer-sidebar-dragger',
-      );
+      const handle = html.baseElement.querySelector('.ant-pro-form-drawer-sidebar-dragger');
       fireEvent.mouseMove(handle!, {
         clientX: 900,
       });
@@ -656,19 +587,13 @@ describe('DrawerForm', () => {
     });
 
     act(() => {
-      const handle = html.baseElement.querySelector(
-        '.ant-pro-form-drawer-sidebar-dragger',
-      );
+      const handle = html.baseElement.querySelector('.ant-pro-form-drawer-sidebar-dragger');
 
       fireEvent.mouseUp(handle!, {});
     });
 
     await waitFor(() => {
-      expect(
-        html.baseElement.querySelector<HTMLDivElement>(
-          '.ant-drawer-content-wrapper',
-        )?.style.width,
-      ).toBe('300px');
+      expect(html.baseElement.querySelector<HTMLDivElement>('.ant-drawer-content-wrapper')?.style.width).toBe('300px');
     });
   });
 
@@ -706,19 +631,19 @@ describe('DrawerForm', () => {
           <Comp
             {...prop}
             form={form}
-            onOpenChange={(isOpen) => {
-              if (!isOpen) {
-                if (form.getFieldValue('name')) fn(form.getFieldValue('name'));
-              }
-            }}
-            onFinish={async () => {
-              return true;
-            }}
             trigger={
               <Button id="new" type="primary">
                 新建
               </Button>
             }
+            onFinish={async () => {
+              return true;
+            }}
+            onOpenChange={(isOpen) => {
+              if (!isOpen) {
+                if (form.getFieldValue('name')) fn(form.getFieldValue('name'));
+              }
+            }}
           >
             <ProFormText name="name" />
           </Comp>
@@ -732,26 +657,19 @@ describe('DrawerForm', () => {
         fireEvent.click(getByText(html.baseElement, '新 建'));
       });
       await waitFor(() => {
-        expect(
-          html.baseElement.querySelector<HTMLDivElement>('input#name'),
-        ).toBeInTheDocument();
+        expect(html.baseElement.querySelector<HTMLDivElement>('input#name')).toBeInTheDocument();
       });
 
       // 修改表单值
       act(() => {
-        fireEvent.change(
-          html.baseElement.querySelector<HTMLDivElement>('input#name')!,
-          {
-            target: {
-              value: '12345',
-            },
+        fireEvent.change(html.baseElement.querySelector<HTMLDivElement>('input#name')!, {
+          target: {
+            value: '12345',
           },
-        );
+        });
       });
       await waitFor(() => {
-        expect(
-          html.baseElement.querySelector<HTMLDivElement>('input#name'),
-        ).toHaveValue('12345');
+        expect(html.baseElement.querySelector<HTMLDivElement>('input#name')).toHaveValue('12345');
       });
 
       // 验证表单实例中的值
@@ -781,25 +699,18 @@ describe('DrawerForm', () => {
         fireEvent.click(getByText(html.baseElement, '新 建'));
       });
       await waitFor(() => {
-        expect(
-          html.baseElement.querySelector<HTMLDivElement>('input#name'),
-        ).toBeInTheDocument();
+        expect(html.baseElement.querySelector<HTMLDivElement>('input#name')).toBeInTheDocument();
       });
 
       act(() => {
-        fireEvent.change(
-          html.baseElement.querySelector<HTMLDivElement>('input#name')!,
-          {
-            target: {
-              value: '12345',
-            },
+        fireEvent.change(html.baseElement.querySelector<HTMLDivElement>('input#name')!, {
+          target: {
+            value: '12345',
           },
-        );
+        });
       });
       await waitFor(() => {
-        expect(
-          html.baseElement.querySelector<HTMLDivElement>('input#name'),
-        ).toHaveValue('12345');
+        expect(html.baseElement.querySelector<HTMLDivElement>('input#name')).toHaveValue('12345');
       });
 
       // 点击关闭按钮
@@ -826,25 +737,18 @@ describe('DrawerForm', () => {
         fireEvent.click(getByText(html.baseElement, '新 建'));
       });
       await waitFor(() => {
-        expect(
-          html.baseElement.querySelector<HTMLDivElement>('input#name'),
-        ).toBeInTheDocument();
+        expect(html.baseElement.querySelector<HTMLDivElement>('input#name')).toBeInTheDocument();
       });
 
       act(() => {
-        fireEvent.change(
-          html.baseElement.querySelector<HTMLDivElement>('input#name')!,
-          {
-            target: {
-              value: '12345',
-            },
+        fireEvent.change(html.baseElement.querySelector<HTMLDivElement>('input#name')!, {
+          target: {
+            value: '12345',
           },
-        );
+        });
       });
       await waitFor(() => {
-        expect(
-          html.baseElement.querySelector<HTMLDivElement>('input#name'),
-        ).toHaveValue('12345');
+        expect(html.baseElement.querySelector<HTMLDivElement>('input#name')).toHaveValue('12345');
       });
 
       // 点击确认按钮

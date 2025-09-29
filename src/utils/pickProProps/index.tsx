@@ -2,10 +2,7 @@ const proFieldProps = `valueType request plain formItemRender render text formIt
 
 const proFormProps = `fieldProps isDefaultDom groupProps contentRender submitterProps submitter`;
 
-export function pickProProps(
-  props: Record<string, any>,
-  customValueType = false,
-) {
+export function pickProProps(props: Record<string, any>, customValueType = false) {
   const propList = `${proFieldProps} ${proFormProps}`.split(/[\s\n]+/);
 
   const attrs = {} as Record<string, any>;

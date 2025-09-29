@@ -1,16 +1,8 @@
 import { MenuOutlined } from '@ant-design/icons';
-import { DragSortTable } from '@ant-design/pro-components';
 import { cleanup, fireEvent, render } from '@testing-library/react';
+import { DragSortTable } from '@xxlabs/pro-components';
 import { act } from 'react';
-import {
-  afterAll,
-  afterEach,
-  beforeAll,
-  describe,
-  expect,
-  it,
-  vi,
-} from 'vitest';
+import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
 
 async function dragAndDrop(cell: Element) {
@@ -55,14 +47,8 @@ afterEach(() => {
 });
 
 describe('dragSort', () => {
-  const originalOffsetHeight = Object.getOwnPropertyDescriptor(
-    HTMLElement.prototype,
-    offsetHeight,
-  ) as any;
-  const originalOffsetWidth = Object.getOwnPropertyDescriptor(
-    HTMLElement.prototype,
-    offsetWidth,
-  ) as any;
+  const originalOffsetHeight = Object.getOwnPropertyDescriptor(HTMLElement.prototype, offsetHeight) as any;
+  const originalOffsetWidth = Object.getOwnPropertyDescriptor(HTMLElement.prototype, offsetWidth) as any;
 
   beforeAll(() => {
     Object.defineProperty(HTMLElement.prototype, offsetHeight, {
@@ -76,16 +62,8 @@ describe('dragSort', () => {
   });
 
   afterAll(() => {
-    Object.defineProperty(
-      HTMLElement.prototype,
-      offsetHeight,
-      originalOffsetHeight,
-    );
-    Object.defineProperty(
-      HTMLElement.prototype,
-      offsetWidth,
-      originalOffsetWidth,
-    );
+    Object.defineProperty(HTMLElement.prototype, offsetHeight, originalOffsetHeight);
+    Object.defineProperty(HTMLElement.prototype, offsetWidth, originalOffsetWidth);
   });
 
   it('🔥 [dragSort] render drag sort default handle by dragSortKey', async () => {
@@ -106,10 +84,6 @@ describe('dragSort', () => {
     ];
     const { container } = render(
       <DragSortTable
-        search={false}
-        toolBarRender={false}
-        size="small"
-        dataSource={dataSource}
         columns={[
           {
             title: '排序',
@@ -124,33 +98,31 @@ describe('dragSort', () => {
             dataIndex: 'name',
           },
         ]}
+        dataSource={dataSource}
+        dragSortKey="sort"
+        rowKey="id"
+        search={false}
+        size="small"
+        toolBarRender={false}
         onDragSortEnd={(data) => {
           //@ts-ignore
           onDragSortEndFn(data[0].name);
           console.log(data);
         }}
-        rowKey="id"
-        dragSortKey="sort"
       />,
     );
 
-    const draggables = container.querySelectorAll(
-      '[aria-roledescription="sortable"]',
-    );
+    const draggables = container.querySelectorAll('[aria-roledescription="sortable"]');
 
     draggables.forEach((draggable, index) => {
       mockGetBoundingClientRect(draggable, index);
     });
 
-    container
-      .querySelectorAll('.ant-pro-table-drag-icon')
-      .forEach((dragHandle, index) => {
-        mockGetBoundingClientRect(dragHandle, index);
-      });
+    container.querySelectorAll('.ant-pro-table-drag-icon').forEach((dragHandle, index) => {
+      mockGetBoundingClientRect(dragHandle, index);
+    });
 
-    const dragHandle = container.querySelectorAll(
-      '.ant-pro-table-drag-icon',
-    )[1];
+    const dragHandle = container.querySelectorAll('.ant-pro-table-drag-icon')[1];
 
     await act(() => {
       return dragAndDrop(dragHandle);
@@ -175,18 +147,13 @@ describe('dragSort', () => {
       callback(rowData.name, idx);
       return (
         <>
-          <MenuOutlined
-            className="dragSortCustomHandle"
-            style={{ cursor: 'grab', color: 'gold' }}
-          />
+          <MenuOutlined className="dragSortCustomHandle" style={{ cursor: 'grab', color: 'gold' }} />
           {idx + 1} - {rowData.name}
         </>
       );
     };
     const { container } = render(
       <DragSortTable
-        size="small"
-        dataSource={dataSource}
         columns={[
           {
             title: 'Id',
@@ -197,9 +164,11 @@ describe('dragSort', () => {
             dataIndex: 'name',
           },
         ]}
-        rowKey="id"
-        dragSortKey="id"
+        dataSource={dataSource}
         dragSortHandlerRender={dragHandleRender}
+        dragSortKey="id"
+        rowKey="id"
+        size="small"
       />,
     );
 
@@ -229,27 +198,20 @@ describe('dragSort', () => {
     ];
     const dragHandleRender = (rowData: any, idx: any) => (
       <>
-        <MenuOutlined
-          className="dragSortCustomHandle"
-          style={{ cursor: 'grab', color: 'gold' }}
-        />
+        <MenuOutlined className="dragSortCustomHandle" style={{ cursor: 'grab', color: 'gold' }} />
         {idx + 1} - {rowData.name}
       </>
     );
     const callback = vi.fn();
     const { container } = render(
       <DragSortTable
-        size="small"
-        dataSource={dataSource}
         columns={[
           {
             title: '排序',
             dataIndex: 'sort',
             render: (dom, rowData, index) => {
               callback(rowData.name, index);
-              return (
-                <span className="customRender">{`自定义排序[${rowData.name}-${index}]`}</span>
-              );
+              return <span className="customRender">{`自定义排序[${rowData.name}-${index}]`}</span>;
             },
           },
           {
@@ -261,9 +223,11 @@ describe('dragSort', () => {
             dataIndex: 'name',
           },
         ]}
-        rowKey="id"
-        dragSortKey="sort"
+        dataSource={dataSource}
         dragSortHandlerRender={dragHandleRender}
+        dragSortKey="sort"
+        rowKey="id"
+        size="small"
       />,
     );
 

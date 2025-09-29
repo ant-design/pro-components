@@ -1,16 +1,16 @@
 /** Title: 基本使用 */
-import { CheckCard } from '@ant-design/pro-components';
+import { CheckCard } from '@xxlabs/pro-components';
 
 export default () => (
   <>
     <CheckCard
+      defaultChecked
       avatar="https://gw.alipayobjects.com/zos/bmw-prod/f601048d-61c2-44d0-bf57-ca1afe7fd92e.svg"
-      title="示例一"
       description="选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念。"
+      title="示例一"
       onChange={(checked) => {
         console.log('checked', checked);
       }}
-      defaultChecked
       onClick={() => {
         console.log('clicked');
       }}
@@ -36,8 +36,7 @@ export default () => (
           <strong>description</strong>: 卡片描述信息，可以是字符串或 React 节点
         </li>
         <li>
-          <strong>onChange</strong>: 选中状态改变时的回调函数，参数为
-          checked（布尔值）
+          <strong>onChange</strong>: 选中状态改变时的回调函数，参数为 checked（布尔值）
         </li>
         <li>
           <strong>defaultChecked</strong>: 默认是否选中，布尔值

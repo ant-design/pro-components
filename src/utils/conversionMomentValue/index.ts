@@ -1,5 +1,5 @@
 import { get } from '@rc-component/util';
-import type { InternalNamePath, NamePath } from 'antd/lib/form/interface';
+import type { InternalNamePath, NamePath } from 'antd/es/form/interface';
 import dayjs from 'dayjs';
 import quarterOfYear from 'dayjs/plugin/quarterOfYear';
 import { isNil } from '../isNil';
@@ -51,7 +51,7 @@ export function isPlainObject(o: { constructor: any }): boolean {
   if (isObject(prot) === false) return false;
 
   // If constructor does not have an Object-specific method
-  if (prot.hasOwnProperty('isPrototypeOf') === false) {
+  if (!Object.prototype.hasOwnProperty.call(prot, 'isPrototypeOf')) {
     return false;
   }
 
@@ -72,11 +72,7 @@ const isMoment = (value: any): boolean => !!value?._isAMomentObject;
  * @param  {string|((value:dayjs.Dayjs} dateFormatter
  * @param  {string} valueType
  */
-export const convertMoment = (
-  value: dayjs.Dayjs,
-  dateFormatter: DateFormatter,
-  valueType: string,
-) => {
+export const convertMoment = (value: dayjs.Dayjs, dateFormatter: DateFormatter, valueType: string) => {
   if (!dateFormatter) {
     return value;
   }
@@ -86,9 +82,7 @@ export const convertMoment = (
       return value.valueOf();
     }
     if (dateFormatter === 'string') {
-      return value.format(
-        dateFormatterMap[valueType as 'date'] || 'YYYY-MM-DD HH:mm:ss',
-      );
+      return value.format(dateFormatterMap[valueType as 'date'] || 'YYYY-MM-DD HH:mm:ss');
     }
     if (typeof dateFormatter === 'string' && dateFormatter !== 'string') {
       return value.format(dateFormatter);
@@ -109,7 +103,7 @@ export const convertMoment = (
  * @param  {boolean} omitNil?
  * @param  {NamePath} parentKey?
  */
-export const conversionMomentValue = <T extends {} = any>(
+export const conversionMomentValue = <T extends Record<any, any> = any>(
   value: T,
   dateFormatter: DateFormatter,
   valueTypeMap: Record<
@@ -127,18 +121,11 @@ export const conversionMomentValue = <T extends {} = any>(
   if (typeof window === 'undefined') return value;
   // 如果 value 是 string | null | Blob类型 其中之一，直接返回
   // 形如 {key: [File, File]} 的表单字段当进行第二次递归时会导致其直接越过 typeof value !== 'object' 这一判断 https://github.com/ant-design/pro-components/issues/2071
-  if (
-    typeof value !== 'object' ||
-    isNil(value) ||
-    value instanceof Blob ||
-    Array.isArray(value)
-  ) {
+  if (typeof value !== 'object' || isNil(value) || value instanceof Blob || Array.isArray(value)) {
     return value;
   }
   Object.keys(value as Record<string, any>).forEach((valueKey) => {
-    const namePath: InternalNamePath = parentKey
-      ? ([parentKey, valueKey].flat(1) as string[])
-      : [valueKey];
+    const namePath: InternalNamePath = parentKey ? ([parentKey, valueKey].flat(1) as string[]) : [valueKey];
     const valueFormatMap = get(valueTypeMap, namePath) || 'text';
 
     let valueType: ProFieldValueType = 'text';
@@ -167,41 +154,23 @@ export const conversionMomentValue = <T extends {} = any>(
       // 不是 moment
       !isMoment(itemValue)
     ) {
-      (tmpValue as any)[valueKey] = conversionMomentValue(
-        itemValue,
-        dateFormatter,
-        valueTypeMap,
-        omitNil,
-        namePath,
-      );
+      (tmpValue as any)[valueKey] = conversionMomentValue(itemValue, dateFormatter, valueTypeMap, omitNil, namePath);
       return;
     }
     // 处理 FormList 的 value
     if (Array.isArray(itemValue)) {
       (tmpValue as any)[valueKey] = itemValue.map((arrayValue, index) => {
         if (dayjs.isDayjs(arrayValue) || isMoment(arrayValue)) {
-          return convertMoment(
-            arrayValue,
-            dateFormat || dateFormatter,
-            valueType,
-          );
+          return convertMoment(arrayValue, dateFormat || dateFormatter, valueType);
         }
-        return conversionMomentValue(
-          arrayValue,
-          dateFormatter,
-          valueTypeMap,
-          omitNil,
-          [valueKey, `${index}`].flat(1),
-        );
+        return conversionMomentValue(arrayValue, dateFormatter, valueTypeMap, omitNil, [valueKey, `${index}`].flat(1));
       });
       return;
     }
     (tmpValue as any)[valueKey] = convertMoment(
       itemValue,
       dateFormat ||
-        (dateFormatter === 'string'
-          ? dateFormatterMap[valueType as keyof typeof dateFormatterMap]
-          : dateFormatter),
+        (dateFormatter === 'string' ? dateFormatterMap[valueType as keyof typeof dateFormatterMap] : dateFormatter),
       valueType,
     );
   });

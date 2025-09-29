@@ -1,10 +1,5 @@
-import {
-  CrownOutlined,
-  LeftOutlined,
-  SmileOutlined,
-  UserOutlined,
-} from '@ant-design/icons';
-import { ProLayout } from '@ant-design/pro-components';
+import { CrownOutlined, LeftOutlined, SmileOutlined, UserOutlined } from '@ant-design/icons';
+import { ProLayout } from '@xxlabs/pro-components';
 import { Button, Result, Space, Tag } from 'antd';
 import { useState } from 'react';
 
@@ -53,7 +48,13 @@ export default () => {
   return (
     <>
       <ProLayout
-        route={pathname === '/' ? defaultHomeProps : defaultProps}
+        fixSiderbar
+        avatarProps={{
+          icon: <UserOutlined />,
+        }}
+        headerRender={() => {
+          return null;
+        }}
         location={{
           pathname,
         }}
@@ -83,8 +84,8 @@ export default () => {
           return (
             <Space direction="vertical">
               <Button
-                size="small"
                 icon={<LeftOutlined />}
+                size="small"
                 onClick={() => {
                   setPathname('/');
                 }}
@@ -97,11 +98,6 @@ export default () => {
             </Space>
           );
         }}
-        fixSiderbar
-        headerRender={() => {
-          return null;
-        }}
-        onMenuHeaderClick={(e) => console.log(e)}
         menuItemRender={(item, dom) => (
           <a
             onClick={() => {
@@ -111,9 +107,8 @@ export default () => {
             {dom}
           </a>
         )}
-        avatarProps={{
-          icon: <UserOutlined />,
-        }}
+        route={pathname === '/' ? defaultHomeProps : defaultProps}
+        onMenuHeaderClick={(e) => console.log(e)}
       >
         <div
           style={{
@@ -122,15 +117,15 @@ export default () => {
           }}
         >
           <Result
+            extra={<Button type="primary">Back Home</Button>}
+            icon="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*aPIBS5gRPu4AAAAAAAAAAAAAARQnAQ"
             status="404"
             style={{
               height: '100%',
               background: '#fff',
             }}
-            icon="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*aPIBS5gRPu4AAAAAAAAAAAAAARQnAQ"
-            title="Hello World"
             subTitle="Sorry, you are not authorized to access this page."
-            extra={<Button type="primary">Back Home</Button>}
+            title="Hello World"
           />
         </div>
       </ProLayout>

@@ -24,14 +24,12 @@ export default {
   'app.setting.fixedsidebar': 'Menu laterale fisso',
   'app.setting.fixedsidebar.hint': 'Solo se selezionato Menu laterale',
   'app.setting.hideheader': 'Nascondi testata durante lo scorrimento',
-  'app.setting.hideheader.hint':
-    'Solo se abilitato Nascondi testata durante lo scorrimento',
+  'app.setting.hideheader.hint': 'Solo se abilitato Nascondi testata durante lo scorrimento',
   'app.setting.othersettings': 'Altre impostazioni',
   'app.setting.weakmode': 'Inverti colori',
   'app.setting.copy': 'Copia impostazioni',
   'app.setting.loading': 'Carico tema...',
-  'app.setting.copyinfo':
-    'Impostazioni copiate con successo! Incolla il contenuto in config/defaultSettings.js',
+  'app.setting.copyinfo': 'Impostazioni copiate con successo! Incolla il contenuto in config/defaultSettings.js',
   'app.setting.production.hint':
     'Questo pannello è visibile solo durante lo sviluppo. Le impostazioni devono poi essere modificate manulamente',
 };

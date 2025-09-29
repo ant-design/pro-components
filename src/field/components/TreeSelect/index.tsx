@@ -2,18 +2,12 @@ import { useMergedState } from '@rc-component/util';
 import type { RadioGroupProps, TreeSelectProps } from 'antd';
 import { ConfigProvider, Spin, TreeSelect } from 'antd';
 import classNames from 'classnames';
-import React, {
-  useContext,
-  useImperativeHandle,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import { useContext, useImperativeHandle, useMemo, useRef, useState } from 'react';
 import { useIntl } from '../../../provider';
 import { FieldLabel, objectToMap, proFieldParsingText } from '../../../utils';
 import type { ProFieldFC } from '../../PureProField';
 import type { FieldSelectProps } from '../Select';
-import { useFieldFetchData } from '../Select';
+import { useFieldFetchData } from '../Select/useFieldFetchData';
 
 export type GroupProps = {
   options?: RadioGroupProps['options'];
@@ -32,12 +26,18 @@ export type TreeSelectFieldProps = TreeSelectProps<any> & {
 /**
  * Tree select
  * A function that returns a React component.
- * @param ref
  */
-const FieldTreeSelect: ProFieldFC<GroupProps> = (
-  { radioType, formItemRender, mode, light, label, render, variant, ...rest },
+const FieldTreeSelect: ProFieldFC<GroupProps> = ({
+  radioType,
+  formItemRender,
+  mode,
+  light,
+  label,
+  render,
+  variant,
   ref,
-) => {
+  ...rest
+}) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const layoutClassName = getPrefixCls('pro-field-tree-select');
   const treeSelectRef = useRef(null);
@@ -63,13 +63,10 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     defaultKeyWords: propsSearchValue,
   });
 
-  const [searchValue, setSearchValue] = useMergedState<string | undefined>(
-    undefined,
-    {
-      onChange: onSearch as any,
-      value: propsSearchValue,
-    },
-  );
+  const [searchValue, setSearchValue] = useMergedState<string | undefined>(undefined, {
+    onChange: onSearch as any,
+    value: propsSearchValue,
+  });
 
   useImperativeHandle(ref, () => ({
     ...(treeSelectRef.current || {}),
@@ -108,11 +105,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     return traverseOptions(options);
   }, [fieldProps?.fieldNames, mode, options]);
 
-  const onChange: TreeSelectProps<any>['onChange'] = (
-    value,
-    optionList,
-    extra,
-  ) => {
+  const onChange: TreeSelectProps<any>['onChange'] = (value, optionList, extra) => {
     // 将搜索框置空 和 antd 行为保持一致
     if (showSearch && autoClearSearchValue) {
       fetchData(undefined);
@@ -122,41 +115,22 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
   };
 
   if (mode === 'read') {
-    const dom = (
-      <>
-        {proFieldParsingText(
-          rest.text,
-          objectToMap(rest.valueEnum || optionsValueEnum),
-        )}
-      </>
-    );
+    const dom = <>{proFieldParsingText(rest.text, objectToMap(rest.valueEnum || optionsValueEnum))}</>;
 
     if (render) {
-      return (
-        render(
-          rest.text,
-          { mode, ...(fieldProps as any), treeData: options },
-          dom,
-        ) ?? null
-      );
+      return render(rest.text, { mode, ...(fieldProps as any), treeData: options }, dom) ?? null;
     }
     return dom;
   }
   if (mode === 'edit') {
-    const valuesLength = Array.isArray(fieldProps?.value)
-      ? fieldProps?.value?.length
-      : 0;
+    const valuesLength = Array.isArray(fieldProps?.value) ? fieldProps?.value?.length : 0;
     let dom = (
       <Spin spinning={loading}>
         <TreeSelect<string | undefined>
-          open={open}
-          onOpenChange={(isOpen) => {
-            fieldProps?.onOpenChange?.(isOpen);
-            setOpen(isOpen);
-          }}
           ref={treeSelectRef}
-          popupMatchSelectWidth={!light}
+          open={open}
           placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
+          popupMatchSelectWidth={!light}
           tagRender={
             light
               ? (item) => {
@@ -176,16 +150,27 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
               : undefined
           }
           variant={!light ? 'outlined' : 'borderless'}
+          onOpenChange={(isOpen) => {
+            fieldProps?.onOpenChange?.(isOpen);
+            setOpen(isOpen);
+          }}
           {...fieldProps}
-          treeData={options as TreeSelectProps['treeData']}
+          allowClear={fieldProps.allowClear !== false}
+          autoClearSearchValue={autoClearSearchValue}
+          className={classNames(fieldProps?.className, layoutClassName)}
+          searchValue={searchValue as string}
           showSearch={showSearch}
           style={{
             minWidth: 60,
             ...fieldProps.style,
           }}
-          allowClear={fieldProps.allowClear !== false}
-          searchValue={searchValue as string}
-          autoClearSearchValue={autoClearSearchValue}
+          treeData={options as TreeSelectProps['treeData']}
+          onBlur={(event) => {
+            setSearchValue(undefined);
+            fetchData(undefined);
+            onBlur?.(event);
+          }}
+          onChange={onChange}
           onClear={() => {
             onClear?.();
             fetchData(undefined);
@@ -193,7 +178,6 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
               setSearchValue(undefined);
             }
           }}
-          onChange={onChange}
           onSearch={(value) => {
             // fix 不支持请求的情况下不刷新options
             if (fetchDataOnSearch && rest?.request) {
@@ -201,23 +185,12 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
             }
             setSearchValue(value);
           }}
-          onBlur={(event) => {
-            setSearchValue(undefined);
-            fetchData(undefined);
-            onBlur?.(event);
-          }}
-          className={classNames(fieldProps?.className, layoutClassName)}
         />
       </Spin>
     );
 
     if (formItemRender) {
-      dom =
-        formItemRender(
-          rest.text,
-          { mode, ...(fieldProps as any), options, loading },
-          dom,
-        ) ?? null;
+      dom = formItemRender(rest.text, { mode, ...(fieldProps as any), options, loading }, dom) ?? null;
     }
 
     if (light) {
@@ -226,15 +199,11 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
 
       return (
         <FieldLabel
-          label={label}
+          allowClear={false}
           disabled={disabled}
+          downIcon={false}
+          label={label}
           placeholder={placeholder}
-          onClick={() => {
-            setOpen(true);
-            fieldProps?.onOpenChange?.(true);
-          }}
-          variant={variant}
-          value={notEmpty || open ? dom : null}
           style={
             notEmpty
               ? {
@@ -242,8 +211,12 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
                 }
               : undefined
           }
-          allowClear={false}
-          downIcon={false}
+          value={notEmpty || open ? dom : null}
+          variant={variant}
+          onClick={() => {
+            setOpen(true);
+            fieldProps?.onOpenChange?.(true);
+          }}
         />
       );
     }
@@ -253,4 +226,4 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
   return null;
 };
 
-export default React.forwardRef(FieldTreeSelect);
+export default FieldTreeSelect;

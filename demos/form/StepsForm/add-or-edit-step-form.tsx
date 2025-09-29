@@ -1,11 +1,6 @@
 // Mainly handles the scenarios of creating and editing
-import type { ProFormInstance } from '@ant-design/pro-components';
-import {
-  ProFormDateRangePicker,
-  ProFormSelect,
-  ProFormText,
-  StepsForm,
-} from '@ant-design/pro-components';
+import type { ProFormInstance } from '@xxlabs/pro-components';
+import { ProFormDateRangePicker, ProFormSelect, ProFormText, StepsForm } from '@xxlabs/pro-components';
 import type { Dayjs } from 'dayjs';
 import dayjs from 'dayjs';
 import React, { useEffect, useRef } from 'react';
@@ -48,9 +43,7 @@ const jobType = [
   },
 ];
 const EditExample = () => {
-  const formMapRef = useRef<
-    React.MutableRefObject<ProFormInstance<any> | undefined>[]
-  >([]);
+  const formMapRef = useRef<React.RefObject<ProFormInstance<any> | undefined>[]>([]);
   useEffect(() => {
     waitTime(1000).then(() => {
       // In the editing scenario, you need to use formMapRef to loop through and set formData
@@ -70,17 +63,10 @@ const EditExample = () => {
     >
       <StepsForm.StepForm name="step1" title="Job Information">
         <ProFormText label="Name" name={['jobInfo', 'name']} />
-        <ProFormSelect
-          label="Job Type"
-          name={['jobInfo', 'type']}
-          options={jobType}
-        />
+        <ProFormSelect label="Job Type" name={['jobInfo', 'type']} options={jobType} />
       </StepsForm.StepForm>
-      <StepsForm.StepForm name="step2" title={'Sync Table Information'}>
-        <ProFormDateRangePicker
-          label="Time Range"
-          name={['syncTableInfo', 'timeRange']}
-        />
+      <StepsForm.StepForm name="step2" title="Sync Table Information">
+        <ProFormDateRangePicker label="Time Range" name={['syncTableInfo', 'timeRange']} />
         <ProFormText label="Title" name={['syncTableInfo', 'title']} />
       </StepsForm.StepForm>
     </StepsForm>

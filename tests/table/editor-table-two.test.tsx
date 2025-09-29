@@ -1,26 +1,12 @@
-import type {
-  ActionType,
-  EditableFormInstance,
-  ProColumns,
-  TableRowEditable,
-} from '@ant-design/pro-components';
-import {
-  EditableProTable,
-  ProForm,
-  ProFormText,
-} from '@ant-design/pro-components';
 import { useMergedState } from '@rc-component/util';
-import {
-  act,
-  cleanup,
-  fireEvent,
-  render,
-  waitFor,
-} from '@testing-library/react';
+import { act, cleanup, fireEvent, render, waitFor } from '@testing-library/react';
+import type { ActionType, EditableFormInstance, ProColumns, TableRowEditable } from '@xxlabs/pro-components';
+import { EditableProTable, ProForm, ProFormText } from '@xxlabs/pro-components';
 import { Button, Input, InputNumber } from 'antd';
 import React, { useRef } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
+
 type DataSourceType = {
   id: number | string;
   title?: string;
@@ -171,22 +157,32 @@ const EditorProTableDemo = (
     position?: 'top';
   } & TableRowEditable<DataSourceType>,
 ) => {
-  const actionRef = useRef<ActionType>();
-  const [editableKeys, setEditorRowKeys] = useMergedState<React.Key[]>(
-    () => props.defaultKeys || [],
-    {
-      value: props.editorRowKeys,
-      onChange: props.onEditorChange,
-    },
-  );
-  const [tableDataSource, setDataSource] = useMergedState<
-    readonly DataSourceType[]
-  >(defaultData, {
+  const actionRef = useRef<ActionType>(undefined);
+  const [editableKeys, setEditorRowKeys] = useMergedState<React.Key[]>(() => props.defaultKeys || [], {
+    value: props.editorRowKeys,
+    onChange: props.onEditorChange,
+  });
+  const [tableDataSource, setDataSource] = useMergedState<readonly DataSourceType[]>(defaultData, {
     value: props.dataSource,
     onChange: props.onDataSourceChange,
   });
   return (
     <EditableProTable<DataSourceType>
+      actionRef={actionRef}
+      columns={columns.map((item) => {
+        if (props.hideRules) {
+          delete item.formItemProps;
+        }
+        return item;
+      })}
+      editable={{
+        ...props,
+        type: props.type,
+        editableKeys,
+        onSave: props.onSave,
+        onChange: (keys) => setEditorRowKeys(keys),
+        onDelete: props.onDelete,
+      }}
       rowKey="id"
       toolBarRender={() => [
         <Button
@@ -206,24 +202,8 @@ const EditorProTableDemo = (
           增加一行
         </Button>,
       ]}
-      columns={columns.map((item) => {
-        if (props.hideRules) {
-          // eslint-disable-next-line no-param-reassign
-          delete item.formItemProps;
-        }
-        return item;
-      })}
-      actionRef={actionRef}
       value={tableDataSource}
       onChange={setDataSource}
-      editable={{
-        ...props,
-        type: props.type,
-        editableKeys,
-        onSave: props.onSave,
-        onChange: (keys) => setEditorRowKeys(keys),
-        onDelete: props.onDelete,
-      }}
     />
   );
 };
@@ -259,9 +239,7 @@ describe('EditorProTable 2', () => {
     // 检查是否有数据行
     await waitFor(
       () => {
-        const rows = wrapper.container.querySelectorAll(
-          '.ant-table-tbody tr.ant-table-row',
-        );
+        const rows = wrapper.container.querySelectorAll('.ant-table-tbody tr.ant-table-row');
         expect(rows.length).toBeGreaterThan(0);
       },
       { timeout: 10000 },
@@ -282,16 +260,16 @@ describe('EditorProTable 2', () => {
     const onChange = vi.fn();
     const wrapper = render(
       <EditableProTable<DataSourceType>
-        rowKey="id"
         controlled
+        columns={columns}
+        editable={{
+          editableKeys: ['624748504'],
+        }}
         recordCreatorProps={{
           creatorButtonText: '测试添加数据',
           record: { id: 9999 },
         }}
-        editable={{
-          editableKeys: ['624748504'],
-        }}
-        columns={columns}
+        rowKey="id"
         value={[
           {
             id: '624748504',
@@ -316,9 +294,7 @@ describe('EditorProTable 2', () => {
 
     act(() => {
       fireEvent.change(
-        wrapper.container.querySelectorAll(
-          '.ant-table-cell  .ant-form-item .ant-form-item-control-input input',
-        )[1],
+        wrapper.container.querySelectorAll('.ant-table-cell  .ant-form-item .ant-form-item-control-input input')[1],
         {
           target: {
             value: '🐛 [BUG]yarn install命令',
@@ -351,15 +327,7 @@ describe('EditorProTable 2', () => {
     const onChange = vi.fn();
     const wrapper = render(
       <EditableProTable<DataSourceType>
-        rowKey="id"
         controlled
-        recordCreatorProps={{
-          creatorButtonText: '测试添加数据',
-          record: { id: 9999 },
-        }}
-        editable={{
-          editableKeys: ['624748504'],
-        }}
         columns={[
           {
             title: '标题',
@@ -383,6 +351,14 @@ describe('EditorProTable 2', () => {
             search: false,
           },
         ]}
+        editable={{
+          editableKeys: ['624748504'],
+        }}
+        recordCreatorProps={{
+          creatorButtonText: '测试添加数据',
+          record: { id: 9999 },
+        }}
+        rowKey="id"
         value={[
           {
             id: '624748504',
@@ -404,16 +380,11 @@ describe('EditorProTable 2', () => {
 
     await waitFor(() => {
       act(() => {
-        fireEvent.change(
-          wrapper.container.querySelectorAll(
-            '.ant-table-cell .ant-form-item-control-input input',
-          )[0],
-          {
-            target: {
-              value: '🐛 [BUG]yarn install命令',
-            },
+        fireEvent.change(wrapper.container.querySelectorAll('.ant-table-cell .ant-form-item-control-input input')[0], {
+          target: {
+            value: '🐛 [BUG]yarn install命令',
           },
-        );
+        });
       });
     });
 
@@ -442,15 +413,7 @@ describe('EditorProTable 2', () => {
     const onChange = vi.fn();
     const wrapper = render(
       <EditableProTable<DataSourceType>
-        rowKey="id"
         controlled
-        recordCreatorProps={{
-          creatorButtonText: '测试添加数据',
-          record: { id: 9999 },
-        }}
-        editable={{
-          editableKeys: ['624748504'],
-        }}
         columns={[
           {
             title: '标题',
@@ -474,6 +437,14 @@ describe('EditorProTable 2', () => {
             search: false,
           },
         ]}
+        editable={{
+          editableKeys: ['624748504'],
+        }}
+        recordCreatorProps={{
+          creatorButtonText: '测试添加数据',
+          record: { id: 9999 },
+        }}
+        rowKey="id"
         value={[
           {
             id: '624748504',
@@ -541,13 +512,13 @@ describe('EditorProTable 2', () => {
         onValuesChange={(_, { table }) => onChange(JSON.stringify(table))}
       >
         <EditableProTable<DataSourceType>
-          rowKey="id"
           controlled
-          name="table"
+          columns={columns}
           editable={{
             editableKeys: ['624748504'],
           }}
-          columns={columns}
+          name="table"
+          rowKey="id"
         />
       </ProForm>,
     );
@@ -555,16 +526,11 @@ describe('EditorProTable 2', () => {
     await wrapper.findAllByText('标题');
 
     act(() => {
-      fireEvent.change(
-        wrapper.container.querySelectorAll(
-          '.ant-table-cell .ant-form-item-control-input input',
-        )[1],
-        {
-          target: {
-            value: '🐛 [BUG]yarn install命令',
-          },
+      fireEvent.change(wrapper.container.querySelectorAll('.ant-table-cell .ant-form-item-control-input input')[1], {
+        target: {
+          value: '🐛 [BUG]yarn install命令',
         },
-      );
+      });
     });
 
     await waitFor(() => {
@@ -609,36 +575,7 @@ describe('EditorProTable 2', () => {
         onValuesChange={(_, { table }) => onChange(JSON.stringify(table))}
       >
         <EditableProTable<DataSourceType>
-          rowKey="id"
           controlled
-          name="table"
-          editableFormRef={formRef}
-          editable={{
-            actionRender: (row, config) => {
-              return [
-                <a
-                  key="set"
-                  onClick={() => {
-                    i++;
-                    formRef.current?.setRowData?.(config.index!, {
-                      title: '动态设置的title' + i,
-                    });
-                  }}
-                >
-                  动态设置此项
-                </a>,
-              ];
-            },
-          }}
-          recordCreatorProps={{
-            creatorButtonText: '添加新的一行',
-            record: () => {
-              i++;
-              return {
-                id: '111' + i,
-              };
-            },
-          }}
           columns={[
             {
               title: '活动名称',
@@ -656,6 +593,35 @@ describe('EditorProTable 2', () => {
               width: 200,
             },
           ]}
+          editable={{
+            actionRender: (row, config) => {
+              return [
+                <a
+                  key="set"
+                  onClick={() => {
+                    i++;
+                    formRef.current?.setRowData?.(config.index!, {
+                      title: '动态设置的title' + i,
+                    });
+                  }}
+                >
+                  动态设置此项
+                </a>,
+              ];
+            },
+          }}
+          editableFormRef={formRef}
+          name="table"
+          recordCreatorProps={{
+            creatorButtonText: '添加新的一行',
+            record: () => {
+              i++;
+              return {
+                id: '111' + i,
+              };
+            },
+          }}
+          rowKey="id"
         />
       </ProForm>,
     );
@@ -714,13 +680,13 @@ describe('EditorProTable 2', () => {
         }}
       >
         <EditableProTable<DataSourceType>
-          rowKey="id"
           controlled
-          name="table"
+          columns={currentlyColumns}
           editable={{
             editableKeys: ['624748504'],
           }}
-          columns={currentlyColumns}
+          name="table"
+          rowKey="id"
         />
       </ProForm>,
     );
@@ -774,17 +740,17 @@ describe('EditorProTable 2', () => {
         }}
       >
         <EditableProTable<DataSourceType>
-          rowKey="id"
           controlled
-          name="table"
-          headerTitle="可编辑表格"
-          expandable={{
-            defaultExpandAllRows: true,
-          }}
+          columns={currentlyColumns}
           editable={{
             editableKeys,
           }}
-          columns={currentlyColumns}
+          expandable={{
+            defaultExpandAllRows: true,
+          }}
+          headerTitle="可编辑表格"
+          name="table"
+          rowKey="id"
         />
       </ProForm>,
     );
@@ -807,13 +773,13 @@ describe('EditorProTable 2', () => {
   it('📝 EditableProTable support recordCreatorProps.position', async () => {
     const wrapper = render(
       <EditableProTable<DataSourceType>
-        rowKey="id"
+        columns={columns}
         recordCreatorProps={{
           creatorButtonText: '测试添加数据',
           record: { id: 9999 },
           position: 'top',
         }}
-        columns={columns}
+        rowKey="id"
         value={defaultData}
       />,
     );
@@ -863,14 +829,20 @@ describe('EditorProTable 2', () => {
     const fn = vi.fn();
     const wrapper = render(
       <EditableProTable<DataSourceType>
-        rowKey="id"
-        recordCreatorProps={false}
         columns={[
           {
             title: '标题',
             dataIndex: 'title',
           },
         ]}
+        editable={{
+          editableKeys: [624748504],
+          onValuesChange: (record) => {
+            fn(record.id);
+          },
+        }}
+        recordCreatorProps={false}
+        rowKey="id"
         value={[
           {
             id: 624748504,
@@ -882,12 +854,6 @@ describe('EditorProTable 2', () => {
             state: 'processing',
           },
         ]}
-        editable={{
-          editableKeys: [624748504],
-          onValuesChange: (record) => {
-            fn(record.id);
-          },
-        }}
       />,
     );
 
@@ -898,9 +864,7 @@ describe('EditorProTable 2', () => {
 
     act(() => {
       fireEvent.change(
-        wrapper.container
-          .querySelectorAll('.ant-table-tbody tr.ant-table-row')[0]
-          .querySelectorAll('td .ant-input')[0],
+        wrapper.container.querySelectorAll('.ant-table-tbody tr.ant-table-row')[0].querySelectorAll('td .ant-input')[0],
         {
           target: {
             value: '命令',
@@ -924,8 +888,6 @@ describe('EditorProTable 2', () => {
 
     const wrapper = render(
       <EditableProTable<DataSourceType>
-        rowKey="id"
-        recordCreatorProps={false}
         columns={[
           {
             title: '标题',
@@ -951,6 +913,11 @@ describe('EditorProTable 2', () => {
             },
           },
         ]}
+        editable={{
+          editableKeys: [624748504],
+        }}
+        recordCreatorProps={false}
+        rowKey="id"
         value={[
           {
             id: 624748504,
@@ -962,9 +929,6 @@ describe('EditorProTable 2', () => {
             state: 'processing',
           },
         ]}
-        editable={{
-          editableKeys: [624748504],
-        }}
       />,
     );
 
@@ -975,9 +939,7 @@ describe('EditorProTable 2', () => {
 
     act(() => {
       fireEvent.change(
-        wrapper.container
-          .querySelectorAll('.ant-table-tbody tr.ant-table-row')[0]
-          .querySelectorAll('td .ant-input')[0],
+        wrapper.container.querySelectorAll('.ant-table-tbody tr.ant-table-row')[0].querySelectorAll('td .ant-input')[0],
         {
           target: {
             value: '命令',
@@ -1000,9 +962,15 @@ describe('EditorProTable 2', () => {
     const fn = vi.fn();
     const wrapper = render(
       <EditableProTable<DataSourceType>
-        rowKey="id"
-        recordCreatorProps={false}
         columns={columns}
+        editable={{
+          editableKeys: ['02'],
+          onValuesChange: (record) => {
+            fn(record.id);
+          },
+        }}
+        recordCreatorProps={false}
+        rowKey="id"
         value={[
           {
             id: '02',
@@ -1014,12 +982,6 @@ describe('EditorProTable 2', () => {
             state: 'processing',
           },
         ]}
-        editable={{
-          editableKeys: ['02'],
-          onValuesChange: (record) => {
-            fn(record.id);
-          },
-        }}
       />,
     );
 
@@ -1050,7 +1012,8 @@ describe('EditorProTable 2', () => {
     const fn = vi.fn();
     const wrapper = render(
       <EditableProTable<DataSourceType>
-        rowKey="id"
+        columns={columns}
+        defaultValue={defaultData}
         recordCreatorProps={{
           position: 'top',
           newRecordType: 'dataSource',
@@ -1060,8 +1023,7 @@ describe('EditorProTable 2', () => {
           creatorButtonText: '添加新行',
           id: 'add_new',
         }}
-        columns={columns}
-        defaultValue={defaultData}
+        rowKey="id"
         onChange={(list) => fn(list.length)}
       />,
     );

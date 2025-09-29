@@ -1,4 +1,4 @@
-import type { ProFormInstance } from '@ant-design/pro-components';
+import type { ProFormInstance } from '@xxlabs/pro-components';
 import {
   ProForm,
   ProFormCascader,
@@ -11,8 +11,8 @@ import {
   ProFormText,
   ProFormTextArea,
   ProFormTreeSelect,
-} from '@ant-design/pro-components';
-import { TreeSelect, message } from 'antd';
+} from '@xxlabs/pro-components';
+import { message, TreeSelect } from 'antd';
 import moment from 'dayjs';
 import { useRef } from 'react';
 
@@ -68,13 +68,28 @@ export default () => {
       company?: string;
       useMode?: string;
     }>
-  >();
+  >(undefined);
   return (
     <ProForm<{
       name: string;
       company?: string;
       useMode?: string;
     }>
+      autoFocusFirstInput
+      dateFormatter={(value, valueType) => {
+        console.log('---->', value, valueType);
+        return value.format('YYYY/MM/DD HH:mm:ss');
+      }}
+      formKey="base-form-use-demo"
+      formRef={formRef}
+      params={{ id: '100' }}
+      request={async () => {
+        await waitTime(1500);
+        return {
+          name: 'Ant Design Co., Ltd.',
+          useMode: 'chapter',
+        };
+      }}
       onFinish={async (values) => {
         await waitTime(2000);
         console.log(values);
@@ -84,74 +99,46 @@ export default () => {
         console.log('validateFieldsReturnFormatValue:', val2);
         message.success('Submission successful');
       }}
-      formRef={formRef}
-      params={{ id: '100' }}
-      formKey="base-form-use-demo"
-      dateFormatter={(value, valueType) => {
-        console.log('---->', value, valueType);
-        return value.format('YYYY/MM/DD HH:mm:ss');
-      }}
-      request={async () => {
-        await waitTime(1500);
-        return {
-          name: 'Ant Design Co., Ltd.',
-          useMode: 'chapter',
-        };
-      }}
-      autoFocusFirstInput
     >
       <ProForm.Group>
         <ProFormText
-          width="md"
-          name="name"
           required
-          dependencies={[['contract', 'name']]}
-          addonBefore={<a>How to get the customer name?</a>}
           addonAfter={<a>Click to see more</a>}
+          addonBefore={<a>How to get the customer name?</a>}
+          dependencies={[['contract', 'name']]}
           label="Contract Customer Name"
-          tooltip="Up to 24 characters"
+          name="name"
           placeholder="Please enter a name"
           rules={[{ required: true, message: 'This is a required field' }]}
-        />
-        <ProFormText
+          tooltip="Up to 24 characters"
           width="md"
-          name="company"
-          label="Our Company Name"
-          placeholder="Please enter a name"
         />
+        <ProFormText label="Our Company Name" name="company" placeholder="Please enter a name" width="md" />
       </ProForm.Group>
       <ProForm.Group>
-        <ProFormDigit name="count" label="Number of People" width="lg" />
+        <ProFormDigit label="Number of People" name="count" width="lg" />
       </ProForm.Group>
       <ProForm.Group>
-        <ProFormText
-          name={['contract', 'name']}
-          width="md"
-          label="Contract Name"
-          placeholder="Please enter a name"
-        />
-        <ProFormDateRangePicker
-          width="md"
-          name={['contract', 'createTime']}
-          label="Contract Effective Time"
-        />
+        <ProFormText label="Contract Name" name={['contract', 'name']} placeholder="Please enter a name" width="md" />
+        <ProFormDateRangePicker label="Contract Effective Time" name={['contract', 'createTime']} width="md" />
       </ProForm.Group>
       <ProForm.Group>
         <ProFormSelect
+          cacheForSwr
+          readonly
+          label="Contract Agreed Effective Method"
+          name="useMode"
           options={[
             {
               value: 'chapter',
               label: 'Effective after stamping',
             },
           ]}
-          readonly
           width="xs"
-          cacheForSwr
-          name="useMode"
-          label="Contract Agreed Effective Method"
         />
         <ProFormSelect.SearchSelect
-          width="xs"
+          label="Contract Agreed Invalid Method"
+          name="unusedMode"
           options={[
             {
               value: 'time',
@@ -169,40 +156,26 @@ export default () => {
               ],
             },
           ]}
-          name="unusedMode"
-          label="Contract Agreed Invalid Method"
+          width="xs"
         />
         <ProFormMoney
-          width="md"
-          name="money"
-          label="Contract Agreed Amount"
           fieldProps={{
             numberPopoverRender: true,
           }}
+          label="Contract Agreed Amount"
+          name="money"
+          width="md"
         />
       </ProForm.Group>
-      <ProFormText width="sm" name="id" label="Main Contract Number" />
-      <ProFormText
-        name="project"
-        width="md"
-        disabled
-        label="Project Name"
-        initialValue="xxxx Project"
-      />
-      <ProFormTextArea
-        colProps={{ span: 24 }}
-        name="address"
-        label="Detailed Work Address or Home Address"
-      />
-      <ProFormText
-        width="xs"
-        name="mangerName"
-        disabled
-        label="Business Manager"
-        initialValue="Qitu"
-      />
+      <ProFormText label="Main Contract Number" name="id" width="sm" />
+      <ProFormText disabled initialValue="xxxx Project" label="Project Name" name="project" width="md" />
+      <ProFormTextArea colProps={{ span: 24 }} label="Detailed Work Address or Home Address" name="address" />
+      <ProFormText disabled initialValue="Qitu" label="Business Manager" name="mangerName" width="xs" />
       <ProFormCascader
-        width="md"
+        addonAfter="qixian"
+        initialValue={['zhejiang', 'hangzhou', 'xihu']}
+        label="Area"
+        name="areaList"
         request={async () => [
           {
             value: 'zhejiang',
@@ -237,15 +210,9 @@ export default () => {
             ],
           },
         ]}
-        name="areaList"
-        label="Area"
-        initialValue={['zhejiang', 'hangzhou', 'xihu']}
-        addonAfter={'qixian'}
+        width="md"
       />
       <ProFormTreeSelect
-        initialValue={['0-0-0']}
-        label="Tree Select"
-        width={600}
         fieldProps={{
           fieldNames: {
             label: 'title',
@@ -255,6 +222,9 @@ export default () => {
           showCheckedStrategy: TreeSelect.SHOW_PARENT,
           placeholder: 'Please select',
         }}
+        initialValue={['0-0-0']}
+        label="Tree Select"
+        width={600}
       />
       <ProFormDatePicker
         name="date"

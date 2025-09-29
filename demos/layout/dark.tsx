@@ -5,12 +5,7 @@ import {
   QuestionCircleFilled,
   SearchOutlined,
 } from '@ant-design/icons';
-import {
-  PageContainer,
-  ProCard,
-  ProConfigProvider,
-  ProLayout,
-} from '@ant-design/pro-components';
+import { PageContainer, ProCard, ProConfigProvider, ProLayout } from '@xxlabs/pro-components';
 import { Button, Input } from 'antd';
 import { useState } from 'react';
 import defaultProps from './_defaultProps';
@@ -23,14 +18,6 @@ export default () => {
       <ProLayout
         {...defaultProps}
         splitMenus
-        location={{
-          pathname,
-        }}
-        avatarProps={{
-          src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
-          size: 'small',
-          title: '七妮妮',
-        }}
         actionsRender={(props) => {
           if (props.isMobile) return [];
           return [
@@ -49,11 +36,7 @@ export default () => {
                 }}
               >
                 <Input
-                  style={{
-                    borderRadius: 4,
-                    marginInlineEnd: 12,
-                    backgroundColor: 'rgba(0,0,0,0.03)',
-                  }}
+                  placeholder="搜索方案"
                   prefix={
                     <SearchOutlined
                       style={{
@@ -61,7 +44,11 @@ export default () => {
                       }}
                     />
                   }
-                  placeholder="搜索方案"
+                  style={{
+                    borderRadius: 4,
+                    marginInlineEnd: 12,
+                    backgroundColor: 'rgba(0,0,0,0.03)',
+                  }}
                   variant="borderless"
                 />
                 <PlusCircleFilled
@@ -77,6 +64,14 @@ export default () => {
             <GithubFilled key="GithubFilled" />,
           ];
         }}
+        avatarProps={{
+          src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+          size: 'small',
+          title: '七妮妮',
+        }}
+        location={{
+          pathname,
+        }}
         menuFooterRender={(props) => {
           if (props?.collapsed) return undefined;
           return (
@@ -90,7 +85,6 @@ export default () => {
             </p>
           );
         }}
-        onMenuHeaderClick={(e) => console.log(e)}
         menuItemRender={(item, dom) => (
           <a
             onClick={() => {
@@ -100,6 +94,7 @@ export default () => {
             {dom}
           </a>
         )}
+        onMenuHeaderClick={(e) => console.log(e)}
       >
         <PageContainer
           extra={[

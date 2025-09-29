@@ -19,9 +19,11 @@ export interface GridHelpers {
   grid: boolean;
 }
 
-export const gridHelpers: (
-  config: ProFormGridConfig & CommonProps,
-) => GridHelpers = ({ grid, rowProps, colProps }) => ({
+export const gridHelpers: (config: ProFormGridConfig & CommonProps) => GridHelpers = ({
+  grid,
+  rowProps,
+  colProps,
+}) => ({
   grid: !!grid,
   RowWrapper({ children, Wrapper, ...props } = {} as Record<string, any>) {
     if (!grid) {
@@ -42,10 +44,7 @@ export const gridHelpers: (
        * `xs` takes precedence over `span`
        * avoid `span` doesn't work
        */
-      if (
-        typeof originProps.span === 'undefined' &&
-        typeof originProps.xs === 'undefined'
-      ) {
+      if (typeof originProps.span === 'undefined' && typeof originProps.xs === 'undefined') {
         originProps.xs = 24;
       }
 
@@ -60,9 +59,7 @@ export const gridHelpers: (
   },
 });
 
-export const useGridHelpers = (
-  props?: (ProFormGridConfig & CommonProps) | boolean,
-) => {
+export const useGridHelpers = (props?: (ProFormGridConfig & CommonProps) | boolean) => {
   const config = useMemo(() => {
     {
       if (typeof props === 'object') {
@@ -84,13 +81,7 @@ export const useGridHelpers = (
         colProps: config?.colProps || colProps,
         Wrapper: config?.Wrapper,
       }),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [
-      config?.Wrapper,
-      config.grid,
-      grid,
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      JSON.stringify([colProps, config?.colProps, config?.rowProps]),
-    ],
+
+    [config?.Wrapper, config.grid, grid, JSON.stringify([colProps, config?.colProps, config?.rowProps])],
   );
 };

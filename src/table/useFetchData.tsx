@@ -8,12 +8,7 @@ import {
   usePrevious,
   useRefFunction,
 } from '../utils';
-import type {
-  PageInfo,
-  RequestData,
-  UseFetchDataAction,
-  UseFetchProps,
-} from './typing';
+import type { PageInfo, RequestData, UseFetchDataAction, UseFetchProps } from './typing';
 import { postDataPipeline } from './utils/index';
 
 /**
@@ -43,20 +38,18 @@ const mergeOptionAndPageInfo = ({ pageInfo }: UseFetchProps) => {
  * @returns {UseFetchDataAction} 返回一个对象，包含当前的数据列表、loading 状态、error、以及可控制的分页参数等
  */
 const useFetchData = <DataSource extends RequestData<any>>(
-  getData:
-    | undefined
-    | ((params?: { pageSize: number; current: number }) => Promise<DataSource>),
+  getData: undefined | ((params?: { pageSize: number; current: number }) => Promise<DataSource>),
   defaultData: any[] | undefined,
   options: UseFetchProps,
 ): UseFetchDataAction => {
   /**
    * 用于保存组件是否被卸载的状态的引用
-   * @type {React.MutableRefObject<boolean>}
+   * @type {React.RefObject<boolean>}
    */
   const umountRef = useRef<boolean>(false);
   /**
    * 用于保存 AbortController 实例的引用，方便需要时进行请求的取消操作
-   * @type {React.MutableRefObject<AbortController | null>}
+   * @type {React.RefObject<AbortController | null>}
    */
   const abortRef = useRef<AbortController | null>(null);
   /**
@@ -68,27 +61,18 @@ const useFetchData = <DataSource extends RequestData<any>>(
    * @property {function} [onRequestError] 请求错误的回调函数
    * @property {number} [debounceTime=20] 防抖时间，单位为毫秒，默认为 20ms
    */
-  const {
-    onLoad,
-    manual,
-    polling,
-    onRequestError,
-    debounceTime = 20,
-    effects = [],
-  } = options || {};
+  const { onLoad, manual, polling, onRequestError, debounceTime = 20, effects = [] } = options || {};
 
   /** 是否首次加载的指示器 */
   const manualRequestRef = useRef<boolean>(manual);
 
   /** 轮询的setTime ID 存储 */
-  const pollingSetTimeRef = useRef<any>();
+  const pollingSetTimeRef = useRef<any>(undefined);
 
   /**
    * 用于存储最新的数据，这样可以在切换的时候保持数据的一致性
    */
-  const [tableDataList, setTableDataList] = useMountMergeState<
-    DataSource[] | undefined
-  >(defaultData, {
+  const [tableDataList, setTableDataList] = useMountMergeState<DataSource[] | undefined>(defaultData, {
     value: options?.dataSource,
     onChange: options?.onDataSourceChange,
   });
@@ -97,10 +81,7 @@ const useFetchData = <DataSource extends RequestData<any>>(
    * 表格的加载状态
    */
   const [tableLoading, setTableLoading] = useMountMergeState<boolean>(false, {
-    value:
-      typeof options?.loading === 'object'
-        ? options?.loading?.spinning
-        : options?.loading,
+    value: typeof options?.loading === 'object' ? options?.loading?.spinning : options?.loading,
     onChange: options?.onLoadingChange,
   });
 
@@ -112,16 +93,13 @@ const useFetchData = <DataSource extends RequestData<any>>(
    * @property {number} total 数据总量
    * @type {[PageInfo, React.Dispatch<React.SetStateAction<PageInfo>>]}
    */
-  const [pageInfo, setPageInfoState] = useMountMergeState<PageInfo>(
-    () => mergeOptionAndPageInfo(options),
-    {
-      onChange: options?.onPageInfoChange,
-    },
-  );
+  const [pageInfo, setPageInfoState] = useMountMergeState<PageInfo>(() => mergeOptionAndPageInfo(options), {
+    onChange: options?.onPageInfoChange,
+  });
 
   /**
    * 用于比较并设置页面信息和回调函数的引用更新
-   * @type {React.MutableRefObject<(changePageInfo: PageInfo) => void>}
+   * @type {React.RefObject<(changePageInfo: PageInfo) => void>}
    */
   const setPageInfo = useRefFunction((changePageInfo: PageInfo) => {
     if (
@@ -198,19 +176,11 @@ const useFetchData = <DataSource extends RequestData<any>>(
               pageSize,
             }
           : undefined;
-      const {
-        data = [],
-        success,
-        total = 0,
-        ...rest
-      } = (await getData?.(pageParams)) || {};
+      const { data = [], success, total = 0, ...rest } = (await getData?.(pageParams)) || {};
       // 如果失败了，直接返回，不走剩下的逻辑了
       if (success === false) return [];
 
-      const responseData = postDataPipeline<DataSource[]>(
-        data!,
-        [options.postData].filter((item) => item) as any,
-      );
+      const responseData = postDataPipeline<DataSource[]>(data!, [options.postData].filter((item) => item) as any);
       // 设置表格数据
       setDataAndLoading(responseData, total);
       onLoad?.(responseData, rest);
@@ -311,7 +281,6 @@ const useFetchData = <DataSource extends RequestData<any>>(
     return () => {
       clearTimeout(pollingSetTimeRef.current);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [polling]);
 
   useEffect(() => {
@@ -327,17 +296,11 @@ const useFetchData = <DataSource extends RequestData<any>>(
     const { current, pageSize } = pageInfo || {};
     // 如果上次的页码为空或者两次页码等于是没必要查询的
     // 如果 pageSize 发生变化是需要查询的，所以又加了 prePageSize
-    if (
-      (!prePage || prePage === current) &&
-      (!prePageSize || prePageSize === pageSize)
-    ) {
+    if ((!prePage || prePage === current) && (!prePageSize || prePageSize === pageSize)) {
       return;
     }
 
-    if (
-      (options.pageInfo && tableDataList && tableDataList?.length > pageSize) ||
-      0
-    ) {
+    if ((options.pageInfo && tableDataList && tableDataList?.length > pageSize) || 0) {
       return;
     }
 
@@ -346,15 +309,10 @@ const useFetchData = <DataSource extends RequestData<any>>(
     // (pageIndex - 1 || 1) 至少要第一页
     // 在第一页大于 10
     // 第二页也应该是大于 10
-    if (
-      current !== undefined &&
-      tableDataList &&
-      tableDataList.length <= pageSize
-    ) {
+    if (current !== undefined && tableDataList && tableDataList.length <= pageSize) {
       abortFetch();
       fetchListDebounce.run(false);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageInfo?.current]);
 
   // pageSize 修改后返回第一页
@@ -364,7 +322,6 @@ const useFetchData = <DataSource extends RequestData<any>>(
     }
     abortFetch();
     fetchListDebounce.run(false);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageInfo?.pageSize]);
 
   /**
@@ -401,10 +358,7 @@ const useFetchData = <DataSource extends RequestData<any>>(
      * 表示表格是否正在加载数据的标志。
      * @type {boolean}
      */
-    loading:
-      typeof options?.loading === 'object'
-        ? { ...options?.loading, spinning: tableLoading }
-        : tableLoading,
+    loading: typeof options?.loading === 'object' ? { ...options?.loading, spinning: tableLoading } : tableLoading,
     /**
      * 重新加载表格数据的函数。
      * @type {function}

@@ -5,9 +5,7 @@ export interface ProLayoutHeaderToken extends ProAliasToken {
   componentCls: string;
 }
 
-const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken> = (
-  token,
-) => {
+const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken> = (token) => {
   return {
     [`${token.proComponentsCls}-layout`]: {
       [`${token.antCls}-layout-header${token.componentCls}`]: {
@@ -19,12 +17,10 @@ const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken> = (
         paddingBlock: 0,
         paddingInline: 0,
         borderBlockEnd: `1px solid ${token.colorSplit}`,
-        backgroundColor:
-          token.layout?.header?.colorBgHeader || 'rgba(255, 255, 255, 0.4)',
+        backgroundColor: token.layout?.header?.colorBgHeader || 'rgba(255, 255, 255, 0.4)',
         WebkitBackdropFilter: 'blur(8px)',
         backdropFilter: 'blur(8px)',
-        transition:
-          'background-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1)',
+        transition: 'background-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1)',
         '&-fixed-header': {
           position: 'fixed',
           insetBlockStart: 0,
@@ -33,9 +29,7 @@ const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken> = (
           insetInlineEnd: 0,
         },
         '&-fixed-header-scroll': {
-          backgroundColor:
-            token.layout?.header?.colorBgScrollHeader ||
-            'rgba(255, 255, 255, 0.8)',
+          backgroundColor: token.layout?.header?.colorBgScrollHeader || 'rgba(255, 255, 255, 0.8)',
         },
         '&-header-actions': {
           display: 'flex',

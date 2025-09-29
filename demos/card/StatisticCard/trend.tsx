@@ -1,4 +1,4 @@
-import { StatisticCard } from '@ant-design/pro-components';
+import { StatisticCard } from '@xxlabs/pro-components';
 
 const { Statistic } = StatisticCard;
 
@@ -6,8 +6,8 @@ export default () => {
   return (
     <>
       <StatisticCard style={{ width: 160 }}>
-        <Statistic title="Daily Comparison" value="7.60%" trend="up" />
-        <Statistic title="Weekly Comparison" value="7.60%" trend="down" />
+        <Statistic title="Daily Comparison" trend="up" value="7.60%" />
+        <Statistic title="Weekly Comparison" trend="down" value="7.60%" />
         <Statistic title="Weekly Comparison" value="0.00%" />
       </StatisticCard>
 

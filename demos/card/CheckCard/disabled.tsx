@@ -1,33 +1,33 @@
-import { CheckCard } from '@ant-design/pro-components';
+import { CheckCard } from '@xxlabs/pro-components';
 
 export default () => (
   <>
     <div>
       <h3>部分不可用</h3>
       <CheckCard
-        title="Card title"
-        description="This is the description"
         avatar="https://gw.alipayobjects.com/zos/bmw-prod/f601048d-61c2-44d0-bf57-ca1afe7fd92e.svg"
+        description="This is the description"
+        title="Card title"
       />
       <CheckCard
-        title="Card title"
-        description="This is the description"
         disabled
         avatar="https://gw.alipayobjects.com/zos/bmw-prod/f601048d-61c2-44d0-bf57-ca1afe7fd92e.svg"
+        description="This is the description"
+        title="Card title"
       />
       <CheckCard
-        title="Card title"
-        description="This is the description"
-        disabled
         defaultChecked
+        disabled
         avatar="https://gw.alipayobjects.com/zos/bmw-prod/f601048d-61c2-44d0-bf57-ca1afe7fd92e.svg"
+        description="This is the description"
+        title="Card title"
       />
     </div>
     <div>
       <h3>整体不可用</h3>
       <CheckCard.Group disabled defaultValue="A">
-        <CheckCard title="Card A" description="选项一" value="A" />
-        <CheckCard title="Card B" description="选项二" value="B" />
+        <CheckCard description="选项一" title="Card A" value="A" />
+        <CheckCard description="选项二" title="Card B" value="B" />
       </CheckCard.Group>
     </div>
 
@@ -45,8 +45,7 @@ export default () => (
           <strong>disabled</strong>: 是否禁用卡片，禁用后无法点击和选择
         </li>
         <li>
-          <strong>defaultChecked</strong>:
-          默认选中状态，即使禁用也可以设置默认选中
+          <strong>defaultChecked</strong>: 默认选中状态，即使禁用也可以设置默认选中
         </li>
         <li>
           <strong>title</strong>: 卡片标题

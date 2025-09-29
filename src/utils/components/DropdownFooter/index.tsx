@@ -1,14 +1,12 @@
 import { Button, ConfigProvider } from 'antd';
 import classNames from 'classnames';
+import type { JSX } from 'react';
 import React, { useContext } from 'react';
 import { useIntl } from '../../../provider';
 import { useStyle } from './style';
 
 type LightFilterFooterRender =
-  | ((
-      onConfirm?: (e?: React.MouseEvent) => void,
-      onClear?: (e?: React.MouseEvent) => void,
-    ) => JSX.Element | false)
+  | ((onConfirm?: (e?: React.MouseEvent) => void, onClear?: (e?: React.MouseEvent) => void) => JSX.Element | false)
   | false;
 
 type OnClick = (e?: React.MouseEvent) => void;
@@ -30,12 +28,12 @@ const DropdownFooter: React.FC<DropdownFooterProps> = (props) => {
   const defaultFooter = [
     <Button
       key="clear"
+      disabled={disabled}
+      size="small"
       style={{
         visibility: onClear ? 'visible' : 'hidden',
       }}
       type="link"
-      size="small"
-      disabled={disabled}
       onClick={(e) => {
         if (onClear) {
           onClear(e);
@@ -45,14 +43,7 @@ const DropdownFooter: React.FC<DropdownFooterProps> = (props) => {
     >
       {intl.getMessage('form.lightFilter.clear', '清除')}
     </Button>,
-    <Button
-      key="confirm"
-      data-type="confirm"
-      type="primary"
-      size="small"
-      onClick={onConfirm}
-      disabled={disabled}
-    >
+    <Button key="confirm" data-type="confirm" disabled={disabled} size="small" type="primary" onClick={onConfirm}>
       {intl.getMessage('form.lightFilter.confirm', '确认')}
     </Button>,
   ];
@@ -66,10 +57,7 @@ const DropdownFooter: React.FC<DropdownFooterProps> = (props) => {
   return wrapSSR(
     <div
       className={classNames(prefixCls, hashId)}
-      onClick={(e) =>
-        (e.target as Element).getAttribute('data-type') !== 'confirm' &&
-        e.stopPropagation()
-      }
+      onClick={(e) => (e.target as Element).getAttribute('data-type') !== 'confirm' && e.stopPropagation()}
     >
       {renderDom}
     </div>,

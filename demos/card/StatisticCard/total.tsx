@@ -1,4 +1,4 @@
-import { StatisticCard } from '@ant-design/pro-components';
+import { StatisticCard } from '@xxlabs/pro-components';
 import RcResizeObserver from 'rc-resize-observer';
 import { useState } from 'react';
 
@@ -24,34 +24,26 @@ export default () => {
           />
           <Divider type={responsive ? 'horizontal' : 'vertical'} />
           <StatisticCard
+            chart={
+              <img alt="Percentage" src="https://gw.alipayobjects.com/zos/alicdn/ShNDpDTik/huan.svg" width="100%" />
+            }
+            chartPlacement="left"
             statistic={{
               title: 'Paid Traffic',
               value: 3701928,
               description: <Statistic title="Proportion" value="61.5%" />,
             }}
-            chart={
-              <img
-                src="https://gw.alipayobjects.com/zos/alicdn/ShNDpDTik/huan.svg"
-                alt="Percentage"
-                width="100%"
-              />
-            }
-            chartPlacement="left"
           />
           <StatisticCard
+            chart={
+              <img alt="Percentage" src="https://gw.alipayobjects.com/zos/alicdn/6YR18tCxJ/huanlv.svg" width="100%" />
+            }
+            chartPlacement="left"
             statistic={{
               title: 'Free Traffic',
               value: 1806062,
               description: <Statistic title="Proportion" value="38.5%" />,
             }}
-            chart={
-              <img
-                src="https://gw.alipayobjects.com/zos/alicdn/6YR18tCxJ/huanlv.svg"
-                alt="Percentage"
-                width="100%"
-              />
-            }
-            chartPlacement="left"
           />
         </StatisticCard.Group>
       </RcResizeObserver>
@@ -73,15 +65,13 @@ export default () => {
             <strong>statistic.value</strong>: 统计数值
           </li>
           <li>
-            <strong>statistic.description</strong>: 统计描述，可以是 Statistic
-            组件
+            <strong>statistic.description</strong>: 统计描述，可以是 Statistic 组件
           </li>
           <li>
             <strong>chart</strong>: 图表区域
           </li>
           <li>
-            <strong>chartPlacement</strong>: 图表位置，'left' 表示左侧，'right'
-            表示右侧
+            <strong>chartPlacement</strong>: 图表位置，'left' 表示左侧，'right' 表示右侧
           </li>
         </ul>
         <h4>ChartPlacement 属性说明：</h4>

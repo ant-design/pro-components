@@ -8,8 +8,8 @@ export const group: ProSchemaRenderValueTypeFunction = (item, { genItems }) => {
     return (
       <ProFormGroup
         key={item.key}
-        label={item.label}
         colProps={item.colProps}
+        label={item.label}
         rowProps={item.rowProps}
         {...item.getFieldProps?.()}
       >

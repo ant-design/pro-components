@@ -47,14 +47,9 @@ export const dateArrayFormatter = (
   }
 
   // activePickerIndex for https://github.com/ant-design/ant-design/issues/22158
-  const parsedStartText: string = startText
-    ? formatString(startText, formatFirst)
-    : '';
+  const parsedStartText: string = startText ? formatString(startText, formatFirst) : '';
   const parsedEndText: string = endText ? formatString(endText, formatEnd) : '';
-  const valueStr: string =
-    parsedStartText && parsedEndText
-      ? `${parsedStartText} ~ ${parsedEndText}`
-      : '';
+  const valueStr: string = parsedStartText && parsedEndText ? `${parsedStartText} ~ ${parsedEndText}` : '';
 
   return valueStr;
 };

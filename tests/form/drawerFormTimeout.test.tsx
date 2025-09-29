@@ -1,5 +1,5 @@
-﻿import { DrawerForm, ProFormText } from '@ant-design/pro-components';
-import { cleanup, render, waitFor } from '@testing-library/react';
+﻿import { cleanup, render, waitFor } from '@testing-library/react';
+import { DrawerForm, ProFormText } from '@xxlabs/pro-components';
 import { act } from 'react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
@@ -18,6 +18,7 @@ describe('DrawerForm', () => {
         drawerProps={{
           onClose: () => fn(),
         }}
+        submitTimeout={3000}
         onFinish={() => {
           return new Promise((resolve) => {
             setTimeout(() => {
@@ -25,7 +26,6 @@ describe('DrawerForm', () => {
             }, 3000);
           });
         }}
-        submitTimeout={3000}
       >
         <ProFormText name="text" />
       </DrawerForm>,
@@ -37,8 +37,7 @@ describe('DrawerForm', () => {
 
     // 等待按钮状态更新
     await waitFor(() => {
-      const cancelButton = html.queryAllByText('取 消').at(0)
-        ?.parentElement as HTMLButtonElement;
+      const cancelButton = html.queryAllByText('取 消').at(0)?.parentElement as HTMLButtonElement;
       expect(cancelButton.disabled).toBe(true);
     });
 
@@ -52,8 +51,7 @@ describe('DrawerForm', () => {
     // 等待提交完成，按钮应该重新启用
     await waitFor(
       () => {
-        const cancelButton = html.queryAllByText('取 消').at(0)
-          ?.parentElement as HTMLButtonElement;
+        const cancelButton = html.queryAllByText('取 消').at(0)?.parentElement as HTMLButtonElement;
         expect(cancelButton.disabled).toBe(false);
       },
       { timeout: 5000 },
@@ -93,8 +91,7 @@ describe('DrawerForm', () => {
     });
 
     // 没有 submitTimeout 时，取消按钮不应该被禁用
-    const cancelButton = wrapper.queryAllByText('取 消').at(0)
-      ?.parentElement as HTMLButtonElement;
+    const cancelButton = wrapper.queryAllByText('取 消').at(0)?.parentElement as HTMLButtonElement;
     expect(cancelButton.disabled).toBe(false);
 
     // 可以直接点击取消按钮

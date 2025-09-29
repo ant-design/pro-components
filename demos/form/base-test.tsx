@@ -1,4 +1,4 @@
-import type { ProFormInstance } from '@ant-design/pro-components';
+import type { ProFormInstance } from '@xxlabs/pro-components';
 import {
   ProForm,
   ProFormCascader,
@@ -10,7 +10,7 @@ import {
   ProFormSelect,
   ProFormText,
   ProFormTreeSelect,
-} from '@ant-design/pro-components';
+} from '@xxlabs/pro-components';
 import { TreeSelect } from 'antd';
 import dayjs from 'dayjs';
 import { useRef } from 'react';
@@ -59,74 +59,61 @@ export default () => {
       company?: string;
       useMode?: string;
     }>
-  >();
+  >(undefined);
   return (
     <ProForm<{
       name: string;
       company?: string;
       useMode?: string;
     }>
-      formRef={formRef}
-      params={{ id: '100' }}
-      formKey="base-form-use-demo"
+      autoFocusFirstInput
       dateFormatter={(value, valueType) => {
         console.log('---->', value, valueType);
         return value.format('YYYY/MM/DD HH:mm:ss');
       }}
-      autoFocusFirstInput
+      formKey="base-form-use-demo"
+      formRef={formRef}
+      params={{ id: '100' }}
     >
       <ProForm.Group>
         <ProFormText
-          width="md"
-          name="name"
           required
-          dependencies={[['contract', 'name']]}
-          addonBefore={<a>客户名称应该怎么获得？</a>}
           addonAfter={<a>点击查看更多</a>}
+          addonBefore={<a>客户名称应该怎么获得？</a>}
+          dependencies={[['contract', 'name']]}
           label="签约客户名称"
-          tooltip="最长为 24 位"
+          name="name"
           placeholder="请输入名称"
           rules={[{ required: true, message: '这是必填项' }]}
-        />
-        <ProFormText
+          tooltip="最长为 24 位"
           width="md"
-          name="company"
-          label="我方公司名称"
-          placeholder="请输入名称"
         />
+        <ProFormText label="我方公司名称" name="company" placeholder="请输入名称" width="md" />
       </ProForm.Group>
       <ProForm.Group>
-        <ProFormDigit name="count" label="人数" width="lg" />
+        <ProFormDigit label="人数" name="count" width="lg" />
       </ProForm.Group>
       <ProForm.Group>
-        <ProFormText
-          name={['contract', 'name']}
-          width="md"
-          label="合同名称"
-          placeholder="请输入名称"
-        />
-        <ProFormDateRangePicker
-          width="md"
-          name={['contract', 'createTime']}
-          label="合同生效时间"
-        />
+        <ProFormText label="合同名称" name={['contract', 'name']} placeholder="请输入名称" width="md" />
+        <ProFormDateRangePicker label="合同生效时间" name={['contract', 'createTime']} width="md" />
       </ProForm.Group>
       <ProForm.Group>
         <ProFormSelect
+          cacheForSwr
+          readonly
+          label="合同约定生效方式"
+          name="useMode"
           options={[
             {
               value: 'chapter',
               label: '盖章后生效',
             },
           ]}
-          readonly
           width="xs"
-          cacheForSwr
-          name="useMode"
-          label="合同约定生效方式"
         />
         <ProFormSelect.SearchSelect
-          width="xs"
+          label="合同约定失效方式"
+          name="unusedMode"
           options={[
             {
               value: 'time',
@@ -144,35 +131,25 @@ export default () => {
               ],
             },
           ]}
-          name="unusedMode"
-          label="合同约定失效方式"
+          width="xs"
         />
         <ProFormMoney
-          width="md"
-          name="money"
-          label="合同约定金额"
           fieldProps={{
             numberPopoverRender: true,
           }}
+          label="合同约定金额"
+          name="money"
+          width="md"
         />
       </ProForm.Group>
-      <ProFormText width="sm" name="id" label="主合同编号" />
-      <ProFormText
-        name="project"
-        width="md"
-        disabled
-        label="项目名称"
-        initialValue="xxxx项目"
-      />
-      <ProFormText
-        width="xs"
-        name="mangerName"
-        disabled
-        label="商务经理"
-        initialValue="启途"
-      />
+      <ProFormText label="主合同编号" name="id" width="sm" />
+      <ProFormText disabled initialValue="xxxx项目" label="项目名称" name="project" width="md" />
+      <ProFormText disabled initialValue="启途" label="商务经理" name="mangerName" width="xs" />
       <ProFormCascader
-        width="md"
+        addonAfter="qixian"
+        initialValue={['zhejiang', 'hangzhou', 'xihu']}
+        label="区域"
+        name="areaList"
         request={async () => [
           {
             value: 'zhejiang',
@@ -207,16 +184,9 @@ export default () => {
             ],
           },
         ]}
-        name="areaList"
-        label="区域"
-        initialValue={['zhejiang', 'hangzhou', 'xihu']}
-        addonAfter={'qixian'}
+        width="md"
       />
       <ProFormTreeSelect
-        initialValue={['0-0-0']}
-        label="树形下拉选择器"
-        width={600}
-        request={async () => treeData}
         fieldProps={{
           fieldNames: {
             label: 'title',
@@ -225,6 +195,10 @@ export default () => {
           showCheckedStrategy: TreeSelect.SHOW_PARENT,
           placeholder: 'Please select',
         }}
+        initialValue={['0-0-0']}
+        label="树形下拉选择器"
+        request={async () => treeData}
+        width={600}
       />
       <ProFormDatePicker
         name="date"
@@ -234,10 +208,7 @@ export default () => {
           };
         }}
       />
-      <ProFormList
-        name="datas"
-        initialValue={[{ date: '2022-10-12 10:00:00' }]}
-      >
+      <ProFormList initialValue={[{ date: '2022-10-12 10:00:00' }]} name="datas">
         {() => {
           return (
             <ProFormDatePicker

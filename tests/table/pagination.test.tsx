@@ -1,5 +1,5 @@
-import { ProTable, TableDropdown } from '@ant-design/pro-components';
 import { cleanup, fireEvent, render } from '@testing-library/react';
+import { ProTable, TableDropdown } from '@xxlabs/pro-components';
 import { act } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
@@ -15,13 +15,15 @@ describe('BasicTable pagination', () => {
     const onChangeFn = vi.fn();
     const html = render(
       <ProTable
-        size="small"
         columns={[
           {
             dataIndex: 'money',
             valueType: 'money',
           },
         ]}
+        pagination={{
+          onChange: onChangeFn(),
+        }}
         request={(params) => {
           fn(params.current);
           return request({
@@ -29,11 +31,9 @@ describe('BasicTable pagination', () => {
             current: 1,
           });
         }}
-        pagination={{
-          onChange: onChangeFn(),
-        }}
-        onRequestError={fn}
         rowKey="key"
+        size="small"
+        onRequestError={fn}
       />,
     );
     await waitForWaitTime(1200);
@@ -53,13 +53,15 @@ describe('BasicTable pagination', () => {
     const currentFn = vi.fn();
     const html = render(
       <ProTable
-        size="small"
         columns={[
           {
             dataIndex: 'money',
             valueType: 'money',
           },
         ]}
+        pagination={{
+          pageSize: 50,
+        }}
         request={(params) => {
           fn(params.pageSize);
           currentFn(params.current);
@@ -68,11 +70,9 @@ describe('BasicTable pagination', () => {
             current: 1,
           });
         }}
-        pagination={{
-          pageSize: 50,
-        }}
-        onRequestError={fn}
         rowKey="key"
+        size="small"
+        onRequestError={fn}
       />,
     );
     await waitForWaitTime(1200);
@@ -82,13 +82,15 @@ describe('BasicTable pagination', () => {
     act(() => {
       html.rerender(
         <ProTable
-          size="small"
           columns={[
             {
               dataIndex: 'money',
               valueType: 'money',
             },
           ]}
+          pagination={{
+            pageSize: 10,
+          }}
           request={(params) => {
             fn(params.pageSize);
             currentFn(params.current);
@@ -97,11 +99,9 @@ describe('BasicTable pagination', () => {
               current: 1,
             });
           }}
-          pagination={{
-            pageSize: 10,
-          }}
-          onRequestError={fn}
           rowKey="key"
+          size="small"
+          onRequestError={fn}
         />,
       );
     });
@@ -115,23 +115,23 @@ describe('BasicTable pagination', () => {
     const pageSizeFn = vi.fn();
     const html = render(
       <ProTable
-        size="small"
         columns={[
           {
             dataIndex: 'money',
             valueType: 'money',
           },
         ]}
+        pagination={{
+          current: 2,
+        }}
         request={(params) => {
           fn(params.current);
           pageSizeFn(params.pageSize);
           return request(params);
         }}
-        pagination={{
-          current: 2,
-        }}
-        onRequestError={fn}
         rowKey="key"
+        size="small"
+        onRequestError={fn}
       />,
     );
     await waitForWaitTime(1200);
@@ -142,23 +142,23 @@ describe('BasicTable pagination', () => {
     act(() => {
       html.rerender(
         <ProTable
-          size="small"
           columns={[
             {
               dataIndex: 'money',
               valueType: 'money',
             },
           ]}
+          pagination={{
+            current: 3,
+          }}
           request={(params) => {
             fn(params.current);
             pageSizeFn(params.pageSize);
             return request(params);
           }}
-          pagination={{
-            current: 3,
-          }}
-          onRequestError={fn}
           rowKey="key"
+          size="small"
+          onRequestError={fn}
         />,
       );
     });
@@ -172,13 +172,13 @@ describe('BasicTable pagination', () => {
     const fn = vi.fn();
     const html = render(
       <ProTable
-        size="small"
         columns={[
           {
             dataIndex: 'money',
             valueType: 'money',
           },
         ]}
+        pagination={false}
         request={(params) => {
           fn(params.pageSize);
           return request({
@@ -186,9 +186,9 @@ describe('BasicTable pagination', () => {
             current: 1,
           });
         }}
-        pagination={false}
-        onRequestError={() => null}
         rowKey="key"
+        size="small"
+        onRequestError={() => null}
       />,
     );
     await waitForWaitTime(1200);
@@ -198,24 +198,24 @@ describe('BasicTable pagination', () => {
     act(() => {
       html.rerender(
         <ProTable
-          size="small"
           columns={[
             {
               dataIndex: 'money',
               valueType: 'money',
             },
           ]}
+          pagination={{
+            pageSize: 10,
+          }}
           request={(params) => {
             fn(params.pageSize);
             return request({
               pageSize: 10,
             });
           }}
-          pagination={{
-            pageSize: 10,
-          }}
-          onRequestError={() => null}
           rowKey="key"
+          size="small"
+          onRequestError={() => null}
         />,
       );
     });
@@ -230,7 +230,6 @@ describe('BasicTable pagination', () => {
       <ProTable<{
         money: number;
       }>
-        size="small"
         columns={[
           {
             dataIndex: 'money',
@@ -240,7 +239,6 @@ describe('BasicTable pagination', () => {
         pagination={{
           pageSize: 1,
         }}
-        rowKey="key"
         request={() => {
           fn();
           return new Promise((resolve) => {
@@ -258,6 +256,8 @@ describe('BasicTable pagination', () => {
             });
           });
         }}
+        rowKey="key"
+        size="small"
       />,
     );
     await waitForWaitTime(1200);
@@ -272,27 +272,27 @@ describe('BasicTable pagination', () => {
     const currentFn = vi.fn();
     const html = render(
       <ProTable
-        size="small"
         columns={[
           {
             dataIndex: 'money',
             valueType: 'money',
           },
         ]}
-        params={{}}
         pagination={{
           pageSize: 1,
           onChange: (page) => {
             currentFn(page);
           },
         }}
-        rowKey="key"
+        params={{}}
         request={() => {
           return request({
             pageSize: 1,
             current: 1,
           });
         }}
+        rowKey="key"
+        size="small"
       />,
     );
     await waitForWaitTime(1200);
@@ -303,27 +303,27 @@ describe('BasicTable pagination', () => {
     await act(async () => {
       html.rerender(
         <ProTable
-          size="small"
           columns={[
             {
               dataIndex: 'money',
               valueType: 'money',
             },
           ]}
-          params={{ name: '111' }}
           pagination={{
             pageSize: 1,
             onChange: (page) => {
               currentFn(page);
             },
           }}
-          rowKey="key"
+          params={{ name: '111' }}
           request={() => {
             return request({
               pageSize: 1,
               current: 1,
             });
           }}
+          rowKey="key"
+          size="small"
         />,
       );
     });
@@ -341,12 +341,12 @@ describe('TableDropdown', () => {
     const fn = vi.fn();
     const html = render(
       <TableDropdown
-        onSelect={fn}
         key="actionGroup"
         menus={[
           { key: 'copy', name: '复制' },
           { key: 'delete', name: '删除' },
         ]}
+        onSelect={fn}
       />,
     );
 

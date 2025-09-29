@@ -1,28 +1,24 @@
-import {
-  LightFilter,
-  ProFormDateTimePicker,
-  ProFormSelect,
-} from '@ant-design/pro-components';
+import { LightFilter, ProFormDateTimePicker, ProFormSelect } from '@xxlabs/pro-components';
 
 export default () => {
   return (
     <LightFilter
+      collapse
       initialValues={{
         sex: 'man',
       }}
-      collapse
       onFinish={async (values) => console.log(values)}
     >
       <ProFormSelect
-        name="sex"
-        label="性别"
         showSearch
+        label="性别"
+        name="sex"
         valueEnum={{
           man: '男',
           woman: '女',
         }}
       />
-      <ProFormDateTimePicker name="time" label="时间" />
+      <ProFormDateTimePicker label="时间" name="time" />
     </LightFilter>
   );
 };

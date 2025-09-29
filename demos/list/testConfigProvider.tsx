@@ -1,4 +1,4 @@
-import { ProList } from '@ant-design/pro-components';
+import { ProList } from '@xxlabs/pro-components';
 import { ConfigProvider, Progress } from 'antd';
 import type { Key } from 'react';
 import { useState } from 'react';
@@ -6,8 +6,7 @@ import { useState } from 'react';
 const dataSource = [
   {
     title: '语雀的天空',
-    avatar:
-      'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+    avatar: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
   },
 ];
 
@@ -21,6 +20,8 @@ export default () => {
   return (
     <ConfigProvider prefixCls="qixian">
       <ProList<{ title: string }>
+        dataSource={dataSource}
+        headerTitle="支持选中的列表"
         metas={{
           title: {},
           description: {
@@ -57,9 +58,7 @@ export default () => {
           },
         }}
         rowKey="title"
-        headerTitle="支持选中的列表"
         rowSelection={rowSelection}
-        dataSource={dataSource}
       />
     </ConfigProvider>
   );

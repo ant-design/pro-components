@@ -1,5 +1,5 @@
 import { EllipsisOutlined } from '@ant-design/icons';
-import { PageContainer, ProTable } from '@ant-design/pro-components';
+import { PageContainer, ProTable } from '@xxlabs/pro-components';
 import { Button, Dropdown } from 'antd';
 
 export default () => (
@@ -9,10 +9,6 @@ export default () => (
     }}
   >
     <PageContainer
-      token={{
-        paddingBlockPageContainerContent: 24,
-        paddingInlinePageContainerContent: 60,
-      }}
       header={{
         title: 'Page Title',
         ghost: true,
@@ -40,7 +36,6 @@ export default () => (
           </Button>,
           <Dropdown
             key="dropdown"
-            trigger={['click']}
             menu={{
               items: [
                 {
@@ -57,12 +52,17 @@ export default () => (
                 },
               ],
             }}
+            trigger={['click']}
           >
             <Button key="4" style={{ padding: '0 8px' }}>
               <EllipsisOutlined />
             </Button>
           </Dropdown>,
         ],
+      }}
+      token={{
+        paddingBlockPageContainerContent: 24,
+        paddingInlinePageContainerContent: 60,
       }}
     >
       <ProTable search={false} />

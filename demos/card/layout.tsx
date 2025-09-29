@@ -1,15 +1,9 @@
-import { ProCard } from '@ant-design/pro-components';
+import { ProCard } from '@xxlabs/pro-components';
 
 export default () => {
   return (
     <>
-      <ProCard
-        title="Title"
-        extra="extra"
-        layout="center"
-        direction="column"
-        style={{ maxWidth: 300, height: 200 }}
-      >
+      <ProCard direction="column" extra="extra" layout="center" style={{ maxWidth: 300, height: 200 }} title="Title">
         <div>123</div>
         <div>456</div>
       </ProCard>

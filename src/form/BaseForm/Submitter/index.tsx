@@ -1,6 +1,7 @@
 import { omit } from '@rc-component/util';
 import type { ButtonProps } from 'antd';
 import { Button, Form } from 'antd';
+import type { JSX } from 'react';
 import React from 'react';
 import { proTheme, useIntl } from '../../../provider';
 
@@ -49,14 +50,7 @@ const Submitter: React.FC<SubmitterProps> = (props) => {
     return null;
   }
 
-  const {
-    onSubmit,
-    render,
-    onReset,
-    searchConfig = {},
-    submitButtonProps,
-    resetButtonProps,
-  } = props;
+  const { onSubmit, render, onReset, searchConfig = {}, submitButtonProps, resetButtonProps } = props;
 
   const { token } = proTheme.useToken();
 
@@ -84,9 +78,7 @@ const Submitter: React.FC<SubmitterProps> = (props) => {
         key="rest"
         onClick={(e) => {
           if (!resetButtonProps?.preventDefault) reset();
-          resetButtonProps?.onClick?.(
-            e as React.MouseEvent<HTMLButtonElement, MouseEvent>,
-          );
+          resetButtonProps?.onClick?.(e as React.MouseEvent<HTMLButtonElement, MouseEvent>);
         }}
       >
         {resetText}
@@ -102,9 +94,7 @@ const Submitter: React.FC<SubmitterProps> = (props) => {
         key="submit"
         onClick={(e) => {
           if (!submitButtonProps?.preventDefault) submit();
-          submitButtonProps?.onClick?.(
-            e as React.MouseEvent<HTMLButtonElement, MouseEvent>,
-          );
+          submitButtonProps?.onClick?.(e as React.MouseEvent<HTMLButtonElement, MouseEvent>);
         }}
       >
         {submitText}
@@ -112,9 +102,7 @@ const Submitter: React.FC<SubmitterProps> = (props) => {
     );
   }
 
-  const renderDom = render
-    ? render({ ...props, form, submit, reset }, dom)
-    : dom;
+  const renderDom = render ? render({ ...props, form, submit, reset }, dom) : dom;
   if (!renderDom) {
     return null;
   }

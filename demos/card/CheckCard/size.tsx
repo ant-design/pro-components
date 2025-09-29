@@ -1,4 +1,4 @@
-import { CheckCard } from '@ant-design/pro-components';
+import { CheckCard } from '@xxlabs/pro-components';
 import { Radio } from 'antd';
 import { useState } from 'react';
 
@@ -13,11 +13,7 @@ export default () => {
           <Radio.Button value="small">Small</Radio.Button>
         </Radio.Group>
       </div>
-      <CheckCard
-        title="Card title"
-        description="This is the description"
-        size={size}
-      />
+      <CheckCard description="This is the description" size={size} title="Card title" />
 
       <div
         style={{
@@ -30,8 +26,7 @@ export default () => {
         <h4>CheckCard Size Props 说明：</h4>
         <ul>
           <li>
-            <strong>size</strong>: 卡片尺寸，可选值：'large' | 'default' |
-            'small'
+            <strong>size</strong>: 卡片尺寸，可选值：'large' | 'default' | 'small'
           </li>
           <li>
             <strong>title</strong>: 卡片标题

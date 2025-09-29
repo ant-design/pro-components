@@ -1,11 +1,7 @@
 import type { FormItemProps } from 'antd';
-import type { NamePath } from 'antd/lib/form/interface';
+import type { NamePath } from 'antd/es/form/interface';
 import React from 'react';
-import type {
-  ProFieldProps,
-  ProFieldValueType,
-  SearchTransformKeyFn,
-} from '../utils';
+import type { ProFieldProps, ProFieldValueType, SearchTransformKeyFn } from '../utils';
 import type { CommonFormProps } from './BaseForm';
 import type { FieldProps, ProFormGroupProps } from './typing';
 

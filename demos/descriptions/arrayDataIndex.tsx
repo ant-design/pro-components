@@ -1,14 +1,19 @@
-import type { ProDescriptionsActionType } from '@ant-design/pro-components';
-import { ProDescriptions } from '@ant-design/pro-components';
+import type { ProDescriptionsActionType } from '@xxlabs/pro-components';
+import { ProDescriptions } from '@xxlabs/pro-components';
 import { Button } from 'antd';
 import { useRef } from 'react';
 
 export default () => {
-  const actionRef = useRef<ProDescriptionsActionType>();
+  const actionRef = useRef<ProDescriptionsActionType>(undefined);
   return (
     <ProDescriptions
       actionRef={actionRef}
-      title="高级定义列表 request"
+      editable={{
+        onSave: async (keypath, newInfo, oriInfo) => {
+          console.log(keypath, newInfo, oriInfo);
+          return true;
+        },
+      }}
       request={async () => {
         return Promise.resolve({
           success: true,
@@ -21,14 +26,10 @@ export default () => {
           },
         });
       }}
-      editable={{
-        onSave: async (keypath, newInfo, oriInfo) => {
-          console.log(keypath, newInfo, oriInfo);
-          return true;
-        },
-      }}
+      title="高级定义列表 request"
     >
       <ProDescriptions.Item
+        dataIndex={['info', 'id']}
         formItemProps={{
           rules: [
             {
@@ -37,25 +38,16 @@ export default () => {
             },
           ],
         }}
-        dataIndex={['info', 'id']}
       />
-      <ProDescriptions.Item
-        dataIndex={['info', 'date']}
-        label="日期"
-        valueType="date"
-      />
-      <ProDescriptions.Item
-        label="money"
-        dataIndex={['info', 'money']}
-        valueType="money"
-      />
+      <ProDescriptions.Item dataIndex={['info', 'date']} label="日期" valueType="date" />
+      <ProDescriptions.Item dataIndex={['info', 'money']} label="money" valueType="money" />
       <ProDescriptions.Item label="文本" valueType="option">
         <Button
+          key="reload"
           type="primary"
           onClick={() => {
             actionRef.current?.reload();
           }}
-          key="reload"
         >
           刷新
         </Button>

@@ -1,10 +1,10 @@
-/* eslint-disable no-param-reassign */ import { useMergedState } from '@rc-component/util';
+import { useMergedState } from '@rc-component/util';
 import type { ColProps, FormItemProps, RowProps } from 'antd';
 import { Col, ConfigProvider, Form, Row } from 'antd';
-import type { FormInstance, FormProps } from 'antd/lib/form/Form';
+import type { FormInstance, FormProps } from 'antd/es/form/Form';
 import classNames from 'classnames';
 import RcResizeObserver from 'rc-resize-observer';
-import type { ReactElement } from 'react';
+import type { JSX, ReactElement } from 'react';
 import React, { useContext, useMemo } from 'react';
 import { ProProvider, useIntl } from '../../../provider';
 import { isBrowser, useMountMergeState } from '../../../utils';
@@ -93,10 +93,7 @@ export type SpanConfig =
       xxl: number;
     };
 
-export type BaseQueryFilterProps = Omit<
-  ActionsProps,
-  'submitter' | 'setCollapsed' | 'isForm'
-> & {
+export type BaseQueryFilterProps = Omit<ActionsProps, 'submitter' | 'setCollapsed' | 'isForm'> & {
   className?: string;
   defaultCollapsed?: boolean;
   /**
@@ -201,10 +198,7 @@ export type BaseQueryFilterProps = Omit<
   containerStyle?: React.CSSProperties;
 };
 
-const flatMapItems = (
-  items: React.ReactNode[],
-  ignoreRules?: boolean,
-): React.ReactNode[] => {
+const flatMapItems = (items: React.ReactNode[], ignoreRules?: boolean): React.ReactNode[] => {
   return items?.flatMap((item: any) => {
     if (item?.type?.displayName === 'ProForm-Group' && !item.props?.title) {
       return item.props.children;
@@ -223,10 +217,7 @@ const flatMapItems = (
   });
 };
 
-export type QueryFilterProps<
-  T = Record<string, any>,
-  U = Record<string, any>,
-> = Omit<FormProps<T>, 'onFinish'> &
+export type QueryFilterProps<T = Record<string, any>, U = Record<string, any>> = Omit<FormProps<T>, 'onFinish'> &
   CommonFormProps<T, U> &
   BaseQueryFilterProps & {
     onReset?: (values: T) => void;
@@ -263,29 +254,15 @@ const QueryFilterContent: React.FC<{
 }> = (props) => {
   const intl = useIntl();
   const { hashId } = useContext(ProProvider);
-  const resetText =
-    props.resetText || intl.getMessage('tableForm.reset', '重置');
-  const searchText =
-    props.searchText || intl.getMessage('tableForm.search', '搜索');
+  const resetText = props.resetText || intl.getMessage('tableForm.reset', '重置');
+  const searchText = props.searchText || intl.getMessage('tableForm.search', '搜索');
 
-  const [collapsed, setCollapsed] = useMergedState<boolean>(
-    () => props.defaultCollapsed && !!props.submitter,
-    {
-      value: props.collapsed,
-      onChange: props.onCollapse,
-    },
-  );
+  const [collapsed, setCollapsed] = useMergedState<boolean>(() => props.defaultCollapsed && !!props.submitter, {
+    value: props.collapsed,
+    onChange: props.onCollapse,
+  });
 
-  const {
-    optionRender,
-    collapseRender,
-    split,
-    items,
-    spanSize,
-    showLength,
-    searchGutter,
-    showHiddenNum,
-  } = props;
+  const { optionRender, collapseRender, split, items, spanSize, showLength, searchGutter, showHiddenNum } = props;
 
   const submitter = useMemo(() => {
     if (!props.submitter || optionRender === false) {
@@ -325,14 +302,10 @@ const QueryFilterContent: React.FC<{
 
   // 处理过，包含是否需要隐藏的 数组
   const processedList = flatMapItems(items, props.ignoreRules).map(
-    (
-      item,
-      index,
-    ): { itemDom: React.ReactNode; hidden: boolean; colSpan: number } => {
+    (item, index): { itemDom: React.ReactNode; hidden: boolean; colSpan: number } => {
       // 如果 formItem 自己配置了 hidden，默认使用它自己的
-      const colSize = React.isValidElement<any>(item)
-        ? (item?.props?.colSize ?? 1)
-        : 1;
+      // @ts-ignore
+      const colSize = React.isValidElement<any>(item) ? (item?.props?.colSize ?? 1) : 1;
       const colSpan = Math.min(spanSize.span * (colSize || 1), 24);
       // 计算总的 totalSpan 长度
       totalSpan += colSpan;
@@ -340,9 +313,7 @@ const QueryFilterContent: React.FC<{
       totalSize += colSize;
 
       if (index === 0) {
-        firstRowFull =
-          colSpan === 24 &&
-          !(item as ReactElement<{ hidden: boolean }>)?.props?.hidden;
+        firstRowFull = colSpan === 24 && !(item as ReactElement<{ hidden: boolean }>)?.props?.hidden;
       }
 
       const hidden: boolean =
@@ -357,9 +328,7 @@ const QueryFilterContent: React.FC<{
       itemLength += 1;
 
       const itemKey =
-        (React.isValidElement(item) &&
-          (item.key || `${(item.props as Record<string, any>)?.name}`)) ||
-        index;
+        (React.isValidElement(item) && (item.key || `${(item.props as Record<string, any>)?.name}`)) || index;
 
       if (React.isValidElement(item) && hidden) {
         if (!props.preserve) {
@@ -389,16 +358,13 @@ const QueryFilterContent: React.FC<{
 
   const doms = processedList.map((itemProps, index: number) => {
     const { itemDom, colSpan } = itemProps;
-    const hidden: boolean = (itemDom as ReactElement<{ hidden: boolean }>)
-      ?.props?.hidden;
+    const hidden: boolean = (itemDom as ReactElement<{ hidden: boolean }>)?.props?.hidden;
 
     if (hidden) return itemDom;
 
     // 每一列的key, 一般是存在的
-    const itemKey =
-      (React.isValidElement(itemDom) &&
-        (itemDom.key || `${itemDom.props?.name}`)) ||
-      index;
+    // @ts-ignore
+    const itemKey = (React.isValidElement(itemDom) && (itemDom.key || `${itemDom.props?.name}`)) || index;
 
     if (24 - (currentSpan % 24) < colSpan) {
       // 如果当前行空余位置放不下，那么折行
@@ -412,8 +378,8 @@ const QueryFilterContent: React.FC<{
       return (
         <Col
           key={itemKey}
-          span={colSpan}
           className={`${props.baseClassName}-row-split-line ${props.baseClassName}-row-split ${hashId}`.trim()}
+          span={colSpan}
         >
           {itemDom}
         </Col>
@@ -421,18 +387,13 @@ const QueryFilterContent: React.FC<{
     }
 
     return (
-      <Col
-        key={itemKey}
-        className={`${props.baseClassName}-row-split ${hashId}`.trim()}
-        span={colSpan}
-      >
+      <Col key={itemKey} className={`${props.baseClassName}-row-split ${hashId}`.trim()} span={colSpan}>
         {itemDom}
       </Col>
     );
   });
 
-  const hiddenNum =
-    showHiddenNum && processedList.filter((item) => item.hidden).length;
+  const hiddenNum = showHiddenNum && processedList.filter((item) => item.hidden).length;
 
   /** 是否需要展示 collapseRender */
   const needCollapseRender = useMemo(() => {
@@ -443,8 +404,7 @@ const QueryFilterContent: React.FC<{
   }, [totalSize, showLength, totalSpan]);
 
   const offset = useMemo(() => {
-    const offsetSpan =
-      (currentSpan % 24) + (props.submitterColSpanProps?.span ?? spanSize.span);
+    const offsetSpan = (currentSpan % 24) + (props.submitterColSpanProps?.span ?? spanSize.span);
     if (offsetSpan > 24) {
       return 24 - (props.submitterColSpanProps?.span ?? spanSize.span);
     }
@@ -459,36 +419,36 @@ const QueryFilterContent: React.FC<{
   const baseClassName = context.getPrefixCls('pro-query-filter');
   return (
     <Row
+      key="resize-observer-row"
+      className={classNames(`${baseClassName}-row`, hashId)}
       gutter={searchGutter}
       justify="start"
-      className={classNames(`${baseClassName}-row`, hashId)}
-      key="resize-observer-row"
     >
       {doms}
       {submitter && (
         <Col
           key="submitter"
-          span={spanSize.span}
-          offset={offset}
           className={classNames(props.submitterColSpanProps?.className)}
+          offset={offset}
+          span={spanSize.span}
           {...props.submitterColSpanProps}
           style={{
             textAlign: 'end',
           }}
         >
           <Form.Item
-            label=" "
-            colon={false}
-            shouldUpdate={false}
             className={`${baseClassName}-actions ${hashId}`.trim()}
+            colon={false}
+            label=" "
+            shouldUpdate={false}
           >
             <Actions
-              hiddenNum={hiddenNum}
               key="pro-form-query-filter-actions"
-              collapsed={collapsed}
               collapseRender={needCollapseRender ? collapseRender : false}
-              submitter={submitter}
+              collapsed={collapsed}
+              hiddenNum={hiddenNum}
               setCollapsed={setCollapsed}
+              submitter={submitter}
             />
           </Form.Item>
         </Col>
@@ -530,16 +490,10 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
   const { wrapSSR, hashId } = useStyle(baseClassName);
 
   const [width, setWidth] = useMountMergeState(
-    () =>
-      (typeof style?.width === 'number'
-        ? style?.width
-        : defaultWidth) as number,
+    () => (typeof style?.width === 'number' ? style?.width : defaultWidth) as number,
   );
 
-  const spanSize = useMemo(
-    () => getSpanConfig(layout, width + 16, span),
-    [layout, width, span],
-  );
+  const spanSize = useMemo(() => getSpanConfig(layout, width + 16, span), [layout, width, span]);
 
   const showLength = useMemo(() => {
     if (defaultFormItemsNumber !== undefined) {
@@ -548,9 +502,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
     if (defaultColsNumber !== undefined) {
       // 折叠为一行，需要处理多行的情况请使用 defaultFormItemsNumber
       const oneRowControlsNumber = 24 / spanSize.span - 1;
-      return defaultColsNumber > oneRowControlsNumber
-        ? oneRowControlsNumber
-        : defaultColsNumber;
+      return defaultColsNumber > oneRowControlsNumber ? oneRowControlsNumber : defaultColsNumber;
     }
     return Math.max(1, 24 / spanSize.span - 1);
   }, [defaultColsNumber, defaultFormItemsNumber, spanSize.span]);
@@ -585,20 +537,35 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
       }}
     >
       {(ref) => (
-        <div
-          ref={ref}
-          className={`${baseClassName}-container ${hashId}`}
-          style={props.containerStyle}
-        >
+        <div ref={ref} className={`${baseClassName}-container ${hashId}`} style={props.containerStyle}>
           <BaseForm
-            
             isKeyPressSubmit
             preserve={preserve}
             {...rest}
             className={classNames(baseClassName, hashId, rest.className)}
-            onReset={onReset}
-            style={style}
-            layout={spanSize.layout}
+            contentRender={(items, renderSubmitter, form) => (
+              <QueryFilterContent
+                baseClassName={baseClassName}
+                collapseRender={collapseRender}
+                collapsed={controlCollapsed}
+                defaultCollapsed={defaultCollapsed}
+                form={form}
+                ignoreRules={ignoreRules}
+                items={items}
+                optionRender={optionRender}
+                preserve={preserve}
+                resetText={props.resetText}
+                searchGutter={searchGutter}
+                searchText={props.searchText}
+                showHiddenNum={showHiddenNum}
+                showLength={showLength}
+                spanSize={spanSize}
+                split={split}
+                submitter={renderSubmitter}
+                submitterColSpanProps={submitterColSpanProps}
+                onCollapse={onCollapse}
+              />
+            )}
             fieldProps={{
               style: {
                 width: '100%',
@@ -611,29 +578,9 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
                 marginInlineEnd: 16,
               },
             }}
-            contentRender={(items, renderSubmitter, form) => (
-              <QueryFilterContent
-                spanSize={spanSize}
-                collapsed={controlCollapsed}
-                form={form}
-                submitterColSpanProps={submitterColSpanProps}
-                collapseRender={collapseRender}
-                defaultCollapsed={defaultCollapsed}
-                onCollapse={onCollapse}
-                optionRender={optionRender}
-                submitter={renderSubmitter}
-                items={items}
-                split={split}
-                baseClassName={baseClassName}
-                resetText={props.resetText}
-                searchText={props.searchText}
-                searchGutter={searchGutter}
-                preserve={preserve}
-                ignoreRules={ignoreRules}
-                showLength={showLength}
-                showHiddenNum={showHiddenNum}
-              />
-            )}
+            layout={spanSize.layout}
+            style={style}
+            onReset={onReset}
           />
         </div>
       )}

@@ -8,7 +8,7 @@ import {
   ProFormText,
   ProFormTextArea,
   StepsForm,
-} from '@ant-design/pro-components';
+} from '@xxlabs/pro-components';
 import { Button, Modal, message } from 'antd';
 import { useState } from 'react';
 
@@ -29,12 +29,6 @@ export default () => {
         分步表单新建
       </Button>
       <StepsForm
-        onFinish={async (values) => {
-          console.log(values);
-          await waitTime(1000);
-          setVisible(false);
-          message.success('提交成功');
-        }}
         formProps={{
           validateMessages: {
             required: '此项为必填项',
@@ -43,16 +37,22 @@ export default () => {
         stepsFormRender={(dom, submitter) => {
           return (
             <Modal
+              destroyOnHidden
+              footer={submitter}
+              open={visible}
               title="分步表单"
               width={800}
               onCancel={() => setVisible(false)}
-              open={visible}
-              footer={submitter}
-              destroyOnHidden
             >
               {dom}
             </Modal>
           );
+        }}
+        onFinish={async (values) => {
+          console.log(values);
+          await waitTime(1000);
+          setVisible(false);
+          message.success('提交成功');
         }}
       >
         <StepsForm.StepForm
@@ -64,80 +64,70 @@ export default () => {
           }}
         >
           <ProFormText
-            name="name"
-            width="md"
             label="实验名称"
-            tooltip="最长为 24 位，用于标定的唯一 id"
+            name="name"
             placeholder="请输入名称"
             rules={[{ required: true }]}
+            tooltip="最长为 24 位，用于标定的唯一 id"
+            width="md"
           />
-          <ProFormDatePicker name="date" label="日期" />
+          <ProFormDatePicker label="日期" name="date" />
           <ProForm.Group title="时间选择">
-            <ProFormDateTimePicker name="dateTime" label="开始时间" />
-            <ProFormDatePicker name="date" label="结束时间" />
+            <ProFormDateTimePicker label="开始时间" name="dateTime" />
+            <ProFormDatePicker label="结束时间" name="date" />
           </ProForm.Group>
-          <ProFormTextArea
-            name="remark"
-            label="备注"
-            width="lg"
-            placeholder="请输入备注"
-          />
+          <ProFormTextArea label="备注" name="remark" placeholder="请输入备注" width="lg" />
         </StepsForm.StepForm>
         <StepsForm.StepForm name="checkbox" title="设置参数">
           <ProFormCheckbox.Group
-            name="checkbox"
             label="迁移类型"
-            width="lg"
+            name="checkbox"
             options={['结构迁移', '全量迁移', '增量迁移', '全量校验']}
+            width="lg"
           />
           <ProForm.Group>
-            <ProFormText width="md" name="dbname" label="业务 DB 用户名" />
-            <ProFormDatePicker
-              name="datetime"
-              label="记录保存时间"
-              width="sm"
-            />
+            <ProFormText label="业务 DB 用户名" name="dbname" width="md" />
+            <ProFormDatePicker label="记录保存时间" name="datetime" width="sm" />
             <ProFormCheckbox.Group
-              name="checkbox"
               label="迁移类型"
+              name="checkbox"
               options={['完整 LOB', '不同步 LOB', '受限制 LOB']}
             />
           </ProForm.Group>
         </StepsForm.StepForm>
         <StepsForm.StepForm name="time" title="发布实验">
           <ProFormCheckbox.Group
-            name="checkbox"
             label="部署单元"
+            name="checkbox"
+            options={['部署单元1', '部署单元2', '部署单元3']}
             rules={[
               {
                 required: true,
               },
             ]}
-            options={['部署单元1', '部署单元2', '部署单元3']}
           />
           <ProFormSelect
+            initialValue="1"
             label="部署分组策略"
             name="remark"
+            options={[
+              {
+                value: '1',
+                label: '策略一',
+              },
+              { value: '2', label: '策略二' },
+            ]}
             rules={[
               {
                 required: true,
               },
             ]}
             width="md"
-            initialValue="1"
-            options={[
-              {
-                value: '1',
-                label: '策略一',
-              },
-              { value: '2', label: '策略二' },
-            ]}
           />
           <ProFormSelect
+            initialValue="2"
             label="Pod 调度策略"
             name="remark2"
-            width="md"
-            initialValue="2"
             options={[
               {
                 value: '1',
@@ -145,6 +135,7 @@ export default () => {
               },
               { value: '2', label: '策略二' },
             ]}
+            width="md"
           />
         </StepsForm.StepForm>
       </StepsForm>

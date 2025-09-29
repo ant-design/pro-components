@@ -1,4 +1,5 @@
-﻿import { ProColumns, ProTable } from '@ant-design/pro-components';
+﻿import type { ProColumns } from '@xxlabs/pro-components';
+import { ProTable } from '@xxlabs/pro-components';
 
 type ContentWordsItem = {
   id: string;
@@ -31,7 +32,6 @@ export default () => {
   return (
     <div>
       <ProTable<ContentWordsItem>
-        rowKey="id"
         columns={columns}
         request={async () => {
           const data = getData();
@@ -41,6 +41,7 @@ export default () => {
             success: true,
           };
         }}
+        rowKey="id"
       />
     </div>
   );
@@ -116,5 +117,5 @@ export default () => {
         <strong>数据展示</strong>: 数据展示需求
       </li>
     </ul>
-  </div>
+  </div>;
 };

@@ -4,13 +4,7 @@ import { isNil } from '../isNil';
 
 dayjs.extend(customParseFormat);
 
-type DateValue =
-  | dayjs.Dayjs
-  | dayjs.Dayjs[]
-  | string
-  | string[]
-  | number
-  | number[];
+type DateValue = dayjs.Dayjs | dayjs.Dayjs[] | string | string[] | number | number[];
 
 /**
  * 一个比较hack的moment判断工具
@@ -30,9 +24,7 @@ export const parseValueToDay = (
     return value as dayjs.Dayjs | null | undefined;
   }
   if (Array.isArray(value)) {
-    return (value as any[]).map(
-      (v) => parseValueToDay(v, formatter) as dayjs.Dayjs,
-    );
+    return (value as any[]).map((v) => parseValueToDay(v, formatter) as dayjs.Dayjs);
   }
   if (typeof value === 'number') return dayjs(value);
   return dayjs(value, formatter);

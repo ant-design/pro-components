@@ -1,5 +1,5 @@
 import { Card, Skeleton } from 'antd';
-import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint';
+import useBreakpoint from 'antd/es/grid/hooks/useBreakpoint';
 import React, { useMemo } from 'react';
 import { Line, PageHeaderSkeleton } from '../List';
 
@@ -26,11 +26,7 @@ const DescriptionsLargeItemSkeleton: React.FC<{
       marginBlockStart: 32,
     }}
   >
-    <Skeleton.Button
-      active={active}
-      size="small"
-      style={{ width: 100, marginBlockEnd: 16 }}
-    />
+    <Skeleton.Button active={active} size="small" style={{ width: 100, marginBlockEnd: 16 }} />
     <div
       style={{
         width: '100%',
@@ -117,11 +113,9 @@ const DescriptionsItemSkeleton: React.FC<{
   );
   const col = useBreakpoint() || defaultCol;
 
-  const colSize =
-    Object.keys(col).filter((key) => col[key as 'lg'] === true)[0] || 'md';
+  const colSize = Object.keys(col).filter((key) => col[key as 'lg'] === true)[0] || 'md';
 
-  const arraySize =
-    size === undefined ? MediaQueryKeyEnum[colSize as 'md'] || 3 : size;
+  const arraySize = size === undefined ? MediaQueryKeyEnum[colSize as 'md'] || 3 : size;
   return (
     <div
       style={{
@@ -132,7 +126,6 @@ const DescriptionsItemSkeleton: React.FC<{
     >
       {new Array(arraySize).fill(null).map((_, index) => (
         <div
-          // eslint-disable-next-line react/no-array-index-key
           key={index}
           style={{
             flex: 1,
@@ -172,13 +165,7 @@ const DescriptionsItemSkeleton: React.FC<{
  *
  * @param param0
  */
-export const TableItemSkeleton = ({
-  active,
-  header = false,
-}: {
-  active: boolean;
-  header?: boolean;
-}) => {
+export const TableItemSkeleton = ({ active, header = false }: { active: boolean; header?: boolean }) => {
   const defaultCol = useMemo(
     () => ({
       lg: true,
@@ -192,8 +179,7 @@ export const TableItemSkeleton = ({
   );
   const col = useBreakpoint() || defaultCol;
 
-  const colSize =
-    Object.keys(col).filter((key) => col[key as 'md'] === true)[0] || 'md';
+  const colSize = Object.keys(col).filter((key) => col[key as 'md'] === true)[0] || 'md';
 
   const arraySize = MediaQueryKeyEnum[colSize as 'md'] || 3;
   return (
@@ -207,7 +193,6 @@ export const TableItemSkeleton = ({
       >
         {new Array(arraySize).fill(null).map((_, index) => (
           <div
-            // eslint-disable-next-line react/no-array-index-key
             key={index}
             style={{
               flex: 1,
@@ -258,14 +243,9 @@ export const TableSkeleton: React.FC<{
   size?: number;
 }> = ({ active, size = 4 }) => (
   <Card variant="borderless">
-    <Skeleton.Button
-      active={active}
-      size="small"
-      style={{ width: 100, marginBlockEnd: 16 }}
-    />
+    <Skeleton.Button active={active} size="small" style={{ width: 100, marginBlockEnd: 16 }} />
     <TableItemSkeleton header active={active} />
     {new Array(size).fill(null).map((_, index) => (
-      // eslint-disable-next-line react/no-array-index-key
       <TableItemSkeleton key={index} active={active} />
     ))}
     <div
@@ -292,27 +272,19 @@ export const TableSkeleton: React.FC<{
 );
 export const DescriptionsSkeleton = ({ active }: { active: boolean }) => (
   <Card
-    variant="borderless"
     style={{
       borderStartEndRadius: 0,
       borderTopLeftRadius: 0,
     }}
+    variant="borderless"
   >
-    <Skeleton.Button
-      active={active}
-      size="small"
-      style={{ width: 100, marginBlockEnd: 16 }}
-    />
+    <Skeleton.Button active={active} size="small" style={{ width: 100, marginBlockEnd: 16 }} />
     <DescriptionsItemSkeleton active={active} />
     <DescriptionsLargeItemSkeleton active={active} />
   </Card>
 );
 
-const DescriptionsPageSkeleton: React.FC<DescriptionsPageSkeletonProps> = ({
-  active = true,
-  pageHeader,
-  list,
-}) => (
+const DescriptionsPageSkeleton: React.FC<DescriptionsPageSkeletonProps> = ({ active = true, pageHeader, list }) => (
   <div
     style={{
       width: '100%',

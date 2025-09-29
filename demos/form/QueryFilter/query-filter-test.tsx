@@ -1,9 +1,4 @@
-import {
-  ProForm,
-  ProFormDatePicker,
-  ProFormText,
-  QueryFilter,
-} from '@ant-design/pro-components';
+import { ProForm, ProFormDatePicker, ProFormText, QueryFilter } from '@xxlabs/pro-components';
 import { Input } from 'antd';
 
 export default () => {
@@ -17,15 +12,11 @@ export default () => {
           <ProFormDatePicker
             // key={i}
             colSize={4}
-            name="test"
             label="test"
+            name="test"
           />
           {[...Array(10).keys()].map((i) => (
-            <ProFormDatePicker
-              key={i}
-              name={`startdate${i + 1}`}
-              label={`Date${i + 1}`}
-            />
+            <ProFormDatePicker key={i} label={`Date${i + 1}`} name={`startdate${i + 1}`} />
           ))}
         </QueryFilter>
         <pre>{JSON.stringify(formProps, null, 2)}</pre>
@@ -34,124 +25,100 @@ export default () => {
         name: string;
         company: string;
       }>
+        defaultCollapsed={false}
+        span={6}
         onFinish={async (values) => {
           console.log(values.name);
         }}
-        span={6}
-        defaultCollapsed={false}
       >
-        <ProForm.Item name="name" label="test">
+        <ProForm.Item label="test" name="name">
           <Input />
         </ProForm.Item>
-        <ProFormText
-          name="name"
-          label="应用名称"
-          rules={[{ required: true }]}
-        />
-        <ProFormText name="sex" label="性别" />
+        <ProFormText label="应用名称" name="name" rules={[{ required: true }]} />
+        <ProFormText label="性别" name="sex" />
       </QueryFilter>
       <QueryFilter<{
         name: string;
         company: string;
       }>
-        onFinish={async (values) => {
-          console.log(values.name);
-        }}
+        defaultCollapsed={false}
         span={6}
-        defaultCollapsed={false}
+        onFinish={async (values) => {
+          console.log(values.name);
+        }}
       >
-        <ProFormText
-          name="name"
-          label="应用名称"
-          rules={[{ required: true }]}
-        />
-        <ProFormText name="creater" label="创建人" />
-        <ProFormText name="sex" label="性别" />
+        <ProFormText label="应用名称" name="name" rules={[{ required: true }]} />
+        <ProFormText label="创建人" name="creater" />
+        <ProFormText label="性别" name="sex" />
       </QueryFilter>
       <QueryFilter<{
         name: string;
         company: string;
       }>
+        defaultCollapsed={false}
         onFinish={async (values) => {
           console.log(values.name);
         }}
-        defaultCollapsed={false}
       >
-        <ProFormText
-          name="name"
-          label="应用名称"
-          rules={[{ required: true }]}
-        />
-        <ProFormText name="creater" label="创建人" />
-        <ProFormText name="sex" label="性别" />
-        <ProFormText name="status" label="应用状态" />
-        <ProFormText name="startdate" label="响应日期" />
-        <ProFormText name="create" label="创建时间" />
+        <ProFormText label="应用名称" name="name" rules={[{ required: true }]} />
+        <ProFormText label="创建人" name="creater" />
+        <ProFormText label="性别" name="sex" />
+        <ProFormText label="应用状态" name="status" />
+        <ProFormText label="响应日期" name="startdate" />
+        <ProFormText label="创建时间" name="create" />
       </QueryFilter>
       <QueryFilter<{
         name: string;
         company: string;
       }>
-        onFinish={async (values) => {
-          console.log(values.name);
-        }}
+        defaultCollapsed={false}
         span={12}
-        defaultCollapsed={false}
+        onFinish={async (values) => {
+          console.log(values.name);
+        }}
       >
-        <ProFormText
-          name="name"
-          label="应用名称"
-          rules={[{ required: true }]}
-        />
-        <ProFormText name="creater" label="创建人" />
-        <ProFormText name="sex" label="性别" />
-        <ProFormText name="status" label="应用状态" />
-        <ProFormText name="startdate" label="响应日期" />
-        <ProFormText name="create" label="创建时间" colSize={3} />
+        <ProFormText label="应用名称" name="name" rules={[{ required: true }]} />
+        <ProFormText label="创建人" name="creater" />
+        <ProFormText label="性别" name="sex" />
+        <ProFormText label="应用状态" name="status" />
+        <ProFormText label="响应日期" name="startdate" />
+        <ProFormText colSize={3} label="创建时间" name="create" />
       </QueryFilter>
       <QueryFilter<{
         name: string;
         company: string;
       }>
-        onFinish={async (values) => {
-          console.log(values.name);
-        }}
+        defaultCollapsed={false}
         span={8}
-        defaultCollapsed={false}
+        onFinish={async (values) => {
+          console.log(values.name);
+        }}
       >
-        <ProFormText
-          name="name"
-          label="应用名称"
-          rules={[{ required: true }]}
-        />
-        <ProFormText name="creater" label="创建人" />
-        <ProFormText name="sex" label="性别" />
-        <ProFormText name="status" label="应用状态" />
-        <ProFormText name="startdate" label="响应日期" />
-        <ProFormText name="create" label="创建时间" colSize={3} />
+        <ProFormText label="应用名称" name="name" rules={[{ required: true }]} />
+        <ProFormText label="创建人" name="creater" />
+        <ProFormText label="性别" name="sex" />
+        <ProFormText label="应用状态" name="status" />
+        <ProFormText label="响应日期" name="startdate" />
+        <ProFormText colSize={3} label="创建时间" name="create" />
       </QueryFilter>
       <QueryFilter<{
         name: string;
         company: string;
       }>
-        onFinish={async (values) => {
-          console.log(values.name);
-        }}
+        defaultCollapsed={false}
+        defaultColsNumber={1}
         span={4}
         submitterColSpanProps={{ span: 12 }}
-        defaultColsNumber={1}
-        defaultCollapsed={false}
+        onFinish={async (values) => {
+          console.log(values.name);
+        }}
       >
-        <ProFormText
-          name="name"
-          label="应用名称"
-          rules={[{ required: true }]}
-        />
-        <ProFormText name="creater" label="创建人" />
-        <ProFormText name="sex" label="性别" />
-        <ProFormText name="status" label="应用状态" />
-        <ProFormText name="startdate" label="响应日期" />
-        <ProFormText name="create" label="创建时间" colSize={3} />
+        <ProFormText label="应用名称" name="name" rules={[{ required: true }]} />
+        <ProFormText label="创建人" name="creater" />
+        <ProFormText label="性别" name="sex" />
+        <ProFormText label="应用状态" name="status" />
+        <ProFormText label="响应日期" name="startdate" />
+        <ProFormText colSize={3} label="创建时间" name="create" />
       </QueryFilter>
     </>
   );

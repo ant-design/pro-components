@@ -1,11 +1,12 @@
 ﻿import { Checkbox, ConfigProvider, Form, Spin, theme } from 'antd';
-import type { CheckboxGroupProps } from 'antd/lib/checkbox';
+import type { CheckboxGroupProps } from 'antd/es/checkbox';
 import classNames from 'classnames';
-import React, { useContext, useImperativeHandle, useRef } from 'react';
+import { useContext, useImperativeHandle, useRef } from 'react';
 import { objectToMap, proFieldParsingText, useStyle } from '../../../utils';
 import type { ProFieldFC } from '../../PureProField';
 import type { FieldSelectProps } from '../Select';
-import { useFieldFetchData } from '../Select';
+import { useFieldFetchData } from '../Select/useFieldFetchData';
+
 export type GroupProps = {
   layout?: 'horizontal' | 'vertical';
   options?: CheckboxGroupProps['options'];
@@ -14,13 +15,15 @@ export type GroupProps = {
 /**
  * 多选组件
  *
- * @param param0
- * @param ref
  */
-const FieldCheckbox: ProFieldFC<GroupProps> = (
-  { layout = 'horizontal', formItemRender, mode, render, ...rest },
+const FieldCheckbox: ProFieldFC<GroupProps> = ({
+  layout = 'horizontal',
+  formItemRender,
+  mode,
+  render,
   ref,
-) => {
+  ...rest
+}) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const layoutClassName = getPrefixCls('pro-field-checkbox');
   const status = Form.Item?.useStatus?.();
@@ -45,10 +48,9 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
             display: 'inline-block',
           },
           //ant design 5
-          [`${token.antCls}-checkbox-wrapper+${token.antCls}-checkbox-wrapper`]:
-            {
-              'margin-inline-start': '0  !important',
-            },
+          [`${token.antCls}-checkbox-wrapper+${token.antCls}-checkbox-wrapper`]: {
+            'margin-inline-start': '0  !important',
+          },
           //ant design 4
           [`${token.antCls}-checkbox-group-item`]: {
             display: 'flex',
@@ -59,8 +61,8 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
     };
   });
 
-  const { token } = theme.useToken?.();
-  const checkBoxRef = useRef();
+  const { token } = theme.useToken?.() ?? {};
+  const checkBoxRef = useRef(undefined);
   useImperativeHandle(
     ref,
     () => ({
@@ -81,15 +83,10 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
         }, {})
       : undefined;
 
-    const dom = proFieldParsingText(
-      rest.text,
-      objectToMap(rest.valueEnum || optionsValueEnum),
-    );
+    const dom = proFieldParsingText(rest.text, objectToMap(rest.valueEnum || optionsValueEnum));
 
     if (render) {
-      return (
-        render(rest.text, { mode, ...rest.fieldProps }, <>{dom}</>) ?? null
-      );
+      return render(rest.text, { mode, ...rest.fieldProps }, <>{dom}</>) ?? null;
     }
     return (
       <div
@@ -108,29 +105,17 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
   if (mode === 'edit') {
     const { fieldNames, ...restFieldProps } = rest.fieldProps || {};
     const dom = wrapSSR(
-      //@ts-ignore
       <Checkbox.Group
         {...restFieldProps}
-        className={classNames(
-          rest.fieldProps?.className,
-          hashId,
-          `${layoutClassName}-${layout}`,
-          {
-            [`${layoutClassName}-error`]: status?.status === 'error',
-            [`${layoutClassName}-warning`]: status?.status === 'warning',
-          },
-        )}
+        className={classNames(rest.fieldProps?.className, hashId, `${layoutClassName}-${layout}`, {
+          [`${layoutClassName}-error`]: status?.status === 'error',
+          [`${layoutClassName}-warning`]: status?.status === 'warning',
+        })}
         options={options}
       />,
     );
     if (formItemRender) {
-      return (
-        formItemRender(
-          rest.text,
-          { mode, ...rest.fieldProps, options, loading },
-          dom,
-        ) ?? null
-      );
+      return formItemRender(rest.text, { mode, ...rest.fieldProps, options, loading }, dom) ?? null;
     }
     return dom;
   }
@@ -138,4 +123,4 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
   return null;
 };
 
-export default React.forwardRef(FieldCheckbox);
+export default FieldCheckbox;

@@ -5,6 +5,7 @@ import React, { useContext, useMemo, useState } from 'react';
 import type { GlobalHeaderProps } from '.';
 import { useDebounceFn } from '../../../utils';
 import { useStyle } from './rightContentStyle';
+
 /**
  * 抽离出来是为了防止 rightSize 经常改变导致菜单 render
  *
@@ -26,9 +27,7 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
     if (!avatarProps) return null;
     const { title, render, ...rest } = avatarProps;
     const domList = [
-      rest?.src || rest?.srcSet || rest.icon || rest.children ? (
-        <Avatar {...rest} size={28} key="avatar" />
-      ) : null,
+      rest?.src || rest?.srcSet || rest.icon || rest.children ? <Avatar {...rest} key="avatar" size={28} /> : null,
       title ? (
         <span
           key="name"
@@ -58,11 +57,7 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
               <div className={`${prefixCls}-header-actions ${hashId}`.trim()}>
                 {doms}
                 {avatarDom && (
-                  <span
-                    className={`${prefixCls}-header-actions-avatar ${hashId}`.trim()}
-                  >
-                    {avatarDom}
-                  </span>
+                  <span className={`${prefixCls}-header-actions-avatar ${hashId}`.trim()}>{avatarDom}</span>
                 )}
               </div>,
             );
@@ -72,30 +67,21 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
                 let hideHover = false;
                 // 如果配置了 hideHover 就不展示 hover 效果了
                 if (React.isValidElement(dom)) {
+                  // @ts-ignore
                   hideHover = !!dom?.props?.['aria-hidden'];
                 }
                 return (
                   <div
-                    // eslint-disable-next-line react/no-array-index-key
                     key={index}
-                    className={classNames(
-                      `${prefixCls}-header-actions-item ${hashId}`,
-                      {
-                        [`${prefixCls}-header-actions-hover`]: !hideHover,
-                      },
-                    )}
+                    className={classNames(`${prefixCls}-header-actions-item ${hashId}`, {
+                      [`${prefixCls}-header-actions-hover`]: !hideHover,
+                    })}
                   >
                     {dom}
                   </div>
                 );
               })}
-              {avatarDom && (
-                <span
-                  className={`${prefixCls}-header-actions-avatar ${hashId}`.trim()}
-                >
-                  {avatarDom}
-                </span>
-              )}
+              {avatarDom && <span className={`${prefixCls}-header-actions-avatar ${hashId}`.trim()}>{avatarDom}</span>}
             </div>,
           );
         }

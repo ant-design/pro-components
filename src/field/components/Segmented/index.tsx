@@ -4,29 +4,20 @@ import React, { useImperativeHandle, useRef } from 'react';
 import { objectToMap, proFieldParsingText } from '../../../utils';
 import type { ProFieldFC } from '../../PureProField';
 import type { FieldSelectProps } from '../Select';
-import { useFieldFetchData } from '../Select';
+import { useFieldFetchData } from '../Select/useFieldFetchData';
 
 /**
  * Segmented https://ant.design/components/segmented-cn/
- *
- * @param
  */
 const FieldSegmented: ProFieldFC<
   {
     text: string;
     emptyText?: React.ReactNode;
   } & FieldSelectProps
-> = (props, ref) => {
-  const {
-    mode,
-    render,
-    formItemRender,
-    fieldProps,
-    emptyText = '-',
-    ...rest
-  } = props;
+> = (props) => {
+  const { mode, render, formItemRender, fieldProps, emptyText = '-', ref, ...rest } = props;
 
-  const inputRef = useRef<HTMLInputElement>();
+  const inputRef = useRef<HTMLInputElement>(undefined);
 
   const [loading, options, fetchData] = useFieldFetchData(props);
 
@@ -50,41 +41,24 @@ const FieldSegmented: ProFieldFC<
         }, {})
       : undefined;
 
-    const dom = (
-      <>
-        {proFieldParsingText(
-          rest.text,
-          objectToMap(rest.valueEnum || optionsValueEnum),
-        )}
-      </>
-    );
+    const dom = <>{proFieldParsingText(rest.text, objectToMap(rest.valueEnum || optionsValueEnum))}</>;
 
     if (render) {
-      return (
-        render(rest.text, { mode, ...fieldProps }, <>{dom}</>) ?? emptyText
-      );
+      return render(rest.text, { mode, ...fieldProps }, <>{dom}</>) ?? emptyText;
     }
     return dom;
   }
+
   if (mode === 'edit' || mode === 'update') {
-    const dom = (
-      <Segmented
-        ref={inputRef}
-        {...(omit(fieldProps || {}, ['allowClear']) as any)}
-        options={options}
-      />
-    );
+    const dom = <Segmented ref={inputRef} {...(omit(fieldProps || {}, ['allowClear']) as any)} options={options} />;
 
     if (formItemRender) {
-      return formItemRender(
-        rest.text,
-        { mode, ...fieldProps, options, loading },
-        dom,
-      );
+      return formItemRender(rest.text, { mode, ...fieldProps, options, loading }, dom);
     }
     return dom;
   }
+
   return null;
 };
 
-export default React.forwardRef(FieldSegmented);
+export default FieldSegmented;

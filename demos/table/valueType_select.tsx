@@ -1,5 +1,5 @@
-import type { ProColumns } from '@ant-design/pro-components';
-import { ProTable } from '@ant-design/pro-components';
+import type { ProColumns } from '@xxlabs/pro-components';
+import { ProTable } from '@xxlabs/pro-components';
 
 const cascaderOptions = [
   {
@@ -167,22 +167,22 @@ export default () => (
   <>
     <ProTable<TableListItem>
       columns={columns}
+      editable={{
+        type: 'multiple',
+      }}
+      headerTitle="样式类"
       request={() => {
         return Promise.resolve({
           data: tableListDataSource,
           success: true,
         });
       }}
+      rowKey="key"
       search={{
         defaultCollapsed: false,
         span: 12,
         labelWidth: 'auto',
       }}
-      editable={{
-        type: 'multiple',
-      }}
-      rowKey="key"
-      headerTitle="样式类"
     />
     <div
       style={{

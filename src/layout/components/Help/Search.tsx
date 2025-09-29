@@ -56,9 +56,7 @@ export const Highlight: React.FC<{
 
   // 创建正则表达式匹配关键词
   const matchKeywordsRE = new RegExp(
-    words
-      .map((word) => word.replace(/[-[\]/{}()*+?.\\^$|]/g, '\\$&'))
-      .join('|'),
+    words.map((word) => word.replace(/[-[\]/{}()*+?.\\^$|]/g, '\\$&')).join('|'),
     'gi',
   );
 
@@ -102,10 +100,7 @@ export const Highlight: React.FC<{
 };
 
 export const ProHelpSelect: React.FC<
-  Omit<
-    SelectProps,
-    'onSearch' | 'optionFilterProp' | 'options' | 'filterOption'
-  > & {
+  Omit<SelectProps, 'onSearch' | 'optionFilterProp' | 'options' | 'filterOption'> & {
     iconClassName?: string;
   }
 > = ({ iconClassName, ...props }) => {
@@ -135,39 +130,22 @@ export const ProHelpSelect: React.FC<
           value: string;
           dataItemKey: string;
         }>
-          placeholder="please input search text"
           showSearch
+          placeholder="please input search text"
+          size="small"
           onBlur={() => {
             setOpen(false);
           }}
-          size="small"
           {...props}
-          onSearch={(value) => {
-            debounceSetKeyWork.cancel();
-            debounceSetKeyWork.run(value);
-          }}
-          filterOption={(input, option) =>
-            (option?.title ?? '').toLowerCase().includes(input.toLowerCase())
-          }
-          popupMatchSelectWidth={false}
+          filterOption={(input, option) => (option?.title ?? '').toLowerCase().includes(input.toLowerCase())}
           options={dataSource.map((item) => {
             return {
-              label: (
-                <Highlight
-                  label={item.title}
-                  words={keyWord ? [keyWord] : []}
-                />
-              ),
+              label: <Highlight label={item.title} words={keyWord ? [keyWord] : []} />,
               title: item.title,
               value: item.key,
               options: item.children?.map((sunItem) => {
                 return {
-                  label: (
-                    <Highlight
-                      label={sunItem.title}
-                      words={keyWord ? [keyWord] : []}
-                    />
-                  ),
+                  label: <Highlight label={sunItem.title} words={keyWord ? [keyWord] : []} />,
                   title: sunItem.title,
                   value: sunItem.key,
                   dataItemKey: item.key,
@@ -175,6 +153,11 @@ export const ProHelpSelect: React.FC<
               }),
             };
           })}
+          popupMatchSelectWidth={false}
+          onSearch={(value) => {
+            debounceSetKeyWork.cancel();
+            debounceSetKeyWork.run(value);
+          }}
         />
       ) : null}
     </>

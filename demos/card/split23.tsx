@@ -1,13 +1,13 @@
-import { ProCard } from '@ant-design/pro-components';
+import { ProCard } from '@xxlabs/pro-components';
 
 export default () => {
   return (
     <>
       <ProCard split="vertical">
-        <ProCard title="Left Details" colSpan="30%">
+        <ProCard colSpan="30%" title="Left Details">
           Left Content
         </ProCard>
-        <ProCard title="Left and Right Columns with Title" headerBordered>
+        <ProCard headerBordered title="Left and Right Columns with Title">
           <div style={{ height: 360 }}>Right Content</div>
         </ProCard>
       </ProCard>

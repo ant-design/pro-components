@@ -21,8 +21,7 @@ interface FormControlProps {
 interface FormControlMultiProps extends FormControlProps {
   name: string;
 }
-type GetArrayFieldType<T extends readonly { name: string }[]> =
-  T[number]['name'];
+type GetArrayFieldType<T extends readonly { name: string }[]> = T[number]['name'];
 
 function getControlConfigProps(props = {} as any): {
   valuePropName: string;
@@ -47,17 +46,14 @@ export function useControlModel<const T extends readonly string[]>(
   { value, onChange, id }: WithControlPropsType,
   model?: T,
 ): { [P in T[number]]: ControlModelType };
-export function useControlModel<
-  const T extends readonly FormControlMultiProps[],
->(
+export function useControlModel<const T extends readonly FormControlMultiProps[]>(
   { value, onChange, id }: WithControlPropsType,
   model?: T,
 ): { [P in GetArrayFieldType<T>]: ControlModelType };
-export function useControlModel<
-  T extends
-    | FormControlProps
-    | (string | FormControlMultiProps)[] = FormControlProps,
->({ value, onChange }: WithControlPropsType, model?: T): unknown {
+export function useControlModel<T extends FormControlProps | (string | FormControlMultiProps)[] = FormControlProps>(
+  { value, onChange }: WithControlPropsType,
+  model?: T,
+): unknown {
   if (!Array.isArray(model)) {
     const p = getControlConfigProps(model);
     return {
@@ -87,9 +83,7 @@ export function useControlModel<
   ) as unknown;
 }
 
-export type FormControlFC<P> = (
-  props: WithControlPropsType<P>,
-) => React.ReactNode;
+export type FormControlFC<P> = (props: WithControlPropsType<P>) => React.ReactNode;
 
 type FormControlInjectProps = ReturnType<typeof Form.Item.useStatus> & {
   id: string;
@@ -136,8 +130,7 @@ export function FormControlRender(
 export function pickControlProps(props: FormControlInjectProps) {
   return {
     value: props.value,
-    onChange: (value: any) =>
-      props.onChange(value?.target ? value.target.value : value),
+    onChange: (value: any) => props.onChange(value?.target ? value.target.value : value),
   };
 }
 
@@ -168,14 +161,14 @@ export function pickControlPropsWithId(props: FormControlInjectProps) {
  * </FormItem>
  * ```
  */
-export function withFormItemRender<T extends React.FC<any>>(
+function withFormItemRender<T extends React.FC<any>>(
   Comp: T,
 ): React.FC<
   Omit<React.ComponentProps<T>, 'children'> & {
     children: (formItemProps: FormControlInjectProps) => React.ReactNode;
   }
 > {
-  return function (props: React.PropsWithChildren<any>) {
+  const render = (props: React.PropsWithChildren<any>) => {
     const { children, ...restProps } = props;
 
     return (
@@ -184,6 +177,8 @@ export function withFormItemRender<T extends React.FC<any>>(
       </Comp>
     );
   };
+
+  return render;
 }
 
 /**

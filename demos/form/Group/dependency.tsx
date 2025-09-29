@@ -1,17 +1,9 @@
-﻿import {
-  ProForm,
-  ProFormDependency,
-  ProFormList,
-  ProFormSelect,
-  ProFormText,
-} from '@ant-design/pro-components';
+﻿import { ProForm, ProFormDependency, ProFormList, ProFormSelect, ProFormText } from '@xxlabs/pro-components';
 
 const Demo = () => {
   return (
     <ProForm>
       <ProFormList
-        name={['default', 'users']}
-        label="用户信息"
         initialValue={[
           {
             name: '我是姓名',
@@ -20,17 +12,15 @@ const Demo = () => {
         itemContainerRender={(doms) => {
           return <ProForm.Group>{doms}</ProForm.Group>;
         }}
+        label="用户信息"
+        name={['default', 'users']}
       >
         {(f, index, action) => {
           console.log(f, index, action);
           return (
             <>
-              <ProFormText
-                initialValue={index}
-                name="rowKey"
-                label={`第 ${index} 配置`}
-              />
-              <ProFormText name="name" label="姓名" />
+              <ProFormText initialValue={index} label={`第 ${index} 配置`} name="rowKey" />
+              <ProFormText label="姓名" name="name" />
               <ProFormDependency name={['name']}>
                 {({ name }) => {
                   if (!name) {
@@ -44,20 +34,20 @@ const Demo = () => {
                       </span>
                     );
                   }
-                  return <ProFormText name="remark" label="昵称详情" />;
+                  return <ProFormText label="昵称详情" name="remark" />;
                 }}
               </ProFormDependency>
               <ProFormSelect
-                name="addr"
-                width="md"
-                label="与 name 联动的选择器"
                 dependencies={['name']}
+                label="与 name 联动的选择器"
+                name="addr"
                 request={async (params) => [
                   { label: params.name, value: 'all' },
                   { label: 'Unresolved', value: 'open' },
                   { label: 'Resolved', value: 'closed' },
                   { label: 'Resolving', value: 'processing' },
                 ]}
+                width="md"
               />
             </>
           );

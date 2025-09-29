@@ -11,13 +11,7 @@ type StepsFormProps<T, ValueType> = ProFormPropsType<T, ValueType> &
     forceUpdate: React.Dispatch<React.SetStateAction<[]>>;
   } & Pick<ProFormGridConfig, 'grid'>;
 
-const StepsForm = <T, ValueType>({
-  steps,
-  columns,
-  forceUpdate,
-  grid,
-  ...props
-}: StepsFormProps<T, ValueType>) => {
+const StepsForm = <T, ValueType>({ steps, columns, forceUpdate, grid, ...props }: StepsFormProps<T, ValueType>) => {
   const propsRef = useLatest(props);
 
   /**
@@ -36,10 +30,9 @@ const StepsForm = <T, ValueType>({
       <BetaSchemaForm<T, ValueType>
         grid={grid}
         {...(step as FormSchema<T, ValueType>)}
-        // eslint-disable-next-line react/no-array-index-key
         key={index}
-        layoutType="StepForm"
         columns={columns[index]}
+        layoutType="StepForm"
       />
     ));
   }, [columns, grid, steps]);

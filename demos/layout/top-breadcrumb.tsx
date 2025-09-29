@@ -1,8 +1,4 @@
-import {
-  PageContainer,
-  ProBreadcrumb,
-  ProLayout,
-} from '@ant-design/pro-components';
+import { PageContainer, ProBreadcrumb, ProLayout } from '@xxlabs/pro-components';
 
 export default () => (
   <div
@@ -11,12 +7,7 @@ export default () => (
     }}
   >
     <ProLayout
-      location={{
-        pathname: '/admin/process/edit/123',
-      }}
-      layout="mix"
       ErrorBoundary={false}
-      headerContentRender={() => <ProBreadcrumb />}
       breadcrumbRender={(routers = []) => [
         {
           path: '/',
@@ -28,6 +19,11 @@ export default () => (
         },
         ...routers,
       ]}
+      headerContentRender={() => <ProBreadcrumb />}
+      layout="mix"
+      location={{
+        pathname: '/admin/process/edit/123',
+      }}
       menuDataRender={() => [
         {
           path: '/welcome',
@@ -60,7 +56,7 @@ export default () => (
         },
       ]}
     >
-      <PageContainer content="欢迎使用" breadcrumbRender={false}>
+      <PageContainer breadcrumbRender={false} content="欢迎使用">
         <div>Hello World</div>
       </PageContainer>
     </ProLayout>

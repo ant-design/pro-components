@@ -1,32 +1,10 @@
-import type {
-  ActionType,
-  EditableFormInstance,
-  ProColumns,
-} from '@ant-design/pro-components';
-import {
-  EditableProTable,
-  ProForm,
-  ProFormText,
-} from '@ant-design/pro-components';
-import {
-  act,
-  cleanup,
-  fireEvent,
-  render,
-  waitFor,
-} from '@testing-library/react';
+import { act, cleanup, fireEvent, render, waitFor } from '@testing-library/react';
+import type { ActionType, EditableFormInstance, ProColumns } from '@xxlabs/pro-components';
+import { EditableProTable, ProForm, ProFormText } from '@xxlabs/pro-components';
 import { InputNumber } from 'antd';
 import crypto from 'crypto';
 import React from 'react';
-import {
-  afterAll,
-  afterEach,
-  beforeAll,
-  describe,
-  expect,
-  it,
-  vi,
-} from 'vitest';
+import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
 
 type DataSourceType = {
@@ -179,12 +157,7 @@ describe('EditorProTable', () => {
   });
   it('📝 EditableProTable support recordCreatorProps=false', async () => {
     const wrapper = render(
-      <EditableProTable<DataSourceType>
-        rowKey="id"
-        recordCreatorProps={false}
-        columns={columns}
-        value={defaultData}
-      />,
+      <EditableProTable<DataSourceType> columns={columns} recordCreatorProps={false} rowKey="id" value={defaultData} />,
     );
     await waitForWaitTime(1000);
     expect(wrapper.asFragment()).toMatchSnapshot();
@@ -194,13 +167,13 @@ describe('EditorProTable', () => {
     const fn = vi.fn();
     const wrapper = render(
       <EditableProTable<DataSourceType>
-        rowKey="id"
+        columns={columns}
+        editable={{
+          onChange: (keys) => fn(keys[0]),
+        }}
         pagination={{
           pageSize: 2,
           current: 2,
-        }}
-        editable={{
-          onChange: (keys) => fn(keys[0]),
         }}
         recordCreatorProps={{
           position: 'bottom',
@@ -209,7 +182,7 @@ describe('EditorProTable', () => {
           },
           id: 'addEditRecord',
         }}
-        columns={columns}
+        rowKey="id"
         value={defaultData}
       />,
     );
@@ -231,13 +204,13 @@ describe('EditorProTable', () => {
     const actionRef = React.createRef<ActionType>();
     const wrapper = render(
       <EditableProTable<DataSourceType>
-        rowKey="id"
+        actionRef={actionRef}
+        columns={columns}
         pagination={{
           pageSize: 2,
           current: 2,
         }}
-        actionRef={actionRef}
-        columns={columns}
+        rowKey="id"
         value={defaultData}
       />,
     );
@@ -247,9 +220,7 @@ describe('EditorProTable', () => {
       //@ts-ignore
       actionRef.current?.addEditRecord(undefined);
     } catch (error) {
-      expect((error as any).message).toEqual(
-        '请设置 recordCreatorProps.record 并返回一个唯一的key',
-      );
+      expect((error as any).message).toEqual('请设置 recordCreatorProps.record 并返回一个唯一的key');
     }
     await waitForWaitTime(1000);
     spy.mockRestore();
@@ -271,11 +242,11 @@ describe('EditorProTable', () => {
       >
         <div>render</div>
         <EditableProTable<DataSourceType>
-          rowKey="id"
-          name="table"
-          onChange={onChange}
           actionRef={actionRef}
           columns={columns}
+          name="table"
+          rowKey="id"
+          onChange={onChange}
         />
       </ProForm>,
     );
@@ -283,11 +254,9 @@ describe('EditorProTable', () => {
     await wrapper.findByText('render');
 
     await waitFor(() => {
-      expect(
-        wrapper.container
-          .querySelector('.ant-table-tbody')
-          ?.querySelectorAll('tr.ant-table-row').length,
-      ).toBe(defaultData.length);
+      expect(wrapper.container.querySelector('.ant-table-tbody')?.querySelectorAll('tr.ant-table-row').length).toBe(
+        defaultData.length,
+      );
     });
 
     const editAndChange = async (inputValue: string) => {
@@ -296,16 +265,11 @@ describe('EditorProTable', () => {
       });
 
       act(() => {
-        fireEvent.change(
-          wrapper.container.querySelectorAll(
-            `.ant-form-item-control-input input`,
-          )[1],
-          {
-            target: {
-              value: inputValue,
-            },
+        fireEvent.change(wrapper.container.querySelectorAll(`.ant-form-item-control-input input`)[1], {
+          target: {
+            value: inputValue,
           },
-        );
+        });
       });
       await act(() => vi.runOnlyPendingTimers());
 
@@ -322,17 +286,11 @@ describe('EditorProTable', () => {
 
     await waitFor(() => {
       expect(
-        wrapper.container
-          .querySelectorAll('.ant-table-tbody')[0]
-          .querySelectorAll('.ant-form-item-has-error').length,
+        wrapper.container.querySelectorAll('.ant-table-tbody')[0].querySelectorAll('.ant-form-item-has-error').length,
       ).toBe(0);
     });
     await waitFor(() => {
-      expect(
-        wrapper.container
-          .querySelectorAll('.ant-table-tbody')[0]
-          .querySelectorAll('input').length,
-      ).toBe(4);
+      expect(wrapper.container.querySelectorAll('.ant-table-tbody')[0].querySelectorAll('input').length).toBe(4);
     });
     await waitFor(() => {
       expect(onChange).not.toHaveBeenCalled();
@@ -380,13 +338,12 @@ describe('EditorProTable', () => {
     const onchange = vi.fn();
     const wrapper = render(
       <EditableProTable<DataSourceType>
-        rowKey="id"
+        columns={columns}
+        editable={{}}
         pagination={{
           pageSize: 2,
           current: 2,
         }}
-        editable={{}}
-        onChange={(data) => onchange(data[0].children?.length)}
         recordCreatorProps={{
           position: 'bottom',
           newRecordType: 'dataSource',
@@ -396,7 +353,7 @@ describe('EditorProTable', () => {
           },
           id: 'addEditRecord',
         }}
-        columns={columns}
+        rowKey="id"
         value={[
           {
             id: 624674790,
@@ -419,6 +376,7 @@ describe('EditorProTable', () => {
             ],
           },
         ]}
+        onChange={(data) => onchange(data[0].children?.length)}
       />,
     );
     await waitForWaitTime(1000);
@@ -438,17 +396,14 @@ describe('EditorProTable', () => {
     const onchange = vi.fn();
     const wrapper = render(
       <EditableProTable<DataSourceType>
-        rowKey="id"
-        pagination={{
-          pageSize: 2,
-          current: 2,
-        }}
+        columns={columns}
         editable={{}}
         expandable={{
           childrenColumnName: 'children',
         }}
-        onChange={(data) => {
-          onchange(data[0].children![0]!.children!.length);
+        pagination={{
+          pageSize: 2,
+          current: 2,
         }}
         recordCreatorProps={{
           position: 'top',
@@ -459,7 +414,7 @@ describe('EditorProTable', () => {
           },
           id: 'addEditRecord',
         }}
-        columns={columns}
+        rowKey="id"
         value={[
           {
             id: 624674790,
@@ -482,6 +437,9 @@ describe('EditorProTable', () => {
             ],
           },
         ]}
+        onChange={(data) => {
+          onchange(data[0].children![0]!.children!.length);
+        }}
       />,
     );
     await waitForWaitTime(1000);
@@ -501,15 +459,14 @@ describe('EditorProTable', () => {
     const onchange = vi.fn();
     const wrapper = render(
       <EditableProTable<DataSourceType>
-        rowKey="id"
+        columns={columns}
+        editable={{}}
+        expandable={{
+          childrenColumnName: 'children',
+        }}
         pagination={{
           pageSize: 2,
           current: 2,
-        }}
-        editable={{}}
-        onChange={(data) => onchange(data[0].children?.length)}
-        expandable={{
-          childrenColumnName: 'children',
         }}
         recordCreatorProps={{
           position: 'bottom',
@@ -520,7 +477,7 @@ describe('EditorProTable', () => {
           },
           id: 'addEditRecord',
         }}
-        columns={columns}
+        rowKey="id"
         value={[
           {
             id: 624674790,
@@ -543,6 +500,7 @@ describe('EditorProTable', () => {
             ],
           },
         ]}
+        onChange={(data) => onchange(data[0].children?.length)}
       />,
     );
     await waitForWaitTime(1000);
@@ -562,7 +520,11 @@ describe('EditorProTable', () => {
     const fn = vi.fn();
     const wrapper = render(
       <EditableProTable<DataSourceType>
-        rowKey="id"
+        columns={columns}
+        defaultValue={defaultData}
+        expandable={{
+          defaultExpandAllRows: true,
+        }}
         recordCreatorProps={{
           newRecordType: 'cache',
           record: () => ({
@@ -571,12 +533,8 @@ describe('EditorProTable', () => {
           parentKey: () => 624748504,
           id: 'add_new',
         }}
-        columns={columns}
-        defaultValue={defaultData}
+        rowKey="id"
         onChange={(list) => fn(list.length)}
-        expandable={{
-          defaultExpandAllRows: true,
-        }}
       />,
     );
     await waitForWaitTime(1000);
@@ -590,9 +548,7 @@ describe('EditorProTable', () => {
     expect(fn).not.toHaveBeenCalled();
     act(() => {
       fireEvent.change(
-        wrapper.container
-          .querySelectorAll('.ant-table-tbody tr.ant-table-row')[1]
-          .querySelectorAll(`td .ant-input`)[0],
+        wrapper.container.querySelectorAll('.ant-table-tbody tr.ant-table-row')[1].querySelectorAll(`td .ant-input`)[0],
         {
           target: {
             value: 'zqran',
@@ -604,15 +560,9 @@ describe('EditorProTable', () => {
     await waitForWaitTime(1000);
 
     expect(
-      wrapper.container
-        .querySelectorAll('.ant-table-tbody tr.ant-table-row')[1]
-        .querySelectorAll('input'),
+      wrapper.container.querySelectorAll('.ant-table-tbody tr.ant-table-row')[1].querySelectorAll('input'),
     ).toBeTruthy();
-    expect(
-      wrapper.container
-        .querySelector('.ant-table-tbody')
-        ?.querySelectorAll('tr.ant-table-row').length,
-    ).toBe(6);
+    expect(wrapper.container.querySelector('.ant-table-tbody')?.querySelectorAll('tr.ant-table-row').length).toBe(6);
 
     act(() => {
       wrapper.container
@@ -623,70 +573,49 @@ describe('EditorProTable', () => {
 
     await waitForWaitTime(1000);
 
-    expect(
-      wrapper.container.querySelectorAll('.ant-table-row.ant-table-row-level-1')
-        .length,
-    ).toBe(2);
+    expect(wrapper.container.querySelectorAll('.ant-table-row.ant-table-row-level-1').length).toBe(2);
 
     wrapper.unmount();
   });
 
   it('📝 EditableProTable support maxLength', async () => {
     const wrapper = render(
-      <EditableProTable<DataSourceType>
-        maxLength={2}
-        rowKey="id"
-        columns={columns}
-        value={defaultData}
-      />,
+      <EditableProTable<DataSourceType> columns={columns} maxLength={2} rowKey="id" value={defaultData} />,
     );
     await waitForWaitTime(100);
-    expect(
-      wrapper.container.querySelectorAll('button.ant-btn-dashed').length,
-    ).toBe(0);
+    expect(wrapper.container.querySelectorAll('button.ant-btn-dashed').length).toBe(0);
 
     act(() => {
       wrapper.rerender(
-        <EditableProTable<DataSourceType>
-          maxLength={20}
-          rowKey="id"
-          columns={columns}
-          value={defaultData}
-        />,
+        <EditableProTable<DataSourceType> columns={columns} maxLength={20} rowKey="id" value={defaultData} />,
       );
     });
 
     await waitForWaitTime(100);
 
-    expect(
-      wrapper.container.querySelectorAll('button.ant-btn-dashed').length,
-    ).toBe(1);
+    expect(wrapper.container.querySelectorAll('button.ant-btn-dashed').length).toBe(1);
   });
 
   it('📝 EditableProTable support editableFormRef', async () => {
     const editorRef = React.createRef<EditableFormInstance<DataSourceType>>();
     const wrapper = render(
       <EditableProTable<DataSourceType>
-        editableFormRef={editorRef}
-        rowKey="id"
         columns={columns}
-        value={defaultData}
         editable={{
           editableKeys: defaultData.map((item) => item.id),
         }}
+        editableFormRef={editorRef}
+        rowKey="id"
+        value={defaultData}
       />,
     );
     await waitForWaitTime(100);
 
     const firstRowKey = defaultData[0]?.id || 0;
 
-    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe(
-      defaultData?.[0]?.title,
-    );
+    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe(defaultData?.[0]?.title);
 
-    expect(editorRef.current?.getRowData?.(0)?.title).toBe(
-      defaultData?.[0]?.title,
-    );
+    expect(editorRef.current?.getRowData?.(0)?.title).toBe(defaultData?.[0]?.title);
 
     await waitForWaitTime(100);
 
@@ -694,9 +623,7 @@ describe('EditorProTable', () => {
       editorRef.current?.setRowData?.(firstRowKey, { title: 'test-title' });
     });
 
-    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe(
-      'test-title',
-    );
+    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe('test-title');
 
     expect(editorRef.current?.getRowsData?.()?.length).toBe(3);
 
@@ -707,13 +634,13 @@ describe('EditorProTable', () => {
     const editorRef = React.createRef<EditableFormInstance<DataSourceType>>();
     const wrapper = render(
       <EditableProTable<DataSourceType>
-        editableFormRef={editorRef}
-        rowKey="id"
         columns={columns}
-        value={defaultData}
         editable={{
           editableKeys: defaultData.map((item) => item.id),
         }}
+        editableFormRef={editorRef}
+        rowKey="id"
+        value={defaultData}
       />,
     );
     await waitForWaitTime(100);
@@ -745,33 +672,22 @@ describe('EditorProTable', () => {
           table: defaultData,
         }}
       >
-        <EditableProTable<DataSourceType>
-          editableFormRef={editorRef}
-          rowKey="id"
-          name="table"
-          columns={columns}
-        />
+        <EditableProTable<DataSourceType> columns={columns} editableFormRef={editorRef} name="table" rowKey="id" />
         <ProFormText name="test" />
       </ProForm>,
     );
 
     const firstRowKey = defaultData?.[0]?.id || 0;
 
-    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe(
-      defaultData?.[0]?.title,
-    );
+    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe(defaultData?.[0]?.title);
 
-    expect(editorRef.current?.getRowData?.(0)?.title).toBe(
-      defaultData?.[0]?.title,
-    );
+    expect(editorRef.current?.getRowData?.(0)?.title).toBe(defaultData?.[0]?.title);
 
     act(() => {
       editorRef.current?.setRowData?.(firstRowKey, { title: 'test-title' });
     });
 
-    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe(
-      'test-title',
-    );
+    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe('test-title');
 
     expect(editorRef.current?.getRowsData?.()?.length).toBe(3);
 
@@ -787,18 +703,18 @@ describe('EditorProTable', () => {
         }}
       >
         <EditableProTable<DataSourceType>
-          recordCreatorProps={{
-            id: 'new-button',
-            record: () => ({ id: '1234' }),
-          }}
+          columns={columns}
           editable={{
             onChange: (keys) => {
               fn(keys.join(','));
             },
           }}
-          rowKey="id"
           name="table"
-          columns={columns}
+          recordCreatorProps={{
+            id: 'new-button',
+            record: () => ({ id: '1234' }),
+          }}
+          rowKey="id"
         />
       </ProForm>,
     );
@@ -820,14 +736,14 @@ describe('EditorProTable', () => {
         }}
       >
         <EditableProTable<DataSourceType>
+          columns={columns}
+          name="table"
           recordCreatorProps={{
             id: 'new-button',
             record: () => ({ id: Math.random() * 100000000 }),
             position: 'top',
           }}
           rowKey="id"
-          name="table"
-          columns={columns}
         />
       </ProForm>,
     );
@@ -853,14 +769,7 @@ describe('EditorProTable', () => {
   it('📝 EditableProTable support actionRender', async () => {
     const wrapper = render(
       <EditableProTable<DataSourceType>
-        rowKey="id"
-        recordCreatorProps={false}
         columns={columns}
-        request={async () => ({
-          data: defaultData,
-          total: 3,
-          success: true,
-        })}
         editable={{
           editableKeys: [624748504],
           actionRender: () => [
@@ -869,6 +778,13 @@ describe('EditorProTable', () => {
             </div>,
           ],
         }}
+        recordCreatorProps={false}
+        request={async () => ({
+          data: defaultData,
+          total: 3,
+          success: true,
+        })}
+        rowKey="id"
         value={defaultData}
       />,
     );
@@ -879,12 +795,12 @@ describe('EditorProTable', () => {
   it('📝 EditableProTable support recordCreatorProps', async () => {
     const wrapper = render(
       <EditableProTable<DataSourceType>
-        rowKey="id"
+        columns={columns}
         recordCreatorProps={{
           creatorButtonText: '测试添加数据',
           record: { id: 9999 },
         }}
-        columns={columns}
+        rowKey="id"
         value={defaultData}
       />,
     );
@@ -896,16 +812,16 @@ describe('EditorProTable', () => {
     const onChange = vi.fn();
     const wrapper = render(
       <EditableProTable<DataSourceType>
-        rowKey={(row) => row.id}
         controlled
+        columns={columns}
+        editable={{
+          editableKeys: ['624748504'],
+        }}
         recordCreatorProps={{
           creatorButtonText: '测试添加数据',
           record: { id: 9999 },
         }}
-        editable={{
-          editableKeys: ['624748504'],
-        }}
-        columns={columns}
+        rowKey={(row) => row.id}
         value={[
           {
             id: '624748504',
@@ -921,25 +837,23 @@ describe('EditorProTable', () => {
       />,
     );
     await waitForWaitTime(1200);
-    expect(
-      wrapper.container.querySelectorAll<HTMLInputElement>(
-        '.ant-form-item-control-input input',
-      )[1].value,
-    ).toBe('🐛 [BUG]yarn install命令 antd2.4.5会报错');
+    expect(wrapper.container.querySelectorAll<HTMLInputElement>('.ant-form-item-control-input input')[1].value).toBe(
+      '🐛 [BUG]yarn install命令 antd2.4.5会报错',
+    );
 
     act(() => {
       wrapper.rerender(
         <EditableProTable<DataSourceType>
-          rowKey={(row) => row.id}
           controlled
+          columns={columns}
+          editable={{
+            editableKeys: ['624748504'],
+          }}
           recordCreatorProps={{
             creatorButtonText: '测试添加数据',
             record: { id: 9999 },
           }}
-          editable={{
-            editableKeys: ['624748504'],
-          }}
-          columns={columns}
+          rowKey={(row) => row.id}
           value={[
             {
               id: '624748504',
@@ -957,24 +871,22 @@ describe('EditorProTable', () => {
     });
 
     await waitForWaitTime(100);
-    expect(
-      wrapper.container.querySelectorAll<HTMLInputElement>(
-        '.ant-form-item-control-input input',
-      )[1].value,
-    ).toBe('🐛 [BUG]无法创建工程npm create umi');
+    expect(wrapper.container.querySelectorAll<HTMLInputElement>('.ant-form-item-control-input input')[1].value).toBe(
+      '🐛 [BUG]无法创建工程npm create umi',
+    );
   });
 
   it('📝 EditableProTable support nested children column without config "childrenColumnName:children" and "position:top"', async () => {
     const fn = vi.fn();
     const wrapper = render(
       <EditableProTable<DataSourceType>
-        rowKey="id"
+        columns={columns}
+        editable={{
+          onChange: (keys) => fn(keys[0]),
+        }}
         pagination={{
           pageSize: 2,
           current: 2,
-        }}
-        editable={{
-          onChange: (keys) => fn(keys[0]),
         }}
         recordCreatorProps={{
           parentKey: () => 6246747901,
@@ -983,7 +895,7 @@ describe('EditorProTable', () => {
           },
           id: 'addEditRecord',
         }}
-        columns={columns}
+        rowKey="id"
         value={[
           {
             id: 624674790,
@@ -1025,13 +937,16 @@ describe('EditorProTable', () => {
     const fn = vi.fn();
     const wrapper = render(
       <EditableProTable<DataSourceType>
-        rowKey="id"
+        columns={columns}
+        editable={{
+          onChange: (keys) => fn(keys[0]),
+        }}
+        expandable={{
+          defaultExpandAllRows: true,
+        }}
         pagination={{
           pageSize: 2,
           current: 2,
-        }}
-        editable={{
-          onChange: (keys) => fn(keys[0]),
         }}
         recordCreatorProps={{
           parentKey: () => 624674790,
@@ -1041,10 +956,7 @@ describe('EditorProTable', () => {
           },
           id: 'addEditRecord',
         }}
-        columns={columns}
-        expandable={{
-          defaultExpandAllRows: true,
-        }}
+        rowKey="id"
         value={[
           {
             id: 624674790,
@@ -1079,9 +991,7 @@ describe('EditorProTable', () => {
 
     expect(fn).toHaveBeenCalledWith(555);
 
-    const { dataset } = wrapper.container.querySelectorAll(
-      '.ant-table-tbody tr.ant-table-row',
-    )[1] as HTMLElement;
+    const { dataset } = wrapper.container.querySelectorAll('.ant-table-tbody tr.ant-table-row')[1] as HTMLElement;
 
     expect(dataset.rowKey).toBe('555');
 
@@ -1092,13 +1002,16 @@ describe('EditorProTable', () => {
     const fn = vi.fn();
     const wrapper = render(
       <EditableProTable<DataSourceType>
-        rowKey="id"
+        columns={columns}
+        editable={{
+          onChange: (keys) => fn(keys[0]),
+        }}
+        expandable={{
+          defaultExpandAllRows: true,
+        }}
         pagination={{
           pageSize: 2,
           current: 2,
-        }}
-        editable={{
-          onChange: (keys) => fn(keys[0]),
         }}
         recordCreatorProps={{
           parentKey: () => 624674790,
@@ -1107,10 +1020,7 @@ describe('EditorProTable', () => {
           },
           id: 'addEditRecord',
         }}
-        columns={columns}
-        expandable={{
-          defaultExpandAllRows: true,
-        }}
+        rowKey="id"
         value={[
           {
             id: 624674790,
@@ -1145,9 +1055,7 @@ describe('EditorProTable', () => {
 
     expect(fn).toHaveBeenCalledWith(555);
 
-    const { dataset } = wrapper.container.querySelectorAll(
-      '.ant-table-tbody tr.ant-table-row',
-    )[2] as HTMLElement;
+    const { dataset } = wrapper.container.querySelectorAll('.ant-table-tbody tr.ant-table-row')[2] as HTMLElement;
 
     expect(dataset.rowKey).toBe('555');
 
@@ -1166,19 +1074,19 @@ describe('EditorProTable', () => {
         validateTrigger="onBlur"
       >
         <EditableProTable<DataSourceType>
-          rowKey="id"
-          scroll={{
-            x: 960,
-          }}
-          headerTitle="可编辑表格"
-          maxLength={5}
-          name="table"
           columns={columns}
           editable={{
             type: 'multiple',
             onValuesChange: (values) => {
               valuesChangeFn(values.title);
             },
+          }}
+          headerTitle="可编辑表格"
+          maxLength={5}
+          name="table"
+          rowKey="id"
+          scroll={{
+            x: 960,
           }}
         />
       </ProForm>,
@@ -1197,9 +1105,7 @@ describe('EditorProTable', () => {
 
     act(() => {
       fireEvent.change(
-        wrapper.container
-          .querySelectorAll('.ant-table-tbody tr.ant-table-row')[0]
-          .querySelectorAll(`td .ant-input`)[0],
+        wrapper.container.querySelectorAll('.ant-table-tbody tr.ant-table-row')[0].querySelectorAll(`td .ant-input`)[0],
         {
           target: {
             value: 'test',
@@ -1215,11 +1121,11 @@ describe('EditorProTable', () => {
     const fn = vi.fn();
     const wrapper = render(
       <EditableProTable<DataSourceType>
-        rowKey="id"
+        columns={columns}
+        defaultExpandAllRows={true}
         editable={{
           onChange: (keys) => fn(keys[0]),
         }}
-        defaultExpandAllRows={true}
         recordCreatorProps={{
           parentKey: () => 6246747901,
           position: 'top',
@@ -1228,7 +1134,7 @@ describe('EditorProTable', () => {
           },
           id: 'addEditRecord',
         }}
-        columns={columns}
+        rowKey="id"
         value={[
           {
             id: 624674790,
@@ -1274,9 +1180,7 @@ describe('EditorProTable', () => {
 
     expect(fn).toHaveBeenCalledWith(555);
 
-    const { dataset } = wrapper.container.querySelectorAll(
-      '.ant-table-tbody tr.ant-table-row',
-    )[2] as HTMLElement;
+    const { dataset } = wrapper.container.querySelectorAll('.ant-table-tbody tr.ant-table-row')[2] as HTMLElement;
 
     expect(dataset.rowKey).toBe('555');
     wrapper.unmount();
@@ -1286,11 +1190,11 @@ describe('EditorProTable', () => {
     const fn = vi.fn();
     const wrapper = render(
       <EditableProTable<DataSourceType>
-        rowKey="id"
+        columns={columns}
+        defaultExpandAllRows={true}
         editable={{
           onChange: (keys) => fn(keys[0]),
         }}
-        defaultExpandAllRows={true}
         recordCreatorProps={{
           parentKey: () => 6246747901,
           position: 'top',
@@ -1299,7 +1203,7 @@ describe('EditorProTable', () => {
           },
           id: 'addEditRecord',
         }}
-        columns={columns}
+        rowKey="id"
         value={[
           {
             id: 624674790,
@@ -1334,9 +1238,7 @@ describe('EditorProTable', () => {
 
     expect(fn).toHaveBeenCalledWith(555);
 
-    const { dataset } = wrapper.container.querySelectorAll(
-      '.ant-table-tbody tr.ant-table-row',
-    )[2] as HTMLElement;
+    const { dataset } = wrapper.container.querySelectorAll('.ant-table-tbody tr.ant-table-row')[2] as HTMLElement;
 
     expect(dataset.rowKey).toBe('555');
     wrapper.unmount();
@@ -1346,11 +1248,11 @@ describe('EditorProTable', () => {
     const fn = vi.fn();
     const wrapper = render(
       <EditableProTable<DataSourceType>
-        rowKey="id"
+        columns={columns}
+        defaultExpandAllRows={true}
         editable={{
           onChange: (keys) => fn(keys[0]),
         }}
-        defaultExpandAllRows={true}
         recordCreatorProps={{
           parentKey: () => 6246747901,
           record: {
@@ -1358,7 +1260,7 @@ describe('EditorProTable', () => {
           },
           id: 'addEditRecord',
         }}
-        columns={columns}
+        rowKey="id"
         value={[
           {
             id: 624674790,
@@ -1404,9 +1306,7 @@ describe('EditorProTable', () => {
 
     expect(fn).toHaveBeenCalledWith(555);
 
-    const { dataset } = wrapper.container.querySelectorAll(
-      '.ant-table-tbody tr.ant-table-row',
-    )[3] as HTMLElement;
+    const { dataset } = wrapper.container.querySelectorAll('.ant-table-tbody tr.ant-table-row')[3] as HTMLElement;
 
     expect(dataset.rowKey).toBe('555');
     wrapper.unmount();
@@ -1416,11 +1316,11 @@ describe('EditorProTable', () => {
     const fn = vi.fn();
     const wrapper = render(
       <EditableProTable<DataSourceType>
-        rowKey="id"
+        columns={columns}
+        defaultExpandAllRows={true}
         editable={{
           onChange: (keys) => fn(keys[0]),
         }}
-        defaultExpandAllRows={true}
         recordCreatorProps={{
           parentKey: () => 6246747901,
           record: {
@@ -1428,7 +1328,7 @@ describe('EditorProTable', () => {
           },
           id: 'addEditRecord',
         }}
-        columns={columns}
+        rowKey="id"
         value={[
           {
             id: 624674790,
@@ -1463,9 +1363,7 @@ describe('EditorProTable', () => {
 
     expect(fn).toHaveBeenCalledWith(555);
 
-    const { dataset } = wrapper.container.querySelectorAll(
-      '.ant-table-tbody tr.ant-table-row',
-    )[2] as HTMLElement;
+    const { dataset } = wrapper.container.querySelectorAll('.ant-table-tbody tr.ant-table-row')[2] as HTMLElement;
 
     expect(dataset.rowKey).toBe('555');
     wrapper.unmount();
@@ -1502,17 +1400,15 @@ describe('EditorProTable', () => {
       }
       const recordId = `${parent.id}-${depth}`;
 
-      console.log(
-        `当前测试参数, Tree层级: ${depth}, 方向: ${topOrBottom}, 目标父节点是否已有子元素: ${hasChildren}`,
-      );
+      console.log(`当前测试参数, Tree层级: ${depth}, 方向: ${topOrBottom}, 目标父节点是否已有子元素: ${hasChildren}`);
 
       const wrapper = render(
         <EditableProTable<DataSourceType>
-          rowKey="id"
-          expandable={{ defaultExpandAllRows: true }}
+          columns={columns}
           editable={{
             onChange: (keys) => fn(keys[0]),
           }}
+          expandable={{ defaultExpandAllRows: true }}
           recordCreatorProps={{
             parentKey: () => parent.id,
             position: topOrBottom,
@@ -1521,7 +1417,7 @@ describe('EditorProTable', () => {
             },
             id: 'addEditRecord',
           }}
-          columns={columns}
+          rowKey="id"
           value={[node]}
         />,
       );
@@ -1532,9 +1428,7 @@ describe('EditorProTable', () => {
       await waitForWaitTime(1000);
 
       expect(fn).toHaveBeenCalledWith(recordId);
-      const trDoms = wrapper.container.querySelectorAll(
-        '.ant-table-tbody tr.ant-table-row',
-      );
+      const trDoms = wrapper.container.querySelectorAll('.ant-table-tbody tr.ant-table-row');
       expect(trDoms.length).toBe((hasChildren ? depth + 1 : depth) + 1);
       const index = topOrBottom !== 'top' && hasChildren ? depth + 1 : depth;
       const { dataset } = trDoms[index] as HTMLElement;

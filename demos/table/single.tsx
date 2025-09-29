@@ -1,9 +1,10 @@
 import { EllipsisOutlined, PlusOutlined } from '@ant-design/icons';
-import type { ActionType, ProColumns } from '@ant-design/pro-components';
-import { ProTable, TableDropdown } from '@ant-design/pro-components';
+import type { ActionType, ProColumns } from '@xxlabs/pro-components';
+import { ProTable, TableDropdown } from '@xxlabs/pro-components';
 import { Button, Dropdown, Space, Tag } from 'antd';
 import { useRef } from 'react';
 import request from 'umi-request';
+
 export const waitTimePromise = async (time: number = 100) => {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -89,7 +90,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     render: (_, record) => (
       <Space>
         {record.labels.map(({ name, color }) => (
-          <Tag color={color} key={name}>
+          <Tag key={name} color={color}>
             {name}
           </Tag>
         ))}
@@ -131,40 +132,28 @@ const columns: ProColumns<GithubIssueItem>[] = [
       >
         Edit
       </a>,
-      <a href={record.url} target="_blank" rel="noopener noreferrer" key="view">
+      <a key="view" href={record.url} rel="noopener noreferrer" target="_blank">
         View
       </a>,
       <TableDropdown
         key="actionGroup"
-        onSelect={() => action?.reload()}
         menus={[
           { key: 'copy', name: 'Copy' },
           { key: 'delete', name: 'Delete' },
         ]}
+        onSelect={() => action?.reload()}
       />,
     ],
   },
 ];
 
 export default () => {
-  const actionRef = useRef<ActionType>();
+  const actionRef = useRef<ActionType>(undefined);
   return (
     <ProTable<GithubIssueItem>
-      columns={columns}
-      actionRef={actionRef}
       cardBordered
-      request={async (params, sort, filter) => {
-        console.log(sort, filter);
-        await waitTime(2000);
-        return request<{
-          data: GithubIssueItem[];
-        }>('https://proapi.azurewebsites.net/github/issues', {
-          params,
-        });
-      }}
-      editable={{
-        type: 'multiple',
-      }}
+      actionRef={actionRef}
+      columns={columns}
       columnsState={{
         persistenceKey: 'pro-table-singe-demos',
         persistenceType: 'localStorage',
@@ -175,14 +164,9 @@ export default () => {
           console.log('value: ', value);
         },
       }}
-      rowKey="id"
-      search={{
-        labelWidth: 'auto',
-      }}
-      options={{
-        setting: {
-          listsHeight: 400,
-        },
+      dateFormatter="string"
+      editable={{
+        type: 'multiple',
       }}
       form={{
         // Since transform is configured, the submitted parameters are different from the defined ones, so they need to be transformed here
@@ -196,20 +180,37 @@ export default () => {
           return values;
         },
       }}
+      headerTitle="Advanced Table"
+      options={{
+        setting: {
+          listsHeight: 400,
+        },
+      }}
       pagination={{
         pageSize: 5,
         onChange: (page) => console.log(page),
       }}
-      dateFormatter="string"
-      headerTitle="Advanced Table"
+      request={async (params, sort, filter) => {
+        console.log(sort, filter);
+        await waitTime(2000);
+        return request<{
+          data: GithubIssueItem[];
+        }>('https://proapi.azurewebsites.net/github/issues', {
+          params,
+        });
+      }}
+      rowKey="id"
+      search={{
+        labelWidth: 'auto',
+      }}
       toolBarRender={() => [
         <Button
           key="button"
           icon={<PlusOutlined />}
+          type="primary"
           onClick={() => {
             actionRef.current?.reload();
           }}
-          type="primary"
         >
           New
         </Button>,

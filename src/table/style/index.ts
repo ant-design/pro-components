@@ -18,10 +18,9 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
   return {
     [token.componentCls]: {
       zIndex: 1,
-      [`${token.antCls}-table-wrapper ${token.antCls}-table-pagination${token.antCls}-pagination`]:
-        {
-          marginBlockEnd: 0,
-        },
+      [`${token.antCls}-table-wrapper ${token.antCls}-table-pagination${token.antCls}-pagination`]: {
+        marginBlockEnd: 0,
+      },
       '&:not(:root):fullscreen': {
         minHeight: '100vh',
         overflow: 'auto',
@@ -51,14 +50,13 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           marginBlock: 0,
           marginInline: 0,
         },
-      [`${token.antCls}-table${token.antCls}-table-middle ${token.componentCls}`]:
-        {
-          marginBlock: 0,
-          marginInline: -8,
-          [`${token.proComponentsCls}-card`]: {
-            backgroundColor: 'initial',
-          },
+      [`${token.antCls}-table${token.antCls}-table-middle ${token.componentCls}`]: {
+        marginBlock: 0,
+        marginInline: -8,
+        [`${token.proComponentsCls}-card`]: {
+          backgroundColor: 'initial',
         },
+      },
 
       '& &-search': {
         marginBlockEnd: '16px',

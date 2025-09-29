@@ -7,20 +7,8 @@ import type { PrivateSiderMenuProps, SiderMenuProps } from './SiderMenu';
 import { SiderMenu } from './SiderMenu';
 import { useStyle } from './style/index';
 
-const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (
-  props,
-) => {
-  const {
-    isMobile,
-    siderWidth,
-    collapsed,
-    onCollapse,
-    style,
-    className,
-    hide,
-    prefixCls,
-    getContainer,
-  } = props;
+const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
+  const { isMobile, siderWidth, collapsed, onCollapse, style, className, hide, prefixCls, getContainer } = props;
 
   const { token } = useContext(ProProvider);
 
@@ -28,7 +16,6 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (
     if (isMobile === true) {
       onCollapse?.(true);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isMobile]);
 
   const omitProps = omit(props, ['className', 'style']);
@@ -48,24 +35,20 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (
   return wrapSSR(
     isMobile ? (
       <Drawer
-        placement={direction === 'rtl' ? 'right' : 'left'}
-        className={classNames(`${prefixCls}-drawer-sider`, className)}
-        open={!collapsed}
+        maskClosable
         afterOpenChange={() => {
           onCollapse?.(true);
         }}
+        className={classNames(`${prefixCls}-drawer-sider`, className)}
+        closable={false}
+        getContainer={getContainer || false}
+        open={!collapsed}
+        placement={direction === 'rtl' ? 'right' : 'left'}
         style={{
           padding: 0,
           height: '100vh',
           ...style,
         }}
-        onClose={() => {
-          onCollapse?.(true);
-        }}
-        maskClosable
-        closable={false}
-        getContainer={getContainer || false}
-        width={siderWidth}
         styles={{
           body: {
             height: '100vh',
@@ -75,23 +58,22 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (
             backgroundColor: token.layout?.sider?.colorMenuBackground,
           },
         }}
+        width={siderWidth}
+        onClose={() => {
+          onCollapse?.(true);
+        }}
       >
         <SiderMenu
           {...omitProps}
-          isMobile={true}
           className={siderClassName}
           collapsed={isMobile ? false : collapsed}
-          splitMenus={false}
+          isMobile={true}
           originCollapsed={collapsed}
+          splitMenus={false}
         />
       </Drawer>
     ) : (
-      <SiderMenu
-        className={siderClassName}
-        originCollapsed={collapsed}
-        {...omitProps}
-        style={style}
-      />
+      <SiderMenu className={siderClassName} originCollapsed={collapsed} {...omitProps} style={style} />
     ),
   );
 };

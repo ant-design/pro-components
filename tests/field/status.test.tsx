@@ -1,5 +1,5 @@
-import { ProField as Field } from '@ant-design/pro-components';
 import { cleanup, render } from '@testing-library/react';
+import { ProField as Field } from '@xxlabs/pro-components';
 import { afterEach, describe, expect, it } from 'vitest';
 
 afterEach(() => {
@@ -26,6 +26,7 @@ describe('Field Status', () => {
     it(`🥩 ${status} render`, async () => {
       const { container } = render(
         <Field
+          mode="read"
           text="open"
           valueEnum={{
             open: {
@@ -33,7 +34,6 @@ describe('Field Status', () => {
               status,
             },
           }}
-          mode="read"
         />,
       );
       expect(container).toMatchSnapshot();
@@ -43,6 +43,7 @@ describe('Field Status', () => {
   it(`🥩 red color render`, async () => {
     const { container } = render(
       <Field
+        mode="read"
         text="open"
         valueEnum={{
           open: {
@@ -50,7 +51,6 @@ describe('Field Status', () => {
             color: 'red',
           },
         }}
-        mode="read"
       />,
     );
     expect(container).toMatchSnapshot();

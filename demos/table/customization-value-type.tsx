@@ -1,5 +1,5 @@
-import type { ProColumns } from '@ant-design/pro-components';
-import { ProProvider, ProTable } from '@ant-design/pro-components';
+import type { ProColumns } from '@xxlabs/pro-components';
+import { ProProvider, ProTable } from '@xxlabs/pro-components';
 import type { InputRef } from 'antd';
 import { Input, Space, Tag } from 'antd';
 import React, { useContext, useRef, useState } from 'react';
@@ -65,14 +65,8 @@ const TagList: React.FC<{
 
   const handleInputConfirm = () => {
     let tempsTags = [...(value || [])];
-    if (
-      inputValue &&
-      tempsTags.filter((tag) => tag.label === inputValue).length === 0
-    ) {
-      tempsTags = [
-        ...tempsTags,
-        { key: `new-${tempsTags.length}`, label: inputValue },
-      ];
+    if (inputValue && tempsTags.filter((tag) => tag.label === inputValue).length === 0) {
+      tempsTags = [...tempsTags, { key: `new-${tempsTags.length}`, label: inputValue }];
     }
     onChange?.(tempsTags);
     setNewTags([]);
@@ -86,12 +80,12 @@ const TagList: React.FC<{
       ))}
       <Input
         ref={ref}
-        type="text"
         size="small"
         style={{ width: 78 }}
+        type="text"
         value={inputValue}
-        onChange={handleInputChange}
         onBlur={handleInputConfirm}
+        onChange={handleInputChange}
         onPressEnter={handleInputConfirm}
       />
     </Space>
@@ -136,9 +130,7 @@ export default () => {
         valueTypeMap: {
           link: {
             render: (text) => <a>{text}</a>,
-            formItemRender: (text, props) => (
-              <Input placeholder="请输入链接" {...props?.fieldProps} />
-            ),
+            formItemRender: (text, props) => <Input placeholder="请输入链接" {...props?.fieldProps} />,
           },
           tags: {
             render: (text) => {
@@ -150,15 +142,14 @@ export default () => {
                 </>
               );
             },
-            formItemRender: (text, props) => (
-              <TagList {...props} {...props?.fieldProps} />
-            ),
+            formItemRender: (text, props) => <TagList {...props} {...props?.fieldProps} />,
           },
         },
       }}
     >
       <ProTable<TableListItem, Record<string, any>, 'link' | 'tags'>
         columns={columns}
+        headerTitle="自定义 valueType"
         request={() => {
           return Promise.resolve({
             total: 200,
@@ -167,7 +158,6 @@ export default () => {
           });
         }}
         rowKey="key"
-        headerTitle="自定义 valueType"
       />
     </ProProvider.Provider>
   );
@@ -246,5 +236,5 @@ export default () => {
         <strong>业务定制</strong>: 业务定制需求
       </li>
     </ul>
-  </div>
+  </div>;
 };

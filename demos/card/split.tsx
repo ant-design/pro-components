@@ -1,4 +1,4 @@
-import { ProCard } from '@ant-design/pro-components';
+import { ProCard } from '@xxlabs/pro-components';
 import RcResizeObserver from 'rc-resize-observer';
 import { useState } from 'react';
 
@@ -14,11 +14,11 @@ export default () => {
         }}
       >
         <ProCard
-          title="Complex Split"
-          extra="September 28, 2019"
-          variant="outlined"
           headerBordered
+          extra="September 28, 2019"
           split={responsive ? 'horizontal' : 'vertical'}
+          title="Complex Split"
+          variant="outlined"
         >
           <ProCard split="horizontal">
             <ProCard split="horizontal">

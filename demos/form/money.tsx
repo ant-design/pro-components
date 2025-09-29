@@ -1,9 +1,5 @@
-import type { ProFormInstance } from '@ant-design/pro-components';
-import {
-  ProForm,
-  ProFormMoney,
-  ProFormSwitch,
-} from '@ant-design/pro-components';
+import type { ProFormInstance } from '@xxlabs/pro-components';
+import { ProForm, ProFormMoney, ProFormSwitch } from '@xxlabs/pro-components';
 import { message } from 'antd';
 import { useRef, useState } from 'react';
 
@@ -22,37 +18,28 @@ export default () => {
       company?: string;
       useMode?: string;
     }>
-  >();
+  >(undefined);
 
   const [readonly, setReadonly] = useState(false);
   return (
     <>
       <ProFormSwitch
         checkedChildren="On"
-        unCheckedChildren="Off"
-        label="Read Only"
         fieldProps={{
           onChange: setReadonly,
         }}
+        label="Read Only"
+        unCheckedChildren="Off"
       />
       <ProForm<{
         name: string;
         company?: string;
         useMode?: string;
       }>
-        onFinish={async (values) => {
-          await waitTime(2000);
-          console.log(values);
-          const val1 = await formRef.current?.validateFields();
-          console.log('validateFields:', val1);
-          const val2 =
-            await formRef.current?.validateFieldsReturnFormatValue?.();
-          console.log('validateFieldsReturnFormatValue:', val2);
-          message.success('Submission successful');
-        }}
+        autoFocusFirstInput
+        formKey="base-form-use-demo"
         formRef={formRef}
         params={{ id: '100' }}
-        formKey="base-form-use-demo"
         readonly={readonly}
         request={async () => {
           await waitTime(100);
@@ -61,77 +48,54 @@ export default () => {
             useMode: 'chapter',
           };
         }}
-        autoFocusFirstInput
+        onFinish={async (values) => {
+          await waitTime(2000);
+          console.log(values);
+          const val1 = await formRef.current?.validateFields();
+          console.log('validateFields:', val1);
+          const val2 = await formRef.current?.validateFieldsReturnFormatValue?.();
+          console.log('validateFieldsReturnFormatValue:', val2);
+          message.success('Submission successful');
+        }}
       >
         <ProFormMoney
-          label="No Symbol"
-          name="amount0"
           fieldProps={{
             moneySymbol: false,
           }}
-          locale="en-US"
           initialValue={22.22}
+          label="No Symbol"
+          locale="en-US"
           min={0}
+          name="amount0"
           width="lg"
         />
+        <ProFormMoney initialValue={22.22} label="Width" locale="en-US" min={0} name="amount1" width="lg" />
         <ProFormMoney
-          label="Width"
-          name="amount1"
-          locale="en-US"
           initialValue={22.22}
-          min={0}
-          width="lg"
-        />
-        <ProFormMoney
           label="Minimum Amount 0"
-          name="amount2"
           locale="en-US"
-          initialValue={22.22}
           min={0}
+          name="amount2"
           trigger="onBlur"
         />
+        <ProFormMoney initialValue={22.22} label="No Limit" locale="en-GB" name="amount3" />
+        <ProFormMoney initialValue={22.22} label="Follow Global Locale" name="amount4" />
+        <ProFormMoney initialValue={-22.22} label="Locale ms-MY" locale="ms-MY" name="amount-ms-My" />
+        <ProFormMoney initialValue={22.22} label="Locale zh-TW" locale="zh-TW" name="amount-zh-TW" />
+        <ProFormMoney customSymbol="💰" initialValue={22.22} label="Custom Symbol" name="amount5" />
         <ProFormMoney
-          label="No Limit"
-          name="amount3"
-          locale="en-GB"
-          initialValue={22.22}
-        />
-        <ProFormMoney
-          label="Follow Global Locale"
-          name="amount4"
-          initialValue={22.22}
-        />
-        <ProFormMoney
-          label="Locale ms-MY"
-          name="amount-ms-My"
-          locale="ms-MY"
-          initialValue={-22.22}
-        />
-        <ProFormMoney
-          label="Locale zh-TW"
-          name="amount-zh-TW"
-          locale="zh-TW"
-          initialValue={22.22}
-        />
-        <ProFormMoney
-          label="Custom Symbol"
-          name="amount5"
-          initialValue={22.22}
           customSymbol="💰"
-        />
-        <ProFormMoney
+          fieldProps={{ precision: 2 }}
+          initialValue={2222222222.222222}
           label="Precision"
           name="amount6"
-          initialValue={2222222222.222222}
-          fieldProps={{ precision: 2 }}
-          customSymbol="💰"
         />
         <ProFormMoney
+          customSymbol="💰"
+          fieldProps={{ precision: 0 }}
+          initialValue={2222222222.222222}
           label="Precision 0"
           name="amount6"
-          initialValue={2222222222.222222}
-          fieldProps={{ precision: 0 }}
-          customSymbol="💰"
         />
       </ProForm>
     </>

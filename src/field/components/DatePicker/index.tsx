@@ -1,7 +1,7 @@
 import { DatePicker } from 'antd';
 import dayjs from 'dayjs';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useIntl } from '../../../provider';
 import { FieldLabel, parseValueToDay } from '../../../utils';
 import type { ProFieldFC, ProFieldLightProps } from '../../PureProField';
@@ -13,16 +13,13 @@ const formatDate = (text: any, format: any) => {
   if (typeof format === 'function') {
     return format(dayjs(text));
   } else {
-    return dayjs(text).format(
-      (Array.isArray(format) ? format[0] : format) || 'YYYY-MM-DD',
-    );
+    return dayjs(text).format((Array.isArray(format) ? format[0] : format) || 'YYYY-MM-DD');
   }
 };
 
 /**
  * 日期选择组件
  *
- * @param
  */
 const FieldDatePicker: ProFieldFC<
   {
@@ -32,24 +29,22 @@ const FieldDatePicker: ProFieldFC<
     variant?: 'outlined' | 'borderless' | 'filled';
     picker?: 'time' | 'date' | 'week' | 'month' | 'quarter' | 'year';
   } & ProFieldLightProps
-> = (
-  {
-    text,
-    mode,
-    format = 'YYYY-MM-DD',
-    label,
-    light,
-    render,
-    formItemRender,
-    plain,
-    showTime,
-    fieldProps,
-    picker,
-    variant,
-    lightLabel,
-  },
+> = ({
+  text,
+  mode,
+  format = 'YYYY-MM-DD',
+  label,
+  light,
+  render,
+  formItemRender,
+  plain,
+  showTime,
+  fieldProps,
+  picker,
+  variant,
+  lightLabel,
   ref,
-) => {
+}) => {
   const intl = useIntl();
 
   const [open, setOpen] = useState<boolean>(false);
@@ -61,24 +56,21 @@ const FieldDatePicker: ProFieldFC<
     }
     return <>{dom}</>;
   }
+
   if (mode === 'edit' || mode === 'update') {
     let dom;
-    const {
-      disabled,
-      value,
-      placeholder = intl.getMessage('tableForm.selectPlaceholder', '请选择'),
-    } = fieldProps;
+    const { disabled, value, placeholder = intl.getMessage('tableForm.selectPlaceholder', '请选择') } = fieldProps;
 
     const dayValue = parseValueToDay(value) as dayjs.Dayjs;
 
     if (light) {
       dom = (
         <FieldLabel
+          ref={lightLabel}
+          allowClear={false}
+          disabled={disabled}
+          downIcon={dayValue || open ? false : undefined}
           label={label}
-          onClick={() => {
-            fieldProps?.onOpenChange?.(true);
-            setOpen(true);
-          }}
           style={
             dayValue
               ? {
@@ -86,42 +78,40 @@ const FieldDatePicker: ProFieldFC<
                 }
               : undefined
           }
-          disabled={disabled}
           value={
             dayValue || open ? (
               <DatePicker
+                ref={ref}
+                format={format}
                 picker={picker}
                 showTime={showTime}
-                format={format}
-                ref={ref}
                 {...fieldProps}
+                open={open}
                 value={dayValue}
+                variant="borderless"
                 onOpenChange={(isOpen) => {
                   setOpen(isOpen);
                   fieldProps?.onOpenChange?.(isOpen);
                 }}
-                variant="borderless"
-                open={open}
               />
             ) : undefined
           }
-          allowClear={false}
-          downIcon={dayValue || open ? false : undefined}
           variant={variant}
-          ref={lightLabel}
+          onClick={() => {
+            fieldProps?.onOpenChange?.(true);
+            setOpen(true);
+          }}
         />
       );
     } else {
       dom = (
         <DatePicker
-          picker={picker}
-          showTime={showTime}
-          format={format}
-          placeholder={placeholder}
-          variant={
-            plain === undefined ? 'outlined' : plain ? 'borderless' : 'outlined'
-          }
           ref={ref}
+          format={format}
+          picker={picker}
+          placeholder={placeholder}
+          showTime={showTime}
+          variant={plain === undefined ? 'outlined' : plain ? 'borderless' : 'outlined'}
           {...fieldProps}
           value={dayValue}
         />
@@ -132,6 +122,8 @@ const FieldDatePicker: ProFieldFC<
     }
     return dom;
   }
+
   return null;
 };
-export default React.forwardRef(FieldDatePicker);
+
+export default FieldDatePicker;

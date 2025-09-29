@@ -1,6 +1,6 @@
 import { PlusOutlined } from '@ant-design/icons';
-import type { ActionType, ProColumns } from '@ant-design/pro-components';
-import { ProTable, TableDropdown } from '@ant-design/pro-components';
+import type { ActionType, ProColumns } from '@xxlabs/pro-components';
+import { ProTable, TableDropdown } from '@xxlabs/pro-components';
 import { Button, ConfigProvider, Input, Space, Tag } from 'antd';
 import { useRef } from 'react';
 
@@ -122,7 +122,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     render: (_, record) => (
       <Space>
         {record.labels.map(({ name, color }) => (
-          <Tag color={color} key={name}>
+          <Tag key={name} color={color}>
             {name}
           </Tag>
         ))}
@@ -157,50 +157,50 @@ const columns: ProColumns<GithubIssueItem>[] = [
     valueType: 'option',
     fixed: 'right',
     render: (text, record, _, action) => [
-      <a href={record.url} target="_blank" rel="noopener noreferrer" key="view">
+      <a key="view" href={record.url} rel="noopener noreferrer" target="_blank">
         查看
       </a>,
       <TableDropdown
         key="actionGroup"
-        onSelect={() => action?.reload()}
         menus={[
           { key: 'copy', name: '复制' },
           { key: 'delete', name: '删除' },
         ]}
+        onSelect={() => action?.reload()}
       />,
     ],
   },
 ];
 
 export default () => {
-  const actionRef = useRef<ActionType>();
+  const actionRef = useRef<ActionType>(undefined);
 
   return (
     <ConfigProvider prefixCls="canvas">
       <ProTable<GithubIssueItem>
+        actionRef={actionRef}
         columns={columns}
+        dateFormatter="string"
+        headerTitle="高级表格"
         pagination={{
           showQuickJumper: true,
         }}
-        actionRef={actionRef}
         request={async () => ({
           data: [],
         })}
-        type="form"
         rowKey="id"
-        dateFormatter="string"
-        headerTitle="高级表格"
         toolBarRender={() => [
           <Button key="3" type="primary">
             <PlusOutlined />
             新建
           </Button>,
         ]}
+        type="form"
       />
       <ProTable columns={nestedColumns} dataSource={nestedData} />
       <ProTable<GithubIssueItem>
-        columns={columns}
         actionRef={(ref) => console.log(ref)}
+        columns={columns}
         dataSource={[
           {
             id: 624748504,
@@ -236,12 +236,12 @@ export default () => {
             url: 'https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png',
           },
         ]}
+        dateFormatter="string"
+        headerTitle="高级表格"
         pagination={{
           pageSize: 5,
         }}
         rowKey="id"
-        dateFormatter="string"
-        headerTitle="高级表格"
         toolBarRender={() => [
           <Button key="3" type="primary">
             <PlusOutlined />

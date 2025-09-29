@@ -1,11 +1,5 @@
-import {
-  ProConfigProvider,
-  ProForm,
-  ProFormMoney,
-  createIntl,
-  useStyle,
-} from '@ant-design/pro-components';
 import { cleanup, render } from '@testing-library/react';
+import { createIntl, ProConfigProvider, ProForm, ProFormMoney, useStyle } from '@xxlabs/pro-components';
 import { ConfigProvider } from 'antd';
 import { afterEach, describe, expect, it } from 'vitest';
 
@@ -53,7 +47,7 @@ describe('ProConfigProvider', () => {
           })}
         >
           <ProForm>
-            <ProFormMoney name="amount" initialValue={44.33} />
+            <ProFormMoney initialValue={44.33} name="amount" />
           </ProForm>
         </ProConfigProvider>
       </ConfigProvider>,

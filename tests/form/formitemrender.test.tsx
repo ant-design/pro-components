@@ -1,5 +1,5 @@
-import { pickControlProps, useControlModel } from '@ant-design/pro-components';
 import { cleanup, renderHook } from '@testing-library/react';
+import { pickControlProps, useControlModel } from '@xxlabs/pro-components';
 import { afterEach, describe, expect, test, vi } from 'vitest';
 
 afterEach(() => {
@@ -12,9 +12,7 @@ describe('ProForm.FormItemRender target branch test', () => {
     const value = 'test value';
     const model = { valuePropName: 'value', trigger: 'onChange' };
 
-    const { result } = renderHook(() =>
-      useControlModel({ value, onChange }, model),
-    );
+    const { result } = renderHook(() => useControlModel({ value, onChange }, model));
 
     expect(result.current).toEqual({
       value: value,
@@ -32,14 +30,9 @@ describe('ProForm.FormItemRender target branch test', () => {
   test('should return correct object when model is an array', () => {
     const onChange = vi.fn();
     const value = { field1: 'value1', field2: 'value2' };
-    const model = [
-      'field1',
-      { name: 'field2', valuePropName: 'value', trigger: 'onChange' },
-    ];
+    const model = ['field1', { name: 'field2', valuePropName: 'value', trigger: 'onChange' }];
 
-    const { result } = renderHook(
-      () => useControlModel({ value, onChange }, model as any) as any,
-    );
+    const { result } = renderHook(() => useControlModel({ value, onChange }, model as any) as any);
 
     expect(result.current).toEqual({
       field1: {

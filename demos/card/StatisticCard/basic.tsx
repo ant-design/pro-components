@@ -1,5 +1,5 @@
 import { EllipsisOutlined, RightOutlined } from '@ant-design/icons';
-import { StatisticCard } from '@ant-design/pro-components';
+import { StatisticCard } from '@xxlabs/pro-components';
 import { Space, theme } from 'antd';
 
 const { Statistic } = StatisticCard;
@@ -9,11 +9,10 @@ export default () => {
   return (
     <>
       <StatisticCard
-        title={
-          <Space>
-            <span>Department One</span>
-            <RightOutlined style={{ color: token.colorTextHeading }} />
-          </Space>
+        chart={
+          <>
+            <img alt="chart" src="https://gw.alipayobjects.com/zos/alicdn/BA_R9SIAV/charts.svg" width="100%" />
+          </>
         }
         extra={<EllipsisOutlined />}
         statistic={{
@@ -26,16 +25,13 @@ export default () => {
             </Space>
           ),
         }}
-        chart={
-          <>
-            <img
-              src="https://gw.alipayobjects.com/zos/alicdn/BA_R9SIAV/charts.svg"
-              alt="chart"
-              width="100%"
-            />
-          </>
-        }
         style={{ width: 268 }}
+        title={
+          <Space>
+            <span>Department One</span>
+            <RightOutlined style={{ color: token.colorTextHeading }} />
+          </Space>
+        }
       />
 
       <div
@@ -52,8 +48,7 @@ export default () => {
             <strong>title</strong>: 卡片标题，可以是字符串或 React 节点
           </li>
           <li>
-            <strong>extra</strong>: 卡片右上角操作区域，可以是字符串或 React
-            节点
+            <strong>extra</strong>: 卡片右上角操作区域，可以是字符串或 React 节点
           </li>
           <li>
             <strong>statistic</strong>: 统计信息配置对象

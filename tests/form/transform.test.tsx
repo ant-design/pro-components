@@ -1,10 +1,5 @@
-import {
-  ProForm,
-  ProFormDatePicker,
-  ProFormList,
-  ProFormText,
-} from '@ant-design/pro-components';
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
+import { ProForm, ProFormDatePicker, ProFormList, ProFormText } from '@xxlabs/pro-components';
 import { describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
 
@@ -36,9 +31,7 @@ describe('ProForm Transform Tests', () => {
 
     // Fill in the value
     await act(async () => {
-      const inputs = container.querySelectorAll(
-        'input:not([style*="display: none"])',
-      );
+      const inputs = container.querySelectorAll('input:not([style*="display: none"])');
       fireEvent.change(inputs[0], {
         target: { value: 'John Doe' },
       });
@@ -46,11 +39,7 @@ describe('ProForm Transform Tests', () => {
 
     // Submit the form
     await act(async () => {
-      (
-        container.querySelector(
-          'button[type="button"].ant-btn-primary',
-        ) as HTMLElement
-      )?.click();
+      (container.querySelector('button[type="button"].ant-btn-primary') as HTMLElement)?.click();
     });
 
     await waitForWaitTime(100);
@@ -105,23 +94,17 @@ describe('ProForm Transform Tests', () => {
 
     const addEmployeeButtons = container.querySelectorAll('.ant-btn-dashed');
     await act(async () => {
-      (
-        addEmployeeButtons[addEmployeeButtons.length - 1] as HTMLElement
-      ).click();
+      (addEmployeeButtons[addEmployeeButtons.length - 1] as HTMLElement).click();
     });
 
     // Fill in values
     await waitFor(() => {
-      const inputs = container.querySelectorAll(
-        'input:not([style*="display: none"])',
-      );
+      const inputs = container.querySelectorAll('input:not([style*="display: none"])');
       expect(inputs.length).toBe(2);
       return inputs;
     });
 
-    const inputs = container.querySelectorAll(
-      'input:not([style*="display: none"])',
-    );
+    const inputs = container.querySelectorAll('input:not([style*="display: none"])');
     await act(async () => {
       fireEvent.change(inputs[0], {
         target: { value: 'Engineering' },
@@ -133,11 +116,7 @@ describe('ProForm Transform Tests', () => {
 
     // Submit the form
     await act(async () => {
-      (
-        container.querySelector(
-          'button[type="button"].ant-btn-primary',
-        ) as HTMLElement
-      )?.click();
+      (container.querySelector('button[type="button"].ant-btn-primary') as HTMLElement)?.click();
     });
 
     await waitForWaitTime(100);
@@ -153,13 +132,13 @@ describe('ProForm Transform Tests', () => {
     const fn = vi.fn();
     const { container } = render(
       <ProForm
-        onFinish={async (values) => {
-          fn(values);
-        }}
         initialValues={{
           company: {
             employees: [],
           },
+        }}
+        onFinish={async (values) => {
+          fn(values);
         }}
       >
         <ProFormText
@@ -188,16 +167,12 @@ describe('ProForm Transform Tests', () => {
 
     // Fill in values
     await waitFor(() => {
-      const inputs = container.querySelectorAll(
-        'input:not([style*="display: none"])',
-      );
+      const inputs = container.querySelectorAll('input:not([style*="display: none"])');
       expect(inputs.length).toBe(2);
       return inputs;
     });
 
-    const inputs = container.querySelectorAll(
-      'input:not([style*="display: none"])',
-    );
+    const inputs = container.querySelectorAll('input:not([style*="display: none"])');
     await act(async () => {
       fireEvent.change(inputs[0], {
         target: { value: 'Acme Corp' },
@@ -209,11 +184,7 @@ describe('ProForm Transform Tests', () => {
 
     // Submit the form
     await act(async () => {
-      (
-        container.querySelector(
-          'button[type="button"].ant-btn-primary',
-        ) as HTMLElement
-      )?.click();
+      (container.querySelector('button[type="button"].ant-btn-primary') as HTMLElement)?.click();
     });
 
     await waitForWaitTime(100);
@@ -262,16 +233,12 @@ describe('ProForm Transform Tests', () => {
 
     // Fill in values
     await waitFor(() => {
-      const inputs = container.querySelectorAll(
-        'input:not([style*="display: none"])',
-      );
+      const inputs = container.querySelectorAll('input:not([style*="display: none"])');
       expect(inputs.length).toBe(2);
       return inputs;
     });
 
-    const inputs = container.querySelectorAll(
-      'input:not([style*="display: none"])',
-    );
+    const inputs = container.querySelectorAll('input:not([style*="display: none"])');
     await act(async () => {
       fireEvent.change(inputs[0], {
         target: { value: 'Conference' },
@@ -292,11 +259,7 @@ describe('ProForm Transform Tests', () => {
 
     // Submit the form
     await act(async () => {
-      (
-        container.querySelector(
-          'button[type="button"].ant-btn-primary',
-        ) as HTMLElement
-      )?.click();
+      (container.querySelector('button[type="button"].ant-btn-primary') as HTMLElement)?.click();
     });
 
     await waitForWaitTime(100);
@@ -360,16 +323,12 @@ describe('ProForm Transform Tests', () => {
 
     // Fill in values
     await waitFor(() => {
-      const inputs = container.querySelectorAll(
-        'input:not([style*="display: none"])',
-      );
+      const inputs = container.querySelectorAll('input:not([style*="display: none"])');
       expect(inputs.length).toBe(2);
       return inputs;
     });
 
-    const inputs = container.querySelectorAll(
-      'input:not([style*="display: none"])',
-    );
+    const inputs = container.querySelectorAll('input:not([style*="display: none"])');
     await act(async () => {
       fireEvent.change(inputs[0], {
         target: { value: 'Acme' },
@@ -381,11 +340,7 @@ describe('ProForm Transform Tests', () => {
 
     // Submit the form
     await act(async () => {
-      (
-        container.querySelector(
-          'button[type="button"].ant-btn-primary',
-        ) as HTMLElement
-      )?.click();
+      (container.querySelector('button[type="button"].ant-btn-primary') as HTMLElement)?.click();
     });
 
     await waitForWaitTime(100);
@@ -429,11 +384,7 @@ describe('ProForm Transform Tests', () => {
 
     // Submit without filling any values
     await act(async () => {
-      (
-        container.querySelector(
-          'button[type="button"].ant-btn-primary',
-        ) as HTMLElement
-      )?.click();
+      (container.querySelector('button[type="button"].ant-btn-primary') as HTMLElement)?.click();
     });
 
     await waitForWaitTime(100);

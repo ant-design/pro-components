@@ -1,9 +1,5 @@
-import type { ProColumns } from '@ant-design/pro-components';
-import {
-  LightFilter,
-  ProFormDatePicker,
-  ProTable,
-} from '@ant-design/pro-components';
+import type { ProColumns } from '@xxlabs/pro-components';
+import { LightFilter, ProFormDatePicker, ProTable } from '@xxlabs/pro-components';
 import { Badge, Button } from 'antd';
 import React, { useState } from 'react';
 
@@ -83,9 +79,7 @@ const columns: ProColumns<TableListItem>[] = [
     valueType: 'option',
     render: (_, record) => [
       record.status === 'close' && <a key="link">发布</a>,
-      (record.status === 'running' || record.status === 'online') && (
-        <a key="warn">停用</a>
-      ),
+      (record.status === 'running' || record.status === 'online') && <a key="warn">停用</a>,
       record.status === 'error' && <a key="republish">重新发布</a>,
       <a
         key="monitor"
@@ -124,6 +118,18 @@ export default () => {
   return (
     <ProTable<TableListItem>
       columns={columns}
+      dateFormatter="string"
+      options={{
+        setting: {
+          draggable: true,
+          checkable: true,
+          checkedReset: false,
+          extra: [<a key="confirm">确认</a>],
+        },
+      }}
+      pagination={{
+        showQuickJumper: true,
+      }}
       request={(params, sorter, filter) => {
         // 表单搜索项会从 params 传入，传递给后端接口。
         console.log(params, sorter, filter);
@@ -132,10 +138,12 @@ export default () => {
           success: true,
         });
       }}
+      rowKey="key"
+      search={false}
       toolbar={{
         filter: (
           <LightFilter>
-            <ProFormDatePicker name="startdate" label="响应日期" />
+            <ProFormDatePicker label="响应日期" name="startdate" />
           </LightFilter>
         ),
         menu: {
@@ -164,20 +172,6 @@ export default () => {
             新建应用
           </Button>,
         ],
-      }}
-      rowKey="key"
-      pagination={{
-        showQuickJumper: true,
-      }}
-      search={false}
-      dateFormatter="string"
-      options={{
-        setting: {
-          draggable: true,
-          checkable: true,
-          checkedReset: false,
-          extra: [<a key="confirm">确认</a>],
-        },
       }}
     />
   );

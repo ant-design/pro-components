@@ -8,9 +8,9 @@ import {
   ProFormSwitch,
   ProFormText,
   ProFormTextArea,
-} from '@ant-design/pro-components';
-import { Col, Row, Space, message } from 'antd';
-import type { FormLayout } from 'antd/lib/form/Form';
+} from '@xxlabs/pro-components';
+import { Col, message, Row, Space } from 'antd';
+import type { FormLayout } from 'antd/es/form/Form';
 import { useState } from 'react';
 
 const LAYOUT_TYPE_HORIZONTAL = 'horizontal';
@@ -24,9 +24,7 @@ const waitTime = (time: number = 100) => {
 };
 
 export default () => {
-  const [formLayoutType, setFormLayoutType] = useState<FormLayout>(
-    LAYOUT_TYPE_HORIZONTAL,
-  );
+  const [formLayoutType, setFormLayoutType] = useState<FormLayout>(LAYOUT_TYPE_HORIZONTAL);
 
   const [grid, setGrid] = useState(true);
 
@@ -36,8 +34,16 @@ export default () => {
       company?: string;
       useMode?: string;
     }>
-      layout={formLayoutType}
       grid={grid}
+      layout={formLayoutType}
+      params={{}}
+      request={async () => {
+        await waitTime(100);
+        return {
+          name: 'Ant Design Co., Ltd.',
+          useMode: 'chapter',
+        };
+      }}
       rowProps={{
         gutter: [16, formLayoutType === 'inline' ? 16 : 0],
       }}
@@ -45,7 +51,7 @@ export default () => {
         render: (props, doms) => {
           return formLayoutType === LAYOUT_TYPE_HORIZONTAL ? (
             <Row>
-              <Col span={14} offset={4}>
+              <Col offset={4} span={14}>
                 <Space>{doms}</Space>
               </Col>
             </Row>
@@ -59,26 +65,18 @@ export default () => {
         console.log(values);
         message.success('Submission successful');
       }}
-      params={{}}
-      request={async () => {
-        await waitTime(100);
-        return {
-          name: 'Ant Design Co., Ltd.',
-          useMode: 'chapter',
-        };
-      }}
     >
       <ProFormRadio.Group
-        label="Label Layout"
-        radioType="button"
+        colProps={{
+          span: 20,
+        }}
         fieldProps={{
           value: formLayoutType,
           onChange: (e) => setFormLayoutType(e.target.value),
         }}
-        colProps={{
-          span: 20,
-        }}
+        label="Label Layout"
         options={['horizontal', 'vertical', 'inline']}
+        radioType="button"
       />
       <ProFormSwitch
         colProps={{
@@ -91,30 +89,13 @@ export default () => {
         label="Grid Switch"
         name="grid"
       />
-      <ProFormText
-        name="name"
-        label="Title"
-        tooltip="Up to 24 characters"
-        placeholder="Please enter a name"
-      />
-      <ProFormText colProps={{ md: 12, xl: 8 }} name="company" label="Name" />
-      <ProFormDigit colProps={{ md: 12, xl: 8 }} name="phone" label="Phone" />
-      <ProFormText colProps={{ md: 12, xl: 8 }} name="email" label="Email" />
-      <ProFormTextArea
-        colProps={{ span: 24 }}
-        name="address"
-        label="Detailed Work Address or Home Address"
-      />
-      <ProFormDatePicker
-        colProps={{ xl: 8, md: 12 }}
-        label="Entry Date"
-        name="date"
-      />
-      <ProFormDateRangePicker
-        colProps={{ xl: 8, md: 12 }}
-        label="Work Period"
-        name="dateRange"
-      />
+      <ProFormText label="Title" name="name" placeholder="Please enter a name" tooltip="Up to 24 characters" />
+      <ProFormText colProps={{ md: 12, xl: 8 }} label="Name" name="company" />
+      <ProFormDigit colProps={{ md: 12, xl: 8 }} label="Phone" name="phone" />
+      <ProFormText colProps={{ md: 12, xl: 8 }} label="Email" name="email" />
+      <ProFormTextArea colProps={{ span: 24 }} label="Detailed Work Address or Home Address" name="address" />
+      <ProFormDatePicker colProps={{ xl: 8, md: 12 }} label="Entry Date" name="date" />
+      <ProFormDateRangePicker colProps={{ xl: 8, md: 12 }} label="Work Period" name="dateRange" />
       <ProFormSelect
         colProps={{ xl: 8, md: 12 }}
         label="Position"

@@ -1,11 +1,12 @@
 // import { afterEach, describe, expect, test, vi } from 'vitest'; import { LoadingOutlined, ReloadOutlined } from '@ant-design/icons';import { afterEach, describe, expect, test, vi } from 'vitest'; import { afterEach, describe, expect, it, vi } from 'vitest';
-import type { ProColumns, ProFormInstance } from '@ant-design/pro-components';
-import { ProTable } from '@ant-design/pro-components';
 import { cleanup, render } from '@testing-library/react';
+import type { ProColumns, ProFormInstance } from '@xxlabs/pro-components';
+import { ProTable } from '@xxlabs/pro-components';
 import { Button } from 'antd';
 import { act, useRef, useState } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
+
 export type TableListItem = {
   key: number;
   name: string;
@@ -27,15 +28,31 @@ const columns: ProColumns<TableListItem>[] = [
 
 // demo
 const ProTableSpinDemo = () => {
-  const ref = useRef<ProFormInstance>();
+  const ref = useRef<ProFormInstance>(undefined);
   const [collapsed, setCollapsed] = useState(false);
   const [loading, setLoading] = useState({ spinning: true, delay: 1000 });
   const [polling, setPolling] = useState<any>(undefined);
   return (
     <ProTable<TableListItem>
       columns={columns}
+      dateFormatter="string"
+      formRef={ref}
+      headerTitle="表单赋值"
       loading={loading}
+      options={false}
+      pagination={{
+        showSizeChanger: true,
+      }}
       polling={polling}
+      postData={(data: any) => {
+        setTimeout(() => {
+          setLoading({
+            ...loading,
+            spinning: false,
+          });
+        }, 3000);
+        return data;
+      }}
       request={() =>
         Promise.resolve({
           data: [
@@ -49,14 +66,10 @@ const ProTableSpinDemo = () => {
         })
       }
       rowKey="key"
-      pagination={{
-        showSizeChanger: true,
-      }}
       search={{
         collapsed,
         onCollapse: setCollapsed,
       }}
-      formRef={ref}
       toolBarRender={() => [
         <Button
           key="set"
@@ -81,18 +94,6 @@ const ProTableSpinDemo = () => {
           提交
         </Button>,
       ]}
-      postData={(data: any) => {
-        setTimeout(() => {
-          setLoading({
-            ...loading,
-            spinning: false,
-          });
-        }, 3000);
-        return data;
-      }}
-      options={false}
-      dateFormatter="string"
-      headerTitle="表单赋值"
     />
   );
 };

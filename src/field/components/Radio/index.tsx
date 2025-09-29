@@ -1,11 +1,11 @@
 import type { RadioGroupProps } from 'antd';
 import { ConfigProvider, Form, Radio, Spin } from 'antd';
 import classNames from 'classnames';
-import React, { useContext, useImperativeHandle, useRef } from 'react';
+import { useContext, useImperativeHandle, useRef } from 'react';
 import { objectToMap, proFieldParsingText, useStyle } from '../../../utils';
 import type { ProFieldFC } from '../../PureProField';
 import type { FieldSelectProps } from '../Select';
-import { useFieldFetchData } from '../Select';
+import { useFieldFetchData } from '../Select/useFieldFetchData';
 
 export type GroupProps = {
   options?: RadioGroupProps['options'];
@@ -15,17 +15,12 @@ export type GroupProps = {
 /**
  * 单选组件
  *
- * @param param0
- * @param ref
  */
-const FieldRadio: ProFieldFC<GroupProps> = (
-  { radioType, formItemRender, mode, render, ...rest },
-  ref,
-) => {
+const FieldRadio: ProFieldFC<GroupProps> = ({ radioType, formItemRender, mode, render, ref, ...rest }) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const layoutClassName = getPrefixCls('pro-field-radio');
   const [loading, options, fetchData] = useFieldFetchData(rest);
-  const radioRef = useRef();
+  const radioRef = useRef(undefined);
   const status = Form.Item?.useStatus?.();
 
   useImperativeHandle(
@@ -69,14 +64,7 @@ const FieldRadio: ProFieldFC<GroupProps> = (
           return { ...pre, [(cur.value as any) ?? '']: cur.label };
         }, {})
       : undefined;
-    const dom = (
-      <>
-        {proFieldParsingText(
-          rest.text,
-          objectToMap(rest.valueEnum || optionsValueEnum),
-        )}
-      </>
-    );
+    const dom = <>{proFieldParsingText(rest.text, objectToMap(rest.valueEnum || optionsValueEnum))}</>;
 
     if (render) {
       return render(rest.text, { mode, ...rest.fieldProps }, dom) ?? null;
@@ -103,13 +91,7 @@ const FieldRadio: ProFieldFC<GroupProps> = (
       />,
     );
     if (formItemRender) {
-      return (
-        formItemRender(
-          rest.text,
-          { mode, ...rest.fieldProps, options, loading },
-          dom,
-        ) ?? null
-      );
+      return formItemRender(rest.text, { mode, ...rest.fieldProps, options, loading }, dom) ?? null;
     }
     return dom;
   }
@@ -117,4 +99,4 @@ const FieldRadio: ProFieldFC<GroupProps> = (
   return null;
 };
 
-export default React.forwardRef(FieldRadio);
+export default FieldRadio;

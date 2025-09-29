@@ -1,4 +1,4 @@
-import { StatisticCard } from '@ant-design/pro-components';
+import { StatisticCard } from '@xxlabs/pro-components';
 
 const { Statistic } = StatisticCard;
 
@@ -6,6 +6,13 @@ export default () => {
   return (
     <>
       <StatisticCard
+        chart={
+          <img
+            alt="Line Chart"
+            src="https://gw.alipayobjects.com/zos/alicdn/snEBTn9ax/zhexiantuchang.svg"
+            width="100%"
+          />
+        }
         chartPlacement="right"
         statistic={{
           title: 'Frozen Amount',
@@ -14,23 +21,12 @@ export default () => {
           suffix: 'Yuan',
           description: (
             <>
-              <Statistic title="Weekly Comparison" value="6.47%" trend="up" />
-              <Statistic
-                title="Monthly Comparison"
-                value="6.47%"
-                trend="down"
-              />
+              <Statistic title="Weekly Comparison" trend="up" value="6.47%" />
+              <Statistic title="Monthly Comparison" trend="down" value="6.47%" />
             </>
           ),
         }}
         style={{ width: 584 }}
-        chart={
-          <img
-            src="https://gw.alipayobjects.com/zos/alicdn/snEBTn9ax/zhexiantuchang.svg"
-            alt="Line Chart"
-            width="100%"
-          />
-        }
       />
 
       <div
@@ -44,8 +40,7 @@ export default () => {
         <h4>StatisticCard Horizontal Layout Props 说明：</h4>
         <ul>
           <li>
-            <strong>chartPlacement</strong>: 图表位置，'right'
-            表示图表显示在右侧
+            <strong>chartPlacement</strong>: 图表位置，'right' 表示图表显示在右侧
           </li>
           <li>
             <strong>statistic</strong>: 统计信息配置对象

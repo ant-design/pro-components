@@ -31,7 +31,7 @@ export const resizeWindow = (x: number, y: number) => {
   window.innerHeight = y;
   window.dispatchEvent(new Event('resize'));
 };
-/* eslint-disable no-param-reassign */
+
 const NO_EXIST = { __NOT_EXIST: true };
 
 export function spyElementPrototypes(
@@ -42,10 +42,7 @@ export function spyElementPrototypes(
   const originDescriptors = {} as Record<string, any> as Record<string, any>;
 
   propNames.forEach((propName) => {
-    const originDescriptor = Object.getOwnPropertyDescriptor(
-      Element.prototype,
-      propName,
-    );
+    const originDescriptor = Object.getOwnPropertyDescriptor(Element.prototype, propName);
     originDescriptors[propName] = originDescriptor || NO_EXIST;
 
     const spyProp = properties[propName];

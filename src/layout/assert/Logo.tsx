@@ -1,51 +1,27 @@
 ﻿export const Logo = () => (
-  <svg width="1em" height="1em" viewBox="0 0 200 200">
+  <svg height="1em" viewBox="0 0 200 200" width="1em">
     <defs>
-      <linearGradient
-        x1="62.1023273%"
-        y1="0%"
-        x2="108.19718%"
-        y2="37.8635764%"
-        id="linearGradient-1"
-      >
-        <stop stopColor="#4285EB" offset="0%" />
-        <stop stopColor="#2EC7FF" offset="100%" />
+      <linearGradient id="linearGradient-1" x1="62.1023273%" x2="108.19718%" y1="0%" y2="37.8635764%">
+        <stop offset="0%" stopColor="#4285EB" />
+        <stop offset="100%" stopColor="#2EC7FF" />
       </linearGradient>
-      <linearGradient
-        x1="69.644116%"
-        y1="0%"
-        x2="54.0428975%"
-        y2="108.456714%"
-        id="linearGradient-2"
-      >
-        <stop stopColor="#29CDFF" offset="0%" />
-        <stop stopColor="#148EFF" offset="37.8600687%" />
-        <stop stopColor="#0A60FF" offset="100%" />
+      <linearGradient id="linearGradient-2" x1="69.644116%" x2="54.0428975%" y1="0%" y2="108.456714%">
+        <stop offset="0%" stopColor="#29CDFF" />
+        <stop offset="37.8600687%" stopColor="#148EFF" />
+        <stop offset="100%" stopColor="#0A60FF" />
       </linearGradient>
-      <linearGradient
-        x1="69.6908165%"
-        y1="-12.9743587%"
-        x2="16.7228981%"
-        y2="117.391248%"
-        id="linearGradient-3"
-      >
-        <stop stopColor="#FA816E" offset="0%" />
-        <stop stopColor="#F74A5C" offset="41.472606%" />
-        <stop stopColor="#F51D2C" offset="100%" />
+      <linearGradient id="linearGradient-3" x1="69.6908165%" x2="16.7228981%" y1="-12.9743587%" y2="117.391248%">
+        <stop offset="0%" stopColor="#FA816E" />
+        <stop offset="41.472606%" stopColor="#F74A5C" />
+        <stop offset="100%" stopColor="#F51D2C" />
       </linearGradient>
-      <linearGradient
-        x1="68.1279872%"
-        y1="-35.6905737%"
-        x2="30.4400914%"
-        y2="114.942679%"
-        id="linearGradient-4"
-      >
-        <stop stopColor="#FA8E7D" offset="0%" />
-        <stop stopColor="#F74A5C" offset="51.2635191%" />
-        <stop stopColor="#F51D2C" offset="100%" />
+      <linearGradient id="linearGradient-4" x1="68.1279872%" x2="30.4400914%" y1="-35.6905737%" y2="114.942679%">
+        <stop offset="0%" stopColor="#FA8E7D" />
+        <stop offset="51.2635191%" stopColor="#F74A5C" />
+        <stop offset="100%" stopColor="#F51D2C" />
       </linearGradient>
     </defs>
-    <g stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">
+    <g fill="none" fillRule="evenodd" stroke="none" strokeWidth={1}>
       <g transform="translate(-20.000000, -20.000000)">
         <g transform="translate(20.000000, 20.000000)">
           <g>
@@ -65,13 +41,7 @@
                 fill="url(#linearGradient-3)"
               />
             </g>
-            <ellipse
-              fill="url(#linearGradient-4)"
-              cx="100.519339"
-              cy="100.436681"
-              rx="23.6001926"
-              ry="23.580786"
-            />
+            <ellipse cx="100.519339" cy="100.436681" fill="url(#linearGradient-4)" rx="23.6001926" ry="23.580786" />
           </g>
         </g>
       </g>

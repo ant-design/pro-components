@@ -1,9 +1,9 @@
-import { ProCard } from '@ant-design/pro-components';
+import { ProCard } from '@xxlabs/pro-components';
 
 export default () => {
   return (
     <>
-      <ProCard style={{ maxWidth: 300 }} hoverable variant="outlined">
+      <ProCard hoverable style={{ maxWidth: 300 }} variant="outlined">
         Content
       </ProCard>
 

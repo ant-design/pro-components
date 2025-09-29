@@ -1,14 +1,9 @@
 import { ConfigProvider } from 'antd';
-import type { TooltipPlacement } from 'antd/lib/tooltip';
+import type { TooltipPlacement } from 'antd/es/tooltip';
 import classNames from 'classnames';
+import type { JSX } from 'react';
 import React, { useContext, useMemo, useState } from 'react';
-import {
-  dateArrayFormatter,
-  dateFormatterMap,
-  FieldLabel,
-  FilterDropdown,
-  useMountMergeState,
-} from '../../../utils';
+import { dateArrayFormatter, dateFormatterMap, FieldLabel, FilterDropdown, useMountMergeState } from '../../../utils';
 import type { LightFilterFooterRender } from '../../typing';
 import { useStyle } from './style';
 
@@ -43,9 +38,7 @@ export type LightWrapperProps = {
   placement?: TooltipPlacement;
 };
 
-const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
-  props,
-) => {
+const LightWrapper: React.FC<LightWrapperProps> = (props) => {
   const {
     label,
     size,
@@ -69,9 +62,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-light-wrapper');
   const { wrapSSR, hashId } = useStyle(prefixCls);
-  const [tempValue, setTempValue] = useState<string | undefined | null>(
-    (props as any)[valuePropName!],
-  );
+  const [tempValue, setTempValue] = useState<string | undefined | null>((props as any)[valuePropName!]);
   const [open, setOpen] = useMountMergeState<boolean>(false);
 
   const onChange = (...restParams: any[]) => {
@@ -84,15 +75,8 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
   /** DateRange的转化，dayjs 的 toString 有点不好用 */
   const labelValueText = useMemo(() => {
     if (!labelValue) return labelValue;
-    if (
-      valueType?.toLowerCase()?.endsWith('range') &&
-      valueType !== 'digitRange' &&
-      !labelFormatter
-    ) {
-      return dateArrayFormatter(
-        labelValue,
-        (dateFormatterMap as any)[valueType] || 'YYYY-MM-DD',
-      );
+    if (valueType?.toLowerCase()?.endsWith('range') && valueType !== 'digitRange' && !labelFormatter) {
+      return dateArrayFormatter(labelValue, (dateFormatterMap as any)[valueType] || 'YYYY-MM-DD');
     }
     if (Array.isArray(labelValue))
       return labelValue.map((item) => {
@@ -108,28 +92,6 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
   return wrapSSR(
     <FilterDropdown
       disabled={disabled}
-      open={open}
-      onOpenChange={setOpen}
-      placement={placement}
-      label={
-        <FieldLabel
-          ellipsis
-          size={size}
-          onClear={() => {
-            onChange?.();
-            setTempValue(null);
-          }}
-          variant={variant}
-          style={style}
-          className={className}
-          label={label}
-          placeholder={placeholder}
-          value={labelValueText}
-          disabled={disabled}
-          formatter={labelFormatter}
-          allowClear={allowClear}
-        />
-      }
       footer={{
         onClear: () => setTempValue(null),
         onConfirm: () => {
@@ -138,11 +100,30 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
         },
       }}
       footerRender={footerRender}
+      label={
+        <FieldLabel
+          ellipsis
+          allowClear={allowClear}
+          className={className}
+          disabled={disabled}
+          formatter={labelFormatter}
+          label={label}
+          placeholder={placeholder}
+          size={size}
+          style={style}
+          value={labelValueText}
+          variant={variant}
+          onClear={() => {
+            onChange?.();
+            setTempValue(null);
+          }}
+        />
+      }
+      open={open}
+      placement={placement}
+      onOpenChange={setOpen}
     >
-      <div
-        className={classNames(`${prefixCls}-container`, hashId, className)}
-        style={style}
-      >
+      <div className={classNames(`${prefixCls}-container`, hashId, className)} style={style}>
         {React.cloneElement(children as JSX.Element, {
           ...rest,
           [valuePropName!]: tempValue,

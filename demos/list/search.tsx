@@ -1,4 +1,4 @@
-import { ProList } from '@ant-design/pro-components';
+import { ProList } from '@xxlabs/pro-components';
 import { Button, Space, Tag } from 'antd';
 import request from 'umi-request';
 
@@ -20,27 +20,7 @@ type GithubIssueItem = {
 
 export default () => (
   <ProList<GithubIssueItem>
-    toolBarRender={() => {
-      return [
-        <Button key="3" type="primary">
-          新建
-        </Button>,
-      ];
-    }}
-    search={{}}
-    rowKey="name"
     headerTitle="基础列表"
-    request={async (params = {} as Record<string, any>) =>
-      request<{
-        data: GithubIssueItem[];
-      }>('https://proapi.azurewebsites.net/github/issues', {
-        params,
-      })
-    }
-    pagination={{
-      pageSize: 5,
-    }}
-    showActions="hover"
     metas={{
       title: {
         dataIndex: 'user',
@@ -60,7 +40,7 @@ export default () => (
           return (
             <Space size={0}>
               {row.labels?.map((label: { name: string }) => (
-                <Tag color="blue" key={label.name}>
+                <Tag key={label.name} color="blue">
                   {label.name}
                 </Tag>
               ))}
@@ -71,28 +51,13 @@ export default () => (
       },
       actions: {
         render: (text, row) => [
-          <a
-            href={row.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            key="link"
-          >
+          <a key="link" href={row.url} rel="noopener noreferrer" target="_blank">
             链路
           </a>,
-          <a
-            href={row.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            key="warning"
-          >
+          <a key="warning" href={row.url} rel="noopener noreferrer" target="_blank">
             报警
           </a>,
-          <a
-            href={row.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            key="view"
-          >
+          <a key="view" href={row.url} rel="noopener noreferrer" target="_blank">
             查看
           </a>,
         ],
@@ -118,6 +83,26 @@ export default () => (
           },
         },
       },
+    }}
+    pagination={{
+      pageSize: 5,
+    }}
+    request={async (params: Record<string, any> = {}) =>
+      request<{
+        data: GithubIssueItem[];
+      }>('https://proapi.azurewebsites.net/github/issues', {
+        params,
+      })
+    }
+    rowKey="name"
+    search={{}}
+    showActions="hover"
+    toolBarRender={() => {
+      return [
+        <Button key="3" type="primary">
+          新建
+        </Button>,
+      ];
     }}
   />
 );

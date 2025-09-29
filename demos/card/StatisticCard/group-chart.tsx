@@ -1,4 +1,4 @@
-import { StatisticCard } from '@ant-design/pro-components';
+import { StatisticCard } from '@xxlabs/pro-components';
 import RcResizeObserver from 'rc-resize-observer';
 import { useState } from 'react';
 
@@ -17,48 +17,48 @@ export default () => {
       >
         <StatisticCard.Group direction={responsive ? 'column' : 'row'}>
           <StatisticCard
+            chart={
+              <img
+                alt="Histogram"
+                src="https://gw.alipayobjects.com/zos/alicdn/RLeBTRNWv/bianzu%25252043x.png"
+                width="100%"
+              />
+            }
             statistic={{
               title: 'Frozen Amount',
               value: 20190102,
               precision: 2,
               suffix: 'Yuan',
             }}
-            chart={
-              <img
-                src="https://gw.alipayobjects.com/zos/alicdn/RLeBTRNWv/bianzu%25252043x.png"
-                alt="Histogram"
-                width="100%"
-              />
-            }
           />
           <Divider type={responsive ? 'horizontal' : 'vertical'} />
           <StatisticCard
+            chart={
+              <img
+                alt="Histogram"
+                src="https://gw.alipayobjects.com/zos/alicdn/RLeBTRNWv/bianzu%25252043x.png"
+                width="100%"
+              />
+            }
             statistic={{
               title: 'Design Resources',
               value: 234,
             }}
-            chart={
-              <img
-                src="https://gw.alipayobjects.com/zos/alicdn/RLeBTRNWv/bianzu%25252043x.png"
-                alt="Histogram"
-                width="100%"
-              />
-            }
           />
           <Divider type={responsive ? 'horizontal' : 'vertical'} />
           <StatisticCard
+            chart={
+              <img
+                alt="Histogram"
+                src="https://gw.alipayobjects.com/zos/alicdn/RLeBTRNWv/bianzu%25252043x.png"
+                width="100%"
+              />
+            }
             statistic={{
               title: 'Information Completeness',
               value: 5,
               suffix: '/ 100',
             }}
-            chart={
-              <img
-                src="https://gw.alipayobjects.com/zos/alicdn/RLeBTRNWv/bianzu%25252043x.png"
-                alt="Histogram"
-                width="100%"
-              />
-            }
           />
         </StatisticCard.Group>
       </RcResizeObserver>
@@ -74,8 +74,7 @@ export default () => {
         <h4>StatisticCard.Group 图表分组 Props 说明：</h4>
         <ul>
           <li>
-            <strong>direction</strong>: 排列方向，'row' 表示水平排列，'column'
-            表示垂直排列
+            <strong>direction</strong>: 排列方向，'row' 表示水平排列，'column' 表示垂直排列
           </li>
           <li>
             <strong>children</strong>: StatisticCard 和 Divider 子组件

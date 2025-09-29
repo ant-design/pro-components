@@ -1,11 +1,5 @@
-import { ProField as Field } from '@ant-design/pro-components';
-import {
-  act,
-  cleanup,
-  fireEvent,
-  render,
-  waitFor,
-} from '@testing-library/react';
+import { act, cleanup, fireEvent, render, waitFor } from '@testing-library/react';
+import { ProField as Field } from '@xxlabs/pro-components';
 import dayjs from 'dayjs';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
@@ -28,38 +22,28 @@ describe('DateField', () => {
   afterEach(() => {
     cleanup();
   });
-  const datePickList = [
-    'date',
-    'dateWeek',
-    'dateMonth',
-    'dateQuarter',
-    'dateYear',
-    'dateTime',
-    'time',
-  ];
+  const datePickList = ['date', 'dateWeek', 'dateMonth', 'dateQuarter', 'dateYear', 'dateTime', 'time'];
   datePickList.forEach((valueType) => {
     it(`📅 ${valueType} base use`, async () => {
       const fn = vi.fn();
       const openChangeFn = vi.fn();
       const { container } = render(
         <Field
-          mode="edit"
+          light
           fieldProps={{
             placeholder: 'time',
             value: dayjs(),
             onOpenChange: openChangeFn,
           }}
-          onChange={fn}
+          mode="edit"
           text="100"
-          light
           valueType={valueType as 'date'}
+          onChange={fn}
         />,
       );
 
       await act(async () => {
-        await fireEvent.click(
-          container.querySelector('.ant-pro-core-field-label')!,
-        );
+        await fireEvent.click(container.querySelector('.ant-pro-core-field-label')!);
       });
 
       await waitFor(() => {
@@ -105,23 +89,21 @@ describe('DateField', () => {
       const openChangeFn = vi.fn();
       const { container } = render(
         <Field
-          mode="edit"
+          light
           fieldProps={{
             placeholder: ['start', 'end'],
             value: [dayjs(), dayjs().add(1, 'd')],
             onOpenChange: openChangeFn,
           }}
-          onChange={onChangeFn}
+          mode="edit"
           text="100"
-          light
           valueType={valueType as 'date'}
+          onChange={onChangeFn}
         />,
       );
 
       await act(async () => {
-        await fireEvent.click(
-          container.querySelector('.ant-pro-core-field-label')!,
-        );
+        await fireEvent.click(container.querySelector('.ant-pro-core-field-label')!);
       });
 
       await waitFor(() => {
@@ -160,34 +142,32 @@ describe('DateField', () => {
     const fn = vi.fn();
     const html = render(
       <Field
-        mode="read"
+        light
         fieldProps={{
           format: () => 'YYYY-MM-DD HH:mm:ss',
         }}
-        onChange={fn}
+        mode="read"
         text={[dayjs(), dayjs().add(1, 'd')]}
-        light
         valueType="dateRange"
+        onChange={fn}
       />,
     );
 
-    expect(html.baseElement.textContent).toBe(
-      '2016-11-22 15:22:442016-11-23 15:22:44',
-    );
+    expect(html.baseElement.textContent).toBe('2016-11-22 15:22:442016-11-23 15:22:44');
   });
 
   it(`📅  DatePicker support format is Array`, async () => {
     const fn = vi.fn();
     const html = render(
       <Field
-        mode="read"
+        light
         fieldProps={{
           format: ['YYYY-MM-DD', 'YYYYMMDD'],
         }}
-        onChange={fn}
+        mode="read"
         text={dayjs()}
-        light
         valueType="date"
+        onChange={fn}
       />,
     );
 

@@ -1,19 +1,11 @@
-import type { ProFormInstance } from '@ant-design/pro-components';
-import { ProTable } from '@ant-design/pro-components';
 import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
+import type { ProFormInstance } from '@xxlabs/pro-components';
+import { ProTable } from '@xxlabs/pro-components';
 import type { FormInstance } from 'antd';
 import { Input } from 'antd';
 import dayjs from 'dayjs';
 import React, { act, createRef } from 'react';
-import {
-  afterAll,
-  afterEach,
-  beforeAll,
-  describe,
-  expect,
-  it,
-  vi,
-} from 'vitest';
+import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
 import { waitTime } from '../util';
 
 afterEach(() => {
@@ -46,7 +38,6 @@ describe('BasicTable Search', () => {
     const paramsFn = vi.fn();
     const html = render(
       <ProTable
-        size="small"
         columns={[
           {
             title: '金额',
@@ -61,7 +52,6 @@ describe('BasicTable Search', () => {
             order: 1,
           },
         ]}
-        onSubmit={fn}
         request={async (params) => {
           paramsFn(params.current, params.pageSize);
           return {
@@ -69,6 +59,8 @@ describe('BasicTable Search', () => {
           };
         }}
         rowKey="key"
+        size="small"
+        onSubmit={fn}
       />,
     );
 
@@ -89,7 +81,6 @@ describe('BasicTable Search', () => {
     const resetFn = vi.fn();
     const html = render(
       <ProTable
-        size="small"
         columns={[
           {
             title: '金额',
@@ -102,7 +93,6 @@ describe('BasicTable Search', () => {
             dataIndex: 'name',
           },
         ]}
-        onReset={resetFn}
         request={async () => {
           fn();
           return {
@@ -110,6 +100,8 @@ describe('BasicTable Search', () => {
           };
         }}
         rowKey="key"
+        size="small"
+        onReset={resetFn}
       />,
     );
 
@@ -135,7 +127,6 @@ describe('BasicTable Search', () => {
 
     const html = render(
       <ProTable
-        size="small"
         columns={[
           {
             title: '金额',
@@ -148,7 +139,6 @@ describe('BasicTable Search', () => {
             dataIndex: 'name',
           },
         ]}
-        onReset={resetFn}
         pagination={false}
         request={async () => {
           fn();
@@ -157,6 +147,8 @@ describe('BasicTable Search', () => {
           };
         }}
         rowKey="key"
+        size="small"
+        onReset={resetFn}
       />,
     );
 
@@ -178,7 +170,6 @@ describe('BasicTable Search', () => {
     const fn = vi.fn();
     const html = render(
       <ProTable
-        size="small"
         columns={[
           {
             title: '金额',
@@ -202,7 +193,6 @@ describe('BasicTable Search', () => {
             ],
           },
         ]}
-        search={false}
         request={async () => {
           fn();
           await waitTime(5000000);
@@ -211,6 +201,8 @@ describe('BasicTable Search', () => {
           };
         }}
         rowKey="key"
+        search={false}
+        size="small"
       />,
     );
 
@@ -229,7 +221,7 @@ describe('BasicTable Search', () => {
     const fn = vi.fn();
     const html = render(
       <ProTable
-        size="small"
+        manualRequest
         columns={[
           {
             title: '金额',
@@ -253,7 +245,6 @@ describe('BasicTable Search', () => {
             ],
           },
         ]}
-        manualRequest
         request={async () => {
           fn();
           return {
@@ -261,6 +252,7 @@ describe('BasicTable Search', () => {
           };
         }}
         rowKey="key"
+        size="small"
       />,
     );
 
@@ -281,7 +273,8 @@ describe('BasicTable Search', () => {
     const actionRef = React.createRef<any>();
     const html = render(
       <ProTable
-        size="small"
+        manualRequest
+        actionRef={actionRef}
         columns={[
           {
             title: '金额',
@@ -289,9 +282,6 @@ describe('BasicTable Search', () => {
             valueType: 'money',
           },
         ]}
-        search={false}
-        actionRef={actionRef}
-        manualRequest
         request={async () => {
           requestFn();
           return {
@@ -304,6 +294,8 @@ describe('BasicTable Search', () => {
           };
         }}
         rowKey="key"
+        search={false}
+        size="small"
       />,
     );
 
@@ -324,19 +316,6 @@ describe('BasicTable Search', () => {
   it('🎏 search span test', async () => {
     const html = render(
       <ProTable
-        size="small"
-        search={{
-          defaultCollapsed: false,
-          searchText: 'Search',
-          span: {
-            xs: 12,
-            sm: 12,
-            md: 12,
-            lg: 12,
-            xl: 12,
-            xxl: 12,
-          },
-        }}
         columns={[
           {
             title: '金额',
@@ -351,13 +330,24 @@ describe('BasicTable Search', () => {
         ]}
         dataSource={[{ key: 1, name: '1', money: 1 }]}
         rowKey="key"
+        search={{
+          defaultCollapsed: false,
+          searchText: 'Search',
+          span: {
+            xs: 12,
+            sm: 12,
+            md: 12,
+            lg: 12,
+            xl: 12,
+            xxl: 12,
+          },
+        }}
+        size="small"
       />,
     );
 
     await waitFor(() => {
-      expect(
-        !!html.baseElement.querySelector('.ant-col.ant-col-12'),
-      ).toBeTruthy();
+      expect(!!html.baseElement.querySelector('.ant-col.ant-col-12')).toBeTruthy();
     });
   });
 
@@ -393,11 +383,11 @@ describe('BasicTable Search', () => {
           },
         ]}
         dataSource={[{ key: 1, name: '1', money: 1 }]}
+        rowKey="key"
         onSubmit={(values) => {
           fn(values);
           formValues = values as any;
         }}
-        rowKey="key"
       />,
     );
 
@@ -423,13 +413,6 @@ describe('BasicTable Search', () => {
     const onChangeFn = vi.fn();
     const html = render(
       <ProTable
-        size="small"
-        form={{
-          onValuesChange: (_, values) => {
-            fn(values.money);
-          },
-        }}
-        toolBarRender={false}
         columns={[
           {
             title: '金额',
@@ -450,9 +433,9 @@ describe('BasicTable Search', () => {
               return (
                 <div id="formItemRender">
                   <Input
+                    data-testid="formItemRender"
                     id="formItemRender"
                     placeholder="formItemRender"
-                    data-testid="formItemRender"
                     onChange={(e) => {
                       onChangeFn(e.target.value);
                       fn(e.target.value);
@@ -464,7 +447,14 @@ describe('BasicTable Search', () => {
           },
         ]}
         dataSource={[{ key: 1, name: '1', money: 1 }]}
+        form={{
+          onValuesChange: (_, values) => {
+            fn(values.money);
+          },
+        }}
         rowKey="key"
+        size="small"
+        toolBarRender={false}
       />,
     );
 
@@ -488,8 +478,6 @@ describe('BasicTable Search', () => {
     const formRef = createRef<FormInstance | null>();
     const html = render(
       <ProTable
-        size="small"
-        formRef={formRef as any}
         columns={[
           {
             title: '金额',
@@ -507,22 +495,20 @@ describe('BasicTable Search', () => {
           },
         ]}
         dataSource={[]}
+        formRef={formRef as any}
         rowKey="key"
+        size="small"
       />,
     );
 
     await html.findAllByText('Name');
 
-    expect(html.baseElement.querySelectorAll('div.ant-form-item').length).toBe(
-      2,
-    );
+    expect(html.baseElement.querySelectorAll('div.ant-form-item').length).toBe(2);
     expect(html.baseElement.querySelectorAll('.money-class').length).toBe(0);
 
     act(() => {
       html.rerender(
         <ProTable
-          size="small"
-          formRef={formRef as any}
           columns={[
             {
               title: '金额',
@@ -540,26 +526,22 @@ describe('BasicTable Search', () => {
             },
           ]}
           dataSource={[]}
+          formRef={formRef as any}
           rowKey="key"
+          size="small"
         />,
       );
     });
 
     await waitFor(() => {
-      expect(html.baseElement.querySelectorAll('div.money-class').length).toBe(
-        1,
-      );
+      expect(html.baseElement.querySelectorAll('div.money-class').length).toBe(1);
 
-      expect(
-        html.baseElement.querySelectorAll('div.ant-form-item').length,
-      ).toBe(3);
+      expect(html.baseElement.querySelectorAll('div.ant-form-item').length).toBe(3);
     });
 
     act(() => {
       html.rerender(
         <ProTable
-          size="small"
-          formRef={formRef as any}
           columns={[
             {
               title: '金额',
@@ -573,21 +555,20 @@ describe('BasicTable Search', () => {
             },
           ]}
           dataSource={[]}
+          formRef={formRef as any}
           rowKey="key"
+          size="small"
         />,
       );
     });
     await waitFor(() => {
-      expect(
-        html.baseElement.querySelectorAll('div.ant-form-item').length,
-      ).toBe(3);
+      expect(html.baseElement.querySelectorAll('div.ant-form-item').length).toBe(3);
     });
   });
 
   it('🎏 request load success false', async () => {
     const html = render(
       <ProTable
-        size="small"
         columns={[
           {
             title: '金额',
@@ -603,6 +584,7 @@ describe('BasicTable Search', () => {
         ]}
         dataSource={[]}
         rowKey="key"
+        size="small"
       />,
     );
 
@@ -617,7 +599,6 @@ describe('BasicTable Search', () => {
   it('🎏 request load null', async () => {
     const html = render(
       <ProTable
-        size="small"
         columns={[
           {
             title: '金额',
@@ -636,6 +617,7 @@ describe('BasicTable Search', () => {
           return null;
         }}
         rowKey="key"
+        size="small"
       />,
     );
     await waitFor(() => {
@@ -651,8 +633,6 @@ describe('BasicTable Search', () => {
     const TableDemo: React.FC<{ v: boolean }> = ({ v }) => {
       return v ? (
         <ProTable
-          size="small"
-          search={false}
           columns={[
             {
               title: '金额',
@@ -668,6 +648,8 @@ describe('BasicTable Search', () => {
           ]}
           dataSource={[{ key: 1, name: '1', money: 1 }]}
           rowKey="key"
+          search={false}
+          size="small"
         />
       ) : (
         <>qixian</>
@@ -698,6 +680,14 @@ describe('BasicTable Search', () => {
             initialValue: '2020-09-11 00:00:00',
           },
         ]}
+        dateFormatter={(value) => {
+          return value.format('YYYY/MM/DD HH:mm:ss');
+        }}
+        headerTitle="表单赋值"
+        options={false}
+        pagination={{
+          showSizeChanger: true,
+        }}
         request={(params) => {
           fn2(params.since);
           return Promise.resolve({
@@ -712,14 +702,6 @@ describe('BasicTable Search', () => {
           });
         }}
         rowKey="key"
-        pagination={{
-          showSizeChanger: true,
-        }}
-        options={false}
-        dateFormatter={(value) => {
-          return value.format('YYYY/MM/DD HH:mm:ss');
-        }}
-        headerTitle="表单赋值"
       />,
     );
 
@@ -741,7 +723,6 @@ describe('BasicTable Search', () => {
     const formRef = React.createRef<ProFormInstance | undefined>();
     const html = render(
       <ProTable
-        formRef={formRef as any}
         columns={[
           {
             title: '创建时间',
@@ -751,6 +732,13 @@ describe('BasicTable Search', () => {
             initialValue: dayjs('2020-09-11 00:00:00'),
           },
         ]}
+        dateFormatter="string"
+        formRef={formRef as any}
+        headerTitle="表单赋值"
+        options={false}
+        pagination={{
+          showSizeChanger: true,
+        }}
         request={() => {
           return Promise.resolve({
             data: [
@@ -763,16 +751,10 @@ describe('BasicTable Search', () => {
             success: true,
           });
         }}
-        dateFormatter="string"
+        rowKey="key"
         onSubmit={(params) => {
           onSubmitFn(params.since);
         }}
-        rowKey="key"
-        pagination={{
-          showSizeChanger: true,
-        }}
-        options={false}
-        headerTitle="表单赋值"
       />,
     );
 
@@ -809,9 +791,7 @@ describe('BasicTable Search', () => {
     // 验证字段值已更新
     await waitFor(() => {
       const updatedFieldsValue = formRef.current?.getFieldsValue?.();
-      expect(updatedFieldsValue?.since?.format?.('YYYY-MM-DD')).toBe(
-        '2020-10-15',
-      );
+      expect(updatedFieldsValue?.since?.format?.('YYYY-MM-DD')).toBe('2020-10-15');
     });
 
     // 测试formRef的resetFields方法
@@ -822,9 +802,7 @@ describe('BasicTable Search', () => {
     // 验证字段已重置
     await waitFor(() => {
       const resetFieldsValue = formRef.current?.getFieldsValue?.();
-      expect(resetFieldsValue?.since?.format?.('YYYY-MM-DD')).toBe(
-        '2020-09-11',
-      );
+      expect(resetFieldsValue?.since?.format?.('YYYY-MM-DD')).toBe('2020-09-11');
     });
 
     // 测试formRef的getFieldValue方法

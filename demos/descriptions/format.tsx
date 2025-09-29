@@ -1,57 +1,53 @@
-import { ProDescriptions } from '@ant-design/pro-components';
+import { ProDescriptions } from '@xxlabs/pro-components';
 import dayjs from 'dayjs';
 
 export default () => {
   return (
     <>
-      <ProDescriptions
-        column={2}
-        title="高级定义列表"
-        tooltip="包含了从服务器请求，columns等功能"
-      >
+      <ProDescriptions column={2} title="高级定义列表" tooltip="包含了从服务器请求，columns等功能">
         <ProDescriptions.Item
-          label="日期"
           fieldProps={{
             format: 'YYYY.MM.DD',
           }}
+          label="日期"
           valueType="date"
         >
           {dayjs().valueOf()}
         </ProDescriptions.Item>
         <ProDescriptions.Item
-          label="日期区间"
           fieldProps={{
             format: 'YYYY.MM.DD HH:mm:ss',
           }}
+          label="日期区间"
           valueType="dateTimeRange"
         >
           {[dayjs().add(-1, 'd').valueOf(), dayjs().valueOf()]}
         </ProDescriptions.Item>
         <ProDescriptions.Item
-          label="时间"
           fieldProps={{
             format: 'YYYY.MM.DD',
           }}
+          label="时间"
           valueType="time"
         >
           {dayjs().valueOf()}
         </ProDescriptions.Item>
 
         <ProDescriptions.Item
-          label="时间日期"
           fieldProps={{
             format: 'YYYY.MM.DD HH:mm:ss',
           }}
+          label="时间日期"
           valueType="dateTime"
         >
           {dayjs().valueOf()}
         </ProDescriptions.Item>
 
         <ProDescriptions.Item
-          label="更新时间"
           fieldProps={{
             format: 'YYYY.MM.DD',
           }}
+          label="更新时间"
           valueType="fromNow"
         >
           {dayjs().add(-1, 'month').valueOf()}

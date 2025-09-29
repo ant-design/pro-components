@@ -5,7 +5,7 @@ export function PriceInput() {
   return (
     <Space size={0}>
       <Form.Item noStyle name={['price', 'number']}>
-        <Input type="text" style={{ width: 100 }} />
+        <Input style={{ width: 100 }} type="text" />
       </Form.Item>
       <Form.Item noStyle name={['price', 'currency']}>
         <Select style={{ width: 80, margin: '0 8px' }}>
@@ -31,21 +31,21 @@ const App: React.FC = () => {
 
   return (
     <Form
-      name="customized_form_controls"
-      layout="inline"
-      onFinish={onFinish}
       initialValues={{
         price: {
           number: 0,
           currency: 'rmb',
         },
       }}
+      layout="inline"
+      name="customized_form_controls"
+      onFinish={onFinish}
     >
-      <Form.Item name="price" label="Price" rules={[{ validator: checkPrice }]}>
+      <Form.Item label="Price" name="price" rules={[{ validator: checkPrice }]}>
         <PriceInput />
       </Form.Item>
       <Form.Item>
-        <Button type="primary" htmlType="submit">
+        <Button htmlType="submit" type="primary">
           Submit
         </Button>
       </Form.Item>

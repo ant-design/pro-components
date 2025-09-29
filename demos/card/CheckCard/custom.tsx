@@ -1,12 +1,8 @@
-import { CheckCard } from '@ant-design/pro-components';
+import { CheckCard } from '@xxlabs/pro-components';
 
 export default () => (
   <>
-    <CheckCard
-      title="Card title"
-      description="This is the description"
-      style={{ width: 200, height: 200 }}
-    />
+    <CheckCard description="This is the description" style={{ width: 200, height: 200 }} title="Card title" />
 
     <div
       style={{

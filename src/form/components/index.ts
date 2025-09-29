@@ -2,10 +2,7 @@ export { default as ProFormCaptcha } from './Captcha';
 export type { CaptFieldRef, ProFormCaptchaProps } from './Captcha';
 export { default as ProFormCascader } from './Cascader';
 export { default as ProFormCheckbox } from './Checkbox';
-export type {
-  ProFormCheckboxGroupProps,
-  ProFormCheckboxProps,
-} from './Checkbox';
+export type { ProFormCheckboxGroupProps, ProFormCheckboxProps } from './Checkbox';
 export { default as ProFormColorPicker } from './ColorPicker';
 export type { ProFormColorPickerProps } from './ColorPicker';
 export { default as ProFormDatePicker } from './DatePicker';
@@ -38,10 +35,7 @@ export {
   pickControlPropsWithId,
   useControlModel,
 } from './FormItem/FormItemRender';
-export type {
-  FormControlFC,
-  WithControlPropsType,
-} from './FormItem/FormItemRender';
+export type { FormControlFC, WithControlPropsType } from './FormItem/FormItemRender';
 export { default as Group } from './FormItem/Group';
 export { ProFormList } from './List';
 export type { FormListActionType, ProFormListProps } from './List';

@@ -9,7 +9,7 @@ import FormRender from './FormRender';
 type BaseFormProps<T, U> = {
   pagination?: TablePaginationConfig | false;
   beforeSearchSubmit?: (params: Partial<U>) => any;
-  action: React.MutableRefObject<ActionType | undefined>;
+  action: React.RefObject<ActionType | undefined>;
   onSubmit?: (params: U) => void;
   onReset?: () => void;
   loading: boolean;
@@ -23,9 +23,7 @@ type BaseFormProps<T, U> = {
   search: ProTableProps<T, U, any>['search'];
   manualRequest: ProTableProps<T, U, any>['manualRequest'];
 };
-class FormSearch<T, U> extends React.Component<
-  BaseFormProps<T, U> & { ghost?: boolean }
-> {
+class FormSearch<T, U> extends React.Component<BaseFormProps<T, U> & { ghost?: boolean }> {
   /** 查询表单相关的配置 */
 
   onSubmit = (value: U, firstLoad: boolean) => {
@@ -49,10 +47,7 @@ class FormSearch<T, U> extends React.Component<
       _timestamp: Date.now(),
       ...pageInfo,
     };
-    const omitParams = omit(
-      beforeSearchSubmit(submitParams),
-      Object.keys(pageInfo!),
-    ) as U;
+    const omitParams = omit(beforeSearchSubmit(submitParams), Object.keys(pageInfo!)) as U;
     onFormSearchSubmit(omitParams);
     if (!firstLoad) {
       // back first page
@@ -82,10 +77,7 @@ class FormSearch<T, U> extends React.Component<
         })
       : {};
 
-    const omitParams = omit(
-      beforeSearchSubmit({ ...value, ...pageInfo }),
-      Object.keys(pageInfo!),
-    ) as U;
+    const omitParams = omit(beforeSearchSubmit({ ...value, ...pageInfo }), Object.keys(pageInfo!)) as U;
     onFormSearchSubmit(omitParams);
     // back first page
     action.current?.setPageInfo?.({
@@ -103,17 +95,7 @@ class FormSearch<T, U> extends React.Component<
    * @returns
    */
   isEqual = (next: BaseFormProps<T, U>) => {
-    const {
-      columns,
-      loading,
-      formRef,
-      type,
-      cardBordered,
-      dateFormatter,
-      form,
-      search,
-      manualRequest,
-    } = this.props;
+    const { columns, loading, formRef, type, cardBordered, dateFormatter, form, search, manualRequest } = this.props;
     const diffProps = {
       columns,
       loading,
@@ -166,16 +148,10 @@ class FormSearch<T, U> extends React.Component<
       : {};
     return (
       <FormRender<U, T>
-        submitButtonLoading={loading}
+        action={action}
+        bordered={isBordered('search', cardBordered)}
         columns={columns!}
-        type={type}
-        ghost={ghost}
-        formRef={formRef!}
-        onSubmit={this.onSubmit}
-        manualRequest={manualRequest}
-        onReset={this.onReset}
         dateFormatter={dateFormatter}
-        search={search}
         form={{
           autoFocusFirstInput: false,
           ...form,
@@ -184,8 +160,14 @@ class FormSearch<T, U> extends React.Component<
             ...form?.extraUrlParams,
           },
         }}
-        action={action}
-        bordered={isBordered('search', cardBordered)}
+        formRef={formRef!}
+        ghost={ghost}
+        manualRequest={manualRequest}
+        search={search}
+        submitButtonLoading={loading}
+        type={type}
+        onReset={this.onReset}
+        onSubmit={this.onSubmit}
       />
     );
   };

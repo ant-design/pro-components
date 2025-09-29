@@ -1,14 +1,6 @@
-import { ProTable } from '@ant-design/pro-components';
 import { cleanup, render, waitFor } from '@testing-library/react';
-import {
-  afterAll,
-  afterEach,
-  beforeAll,
-  describe,
-  expect,
-  it,
-  vi,
-} from 'vitest';
+import { ProTable } from '@xxlabs/pro-components';
+import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
 import { columns } from './demo';
 
 afterEach(() => {
@@ -28,17 +20,14 @@ describe('polling', () => {
 
     const html = render(
       <ProTable
-        size="small"
         cardBordered
-        search={false}
-        pagination={false}
-        toolBarRender={false}
         columns={[
           {
             title: 'Name',
             dataIndex: 'name',
           },
         ]}
+        pagination={false}
         polling={1500}
         request={async (params) => {
           fn(params);
@@ -53,6 +42,9 @@ describe('polling', () => {
           });
         }}
         rowKey="key"
+        search={false}
+        size="small"
+        toolBarRender={false}
       />,
     );
 
@@ -87,11 +79,9 @@ describe('polling', () => {
 
     const html = render(
       <ProTable
-        size="small"
         cardBordered
-        search={false}
-        pagination={false}
         columns={columns}
+        pagination={false}
         polling={1000}
         request={async () => {
           fn();
@@ -101,6 +91,8 @@ describe('polling', () => {
           });
         }}
         rowKey="key"
+        search={false}
+        size="small"
       />,
     );
 
@@ -125,18 +117,15 @@ describe('polling', () => {
 
     const html = render(
       <ProTable
-        polling={3000}
-        size="small"
         cardBordered
-        search={false}
-        pagination={false}
-        toolBarRender={false}
         columns={[
           {
             title: 'Name',
             dataIndex: 'name',
           },
         ]}
+        pagination={false}
+        polling={3000}
         request={async (params) => {
           fn(params);
           return Promise.resolve({
@@ -150,6 +139,9 @@ describe('polling', () => {
           });
         }}
         rowKey="key"
+        search={false}
+        size="small"
+        toolBarRender={false}
       />,
     );
 
@@ -178,20 +170,17 @@ describe('polling', () => {
 
     const html = render(
       <ProTable
-        polling={() => {
-          return 2000;
-        }}
-        size="small"
         cardBordered
-        search={false}
-        pagination={false}
-        toolBarRender={false}
         columns={[
           {
             title: 'Name',
             dataIndex: 'name',
           },
         ]}
+        pagination={false}
+        polling={() => {
+          return 2000;
+        }}
         request={async (params) => {
           fn(params);
           return Promise.resolve({
@@ -205,6 +194,9 @@ describe('polling', () => {
           });
         }}
         rowKey="key"
+        search={false}
+        size="small"
+        toolBarRender={false}
       />,
     );
 

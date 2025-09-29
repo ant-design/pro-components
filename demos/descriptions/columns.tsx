@@ -1,24 +1,9 @@
-import { ProDescriptions } from '@ant-design/pro-components';
+import { ProDescriptions } from '@xxlabs/pro-components';
 
 export default () => {
   return (
     <>
       <ProDescriptions
-        title="高级定义列表request columns"
-        request={async () => {
-          return Promise.resolve({
-            success: true,
-            data: {
-              date: '20200809',
-              money: '1212100',
-              money2: -12345.33,
-              state: 'all',
-              switch: true,
-              state2: 'open',
-            },
-          });
-        }}
-        emptyText={'空'}
         columns={[
           {
             title: '文本',
@@ -99,24 +84,35 @@ export default () => {
             title: '操作',
             valueType: 'option',
             render: () => [
-              <a target="_blank" rel="noopener noreferrer" key="link">
+              <a key="link" rel="noopener noreferrer" target="_blank">
                 链路
               </a>,
-              <a target="_blank" rel="noopener noreferrer" key="warning">
+              <a key="warning" rel="noopener noreferrer" target="_blank">
                 报警
               </a>,
-              <a target="_blank" rel="noopener noreferrer" key="view">
+              <a key="view" rel="noopener noreferrer" target="_blank">
                 查看
               </a>,
             ],
           },
         ]}
+        emptyText="空"
+        request={async () => {
+          return Promise.resolve({
+            success: true,
+            data: {
+              date: '20200809',
+              money: '1212100',
+              money2: -12345.33,
+              state: 'all',
+              switch: true,
+              state2: 'open',
+            },
+          });
+        }}
+        title="高级定义列表request columns"
       >
-        <ProDescriptions.Item
-          dataIndex="percent"
-          label="百分比"
-          valueType="percent"
-        >
+        <ProDescriptions.Item dataIndex="percent" label="百分比" valueType="percent">
           100
         </ProDescriptions.Item>
         <div>多余的dom</div>

@@ -1,5 +1,5 @@
 import type { FormInstance, FormProps } from 'antd';
-import type { NamePath } from 'antd/lib/form/interface';
+import type { NamePath } from 'antd/es/form/interface';
 import type {
   ProCoreActionType,
   ProSchema,
@@ -60,12 +60,7 @@ export type ProFormPropsType<T, ValueType = 'text'> =
 /** ProForm 的特色 layout */
 export type ProFormLayoutType = ProFormPropsType<any>['layoutType'];
 
-export type FormFieldType =
-  | 'group'
-  | 'formList'
-  | 'formSet'
-  | 'divider'
-  | 'dependency';
+export type FormFieldType = 'group' | 'formList' | 'formSet' | 'divider' | 'dependency';
 
 export type ProFormColumnsType<T = any, ValueType = 'text'> = ProSchema<
   T,
@@ -125,15 +120,11 @@ export type ProFormColumnsType<T = any, ValueType = 'text'> = ProSchema<
 export type FormSchema<T = Record<string, any>, ValueType = 'text'> = {
   title?:
     | React.ReactNode
-    | ((
-        schema: ProFormColumnsType<T, ValueType>,
-        type: 'form',
-        dom: React.ReactNode,
-      ) => React.ReactNode);
+    | ((schema: ProFormColumnsType<T, ValueType>, type: 'form', dom: React.ReactNode) => React.ReactNode);
   description?: React.ReactNode;
   steps?: StepFormProps[];
   type?: any;
-  action?: React.MutableRefObject<ProCoreActionType | undefined>;
+  action?: React.RefObject<ProCoreActionType | undefined>;
   /**
    * @default true
    * Fine-grained control over when to update
@@ -154,14 +145,11 @@ export type ProFormRenderValueTypeItem<T, ValueType> = {
 export type ProFormRenderValueTypeHelpers<T, ValueType> = {
   originItem: ProFormColumnsType<T, ValueType>;
   type: ProSchemaComponentTypes;
-  formRef: React.MutableRefObject<FormInstance<any> | undefined>;
+  formRef: React.RefObject<FormInstance<any> | undefined>;
   genItems: (items: ProFormColumnsType<T, ValueType>[]) => React.ReactNode[];
 } & Pick<FormSchema<T, ValueType>, 'action'>;
 
-export type ItemType<T, ValueType> = Omit<
-  ProFormRenderValueTypeItem<T, ValueType>,
-  'key'
-> & {
+export type ItemType<T, ValueType> = Omit<ProFormRenderValueTypeItem<T, ValueType>, 'key'> & {
   key?: React.Key | React.Key[];
 };
 

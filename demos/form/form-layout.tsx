@@ -1,4 +1,4 @@
-import { ProForm, ProFormRadio, ProFormText } from '@ant-design/pro-components';
+import { ProForm, ProFormRadio, ProFormText } from '@xxlabs/pro-components';
 import { Col, Row, Space, message } from 'antd';
 import { useState } from 'react';
 
@@ -14,9 +14,7 @@ const waitTime = (time: number = 100) => {
 };
 
 export default () => {
-  const [formLayoutType, setFormLayoutType] = useState<LayoutType>(
-    LAYOUT_TYPE_HORIZONTAL,
-  );
+  const [formLayoutType, setFormLayoutType] = useState<LayoutType>(LAYOUT_TYPE_HORIZONTAL);
 
   const formItemLayout =
     formLayoutType === LAYOUT_TYPE_HORIZONTAL
@@ -34,11 +32,19 @@ export default () => {
     }>
       {...formItemLayout}
       layout={formLayoutType}
+      params={{}}
+      request={async () => {
+        await waitTime(100);
+        return {
+          name: 'Ant Design Co., Ltd.',
+          useMode: 'chapter',
+        };
+      }}
       submitter={{
         render: (props, doms) => {
           return formLayoutType === LAYOUT_TYPE_HORIZONTAL ? (
             <Row>
-              <Col span={14} offset={4}>
+              <Col offset={4} span={14}>
                 <Space>{doms}</Space>
               </Col>
             </Row>
@@ -52,46 +58,28 @@ export default () => {
         console.log(values);
         message.success('Submission successful');
       }}
-      params={{}}
-      request={async () => {
-        await waitTime(100);
-        return {
-          name: 'Ant Design Co., Ltd.',
-          useMode: 'chapter',
-        };
-      }}
     >
       <ProFormRadio.Group
-        style={{
-          margin: 16,
-        }}
-        label="Label Layout"
-        radioType="button"
         fieldProps={{
           value: formLayoutType,
           onChange: (e) => setFormLayoutType(e.target.value),
         }}
+        label="Label Layout"
         options={['horizontal', 'vertical', 'inline']}
+        radioType="button"
+        style={{
+          margin: 16,
+        }}
       />
       <ProFormText
-        width="md"
-        name="name"
         label="Contract Customer Name"
+        name="name"
+        placeholder="Please enter a name"
         tooltip="Up to 24 characters"
-        placeholder="Please enter a name"
-      />
-      <ProFormText
         width="md"
-        name="company"
-        label="Our Company Name"
-        placeholder="Please enter a name"
       />
-      <ProFormText
-        name={['contract', 'name']}
-        width="md"
-        label="Contract Name"
-        placeholder="Please enter a name"
-      />
+      <ProFormText label="Our Company Name" name="company" placeholder="Please enter a name" width="md" />
+      <ProFormText label="Contract Name" name={['contract', 'name']} placeholder="Please enter a name" width="md" />
     </ProForm>
   );
 };

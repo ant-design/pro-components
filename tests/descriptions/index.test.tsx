@@ -1,9 +1,10 @@
-import type { ProCoreActionType } from '@ant-design/pro-components';
-import { ProDescriptions } from '@ant-design/pro-components';
 import { cleanup, render, waitFor } from '@testing-library/react';
+import type { ProCoreActionType } from '@xxlabs/pro-components';
+import { ProDescriptions } from '@xxlabs/pro-components';
 import { Button, Input } from 'antd';
 import React, { act } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
+
 afterEach(() => {
   cleanup();
 });
@@ -32,19 +33,13 @@ describe('descriptions', () => {
       />,
     );
 
-    await waitFor(() =>
-      expect(
-        container.querySelector('span.ant-badge-status-text')?.innerHTML,
-      ).toBe('关闭'),
-    );
+    await waitFor(() => expect(container.querySelector('span.ant-badge-status-text')?.innerHTML).toBe('关闭'));
   });
 
   it('🎏 onLoadingChange test', async () => {
     const fn = vi.fn();
     render(
       <ProDescriptions
-        size="small"
-        onLoadingChange={fn}
         columns={[
           {
             dataIndex: 'money',
@@ -56,6 +51,8 @@ describe('descriptions', () => {
             data: [],
           };
         }}
+        size="small"
+        onLoadingChange={fn}
       />,
     );
 
@@ -124,7 +121,17 @@ describe('descriptions', () => {
       return (
         <ProDescriptions
           actionRef={actionRef}
-          title="高级定义列表 request"
+          extra={
+            <Button
+              id="reload"
+              type="link"
+              onClick={() => {
+                actionRef.current?.reload();
+              }}
+            >
+              刷新
+            </Button>
+          }
           request={async () => {
             fn();
             return new Promise((resolve) => {
@@ -140,31 +147,12 @@ describe('descriptions', () => {
               }, 2000);
             });
           }}
-          extra={
-            <Button
-              type="link"
-              id="reload"
-              onClick={() => {
-                actionRef.current?.reload();
-              }}
-            >
-              刷新
-            </Button>
-          }
+          title="高级定义列表 request"
         >
           test reload
-          <ProDescriptions.Item label="文本" dataIndex="id" />
-          <ProDescriptions.Item
-            dataIndex="date"
-            label="日期"
-            valueType="date"
-          />
-          <ProDescriptions.Item
-            label="money"
-            dataIndex="money"
-            valueType="money"
-            formItemRender={() => <Input />}
-          />
+          <ProDescriptions.Item dataIndex="id" label="文本" />
+          <ProDescriptions.Item dataIndex="date" label="日期" valueType="date" />
+          <ProDescriptions.Item dataIndex="money" formItemRender={() => <Input />} label="money" valueType="money" />
         </ProDescriptions>
       );
     };
@@ -204,7 +192,11 @@ describe('descriptions', () => {
 
     const html = render(
       <ProDescriptions
-        title="高级定义列表 request"
+        extra={
+          <Button id="reload" type="link">
+            修改
+          </Button>
+        }
         request={async () => {
           fn();
           return Promise.resolve({
@@ -212,19 +204,11 @@ describe('descriptions', () => {
             data: { id: '这是一段文本', date: '20200730', money: '12121' },
           });
         }}
-        extra={
-          <Button type="link" id="reload">
-            修改
-          </Button>
-        }
+        title="高级定义列表 request"
       >
-        <ProDescriptions.Item label="文本" dataIndex="id" />
+        <ProDescriptions.Item dataIndex="id" label="文本" />
         <ProDescriptions.Item dataIndex="date" label="日期" valueType="date" />
-        <ProDescriptions.Item
-          label="money"
-          dataIndex="money"
-          valueType="money"
-        />
+        <ProDescriptions.Item dataIndex="money" label="money" valueType="money" />
       </ProDescriptions>,
     );
 
@@ -241,7 +225,12 @@ describe('descriptions', () => {
     act(() => {
       html.rerender(
         <ProDescriptions
-          title="高级定义列表 request"
+          extra={
+            <Button id="reload" type="link">
+              修改
+            </Button>
+          }
+          params={{ name: 'qixian' }}
           request={async () => {
             fn();
             return Promise.resolve({
@@ -249,24 +238,11 @@ describe('descriptions', () => {
               data: { id: '这是一段文本', date: '20200730', money: '12121' },
             });
           }}
-          extra={
-            <Button type="link" id="reload">
-              修改
-            </Button>
-          }
-          params={{ name: 'qixian' }}
+          title="高级定义列表 request"
         >
-          <ProDescriptions.Item label="文本" dataIndex="id" />
-          <ProDescriptions.Item
-            dataIndex="date"
-            label="日期"
-            valueType="date"
-          />
-          <ProDescriptions.Item
-            label="money"
-            dataIndex="money"
-            valueType="money"
-          />
+          <ProDescriptions.Item dataIndex="id" label="文本" />
+          <ProDescriptions.Item dataIndex="date" label="日期" valueType="date" />
+          <ProDescriptions.Item dataIndex="money" label="money" valueType="money" />
         </ProDescriptions>,
       );
     });
@@ -286,24 +262,20 @@ describe('descriptions', () => {
 
     render(
       <ProDescriptions
-        title="高级定义列表 request"
-        request={async () => {
-          throw new Error('load error');
-        }}
-        onRequestError={fn}
         extra={
-          <Button type="link" id="reload">
+          <Button id="reload" type="link">
             修改
           </Button>
         }
+        request={async () => {
+          throw new Error('load error');
+        }}
+        title="高级定义列表 request"
+        onRequestError={fn}
       >
-        <ProDescriptions.Item label="文本" dataIndex="id" />
+        <ProDescriptions.Item dataIndex="id" label="文本" />
         <ProDescriptions.Item dataIndex="date" label="日期" valueType="date" />
-        <ProDescriptions.Item
-          label="money"
-          dataIndex="money"
-          valueType="money"
-        />
+        <ProDescriptions.Item dataIndex="money" label="money" valueType="money" />
       </ProDescriptions>,
     );
 
@@ -327,21 +299,15 @@ describe('descriptions', () => {
       </ProDescriptions>,
     );
     await waitFor(() => {
-      expect(
-        html.baseElement.querySelector('.ant-progress-text')?.textContent,
-      ).toEqual('40%');
+      expect(html.baseElement.querySelector('.ant-progress-text')?.textContent).toEqual('40%');
     });
 
     await waitFor(() => {
       expect(
-        !!html.baseElement
-          .querySelectorAll('.ant-progress-text')?.[1]
-          ?.querySelector('.anticon-close-circle'),
+        !!html.baseElement.querySelectorAll('.ant-progress-text')?.[1]?.querySelector('.anticon-close-circle'),
       ).toBeTruthy();
       expect(
-        !!html.baseElement
-          .querySelectorAll('.ant-progress-text')?.[2]
-          ?.querySelector('.anticon-check-circle'),
+        !!html.baseElement.querySelectorAll('.ant-progress-text')?.[2]?.querySelector('.anticon-check-circle'),
       ).toBeTruthy();
     });
   });
@@ -349,9 +315,6 @@ describe('descriptions', () => {
   it('🏊 ProDescriptions support order', async () => {
     const html = render(
       <ProDescriptions
-        dataSource={{
-          title: 'test',
-        }}
         columns={[
           {
             title: '标题',
@@ -360,14 +323,17 @@ describe('descriptions', () => {
             order: 100,
           },
         ]}
+        dataSource={{
+          title: 'test',
+        }}
       >
-        <ProDescriptions.Item order={9} label="进度条1" valueType="progress">
+        <ProDescriptions.Item label="进度条1" order={9} valueType="progress">
           40
         </ProDescriptions.Item>
         <ProDescriptions.Item label="进度条2" valueType="progress">
           -1
         </ProDescriptions.Item>
-        <ProDescriptions.Item order={8} label="进度条3" valueType="progress">
+        <ProDescriptions.Item label="进度条3" order={8} valueType="progress">
           100
         </ProDescriptions.Item>
       </ProDescriptions>,
@@ -378,14 +344,6 @@ describe('descriptions', () => {
   it('📝 typography support and copy', async () => {
     const wrapper = render(
       <ProDescriptions
-        title="dataSource and columns"
-        dataSource={{
-          id: '这是一段文本columns',
-          date: '20200809',
-          money: '1212100',
-          state: 'all',
-          state2: 'open',
-        }}
         columns={[
           {
             title: '文本',
@@ -395,20 +353,6 @@ describe('descriptions', () => {
             copyable: true,
           },
         ]}
-      />,
-    );
-
-    await waitFor(() => {
-      expect(
-        wrapper.baseElement.querySelector(
-          'span.ant-descriptions-item-content button.ant-typography-copy',
-        ),
-      ).toBeTruthy();
-    });
-
-    wrapper.rerender(
-      <ProDescriptions
-        title="dataSource and columns"
         dataSource={{
           id: '这是一段文本columns',
           date: '20200809',
@@ -416,6 +360,18 @@ describe('descriptions', () => {
           state: 'all',
           state2: 'open',
         }}
+        title="dataSource and columns"
+      />,
+    );
+
+    await waitFor(() => {
+      expect(
+        wrapper.baseElement.querySelector('span.ant-descriptions-item-content button.ant-typography-copy'),
+      ).toBeTruthy();
+    });
+
+    wrapper.rerender(
+      <ProDescriptions
         columns={[
           {
             title: '文本',
@@ -423,15 +379,21 @@ describe('descriptions', () => {
             dataIndex: 'id',
           },
         ]}
+        dataSource={{
+          id: '这是一段文本columns',
+          date: '20200809',
+          money: '1212100',
+          state: 'all',
+          state2: 'open',
+        }}
+        title="dataSource and columns"
       />,
     );
 
     await waitFor(() => {
-      expect(
-        wrapper.baseElement.querySelectorAll(
-          '.ant-descriptions-item-content .ant-typography-copy',
-        ).length,
-      ).toBe(0);
+      expect(wrapper.baseElement.querySelectorAll('.ant-descriptions-item-content .ant-typography-copy').length).toBe(
+        0,
+      );
     });
 
     wrapper.unmount();

@@ -1,6 +1,6 @@
-import type { ProFormInstance } from '@ant-design/pro-components';
-import { ModalForm, ProFormText } from '@ant-design/pro-components';
-import { Button, Space, message } from 'antd';
+import type { ProFormInstance } from '@xxlabs/pro-components';
+import { ModalForm, ProFormText } from '@xxlabs/pro-components';
+import { Button, message, Space } from 'antd';
 import { useRef, useState } from 'react';
 
 const waitTime = (time: number = 100) => {
@@ -12,27 +12,15 @@ const waitTime = (time: number = 100) => {
 };
 
 export default () => {
-  const restFormRef = useRef<ProFormInstance>();
-  const formRef = useRef<ProFormInstance>();
+  const restFormRef = useRef<ProFormInstance>(undefined);
+  const formRef = useRef<ProFormInstance>(undefined);
   const [modalVisible, setModalVisible] = useState<boolean>(false);
 
   return (
     <Space>
       <ModalForm
-        title="Create New Form"
         formRef={restFormRef}
         open={modalVisible}
-        trigger={
-          <Button
-            type="primary"
-            onClick={() => {
-              setModalVisible(true);
-            }}
-          >
-            Reset via formRef
-          </Button>
-        }
-        onOpenChange={setModalVisible}
         submitter={{
           searchConfig: {
             resetText: 'Reset',
@@ -44,32 +32,37 @@ export default () => {
             },
           },
         }}
+        title="Create New Form"
+        trigger={
+          <Button
+            type="primary"
+            onClick={() => {
+              setModalVisible(true);
+            }}
+          >
+            Reset via formRef
+          </Button>
+        }
         onFinish={async (values) => {
           await waitTime(2000);
           console.log(values);
           message.success('Submission successful');
           return true;
         }}
+        onOpenChange={setModalVisible}
       >
         <ProFormText
-          width="md"
-          name="name"
           label="Contract Customer Name"
-          tooltip="Up to 24 characters"
+          name="name"
           placeholder="Please enter a name"
+          tooltip="Up to 24 characters"
+          width="md"
         />
 
-        <ProFormText
-          width="md"
-          name="company"
-          label="Our Company Name"
-          placeholder="Please enter a name"
-        />
+        <ProFormText label="Our Company Name" name="company" placeholder="Please enter a name" width="md" />
       </ModalForm>
       <ModalForm
-        title="Create New Form"
         formRef={formRef}
-        trigger={<Button type="primary">Reset via custom footer button</Button>}
         submitter={{
           render: (props, defaultDoms) => {
             return [
@@ -85,6 +78,8 @@ export default () => {
             ];
           },
         }}
+        title="Create New Form"
+        trigger={<Button type="primary">Reset via custom footer button</Button>}
         onFinish={async (values) => {
           await waitTime(2000);
           console.log(values);
@@ -93,19 +88,14 @@ export default () => {
         }}
       >
         <ProFormText
-          width="md"
-          name="name"
           label="Contract Customer Name"
-          tooltip="Up to 24 characters"
+          name="name"
           placeholder="Please enter a name"
+          tooltip="Up to 24 characters"
+          width="md"
         />
 
-        <ProFormText
-          width="md"
-          name="company"
-          label="Our Company Name"
-          placeholder="Please enter a name"
-        />
+        <ProFormText label="Our Company Name" name="company" placeholder="Please enter a name" width="md" />
       </ModalForm>
     </Space>
   );

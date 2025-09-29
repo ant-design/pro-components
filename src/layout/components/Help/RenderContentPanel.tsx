@@ -61,11 +61,7 @@ export const RenderContentPanel: React.FC<{
   const itemRender = (item: ProHelpDataSourceChildren, index: number) => {
     // 自定义的渲染，优先级最高
     if (valueTypeMap.has(item.valueType)) {
-      return (
-        <React.Fragment key={index}>
-          {valueTypeMap.get(item.valueType)?.(item, index)}
-        </React.Fragment>
-      );
+      return <React.Fragment key={index}>{valueTypeMap.get(item.valueType)?.(item, index)}</React.Fragment>;
     }
     if (item.valueType === 'html') {
       return (
@@ -83,10 +79,10 @@ export const RenderContentPanel: React.FC<{
       return (
         <Typography.Title
           key={index}
+          level={3}
           style={{
             marginTop: 0,
           }}
-          level={3}
         >
           {item.children as string}
         </Typography.Title>
@@ -97,10 +93,10 @@ export const RenderContentPanel: React.FC<{
       return (
         <Typography.Title
           key={index}
+          level={5}
           style={{
             marginTop: 20,
           }}
-          level={5}
         >
           {item.children as string}
         </Typography.Title>
@@ -129,9 +125,7 @@ export const RenderContentPanel: React.FC<{
       return (
         <div key={index}>
           <Typography.Text key={index}>
-            <a
-              {...(item.children as AnchorHTMLAttributes<HTMLAnchorElement>)}
-            />
+            <a {...(item.children as AnchorHTMLAttributes<HTMLAnchorElement>)} />
           </Typography.Text>
         </div>
       );
@@ -147,9 +141,7 @@ export const RenderContentPanel: React.FC<{
         />
       );
     }
-    return (
-      <Typography.Text key={index}>{item.children as string}</Typography.Text>
-    );
+    return <Typography.Text key={index}>{item.children as string}</Typography.Text>;
   };
 
   return <div ref={divRef}>{dataSourceChildren?.map(itemRender)}</div>;

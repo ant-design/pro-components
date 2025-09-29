@@ -1,14 +1,8 @@
-import { ProCard } from '@ant-design/pro-components';
+import { ProCard } from '@xxlabs/pro-components';
 
 export default () => {
   return (
-    <ProCard
-      title="Title"
-      extra="extra"
-      tooltip="This is a tooltip"
-      style={{ maxWidth: 300 }}
-      headerBordered
-    >
+    <ProCard headerBordered extra="extra" style={{ maxWidth: 300 }} title="Title" tooltip="This is a tooltip">
       Content
     </ProCard>
   );

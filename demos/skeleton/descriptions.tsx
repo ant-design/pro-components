@@ -1,4 +1,4 @@
-import { ProSkeleton } from '@ant-design/pro-components';
+import { ProSkeleton } from '@xxlabs/pro-components';
 
 export default () => {
   return (

@@ -1,15 +1,5 @@
-﻿import {
-  ProForm,
-  ProFormFieldSet,
-  ProFormText,
-} from '@ant-design/pro-components';
-import {
-  cleanup,
-  fireEvent,
-  render,
-  screen,
-  waitFor,
-} from '@testing-library/react';
+﻿import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { ProForm, ProFormFieldSet, ProFormText } from '@xxlabs/pro-components';
 import { Input } from 'antd';
 import { afterEach, describe, expect, it } from 'vitest';
 
@@ -23,16 +13,16 @@ describe('ProFormFieldSet', () => {
       <ProForm>
         <ProFormFieldSet name="list">
           <ProFormText
+            key="filedSet1"
             fieldProps={{
               id: 'filedSet1',
             }}
-            key="filedSet1"
           />
           <ProFormText
+            key="filedSet2"
             fieldProps={{
               id: 'filedSet2',
             }}
-            key="filedSet2"
           />
         </ProFormFieldSet>
       </ProForm>,
@@ -54,16 +44,16 @@ describe('ProFormFieldSet', () => {
       <ProForm>
         <ProFormFieldSet name="list">
           <ProFormText
+            key="filedSet1"
             fieldProps={{
               id: 'filedSet1',
             }}
-            key="filedSet1"
           />
           <ProFormText
+            key="filedSet2"
             fieldProps={{
               id: 'filedSet2',
             }}
-            key="filedSet2"
           />
         </ProFormFieldSet>
       </ProForm>,
@@ -97,12 +87,12 @@ describe('ProFormFieldSet', () => {
     const { container } = render(
       <ProForm>
         <ProFormFieldSet name="list">
-          <Input id="filedSet1" key="filedSet1" />
+          <Input key="filedSet1" id="filedSet1" />
           <ProFormText
+            key="filedSet2"
             fieldProps={{
               id: 'filedSet2',
             }}
-            key="filedSet2"
           />
         </ProFormFieldSet>
       </ProForm>,
@@ -145,16 +135,16 @@ describe('ProFormFieldSet', () => {
           }}
         >
           <ProFormText
+            key="filedSet1"
             fieldProps={{
               id: 'filedSet1',
             }}
-            key="filedSet1"
           />
           <ProFormText
+            key="filedSet2"
             fieldProps={{
               id: 'filedSet2',
             }}
-            key="filedSet2"
           />
         </ProFormFieldSet>
       </ProForm>,
@@ -186,34 +176,34 @@ describe('ProFormFieldSet', () => {
     const { container } = render(
       <ProForm initialValues={{ list: '1,2', listKey: '2' }}>
         <ProFormFieldSet
-          name="list"
           convertValue={(value: string) => {
             return value.split(',').map((item) => Number(item));
           }}
+          name="list"
         >
           <ProFormText
+            key="filedSet1"
             fieldProps={{
               id: 'filedSet1',
             }}
-            key="filedSet1"
           />
           <ProFormText
+            key="filedSet2"
             fieldProps={{
               id: 'filedSet2',
             }}
-            key="filedSet2"
           />
         </ProFormFieldSet>
 
         <ProFormText
-          fieldProps={{
-            id: 'filedSet3',
-          }}
+          key="filedSet3"
           convertValue={(value: string) => {
             return value + '-2';
           }}
+          fieldProps={{
+            id: 'filedSet3',
+          }}
           name="listKey"
-          key="filedSet3"
         />
       </ProForm>,
     );

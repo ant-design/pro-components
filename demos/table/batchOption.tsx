@@ -1,5 +1,5 @@
-import type { ProColumns } from '@ant-design/pro-components';
-import { ProTable } from '@ant-design/pro-components';
+import type { ProColumns } from '@xxlabs/pro-components';
+import { ProTable } from '@xxlabs/pro-components';
 import { Button, DatePicker, Space, Table } from 'antd';
 
 const { RangePicker } = DatePicker;
@@ -43,10 +43,7 @@ for (let i = 0; i < 50; i += 1) {
     creator: creators[Math.floor(Math.random() * creators.length)],
     status: valueEnum[((Math.floor(Math.random() * 10) % 4) + '') as '0'],
     createdAt: Date.now() - Math.floor(Math.random() * 100000),
-    memo:
-      i % 2 === 1
-        ? '很长很长很长很长很长很长很长的文字要展示但是要留下尾巴'
-        : '简短备注文案',
+    memo: i % 2 === 1 ? '很长很长很长很长很长很长很长的文字要展示但是要留下尾巴' : '简短备注文案',
   });
 }
 
@@ -126,17 +123,30 @@ export default () => {
   return (
     <ProTable<TableListItem>
       columns={columns}
+      dataSource={tableListDataSource}
+      headerTitle="批量操作"
+      options={false}
+      pagination={{
+        pageSize: 5,
+      }}
+      rowKey="key"
       rowSelection={{
         // 自定义选择项参考: https://ant.design/components/table-cn/#components-table-demo-row-selection-custom
         // 注释该行则默认不显示下拉选项
         selections: [Table.SELECTION_ALL, Table.SELECTION_INVERT],
         defaultSelectedRowKeys: [1],
       }}
-      tableAlertRender={({
-        selectedRowKeys,
-        selectedRows,
-        onCleanSelected,
-      }) => {
+      scroll={{ x: 1300 }}
+      search={false}
+      tableAlertOptionRender={() => {
+        return (
+          <Space size={16}>
+            <a>批量删除</a>
+            <a>导出数据</a>
+          </Space>
+        );
+      }}
+      tableAlertRender={({ selectedRowKeys, selectedRows, onCleanSelected }) => {
         console.log(selectedRowKeys, selectedRows);
         return (
           <Space size={24}>
@@ -146,34 +156,11 @@ export default () => {
                 取消选择
               </a>
             </span>
-            <span>{`容器数量: ${selectedRows.reduce(
-              (pre, item) => pre + item.containers,
-              0,
-            )} 个`}</span>
-            <span>{`调用量: ${selectedRows.reduce(
-              (pre, item) => pre + item.callNumber,
-              0,
-            )} 次`}</span>
+            <span>{`容器数量: ${selectedRows.reduce((pre, item) => pre + item.containers, 0)} 个`}</span>
+            <span>{`调用量: ${selectedRows.reduce((pre, item) => pre + item.callNumber, 0)} 次`}</span>
           </Space>
         );
       }}
-      tableAlertOptionRender={() => {
-        return (
-          <Space size={16}>
-            <a>批量删除</a>
-            <a>导出数据</a>
-          </Space>
-        );
-      }}
-      dataSource={tableListDataSource}
-      scroll={{ x: 1300 }}
-      options={false}
-      search={false}
-      pagination={{
-        pageSize: 5,
-      }}
-      rowKey="key"
-      headerTitle="批量操作"
       toolBarRender={() => [<Button key="show">查看日志</Button>]}
     />
   );

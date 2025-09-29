@@ -1,5 +1,6 @@
 ﻿import { CloseOutlined, SnippetsOutlined } from '@ant-design/icons';
-import type { FormListActionType } from '@ant-design/pro-components';
+import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import type { FormListActionType } from '@xxlabs/pro-components';
 import {
   ModalForm,
   ProCard,
@@ -10,16 +11,9 @@ import {
   ProFormList,
   ProFormText,
   StepsForm,
-} from '@ant-design/pro-components';
-import {
-  cleanup,
-  fireEvent,
-  render,
-  screen,
-  waitFor,
-} from '@testing-library/react';
+} from '@xxlabs/pro-components';
 import { Button, Form } from 'antd';
-import type { NamePath } from 'antd/lib/form/interface';
+import type { NamePath } from 'antd/es/form/interface';
 import dayjs from 'dayjs';
 import { pick } from 'lodash-es';
 import React, { act } from 'react';
@@ -39,19 +33,19 @@ describe('ProForm List', () => {
           fn(Object.keys(values.users[0]));
         }}
       >
-        <ProFormText name="name" label="姓名" />
+        <ProFormText label="姓名" name="name" />
         <ProFormList
-          name="users"
-          label="用户信息"
           initialValue={[
             {
               name: '1111',
               nickName: '1111',
             },
           ]}
+          label="用户信息"
+          name="users"
         >
-          <ProFormText name="name" label="姓名" />
-          <ProFormText name="nickName" label="昵称" />
+          <ProFormText label="姓名" name="name" />
+          <ProFormText label="昵称" name="nickName" />
         </ProFormList>
       </ProForm>,
     );
@@ -66,59 +60,51 @@ describe('ProForm List', () => {
   it('⛲ ProForm.List support readonly', async () => {
     const html = render(
       <ProForm readonly>
-        <ProFormText name="name" label="姓名" />
+        <ProFormText label="姓名" name="name" />
         <ProFormList
-          name="users"
-          label="用户信息"
           initialValue={[
             {
               name: '1111',
               nickName: '1111',
             },
           ]}
+          label="用户信息"
+          name="users"
         >
-          <ProFormText name="name" label="姓名" />
-          <ProFormText name="nickName" label="昵称" />
+          <ProFormText label="姓名" name="name" />
+          <ProFormText label="昵称" name="nickName" />
         </ProFormList>
       </ProForm>,
     );
     await html.findByText('提 交');
 
-    expect(
-      !!html.baseElement.querySelector(
-        'ant-pro-form-list-creator-button-bottom',
-      ),
-    ).toBeFalsy();
+    expect(!!html.baseElement.querySelector('ant-pro-form-list-creator-button-bottom')).toBeFalsy();
   });
 
   it('⛲ ProForm.List support self readonly', async () => {
     const html = render(
       <ProForm>
-        <ProFormText name="name" label="姓名" />
+        <ProFormText label="姓名" name="name" />
         <ProFormList
-          name="users"
-          label="用户信息"
+          readonly
           initialValue={[
             {
               name: '1111',
               nickName: '1111',
             },
           ]}
-          readonly
+          label="用户信息"
+          name="users"
         >
-          <ProFormText name="name" label="姓名" />
-          <ProFormText name="nickName" label="昵称" />
+          <ProFormText label="姓名" name="name" />
+          <ProFormText label="昵称" name="nickName" />
         </ProFormList>
       </ProForm>,
     );
 
     await html.findByText('提 交');
 
-    expect(
-      !!html.baseElement.querySelector(
-        'ant-pro-form-list-creator-button-bottom',
-      ),
-    ).toBeFalsy();
+    expect(!!html.baseElement.querySelector('ant-pro-form-list-creator-button-bottom')).toBeFalsy();
   });
 
   it('⛲ ProForm.List for deps ProFormDependency', async () => {
@@ -138,35 +124,31 @@ describe('ProForm List', () => {
           }}
         >
           <ProFormList
-            name="parttenList"
             creatorButtonProps={{
               position: 'bottom',
               creatorButtonText: '添加规则',
             }}
-            min={1}
+            initialValue={[{}]}
             itemRender={({ listDom, action }) => (
               <ProCard
-                variant="outlined"
-                style={{ marginBlockEnd: 8 }}
-                extra={action}
                 bodyStyle={{ paddingBlockEnd: 0 }}
+                extra={action}
+                style={{ marginBlockEnd: 8 }}
+                variant="outlined"
               >
                 {listDom}
               </ProCard>
             )}
-            initialValue={[{}]}
+            min={1}
+            name="parttenList"
           >
-            <ModalForm
-              title="添加规则"
-              trigger={<div>点击添加</div>}
-              width={1200}
-            >
+            <ModalForm title="添加规则" trigger={<div>点击添加</div>} width={1200}>
               <ProFormText
-                name="ruleType"
-                width="sm"
                 label="规则类型"
+                name="ruleType"
                 placeholder="用户信息的名字"
                 rules={[{ required: true, message: '请选择规则类型' }]}
+                width="sm"
               />
               <ProFormDependency name={['ruleType']}>
                 {({ ruleType }) => {
@@ -209,39 +191,27 @@ describe('ProForm List', () => {
           fn(Object.keys(values.users[1]));
         }}
       >
-        <ProFormText name="name" label="姓名" />
+        <ProFormText label="姓名" name="name" />
         <ProFormList
-          name="users"
-          label="用户信息"
           initialValue={[
             {
               name: '1111',
               nickName: '1111',
             },
           ]}
+          label="用户信息"
+          name="users"
         >
-          <ProFormText name="name" label="姓名" />
-          <ProFormText name="nickName" label="昵称" />
+          <ProFormText label="姓名" name="name" />
+          <ProFormText label="昵称" name="nickName" />
         </ProFormList>
       </ProForm>,
     );
 
-    expect(
-      !!container.querySelectorAll(
-        '.ant-btn.ant-pro-form-list-creator-button-bottom',
-      ).length,
-    ).toBeTruthy();
-    expect(
-      container.querySelectorAll(
-        '.ant-btn.ant-pro-form-list-creator-button-top',
-      ).length,
-    ).toBeFalsy();
+    expect(!!container.querySelectorAll('.ant-btn.ant-pro-form-list-creator-button-bottom').length).toBeTruthy();
+    expect(container.querySelectorAll('.ant-btn.ant-pro-form-list-creator-button-top').length).toBeFalsy();
 
-    fireEvent.click(
-      container.querySelector(
-        '.ant-btn.ant-pro-form-list-creator-button-bottom',
-      )!,
-    );
+    fireEvent.click(container.querySelector('.ant-btn.ant-pro-form-list-creator-button-bottom')!);
     fireEvent.click(await screen.findByText('提 交'));
 
     await waitFor(() => {
@@ -257,16 +227,16 @@ describe('ProForm List', () => {
           fn(values.users[0]);
         }}
       >
-        <ProFormText name="name" label="姓名" />
+        <ProFormText label="姓名" name="name" />
         <ProFormList
-          name="users"
-          label="用户信息"
           initialValue={[
             {
               name: '1111',
               nickName: '1111',
             },
           ]}
+          label="用户信息"
+          name="users"
         >
           {() => {
             return (
@@ -299,14 +269,14 @@ describe('ProForm List', () => {
         }}
       >
         <ProFormList
-          name="users"
-          label="用户信息"
           initialValue={[
             {
               name: '1111',
               nickName: '1111',
             },
           ]}
+          label="用户信息"
+          name="users"
         >
           {(_field, index, action) => {
             return (
@@ -314,9 +284,9 @@ describe('ProForm List', () => {
                 <ProFormText key="name" name="name" />
                 <ProFormText key="nickName" name="nickName" />
                 <Button
-                  type="dashed"
                   key="SET"
                   id="set"
+                  type="dashed"
                   onClick={() => {
                     action.setCurrentRowData({
                       name: 'New Name' + index,
@@ -327,9 +297,9 @@ describe('ProForm List', () => {
                   设置此项
                 </Button>
                 <Button
-                  type="dashed"
                   key="clear"
                   id="clear"
+                  type="dashed"
                   onClick={() => {
                     action.setCurrentRowData({
                       name: undefined,
@@ -349,9 +319,7 @@ describe('ProForm List', () => {
     await waitForWaitTime(2000);
 
     act(() => {
-      html.baseElement
-        .querySelector<HTMLDivElement>('.ant-btn.ant-btn-primary')
-        ?.click();
+      html.baseElement.querySelector<HTMLDivElement>('.ant-btn.ant-btn-primary')?.click();
     });
 
     await waitForWaitTime(100);
@@ -368,9 +336,7 @@ describe('ProForm List', () => {
     await waitForWaitTime(2000);
 
     act(() => {
-      html.baseElement
-        .querySelector<HTMLDivElement>('.ant-btn.ant-btn-primary')
-        ?.click();
+      html.baseElement.querySelector<HTMLDivElement>('.ant-btn.ant-btn-primary')?.click();
     });
 
     await waitForWaitTime(100);
@@ -385,9 +351,7 @@ describe('ProForm List', () => {
     });
 
     act(() => {
-      html.baseElement
-        .querySelector<HTMLDivElement>('.ant-btn.ant-btn-primary')
-        ?.click();
+      html.baseElement.querySelector<HTMLDivElement>('.ant-btn.ant-btn-primary')?.click();
     });
 
     await waitForWaitTime(100);
@@ -401,19 +365,15 @@ describe('ProForm List', () => {
   it('⛲ ProForm.List close button', async () => {
     const { container } = render(
       <ProForm>
-        <ProFormText name="name" label="姓名" />
-        <ProFormList name="users" label="用户信息" creatorButtonProps={false}>
-          <ProFormText name="name" label="姓名" />
-          <ProFormText name="nickName" label="昵称" />
+        <ProFormText label="姓名" name="name" />
+        <ProFormList creatorButtonProps={false} label="用户信息" name="users">
+          <ProFormText label="姓名" name="name" />
+          <ProFormText label="昵称" name="nickName" />
         </ProFormList>
       </ProForm>,
     );
 
-    expect(
-      !!container.querySelectorAll(
-        '.ant-btn.ant-pro-form-list-creator-button-bottom',
-      ).length,
-    ).toBeFalsy();
+    expect(!!container.querySelectorAll('.ant-btn.ant-pro-form-list-creator-button-bottom').length).toBeFalsy();
   });
 
   it('⛲ ProForm.List add button when creatorRecord', async () => {
@@ -424,10 +384,8 @@ describe('ProForm List', () => {
           fn(values.users[1]);
         }}
       >
-        <ProFormText name="name" label="姓名" />
+        <ProFormText label="姓名" name="name" />
         <ProFormList
-          name="users"
-          label="用户信息"
           creatorRecord={{
             name: '2222',
             nickName: '2222',
@@ -438,18 +396,16 @@ describe('ProForm List', () => {
               nickName: '1111',
             },
           ]}
+          label="用户信息"
+          name="users"
         >
-          <ProFormText name="name" label="姓名" />
-          <ProFormText name="nickName" label="昵称" />
+          <ProFormText label="姓名" name="name" />
+          <ProFormText label="昵称" name="nickName" />
         </ProFormList>
       </ProForm>,
     );
 
-    fireEvent.click(
-      container.querySelector(
-        '.ant-btn.ant-pro-form-list-creator-button-bottom',
-      )!,
-    );
+    fireEvent.click(container.querySelector('.ant-btn.ant-pro-form-list-creator-button-bottom')!);
     fireEvent.click(await screen.findByText('提 交'));
 
     await waitFor(() => {
@@ -468,41 +424,31 @@ describe('ProForm List', () => {
           fn(Object.keys(values.users[0] || {}));
         }}
       >
-        <ProFormText name="name" label="姓名" />
+        <ProFormText label="姓名" name="name" />
         <ProFormList
           creatorButtonProps={{
             position: 'top',
             creatorButtonText: '新建',
           }}
-          name="users"
-          label="用户信息"
           initialValue={[
             {
               name: '1111',
               nickName: '1111',
             },
           ]}
+          label="用户信息"
+          name="users"
         >
-          <ProFormText name="name" label="姓名" />
-          <ProFormText name="nickName" label="昵称" />
+          <ProFormText label="姓名" name="name" />
+          <ProFormText label="昵称" name="nickName" />
         </ProFormList>
       </ProForm>,
     );
 
-    expect(
-      !!container.querySelectorAll(
-        '.ant-btn.ant-pro-form-list-creator-button-top',
-      ).length,
-    ).toBeTruthy();
-    expect(
-      !!container.querySelectorAll(
-        '.ant-btn.ant-pro-form-list-creator-button-bottom',
-      ).length,
-    ).toBeFalsy();
+    expect(!!container.querySelectorAll('.ant-btn.ant-pro-form-list-creator-button-top').length).toBeTruthy();
+    expect(!!container.querySelectorAll('.ant-btn.ant-pro-form-list-creator-button-bottom').length).toBeFalsy();
 
-    fireEvent.click(
-      container.querySelector('.ant-btn.ant-pro-form-list-creator-button-top')!,
-    );
+    fireEvent.click(container.querySelector('.ant-btn.ant-pro-form-list-creator-button-top')!);
     fireEvent.click(await screen.findByText('提 交'));
 
     await waitFor(() => {
@@ -518,28 +464,24 @@ describe('ProForm List', () => {
           fn(values.users[1]);
         }}
       >
-        <ProFormText name="name" label="姓名" />
+        <ProFormText label="姓名" name="name" />
         <ProFormList
-          name="users"
-          label="用户信息"
           initialValue={[
             {
               name: '1111',
               nickName: '1111',
             },
           ]}
+          label="用户信息"
+          name="users"
         >
-          <ProFormText name="name" label="姓名" />
-          <ProFormText name="nickName" label="昵称" />
+          <ProFormText label="姓名" name="name" />
+          <ProFormText label="昵称" name="nickName" />
         </ProFormList>
       </ProForm>,
     );
 
-    fireEvent.click(
-      container.querySelectorAll(
-        '.ant-pro-form-list-action .ant-pro-form-list-action-icon',
-      )[0],
-    );
+    fireEvent.click(container.querySelectorAll('.ant-pro-form-list-action .ant-pro-form-list-action-icon')[0]);
     fireEvent.click(await screen.findByText('提 交'));
 
     await waitFor(() => {
@@ -558,10 +500,8 @@ describe('ProForm List', () => {
           fn(values.users[0]);
         }}
       >
-        <ProFormText name="name" label="姓名" />
+        <ProFormText label="姓名" name="name" />
         <ProFormList
-          name="users"
-          label="用户信息"
           initialValue={[
             {
               name: '1111',
@@ -572,9 +512,11 @@ describe('ProForm List', () => {
               nickName: '2222',
             },
           ]}
+          label="用户信息"
+          name="users"
         >
-          <ProFormText name="name" label="姓名" />
-          <ProFormText name="nickName" label="昵称" />
+          <ProFormText label="姓名" name="name" />
+          <ProFormText label="昵称" name="nickName" />
         </ProFormList>
       </ProForm>,
     );
@@ -602,18 +544,8 @@ describe('ProForm List', () => {
           fn(values.users[0]);
         }}
       >
-        <ProFormText name="name" label="姓名" />
+        <ProFormText label="姓名" name="name" />
         <ProFormList
-          itemRender={({ listDom, action }) => {
-            return (
-              <div data-testid="test">
-                {listDom}
-                {action}
-              </div>
-            );
-          }}
-          name="users"
-          label="用户信息"
           initialValue={[
             {
               name: '1111',
@@ -624,9 +556,19 @@ describe('ProForm List', () => {
               nickName: '2222',
             },
           ]}
+          itemRender={({ listDom, action }) => {
+            return (
+              <div data-testid="test">
+                {listDom}
+                {action}
+              </div>
+            );
+          }}
+          label="用户信息"
+          name="users"
         >
-          <ProFormText key="name" name="name" label="姓名" />
-          <ProFormText key="nickName" name="nickName" label="昵称" />
+          <ProFormText key="name" label="姓名" name="name" />
+          <ProFormText key="nickName" label="昵称" name="nickName" />
         </ProFormList>
       </ProForm>,
     );
@@ -642,18 +584,8 @@ describe('ProForm List', () => {
           fn(values.users[0].tag);
         }}
       >
-        <ProFormText name="name" label="姓名" />
+        <ProFormText label="姓名" name="name" />
         <ProFormList
-          itemRender={({ listDom, action }) => {
-            return (
-              <div id="test">
-                {listDom}
-                {action}
-              </div>
-            );
-          }}
-          name="users"
-          label="用户信息"
           initialValue={[
             {
               name: '1111',
@@ -674,27 +606,33 @@ describe('ProForm List', () => {
               ],
             },
           ]}
+          itemRender={({ listDom, action }) => {
+            return (
+              <div id="test">
+                {listDom}
+                {action}
+              </div>
+            );
+          }}
+          label="用户信息"
+          name="users"
         >
-          <ProFormText name="name" label="姓名" />
-          <ProFormText name="nickName" label="昵称" />
+          <ProFormText label="姓名" name="name" />
+          <ProFormText label="昵称" name="nickName" />
           <ProFormList
-            name="tag"
-            label="标签"
             creatorRecord={{
               name: 'test',
             }}
+            label="标签"
+            name="tag"
           >
-            <ProFormText name="name" label="姓名" />
+            <ProFormText label="姓名" name="name" />
           </ProFormList>
         </ProFormList>
       </ProForm>,
     );
 
-    fireEvent.click(
-      container.querySelectorAll(
-        '.ant-pro-form-list .ant-pro-form-list .ant-btn-dashed',
-      )[0],
-    );
+    fireEvent.click(container.querySelectorAll('.ant-pro-form-list .ant-pro-form-list .ant-btn-dashed')[0]);
     fireEvent.click(await screen.findByText('提 交'));
 
     await waitFor(() => {
@@ -713,26 +651,26 @@ describe('ProForm List', () => {
     const fn = vi.fn();
     const { container } = render(
       <ProForm>
-        <ProFormText name="name" label="姓名" />
+        <ProFormText label="姓名" name="name" />
         <ProFormList
-          name="users"
-          label="用户信息"
+          alwaysShowItemLabel
           initialValue={[
             {
               name: '1111',
             },
           ]}
-          alwaysShowItemLabel
+          label="用户信息"
+          name="users"
         >
-          <ProFormText name="name" label="姓名" />
-          <ProFormText name="nickName" label="昵称" />
+          <ProFormText label="姓名" name="name" />
+          <ProFormText label="昵称" name="nickName" />
           <ProFormDependency name={['nickName']}>
             {({ nickName }) => {
               if (!nickName) {
                 return null;
               }
               fn(nickName);
-              return <ProFormText name="names" label="昵称详情" />;
+              return <ProFormText label="昵称详情" name="names" />;
             }}
           </ProFormDependency>
         </ProFormList>
@@ -765,42 +703,30 @@ describe('ProForm List', () => {
         e: [{ a: 8, b: 9 }],
       },
     };
-    const depName1: NamePath[] = [
-      'a',
-      'b',
-      ['c', 'a'],
-      ['c', 'b'],
-      ['c', 'c', 'a'],
-      ['c', 'd'],
-      ['c', 'e'],
-    ];
+    const depName1: NamePath[] = ['a', 'b', ['c', 'a'], ['c', 'b'], ['c', 'c', 'a'], ['c', 'd'], ['c', 'e']];
     const depName2: NamePath[] = ['a', 'b', ['c', 'a']];
     const depName3: NamePath[] = ['a', 'b', ['c', 'a']];
     const { container } = render(
       <ProForm initialValues={initialValues}>
         <ProFormGroup>
-          <ProFormText name="a" label="a" />
-          <ProFormText name="b" label="b" />
-          <ProFormText name={['c', 'a']} label="c.a" />
-          <ProFormText name={['c', 'b']} label="c.b" />
-          <ProFormText name={['c', 'c', 'a']} label="c.c.a" />
+          <ProFormText label="a" name="a" />
+          <ProFormText label="b" name="b" />
+          <ProFormText label="c.a" name={['c', 'a']} />
+          <ProFormText label="c.b" name={['c', 'b']} />
+          <ProFormText label="c.c.a" name={['c', 'c', 'a']} />
           <ProFormGroup title="c.d">
             <ProFormList name={['c', 'd']}>
               <ProFormGroup>
-                <ProFormText name="a" label="a" />
-                <ProFormText name="b" label="b" />
+                <ProFormText label="a" name="a" />
+                <ProFormText label="b" name="b" />
                 <ProFormDependency name={depName3}>
                   {(depValues) => (
                     <Form.Item
-                      label={`搜集依赖值（情形3） <ProFormDependency name={${JSON.stringify(
-                        depName3,
-                      )}}>`}
                       extra="a, b, c.a取自局部"
+                      label={`搜集依赖值（情形3） <ProFormDependency name={${JSON.stringify(depName3)}}>`}
                     >
                       <pre>
-                        <code className="case3">
-                          {JSON.stringify(depValues, null, 2)}
-                        </code>
+                        <code className="case3">{JSON.stringify(depValues, null, 2)}</code>
                       </pre>
                     </Form.Item>
                   )}
@@ -811,20 +737,18 @@ describe('ProForm List', () => {
           <ProFormGroup title="c.e">
             <ProFormList name={['c', 'e']}>
               <ProFormGroup>
-                <ProFormText name="a" label="a" />
-                <ProFormText name="b" label="b" />
-                <ProFormDependency name={depName2} ignoreFormListField>
+                <ProFormText label="a" name="a" />
+                <ProFormText label="b" name="b" />
+                <ProFormDependency ignoreFormListField name={depName2}>
                   {(depValues) => (
                     <Form.Item
+                      extra="a, b, c.a取自全局"
                       label={`搜集依赖值（情形2) <ProFormDependency name={${JSON.stringify(
                         depName2,
                       )}} ignoreFormListField>`}
-                      extra="a, b, c.a取自全局"
                     >
                       <pre>
-                        <code className="case2">
-                          {JSON.stringify(depValues, null, 2)}
-                        </code>
+                        <code className="case2">{JSON.stringify(depValues, null, 2)}</code>
                       </pre>
                     </Form.Item>
                   )}
@@ -833,17 +757,11 @@ describe('ProForm List', () => {
             </ProFormList>
           </ProFormGroup>
         </ProFormGroup>
-        <ProFormGroup
-          title={`收集依赖值（情形1) <ProFormDependency name={${JSON.stringify(
-            depName1,
-          )}}>`}
-        >
+        <ProFormGroup title={`收集依赖值（情形1) <ProFormDependency name={${JSON.stringify(depName1)}}>`}>
           <ProFormDependency name={depName1}>
             {(depValues) => (
               <pre>
-                <code className="case1">
-                  {JSON.stringify(depValues, null, 2)}
-                </code>
+                <code className="case1">{JSON.stringify(depValues, null, 2)}</code>
               </pre>
             )}
           </ProFormDependency>
@@ -856,18 +774,10 @@ describe('ProForm List', () => {
     };
 
     expect(container.querySelector('code.case1')).toContainHTML(
-      JSON.stringify(
-        pick(initialValues, namePaths2PropertyPaths(depName1)),
-        null,
-        2,
-      ),
+      JSON.stringify(pick(initialValues, namePaths2PropertyPaths(depName1)), null, 2),
     );
     expect(container.querySelector('code.case2')).toContainHTML(
-      JSON.stringify(
-        pick(initialValues, namePaths2PropertyPaths(depName2)),
-        null,
-        2,
-      ),
+      JSON.stringify(pick(initialValues, namePaths2PropertyPaths(depName2)), null, 2),
     );
     expect(container.querySelector('code.case3')).toContainHTML(
       JSON.stringify(
@@ -896,24 +806,22 @@ describe('ProForm List', () => {
         <ProFormList
           copyIconProps={false}
           deleteIconProps={false}
-          name="users"
-          label="用户信息"
           initialValue={[
             {
               name: '1111',
               nickName: '1111',
             },
           ]}
+          label="用户信息"
+          name="users"
         >
-          <ProFormText name="name" label="姓名" />
-          <ProFormText name="nickName" label="昵称" />
+          <ProFormText label="姓名" name="name" />
+          <ProFormText label="昵称" name="nickName" />
         </ProFormList>
       </ProForm>,
     );
 
-    expect(
-      !!container.querySelectorAll('.ant-pro-form-list-action').length,
-    ).toBeFalsy();
+    expect(!!container.querySelectorAll('.ant-pro-form-list-action').length).toBeFalsy();
   });
 
   it('⛲ ProForm.List support copyIconProps.icon and deleteIconProps.icon', async () => {
@@ -926,24 +834,22 @@ describe('ProForm List', () => {
           deleteIconProps={{
             Icon: CloseOutlined,
           }}
-          name="users"
-          label="用户信息"
           initialValue={[
             {
               name: '1111',
               nickName: '1111',
             },
           ]}
+          label="用户信息"
+          name="users"
         >
-          <ProFormText name="name" label="姓名" />
-          <ProFormText name="nickName" label="昵称" />
+          <ProFormText label="姓名" name="name" />
+          <ProFormText label="昵称" name="nickName" />
         </ProFormList>
       </ProForm>,
     );
 
-    expect(
-      !!container.querySelectorAll('.anticon-snippets').length,
-    ).toBeTruthy();
+    expect(!!container.querySelectorAll('.anticon-snippets').length).toBeTruthy();
     expect(!!container.querySelectorAll('.anticon-close').length).toBeTruthy();
   });
 
@@ -953,12 +859,6 @@ describe('ProForm List', () => {
     const html = render(
       <ProForm>
         <ProFormList
-          copyIconProps={{
-            Icon: SnippetsOutlined,
-          }}
-          deleteIconProps={{
-            Icon: CloseOutlined,
-          }}
           actionGuard={{
             beforeAddRow: async (defaultValue, insertIndex, count) => {
               return new Promise((resolve) => {
@@ -977,15 +877,21 @@ describe('ProForm List', () => {
               });
             },
           }}
-          name="users"
-          label="用户信息"
+          copyIconProps={{
+            Icon: SnippetsOutlined,
+          }}
+          deleteIconProps={{
+            Icon: CloseOutlined,
+          }}
           initialValue={[
             {
               name: '1111',
             },
           ]}
+          label="用户信息"
+          name="users"
         >
-          <ProFormText name="name" label="姓名" />
+          <ProFormText label="姓名" name="name" />
         </ProFormList>
       </ProForm>,
     );
@@ -1006,17 +912,14 @@ describe('ProForm List', () => {
 
     // 复制按钮
     await act(async () => {
-      html.baseElement
-        .querySelectorAll<HTMLDivElement>('.action-copy')[0]
-        ?.click?.();
+      html.baseElement.querySelectorAll<HTMLDivElement>('.action-copy')[0]?.click?.();
     });
 
     expect(fnAdd).toHaveBeenLastCalledWith('1111', 2, 2);
 
     await waitForWaitTime(1200);
 
-    const input =
-      html.baseElement.querySelectorAll<HTMLInputElement>('input.ant-input');
+    const input = html.baseElement.querySelectorAll<HTMLInputElement>('input.ant-input');
     expect(input.length).toBe(3);
     expect(input[2].value).toBe('1111');
 
@@ -1024,9 +927,7 @@ describe('ProForm List', () => {
 
     // 删除按钮
     await act(async () => {
-      html.baseElement
-        .querySelectorAll<HTMLDivElement>('.action-remove')[2]
-        ?.click?.();
+      html.baseElement.querySelectorAll<HTMLDivElement>('.action-remove')[2]?.click?.();
     });
 
     expect(fnRemove).toHaveBeenCalledWith(2);
@@ -1037,9 +938,7 @@ describe('ProForm List', () => {
 
     // 删除按钮不能删除的项目
     await act(async () => {
-      html.baseElement
-        .querySelectorAll<HTMLDivElement>('.action-remove')[0]
-        ?.click?.();
+      html.baseElement.querySelectorAll<HTMLDivElement>('.action-remove')[0]?.click?.();
     });
 
     await waitForWaitTime(1200);
@@ -1052,12 +951,6 @@ describe('ProForm List', () => {
     const html = render(
       <ProForm>
         <ProFormList
-          copyIconProps={{
-            Icon: SnippetsOutlined,
-          }}
-          deleteIconProps={{
-            Icon: CloseOutlined,
-          }}
           actionGuard={{
             beforeAddRow: async (defaultValue, insertIndex) => {
               return new Promise((resolve) => {
@@ -1070,15 +963,21 @@ describe('ProForm List', () => {
               });
             },
           }}
-          name="users"
-          label="用户信息"
+          copyIconProps={{
+            Icon: SnippetsOutlined,
+          }}
+          deleteIconProps={{
+            Icon: CloseOutlined,
+          }}
           initialValue={[
             {
               name: '1111',
             },
           ]}
+          label="用户信息"
+          name="users"
         >
-          <ProFormText name="name" label="姓名" />
+          <ProFormText label="姓名" name="name" />
         </ProFormList>
       </ProForm>,
     );
@@ -1107,22 +1006,20 @@ describe('ProForm List', () => {
               return true;
             },
           }}
-          name="users"
-          label="用户信息"
           initialValue={[
             {
               name: '1111',
             },
           ]}
+          label="用户信息"
+          name="users"
         >
-          <ProFormText name="name" label="姓名" />
+          <ProFormText label="姓名" name="name" />
         </ProFormList>
       </ProForm>,
     );
     await act(async () => {
-      html.baseElement
-        .querySelectorAll<HTMLDivElement>('.action-remove')[0]
-        ?.click?.();
+      html.baseElement.querySelectorAll<HTMLDivElement>('.action-remove')[0]?.click?.();
     });
 
     await waitForWaitTime(100);
@@ -1135,9 +1032,7 @@ describe('ProForm List', () => {
     const actualErrors = errorSpy.mock.calls.filter(
       (call) =>
         !call[0]?.includes?.('act') &&
-        !call[0]?.includes?.(
-          'Warning: The current testing environment is not configured to support act',
-        ),
+        !call[0]?.includes?.('Warning: The current testing environment is not configured to support act'),
     );
     expect(actualErrors.length).toBe(0);
 
@@ -1154,18 +1049,18 @@ describe('ProForm List', () => {
           deleteIconProps={{
             Icon: CloseOutlined,
           }}
-          min={1}
-          max={4}
-          name="users"
-          label="用户信息"
           initialValue={[
             {
               name: '1111',
             },
           ]}
+          label="用户信息"
+          max={4}
+          min={1}
+          name="users"
         >
           list
-          <ProFormText name="name" label="姓名" />
+          <ProFormText label="姓名" name="name" />
         </ProFormList>
       </ProForm>,
     );
@@ -1174,15 +1069,9 @@ describe('ProForm List', () => {
     expect(html.baseElement.querySelectorAll('input.ant-input').length).toBe(1);
     // 尝试增加到4条数据
     await act(async () => {
-      html.baseElement
-        .querySelectorAll<HTMLDivElement>('.action-copy')[0]
-        ?.click?.();
-      html.baseElement
-        .querySelectorAll<HTMLDivElement>('.action-copy')[0]
-        ?.click?.();
-      html.baseElement
-        .querySelectorAll<HTMLDivElement>('.action-copy')[0]
-        ?.click?.();
+      html.baseElement.querySelectorAll<HTMLDivElement>('.action-copy')[0]?.click?.();
+      html.baseElement.querySelectorAll<HTMLDivElement>('.action-copy')[0]?.click?.();
+      html.baseElement.querySelectorAll<HTMLDivElement>('.action-copy')[0]?.click?.();
     });
     await waitForWaitTime(1000);
     await waitForWaitTime(100);
@@ -1195,28 +1084,18 @@ describe('ProForm List', () => {
 
     // 尝试删除掉所有，但实际至少保留一个
     await act(async () => {
-      html.baseElement
-        .querySelectorAll<HTMLDivElement>('.action-remove')[0]
-        ?.click?.();
-      html.baseElement
-        .querySelectorAll<HTMLDivElement>('.action-remove')[0]
-        ?.click?.();
-      html.baseElement
-        .querySelectorAll<HTMLDivElement>('.action-remove')[0]
-        ?.click?.();
+      html.baseElement.querySelectorAll<HTMLDivElement>('.action-remove')[0]?.click?.();
+      html.baseElement.querySelectorAll<HTMLDivElement>('.action-remove')[0]?.click?.();
+      html.baseElement.querySelectorAll<HTMLDivElement>('.action-remove')[0]?.click?.();
     });
     await waitForWaitTime(1200);
-    expect(
-      html.baseElement.querySelectorAll<HTMLDivElement>('.action-remove')
-        .length,
-    ).toBe(0);
+    expect(html.baseElement.querySelectorAll<HTMLDivElement>('.action-remove').length).toBe(0);
   });
 
   it('⛲ valid to set the format property in ProForm.List', async () => {
     const onFinish = vi.fn();
     const html = render(
       <ProForm
-        onFinish={onFinish}
         initialValues={{
           list: [
             {
@@ -1229,13 +1108,14 @@ describe('ProForm List', () => {
             id: 'submit',
           },
         }}
+        onFinish={onFinish}
       >
         <ProFormList name="list">
           <ProFormDatePicker
-            name="date"
             fieldProps={{
               format: 'YYYY',
             }}
+            name="date"
           />
         </ProFormList>
       </ProForm>,
@@ -1261,16 +1141,8 @@ describe('ProForm List', () => {
           fn(values.users[1]);
         }}
       >
-        <ProFormText name="name" label="姓名" />
+        <ProFormText label="姓名" name="name" />
         <ProFormList
-          name="users"
-          label="用户信息"
-          initialValue={[
-            {
-              name: '1111',
-              nickName: '1111',
-            },
-          ]}
           fieldExtraRender={(fieldAction) => {
             return (
               <Button
@@ -1286,6 +1158,14 @@ describe('ProForm List', () => {
               </Button>
             );
           }}
+          initialValue={[
+            {
+              name: '1111',
+              nickName: '1111',
+            },
+          ]}
+          label="用户信息"
+          name="users"
         >
           {() => {
             return (
@@ -1319,14 +1199,6 @@ describe('ProForm List', () => {
     const html = render(
       <ProForm>
         <ProFormList
-          name="users"
-          label="用户信息"
-          initialValue={[
-            {
-              name: '1111',
-              nickName: '1111',
-            },
-          ]}
           // @ts-ignore
           actionRef={actionRef}
           fieldExtraRender={() => {
@@ -1344,6 +1216,15 @@ describe('ProForm List', () => {
               </Button>
             );
           }}
+          initialValue={[
+            {
+              name: '1111',
+              nickName: '1111',
+            },
+          ]}
+          // @ts-ignore
+          label="用户信息"
+          name="users"
         >
           {() => {
             return (
@@ -1381,34 +1262,34 @@ describe('ProForm List', () => {
     const html = render(
       <ProForm>
         <ProFormList
-          name="users"
-          label="用户信息"
           initialValue={[
             {
               name: '1111',
             },
           ]}
+          label="用户信息"
+          name="users"
         >
-          <ProFormText name="name" label="姓名" />
+          <ProFormText label="姓名" name="name" />
           <ProFormList
-            name="lv1"
-            label="lv1信息"
             initialValue={[
               {
                 lv2Name: '1111',
               },
             ]}
+            label="lv1信息"
+            name="lv1"
           >
             {(_f, _idxLv2, action) => {
               // @ts-ignore
               ref.current = action;
               return (
                 <ProFormText
-                  name="lv2Name"
-                  label="层级"
                   fieldProps={{
                     id: 'lv2Name',
                   }}
+                  label="层级"
+                  name="lv2Name"
                 />
               );
             }}
@@ -1440,8 +1321,6 @@ describe('ProForm List', () => {
     const html = render(
       <ProForm>
         <ProFormList
-          name="twoDimensionalArray"
-          label="一级数组"
           initialValue={[
             [
               {
@@ -1449,18 +1328,20 @@ describe('ProForm List', () => {
               },
             ],
           ]}
+          label="一级数组"
+          name="twoDimensionalArray"
         >
-          <ProFormList name={[]} label="二级数组">
+          <ProFormList label="二级数组" name={[]}>
             {(_f, _idxLv2, action) => {
               // @ts-ignore
               ref.current = action;
               return (
                 <ProFormText
-                  name="name"
-                  label="用户姓名"
                   fieldProps={{
                     id: 'lv2Name',
                   }}
+                  label="用户姓名"
+                  name="name"
                 />
               );
             }}
@@ -1499,8 +1380,6 @@ describe('ProForm List', () => {
     const html = render(
       <ProForm>
         <ProFormList
-          name="list"
-          label="表格"
           initialValue={[
             [
               {
@@ -1508,6 +1387,8 @@ describe('ProForm List', () => {
               },
             ],
           ]}
+          label="表格"
+          name="list"
           onAfterAdd={(a, b, count) => {
             handleAdd(count);
           }}
@@ -1523,17 +1404,13 @@ describe('ProForm List', () => {
     await waitForWaitTime(100);
     // 删除按钮
     await act(async () => {
-      html.baseElement
-        .querySelectorAll<HTMLDivElement>('.action-remove')[0]
-        ?.click?.();
+      html.baseElement.querySelectorAll<HTMLDivElement>('.action-remove')[0]?.click?.();
     });
     expect(handleRemove).toHaveBeenCalledWith(0);
 
     // 新增按钮
     await act(async () => {
-      const createBtn = await html.baseElement.querySelector(
-        '.ant-pro-form-list-creator-button-bottom',
-      );
+      const createBtn = await html.baseElement.querySelector('.ant-pro-form-list-creator-button-bottom');
       if (createBtn) {
         fireEvent.click(createBtn);
       }
@@ -1545,8 +1422,8 @@ describe('ProForm List', () => {
     const html = render(
       <ProForm>
         <ProFormList
-          name="list"
           label="表格"
+          name="list"
           rules={[
             {
               required: true,
@@ -1564,21 +1441,17 @@ describe('ProForm List', () => {
       </ProForm>,
     );
 
-    expect(
-      html.baseElement.querySelectorAll('.ant-form-item-required').length,
-    ).toBe(1);
+    expect(html.baseElement.querySelectorAll('.ant-form-item-required').length).toBe(1);
 
     html.rerender(
       <ProForm>
-        <ProFormList name="list" label="表格">
+        <ProFormList label="表格" name="list">
           <ProFormText name="name" />
         </ProFormList>
       </ProForm>,
     );
 
-    expect(
-      html.baseElement.querySelectorAll('.ant-form-item-required').length,
-    ).toBe(0);
+    expect(html.baseElement.querySelectorAll('.ant-form-item-required').length).toBe(0);
     html.unmount();
   });
 
@@ -1586,11 +1459,8 @@ describe('ProForm List', () => {
     const onFinish = vi.fn();
     const html = render(
       <ProForm onFinish={onFinish}>
-        <ProFormList name="list" label="表格" isValidateList>
-          <ProFormText
-            name="name"
-            rules={[{ required: true, message: '请填写1' }]}
-          />
+        <ProFormList isValidateList label="表格" name="list">
+          <ProFormText name="name" rules={[{ required: true, message: '请填写1' }]} />
         </ProFormList>
       </ProForm>,
     );
@@ -1610,10 +1480,7 @@ describe('ProForm List', () => {
       fireEvent.click(await html.findByText('提 交'));
     });
     await waitForWaitTime(300);
-    expect(
-      (await html.baseElement.querySelector('.ant-form-item-explain-error'))
-        ?.innerHTML,
-    ).toBe('请填写1');
+    expect((await html.baseElement.querySelector('.ant-form-item-explain-error'))?.innerHTML).toBe('请填写1');
     await act(async () => {
       fireEvent.click(await html.baseElement.querySelector('.action-remove')!);
     });
@@ -1632,8 +1499,8 @@ describe('ProForm List', () => {
         }}
       >
         <ProFormDatePicker
-          name="date"
           initialValue={dayjs('2022-10-12')}
+          name="date"
           transform={(value) => {
             console.log('Transform called with value:', value, typeof value);
             // Just return a simple transformed value for testing
@@ -1647,9 +1514,7 @@ describe('ProForm List', () => {
 
     // Ensure the form is properly rendered before submitting
     await act(async () => {
-      const submitButton = html.baseElement.querySelector<HTMLDivElement>(
-        '.ant-btn.ant-btn-primary',
-      );
+      const submitButton = html.baseElement.querySelector<HTMLDivElement>('.ant-btn.ant-btn-primary');
       if (submitButton) {
         submitButton.click();
       }

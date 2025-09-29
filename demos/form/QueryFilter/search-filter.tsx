@@ -1,10 +1,5 @@
 import { DownOutlined, UpOutlined } from '@ant-design/icons';
-import {
-  ProForm,
-  ProFormDatePicker,
-  ProFormText,
-  QueryFilter,
-} from '@ant-design/pro-components';
+import { ProForm, ProFormDatePicker, ProFormText, QueryFilter } from '@xxlabs/pro-components';
 import { Input, Tabs } from 'antd';
 import React, { useState } from 'react';
 
@@ -16,12 +11,7 @@ type AdvancedSearchProps = {
 };
 
 const AdvancedSearch: React.FC<AdvancedSearchProps> = (props) => {
-  const {
-    onSearch,
-    onTypeChange,
-    defaultType = 'articles',
-    onFilterChange,
-  } = props;
+  const { onSearch, onTypeChange, defaultType = 'articles', onFilterChange } = props;
   const [searchText, setSearchText] = useState<string>();
   const [showFilter, setShowFilter] = useState<boolean>(true);
   const quickSearch = ['小程序开发', '入驻', 'ISV 权限'];
@@ -39,14 +29,14 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = (props) => {
         }}
       >
         <Input.Search
-          placeholder="请输入"
           enterButton="搜索"
+          placeholder="请输入"
+          style={{ maxWidth: 522, width: '100%' }}
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);
           }}
           onSearch={onSearch}
-          style={{ maxWidth: 522, width: '100%' }}
         />
         <div
           style={{
@@ -72,20 +62,6 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = (props) => {
 
       <Tabs
         defaultActiveKey={defaultType}
-        onChange={onTypeChange}
-        tabBarExtraContent={
-          <a
-            style={{
-              display: 'flex',
-              gap: 4,
-            }}
-            onClick={() => {
-              setShowFilter(!showFilter);
-            }}
-          >
-            高级筛选 {showFilter ? <UpOutlined /> : <DownOutlined />}
-          </a>
-        }
         items={[
           {
             key: 'articles',
@@ -100,22 +76,30 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = (props) => {
             label: '应用',
           },
         ]}
+        tabBarExtraContent={
+          <a
+            style={{
+              display: 'flex',
+              gap: 4,
+            }}
+            onClick={() => {
+              setShowFilter(!showFilter);
+            }}
+          >
+            高级筛选 {showFilter ? <UpOutlined /> : <DownOutlined />}
+          </a>
+        }
+        onChange={onTypeChange}
       />
 
       {showFilter ? (
-        <QueryFilter
-          submitter={false}
-          span={24}
-          labelWidth="auto"
-          split
-          onChange={onFilterChange}
-        >
+        <QueryFilter split labelWidth="auto" span={24} submitter={false} onChange={onFilterChange}>
           <ProForm.Group title="姓名">
             <ProFormText name="name" />
           </ProForm.Group>
           <ProForm.Group title="详情">
-            <ProFormText name="age" label="年龄" />
-            <ProFormDatePicker name="birth" label="生日" />
+            <ProFormText label="年龄" name="age" />
+            <ProFormDatePicker label="生日" name="birth" />
           </ProForm.Group>
         </QueryFilter>
       ) : null}

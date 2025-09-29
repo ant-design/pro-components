@@ -1,36 +1,20 @@
-import { ProCard } from '@ant-design/pro-components';
+import { ProCard } from '@xxlabs/pro-components';
 
 export default () => {
   return (
     <>
-      <ProCard style={{ marginBlockStart: 8 }} gutter={8} title="24 Grid">
-        <ProCard
-          colSpan={{ xs: 2, sm: 4, md: 6, lg: 8, xl: 10 }}
-          layout="center"
-          variant="outlined"
-        >
+      <ProCard gutter={8} style={{ marginBlockStart: 8 }} title="24 Grid">
+        <ProCard colSpan={{ xs: 2, sm: 4, md: 6, lg: 8, xl: 10 }} layout="center" variant="outlined">
           Col
         </ProCard>
-        <ProCard
-          colSpan={{ xs: 20, sm: 16, md: 12, lg: 8, xl: 4 }}
-          layout="center"
-          variant="outlined"
-        >
+        <ProCard colSpan={{ xs: 20, sm: 16, md: 12, lg: 8, xl: 4 }} layout="center" variant="outlined">
           Col
         </ProCard>
-        <ProCard
-          colSpan={{ xs: 2, sm: 4, md: 6, lg: 8, xl: 10 }}
-          layout="center"
-          variant="outlined"
-        >
+        <ProCard colSpan={{ xs: 2, sm: 4, md: 6, lg: 8, xl: 10 }} layout="center" variant="outlined">
           Col
         </ProCard>
       </ProCard>
-      <ProCard
-        style={{ marginBlockStart: 8 }}
-        gutter={8}
-        title="Specified Width px"
-      >
+      <ProCard gutter={8} style={{ marginBlockStart: 8 }} title="Specified Width px">
         <ProCard
           colSpan={{
             xs: '50px',
@@ -49,16 +33,11 @@ export default () => {
         </ProCard>
       </ProCard>
 
-      <ProCard
-        style={{ marginBlockStart: 8 }}
-        gutter={8}
-        title="Specified Width Percentage"
-      >
+      <ProCard gutter={8} style={{ marginBlockStart: 8 }} title="Specified Width Percentage">
         <ProCard layout="center" variant="outlined">
           Auto
         </ProCard>
         <ProCard
-          layout="center"
           colSpan={{
             xs: '10%',
             sm: '20%',
@@ -66,6 +45,7 @@ export default () => {
             lg: '40%',
             xl: '50%',
           }}
+          layout="center"
           variant="outlined"
         >
           Col - Percentage
@@ -107,12 +87,10 @@ export default () => {
         <h4>ColSpan 配置方式：</h4>
         <ul>
           <li>
-            <strong>数字值</strong>: 如 {'{'} xs: 2, sm: 4 {'}'}，使用 24
-            栅格系统
+            <strong>数字值</strong>: 如 {'{'} xs: 2, sm: 4 {'}'}，使用 24 栅格系统
           </li>
           <li>
-            <strong>像素值</strong>: 如 {'{'} xs: '50px', sm: '100px' {'}'}{' '}
-            ，固定宽度
+            <strong>像素值</strong>: 如 {'{'} xs: '50px', sm: '100px' {'}'} ，固定宽度
           </li>
           <li>
             <strong>百分比</strong>: 如 {'{'} xs: '10%', sm: '20%' {'}'}

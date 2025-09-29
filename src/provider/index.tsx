@@ -1,9 +1,10 @@
 import type { Theme } from '@ant-design/cssinjs';
 import { useCacheToken } from '@ant-design/cssinjs';
 import { ConfigProvider as AntdConfigProvider, theme as antdTheme } from 'antd';
-import zh_CN from 'antd/lib/locale/zh_CN';
+import zh_CN from 'antd/es/locale/zh_CN';
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
+import type { JSX } from 'react';
 import React, { useContext, useEffect, useMemo } from 'react';
 import { SWRConfig, useSWRConfig } from 'swr';
 import type { IntlType } from './intl';
@@ -22,9 +23,7 @@ type OmitUndefined<T> = {
   [P in keyof T]: NonNullable<T[P]>;
 };
 
-const omitUndefined = <T extends Record<string, any>>(
-  obj: T,
-): OmitUndefined<T> => {
+const omitUndefined = <T extends Record<string, any>>(obj: T): OmitUndefined<T> => {
   const newObj = {} as Record<string, any> as T;
   Object.keys(obj || {}).forEach((key) => {
     if (obj[key] !== undefined) {
@@ -46,8 +45,7 @@ const omitUndefined = <T extends Record<string, any>>(
 export const isNeedOpenHash = () => {
   if (
     typeof process !== 'undefined' &&
-    (process.env.NODE_ENV?.toUpperCase() === 'TEST' ||
-      process.env.NODE_ENV?.toUpperCase() === 'DEV')
+    (process.env.NODE_ENV?.toUpperCase() === 'TEST' || process.env.NODE_ENV?.toUpperCase() === 'DEV')
   ) {
     return false;
   }
@@ -74,18 +72,12 @@ export type ProSchemaValueEnumType = {
  *
  * @name ValueEnum 的类型
  */
-type ProSchemaValueEnumMap = Map<
-  string | number | boolean,
-  ProSchemaValueEnumType | React.ReactNode
->;
+type ProSchemaValueEnumMap = Map<string | number | boolean, ProSchemaValueEnumType | React.ReactNode>;
 
 /**
  * 支持 Map 和 Object
  */
-type ProSchemaValueEnumObj = Record<
-  string,
-  ProSchemaValueEnumType | React.ReactNode
->;
+type ProSchemaValueEnumObj = Record<string, ProSchemaValueEnumType | React.ReactNode>;
 
 /**
  * BaseProFieldFC 的类型设置
@@ -134,11 +126,7 @@ export type ProRenderFieldPropsType = {
    * @return 返回一个用于读的 dom
    */
   render?:
-    | ((
-        text: any,
-        props: Omit<ProFieldFCRenderProps, 'value' | 'onChange'>,
-        dom: JSX.Element,
-      ) => JSX.Element)
+    | ((text: any, props: Omit<ProFieldFCRenderProps, 'value' | 'onChange'>, dom: JSX.Element) => JSX.Element)
     | undefined;
   /**
    * 一个自定义的编辑渲染器。
@@ -147,13 +135,7 @@ export type ProRenderFieldPropsType = {
    * @params dom 默认的 dom
    * @return 返回一个用于编辑的dom
    */
-  formItemRender?:
-    | ((
-        text: any,
-        props: ProFieldFCRenderProps,
-        dom: JSX.Element,
-      ) => JSX.Element)
-    | undefined;
+  formItemRender?: ((text: any, props: ProFieldFCRenderProps, dom: JSX.Element) => JSX.Element) | undefined;
 };
 
 export type ParamsType = Record<string, any>;
@@ -203,7 +185,6 @@ const CacheClean = () => {
       // @ts-ignore
       cache.clear();
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return null;
 };
@@ -223,18 +204,8 @@ const ConfigProviderContainer: React.FC<{
   prefixCls?: string;
   intl?: IntlType;
 }> = (props) => {
-  const {
-    children,
-    dark,
-    valueTypeMap,
-    autoClearCache = false,
-    token: propsToken,
-    prefixCls,
-    intl,
-  } = props;
-  const { locale, getPrefixCls, ...restConfig } = useContext(
-    AntdConfigProvider.ConfigContext,
-  );
+  const { children, dark, valueTypeMap, autoClearCache = false, token: propsToken, prefixCls, intl } = props;
+  const { locale, getPrefixCls, ...restConfig } = useContext(AntdConfigProvider.ConfigContext);
   const tokenContext = antdTheme.useToken?.();
   const proProvide = useContext(ProConfigContext);
 
@@ -244,9 +215,7 @@ const ConfigProviderContainer: React.FC<{
    * @example .ant-pro
    */
 
-  const proComponentsCls = prefixCls
-    ? `.${prefixCls}`
-    : `.${getPrefixCls()}-pro`;
+  const proComponentsCls = prefixCls ? `.${prefixCls}` : `.${getPrefixCls()}-pro`;
 
   const antCls = '.' + getPrefixCls();
 
@@ -350,14 +319,7 @@ const ConfigProviderContainer: React.FC<{
       hashed,
       hashId,
     };
-  }, [
-    proProvideValue,
-    valueTypeMap,
-    token,
-    tokenContext.theme,
-    hashed,
-    hashId,
-  ]);
+  }, [proProvideValue, valueTypeMap, token, tokenContext.theme, hashed, hashId]);
 
   const configProviderDom = useMemo(() => {
     return (
@@ -370,23 +332,11 @@ const ConfigProviderContainer: React.FC<{
         </ProConfigContext.Provider>
       </AntdConfigProvider>
     );
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [
-    restConfig,
-    themeConfig,
-    proConfigContextValue,
-    autoClearCache,
-    children,
-  ]);
+  }, [restConfig, themeConfig, proConfigContextValue, autoClearCache, children]);
 
   if (!autoClearCache) return configProviderDom;
 
-  return (
-    <SWRConfig value={{ provider: () => new Map() }}>
-      {configProviderDom}
-    </SWRConfig>
-  );
+  return <SWRConfig value={{ provider: () => new Map() }}>{configProviderDom}</SWRConfig>;
 };
 
 /**
@@ -407,15 +357,11 @@ export const ProConfigProvider: React.FC<{
 }> = (props) => {
   const { needDeps, dark, token } = props;
   const proProvide = useContext(ProConfigContext);
-  const { locale, theme, ...rest } = useContext(
-    AntdConfigProvider.ConfigContext,
-  );
+  const { locale, theme, ...rest } = useContext(AntdConfigProvider.ConfigContext);
 
   // 是不是不需要渲染 provide
   const isNullProvide =
-    needDeps &&
-    proProvide.hashId !== undefined &&
-    Object.keys(props).sort().join('-') === 'children-needDeps';
+    needDeps && proProvide.hashId !== undefined && Object.keys(props).sort().join('-') === 'children-needDeps';
 
   if (isNullProvide) return <>{props.children}</>;
 
@@ -423,9 +369,7 @@ export const ProConfigProvider: React.FC<{
     const isDark = dark ?? proProvide.dark;
 
     if (isDark) {
-      return [theme?.algorithm, antdTheme.darkAlgorithm]
-        .flat(1)
-        .filter(Boolean);
+      return [theme?.algorithm, antdTheme.darkAlgorithm].flat(1).filter(Boolean);
     }
     return theme?.algorithm;
   };
@@ -463,9 +407,7 @@ export function useIntl(): IntlType {
   }
 
   if (locale?.locale) {
-    return (
-      intlMap[findIntlKeyByAntdLocaleKey(locale.locale) as 'zh-CN'] || zhCNIntl
-    );
+    return intlMap[findIntlKeyByAntdLocaleKey(locale.locale) as 'zh-CN'] || zhCNIntl;
   }
 
   return zhCNIntl;

@@ -7,9 +7,9 @@ import {
   QuestionCircleFilled,
   SearchOutlined,
 } from '@ant-design/icons';
-import type { ProSettings } from '@ant-design/pro-components';
-import { PageContainer, ProCard, ProLayout } from '@ant-design/pro-components';
 import { css } from '@emotion/css';
+import type { ProSettings } from '@xxlabs/pro-components';
+import { PageContainer, ProCard, ProLayout } from '@xxlabs/pro-components';
 import { Divider, Input, Popover, theme } from 'antd';
 import { useState } from 'react';
 import defaultProps from './_defaultProps';
@@ -42,9 +42,7 @@ const Item: React.FC<{ children: React.ReactNode }> = (props) => {
   );
 };
 
-const List: React.FC<{ title: string; style?: React.CSSProperties }> = (
-  props,
-) => {
+const List: React.FC<{ title: string; style?: React.CSSProperties }> = (props) => {
   const { token } = theme.useToken();
 
   return (
@@ -95,23 +93,15 @@ const MenuCard = () => {
         type="vertical"
       />
       <Popover
-        placement="bottom"
-        overlayStyle={{
-          width: 'calc(100vw - 24px)',
-          padding: '24px',
-          paddingTop: 8,
-          height: '307px',
-          borderRadius: '0 0 6px 6px',
-        }}
         content={
           <div style={{ display: 'flex', padding: '32px 40px' }}>
             <div style={{ flex: 1 }}>
               <List title="金融解决方案" />
               <List
-                title="其他解决方案"
                 style={{
                   marginBlockStart: 32,
                 }}
+                title="其他解决方案"
               />
             </div>
 
@@ -177,8 +167,21 @@ const MenuCard = () => {
             </div>
           </div>
         }
+        overlayStyle={{
+          width: 'calc(100vw - 24px)',
+          padding: '24px',
+          paddingTop: 8,
+          height: '307px',
+          borderRadius: '0 0 6px 6px',
+        }}
+        placement="bottom"
       >
         <div
+          className={css`
+            &:hover {
+              background-color: ${token.colorBgTextHover};
+            }
+          `}
           style={{
             color: token.colorTextHeading,
             fontWeight: 500,
@@ -189,11 +192,6 @@ const MenuCard = () => {
             paddingInlineEnd: 12,
             alignItems: 'center',
           }}
-          className={css`
-            &:hover {
-              background-color: ${token.colorBgTextHover};
-            }
-          `}
         >
           <span> 企业级资产中心</span>
           <CaretDownFilled />
@@ -241,17 +239,6 @@ export default () => {
           },
         ]}
         {...defaultProps}
-        location={{
-          pathname,
-        }}
-        menu={{
-          type: 'group',
-        }}
-        avatarProps={{
-          src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
-          size: 'small',
-          title: '七妮妮',
-        }}
         actionsRender={(props) => {
           if (props.isMobile) return [];
           return [
@@ -270,11 +257,7 @@ export default () => {
                 }}
               >
                 <Input
-                  style={{
-                    borderRadius: 4,
-                    marginInlineEnd: 12,
-                    backgroundColor: 'rgba(0,0,0,0.03)',
-                  }}
+                  placeholder="搜索方案"
                   prefix={
                     <SearchOutlined
                       style={{
@@ -282,7 +265,11 @@ export default () => {
                       }}
                     />
                   }
-                  placeholder="搜索方案"
+                  style={{
+                    borderRadius: 4,
+                    marginInlineEnd: 12,
+                    backgroundColor: 'rgba(0,0,0,0.03)',
+                  }}
                   variant="borderless"
                 />
                 <PlusCircleFilled
@@ -298,15 +285,11 @@ export default () => {
             <GithubFilled key="GithubFilled" />,
           ];
         }}
-        menuItemRender={(item, dom) => (
-          <div
-            onClick={() => {
-              setPathname(item.path || '/welcome');
-            }}
-          >
-            {dom}
-          </div>
-        )}
+        avatarProps={{
+          src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+          size: 'small',
+          title: '七妮妮',
+        }}
         headerTitleRender={(logo, title, _) => {
           const defaultDom = (
             <a
@@ -318,10 +301,7 @@ export default () => {
               {title}
             </a>
           );
-          if (
-            typeof document === 'undefined' ||
-            document.body.clientWidth < 1400
-          ) {
+          if (typeof document === 'undefined' || document.body.clientWidth < 1400) {
             return defaultDom;
           }
           if (_.isMobile) return defaultDom;
@@ -332,6 +312,21 @@ export default () => {
             </>
           );
         }}
+        location={{
+          pathname,
+        }}
+        menu={{
+          type: 'group',
+        }}
+        menuItemRender={(item, dom) => (
+          <div
+            onClick={() => {
+              setPathname(item.path || '/welcome');
+            }}
+          >
+            {dom}
+          </div>
+        )}
         {...settings}
       >
         <PageContainer>

@@ -1,4 +1,4 @@
-import { PageContainer, ProLayout } from '@ant-design/pro-components';
+import { PageContainer, ProLayout } from '@xxlabs/pro-components';
 
 export default () => (
   <div
@@ -7,10 +7,10 @@ export default () => (
     }}
   >
     <ProLayout
+      iconfontUrl="//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js"
       location={{
         pathname: '/articles/new',
       }}
-      iconfontUrl="//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js"
       route={{
         routes: [
           {

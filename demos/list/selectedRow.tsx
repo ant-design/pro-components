@@ -1,4 +1,4 @@
-import { ProList } from '@ant-design/pro-components';
+import { ProList } from '@xxlabs/pro-components';
 import { Button, Progress } from 'antd';
 import type { Key } from 'react';
 import { useState } from 'react';
@@ -6,23 +6,19 @@ import { useState } from 'react';
 const dataSource = [
   {
     title: '语雀的天空',
-    avatar:
-      'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+    avatar: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
   },
   {
     title: 'Ant Design',
-    avatar:
-      'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+    avatar: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
   },
   {
     title: '蚂蚁金服体验科技',
-    avatar:
-      'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+    avatar: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
   },
   {
     title: 'TechUI',
-    avatar:
-      'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+    avatar: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
   },
 ];
 
@@ -35,13 +31,8 @@ export default () => {
 
   return (
     <ProList<{ title: string }>
-      toolBarRender={() => {
-        return [
-          <Button key="3" type="primary">
-            新建
-          </Button>,
-        ];
-      }}
+      dataSource={dataSource}
+      headerTitle="支持选中的列表"
       metas={{
         title: {},
         description: {
@@ -78,9 +69,14 @@ export default () => {
         },
       }}
       rowKey="title"
-      headerTitle="支持选中的列表"
       rowSelection={rowSelection}
-      dataSource={dataSource}
+      toolBarRender={() => {
+        return [
+          <Button key="3" type="primary">
+            新建
+          </Button>,
+        ];
+      }}
     />
   );
 };

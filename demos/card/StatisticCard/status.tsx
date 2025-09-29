@@ -1,4 +1,4 @@
-import { StatisticCard } from '@ant-design/pro-components';
+import { StatisticCard } from '@xxlabs/pro-components';
 
 const { Divider } = StatisticCard;
 
@@ -64,8 +64,7 @@ export default () => {
             <strong>statistic.value</strong>: 统计数值，可以是数字、字符串或 '-'
           </li>
           <li>
-            <strong>statistic.status</strong>: 状态指示，可选值：'default' |
-            'processing' | 'error' | 'success'
+            <strong>statistic.status</strong>: 状态指示，可选值：'default' | 'processing' | 'error' | 'success'
           </li>
         </ul>
         <h4>Status 状态说明：</h4>

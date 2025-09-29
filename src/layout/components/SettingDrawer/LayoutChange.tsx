@@ -7,10 +7,11 @@ import { getFormatMessage } from './index';
 
 export const renderLayoutSettingItem = (item: SettingItemProps) => {
   const action = React.cloneElement(item.action, {
+    // @ts-ignore
     disabled: item.disabled,
   });
   return (
-    <Tooltip title={item.disabled ? item.disabledReason : ''} placement="left">
+    <Tooltip placement="left" title={item.disabled ? item.disabledReason : ''}>
       <List.Item actions={[action]}>
         <span style={{ opacity: item.disabled ? 0.5 : 1 }}>{item.title}</span>
       </List.Item>
@@ -24,13 +25,11 @@ const LayoutSetting: React.FC<{
   prefixCls: string;
 }> = ({ settings, prefixCls, changeSetting, hashId }) => {
   const formatMessage = getFormatMessage();
-  const { contentWidth, splitMenus, fixedHeader, layout, fixSiderbar } =
-    settings || defaultSettings;
+  const { contentWidth, splitMenus, fixedHeader, layout, fixSiderbar } = settings || defaultSettings;
 
   return (
     <List
       className={`${prefixCls}-list ${hashId}`.trim()}
-      split={false}
       dataSource={[
         {
           title: formatMessage({
@@ -39,13 +38,13 @@ const LayoutSetting: React.FC<{
           }),
           action: (
             <Select
-              value={contentWidth || 'Fixed'}
-              size="small"
               className={`content-width ${hashId}`.trim()}
+              size="small"
+              style={{ width: 80 }}
+              value={contentWidth || 'Fixed'}
               onSelect={(value: string) => {
                 changeSetting('contentWidth', value);
               }}
-              style={{ width: 80 }}
             >
               {layout === 'side' ? null : (
                 <Select.Option value="Fixed">
@@ -71,9 +70,9 @@ const LayoutSetting: React.FC<{
           }),
           action: (
             <Switch
-              size="small"
-              className="fixed-header"
               checked={!!fixedHeader}
+              className="fixed-header"
+              size="small"
               onChange={(checked) => {
                 changeSetting('fixedHeader', checked);
               }}
@@ -92,9 +91,9 @@ const LayoutSetting: React.FC<{
           }),
           action: (
             <Switch
-              size="small"
-              className="fix-siderbar"
               checked={!!fixSiderbar}
+              className="fix-siderbar"
+              size="small"
               onChange={(checked) => changeSetting('fixSiderbar', checked)}
             />
           ),
@@ -104,9 +103,9 @@ const LayoutSetting: React.FC<{
           disabled: layout !== 'mix',
           action: (
             <Switch
-              size="small"
               checked={!!splitMenus}
               className="split-menus"
+              size="small"
               onChange={(checked) => {
                 changeSetting('splitMenus', checked);
               }}
@@ -115,6 +114,7 @@ const LayoutSetting: React.FC<{
         },
       ]}
       renderItem={renderLayoutSettingItem}
+      split={false}
     />
   );
 };

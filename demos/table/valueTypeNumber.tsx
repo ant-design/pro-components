@@ -1,4 +1,4 @@
-import { ProTable } from '@ant-design/pro-components';
+import { ProTable } from '@xxlabs/pro-components';
 
 const valueEnum = {
   0: 'close',
@@ -28,16 +28,11 @@ for (let i = 0; i < 2; i += 1) {
     status: valueEnum[((Math.floor(Math.random() * 10) % 4) + '') as '0'],
     updatedAt: Date.now() - Math.floor(Math.random() * 1000),
     createdAt: Date.now() - Math.floor(Math.random() * 2000),
-    createdAtRange: [
-      Date.now() - Math.floor(Math.random() * 2000),
-      Date.now() - Math.floor(Math.random() * 2000),
-    ],
+    createdAtRange: [Date.now() - Math.floor(Math.random() * 2000), Date.now() - Math.floor(Math.random() * 2000)],
     money: Math.floor(Math.random() * 2000) * i,
     progress: Math.ceil(Math.random() * 100) + 1,
     percent:
-      Math.random() > 0.5
-        ? ((i + 1) * 10 + Math.random()).toFixed(3)
-        : -((i + 1) * 10 + Math.random()).toFixed(2),
+      Math.random() > 0.5 ? ((i + 1) * 10 + Math.random()).toFixed(3) : -((i + 1) * 10 + Math.random()).toFixed(2),
     code: `const getData = async params => {
   const data = await getData(params);
   return { list: data.data, ...data };
@@ -104,6 +99,7 @@ const ValueTypeNumberTable = () => (
         ],
       },
     ]}
+    headerTitle="数字类"
     request={() => {
       return Promise.resolve({
         total: 200,
@@ -112,7 +108,6 @@ const ValueTypeNumberTable = () => (
       });
     }}
     rowKey="key"
-    headerTitle="数字类"
   />
 );
 

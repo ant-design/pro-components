@@ -1,6 +1,6 @@
-/* eslint-disable no-console */ import { PlusOutlined } from '@ant-design/icons';
-import type { ProColumns } from '@ant-design/pro-components';
-import { ProTable } from '@ant-design/pro-components';
+import { PlusOutlined } from '@ant-design/icons';
+import type { ProColumns } from '@xxlabs/pro-components';
+import { ProTable } from '@xxlabs/pro-components';
 import { Button, Input, Select } from 'antd';
 import React, { useEffect, useState } from 'react';
 
@@ -52,16 +52,9 @@ const MySelect: React.FC<{
         },
       ]);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [JSON.stringify(state)]);
 
-  return (
-    <Select
-      options={innerOptions}
-      value={props.value}
-      onChange={props.onChange}
-    />
-  );
+  return <Select options={innerOptions} value={props.value} onChange={props.onChange} />;
 };
 
 export default () => {
@@ -130,6 +123,8 @@ export default () => {
   return (
     <ProTable<GithubIssueItem>
       columns={columns}
+      dateFormatter="string"
+      headerTitle="动态自定义搜索栏"
       request={async (params) => {
         console.log(`request params:`, params);
         return {
@@ -145,9 +140,6 @@ export default () => {
         };
       }}
       rowKey="key"
-      tableLayout="fixed"
-      dateFormatter="string"
-      headerTitle="动态自定义搜索栏"
       search={{
         defaultCollapsed: false,
         optionRender: (searchConfig, formProps, dom) => [
@@ -163,6 +155,7 @@ export default () => {
           </Button>,
         ],
       }}
+      tableLayout="fixed"
       toolBarRender={() => [
         <Button key="3" type="primary">
           <PlusOutlined />

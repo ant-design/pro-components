@@ -9,7 +9,7 @@ type StatusProps = {
 };
 
 /** 快捷操作，用于快速的展示一个状态 */
-export const StatusComponents: {
+const StatusComponents: {
   Success: React.FC<StatusProps>;
   Error: React.FC<StatusProps>;
   Processing: React.FC<StatusProps>;
@@ -35,9 +35,8 @@ export const StatusComponents: {
 
 export type ProFieldStatusType = keyof typeof StatusComponents;
 
-export const ProFieldBadgeColor: React.FC<StatusProps & { color: string }> = ({
-  color,
-  children,
-}) => <Badge color={color} text={children} />;
+export const ProFieldBadgeColor: React.FC<StatusProps & { color: string }> = ({ color, children }) => (
+  <Badge color={color} text={children} />
+);
 
 export default StatusComponents;

@@ -22,10 +22,7 @@ import type { ProFieldValueType, RowEditableConfig } from '../utils';
 import type { DragTableProps } from './components/DragSortTable';
 import DragSortTable from './components/DragSortTable';
 import TableDropdown from './components/Dropdown';
-import type {
-  EditableFormInstance,
-  EditableProTableProps,
-} from './components/EditableTable';
+import type { EditableFormInstance, EditableProTableProps } from './components/EditableTable';
 import EditableProTable from './components/EditableTable';
 import { CellEditorTable } from './components/EditableTable/CellEditorTable';
 import { RowEditorTable } from './components/EditableTable/RowEditorTable';
@@ -34,13 +31,7 @@ import type { ListToolBarProps } from './components/ListToolBar';
 import ListToolBar from './components/ListToolBar';
 import type { ColumnsState } from './Store/Provide';
 import ProTable from './Table';
-import type {
-  ActionType,
-  ProColumnType,
-  ProColumns,
-  ProTableProps,
-  RequestData,
-} from './typing';
+import type { ActionType, ProColumnType, ProColumns, ProTableProps, RequestData } from './typing';
 
 type ProColumnsValueType = ProFieldValueType;
 type TableRowEditable<T> = RowEditableConfig<T>;

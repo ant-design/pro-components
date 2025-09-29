@@ -1,10 +1,5 @@
-﻿import type {
-  ActionType,
-  EditableFormInstance,
-  ProColumns,
-  ProFormInstance,
-} from '@ant-design/pro-components';
-import { EditableProTable, ProCard, ProForm } from '@ant-design/pro-components';
+﻿import type { ActionType, EditableFormInstance, ProColumns, ProFormInstance } from '@xxlabs/pro-components';
+import { EditableProTable, ProCard, ProForm } from '@xxlabs/pro-components';
 import React, { useRef, useState } from 'react';
 
 type DataSourceType = {
@@ -16,9 +11,9 @@ const defaultData: DataSourceType[] = [];
 
 export default () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>(() => []);
-  const formRef = useRef<ProFormInstance<any>>();
-  const actionRef = useRef<ActionType>();
-  const editableFormRef = useRef<EditableFormInstance>();
+  const formRef = useRef<ProFormInstance<any>>(undefined);
+  const actionRef = useRef<ActionType>(undefined);
+  const editableFormRef = useRef<EditableFormInstance>(undefined);
   const columns: ProColumns<DataSourceType>[] = [
     {
       title: '关联题库',
@@ -36,9 +31,7 @@ export default () => {
         <a
           key="delete"
           onClick={() => {
-            const tableDataSource = formRef.current?.getFieldValue(
-              'table',
-            ) as DataSourceType[];
+            const tableDataSource = formRef.current?.getFieldValue('table') as DataSourceType[];
             formRef.current?.setFieldsValue({
               table: tableDataSource.filter((item) => item.id !== row?.id),
             });
@@ -75,28 +68,28 @@ export default () => {
           }}
         >
           <EditableProTable<DataSourceType>
-            rowKey="id"
-            scroll={{
-              x: true,
-            }}
-            editableFormRef={editableFormRef}
             controlled
             actionRef={actionRef}
+            columns={columns}
+            editable={{
+              type: 'multiple',
+              editableKeys,
+              onChange: setEditableRowKeys,
+            }}
+            editableFormRef={editableFormRef}
             formItemProps={{
               label: '题库编辑',
             }}
             maxLength={10}
             name="table"
-            columns={columns}
             recordCreatorProps={{
               record: (index) => {
                 return { id: index + 1 };
               },
             }}
-            editable={{
-              type: 'multiple',
-              editableKeys,
-              onChange: setEditableRowKeys,
+            rowKey="id"
+            scroll={{
+              x: true,
             }}
           />
         </ProForm>
@@ -196,5 +189,5 @@ export default () => {
         <strong>配置管理</strong>: 配置管理功能
       </li>
     </ul>
-  </div>
+  </div>;
 };

@@ -15,7 +15,7 @@ import {
   ProFormText,
   ProFormUploadButton,
   ProFormUploadDragger,
-} from '@ant-design/pro-components';
+} from '@xxlabs/pro-components';
 import { Switch } from 'antd';
 import Mock from 'mockjs';
 import { useState } from 'react';
@@ -37,17 +37,15 @@ const Demo = () => {
       }}
     >
       <Switch
+        checked={readonly}
+        checkedChildren="Edit"
         style={{
           marginBlockEnd: 16,
         }}
-        checked={readonly}
-        checkedChildren="Edit"
         unCheckedChildren="Read Only"
         onChange={setReadonly}
       />
       <ProForm
-        readonly={readonly}
-        name="validate_other"
         initialValues={{
           name: 'qixian',
           password: '1ixian',
@@ -67,37 +65,40 @@ const Demo = () => {
           segmented: 'open',
           segmented2: 'open',
         }}
+        name="validate_other"
+        readonly={readonly}
+        onFinish={async (value) => console.log(value)}
         onValuesChange={(_, values) => {
           console.log(values);
         }}
-        onFinish={async (value) => console.log(value)}
       >
         <ProFormGroup title="Text Types">
-          <ProFormText width="md" name="name" label="Name" />
-          <ProFormText.Password width="md" name="password" label="Password" />
+          <ProFormText label="Name" name="name" width="md" />
+          <ProFormText.Password label="Password" name="password" width="md" />
         </ProFormGroup>
         <ProFormGroup
-          title="Selection Types"
           collapsible
           style={{
             gap: '0 32px',
           }}
+          title="Selection Types"
         >
           <ProFormSelect
-            name="select"
             label="Select"
+            name="select"
+            placeholder="Please select a country"
+            rules={[{ required: true, message: 'Please select your country!' }]}
             valueEnum={{
               china: 'China',
               usa: 'U.S.A',
             }}
-            placeholder="Please select a country"
-            rules={[{ required: true, message: 'Please select your country!' }]}
           />
           <ProFormSelect
-            name="select2"
-            label="Select with Search"
             showSearch
             debounceTime={300}
+            label="Select with Search"
+            name="select2"
+            placeholder="Please select a country"
             request={async ({ keyWords }) => {
               await waitTime(100);
               console.log(
@@ -135,34 +136,28 @@ const Demo = () => {
                 { label: 'Target' },
               ]);
             }}
-            placeholder="Please select a country"
             rules={[{ required: true, message: 'Please select your country!' }]}
           />
           <ProFormSelect
-            width="md"
             fieldProps={{
               labelInValue: true,
             }}
+            label="Contract Agreed Effective Method"
+            name="useMode"
             request={async () => [
               { label: 'All', value: 'all' },
               { label: 'Unresolved', value: 'open' },
               { label: 'Resolved', value: 'closed' },
               { label: 'In Progress', value: 'processing' },
             ]}
-            name="useMode"
-            label="Contract Agreed Effective Method"
+            width="md"
           />
           <ProFormSelect
-            name="select-multiple"
-            label="Select[multiple]"
-            valueEnum={{
-              red: 'Red',
-              green: 'Green',
-              blue: 'Blue',
-            }}
             fieldProps={{
               mode: 'multiple',
             }}
+            label="Select[multiple]"
+            name="select-multiple"
             placeholder="Please select favorite colors"
             rules={[
               {
@@ -171,9 +166,18 @@ const Demo = () => {
                 type: 'array',
               },
             ]}
+            valueEnum={{
+              red: 'Red',
+              green: 'Green',
+              blue: 'Blue',
+            }}
           />
           <ProFormCascader
+            fieldProps={{
+              changeOnSelect: true,
+            }}
             label="Address"
+            name="area"
             request={async () => [
               {
                 value: 'zhejiang',
@@ -208,15 +212,11 @@ const Demo = () => {
                 ],
               },
             ]}
-            fieldProps={{
-              changeOnSelect: true,
-            }}
-            name="area"
           />
 
           <ProFormRadio.Group
+            label="Radio.Group"
             name="radio"
-            label="Radio.Group"
             options={[
               {
                 label: 'item 1',
@@ -233,9 +233,9 @@ const Demo = () => {
             ]}
           />
           <ProFormRadio.Group
-            name="radio-vertical"
+            label="Radio.Group"
             layout="vertical"
-            label="Radio.Group"
+            name="radio-vertical"
             options={[
               {
                 label: 'item 1',
@@ -252,9 +252,8 @@ const Demo = () => {
             ]}
           />
           <ProFormRadio.Group
-            name="radio-button"
             label="Radio.Button"
-            radioType="button"
+            name="radio-button"
             options={[
               {
                 label: 'item 1',
@@ -269,10 +268,11 @@ const Demo = () => {
                 value: 'c',
               },
             ]}
+            radioType="button"
           />
           <ProFormCheckbox.Group
-            name="checkbox-group"
             label="Checkbox.Group"
+            name="checkbox-group"
             options={['A', 'B', 'C', 'D', 'E', 'F']}
           />
           <ProFormColorPicker label="Color Picker" name="color" />
@@ -281,22 +281,14 @@ const Demo = () => {
           <ProFormDigitRange
             label="InputNumberRange"
             name="input-number-range"
-            separator="-"
             placeholder={['Min', 'Max']}
+            separator="-"
             separatorWidth={60}
           />
-          <ProFormDigit
-            label="InputNumber"
-            name="input-number"
-            width="sm"
-            min={1}
-            max={10}
-          />
-          <ProFormSwitch name="switch" label="Switch" />
+          <ProFormDigit label="InputNumber" max={10} min={1} name="input-number" width="sm" />
+          <ProFormSwitch label="Switch" name="switch" />
           <ProFormSlider
-            name="slider"
             label="Slider"
-            width="lg"
             marks={{
               0: 'A',
               20: 'B',
@@ -305,21 +297,23 @@ const Demo = () => {
               80: 'E',
               100: 'F',
             }}
+            name="slider"
+            width="lg"
           />
-          <ProFormRate name="rate" label="Rate" />
-          <ProFormUploadButton name="pic" label="Upload" />
-          <ProFormUploadDragger name="drag-pic" label="Drag and Drop Upload" />
+          <ProFormRate label="Rate" name="rate" />
+          <ProFormUploadButton label="Upload" name="pic" />
+          <ProFormUploadDragger label="Drag and Drop Upload" name="drag-pic" />
           <ProFormSegmented
-            name="segmented"
             label="Segmented Control"
+            name="segmented"
             valueEnum={{
               open: 'Unresolved',
               closed: 'Resolved',
             }}
           />
           <ProFormSegmented
-            name="segmented2"
             label="Segmented Control - Remote Data"
+            name="segmented2"
             request={async () => [
               { label: 'All', value: 'all' },
               { label: 'Unresolved', value: 'open' },

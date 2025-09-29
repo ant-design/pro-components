@@ -22,7 +22,7 @@ Schema Form - JSON Form is a powerful component suitable for the following scena
 ### Basic Usage
 
 ```tsx | pure
-import { SchemaForm } from '@ant-design/pro-components';
+import { SchemaForm } from '@xxlabs/pro-components';
 
 export default () => {
   return <SchemaForm Form />;

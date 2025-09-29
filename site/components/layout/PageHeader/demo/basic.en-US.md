@@ -11,7 +11,7 @@ title: Basic Page Header
 Standard header, suitable for use in scenarios that require a brief description.
 
 ```tsx
-import { PageHeader } from '@ant-design/pro-components';
+import { PageHeader } from '@xxlabs/pro-components';
 import React from 'react';
 
 const App: React.FC = () => (

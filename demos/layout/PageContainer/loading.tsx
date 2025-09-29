@@ -1,19 +1,13 @@
-import { PageContainer } from '@ant-design/pro-components';
+import { PageContainer } from '@xxlabs/pro-components';
 import { Card } from 'antd';
 import React, { useEffect, useMemo, useState } from 'react';
 
 export default () => {
   const customLoadingDom = useMemo(
-    () => (
-      <div style={{ color: 'red', padding: '30px', textAlign: 'center' }}>
-        Custom loading...
-      </div>
-    ),
+    () => <div style={{ color: 'red', padding: '30px', textAlign: 'center' }}>Custom loading...</div>,
     [],
   );
-  const [customLoading, setCustomLoading] = useState<React.ReactNode | boolean>(
-    customLoadingDom,
-  );
+  const [customLoading, setCustomLoading] = useState<React.ReactNode | boolean>(customLoadingDom);
 
   useEffect(() => {
     if (process.env.NODE_ENV?.toLocaleLowerCase() === 'test') {
@@ -72,11 +66,6 @@ export default () => {
       <Card>
         <PageContainer
           ghost
-          loading={{
-            spinning: true,
-            className: 'customClassName',
-            tip: 'Loading relentlessly...',
-          }}
           header={{
             title: 'Custom loading property',
             breadcrumb: {
@@ -96,6 +85,11 @@ export default () => {
               ],
             },
           }}
+          loading={{
+            spinning: true,
+            className: 'customClassName',
+            tip: 'Loading relentlessly...',
+          }}
         >
           <div
             style={{
@@ -109,7 +103,6 @@ export default () => {
       <Card>
         <PageContainer
           ghost
-          loading={customLoading}
           header={{
             title: 'Custom loading, display content after 3 seconds',
             breadcrumb: {
@@ -129,6 +122,7 @@ export default () => {
               ],
             },
           }}
+          loading={customLoading}
         >
           <div
             style={{

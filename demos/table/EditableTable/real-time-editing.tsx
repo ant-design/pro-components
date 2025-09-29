@@ -1,9 +1,5 @@
-import type { ProColumns } from '@ant-design/pro-components';
-import {
-  EditableProTable,
-  ProCard,
-  ProFormField,
-} from '@ant-design/pro-components';
+import type { ProColumns } from '@xxlabs/pro-components';
+import { EditableProTable, ProCard, ProFormField } from '@xxlabs/pro-components';
 import { Button } from 'antd';
 import React, { useState } from 'react';
 
@@ -27,12 +23,8 @@ const defaultData: DataSourceType[] = new Array(20).fill(1).map((_, index) => {
 });
 
 export default () => {
-  const [editableKeys, setEditableRowKeys] = useState<React.Key[]>(() =>
-    defaultData.map((item) => item.id),
-  );
-  const [dataSource, setDataSource] = useState<readonly DataSourceType[]>(
-    () => defaultData,
-  );
+  const [editableKeys, setEditableRowKeys] = useState<React.Key[]>(() => defaultData.map((item) => item.id));
+  const [dataSource, setDataSource] = useState<readonly DataSourceType[]>(() => defaultData);
 
   const columns: ProColumns<DataSourceType>[] = [
     {
@@ -97,34 +89,7 @@ export default () => {
   return (
     <>
       <EditableProTable<DataSourceType>
-        headerTitle="可编辑表格"
         columns={columns}
-        rowKey="id"
-        scroll={{
-          x: 960,
-        }}
-        value={dataSource}
-        onChange={setDataSource}
-        recordCreatorProps={{
-          newRecordType: 'dataSource',
-          record: () => ({
-            id: Date.now(),
-          }),
-        }}
-        toolBarRender={() => {
-          return [
-            <Button
-              type="primary"
-              key="save"
-              onClick={() => {
-                // dataSource 就是当前数据，可以调用 api 将其保存
-                console.log(dataSource);
-              }}
-            >
-              保存数据
-            </Button>,
-          ];
-        }}
         editable={{
           type: 'multiple',
           editableKeys,
@@ -136,8 +101,35 @@ export default () => {
           },
           onChange: setEditableRowKeys,
         }}
+        headerTitle="可编辑表格"
+        recordCreatorProps={{
+          newRecordType: 'dataSource',
+          record: () => ({
+            id: Date.now(),
+          }),
+        }}
+        rowKey="id"
+        scroll={{
+          x: 960,
+        }}
+        toolBarRender={() => {
+          return [
+            <Button
+              key="save"
+              type="primary"
+              onClick={() => {
+                // dataSource 就是当前数据，可以调用 api 将其保存
+                console.log(dataSource);
+              }}
+            >
+              保存数据
+            </Button>,
+          ];
+        }}
+        value={dataSource}
+        onChange={setDataSource}
       />
-      <ProCard title="表格数据" headerBordered collapsible defaultCollapsed>
+      <ProCard collapsible defaultCollapsed headerBordered title="表格数据">
         <ProFormField
           ignoreFormItem
           fieldProps={{
@@ -146,8 +138,8 @@ export default () => {
             },
           }}
           mode="read"
-          valueType="jsonCode"
           text={JSON.stringify(dataSource)}
+          valueType="jsonCode"
         />
       </ProCard>
     </>

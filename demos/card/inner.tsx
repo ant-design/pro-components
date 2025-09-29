@@ -1,14 +1,9 @@
-import { ProCard } from '@ant-design/pro-components';
+import { ProCard } from '@xxlabs/pro-components';
 
 export default () => {
   return (
     <>
-      <ProCard
-        title="Horizontal Inner Card"
-        variant="outlined"
-        headerBordered
-        gutter={16}
-      >
+      <ProCard headerBordered gutter={16} title="Horizontal Inner Card" variant="outlined">
         <ProCard title="Inner Card Title" type="inner" variant="outlined">
           Inner Card Content
         </ProCard>
@@ -18,12 +13,12 @@ export default () => {
       </ProCard>
 
       <ProCard
-        title="Vertical Inner Card"
-        variant="outlined"
         headerBordered
         direction="column"
         gutter={[0, 16]}
         style={{ marginBlockStart: 8 }}
+        title="Vertical Inner Card"
+        variant="outlined"
       >
         <ProCard title="Inner Card Title" type="inner" variant="outlined">
           Inner Card Content

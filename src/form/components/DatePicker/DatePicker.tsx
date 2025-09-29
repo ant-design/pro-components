@@ -9,23 +9,27 @@ const valueType = 'date' as const;
  *
  * @param
  */
-const ProFormDatePicker: React.FC<ProFormFieldItemProps<DatePickerProps>> =
-  React.forwardRef(({ proFieldProps, fieldProps, ...rest }, ref) => {
-    return (
-      <BaseDatePicker
-        valueType={valueType}
-        ref={ref as any}
-        fieldProps={{
-          ...fieldProps,
-        }}
-        proFieldProps={proFieldProps}
-        fieldConfig={{
-          valueType,
-          customLightMode: true,
-        }}
-        {...rest}
-      />
-    );
-  });
+const ProFormDatePicker: React.FC<ProFormFieldItemProps<DatePickerProps>> = ({
+  proFieldProps,
+  fieldProps,
+  ref,
+  ...rest
+}) => {
+  return (
+    <BaseDatePicker
+      ref={ref as any}
+      fieldConfig={{
+        valueType,
+        customLightMode: true,
+      }}
+      fieldProps={{
+        ...fieldProps,
+      }}
+      proFieldProps={proFieldProps}
+      valueType={valueType}
+      {...rest}
+    />
+  );
+};
 
 export default ProFormDatePicker;

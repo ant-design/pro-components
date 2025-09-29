@@ -1,5 +1,5 @@
-import { ProCard } from '@ant-design/pro-components';
 import { cleanup, render, waitFor } from '@testing-library/react';
+import { ProCard } from '@xxlabs/pro-components';
 import { act } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
@@ -16,14 +16,14 @@ describe('Card', () => {
     const wrapper = render(
       <ProCard title="父节点">
         <ProCard
-          title="可折叠"
-          headerBordered
           collapsible
           defaultCollapsed
-          onCollapse={fn}
+          headerBordered
           colSpan={{
             xs: 24,
           }}
+          title="可折叠"
+          onCollapse={fn}
         >
           内容
         </ProCard>
@@ -34,9 +34,7 @@ describe('Card', () => {
     await wrapper.findAllByText('可折叠');
 
     act(() => {
-      wrapper.baseElement
-        .querySelector<HTMLDivElement>('.ant-pro-card-collapsible-icon')
-        ?.click();
+      wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-card-collapsible-icon')?.click();
     });
 
     await waitFor(() => {
@@ -46,57 +44,45 @@ describe('Card', () => {
 
   it('🥩 collapsible defaultCollapsed', async () => {
     const wrapper = render(
-      <ProCard title="可折叠" headerBordered collapsible defaultCollapsed>
+      <ProCard collapsible defaultCollapsed headerBordered title="可折叠">
         内容
       </ProCard>,
     );
     await wrapper.findAllByText('可折叠');
-    expect(
-      !!wrapper.baseElement.querySelector<HTMLDivElement>(
-        '.ant-pro-card-collapse',
-      ),
-    ).toBeTruthy();
+    expect(!!wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-card-collapse')).toBeTruthy();
   });
 
   it('🥩 collapsible collapsed', async () => {
     const wrapper = render(
-      <ProCard title="可折叠" headerBordered collapsed>
+      <ProCard collapsed headerBordered title="可折叠">
         内容
       </ProCard>,
     );
     await wrapper.findAllByText('可折叠');
-    expect(
-      !!wrapper.baseElement.querySelector<HTMLDivElement>(
-        '.ant-pro-card-collapse',
-      ),
-    ).toBeTruthy();
+    expect(!!wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-card-collapse')).toBeTruthy();
 
     act(() => {
       wrapper.rerender(
-        <ProCard title="可打开" headerBordered collapsed={false}>
+        <ProCard headerBordered collapsed={false} title="可打开">
           内容
         </ProCard>,
       );
     });
 
     await wrapper.findAllByText('可打开');
-    expect(
-      !!wrapper.baseElement.querySelector<HTMLDivElement>(
-        '.ant-pro-card-collapse',
-      ),
-    ).toBeFalsy();
+    expect(!!wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-card-collapse')).toBeFalsy();
   });
 
   it('🥩 collapsible icon custom render with defaultCollapsed', async () => {
     const wrapper = render(
       <ProCard
-        title="可折叠-图标自定义"
+        collapsible
+        defaultCollapsed
+        headerBordered
         collapsibleIconRender={({ collapsed }: { collapsed: boolean }) =>
           collapsed ? <span>更多</span> : <span>收起</span>
         }
-        headerBordered
-        defaultCollapsed
-        collapsible
+        title="可折叠-图标自定义"
       >
         内容
       </ProCard>,
@@ -104,11 +90,7 @@ describe('Card', () => {
     await wrapper.findAllByText('可折叠-图标自定义');
 
     act(() => {
-      expect(
-        !!wrapper.baseElement.querySelector<HTMLDivElement>(
-          '.ant-pro-card-collapse',
-        ),
-      ).toBeTruthy();
+      expect(!!wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-card-collapse')).toBeTruthy();
     });
 
     const dom = await wrapper.findByText('更多');
@@ -119,41 +101,33 @@ describe('Card', () => {
   it('🥩 collapsible icon custom render', async () => {
     const wrapper = render(
       <ProCard
-        title="可折叠-图标自定义"
+        collapsible
         collapsibleIconRender={({ collapsed }: { collapsed: boolean }) =>
           collapsed ? <span>更多</span> : <span>收起</span>
         }
         defaultCollapsed={false}
-        collapsible
         extra={
           <div>
             <span>操作</span>
           </div>
         }
+        title="可折叠-图标自定义"
       >
         内容
       </ProCard>,
     );
     await wrapper.findAllByText('可折叠-图标自定义');
 
-    expect(
-      !!wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-card'),
-    ).toBeTruthy();
+    expect(!!wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-card')).toBeTruthy();
 
-    expect(
-      !!wrapper.baseElement.querySelector<HTMLDivElement>(
-        '.ant-pro-card-collapse',
-      ),
-    ).toBeFalsy();
+    expect(!!wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-card-collapse')).toBeFalsy();
 
     const dom = await wrapper.findByText('收起');
 
     expect(!!dom).toBe(true);
 
     act(() => {
-      wrapper.baseElement
-        .querySelector<HTMLDivElement>('.ant-pro-card-extra')
-        ?.click();
+      wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-card-extra')?.click();
     });
 
     wrapper.unmount();
@@ -181,9 +155,7 @@ describe('Card', () => {
       />,
     );
     act(() => {
-      wrapper.baseElement
-        .querySelectorAll<HTMLDivElement>('.ant-pro-card-tabs .ant-tabs-tab')[1]
-        ?.click();
+      wrapper.baseElement.querySelectorAll<HTMLDivElement>('.ant-pro-card-tabs .ant-tabs-tab')[1]?.click();
     });
     expect(fn).toHaveBeenCalledWith('tab2');
     wrapper.unmount();

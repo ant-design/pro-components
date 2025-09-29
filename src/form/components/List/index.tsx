@@ -1,40 +1,22 @@
-import {
-  ArrowDownOutlined,
-  ArrowUpOutlined,
-  CopyOutlined,
-  DeleteOutlined,
-} from '@ant-design/icons';
+import { ArrowDownOutlined, ArrowUpOutlined, CopyOutlined, DeleteOutlined } from '@ant-design/icons';
 import { warning } from '@rc-component/util';
 import type { ColProps } from 'antd';
 import { ConfigProvider, Form } from 'antd';
-import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
-import type {
-  FormListFieldData,
-  FormListOperation,
-  FormListProps,
-} from 'antd/lib/form/FormList';
-import type { NamePath } from 'antd/lib/form/interface';
+import type { LabelTooltipType } from 'antd/es/form/FormItemLabel';
+import type { FormListFieldData, FormListOperation, FormListProps } from 'antd/es/form/FormList';
+import type { NamePath } from 'antd/es/form/interface';
 import classNames from 'classnames';
 import type { ReactNode } from 'react';
-import React, {
-  useContext,
-  useEffect,
-  useImperativeHandle,
-  useMemo,
-  useRef,
-} from 'react';
+import React, { useContext, useEffect, useImperativeHandle, useMemo, useRef } from 'react';
 import { useIntl } from '../../../provider';
 import { ProFormContext } from '../../../utils';
 import FieldContext from '../../FieldContext';
 import { useGridHelpers } from '../../helpers';
 import type { ProFormGridConfig } from '../../typing';
 import { ProFormListContainer } from './ListContainer';
-import type {
-  ChildrenItemFunction,
-  FormListActionGuard,
-  ProFromListCommonProps,
-} from './ListItem';
+import type { ChildrenItemFunction, FormListActionGuard, ProFromListCommonProps } from './ListItem';
 import { useStyle } from './style';
+
 const { noteOnce } = warning;
 
 const FormListContext = React.createContext<
@@ -96,21 +78,17 @@ export type ProFormListProps<T> = Omit<FormListProps, 'children' | 'rules'> &
      * @example  actionRef?.current.get?.(1);
      * @example  actionRef?.current.getList?.();
      */
-    actionRef?: React.MutableRefObject<FormListActionType<T> | undefined>;
+    actionRef?: React.RefObject<FormListActionType<T> | undefined>;
     /** 放在div上面的属性 */
     style?: React.CSSProperties;
     /**
      * 数据新增成功回调
      */
-    onAfterAdd?: (
-      ...params: [...Parameters<FormListOperation['add']>, number]
-    ) => void;
+    onAfterAdd?: (...params: [...Parameters<FormListOperation['add']>, number]) => void;
     /**
      * 数据移除成功回调
      */
-    onAfterRemove?: (
-      ...params: [...Parameters<FormListOperation['remove']>, number]
-    ) => void;
+    onAfterRemove?: (...params: [...Parameters<FormListOperation['remove']>, number]) => void;
     /** 是否同时校验列表是否为空 */
     isValidateList?: boolean;
     /** 当 isValidateList 为 true 时执行为空提示 */
@@ -125,7 +103,7 @@ export type ProFormListProps<T> = Omit<FormListProps, 'children' | 'rules'> &
   } & Pick<ProFormGridConfig, 'colProps' | 'rowProps'>;
 
 function ProFormList<T>(props: ProFormListProps<T>) {
-  const actionRefs = useRef<FormListOperation>();
+  const actionRefs = useRef<FormListOperation>(undefined);
   const context = useContext(ConfigProvider.ConfigContext);
   const listContext = useContext(FormListContext);
   const baseClassName = context.getPrefixCls('pro-form-list');
@@ -196,29 +174,21 @@ function ProFormList<T>(props: ProFormListProps<T>) {
     return [listContext.name, rest.name].flat(1);
   }, [listContext.name, rest.name]);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useImperativeHandle(
     actionRef,
     () =>
       ({
         ...actionRefs.current,
         get: (index: number) => {
-          return proFormContext.formRef!.current!.getFieldValue([
-            ...name,
-            index,
-          ]);
+          return proFormContext.formRef!.current!.getFieldValue([...name, index]);
         },
-        getList: () =>
-          proFormContext.formRef!.current!.getFieldValue([...name]),
+        getList: () => proFormContext.formRef!.current!.getFieldValue([...name]),
       }) as any,
     [name, proFormContext.formRef],
   );
 
   useEffect(() => {
-    noteOnce(
-      !!proFormContext.formRef,
-      `ProFormList 必须要放到 ProForm 中,否则会造成行为异常。`,
-    );
+    noteOnce(!!proFormContext.formRef, `ProFormList 必须要放到 ProForm 中,否则会造成行为异常。`);
     noteOnce(
       !!proFormContext.formRef,
       `Proformlist must be placed in ProForm, otherwise it will cause abnormal behavior.`,
@@ -249,13 +219,13 @@ function ProFormList<T>(props: ProFormListProps<T>) {
     <ColWrapper>
       <div className={classNames(baseClassName, hashId)} style={style}>
         <Form.Item
+          className={className}
           label={label}
           prefixCls={prefixCls}
-          tooltip={tooltip}
-          style={style}
           required={rules?.some((rule) => rule.required)}
+          style={style}
+          tooltip={tooltip}
           wrapperCol={wrapperCol}
-          className={className}
           {...rest}
           name={isValidateList ? name : undefined}
           rules={
@@ -281,30 +251,32 @@ function ProFormList<T>(props: ProFormListProps<T>) {
               return (
                 <RowWrapper>
                   <ProFormListContainer
-                    name={name}
-                    readonly={!!readonly}
-                    originName={rest.name}
-                    copyIconProps={copyIconProps}
-                    deleteIconProps={deleteIconProps}
-                    arrowSort={arrowSort}
-                    upIconProps={upIconProps}
-                    downIconProps={downIconProps}
-                    formInstance={proFormContext.formRef!.current!}
-                    prefixCls={baseClassName}
-                    meta={meta}
-                    fields={fields}
-                    itemContainerRender={itemContainerRender}
-                    itemRender={itemRender}
-                    fieldExtraRender={fieldExtraRender}
-                    creatorButtonProps={creatorButtonProps}
-                    creatorRecord={creatorRecord}
-                    actionRender={actionRender}
                     action={action}
                     actionGuard={actionGuard}
+                    actionRender={actionRender}
                     alwaysShowItemLabel={alwaysShowItemLabel}
-                    min={min}
-                    max={max}
+                    arrowSort={arrowSort}
+                    containerClassName={containerClassName}
+                    containerStyle={containerStyle}
+                    copyIconProps={copyIconProps}
                     count={fields.length}
+                    creatorButtonProps={creatorButtonProps}
+                    creatorRecord={creatorRecord}
+                    deleteIconProps={deleteIconProps}
+                    downIconProps={downIconProps}
+                    fieldExtraRender={fieldExtraRender}
+                    fields={fields}
+                    formInstance={proFormContext.formRef!.current!}
+                    itemContainerRender={itemContainerRender}
+                    itemRender={itemRender}
+                    max={max}
+                    meta={meta}
+                    min={min}
+                    name={name}
+                    originName={rest.name}
+                    prefixCls={baseClassName}
+                    readonly={!!readonly}
+                    upIconProps={upIconProps}
                     onAfterAdd={(defaultValue, insertIndex, count) => {
                       if (isValidateList) {
                         proFormContext.formRef!.current!.validateFields([name]);
@@ -314,15 +286,11 @@ function ProFormList<T>(props: ProFormListProps<T>) {
                     onAfterRemove={(index, count) => {
                       if (isValidateList) {
                         if (count === 0) {
-                          proFormContext.formRef!.current!.validateFields([
-                            name,
-                          ]);
+                          proFormContext.formRef!.current!.validateFields([name]);
                         }
                       }
                       onAfterRemove?.(index, count);
                     }}
-                    containerClassName={containerClassName}
-                    containerStyle={containerStyle}
                   >
                     {children}
                   </ProFormListContainer>

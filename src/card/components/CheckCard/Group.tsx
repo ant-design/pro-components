@@ -2,16 +2,10 @@ import { RightOutlined } from '@ant-design/icons';
 import { omit } from '@rc-component/util';
 import { ConfigProvider, Skeleton } from 'antd';
 import classNames from 'classnames';
-import React, {
-  createContext,
-  useCallback,
-  useContext,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import React, { useCallback, useContext, useMemo, useRef, useState } from 'react';
 import { ProConfigProvider, proTheme } from '../../../provider';
 import { useMountMergeState } from '../../../utils';
+import { CheckCardGroupContext } from './Context';
 import CheckCard from './index';
 import { useStyle } from './style';
 
@@ -21,10 +15,7 @@ export type CheckCardValueType = string | number | boolean;
  * Represents the possible value types for a CheckGroup.
  * It can be an array of CheckCardValueTypes, a single CheckCardValueType, or undefined.
  */
-export type CheckGroupValueType =
-  | CheckCardValueType[]
-  | CheckCardValueType
-  | undefined;
+export type CheckGroupValueType = CheckCardValueType[] | CheckCardValueType | undefined;
 
 /**
  * Represents an option for a CheckCard component.
@@ -127,7 +118,7 @@ export const CardLoading: React.FC<{
 }> = ({ prefixCls, hashId }) => {
   return (
     <div className={classNames(`${prefixCls}-loading-content`, hashId)}>
-      <Skeleton loading active paragraph={{ rows: 4 }} title={false} />
+      <Skeleton active loading paragraph={{ rows: 4 }} title={false} />
     </div>
   );
 };
@@ -228,9 +219,6 @@ export type CheckCardGroupConnextType = {
   cancelValue?: (value: any) => void;
 };
 
-export const CheckCardGroupConnext =
-  createContext<CheckCardGroupConnextType | null>(null);
-
 /**
  * SubCheckCardGroup component.
  *
@@ -302,28 +290,20 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
     });
   }, [options]);
 
-  const prefixCls = antdContext.getPrefixCls(
-    'pro-checkcard',
-    customizePrefixCls,
-  );
+  const prefixCls = antdContext.getPrefixCls('pro-checkcard', customizePrefixCls);
 
   const { wrapSSR, hashId } = useStyle(prefixCls);
   const groupPrefixCls = `${prefixCls}-group`;
 
-  const domProps = omit(restProps, [
-    'children',
-    'defaultValue',
-    'value',
-    'disabled',
-    'size',
-  ]);
+  const domProps = omit(restProps, ['children', 'defaultValue', 'value', 'disabled', 'size']);
 
-  const [stateValue, setStateValue] = useMountMergeState<
-    CheckCardValueType[] | CheckCardValueType | undefined
-  >(props.defaultValue, {
-    value: props.value,
-    onChange: props.onChange,
-  });
+  const [stateValue, setStateValue] = useMountMergeState<CheckCardValueType[] | CheckCardValueType | undefined>(
+    props.defaultValue,
+    {
+      value: props.value,
+      onChange: props.onChange,
+    },
+  );
 
   const registerValueMap = useRef<Map<CheckCardValueType, any>>(new Map());
 
@@ -358,9 +338,7 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
         changeValue.push(option.value);
       }
       if (hasOption) {
-        changeValue = changeValue.filter(
-          (itemValue) => itemValue !== option.value,
-        );
+        changeValue = changeValue.filter((itemValue) => itemValue !== option.value);
       }
       const newOptions = getOptions();
       const newValue = changeValue
@@ -377,31 +355,23 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
 
   const children = useMemo((): React.ReactNode => {
     if (loading) {
-      return (
-        new Array(
-          options.length || React.Children.toArray(props.children).length || 1,
-        )
-          .fill(0)
-          // eslint-disable-next-line react/no-array-index-key
-          .map((_, index) => (
-            <CheckCard key={index} loading />
-          )) as React.ReactNode[]
-      );
+      return new Array(options.length || React.Children.toArray(props.children).length || 1)
+        .fill(0)
+
+        .map((_, index) => <CheckCard key={index} loading />) as React.ReactNode[];
     }
 
     if (options && options.length > 0) {
-      const optionValue = stateValue as
-        | CheckCardValueType[]
-        | CheckCardValueType;
+      const optionValue = stateValue as CheckCardValueType[] | CheckCardValueType;
 
       const renderOptions = (list: CheckCardOptionType[]) => {
         return list.map((option) => {
           if (option.children && option.children.length > 0) {
             return (
               <SubCheckCardGroup
-                title={option.title}
-                prefix={groupPrefixCls}
                 key={option.value?.toString() || option.title?.toString()}
+                prefix={groupPrefixCls}
+                title={option.title}
               >
                 {renderOptions(option.children)}
               </SubCheckCardGroup>
@@ -410,21 +380,19 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
           return (
             <CheckCard
               key={option.value.toString()}
-              disabled={option.disabled}
-              size={option.size ?? props.size}
-              value={option.value}
+              avatar={option.avatar}
               checked={
                 multiple
-                  ? (optionValue as CheckCardValueType[])?.includes(
-                      option.value,
-                    )
+                  ? (optionValue as CheckCardValueType[])?.includes(option.value)
                   : (optionValue as CheckCardValueType) === option.value
               }
-              onChange={option.onChange}
-              title={option.title}
-              avatar={option.avatar}
-              description={option.description}
               cover={option.cover}
+              description={option.description}
+              disabled={option.disabled}
+              size={option.size ?? props.size}
+              title={option.title}
+              value={option.value}
+              onChange={option.onChange}
             />
           );
         }) as React.ReactNode[];
@@ -432,20 +400,12 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
       return renderOptions(getOptions()) as React.ReactNode[];
     }
     return props.children as React.ReactNode;
-  }, [
-    getOptions,
-    loading,
-    multiple,
-    options,
-    props.children,
-    props.size,
-    stateValue,
-  ]);
+  }, [getOptions, loading, multiple, options, props.children, props.size, stateValue]);
 
   const classString = classNames(groupPrefixCls, className, hashId);
 
   return wrapSSR(
-    <CheckCardGroupConnext.Provider
+    <CheckCardGroupContext.Provider
       value={{
         toggleOption,
         bordered,
@@ -462,12 +422,14 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
       <div className={classString} style={style} {...domProps}>
         {children}
       </div>
-    </CheckCardGroupConnext.Provider>,
+    </CheckCardGroupContext.Provider>,
   );
 };
 
-export default (props: CheckCardGroupProps) => (
+const CheckCardExport = (props: CheckCardGroupProps) => (
   <ProConfigProvider needDeps>
     <CheckCardGroup {...props} />
   </ProConfigProvider>
 );
+
+export default CheckCardExport;

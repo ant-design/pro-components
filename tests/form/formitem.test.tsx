@@ -1,5 +1,5 @@
-import { ProForm, ProFormText } from '@ant-design/pro-components';
 import { cleanup, fireEvent, render } from '@testing-library/react';
+import { ProForm, ProFormText } from '@xxlabs/pro-components';
 import { Input } from 'antd';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
@@ -44,7 +44,7 @@ describe('ProForm.Item', () => {
         onValuesChange={({ name }) => onValuesChange(name)}
       >
         <ProForm.Item name="name">
-          <Input onChange={(e) => onChange(e.target.value)} id="name" />
+          <Input id="name" onChange={(e) => onChange(e.target.value)} />
         </ProForm.Item>
       </ProForm>,
     );

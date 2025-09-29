@@ -1,9 +1,4 @@
-﻿import {
-  ProForm,
-  ProFormCheckbox,
-  ProFormRadio,
-  ProFormText,
-} from '@ant-design/pro-components';
+﻿import { ProForm, ProFormCheckbox, ProFormRadio, ProFormText } from '@xxlabs/pro-components';
 import { Button } from 'antd';
 
 const layout = {
@@ -17,13 +12,7 @@ const tailLayout = {
 export default () => {
   return (
     <>
-      <ProForm
-        {...layout}
-        layout="horizontal"
-        submitter={false}
-        name="basic"
-        initialValues={{ remember: true }}
-      >
+      <ProForm {...layout} initialValues={{ remember: true }} layout="horizontal" name="basic" submitter={false}>
         <ProFormText label="Name" name="name" />
 
         <ProFormText.Password
@@ -38,7 +27,7 @@ export default () => {
           Remember me
         </ProFormRadio>
         <ProForm.Item {...tailLayout}>
-          <Button type="primary" htmlType="submit">
+          <Button htmlType="submit" type="primary">
             Submit
           </Button>
         </ProForm.Item>

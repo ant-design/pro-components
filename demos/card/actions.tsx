@@ -1,9 +1,5 @@
-import {
-  EditOutlined,
-  EllipsisOutlined,
-  SettingOutlined,
-} from '@ant-design/icons';
-import { ProCard } from '@ant-design/pro-components';
+import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
+import { ProCard } from '@xxlabs/pro-components';
 import { Space } from 'antd';
 
 export default () => {
@@ -11,13 +7,13 @@ export default () => {
     <>
       <Space>
         <ProCard
-          title="Actions"
-          style={{ maxWidth: 300 }}
           actions={[
             <SettingOutlined key="setting" />,
             <EditOutlined key="edit" />,
             <EllipsisOutlined key="ellipsis" />,
           ]}
+          style={{ maxWidth: 300 }}
+          title="Actions"
         >
           <div>Card content</div>
           <div>Card content</div>
@@ -25,9 +21,6 @@ export default () => {
         </ProCard>
 
         <ProCard
-          title="Standalone Actions"
-          style={{ maxWidth: 300 }}
-          variant="outlined"
           actions={
             <div
               style={{
@@ -43,17 +36,16 @@ export default () => {
               Settings
             </div>
           }
+          style={{ maxWidth: 300 }}
+          title="Standalone Actions"
+          variant="outlined"
         >
           <div>Card content</div>
           <div>Card content</div>
           <div>Card content</div>
         </ProCard>
 
-        <ProCard
-          variant="outlined"
-          title="No Actions"
-          style={{ maxWidth: 300 }}
-        >
+        <ProCard style={{ maxWidth: 300 }} title="No Actions" variant="outlined">
           <div>Card content</div>
           <div>Card content</div>
           <div>Card content</div>
@@ -74,12 +66,10 @@ export default () => {
             <strong>title</strong>: 卡片标题，可以是字符串或 React 节点
           </li>
           <li>
-            <strong>actions</strong>:
-            卡片操作区域，可以是数组（多个操作按钮）或单个 React 节点
+            <strong>actions</strong>: 卡片操作区域，可以是数组（多个操作按钮）或单个 React 节点
           </li>
           <li>
-            <strong>variant</strong>: 卡片变体样式，可选值：'outlined' |
-            'filled' | 'elevated'
+            <strong>variant</strong>: 卡片变体样式，可选值：'outlined' | 'filled' | 'elevated'
           </li>
           <li>
             <strong>style</strong>: 卡片的样式对象
@@ -91,16 +81,13 @@ export default () => {
         <h4>Actions 使用说明：</h4>
         <ul>
           <li>
-            <strong>数组形式</strong>: 传入 React
-            节点数组，每个元素会渲染为一个操作按钮
+            <strong>数组形式</strong>: 传入 React 节点数组，每个元素会渲染为一个操作按钮
           </li>
           <li>
-            <strong>单个节点</strong>: 传入单个 React
-            节点，可以自定义操作区域的布局和样式
+            <strong>单个节点</strong>: 传入单个 React 节点，可以自定义操作区域的布局和样式
           </li>
           <li>
-            <strong>不设置</strong>: 如果不设置 actions
-            属性，卡片底部不会显示操作区域
+            <strong>不设置</strong>: 如果不设置 actions 属性，卡片底部不会显示操作区域
           </li>
         </ul>
       </div>

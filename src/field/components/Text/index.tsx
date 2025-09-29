@@ -11,14 +11,11 @@ import type { ProFieldFC } from '../../PureProField';
 const FieldText: ProFieldFC<{
   text: string;
   emptyText?: React.ReactNode;
-}> = (
-  { text, mode, render, formItemRender, fieldProps, emptyText = '-' },
-  ref,
-) => {
+}> = ({ text, mode, render, formItemRender, fieldProps, emptyText = '-', ref }) => {
   const { autoFocus, prefix = '', suffix = '' } = fieldProps || {};
 
   const intl = useIntl();
-  const inputRef = useRef<HTMLInputElement>();
+  const inputRef = useRef<HTMLInputElement>(undefined);
 
   useImperativeHandle(ref, () => inputRef.current, []);
 
@@ -42,16 +39,10 @@ const FieldText: ProFieldFC<{
     }
     return dom;
   }
+
   if (mode === 'edit' || mode === 'update') {
     const placeholder = intl.getMessage('tableForm.inputPlaceholder', '请输入');
-    const dom = (
-      <Input
-        ref={inputRef}
-        placeholder={placeholder}
-        allowClear
-        {...fieldProps}
-      />
-    );
+    const dom = <Input ref={inputRef} allowClear placeholder={placeholder} {...fieldProps} />;
 
     if (formItemRender) {
       return formItemRender(text, { mode, ...fieldProps }, dom);
@@ -61,4 +52,4 @@ const FieldText: ProFieldFC<{
   return null;
 };
 
-export default React.forwardRef(FieldText);
+export default FieldText;

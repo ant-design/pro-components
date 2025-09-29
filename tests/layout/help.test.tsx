@@ -1,19 +1,11 @@
-﻿import type { ProHelpDataSourceChildren } from '@ant-design/pro-components';
-import {
-  ProHelp,
-  ProHelpDrawer,
-  ProHelpModal,
-  ProHelpPanel,
-  ProHelpSelect,
-} from '@ant-design/pro-components';
-import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
+﻿import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
+import type { ProHelpDataSourceChildren } from '@xxlabs/pro-components';
+import { ProHelp, ProHelpDrawer, ProHelpModal, ProHelpPanel, ProHelpSelect } from '@xxlabs/pro-components';
 import { Typography } from 'antd';
 import { act } from 'react';
 import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
 
-export const DefaultProHelp: React.FC<{ children: React.ReactNode }> = (
-  props,
-) => {
+export const DefaultProHelp: React.FC<{ children: React.ReactNode }> = (props) => {
   const map = new Map<
     string,
     (
@@ -35,10 +27,10 @@ export const DefaultProHelp: React.FC<{ children: React.ReactNode }> = (
     return (
       <video
         key={index}
+        controls
         style={{
           width: '100%',
         }}
-        controls
         {...(item.children as React.VideoHTMLAttributes<HTMLVideoElement>)}
       />
     );
@@ -71,13 +63,7 @@ export const DefaultProHelp: React.FC<{ children: React.ReactNode }> = (
           {listConfig.children.map((child, subIndex) => {
             return (
               <div key={subIndex}>
-                <Typography.Text>
-                  {child.href ? (
-                    <a href={child.href}>{child.title}</a>
-                  ) : (
-                    child.title
-                  )}
-                </Typography.Text>
+                <Typography.Text>{child.href ? <a href={child.href}>{child.title}</a> : child.title}</Typography.Text>
               </div>
             );
           })}
@@ -378,9 +364,7 @@ describe('👍🏻 ProHelpPanel', () => {
       (await html.findByTitle('collapse panel'))?.click();
     });
 
-    expect(
-      !!html.baseElement.querySelector('ant-pro-help-left-panel'),
-    ).toBeFalsy();
+    expect(!!html.baseElement.querySelector('ant-pro-help-left-panel')).toBeFalsy();
   });
 
   it('🎏 infiniteScrollFull panel', async () => {
@@ -418,8 +402,7 @@ describe('👍🏻 ProHelpPanel', () => {
                   },
                   {
                     valueType: 'text',
-                    children:
-                      '一种网页提供给用户的上传文件方法，用户可以通过网页上传自己的文件进行处理。',
+                    children: '一种网页提供给用户的上传文件方法，用户可以通过网页上传自己的文件进行处理。',
                   },
                 ],
               },
@@ -433,8 +416,7 @@ describe('👍🏻 ProHelpPanel', () => {
                   },
                   {
                     valueType: 'text',
-                    children:
-                      '即不通过网页上传的方式获取数据，例如从数据库、文件夹或其他数据源中获取数据。',
+                    children: '即不通过网页上传的方式获取数据，例如从数据库、文件夹或其他数据源中获取数据。',
                   },
                 ],
               },
@@ -448,8 +430,7 @@ describe('👍🏻 ProHelpPanel', () => {
                   },
                   {
                     valueType: 'text',
-                    children:
-                      '一个固定格式的数据说明书，它包含了所有数据元素的定义和说明，以及它们的定义和格式。',
+                    children: '一个固定格式的数据说明书，它包含了所有数据元素的定义和说明，以及它们的定义和格式。',
                   },
                 ],
               },
@@ -492,8 +473,7 @@ describe('👍🏻 ProHelpPanel', () => {
                   },
                   {
                     valueType: 'text',
-                    children:
-                      '在一个项目中产生或收集的所有数据资源，包括原始数据、处理数据、文档和元数据等。',
+                    children: '在一个项目中产生或收集的所有数据资源，包括原始数据、处理数据、文档和元数据等。',
                   },
                 ],
               },
@@ -507,8 +487,7 @@ describe('👍🏻 ProHelpPanel', () => {
                   },
                   {
                     valueType: 'text',
-                    children:
-                      '一种离线处理数据的方式，用户将需要处理的数据批量上传到系统中，再通过系统进行处理。',
+                    children: '一种离线处理数据的方式，用户将需要处理的数据批量上传到系统中，再通过系统进行处理。',
                   },
                   {
                     valueType: 'text',
@@ -533,8 +512,7 @@ describe('👍🏻 ProHelpPanel', () => {
                   },
                   {
                     valueType: 'text',
-                    children:
-                      '一种在线处理数据的方式，用户通过在线提交数据并调用相应的处理程序进行数据处理。',
+                    children: '一种在线处理数据的方式，用户通过在线提交数据并调用相应的处理程序进行数据处理。',
                   },
                 ],
               },
@@ -548,8 +526,7 @@ describe('👍🏻 ProHelpPanel', () => {
                   },
                   {
                     valueType: 'text',
-                    children:
-                      '一个由多个节点组成的场景，每个节点都有不同的特征和功能，相互之间可以通信和互动。',
+                    children: '一个由多个节点组成的场景，每个节点都有不同的特征和功能，相互之间可以通信和互动。',
                   },
                 ],
               },
@@ -563,8 +540,7 @@ describe('👍🏻 ProHelpPanel', () => {
                   },
                   {
                     valueType: 'text',
-                    children:
-                      '根据用户的要求对模型参数进行设置和调整，以达到最佳的处理效果。',
+                    children: '根据用户的要求对模型参数进行设置和调整，以达到最佳的处理效果。',
                   },
                 ],
               },
@@ -578,8 +554,7 @@ describe('👍🏻 ProHelpPanel', () => {
                   },
                   {
                     valueType: 'text',
-                    children:
-                      '系统生成的模型文件，包含了所有的模型参数和处理算法。',
+                    children: '系统生成的模型文件，包含了所有的模型参数和处理算法。',
                   },
                 ],
               },
@@ -593,8 +568,7 @@ describe('👍🏻 ProHelpPanel', () => {
                   },
                   {
                     valueType: 'text',
-                    children:
-                      '用于预处理数据的文件，系统可根据用户的设置进行数据预处理。',
+                    children: '用于预处理数据的文件，系统可根据用户的设置进行数据预处理。',
                   },
                 ],
               },
@@ -604,8 +578,7 @@ describe('👍🏻 ProHelpPanel', () => {
                 children: [
                   {
                     valueType: 'text',
-                    children:
-                      '用于后处理数据的文件，系统将处理完成的数据输出到后处理文件中。',
+                    children: '用于后处理数据的文件，系统将处理完成的数据输出到后处理文件中。',
                   },
                 ],
               },
@@ -619,8 +592,7 @@ describe('👍🏻 ProHelpPanel', () => {
                   },
                   {
                     valueType: 'text',
-                    children:
-                      '一种用于保护用户数据的安全控制模型，可以对数据进行加密、访问控制和防止数据泄漏等处理。',
+                    children: '一种用于保护用户数据的安全控制模型，可以对数据进行加密、访问控制和防止数据泄漏等处理。',
                   },
                 ],
               },
@@ -634,8 +606,7 @@ describe('👍🏻 ProHelpPanel', () => {
                   },
                   {
                     valueType: 'text',
-                    children:
-                      '一种用于数据匹配的安全控制方法，可以对数据进行匿名化处理，以保护用户的隐私。',
+                    children: '一种用于数据匹配的安全控制方法，可以对数据进行匿名化处理，以保护用户的隐私。',
                   },
                 ],
               },
@@ -649,8 +620,7 @@ describe('👍🏻 ProHelpPanel', () => {
                   },
                   {
                     valueType: 'text',
-                    children:
-                      '一种用于保护数据隐私的统计方法，可以在保证数据隐私的情况下进行数据分析和统计。',
+                    children: '一种用于保护数据隐私的统计方法，可以在保证数据隐私的情况下进行数据分析和统计。',
                   },
                 ],
               },
@@ -664,8 +634,7 @@ describe('👍🏻 ProHelpPanel', () => {
                   },
                   {
                     valueType: 'text',
-                    children:
-                      '一种由多方共同协作的数据处理和安全保护机制，可以保障数据的机密性和完整性。',
+                    children: '一种由多方共同协作的数据处理和安全保护机制，可以保障数据的机密性和完整性。',
                   },
                 ],
               },
@@ -679,8 +648,7 @@ describe('👍🏻 ProHelpPanel', () => {
                   },
                   {
                     valueType: 'text',
-                    children:
-                      '一种用于数据处理和安全保护的脚本程序，可以自动化完成数据安全控制任务。',
+                    children: '一种用于数据处理和安全保护的脚本程序，可以自动化完成数据安全控制任务。',
                   },
                 ],
               },
@@ -694,8 +662,7 @@ describe('👍🏻 ProHelpPanel', () => {
                   },
                   {
                     valueType: 'text',
-                    children:
-                      '一种保护用户隐私的查询方法，可以匿名化处理查询请求和返回结果，以保护用户的隐私。',
+                    children: '一种保护用户隐私的查询方法，可以匿名化处理查询请求和返回结果，以保护用户的隐私。',
                   },
                 ],
               },
@@ -724,11 +691,11 @@ describe('👍🏻 ProHelpPanel', () => {
           }}
         >
           <ProHelpPanel
+            defaultSelectedKey="name0"
+            height={648}
             onSelectedKeyChange={(key) => {
               onSelectedKeyChangeFn(key);
             }}
-            defaultSelectedKey="name0"
-            height={648}
           />
         </div>
       </ProHelp>,
@@ -737,15 +704,12 @@ describe('👍🏻 ProHelpPanel', () => {
     await html.findAllByText('导出表');
 
     await waitFor(() => {
-      return html.findByText(
-        '一种用于数据处理和安全保护的脚本程序，可以自动化完成数据安全控制任务。',
-      );
+      return html.findByText('一种用于数据处理和安全保护的脚本程序，可以自动化完成数据安全控制任务。');
     });
     await waitFor(() => {
       expect(
-        html.container.querySelectorAll(
-          '.ant-pro-help-content-render-infinite-scroll .ant-pro-help-content-render',
-        ).length,
+        html.container.querySelectorAll('.ant-pro-help-content-render-infinite-scroll .ant-pro-help-content-render')
+          .length,
       ).toBe(21);
     });
 
@@ -756,12 +720,9 @@ describe('👍🏻 ProHelpPanel', () => {
     });
 
     await act(() => {
-      fireEvent.scroll(
-        html.container.querySelector(
-          '.ant-pro-help-content-render-infinite-scroll',
-        )!,
-        { target: { scrollY: 1000 } },
-      );
+      fireEvent.scroll(html.container.querySelector('.ant-pro-help-content-render-infinite-scroll')!, {
+        target: { scrollY: 1000 },
+      });
     });
 
     const dom = await html.findByTestId('navigation-switch');
@@ -795,14 +756,10 @@ describe('👍🏻 ProHelpPanel', () => {
     });
 
     await act(async () => {
-      (
-        await html.findByText('证据包内包含哪些内容，如何下载证据包？')
-      )?.click();
+      (await html.findByText('证据包内包含哪些内容，如何下载证据包？'))?.click();
     });
 
-    await html.findAllByText(
-      '需要进行数据合作的数据提供方（数据源）和数据需求方双方都需要先安装部署',
-    );
+    await html.findAllByText('需要进行数据合作的数据提供方（数据源）和数据需求方双方都需要先安装部署');
   });
 
   it('🎏 ProHelp is empty', async () => {
@@ -857,9 +814,7 @@ describe('👍🏻 ProHelpPanel', () => {
     });
 
     await act(async () => {
-      html.baseElement
-        .querySelector<HTMLDivElement>('.ant-modal-wrap')
-        ?.click();
+      html.baseElement.querySelector<HTMLDivElement>('.ant-modal-wrap')?.click();
     });
 
     await waitFor(() => {
@@ -899,9 +854,7 @@ describe('👍🏻 ProHelpPanel', () => {
     });
 
     await act(async () => {
-      html.baseElement
-        .querySelector<HTMLDivElement>('.ant-drawer-mask')
-        ?.click();
+      html.baseElement.querySelector<HTMLDivElement>('.ant-drawer-mask')?.click();
     });
 
     await waitFor(() => {
@@ -969,9 +922,7 @@ describe('👍🏻 ProHelpPanel', () => {
 
     // 等待搜索结果更新
     await waitFor(() => {
-      const resultElement = html.baseElement.querySelector(
-        '.ant-pro-help-search-list-item-content-light',
-      );
+      const resultElement = html.baseElement.querySelector('.ant-pro-help-search-list-item-content-light');
       expect(resultElement?.textContent).toBe('如何');
     });
 
@@ -1053,12 +1004,8 @@ describe('👍🏻 ProHelpPanel', () => {
 
     // 等待搜索结果更新
     await waitFor(() => {
-      const resultElement = html.baseElement.querySelector(
-        '.ant-pro-help-search-list-item-content-light',
-      );
-      expect(resultElement?.textContent).toBe(
-        '证据包内包含哪些内容，如何下载证据包',
-      );
+      const resultElement = html.baseElement.querySelector('.ant-pro-help-search-list-item-content-light');
+      expect(resultElement?.textContent).toBe('证据包内包含哪些内容，如何下载证据包');
     });
 
     // 点击搜索结果
@@ -1073,12 +1020,8 @@ describe('👍🏻 ProHelpPanel', () => {
 
     // 等待菜单项被选中
     await waitFor(() => {
-      const selectedItem = html.baseElement.querySelector(
-        '.ant-menu-item-selected',
-      );
-      expect(selectedItem?.textContent).toBe(
-        '证据包内包含哪些内容，如何下载证据包？',
-      );
+      const selectedItem = html.baseElement.querySelector('.ant-menu-item-selected');
+      expect(selectedItem?.textContent).toBe('证据包内包含哪些内容，如何下载证据包？');
     });
 
     await act(async () => {

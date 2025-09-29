@@ -1,5 +1,5 @@
 import { EllipsisOutlined } from '@ant-design/icons';
-import { PageContainer, ProCard } from '@ant-design/pro-components';
+import { PageContainer, ProCard } from '@xxlabs/pro-components';
 import { Button, Dropdown } from 'antd';
 
 export default () => (
@@ -9,6 +9,12 @@ export default () => (
     }}
   >
     <PageContainer
+      footer={[
+        <Button key="3">Reset</Button>,
+        <Button key="2" type="primary">
+          Submit
+        </Button>,
+      ]}
       header={{
         title: 'Page Title',
         ghost: true,
@@ -36,7 +42,6 @@ export default () => (
           </Button>,
           <Dropdown
             key="dropdown"
-            trigger={['click']}
             menu={{
               items: [
                 {
@@ -53,6 +58,7 @@ export default () => (
                 },
               ],
             }}
+            trigger={['click']}
           >
             <Button key="4" style={{ padding: '0 8px' }}>
               <EllipsisOutlined />
@@ -77,16 +83,10 @@ export default () => (
         hideAdd: true,
         onEdit: (e, action) => console.log(e, action),
       }}
-      footer={[
-        <Button key="3">Reset</Button>,
-        <Button key="2" type="primary">
-          Submit
-        </Button>,
-      ]}
     >
-      <ProCard direction="column" ghost gutter={[0, 16]}>
+      <ProCard ghost direction="column" gutter={[0, 16]}>
         <ProCard style={{ height: 200 }} />
-        <ProCard gutter={16} ghost style={{ height: 200 }}>
+        <ProCard ghost gutter={16} style={{ height: 200 }}>
           <ProCard colSpan={16} />
           <ProCard colSpan={8} />
         </ProCard>

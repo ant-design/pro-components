@@ -1,34 +1,13 @@
-import { ProDescriptions } from '@ant-design/pro-components';
+import { ProDescriptions } from '@xxlabs/pro-components';
 import { Input, Tooltip } from 'antd';
 import { useRef } from 'react';
 
 export default () => {
-  const actionRef = useRef();
+  const actionRef = useRef(undefined);
   return (
     <>
       <ProDescriptions
         actionRef={actionRef}
-        //   variant="outlined"
-        formProps={{
-          onValuesChange: (e, f) => console.log(f),
-        }}
-        title="可编辑的定义列表"
-        request={async () => {
-          return Promise.resolve({
-            success: true,
-            data: {
-              rate: 5,
-              id: '这是一段文本columns',
-              date: '20200809',
-              money: '1212100',
-              state: 'all',
-              state2: 'open',
-              textarea:
-                '这是一个文本域-这是一个文本域-这是一个文本域-这是一个文本域-这是一个文本域-这是一个文本域-这是一个文本域-这是一个文本域-这是一个文本域',
-            },
-          });
-        }}
-        editable={{}}
         columns={[
           {
             title: '文本',
@@ -127,24 +106,40 @@ export default () => {
             title: '操作',
             valueType: 'option',
             render: () => [
-              <a target="_blank" rel="noopener noreferrer" key="link">
+              <a key="link" rel="noopener noreferrer" target="_blank">
                 链路
               </a>,
-              <a target="_blank" rel="noopener noreferrer" key="warning">
+              <a key="warning" rel="noopener noreferrer" target="_blank">
                 报警
               </a>,
-              <a target="_blank" rel="noopener noreferrer" key="view">
+              <a key="view" rel="noopener noreferrer" target="_blank">
                 查看
               </a>,
             ],
           },
         ]}
+        editable={{}}
+        formProps={{
+          onValuesChange: (e, f) => console.log(f),
+        }}
+        request={async () => {
+          return Promise.resolve({
+            success: true,
+            data: {
+              rate: 5,
+              id: '这是一段文本columns',
+              date: '20200809',
+              money: '1212100',
+              state: 'all',
+              state2: 'open',
+              textarea:
+                '这是一个文本域-这是一个文本域-这是一个文本域-这是一个文本域-这是一个文本域-这是一个文本域-这是一个文本域-这是一个文本域-这是一个文本域',
+            },
+          });
+        }}
+        title="可编辑的定义列表"
       >
-        <ProDescriptions.Item
-          dataIndex="percent"
-          label="百分比"
-          valueType="percent"
-        >
+        <ProDescriptions.Item dataIndex="percent" label="百分比" valueType="percent">
           100
         </ProDescriptions.Item>
       </ProDescriptions>

@@ -1,7 +1,7 @@
-/* eslint-disable react-hooks/exhaustive-deps */ import { omit } from '@rc-component/util';
+import { omit } from '@rc-component/util';
 import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
-import type { ReactNode } from 'react';
+import type { JSX, ReactNode } from 'react';
 import React, { useContext, useEffect, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import type { GenerateStyle } from '../../../provider';
@@ -27,18 +27,8 @@ export type FooterToolbarProps = {
 };
 
 const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
-  const {
-    children,
-    className,
-    extra,
-    portalDom = true,
-    style,
-    renderContent,
-    ...restProps
-  } = props;
-  const { getPrefixCls, getTargetContainer } = useContext(
-    ConfigProvider.ConfigContext,
-  );
+  const { children, className, extra, portalDom = true, style, renderContent, ...restProps } = props;
+  const { getPrefixCls, getTargetContainer } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = props.prefixCls || getPrefixCls('pro');
 
   const baseClassName = `${prefixCls}-footer-bar`;
@@ -55,12 +45,10 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
       return '100%';
     }
     return isMobile ? '100%' : `calc(100% - ${siderWidth}px)`;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value.collapsed, value.hasSiderMenu, value.isMobile, value.siderWidth]);
 
   const containerDom = useMemo(() => {
-    if (typeof window === 'undefined' || typeof document === 'undefined')
-      return null;
+    if (typeof window === 'undefined' || typeof document === 'undefined') return null;
     // 只读取一次就行了，不然总是的渲染
     return getTargetContainer?.() || document.body;
   }, []);
@@ -71,9 +59,7 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
   const dom = (
     <>
       <div className={`${baseClassName}-left ${hashId}`.trim()}>{extra}</div>
-      <div className={`${baseClassName}-right ${hashId}`.trim()}>
-        {children}
-      </div>
+      <div className={`${baseClassName}-right ${hashId}`.trim()}>{children}</div>
     </>
   );
 
@@ -86,7 +72,6 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
     return () => {
       value?.setHasFooterToolbar?.(false);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const renderDom = (
@@ -110,13 +95,9 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
     </div>
   );
   const ssrDom =
-    !isBrowser() || !portalDom || !containerDom
-      ? renderDom
-      : createPortal(renderDom, containerDom, baseClassName);
+    !isBrowser() || !portalDom || !containerDom ? renderDom : createPortal(renderDom, containerDom, baseClassName);
 
-  return stylish.wrapSSR(
-    wrapSSR(<React.Fragment key={baseClassName}>{ssrDom}</React.Fragment>),
-  );
+  return stylish.wrapSSR(wrapSSR(<React.Fragment key={baseClassName}>{ssrDom}</React.Fragment>));
 };
 
 export { FooterToolbar };

@@ -1,6 +1,6 @@
 import { EllipsisOutlined, SearchOutlined } from '@ant-design/icons';
-import type { ProColumns } from '@ant-design/pro-components';
-import { ProTable, TableDropdown } from '@ant-design/pro-components';
+import type { ProColumns } from '@xxlabs/pro-components';
+import { ProTable, TableDropdown } from '@xxlabs/pro-components';
 import { Button, Dropdown, Input } from 'antd';
 
 const valueEnum = {
@@ -35,10 +35,7 @@ for (let i = 0; i < 5; i += 1) {
     createdAt: Date.now() - Math.floor(Math.random() * 2000),
     money: Math.floor(Math.random() * 2000) * i,
     progress: Math.ceil(Math.random() * 100) + 1,
-    memo:
-      i % 2 === 1
-        ? '很长很长很长很长很长很长很长的文字要展示但是要留下尾巴'
-        : '简短备注文案',
+    memo: i % 2 === 1 ? '很长很长很长很长很长很长很长的文字要展示但是要留下尾巴' : '简短备注文案',
   });
 }
 
@@ -59,9 +56,7 @@ const columns: ProColumns<TableListItem>[] = [
         <Input style={{ width: 188, marginBlockEnd: 8, display: 'block' }} />
       </div>
     ),
-    filterIcon: (filtered) => (
-      <SearchOutlined style={{ color: filtered ? '#1890ff' : undefined }} />
-    ),
+    filterIcon: (filtered) => <SearchOutlined style={{ color: filtered ? '#1890ff' : undefined }} />,
   },
   {
     title: '创建者',
@@ -119,6 +114,10 @@ export default () => {
   return (
     <ProTable<TableListItem>
       columns={columns}
+      dateFormatter="string"
+      pagination={{
+        showQuickJumper: true,
+      }}
       request={(params, sorter, filter) => {
         // 表单搜索项会从 params 传入，传递给后端接口。
         console.log(params, sorter, filter);
@@ -128,24 +127,16 @@ export default () => {
         });
       }}
       rowKey="key"
-      pagination={{
-        showQuickJumper: true,
-      }}
       search={{
         layout: 'vertical',
         defaultCollapsed: false,
-      }}
-      dateFormatter="string"
-      toolbar={{
-        title: '高级表格',
-        tooltip: '这是一个标题提示',
       }}
       toolBarRender={() => [
         <Button key="danger" danger>
           危险按钮
         </Button>,
         <Button key="show">查看日志</Button>,
-        <Button type="primary" key="primary">
+        <Button key="primary" type="primary">
           创建应用
         </Button>,
 
@@ -173,6 +164,10 @@ export default () => {
           </Button>
         </Dropdown>,
       ]}
+      toolbar={{
+        title: '高级表格',
+        tooltip: '这是一个标题提示',
+      }}
     />
   );
 
@@ -259,5 +254,5 @@ export default () => {
         <strong>应用管理</strong>: 应用管理系统
       </li>
     </ul>
-  </div>
+  </div>;
 };

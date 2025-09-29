@@ -16,18 +16,11 @@ export type BlockCheckboxProps = {
   hashId: string;
 };
 
-const BlockCheckbox: React.FC<BlockCheckboxProps> = ({
-  value,
-  configType,
-  onChange,
-  list,
-  prefixCls,
-  hashId,
-}) => {
+const BlockCheckbox: React.FC<BlockCheckboxProps> = ({ value, configType, onChange, list, prefixCls, hashId }) => {
   const baseClassName = `${prefixCls}-block-checkbox`;
   const dom = useMemo(() => {
     const domList = (list || []).map((item) => (
-      <Tooltip title={item.title} key={item.key}>
+      <Tooltip key={item.key} title={item.title}>
         <div
           className={classNames(
             hashId,
@@ -43,16 +36,11 @@ const BlockCheckbox: React.FC<BlockCheckboxProps> = ({
               display: value === item.key ? 'block' : 'none',
             }}
           />
-          {item?.icon ? (
-            <div className={`${baseClassName}-icon ${hashId}`.trim()}>
-              {item.icon}
-            </div>
-          ) : null}
+          {item?.icon ? <div className={`${baseClassName}-icon ${hashId}`.trim()}>{item.icon}</div> : null}
         </div>
       </Tooltip>
     ));
     return domList;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value, list?.length, onChange]);
   return <div className={classNames(baseClassName, hashId)}>{dom}</div>;
 };

@@ -1,6 +1,6 @@
 import { Slider } from 'antd';
-import React from 'react';
 import type { ProFieldFC } from '../../PureProField';
+
 /**
  * 评分组件
  *
@@ -8,7 +8,7 @@ import type { ProFieldFC } from '../../PureProField';
  */
 const FieldSlider: ProFieldFC<{
   text: string;
-}> = ({ text, mode, render, formItemRender, fieldProps }, ref) => {
+}> = ({ text, mode, render, formItemRender, fieldProps, ref }) => {
   if (mode === 'read') {
     const dom = text;
     if (render) {
@@ -35,4 +35,4 @@ const FieldSlider: ProFieldFC<{
   return null;
 };
 
-export default React.forwardRef(FieldSlider);
+export default FieldSlider;

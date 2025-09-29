@@ -19,10 +19,7 @@ const PriceInput: React.FC<PriceInputProps> = ({ value = {}, onChange }) => {
   const [number, setNumber] = useState(0);
   const [currency, setCurrency] = useState<Currency>('rmb');
 
-  const triggerChange = (changedValue: {
-    number?: number;
-    currency?: Currency;
-  }) => {
+  const triggerChange = (changedValue: { number?: number; currency?: Currency }) => {
     onChange?.({ number, currency, ...value, ...changedValue });
   };
 
@@ -46,17 +43,8 @@ const PriceInput: React.FC<PriceInputProps> = ({ value = {}, onChange }) => {
 
   return (
     <span>
-      <Input
-        type="text"
-        value={value.number || number}
-        onChange={onNumberChange}
-        style={{ width: 100 }}
-      />
-      <Select
-        value={value.currency || currency}
-        style={{ width: 80, margin: '0 8px' }}
-        onChange={onCurrencyChange}
-      >
+      <Input style={{ width: 100 }} type="text" value={value.number || number} onChange={onNumberChange} />
+      <Select style={{ width: 80, margin: '0 8px' }} value={value.currency || currency} onChange={onCurrencyChange}>
         <Option value="rmb">RMB</Option>
         <Option value="dollar">Dollar</Option>
       </Select>
@@ -78,21 +66,21 @@ const App: React.FC = () => {
 
   return (
     <Form
-      name="customized_form_controls"
-      layout="inline"
-      onFinish={onFinish}
       initialValues={{
         price: {
           number: 0,
           currency: 'rmb',
         },
       }}
+      layout="inline"
+      name="customized_form_controls"
+      onFinish={onFinish}
     >
-      <Form.Item name="price" label="Price" rules={[{ validator: checkPrice }]}>
+      <Form.Item label="Price" name="price" rules={[{ validator: checkPrice }]}>
         <PriceInput />
       </Form.Item>
       <Form.Item>
-        <Button type="primary" htmlType="submit">
+        <Button htmlType="submit" type="primary">
           Submit
         </Button>
       </Form.Item>

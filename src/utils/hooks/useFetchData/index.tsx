@@ -1,12 +1,10 @@
-﻿import { useRef, useState } from 'react';
+﻿import type React from 'react';
+import { useRef, useState } from 'react';
 import useSWR from 'swr';
 
 let testId = 0;
 
-export type ProRequestData<T, U = Record<string, any>> = (
-  params: U,
-  props: any,
-) => Promise<T>;
+export type ProRequestData<T, U = Record<string, any>> = (params: U, props: any) => Promise<T>;
 
 export function useFetchData<T, U = Record<string, any>>(props: {
   proFieldKey?: React.Key;
@@ -43,17 +41,13 @@ export function useFetchData<T, U = Record<string, any>>(props: {
     }
   };
 
-  const { data, error, isValidating } = useSWR(
-    props.request ? [cacheKey, props.params] : null,
-    fetchData,
-    {
-      revalidateOnFocus: false,
-      shouldRetryOnError: false,
-      onError: () => {
-        // 这里可以添加错误处理逻辑
-      },
+  const { data, error, isValidating } = useSWR(props.request ? [cacheKey, props.params] : null, fetchData, {
+    revalidateOnFocus: false,
+    shouldRetryOnError: false,
+    onError: () => {
+      // 这里可以添加错误处理逻辑
     },
-  );
+  });
 
   // 如果没有请求，返回 [undefined, false]
   if (!props.request) {

@@ -1,8 +1,4 @@
-import type {
-  ItemType,
-  ProFormRenderValueTypeHelpers,
-  ProSchemaRenderValueTypeFunction,
-} from '../typing';
+import type { ItemType, ProFormRenderValueTypeHelpers, ProSchemaRenderValueTypeFunction } from '../typing';
 import { dependency } from './dependency';
 import { divider } from './divider';
 import { field } from './field';
@@ -12,14 +8,7 @@ import { group } from './group';
 import { ignore } from './ignore';
 
 // 按照数组顺序执行
-const tasks: ProSchemaRenderValueTypeFunction<any, any>[] = [
-  ignore,
-  group,
-  formList,
-  formSet,
-  divider,
-  dependency,
-];
+const tasks: ProSchemaRenderValueTypeFunction<any, any>[] = [ignore, group, formList, formSet, divider, dependency];
 
 export const renderValueType = <DataType, ValueType>(
   item: ItemType<DataType, ValueType>,

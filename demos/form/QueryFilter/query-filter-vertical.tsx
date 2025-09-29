@@ -1,20 +1,14 @@
-import {
-  ProFormCheckbox,
-  ProFormDatePicker,
-  ProFormRadio,
-  ProFormText,
-  QueryFilter,
-} from '@ant-design/pro-components';
+import { ProFormCheckbox, ProFormDatePicker, ProFormRadio, ProFormText, QueryFilter } from '@xxlabs/pro-components';
 
 export default () => {
   return (
     <QueryFilter layout="vertical">
-      <ProFormText name="name" label="这是一个超级超级长的名称" />
-      <ProFormDatePicker name="birth" label="创建时间" />
-      <ProFormText name="sex" label="应用状态" />
+      <ProFormText label="这是一个超级超级长的名称" name="name" />
+      <ProFormDatePicker label="创建时间" name="birth" />
+      <ProFormText label="应用状态" name="sex" />
       <ProFormRadio.Group
-        name="freq"
         label="查询频度"
+        name="freq"
         options={[
           {
             value: 'weekly',
@@ -34,11 +28,7 @@ export default () => {
           },
         ]}
       />
-      <ProFormCheckbox.Group
-        name="checkbox"
-        label="行业分布"
-        options={['农业', '制造业', '互联网']}
-      />
+      <ProFormCheckbox.Group label="行业分布" name="checkbox" options={['农业', '制造业', '互联网']} />
     </QueryFilter>
   );
 };

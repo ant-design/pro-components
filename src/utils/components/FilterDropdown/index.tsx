@@ -1,16 +1,14 @@
 import { ConfigProvider, Popover } from 'antd';
-import type { TooltipPlacement } from 'antd/lib/tooltip';
+import type { TooltipPlacement } from 'antd/es/tooltip';
 import classNames from 'classnames';
+import type { JSX } from 'react';
 import React, { useContext, useRef } from 'react';
 import type { DropdownFooterProps } from '../DropdownFooter';
 import { DropdownFooter } from '../DropdownFooter';
 import { useStyle } from './style';
 
 export type FooterRender =
-  | ((
-      onConfirm?: (e?: React.MouseEvent) => void,
-      onClear?: (e?: React.MouseEvent) => void,
-    ) => JSX.Element | false)
+  | ((onConfirm?: (e?: React.MouseEvent) => void, onClear?: (e?: React.MouseEvent) => void) => JSX.Element | false)
   | false;
 
 export type DropdownProps = {
@@ -26,16 +24,7 @@ export type DropdownProps = {
   children?: React.ReactNode;
 };
 const FilterDropdown: React.FC<DropdownProps> = (props) => {
-  const {
-    children,
-    label,
-    footer,
-    open,
-    onOpenChange,
-    disabled,
-    footerRender,
-    placement,
-  } = props;
+  const { children, label, footer, open, onOpenChange, disabled, footerRender, placement } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-core-field-dropdown');
   const { wrapSSR, hashId } = useStyle(prefixCls);
@@ -43,15 +32,6 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
   const htmlRef = useRef<HTMLDivElement>(null);
   return wrapSSR(
     <Popover
-      placement={placement}
-      trigger={['click']}
-      open={open || false}
-      onOpenChange={onOpenChange}
-      styles={{
-        body: {
-          padding: 0,
-        },
-      }}
       content={
         <div
           ref={htmlRef}
@@ -65,19 +45,20 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
               return htmlRef.current || document.body;
             }}
           >
-            <div className={`${prefixCls}-content ${hashId}`.trim()}>
-              {children}
-            </div>
+            <div className={`${prefixCls}-content ${hashId}`.trim()}>{children}</div>
           </ConfigProvider>
-          {footer && (
-            <DropdownFooter
-              disabled={disabled}
-              footerRender={footerRender}
-              {...footer}
-            />
-          )}
+          {footer && <DropdownFooter disabled={disabled} footerRender={footerRender} {...footer} />}
         </div>
       }
+      open={open || false}
+      placement={placement}
+      styles={{
+        body: {
+          padding: 0,
+        },
+      }}
+      trigger={['click']}
+      onOpenChange={onOpenChange}
     >
       <span className={`${prefixCls}-label ${hashId}`.trim()}>{label}</span>
     </Popover>,

@@ -1,15 +1,9 @@
-import { ProCard } from '@ant-design/pro-components';
+import { ProCard } from '@xxlabs/pro-components';
 
 export default () => {
   return (
     <>
-      <ProCard
-        title="Title"
-        extra="extra"
-        tooltip="This is a tooltip"
-        style={{ maxWidth: 300 }}
-        variant="outlined"
-      >
+      <ProCard extra="extra" style={{ maxWidth: 300 }} title="Title" tooltip="This is a tooltip" variant="outlined">
         Content
       </ProCard>
 
@@ -27,8 +21,7 @@ export default () => {
             <strong>title</strong>: 卡片标题，可以是字符串或 React 节点
           </li>
           <li>
-            <strong>extra</strong>: 卡片右上角操作区域，可以是字符串或 React
-            节点
+            <strong>extra</strong>: 卡片右上角操作区域，可以是字符串或 React 节点
           </li>
           <li>
             <strong>tooltip</strong>: 卡片的提示信息
@@ -37,8 +30,7 @@ export default () => {
             <strong>style</strong>: 卡片的样式对象
           </li>
           <li>
-            <strong>variant</strong>: 卡片变体样式，'outlined'
-            表示带边框的卡片样式
+            <strong>variant</strong>: 卡片变体样式，'outlined' 表示带边框的卡片样式
           </li>
           <li>
             <strong>children</strong>: 卡片内容区域

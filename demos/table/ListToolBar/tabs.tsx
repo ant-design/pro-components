@@ -1,10 +1,6 @@
 import { EllipsisOutlined } from '@ant-design/icons';
-import type { ProColumns } from '@ant-design/pro-components';
-import {
-  LightFilter,
-  ProFormDatePicker,
-  ProTable,
-} from '@ant-design/pro-components';
+import type { ProColumns } from '@xxlabs/pro-components';
+import { LightFilter, ProFormDatePicker, ProTable } from '@xxlabs/pro-components';
 import { useState } from 'react';
 
 export type TableListItem = {
@@ -146,12 +142,14 @@ export default () => {
           success: true,
         });
       }}
+      rowKey="key"
+      search={false}
       toolbar={{
         title: '标签',
         multipleLine: true,
         filter: (
           <LightFilter>
-            <ProFormDatePicker name="startdate" label="响应日期" />
+            <ProFormDatePicker label="响应日期" name="startdate" />
           </LightFilter>
         ),
         tabs: {
@@ -169,8 +167,6 @@ export default () => {
           ],
         },
       }}
-      rowKey="key"
-      search={false}
     />
   );
 

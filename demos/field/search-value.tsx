@@ -1,4 +1,4 @@
-﻿import { ProFormSelect } from '@ant-design/pro-components';
+﻿import { ProFormSelect } from '@xxlabs/pro-components';
 import { useState } from 'react';
 
 export default function App() {
@@ -34,27 +34,8 @@ export default function App() {
   return (
     <div>
       <ProFormSelect
-        name="name"
-        placeholder="请输入搜索关键字"
         allowClear
-        width={330}
         secondary
-        options={
-          [
-            {
-              v: 'v1',
-              l: 'l1',
-            },
-            {
-              v: 'v2',
-              l: 'l3',
-            },
-            {
-              v: 'v4',
-              l: 'l5',
-            },
-          ] as any
-        }
         fieldProps={{
           fieldNames: {
             value: 'v',
@@ -73,6 +54,25 @@ export default function App() {
           onSearch: (val) => onSearch(val),
           onSelect: () => onSelect(),
         }}
+        name="name"
+        options={
+          [
+            {
+              v: 'v1',
+              l: 'l1',
+            },
+            {
+              v: 'v2',
+              l: 'l3',
+            },
+            {
+              v: 'v4',
+              l: 'l5',
+            },
+          ] as any
+        }
+        placeholder="请输入搜索关键字"
+        width={330}
       />
       <div className="keys">
         <b>常用关键字：</b>
@@ -80,11 +80,11 @@ export default function App() {
           return (
             <span
               key={item}
-              onClick={onClick}
               style={{
                 marginInlineStart: 8,
                 cursor: 'pointer',
               }}
+              onClick={onClick}
             >
               {item}
             </span>

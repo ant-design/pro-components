@@ -7,21 +7,13 @@ import { AppsLogoComponents } from '../AppsLogoComponents';
 import type { GlobalHeaderProps } from '../GlobalHeader';
 import { ActionsContent } from '../GlobalHeader/ActionsContent';
 import { BaseMenu } from '../SiderMenu/BaseMenu';
-import type {
-  HeaderRenderKey,
-  PrivateSiderMenuProps,
-  SiderMenuProps,
-} from '../SiderMenu/SiderMenu';
+import type { HeaderRenderKey, PrivateSiderMenuProps, SiderMenuProps } from '../SiderMenu/SiderMenu';
 import { renderLogoAndTitle } from '../SiderMenu/SiderMenu';
 import { useStyle } from './style';
 
-export type TopNavHeaderProps = SiderMenuProps &
-  GlobalHeaderProps &
-  PrivateSiderMenuProps;
+export type TopNavHeaderProps = SiderMenuProps & GlobalHeaderProps & PrivateSiderMenuProps;
 
-const TopNavHeader: React.FC<TopNavHeaderProps> = (
-  props: TopNavHeaderProps,
-) => {
+const TopNavHeader: React.FC<TopNavHeaderProps> = (props: TopNavHeaderProps) => {
   const ref = useRef(null);
   const {
     onMenuHeaderClick,
@@ -44,10 +36,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
   } else if (layout === 'mix' || layout === 'top') {
     renderKey = 'headerTitleRender';
   }
-  const headerDom = renderLogoAndTitle(
-    { ...props, collapsed: false },
-    renderKey,
-  );
+  const headerDom = renderLogoAndTitle({ ...props, collapsed: false }, renderKey);
   const { token } = useContext(ProProvider);
 
   const contentDom = useMemo(() => {
@@ -62,44 +51,27 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
             },
             Menu: {
               itemBg: token.layout?.header?.colorBgHeader || 'transparent',
-              subMenuItemBg:
-                token.layout?.header?.colorBgHeader || 'transparent',
+              subMenuItemBg: token.layout?.header?.colorBgHeader || 'transparent',
               itemBorderRadius: token.borderRadius,
-              itemSelectedBg:
-                token.layout?.header?.colorBgMenuItemSelected ||
-                token?.colorBgTextHover,
-              horizontalItemSelectedBg:
-                token.layout?.header?.colorBgMenuItemSelected ||
-                token?.colorBgTextHover,
+              itemSelectedBg: token.layout?.header?.colorBgMenuItemSelected || token?.colorBgTextHover,
+              horizontalItemSelectedBg: token.layout?.header?.colorBgMenuItemSelected || token?.colorBgTextHover,
               activeBarWidth: 0,
               activeBarHeight: 0,
               activeBarBorderWidth: 0,
-              itemColor:
-                token.layout?.header?.colorTextMenu ||
-                token?.colorTextSecondary,
-              horizontalItemHoverColor:
-                token.layout?.header?.colorTextMenuActive || token?.colorText,
-              horizontalItemSelectedColor:
-                token.layout?.header?.colorTextMenuSelected ||
-                token?.colorTextBase,
+              itemColor: token.layout?.header?.colorTextMenu || token?.colorTextSecondary,
+              horizontalItemHoverColor: token.layout?.header?.colorTextMenuActive || token?.colorText,
+              horizontalItemSelectedColor: token.layout?.header?.colorTextMenuSelected || token?.colorTextBase,
               horizontalItemBorderRadius: 4,
-              itemHoverColor:
-                token.layout?.header?.colorTextMenuActive ||
-                'rgba(0, 0, 0, 0.85)',
-              horizontalItemHoverBg:
-                token.layout?.header?.colorBgMenuItemHover ||
-                'rgba(0, 0, 0, 0.04)',
-              itemSelectedColor:
-                token.layout?.header?.colorTextMenuSelected ||
-                'rgba(0, 0, 0, 1)',
+              itemHoverColor: token.layout?.header?.colorTextMenuActive || 'rgba(0, 0, 0, 0.85)',
+              horizontalItemHoverBg: token.layout?.header?.colorBgMenuItemHover || 'rgba(0, 0, 0, 0.04)',
+              itemSelectedColor: token.layout?.header?.colorTextMenuSelected || 'rgba(0, 0, 0, 1)',
               popupBg: token?.colorBgElevated,
               darkSubMenuItemBg: 'transparent',
               darkPopupBg: token?.colorBgElevated,
             },
           },
           token: {
-            colorBgElevated:
-              token.layout?.header?.colorBgHeader || 'transparent',
+            colorBgElevated: token.layout?.header?.colorBgHeader || 'transparent',
           },
         }}
       >
@@ -108,13 +80,13 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
           {...props}
           className={`${prefixCls}-base-menu ${hashId}`.trim()}
           {...props.menuProps}
+          collapsed={false}
+          menuRenderType="header"
+          mode="horizontal"
           style={{
             width: '100%',
             ...props.menuProps?.style,
           }}
-          collapsed={false}
-          menuRenderType="header"
-          mode="horizontal"
         />
       </ConfigProvider>
     );
@@ -158,29 +130,17 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
         })}
       >
         {headerDom && (
-          <div
-            className={classNames(`${prefixCls}-main-left ${hashId}`)}
-            onClick={onMenuHeaderClick}
-          >
+          <div className={classNames(`${prefixCls}-main-left ${hashId}`)} onClick={onMenuHeaderClick}>
             <AppsLogoComponents {...props} />
-            <div
-              className={`${prefixCls}-logo ${hashId}`.trim()}
-              key="logo"
-              id="logo"
-            >
+            <div key="logo" className={`${prefixCls}-logo ${hashId}`.trim()} id="logo">
               {headerDom}
             </div>
           </div>
         )}
-        <div
-          style={{ flex: 1 }}
-          className={`${prefixCls}-menu ${hashId}`.trim()}
-        >
+        <div className={`${prefixCls}-menu ${hashId}`.trim()} style={{ flex: 1 }}>
           {contentDom}
         </div>
-        {(actionsRender || props.avatarProps) && (
-          <ActionsContent {...props} prefixCls={prefixCls} />
-        )}
+        {(actionsRender || props.avatarProps) && <ActionsContent {...props} prefixCls={prefixCls} />}
       </div>
     </div>,
   );

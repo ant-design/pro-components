@@ -1,5 +1,5 @@
-import type { StatisticProps } from '@ant-design/pro-components';
-import { ProCard, StatisticCard } from '@ant-design/pro-components';
+import type { StatisticProps } from '@xxlabs/pro-components';
+import { ProCard, StatisticCard } from '@xxlabs/pro-components';
 
 const { Statistic } = StatisticCard;
 
@@ -25,13 +25,13 @@ export default () => {
             label: (
               <Statistic
                 layout="vertical"
-                title={item.title}
-                value={item.value}
                 status={item.status as StatisticProps['status']}
                 style={{
                   width: 120,
                   borderInlineEnd: item.total ? '1px solid #f0f0f0' : undefined,
                 }}
+                title={item.title}
+                value={item.value}
               />
             ),
             children: (

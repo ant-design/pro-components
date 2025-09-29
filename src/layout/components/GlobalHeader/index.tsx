@@ -10,10 +10,7 @@ import { clearMenuItem } from '../../utils/utils';
 import { AppsLogoComponents, defaultRenderLogo } from '../AppsLogoComponents';
 import type { AppItemProps, AppListProps } from '../AppsLogoComponents/types';
 import type { HeaderViewProps } from '../Header';
-import type {
-  PrivateSiderMenuProps,
-  SiderMenuProps,
-} from '../SiderMenu/SiderMenu';
+import type { PrivateSiderMenuProps, SiderMenuProps } from '../SiderMenu/SiderMenu';
 import { renderLogoAndTitle } from '../SiderMenu/SiderMenu';
 import { TopNavHeader } from '../TopNavHeader';
 import { ActionsContent } from './ActionsContent';
@@ -30,19 +27,14 @@ export type GlobalHeaderProps = {
    * @example 收起时完成不展示菜单 menuRender={(props,defaultDom)=> props.collapsed ? null : defaultDom}
    * @example 不展示菜单 menuRender={false}
    */
-  menuRender?: WithFalse<
-    (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
-  >;
+  menuRender?: WithFalse<(props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode>;
 
   className?: string;
   prefixCls?: string;
   /** 相关品牌的列表 */
   appList?: AppListProps;
   /** 相关品牌的列表项 点击事件，当事件存在时，appList 内配置的 url 不在自动跳转 */
-  itemClick?: (
-    item: AppItemProps,
-    popoverRef?: React.RefObject<HTMLSpanElement>,
-  ) => void;
+  itemClick?: (item: AppItemProps, popoverRef?: React.RefObject<HTMLSpanElement>) => void;
   menuData?: MenuDataItem[];
   onMenuHeaderClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
   style?: React.CSSProperties;
@@ -53,35 +45,24 @@ export type GlobalHeaderProps = {
    *
    * @example headerContentRender={(props) => <div>管理控制台 </div>}
    */
-  headerContentRender?: WithFalse<
-    (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
-  >;
+  headerContentRender?: WithFalse<(props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode>;
   collapsedButtonRender?: SiderMenuProps['collapsedButtonRender'];
 
   splitMenus?: boolean;
   /** Layout的操作功能列表，不同的 layout 会放到不同的位置 */
-  actionsRender?: WithFalse<
-    (props: HeaderViewProps) => React.ReactNode[] | React.ReactNode
-  >;
+  actionsRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode[] | React.ReactNode>;
 
   /** 头像的设置 */
   avatarProps?: WithFalse<
     AvatarProps & {
       title?: React.ReactNode;
-      render?: (
-        props: AvatarProps,
-        defaultDom: React.ReactNode,
-        siderProps: SiderMenuProps,
-      ) => React.ReactNode;
+      render?: (props: AvatarProps, defaultDom: React.ReactNode, siderProps: SiderMenuProps) => React.ReactNode;
     }
   >;
   children?: React.ReactNode;
 } & Partial<PureSettings>;
 
-const renderLogo = (
-  menuHeaderRender: SiderMenuProps['menuHeaderRender'],
-  logoDom: React.ReactNode,
-) => {
+const renderLogo = (menuHeaderRender: SiderMenuProps['menuHeaderRender'], logoDom: React.ReactNode) => {
   if (menuHeaderRender === false) {
     return null;
   }
@@ -91,9 +72,7 @@ const renderLogo = (
   return logoDom;
 };
 
-const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (
-  props,
-) => {
+const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props) => {
   const {
     isMobile,
     logo,
@@ -123,14 +102,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (
       routes: undefined,
     }));
     const clearMenuData = clearMenuItem(noChildrenMenuData);
-    return (
-      <TopNavHeader
-        mode="horizontal"
-        {...props}
-        splitMenus={false}
-        menuData={clearMenuData}
-      />
-    );
+    return <TopNavHeader mode="horizontal" {...props} menuData={clearMenuData} splitMenus={false} />;
   }
 
   const logoClassNames = classNames(`${baseClassName}-logo`, hashId, {
@@ -140,7 +112,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (
   });
 
   const logoDom = (
-    <span className={logoClassNames} key="logo">
+    <span key="logo" className={logoClassNames}>
       <a>{defaultRenderLogo(logo)}</a>
     </span>
   );
@@ -161,17 +133,12 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (
         <>
           <AppsLogoComponents {...props} />
           <div className={logoClassNames} onClick={onMenuHeaderClick}>
-            {renderLogoAndTitle(
-              { ...props, collapsed: false },
-              'headerTitleRender',
-            )}
+            {renderLogoAndTitle({ ...props, collapsed: false }, 'headerTitleRender')}
           </div>
         </>
       )}
       <div style={{ flex: 1 }}>{children}</div>
-      {(props.actionsRender || props.avatarProps) && (
-        <ActionsContent {...props} />
-      )}
+      {(props.actionsRender || props.avatarProps) && <ActionsContent {...props} />}
     </div>,
   );
 };

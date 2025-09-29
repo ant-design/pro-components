@@ -1,4 +1,4 @@
-import { ProCard } from '@ant-design/pro-components';
+import { ProCard } from '@xxlabs/pro-components';
 import { Statistic } from 'antd';
 import RcResizeObserver from 'rc-resize-observer';
 import { useState } from 'react';
@@ -14,24 +14,17 @@ export default () => {
         setResponsive(offset.width < 596);
       }}
     >
-      <ProCard.Group
-        title="Core Metrics"
-        direction={responsive ? 'column' : 'row'}
-      >
+      <ProCard.Group direction={responsive ? 'column' : 'row'} title="Core Metrics">
         <ProCard>
-          <Statistic title="Today's UV" value={79.0} precision={2} />
+          <Statistic precision={2} title="Today's UV" value={79.0} />
         </ProCard>
         <Divider type={responsive ? 'horizontal' : 'vertical'} />
         <ProCard>
-          <Statistic title="Frozen Amount" value={112893.0} precision={2} />
+          <Statistic precision={2} title="Frozen Amount" value={112893.0} />
         </ProCard>
         <Divider type={responsive ? 'horizontal' : 'vertical'} />
         <ProCard>
-          <Statistic
-            title="Information Completeness"
-            value={93}
-            suffix="/ 100"
-          />
+          <Statistic suffix="/ 100" title="Information Completeness" value={93} />
         </ProCard>
         <Divider type={responsive ? 'horizontal' : 'vertical'} />
         <ProCard>

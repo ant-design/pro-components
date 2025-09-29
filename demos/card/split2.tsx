@@ -1,4 +1,4 @@
-import { ProCard } from '@ant-design/pro-components';
+import { ProCard } from '@xxlabs/pro-components';
 import RcResizeObserver from 'rc-resize-observer';
 import { useState } from 'react';
 
@@ -13,13 +13,13 @@ export default () => {
         }}
       >
         <ProCard
-          title="Left and Right Columns with Title"
+          headerBordered
           extra="September 28, 2019"
           split={responsive ? 'horizontal' : 'vertical'}
+          title="Left and Right Columns with Title"
           variant="outlined"
-          headerBordered
         >
-          <ProCard title="Left Details" colSpan="50%">
+          <ProCard colSpan="50%" title="Left Details">
             <div style={{ height: 360 }}>Left Content</div>
           </ProCard>
           <ProCard title="Traffic Usage">

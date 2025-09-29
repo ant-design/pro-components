@@ -1,4 +1,4 @@
-﻿import { ProForm, ProFormSelect } from '@ant-design/pro-components';
+﻿import { ProForm, ProFormSelect } from '@xxlabs/pro-components';
 import { Switch } from 'antd';
 import { useState } from 'react';
 
@@ -11,26 +11,26 @@ export default () => {
       }}
     >
       <Switch
+        checked={readonly}
+        checkedChildren="Edit"
         style={{
           marginBlockEnd: 16,
         }}
-        checked={readonly}
-        checkedChildren="Edit"
         unCheckedChildren="Read Only"
         onChange={setReadonly}
       />
       <ProForm readonly={readonly}>
         <ProForm.Group>
           <ProFormSelect.SearchSelect
-            name="userQuery"
-            label="Query Selector - request"
+            debounceTime={300}
             fieldProps={{
               labelInValue: true,
               style: {
                 minWidth: 140,
               },
             }}
-            debounceTime={300}
+            label="Query Selector - request"
+            name="userQuery"
             request={async ({ keyWords = '' }) => {
               return [
                 { label: 'All', value: 'all' },
@@ -44,13 +44,13 @@ export default () => {
             }}
           />
           <ProFormSelect.SearchSelect
-            name="userQuery2"
-            label="Query Selector - valueEnum"
             fieldProps={{
               style: {
                 minWidth: 140,
               },
             }}
+            label="Query Selector - valueEnum"
+            name="userQuery2"
             valueEnum={{
               all: { text: 'All', status: 'Default' },
               open: {
@@ -68,14 +68,14 @@ export default () => {
             }}
           />
           <ProFormSelect.SearchSelect
-            name="userQuery3"
-            label="Query Selector - options"
             fieldProps={{
               labelInValue: false,
               style: {
                 minWidth: 140,
               },
             }}
+            label="Query Selector - options"
+            name="userQuery3"
             options={[
               { label: 'All', value: 'all' },
               { label: 'Unresolved', value: 'open' },

@@ -1,37 +1,33 @@
-import type { ProDescriptionsActionType } from '@ant-design/pro-components';
-import { ProDescriptions } from '@ant-design/pro-components';
+import type { ProDescriptionsActionType } from '@xxlabs/pro-components';
+import { ProDescriptions } from '@xxlabs/pro-components';
 import { Button } from 'antd';
 import { useRef } from 'react';
 
 export default () => {
-  const actionRef = useRef<ProDescriptionsActionType>();
+  const actionRef = useRef<ProDescriptionsActionType>(undefined);
   return (
     <>
       <ProDescriptions
         actionRef={actionRef}
-        title="高级定义列表 request"
+        extra={<Button type="link">修改</Button>}
         request={async () => {
           return Promise.resolve({
             success: true,
             data: { id: '这是一段文本', date: '20200730', money: '12121' },
           });
         }}
-        extra={<Button type="link">修改</Button>}
+        title="高级定义列表 request"
       >
         <ProDescriptions.Item dataIndex="id" />
         <ProDescriptions.Item dataIndex="date" label="日期" valueType="date" />
-        <ProDescriptions.Item
-          label="money"
-          dataIndex="money"
-          valueType="money"
-        />
+        <ProDescriptions.Item dataIndex="money" label="money" valueType="money" />
         <ProDescriptions.Item label="文本" valueType="option">
           <Button
+            key="reload"
             type="primary"
             onClick={() => {
               actionRef.current?.reload();
             }}
-            key="reload"
           >
             刷新
           </Button>
@@ -68,8 +64,7 @@ export default () => {
             <strong>异步函数</strong>: 返回 Promise 对象
           </li>
           <li>
-            <strong>数据格式</strong>: &#123; success: boolean, data: object
-            &#125;
+            <strong>数据格式</strong>: &#123; success: boolean, data: object &#125;
           </li>
           <li>
             <strong>自动加载</strong>: 组件挂载时自动请求数据
@@ -81,8 +76,7 @@ export default () => {
         <h4>ProDescriptions.Item 配置：</h4>
         <ul>
           <li>
-            <strong>dataIndex</strong>: 数据字段名，自动绑定到 request
-            返回的数据
+            <strong>dataIndex</strong>: 数据字段名，自动绑定到 request 返回的数据
           </li>
           <li>
             <strong>label</strong>: 标签文本

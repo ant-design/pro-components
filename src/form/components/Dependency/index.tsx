@@ -1,7 +1,7 @@
 import { get, set } from '@rc-component/util';
 import type { FormItemProps } from 'antd';
 import { Form } from 'antd';
-import type { NamePath } from 'antd/lib/form/interface';
+import type { NamePath } from 'antd/es/form/interface';
 import { merge } from 'lodash-es';
 import React, { useContext, useMemo } from 'react';
 import { isDeepEqualReact, ProFormContext } from '../../../utils';
@@ -41,22 +41,13 @@ const ProFormDependency = <T,>({
 
       // ignoreFormListField为 true 或 formListField.name === undefined 时
       // 应从全局取值，要将 names 中各项的路径前缀(formListField.listName)忽略
-      if (
-        !ignoreFormListField &&
-        formListField.name !== undefined &&
-        formListField.listName?.length
-      ) {
+      if (!ignoreFormListField && formListField.name !== undefined && formListField.listName?.length) {
         name.unshift(formListField.listName);
       }
 
       return name.flat(1);
     });
-  }, [
-    formListField.listName,
-    formListField.name,
-    ignoreFormListField,
-    nameList?.toString(),
-  ]);
+  }, [formListField.listName, formListField.name, ignoreFormListField, nameList?.toString()]);
 
   return (
     <Form.Item
@@ -70,10 +61,7 @@ const ProFormDependency = <T,>({
         }
 
         return flattenNames.some((name) => {
-          return !isDeepEqualReact(
-            get(prevValues, name),
-            get(nextValues, name),
-          );
+          return !isDeepEqualReact(get(prevValues, name), get(nextValues, name));
         });
       }}
     >

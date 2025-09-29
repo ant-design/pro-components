@@ -1,4 +1,4 @@
-﻿import { ProHelp, ProHelpPanel } from '@ant-design/pro-components';
+﻿import { ProHelp, ProHelpPanel } from '@xxlabs/pro-components';
 import { App } from 'antd';
 import ReactMarkdown from 'react-markdown';
 
@@ -49,6 +49,24 @@ export default () => {
             children: string;
           };
         }>
+          dataSource={[
+            {
+              title: '常见问题',
+              key: 'default',
+              children: [
+                {
+                  title: 'html 语法',
+                  key: '1',
+                  asyncLoad: true,
+                },
+                {
+                  title: 'markdown 语法',
+                  key: '2',
+                  asyncLoad: true,
+                },
+              ],
+            },
+          ]}
           valueTypeMap={map}
           onLoadContext={async (key) => {
             await waitTime(1000);
@@ -220,12 +238,12 @@ see [how to change output](https://github.com/markdown-it/markdown-it-emoji#chan
 - H~2~O
 
 
-### [\<ins>](https://github.com/markdown-it/markdown-it-ins)
+### [<ins>](https://github.com/markdown-it/markdown-it-ins)
 
 ++Inserted text++
 
 
-### [\<mark>](https://github.com/markdown-it/markdown-it-mark)
+### [<mark>](https://github.com/markdown-it/markdown-it-mark)
 
 ==Marked text==
 
@@ -302,24 +320,6 @@ It converts "HTML", but keep intact partial entries like "xxxHTMLyyy" and so on.
               },
             ];
           }}
-          dataSource={[
-            {
-              title: '常见问题',
-              key: 'default',
-              children: [
-                {
-                  title: 'html 语法',
-                  key: '1',
-                  asyncLoad: true,
-                },
-                {
-                  title: 'markdown 语法',
-                  key: '2',
-                  asyncLoad: true,
-                },
-              ],
-            },
-          ]}
         >
           <div
             style={{

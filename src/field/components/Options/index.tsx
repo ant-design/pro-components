@@ -6,12 +6,12 @@ import type { ProFieldFC } from '../../PureProField';
 const addArrayKeys = (doms: React.ReactNode[]) =>
   doms.map((dom, index) => {
     if (!React.isValidElement(dom)) {
-      // eslint-disable-next-line react/no-array-index-key
       return <React.Fragment key={index}>{dom}</React.Fragment>;
     }
+
     return React.cloneElement(dom, {
-      // eslint-disable-next-line react/no-array-index-key
       key: index,
+      // @ts-ignore
       ...dom?.props,
       style: {
         // @ts-ignore
@@ -25,10 +25,7 @@ const addArrayKeys = (doms: React.ReactNode[]) =>
  *
  * @param
  */
-const FieldOptions: ProFieldFC = (
-  { text, mode: type, render, fieldProps },
-  ref,
-) => {
+const FieldOptions: ProFieldFC = ({ text, mode: type, render, fieldProps, ref }) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-field-option');
 
@@ -37,11 +34,7 @@ const FieldOptions: ProFieldFC = (
   useImperativeHandle(ref, () => ({}));
 
   if (render) {
-    const doms = render(
-      text,
-      { mode: type, ...fieldProps },
-      <></>,
-    ) as unknown as React.ReactNode[];
+    const doms = render(text, { mode: type, ...fieldProps }, <></>) as unknown as React.ReactNode[];
 
     if (!doms || doms?.length < 1 || !Array.isArray(doms)) {
       return null;
@@ -49,12 +42,12 @@ const FieldOptions: ProFieldFC = (
 
     return (
       <div
+        className={className}
         style={{
           display: 'flex',
           gap: token.margin,
           alignItems: 'center',
         }}
-        className={className}
       >
         {addArrayKeys(doms)}
       </div>
@@ -65,21 +58,22 @@ const FieldOptions: ProFieldFC = (
     if (!React.isValidElement(text)) {
       return null;
     }
-    return text as JSX.Element;
+
+    return text;
   }
 
   return (
     <div
+      className={className}
       style={{
         display: 'flex',
         gap: token.margin,
         alignItems: 'center',
       }}
-      className={className}
     >
       {addArrayKeys(text)}
     </div>
   );
 };
 
-export default React.forwardRef(FieldOptions);
+export default FieldOptions;

@@ -1,5 +1,5 @@
-import type { ProColumns } from '@ant-design/pro-components';
-import { TableDropdown, TableStatus } from '@ant-design/pro-components';
+import type { ProColumns } from '@xxlabs/pro-components';
+import { TableDropdown, TableStatus } from '@xxlabs/pro-components';
 import { Input, message } from 'antd';
 import dayjs from 'dayjs';
 
@@ -168,11 +168,11 @@ export const columns: ProColumns[] = [
       </a>,
       <TableDropdown
         key="tableDropdown"
-        onSelect={(key) => message.info(key)}
         menus={[
           { key: 'copy', name: '复制' },
           { key: 'delete', name: '删除' },
         ]}
+        onSelect={(key) => message.info(key)}
       />,
     ],
   },

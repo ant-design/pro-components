@@ -1,8 +1,8 @@
-﻿import { BetaSchemaForm } from '@ant-design/pro-components';
+﻿import { BetaSchemaForm } from '@xxlabs/pro-components';
 import { useEffect, useRef, useState } from 'react';
 
 export default () => {
-  const targetRef = useRef();
+  const targetRef = useRef(undefined);
 
   const [requestLibData, setRequestLibData] = useState(0);
   useEffect(() => {
@@ -21,8 +21,6 @@ export default () => {
   });
   return (
     <BetaSchemaForm
-      request={async () => ({})}
-      params={{ requestLibData }}
       columns={[
         {
           title: 'money',
@@ -31,6 +29,8 @@ export default () => {
         },
       ]}
       formRef={targetRef}
+      params={{ requestLibData }}
+      request={async () => ({})}
     />
   );
 };

@@ -1,7 +1,6 @@
 import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons';
 import { useMergedState } from '@rc-component/util';
 import { Input, Space } from 'antd';
-import React from 'react';
 import { useIntl } from '../../../provider';
 import type { ProFieldFC } from '../../PureProField';
 
@@ -14,10 +13,7 @@ const FieldPassword: ProFieldFC<{
   text: string;
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
-}> = (
-  { text, mode, render, formItemRender, fieldProps, proFieldKey, ...rest },
-  ref,
-) => {
+}> = ({ text, mode, render, formItemRender, fieldProps, proFieldKey, ref, ...rest }) => {
   const intl = useIntl();
 
   const [open, setOpen] = useMergedState<boolean>(() => rest.open || false, {
@@ -31,9 +27,7 @@ const FieldPassword: ProFieldFC<{
       dom = (
         <Space>
           <span ref={ref}>{open ? text : '********'}</span>
-          <a onClick={() => setOpen(!open)}>
-            {open ? <EyeOutlined /> : <EyeInvisibleOutlined />}
-          </a>
+          <a onClick={() => setOpen(!open)}>{open ? <EyeOutlined /> : <EyeInvisibleOutlined />}</a>
         </Space>
       );
     }
@@ -44,11 +38,7 @@ const FieldPassword: ProFieldFC<{
   }
   if (mode === 'edit' || mode === 'update') {
     const dom = (
-      <Input.Password
-        placeholder={intl.getMessage('tableForm.inputPlaceholder', '请输入')}
-        ref={ref}
-        {...fieldProps}
-      />
+      <Input.Password ref={ref} placeholder={intl.getMessage('tableForm.inputPlaceholder', '请输入')} {...fieldProps} />
     );
     if (formItemRender) {
       return formItemRender(text, { mode, ...fieldProps }, dom);
@@ -58,4 +48,4 @@ const FieldPassword: ProFieldFC<{
   return null;
 };
 
-export default React.forwardRef(FieldPassword);
+export default FieldPassword;

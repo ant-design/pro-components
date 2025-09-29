@@ -1,7 +1,7 @@
 import { omit } from '@rc-component/util';
 import type { SwitchProps } from 'antd';
 import { Switch } from 'antd';
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import { useIntl } from '../../../provider';
 import { FieldLabel } from '../../../utils';
 import type { ProFieldFC } from '../../PureProField';
@@ -15,18 +15,13 @@ const FieldSwitch: ProFieldFC<{
   text: boolean;
   fieldProps?: SwitchProps;
   variant?: 'outlined' | 'borderless' | 'filled';
-}> = (
-  { text, mode, render, light, label, formItemRender, fieldProps, variant },
-  ref,
-) => {
+}> = ({ text, mode, render, light, label, formItemRender, fieldProps, variant, ref }) => {
   const intl = useIntl();
   const dom = useMemo(() => {
     if (text === undefined || text === null || `${text}`.length < 1) return '-';
     return text
       ? (fieldProps?.checkedChildren ?? intl.getMessage('switch.open', '打开'))
-      : (fieldProps?.unCheckedChildren ??
-          intl.getMessage('switch.close', '关闭'));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+      : (fieldProps?.unCheckedChildren ?? intl.getMessage('switch.close', '关闭'));
   }, [fieldProps?.checkedChildren, fieldProps?.unCheckedChildren, text]);
 
   if (mode === 'read') {
@@ -48,10 +43,10 @@ const FieldSwitch: ProFieldFC<{
       const { disabled } = fieldProps;
       return (
         <FieldLabel
-          label={label}
+          allowClear={false}
           disabled={disabled}
-          variant={variant}
           downIcon={false}
+          label={label}
           value={
             <div
               style={{
@@ -61,7 +56,7 @@ const FieldSwitch: ProFieldFC<{
               {editDom}
             </div>
           }
-          allowClear={false}
+          variant={variant}
         />
       );
     }
@@ -74,4 +69,4 @@ const FieldSwitch: ProFieldFC<{
   return null;
 };
 
-export default React.forwardRef(FieldSwitch);
+export default FieldSwitch;

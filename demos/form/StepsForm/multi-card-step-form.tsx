@@ -8,7 +8,7 @@
   ProFormSelect,
   ProFormText,
   StepsForm,
-} from '@ant-design/pro-components';
+} from '@xxlabs/pro-components';
 import { message } from 'antd';
 
 const waitTime = (time: number = 100) => {
@@ -23,15 +23,15 @@ export default () => {
   return (
     <>
       <StepsForm
-        onFinish={async (values) => {
-          console.log(values);
-          await waitTime(1000);
-          message.success('Submission successful');
-        }}
         formProps={{
           validateMessages: {
             required: 'This field is required',
           },
+        }}
+        onFinish={async (values) => {
+          console.log(values);
+          await waitTime(1000);
+          message.success('Submission successful');
         }}
       >
         <StepsForm.StepForm
@@ -43,77 +43,62 @@ export default () => {
           }}
         >
           <ProCard
-            title="Source and Target"
-            variant="outlined"
-            headerBordered
             collapsible
+            headerBordered
             style={{
               marginBlockEnd: 16,
               minWidth: 800,
               maxWidth: '100%',
             }}
+            title="Source and Target"
+            variant="outlined"
           >
             <ProFormText
-              name="name"
-              width="md"
               label="Migration Task Name"
-              tooltip="Up to 24 characters, used as a unique id"
+              name="name"
               placeholder="Please enter a name"
               rules={[{ required: true }]}
+              tooltip="Up to 24 characters, used as a unique id"
+              width="md"
             />
-            <ProForm.Group title="Nodes" size={8}>
-              <ProFormSelect
-                width="sm"
-                name="source"
-                placeholder="Select Source Node"
-              />
-              <ProFormSelect
-                width="sm"
-                name="target"
-                placeholder="Select Target Node"
-              />
+            <ProForm.Group size={8} title="Nodes">
+              <ProFormSelect name="source" placeholder="Select Source Node" width="sm" />
+              <ProFormSelect name="target" placeholder="Select Target Node" width="sm" />
             </ProForm.Group>
           </ProCard>
 
           <ProCard
-            title="Top Alignment"
-            variant="outlined"
-            headerBordered
             collapsible
+            headerBordered
             style={{
               minWidth: 800,
               marginBlockEnd: 16,
             }}
+            title="Top Alignment"
+            variant="outlined"
           >
             <ProFormDigit
-              name="xs"
-              label="XS Form"
               initialValue={9999}
-              tooltip="Tooltip that appears on hover."
+              label="XS Form"
+              name="xs"
               placeholder="Please enter a name"
+              tooltip="Tooltip that appears on hover."
               width="xs"
             />
-            <ProFormText
-              name="s"
-              label="S Form"
-              placeholder="Please enter a name"
-              width="sm"
-            />
-            <ProFormDateRangePicker name="m" label="M Form" />
+            <ProFormText label="S Form" name="s" placeholder="Please enter a name" width="sm" />
+            <ProFormDateRangePicker label="M Form" name="m" />
             <ProFormSelect
-              name="l"
-              label="L Form"
               fieldProps={{
                 mode: 'tags',
               }}
-              width="lg"
               initialValue={['Wu Jiahao', 'Zhou Xingxing']}
-              options={['Wu Jiahao', 'Zhou Xingxing', 'Chen Lafeng'].map(
-                (item) => ({
-                  label: item,
-                  value: item,
-                }),
-              )}
+              label="L Form"
+              name="l"
+              options={['Wu Jiahao', 'Zhou Xingxing', 'Chen Lafeng'].map((item) => ({
+                label: item,
+                value: item,
+              }))}
+              width="lg"
             />
           </ProCard>
         </StepsForm.StepForm>
@@ -126,27 +111,18 @@ export default () => {
             }}
           >
             <ProFormCheckbox.Group
-              name="checkbox"
               label="Migration Type"
+              name="checkbox"
+              options={['Structural Migration', 'Full Migration', 'Incremental Migration', 'Full Verification']}
               width="lg"
-              options={[
-                'Structural Migration',
-                'Full Migration',
-                'Incremental Migration',
-                'Full Verification',
-              ]}
             />
             <ProForm.Group>
-              <ProFormText name="dbname" label="Business DB Username" />
-              <ProFormDatePicker
-                name="datetime"
-                label="Record Retention Time"
-                width="sm"
-              />
+              <ProFormText label="Business DB Username" name="dbname" />
+              <ProFormDatePicker label="Record Retention Time" name="datetime" width="sm" />
             </ProForm.Group>
             <ProFormCheckbox.Group
-              name="checkbox"
               label="Migration Type"
+              name="checkbox"
               options={['Complete LOB', 'Do Not Sync LOB', 'Restricted LOB']}
             />
           </ProCard>
@@ -160,42 +136,37 @@ export default () => {
             }}
           >
             <ProFormCheckbox.Group
-              name="checkbox"
               label="Deployment Units"
+              name="checkbox"
+              options={['Deployment Unit 1', 'Deployment Unit 2', 'Deployment Unit 3']}
               rules={[
                 {
                   required: true,
                 },
               ]}
-              options={[
-                'Deployment Unit 1',
-                'Deployment Unit 2',
-                'Deployment Unit 3',
-              ]}
             />
             <ProFormSelect
+              initialValue="1"
               label="Deployment Group Strategy"
               name="remark"
+              options={[
+                {
+                  value: '1',
+                  label: 'Strategy One',
+                },
+                { value: '2', label: 'Strategy Two' },
+              ]}
               rules={[
                 {
                   required: true,
                 },
               ]}
               width="md"
-              initialValue="1"
-              options={[
-                {
-                  value: '1',
-                  label: 'Strategy One',
-                },
-                { value: '2', label: 'Strategy Two' },
-              ]}
             />
             <ProFormSelect
+              initialValue="2"
               label="Pod Scheduling Strategy"
               name="remark2"
-              width="md"
-              initialValue="2"
               options={[
                 {
                   value: '1',
@@ -203,6 +174,7 @@ export default () => {
                 },
                 { value: '2', label: 'Strategy Two' },
               ]}
+              width="md"
             />
           </ProCard>
         </StepsForm.StepForm>

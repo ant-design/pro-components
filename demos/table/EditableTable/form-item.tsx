@@ -1,8 +1,4 @@
-﻿import type {
-  EditableFormInstance,
-  ProColumns,
-  ProFormInstance,
-} from '@ant-design/pro-components';
+﻿import type { EditableFormInstance, ProColumns, ProFormInstance } from '@xxlabs/pro-components';
 import {
   EditableProTable,
   ProCard,
@@ -11,7 +7,7 @@ import {
   ProFormField,
   ProFormSegmented,
   ProFormSwitch,
-} from '@ant-design/pro-components';
+} from '@xxlabs/pro-components';
 import { Button } from 'antd';
 import React, { useRef, useState } from 'react';
 
@@ -48,12 +44,10 @@ let i = 0;
 
 export default () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>(() => []);
-  const [position, setPosition] = useState<'top' | 'bottom' | 'hidden'>(
-    'bottom',
-  );
+  const [position, setPosition] = useState<'top' | 'bottom' | 'hidden'>('bottom');
   const [controlled, setControlled] = useState<boolean>(false);
-  const formRef = useRef<ProFormInstance<any>>();
-  const editorFormRef = useRef<EditableFormInstance<DataSourceType>>();
+  const formRef = useRef<ProFormInstance<any>>(undefined);
+  const editorFormRef = useRef<EditableFormInstance<DataSourceType>>(undefined);
   const columns: ProColumns<DataSourceType>[] = [
     {
       title: '活动名称',
@@ -107,9 +101,7 @@ export default () => {
         <a
           key="delete"
           onClick={() => {
-            const tableDataSource = formRef.current?.getFieldValue(
-              'table',
-            ) as DataSourceType[];
+            const tableDataSource = formRef.current?.getFieldValue('table') as DataSourceType[];
             formRef.current?.setFieldsValue({
               table: tableDataSource.filter((item) => item.id !== record.id),
             });
@@ -132,15 +124,36 @@ export default () => {
       validateTrigger="onBlur"
     >
       <EditableProTable<DataSourceType>
-        rowKey="id"
-        scroll={{
-          x: 960,
+        columns={columns}
+        controlled={controlled}
+        editable={{
+          type: 'multiple',
+          editableKeys,
+          onChange: setEditableRowKeys,
+          actionRender: (row, config, defaultDom) => {
+            return [
+              defaultDom.save,
+              defaultDom.delete,
+              defaultDom.cancel,
+              <a
+                key="set"
+                onClick={() => {
+                  console.log(config.index);
+                  i++;
+                  editorFormRef.current?.setRowData?.(config.index!, {
+                    title: '动态设置的title' + i,
+                  });
+                }}
+              >
+                动态设置此项
+              </a>,
+            ];
+          },
         }}
         editableFormRef={editorFormRef}
         headerTitle="可编辑表格"
         maxLength={5}
         name="table"
-        controlled={controlled}
         recordCreatorProps={
           position !== 'hidden'
             ? {
@@ -149,9 +162,15 @@ export default () => {
               }
             : false
         }
+        rowKey="id"
+        scroll={{
+          x: 960,
+        }}
         toolBarRender={() => [
           <ProFormSwitch
             key="render"
+            noStyle
+            checkedChildren="数据更新通知 Form"
             fieldProps={{
               style: {
                 marginBlockEnd: 0,
@@ -161,12 +180,11 @@ export default () => {
                 setControlled(value);
               },
             }}
-            checkedChildren="数据更新通知 Form"
             unCheckedChildren="保存后通知 Form"
-            noStyle
           />,
           <ProFormSegmented
             key="render"
+            noStyle
             fieldProps={{
               style: {
                 marginBlockEnd: 0,
@@ -176,7 +194,6 @@ export default () => {
                 setPosition(value as 'top');
               },
             }}
-            noStyle
             request={async () => [
               {
                 label: '添加到顶部',
@@ -202,34 +219,9 @@ export default () => {
             获取 table 的数据
           </Button>,
         ]}
-        columns={columns}
-        editable={{
-          type: 'multiple',
-          editableKeys,
-          onChange: setEditableRowKeys,
-          actionRender: (row, config, defaultDom) => {
-            return [
-              defaultDom.save,
-              defaultDom.delete,
-              defaultDom.cancel,
-              <a
-                key="set"
-                onClick={() => {
-                  console.log(config.index);
-                  i++;
-                  editorFormRef.current?.setRowData?.(config.index!, {
-                    title: '动态设置的title' + i,
-                  });
-                }}
-              >
-                动态设置此项
-              </a>,
-            ];
-          },
-        }}
       />
       <ProForm.Item>
-        <ProCard title="表格数据" headerBordered collapsible defaultCollapsed>
+        <ProCard collapsible defaultCollapsed headerBordered title="表格数据">
           <ProFormDependency name={['table']}>
             {({ table }) => {
               return (
@@ -241,8 +233,8 @@ export default () => {
                     },
                   }}
                   mode="read"
-                  valueType="jsonCode"
                   text={JSON.stringify(table)}
+                  valueType="jsonCode"
                 />
               );
             }}

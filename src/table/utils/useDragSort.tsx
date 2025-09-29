@@ -1,19 +1,7 @@
 import type { DragEndEvent } from '@dnd-kit/core';
-import {
-  DndContext,
-  MouseSensor,
-  PointerSensor,
-  rectIntersection,
-  useSensor,
-  useSensors,
-} from '@dnd-kit/core';
+import { DndContext, MouseSensor, PointerSensor, rectIntersection, useSensor, useSensors } from '@dnd-kit/core';
 import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
-import {
-  arrayMove,
-  SortableContext,
-  useSortable,
-  verticalListSortingStrategy,
-} from '@dnd-kit/sortable';
+import { arrayMove, SortableContext, useSortable, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import type { TableComponents } from 'rc-table/es/interface';
 import React, { createContext, useCallback, useContext, useMemo } from 'react';
@@ -31,8 +19,7 @@ const SortableItemContextValue = createContext<{
  * @returns
  */
 const SortableRow = (props: any) => {
-  const { attributes, listeners, setNodeRef, transform, transition } =
-    useSortable({ id: props.id });
+  const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id: props.id });
   const style = {
     transform: CSS.Transform.toString(transform),
     transition,
@@ -49,12 +36,7 @@ const SortableRow = (props: any) => {
             key={child.key || index}
             value={{
               handle: (
-                <DragHandle
-                  rowData={child?.props?.record}
-                  index={child?.props?.index}
-                  {...listeners}
-                  {...attributes}
-                />
+                <DragHandle index={child?.props?.index} rowData={child?.props?.record} {...listeners} {...attributes} />
               ),
             }}
           >
@@ -72,15 +54,7 @@ const SortableRow = (props: any) => {
     );
   }
 
-  return (
-    <tr
-      {...rest}
-      ref={setNodeRef}
-      style={style}
-      {...attributes}
-      {...listeners}
-    />
-  );
+  return <tr {...rest} ref={setNodeRef} style={style} {...attributes} {...listeners} />;
 };
 
 /**
@@ -109,11 +83,7 @@ const SortableItemCell = React.memo((props: any) => {
 
 export interface UseDragSortOptions<T> {
   dataSource?: T[];
-  onDragSortEnd?: (
-    beforeIndex: number,
-    afterIndex: number,
-    newDataSource: T[],
-  ) => Promise<void> | void;
+  onDragSortEnd?: (beforeIndex: number, afterIndex: number, newDataSource: T[]) => Promise<void> | void;
   dragSortKey?: string;
   components?: TableComponents<T>;
   rowKey: any;
@@ -130,26 +100,15 @@ export function useDragSort<T>(props: UseDragSortOptions<T>) {
     (event: DragEndEvent) => {
       const { active, over } = event;
       if (over?.id?.toString() && active.id !== over?.id) {
-        const newData = arrayMove<T>(
-          dataSource || [],
-          parseInt(active.id as string),
-          parseInt(over.id as string),
-        );
-        onDragSortEnd?.(
-          parseInt(active.id as string),
-          parseInt(over.id as string),
-          newData || [],
-        );
+        const newData = arrayMove<T>(dataSource || [], parseInt(active.id as string), parseInt(over.id as string));
+        onDragSortEnd?.(parseInt(active.id as string), parseInt(over.id as string), newData || []);
       }
     },
     [dataSource, onDragSortEnd],
   );
 
   const DraggableContainer = useRefFunction((p: any) => (
-    <SortableContext
-      items={dataSource.map((_, index) => index?.toString())}
-      strategy={verticalListSortingStrategy}
-    >
+    <SortableContext items={dataSource.map((_, index) => index?.toString())} strategy={verticalListSortingStrategy}>
       <SortContainer {...p} />
     </SortableContext>
   ));
@@ -158,21 +117,10 @@ export function useDragSort<T>(props: UseDragSortOptions<T>) {
     const { ...restProps } = p;
     // function findIndex base on Table rowKey props and should always be a right array index
     const index = dataSource
-      .findIndex(
-        (item: any) =>
-          item[props.rowKey ?? 'index'] === restProps['data-row-key'],
-      )
+      .findIndex((item: any) => item[props.rowKey ?? 'index'] === restProps['data-row-key'])
       ?.toString();
 
-    return (
-      <SortableRow
-        id={index}
-        dragSortKey={dragSortKey}
-        DragHandle={DragHandle}
-        key={index}
-        {...restProps}
-      />
-    );
+    return <SortableRow key={index} DragHandle={DragHandle} dragSortKey={dragSortKey} id={index} {...restProps} />;
   });
 
   const components: TableComponents<T> = props.components || {};
@@ -190,9 +138,9 @@ export function useDragSort<T>(props: UseDragSortOptions<T>) {
     () => (contextProps: any) => {
       return (
         <DndContext
+          collisionDetection={rectIntersection}
           modifiers={[restrictToVerticalAxis]}
           sensors={sensors}
-          collisionDetection={rectIntersection}
           onDragEnd={handleDragEnd}
         >
           {contextProps.children}

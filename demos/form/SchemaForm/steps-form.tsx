@@ -1,8 +1,5 @@
-﻿import type {
-  ProFormColumnsType,
-  ProFormInstance,
-} from '@ant-design/pro-components';
-import { BetaSchemaForm } from '@ant-design/pro-components';
+﻿import type { ProFormColumnsType, ProFormInstance } from '@xxlabs/pro-components';
+import { BetaSchemaForm } from '@xxlabs/pro-components';
 import { message } from 'antd';
 import { useRef } from 'react';
 
@@ -167,10 +164,12 @@ const columns: ProFormColumnsType<DataItem>[][] = [
 ];
 
 export default () => {
-  const formRef = useRef<ProFormInstance>();
+  const formRef = useRef<ProFormInstance>(undefined);
 
   return (
     <BetaSchemaForm<DataItem>
+      columns={columns}
+      formRef={formRef}
       layoutType="StepsForm"
       steps={[
         {
@@ -186,7 +185,6 @@ export default () => {
       onCurrentChange={(current) => {
         console.log('current: ', current);
       }}
-      formRef={formRef}
       onFinish={async (values) => {
         return new Promise((resolve) => {
           console.log(values);
@@ -197,7 +195,6 @@ export default () => {
           }, 2000);
         });
       }}
-      columns={columns}
     />
   );
 };

@@ -1,6 +1,6 @@
 import { PlusOutlined } from '@ant-design/icons';
-import type { ProColumns } from '@ant-design/pro-components';
-import { ProTable } from '@ant-design/pro-components';
+import type { ProColumns } from '@xxlabs/pro-components';
+import { ProTable } from '@xxlabs/pro-components';
 import { Button } from 'antd';
 
 type GithubIssueItem = {
@@ -31,6 +31,8 @@ const columns: ProColumns<GithubIssueItem>[] = [
 const SearchOptionTable = () => (
   <ProTable<GithubIssueItem>
     columns={columns}
+    dateFormatter="string"
+    headerTitle="查询 Table"
     request={async () => {
       return {
         data: [
@@ -44,8 +46,6 @@ const SearchOptionTable = () => (
       };
     }}
     rowKey="key"
-    dateFormatter="string"
-    headerTitle="查询 Table"
     search={{
       defaultCollapsed: false,
       labelWidth: 'auto',

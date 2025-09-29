@@ -38,7 +38,7 @@ ProLayout 可以提供一个标准又不失灵活的中后台标准布局，同�
 | contentStyle               | layout 的内容区 style                                                                                                                                           | CSSProperties                                                                                                                   | -                                        |
 | layout                     | layout 的菜单模式，side：右侧导航，top：顶部导航                                                                                                                | `side` \| `top`\|`mix`                                                                                                          | `side`                                   |
 | contentWidth               | layout 的内容模式，Fluid：自适应，Fixed：定宽 1200px                                                                                                            | `Fluid` \| `Fixed`                                                                                                              | `Fluid`                                  |
-| actionRef                  | layout 的常见操作，比如刷新菜单                                                                                                                                 | `MutableRefObject<ActionType>`                                                                                                  | -                                        |
+| actionRef                  | layout 的常见操作，比如刷新菜单                                                                                                                                 | `RefObject<ActionType>`                                                                                                  | -                                        |
 | fixedHeader                | 是否固定 header 到顶部                                                                                                                                          | `boolean`                                                                                                                       | `false`                                  |
 | fixSiderbar                | 是否固定导航                                                                                                                                                    | `boolean`                                                                                                                       | `false`                                  |
 | breakpoint                 | 触发响应式布局的[断点](https://ant.design/components/grid-cn/#Col)                                                                                              | `Enum { 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' }`                                                                                  | `lg`                                     |
@@ -131,7 +131,7 @@ const colorList = [
 根据 router 信息来生成 menuData 和 breadcrumb。
 
 ```js | pure
-import { getMenuData } from '@ant-design/pro-components';
+import { getMenuData } from '@xxlabs/pro-components';
 
 const { breadcrumb, menuData } = getMenuData(
   routes,
@@ -153,7 +153,7 @@ const { breadcrumb, menuData } = getMenuData(
 getPageTitle 封装了根据 menuData 上生成的 title 的逻辑。
 
 ```js | pure
-import { getPageTitle } from '@ant-design/pro-components';
+import { getPageTitle } from '@xxlabs/pro-components';
 
 const title = getPageTitle({
   pathname,
@@ -202,7 +202,7 @@ export interface Settings {
 ### MenuDataItem
 
 ```ts | pure
-// 可以通过 import { MenuDataItem } from '@ant-design/pro-components'
+// 可以通过 import { MenuDataItem } from '@xxlabs/pro-components'
 // 来获取这个类型
 export interface MenuDataItem {
   authority?: string[] | string;
@@ -243,7 +243,7 @@ export interface Route {
 ```tsx | pure
 import { GithubOutlined } from '@ant-design/icons';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { DefaultFooter } from '@ant-design/pro-components';
+import { DefaultFooter } from '@xxlabs/pro-components';
 
 <DefaultFooter
   copyright="@2019 蚂蚁金服体验技术部出品"
@@ -293,7 +293,7 @@ RouteContext 可以提供 Layout 的内置的数据。例如 isMobile 和 collap
 另外 RouteContext 也可以根据 layout 的数据来进行一些操作，PageContainer 和 FooterToolbar 都是依赖 RouteContext 的数据来实现功能。
 
 ```tsx | pure
-import { RouteContext, RouteContextType } from '@ant-design/pro-components';
+import { RouteContext, RouteContextType } from '@xxlabs/pro-components';
 
 const Page = () => (
   <RouteContext.Consumer>
@@ -449,7 +449,7 @@ ProLayout 会自动生成菜单，同时根据 pathname 进行自动选中。配
 为了提供更多的功能，我们扩展了 routers 配置，增加了几个配置方便自定义，数据结构定义如下:
 
 ```ts | pure
-// 可以通过 import { MenuDataItem } from '@ant-design/pro-components'
+// 可以通过 import { MenuDataItem } from '@xxlabs/pro-components'
 // 来获取这个类型
 export interface MenuDataItem {
   children?: MenuDataItem[];

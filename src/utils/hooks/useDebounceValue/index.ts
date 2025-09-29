@@ -8,11 +8,7 @@ import { useLatest } from '../useLatest';
  * @param  {DependencyList} deps?
  * @returns T
  */
-export function useDebounceValue<T>(
-  value: T,
-  delay: number = 100,
-  deps?: DependencyList,
-): T {
+export function useDebounceValue<T>(value: T, delay: number = 100, deps?: DependencyList): T {
   const [debouncedValue, setDebouncedValue] = useState(value);
   const valueRef = useLatest(value);
 
@@ -24,7 +20,7 @@ export function useDebounceValue<T>(
 
       return () => clearTimeout(handler);
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
     deps ? [delay, ...deps] : undefined,
   );
 

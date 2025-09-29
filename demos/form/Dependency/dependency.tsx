@@ -1,15 +1,11 @@
-﻿import {
-  ProForm,
-  ProFormDependency,
-  ProFormList,
-  ProFormSelect,
-  ProFormText,
-} from '@ant-design/pro-components';
+﻿import { ProForm, ProFormDependency, ProFormList, ProFormSelect, ProFormText } from '@xxlabs/pro-components';
 
 const Demo = () => {
   return (
     <ProForm>
       <ProFormSelect
+        label="全局生效方式组件的类型"
+        name="globalUseMode"
         options={[
           {
             value: 'select',
@@ -21,21 +17,21 @@ const Demo = () => {
           },
         ]}
         width="xs"
-        name="globalUseMode"
-        label="全局生效方式组件的类型"
       />
       <ProFormList
-        name={['default', 'users']}
-        label="用户信息"
+        alwaysShowItemLabel
         initialValue={[
           {
             name: '1111',
           },
         ]}
-        alwaysShowItemLabel
+        label="用户信息"
+        name={['default', 'users']}
       >
         <ProForm.Group key="group">
           <ProFormSelect
+            label="生效方式组件的类型"
+            name="useMode"
             options={[
               {
                 value: 'select',
@@ -47,14 +43,14 @@ const Demo = () => {
               },
             ]}
             width="xs"
-            name="useMode"
-            label="生效方式组件的类型"
           />
           <ProFormDependency name={['useMode']}>
             {({ useMode }) => {
               if (useMode === 'select') {
                 return (
                   <ProFormSelect
+                    label="生效方式"
+                    name="function"
                     options={[
                       {
                         value: 'chapter',
@@ -62,26 +58,20 @@ const Demo = () => {
                       },
                     ]}
                     width="md"
-                    name="function"
-                    label="生效方式"
                   />
                 );
               }
-              return (
-                <ProFormText width="md" name="function" label="生效方式" />
-              );
+              return <ProFormText label="生效方式" name="function" width="md" />;
             }}
           </ProFormDependency>
 
-          <ProFormDependency
-            key="globalUseMode"
-            name={['globalUseMode']}
-            ignoreFormListField
-          >
+          <ProFormDependency key="globalUseMode" ignoreFormListField name={['globalUseMode']}>
             {({ globalUseMode }) => {
               if (globalUseMode === 'select') {
                 return (
                   <ProFormSelect
+                    label="外层联动生效方式"
+                    name="gfunction"
                     options={[
                       {
                         value: 'chapter',
@@ -89,18 +79,10 @@ const Demo = () => {
                       },
                     ]}
                     width="md"
-                    name="gfunction"
-                    label="外层联动生效方式"
                   />
                 );
               }
-              return (
-                <ProFormText
-                  width="md"
-                  name="gfunction"
-                  label="外层联动生效方式"
-                />
-              );
+              return <ProFormText label="外层联动生效方式" name="gfunction" width="md" />;
             }}
           </ProFormDependency>
         </ProForm.Group>

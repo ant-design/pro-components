@@ -250,7 +250,7 @@ ProForm 是对 antd Form 的再封装，如果你想要自定义表单元素，P
 | submitter                                       | 提交按钮相关配置                                                                                                                               | `boolean` \| `SubmitterProps`                                                               | `true`        |
 | loading                                         | 表单按钮的 loading 状态                                                                                                                        | `boolean`                                                                                   | -             |
 | onLoadingChange                                 | loading 状态改变时的回调                                                                                                                       | `(loading: boolean) => void`                                                                | -             |
-| formRef                                         | 获取表单所使用的 form                                                                                                                          | `MutableRefObject<ProFormRef<T> \| undefined>`                                              | -             |
+| formRef                                         | 获取表单所使用的 form                                                                                                                          | `RefObject<ProFormRef<T> \| undefined>`                                              | -             |
 | syncToUrl                                       | 同步参数到 url 上，url 只支持 string，在使用之前最好读一下[url 中的参数类型](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) | `boolean \| ((values: T, type: 'get' \| 'set') => T)`                                       | -             |
 | syncToUrlAsImportant                            | 当 syncToUrl 为 true，在页面回显示时，以url上的参数为主，默认为false                                                                           | `boolean`                                                                                   | `false`       |
 | extraUrlParams                                  | 额外的 url 参数                                                                                                                                | `Record<string, any>`                                                                       | -             |
@@ -379,13 +379,13 @@ ProFormInstance 与 antd 的 form 相比增加了一些能力。
 <code src="../../../demos/form/formRef.tsx" title="formRef的使用"></code>
 
 ```tsx | pure
-import type { ProFormInstance } from '@ant-design/pro-components';
+import type { ProFormInstance } from '@xxlabs/pro-components';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   ProForm,
   ProFormDatePicker,
   ProFormText,
-} from '@ant-design/pro-components';
+} from '@xxlabs/pro-components';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { Button, message } from 'antd';
 import { afterEach, describe, expect, it, vi } from 'vitest';

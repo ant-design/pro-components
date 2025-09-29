@@ -1,5 +1,5 @@
-﻿import type { ProFieldValueType } from '@ant-design/pro-components';
-import { BetaSchemaForm, ProFormSelect } from '@ant-design/pro-components';
+﻿import type { ProFieldValueType } from '@xxlabs/pro-components';
+import { BetaSchemaForm, ProFormSelect } from '@xxlabs/pro-components';
 import { useState } from 'react';
 
 const valueEnum = {
@@ -58,8 +58,7 @@ const options = [
   {
     value: `avatar`,
     label: `头像`,
-    initialValue:
-      'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+    initialValue: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
   },
   { value: `code`, label: `代码框`, initialValue: '# 2121' },
   { value: `switch`, label: `开关`, initialValue: 'open' },
@@ -67,8 +66,7 @@ const options = [
   {
     value: `image`,
     label: `图片`,
-    initialValue:
-      'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+    initialValue: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
   },
   {
     value: `jsonCode`,
@@ -92,27 +90,17 @@ export default () => {
   return (
     <>
       <ProFormSelect.SearchSelect
-        label="valueType 选择"
-        options={options}
-        width={200}
-        mode="single"
         fieldProps={{
           labelInValue: false,
           value: valueType,
           onChange: (value) => setValueType(value),
         }}
+        label="valueType 选择"
+        mode="single"
+        options={options}
+        width={200}
       />
       <BetaSchemaForm<DataItem>
-        layoutType="Form"
-        onFinish={async (values) => {
-          console.log(values);
-        }}
-        initialValues={options.reduce((pre, item) => {
-          return {
-            ...pre,
-            [item.value]: item.initialValue,
-          };
-        }, {})}
         columns={[
           {
             title: '分组',
@@ -144,6 +132,16 @@ export default () => {
             ],
           },
         ]}
+        initialValues={options.reduce((pre, item) => {
+          return {
+            ...pre,
+            [item.value]: item.initialValue,
+          };
+        }, {})}
+        layoutType="Form"
+        onFinish={async (values) => {
+          console.log(values);
+        }}
       />
     </>
   );

@@ -38,9 +38,7 @@ const DensityIcon = (props: { icon?: React.ReactNode }) => {
       }}
       trigger={['click']}
     >
-      <Tooltip title={intl.getMessage('tableToolBar.density', '表格密度')}>
-        {icon}
-      </Tooltip>
+      <Tooltip title={intl.getMessage('tableToolBar.density', '表格密度')}>{icon}</Tooltip>
     </Dropdown>
   );
 };

@@ -103,14 +103,11 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
   const className = getPrefixCls('pro-help');
   const { wrapSSR, hashId } = useStyle(className);
   const { dataSource } = useContext(ProHelpProvide);
-  const [selectedKey, setSelectedKey] = useMergedState<string | undefined>(
-    undefined,
-    {
-      defaultValue: props.defaultSelectedKey,
-      value: props.selectedKey,
-      onChange: props.onSelectedKeyChange,
-    },
-  );
+  const [selectedKey, setSelectedKey] = useMergedState<string | undefined>(undefined, {
+    defaultValue: props.defaultSelectedKey,
+    value: props.selectedKey,
+    onChange: props.onSelectedKeyChange,
+  });
   const [openKey, setOpenKey] = useState('');
   const { token } = useContext(ProProvider);
   const [showLeftPanel, setShowLeftPanel] = useMergedState(true, {
@@ -155,8 +152,8 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
     ),
     helpSelectAction: (
       <ProHelpSelect
-        iconClassName={`${className}-actions-item`}
         className={`${hashId} ${className}-actions-input`}
+        iconClassName={`${className}-actions-item`}
         value={selectedKey}
         onChange={(value, item) => {
           setSelectedKey(value);
@@ -204,8 +201,8 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
       }}
     >
       <Card
-        variant={variant}
-        title={title}
+        extra={extraDomList()}
+        size="small"
         styles={{
           body: {
             display: 'flex',
@@ -215,8 +212,8 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
             width: '100%',
           },
         }}
-        size="small"
-        extra={extraDomList()}
+        title={title}
+        variant={variant}
       >
         {showLeftPanel ? (
           <div
@@ -238,21 +235,11 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
                     itemBorderRadius: token.borderRadius,
                     activeBarWidth: 0,
                     activeBarBorderWidth: 0,
-                    itemSelectedBg:
-                      token.layout?.sider?.colorBgMenuItemSelected ||
-                      'rgba(0, 0, 0, 0.04)',
-                    itemActiveBg:
-                      token.layout?.sider?.colorBgMenuItemHover ||
-                      'rgba(0, 0, 0, 0.04)',
-                    itemColor:
-                      token.layout?.sider?.colorTextMenu ||
-                      'rgba(0, 0, 0, 0.65)',
-                    itemHoverColor:
-                      token.layout?.sider?.colorTextMenuActive ||
-                      'rgba(0, 0, 0, 0.85)',
-                    itemSelectedColor:
-                      token.layout?.sider?.colorTextMenuSelected ||
-                      'rgba(0, 0, 0, 1)',
+                    itemSelectedBg: token.layout?.sider?.colorBgMenuItemSelected || 'rgba(0, 0, 0, 0.04)',
+                    itemActiveBg: token.layout?.sider?.colorBgMenuItemHover || 'rgba(0, 0, 0, 0.04)',
+                    itemColor: token.layout?.sider?.colorTextMenu || 'rgba(0, 0, 0, 0.65)',
+                    itemHoverColor: token.layout?.sider?.colorTextMenuActive || 'rgba(0, 0, 0, 0.85)',
+                    itemSelectedColor: token.layout?.sider?.colorTextMenuSelected || 'rgba(0, 0, 0, 1)',
                     itemBg: 'transparent',
                     subMenuItemBg: 'transparent',
                     popupBg: token?.colorBgElevated,
@@ -263,15 +250,6 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
             >
               <Menu
                 className={`${hashId} ${className}-left-panel-menu`}
-                openKeys={[parentKey, openKey]}
-                onOpenChange={(keys) => {
-                  setOpenKey(keys.at(-1) || '');
-                }}
-                selectedKeys={selectedKey ? [selectedKey] : []}
-                onSelect={({ selectedKeys }) => {
-                  setSelectedKey(selectedKeys.at(-1) || '');
-                }}
-                mode="inline"
                 items={dataSource.map((item) => {
                   return {
                     key: item.key,
@@ -284,6 +262,15 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
                     }),
                   };
                 })}
+                mode="inline"
+                openKeys={[parentKey, openKey]}
+                selectedKeys={selectedKey ? [selectedKey] : []}
+                onOpenChange={(keys) => {
+                  setOpenKey(keys.at(-1) || '');
+                }}
+                onSelect={({ selectedKeys }) => {
+                  setSelectedKey(selectedKeys.at(-1) || '');
+                }}
               />
             </ConfigProvider>
           </div>
@@ -296,15 +283,13 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
         >
           {selectedKey ? (
             <ProHelpContentPanel
-              parentItem={dataSourceKeyMap.get(parentKey)}
               className={`${className}-content-render`}
+              parentItem={dataSourceKeyMap.get(parentKey)}
               selectedKey={selectedKey}
               onScroll={(key) => setSelectedKey(key)}
             />
           ) : null}
-          {footer ? (
-            <div className={`${hashId} ${className}-footer`}>{footer}</div>
-          ) : null}
+          {footer ? <div className={`${hashId} ${className}-footer`}>{footer}</div> : null}
         </div>
       </Card>
     </SelectKeyProvide.Provider>,

@@ -6,7 +6,7 @@ import localeData from 'dayjs/plugin/localeData';
 import weekday from 'dayjs/plugin/weekday';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
 import { FieldText } from '.';
-import { ProRenderFieldPropsType } from '../provider';
+import type { ProRenderFieldPropsType } from '../provider';
 import { pickProProps } from '../utils';
 import FieldCascader from './components/Cascader';
 import FieldCheckbox from './components/Checkbox';
@@ -46,85 +46,37 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
   progress: {
     render: (text, props) => {
       const fieldProps = pickProProps(props.fieldProps);
-      const placeholder =
-        typeof props.placeholder === 'string' ? props.placeholder : undefined;
-      return (
-        <FieldProgress
-          mode={props.mode}
-          text={text}
-          placeholder={placeholder}
-          fieldProps={fieldProps}
-        />
-      );
+      const placeholder = typeof props.placeholder === 'string' ? props.placeholder : undefined;
+      return <FieldProgress fieldProps={fieldProps} mode={props.mode} placeholder={placeholder} text={text} />;
     },
     formItemRender: (text, props) => {
       const fieldProps = pickProProps(props.fieldProps);
-      const placeholder =
-        typeof props.placeholder === 'string' ? props.placeholder : undefined;
-      return (
-        <FieldProgress
-          mode={props.mode}
-          text={text}
-          placeholder={placeholder}
-          fieldProps={fieldProps}
-        />
-      );
+      const placeholder = typeof props.placeholder === 'string' ? props.placeholder : undefined;
+      return <FieldProgress fieldProps={fieldProps} mode={props.mode} placeholder={placeholder} text={text} />;
     },
   },
   money: {
     render: (text, props) => {
       const fieldProps = pickProProps(props.fieldProps);
-      const placeholder =
-        typeof props.placeholder === 'string' ? props.placeholder : undefined;
-      return (
-        <FieldMoney
-          mode={props.mode}
-          text={text}
-          placeholder={placeholder}
-          fieldProps={fieldProps}
-        />
-      );
+      const placeholder = typeof props.placeholder === 'string' ? props.placeholder : undefined;
+      return <FieldMoney fieldProps={fieldProps} mode={props.mode} placeholder={placeholder} text={text} />;
     },
     formItemRender: (text, props) => {
       const fieldProps = pickProProps(props.fieldProps);
-      const placeholder =
-        typeof props.placeholder === 'string' ? props.placeholder : undefined;
-      return (
-        <FieldMoney
-          mode={props.mode}
-          text={text}
-          placeholder={placeholder}
-          fieldProps={fieldProps}
-        />
-      );
+      const placeholder = typeof props.placeholder === 'string' ? props.placeholder : undefined;
+      return <FieldMoney fieldProps={fieldProps} mode={props.mode} placeholder={placeholder} text={text} />;
     },
   },
   percent: {
     render: (text, props) => {
       const fieldProps = pickProProps(props.fieldProps);
-      const placeholder =
-        typeof props.placeholder === 'string' ? props.placeholder : undefined;
-      return (
-        <FieldPercent
-          mode={props.mode}
-          text={text}
-          placeholder={placeholder}
-          fieldProps={fieldProps}
-        />
-      );
+      const placeholder = typeof props.placeholder === 'string' ? props.placeholder : undefined;
+      return <FieldPercent fieldProps={fieldProps} mode={props.mode} placeholder={placeholder} text={text} />;
     },
     formItemRender: (text, props) => {
       const fieldProps = pickProProps(props.fieldProps);
-      const placeholder =
-        typeof props.placeholder === 'string' ? props.placeholder : undefined;
-      return (
-        <FieldPercent
-          mode={props.mode}
-          text={text}
-          placeholder={placeholder}
-          fieldProps={fieldProps}
-        />
-      );
+      const placeholder = typeof props.placeholder === 'string' ? props.placeholder : undefined;
+      return <FieldPercent fieldProps={fieldProps} mode={props.mode} placeholder={placeholder} text={text} />;
     },
   },
   image: {
@@ -146,22 +98,12 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
   dateWeek: {
     render: (text, props) => (
       <FieldHOC isLight={props.light}>
-        <FieldDatePicker
-          format="YYYY-wo"
-          picker="week"
-          {...props}
-          text={text}
-        />
+        <FieldDatePicker format="YYYY-wo" picker="week" {...props} text={text} />
       </FieldHOC>
     ),
     formItemRender: (text, props) => (
       <FieldHOC isLight={props.light}>
-        <FieldDatePicker
-          format="YYYY-wo"
-          picker="week"
-          {...props}
-          text={text}
-        />
+        <FieldDatePicker format="YYYY-wo" picker="week" {...props} text={text} />
       </FieldHOC>
     ),
   },
@@ -169,9 +111,9 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
     render: (text, props) => (
       <FieldHOC isLight={props.light}>
         <FieldRangePicker
-          format="YYYY-W"
           showTime
           fieldProps={{ picker: 'week', ...props.fieldProps }}
+          format="YYYY-W"
           {...props}
           text={text}
         />
@@ -180,9 +122,9 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
     formItemRender: (text, props) => (
       <FieldHOC isLight={props.light}>
         <FieldRangePicker
-          format="YYYY-W"
           showTime
           fieldProps={{ picker: 'week', ...props.fieldProps }}
+          format="YYYY-W"
           {...props}
           text={text}
         />
@@ -193,9 +135,9 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
     render: (text, props) => (
       <FieldHOC isLight={props.light}>
         <FieldRangePicker
-          format="YYYY-MM"
           showTime
           fieldProps={{ picker: 'month', ...props.fieldProps }}
+          format="YYYY-MM"
           {...props}
           text={text}
         />
@@ -204,9 +146,9 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
     formItemRender: (text, props) => (
       <FieldHOC isLight={props.light}>
         <FieldRangePicker
-          format="YYYY-MM"
           showTime
           fieldProps={{ picker: 'month', ...props.fieldProps }}
+          format="YYYY-MM"
           {...props}
           text={text}
         />
@@ -217,9 +159,9 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
     render: (text, props) => (
       <FieldHOC isLight={props.light}>
         <FieldRangePicker
-          format="YYYY-Q"
           showTime
           fieldProps={{ picker: 'quarter', ...props.fieldProps }}
+          format="YYYY-Q"
           {...props}
           text={text}
         />
@@ -228,9 +170,9 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
     formItemRender: (text, props) => (
       <FieldHOC isLight={props.light}>
         <FieldRangePicker
-          format="YYYY-Q"
           showTime
           fieldProps={{ picker: 'quarter', ...props.fieldProps }}
+          format="YYYY-Q"
           {...props}
           text={text}
         />
@@ -241,9 +183,9 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
     render: (text, props) => (
       <FieldHOC isLight={props.light}>
         <FieldRangePicker
-          format="YYYY"
           showTime
           fieldProps={{ picker: 'year', ...props.fieldProps }}
+          format="YYYY"
           {...props}
           text={text}
         />
@@ -252,9 +194,9 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
     formItemRender: (text, props) => (
       <FieldHOC isLight={props.light}>
         <FieldRangePicker
-          format="YYYY"
           showTime
           fieldProps={{ picker: 'year', ...props.fieldProps }}
+          format="YYYY"
           {...props}
           text={text}
         />
@@ -264,44 +206,24 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
   dateMonth: {
     render: (text, props) => (
       <FieldHOC isLight={props.light}>
-        <FieldDatePicker
-          format="YYYY-MM"
-          picker="month"
-          {...props}
-          text={text}
-        />
+        <FieldDatePicker format="YYYY-MM" picker="month" {...props} text={text} />
       </FieldHOC>
     ),
     formItemRender: (text, props) => (
       <FieldHOC isLight={props.light}>
-        <FieldDatePicker
-          format="YYYY-MM"
-          picker="month"
-          {...props}
-          text={text}
-        />
+        <FieldDatePicker format="YYYY-MM" picker="month" {...props} text={text} />
       </FieldHOC>
     ),
   },
   dateQuarter: {
     render: (text, props) => (
       <FieldHOC isLight={props.light}>
-        <FieldDatePicker
-          format="YYYY-[Q]Q"
-          picker="quarter"
-          {...props}
-          text={text}
-        />
+        <FieldDatePicker format="YYYY-[Q]Q" picker="quarter" {...props} text={text} />
       </FieldHOC>
     ),
     formItemRender: (text, props) => (
       <FieldHOC isLight={props.light}>
-        <FieldDatePicker
-          format="YYYY-[Q]Q"
-          picker="quarter"
-          {...props}
-          text={text}
-        />
+        <FieldDatePicker format="YYYY-[Q]Q" picker="quarter" {...props} text={text} />
       </FieldHOC>
     ),
   },
@@ -318,54 +240,30 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
     ),
   },
   dateRange: {
-    render: (text, props) => (
-      <FieldRangePicker format="YYYY-MM-DD" {...props} text={text} />
-    ),
-    formItemRender: (text, props) => (
-      <FieldRangePicker format="YYYY-MM-DD" {...props} text={text} />
-    ),
+    render: (text, props) => <FieldRangePicker format="YYYY-MM-DD" {...props} text={text} />,
+    formItemRender: (text, props) => <FieldRangePicker format="YYYY-MM-DD" {...props} text={text} />,
   },
   dateTime: {
     render: (text, props) => (
       <FieldHOC isLight={props.light}>
-        <FieldDatePicker
-          format="YYYY-MM-DD HH:mm:ss"
-          showTime
-          {...props}
-          text={text}
-        />
+        <FieldDatePicker showTime format="YYYY-MM-DD HH:mm:ss" {...props} text={text} />
       </FieldHOC>
     ),
     formItemRender: (text, props) => (
       <FieldHOC isLight={props.light}>
-        <FieldDatePicker
-          format="YYYY-MM-DD HH:mm:ss"
-          showTime
-          {...props}
-          text={text}
-        />
+        <FieldDatePicker showTime format="YYYY-MM-DD HH:mm:ss" {...props} text={text} />
       </FieldHOC>
     ),
   },
   dateTimeRange: {
     render: (text, props) => (
       <FieldHOC isLight={props.light}>
-        <FieldRangePicker
-          format="YYYY-MM-DD HH:mm:ss"
-          showTime
-          {...props}
-          text={text}
-        />
+        <FieldRangePicker showTime format="YYYY-MM-DD HH:mm:ss" {...props} text={text} />
       </FieldHOC>
     ),
     formItemRender: (text, props) => (
       <FieldHOC isLight={props.light}>
-        <FieldRangePicker
-          format="YYYY-MM-DD HH:mm:ss"
-          showTime
-          {...props}
-          text={text}
-        />
+        <FieldRangePicker showTime format="YYYY-MM-DD HH:mm:ss" {...props} text={text} />
       </FieldHOC>
     ),
   },
@@ -398,38 +296,24 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
     formItemRender: (text, props) => <FieldFromNow {...props} text={text} />,
   },
   index: {
-    render: (text) => (
-      <FieldIndexColumn>{(text as number) + 1}</FieldIndexColumn>
-    ),
-    formItemRender: (text) => (
-      <FieldIndexColumn>{(text as number) + 1}</FieldIndexColumn>
-    ),
+    render: (text) => <FieldIndexColumn>{(text as number) + 1}</FieldIndexColumn>,
+    formItemRender: (text) => <FieldIndexColumn>{(text as number) + 1}</FieldIndexColumn>,
   },
   indexBorder: {
-    render: (text) => (
-      <FieldIndexColumn border>{(text as number) + 1}</FieldIndexColumn>
-    ),
-    formItemRender: (text) => (
-      <FieldIndexColumn border>{(text as number) + 1}</FieldIndexColumn>
-    ),
+    render: (text) => <FieldIndexColumn border>{(text as number) + 1}</FieldIndexColumn>,
+    formItemRender: (text) => <FieldIndexColumn border>{(text as number) + 1}</FieldIndexColumn>,
   },
   avatar: {
-    render: (text) => <Avatar src={text as string} size={22} shape="circle" />,
-    formItemRender: (text) => (
-      <Avatar src={text as string} size={22} shape="circle" />
-    ),
+    render: (text) => <Avatar shape="circle" size={22} src={text as string} />,
+    formItemRender: (text) => <Avatar shape="circle" size={22} src={text as string} />,
   },
   code: {
     render: (text, props) => <FieldCode {...props} text={text} />,
     formItemRender: (text, props) => <FieldCode {...props} text={text} />,
   },
   jsonCode: {
-    render: (text, props) => (
-      <FieldCode language="json" {...props} text={text} />
-    ),
-    formItemRender: (text, props) => (
-      <FieldCode language="json" {...props} text={text} />
-    ),
+    render: (text, props) => <FieldCode language="json" {...props} text={text} />,
+    formItemRender: (text, props) => <FieldCode language="json" {...props} text={text} />,
   },
   textarea: {
     render: (text, props) => <FieldTextArea {...props} text={text} />,
@@ -444,14 +328,7 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
           ? props.placeholder
           : undefined;
       const textValue = typeof text === 'number' ? text : Number(text) || 0;
-      return (
-        <FieldDigit
-          text={textValue}
-          placeholder={placeholder}
-          mode={props.mode}
-          fieldProps={fieldProps}
-        />
-      );
+      return <FieldDigit fieldProps={fieldProps} mode={props.mode} placeholder={placeholder} text={textValue} />;
     },
     formItemRender: (text, props) => {
       const fieldProps = pickProProps(props.fieldProps);
@@ -461,14 +338,7 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
           ? props.placeholder
           : undefined;
       const textValue = typeof text === 'number' ? text : Number(text) || 0;
-      return (
-        <FieldDigit
-          text={textValue}
-          placeholder={placeholder}
-          mode={props.mode}
-          fieldProps={fieldProps}
-        />
-      );
+      return <FieldDigit fieldProps={fieldProps} mode={props.mode} placeholder={placeholder} text={textValue} />;
     },
   },
   digitRange: {
@@ -476,20 +346,8 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
     formItemRender: (text, props) => <FieldDigitRange {...props} text={text} />,
   },
   second: {
-    render: (text, props) => (
-      <FieldSecond
-        {...props}
-        text={text}
-        placeholder={props.placeholder as string}
-      />
-    ),
-    formItemRender: (text, props) => (
-      <FieldSecond
-        {...props}
-        text={text}
-        placeholder={props.placeholder as string}
-      />
-    ),
+    render: (text, props) => <FieldSecond {...props} placeholder={props.placeholder as string} text={text} />,
+    formItemRender: (text, props) => <FieldSecond {...props} placeholder={props.placeholder as string} text={text} />,
   },
   select: {
     render: (text, props) => (
@@ -530,12 +388,8 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
     formItemRender: (text, props) => <FieldRadio {...props} text={text} />,
   },
   radioButton: {
-    render: (text, props) => (
-      <FieldRadio radioType="button" {...props} text={text} />
-    ),
-    formItemRender: (text, props) => (
-      <FieldRadio radioType="button" {...props} text={text} />
-    ),
+    render: (text, props) => <FieldRadio radioType="button" {...props} text={text} />,
+    formItemRender: (text, props) => <FieldRadio radioType="button" {...props} text={text} />,
   },
   rate: {
     render: (text, props) => <FieldRate {...props} text={text} />,
@@ -560,30 +414,16 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
   cascader: {
     render: (text, props) => {
       const fieldProps = pickProProps(props.fieldProps);
-      const placeholder =
-        typeof props.placeholder === 'string' ? props.placeholder : undefined;
+      const placeholder = typeof props.placeholder === 'string' ? props.placeholder : undefined;
       return (
-        <FieldCascader
-          {...props}
-          mode={props.mode}
-          text={text}
-          placeholder={placeholder}
-          fieldProps={fieldProps}
-        />
+        <FieldCascader {...props} fieldProps={fieldProps} mode={props.mode} placeholder={placeholder} text={text} />
       );
     },
     formItemRender: (text, props) => {
       const fieldProps = pickProProps(props.fieldProps);
-      const placeholder =
-        typeof props.placeholder === 'string' ? props.placeholder : undefined;
+      const placeholder = typeof props.placeholder === 'string' ? props.placeholder : undefined;
       return (
-        <FieldCascader
-          {...props}
-          mode={props.mode}
-          text={text}
-          placeholder={placeholder}
-          fieldProps={fieldProps}
-        />
+        <FieldCascader {...props} fieldProps={fieldProps} mode={props.mode} placeholder={placeholder} text={text} />
       );
     },
   },
@@ -593,9 +433,7 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
   },
   color: {
     render: (text, props) => <FieldColorPicker {...props} text={text} />,
-    formItemRender: (text, props) => (
-      <FieldColorPicker {...props} text={text} />
-    ),
+    formItemRender: (text, props) => <FieldColorPicker {...props} text={text} />,
   },
   segmented: {
     render: (text, props) => <FieldSegmented {...props} text={text} />,

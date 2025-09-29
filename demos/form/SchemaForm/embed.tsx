@@ -1,10 +1,5 @@
-﻿import type { ProFormColumnsType } from '@ant-design/pro-components';
-import {
-  BetaSchemaForm,
-  ProForm,
-  ProFormSelect,
-  ProFormText,
-} from '@ant-design/pro-components';
+﻿import type { ProFormColumnsType } from '@xxlabs/pro-components';
+import { BetaSchemaForm, ProForm, ProFormSelect, ProFormText } from '@xxlabs/pro-components';
 
 const valueEnum = {
   all: { text: '全部', status: 'Default' },
@@ -57,16 +52,11 @@ export default () => {
       <h1>ProForm </h1>
       <ProFormText name="username" />
       <ProFormSelect
-        name="select-multiple"
-        label="多选"
-        valueEnum={{
-          red: 'Red',
-          green: 'Green',
-          blue: 'Blue',
-        }}
         fieldProps={{
           mode: 'multiple',
         }}
+        label="多选"
+        name="select-multiple"
         placeholder="Please select favorite colors"
         rules={[
           {
@@ -75,12 +65,16 @@ export default () => {
             type: 'array',
           },
         ]}
+        valueEnum={{
+          red: 'Red',
+          green: 'Green',
+          blue: 'Blue',
+        }}
       />
       <h1>表单1 </h1>
-      <BetaSchemaForm<DataItem> layoutType="Embed" columns={columns} />
+      <BetaSchemaForm<DataItem> columns={columns} layoutType="Embed" />
       <h1>表单2</h1>
       <BetaSchemaForm<DataItem>
-        layoutType="Embed"
         columns={[
           {
             title: '创建时间',
@@ -115,6 +109,7 @@ export default () => {
             ],
           },
         ]}
+        layoutType="Embed"
       />
     </ProForm>
   );

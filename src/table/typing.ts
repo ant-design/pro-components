@@ -1,26 +1,15 @@
 ﻿import type { SpinProps, TableProps } from 'antd';
-import type { SizeType } from 'antd/lib/config-provider/SizeContext';
-import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
-import type { NamePath } from 'antd/lib/form/interface';
-import type { SearchProps } from 'antd/lib/input';
-import type {
-  ColumnFilterItem,
-  ColumnType,
-  CompareFn,
-  SorterResult,
-  SortOrder,
-} from 'antd/lib/table/interface';
+import type { SizeType } from 'antd/es/config-provider/SizeContext';
+import type { LabelTooltipType } from 'antd/es/form/FormItemLabel';
+import type { NamePath } from 'antd/es/form/interface';
+import type { SearchProps } from 'antd/es/input';
+import type { ColumnFilterItem, ColumnType, CompareFn, SorterResult, SortOrder } from 'antd/es/table/interface';
 import type dayjs from 'dayjs';
 import type React from 'react';
-import type { Key } from 'react';
-import type { CSSProperties } from 'react';
+import type { CSSProperties, JSX, Key } from 'react';
 import type { ProCardProps } from '../card';
 import type { ProFieldEmptyText } from '../field';
-import type {
-  LightWrapperProps,
-  ProFormProps,
-  QueryFilterProps,
-} from '../form';
+import type { LightWrapperProps, ProFormProps, QueryFilterProps } from '../form';
 import type {
   ProCoreActionType,
   ProSchema,
@@ -79,15 +68,15 @@ export type TableRowSelection = TableProps<any>['rowSelection'];
  */
 export type FilterValue = (string | number)[] | null;
 
-export type ProSorter<T> = 
-| string // 支持变更请求时字段名称
-| boolean
-| CompareFn<T>
-| {
-    compare?: CompareFn<T>;
-    /** Config multiple sorter order priority */
-    multiple?: number;
-  };
+export type ProSorter<T> =
+  | string // 支持变更请求时字段名称
+  | boolean
+  | CompareFn<T>
+  | {
+      compare?: CompareFn<T>;
+      /** Config multiple sorter order priority */
+      multiple?: number;
+    };
 
 export type ProSorterResult<T> = Omit<SorterResult<T>, 'column'> & {
   column?: ColumnType<T> & {
@@ -176,10 +165,7 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
   }
 >;
 
-export type ProColumns<T = any, ValueType = 'text'> = ProColumnType<
-  T,
-  ValueType
->;
+export type ProColumns<T = any, ValueType = 'text'> = ProColumnType<T, ValueType>;
 
 export type BorderedType = 'search' | 'table';
 
@@ -257,10 +243,7 @@ export type ProTableProps<DataSource, U, ValueType = 'text'> = {
   /**
    * @name 渲染 table 视图，用于定制 ProList，不推荐直接使用
    */
-  tableViewRender?: (
-    props: TableProps<DataSource>,
-    defaultDom: JSX.Element,
-  ) => JSX.Element | undefined;
+  tableViewRender?: (props: TableProps<DataSource>, defaultDom: JSX.Element) => JSX.Element | undefined;
 
   /**
    * @name table 和搜索表单之间的 dom 渲染
@@ -269,18 +252,12 @@ export type ProTableProps<DataSource, U, ValueType = 'text'> = {
    *
    * tableExtraRender={()=> <Statistic title="统计" value={10} />}
    */
-  tableExtraRender?: (
-    props: ProTableProps<DataSource, U, ValueType>,
-    dataSource: DataSource[],
-  ) => React.ReactNode;
+  tableExtraRender?: (props: ProTableProps<DataSource, U, ValueType>, dataSource: DataSource[]) => React.ReactNode;
 
   /**
    * @name 渲染搜索表单
    */
-  searchFormRender?: (
-    props: ProTableProps<DataSource, U, ValueType>,
-    defaultDom: JSX.Element,
-  ) => React.ReactNode;
+  searchFormRender?: (props: ProTableProps<DataSource, U, ValueType>, defaultDom: JSX.Element) => React.ReactNode;
 
   /** @name 一个获得 dataSource 的方法 */
   request?: (
@@ -593,7 +570,5 @@ export type UseFetchProps = {
 
 export type OptionSearchProps = Omit<SearchProps, 'onSearch'> & {
   /** 如果 onSearch 返回一个false，直接拦截请求 */
-  onSearch?: (
-    keyword: string,
-  ) => Promise<boolean | undefined> | boolean | undefined;
+  onSearch?: (keyword: string) => Promise<boolean | undefined> | boolean | undefined;
 };

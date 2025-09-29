@@ -15,29 +15,23 @@ const RegionalSetting: React.FC<{
   return (
     <List
       className={`${prefixCls}-list ${hashId}`.trim()}
-      split={false}
-      renderItem={renderLayoutSettingItem}
       dataSource={regionalSetting.map((key) => {
         return {
           title: formatMessage({ id: `app.setting.regionalsettings.${key}` }),
           action: (
             <Switch
-              size="small"
-              className={`regional-${key} ${hashId}`.trim()}
               checked={
-                settings[`${key}Render` as 'headerRender'] ||
-                settings[`${key}Render` as 'headerRender'] === undefined
+                settings[`${key}Render` as 'headerRender'] || settings[`${key}Render` as 'headerRender'] === undefined
               }
-              onChange={(checked) =>
-                changeSetting(
-                  `${key}Render`,
-                  checked === true ? undefined : false,
-                )
-              }
+              className={`regional-${key} ${hashId}`.trim()}
+              size="small"
+              onChange={(checked) => changeSetting(`${key}Render`, checked === true ? undefined : false)}
             />
           ),
         };
       })}
+      renderItem={renderLayoutSettingItem}
+      split={false}
     />
   );
 };

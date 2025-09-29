@@ -1,11 +1,7 @@
-﻿import {
-  ProForm,
-  ProFormUploadButton,
-  ProFormUploadDragger,
-} from '@ant-design/pro-components';
-import { cleanup, fireEvent, render } from '@testing-library/react';
+﻿import { cleanup, fireEvent, render } from '@testing-library/react';
+import { ProForm, ProFormUploadButton, ProFormUploadDragger } from '@xxlabs/pro-components';
 import { Form } from 'antd';
-import type { UploadFile } from 'antd/lib/upload/interface';
+import type { UploadFile } from 'antd/es/upload/interface';
 import { act } from 'react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import mock from 'xhr-mock';
@@ -58,23 +54,20 @@ describe('ProFormUpload', () => {
       >
         <ProFormUploadButton
           action="http://upload.com"
-          listType="text"
-          onChange={() => onChangeFn()}
           label="upload"
+          listType="text"
           name="files"
+          onChange={() => onChangeFn()}
         />
       </ProForm>,
     );
 
     act(() => {
-      fireEvent.change(
-        wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload input')!,
-        {
-          target: {
-            files: [mockFile],
-          },
+      fireEvent.change(wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload input')!, {
+        target: {
+          files: [mockFile],
         },
-      );
+      });
     });
     await waitForWaitTime(1000);
     expect(fn).toHaveBeenCalled();
@@ -91,100 +84,82 @@ describe('ProFormUpload', () => {
       >
         <ProFormUploadButton
           action="http://upload.com"
-          listType="text"
-          label="upload"
-          name="files"
           fieldProps={{
             beforeUpload: () => {
               return false;
             },
           }}
+          label="upload"
+          listType="text"
+          name="files"
         />
       </ProForm>,
     );
 
     act(() => {
-      fireEvent.change(
-        wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload input')!,
-        {
-          target: {
-            files: [mockFile],
-          },
+      fireEvent.change(wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload input')!, {
+        target: {
+          files: [mockFile],
         },
-      );
+      });
     });
     await waitForWaitTime(200);
 
     act(() => {
-      expect(
-        wrapper.baseElement.querySelectorAll<HTMLDivElement>(
-          'div.ant-upload-list-picture-container',
-        ).length,
-      ).toBe(0);
+      expect(wrapper.baseElement.querySelectorAll<HTMLDivElement>('div.ant-upload-list-picture-container').length).toBe(
+        0,
+      );
     });
   });
 
   it('🏐 ProFormUploadButton support disable', async () => {
     const wrapper = render(
       <Form>
-        <ProFormUploadButton
-          disabled
-          action="http://upload.com"
-          listType="text"
-          label="upload"
-          name="files"
-        />
+        <ProFormUploadButton disabled action="http://upload.com" label="upload" listType="text" name="files" />
       </Form>,
     );
-    expect(
-      wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload')
-        ?.innerHTML,
-    ).toMatchSnapshot();
+    expect(wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload')?.innerHTML).toMatchSnapshot();
     act(() => {
       wrapper.rerender(
         <Form>
           <ProFormUploadButton
             disabled
             action="http://upload.com"
-            listType="text"
-            label="upload"
-            name="files"
             buttonProps={{
               disabled: true,
               type: 'dashed',
             }}
+            label="upload"
+            listType="text"
+            name="files"
           />
         </Form>,
       );
     });
     await waitForWaitTime(100);
     expect(
-      wrapper.baseElement
-        .querySelector<HTMLDivElement>('.ant-upload')
-        ?.querySelector('.ant-btn-dashed'),
+      wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload')?.querySelector('.ant-btn-dashed'),
     ).toBeTruthy();
     act(() => {
       wrapper.rerender(
         <Form>
           <ProFormUploadButton
-            disabled={false}
             action="http://upload.com"
-            listType="text"
-            label="upload"
-            name="files"
             buttonProps={{}}
+            disabled={false}
             fieldProps={{
               disabled: true,
             }}
+            label="upload"
+            listType="text"
+            name="files"
           />
         </Form>,
       );
     });
     await waitForWaitTime(100);
     expect(
-      wrapper.baseElement
-        .querySelector<HTMLDivElement>('.ant-upload')
-        ?.querySelector('.ant-btn-dashed'),
+      wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload')?.querySelector('.ant-btn-dashed'),
     ).toBeFalsy();
   });
 
@@ -197,24 +172,16 @@ describe('ProFormUpload', () => {
           fn(values.files);
         }}
       >
-        <ProFormUploadDragger
-          onChange={() => onChangeFn()}
-          action="http://upload.com"
-          label="upload"
-          name="files"
-        />
+        <ProFormUploadDragger action="http://upload.com" label="upload" name="files" onChange={() => onChangeFn()} />
       </ProForm>,
     );
 
     act(() => {
-      fireEvent.change(
-        wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload input')!,
-        {
-          target: {
-            files: [mockFile],
-          },
+      fireEvent.change(wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload input')!, {
+        target: {
+          files: [mockFile],
         },
-      );
+      });
     });
     await waitForWaitTime(200);
     expect(fn).toHaveBeenCalled();
@@ -225,22 +192,18 @@ describe('ProFormUpload', () => {
     const wrapper = render(
       <Form>
         <ProFormUploadDragger
-          max={2}
-          value={[mockFile, mockFile1, mockFile2]}
           action="http://upload.com"
           label="upload"
+          max={2}
           name="files"
+          value={[mockFile, mockFile1, mockFile2]}
         />
       </Form>,
     );
 
     await waitForWaitTime(200);
     expect(
-      getComputedStyle(
-        wrapper.baseElement.querySelector<HTMLDivElement>(
-          '.ant-upload.ant-upload-drag',
-        )!,
-      )?.display,
+      getComputedStyle(wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload.ant-upload-drag')!)?.display,
     ).toBe('none');
   });
 
@@ -249,10 +212,10 @@ describe('ProFormUpload', () => {
     const wrapper = render(
       <Form>
         <ProFormUploadDragger
-          value={[mockFile, mockFile1, mockFile2]}
           action="http://upload.com"
           label="upload"
           name="files"
+          value={[mockFile, mockFile1, mockFile2]}
         >
           {extra}
         </ProFormUploadDragger>
@@ -260,31 +223,25 @@ describe('ProFormUpload', () => {
     );
 
     await waitForWaitTime(200);
-    expect(
-      wrapper.baseElement.querySelector<HTMLDivElement>(
-        '.ant-upload-drag .ant-upload-extra',
-      )?.textContent,
-    ).toBe(extra);
+    expect(wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload-drag .ant-upload-extra')?.textContent).toBe(
+      extra,
+    );
   });
 
   it('🏐 ProFormUploadButton hide when max', async () => {
     const wrapper = render(
       <Form>
         <ProFormUploadButton
-          max={2}
-          value={[mockFile, mockFile1, mockFile2]}
           action="http://upload.com"
           label="upload"
+          max={2}
           name="files"
+          value={[mockFile, mockFile1, mockFile2]}
         />
       </Form>,
     );
 
     await waitForWaitTime(200);
-    expect(
-      wrapper.baseElement.querySelector<HTMLDivElement>(
-        '.anticon.anticon-upload',
-      ),
-    ).toBeFalsy();
+    expect(wrapper.baseElement.querySelector<HTMLDivElement>('.anticon.anticon-upload')).toBeFalsy();
   });
 });

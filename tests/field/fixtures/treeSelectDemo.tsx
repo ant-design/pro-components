@@ -1,4 +1,4 @@
-import { ProField as Field } from '@ant-design/pro-components';
+import { ProField as Field } from '@xxlabs/pro-components';
 import type { TreeSelectProps } from 'antd';
 import { waitTime } from '../../util';
 
@@ -25,9 +25,7 @@ export function TreeSelectDemo(
         suffixIcon: null,
         ...fieldProps,
       }}
-      value={value}
       mode="edit"
-      valueType="treeSelect"
       request={async () => {
         request?.();
         await waitTime(100);
@@ -62,6 +60,8 @@ export function TreeSelectDemo(
           },
         ];
       }}
+      value={value}
+      valueType="treeSelect"
     />
   );
 }

@@ -1,5 +1,5 @@
-import { ProTable } from '@ant-design/pro-components';
 import { cleanup, render } from '@testing-library/react';
+import { ProTable } from '@xxlabs/pro-components';
 import { afterAll, afterEach, beforeAll, describe, expect, it } from 'vitest';
 import { waitForWaitTime } from '../util';
 afterEach(() => {
@@ -10,10 +10,7 @@ describe('BasicTable SearchGutter', () => {
   const LINE_STR_COUNT = 20;
   // Mock offsetHeight
   // @ts-expect-error
-  const originOffsetHeight = Object.getOwnPropertyDescriptor(
-    HTMLElement.prototype,
-    'offsetHeight',
-  ).get;
+  const originOffsetHeight = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'offsetHeight').get;
   Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
     get() {
       let html = this.innerHTML;
@@ -44,15 +41,6 @@ describe('BasicTable SearchGutter', () => {
   it('🎏 ProTable support searchGutter', async () => {
     const html = render(
       <ProTable
-        size="small"
-        options={{
-          fullScreen: false,
-          reload: false,
-          setting: false,
-        }}
-        search={{
-          searchGutter: [16, 24],
-        }}
         columns={[
           {
             dataIndex: 'money',
@@ -60,7 +48,16 @@ describe('BasicTable SearchGutter', () => {
           },
         ]}
         dataSource={[]}
+        options={{
+          fullScreen: false,
+          reload: false,
+          setting: false,
+        }}
         rowKey="key"
+        search={{
+          searchGutter: [16, 24],
+        }}
+        size="small"
       />,
     );
     await waitForWaitTime(1200);
@@ -71,15 +68,6 @@ describe('BasicTable SearchGutter', () => {
   it('🎏 ProTable searchGutter default is [24 0]', async () => {
     const html = render(
       <ProTable
-        size="small"
-        options={{
-          fullScreen: false,
-          reload: false,
-          setting: false,
-        }}
-        search={{
-          searchGutter: 12,
-        }}
         columns={[
           {
             dataIndex: 'money',
@@ -87,7 +75,16 @@ describe('BasicTable SearchGutter', () => {
           },
         ]}
         dataSource={[]}
+        options={{
+          fullScreen: false,
+          reload: false,
+          setting: false,
+        }}
         rowKey="key"
+        search={{
+          searchGutter: 12,
+        }}
+        size="small"
       />,
     );
     await waitForWaitTime(1200);

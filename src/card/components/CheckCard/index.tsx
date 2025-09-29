@@ -4,8 +4,9 @@ import type { MouseEventHandler } from 'react';
 import React, { useContext, useEffect, useMemo } from 'react';
 import { useMountMergeState } from '../../../utils';
 import ProCardActions from '../Actions';
+import { CheckCardGroupContext } from './Context';
 import type { CheckCardGroupProps } from './Group';
-import CheckCardGroup, { CardLoading, CheckCardGroupConnext } from './Group';
+import CheckCardGroup, { CardLoading } from './Group';
 import { useStyle } from './style';
 
 /**
@@ -163,14 +164,11 @@ export interface CheckCardState {
 const CheckCard: React.FC<CheckCardProps> & {
   Group: typeof CheckCardGroup;
 } = (props) => {
-  const [stateChecked, setStateChecked] = useMountMergeState<boolean>(
-    props.defaultChecked || false,
-    {
-      value: props.checked,
-      onChange: props.onChange,
-    },
-  );
-  const checkCardGroup = useContext(CheckCardGroupConnext);
+  const [stateChecked, setStateChecked] = useMountMergeState<boolean>(props.defaultChecked || false, {
+    value: props.checked,
+    onChange: props.onChange,
+  });
+  const checkCardGroup = useContext(CheckCardGroupContext);
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
   const handleClick = (e: any) => {
@@ -190,7 +188,6 @@ const CheckCard: React.FC<CheckCardProps> & {
   useEffect(() => {
     checkCardGroup?.registerValue?.(props.value);
     return () => checkCardGroup?.cancelValue?.(props.value);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.value]);
 
   const {
@@ -220,11 +217,7 @@ const CheckCard: React.FC<CheckCardProps> & {
   const renderCover = (cls: string, coverDom: string | React.ReactNode) => {
     return (
       <div className={classNames(`${cls}-cover`, hashId)}>
-        {typeof coverDom === 'string' ? (
-          <img src={coverDom} alt="checkcard" />
-        ) : (
-          coverDom
-        )}
+        {typeof coverDom === 'string' ? <img alt="checkcard" src={coverDom} /> : coverDom}
       </div>
     );
   };
@@ -250,13 +243,7 @@ const CheckCard: React.FC<CheckCardProps> & {
     checkCardProps.size = props.size || checkCardGroup.size;
   }
 
-  const {
-    disabled = false,
-    size,
-    loading: cardLoading,
-    bordered = true,
-    checked,
-  } = checkCardProps;
+  const { disabled = false, size, loading: cardLoading, bordered = true, checked } = checkCardProps;
   const sizeCls = getSizeCls(size);
 
   const classString = classNames(prefixCls, className, hashId, {
@@ -271,7 +258,7 @@ const CheckCard: React.FC<CheckCardProps> & {
 
   const metaDom = useMemo(() => {
     if (cardLoading) {
-      return <CardLoading prefixCls={prefixCls || ''} hashId={hashId} />;
+      return <CardLoading hashId={hashId} prefixCls={prefixCls || ''} />;
     }
 
     if (cover) {
@@ -280,11 +267,7 @@ const CheckCard: React.FC<CheckCardProps> & {
 
     const avatarDom = avatar ? (
       <div className={classNames(`${prefixCls}-avatar`, hashId)}>
-        {typeof avatar === 'string' ? (
-          <Avatar size={48} shape="square" src={avatar} />
-        ) : (
-          avatar
-        )}
+        {typeof avatar === 'string' ? <Avatar shape="square" size={48} src={avatar} /> : avatar}
       </div>
     ) : null;
 
@@ -298,24 +281,14 @@ const CheckCard: React.FC<CheckCardProps> & {
           >
             {title}
           </div>
-          {props.subTitle ? (
-            <div className={classNames(`${prefixCls}-subTitle`, hashId)}>
-              {props.subTitle}
-            </div>
-          ) : null}
+          {props.subTitle ? <div className={classNames(`${prefixCls}-subTitle`, hashId)}>{props.subTitle}</div> : null}
         </div>
-        {extra && (
-          <div className={classNames(`${prefixCls}-extra`, hashId)}>
-            {extra}
-          </div>
-        )}
+        {extra && <div className={classNames(`${prefixCls}-extra`, hashId)}>{extra}</div>}
       </div>
     );
 
     const descriptionDom = description ? (
-      <div className={classNames(`${prefixCls}-description`, hashId)}>
-        {description}
-      </div>
+      <div className={classNames(`${prefixCls}-description`, hashId)}>{description}</div>
     ) : null;
 
     const metaClass = classNames(`${prefixCls}-content`, hashId, {
@@ -333,17 +306,7 @@ const CheckCard: React.FC<CheckCardProps> & {
         ) : null}
       </div>
     );
-  }, [
-    avatar,
-    cardLoading,
-    cover,
-    description,
-    extra,
-    hashId,
-    prefixCls,
-    props.subTitle,
-    title,
-  ]);
+  }, [avatar, cardLoading, cover, description, extra, hashId, prefixCls, props.subTitle, title]);
 
   return wrapSSR(
     <div
@@ -358,16 +321,11 @@ const CheckCard: React.FC<CheckCardProps> & {
     >
       {metaDom}
       {props.children ? (
-        <div
-          className={classNames(`${prefixCls}-body`, hashId)}
-          style={props.bodyStyle}
-        >
+        <div className={classNames(`${prefixCls}-body`, hashId)} style={props.bodyStyle}>
           {props.children}
         </div>
       ) : null}
-      {props.actions ? (
-        <ProCardActions actions={props.actions} prefixCls={prefixCls} />
-      ) : null}
+      {props.actions ? <ProCardActions actions={props.actions} prefixCls={prefixCls} /> : null}
     </div>,
   );
 };

@@ -1,15 +1,7 @@
 import { PlusOutlined } from '@ant-design/icons';
-import type {
-  ProColumns,
-  ProDescriptionsItemProps,
-} from '@ant-design/pro-components';
-import {
-  ProCard,
-  ProDescriptions,
-  ProTable,
-  TableDropdown,
-} from '@ant-design/pro-components';
-import { Button, Space, Tabs, Tag, message } from 'antd';
+import type { ProColumns, ProDescriptionsItemProps } from '@xxlabs/pro-components';
+import { ProCard, ProDescriptions, ProTable, TableDropdown } from '@xxlabs/pro-components';
+import { Button, message, Space, Tabs, Tag } from 'antd';
 import { useState } from 'react';
 import request from 'umi-request';
 
@@ -83,7 +75,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     render: (_, row) => (
       <Space>
         {row.labels.map(({ name, color }) => (
-          <Tag color={color} key={name}>
+          <Tag key={name} color={color}>
             {name}
           </Tag>
         ))}
@@ -95,16 +87,16 @@ const columns: ProColumns<GithubIssueItem>[] = [
     valueType: 'option',
     dataIndex: 'id',
     render: (text, row) => [
-      <a href={row.url} key="show" target="_blank" rel="noopener noreferrer">
+      <a key="show" href={row.url} rel="noopener noreferrer" target="_blank">
         查看
       </a>,
       <TableDropdown
         key="more"
-        onSelect={(key) => message.info(key)}
         menus={[
           { key: 'copy', name: '复制' },
           { key: 'delete', name: '删除' },
         ]}
+        onSelect={(key) => message.info(key)}
       />,
     ],
   },
@@ -116,43 +108,40 @@ export default () => {
     <ProCard>
       <Tabs
         activeKey={type}
-        onChange={(e) => setType(e)}
         items={[
           { key: 'table', label: 'table' },
           { key: 'form', label: 'form' },
           { key: 'descriptions', label: 'descriptions' },
         ]}
+        onChange={(e) => setType(e)}
       />
       {['table', 'form'].includes(type) && (
         <ProTable<GithubIssueItem>
           columns={columns}
-          type={type as 'table'}
-          request={async (params = {} as Record<string, any>) =>
+          dateFormatter="string"
+          headerTitle="查询 Table"
+          pagination={{
+            pageSize: 5,
+          }}
+          request={async (params: Record<string, any> = {}) =>
             request<{
               data: GithubIssueItem[];
             }>('https://proapi.azurewebsites.net/github/issues', {
               params,
             })
           }
-          pagination={{
-            pageSize: 5,
-          }}
           rowKey="id"
-          dateFormatter="string"
-          headerTitle="查询 Table"
           toolBarRender={() => [
             <Button key="3" type="primary">
               <PlusOutlined />
               新建
             </Button>,
           ]}
+          type={type as 'table'}
         />
       )}
       {type === 'descriptions' && (
         <ProDescriptions
-          style={{
-            background: '#fff',
-          }}
           columns={columns as ProDescriptionsItemProps<GithubIssueItem>[]}
           request={async (params) => {
             const msg = await request<{
@@ -165,96 +154,11 @@ export default () => {
               data: msg?.data[0],
             };
           }}
+          style={{
+            background: '#fff',
+          }}
         />
       )}
     </ProCard>
   );
-
-  <div
-    style={{
-      marginTop: '20px',
-      padding: '20px',
-      backgroundColor: '#f5f5f5',
-      borderRadius: '6px',
-    }}
-  >
-    <h4>ProTable CRUD Props 说明：</h4>
-    <ul>
-      <li>
-        <strong>ProTable</strong>: 专业表格组件
-      </li>
-      <li>
-        <strong>ProCard</strong>: 专业卡片组件
-      </li>
-      <li>
-        <strong>ProDescriptions</strong>: 专业描述组件
-      </li>
-      <li>
-        <strong>TableDropdown</strong>: 表格下拉菜单组件
-      </li>
-      <li>
-        <strong>Tabs</strong>: 标签页组件
-      </li>
-      <li>
-        <strong>CRUD操作</strong>: 展示增删改查功能
-      </li>
-    </ul>
-    <h4>ProTable 配置：</h4>
-    <ul>
-      <li>
-        <strong>columns</strong>: 列配置
-      </li>
-      <li>
-        <strong>type</strong>: 表格类型
-      </li>
-      <li>
-        <strong>request</strong>: 请求函数
-      </li>
-      <li>
-        <strong>pagination</strong>: 分页配置
-      </li>
-      <li>
-        <strong>rowKey</strong>: 行键
-      </li>
-      <li>
-        <strong>dateFormatter</strong>: 日期格式化
-      </li>
-      <li>
-        <strong>headerTitle</strong>: 表格标题
-      </li>
-      <li>
-        <strong>toolBarRender</strong>: 工具栏渲染
-      </li>
-    </ul>
-    <h4>CRUD特点：</h4>
-    <ul>
-      <li>
-        <strong>多视图切换</strong>: 支持表格、表单、描述视图
-      </li>
-      <li>
-        <strong>动态列配置</strong>: 支持动态列配置
-      </li>
-      <li>
-        <strong>标签过滤</strong>: 支持标签过滤
-      </li>
-      <li>
-        <strong>状态管理</strong>: 支持状态管理
-      </li>
-      <li>
-        <strong>操作集成</strong>: 支持操作集成
-      </li>
-    </ul>
-    <h4>使用场景：</h4>
-    <ul>
-      <li>
-        <strong>数据管理</strong>: 数据管理系统
-      </li>
-      <li>
-        <strong>内容管理</strong>: 内容管理平台
-      </li>
-      <li>
-        <strong>后台管理</strong>: 后台管理系统
-      </li>
-    </ul>
-  </div>
 };

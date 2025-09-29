@@ -1,5 +1,7 @@
 import { FontSizeOutlined } from '@ant-design/icons';
-import type { ProFormInstance } from '@ant-design/pro-components';
+import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import type { ProFormInstance } from '@xxlabs/pro-components';
 import {
   LightFilter,
   ProForm,
@@ -16,21 +18,11 @@ import {
   ProFormText,
   ProFormTimePicker,
   ProFormTreeSelect,
-} from '@ant-design/pro-components';
-import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+} from '@xxlabs/pro-components';
 import { Button, ConfigProvider, Input } from 'antd';
 import dayjs from 'dayjs';
 import React, { act, useEffect, useRef } from 'react';
-import {
-  afterAll,
-  afterEach,
-  beforeAll,
-  describe,
-  expect,
-  it,
-  vi,
-} from 'vitest';
+import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
 
 afterEach(() => {
@@ -59,9 +51,7 @@ describe('ProForm', () => {
         </ProForm>
       </ConfigProvider>,
     );
-    expect(
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-input-sm').length,
-    ).toBe(1);
+    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-input-sm').length).toBe(1);
     wrapper.unmount();
   });
 
@@ -99,17 +89,17 @@ describe('ProForm', () => {
     const fn = vi.fn();
     const wrapper = render(
       <ProForm
+        syncToUrl
         onFinish={async (values) => {
           fn(values.navTheme);
         }}
-        syncToUrl
       >
         <ProFormText
+          name="navTheme"
           tooltip={{
             title: '主题',
             icon: <FontSizeOutlined />,
           }}
-          name="navTheme"
         />
       </ProForm>,
     );
@@ -121,9 +111,7 @@ describe('ProForm', () => {
     expect(fn).toHaveBeenCalledWith('realDark');
 
     act(() => {
-      wrapper.baseElement
-        .querySelectorAll<HTMLHtmlElement>('button.ant-btn')[1]
-        .click();
+      wrapper.baseElement.querySelectorAll<HTMLHtmlElement>('button.ant-btn')[1].click();
     });
 
     expect(fn).toHaveBeenCalledWith('realDark');
@@ -133,18 +121,18 @@ describe('ProForm', () => {
     const fn = vi.fn();
     const wrapper = render(
       <ProForm
+        syncToUrl
+        syncToUrlAsImportant
         onFinish={async (values) => {
           fn(values.navTheme);
         }}
-        syncToUrl
-        syncToUrlAsImportant
       >
         <ProFormText
+          name="navTheme"
           tooltip={{
             title: '主题',
             icon: <FontSizeOutlined />,
           }}
-          name="navTheme"
         />
       </ProForm>,
     );
@@ -155,9 +143,7 @@ describe('ProForm', () => {
     expect(fn).toHaveBeenCalledWith('realDark');
 
     act(() => {
-      wrapper.baseElement
-        .querySelectorAll<HTMLElement>('button.ant-btn')[1]
-        .click();
+      wrapper.baseElement.querySelectorAll<HTMLElement>('button.ant-btn')[1].click();
     });
 
     expect(fn).toHaveBeenCalledWith('realDark');
@@ -168,11 +154,11 @@ describe('ProForm', () => {
     const onFinish = vi.fn();
     const wrapper = render(
       <ProForm
+        syncToUrl
+        syncToInitialValues={false}
         onFinish={async (values) => {
           onFinish(values.navTheme);
         }}
-        syncToUrl
-        syncToInitialValues={false}
       >
         <ProFormText name="navTheme" />
         <ProForm.Item shouldUpdate>
@@ -206,10 +192,10 @@ describe('ProForm', () => {
     const fn = vi.fn();
     const wrapper = render(
       <ProForm
+        initialValues={{}}
         onFinish={async (values) => {
           fn(values.navTheme);
         }}
-        initialValues={{}}
       >
         <ProFormText name="navTheme" />
       </ProForm>,
@@ -223,10 +209,10 @@ describe('ProForm', () => {
     act(() => {
       wrapper.rerender(
         <ProForm
+          initialValues={{ navTheme: 'xxx' }}
           onFinish={async (values) => {
             fn(values.navTheme);
           }}
-          initialValues={{ navTheme: 'xxx' }}
         >
           <ProFormText name="navTheme" />
         </ProForm>,
@@ -303,11 +289,11 @@ describe('ProForm', () => {
   it('📦 onFinish support params and request', async () => {
     const wrapper = render(
       <ProForm
-        request={async (params) => {
-          return params;
-        }}
         params={{
           name: 'test',
+        }}
+        request={async (params) => {
+          return params;
         }}
       >
         <ProFormText name="name" />
@@ -321,11 +307,11 @@ describe('ProForm', () => {
       wrapper.rerender(
         <ProForm
           key="rerender"
-          request={async (params) => {
-            return params;
-          }}
           params={{
             name: '1234',
+          }}
+          request={async (params) => {
+            return params;
           }}
         >
           <ProFormText name="name" />
@@ -340,13 +326,13 @@ describe('ProForm', () => {
   it('📦 request rewrite initialsValue', async () => {
     const wrapper = render(
       <ProForm
+        initialValues={{
+          name: '不是1000',
+        }}
         request={async () => {
           return {
             name: '100',
           };
-        }}
-        initialValues={{
-          name: '不是1000',
         }}
       >
         <ProFormText name="name" />
@@ -389,12 +375,13 @@ describe('ProForm', () => {
     const formRef = React.createRef<ProFormInstance<any>>();
     const wrapper = render(
       <ProForm
+        // @ts-ignore
         formRef={formRef}
-        submitter={{
-          render: () => [<a key="test">test</a>],
-        }}
         initialValues={{
           test: '12,34',
+        }}
+        submitter={{
+          render: () => [<a key="test">test</a>],
         }}
       >
         <ProFormText
@@ -409,21 +396,11 @@ describe('ProForm', () => {
     );
     await wrapper.findByText('test');
 
-    expect(formRef.current?.getFieldFormatValue?.('test')?.join('-')).toBe(
-      '12-34',
-    );
-    expect(
-      formRef.current?.getFieldFormatValueObject?.('test')?.test.join('-'),
-    ).toBe('12-34');
-    expect(formRef.current?.getFieldFormatValueObject?.()?.test.join('-')).toBe(
-      '12-34',
-    );
-    expect(formRef.current?.getFieldsFormatValue?.()?.test.join('-')).toBe(
-      '12-34',
-    );
-    expect(formRef.current?.getFieldFormatValue?.(['test'])?.join('-')).toBe(
-      '12-34',
-    );
+    expect(formRef.current?.getFieldFormatValue?.('test')?.join('-')).toBe('12-34');
+    expect(formRef.current?.getFieldFormatValueObject?.('test')?.test.join('-')).toBe('12-34');
+    expect(formRef.current?.getFieldFormatValueObject?.()?.test.join('-')).toBe('12-34');
+    expect(formRef.current?.getFieldsFormatValue?.()?.test.join('-')).toBe('12-34');
+    expect(formRef.current?.getFieldFormatValue?.(['test'])?.join('-')).toBe('12-34');
     expect(formRef.current?.getFieldValue?.('test')).toBe('12,34');
     wrapper.unmount();
   });
@@ -437,22 +414,20 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
-    expect(await wrapper.container.querySelector('form')).toBe(
-      formRef.current?.nativeElement,
-    );
+    expect(await wrapper.container.querySelector('form')).toBe(formRef.current?.nativeElement);
   });
 
   it('📦 ProForm support namePath is array', async () => {
     const fn = vi.fn();
     const wrapper = render(
       <ProForm
+        isKeyPressSubmit
         initialValues={{
           name: {
             test: 'test',
           },
           test: 'test2',
         }}
-        isKeyPressSubmit
         onFinish={async (params) => {
           fn(params);
         }}
@@ -480,8 +455,8 @@ describe('ProForm', () => {
     const fn = vi.fn();
     const wrapper = render(
       <ProForm
-        omitNil={false}
         isKeyPressSubmit
+        omitNil={false}
         onFinish={async () => {
           fn();
         }}
@@ -562,9 +537,7 @@ describe('ProForm', () => {
     });
 
     act(() => {
-      wrapper.baseElement
-        .querySelectorAll<HTMLElement>('button.test_button')[0]
-        .click();
+      wrapper.baseElement.querySelectorAll<HTMLElement>('button.test_button')[0].click();
     });
 
     expect(fn).toHaveBeenCalled();
@@ -592,9 +565,7 @@ describe('ProForm', () => {
       expect(wrapper.asFragment()).toMatchSnapshot();
     });
     act(() => {
-      wrapper.baseElement
-        .querySelectorAll<HTMLElement>('button.test_button')[0]
-        .click();
+      wrapper.baseElement.querySelectorAll<HTMLElement>('button.test_button')[0].click();
     });
     expect(fn).toHaveBeenCalled();
     wrapper.unmount();
@@ -604,12 +575,11 @@ describe('ProForm', () => {
     const onFinish = vi.fn();
     const wrapper = render(
       <ProForm
-        onFinish={onFinish}
         submitter={{
           render: ({ form }) => [
             <Button
-              id="submit"
               key="submit"
+              id="submit"
               type="primary"
               onClick={() => {
                 form?.submit();
@@ -619,6 +589,7 @@ describe('ProForm', () => {
             </Button>,
           ],
         }}
+        onFinish={onFinish}
       >
         <ProFormText label="name" name="name" />
       </ProForm>,
@@ -639,6 +610,12 @@ describe('ProForm', () => {
     const wrapper = render(
       <ProForm>
         <ProFormCaptcha
+          captchaProps={{
+            id: 'test',
+          }}
+          countDown={2}
+          label="name"
+          name="name"
           onGetCaptcha={async () => {
             return new Promise((resolve) => {
               setTimeout(() => {
@@ -646,12 +623,6 @@ describe('ProForm', () => {
               }, 2000);
             });
           }}
-          captchaProps={{
-            id: 'test',
-          }}
-          countDown={2}
-          label="name"
-          name="name"
         />
       </ProForm>,
     );
@@ -700,26 +671,23 @@ describe('ProForm', () => {
     const wrapper = render(
       <ProForm onFinish={(values) => onFinish(values.name)}>
         <ProFormCaptcha
-          onGetCaptcha={async () => {
-            await waitForWaitTime(10);
-          }}
           countDown={2}
           label="name"
           name="name"
+          onGetCaptcha={async () => {
+            await waitForWaitTime(10);
+          }}
         />
       </ProForm>,
     );
     await wrapper.findByText('提 交');
 
     act(() => {
-      fireEvent.change(
-        wrapper.baseElement.querySelectorAll<HTMLElement>('input#name')[0],
-        {
-          target: {
-            value: 'test',
-          },
+      fireEvent.change(wrapper.baseElement.querySelectorAll<HTMLElement>('input#name')[0], {
+        target: {
+          value: 'test',
         },
-      );
+      });
     });
 
     await act(async () => {
@@ -734,6 +702,12 @@ describe('ProForm', () => {
     const wrapper = render(
       <ProForm>
         <ProFormCaptcha
+          captchaProps={{
+            id: 'test',
+          }}
+          captchaTextRender={(timing) => (timing ? '重新获取' : '获取')}
+          label="name"
+          name="name"
           onGetCaptcha={async () => {
             return new Promise((resolve) => {
               setTimeout(() => {
@@ -741,12 +715,6 @@ describe('ProForm', () => {
               }, 200);
             });
           }}
-          captchaTextRender={(timing) => (timing ? '重新获取' : '获取')}
-          captchaProps={{
-            id: 'test',
-          }}
-          label="name"
-          name="name"
         />
       </ProForm>,
     );
@@ -776,15 +744,15 @@ describe('ProForm', () => {
     const wrapper = render(
       <ProForm>
         <ProFormCaptcha
-          onGetCaptcha={async () => {
-            throw new Error('TEST');
-          }}
-          captchaTextRender={(timing) => (timing ? '重新获取' : '获取')}
           captchaProps={{
             id: 'test',
           }}
+          captchaTextRender={(timing) => (timing ? '重新获取' : '获取')}
           label="name"
           name="name"
+          onGetCaptcha={async () => {
+            throw new Error('TEST');
+          }}
         />
       </ProForm>,
     );
@@ -795,10 +763,7 @@ describe('ProForm', () => {
       fireEvent.click(wrapper.baseElement.querySelector('#test')!);
     });
 
-    expect(
-      wrapper.baseElement.querySelectorAll<HTMLElement>('button#test')[0]
-        .textContent,
-    ).toBe('获 取');
+    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('button#test')[0].textContent).toBe('获 取');
     wrapper.unmount();
   });
 
@@ -815,15 +780,15 @@ describe('ProForm', () => {
           ]}
         />
         <ProFormCaptcha
-          onGetCaptcha={async () => {
-            fn();
-          }}
-          phoneName="phone"
           captchaProps={{
             id: 'test',
           }}
           label="name"
           name="name"
+          phoneName="phone"
+          onGetCaptcha={async () => {
+            fn();
+          }}
         />
       </ProForm>,
     );
@@ -839,14 +804,11 @@ describe('ProForm', () => {
     expect(fn).not.toHaveBeenCalled();
 
     act(() => {
-      fireEvent.change(
-        wrapper.baseElement.querySelectorAll<HTMLElement>('input')[1],
-        {
-          target: {
-            value: 'tech',
-          },
+      fireEvent.change(wrapper.baseElement.querySelectorAll<HTMLElement>('input')[1], {
+        target: {
+          value: 'tech',
         },
-      );
+      });
     });
 
     await act(async () => {
@@ -861,32 +823,32 @@ describe('ProForm', () => {
     const onFinish = vi.fn();
     const wrapper = render(
       <ProForm
-        onFinish={onFinish}
         initialValues={{
           name: '蚂蚁设计有限公司',
           name2: '蚂蚁设计集团',
           useMode: 'chapter',
         }}
+        onFinish={onFinish}
       >
+        <ProFormText label="签约客户名称" name="name" placeholder="请输入名称" tooltip="最长为 24 位" width="md" />
         <ProFormText
-          width="md"
-          name="name"
           label="签约客户名称"
-          tooltip="最长为 24 位"
-          placeholder="请输入名称"
-        />
-        <ProFormText
-          width="md"
           name={['name2', 'text']}
-          label="签约客户名称"
-          tooltip="最长为 24 位"
           placeholder="请输入名称"
+          tooltip="最长为 24 位"
+          width="md"
         />
         {/*  ProFormDependency 会自动注入并且 进行 shouldUpdate 的比对  */}
         <ProFormDependency name={['name', ['name2', 'text']]}>
           {(values) => {
             return (
               <ProFormSelect
+                label={
+                  <span id="label_text">{`与《${values?.name || ''}》 与 《${
+                    values?.name2?.text || ''
+                  }》合同约定生效方式`}</span>
+                }
+                name="useMode"
                 options={[
                   {
                     value: 'chapter',
@@ -894,12 +856,6 @@ describe('ProForm', () => {
                   },
                 ]}
                 width="md"
-                name="useMode"
-                label={
-                  <span id="label_text">{`与《${values?.name || ''}》 与 《${
-                    values?.name2?.text || ''
-                  }》合同约定生效方式`}</span>
-                }
               />
             );
           }}
@@ -909,33 +865,24 @@ describe('ProForm', () => {
 
     await wrapper.findByText('提 交');
     act(() => {
-      fireEvent.change(
-        wrapper.baseElement.querySelectorAll<HTMLElement>('input#name')[0],
-        {
-          target: {
-            value: 'test',
-          },
+      fireEvent.change(wrapper.baseElement.querySelectorAll<HTMLElement>('input#name')[0], {
+        target: {
+          value: 'test',
         },
-      );
+      });
     });
 
     act(() => {
-      fireEvent.change(
-        wrapper.baseElement.querySelectorAll<HTMLElement>(
-          'input#name2_text',
-        )[0],
-        {
-          target: {
-            value: 'test2',
-          },
+      fireEvent.change(wrapper.baseElement.querySelectorAll<HTMLElement>('input#name2_text')[0], {
+        target: {
+          value: 'test2',
         },
-      );
+      });
     });
 
-    expect(
-      wrapper.baseElement.querySelector<HTMLElement>('span#label_text')
-        ?.textContent,
-    ).toBe('与《test》 与 《test2》合同约定生效方式');
+    expect(wrapper.baseElement.querySelector<HTMLElement>('span#label_text')?.textContent).toBe(
+      '与《test》 与 《test2》合同约定生效方式',
+    );
     wrapper.unmount();
   });
 
@@ -943,7 +890,7 @@ describe('ProForm', () => {
     const fn = vi.fn();
     const wrapper = render(
       <ProForm>
-        <ProForm.Group title="qixian" collapsible onCollapse={(c) => fn(c)}>
+        <ProForm.Group collapsible title="qixian" onCollapse={(c) => fn(c)}>
           <ProFormText name="phone" />
           <ProFormText name="phone2" />
         </ProForm.Group>
@@ -951,17 +898,13 @@ describe('ProForm', () => {
     );
     await wrapper.findByText('提 交');
     act(() => {
-      wrapper.baseElement
-        .querySelectorAll<HTMLElement>('.ant-pro-form-group-title')[0]
-        .click();
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-pro-form-group-title')[0].click();
     });
 
     expect(fn).toHaveBeenCalledWith(true);
 
     act(() => {
-      wrapper.baseElement
-        .querySelectorAll<HTMLElement>('.ant-pro-form-group-title')[0]
-        .click();
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-pro-form-group-title')[0].click();
     });
 
     expect(fn).toHaveBeenCalledWith(false);
@@ -972,12 +915,7 @@ describe('ProForm', () => {
     const fn = vi.fn();
     const wrapper = render(
       <ProForm>
-        <ProForm.Group
-          title="qixian"
-          collapsible
-          defaultCollapsed={true}
-          onCollapse={(c) => fn(c)}
-        >
+        <ProForm.Group collapsible defaultCollapsed={true} title="qixian" onCollapse={(c) => fn(c)}>
           <ProFormText name="phone" />
           <ProFormText name="phone2" />
         </ProForm.Group>
@@ -985,17 +923,13 @@ describe('ProForm', () => {
     );
     await wrapper.findByText('提 交');
     act(() => {
-      wrapper.baseElement
-        .querySelectorAll<HTMLElement>('.ant-pro-form-group-title')[0]
-        .click();
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-pro-form-group-title')[0].click();
     });
 
     expect(fn).toHaveBeenCalledWith(false);
 
     act(() => {
-      wrapper.baseElement
-        .querySelectorAll<HTMLElement>('.ant-pro-form-group-title')[0]
-        .click();
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-pro-form-group-title')[0].click();
     });
 
     expect(fn).toHaveBeenCalledWith(true);
@@ -1006,12 +940,7 @@ describe('ProForm', () => {
     const fn = vi.fn();
     const wrapper = render(
       <ProForm>
-        <ProForm.Group
-          title="qixian"
-          collapsible
-          extra={<a id="click">点击</a>}
-          onCollapse={(c) => fn(c)}
-        >
+        <ProForm.Group collapsible extra={<a id="click">点击</a>} title="qixian" onCollapse={(c) => fn(c)}>
           <ProFormText name="phone" />
           <ProFormText name="phone2" />
         </ProForm.Group>
@@ -1029,8 +958,8 @@ describe('ProForm', () => {
   it('📦 ProForm.Group support FormItem hidden', async () => {
     const wrapper = render(
       <ProForm>
-        <ProForm.Group title="qixian" collapsible>
-          <ProFormText name="mobile" hidden />
+        <ProForm.Group collapsible title="qixian">
+          <ProFormText hidden name="mobile" />
           <div>mobile</div>
           <ProFormText name="mobile2" />
         </ProForm.Group>
@@ -1038,14 +967,10 @@ describe('ProForm', () => {
     );
     await wrapper.findByText('提 交');
     expect(
-      wrapper.baseElement.querySelectorAll<HTMLElement>(
-        '.ant-pro-form-group-container div.ant-form-item',
-      ).length,
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-pro-form-group-container div.ant-form-item').length,
     ).toBe(1);
     expect(
-      wrapper.baseElement.querySelectorAll<HTMLElement>(
-        '.ant-pro-form-group-container div.ant-space-item',
-      ).length,
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-pro-form-group-container div.ant-space-item').length,
     ).toBe(2);
     wrapper.unmount();
   });
@@ -1062,14 +987,11 @@ describe('ProForm', () => {
     await wrapper.findByText('提 交');
 
     act(() => {
-      fireEvent.change(
-        wrapper.baseElement.querySelectorAll<HTMLElement>('input#testInput')[0],
-        {
-          target: {
-            value: 'test',
-          },
+      fireEvent.change(wrapper.baseElement.querySelectorAll<HTMLElement>('input#testInput')[0], {
+        target: {
+          value: 'test',
         },
-      );
+      });
     });
     expect(fn).toHaveBeenCalled();
     wrapper.unmount();
@@ -1094,14 +1016,11 @@ describe('ProForm', () => {
     await wrapper.findByText('提 交');
 
     act(() => {
-      fireEvent.change(
-        wrapper.baseElement.querySelectorAll<HTMLElement>('input#testInput')[0],
-        {
-          target: {
-            value: 'test',
-          },
+      fireEvent.change(wrapper.baseElement.querySelectorAll<HTMLElement>('input#testInput')[0], {
+        target: {
+          value: 'test',
         },
-      );
+      });
     });
     expect(fn).toHaveBeenCalled();
     wrapper.unmount();
@@ -1111,28 +1030,22 @@ describe('ProForm', () => {
     const onFinish = vi.fn();
     const wrapper = render(
       <ProForm
-        onFinish={onFinish}
         initialValues={{
           date: '2020-09-10',
           dateMonth: '2020-09',
         }}
+        onFinish={onFinish}
       >
-        <ProFormDatePicker
-          name="date"
-          label="日期"
-          fieldProps={{ open: true }}
-        />
-        <ProFormDatePicker.Month name="dateMonth" label="月" />
-        <ProFormDatePicker.Year name="dateYear" label="年" />
+        <ProFormDatePicker fieldProps={{ open: true }} label="日期" name="date" />
+        <ProFormDatePicker.Month label="月" name="dateMonth" />
+        <ProFormDatePicker.Year label="年" name="dateYear" />
       </ProForm>,
     );
 
     await wrapper.findByText('提 交');
 
     act(() => {
-      wrapper.baseElement
-        .querySelectorAll<HTMLElement>('.ant-picker-cell')[2]
-        .click();
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-picker-cell')[2].click();
     });
 
     await act(async () => {
@@ -1151,11 +1064,11 @@ describe('ProForm', () => {
     const wrapper = render(
       <ProForm>
         <ProFormSelect.SearchSelect
-          name="userQuery"
-          label="查询选择器"
           fieldProps={{
             onSearch: (e) => onSearch(e),
           }}
+          label="查询选择器"
+          name="userQuery"
           options={[
             { label: '全部', value: 'all' },
             { label: '未解决', value: 'open' },
@@ -1169,9 +1082,7 @@ describe('ProForm', () => {
     await wrapper.findByText('查询选择器');
 
     await act(async () => {
-      const searchInput = wrapper.baseElement.querySelector(
-        '.ant-select-selection-search-input',
-      );
+      const searchInput = wrapper.baseElement.querySelector('.ant-select-selection-search-input');
       if (searchInput) {
         fireEvent.change(searchInput, {
           target: {
@@ -1184,9 +1095,7 @@ describe('ProForm', () => {
     expect(onSearch).toHaveBeenCalledWith('全');
 
     await act(async () => {
-      const selector = wrapper.baseElement.querySelector(
-        '.ant-select-selector',
-      );
+      const selector = wrapper.baseElement.querySelector('.ant-select-selector');
       if (selector) {
         fireEvent.mouseDown(selector);
       }
@@ -1194,12 +1103,8 @@ describe('ProForm', () => {
 
     await waitFor(() => {
       // 修改选择器，直接找到含有 "全部" 文本的元素
-      const items = wrapper.baseElement.querySelectorAll(
-        '.ant-select-item-option-content',
-      );
-      const targetItem = Array.from(items).find((item) =>
-        item.textContent?.includes('全'),
-      );
+      const items = wrapper.baseElement.querySelectorAll('.ant-select-item-option-content');
+      const targetItem = Array.from(items).find((item) => item.textContent?.includes('全'));
       expect(targetItem?.textContent).toContain('全');
     });
 
@@ -1211,11 +1116,11 @@ describe('ProForm', () => {
     const wrapper = render(
       <ProForm>
         <ProFormSelect.SearchSelect
-          name="userQuery"
-          label="查询选择器"
           fieldProps={{
             onSearch: (e) => onSearch(e),
           }}
+          label="查询选择器"
+          name="userQuery"
           valueEnum={{
             all: { text: '全部', status: 'Default' },
             open: {
@@ -1238,9 +1143,7 @@ describe('ProForm', () => {
     await wrapper.findByText('查询选择器');
 
     await act(async () => {
-      const searchInput = wrapper.baseElement.querySelector(
-        '.ant-select-selection-search-input',
-      );
+      const searchInput = wrapper.baseElement.querySelector('.ant-select-selection-search-input');
       if (searchInput) {
         fireEvent.change(searchInput, {
           target: {
@@ -1253,9 +1156,7 @@ describe('ProForm', () => {
     expect(onSearch).toHaveBeenCalledWith('全');
 
     await act(async () => {
-      const selector = wrapper.baseElement.querySelector(
-        '.ant-select-selector',
-      );
+      const selector = wrapper.baseElement.querySelector('.ant-select-selector');
       if (selector) {
         fireEvent.mouseDown(selector);
       }
@@ -1263,12 +1164,8 @@ describe('ProForm', () => {
 
     await waitFor(() => {
       // 修改选择器，直接找到含有 "全部" 文本的元素
-      const items = wrapper.baseElement.querySelectorAll(
-        '.ant-select-item-option-content',
-      );
-      const targetItem = Array.from(items).find((item) =>
-        item.textContent?.includes('全'),
-      );
+      const items = wrapper.baseElement.querySelectorAll('.ant-select-item-option-content');
+      const targetItem = Array.from(items).find((item) => item.textContent?.includes('全'));
       expect(targetItem?.textContent).toContain('全');
     });
 
@@ -1283,10 +1180,7 @@ describe('ProForm', () => {
         onValuesChange={async (values) => {
           //  {"disabled": undefined, "key": "all", "label": "全部", "value": "all"}
           if (values.userQuery) {
-            if (
-              Array.isArray(values.userQuery) &&
-              values.userQuery.length > 0
-            ) {
+            if (Array.isArray(values.userQuery) && values.userQuery.length > 0) {
               onValuesChange(values.userQuery[0].label);
             } else if (values.userQuery.label) {
               onValuesChange(values.userQuery.label);
@@ -1295,11 +1189,11 @@ describe('ProForm', () => {
         }}
       >
         <ProFormSelect.SearchSelect
-          name="userQuery"
-          label="查询选择器"
           fieldProps={{
             onSearch: (e) => onSearch(e),
           }}
+          label="查询选择器"
+          name="userQuery"
           valueEnum={{
             all: { text: '全部', status: 'Default' },
             open: {
@@ -1322,9 +1216,7 @@ describe('ProForm', () => {
     await wrapper.findByText('查询选择器');
 
     await act(async () => {
-      const searchInput = wrapper.baseElement.querySelector(
-        '.ant-select-selection-search-input',
-      );
+      const searchInput = wrapper.baseElement.querySelector('.ant-select-selection-search-input');
       if (searchInput) {
         fireEvent.change(searchInput, {
           target: {
@@ -1337,9 +1229,7 @@ describe('ProForm', () => {
     expect(onSearch).toHaveBeenCalledWith('全');
 
     await act(async () => {
-      const selector = wrapper.baseElement.querySelector(
-        '.ant-select-selector',
-      );
+      const selector = wrapper.baseElement.querySelector('.ant-select-selector');
       if (selector) {
         fireEvent.mouseDown(selector);
       }
@@ -1347,12 +1237,8 @@ describe('ProForm', () => {
 
     await waitFor(() => {
       // 修改选择器，直接找到含有 "全部" 文本的元素
-      const items = wrapper.baseElement.querySelectorAll(
-        '.ant-select-item-option-content',
-      );
-      const targetItem = Array.from(items).find((item) =>
-        item.textContent?.includes('全'),
-      );
+      const items = wrapper.baseElement.querySelectorAll('.ant-select-item-option-content');
+      const targetItem = Array.from(items).find((item) => item.textContent?.includes('全'));
       expect(targetItem?.textContent).toContain('全');
     });
 
@@ -1372,12 +1258,12 @@ describe('ProForm', () => {
     const wrapper = render(
       <ProForm>
         <ProFormSelect.SearchSelect
-          name="userQuery"
-          label="查询选择器"
           fieldProps={{
             searchOnFocus: true,
             onSearch: (e) => onSearch(e),
           }}
+          label="查询选择器"
+          name="userQuery"
           valueEnum={{
             all: { text: '全部', status: 'Default' },
             open: {
@@ -1400,9 +1286,7 @@ describe('ProForm', () => {
     await wrapper.findByText('查询选择器');
 
     await act(async () => {
-      const searchInput = wrapper.baseElement.querySelector(
-        '.ant-select-selection-search-input',
-      );
+      const searchInput = wrapper.baseElement.querySelector('.ant-select-selection-search-input');
       if (searchInput) {
         fireEvent.change(searchInput, {
           target: {
@@ -1415,9 +1299,7 @@ describe('ProForm', () => {
     expect(onSearch).toHaveBeenCalledWith('全');
 
     await act(async () => {
-      const selector = wrapper.baseElement.querySelector(
-        '.ant-select-selector',
-      );
+      const selector = wrapper.baseElement.querySelector('.ant-select-selector');
       if (selector) {
         fireEvent.mouseDown(selector);
       }
@@ -1425,43 +1307,31 @@ describe('ProForm', () => {
 
     await waitFor(() => {
       // 修改选择器，直接找到含有 "全部" 文本的元素
-      const items = wrapper.baseElement.querySelectorAll(
-        '.ant-select-item-option-content',
-      );
-      const targetItem = Array.from(items).find((item) =>
-        item.textContent?.includes('全'),
-      );
+      const items = wrapper.baseElement.querySelectorAll('.ant-select-item-option-content');
+      const targetItem = Array.from(items).find((item) => item.textContent?.includes('全'));
       expect(targetItem?.textContent).toContain('全');
     });
 
     await waitFor(() => {
-      expect(
-        wrapper.baseElement.querySelectorAll('.ant-select-item').length,
-      ).toBe(1);
+      expect(wrapper.baseElement.querySelectorAll('.ant-select-item').length).toBe(1);
     });
 
     await act(async () => {
-      const selector = wrapper.baseElement.querySelector(
-        '.ant-select-selector',
-      );
+      const selector = wrapper.baseElement.querySelector('.ant-select-selector');
       if (selector) {
         fireEvent.focus(selector);
       }
     });
 
     await act(async () => {
-      const selector = wrapper.baseElement.querySelector(
-        '.ant-select-selector',
-      );
+      const selector = wrapper.baseElement.querySelector('.ant-select-selector');
       if (selector) {
         fireEvent.mouseDown(selector);
       }
     });
 
     await waitFor(() => {
-      expect(
-        wrapper.baseElement.querySelectorAll('.ant-select-item').length,
-      ).toBe(4);
+      expect(wrapper.baseElement.querySelectorAll('.ant-select-item').length).toBe(4);
     });
 
     wrapper.unmount();
@@ -1472,13 +1342,13 @@ describe('ProForm', () => {
     const wrapper = render(
       <ProForm>
         <ProFormSelect.SearchSelect
-          name="userQuery"
-          label="查询选择器"
           showSearch
           fieldProps={{
             searchOnFocus: true,
             onSearch: (e) => onSearch(e),
           }}
+          label="查询选择器"
+          name="userQuery"
           valueEnum={{
             all: { text: '全部', status: 'Default' },
             open: {
@@ -1501,24 +1371,17 @@ describe('ProForm', () => {
     await wrapper.findByText('查询选择器');
 
     act(() => {
-      fireEvent.change(
-        wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
-        )!,
-        {
-          target: {
-            value: '全',
-          },
+      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
+        target: {
+          value: '全',
         },
-      );
+      });
     });
 
     expect(onSearch).toHaveBeenCalledWith('全');
 
     await act(async () => {
-      const selector = wrapper.baseElement.querySelector(
-        '.ant-select-selector',
-      );
+      const selector = wrapper.baseElement.querySelector('.ant-select-selector');
       if (selector) {
         fireEvent.mouseDown(selector);
       }
@@ -1526,29 +1389,19 @@ describe('ProForm', () => {
 
     await waitFor(() => {
       // 查找含有"全"的选项内容
-      const items = wrapper.baseElement.querySelectorAll(
-        '.ant-select-item-option-content',
-      );
-      const targetItem = Array.from(items).find((item) =>
-        item.textContent?.includes('全'),
-      );
+      const items = wrapper.baseElement.querySelectorAll('.ant-select-item-option-content');
+      const targetItem = Array.from(items).find((item) => item.textContent?.includes('全'));
       expect(targetItem?.textContent).toContain('全');
     });
 
     await waitFor(() => {
-      expect(
-        wrapper.baseElement.querySelectorAll('.ant-select-item').length,
-      ).toBe(1);
+      expect(wrapper.baseElement.querySelectorAll('.ant-select-item').length).toBe(1);
     });
 
     await act(async () => {
       // 点击包含"全"的选项
-      const items = wrapper.baseElement.querySelectorAll(
-        '.ant-select-item-option-content',
-      );
-      const targetItem = Array.from(items).find((item) =>
-        item.textContent?.includes('全'),
-      );
+      const items = wrapper.baseElement.querySelectorAll('.ant-select-item-option-content');
+      const targetItem = Array.from(items).find((item) => item.textContent?.includes('全'));
       if (targetItem) {
         fireEvent.click(targetItem);
       }
@@ -1562,27 +1415,21 @@ describe('ProForm', () => {
     });
 
     await act(async () => {
-      const clearButtons = wrapper.baseElement.querySelectorAll(
-        'span.ant-select-clear',
-      );
+      const clearButtons = wrapper.baseElement.querySelectorAll('span.ant-select-clear');
       if (clearButtons.length > 0) {
         fireEvent.mouseDown(clearButtons[clearButtons.length - 1]);
       }
     });
 
     await act(async () => {
-      const selector = wrapper.baseElement.querySelector(
-        '.ant-select-selector',
-      );
+      const selector = wrapper.baseElement.querySelector('.ant-select-selector');
       if (selector) {
         fireEvent.mouseDown(selector);
       }
     });
 
     await waitFor(() => {
-      expect(
-        wrapper.baseElement.querySelectorAll('.ant-select-item').length,
-      ).toBe(4);
+      expect(wrapper.baseElement.querySelectorAll('.ant-select-item').length).toBe(4);
     });
     wrapper.unmount();
   });
@@ -1592,12 +1439,12 @@ describe('ProForm', () => {
     const wrapper = render(
       <ProForm>
         <ProFormSelect.SearchSelect
-          name="userQuery"
-          label="查询选择器"
           fieldProps={{
             searchOnFocus: true,
             onSearch: (e) => onSearch(e),
           }}
+          label="查询选择器"
+          name="userQuery"
           valueEnum={{
             all: { text: '全部', status: 'Default' },
             open: {
@@ -1620,62 +1467,37 @@ describe('ProForm', () => {
     await wrapper.findByText('查询选择器');
 
     act(() => {
-      fireEvent.change(
-        wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
-        )!,
-        {
-          target: {
-            value: '全',
-          },
+      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
+        target: {
+          value: '全',
         },
-      );
+      });
     });
 
     expect(onSearch).toHaveBeenCalledWith('全');
 
     act(() => {
-      fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
-        {},
-      );
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
     await waitFor(() => {
       // 查找包含"全"的选项内容
-      const items = wrapper.baseElement.querySelectorAll(
-        '.ant-select-item-option-content',
-      );
-      const targetItem = Array.from(items).find((item) =>
-        item.textContent?.includes('全'),
-      );
+      const items = wrapper.baseElement.querySelectorAll('.ant-select-item-option-content');
+      const targetItem = Array.from(items).find((item) => item.textContent?.includes('全'));
       expect(targetItem).toBeTruthy();
     });
 
-    expect(
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')
-        .length,
-    ).toBe(1);
+    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item').length).toBe(1);
 
     act(() => {
-      fireEvent.focus(
-        wrapper.baseElement.querySelectorAll<HTMLElement>(
-          '.ant-select-selector',
-        )[0],
-      );
+      fireEvent.focus(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-selector')[0]);
     });
 
     act(() => {
-      fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
-        {},
-      );
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
-    expect(
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')
-        .length,
-    ).toBe(4);
+    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item').length).toBe(4);
     wrapper.unmount();
   });
 
@@ -1685,12 +1507,12 @@ describe('ProForm', () => {
     const wrapper = render(
       <ProForm>
         <ProFormSelect.SearchSelect
-          name="userQuery"
-          label="查询选择器"
           fieldProps={{
             resetAfterSelect: true,
             onSearch: (e) => onSearch(e),
           }}
+          label="查询选择器"
+          name="userQuery"
           valueEnum={{
             all: { text: '全部', status: 'Default' },
             open: {
@@ -1712,68 +1534,42 @@ describe('ProForm', () => {
     await wrapper.findByText('查询选择器');
 
     act(() => {
-      fireEvent.change(
-        wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
-        )!,
-        {
-          target: {
-            value: '全',
-          },
+      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
+        target: {
+          value: '全',
         },
-      );
+      });
     });
 
     expect(onSearch).toHaveBeenCalledWith('全');
 
     act(() => {
-      fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
-        {},
-      );
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
-    expect(
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')
-        .length,
-    ).toBe(1);
+    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item').length).toBe(1);
 
     await waitFor(() => {
       // 查找包含"全"的选项内容
-      const items = wrapper.baseElement.querySelectorAll(
-        '.ant-select-item-option-content',
-      );
-      const targetItem = Array.from(items).find((item) =>
-        item.textContent?.includes('全'),
-      );
+      const items = wrapper.baseElement.querySelectorAll('.ant-select-item-option-content');
+      const targetItem = Array.from(items).find((item) => item.textContent?.includes('全'));
       expect(targetItem).toBeTruthy();
     });
 
     act(() => {
-      fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
-        {},
-      );
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
     // 选中第一个
     act(() => {
-      wrapper.baseElement
-        .querySelectorAll<HTMLElement>('.ant-select-item')[0]
-        .click();
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[0].click();
     });
 
     act(() => {
-      fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
-        {},
-      );
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
-    expect(
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')
-        .length,
-    ).toBe(4);
+    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item').length).toBe(4);
     wrapper.unmount();
   });
 
@@ -1782,11 +1578,11 @@ describe('ProForm', () => {
     const wrapper = render(
       <ProForm>
         <ProFormSelect.SearchSelect
-          name="userQuery"
-          label="查询选择器"
           fieldProps={{
             fetchDataOnSearch: false,
           }}
+          label="查询选择器"
+          name="userQuery"
           request={async () => {
             onRequest();
             return [
@@ -1803,16 +1599,11 @@ describe('ProForm', () => {
     await wrapper.findByText('查询选择器');
 
     act(() => {
-      fireEvent.change(
-        wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
-        )!,
-        {
-          target: {
-            value: '全',
-          },
+      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
+        target: {
+          value: '全',
         },
-      );
+      });
     });
 
     expect(onRequest.mock.calls.length).toBe(1);
@@ -1823,11 +1614,11 @@ describe('ProForm', () => {
     const wrapper = render(
       <ProForm>
         <ProFormSelect.SearchSelect
-          name="userQuery"
-          label="查询选择器"
           fieldProps={{
             fetchDataOnSearch: true,
           }}
+          label="查询选择器"
+          name="userQuery"
           request={async () => {
             onRequest();
             return [
@@ -1847,23 +1638,15 @@ describe('ProForm', () => {
     });
 
     act(() => {
-      fireEvent.change(
-        wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
-        )!,
-        {
-          target: {
-            value: '全',
-          },
+      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
+        target: {
+          value: '全',
         },
-      );
+      });
     });
 
     act(() => {
-      fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
-        {},
-      );
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
     await waitFor(() => {
@@ -1878,11 +1661,11 @@ describe('ProForm', () => {
     const wrapper = render(
       <LightFilter>
         <ProFormSelect.SearchSelect
-          name="userQuery"
-          label="查询选择器"
           fieldProps={{
             fetchDataOnSearch: false,
           }}
+          label="查询选择器"
+          name="userQuery"
           request={async () => {
             onRequest();
             return [
@@ -1899,16 +1682,11 @@ describe('ProForm', () => {
     await wrapper.findByText('查询选择器');
 
     act(() => {
-      fireEvent.change(
-        wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
-        )!,
-        {
-          target: {
-            value: '全',
-          },
+      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
+        target: {
+          value: '全',
         },
-      );
+      });
     });
 
     expect(onRequest.mock.calls.length).toBe(1);
@@ -1919,11 +1697,11 @@ describe('ProForm', () => {
     const wrapper = render(
       <LightFilter>
         <ProFormSelect.SearchSelect
-          name="userQuery"
-          label="查询选择器"
           fieldProps={{
             fetchDataOnSearch: true,
           }}
+          label="查询选择器"
+          name="userQuery"
           request={async () => {
             onRequest();
             return [
@@ -1943,23 +1721,15 @@ describe('ProForm', () => {
     });
 
     act(() => {
-      fireEvent.change(
-        wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
-        )!,
-        {
-          target: {
-            value: '全',
-          },
+      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
+        target: {
+          value: '全',
         },
-      );
+      });
     });
 
     act(() => {
-      fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
-        {},
-      );
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
     await waitFor(() => {
@@ -1979,13 +1749,13 @@ describe('ProForm', () => {
         }}
       >
         <ProFormSelect.SearchSelect
-          name="userQuery"
-          label="查询选择器"
           fieldProps={{
             mode: 'multiple',
             searchOnFocus: true,
             onSearch: (e) => onSearch(e),
           }}
+          label="查询选择器"
+          name="userQuery"
           valueEnum={{
             all: { text: '全部', status: 'Default' },
             open: {
@@ -2006,31 +1776,21 @@ describe('ProForm', () => {
     );
 
     act(() => {
-      fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
-        {},
-      );
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
     // 选中第一个
     act(() => {
-      wrapper.baseElement
-        .querySelectorAll<HTMLElement>('.ant-select-item')[0]
-        .click();
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[0].click();
     });
 
     act(() => {
-      fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
-        {},
-      );
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
     // 选中第二个
     act(() => {
-      wrapper.baseElement
-        .querySelectorAll<HTMLElement>('.ant-select-item')[1]
-        .click();
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[1].click();
     });
 
     await act(async () => {
@@ -2063,9 +1823,13 @@ describe('ProForm', () => {
         }}
       >
         <ProFormSelect.SearchSelect
-          name="userQuery"
+          showSearch
+          fieldProps={{
+            allowClear: false,
+            showSearch: true,
+          }}
           label="业务线"
-          rules={[{ required: true }]}
+          name="userQuery"
           options={[
             {
               label: 'A系统',
@@ -2086,19 +1850,13 @@ describe('ProForm', () => {
               ],
             },
           ]}
-          showSearch
-          fieldProps={{
-            allowClear: false,
-            showSearch: true,
-          }}
+          rules={[{ required: true }]}
         />
       </ProForm>,
     );
 
     await act(async () => {
-      fireEvent.mouseDown(
-        wrapper.baseElement.querySelector('.ant-select-selector')!,
-      );
+      fireEvent.mouseDown(wrapper.baseElement.querySelector('.ant-select-selector')!);
     });
 
     await act(async () => {
@@ -2112,32 +1870,22 @@ describe('ProForm', () => {
     });
 
     act(() => {
-      fireEvent.mouseDown(
-        wrapper.baseElement.querySelector('.ant-select-selector')!,
-      );
+      fireEvent.mouseDown(wrapper.baseElement.querySelector('.ant-select-selector')!);
     });
 
     // 应该有两个 item 被筛选出来
-    expect(
-      wrapper.baseElement.querySelectorAll<HTMLElement>(
-        'div.ant-select-item.ant-select-item-option',
-      ).length,
-    ).toBe(2);
+    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('div.ant-select-item.ant-select-item-option').length).toBe(
+      2,
+    );
 
     act(() => {
-      wrapper.baseElement
-        .querySelectorAll<HTMLElement>(
-          '.ant-select-item.ant-select-item-option',
-        )[0]
-        .click();
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item.ant-select-item-option')[0].click();
     });
 
     expect(onValuesChange).toHaveBeenCalledWith('门店小程序');
 
     act(() => {
-      fireEvent.mouseDown(
-        wrapper.baseElement.querySelector('.ant-select-selector')!,
-      );
+      fireEvent.mouseDown(wrapper.baseElement.querySelector('.ant-select-selector')!);
     });
 
     await act(async () => {
@@ -2150,17 +1898,13 @@ describe('ProForm', () => {
       await waitForWaitTime(200);
     });
     act(() => {
-      fireEvent.mouseDown(
-        wrapper.baseElement.querySelector('.ant-select-selector')!,
-      );
+      fireEvent.mouseDown(wrapper.baseElement.querySelector('.ant-select-selector')!);
     });
 
     // 应该没有筛选
-    expect(
-      wrapper.baseElement.querySelectorAll<HTMLElement>(
-        'div.ant-select-item.ant-select-item-option',
-      ).length,
-    ).toBe(0);
+    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('div.ant-select-item.ant-select-item-option').length).toBe(
+      0,
+    );
 
     wrapper.unmount();
   });
@@ -2180,9 +1924,13 @@ describe('ProForm', () => {
         }}
       >
         <ProFormSelect.SearchSelect
-          name="userQuery"
+          showSearch
+          fieldProps={{
+            allowClear: false,
+            showSearch: true,
+          }}
           label="业务线"
-          rules={[{ required: true }]}
+          name="userQuery"
           options={[
             {
               label: 'A系统',
@@ -2203,20 +1951,13 @@ describe('ProForm', () => {
               ],
             },
           ]}
-          showSearch
-          fieldProps={{
-            allowClear: false,
-            showSearch: true,
-          }}
+          rules={[{ required: true }]}
         />
       </ProForm>,
     );
 
     act(() => {
-      fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
-        {},
-      );
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
     await act(async () => {
@@ -2230,25 +1971,16 @@ describe('ProForm', () => {
     });
 
     act(() => {
-      fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
-        {},
-      );
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
     // 应该有两个 item 被筛选出来
-    expect(
-      wrapper.baseElement.querySelectorAll<HTMLElement>(
-        'div.ant-select-item.ant-select-item-option',
-      ).length,
-    ).toBe(1);
+    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('div.ant-select-item.ant-select-item-option').length).toBe(
+      1,
+    );
 
     act(() => {
-      wrapper.baseElement
-        .querySelectorAll<HTMLElement>(
-          '.ant-select-item.ant-select-item-option',
-        )[0]
-        .click();
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item.ant-select-item-option')[0].click();
     });
 
     expect(onValuesChange).toHaveBeenCalledWith('门店小程序');
@@ -2267,30 +1999,28 @@ describe('ProForm', () => {
         }}
       >
         <ProFormSelect.SearchSelect
-          name="userQuery"
-          label="产品选择"
-          placeholder="测试 placeholder"
           fieldProps={{
             mode: 'multiple',
             autoClearSearchValue: false,
             searchOnFocus: true,
             onSearch: (e) => onSearch(e),
           }}
+          label="产品选择"
+          name="userQuery"
           options={[
             { label: '全部', value: 'all' },
             { label: '未解决', value: 'open' },
             { label: '已解决', value: 'closed' },
             { label: '解决中', value: 'processing' },
           ]}
+          placeholder="测试 placeholder"
         />
       </ProForm>,
     );
 
     // 点击搜索框
     await act(async () => {
-      const selector = wrapper.baseElement.querySelector(
-        '.ant-select-selector',
-      );
+      const selector = wrapper.baseElement.querySelector('.ant-select-selector');
       if (selector) {
         fireEvent.mouseDown(selector);
       }
@@ -2298,17 +2028,11 @@ describe('ProForm', () => {
 
     // 默认展示所有的4个选项
     await waitFor(() => {
-      expect(
-        wrapper.baseElement.querySelectorAll(
-          '.ant-select-item.ant-select-item-option',
-        ).length,
-      ).toBe(4);
+      expect(wrapper.baseElement.querySelectorAll('.ant-select-item.ant-select-item-option').length).toBe(4);
     });
 
     // 获取搜索输入框
-    const searchInput = wrapper.baseElement.querySelector(
-      '.ant-select-selection-search-input',
-    ) as HTMLInputElement;
+    const searchInput = wrapper.baseElement.querySelector('.ant-select-selection-search-input') as HTMLInputElement;
     expect(searchInput?.value || '').toBe('');
 
     // 输入搜索内容
@@ -2320,11 +2044,7 @@ describe('ProForm', () => {
 
     // 应该有3个item被筛选出来
     await waitFor(() => {
-      expect(
-        wrapper.baseElement.querySelectorAll(
-          '.ant-select-item.ant-select-item-option',
-        ).length,
-      ).toBe(3);
+      expect(wrapper.baseElement.querySelectorAll('.ant-select-item.ant-select-item-option').length).toBe(3);
     });
 
     // input也有输入的内容
@@ -2340,9 +2060,7 @@ describe('ProForm', () => {
 
     // 选中的内容出现在 dropdown 中
     await waitFor(() => {
-      const optionContent = wrapper.baseElement.querySelector(
-        '.ant-select-item-option-content',
-      );
+      const optionContent = wrapper.baseElement.querySelector('.ant-select-item-option-content');
       expect(optionContent?.textContent).toBe('未解决');
     });
 
@@ -2354,11 +2072,7 @@ describe('ProForm', () => {
 
     // 搜索的结果应该保持不变
     await waitFor(() => {
-      expect(
-        wrapper.baseElement.querySelectorAll(
-          '.ant-select-item.ant-select-item-option',
-        ).length,
-      ).toBe(3);
+      expect(wrapper.baseElement.querySelectorAll('.ant-select-item.ant-select-item-option').length).toBe(3);
     });
 
     // 继续选中第二个
@@ -2371,9 +2085,7 @@ describe('ProForm', () => {
 
     // 选中的内容出现在dropdown中
     await waitFor(() => {
-      const optionContents = wrapper.baseElement.querySelectorAll(
-        '.ant-select-item-option-content',
-      );
+      const optionContents = wrapper.baseElement.querySelectorAll('.ant-select-item-option-content');
       expect(optionContents[1]?.textContent).toBe('已解决');
     });
 
@@ -2381,9 +2093,7 @@ describe('ProForm', () => {
     // expect(searchInput?.value || '').toBe('解');
 
     await act(async () => {
-      const selector = wrapper.baseElement.querySelector(
-        '.ant-select-selector',
-      );
+      const selector = wrapper.baseElement.querySelector('.ant-select-selector');
       if (selector) {
         fireEvent.mouseDown(selector);
       }
@@ -2416,8 +2126,8 @@ describe('ProForm', () => {
         }}
       >
         <ProFormSelect
-          name="userQuery"
           label="查询选择器"
+          name="userQuery"
           valueEnum={{
             all: { text: '全部', status: 'Default' },
             open: {
@@ -2438,31 +2148,21 @@ describe('ProForm', () => {
     );
 
     act(() => {
-      fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
-        {},
-      );
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
     // 选中第一个
     act(() => {
-      wrapper.baseElement
-        .querySelectorAll<HTMLElement>('.ant-select-item')[0]
-        .click();
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[0].click();
     });
 
     act(() => {
-      fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
-        {},
-      );
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
     // 选中第二个
     act(() => {
-      wrapper.baseElement
-        .querySelectorAll<HTMLElement>('.ant-select-item')[1]
-        .click();
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[1].click();
     });
 
     await act(async () => {
@@ -2481,49 +2181,36 @@ describe('ProForm', () => {
             filterOption: false,
             onSearch: (e) => onSearch(e),
           }}
+          label="查询选择器"
+          name="userQuery"
           options={[
             { value: 1, label: 'Aa' },
             { value: 2, label: 'Bb' },
             { value: 3, label: 'Cc' },
           ]}
-          name="userQuery"
-          label="查询选择器"
         />
       </ProForm>,
     );
 
     act(() => {
-      fireEvent.change(
-        wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
-        )!,
-        {
-          target: {
-            value: 'A',
-          },
+      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
+        target: {
+          value: 'A',
         },
-      );
+      });
     });
 
     act(() => {
-      fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
-        {},
-      );
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
-    expect(
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')
-        .length,
-    ).toBe(3);
+    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item').length).toBe(3);
   });
 
   it('📦 Select filterOption support mixed case', async () => {
     const wrapper = render(
       <ProForm>
         <ProFormSelect
-          name="userQuery"
-          label="查询选择器"
           fieldProps={{
             showSearch: true,
             options: [
@@ -2532,59 +2219,39 @@ describe('ProForm', () => {
               { value: 3, label: 'Cc' },
             ],
           }}
+          label="查询选择器"
+          name="userQuery"
         />
       </ProForm>,
     );
 
     act(() => {
-      fireEvent.change(
-        wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
-        )!,
-        {
-          target: {
-            value: 'b',
-          },
+      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
+        target: {
+          value: 'b',
         },
-      );
+      });
     });
 
     act(() => {
-      fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
-        {},
-      );
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
-    expect(
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')
-        .length,
-    ).toBe(1);
+    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item').length).toBe(1);
 
     act(() => {
-      fireEvent.change(
-        wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
-        )!,
-        {
-          target: {
-            value: 'B',
-          },
+      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
+        target: {
+          value: 'B',
         },
-      );
+      });
     });
 
     act(() => {
-      fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
-        {},
-      );
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
-    expect(
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')
-        .length,
-    ).toBe(1);
+    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item').length).toBe(1);
   });
 
   it('📦 Select support labelInValue single', async () => {
@@ -2599,8 +2266,8 @@ describe('ProForm', () => {
           fieldProps={{
             labelInValue: true,
           }}
-          name="userQuery"
           label="查询选择器"
+          name="userQuery"
           valueEnum={{
             all: { text: '全部', status: 'Default' },
             open: {
@@ -2621,31 +2288,21 @@ describe('ProForm', () => {
     );
 
     act(() => {
-      fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
-        {},
-      );
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
     // 选中第一个
     act(() => {
-      wrapper.baseElement
-        .querySelectorAll<HTMLElement>('.ant-select-item')[0]
-        .click();
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[0].click();
     });
 
     act(() => {
-      fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
-        {},
-      );
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
     // 选中第二个
     act(() => {
-      wrapper.baseElement
-        .querySelectorAll<HTMLElement>('.ant-select-item')[1]
-        .click();
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[1].click();
     });
 
     await act(async () => {
@@ -2665,17 +2322,11 @@ describe('ProForm', () => {
     await waitForWaitTime(100);
 
     act(() => {
-      fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
-      );
-      fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[1],
-      );
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0]);
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[1]);
     });
 
-    const textList = wrapper.baseElement.querySelectorAll<HTMLElement>(
-      '.ant-select-item-option-content',
-    );
+    const textList = wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item-option-content');
     // 加载 options
     expect(textList.length).toBe(2);
     expect(textList[0].textContent).toBe('1');
@@ -2693,15 +2344,14 @@ describe('ProForm', () => {
         }}
       >
         <ProFormSelect
-          name="userQuery"
-          label="产品选择"
-          placeholder="测试 placeholder"
           fieldProps={{
             mode: 'multiple',
             autoClearSearchValue: false,
             searchOnFocus: true,
             onSearch: (e) => onSearch(e),
           }}
+          label="产品选择"
+          name="userQuery"
           options={[
             {
               value: '2',
@@ -2732,15 +2382,14 @@ describe('ProForm', () => {
               label: '网点33',
             },
           ]}
+          placeholder="测试 placeholder"
         />
       </ProForm>,
     );
 
     // 点击搜索框
     await act(async () => {
-      const selector = wrapper.baseElement.querySelector(
-        '.ant-select-selector',
-      );
+      const selector = wrapper.baseElement.querySelector('.ant-select-selector');
       if (selector) {
         fireEvent.mouseDown(selector);
       }
@@ -2748,17 +2397,11 @@ describe('ProForm', () => {
 
     // 默认展示所有的7个选项
     await waitFor(() => {
-      expect(
-        wrapper.baseElement.querySelectorAll(
-          '.ant-select-item.ant-select-item-option',
-        ).length,
-      ).toBe(7);
+      expect(wrapper.baseElement.querySelectorAll('.ant-select-item.ant-select-item-option').length).toBe(7);
     });
 
     // 获取搜索输入框
-    const searchInput = wrapper.baseElement.querySelector(
-      '.ant-select-selection-search-input',
-    ) as HTMLInputElement;
+    const searchInput = wrapper.baseElement.querySelector('.ant-select-selection-search-input') as HTMLInputElement;
     expect(searchInput?.value || '').toBe('');
 
     // 输入搜索内容
@@ -2770,11 +2413,7 @@ describe('ProForm', () => {
 
     // 应该有4个item被筛选出来
     await waitFor(() => {
-      expect(
-        wrapper.baseElement.querySelectorAll(
-          '.ant-select-item.ant-select-item-option',
-        ).length,
-      ).toBe(4);
+      expect(wrapper.baseElement.querySelectorAll('.ant-select-item.ant-select-item-option').length).toBe(4);
     });
 
     // input也有输入的内容 - Ant Design多选模式可能会清除搜索值
@@ -2790,9 +2429,7 @@ describe('ProForm', () => {
 
     // 选中的内容出现在dropdown中
     await waitFor(() => {
-      const optionContent = wrapper.baseElement.querySelector(
-        '.ant-select-item-option-content',
-      );
+      const optionContent = wrapper.baseElement.querySelector('.ant-select-item-option-content');
       expect(optionContent?.textContent).toBe('网点2');
     });
 
@@ -2800,11 +2437,7 @@ describe('ProForm', () => {
 
     // 搜索的结果应该保持不变
     await waitFor(() => {
-      expect(
-        wrapper.baseElement.querySelectorAll(
-          '.ant-select-item.ant-select-item-option',
-        ).length,
-      ).toBe(4);
+      expect(wrapper.baseElement.querySelectorAll('.ant-select-item.ant-select-item-option').length).toBe(4);
     });
 
     // 继续选中第二个
@@ -2817,18 +2450,14 @@ describe('ProForm', () => {
 
     // 选中的内容出现在dropdown中
     await waitFor(() => {
-      const optionContents = wrapper.baseElement.querySelectorAll(
-        '.ant-select-item-option-content',
-      );
+      const optionContents = wrapper.baseElement.querySelectorAll('.ant-select-item-option-content');
       expect(optionContents[1]?.textContent).toBe('网点21');
     });
 
     expect(searchInput?.value || '').toBe('2');
 
     await act(async () => {
-      const selector = wrapper.baseElement.querySelector(
-        '.ant-select-selector',
-      );
+      const selector = wrapper.baseElement.querySelector('.ant-select-selector');
       if (selector) {
         fireEvent.mouseDown(selector);
       }
@@ -2863,15 +2492,14 @@ describe('ProForm', () => {
         }}
       >
         <ProFormSelect
-          name="userQuery"
-          label="产品选择"
-          placeholder="测试 placeholder"
           fieldProps={{
             mode: 'multiple',
             autoClearSearchValue: true,
             searchOnFocus: true,
             onSearch: (e) => onSearch(e),
           }}
+          label="产品选择"
+          name="userQuery"
           options={[
             {
               value: '2',
@@ -2902,15 +2530,14 @@ describe('ProForm', () => {
               label: '网点33',
             },
           ]}
+          placeholder="测试 placeholder"
         />
       </ProForm>,
     );
 
     // 点击搜索框
     await act(async () => {
-      const selector = wrapper.baseElement.querySelector(
-        '.ant-select-selector',
-      );
+      const selector = wrapper.baseElement.querySelector('.ant-select-selector');
       if (selector) {
         fireEvent.mouseDown(selector);
       }
@@ -2918,17 +2545,11 @@ describe('ProForm', () => {
 
     // 默认展示所有的7个选项
     await waitFor(() => {
-      expect(
-        wrapper.baseElement.querySelectorAll(
-          '.ant-select-item.ant-select-item-option',
-        ).length,
-      ).toBe(7);
+      expect(wrapper.baseElement.querySelectorAll('.ant-select-item.ant-select-item-option').length).toBe(7);
     });
 
     // 获取搜索输入框
-    const searchInput = wrapper.baseElement.querySelector(
-      '.ant-select-selection-search-input',
-    ) as HTMLInputElement;
+    const searchInput = wrapper.baseElement.querySelector('.ant-select-selection-search-input') as HTMLInputElement;
     expect(searchInput?.value || '').toBe('');
 
     // 输入搜索内容
@@ -2940,11 +2561,7 @@ describe('ProForm', () => {
 
     await waitFor(() => {
       // 应该有4个item被筛选出来
-      expect(
-        wrapper.baseElement.querySelectorAll(
-          '.ant-select-item.ant-select-item-option',
-        ).length,
-      ).toBe(4);
+      expect(wrapper.baseElement.querySelectorAll('.ant-select-item.ant-select-item-option').length).toBe(4);
     });
 
     // input也有输入的内容 - Ant Design多选模式可能会清除搜索值
@@ -2960,9 +2577,7 @@ describe('ProForm', () => {
 
     // 选中的内容出现在dropdown中
     await waitFor(() => {
-      const optionContent = wrapper.baseElement.querySelector(
-        '.ant-select-item-option-content',
-      );
+      const optionContent = wrapper.baseElement.querySelector('.ant-select-item-option-content');
       expect(optionContent?.textContent).toBe('网点2');
     });
 
@@ -2973,11 +2588,7 @@ describe('ProForm', () => {
 
     // 搜索的结果，恢复到原始结果
     await waitFor(() => {
-      expect(
-        wrapper.baseElement.querySelectorAll(
-          '.ant-select-item.ant-select-item-option',
-        ).length,
-      ).toBe(7);
+      expect(wrapper.baseElement.querySelectorAll('.ant-select-item.ant-select-item-option').length).toBe(7);
     });
 
     await act(async () => {
@@ -3098,9 +2709,9 @@ describe('ProForm', () => {
         <ProFormSelect
           showSearch
           allowClear={false}
-          name="selectGroup"
           label="分组select"
           mode="multiple"
+          name="selectGroup"
           options={options}
         />
       </ProForm>,
@@ -3129,9 +2740,7 @@ describe('ProForm', () => {
 
       // 等待滚动完成
       await waitFor(() => {
-        expect(menu.scrollTop).toBeGreaterThanOrEqual(
-          menuHeight - viewportHeight,
-        );
+        expect(menu.scrollTop).toBeGreaterThanOrEqual(menuHeight - viewportHeight);
       });
 
       // 向上滚动到顶部
@@ -3144,28 +2753,20 @@ describe('ProForm', () => {
       await waitFor(() => expect(menu.scrollTop).toBe(0));
     }
 
-    const dropdownOptions = Array.from(
-      wrapper.baseElement.querySelectorAll('.ant-select-item-option-content'),
-    ).map((node) => node.textContent && node.textContent.trim());
+    const dropdownOptions = Array.from(wrapper.baseElement.querySelectorAll('.ant-select-item-option-content')).map(
+      (node) => node.textContent && node.textContent.trim(),
+    );
     const dropdownGroups = Array.from(
-      wrapper.baseElement.querySelectorAll(
-        'div.ant-select-item.ant-select-item-group.ant-select-item-group',
-      ),
+      wrapper.baseElement.querySelectorAll('div.ant-select-item.ant-select-item-group.ant-select-item-group'),
     ).map((node) => node.textContent && node.textContent.trim());
     expect(dropdownOptions.length).toBe(6); // 滚动后依旧有6个item 虚拟滚动只显示6个
     expect(dropdownGroups.length).toBe(4); // 滚动后依旧有4个组 虚拟滚动只显示4个
-    function extractLabels(
-      groups: { label: string; options: { label: string }[] }[],
-    ) {
-      return groups.flatMap((group) =>
-        group.options.map((option) => option.label),
-      );
+    function extractLabels(groups: { label: string; options: { label: string }[] }[]) {
+      return groups.flatMap((group) => group.options.map((option) => option.label));
     }
     expect(extractLabels(options.slice(0, 3))).toEqual(dropdownOptions);
 
-    expect(options.slice(0, 4).map((group) => group.label)).toEqual(
-      dropdownGroups,
-    );
+    expect(options.slice(0, 4).map((group) => group.label)).toEqual(dropdownGroups);
 
     wrapper.unmount();
   });
@@ -3178,21 +2779,17 @@ describe('ProForm', () => {
           onFinish(values?.color?.toHexString?.());
         }}
       >
-        <ProFormColorPicker name="color" label="颜色选择" />
+        <ProFormColorPicker label="颜色选择" name="color" />
       </ProForm>,
     );
 
     act(() => {
-      wrapper.baseElement
-        .querySelectorAll<HTMLElement>('.ant-pro-field-color-picker')[0]
-        .click();
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-pro-field-color-picker')[0].click();
     });
 
     // 选中第一个
     act(() => {
-      wrapper.baseElement
-        .querySelectorAll<HTMLElement>('.ant-color-picker-presets-color')[0]
-        .click();
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-color-picker-presets-color')[0].click();
     });
     expect(onFinish).toHaveBeenCalledWith('#f5222d');
   });
@@ -3205,7 +2802,7 @@ describe('ProForm', () => {
         ProFormInstance<{
           date: string;
         }>
-      >();
+      >(undefined);
 
       useEffect(() => {
         formRef.current?.validateFieldsReturnFormatValue?.().then((val) => {
@@ -3215,18 +2812,14 @@ describe('ProForm', () => {
 
       return (
         <ProForm
+          formRef={formRef}
           onValuesChange={async () => {
             formRef.current?.validateFieldsReturnFormatValue?.().then((val) => {
               fn2(val.date);
             });
           }}
-          formRef={formRef}
         >
-          <ProFormDatePicker
-            name="date"
-            initialValue={dayjs('2021-08-09')}
-            fieldProps={{ open: true }}
-          />
+          <ProFormDatePicker fieldProps={{ open: true }} initialValue={dayjs('2021-08-09')} name="date" />
         </ProForm>
       );
     };
@@ -3237,9 +2830,7 @@ describe('ProForm', () => {
     expect(fn1).toHaveBeenCalledWith('2021-08-09');
 
     act(() => {
-      wrapper.baseElement
-        .querySelectorAll<HTMLElement>('.ant-picker-cell')[2]
-        .click();
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-picker-cell')[2].click();
     });
 
     await waitForWaitTime(200);
@@ -3264,25 +2855,19 @@ describe('ProForm', () => {
 
     // 测试基本功能
     act(() => {
-      fireEvent.change(
-        wrapper.baseElement.querySelector('.ant-input-number-input')!,
-        {
-          target: {
-            value: '1',
-          },
+      fireEvent.change(wrapper.baseElement.querySelector('.ant-input-number-input')!, {
+        target: {
+          value: '1',
         },
-      );
+      });
     });
 
     act(() => {
-      fireEvent.change(
-        wrapper.baseElement.querySelectorAll('.ant-input-number-input')[1],
-        {
-          target: {
-            value: '2',
-          },
+      fireEvent.change(wrapper.baseElement.querySelectorAll('.ant-input-number-input')[1], {
+        target: {
+          value: '2',
         },
-      );
+      });
     });
 
     await act(async () => {
@@ -3292,33 +2877,23 @@ describe('ProForm', () => {
 
     // 测试清空两个值
     act(() => {
-      fireEvent.change(
-        wrapper.baseElement.querySelectorAll('.ant-input-number-input')[0],
-        {
-          target: {
-            value: '',
-          },
+      fireEvent.change(wrapper.baseElement.querySelectorAll('.ant-input-number-input')[0], {
+        target: {
+          value: '',
         },
-      );
+      });
     });
 
     act(() => {
-      fireEvent.change(
-        wrapper.baseElement.querySelectorAll('.ant-input-number-input')[1],
-        {
-          target: {
-            value: '',
-          },
+      fireEvent.change(wrapper.baseElement.querySelectorAll('.ant-input-number-input')[1], {
+        target: {
+          value: '',
         },
-      );
+      });
     });
 
     act(() => {
-      fireEvent.blur(
-        wrapper.baseElement.querySelectorAll<HTMLElement>(
-          '.ant-input-number-input',
-        )[1],
-      );
+      fireEvent.blur(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-input-number-input')[1]);
     });
 
     await act(async () => {
@@ -3344,12 +2919,12 @@ describe('ProForm', () => {
           }}
         >
           <ProFormDateTimePicker
-            name="datetime"
-            initialValue={dayjs('2021-08-09 12:12:12')}
             fieldProps={{ open: true }}
+            initialValue={dayjs('2021-08-09 12:12:12')}
+            name="datetime"
           />
 
-          <ProFormTimePicker name="time2" label="时间" />
+          <ProFormTimePicker label="时间" name="time2" />
         </ProForm>
       );
     };
@@ -3373,42 +2948,38 @@ describe('ProForm', () => {
     const html = render(
       <ProForm>
         <ProFormText
-          width="md"
+          label="生效方式"
+          name="function"
           rules={[
             {
               required: true,
               message: 'test',
             },
           ]}
-          name="function"
-          label="生效方式"
+          width="md"
         />
       </ProForm>,
     );
 
-    expect(
-      html.baseElement.querySelectorAll('.ant-form-item-required').length,
-    ).toBe(1);
+    expect(html.baseElement.querySelectorAll('.ant-form-item-required').length).toBe(1);
 
     html.rerender(
       <ProForm>
         <ProFormText
-          width="md"
+          label="生效方式"
+          name="function"
           rules={[
             {
               required: false,
               message: 'test',
             },
           ]}
-          name="function"
-          label="生效方式"
+          width="md"
         />
       </ProForm>,
     );
 
-    expect(
-      html.baseElement.querySelectorAll('.ant-form-item-required').length,
-    ).toBe(0);
+    expect(html.baseElement.querySelectorAll('.ant-form-item-required').length).toBe(0);
     html.unmount();
   });
 
@@ -3423,8 +2994,8 @@ describe('ProForm', () => {
               onChange(value);
             },
           }}
-          name="userQuery"
           label="查询选择器"
+          name="userQuery"
           valueEnum={{
             all: { text: '全部', status: 'Default' },
             open: {
@@ -3445,35 +3016,24 @@ describe('ProForm', () => {
     );
 
     act(() => {
-      fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
-        {},
-      );
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
     // 选中第一个
     act(() => {
-      wrapper.baseElement
-        .querySelectorAll<HTMLElement>('.ant-select-item')[0]
-        .click();
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[0].click();
     });
 
     // 鼠标移入选中区域
     act(() => {
-      fireEvent.mouseEnter(
-        wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select')[0],
-      );
+      fireEvent.mouseEnter(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select')[0]);
     });
 
     // 点击删除按钮进行删除操作
     act(() => {
       fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll<HTMLElement>(
-          'span.ant-select-clear',
-        )[
-          wrapper.baseElement.querySelectorAll<HTMLElement>(
-            'span.ant-select-clear',
-          ).length - 1
+        wrapper.baseElement.querySelectorAll<HTMLElement>('span.ant-select-clear')[
+          wrapper.baseElement.querySelectorAll<HTMLElement>('span.ant-select-clear').length - 1
         ],
       );
     });
@@ -3491,19 +3051,18 @@ describe('ProForm', () => {
         }}
       >
         <ProFormDigit
-          name="count"
-          label="人数"
           fieldProps={{
             precision: 0,
           }}
+          label="人数"
+          name="count"
         />
       </ProForm>,
     );
 
     await waitForWaitTime(300);
     act(() => {
-      const dom =
-        html.baseElement.querySelector<HTMLInputElement>('input#count')!;
+      const dom = html.baseElement.querySelector<HTMLInputElement>('input#count')!;
       fireEvent.change(dom, {
         target: {
           value: '22.22',
@@ -3513,9 +3072,7 @@ describe('ProForm', () => {
       fireEvent.click(dom);
     });
     await waitForWaitTime(300);
-    expect(
-      html.baseElement.querySelector<HTMLInputElement>('input#count')?.value,
-    ).toBe('22');
+    expect(html.baseElement.querySelector<HTMLInputElement>('input#count')?.value).toBe('22');
 
     await act(async () => {
       await (await html.findByText('提 交')).click();
@@ -3535,19 +3092,18 @@ describe('ProForm', () => {
         }}
       >
         <ProFormDigit
-          name="count"
-          label="人数"
           fieldProps={{
             precision: 0,
           }}
+          label="人数"
+          name="count"
         />
       </ProForm>,
     );
 
     await waitForWaitTime(100);
 
-    const dom =
-      html.baseElement.querySelector<HTMLInputElement>('input#count')!;
+    const dom = html.baseElement.querySelector<HTMLInputElement>('input#count')!;
 
     await act(async () => {
       fireEvent.change(dom, {
@@ -3574,12 +3130,12 @@ describe('ProForm', () => {
     const wrapper = render(
       <ProForm>
         <ProFormTreeSelect
-          name="userQuery"
-          label="查询选择器"
           fieldProps={{
             showSearch: true,
             fetchDataOnSearch: false,
           }}
+          label="查询选择器"
+          name="userQuery"
           request={async () => {
             onRequest();
             return [
@@ -3620,16 +3176,11 @@ describe('ProForm', () => {
     );
 
     act(() => {
-      fireEvent.change(
-        wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
-        )!,
-        {
-          target: {
-            value: 'p',
-          },
+      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
+        target: {
+          value: 'p',
         },
-      );
+      });
     });
 
     expect(onRequest.mock.calls.length).toBe(1);
@@ -3640,12 +3191,12 @@ describe('ProForm', () => {
     const wrapper = render(
       <ProForm>
         <ProFormTreeSelect
-          name="userQuery"
-          label="查询选择器"
           fieldProps={{
             showSearch: true,
             fetchDataOnSearch: true,
           }}
+          label="查询选择器"
+          name="userQuery"
           request={async () => {
             onRequest();
             return [
@@ -3688,23 +3239,15 @@ describe('ProForm', () => {
     await waitForWaitTime(300);
 
     act(() => {
-      fireEvent.change(
-        wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
-        )!,
-        {
-          target: {
-            value: 'l',
-          },
+      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
+        target: {
+          value: 'l',
         },
-      );
+      });
     });
     await waitForWaitTime(300);
     act(() => {
-      fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
-        {},
-      );
+      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
     await waitForWaitTime(300);
     expect(onRequest.mock.calls.length).toBe(3);
@@ -3715,6 +3258,7 @@ describe('ProForm', () => {
     const formRef = React.createRef<ProFormInstance<any>>();
     const wrapper = render(
       <ProForm
+        // @ts-ignore
         formRef={formRef}
         initialValues={{
           name: 'test',
@@ -3783,16 +3327,10 @@ describe('ProForm', () => {
     expect(tagsValue).toEqual(['tag1', 'tag2', 'tag3']);
 
     // 测试嵌套字段
-    const nestedField1 = formRef.current?.getFieldFormatValue?.([
-      'nested',
-      'field1',
-    ]);
+    const nestedField1 = formRef.current?.getFieldFormatValue?.(['nested', 'field1']);
     expect(nestedField1).toBe('value1');
 
-    const nestedField2 = formRef.current?.getFieldFormatValue?.([
-      'nested',
-      'field2',
-    ]);
+    const nestedField2 = formRef.current?.getFieldFormatValue?.(['nested', 'field2']);
     expect(nestedField2).toBe('value2');
 
     // 测试数组字段
@@ -3809,10 +3347,7 @@ describe('ProForm', () => {
     const tagsObject = formRef.current?.getFieldFormatValueObject?.('tags');
     expect(tagsObject).toEqual({ tags: ['tag1', 'tag2', 'tag3'] });
 
-    const nestedObject = formRef.current?.getFieldFormatValueObject?.([
-      'nested',
-      'field1',
-    ]);
+    const nestedObject = formRef.current?.getFieldFormatValueObject?.(['nested', 'field1']);
     expect(nestedObject).toEqual({ nested: { field1: 'value1' } });
 
     // 测试 getFieldFormatValueObject 不带参数
@@ -3835,8 +3370,8 @@ describe('ProForm', () => {
     const formRef = React.createRef<ProFormInstance<any>>();
     const wrapper = render(
       <ProForm
+        // @ts-ignore
         formRef={formRef}
-        omitNil={true}
         initialValues={{
           name: 'test',
           empty: '',
@@ -3845,6 +3380,7 @@ describe('ProForm', () => {
           zero: 0,
           falseValue: false,
         }}
+        omitNil={true}
       >
         <ProFormText name="name" />
         <ProFormText name="empty" />
@@ -3866,10 +3402,7 @@ describe('ProForm', () => {
     });
 
     // 测试 omitNil=false 的情况
-    const valuesWithoutOmitNil = formRef.current?.getFieldsFormatValue?.(
-      true,
-      false,
-    );
+    const valuesWithoutOmitNil = formRef.current?.getFieldsFormatValue?.(true, false);
     expect(valuesWithoutOmitNil).toEqual({
       name: 'test',
       empty: '',
@@ -3886,8 +3419,9 @@ describe('ProForm', () => {
     const formRef = React.createRef<ProFormInstance<any>>();
     const wrapper = render(
       <ProForm
-        formRef={formRef}
         dateFormatter="YYYY-MM-DD"
+        // @ts-ignore
+        formRef={formRef}
         initialValues={{
           date: dayjs('2023-01-15'),
           dateTime: dayjs('2023-01-15 14:30:00'),
@@ -3913,6 +3447,7 @@ describe('ProForm', () => {
     const formRef = React.createRef<ProFormInstance<any>>();
     const wrapper = render(
       <ProForm
+        // @ts-ignore
         formRef={formRef}
         initialValues={{
           price: '100.50',
@@ -3977,16 +3512,14 @@ describe('ProForm', () => {
     const formRef = React.createRef<ProFormInstance<any>>();
     const wrapper = render(
       <ProForm
+        // @ts-ignore
         formRef={formRef}
         initialValues={{
           name: 'test',
           email: 'test@example.com',
         }}
       >
-        <ProFormText
-          name="name"
-          rules={[{ required: true, message: 'Name is required' }]}
-        />
+        <ProFormText name="name" rules={[{ required: true, message: 'Name is required' }]} />
         <ProFormText
           name="email"
           rules={[
@@ -4000,16 +3533,14 @@ describe('ProForm', () => {
     await wrapper.findByText('提 交');
 
     // 测试验证成功的情况
-    const validatedValues =
-      await formRef.current?.validateFieldsReturnFormatValue?.();
+    const validatedValues = await formRef.current?.validateFieldsReturnFormatValue?.();
     expect(validatedValues).toEqual({
       name: 'test',
       email: 'test@example.com',
     });
 
     // 测试验证特定字段
-    const validatedName =
-      await formRef.current?.validateFieldsReturnFormatValue?.(['name']);
+    const validatedName = await formRef.current?.validateFieldsReturnFormatValue?.(['name']);
     expect(validatedName).toEqual({
       name: 'test',
     });
@@ -4021,6 +3552,7 @@ describe('ProForm', () => {
     const formRef = React.createRef<ProFormInstance<any>>();
     const wrapper = render(
       <ProForm
+        // @ts-ignore
         formRef={formRef}
         initialValues={{
           price: '100.50',
@@ -4075,6 +3607,7 @@ describe('ProForm', () => {
     const formRef = React.createRef<ProFormInstance<any>>();
     const wrapper = render(
       <ProForm
+        // @ts-ignore
         formRef={formRef}
         initialValues={{
           test: '12,34',
@@ -4138,26 +3671,22 @@ describe('ProForm 修复增强用例', () => {
     let wrapper = render(
       <ProForm>
         <ProFormSelect.SearchSelect
-          name="test1"
           fieldProps={{
             mode: 'multiple',
             autoClearSearchValue: true,
             showSearch: true,
           }}
+          name="test1"
           options={options}
         />
       </ProForm>,
     );
     // 打开下拉，输入
     await act(async () => {
-      const selector = wrapper.baseElement.querySelector(
-        '.ant-select-selector',
-      );
+      const selector = wrapper.baseElement.querySelector('.ant-select-selector');
       if (selector) fireEvent.mouseDown(selector);
     });
-    const input = wrapper.baseElement.querySelector(
-      '.ant-select-selection-search-input',
-    ) as HTMLInputElement;
+    const input = wrapper.baseElement.querySelector('.ant-select-selection-search-input') as HTMLInputElement;
     await act(async () => {
       fireEvent.change(input, { target: { value: 'A' } });
     });
@@ -4176,25 +3705,21 @@ describe('ProForm 修复增强用例', () => {
     wrapper = render(
       <ProForm>
         <ProFormSelect.SearchSelect
-          name="test2"
           fieldProps={{
             mode: 'multiple',
             autoClearSearchValue: false,
             showSearch: true,
           }}
+          name="test2"
           options={options}
         />
       </ProForm>,
     );
     await act(async () => {
-      const selector = wrapper.baseElement.querySelector(
-        '.ant-select-selector',
-      );
+      const selector = wrapper.baseElement.querySelector('.ant-select-selector');
       if (selector) fireEvent.mouseDown(selector);
     });
-    const input2 = wrapper.baseElement.querySelector(
-      '.ant-select-selection-search-input',
-    ) as HTMLInputElement;
+    const input2 = wrapper.baseElement.querySelector('.ant-select-selection-search-input') as HTMLInputElement;
     await act(async () => {
       fireEvent.change(input2, { target: { value: 'B' } });
     });
@@ -4215,8 +3740,9 @@ describe('ProForm 修复增强用例', () => {
     const formRef = React.createRef<ProFormInstance<any>>();
     const wrapper = render(
       <ProForm
-        formRef={formRef}
         dateFormatter="YYYY/MM/DD HH:mm"
+        // @ts-ignore
+        formRef={formRef}
         initialValues={{
           date: dayjs('2023-01-15'),
           dateTime: dayjs('2023-01-15 14:30:00'),

@@ -1,18 +1,14 @@
-import {
-  ProFormDatePicker,
-  ProFormText,
-  QueryFilter,
-} from '@ant-design/pro-components';
+import { ProFormDatePicker, ProFormText, QueryFilter } from '@xxlabs/pro-components';
 
 export default () => {
   return (
     <QueryFilter defaultCollapsed split defaultFormItemsNumber={5}>
-      <ProFormText name="name" label="应用名称" />
-      <ProFormDatePicker name="createDate" label="创建时间" />
-      <ProFormText name="status" label="应用状态" />
-      <ProFormDatePicker name="replyDate" label="响应日期" />
-      <ProFormDatePicker name="startDate" label="创建时间" />
-      <ProFormDatePicker name="endDate" label="结束时间" />
+      <ProFormText label="应用名称" name="name" />
+      <ProFormDatePicker label="创建时间" name="createDate" />
+      <ProFormText label="应用状态" name="status" />
+      <ProFormDatePicker label="响应日期" name="replyDate" />
+      <ProFormDatePicker label="创建时间" name="startDate" />
+      <ProFormDatePicker label="结束时间" name="endDate" />
     </QueryFilter>
   );
 };

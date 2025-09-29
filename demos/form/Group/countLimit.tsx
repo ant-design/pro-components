@@ -1,6 +1,6 @@
 import { CloseOutlined, SnippetsOutlined } from '@ant-design/icons';
-import type { FormListActionType } from '@ant-design/pro-components';
-import { ProForm, ProFormList, ProFormText } from '@ant-design/pro-components';
+import type { FormListActionType } from '@xxlabs/pro-components';
+import { ProForm, ProFormList, ProFormText } from '@xxlabs/pro-components';
 import { useRef } from 'react';
 
 export default () => {
@@ -8,20 +8,11 @@ export default () => {
     FormListActionType<{
       name: string;
     }>
-  >();
+  >(undefined);
   return (
     <>
       <ProForm>
         <ProFormList
-          copyIconProps={{
-            Icon: SnippetsOutlined,
-          }}
-          deleteIconProps={{
-            Icon: CloseOutlined,
-          }}
-          min={1}
-          max={4}
-          actionRef={actionRef}
           actionGuard={{
             beforeAddRow: async (defaultValue, insertIndex, count) => {
               return new Promise((resolve) => {
@@ -41,15 +32,24 @@ export default () => {
               });
             },
           }}
-          name="users"
-          label="用户信息"
+          actionRef={actionRef}
+          copyIconProps={{
+            Icon: SnippetsOutlined,
+          }}
+          deleteIconProps={{
+            Icon: CloseOutlined,
+          }}
           initialValue={[
             {
               name: '1111',
             },
           ]}
+          label="用户信息"
+          max={4}
+          min={1}
+          name="users"
         >
-          <ProFormText key="useMode" name="name" label="姓名" />
+          <ProFormText key="useMode" label="姓名" name="name" />
         </ProFormList>
       </ProForm>
     </>

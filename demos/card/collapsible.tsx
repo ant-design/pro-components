@@ -1,5 +1,5 @@
 import { RightOutlined } from '@ant-design/icons';
-import { ProCard } from '@ant-design/pro-components';
+import { ProCard } from '@xxlabs/pro-components';
 import { Button } from 'antd';
 import { useState } from 'react';
 
@@ -17,11 +17,9 @@ export default () => {
         }}
       >
         <ProCard
-          title="Collapsible"
-          headerBordered
           collapsible
           defaultCollapsed
-          onCollapse={(collapse) => console.log(collapse)}
+          headerBordered
           extra={
             <Button
               size="small"
@@ -32,15 +30,15 @@ export default () => {
               Submit
             </Button>
           }
+          title="Collapsible"
+          onCollapse={(collapse) => console.log(collapse)}
         >
           Content
         </ProCard>
         <ProCard
-          title="Collapsible"
+          defaultCollapsed
           headerBordered
           collapsible="icon"
-          defaultCollapsed
-          onCollapse={(collapse) => console.log(collapse)}
           extra={
             <Button
               size="small"
@@ -51,16 +49,15 @@ export default () => {
               Submit
             </Button>
           }
+          title="Collapsible"
+          onCollapse={(collapse) => console.log(collapse)}
         >
           Content
         </ProCard>
         <ProCard
-          title="Collapsible"
-          variant="outlined"
-          headerBordered
           collapsible
           defaultCollapsed
-          onCollapse={(collapse) => console.log(collapse)}
+          headerBordered
           extra={
             <Button
               size="small"
@@ -71,32 +68,36 @@ export default () => {
               Submit
             </Button>
           }
+          title="Collapsible"
+          variant="outlined"
+          onCollapse={(collapse) => console.log(collapse)}
         >
           Content
         </ProCard>
         <ProCard
-          variant="outlined"
+          collapsible
+          defaultCollapsed
+          headerBordered
+          extra={
+            <Button
+              size="small"
+              onClick={(e) => {
+                e.stopPropagation();
+              }}
+            >
+              Submit
+            </Button>
+          }
           size="small"
           title="Collapsible"
-          headerBordered
-          collapsible
-          defaultCollapsed
+          variant="outlined"
           onCollapse={(collapse) => console.log(collapse)}
-          extra={
-            <Button
-              size="small"
-              onClick={(e) => {
-                e.stopPropagation();
-              }}
-            >
-              Submit
-            </Button>
-          }
         >
           Content
         </ProCard>
         <ProCard
-          title="Collapsible - Controlled Custom"
+          headerBordered
+          collapsed={collapsed}
           extra={
             <RightOutlined
               rotate={!collapsed ? 90 : undefined}
@@ -106,24 +107,19 @@ export default () => {
             />
           }
           style={{ marginBlockStart: 16 }}
-          headerBordered
-          collapsed={collapsed}
+          title="Collapsible - Controlled Custom"
         >
           Content
         </ProCard>
         <ProCard
-          title="Collapsible - Custom Icon"
-          collapsibleIconRender={({
-            collapsed: buildInCollapsed,
-          }: {
-            collapsed: boolean;
-          }) =>
+          collapsible
+          defaultCollapsed
+          headerBordered
+          collapsibleIconRender={({ collapsed: buildInCollapsed }: { collapsed: boolean }) =>
             buildInCollapsed ? <span>Collapse - </span> : <span>Expand - </span>
           }
           style={{ marginBlockStart: 16 }}
-          headerBordered
-          collapsible
-          defaultCollapsed
+          title="Collapsible - Custom Icon"
         >
           Content
         </ProCard>

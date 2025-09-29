@@ -1,4 +1,4 @@
-import { ProDescriptions } from '@ant-design/pro-components';
+import { ProDescriptions } from '@xxlabs/pro-components';
 import { Button } from 'antd';
 
 export default () => {
@@ -11,12 +11,6 @@ export default () => {
       </ProDescriptions.Item>
       <ProDescriptions
         column={2}
-        title="高级定义列表"
-        tooltip="包含了从服务器请求，columns等功能"
-        request={async () => ({
-          data: [{ id: 1, money: 12345 }],
-          success: true,
-        })}
         columns={[
           {
             title: () => '文本 2',
@@ -30,6 +24,12 @@ export default () => {
             valueType: { type: 'money', showSymbol: false },
           },
         ]}
+        request={async () => ({
+          data: [{ id: 1, money: 12345 }],
+          success: true,
+        })}
+        title="高级定义列表"
+        tooltip="包含了从服务器请求，columns等功能"
       />
     </>
   );

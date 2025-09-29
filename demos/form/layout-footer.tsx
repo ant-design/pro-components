@@ -11,17 +11,20 @@ import {
   ProFormTextArea,
   ProFormUploadButton,
   ProLayout,
-} from '@ant-design/pro-components';
+} from '@xxlabs/pro-components';
 import { Card } from 'antd';
 
 export default () => {
   return (
     <ProLayout
+      defaultCollapsed
       fixSiderbar
       fixedHeader
       breakpoint={false}
-      defaultCollapsed
-      pageTitleRender={false}
+      layout="mix"
+      location={{
+        pathname: '/one/two',
+      }}
       menuDataRender={() => [
         {
           path: '/one',
@@ -35,10 +38,7 @@ export default () => {
           ],
         },
       ]}
-      layout="mix"
-      location={{
-        pathname: '/one/two',
-      }}
+      pageTitleRender={false}
     >
       <PageContainer title="Input Form">
         <Card>
@@ -50,31 +50,21 @@ export default () => {
           >
             <ProForm.Group>
               <ProFormText
-                name="name"
                 label="Contract Customer Name"
+                name="name"
+                placeholder="Please enter a name"
                 tooltip="Up to 24 characters"
-                placeholder="Please enter a name"
               />
-              <ProFormText
-                width="md"
-                name="company"
-                label="Our Company Name"
-                placeholder="Please enter a name"
-              />
+              <ProFormText label="Our Company Name" name="company" placeholder="Please enter a name" width="md" />
             </ProForm.Group>
             <ProForm.Group>
-              <ProFormText
-                name={['contract', 'name']}
-                label="Contract Name"
-                placeholder="Please enter a name"
-              />
-              <ProFormDateRangePicker
-                name={['contract', 'createTime']}
-                label="Contract Effective Time"
-              />
+              <ProFormText label="Contract Name" name={['contract', 'name']} placeholder="Please enter a name" />
+              <ProFormDateRangePicker label="Contract Effective Time" name={['contract', 'createTime']} />
             </ProForm.Group>
             <ProForm.Group>
               <ProFormSelect
+                label="Contract Agreed Effective Method"
+                name="chapter"
                 options={[
                   {
                     value: 'chapter',
@@ -82,38 +72,27 @@ export default () => {
                   },
                 ]}
                 width="xs"
-                name="chapter"
-                label="Contract Agreed Effective Method"
               />
               <ProFormSelect
-                width="xs"
+                label="Contract Agreed Invalid Method"
+                name="unusedMode"
                 options={[
                   {
                     value: 'time',
                     label: 'Terminate after performance',
                   },
                 ]}
-                name="unusedMode"
-                label="Contract Agreed Invalid Method"
+                width="xs"
               />
             </ProForm.Group>
-            <ProFormText width="sm" name="id" label="Main Contract Number" />
-            <ProFormText
-              name="project"
-              disabled
-              label="Project Name"
-              initialValue="xxxx Project"
-            />
-            <ProFormText
-              width="xs"
-              name="mangerName"
-              disabled
-              label="Business Manager"
-              initialValue="Qitu"
-            />
+            <ProFormText label="Main Contract Number" name="id" width="sm" />
+            <ProFormText disabled initialValue="xxxx Project" label="Project Name" name="project" />
+            <ProFormText disabled initialValue="Qitu" label="Business Manager" name="mangerName" width="xs" />
             <ProForm.Group>
               <ProFormSelect
                 initialValue="money"
+                label="Amount Type"
+                name="useMode"
                 options={[
                   {
                     value: 'money',
@@ -121,10 +100,11 @@ export default () => {
                   },
                 ]}
                 width="xs"
-                name="useMode"
-                label="Amount Type"
               />
               <ProFormSelect
+                initialValue="6"
+                label="Tax Rate"
+                name="taxRate"
                 options={[
                   {
                     value: '6',
@@ -135,15 +115,12 @@ export default () => {
                     label: '12%',
                   },
                 ]}
-                initialValue="6"
                 width="xs"
-                name="taxRate"
-                label="Tax Rate"
               />
               <ProFormRadio.Group
+                initialValue="Invoice"
                 label="Invoice Type"
                 name="invoiceType"
-                initialValue="Invoice"
                 options={['Invoice', 'General Invoice', 'No Invoice']}
               />
             </ProForm.Group>
@@ -153,17 +130,8 @@ export default () => {
               name="file"
               title="Upload File"
             />
-            <ProFormDigit
-              width="xs"
-              name="num"
-              label="Number of Copies"
-              initialValue={5}
-            />
-            <ProFormTextArea
-              width="xl"
-              label="Contract Remarks"
-              name="remark"
-            />
+            <ProFormDigit initialValue={5} label="Number of Copies" name="num" width="xs" />
+            <ProFormTextArea label="Contract Remarks" name="remark" width="xl" />
           </ProForm>
         </Card>
       </PageContainer>

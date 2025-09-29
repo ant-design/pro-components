@@ -1,10 +1,5 @@
-import type { ProColumns } from '@ant-design/pro-components';
-import {
-  EditableProTable,
-  ProCard,
-  ProFormField,
-  useRefFunction,
-} from '@ant-design/pro-components';
+import type { ProColumns } from '@xxlabs/pro-components';
+import { EditableProTable, ProCard, ProFormField, useRefFunction } from '@xxlabs/pro-components';
 import React, { useState } from 'react';
 
 const waitTime = (time: number = 100) => {
@@ -54,10 +49,7 @@ const defaultData: DataSourceType[] = [
   },
 ];
 
-const loopDataSourceFilter = (
-  data: readonly DataSourceType[],
-  id: React.Key | undefined,
-): DataSourceType[] => {
+const loopDataSourceFilter = (data: readonly DataSourceType[], id: React.Key | undefined): DataSourceType[] => {
   return data
     .map((item) => {
       if (item.id !== id) {
@@ -77,9 +69,7 @@ const loopDataSourceFilter = (
 
 export default () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>([]);
-  const [dataSource, setDataSource] = useState<readonly DataSourceType[]>(
-    () => defaultData,
-  );
+  const [dataSource, setDataSource] = useState<readonly DataSourceType[]>(() => defaultData);
 
   const removeRow = useRefFunction((record: DataSourceType) => {
     setDataSource(loopDataSourceFilter(dataSource, record.id));
@@ -90,8 +80,7 @@ export default () => {
       dataIndex: 'title',
       formItemProps: (form, { rowIndex }) => {
         return {
-          rules:
-            rowIndex > 2 ? [{ required: true, message: '此项为必填项' }] : [],
+          rules: rowIndex > 2 ? [{ required: true, message: '此项为必填项' }] : [],
         };
       },
       width: '30%',
@@ -155,25 +144,7 @@ export default () => {
   return (
     <>
       <EditableProTable<DataSourceType>
-        expandable={{
-          // 使用 request 请求数据时无效
-          defaultExpandAllRows: true,
-        }}
-        scroll={{
-          x: 960,
-        }}
-        rowKey="id"
-        headerTitle="可编辑表格"
-        maxLength={5}
-        recordCreatorProps={{
-          position: 'bottom',
-          newRecordType: 'dataSource',
-          parentKey: () => 624748504,
-          record: () => ({ id: (Math.random() * 1000000).toFixed(0) }),
-        }}
         columns={columns}
-        value={dataSource}
-        onChange={setDataSource}
         editable={{
           type: 'multiple',
           editableKeys,
@@ -183,8 +154,26 @@ export default () => {
           },
           onChange: setEditableRowKeys,
         }}
+        expandable={{
+          // 使用 request 请求数据时无效
+          defaultExpandAllRows: true,
+        }}
+        headerTitle="可编辑表格"
+        maxLength={5}
+        recordCreatorProps={{
+          position: 'bottom',
+          newRecordType: 'dataSource',
+          parentKey: () => 624748504,
+          record: () => ({ id: (Math.random() * 1000000).toFixed(0) }),
+        }}
+        rowKey="id"
+        scroll={{
+          x: 960,
+        }}
+        value={dataSource}
+        onChange={setDataSource}
       />
-      <ProCard title="表格数据" headerBordered collapsible defaultCollapsed>
+      <ProCard collapsible defaultCollapsed headerBordered title="表格数据">
         <ProFormField
           ignoreFormItem
           fieldProps={{
@@ -193,8 +182,8 @@ export default () => {
             },
           }}
           mode="read"
-          valueType="jsonCode"
           text={JSON.stringify(dataSource)}
+          valueType="jsonCode"
         />
       </ProCard>
     </>

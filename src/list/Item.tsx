@@ -1,9 +1,10 @@
 import { RightOutlined } from '@ant-design/icons';
 import { useMergedState } from '@rc-component/util';
 import { ConfigProvider, List, Skeleton } from 'antd';
-import type { ListGridType } from 'antd/lib/list';
-import type { ExpandableConfig } from 'antd/lib/table/interface';
+import type { ListGridType } from 'antd/es/list';
+import type { ExpandableConfig } from 'antd/es/table/interface';
 import classNames from 'classnames';
+import type { JSX } from 'react';
 import React, { useContext, useMemo } from 'react';
 import type { CheckCardProps } from '../card';
 import { CheckCard } from '../card';
@@ -16,11 +17,7 @@ export type RenderExpandIconProps<RecordType> = {
   expandIcon:
     | React.ReactNode
     | JSX.Element
-    | ((props: {
-        onExpand: (expanded: boolean) => void;
-        expanded: boolean;
-        record: RecordType;
-      }) => React.ReactNode);
+    | ((props: { onExpand: (expanded: boolean) => void; expanded: boolean; record: RecordType }) => React.ReactNode);
   onExpand: (expanded: boolean) => void;
   record: RecordType;
   hashId: string;
@@ -94,20 +91,8 @@ export type ItemProps<RecordType> = {
   record: RecordType;
   onRow?: GetComponentProps<RecordType>;
   onItem?: GetComponentProps<RecordType>;
-  itemHeaderRender?:
-    | ((
-        item: RecordType,
-        index: number,
-        defaultDom: JSX.Element | null,
-      ) => React.ReactNode)
-    | false;
-  itemTitleRender?:
-    | ((
-        item: RecordType,
-        index: number,
-        defaultDom: JSX.Element | null,
-      ) => React.ReactNode)
-    | false;
+  itemHeaderRender?: ((item: RecordType, index: number, defaultDom: JSX.Element | null) => React.ReactNode) | false;
+  itemTitleRender?: ((item: RecordType, index: number, defaultDom: JSX.Element | null) => React.ReactNode) | false;
 };
 
 function ProListItem<RecordType>(props: ItemProps<RecordType>) {
@@ -181,10 +166,8 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     [`${propsClassName}-extra`]: showExtra === 'hover',
   });
 
-  const needExpanded =
-    expanded || Object.values(expandableConfig || {}).length === 0;
-  const expandedRowDom =
-    expandedRowRender && expandedRowRender(record, index, indentSize, expanded);
+  const needExpanded = expanded || Object.values(expandableConfig || {}).length === 0;
+  const expandedRowDom = expandedRowRender && expandedRowRender(record, index, indentSize, expanded);
 
   const extraDom = useMemo(() => {
     if (!actions || cardActionProps === 'actions') {
@@ -204,11 +187,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     }
 
     return [
-      <div
-        key="action"
-        className={`${defaultClassName}-actions ${hashId}`.trim()}
-        onClick={(e) => e.stopPropagation()}
-      >
+      <div key="action" className={`${defaultClassName}-actions ${hashId}`.trim()} onClick={(e) => e.stopPropagation()}>
         {actions}
       </div>,
     ];
@@ -238,21 +217,16 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       </div>
     ) : null;
 
-  const metaTitle =
-    (itemTitleRender && itemTitleRender?.(record, index, titleDom)) ?? titleDom;
+  const metaTitle = (itemTitleRender && itemTitleRender?.(record, index, titleDom)) ?? titleDom;
   const metaDom =
     metaTitle || avatar || subTitle || description ? (
       <List.Item.Meta
         avatar={avatar}
-        title={metaTitle}
         description={
           description &&
-          needExpanded && (
-            <div className={`${className}-description ${hashId}`.trim()}>
-              {description}
-            </div>
-          )
+          needExpanded && <div className={`${className}-description ${hashId}`.trim()}>{description}</div>
         }
+        title={metaTitle}
       />
     ) : null;
 
@@ -266,13 +240,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       return (
         <>
           {avatar}
-          <span
-            className={`${getPrefixCls(
-              'list-item-meta-title',
-            )} ${hashId}`.trim()}
-          >
-            {title}
-          </span>
+          <span className={`${getPrefixCls('list-item-meta-title')} ${hashId}`.trim()}>{title}</span>
         </>
       );
     }
@@ -298,14 +266,10 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
         }
       }}
     >
-      <Skeleton avatar title={false} loading={loading} active>
+      <Skeleton active avatar loading={loading} title={false}>
         <div className={`${className}-header ${hashId}`.trim()}>
           <div className={`${className}-header-option ${hashId}`.trim()}>
-            {!!checkbox && (
-              <div className={`${className}-checkbox ${hashId}`.trim()}>
-                {checkbox}
-              </div>
-            )}
+            {!!checkbox && <div className={`${className}-checkbox ${hashId}`.trim()}>{checkbox}</div>}
             {Object.values(expandableConfig || {}).length > 0 &&
               rowSupportExpand &&
               renderExpandIcon({
@@ -317,8 +281,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
                 record,
               } as RenderExpandIconProps<RecordType>)}
           </div>
-          {(itemHeaderRender && itemHeaderRender?.(record, index, metaDom)) ??
-            metaDom}
+          {(itemHeaderRender && itemHeaderRender?.(record, index, metaDom)) ?? metaDom}
         </div>
         {needExpanded && (content || expandedRowDom) && (
           <div className={`${className}-content ${hashId}`.trim()}>
@@ -326,8 +289,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
             {expandedRowRender && rowSupportExpand && (
               <div
                 className={
-                  expandedRowClassName &&
-                  typeof expandedRowClassName !== 'string'
+                  expandedRowClassName && typeof expandedRowClassName !== 'string'
                     ? expandedRowClassName(record, index, indentSize)
                     : expandedRowClassName
                 }
@@ -346,21 +308,21 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
         width: '100%',
       }}
       {...cardProps}
-      title={cardTitleDom}
-      subTitle={subTitle}
-      extra={extraDom}
       actions={actionsDom}
       bodyStyle={{
         padding: 24,
         ...cardProps.bodyStyle,
       }}
+      extra={extraDom}
+      subTitle={subTitle}
+      title={cardTitleDom}
       {...(itemProps as CheckCardProps)}
       onClick={(e: any) => {
         cardProps?.onClick?.(e);
         itemProps?.onClick?.(e);
       }}
     >
-      <Skeleton avatar title={false} loading={loading} active>
+      <Skeleton active avatar loading={loading} title={false}>
         <div className={`${className}-header ${hashId}`.trim()}>
           {itemTitleRender && itemTitleRender?.(record, index, titleDom)}
           {content}

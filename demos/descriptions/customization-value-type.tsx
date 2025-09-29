@@ -1,4 +1,4 @@
-import { ProDescriptions, ProProvider } from '@ant-design/pro-components';
+import { ProDescriptions, ProProvider } from '@xxlabs/pro-components';
 import type { InputRef } from 'antd';
 import { Input, Space, Tag } from 'antd';
 import React, { useContext, useRef, useState } from 'react';
@@ -60,14 +60,8 @@ const TagList: React.FC<{
 
   const handleInputConfirm = () => {
     let tempsTags = [...(value || [])];
-    if (
-      inputValue &&
-      tempsTags.filter((tag) => tag.label === inputValue).length === 0
-    ) {
-      tempsTags = [
-        ...tempsTags,
-        { key: `new-${tempsTags.length}`, label: inputValue },
-      ];
+    if (inputValue && tempsTags.filter((tag) => tag.label === inputValue).length === 0) {
+      tempsTags = [...tempsTags, { key: `new-${tempsTags.length}`, label: inputValue }];
     }
     onChange?.(tempsTags);
     setNewTags([]);
@@ -81,12 +75,12 @@ const TagList: React.FC<{
       ))}
       <Input
         ref={ref}
-        type="text"
         size="small"
         style={{ width: 78 }}
+        type="text"
         value={inputValue}
-        onChange={handleInputChange}
         onBlur={handleInputConfirm}
+        onChange={handleInputChange}
         onPressEnter={handleInputConfirm}
       />
     </Space>
@@ -103,9 +97,7 @@ export default () => {
           valueTypeMap: {
             link: {
               render: (text) => <a>{text}</a>,
-              formItemRender: (text, props) => (
-                <Input placeholder="请输入链接" {...props?.fieldProps} />
-              ),
+              formItemRender: (text, props) => <Input placeholder="请输入链接" {...props?.fieldProps} />,
             },
             tags: {
               render: (text) => {
@@ -117,9 +109,7 @@ export default () => {
                   </>
                 );
               },
-              formItemRender: (text, props) => (
-                <TagList {...props} {...props?.fieldProps} />
-              ),
+              formItemRender: (text, props) => <TagList {...props} {...props?.fieldProps} />,
             },
           },
         }}
@@ -265,8 +255,7 @@ export default () => {
             <strong>TableListItem</strong>: 表格数据项类型
           </li>
           <li>
-            <strong>泛型支持</strong>: ProDescriptions&lt;TableListItem, 'link'
-            | 'tags'&gt;
+            <strong>泛型支持</strong>: ProDescriptions&lt;TableListItem, 'link' | 'tags'&gt;
           </li>
           <li>
             <strong>类型安全</strong>: 提供完整的类型检查

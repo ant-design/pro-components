@@ -69,10 +69,7 @@ type ProHelpDataSourceContentType = {
  * ProHelp 数据源子项内容类型的类型，可能的取值为 "h1"、"h2"、"link"、"inlineLink"、"text" 和 "image"。
  * @typedef {'h1' | 'h2' | 'link' | 'inlineLink' | 'text' | 'image'} ProHelpDataSourceChildrenType
  */
-type ProHelpDataSourceChildrenType = Extract<
-  keyof ProHelpDataSourceContentType,
-  any
->;
+type ProHelpDataSourceChildrenType = Extract<keyof ProHelpDataSourceContentType, any>;
 
 /**
  * ProHelp 数据源子项内容属性类型。
@@ -82,12 +79,11 @@ type ProHelpDataSourceChildrenType = Extract<
  * 则使用 ProHelpDataSourceContentType 中 ProHelpDataSourceChildrenType 所对应的属性类型；
  * 否则，使用 ProHelpDataSourceContentType 中 ValueType 所对应的属性类型。
  */
-type ProHelpDataSourceContentProps<ValueTypeMap, ValueType> =
-  ValueType extends ProHelpDataSourceChildrenType
-    ? ProHelpDataSourceContentType[ValueType]
-    : ValueType extends keyof ValueTypeMap
-      ? ValueTypeMap[ValueType]
-      : ProHelpDataSourceContentType[ProHelpDataSourceChildrenType];
+type ProHelpDataSourceContentProps<ValueTypeMap, ValueType> = ValueType extends ProHelpDataSourceChildrenType
+  ? ProHelpDataSourceContentType[ValueType]
+  : ValueType extends keyof ValueTypeMap
+    ? ValueTypeMap[ValueType]
+    : ProHelpDataSourceContentType[ProHelpDataSourceChildrenType];
 
 /**
  * ProHelp 数据源子项类型。
@@ -111,10 +107,7 @@ export type ProHelpDataSourceChildren<
    * 数据源子项值的类型。
    * @typedef {(ValueTypeMap | ProHelpDataSourceChildrenType)} ProHelpDataSourceChildrenType
    */
-  children: ProHelpDataSourceContentProps<
-    ValueTypeMap,
-    keyof ValueTypeMap | ProHelpDataSourceChildrenType
-  >;
+  children: ProHelpDataSourceContentProps<ValueTypeMap, keyof ValueTypeMap | ProHelpDataSourceChildrenType>;
 };
 
 /**
@@ -173,10 +166,7 @@ export const ProHelpProvide = React.createContext<{
    * 这个 Map 的作用是将 ProHelp 数据源子项子项的 valueType 属性与对应的渲染函数进行映射，从而实现在渲染 ProHelp 数据源时动态地选择渲染方法。
    * 在实际使用时，我们可以通过判断子项的 valueType 属性，从 valueTypeMap 中取出对应的渲染函数，再将该子项和渲染函数作为参数传入 renderDataSourceItem 函数中即可。
    */
-  valueTypeMap: Map<
-    string,
-    (item: ProHelpDataSourceChildren<any>, index: number) => React.ReactNode
-  >;
+  valueTypeMap: Map<string, (item: ProHelpDataSourceChildren<any>, index: number) => React.ReactNode>;
   /**
    * 加载数据源的函数,如果把数据源设置为 async load就可以使用这个功能。
    */

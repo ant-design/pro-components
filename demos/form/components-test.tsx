@@ -8,15 +8,15 @@ import {
   ProFormSwitch,
   ProFormUploadButton,
   ProFormUploadDragger,
-} from '@ant-design/pro-components';
+} from '@xxlabs/pro-components';
 import { Button, Input } from 'antd';
 import { useRef } from 'react';
 
 const Demo = () => {
-  const formRef = useRef();
+  const formRef = useRef(undefined);
   return (
     <ProForm
-      name="validate_other"
+      formRef={formRef}
       initialValues={{
         'input-number': 3,
         'checkbox-group': ['A', 'B'],
@@ -24,31 +24,31 @@ const Demo = () => {
         range: 5,
         name: 'qixian',
       }}
-      formRef={formRef}
+      name="validate_other"
       onFinish={async (value) => console.log(value)}
     >
       <ProFormUploadButton
-        name="upload"
-        icon={<SmileOutlined />}
-        label="Upload"
-        title="点击上传"
         action="/upload.do"
         extra="longgggggggggggggggggggggggggggggggggg"
+        icon={<SmileOutlined />}
+        label="Upload"
+        name="upload"
+        title="点击上传"
       />
       <ProFormRadio name="test" />
       <ProFormCheckbox name="test2" />
-      <ProFormSwitch width="lg" label="是否打开" />
+      <ProFormSwitch label="是否打开" width="lg" />
       <ProFormUploadDragger
-        title="拖动上传"
-        icon={<SmileOutlined />}
         description="支持 text"
-        label="Dragger"
-        name="dragger"
         fieldProps={{
           showUploadList: true,
         }}
+        icon={<SmileOutlined />}
+        label="Dragger"
+        name="dragger"
+        title="拖动上传"
       />
-      <ProFormSlider name="range" label="范围" />
+      <ProFormSlider label="范围" name="range" />
       <ProFormField>test</ProFormField>
       <ProFormField>
         <Input />

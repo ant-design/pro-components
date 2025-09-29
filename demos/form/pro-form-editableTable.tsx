@@ -1,9 +1,5 @@
-import type { ProColumns } from '@ant-design/pro-components';
-import {
-  EditableProTable,
-  ProForm,
-  ProFormText,
-} from '@ant-design/pro-components';
+import type { ProColumns } from '@xxlabs/pro-components';
+import { EditableProTable, ProForm, ProFormText } from '@xxlabs/pro-components';
 import { Input, message } from 'antd';
 import React, { useState } from 'react';
 
@@ -79,51 +75,39 @@ const columns: ProColumns<DataSourceType>[] = [
 ];
 
 export default () => {
-  const [editableKeys, setEditableRowKeys] = useState<React.Key[]>(() =>
-    defaultData.map((item) => item.id),
-  );
+  const [editableKeys, setEditableRowKeys] = useState<React.Key[]>(() => defaultData.map((item) => item.id));
   return (
     <ProForm<{
       name: string;
       company: string;
     }>
       grid
+      initialValues={{
+        name: '蚂蚁设计有限公司',
+        useMode: 'chapter',
+      }}
       onFinish={async (values) => {
         await waitTime(2000);
         console.log(values);
         message.success('提交成功');
       }}
-      initialValues={{
-        name: '蚂蚁设计有限公司',
-        useMode: 'chapter',
-      }}
     >
       <ProForm.Group>
-        <ProFormText
-          width="md"
-          name="name"
-          label="签约客户名称"
-          tooltip="最长为 24 位"
-          placeholder="请输入名称"
-        />
-        <ProFormText
-          width="md"
-          name="company"
-          label="我方公司名称"
-          placeholder="请输入名称"
-        />
+        <ProFormText label="签约客户名称" name="name" placeholder="请输入名称" tooltip="最长为 24 位" width="md" />
+        <ProFormText label="我方公司名称" name="company" placeholder="请输入名称" width="md" />
       </ProForm.Group>
-      <ProFormText width="sm" name="id" label="主合同编号" />
-      <ProForm.Item
-        label="数组数据"
-        name="dataSource"
-        initialValue={defaultData}
-        trigger="onValuesChange"
-      >
+      <ProFormText label="主合同编号" name="id" width="sm" />
+      <ProForm.Item initialValue={defaultData} label="数组数据" name="dataSource" trigger="onValuesChange">
         <EditableProTable<DataSourceType>
-          rowKey="id"
-          toolBarRender={false}
           columns={columns}
+          editable={{
+            type: 'multiple',
+            editableKeys,
+            onChange: setEditableRowKeys,
+            actionRender: (row, _, dom) => {
+              return [dom.delete];
+            },
+          }}
           recordCreatorProps={{
             newRecordType: 'dataSource',
             position: 'top',
@@ -133,14 +117,8 @@ export default () => {
               decs: 'testdesc',
             }),
           }}
-          editable={{
-            type: 'multiple',
-            editableKeys,
-            onChange: setEditableRowKeys,
-            actionRender: (row, _, dom) => {
-              return [dom.delete];
-            },
-          }}
+          rowKey="id"
+          toolBarRender={false}
         />
       </ProForm.Item>
     </ProForm>

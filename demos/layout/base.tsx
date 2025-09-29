@@ -8,24 +8,10 @@ import {
   QuestionCircleFilled,
   SearchOutlined,
 } from '@ant-design/icons';
-import type { ProSettings } from '@ant-design/pro-components';
-import {
-  PageContainer,
-  ProCard,
-  ProConfigProvider,
-  ProLayout,
-  SettingDrawer,
-} from '@ant-design/pro-components';
 import { css } from '@emotion/css';
-import {
-  Button,
-  ConfigProvider,
-  Divider,
-  Dropdown,
-  Input,
-  Popover,
-  theme,
-} from 'antd';
+import type { ProSettings } from '@xxlabs/pro-components';
+import { PageContainer, ProCard, ProConfigProvider, ProLayout, SettingDrawer } from '@xxlabs/pro-components';
+import { Button, ConfigProvider, Divider, Dropdown, Input, Popover, theme } from 'antd';
 import React, { useState } from 'react';
 import defaultProps from './_defaultProps';
 
@@ -57,9 +43,7 @@ const Item: React.FC<{ children: React.ReactNode }> = (props) => {
   );
 };
 
-const List: React.FC<{ title: string; style?: React.CSSProperties }> = (
-  props,
-) => {
+const List: React.FC<{ title: string; style?: React.CSSProperties }> = (props) => {
   const { token } = theme.useToken();
 
   return (
@@ -110,23 +94,15 @@ const MenuCard = () => {
         type="vertical"
       />
       <Popover
-        placement="bottom"
-        overlayStyle={{
-          width: 'calc(100vw - 24px)',
-          padding: '24px',
-          paddingTop: 8,
-          height: '307px',
-          borderRadius: '0 0 6px 6px',
-        }}
         content={
           <div style={{ display: 'flex', padding: '32px 40px' }}>
             <div style={{ flex: 1 }}>
               <List title="金融解决方案" />
               <List
-                title="其他解决方案"
                 style={{
                   marginBlockStart: 32,
                 }}
+                title="其他解决方案"
               />
             </div>
 
@@ -192,8 +168,21 @@ const MenuCard = () => {
             </div>
           </div>
         }
+        overlayStyle={{
+          width: 'calc(100vw - 24px)',
+          padding: '24px',
+          paddingTop: 8,
+          height: '307px',
+          borderRadius: '0 0 6px 6px',
+        }}
+        placement="bottom"
       >
         <div
+          className={css`
+            &:hover {
+              background-color: ${token.colorBgTextHover};
+            }
+          `}
           style={{
             color: token.colorTextHeading,
             fontWeight: 500,
@@ -204,11 +193,6 @@ const MenuCard = () => {
             paddingInlineEnd: 12,
             alignItems: 'center',
           }}
-          className={css`
-            &:hover {
-              background-color: ${token.colorBgTextHover};
-            }
-          `}
         >
           <span> 企业级资产中心</span>
           <CaretDownFilled />
@@ -235,11 +219,7 @@ const SearchInput = () => {
       }}
     >
       <Input
-        style={{
-          borderRadius: 4,
-          marginInlineEnd: 12,
-          backgroundColor: token.colorBgTextHover,
-        }}
+        placeholder="搜索方案"
         prefix={
           <SearchOutlined
             style={{
@@ -247,7 +227,11 @@ const SearchInput = () => {
             }}
           />
         }
-        placeholder="搜索方案"
+        style={{
+          borderRadius: 4,
+          marginInlineEnd: 12,
+          backgroundColor: token.colorBgTextHover,
+        }}
         variant="borderless"
       />
       <PlusCircleFilled
@@ -287,7 +271,6 @@ export default () => {
           }}
         >
           <ProLayout
-            prefixCls="my-prefix"
             bgLayoutImgList={[
               {
                 src: 'https://img.alicdn.com/imgextra/i2/O1CN01O4etvp1DvpFLKfuWq_!!6000000000279-2-tps-609-606.png',
@@ -308,18 +291,17 @@ export default () => {
                 width: '331px',
               },
             ]}
+            prefixCls="my-prefix"
             {...defaultProps}
-            location={{
-              pathname,
-            }}
-            token={{
-              header: {
-                colorBgMenuItemSelected: 'rgba(0,0,0,0.04)',
-              },
-            }}
-            siderMenuType="group"
-            menu={{
-              collapsedShowGroupTitle: true,
+            actionsRender={(props) => {
+              if (props.isMobile) return [];
+              if (typeof window === 'undefined') return [];
+              return [
+                props.layout !== 'side' && document.body.clientWidth > 1400 ? <SearchInput /> : undefined,
+                <InfoCircleFilled key="InfoCircleFilled" />,
+                <QuestionCircleFilled key="QuestionCircleFilled" />,
+                <GithubFilled key="GithubFilled" />,
+              ];
             }}
             avatarProps={{
               src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
@@ -343,18 +325,6 @@ export default () => {
                 );
               },
             }}
-            actionsRender={(props) => {
-              if (props.isMobile) return [];
-              if (typeof window === 'undefined') return [];
-              return [
-                props.layout !== 'side' && document.body.clientWidth > 1400 ? (
-                  <SearchInput />
-                ) : undefined,
-                <InfoCircleFilled key="InfoCircleFilled" />,
-                <QuestionCircleFilled key="QuestionCircleFilled" />,
-                <GithubFilled key="GithubFilled" />,
-              ];
-            }}
             headerTitleRender={(logo, title, _) => {
               const defaultDom = (
                 <a>
@@ -374,6 +344,12 @@ export default () => {
                 </>
               );
             }}
+            location={{
+              pathname,
+            }}
+            menu={{
+              collapsedShowGroupTitle: true,
+            }}
             menuFooterRender={(props) => {
               if (props?.collapsed) return undefined;
               return (
@@ -388,7 +364,6 @@ export default () => {
                 </div>
               );
             }}
-            onMenuHeaderClick={(e) => console.log(e)}
             menuItemRender={(item, dom) => (
               <div
                 onClick={() => {
@@ -398,12 +373,16 @@ export default () => {
                 {dom}
               </div>
             )}
+            siderMenuType="group"
+            token={{
+              header: {
+                colorBgMenuItemSelected: 'rgba(0,0,0,0.04)',
+              },
+            }}
+            onMenuHeaderClick={(e) => console.log(e)}
             {...settings}
           >
             <PageContainer
-              token={{
-                paddingInlinePageContainerContent: num,
-              }}
               extra={[
                 <Button key="3">操作</Button>,
                 <Button key="2">操作</Button>,
@@ -417,13 +396,16 @@ export default () => {
                   主操作
                 </Button>,
               ]}
-              subTitle="简单的描述"
               footer={[
                 <Button key="3">重置</Button>,
                 <Button key="2" type="primary">
                   提交
                 </Button>,
               ]}
+              subTitle="简单的描述"
+              token={{
+                paddingInlinePageContainerContent: num,
+              }}
             >
               <ProCard
                 style={{
@@ -436,17 +418,17 @@ export default () => {
             </PageContainer>
 
             <SettingDrawer
-              pathname={pathname}
               enableDarkTheme
+              disableUrlParams={false}
               getContainer={(e: any) => {
                 if (typeof window === 'undefined') return e;
                 return document.getElementById('test-pro-layout');
               }}
+              pathname={pathname}
               settings={settings}
               onSettingChange={(changeSetting) => {
                 setSetting(changeSetting);
               }}
-              disableUrlParams={false}
             />
           </ProLayout>
         </ConfigProvider>

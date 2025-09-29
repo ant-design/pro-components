@@ -1,13 +1,12 @@
+import type { FormControlFC, WithControlPropsType } from '@xxlabs/pro-components';
 import {
-  FormControlFC,
   FormItemRender,
   ProForm,
   ProFormItemRender,
-  WithControlPropsType,
   pickControlProps,
   pickControlPropsWithId,
   useControlModel,
-} from '@ant-design/pro-components';
+} from '@xxlabs/pro-components';
 import { Checkbox, Input, Select } from 'antd';
 
 const SingletonA = (
@@ -64,10 +63,7 @@ const CustomInput = (
       <div>title: {props.title}</div>
       <Checkbox {...model.a} />
       <div>description: {props.description}</div>
-      <Input
-        {...model.b}
-        placeholder="可以通过第二个参数达到使用多个实例的情况"
-      />
+      <Input {...model.b} placeholder="可以通过第二个参数达到使用多个实例的情况" />
     </div>
   );
 };
@@ -91,28 +87,25 @@ export default () => {
     <div>
       <ProForm
         form={form}
-        onValuesChange={console.log}
         onFinish={async (values) => {
           console.log(values);
           return;
         }}
+        onValuesChange={console.log}
       >
-        <ProForm.Item name={'SingletonA'}>
+        <ProForm.Item name="SingletonA">
           <SingletonA title="单实例A" />
         </ProForm.Item>
-        <ProForm.Item name={'SingletonB'}>
+        <ProForm.Item name="SingletonB">
           <SingletonB title="单实例B" />
         </ProForm.Item>
-        <ProForm.Item name={'customInput'} label="多实例">
-          <CustomInput
-            title="customInput-title"
-            description="customInput-desc"
-          />
+        <ProForm.Item label="多实例" name="customInput">
+          <CustomInput description="customInput-desc" title="customInput-title" />
         </ProForm.Item>
-        <ProForm.Item name={'FormControlFC'} label="使用FormControlFC类型定义">
+        <ProForm.Item label="使用FormControlFC类型定义" name="FormControlFC">
           <CustomInput2 title="FormControlFC title" />
         </ProForm.Item>
-        <ProFormItemRender name={'inputA'}>
+        <ProFormItemRender name="inputA">
           {(itemProps) => {
             return (
               <div id={itemProps.id}>
@@ -122,7 +115,7 @@ export default () => {
             );
           }}
         </ProFormItemRender>
-        <ProFormItemRender name={'inputB'}>
+        <ProFormItemRender name="inputB">
           {(itemProps) => {
             return (
               <div>
@@ -132,24 +125,17 @@ export default () => {
             );
           }}
         </ProFormItemRender>
-        <ProFormItemRender name={'selectA'}>
+        <ProFormItemRender name="selectA">
           {(itemProps) => {
             return (
               <div>
                 <h3>自定义标题：</h3>
-                <Select
-                  {...pickControlProps(itemProps)}
-                  options={[{ label: 'A', value: 'a' }]}
-                />
+                <Select {...pickControlProps(itemProps)} options={[{ label: 'A', value: 'a' }]} />
               </div>
             );
           }}
         </ProFormItemRender>
-        <FormItemRender
-          label="FormItemRender"
-          name={'selectB'}
-          initialValue={'xxx'}
-        >
+        <FormItemRender initialValue="xxx" label="FormItemRender" name="selectB">
           {(itemProps) => {
             return (
               <div>

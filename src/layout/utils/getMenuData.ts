@@ -2,14 +2,10 @@ import { transformRoute } from '@umijs/route-utils';
 import type { MenuDataItem, MessageDescriptor, Route } from '../typing';
 
 function fromEntries(iterable: any) {
-  return [...iterable].reduce(
-    (obj: Record<string, MenuDataItem>, [key, val]) => {
-      // eslint-disable-next-line no-param-reassign
-      obj[key] = val;
-      return obj;
-    },
-    {},
-  );
+  return [...iterable].reduce((obj: Record<string, MenuDataItem>, [key, val]) => {
+    obj[key] = val;
+    return obj;
+  }, {});
 }
 
 const getMenuData = (
@@ -22,12 +18,7 @@ const getMenuData = (
   breadcrumbMap: Map<string, MenuDataItem>;
   menuData: MenuDataItem[];
 } => {
-  const { menuData, breadcrumb } = transformRoute(
-    routes as Route[],
-    menu?.locale || false,
-    formatMessage,
-    true,
-  );
+  const { menuData, breadcrumb } = transformRoute(routes as Route[], menu?.locale || false, formatMessage, true);
 
   if (!menuDataRender) {
     return {

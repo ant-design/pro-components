@@ -1,5 +1,5 @@
-import type { AppItemProps, ProSettings } from '@ant-design/pro-components';
-import { ProConfigProvider, ProLayout } from '@ant-design/pro-components';
+import type { AppItemProps, ProSettings } from '@xxlabs/pro-components';
+import { ProConfigProvider, ProLayout } from '@xxlabs/pro-components';
 import { Modal } from 'antd';
 import defaultProps from './_defaultProps';
 
@@ -88,21 +88,14 @@ export default () => {
     layout: 'mix',
     splitMenus: true,
   };
-  const itemClick = (
-    item: AppItemProps,
-    popoverRef?: React.RefObject<HTMLSpanElement>,
-  ) => {
+  const itemClick = (item: AppItemProps, popoverRef?: React.RefObject<HTMLSpanElement>) => {
     // 点击后关闭 Popover
     popoverRef?.current?.click?.();
 
     Modal?.confirm({
       width: 600,
       title: '点击项 详细数据',
-      content: (
-        <pre style={{ overflow: 'auto' }}>
-          {JSON.stringify(typeof item === 'object' ? item : {}, null, 2)}
-        </pre>
-      ),
+      content: <pre style={{ overflow: 'auto' }}>{JSON.stringify(typeof item === 'object' ? item : {}, null, 2)}</pre>,
       okText: '前往',
       onOk: () => window.open(item?.url),
     });
@@ -114,15 +107,15 @@ export default () => {
         <ProLayout
           {...defaultProps}
           appList={AppGroupList}
-          itemClick={itemClick}
-          location={{ pathname: '/list/sub-page/sub-sub-page1' }}
-          siderMenuType="group"
-          menu={{ collapsedShowGroupTitle: true }}
           avatarProps={{
             src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
             size: 'small',
             title: '七妮妮',
           }}
+          itemClick={itemClick}
+          location={{ pathname: '/list/sub-page/sub-sub-page1' }}
+          menu={{ collapsedShowGroupTitle: true }}
+          siderMenuType="group"
           {...settings}
         />
       </ProConfigProvider>

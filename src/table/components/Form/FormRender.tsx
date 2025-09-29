@@ -3,11 +3,7 @@ import type { FormItemProps } from 'antd';
 import { ConfigProvider, Table } from 'antd';
 import classNames from 'classnames';
 import React, { useContext, useMemo } from 'react';
-import type {
-  BaseQueryFilterProps,
-  ProFormInstance,
-  ProFormProps,
-} from '../../../form';
+import type { BaseQueryFilterProps, ProFormInstance, ProFormProps } from '../../../form';
 import { BetaSchemaForm } from '../../../form';
 import { ProProvider } from '../../../provider';
 import type { ProSchemaComponentTypes } from '../../../utils';
@@ -103,11 +99,11 @@ export type TableFormItem<T, U = any> = {
   dateFormatter?: ProTableProps<T, U, any>['dateFormatter'];
   search?: false | SearchConfig;
   columns: ProColumns<U, any>[];
-  formRef: React.MutableRefObject<ProFormInstance | undefined>;
+  formRef: React.RefObject<ProFormInstance | undefined>;
   submitButtonLoading?: boolean;
   manualRequest?: boolean;
   bordered?: boolean;
-  action: React.MutableRefObject<ActionType | undefined>;
+  action: React.RefObject<ActionType | undefined>;
   ghost?: boolean;
 } & Omit<FormItemProps, 'children' | 'onReset'>;
 
@@ -159,9 +155,7 @@ const FormRender = <T, U = any>({
       })
       .map((item) => {
         const finalValueType =
-          !item.valueType ||
-          (['textarea', 'jsonCode', 'code'].includes(item?.valueType) &&
-            type === 'table')
+          !item.valueType || (['textarea', 'jsonCode', 'code'].includes(item?.valueType) && type === 'table')
             ? 'text'
             : (item?.valueType as 'text');
         const columnKey = item?.key || item?.dataIndex?.toString();
@@ -169,9 +163,7 @@ const FormRender = <T, U = any>({
         return {
           ...item,
           width: undefined,
-          ...(item.search && typeof item.search === 'object'
-            ? item.search
-            : {}),
+          ...(item.search && typeof item.search === 'object' ? item.search : {}),
           valueType: finalValueType,
           proFieldProps: {
             ...item.proFieldProps,
@@ -184,10 +176,7 @@ const FormRender = <T, U = any>({
   const className = getPrefixCls('pro-table-search');
   const formClassName = getPrefixCls('pro-table-form');
 
-  const competentName = useMemo(
-    () => getFormCompetent(isForm, searchConfig),
-    [searchConfig, isForm],
-  );
+  const competentName = useMemo(() => getFormCompetent(isForm, searchConfig), [searchConfig, isForm]);
 
   // 传给每个表单的配置，理论上大家都需要
   const loadingProps: any = useMemo(
@@ -212,20 +201,23 @@ const FormRender = <T, U = any>({
         [formClassName]: isForm,
         [getPrefixCls(`pro-table-search-${toLowerLine(competentName)}`)]: true,
         [`${className}-ghost`]: ghost,
-        [(searchConfig as { className: string })?.className]:
-          searchConfig !== false && searchConfig?.className,
+        [(searchConfig as { className: string })?.className]: searchConfig !== false && searchConfig?.className,
       })}
     >
       <BetaSchemaForm<U>
-        layoutType={competentName}
         columns={columnsList}
+        layoutType={competentName}
         type={type}
         {...loadingProps}
         {...getFromProps(isForm, searchConfig, competentName)}
         {...getFormConfigs(isForm, formConfig || {})}
-        formRef={formRef}
         action={action}
         dateFormatter={dateFormatter}
+        formRef={formRef}
+        initialValues={formConfig?.initialValues}
+        onFinish={(values: T) => {
+          submit(values, false);
+        }}
         onInit={(values: T, form) => {
           formRef.current = form;
           // 触发一个 submit，之所以这里触发是为了保证 value 都被 format了
@@ -233,10 +225,7 @@ const FormRender = <T, U = any>({
             // 修改 pageSize，变成从 url 中获取的
             const pageInfo = action.current?.pageInfo;
             // 从 values 里获取是因为有时候要从 url中获取的 pageSize。
-            const {
-              current = pageInfo?.current,
-              pageSize = pageInfo?.pageSize,
-            } = values as any;
+            const { current = pageInfo?.current, pageSize = pageInfo?.pageSize } = values as any;
             action.current?.setPageInfo?.({
               ...pageInfo,
               current: parseInt(current, 10),
@@ -250,10 +239,6 @@ const FormRender = <T, U = any>({
         onReset={(values: T) => {
           onReset?.(values);
         }}
-        onFinish={(values: T) => {
-          submit(values, false);
-        }}
-        initialValues={formConfig?.initialValues}
       />
     </div>
   );

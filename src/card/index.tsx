@@ -1,7 +1,4 @@
-import type {
-  CheckCardGroupProps,
-  CheckCardProps,
-} from './components/CheckCard';
+import type { CheckCardGroupProps, CheckCardProps } from './components/CheckCard';
 import CheckCard from './components/CheckCard';
 import type { StatisticProps } from './components/Statistic';
 import Statistic from './components/Statistic';
@@ -12,13 +9,6 @@ import ProCard from './ProCard';
 import type { ProCardTabsProps } from './typing';
 
 export { CheckCard, ProCard, Statistic, StatisticCard };
-export type {
-  CheckCardGroupProps,
-  CheckCardProps,
-  ProCardProps,
-  ProCardTabsProps,
-  StatisticCardProps,
-  StatisticProps,
-};
+export type { CheckCardGroupProps, CheckCardProps, ProCardProps, ProCardTabsProps, StatisticCardProps, StatisticProps };
 
 export default ProCard;

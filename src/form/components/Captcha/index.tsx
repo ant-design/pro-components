@@ -1,6 +1,6 @@
 ﻿import type { ButtonProps, InputProps } from 'antd';
 import { Button, Form, Input } from 'antd';
-import type { NamePath } from 'antd/lib/form/interface';
+import type { NamePath } from 'antd/es/form/interface';
 import React, { useEffect, useImperativeHandle, useState } from 'react';
 import type { ProFormFieldItemProps } from '../../typing';
 import { warpField } from '../FormItem/warpField';
@@ -33,124 +33,116 @@ export type CaptFieldRef = {
   endTiming: () => never;
 };
 
-const BaseProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef(
-  (props, ref: any) => {
-    const form = Form.useFormInstance();
-    const [count, setCount] = useState<number>(props.countDown || 60);
-    const [timing, setTiming] = useState(false);
-    const [loading, setLoading] = useState<boolean>();
-    // 这么写是为了防止restProps中 带入 onChange, defaultValue, rules props tabUtil
-    const {
-      rules,
-      name,
-      phoneName,
-      fieldProps,
-      onTiming,
-      captchaTextRender = (paramsTiming, paramsCount) => {
-        return paramsTiming ? `${paramsCount} 秒后重新获取` : '获取验证码';
-      },
-      captchaProps,
-      ...restProps
-    } = props;
+const BaseProFormCaptcha: React.FC<ProFormCaptchaProps> = ({ ref, ...props }) => {
+  const form = Form.useFormInstance();
+  const [count, setCount] = useState<number>(props.countDown || 60);
+  const [timing, setTiming] = useState(false);
+  const [loading, setLoading] = useState<boolean>();
+  // 这么写是为了防止restProps中 带入 onChange, defaultValue, rules props tabUtil
+  const {
+    rules,
+    name,
+    phoneName,
+    fieldProps,
+    onTiming,
+    captchaTextRender = (paramsTiming, paramsCount) => {
+      return paramsTiming ? `${paramsCount} 秒后重新获取` : '获取验证码';
+    },
+    captchaProps,
+    ...restProps
+  } = props;
 
-    const onGetCaptcha = async (mobile: string) => {
-      try {
-        setLoading(true);
-        await restProps.onGetCaptcha(mobile);
-        setLoading(false);
-        setTiming(true);
-      } catch (error) {
-        setTiming(false);
-        setLoading(false);
-        // eslint-disable-next-line no-console
-        console.log(error);
-      }
-    };
-    /**
-     * 暴露ref方法
-     */
-    useImperativeHandle(ref, () => ({
-      startTiming: () => setTiming(true),
-      endTiming: () => setTiming(false),
-    }));
+  const onGetCaptcha = async (mobile: string) => {
+    try {
+      setLoading(true);
+      await restProps.onGetCaptcha(mobile);
+      setLoading(false);
+      setTiming(true);
+    } catch (error) {
+      setTiming(false);
+      setLoading(false);
 
-    useEffect(() => {
-      let interval: any = 0;
-      const { countDown } = props;
-      if (timing) {
-        interval = setInterval(() => {
-          setCount((preSecond) => {
-            if (preSecond <= 1) {
-              setTiming(false);
-              clearInterval(interval);
-              // 重置秒数
-              return countDown || 60;
-            }
-            return preSecond - 1;
-          });
-        }, 1000);
-      }
-      return () => clearInterval(interval);
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [timing]);
+      console.log(error);
+    }
+  };
+  /**
+   * 暴露ref方法
+   */
+  useImperativeHandle(ref, () => ({
+    startTiming: () => setTiming(true),
+    endTiming: () => setTiming(false),
+  }));
 
-    useEffect(() => {
-      if (onTiming) {
-        onTiming(count);
-      }
-    }, [count, onTiming]);
+  useEffect(() => {
+    let interval: any = 0;
+    const { countDown } = props;
+    if (timing) {
+      interval = setInterval(() => {
+        setCount((preSecond) => {
+          if (preSecond <= 1) {
+            setTiming(false);
+            clearInterval(interval);
+            // 重置秒数
+            return countDown || 60;
+          }
+          return preSecond - 1;
+        });
+      }, 1000);
+    }
+    return () => clearInterval(interval);
+  }, [timing]);
 
-    return (
-      <div
+  useEffect(() => {
+    if (onTiming) {
+      onTiming(count);
+    }
+  }, [count, onTiming]);
+
+  return (
+    <div
+      ref={ref}
+      style={{
+        ...fieldProps?.style,
+        display: 'flex',
+        alignItems: 'center',
+      }}
+    >
+      <Input
+        {...fieldProps}
         style={{
+          flex: 1,
+          transition: 'width .3s',
+          marginRight: 8,
           ...fieldProps?.style,
-          display: 'flex',
-          alignItems: 'center',
         }}
-        ref={ref}
-      >
-        <Input
-          {...fieldProps}
-          style={{
-            flex: 1,
-            transition: 'width .3s',
-            marginRight: 8,
-            ...fieldProps?.style,
-          }}
-        />
-        <Button
-          style={{
-            display: 'block',
-          }}
-          disabled={timing}
-          loading={loading}
-          {...captchaProps}
-          onClick={async () => {
-            try {
-              if (phoneName) {
-                await form.validateFields([phoneName].flat(1) as string[]);
-                const mobile = form.getFieldValue(
-                  [phoneName].flat(1) as string[],
-                );
-                await onGetCaptcha(mobile);
-              } else {
-                await onGetCaptcha('');
-              }
-            } catch (error) {
-              // eslint-disable-next-line no-console
-              console.log(error);
+      />
+      <Button
+        disabled={timing}
+        loading={loading}
+        style={{
+          display: 'block',
+        }}
+        {...captchaProps}
+        onClick={async () => {
+          try {
+            if (phoneName) {
+              await form.validateFields([phoneName].flat(1) as string[]);
+              const mobile = form.getFieldValue([phoneName].flat(1) as string[]);
+              await onGetCaptcha(mobile);
+            } else {
+              await onGetCaptcha('');
             }
-          }}
-        >
-          {captchaTextRender(timing, count)}
-        </Button>
-      </div>
-    );
-  },
-);
+          } catch (error) {
+            console.log(error);
+          }
+        }}
+      >
+        {captchaTextRender(timing, count)}
+      </Button>
+    </div>
+  );
+};
 
-const ProFormCaptcha = warpField(
-  BaseProFormCaptcha,
-) as typeof BaseProFormCaptcha;
+const ProFormCaptcha = warpField(BaseProFormCaptcha);
 
 export default ProFormCaptcha;

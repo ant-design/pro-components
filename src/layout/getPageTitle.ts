@@ -130,9 +130,6 @@ export const getPageTitleInfo = (
   };
 };
 
-export const getPageTitle = (
-  props: GetPageTitleProps,
-  ignoreTitle?: boolean,
-) => {
+export const getPageTitle = (props: GetPageTitleProps, ignoreTitle?: boolean) => {
   return getPageTitleInfo(props, ignoreTitle).title;
 };

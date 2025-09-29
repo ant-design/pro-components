@@ -3,10 +3,7 @@ import React from 'react';
 import { isNil } from '../isNil';
 import type { SearchTransformKeyFn } from '../typing';
 
-export type DataFormatMapType = Record<
-  string,
-  SearchTransformKeyFn | undefined
->;
+export type DataFormatMapType = Record<string, SearchTransformKeyFn | undefined>;
 
 /**
  * 判断一个值是否为普通对象（可以被遍历的对象）
@@ -60,10 +57,7 @@ function parseDotPath(dotPath: string): (string | number)[] {
  * @returns 过滤后的转换配置
  */
 function filterNilTransforms(
-  dataFormatMapRaw: Record<
-    string,
-    SearchTransformKeyFn | undefined | DataFormatMapType
-  >,
+  dataFormatMapRaw: Record<string, SearchTransformKeyFn | undefined | DataFormatMapType>,
 ): Record<string, SearchTransformKeyFn> {
   const filtered: Record<string, SearchTransformKeyFn> = {};
 
@@ -84,10 +78,7 @@ function filterNilTransforms(
  * @returns 包含两种格式转换配置的对象
  */
 function separateTransformFormats(
-  dataFormatMapRaw: Record<
-    string,
-    SearchTransformKeyFn | undefined | DataFormatMapType
-  >,
+  dataFormatMapRaw: Record<string, SearchTransformKeyFn | undefined | DataFormatMapType>,
 ): {
   dotPathTransforms: Record<string, SearchTransformKeyFn>;
   objectTransforms: Record<string, any>;
@@ -116,10 +107,7 @@ function separateTransformFormats(
  * @param result - 要转换的数据对象
  * @param dotPathTransforms - 点号路径转换配置
  */
-function processDotPathTransforms(
-  result: any,
-  dotPathTransforms: Record<string, SearchTransformKeyFn>,
-): void {
+function processDotPathTransforms(result: any, dotPathTransforms: Record<string, SearchTransformKeyFn>): void {
   for (const dotPath in dotPathTransforms) {
     const transform = dotPathTransforms[dotPath];
     if (typeof transform !== 'function') continue;
@@ -134,15 +122,10 @@ function processDotPathTransforms(
     // 执行转换
     const transformed = transform(currentValue, pathArray.map(String), result);
 
-    if (
-      typeof transformed === 'object' &&
-      transformed !== null &&
-      !Array.isArray(transformed)
-    ) {
+    if (typeof transformed === 'object' && transformed !== null && !Array.isArray(transformed)) {
       // 如果返回对象，删除原键并将对象的键值对合并到父级
       const parentPath = pathArray.slice(0, -1);
-      const parentObj =
-        parentPath.length > 0 ? get(result, parentPath) : result;
+      const parentObj = parentPath.length > 0 ? get(result, parentPath) : result;
 
       if (parentObj && typeof parentObj === 'object') {
         const keyToDelete = pathArray[pathArray.length - 1];
@@ -184,10 +167,7 @@ function findNestedTransformFunction(
 
   for (const parentKey of parentsKey) {
     const parentKeyStr = String(parentKey);
-    if (
-      nestedTransforms &&
-      typeof nestedTransforms[parentKeyStr] === 'object'
-    ) {
+    if (nestedTransforms && typeof nestedTransforms[parentKeyStr] === 'object') {
       nestedTransforms = nestedTransforms[parentKeyStr];
     } else {
       nestedTransforms = null;
@@ -228,16 +208,14 @@ function processNestedObjectTransforms(
   rootMergeObjects: any[],
 ): any {
   const isArrayValues = Array.isArray(tempValues);
-  let tempResult: any = isArrayValues ? [] : {};
+  const tempResult: any = isArrayValues ? [] : {};
 
   if (tempValues == null || tempValues === undefined) {
     return tempResult;
   }
 
   // 确定要处理的键
-  const keysToProcess = isArrayValues
-    ? tempValues.map((_, index) => index.toString())
-    : Object.keys(tempValues);
+  const keysToProcess = isArrayValues ? tempValues.map((_, index) => index.toString()) : Object.keys(tempValues);
 
   for (const entityKey of keysToProcess) {
     const key = parentsKey ? [...parentsKey, entityKey] : [entityKey];
@@ -248,22 +226,14 @@ function processNestedObjectTransforms(
 
     // 如果没找到并且是嵌套路径，尝试在嵌套对象中查找
     if (!transformFunction && parentsKey) {
-      transformFunction = findNestedTransformFunction(
-        currentTransforms,
-        parentsKey,
-        entityKey,
-      );
+      transformFunction = findNestedTransformFunction(currentTransforms, parentsKey, entityKey);
     }
 
     if (transformFunction && typeof transformFunction === 'function') {
       // 执行转换
       const transformed = transformFunction(itemValue, entityKey, tempValues);
 
-      if (
-        typeof transformed === 'object' &&
-        transformed !== null &&
-        !Array.isArray(transformed)
-      ) {
+      if (typeof transformed === 'object' && transformed !== null && !Array.isArray(transformed)) {
         // 检查当前项是否在数组中
         const isInArray = parentsKey ? isInArrayPath(parentsKey) : false;
 
@@ -283,12 +253,7 @@ function processNestedObjectTransforms(
       const nestedTransforms = currentTransforms[entityKey];
       if (nestedTransforms && typeof nestedTransforms === 'object') {
         // 如果当前键有嵌套转换配置，传递嵌套配置
-        const nested = processNestedObjectTransforms(
-          itemValue,
-          key,
-          nestedTransforms,
-          rootMergeObjects,
-        );
+        const nested = processNestedObjectTransforms(itemValue, key, nestedTransforms, rootMergeObjects);
         // 检查是否有任何子属性被转换为对象（会被添加到 rootMergeObjects）
         // 如果 nested 为空或只包含被转换的属性，我们不保留这个对象
         const hasRemainingContent = Object.keys(nested).length > 0;
@@ -297,12 +262,7 @@ function processNestedObjectTransforms(
         }
       } else {
         // 否则继续使用当前转换配置递归
-        const nested = processNestedObjectTransforms(
-          itemValue,
-          key,
-          currentTransforms,
-          rootMergeObjects,
-        );
+        const nested = processNestedObjectTransforms(itemValue, key, currentTransforms, rootMergeObjects);
         tempResult[entityKey] = nested;
       }
     } else if (!isNil(itemValue)) {
@@ -326,10 +286,7 @@ function processNestedObjectTransforms(
  */
 export const transformKeySubmitValue = <T extends object = any>(
   values: T,
-  dataFormatMapRaw: Record<
-    string,
-    SearchTransformKeyFn | undefined | DataFormatMapType
-  >,
+  dataFormatMapRaw: Record<string, SearchTransformKeyFn | undefined | DataFormatMapType>,
 ): T => {
   // 过滤掉空值的转换配置
   const dataFormatMap = filterNilTransforms(dataFormatMapRaw);
@@ -355,8 +312,7 @@ export const transformKeySubmitValue = <T extends object = any>(
   let result = JSON.parse(JSON.stringify(values));
 
   // 分别处理不同格式的转换配置
-  const { dotPathTransforms, objectTransforms } =
-    separateTransformFormats(dataFormatMapRaw);
+  const { dotPathTransforms, objectTransforms } = separateTransformFormats(dataFormatMapRaw);
 
   // 处理点号路径格式的转换（如 'users.0.name'）
   processDotPathTransforms(result, dotPathTransforms);
@@ -366,12 +322,7 @@ export const transformKeySubmitValue = <T extends object = any>(
 
   // 处理传统的嵌套对象格式转换（向后兼容）
   if (Object.keys(objectTransforms).length > 0) {
-    result = processNestedObjectTransforms(
-      result,
-      undefined,
-      objectTransforms,
-      rootMergeObjects,
-    );
+    result = processNestedObjectTransforms(result, undefined, objectTransforms, rootMergeObjects);
   }
 
   // 将所有根级别合并对象合并到最终结果

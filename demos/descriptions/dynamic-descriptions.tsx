@@ -9,7 +9,7 @@
   ProFormSwitch,
   ProFormText,
   ProFormTextArea,
-} from '@ant-design/pro-components';
+} from '@xxlabs/pro-components';
 import { useState } from 'react';
 
 const valueTypeArray = [
@@ -100,13 +100,13 @@ const initialValues = {
       title: '操作',
       valueType: 'option',
       render: () => [
-        <a target="_blank" rel="noopener noreferrer" key="link">
+        <a key="link" rel="noopener noreferrer" target="_blank">
           链路
         </a>,
-        <a target="_blank" rel="noopener noreferrer" key="warning">
+        <a key="warning" rel="noopener noreferrer" target="_blank">
           报警
         </a>,
-        <a target="_blank" rel="noopener noreferrer" key="view">
+        <a key="view" rel="noopener noreferrer" target="_blank">
           查看
         </a>,
       ],
@@ -119,12 +119,12 @@ export default () => {
   return (
     <>
       <ProCard
-        variant="outlined"
-        split="vertical"
         headerBordered
+        split="vertical"
         style={{
           minHeight: 500,
         }}
+        variant="outlined"
       >
         <ProCard colSpan="calc(100% - 580px)">
           <ProDescriptions
@@ -148,14 +148,16 @@ export default () => {
         </ProCard>
         <ProForm
           initialValues={values}
+          submitter={false}
           onValuesChange={(_, allValue) => {
             setValues({ ...initialValues, ...allValue });
           }}
-          submitter={false}
         >
           <ProCard
             colSpan="580px"
-            title="配置菜单"
+            style={{
+              width: 500,
+            }}
             tabs={{
               items: [
                 {
@@ -166,9 +168,9 @@ export default () => {
                       <ProFormText label="标题" name="title" />
                       <ProForm.Group>
                         <ProFormSelect
-                          name="layout"
-                          label="布局"
                           initialValue="horizontal"
+                          label="布局"
+                          name="layout"
                           options={[
                             {
                               label: '水平',
@@ -180,15 +182,11 @@ export default () => {
                             },
                           ]}
                         />
-                        <ProFormSwitch
-                          label="加载中"
-                          tooltip="loading"
-                          name="loading"
-                        />
+                        <ProFormSwitch label="加载中" name="loading" tooltip="loading" />
                         <ProFormSelect
-                          name="size"
-                          label="尺寸"
                           initialValue="default"
+                          label="尺寸"
+                          name="size"
                           options={[
                             {
                               label: '大',
@@ -205,12 +203,8 @@ export default () => {
                           ]}
                         />
 
-                        <ProFormSwitch
-                          label="边框"
-                          tooltip="bordered"
-                          name="bordered"
-                        />
-                        <ProFormDigit width="xs" label="列数" name="column" />
+                        <ProFormSwitch label="边框" name="bordered" tooltip="bordered" />
+                        <ProFormDigit label="列数" name="column" width="xs" />
                       </ProForm.Group>
                     </>
                   ),
@@ -220,19 +214,17 @@ export default () => {
                   key: 'columns',
                   children: (
                     <ProFormList
-                      name="columns"
-                      label="列配置"
                       creatorButtonProps={{
                         position: 'top',
                       }}
                       itemRender={({ listDom, action }) => {
                         return (
                           <ProCard
-                            variant="outlined"
                             style={{
                               marginBlockEnd: 8,
                               position: 'relative',
                             }}
+                            variant="outlined"
                           >
                             <div
                               style={{
@@ -247,27 +239,23 @@ export default () => {
                           </ProCard>
                         );
                       }}
+                      label="列配置"
+                      name="columns"
                     >
-                      <ProForm.Group size={16} key="Group">
+                      <ProForm.Group key="Group" size={16}>
                         <ProFormText label="标题" name="title" />
-                        <ProFormDigit
-                          width="xs"
-                          initialValue={1}
-                          label="占据列数"
-                          name="span"
-                        />
+                        <ProFormDigit initialValue={1} label="占据列数" name="span" width="xs" />
                         <ProFormSelect
-                          width="xs"
                           label="值类型"
                           name="valueType"
                           options={valueTypeArray.map((value) => ({
                             label: value,
                             value,
                           }))}
+                          width="xs"
                         />
                         <ProFormSelect
                           label="dataIndex"
-                          width="xs"
                           name="dataIndex"
                           valueEnum={{
                             age: 'age',
@@ -276,31 +264,29 @@ export default () => {
                             time: 'time',
                             description: 'string',
                           }}
+                          width="xs"
                         />
                       </ProForm.Group>
-                      <ProFormDependency
-                        key="valueType"
-                        name={['valueType', 'valueEnum']}
-                      >
+                      <ProFormDependency key="valueType" name={['valueType', 'valueEnum']}>
                         {({ valueType, valueEnum }) => {
                           if (valueType !== 'select') {
                             return null;
                           }
                           return (
                             <ProFormTextArea
+                              fieldProps={{
+                                value: JSON.stringify(valueEnum),
+                              }}
                               formItemProps={{
                                 style: {
                                   marginBlockStart: 8,
                                 },
                               }}
-                              fieldProps={{
-                                value: JSON.stringify(valueEnum),
-                              }}
+                              label="数据枚举"
+                              name="valueEnum"
                               normalize={(value) => {
                                 return JSON.parse(value);
                               }}
-                              label="数据枚举"
-                              name="valueEnum"
                             />
                           );
                         }}
@@ -310,9 +296,7 @@ export default () => {
                 },
               ],
             }}
-            style={{
-              width: 500,
-            }}
+            title="配置菜单"
           />
         </ProForm>
       </ProCard>

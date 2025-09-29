@@ -1,17 +1,15 @@
 import { useCallback, useEffect, useRef } from 'react';
 import { useRefFunction } from '../useRefFunction';
+
 /**
  * 一个去抖的 hook，传入一个 function，返回一个去抖后的 function
  * @param  {(...args:T) => Promise<any>} fn
  * @param  {number} wait?
  */
-export function useDebounceFn<T extends any[], U = any>(
-  fn: (...args: T) => Promise<any>,
-  wait?: number,
-) {
+export function useDebounceFn<T extends any[], U = any>(fn: (...args: T) => Promise<any>, wait?: number) {
   const callback = useRefFunction(fn);
 
-  const timer = useRef<any>();
+  const timer = useRef<any>(undefined);
 
   const cancel = useCallback(() => {
     if (timer.current) {

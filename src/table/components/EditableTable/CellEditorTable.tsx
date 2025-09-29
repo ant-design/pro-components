@@ -1,8 +1,9 @@
-﻿import { GetRowKey } from 'antd/lib/table/interface';
+﻿import type { GetRowKey } from 'antd/es/table/interface';
 import React from 'react';
-import { ParamsType } from '../../../provider';
-import { ProColumns } from '../../typing';
-import EditableProTable, { EditableProTableProps } from './index';
+import type { ParamsType } from '../../../provider';
+import type { ProColumns } from '../../typing';
+import type { EditableProTableProps } from './index';
+import EditableProTable from './index';
 
 export function CellEditorTable<
   DataType extends Record<string, any>,
@@ -35,19 +36,12 @@ export function CellEditorTable<
       bordered
       pagination={false}
       {...props}
-      editable={{
-        editableKeys,
-        ...props.editable,
-      }}
       columns={
         (props?.columns?.map((item) => {
           return {
             ...item,
             editable:
-              dataIndex.flat(1).join('.') ===
-              [item.dataIndex || item.key].flat(1).join('.')
-                ? undefined
-                : false,
+              dataIndex.flat(1).join('.') === [item.dataIndex || item.key].flat(1).join('.') ? undefined : false,
             onCell: (record: any, rowIndex: any) => {
               return {
                 onDoubleClick: () => {
@@ -62,6 +56,10 @@ export function CellEditorTable<
           };
         }) as ProColumns<any, ValueType>[]) || []
       }
+      editable={{
+        editableKeys,
+        ...props.editable,
+      }}
     />
   );
 }

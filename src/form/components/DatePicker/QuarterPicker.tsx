@@ -4,29 +4,32 @@ import type { ProFormFieldItemProps } from '../../typing';
 import { BaseDatePicker } from './BaseDatePicker';
 
 const valueType = 'dateQuarter' as const;
+
 /**
  * 周选择组件
  *
- * @param
  */
-const ProFormDatePickerQuarter: React.FC<
-  ProFormFieldItemProps<DatePickerProps>
-> = React.forwardRef(({ proFieldProps, fieldProps, ...rest }, ref: any) => {
+const ProFormDatePickerQuarter: React.FC<ProFormFieldItemProps<DatePickerProps>> = ({
+  proFieldProps,
+  fieldProps,
+  ref,
+  ...rest
+}) => {
   return (
     <BaseDatePicker
-      valueType={valueType}
       ref={ref as any}
-      fieldProps={{
-        ...fieldProps,
-      }}
-      proFieldProps={proFieldProps}
       fieldConfig={{
         valueType,
         customLightMode: true,
       }}
+      fieldProps={{
+        ...fieldProps,
+      }}
+      proFieldProps={proFieldProps}
+      valueType={valueType}
       {...rest}
     />
   );
-});
+};
 
 export default ProFormDatePickerQuarter;

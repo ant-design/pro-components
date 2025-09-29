@@ -1,6 +1,6 @@
 import { DownOutlined } from '@ant-design/icons';
-import type { ProColumns } from '@ant-design/pro-components';
-import { ProTable } from '@ant-design/pro-components';
+import type { ProColumns } from '@xxlabs/pro-components';
+import { ProTable } from '@xxlabs/pro-components';
 import { Button } from 'antd';
 
 const valueEnum = {
@@ -31,10 +31,7 @@ for (let i = 0; i < 5; i += 1) {
     creator: creators[Math.floor(Math.random() * creators.length)],
     status: valueEnum[((Math.floor(Math.random() * 10) % 4) + '') as '0'],
     createdAt: Date.now() - Math.floor(Math.random() * 100000),
-    memo:
-      i % 2 === 1
-        ? '很长很长很长很长很长很长很长的文字要展示但是要留下尾巴'
-        : '简短备注文案',
+    memo: i % 2 === 1 ? '很长很长很长很长很长很长很长的文字要展示但是要留下尾巴' : '简短备注文案',
   });
 }
 
@@ -80,6 +77,11 @@ export default () => {
   return (
     <ProTable<TableListItem>
       columns={columns}
+      dateFormatter="string"
+      headerTitle="表格标题"
+      pagination={{
+        showQuickJumper: true,
+      }}
       request={(params, sorter, filter) => {
         // 表单搜索项会从 params 传入，传递给后端接口。
         console.log(params, sorter, filter);
@@ -89,22 +91,17 @@ export default () => {
         });
       }}
       rowKey="key"
-      pagination={{
-        showQuickJumper: true,
-      }}
       search={{
         optionRender: false,
         collapsed: false,
       }}
-      dateFormatter="string"
-      headerTitle="表格标题"
       toolBarRender={() => [
         <Button key="show">查看日志</Button>,
         <Button key="out">
           导出数据
           <DownOutlined />
         </Button>,
-        <Button type="primary" key="primary">
+        <Button key="primary" type="primary">
           创建应用
         </Button>,
       ]}

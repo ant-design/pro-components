@@ -7,9 +7,7 @@ export interface AppsLogoComponentsToken extends ProAliasToken {
   componentCls: string;
 }
 
-const genAppsLogoComponentsStyle: GenerateStyle<AppsLogoComponentsToken> = (
-  token,
-) => {
+const genAppsLogoComponentsStyle: GenerateStyle<AppsLogoComponentsToken> = (token) => {
   return {
     [token.componentCls]: {
       '&-icon': {

@@ -5,7 +5,7 @@
   let i = 0;
   for (; i < il; i += 1) {
     for (key in rest[i]) {
-      if (rest[i].hasOwnProperty(key)) {
+      if (Object.prototype.hasOwnProperty.call(rest[i], key)) {
         if (
           typeof obj[key] === 'object' &&
           typeof rest[i][key] === 'object' &&

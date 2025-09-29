@@ -1,10 +1,5 @@
-import { ProTable } from '@ant-design/pro-components';
-import {
-  cleanup,
-  createEvent,
-  fireEvent,
-  render,
-} from '@testing-library/react';
+import { cleanup, createEvent, fireEvent, render } from '@testing-library/react';
+import { ProTable } from '@xxlabs/pro-components';
 import { act } from 'react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
@@ -31,7 +26,6 @@ describe('Table ColumnSetting', () => {
   it('🎏 columnSetting', async () => {
     const html = render(
       <ProTable
-        size="small"
         columns={columns}
         request={async () => {
           return {
@@ -46,32 +40,25 @@ describe('Table ColumnSetting', () => {
           };
         }}
         rowKey="key"
+        size="small"
       />,
     );
     await waitForWaitTime(100);
 
     act(() => {
       html.baseElement
-        .querySelector<HTMLDivElement>(
-          '.ant-pro-table-list-toolbar-setting-item .anticon-setting',
-        )
+        .querySelector<HTMLDivElement>('.ant-pro-table-list-toolbar-setting-item .anticon-setting')
         ?.click();
     });
     await waitForWaitTime(100);
 
-    const overlay = html.baseElement.querySelectorAll<HTMLDivElement>(
-      '.ant-pro-table-column-setting-overlay',
-    );
+    const overlay = html.baseElement.querySelectorAll<HTMLDivElement>('.ant-pro-table-column-setting-overlay');
     expect(!!overlay).toBeTruthy();
 
     act(() => {
-      const item = html.baseElement.querySelector<HTMLDivElement>(
-        'span.ant-pro-table-column-setting-list-item',
-      );
+      const item = html.baseElement.querySelector<HTMLDivElement>('span.ant-pro-table-column-setting-list-item');
       item
-        ?.querySelector<HTMLDivElement>(
-          '.ant-pro-table-column-setting-list-item-option .anticon-vertical-align-top',
-        )
+        ?.querySelector<HTMLDivElement>('.ant-pro-table-column-setting-list-item-option .anticon-vertical-align-top')
         ?.click();
     });
     await waitForWaitTime(100);
@@ -85,7 +72,7 @@ describe('Table ColumnSetting', () => {
   it('🎏 columnSetting columnsState.value props', async () => {
     const html = render(
       <ProTable
-        size="small"
+        columns={columns}
         columnsState={{
           persistenceType: 'localStorage',
           persistenceKey: 'columnsState',
@@ -95,7 +82,6 @@ describe('Table ColumnSetting', () => {
             option: { fixed: 'right' },
           },
         }}
-        columns={columns}
         request={async () => {
           return {
             data: [
@@ -109,15 +95,14 @@ describe('Table ColumnSetting', () => {
           };
         }}
         rowKey="key"
+        size="small"
       />,
     );
     await waitForWaitTime(100);
 
     act(() => {
       html.baseElement
-        .querySelector<HTMLDivElement>(
-          '.ant-pro-table-list-toolbar-setting-item .anticon-setting',
-        )
+        .querySelector<HTMLDivElement>('.ant-pro-table-list-toolbar-setting-item .anticon-setting')
         ?.click();
     });
     await waitForWaitTime(100);
@@ -129,7 +114,7 @@ describe('Table ColumnSetting', () => {
     act(() => {
       html.rerender(
         <ProTable
-          size="small"
+          columns={columns}
           columnsState={{
             persistenceType: 'localStorage',
             persistenceKey: 'columnsState',
@@ -137,7 +122,6 @@ describe('Table ColumnSetting', () => {
               index: { fixed: 'left' },
             },
           }}
-          columns={columns}
           request={async () => {
             return {
               data: [
@@ -151,6 +135,7 @@ describe('Table ColumnSetting', () => {
             };
           }}
           rowKey="key"
+          size="small"
         />,
       );
     });
@@ -162,11 +147,7 @@ describe('Table ColumnSetting', () => {
 
     // 触发重置
     act(() => {
-      html.baseElement
-        .querySelector<HTMLDivElement>(
-          '.ant-pro-table-column-setting-action-rest-button',
-        )
-        ?.click?.();
+      html.baseElement.querySelector<HTMLDivElement>('.ant-pro-table-column-setting-action-rest-button')?.click?.();
     });
     await waitForWaitTime(100);
   });
@@ -193,7 +174,7 @@ describe('Table ColumnSetting', () => {
     };
     const html = render(
       <ProTable
-        size="small"
+        columns={columns}
         columnsState={{
           persistenceType: 'localStorage',
           persistenceKey: 'columnsState',
@@ -203,7 +184,6 @@ describe('Table ColumnSetting', () => {
             option: { fixed: 'right' },
           },
         }}
-        columns={columns}
         request={async () => {
           return {
             data: [
@@ -217,15 +197,14 @@ describe('Table ColumnSetting', () => {
           };
         }}
         rowKey="key"
+        size="small"
       />,
     );
     await waitForWaitTime(100);
 
     act(() => {
       html.baseElement
-        .querySelector<HTMLDivElement>(
-          '.ant-pro-table-list-toolbar-setting-item .anticon-setting',
-        )
+        .querySelector<HTMLDivElement>('.ant-pro-table-list-toolbar-setting-item .anticon-setting')
         ?.click();
     });
     await waitForWaitTime(100);
@@ -237,7 +216,7 @@ describe('Table ColumnSetting', () => {
     act(() => {
       html.rerender(
         <ProTable
-          size="small"
+          columns={columns}
           columnsState={{
             persistenceType: 'localStorage',
             persistenceKey: 'columnsState',
@@ -245,7 +224,6 @@ describe('Table ColumnSetting', () => {
               index: { fixed: 'left' },
             },
           }}
-          columns={columns}
           request={async () => {
             return {
               data: [
@@ -259,6 +237,7 @@ describe('Table ColumnSetting', () => {
             };
           }}
           rowKey="key"
+          size="small"
         />,
       );
     });
@@ -271,11 +250,7 @@ describe('Table ColumnSetting', () => {
 
     // 触发重置
     act(() => {
-      html.baseElement
-        .querySelector<HTMLDivElement>(
-          '.ant-pro-table-column-setting-action-rest-button',
-        )
-        ?.click();
+      html.baseElement.querySelector<HTMLDivElement>('.ant-pro-table-column-setting-action-rest-button')?.click();
     });
     await waitForWaitTime(100);
     window.localStorage = localStorage;
@@ -286,7 +261,7 @@ describe('Table ColumnSetting', () => {
     const callBack = vi.fn();
     const html = render(
       <ProTable
-        size="small"
+        columns={columns}
         columnsState={{
           value: {
             index: { fixed: 'left' },
@@ -295,7 +270,6 @@ describe('Table ColumnSetting', () => {
           },
           onChange: callBack,
         }}
-        columns={columns}
         request={async () => {
           return {
             data: [
@@ -309,14 +283,13 @@ describe('Table ColumnSetting', () => {
           };
         }}
         rowKey="key"
+        size="small"
       />,
     );
 
     act(() => {
       html.baseElement
-        .querySelector<HTMLDivElement>(
-          '.ant-pro-table-list-toolbar-setting-item .anticon-setting',
-        )
+        .querySelector<HTMLDivElement>('.ant-pro-table-list-toolbar-setting-item .anticon-setting')
         ?.click();
     });
     await waitForWaitTime(100);
@@ -328,16 +301,12 @@ describe('Table ColumnSetting', () => {
     await waitForWaitTime(200);
     act(() => {
       html.baseElement
-        .querySelector<HTMLDivElement>(
-          '.ant-pro-table-list-toolbar-setting-item .anticon-setting',
-        )
+        .querySelector<HTMLDivElement>('.ant-pro-table-list-toolbar-setting-item .anticon-setting')
         ?.click();
     });
     await waitForWaitTime(100);
 
-    const reset = html.baseElement.querySelector<HTMLDivElement>(
-      '.ant-pro-table-column-setting-title a',
-    );
+    const reset = html.baseElement.querySelector<HTMLDivElement>('.ant-pro-table-column-setting-title a');
     act(() => {
       reset?.click();
     });
@@ -359,13 +328,12 @@ describe('Table ColumnSetting', () => {
     );
     const html = render(
       <ProTable
-        size="small"
+        columns={columns}
         columnsState={{
           persistenceKey: 'test-keys',
           persistenceType: 'localStorage',
           onChange: callBack,
         }}
-        columns={columns}
         request={async () => {
           return {
             data: [
@@ -379,6 +347,7 @@ describe('Table ColumnSetting', () => {
           };
         }}
         rowKey="key"
+        size="small"
       />,
     );
 
@@ -386,9 +355,7 @@ describe('Table ColumnSetting', () => {
 
     act(() => {
       html.baseElement
-        .querySelector<HTMLDivElement>(
-          '.ant-pro-table-list-toolbar-setting-item .anticon-setting',
-        )
+        .querySelector<HTMLDivElement>('.ant-pro-table-list-toolbar-setting-item .anticon-setting')
         ?.click();
     });
     await waitForWaitTime(100);
@@ -400,13 +367,12 @@ describe('Table ColumnSetting', () => {
     act(() => {
       html.rerender(
         <ProTable
-          size="small"
+          columns={columns}
           columnsState={{
             value: {
               index: { fixed: 'left' },
             },
           }}
-          columns={columns}
           request={async () => {
             return {
               data: [
@@ -420,6 +386,7 @@ describe('Table ColumnSetting', () => {
             };
           }}
           rowKey="key"
+          size="small"
         />,
       );
     });
@@ -443,7 +410,7 @@ describe('Table ColumnSetting', () => {
     );
     const html = render(
       <ProTable
-        size="small"
+        columns={columns}
         columnsState={{
           persistenceKey: 'test-keys-with-defaultValue',
           persistenceType: 'localStorage',
@@ -453,7 +420,6 @@ describe('Table ColumnSetting', () => {
           },
           onChange: callBack,
         }}
-        columns={columns}
         request={async () => {
           return {
             data: [
@@ -467,6 +433,7 @@ describe('Table ColumnSetting', () => {
           };
         }}
         rowKey="key"
+        size="small"
       />,
     );
 
@@ -474,15 +441,11 @@ describe('Table ColumnSetting', () => {
 
     act(() => {
       html.baseElement
-        .querySelector<HTMLDivElement>(
-          '.ant-pro-table-list-toolbar-setting-item .anticon-setting',
-        )
+        .querySelector<HTMLDivElement>('.ant-pro-table-list-toolbar-setting-item .anticon-setting')
         ?.click();
     });
     await waitForWaitTime(100);
-    const overlay = html.baseElement.querySelectorAll<HTMLDivElement>(
-      '.ant-tree-checkbox-disabled',
-    );
+    const overlay = html.baseElement.querySelectorAll<HTMLDivElement>('.ant-tree-checkbox-disabled');
     expect(overlay.length).toBe(2);
   });
 
@@ -496,13 +459,12 @@ describe('Table ColumnSetting', () => {
 
     const html = render(
       <ProTable
-        size="small"
+        columns={columns}
         columnsState={{
           persistenceKey: 'test-keys',
           persistenceType: 'localStorage',
           onChange: callBack,
         }}
-        columns={columns}
         request={async () => {
           return {
             data: [
@@ -516,6 +478,7 @@ describe('Table ColumnSetting', () => {
           };
         }}
         rowKey="key"
+        size="small"
       />,
     );
 
@@ -523,9 +486,7 @@ describe('Table ColumnSetting', () => {
 
     act(() => {
       html.baseElement
-        .querySelector<HTMLDivElement>(
-          '.ant-pro-table-list-toolbar-setting-item .anticon-setting',
-        )
+        .querySelector<HTMLDivElement>('.ant-pro-table-list-toolbar-setting-item .anticon-setting')
         ?.click();
     });
     await waitForWaitTime(100);
@@ -537,13 +498,12 @@ describe('Table ColumnSetting', () => {
     act(() => {
       html.rerender(
         <ProTable
-          size="small"
+          columns={columns}
           columnsState={{
             value: {
               index: { fixed: 'left' },
             },
           }}
-          columns={columns}
           request={async () => {
             return {
               data: [
@@ -557,6 +517,7 @@ describe('Table ColumnSetting', () => {
             };
           }}
           rowKey="key"
+          size="small"
         />,
       );
     });
@@ -571,12 +532,6 @@ describe('Table ColumnSetting', () => {
     const callBack = vi.fn();
     const html = render(
       <ProTable
-        size="small"
-        columnsState={{
-          onChange: () => {
-            callBack();
-          },
-        }}
         columns={[
           {
             title: 'Name',
@@ -597,6 +552,11 @@ describe('Table ColumnSetting', () => {
             ],
           },
         ]}
+        columnsState={{
+          onChange: () => {
+            callBack();
+          },
+        }}
         request={async () => {
           return {
             data: [
@@ -612,6 +572,7 @@ describe('Table ColumnSetting', () => {
           };
         }}
         rowKey="key"
+        size="small"
       />,
     );
 
@@ -619,9 +580,7 @@ describe('Table ColumnSetting', () => {
 
     act(() => {
       html.baseElement
-        .querySelector<HTMLDivElement>(
-          '.ant-pro-table-list-toolbar-setting-item .anticon-setting',
-        )
+        .querySelector<HTMLDivElement>('.ant-pro-table-list-toolbar-setting-item .anticon-setting')
         ?.click();
     });
 
@@ -629,26 +588,18 @@ describe('Table ColumnSetting', () => {
 
     act(() => {
       const input = html.baseElement
-        ?.querySelector<HTMLDivElement>(
-          '.ant-pro-table-column-setting-title .ant-checkbox-wrapper',
-        )
+        ?.querySelector<HTMLDivElement>('.ant-pro-table-column-setting-title .ant-checkbox-wrapper')
         ?.querySelector<HTMLInputElement>('.ant-checkbox-input');
       input?.click();
     });
 
     await waitForWaitTime(200);
 
-    expect(
-      html.baseElement.querySelectorAll<HTMLDivElement>(
-        'span.ant-checkbox.ant-checkbox-checked',
-      ).length,
-    ).toBe(0);
+    expect(html.baseElement.querySelectorAll<HTMLDivElement>('span.ant-checkbox.ant-checkbox-checked').length).toBe(0);
 
     act(() => {
       const input = html.baseElement
-        ?.querySelector<HTMLDivElement>(
-          '.ant-pro-table-column-setting-title .ant-checkbox-wrapper',
-        )
+        ?.querySelector<HTMLDivElement>('.ant-pro-table-column-setting-title .ant-checkbox-wrapper')
         ?.querySelector<HTMLInputElement>('.ant-checkbox-input');
       input?.click();
     });
@@ -656,30 +607,22 @@ describe('Table ColumnSetting', () => {
     await waitForWaitTime(100);
 
     expect(
-      html.baseElement.querySelectorAll<HTMLDivElement>(
-        'span.ant-checkbox.ant-checkbox-checked',
-      ).length +
-        html.baseElement.querySelectorAll<HTMLDivElement>(
-          'span.ant-tree-checkbox.ant-tree-checkbox-checked',
-        ).length,
+      html.baseElement.querySelectorAll<HTMLDivElement>('span.ant-checkbox.ant-checkbox-checked').length +
+        html.baseElement.querySelectorAll<HTMLDivElement>('span.ant-tree-checkbox.ant-tree-checkbox-checked').length,
     ).toBe(2);
 
     expect(callBack).toHaveBeenCalled();
 
     act(() => {
       const input = html.baseElement
-        ?.querySelector<HTMLDivElement>(
-          '.ant-tree-list-holder-inner .ant-tree-treenode',
-        )
+        ?.querySelector<HTMLDivElement>('.ant-tree-list-holder-inner .ant-tree-treenode')
         ?.querySelector<HTMLInputElement>('.ant-tree-checkbox');
       input?.click();
     });
 
     act(() => {
       const input = html.baseElement
-        ?.querySelector<HTMLDivElement>(
-          '.ant-tree-list-holder-inner .ant-tree-treenode',
-        )
+        ?.querySelector<HTMLDivElement>('.ant-tree-list-holder-inner .ant-tree-treenode')
         ?.querySelector<HTMLInputElement>('.ant-tree-checkbox');
       input?.click();
     });
@@ -689,20 +632,6 @@ describe('Table ColumnSetting', () => {
     const onChange = vi.fn();
     const html = render(
       <ProTable
-        size="small"
-        columnsState={{
-          value: {
-            age: { show: true },
-            name: { show: true },
-            option: { show: true },
-          },
-          onChange,
-          defaultValue: {
-            age: { show: false },
-            name: { show: false },
-            option: { show: true },
-          },
-        }}
         columns={[
           {
             title: 'Name',
@@ -720,6 +649,19 @@ describe('Table ColumnSetting', () => {
             dataIndex: 'option',
           },
         ]}
+        columnsState={{
+          value: {
+            age: { show: true },
+            name: { show: true },
+            option: { show: true },
+          },
+          onChange,
+          defaultValue: {
+            age: { show: false },
+            name: { show: false },
+            option: { show: true },
+          },
+        }}
         request={async () => {
           return {
             data: [
@@ -733,30 +675,23 @@ describe('Table ColumnSetting', () => {
           };
         }}
         rowKey="key"
+        size="small"
       />,
     );
 
     await waitForWaitTime(200);
     act(() => {
       html.baseElement
-        .querySelector<HTMLDivElement>(
-          '.ant-pro-table-list-toolbar-setting-item .anticon-setting',
-        )
+        .querySelector<HTMLDivElement>('.ant-pro-table-list-toolbar-setting-item .anticon-setting')
         ?.click();
     });
     await waitForWaitTime(100);
     expect(
-      html.baseElement.querySelectorAll<HTMLDivElement>(
-        'span.ant-tree-checkbox.ant-tree-checkbox-checked',
-      ).length,
+      html.baseElement.querySelectorAll<HTMLDivElement>('span.ant-tree-checkbox.ant-tree-checkbox-checked').length,
     ).toBe(3);
 
     act(() => {
-      html.baseElement
-        .querySelector<HTMLDivElement>(
-          `.ant-pro-table-column-setting-action-rest-button`,
-        )
-        ?.click();
+      html.baseElement.querySelector<HTMLDivElement>(`.ant-pro-table-column-setting-action-rest-button`)?.click();
     });
 
     expect(onChange).toHaveBeenCalledTimes(1);
@@ -779,10 +714,6 @@ describe('Table ColumnSetting', () => {
     const onChange = vi.fn();
     const html = render(
       <ProTable
-        size="small"
-        columnsState={{
-          onChange,
-        }}
         columns={[
           {
             title: 'Name',
@@ -805,6 +736,9 @@ describe('Table ColumnSetting', () => {
             },
           },
         ]}
+        columnsState={{
+          onChange,
+        }}
         request={async () => {
           return {
             data: [
@@ -820,37 +754,26 @@ describe('Table ColumnSetting', () => {
           };
         }}
         rowKey="key"
+        size="small"
       />,
     );
     act(() => {
-      html.baseElement
-        .querySelector<HTMLDivElement>(`span[aria-label="setting"]`)
-        ?.click();
+      html.baseElement.querySelector<HTMLDivElement>(`span[aria-label="setting"]`)?.click();
     });
     await waitForWaitTime(200);
     act(() => {
-      html.baseElement
-        .querySelector<HTMLDivElement>(
-          `.ant-pro-table-column-setting-action-rest-button`,
-        )
-        ?.click();
+      html.baseElement.querySelector<HTMLDivElement>(`.ant-pro-table-column-setting-action-rest-button`)?.click();
     });
 
     act(() => {
       const input = html.baseElement
-        ?.querySelector<HTMLDivElement>(
-          '.ant-pro-table-column-setting-title .ant-checkbox-wrapper',
-        )
+        ?.querySelector<HTMLDivElement>('.ant-pro-table-column-setting-title .ant-checkbox-wrapper')
         ?.querySelector<HTMLInputElement>('.ant-checkbox-input');
       input?.click();
     });
 
     act(() => {
-      html.baseElement
-        .querySelector<HTMLDivElement>(
-          `.ant-pro-table-column-setting-action-rest-button`,
-        )
-        ?.click();
+      html.baseElement.querySelector<HTMLDivElement>(`.ant-pro-table-column-setting-action-rest-button`)?.click();
     });
 
     expect(onChange).toHaveBeenCalledTimes(2);
@@ -884,12 +807,6 @@ describe('Table ColumnSetting', () => {
     const callBack = vi.fn();
     const html = render(
       <ProTable
-        size="small"
-        columnsState={{
-          onChange: () => {
-            callBack();
-          },
-        }}
         columns={[
           {
             title: 'Name',
@@ -897,6 +814,11 @@ describe('Table ColumnSetting', () => {
             dataIndex: 'name',
           },
         ]}
+        columnsState={{
+          onChange: () => {
+            callBack();
+          },
+        }}
         request={async () => {
           return {
             data: [
@@ -910,70 +832,45 @@ describe('Table ColumnSetting', () => {
           };
         }}
         rowKey="key"
+        size="small"
       />,
     );
 
     await waitForWaitTime(200);
     act(() => {
       html.baseElement
-        .querySelector<HTMLDivElement>(
-          '.ant-pro-table-list-toolbar-setting-item .anticon-setting',
-        )
+        .querySelector<HTMLDivElement>('.ant-pro-table-list-toolbar-setting-item .anticon-setting')
         ?.click();
     });
 
     await waitForWaitTime(200);
 
     act(() => {
-      html.baseElement
-        .querySelector<HTMLDivElement>(
-          '.ant-pro-table-column-setting-list .ant-tree-checkbox',
-        )
-        ?.click();
+      html.baseElement.querySelector<HTMLDivElement>('.ant-pro-table-column-setting-list .ant-tree-checkbox')?.click();
     });
 
     await waitForWaitTime(200);
 
-    expect(
-      html.baseElement.querySelectorAll<HTMLDivElement>(
-        'span.ant-checkbox.ant-checkbox-checked',
-      ).length,
-    ).toBe(0);
+    expect(html.baseElement.querySelectorAll<HTMLDivElement>('span.ant-checkbox.ant-checkbox-checked').length).toBe(0);
 
     act(() => {
-      html.baseElement
-        .querySelector<HTMLDivElement>(
-          '.ant-pro-table-column-setting-list .ant-tree-checkbox',
-        )
-        ?.click();
+      html.baseElement.querySelector<HTMLDivElement>('.ant-pro-table-column-setting-list .ant-tree-checkbox')?.click();
     });
 
     await waitForWaitTime(200);
 
     act(() => {
-      html.baseElement
-        .querySelector<HTMLDivElement>(
-          '.ant-pro-table-column-setting-list .ant-tree-checkbox',
-        )
-        ?.click();
+      html.baseElement.querySelector<HTMLDivElement>('.ant-pro-table-column-setting-list .ant-tree-checkbox')?.click();
     });
 
     act(() => {
-      html.baseElement
-        .querySelector<HTMLDivElement>(
-          '.ant-pro-table-column-setting-list .ant-tree-checkbox',
-        )
-        ?.click();
+      html.baseElement.querySelector<HTMLDivElement>('.ant-pro-table-column-setting-list .ant-tree-checkbox')?.click();
     });
     await waitForWaitTime(100);
 
     expect(
-      html.baseElement.querySelectorAll<HTMLDivElement>(
-        'span.ant-checkbox.ant-checkbox-checked',
-      ).length +
-        html.baseElement.querySelectorAll<HTMLDivElement>(
-          'span.ant-tree-checkbox.ant-tree-checkbox-checked',
-        ).length,
+      html.baseElement.querySelectorAll<HTMLDivElement>('span.ant-checkbox.ant-checkbox-checked').length +
+        html.baseElement.querySelectorAll<HTMLDivElement>('span.ant-tree-checkbox.ant-tree-checkbox-checked').length,
     ).toBe(2);
 
     expect(callBack).toHaveBeenCalled();
@@ -982,27 +879,26 @@ describe('Table ColumnSetting', () => {
   it('🎏 columnSetting close checkable', async () => {
     const html = render(
       <ProTable
-        size="small"
+        columns={[
+          {
+            title: 'Name',
+            key: 'name',
+            dataIndex: 'name',
+            copyable: true,
+          },
+          {
+            title: 'Name2',
+            key: 'name2',
+            dataIndex: 'name2',
+            copyable: true,
+          },
+        ]}
         options={{
           setting: {
             draggable: false,
             checkable: false,
           },
         }}
-        columns={[
-          {
-            title: 'Name',
-            key: 'name',
-            dataIndex: 'name',
-            copyable: true,
-          },
-          {
-            title: 'Name2',
-            key: 'name2',
-            dataIndex: 'name2',
-            copyable: true,
-          },
-        ]}
         request={async () => {
           return {
             data: [
@@ -1016,31 +912,27 @@ describe('Table ColumnSetting', () => {
           };
         }}
         rowKey="key"
+        size="small"
       />,
     );
 
     await waitForWaitTime(200);
     act(() => {
       html.baseElement
-        .querySelector<HTMLDivElement>(
-          '.ant-pro-table-list-toolbar-setting-item .anticon-setting',
-        )
+        .querySelector<HTMLDivElement>('.ant-pro-table-list-toolbar-setting-item .anticon-setting')
         ?.click();
     });
 
     await waitForWaitTime(200);
 
     expect(
-      html.baseElement.querySelectorAll<HTMLDivElement>(
-        'span.ant-tree-checkbox.ant-tree-checkbox-checked',
-      ).length,
+      html.baseElement.querySelectorAll<HTMLDivElement>('span.ant-tree-checkbox.ant-tree-checkbox-checked').length,
     ).toBe(0);
   });
 
   it('🎏 columnSetting open checkable', async () => {
     const html = render(
       <ProTable
-        size="small"
         columns={[
           {
             title: 'Name',
@@ -1068,31 +960,26 @@ describe('Table ColumnSetting', () => {
           };
         }}
         rowKey="key"
+        size="small"
       />,
     );
 
     await waitForWaitTime(200);
     act(() => {
       html.baseElement
-        .querySelector<HTMLDivElement>(
-          '.ant-pro-table-list-toolbar-setting-item .anticon-setting',
-        )
+        .querySelector<HTMLDivElement>('.ant-pro-table-list-toolbar-setting-item .anticon-setting')
         ?.click();
     });
 
     await waitForWaitTime(300);
 
     expect(
-      html.baseElement.querySelectorAll<HTMLDivElement>(
-        'span.ant-tree-checkbox.ant-tree-checkbox-checked',
-      ).length,
+      html.baseElement.querySelectorAll<HTMLDivElement>('span.ant-tree-checkbox.ant-tree-checkbox-checked').length,
     ).toBe(2);
 
     act(() => {
       fireDragEvent(
-        html.baseElement.querySelectorAll<HTMLDivElement>(
-          '.ant-tree-treenode > .ant-tree-node-content-wrapper',
-        )[1],
+        html.baseElement.querySelectorAll<HTMLDivElement>('.ant-tree-treenode > .ant-tree-node-content-wrapper')[1],
         'dragStart',
         {
           clientX: 500,
@@ -1104,9 +991,7 @@ describe('Table ColumnSetting', () => {
     await waitForWaitTime(200);
     act(() => {
       fireDragEvent(
-        html.baseElement.querySelectorAll<HTMLDivElement>(
-          '.ant-tree-treenode > .ant-tree-node-content-wrapper',
-        )[0],
+        html.baseElement.querySelectorAll<HTMLDivElement>('.ant-tree-treenode > .ant-tree-node-content-wrapper')[0],
         'dragEnter',
         {
           clientX: 400,
@@ -1118,9 +1003,7 @@ describe('Table ColumnSetting', () => {
 
     act(() => {
       fireDragEvent(
-        html.baseElement.querySelectorAll<HTMLDivElement>(
-          '.ant-tree-treenode > .ant-tree-node-content-wrapper',
-        )[0],
+        html.baseElement.querySelectorAll<HTMLDivElement>('.ant-tree-treenode > .ant-tree-node-content-wrapper')[0],
         'dragOver',
         {
           clientX: 400,
@@ -1133,18 +1016,14 @@ describe('Table ColumnSetting', () => {
 
     act(() => {
       fireEvent.drop(
-        html.baseElement.querySelectorAll<HTMLDivElement>(
-          '.ant-tree-treenode > .ant-tree-node-content-wrapper',
-        )[0],
+        html.baseElement.querySelectorAll<HTMLDivElement>('.ant-tree-treenode > .ant-tree-node-content-wrapper')[0],
       );
     });
 
     await waitForWaitTime(1000);
     act(() => {
       fireDragEvent(
-        html.baseElement.querySelectorAll<HTMLDivElement>(
-          '.ant-tree-treenode > .ant-tree-node-content-wrapper',
-        )[1],
+        html.baseElement.querySelectorAll<HTMLDivElement>('.ant-tree-treenode > .ant-tree-node-content-wrapper')[1],
         'dragStart',
         {
           clientX: 500,
@@ -1155,9 +1034,7 @@ describe('Table ColumnSetting', () => {
     await waitForWaitTime(200);
     act(() => {
       fireDragEvent(
-        html.baseElement.querySelectorAll<HTMLDivElement>(
-          '.ant-tree-treenode > .ant-tree-node-content-wrapper',
-        )[0],
+        html.baseElement.querySelectorAll<HTMLDivElement>('.ant-tree-treenode > .ant-tree-node-content-wrapper')[0],
         'dragEnd',
         {
           clientX: 400,
@@ -1170,9 +1047,7 @@ describe('Table ColumnSetting', () => {
 
     act(() => {
       fireEvent.drop(
-        html.baseElement.querySelectorAll<HTMLDivElement>(
-          '.ant-tree-treenode > .ant-tree-node-content-wrapper',
-        )[1],
+        html.baseElement.querySelectorAll<HTMLDivElement>('.ant-tree-treenode > .ant-tree-node-content-wrapper')[1],
       );
     });
 
@@ -1182,7 +1057,6 @@ describe('Table ColumnSetting', () => {
   it('🎏 columnSetting support hideInSetting', async () => {
     const html = render(
       <ProTable
-        size="small"
         columns={[
           {
             title: 'Name',
@@ -1212,37 +1086,25 @@ describe('Table ColumnSetting', () => {
           },
         ]}
         rowKey="key"
+        size="small"
       />,
     );
 
     await waitForWaitTime(200);
     act(() => {
       html.baseElement
-        .querySelector<HTMLDivElement>(
-          '.ant-pro-table-list-toolbar-setting-item .anticon-setting',
-        )
+        .querySelector<HTMLDivElement>('.ant-pro-table-list-toolbar-setting-item .anticon-setting')
         ?.click();
     });
 
     await waitForWaitTime(1000);
 
-    expect(
-      html.baseElement.querySelectorAll<HTMLDivElement>('.ant-tree-treenode')
-        .length,
-    ).toBe(2);
+    expect(html.baseElement.querySelectorAll<HTMLDivElement>('.ant-tree-treenode').length).toBe(2);
   });
 
   it('🎏 columnSetting support replacement for default setting icon', async () => {
     const html = render(
       <ProTable
-        size="small"
-        options={{
-          setting: {
-            children: (
-              <button className="custom-setting-button">Click Me!</button>
-            ),
-          },
-        }}
         columns={[
           {
             title: 'Name',
@@ -1271,7 +1133,13 @@ describe('Table ColumnSetting', () => {
             createdAt: 1602572994055,
           },
         ]}
+        options={{
+          setting: {
+            children: <button className="custom-setting-button">Click Me!</button>,
+          },
+        }}
         rowKey="key"
+        size="small"
       />,
     );
 
@@ -1285,18 +1153,13 @@ describe('Table ColumnSetting', () => {
 
     await waitForWaitTime(1000);
 
-    expect(
-      html.baseElement.querySelectorAll<HTMLDivElement>('.ant-tree-treenode')
-        .length,
-    ).toBe(2);
+    expect(html.baseElement.querySelectorAll<HTMLDivElement>('.ant-tree-treenode').length).toBe(2);
   });
 
   it('🎏 DensityIcon support onChange', async () => {
     const onChange = vi.fn();
     const html = render(
       <ProTable
-        onSizeChange={(size) => onChange(size)}
-        options={{ density: true }}
         columns={[
           {
             title: 'Name',
@@ -1318,7 +1181,9 @@ describe('Table ColumnSetting', () => {
             createdAt: 1602572994055,
           },
         ]}
+        options={{ density: true }}
         rowKey="key"
+        onSizeChange={(size) => onChange(size)}
       />,
     );
 
@@ -1382,9 +1247,7 @@ describe('Table ColumnSetting', () => {
       />,
     );
     await waitForWaitTime(100);
-    const ellipsisList = html.baseElement.querySelectorAll(
-      '.ant-typography-ellipsis',
-    );
+    const ellipsisList = html.baseElement.querySelectorAll('.ant-typography-ellipsis');
     expect(ellipsisList.length).toBe(1);
   });
 });

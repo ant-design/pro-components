@@ -1,6 +1,6 @@
 import { DownOutlined } from '@ant-design/icons';
-import type { ProColumns } from '@ant-design/pro-components';
-import { ProTable } from '@ant-design/pro-components';
+import type { ProColumns } from '@xxlabs/pro-components';
+import { ProTable } from '@xxlabs/pro-components';
 import { Button, Tag } from 'antd';
 
 export type Status = {
@@ -65,9 +65,7 @@ const columns: ProColumns<TableListItem>[] = [
     title: '状态',
     width: 120,
     dataIndex: 'status',
-    render: (_, record) => (
-      <Tag color={record.status.color}>{record.status.text}</Tag>
-    ),
+    render: (_, record) => <Tag color={record.status.color}>{record.status.text}</Tag>,
   },
   {
     title: '容器数量',
@@ -117,11 +115,11 @@ const expandedRowRender = () => {
           render: () => [<a key="Pause">Pause</a>, <a key="Stop">Stop</a>],
         },
       ]}
-      headerTitle={false}
-      search={false}
-      options={false}
       dataSource={data}
+      headerTitle={false}
+      options={false}
       pagination={false}
+      search={false}
     />
   );
 };
@@ -130,6 +128,13 @@ export default () => {
   return (
     <ProTable<TableListItem>
       columns={columns}
+      dateFormatter="string"
+      expandable={{ expandedRowRender }}
+      headerTitle="嵌套表格"
+      options={false}
+      pagination={{
+        showQuickJumper: true,
+      }}
       request={(params, sorter, filter) => {
         // 表单搜索项会从 params 传入，传递给后端接口。
         console.log(params, sorter, filter);
@@ -139,14 +144,7 @@ export default () => {
         });
       }}
       rowKey="key"
-      pagination={{
-        showQuickJumper: true,
-      }}
-      expandable={{ expandedRowRender }}
       search={false}
-      dateFormatter="string"
-      headerTitle="嵌套表格"
-      options={false}
       toolBarRender={() => [
         <Button key="show">查看日志</Button>,
         <Button key="out">

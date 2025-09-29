@@ -1,8 +1,4 @@
-import {
-  ProFormRadio,
-  ProFormSwitch,
-  ProList,
-} from '@ant-design/pro-components';
+import { ProFormRadio, ProFormSwitch, ProList } from '@xxlabs/pro-components';
 import { Progress, Tag } from 'antd';
 import { useState } from 'react';
 
@@ -19,8 +15,7 @@ const data = [
   title: item,
   subTitle: <Tag color="#5BD8A6">语雀专栏</Tag>,
   actions: [<a key="run">邀请</a>, <a key="delete">删除</a>],
-  avatar:
-    'https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg',
+  avatar: 'https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg',
   content: (
     <div
       style={{
@@ -40,9 +35,7 @@ const data = [
 }));
 
 export default () => {
-  const [cardActionProps, setCardActionProps] = useState<'actions' | 'extra'>(
-    'extra',
-  );
+  const [cardActionProps, setCardActionProps] = useState<'actions' | 'extra'>('extra');
 
   const [ghost, setGhost] = useState<boolean>(false);
   return (
@@ -54,6 +47,10 @@ export default () => {
       }}
     >
       <ProFormRadio.Group
+        fieldProps={{
+          value: cardActionProps,
+          onChange: (e) => setCardActionProps(e.target.value),
+        }}
         label="actions 放置的地方"
         options={[
           {
@@ -65,39 +62,21 @@ export default () => {
             value: 'extra',
           },
         ]}
-        fieldProps={{
-          value: cardActionProps,
-          onChange: (e) => setCardActionProps(e.target.value),
-        }}
       />
       <ProFormSwitch
-        label="幽灵模式"
         fieldProps={{
           checked: ghost,
           onChange: (e) => setGhost(e),
         }}
+        label="幽灵模式"
       />
       <ProList<any>
+        dataSource={data}
         ghost={ghost}
+        grid={{ gutter: 16, column: 2 }}
+        headerTitle="卡片列表展示"
         itemCardProps={{
           ghost,
-        }}
-        pagination={{
-          defaultPageSize: 8,
-          showSizeChanger: false,
-        }}
-        showActions="hover"
-        rowSelection={{}}
-        grid={{ gutter: 16, column: 2 }}
-        onItem={(record: any) => {
-          return {
-            onMouseEnter: () => {
-              console.log(record);
-            },
-            onClick: () => {
-              console.log(record);
-            },
-          };
         }}
         metas={{
           title: {},
@@ -109,8 +88,22 @@ export default () => {
             cardActionProps,
           },
         }}
-        headerTitle="卡片列表展示"
-        dataSource={data}
+        pagination={{
+          defaultPageSize: 8,
+          showSizeChanger: false,
+        }}
+        rowSelection={{}}
+        showActions="hover"
+        onItem={(record: any) => {
+          return {
+            onMouseEnter: () => {
+              console.log(record);
+            },
+            onClick: () => {
+              console.log(record);
+            },
+          };
+        }}
       />
     </div>
   );

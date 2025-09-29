@@ -1,9 +1,4 @@
-﻿import {
-  LightFilter,
-  ProFormFieldSet,
-  ProFormSelect,
-  ProFormText,
-} from '@ant-design/pro-components';
+﻿import { LightFilter, ProFormFieldSet, ProFormSelect, ProFormText } from '@xxlabs/pro-components';
 
 export default function App() {
   return (
@@ -18,16 +13,16 @@ export default function App() {
             '123',
           ],
         }}
-        placement={'bottomLeft'}
+        placement="bottomLeft"
       >
         <ProFormFieldSet
           label="筛选"
-          name={'name'}
           lightProps={{
             labelFormatter: (value) => {
               return value.join(' ');
             },
           }}
+          name="name"
           transform={(value: any) => {
             return {
               filter: [

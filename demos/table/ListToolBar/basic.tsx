@@ -1,14 +1,6 @@
-import {
-  EllipsisOutlined,
-  FullscreenOutlined,
-  SettingOutlined,
-} from '@ant-design/icons';
-import type { ProColumns } from '@ant-design/pro-components';
-import {
-  LightFilter,
-  ProFormDatePicker,
-  ProTable,
-} from '@ant-design/pro-components';
+import { EllipsisOutlined, FullscreenOutlined, SettingOutlined } from '@ant-design/icons';
+import type { ProColumns } from '@xxlabs/pro-components';
+import { LightFilter, ProFormDatePicker, ProTable } from '@xxlabs/pro-components';
 import { Button } from 'antd';
 
 export type TableListItem = {
@@ -81,6 +73,8 @@ export default () => {
           success: true,
         });
       }}
+      rowKey="key"
+      search={false}
       toolbar={{
         title: '这里是标题',
         subTitle: '这里是子标题',
@@ -92,7 +86,7 @@ export default () => {
         },
         filter: (
           <LightFilter>
-            <ProFormDatePicker name="startdate" label="响应日期" />
+            <ProFormDatePicker label="响应日期" name="startdate" />
           </LightFilter>
         ),
         actions: [
@@ -117,8 +111,6 @@ export default () => {
           },
         ],
       }}
-      rowKey="key"
-      search={false}
     />
   );
 

@@ -14,9 +14,9 @@ import {
   ProFormText,
   ProFormTimePicker,
   ProFormTreeSelect,
-} from '@ant-design/pro-components';
+} from '@xxlabs/pro-components';
 import { Radio, TreeSelect } from 'antd';
-import type { SizeType } from 'antd/lib/config-provider/SizeContext';
+import type { SizeType } from 'antd/es/config-provider/SizeContext';
 import dayjs from 'dayjs';
 import React from 'react';
 
@@ -90,35 +90,29 @@ export default () => {
               label: '关闭',
             },
           ],
-          datetimeRanger: [
-            dayjs('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
-            dayjs('2019-11-16 12:50:26').valueOf(),
-          ],
-          timeRanger: [
-            dayjs('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
-            dayjs('2019-11-16 12:50:26').valueOf(),
-          ],
+          datetimeRanger: [dayjs('2019-11-16 12:50:26').add(-1, 'd').valueOf(), dayjs('2019-11-16 12:50:26').valueOf()],
+          timeRanger: [dayjs('2019-11-16 12:50:26').add(-1, 'd').valueOf(), dayjs('2019-11-16 12:50:26').valueOf()],
         }}
         size={size}
         onFinish={async (values) => console.log(values.sex)}
       >
         <ProFormSelect
-          name="sex"
-          label="性别"
           showSearch
           allowClear={false}
           fieldProps={{
             labelInValue: true,
           }}
+          label="性别"
+          name="sex"
           valueEnum={{
             man: '男',
             woman: '女',
           }}
         />
         <ProFormSelect
-          name="area"
           label="地区"
           mode="multiple"
+          name="area"
           valueEnum={{
             beijing: '北京',
             shanghai: '上海',
@@ -126,14 +120,8 @@ export default () => {
             long: '这是一个很长的用来测试溢出的项目',
           }}
         />
-        <ProFormCheckbox.Group
-          name="checkbox-group"
-          label="Checkbox.Group"
-          options={['A', 'B', 'C', 'D', 'E', 'F']}
-        />
+        <ProFormCheckbox.Group label="Checkbox.Group" name="checkbox-group" options={['A', 'B', 'C', 'D', 'E', 'F']} />
         <ProFormTreeSelect
-          initialValue={['0-0', '0-1']}
-          label="树形下拉选择器"
           fieldProps={{
             fieldNames: {
               label: 'title',
@@ -143,10 +131,14 @@ export default () => {
             showCheckedStrategy: TreeSelect.SHOW_PARENT,
             placeholder: 'Please select',
           }}
+          initialValue={['0-0', '0-1']}
+          label="树形下拉选择器"
           name="treeSelect"
         />
         <ProFormCascader
-          width="md"
+          initialValue={['zhejiang', 'hangzhou', 'xihu']}
+          label="区域"
+          name="area"
           request={async () => [
             {
               value: 'zhejiang',
@@ -181,31 +173,22 @@ export default () => {
               ],
             },
           ]}
-          name="area"
-          label="区域"
-          initialValue={['zhejiang', 'hangzhou', 'xihu']}
+          width="md"
         />
-        <ProFormSwitch name="open" label="开关" />
-        <ProFormDigit name="count" label="数量" />
-        <ProFormSlider name="range" label="范围" range />
-        <ProFormSlider name="slider" label="范围" />
-        <ProFormText name="name1" label="名称" />
-        <ProFormSwitch name="open" label="开关" secondary />
-        <ProFormText name="name2" label="地址" secondary />
-        <ProFormDatePicker
-          name="name3"
-          label="不能清空的日期"
-          allowClear={false}
-        />
-        <ProFormDateRangePicker name="date" label="日期范围" />
-        <ProFormDateTimePicker name="datetime" label="日期时间" />
-        <ProFormDateTimeRangePicker
-          name="datetimeRanger"
-          label="日期时间范围"
-        />
-        <ProFormTimePicker name="time" label="时间" />
-        <ProFormTimePicker.RangePicker name="timeRanger" label="时间范围" />
-        <ProFormFieldSet name="name" label="姓名">
+        <ProFormSwitch label="开关" name="open" />
+        <ProFormDigit label="数量" name="count" />
+        <ProFormSlider range label="范围" name="range" />
+        <ProFormSlider label="范围" name="slider" />
+        <ProFormText label="名称" name="name1" />
+        <ProFormSwitch secondary label="开关" name="open" />
+        <ProFormText secondary label="地址" name="name2" />
+        <ProFormDatePicker allowClear={false} label="不能清空的日期" name="name3" />
+        <ProFormDateRangePicker label="日期范围" name="date" />
+        <ProFormDateTimePicker label="日期时间" name="datetime" />
+        <ProFormDateTimeRangePicker label="日期时间范围" name="datetimeRanger" />
+        <ProFormTimePicker label="时间" name="time" />
+        <ProFormTimePicker.RangePicker label="时间范围" name="timeRanger" />
+        <ProFormFieldSet label="姓名" name="name">
           <ProFormText />
           <ProFormText />
         </ProFormFieldSet>

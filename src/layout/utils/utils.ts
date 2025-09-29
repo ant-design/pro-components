@@ -1,8 +1,6 @@
 import type { MenuDataItem } from '../typing';
 
-export const getOpenKeysFromMenuData = (
-  menuData?: MenuDataItem[],
-): string[] => {
+export const getOpenKeysFromMenuData = (menuData?: MenuDataItem[]): string[] => {
   return (menuData || []).reduce((pre, item) => {
     // 如果是 flatMenu，跳过自己，只递归 children
     if (item.flatMenu) {
@@ -15,9 +13,7 @@ export const getOpenKeysFromMenuData = (
       pre.push(item.key);
     }
     if (item.children) {
-      const newArray: string[] = pre.concat(
-        getOpenKeysFromMenuData(item.children) || [],
-      );
+      const newArray: string[] = pre.concat(getOpenKeysFromMenuData(item.children) || []);
       return newArray;
     }
     return pre;
@@ -40,9 +36,7 @@ const themeConfig = {
  * @param val
  */
 export function genStringToTheme(val?: string): string {
-  return val && themeConfig[val as 'techBlue']
-    ? themeConfig[val as 'techBlue']
-    : val || '';
+  return val && themeConfig[val as 'techBlue'] ? themeConfig[val as 'techBlue'] : val || '';
 }
 export function clearMenuItem(menusData: MenuDataItem[]): MenuDataItem[] {
   return menusData
@@ -53,10 +47,7 @@ export function clearMenuItem(menusData: MenuDataItem[]): MenuDataItem[] {
         return null;
       }
       if (finalItem && finalItem?.children) {
-        if (
-          !finalItem.hideChildrenInMenu &&
-          children.some((child) => child && child.name && !child.hideInMenu)
-        ) {
+        if (!finalItem.hideChildrenInMenu && children.some((child) => child && child.name && !child.hideInMenu)) {
           return {
             ...item,
             children: clearMenuItem(children),
