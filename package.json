@@ -38,7 +38,6 @@
   "dependencies": {
     "@ant-design/cssinjs": "^1.24.0",
     "@ant-design/icons": "^5.6.1",
-    "@changesets/cli": "^2.29.7",
     "@ctrl/tinycolor": "^4.2.0",
     "@dnd-kit/core": "^6.3.1",
     "@dnd-kit/modifiers": "^9.0.0",
@@ -62,6 +61,7 @@
     "swr": "^2.3.6"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.29.7",
     "@commitlint/cli": "^20.0.0",
     "@commitlint/config-conventional": "^20.0.0",
     "@eslint/js": "^9.36.0",
