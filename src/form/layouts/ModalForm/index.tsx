@@ -102,7 +102,9 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
   const resetFields = useCallback(() => {
     const form = rest.form ?? rest.formRef?.current ?? formRef.current;
     // 重置表单
-    if (form && modalProps?.destroyOnHidden) {
+    // issue: 8858 form.resetFields is not a function
+    if (form && modalProps?.destroyOnHidden && typeof form.resetFields === 'function'
+    ) {
       form.resetFields();
     }
   }, [modalProps?.destroyOnHidden, rest.form, rest.formRef]);
