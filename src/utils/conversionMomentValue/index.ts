@@ -176,15 +176,24 @@ export const conversionMomentValue = <T extends {} = any>(
       );
       return;
     }
+    const currentDateFormatter =
+      dateFormatter === undefined ? 'string' : dateFormatter;
+    const finalDateFormatter: DateFormatter =
+      currentDateFormatter === 'number' ||
+      currentDateFormatter === false ||
+      typeof currentDateFormatter === 'function'
+        ? currentDateFormatter
+        : typeof currentDateFormatter === 'string'
+          ? currentDateFormatter === 'string'
+            ? dateFormat ||
+              dateFormatterMap[valueType as keyof typeof dateFormatterMap]
+            : currentDateFormatter
+          : dateFormat || currentDateFormatter;
     // 处理 FormList 的 value
     if (Array.isArray(itemValue)) {
       (tmpValue as any)[valueKey] = itemValue.map((arrayValue, index) => {
         if (dayjs.isDayjs(arrayValue) || isMoment(arrayValue)) {
-          return convertMoment(
-            arrayValue,
-            dateFormat || dateFormatter,
-            valueType,
-          );
+          return convertMoment(arrayValue, finalDateFormatter, valueType);
         }
         return conversionMomentValue(
           arrayValue,
@@ -198,10 +207,7 @@ export const conversionMomentValue = <T extends {} = any>(
     }
     (tmpValue as any)[valueKey] = convertMoment(
       itemValue,
-      dateFormat ||
-        (dateFormatter === 'string'
-          ? dateFormatterMap[valueType as keyof typeof dateFormatterMap]
-          : dateFormatter),
+      finalDateFormatter,
       valueType,
     );
   });

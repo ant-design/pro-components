@@ -8,6 +8,7 @@ import {
   ProFormColorPicker,
   ProFormDatePicker,
   ProFormDateTimePicker,
+  ProFormDateTimeRangePicker,
   ProFormDependency,
   ProFormDigit,
   ProFormDigitRange,
@@ -3878,6 +3879,42 @@ describe('ProForm', () => {
       zero: 0,
       falseValue: false,
     });
+
+    wrapper.unmount();
+  });
+
+  it('📦 ProFormDateTimePicker displays full timestamp by default', async () => {
+    const wrapper = render(
+      <ProForm
+        initialValues={{
+          dateTime: dayjs('2023-01-15 14:30:00'),
+        }}
+      >
+        <ProFormDateTimePicker name="dateTime" />
+      </ProForm>,
+    );
+
+    await wrapper.findByDisplayValue('2023-01-15 14:30:00');
+
+    wrapper.unmount();
+  });
+
+  it('📦 ProFormDateTimeRangePicker displays full timestamp by default', async () => {
+    const wrapper = render(
+      <ProForm
+        initialValues={{
+          range: [
+            dayjs('2023-01-15 14:30:00'),
+            dayjs('2023-01-16 09:00:00'),
+          ],
+        }}
+      >
+        <ProFormDateTimeRangePicker name="range" />
+      </ProForm>,
+    );
+
+    await wrapper.findByDisplayValue('2023-01-15 14:30:00');
+    await wrapper.findByDisplayValue('2023-01-16 09:00:00');
 
     wrapper.unmount();
   });

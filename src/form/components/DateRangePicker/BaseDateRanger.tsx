@@ -1,5 +1,5 @@
 import type { RangePickerProps } from 'antd/lib/date-picker';
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { FieldRangePicker } from '../../../field';
 import { ProConfigProvider } from '../../../provider';
 import { dateArrayFormatter } from '../../../utils';
@@ -21,15 +21,44 @@ export const BaseDateRanger: React.FC<
 > = React.forwardRef(
   ({ fieldProps, proFieldProps, valueType, ...rest }, ref) => {
     const context = useContext(FieldContext);
+    const mergedFieldProps = useMemo(() => {
+      const nextFieldProps = fieldProps ? { ...fieldProps } : {};
+
+      if (valueType === 'dateTimeRange' && nextFieldProps.showTime === undefined) {
+        nextFieldProps.showTime = true;
+      }
+
+      return nextFieldProps;
+    }, [fieldProps, valueType]);
+    const lightFilterFormat =
+      mergedFieldProps.format ||
+      (valueType === 'dateTimeRange' ? 'YYYY-MM-DD HH:mm:ss' : 'YYYY-MM');
+
     return (
       <ProConfigProvider
         valueTypeMap={{
           [valueType]: {
             render: (text, props) => (
-              <FieldRangePicker {...props} text={text} />
+              <FieldRangePicker
+                {...props}
+                format={
+                  valueType === 'dateTimeRange'
+                    ? props.format ?? 'YYYY-MM-DD HH:mm:ss'
+                    : props.format
+                }
+                text={text}
+              />
             ),
             formItemRender: (text, props) => (
-              <FieldRangePicker {...props} text={text} />
+              <FieldRangePicker
+                {...props}
+                format={
+                  valueType === 'dateTimeRange'
+                    ? props.format ?? 'YYYY-MM-DD HH:mm:ss'
+                    : props.format
+                }
+                text={text}
+              />
             ),
           },
         }}
@@ -37,7 +66,7 @@ export const BaseDateRanger: React.FC<
         <ProField
           fieldProps={{
             getPopupContainer: context.getPopupContainer,
-            ...fieldProps,
+            ...mergedFieldProps,
           }}
           valueType={valueType}
           proFieldProps={proFieldProps}
@@ -45,7 +74,7 @@ export const BaseDateRanger: React.FC<
             valueType,
             customLightMode: true,
             lightFilterLabelFormatter: (value) =>
-              dateArrayFormatter(value, fieldProps?.format || 'YYYY-MM'),
+              dateArrayFormatter(value, lightFilterFormat),
           }}
           {...rest}
           ref={ref}
