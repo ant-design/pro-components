@@ -3,6 +3,10 @@ import {
   ProFormDatePicker,
   ProFormDateRangePicker,
   ProFormDateTimePicker,
+  ProFormDateTimeRangePicker,
+  ProFormDateWeekRangePicker,
+  ProFormDateQuarterRangePicker,
+  ProFormDateYearRangePicker,
   ProFormSelect,
   ProFormSlider,
   ProFormText,
@@ -10,6 +14,13 @@ import {
 } from '@ant-design/pro-components';
 import { render, waitFor } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
+import dayjs from 'dayjs';
+import advancedFormat from 'dayjs/plugin/advancedFormat';
+import weekOfYear from 'dayjs/plugin/weekOfYear';
+import { dateArrayFormatter } from '../../src/utils/dateArrayFormatter';
+
+dayjs.extend(advancedFormat);
+dayjs.extend(weekOfYear);
 
 describe('LightFilter', () => {
   it(' 🪕 should render basic structure', async () => {
@@ -345,6 +356,63 @@ describe('LightFilter', () => {
       return container.querySelector('.ant-pro-core-field-label');
     });
     expect(fieldLabel).toBeTruthy();
+  });
+
+  it(' 🪕 should format date range labels by default', async () => {
+    const { container } = render(
+      <LightFilter
+        initialValues={{
+          dateRange: [dayjs('2023-01-01'), dayjs('2023-01-03')],
+          dateTimeRange: [
+            dayjs('2023-01-01 08:00:00'),
+            dayjs('2023-01-01 10:30:00'),
+          ],
+          weekRange: [dayjs('2023-01-02'), dayjs('2023-01-08')],
+          quarterRange: [dayjs('2023-01-01'), dayjs('2023-03-31')],
+          yearRange: [dayjs('2022-01-01'), dayjs('2023-01-01')],
+        }}
+      >
+        <ProFormDateRangePicker name="dateRange" label="日期" />
+        <ProFormDateTimeRangePicker name="dateTimeRange" label="日期时间" />
+        <ProFormDateWeekRangePicker name="weekRange" label="周" />
+        <ProFormDateQuarterRangePicker name="quarterRange" label="季度" />
+        <ProFormDateYearRangePicker name="yearRange" label="年份" />
+      </LightFilter>,
+    );
+
+    await waitFor(() => {
+      const values = Array.from(
+        container.querySelectorAll<HTMLInputElement>('.ant-picker-input input'),
+      ).map((node) => node.value);
+      expect(values).toEqual(
+        expect.arrayContaining([
+          '2023-01-01',
+          '2023-01-03',
+          '2023-01-01 08:00:00',
+          '2023-01-01 10:30:00',
+          '2023-01-02',
+          '2023-01-08',
+          '2022-01-01',
+          '2023-01-01',
+        ]),
+      );
+    });
+
+    const weekLabel = dateArrayFormatter(
+      [dayjs('2023-01-02'), dayjs('2023-01-08')],
+      'YYYY-wo',
+    );
+    const quarterLabel = dateArrayFormatter(
+      [dayjs('2023-01-01'), dayjs('2023-03-31')],
+      'YYYY-[Q]Q',
+    );
+    const yearLabel = dateArrayFormatter(
+      [dayjs('2022-01-01'), dayjs('2023-01-01')],
+      'YYYY',
+    );
+    expect(weekLabel).toBe('2023-1st ~ 2023-2nd');
+    expect(quarterLabel).toBe('2023-Q1 ~ 2023-Q1');
+    expect(yearLabel).toBe('2022 ~ 2023');
   });
 
   it(' 🪕 should support onFinish callback', async () => {

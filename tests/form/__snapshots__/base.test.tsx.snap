@@ -604,8 +604,8 @@ exports[`ProForm > 📦 when dateFormatter is a Function 1`] = `
                     autocomplete="off"
                     id="datetime"
                     placeholder="请选择"
-                    size="12"
-                    value="2021-08-09"
+                    size="21"
+                    value="2021-08-09 12:12:12"
                   />
                   <span
                     class="ant-picker-suffix"
