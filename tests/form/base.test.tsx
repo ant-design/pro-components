@@ -3895,6 +3895,24 @@ describe('ProForm', () => {
     );
 
     await wrapper.findByDisplayValue('2023-01-15 14:30:00');
+    act(() => {
+      const picker = wrapper.baseElement.querySelector('.ant-picker');
+      if (picker) {
+        const input = picker.querySelector('input');
+        if (input) {
+          fireEvent.focus(input);
+        }
+        fireEvent.mouseDown(picker);
+        fireEvent.mouseUp(picker);
+        fireEvent.click(picker);
+      }
+    });
+
+    await waitFor(() => {
+      expect(
+        wrapper.baseElement.ownerDocument.querySelector('.ant-picker-time-panel'),
+      ).toBeTruthy();
+    });
 
     wrapper.unmount();
   });
@@ -3915,6 +3933,24 @@ describe('ProForm', () => {
 
     await wrapper.findByDisplayValue('2023-01-15 14:30:00');
     await wrapper.findByDisplayValue('2023-01-16 09:00:00');
+    act(() => {
+      const picker = wrapper.baseElement.querySelector('.ant-picker-range');
+      if (picker) {
+        const input = picker.querySelector('input');
+        if (input) {
+          fireEvent.focus(input);
+        }
+        fireEvent.mouseDown(picker);
+        fireEvent.mouseUp(picker);
+        fireEvent.click(picker);
+      }
+    });
+
+    await waitFor(() => {
+      expect(
+        wrapper.baseElement.ownerDocument.querySelector('.ant-picker-time-panel'),
+      ).toBeTruthy();
+    });
 
     wrapper.unmount();
   });

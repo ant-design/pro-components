@@ -1,5 +1,5 @@
 import type { RangePickerProps } from 'antd/lib/date-picker';
-import React, { useContext, useMemo } from 'react';
+import React, { useCallback, useMemo, useContext } from 'react';
 import { FieldRangePicker } from '../../../field';
 import { ProConfigProvider } from '../../../provider';
 import { dateArrayFormatter } from '../../../utils';
@@ -30,36 +30,42 @@ export const BaseDateRanger: React.FC<
 
       return nextFieldProps;
     }, [fieldProps, valueType]);
-    const lightFilterFormat =
-      mergedFieldProps.format ||
-      (valueType === 'dateTimeRange' ? 'YYYY-MM-DD HH:mm:ss' : 'YYYY-MM');
+    const lightFilterFormat = useMemo(() => {
+      if (mergedFieldProps.format) return mergedFieldProps.format;
+      switch (valueType) {
+        case 'dateTimeRange':
+          return 'YYYY-MM-DD HH:mm:ss';
+        case 'dateWeekRange':
+          return 'YYYY-wo';
+        case 'dateMonthRange':
+          return 'YYYY-MM';
+        case 'dateQuarterRange':
+          return 'YYYY-[Q]Q';
+        case 'dateYearRange':
+          return 'YYYY';
+        default:
+          return 'YYYY-MM-DD';
+      }
+    }, [mergedFieldProps.format, valueType]);
+    const renderFieldRangePicker = useCallback(
+      (text: any, props: any) => {
+        const fieldPropsFromContext = (props.fieldProps as any) ?? mergedFieldProps;
+        const format =
+          valueType === 'dateTimeRange'
+            ? fieldPropsFromContext?.format ?? 'YYYY-MM-DD HH:mm:ss'
+            : fieldPropsFromContext?.format;
+
+        return <FieldRangePicker {...props} format={format} text={text} />;
+      },
+      [mergedFieldProps, valueType],
+    );
 
     return (
       <ProConfigProvider
         valueTypeMap={{
           [valueType]: {
-            render: (text, props) => (
-              <FieldRangePicker
-                {...props}
-                format={
-                  valueType === 'dateTimeRange'
-                    ? props.format ?? 'YYYY-MM-DD HH:mm:ss'
-                    : props.format
-                }
-                text={text}
-              />
-            ),
-            formItemRender: (text, props) => (
-              <FieldRangePicker
-                {...props}
-                format={
-                  valueType === 'dateTimeRange'
-                    ? props.format ?? 'YYYY-MM-DD HH:mm:ss'
-                    : props.format
-                }
-                text={text}
-              />
-            ),
+            render: renderFieldRangePicker,
+            formItemRender: renderFieldRangePicker,
           },
         }}
       >

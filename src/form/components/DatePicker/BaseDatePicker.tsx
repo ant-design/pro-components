@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from 'react';
+import React, { useCallback, useMemo, useContext } from 'react';
 import { FieldDatePicker } from '../../../field';
 import { ProConfigProvider } from '../../../provider';
 import FieldContext from '../../FieldContext';
@@ -35,33 +35,25 @@ export const BaseDatePicker: React.FC<
 
       return nextFieldProps;
     }, [fieldProps, valueType]);
+    const renderFieldDatePicker = useCallback(
+      (text: any, props: any) => {
+        const fieldPropsFromContext = (props.fieldProps as any) ?? mergedFieldProps;
+        const format =
+          valueType === 'dateTime'
+            ? fieldPropsFromContext?.format ?? 'YYYY-MM-DD HH:mm:ss'
+            : fieldPropsFromContext?.format;
+
+        return <FieldDatePicker {...props} format={format} text={text} />;
+      },
+      [mergedFieldProps, valueType],
+    );
 
     return (
       <ProConfigProvider
         valueTypeMap={{
           [valueType]: {
-            render: (text, props) => (
-              <FieldDatePicker
-                {...props}
-                format={
-                  valueType === 'dateTime'
-                    ? props.format ?? 'YYYY-MM-DD HH:mm:ss'
-                    : props.format
-                }
-                text={text}
-              />
-            ),
-            formItemRender: (text, props) => (
-              <FieldDatePicker
-                {...props}
-                format={
-                  valueType === 'dateTime'
-                    ? props.format ?? 'YYYY-MM-DD HH:mm:ss'
-                    : props.format
-                }
-                text={text}
-              />
-            ),
+            render: renderFieldDatePicker,
+            formItemRender: renderFieldDatePicker,
           },
         }}
       >

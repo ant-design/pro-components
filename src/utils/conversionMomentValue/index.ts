@@ -176,19 +176,21 @@ export const conversionMomentValue = <T extends {} = any>(
       );
       return;
     }
-    const currentDateFormatter =
-      dateFormatter === undefined ? 'string' : dateFormatter;
-    const finalDateFormatter: DateFormatter =
+    const currentDateFormatter = dateFormatter ?? 'string';
+    let finalDateFormatter: DateFormatter;
+    if (
       currentDateFormatter === 'number' ||
       currentDateFormatter === false ||
       typeof currentDateFormatter === 'function'
-        ? currentDateFormatter
-        : typeof currentDateFormatter === 'string'
-          ? currentDateFormatter === 'string'
-            ? dateFormat ||
-              dateFormatterMap[valueType as keyof typeof dateFormatterMap]
-            : currentDateFormatter
-          : dateFormat || currentDateFormatter;
+    ) {
+      finalDateFormatter = currentDateFormatter;
+    } else if (currentDateFormatter === 'string') {
+      finalDateFormatter =
+        dateFormat || dateFormatterMap[valueType as keyof typeof dateFormatterMap];
+    } else {
+      // Custom format string
+      finalDateFormatter = currentDateFormatter;
+    }
     // 处理 FormList 的 value
     if (Array.isArray(itemValue)) {
       (tmpValue as any)[valueKey] = itemValue.map((arrayValue, index) => {
