@@ -51,8 +51,10 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (
         placement={direction === 'rtl' ? 'right' : 'left'}
         className={classNames(`${prefixCls}-drawer-sider`, className)}
         open={!collapsed}
-        afterOpenChange={() => {
-          onCollapse?.(true);
+        afterOpenChange={(open) => {
+          if (!open) {
+            onCollapse?.(true);
+          }
         }}
         style={{
           padding: 0,
