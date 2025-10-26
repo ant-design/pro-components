@@ -81,7 +81,7 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
     const dom = context?.getTargetContainer?.() || document.body;
 
     const isFixedHeaderFn = () => {
-      const scrollTop = dom.scrollTop;
+      const scrollTop = (dom as HTMLElement).scrollTop;
 
       if (
         scrollTop > (token.layout?.header?.heightLayoutHeader || 56) &&
