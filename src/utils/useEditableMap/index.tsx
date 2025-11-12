@@ -5,8 +5,8 @@
 import { message } from 'antd';
 import type React from 'react';
 import { useCallback, useMemo, useRef } from 'react';
-import { useIntl } from '../../provider';
 import { useRefFunction } from '..';
+import { useIntl } from '../../provider';
 import type {
   ActionRenderConfig,
   ActionTypeText,
@@ -90,6 +90,7 @@ export function useEditableMap<RecordType>(
 
   /**
    * 检查 key 是否在编辑列表中
+   * 使用 editableKeysSet 进行快速查找，性能更好
    */
   const checkKeyInEditableList = useRefFunction(
     (recordKey: RecordKey): boolean => {
@@ -139,7 +140,7 @@ export function useEditableMap<RecordType>(
 
       const keyStr = String(recordKeyToString(recordKey));
 
-      // 检查是否已经在编辑列表中
+      // 检查是否已经在编辑列表中，避免重复添加
       if (checkKeyInEditableList(recordKey)) {
         return true;
       }
@@ -156,10 +157,11 @@ export function useEditableMap<RecordType>(
         null;
 
       // 更新编辑 keys（不直接修改 editableKeysSet）
-      const newKeys = editableType === 'single' 
-        ? [keyStr] 
-        : [...(editableKeys || []), keyStr];
-      
+      const newKeys =
+        editableType === 'single'
+          ? [keyStr]
+          : [...(editableKeys || []), keyStr];
+
       setEditableRowKeys(newKeys);
       return true;
     },
