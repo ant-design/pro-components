@@ -237,20 +237,20 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                         <tr
                           aria-hidden="true"
                           class="ant-table-measure-row"
-                          style="height: 0px;"
+                          tabindex="-1"
                         >
-                          <td
-                            style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
+                          <th
+                            class="ant-table-measure-cell"
                           >
                             <div
-                              style="height: 0px; overflow: hidden; font-weight: bold;"
+                              class="ant-table-measure-cell-content"
                             />
-                          </td>
-                          <td
-                            style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
+                          </th>
+                          <th
+                            class="ant-table-measure-cell"
                           >
                             <div
-                              style="height: 0px; overflow: hidden; font-weight: bold;"
+                              class="ant-table-measure-cell-content"
                             >
                               <div
                                 class="ant-pro-core-label-tip"
@@ -289,12 +289,12 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                                 </span>
                               </div>
                             </div>
-                          </td>
-                          <td
-                            style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
+                          </th>
+                          <th
+                            class="ant-table-measure-cell"
                           >
                             <div
-                              style="height: 0px; overflow: hidden; font-weight: bold;"
+                              class="ant-table-measure-cell-content"
                             >
                               <div
                                 class="ant-table-filter-column"
@@ -331,25 +331,25 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                                 </span>
                               </div>
                             </div>
-                          </td>
-                          <td
-                            style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
+                          </th>
+                          <th
+                            class="ant-table-measure-cell"
                           >
                             <div
-                              style="height: 0px; overflow: hidden; font-weight: bold;"
+                              class="ant-table-measure-cell-content"
                             >
                               创建时间
                             </div>
-                          </td>
-                          <td
-                            style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
+                          </th>
+                          <th
+                            class="ant-table-measure-cell"
                           >
                             <div
-                              style="height: 0px; overflow: hidden; font-weight: bold;"
+                              class="ant-table-measure-cell-content"
                             >
                               操作
                             </div>
-                          </td>
+                          </th>
                         </tr>
                         <tr
                           class="ant-table-row ant-table-row-level-0"

@@ -176,15 +176,33 @@ export const conversionMomentValue = <T extends {} = any>(
       );
       return;
     }
+    const currentDateFormatter = dateFormatter ?? 'string';
+    let finalDateFormatter: DateFormatter;
+    if (
+      currentDateFormatter === 'number' ||
+      currentDateFormatter === false ||
+      typeof currentDateFormatter === 'function'
+    ) {
+      finalDateFormatter = currentDateFormatter;
+    } else if (currentDateFormatter === 'string') {
+      finalDateFormatter =
+        dateFormat ||
+        dateFormatterMap[valueType as keyof typeof dateFormatterMap];
+    } else {
+      // Custom format string
+      finalDateFormatter = currentDateFormatter;
+    }
     // 处理 FormList 的 value
     if (Array.isArray(itemValue)) {
       (tmpValue as any)[valueKey] = itemValue.map((arrayValue, index) => {
         if (dayjs.isDayjs(arrayValue) || isMoment(arrayValue)) {
-          return convertMoment(
-            arrayValue,
-            dateFormat || dateFormatter,
-            valueType,
-          );
+          // For arrays, if no format is defined and dateFormatter is 'string', use 'string' with default format
+          const arrayDateFormatter =
+            finalDateFormatter === undefined &&
+            currentDateFormatter === 'string'
+              ? 'string'
+              : finalDateFormatter;
+          return convertMoment(arrayValue, arrayDateFormatter, valueType);
         }
         return conversionMomentValue(
           arrayValue,
@@ -198,10 +216,7 @@ export const conversionMomentValue = <T extends {} = any>(
     }
     (tmpValue as any)[valueKey] = convertMoment(
       itemValue,
-      dateFormat ||
-        (dateFormatter === 'string'
-          ? dateFormatterMap[valueType as keyof typeof dateFormatterMap]
-          : dateFormatter),
+      finalDateFormatter,
       valueType,
     );
   });

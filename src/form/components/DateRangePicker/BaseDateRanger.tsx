@@ -1,5 +1,5 @@
 import type { RangePickerProps } from 'antd/lib/date-picker';
-import React, { useContext } from 'react';
+import React, { useCallback, useMemo, useContext } from 'react';
 import { FieldRangePicker } from '../../../field';
 import { ProConfigProvider } from '../../../provider';
 import { dateArrayFormatter } from '../../../utils';
@@ -21,23 +21,58 @@ export const BaseDateRanger: React.FC<
 > = React.forwardRef(
   ({ fieldProps, proFieldProps, valueType, ...rest }, ref) => {
     const context = useContext(FieldContext);
+    const mergedFieldProps = useMemo(() => {
+      const nextFieldProps = fieldProps ? { ...fieldProps } : {};
+
+      if (valueType === 'dateTimeRange' && nextFieldProps.showTime === undefined) {
+        nextFieldProps.showTime = true;
+      }
+
+      return nextFieldProps;
+    }, [fieldProps, valueType]);
+    const lightFilterFormat = useMemo(() => {
+      if (mergedFieldProps.format) return mergedFieldProps.format;
+      switch (valueType) {
+        case 'dateTimeRange':
+          return 'YYYY-MM-DD HH:mm:ss';
+        case 'dateWeekRange':
+          return 'YYYY-wo';
+        case 'dateMonthRange':
+          return 'YYYY-MM';
+        case 'dateQuarterRange':
+          return 'YYYY-[Q]Q';
+        case 'dateYearRange':
+          return 'YYYY';
+        default:
+          return 'YYYY-MM-DD';
+      }
+    }, [mergedFieldProps.format, valueType]);
+    const renderFieldRangePicker = useCallback(
+      (text: any, props: any) => {
+        const fieldPropsFromContext = (props.fieldProps as any) ?? mergedFieldProps;
+        const format =
+          valueType === 'dateTimeRange'
+            ? fieldPropsFromContext?.format ?? 'YYYY-MM-DD HH:mm:ss'
+            : fieldPropsFromContext?.format;
+
+        return <FieldRangePicker {...props} format={format} text={text} />;
+      },
+      [mergedFieldProps, valueType],
+    );
+
     return (
       <ProConfigProvider
         valueTypeMap={{
           [valueType]: {
-            render: (text, props) => (
-              <FieldRangePicker {...props} text={text} />
-            ),
-            formItemRender: (text, props) => (
-              <FieldRangePicker {...props} text={text} />
-            ),
+            render: renderFieldRangePicker,
+            formItemRender: renderFieldRangePicker,
           },
         }}
       >
         <ProField
           fieldProps={{
             getPopupContainer: context.getPopupContainer,
-            ...fieldProps,
+            ...mergedFieldProps,
           }}
           valueType={valueType}
           proFieldProps={proFieldProps}
@@ -45,7 +80,7 @@ export const BaseDateRanger: React.FC<
             valueType,
             customLightMode: true,
             lightFilterLabelFormatter: (value) =>
-              dateArrayFormatter(value, fieldProps?.format || 'YYYY-MM'),
+              dateArrayFormatter(value, lightFilterFormat),
           }}
           {...rest}
           ref={ref}

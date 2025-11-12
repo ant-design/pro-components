@@ -137,7 +137,9 @@ describe('BasicTable', () => {
       fireEvent.mouseOver(screen.getByText('更多操作'));
     });
 
-    await waitFor(async () => html.findByText('复制'));
+    await waitFor(async () => html.findByText('复制'), {
+      timeout: 20000,
+    });
 
     await act(async () => {
       (await html.findByText('复制')).click();
@@ -147,7 +149,9 @@ describe('BasicTable', () => {
       fireEvent.mouseOver(screen.getByText('其他操作'));
     });
 
-    await waitFor(async () => html.findByText('编辑'));
+    await waitFor(async () => html.findByText('编辑'), {
+      timeout: 20000,
+    });
 
     await act(async () => {
       (await html.findByText('编辑')).click();

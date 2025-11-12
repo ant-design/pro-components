@@ -242,6 +242,8 @@ const covertFormName = (name?: NamePath) => {
   return [name];
 };
 
+const defaultExtraUrlParams = {} as Record<string, any>
+
 function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
   props: BaseFormProps<T, U> & {
     loading: boolean;
@@ -262,7 +264,7 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
     form,
     loading,
     formComponentType,
-    extraUrlParams = {} as Record<string, any>,
+    extraUrlParams = defaultExtraUrlParams,
     syncToUrl,
     onUrlSearchChange,
     onReset,
@@ -631,7 +633,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
   props: BaseFormProps<T, U>,
 ) {
   const {
-    extraUrlParams = {} as Record<string, any>,
+    extraUrlParams = defaultExtraUrlParams,
     syncToUrl,
     isKeyPressSubmit,
     syncToUrlAsImportant = false,

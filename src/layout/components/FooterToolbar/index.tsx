@@ -112,7 +112,7 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
   const ssrDom =
     !isBrowser() || !portalDom || !containerDom
       ? renderDom
-      : createPortal(renderDom, containerDom, baseClassName);
+      : createPortal(renderDom, containerDom as Element, baseClassName);
 
   return stylish.wrapSSR(
     wrapSSR(<React.Fragment key={baseClassName}>{ssrDom}</React.Fragment>),
