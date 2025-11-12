@@ -144,6 +144,582 @@ type CreatorButtonResult = {
   buttonRenderProps: Record<string, any>;
 };
 
+function useEditableDataSource<DataType>({
+  actionDataSource,
+  editableUtils,
+  pagination,
+  getRowKey,
+  childrenColumnName,
+}: {
+  actionDataSource: readonly DataType[] | undefined;
+  editableUtils: {
+    newLineRecord?: {
+      options?: {
+        position?: 'top' | 'bottom' | string;
+        parentKey?: React.Key;
+        recordKey?: React.Key;
+      };
+      defaultValue?: DataType;
+    };
+  };
+  pagination: false | TablePaginationConfig | undefined;
+  getRowKey: GetRowKey<any>;
+  childrenColumnName?: string;
+}): DataType[] {
+  return useMemo(() => {
+    const newLineConfig = editableUtils?.newLineRecord;
+    const baseData = Array.isArray(actionDataSource)
+      ? [...actionDataSource]
+      : [];
+
+    if (!newLineConfig?.defaultValue) {
+      return baseData;
+    }
+
+    const { options: newLineOptions, defaultValue } = newLineConfig;
+
+    if (newLineOptions?.parentKey) {
+      const actionProps = {
+        data: baseData,
+        getRowKey,
+        row: {
+          ...defaultValue,
+          map_row_parentKey: recordKeyToString(
+            newLineOptions.parentKey,
+          )?.toString(),
+        },
+        key: newLineOptions?.recordKey,
+        childrenColumnName: childrenColumnName || 'children',
+      };
+
+      return editableRowByKey(
+        actionProps,
+        newLineOptions?.position === 'top' ? 'top' : 'update',
+      );
+    }
+
+    if (newLineOptions?.position === 'top') {
+      return [defaultValue, ...baseData];
+    }
+
+    const pageConfig =
+      pagination && typeof pagination === 'object' ? pagination : undefined;
+
+    if (pageConfig?.current && pageConfig?.pageSize) {
+      if (pageConfig.pageSize > baseData.length) {
+        baseData.push(defaultValue);
+        return baseData;
+      }
+      const insertIndex = pageConfig.current * pageConfig.pageSize - 1;
+      baseData.splice(insertIndex, 0, defaultValue);
+      return baseData;
+    }
+
+    baseData.push(defaultValue);
+    return baseData;
+  }, [
+    actionDataSource,
+    childrenColumnName,
+    editableUtils?.newLineRecord,
+    getRowKey,
+    pagination,
+  ]);
+}
+
+function useCreatorButton<DataType>({
+  recordCreatorProps,
+  maxLength,
+  value,
+  intl,
+  isTop,
+  columnsLength,
+  tableViewRender,
+}: {
+  recordCreatorProps: EditableProTableProps<
+    DataType,
+    any
+  >['recordCreatorProps'];
+  maxLength: EditableProTableProps<DataType, any>['maxLength'];
+  value: readonly DataType[] | undefined;
+  intl: ReturnType<typeof useIntl>;
+  isTop: boolean;
+  columnsLength: number | undefined;
+  tableViewRender: ProTableProps<DataType, any>['tableViewRender'];
+}): CreatorButtonResult {
+  const creatorButtonDom = useMemo(() => {
+    if (typeof maxLength === 'number' && maxLength <= (value?.length || 0)) {
+      return false;
+    }
+    if (recordCreatorProps === false) return false;
+    const {
+      record,
+      position,
+      creatorButtonText,
+      newRecordType,
+      parentKey,
+      style,
+      ...restButtonProps
+    } = recordCreatorProps || {};
+
+    return (
+      <RecordCreator
+        record={runFunction(record, value?.length, value) || {}}
+        position={position}
+        parentKey={runFunction(parentKey, value?.length, value)}
+        newRecordType={newRecordType}
+      >
+        <Button
+          type="dashed"
+          style={{
+            display: 'block',
+            margin: '10px 0',
+            width: '100%',
+            ...style,
+          }}
+          icon={<PlusOutlined />}
+          {...restButtonProps}
+        >
+          {creatorButtonText ||
+            intl.getMessage('editableTable.action.add', '添加一行数据')}
+        </Button>
+      </RecordCreator>
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [maxLength, recordCreatorProps, value?.length]);
+
+  const buttonRenderProps = useMemo(() => {
+    if (!creatorButtonDom) {
+      return {};
+    }
+    if (isTop) {
+      return {
+        components: {
+          header: {
+            wrapper: ({
+              className,
+              children,
+            }: {
+              className: string;
+              children: React.ReactNode;
+            }) => (
+              <thead className={className}>
+                {children}
+                <tr style={{ position: 'relative' }}>
+                  <td colSpan={0} style={{ visibility: 'hidden' }}>
+                    {creatorButtonDom}
+                  </td>
+                  <td
+                    style={{ position: 'absolute', left: 0, width: '100%' }}
+                    colSpan={columnsLength}
+                  >
+                    {creatorButtonDom}
+                  </td>
+                </tr>
+              </thead>
+            ),
+          },
+        },
+      };
+    }
+    return {
+      tableViewRender: (_: any, dom: any) => {
+        return (
+          <>
+            {tableViewRender?.(_, dom) ?? dom}
+            {creatorButtonDom}
+          </>
+        );
+      },
+    };
+  }, [columnsLength, creatorButtonDom, isTop, tableViewRender]);
+
+  return { creatorButtonDom, buttonRenderProps };
+}
+
+function useTableCardBodyStyle({
+  propsCardProps,
+  notNeedCardDom,
+  name,
+  hideToolbar,
+  toolbarDom,
+  pagination,
+}: {
+  propsCardProps: ProTableProps<any, any, any>['cardProps'];
+  notNeedCardDom: boolean;
+  name: ProTableProps<any, any, any>['name'];
+  hideToolbar: boolean;
+  toolbarDom: React.ReactNode;
+  pagination: ProTableProps<any, any, any>['pagination'];
+}): React.CSSProperties {
+  return useMemo(() => {
+    if (propsCardProps === false || notNeedCardDom || !!name) {
+      return {};
+    }
+
+    if (hideToolbar) {
+      return {
+        padding: 0,
+      };
+    }
+
+    if (toolbarDom) {
+      return {
+        paddingBlockStart: 0,
+      };
+    }
+
+    if (toolbarDom && pagination === false) {
+      return {
+        paddingBlockStart: 0,
+      };
+    }
+
+    return {
+      padding: 0,
+    };
+  }, [hideToolbar, name, notNeedCardDom, pagination, propsCardProps, toolbarDom]);
+}
+
+function useTableContent<DataType>({
+  editable,
+  name,
+  toolbarDom,
+  alertDom,
+  tableDom,
+  dateFormatter,
+  editableOnValuesChange,
+}: {
+  editable: ProTableProps<DataType, any, any>['editable'];
+  name: ProTableProps<DataType, any, any>['name'];
+  toolbarDom: React.ReactNode;
+  alertDom: React.ReactNode;
+  tableDom: React.ReactNode;
+  dateFormatter: ProTableProps<DataType, any, any>['dateFormatter'];
+  editableOnValuesChange:
+    | ((record: DataType, dataSource: DataType[]) => void)
+    | undefined;
+}): React.ReactNode {
+  return useMemo(() => {
+    if (editable && !name) {
+      return (
+        <>
+          {toolbarDom}
+          {alertDom}
+          <ProForm
+            {...editable.formProps}
+            formRef={editable.formProps?.formRef as any}
+            component={false}
+            form={editable.form}
+            onValuesChange={editableOnValuesChange}
+            key="table"
+            submitter={false}
+            omitNil={false}
+            dateFormatter={dateFormatter}
+          >
+            {tableDom}
+          </ProForm>
+        </>
+      );
+    }
+
+    return (
+      <>
+        {toolbarDom}
+        {alertDom}
+        {tableDom}
+      </>
+    );
+  }, [
+    alertDom,
+    dateFormatter,
+    editable,
+    editableOnValuesChange,
+    name,
+    tableDom,
+    toolbarDom,
+  ]);
+}
+
+function useRowKey<T>({
+  rowKey,
+  name,
+}: {
+  rowKey: ProTableProps<T, any, any>['rowKey'];
+  name: ProTableProps<T, any, any>['name'];
+}): GetRowKey<any> {
+  return useMemo(() => {
+    if (typeof rowKey === 'function') {
+      return rowKey;
+    }
+    return (record: T, index?: number) => {
+      if (index === -1) {
+        return (record as any)?.[rowKey as string];
+      }
+      if (name) {
+        return index?.toString();
+      }
+      return (record as any)?.[rowKey as string] ?? index?.toString();
+    };
+  }, [name, rowKey]);
+}
+
+function useMergedPagination<T>({
+  propsPagination,
+  action,
+  intl,
+  request,
+  type,
+}: {
+  propsPagination: ProTableProps<T, any, any>['pagination'];
+  action: UseFetchDataAction<T>;
+  intl: ReturnType<typeof useIntl>;
+  request: ProTableProps<T, any, any>['request'];
+  type: ProTableProps<T, any, any>['type'];
+}): ProTableProps<T, any, any>['pagination'] {
+  return useMemo(() => {
+    const newPropsPagination =
+      propsPagination === false ? false : { ...(propsPagination || {}) };
+    const pageConfig = {
+      ...action.pageInfo,
+      setPageInfo: ({ pageSize, current }: PageInfo) => {
+        const { pageInfo } = action;
+        if (pageSize === pageInfo.pageSize || pageInfo.current === 1) {
+          action.setPageInfo({ pageSize, current });
+          return;
+        }
+
+        if (request) action.setDataSource([]);
+        action.setPageInfo({
+          pageSize,
+          current: type === 'list' ? current : 1,
+        });
+      },
+    };
+    if (request && newPropsPagination) {
+      delete newPropsPagination.onChange;
+      delete newPropsPagination.onShowSizeChange;
+    }
+    return mergePagination<T>(
+      newPropsPagination as TablePaginationConfig | false | undefined,
+      pageConfig,
+      intl,
+    );
+  }, [action, intl, propsPagination, request, type]);
+}
+
+function useSearchNode<T extends Record<string, any>, U, ValueType>({
+  search,
+  type,
+  pagination,
+  beforeSearchSubmit,
+  actionRef,
+  columns,
+  onFormSearchSubmit,
+  ghost,
+  onReset,
+  onSubmit,
+  loading,
+  manualRequest,
+  form,
+  formRef,
+  cardBordered,
+  dateFormatter,
+  searchFormRender,
+  proTableProps,
+}: {
+  search: ProTableProps<T, U, ValueType>['search'];
+  type: ProTableProps<T, U, ValueType>['type'];
+  pagination: ProTableProps<T, U, ValueType>['pagination'];
+  beforeSearchSubmit: ProTableProps<T, U, ValueType>['beforeSearchSubmit'];
+  actionRef: React.MutableRefObject<ActionType | undefined>;
+  columns: ProTableProps<T, U, ValueType>['columns'];
+  onFormSearchSubmit: <Y extends ParamsType>(values: Y) => any;
+  ghost: ProTableProps<T, U, ValueType>['ghost'];
+  onReset: ProTableProps<T, U, ValueType>['onReset'];
+  onSubmit: ProTableProps<T, U, ValueType>['onSubmit'];
+  loading: boolean;
+  manualRequest: ProTableProps<T, U, ValueType>['manualRequest'];
+  form: ProTableProps<T, U, ValueType>['form'];
+  formRef: React.MutableRefObject<any>;
+  cardBordered: ProTableProps<T, U, ValueType>['cardBordered'];
+  dateFormatter: ProTableProps<T, U, ValueType>['dateFormatter'];
+  searchFormRender: ProTableProps<T, U, ValueType>['searchFormRender'];
+  proTableProps: ProTableProps<T, U, ValueType>;
+}): React.ReactNode {
+  return useMemo(() => {
+    const node =
+      search === false && type !== 'form' ? null : (
+        <FormRender<T, U>
+          pagination={pagination}
+          beforeSearchSubmit={beforeSearchSubmit}
+          action={actionRef}
+          columns={columns}
+          onFormSearchSubmit={(values) => {
+            onFormSearchSubmit(values);
+          }}
+          ghost={ghost}
+          onReset={onReset}
+          onSubmit={onSubmit}
+          loading={loading}
+          manualRequest={manualRequest}
+          search={search}
+          form={form}
+          formRef={formRef}
+          type={type || 'table'}
+          cardBordered={cardBordered}
+          dateFormatter={dateFormatter}
+        />
+      );
+
+    if (searchFormRender && node) {
+      return <>{searchFormRender(proTableProps, node)}</>;
+    }
+    return node;
+  }, [
+    actionRef,
+    beforeSearchSubmit,
+    cardBordered,
+    columns,
+    dateFormatter,
+    form,
+    formRef,
+    ghost,
+    loading,
+    manualRequest,
+    onFormSearchSubmit,
+    onReset,
+    onSubmit,
+    pagination,
+    proTableProps,
+    search,
+    searchFormRender,
+    type,
+  ]);
+}
+
+function useToolbarDom<T extends Record<string, any>>({
+  toolBarRender,
+  headerTitle,
+  hideToolbar,
+  selectedRows,
+  selectedRowKeys,
+  tableColumn,
+  tooltip,
+  toolbar,
+  isLightFilter,
+  searchNode,
+  options,
+  optionsRender,
+  actionRef,
+  setFormSearch,
+  formSearch,
+}: {
+  toolBarRender: ProTableProps<T, any, any>['toolBarRender'];
+  headerTitle: ProTableProps<T, any, any>['headerTitle'];
+  hideToolbar: boolean;
+  selectedRows: T[];
+  selectedRowKeys: (string | number | Key)[] | undefined;
+  tableColumn: any[];
+  tooltip: ProTableProps<T, any, any>['tooltip'];
+  toolbar: ProTableProps<T, any, any>['toolbar'];
+  isLightFilter: boolean;
+  searchNode: React.ReactNode;
+  options: ProTableProps<T, any, any>['options'];
+  optionsRender: ProTableProps<T, any, any>['optionsRender'];
+  actionRef: React.MutableRefObject<ActionType | undefined>;
+  setFormSearch: (value: Record<string, any> | undefined) => void;
+  formSearch: Record<string, any> | undefined;
+}): React.ReactNode {
+  return useMemo(() => {
+    if (toolBarRender === false) {
+      return null;
+    }
+    return (
+      <Toolbar<T>
+        headerTitle={headerTitle}
+        hideToolbar={hideToolbar}
+        selectedRows={selectedRows}
+        selectedRowKeys={selectedRowKeys!}
+        tableColumn={tableColumn}
+        tooltip={tooltip}
+        toolbar={toolbar}
+        onFormSearchSubmit={(newValues) => {
+          setFormSearch({
+            ...(formSearch || {}),
+            ...newValues,
+          });
+        }}
+        searchNode={isLightFilter ? searchNode : null}
+        options={options}
+        optionsRender={optionsRender}
+        actionRef={actionRef}
+        toolBarRender={toolBarRender}
+      />
+    );
+  }, [
+    actionRef,
+    formSearch,
+    headerTitle,
+    hideToolbar,
+    isLightFilter,
+    options,
+    optionsRender,
+    searchNode,
+    selectedRowKeys,
+    selectedRows,
+    setFormSearch,
+    tableColumn,
+    toolBarRender,
+    tooltip,
+    toolbar,
+  ]);
+}
+
+function useAlertDom<T extends Record<string, any>>({
+  propsRowSelection,
+  selectedRowKeys,
+  selectedRows,
+  onCleanSelected,
+  tableAlertOptionRender,
+  tableAlertRender,
+}: {
+  propsRowSelection: ProTableProps<T, any, any>['rowSelection'];
+  selectedRowKeys: (string | number | Key)[] | undefined;
+  selectedRows: T[];
+  onCleanSelected: () => void;
+  tableAlertOptionRender: ProTableProps<T, any, any>['tableAlertOptionRender'];
+  tableAlertRender: ProTableProps<T, any, any>['tableAlertRender'];
+}): React.ReactNode {
+  return useMemo(() => {
+    if (propsRowSelection === false) {
+      return null;
+    }
+    return (
+      <Alert<T>
+        selectedRowKeys={selectedRowKeys!}
+        selectedRows={selectedRows}
+        onCleanSelected={onCleanSelected}
+        alertOptionRender={tableAlertOptionRender}
+        alertInfoRender={tableAlertRender}
+        alwaysShowAlert={propsRowSelection?.alwaysShowAlert}
+      />
+    );
+  }, [
+    onCleanSelected,
+    propsRowSelection,
+    selectedRowKeys,
+    selectedRows,
+    tableAlertOptionRender,
+    tableAlertRender,
+  ]);
+}
+
+
+type CreatorButtonResult = {
+  creatorButtonDom: React.ReactNode | false;
+  buttonRenderProps: Record<string, any>;
+};
+
 function useCreatorButton<DataType>({
   recordCreatorProps,
   maxLength,
