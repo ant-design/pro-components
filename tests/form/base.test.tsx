@@ -3910,7 +3910,9 @@ describe('ProForm', () => {
 
     await waitFor(() => {
       expect(
-        wrapper.baseElement.ownerDocument.querySelector('.ant-picker-time-panel'),
+        wrapper.baseElement.ownerDocument.querySelector(
+          '.ant-picker-time-panel',
+        ),
       ).toBeTruthy();
     });
 
@@ -3921,10 +3923,7 @@ describe('ProForm', () => {
     const wrapper = render(
       <ProForm
         initialValues={{
-          range: [
-            dayjs('2023-01-15 14:30:00'),
-            dayjs('2023-01-16 09:00:00'),
-          ],
+          range: [dayjs('2023-01-15 14:30:00'), dayjs('2023-01-16 09:00:00')],
         }}
       >
         <ProFormDateTimeRangePicker name="range" />
@@ -3948,7 +3947,9 @@ describe('ProForm', () => {
 
     await waitFor(() => {
       expect(
-        wrapper.baseElement.ownerDocument.querySelector('.ant-picker-time-panel'),
+        wrapper.baseElement.ownerDocument.querySelector(
+          '.ant-picker-time-panel',
+        ),
       ).toBeTruthy();
     });
 

@@ -242,7 +242,7 @@ const covertFormName = (name?: NamePath) => {
   return [name];
 };
 
-const defaultExtraUrlParams = {} as Record<string, any>
+const defaultExtraUrlParams = {} as Record<string, any>;
 
 function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
   props: BaseFormProps<T, U> & {

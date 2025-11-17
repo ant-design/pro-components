@@ -217,5 +217,5 @@ export default () => {
         <strong>全局配置</strong>: 全局配置管理
       </li>
     </ul>
-  </div>
+  </div>;
 };

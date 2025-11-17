@@ -1,11 +1,11 @@
 import {
   LightFilter,
   ProFormDatePicker,
+  ProFormDateQuarterRangePicker,
   ProFormDateRangePicker,
   ProFormDateTimePicker,
   ProFormDateTimeRangePicker,
   ProFormDateWeekRangePicker,
-  ProFormDateQuarterRangePicker,
   ProFormDateYearRangePicker,
   ProFormSelect,
   ProFormSlider,
@@ -13,10 +13,10 @@ import {
   ProFormTimePicker,
 } from '@ant-design/pro-components';
 import { render, waitFor } from '@testing-library/react';
-import { describe, expect, it, vi } from 'vitest';
 import dayjs from 'dayjs';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
+import { describe, expect, it, vi } from 'vitest';
 import { dateArrayFormatter } from '../../src/utils/dateArrayFormatter';
 
 dayjs.extend(advancedFormat);

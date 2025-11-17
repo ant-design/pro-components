@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useContext } from 'react';
+import React, { useCallback, useContext, useMemo } from 'react';
 import { FieldDatePicker } from '../../../field';
 import { ProConfigProvider } from '../../../provider';
 import FieldContext from '../../FieldContext';
@@ -37,10 +37,11 @@ export const BaseDatePicker: React.FC<
     }, [fieldProps, valueType]);
     const renderFieldDatePicker = useCallback(
       (text: any, props: any) => {
-        const fieldPropsFromContext = (props.fieldProps as any) ?? mergedFieldProps;
+        const fieldPropsFromContext =
+          (props.fieldProps as any) ?? mergedFieldProps;
         const format =
           valueType === 'dateTime'
-            ? fieldPropsFromContext?.format ?? 'YYYY-MM-DD HH:mm:ss'
+            ? (fieldPropsFromContext?.format ?? 'YYYY-MM-DD HH:mm:ss')
             : fieldPropsFromContext?.format;
 
         return <FieldDatePicker {...props} format={format} text={text} />;

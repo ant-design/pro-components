@@ -35,8 +35,11 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (
 
   const { direction } = React.useContext(ConfigProvider.ConfigContext);
 
+  // 从 menu 配置中读取 collapsedWidth，默认为 64
+  const collapsedWidth = props.menu?.collapsedWidth ?? 64;
+
   const { wrapSSR, hashId } = useStyle(`${prefixCls}-sider`, {
-    proLayoutCollapsedWidth: 64,
+    proLayoutCollapsedWidth: collapsedWidth,
   });
 
   const siderClassName = classNames(`${prefixCls}-sider`, className, hashId);

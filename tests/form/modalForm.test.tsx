@@ -599,4 +599,38 @@ describe('ModalForm', () => {
       expect(formRef.current).toBeTruthy();
     });
   });
+
+  it('📦 ModalForm close during request loading with destroyOnHidden should not throw', async () => {
+    const wrapper = render(
+      <ModalForm
+        width={600}
+        modalProps={{ destroyOnHidden: true }}
+        request={async () => {
+          // Simulate slow request
+          return new Promise((resolve) =>
+            setTimeout(() => resolve({ name: 'demo' }), 200),
+          );
+        }}
+        trigger={<Button id="new">新建</Button>}
+      >
+        <ProFormText name="name" />
+      </ModalForm>,
+    );
+
+    await act(async () => {
+      const triggerButton = wrapper.getByText('新 建');
+      fireEvent.click(triggerButton);
+    });
+
+    // Close before request resolves (cancel button may not render while loading), click close icon
+    await act(async () => {
+      const closeButton = document.querySelector('button.ant-modal-close');
+      if (closeButton) {
+        fireEvent.click(closeButton);
+      }
+    });
+
+    // Wait a bit for async to flush
+    await waitForWaitTime(300);
+  });
 });
