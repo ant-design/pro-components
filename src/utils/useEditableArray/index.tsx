@@ -315,9 +315,11 @@ export function editableRowByKey<RecordType>(
       } as any);
     } else {
       // 如果记录不存在，创建一个新记录（用于新增场景）
+      // 保留 map_row_parentKey 以便正确处理嵌套子节点
       kvMap.set(key, {
         ...row,
         map_row_key: key,
+        map_row_parentKey: (row as any).map_row_parentKey,
       } as any);
     }
   }
@@ -777,7 +779,10 @@ export function useEditableArray<RecordType extends AnyObject>(
    */
   const clearEditableState = useRefFunction((recordKey: RecordKey) => {
     const relayKey = recordKeyToString(recordKey);
-    const relayKeyStr = relayKey.toString();
+    const relayKeyStr = relayKey != null ? relayKey.toString() : null;
+    if (relayKeyStr == null) {
+      return;
+    }
     const newKeys =
       editableKeys?.filter(
         (key) => key?.toString() !== relayKeyStr && key !== relayKey,
@@ -791,12 +796,16 @@ export function useEditableArray<RecordType extends AnyObject>(
   const cancelEditable = useRefFunction(
     async (recordKey: RecordKey, needReTry?: boolean): Promise<boolean> => {
       const relayKey = recordKeyToString(recordKey);
-      const relayKeyStr = relayKey.toString();
-      const mappedKey = dataSourceKeyIndexMapRef.current.get(relayKeyStr);
+      const relayKeyStr = relayKey != null ? relayKey.toString() : null;
+      const mappedKey =
+        relayKeyStr != null
+          ? dataSourceKeyIndexMapRef.current.get(relayKeyStr)
+          : undefined;
 
-      const isInEditableSet = editableKeys?.some(
-        (key) => key?.toString() === relayKeyStr || key === relayKey,
-      );
+      const isInEditableSet = editableKeys?.some((key) => {
+        if (relayKeyStr == null) return false;
+        return key?.toString() === relayKeyStr || key === relayKey;
+      });
 
       if (
         !isInEditableSet &&
@@ -817,9 +826,8 @@ export function useEditableArray<RecordType extends AnyObject>(
         // newLineRecordCache.options.recordKey 是 addEditRecord 时设置的 recordKey
         // 而 recordKey 是 cancelEditable 的参数，需要确保它们匹配
         const cacheRecordKey = newLineRecordCache?.options?.recordKey;
-        const relayKey = recordKeyToString(recordKey);
-        const relayKeyStr = relayKey != null ? relayKey.toString() : null;
-        const cacheKey = cacheRecordKey != null ? recordKeyToString(cacheRecordKey) : null;
+        const cacheKey =
+          cacheRecordKey != null ? recordKeyToString(cacheRecordKey) : null;
         const cacheKeyStr = cacheKey != null ? cacheKey.toString() : null;
         // 检查 newLineRecordCache 是否匹配当前的 recordKey
         const newLineConfig =
@@ -834,33 +842,37 @@ export function useEditableArray<RecordType extends AnyObject>(
             ? newLineRecordCache
             : undefined;
 
-        // 只有在能找到记录时才调用 onCancel
-        if (record) {
-          try {
-            await props.onCancel(
-              recordKey,
-              record,
-              originRow || record,
-              newLineConfig,
-            );
-          } catch (error) {
-            // 如果 onCancel 抛出异常，仍然继续清理状态
-            console.error('onCancel error:', error);
-          }
+        // 调用 onCancel，即使找不到记录（新行编辑场景）
+        // 对于新行编辑，record 可能为 null，但 newLineConfig 应该包含 defaultValue
+        try {
+          await props.onCancel(
+            recordKey,
+            record || (newLineConfig?.defaultValue as any) || ({} as any),
+            originRow ||
+              record ||
+              (newLineConfig?.defaultValue as any) ||
+              ({} as any),
+            newLineConfig,
+          );
+        } catch (error) {
+          // 如果 onCancel 抛出异常，仍然继续清理状态
+          console.error('onCancel error:', error);
         }
       }
 
       // 清理 newLineRecordCache，需要比较 recordKey（考虑类型转换）
       if (newLineRecordCache) {
         const cacheRecordKey = newLineRecordCache.options.recordKey;
-        const relayKeyStr = recordKeyToString(recordKey)?.toString();
+        // 重用之前计算的 relayKeyStr
         const cacheKeyStr =
           cacheRecordKey != null
             ? recordKeyToString(cacheRecordKey)?.toString()
             : null;
         if (
           cacheRecordKey === recordKey ||
-          cacheKeyStr === relayKeyStr ||
+          (cacheKeyStr != null &&
+            relayKeyStr != null &&
+            cacheKeyStr === relayKeyStr) ||
           cacheRecordKey?.toString() === recordKey?.toString() ||
           String(cacheRecordKey) === String(recordKey)
         ) {
@@ -1123,7 +1135,8 @@ export function useEditableArray<RecordType extends AnyObject>(
       }
 
       const isDataSourceMode =
-        options?.newRecordType === 'dataSource' || props.tableName;
+        options?.newRecordType === 'dataSource' ||
+        (props.tableName && options?.newRecordType !== 'cache');
       if (isDataSourceMode) {
         const actionProps = {
           data: props.dataSource,

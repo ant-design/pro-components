@@ -667,8 +667,54 @@ function EditableTable<
         ...(data || {}),
       };
 
-      const updateValues = set({}, rowKeyName, newRowData);
-      formRef.current?.setFieldsValue(updateValues);
+      // 在 name 模式下，需要更新整个数组
+      if (props.name) {
+        const tableName = [props.name].flat(1).filter(Boolean) as NamePath;
+        const currentTableData = formRef.current?.getFieldValue(tableName) as
+          | DataType[]
+          | undefined;
+
+        if (Array.isArray(currentTableData)) {
+          // 找到要更新的行的索引
+          const rowIndexToUpdate =
+            typeof finlayRowKey === 'number'
+              ? finlayRowKey
+              : currentTableData.findIndex((row, index) => {
+                  const rowKey = getRowKey?.(row, index);
+                  return (
+                    rowKey === finlayRowKey ||
+                    rowKey?.toString() === finlayRowKey?.toString()
+                  );
+                });
+
+          if (
+            rowIndexToUpdate >= 0 &&
+            rowIndexToUpdate < currentTableData.length
+          ) {
+            // 更新数组中的对应行
+            const updatedTableData = [...currentTableData];
+            updatedTableData[rowIndexToUpdate] = newRowData as DataType;
+
+            // 设置整个数组，使用 set 来构建正确的路径
+            const updateValues = set({}, tableName, updatedTableData);
+            formRef.current?.setFieldsValue(updateValues);
+
+            // 在受控模式下，触发 onChange
+            if (props.controlled && props.onChange) {
+              props.onChange(updatedTableData);
+            }
+          }
+        } else {
+          // 如果当前没有数据，直接设置单个字段
+          const updateValues = set({}, rowKeyName, newRowData);
+          formRef.current?.setFieldsValue(updateValues);
+        }
+      } else {
+        // 非 name 模式下，直接设置单个字段
+        const updateValues = set({}, rowKeyName, newRowData);
+        formRef.current?.setFieldsValue(updateValues);
+      }
+
       return true;
     },
   );

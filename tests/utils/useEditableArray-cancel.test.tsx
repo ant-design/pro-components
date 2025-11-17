@@ -1,5 +1,11 @@
+import {
+  act,
+  cleanup,
+  fireEvent,
+  render,
+  waitFor,
+} from '@testing-library/react';
 import { Form } from 'antd';
-import { act, cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import React, { useState } from 'react';
 import {
   afterAll,
@@ -61,13 +67,7 @@ describe('useEditableArray - Cancel Operation', () => {
       dataSource: TestRecordType[],
     ) => void;
     tableName?: string;
-  }> = ({
-    onCancel,
-    onDelete,
-    onSave,
-    onValuesChange,
-    tableName,
-  }) => {
+  }> = ({ onCancel, onDelete, onSave, onValuesChange, tableName }) => {
     const [dataSource, setDataSource] = useState<TestRecordType[]>([
       { id: 1, name: 'test1', value: 'value1' },
       { id: 2, name: 'test2', value: 'value2' },
@@ -78,7 +78,6 @@ describe('useEditableArray - Cancel Operation', () => {
       setDataSource,
       getRowKey: (record) => record.id,
       childrenColumnName: undefined,
-      editableKeys: [],
       onCancel,
       onDelete,
       onSave,
@@ -147,6 +146,7 @@ describe('useEditableArray - Cancel Operation', () => {
     // 开始编辑
     act(() => {
       fireEvent.click(wrapper.getByTestId('start-edit-1'));
+      vi.runAllTimers();
     });
 
     await waitFor(() => {
@@ -156,6 +156,7 @@ describe('useEditableArray - Cancel Operation', () => {
     // 取消编辑
     act(() => {
       fireEvent.click(wrapper.getByTestId('cancel-edit-1'));
+      vi.runAllTimers();
     });
 
     await waitFor(() => {
@@ -189,6 +190,7 @@ describe('useEditableArray - Cancel Operation', () => {
 
     act(() => {
       fireEvent.click(wrapper.getByTestId('start-edit-2'));
+      vi.runAllTimers();
     });
 
     await waitFor(() => {
@@ -197,6 +199,7 @@ describe('useEditableArray - Cancel Operation', () => {
 
     act(() => {
       fireEvent.click(wrapper.getByTestId('cancel-edit-2'));
+      vi.runAllTimers();
     });
 
     await waitFor(() => {
@@ -221,6 +224,7 @@ describe('useEditableArray - Cancel Operation', () => {
     // 开始编辑
     act(() => {
       fireEvent.click(wrapper.getByTestId('start-edit-1'));
+      vi.runAllTimers();
     });
 
     await waitFor(() => {
@@ -230,6 +234,7 @@ describe('useEditableArray - Cancel Operation', () => {
     // 取消编辑
     act(() => {
       fireEvent.click(wrapper.getByTestId('cancel-edit-1'));
+      vi.runAllTimers();
     });
 
     await waitFor(() => {
@@ -267,6 +272,7 @@ describe('useEditableArray - Cancel Operation', () => {
     // 验证可以再次开始编辑
     act(() => {
       fireEvent.click(wrapper.getByTestId('start-edit-1'));
+      vi.runAllTimers();
     });
 
     await waitFor(() => {
@@ -324,8 +330,64 @@ describe('useEditableArray - Cancel Operation', () => {
       Promise<any | void>
     >(async () => Promise.resolve());
 
+    const TestComponentMultiple: React.FC<{
+      onCancel?: (
+        key: RecordKey,
+        record: TestRecordType & { index?: number },
+        originRow: TestRecordType & { index?: number },
+      ) => Promise<any | void>;
+      tableName?: string;
+    }> = ({ onCancel, tableName }) => {
+      const [dataSource, setDataSource] = useState<TestRecordType[]>([
+        { id: 1, name: 'test1', value: 'value1' },
+        { id: 2, name: 'test2', value: 'value2' },
+      ]);
+
+      const editableUtils = useEditableArray<TestRecordType>({
+        dataSource,
+        setDataSource,
+        getRowKey: (record) => record.id,
+        childrenColumnName: undefined,
+        onCancel,
+        tableName,
+        type: 'multiple',
+      });
+
+      return (
+        <Form>
+          <div data-testid="editable-keys">
+            {editableUtils.editableKeys?.join(',') || 'none'}
+          </div>
+          <button
+            data-testid="start-edit-1"
+            onClick={() => editableUtils.startEditable(1)}
+          >
+            Start Edit 1
+          </button>
+          <button
+            data-testid="start-edit-2"
+            onClick={() => editableUtils.startEditable(2)}
+          >
+            Start Edit 2
+          </button>
+          <button
+            data-testid="cancel-edit-1"
+            onClick={() => editableUtils.cancelEditable(1)}
+          >
+            Cancel Edit 1
+          </button>
+          <button
+            data-testid="cancel-edit-2"
+            onClick={() => editableUtils.cancelEditable(2)}
+          >
+            Cancel Edit 2
+          </button>
+        </Form>
+      );
+    };
+
     const wrapper = render(
-      <TestComponent
+      <TestComponentMultiple
         onCancel={async (
           key: RecordKey,
           record: TestRecordType & { index?: number },
@@ -344,7 +406,17 @@ describe('useEditableArray - Cancel Operation', () => {
     // 同时开始编辑两行
     act(() => {
       fireEvent.click(wrapper.getByTestId('start-edit-1'));
+      vi.runAllTimers();
+    });
+
+    await waitFor(() => {
+      const keys = wrapper.getByTestId('editable-keys').textContent;
+      expect(keys).toContain('1');
+    });
+
+    act(() => {
       fireEvent.click(wrapper.getByTestId('start-edit-2'));
+      vi.runAllTimers();
     });
 
     await waitFor(() => {
@@ -356,7 +428,16 @@ describe('useEditableArray - Cancel Operation', () => {
     // 快速连续取消
     act(() => {
       fireEvent.click(wrapper.getByTestId('cancel-edit-1'));
+      vi.runAllTimers();
+    });
+
+    await waitFor(() => {
+      expect(onCancel1).toHaveBeenCalledTimes(1);
+    });
+
+    act(() => {
       fireEvent.click(wrapper.getByTestId('cancel-edit-2'));
+      vi.runAllTimers();
     });
 
     await waitFor(() => {
@@ -490,6 +571,7 @@ describe('useEditableArray - Cancel Operation', () => {
           { id: 3, name: 'test3' },
           { recordKey: 3, newRecordType: 'cache' },
         );
+        vi.runAllTimers();
       });
 
       await waitFor(() => {
@@ -500,6 +582,7 @@ describe('useEditableArray - Cancel Operation', () => {
       // 取消新行编辑
       act(() => {
         editableUtils.cancelEditable(3);
+        vi.runAllTimers();
       });
 
       await waitFor(() => {
@@ -529,7 +612,6 @@ describe('useEditableArray - Cancel Operation', () => {
         setDataSource,
         getRowKey: (record) => record.id,
         childrenColumnName: undefined,
-        editableKeys: [],
         onCancel,
         tableName: 'testTable',
       });
@@ -566,6 +648,7 @@ describe('useEditableArray - Cancel Operation', () => {
 
     act(() => {
       fireEvent.click(wrapper.getByTestId('start-edit'));
+      vi.runAllTimers();
     });
 
     await waitFor(() => {
@@ -574,6 +657,7 @@ describe('useEditableArray - Cancel Operation', () => {
 
     act(() => {
       fireEvent.click(wrapper.getByTestId('cancel-edit'));
+      vi.runAllTimers();
     });
 
     await waitFor(() => {
@@ -582,4 +666,3 @@ describe('useEditableArray - Cancel Operation', () => {
     });
   });
 });
-
