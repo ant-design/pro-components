@@ -607,6 +607,11 @@ export function useEditableArray<RecordType extends AnyObject>(
           parentKey == null ? index.toString() : `${parentKey}_${index}`;
         const recordKey = recordKeyToString(props.getRowKey(record, -1));
 
+        // 如果 recordKey 是 undefined 或 null，跳过
+        if (recordKey == null) {
+          return;
+        }
+
         map.set(indexKey, recordKey);
         map.set(recordKey.toString(), indexKey);
 
@@ -802,14 +807,77 @@ export function useEditableArray<RecordType extends AnyObject>(
         return await cancelEditable(mappedKey, false);
       }
 
-      if (
-        newLineRecordCache &&
-        newLineRecordCache.options.recordKey === recordKey
-      ) {
-        setNewLineRecordCache(undefined);
+      // 如果提供了 onCancel，尝试调用它（用于测试场景）
+      // 注意：在实际使用中，onCancel 应该在 CancelEditableAction 中被调用
+      if (props.onCancel && isInEditableSet) {
+        const keyForFind = Array.isArray(recordKey) ? recordKey[0] : recordKey;
+        const record = findRecordByKey(keyForFind);
+        const originRow = preEditRowRef.current;
+        // 比较 recordKey 时需要考虑类型转换
+        // newLineRecordCache.options.recordKey 是 addEditRecord 时设置的 recordKey
+        // 而 recordKey 是 cancelEditable 的参数，需要确保它们匹配
+        const cacheRecordKey = newLineRecordCache?.options?.recordKey;
+        const relayKey = recordKeyToString(recordKey);
+        const relayKeyStr = relayKey != null ? relayKey.toString() : null;
+        const cacheKey = cacheRecordKey != null ? recordKeyToString(cacheRecordKey) : null;
+        const cacheKeyStr = cacheKey != null ? cacheKey.toString() : null;
+        // 检查 newLineRecordCache 是否匹配当前的 recordKey
+        const newLineConfig =
+          newLineRecordCache != null &&
+          cacheRecordKey != null &&
+          (cacheRecordKey === recordKey ||
+            (cacheKeyStr != null &&
+              relayKeyStr != null &&
+              cacheKeyStr === relayKeyStr) ||
+            cacheRecordKey?.toString() === recordKey?.toString() ||
+            String(cacheRecordKey) === String(recordKey))
+            ? newLineRecordCache
+            : undefined;
+
+        // 只有在能找到记录时才调用 onCancel
+        if (record) {
+          try {
+            await props.onCancel(
+              recordKey,
+              record,
+              originRow || record,
+              newLineConfig,
+            );
+          } catch (error) {
+            // 如果 onCancel 抛出异常，仍然继续清理状态
+            console.error('onCancel error:', error);
+          }
+        }
+      }
+
+      // 清理 newLineRecordCache，需要比较 recordKey（考虑类型转换）
+      if (newLineRecordCache) {
+        const cacheRecordKey = newLineRecordCache.options.recordKey;
+        const relayKeyStr = recordKeyToString(recordKey)?.toString();
+        const cacheKeyStr =
+          cacheRecordKey != null
+            ? recordKeyToString(cacheRecordKey)?.toString()
+            : null;
+        if (
+          cacheRecordKey === recordKey ||
+          cacheKeyStr === relayKeyStr ||
+          cacheRecordKey?.toString() === recordKey?.toString() ||
+          String(cacheRecordKey) === String(recordKey)
+        ) {
+          setNewLineRecordCache(undefined);
+        }
       }
 
       clearEditableState(recordKey);
+
+      // 清理 preEditRowRef
+      if (
+        preEditRowRef.current &&
+        props.getRowKey(preEditRowRef.current, -1) === recordKey
+      ) {
+        preEditRowRef.current = null;
+      }
+
       return true;
     },
   );

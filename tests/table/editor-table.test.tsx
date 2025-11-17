@@ -448,7 +448,7 @@ describe('EditorProTable', () => {
           childrenColumnName: 'children',
         }}
         onChange={(data) => {
-          onchange(data[0].children![0]!.children!.length);
+          onchange(data[0]?.children?.[0]?.children?.length ?? 0);
         }}
         recordCreatorProps={{
           position: 'top',

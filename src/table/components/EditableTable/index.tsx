@@ -730,9 +730,12 @@ function EditableTable<
       props.editable?.onValuesChange?.(r, dataSource);
       props.onValuesChange?.(dataSource, r);
 
-      // 只有在非受控模式下才调用 onChange
-      // 受控模式下，onChange 应该由外部控制，避免循环更新
-      if (!props.controlled) {
+      // 在受控模式下，当表单值变化时也应该触发 onChange
+      // 这样外部可以同步更新 value，实现真正的受控
+      if (props.controlled && props?.onChange) {
+        props.onChange(dataSource);
+      } else if (!props.controlled) {
+        // 非受控模式下直接调用 onChange
         props?.onChange?.(dataSource);
       }
     },

@@ -456,9 +456,6 @@ describe('EditorProTable 2', () => {
             title: '标题',
             dataIndex: 'title',
             copyable: true,
-            fieldProps: {
-              onChange: () => null,
-            },
             formItemRender: () => <ProFormText />,
             ellipsis: true,
             tooltip: '标题过长会自动收缩',
@@ -676,9 +673,27 @@ describe('EditorProTable 2', () => {
     await waitFor(() => {
       return wrapper.findByDisplayValue('动态设置的title' + i);
     });
-    await waitFor(() => {
-      expect(formRef.current?.getFieldValue?.('table').length).toEqual(2);
-    });
+
+    // 等待表单值更新，使用 getRowsData 更可靠
+    await waitFor(
+      () => {
+        const rowsData = formRef.current?.getRowsData?.();
+        expect(rowsData).toBeDefined();
+        expect(rowsData?.length).toEqual(2);
+      },
+      { timeout: 3000 },
+    );
+
+    // 也验证 getFieldValue
+    await waitFor(
+      () => {
+        const tableValue = formRef.current?.getFieldValue?.('table');
+        expect(tableValue).toBeDefined();
+        expect(Array.isArray(tableValue)).toBe(true);
+        expect(tableValue?.length).toEqual(2);
+      },
+      { timeout: 3000 },
+    );
   });
 
   it('📝 EditableProTable ensures that xxxProps are functions also executed', async () => {

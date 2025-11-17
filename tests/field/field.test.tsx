@@ -1987,7 +1987,7 @@ describe('Field', () => {
     });
   });
 
-  it.skip(`🐴 light select dropdown toggle`, async () => {
+  it(`🐴 light select dropdown toggle`, async () => {
     const html = render(
       <Field
         text="default"
