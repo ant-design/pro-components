@@ -196,5 +196,5 @@ export default () => {
         <strong>配置管理</strong>: 配置管理功能
       </li>
     </ul>
-  </div>
+  </div>;
 };

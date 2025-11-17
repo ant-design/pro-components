@@ -1,5 +1,5 @@
 import type { RangePickerProps } from 'antd/lib/date-picker';
-import React, { useCallback, useMemo, useContext } from 'react';
+import React, { useCallback, useContext, useMemo } from 'react';
 import { FieldRangePicker } from '../../../field';
 import { ProConfigProvider } from '../../../provider';
 import { dateArrayFormatter } from '../../../utils';
@@ -24,7 +24,10 @@ export const BaseDateRanger: React.FC<
     const mergedFieldProps = useMemo(() => {
       const nextFieldProps = fieldProps ? { ...fieldProps } : {};
 
-      if (valueType === 'dateTimeRange' && nextFieldProps.showTime === undefined) {
+      if (
+        valueType === 'dateTimeRange' &&
+        nextFieldProps.showTime === undefined
+      ) {
         nextFieldProps.showTime = true;
       }
 
@@ -49,10 +52,11 @@ export const BaseDateRanger: React.FC<
     }, [mergedFieldProps.format, valueType]);
     const renderFieldRangePicker = useCallback(
       (text: any, props: any) => {
-        const fieldPropsFromContext = (props.fieldProps as any) ?? mergedFieldProps;
+        const fieldPropsFromContext =
+          (props.fieldProps as any) ?? mergedFieldProps;
         const format =
           valueType === 'dateTimeRange'
-            ? fieldPropsFromContext?.format ?? 'YYYY-MM-DD HH:mm:ss'
+            ? (fieldPropsFromContext?.format ?? 'YYYY-MM-DD HH:mm:ss')
             : fieldPropsFromContext?.format;
 
         return <FieldRangePicker {...props} format={format} text={text} />;

@@ -91,7 +91,7 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
   );
   const resizeInfo: CustomizeResizeType = React.useMemo(() => {
     const defaultResize: CustomizeResizeType = {
-      onResize: () => { },
+      onResize: () => {},
       maxWidth: isBrowser() ? window.innerWidth * 0.8 : undefined,
       minWidth: 300,
     };
@@ -146,7 +146,10 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
     const form = rest.formRef?.current ?? rest.form ?? formRef.current;
     // 重置表单
     // issue: 8858 form.resetFields is not a function
-    if (form && drawerProps?.destroyOnHidden && typeof form.resetFields === 'function'
+    if (
+      form &&
+      drawerProps?.destroyOnHidden &&
+      typeof form.resetFields === 'function'
     ) {
       form.resetFields();
     }

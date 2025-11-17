@@ -96,6 +96,12 @@ export type PureSettings = {
      * @name 取消自动关闭菜单
      */
     autoClose?: false;
+    /**
+     * @name 菜单收起时的宽度
+     *
+     * @example 设置收起宽度为 80px menu={{ collapsedWidth: 80 }}
+     */
+    collapsedWidth?: number;
   };
   /**
    * 设置为 false，在 layout 中只展示 pageName，而不是 pageName - title

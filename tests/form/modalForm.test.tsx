@@ -607,7 +607,9 @@ describe('ModalForm', () => {
         modalProps={{ destroyOnHidden: true }}
         request={async () => {
           // Simulate slow request
-          return new Promise((resolve) => setTimeout(() => resolve({ name: 'demo' }), 200));
+          return new Promise((resolve) =>
+            setTimeout(() => resolve({ name: 'demo' }), 200),
+          );
         }}
         trigger={<Button id="new">新建</Button>}
       >

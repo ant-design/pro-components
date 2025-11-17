@@ -17,7 +17,11 @@ import {
   defaultOnFilter,
   renderColumnsTitle,
 } from './columnRender';
-import { genColumnKey, parseProFilteredValue, parseProSortOrder } from './index';
+import {
+  genColumnKey,
+  parseProFilteredValue,
+  parseProSortOrder,
+} from './index';
 
 type ColumnToColumnReturnType<T> = (TableColumnType<T> & {
   index?: number;
