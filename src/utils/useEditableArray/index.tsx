@@ -257,6 +257,8 @@ function rebuildTreeStructure<RecordType>(
     if (value.map_row_parentKey != null && value.map_row_key) {
       const { map_row_parentKey, map_row_key, ...rest } = value;
       const record = { ...rest } as any;
+      // 确保 parentKey 的类型转换与 flattenRecordsToMap 中的 recordKey 一致
+      // 在 flattenRecordsToMap 中，recordKey 被转换为字符串，所以这里也需要转换为字符串
       const parentKeyStr = String(map_row_parentKey);
 
       if (childrenMap.has(map_row_key)) {
@@ -1134,6 +1136,12 @@ export function useEditableArray<RecordType extends AnyObject>(
         setEditableRowKeys(newKeys);
       }
 
+      // 处理 parentKey：如果是函数，调用它
+      const parentKeyValue =
+        typeof options?.parentKey === 'function'
+          ? (options.parentKey as any)()
+          : options?.parentKey;
+
       const isDataSourceMode =
         options?.newRecordType === 'dataSource' ||
         (props.tableName && options?.newRecordType !== 'cache');
@@ -1143,8 +1151,8 @@ export function useEditableArray<RecordType extends AnyObject>(
           getRowKey: props.getRowKey,
           row: {
             ...row,
-            map_row_parentKey: options?.parentKey
-              ? recordKeyToString(options?.parentKey)?.toString()
+            map_row_parentKey: parentKeyValue
+              ? recordKeyToString(parentKeyValue)?.toString()
               : undefined,
           },
           key: recordKey,
@@ -1161,6 +1169,7 @@ export function useEditableArray<RecordType extends AnyObject>(
           defaultValue: row,
           options: {
             ...options,
+            parentKey: parentKeyValue,
             recordKey,
           },
         });

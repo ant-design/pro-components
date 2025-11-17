@@ -448,6 +448,10 @@ describe('EditorProTable', () => {
           childrenColumnName: 'children',
         }}
         onChange={(data) => {
+          console.log(
+            'onChange called with data:',
+            JSON.stringify(data, null, 2),
+          );
           onchange(data[0]?.children?.[0]?.children?.length ?? 0);
         }}
         recordCreatorProps={{
