@@ -253,22 +253,64 @@ function rebuildTreeStructure<RecordType>(
 
   addNewRecordToChildren(action === 'top');
 
+  // 第一步：将所有有 parentKey 的节点添加到 childrenMap
+  // 这一步不获取 children，只是添加节点到对应的父节点下
   map.forEach((value) => {
     if (value.map_row_parentKey != null && value.map_row_key) {
-      const { map_row_parentKey, map_row_key, ...rest } = value;
-      const record = { ...rest } as any;
+      const { map_row_parentKey, map_row_key, isNewRecord, ...rest } =
+        value as any;
+      const record = { ...rest, map_row_key } as any;
       // 确保 parentKey 的类型转换与 flattenRecordsToMap 中的 recordKey 一致
-      // 在 flattenRecordsToMap 中，recordKey 被转换为字符串，所以这里也需要转换为字符串
-      const parentKeyStr = String(map_row_parentKey);
+      // 在 flattenRecordsToMap 中，recordKey 被转换为字符串：getRowKey(record, eachIndex).toString()
+      // 所以这里也需要确保 parentKey 被转换为字符串，并且类型一致
+      const parentKeyStr =
+        map_row_parentKey != null ? String(map_row_parentKey) : null;
 
-      if (childrenMap.has(map_row_key)) {
-        record[childrenColumnName] = childrenMap.get(map_row_key);
+      if (!parentKeyStr) {
+        return;
       }
 
       if (!childrenMap.has(parentKeyStr)) {
         childrenMap.set(parentKeyStr, []);
       }
-      childrenMap.get(parentKeyStr)?.push(record as RecordType);
+
+      // 如果是新记录且 action 为 'top'，添加到数组开头；否则添加到末尾
+      if (isNewRecord && action === 'top') {
+        childrenMap.get(parentKeyStr)?.unshift(record as RecordType);
+      } else {
+        childrenMap.get(parentKeyStr)?.push(record as RecordType);
+      }
+    }
+  });
+
+  // 第二步：为所有节点获取 children
+  // 这一步确保所有子节点都已经被添加到 childrenMap，所以可以正确获取 children
+  map.forEach((value) => {
+    if (value.map_row_parentKey != null && value.map_row_key) {
+      const { map_row_parentKey, map_row_key } = value as any;
+      const parentKeyStr =
+        map_row_parentKey != null ? String(map_row_parentKey) : null;
+
+      if (!parentKeyStr) {
+        return;
+      }
+
+      const children = childrenMap.get(parentKeyStr);
+      if (children && children.length > 0) {
+        // 找到对应的 record 并添加 children
+        const recordIndex = children.findIndex((r: any) => {
+          // 比较时需要确保类型一致
+          const recordKey = (r as any).map_row_key || (r as any).id;
+          return String(recordKey) === String(map_row_key);
+        });
+
+        if (recordIndex >= 0 && childrenMap.has(map_row_key)) {
+          children[recordIndex] = {
+            ...children[recordIndex],
+            [childrenColumnName]: childrenMap.get(map_row_key),
+          } as RecordType;
+        }
+      }
     }
   });
 
@@ -318,10 +360,12 @@ export function editableRowByKey<RecordType>(
     } else {
       // 如果记录不存在，创建一个新记录（用于新增场景）
       // 保留 map_row_parentKey 以便正确处理嵌套子节点
+      // 添加标记以便在 rebuildTreeStructure 中识别新记录
       kvMap.set(key, {
         ...row,
         map_row_key: key,
         map_row_parentKey: (row as any).map_row_parentKey,
+        isNewRecord: true,
       } as any);
     }
   }

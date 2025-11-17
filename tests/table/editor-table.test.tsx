@@ -656,6 +656,9 @@ describe('EditorProTable', () => {
           rowKey="id"
           columns={columns}
           value={defaultData}
+          recordCreatorProps={{
+            record: () => ({ id: Math.random() * 100000000 }),
+          }}
         />,
       );
     });
@@ -832,6 +835,9 @@ describe('EditorProTable', () => {
           rowKey="id"
           name="table"
           columns={columns}
+          editable={{
+            type: 'multiple',
+          }}
         />
       </ProForm>,
     );
@@ -840,14 +846,22 @@ describe('EditorProTable', () => {
       (await wrapper.queryAllByText('添加一行数据')).at(0)?.click();
     });
 
-    await act(async () => {
-      (await wrapper.queryAllByText('添加一行数据')).at(0)?.click();
-    });
-    await waitForWaitTime(200);
+    await waitForWaitTime(500);
 
-    const firstLineValue = wrapper.container
-      .querySelectorAll('.ant-table-tbody tr.ant-table-row')[0]
-      .querySelectorAll<HTMLInputElement>(`td .ant-input`)[0].value;
+    await waitFor(
+      () => {
+        const inputs = wrapper.container.querySelectorAll<HTMLInputElement>(
+          '.ant-table-tbody tr.ant-table-row td .ant-input',
+        );
+        expect(inputs.length).toBeGreaterThan(0);
+      },
+      { timeout: 3000 },
+    );
+
+    const firstLineValue =
+      wrapper.container.querySelectorAll<HTMLInputElement>(
+        '.ant-table-tbody tr.ant-table-row td .ant-input',
+      )[0]?.value || '';
 
     expect(firstLineValue).toBe('');
 

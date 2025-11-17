@@ -464,17 +464,39 @@ function EditableTable<
   const preData = useRef<readonly DataType[] | undefined>(undefined);
   const actionRef = useRef<ActionType>();
   const formRef = useRef<ProFormInstance>();
+  const form = Form.useFormInstance();
 
   // 设置 ref
   useImperativeHandle(rest.actionRef, () => actionRef.current, [
     actionRef.current,
   ]);
 
+  // 在 name 模式下，如果没有传递 value prop，尝试从表单值中获取初始值
+  const getInitialValue = () => {
+    if (props.value) {
+      return props.value;
+    }
+    if (defaultValue) {
+      return defaultValue;
+    }
+    // 如果使用了 name 且没有 value，尝试从表单获取初始值
+    if (props.name && form) {
+      const namePath = [props.name].flat(1).filter(Boolean) as NamePath;
+      const formValue = form.getFieldValue(namePath);
+      if (Array.isArray(formValue)) {
+        return formValue;
+      }
+    }
+    return [];
+  };
+
   const [value, setValue] = useMergedState<readonly DataType[]>(
-    () => props.value || defaultValue || [],
+    getInitialValue,
     {
       value: props.value,
-      onChange: props.onChange,
+      // 在非受控模式下，onChange 应该在 onDataSourceChange 中触发
+      // 这样可以确保数据已经正确更新
+      onChange: props.controlled ? props.onChange : undefined,
     },
   );
 
@@ -670,9 +692,10 @@ function EditableTable<
       // 在 name 模式下，需要更新整个数组
       if (props.name) {
         const tableName = [props.name].flat(1).filter(Boolean) as NamePath;
-        const currentTableData = formRef.current?.getFieldValue(tableName) as
-          | DataType[]
-          | undefined;
+        // 优先从 value prop 获取数据（受控模式），否则从表单值获取
+        let currentTableData =
+          (props.value as DataType[] | undefined) ||
+          (formRef.current?.getFieldValue(tableName) as DataType[] | undefined);
 
         if (Array.isArray(currentTableData)) {
           // 找到要更新的行的索引
@@ -696,6 +719,8 @@ function EditableTable<
             updatedTableData[rowIndexToUpdate] = newRowData as DataType;
 
             // 设置整个数组，使用 set 来构建正确的路径
+            // 使用与 syncFormValuesExcludingEditing 相同的路径格式（数组路径）
+            // 这样可以确保 getFieldValue 能正确获取值
             const updateValues = set({}, tableName, updatedTableData);
             formRef.current?.setFieldsValue(updateValues);
 
@@ -731,17 +756,42 @@ function EditableTable<
 
   /**
    * 受控模式下同步表单值
-   * 注意：不会覆盖正在编辑的行，避免用户编辑内容丢失
+   * 在受控模式下，即使正在编辑的行也要同步更新，因为数据由外部完全控制
    * 使用深度比较优化性能，避免频繁的序列化操作
+   * 注意：只有当 value 明确传递时才同步，避免覆盖表单中的初始值
    */
   useDeepCompareEffect(() => {
     if (!props.controlled || !formRef.current) return;
 
-    const editingKeys = props.editable?.editableKeys;
-    const editingKeysSet = createEditingKeysSet(editingKeys);
+    // 在受控模式下，只有当 value 明确传递时才同步
+    // 避免在 value 为 undefined 时覆盖表单中的初始值
+    if (value === undefined) return;
 
-    syncFormValuesExcludingEditing(value || [], editingKeysSet);
-  }, [value, props.controlled, props.editable?.editableKeys, getRowKey]);
+    // 在受控模式下，同步所有值（包括正在编辑的行）
+    // 因为数据由外部完全控制，应该同步更新
+    try {
+      if (props.name) {
+        // name 模式：直接设置整个数组
+        const namePath = [props.name].flat(1) as string[];
+        const newValue = set({}, namePath, value);
+        formRef.current.setFieldsValue(newValue);
+      } else {
+        // 非 name 模式：直接设置值
+        const formValues: Record<string, DataType> = {};
+        value.forEach((item, index) => {
+          const key = getRowKey(item, index);
+          const keyStr = String(key);
+          formValues[keyStr] = item;
+        });
+
+        if (Object.keys(formValues).length > 0) {
+          formRef.current.setFieldsValue(formValues);
+        }
+      }
+    } catch (error) {
+      console.warn('Failed to sync form values in controlled mode:', error);
+    }
+  }, [value, props.controlled, props.name, getRowKey]);
 
   /**
    * 同步表单实例引用
@@ -780,10 +830,9 @@ function EditableTable<
       // 这样外部可以同步更新 value，实现真正的受控
       if (props.controlled && props?.onChange) {
         props.onChange(dataSource);
-      } else if (!props.controlled) {
-        // 非受控模式下直接调用 onChange
-        props?.onChange?.(dataSource);
       }
+      // 非受控模式下，onChange 应该在 onDataSourceChange 中触发
+      // 这样可以确保数据已经正确更新
     },
   );
 
@@ -834,6 +883,8 @@ function EditableTable<
           }}
           dataSource={value}
           onDataSourceChange={(dataSource: readonly DataType[]) => {
+            // setValue 会触发 onChange，但我们需要确保数据已经正确更新
+            // 所以先设置数据，然后手动触发 onChange
             setValue(dataSource);
 
             /**
@@ -851,6 +902,12 @@ function EditableTable<
                 editingKeysSet,
                 namePath,
               );
+            }
+
+            // 在非受控模式下，通过 onDataSourceChange 触发 onChange
+            // 这样可以确保数据已经正确更新
+            if (!props.controlled && props.onChange) {
+              props.onChange(dataSource);
             }
           }}
         />
