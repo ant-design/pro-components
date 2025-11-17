@@ -91,18 +91,9 @@ importers:
       react-lazy-load:
         specifier: ^4.0.1
         version: 4.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-markdown:
-        specifier: ^8.0.7
-        version: 8.0.7(@types/react@18.3.26)(react@18.3.1)
-      react-syntax-highlighter:
-        specifier: ^15.6.6
-        version: 15.6.6(react@18.3.1)
       safe-stable-stringify:
         specifier: ^2.5.0
         version: 2.5.0
-      shiki-es:
-        specifier: ^0.2.0
-        version: 0.2.0
       swr:
         specifier: ^2.3.6
         version: 2.3.6(react@18.3.1)
@@ -177,10 +168,10 @@ importers:
         specifier: ^14.18.63
         version: 14.18.63
       '@types/react':
-        specifier: ^18.3.26
+        specifier: ^18.0.38
         version: 18.3.26
       '@types/react-dom':
-        specifier: ^18.3.7
+        specifier: ^18.0.11
         version: 18.3.7(@types/react@18.3.26)
       '@types/react-helmet':
         specifier: ^6.1.11
@@ -344,6 +335,12 @@ importers:
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
+      react-markdown:
+        specifier: ^8.0.7
+        version: 8.0.7(@types/react@18.3.26)(react@18.3.1)
+      react-syntax-highlighter:
+        specifier: ^15.6.6
+        version: 15.6.6(react@18.3.1)
       remark:
         specifier: ^15.0.1
         version: 15.0.1
