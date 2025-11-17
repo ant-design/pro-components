@@ -74,7 +74,7 @@ export default defineConfig({
       description: '🏆 让中后台开发更简单',
       actions: {
         text: '🏮🏮 快速开始 →',
-        link: '/docs/intro',
+        link: '/docs',
       },
     },
 
