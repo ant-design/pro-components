@@ -406,9 +406,18 @@ export function SaveEditableAction<T>(
         .flat(1)
         .filter(Boolean) as string[];
       setLoading(true);
-      await form.validateFields(namePath, {
-        recursive: true,
-      });
+      try {
+        await form.validateFields(namePath, {
+          recursive: true,
+        });
+      } catch (error: any) {
+        setLoading(false);
+        // 重新抛出验证错误，让表单显示错误信息
+        // validateFields 抛出错误时，表单会自动设置错误状态并显示错误
+        // 错误对象包含 errorFields，表单会根据这些字段显示错误
+        // 确保错误被正确传播，这样表单可以正确显示验证错误
+        throw error;
+      }
 
       const fields =
         context?.getFieldFormatValue?.(namePath) ||
@@ -457,7 +466,10 @@ export function SaveEditableAction<T>(
         e.preventDefault();
         try {
           await save();
-        } catch {}
+        } catch (error) {
+          // 验证错误会被 form.validateFields 抛出，这里不需要处理
+          // 错误会被表单自动显示
+        }
       }}
     >
       {loading ? (
@@ -504,7 +516,10 @@ export const DeleteEditableAction: React.FC<
       setLoading(true);
       const res = await onDelete?.(recordKey, row);
       setLoading(false);
-
+      // 如果返回 false，阻止删除操作
+      if (res === false) {
+        return false;
+      }
       return res;
     } catch (e) {
       setLoading(false);
@@ -517,8 +532,11 @@ export const DeleteEditableAction: React.FC<
   return children !== false ? (
     <Popconfirm
       key="delete"
-      title={deletePopconfirmMessage}
-      onConfirm={() => onConfirm()}
+      title={deletePopconfirmMessage || '确定要删除这条记录吗？'}
+      onConfirm={onConfirm}
+      getPopupContainer={(triggerNode) =>
+        triggerNode.parentElement || document.body
+      }
     >
       <a>
         {loading ? (
@@ -926,15 +944,63 @@ export function useEditableArray<RecordType extends AnyObject>(
         }
       }
 
-      clearEditableState(recordKey);
-
-      // 清理 preEditRowRef
+      // 先清理 preEditRowRef 并重置表单字段，然后再清除编辑状态
+      // 这样在清除编辑状态前，表单字段已经被清除，表格重新渲染时就不会显示输入框
+      const originRow = preEditRowRef.current;
       if (
-        preEditRowRef.current &&
-        props.getRowKey(preEditRowRef.current, -1) === recordKey
+        originRow &&
+        props.getRowKey(originRow, -1) === recordKey &&
+        isInEditableSet
       ) {
+        try {
+          // 尝试通过 formProps.formRef 访问 form
+          const formRef = props.formProps?.formRef as any;
+          const form = formRef?.current || props.form;
+
+          if (form) {
+            if (props.tableName) {
+              // name 模式：重置为原始值
+              const namePath = [props.tableName, recordKey]
+                .flat(1)
+                .filter(Boolean) as string[];
+              form.setFieldsValue(set({}, namePath, originRow));
+            } else {
+              // 非 name 模式：清除该行的所有表单字段
+              // 在非 name 模式下，表单字段路径是 [recordKey, columnDataIndex]
+              // 如 [624748504, 'title']，需要清除所有以 recordKey 开头的字段
+              const recordKeyStr = recordKeyToString(recordKey)?.toString();
+              if (recordKeyStr) {
+                try {
+                  // 在非 name 模式下，表单字段以嵌套对象的形式存储
+                  // 比如 { '624748504': { 'title': 'value', 'state': 'value' } }
+                  // 需要清除整个嵌套对象
+                  // 先使用 resetFields 清除字段状态
+                  form.resetFields([[recordKeyStr]]);
+
+                  // 然后使用 setFieldsValue 清除字段值
+                  // 这样可以确保字段被完全清除，表格重新渲染时不会显示输入框
+                  form.setFieldsValue({
+                    [recordKeyStr]: undefined,
+                  });
+                } catch (error) {
+                  // 如果清除失败，忽略错误
+                  console.warn(
+                    'Failed to clear form fields in cancelEditable:',
+                    error,
+                  );
+                }
+              }
+            }
+          }
+        } catch (error) {
+          // 如果访问 form 失败，忽略错误
+          console.warn('Failed to reset form fields in cancelEditable:', error);
+        }
         preEditRowRef.current = null;
       }
+
+      // 最后清除编辑状态，这样表格会重新渲染，输入框会消失
+      clearEditableState(recordKey);
 
       return true;
     },
@@ -1104,8 +1170,10 @@ export function useEditableArray<RecordType extends AnyObject>(
         await saveRef.current.save();
         clearEditableState(recordKey);
         return true;
-      } catch {
-        return false;
+      } catch (error) {
+        // 验证错误会被 save 方法抛出，这里不捕获，让错误传播
+        // 这样表单可以正确显示验证错误
+        throw error;
       }
     },
   );
@@ -1295,6 +1363,10 @@ export function useEditableArray<RecordType extends AnyObject>(
         childrenColumnName: props.childrenColumnName || 'children',
       };
       const res = await props?.onDelete?.(recordKey, editRow);
+      // 如果 onDelete 返回 false，阻止删除操作
+      if (res === false) {
+        return false;
+      }
       // 不传递 false时，重新form.setFieldsValue同一份静态数据，会导致该行始终处于不可编辑状态
       await cancelEditable(recordKey, false);
       props.setDataSource(editableRowByKey(actionProps, 'delete'));
