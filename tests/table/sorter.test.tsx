@@ -679,18 +679,28 @@ describe('BasicTable sorter', () => {
 
     await waitFor(() => {
       const rows = container.querySelectorAll('.ant-table-row');
-      expect(rows[0].firstChild?.textContent).toContain('项目 B');
-      expect(rows[1].firstChild?.textContent).toContain('项目 C');
-      expect(rows[2].firstChild?.textContent).toContain('项目 A');
+      expect(rows.length).toBeGreaterThan(0);
+      expect(rows[0]).toBeDefined();
+      const firstCell = rows[0].querySelector('.ant-table-cell');
+      expect(firstCell?.textContent).toContain('项目 B');
+      const secondCell = rows[1]?.querySelector('.ant-table-cell');
+      expect(secondCell?.textContent).toContain('项目 C');
+      const thirdCell = rows[2]?.querySelector('.ant-table-cell');
+      expect(thirdCell?.textContent).toContain('项目 A');
     });
 
     await userEvent.click(screen.getByTestId('sort-ascend'));
 
     await waitFor(() => {
       const rows = container.querySelectorAll('.ant-table-row');
-      expect(rows[0].firstChild?.textContent).toContain('项目 A');
-      expect(rows[1].firstChild?.textContent).toContain('项目 C');
-      expect(rows[2].firstChild?.textContent).toContain('项目 B');
+      expect(rows.length).toBeGreaterThan(0);
+      expect(rows[0]).toBeDefined();
+      const firstCell = rows[0].querySelector('.ant-table-cell');
+      expect(firstCell?.textContent).toContain('项目 A');
+      const secondCell = rows[1]?.querySelector('.ant-table-cell');
+      expect(secondCell?.textContent).toContain('项目 C');
+      const thirdCell = rows[2]?.querySelector('.ant-table-cell');
+      expect(thirdCell?.textContent).toContain('项目 B');
     });
 
     await userEvent.click(screen.getByTestId('sort-clear'));

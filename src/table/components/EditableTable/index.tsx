@@ -1,6 +1,6 @@
 ﻿import { PlusOutlined } from '@ant-design/icons';
 import { get, set, useMergedState } from '@rc-component/util';
-import type { ButtonProps, FormItemProps } from 'antd';
+import type { ButtonProps, FormItemProps, TablePaginationConfig } from 'antd';
 import { Button, Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
 import type { GetRowKey } from 'antd/lib/table/interface';
@@ -17,9 +17,13 @@ import { useIntl } from '../../../provider';
 import {
   isDeepEqualReact,
   runFunction,
-  stringify,
+  useDeepCompareEffect,
   useRefFunction,
 } from '../../../utils';
+import {
+  editableRowByKey,
+  recordKeyToString,
+} from '../../../utils/useEditableArray';
 import ProTable from '../../Table';
 import type { ActionType, ProTableProps } from '../../typing';
 
@@ -61,6 +65,11 @@ export type EditableFormInstance<T = any> = ProFormInstance<T> & {
    *
    */
   setRowData?: (rowIndex: string | number, data: Partial<T>) => void;
+};
+
+type CreatorButtonResult = {
+  creatorButtonDom: React.ReactNode | false;
+  buttonRenderProps: Record<string, any>;
 };
 
 export type RecordCreatorProps<DataSourceType> = {
@@ -124,25 +133,257 @@ function RecordCreator<T = Record<string, any>>(
 ) {
   const { children, record, position, newRecordType, parentKey } = props;
   const actionRef = useContext(EditableTableActionContext);
+
   return React.cloneElement(children, {
     ...children.props,
     onClick: async (e: any) => {
       // 如果返回了false，接触掉默认行为
       const isOk = await children.props.onClick?.(e);
       if (isOk === false) return;
-      actionRef?.current?.addEditRecord(record as any, {
-        position,
-        newRecordType,
-        parentKey: parentKey as React.Key,
-      });
+
+      if (actionRef?.current) {
+        actionRef.current.addEditRecord(record as any, {
+          position,
+          newRecordType,
+          parentKey: parentKey as React.Key,
+        });
+      }
     },
   });
 }
 
-type CreatorButtonResult = {
-  creatorButtonDom: React.ReactNode | false;
-  buttonRenderProps: Record<string, any>;
-};
+/**
+ * 处理嵌套行的新增
+ */
+function handleNestedRowInsert<DataType>(
+  baseData: DataType[],
+  defaultValue: DataType,
+  newLineOptions: {
+    parentKey?: React.Key;
+    recordKey?: React.Key;
+    position?: 'top' | 'bottom' | string;
+  },
+  getRowKey: GetRowKey<any>,
+  childrenColumnName: string,
+): DataType[] {
+  if (!newLineOptions.recordKey) {
+    return baseData;
+  }
+
+  const actionProps = {
+    data: baseData,
+    getRowKey,
+    row: {
+      ...defaultValue,
+      map_row_parentKey: recordKeyToString(
+        newLineOptions.parentKey!,
+      )?.toString(),
+    },
+    key: newLineOptions.recordKey,
+    childrenColumnName,
+  };
+
+  return editableRowByKey(
+    actionProps,
+    newLineOptions.position === 'top' ? 'top' : 'update',
+  );
+}
+
+/**
+ * 处理分页场景下的新增
+ */
+function handlePaginationInsert<DataType>(
+  baseData: DataType[],
+  defaultValue: DataType,
+  pageConfig: TablePaginationConfig,
+): DataType[] {
+  if (pageConfig.pageSize! > baseData.length) {
+    return [...baseData, defaultValue];
+  }
+  const insertIndex = pageConfig.current! * pageConfig.pageSize! - 1;
+  const result = [...baseData];
+  result.splice(insertIndex, 0, defaultValue);
+  return result;
+}
+
+function useEditableDataSource<DataType>({
+  actionDataSource,
+  editableUtils,
+  pagination,
+  getRowKey,
+  childrenColumnName,
+}: {
+  actionDataSource: readonly DataType[] | undefined;
+  editableUtils: {
+    newLineRecord?: {
+      options?: {
+        position?: 'top' | 'bottom' | string;
+        parentKey?: React.Key;
+        recordKey?: React.Key;
+      };
+      defaultValue?: DataType;
+    };
+  };
+  pagination: false | TablePaginationConfig | undefined;
+  getRowKey: GetRowKey<any>;
+  childrenColumnName?: string;
+}): DataType[] {
+  return useMemo(() => {
+    const newLineConfig = editableUtils?.newLineRecord;
+    const baseData = Array.isArray(actionDataSource)
+      ? [...actionDataSource]
+      : [];
+
+    if (!newLineConfig?.defaultValue) {
+      return baseData;
+    }
+
+    const { options: newLineOptions, defaultValue } = newLineConfig;
+
+    if (newLineOptions?.parentKey) {
+      return handleNestedRowInsert(
+        baseData,
+        defaultValue,
+        newLineOptions,
+        getRowKey,
+        childrenColumnName || 'children',
+      );
+    }
+
+    if (newLineOptions?.position === 'top') {
+      return [defaultValue, ...baseData];
+    }
+
+    const pageConfig =
+      pagination && typeof pagination === 'object' ? pagination : undefined;
+
+    if (pageConfig?.current && pageConfig?.pageSize) {
+      return handlePaginationInsert(baseData, defaultValue, pageConfig);
+    }
+
+    return [...baseData, defaultValue];
+  }, [
+    actionDataSource,
+    childrenColumnName,
+    editableUtils?.newLineRecord,
+    getRowKey,
+    pagination,
+  ]);
+}
+
+/**
+ * 检查是否应该显示创建按钮
+ */
+function shouldShowCreatorButton(
+  maxLength: number | undefined,
+  valueLength: number,
+  recordCreatorProps: EditableProTableProps<any, any>['recordCreatorProps'],
+): boolean {
+  if (typeof maxLength === 'number' && maxLength <= valueLength) {
+    return false;
+  }
+  return recordCreatorProps !== false;
+}
+
+/**
+ * 创建按钮 DOM
+ */
+function createButtonDom<DataType>(
+  recordCreatorProps: Exclude<
+    EditableProTableProps<DataType, any>['recordCreatorProps'],
+    false | undefined
+  >,
+  value: readonly DataType[] | undefined,
+  intl: ReturnType<typeof useIntl>,
+): React.ReactNode {
+  const {
+    record,
+    position,
+    creatorButtonText,
+    newRecordType,
+    parentKey,
+    style,
+    ...restButtonProps
+  } = recordCreatorProps;
+
+  return (
+    <RecordCreator
+      record={runFunction(record, value?.length, value) || {}}
+      position={position}
+      parentKey={runFunction(parentKey, value?.length, value)}
+      newRecordType={newRecordType}
+    >
+      <Button
+        type="dashed"
+        style={{
+          display: 'block',
+          margin: '10px 0',
+          width: '100%',
+          ...style,
+        }}
+        icon={<PlusOutlined />}
+        {...restButtonProps}
+      >
+        {creatorButtonText ||
+          intl.getMessage('editableTable.action.add', '添加一行数据')}
+      </Button>
+    </RecordCreator>
+  );
+}
+
+/**
+ * 创建顶部按钮的渲染属性
+ */
+function createTopButtonProps(
+  creatorButtonDom: React.ReactNode,
+  columnsLength: number | undefined,
+) {
+  return {
+    components: {
+      header: {
+        wrapper: ({
+          className,
+          children,
+        }: {
+          className: string;
+          children: React.ReactNode;
+        }) => (
+          <thead className={className}>
+            {children}
+            <tr style={{ position: 'relative' }}>
+              <td colSpan={0} style={{ visibility: 'hidden' }}>
+                {creatorButtonDom}
+              </td>
+              <td
+                style={{ position: 'absolute', left: 0, width: '100%' }}
+                colSpan={columnsLength}
+              >
+                {creatorButtonDom}
+              </td>
+            </tr>
+          </thead>
+        ),
+      },
+    },
+  };
+}
+
+/**
+ * 创建底部按钮的渲染属性
+ */
+function createBottomButtonProps(
+  creatorButtonDom: React.ReactNode,
+  tableViewRender: ProTableProps<any, any>['tableViewRender'],
+) {
+  return {
+    tableViewRender: (_: any, dom: any) => (
+      <>
+        {tableViewRender?.(_, dom) ?? dom}
+        {creatorButtonDom}
+      </>
+    ),
+  };
+}
 
 function useCreatorButton<DataType>({
   recordCreatorProps,
@@ -165,90 +406,32 @@ function useCreatorButton<DataType>({
   tableViewRender: ProTableProps<DataType, any>['tableViewRender'];
 }): CreatorButtonResult {
   const creatorButtonDom = useMemo(() => {
-    if (typeof maxLength === 'number' && maxLength <= (value?.length || 0)) {
+    if (
+      !shouldShowCreatorButton(
+        maxLength,
+        value?.length || 0,
+        recordCreatorProps,
+      )
+    ) {
       return false;
     }
-    if (recordCreatorProps === false) return false;
-    const {
-      record,
-      position,
-      creatorButtonText,
-      newRecordType,
-      parentKey,
-      style,
-      ...restButtonProps
-    } = recordCreatorProps || {};
 
-    return (
-      <RecordCreator
-        record={runFunction(record, value?.length, value) || {}}
-        position={position}
-        parentKey={runFunction(parentKey, value?.length, value)}
-        newRecordType={newRecordType}
-      >
-        <Button
-          type="dashed"
-          style={{
-            display: 'block',
-            margin: '10px 0',
-            width: '100%',
-            ...style,
-          }}
-          icon={<PlusOutlined />}
-          {...restButtonProps}
-        >
-          {creatorButtonText ||
-            intl.getMessage('editableTable.action.add', '添加一行数据')}
-        </Button>
-      </RecordCreator>
-    );
+    if (!recordCreatorProps) {
+      return false;
+    }
+
+    return createButtonDom(recordCreatorProps, value, intl);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [maxLength, recordCreatorProps, value?.length]);
+  }, [maxLength, recordCreatorProps, value?.length, intl]);
 
   const buttonRenderProps = useMemo(() => {
     if (!creatorButtonDom) {
       return {};
     }
-    if (isTop) {
-      return {
-        components: {
-          header: {
-            wrapper: ({
-              className,
-              children,
-            }: {
-              className: string;
-              children: React.ReactNode;
-            }) => (
-              <thead className={className}>
-                {children}
-                <tr style={{ position: 'relative' }}>
-                  <td colSpan={0} style={{ visibility: 'hidden' }}>
-                    {creatorButtonDom}
-                  </td>
-                  <td
-                    style={{ position: 'absolute', left: 0, width: '100%' }}
-                    colSpan={columnsLength}
-                  >
-                    {creatorButtonDom}
-                  </td>
-                </tr>
-              </thead>
-            ),
-          },
-        },
-      };
-    }
-    return {
-      tableViewRender: (_: any, dom: any) => {
-        return (
-          <>
-            {tableViewRender?.(_, dom) ?? dom}
-            {creatorButtonDom}
-          </>
-        );
-      },
-    };
+
+    return isTop
+      ? createTopButtonProps(creatorButtonDom, columnsLength)
+      : createBottomButtonProps(creatorButtonDom, tableViewRender);
   }, [columnsLength, creatorButtonDom, isTop, tableViewRender]);
 
   return { creatorButtonDom, buttonRenderProps };
@@ -281,17 +464,39 @@ function EditableTable<
   const preData = useRef<readonly DataType[] | undefined>(undefined);
   const actionRef = useRef<ActionType>();
   const formRef = useRef<ProFormInstance>();
+  const form = Form.useFormInstance();
 
   // 设置 ref
   useImperativeHandle(rest.actionRef, () => actionRef.current, [
     actionRef.current,
   ]);
 
+  // 在 name 模式下，如果没有传递 value prop，尝试从表单值中获取初始值
+  const getInitialValue = () => {
+    if (props.value) {
+      return props.value;
+    }
+    if (defaultValue) {
+      return defaultValue;
+    }
+    // 如果使用了 name 且没有 value，尝试从表单获取初始值
+    if (props.name && form) {
+      const namePath = [props.name].flat(1).filter(Boolean) as NamePath;
+      const formValue = form.getFieldValue(namePath);
+      if (Array.isArray(formValue)) {
+        return formValue;
+      }
+    }
+    return [];
+  };
+
   const [value, setValue] = useMergedState<readonly DataType[]>(
-    () => props.value || defaultValue || [],
+    getInitialValue,
     {
       value: props.value,
-      onChange: props.onChange,
+      // 在非受控模式下，onChange 应该在 onDataSourceChange 中触发
+      // 这样可以确保数据已经正确更新
+      onChange: props.controlled ? props.onChange : undefined,
     },
   );
 
@@ -306,123 +511,295 @@ function EditableTable<
   }, [rowKey]);
 
   /**
-   * 根据不同的情况返回不同的 rowKey
-   * @param finlayRowKey
-   * @returns string | number
+   * 创建编辑 keys 的 Set，用于快速查找
    */
-  const coverRowKey = useRefFunction(
-    (finlayRowKey: number | string): string | number => {
-      /**
-       * 如果是 prop.name 的模式，就需要把行号转化成具体的rowKey。
-       */
-      if (typeof finlayRowKey === 'number' && !props.name) {
-        const dataLength = value?.length ?? 0;
-        if (finlayRowKey >= dataLength) return finlayRowKey;
-        const rowData = value?.[finlayRowKey];
-        return getRowKey?.(rowData!, finlayRowKey) as string | number;
-      }
+  const createEditingKeysSet = useRefFunction(
+    (editingKeys: React.Key[] | undefined): Set<string> => {
+      return new Set((editingKeys || []).map((key) => String(key)));
+    },
+  );
 
-      /**
-       * 如果是 prop.name 的模式，就直接返回行号
-       */
-      if (
-        (typeof finlayRowKey === 'string' ||
-          finlayRowKey >= (value?.length ?? 0)) &&
-        props.name
-      ) {
+  /**
+   * 同步表单值，排除正在编辑的行
+   */
+  const syncFormValuesExcludingEditing = useRefFunction(
+    (
+      dataSource: readonly DataType[],
+      editingKeysSet: Set<string>,
+      namePath?: string[],
+    ): void => {
+      if (!formRef.current) return;
+
+      try {
+        if (namePath && namePath.length > 0) {
+          // name 模式：需要保留正在编辑的行
+          const currentFormValues = formRef.current.getFieldsValue() || {};
+          const currentList = get(currentFormValues, namePath) as
+            | DataType[]
+            | undefined;
+
+          if (currentList && Array.isArray(currentList)) {
+            // 构建新的表单值，保留正在编辑的行
+            // 使用 Map 优化查找性能，将 O(n²) 降低到 O(n)
+            const currentListMap = new Map<string, DataType>();
+            currentList.forEach((item, idx) => {
+              const key = getRowKey(item, idx);
+              currentListMap.set(String(key), item);
+            });
+
+            const newList = dataSource.map((item, index) => {
+              const key = getRowKey(item, index);
+              const keyStr = String(key);
+
+              // 如果该行正在编辑，保留表单中的值
+              if (editingKeysSet.has(keyStr)) {
+                return currentListMap.get(keyStr) || item;
+              }
+
+              return item;
+            });
+
+            const newValue = set({}, namePath, newList);
+            formRef.current.setFieldsValue(newValue);
+          } else {
+            const newValue = set({}, namePath, dataSource);
+            formRef.current.setFieldsValue(newValue);
+          }
+        } else {
+          // 非 name 模式：直接设置值
+          const formValues: Record<string, DataType> = {};
+          dataSource.forEach((current, index) => {
+            const key = getRowKey(current, index);
+            const keyStr = String(key);
+
+            if (!editingKeysSet.has(keyStr)) {
+              formValues[keyStr] = current;
+            }
+          });
+
+          if (Object.keys(formValues).length > 0) {
+            formRef.current.setFieldsValue(formValues);
+          }
+        }
+      } catch (error) {
+        console.warn('Failed to sync form values:', error);
+      }
+    },
+  );
+
+  /**
+   * 将数字索引转换为实际的 rowKey（非 name 模式）
+   */
+  const convertIndexToRowKey = useRefFunction(
+    (index: number): string | number => {
+      const dataLength = value?.length ?? 0;
+      if (index >= dataLength) return index;
+      const rowData = value?.[index];
+      return getRowKey?.(rowData!, index) as string | number;
+    },
+  );
+
+  /**
+   * 将 rowKey 转换为数字索引（name 模式）
+   */
+  const convertRowKeyToIndex = useRefFunction(
+    (rowKey: string | number): number | string | number => {
+      const dataLength = value?.length ?? 0;
+      if (typeof rowKey === 'string' || rowKey >= dataLength) {
         const rowIndex = value.findIndex((item, index) => {
-          return (
-            getRowKey?.(item, index)?.toString() === finlayRowKey?.toString()
-          );
+          return getRowKey?.(item, index)?.toString() === rowKey?.toString();
         });
         if (rowIndex !== -1) return rowIndex;
       }
+      return rowKey;
+    },
+  );
+
+  /**
+   * 根据不同的情况返回不同的 rowKey
+   */
+  const coverRowKey = useRefFunction(
+    (finlayRowKey: number | string): string | number => {
+      if (typeof finlayRowKey === 'number' && !props.name) {
+        return convertIndexToRowKey(finlayRowKey);
+      }
+
+      if (props.name) {
+        return convertRowKeyToIndex(finlayRowKey);
+      }
+
       return finlayRowKey;
+    },
+  );
+
+  /**
+   * 构建表单字段路径
+   */
+  const buildFormFieldPath = useRefFunction(
+    (rowKey: string | number): NamePath => {
+      return [props.name, rowKey?.toString() ?? '']
+        .flat(1)
+        .filter(Boolean) as NamePath;
+    },
+  );
+
+  /**
+   * 获取一行数据
+   */
+  const getRowData = useRefFunction(
+    (rowIndex: string | number): DataType | undefined => {
+      if (rowIndex == null) {
+        throw new Error('rowIndex is required');
+      }
+
+      const finlayRowKey = coverRowKey(rowIndex);
+      const rowKeyName = buildFormFieldPath(finlayRowKey);
+      return formRef.current?.getFieldValue(rowKeyName) as DataType;
+    },
+  );
+
+  /**
+   * 获取整个表格的数据
+   */
+  const getRowsData = useRefFunction((): DataType[] | undefined => {
+    const rowKeyName = [props.name].flat(1).filter(Boolean) as NamePath;
+    if (Array.isArray(rowKeyName) && rowKeyName.length === 0) {
+      const rowData = formRef.current?.getFieldsValue();
+      if (Array.isArray(rowData)) return rowData;
+      return Object.keys(rowData).map((key) => rowData[key]);
+    }
+    return formRef.current?.getFieldValue(rowKeyName) as DataType[];
+  });
+
+  /**
+   * 设置一行数据
+   */
+  const setRowData = useRefFunction(
+    (rowIndex: string | number, data: Partial<DataType>): boolean => {
+      if (rowIndex == null) {
+        throw new Error('rowIndex is required');
+      }
+
+      const finlayRowKey = coverRowKey(rowIndex);
+      const rowKeyName = buildFormFieldPath(finlayRowKey) as string[];
+
+      const currentRowData = getRowData(rowIndex);
+      const newRowData = {
+        ...currentRowData,
+        ...(data || {}),
+      };
+
+      // 在 name 模式下，需要更新整个数组
+      if (props.name) {
+        const tableName = [props.name].flat(1).filter(Boolean) as NamePath;
+        // 优先从 value prop 获取数据（受控模式），否则从表单值获取
+        let currentTableData =
+          (props.value as DataType[] | undefined) ||
+          (formRef.current?.getFieldValue(tableName) as DataType[] | undefined);
+
+        if (Array.isArray(currentTableData)) {
+          // 找到要更新的行的索引
+          const rowIndexToUpdate =
+            typeof finlayRowKey === 'number'
+              ? finlayRowKey
+              : currentTableData.findIndex((row, index) => {
+                  const rowKey = getRowKey?.(row, index);
+                  return (
+                    rowKey === finlayRowKey ||
+                    rowKey?.toString() === finlayRowKey?.toString()
+                  );
+                });
+
+          if (
+            rowIndexToUpdate >= 0 &&
+            rowIndexToUpdate < currentTableData.length
+          ) {
+            // 更新数组中的对应行
+            const updatedTableData = [...currentTableData];
+            updatedTableData[rowIndexToUpdate] = newRowData as DataType;
+
+            // 设置整个数组，使用 set 来构建正确的路径
+            // 使用与 syncFormValuesExcludingEditing 相同的路径格式（数组路径）
+            // 这样可以确保 getFieldValue 能正确获取值
+            const updateValues = set({}, tableName, updatedTableData);
+            formRef.current?.setFieldsValue(updateValues);
+
+            // 在受控模式下，触发 onChange
+            if (props.controlled && props.onChange) {
+              props.onChange(updatedTableData);
+            }
+          }
+        } else {
+          // 如果当前没有数据，直接设置单个字段
+          const updateValues = set({}, rowKeyName, newRowData);
+          formRef.current?.setFieldsValue(updateValues);
+        }
+      } else {
+        // 非 name 模式下，直接设置单个字段
+        const updateValues = set({}, rowKeyName, newRowData);
+        formRef.current?.setFieldsValue(updateValues);
+      }
+
+      return true;
     },
   );
 
   // 设置 editableFormRef
   useImperativeHandle(editableFormRef, () => {
-    /**
-     * 获取一行数据的
-     * @param rowIndex
-     * @returns T | undefined
-     */
-    const getRowData = (rowIndex: string | number): DataType | undefined => {
-      if (rowIndex == undefined) {
-        throw new Error('rowIndex is required');
-      }
-
-      const finlayRowKey = coverRowKey(rowIndex);
-
-      const rowKeyName = [props.name, finlayRowKey?.toString() ?? '']
-        .flat(1)
-        .filter(Boolean) as NamePath;
-      return formRef.current?.getFieldValue(rowKeyName) as DataType;
-    };
-
-    /**
-     * 获取整个 table 的数据
-     * @returns T[] | undefined
-     */
-    const getRowsData = (): DataType[] | undefined => {
-      const rowKeyName = [props.name].flat(1).filter(Boolean) as NamePath;
-      if (Array.isArray(rowKeyName) && rowKeyName.length === 0) {
-        const rowData = formRef.current?.getFieldsValue();
-        if (Array.isArray(rowData)) return rowData;
-        return Object.keys(rowData).map((key) => {
-          return rowData[key];
-        });
-      }
-      return formRef.current?.getFieldValue(rowKeyName) as DataType[];
-    };
     return {
       ...formRef.current,
       getRowData,
       getRowsData,
-      /**
-       * 设置一行的数据，会将数据进行简单的 merge
-       * @param rowIndex
-       * @param data
-       * @returns void
-       */
-      setRowData: (rowIndex, data) => {
-        if (rowIndex == undefined) {
-          throw new Error('rowIndex is required');
-        }
-        const finlayRowKey = coverRowKey(rowIndex);
-        const rowKeyName = [props.name, finlayRowKey?.toString() ?? '']
-          .flat(1)
-          .filter(Boolean) as string[];
-
-        const newRowData = Object.assign(
-          {},
-          {
-            // 只是简单的覆盖，如果很复杂的话，需要自己处理
-            ...getRowData(rowIndex),
-            ...(data || {}),
-          },
-        );
-        const updateValues = set({}, rowKeyName, newRowData);
-        formRef.current?.setFieldsValue(updateValues);
-        return true;
-      },
+      setRowData,
     } as EditableFormInstance<DataType>;
-  }, [coverRowKey, props.name, formRef.current]);
+  }, [coverRowKey, props.name, getRowData, getRowsData, setRowData]);
 
-  useEffect(() => {
-    if (!props.controlled) return;
-    (value || []).forEach((current, index) => {
-      formRef.current?.setFieldsValue({
-        [`${getRowKey(current, index)}`]: current,
-      });
-    }, {});
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [stringify(value), props.controlled]);
+  /**
+   * 受控模式下同步表单值
+   * 在受控模式下，即使正在编辑的行也要同步更新，因为数据由外部完全控制
+   * 使用深度比较优化性能，避免频繁的序列化操作
+   * 注意：只有当 value 明确传递时才同步，避免覆盖表单中的初始值
+   */
+  useDeepCompareEffect(() => {
+    if (!props.controlled || !formRef.current) return;
 
+    // 在受控模式下，只有当 value 明确传递时才同步
+    // 避免在 value 为 undefined 时覆盖表单中的初始值
+    if (value === undefined) return;
+
+    // 在受控模式下，同步所有值（包括正在编辑的行）
+    // 因为数据由外部完全控制，应该同步更新
+    try {
+      if (props.name) {
+        // name 模式：直接设置整个数组
+        const namePath = [props.name].flat(1) as string[];
+        const newValue = set({}, namePath, value);
+        formRef.current.setFieldsValue(newValue);
+      } else {
+        // 非 name 模式：直接设置值
+        const formValues: Record<string, DataType> = {};
+        value.forEach((item, index) => {
+          const key = getRowKey(item, index);
+          const keyStr = String(key);
+          formValues[keyStr] = item;
+        });
+
+        if (Object.keys(formValues).length > 0) {
+          formRef.current.setFieldsValue(formValues);
+        }
+      }
+    } catch (error) {
+      console.warn('Failed to sync form values in controlled mode:', error);
+    }
+  }, [value, props.controlled, props.name, getRowKey]);
+
+  /**
+   * 同步表单实例引用
+   * 只在 name 模式下且 form 存在时更新
+   */
   useEffect(() => {
-    if (props.name) {
-      formRef.current = props?.editable?.form;
+    if (props.name && props?.editable?.form) {
+      formRef.current = props.editable.form;
     }
   }, [props.editable?.form, props.name]);
 
@@ -439,31 +816,49 @@ function EditableTable<
     tableViewRender: props.tableViewRender,
   });
 
-  const editableProps = { ...props.editable };
-
   /**
-   * 防止闭包的onchange
-   *
-   * >>>>>>为了性能好辛苦
+   * 处理值变化回调
+   * 注意：受控模式下不调用 onChange，避免循环更新
+   * onChange 应该由外部控制，而不是在内部触发
    */
-  const newOnValueChange = useRefFunction(
+  const handleValuesChange = useRefFunction(
     (r: DataType, dataSource: DataType[]) => {
       props.editable?.onValuesChange?.(r, dataSource);
       props.onValuesChange?.(dataSource, r);
-      if (props.controlled) {
-        props?.onChange?.(dataSource);
+
+      // 在受控模式下，当表单值变化时也应该触发 onChange
+      // 这样外部可以同步更新 value，实现真正的受控
+      if (props.controlled && props?.onChange) {
+        props.onChange(dataSource);
       }
+      // 非受控模式下，onChange 应该在 onDataSourceChange 中触发
+      // 这样可以确保数据已经正确更新
     },
   );
 
-  if (
-    props?.onValuesChange ||
-    props.editable?.onValuesChange ||
-    // 受控模式需要触发 onchange
-    (props.controlled && props?.onChange)
-  ) {
-    editableProps.onValuesChange = newOnValueChange;
-  }
+  /**
+   * 构建可编辑属性
+   * 使用 useMemo 优化性能，避免不必要的重新创建
+   */
+  const editableProps = useMemo(() => {
+    const baseProps = { ...props.editable };
+    const hasOnValuesChange =
+      Boolean(props?.onValuesChange) ||
+      Boolean(props.editable?.onValuesChange) ||
+      Boolean(props.controlled && props?.onChange);
+
+    if (hasOnValuesChange) {
+      baseProps.onValuesChange = handleValuesChange;
+    }
+
+    return baseProps;
+  }, [
+    props.editable,
+    props.onValuesChange,
+    props.controlled,
+    props.onChange,
+    handleValuesChange,
+  ]);
 
   return (
     <>
@@ -488,41 +883,69 @@ function EditableTable<
           }}
           dataSource={value}
           onDataSourceChange={(dataSource: readonly DataType[]) => {
+            // setValue 会触发 onChange，但我们需要确保数据已经正确更新
+            // 所以先设置数据，然后手动触发 onChange
             setValue(dataSource);
+
             /**
-             * 如果是top，需要重新设置一下 form，不然会导致 id 相同数据混淆
+             * 如果是 name 模式，需要同步表单值
+             * 避免表单值和数据源不一致
+             * 注意：不会覆盖正在编辑的行
              */
-            if (props.name && position === 'top') {
-              const newValue = set(
-                {},
-                [props.name!].flat(1).filter(Boolean),
+            if (props.name && formRef.current) {
+              const editingKeys = props.editable?.editableKeys;
+              const editingKeysSet = createEditingKeysSet(editingKeys);
+              const namePath = [props.name].flat(1).filter(Boolean);
+
+              syncFormValuesExcludingEditing(
                 dataSource,
+                editingKeysSet,
+                namePath,
               );
-              formRef.current?.setFieldsValue(newValue);
+            }
+
+            // 在非受控模式下，通过 onDataSourceChange 触发 onChange
+            // 这样可以确保数据已经正确更新
+            if (!props.controlled && props.onChange) {
+              props.onChange(dataSource);
             }
           }}
         />
       </EditableTableActionContext.Provider>
-      {/* 模拟 onValuesChange */}
+      {/* 模拟 onValuesChange - 用于 name 模式下的值变化监听 */}
       {props.name ? (
         <ProFormDependency name={[props.name!]}>
           {(changeValue) => {
+            // 初始化 preData
             if (!preData.current) {
               preData.current = value;
               return null;
             }
-            const list = get(
-              changeValue,
-              [props.name].flat(1) as string[],
-            ) as any[];
-            const changeItem = list?.find((item, index) => {
+
+            const namePath = [props.name].flat(1) as string[];
+            const list = get(changeValue, namePath) as DataType[] | undefined;
+
+            // 添加空值检查，避免后续操作出错
+            if (!list || !Array.isArray(list)) {
+              preData.current = value;
+              return null;
+            }
+
+            // 在更新 preData 之前找到变化的项
+            // 使用 findIndex 可以同时获取变化的项和索引
+            const changeIndex = list.findIndex((item, index) => {
               return !isDeepEqualReact(item, preData.current?.[index]);
             });
+
+            // 只有在找到变化项时才触发回调
+            if (changeIndex !== -1) {
+              const changeItem = list[changeIndex];
+              props?.editable?.onValuesChange?.(changeItem, list);
+            }
+
+            // 在找到 changeItem 之后再更新 preData，确保后续比较正确
             preData.current = value;
 
-            if (!changeItem) return null;
-            // 如果不存在 preData 说明是初始化，此时不需要触发 onValuesChange
-            props?.editable?.onValuesChange?.(changeItem, list);
             return null;
           }}
         </ProFormDependency>
