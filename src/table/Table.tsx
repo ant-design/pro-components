@@ -492,7 +492,7 @@ const ProTable = <
   });
 
   const { defaultProFilter, defaultProSort } = useMemo(() => {
-    const { sort, filter } = parseServerDefaultColumnConfig(propsColumns);
+    const { sort, filter } = parseServerDefaultColumnConfig(flattenColumns(propsColumns));
     return {
       defaultProFilter: filter,
       defaultProSort: sort,
