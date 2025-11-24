@@ -1,5 +1,9 @@
 import type { TablePaginationConfig } from 'antd';
 import { ConfigProvider, Table } from 'antd';
+import {
+  FilterValue as AntFilterValue,
+  SorterResult,
+} from 'antd/es/table/interface';
 import type {
   GetRowKey,
   SortOrder,
@@ -66,7 +70,6 @@ import {
 } from './utils';
 import { columnSort } from './utils/columnSort';
 import { genProColumnToColumn } from './utils/genProColumnToColumn';
-import { FilterValue as AntFilterValue, SorterResult } from 'antd/es/table/interface';
 
 function TableRender<T extends Record<string, any>, U, ValueType>(
   props: ProTableProps<T, U, ValueType> & {
@@ -220,7 +223,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
       // 传递服务端筛选数据
       const serverFilter = getServerFilterResult(filters, useFilterColumns);
       onFilterChange(omitUndefined(serverFilter));
-      
+
       // 传递服务端排序数据
       const serverSorter = getServerSorterResult(sorter);
       onSortChange(omitUndefined(serverSorter));
@@ -495,8 +498,10 @@ const ProTable = <
       defaultProSort: sort,
     };
   }, [propsColumns]);
-  const [proFilter, setProFilter] = useMountMergeState<Record<string, FilterValue>>(defaultProFilter);
-  const [proSort, setProSort] = useMountMergeState<Record<string, SortOrder>>(defaultProSort);
+  const [proFilter, setProFilter] =
+    useMountMergeState<Record<string, FilterValue>>(defaultProFilter);
+  const [proSort, setProSort] =
+    useMountMergeState<Record<string, SortOrder>>(defaultProSort);
 
   const intl = useIntl();
 

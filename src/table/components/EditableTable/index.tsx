@@ -139,6 +139,121 @@ function RecordCreator<T = Record<string, any>>(
   });
 }
 
+type CreatorButtonResult = {
+  creatorButtonDom: React.ReactNode | false;
+  buttonRenderProps: Record<string, any>;
+};
+
+function useCreatorButton<DataType>({
+  recordCreatorProps,
+  maxLength,
+  value,
+  intl,
+  isTop,
+  columnsLength,
+  tableViewRender,
+}: {
+  recordCreatorProps: EditableProTableProps<
+    DataType,
+    any
+  >['recordCreatorProps'];
+  maxLength: EditableProTableProps<DataType, any>['maxLength'];
+  value: readonly DataType[] | undefined;
+  intl: ReturnType<typeof useIntl>;
+  isTop: boolean;
+  columnsLength: number | undefined;
+  tableViewRender: ProTableProps<DataType, any>['tableViewRender'];
+}): CreatorButtonResult {
+  const creatorButtonDom = useMemo(() => {
+    if (typeof maxLength === 'number' && maxLength <= (value?.length || 0)) {
+      return false;
+    }
+    if (recordCreatorProps === false) return false;
+    const {
+      record,
+      position,
+      creatorButtonText,
+      newRecordType,
+      parentKey,
+      style,
+      ...restButtonProps
+    } = recordCreatorProps || {};
+
+    return (
+      <RecordCreator
+        record={runFunction(record, value?.length, value) || {}}
+        position={position}
+        parentKey={runFunction(parentKey, value?.length, value)}
+        newRecordType={newRecordType}
+      >
+        <Button
+          type="dashed"
+          style={{
+            display: 'block',
+            margin: '10px 0',
+            width: '100%',
+            ...style,
+          }}
+          icon={<PlusOutlined />}
+          {...restButtonProps}
+        >
+          {creatorButtonText ||
+            intl.getMessage('editableTable.action.add', '添加一行数据')}
+        </Button>
+      </RecordCreator>
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [maxLength, recordCreatorProps, value?.length]);
+
+  const buttonRenderProps = useMemo(() => {
+    if (!creatorButtonDom) {
+      return {};
+    }
+    if (isTop) {
+      return {
+        components: {
+          header: {
+            wrapper: ({
+              className,
+              children,
+            }: {
+              className: string;
+              children: React.ReactNode;
+            }) => (
+              <thead className={className}>
+                {children}
+                <tr style={{ position: 'relative' }}>
+                  <td colSpan={0} style={{ visibility: 'hidden' }}>
+                    {creatorButtonDom}
+                  </td>
+                  <td
+                    style={{ position: 'absolute', left: 0, width: '100%' }}
+                    colSpan={columnsLength}
+                  >
+                    {creatorButtonDom}
+                  </td>
+                </tr>
+              </thead>
+            ),
+          },
+        },
+      };
+    }
+    return {
+      tableViewRender: (_: any, dom: any) => {
+        return (
+          <>
+            {tableViewRender?.(_, dom) ?? dom}
+            {creatorButtonDom}
+          </>
+        );
+      },
+    };
+  }, [columnsLength, creatorButtonDom, isTop, tableViewRender]);
+
+  return { creatorButtonDom, buttonRenderProps };
+}
+
 /**
  * 可以直接放到 Form 中的可编辑表格
  * A React component that is used to create a table.
@@ -201,8 +316,9 @@ function EditableTable<
        * 如果是 prop.name 的模式，就需要把行号转化成具体的rowKey。
        */
       if (typeof finlayRowKey === 'number' && !props.name) {
-        if (finlayRowKey >= value.length) return finlayRowKey;
-        const rowData = value && value[finlayRowKey];
+        const dataLength = value?.length ?? 0;
+        if (finlayRowKey >= dataLength) return finlayRowKey;
+        const rowData = value?.[finlayRowKey];
         return getRowKey?.(rowData!, finlayRowKey) as string | number;
       }
 
@@ -210,7 +326,8 @@ function EditableTable<
        * 如果是 prop.name 的模式，就直接返回行号
        */
       if (
-        (typeof finlayRowKey === 'string' || finlayRowKey >= value.length) &&
+        (typeof finlayRowKey === 'string' ||
+          finlayRowKey >= (value?.length ?? 0)) &&
         props.name
       ) {
         const rowIndex = value.findIndex((item, index) => {
@@ -309,96 +426,18 @@ function EditableTable<
     }
   }, [props.editable?.form, props.name]);
 
-  const {
-    record,
-    position,
-    creatorButtonText,
-    newRecordType,
-    parentKey,
-    style,
-    ...restButtonProps
-  } = recordCreatorProps || {};
+  const { position } = recordCreatorProps || {};
   const isTop = position === 'top';
 
-  const creatorButtonDom = useMemo(() => {
-    if (typeof maxLength === 'number' && maxLength <= value?.length) {
-      return false;
-    }
-    return (
-      recordCreatorProps !== false && (
-        <RecordCreator
-          record={runFunction(record, value?.length, value) || {}}
-          position={position}
-          parentKey={runFunction(parentKey, value?.length, value)}
-          newRecordType={newRecordType}
-        >
-          <Button
-            type="dashed"
-            style={{
-              display: 'block',
-              margin: '10px 0',
-              width: '100%',
-              ...style,
-            }}
-            icon={<PlusOutlined />}
-            {...restButtonProps}
-          >
-            {creatorButtonText ||
-              intl.getMessage('editableTable.action.add', '添加一行数据')}
-          </Button>
-        </RecordCreator>
-      )
-    );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [recordCreatorProps, maxLength, value?.length]);
-
-  const buttonRenderProps = useMemo(() => {
-    if (!creatorButtonDom) {
-      return {};
-    }
-    if (isTop) {
-      return {
-        components: {
-          header: {
-            wrapper: ({
-              className,
-              children,
-            }: {
-              className: string;
-              children: React.ReactNode;
-            }) => (
-              <thead className={className}>
-                {children}
-                <tr style={{ position: 'relative' }}>
-                  {/* 占位 */}
-                  <td colSpan={0} style={{ visibility: 'hidden' }}>
-                    {creatorButtonDom}
-                  </td>
-                  <td
-                    style={{ position: 'absolute', left: 0, width: '100%' }}
-                    colSpan={rest.columns?.length}
-                  >
-                    {creatorButtonDom}
-                  </td>
-                </tr>
-              </thead>
-            ),
-          },
-        },
-      };
-    }
-    return {
-      tableViewRender: (_: any, dom: any) => {
-        return (
-          <>
-            {props.tableViewRender?.(_, dom) ?? dom}
-            {creatorButtonDom}
-          </>
-        );
-      },
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isTop, creatorButtonDom]);
+  const { creatorButtonDom, buttonRenderProps } = useCreatorButton<DataType>({
+    recordCreatorProps,
+    maxLength,
+    value,
+    intl,
+    isTop,
+    columnsLength: rest.columns?.length,
+    tableViewRender: props.tableViewRender,
+  });
 
   const editableProps = { ...props.editable };
 

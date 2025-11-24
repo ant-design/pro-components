@@ -24,6 +24,10 @@ ModalForm and DrawerForm both provide triggers to reduce state usage, if you nee
 
 <code src="../../../demos/form/ModalForm/drawer-form-nested.tsx" debug  background="var(--main-bg-color)" oldtitle="Drawer Forms"></code>
 
+### Debug: Close while loading (Modal + Drawer)
+
+<code src="../../../demos/form/ModalForm/modal-form-request-destroy-debug.tsx" debug background="var(--main-bg-color)" title="Debug: destroyOnHidden + request (Modal & Drawer)"></code>
+
 ## Custom Modal Forms' Button
 
 <code src="../../../demos/form/ModalForm/modal-form-submitter.tsx"  background="var(--main-bg-color)" oldtitle="Custom Modal Forms' Button"></code>

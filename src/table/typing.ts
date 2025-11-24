@@ -12,8 +12,7 @@ import type {
 } from 'antd/lib/table/interface';
 import type dayjs from 'dayjs';
 import type React from 'react';
-import type { Key } from 'react';
-import type { CSSProperties } from 'react';
+import type { CSSProperties, Key } from 'react';
 import type { ProCardProps } from '../card';
 import type { ProFieldEmptyText } from '../field';
 import type {
@@ -79,15 +78,15 @@ export type TableRowSelection = TableProps<any>['rowSelection'];
  */
 export type FilterValue = (string | number)[] | null;
 
-export type ProSorter<T> = 
-| string // 支持变更请求时字段名称
-| boolean
-| CompareFn<T>
-| {
-    compare?: CompareFn<T>;
-    /** Config multiple sorter order priority */
-    multiple?: number;
-  };
+export type ProSorter<T> =
+  | string // 支持变更请求时字段名称
+  | boolean
+  | CompareFn<T>
+  | {
+      compare?: CompareFn<T>;
+      /** Config multiple sorter order priority */
+      multiple?: number;
+    };
 
 export type ProSorterResult<T> = Omit<SorterResult<T>, 'column'> & {
   column?: ColumnType<T> & {

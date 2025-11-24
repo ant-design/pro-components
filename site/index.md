@@ -5,7 +5,7 @@ hero:
   description: 🏆 让中后台开发更简单
   actions:
     - text: 🚀 快速开始 →
-      link: /docs/intro
+      link: /components
 footer: Open-source MIT Licensed | © 2017-present
 ---
 
