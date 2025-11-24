@@ -5,6 +5,7 @@ export { ProFormContext } from '../utils';
 export { LightWrapper } from './BaseForm';
 export type { LightWrapperProps, ProFormInstance } from './BaseForm';
 
+export type { SubmitterProps } from './BaseForm/Submitter';
 export * from './components';
 export type {
   FormListActionType,
