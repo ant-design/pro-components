@@ -6,17 +6,14 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
-      class="ant-pro-layout-bg-list"
-    />
-    <div
-      class="ant-layout ant-layout-has-sider"
+      class="ant-layout ant-layout-has-sider css-var-r5v"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
         style="width: 256px; overflow: hidden; flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-r60"
         style="flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; width: 256px;"
       >
         <div
@@ -165,10 +162,10 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
               style="padding: 24px;"
             >
               <div
-                class="ant-skeleton ant-skeleton-active"
+                class="ant-skeleton ant-skeleton-active css-var-r60"
               >
                 <div
-                  class="ant-skeleton-content"
+                  class="ant-skeleton-section"
                 >
                   <ul
                     class="ant-skeleton-paragraph"
@@ -217,10 +214,7 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-top-menu ant-pro-layout-fix-siderbar ant-pro-layout-top"
   >
     <div
-      class="ant-pro-layout-bg-list"
-    />
-    <div
-      class="ant-layout"
+      class="ant-layout css-var-r63"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
@@ -384,10 +378,10 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
                   style="margin-block-start: 16px;"
                 >
                   <div
-                    class="ant-skeleton ant-skeleton-active"
+                    class="ant-skeleton ant-skeleton-active css-var-r66"
                   >
                     <div
-                      class="ant-skeleton-content"
+                      class="ant-skeleton-section"
                     >
                       <ul
                         class="ant-skeleton-paragraph"
@@ -413,17 +407,14 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
   >
     <div
-      class="ant-pro-layout-bg-list"
-    />
-    <div
-      class="ant-layout ant-layout-has-sider"
+      class="ant-layout ant-layout-has-sider css-var-r69"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
         style="width: 215px; overflow: hidden; flex-grow: 0; flex-shrink: 0; flex-basis: 215px; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s;"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-fixed-mix ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-fixed-mix ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix css-var-r6a"
         style="flex-grow: 0; flex-shrink: 0; flex-basis: 215px; max-width: 215px; min-width: 215px; width: 215px;"
       >
         <div
@@ -436,10 +427,10 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
               style="padding: 24px;"
             >
               <div
-                class="ant-skeleton ant-skeleton-active"
+                class="ant-skeleton ant-skeleton-active css-var-r6a"
               >
                 <div
-                  class="ant-skeleton-content"
+                  class="ant-skeleton-section"
                 >
                   <ul
                     class="ant-skeleton-paragraph"
@@ -643,17 +634,14 @@ exports[`BasicLayout > 🥩 base use 1`] = `
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
-      class="ant-pro-layout-bg-list"
-    />
-    <div
-      class="ant-layout ant-layout-has-sider"
+      class="ant-layout ant-layout-has-sider css-var-r2"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
         style="width: 256px; overflow: hidden; flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-r3"
         style="flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; width: 256px;"
       >
         <div
@@ -802,10 +790,10 @@ exports[`BasicLayout > 🥩 base use 1`] = `
               style="padding: 24px;"
             >
               <div
-                class="ant-skeleton ant-skeleton-active"
+                class="ant-skeleton ant-skeleton-active css-var-r3"
               >
                 <div
-                  class="ant-skeleton-content"
+                  class="ant-skeleton-section"
                 >
                   <ul
                     class="ant-skeleton-paragraph"
@@ -859,17 +847,14 @@ exports[`BasicLayout > 🥩 contentStyle should change dom 1`] = `
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
-      class="ant-pro-layout-bg-list"
-    />
-    <div
-      class="ant-layout ant-layout-has-sider"
+      class="ant-layout ant-layout-has-sider css-var-r3d"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
         style="width: 256px; overflow: hidden; flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-r3e"
         style="flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; width: 256px;"
       >
         <div
@@ -1018,10 +1003,10 @@ exports[`BasicLayout > 🥩 contentStyle should change dom 1`] = `
               style="padding: 24px;"
             >
               <div
-                class="ant-skeleton ant-skeleton-active"
+                class="ant-skeleton ant-skeleton-active css-var-r3e"
               >
                 <div
-                  class="ant-skeleton-content"
+                  class="ant-skeleton-section"
                 >
                   <ul
                     class="ant-skeleton-paragraph"

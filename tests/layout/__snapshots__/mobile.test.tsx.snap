@@ -6,10 +6,7 @@ exports[`mobile BasicLayout > 📱 base use 1`] = `
     class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
-      class="ant-pro-layout-bg-list"
-    />
-    <div
-      class="ant-layout"
+      class="ant-layout css-var-r2"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
@@ -199,10 +196,7 @@ exports[`mobile BasicLayout > 📱 layout menuHeaderRender 1`] = `
     class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
   >
     <div
-      class="ant-pro-layout-bg-list"
-    />
-    <div
-      class="ant-layout"
+      class="ant-layout css-var-r19"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
@@ -265,10 +259,7 @@ exports[`mobile BasicLayout > 📱 layout menuHeaderRender with custom title 1`]
     class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
   >
     <div
-      class="ant-pro-layout-bg-list"
-    />
-    <div
-      class="ant-layout"
+      class="ant-layout css-var-r1f"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
@@ -331,10 +322,7 @@ exports[`mobile BasicLayout > 📱 layout menuHeaderRender=false 1`] = `
     class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
   >
     <div
-      class="ant-pro-layout-bg-list"
-    />
-    <div
-      class="ant-layout"
+      class="ant-layout css-var-r13"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
@@ -396,18 +384,15 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
     class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
   >
     <div
-      class="ant-pro-layout-bg-list"
-    />
-    <div
-      class="ant-layout ant-layout-has-sider"
+      class="ant-layout ant-layout-has-sider css-var-rh"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
-        class="ant-drawer ant-drawer-left ant-drawer-open ant-drawer-inline"
+        class="ant-drawer ant-drawer-left css-var-ri ant-drawer-open ant-drawer-inline"
         tabindex="-1"
       >
         <div
-          class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-start ant-drawer-mask-motion"
+          class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-start ant-drawer-mask-motion ant-drawer-mask-blur"
         />
         <div
           aria-hidden="true"
@@ -421,16 +406,16 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
         >
           <div
             aria-modal="true"
-            class="ant-drawer-content ant-pro-drawer-sider"
+            class="ant-drawer-section ant-pro-drawer-sider"
             role="dialog"
             style="padding: 0px; height: 100vh;"
           >
             <div
               class="ant-drawer-body"
-              style="height: 100vh; padding: 0px; display: flex; flex-direction: row; background-color: transparent;"
+              style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
             >
               <aside
-                class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light"
+                class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light css-var-ri"
                 style="flex-grow: 0; flex-shrink: 0; flex-basis: 215px; max-width: 215px; min-width: 215px; width: 215px;"
               >
                 <div
@@ -440,7 +425,7 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
                     style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; overflow-y: auto; overflow-x: hidden;"
                   >
                     <ul
-                      class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
+                      class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline css-var-ri ant-menu-css-var"
                       data-menu-list="true"
                       role="menu"
                       style="background-color: transparent; border: none none; width: 100%;"
@@ -451,9 +436,11 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
                         role="none"
                       >
                         <div
+                          aria-controls="rc-menu-uuid-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925-popup"
                           aria-expanded="true"
                           aria-haspopup="true"
                           class="ant-menu-submenu-title"
+                          data-menu-id="rc-menu-uuid-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925"
                           role="menuitem"
                           style="padding-left: 16px;"
                           tabindex="-1"
@@ -478,6 +465,7 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
                         <ul
                           class="ant-menu ant-menu-sub ant-menu-inline"
                           data-menu-list="true"
+                          id="rc-menu-uuid-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925-popup"
                           role="menu"
                         >
                           <li
@@ -485,9 +473,11 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
                             role="none"
                           >
                             <div
+                              aria-controls="rc-menu-uuid-/welcome-popup"
                               aria-expanded="false"
                               aria-haspopup="true"
                               class="ant-menu-submenu-title"
+                              data-menu-id="rc-menu-uuid-/welcome"
                               role="menuitem"
                               style="padding-left: 32px;"
                               tabindex="-1"

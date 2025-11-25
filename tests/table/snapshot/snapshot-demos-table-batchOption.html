@@ -1,6 +1,6 @@
 <DocumentFragment>
   <div
-    class="ant-app"
+    class="ant-app css-var-root"
   >
     <div>
       test
@@ -38,7 +38,7 @@
                   style="display: flex; align-items: center; gap: 8px;"
                 >
                   <button
-                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+                    class="ant-btn css-var-r1 ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                     type="button"
                   >
                     <span>
@@ -62,7 +62,7 @@
                   class="ant-pro-table-alert-info-content"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    class="ant-space ant-space-horizontal ant-space-align-center css-var-r1"
                     style="column-gap: 24px; row-gap: 24px;"
                   >
                     <div
@@ -97,7 +97,7 @@
                   class="ant-pro-table-alert-info-option"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    class="ant-space ant-space-horizontal ant-space-align-center css-var-r1"
                     style="column-gap: 16px; row-gap: 16px;"
                   >
                     <div
@@ -120,16 +120,16 @@
             </div>
           </div>
           <div
-            class="ant-table-wrapper"
+            class="css-var-r1 ant-table-css-var ant-table-wrapper"
           >
             <div
-              class="ant-spin-nested-loading"
+              class="ant-spin-nested-loading css-var-r1"
             >
               <div
                 class="ant-spin-container"
               >
                 <div
-                  class="ant-table ant-table-middle ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
+                  class="ant-table ant-table-middle css-var-r1 ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-start ant-table-has-fix-end"
                 >
                   <div
                     class="ant-table-container"
@@ -171,15 +171,15 @@
                         >
                           <tr>
                             <th
-                              class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
+                              class="ant-table-cell ant-table-selection-column ant-table-cell-fix ant-table-cell-fix-start"
                               scope="col"
-                              style="position: sticky; left: 0px;"
+                              style="inset-inline-start: 0; --z-offset: 18; --z-offset-reverse: 9;"
                             >
                               <div
                                 class="ant-table-selection"
                               >
                                 <label
-                                  class="ant-checkbox-wrapper"
+                                  class="ant-checkbox-wrapper css-var-r1 ant-checkbox-css-var"
                                 >
                                   <span
                                     class="ant-checkbox ant-checkbox-indeterminate ant-wave-target"
@@ -225,13 +225,14 @@
                               </div>
                             </th>
                             <th
-                              class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                              class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                               scope="col"
-                              style="position: sticky; left: 0px;"
+                              style="inset-inline-start: 0; --z-offset: 17; --z-offset-reverse: 10;"
                             >
                               应用名称
                             </th>
                             <th
+                              aria-description="可排序"
                               aria-label=""
                               class="ant-table-cell ant-table-column-has-sorters"
                               scope="col"
@@ -316,6 +317,7 @@
                               创建者
                             </th>
                             <th
+                              aria-description="可排序"
                               aria-label=""
                               class="ant-table-cell ant-table-column-has-sorters"
                               scope="col"
@@ -386,9 +388,9 @@
                               备注
                             </th>
                             <th
-                              class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                              class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
                               scope="col"
-                              style="position: sticky; right: 0px;"
+                              style="inset-inline-end: 0; --z-offset: 8; --z-offset-reverse: 1;"
                             >
                               操作
                             </th>
@@ -400,19 +402,19 @@
                           <tr
                             aria-hidden="true"
                             class="ant-table-measure-row"
-                            tabindex="-1"
+                            style="height: 0px;"
                           >
-                            <th
-                              class="ant-table-measure-cell"
+                            <td
+                              style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
                             >
                               <div
-                                class="ant-table-measure-cell-content"
+                                style="height: 0px; overflow: hidden; font-weight: bold;"
                               >
                                 <div
                                   class="ant-table-selection"
                                 >
                                   <label
-                                    class="ant-checkbox-wrapper"
+                                    class="ant-checkbox-wrapper css-var-r1 ant-checkbox-css-var"
                                   >
                                     <span
                                       class="ant-checkbox ant-checkbox-indeterminate ant-wave-target"
@@ -457,21 +459,21 @@
                                   </div>
                                 </div>
                               </div>
-                            </th>
-                            <th
-                              class="ant-table-measure-cell"
+                            </td>
+                            <td
+                              style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
                             >
                               <div
-                                class="ant-table-measure-cell-content"
+                                style="height: 0px; overflow: hidden; font-weight: bold;"
                               >
                                 应用名称
                               </div>
-                            </th>
-                            <th
-                              class="ant-table-measure-cell"
+                            </td>
+                            <td
+                              style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
                             >
                               <div
-                                class="ant-table-measure-cell-content"
+                                style="height: 0px; overflow: hidden; font-weight: bold;"
                               >
                                 <div
                                   aria-describedby="test-id"
@@ -531,39 +533,39 @@
                                   </span>
                                 </div>
                               </div>
-                            </th>
-                            <th
-                              class="ant-table-measure-cell"
+                            </td>
+                            <td
+                              style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
                             >
                               <div
-                                class="ant-table-measure-cell-content"
+                                style="height: 0px; overflow: hidden; font-weight: bold;"
                               >
                                 调用次数
                               </div>
-                            </th>
-                            <th
-                              class="ant-table-measure-cell"
+                            </td>
+                            <td
+                              style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
                             >
                               <div
-                                class="ant-table-measure-cell-content"
+                                style="height: 0px; overflow: hidden; font-weight: bold;"
                               >
                                 执行进度
                               </div>
-                            </th>
-                            <th
-                              class="ant-table-measure-cell"
+                            </td>
+                            <td
+                              style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
                             >
                               <div
-                                class="ant-table-measure-cell-content"
+                                style="height: 0px; overflow: hidden; font-weight: bold;"
                               >
                                 创建者
                               </div>
-                            </th>
-                            <th
-                              class="ant-table-measure-cell"
+                            </td>
+                            <td
+                              style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
                             >
                               <div
-                                class="ant-table-measure-cell-content"
+                                style="height: 0px; overflow: hidden; font-weight: bold;"
                               >
                                 <div
                                   aria-describedby="test-id"
@@ -623,36 +625,36 @@
                                   </span>
                                 </div>
                               </div>
-                            </th>
-                            <th
-                              class="ant-table-measure-cell"
+                            </td>
+                            <td
+                              style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
                             >
                               <div
-                                class="ant-table-measure-cell-content"
+                                style="height: 0px; overflow: hidden; font-weight: bold;"
                               >
                                 备注
                               </div>
-                            </th>
-                            <th
-                              class="ant-table-measure-cell"
+                            </td>
+                            <td
+                              style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
                             >
                               <div
-                                class="ant-table-measure-cell-content"
+                                style="height: 0px; overflow: hidden; font-weight: bold;"
                               >
                                 操作
                               </div>
-                            </th>
+                            </td>
                           </tr>
                           <tr
                             class="ant-table-row ant-table-row-level-0"
                             data-row-key="0"
                           >
                             <td
-                              class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                              style="position: sticky; left: 0px;"
+                              class="ant-table-cell ant-table-selection-column ant-table-cell-fix ant-table-cell-fix-start"
+                              style="inset-inline-start: 0; --z-offset: 18; --z-offset-reverse: 9;"
                             >
                               <label
-                                class="ant-checkbox-wrapper"
+                                class="ant-checkbox-wrapper css-var-r1 ant-checkbox-css-var"
                               >
                                 <span
                                   class="ant-checkbox ant-wave-target"
@@ -668,8 +670,8 @@
                               </label>
                             </td>
                             <td
-                              class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                              style="position: sticky; left: 0px;"
+                              class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                              style="inset-inline-start: 0; --z-offset: 17; --z-offset-reverse: 10;"
                             >
                               <a>
                                 AppName-0
@@ -694,24 +696,25 @@
                                 aria-valuemax="100"
                                 aria-valuemin="0"
                                 aria-valuenow="86"
-                                class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
+                                class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small css-var-r1"
                                 role="progressbar"
                                 style="min-width: 100px; max-width: 320px;"
                               >
                                 <div
-                                  class="ant-progress-outer"
+                                  class="ant-progress-body"
                                   style="width: 100%;"
                                 >
                                   <div
-                                    class="ant-progress-inner"
+                                    class="ant-progress-rail"
+                                    style="height: 6px;"
                                   >
                                     <div
-                                      class="ant-progress-bg ant-progress-bg-outer"
-                                      style="width: 86%; height: 6px; --progress-percent: 0.86;"
+                                      class="ant-progress-track"
+                                      style="width: 86%; height: 6px;"
                                     />
                                   </div>
                                   <span
-                                    class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                                    class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
                                     title="86%"
                                   >
                                     86%
@@ -736,7 +739,7 @@
                               <span
                                 aria-describedby="test-id"
                                 aria-label="简短备注文案"
-                                class="ant-typography ant-typography-ellipsis"
+                                class="ant-typography ant-typography-ellipsis css-var-r1"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
@@ -770,8 +773,8 @@
                               </span>
                             </td>
                             <td
-                              class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                              style="position: sticky; right: 0px;"
+                              class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                              style="inset-inline-end: 0; --z-offset: 8; --z-offset-reverse: 1;"
                             >
                               <div
                                 style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
@@ -787,11 +790,11 @@
                             data-row-key="1"
                           >
                             <td
-                              class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                              style="position: sticky; left: 0px;"
+                              class="ant-table-cell ant-table-selection-column ant-table-cell-fix ant-table-cell-fix-start"
+                              style="inset-inline-start: 0; --z-offset: 18; --z-offset-reverse: 9;"
                             >
                               <label
-                                class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
+                                class="ant-checkbox-wrapper ant-checkbox-wrapper-checked css-var-r1 ant-checkbox-css-var"
                               >
                                 <span
                                   class="ant-checkbox ant-wave-target ant-checkbox-checked"
@@ -807,8 +810,8 @@
                               </label>
                             </td>
                             <td
-                              class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                              style="position: sticky; left: 0px;"
+                              class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                              style="inset-inline-start: 0; --z-offset: 17; --z-offset-reverse: 10;"
                             >
                               <a>
                                 AppName-1
@@ -833,24 +836,25 @@
                                 aria-valuemax="100"
                                 aria-valuemin="0"
                                 aria-valuenow="86"
-                                class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
+                                class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small css-var-r1"
                                 role="progressbar"
                                 style="min-width: 100px; max-width: 320px;"
                               >
                                 <div
-                                  class="ant-progress-outer"
+                                  class="ant-progress-body"
                                   style="width: 100%;"
                                 >
                                   <div
-                                    class="ant-progress-inner"
+                                    class="ant-progress-rail"
+                                    style="height: 6px;"
                                   >
                                     <div
-                                      class="ant-progress-bg ant-progress-bg-outer"
-                                      style="width: 86%; height: 6px; --progress-percent: 0.86;"
+                                      class="ant-progress-track"
+                                      style="width: 86%; height: 6px;"
                                     />
                                   </div>
                                   <span
-                                    class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                                    class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
                                     title="86%"
                                   >
                                     86%
@@ -875,7 +879,7 @@
                               <span
                                 aria-describedby="test-id"
                                 aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
-                                class="ant-typography ant-typography-ellipsis"
+                                class="ant-typography ant-typography-ellipsis css-var-r1"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
@@ -909,8 +913,8 @@
                               </span>
                             </td>
                             <td
-                              class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                              style="position: sticky; right: 0px;"
+                              class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                              style="inset-inline-end: 0; --z-offset: 8; --z-offset-reverse: 1;"
                             >
                               <div
                                 style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
@@ -926,11 +930,11 @@
                             data-row-key="2"
                           >
                             <td
-                              class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                              style="position: sticky; left: 0px;"
+                              class="ant-table-cell ant-table-selection-column ant-table-cell-fix ant-table-cell-fix-start"
+                              style="inset-inline-start: 0; --z-offset: 18; --z-offset-reverse: 9;"
                             >
                               <label
-                                class="ant-checkbox-wrapper"
+                                class="ant-checkbox-wrapper css-var-r1 ant-checkbox-css-var"
                               >
                                 <span
                                   class="ant-checkbox ant-wave-target"
@@ -946,8 +950,8 @@
                               </label>
                             </td>
                             <td
-                              class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                              style="position: sticky; left: 0px;"
+                              class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                              style="inset-inline-start: 0; --z-offset: 17; --z-offset-reverse: 10;"
                             >
                               <a>
                                 AppName-2
@@ -972,24 +976,25 @@
                                 aria-valuemax="100"
                                 aria-valuemin="0"
                                 aria-valuenow="86"
-                                class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
+                                class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small css-var-r1"
                                 role="progressbar"
                                 style="min-width: 100px; max-width: 320px;"
                               >
                                 <div
-                                  class="ant-progress-outer"
+                                  class="ant-progress-body"
                                   style="width: 100%;"
                                 >
                                   <div
-                                    class="ant-progress-inner"
+                                    class="ant-progress-rail"
+                                    style="height: 6px;"
                                   >
                                     <div
-                                      class="ant-progress-bg ant-progress-bg-outer"
-                                      style="width: 86%; height: 6px; --progress-percent: 0.86;"
+                                      class="ant-progress-track"
+                                      style="width: 86%; height: 6px;"
                                     />
                                   </div>
                                   <span
-                                    class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                                    class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
                                     title="86%"
                                   >
                                     86%
@@ -1014,7 +1019,7 @@
                               <span
                                 aria-describedby="test-id"
                                 aria-label="简短备注文案"
-                                class="ant-typography ant-typography-ellipsis"
+                                class="ant-typography ant-typography-ellipsis css-var-r1"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
@@ -1048,8 +1053,8 @@
                               </span>
                             </td>
                             <td
-                              class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                              style="position: sticky; right: 0px;"
+                              class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                              style="inset-inline-end: 0; --z-offset: 8; --z-offset-reverse: 1;"
                             >
                               <div
                                 style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
@@ -1065,11 +1070,11 @@
                             data-row-key="3"
                           >
                             <td
-                              class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                              style="position: sticky; left: 0px;"
+                              class="ant-table-cell ant-table-selection-column ant-table-cell-fix ant-table-cell-fix-start"
+                              style="inset-inline-start: 0; --z-offset: 18; --z-offset-reverse: 9;"
                             >
                               <label
-                                class="ant-checkbox-wrapper"
+                                class="ant-checkbox-wrapper css-var-r1 ant-checkbox-css-var"
                               >
                                 <span
                                   class="ant-checkbox ant-wave-target"
@@ -1085,8 +1090,8 @@
                               </label>
                             </td>
                             <td
-                              class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                              style="position: sticky; left: 0px;"
+                              class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                              style="inset-inline-start: 0; --z-offset: 17; --z-offset-reverse: 10;"
                             >
                               <a>
                                 AppName-3
@@ -1111,24 +1116,25 @@
                                 aria-valuemax="100"
                                 aria-valuemin="0"
                                 aria-valuenow="86"
-                                class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
+                                class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small css-var-r1"
                                 role="progressbar"
                                 style="min-width: 100px; max-width: 320px;"
                               >
                                 <div
-                                  class="ant-progress-outer"
+                                  class="ant-progress-body"
                                   style="width: 100%;"
                                 >
                                   <div
-                                    class="ant-progress-inner"
+                                    class="ant-progress-rail"
+                                    style="height: 6px;"
                                   >
                                     <div
-                                      class="ant-progress-bg ant-progress-bg-outer"
-                                      style="width: 86%; height: 6px; --progress-percent: 0.86;"
+                                      class="ant-progress-track"
+                                      style="width: 86%; height: 6px;"
                                     />
                                   </div>
                                   <span
-                                    class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                                    class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
                                     title="86%"
                                   >
                                     86%
@@ -1153,7 +1159,7 @@
                               <span
                                 aria-describedby="test-id"
                                 aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
-                                class="ant-typography ant-typography-ellipsis"
+                                class="ant-typography ant-typography-ellipsis css-var-r1"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
@@ -1187,8 +1193,8 @@
                               </span>
                             </td>
                             <td
-                              class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                              style="position: sticky; right: 0px;"
+                              class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                              style="inset-inline-end: 0; --z-offset: 8; --z-offset-reverse: 1;"
                             >
                               <div
                                 style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
@@ -1204,11 +1210,11 @@
                             data-row-key="4"
                           >
                             <td
-                              class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                              style="position: sticky; left: 0px;"
+                              class="ant-table-cell ant-table-selection-column ant-table-cell-fix ant-table-cell-fix-start"
+                              style="inset-inline-start: 0; --z-offset: 18; --z-offset-reverse: 9;"
                             >
                               <label
-                                class="ant-checkbox-wrapper"
+                                class="ant-checkbox-wrapper css-var-r1 ant-checkbox-css-var"
                               >
                                 <span
                                   class="ant-checkbox ant-wave-target"
@@ -1224,8 +1230,8 @@
                               </label>
                             </td>
                             <td
-                              class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                              style="position: sticky; left: 0px;"
+                              class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                              style="inset-inline-start: 0; --z-offset: 17; --z-offset-reverse: 10;"
                             >
                               <a>
                                 AppName-4
@@ -1250,24 +1256,25 @@
                                 aria-valuemax="100"
                                 aria-valuemin="0"
                                 aria-valuenow="86"
-                                class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
+                                class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small css-var-r1"
                                 role="progressbar"
                                 style="min-width: 100px; max-width: 320px;"
                               >
                                 <div
-                                  class="ant-progress-outer"
+                                  class="ant-progress-body"
                                   style="width: 100%;"
                                 >
                                   <div
-                                    class="ant-progress-inner"
+                                    class="ant-progress-rail"
+                                    style="height: 6px;"
                                   >
                                     <div
-                                      class="ant-progress-bg ant-progress-bg-outer"
-                                      style="width: 86%; height: 6px; --progress-percent: 0.86;"
+                                      class="ant-progress-track"
+                                      style="width: 86%; height: 6px;"
                                     />
                                   </div>
                                   <span
-                                    class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                                    class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
                                     title="86%"
                                   >
                                     86%
@@ -1292,7 +1299,7 @@
                               <span
                                 aria-describedby="test-id"
                                 aria-label="简短备注文案"
-                                class="ant-typography ant-typography-ellipsis"
+                                class="ant-typography ant-typography-ellipsis css-var-r1"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
@@ -1326,8 +1333,8 @@
                               </span>
                             </td>
                             <td
-                              class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                              style="position: sticky; right: 0px;"
+                              class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                              style="inset-inline-end: 0; --z-offset: 8; --z-offset-reverse: 1;"
                             >
                               <div
                                 style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
@@ -1344,7 +1351,7 @@
                   </div>
                 </div>
                 <ul
-                  class="ant-pagination ant-pagination-end ant-pagination-mini ant-table-pagination"
+                  class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-r1"
                 >
                   <li
                     class="ant-pagination-total-text"

@@ -4,7 +4,7 @@ exports[`👍🏻 ProHelpPanel > 🎏 ProHelp is empty 1`] = `
 <body>
   <div>
     <div
-      class="ant-card ant-card-bordered ant-card-small"
+      class="ant-card ant-card-bordered ant-card-small css-var-root"
     >
       <div
         class="ant-card-head"
@@ -85,7 +85,7 @@ exports[`👍🏻 ProHelpPanel > 🎏 ProHelp is empty 1`] = `
           class=" ant-pro-help-left-panel "
         >
           <ul
-            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light  ant-pro-help-left-panel-menu"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light  ant-pro-help-left-panel-menu css-var-r1r ant-menu-css-var"
             data-menu-list="true"
             role="menu"
             tabindex="0"

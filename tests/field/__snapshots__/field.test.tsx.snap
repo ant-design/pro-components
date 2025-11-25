@@ -3,7 +3,7 @@
 exports[`Field > 🐴 FieldStatus status  default 1`] = `
 <DocumentFragment>
   <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-root"
   >
     <span
       class="ant-badge-status-dot ant-badge-status-default"
@@ -15,7 +15,7 @@ exports[`Field > 🐴 FieldStatus status  default 1`] = `
 exports[`Field > 🐴 FieldStatus status  error 1`] = `
 <DocumentFragment>
   <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-root"
   >
     <span
       class="ant-badge-status-dot ant-badge-status-error"
@@ -27,7 +27,7 @@ exports[`Field > 🐴 FieldStatus status  error 1`] = `
 exports[`Field > 🐴 FieldStatus status  processing 1`] = `
 <DocumentFragment>
   <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-root"
   >
     <span
       class="ant-badge-status-dot ant-badge-status-processing"
@@ -39,7 +39,7 @@ exports[`Field > 🐴 FieldStatus status  processing 1`] = `
 exports[`Field > 🐴 FieldStatus status  success 1`] = `
 <DocumentFragment>
   <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-root"
   >
     <span
       class="ant-badge-status-dot ant-badge-status-success"
@@ -51,7 +51,7 @@ exports[`Field > 🐴 FieldStatus status  success 1`] = `
 exports[`Field > 🐴 FieldStatus status  warning 1`] = `
 <DocumentFragment>
   <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-root"
   >
     <span
       class="ant-badge-status-dot ant-badge-status-warning"
@@ -63,7 +63,7 @@ exports[`Field > 🐴 FieldStatus status  warning 1`] = `
 exports[`Field > 🐴 FieldStatus status Default 1`] = `
 <DocumentFragment>
   <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-root"
   >
     <span
       class="ant-badge-status-dot ant-badge-status-default"
@@ -75,7 +75,7 @@ exports[`Field > 🐴 FieldStatus status Default 1`] = `
 exports[`Field > 🐴 FieldStatus status Error 1`] = `
 <DocumentFragment>
   <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-root"
   >
     <span
       class="ant-badge-status-dot ant-badge-status-error"
@@ -87,7 +87,7 @@ exports[`Field > 🐴 FieldStatus status Error 1`] = `
 exports[`Field > 🐴 FieldStatus status Processing 1`] = `
 <DocumentFragment>
   <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-root"
   >
     <span
       class="ant-badge-status-dot ant-badge-status-processing"
@@ -99,7 +99,7 @@ exports[`Field > 🐴 FieldStatus status Processing 1`] = `
 exports[`Field > 🐴 FieldStatus status Success 1`] = `
 <DocumentFragment>
   <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-root"
   >
     <span
       class="ant-badge-status-dot ant-badge-status-success"
@@ -111,7 +111,7 @@ exports[`Field > 🐴 FieldStatus status Success 1`] = `
 exports[`Field > 🐴 FieldStatus status Warning 1`] = `
 <DocumentFragment>
   <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-root"
   >
     <span
       class="ant-badge-status-dot ant-badge-status-warning"
@@ -131,7 +131,7 @@ exports[`Field > 🐴 FieldTimePicker text support is null 1`] = `
 exports[`Field > 🐴 ProFieldBadgeColor status 1`] = `
 <DocumentFragment>
   <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-root"
   >
     <span
       class="ant-badge-status-dot"
@@ -144,21 +144,30 @@ exports[`Field > 🐴 ProFieldBadgeColor status 1`] = `
 exports[`Field > 🐴 base use 1`] = `
 <DocumentFragment>
   <div
-    class="ant-input-number ant-input-number-outlined"
+    class="ant-input-number ant-input-number-mode-input css-var-root ant-input-number-css-var ant-input-number-outlined"
   >
+    <input
+      aria-describedby="test-id"
+      autocomplete="off"
+      class="ant-input-number-input"
+      placeholder="请输入"
+      role="spinbutton"
+      step="1"
+      value=""
+    />
     <div
-      class="ant-input-number-handler-wrap"
+      class="ant-input-number-actions"
     >
       <span
         aria-disabled="false"
         aria-label="Increase Value"
-        class="ant-input-number-handler ant-input-number-handler-up"
+        class="ant-input-number-action ant-input-number-action-up"
         role="button"
         unselectable="on"
       >
         <span
           aria-label="up"
-          class="anticon anticon-up ant-input-number-handler-up-inner"
+          class="anticon anticon-up"
           role="img"
         >
           <svg
@@ -179,13 +188,13 @@ exports[`Field > 🐴 base use 1`] = `
       <span
         aria-disabled="false"
         aria-label="Decrease Value"
-        class="ant-input-number-handler ant-input-number-handler-down"
+        class="ant-input-number-action ant-input-number-action-down"
         role="button"
         unselectable="on"
       >
         <span
           aria-label="down"
-          class="anticon anticon-down ant-input-number-handler-down-inner"
+          class="anticon anticon-down"
           role="img"
         >
           <svg
@@ -204,19 +213,6 @@ exports[`Field > 🐴 base use 1`] = `
         </span>
       </span>
     </div>
-    <div
-      class="ant-input-number-input-wrap"
-    >
-      <input
-        aria-describedby="test-id"
-        autocomplete="off"
-        class="ant-input-number-input"
-        placeholder="请输入"
-        role="spinbutton"
-        step="1"
-        value=""
-      />
-    </div>
   </div>
 </DocumentFragment>
 `;
@@ -224,7 +220,7 @@ exports[`Field > 🐴 base use 1`] = `
 exports[`Field > 🐴 edit and no plain 1`] = `
 <DocumentFragment>
   <div
-    class="ant-descriptions"
+    class="ant-descriptions css-var-root"
   >
     <div
       class="ant-descriptions-view"
@@ -250,7 +246,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <span
-                    class="ant-input-affix-wrapper ant-input-outlined"
+                    class="ant-input-affix-wrapper ant-input-outlined css-var-root ant-input-css-var"
                   >
                     <input
                       class="ant-input"
@@ -308,7 +304,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <span
-                    class="ant-avatar ant-avatar-circle ant-avatar-image"
+                    class="ant-avatar ant-avatar-circle ant-avatar-image css-var-root ant-avatar-css-var"
                     style="width: 22px; height: 22px; font-size: 18px;"
                   >
                     <img
@@ -357,10 +353,10 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-picker ant-picker-range ant-picker-outlined"
+                    class="ant-picker ant-picker-range ant-picker-outlined css-var-root ant-picker-css-var"
                   >
                     <div
-                      class="ant-picker-input"
+                      class="ant-picker-input ant-picker-input-start"
                     >
                       <input
                         aria-invalid="false"
@@ -400,7 +396,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                       </span>
                     </div>
                     <div
-                      class="ant-picker-input"
+                      class="ant-picker-input ant-picker-input-end"
                     >
                       <input
                         aria-invalid="false"
@@ -490,21 +486,30 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-input-number ant-input-number-outlined"
+                    class="ant-input-number ant-input-number-mode-input css-var-root ant-input-number-css-var ant-input-number-outlined"
                   >
+                    <input
+                      aria-describedby="test-id"
+                      autocomplete="off"
+                      class="ant-input-number-input"
+                      placeholder="请输入"
+                      role="spinbutton"
+                      step="1"
+                      value=""
+                    />
                     <div
-                      class="ant-input-number-handler-wrap"
+                      class="ant-input-number-actions"
                     >
                       <span
                         aria-disabled="false"
                         aria-label="Increase Value"
-                        class="ant-input-number-handler ant-input-number-handler-up"
+                        class="ant-input-number-action ant-input-number-action-up"
                         role="button"
                         unselectable="on"
                       >
                         <span
                           aria-label="up"
-                          class="anticon anticon-up ant-input-number-handler-up-inner"
+                          class="anticon anticon-up"
                           role="img"
                         >
                           <svg
@@ -525,13 +530,13 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                       <span
                         aria-disabled="false"
                         aria-label="Decrease Value"
-                        class="ant-input-number-handler ant-input-number-handler-down"
+                        class="ant-input-number-action ant-input-number-action-down"
                         role="button"
                         unselectable="on"
                       >
                         <span
                           aria-label="down"
-                          class="anticon anticon-down ant-input-number-handler-down-inner"
+                          class="anticon anticon-down"
                           role="img"
                         >
                           <svg
@@ -549,19 +554,6 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                           </svg>
                         </span>
                       </span>
-                    </div>
-                    <div
-                      class="ant-input-number-input-wrap"
-                    >
-                      <input
-                        aria-describedby="test-id"
-                        autocomplete="off"
-                        class="ant-input-number-input"
-                        placeholder="请输入"
-                        role="spinbutton"
-                        step="1"
-                        value=""
-                      />
                     </div>
                   </div>
                 </span>
@@ -587,21 +579,29 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-input-number ant-input-number-outlined"
+                    class="ant-input-number ant-input-number-mode-input css-var-root ant-input-number-css-var ant-input-number-outlined"
                   >
+                    <input
+                      autocomplete="off"
+                      class="ant-input-number-input"
+                      placeholder="请输入"
+                      role="spinbutton"
+                      step="1"
+                      value=""
+                    />
                     <div
-                      class="ant-input-number-handler-wrap"
+                      class="ant-input-number-actions"
                     >
                       <span
                         aria-disabled="false"
                         aria-label="Increase Value"
-                        class="ant-input-number-handler ant-input-number-handler-up"
+                        class="ant-input-number-action ant-input-number-action-up"
                         role="button"
                         unselectable="on"
                       >
                         <span
                           aria-label="up"
-                          class="anticon anticon-up ant-input-number-handler-up-inner"
+                          class="anticon anticon-up"
                           role="img"
                         >
                           <svg
@@ -622,13 +622,13 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                       <span
                         aria-disabled="false"
                         aria-label="Decrease Value"
-                        class="ant-input-number-handler ant-input-number-handler-down"
+                        class="ant-input-number-action ant-input-number-action-down"
                         role="button"
                         unselectable="on"
                       >
                         <span
                           aria-label="down"
-                          class="anticon anticon-down ant-input-number-handler-down-inner"
+                          class="anticon anticon-down"
                           role="img"
                         >
                           <svg
@@ -646,18 +646,6 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                           </svg>
                         </span>
                       </span>
-                    </div>
-                    <div
-                      class="ant-input-number-input-wrap"
-                    >
-                      <input
-                        autocomplete="off"
-                        class="ant-input-number-input"
-                        placeholder="请输入"
-                        role="spinbutton"
-                        step="1"
-                        value=""
-                      />
                     </div>
                   </div>
                 </span>
@@ -679,51 +667,39 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-select ant-select-outlined ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                    class="ant-select ant-select-outlined ant-pro-filed-search-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
                     style="min-width: 100px;"
                   >
                     <div
-                      class="ant-select-selector"
+                      class="ant-select-content"
                     >
-                      <span
-                        class="ant-select-selection-wrap"
+                      <div
+                        class="ant-select-placeholder"
+                        style="visibility: visible;"
                       >
-                        <span
-                          class="ant-select-selection-search"
-                        >
-                          <input
-                            aria-autocomplete="list"
-                            aria-controls="rc_select_TEST_OR_SSR_list"
-                            aria-expanded="false"
-                            aria-haspopup="listbox"
-                            aria-owns="rc_select_TEST_OR_SSR_list"
-                            autocomplete="off"
-                            class="ant-select-selection-search-input"
-                            id="rc_select_TEST_OR_SSR"
-                            readonly=""
-                            role="combobox"
-                            style="opacity: 0;"
-                            type="search"
-                            unselectable="on"
-                            value=""
-                          />
-                        </span>
-                        <span
-                          class="ant-select-selection-placeholder"
-                        >
-                          请选择
-                        </span>
-                      </span>
+                        请选择
+                      </div>
+                      <input
+                        aria-autocomplete="list"
+                        aria-controls="test-id_list"
+                        aria-expanded="false"
+                        aria-haspopup="listbox"
+                        aria-owns="test-id_list"
+                        autocomplete="off"
+                        class="ant-select-input"
+                        id="test-id"
+                        readonly=""
+                        role="combobox"
+                        type="search"
+                        value=""
+                      />
                     </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-arrow"
-                      style="user-select: none;"
-                      unselectable="on"
+                    <div
+                      class="ant-select-suffix"
                     >
                       <span
                         aria-label="down"
-                        class="anticon anticon-down ant-select-suffix"
+                        class="anticon anticon-down"
                         role="img"
                       >
                         <svg
@@ -740,7 +716,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                           />
                         </svg>
                       </span>
-                    </span>
+                    </div>
                   </div>
                 </span>
               </div>
@@ -765,47 +741,35 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-select ant-select-outlined ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-loading"
+                    class="ant-select ant-select-outlined ant-pro-filed-search-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-loading"
                     style="min-width: 100px;"
                   >
                     <div
-                      class="ant-select-selector"
+                      class="ant-select-content"
                     >
-                      <span
-                        class="ant-select-selection-wrap"
+                      <div
+                        class="ant-select-placeholder"
+                        style="visibility: visible;"
                       >
-                        <span
-                          class="ant-select-selection-search"
-                        >
-                          <input
-                            aria-autocomplete="list"
-                            aria-controls="rc_select_TEST_OR_SSR_list"
-                            aria-expanded="false"
-                            aria-haspopup="listbox"
-                            aria-owns="rc_select_TEST_OR_SSR_list"
-                            autocomplete="off"
-                            class="ant-select-selection-search-input"
-                            id="rc_select_TEST_OR_SSR"
-                            readonly=""
-                            role="combobox"
-                            style="opacity: 0;"
-                            type="search"
-                            unselectable="on"
-                            value=""
-                          />
-                        </span>
-                        <span
-                          class="ant-select-selection-placeholder"
-                        >
-                          请选择
-                        </span>
-                      </span>
+                        请选择
+                      </div>
+                      <input
+                        aria-autocomplete="list"
+                        aria-controls="test-id_list"
+                        aria-expanded="false"
+                        aria-haspopup="listbox"
+                        aria-owns="test-id_list"
+                        autocomplete="off"
+                        class="ant-select-input"
+                        id="test-id"
+                        readonly=""
+                        role="combobox"
+                        type="search"
+                        value=""
+                      />
                     </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-arrow ant-select-arrow-loading"
-                      style="user-select: none;"
-                      unselectable="on"
+                    <div
+                      class="ant-select-suffix ant-select-suffix-loading"
                     >
                       <span
                         aria-label="loading"
@@ -826,7 +790,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                           />
                         </svg>
                       </span>
-                    </span>
+                    </div>
                   </div>
                 </span>
               </div>
@@ -847,21 +811,29 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-input-number ant-input-number-outlined"
+                    class="ant-input-number ant-input-number-mode-input css-var-root ant-input-number-css-var ant-input-number-outlined"
                   >
+                    <input
+                      autocomplete="off"
+                      class="ant-input-number-input"
+                      placeholder="请输入"
+                      role="spinbutton"
+                      step="1"
+                      value=""
+                    />
                     <div
-                      class="ant-input-number-handler-wrap"
+                      class="ant-input-number-actions"
                     >
                       <span
                         aria-disabled="false"
                         aria-label="Increase Value"
-                        class="ant-input-number-handler ant-input-number-handler-up"
+                        class="ant-input-number-action ant-input-number-action-up"
                         role="button"
                         unselectable="on"
                       >
                         <span
                           aria-label="up"
-                          class="anticon anticon-up ant-input-number-handler-up-inner"
+                          class="anticon anticon-up"
                           role="img"
                         >
                           <svg
@@ -882,13 +854,13 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                       <span
                         aria-disabled="false"
                         aria-label="Decrease Value"
-                        class="ant-input-number-handler ant-input-number-handler-down"
+                        class="ant-input-number-action ant-input-number-action-down"
                         role="button"
                         unselectable="on"
                       >
                         <span
                           aria-label="down"
-                          class="anticon anticon-down ant-input-number-handler-down-inner"
+                          class="anticon anticon-down"
                           role="img"
                         >
                           <svg
@@ -906,18 +878,6 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                           </svg>
                         </span>
                       </span>
-                    </div>
-                    <div
-                      class="ant-input-number-input-wrap"
-                    >
-                      <input
-                        autocomplete="off"
-                        class="ant-input-number-input"
-                        placeholder="请输入"
-                        role="spinbutton"
-                        step="1"
-                        value=""
-                      />
                     </div>
                   </div>
                 </span>
@@ -943,7 +903,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-picker ant-picker-outlined"
+                    class="ant-picker ant-picker-outlined css-var-root ant-picker-css-var"
                   >
                     <div
                       class="ant-picker-input"
@@ -999,7 +959,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-picker ant-picker-outlined"
+                    class="ant-picker ant-picker-outlined css-var-root ant-picker-css-var"
                   >
                     <div
                       class="ant-picker-input"
@@ -1059,10 +1019,10 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-picker ant-picker-range ant-picker-outlined"
+                    class="ant-picker ant-picker-range ant-picker-outlined css-var-root ant-picker-css-var"
                   >
                     <div
-                      class="ant-picker-input"
+                      class="ant-picker-input ant-picker-input-start"
                     >
                       <input
                         aria-invalid="false"
@@ -1102,7 +1062,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                       </span>
                     </div>
                     <div
-                      class="ant-picker-input"
+                      class="ant-picker-input ant-picker-input-end"
                     >
                       <input
                         aria-invalid="false"
@@ -1160,10 +1120,10 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-picker ant-picker-range ant-picker-outlined"
+                    class="ant-picker ant-picker-range ant-picker-outlined css-var-root ant-picker-css-var"
                   >
                     <div
-                      class="ant-picker-input"
+                      class="ant-picker-input ant-picker-input-start"
                     >
                       <input
                         aria-invalid="false"
@@ -1203,7 +1163,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                       </span>
                     </div>
                     <div
-                      class="ant-picker-input"
+                      class="ant-picker-input ant-picker-input-end"
                     >
                       <input
                         aria-invalid="false"
@@ -1265,7 +1225,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-picker ant-picker-outlined"
+                    class="ant-picker ant-picker-outlined css-var-root ant-picker-css-var"
                   >
                     <div
                       class="ant-picker-input"
@@ -1324,7 +1284,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <span
-                    class="ant-input-affix-wrapper ant-input-outlined ant-input-password"
+                    class="ant-input-affix-wrapper ant-input-outlined ant-input-password css-var-root ant-input-css-var"
                   >
                     <input
                       class="ant-input"
@@ -1383,7 +1343,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <textarea
-                    class="ant-input ant-input-outlined"
+                    class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                     rows="5"
                   >
                     
@@ -1411,7 +1371,7 @@ Done in 9.70s.
                   class="ant-descriptions-item-content"
                 >
                   <textarea
-                    class="ant-input ant-input-outlined"
+                    class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                     rows="5"
                   >
                     {
@@ -1450,7 +1410,7 @@ Done in 9.70s.
 exports[`Field > 🐴 edit and plain=true 1`] = `
 <DocumentFragment>
   <div
-    class="ant-descriptions"
+    class="ant-descriptions css-var-root"
   >
     <div
       class="ant-descriptions-view"
@@ -1476,7 +1436,7 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <span
-                    class="ant-input-affix-wrapper ant-input-outlined"
+                    class="ant-input-affix-wrapper ant-input-outlined css-var-root ant-input-css-var"
                   >
                     <input
                       class="ant-input"
@@ -1534,7 +1494,7 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <span
-                    class="ant-avatar ant-avatar-circle ant-avatar-image"
+                    class="ant-avatar ant-avatar-circle ant-avatar-image css-var-root ant-avatar-css-var"
                     style="width: 22px; height: 22px; font-size: 18px;"
                   >
                     <img
@@ -1583,10 +1543,10 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-picker ant-picker-range ant-picker-borderless"
+                    class="ant-picker ant-picker-range ant-picker-borderless css-var-root ant-picker-css-var"
                   >
                     <div
-                      class="ant-picker-input"
+                      class="ant-picker-input ant-picker-input-start"
                     >
                       <input
                         aria-invalid="false"
@@ -1626,7 +1586,7 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                       </span>
                     </div>
                     <div
-                      class="ant-picker-input"
+                      class="ant-picker-input ant-picker-input-end"
                     >
                       <input
                         aria-invalid="false"
@@ -1716,21 +1676,30 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-input-number ant-input-number-outlined"
+                    class="ant-input-number ant-input-number-mode-input css-var-root ant-input-number-css-var ant-input-number-outlined"
                   >
+                    <input
+                      aria-describedby="test-id"
+                      autocomplete="off"
+                      class="ant-input-number-input"
+                      placeholder="请输入"
+                      role="spinbutton"
+                      step="1"
+                      value=""
+                    />
                     <div
-                      class="ant-input-number-handler-wrap"
+                      class="ant-input-number-actions"
                     >
                       <span
                         aria-disabled="false"
                         aria-label="Increase Value"
-                        class="ant-input-number-handler ant-input-number-handler-up"
+                        class="ant-input-number-action ant-input-number-action-up"
                         role="button"
                         unselectable="on"
                       >
                         <span
                           aria-label="up"
-                          class="anticon anticon-up ant-input-number-handler-up-inner"
+                          class="anticon anticon-up"
                           role="img"
                         >
                           <svg
@@ -1751,13 +1720,13 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                       <span
                         aria-disabled="false"
                         aria-label="Decrease Value"
-                        class="ant-input-number-handler ant-input-number-handler-down"
+                        class="ant-input-number-action ant-input-number-action-down"
                         role="button"
                         unselectable="on"
                       >
                         <span
                           aria-label="down"
-                          class="anticon anticon-down ant-input-number-handler-down-inner"
+                          class="anticon anticon-down"
                           role="img"
                         >
                           <svg
@@ -1775,19 +1744,6 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                           </svg>
                         </span>
                       </span>
-                    </div>
-                    <div
-                      class="ant-input-number-input-wrap"
-                    >
-                      <input
-                        aria-describedby="test-id"
-                        autocomplete="off"
-                        class="ant-input-number-input"
-                        placeholder="请输入"
-                        role="spinbutton"
-                        step="1"
-                        value=""
-                      />
                     </div>
                   </div>
                 </span>
@@ -1813,21 +1769,29 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-input-number ant-input-number-outlined"
+                    class="ant-input-number ant-input-number-mode-input css-var-root ant-input-number-css-var ant-input-number-outlined"
                   >
+                    <input
+                      autocomplete="off"
+                      class="ant-input-number-input"
+                      placeholder="请输入"
+                      role="spinbutton"
+                      step="1"
+                      value=""
+                    />
                     <div
-                      class="ant-input-number-handler-wrap"
+                      class="ant-input-number-actions"
                     >
                       <span
                         aria-disabled="false"
                         aria-label="Increase Value"
-                        class="ant-input-number-handler ant-input-number-handler-up"
+                        class="ant-input-number-action ant-input-number-action-up"
                         role="button"
                         unselectable="on"
                       >
                         <span
                           aria-label="up"
-                          class="anticon anticon-up ant-input-number-handler-up-inner"
+                          class="anticon anticon-up"
                           role="img"
                         >
                           <svg
@@ -1848,13 +1812,13 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                       <span
                         aria-disabled="false"
                         aria-label="Decrease Value"
-                        class="ant-input-number-handler ant-input-number-handler-down"
+                        class="ant-input-number-action ant-input-number-action-down"
                         role="button"
                         unselectable="on"
                       >
                         <span
                           aria-label="down"
-                          class="anticon anticon-down ant-input-number-handler-down-inner"
+                          class="anticon anticon-down"
                           role="img"
                         >
                           <svg
@@ -1872,18 +1836,6 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                           </svg>
                         </span>
                       </span>
-                    </div>
-                    <div
-                      class="ant-input-number-input-wrap"
-                    >
-                      <input
-                        autocomplete="off"
-                        class="ant-input-number-input"
-                        placeholder="请输入"
-                        role="spinbutton"
-                        step="1"
-                        value=""
-                      />
                     </div>
                   </div>
                 </span>
@@ -1905,51 +1857,39 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-select ant-select-outlined ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                    class="ant-select ant-select-outlined ant-pro-filed-search-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
                     style="min-width: 100px;"
                   >
                     <div
-                      class="ant-select-selector"
+                      class="ant-select-content"
                     >
-                      <span
-                        class="ant-select-selection-wrap"
+                      <div
+                        class="ant-select-placeholder"
+                        style="visibility: visible;"
                       >
-                        <span
-                          class="ant-select-selection-search"
-                        >
-                          <input
-                            aria-autocomplete="list"
-                            aria-controls="rc_select_TEST_OR_SSR_list"
-                            aria-expanded="false"
-                            aria-haspopup="listbox"
-                            aria-owns="rc_select_TEST_OR_SSR_list"
-                            autocomplete="off"
-                            class="ant-select-selection-search-input"
-                            id="rc_select_TEST_OR_SSR"
-                            readonly=""
-                            role="combobox"
-                            style="opacity: 0;"
-                            type="search"
-                            unselectable="on"
-                            value=""
-                          />
-                        </span>
-                        <span
-                          class="ant-select-selection-placeholder"
-                        >
-                          请选择
-                        </span>
-                      </span>
+                        请选择
+                      </div>
+                      <input
+                        aria-autocomplete="list"
+                        aria-controls="test-id_list"
+                        aria-expanded="false"
+                        aria-haspopup="listbox"
+                        aria-owns="test-id_list"
+                        autocomplete="off"
+                        class="ant-select-input"
+                        id="test-id"
+                        readonly=""
+                        role="combobox"
+                        type="search"
+                        value=""
+                      />
                     </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-arrow"
-                      style="user-select: none;"
-                      unselectable="on"
+                    <div
+                      class="ant-select-suffix"
                     >
                       <span
                         aria-label="down"
-                        class="anticon anticon-down ant-select-suffix"
+                        class="anticon anticon-down"
                         role="img"
                       >
                         <svg
@@ -1966,7 +1906,7 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                           />
                         </svg>
                       </span>
-                    </span>
+                    </div>
                   </div>
                 </span>
               </div>
@@ -1991,47 +1931,35 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-select ant-select-outlined ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-loading"
+                    class="ant-select ant-select-outlined ant-pro-filed-search-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-loading"
                     style="min-width: 100px;"
                   >
                     <div
-                      class="ant-select-selector"
+                      class="ant-select-content"
                     >
-                      <span
-                        class="ant-select-selection-wrap"
+                      <div
+                        class="ant-select-placeholder"
+                        style="visibility: visible;"
                       >
-                        <span
-                          class="ant-select-selection-search"
-                        >
-                          <input
-                            aria-autocomplete="list"
-                            aria-controls="rc_select_TEST_OR_SSR_list"
-                            aria-expanded="false"
-                            aria-haspopup="listbox"
-                            aria-owns="rc_select_TEST_OR_SSR_list"
-                            autocomplete="off"
-                            class="ant-select-selection-search-input"
-                            id="rc_select_TEST_OR_SSR"
-                            readonly=""
-                            role="combobox"
-                            style="opacity: 0;"
-                            type="search"
-                            unselectable="on"
-                            value=""
-                          />
-                        </span>
-                        <span
-                          class="ant-select-selection-placeholder"
-                        >
-                          请选择
-                        </span>
-                      </span>
+                        请选择
+                      </div>
+                      <input
+                        aria-autocomplete="list"
+                        aria-controls="test-id_list"
+                        aria-expanded="false"
+                        aria-haspopup="listbox"
+                        aria-owns="test-id_list"
+                        autocomplete="off"
+                        class="ant-select-input"
+                        id="test-id"
+                        readonly=""
+                        role="combobox"
+                        type="search"
+                        value=""
+                      />
                     </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-arrow ant-select-arrow-loading"
-                      style="user-select: none;"
-                      unselectable="on"
+                    <div
+                      class="ant-select-suffix ant-select-suffix-loading"
                     >
                       <span
                         aria-label="loading"
@@ -2052,7 +1980,7 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                           />
                         </svg>
                       </span>
-                    </span>
+                    </div>
                   </div>
                 </span>
               </div>
@@ -2073,21 +2001,29 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-input-number ant-input-number-outlined"
+                    class="ant-input-number ant-input-number-mode-input css-var-root ant-input-number-css-var ant-input-number-outlined"
                   >
+                    <input
+                      autocomplete="off"
+                      class="ant-input-number-input"
+                      placeholder="请输入"
+                      role="spinbutton"
+                      step="1"
+                      value=""
+                    />
                     <div
-                      class="ant-input-number-handler-wrap"
+                      class="ant-input-number-actions"
                     >
                       <span
                         aria-disabled="false"
                         aria-label="Increase Value"
-                        class="ant-input-number-handler ant-input-number-handler-up"
+                        class="ant-input-number-action ant-input-number-action-up"
                         role="button"
                         unselectable="on"
                       >
                         <span
                           aria-label="up"
-                          class="anticon anticon-up ant-input-number-handler-up-inner"
+                          class="anticon anticon-up"
                           role="img"
                         >
                           <svg
@@ -2108,13 +2044,13 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                       <span
                         aria-disabled="false"
                         aria-label="Decrease Value"
-                        class="ant-input-number-handler ant-input-number-handler-down"
+                        class="ant-input-number-action ant-input-number-action-down"
                         role="button"
                         unselectable="on"
                       >
                         <span
                           aria-label="down"
-                          class="anticon anticon-down ant-input-number-handler-down-inner"
+                          class="anticon anticon-down"
                           role="img"
                         >
                           <svg
@@ -2132,18 +2068,6 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                           </svg>
                         </span>
                       </span>
-                    </div>
-                    <div
-                      class="ant-input-number-input-wrap"
-                    >
-                      <input
-                        autocomplete="off"
-                        class="ant-input-number-input"
-                        placeholder="请输入"
-                        role="spinbutton"
-                        step="1"
-                        value=""
-                      />
                     </div>
                   </div>
                 </span>
@@ -2169,7 +2093,7 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-picker ant-picker-borderless"
+                    class="ant-picker ant-picker-borderless css-var-root ant-picker-css-var"
                   >
                     <div
                       class="ant-picker-input"
@@ -2225,7 +2149,7 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-picker ant-picker-borderless"
+                    class="ant-picker ant-picker-borderless css-var-root ant-picker-css-var"
                   >
                     <div
                       class="ant-picker-input"
@@ -2285,10 +2209,10 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-picker ant-picker-range ant-picker-borderless"
+                    class="ant-picker ant-picker-range ant-picker-borderless css-var-root ant-picker-css-var"
                   >
                     <div
-                      class="ant-picker-input"
+                      class="ant-picker-input ant-picker-input-start"
                     >
                       <input
                         aria-invalid="false"
@@ -2328,7 +2252,7 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                       </span>
                     </div>
                     <div
-                      class="ant-picker-input"
+                      class="ant-picker-input ant-picker-input-end"
                     >
                       <input
                         aria-invalid="false"
@@ -2386,10 +2310,10 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-picker ant-picker-range ant-picker-borderless"
+                    class="ant-picker ant-picker-range ant-picker-borderless css-var-root ant-picker-css-var"
                   >
                     <div
-                      class="ant-picker-input"
+                      class="ant-picker-input ant-picker-input-start"
                     >
                       <input
                         aria-invalid="false"
@@ -2429,7 +2353,7 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                       </span>
                     </div>
                     <div
-                      class="ant-picker-input"
+                      class="ant-picker-input ant-picker-input-end"
                     >
                       <input
                         aria-invalid="false"
@@ -2491,7 +2415,7 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-picker ant-picker-borderless"
+                    class="ant-picker ant-picker-borderless css-var-root ant-picker-css-var"
                   >
                     <div
                       class="ant-picker-input"
@@ -2550,7 +2474,7 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <span
-                    class="ant-input-affix-wrapper ant-input-outlined ant-input-password"
+                    class="ant-input-affix-wrapper ant-input-outlined ant-input-password css-var-root ant-input-css-var"
                   >
                     <input
                       class="ant-input"
@@ -2609,7 +2533,7 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <input
-                    class="ant-input ant-input-outlined"
+                    class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                     type="text"
                     value="
 yarn run v1.22.0
@@ -2638,7 +2562,7 @@ Done in 9.70s.
                   <input
                     .eslintrc.js=""
                     :=""
-                    class="ant-input ant-input-outlined"
+                    class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                     compileroptions=""
                     declaration=""
                     demo=""
@@ -2677,21 +2601,30 @@ Done in 9.70s.
 exports[`Field > 🐴 money valueType is Object 1`] = `
 <DocumentFragment>
   <div
-    class="ant-input-number ant-input-number-outlined"
+    class="ant-input-number ant-input-number-mode-input css-var-root ant-input-number-css-var ant-input-number-outlined"
   >
+    <input
+      aria-describedby="test-id"
+      autocomplete="off"
+      class="ant-input-number-input"
+      placeholder="Please enter"
+      role="spinbutton"
+      step="1"
+      value=""
+    />
     <div
-      class="ant-input-number-handler-wrap"
+      class="ant-input-number-actions"
     >
       <span
         aria-disabled="false"
         aria-label="Increase Value"
-        class="ant-input-number-handler ant-input-number-handler-up"
+        class="ant-input-number-action ant-input-number-action-up"
         role="button"
         unselectable="on"
       >
         <span
           aria-label="up"
-          class="anticon anticon-up ant-input-number-handler-up-inner"
+          class="anticon anticon-up"
           role="img"
         >
           <svg
@@ -2712,13 +2645,13 @@ exports[`Field > 🐴 money valueType is Object 1`] = `
       <span
         aria-disabled="false"
         aria-label="Decrease Value"
-        class="ant-input-number-handler ant-input-number-handler-down"
+        class="ant-input-number-action ant-input-number-action-down"
         role="button"
         unselectable="on"
       >
         <span
           aria-label="down"
-          class="anticon anticon-down ant-input-number-handler-down-inner"
+          class="anticon anticon-down"
           role="img"
         >
           <svg
@@ -2736,19 +2669,6 @@ exports[`Field > 🐴 money valueType is Object 1`] = `
           </svg>
         </span>
       </span>
-    </div>
-    <div
-      class="ant-input-number-input-wrap"
-    >
-      <input
-        aria-describedby="test-id"
-        autocomplete="off"
-        class="ant-input-number-input"
-        placeholder="Please enter"
-        role="spinbutton"
-        step="1"
-        value=""
-      />
     </div>
   </div>
 </DocumentFragment>
@@ -2773,21 +2693,30 @@ exports[`Field > 🐴 money valueType is Object 3`] = `
 exports[`Field > 🐴 money valueType is Object 4`] = `
 <DocumentFragment>
   <div
-    class="ant-input-number ant-input-number-outlined"
+    class="ant-input-number ant-input-number-mode-input css-var-root ant-input-number-css-var ant-input-number-outlined"
   >
+    <input
+      aria-describedby="test-id"
+      autocomplete="off"
+      class="ant-input-number-input"
+      placeholder="Введите значение"
+      role="spinbutton"
+      step="1"
+      value=""
+    />
     <div
-      class="ant-input-number-handler-wrap"
+      class="ant-input-number-actions"
     >
       <span
         aria-disabled="false"
         aria-label="Increase Value"
-        class="ant-input-number-handler ant-input-number-handler-up"
+        class="ant-input-number-action ant-input-number-action-up"
         role="button"
         unselectable="on"
       >
         <span
           aria-label="up"
-          class="anticon anticon-up ant-input-number-handler-up-inner"
+          class="anticon anticon-up"
           role="img"
         >
           <svg
@@ -2808,13 +2737,13 @@ exports[`Field > 🐴 money valueType is Object 4`] = `
       <span
         aria-disabled="false"
         aria-label="Decrease Value"
-        class="ant-input-number-handler ant-input-number-handler-down"
+        class="ant-input-number-action ant-input-number-action-down"
         role="button"
         unselectable="on"
       >
         <span
           aria-label="down"
-          class="anticon anticon-down ant-input-number-handler-down-inner"
+          class="anticon anticon-down"
           role="img"
         >
           <svg
@@ -2832,19 +2761,6 @@ exports[`Field > 🐴 money valueType is Object 4`] = `
           </svg>
         </span>
       </span>
-    </div>
-    <div
-      class="ant-input-number-input-wrap"
-    >
-      <input
-        aria-describedby="test-id"
-        autocomplete="off"
-        class="ant-input-number-input"
-        placeholder="Введите значение"
-        role="spinbutton"
-        step="1"
-        value=""
-      />
     </div>
   </div>
 </DocumentFragment>
@@ -2869,21 +2785,30 @@ exports[`Field > 🐴 money valueType is Object 6`] = `
 exports[`Field > 🐴 money valueType is Object 7`] = `
 <DocumentFragment>
   <div
-    class="ant-input-number ant-input-number-outlined"
+    class="ant-input-number ant-input-number-mode-input css-var-root ant-input-number-css-var ant-input-number-outlined"
   >
+    <input
+      aria-describedby="test-id"
+      autocomplete="off"
+      class="ant-input-number-input"
+      placeholder="Sila masuk"
+      role="spinbutton"
+      step="1"
+      value=""
+    />
     <div
-      class="ant-input-number-handler-wrap"
+      class="ant-input-number-actions"
     >
       <span
         aria-disabled="false"
         aria-label="Increase Value"
-        class="ant-input-number-handler ant-input-number-handler-up"
+        class="ant-input-number-action ant-input-number-action-up"
         role="button"
         unselectable="on"
       >
         <span
           aria-label="up"
-          class="anticon anticon-up ant-input-number-handler-up-inner"
+          class="anticon anticon-up"
           role="img"
         >
           <svg
@@ -2904,13 +2829,13 @@ exports[`Field > 🐴 money valueType is Object 7`] = `
       <span
         aria-disabled="false"
         aria-label="Decrease Value"
-        class="ant-input-number-handler ant-input-number-handler-down"
+        class="ant-input-number-action ant-input-number-action-down"
         role="button"
         unselectable="on"
       >
         <span
           aria-label="down"
-          class="anticon anticon-down ant-input-number-handler-down-inner"
+          class="anticon anticon-down"
           role="img"
         >
           <svg
@@ -2928,19 +2853,6 @@ exports[`Field > 🐴 money valueType is Object 7`] = `
           </svg>
         </span>
       </span>
-    </div>
-    <div
-      class="ant-input-number-input-wrap"
-    >
-      <input
-        aria-describedby="test-id"
-        autocomplete="off"
-        class="ant-input-number-input"
-        placeholder="Sila masuk"
-        role="spinbutton"
-        step="1"
-        value=""
-      />
     </div>
   </div>
 </DocumentFragment>
@@ -2965,21 +2877,30 @@ exports[`Field > 🐴 money valueType is Object 9`] = `
 exports[`Field > 🐴 money valueType is Object 10`] = `
 <DocumentFragment>
   <div
-    class="ant-input-number ant-input-number-outlined"
+    class="ant-input-number ant-input-number-mode-input css-var-root ant-input-number-css-var ant-input-number-outlined"
   >
+    <input
+      aria-describedby="test-id"
+      autocomplete="off"
+      class="ant-input-number-input"
+      placeholder="Molimo unesite"
+      role="spinbutton"
+      step="1"
+      value=""
+    />
     <div
-      class="ant-input-number-handler-wrap"
+      class="ant-input-number-actions"
     >
       <span
         aria-disabled="false"
         aria-label="Increase Value"
-        class="ant-input-number-handler ant-input-number-handler-up"
+        class="ant-input-number-action ant-input-number-action-up"
         role="button"
         unselectable="on"
       >
         <span
           aria-label="up"
-          class="anticon anticon-up ant-input-number-handler-up-inner"
+          class="anticon anticon-up"
           role="img"
         >
           <svg
@@ -3000,13 +2921,13 @@ exports[`Field > 🐴 money valueType is Object 10`] = `
       <span
         aria-disabled="false"
         aria-label="Decrease Value"
-        class="ant-input-number-handler ant-input-number-handler-down"
+        class="ant-input-number-action ant-input-number-action-down"
         role="button"
         unselectable="on"
       >
         <span
           aria-label="down"
-          class="anticon anticon-down ant-input-number-handler-down-inner"
+          class="anticon anticon-down"
           role="img"
         >
           <svg
@@ -3024,19 +2945,6 @@ exports[`Field > 🐴 money valueType is Object 10`] = `
           </svg>
         </span>
       </span>
-    </div>
-    <div
-      class="ant-input-number-input-wrap"
-    >
-      <input
-        aria-describedby="test-id"
-        autocomplete="off"
-        class="ant-input-number-input"
-        placeholder="Molimo unesite"
-        role="spinbutton"
-        step="1"
-        value=""
-      />
     </div>
   </div>
 </DocumentFragment>
@@ -3065,7 +2973,7 @@ exports[`Field > 🐴 options support dom list 1`] = `
     style="display: flex; gap: 16px; align-items: center;"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -3073,7 +2981,7 @@ exports[`Field > 🐴 options support dom list 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -3092,7 +3000,7 @@ exports[`Field > 🐴 options support dom text 1`] = `
   >
     新建
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -3114,7 +3022,7 @@ exports[`Field > 🐴 options support one dom 1`] = `
     style="display: flex; gap: 16px; align-items: center;"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -3136,21 +3044,29 @@ exports[`Field > 🐴 percent support unit string 1`] = `
 exports[`Field > 🐴 percent valueType is Object 1`] = `
 <DocumentFragment>
   <div
-    class="ant-input-number ant-input-number-outlined"
+    class="ant-input-number ant-input-number-mode-input css-var-root ant-input-number-css-var ant-input-number-outlined"
   >
+    <input
+      autocomplete="off"
+      class="ant-input-number-input"
+      placeholder="请输入"
+      role="spinbutton"
+      step="1"
+      value=""
+    />
     <div
-      class="ant-input-number-handler-wrap"
+      class="ant-input-number-actions"
     >
       <span
         aria-disabled="false"
         aria-label="Increase Value"
-        class="ant-input-number-handler ant-input-number-handler-up"
+        class="ant-input-number-action ant-input-number-action-up"
         role="button"
         unselectable="on"
       >
         <span
           aria-label="up"
-          class="anticon anticon-up ant-input-number-handler-up-inner"
+          class="anticon anticon-up"
           role="img"
         >
           <svg
@@ -3171,13 +3087,13 @@ exports[`Field > 🐴 percent valueType is Object 1`] = `
       <span
         aria-disabled="false"
         aria-label="Decrease Value"
-        class="ant-input-number-handler ant-input-number-handler-down"
+        class="ant-input-number-action ant-input-number-action-down"
         role="button"
         unselectable="on"
       >
         <span
           aria-label="down"
-          class="anticon anticon-down ant-input-number-handler-down-inner"
+          class="anticon anticon-down"
           role="img"
         >
           <svg
@@ -3195,18 +3111,6 @@ exports[`Field > 🐴 percent valueType is Object 1`] = `
           </svg>
         </span>
       </span>
-    </div>
-    <div
-      class="ant-input-number-input-wrap"
-    >
-      <input
-        autocomplete="off"
-        class="ant-input-number-input"
-        placeholder="请输入"
-        role="spinbutton"
-        step="1"
-        value=""
-      />
     </div>
   </div>
 </DocumentFragment>
@@ -3228,24 +3132,25 @@ exports[`Field > 🐴 progress support no number 1`] = `
     aria-valuemax="100"
     aria-valuemin="0"
     aria-valuenow="NaN"
-    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
+    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small css-var-root"
     role="progressbar"
     style="min-width: 100px; max-width: 320px;"
   >
     <div
-      class="ant-progress-outer"
+      class="ant-progress-body"
       style="width: 100%;"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-rail"
+        style="height: 6px;"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-outer"
-          style="width: 0%; height: 6px; --progress-percent: 0;"
+          class="ant-progress-track"
+          style="width: 0%; height: 6px;"
         />
       </div>
       <span
-        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+        class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
         title="0%"
       >
         0%
@@ -3261,24 +3166,25 @@ exports[`Field > 🐴 progress support string number 1`] = `
     aria-valuemax="100"
     aria-valuemin="0"
     aria-valuenow="12"
-    class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
+    class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small css-var-root"
     role="progressbar"
     style="min-width: 100px; max-width: 320px;"
   >
     <div
-      class="ant-progress-outer"
+      class="ant-progress-body"
       style="width: 100%;"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-rail"
+        style="height: 6px;"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-outer"
-          style="width: 12%; height: 6px; --progress-percent: 0.12;"
+          class="ant-progress-track"
+          style="width: 12%; height: 6px;"
         />
       </div>
       <span
-        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+        class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
         title="12%"
       >
         12%
@@ -3291,7 +3197,7 @@ exports[`Field > 🐴 progress support string number 1`] = `
 exports[`Field > 🐴 read and plain 1`] = `
 <DocumentFragment>
   <div
-    class="ant-descriptions"
+    class="ant-descriptions css-var-root"
   >
     <div
       class="ant-descriptions-view"
@@ -3336,7 +3242,7 @@ exports[`Field > 🐴 read and plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <span
-                    class="ant-avatar ant-avatar-circle ant-avatar-image"
+                    class="ant-avatar ant-avatar-circle ant-avatar-image css-var-root ant-avatar-css-var"
                     style="width: 22px; height: 22px; font-size: 18px;"
                   >
                     <img
@@ -3491,7 +3397,7 @@ exports[`Field > 🐴 read and plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <span
-                    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                    class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-root"
                   >
                     <span
                       class="ant-badge-status-dot ant-badge-status-error"
@@ -3547,12 +3453,12 @@ exports[`Field > 🐴 read and plain 1`] = `
                     aria-valuemax="100"
                     aria-valuemin="0"
                     aria-valuenow="40"
-                    class="ant-progress ant-progress-status-active ant-progress-steps ant-progress-show-info ant-progress-small"
+                    class="ant-progress ant-progress-status-active ant-progress-steps ant-progress-show-info ant-progress-small css-var-root"
                     role="progressbar"
                     style="min-width: 100px; max-width: 320px;"
                   >
                     <div
-                      class="ant-progress-steps-outer"
+                      class="ant-progress-steps-body"
                     >
                       <div
                         class="ant-progress-steps-item ant-progress-steps-item-active"
@@ -3595,7 +3501,7 @@ exports[`Field > 🐴 read and plain 1`] = `
                         style="width: 2px; height: 8px;"
                       />
                       <span
-                        class="ant-progress-text"
+                        class="ant-progress-indicator"
                         title="40%"
                       >
                         40%
@@ -3748,7 +3654,7 @@ exports[`Field > 🐴 read and plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
                   >
                     <div
                       class="ant-space-item"
@@ -3908,7 +3814,7 @@ Done in 9.70s.
 exports[`Field > 🐴 read ant no plain 1`] = `
 <DocumentFragment>
   <div
-    class="ant-descriptions"
+    class="ant-descriptions css-var-root"
   >
     <div
       class="ant-descriptions-view"
@@ -3953,7 +3859,7 @@ exports[`Field > 🐴 read ant no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <span
-                    class="ant-avatar ant-avatar-circle ant-avatar-image"
+                    class="ant-avatar ant-avatar-circle ant-avatar-image css-var-root ant-avatar-css-var"
                     style="width: 22px; height: 22px; font-size: 18px;"
                   >
                     <img
@@ -4108,7 +4014,7 @@ exports[`Field > 🐴 read ant no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <span
-                    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                    class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-root"
                   >
                     <span
                       class="ant-badge-status-dot ant-badge-status-error"
@@ -4164,24 +4070,25 @@ exports[`Field > 🐴 read ant no plain 1`] = `
                     aria-valuemax="100"
                     aria-valuemin="0"
                     aria-valuenow="40"
-                    class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
+                    class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small css-var-root"
                     role="progressbar"
                     style="min-width: 100px; max-width: 320px;"
                   >
                     <div
-                      class="ant-progress-outer"
+                      class="ant-progress-body"
                       style="width: 100%;"
                     >
                       <div
-                        class="ant-progress-inner"
+                        class="ant-progress-rail"
+                        style="height: 6px;"
                       >
                         <div
-                          class="ant-progress-bg ant-progress-bg-outer"
-                          style="width: 40%; height: 6px; --progress-percent: 0.4;"
+                          class="ant-progress-track"
+                          style="width: 40%; height: 6px;"
                         />
                       </div>
                       <span
-                        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                        class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
                         title="40%"
                       >
                         40%
@@ -4334,7 +4241,7 @@ exports[`Field > 🐴 read ant no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
                   >
                     <div
                       class="ant-space-item"

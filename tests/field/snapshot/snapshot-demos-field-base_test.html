@@ -1,21 +1,21 @@
 <DocumentFragment>
   <div
-    class="ant-app"
+    class="ant-app css-var-root"
   >
     <div>
       test
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
     >
       <div
         class="ant-space-item"
       >
         <div
-          class="ant-radio-group ant-radio-group-outline"
+          class="ant-radio-group ant-radio-group-outline css-var-root ant-radio-css-var"
         >
           <label
-            class="ant-radio-wrapper"
+            class="ant-radio-wrapper css-var-root ant-radio-css-var"
           >
             <span
               class="ant-radio ant-wave-target"
@@ -37,7 +37,7 @@
             </span>
           </label>
           <label
-            class="ant-radio-wrapper ant-radio-wrapper-checked"
+            class="ant-radio-wrapper ant-radio-wrapper-checked css-var-root ant-radio-css-var"
           >
             <span
               class="ant-radio ant-wave-target ant-radio-checked"
@@ -70,7 +70,7 @@
       >
         <button
           aria-checked="false"
-          class="ant-switch"
+          class="ant-switch css-var-root"
           role="switch"
           type="button"
         >
@@ -93,7 +93,7 @@
     <br />
     <br />
     <div
-      class="ant-descriptions"
+      class="ant-descriptions css-var-root"
     >
       <div
         class="ant-descriptions-view"
@@ -138,7 +138,7 @@
                     class="ant-descriptions-item-content"
                   >
                     <span
-                      class="ant-avatar ant-avatar-circle ant-avatar-image"
+                      class="ant-avatar ant-avatar-circle ant-avatar-image css-var-root ant-avatar-css-var"
                       style="width: 22px; height: 22px; font-size: 18px;"
                     >
                       <img
@@ -168,7 +168,7 @@
                     class="ant-descriptions-item-content"
                   >
                     <span
-                      class="ant-input-affix-wrapper ant-input-disabled ant-input-affix-wrapper-disabled ant-input-outlined"
+                      class="ant-input-affix-wrapper ant-input-disabled ant-input-affix-wrapper-disabled ant-input-outlined css-var-root ant-input-css-var"
                     >
                       <input
                         class="ant-input ant-input-disabled"
@@ -228,7 +228,7 @@
                   >
                     <div
                       aria-describedby="test-id"
-                      class="ant-color-picker-trigger ant-pro-field-color-picker"
+                      class="ant-color-picker-trigger css-var-root ant-color-picker-css-var ant-pro-field-color-picker"
                       style=""
                     >
                       <div
@@ -259,7 +259,7 @@
                   >
                     <div
                       aria-describedby="test-id"
-                      class="ant-color-picker-trigger ant-pro-field-color-picker ant-color-picker-trigger-disabled"
+                      class="ant-color-picker-trigger css-var-root ant-color-picker-css-var ant-pro-field-color-picker ant-color-picker-trigger-disabled"
                       style=""
                     >
                       <div
@@ -268,14 +268,14 @@
                     </div>
                     <div
                       aria-describedby="test-id"
-                      class="ant-color-picker-trigger ant-pro-field-color-picker"
+                      class="ant-color-picker-trigger css-var-root ant-color-picker-css-var ant-pro-field-color-picker"
                     >
                       <div
                         class="ant-color-picker-color-block"
                       >
                         <div
                           class="ant-color-picker-color-block-inner"
-                          style="background: rgb(0, 0, 0);"
+                          style="background: rgb(0, 0, 255);"
                         />
                       </div>
                     </div>
@@ -298,7 +298,7 @@
                     class="ant-descriptions-item-content"
                   >
                     <input
-                      class="ant-input ant-input-outlined"
+                      class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                       placeholder="请输入"
                       type="text"
                       value=""
@@ -326,22 +326,31 @@
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-input-number ant-input-number-outlined"
+                      class="ant-input-number ant-input-number-mode-input css-var-root ant-input-number-css-var ant-input-number-outlined"
                       style="width: 200px;"
                     >
+                      <input
+                        aria-describedby="test-id"
+                        autocomplete="off"
+                        class="ant-input-number-input"
+                        placeholder="请输入"
+                        role="spinbutton"
+                        step="1"
+                        value=""
+                      />
                       <div
-                        class="ant-input-number-handler-wrap"
+                        class="ant-input-number-actions"
                       >
                         <span
                           aria-disabled="false"
                           aria-label="Increase Value"
-                          class="ant-input-number-handler ant-input-number-handler-up"
+                          class="ant-input-number-action ant-input-number-action-up"
                           role="button"
                           unselectable="on"
                         >
                           <span
                             aria-label="up"
-                            class="anticon anticon-up ant-input-number-handler-up-inner"
+                            class="anticon anticon-up"
                             role="img"
                           >
                             <svg
@@ -362,13 +371,13 @@
                         <span
                           aria-disabled="false"
                           aria-label="Decrease Value"
-                          class="ant-input-number-handler ant-input-number-handler-down"
+                          class="ant-input-number-action ant-input-number-action-down"
                           role="button"
                           unselectable="on"
                         >
                           <span
                             aria-label="down"
-                            class="anticon anticon-down ant-input-number-handler-down-inner"
+                            class="anticon anticon-down"
                             role="img"
                           >
                             <svg
@@ -386,19 +395,6 @@
                             </svg>
                           </span>
                         </span>
-                      </div>
-                      <div
-                        class="ant-input-number-input-wrap"
-                      >
-                        <input
-                          aria-describedby="test-id"
-                          autocomplete="off"
-                          class="ant-input-number-input"
-                          placeholder="请输入"
-                          role="spinbutton"
-                          step="1"
-                          value=""
-                        />
                       </div>
                     </div>
                     <span>
@@ -423,21 +419,31 @@
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-input-number ant-input-number-outlined"
+                      class="ant-input-number ant-input-number-mode-input css-var-root ant-input-number-css-var ant-input-number-outlined"
                     >
+                      <input
+                        aria-valuemax="10000"
+                        aria-valuemin="1"
+                        autocomplete="off"
+                        class="ant-input-number-input"
+                        placeholder="请输入"
+                        role="spinbutton"
+                        step="1"
+                        value=""
+                      />
                       <div
-                        class="ant-input-number-handler-wrap"
+                        class="ant-input-number-actions"
                       >
                         <span
                           aria-disabled="false"
                           aria-label="Increase Value"
-                          class="ant-input-number-handler ant-input-number-handler-up"
+                          class="ant-input-number-action ant-input-number-action-up"
                           role="button"
                           unselectable="on"
                         >
                           <span
                             aria-label="up"
-                            class="anticon anticon-up ant-input-number-handler-up-inner"
+                            class="anticon anticon-up"
                             role="img"
                           >
                             <svg
@@ -458,13 +464,13 @@
                         <span
                           aria-disabled="false"
                           aria-label="Decrease Value"
-                          class="ant-input-number-handler ant-input-number-handler-down"
+                          class="ant-input-number-action ant-input-number-action-down"
                           role="button"
                           unselectable="on"
                         >
                           <span
                             aria-label="down"
-                            class="anticon anticon-down ant-input-number-handler-down-inner"
+                            class="anticon anticon-down"
                             role="img"
                           >
                             <svg
@@ -482,20 +488,6 @@
                             </svg>
                           </span>
                         </span>
-                      </div>
-                      <div
-                        class="ant-input-number-input-wrap"
-                      >
-                        <input
-                          aria-valuemax="10000"
-                          aria-valuemin="1"
-                          autocomplete="off"
-                          class="ant-input-number-input"
-                          placeholder="请输入"
-                          role="spinbutton"
-                          step="1"
-                          value=""
-                        />
                       </div>
                     </div>
                   </span>
@@ -524,22 +516,31 @@
                       class="ant-space-compact"
                     >
                       <div
-                        class="ant-input-number ant-input-number-outlined ant-input-number-compact-item ant-input-number-compact-first-item"
+                        class="ant-input-number ant-input-number-mode-input css-var-root ant-input-number-css-var ant-input-number-compact-item ant-input-number-compact-first-item ant-input-number-outlined"
                         style=""
                       >
+                        <input
+                          autocomplete="off"
+                          class="ant-input-number-input"
+                          id="undefined-0"
+                          placeholder="请输入"
+                          role="spinbutton"
+                          step="1"
+                          value=""
+                        />
                         <div
-                          class="ant-input-number-handler-wrap"
+                          class="ant-input-number-actions"
                         >
                           <span
                             aria-disabled="false"
                             aria-label="Increase Value"
-                            class="ant-input-number-handler ant-input-number-handler-up"
+                            class="ant-input-number-action ant-input-number-action-up"
                             role="button"
                             unselectable="on"
                           >
                             <span
                               aria-label="up"
-                              class="anticon anticon-up ant-input-number-handler-up-inner"
+                              class="anticon anticon-up"
                               role="img"
                             >
                               <svg
@@ -560,13 +561,13 @@
                           <span
                             aria-disabled="false"
                             aria-label="Decrease Value"
-                            class="ant-input-number-handler ant-input-number-handler-down"
+                            class="ant-input-number-action ant-input-number-action-down"
                             role="button"
                             unselectable="on"
                           >
                             <span
                               aria-label="down"
-                              class="anticon anticon-down ant-input-number-handler-down-inner"
+                              class="anticon anticon-down"
                               role="img"
                             >
                               <svg
@@ -585,22 +586,9 @@
                             </span>
                           </span>
                         </div>
-                        <div
-                          class="ant-input-number-input-wrap"
-                        >
-                          <input
-                            autocomplete="off"
-                            class="ant-input-number-input"
-                            id="undefined-0"
-                            placeholder="请输入"
-                            role="spinbutton"
-                            step="1"
-                            value=""
-                          />
-                        </div>
                       </div>
                       <input
-                        class="ant-input ant-input-disabled ant-input-outlined ant-input-compact-item"
+                        class="ant-input ant-input-disabled ant-input-outlined css-var-root ant-input-css-var ant-input-compact-item"
                         disabled=""
                         placeholder="~"
                         style="width: 30px; text-align: center; border-inline-start: 0; border-inline-end: 0; pointer-events: none; background-color: #ffffff;"
@@ -608,22 +596,31 @@
                         value=""
                       />
                       <div
-                        class="ant-input-number ant-input-number-outlined ant-input-number-compact-item ant-input-number-compact-last-item"
+                        class="ant-input-number ant-input-number-mode-input css-var-root ant-input-number-css-var ant-input-number-compact-item ant-input-number-compact-last-item ant-input-number-outlined"
                         style="border-inline-start: 0;"
                       >
+                        <input
+                          autocomplete="off"
+                          class="ant-input-number-input"
+                          id="undefined-1"
+                          placeholder="请输入"
+                          role="spinbutton"
+                          step="1"
+                          value=""
+                        />
                         <div
-                          class="ant-input-number-handler-wrap"
+                          class="ant-input-number-actions"
                         >
                           <span
                             aria-disabled="false"
                             aria-label="Increase Value"
-                            class="ant-input-number-handler ant-input-number-handler-up"
+                            class="ant-input-number-action ant-input-number-action-up"
                             role="button"
                             unselectable="on"
                           >
                             <span
                               aria-label="up"
-                              class="anticon anticon-up ant-input-number-handler-up-inner"
+                              class="anticon anticon-up"
                               role="img"
                             >
                               <svg
@@ -644,13 +641,13 @@
                           <span
                             aria-disabled="false"
                             aria-label="Decrease Value"
-                            class="ant-input-number-handler ant-input-number-handler-down"
+                            class="ant-input-number-action ant-input-number-action-down"
                             role="button"
                             unselectable="on"
                           >
                             <span
                               aria-label="down"
-                              class="anticon anticon-down ant-input-number-handler-down-inner"
+                              class="anticon anticon-down"
                               role="img"
                             >
                               <svg
@@ -668,19 +665,6 @@
                               </svg>
                             </span>
                           </span>
-                        </div>
-                        <div
-                          class="ant-input-number-input-wrap"
-                        >
-                          <input
-                            autocomplete="off"
-                            class="ant-input-number-input"
-                            id="undefined-1"
-                            placeholder="请输入"
-                            role="spinbutton"
-                            step="1"
-                            value=""
-                          />
                         </div>
                       </div>
                     </div>
@@ -703,22 +687,31 @@
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-input-number ant-input-number-outlined"
+                      class="ant-input-number ant-input-number-mode-input css-var-root ant-input-number-css-var ant-input-number-outlined"
                       style="width: 100%;"
                     >
+                      <input
+                        aria-valuemin="0"
+                        autocomplete="off"
+                        class="ant-input-number-input"
+                        placeholder="请输入"
+                        role="spinbutton"
+                        step="1"
+                        value=""
+                      />
                       <div
-                        class="ant-input-number-handler-wrap"
+                        class="ant-input-number-actions"
                       >
                         <span
                           aria-disabled="false"
                           aria-label="Increase Value"
-                          class="ant-input-number-handler ant-input-number-handler-up"
+                          class="ant-input-number-action ant-input-number-action-up"
                           role="button"
                           unselectable="on"
                         >
                           <span
                             aria-label="up"
-                            class="anticon anticon-up ant-input-number-handler-up-inner"
+                            class="anticon anticon-up"
                             role="img"
                           >
                             <svg
@@ -739,13 +732,13 @@
                         <span
                           aria-disabled="false"
                           aria-label="Decrease Value"
-                          class="ant-input-number-handler ant-input-number-handler-down"
+                          class="ant-input-number-action ant-input-number-action-down"
                           role="button"
                           unselectable="on"
                         >
                           <span
                             aria-label="down"
-                            class="anticon anticon-down ant-input-number-handler-down-inner"
+                            class="anticon anticon-down"
                             role="img"
                           >
                             <svg
@@ -763,19 +756,6 @@
                             </svg>
                           </span>
                         </span>
-                      </div>
-                      <div
-                        class="ant-input-number-input-wrap"
-                      >
-                        <input
-                          aria-valuemin="0"
-                          autocomplete="off"
-                          class="ant-input-number-input"
-                          placeholder="请输入"
-                          role="spinbutton"
-                          step="1"
-                          value=""
-                        />
                       </div>
                     </div>
                   </span>
@@ -801,21 +781,29 @@
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-input-number ant-input-number-outlined"
+                      class="ant-input-number ant-input-number-mode-input css-var-root ant-input-number-css-var ant-input-number-outlined"
                     >
+                      <input
+                        autocomplete="off"
+                        class="ant-input-number-input"
+                        placeholder="请输入"
+                        role="spinbutton"
+                        step="1"
+                        value=""
+                      />
                       <div
-                        class="ant-input-number-handler-wrap"
+                        class="ant-input-number-actions"
                       >
                         <span
                           aria-disabled="false"
                           aria-label="Increase Value"
-                          class="ant-input-number-handler ant-input-number-handler-up"
+                          class="ant-input-number-action ant-input-number-action-up"
                           role="button"
                           unselectable="on"
                         >
                           <span
                             aria-label="up"
-                            class="anticon anticon-up ant-input-number-handler-up-inner"
+                            class="anticon anticon-up"
                             role="img"
                           >
                             <svg
@@ -836,13 +824,13 @@
                         <span
                           aria-disabled="false"
                           aria-label="Decrease Value"
-                          class="ant-input-number-handler ant-input-number-handler-down"
+                          class="ant-input-number-action ant-input-number-action-down"
                           role="button"
                           unselectable="on"
                         >
                           <span
                             aria-label="down"
-                            class="anticon anticon-down ant-input-number-handler-down-inner"
+                            class="anticon anticon-down"
                             role="img"
                           >
                             <svg
@@ -860,18 +848,6 @@
                             </svg>
                           </span>
                         </span>
-                      </div>
-                      <div
-                        class="ant-input-number-input-wrap"
-                      >
-                        <input
-                          autocomplete="off"
-                          class="ant-input-number-input"
-                          placeholder="请输入"
-                          role="spinbutton"
-                          step="1"
-                          value=""
-                        />
                       </div>
                     </div>
                   </span>
@@ -893,7 +869,7 @@
                     class="ant-descriptions-item-content"
                   >
                     <ul
-                      class="ant-rate"
+                      class="ant-rate ant-rate-middle css-var-root"
                       tabindex="0"
                     >
                       <li
@@ -1210,7 +1186,7 @@
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-slider ant-slider-horizontal"
+                      class="ant-slider css-var-root ant-slider-horizontal"
                       style="min-width: 120px;"
                     >
                       <div
@@ -1255,51 +1231,39 @@
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-select ant-select-outlined ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      class="ant-select ant-select-outlined ant-pro-filed-search-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
                       style="min-width: 100px;"
                     >
                       <div
-                        class="ant-select-selector"
+                        class="ant-select-content"
                       >
-                        <span
-                          class="ant-select-selection-wrap"
+                        <div
+                          class="ant-select-placeholder"
+                          style="visibility: visible;"
                         >
-                          <span
-                            class="ant-select-selection-search"
-                          >
-                            <input
-                              aria-autocomplete="list"
-                              aria-controls="rc_select_TEST_OR_SSR_list"
-                              aria-expanded="false"
-                              aria-haspopup="listbox"
-                              aria-owns="rc_select_TEST_OR_SSR_list"
-                              autocomplete="off"
-                              class="ant-select-selection-search-input"
-                              id="rc_select_TEST_OR_SSR"
-                              readonly=""
-                              role="combobox"
-                              style="opacity: 0;"
-                              type="search"
-                              unselectable="on"
-                              value=""
-                            />
-                          </span>
-                          <span
-                            class="ant-select-selection-placeholder"
-                          >
-                            请选择
-                          </span>
-                        </span>
+                          请选择
+                        </div>
+                        <input
+                          aria-autocomplete="list"
+                          aria-controls="test-id_list"
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          aria-owns="test-id_list"
+                          autocomplete="off"
+                          class="ant-select-input"
+                          id="test-id"
+                          readonly=""
+                          role="combobox"
+                          type="search"
+                          value=""
+                        />
                       </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-arrow"
-                        style="user-select: none;"
-                        unselectable="on"
+                      <div
+                        class="ant-select-suffix"
                       >
                         <span
                           aria-label="down"
-                          class="anticon anticon-down ant-select-suffix"
+                          class="anticon anticon-down"
                           role="img"
                         >
                           <svg
@@ -1316,7 +1280,7 @@
                             />
                           </svg>
                         </span>
-                      </span>
+                      </div>
                     </div>
                   </span>
                 </div>
@@ -1341,10 +1305,10 @@
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-checkbox-group ant-pro-field-checkbox-horizontal"
+                      class="ant-checkbox-group ant-pro-field-checkbox-horizontal css-var-root ant-checkbox-css-var"
                     >
                       <label
-                        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-group-item"
+                        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-group-item css-var-root ant-checkbox-css-var"
                       >
                         <span
                           class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -1366,7 +1330,7 @@
                         </span>
                       </label>
                       <label
-                        class="ant-checkbox-wrapper ant-checkbox-group-item"
+                        class="ant-checkbox-wrapper ant-checkbox-group-item css-var-root ant-checkbox-css-var"
                       >
                         <span
                           class="ant-checkbox ant-wave-target"
@@ -1387,7 +1351,7 @@
                         </span>
                       </label>
                       <label
-                        class="ant-checkbox-wrapper ant-checkbox-group-item"
+                        class="ant-checkbox-wrapper ant-checkbox-group-item css-var-root ant-checkbox-css-var"
                       >
                         <span
                           class="ant-checkbox ant-wave-target"
@@ -1408,7 +1372,7 @@
                         </span>
                       </label>
                       <label
-                        class="ant-checkbox-wrapper ant-checkbox-group-item"
+                        class="ant-checkbox-wrapper ant-checkbox-group-item css-var-root ant-checkbox-css-var"
                       >
                         <span
                           class="ant-checkbox ant-wave-target"
@@ -1448,10 +1412,10 @@
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-checkbox-group ant-pro-field-checkbox-horizontal"
+                      class="ant-checkbox-group ant-pro-field-checkbox-horizontal css-var-root ant-checkbox-css-var"
                     >
                       <label
-                        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-group-item"
+                        class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-group-item css-var-root ant-checkbox-css-var"
                       >
                         <span
                           class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -1473,7 +1437,7 @@
                         </span>
                       </label>
                       <label
-                        class="ant-checkbox-wrapper ant-checkbox-group-item"
+                        class="ant-checkbox-wrapper ant-checkbox-group-item css-var-root ant-checkbox-css-var"
                       >
                         <span
                           class="ant-checkbox ant-wave-target"
@@ -1494,7 +1458,7 @@
                         </span>
                       </label>
                       <label
-                        class="ant-checkbox-wrapper ant-checkbox-group-item"
+                        class="ant-checkbox-wrapper ant-checkbox-group-item css-var-root ant-checkbox-css-var"
                       >
                         <span
                           class="ant-checkbox ant-wave-target"
@@ -1515,7 +1479,7 @@
                         </span>
                       </label>
                       <label
-                        class="ant-checkbox-wrapper ant-checkbox-group-item"
+                        class="ant-checkbox-wrapper ant-checkbox-group-item css-var-root ant-checkbox-css-var"
                       >
                         <span
                           class="ant-checkbox ant-wave-target"
@@ -1559,10 +1523,10 @@
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
+                      class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal css-var-root ant-radio-css-var"
                     >
                       <label
-                        class="ant-radio-wrapper ant-radio-wrapper-disabled"
+                        class="ant-radio-wrapper ant-radio-wrapper-disabled css-var-root ant-radio-css-var"
                       >
                         <span
                           class="ant-radio ant-wave-target ant-radio-disabled"
@@ -1585,7 +1549,7 @@
                         </span>
                       </label>
                       <label
-                        class="ant-radio-wrapper"
+                        class="ant-radio-wrapper css-var-root ant-radio-css-var"
                       >
                         <span
                           class="ant-radio ant-wave-target"
@@ -1607,7 +1571,7 @@
                         </span>
                       </label>
                       <label
-                        class="ant-radio-wrapper"
+                        class="ant-radio-wrapper css-var-root ant-radio-css-var"
                       >
                         <span
                           class="ant-radio ant-wave-target"
@@ -1629,7 +1593,7 @@
                         </span>
                       </label>
                       <label
-                        class="ant-radio-wrapper"
+                        class="ant-radio-wrapper css-var-root ant-radio-css-var"
                       >
                         <span
                           class="ant-radio ant-wave-target"
@@ -1670,10 +1634,10 @@
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
+                      class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal css-var-root ant-radio-css-var"
                     >
                       <label
-                        class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
+                        class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled css-var-root ant-radio-css-var"
                       >
                         <span
                           class="ant-radio-button ant-radio-button-disabled"
@@ -1696,7 +1660,7 @@
                         </span>
                       </label>
                       <label
-                        class="ant-radio-button-wrapper"
+                        class="ant-radio-button-wrapper css-var-root ant-radio-css-var"
                       >
                         <span
                           class="ant-radio-button"
@@ -1718,7 +1682,7 @@
                         </span>
                       </label>
                       <label
-                        class="ant-radio-button-wrapper"
+                        class="ant-radio-button-wrapper css-var-root ant-radio-css-var"
                       >
                         <span
                           class="ant-radio-button"
@@ -1740,7 +1704,7 @@
                         </span>
                       </label>
                       <label
-                        class="ant-radio-button-wrapper"
+                        class="ant-radio-button-wrapper css-var-root ant-radio-css-var"
                       >
                         <span
                           class="ant-radio-button"
@@ -1785,51 +1749,39 @@
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-select ant-select-outlined ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      class="ant-select ant-select-outlined ant-pro-filed-search-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
                       style="min-width: 100px;"
                     >
                       <div
-                        class="ant-select-selector"
+                        class="ant-select-content"
                       >
-                        <span
-                          class="ant-select-selection-wrap"
+                        <div
+                          class="ant-select-placeholder"
+                          style="visibility: visible;"
                         >
-                          <span
-                            class="ant-select-selection-search"
-                          >
-                            <input
-                              aria-autocomplete="list"
-                              aria-controls="rc_select_TEST_OR_SSR_list"
-                              aria-expanded="false"
-                              aria-haspopup="listbox"
-                              aria-owns="rc_select_TEST_OR_SSR_list"
-                              autocomplete="off"
-                              class="ant-select-selection-search-input"
-                              id="rc_select_TEST_OR_SSR"
-                              readonly=""
-                              role="combobox"
-                              style="opacity: 0;"
-                              type="search"
-                              unselectable="on"
-                              value=""
-                            />
-                          </span>
-                          <span
-                            class="ant-select-selection-placeholder"
-                          >
-                            请选择
-                          </span>
-                        </span>
+                          请选择
+                        </div>
+                        <input
+                          aria-autocomplete="list"
+                          aria-controls="test-id_list"
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          aria-owns="test-id_list"
+                          autocomplete="off"
+                          class="ant-select-input"
+                          id="test-id"
+                          readonly=""
+                          role="combobox"
+                          type="search"
+                          value=""
+                        />
                       </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-arrow"
-                        style="user-select: none;"
-                        unselectable="on"
+                      <div
+                        class="ant-select-suffix"
                       >
                         <span
                           aria-label="down"
-                          class="anticon anticon-down ant-select-suffix"
+                          class="anticon anticon-down"
                           role="img"
                         >
                           <svg
@@ -1846,7 +1798,7 @@
                             />
                           </svg>
                         </span>
-                      </span>
+                      </div>
                     </div>
                   </span>
                 </div>
@@ -1867,50 +1819,38 @@
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-select ant-cascader ant-select-outlined ant-pro-field-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      class="ant-select ant-cascader ant-select-outlined ant-pro-field-cascader ant-select-css-var ant-cascader-css-var css-var-root ant-select-single ant-select-show-arrow"
                     >
                       <div
-                        class="ant-select-selector"
+                        class="ant-select-content"
                       >
-                        <span
-                          class="ant-select-selection-wrap"
+                        <div
+                          class="ant-select-placeholder"
+                          style="visibility: visible;"
                         >
-                          <span
-                            class="ant-select-selection-search"
-                          >
-                            <input
-                              aria-autocomplete="list"
-                              aria-controls="rc_select_TEST_OR_SSR_list"
-                              aria-expanded="false"
-                              aria-haspopup="listbox"
-                              aria-owns="rc_select_TEST_OR_SSR_list"
-                              autocomplete="off"
-                              class="ant-select-selection-search-input"
-                              id="rc_select_TEST_OR_SSR"
-                              readonly=""
-                              role="combobox"
-                              style="opacity: 0;"
-                              type="search"
-                              unselectable="on"
-                              value=""
-                            />
-                          </span>
-                          <span
-                            class="ant-select-selection-placeholder"
-                          >
-                            请选择
-                          </span>
-                        </span>
+                          请选择
+                        </div>
+                        <input
+                          aria-autocomplete="list"
+                          aria-controls="test-id_list"
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          aria-owns="test-id_list"
+                          autocomplete="off"
+                          class="ant-select-input"
+                          id="test-id"
+                          readonly=""
+                          role="combobox"
+                          type="search"
+                          value=""
+                        />
                       </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-arrow"
-                        style="user-select: none;"
-                        unselectable="on"
+                      <div
+                        class="ant-select-suffix"
                       >
                         <span
                           aria-label="down"
-                          class="anticon anticon-down ant-select-suffix"
+                          class="anticon anticon-down"
                           role="img"
                         >
                           <svg
@@ -1927,194 +1867,6 @@
                             />
                           </svg>
                         </span>
-                      </span>
-                    </div>
-                  </span>
-                </div>
-              </td>
-            </tr>
-            <tr
-              class="ant-descriptions-row"
-            >
-              <td
-                class="ant-descriptions-item"
-                colspan="1"
-              >
-                <div
-                  class="ant-descriptions-item-container"
-                >
-                  <span
-                    class="ant-descriptions-item-label"
-                  >
-                    进度条
-                  </span>
-                  <span
-                    class="ant-descriptions-item-content"
-                  >
-                    <div
-                      class="ant-input-number ant-input-number-outlined"
-                    >
-                      <div
-                        class="ant-input-number-handler-wrap"
-                      >
-                        <span
-                          aria-disabled="false"
-                          aria-label="Increase Value"
-                          class="ant-input-number-handler ant-input-number-handler-up"
-                          role="button"
-                          unselectable="on"
-                        >
-                          <span
-                            aria-label="up"
-                            class="anticon anticon-up ant-input-number-handler-up-inner"
-                            role="img"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              data-icon="up"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
-                            >
-                              <path
-                                d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-                              />
-                            </svg>
-                          </span>
-                        </span>
-                        <span
-                          aria-disabled="false"
-                          aria-label="Decrease Value"
-                          class="ant-input-number-handler ant-input-number-handler-down"
-                          role="button"
-                          unselectable="on"
-                        >
-                          <span
-                            aria-label="down"
-                            class="anticon anticon-down ant-input-number-handler-down-inner"
-                            role="img"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              data-icon="down"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
-                            >
-                              <path
-                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                              />
-                            </svg>
-                          </span>
-                        </span>
-                      </div>
-                      <div
-                        class="ant-input-number-input-wrap"
-                      >
-                        <input
-                          autocomplete="off"
-                          class="ant-input-number-input"
-                          placeholder="请输入"
-                          role="spinbutton"
-                          step="1"
-                          value=""
-                        />
-                      </div>
-                    </div>
-                  </span>
-                </div>
-              </td>
-              <td
-                class="ant-descriptions-item"
-                colspan="1"
-              >
-                <div
-                  class="ant-descriptions-item-container"
-                >
-                  <span
-                    class="ant-descriptions-item-label"
-                  >
-                    进度条
-                  </span>
-                  <span
-                    class="ant-descriptions-item-content"
-                  >
-                    <div
-                      class="ant-input-number ant-input-number-outlined"
-                    >
-                      <div
-                        class="ant-input-number-handler-wrap"
-                      >
-                        <span
-                          aria-disabled="false"
-                          aria-label="Increase Value"
-                          class="ant-input-number-handler ant-input-number-handler-up"
-                          role="button"
-                          unselectable="on"
-                        >
-                          <span
-                            aria-label="up"
-                            class="anticon anticon-up ant-input-number-handler-up-inner"
-                            role="img"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              data-icon="up"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
-                            >
-                              <path
-                                d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-                              />
-                            </svg>
-                          </span>
-                        </span>
-                        <span
-                          aria-disabled="false"
-                          aria-label="Decrease Value"
-                          class="ant-input-number-handler ant-input-number-handler-down"
-                          role="button"
-                          unselectable="on"
-                        >
-                          <span
-                            aria-label="down"
-                            class="anticon anticon-down ant-input-number-handler-down-inner"
-                            role="img"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              data-icon="down"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
-                            >
-                              <path
-                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                              />
-                            </svg>
-                          </span>
-                        </span>
-                      </div>
-                      <div
-                        class="ant-input-number-input-wrap"
-                      >
-                        <input
-                          autocomplete="off"
-                          class="ant-input-number-input"
-                          placeholder="请输入"
-                          role="spinbutton"
-                          step="1"
-                          value=""
-                        />
                       </div>
                     </div>
                   </span>
@@ -2140,21 +1892,29 @@
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-input-number ant-input-number-outlined"
+                      class="ant-input-number ant-input-number-mode-input css-var-root ant-input-number-css-var ant-input-number-outlined"
                     >
+                      <input
+                        autocomplete="off"
+                        class="ant-input-number-input"
+                        placeholder="请输入"
+                        role="spinbutton"
+                        step="1"
+                        value=""
+                      />
                       <div
-                        class="ant-input-number-handler-wrap"
+                        class="ant-input-number-actions"
                       >
                         <span
                           aria-disabled="false"
                           aria-label="Increase Value"
-                          class="ant-input-number-handler ant-input-number-handler-up"
+                          class="ant-input-number-action ant-input-number-action-up"
                           role="button"
                           unselectable="on"
                         >
                           <span
                             aria-label="up"
-                            class="anticon anticon-up ant-input-number-handler-up-inner"
+                            class="anticon anticon-up"
                             role="img"
                           >
                             <svg
@@ -2175,13 +1935,13 @@
                         <span
                           aria-disabled="false"
                           aria-label="Decrease Value"
-                          class="ant-input-number-handler ant-input-number-handler-down"
+                          class="ant-input-number-action ant-input-number-action-down"
                           role="button"
                           unselectable="on"
                         >
                           <span
                             aria-label="down"
-                            class="anticon anticon-down ant-input-number-handler-down-inner"
+                            class="anticon anticon-down"
                             role="img"
                           >
                             <svg
@@ -2200,17 +1960,185 @@
                           </span>
                         </span>
                       </div>
+                    </div>
+                  </span>
+                </div>
+              </td>
+              <td
+                class="ant-descriptions-item"
+                colspan="1"
+              >
+                <div
+                  class="ant-descriptions-item-container"
+                >
+                  <span
+                    class="ant-descriptions-item-label"
+                  >
+                    进度条
+                  </span>
+                  <span
+                    class="ant-descriptions-item-content"
+                  >
+                    <div
+                      class="ant-input-number ant-input-number-mode-input css-var-root ant-input-number-css-var ant-input-number-outlined"
+                    >
+                      <input
+                        autocomplete="off"
+                        class="ant-input-number-input"
+                        placeholder="请输入"
+                        role="spinbutton"
+                        step="1"
+                        value=""
+                      />
                       <div
-                        class="ant-input-number-input-wrap"
+                        class="ant-input-number-actions"
                       >
-                        <input
-                          autocomplete="off"
-                          class="ant-input-number-input"
-                          placeholder="请输入"
-                          role="spinbutton"
-                          step="1"
-                          value=""
-                        />
+                        <span
+                          aria-disabled="false"
+                          aria-label="Increase Value"
+                          class="ant-input-number-action ant-input-number-action-up"
+                          role="button"
+                          unselectable="on"
+                        >
+                          <span
+                            aria-label="up"
+                            class="anticon anticon-up"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="up"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                        <span
+                          aria-disabled="false"
+                          aria-label="Decrease Value"
+                          class="ant-input-number-action ant-input-number-action-down"
+                          role="button"
+                          unselectable="on"
+                        >
+                          <span
+                            aria-label="down"
+                            class="anticon anticon-down"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="down"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="ant-descriptions-row"
+            >
+              <td
+                class="ant-descriptions-item"
+                colspan="1"
+              >
+                <div
+                  class="ant-descriptions-item-container"
+                >
+                  <span
+                    class="ant-descriptions-item-label"
+                  >
+                    进度条
+                  </span>
+                  <span
+                    class="ant-descriptions-item-content"
+                  >
+                    <div
+                      class="ant-input-number ant-input-number-mode-input css-var-root ant-input-number-css-var ant-input-number-outlined"
+                    >
+                      <input
+                        autocomplete="off"
+                        class="ant-input-number-input"
+                        placeholder="请输入"
+                        role="spinbutton"
+                        step="1"
+                        value=""
+                      />
+                      <div
+                        class="ant-input-number-actions"
+                      >
+                        <span
+                          aria-disabled="false"
+                          aria-label="Increase Value"
+                          class="ant-input-number-action ant-input-number-action-up"
+                          role="button"
+                          unselectable="on"
+                        >
+                          <span
+                            aria-label="up"
+                            class="anticon anticon-up"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="up"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                        <span
+                          aria-disabled="false"
+                          aria-label="Decrease Value"
+                          class="ant-input-number-action ant-input-number-action-down"
+                          role="button"
+                          unselectable="on"
+                        >
+                          <span
+                            aria-label="down"
+                            class="anticon anticon-down"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="down"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
                       </div>
                     </div>
                   </span>
@@ -2255,7 +2183,7 @@
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
                     >
                       <div
                         class="ant-space-item"
@@ -2304,7 +2232,7 @@
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-picker ant-picker-outlined"
+                      class="ant-picker ant-picker-outlined css-var-root ant-picker-css-var"
                     >
                       <div
                         class="ant-picker-input"
@@ -2364,13 +2292,13 @@
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
                     >
                       <div
                         class="ant-space-item"
                       >
                         <div
-                          class="ant-picker ant-picker-outlined"
+                          class="ant-picker ant-picker-outlined css-var-root ant-picker-css-var"
                         >
                           <div
                             class="ant-picker-input"
@@ -2412,7 +2340,7 @@
                         class="ant-space-item"
                       >
                         <div
-                          class="ant-picker ant-picker-outlined"
+                          class="ant-picker ant-picker-outlined css-var-root ant-picker-css-var"
                         >
                           <div
                             class="ant-picker-input"
@@ -2470,7 +2398,7 @@
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-picker ant-picker-outlined"
+                      class="ant-picker ant-picker-outlined css-var-root ant-picker-css-var"
                     >
                       <div
                         class="ant-picker-input"
@@ -2530,10 +2458,10 @@
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-picker ant-picker-range ant-picker-outlined"
+                      class="ant-picker ant-picker-range ant-picker-outlined css-var-root ant-picker-css-var"
                     >
                       <div
-                        class="ant-picker-input"
+                        class="ant-picker-input ant-picker-input-start"
                       >
                         <input
                           aria-invalid="false"
@@ -2573,7 +2501,7 @@
                         </span>
                       </div>
                       <div
-                        class="ant-picker-input"
+                        class="ant-picker-input ant-picker-input-end"
                       >
                         <input
                           aria-invalid="false"
@@ -2631,10 +2559,10 @@
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-picker ant-picker-range ant-picker-outlined"
+                      class="ant-picker ant-picker-range ant-picker-outlined css-var-root ant-picker-css-var"
                     >
                       <div
-                        class="ant-picker-input"
+                        class="ant-picker-input ant-picker-input-start"
                       >
                         <input
                           aria-invalid="false"
@@ -2674,7 +2602,7 @@
                         </span>
                       </div>
                       <div
-                        class="ant-picker-input"
+                        class="ant-picker-input ant-picker-input-end"
                       >
                         <input
                           aria-invalid="false"
@@ -2736,7 +2664,7 @@
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-picker ant-picker-outlined"
+                      class="ant-picker ant-picker-outlined css-var-root ant-picker-css-var"
                     >
                       <div
                         class="ant-picker-input"
@@ -2795,10 +2723,10 @@
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-picker ant-picker-range ant-picker-outlined"
+                      class="ant-picker ant-picker-range ant-picker-outlined css-var-root ant-picker-css-var"
                     >
                       <div
-                        class="ant-picker-input"
+                        class="ant-picker-input ant-picker-input-start"
                       >
                         <input
                           aria-invalid="false"
@@ -2838,7 +2766,7 @@
                         </span>
                       </div>
                       <div
-                        class="ant-picker-input"
+                        class="ant-picker-input ant-picker-input-end"
                       >
                         <input
                           aria-invalid="false"
@@ -2903,7 +2831,7 @@
                     class="ant-descriptions-item-content"
                   >
                     <span
-                      class="ant-input-affix-wrapper ant-input-outlined ant-input-password"
+                      class="ant-input-affix-wrapper ant-input-outlined ant-input-password css-var-root ant-input-css-var"
                     >
                       <input
                         class="ant-input"
@@ -2957,7 +2885,7 @@
                     class="ant-descriptions-item-content"
                   >
                     <textarea
-                      class="ant-input ant-input-outlined"
+                      class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                       rows="5"
                     >
                       
@@ -2989,7 +2917,7 @@ Done in 9.70s.
                     class="ant-descriptions-item-content"
                   >
                     <textarea
-                      class="ant-input ant-input-outlined"
+                      class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                       rows="5"
                     >
                       {

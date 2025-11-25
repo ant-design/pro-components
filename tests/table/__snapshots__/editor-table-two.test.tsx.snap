@@ -13,16 +13,16 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
         style="padding: 0px;"
       >
         <div
-          class="ant-table-wrapper"
+          class="css-var-r33 ant-table-css-var ant-table-wrapper"
         >
           <div
-            class="ant-spin-nested-loading"
+            class="ant-spin-nested-loading css-var-r33"
           >
             <div
               class="ant-spin-container"
             >
               <div
-                class="ant-table ant-table-middle ant-table-layout-fixed ant-table-scroll-horizontal"
+                class="ant-table ant-table-middle css-var-r33 ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-layout-fixed ant-table-scroll-horizontal"
               >
                 <div
                   class="ant-table-container"
@@ -154,7 +154,7 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                             style="visibility: hidden;"
                           >
                             <button
-                              class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
+                              class="ant-btn css-var-r33 ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
                               style="display: block; margin: 10px 0px; width: 100%;"
                               type="button"
                             >
@@ -194,7 +194,7 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                             style="position: absolute; left: 0px; width: 100%;"
                           >
                             <button
-                              class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
+                              class="ant-btn css-var-r33 ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
                               style="display: block; margin: 10px 0px; width: 100%;"
                               type="button"
                             >
@@ -237,20 +237,20 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                         <tr
                           aria-hidden="true"
                           class="ant-table-measure-row"
-                          tabindex="-1"
+                          style="height: 0px;"
                         >
-                          <th
-                            class="ant-table-measure-cell"
+                          <td
+                            style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
                           >
                             <div
-                              class="ant-table-measure-cell-content"
+                              style="height: 0px; overflow: hidden; font-weight: bold;"
                             />
-                          </th>
-                          <th
-                            class="ant-table-measure-cell"
+                          </td>
+                          <td
+                            style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
                           >
                             <div
-                              class="ant-table-measure-cell-content"
+                              style="height: 0px; overflow: hidden; font-weight: bold;"
                             >
                               <div
                                 class="ant-pro-core-label-tip"
@@ -289,12 +289,12 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                                 </span>
                               </div>
                             </div>
-                          </th>
-                          <th
-                            class="ant-table-measure-cell"
+                          </td>
+                          <td
+                            style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
                           >
                             <div
-                              class="ant-table-measure-cell-content"
+                              style="height: 0px; overflow: hidden; font-weight: bold;"
                             >
                               <div
                                 class="ant-table-filter-column"
@@ -331,25 +331,25 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                                 </span>
                               </div>
                             </div>
-                          </th>
-                          <th
-                            class="ant-table-measure-cell"
+                          </td>
+                          <td
+                            style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
                           >
                             <div
-                              class="ant-table-measure-cell-content"
+                              style="height: 0px; overflow: hidden; font-weight: bold;"
                             >
                               创建时间
                             </div>
-                          </th>
-                          <th
-                            class="ant-table-measure-cell"
+                          </td>
+                          <td
+                            style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
                           >
                             <div
-                              class="ant-table-measure-cell-content"
+                              style="height: 0px; overflow: hidden; font-weight: bold;"
                             >
                               操作
                             </div>
-                          </th>
+                          </td>
                         </tr>
                         <tr
                           class="ant-table-row ant-table-row-level-0"
@@ -381,7 +381,7 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                             <span
                               aria-describedby="test-id"
                               aria-label="🐛 [BUG]yarn install命令 antd2.4.5会报错"
-                              class="ant-typography ant-typography-ellipsis"
+                              class="ant-typography ant-typography-ellipsis css-var-r33"
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
@@ -418,7 +418,7 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                             class="ant-table-cell"
                           >
                             <span
-                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-r33"
                             >
                               <span
                                 class="ant-badge-status-dot ant-badge-status-processing"
@@ -479,7 +479,7 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                             <span
                               aria-describedby="test-id"
                               aria-label="🐛 [BUG]无法创建工程npm create umi"
-                              class="ant-typography ant-typography-ellipsis"
+                              class="ant-typography ant-typography-ellipsis css-var-r33"
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
@@ -516,7 +516,7 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                             class="ant-table-cell"
                           >
                             <span
-                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-r33"
                             >
                               <span
                                 class="ant-badge-status-dot ant-badge-status-success"
@@ -577,7 +577,7 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                             <span
                               aria-describedby="test-id"
                               aria-label="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
-                              class="ant-typography ant-typography-ellipsis"
+                              class="ant-typography ant-typography-ellipsis css-var-r33"
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
@@ -614,7 +614,7 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                             class="ant-table-cell"
                           >
                             <span
-                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-r33"
                             >
                               <span
                                 class="ant-badge-status-dot ant-badge-status-error"

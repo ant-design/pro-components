@@ -5,7 +5,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
   <div>
     <form
       autocomplete="off"
-      class="ant-form ant-form-vertical ant-pro-form"
+      class="ant-form ant-form-vertical css-var-r4v ant-form-css-var ant-pro-form"
     >
       <input
         style="display: none;"
@@ -15,13 +15,13 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
         class="ant-pro-form-list"
       >
         <div
-          class="ant-form-item ant-form-item-vertical"
+          class="ant-form-item css-var-r4v ant-form-css-var ant-form-item-vertical"
         >
           <div
-            class="ant-row ant-form-item-row"
+            class="ant-row ant-form-item-row css-var-r4v"
           >
             <div
-              class="ant-col ant-form-item-label"
+              class="ant-col ant-form-item-label css-var-r4v"
             >
               <label
                 class=""
@@ -31,7 +31,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
               </label>
             </div>
             <div
-              class="ant-col ant-form-item-control"
+              class="ant-col ant-form-item-control css-var-r4v"
             >
               <div
                 class="ant-form-item-control-input"
@@ -50,13 +50,13 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                         class="ant-pro-form-list-container"
                       >
                         <div
-                          class="ant-form-item ant-form-item-vertical"
+                          class="ant-form-item css-var-r4v ant-form-css-var ant-form-item-vertical"
                         >
                           <div
-                            class="ant-row ant-form-item-row"
+                            class="ant-row ant-form-item-row css-var-r4v"
                           >
                             <div
-                              class="ant-col ant-form-item-label"
+                              class="ant-col ant-form-item-label css-var-r4v"
                             >
                               <label
                                 class=""
@@ -67,7 +67,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                               </label>
                             </div>
                             <div
-                              class="ant-col ant-form-item-control"
+                              class="ant-col ant-form-item-control css-var-r4v"
                             >
                               <div
                                 class="ant-form-item-control-input"
@@ -76,7 +76,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                                   class="ant-form-item-control-input-content"
                                 >
                                   <span
-                                    class="ant-input-affix-wrapper ant-input-outlined"
+                                    class="ant-input-affix-wrapper ant-input-outlined css-var-r4v ant-input-css-var"
                                   >
                                     <input
                                       class="ant-input"
@@ -178,13 +178,13 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                         class="ant-pro-form-list-container"
                       >
                         <div
-                          class="ant-form-item ant-form-item-vertical"
+                          class="ant-form-item css-var-r4v ant-form-css-var ant-form-item-vertical"
                         >
                           <div
-                            class="ant-row ant-form-item-row"
+                            class="ant-row ant-form-item-row css-var-r4v"
                           >
                             <div
-                              class="ant-col ant-form-item-label"
+                              class="ant-col ant-form-item-label css-var-r4v"
                             >
                               <label
                                 class=""
@@ -195,7 +195,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                               </label>
                             </div>
                             <div
-                              class="ant-col ant-form-item-control"
+                              class="ant-col ant-form-item-control css-var-r4v"
                             >
                               <div
                                 class="ant-form-item-control-input"
@@ -204,7 +204,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                                   class="ant-form-item-control-input-content"
                                 >
                                   <span
-                                    class="ant-input-affix-wrapper ant-input-outlined"
+                                    class="ant-input-affix-wrapper ant-input-outlined css-var-r4v ant-input-css-var"
                                   >
                                     <input
                                       class="ant-input"
@@ -306,13 +306,13 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                         class="ant-pro-form-list-container"
                       >
                         <div
-                          class="ant-form-item ant-form-item-vertical"
+                          class="ant-form-item css-var-r4v ant-form-css-var ant-form-item-vertical"
                         >
                           <div
-                            class="ant-row ant-form-item-row"
+                            class="ant-row ant-form-item-row css-var-r4v"
                           >
                             <div
-                              class="ant-col ant-form-item-label"
+                              class="ant-col ant-form-item-label css-var-r4v"
                             >
                               <label
                                 class=""
@@ -323,7 +323,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                               </label>
                             </div>
                             <div
-                              class="ant-col ant-form-item-control"
+                              class="ant-col ant-form-item-control css-var-r4v"
                             >
                               <div
                                 class="ant-form-item-control-input"
@@ -332,7 +332,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                                   class="ant-form-item-control-input-content"
                                 >
                                   <span
-                                    class="ant-input-affix-wrapper ant-input-outlined"
+                                    class="ant-input-affix-wrapper ant-input-outlined css-var-r4v ant-input-css-var"
                                   >
                                     <input
                                       class="ant-input"
@@ -427,7 +427,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
                       </div>
                     </div>
                     <button
-                      class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
+                      class="ant-btn css-var-r4v ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                       type="button"
                     >
                       <span
@@ -471,7 +471,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          class="ant-btn css-var-r4v ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -479,7 +479,7 @@ exports[`ProForm List > ⛲ ProForm.List use behavior guard when triggering beha
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+          class="ant-btn css-var-r4v ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
