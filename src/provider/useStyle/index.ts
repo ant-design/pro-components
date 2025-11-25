@@ -111,19 +111,23 @@ export function useStyle(
   token.proComponentsCls = token.proComponentsCls ?? `.${getPrefixCls('pro')}`;
   token.antCls = `.${getPrefixCls()}`;
 
-  return {
-    wrapSSR: useStyleRegister(
-      {
-        theme,
-        token,
-        path: [componentName],
-        nonce: csp?.nonce,
-        layer: {
-          name: 'antd-pro',
-        },
+  // Register styles (side effect only in v2)
+  useStyleRegister(
+    {
+      theme,
+      token,
+      path: [componentName],
+      nonce: csp?.nonce,
+      layer: {
+        name: 'antd-pro',
       },
-      () => styleFn(token as ProAliasToken),
-    ),
+    },
+    () => styleFn(token as ProAliasToken),
+  );
+
+  // Return identity wrapper and hashId
+  return {
+    wrapSSR: (node: React.ReactElement) => node,
     hashId: hashed ? hashId : '',
   };
 }

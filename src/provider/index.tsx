@@ -302,6 +302,9 @@ const ConfigProviderContainer: React.FC<{
     {
       salt,
       override: finalToken,
+      cssVar: {
+        key: 'pro',
+      },
     },
   );
 

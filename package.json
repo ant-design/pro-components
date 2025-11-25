@@ -67,8 +67,8 @@
     "@types/responselike": "^1.0.0"
   },
   "dependencies": {
-    "@ant-design/cssinjs": "^1.24.0",
-    "@ant-design/icons": "^5.6.1",
+    "@ant-design/cssinjs": "^2.0.1",
+    "@ant-design/icons": "^6.1.0",
     "@babel/runtime": "^7.28.4",
     "@ctrl/tinycolor": "^4.2.0",
     "@dnd-kit/core": "^6.3.1",
@@ -139,7 +139,7 @@
     "@vitest/coverage-istanbul": "^3.2.4",
     "@vitest/ui": "^3.2.4",
     "animated-scroll-to": "^2.3.2",
-    "antd": "^5.28.1",
+    "antd": "^6.0.0",
     "chalk": "^4.1.2",
     "copy-to-clipboard": "^3.3.3",
     "cross-env": "^7.0.3",
@@ -200,9 +200,9 @@
     "zustand": "^4.5.7"
   },
   "peerDependencies": {
-    "antd": "^5.11.2",
-    "react": ">=17.0.0",
-    "react-dom": ">=17.0.0"
+    "antd": "^6.0.0",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
   },
   "packageManager": "pnpm@9.6.0",
   "publishConfig": {

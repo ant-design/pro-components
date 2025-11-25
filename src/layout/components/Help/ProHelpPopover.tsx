@@ -49,7 +49,7 @@ export const ProHelpPopover: React.FC<ProHelpPopoverProps> = (props) => {
   return wrapSSR(
     <Popover
       styles={{
-        body: {
+        container: {
           padding: 0,
         },
       }}
