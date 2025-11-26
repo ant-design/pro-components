@@ -835,8 +835,8 @@ describe('BasicTable sorter', () => {
         },
         { timeout: 1000 },
       );
-    })
-  })
+    });
+  });
 
   describe('Multiple column sorting', () => {
     type DataSource = {
