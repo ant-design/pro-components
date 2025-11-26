@@ -511,7 +511,7 @@ describe('BasicTable filter', () => {
     expect(filterTrigger).toBeInTheDocument();
   });
 
-  describe('Reset action when use request filter',() => {
+  describe('Reset action when use request filter', () => {
     it('🎏 should reset to defaultFilteredValue with flat columns', async () => {
       const TestComponent = () => {
         const actionRef = useRef<ActionType>();
