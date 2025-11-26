@@ -413,111 +413,6 @@ describe('BasicTable sorter', () => {
     );
   });
 
-  it('🎏 should reset to defaultSortOrder when use request sort', async () => {
-    const TestComponent = () => {
-      const actionRef = useRef<ActionType>();
-
-      return (
-        <ProTable<{ money: number }>
-          size="small"
-          actionRef={actionRef}
-          columns={[
-            {
-              title: 'Name',
-              key: 'name',
-              dataIndex: 'name',
-            },
-            {
-              title: 'money',
-              key: 'money',
-              dataIndex: 'money',
-              sorter: true,
-              defaultSortOrder: 'descend',
-            },
-          ]}
-          request={async (_, sort) => {
-            return {
-              total: 3,
-              success: true,
-              data: [
-                {
-                  key: '1',
-                  name: '项目 A',
-                  money: 100,
-                },
-                {
-                  key: '2',
-                  name: '项目 B',
-                  money: 250,
-                },
-                {
-                  key: '3',
-                  name: '项目 C',
-                  money: 150,
-                },
-              ].sort((a, b) => {
-                if (sort?.money) {
-                  return sort.money === 'ascend'
-                    ? a.money - b.money
-                    : b.money - a.money;
-                } else {
-                  return 0;
-                }
-              }),
-            };
-          }}
-          rowKey="key"
-          toolBarRender={() => [
-            <Button
-              key="button"
-              onClick={() => {
-                actionRef.current?.reset?.();
-              }}
-            >
-              重置表格
-            </Button>,
-          ]}
-        />
-      );
-    };
-    const { container } = render(<TestComponent />);
-
-    await waitFor(
-      () => {
-        const rows = container.querySelectorAll('.ant-table-row');
-        expect(rows[0].firstChild?.textContent).toContain('项目 B');
-        expect(rows[1].firstChild?.textContent).toContain('项目 C');
-        expect(rows[2].firstChild?.textContent).toContain('项目 A');
-      },
-      { timeout: 1000 },
-    );
-
-    await userEvent.click(
-      container.querySelectorAll('span.ant-table-column-sorter-down')[0],
-    );
-
-    await waitFor(
-      () => {
-        const rows = container.querySelectorAll('.ant-table-row');
-        expect(rows[0].firstChild?.textContent).toContain('项目 A');
-        expect(rows[1].firstChild?.textContent).toContain('项目 B');
-        expect(rows[2].firstChild?.textContent).toContain('项目 C');
-      },
-      { timeout: 1000 },
-    );
-
-    await userEvent.click(screen.getByRole('button', { name: /重置表格/i }));
-
-    await waitFor(
-      () => {
-        const rows = container.querySelectorAll('.ant-table-row');
-        expect(rows[0].firstChild?.textContent).toContain('项目 B');
-        expect(rows[1].firstChild?.textContent).toContain('项目 C');
-        expect(rows[2].firstChild?.textContent).toContain('项目 A');
-      },
-      { timeout: 1000 },
-    );
-  });
 
   it('🎏 should pass string sorter parameters to request function', async () => {
     const fn = vi.fn();
@@ -708,6 +603,240 @@ describe('BasicTable sorter', () => {
     );
     expect(sortTrigger).not.toHaveAttribute('aria-sort');
   });
+
+  describe('Reset action when use request sort',() => {
+    it('🎏 should reset to defaultSortOrder with flat columns', async () => {
+      const TestComponent = () => {
+        const actionRef = useRef<ActionType>();
+  
+        return (
+          <ProTable<{ money: number }>
+            size="small"
+            actionRef={actionRef}
+            columns={[
+              {
+                title: 'Name',
+                key: 'name',
+                dataIndex: 'name',
+              },
+              {
+                title: 'money',
+                key: 'money',
+                dataIndex: 'money',
+                sorter: true,
+                defaultSortOrder: 'descend',
+              },
+            ]}
+            request={async (_, sort) => {
+              return {
+                total: 3,
+                success: true,
+                data: [
+                  {
+                    key: '1',
+                    name: '项目 A',
+                    money: 100,
+                  },
+                  {
+                    key: '2',
+                    name: '项目 B',
+                    money: 250,
+                  },
+                  {
+                    key: '3',
+                    name: '项目 C',
+                    money: 150,
+                  },
+                ].sort((a, b) => {
+                  if (sort?.money) {
+                    return sort.money === 'ascend'
+                      ? a.money - b.money
+                      : b.money - a.money;
+                  } else {
+                    return 0;
+                  }
+                }),
+              };
+            }}
+            rowKey="key"
+            toolBarRender={() => [
+              <Button
+                key="button"
+                onClick={() => {
+                  actionRef.current?.reset?.();
+                }}
+              >
+                重置表格
+              </Button>,
+            ]}
+          />
+        );
+      };
+      const { container } = render(<TestComponent />);
+  
+      await waitFor(
+        () => {
+          const rows = container.querySelectorAll('.ant-table-row');
+          expect(rows[0].firstChild?.textContent).toContain('项目 B');
+          expect(rows[1].firstChild?.textContent).toContain('项目 C');
+          expect(rows[2].firstChild?.textContent).toContain('项目 A');
+        },
+        { timeout: 1000 },
+      );
+  
+      await userEvent.click(
+        container.querySelectorAll('span.ant-table-column-sorter-down')[0],
+      );
+  
+      await waitFor(
+        () => {
+          const rows = container.querySelectorAll('.ant-table-row');
+          expect(rows[0].firstChild?.textContent).toContain('项目 A');
+          expect(rows[1].firstChild?.textContent).toContain('项目 B');
+          expect(rows[2].firstChild?.textContent).toContain('项目 C');
+        },
+        { timeout: 1000 },
+      );
+  
+      await userEvent.click(screen.getByRole('button', { name: /重置表格/i }));
+  
+      await waitFor(
+        () => {
+          const rows = container.querySelectorAll('.ant-table-row');
+          expect(rows[0].firstChild?.textContent).toContain('项目 B');
+          expect(rows[1].firstChild?.textContent).toContain('项目 C');
+          expect(rows[2].firstChild?.textContent).toContain('项目 A');
+        },
+        { timeout: 1000 },
+      );
+    });
+
+    it('🎏 should reset to defaultSortOrder with nested columns', async () => {
+      const TestComponent = () => {
+        const actionRef = useRef<ActionType>();
+  
+        return (
+          <ProTable<{ money: number; score: number }>
+            size="small"
+            actionRef={actionRef}
+            columns={[
+              {
+                title: 'Name',
+                key: 'name',
+                dataIndex: 'name',
+                sorter: true,
+                defaultSortOrder: 'descend',
+              },
+              {
+                title: 'nested column',
+                children: [
+                  {
+                    title: 'Money',
+                    key: 'money',
+                    dataIndex: 'money',
+                  },
+                  {
+                    title: 'Score',
+                    key: 'score',
+                    dataIndex: 'score',
+                    sorter: true,
+                    defaultSortOrder: 'descend',
+                  },
+                ],
+              },
+            ]}
+            request={async (_, sort) => {
+              return {
+                total: 3,
+                success: true,
+                data: [
+                  {
+                    key: '1',
+                    name: '項目 A',
+                    money: 100,
+                    score: 85,
+                  },
+                  {
+                    key: '2',
+                    name: '項目 B',
+                    money: 250,
+                    score: 95,
+                  },
+                  {
+                    key: '3',
+                    name: '項目 C',
+                    money: 150,
+                    score: 75,
+                  },
+                ].sort((a, b) => {
+                  if (sort?.score) {
+                    return sort.score === 'ascend'
+                      ? a.score - b.score
+                      : b.score - a.score;
+                  } else {
+                    return 0;
+                  }
+                }),
+              };
+            }}
+            rowKey="key"
+            toolBarRender={() => [
+              <Button
+                key="button"
+                onClick={() => {
+                  actionRef.current?.reset?.();
+                }}
+              >
+                重置表格
+              </Button>,
+            ]}
+          />
+        );
+      };
+      const { container } = render(<TestComponent />);
+  
+      // 等待初始渲染，確認默認排序（降序，分數高的在前）
+      await waitFor(
+        () => {
+          const rows = container.querySelectorAll('.ant-table-row');
+          expect(rows[0].firstChild?.textContent).toContain('項目 B'); // 95分
+          expect(rows[1].firstChild?.textContent).toContain('項目 A'); // 85分
+          expect(rows[2].firstChild?.textContent).toContain('項目 C'); // 75分
+        },
+        { timeout: 1000 },
+      );
+  
+      // 點擊排序按鈕，改為升序
+      await userEvent.click(
+        container.querySelectorAll('span.ant-table-column-sorter-up')[1], // 第二個排序器（嵌套列中的Score列）
+      );
+  
+      // 確認升序排列（分數低的在前）
+      await waitFor(
+        () => {
+          const rows = container.querySelectorAll('.ant-table-row');
+          expect(rows[0].firstChild?.textContent).toContain('項目 C'); // 75分
+          expect(rows[1].firstChild?.textContent).toContain('項目 A'); // 85分
+          expect(rows[2].firstChild?.textContent).toContain('項目 B'); // 95分
+        },
+        { timeout: 1000 },
+      );
+  
+      // 點擊重置按鈕
+      await userEvent.click(screen.getByRole('button', { name: /重置表格/i }));
+  
+      // 確認重置後回到默認排序（降序）
+      await waitFor(
+        () => {
+          const rows = container.querySelectorAll('.ant-table-row');
+          expect(rows[0].firstChild?.textContent).toContain('項目 B'); // 95分
+          expect(rows[1].firstChild?.textContent).toContain('項目 A'); // 85分
+          expect(rows[2].firstChild?.textContent).toContain('項目 C'); // 75分
+        },
+        { timeout: 1000 },
+      );
+    })
+  })
 
   describe('Multiple column sorting', () => {
     type DataSource = {
