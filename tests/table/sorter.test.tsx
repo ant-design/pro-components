@@ -604,7 +604,7 @@ describe('BasicTable sorter', () => {
     expect(sortTrigger).not.toHaveAttribute('aria-sort');
   });
 
-  describe('Reset action when use request sort',() => {
+  describe('Reset action when use request sort', () => {
     it('🎏 should reset to defaultSortOrder with flat columns', async () => {
       const TestComponent = () => {
         const actionRef = useRef<ActionType>();
