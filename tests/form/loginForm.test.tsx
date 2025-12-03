@@ -20,7 +20,7 @@ afterEach(() => {
 
 describe('LoginForm', () => {
   it('📦 LoginForm should show login message correctly', async () => {
-    const loginMessage = <Alert type="error" message="登录失败" />;
+    const loginMessage = <Alert type="error" title="登录失败" />;
 
     const { container } = render(
       <LoginForm message={loginMessage}>
@@ -32,7 +32,7 @@ describe('LoginForm', () => {
       container.querySelectorAll('.ant-alert.ant-alert-error'),
     ).toHaveLength(1);
     const messageElement = container.querySelector(
-      '.ant-alert.ant-alert-error .ant-alert-message',
+      '.ant-alert.ant-alert-error .ant-alert-title',
     );
     expect(messageElement?.textContent).toBe('登录失败');
   });

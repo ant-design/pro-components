@@ -636,7 +636,7 @@ describe('Field', () => {
 
       act(() => {
         fireEvent.mouseDown(
-          html.container.querySelector('.ant-select-selector')!,
+          html.container.querySelector('.ant-select')!,
         );
       });
 
@@ -811,7 +811,7 @@ describe('Field', () => {
 
     expect(
       html.baseElement.querySelector<HTMLInputElement>(
-        '.ant-select-selection-search-input',
+        '.ant-select-input',
       )?.value,
     ).toEqual('ProComponents');
 

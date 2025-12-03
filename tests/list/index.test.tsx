@@ -469,7 +469,7 @@ describe('List', () => {
 
     expect(container.querySelectorAll('.ant-list-item').length).toEqual(2);
 
-    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+    fireEvent.mouseDown(container.querySelector('.ant-select')!);
     fireEvent.click(container.querySelectorAll('.ant-select-item-option')[3]);
 
     expect(container.querySelectorAll('.ant-list-item').length).toEqual(7);

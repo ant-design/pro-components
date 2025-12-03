@@ -1171,7 +1171,7 @@ describe('ProForm', () => {
 
     await act(async () => {
       const searchInput = wrapper.baseElement.querySelector(
-        '.ant-select-selection-search-input',
+        '.ant-select-input',
       );
       if (searchInput) {
         fireEvent.change(searchInput, {
@@ -1186,7 +1186,7 @@ describe('ProForm', () => {
 
     await act(async () => {
       const selector = wrapper.baseElement.querySelector(
-        '.ant-select-selector',
+        '.ant-select',
       );
       if (selector) {
         fireEvent.mouseDown(selector);
@@ -1240,7 +1240,7 @@ describe('ProForm', () => {
 
     await act(async () => {
       const searchInput = wrapper.baseElement.querySelector(
-        '.ant-select-selection-search-input',
+        '.ant-select-input',
       );
       if (searchInput) {
         fireEvent.change(searchInput, {
@@ -1255,7 +1255,7 @@ describe('ProForm', () => {
 
     await act(async () => {
       const selector = wrapper.baseElement.querySelector(
-        '.ant-select-selector',
+        '.ant-select',
       );
       if (selector) {
         fireEvent.mouseDown(selector);
@@ -1324,7 +1324,7 @@ describe('ProForm', () => {
 
     await act(async () => {
       const searchInput = wrapper.baseElement.querySelector(
-        '.ant-select-selection-search-input',
+        '.ant-select-input',
       );
       if (searchInput) {
         fireEvent.change(searchInput, {
@@ -1339,7 +1339,7 @@ describe('ProForm', () => {
 
     await act(async () => {
       const selector = wrapper.baseElement.querySelector(
-        '.ant-select-selector',
+        '.ant-select',
       );
       if (selector) {
         fireEvent.mouseDown(selector);
@@ -1402,7 +1402,7 @@ describe('ProForm', () => {
 
     await act(async () => {
       const searchInput = wrapper.baseElement.querySelector(
-        '.ant-select-selection-search-input',
+        '.ant-select-input',
       );
       if (searchInput) {
         fireEvent.change(searchInput, {
@@ -1417,7 +1417,7 @@ describe('ProForm', () => {
 
     await act(async () => {
       const selector = wrapper.baseElement.querySelector(
-        '.ant-select-selector',
+        '.ant-select',
       );
       if (selector) {
         fireEvent.mouseDown(selector);
@@ -1443,7 +1443,7 @@ describe('ProForm', () => {
 
     await act(async () => {
       const selector = wrapper.baseElement.querySelector(
-        '.ant-select-selector',
+        '.ant-select',
       );
       if (selector) {
         fireEvent.focus(selector);
@@ -1452,7 +1452,7 @@ describe('ProForm', () => {
 
     await act(async () => {
       const selector = wrapper.baseElement.querySelector(
-        '.ant-select-selector',
+        '.ant-select',
       );
       if (selector) {
         fireEvent.mouseDown(selector);
@@ -1504,7 +1504,7 @@ describe('ProForm', () => {
     act(() => {
       fireEvent.change(
         wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
+          '.ant-select-input',
         )!,
         {
           target: {
@@ -1518,7 +1518,7 @@ describe('ProForm', () => {
 
     await act(async () => {
       const selector = wrapper.baseElement.querySelector(
-        '.ant-select-selector',
+        '.ant-select',
       );
       if (selector) {
         fireEvent.mouseDown(selector);
@@ -1573,7 +1573,7 @@ describe('ProForm', () => {
 
     await act(async () => {
       const selector = wrapper.baseElement.querySelector(
-        '.ant-select-selector',
+        '.ant-select',
       );
       if (selector) {
         fireEvent.mouseDown(selector);
@@ -1623,7 +1623,7 @@ describe('ProForm', () => {
     act(() => {
       fireEvent.change(
         wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
+          '.ant-select-input',
         )!,
         {
           target: {
@@ -1637,7 +1637,7 @@ describe('ProForm', () => {
 
     act(() => {
       fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        wrapper.baseElement.querySelectorAll('.ant-select')[0],
         {},
       );
     });
@@ -1661,14 +1661,14 @@ describe('ProForm', () => {
     act(() => {
       fireEvent.focus(
         wrapper.baseElement.querySelectorAll<HTMLElement>(
-          '.ant-select-selector',
+          '.ant-select',
         )[0],
       );
     });
 
     act(() => {
       fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        wrapper.baseElement.querySelectorAll('.ant-select')[0],
         {},
       );
     });
@@ -1715,7 +1715,7 @@ describe('ProForm', () => {
     act(() => {
       fireEvent.change(
         wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
+          '.ant-select-input',
         )!,
         {
           target: {
@@ -1729,7 +1729,7 @@ describe('ProForm', () => {
 
     act(() => {
       fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        wrapper.baseElement.querySelectorAll('.ant-select')[0],
         {},
       );
     });
@@ -1752,7 +1752,7 @@ describe('ProForm', () => {
 
     act(() => {
       fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        wrapper.baseElement.querySelectorAll('.ant-select')[0],
         {},
       );
     });
@@ -1766,7 +1766,7 @@ describe('ProForm', () => {
 
     act(() => {
       fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        wrapper.baseElement.querySelectorAll('.ant-select')[0],
         {},
       );
     });
@@ -1806,7 +1806,7 @@ describe('ProForm', () => {
     act(() => {
       fireEvent.change(
         wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
+          '.ant-select-input',
         )!,
         {
           target: {
@@ -1850,7 +1850,7 @@ describe('ProForm', () => {
     act(() => {
       fireEvent.change(
         wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
+          '.ant-select-input',
         )!,
         {
           target: {
@@ -1862,7 +1862,7 @@ describe('ProForm', () => {
 
     act(() => {
       fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        wrapper.baseElement.querySelectorAll('.ant-select')[0],
         {},
       );
     });
@@ -1902,7 +1902,7 @@ describe('ProForm', () => {
     act(() => {
       fireEvent.change(
         wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
+          '.ant-select-input',
         )!,
         {
           target: {
@@ -1946,7 +1946,7 @@ describe('ProForm', () => {
     act(() => {
       fireEvent.change(
         wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
+          '.ant-select-input',
         )!,
         {
           target: {
@@ -1958,7 +1958,7 @@ describe('ProForm', () => {
 
     act(() => {
       fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        wrapper.baseElement.querySelectorAll('.ant-select')[0],
         {},
       );
     });
@@ -2008,7 +2008,7 @@ describe('ProForm', () => {
 
     act(() => {
       fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        wrapper.baseElement.querySelectorAll('.ant-select')[0],
         {},
       );
     });
@@ -2022,7 +2022,7 @@ describe('ProForm', () => {
 
     act(() => {
       fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        wrapper.baseElement.querySelectorAll('.ant-select')[0],
         {},
       );
     });
@@ -2215,7 +2215,7 @@ describe('ProForm', () => {
 
     act(() => {
       fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        wrapper.baseElement.querySelectorAll('.ant-select')[0],
         {},
       );
     });
@@ -2232,7 +2232,7 @@ describe('ProForm', () => {
 
     act(() => {
       fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        wrapper.baseElement.querySelectorAll('.ant-select')[0],
         {},
       );
     });
@@ -2290,7 +2290,7 @@ describe('ProForm', () => {
     // 点击搜索框
     await act(async () => {
       const selector = wrapper.baseElement.querySelector(
-        '.ant-select-selector',
+        '.ant-select',
       );
       if (selector) {
         fireEvent.mouseDown(selector);
@@ -2308,7 +2308,7 @@ describe('ProForm', () => {
 
     // 获取搜索输入框
     const searchInput = wrapper.baseElement.querySelector(
-      '.ant-select-selection-search-input',
+      '.ant-select-input',
     ) as HTMLInputElement;
     expect(searchInput?.value || '').toBe('');
 
@@ -2383,7 +2383,7 @@ describe('ProForm', () => {
 
     await act(async () => {
       const selector = wrapper.baseElement.querySelector(
-        '.ant-select-selector',
+        '.ant-select',
       );
       if (selector) {
         fireEvent.mouseDown(selector);
@@ -2440,7 +2440,7 @@ describe('ProForm', () => {
 
     act(() => {
       fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        wrapper.baseElement.querySelectorAll('.ant-select')[0],
         {},
       );
     });
@@ -2454,7 +2454,7 @@ describe('ProForm', () => {
 
     act(() => {
       fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        wrapper.baseElement.querySelectorAll('.ant-select')[0],
         {},
       );
     });
@@ -2496,7 +2496,7 @@ describe('ProForm', () => {
     act(() => {
       fireEvent.change(
         wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
+          '.ant-select-input',
         )!,
         {
           target: {
@@ -2508,7 +2508,7 @@ describe('ProForm', () => {
 
     act(() => {
       fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        wrapper.baseElement.querySelectorAll('.ant-select')[0],
         {},
       );
     });
@@ -2540,7 +2540,7 @@ describe('ProForm', () => {
     act(() => {
       fireEvent.change(
         wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
+          '.ant-select-input',
         )!,
         {
           target: {
@@ -2552,7 +2552,7 @@ describe('ProForm', () => {
 
     act(() => {
       fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        wrapper.baseElement.querySelectorAll('.ant-select')[0],
         {},
       );
     });
@@ -2565,7 +2565,7 @@ describe('ProForm', () => {
     act(() => {
       fireEvent.change(
         wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
+          '.ant-select-input',
         )!,
         {
           target: {
@@ -2577,7 +2577,7 @@ describe('ProForm', () => {
 
     act(() => {
       fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        wrapper.baseElement.querySelectorAll('.ant-select')[0],
         {},
       );
     });
@@ -2623,7 +2623,7 @@ describe('ProForm', () => {
 
     act(() => {
       fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        wrapper.baseElement.querySelectorAll('.ant-select')[0],
         {},
       );
     });
@@ -2637,7 +2637,7 @@ describe('ProForm', () => {
 
     act(() => {
       fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        wrapper.baseElement.querySelectorAll('.ant-select')[0],
         {},
       );
     });
@@ -2667,7 +2667,7 @@ describe('ProForm', () => {
 
     act(() => {
       fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        wrapper.baseElement.querySelectorAll('.ant-select')[0],
       );
       fireEvent.mouseDown(
         wrapper.baseElement.querySelectorAll('.ant-select-selector')[1],
@@ -2740,7 +2740,7 @@ describe('ProForm', () => {
     // 点击搜索框
     await act(async () => {
       const selector = wrapper.baseElement.querySelector(
-        '.ant-select-selector',
+        '.ant-select',
       );
       if (selector) {
         fireEvent.mouseDown(selector);
@@ -2758,7 +2758,7 @@ describe('ProForm', () => {
 
     // 获取搜索输入框
     const searchInput = wrapper.baseElement.querySelector(
-      '.ant-select-selection-search-input',
+      '.ant-select-input',
     ) as HTMLInputElement;
     expect(searchInput?.value || '').toBe('');
 
@@ -2828,7 +2828,7 @@ describe('ProForm', () => {
 
     await act(async () => {
       const selector = wrapper.baseElement.querySelector(
-        '.ant-select-selector',
+        '.ant-select',
       );
       if (selector) {
         fireEvent.mouseDown(selector);
@@ -2910,7 +2910,7 @@ describe('ProForm', () => {
     // 点击搜索框
     await act(async () => {
       const selector = wrapper.baseElement.querySelector(
-        '.ant-select-selector',
+        '.ant-select',
       );
       if (selector) {
         fireEvent.mouseDown(selector);
@@ -2928,7 +2928,7 @@ describe('ProForm', () => {
 
     // 获取搜索输入框
     const searchInput = wrapper.baseElement.querySelector(
-      '.ant-select-selection-search-input',
+      '.ant-select-input',
     ) as HTMLInputElement;
     expect(searchInput?.value || '').toBe('');
 
@@ -3447,7 +3447,7 @@ describe('ProForm', () => {
 
     act(() => {
       fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        wrapper.baseElement.querySelectorAll('.ant-select')[0],
         {},
       );
     });
@@ -3623,7 +3623,7 @@ describe('ProForm', () => {
     act(() => {
       fireEvent.change(
         wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
+          '.ant-select-input',
         )!,
         {
           target: {
@@ -3691,7 +3691,7 @@ describe('ProForm', () => {
     act(() => {
       fireEvent.change(
         wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
+          '.ant-select-input',
         )!,
         {
           target: {
@@ -3703,7 +3703,7 @@ describe('ProForm', () => {
     await waitForWaitTime(300);
     act(() => {
       fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        wrapper.baseElement.querySelectorAll('.ant-select')[0],
         {},
       );
     });
@@ -4225,12 +4225,12 @@ describe('ProForm 修复增强用例', () => {
     // 打开下拉，输入
     await act(async () => {
       const selector = wrapper.baseElement.querySelector(
-        '.ant-select-selector',
+        '.ant-select',
       );
       if (selector) fireEvent.mouseDown(selector);
     });
     const input = wrapper.baseElement.querySelector(
-      '.ant-select-selection-search-input',
+      '.ant-select-input',
     ) as HTMLInputElement;
     await act(async () => {
       fireEvent.change(input, { target: { value: 'A' } });
@@ -4262,12 +4262,12 @@ describe('ProForm 修复增强用例', () => {
     );
     await act(async () => {
       const selector = wrapper.baseElement.querySelector(
-        '.ant-select-selector',
+        '.ant-select',
       );
       if (selector) fireEvent.mouseDown(selector);
     });
     const input2 = wrapper.baseElement.querySelector(
-      '.ant-select-selection-search-input',
+      '.ant-select-input',
     ) as HTMLInputElement;
     await act(async () => {
       fireEvent.change(input2, { target: { value: 'B' } });

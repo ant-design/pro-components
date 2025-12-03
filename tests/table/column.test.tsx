@@ -293,7 +293,7 @@ describe('Table ColumnSetting', () => {
     expect(container).toMatchSnapshot();
 
     fireEvent.change(
-      container.querySelector('.ant-select-selection-search-input')!,
+      container.querySelector('.ant-select-input')!,
       {
         target: {
           value: '1',
