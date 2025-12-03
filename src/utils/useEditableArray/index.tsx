@@ -466,7 +466,7 @@ export function SaveEditableAction<T>(
         e.preventDefault();
         try {
           await save();
-        } catch (error) {
+        } catch {
           // 验证错误会被 form.validateFields 抛出，这里不需要处理
           // 错误会被表单自动显示
         }
@@ -521,7 +521,7 @@ export const DeleteEditableAction: React.FC<
         return false;
       }
       return res;
-    } catch (e) {
+    } catch {
       setLoading(false);
 
       return null;
@@ -736,13 +736,6 @@ export function useEditableArray<RecordType extends AnyObject>(
         }
       : undefined,
   });
-
-  /** 一个用来标志的set 提供了方便的 api 来去重什么的 */
-  const editableKeysSet = useMemo(() => {
-    const keys =
-      editableType === 'single' ? editableKeys?.slice(0, 1) : editableKeys;
-    return new Set(keys);
-  }, [(editableKeys || []).join(','), editableType]);
 
   const editableKeysRef = usePrevious(editableKeys);
 
@@ -1166,15 +1159,9 @@ export function useEditableArray<RecordType extends AnyObject>(
         return false;
       }
 
-      try {
-        await saveRef.current.save();
-        clearEditableState(recordKey);
-        return true;
-      } catch (error) {
-        // 验证错误会被 save 方法抛出，这里不捕获，让错误传播
-        // 这样表单可以正确显示验证错误
-        throw error;
-      }
+      await saveRef.current.save();
+      clearEditableState(recordKey);
+      return true;
     },
   );
 
