@@ -1185,9 +1185,7 @@ describe('ProForm', () => {
     expect(onSearch).toHaveBeenCalledWith('全');
 
     await act(async () => {
-      const selector = wrapper.baseElement.querySelector(
-        '.ant-select',
-      );
+      const selector = wrapper.baseElement.querySelector('.ant-select');
       if (selector) {
         fireEvent.mouseDown(selector);
       }
@@ -1254,9 +1252,7 @@ describe('ProForm', () => {
     expect(onSearch).toHaveBeenCalledWith('全');
 
     await act(async () => {
-      const selector = wrapper.baseElement.querySelector(
-        '.ant-select',
-      );
+      const selector = wrapper.baseElement.querySelector('.ant-select');
       if (selector) {
         fireEvent.mouseDown(selector);
       }
@@ -1335,11 +1331,14 @@ describe('ProForm', () => {
       }
     });
 
-    expect(onSearch).toHaveBeenCalledWith('全');
+    // antd@6 可能需要等待异步的 onSearch 调用
+    await waitFor(() => {
+      expect(onSearch).toHaveBeenCalledWith('全');
+    });
 
     await act(async () => {
       const selector = wrapper.baseElement.querySelector(
-        '.ant-select',
+        '.ant-select-selector',
       );
       if (selector) {
         fireEvent.mouseDown(selector);
@@ -1347,8 +1346,8 @@ describe('ProForm', () => {
     });
 
     await waitFor(() => {
-      // 修改选择器，直接找到含有 "全部" 文本的元素
-      const items = wrapper.baseElement.querySelectorAll(
+      // antd@6 下拉菜单在 document.body
+      const items = document.body.querySelectorAll(
         '.ant-select-item-option-content',
       );
       const targetItem = Array.from(items).find((item) =>
@@ -1358,7 +1357,7 @@ describe('ProForm', () => {
     });
 
     await act(async () => {
-      const item = wrapper.baseElement.querySelector('.ant-select-item');
+      const item = document.body.querySelector('.ant-select-item');
       if (item) {
         fireEvent.click(item);
       }
@@ -1413,11 +1412,14 @@ describe('ProForm', () => {
       }
     });
 
-    expect(onSearch).toHaveBeenCalledWith('全');
+    // antd@6 可能需要等待异步的 onSearch 调用
+    await waitFor(() => {
+      expect(onSearch).toHaveBeenCalledWith('全');
+    });
 
     await act(async () => {
       const selector = wrapper.baseElement.querySelector(
-        '.ant-select',
+        '.ant-select-selector',
       );
       if (selector) {
         fireEvent.mouseDown(selector);
@@ -1425,8 +1427,8 @@ describe('ProForm', () => {
     });
 
     await waitFor(() => {
-      // 修改选择器，直接找到含有 "全部" 文本的元素
-      const items = wrapper.baseElement.querySelectorAll(
+      // antd@6 下拉菜单在 document.body
+      const items = document.body.querySelectorAll(
         '.ant-select-item-option-content',
       );
       const targetItem = Array.from(items).find((item) =>
@@ -1436,14 +1438,12 @@ describe('ProForm', () => {
     });
 
     await waitFor(() => {
-      expect(
-        document.body.querySelectorAll('.ant-select-item').length,
-      ).toBe(1);
+      expect(document.body.querySelectorAll('.ant-select-item').length).toBe(1);
     });
 
     await act(async () => {
       const selector = wrapper.baseElement.querySelector(
-        '.ant-select',
+        '.ant-select-selector',
       );
       if (selector) {
         fireEvent.focus(selector);
@@ -1451,18 +1451,14 @@ describe('ProForm', () => {
     });
 
     await act(async () => {
-      const selector = wrapper.baseElement.querySelector(
-        '.ant-select',
-      );
+      const selector = wrapper.baseElement.querySelector('.ant-select');
       if (selector) {
         fireEvent.mouseDown(selector);
       }
     });
 
     await waitFor(() => {
-      expect(
-        document.body.querySelectorAll('.ant-select-item').length,
-      ).toBe(4);
+      expect(document.body.querySelectorAll('.ant-select-item').length).toBe(4);
     });
 
     wrapper.unmount();
@@ -1517,9 +1513,7 @@ describe('ProForm', () => {
     expect(onSearch).toHaveBeenCalledWith('全');
 
     await act(async () => {
-      const selector = wrapper.baseElement.querySelector(
-        '.ant-select',
-      );
+      const selector = wrapper.baseElement.querySelector('.ant-select');
       if (selector) {
         fireEvent.mouseDown(selector);
       }
@@ -1537,9 +1531,7 @@ describe('ProForm', () => {
     });
 
     await waitFor(() => {
-      expect(
-        document.body.querySelectorAll('.ant-select-item').length,
-      ).toBe(1);
+      expect(document.body.querySelectorAll('.ant-select-item').length).toBe(1);
     });
 
     await act(async () => {
@@ -1572,18 +1564,14 @@ describe('ProForm', () => {
     });
 
     await act(async () => {
-      const selector = wrapper.baseElement.querySelector(
-        '.ant-select',
-      );
+      const selector = wrapper.baseElement.querySelector('.ant-select');
       if (selector) {
         fireEvent.mouseDown(selector);
       }
     });
 
     await waitFor(() => {
-      expect(
-        document.body.querySelectorAll('.ant-select-item').length,
-      ).toBe(4);
+      expect(document.body.querySelectorAll('.ant-select-item').length).toBe(4);
     });
     wrapper.unmount();
   });
@@ -1633,18 +1621,21 @@ describe('ProForm', () => {
       );
     });
 
-    expect(onSearch).toHaveBeenCalledWith('全');
+    // antd@6 可能需要等待异步的 onSearch 调用
+    await waitFor(() => {
+      expect(onSearch).toHaveBeenCalledWith('全');
+    });
 
     act(() => {
       fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select')[0],
+        wrapper.baseElement.querySelector('.ant-select-selector')!,
         {},
       );
     });
 
     await waitFor(() => {
-      // 查找包含"全"的选项内容
-      const items = wrapper.baseElement.querySelectorAll(
+      // ant@6 下拉菜单在 document.body
+      const items = document.body.querySelectorAll(
         '.ant-select-item-option-content',
       );
       const targetItem = Array.from(items).find((item) =>
@@ -1654,15 +1645,12 @@ describe('ProForm', () => {
     });
 
     expect(
-      document.body.querySelectorAll<HTMLElement>('.ant-select-item')
-        .length,
+      document.body.querySelectorAll<HTMLElement>('.ant-select-item').length,
     ).toBe(1);
 
     act(() => {
       fireEvent.focus(
-        wrapper.baseElement.querySelectorAll<HTMLElement>(
-          '.ant-select',
-        )[0],
+        wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select')[0],
       );
     });
 
@@ -1674,8 +1662,7 @@ describe('ProForm', () => {
     });
 
     expect(
-      document.body.querySelectorAll<HTMLElement>('.ant-select-item')
-        .length,
+      document.body.querySelectorAll<HTMLElement>('.ant-select-item').length,
     ).toBe(4);
     wrapper.unmount();
   });
@@ -1735,8 +1722,7 @@ describe('ProForm', () => {
     });
 
     expect(
-      document.body.querySelectorAll<HTMLElement>('.ant-select-item')
-        .length,
+      document.body.querySelectorAll<HTMLElement>('.ant-select-item').length,
     ).toBe(1);
 
     await waitFor(() => {
@@ -1772,8 +1758,7 @@ describe('ProForm', () => {
     });
 
     expect(
-      document.body.querySelectorAll<HTMLElement>('.ant-select-item')
-        .length,
+      document.body.querySelectorAll<HTMLElement>('.ant-select-item').length,
     ).toBe(4);
     wrapper.unmount();
   });
@@ -2382,9 +2367,7 @@ describe('ProForm', () => {
     // expect(searchInput?.value || '').toBe('解');
 
     await act(async () => {
-      const selector = wrapper.baseElement.querySelector(
-        '.ant-select',
-      );
+      const selector = wrapper.baseElement.querySelector('.ant-select');
       if (selector) {
         fireEvent.mouseDown(selector);
       }
@@ -2514,8 +2497,7 @@ describe('ProForm', () => {
     });
 
     expect(
-      document.body.querySelectorAll<HTMLElement>('.ant-select-item')
-        .length,
+      document.body.querySelectorAll<HTMLElement>('.ant-select-item').length,
     ).toBe(3);
   });
 
@@ -2558,8 +2540,7 @@ describe('ProForm', () => {
     });
 
     expect(
-      document.body.querySelectorAll<HTMLElement>('.ant-select-item')
-        .length,
+      document.body.querySelectorAll<HTMLElement>('.ant-select-item').length,
     ).toBe(1);
 
     act(() => {
@@ -2583,8 +2564,7 @@ describe('ProForm', () => {
     });
 
     expect(
-      document.body.querySelectorAll<HTMLElement>('.ant-select-item')
-        .length,
+      document.body.querySelectorAll<HTMLElement>('.ant-select-item').length,
     ).toBe(1);
   });
 
@@ -2739,9 +2719,7 @@ describe('ProForm', () => {
 
     // 点击搜索框
     await act(async () => {
-      const selector = wrapper.baseElement.querySelector(
-        '.ant-select',
-      );
+      const selector = wrapper.baseElement.querySelector('.ant-select');
       if (selector) {
         fireEvent.mouseDown(selector);
       }
@@ -2827,9 +2805,7 @@ describe('ProForm', () => {
     expect(searchInput?.value || '').toBe('2');
 
     await act(async () => {
-      const selector = wrapper.baseElement.querySelector(
-        '.ant-select',
-      );
+      const selector = wrapper.baseElement.querySelector('.ant-select');
       if (selector) {
         fireEvent.mouseDown(selector);
       }
@@ -2909,9 +2885,7 @@ describe('ProForm', () => {
 
     // 点击搜索框
     await act(async () => {
-      const selector = wrapper.baseElement.querySelector(
-        '.ant-select',
-      );
+      const selector = wrapper.baseElement.querySelector('.ant-select');
       if (selector) {
         fireEvent.mouseDown(selector);
       }
@@ -4224,9 +4198,7 @@ describe('ProForm 修复增强用例', () => {
     );
     // 打开下拉，输入
     await act(async () => {
-      const selector = wrapper.baseElement.querySelector(
-        '.ant-select',
-      );
+      const selector = wrapper.baseElement.querySelector('.ant-select');
       if (selector) fireEvent.mouseDown(selector);
     });
     const input = wrapper.baseElement.querySelector(
@@ -4261,9 +4233,7 @@ describe('ProForm 修复增强用例', () => {
       </ProForm>,
     );
     await act(async () => {
-      const selector = wrapper.baseElement.querySelector(
-        '.ant-select',
-      );
+      const selector = wrapper.baseElement.querySelector('.ant-select');
       if (selector) fireEvent.mouseDown(selector);
     });
     const input2 = wrapper.baseElement.querySelector(

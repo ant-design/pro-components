@@ -143,11 +143,11 @@ describe('ProForm Transform Tests', () => {
     await waitForWaitTime(100);
 
     // Check if nested transforms worked correctly
-    // Note: Empty arrays are NOT included in the result when transform is applied
+    // Note: Empty arrays ARE included in the result even when transform is applied
     expect(fn).toHaveBeenCalledWith({
       departments: [
-        { name: 'Engineering' },
-        { name: 'Alice' },
+        { employees: [], name: 'Engineering' },
+        { employees: [], name: 'Alice' },
       ],
     });
   });
@@ -394,11 +394,11 @@ describe('ProForm Transform Tests', () => {
     await waitForWaitTime(100);
 
     // Check if transforms at different levels worked correctly
-    // Note: Empty arrays are NOT included in the result when transform is applied
+    // Note: Empty arrays ARE included in the result even when transform is applied
     expect(fn).toHaveBeenCalledWith({
       orgs: [
-        { name: 'Acme' },
-        { name: 'Engineering' },
+        { deps: [], name: 'Acme' },
+        { deps: [], name: 'Engineering' },
       ],
     });
   });

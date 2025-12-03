@@ -65,7 +65,10 @@ describe('useEditableMap', () => {
       record: TestRecordType,
       dataSource: TestRecordType[],
     ) => void;
-    onChange?: (editableKeys: React.Key[], editableRows: TestRecordType | TestRecordType[]) => void;
+    onChange?: (
+      editableKeys: React.Key[],
+      editableRows: TestRecordType | TestRecordType[],
+    ) => void;
     editableKeys?: React.Key[];
     type?: 'single' | 'multiple';
     onlyOneLineEditorAlertMessage?: React.ReactNode;
@@ -256,15 +259,17 @@ describe('useEditableMap', () => {
   });
 
   it('📝 取消编辑时应该正确调用 onCancel 回调', async () => {
-    const onCancel = vi.fn(async (
-      key: RecordKey,
-      record: TestRecordType & { index?: number },
-      originRow: TestRecordType & { index?: number },
-    ) => {
-      expect(key).toBe('name');
-      expect(originRow).toBeDefined();
-      return Promise.resolve();
-    });
+    const onCancel = vi.fn(
+      async (
+        key: RecordKey,
+        record: TestRecordType & { index?: number },
+        originRow: TestRecordType & { index?: number },
+      ) => {
+        expect(key).toBe('name');
+        expect(originRow).toBeDefined();
+        return Promise.resolve();
+      },
+    );
 
     const wrapper = render(<TestComponent onCancel={onCancel} />);
 
@@ -293,15 +298,17 @@ describe('useEditableMap', () => {
   });
 
   it('📝 保存编辑时应该正确调用 onSave 回调并更新数据源', async () => {
-    const onSave = vi.fn(async (
-      key: RecordKey,
-      record: TestRecordType & { index?: number },
-      originRow: TestRecordType & { index?: number },
-    ) => {
-      expect(key).toBe('name');
-      expect(originRow).toBeDefined();
-      return Promise.resolve();
-    });
+    const onSave = vi.fn(
+      async (
+        key: RecordKey,
+        record: TestRecordType & { index?: number },
+        originRow: TestRecordType & { index?: number },
+      ) => {
+        expect(key).toBe('name');
+        expect(originRow).toBeDefined();
+        return Promise.resolve();
+      },
+    );
 
     const wrapper = render(<TestComponent onSave={onSave} />);
 
@@ -381,12 +388,10 @@ describe('useEditableMap', () => {
   });
 
   it('📝 应该正确处理 onChange 回调', async () => {
-    const onChange = vi.fn((
-      keys: React.Key[],
-      editableRows: TestRecordType | TestRecordType[],
-    ) => {
-      expect(Array.isArray(keys)).toBe(true);
-      expect(editableRows).toBeDefined();
+    const onChange = vi.fn(
+      (keys: React.Key[], editableRows: TestRecordType | TestRecordType[]) => {
+        expect(Array.isArray(keys)).toBe(true);
+        expect(editableRows).toBeDefined();
       },
     );
 

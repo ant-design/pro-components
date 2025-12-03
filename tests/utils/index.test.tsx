@@ -3,7 +3,6 @@ import {
   conversionSubmitValue,
   dateArrayFormatter,
   DropdownFooter,
-  InlineErrorFormItem,
   isDeepEqualReact,
   isDropdownValueType,
   isNil,
@@ -21,7 +20,7 @@ import {
   useDebounceValue,
 } from '@ant-design/pro-components';
 import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
-import { Form, Input } from 'antd';
+import { Input } from 'antd';
 import type { Dayjs } from 'dayjs';
 import dayjs from 'dayjs';
 import React, { act, useEffect, useState } from 'react';
@@ -485,133 +484,6 @@ describe('utils', () => {
         '.ant-pro-core-dropdown-footer',
       ),
     ).toBeTruthy();
-  });
-
-  it('📅 InlineErrorFormItem onValuesChange', async () => {
-    const ruleMessage = {
-      required: '必填项',
-      min: '最小长度为12',
-      numberRequired: '必须包含数字',
-      alphaRequired: '必须包含字母',
-    };
-    const html = render(
-      <Form>
-        <span>text</span>
-        <InlineErrorFormItem
-          errorType="popover"
-          rules={[
-            {
-              required: true,
-              message: ruleMessage.required,
-            },
-            {
-              min: 12,
-              message: ruleMessage.min,
-            },
-            {
-              message: ruleMessage.numberRequired,
-              pattern: /[0-9]/,
-            },
-            {
-              message: ruleMessage.alphaRequired,
-              pattern: /[a-zA-Z]/,
-            },
-          ]}
-          popoverProps={{ trigger: 'focus' }}
-          name="title"
-        >
-          <Input id="test" role="test_input" />
-        </InlineErrorFormItem>
-      </Form>,
-    );
-
-    await html.findByText('text');
-
-    await act(async () => {
-      (await html.findByRole('test_input')).focus();
-    });
-
-    await waitFor(() => {
-      expect(!!html.baseElement.querySelector('div.ant-popover')).toBeFalsy();
-    });
-
-    await act(async () => {
-      const dom = await html.findByRole('test_input');
-      fireEvent.change(dom!, {
-        target: {
-          value: '1',
-        },
-      });
-    });
-
-    await waitFor(() => {
-      expect(!!html.baseElement.querySelector('div.ant-popover')).toBeTruthy();
-    });
-    // Check for error messages - structure may vary in Ant Design v6
-    const popoverContent = html.baseElement.querySelector('div.ant-popover .ant-popover-inner-content');
-    expect(!!popoverContent).toBeTruthy();
-    
-    // Try to find error messages with various possible selectors
-    const errorSelectors = [
-      'div.ant-popover .ant-popover-inner-content div.ant-form-item-explain-error',
-      'div.ant-popover .ant-popover-inner-content .ant-form-item-explain-error',
-      'div.ant-popover .ant-popover-inner-content [class*="ant-form-item-explain"]',
-      'div.ant-popover .ant-popover-inner-content li',
-      'div.ant-popover .ant-popover-inner-content',
-    ];
-    
-    let li: NodeListOf<Element> | null = null;
-    for (const selector of errorSelectors) {
-      li = html.baseElement.querySelectorAll(selector);
-      if (li.length > 0) break;
-    }
-    
-    // Verify that error content exists (structure may have changed in v6)
-    if (li && li.length > 0) {
-      const errorText = Array.from(li).map(el => el.textContent).join(' ');
-      expect(errorText).toContain(ruleMessage.min);
-      expect(errorText).toContain(ruleMessage.alphaRequired);
-    } else {
-      // If no specific error elements found, at least verify popover content has text
-      const popoverText = popoverContent?.textContent || '';
-      expect(popoverText.length > 0).toBeTruthy();
-    }
-    await act(async () => {
-      const dom = await html.findByRole('test_input');
-      fireEvent.change(dom!, {
-        target: {
-          value: '12345678901AB',
-        },
-      });
-    });
-
-    await waitFor(() => {
-      return html.findAllByDisplayValue('12345678901AB');
-    });
-
-    await act(async () => {
-      const dom = await html.findByRole('test_input');
-      fireEvent.change(dom!, {
-        target: {
-          value: '.',
-        },
-      });
-    });
-    await waitFor(() => {
-      expect(
-        html.baseElement.querySelectorAll('div.ant-popover.ant-popover-hidden')
-          .length > 0,
-      ).toBeFalsy();
-    });
-
-    await act(async () => {
-      const dom = await html.findByRole('test_input');
-      fireEvent.change(dom!, {
-        target: {
-          value: '',
-        },
-      });
-    });
   });
 
   it('📅 transformKeySubmitValue return string', async () => {

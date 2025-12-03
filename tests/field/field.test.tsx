@@ -635,9 +635,7 @@ describe('Field', () => {
       });
 
       act(() => {
-        fireEvent.mouseDown(
-          html.container.querySelector('.ant-select')!,
-        );
+        fireEvent.mouseDown(html.container.querySelector('.ant-select')!);
       });
 
       await waitFor(() => {
@@ -810,9 +808,8 @@ describe('Field', () => {
     });
 
     expect(
-      html.baseElement.querySelector<HTMLInputElement>(
-        '.ant-select-input',
-      )?.value,
+      html.baseElement.querySelector<HTMLInputElement>('.ant-select-input')
+        ?.value,
     ).toEqual('ProComponents');
 
     html.unmount();

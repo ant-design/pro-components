@@ -1,6 +1,6 @@
 import { FullscreenOutlined, SettingOutlined } from '@ant-design/icons';
 import { ListToolBar, ProTable } from '@ant-design/pro-components';
-import { cleanup, fireEvent, render } from '@testing-library/react';
+import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import { Button, Input } from 'antd';
 import { act } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
@@ -90,8 +90,10 @@ describe('Table valueEnum', () => {
         ?.click();
     });
 
-    await waitForWaitTime(100);
-    expect(onSearch).toHaveBeenCalledWith('1111111');
+    // antd@6 可能需要更多时间来触发回调
+    await waitFor(() => {
+      expect(onSearch).toHaveBeenCalledWith('1111111');
+    });
   });
 
   it('ListToolBar action no array', async () => {
@@ -193,7 +195,10 @@ describe('Table valueEnum', () => {
         ?.click();
     });
     expect(wrapper.getByDisplayValue('input 值')).toBeTruthy();
-    expect(onSearch).toHaveBeenCalled();
+    // antd@6 可能需要等待异步的 onSearch 调用
+    await waitFor(() => {
+      expect(onSearch).toHaveBeenCalled();
+    });
     expect(
       (wrapper.getByDisplayValue('input 值') as HTMLInputElement).placeholder,
     ).toEqual('自定义 placeholder');
@@ -225,7 +230,10 @@ describe('Table valueEnum', () => {
         ?.click();
     });
     expect(wrapper.getByDisplayValue('input 值')).toBeTruthy();
-    expect(onSearch).toHaveBeenCalled();
+    // antd@6 可能需要等待异步的 onSearch 调用
+    await waitFor(() => {
+      expect(onSearch).toHaveBeenCalled();
+    });
     expect(
       (wrapper.getByDisplayValue('input 值') as HTMLInputElement).placeholder,
     ).toEqual('自定义 placeholder');
