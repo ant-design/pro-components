@@ -184,6 +184,9 @@ exports[`PageContainer > 🐲 FooterToolbar should know width 1`] = `
     class="ant-design-pro ant-pro-layout screen-lg ant-pro-layout-top-menu ant-pro-layout-fix-siderbar ant-pro-layout-top"
   >
     <div
+      class="ant-pro-layout-bg-list"
+    />
+    <div
       class="ant-layout css-var-r11"
       style="min-height: 100%; flex-direction: row;"
     >
@@ -409,7 +412,7 @@ exports[`PageContainer > 🐲 FooterToolbar should know width 1`] = `
         </main>
         <div
           class="ant-pro-layout-has-footer"
-          style="height: 64px;"
+          style="height: 64px; margin-block-start: 32px;"
         />
       </div>
     </div>
@@ -524,6 +527,9 @@ exports[`PageContainer > 🐲 footer should know width 1`] = `
   <div
     class="ant-design-pro ant-pro-layout screen-lg ant-pro-layout-top-menu ant-pro-layout-fix-siderbar ant-pro-layout-top"
   >
+    <div
+      class="ant-pro-layout-bg-list"
+    />
     <div
       class="ant-layout css-var-rr"
       style="min-height: 100%; flex-direction: row;"
@@ -753,7 +759,7 @@ exports[`PageContainer > 🐲 footer should know width 1`] = `
         </main>
         <div
           class="ant-pro-layout-has-footer"
-          style="height: 64px;"
+          style="height: 64px; margin-block-start: 32px;"
         />
       </div>
     </div>
@@ -766,6 +772,9 @@ exports[`PageContainer > 🐲 pro-layout support breadcrumbProps 1`] = `
   <div
     class="ant-design-pro ant-pro-layout screen-lg ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
+    <div
+      class="ant-pro-layout-bg-list"
+    />
     <div
       class="ant-layout ant-layout-has-sider css-var-r19"
       style="min-height: 100%; flex-direction: row;"
