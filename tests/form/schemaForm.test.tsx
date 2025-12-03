@@ -361,7 +361,7 @@ describe('SchemaForm', () => {
       />,
     );
 
-    expect(container.querySelectorAll('span.ant-steps-icon')).toHaveLength(3);
+    expect(container.querySelectorAll('.ant-steps-item-icon')).toHaveLength(3);
     expect(
       container.querySelectorAll('div.ant-steps-item-title')[0],
     ).toHaveTextContent('表单1');
