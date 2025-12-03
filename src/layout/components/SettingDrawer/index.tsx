@@ -362,7 +362,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
       </div>
       <Drawer
         open={open}
-        width={300}
+        size={300}
         onClose={() => setOpen(false)}
         closable={false}
         placement="right"
@@ -548,7 +548,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
               {hideHintAlert ? null : (
                 <Alert
                   type="warning"
-                  message={formatMessage({
+                  title={formatMessage({
                     id: 'app.setting.production.hint',
                   })}
                   icon={<NotificationOutlined />}

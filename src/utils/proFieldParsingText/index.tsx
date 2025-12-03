@@ -90,7 +90,7 @@ export const proFieldParsingText = (
 ): React.ReactNode => {
   if (Array.isArray(text)) {
     return (
-      <Space key={key} split="," size={2} wrap>
+      <Space key={key} separator="," size={2} wrap>
         {text.map((value, index) =>
           // @ts-ignore
           proFieldParsingText(value, valueEnumParams, index),

@@ -306,7 +306,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         <Space
           align="center"
           size={4}
-          direction={collapsed ? 'vertical' : 'horizontal'}
+          orientation={collapsed ? 'vertical' : 'horizontal'}
           className={classNames([
             `${baseClassName}-actions-list`,
             collapsed && `${baseClassName}-actions-list-collapsed`,

@@ -81,7 +81,7 @@ const Group: React.FC<ProFormGroupProps> = React.forwardRef(
           )}
           size={size}
           align={align}
-          direction={direction}
+          orientation={direction}
           style={{
             rowGap: 0,
             ...spaceProps?.style,
