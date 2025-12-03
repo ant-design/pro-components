@@ -550,20 +550,20 @@ describe('utils', () => {
     
     // Wait for popover content to be rendered
     await waitFor(() => {
-      const popoverContent = html.baseElement.querySelector('div.ant-popover .ant-popover-inner-content');
+      const popoverContent = html.baseElement.querySelector('div.ant-popover .ant-popover-content');
       expect(!!popoverContent).toBeTruthy();
     }, { timeout: 3000 });
     
     // Check for error messages - structure may vary in Ant Design v6
-    const popoverContent = html.baseElement.querySelector('div.ant-popover .ant-popover-inner-content');
+    const popoverContent = html.baseElement.querySelector('div.ant-popover .ant-popover-content');
     
     // Try to find error messages with various possible selectors
     const errorSelectors = [
-      'div.ant-popover .ant-popover-inner-content div.ant-form-item-explain-error',
-      'div.ant-popover .ant-popover-inner-content .ant-form-item-explain-error',
-      'div.ant-popover .ant-popover-inner-content [class*="ant-form-item-explain"]',
-      'div.ant-popover .ant-popover-inner-content li',
-      'div.ant-popover .ant-popover-inner-content',
+      'div.ant-popover .ant-popover-content div.ant-form-item-explain-error',
+      'div.ant-popover .ant-popover-content .ant-form-item-explain-error',
+      'div.ant-popover .ant-popover-content [class*="ant-form-item-explain"]',
+      'div.ant-popover .ant-popover-content li',
+      'div.ant-popover .ant-popover-content',
     ];
     
     let li: NodeListOf<Element> | null = null;
