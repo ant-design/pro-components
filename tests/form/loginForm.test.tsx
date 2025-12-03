@@ -137,7 +137,7 @@ describe('LoginForm', () => {
       </LoginForm>,
     );
 
-    waitFor(async () => {
+    await waitFor(async () => {
       (await wrapper.findByText('登 录')).click();
 
       expect(fn).toHaveBeenCalled();

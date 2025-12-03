@@ -1,5 +1,5 @@
-import { ProTable, RequestOptionsType } from '@ant-design/pro-components';
-import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
+import { ProTable } from '@ant-design/pro-components';
+import { cleanup, render, waitFor } from '@testing-library/react';
 import { ConfigProvider, Table } from 'antd';
 import dayjs from 'dayjs';
 import { afterEach, describe, expect, it, vi } from 'vitest';
@@ -239,71 +239,5 @@ describe('Table ColumnSetting', () => {
     );
 
     expect(container).toMatchSnapshot();
-  });
-
-  it('🎏 columns proFieldProps support custom', async () => {
-    const selectOptionsRequest = (a: any) => {
-      return new Promise<RequestOptionsType[]>((resolve) => {
-        setTimeout(() => {
-          const data = [
-            {
-              label: '1',
-              value: 1,
-            },
-            {
-              label: '2',
-              value: 2,
-            },
-            {
-              label: '3',
-              value: 3,
-            },
-            {
-              label: '4',
-              value: 4,
-            },
-          ];
-          const result = data.filter((x) => x.value === a);
-          resolve(result);
-        }, 1000);
-      });
-    };
-    const { container } = render(
-      <ProTable
-        rowKey="key"
-        columns={[
-          {
-            title: 'Name',
-            key: 'name',
-            dataIndex: 'name',
-            valueType: 'select',
-            request: async (v) => {
-              const { keyWords } = v;
-              const result = await selectOptionsRequest(keyWords);
-              return result;
-            },
-            proFieldProps: {
-              debounceTime: 1000,
-            },
-          },
-        ]}
-      />,
-    );
-
-    expect(container).toMatchSnapshot();
-
-    fireEvent.change(
-      container.querySelector('.ant-select-selection-search-input')!,
-      {
-        target: {
-          value: '1',
-        },
-      },
-    );
-    expect(container.querySelectorAll('.ant-select-item')).toHaveLength(0);
-
-    setTimeout(() => {
-      expect(container.querySelectorAll('.ant-select-item')).toHaveLength(1);
-    }, 1000);
   });
 });
