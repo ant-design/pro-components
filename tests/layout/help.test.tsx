@@ -941,11 +941,11 @@ describe('👍🏻 ProHelpPanel', () => {
 
     // 等待选择器出现
     await waitFor(() => {
-      expect(html.container.querySelector('.ant-select-content')).toBeTruthy();
+      expect(html.container.querySelector('.ant-select')).toBeTruthy();
     });
 
     await act(async () => {
-      const selector = html.container.querySelector('.ant-select-content');
+      const selector = html.container.querySelector('.ant-select-selector');
       if (selector) {
         fireEvent.mouseDown(selector);
       }
@@ -976,7 +976,7 @@ describe('👍🏻 ProHelpPanel', () => {
     });
 
     await act(async () => {
-      const selector = html.container.querySelector('.ant-select-content');
+      const selector = html.container.querySelector('.ant-select');
       if (selector) {
         fireEvent.blur(selector);
       }
@@ -1025,11 +1025,11 @@ describe('👍🏻 ProHelpPanel', () => {
 
     // 等待选择器出现
     await waitFor(() => {
-      expect(html.container.querySelector('.ant-select-content')).toBeTruthy();
+      expect(html.container.querySelector('.ant-select')).toBeTruthy();
     });
 
     await act(async () => {
-      const selector = html.container.querySelector('.ant-select-content');
+      const selector = html.container.querySelector('.ant-select-selector');
       if (selector) {
         fireEvent.mouseDown(selector);
       }
@@ -1082,7 +1082,7 @@ describe('👍🏻 ProHelpPanel', () => {
     });
 
     await act(async () => {
-      const selector = html.container.querySelector('.ant-select-content');
+      const selector = html.container.querySelector('.ant-select');
       if (selector) {
         fireEvent.blur(selector);
       }

@@ -31,10 +31,9 @@ describe('LoginForm', () => {
     expect(
       container.querySelectorAll('.ant-alert.ant-alert-error'),
     ).toHaveLength(1);
-    const messageElement = container.querySelector(
-      '.ant-alert.ant-alert-error .ant-alert-title',
-    );
-    expect(messageElement?.textContent).toBe('登录失败');
+    // antd@6 中直接从 Alert 元素获取文本内容
+    const alertElement = container.querySelector('.ant-alert.ant-alert-error');
+    expect(alertElement?.textContent).toContain('登录失败');
   });
 
   it('📦 LoginForm should render actions correctly', async () => {

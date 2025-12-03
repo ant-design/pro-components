@@ -469,8 +469,15 @@ describe('List', () => {
 
     expect(container.querySelectorAll('.ant-list-item').length).toEqual(2);
 
-    fireEvent.mouseDown(container.querySelector('.ant-select')!);
-    fireEvent.click(container.querySelectorAll('.ant-select-item-option')[3]);
+    // antd@6 需要点击 selector 元素触发下拉菜单
+    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+    
+    // antd@6 下拉菜单渲染在 document.body，需要等待选项出现
+    await waitFor(() => {
+      expect(document.body.querySelectorAll('.ant-select-item-option').length).toBeGreaterThan(0);
+    });
+    
+    fireEvent.click(document.body.querySelectorAll('.ant-select-item-option')[3]);
 
     expect(container.querySelectorAll('.ant-list-item').length).toEqual(7);
   });
