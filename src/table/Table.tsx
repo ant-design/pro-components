@@ -124,16 +124,17 @@ function useEditableDataSource<T>({
     const childrenName = childrenColumnName || 'children';
 
     if (newLineOptions?.parentKey) {
+      const newRow = {
+        ...defaultValue,
+        map_row_parentKey: recordKeyToString(
+          newLineOptions.parentKey,
+        )?.toString(),
+      };
       const actionProps = {
         data: baseData,
         getRowKey,
-        row: {
-          ...defaultValue,
-          map_row_parentKey: recordKeyToString(
-            newLineOptions.parentKey,
-          )?.toString(),
-        },
-        key: newLineOptions?.recordKey,
+        row: newRow,
+        key: newLineOptions?.recordKey ?? getRowKey(newRow as T, -1),
         childrenColumnName: childrenName,
       };
 
@@ -238,7 +239,7 @@ function useTableContent<T>({
           {toolbarDom}
           {alertDom}
           <ProForm
-            {...editable.formProps}
+            {...(editable.formProps as any)}
             formRef={editable.formProps?.formRef as any}
             component={false}
             form={editable.form}
@@ -387,7 +388,7 @@ function useSearchNode<T extends Record<string, any>, U, ValueType>({
           action={actionRef}
           columns={columns}
           onFormSearchSubmit={(values) => {
-            onFormSearchSubmit(values);
+            onFormSearchSubmit(values as any);
           }}
           ghost={ghost}
           onReset={onReset}
@@ -539,10 +540,10 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     action: UseFetchDataAction<any>;
     defaultClassName: string;
     tableColumn: any[];
-    toolbarDom: JSX.Element | null;
+    toolbarDom: React.ReactNode;
     hideToolbar: boolean;
-    searchNode: JSX.Element | null;
-    alertDom: JSX.Element | null;
+    searchNode: React.ReactNode;
+    alertDom: React.ReactNode;
     isLightFilter: boolean;
     onSortChange: (sort?: Record<string, SortOrder>) => void;
     onFilterChange: (filter: Record<string, FilterValue>) => void;
@@ -723,7 +724,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
 
   const renderTable = () => {
     if (props.tableRender) {
-      return props.tableRender(props, tableAreaDom, {
+      return props.tableRender(props, tableAreaDom!, {
         toolbar: toolbarDom || undefined,
         alert: alertDom || undefined,
         table: tableDom || undefined,

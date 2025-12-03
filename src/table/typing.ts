@@ -244,12 +244,12 @@ export type ProTableProps<DataSource, U, ValueType = 'text'> = {
    */
   tableRender?: (
     props: ProTableProps<DataSource, U, ValueType>,
-    defaultDom: JSX.Element,
+    defaultDom: React.ReactNode,
     /** 各个区域的 dom */
     domList: {
-      toolbar: JSX.Element | undefined;
-      alert: JSX.Element | undefined;
-      table: JSX.Element | undefined;
+      toolbar: React.ReactNode;
+      alert: React.ReactNode;
+      table: React.ReactNode;
     },
   ) => React.ReactNode;
 
