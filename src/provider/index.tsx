@@ -168,6 +168,7 @@ export type ConfigContextPropsType = {
   hashId?: string;
   hashed?: boolean;
   dark?: boolean;
+  prefixCls?: string;
 };
 
 /* Creating a context object with the default values. */
@@ -185,6 +186,7 @@ const ProConfigContext = React.createContext<ConfigContextPropsType>({
     antCls: '.ant',
     themeId: 0,
   },
+  prefixCls: '.ant-pro',
 });
 
 export const { Consumer: ConfigConsumer } = ProConfigContext;
@@ -267,7 +269,6 @@ const ConfigProviderContainer: React.FC<{
       (localeName && proProvide.intl?.locale === 'default'
         ? intlMap[key! as 'zh-CN']
         : proProvide.intl || intlMap[key! as 'zh-CN']);
-
     return {
       ...proProvide,
       dark: dark ?? proProvide.dark,
@@ -348,10 +349,11 @@ const ConfigProviderContainer: React.FC<{
     return {
       ...proProvideValue!,
       valueTypeMap: valueTypeMap || proProvideValue?.valueTypeMap,
-      token,
+      token: finalToken as any,
       theme: tokenContext.theme as unknown as Theme<any, any>,
       hashed,
       hashId,
+      prefixCls,
     };
   }, [
     proProvideValue,
@@ -360,6 +362,7 @@ const ConfigProviderContainer: React.FC<{
     tokenContext.theme,
     hashed,
     hashId,
+    prefixCls,
   ]);
 
   const configProviderDom = useMemo(() => {

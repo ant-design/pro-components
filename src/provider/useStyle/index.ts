@@ -97,8 +97,11 @@ export function useStyle(
   styleFn: (token: ProAliasToken) => CSSInterpolation,
 ) {
   // eslint-disable-next-line prefer-const
-  let { token = {} as Record<string, any> as ProAliasToken, hashed } =
-    useContext(ProProvider);
+  let {
+    token = {} as Record<string, any> as ProAliasToken,
+    hashed,
+    prefixCls,
+  } = useContext(ProProvider);
 
   const { token: antdToken, hashId, theme } = antdTheme.useToken();
 
@@ -108,7 +111,9 @@ export function useStyle(
   if (!token.layout) {
     token = { ...antdToken } as any;
   }
+
   token.proComponentsCls = token.proComponentsCls ?? `.${getPrefixCls('pro')}`;
+
   token.antCls = `.${getPrefixCls()}`;
 
   // Register styles (side effect only in v2)
