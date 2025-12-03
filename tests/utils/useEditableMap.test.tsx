@@ -63,9 +63,9 @@ describe('useEditableMap', () => {
     ) => Promise<any | void>;
     onValuesChange?: (
       record: TestRecordType,
-      dataSource: TestRecordType,
+      dataSource: TestRecordType[],
     ) => void;
-    onChange?: (editableKeys: React.Key[], dataSource: TestRecordType) => void;
+    onChange?: (editableKeys: React.Key[], editableRows: TestRecordType | TestRecordType[]) => void;
     editableKeys?: React.Key[];
     type?: 'single' | 'multiple';
     onlyOneLineEditorAlertMessage?: React.ReactNode;
@@ -256,15 +256,11 @@ describe('useEditableMap', () => {
   });
 
   it('📝 取消编辑时应该正确调用 onCancel 回调', async () => {
-    const onCancel = vi.fn<
-      [
-        RecordKey,
-        TestRecordType & { index?: number },
-        TestRecordType & { index?: number },
-        NewLineConfig<TestRecordType>?,
-      ],
-      Promise<any | void>
-    >(async (key, record, originRow) => {
+    const onCancel = vi.fn(async (
+      key: RecordKey,
+      record: TestRecordType & { index?: number },
+      originRow: TestRecordType & { index?: number },
+    ) => {
       expect(key).toBe('name');
       expect(originRow).toBeDefined();
       return Promise.resolve();
@@ -297,14 +293,11 @@ describe('useEditableMap', () => {
   });
 
   it('📝 保存编辑时应该正确调用 onSave 回调并更新数据源', async () => {
-    const onSave = vi.fn<
-      [
-        RecordKey,
-        TestRecordType & { index?: number },
-        TestRecordType & { index?: number },
-      ],
-      Promise<any | void>
-    >(async (key, record, originRow) => {
+    const onSave = vi.fn(async (
+      key: RecordKey,
+      record: TestRecordType & { index?: number },
+      originRow: TestRecordType & { index?: number },
+    ) => {
       expect(key).toBe('name');
       expect(originRow).toBeDefined();
       return Promise.resolve();
@@ -388,10 +381,12 @@ describe('useEditableMap', () => {
   });
 
   it('📝 应该正确处理 onChange 回调', async () => {
-    const onChange = vi.fn<[React.Key[], TestRecordType], void>(
-      (keys, dataSource) => {
-        expect(Array.isArray(keys)).toBe(true);
-        expect(dataSource).toBeDefined();
+    const onChange = vi.fn((
+      keys: React.Key[],
+      editableRows: TestRecordType | TestRecordType[],
+    ) => {
+      expect(Array.isArray(keys)).toBe(true);
+      expect(editableRows).toBeDefined();
       },
     );
 
@@ -472,14 +467,7 @@ describe('useEditableMap', () => {
   });
 
   it('📝 应该正确处理 onSave 返回 false 的情况', async () => {
-    const onSave = vi.fn<
-      [
-        RecordKey,
-        TestRecordType & { index?: number },
-        TestRecordType & { index?: number },
-      ],
-      Promise<boolean>
-    >(async () => {
+    const onSave = vi.fn(async () => {
       return Promise.resolve(false);
     });
 
@@ -532,15 +520,7 @@ describe('useEditableMap', () => {
   });
 
   it('📝 应该正确处理 onCancel 返回 false 的情况', async () => {
-    const onCancel = vi.fn<
-      [
-        RecordKey,
-        TestRecordType & { index?: number },
-        TestRecordType & { index?: number },
-        NewLineConfig<TestRecordType>?,
-      ],
-      Promise<boolean>
-    >(async () => {
+    const onCancel = vi.fn(async () => {
       return Promise.resolve(false);
     });
 
@@ -595,14 +575,7 @@ describe('useEditableMap', () => {
   });
 
   it('📝 应该正确更新数据源', async () => {
-    const onSave = vi.fn<
-      [
-        RecordKey,
-        TestRecordType & { index?: number },
-        TestRecordType & { index?: number },
-      ],
-      Promise<any | void>
-    >(async () => {
+    const onSave = vi.fn(async () => {
       return Promise.resolve();
     });
 

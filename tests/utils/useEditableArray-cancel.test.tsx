@@ -125,15 +125,11 @@ describe('useEditableArray - Cancel Operation', () => {
   };
 
   it('📝 取消编辑时应该正确调用 onCancel 回调', async () => {
-    const onCancel = vi.fn<
-      [
-        RecordKey,
-        TestRecordType & { index?: number },
-        TestRecordType & { index?: number },
-        NewLineConfig<TestRecordType>?,
-      ],
-      Promise<any | void>
-    >(async (key, record, originRow) => {
+    const onCancel = vi.fn(async (
+      key: RecordKey,
+      record: TestRecordType & { index?: number },
+      originRow: TestRecordType & { index?: number },
+    ) => {
       expect(key).toBe(1);
       expect(originRow).toEqual({ id: 1, name: 'test1', value: 'value1' });
       return Promise.resolve();
@@ -169,15 +165,11 @@ describe('useEditableArray - Cancel Operation', () => {
   });
 
   it('📝 取消编辑时 onCancel 回调应该接收到正确的参数', async () => {
-    const onCancel = vi.fn<
-      [
-        RecordKey,
-        TestRecordType & { index?: number },
-        TestRecordType & { index?: number },
-        NewLineConfig<TestRecordType>?,
-      ],
-      Promise<any | void>
-    >(async (key, record, originRow) => {
+    const onCancel = vi.fn(async (
+      key: RecordKey,
+      record: TestRecordType & { index?: number },
+      originRow: TestRecordType & { index?: number },
+    ) => {
       expect(key).toBe(2);
       expect(originRow).toEqual({ id: 2, name: 'test2', value: 'value2' });
       expect(record).toBeDefined();
@@ -311,24 +303,8 @@ describe('useEditableArray - Cancel Operation', () => {
   });
 
   it('📝 快速连续取消多个编辑时应该正确处理所有回调', async () => {
-    const onCancel1 = vi.fn<
-      [
-        RecordKey,
-        TestRecordType & { index?: number },
-        TestRecordType & { index?: number },
-        NewLineConfig<TestRecordType>?,
-      ],
-      Promise<any | void>
-    >(async () => Promise.resolve());
-    const onCancel2 = vi.fn<
-      [
-        RecordKey,
-        TestRecordType & { index?: number },
-        TestRecordType & { index?: number },
-        NewLineConfig<TestRecordType>?,
-      ],
-      Promise<any | void>
-    >(async () => Promise.resolve());
+    const onCancel1 = vi.fn(async () => Promise.resolve());
+    const onCancel2 = vi.fn(async () => Promise.resolve());
 
     const TestComponentMultiple: React.FC<{
       onCancel?: (
@@ -394,9 +370,9 @@ describe('useEditableArray - Cancel Operation', () => {
           originRow: TestRecordType & { index?: number },
         ) => {
           if (key === 1) {
-            await onCancel1(key, record, originRow);
+            await onCancel1();
           } else if (key === 2) {
-            await onCancel2(key, record, originRow);
+            await onCancel2();
           }
         }}
         tableName="testTable"
@@ -477,15 +453,11 @@ describe('useEditableArray - Cancel Operation', () => {
   });
 
   it('📝 取消编辑时应该正确处理 key 映射（tableName 场景）', async () => {
-    const onCancel = vi.fn<
-      [
-        RecordKey,
-        TestRecordType & { index?: number },
-        TestRecordType & { index?: number },
-        NewLineConfig<TestRecordType>?,
-      ],
-      Promise<any | void>
-    >(async (key, record, originRow) => {
+    const onCancel = vi.fn(async (
+      key: RecordKey,
+      record: TestRecordType & { index?: number },
+      originRow: TestRecordType & { index?: number },
+    ) => {
       expect(key).toBe(1);
       expect(originRow).toEqual({ id: 1, name: 'test1', value: 'value1' });
       return Promise.resolve();
@@ -546,15 +518,12 @@ describe('useEditableArray - Cancel Operation', () => {
   });
 
   it('📝 取消新行编辑时应该正确处理 newLineConfig', async () => {
-    const onCancel = vi.fn<
-      [
-        RecordKey,
-        TestRecordType & { index?: number },
-        TestRecordType & { index?: number },
-        NewLineConfig<TestRecordType>?,
-      ],
-      Promise<any | void>
-    >(async (key, record, originRow, newLineConfig) => {
+    const onCancel = vi.fn(async (
+      key: RecordKey,
+      record: TestRecordType & { index?: number },
+      originRow: TestRecordType & { index?: number },
+      newLineConfig?: NewLineConfig<TestRecordType>,
+    ) => {
       expect(newLineConfig).toBeDefined();
       return Promise.resolve();
     });

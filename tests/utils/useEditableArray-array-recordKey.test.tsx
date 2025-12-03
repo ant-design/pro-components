@@ -5,7 +5,7 @@ import {
   render,
   waitFor,
 } from '@testing-library/react';
-import { Form, Input } from 'antd';
+import { Form } from 'antd';
 import React, { useState } from 'react';
 import {
   afterAll,
@@ -155,26 +155,24 @@ describe('useEditableArray - Array recordKey Support', () => {
       const curValue = getValue(fields, recordKeyPath as string[]);
       expect(curValue).toBe('updatedNested');
 
-      const updatedFields = setValue(fields, recordKeyPath, curValue);
+      const updatedFields = setValue(
+        fields,
+        recordKeyPath as (string | number)[],
+        curValue,
+      );
       expect(updatedFields.nested.field).toBe('updatedNested');
     }
   });
 
   it('📝 保存时应该正确处理数组 recordKey（深层嵌套字段）', async () => {
-    const onSave = vi.fn<
-      [
-        RecordKey,
-        TestRecordType & { index?: number },
-        TestRecordType & { index?: number },
-        NewLineConfig<TestRecordType>?,
-      ],
-      Promise<any | void>
-    >(async (key, record) => {
-      expect(Array.isArray(key)).toBe(true);
-      expect(key).toEqual([1, 'nested', 'deep', 'value']);
-      expect(record.nested?.deep?.value).toBeDefined();
-      return Promise.resolve();
-    });
+    const onSave = vi.fn(
+      async (key: RecordKey, record: TestRecordType & { index?: number }) => {
+        expect(Array.isArray(key)).toBe(true);
+        expect(key).toEqual([1, 'nested', 'deep', 'value']);
+        expect(record.nested?.deep?.value).toBeDefined();
+        return Promise.resolve();
+      },
+    );
 
     const wrapper = render(
       <TestComponent onSave={onSave} tableName="testTable" />,
@@ -208,20 +206,14 @@ describe('useEditableArray - Array recordKey Support', () => {
   });
 
   it('📝 保存时应该正确处理单个 recordKey（非数组）', async () => {
-    const onSave = vi.fn<
-      [
-        RecordKey,
-        TestRecordType & { index?: number },
-        TestRecordType & { index?: number },
-        NewLineConfig<TestRecordType>?,
-      ],
-      Promise<any | void>
-    >(async (key, record) => {
-      expect(Array.isArray(key)).toBe(false);
-      expect(key).toBe(1);
-      expect(record.id).toBe(1);
-      return Promise.resolve();
-    });
+    const onSave = vi.fn(
+      async (key: RecordKey, record: TestRecordType & { index?: number }) => {
+        expect(Array.isArray(key)).toBe(false);
+        expect(key).toBe(1);
+        expect(record.id).toBe(1);
+        return Promise.resolve();
+      },
+    );
 
     const wrapper = render(
       <TestComponent onSave={onSave} tableName="testTable" />,
@@ -251,18 +243,10 @@ describe('useEditableArray - Array recordKey Support', () => {
   });
 
   it('📝 保存时应该正确处理数组 recordKey 长度为 1 的情况', async () => {
-    const onSave = vi.fn<
-      [
-        RecordKey,
-        TestRecordType & { index?: number },
-        TestRecordType & { index?: number },
-        NewLineConfig<TestRecordType>?,
-      ],
-      Promise<any | void>
-    >(async (key) => {
+    const onSave = vi.fn(async (key: RecordKey) => {
       // 长度为 1 的数组应该被当作普通 key 处理
       expect(Array.isArray(key)).toBe(true);
-      expect(key.length).toBe(1);
+      expect((key as React.Key[]).length).toBe(1);
       return Promise.resolve();
     });
 
@@ -290,9 +274,7 @@ describe('useEditableArray - Array recordKey Support', () => {
   });
 
   it('📝 保存时应该正确处理数组 recordKey 的路径提取', async () => {
-    const wrapper = render(
-      <TestComponent tableName="testTable" />,
-    );
+    const wrapper = render(<TestComponent tableName="testTable" />);
 
     act(() => {
       fireEvent.click(wrapper.getByTestId('start-edit-1'));
@@ -305,24 +287,16 @@ describe('useEditableArray - Array recordKey Support', () => {
 
     // 测试路径提取逻辑
     const recordKey: RecordKey = [1, 'nested', 'field'];
-    
+
     // 模拟代码中的逻辑：const [, ...recordKeyPath] = recordKey;
     const [, ...recordKeyPath] = recordKey;
-    
+
     expect(recordKeyPath).toEqual(['nested', 'field']);
     expect(recordKeyPath.length).toBe(2);
   });
 
   it('📝 保存时应该正确处理数组 recordKey 在无 tableName 的情况', async () => {
-    const onSave = vi.fn<
-      [
-        RecordKey,
-        TestRecordType & { index?: number },
-        TestRecordType & { index?: number },
-        NewLineConfig<TestRecordType>?,
-      ],
-      Promise<any | void>
-    >(async (key) => {
+    const onSave = vi.fn(async (key: RecordKey) => {
       expect(Array.isArray(key)).toBe(true);
       return Promise.resolve();
     });
@@ -353,9 +327,7 @@ describe('useEditableArray - Array recordKey Support', () => {
   });
 
   it('📝 保存时应该正确处理数组 recordKey 在有 tableName 的情况', async () => {
-    const wrapper = render(
-      <TestComponent tableName="testTable" />,
-    );
+    const wrapper = render(<TestComponent tableName="testTable" />);
 
     act(() => {
       fireEvent.click(wrapper.getByTestId('start-edit-1'));
@@ -381,9 +353,7 @@ describe('useEditableArray - Array recordKey Support', () => {
   });
 
   it('📝 保存时应该正确处理数组 recordKey 的 get 和 set 操作', async () => {
-    const wrapper = render(
-      <TestComponent tableName="testTable" />,
-    );
+    const wrapper = render(<TestComponent tableName="testTable" />);
 
     // 模拟 fields 对象
     const fields = {
@@ -423,14 +393,18 @@ describe('useEditableArray - Array recordKey Support', () => {
     const curValue = getValue(fields, recordKeyPath as string[]);
     expect(curValue).toBe('originalValue');
 
-    const updatedFields = setValue(fields, recordKeyPath, curValue);
+    const updatedFields = setValue(
+      fields,
+      recordKeyPath as (string | number)[],
+      curValue,
+    );
     expect(updatedFields.nested.field).toBe('originalValue');
   });
 
   it('📝 保存时应该正确处理数组 recordKey 的边界情况（空数组）', async () => {
     // 测试空数组的情况
     const recordKey: RecordKey = [];
-    
+
     // 空数组不应该进入处理分支
     expect(Array.isArray(recordKey)).toBe(true);
     expect(recordKey.length > 1).toBe(false);
@@ -513,7 +487,11 @@ describe('useEditableArray - Array recordKey Support', () => {
       const curValue = get(fields, recordKeyPath as string[]);
       expect(curValue).toBe('updatedDeepValue');
 
-      const updatedFields = set(fields, recordKeyPath, curValue);
+      const updatedFields = set(
+        fields,
+        recordKeyPath as (string | number)[],
+        curValue,
+      );
       expect(updatedFields.nested.deep.value).toBe('updatedDeepValue');
     }
   });
@@ -557,4 +535,3 @@ describe('useEditableArray - Array recordKey Support', () => {
     }
   });
 });
-
