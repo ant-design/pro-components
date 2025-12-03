@@ -31,7 +31,7 @@ export default () => {
               />
             }
           />
-          <Divider type={responsive ? 'horizontal' : 'vertical'} />
+          <Divider orientation={responsive ? 'horizontal' : 'vertical'} />
           <StatisticCard
             statistic={{
               title: 'Design Resources',
@@ -45,7 +45,7 @@ export default () => {
               />
             }
           />
-          <Divider type={responsive ? 'horizontal' : 'vertical'} />
+          <Divider orientation={responsive ? 'horizontal' : 'vertical'} />
           <StatisticCard
             statistic={{
               title: 'Information Completeness',

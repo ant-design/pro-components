@@ -27,7 +27,7 @@ export default () => {
               precision: 2,
             }}
           />
-          <Divider type={responsive ? 'horizontal' : 'vertical'} />
+          <Divider orientation={responsive ? 'horizontal' : 'vertical'} />
           <StatisticCard
             statistic={{
               title: 'Frozen Amount',
@@ -36,7 +36,7 @@ export default () => {
               suffix: 'Yuan',
             }}
           />
-          <Divider type={responsive ? 'horizontal' : 'vertical'} />
+          <Divider orientation={responsive ? 'horizontal' : 'vertical'} />
           <StatisticCard
             statistic={{
               title: 'Information Completeness',
