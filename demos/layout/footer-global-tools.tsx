@@ -36,7 +36,7 @@ export default () => {
           headerRender={(props, defaultDom) => (
             <>
               <Alert
-                message={
+                title={
                   <div
                     style={{
                       color: 'white',

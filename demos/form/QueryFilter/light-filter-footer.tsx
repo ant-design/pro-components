@@ -20,7 +20,7 @@ export default () => {
       <br />
       <br />
 
-      <Space direction="vertical">
+      <Space orientation="vertical">
         <LightFilter
           size={size}
           initialValues={{

@@ -16,11 +16,11 @@ export default () => {
         style={{
           width: '100%',
         }}
-        direction="vertical"
+        orientation="vertical"
       >
         <Alert
           type="warning"
-          message="QueryFilter 和 lightFilter 暂不支持grid模式"
+          title="QueryFilter 和 lightFilter 暂不支持grid模式"
           style={{
             marginBlockEnd: 24,
           }}
