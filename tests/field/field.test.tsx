@@ -787,7 +787,7 @@ describe('Field', () => {
 
     act(() => {
       fireEvent.change(
-        html.baseElement.querySelector('.ant-select-selection-search-input')!,
+        html.baseElement.querySelector('.ant-select-input')!,
         {
           target: { value: 'test' },
         },

@@ -470,7 +470,10 @@ describe('List', () => {
     expect(container.querySelectorAll('.ant-list-item').length).toEqual(2);
 
     // antd@6 需要点击 selector 元素触发下拉菜单
-    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+    const selector = container.querySelector('.ant-select-selector');
+    if (selector) {
+      fireEvent.mouseDown(selector);
+    }
 
     // antd@6 下拉菜单渲染在 document.body，需要等待选项出现
     await waitFor(() => {

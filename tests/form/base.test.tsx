@@ -1169,10 +1169,23 @@ describe('ProForm', () => {
 
     await wrapper.findByText('查询选择器');
 
+    // antd@6 需要先打开下拉菜单才能访问输入框
     await act(async () => {
-      const searchInput = wrapper.baseElement.querySelector(
-        '.ant-select-selection-search-input',
-      );
+      const selector = wrapper.baseElement.querySelector('.ant-select');
+      if (selector) {
+        fireEvent.mouseDown(selector);
+      }
+    });
+
+    await waitFor(() => {
+      const searchInput =
+        wrapper.baseElement.querySelector('.ant-select-input');
+      expect(searchInput).toBeTruthy();
+    });
+
+    await act(async () => {
+      const searchInput =
+        wrapper.baseElement.querySelector('.ant-select-input');
       if (searchInput) {
         fireEvent.change(searchInput, {
           target: {
@@ -1182,7 +1195,10 @@ describe('ProForm', () => {
       }
     });
 
-    expect(onSearch).toHaveBeenCalledWith('全');
+    // antd@6 可能需要等待异步的 onSearch 调用
+    await waitFor(() => {
+      expect(onSearch).toHaveBeenCalledWith('全');
+    });
 
     await act(async () => {
       const selector = wrapper.baseElement.querySelector('.ant-select');
@@ -1236,10 +1252,23 @@ describe('ProForm', () => {
 
     await wrapper.findByText('查询选择器');
 
+    // antd@6 需要先打开下拉菜单才能访问输入框
     await act(async () => {
-      const searchInput = wrapper.baseElement.querySelector(
-        '.ant-select-selection-search-input',
-      );
+      const selector = wrapper.baseElement.querySelector('.ant-select');
+      if (selector) {
+        fireEvent.mouseDown(selector);
+      }
+    });
+
+    await waitFor(() => {
+      const searchInput =
+        wrapper.baseElement.querySelector('.ant-select-input');
+      expect(searchInput).toBeTruthy();
+    });
+
+    await act(async () => {
+      const searchInput =
+        wrapper.baseElement.querySelector('.ant-select-input');
       if (searchInput) {
         fireEvent.change(searchInput, {
           target: {
@@ -1249,7 +1278,10 @@ describe('ProForm', () => {
       }
     });
 
-    expect(onSearch).toHaveBeenCalledWith('全');
+    // antd@6 可能需要等待异步的 onSearch 调用
+    await waitFor(() => {
+      expect(onSearch).toHaveBeenCalledWith('全');
+    });
 
     await act(async () => {
       const selector = wrapper.baseElement.querySelector('.ant-select');
@@ -1319,9 +1351,8 @@ describe('ProForm', () => {
     await wrapper.findByText('查询选择器');
 
     await act(async () => {
-      const searchInput = wrapper.baseElement.querySelector(
-        '.ant-select-selection-search-input',
-      );
+      const searchInput =
+        wrapper.baseElement.querySelector('.ant-select-input');
       if (searchInput) {
         fireEvent.change(searchInput, {
           target: {
@@ -1399,10 +1430,23 @@ describe('ProForm', () => {
 
     await wrapper.findByText('查询选择器');
 
+    // antd@6 需要先打开下拉菜单才能访问输入框
     await act(async () => {
-      const searchInput = wrapper.baseElement.querySelector(
-        '.ant-select-selection-search-input',
-      );
+      const selector = wrapper.baseElement.querySelector('.ant-select');
+      if (selector) {
+        fireEvent.mouseDown(selector);
+      }
+    });
+
+    await waitFor(() => {
+      const searchInput =
+        wrapper.baseElement.querySelector('.ant-select-input');
+      expect(searchInput).toBeTruthy();
+    });
+
+    await act(async () => {
+      const searchInput =
+        wrapper.baseElement.querySelector('.ant-select-input');
       if (searchInput) {
         fireEvent.change(searchInput, {
           target: {
@@ -1499,9 +1543,7 @@ describe('ProForm', () => {
 
     act(() => {
       fireEvent.change(
-        wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
-        )!,
+        wrapper.baseElement.querySelector('.ant-select-input')!,
         {
           target: {
             value: '全',
@@ -1608,11 +1650,23 @@ describe('ProForm', () => {
 
     await wrapper.findByText('查询选择器');
 
-    act(() => {
+    // antd@6 需要先打开下拉菜单才能访问输入框
+    await act(async () => {
+      const selector = wrapper.baseElement.querySelector('.ant-select');
+      if (selector) {
+        fireEvent.mouseDown(selector);
+      }
+    });
+
+    await waitFor(() => {
+      const searchInput =
+        wrapper.baseElement.querySelector('.ant-select-input');
+      expect(searchInput).toBeTruthy();
+    });
+
+    await act(async () => {
       fireEvent.change(
-        wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
-        )!,
+        wrapper.baseElement.querySelector('.ant-select-input')!,
         {
           target: {
             value: '全',
@@ -1624,13 +1678,6 @@ describe('ProForm', () => {
     // antd@6 可能需要等待异步的 onSearch 调用
     await waitFor(() => {
       expect(onSearch).toHaveBeenCalledWith('全');
-    });
-
-    act(() => {
-      fireEvent.mouseDown(
-        wrapper.baseElement.querySelector('.ant-select-selector')!,
-        {},
-      );
     });
 
     await waitFor(() => {
@@ -1701,9 +1748,7 @@ describe('ProForm', () => {
 
     act(() => {
       fireEvent.change(
-        wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
-        )!,
+        wrapper.baseElement.querySelector('.ant-select-input')!,
         {
           target: {
             value: '全',
@@ -1790,9 +1835,7 @@ describe('ProForm', () => {
 
     act(() => {
       fireEvent.change(
-        wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
-        )!,
+        wrapper.baseElement.querySelector('.ant-select-input')!,
         {
           target: {
             value: '全',
@@ -1834,9 +1877,7 @@ describe('ProForm', () => {
 
     act(() => {
       fireEvent.change(
-        wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
-        )!,
+        wrapper.baseElement.querySelector('.ant-select-input')!,
         {
           target: {
             value: '全',
@@ -1886,9 +1927,7 @@ describe('ProForm', () => {
 
     act(() => {
       fireEvent.change(
-        wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
-        )!,
+        wrapper.baseElement.querySelector('.ant-select-input')!,
         {
           target: {
             value: '全',
@@ -1930,9 +1969,7 @@ describe('ProForm', () => {
 
     act(() => {
       fireEvent.change(
-        wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
-        )!,
+        wrapper.baseElement.querySelector('.ant-select-input')!,
         {
           target: {
             value: '全',
@@ -2082,9 +2119,12 @@ describe('ProForm', () => {
     );
 
     await act(async () => {
-      fireEvent.mouseDown(
-        wrapper.baseElement.querySelector('.ant-select-selector')!,
+      const selector = wrapper.baseElement.querySelector(
+        '.ant-select-selector',
       );
+      if (selector) {
+        fireEvent.mouseDown(selector);
+      }
     });
 
     await act(async () => {
@@ -2291,9 +2331,15 @@ describe('ProForm', () => {
       ).toBe(4);
     });
 
-    // 获取搜索输入框
+    // 获取搜索输入框 - antd@6 多选模式下输入框在打开下拉后可用
+    await waitFor(() => {
+      const searchInput =
+        wrapper.baseElement.querySelector('.ant-select-input');
+      expect(searchInput).toBeTruthy();
+    });
+
     const searchInput = wrapper.baseElement.querySelector(
-      '.ant-select-selection-search-input',
+      '.ant-select-input',
     ) as HTMLInputElement;
     expect(searchInput?.value || '').toBe('');
 
@@ -2304,10 +2350,10 @@ describe('ProForm', () => {
       }
     });
 
-    // 应该有3个item被筛选出来
+    // 应该有3个item被筛选出来 - antd@6 下拉菜单在 document.body
     await waitFor(() => {
       expect(
-        wrapper.baseElement.querySelectorAll(
+        document.body.querySelectorAll(
           '.ant-select-item.ant-select-item-option',
         ).length,
       ).toBe(3);
@@ -2318,7 +2364,7 @@ describe('ProForm', () => {
 
     // 选中第一个
     await act(async () => {
-      const firstItem = wrapper.baseElement.querySelector('.ant-select-item');
+      const firstItem = document.body.querySelector('.ant-select-item');
       if (firstItem) {
         fireEvent.click(firstItem);
       }
@@ -2341,7 +2387,7 @@ describe('ProForm', () => {
     // 搜索的结果应该保持不变
     await waitFor(() => {
       expect(
-        wrapper.baseElement.querySelectorAll(
+        document.body.querySelectorAll(
           '.ant-select-item.ant-select-item-option',
         ).length,
       ).toBe(3);
@@ -2478,9 +2524,7 @@ describe('ProForm', () => {
 
     act(() => {
       fireEvent.change(
-        wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
-        )!,
+        wrapper.baseElement.querySelector('.ant-select-input')!,
         {
           target: {
             value: 'A',
@@ -2521,9 +2565,7 @@ describe('ProForm', () => {
 
     act(() => {
       fireEvent.change(
-        wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
-        )!,
+        wrapper.baseElement.querySelector('.ant-select-input')!,
         {
           target: {
             value: 'b',
@@ -2545,9 +2587,7 @@ describe('ProForm', () => {
 
     act(() => {
       fireEvent.change(
-        wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
-        )!,
+        wrapper.baseElement.querySelector('.ant-select-input')!,
         {
           target: {
             value: 'B',
@@ -2728,15 +2768,21 @@ describe('ProForm', () => {
     // 默认展示所有的7个选项
     await waitFor(() => {
       expect(
-        wrapper.baseElement.querySelectorAll(
+        document.body.querySelectorAll(
           '.ant-select-item.ant-select-item-option',
         ).length,
       ).toBe(7);
     });
 
-    // 获取搜索输入框
+    // 获取搜索输入框 - antd@6 多选模式下输入框在打开下拉后可用
+    await waitFor(() => {
+      const searchInput =
+        wrapper.baseElement.querySelector('.ant-select-input');
+      expect(searchInput).toBeTruthy();
+    });
+
     const searchInput = wrapper.baseElement.querySelector(
-      '.ant-select-selection-search-input',
+      '.ant-select-input',
     ) as HTMLInputElement;
     expect(searchInput?.value || '').toBe('');
 
@@ -2747,10 +2793,10 @@ describe('ProForm', () => {
       }
     });
 
-    // 应该有4个item被筛选出来
+    // 应该有4个item被筛选出来 - antd@6 下拉菜单在 document.body
     await waitFor(() => {
       expect(
-        wrapper.baseElement.querySelectorAll(
+        document.body.querySelectorAll(
           '.ant-select-item.ant-select-item-option',
         ).length,
       ).toBe(4);
@@ -2761,7 +2807,7 @@ describe('ProForm', () => {
 
     // 选中第一个
     await act(async () => {
-      const firstItem = wrapper.baseElement.querySelector('.ant-select-item');
+      const firstItem = document.body.querySelector('.ant-select-item');
       if (firstItem) {
         fireEvent.click(firstItem);
       }
@@ -2780,7 +2826,7 @@ describe('ProForm', () => {
     // 搜索的结果应该保持不变
     await waitFor(() => {
       expect(
-        wrapper.baseElement.querySelectorAll(
+        document.body.querySelectorAll(
           '.ant-select-item.ant-select-item-option',
         ).length,
       ).toBe(4);
@@ -2894,15 +2940,21 @@ describe('ProForm', () => {
     // 默认展示所有的7个选项
     await waitFor(() => {
       expect(
-        wrapper.baseElement.querySelectorAll(
+        document.body.querySelectorAll(
           '.ant-select-item.ant-select-item-option',
         ).length,
       ).toBe(7);
     });
 
-    // 获取搜索输入框
+    // 获取搜索输入框 - antd@6 多选模式下输入框在打开下拉后可用
+    await waitFor(() => {
+      const searchInput =
+        wrapper.baseElement.querySelector('.ant-select-input');
+      expect(searchInput).toBeTruthy();
+    });
+
     const searchInput = wrapper.baseElement.querySelector(
-      '.ant-select-selection-search-input',
+      '.ant-select-input',
     ) as HTMLInputElement;
     expect(searchInput?.value || '').toBe('');
 
@@ -2914,9 +2966,9 @@ describe('ProForm', () => {
     });
 
     await waitFor(() => {
-      // 应该有4个item被筛选出来
+      // 应该有4个item被筛选出来 - antd@6 下拉菜单在 document.body
       expect(
-        wrapper.baseElement.querySelectorAll(
+        document.body.querySelectorAll(
           '.ant-select-item.ant-select-item-option',
         ).length,
       ).toBe(4);
@@ -2927,7 +2979,7 @@ describe('ProForm', () => {
 
     // 选中第一个
     await act(async () => {
-      const firstItem = wrapper.baseElement.querySelector('.ant-select-item');
+      const firstItem = document.body.querySelector('.ant-select-item');
       if (firstItem) {
         fireEvent.click(firstItem);
       }
@@ -2949,7 +3001,7 @@ describe('ProForm', () => {
     // 搜索的结果，恢复到原始结果
     await waitFor(() => {
       expect(
-        wrapper.baseElement.querySelectorAll(
+        document.body.querySelectorAll(
           '.ant-select-item.ant-select-item-option',
         ).length,
       ).toBe(7);
@@ -3596,9 +3648,7 @@ describe('ProForm', () => {
 
     act(() => {
       fireEvent.change(
-        wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
-        )!,
+        wrapper.baseElement.querySelector('.ant-select-input')!,
         {
           target: {
             value: 'p',
@@ -3664,9 +3714,7 @@ describe('ProForm', () => {
 
     act(() => {
       fireEvent.change(
-        wrapper.baseElement.querySelector(
-          '.ant-select-selection-search-input',
-        )!,
+        wrapper.baseElement.querySelector('.ant-select-input')!,
         {
           target: {
             value: 'l',
@@ -4201,8 +4249,12 @@ describe('ProForm 修复增强用例', () => {
       const selector = wrapper.baseElement.querySelector('.ant-select');
       if (selector) fireEvent.mouseDown(selector);
     });
+    await waitFor(() => {
+      const input = wrapper.baseElement.querySelector('.ant-select-input');
+      expect(input).toBeTruthy();
+    });
     const input = wrapper.baseElement.querySelector(
-      '.ant-select-selection-search-input',
+      '.ant-select-input',
     ) as HTMLInputElement;
     await act(async () => {
       fireEvent.change(input, { target: { value: 'A' } });
@@ -4210,7 +4262,7 @@ describe('ProForm 修复增强用例', () => {
     expect(input.value).toBe('A');
     // 选中第一个
     await act(async () => {
-      const firstItem = wrapper.baseElement.querySelector('.ant-select-item');
+      const firstItem = document.body.querySelector('.ant-select-item');
       if (firstItem) fireEvent.click(firstItem);
     });
     // autoClearSearchValue: true 应清空
@@ -4244,7 +4296,7 @@ describe('ProForm 修复增强用例', () => {
     });
     expect(input2.value).toBe('B');
     await act(async () => {
-      const firstItem = wrapper.baseElement.querySelector('.ant-select-item');
+      const firstItem = document.body.querySelector('.ant-select-item');
       if (firstItem) fireEvent.click(firstItem);
     });
     // antd v5 下，autoClearSearchValue: false 也可能被清空
