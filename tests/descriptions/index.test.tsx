@@ -328,19 +328,19 @@ describe('descriptions', () => {
     );
     await waitFor(() => {
       expect(
-        html.baseElement.querySelector('.ant-progress-text')?.textContent,
+        html.baseElement.querySelector('.ant-progress-indicator')?.textContent,
       ).toEqual('40%');
     });
 
     await waitFor(() => {
       expect(
         !!html.baseElement
-          .querySelectorAll('.ant-progress-text')?.[1]
+          .querySelectorAll('.ant-progress-indicator')?.[1]
           ?.querySelector('.anticon-close-circle'),
       ).toBeTruthy();
       expect(
         !!html.baseElement
-          .querySelectorAll('.ant-progress-text')?.[2]
+          .querySelectorAll('.ant-progress-indicator')?.[2]
           ?.querySelector('.anticon-check-circle'),
       ).toBeTruthy();
     });
