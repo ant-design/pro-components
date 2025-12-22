@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react';
-import { unstable_batchedUpdates } from 'react-dom';
 import {
   runFunction,
   useDebounceFn,
@@ -137,15 +136,13 @@ const useFetchData = <DataSource extends RequestData<any>>(
 
   // Batching update  https://github.com/facebook/react/issues/14259
   const setDataAndLoading = (newData: DataSource[], dataTotal: number) => {
-    unstable_batchedUpdates(() => {
-      setTableDataList(newData);
-      if (pageInfo?.total !== dataTotal) {
-        setPageInfo({
-          ...pageInfo,
-          total: dataTotal || newData.length,
-        });
-      }
-    });
+    setTableDataList(newData);
+    if (pageInfo?.total !== dataTotal) {
+      setPageInfo({
+        ...pageInfo,
+        total: dataTotal || newData.length,
+      });
+    }
   };
 
   /**
@@ -171,10 +168,8 @@ const useFetchData = <DataSource extends RequestData<any>>(
    * https://github.com/ant-design/pro-components/issues/4390
    */
   const requestFinally = useRefFunction(() => {
-    unstable_batchedUpdates(() => {
-      setTableLoading(false);
-      setPollingLoading(false);
-    });
+    setTableLoading(false);
+    setPollingLoading(false);
   });
   /** 请求数据 */
   const fetchList = async (isPolling: boolean) => {
