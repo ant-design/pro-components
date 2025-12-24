@@ -59,7 +59,8 @@
     "last 2 versions",
     "Firefox ESR",
     "> 1%",
-    "ie >= 11"
+    "not dead",
+    "not ie 11"
   ],
   "resolutions": {
     "@types/react": "^18.0.38",

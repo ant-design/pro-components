@@ -387,7 +387,7 @@ import {
   ProFormText,
 } from '@ant-design/pro-components';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { Button, message } from 'antd';
+import { Button, message, Space } from 'antd';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import moment from 'dayjs';
 import { afterEach, describe, expect, it, vi } from 'vitest';
@@ -440,7 +440,7 @@ export default () => {
             <Button htmlType="button" onClick={getCompanyName} key="read">
               读取公司
             </Button>,
-            <Button.Group key="refs" style={{ display: 'block' }}>
+            <Space.Compact key="refs" style={{ display: 'block' }}>
               <Button htmlType="button" onClick={getFormatValues} key="format">
                 获取格式化后的所有数据
               </Button>
@@ -451,7 +451,7 @@ export default () => {
               >
                 校验表单并返回格式化后的所有数据
               </Button>
-            </Button.Group>,
+            </Space.Compact>,
           ];
         },
       }}
