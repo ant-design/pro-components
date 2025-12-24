@@ -944,17 +944,31 @@ describe('👍🏻 ProHelpPanel', () => {
       expect(html.container.querySelector('.ant-select')).toBeTruthy();
     });
 
+    // antd@6 DOM 结构变化：不再使用 .ant-select-selector，直接使用 .ant-select
     await act(async () => {
-      const selector = html.container.querySelector('.ant-select-selector');
+      const selector = html.container.querySelector('.ant-select');
       if (selector) {
         fireEvent.mouseDown(selector);
       }
     });
 
-    // 等待下拉选项出现
-    await waitFor(async () => {
-      await html.findByText('常见问题');
-    });
+    // antd@6 下拉菜单渲染在 document.body 中，需要等待选项出现
+    // "常见问题" 是一个 group 元素，不是 option 元素
+    await waitFor(
+      () => {
+        // 查找所有包含"常见问题"文本的元素（包括 group 和 option）
+        const allItems = document.body.querySelectorAll(
+          '.ant-select-item',
+        );
+        const targetItem = Array.from(allItems).find((item) =>
+          item.textContent?.includes('常见问题'),
+        );
+        expect(targetItem).toBeTruthy();
+      },
+      {
+        timeout: 5000,
+      },
+    );
 
     await act(async () => {
       const inputElement = input.parentElement?.querySelector('input');

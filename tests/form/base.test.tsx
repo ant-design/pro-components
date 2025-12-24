@@ -3730,7 +3730,8 @@ describe('ProForm', () => {
       );
     });
     await waitForWaitTime(300);
-    expect(onRequest.mock.calls.length).toBe(3);
+    // antd@6: fetchDataOnSearch triggers 2 calls (on search input change and on dropdown open)
+    expect(onRequest.mock.calls.length).toBe(2);
     wrapper.unmount();
   });
 
@@ -4288,21 +4289,28 @@ describe('ProForm 修复增强用例', () => {
       const selector = wrapper.baseElement.querySelector('.ant-select');
       if (selector) fireEvent.mouseDown(selector);
     });
+    // antd@6 多选模式下输入框在打开下拉后可用，使用 .ant-select-input
+    await waitFor(() => {
+      const input = wrapper.baseElement.querySelector('.ant-select-input');
+      expect(input).toBeTruthy();
+    });
     const input2 = wrapper.baseElement.querySelector(
-      '.ant-select-selection-search-input',
+      '.ant-select-input',
     ) as HTMLInputElement;
     await act(async () => {
-      fireEvent.change(input2, { target: { value: 'B' } });
+      if (input2) {
+        fireEvent.change(input2, { target: { value: 'B' } });
+      }
     });
-    expect(input2.value).toBe('B');
+    expect(input2?.value).toBe('B');
     await act(async () => {
       const firstItem = document.body.querySelector('.ant-select-item');
       if (firstItem) fireEvent.click(firstItem);
     });
-    // antd v5 下，autoClearSearchValue: false 也可能被清空
+    // antd@6 下，autoClearSearchValue: false 也可能被清空
     // 允许 '' 或 'B'
     await waitFor(() => {
-      expect(['', 'B']).toContain(input2.value);
+      expect(['', 'B']).toContain(input2?.value || '');
     });
     wrapper.unmount();
   });
