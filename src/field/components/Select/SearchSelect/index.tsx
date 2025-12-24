@@ -283,7 +283,8 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
         onClear?.();
         fetchData(undefined);
         if (showSearch) {
-          setSearchValue(undefined);
+          onSearch?.('');
+          setSearchValue('');
         }
       }}
       {...restProps}
@@ -293,7 +294,8 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
           : (inputValue, option) => {
               // 当 inputValue 为空或 searchValue 为空时，显示所有选项
               // 这样可以确保 searchOnFocus 时能够显示所有选项
-              const effectiveSearchValue = inputValue || searchValue;
+              const effectiveSearchValue =
+                searchValue === '' ? '' : inputValue || searchValue;
               if (!effectiveSearchValue) {
                 return true;
               }
@@ -334,7 +336,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
         if (showSearch && autoClearSearchValue) {
           fetchData(undefined);
           onSearch?.('');
-          setSearchValue(undefined);
+          setSearchValue('');
         } else if (showSearch && !autoClearSearchValue) {
           // 当 autoClearSearchValue 为 false 时，保持搜索值不变
           // 但是需要确保我们的状态与 Ant Design 的内部状态同步
@@ -415,7 +417,8 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
           fetchData(undefined);
           // 同时清空搜索值
           if (showSearch) {
-            setSearchValue(undefined);
+            onSearch?.('');
+            setSearchValue('');
           }
         }
         onFocus?.(e);

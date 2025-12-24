@@ -1697,7 +1697,13 @@ describe('ProForm', () => {
         fireEvent.mouseDown(selector);
       }
     });
-
+    // antd@6 需要先打开下拉菜单才能访问输入框
+    await act(async () => {
+      const selector = wrapper.baseElement.querySelector('.ant-select');
+      if (selector) {
+        fireEvent.mouseDown(selector);
+      }
+    });
     // 等待 searchOnFocus 触发 fetchData(undefined) 并更新选项
     await waitFor(
       () => {
