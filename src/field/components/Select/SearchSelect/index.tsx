@@ -1,6 +1,5 @@
 import type { SelectProps } from 'antd';
 import { ConfigProvider, Select } from 'antd';
-import type { DefaultOptionType, LabeledValue } from 'antd/lib/select';
 import classNames from 'classnames';
 import React, {
   useContext,
@@ -11,6 +10,14 @@ import React, {
 } from 'react';
 import type { RequestOptionsType } from '../../../../utils';
 import { nanoid } from '../../../../utils';
+
+export type LabeledValue = {
+  key?: string;
+  label: React.ReactNode;
+  value: string | number;
+};
+
+export type DefaultOptionType = NonNullable<SelectProps['options']>[number];
 
 // 支持 key, value, label，兼容 UserSearch 中只填写了 key 的情况。
 export type KeyLabel = Partial<LabeledValue> & RequestOptionsType;
@@ -190,7 +197,8 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
         ...resetItem
       } = item as RequestOptionsType;
 
-      const label = item[labelPropsName];
+      // 获取 label，优先使用 labelPropsName，如果没有则使用 text（valueEnum 的情况）
+      const label = item[labelPropsName] ?? item.text;
       const value = item[valuePropsName];
       const itemOptions = item[optionsPropsName] ?? [];
 
@@ -241,11 +249,17 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
         restProps.filterOption == false
           ? false
           : (inputValue, option) => {
+              // 当 inputValue 为空或 searchValue 为空时，显示所有选项
+              // 这样可以确保 searchOnFocus 时能够显示所有选项
+              const effectiveSearchValue = inputValue || searchValue;
+              if (!effectiveSearchValue) {
+                return true;
+              }
               if (
                 restProps.filterOption &&
                 typeof restProps.filterOption === 'function'
               ) {
-                return restProps.filterOption(inputValue, {
+                return restProps.filterOption(effectiveSearchValue, {
                   ...option,
                   label: option?.data_title,
                 });
@@ -254,11 +268,11 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
                 option?.data_title
                   ?.toString()
                   .toLowerCase()
-                  .includes(inputValue.toLowerCase()) ||
+                  .includes(effectiveSearchValue.toLowerCase()) ||
                 option?.[optionFilterProp]
                   ?.toString()
                   .toLowerCase()
-                  .includes(inputValue.toLowerCase())
+                  .includes(effectiveSearchValue.toLowerCase())
               );
             }
       } // 这里使用pro-components的过滤逻辑
@@ -297,29 +311,89 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
 
         if (mode !== 'multiple' && !Array.isArray(optionList)) {
           // 单选情况且用户选择了选项
-          const dataItem = optionList && optionList['data-item'];
+          let dataItem = optionList && optionList['data-item'];
+
+          // 如果 dataItem 不存在，尝试从 options 中查找对应的原始数据
+          let foundDataItem = dataItem;
+          if (!foundDataItem && value && options) {
+            const optionValue = value[valuePropsName] ?? value.value;
+            const findDataItem = (opts: RequestOptionsType[]): any => {
+              for (const opt of opts) {
+                const optValue = opt[valuePropsName] ?? opt.value;
+                if (optValue === optionValue) {
+                  return opt;
+                }
+                if (opt[optionsPropsName] || opt.options) {
+                  const found = findDataItem(
+                    opt[optionsPropsName] || opt.options || [],
+                  );
+                  if (found) return found;
+                }
+              }
+              return null;
+            };
+            foundDataItem = findDataItem(options);
+          }
+
+          // 获取原始 label 的辅助函数
+          const getOriginalLabel = (item: any, fallbackValue: any): string => {
+            // 优先使用 dataItem.label（原始字符串），避免使用 value.label（可能是 optionItemRender 渲染的组件）
+            if (item && typeof item.label === 'string' && item.label) {
+              return item.label;
+            }
+            if (item && item.text && typeof item.text === 'string') {
+              return item.text;
+            }
+            if (item && item.label) {
+              return String(item.label);
+            }
+            if (item && item.text) {
+              return String(item.text);
+            }
+            // 如果 dataItem 不存在，尝试从 value 中提取原始 label
+            // 但 value.label 可能是组件，需要从组件中提取原始 label
+            if (fallbackValue && fallbackValue.label) {
+              // 如果是 React 元素（Highlight 组件），尝试提取其 props.label
+              // 检查多种可能的 React 元素格式
+              const labelValue = fallbackValue.label;
+              if (
+                (React.isValidElement(labelValue) ||
+                  (labelValue &&
+                    typeof labelValue === 'object' &&
+                    'props' in labelValue)) &&
+                labelValue.props &&
+                labelValue.props.label
+              ) {
+                return String(labelValue.props.label);
+              }
+              // 如果是字符串，直接返回
+              if (typeof labelValue === 'string') {
+                return labelValue;
+              }
+              // 最后尝试转换为字符串
+              return String(labelValue);
+            }
+            return '';
+          };
+
           // 如果value值为空则是清空时产生的回调,直接传值就可以了
-          if (!value || !dataItem) {
+          if (!value || !foundDataItem) {
+            const originalLabel = getOriginalLabel(foundDataItem, value);
             const changedValue = value
               ? {
                   ...value,
-                  // 这里有一种情况，如果用户使用了 request和labelInValue，保存之后，刷新页面，正常回显，但是再次添加会出现 label 丢失的情况。所以需要兼容
-                  label:
-                    preserveOriginalLabel && dataItem
-                      ? dataItem?.label || value.label
-                      : value.label,
+                  label: originalLabel,
                 }
               : value;
             onChange?.(changedValue, optionList, ...rest);
           } else {
+            // 确保使用 dataItem.label（原始字符串），避免使用 value.label（可能是 optionItemRender 渲染的组件）
+            const originalLabel = getOriginalLabel(foundDataItem, value);
             onChange?.(
               {
                 ...value,
-                ...dataItem,
-                label:
-                  preserveOriginalLabel && dataItem
-                    ? dataItem.label
-                    : value.label,
+                ...foundDataItem,
+                label: originalLabel,
               },
               optionList,
               ...rest,
@@ -336,7 +410,12 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       }}
       onFocus={(e) => {
         if (searchOnFocus) {
-          fetchData(searchValue);
+          // 当 searchOnFocus 为 true 时，应该清空搜索关键词以显示所有选项
+          fetchData(undefined);
+          // 同时清空搜索值
+          if (showSearch) {
+            setSearchValue(undefined);
+          }
         }
         onFocus?.(e);
       }}

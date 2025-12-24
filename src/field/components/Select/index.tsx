@@ -521,6 +521,10 @@ const FieldSelect: ProFieldFC<
           fetchData={(keyWord) => {
             keyWordsRef.current = keyWord ?? '';
             fetchData(keyWord);
+            // 当 keyWord 为 undefined 时，清空 keyWordsRef 以确保 filterOption 不进行过滤
+            if (keyWord === undefined) {
+              keyWordsRef.current = '';
+            }
           }}
           resetData={resetData}
           optionItemRender={(item) => {

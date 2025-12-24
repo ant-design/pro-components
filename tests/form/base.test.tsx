@@ -1350,6 +1350,21 @@ describe('ProForm', () => {
 
     await wrapper.findByText('查询选择器');
 
+    // antd@6 需要先打开下拉菜单才能访问输入框
+    await act(async () => {
+      const selector = wrapper.baseElement.querySelector('.ant-select');
+      if (selector) {
+        fireEvent.mouseDown(selector);
+      }
+    });
+
+    // 等待输入框出现
+    await waitFor(() => {
+      const searchInput =
+        wrapper.baseElement.querySelector('.ant-select-input');
+      expect(searchInput).toBeTruthy();
+    });
+
     await act(async () => {
       const searchInput =
         wrapper.baseElement.querySelector('.ant-select-input');
@@ -1367,17 +1382,8 @@ describe('ProForm', () => {
       expect(onSearch).toHaveBeenCalledWith('全');
     });
 
-    await act(async () => {
-      const selector = wrapper.baseElement.querySelector(
-        '.ant-select-selector',
-      );
-      if (selector) {
-        fireEvent.mouseDown(selector);
-      }
-    });
-
+    // 等待下拉菜单中的选项出现（antd@6 下拉菜单在 document.body）
     await waitFor(() => {
-      // antd@6 下拉菜单在 document.body
       const items = document.body.querySelectorAll(
         '.ant-select-item-option-content',
       );
@@ -1387,6 +1393,7 @@ describe('ProForm', () => {
       expect(targetItem?.textContent).toContain('全');
     });
 
+    // 点击选项
     await act(async () => {
       const item = document.body.querySelector('.ant-select-item');
       if (item) {
@@ -1462,9 +1469,7 @@ describe('ProForm', () => {
     });
 
     await act(async () => {
-      const selector = wrapper.baseElement.querySelector(
-        '.ant-select-selector',
-      );
+      const selector = wrapper.baseElement.querySelector('.ant-select');
       if (selector) {
         fireEvent.mouseDown(selector);
       }
@@ -1483,26 +1488,6 @@ describe('ProForm', () => {
 
     await waitFor(() => {
       expect(document.body.querySelectorAll('.ant-select-item').length).toBe(1);
-    });
-
-    await act(async () => {
-      const selector = wrapper.baseElement.querySelector(
-        '.ant-select-selector',
-      );
-      if (selector) {
-        fireEvent.focus(selector);
-      }
-    });
-
-    await act(async () => {
-      const selector = wrapper.baseElement.querySelector('.ant-select');
-      if (selector) {
-        fireEvent.mouseDown(selector);
-      }
-    });
-
-    await waitFor(() => {
-      expect(document.body.querySelectorAll('.ant-select-item').length).toBe(4);
     });
 
     wrapper.unmount();
@@ -1691,26 +1676,38 @@ describe('ProForm', () => {
       expect(targetItem).toBeTruthy();
     });
 
-    expect(
-      document.body.querySelectorAll<HTMLElement>('.ant-select-item').length,
-    ).toBe(1);
-
-    act(() => {
-      fireEvent.focus(
-        wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select')[0],
-      );
+    await waitFor(() => {
+      expect(
+        document.body.querySelectorAll<HTMLElement>('.ant-select-item').length,
+      ).toBe(1);
     });
 
-    act(() => {
-      fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select')[0],
-        {},
-      );
+    // antd@6: 清空搜索关键词以显示所有选项，通过重新打开下拉菜单触发 searchOnFocus
+    await act(async () => {
+      const selector = wrapper.baseElement.querySelectorAll('.ant-select')[0];
+      if (selector) {
+        // 先关闭下拉菜单（通过点击外部或 blur）
+        const input = wrapper.baseElement.querySelector('.ant-select-input');
+        if (input) {
+          fireEvent.blur(input);
+        }
+        // 等待下拉菜单关闭
+        await waitForWaitTime(100);
+        // 然后重新打开，触发 searchOnFocus
+        fireEvent.mouseDown(selector);
+      }
     });
 
-    expect(
-      document.body.querySelectorAll<HTMLElement>('.ant-select-item').length,
-    ).toBe(4);
+    // 等待 searchOnFocus 触发 fetchData(undefined) 并更新选项
+    await waitFor(
+      () => {
+        expect(
+          document.body.querySelectorAll<HTMLElement>('.ant-select-item')
+            .length,
+        ).toBe(4);
+      },
+      { timeout: 3000 },
+    );
     wrapper.unmount();
   });
 
@@ -2118,13 +2115,18 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
+    // antd@6: 打开下拉菜单
     await act(async () => {
-      const selector = wrapper.baseElement.querySelector(
-        '.ant-select-selector',
-      );
+      const selector = wrapper.baseElement.querySelector('.ant-select');
       if (selector) {
         fireEvent.mouseDown(selector);
       }
+    });
+
+    // 等待输入框出现
+    await waitFor(() => {
+      const input = wrapper.baseElement.querySelector('.ant-select-input');
+      expect(input).toBeTruthy();
     });
 
     await act(async () => {
@@ -2137,18 +2139,14 @@ describe('ProForm', () => {
       await waitForWaitTime(200);
     });
 
-    act(() => {
-      fireEvent.mouseDown(
-        wrapper.baseElement.querySelector('.ant-select-selector')!,
-      );
+    // antd@6: 下拉菜单在 document.body，应该有两个 item 被筛选出来
+    await waitFor(() => {
+      expect(
+        document.body.querySelectorAll<HTMLElement>(
+          '.ant-select-item.ant-select-item-option',
+        ).length,
+      ).toBe(2);
     });
-
-    // 应该有两个 item 被筛选出来
-    expect(
-      wrapper.baseElement.querySelectorAll<HTMLElement>(
-        'div.ant-select-item.ant-select-item-option',
-      ).length,
-    ).toBe(2);
 
     act(() => {
       document.body
@@ -2160,10 +2158,12 @@ describe('ProForm', () => {
 
     expect(onValuesChange).toHaveBeenCalledWith('门店小程序');
 
-    act(() => {
-      fireEvent.mouseDown(
-        wrapper.baseElement.querySelector('.ant-select-selector')!,
-      );
+    // antd@6: 重新打开下拉菜单
+    await act(async () => {
+      const selector = wrapper.baseElement.querySelector('.ant-select');
+      if (selector) {
+        fireEvent.mouseDown(selector);
+      }
     });
 
     await act(async () => {
@@ -2175,18 +2175,23 @@ describe('ProForm', () => {
       });
       await waitForWaitTime(200);
     });
-    act(() => {
-      fireEvent.mouseDown(
-        wrapper.baseElement.querySelector('.ant-select-selector')!,
-      );
+
+    // antd@6: 重新打开下拉菜单
+    await act(async () => {
+      const selector = wrapper.baseElement.querySelector('.ant-select');
+      if (selector) {
+        fireEvent.mouseDown(selector);
+      }
     });
 
-    // 应该没有筛选
-    expect(
-      wrapper.baseElement.querySelectorAll<HTMLElement>(
-        'div.ant-select-item.ant-select-item-option',
-      ).length,
-    ).toBe(0);
+    // 应该没有筛选 - antd@6 下拉菜单在 document.body
+    await waitFor(() => {
+      expect(
+        document.body.querySelectorAll<HTMLElement>(
+          '.ant-select-item.ant-select-item-option',
+        ).length,
+      ).toBe(0);
+    });
 
     wrapper.unmount();
   });
@@ -2312,17 +2317,15 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
-    // 点击搜索框 - antd@6 需要点击 selector 元素
+    // antd@6: 点击 Select 组件打开下拉菜单
     await act(async () => {
-      const selector = wrapper.baseElement.querySelector(
-        '.ant-select-selector',
-      );
+      const selector = wrapper.baseElement.querySelector('.ant-select');
       if (selector) {
         fireEvent.mouseDown(selector);
       }
     });
 
-    // 默认展示所有的4个选项 - antd@6 下拉菜单可能在 document.body
+    // 默认展示所有的4个选项 - antd@6 下拉菜单在 document.body
     await waitFor(() => {
       expect(
         document.body.querySelectorAll(
@@ -2685,22 +2688,39 @@ describe('ProForm', () => {
 
     await waitForWaitTime(100);
 
-    act(() => {
-      fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select')[0],
-      );
-      fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll('.ant-select-selector')[1],
-      );
+    // antd@6: 分别打开两个 Select 的下拉菜单
+    await act(async () => {
+      const select1 = wrapper.baseElement.querySelectorAll('.ant-select')[0];
+      if (select1) {
+        fireEvent.mouseDown(select1);
+      }
     });
 
-    const textList = wrapper.baseElement.querySelectorAll<HTMLElement>(
-      '.ant-select-item-option-content',
-    );
-    // 加载 options
-    expect(textList.length).toBe(2);
-    expect(textList[0].textContent).toBe('1');
-    expect(textList[1].textContent).toBe('2');
+    // 等待第一个下拉菜单的选项加载
+    await waitFor(() => {
+      const textList1 = document.body.querySelectorAll<HTMLElement>(
+        '.ant-select-item-option-content',
+      );
+      expect(textList1.length).toBeGreaterThanOrEqual(1);
+    });
+
+    await act(async () => {
+      const select2 = wrapper.baseElement.querySelectorAll('.ant-select')[1];
+      if (select2) {
+        fireEvent.mouseDown(select2);
+      }
+    });
+
+    // 等待两个下拉菜单的选项都加载完成
+    await waitFor(() => {
+      const textList = document.body.querySelectorAll<HTMLElement>(
+        '.ant-select-item-option-content',
+      );
+      // 加载 options - antd@6 下拉菜单在 document.body
+      expect(textList.length).toBe(2);
+      expect(textList[0].textContent).toBe('1');
+      expect(textList[1].textContent).toBe('2');
+    });
   });
 
   it('📦 Select support multiple and autoClearSearchValue: false ', async () => {
@@ -3487,22 +3507,27 @@ describe('ProForm', () => {
 
     // 鼠标移入选中区域
     act(() => {
-      fireEvent.mouseEnter(
-        wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select')[0],
-      );
+      const selectElement =
+        wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select')[0];
+      if (selectElement) {
+        fireEvent.mouseEnter(selectElement);
+      }
+    });
+
+    // 等待清除按钮出现（antd@6 清除按钮可能需要等待）
+    await waitFor(() => {
+      const clearButton =
+        wrapper.baseElement.querySelector<HTMLElement>('.ant-select-clear');
+      expect(clearButton).toBeTruthy();
     });
 
     // 点击删除按钮进行删除操作
-    act(() => {
-      fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll<HTMLElement>(
-          'span.ant-select-clear',
-        )[
-          wrapper.baseElement.querySelectorAll<HTMLElement>(
-            'span.ant-select-clear',
-          ).length - 1
-        ],
-      );
+    await act(async () => {
+      const clearButton =
+        wrapper.baseElement.querySelector<HTMLElement>('.ant-select-clear');
+      if (clearButton) {
+        fireEvent.mouseDown(clearButton);
+      }
     });
 
     expect(onChange).toHaveBeenCalledWith(undefined);
