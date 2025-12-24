@@ -55,7 +55,6 @@ export const LightSelect: React.ForwardRefRenderFunction<
     onChange,
     value,
     mode,
-    children,
     defaultValue,
     size,
     showSearch,

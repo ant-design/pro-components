@@ -1,6 +1,5 @@
 import type { SelectProps } from 'antd';
 import { ConfigProvider, Spin } from 'antd';
-import type { ReactNode } from 'react';
 import React, {
   useContext,
   useEffect,
@@ -49,7 +48,6 @@ export type FieldSelectProps<FieldProps = any> = {
   variant?: 'outlined' | 'filled' | 'borderless';
   id?: string;
 
-  children?: ReactNode;
   /** 默认搜素条件 */
   defaultKeyWords?: string;
 } & ProFieldLightProps;
@@ -396,8 +394,6 @@ const FieldSelect: ProFieldFC<
     formItemRender,
     request,
     fieldProps,
-    plain,
-    children,
     light,
     proFieldKey,
     params,
