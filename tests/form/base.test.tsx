@@ -1684,33 +1684,54 @@ describe('ProForm', () => {
 
     // antd@6: 清空搜索关键词以显示所有选项，通过重新打开下拉菜单触发 searchOnFocus
     await act(async () => {
-      const selector = wrapper.baseElement.querySelectorAll('.ant-select')[0];
-      if (selector) {
-        // 先关闭下拉菜单（通过点击外部或 blur）
-        const input = wrapper.baseElement.querySelector('.ant-select-input');
-        if (input) {
-          fireEvent.blur(input);
-        }
-        // 等待下拉菜单关闭
-        await waitForWaitTime(100);
-        // 然后重新打开，触发 searchOnFocus
-        fireEvent.mouseDown(selector);
+      const selector = wrapper.baseElement.querySelector('.ant-select');
+      const input = wrapper.baseElement.querySelector(
+        '.ant-select-input',
+      ) as HTMLInputElement;
+      if (selector && input) {
+        // 先清空输入框的值
+        fireEvent.change(input, {
+          target: { value: '' },
+        });
+        // 等待输入框值更新
+        await waitForWaitTime(50);
+        // 关闭下拉菜单（通过点击外部或 blur）
+        fireEvent.blur(input);
       }
     });
-    // antd@6 需要先打开下拉菜单才能访问输入框
+
+    // 等待下拉菜单完全关闭（包括动画完成）
+    await waitFor(
+      () => {
+        const selector = wrapper.baseElement.querySelector('.ant-select');
+        const dropdown = document.body.querySelector('.ant-select-dropdown');
+        expect(selector?.classList.contains('ant-select-open')).toBe(false);
+        // 确保下拉菜单不在关闭动画中
+        expect(dropdown?.classList.contains('ant-slide-up-leave-active')).toBe(
+          false,
+        );
+      },
+      { timeout: 1000 },
+    );
+
+    // 重新打开下拉菜单，触发 searchOnFocus
     await act(async () => {
       const selector = wrapper.baseElement.querySelector('.ant-select');
       if (selector) {
         fireEvent.mouseDown(selector);
       }
     });
-    // 等待 searchOnFocus 触发 fetchData(undefined) 并更新选项
+
+    // 等待下拉菜单打开并选项加载完成
     await waitFor(
       () => {
-        expect(
-          document.body.querySelectorAll<HTMLElement>('.ant-select-item')
-            .length,
-        ).toBe(4);
+        const selector = wrapper.baseElement.querySelector('.ant-select');
+        expect(selector?.classList.contains('ant-select-open')).toBe(true);
+        // 使用更精确的选择器 .ant-select-item.ant-select-item-option
+        const items = document.body.querySelectorAll<HTMLElement>(
+          '.ant-select-item.ant-select-item-option',
+        );
+        expect(items.length).toBe(4);
       },
       { timeout: 3000 },
     );
