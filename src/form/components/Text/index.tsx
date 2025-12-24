@@ -85,8 +85,10 @@ const PassWordStrength: React.FC<
                 ) : null}
               </div>
             }
-            overlayStyle={{
-              width: 240,
+            styles={{
+              root: {
+                width: 240,
+              },
             }}
             placement="rightTop"
             {...props.popoverProps}

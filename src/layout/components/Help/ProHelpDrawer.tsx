@@ -26,7 +26,7 @@ export const ProHelpDrawer: React.FC<ProHelpDrawerProps> = ({
   });
   return (
     <Drawer
-      size={720}
+      width={720}
       closeIcon={null}
       styles={{
         header: {

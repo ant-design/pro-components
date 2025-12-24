@@ -517,7 +517,9 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
           ) : null}
         </div>
       }
-      overlayClassName={`${className}-overlay ${hashId}`.trim()}
+      classNames={{
+        root: `${className}-overlay ${hashId}`.trim(),
+      }}
       trigger="click"
       placement="bottomRight"
       content={
