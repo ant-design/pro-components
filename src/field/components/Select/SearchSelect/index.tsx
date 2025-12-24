@@ -128,7 +128,8 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
     showSearch,
     fieldNames,
     defaultSearchValue,
-    preserveOriginalLabel = false,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    preserveOriginalLabel: _preserveOriginalLabel = false,
     ...restProps
   } = props;
 
@@ -166,6 +167,47 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
     [`${prefixCls}-disabled`]: disabled,
   });
 
+  // 获取原始 label 的辅助函数
+  const getOriginalLabel = (item: any, fallbackValue: any): string => {
+    // 优先使用 dataItem.label（原始字符串），避免使用 value.label（可能是 optionItemRender 渲染的组件）
+    if (item && typeof item.label === 'string' && item.label) {
+      return item.label;
+    }
+    if (item && item.text && typeof item.text === 'string') {
+      return item.text;
+    }
+    if (item && item.label) {
+      return String(item.label);
+    }
+    if (item && item.text) {
+      return String(item.text);
+    }
+    // 如果 dataItem 不存在，尝试从 value 中提取原始 label
+    // 但 value.label 可能是组件，需要从组件中提取原始 label
+    if (fallbackValue && fallbackValue.label) {
+      // 如果是 React 元素（Highlight 组件），尝试提取其 props.label
+      // 检查多种可能的 React 元素格式
+      const labelValue = fallbackValue.label;
+      if (
+        (React.isValidElement(labelValue) ||
+          (labelValue &&
+            typeof labelValue === 'object' &&
+            'props' in labelValue)) &&
+        labelValue.props &&
+        labelValue.props.label
+      ) {
+        return String(labelValue.props.label);
+      }
+      // 如果是字符串，直接返回
+      if (typeof labelValue === 'string') {
+        return labelValue;
+      }
+      // 最后尝试转换为字符串
+      return String(labelValue);
+    }
+    return '';
+  };
+
   const getMergeValue: SelectProps<any>['onChange'] = (value, option) => {
     if (Array.isArray(value) && Array.isArray(option) && value.length > 0) {
       // 多选情况且用户有选择
@@ -175,12 +217,12 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
           index
         ] as DefaultOptionType;
         const dataItem = optionItem?.['data-item'];
+        const originalLabel = getOriginalLabel(dataItem, item);
 
         return {
           ...(dataItem || {}),
           ...item,
-          label:
-            preserveOriginalLabel && dataItem ? dataItem.label : item.label,
+          label: originalLabel || item.label,
         };
       });
     }
@@ -334,47 +376,6 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
             };
             foundDataItem = findDataItem(options);
           }
-
-          // 获取原始 label 的辅助函数
-          const getOriginalLabel = (item: any, fallbackValue: any): string => {
-            // 优先使用 dataItem.label（原始字符串），避免使用 value.label（可能是 optionItemRender 渲染的组件）
-            if (item && typeof item.label === 'string' && item.label) {
-              return item.label;
-            }
-            if (item && item.text && typeof item.text === 'string') {
-              return item.text;
-            }
-            if (item && item.label) {
-              return String(item.label);
-            }
-            if (item && item.text) {
-              return String(item.text);
-            }
-            // 如果 dataItem 不存在，尝试从 value 中提取原始 label
-            // 但 value.label 可能是组件，需要从组件中提取原始 label
-            if (fallbackValue && fallbackValue.label) {
-              // 如果是 React 元素（Highlight 组件），尝试提取其 props.label
-              // 检查多种可能的 React 元素格式
-              const labelValue = fallbackValue.label;
-              if (
-                (React.isValidElement(labelValue) ||
-                  (labelValue &&
-                    typeof labelValue === 'object' &&
-                    'props' in labelValue)) &&
-                labelValue.props &&
-                labelValue.props.label
-              ) {
-                return String(labelValue.props.label);
-              }
-              // 如果是字符串，直接返回
-              if (typeof labelValue === 'string') {
-                return labelValue;
-              }
-              // 最后尝试转换为字符串
-              return String(labelValue);
-            }
-            return '';
-          };
 
           // 如果value值为空则是清空时产生的回调,直接传值就可以了
           if (!value || !foundDataItem) {
