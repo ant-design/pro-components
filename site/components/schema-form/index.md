@@ -78,22 +78,36 @@ SchemaForm 表单最重要就是 Schema 的类型定义，我们使用了与 tab
 | `defaultKeyWords`     | `string`                                                                       | 搜索时的默认关键字                                                                                                                                                                       |
 | `ignoreFormItem`      | `boolean`                                                                      | 不包裹 Form.Item，直接渲染组件                                                                                                                                                           |
 
-## 代码示例
+## 代码示例 - 布局类型
 
-<code src="../../../demos/form/SchemaForm/schema.tsx" title="schema 表单"></code>
+### 基础表单 (Form)
 
-<code src="../../../demos/form/SchemaForm/ModalAndDrawerForm.tsx" title="浮层窗口"></code>
+<code src="../../../demos/form/SchemaForm/schema.tsx" title="基础 Schema 表单"></code>
 
-<code src="../../../demos/form/SchemaForm/steps-form.tsx" title="JSON 来生成分步表单"></code>
+### 浮层表单 (ModalForm & DrawerForm)
+
+<code src="../../../demos/form/SchemaForm/ModalAndDrawerForm.tsx" title="ModalForm 和 DrawerForm"></code>
+
+### 分步表单 (StepsForm)
+
+<code src="../../../demos/form/SchemaForm/steps-form.tsx" title="JSON 生成分步表单"></code>
+
+### 嵌入模式 (Embed)
 
 <code src="../../../demos/form/SchemaForm/embed.tsx" title="嵌入到 ProForm 中"></code>
 
+## 高级用法
+
+### 表单联动
+
 <code src="../../../demos/form/SchemaForm/dependency.tsx" title="使用 ProFormDependency"></code>
 
-## 高性能代码示例
+### 高性能模式
 
 <code src="../../../demos/form/SchemaForm/dependencies.tsx" title="结合 shouldUpdate=false 和 dependencies 触发更新"></code>
 
 <code src="../../../demos/form/SchemaForm/dynamic-rerender.tsx" title="动态控制是否重渲染"></code>
 
-<code src="../../../demos/form/SchemaForm/form-list-required.tsx" title="required" debug  title="form-list-required"></code>
+### 列表配置 (FormList)
+
+<code src="../../../demos/form/SchemaForm/form-list-required.tsx" title="FormList Required 校验" debug></code>
