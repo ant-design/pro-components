@@ -23,7 +23,7 @@ legacy: /table
 
 <code src="../../../demos/table/lightfilter.tsx"  background="var(--main-bg-color)" title="轻量筛选替换查询表单"></code>
 
-<code src="../../../demos/table/no-title.tsx"  background="var(--main-bg-color)" title="无 ToolBar 的表格"></code>
+<code src="../../../demos/table/no-title.tsx" id="no-title-table" background="var(--main-bg-color)" title="无 ToolBar 的表格"></code>
 
 ## 必填的查询表单
 
@@ -229,7 +229,7 @@ const values = useContext(ProProvider)
 
 <code src="../../../demos/table/ListToolBar/basic.tsx" background="var(--main-bg-color)" title="列表工具栏-基本使用"></code>
 
-<code src="../../../demos/table/ListToolBar/no-title.tsx" background="var(--main-bg-color)" title="无标题" desc="列表工具栏-没有标题的情况下搜索框会前置。"></code>
+<code src="../../../demos/table/ListToolBar/no-title.tsx" id="listToolBar-no-title" background="var(--main-bg-color)" title="无标题" desc="列表工具栏-没有标题的情况下搜索框会前置。"></code>
 
 <code src="../../../demos/table/ListToolBar/multipleLine.tsx" background="var(--main-bg-color)" title="双行布局" desc="列表工具栏-双行的情况下会有双行的布局形式。"></code>
 

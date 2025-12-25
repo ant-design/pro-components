@@ -182,7 +182,7 @@ formRef 内置了几个方法来获取转化之后的值，这也是相比 antd 
 
 <code src="../../../demos/form/dependency.tsx" title="表单联动"></code>
 
-<code src="../../../demos/form/formRef.tsx" description="
+<code src="../../../demos/form/formRef.tsx" id="formRef-usage" description="
 你可以通过 `formRef` 获取到表单实例的引用，通过引用可以调用表单方法实现表单重置，设置表单，获取表单值等功能。" title="表单方法调用"></code>
 
 ### 同步提交结果到 url
@@ -376,7 +376,7 @@ ProFormInstance 与 antd 的 form 相比增加了一些能力。
 
 该属性是 ProForm 在原有的 Antd 的 `FormInstance` 的基础上做的一个上层分装，增加了一些更加便捷的方法。使用方式如下：
 
-<code src="../../../demos/form/formRef.tsx" title="formRef的使用"></code>
+<code src="../../../demos/form/formRef.tsx" id="formRef-api" title="formRef的使用"></code>
 
 ```tsx | pure
 import type { ProFormInstance } from '@ant-design/pro-components';

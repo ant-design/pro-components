@@ -62,16 +62,16 @@ pnpm install
 
 ### Change Cheat Sheet
 
-| Component    | Old Usage                             | New Usage                                      | Suggestion                                                                                                                                           |
-| ------------ | ------------------------------------- | ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ProTable     | `columnsStateMap`                     | `columnsState.value` + `columnsState.onChange` | Migrate the original state object to `columnsState.value` and use `onChange` for events; if persistence is needed, add `persistenceKey`.             |
-| ProTable     | `hideInSearch`                        | `search: false`                                | Use `search` configuration to control the display of the search area, supporting object expansion.                                                   |
-| ProTable     | `fixHeader`                           | `scroll: { y: number }`                        | Use antd Table native `scroll` property and set height as needed.                                                                                    |
-| ProTable     | `tip`                                 | `tooltip`                                      | Migrate column hints to `tooltip`, reusable with antd `LabelTooltipType`.                                                                            |
-| ProCard      | `ProCard.TabPane`                     | `tabs.items`                                   | Use antd `Tabs`'s `items` property to describe tabs, and pass other `tabs` configurations.                                                           |
-| ProCard      | `StatisticsCardProps`                 | `StatisticCardProps`                           | Update type references to avoid compilation errors.                                                                                                  |
-| ProLayout    | `rightContentRender`                  | `actionsRender` + `avatarProps`                | Split the original right side content into action area and avatar configuration for independent maintenance.                                         |
-| Layout Token | `marginInlinePageContainerContent` etc. | `paddingInlinePageContainerContent` etc.       | Replace Token names comprehensively to maintain theme granularity consistency.                                                                       |
+| Component    | Old Usage                               | New Usage                                      | Suggestion                                                                                                                               |
+| ------------ | --------------------------------------- | ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| ProTable     | `columnsStateMap`                       | `columnsState.value` + `columnsState.onChange` | Migrate the original state object to `columnsState.value` and use `onChange` for events; if persistence is needed, add `persistenceKey`. |
+| ProTable     | `hideInSearch`                          | `search: false`                                | Use `search` configuration to control the display of the search area, supporting object expansion.                                       |
+| ProTable     | `fixHeader`                             | `scroll: { y: number }`                        | Use antd Table native `scroll` property and set height as needed.                                                                        |
+| ProTable     | `tip`                                   | `tooltip`                                      | Migrate column hints to `tooltip`, reusable with antd `LabelTooltipType`.                                                                |
+| ProCard      | `ProCard.TabPane`                       | `tabs.items`                                   | Use antd `Tabs`'s `items` property to describe tabs, and pass other `tabs` configurations.                                               |
+| ProCard      | `StatisticsCardProps`                   | `StatisticCardProps`                           | Update type references to avoid compilation errors.                                                                                      |
+| ProLayout    | `rightContentRender`                    | `actionsRender` + `avatarProps`                | Split the original right side content into action area and avatar configuration for independent maintenance.                             |
+| Layout Token | `marginInlinePageContainerContent` etc. | `paddingInlinePageContainerContent` etc.       | Replace Token names comprehensively to maintain theme granularity consistency.                                                           |
 
 ### Table Component
 

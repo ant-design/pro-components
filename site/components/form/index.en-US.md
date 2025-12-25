@@ -64,13 +64,13 @@ ProForm is the best choice when you want to implement a form quickly but don't w
 
 ProForm is a degradable encapsulation based on antd Form, fully aligned with antd functionality, but adds some preset behaviors and multiple layouts on top of it. These layouts can be switched seamlessly and share a common API.
 
-| Layout | Usage Scenario |
-| --- | --- |
-| [ProForm](/components/form#proform) | Standard Form, adds automatic `loading` in `onFinish` and automatic retrieval of default values ​​based on `request`. |
-| [ModalForm\|DrawerForm](/components/modal-form) | Added `trigger` on the basis of ProForm, no need to maintain `open` status. |
-| [QueryFilter](/components/query-filter) | Generally used as a filter form, needs to be used with other data display components. |
-| [LightFilter](/components/query-filter) | Generally used as an inline built-in filter, such as card action bar and table action bar. |
-| [StepsForm](/components/steps-form) | Step form, needs to be used with StepForm configuration. |
+| Layout                                          | Usage Scenario                                                                                                        |
+| ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| [ProForm](/components/form#proform)             | Standard Form, adds automatic `loading` in `onFinish` and automatic retrieval of default values ​​based on `request`. |
+| [ModalForm\|DrawerForm](/components/modal-form) | Added `trigger` on the basis of ProForm, no need to maintain `open` status.                                           |
+| [QueryFilter](/components/query-filter)         | Generally used as a filter form, needs to be used with other data display components.                                 |
+| [LightFilter](/components/query-filter)         | Generally used as an inline built-in filter, such as card action bar and table action bar.                            |
+| [StepsForm](/components/steps-form)             | Step form, needs to be used with StepForm configuration.                                                              |
 
 <code src="../../../demos/form/layout-change.tsx" title="Form layout switching"></code>
 
@@ -182,7 +182,7 @@ Supported in `ProForm`, `SchemaForm`, `ModalForm`, `DrawerForm`, `StepsForm`
 
 <code src="../../../demos/form/dependency.tsx" title="Form Linkage"></code>
 
-<code src="../../../demos/form/formRef.tsx" description="
+<code src="../../../demos/form/formRef.tsx" id="formRef-usage" description="
 You can get a reference to the form instance via `formRef`, through which you can call form methods to implement form reset, set form, get form values, etc." title="Form Method Call"></code>
 
 ### Sync submission results to url
@@ -241,31 +241,31 @@ ProForm is a repackaging of antd Form, if you want to customize form elements, P
 
 > antd's Form api View [here](https://ant.design/components/form/), initialValues related knowledge view [here](https://procomponents.ant.design/docs/faq)
 
-| Parameters | Description | Type | Default |
-| --- | --- | --- | --- |
-| onFinish | Callback event after form is submitted and data validation is successful, supports Promise, will automatically set button loading effect | `(formData: T) => Promise<boolean \| void> \| void` | - |
-| onReset | Callback for clicking the reset button | `(e) => void` | - |
-| submitter | Submitter button-related configuration | `SubmitterProps<{form?: FormInstance<any>}> \| false` | `true` |
-| loading | Form button loading state | `boolean` | - |
-| onLoadingChange | Callback when loading state changes | `(loading: boolean) => void` | - |
-| formRef | Get the form used by the form, ProFormInstance adds data formatting methods compared to antd Form | `React.MutableRefObject<ProFormRef<T> \| undefined> \| React.RefObject<ProFormRef<T> \| undefined>` | - |
-| syncToUrl | sync parameters to url, url only supports string, better read [documentation](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) before using | `boolean \| ((values: T, type: 'get' \| 'set') => T)` | - |
-| syncToUrlAsImportant | When syncToUrl is true, when the page is displayed, the parameters on the url are mainly used, default is false | `boolean` | `false` |
-| extraUrlParams | Extra url parameters | `Record<string, any>` | - |
-| syncToInitialValues | Sync results to initialValues, default is true, if false, data obtained from url will be ignored when form.reset | `boolean` | `true` |
-| omitNil | ProForm automatically clears null and undefined data, if you have agreed that nil means something, set to false to disable this feature | `boolean` | `true` |
-| dateFormatter | AutoFormat data, mainly moment/dayjs forms, supports string and number modes. you also can use formatter function to format date | `string \| 'string' \| 'number' \| ((value: dayjs.Dayjs, valueType: string) => string \| number) \| false` | `'string'` |
-| onInit | Form initialization successful, such as layout, label calculation completed | `(values: T, form: ProFormInstance<any>) => void` | - |
-| params | Parameters for initiating network requests, used in conjunction with request | `U` | - |
-| request | The parameters of the initiating network request, the return value will be overwritten to initialValues | `ProRequestData<T, U>` | - |
-| isKeyPressSubmit | Whether to use carriage return to submit | `boolean` | - |
-| formKey | Used to control whether the form key is the same, advanced usage | `string` | - |
-| autoFocusFirstInput | Auto focus the first input box of the form, only valid for types with input | `boolean` | - |
-| readonly | Whether read-only mode, effective for all form items, priority lower than readonly of form items | `boolean` | - |
-| grid | Enable grid mode, default width percentage, use `colProps` to control width [view example](/components/form#grid-layout) | `boolean` | `false` |
-| rowProps | Passed to `Row` when `grid` mode is enabled, only valid in `ProFormGroup`, `ProFormList`, `ProFormFieldSet` | [RowProps](https://ant.design/components/grid/#Row) | `{ gutter: 8 }` |
-| colProps | Passed to `Col` when `grid` mode is enabled, only valid in `ProFormGroup`, `ProFormList`, `ProFormFieldSet` | [ColProps](https://ant.design/components/grid/#Col) | `{ xs: 24 }` |
-| [(...)](https://ant.design/components/form-cn/) | Note that `LightFilter` and `QueryFilter` only support other antd `Form` component parameters except `wrapperCol` \| `labelCol` \| `layout` | - | - |
+| Parameters                                      | Description                                                                                                                                                  | Type                                                                                                       | Default         |
+| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------- | --------------- |
+| onFinish                                        | Callback event after form is submitted and data validation is successful, supports Promise, will automatically set button loading effect                     | `(formData: T) => Promise<boolean \| void> \| void`                                                        | -               |
+| onReset                                         | Callback for clicking the reset button                                                                                                                       | `(e) => void`                                                                                              | -               |
+| submitter                                       | Submitter button-related configuration                                                                                                                       | `SubmitterProps<{form?: FormInstance<any>}> \| false`                                                      | `true`          |
+| loading                                         | Form button loading state                                                                                                                                    | `boolean`                                                                                                  | -               |
+| onLoadingChange                                 | Callback when loading state changes                                                                                                                          | `(loading: boolean) => void`                                                                               | -               |
+| formRef                                         | Get the form used by the form, ProFormInstance adds data formatting methods compared to antd Form                                                            | `React.MutableRefObject<ProFormRef<T> \| undefined> \| React.RefObject<ProFormRef<T> \| undefined>`        | -               |
+| syncToUrl                                       | sync parameters to url, url only supports string, better read [documentation](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) before using | `boolean \| ((values: T, type: 'get' \| 'set') => T)`                                                      | -               |
+| syncToUrlAsImportant                            | When syncToUrl is true, when the page is displayed, the parameters on the url are mainly used, default is false                                              | `boolean`                                                                                                  | `false`         |
+| extraUrlParams                                  | Extra url parameters                                                                                                                                         | `Record<string, any>`                                                                                      | -               |
+| syncToInitialValues                             | Sync results to initialValues, default is true, if false, data obtained from url will be ignored when form.reset                                             | `boolean`                                                                                                  | `true`          |
+| omitNil                                         | ProForm automatically clears null and undefined data, if you have agreed that nil means something, set to false to disable this feature                      | `boolean`                                                                                                  | `true`          |
+| dateFormatter                                   | AutoFormat data, mainly moment/dayjs forms, supports string and number modes. you also can use formatter function to format date                             | `string \| 'string' \| 'number' \| ((value: dayjs.Dayjs, valueType: string) => string \| number) \| false` | `'string'`      |
+| onInit                                          | Form initialization successful, such as layout, label calculation completed                                                                                  | `(values: T, form: ProFormInstance<any>) => void`                                                          | -               |
+| params                                          | Parameters for initiating network requests, used in conjunction with request                                                                                 | `U`                                                                                                        | -               |
+| request                                         | The parameters of the initiating network request, the return value will be overwritten to initialValues                                                      | `ProRequestData<T, U>`                                                                                     | -               |
+| isKeyPressSubmit                                | Whether to use carriage return to submit                                                                                                                     | `boolean`                                                                                                  | -               |
+| formKey                                         | Used to control whether the form key is the same, advanced usage                                                                                             | `string`                                                                                                   | -               |
+| autoFocusFirstInput                             | Auto focus the first input box of the form, only valid for types with input                                                                                  | `boolean`                                                                                                  | -               |
+| readonly                                        | Whether read-only mode, effective for all form items, priority lower than readonly of form items                                                             | `boolean`                                                                                                  | -               |
+| grid                                            | Enable grid mode, default width percentage, use `colProps` to control width [view example](/components/form#grid-layout)                                     | `boolean`                                                                                                  | `false`         |
+| rowProps                                        | Passed to `Row` when `grid` mode is enabled, only valid in `ProFormGroup`, `ProFormList`, `ProFormFieldSet`                                                  | [RowProps](https://ant.design/components/grid/#Row)                                                        | `{ gutter: 8 }` |
+| colProps                                        | Passed to `Col` when `grid` mode is enabled, only valid in `ProFormGroup`, `ProFormList`, `ProFormFieldSet`                                                  | [ColProps](https://ant.design/components/grid/#Col)                                                        | `{ xs: 24 }`    |
+| [(...)](https://ant.design/components/form-cn/) | Note that `LightFilter` and `QueryFilter` only support other antd `Form` component parameters except `wrapperCol` \| `labelCol` \| `layout`                  | -                                                                                                          | -               |
 
 ### ProFormInstance
 
@@ -311,23 +311,23 @@ ProFormInstance adds some capabilities compared to antd's form.
 
 ### ProForm.Group
 
-| Parameters | Description | Type | Default |
-| --- | --- | --- | --- |
-| title | title | `string` | - |
-| children | form control or other element | `React.ReactNode` | - |
+| Parameters | Description                   | Type              | Default |
+| ---------- | ----------------------------- | ----------------- | ------- |
+| title      | title                         | `string`          | -       |
+| children   | form control or other element | `React.ReactNode` | -       |
 
 #### submitter
 
 While we would prefer not to modify the submitter, it is a common requirement to do so in use, and ProForm's components use the same API to support the requirement.
 
-| Parameters | Description | Type | Default |
-| --- | --- | --- | --- |
-| onSubmit | Submit method | `()=>void` | - |
-| onReset | Reset method | `()=>void` | - |
-| searchConfig | The configuration of the search, generally used to configure the text | `{resetText,submitText}` | - |
-| submitButtonProps | The props for the submit button | [ButtonProps](https://ant.design/components/button-cn/) | - |
-| resetButtonProps | The props for the reset button | [ButtonProps](https://ant.design/components/button-cn/) | - |
-| render | Rendering of custom actions | `false`\|`(props,dom:JSX[])=>ReactNode[]` | - |
+| Parameters        | Description                                                           | Type                                                    | Default |
+| ----------------- | --------------------------------------------------------------------- | ------------------------------------------------------- | ------- |
+| onSubmit          | Submit method                                                         | `()=>void`                                              | -       |
+| onReset           | Reset method                                                          | `()=>void`                                              | -       |
+| searchConfig      | The configuration of the search, generally used to configure the text | `{resetText,submitText}`                                | -       |
+| submitButtonProps | The props for the submit button                                       | [ButtonProps](https://ant.design/components/button-cn/) | -       |
+| resetButtonProps  | The props for the reset button                                        | [ButtonProps](https://ant.design/components/button-cn/) | -       |
+| render            | Rendering of custom actions                                           | `false`\|`(props,dom:JSX[])=>ReactNode[]`               | -       |
 
 > The second argument to render is the default dom array, the first is the submit button and the second is the reset button.
 
@@ -376,7 +376,7 @@ While we would prefer not to modify the submitter, it is a common requirement to
 
 This property is a high-level wrapper made by ProForm based on the original Antd's `FormInstance`, adding some more convenient methods. Usage is as follows:
 
-<code src="../../../demos/form/formRef.tsx" title="Usage of formRef"></code>
+<code src="../../../demos/form/formRef.tsx" id="formRef-api" title="Usage of formRef"></code>
 
 ```tsx | pure
 import type { ProFormInstance } from '@ant-design/pro-components';
@@ -411,7 +411,9 @@ export default () => {
   };
 
   const getCompanyName = () => {
-    message.info(`Company name is "${formRef?.current?.getFieldValue('company')}"`);
+    message.info(
+      `Company name is "${formRef?.current?.getFieldValue('company')}"`,
+    );
   };
 
   const getFormatValues = () => {
@@ -484,11 +486,11 @@ export default () => {
 
 `ProFormInstance` adds the following methods based on `FormInstance`:
 
-| Method Name | Usage Description | Remarks |
-| :---: | :---: | :---: |
-| `getFieldsFormatValue` | Usage is the same as `FormInstance`'s `getFieldsValue` method, returns all formatted data | |
-| `getFieldFormatValue` | Usage is the same as `FormInstance`'s `getFieldValue` method, returns formatted specified data | |
-| `validateFieldsReturnFormatValue` | Usage is the same as `FormInstance`'s `validateFields` method, returns all formatted data after validation passes | |
+|            Method Name            |                                                 Usage Description                                                 | Remarks |
+| :-------------------------------: | :---------------------------------------------------------------------------------------------------------------: | :-----: |
+|      `getFieldsFormatValue`       |             Usage is the same as `FormInstance`'s `getFieldsValue` method, returns all formatted data             |         |
+|       `getFieldFormatValue`       |          Usage is the same as `FormInstance`'s `getFieldValue` method, returns formatted specified data           |         |
+| `validateFieldsReturnFormatValue` | Usage is the same as `FormInstance`'s `validateFields` method, returns all formatted data after validation passes |         |
 
 <code src="../../../demos/form/modalform-test.tsx"  debug></code>
 
