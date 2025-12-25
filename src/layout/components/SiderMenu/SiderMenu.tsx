@@ -262,7 +262,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
           {...props}
           key="base-menu"
           mode={collapsed && !isMobile ? 'vertical' : 'inline'}
-          handleOpenChange={onOpenChange}
+          onOpenChange={onOpenChange}
           style={{
             width: '100%',
           }}

@@ -1031,6 +1031,11 @@ const ProTable = <
 
   /** 绑定 action */
   useActionType(actionRef, action, {
+    nativeElement: counter.rootDomRef?.current || undefined,
+    focus: () => {
+      // 聚焦到表格根元素
+      counter.rootDomRef?.current?.focus();
+    },
     fullScreen: () => {
       if (!counter.rootDomRef?.current || !document.fullscreenEnabled) {
         return;

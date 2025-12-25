@@ -88,6 +88,8 @@ export function useActionType<T>(
   ref: React.MutableRefObject<ActionType | undefined>,
   action: UseFetchDataAction<T>,
   props: {
+    nativeElement?: HTMLDivElement;
+    focus?: () => void;
     fullScreen: () => void;
     onCleanSelected: () => void;
     resetAll: () => void;
@@ -100,6 +102,8 @@ export function useActionType<T>(
   const userAction: ActionType = {
     ...props.editableUtils,
     pageInfo: action.pageInfo,
+    nativeElement: props.nativeElement,
+    focus: props.focus,
     reload: async (resetPageIndex?: boolean) => {
       // 如果为 true，回到第一页
       if (resetPageIndex) {

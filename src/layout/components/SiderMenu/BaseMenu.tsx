@@ -69,7 +69,7 @@ export type BaseMenuProps = {
   mode?: MenuMode;
   onCollapse?: (collapsed: boolean) => void;
   openKeys?: WithFalse<string[]> | undefined;
-  handleOpenChange?: (openKeys: string[]) => void;
+  onOpenChange?: (openKeys: string[]) => void;
   iconPrefixes?: string;
   /** 要给菜单的props, 参考antd-menu的属性。https://ant.design/components/menu-cn/ */
   menuProps?: MenuProps;
@@ -552,7 +552,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   const {
     mode,
     className,
-    handleOpenChange,
+    onOpenChange,
     style,
     menuData,
     prefixCls,
@@ -589,7 +589,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     },
     {
       value: propsOpenKeys === false ? undefined : propsOpenKeys,
-      onChange: handleOpenChange as any,
+      onChange: onOpenChange as any,
     },
   );
 
@@ -698,7 +698,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   // 这次 openKeys === false 的时候的情况，这种情况下帮用户选中一次
   // 第二此不会使用，所以用了 defaultOpenKeys
   // 这里返回 null，是为了让 defaultOpenKeys 生效
-  if (props.openKeys === false && !props.handleOpenChange) {
+  if (props.openKeys === false && !props.onOpenChange) {
     defaultOpenKeysRef.current = matchMenuKeys;
   }
 

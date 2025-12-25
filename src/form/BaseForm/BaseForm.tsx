@@ -56,7 +56,10 @@ const { noteOnce } = warning;
 // Define ProFormInstance and ProFormRef
 export type ProFormInstance<T = any> = FormInstance<T> & ProFormInstanceType<T>;
 type ProFormRef<T> = ProFormInstance<T> & {
+  /** 原生 DOM 元素引用 */
   nativeElement?: HTMLElement;
+  /** 聚焦方法 */
+  focus?: () => void;
 };
 
 export type CommonFormProps<
@@ -934,6 +937,13 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
               ref={(instance) => {
                 if (!formRef.current) return;
                 formRef.current.nativeElement = instance?.nativeElement;
+                formRef.current.focus = () => {
+                  // 聚焦到表单的第一个输入框
+                  const firstInput = instance?.nativeElement?.querySelector(
+                    'input, textarea, select',
+                  ) as HTMLElement;
+                  firstInput?.focus();
+                };
               }}
               // 组合 urlSearch 和 initialValues
               initialValues={
