@@ -12,7 +12,7 @@ export default () => {
         formProps={{
           onValuesChange: (e, f) => console.log(f),
         }}
-        title="可编辑的定义列表"
+        
         request={async () => {
           return Promise.resolve({
             success: true,
@@ -111,7 +111,7 @@ export default () => {
             valueType: 'money',
             render: (dom, entity, index, action) => {
               return (
-                <Tooltip title="点击进入编辑状态">
+                <Tooltip >
                   <div
                     onClick={() => {
                       action?.startEditable('money');

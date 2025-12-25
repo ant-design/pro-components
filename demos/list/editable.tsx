@@ -40,7 +40,7 @@ export default () => {
   return (
     <ProList<DataItem>
       rowKey="id"
-      headerTitle="基础列表"
+      
       dataSource={dataSource}
       showActions="hover"
       editable={{

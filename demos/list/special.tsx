@@ -96,7 +96,7 @@ export default () => {
           </Button>,
         ]}
         rowKey="id"
-        headerTitle="预设的列状态"
+        
         rowSelection={rowSelection}
         dataSource={dataSource}
         expandable={{

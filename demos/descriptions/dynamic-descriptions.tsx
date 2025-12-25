@@ -128,7 +128,7 @@ export default () => {
       >
         <ProCard colSpan="calc(100% - 580px)">
           <ProDescriptions
-            title="高级定义列表"
+            
             {...values}
             columns={values?.columns?.filter(Boolean) || []}
             request={async () => {

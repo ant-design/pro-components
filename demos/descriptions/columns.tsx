@@ -4,7 +4,7 @@ export default () => {
   return (
     <>
       <ProDescriptions
-        title="高级定义列表request columns"
+        
         request={async () => {
           return Promise.resolve({
             success: true,

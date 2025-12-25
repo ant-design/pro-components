@@ -217,7 +217,7 @@ export default () => {
           x: 960,
         }}
         actionRef={actionRef}
-        headerTitle="可编辑表格"
+        
         maxLength={5}
         // 关闭默认的新建按钮
         recordCreatorProps={false}

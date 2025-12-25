@@ -126,7 +126,7 @@ export default () => {
         }
         rowKey="id"
         dateFormatter="string"
-        headerTitle="高级表格"
+        
         toolBarRender={() => [
           <Button key="3" type="primary">
             <PlusOutlined />

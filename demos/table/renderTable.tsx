@@ -153,7 +153,7 @@ export default () => {
         };
       }}
       dateFormatter="string"
-      headerTitle="自定义表格主体"
+      
     />
   );
 

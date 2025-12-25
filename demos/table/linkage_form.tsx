@@ -147,7 +147,7 @@ export default () => {
       rowKey="key"
       tableLayout="fixed"
       dateFormatter="string"
-      headerTitle="动态自定义搜索栏"
+      
       search={{
         defaultCollapsed: false,
         optionRender: (searchConfig, formProps, dom) => [

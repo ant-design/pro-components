@@ -97,7 +97,7 @@ export default () => {
   return (
     <>
       <EditableProTable<DataSourceType>
-        headerTitle="可编辑表格"
+        
         columns={columns}
         rowKey="id"
         scroll={{

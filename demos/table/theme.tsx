@@ -199,7 +199,7 @@ export default () => {
             onChange: (page) => console.log(page),
           }}
           dateFormatter="string"
-          headerTitle="高级表格"
+          
           toolBarRender={() => [
             <Button key="button" icon={<PlusOutlined />} type="primary">
               新建

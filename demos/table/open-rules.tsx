@@ -145,7 +145,7 @@ export default () => {
           ignoreRules: false,
         }}
         dateFormatter="string"
-        headerTitle="高级表格"
+        
       />
       <ProTable<GithubIssueItem>
         columns={columns}
@@ -180,7 +180,7 @@ export default () => {
           labelWidth: 'auto',
         }}
         dateFormatter="string"
-        headerTitle="高级表格"
+        
       />
     </>
   );

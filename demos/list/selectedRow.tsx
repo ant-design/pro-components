@@ -78,7 +78,7 @@ export default () => {
         },
       }}
       rowKey="title"
-      headerTitle="支持选中的列表"
+      
       rowSelection={rowSelection}
       dataSource={dataSource}
     />

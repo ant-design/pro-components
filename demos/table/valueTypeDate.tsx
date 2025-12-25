@@ -132,7 +132,7 @@ export default () => (
         });
       }}
       rowKey="key"
-      headerTitle="日期类"
+      
     />
     <div
       style={{

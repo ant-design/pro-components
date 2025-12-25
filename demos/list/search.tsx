@@ -29,7 +29,7 @@ export default () => (
     }}
     search={{}}
     rowKey="name"
-    headerTitle="基础列表"
+    
     request={async (params = {} as Record<string, any>) =>
       request<{
         data: GithubIssueItem[];

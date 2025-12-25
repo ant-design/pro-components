@@ -37,7 +37,7 @@ export default () => {
       }}
       itemLayout="vertical"
       rowKey="id"
-      headerTitle="竖排样式"
+      
       dataSource={dataSource}
       metas={{
         title: {},

@@ -145,7 +145,7 @@ export default () => {
       expandable={{ expandedRowRender }}
       search={false}
       dateFormatter="string"
-      headerTitle="嵌套表格"
+      
       options={false}
       toolBarRender={() => [
         <Button key="show">查看日志</Button>,

@@ -201,7 +201,7 @@ export default () => {
         onChange: (page) => console.log(page),
       }}
       dateFormatter="string"
-      headerTitle="Advanced Table"
+      
       toolBarRender={() => [
         <Button
           key="button"
