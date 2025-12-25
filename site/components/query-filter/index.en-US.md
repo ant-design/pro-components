@@ -1,6 +1,4 @@
 ---
-nav:
-  title: Form
 title: Query/LightFilter
 atomId: QueryFilter,LightFilter
 group: Form

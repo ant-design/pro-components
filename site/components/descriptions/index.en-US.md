@@ -1,6 +1,4 @@
 ---
-nav:
-  title: Descriptions
 title: ProDescriptions - Definition List
 atomId: ProDescriptions
 order: 1

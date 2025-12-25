@@ -1,6 +1,4 @@
 ---
-nav:
-  title: Schema
 group: Schema
 title: Schema - Universal Configuration
 atomId: Schema

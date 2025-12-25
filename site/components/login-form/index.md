@@ -1,6 +1,4 @@
 ---
-nav:
-  title: Form
 group: Form
 title: LoginForm/Page - 登录表单
 atomId: LoginForm,PageForm

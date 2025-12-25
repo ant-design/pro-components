@@ -1,6 +1,4 @@
 ---
-nav:
-  title: Form
 title: ProForm - Advanced Form
 atomId: ProForm
 order: 1

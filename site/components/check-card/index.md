@@ -1,6 +1,4 @@
 ---
-nav:
-  title: Card
 group: Card
 title: CheckCard - 多选卡片
 order: 1

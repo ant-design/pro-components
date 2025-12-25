@@ -1,10 +1,6 @@
 ---
 title: Schema Form - JSON Form
 order: 9
-nav:
-  title: Components
-  order: 100
-  path: /components
 ---
 
 # Schema Form - JSON Form

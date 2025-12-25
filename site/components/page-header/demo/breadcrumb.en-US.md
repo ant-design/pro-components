@@ -1,6 +1,4 @@
 ---
-nav:
-  title: Layout
 group: PageHeader
 order: 3
 title: Use with breadcrumbs

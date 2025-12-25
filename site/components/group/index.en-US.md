@@ -1,6 +1,4 @@
 ---
-nav:
-  title: Form
 title: Structured data
 atomId: ProFormList
 order: 1

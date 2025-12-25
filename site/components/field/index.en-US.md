@@ -1,6 +1,4 @@
 ---
-nav:
-  title: Field
 group: Field
 title: ProField - Atomic Component
 ---

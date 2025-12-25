@@ -1,6 +1,4 @@
 ---
-nav:
-  title: List
 title: ProList - Advanced List
 order: 12
 atomId: ProList

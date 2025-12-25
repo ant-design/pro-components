@@ -1,6 +1,4 @@
 ---
-nav:
-  title: Table
 group: Table
 title: ProTable - Advanced Table
 order: 0

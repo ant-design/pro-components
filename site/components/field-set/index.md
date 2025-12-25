@@ -1,6 +1,4 @@
 ---
-nav:
-  title: Form
 group: Form
 title: ProFormFields - 表单项
 atomId: ProFormText

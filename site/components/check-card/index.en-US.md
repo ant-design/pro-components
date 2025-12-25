@@ -1,6 +1,4 @@
 ---
-nav:
-  title: Card
 group: Card
 title: CheckCard - Multi-select Card
 order: 1

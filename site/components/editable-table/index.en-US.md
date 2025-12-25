@@ -1,6 +1,4 @@
 ---
-nav:
-  title: Table
 title: EditableProTable
 atomId: EditableProTable
 group: Table

@@ -1,6 +1,4 @@
 ---
-nav:
-  title: Layout
 group: PageHeader
 order: 2
 title: 白底模式

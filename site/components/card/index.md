@@ -1,6 +1,4 @@
 ---
-nav:
-  title: Card
 group: Card
 title: ProCard - 高级卡片
 atomId: ProCard

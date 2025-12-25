@@ -1,6 +1,4 @@
 ---
-nav:
-  title: Schema
 group: Schema
 title: Schema - 通用配置
 atomId: Schema

@@ -1,6 +1,4 @@
 ---
-nav:
-  title: Form
 group: Form
 title: Query/LightFilter - 筛选表单
 order: 1
