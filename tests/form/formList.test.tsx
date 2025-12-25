@@ -149,7 +149,7 @@ describe('ProForm List', () => {
                 variant="outlined"
                 style={{ marginBlockEnd: 8 }}
                 extra={action}
-                bodyStyle={{ paddingBlockEnd: 0 }}
+                styles={{ body: { paddingBlockEnd: 0 } }}
               >
                 {listDom}
               </ProCard>

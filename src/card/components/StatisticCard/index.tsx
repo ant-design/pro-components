@@ -89,7 +89,7 @@ const StatisticCard: React.FC<StatisticCardProps> & {
 };
 
 const Group: React.FC<StatisticCardProps> = (props) => (
-  <StatisticCard bodyStyle={{ padding: 0 }} {...props} />
+  <StatisticCard styles={{ body: { padding: 0 } }} {...props} />
 );
 
 StatisticCard.Statistic = Statistic;

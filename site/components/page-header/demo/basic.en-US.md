@@ -18,8 +18,8 @@ const App: React.FC = () => (
   <PageHeader
     className="site-page-header"
     onBack={() => null}
-    oldtitle="Title"
-    suboldtitle="This is a subtitle"
+    title="Title"
+    subTitle="This is a subtitle"
   />
 );
 
@@ -31,3 +31,4 @@ export default App;
   border: 1px solid rgb(235, 237, 240);
 }
 ```
+

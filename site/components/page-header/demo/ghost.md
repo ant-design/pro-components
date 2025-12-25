@@ -3,25 +3,25 @@ nav:
   title: Layout
 group: PageHeader
 order: 2
-title: white background mode
+title: 白底模式
 ---
 
-## white background mode
+## 白底模式
 
-The default PageHeader is a transparent background. In some cases, PageHeader needs its own background color.
+默认 PageHeader 是透明底色的。在某些情况下，PageHeader 需要自己的背景颜色。
 
 ```tsx
 import { Button, Descriptions } from 'antd';
-
 import React from 'react';
+import { PageHeader } from '@ant-design/pro-components';
 
 const App: React.FC = () => (
   <div className="site-page-header-ghost-wrapper">
     <PageHeader
       ghost={false}
       onBack={() => window.history.back()}
-      oldtitle="Title"
-      suboldtitle="This is a subtitle"
+      title="Title"
+      subTitle="This is a subtitle"
       extra={[
         <Button key="3">Operation</Button>,
         <Button key="2">Operation</Button>,
@@ -51,6 +51,7 @@ export default App;
 ```css
 .site-page-header-ghost-wrapper {
   padding: 24px;
-  background-color: hsl(220, 23%, 97%);
+  background-color: #f5f5f5;
 }
 ```
+

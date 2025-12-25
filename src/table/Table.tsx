@@ -715,7 +715,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
       <ProCard
         ghost={props.ghost}
         variant={isBordered('table', cardBordered) ? 'outlined' : 'borderless'}
-        bodyStyle={cardBodyStyle}
+        styles={{ body: cardBodyStyle }}
         {...propsCardProps}
       >
         {tableContentDom}

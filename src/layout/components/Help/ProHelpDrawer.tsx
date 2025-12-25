@@ -1,6 +1,7 @@
 ﻿import { useMergedState } from '@rc-component/util';
 import type { DrawerProps } from 'antd';
 import { Drawer } from 'antd';
+import React from 'react';
 import type { ProHelpPanelProps } from './ProHelpPanel';
 import { ProHelpPanel } from './ProHelpPanel';
 
@@ -26,7 +27,6 @@ export const ProHelpDrawer: React.FC<ProHelpDrawerProps> = ({
   });
   return (
     <Drawer
-      width={720}
       closeIcon={null}
       styles={{
         header: {
@@ -38,6 +38,7 @@ export const ProHelpDrawer: React.FC<ProHelpDrawerProps> = ({
       }}
       maskClosable
       {...drawerProps}
+      size={drawerProps.size ?? 720}
       open={drawerOpen}
       onClose={() => setDrawerOpen(false)}
       afterOpenChange={(open) => {

@@ -19,6 +19,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     style,
     bodyStyle,
     headStyle,
+    styles,
     title,
     subTitle,
     extra,
@@ -203,7 +204,9 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     [`${prefixCls}-body-wrap`]: wrap && containProCard,
   });
 
-  const cardBodyStyle = bodyStyle;
+  // 支持新的 styles API，同时保持向后兼容
+  const cardBodyStyle = styles?.body || bodyStyle;
+  const cardHeadStyle = styles?.header || headStyle;
 
   const loadingDOM = React.isValidElement(loading) ? (
     loading
@@ -211,7 +214,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     <Loading
       prefix={prefixCls}
       style={
-        bodyStyle?.padding === 0 || bodyStyle?.padding === '0px'
+        cardBodyStyle?.padding === 0 || cardBodyStyle?.padding === '0px'
           ? { padding: 24 }
           : undefined
       }
@@ -250,7 +253,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
             [`${prefixCls}-header-border`]: headerBordered || type === 'inner',
             [`${prefixCls}-header-collapsible`]: collapsibleButton,
           })}
-          style={headStyle}
+          style={cardHeadStyle}
           onClick={() => {
             if (collapsible === 'header' || collapsible === true)
               setCollapsed(!collapsed);

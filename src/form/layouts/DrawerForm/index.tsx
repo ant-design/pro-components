@@ -317,7 +317,9 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
         {...drawerProps}
         destroyOnHidden={drawerProps?.destroyOnHidden}
         title={title}
-        width={drawerWidth}
+        size={
+          typeof drawerWidth === 'number' ? drawerWidth : (drawerWidth as any)
+        }
         open={open}
         afterOpenChange={(open) => {
           if (!open && drawerProps?.destroyOnHidden) {

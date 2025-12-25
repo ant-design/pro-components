@@ -58,7 +58,7 @@ const Demo = () => {
                 style={{ marginBlockEnd: 8 }}
                 title={`规格${index + 1}`}
                 extra={action}
-                bodyStyle={{ paddingBlockEnd: 0 }}
+                styles={{ body: { paddingBlockEnd: 0 } }}
               >
                 {listDom}
               </ProCard>

@@ -32,11 +32,12 @@ const routes = [
 const App: React.FC = () => (
   <PageHeader
     className="site-page-header"
-    oldtitle="Title"
+    title="Title"
     breadcrumb={{ routes }}
-    suboldtitle="This is a subtitle"
+    subTitle="This is a subtitle"
   />
 );
 
 export default App;
 ```
+

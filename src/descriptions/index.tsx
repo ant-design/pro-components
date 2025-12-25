@@ -36,8 +36,8 @@ export interface DescriptionsItemProps {
   className?: string;
   style?: React.CSSProperties;
   label?: React.ReactNode;
-  labelStyle?: React.CSSProperties;
-  contentStyle?: React.CSSProperties;
+  labelStyle?: React.CSSProperties; // @deprecated Use styles.label instead
+  contentStyle?: React.CSSProperties; // @deprecated Use styles.content instead
   children: React.ReactNode;
   span?: number;
 }
