@@ -76,7 +76,7 @@ export default () => {
       ]}
       options={false}
       dateFormatter="string"
-      
+      headerTitle="表单赋值"
     />
   );
 

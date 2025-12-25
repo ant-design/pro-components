@@ -57,7 +57,7 @@ export default () => {
         content: {},
         actions: {},
       }}
-      
+      headerTitle="翻页"
       dataSource={data}
     />
   );

@@ -78,7 +78,7 @@ export default () => {
           success: true,
         });
       }}
-      
+      headerTitle="两行的情况"
       toolbar={{
         multipleLine: true,
         search: {

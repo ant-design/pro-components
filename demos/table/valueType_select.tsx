@@ -182,7 +182,7 @@ export default () => (
         type: 'multiple',
       }}
       rowKey="key"
-      
+      headerTitle="样式类"
     />
     <div
       style={{

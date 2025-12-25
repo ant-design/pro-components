@@ -130,7 +130,7 @@ export default () => (
         });
       }}
       rowKey="key"
-      
+      headerTitle="样式类"
     />
     <div
       style={{

@@ -163,7 +163,7 @@ export default () => {
           x: 960,
         }}
         rowKey="id"
-        
+        headerTitle="可编辑表格"
         maxLength={5}
         recordCreatorProps={{
           position: 'bottom',

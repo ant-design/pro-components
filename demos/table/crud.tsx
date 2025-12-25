@@ -139,7 +139,7 @@ export default () => {
           }}
           rowKey="id"
           dateFormatter="string"
-          
+          headerTitle="查询 Table"
           toolBarRender={() => [
             <Button key="3" type="primary">
               <PlusOutlined />

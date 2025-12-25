@@ -117,7 +117,7 @@ export default () => {
           onExpandedRowsChange: setExpandedRowKeys,
         }}
         rowKey="title"
-        
+        headerTitle="大小和分割线"
         rowSelection={rowSelection}
         dataSource={dataSource}
       />

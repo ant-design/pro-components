@@ -80,7 +80,7 @@ export default () => {
   return (
     <>
       <RowEditorTable<DataSourceType>
-        
+        headerTitle="可编辑表格"
         columns={columns}
         rowKey="id"
         scroll={{

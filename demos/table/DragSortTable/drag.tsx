@@ -61,7 +61,7 @@ export default () => {
 
   return (
     <DragSortTable
-      
+      headerTitle="拖拽排序(默认把手)"
       columns={columns}
       rowKey="key"
       search={false}

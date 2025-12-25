@@ -112,7 +112,7 @@ const ValueTypeNumberTable = () => (
       });
     }}
     rowKey="key"
-    
+    headerTitle="数字类"
   />
 );
 

@@ -8,7 +8,7 @@ export default () => {
   return (
     <ProDescriptions
       actionRef={actionRef}
-      
+      title="高级定义列表 request"
       request={async () => {
         return Promise.resolve({
           success: true,

@@ -11,7 +11,7 @@ export default () => {
       </ProDescriptions.Item>
       <ProDescriptions
         column={2}
-        
+        title="高级定义列表"
         tooltip="包含了从服务器请求，columns等功能"
         request={async () => ({
           data: [{ id: 1, money: 12345 }],

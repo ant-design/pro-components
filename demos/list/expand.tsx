@@ -32,7 +32,7 @@ export default () => {
   return (
     <ProList<{ title: string }>
       rowKey="title"
-      
+      headerTitle="支持展开的列表"
       toolBarRender={() => {
         return [
           <Button key="3" type="primary">

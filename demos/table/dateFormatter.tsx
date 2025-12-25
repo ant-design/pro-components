@@ -57,7 +57,7 @@ export default () => {
         formRef={ref}
         options={false}
         dateFormatter="string"
-        
+        headerTitle="日期格式化为字符串"
       />
 
       <ProTable<TableListItem>
@@ -89,7 +89,7 @@ export default () => {
         formRef={ref}
         options={false}
         dateFormatter="number"
-        
+        headerTitle="日期格式化为数字"
       />
       <ProTable<TableListItem>
         style={{
@@ -123,7 +123,7 @@ export default () => {
           console.log('====>', value, valueType);
           return value.format('YYYY-MM-DD HH:mm:ss');
         }}
-        
+        headerTitle="使用自定义函数进行日期格式化"
       />
     </>
   );

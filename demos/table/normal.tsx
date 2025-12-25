@@ -108,7 +108,7 @@ export default () => {
       columns={columns}
       search={false}
       dateFormatter="string"
-      
+      headerTitle="表格标题"
       toolBarRender={() => [
         <Button key="show">查看日志</Button>,
         <Button key="out">

@@ -173,7 +173,7 @@ export default () => {
         pageSize: 5,
       }}
       rowKey="key"
-      
+      headerTitle="批量操作"
       toolBarRender={() => [<Button key="show">查看日志</Button>]}
     />
   );

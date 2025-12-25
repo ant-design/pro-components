@@ -125,7 +125,7 @@ export default () => {
           labelWidth: 'auto',
         }}
         dateFormatter="string"
-        
+        headerTitle="نموذج احترافي"
         toolBarRender={() => [
           <Button key="button" icon={<PlusOutlined />} type="primary">
             جديد

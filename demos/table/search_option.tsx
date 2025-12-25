@@ -45,7 +45,7 @@ const SearchOptionTable = () => (
     }}
     rowKey="key"
     dateFormatter="string"
-    
+    headerTitle="查询 Table"
     search={{
       defaultCollapsed: false,
       labelWidth: 'auto',

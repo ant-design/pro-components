@@ -66,7 +66,7 @@ export default () => {
           success: true,
         });
       }}
-      
+      headerTitle="Light Filter"
       rowKey="key"
       pagination={{
         showQuickJumper: true,

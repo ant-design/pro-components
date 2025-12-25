@@ -41,7 +41,7 @@ const SearchTable = () => (
     options={{
       search: true,
     }}
-    
+    headerTitle="toolbar 中搜索"
   />
 );
 

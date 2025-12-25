@@ -167,7 +167,7 @@ export default () => {
           });
         }}
         rowKey="key"
-        
+        headerTitle="自定义 valueType"
       />
     </ProProvider.Provider>
   );

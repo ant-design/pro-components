@@ -128,7 +128,7 @@ export default () => {
   return (
     <>
       <DragSortTable
-        
+        headerTitle="拖拽排序(默认把手)"
         columns={columns}
         rowKey="key"
         search={false}
@@ -138,7 +138,7 @@ export default () => {
         onDragSortEnd={handleDragSortEnd1}
       />
       <DragSortTable
-        
+        headerTitle="拖拽排序(自定义把手)"
         columns={columns2}
         rowKey="key"
         search={false}
@@ -150,7 +150,7 @@ export default () => {
       />
       <DragSortTable
         actionRef={actionRef}
-        
+        headerTitle="使用 request 获取数据源"
         columns={columns2}
         rowKey="key"
         search={false}

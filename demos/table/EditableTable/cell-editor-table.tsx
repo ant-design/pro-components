@@ -81,7 +81,7 @@ export default () => {
   return (
     <>
       <CellEditorTable<DataSourceType>
-        
+        headerTitle="可编辑表格"
         columns={columns}
         rowKey="id"
         scroll={{

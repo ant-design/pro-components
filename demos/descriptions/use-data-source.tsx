@@ -4,7 +4,7 @@ export default () => {
   return (
     <>
       <ProDescriptions
-        
+        title="dataSource and columns"
         dataSource={{
           id: '这是一段文本columns',
           date: '20200809',
