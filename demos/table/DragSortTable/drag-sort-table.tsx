@@ -47,8 +47,6 @@ export default () => {
       dataIndex: 'sort',
       render: (dom, rowData, index) => {
         return (
-    <div style={{ padding: 24 }}>
-
           <span className="customRender">{`自定义Render[${rowData.name}-${index}]`}</span>
         );
       },
@@ -96,9 +94,7 @@ export default () => {
   ) => {
     console.log('排序后的数据', newDataSource);
     setDatasource1(newDataSource);
-    message.success('修改列表排序成功'
-    </div>
-  );
+    message.success('修改列表排序成功');
   };
   const handleDragSortEnd2 = (
     beforeIndex: number,

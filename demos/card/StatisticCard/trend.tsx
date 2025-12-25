@@ -4,8 +4,6 @@ const { Statistic } = StatisticCard;
 
 export default () => {
   return (
-    <div style={{ padding: 24 }}>
-
     <>
       <StatisticCard style={{ width: 160 }}>
         <Statistic title="Daily Comparison" value="7.60%" trend="up" />
@@ -71,7 +69,5 @@ export default () => {
         </ul>
       </div>
     </>
-  
-    </div>
   );
 };

@@ -30,8 +30,6 @@ export default () => {
   const [expandedRowKeys, setExpandedRowKeys] = useState<readonly Key[]>([]);
 
   return (
-    <div style={{ padding: 24 }}>
-
     <ProList<{ title: string }>
       rowKey="title"
       headerTitle="支持展开的列表"
@@ -90,7 +88,5 @@ export default () => {
         },
       }}
     />
-  
-    </div>
   );
 };

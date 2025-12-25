@@ -3,8 +3,6 @@ import { StatisticCard } from '@ant-design/pro-components';
 
 export default () => {
   return (
-    <div style={{ padding: 24 }}>
-
     <>
       <StatisticCard
         title="Market Trend"
@@ -99,7 +97,5 @@ export default () => {
         </ul>
       </div>
     </>
-  
-    </div>
   );
 };

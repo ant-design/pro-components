@@ -83,8 +83,6 @@ export default () => {
     defaultData.map((item) => item.id),
   );
   return (
-    <div style={{ padding: 24 }}>
-
     <ProForm<{
       name: string;
       company: string;
@@ -146,7 +144,5 @@ export default () => {
         />
       </ProForm.Item>
     </ProForm>
-  
-    </div>
   );
 };

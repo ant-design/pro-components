@@ -60,8 +60,6 @@ export default () => {
   const [dataSource, setDataSource] = useState<any[]>([...data] as any[]);
 
   return (
-    <div style={{ padding: 24 }}>
-
     <>
       <ProList<{
         title: string;
@@ -107,7 +105,5 @@ export default () => {
         }}
       />
     </>
-  
-    </div>
   );
 };

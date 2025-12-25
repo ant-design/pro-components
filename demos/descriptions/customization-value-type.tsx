@@ -96,8 +96,6 @@ const TagList: React.FC<{
 export default () => {
   const values = useContext(ProProvider);
   return (
-    <div style={{ padding: 24 }}>
-
     <>
       <ProProvider.Provider
         value={{
@@ -306,7 +304,5 @@ export default () => {
         </ul>
       </div>
     </>
-  
-    </div>
   );
 };

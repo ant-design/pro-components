@@ -7,8 +7,6 @@ import defaultProps from './_defaultProps';
 
 export default () => {
   return (
-    <div style={{ padding: 24 }}>
-
     <>
       <ProLayout {...defaultProps} layout="mix" splitMenus pure>
         children
@@ -120,7 +118,5 @@ export default () => {
       </ProLayout>
       <SettingDrawer collapse />
     </>
-  
-    </div>
   );
 };

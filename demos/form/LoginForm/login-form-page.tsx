@@ -274,12 +274,8 @@ const Page = () => {
 
 export default () => {
   return (
-    <div style={{ padding: 24 }}>
-
     <ProConfigProvider dark>
       <Page />
     </ProConfigProvider>
-  
-    </div>
   );
 };

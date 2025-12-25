@@ -2,8 +2,6 @@ import { ProCard } from '@ant-design/pro-components';
 
 export default () => {
   return (
-    <div style={{ padding: 24 }}>
-
     <>
       <ProCard style={{ marginBlockStart: 8 }} gutter={8} title="24 Grid">
         <ProCard
@@ -183,7 +181,5 @@ export default () => {
         </ul>
       </div>
     </>
-  
-    </div>
   );
 };

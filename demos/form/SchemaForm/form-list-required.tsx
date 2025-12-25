@@ -128,8 +128,6 @@ const columns: ProFormColumnsType<DataItem>[] = [
 
 export default () => {
   return (
-    <div style={{ padding: 24 }}>
-
     <>
       <BetaSchemaForm<DataItem>
         shouldUpdate={false}
@@ -140,7 +138,5 @@ export default () => {
         columns={columns}
       />
     </>
-  
-    </div>
   );
 };

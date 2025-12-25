@@ -54,8 +54,6 @@ export default () => {
   };
   if (position === 'menu') {
     return (
-    <div style={{ padding: 24 }}>
-
       <ProLayout
         {...props}
         layout="mix"
@@ -96,7 +94,5 @@ export default () => {
     >
       {children}
     </ProLayout>
-  
-    </div>
   );
 };

@@ -122,8 +122,6 @@ const columns: ProFormColumnsType<TableListItem, 'link' | 'tags'>[] = [
 export default () => {
   const values = useContext(ProProvider);
   return (
-    <div style={{ padding: 24 }}>
-
     <ProProvider.Provider
       value={{
         ...values,
@@ -172,7 +170,5 @@ export default () => {
         title="自定义 valueType"
       />
     </ProProvider.Provider>
-  
-    </div>
   );
 };

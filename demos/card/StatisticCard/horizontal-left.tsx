@@ -4,8 +4,6 @@ const { Statistic } = StatisticCard;
 
 export default () => {
   return (
-    <div style={{ padding: 24 }}>
-
     <>
       <StatisticCard
         chartPlacement="left"
@@ -150,7 +148,5 @@ export default () => {
         </ul>
       </div>
     </>
-  
-    </div>
   );
 };

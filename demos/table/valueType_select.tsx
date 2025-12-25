@@ -164,8 +164,6 @@ const columns: ProColumns<TableListItem>[] = [
 ];
 
 export default () => (
-    <div style={{ padding: 24 }}>
-
   <>
     <ProTable<TableListItem>
       columns={columns}
@@ -173,9 +171,7 @@ export default () => (
         return Promise.resolve({
           data: tableListDataSource,
           success: true,
-        }
-    </div>
-  );
+        });
       }}
       search={{
         defaultCollapsed: false,

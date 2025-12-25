@@ -18,8 +18,6 @@ const content = (
 
 export default () => {
   return (
-    <div style={{ padding: 24 }}>
-
     <div
       style={{
         height: '100vh',
@@ -48,8 +46,6 @@ export default () => {
           </ProCard>
         </PageContainer>
       </ProLayout>
-    </div>
-  
     </div>
   );
 };

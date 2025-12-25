@@ -16,8 +16,6 @@ import { ConfigProvider, Input } from 'antd';
 import enUS from 'antd/lib/locale/en_US';
 
 export default () => (
-    <div style={{ padding: 24 }}>
-
   <ConfigProvider locale={enUS}>
     <StepsForm>
       <StepsForm.StepForm title="新建">
@@ -66,6 +64,4 @@ export default () => (
       </ProFormField>
     </ProForm>
   </ConfigProvider>
-
-    </div>
-  );
+);

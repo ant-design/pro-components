@@ -11,8 +11,6 @@ type DataItem = {
 export default () => {
   const [layoutType, setLayoutType] = useState<ProFormLayoutType>('ModalForm');
   return (
-    <div style={{ padding: 24 }}>
-
     <>
       <Space
         style={{
@@ -66,7 +64,5 @@ export default () => {
         ]}
       />
     </>
-  
-    </div>
   );
 };

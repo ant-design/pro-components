@@ -1,7 +1,5 @@
 import { ProSkeleton } from '@ant-design/pro-components';
 export default () => (
-    <div style={{ padding: 24 }}>
-
   <div
     style={{
       background: '#fafafa',
@@ -10,6 +8,4 @@ export default () => (
   >
     <ProSkeleton statistic={2} type="list" />
   </div>
-
-    </div>
-  );
+);

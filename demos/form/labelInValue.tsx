@@ -3,8 +3,6 @@ import { message } from 'antd';
 
 export default () => {
   return (
-    <div style={{ padding: 24 }}>
-
     <ProForm
       onFinish={async () => {
         message.success('提交成功');
@@ -32,7 +30,5 @@ export default () => {
         ]}
       />
     </ProForm>
-  
-    </div>
   );
 };

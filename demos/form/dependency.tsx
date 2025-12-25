@@ -16,8 +16,6 @@ const waitTime = (time: number = 100) => {
 
 export default () => {
   return (
-    <div style={{ padding: 24 }}>
-
     <ProForm
       onFinish={async (values) => {
         await waitTime(2000);
@@ -81,7 +79,5 @@ export default () => {
         }}
       </ProForm.Item>
     </ProForm>
-  
-    </div>
   );
 };

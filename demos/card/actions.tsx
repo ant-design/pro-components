@@ -8,8 +8,6 @@ import { Space } from 'antd';
 
 export default () => {
   return (
-    <div style={{ padding: 24 }}>
-
     <>
       <Space>
         <ProCard
@@ -107,7 +105,5 @@ export default () => {
         </ul>
       </div>
     </>
-  
-    </div>
   );
 };

@@ -19,8 +19,6 @@ type GithubIssueItem = {
 };
 
 export default () => (
-    <div style={{ padding: 24 }}>
-
   <ProList<GithubIssueItem>
     toolBarRender={() => {
       return [
@@ -67,9 +65,7 @@ export default () => (
                 </Tag>
               ))}
             </Space>
-          
-    </div>
-  );
+          );
         },
         search: false,
       },

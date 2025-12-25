@@ -24,8 +24,6 @@ export default () => {
   const formRef = useRef<ProFormInstance>();
 
   return (
-    <div style={{ padding: 24 }}>
-
     <ProCard>
       <StepsForm<{
         name: string;
@@ -151,7 +149,5 @@ export default () => {
         </StepsForm.StepForm>
       </StepsForm>
     </ProCard>
-  
-    </div>
   );
 };

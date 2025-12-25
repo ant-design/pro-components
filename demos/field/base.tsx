@@ -8,8 +8,6 @@ export default () => {
   const [state, setState] = useState<ProFieldFCMode>('read');
   const [plain, setPlain] = useState<boolean>(false);
   return (
-    <div style={{ padding: 24 }}>
-
     <>
       <Space>
         <Radio.Group
@@ -625,7 +623,5 @@ Done in 9.70s.
         </ul>
       </div>
     </>
-  
-    </div>
   );
 };

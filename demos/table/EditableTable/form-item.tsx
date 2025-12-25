@@ -122,8 +122,6 @@ export default () => {
   ];
 
   return (
-    <div style={{ padding: 24 }}>
-
     <ProForm<{
       table: DataSourceType[];
     }>
@@ -252,7 +250,5 @@ export default () => {
         </ProCard>
       </ProForm.Item>
     </ProForm>
-  
-    </div>
   );
 };

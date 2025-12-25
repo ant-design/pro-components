@@ -153,8 +153,6 @@ export default () => {
   ];
 
   return (
-    <div style={{ padding: 24 }}>
-
     <>
       <EditableProTable<DataSourceType>
         expandable={{
@@ -200,7 +198,5 @@ export default () => {
         />
       </ProCard>
     </>
-  
-    </div>
   );
 };

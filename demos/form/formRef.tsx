@@ -43,8 +43,6 @@ export default () => {
   };
 
   return (
-    <div style={{ padding: 24 }}>
-
     <ProForm
       title="新建表单"
       formRef={formRef}
@@ -96,7 +94,5 @@ export default () => {
       />
       <ProFormDatePicker name="date" initialValue={dayjs('2021-08-09')} />
     </ProForm>
-  
-    </div>
   );
 };

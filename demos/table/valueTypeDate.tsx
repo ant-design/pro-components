@@ -46,8 +46,6 @@ for (let i = 0; i < 2; i += 1) {
 }
 
 export default () => (
-    <div style={{ padding: 24 }}>
-
   <>
     <ProTable<TableListItem>
       columns={[
@@ -76,9 +74,7 @@ export default () => (
             if (type === 'form') {
               return null;
             }
-            return defaultRender(_
-    </div>
-  );
+            return defaultRender(_);
           },
         },
         {

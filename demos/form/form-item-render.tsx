@@ -88,8 +88,6 @@ export default () => {
   const [form] = ProForm.useForm();
 
   return (
-    <div style={{ padding: 24 }}>
-
     <div>
       <ProForm
         form={form}
@@ -161,8 +159,6 @@ export default () => {
           }}
         </FormItemRender>
       </ProForm>
-    </div>
-  
     </div>
   );
 };

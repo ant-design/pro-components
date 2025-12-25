@@ -79,8 +79,6 @@ export default () => {
   ];
 
   return (
-    <div style={{ padding: 24 }}>
-
     <>
       <CellEditorTable<DataSourceType>
         headerTitle="可编辑表格"
@@ -99,7 +97,5 @@ export default () => {
         }}
       />
     </>
-  
-    </div>
   );
 };

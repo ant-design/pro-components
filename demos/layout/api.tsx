@@ -19,8 +19,6 @@ export default () => {
   const [pure, setPure] = useState(false);
   const [collapsedButtonRender, setCollapsedButtonRender] = useState(true);
   return (
-    <div style={{ padding: 24 }}>
-
     <>
       <Switch
         checked={loading}
@@ -147,7 +145,5 @@ export default () => {
         <PageContainer content="欢迎使用">Hello World</PageContainer>
       </ProLayout>
     </>
-  
-    </div>
   );
 };

@@ -6,8 +6,6 @@
 
 export default () => {
   return (
-    <div style={{ padding: 24 }}>
-
     <ProForm>
       <ProFormUploadButton
         title="上传按钮的文本变啦"
@@ -33,7 +31,5 @@ export default () => {
       />
       <ProFormUploadDragger max={4} label="Dragger" name="dragger" />
     </ProForm>
-  
-    </div>
   );
 };

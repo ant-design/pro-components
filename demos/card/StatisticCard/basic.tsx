@@ -7,8 +7,6 @@ const { Statistic } = StatisticCard;
 export default () => {
   const { token } = theme.useToken();
   return (
-    <div style={{ padding: 24 }}>
-
     <>
       <StatisticCard
         title={
@@ -126,7 +124,5 @@ export default () => {
         </ul>
       </div>
     </>
-  
-    </div>
   );
 };

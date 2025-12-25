@@ -11,8 +11,6 @@ export default () => {
     defaultColsNumber: 6,
   };
   return (
-    <div style={{ padding: 24 }}>
-
     <>
       <>
         <QueryFilter {...formProps}>
@@ -156,7 +154,5 @@ export default () => {
         <ProFormText name="create" label="创建时间" colSize={3} />
       </QueryFilter>
     </>
-  
-    </div>
   );
 };

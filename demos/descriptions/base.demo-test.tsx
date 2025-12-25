@@ -3,8 +3,6 @@ import { Button } from 'antd';
 
 export default () => {
   return (
-    <div style={{ padding: 24 }}>
-
     <>
       <ProDescriptions.Item label="文本" valueType="option">
         <Button key="primary" type="primary">
@@ -34,7 +32,5 @@ export default () => {
         ]}
       />
     </>
-  
-    </div>
   );
 };

@@ -33,8 +33,6 @@ export default () => {
   };
 
   return (
-    <div style={{ padding: 24 }}>
-
     <ProConfigProvider hashed={false}>
       <div style={{ backgroundColor: token.colorBgContainer }}>
         <LoginForm
@@ -189,7 +187,5 @@ export default () => {
         </LoginForm>
       </div>
     </ProConfigProvider>
-  
-    </div>
   );
 };

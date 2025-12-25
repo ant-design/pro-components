@@ -19,8 +19,6 @@ export default () => {
   }>();
   const [toggle, setToggle] = useState(false);
   return (
-    <div style={{ padding: 24 }}>
-
     <>
       <ProLayout
         style={{
@@ -69,7 +67,5 @@ export default () => {
         </PageContainer>
       </ProLayout>
     </>
-  
-    </div>
   );
 };

@@ -29,8 +29,6 @@ const defaultProps = {
 export default () => {
   const [pathname, setPathname] = useState('/welcome');
   return (
-    <div style={{ padding: 24 }}>
-
     <>
       <ProLayout
         route={defaultProps}
@@ -104,7 +102,5 @@ export default () => {
         </PageContainer>
       </ProLayout>
     </>
-  
-    </div>
   );
 };

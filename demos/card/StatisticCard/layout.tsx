@@ -8,8 +8,6 @@ export default () => {
   const [responsive, setResponsive] = useState(false);
 
   return (
-    <div style={{ padding: 24 }}>
-
     <>
       <RcResizeObserver
         key="resize-observer"
@@ -209,7 +207,5 @@ export default () => {
         </ul>
       </div>
     </>
-  
-    </div>
   );
 };

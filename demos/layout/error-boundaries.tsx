@@ -113,8 +113,6 @@ const ErrorTriggerTestPage = () => {
 export default () => {
   const [pathname, setPathname] = useState('/default');
   return (
-    <div style={{ padding: 24 }}>
-
     <div
       id="test-pro-layout"
       style={{
@@ -153,8 +151,6 @@ export default () => {
           <ErrorTriggerTestPage />
         </PageContainer>
       </ProLayout>
-    </div>
-  
     </div>
   );
 };

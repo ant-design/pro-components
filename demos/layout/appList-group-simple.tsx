@@ -83,8 +83,6 @@ export default () => {
   };
 
   return (
-    <div style={{ padding: 24 }}>
-
     <div id="test-pro-layout" style={{ height: '100vh' }}>
       <ProConfigProvider hashed={false}>
         <ProLayout
@@ -101,8 +99,6 @@ export default () => {
           {...settings}
         />
       </ProConfigProvider>
-    </div>
-  
     </div>
   );
 };

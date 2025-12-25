@@ -7,8 +7,6 @@ export default () => {
   const [collapsed, setCollapsed] = useState(true);
 
   return (
-    <div style={{ padding: 24 }}>
-
     <>
       <div
         style={{
@@ -243,7 +241,5 @@ export default () => {
         </ul>
       </div>
     </>
-  
-    </div>
   );
 };

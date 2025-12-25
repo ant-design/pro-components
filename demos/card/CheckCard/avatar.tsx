@@ -3,8 +3,6 @@ import { CheckCard } from '@ant-design/pro-components';
 import { Avatar } from 'antd';
 
 export default () => (
-    <div style={{ padding: 24 }}>
-
   <>
     <CheckCard
       title="示例标题"
@@ -64,6 +62,4 @@ export default () => (
       </ul>
     </div>
   </>
-
-    </div>
-  );
+);

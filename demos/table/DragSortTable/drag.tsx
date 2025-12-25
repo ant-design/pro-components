@@ -60,8 +60,6 @@ export default () => {
   };
 
   return (
-    <div style={{ padding: 24 }}>
-
     <DragSortTable
       headerTitle="拖拽排序(默认把手)"
       columns={columns}
@@ -72,7 +70,5 @@ export default () => {
       dragSortKey="sort"
       onDragSortEnd={handleDragSortEnd}
     />
-  
-    </div>
   );
 };

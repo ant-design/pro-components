@@ -24,8 +24,6 @@ const waitTime = (time: number = 100) => {
 export default () => {
   const [loading, setLoading] = useState(false);
   return (
-    <div style={{ padding: 24 }}>
-
     <ProCard>
       <StepsForm
         onFinish={async () => {
@@ -186,7 +184,5 @@ export default () => {
         </StepsForm.StepForm>
       </StepsForm>
     </ProCard>
-  
-    </div>
   );
 };

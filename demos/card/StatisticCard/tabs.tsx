@@ -13,8 +13,6 @@ const items = [
 
 export default () => {
   return (
-    <div style={{ padding: 24 }}>
-
     <>
       <ProCard
         tabs={{
@@ -149,7 +147,5 @@ export default () => {
         </ul>
       </div>
     </>
-  
-    </div>
   );
 };

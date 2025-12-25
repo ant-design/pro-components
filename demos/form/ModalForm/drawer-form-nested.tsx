@@ -21,8 +21,6 @@ const waitTime = (time: number = 100) => {
 export default () => {
   const formRef = useRef();
   return (
-    <div style={{ padding: 24 }}>
-
     <div
       style={{
         height: '325px',
@@ -262,8 +260,6 @@ export default () => {
           </ModalForm>
         </ModalForm>
       </Space>
-    </div>
-  
     </div>
   );
 };

@@ -11,8 +11,6 @@ export default () => {
     useState<ProCardTabsProps['tabPlacement']>('top');
 
   return (
-    <div style={{ padding: 24 }}>
-
     <>
       <div>
         <Space style={{ marginBlockEnd: 16 }}>
@@ -163,7 +161,5 @@ export default () => {
         </ul>
       </div>
     </>
-  
-    </div>
   );
 };

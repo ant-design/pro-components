@@ -6,8 +6,6 @@ const wait = (time: number = 300) =>
 
 export default () => {
   return (
-    <div style={{ padding: 24 }}>
-
     <>
       <ModalForm
         title="Debug: destroyOnHidden + request"
@@ -51,7 +49,5 @@ export default () => {
         />
       </DrawerForm>
     </>
-  
-    </div>
   );
 };

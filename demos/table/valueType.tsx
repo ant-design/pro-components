@@ -119,8 +119,6 @@ const columns: ProColumns<TableListItem>[] = [
 ];
 
 export default () => (
-    <div style={{ padding: 24 }}>
-
   <>
     <ProTable<TableListItem>
       columns={columns}
@@ -129,9 +127,7 @@ export default () => (
           total: 200,
           data: tableListDataSource,
           success: true,
-        }
-    </div>
-  );
+        });
       }}
       rowKey="key"
       headerTitle="样式类"

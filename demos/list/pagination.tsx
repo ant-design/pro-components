@@ -44,8 +44,6 @@ const data = [
 
 export default () => {
   return (
-    <div style={{ padding: 24 }}>
-
     <ProList<any>
       pagination={{
         defaultPageSize: 5,
@@ -62,7 +60,5 @@ export default () => {
       headerTitle="翻页"
       dataSource={data}
     />
-  
-    </div>
   );
 };
