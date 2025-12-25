@@ -6,6 +6,8 @@ import { useRef } from 'react';
 export default () => {
   const actionRef = useRef<ProDescriptionsActionType>();
   return (
+    <div style={{ padding: 24 }}>
+
     <ProDescriptions
       actionRef={actionRef}
       title="高级定义列表 request"
@@ -62,5 +64,7 @@ export default () => {
         <Button key="rest">重置</Button>
       </ProDescriptions.Item>
     </ProDescriptions>
+  
+    </div>
   );
 };

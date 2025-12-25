@@ -6,6 +6,8 @@ import {
 
 export default () => {
   return (
+    <div style={{ padding: 24 }}>
+
     <LightFilter
       initialValues={{
         sex: 'man',
@@ -24,5 +26,7 @@ export default () => {
       />
       <ProFormDateTimePicker name="time" label="时间" />
     </LightFilter>
+  
+    </div>
   );
 };

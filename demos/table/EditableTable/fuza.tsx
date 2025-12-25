@@ -120,6 +120,8 @@ const defaultData = [
 export default () => {
   const formRef = useRef<FormInstance>();
   return (
+    <div style={{ padding: 24 }}>
+
     <ProForm
       formRef={formRef}
       onValuesChange={(_, e) => {
@@ -269,5 +271,7 @@ export default () => {
         </ProFormDependency>
       </ProCard>
     </ProForm>
+  
+    </div>
   );
 };

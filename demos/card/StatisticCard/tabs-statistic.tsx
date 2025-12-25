@@ -13,6 +13,8 @@ const items = [
 
 export default () => {
   return (
+    <div style={{ padding: 24 }}>
+
     <ProCard
       tabs={{
         onChange: (key) => {
@@ -51,5 +53,7 @@ export default () => {
         }),
       }}
     />
+  
+    </div>
   );
 };

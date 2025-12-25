@@ -143,6 +143,8 @@ export default () => {
   ];
 
   return (
+    <div style={{ padding: 24 }}>
+
     <>
       <EditableProTable<DataSourceType>
         rowKey="id"
@@ -229,5 +231,7 @@ export default () => {
         />
       </ProCard>
     </>
+  
+    </div>
   );
 };

@@ -14,6 +14,8 @@ import React from 'react';
 export default () => {
   const [size, setSize] = React.useState<SizeType>('middle');
   return (
+    <div style={{ padding: 24 }}>
+
     <div>
       <Radio.Group
         value={size}
@@ -87,6 +89,8 @@ export default () => {
         </ProForm.Group>
         <ProFormText name="name1" label="名称" />
       </LightFilter>
+    </div>
+  
     </div>
   );
 };

@@ -60,6 +60,8 @@ const treeData = [
 export default () => {
   const [size, setSize] = React.useState<SizeType>('middle');
   return (
+    <div style={{ padding: 24 }}>
+
     <div>
       <Radio.Group
         value={size}
@@ -210,6 +212,8 @@ export default () => {
           <ProFormText />
         </ProFormFieldSet>
       </LightFilter>
+    </div>
+  
     </div>
   );
 };

@@ -6,6 +6,8 @@ import {
 
 export default () => {
   return (
+    <div style={{ padding: 24 }}>
+
     <>
       <ProCard
         title="Default Size"
@@ -89,5 +91,7 @@ export default () => {
         </ul>
       </div>
     </>
+  
+    </div>
   );
 };

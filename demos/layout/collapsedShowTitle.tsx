@@ -16,6 +16,8 @@ export default () => {
   const [pathname, setPathname] = useState('/list/sub-page/sub-sub-page1');
 
   return (
+    <div style={{ padding: 24 }}>
+
     <ProLayout
       collapsed={true}
       collapsedButtonRender={false}
@@ -151,5 +153,7 @@ export default () => {
         </ProCard>
       </PageContainer>
     </ProLayout>
+  
+    </div>
   );
 };

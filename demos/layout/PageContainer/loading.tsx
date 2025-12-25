@@ -25,6 +25,8 @@ export default () => {
   }, []);
 
   return (
+    <div style={{ padding: 24 }}>
+
     <div
       style={{
         boxShadow: '0 0 8px rgba(0, 0, 0, 0.2)',
@@ -139,6 +141,8 @@ export default () => {
           </div>
         </PageContainer>
       </Card>
+    </div>
+  
     </div>
   );
 };

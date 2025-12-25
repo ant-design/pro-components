@@ -1,6 +1,8 @@
 import { PageContainer, ProLayout } from '@ant-design/pro-components';
 
 export default () => (
+    <div style={{ padding: 24 }}>
+
   <div
     style={{
       height: '100vh',
@@ -196,4 +198,6 @@ export default () => (
       </PageContainer>
     </ProLayout>
   </div>
-);
+
+    </div>
+  );

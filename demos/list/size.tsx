@@ -39,6 +39,8 @@ export default () => {
   };
 
   return (
+    <div style={{ padding: 24 }}>
+
     <>
       大小：
       <Select<string>
@@ -122,5 +124,7 @@ export default () => {
         dataSource={dataSource}
       />
     </>
+  
+    </div>
   );
 };

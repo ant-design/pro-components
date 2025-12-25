@@ -21,6 +21,8 @@ const waitTime = (time: number = 100) => {
 
 export default () => {
   return (
+    <div style={{ padding: 24 }}>
+
     <>
       <StepsForm
         onFinish={async (values) => {
@@ -208,5 +210,7 @@ export default () => {
         </StepsForm.StepForm>
       </StepsForm>
     </>
+  
+    </div>
   );
 };

@@ -14,6 +14,8 @@ export default () => {
   const [pathname, setPathname] = useState('/list/sub-page/sub-sub-page1');
 
   return (
+    <div style={{ padding: 24 }}>
+
     <ProLayout
       splitMenus
       layout="mix"
@@ -150,5 +152,7 @@ export default () => {
         </ProCard>
       </PageContainer>
     </ProLayout>
+  
+    </div>
   );
 };

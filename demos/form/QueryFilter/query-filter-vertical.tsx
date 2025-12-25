@@ -8,6 +8,8 @@ import {
 
 export default () => {
   return (
+    <div style={{ padding: 24 }}>
+
     <QueryFilter layout="vertical">
       <ProFormText name="name" label="这是一个超级超级长的名称" />
       <ProFormDatePicker name="birth" label="创建时间" />
@@ -40,5 +42,7 @@ export default () => {
         options={['农业', '制造业', '互联网']}
       />
     </QueryFilter>
+  
+    </div>
   );
 };

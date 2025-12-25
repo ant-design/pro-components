@@ -20,6 +20,8 @@ export default () => {
     }, 1000);
   });
   return (
+    <div style={{ padding: 24 }}>
+
     <BetaSchemaForm
       request={async () => ({})}
       params={{ requestLibData }}
@@ -32,5 +34,7 @@ export default () => {
       ]}
       formRef={targetRef}
     />
+  
+    </div>
   );
 };

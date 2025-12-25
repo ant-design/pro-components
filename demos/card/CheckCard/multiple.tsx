@@ -2,12 +2,16 @@ import { CheckCard } from '@ant-design/pro-components';
 import { ConfigProvider, Flex } from 'antd';
 
 export default () => (
+    <div style={{ padding: 24 }}>
+
   <>
     <Flex gap={24} vertical>
       <CheckCard.Group
         multiple
         onChange={(value) => {
-          console.log('value', value);
+          console.log('value', value
+    </div>
+  );
         }}
         defaultValue={['A']}
       >

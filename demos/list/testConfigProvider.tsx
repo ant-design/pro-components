@@ -19,6 +19,8 @@ export default () => {
   };
 
   return (
+    <div style={{ padding: 24 }}>
+
     <ConfigProvider prefixCls="qixian">
       <ProList<{ title: string }>
         metas={{
@@ -62,5 +64,7 @@ export default () => {
         dataSource={dataSource}
       />
     </ConfigProvider>
+  
+    </div>
   );
 };

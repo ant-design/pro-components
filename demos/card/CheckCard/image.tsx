@@ -1,6 +1,8 @@
 import { CheckCard } from '@ant-design/pro-components';
 
 export default () => (
+    <div style={{ padding: 24 }}>
+
   <>
     <CheckCard
       cover={
@@ -73,4 +75,6 @@ export default () => (
       </ul>
     </div>
   </>
-);
+
+    </div>
+  );

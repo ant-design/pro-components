@@ -16,6 +16,8 @@ import { useState } from 'react';
 export default () => {
   const [readonly, setReadonly] = useState(false);
   return (
+    <div style={{ padding: 24 }}>
+
     <div
       style={{
         padding: 24,
@@ -87,6 +89,8 @@ export default () => {
           />
         </ProForm.Group>
       </ProForm>
+    </div>
+  
     </div>
   );
 };

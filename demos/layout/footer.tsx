@@ -6,6 +6,8 @@ import {
 import defaultProps from './_defaultProps';
 
 export default () => (
+    <div style={{ padding: 24 }}>
+
   <ProLayout
     {...defaultProps}
     style={{
@@ -28,4 +30,6 @@ export default () => (
   >
     <PageContainer content="欢迎使用">Hello World</PageContainer>
   </ProLayout>
-);
+
+    </div>
+  );

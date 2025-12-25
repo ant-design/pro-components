@@ -81,6 +81,8 @@ export default () => {
   const [activeKey, setActiveKey] = useState<React.Key | undefined>('tab1');
   const action = useRef<ActionType>();
   return (
+    <div style={{ padding: 24 }}>
+
     <ProList<any>
       rowKey="name"
       actionRef={action}
@@ -191,5 +193,7 @@ export default () => {
         ],
       }}
     />
+  
+    </div>
   );
 };

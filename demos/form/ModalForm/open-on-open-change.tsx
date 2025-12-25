@@ -15,6 +15,8 @@ export default () => {
   const [drawerVisit, setDrawerVisit] = useState(false);
 
   return (
+    <div style={{ padding: 24 }}>
+
     <>
       <Space>
         <Button
@@ -189,5 +191,7 @@ export default () => {
         />
       </DrawerForm>
     </>
+  
+    </div>
   );
 };

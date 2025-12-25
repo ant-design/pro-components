@@ -27,6 +27,8 @@ export default () => {
 
   map.set('video', (item) => {
     return (
+    <div style={{ padding: 24 }}>
+
       <video
         key=""
         style={{
@@ -345,5 +347,7 @@ export default () => {
         </ProHelp>
       </div>
     </App>
+  
+    </div>
   );
 };

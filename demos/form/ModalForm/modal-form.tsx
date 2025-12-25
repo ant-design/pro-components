@@ -19,6 +19,8 @@ const waitTime = (time: number = 100) => {
 export default () => {
   const [form] = Form.useForm<{ name: string; company: string }>();
   return (
+    <div style={{ padding: 24 }}>
+
     <ModalForm<{
       name: string;
       company: string;
@@ -111,5 +113,7 @@ export default () => {
         initialValue="Qitu"
       />
     </ModalForm>
+  
+    </div>
   );
 };

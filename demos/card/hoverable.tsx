@@ -2,6 +2,8 @@ import { ProCard } from '@ant-design/pro-components';
 
 export default () => {
   return (
+    <div style={{ padding: 24 }}>
+
     <>
       <ProCard style={{ maxWidth: 300 }} hoverable variant="outlined">
         Content
@@ -95,5 +97,7 @@ export default () => {
         </ul>
       </div>
     </>
+  
+    </div>
   );
 };

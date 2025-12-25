@@ -53,6 +53,8 @@ const columns: ProFormColumnsType<DataItem>[] = [
 
 export default () => {
   return (
+    <div style={{ padding: 24 }}>
+
     <ProForm>
       <h1>ProForm </h1>
       <ProFormText name="username" />
@@ -117,5 +119,7 @@ export default () => {
         ]}
       />
     </ProForm>
+  
+    </div>
   );
 };

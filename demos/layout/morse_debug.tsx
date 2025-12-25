@@ -13,6 +13,8 @@ export default () => {
   const [pathname, setPathname] = useState('/list/sub-page/sub-sub-page1');
 
   return (
+    <div style={{ padding: 24 }}>
+
     <ProLayout
       collapsed
       siderMenuType="group"
@@ -230,5 +232,7 @@ export default () => {
         </ProCard>
       </PageContainer>
     </ProLayout>
+  
+    </div>
   );
 };

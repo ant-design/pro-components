@@ -36,6 +36,8 @@ export default () => {
   );
   const [pathname, setPathname] = useState('/welcome');
   return (
+    <div style={{ padding: 24 }}>
+
     <ConfigProvider prefixCls="qixian">
       <ProLayout
         {...defaultProps}
@@ -149,5 +151,7 @@ export default () => {
         onSettingChange={(changeSetting) => setSetting(changeSetting)}
       />
     </ConfigProvider>
+  
+    </div>
   );
 };

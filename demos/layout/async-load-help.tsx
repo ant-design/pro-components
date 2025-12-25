@@ -26,6 +26,8 @@ export default () => {
       };
     }) => {
       return (
+    <div style={{ padding: 24 }}>
+
         <div className={item.children.className}>
           <ReactMarkdown>{item.children.children?.trim()}</ReactMarkdown>
         </div>
@@ -331,5 +333,7 @@ It converts "HTML", but keep intact partial entries like "xxxHTMLyyy" and so on.
         </ProHelp>
       </div>
     </App>
+  
+    </div>
   );
 };

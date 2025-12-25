@@ -26,6 +26,8 @@ export default () => {
   const [pathname, setPathname] = useState('/list/sub-page/sub-sub-page1');
 
   return (
+    <div style={{ padding: 24 }}>
+
     <div
       id="test-pro-layout"
       style={{
@@ -207,6 +209,8 @@ export default () => {
         }}
         disableUrlParams={false}
       />
+    </div>
+  
     </div>
   );
 };

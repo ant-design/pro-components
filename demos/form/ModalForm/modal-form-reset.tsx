@@ -17,6 +17,8 @@ export default () => {
   const [modalVisible, setModalVisible] = useState<boolean>(false);
 
   return (
+    <div style={{ padding: 24 }}>
+
     <Space>
       <ModalForm
         title="Create New Form"
@@ -108,5 +110,7 @@ export default () => {
         />
       </ModalForm>
     </Space>
+  
+    </div>
   );
 };

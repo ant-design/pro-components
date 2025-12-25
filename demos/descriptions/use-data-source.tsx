@@ -2,6 +2,8 @@ import { ProDescriptions } from '@ant-design/pro-components';
 
 export default () => {
   return (
+    <div style={{ padding: 24 }}>
+
     <>
       <ProDescriptions
         title="dataSource and columns"
@@ -240,5 +242,7 @@ export default () => {
         </ul>
       </div>
     </>
+  
+    </div>
   );
 };

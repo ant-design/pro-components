@@ -170,6 +170,8 @@ export default () => {
   const formRef = useRef<ProFormInstance>();
 
   return (
+    <div style={{ padding: 24 }}>
+
     <BetaSchemaForm<DataItem>
       layoutType="StepsForm"
       steps={[
@@ -199,5 +201,7 @@ export default () => {
       }}
       columns={columns}
     />
+  
+    </div>
   );
 };

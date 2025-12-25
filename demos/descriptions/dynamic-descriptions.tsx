@@ -117,6 +117,8 @@ const initialValues = {
 export default () => {
   const [values, setValues] = useState<Record<string, any>>(initialValues);
   return (
+    <div style={{ padding: 24 }}>
+
     <>
       <ProCard
         variant="outlined"
@@ -474,5 +476,7 @@ export default () => {
         </ul>
       </div>
     </>
+  
+    </div>
   );
 };

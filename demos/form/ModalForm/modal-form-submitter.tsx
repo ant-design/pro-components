@@ -11,6 +11,8 @@ const waitTime = (time: number = 100) => {
 
 export default () => {
   return (
+    <div style={{ padding: 24 }}>
+
     <Space>
       <ModalForm
         title="Create New Form"
@@ -139,5 +141,7 @@ export default () => {
         />
       </ModalForm>
     </Space>
+  
+    </div>
   );
 };

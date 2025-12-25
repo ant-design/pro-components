@@ -63,6 +63,8 @@ const columns: ProFormColumnsType<DataItem>[] = [
 
 export default () => {
   return (
+    <div style={{ padding: 24 }}>
+
     <>
       <h1>普通json表单</h1>
       <BetaSchemaForm<DataItem>
@@ -86,5 +88,7 @@ export default () => {
         />
       </ProForm>
     </>
+  
+    </div>
   );
 };

@@ -16,6 +16,8 @@ const tailLayout = {
 
 export default () => {
   return (
+    <div style={{ padding: 24 }}>
+
     <>
       <ProForm
         {...layout}
@@ -44,5 +46,7 @@ export default () => {
         </ProForm.Item>
       </ProForm>
     </>
+  
+    </div>
   );
 };

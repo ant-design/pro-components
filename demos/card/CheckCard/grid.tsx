@@ -2,6 +2,8 @@ import { CheckCard } from '@ant-design/pro-components';
 import { Col, Row } from 'antd';
 
 export default () => (
+    <div style={{ padding: 24 }}>
+
   <>
     <CheckCard.Group style={{ width: '100%' }} size="small">
       <Row>
@@ -99,4 +101,6 @@ export default () => (
       </ul>
     </div>
   </>
-);
+
+    </div>
+  );

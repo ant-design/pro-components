@@ -8,6 +8,8 @@ import { message } from 'antd';
 
 export default () => {
   return (
+    <div style={{ padding: 24 }}>
+
     <ProForm
       onFinish={async () => {
         message.success('Submission successful');
@@ -64,5 +66,7 @@ export default () => {
         label="Contract Expiration Time"
       />
     </ProForm>
+  
+    </div>
   );
 };

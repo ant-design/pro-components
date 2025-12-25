@@ -31,6 +31,8 @@ const loopMenuItem = (menus: any[]): MenuDataItem[] =>
 export default () => {
   const [keyWord, setKeyWord] = useState('');
   return (
+    <div style={{ padding: 24 }}>
+
     <div
       style={{
         height: '100vh',
@@ -85,6 +87,8 @@ export default () => {
           <div>Hello World</div>
         </PageContainer>
       </ProLayout>
+    </div>
+  
     </div>
   );
 };

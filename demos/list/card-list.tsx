@@ -46,6 +46,8 @@ export default () => {
 
   const [ghost, setGhost] = useState<boolean>(false);
   return (
+    <div style={{ padding: 24 }}>
+
     <div
       style={{
         backgroundColor: '#eee',
@@ -112,6 +114,8 @@ export default () => {
         headerTitle="卡片列表展示"
         dataSource={data}
       />
+    </div>
+  
     </div>
   );
 };

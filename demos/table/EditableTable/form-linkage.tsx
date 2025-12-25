@@ -163,6 +163,8 @@ export default () => {
   ];
 
   return (
+    <div style={{ padding: 24 }}>
+
     <ProCard>
       <div
         style={{
@@ -255,5 +257,7 @@ export default () => {
         </ProForm>
       </div>
     </ProCard>
+  
+    </div>
   );
 };

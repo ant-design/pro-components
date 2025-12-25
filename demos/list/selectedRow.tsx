@@ -34,6 +34,8 @@ export default () => {
   };
 
   return (
+    <div style={{ padding: 24 }}>
+
     <ProList<{ title: string }>
       toolBarRender={() => {
         return [
@@ -82,5 +84,7 @@ export default () => {
       rowSelection={rowSelection}
       dataSource={dataSource}
     />
+  
+    </div>
   );
 };

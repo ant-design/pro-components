@@ -27,6 +27,8 @@ export default () => {
       : null;
 
   return (
+    <div style={{ padding: 24 }}>
+
     <ProForm<{
       name: string;
       company?: string;
@@ -93,5 +95,7 @@ export default () => {
         placeholder="Please enter a name"
       />
     </ProForm>
+  
+    </div>
   );
 };

@@ -20,6 +20,8 @@ export default () => {
   const [form] = Form.useForm<{ name: string; company: string }>();
 
   return (
+    <div style={{ padding: 24 }}>
+
     <DrawerForm<{
       name: string;
       company: string;
@@ -128,5 +130,7 @@ export default () => {
         initialValue="Qitu"
       />
     </DrawerForm>
+  
+    </div>
   );
 };

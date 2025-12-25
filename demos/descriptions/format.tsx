@@ -3,6 +3,8 @@ import dayjs from 'dayjs';
 
 export default () => {
   return (
+    <div style={{ padding: 24 }}>
+
     <>
       <ProDescriptions
         column={2}
@@ -197,5 +199,7 @@ export default () => {
         </ul>
       </div>
     </>
+  
+    </div>
   );
 };

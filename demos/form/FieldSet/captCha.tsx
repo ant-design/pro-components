@@ -15,6 +15,8 @@ export default () => {
   const inputRef = useRef();
 
   return (
+    <div style={{ padding: 24 }}>
+
     <ProForm
       title="新建表单"
       submitter={{
@@ -63,5 +65,7 @@ export default () => {
         name="code"
       />
     </ProForm>
+  
+    </div>
   );
 };

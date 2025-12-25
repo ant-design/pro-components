@@ -254,6 +254,8 @@ const columns: ProFormColumnsType<DataItem>[] = [
 export default () => {
   const [layoutType, setLayoutType] = useState<ProFormLayoutType>('Form');
   return (
+    <div style={{ padding: 24 }}>
+
     <>
       <Space
         style={{
@@ -307,5 +309,7 @@ export default () => {
         columns={(layoutType === 'StepsForm' ? [columns] : columns) as any}
       />
     </>
+  
+    </div>
   );
 };

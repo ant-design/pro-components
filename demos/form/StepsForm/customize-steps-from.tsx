@@ -21,6 +21,8 @@ const waitTime = (time: number = 100) => {
 
 export default () => {
   return (
+    <div style={{ padding: 24 }}>
+
     <ProCard>
       <StepsForm<{
         name: string;
@@ -172,5 +174,7 @@ export default () => {
         </StepsForm.StepForm>
       </StepsForm>
     </ProCard>
+  
+    </div>
   );
 };

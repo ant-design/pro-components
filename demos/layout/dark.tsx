@@ -19,6 +19,8 @@ export default () => {
   const [pathname, setPathname] = useState('/list/sub-page/sub-sub-page1');
 
   return (
+    <div style={{ padding: 24 }}>
+
     <ProConfigProvider dark={true}>
       <ProLayout
         {...defaultProps}
@@ -127,5 +129,7 @@ export default () => {
         </PageContainer>
       </ProLayout>
     </ProConfigProvider>
+  
+    </div>
   );
 };

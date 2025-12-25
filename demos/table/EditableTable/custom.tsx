@@ -187,6 +187,8 @@ export default () => {
   const [dataSource, setDataSource] = useState<readonly DataSourceType[]>([]);
   const [form] = Form.useForm();
   return (
+    <div style={{ padding: 24 }}>
+
     <>
       <Space>
         <Button
@@ -253,5 +255,7 @@ export default () => {
         />
       </ProCard>
     </>
+  
+    </div>
   );
 };

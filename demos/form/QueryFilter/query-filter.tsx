@@ -6,6 +6,8 @@ import {
 
 export default () => {
   return (
+    <div style={{ padding: 24 }}>
+
     <QueryFilter>
       <ProFormDateTimePicker
         label="下单时间"
@@ -15,5 +17,7 @@ export default () => {
       />
       <ProFormText disabled colProps={{ xl: 12 }} name="pay" label="支付方式" />
     </QueryFilter>
+  
+    </div>
   );
 };

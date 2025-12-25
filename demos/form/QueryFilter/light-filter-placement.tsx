@@ -18,6 +18,8 @@ import React from 'react';
 export default () => {
   const [mode, setMode] = React.useState<any>('topLeft');
   return (
+    <div style={{ padding: 24 }}>
+
     <div>
       <Radio.Group
         value={mode}
@@ -84,6 +86,8 @@ export default () => {
           <ProFormText />
         </ProFormFieldSet>
       </LightFilter>
+    </div>
+  
     </div>
   );
 };

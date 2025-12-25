@@ -10,6 +10,8 @@ export default () => {
     }>
   >();
   return (
+    <div style={{ padding: 24 }}>
+
     <>
       <ProForm>
         <ProFormList
@@ -53,5 +55,7 @@ export default () => {
         </ProFormList>
       </ProForm>
     </>
+  
+    </div>
   );
 };

@@ -5,6 +5,8 @@ const { Statistic } = StatisticCard;
 
 export default () => {
   return (
+    <div style={{ padding: 24 }}>
+
     <>
       <StatisticCard
         title="整体流量评分"
@@ -149,5 +151,7 @@ export default () => {
         </ul>
       </div>
     </>
+  
+    </div>
   );
 };

@@ -273,6 +273,8 @@ export default () => {
     return <div />;
   }
   return (
+    <div style={{ padding: 24 }}>
+
     <div
       id="test-pro-layout"
       style={{
@@ -451,6 +453,8 @@ export default () => {
           </ProLayout>
         </ConfigProvider>
       </ProConfigProvider>
+    </div>
+  
     </div>
   );
 };

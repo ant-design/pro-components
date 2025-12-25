@@ -23,6 +23,8 @@ const waitTime = (time: number = 100) => {
 export default () => {
   const [visible, setVisible] = useState(false);
   return (
+    <div style={{ padding: 24 }}>
+
     <>
       <Button type="primary" onClick={() => setVisible(true)}>
         <PlusOutlined />
@@ -149,5 +151,7 @@ export default () => {
         </StepsForm.StepForm>
       </StepsForm>
     </>
+  
+    </div>
   );
 };

@@ -38,6 +38,8 @@ type DataItem = (typeof defaultData)[number];
 export default () => {
   const [dataSource, setDataSource] = useState<DataItem[]>(defaultData);
   return (
+    <div style={{ padding: 24 }}>
+
     <ProList<DataItem>
       rowKey="id"
       headerTitle="基础列表"
@@ -85,5 +87,7 @@ export default () => {
         },
       }}
     />
+  
+    </div>
   );
 };

@@ -4,6 +4,8 @@ const { Divider } = StatisticCard;
 
 export default () => {
   return (
+    <div style={{ padding: 24 }}>
+
     <>
       <StatisticCard.Group>
         <StatisticCard
@@ -133,5 +135,7 @@ export default () => {
         </ul>
       </div>
     </>
+  
+    </div>
   );
 };

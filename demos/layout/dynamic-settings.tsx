@@ -29,6 +29,8 @@ export default () => {
   });
   const [pathname, setPathname] = useState('/welcome');
   return (
+    <div style={{ padding: 24 }}>
+
     <div
       id="test-pro-layout"
       style={{
@@ -150,6 +152,8 @@ export default () => {
         }}
         disableUrlParams
       />
+    </div>
+  
     </div>
   );
 };

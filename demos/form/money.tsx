@@ -26,6 +26,8 @@ export default () => {
 
   const [readonly, setReadonly] = useState(false);
   return (
+    <div style={{ padding: 24 }}>
+
     <>
       <ProFormSwitch
         checkedChildren="On"
@@ -135,5 +137,7 @@ export default () => {
         />
       </ProForm>
     </>
+  
+    </div>
   );
 };

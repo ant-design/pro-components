@@ -8,6 +8,8 @@ export default () => {
   };
 
   return (
+    <div style={{ padding: 24 }}>
+
     <>
       <div>
         <Form form={form} onFinish={handleSubmit} layout="vertical">
@@ -116,5 +118,7 @@ export default () => {
         </ul>
       </div>
     </>
+  
+    </div>
   );
 };

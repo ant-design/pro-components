@@ -31,6 +31,8 @@ export default () => {
   const [grid, setGrid] = useState(true);
 
   return (
+    <div style={{ padding: 24 }}>
+
     <ProForm<{
       name: string;
       company?: string;
@@ -126,5 +128,7 @@ export default () => {
         }}
       />
     </ProForm>
+  
+    </div>
   );
 };

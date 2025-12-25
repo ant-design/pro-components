@@ -49,6 +49,8 @@ const treeData = [
 
 export default () => {
   return (
+    <div style={{ padding: 24 }}>
+
     <LightFilter
       initialValues={{
         sex: 'man',
@@ -145,5 +147,7 @@ export default () => {
         name="area"
       />
     </LightFilter>
+  
+    </div>
   );
 };

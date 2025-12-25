@@ -61,6 +61,8 @@ export default () => {
     }>
   >();
   return (
+    <div style={{ padding: 24 }}>
+
     <ProForm<{
       name: string;
       company?: string;
@@ -252,5 +254,7 @@ export default () => {
         }}
       </ProFormList>
     </ProForm>
+  
+    </div>
   );
 };

@@ -16,6 +16,8 @@ import { Card } from 'antd';
 
 export default () => {
   return (
+    <div style={{ padding: 24 }}>
+
     <ProLayout
       fixSiderbar
       fixedHeader
@@ -168,5 +170,7 @@ export default () => {
         </Card>
       </PageContainer>
     </ProLayout>
+  
+    </div>
   );
 };

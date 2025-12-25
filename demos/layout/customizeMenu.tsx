@@ -3,6 +3,8 @@ import defaultProps from './_defaultProps';
 
 export default () => {
   return (
+    <div style={{ padding: 24 }}>
+
     <div
       style={{
         height: '100vh',
@@ -57,6 +59,8 @@ export default () => {
       >
         <PageContainer content="欢迎使用">Hello World</PageContainer>
       </ProLayout>
+    </div>
+  
     </div>
   );
 };

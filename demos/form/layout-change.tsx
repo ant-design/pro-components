@@ -52,6 +52,8 @@ export default () => {
 
   if (type === 'StepsForm') {
     return (
+    <div style={{ padding: 24 }}>
+
       <>
         <ProFormRadio.Group
           style={{
@@ -343,5 +345,7 @@ export default () => {
         </FormComponents>
       </div>
     </>
+  
+    </div>
   );
 };

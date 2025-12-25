@@ -90,6 +90,8 @@ type DataItem = {
 export default () => {
   const [valueType, setValueType] = useState<ProFieldValueType>('text');
   return (
+    <div style={{ padding: 24 }}>
+
     <>
       <ProFormSelect.SearchSelect
         label="valueType 选择"
@@ -146,5 +148,7 @@ export default () => {
         ]}
       />
     </>
+  
+    </div>
   );
 };

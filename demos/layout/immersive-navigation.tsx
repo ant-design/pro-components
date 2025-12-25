@@ -51,6 +51,8 @@ const defaultHomeProps = {
 export default () => {
   const [pathname, setPathname] = useState('/admin/sub-page1');
   return (
+    <div style={{ padding: 24 }}>
+
     <>
       <ProLayout
         route={pathname === '/' ? defaultHomeProps : defaultProps}
@@ -140,5 +142,7 @@ export default () => {
         </div>
       </ProLayout>
     </>
+  
+    </div>
   );
 };

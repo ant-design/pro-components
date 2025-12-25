@@ -1,6 +1,8 @@
 import { CheckCard } from '@ant-design/pro-components';
 
 export default () => (
+    <div style={{ padding: 24 }}>
+
   <>
     <h3>只有图片时</h3>
     <CheckCard avatar="https://gw.alipayobjects.com/zos/bmw-prod/f601048d-61c2-44d0-bf57-ca1afe7fd92e.svg" />
@@ -98,4 +100,6 @@ export default () => (
       </ul>
     </div>
   </>
-);
+
+    </div>
+  );

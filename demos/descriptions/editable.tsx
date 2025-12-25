@@ -5,6 +5,8 @@ import { useRef } from 'react';
 export default () => {
   const actionRef = useRef();
   return (
+    <div style={{ padding: 24 }}>
+
     <>
       <ProDescriptions
         actionRef={actionRef}
@@ -321,5 +323,7 @@ export default () => {
         </ul>
       </div>
     </>
+  
+    </div>
   );
 };

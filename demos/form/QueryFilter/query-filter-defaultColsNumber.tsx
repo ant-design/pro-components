@@ -6,6 +6,8 @@ import {
 
 export default () => {
   return (
+    <div style={{ padding: 24 }}>
+
     <QueryFilter defaultCollapsed split defaultColsNumber={6}>
       <ProFormText name="name" label="应用名称" />
       <ProFormDatePicker name="createDate" label="创建时间" />
@@ -14,5 +16,7 @@ export default () => {
       <ProFormDatePicker name="startDate" label="创建时间" />
       <ProFormDatePicker name="endDate" label="结束时间" />
     </QueryFilter>
+  
+    </div>
   );
 };
