@@ -1,8 +1,6 @@
 ---
-nav:
-  title: Layout
 group: Layout
-title: DEMO
+title: Demos
 order: 0
 ---
 

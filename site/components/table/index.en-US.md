@@ -1,8 +1,6 @@
 ---
-nav:
-  title: Table
 group: Table
-title: ProTable - Advanced Table
+title: ProTable Advanced Table
 order: 0
 legacy: /table
 atomId: ProTable

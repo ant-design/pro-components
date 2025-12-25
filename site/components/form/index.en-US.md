@@ -1,7 +1,5 @@
 ---
-nav:
-  title: Form
-title: ProForm - Advanced Form
+title: ProForm Advanced Form
 atomId: ProForm
 order: 1
 group: Form

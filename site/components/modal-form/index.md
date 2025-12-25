@@ -1,8 +1,6 @@
 ---
-nav:
-  title: Form
 group: Form
-title: Modal/Drawer - 浮层表单
+title: Modal/Drawer 浮层表单
 atomId: ModalForm,DrawerForm
 order: 2
 ---

@@ -1,8 +1,6 @@
 ---
-nav:
-  title: Card
 group: Card
-title: StatisticCard - 指标卡
+title: StatisticCard 指标卡
 order: 1
 atomId: StatisticCard
 ---

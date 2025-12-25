@@ -1,7 +1,5 @@
 ---
-nav:
-  title: Layout
-title: ProLayout - Advanced Layout
+title: ProLayout Advanced Layout
 atomId: ProLayout
 order: 0
 legacy: /layout

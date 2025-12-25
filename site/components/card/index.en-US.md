@@ -1,6 +1,4 @@
 ---
-nav:
-  title: Card
 group: Card
 title: ProCard
 atomId: ProCard

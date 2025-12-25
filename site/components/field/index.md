@@ -1,8 +1,6 @@
 ---
-nav:
-  title: Field
 group: Field
-title: ProField - 原子组件
+title: ProField 原子组件
 ---
 
 # ProField

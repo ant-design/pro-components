@@ -1,8 +1,6 @@
 ---
-nav:
-  title: Layout
 group: Layout
-title: ProLayout - 高级布局
+title: ProLayout 高级布局
 atomId: ProLayout
 order: 0
 ---

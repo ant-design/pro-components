@@ -1,6 +1,4 @@
 ---
-nav:
-  title: Skeleton
 title: ProSkeleton
 atomId: ProSkeleton
 group: Skeleton

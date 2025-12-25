@@ -1,6 +1,4 @@
 ---
-nav:
-  title: Form
 title: Modal/DrawerForm
 atomId: ModalForm,DrawerForm
 group: Form

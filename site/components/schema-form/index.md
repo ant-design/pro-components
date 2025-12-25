@@ -1,8 +1,6 @@
 ---
-nav:
-  title: Form
 group: Form
-title: Schema Form - JSON 表单
+title: Schema Form JSON 表单
 order: 1
 atomId: BetaSchemaForm
 ---

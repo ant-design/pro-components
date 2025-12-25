@@ -1,8 +1,6 @@
 ---
-nav:
-  title: Card
 group: Card
-title: StatisticCard - Indicator Card
+title: StatisticCard Indicator Card
 order: 1
 atomId: StatisticCard
 ---

@@ -1,8 +1,6 @@
 ---
-nav:
-  title: Table
 group: Table
-title: DragSortTable - 拖动排序表格
+title: DragSortTable 拖动排序表格
 atomId: DragSortTable
 ---
 
