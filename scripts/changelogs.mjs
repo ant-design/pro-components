@@ -15,9 +15,6 @@ const run = (command) => {
 async function main() {
   console.log('Generating Changelog...');
   
-  // Get releases from GitHub API
-  // We fetch up to 100 releases. 
-  // Using 'ant-design/pro-components' as the repo.
   const repo = 'ant-design/pro-components';
   const cmd = `gh api repos/${repo}/releases?per_page=100`;
   
@@ -25,9 +22,9 @@ async function main() {
     const data = run(cmd);
     const releases = JSON.parse(data);
     
-    let markdown = '# Changelog\n\n';
+    // Add Frontmatter
+    let markdown = '---\ntitle: 更新日志\n---\n\n# Changelog\n\n';
 
-    // Releases are typically returned in reverse chronological order (newest first)
     for (const release of releases) {
       if (release.draft) continue;
 
@@ -41,7 +38,8 @@ async function main() {
       markdown += `---\n\n`;
     }
 
-    const outputPath = path.join(process.cwd(), 'CHANGELOG.md');
+    // Change output path to site/changelog.md
+    const outputPath = path.join(process.cwd(), 'site', 'changelog.md');
     writeFileSync(outputPath, markdown);
     console.log(`Success! Changelog written to ${outputPath}`);
     
