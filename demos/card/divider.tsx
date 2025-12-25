@@ -21,11 +21,11 @@ export default () => {
         <ProCard>
           <Statistic title="Today's UV" value={79.0} precision={2} />
         </ProCard>
-        <Divider orientation={responsive ? 'horizontal' : 'vertical'} />
+        <Divider type={responsive ? 'horizontal' : 'vertical'} />
         <ProCard>
           <Statistic title="Frozen Amount" value={112893.0} precision={2} />
         </ProCard>
-        <Divider orientation={responsive ? 'horizontal' : 'vertical'} />
+        <Divider type={responsive ? 'horizontal' : 'vertical'} />
         <ProCard>
           <Statistic
             title="Information Completeness"
@@ -33,7 +33,7 @@ export default () => {
             suffix="/ 100"
           />
         </ProCard>
-        <Divider orientation={responsive ? 'horizontal' : 'vertical'} />
+        <Divider type={responsive ? 'horizontal' : 'vertical'} />
         <ProCard>
           <Statistic title="Frozen Amount" value={112893.0} />
         </ProCard>

@@ -22,7 +22,7 @@ export default () => {
               value: 601986875,
             }}
           />
-          <Divider orientation={responsive ? 'horizontal' : 'vertical'} />
+          <Divider type={responsive ? 'horizontal' : 'vertical'} />
           <StatisticCard
             statistic={{
               title: 'Paid Traffic',
