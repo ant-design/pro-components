@@ -9,7 +9,7 @@ legacy: /table
 
 ## 查询表格
 
-<code src="../../../demos/table/single.tsx"  background="var(--main-bg-color)" title="查询表格"></code>
+<code src="../../../demos/table/single.tsx" background="var(--main-bg-color)"></code>
 
 <code src="../../../demos/table/theme.tsx" background="var(--main-bg-color)" iframe="550" title="黑色主紧凑主题"></code>
 
@@ -133,7 +133,7 @@ formItemRender: (
 
 有些业务有自己的定制逻辑，可以不完全遵循 ProTable 的设计规则，但可以利用 ProTable 的 API 实现。如通过 `cardProps` 配置卡片属性，通过 `headTitle` 配置行动点在左侧。
 
-<code src="../../../demos/table/card-title.tsx" background="var(--main-bg-color)" title="卡片表格" desc="使用卡片标题，行动点在左侧。"></code>
+<code src="../../../demos/table/card-title.tsx" background="var(--main-bg-color)" desc="使用卡片标题，行动点在左侧。"></code>
 
 ## 国际化相关的配置
 

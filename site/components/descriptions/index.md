@@ -67,25 +67,25 @@ interface RequestData {
 
 通过请求接口数据来展示定义列表
 
-<code src="../../../demos/descriptions/request.tsx" title="远程请求数据" ></code>
+<code src="../../../demos/descriptions/request.tsx"></code>
 
 ### columns 配置
 
 通过请求接口数据和 columns 来展示定义列表
 
-<code src="../../../demos/descriptions/columns.tsx" title="columns 配置" ></code>
+<code src="../../../demos/descriptions/columns.tsx"></code>
 
 ### dataSource 配置数据
 
 ProDescriptions 支持了和 Table 相同的 dataSource
 
-<code src="../../../demos/descriptions/use-data-source.tsx" title="dataSource 配置数据" ></code>
+<code src="../../../demos/descriptions/use-data-source.tsx"></code>
 
 ### 可编辑的定义列表
 
 API 与 ProTable 相同
 
-<code src="../../../demos/descriptions/editable.tsx" title="可编辑的定义列表" ></code>
+<code src="../../../demos/descriptions/editable.tsx"></code>
 
 ## API
 

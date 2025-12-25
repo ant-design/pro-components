@@ -363,12 +363,12 @@ The name parameter must be an array. For nested structures, you can configure it
 
 ### Behavior guard
 
-<code src="../../../demos/form/Group/pro-form-list.tsx" title="Behavior guard"></code>
+<code src="../../../demos/form/Group/pro-form-list.tsx"></code>
 
 ### Limitations on adding or deleting items
 
-<code src="../../../demos/form/Group/countLimit.tsx" title="Limitations on adding or deleting items"></code>
+<code src="../../../demos/form/Group/countLimit.tsx"></code>
 
 ### Horizontal layout
 
-<code src="../../../demos/form/Group/horizontal-layout.tsx" title="Horizontal layout" ></code>
+<code src="../../../demos/form/Group/horizontal-layout.tsx"></code>
