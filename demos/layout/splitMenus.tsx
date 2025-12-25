@@ -5,7 +5,7 @@ import {
 } from '@ant-design/pro-components';
 import defaultProps from './_defaultProps';
 
-export default () => {
+const Demo = () => {
   return (
     <>
       <ProLayout {...defaultProps} layout="mix" splitMenus pure>
@@ -120,3 +120,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

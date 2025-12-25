@@ -1,6 +1,6 @@
 import { ProCard } from '@ant-design/pro-components';
 
-export default () => {
+const Demo = () => {
   return (
     <>
       <ProCard loading style={{ maxWidth: 300 }}>
@@ -121,3 +121,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

@@ -26,7 +26,7 @@ const dataSource = [
   },
 ];
 
-export default () => {
+const Demo = () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState<Key[]>([]);
   const rowSelection = {
     selectedRowKeys,
@@ -84,3 +84,9 @@ export default () => {
     />
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

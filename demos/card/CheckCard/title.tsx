@@ -2,7 +2,7 @@ import { AppstoreOutlined } from '@ant-design/icons';
 import { CheckCard } from '@ant-design/pro-components';
 import { Tag } from 'antd';
 
-export default () => (
+const Demo = () => (
   <>
     <CheckCard
       title={
@@ -74,4 +74,10 @@ export default () => (
       </ul>
     </div>
   </>
+);
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
 );

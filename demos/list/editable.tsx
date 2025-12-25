@@ -35,7 +35,7 @@ const defaultData = [
 
 type DataItem = (typeof defaultData)[number];
 
-export default () => {
+const Demo = () => {
   const [dataSource, setDataSource] = useState<DataItem[]>(defaultData);
   return (
     <ProList<DataItem>
@@ -87,3 +87,9 @@ export default () => {
     />
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

@@ -51,7 +51,7 @@ const columns: ProFormColumnsType<DataItem>[] = [
   },
 ];
 
-export default () => {
+const Demo = () => {
   return (
     <ProForm>
       <h1>ProForm </h1>
@@ -119,3 +119,9 @@ export default () => {
     </ProForm>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

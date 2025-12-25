@@ -64,7 +64,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
   },
 ];
 
-export default () => {
+const Demo = () => {
   const actionRef = useRef<ActionType>();
   const [intl, setIntl] = useState('zhCNIntl');
   return (
@@ -211,3 +211,9 @@ export default () => {
     </ul>
   </div>;
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

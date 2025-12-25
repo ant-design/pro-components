@@ -1,6 +1,6 @@
 import { ProCard } from '@ant-design/pro-components';
 
-export default () => {
+const Demo = () => {
   return (
     <>
       <ProCard gutter={[16, 16]}>
@@ -27,3 +27,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

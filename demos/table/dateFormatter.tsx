@@ -22,7 +22,7 @@ const columns: ProColumns<TableListItem>[] = [
   },
 ];
 
-export default () => {
+const Demo = () => {
   const ref = useRef<ProFormInstance>();
   const [collapsed, setCollapsed] = useState(false);
 
@@ -207,3 +207,9 @@ export default () => {
     </ul>
   </div>;
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

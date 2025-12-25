@@ -40,7 +40,7 @@ const waitTime = (time: number = 100) => {
   });
 };
 
-export default function App() {
+export function App() {
   const [searchValue, setSearchValue] = useState('');
   const [selectOpen, setSelectOpen] = useState(false);
 
@@ -149,3 +149,9 @@ export default function App() {
     </div>
   );
 }
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <App />
+  </div>
+);

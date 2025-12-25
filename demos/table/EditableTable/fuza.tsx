@@ -117,7 +117,7 @@ const defaultData = [
   },
 ];
 
-export default () => {
+const Demo = () => {
   const formRef = useRef<FormInstance>();
   return (
     <ProForm
@@ -271,3 +271,9 @@ export default () => {
     </ProForm>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

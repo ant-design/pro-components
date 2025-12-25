@@ -2,7 +2,7 @@ import { ProDescriptions } from '@ant-design/pro-components';
 import { Input, Tooltip } from 'antd';
 import { useRef } from 'react';
 
-export default () => {
+const Demo = () => {
   const actionRef = useRef();
   return (
     <>
@@ -323,3 +323,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

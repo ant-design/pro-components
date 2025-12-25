@@ -26,7 +26,7 @@ const defaultData: DataSourceType[] = new Array(20).fill(1).map((_, index) => {
   };
 });
 
-export default () => {
+const Demo = () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>(() =>
     defaultData.map((item) => item.id),
   );
@@ -153,3 +153,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

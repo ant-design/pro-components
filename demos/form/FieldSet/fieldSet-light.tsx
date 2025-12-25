@@ -5,7 +5,7 @@
   ProFormText,
 } from '@ant-design/pro-components';
 
-export default function App() {
+export function App() {
   return (
     <div className="App">
       <LightFilter
@@ -56,3 +56,9 @@ export default function App() {
     </div>
   );
 }
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <App />
+  </div>
+);

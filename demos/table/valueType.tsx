@@ -118,7 +118,7 @@ const columns: ProColumns<TableListItem>[] = [
   },
 ];
 
-export default () => (
+const Demo = () => (
   <>
     <ProTable<TableListItem>
       columns={columns}
@@ -202,4 +202,10 @@ export default () => (
       </ul>
     </div>
   </>
+);
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
 );

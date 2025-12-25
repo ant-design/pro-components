@@ -92,7 +92,7 @@ const columns: ProColumns<TableListItem>[] = [
   },
 ];
 
-export default () => {
+const Demo = () => {
   const [time, setTime] = useState(() => Date.now());
   const [polling, setPolling] = useState<number>(2000);
   return (
@@ -215,3 +215,9 @@ export default () => {
     </ul>
   </div>;
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

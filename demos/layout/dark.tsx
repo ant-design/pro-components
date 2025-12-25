@@ -15,7 +15,7 @@ import { Button, Input } from 'antd';
 import { useState } from 'react';
 import defaultProps from './_defaultProps';
 
-export default () => {
+const Demo = () => {
   const [pathname, setPathname] = useState('/list/sub-page/sub-sub-page1');
 
   return (
@@ -129,3 +129,9 @@ export default () => {
     </ProConfigProvider>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

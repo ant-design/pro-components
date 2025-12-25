@@ -2,7 +2,7 @@ import { UserOutlined } from '@ant-design/icons';
 import { PageContainer, ProLayout } from '@ant-design/pro-components';
 import complexMenu from './complexMenu';
 
-export default () => (
+const Demo = () => (
   <div
     style={{
       height: '100vh',
@@ -61,5 +61,11 @@ export default () => (
         </PageContainer>
       </ProLayout>
     </ProLayout>
+  </div>
+);
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
   </div>
 );

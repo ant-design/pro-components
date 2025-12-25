@@ -10,7 +10,7 @@ import {
 import { Button, Space, message } from 'antd';
 import { useState } from 'react';
 
-export default () => {
+const Demo = () => {
   const [modalVisit, setModalVisit] = useState(false);
   const [drawerVisit, setDrawerVisit] = useState(false);
 
@@ -191,3 +191,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

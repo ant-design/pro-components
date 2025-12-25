@@ -18,7 +18,7 @@ const waitTime = (time: number = 100) => {
   });
 };
 
-export default () => {
+const Demo = () => {
   const formRef = useRef();
   return (
     <div
@@ -263,3 +263,9 @@ export default () => {
     </div>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

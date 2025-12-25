@@ -10,7 +10,7 @@ import { PageContainer, ProCard, ProLayout } from '@ant-design/pro-components';
 import { Button, Result } from 'antd';
 import { useState } from 'react';
 
-export default () => {
+const Demo = () => {
   const [pathname, setPathname] = useState('/welcome');
   return (
     <div
@@ -136,3 +136,9 @@ export default () => {
     </div>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);
