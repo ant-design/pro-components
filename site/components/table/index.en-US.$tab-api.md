@@ -1,6 +1,6 @@
 ---
 group: Table
-title: Demo
+title: Demos
 order: 0
 legacy: /table
 ---

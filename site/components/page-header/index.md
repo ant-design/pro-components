@@ -2,7 +2,7 @@
 group: PageHeader
 category: Components
 type: 导航
-title: PageHeader
+title: PageHeader 页头
 cols: 1
 subtitle: 页头
 cover: https://gw.alipayobjects.com/zos/alicdn/6bKE0Cq0R/PageHeader.svg
