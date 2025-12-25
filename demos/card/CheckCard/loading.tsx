@@ -1,6 +1,6 @@
 import { CheckCard } from '@ant-design/pro-components';
 
-export default () => (
+const Demo = () => (
   <>
     <CheckCard loading />
 
@@ -74,4 +74,10 @@ export default () => (
       </ul>
     </div>
   </>
+);
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
 );

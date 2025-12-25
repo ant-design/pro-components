@@ -1,8 +1,6 @@
 ---
-nav:
-  title: Field
 group: Field
-title: ProField
+title: ProField Atomic Component
 ---
 
 # ProField
@@ -35,11 +33,11 @@ return <Field text="100" valueType="money" mode={state} />;
 
 ### Properties
 
-| Parameters     | Description                                                                               | Type      | Default Value |
-| -------------- | ----------------------------------------------------------------------------------------- | --------- | ------------- |
-| text           | The value to be formatted                                                                 | any       | -             |
-| valueType      | The type of formatting                                                                    | ValueType | -             |
-| mode           | The mode of the component                                                                 | -         | -             |
-| plain          | Simplified mode                                                                           | -         | -             |
-| formItemRender | Custom DOM rendering when `mode=update \| edit`, typically used for rendering input boxes | -         | -             |
-| render         | Custom DOM rendering when `mode=read`, purely for display purposes                        | -         | -             |
+| Parameters | Description | Type | Default Value |
+| --- | --- | --- | --- |
+| text | The value to be formatted | any | - |
+| valueType | The type of formatting | ValueType | - |
+| mode | The mode of the component | `read` \| `edit` \| `update` | `read` |
+| plain | Simplified mode | boolean | false |
+| formItemRender | Custom DOM rendering when `mode=update \| edit`, typically used for rendering input boxes | `(item: any, config: any) => ReactNode` | - |
+| render | Custom DOM rendering when `mode=read`, purely for display purposes | `(item: any, config: any) => ReactNode` | - |

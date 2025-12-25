@@ -15,7 +15,7 @@ import {
 import { Radio } from 'antd';
 import React from 'react';
 
-export default () => {
+const Demo = () => {
   const [mode, setMode] = React.useState<any>('topLeft');
   return (
     <div>
@@ -87,3 +87,9 @@ export default () => {
     </div>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

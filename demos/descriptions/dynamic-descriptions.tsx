@@ -114,7 +114,7 @@ const initialValues = {
   ],
 };
 
-export default () => {
+const Demo = () => {
   const [values, setValues] = useState<Record<string, any>>(initialValues);
   return (
     <>
@@ -476,3 +476,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

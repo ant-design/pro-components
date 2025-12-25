@@ -126,7 +126,7 @@ const expandedRowRender = () => {
   );
 };
 
-export default () => {
+const Demo = () => {
   return (
     <ProTable<TableListItem>
       columns={columns}
@@ -251,3 +251,9 @@ export default () => {
     </ul>
   </div>;
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

@@ -1,6 +1,4 @@
 ---
-nav:
-  title: Form
 title: StepsForm
 order: 1
 atomId: StepsForm

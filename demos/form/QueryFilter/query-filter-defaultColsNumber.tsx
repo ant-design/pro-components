@@ -4,7 +4,7 @@ import {
   QueryFilter,
 } from '@ant-design/pro-components';
 
-export default () => {
+const Demo = () => {
   return (
     <QueryFilter defaultCollapsed split defaultColsNumber={6}>
       <ProFormText name="name" label="应用名称" />
@@ -16,3 +16,9 @@ export default () => {
     </QueryFilter>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

@@ -8,7 +8,7 @@ import {
 import { useState } from 'react';
 import defaultProps from './_defaultProps';
 
-export default () => {
+const Demo = () => {
   const [pathname, setPathname] = useState('/welcome');
   const [collapsed, setCollapsed] = useState(true);
   const [position, setPosition] = useState<'header' | 'menu'>('header');
@@ -96,3 +96,9 @@ export default () => {
     </ProLayout>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

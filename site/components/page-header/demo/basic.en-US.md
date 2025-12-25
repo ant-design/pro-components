@@ -1,6 +1,4 @@
 ---
-nav:
-  title: Layout
 group: PageHeader
 order: 1
 title: Basic Page Header

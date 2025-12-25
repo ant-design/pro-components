@@ -251,7 +251,7 @@ const columns: ProFormColumnsType<DataItem>[] = [
   },
 ];
 
-export default () => {
+const Demo = () => {
   const [layoutType, setLayoutType] = useState<ProFormLayoutType>('Form');
   return (
     <>
@@ -309,3 +309,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

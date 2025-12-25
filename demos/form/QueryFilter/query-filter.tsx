@@ -4,7 +4,7 @@ import {
   QueryFilter,
 } from '@ant-design/pro-components';
 
-export default () => {
+const Demo = () => {
   return (
     <QueryFilter>
       <ProFormDateTimePicker
@@ -17,3 +17,9 @@ export default () => {
     </QueryFilter>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

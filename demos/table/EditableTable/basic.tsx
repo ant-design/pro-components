@@ -47,7 +47,7 @@ const defaultData: DataSourceType[] = [
   },
 ];
 
-export default () => {
+const Demo = () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>([]);
   const [dataSource, setDataSource] = useState<readonly DataSourceType[]>([]);
   const [position, setPosition] = useState<'top' | 'bottom' | 'hidden'>(
@@ -231,3 +231,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

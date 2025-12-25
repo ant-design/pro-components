@@ -1,6 +1,6 @@
 import { ProCard } from '@ant-design/pro-components';
 
-export default () => {
+const Demo = () => {
   return (
     <ProCard
       title="Title"
@@ -13,3 +13,9 @@ export default () => {
     </ProCard>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

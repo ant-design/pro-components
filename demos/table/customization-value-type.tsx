@@ -127,7 +127,7 @@ const columns: ProColumns<TableListItem, 'link' | 'tags'>[] = [
   },
 ];
 
-export default () => {
+const Demo = () => {
   const values = useContext(ProProvider);
   return (
     <ProProvider.Provider
@@ -248,3 +248,9 @@ export default () => {
     </ul>
   </div>;
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

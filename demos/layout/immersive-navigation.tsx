@@ -48,7 +48,7 @@ const defaultHomeProps = {
   ],
 };
 
-export default () => {
+const Demo = () => {
   const [pathname, setPathname] = useState('/admin/sub-page1');
   return (
     <>
@@ -142,3 +142,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

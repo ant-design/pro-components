@@ -1,10 +1,8 @@
 ---
-nav:
-  title: Layout
 group: PageHeader
 category: Components
 type: Navigation
-title: PageHeader
+title: PageHeader Page Header
 cols: 1
 subtitle:
 cover: https://gw.alipayobjects.com/zos/alicdn/6bKE0Cq0R/PageHeader.svg

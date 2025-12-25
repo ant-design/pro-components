@@ -1,12 +1,11 @@
 ---
-nav:
-  title: Descriptions
-title: ProDescriptions
+title: ProDescriptions Definition List
 atomId: ProDescriptions
+order: 1
 group: Descriptions
 ---
 
-# ProDescriptions
+# ProDescriptions - Advanced Definition List
 
 ## When to use
 
@@ -17,7 +16,7 @@ ProDescriptions was born to solve the problem of writing a lot of boilerplate co
 For example, ProDescriptions encapsulates the behavior of the request network, and ProDescriptions will bring the data in props.params into the request by default. If the interface happens to be the same as our definition, it will be very simple to implement a query.
 
 ```tsx | pure
-import   request from'umi-request';
+import   request from 'umi-request';
 
 const fetchData = (params) =>
   request<{
@@ -52,37 +51,41 @@ interface RequestData {
 
 ### Basic usage
 
-<code src="../../../demos/descriptions/base.tsx" oldtitle="Basic definition list"></code>
+<code src="../../../demos/descriptions/base.tsx" title="Basic definition list"></code>
 
-### Request data remotely
+### Array type dataIndex
 
-Display the definition list by requesting interface data
+<code src="../../../demos/descriptions/arrayDataIndex.tsx"></code>
 
-<code src="../../../demos/descriptions/request.tsx" oldtitle="remote request data"></code>
-
-### columns configuration
-
-Display the definition list by requesting interface data and columns
-
-<code src="../../../demos/descriptions/columns.tsx" oldtitle="columns configuration"></code>
-
-### format configuration
+### Format configuration
 
 Format the date according to format
 
-<code src="../../../demos/descriptions/format.tsx" oldtitle="format configuration"></code>
+<code src="../../../demos/descriptions/format.tsx"></code>
+
+### Remote request data
+
+Display the definition list by requesting interface data
+
+<code src="../../../demos/descriptions/request.tsx"></code>
+
+### Columns configuration
+
+Display the definition list by requesting interface data and columns
+
+<code src="../../../demos/descriptions/columns.tsx"></code>
 
 ### dataSource configuration data
 
 ProDescriptions supports the same dataSource as Table
 
-<code src="../../../demos/descriptions/use-data-source.tsx" oldtitle="dataSource configuration data"></code>
+<code src="../../../demos/descriptions/use-data-source.tsx"></code>
 
 ### Editable definition list
 
 API is the same as ProTable
 
-<code src="../../../demos/descriptions/editable.tsx" oldtitle="Editable definition list"></code>
+<code src="../../../demos/descriptions/editable.tsx"></code>
 
 ## API
 
@@ -90,52 +93,57 @@ API is the same as ProTable
 
 > For more features, see [Descriptions](https://ant.design/components/descriptions-cn/) of antd
 
-| Parameters     | Description                                                                                                                                  | Type                                           | Default Value |
-| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- | ------------- |
-| title          | The title of the description list, displayed at the top                                                                                      | `ReactNode`                                    | -             |
-| tooltip        | Supplementary description of the content, displayed after hover                                                                              | `string`                                       | -             |
-| loading        | Display a loaded skeleton screen, the skeleton screen and dom will not correspond one-to-one                                                 | `boolean`                                      | -             |
-| extra          | Describe the operation area of ​​the list, displayed on the upper right                                                                      | `string` \| `ReactNode`                        | -             |
-| bordered       | Whether to display the border                                                                                                                | boolean                                        | false         |
-| column         | The number of `ProDescriptionsItems` in a row, can be written as pixel value or support responsive object writing `{ xs: 8, sm: 16, md: 24}` | number                                         | 3             |
-| size           | Set the size of the list. Can be set to `middle`, `small`, or left blank (only setting `bordered={true}` takes effect)                       | `default` \| `middle` \| `small`               | -             |
-| layout         | Description layout                                                                                                                           | `horizontal` \| `vertical`                     | `horizontal`  |
-| colon          | Configure the default value of `colon` of `ProDescriptions.Item`                                                                             | boolean                                        | true          |
-| request        | Request data, when columns are not set, ProDescriptions.Item needs to set the corresponding dataIndex                                        | -                                              | -             |
-| onRequestError | Handling request errors, by default an error will be thrown directly                                                                         | -                                              | -             |
-| columns        | Column definition, used with request [columns](/components/table#columns)                                                                    | -                                              | -             |
-| editable       | Editable related configuration                                                                                                               | [EditableConfig](#editable-edit-configuration) | -             |
+| Parameters | Description | Type | Default Value |
+| --- | --- | --- | --- |
+| title | The title of the description list, displayed at the top | `ReactNode` | - |
+| tooltip | Supplementary description of the content, displayed after hover | `string` | - |
+| loading | Display a loaded skeleton screen, the skeleton screen and dom will not correspond one-to-one | `boolean` | - |
+| extra | Describe the operation area of ​​the list, displayed on the upper right | `string` \| `ReactNode` | - |
+| bordered | Whether to display the border | boolean | false |
+| column | The number of `ProDescriptionsItems` in a row, can be written as pixel value or support responsive object writing `{ xs: 1, sm: 2, md: 3}` | number | 3 |
+| size | Set the size of the list. Can be set to `middle`, `small`, or left blank (only setting `bordered={true}` takes effect) | `default` \| `middle` \| `small` | - |
+| layout | Description layout | `horizontal` \| `vertical` | `horizontal` |
+| colon | Configure the default value of `colon` of `ProDescriptions.Item` | boolean | true |
+| request | Request data, when columns are not set, ProDescriptions.Item needs to set the corresponding dataIndex | `(params: U) => Promise<RequestData<T>>` | - |
+| onRequestError | Handling request errors, by default an error will be thrown directly | `(error: Error) => void` | - |
+| columns | Column definition, used with request [columns](/components/table#columns) | `ProColumns<T>[]` | - |
+| editable | Editable related configuration | [EditableConfig](#editable-edit-configuration) | - |
+| dataSource | Data source | `T[]` | - |
+| actionRef | Operation reference | `MutableRefObject<ActionType>` | - |
 
 ### editable edit configuration
 
-| Property                      | Description                                                                                                                                                                            | Type                                                                     | Default Value                                  |
-| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | ---------------------------------------------- |
-| form                          | The form instance of the editable form, use `Form.useForm` to generate and use                                                                                                         | `FormInstance`                                                           | -                                              |
-| formProps                     | form properties can be configured, but onFinish is not supported                                                                                                                       | [\`FormProps'](https://procomponents.ant.design/components/form#proform) | -                                              |
-| editableKeys                  | Row being edited, controlled attributes. The default`key` will use the configuration of `rowKey`, if there is no configuration, it will use the`index`,it is recommended to use rowKey | `Key[]`                                                                  | -                                              |
-| onChange                      | Triggered when row data is modified                                                                                                                                                    | `(editableKeys: Key[], editableRows: T[]) => void`                       | -                                              |
-| onSave                        | Triggered when a row is saved                                                                                                                                                          | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>`  | -                                              |
-| onDelete                      | Triggered when a row is deleted                                                                                                                                                        | `(key: Key, row: T) => Promise<any>`                                     | -                                              |
-| onCancel                      | Triggered when cancel editing a line                                                                                                                                                   | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>`  | -                                              |
-| actionRender                  | Custom edit mode action bar                                                                                                                                                            | `(row: T, config: ActionRenderConfig,defaultDom) => ReactNode[]`         | -                                              |
-| deletePopconfirmMessage       | The pop-up confirmation box prompt message when deleting                                                                                                                               | `ReactNode`                                                              | `Delete this line?`                            |
-| onlyOneLineEditorAlertMessage | Only one line can be edited                                                                                                                                                            | `ReactNode`                                                              | `Only one line can be edited at the same time` |
-| onlyAddOneLineAlertMessage    | Only one line can be added at the same time                                                                                                                                            | `ReactNode`                                                              | `Only add one line`                            |
+| Property | Description | Type | Default Value |
+| --- | --- | --- | --- |
+| form | The form instance of the editable form, use `Form.useForm` to generate and use | `FormInstance` | - |
+| formProps | form properties can be configured, but onFinish is not supported | [`FormProps`](https://procomponents.ant.design/components/form#proform) | - |
+| editableKeys | Row being edited, controlled attributes. The default `key` will use the configuration of `rowKey`, if there is no configuration, it will use the `index`, it is recommended to use rowKey | `Key[]` | - |
+| onChange | Triggered when row data is modified | `(editableKeys: Key[], editableRows: T[]) => void` | - |
+| onSave | Triggered when a row is saved | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |
+| saveText | Text for saving a row | `React.ReactNode` | `Save` |
+| onDelete | Triggered when a row is deleted | `(key: Key, row: T) => Promise<any>` | - |
+| deleteText | Text for deleting a row | `React.ReactNode` | `Delete` |
+| onCancel | Triggered when cancel editing a line | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |
+| cancelText | Text for cancelling a row edit | `React.ReactNode` | `Cancel` |
+| actionRender | Custom edit mode action bar | `(row: T, config: ActionRenderConfig,defaultDom) => ReactNode[]` | - |
+| deletePopconfirmMessage | The pop-up confirmation box prompt message when deleting | `ReactNode` | `Delete this line?` |
+| onlyOneLineEditorAlertMessage | Only one line can be edited | `ReactNode` | `Only one line can be edited at the same time` |
+| onlyAddOneLineAlertMessage | Only one line can be added at the same time | `ReactNode` | `Only add one line` |
 
 ### ProDescriptions.Item
 
-| Parameters | Description                                                                                                                    | Type                                                         | Default Value |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------ | ------------- |
-| label      | Description of content                                                                                                         | ReactNode                                                    | -             |
-| tooltip    | Supplementary description of the content, displayed after hover                                                                | string                                                       | -             |
-| ellipsis   | Whether to abbreviate automatically                                                                                            | `boolean`                                                    | -             |
-| copyable   | Whether to support copying                                                                                                     | `boolean`                                                    | -             |
-| span       | number of columns included                                                                                                     | number                                                       | 1             |
-| valueType  | Formatted type                                                                                                                 | `ValueType`                                                  | -             |
-| valueEnum  | Enumeration of current column values ​​[valueEnum](/components/table#valueenum)                                                | `Record`                                                     | -             |
-| request    | Request enumerated data from the network                                                                                       | `()=>Promise<{[key:string`\|`number]:any}>`                  | -             |
-| dataIndex  | The key of the returned data is used in conjunction with the request of ProDescriptions for the definition list of the profile | `React.Text` \| `React.Text[]`                               | -             |
-| editable   | Whether it is editable in the edit table, the parameters of the function are the same as the render of the table               | `false` \| `(text: any, record: T,index: number) => boolean` | true          |
+| Parameters | Description | Type | Default Value |
+| --- | --- | --- | --- |
+| label | Description of content | ReactNode | - |
+| tooltip | Supplementary description of the content, displayed after hover | string | - |
+| ellipsis | Whether to abbreviate automatically | `boolean` | - |
+| copyable | Whether to support copying | `boolean` | - |
+| span | number of columns included | number | 1 |
+| valueType | Formatted type | `ValueType` | - |
+| valueEnum | Enumeration of current column values ​​[valueEnum](/components/table#valueenum) | `Record` | - |
+| request | Request enumerated data from the network | `()=>Promise<{[key:string`\|`number]:any}>` | - |
+| dataIndex | The key of the returned data is used in conjunction with the request of ProDescriptions for the definition list of the profile | `React.Text` \| `React.Text[]` | - |
+| editable | Whether it is editable in the edit table, the parameters of the function are the same as the render of the table | `false` \| `(text: any, record: T,index: number) => boolean` | true |
 
 > span is the number of Description.Item. span={2} will occupy the width of two DescriptionItem.
 

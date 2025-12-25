@@ -1,8 +1,6 @@
 ---
-nav:
-  title: Form
 group: Form
-title: ProForm - 高级表单
+title: ProForm 高级表单
 atomId: ProForm
 order: 1
 ---

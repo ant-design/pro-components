@@ -13,7 +13,7 @@ const waitTime = (time: number = 100) => {
 
 let serviceData: any[] = customMenuDate;
 
-export default () => {
+const Demo = () => {
   const actionRef = useRef<{
     reload: () => void;
   }>();
@@ -69,3 +69,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

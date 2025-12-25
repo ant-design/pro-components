@@ -46,7 +46,7 @@ const defaultData: DataSourceType[] = [
 
 let i = 0;
 
-export default () => {
+const Demo = () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>(() => []);
   const [position, setPosition] = useState<'top' | 'bottom' | 'hidden'>(
     'bottom',
@@ -252,3 +252,9 @@ export default () => {
     </ProForm>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

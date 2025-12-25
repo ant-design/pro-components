@@ -2,7 +2,7 @@ import { StatisticCard } from '@ant-design/pro-components';
 
 const { Divider } = StatisticCard;
 
-export default () => {
+const Demo = () => {
   return (
     <>
       <StatisticCard.Group>
@@ -135,3 +135,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

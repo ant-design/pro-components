@@ -1,7 +1,7 @@
 import { ProDescriptions } from '@ant-design/pro-components';
 import dayjs from 'dayjs';
 
-export default () => {
+const Demo = () => {
   return (
     <>
       <ProDescriptions
@@ -199,3 +199,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

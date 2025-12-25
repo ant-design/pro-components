@@ -15,7 +15,7 @@ const waitTime = (time: number = 100) => {
   });
 };
 
-export default () => {
+const Demo = () => {
   const formRef = useRef<
     ProFormInstance<{
       name: string;
@@ -137,3 +137,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

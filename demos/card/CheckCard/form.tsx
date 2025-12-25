@@ -1,7 +1,7 @@
 import { CheckCard } from '@ant-design/pro-components';
 import { Avatar, Button, Form } from 'antd';
 
-export default () => {
+const Demo = () => {
   const [form] = Form.useForm();
   const handleSubmit = async (values: any) => {
     console.log('values', values);
@@ -118,3 +118,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

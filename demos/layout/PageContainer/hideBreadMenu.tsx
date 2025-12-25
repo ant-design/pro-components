@@ -1,7 +1,7 @@
 import { PageContainer, ProCard } from '@ant-design/pro-components';
 import { Descriptions } from 'antd';
 
-export default () => (
+const Demo = () => (
   <div
     style={{
       background: '#F5F7FA',
@@ -36,5 +36,11 @@ export default () => (
         </ProCard>
       </ProCard>
     </PageContainer>
+  </div>
+);
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
   </div>
 );

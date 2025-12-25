@@ -1,7 +1,5 @@
 ---
-nav:
-  title: Layout
-title: ProLayout
+title: ProLayout Advanced Layout
 atomId: ProLayout
 order: 0
 legacy: /layout
@@ -51,6 +49,8 @@ export interface MenuDataItem {
   parentKeys?: string[];
   /** @name hides itself and elevates child nodes to its level */
   flatMenu?: boolean;
+  /** @name specify the external link opening form, same as a tag */
+  target?: string;
 
   [key: string]: any;
 }
@@ -67,9 +67,9 @@ ProLayout will automatically select the menu based on `location.pathname` and au
 | Parameters                 | Description                                                                                                                                                                                                                                 | Type                                                                                                                                           | Default                                  |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
 | title                      | The title of the top-left corner of the layout                                                                                                                                                                                              | `ReactNode`                                                                                                                                    | `'Ant Design Pro'`                       |
-| logo                       | The logo configuration of the top-left corner of layout, can be configured as url, React component and false                                                                                                                                | `ReactNode` \| `JSX.Element` \| `WithFalse<() => ReactNode \| JSX.Element>`                                                                    | -                                        |
-| pure                       | Pure mode, after setting it will not render any layout things, but there will be context, you can get the current menu                                                                                                                      | `boolean`                                                                                                                                      | -                                        |
-| loading                    | The loading state of the layout, after setting it will only show a loading                                                                                                                                                                  | `boolean`                                                                                                                                      | -                                        |
+| logo                       | url to the top-left corner of layout's logo                                                                                                                                                                                                 | `ReactNode` \| `JSX.Element` \| `WithFalse<() => ReactNode \| JSX.Element>`                                                                    | -                                        |
+| pure                       | Simple mode, does not render any layout things after setting, but there will be context, you can get the current menu                                                                                                                       | `boolean`                                                                                                                                      | -                                        |
+| loading                    | The loading state of the layout                                                                                                                                                                                                             | `boolean`                                                                                                                                      | -                                        |
 | location                   | The location information of the current application session. If your application creates a custom history, you will need to display the location attribute as described in [issue](https://github.com/ant-design/pro-components/issues/327) | `RouterTypes['location']`                                                                                                                      | isBrowser ? window\.location : undefined |
 | appList                    | Cross-site navigation list                                                                                                                                                                                                                  | `AppListProps`                                                                                                                                 | -                                        |
 | appListRender              | Custom render method for cross-site navigation list                                                                                                                                                                                         | `(props: AppListProps, defaultDom: React.ReactNode) => ReactNode`                                                                              | -                                        |
@@ -81,62 +81,79 @@ ProLayout will automatically select the menu based on `location.pathname` and au
 | contentStyle               | layout's content area style                                                                                                                                                                                                                 | `CSSProperties`                                                                                                                                | -                                        |
 | layout                     | layout's menu mode,side: right-hand navigation,top: top navigation                                                                                                                                                                          | `'side'` \| `'top'` \| `'mix'`                                                                                                                 | `'side'`                                 |
 | contentWidth               | content mode of layout,Fluid: adaptive,Fixed: fixed 1200px                                                                                                                                                                                  | `'Fluid'` \| `'Fixed'`                                                                                                                         | `'Fluid'`                                |
-| actionRef                  | Common operations of layout, such as refreshing menu                                                                                                                                                                                        | `React.MutableRefObject<{reload: () => void} \| undefined>`                                                                                    | -                                        |
+| actionRef                  | Common operations of layout, such as reloading menu                                                                                                                                                                                         | `React.MutableRefObject<{reload: () => void} \| undefined>`                                                                                    | -                                        |
 | fixedHeader                | Whether to fix the header to the top                                                                                                                                                                                                        | `boolean`                                                                                                                                      | `false`                                  |
 | fixSiderbar                | whether to fix the navigation                                                                                                                                                                                                               | `boolean`                                                                                                                                      | `false`                                  |
 | breakpoint                 | Trigger [breakpoint](https://ant.design/components/grid/#Col) for responsive layouts                                                                                                                                                        | `Enum { 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' }`                                                                                                 | `lg`                                     |
-| menu                       | Configuration about [menu](#menu), for the moment, only locale,locale can be turned off for the menu's own globalization                                                                                                                    | [`menuConfig`](#menu)                                                                                                                          | `{ locale: true }`                       |
+| menu                       | About [menu](#menu) configuration, temporarily only locale, locale can close the menu's own globalization                                                                                                                                   | [`menuConfig`](#menu)                                                                                                                          | `{ locale: true }`                       |
 | iconfontUrl                | Use the icon configuration of [IconFont](https://ant.design/components/icon/#components-icon-demo-iconfont)                                                                                                                                 | `URL`                                                                                                                                          | -                                        |
 | locale                     | Language settings for the current layout                                                                                                                                                                                                    | `LocaleType` (`'zh-CN'` \| `'zh-TW'` \| `'en-US'` \| `'it-IT'` \| `'ko-KR'`)                                                                   | navigator.language                       |
 | settings                   | settings for layout                                                                                                                                                                                                                         | [`Settings`](#Settings)                                                                                                                        | -                                        |
-| siderWidth                 | width of the side menu                                                                                                                                                                                                                      | `number`                                                                                                                                       | mix mode: 215, others: 256               |
+| siderWidth                 | width of the side menu                                                                                                                                                                                                                      | `number`                                                                                                                                       | mix mode: 215, other: 256                |
 | suppressSiderWhenMenuEmpty | Hide Sider when menu is empty                                                                                                                                                                                                               | `boolean`                                                                                                                                      | -                                        |
 | defaultCollapsed           | The default collapsed and expanded menus, will be affected by `breakpoint`, `breakpoint=false` work                                                                                                                                         | `boolean`                                                                                                                                      | -                                        |
 | collapsed                  | Controls the collapse and expansion of the menu, layout is strictly controlled, can be set to true, always collapsed                                                                                                                        | `boolean`                                                                                                                                      | -                                        |
-| onCollapse                 | Triggered when collapse and expand                                                                                                                                                                                                          | `(collapsed: boolean) => void`                                                                                                                 | -                                        |
-| onPageChange               | Triggered when page switches                                                                                                                                                                                                                | `(location?: RouterTypes['location']) => void`                                                                                                 | -                                        |
+| onCollapse                 | The collapsed event of the menu                                                                                                                                                                                                             | `(collapsed: boolean) => void`                                                                                                                 | -                                        |
+| onPageChange               | Triggered on page switch                                                                                                                                                                                                                    | `(location?: RouterTypes['location']) => void`                                                                                                 | -                                        |
 | headerRender               | Custom header render method                                                                                                                                                                                                                 | `WithFalse<(props: ProLayoutProps & {hasSiderMenu?: boolean}, defaultDom: ReactNode) => ReactNode>`                                            | -                                        |
 | headerTitleRender          | Custom header title method, works in mix mode and top mode                                                                                                                                                                                  | `WithFalse<(logo: ReactNode, title: ReactNode, props: HeaderViewProps) => ReactNode>`                                                          | -                                        |
 | headerContentRender        | Custom header content methods                                                                                                                                                                                                               | `WithFalse<(props: HeaderViewProps, defaultDom: ReactNode) => ReactNode>`                                                                      | -                                        |
-| avatarProps                | Avatar settings of layout, different layouts are placed in different positions                                                                                                                                                              | `WithFalse<AvatarProps & {title?: ReactNode, render?: (avatarProps: AvatarProps, defaultDom: ReactNode, props: SiderMenuProps) => ReactNode}>` | -                                        |
-| actionsRender              | Operation function list of Layout, different layouts will be placed in different positions                                                                                                                                                  | `WithFalse<(props: HeaderViewProps) => ReactNode[] \| ReactNode>`                                                                              | -                                        |
-| collapsedButtonRender      | Custom render for collapse/expand button                                                                                                                                                                                                    | `WithFalse<(collapsed: boolean) => ReactNode>`                                                                                                 | -                                        |
+| avatarProps                | layout's avatar setting, different layouts are placed in different positions                                                                                                                                                                | `WithFalse<AvatarProps & {title?: ReactNode, render?: (avatarProps: AvatarProps, defaultDom: ReactNode, props: SiderMenuProps) => ReactNode}>` | -                                        |
+| actionsRender              | Layout's operation function list, different layouts will be placed in different positions                                                                                                                                                   | `WithFalse<(props: HeaderViewProps) => ReactNode[] \| ReactNode>`                                                                              | -                                        |
+| collapsedButtonRender      | Custom method for collapsed button                                                                                                                                                                                                          | `WithFalse<(collapsed: boolean) => ReactNode>`                                                                                                 | -                                        |
 | footerRender               | Custom render method for footer                                                                                                                                                                                                             | `WithFalse<(props: ProLayoutProps & {hasSiderMenu?: boolean}, defaultDom: ReactNode) => ReactNode>`                                            | -                                        |
-| pageTitleRender            | Custom render method for page title                                                                                                                                                                                                         | `WithFalse<(props: GetPageTitleProps, defaultPageTitle?: string, info?: {title: string, id: string, pageName: string}) => string>`             | -                                        |
-| menuRender                 | Although it's called menuRender, it's actually the render function of the entire SiderMenu panel                                                                                                                                            | `WithFalse<(props: HeaderViewProps, defaultDom: ReactNode) => ReactNode>`                                                                      | -                                        |
+| pageTitleRender            | The render method for custom page titles                                                                                                                                                                                                    | `WithFalse<(props: GetPageTitleProps, defaultPageTitle?: string, info?: {title: string, id: string, pageName: string}) => string>`             | -                                        |
+| menuRender                 | Although called menuRender, it is actually the render function of the entire SiderMenu panel                                                                                                                                                | `WithFalse<(props: HeaderViewProps, defaultDom: ReactNode) => ReactNode>`                                                                      | -                                        |
 | postMenuData               | View the menu data before displaying it, changes will not trigger a re-render                                                                                                                                                               | `(menuData: MenuDataItem[]) => MenuDataItem[]`                                                                                                 | -                                        |
 | menuItemRender             | The render method for custom menu items                                                                                                                                                                                                     | `(itemProps: MenuDataItem, defaultDom: ReactNode, props: BaseMenuProps) => ReactNode`                                                          | -                                        |
 | subMenuItemRender          | Customize the render method with submenu items                                                                                                                                                                                              | `(itemProps: MenuDataItem) => ReactNode`                                                                                                       | -                                        |
-| menuDataRender             | Process menuData data, can dynamically control data                                                                                                                                                                                         | `(menuData: MenuDataItem[]) => MenuDataItem[]`                                                                                                 | -                                        |
-| breadcrumbRender           | Set PageHeader's breadcrumb, can only process data                                                                                                                                                                                          | `WithFalse<(routers: BreadcrumbProps['items']) => BreadcrumbProps['items']>`                                                                   | -                                        |
-| breadcrumbProps            | PageHeader's BreadcrumbProps configuration, will be passed down                                                                                                                                                                             | `Omit<BreadcrumbProps, 'itemRender'> & LayoutBreadcrumbProps`                                                                                  | -                                        |
-| itemRender                 | Process each breadcrumb configuration, need to return dom directly                                                                                                                                                                          | `BreadcrumbProps['itemRender']`                                                                                                                | -                                        |
+| menuDataRender             | The render method of menuData, used to customize menuData                                                                                                                                                                                   | `(menuData: MenuDataItem[]) => MenuDataItem[]`                                                                                                 | -                                        |
+| breadcrumbRender           | Set PageHeader breadcrumbs, can only process data                                                                                                                                                                                           | `WithFalse<(routers: BreadcrumbProps['items']) => BreadcrumbProps['items']>`                                                                   | -                                        |
+| breadcrumbProps            | PageHeader's BreadcrumbProps configuration, will be passed down transparently                                                                                                                                                               | `Omit<BreadcrumbProps, 'itemRender'> & LayoutBreadcrumbProps`                                                                                  | -                                        |
+| itemRender                 | Handle the configuration of each breadcrumb, need to return dom directly                                                                                                                                                                    | `BreadcrumbProps['itemRender']`                                                                                                                | -                                        |
 | route                      | Used to generate menus and breadcrumbs. umi's Layout will automatically have                                                                                                                                                                | [route](#route)                                                                                                                                | -                                        |
-| disableMobile              | Whether to disable mobile mode                                                                                                                                                                                                              | `boolean`                                                                                                                                      | `false`                                  |
+| disableMobile              | disable automatic switching to mobile pages                                                                                                                                                                                                 | `boolean`                                                                                                                                      | `false`                                  |
 | ErrorBoundary              | Error handling component                                                                                                                                                                                                                    | `React.ComponentClass<any, any> \| boolean`                                                                                                    | Built-in ErrorBoundary                   |
 | links                      | Show shortcut actions in the lower right corner of the menu                                                                                                                                                                                 | `ReactNode[]`                                                                                                                                  | -                                        |
-| menuProps                  | The props passed to the antd menu component, see (<https://ant.design/components/menu/>)                                                                                                                                                    | `MenuProps`                                                                                                                                    | -                                        |
+| menuProps                  | The props passed to the antd menu component, see [Navigation Menu](https://ant.design/components/menu/)                                                                                                                                     | `MenuProps`                                                                                                                                    | -                                        |
 | waterMarkProps             | Watermark related configuration                                                                                                                                                                                                             | `WatermarkProps`                                                                                                                               | -                                        |
 | formatMessage              | Internationalization method                                                                                                                                                                                                                 | `(message: MessageDescriptor) => string`                                                                                                       | -                                        |
-| siderMenuType              | Side menu type, shortcut for menu.type                                                                                                                                                                                                      | `'sub'` \| `'group'`                                                                                                                           | -                                        |
+| siderMenuType              | The type of side menu, shortcut for menu.type                                                                                                                                                                                               | `'sub'` \| `'group'`                                                                                                                           | -                                        |
 | isChildrenLayout           | Whether it is a child layout                                                                                                                                                                                                                | `boolean`                                                                                                                                      | -                                        |
-| bgLayoutImgList            | Layout brand configuration, displayed as a background image                                                                                                                                                                                 | `{src?: string, width?: string, height?: string, left?: number, top?: number, bottom?: number, right?: number}[]`                              | -                                        |
+| bgLayoutImgList            | Layout's brand configuration, represented as a background image                                                                                                                                                                             | `{src?: string, width?: string, height?: string, left?: number, top?: number, bottom?: number, right?: number}[]`                              | -                                        |
 | stylish                    | Style configuration                                                                                                                                                                                                                         | `{header?: GenerateStyle<SiderMenuToken>, sider?: GenerateStyle<SiderMenuToken>}`                                                              | -                                        |
-| className                  | Outer container's className                                                                                                                                                                                                                 | `string`                                                                                                                                       | -                                        |
-| style                      | Outer container's style                                                                                                                                                                                                                     | `React.CSSProperties`                                                                                                                          | -                                        |
-| token                      | Layout's token configuration                                                                                                                                                                                                                | `ProTokenType['layout']`                                                                                                                       | -                                        |
+| className                  | className of the outer container                                                                                                                                                                                                            | `string`                                                                                                                                       | -                                        |
+| style                      | style of the outer container                                                                                                                                                                                                                | `React.CSSProperties`                                                                                                                          | -                                        |
+| token                      | Layout token configuration                                                                                                                                                                                                                  | `ProTokenType['layout']`                                                                                                                       | -                                        |
+
+### menu
+
+menu supports some commonly used menu configurations to help us better manage menus
+
+| Parameters      | Description                                                                                                                                              | Type                                                 | Default |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- | ------- |
+| locale          | Whether the menu uses internationalization, also requires formatMessage.                                                                                 | `boolean`                                            | `true`  |
+| defaultOpenAll  | Open all menu items by default, note that it only takes effect before layout mount, asynchronous loading of menus is not supported                       | `boolean`                                            | `false` |
+| ignoreFlatMenu  | Whether to ignore the manually collapsed menu state, combined with defaultOpenAll can achieve expansion of all submenus after the toggle button switches | `boolean`                                            | `false` |
+| type            | Type of menu                                                                                                                                             | `sub` \| `group`                                     | `group` |
+| autoClose       | Whether to automatically close the menu when selected                                                                                                    | `boolean`                                            | `true`  |
+| loading         | Whether the menu is loading                                                                                                                              | `boolean`                                            | `false` |
+| onLoadingChange | Menu loading state change                                                                                                                                | `(loading)=>void`                                    | -       |
+| request         | Method for remote loading of menus, will automatically modify loading state                                                                              | `(params,defaultMenuDat) => Promise<MenuDataItem[]>` | -       |
 
 ### SettingDrawer
 
-| Parameters       | Description                                          | Type                                               | Default Value |
-| ---------------- | ---------------------------------------------------- | -------------------------------------------------- | ------------- |
-| settings         | layout settings                                      | [`Settings`](#Settings) \| [`Settings`](#Settings) | -             |
-| onSettingChange  | [`Settings`](#Settings) A change event occurred      | `(settings: [`Settings`](#Settings)) => void`      | -             |
-| hideHintAlert    | Delete the prompt message below                      | `boolean`                                          | -             |
-| hideCopyButton   | Do not show copy function                            | `boolean`                                          | -             |
-| disableUrlParams | Disable synchronization settings to query parameters | `boolean`                                          | `false`       |
-| enableDarkTheme  | Turn on black theme switching function ｜ `boolean`  | `false`                                            |               |
-| colorList        | Built-in color switching system ｜ `{key,color}[]`   | `ColorList`                                        |               |
+| Parameters       | Description                                                                                              | Type                                               | Default |
+| ---------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
+| collapse         | Control SettingDrawer collapse and expand                                                                | `boolean`                                          | -       |
+| onCollapseChange | SettingDrawer collapse event                                                                             | `(collapsed: boolean) => void`                     | -       |
+| settings         | layout settings                                                                                          | [`Settings`](#Settings) \| [`Settings`](#Settings) | -       |
+| onSettingChange  | [`Settings`](#Settings) A change event occurred                                                          | `(settings: [`Settings`](#Settings)) => void`      | -       |
+| hideHintAlert    | Delete the prompt message below                                                                          | `boolean`                                          | -       |
+| hideCopyButton   | Do not show copy function                                                                                | `boolean`                                          | -       |
+| disableUrlParams | Disable synchronization settings to query parameters                                                     | `boolean`                                          | `false` |
+| enableDarkTheme  | Turn on black theme switching function ｜ `boolean`                                                      | `false`                                            |         |
+| colorList        | Built-in color switching system (ColorList title will be displayed as Tooltip) ｜ `{key,color,title?}[]` | `ColorList`                                        |         |
 
 Built-in color list
 
@@ -161,35 +178,13 @@ A simple loading page
 | --------------------------------------------------- | -------------------------------------------------- | ---- | ------- |
 | [(...)](https://ant.design/components/spin-cn/#API) | support all other antd `Spin` component parameters | -    | -       |
 
-### RouteContext
-
-RouteContext can provide built-in data for Layout. For example, isMobile and collapsed, which you can consume to customize some of the behavior.
-
-```tsx | pure
-import   { RouteContext, RouteContextType } from '@ant-design/pro-components';
-
-const Page = () => (
-  <RouteContext.
-    {(value: RouteContextType) => {
-      return value.title;
-    }}
-  </RouteContext.
-);
-```
-
-### GridContent
-
-GridContent encapsulates the [equal-width](https://preview.pro.ant.design/dashboard/analysis?layout=top&contentWidth=Fixed) and \[flow]\(<https://preview.pro>. ant.design/dashboard/analysis?layout=top) logic. You can see the preview effect in [preview](https://preview.pro.ant.design/dashboard/analysis).
-
-| parameters   | description | type               | default |
-| ------------ | ----------- | ------------------ | ------- |
-| contentWidth | ContentMode | `Fluid` \| `Fixed` | -       |
-
 ### getMenuData
 
 Generate menuData and breadcrumb based on router information.
 
-```js | pure import { getMenuData } from '@ant-design/pro-components';
+```js | pure
+import { getMenuData } from '@ant-design/pro-components';
+
 const { breadcrumb, menuData } = getMenuData(
   routes,
   menu,
@@ -261,7 +256,6 @@ export interface Settings {
 ```ts | pure
 // You can get this type by importing { MenuDataItem } from '@ant-design/pro-components'
 // to get this type
-
 export interface MenuDataItem {
   authority?: string[] | string;
   children?: MenuDataItem[];
@@ -271,6 +265,7 @@ export interface MenuDataItem {
   locale?: string;
   name?: string;
   path: string;
+
   [key: string]: any;
 }
 ```
@@ -303,7 +298,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { DefaultFooter } from '@ant-design/pro-components';
 
 <DefaultFooter
-  copyright="@2019 by Anthem Experience Technologies"
+  copyright="@2019 by Ant Financial Experience Technology Department"
   links={[
     {
       key: 'Ant Design Pro',
@@ -337,21 +332,29 @@ Usage.
 <GridContent>{children}</GridContent>
 ```
 
+GridContent encapsulates the [equal-width](https://preview.pro.ant.design/dashboard/analysis?layout=top&contentWidth=Fixed) and [flow](https://preview.pro.ant.design/dashboard/analysis?layout=top) logic. You can see the preview effect in [preview](https://preview.pro.ant.design/dashboard/analysis).
+
+| parameters   | description | type               | default |
+| ------------ | ----------- | ------------------ | ------- |
+| contentWidth | ContentMode | `Fluid` \| `Fixed` | -       |
+
 ### RouteContext
 
-RouteContext provides a way to perform operations based on the layout's data, PageContainer and FooterToolbar both rely on RouteContext's data for their functionality.
+RouteContext can provide built-in data for Layout. For example, isMobile and collapsed, which you can consume to customize some of the behavior.
+
+RouteContext also allows you to perform operations based on layout data, and PageContainer and FooterToolbar rely on RouteContext data to function.
 
 ```tsx | pure
-import   { RouteContext, RouteContextType } from '@ant-design/pro-components';
+import { RouteContext, RouteContextType } from '@ant-design/pro-components';
 
 const Page = () => (
-  <RouteContext.
+  <RouteContext.Consumer>
     {(value: RouteContextType) => {
       const { isMobile, hasHeader, hasSiderMenu, collapsed } = value;
-      // The title of the user
+      // User's title
       return value.title;
     }}
-  </RouteContext.
+  </RouteContext.Consumer>
 );
 ```
 
@@ -399,10 +402,12 @@ Sider Token is the color value of the side menu, which is different from the top
 | colorTextMenu                | font color of menuItem                                         | `colorText`                |
 | colorTextMenuSecondary       | Secondary font color for menu, such as footer and action icons | `colorText`                |
 | colorTextMenuSelected        | selected font color of menuItem                                | `rgb(0,0,0)`               |
+| colorTextMenuActive          | active font color of menuItem                                  | `rgba(0, 0, 0, 0.85)`      |
 | colorBgMenuItemHover         | hover background color of menuItem                             | `rgba(90, 75, 75, 0.03)`   |
 | colorBgMenuItemSelected      | selected background color of menuItem                          | `rgba(0, 0, 0, 0.04)`      |
 | colorTextRightActionsItem    | Top right font color                                           | `colorTextSecondary`       |
 | colorBgRightActionsItemHover | The selected hover color in the upper right corner             | `rgba(0, 0, 0, 0.03)`      |
+| heightLayoutHeader           | header height                                                  | 56                         |
 
 ### pageContainer Token
 
@@ -429,6 +434,50 @@ ProLayout provides some api to remove areas that are not needed by the user. Som
 
 > All xxxRender in layout can be passed in false to turn off rendering.
 
+### Use with Umi
+
+ProLayout works best with Umi, Umi will automatically inject the routes from config.ts into the configured layout, saving us the trouble of writing menus by hand.
+
+ProLayout extends Umi's router configuration, adding name, icon, locale, hideInMenu, hideChildrenInMenu and other configurations, so that it is easier to generate menus in one place. The data format is as follows:
+
+```ts | pure
+export interface MenuDataItem {
+  /** @name submenu */
+  children?: MenuDataItem[];
+  /** @name Hide child nodes in the menu */
+  hideChildrenInMenu?: boolean;
+  /** @name hideSelf and children in menu */
+  hideInMenu?: boolean;
+  /** @name Hide in breadcrumb */
+  hideInBreadcrumb?: boolean;
+  /** @name Icon of the menu */
+  icon?: React.ReactNode;
+  /** @name Internationalization key for custom menus */
+  locale?: string | false;
+  /** @name The name of the menu */
+  name?: string;
+  /** @name is used to calibrate the selected value, default is path */
+  key?: string;
+  /** @name disable menu option */
+  disabled?: boolean;
+  /** @name path, can be set to a web link */
+  path?: string;
+  /**
+   * @deprecated When this node is selected, the node of parentKeys is also selected
+   * @name custom parent node
+   */
+  parentKeys?: string[];
+  /** @name hides itself and elevates child nodes to its level */
+  flatMenu?: boolean;
+  /** @name specify the external link opening form, same as a tag */
+  target?: string;
+
+  [key: string]: any;
+}
+```
+
+ProLayout will automatically select the menu based on `location.pathname` and automatically generate the corresponding breadcrumbs. If you don't want to use it, you can configure `selectedKeys` and `openKeys` yourself for controlled configuration.
+
 ### Collapse to expand
 
 Sometimes we find that `collapsed` and `onCollapse` do not work by default. This is because ProLayout has a built-in `breakpoint` mechanism to trigger collapse, we can set `breakpoint={false}` to turn off this mechanism.
@@ -447,7 +496,7 @@ Auto-cut menu is an exclusive ability of `mix` mode to place the first level of 
 
 ### Customizing menus
 
-ProLayout will automatically generate the menu and auto-select it according to pathname. Combined with PageContainer, this allows for automatic breadcrumb and page title projection. If used with the umi configuration, you only need to hand the Page props to ProLayout to automatically generate the configuration of the menu based on the configuration of routers in config.
+ProLayout will automatically generate the menu and auto-select it according to pathname. Combined with PageContainer, this allows for automatic breadcrumb and page title projection. If used with the Umi configuration, you only need to hand the Page props to ProLayout to automatically generate the configuration of the menu based on the configuration of routers in config.
 
 In order to provide more functionality, we extended the routers configuration by adding several configurations for customization, with the following data structure definition:
 
@@ -472,7 +521,7 @@ export interface MenuDataItem {
 - hideInMenu will be configured to hide this route in the menu, name will have the same effect if not filled
 - hideChildrenInMenu will hide the children of this route in the menu
 
-> ProLayout actually reads the route and location from the props, which are injected by default by umi.
+> ProLayout actually reads the route and location from the props, which are injected by default by Umi.
 
 ### Getting from the server
 

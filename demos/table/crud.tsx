@@ -110,7 +110,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
   },
 ];
 
-export default () => {
+const Demo = () => {
   const [type, setType] = useState('table');
   return (
     <ProCard>
@@ -258,3 +258,9 @@ export default () => {
     </ul>
   </div>;
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

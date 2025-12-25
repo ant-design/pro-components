@@ -6,7 +6,7 @@ import {
 } from '@ant-design/pro-components';
 import { Input } from 'antd';
 
-export default () => {
+const Demo = () => {
   const formProps = {
     defaultColsNumber: 6,
   };
@@ -156,3 +156,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

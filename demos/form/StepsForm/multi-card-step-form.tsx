@@ -19,7 +19,7 @@ const waitTime = (time: number = 100) => {
   });
 };
 
-export default () => {
+const Demo = () => {
   return (
     <>
       <StepsForm
@@ -210,3 +210,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

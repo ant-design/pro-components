@@ -11,7 +11,7 @@ import { Alert, Button, Input, Space } from 'antd';
 import React, { useState } from 'react';
 import defaultProps from './_defaultProps';
 
-export default () => {
+const Demo = () => {
   const settings: ProSettings | undefined = {
     layout: 'mix',
     splitMenus: true,
@@ -209,3 +209,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

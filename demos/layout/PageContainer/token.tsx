@@ -2,7 +2,7 @@ import { EllipsisOutlined } from '@ant-design/icons';
 import { PageContainer, ProTable } from '@ant-design/pro-components';
 import { Button, Dropdown } from 'antd';
 
-export default () => (
+const Demo = () => (
   <div
     style={{
       background: '#F5F7FA',
@@ -67,5 +67,11 @@ export default () => (
     >
       <ProTable search={false} />
     </PageContainer>
+  </div>
+);
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
   </div>
 );

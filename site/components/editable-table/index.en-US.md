@@ -1,6 +1,4 @@
 ---
-nav:
-  title: Table
 title: EditableProTable
 atomId: EditableProTable
 group: Table
@@ -18,7 +16,7 @@ EditableProTable is essentially the same as ProTable, with a few presets added t
 
 ### Link with content outside the edit form
 
-<code src="../../../demos/table/EditableTable/form-linkage.tsx"  background="var(--main-bg-color)" oldtitle="Link with content outside the edit form"></code>
+<code src="../../../demos/table/EditableTable/form-linkage.tsx" background="var(--main-bg-color)" old></code>
 
 ### Custom Editable Tables
 

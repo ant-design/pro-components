@@ -84,7 +84,7 @@ const CustomInput2: FormControlFC<{
   );
 };
 
-export default () => {
+const Demo = () => {
   const [form] = ProForm.useForm();
 
   return (
@@ -162,3 +162,9 @@ export default () => {
     </div>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);
