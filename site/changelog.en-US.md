@@ -4,68 +4,61 @@
 
 ### 🚀 New Features
 
-- **ProComponents 3.0 Major Upgrade**: Completely restructured component library architecture
-- **Remove Antd@4 Compatibility**: Focus on Antd@5 support, significantly reduce bundle size
-- **Optimize Tree Shaking**: Solve the issue of ProForm default binding all components
-- **Performance Optimization**: ProTable performance significantly improved, on par with Antd
-
-### 🔧 Technical Improvements
-
-- **Bundle Size Optimization**: Remove compatibility code, reduce at least 700k gzip size
-- **Code Refactoring**: Delete all `compareVersions` compatibility code
-- **CSS Optimization**: Remove `antd/lib/*/style` compatibility imports
-- **New Component Support**: Support Antd@5 new features like ColorPicker and Flex components
+- 🔥 **ProComponents 3.0 Major Upgrade**: Completely restructured architecture, focusing on Antd@5 support and significantly reducing bundle size.
+- ProTable
+  - 🚀 Performance significantly improved to be on par with Antd.
+- ProForm
+  - 🚀 Optimize Tree Shaking to solve the issue of default binding all components.
 
 ### 🐛 Bug Fixes
 
-- Fix Helmet error when `pageTitleRender` returns non-string values in `useDocumentTitle`
-- Fix deprecated `--loglevel` option in Prettier configuration
-- Fix documentation path structure, unify component documentation organization
+- ProLayout
+  - 🐞 Fix `Helmet` error when `pageTitleRender` returns non-string values in `useDocumentTitle`.
+
+### 💄 Style / UI Improvements
+
+- ProLayout
+  - 💄 Update menu background property name to simplify code structure.
 
 ### 📦 Dependency Updates
 
-- Upgrade to latest Antd@5 version
-- Remove all Antd@4 related dependencies
-- Update Prettier to latest version
-
-### 📚 Documentation
-
-- Reorganize component documentation structure with flat directory
-- Create complete Chinese and English documentation for all components
-- Add documentation writing guidelines
+- 📦 Upgrade to latest Antd@5 version and remove Antd@4 related dependencies.
+- 📦 Update Prettier to latest version and fix deprecated configuration.
 
 ---
 
 ## [3.0.0-beta.2] - 2025-07-24
 
-### 🔧 Technical Improvements
+### 🛠 Breaking Changes
 
-- Continue optimizing bundle size and performance
-- Improve Tree Shaking functionality
-- Enhance component stability
+- ProLayout
+  - 🛠 Remove deprecated `rightContentRender` and `TabPane` APIs.
+- ProTable
+  - 🛠 Remove deprecated `columnsStateMap` property, use `columnsState` instead.
+- ProCard
+  - 🛠 Remove deprecated `StatisticsCardProps`.
 
-### 🐛 Bug Fixes
+### 📚 Documentation
 
-- Fix known compatibility issues
-- Improve error handling mechanisms
+- 📚 Add migration guide from 2.0 to 3.0.
+- 📚 Polish `index.md` to be more user-friendly.
 
 ---
 
 ## [3.0.0-beta.1] - 2025-07-24
 
-### 🚀 Initial Release
+### 🚀 New Features
 
-- **ProComponents 3.0 First Beta Version**
-- Remove Antd@4 compatibility support
-- Restructure core component architecture
-- Optimize bundle size and performance
+- ✨ **Initial Release**: First Beta version of ProComponents 3.0.
+- Core
+  - ✨ Support `ref` forwarding for multiple components to optimize layout and rendering.
 
-### ✨ Core Changes
+### 🛠 Breaking Changes
 
-- Focus on Antd@5 support
-- Delete all compatibility code
-- Redesign component APIs
-- Improve development experience
+- Core
+  - 🛠 Remove Antd@4 compatibility support.
+- ProTable
+  - 🛠 Unify `tooltip` props and remove deprecated `tip` prop.
 
 ---
 
@@ -75,22 +68,22 @@
 
 #### Major Changes
 
-1. **Remove Antd@4 Compatibility**: Ensure project uses Antd@5
-2. **Bundle Size Optimization**: Remove compatibility code, reduce bundle size
-3. **Tree Shaking**: Optimize on-demand loading, reduce unnecessary code
+1. **Remove Antd@4 Compatibility**: Ensure project uses Antd@5.
+2. **Bundle Size Optimization**: Remove compatibility code, reduce bundle size.
+3. **Tree Shaking**: Optimize on-demand loading, reduce unnecessary code.
 
 #### Upgrade Steps
 
-1. Upgrade Antd to 5.x version
-2. Check and remove Antd@4 related compatibility code
-3. Update component import methods to leverage Tree Shaking
-4. Test all functionality to ensure compatibility
+1. Upgrade Antd to 5.x version.
+2. Check and remove Antd@4 related compatibility code.
+3. Update component import methods to leverage Tree Shaking.
+4. Test all functionality to ensure compatibility.
 
 #### Breaking Changes
 
-- No longer supports Antd@4
-- Some APIs may have changed
-- Certain compatibility configurations have been removed
+- No longer supports Antd@4.
+- Some APIs may have changed.
+- Certain compatibility configurations have been removed.
 
 ---
 
