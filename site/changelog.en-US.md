@@ -1,6 +1,6 @@
 # Changelog
 
-## [3.0.0-beta.3] - 2025-01-XX
+## [3.0.0-beta.3] - 2025-07-24
 
 ### 🚀 New Features
 
@@ -36,7 +36,7 @@
 
 ---
 
-## [3.0.0-beta.2] - 2024-XX-XX
+## [3.0.0-beta.2] - 2025-07-24
 
 ### 🔧 Technical Improvements
 
@@ -51,7 +51,7 @@
 
 ---
 
-## [3.0.0-beta.1] - 2024-XX-XX
+## [3.0.0-beta.1] - 2025-07-24
 
 ### 🚀 Initial Release
 
