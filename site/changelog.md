@@ -1,5 +1,59 @@
 # Changelog
 
+## [3.1.0-0] - 2025-12-25
+
+### 🚀 新特性
+
+- 🔥 **升级到 Ant Design v6**: 全面支持 Ant Design v6，更新所有组件以兼容新版本 API。
+
+### ⚠️ 破坏性变更
+
+- ProCard / CheckCard / StatisticCard
+  - ⚠️ 将 `bodyStyle` 属性替换为 `styles`，统一样式配置方式。
+- Divider
+  - ⚠️ 将 `orientation` 属性替换为 `type`，与 Ant Design v6 保持一致。
+- Drawer / DrawerForm
+  - ⚠️ 将 `size` 属性替换为 `width`，明确抽屉尺寸配置。
+- StepsForm / Group
+  - ⚠️ 将 `direction` 属性替换为 `orientation`，统一方向属性命名。
+  - ⚠️ 将 `width` 属性替换为 `size`，统一尺寸属性命名。
+- Tabs
+  - ⚠️ 将 `tabPosition` 属性替换为 `tabPlacement`，与 Ant Design v6 保持一致。
+- ProForm
+  - ⚠️ 将 `Button.Group` 替换为 `Space.Compact`，优化表单布局。
+- Alert
+  - ⚠️ 使用 `title` 属性替代原有标题配置方式。
+- ProFieldParsingText
+  - ⚠️ 将 `split` 属性替换为 `separator`，提高语义清晰度。
+
+### 🐛 问题修复
+
+- ProTable
+  - 🐞 修复嵌套结构筛选与排序重置问题，确保嵌套列的正确处理。
+- SearchSelect
+  - 🐞 修复搜索值为 `undefined` 时的处理逻辑，统一使用空字符串。
+  - 🐞 优化标签获取逻辑，提升数据兼容性。
+- Select
+  - 🐞 移除未使用的 `children` 属性，清理冗余代码。
+
+### 💄 样式 / UI 改进
+
+- ColumnSetting / AppsLogoComponents
+  - 💄 将 `overlayClassName` 替换为 `classNames`，统一样式类名配置。
+- ProCard / Layout
+  - 💄 优化卡片和布局的样式类使用，提升布局一致性。
+
+### 📦 依赖更新
+
+- 📦 升级到 Ant Design v6 最新版本。
+- 📦 更新浏览器支持列表，移除 IE 11 支持。
+
+### 📚 文档
+
+- 📚 更新 Changelog 文档，记录 3.x 版本更新历史。
+
+---
+
 ## [3.0.0-beta.3] - 2025-07-24
 
 ### 🚀 新特性
@@ -29,14 +83,14 @@
 
 ## [3.0.0-beta.2] - 2025-07-24
 
-### 🛠 破坏性变更
+### ⚠️ 破坏性变更
 
 - ProLayout
-  - 🛠 移除已废弃的 `rightContentRender` 和 `TabPane` API。
+  - ⚠️ 移除已废弃的 `rightContentRender` 和 `TabPane` API。
 - ProTable
-  - 🛠 移除已废弃的 `columnsStateMap` 属性，请使用 `columnsState` 代替。
+  - ⚠️ 移除已废弃的 `columnsStateMap` 属性，请使用 `columnsState` 代替。
 - ProCard
-  - 🛠 移除已废弃的 `StatisticsCardProps`。
+  - ⚠️ 移除已废弃的 `StatisticsCardProps`。
 
 ### 📚 文档
 
@@ -53,12 +107,12 @@
 - Core
   - ✨ 更新多个组件以支持 `ref` 转发，优化布局和渲染逻辑。
 
-### 🛠 破坏性变更
+### ⚠️ 破坏性变更
 
 - Core
-  - 🛠 移除 Antd@4 兼容性支持。
+  - ⚠️ 移除 Antd@4 兼容性支持。
 - ProTable
-  - 🛠 统一 `tooltip` 属性，移除不必要的 `tip` 属性。
+  - ⚠️ 统一 `tooltip` 属性，移除不必要的 `tip` 属性。
 
 ---
 

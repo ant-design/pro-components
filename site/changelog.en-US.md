@@ -1,5 +1,59 @@
 # Changelog
 
+## [3.1.0-0] - 2025-12-25
+
+### 🚀 New Features
+
+- 🔥 **Upgrade to Ant Design v6**: Full support for Ant Design v6, updating all components to be compatible with the new version API.
+
+### ⚠️ Breaking Changes
+
+- ProCard / CheckCard / StatisticCard
+  - ⚠️ Replace `bodyStyle` prop with `styles` for unified styling configuration.
+- Divider
+  - ⚠️ Replace `orientation` prop with `type` to align with Ant Design v6.
+- Drawer / DrawerForm
+  - ⚠️ Replace `size` prop with `width` for clearer drawer dimension configuration.
+- StepsForm / Group
+  - ⚠️ Replace `direction` prop with `orientation` for unified direction property naming.
+  - ⚠️ Replace `width` prop with `size` for unified size property naming.
+- Tabs
+  - ⚠️ Replace `tabPosition` prop with `tabPlacement` to align with Ant Design v6.
+- ProForm
+  - ⚠️ Replace `Button.Group` with `Space.Compact` for improved form layout.
+- Alert
+  - ⚠️ Use `title` prop instead of the original title configuration method.
+- ProFieldParsingText
+  - ⚠️ Replace `split` prop with `separator` for better semantic clarity.
+
+### 🐛 Bug Fixes
+
+- ProTable
+  - 🐞 Fix nested structure filtering and sorting reset issues, ensuring correct handling of nested columns.
+- SearchSelect
+  - 🐞 Fix handling logic when search value is `undefined`, consistently using empty string.
+  - 🐞 Optimize label retrieval logic to improve data compatibility.
+- Select
+  - 🐞 Remove unused `children` prop to clean up redundant code.
+
+### 💄 Style / UI Improvements
+
+- ColumnSetting / AppsLogoComponents
+  - 💄 Replace `overlayClassName` with `classNames` for unified style class name configuration.
+- ProCard / Layout
+  - 💄 Optimize style class usage for cards and layouts to improve layout consistency.
+
+### 📦 Dependency Updates
+
+- 📦 Upgrade to latest Ant Design v6 version.
+- 📦 Update browser support list, remove IE 11 support.
+
+### 📚 Documentation
+
+- 📚 Update Changelog documentation to record 3.x version update history.
+
+---
+
 ## [3.0.0-beta.3] - 2025-07-24
 
 ### 🚀 New Features
@@ -29,14 +83,14 @@
 
 ## [3.0.0-beta.2] - 2025-07-24
 
-### 🛠 Breaking Changes
+### ⚠️ Breaking Changes
 
 - ProLayout
-  - 🛠 Remove deprecated `rightContentRender` and `TabPane` APIs.
+  - ⚠️ Remove deprecated `rightContentRender` and `TabPane` APIs.
 - ProTable
-  - 🛠 Remove deprecated `columnsStateMap` property, use `columnsState` instead.
+  - ⚠️ Remove deprecated `columnsStateMap` property, use `columnsState` instead.
 - ProCard
-  - 🛠 Remove deprecated `StatisticsCardProps`.
+  - ⚠️ Remove deprecated `StatisticsCardProps`.
 
 ### 📚 Documentation
 
@@ -53,12 +107,12 @@
 - Core
   - ✨ Support `ref` forwarding for multiple components to optimize layout and rendering.
 
-### 🛠 Breaking Changes
+### ⚠️ Breaking Changes
 
 - Core
-  - 🛠 Remove Antd@4 compatibility support.
+  - ⚠️ Remove Antd@4 compatibility support.
 - ProTable
-  - 🛠 Unify `tooltip` props and remove deprecated `tip` prop.
+  - ⚠️ Unify `tooltip` props and remove deprecated `tip` prop.
 
 ---
 
