@@ -1,6 +1,6 @@
 ---
 group: Table
-title: ProTable - 高级表格
+title: ProTable 高级表格
 order: 0
 legacy: /table
 atomId: ProTable

@@ -1,6 +1,6 @@
 ---
 group: PageContainer
-title: PageContainer - Page Container
+title: PageContainer Page Container
 atomId: PageContainer
 ---
 

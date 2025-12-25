@@ -1,5 +1,5 @@
 ---
-title: Schema Form - JSON Form
+title: Schema Form JSON Form
 order: 9
 ---
 

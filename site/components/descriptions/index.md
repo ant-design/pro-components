@@ -1,5 +1,5 @@
 ---
-title: ProDescriptions - 定义列表
+title: ProDescriptions 定义列表
 atomId: ProDescriptions
 order: 1
 group: Descriptions

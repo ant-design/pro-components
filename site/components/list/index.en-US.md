@@ -1,5 +1,5 @@
 ---
-title: ProList - Advanced List
+title: ProList Advanced List
 order: 12
 atomId: ProList
 group: List

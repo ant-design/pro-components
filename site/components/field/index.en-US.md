@@ -1,6 +1,6 @@
 ---
 group: Field
-title: ProField - Atomic Component
+title: ProField Atomic Component
 ---
 
 # ProField

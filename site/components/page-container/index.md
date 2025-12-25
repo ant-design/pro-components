@@ -1,6 +1,6 @@
 ---
 group: PageContainer
-title: PageContainer - 页容器
+title: PageContainer 页容器
 atomId: PageContainer
 ---
 

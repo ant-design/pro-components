@@ -1,6 +1,6 @@
 ---
 group: Schema
-title: Schema - Universal Configuration
+title: Schema Universal Configuration
 atomId: Schema
 ---
 

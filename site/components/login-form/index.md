@@ -1,6 +1,6 @@
 ---
 group: Form
-title: LoginForm/Page - 登录表单
+title: LoginForm/Page 登录表单
 atomId: LoginForm,PageForm
 order: 2
 ---

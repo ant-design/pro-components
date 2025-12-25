@@ -1,5 +1,5 @@
 ---
-title: ProDescriptions - Definition List
+title: ProDescriptions Definition List
 atomId: ProDescriptions
 order: 1
 group: Descriptions
