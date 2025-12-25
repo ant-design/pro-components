@@ -1,6 +1,4 @@
 ---
-nav:
-  title: Table
 group: Table
 title: Demos
 order: 0
@@ -11,7 +9,7 @@ legacy: /table
 
 ## 查询表格
 
-<code src="../../../demos/table/single.tsx"  background="var(--main-bg-color)" title="查询表格"></code>
+<code src="../../../demos/table/single.tsx" background="var(--main-bg-color)"></code>
 
 <code src="../../../demos/table/theme.tsx" background="var(--main-bg-color)" iframe="550" title="黑色主紧凑主题"></code>
 
@@ -25,7 +23,7 @@ legacy: /table
 
 <code src="../../../demos/table/lightfilter.tsx"  background="var(--main-bg-color)" title="轻量筛选替换查询表单"></code>
 
-<code src="../../../demos/table/no-title.tsx"  background="var(--main-bg-color)" title="无 ToolBar 的表格"></code>
+<code src="../../../demos/table/no-title.tsx" id="no-title-table" background="var(--main-bg-color)" title="无 ToolBar 的表格"></code>
 
 ## 必填的查询表单
 
@@ -135,7 +133,7 @@ formItemRender: (
 
 有些业务有自己的定制逻辑，可以不完全遵循 ProTable 的设计规则，但可以利用 ProTable 的 API 实现。如通过 `cardProps` 配置卡片属性，通过 `headTitle` 配置行动点在左侧。
 
-<code src="../../../demos/table/card-title.tsx" background="var(--main-bg-color)" title="卡片表格" desc="使用卡片标题，行动点在左侧。"></code>
+<code src="../../../demos/table/card-title.tsx" background="var(--main-bg-color)" desc="使用卡片标题，行动点在左侧。"></code>
 
 ## 国际化相关的配置
 
@@ -231,7 +229,7 @@ const values = useContext(ProProvider)
 
 <code src="../../../demos/table/ListToolBar/basic.tsx" background="var(--main-bg-color)" title="列表工具栏-基本使用"></code>
 
-<code src="../../../demos/table/ListToolBar/no-title.tsx" background="var(--main-bg-color)" title="无标题" desc="列表工具栏-没有标题的情况下搜索框会前置。"></code>
+<code src="../../../demos/table/ListToolBar/no-title.tsx" id="listToolBar-no-title" background="var(--main-bg-color)" title="无标题" desc="列表工具栏-没有标题的情况下搜索框会前置。"></code>
 
 <code src="../../../demos/table/ListToolBar/multipleLine.tsx" background="var(--main-bg-color)" title="双行布局" desc="列表工具栏-双行的情况下会有双行的布局形式。"></code>
 

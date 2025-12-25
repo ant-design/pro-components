@@ -52,7 +52,7 @@ const treeData = [
   },
 ];
 
-export default () => {
+const Demo = () => {
   const formRef = useRef<
     ProFormInstance<{
       name: string;
@@ -254,3 +254,9 @@ export default () => {
     </ProForm>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

@@ -11,7 +11,7 @@ const items = [
   { key: '5', status: 'success', title: '发布成功', value: 1 },
 ];
 
-export default () => {
+const Demo = () => {
   return (
     <>
       <ProCard
@@ -149,3 +149,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

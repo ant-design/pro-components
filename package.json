@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-components",
-  "version": "3.0.2-0",
+  "version": "3.1.0-0",
   "type": "module",
   "description": "All-in-one package of @ant-design/pro-components",
   "keywords": [
@@ -170,7 +170,7 @@
     "octokit": "^3.2.2",
     "playwright": "^1.56.1",
     "polished": "^4.3.1",
-    "prettier": "^3.6.2",
+    "prettier": "^3.7.4",
     "prettier-plugin-organize-imports": "^4.3.0",
     "prettier-plugin-packagejson": "^2.5.19",
     "pretty-quick": "^3.3.1",

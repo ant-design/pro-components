@@ -46,7 +46,7 @@ const data = [
   },
 ];
 
-export default () => {
+const Demo = () => {
   const [dataSource, setDataSource] = useState(data);
 
   const handleDragSortEnd = (
@@ -72,3 +72,9 @@ export default () => {
     />
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

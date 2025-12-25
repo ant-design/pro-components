@@ -11,7 +11,7 @@ const items = [
   { key: '5', status: 'success', title: 'Published Successfully', value: 1 },
 ];
 
-export default () => {
+const Demo = () => {
   return (
     <ProCard
       tabs={{
@@ -53,3 +53,9 @@ export default () => {
     />
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

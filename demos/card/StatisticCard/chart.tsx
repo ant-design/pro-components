@@ -1,7 +1,7 @@
 import { EllipsisOutlined } from '@ant-design/icons';
 import { StatisticCard } from '@ant-design/pro-components';
 
-export default () => {
+const Demo = () => {
   return (
     <>
       <StatisticCard
@@ -99,3 +99,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

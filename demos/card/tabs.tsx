@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 const { Option } = Select;
 
-export default () => {
+const Demo = () => {
   const [tab, setTab] = useState('tab2');
   const [tabPlacement, setTabPlacement] =
     useState<ProCardTabsProps['tabPlacement']>('top');
@@ -87,10 +87,12 @@ export default () => {
             <strong>bottom</strong>: 标签页显示在内容下方
           </li>
           <li>
-            <strong>start</strong>: 标签页显示在内容开始侧（LTR 为左侧，RTL 为右侧）
+            <strong>start</strong>: 标签页显示在内容开始侧（LTR 为左侧，RTL
+            为右侧）
           </li>
           <li>
-            <strong>end</strong>: 标签页显示在内容结束侧（LTR 为右侧，RTL 为左侧）
+            <strong>end</strong>: 标签页显示在内容结束侧（LTR 为右侧，RTL
+            为左侧）
           </li>
         </ul>
         <h4>Select 组件配置：</h4>
@@ -161,3 +163,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

@@ -1,7 +1,7 @@
 import { PageContainer, ProLayout } from '@ant-design/pro-components';
 import defaultProps from './_defaultProps';
 
-export default () => {
+const Demo = () => {
   return (
     <div
       style={{
@@ -60,3 +60,9 @@ export default () => {
     </div>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

@@ -1,6 +1,4 @@
 ---
-nav:
-  title: Layout
 group: PageHeader
 order: 1
 title: Basic Page Header
@@ -31,4 +29,3 @@ export default App;
   border: 1px solid rgb(235, 237, 240);
 }
 ```
-

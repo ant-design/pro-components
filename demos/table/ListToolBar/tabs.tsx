@@ -132,7 +132,7 @@ const columnsMap: Record<string, ProColumns<TableListItem>[]> = {
   ],
 };
 
-export default () => {
+const Demo = () => {
   const [activeKey, setActiveKey] = useState<string>('tab1');
 
   return (
@@ -247,3 +247,9 @@ export default () => {
     </ul>
   </div>;
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

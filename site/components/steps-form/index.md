@@ -1,8 +1,6 @@
 ---
-nav:
-  title: Form
 group: Form
-title: StepsForm - 分步表单
+title: StepsForm 分步表单
 atomId: StepsForm
 order: 1
 ---
@@ -15,15 +13,15 @@ StepsForm 通过 Provider 来管理子表单的数据，每个子表单都是完
 
 ## 分步表单
 
-<code src="../../../demos/form/StepsForm/steps-from.tsx" title="分步表单"></code>
+<code src="../../../demos/form/StepsForm/steps-from.tsx"></code>
 
 ## 分步表单垂直模式
 
-<code src="../../../demos/form/StepsForm/steps-form-vertical.tsx" title="分步表单垂直模式"></code>
+<code src="../../../demos/form/StepsForm/steps-form-vertical.tsx"></code>
 
 ## 自定义分步表单按钮
 
-<code src="../../../demos/form/StepsForm/customize-steps-from.tsx" title="自定义分步表单按钮"></code>
+<code src="../../../demos/form/StepsForm/customize-steps-from.tsx"></code>
 
 ## 分步表单 - 多卡片
 

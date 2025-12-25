@@ -14,7 +14,7 @@ const tailLayout = {
   wrapperCol: { offset: 8, span: 16 },
 };
 
-export default () => {
+const Demo = () => {
   return (
     <>
       <ProForm
@@ -46,3 +46,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

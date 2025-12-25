@@ -82,7 +82,7 @@ const AppGroupList: any = [
   },
 ];
 
-export default () => {
+const Demo = () => {
   const settings: ProSettings = {
     fixSiderbar: true,
     layout: 'mix',
@@ -129,3 +129,9 @@ export default () => {
     </div>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

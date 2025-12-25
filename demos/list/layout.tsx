@@ -25,7 +25,7 @@ const dataSource = [
   },
 ];
 
-export default () => {
+const Demo = () => {
   return (
     <ProList<{ title: string }>
       toolBarRender={() => {
@@ -93,3 +93,9 @@ export default () => {
     />
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

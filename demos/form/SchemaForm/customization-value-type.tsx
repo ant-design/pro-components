@@ -119,7 +119,7 @@ const columns: ProFormColumnsType<TableListItem, 'link' | 'tags'>[] = [
   },
 ];
 
-export default () => {
+const Demo = () => {
   const values = useContext(ProProvider);
   return (
     <ProProvider.Provider
@@ -172,3 +172,9 @@ export default () => {
     </ProProvider.Provider>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

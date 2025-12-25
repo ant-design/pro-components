@@ -23,7 +23,7 @@ const waitTime = (time: number = 100) => {
   });
 };
 
-export default () => {
+const Demo = () => {
   const [formLayoutType, setFormLayoutType] = useState<FormLayout>(
     LAYOUT_TYPE_HORIZONTAL,
   );
@@ -128,3 +128,9 @@ export default () => {
     </ProForm>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

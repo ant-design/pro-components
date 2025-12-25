@@ -190,4 +190,8 @@ const ValueTypeNumberWithDocs = () => {
   );
 };
 
-export default ValueTypeNumberWithDocs;
+export default () => (
+  <div style={{ padding: 24 }}>
+    <ValueTypeNumberWithDocs />
+  </div>
+);

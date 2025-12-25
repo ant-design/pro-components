@@ -11,7 +11,7 @@ import { Input } from 'antd';
 import { useState } from 'react';
 import defaultProps from './_defaultProps';
 
-export default () => {
+const Demo = () => {
   const settings: Partial<ProSettings> | undefined = {
     fixSiderbar: true,
     layout: 'top',
@@ -139,3 +139,9 @@ export default () => {
     </div>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

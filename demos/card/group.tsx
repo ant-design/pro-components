@@ -1,6 +1,6 @@
 import { ProCard } from '@ant-design/pro-components';
 
-export default () => {
+const Demo = () => {
   return (
     <>
       <ProCard title="Card Group Expanded" ghost gutter={8} collapsible>
@@ -17,3 +17,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

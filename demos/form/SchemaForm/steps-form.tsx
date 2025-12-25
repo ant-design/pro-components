@@ -166,7 +166,7 @@ const columns: ProFormColumnsType<DataItem>[][] = [
   ],
 ];
 
-export default () => {
+const Demo = () => {
   const formRef = useRef<ProFormInstance>();
 
   return (
@@ -201,3 +201,9 @@ export default () => {
     />
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

@@ -78,7 +78,7 @@ const columns: ProColumns<DataSourceType>[] = [
   },
 ];
 
-export default () => {
+const Demo = () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>(() =>
     defaultData.map((item) => item.id),
   );
@@ -146,3 +146,9 @@ export default () => {
     </ProForm>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

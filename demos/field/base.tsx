@@ -4,7 +4,7 @@ import { Descriptions, Radio, Space, Switch } from 'antd';
 import dayjs from 'dayjs';
 import { useState } from 'react';
 
-export default () => {
+const Demo = () => {
   const [state, setState] = useState<ProFieldFCMode>('read');
   const [plain, setPlain] = useState<boolean>(false);
   return (
@@ -625,3 +625,9 @@ Done in 9.70s.
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

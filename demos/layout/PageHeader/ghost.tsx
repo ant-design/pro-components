@@ -1,6 +1,6 @@
+import { PageHeader } from '@ant-design/pro-components';
 import { Button, Descriptions } from 'antd';
 import React from 'react';
-import { PageHeader } from '@ant-design/pro-components';
 
 const App: React.FC = () => (
   <div className="site-page-header-ghost-wrapper">
@@ -32,5 +32,8 @@ const App: React.FC = () => (
   </div>
 );
 
-export default App;
-
+export default () => (
+  <div style={{ padding: 24 }}>
+    <App />
+  </div>
+);

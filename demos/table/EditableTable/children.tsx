@@ -75,7 +75,7 @@ const loopDataSourceFilter = (
     .filter(Boolean) as DataSourceType[];
 };
 
-export default () => {
+const Demo = () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>([]);
   const [dataSource, setDataSource] = useState<readonly DataSourceType[]>(
     () => defaultData,
@@ -200,3 +200,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

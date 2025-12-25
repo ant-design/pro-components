@@ -13,7 +13,7 @@ const getData = () => {
   return arr;
 };
 
-export default () => {
+const Demo = () => {
   const columns: ProColumns<ContentWordsItem>[] = [
     {
       disable: true,
@@ -118,3 +118,9 @@ export default () => {
     </ul>
   </div>;
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

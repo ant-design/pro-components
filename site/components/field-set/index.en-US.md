@@ -1,6 +1,4 @@
 ---
-nav:
-  title: Form
 title: ProFormFields
 order: 1
 atomId: ProFormText

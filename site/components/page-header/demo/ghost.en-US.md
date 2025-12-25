@@ -1,6 +1,4 @@
 ---
-nav:
-  title: Layout
 group: PageHeader
 order: 2
 title: white background mode
@@ -54,4 +52,3 @@ export default App;
   background-color: #f5f5f5;
 }
 ```
-

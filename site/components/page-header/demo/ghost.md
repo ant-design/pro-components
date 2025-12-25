@@ -1,6 +1,4 @@
 ---
-nav:
-  title: Layout
 group: PageHeader
 order: 2
 title: 白底模式
@@ -54,4 +52,3 @@ export default App;
   background-color: #f5f5f5;
 }
 ```
-

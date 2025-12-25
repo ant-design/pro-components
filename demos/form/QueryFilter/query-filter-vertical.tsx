@@ -6,7 +6,7 @@ import {
   QueryFilter,
 } from '@ant-design/pro-components';
 
-export default () => {
+const Demo = () => {
   return (
     <QueryFilter layout="vertical">
       <ProFormText name="name" label="这是一个超级超级长的名称" />
@@ -42,3 +42,9 @@ export default () => {
     </QueryFilter>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

@@ -110,7 +110,7 @@ const ErrorTriggerTestPage = () => {
   );
 };
 
-export default () => {
+const Demo = () => {
   const [pathname, setPathname] = useState('/default');
   return (
     <div
@@ -154,3 +154,9 @@ export default () => {
     </div>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

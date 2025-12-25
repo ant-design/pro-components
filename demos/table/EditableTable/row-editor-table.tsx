@@ -20,7 +20,7 @@ const defaultData: DataSourceType[] = new Array(5).fill(1).map((_, index) => {
     created_at: 1590486176000,
   };
 });
-export default () => {
+const Demo = () => {
   const [dataSource, setDataSource] = useState<readonly DataSourceType[]>(
     () => defaultData,
   );
@@ -98,3 +98,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

@@ -57,7 +57,7 @@ const defaultData: DataSourceType[] = [
   },
 ];
 
-export default () => {
+const Demo = () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>(() => []);
   const formRef = useRef<ProFormInstance<any>>();
   const actionRef = useRef<ActionType>();
@@ -257,3 +257,9 @@ export default () => {
     </ProCard>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

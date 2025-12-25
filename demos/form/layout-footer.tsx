@@ -14,7 +14,7 @@ import {
 } from '@ant-design/pro-components';
 import { Card } from 'antd';
 
-export default () => {
+const Demo = () => {
   return (
     <ProLayout
       fixSiderbar
@@ -170,3 +170,9 @@ export default () => {
     </ProLayout>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

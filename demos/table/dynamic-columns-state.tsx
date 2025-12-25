@@ -90,7 +90,7 @@ const columns: ProColumns<TableListItem>[] = [
   },
 ];
 
-export default () => {
+const Demo = () => {
   const [currentStatus, setCurrentStatus] = useState<string>('close');
 
   const closeColumns: ProColumns<TableListItem>[] = [
@@ -231,3 +231,9 @@ export default () => {
     </ul>
   </div>;
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

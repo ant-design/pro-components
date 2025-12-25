@@ -1,6 +1,4 @@
 ---
-nav:
-  title: Skeleton
 title: ProSkeleton
 atomId: ProSkeleton
 group: Skeleton
@@ -24,17 +22,17 @@ return <Skeleton type="list" />;
 
 ### List
 
-<code src="../../../demos/skeleton/list.tsx" oldtitle="List"></code>
+<code src="../../../demos/skeleton/list.tsx" old></code>
 
-<code src="../../../demos/skeleton/list.static.tsx" oldtitle="List" debug></code>
+<code src="../../../demos/skeleton/list.static.tsx" old debug></code>
 
 ### Results page
 
-<code src="../../../demos/skeleton/result.tsx" oldtitle="Results page"></code>
+<code src="../../../demos/skeleton/result.tsx" old></code>
 
 ### Details page
 
-<code src="../../../demos/skeleton/descriptions.tsx" oldtitle="Details page"></code>
+<code src="../../../demos/skeleton/descriptions.tsx" old></code>
 
 ## API
 

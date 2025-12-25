@@ -86,4 +86,8 @@ const EditExample = () => {
     </StepsForm>
   );
 };
-export default EditExample;
+export default () => (
+  <div style={{ padding: 24 }}>
+    <EditExample />
+  </div>
+);

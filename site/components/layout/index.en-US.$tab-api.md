@@ -1,6 +1,4 @@
 ---
-nav:
-  title: Layout
 title: Demos
 order: 0
 legacy: /layout

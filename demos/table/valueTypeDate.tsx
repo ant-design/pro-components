@@ -45,7 +45,7 @@ for (let i = 0; i < 2; i += 1) {
   });
 }
 
-export default () => (
+const Demo = () => (
   <>
     <ProTable<TableListItem>
       columns={[
@@ -207,4 +207,10 @@ export default () => (
       </ul>
     </div>
   </>
+);
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
 );

@@ -21,7 +21,7 @@ const waitTime = (time: number = 100) => {
   });
 };
 
-export default () => {
+const Demo = () => {
   const formRef = useRef<ProFormInstance>();
 
   return (
@@ -164,3 +164,9 @@ export default () => {
     </ProCard>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

@@ -544,19 +544,31 @@ describe('utils', () => {
       });
     });
 
-    await waitFor(() => {
-      expect(!!html.baseElement.querySelector('div.ant-popover')).toBeTruthy();
-    }, { timeout: 3000 });
-    
+    await waitFor(
+      () => {
+        expect(
+          !!html.baseElement.querySelector('div.ant-popover'),
+        ).toBeTruthy();
+      },
+      { timeout: 3000 },
+    );
+
     // Wait for popover content to be rendered
-    await waitFor(() => {
-      const popoverContent = html.baseElement.querySelector('div.ant-popover .ant-popover-content');
-      expect(!!popoverContent).toBeTruthy();
-    }, { timeout: 3000 });
-    
+    await waitFor(
+      () => {
+        const popoverContent = html.baseElement.querySelector(
+          'div.ant-popover .ant-popover-content',
+        );
+        expect(!!popoverContent).toBeTruthy();
+      },
+      { timeout: 3000 },
+    );
+
     // Check for error messages - structure may vary in Ant Design v6
-    const popoverContent = html.baseElement.querySelector('div.ant-popover .ant-popover-content');
-    
+    const popoverContent = html.baseElement.querySelector(
+      'div.ant-popover .ant-popover-content',
+    );
+
     // Try to find error messages with various possible selectors
     const errorSelectors = [
       'div.ant-popover .ant-popover-content div.ant-form-item-explain-error',
@@ -565,16 +577,18 @@ describe('utils', () => {
       'div.ant-popover .ant-popover-content li',
       'div.ant-popover .ant-popover-content',
     ];
-    
+
     let li: NodeListOf<Element> | null = null;
     for (const selector of errorSelectors) {
       li = html.baseElement.querySelectorAll(selector);
       if (li.length > 0) break;
     }
-    
+
     // Verify that error content exists (structure may have changed in v6)
     if (li && li.length > 0) {
-      const errorText = Array.from(li).map(el => el.textContent).join(' ');
+      const errorText = Array.from(li)
+        .map((el) => el.textContent)
+        .join(' ');
       expect(errorText).toContain(ruleMessage.min);
       expect(errorText).toContain(ruleMessage.alphaRequired);
     } else {

@@ -246,4 +246,8 @@ const MemberList: React.FC = () => {
   </div>;
 };
 
-export default MemberList;
+export default () => (
+  <div style={{ padding: 24 }}>
+    <MemberList />
+  </div>
+);

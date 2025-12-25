@@ -1,7 +1,7 @@
 import { CheckCard } from '@ant-design/pro-components';
 import { ConfigProvider, Flex } from 'antd';
 
-export default () => (
+const Demo = () => (
   <>
     <Flex gap={24} vertical>
       <CheckCard.Group
@@ -92,4 +92,10 @@ export default () => (
       </ul>
     </div>
   </>
+);
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
 );

@@ -1,6 +1,6 @@
 ﻿import { ProFormSelect } from '@ant-design/pro-components';
 
-export default function App() {
+export function App() {
   return (
     <div>
       <ProFormSelect
@@ -175,3 +175,9 @@ export default function App() {
     </div>
   );
 }
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <App />
+  </div>
+);

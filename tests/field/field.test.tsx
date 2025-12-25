@@ -786,12 +786,9 @@ describe('Field', () => {
     );
 
     act(() => {
-      fireEvent.change(
-        html.baseElement.querySelector('.ant-select-input')!,
-        {
-          target: { value: 'test' },
-        },
-      );
+      fireEvent.change(html.baseElement.querySelector('.ant-select-input')!, {
+        target: { value: 'test' },
+      });
     });
 
     expect(onSearch).toHaveBeenLastCalledWith('test');
@@ -842,9 +839,7 @@ describe('Field', () => {
 
     act(() => {
       fireEvent.change(
-        html.baseElement.querySelector(
-          'input.ant-select-input',
-        )!,
+        html.baseElement.querySelector('input.ant-select-input')!,
         {
           target: {
             value: 'Node5',
@@ -929,17 +924,13 @@ describe('Field', () => {
 
     await waitFor(() => {
       expect(
-        !!html.baseElement.querySelector(
-          'input.ant-select-input',
-        ),
+        !!html.baseElement.querySelector('input.ant-select-input'),
       ).toBeTruthy();
     });
 
     act(() => {
       fireEvent.change(
-        html.baseElement.querySelector(
-          'input.ant-select-input',
-        )!,
+        html.baseElement.querySelector('input.ant-select-input')!,
         {
           target: {
             value: 'Node5',
@@ -988,17 +979,14 @@ describe('Field', () => {
     });
 
     expect(
-      html.baseElement.querySelector<HTMLInputElement>(
-        'input.ant-select-input',
-      )?.value,
+      html.baseElement.querySelector<HTMLInputElement>('input.ant-select-input')
+        ?.value,
     ).toBe('');
 
     // 在新版本的 Ant Design 中，多选模式下清除按钮的DOM结构可能已改变
     // 尝试查找清除按钮并测试清除功能
-    const clearBtn = html.baseElement.querySelector(
-      '.ant-select-clear',
-    );
-    
+    const clearBtn = html.baseElement.querySelector('.ant-select-clear');
+
     if (clearBtn) {
       act(() => {
         fireEvent.click(clearBtn, {});
@@ -1013,9 +1001,7 @@ describe('Field', () => {
 
     act(() => {
       fireEvent.blur(
-        html.baseElement.querySelector(
-          'input.ant-select-input',
-        )!,
+        html.baseElement.querySelector('input.ant-select-input')!,
         {},
       );
     });

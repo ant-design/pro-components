@@ -8,7 +8,7 @@ import { Switch } from 'antd';
 import { useState } from 'react';
 import defaultProps from './_defaultProps';
 
-export default () => {
+const Demo = () => {
   const [loading, setLoading] = useState(false);
   const [collapsed, setCollapsed] = useState(true);
   const [menu, setMenu] = useState(true);
@@ -147,3 +147,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

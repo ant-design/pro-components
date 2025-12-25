@@ -19,7 +19,7 @@ const waitTime = (time: number = 100) => {
   });
 };
 
-export default () => {
+const Demo = () => {
   return (
     <ProCard>
       <StepsForm<{
@@ -174,3 +174,9 @@ export default () => {
     </ProCard>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

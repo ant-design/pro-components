@@ -1,6 +1,4 @@
 ---
-nav:
-  title: Layout
 group: PageHeader
 order: 3
 title: 带面包屑页头
@@ -40,4 +38,3 @@ const App: React.FC = () => (
 
 export default App;
 ```
-

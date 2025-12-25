@@ -91,9 +91,12 @@ describe('Table valueEnum', () => {
     });
 
     // antd@6 可能需要更多时间来触发回调
-    await waitFor(() => {
-      expect(onSearch).toHaveBeenCalledWith('1111111');
-    }, { timeout: 2000 });
+    await waitFor(
+      () => {
+        expect(onSearch).toHaveBeenCalledWith('1111111');
+      },
+      { timeout: 2000 },
+    );
   });
 
   it('ListToolBar action no array', async () => {
@@ -196,9 +199,12 @@ describe('Table valueEnum', () => {
     });
     expect(wrapper.getByDisplayValue('input 值')).toBeTruthy();
     // antd@6 可能需要等待异步的 onSearch 调用
-    await waitFor(() => {
-      expect(onSearch).toHaveBeenCalled();
-    }, { timeout: 2000 });
+    await waitFor(
+      () => {
+        expect(onSearch).toHaveBeenCalled();
+      },
+      { timeout: 2000 },
+    );
     expect(
       (wrapper.getByDisplayValue('input 值') as HTMLInputElement).placeholder,
     ).toEqual('自定义 placeholder');
@@ -231,9 +237,12 @@ describe('Table valueEnum', () => {
     });
     expect(wrapper.getByDisplayValue('input 值')).toBeTruthy();
     // antd@6 可能需要等待异步的 onSearch 调用
-    await waitFor(() => {
-      expect(onSearch).toHaveBeenCalled();
-    }, { timeout: 2000 });
+    await waitFor(
+      () => {
+        expect(onSearch).toHaveBeenCalled();
+      },
+      { timeout: 2000 },
+    );
     expect(
       (wrapper.getByDisplayValue('input 值') as HTMLInputElement).placeholder,
     ).toEqual('自定义 placeholder');
