@@ -15,16 +15,16 @@ SchemaForm 是根据 JSON Schema 来生成表单的工具。SchemaForm 会根据
 
 SchemaForm 提供了与 [ProForm](/components/form#proform) 相同的 API，并且增加了部分 API，以下的 SchemaForm 新增的 API。
 
-| 字段名称       | 类型                                                                                     | 说明                                                                                                                                                                                                                                                                                                   |
-| -------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `layoutType`   | [`ProFormLayoutType`](/components/schema-form#proformlayouttype)                         | 使用的表单布局模式                                                                                                                                                                                                                                                                                     |
-| `steps`        | `StepFormProps[]`                                                                        | `layoutType=steps`中的分步表单配置，需要配置 columns 为数组使用                                                                                                                                                                                                                                        |
-| `columns`      | [`ProFormColumnsType[]` \| `ProFormColumnsType[][]`](/components/schema-form#schema-定义)    | 表单的定义，一般是 json 对象，如果是分步表单，需要使用 json 数组来生成多个表单                                                                                                                                                                                                                         |
-| `shouldUpdate` | `(newValues: Record<string, any>, oldValues: Record<string, any>) => boolean \| boolean` | 细粒化控制是否渲染。<br /> 为`true`时会自动重新渲染表单项。<br /> 为`false`时不会更新表单项但可以使用[dependencies 触发更新](#结合-shouldupdatefalse-和-dependencies-触发更新)，<br /> 为`function` 时根据返回值判断是否重新渲染表单项，等同直接赋值 `true` 或 `false` [参考示例](#动态控制是否重渲染) |
-| `title`        | `ReactNode`                                                                              | 表单标题                                                                                                                                                                                                                                                                                               |
-| `action`       | `MutableRefObject<ProCoreActionType \| undefined>`                                       | 用于操作表单的 action，支持 reload 等操作                                                                                                                                                                                                                                                              |
-| `formRef`      | `MutableRefObject<ProFormInstance \| undefined>`                                         | 获取 form 实例，支持 antd form 的所有方法                                                                                                                                                                                                                                                              |
-| `open`         | `boolean`                                                                                | 控制 ModalForm 和 DrawerForm 的显示隐藏                                                                                                                                                                                                                                                                |
+| 字段名称       | 类型                                                                                      | 说明                                                                                                                                                                                                                                                                                                   |
+| -------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `layoutType`   | [`ProFormLayoutType`](/components/schema-form#proformlayouttype)                          | 使用的表单布局模式                                                                                                                                                                                                                                                                                     |
+| `steps`        | `StepFormProps[]`                                                                         | `layoutType=steps`中的分步表单配置，需要配置 columns 为数组使用                                                                                                                                                                                                                                        |
+| `columns`      | [`ProFormColumnsType[]` \| `ProFormColumnsType[][]`](/components/schema-form#schema-定义) | 表单的定义，一般是 json 对象，如果是分步表单，需要使用 json 数组来生成多个表单                                                                                                                                                                                                                         |
+| `shouldUpdate` | `(newValues: Record<string, any>, oldValues: Record<string, any>) => boolean \| boolean`  | 细粒化控制是否渲染。<br /> 为`true`时会自动重新渲染表单项。<br /> 为`false`时不会更新表单项但可以使用[dependencies 触发更新](#结合-shouldupdatefalse-和-dependencies-触发更新)，<br /> 为`function` 时根据返回值判断是否重新渲染表单项，等同直接赋值 `true` 或 `false` [参考示例](#动态控制是否重渲染) |
+| `title`        | `ReactNode`                                                                               | 表单标题                                                                                                                                                                                                                                                                                               |
+| `action`       | `MutableRefObject<ProCoreActionType \| undefined>`                                        | 用于操作表单的 action，支持 reload 等操作                                                                                                                                                                                                                                                              |
+| `formRef`      | `MutableRefObject<ProFormInstance \| undefined>`                                          | 获取 form 实例，支持 antd form 的所有方法                                                                                                                                                                                                                                                              |
+| `open`         | `boolean`                                                                                 | 控制 ModalForm 和 DrawerForm 的显示隐藏                                                                                                                                                                                                                                                                |
 
 ## ProFormLayoutType
 
@@ -50,7 +50,7 @@ SchemaForm 表单最重要就是 Schema 的类型定义，我们使用了与 tab
 | `title`               | `ReactNode` \|`(props,type,dom)=> ReactNode`                                   | 标题的内容，在 form 中是 label                                                                                                                                                           |
 | `tooltip`             | `string`                                                                       | 会在 title 旁边展示一个 icon，鼠标浮动之后展示                                                                                                                                           |
 | `width`               | `number` \| `string`                                                           | 宽度。<br />`xs`: 104px - 短数字、短文本<br />`sm`: 216px - 短字段(姓名、电话)<br />`md`: 328px - 标准宽度<br />`lg`: 440px - 长字段(网址、标签组)<br />`xl`: 552px - 长文本(描述、备注) |
-| `colSize`             | `number`                                                                       | 每个表单占据的格子大小，总宽度 = span * colSize，默认为 1                                                                                                                                |
+| `colSize`             | `number`                                                                       | 每个表单占据的格子大小，总宽度 = span \* colSize，默认为 1                                                                                                                               |
 | `readonly`            | `boolean`                                                                      | 是否只读模式                                                                                                                                                                             |
 | `initialValue`        | `any`                                                                          | 表单的默认值                                                                                                                                                                             |
 | `valueEnum`           | `(Entity)=> ValueEnum` \| `ValueEnum`                                          | 支持 object 和 Map，Map 是支持其他基础类型作为 key                                                                                                                                       |
@@ -80,28 +80,28 @@ SchemaForm 表单最重要就是 Schema 的类型定义，我们使用了与 tab
 
 ### 常见 ValueType
 
-| 值类型 | 描述 |
-| --- | --- |
-| `text` | 文本输入框 |
-| `textarea` | 多行文本域 |
-| `password` | 密码输入框 |
-| `digit` | 数字输入框 |
-| `money` | 金额输入框 |
-| `select` | 下拉选择器 |
-| `checkbox` | 多选框 |
-| `radio` | 单选框 |
-| `date` | 日期选择器 |
-| `dateRange` | 日期范围选择器 |
-| `time` | 时间选择器 |
-| `switch` | 开关 |
-| `group` | 表单分组 |
-| `dependency` | 依赖联动 |
-| `formList` | 列表表单 |
+| 值类型       | 描述           |
+| ------------ | -------------- |
+| `text`       | 文本输入框     |
+| `textarea`   | 多行文本域     |
+| `password`   | 密码输入框     |
+| `digit`      | 数字输入框     |
+| `money`      | 金额输入框     |
+| `select`     | 下拉选择器     |
+| `checkbox`   | 多选框         |
+| `radio`      | 单选框         |
+| `date`       | 日期选择器     |
+| `dateRange`  | 日期范围选择器 |
+| `time`       | 时间选择器     |
+| `switch`     | 开关           |
+| `group`      | 表单分组       |
+| `dependency` | 依赖联动       |
+| `formList`   | 列表表单       |
 
 ### fieldProps 与 formItemProps 的区别
 
-*   **fieldProps**: 传递给具体输入组件（如 Input, Select, DatePicker）的属性。例如 `placeholder`, `allowClear`, `style` 等。
-*   **formItemProps**: 传递给 Ant Design 的 `Form.Item` 的属性。例如 `label`, `name`, `rules`, `extra`, `help` 等。
+- **fieldProps**: 传递给具体输入组件（如 Input, Select, DatePicker）的属性。例如 `placeholder`, `allowClear`, `style` 等。
+- **formItemProps**: 传递给 Ant Design 的 `Form.Item` 的属性。例如 `label`, `name`, `rules`, `extra`, `help` 等。
 
 ```javascript
 {
@@ -156,8 +156,8 @@ SchemaForm 最基础的用法，通过 JSON 配置生成标准的表单页面。
 
 对于大型表单，可以使用 `shouldUpdate` 和 `dependencies` 来进行细粒度的渲染控制，避免整个表单的重复渲染。
 
-*   **dependencies**: 指定依赖字段，仅当依赖字段变化时更新。
-*   **shouldUpdate**: 自定义更新逻辑，返回 false 阻止更新。
+- **dependencies**: 指定依赖字段，仅当依赖字段变化时更新。
+- **shouldUpdate**: 自定义更新逻辑，返回 false 阻止更新。
 
 <code src="../../../demos/form/SchemaForm/dependencies.tsx" title="结合 shouldUpdate=false 和 dependencies 触发更新"></code>
 
