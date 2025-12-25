@@ -54,4 +54,3 @@ export default App;
   background-color: #f5f5f5;
 }
 ```
-

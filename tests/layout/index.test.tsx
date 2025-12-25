@@ -31,11 +31,15 @@ describe('BasicLayout', () => {
         ({
           matches: query === '(min-width: 768px)',
           // 支持最新的 addEventListener API
-          addEventListener: vi.fn((event: string, cb: (e: MediaQueryListEvent) => void) => {
-            if (event === 'change') {
-              cb({ matches: query === '(min-width: 768px)' } as MediaQueryListEvent);
-            }
-          }),
+          addEventListener: vi.fn(
+            (event: string, cb: (e: MediaQueryListEvent) => void) => {
+              if (event === 'change') {
+                cb({
+                  matches: query === '(min-width: 768px)',
+                } as MediaQueryListEvent);
+              }
+            },
+          ),
           removeEventListener: vi.fn(),
           // 保留旧的 API 以向后兼容
           addListener: (cb: (e: { matches: boolean }) => void) => {

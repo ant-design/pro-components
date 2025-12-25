@@ -89,11 +89,15 @@ function demoTest(component: string, options?: Options) {
       ({
         matches: query === '(max-width: 575px)',
         // 支持最新的 addEventListener API
-        addEventListener: vi.fn((event: string, cb: (e: MediaQueryListEvent) => void) => {
-          if (event === 'change') {
-            cb({ matches: query === '(max-width: 575px)' } as MediaQueryListEvent);
-          }
-        }),
+        addEventListener: vi.fn(
+          (event: string, cb: (e: MediaQueryListEvent) => void) => {
+            if (event === 'change') {
+              cb({
+                matches: query === '(max-width: 575px)',
+              } as MediaQueryListEvent);
+            }
+          },
+        ),
         removeEventListener: vi.fn(),
         // 保留旧的 API 以向后兼容
         addListener: (cb: (e: { matches: boolean }) => void) => {

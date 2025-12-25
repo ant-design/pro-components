@@ -957,9 +957,7 @@ describe('👍🏻 ProHelpPanel', () => {
     await waitFor(
       () => {
         // 查找所有包含"常见问题"文本的元素（包括 group 和 option）
-        const allItems = document.body.querySelectorAll(
-          '.ant-select-item',
-        );
+        const allItems = document.body.querySelectorAll('.ant-select-item');
         const targetItem = Array.from(allItems).find((item) =>
           item.textContent?.includes('常见问题'),
         );

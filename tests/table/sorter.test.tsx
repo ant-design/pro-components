@@ -413,7 +413,6 @@ describe('BasicTable sorter', () => {
     );
   });
 
-
   it('🎏 should pass string sorter parameters to request function', async () => {
     const fn = vi.fn();
     const TestComponent = () => {
@@ -618,7 +617,7 @@ describe('BasicTable sorter', () => {
     it('🎏 should reset to defaultSortOrder with flat columns', async () => {
       const TestComponent = () => {
         const actionRef = useRef<ActionType>();
-  
+
         return (
           <ProTable<{ money: number }>
             size="small"
@@ -683,7 +682,7 @@ describe('BasicTable sorter', () => {
         );
       };
       const { container } = render(<TestComponent />);
-  
+
       await waitFor(
         () => {
           const rows = container.querySelectorAll('.ant-table-row');
@@ -693,11 +692,11 @@ describe('BasicTable sorter', () => {
         },
         { timeout: 1000 },
       );
-  
+
       await userEvent.click(
         container.querySelectorAll('span.ant-table-column-sorter-down')[0],
       );
-  
+
       await waitFor(
         () => {
           const rows = container.querySelectorAll('.ant-table-row');
@@ -707,9 +706,9 @@ describe('BasicTable sorter', () => {
         },
         { timeout: 1000 },
       );
-  
+
       await userEvent.click(screen.getByRole('button', { name: /重置表格/i }));
-  
+
       await waitFor(
         () => {
           const rows = container.querySelectorAll('.ant-table-row');
@@ -724,7 +723,7 @@ describe('BasicTable sorter', () => {
     it('🎏 should reset to defaultSortOrder with nested columns', async () => {
       const TestComponent = () => {
         const actionRef = useRef<ActionType>();
-  
+
         return (
           <ProTable<{ money: number; score: number }>
             size="small"
@@ -804,7 +803,7 @@ describe('BasicTable sorter', () => {
         );
       };
       const { container } = render(<TestComponent />);
-  
+
       // 等待初始渲染，確認默認排序（降序，分數高的在前）
       await waitFor(
         () => {
@@ -815,12 +814,12 @@ describe('BasicTable sorter', () => {
         },
         { timeout: 1000 },
       );
-  
+
       // 點擊排序按鈕，改為升序
       await userEvent.click(
         container.querySelectorAll('span.ant-table-column-sorter-up')[1], // 第二個排序器（嵌套列中的Score列）
       );
-  
+
       // 確認升序排列（分數低的在前）
       await waitFor(
         () => {
@@ -831,10 +830,10 @@ describe('BasicTable sorter', () => {
         },
         { timeout: 1000 },
       );
-  
+
       // 點擊重置按鈕
       await userEvent.click(screen.getByRole('button', { name: /重置表格/i }));
-  
+
       // 確認重置後回到默認排序（降序）
       await waitFor(
         () => {
