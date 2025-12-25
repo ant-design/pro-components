@@ -4,7 +4,7 @@
   ProFormUploadDragger,
 } from '@ant-design/pro-components';
 
-export default () => {
+const Demo = () => {
   return (
     <ProForm>
       <ProFormUploadButton
@@ -33,3 +33,9 @@ export default () => {
     </ProForm>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

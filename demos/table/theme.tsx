@@ -135,7 +135,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
   },
 ];
 
-export default () => {
+const Demo = () => {
   const actionRef = useRef<ActionType>();
   const themeConfig = {
     token: {
@@ -351,3 +351,9 @@ export default () => {
     </ul>
   </div>;
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

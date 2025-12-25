@@ -1,7 +1,7 @@
 import { ProForm, ProFormSelect } from '@ant-design/pro-components';
 import { message } from 'antd';
 
-export default () => {
+const Demo = () => {
   return (
     <ProForm
       onFinish={async () => {
@@ -32,3 +32,9 @@ export default () => {
     </ProForm>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

@@ -40,7 +40,7 @@ const request = async () => {
   };
 };
 
-export default () => {
+const Demo = () => {
   const columns: ProColumns[] = [
     {
       title: '排序',
@@ -162,3 +162,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

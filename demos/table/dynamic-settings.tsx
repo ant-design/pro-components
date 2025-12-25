@@ -826,4 +826,8 @@ const DynamicSettingsWithDocs = () => {
   );
 };
 
-export default DynamicSettingsWithDocs;
+export default () => (
+  <div style={{ padding: 24 }}>
+    <DynamicSettingsWithDocs />
+  </div>
+);

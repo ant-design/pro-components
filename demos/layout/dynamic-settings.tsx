@@ -23,7 +23,7 @@ const content = (
   </Descriptions>
 );
 
-export default () => {
+const Demo = () => {
   const [settings, setSetting] = useState<Partial<ProSettings> | undefined>({
     fixSiderbar: true,
   });
@@ -153,3 +153,9 @@ export default () => {
     </div>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

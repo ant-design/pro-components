@@ -2,7 +2,7 @@ import { CheckCard } from '@ant-design/pro-components';
 import { Radio } from 'antd';
 import { useState } from 'react';
 
-export default () => {
+const Demo = () => {
   const [size, setSize] = useState('default' as const);
   return (
     <>
@@ -65,3 +65,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

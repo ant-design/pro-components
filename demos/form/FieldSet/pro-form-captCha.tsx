@@ -11,7 +11,7 @@ const waitTime = (time: number = 100) => {
   });
 };
 
-export default () => {
+const Demo = () => {
   const captchaRef = useRef<CaptFieldRef | null | undefined>();
   const inputRef = useRef();
 
@@ -67,3 +67,9 @@ export default () => {
     </ProForm>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

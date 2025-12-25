@@ -3,7 +3,7 @@ import { Button, Space, Steps } from 'antd';
 import RcResizeObserver from 'rc-resize-observer';
 import { useState } from 'react';
 
-export default () => {
+const Demo = () => {
   const [current, setCurrent] = useState(0);
   const [responsive, setResponsive] = useState(false);
   return (
@@ -167,3 +167,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

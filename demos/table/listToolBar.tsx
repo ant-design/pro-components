@@ -118,7 +118,7 @@ const renderBadge = (count: number, active = false) => {
   );
 };
 
-export default () => {
+const Demo = () => {
   const [activeKey, setActiveKey] = useState<React.Key>('tab1');
 
   return (
@@ -273,3 +273,9 @@ export default () => {
     </ul>
   </div>;
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

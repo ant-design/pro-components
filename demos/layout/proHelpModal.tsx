@@ -8,7 +8,7 @@ import {
 import { App, Typography } from 'antd';
 import { useState } from 'react';
 
-export default () => {
+const Demo = () => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
   const map = new Map<
@@ -365,3 +365,9 @@ export default () => {
     </App>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

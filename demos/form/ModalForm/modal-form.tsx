@@ -16,7 +16,7 @@ const waitTime = (time: number = 100) => {
   });
 };
 
-export default () => {
+const Demo = () => {
   const [form] = Form.useForm<{ name: string; company: string }>();
   return (
     <ModalForm<{
@@ -113,3 +113,9 @@ export default () => {
     </ModalForm>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

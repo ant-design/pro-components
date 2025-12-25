@@ -26,7 +26,7 @@ const dataSource = [
   },
 ];
 
-export default () => {
+const Demo = () => {
   const [expandedRowKeys, setExpandedRowKeys] = useState<readonly Key[]>([]);
 
   return (
@@ -90,3 +90,9 @@ export default () => {
     />
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

@@ -151,4 +151,8 @@ const SearchOptionTableWithDocs = () => {
   );
 };
 
-export default SearchOptionTableWithDocs;
+export default () => (
+  <div style={{ padding: 24 }}>
+    <SearchOptionTableWithDocs />
+  </div>
+);

@@ -87,7 +87,7 @@ type DataItem = {
   state: string;
 };
 
-export default () => {
+const Demo = () => {
   const [valueType, setValueType] = useState<ProFieldValueType>('text');
   return (
     <>
@@ -148,3 +148,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

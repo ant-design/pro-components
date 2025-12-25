@@ -4,7 +4,7 @@ import { Button, message } from 'antd';
 const wait = (time: number = 300) =>
   new Promise((resolve) => setTimeout(resolve, time));
 
-export default () => {
+const Demo = () => {
   return (
     <>
       <ModalForm
@@ -51,3 +51,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

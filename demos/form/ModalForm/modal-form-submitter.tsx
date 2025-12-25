@@ -9,7 +9,7 @@ const waitTime = (time: number = 100) => {
   });
 };
 
-export default () => {
+const Demo = () => {
   return (
     <Space>
       <ModalForm
@@ -141,3 +141,9 @@ export default () => {
     </Space>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

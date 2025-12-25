@@ -383,15 +383,15 @@ name 参数必须要是一个数组，如果是嵌套的结构可以这样配置
 
 ### 行为守卫
 
-<code src="../../../demos/form/Group/pro-form-list.tsx" title="行为守卫"></code>
+<code src="../../../demos/form/Group/pro-form-list.tsx"></code>
 
 ### 增删条目限制
 
-<code src="../../../demos/form/Group/countLimit.tsx" title="增删条目限制"></code>
+<code src="../../../demos/form/Group/countLimit.tsx"></code>
 
 ### 横向布局
 
-# <code src="../../../demos/form/Group/horizontal-layout.tsx" title="横向布局" ></code>
+# <code src="../../../demos/form/Group/horizontal-layout.tsx"></code>
 
 ### 增删条目限制
 

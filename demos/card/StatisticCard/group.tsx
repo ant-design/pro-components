@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 const { Divider } = StatisticCard;
 
-export default () => {
+const Demo = () => {
   const [responsive, setResponsive] = useState(false);
 
   return (
@@ -142,3 +142,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

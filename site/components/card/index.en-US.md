@@ -24,7 +24,7 @@ In-page container cards that provide standard card styles, card segmentation and
 
 When used alone a `ProCard` is just a regular card.
 
-<code src="../../../demos/card/basic.tsx" background="var(--main-bg-color)" oldtitle="Basic Card"></code>
+<code src="../../../demos/card/basic.tsx" background="var(--main-bg-color)" old></code>
 
 ### Grid layout
 
@@ -51,7 +51,7 @@ In layout mode, by configuring `split`, you can easily split the card, and you c
 
 Through the card segmentation ability, we can easily achieve the effect of left and right columns, which is very suitable for the structure of the list on the left and the details on the right.
 
-<code src="../../../demos/card/split23.tsx" background="var(--main-bg-color)" oldtitle="Left and right columns"></code>
+<code src="../../../demos/card/split23.tsx" background="var(--main-bg-color)" old></code>
 
 ### Complex segmentation
 
@@ -81,7 +81,7 @@ You can nest card components to group content, and `Divider` subcomponents to se
 
 When adding a divider it automatically increases the height of the header to separate it from the content area.
 
-<code src="../../../demos/card/headerBordered.tsx" background="var(--main-bg-color)" oldtitle="Title with dividing line"></code>
+<code src="../../../demos/card/headerBordered.tsx" background="var(--main-bg-color)" old></code>
 
 ### Collapsible
 
@@ -106,7 +106,7 @@ Configure the `layout` property to `center` to control the vertical centering of
 
 Configure the `loading` property to `true` to control the loading of the card. You can also pass the DOM to `loading` to customize the loading display.
 
-<code src="../../../demos/card/loading.tsx" background="var(--main-bg-color)" oldtitle="Loading"></code>
+<code src="../../../demos/card/loading.tsx" background="var(--main-bg-color)" old></code>
 
 ### Action items
 
@@ -118,7 +118,7 @@ Configure the `actions` property to configure card actions.
 
 The header is automatically hidden when there is no content.
 
-<code src="../../../demos/card/headless.tsx" background="var(--main-bg-color)" oldtitle="Untitled"></code>
+<code src="../../../demos/card/headless.tsx" background="var(--main-bg-color)" old></code>
 
 ### with border
 

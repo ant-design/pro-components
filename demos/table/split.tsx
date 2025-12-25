@@ -298,4 +298,8 @@ const DemoWithDocs = () => {
   );
 };
 
-export default DemoWithDocs;
+export default () => (
+  <div style={{ padding: 24 }}>
+    <DemoWithDocs />
+  </div>
+);

@@ -15,11 +15,11 @@ Based on ProTable implementation, it can be considered as a special case of ProT
 
 ### Basic usage
 
-<code src="../../../demos/list/base.tsx"  background="var(--main-bg-color)" oldtitle="Basic usage"></code>
+<code src="../../../demos/list/base.tsx" background="var(--main-bg-color)" old></code>
 
 ### Edit list
 
-<code src="../../../demos/list/editable.tsx"  background="var(--main-bg-color)" oldtitle="Edit list"></code>
+<code src="../../../demos/list/editable.tsx" background="var(--main-bg-color)" old></code>
 
 ### Support for expanded lists
 
@@ -47,7 +47,7 @@ Based on ProTable implementation, it can be considered as a special case of ProT
 
 ### Some preset modes
 
-<code src="../../../demos/list/special.tsx"  background="var(--main-bg-color)" oldtitle="Some preset modes"></code>
+<code src="../../../demos/list/special.tsx" background="var(--main-bg-color)" old></code>
 
 ### Page turn
 

@@ -203,7 +203,7 @@ const MenuCard = () => {
   );
 };
 
-export default () => {
+const Demo = () => {
   const settings: ProSettings | undefined = {
     fixSiderbar: true,
     layout: 'top',
@@ -348,3 +348,9 @@ export default () => {
     </div>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

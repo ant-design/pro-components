@@ -3,7 +3,7 @@ import type { FormListActionType } from '@ant-design/pro-components';
 import { ProForm, ProFormList, ProFormText } from '@ant-design/pro-components';
 import { useRef } from 'react';
 
-export default () => {
+const Demo = () => {
   const actionRef = useRef<
     FormListActionType<{
       name: string;
@@ -55,3 +55,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 const { Option } = Select;
 
-export default () => {
+const Demo = () => {
   const [tab, setTab] = useState('tab2');
   const [tabPlacement, setTabPlacement] =
     useState<ProCardTabsProps['tabPlacement']>('top');
@@ -163,3 +163,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

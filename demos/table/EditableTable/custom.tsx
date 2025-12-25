@@ -181,7 +181,7 @@ const columns: ProColumns<DataSourceType>[] = [
   },
 ];
 
-export default () => {
+const Demo = () => {
   const actionRef = useRef<ActionType>();
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>([]);
   const [dataSource, setDataSource] = useState<readonly DataSourceType[]>([]);
@@ -255,3 +255,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

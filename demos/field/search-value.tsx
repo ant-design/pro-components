@@ -1,7 +1,7 @@
 ﻿import { ProFormSelect } from '@ant-design/pro-components';
 import { useState } from 'react';
 
-export default function App() {
+export function App() {
   const [searchValue, setSearchValue] = useState('');
   const [selectOpen, setSelectOpen] = useState(false);
 
@@ -94,3 +94,9 @@ export default function App() {
     </div>
   );
 }
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <App />
+  </div>
+);

@@ -4,7 +4,7 @@ import { Space, theme } from 'antd';
 
 const { Statistic } = StatisticCard;
 
-export default () => {
+const Demo = () => {
   const { token } = theme.useToken();
   return (
     <>
@@ -126,3 +126,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

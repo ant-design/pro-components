@@ -18,7 +18,7 @@ type GithubIssueItem = {
   closed_at?: string;
 };
 
-export default () => (
+const Demo = () => (
   <ProList<GithubIssueItem>
     toolBarRender={() => {
       return [
@@ -120,4 +120,10 @@ export default () => (
       },
     }}
   />
+);
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
 );

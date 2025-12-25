@@ -24,13 +24,13 @@ The Indicator Card combines statistical values to display the core indicators of
 
 Use the `statistic` and `chart` properties to configure the numerical statistics and chart to create a basic indicator card.
 
-<code src="../../../demos/card/StatisticCard/basic.tsx" background="var(--main-bg-color)"  oldtitle="Basic Usage"></code>
+<code src="../../../demos/card/StatisticCard/basic.tsx" background="var(--main-bg-color)" old></code>
 
 ### Chart Only
 
 When the chart is displayed alone in the card.
 
-<code src="../../../demos/card/StatisticCard/chart.tsx" background="var(--main-bg-color)" oldtitle="Chart Only" ></code>
+<code src="../../../demos/card/StatisticCard/chart.tsx" background="var(--main-bg-color)" old></code>
 
 ### Extra Indicators
 
@@ -39,11 +39,11 @@ When the chart is displayed alone in the card.
 
 ### Total Score/Primary and Secondary Relationship
 
-<code src="../../../demos/card/StatisticCard/total.tsx" background="var(--main-bg-color)" oldtitle="Total Score/Primary and Secondary Relationship" ></code>
+<code src="../../../demos/card/StatisticCard/total.tsx" background="var(--main-bg-color)" old></code>
 
 ### Total Score/Performance Target
 
-<code src="../../../demos/card/StatisticCard/total-layout.tsx" background="var(--main-bg-color)" oldtitle="Total Score/Performance Target" ></code>
+<code src="../../../demos/card/StatisticCard/total-layout.tsx" background="var(--main-bg-color)" old></code>
 
 ### Grouped Indicators
 
@@ -51,55 +51,55 @@ You can nest indicator card components to group indicators, and use the `Divider
 
 ### Grouped Indicators with Chart
 
-<code src="../../../demos/card/StatisticCard/group-chart.tsx" background="var(--main-bg-color)"  oldtitle="Grouped Indicators with Chart"></code>
+<code src="../../../demos/card/StatisticCard/group-chart.tsx" background="var(--main-bg-color)" old></code>
 
 ### Formula Calculation Indicator
 
 The `Operation` component can accept child elements, allowing you to implement various formula calculation indicators.
 
-<code src="../../../demos/card/StatisticCard/fomula.tsx" background="var(--main-bg-color)" oldtitle="Formula Calculation Indicator" ></code>
+<code src="../../../demos/card/StatisticCard/fomula.tsx" background="var(--main-bg-color)" old></code>
 
 ### Status Display
 
 You can set the `status` property for each numerical statistic to display its status.
 
-<code src="../../../demos/card/StatisticCard/status.tsx" background="var(--main-bg-color)" oldtitle="Status Display" ></code>
+<code src="../../../demos/card/StatisticCard/status.tsx" background="var(--main-bg-color)" old></code>
 
 ### Icon Display
 
 You can set the `icon` property for each numerical statistic to display its icon.
 
-<code src="../../../demos/card/StatisticCard/icon.tsx" background="var(--main-bg-color)" oldtitle="Icon Display" ></code>
+<code src="../../../demos/card/StatisticCard/icon.tsx" background="var(--main-bg-color)" old></code>
 
 ### Card Layout
 
 By using the card splitting capability of `ProCard`, you can achieve complex card layouts.
 
-<code src="../../../demos/card/StatisticCard/layout.tsx" background="var(--main-bg-color)" oldtitle="Card Layout" ></code>
+<code src="../../../demos/card/StatisticCard/layout.tsx" background="var(--main-bg-color)" old></code>
 
 ### Chart on the Right
 
 Set the `chartPlacement` property to `right` to specify that the chart should be on the right side of the numerical statistic. The default is top-bottom layout.
 
-<code src="../../../demos/card/StatisticCard/horizontal.tsx" background="var(--main-bg-color)" oldtitle="Chart on the Right" ></code>
+<code src="../../../demos/card/StatisticCard/horizontal.tsx" background="var(--main-bg-color)" old></code>
 
 ### Chart on the Left
 
 Set the `chartPlacement` property to `left` to specify that the chart should be on the left side of the numerical statistic.
 
-<code src="../../../demos/card/StatisticCard/horizontal-left.tsx" background="var(--main-bg-color)" oldtitle="Chart on the Left" ></code>
+<code src="../../../demos/card/StatisticCard/horizontal-left.tsx" background="var(--main-bg-color)" old></code>
 
 ### Linked Indicator Tabs
 
 By combining with `Statistic`, you can create tabs with indicator statistics.
 
-<code src="../../../demos/card/StatisticCard/tabs-statistic.tsx" background="var(--main-bg-color)" oldtitle="Linked Indicator Tabs" ></code>
+<code src="../../../demos/card/StatisticCard/tabs-statistic.tsx" background="var(--main-bg-color)" old></code>
 
 ### Sequential Trend
 
 You can use the `Statistic` component with the `layout` property set to `inline` and the `trend` property to display the sequential trend.
 
-<code src="../../../demos/card/StatisticCard/trend.tsx" background="var(--main-bg-color)" oldtitle="Sequential Trend" ></code>
+<code src="../../../demos/card/StatisticCard/trend.tsx" background="var(--main-bg-color)" old></code>
 
 ## API
 
