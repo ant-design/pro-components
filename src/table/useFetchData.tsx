@@ -48,15 +48,6 @@ const useFetchData = <DataSource extends RequestData<any>>(
   defaultData: any[] | undefined,
   options: UseFetchProps,
 ): UseFetchDataAction => {
-  /**
-   * 记录 fetch 的 id，防止竞态条件
-   */
-  const fetchRequestId = useRef(0);
-
-  /**
-   * 用于保存组件是否被卸载的状态的引用
-   * @type {React.MutableRefObject<boolean>}
-   */
   const umountRef = useRef<boolean>(false);
   /**
    * 用于保存 AbortController 实例的引用，方便需要时进行请求的取消操作
@@ -177,8 +168,7 @@ const useFetchData = <DataSource extends RequestData<any>>(
     setPollingLoading(false);
   });
   /** 请求数据 */
-  const fetchList = async (isPolling: boolean) => {
-    const currentRequestId = fetchRequestId.current;
+  const fetchList = async (isPolling: boolean, signal?: AbortSignal) => {
     // 需要手动触发的首次请求
     if (manualRequestRef.current) {
       manualRequestRef.current = false;
@@ -205,8 +195,8 @@ const useFetchData = <DataSource extends RequestData<any>>(
         total = 0,
         ...rest
       } = (await getData?.(pageParams)) || {};
-      // 如果 id 不一致，说明有新请求，直接返回
-      if (currentRequestId !== fetchRequestId.current) {
+      // 如果被取消了，直接返回
+      if (signal?.aborted) {
         return [];
       }
       // 如果失败了，直接返回，不走剩下的逻辑了
@@ -221,8 +211,8 @@ const useFetchData = <DataSource extends RequestData<any>>(
       onLoad?.(responseData, rest);
       return responseData;
     } catch (e) {
-      // 如果 id 不一致，说明有新请求，直接返回
-      if (currentRequestId !== fetchRequestId.current) {
+      // 如果被取消了，直接返回
+      if (signal?.aborted) {
         return;
       }
       // 如果没有传递这个方法的话，需要把错误抛出去，以免吞掉错误
@@ -230,7 +220,7 @@ const useFetchData = <DataSource extends RequestData<any>>(
       if (tableDataList === undefined) setTableDataList([]);
       onRequestError(e as Error);
     } finally {
-      if (currentRequestId === fetchRequestId.current) {
+      if (!signal?.aborted) {
         requestFinally();
       }
     }
@@ -252,8 +242,6 @@ const useFetchData = <DataSource extends RequestData<any>>(
       return;
     }
 
-    fetchRequestId.current += 1;
-
     const abort = new AbortController();
     abortRef.current = abort;
     try {
@@ -265,7 +253,7 @@ const useFetchData = <DataSource extends RequestData<any>>(
        * 此时第二个 Promise 就会被取消。
        */
       const msg = (await Promise.race([
-        fetchList(isPolling),
+        fetchList(isPolling, abort.signal),
         new Promise((_, reject) => {
           abortRef.current?.signal?.addEventListener?.('abort', () => {
             reject('aborted');
