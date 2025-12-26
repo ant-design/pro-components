@@ -1,4 +1,4 @@
-﻿import { ProHelp, ProHelpPanel } from '@ant-design/pro-components';
+import { ProHelp, ProHelpPanel } from '@ant-design/pro-components';
 import { App } from 'antd';
 import ReactMarkdown from 'react-markdown';
 
@@ -308,12 +308,12 @@ It converts "HTML", but keep intact partial entries like "xxxHTMLyyy" and so on.
               key: 'default',
               children: [
                 {
-                  title: 'html 语法',
+                  title: 'html语法',
                   key: '1',
                   asyncLoad: true,
                 },
                 {
-                  title: 'markdown 语法',
+                  title: 'markdown语法',
                   key: '2',
                   asyncLoad: true,
                 },

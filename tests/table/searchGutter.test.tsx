@@ -16,8 +16,7 @@ describe('BasicTable SearchGutter', () => {
   ).get;
   Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
     get() {
-      let html = this.innerHTML;
-      html = html.replace(/<[^>]*>/g, '');
+      const html = this.textContent || '';
       const lines = Math.ceil(html.length / LINE_STR_COUNT);
       return lines * 16;
     },

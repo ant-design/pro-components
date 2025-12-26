@@ -85,7 +85,7 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (
           {...omitProps}
           isMobile={true}
           className={siderClassName}
-          collapsed={isMobile ? false : collapsed}
+          collapsed={false}
           splitMenus={false}
           originCollapsed={collapsed}
         />

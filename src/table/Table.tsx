@@ -200,10 +200,6 @@ function useTableCardBodyStyle({
       return { paddingBlockStart: 0 };
     }
 
-    if (toolbarDom && pagination === false) {
-      return { paddingBlockStart: 0 };
-    }
-
     return { padding: 0 };
   }, [
     hideToolbar,
