@@ -465,7 +465,7 @@ export function useIntl(): IntlType {
   const { intl } = useContext(ProConfigContext);
 
   if (intl && intl.locale !== 'default') {
-    return intl || zhCNIntl;
+    return intl;
   }
 
   if (locale?.locale) {
