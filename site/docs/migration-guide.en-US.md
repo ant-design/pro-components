@@ -15,7 +15,7 @@ ProComponents 3.0 is a major version upgrade that includes some breaking changes
 
 | Dependency | 2.x Baseline | 3.0 Minimum Requirement |
 | ---------- | ------------ | ----------------------- |
-| antd       | `>= 4.20.0`  | `>= 5.11.2`             |
+| antd       | `>= 4.20.0`  | `>= 6.0.0`              |
 | React      | `>= 16.9.0`  | `>= 18.0.0`             |
 
 #### Sub-package Version Alignment
@@ -47,7 +47,7 @@ Please upgrade all sub-packages to the same 3.0.x tag synchronously to avoid dup
 Taking `pnpm` as an example (please replace with corresponding commands if using `npm` or `yarn`):
 
 ```bash
-pnpm up antd@^5.11.2
+pnpm up antd@^6.0.0
 pnpm up @ant-design/pro-components@^3.0.0-beta.1
 pnpm install
 ```
@@ -405,7 +405,7 @@ In addition to the fields in the example, other Tokens named with `margin*PageCo
 
 #### 1. Remove antd@4 Compatibility Code
 
-**Reason for change**: Focus on antd@5 support and simplify codebase
+**Reason for change**: Focus on antd@6 support and simplify codebase
 
 - Removed `compareVersions` utility function
 - Removed `coverToNewToken` compatibility function
@@ -471,7 +471,7 @@ Prioritize using the project's current package manager to maintain consistency. 
 
 ```bash
 # Upgrade core dependencies
-pnpm up antd@^5.11.2
+pnpm up antd@^6.0.0
 pnpm up @ant-design/pro-components@^3.0.0-beta.1
 
 # Synchronize installation lock version
@@ -558,7 +558,7 @@ A: `actionsRender` needs to return `ReactNode[]` or a single `ReactNode`. Please
 
 ### Q: What should I do if component styles are abnormal after upgrade?
 
-A: First confirm that antd has been upgraded to 5.11.2+, and then troubleshoot whether there are still custom styles referencing removed class names (such as `.ant-pro-card-tabpane`). After Token renaming, variables in LESS/SCSS also need to be updated synchronously.
+A: First confirm that antd has been upgraded to 6.0.0+, and then troubleshoot whether there are still custom styles referencing removed class names (such as `.ant-pro-card-tabpane`). After Token renaming, variables in LESS/SCSS also need to be updated synchronously.
 
 ### Q: What should I do if functionality doesn't work after upgrade?
 
@@ -587,6 +587,6 @@ The ProComponents 3.0 upgrade is mainly for:
 1. **Simplify codebase** - Remove deprecated compatibility code
 2. **Improve performance** - Reduce unnecessary checks and warnings
 3. **Unify API** - Provide more consistent development experience
-4. **Modernize** - Focus on antd@5 and modern React features
+4. **Modernize** - Focus on antd@6 and modern React features
 
 Although the upgrade process may require some work, these improvements will provide a better foundation for future development. If you encounter any issues during the migration process, please refer to the official documentation or submit an issue.

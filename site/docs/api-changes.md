@@ -22,7 +22,7 @@ order: 2
 
 ### 版本要求变更
 
-- **antd**: `>= 4.20.0` → `>= 5.11.2`
+- **antd**: `>= 4.20.0` → `>= 6.0.0`
 - **React**: `>= 16.9.0` → `>= 18.0.0`
 
 ### 包版本变更
@@ -51,7 +51,7 @@ order: 2
 ### 兼容性
 
 - [ ] 移除 antd@4 兼容性代码
-- [ ] 更新 antd 版本到 5.11.2+
+- [ ] 更新 antd 版本到 6.0.0+
 
 ## 常用迁移命令
 
@@ -65,7 +65,7 @@ grep -r "TabPane" src/
 grep -r "rightContentRender" src/
 
 # 更新依赖
-npm install antd@^5.11.2
+npm install antd@^6.0.0
 npm install @ant-design/pro-components@^3.0.0-beta.1
 ```
 

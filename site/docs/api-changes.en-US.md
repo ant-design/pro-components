@@ -22,7 +22,7 @@ order: 2
 
 ### Version Requirements Changes
 
-- **antd**: `>= 4.20.0` → `>= 5.11.2`
+- **antd**: `>= 4.20.0` → `>= 6.0.0`
 - **React**: `>= 16.9.0` → `>= 18.0.0`
 
 ### Package Version Changes
@@ -51,7 +51,7 @@ All sub-packages unified to version `3.0.0-beta.1`
 ### Compatibility
 
 - [ ] Remove antd@4 compatibility code
-- [ ] Update antd version to 5.11.2+
+- [ ] Update antd version to 6.0.0+
 
 ## Common Migration Commands
 
@@ -65,7 +65,7 @@ grep -r "TabPane" src/
 grep -r "rightContentRender" src/
 
 # Update dependencies
-npm install antd@^5.11.2
+npm install antd@^6.0.0
 npm install @ant-design/pro-components@^3.0.0-beta.1
 ```
 
