@@ -207,6 +207,9 @@ const useFetchData = <DataSource extends RequestData<any>>(
         [options.postData].filter((item) => item) as any,
       );
       // 设置表格数据
+      if (signal?.aborted) {
+        return [];
+      }
       setDataAndLoading(responseData, total);
       onLoad?.(responseData, rest);
       return responseData;
