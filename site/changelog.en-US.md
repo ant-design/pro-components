@@ -83,14 +83,14 @@
 
 ## [3.0.0-beta.2] - 2025-07-24
 
-### ⚠️ Breaking Changes
+### 🛠 Breaking Changes
 
 - ProLayout
-  - ⚠️ Remove deprecated `rightContentRender` and `TabPane` APIs.
+  - 🛠 Remove deprecated `rightContentRender` and `TabPane` APIs.
 - ProTable
-  - ⚠️ Remove deprecated `columnsStateMap` property, use `columnsState` instead.
+  - 🛠 Remove deprecated `columnsStateMap` property, use `columnsState` instead.
 - ProCard
-  - ⚠️ Remove deprecated `StatisticsCardProps`.
+  - 🛠 Remove deprecated `StatisticsCardProps`.
 
 ### 📚 Documentation
 
@@ -107,12 +107,12 @@
 - Core
   - ✨ Support `ref` forwarding for multiple components to optimize layout and rendering.
 
-### ⚠️ Breaking Changes
+### 🛠 Breaking Changes
 
 - Core
-  - ⚠️ Remove Antd@4 compatibility support.
+  - 🛠 Remove Antd@4 compatibility support.
 - ProTable
-  - ⚠️ Unify `tooltip` props and remove deprecated `tip` prop.
+  - 🛠 Unify `tooltip` props and remove deprecated `tip` prop.
 
 ---
 

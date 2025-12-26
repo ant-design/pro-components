@@ -149,10 +149,6 @@ export default defineConfig({
               title: 'Component Design',
               link: '/en-US/components',
             },
-            {
-              title: 'General Schema',
-              link: '/en-US/components/schema',
-            },
           ],
         },
         {
@@ -268,10 +264,6 @@ export default defineConfig({
             {
               title: 'Components - 组件设计',
               link: '/components',
-            },
-            {
-              title: 'Schema - 通用配置',
-              link: '/components/schema',
             },
           ],
         },

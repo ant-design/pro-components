@@ -29,8 +29,14 @@ export type ProFormCaptchaProps = ProFormFieldItemProps<InputProps> & {
 };
 
 export type CaptFieldRef = {
-  startTiming: () => never;
-  endTiming: () => never;
+  /** 原生 DOM 元素引用 */
+  nativeElement: HTMLDivElement;
+  /** 聚焦方法 */
+  focus: () => void;
+  /** 开始计时 */
+  startTiming: () => void;
+  /** 结束计时 */
+  endTiming: () => void;
 };
 
 const BaseProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef(
@@ -39,6 +45,8 @@ const BaseProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef(
     const [count, setCount] = useState<number>(props.countDown || 60);
     const [timing, setTiming] = useState(false);
     const [loading, setLoading] = useState<boolean>();
+    const containerRef = React.useRef<HTMLDivElement>(null);
+    const inputRef = React.useRef<any>(null);
     // 这么写是为了防止restProps中 带入 onChange, defaultValue, rules props tabUtil
     const {
       rules,
@@ -70,6 +78,8 @@ const BaseProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef(
      * 暴露ref方法
      */
     useImperativeHandle(ref, () => ({
+      nativeElement: containerRef.current!,
+      focus: () => inputRef.current?.focus(),
       startTiming: () => setTiming(true),
       endTiming: () => setTiming(false),
     }));
@@ -102,15 +112,16 @@ const BaseProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef(
 
     return (
       <div
+        ref={containerRef}
         style={{
           ...fieldProps?.style,
           display: 'flex',
           alignItems: 'center',
         }}
-        ref={ref}
       >
         <Input
           {...fieldProps}
+          ref={inputRef}
           style={{
             flex: 1,
             transition: 'width .3s',

@@ -456,6 +456,10 @@ export type ProTableProps<DataSource, U, ValueType = 'text'> = {
 } & Omit<TableProps<DataSource>, 'columns' | 'rowSelection'>;
 
 export type ActionType = ProCoreActionType & {
+  /** 原生 DOM 元素引用 */
+  nativeElement?: HTMLDivElement;
+  /** 聚焦方法 */
+  focus?: () => void;
   fullScreen?: () => void;
   setPageInfo?: (page: Partial<PageInfo>) => void;
   /**
