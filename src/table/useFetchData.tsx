@@ -48,10 +48,6 @@ const useFetchData = <DataSource extends RequestData<any>>(
   defaultData: any[] | undefined,
   options: UseFetchProps,
 ): UseFetchDataAction => {
-  /**
-   * 用于保存组件是否被卸载的状态的引用
-   * @type {React.MutableRefObject<boolean>}
-   */
   const umountRef = useRef<boolean>(false);
   /**
    * 用于保存 AbortController 实例的引用，方便需要时进行请求的取消操作
@@ -172,7 +168,7 @@ const useFetchData = <DataSource extends RequestData<any>>(
     setPollingLoading(false);
   });
   /** 请求数据 */
-  const fetchList = async (isPolling: boolean) => {
+  const fetchList = async (isPolling: boolean, signal?: AbortSignal) => {
     // 需要手动触发的首次请求
     if (manualRequestRef.current) {
       manualRequestRef.current = false;
@@ -199,6 +195,10 @@ const useFetchData = <DataSource extends RequestData<any>>(
         total = 0,
         ...rest
       } = (await getData?.(pageParams)) || {};
+      // 如果被取消了，直接返回
+      if (signal?.aborted) {
+        return [];
+      }
       // 如果失败了，直接返回，不走剩下的逻辑了
       if (success === false) return [];
 
@@ -207,16 +207,25 @@ const useFetchData = <DataSource extends RequestData<any>>(
         [options.postData].filter((item) => item) as any,
       );
       // 设置表格数据
+      if (signal?.aborted) {
+        return [];
+      }
       setDataAndLoading(responseData, total);
       onLoad?.(responseData, rest);
       return responseData;
     } catch (e) {
+      // 如果被取消了，直接返回
+      if (signal?.aborted) {
+        return [];
+      }
       // 如果没有传递这个方法的话，需要把错误抛出去，以免吞掉错误
       if (onRequestError === undefined) throw new Error(e as string);
       if (tableDataList === undefined) setTableDataList([]);
       onRequestError(e as Error);
     } finally {
-      requestFinally();
+      if (!signal?.aborted) {
+        requestFinally();
+      }
     }
 
     return [];
@@ -247,7 +256,7 @@ const useFetchData = <DataSource extends RequestData<any>>(
        * 此时第二个 Promise 就会被取消。
        */
       const msg = (await Promise.race([
-        fetchList(isPolling),
+        fetchList(isPolling, abort.signal),
         new Promise((_, reject) => {
           abortRef.current?.signal?.addEventListener?.('abort', () => {
             reject('aborted');
@@ -279,9 +288,9 @@ const useFetchData = <DataSource extends RequestData<any>>(
 
       return msg;
     } catch (error) {
-      if (error === 'aborted') {
-        return;
-      }
+    if (error === 'aborted') {
+      return [];
+    }
       throw error;
     }
   }, debounceTime || 30);
