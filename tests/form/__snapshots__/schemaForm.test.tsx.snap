@@ -127,10 +127,8 @@ exports[`SchemaForm > 😊 SchemaForm support columns 1`] = `
                   </div>
                   <input
                     aria-autocomplete="list"
-                    aria-controls="state_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-owns="state_list"
                     autocomplete="off"
                     class="ant-select-input"
                     id="state"
@@ -234,10 +232,8 @@ exports[`SchemaForm > 😊 SchemaForm support columns 1`] = `
                   </div>
                   <input
                     aria-autocomplete="list"
-                    aria-controls="direction_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-owns="direction_list"
                     autocomplete="off"
                     class="ant-select-input"
                     id="direction"

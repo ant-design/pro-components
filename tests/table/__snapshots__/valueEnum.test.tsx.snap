@@ -13,27 +13,27 @@ exports[`Table valueEnum > 🎏 customization valueType 1`] = `
       >
         <form
           autocomplete="off"
-          class="ant-form ant-form-horizontal css-var-rj ant-form-css-var ant-pro-query-filter ant-pro-form"
+          class="ant-form ant-form-horizontal css-var-rk ant-form-css-var ant-pro-query-filter ant-pro-form"
         >
           <input
             style="display: none;"
             type="text"
           />
           <div
-            class="ant-row ant-row-start ant-pro-query-filter-row css-var-rj"
+            class="ant-row ant-row-start ant-pro-query-filter-row css-var-rk"
           >
             <div
-              class="ant-col ant-col-8 ant-pro-query-filter-row-split css-var-rj"
+              class="ant-col ant-col-8 ant-pro-query-filter-row-split css-var-rk"
             >
               <div
-                class="ant-form-item css-var-rj ant-form-css-var ant-form-item-horizontal"
+                class="ant-form-item css-var-rk ant-form-css-var ant-form-item-horizontal"
                 style="flex-wrap: nowrap;"
               >
                 <div
-                  class="ant-row ant-form-item-row css-var-rj"
+                  class="ant-row ant-form-item-row css-var-rk"
                 >
                   <div
-                    class="ant-col ant-form-item-label css-var-rj"
+                    class="ant-col ant-form-item-label css-var-rk"
                     style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
@@ -45,7 +45,7 @@ exports[`Table valueEnum > 🎏 customization valueType 1`] = `
                     </label>
                   </div>
                   <div
-                    class="ant-col ant-form-item-control css-var-rj"
+                    class="ant-col ant-form-item-control css-var-rk"
                     style="max-width: calc(100% - 80px);"
                   >
                     <div
@@ -55,7 +55,7 @@ exports[`Table valueEnum > 🎏 customization valueType 1`] = `
                         class="ant-form-item-control-input-content"
                       >
                         <input
-                          class="ant-input ant-input-outlined css-var-rj ant-input-css-var"
+                          class="ant-input ant-input-outlined css-var-rk ant-input-css-var"
                           id="name"
                           placeholder="请输入链接"
                           style="width: 100%;"
@@ -69,17 +69,17 @@ exports[`Table valueEnum > 🎏 customization valueType 1`] = `
               </div>
             </div>
             <div
-              class="ant-col ant-col-8 ant-col-offset-8 css-var-rj"
+              class="ant-col ant-col-8 ant-col-offset-8 css-var-rk"
               style="text-align: end;"
             >
               <div
-                class="ant-form-item ant-pro-query-filter-actions css-var-rj ant-form-css-var ant-form-item-horizontal"
+                class="ant-form-item ant-pro-query-filter-actions css-var-rk ant-form-css-var ant-form-item-horizontal"
               >
                 <div
-                  class="ant-row ant-form-item-row css-var-rj"
+                  class="ant-row ant-form-item-row css-var-rk"
                 >
                   <div
-                    class="ant-col ant-form-item-label css-var-rj"
+                    class="ant-col ant-form-item-label css-var-rk"
                   >
                     <label
                       class="ant-form-item-no-colon"
@@ -89,7 +89,7 @@ exports[`Table valueEnum > 🎏 customization valueType 1`] = `
                     </label>
                   </div>
                   <div
-                    class="ant-col ant-form-item-control css-var-rj"
+                    class="ant-col ant-form-item-control css-var-rk"
                   >
                     <div
                       class="ant-form-item-control-input"
@@ -98,7 +98,7 @@ exports[`Table valueEnum > 🎏 customization valueType 1`] = `
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center css-var-rj"
+                          class="ant-space ant-space-horizontal ant-space-align-center css-var-rk"
                           style="column-gap: 16px; row-gap: 16px;"
                         >
                           <div
@@ -108,7 +108,7 @@ exports[`Table valueEnum > 🎏 customization valueType 1`] = `
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn css-var-rj ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+                                class="ant-btn css-var-rk ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                                 type="button"
                               >
                                 <span>
@@ -116,7 +116,7 @@ exports[`Table valueEnum > 🎏 customization valueType 1`] = `
                                 </span>
                               </button>
                               <button
-                                class="ant-btn css-var-rj ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+                                class="ant-btn css-var-rk ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                                 type="button"
                               >
                                 <span>
@@ -164,7 +164,6 @@ exports[`Table valueEnum > 🎏 customization valueType 1`] = `
                 >
                   <span>
                     <span
-                      aria-describedby="test-id"
                       aria-label="reload"
                       class="anticon anticon-reload"
                       role="img"
@@ -190,7 +189,6 @@ exports[`Table valueEnum > 🎏 customization valueType 1`] = `
                 >
                   <span>
                     <span
-                      aria-describedby="test-id"
                       aria-label="column-height"
                       class="anticon anticon-column-height"
                       role="img"
@@ -216,7 +214,6 @@ exports[`Table valueEnum > 🎏 customization valueType 1`] = `
                   class="ant-pro-table-list-toolbar-setting-item"
                 >
                   <span
-                    aria-describedby="test-id"
                     aria-label="setting"
                     class="anticon anticon-setting"
                     role="img"
@@ -242,16 +239,16 @@ exports[`Table valueEnum > 🎏 customization valueType 1`] = `
           </div>
         </div>
         <div
-          class="css-var-rj ant-table-css-var ant-table-wrapper"
+          class="css-var-rk ant-table-css-var ant-table-wrapper"
         >
           <div
-            class="ant-spin-nested-loading css-var-rj"
+            class="ant-spin-nested-loading css-var-rk"
           >
             <div
               class="ant-spin-container"
             >
               <div
-                class="ant-table ant-table-middle css-var-rj ant-table-css-var"
+                class="ant-table ant-table-middle css-var-rk ant-table-css-var"
               >
                 <div
                   class="ant-table-container"
@@ -295,7 +292,7 @@ exports[`Table valueEnum > 🎏 customization valueType 1`] = `
                 </div>
               </div>
               <ul
-                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-rj"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-rk"
               >
                 <li
                   class="ant-pagination-total-text"
@@ -475,7 +472,7 @@ exports[`Table valueEnum > 🎏 customization valueType 1`] = `
                 >
                   <div
                     aria-label="页码"
-                    class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-rj ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+                    class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-rk ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
                   >
                     <div
                       class="ant-select-content"
@@ -489,11 +486,9 @@ exports[`Table valueEnum > 🎏 customization valueType 1`] = `
                       </div>
                       <input
                         aria-autocomplete="list"
-                        aria-controls="test-id_list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
                         aria-label="页码"
-                        aria-owns="test-id_list"
                         autocomplete="off"
                         class="ant-select-input"
                         id="test-id"

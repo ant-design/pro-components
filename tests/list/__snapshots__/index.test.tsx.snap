@@ -13,10 +13,10 @@ exports[`List > 🚏 ProList support rowClassName as a function 1`] = `
         style="padding: 0px;"
       >
         <div
-          class="ant-list ant-list-split ant-pro-list-container css-var-r2d"
+          class="ant-list ant-list-split ant-pro-list-container css-var-r2f"
         >
           <div
-            class="ant-spin-nested-loading css-var-r2d"
+            class="ant-spin-nested-loading css-var-r2f"
           >
             <div
               class="ant-spin-container"
@@ -129,10 +129,10 @@ exports[`List > 🚏 ProList support rowClassName as a string 1`] = `
         style="padding: 0px;"
       >
         <div
-          class="ant-list ant-list-split ant-pro-list-container css-var-r29"
+          class="ant-list ant-list-split ant-pro-list-container css-var-r2b"
         >
           <div
-            class="ant-spin-nested-loading css-var-r29"
+            class="ant-spin-nested-loading css-var-r2b"
           >
             <div
               class="ant-spin-container"

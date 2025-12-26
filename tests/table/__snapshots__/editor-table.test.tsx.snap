@@ -66,7 +66,6 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                                 标题
                               </div>
                               <span
-                                aria-describedby="test-id"
                                 class="ant-pro-core-label-tip-icon"
                               >
                                 <span
@@ -177,7 +176,6 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                                   标题
                                 </div>
                                 <span
-                                  aria-describedby="test-id"
                                   class="ant-pro-core-label-tip-icon"
                                 >
                                   <span
@@ -295,7 +293,6 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                             title="🐛 [BUG]yarn install命令 antd2.4.5会报错"
                           >
                             <span
-                              aria-describedby="test-id"
                               aria-label="🐛 [BUG]yarn install命令 antd2.4.5会报错"
                               class="ant-typography ant-typography-ellipsis css-var-rcb"
                               style="width: 100%; margin: 0px; padding: 0px;"
@@ -303,7 +300,6 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                             >
                               🐛 [BUG]yarn install命令 antd2.4.5会报错
                               <button
-                                aria-describedby="test-id"
                                 aria-label="复制"
                                 class="ant-typography-copy"
                                 type="button"
@@ -393,7 +389,6 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                             title="🐛 [BUG]无法创建工程npm create umi"
                           >
                             <span
-                              aria-describedby="test-id"
                               aria-label="🐛 [BUG]无法创建工程npm create umi"
                               class="ant-typography ant-typography-ellipsis css-var-rcb"
                               style="width: 100%; margin: 0px; padding: 0px;"
@@ -401,7 +396,6 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                             >
                               🐛 [BUG]无法创建工程npm create umi
                               <button
-                                aria-describedby="test-id"
                                 aria-label="复制"
                                 class="ant-typography-copy"
                                 type="button"
@@ -491,7 +485,6 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                             title="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
                           >
                             <span
-                              aria-describedby="test-id"
                               aria-label="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
                               class="ant-typography ant-typography-ellipsis css-var-rcb"
                               style="width: 100%; margin: 0px; padding: 0px;"
@@ -499,7 +492,6 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                             >
                               🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
                               <button
-                                aria-describedby="test-id"
                                 aria-label="复制"
                                 class="ant-typography-copy"
                                 type="button"
@@ -676,7 +668,6 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                                 标题
                               </div>
                               <span
-                                aria-describedby="test-id"
                                 class="ant-pro-core-label-tip-icon"
                               >
                                 <span
@@ -787,7 +778,6 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                                   标题
                                 </div>
                                 <span
-                                  aria-describedby="test-id"
                                   class="ant-pro-core-label-tip-icon"
                                 >
                                   <span
@@ -905,7 +895,6 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                             title="🐛 [BUG]yarn install命令 antd2.4.5会报错"
                           >
                             <span
-                              aria-describedby="test-id"
                               aria-label="🐛 [BUG]yarn install命令 antd2.4.5会报错"
                               class="ant-typography ant-typography-ellipsis css-var-r1"
                               style="width: 100%; margin: 0px; padding: 0px;"
@@ -913,7 +902,6 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                             >
                               🐛 [BUG]yarn install命令 antd2.4.5会报错
                               <button
-                                aria-describedby="test-id"
                                 aria-label="复制"
                                 class="ant-typography-copy"
                                 type="button"
@@ -1003,7 +991,6 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                             title="🐛 [BUG]无法创建工程npm create umi"
                           >
                             <span
-                              aria-describedby="test-id"
                               aria-label="🐛 [BUG]无法创建工程npm create umi"
                               class="ant-typography ant-typography-ellipsis css-var-r1"
                               style="width: 100%; margin: 0px; padding: 0px;"
@@ -1011,7 +998,6 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                             >
                               🐛 [BUG]无法创建工程npm create umi
                               <button
-                                aria-describedby="test-id"
                                 aria-label="复制"
                                 class="ant-typography-copy"
                                 type="button"
@@ -1101,7 +1087,6 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                             title="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
                           >
                             <span
-                              aria-describedby="test-id"
                               aria-label="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
                               class="ant-typography ant-typography-ellipsis css-var-r1"
                               style="width: 100%; margin: 0px; padding: 0px;"
@@ -1109,7 +1094,6 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                             >
                               🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
                               <button
-                                aria-describedby="test-id"
                                 aria-label="复制"
                                 class="ant-typography-copy"
                                 type="button"

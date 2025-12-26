@@ -987,7 +987,9 @@ exports[`PageContainer > 🐲 pro-layout support breadcrumbProps 1`] = `
                 class="ant-breadcrumb ant-page-header-breadcrumb css-var-r19"
               >
                 <ol>
-                  <li>
+                  <li
+                    class="ant-breadcrumb-item"
+                  >
                     <span>
                       home
                     </span>
@@ -998,7 +1000,9 @@ exports[`PageContainer > 🐲 pro-layout support breadcrumbProps 1`] = `
                   >
                     &gt;
                   </li>
-                  <li>
+                  <li
+                    class="ant-breadcrumb-item"
+                  >
                     <span>
                       first
                     </span>
@@ -1009,7 +1013,9 @@ exports[`PageContainer > 🐲 pro-layout support breadcrumbProps 1`] = `
                   >
                     &gt;
                   </li>
-                  <li>
+                  <li
+                    class="ant-breadcrumb-item"
+                  >
                     <span>
                       second
                     </span>
@@ -1108,7 +1114,9 @@ exports[`PageContainer > 🔥 support footer and breadcrumb 1`] = `
         class="ant-breadcrumb ant-page-header-breadcrumb css-var-ro"
       >
         <ol>
-          <li>
+          <li
+            class="ant-breadcrumb-item"
+          >
             <a
               class="ant-breadcrumb-link"
               href="#/"

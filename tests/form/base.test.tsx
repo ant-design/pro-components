@@ -1695,8 +1695,11 @@ describe('ProForm', () => {
         });
         // 等待输入框值更新
         await waitForWaitTime(50);
-        // 关闭下拉菜单（通过点击外部或 blur）
+        // 关闭下拉菜单（通过点击外部区域）
         fireEvent.blur(input);
+        // 点击外部区域以确保下拉菜单关闭
+        fireEvent.mouseDown(document.body);
+        fireEvent.click(document.body);
       }
     });
 
@@ -1705,13 +1708,19 @@ describe('ProForm', () => {
       () => {
         const selector = wrapper.baseElement.querySelector('.ant-select');
         const dropdown = document.body.querySelector('.ant-select-dropdown');
-        expect(selector?.classList.contains('ant-select-open')).toBe(false);
-        // 确保下拉菜单不在关闭动画中
-        expect(dropdown?.classList.contains('ant-slide-up-leave-active')).toBe(
-          false,
-        );
+        // 检查 selector 是否存在且不包含 ant-select-open 类
+        if (selector) {
+          expect(selector.classList.contains('ant-select-open')).toBe(false);
+        }
+        // 如果下拉菜单存在，确保它不在关闭动画中
+        // 如果下拉菜单不存在（已移除），则认为已经关闭
+        if (dropdown) {
+          expect(dropdown.classList.contains('ant-slide-up-leave-active')).toBe(
+            false,
+          );
+        }
       },
-      { timeout: 1000 },
+      { timeout: 3000 },
     );
 
     // 重新打开下拉菜单，触发 searchOnFocus

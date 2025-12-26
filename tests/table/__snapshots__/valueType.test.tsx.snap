@@ -321,7 +321,6 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                 >
                   <span>
                     <span
-                      aria-describedby="test-id"
                       aria-label="reload"
                       class="anticon anticon-reload"
                       role="img"
@@ -347,7 +346,6 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                 >
                   <span>
                     <span
-                      aria-describedby="test-id"
                       aria-label="column-height"
                       class="anticon anticon-column-height"
                       role="img"
@@ -373,7 +371,6 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                   class="ant-pro-table-list-toolbar-setting-item"
                 >
                   <span
-                    aria-describedby="test-id"
                     aria-label="setting"
                     class="anticon anticon-setting"
                     role="img"
@@ -661,11 +658,9 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                       </div>
                       <input
                         aria-autocomplete="list"
-                        aria-controls="test-id_list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
                         aria-label="页码"
-                        aria-owns="test-id_list"
                         autocomplete="off"
                         class="ant-select-input"
                         id="test-id"

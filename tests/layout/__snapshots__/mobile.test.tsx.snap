@@ -202,7 +202,7 @@ exports[`mobile BasicLayout > 📱 layout menuHeaderRender 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout css-var-r19"
+      class="ant-layout css-var-r1e"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
@@ -268,7 +268,7 @@ exports[`mobile BasicLayout > 📱 layout menuHeaderRender with custom title 1`]
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout css-var-r1f"
+      class="ant-layout css-var-r1l"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
@@ -334,7 +334,7 @@ exports[`mobile BasicLayout > 📱 layout menuHeaderRender=false 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout css-var-r13"
+      class="ant-layout css-var-r17"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
@@ -399,11 +399,11 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout ant-layout-has-sider css-var-rh"
+      class="ant-layout ant-layout-has-sider css-var-rj"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
-        class="ant-drawer ant-drawer-left css-var-ri ant-drawer-open ant-drawer-inline"
+        class="ant-drawer ant-drawer-left css-var-rk ant-drawer-open ant-drawer-inline"
         tabindex="-1"
       >
         <div
@@ -430,7 +430,7 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
               style="height: 100vh; padding: 0px; display: flex; flex-direction: row; background-color: transparent;"
             >
               <aside
-                class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light css-var-ri"
+                class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light css-var-rk"
                 style="flex-grow: 0; flex-shrink: 0; flex-basis: 215px; max-width: 215px; min-width: 215px; width: 215px;"
               >
                 <div
@@ -440,7 +440,7 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
                     style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; overflow-y: auto; overflow-x: hidden;"
                   >
                     <ul
-                      class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline css-var-ri ant-menu-css-var"
+                      class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline css-var-rk ant-menu-css-var"
                       data-menu-list="true"
                       role="menu"
                       style="background-color: transparent; border: none none; width: 100%;"
