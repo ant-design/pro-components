@@ -213,7 +213,7 @@ const useFetchData = <DataSource extends RequestData<any>>(
     } catch (e) {
       // 如果被取消了，直接返回
       if (signal?.aborted) {
-        return;
+        return [];
       }
       // 如果没有传递这个方法的话，需要把错误抛出去，以免吞掉错误
       if (onRequestError === undefined) throw new Error(e as string);
@@ -285,9 +285,9 @@ const useFetchData = <DataSource extends RequestData<any>>(
 
       return msg;
     } catch (error) {
-      if (error === 'aborted') {
-        return;
-      }
+    if (error === 'aborted') {
+      return [];
+    }
       throw error;
     }
   }, debounceTime || 30);
