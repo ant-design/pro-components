@@ -1,4 +1,4 @@
-﻿import { PlusOutlined } from '@ant-design/icons';
+import { PlusOutlined } from '@ant-design/icons';
 import { get, set, useMergedState } from '@rc-component/util';
 import type { ButtonProps, FormItemProps, TablePaginationConfig } from 'antd';
 import { Button, Form } from 'antd';
@@ -458,6 +458,8 @@ function EditableTable<
     defaultValue,
     onChange,
     editableFormRef,
+    // @ts-ignore
+    autoFocus,
     ...rest
   } = props;
 
