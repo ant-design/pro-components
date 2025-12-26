@@ -313,7 +313,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
                   ?.toString()
                   .toLowerCase()
                   .includes(effectiveSearchValue.toLowerCase()) ||
-                option?.[optionFilterProp]
+                option?.[optionFilterProp as string]
                   ?.toString()
                   .toLowerCase()
                   .includes(effectiveSearchValue.toLowerCase())
