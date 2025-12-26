@@ -25,17 +25,20 @@ function usePagination(
       showQuickJumper = false,
       showTotal,
       pageSizeOptions = ['10', '20', '50', '100'],
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      total: _totalFromRest,
       ...restPagination
     } = pagination || {};
 
     // 确保 total 不会被 restPagination 覆盖
+    // 如果 paginationTotal 是 undefined，使用传入的 total 参数（dataSource.length）
     const finalTotal = paginationTotal !== undefined ? paginationTotal : total;
 
     return {
       ...restPagination,
       current: current ?? 1,
       pageSize: pageSize ?? DEFAULT_PAGE_SIZE,
-      total: finalTotal,
+      total: finalTotal, // 确保 total 在最后设置，优先级最高
       showSizeChanger,
       showQuickJumper,
       showTotal,
