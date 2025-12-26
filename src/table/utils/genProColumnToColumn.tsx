@@ -35,14 +35,14 @@ type ColumnToColumnParams<T> = {
   editableUtils: UseEditableUtilType;
   proFilter: Record<string, FilterValue>;
   proSort: Record<string, SortOrder>;
-} & Pick<TableProps<T>, 'rowKey' | 'childrenColumnName'>;
+  childrenColumnName?: string;
+} & Pick<TableProps<T>, 'rowKey'>;
 
 /**
  * 转化 columns 到 pro 的格式 主要是 render 方法的自行实现
  *
- * @param columns
- * @param map
- * @param columnEmptyText
+ * @param params
+ * @param parents
  */
 export function genProColumnToColumn<T extends AnyObject>(
   params: ColumnToColumnParams<T> & { marginSM: number },
