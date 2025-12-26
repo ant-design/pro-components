@@ -288,9 +288,9 @@ const useFetchData = <DataSource extends RequestData<any>>(
 
       return msg;
     } catch (error) {
-    if (error === 'aborted') {
-      return [];
-    }
+      if (error === 'aborted') {
+        return [];
+      }
       throw error;
     }
   }, debounceTime || 30);
