@@ -21,7 +21,7 @@ const waitTime = (time: number = 100) => {
   });
 };
 
-export default () => {
+const Demo = () => {
   const [loading, setLoading] = useState(false);
   return (
     <ProCard>
@@ -186,3 +186,9 @@ export default () => {
     </ProCard>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

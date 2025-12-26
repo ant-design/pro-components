@@ -6,7 +6,7 @@ import {
 import { ProCard } from '@ant-design/pro-components';
 import { Space } from 'antd';
 
-export default () => {
+const Demo = () => {
   return (
     <>
       <Space>
@@ -107,3 +107,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

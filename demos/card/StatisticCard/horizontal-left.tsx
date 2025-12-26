@@ -2,7 +2,7 @@ import { StatisticCard } from '@ant-design/pro-components';
 
 const { Statistic } = StatisticCard;
 
-export default () => {
+const Demo = () => {
   return (
     <>
       <StatisticCard
@@ -150,3 +150,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

@@ -13,16 +13,16 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
         style="padding: 0px;"
       >
         <div
-          class="ant-table-wrapper"
+          class="css-var-rcb ant-table-css-var ant-table-wrapper"
         >
           <div
-            class="ant-spin-nested-loading"
+            class="ant-spin-nested-loading css-var-rcb"
           >
             <div
               class="ant-spin-container"
             >
               <div
-                class="ant-table ant-table-middle ant-table-layout-fixed ant-table-scroll-horizontal"
+                class="ant-table ant-table-middle css-var-rcb ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-layout-fixed ant-table-scroll-horizontal"
               >
                 <div
                   class="ant-table-container"
@@ -66,7 +66,6 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                                 标题
                               </div>
                               <span
-                                aria-describedby="test-id"
                                 class="ant-pro-core-label-tip-icon"
                               >
                                 <span
@@ -153,20 +152,20 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                         <tr
                           aria-hidden="true"
                           class="ant-table-measure-row"
-                          tabindex="-1"
+                          style="height: 0px;"
                         >
-                          <th
-                            class="ant-table-measure-cell"
+                          <td
+                            style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
                           >
                             <div
-                              class="ant-table-measure-cell-content"
+                              style="height: 0px; overflow: hidden; font-weight: bold;"
                             />
-                          </th>
-                          <th
-                            class="ant-table-measure-cell"
+                          </td>
+                          <td
+                            style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
                           >
                             <div
-                              class="ant-table-measure-cell-content"
+                              style="height: 0px; overflow: hidden; font-weight: bold;"
                             >
                               <div
                                 class="ant-pro-core-label-tip"
@@ -177,7 +176,6 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                                   标题
                                 </div>
                                 <span
-                                  aria-describedby="test-id"
                                   class="ant-pro-core-label-tip-icon"
                                 >
                                   <span
@@ -205,12 +203,12 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                                 </span>
                               </div>
                             </div>
-                          </th>
-                          <th
-                            class="ant-table-measure-cell"
+                          </td>
+                          <td
+                            style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
                           >
                             <div
-                              class="ant-table-measure-cell-content"
+                              style="height: 0px; overflow: hidden; font-weight: bold;"
                             >
                               <div
                                 class="ant-table-filter-column"
@@ -247,25 +245,25 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                                 </span>
                               </div>
                             </div>
-                          </th>
-                          <th
-                            class="ant-table-measure-cell"
+                          </td>
+                          <td
+                            style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
                           >
                             <div
-                              class="ant-table-measure-cell-content"
+                              style="height: 0px; overflow: hidden; font-weight: bold;"
                             >
                               创建时间
                             </div>
-                          </th>
-                          <th
-                            class="ant-table-measure-cell"
+                          </td>
+                          <td
+                            style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
                           >
                             <div
-                              class="ant-table-measure-cell-content"
+                              style="height: 0px; overflow: hidden; font-weight: bold;"
                             >
                               操作
                             </div>
-                          </th>
+                          </td>
                         </tr>
                         <tr
                           class="ant-table-row ant-table-row-level-0"
@@ -295,15 +293,13 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                             title="🐛 [BUG]yarn install命令 antd2.4.5会报错"
                           >
                             <span
-                              aria-describedby="test-id"
                               aria-label="🐛 [BUG]yarn install命令 antd2.4.5会报错"
-                              class="ant-typography ant-typography-ellipsis"
+                              class="ant-typography ant-typography-ellipsis css-var-rcb"
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
                               🐛 [BUG]yarn install命令 antd2.4.5会报错
                               <button
-                                aria-describedby="test-id"
                                 aria-label="复制"
                                 class="ant-typography-copy"
                                 type="button"
@@ -334,7 +330,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                             class="ant-table-cell"
                           >
                             <span
-                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-rcb"
                             >
                               <span
                                 class="ant-badge-status-dot ant-badge-status-processing"
@@ -393,15 +389,13 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                             title="🐛 [BUG]无法创建工程npm create umi"
                           >
                             <span
-                              aria-describedby="test-id"
                               aria-label="🐛 [BUG]无法创建工程npm create umi"
-                              class="ant-typography ant-typography-ellipsis"
+                              class="ant-typography ant-typography-ellipsis css-var-rcb"
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
                               🐛 [BUG]无法创建工程npm create umi
                               <button
-                                aria-describedby="test-id"
                                 aria-label="复制"
                                 class="ant-typography-copy"
                                 type="button"
@@ -432,7 +426,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                             class="ant-table-cell"
                           >
                             <span
-                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-rcb"
                             >
                               <span
                                 class="ant-badge-status-dot ant-badge-status-success"
@@ -491,15 +485,13 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                             title="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
                           >
                             <span
-                              aria-describedby="test-id"
                               aria-label="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
-                              class="ant-typography ant-typography-ellipsis"
+                              class="ant-typography ant-typography-ellipsis css-var-rcb"
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
                               🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
                               <button
-                                aria-describedby="test-id"
                                 aria-label="复制"
                                 class="ant-typography-copy"
                                 type="button"
@@ -530,7 +522,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                             class="ant-table-cell"
                           >
                             <span
-                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-rcb"
                             >
                               <span
                                 class="ant-badge-status-dot ant-badge-status-error"
@@ -570,7 +562,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
           </div>
         </div>
         <button
-          class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
+          class="ant-btn css-var-rcb ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
           style="display: block; margin: 10px 0px; width: 100%;"
           type="button"
         >
@@ -623,16 +615,16 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
         style="padding: 0px;"
       >
         <div
-          class="ant-table-wrapper"
+          class="css-var-r1 ant-table-css-var ant-table-wrapper"
         >
           <div
-            class="ant-spin-nested-loading"
+            class="ant-spin-nested-loading css-var-r1"
           >
             <div
               class="ant-spin-container"
             >
               <div
-                class="ant-table ant-table-middle ant-table-layout-fixed ant-table-scroll-horizontal"
+                class="ant-table ant-table-middle css-var-r1 ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-layout-fixed ant-table-scroll-horizontal"
               >
                 <div
                   class="ant-table-container"
@@ -676,7 +668,6 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                                 标题
                               </div>
                               <span
-                                aria-describedby="test-id"
                                 class="ant-pro-core-label-tip-icon"
                               >
                                 <span
@@ -763,20 +754,20 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                         <tr
                           aria-hidden="true"
                           class="ant-table-measure-row"
-                          tabindex="-1"
+                          style="height: 0px;"
                         >
-                          <th
-                            class="ant-table-measure-cell"
+                          <td
+                            style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
                           >
                             <div
-                              class="ant-table-measure-cell-content"
+                              style="height: 0px; overflow: hidden; font-weight: bold;"
                             />
-                          </th>
-                          <th
-                            class="ant-table-measure-cell"
+                          </td>
+                          <td
+                            style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
                           >
                             <div
-                              class="ant-table-measure-cell-content"
+                              style="height: 0px; overflow: hidden; font-weight: bold;"
                             >
                               <div
                                 class="ant-pro-core-label-tip"
@@ -787,7 +778,6 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                                   标题
                                 </div>
                                 <span
-                                  aria-describedby="test-id"
                                   class="ant-pro-core-label-tip-icon"
                                 >
                                   <span
@@ -815,12 +805,12 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                                 </span>
                               </div>
                             </div>
-                          </th>
-                          <th
-                            class="ant-table-measure-cell"
+                          </td>
+                          <td
+                            style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
                           >
                             <div
-                              class="ant-table-measure-cell-content"
+                              style="height: 0px; overflow: hidden; font-weight: bold;"
                             >
                               <div
                                 class="ant-table-filter-column"
@@ -857,25 +847,25 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                                 </span>
                               </div>
                             </div>
-                          </th>
-                          <th
-                            class="ant-table-measure-cell"
+                          </td>
+                          <td
+                            style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
                           >
                             <div
-                              class="ant-table-measure-cell-content"
+                              style="height: 0px; overflow: hidden; font-weight: bold;"
                             >
                               创建时间
                             </div>
-                          </th>
-                          <th
-                            class="ant-table-measure-cell"
+                          </td>
+                          <td
+                            style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
                           >
                             <div
-                              class="ant-table-measure-cell-content"
+                              style="height: 0px; overflow: hidden; font-weight: bold;"
                             >
                               操作
                             </div>
-                          </th>
+                          </td>
                         </tr>
                         <tr
                           class="ant-table-row ant-table-row-level-0"
@@ -905,15 +895,13 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                             title="🐛 [BUG]yarn install命令 antd2.4.5会报错"
                           >
                             <span
-                              aria-describedby="test-id"
                               aria-label="🐛 [BUG]yarn install命令 antd2.4.5会报错"
-                              class="ant-typography ant-typography-ellipsis"
+                              class="ant-typography ant-typography-ellipsis css-var-r1"
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
                               🐛 [BUG]yarn install命令 antd2.4.5会报错
                               <button
-                                aria-describedby="test-id"
                                 aria-label="复制"
                                 class="ant-typography-copy"
                                 type="button"
@@ -944,7 +932,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                             class="ant-table-cell"
                           >
                             <span
-                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-r1"
                             >
                               <span
                                 class="ant-badge-status-dot ant-badge-status-processing"
@@ -1003,15 +991,13 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                             title="🐛 [BUG]无法创建工程npm create umi"
                           >
                             <span
-                              aria-describedby="test-id"
                               aria-label="🐛 [BUG]无法创建工程npm create umi"
-                              class="ant-typography ant-typography-ellipsis"
+                              class="ant-typography ant-typography-ellipsis css-var-r1"
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
                               🐛 [BUG]无法创建工程npm create umi
                               <button
-                                aria-describedby="test-id"
                                 aria-label="复制"
                                 class="ant-typography-copy"
                                 type="button"
@@ -1042,7 +1028,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                             class="ant-table-cell"
                           >
                             <span
-                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-r1"
                             >
                               <span
                                 class="ant-badge-status-dot ant-badge-status-success"
@@ -1101,15 +1087,13 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                             title="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
                           >
                             <span
-                              aria-describedby="test-id"
                               aria-label="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
-                              class="ant-typography ant-typography-ellipsis"
+                              class="ant-typography ant-typography-ellipsis css-var-r1"
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
                               🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
                               <button
-                                aria-describedby="test-id"
                                 aria-label="复制"
                                 class="ant-typography-copy"
                                 type="button"
@@ -1140,7 +1124,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                             class="ant-table-cell"
                           >
                             <span
-                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-r1"
                             >
                               <span
                                 class="ant-badge-status-dot ant-badge-status-error"

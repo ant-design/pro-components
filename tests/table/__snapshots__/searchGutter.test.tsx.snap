@@ -3,29 +3,28 @@
 exports[`BasicTable SearchGutter > 🎏 ProTable support searchGutter 1`] = `
 <form
   autocomplete="off"
-  class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
+  class="ant-form ant-form-horizontal css-var-r1 ant-form-css-var ant-pro-query-filter ant-pro-form"
 >
   <input
     style="display: none;"
     type="text"
   />
   <div
-    class="ant-row ant-row-start ant-pro-query-filter-row"
-    style="margin-left: -8px; margin-right: -8px; row-gap: 24px;"
+    class="ant-row ant-row-start ant-pro-query-filter-row css-var-r1"
+    style="row-gap: 24px;"
   >
     <div
-      class="ant-col ant-col-8 ant-pro-query-filter-row-split"
-      style="padding-left: 8px; padding-right: 8px;"
+      class="ant-col ant-col-8 ant-pro-query-filter-row-split css-var-r1"
     >
       <div
-        class="ant-form-item ant-form-item-horizontal"
+        class="ant-form-item css-var-r1 ant-form-css-var ant-form-item-horizontal"
         style="flex-wrap: nowrap;"
       >
         <div
-          class="ant-row ant-form-item-row"
+          class="ant-row ant-form-item-row css-var-r1"
         >
           <div
-            class="ant-col ant-form-item-control"
+            class="ant-col ant-form-item-control css-var-r1"
             style="max-width: calc(100% - 80px);"
           >
             <div
@@ -35,22 +34,31 @@ exports[`BasicTable SearchGutter > 🎏 ProTable support searchGutter 1`] = `
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
+                  class="ant-input-number ant-input-number-mode-input css-var-r1 ant-input-number-css-var ant-input-number-outlined ant-input-number-in-form-item"
                   style="width: 100%;"
                 >
+                  <input
+                    autocomplete="off"
+                    class="ant-input-number-input"
+                    id="money"
+                    placeholder="请输入"
+                    role="spinbutton"
+                    step="1"
+                    value=""
+                  />
                   <div
-                    class="ant-input-number-handler-wrap"
+                    class="ant-input-number-actions"
                   >
                     <span
                       aria-disabled="false"
                       aria-label="Increase Value"
-                      class="ant-input-number-handler ant-input-number-handler-up"
+                      class="ant-input-number-action ant-input-number-action-up"
                       role="button"
                       unselectable="on"
                     >
                       <span
                         aria-label="up"
-                        class="anticon anticon-up ant-input-number-handler-up-inner"
+                        class="anticon anticon-up"
                         role="img"
                       >
                         <svg
@@ -71,13 +79,13 @@ exports[`BasicTable SearchGutter > 🎏 ProTable support searchGutter 1`] = `
                     <span
                       aria-disabled="false"
                       aria-label="Decrease Value"
-                      class="ant-input-number-handler ant-input-number-handler-down"
+                      class="ant-input-number-action ant-input-number-action-down"
                       role="button"
                       unselectable="on"
                     >
                       <span
                         aria-label="down"
-                        class="anticon anticon-down ant-input-number-handler-down-inner"
+                        class="anticon anticon-down"
                         role="img"
                       >
                         <svg
@@ -96,20 +104,6 @@ exports[`BasicTable SearchGutter > 🎏 ProTable support searchGutter 1`] = `
                       </span>
                     </span>
                   </div>
-                  <div
-                    class="ant-input-number-input-wrap"
-                  >
-                    <input
-                      aria-describedby=":r5:"
-                      autocomplete="off"
-                      class="ant-input-number-input"
-                      id="money"
-                      placeholder="请输入"
-                      role="spinbutton"
-                      step="1"
-                      value=""
-                    />
-                  </div>
                 </div>
               </div>
             </div>
@@ -118,17 +112,17 @@ exports[`BasicTable SearchGutter > 🎏 ProTable support searchGutter 1`] = `
       </div>
     </div>
     <div
-      class="ant-col ant-col-8 ant-col-offset-8"
-      style="padding-left: 8px; padding-right: 8px; text-align: end;"
+      class="ant-col ant-col-8 ant-col-offset-8 css-var-r1"
+      style="text-align: end;"
     >
       <div
-        class="ant-form-item ant-pro-query-filter-actions ant-form-item-horizontal"
+        class="ant-form-item ant-pro-query-filter-actions css-var-r1 ant-form-css-var ant-form-item-horizontal"
       >
         <div
-          class="ant-row ant-form-item-row"
+          class="ant-row ant-form-item-row css-var-r1"
         >
           <div
-            class="ant-col ant-form-item-label"
+            class="ant-col ant-form-item-label css-var-r1"
           >
             <label
               class="ant-form-item-no-colon"
@@ -138,7 +132,7 @@ exports[`BasicTable SearchGutter > 🎏 ProTable support searchGutter 1`] = `
             </label>
           </div>
           <div
-            class="ant-col ant-form-item-control"
+            class="ant-col ant-form-item-control css-var-r1"
           >
             <div
               class="ant-form-item-control-input"
@@ -147,7 +141,7 @@ exports[`BasicTable SearchGutter > 🎏 ProTable support searchGutter 1`] = `
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  class="ant-space ant-space-horizontal ant-space-align-center css-var-r1"
                   style="column-gap: 16px; row-gap: 16px;"
                 >
                   <div
@@ -157,7 +151,7 @@ exports[`BasicTable SearchGutter > 🎏 ProTable support searchGutter 1`] = `
                       style="display: flex; gap: 8px; align-items: center;"
                     >
                       <button
-                        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+                        class="ant-btn css-var-r1 ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                         type="button"
                       >
                         <span>
@@ -165,7 +159,7 @@ exports[`BasicTable SearchGutter > 🎏 ProTable support searchGutter 1`] = `
                         </span>
                       </button>
                       <button
-                        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+                        class="ant-btn css-var-r1 ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                         type="button"
                       >
                         <span>

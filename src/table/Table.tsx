@@ -200,10 +200,6 @@ function useTableCardBodyStyle({
       return { paddingBlockStart: 0 };
     }
 
-    if (toolbarDom && pagination === false) {
-      return { paddingBlockStart: 0 };
-    }
-
     return { padding: 0 };
   }, [
     hideToolbar,
@@ -715,7 +711,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
       <ProCard
         ghost={props.ghost}
         variant={isBordered('table', cardBordered) ? 'outlined' : 'borderless'}
-        bodyStyle={cardBodyStyle}
+        styles={{ body: cardBodyStyle }}
         {...propsCardProps}
       >
         {tableContentDom}
@@ -858,7 +854,9 @@ const ProTable = <
   });
 
   const { defaultProFilter, defaultProSort } = useMemo(() => {
-    const { sort, filter } = parseServerDefaultColumnConfig(flattenColumns(propsColumns));
+    const { sort, filter } = parseServerDefaultColumnConfig(
+      flattenColumns(propsColumns),
+    );
     return {
       defaultProFilter: filter,
       defaultProSort: sort,
@@ -1029,6 +1027,11 @@ const ProTable = <
 
   /** 绑定 action */
   useActionType(actionRef, action, {
+    nativeElement: counter.rootDomRef?.current || undefined,
+    focus: () => {
+      // 聚焦到表格根元素
+      counter.rootDomRef?.current?.focus();
+    },
     fullScreen: () => {
       if (!counter.rootDomRef?.current || !document.fullscreenEnabled) {
         return;

@@ -1,8 +1,6 @@
 ---
-nav:
-  title: Form
 group: Form
-title: LoginForm/Page - 登录表单
+title: LoginForm/Page 登录表单
 atomId: LoginForm,PageForm
 order: 2
 ---
@@ -13,7 +11,7 @@ LoginForm 和 LoginFormPage 是 ProForm 的变体，两者是为了适应常见�
 
 ## 登录表单
 
-<code src="../../../demos/form/LoginForm/login-form.tsx"  background="var(--main-bg-color)" title="登录表单"></code>
+<code src="../../../demos/form/LoginForm/login-form.tsx" background="var(--main-bg-color)"></code>
 
 ## 页面级别的登录表单
 

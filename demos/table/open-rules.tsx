@@ -106,7 +106,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
   },
 ];
 
-export default () => {
+const Demo = () => {
   return (
     <>
       <ProTable<GithubIssueItem>
@@ -267,3 +267,9 @@ export default () => {
     </ul>
   </div>;
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

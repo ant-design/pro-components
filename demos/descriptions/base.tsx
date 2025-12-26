@@ -2,7 +2,7 @@ import { ProDescriptions } from '@ant-design/pro-components';
 import { Button } from 'antd';
 import dayjs from 'dayjs';
 
-export default () => {
+const Demo = () => {
   return (
     <ProDescriptions
       column={2}
@@ -113,3 +113,9 @@ Done in 9.70s.
     </ProDescriptions>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

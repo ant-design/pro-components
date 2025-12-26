@@ -34,6 +34,10 @@ if (typeof globalThis !== 'undefined') {
       configurable: true,
       value: vi.fn(() => ({
         matches: false,
+        // 支持最新的 addEventListener API
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
+        // 保留旧的 API 以向后兼容
         addListener: vi.fn(),
         removeListener: vi.fn(),
       })),

@@ -42,7 +42,7 @@ const data = [
   ),
 }));
 
-export default () => {
+const Demo = () => {
   return (
     <ProList<any>
       pagination={{
@@ -62,3 +62,9 @@ export default () => {
     />
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

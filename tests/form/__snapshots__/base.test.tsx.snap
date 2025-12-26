@@ -4,7 +4,7 @@ exports[`ProForm > 📦 submit props actionsRender is one 1`] = `
 <DocumentFragment>
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical ant-pro-form"
+    class="ant-form ant-form-vertical css-var-r19 ant-form-css-var ant-pro-form"
   >
     <input
       style="display: none;"
@@ -21,7 +21,7 @@ exports[`ProForm > 📦 submit props actionsRender=()=>[] 1`] = `
 <DocumentFragment>
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical ant-pro-form"
+    class="ant-form ant-form-vertical css-var-r1r ant-form-css-var ant-pro-form"
   >
     <input
       style="display: none;"
@@ -35,7 +35,7 @@ exports[`ProForm > 📦 submit props actionsRender=()=>false 1`] = `
 <DocumentFragment>
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical ant-pro-form"
+    class="ant-form ant-form-vertical css-var-r16 ant-form-css-var ant-pro-form"
   >
     <input
       style="display: none;"
@@ -50,7 +50,7 @@ exports[`ProForm > 📦 submit props actionsRender=false 1`] = `
 <DocumentFragment>
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical ant-pro-form"
+    class="ant-form ant-form-vertical css-var-r1 ant-form-css-var ant-pro-form"
   >
     <input
       style="display: none;"
@@ -64,7 +64,7 @@ exports[`ProForm > 📦 submit props actionsRender=false 2`] = `
 <DocumentFragment>
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical ant-pro-form"
+    class="ant-form ant-form-vertical css-var-r1o ant-form-css-var ant-pro-form"
   >
     <input
       style="display: none;"
@@ -78,14 +78,14 @@ exports[`ProForm > 📦 submit props render=()=>[] 1`] = `
 <DocumentFragment>
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical ant-pro-form"
+    class="ant-form ant-form-vertical css-var-r1u ant-form-css-var ant-pro-form"
   >
     <input
       style="display: none;"
       type="text"
     />
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      class="ant-btn css-var-r1u ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -100,20 +100,20 @@ exports[`ProForm > 📦 submitted value should be consistent with input when pre
 <DocumentFragment>
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical ant-pro-form"
+    class="ant-form ant-form-vertical css-var-rbc ant-form-css-var ant-pro-form"
   >
     <input
       style="display: none;"
       type="text"
     />
     <div
-      class="ant-form-item ant-form-item-has-success ant-form-item-vertical"
+      class="ant-form-item css-var-rbc ant-form-css-var ant-form-item-has-success ant-form-item-vertical"
     >
       <div
-        class="ant-row ant-form-item-row"
+        class="ant-row ant-form-item-row css-var-rbc"
       >
         <div
-          class="ant-col ant-form-item-label"
+          class="ant-col ant-form-item-label css-var-rbc"
         >
           <label
             class=""
@@ -124,7 +124,7 @@ exports[`ProForm > 📦 submitted value should be consistent with input when pre
           </label>
         </div>
         <div
-          class="ant-col ant-form-item-control"
+          class="ant-col ant-form-item-control css-var-rbc"
         >
           <div
             class="ant-form-item-control-input"
@@ -133,22 +133,33 @@ exports[`ProForm > 📦 submitted value should be consistent with input when pre
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-status-success"
+                class="ant-input-number ant-input-number-mode-input css-var-rbc ant-input-number-css-var ant-input-number-status-success ant-input-number-outlined ant-input-number-in-form-item"
                 style="width: 100%;"
               >
+                <input
+                  aria-valuemin="0"
+                  aria-valuenow="22"
+                  autocomplete="off"
+                  class="ant-input-number-input"
+                  id="count"
+                  placeholder="请输入"
+                  role="spinbutton"
+                  step="1"
+                  value="22"
+                />
                 <div
-                  class="ant-input-number-handler-wrap"
+                  class="ant-input-number-actions"
                 >
                   <span
                     aria-disabled="false"
                     aria-label="Increase Value"
-                    class="ant-input-number-handler ant-input-number-handler-up"
+                    class="ant-input-number-action ant-input-number-action-up"
                     role="button"
                     unselectable="on"
                   >
                     <span
                       aria-label="up"
-                      class="anticon anticon-up ant-input-number-handler-up-inner"
+                      class="anticon anticon-up"
                       role="img"
                     >
                       <svg
@@ -169,13 +180,13 @@ exports[`ProForm > 📦 submitted value should be consistent with input when pre
                   <span
                     aria-disabled="false"
                     aria-label="Decrease Value"
-                    class="ant-input-number-handler ant-input-number-handler-down"
+                    class="ant-input-number-action ant-input-number-action-down"
                     role="button"
                     unselectable="on"
                   >
                     <span
                       aria-label="down"
-                      class="anticon anticon-down ant-input-number-handler-down-inner"
+                      class="anticon anticon-down"
                       role="img"
                     >
                       <svg
@@ -194,21 +205,6 @@ exports[`ProForm > 📦 submitted value should be consistent with input when pre
                     </span>
                   </span>
                 </div>
-                <div
-                  class="ant-input-number-input-wrap"
-                >
-                  <input
-                    aria-valuemin="0"
-                    aria-valuenow="22"
-                    autocomplete="off"
-                    class="ant-input-number-input"
-                    id="count"
-                    placeholder="请输入"
-                    role="spinbutton"
-                    step="1"
-                    value="22"
-                  />
-                </div>
               </div>
             </div>
           </div>
@@ -219,7 +215,7 @@ exports[`ProForm > 📦 submitted value should be consistent with input when pre
       style="display: flex; gap: 8px; align-items: center;"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-rbc ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -227,7 +223,7 @@ exports[`ProForm > 📦 submitted value should be consistent with input when pre
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-rbc ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -243,7 +239,7 @@ exports[`ProForm > 📦 submitter props support resetButtonProps 1`] = `
 <DocumentFragment>
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical ant-pro-form"
+    class="ant-form ant-form-vertical css-var-r24 ant-form-css-var ant-pro-form"
   >
     <input
       style="display: none;"
@@ -253,7 +249,7 @@ exports[`ProForm > 📦 submitter props support resetButtonProps 1`] = `
       style="display: flex; gap: 8px; align-items: center;"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined test_button"
+        class="ant-btn css-var-r24 ant-btn-default ant-btn-color-default ant-btn-variant-outlined test_button"
         type="button"
       >
         <span>
@@ -261,7 +257,7 @@ exports[`ProForm > 📦 submitter props support resetButtonProps 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-r24 ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -277,7 +273,7 @@ exports[`ProForm > 📦 submitter props support submitButtonProps 1`] = `
 <DocumentFragment>
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical ant-pro-form"
+    class="ant-form ant-form-vertical css-var-r21 ant-form-css-var ant-pro-form"
   >
     <input
       style="display: none;"
@@ -287,7 +283,7 @@ exports[`ProForm > 📦 submitter props support submitButtonProps 1`] = `
       style="display: flex; gap: 8px; align-items: center;"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-r21 ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -295,7 +291,7 @@ exports[`ProForm > 📦 submitter props support submitButtonProps 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid test_button"
+        class="ant-btn css-var-r21 ant-btn-primary ant-btn-color-primary ant-btn-variant-solid test_button"
         type="button"
       >
         <span>
@@ -311,20 +307,20 @@ exports[`ProForm > 📦 validateFieldsReturnFormatValue 1`] = `
 <DocumentFragment>
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical ant-pro-form"
+    class="ant-form ant-form-vertical css-var-ra7 ant-form-css-var ant-pro-form"
   >
     <input
       style="display: none;"
       type="text"
     />
     <div
-      class="ant-form-item ant-form-item-has-success ant-form-item-vertical"
+      class="ant-form-item css-var-ra7 ant-form-css-var ant-form-item-has-success ant-form-item-vertical"
     >
       <div
-        class="ant-row ant-form-item-row"
+        class="ant-row ant-form-item-row css-var-ra7"
       >
         <div
-          class="ant-col ant-form-item-control"
+          class="ant-col ant-form-item-control css-var-ra7"
         >
           <div
             class="ant-form-item-control-input"
@@ -333,7 +329,7 @@ exports[`ProForm > 📦 validateFieldsReturnFormatValue 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-picker ant-picker-focused ant-picker-outlined ant-picker-status-success"
+                class="ant-picker ant-picker-focused ant-picker-outlined ant-picker-status-success css-var-ra7 ant-picker-css-var"
               >
                 <div
                   class="ant-picker-input"
@@ -405,7 +401,7 @@ exports[`ProForm > 📦 validateFieldsReturnFormatValue 1`] = `
       style="display: flex; gap: 8px; align-items: center;"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-ra7 ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -413,7 +409,7 @@ exports[`ProForm > 📦 validateFieldsReturnFormatValue 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-ra7 ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -429,20 +425,20 @@ exports[`ProForm > 📦 valueType digit with precision value 1`] = `
 <DocumentFragment>
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical ant-pro-form"
+    class="ant-form ant-form-vertical css-var-rb7 ant-form-css-var ant-pro-form"
   >
     <input
       style="display: none;"
       type="text"
     />
     <div
-      class="ant-form-item ant-form-item-has-success ant-form-item-vertical"
+      class="ant-form-item css-var-rb7 ant-form-css-var ant-form-item-has-success ant-form-item-vertical"
     >
       <div
-        class="ant-row ant-form-item-row"
+        class="ant-row ant-form-item-row css-var-rb7"
       >
         <div
-          class="ant-col ant-form-item-label"
+          class="ant-col ant-form-item-label css-var-rb7"
         >
           <label
             class=""
@@ -453,7 +449,7 @@ exports[`ProForm > 📦 valueType digit with precision value 1`] = `
           </label>
         </div>
         <div
-          class="ant-col ant-form-item-control"
+          class="ant-col ant-form-item-control css-var-rb7"
         >
           <div
             class="ant-form-item-control-input"
@@ -462,22 +458,33 @@ exports[`ProForm > 📦 valueType digit with precision value 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-status-success"
+                class="ant-input-number ant-input-number-mode-input css-var-rb7 ant-input-number-css-var ant-input-number-status-success ant-input-number-outlined ant-input-number-in-form-item"
                 style="width: 100%;"
               >
+                <input
+                  aria-valuemin="0"
+                  aria-valuenow="22"
+                  autocomplete="off"
+                  class="ant-input-number-input"
+                  id="count"
+                  placeholder="请输入"
+                  role="spinbutton"
+                  step="1"
+                  value="22"
+                />
                 <div
-                  class="ant-input-number-handler-wrap"
+                  class="ant-input-number-actions"
                 >
                   <span
                     aria-disabled="false"
                     aria-label="Increase Value"
-                    class="ant-input-number-handler ant-input-number-handler-up"
+                    class="ant-input-number-action ant-input-number-action-up"
                     role="button"
                     unselectable="on"
                   >
                     <span
                       aria-label="up"
-                      class="anticon anticon-up ant-input-number-handler-up-inner"
+                      class="anticon anticon-up"
                       role="img"
                     >
                       <svg
@@ -498,13 +505,13 @@ exports[`ProForm > 📦 valueType digit with precision value 1`] = `
                   <span
                     aria-disabled="false"
                     aria-label="Decrease Value"
-                    class="ant-input-number-handler ant-input-number-handler-down"
+                    class="ant-input-number-action ant-input-number-action-down"
                     role="button"
                     unselectable="on"
                   >
                     <span
                       aria-label="down"
-                      class="anticon anticon-down ant-input-number-handler-down-inner"
+                      class="anticon anticon-down"
                       role="img"
                     >
                       <svg
@@ -523,21 +530,6 @@ exports[`ProForm > 📦 valueType digit with precision value 1`] = `
                     </span>
                   </span>
                 </div>
-                <div
-                  class="ant-input-number-input-wrap"
-                >
-                  <input
-                    aria-valuemin="0"
-                    aria-valuenow="22"
-                    autocomplete="off"
-                    class="ant-input-number-input"
-                    id="count"
-                    placeholder="请输入"
-                    role="spinbutton"
-                    step="1"
-                    value="22"
-                  />
-                </div>
               </div>
             </div>
           </div>
@@ -548,7 +540,7 @@ exports[`ProForm > 📦 valueType digit with precision value 1`] = `
       style="display: flex; gap: 8px; align-items: center;"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-rb7 ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -556,7 +548,7 @@ exports[`ProForm > 📦 valueType digit with precision value 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-rb7 ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -572,20 +564,20 @@ exports[`ProForm > 📦 when dateFormatter is a Function 1`] = `
 <DocumentFragment>
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical ant-pro-form"
+    class="ant-form ant-form-vertical css-var-raj ant-form-css-var ant-pro-form"
   >
     <input
       style="display: none;"
       type="text"
     />
     <div
-      class="ant-form-item ant-form-item-vertical"
+      class="ant-form-item css-var-raj ant-form-css-var ant-form-item-vertical"
     >
       <div
-        class="ant-row ant-form-item-row"
+        class="ant-row ant-form-item-row css-var-raj"
       >
         <div
-          class="ant-col ant-form-item-control"
+          class="ant-col ant-form-item-control css-var-raj"
         >
           <div
             class="ant-form-item-control-input"
@@ -594,7 +586,7 @@ exports[`ProForm > 📦 when dateFormatter is a Function 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-picker ant-picker-focused ant-picker-outlined"
+                class="ant-picker ant-picker-focused ant-picker-outlined css-var-raj ant-picker-css-var"
               >
                 <div
                   class="ant-picker-input"
@@ -663,13 +655,13 @@ exports[`ProForm > 📦 when dateFormatter is a Function 1`] = `
       </div>
     </div>
     <div
-      class="ant-form-item ant-form-item-vertical"
+      class="ant-form-item css-var-raj ant-form-css-var ant-form-item-vertical"
     >
       <div
-        class="ant-row ant-form-item-row"
+        class="ant-row ant-form-item-row css-var-raj"
       >
         <div
-          class="ant-col ant-form-item-label"
+          class="ant-col ant-form-item-label css-var-raj"
         >
           <label
             class=""
@@ -680,7 +672,7 @@ exports[`ProForm > 📦 when dateFormatter is a Function 1`] = `
           </label>
         </div>
         <div
-          class="ant-col ant-form-item-control"
+          class="ant-col ant-form-item-control css-var-raj"
         >
           <div
             class="ant-form-item-control-input"
@@ -689,7 +681,7 @@ exports[`ProForm > 📦 when dateFormatter is a Function 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-picker ant-picker-outlined"
+                class="ant-picker ant-picker-outlined css-var-raj ant-picker-css-var"
               >
                 <div
                   class="ant-picker-input"
@@ -739,7 +731,7 @@ exports[`ProForm > 📦 when dateFormatter is a Function 1`] = `
       style="display: flex; gap: 8px; align-items: center;"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-raj ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -747,7 +739,7 @@ exports[`ProForm > 📦 when dateFormatter is a Function 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-raj ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>

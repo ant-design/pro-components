@@ -85,7 +85,7 @@ export type ProFormBaseGroupProps = {
   /**
    * @name 子项的排列方式
    */
-  direction?: SpaceProps['direction'];
+  direction?: SpaceProps['orientation'];
   /**
    * @name 布局方式，键值对模式和两行模式
    * @default inline

@@ -26,7 +26,7 @@ const defaultProps = {
   ],
 };
 
-export default () => {
+const Demo = () => {
   const [pathname, setPathname] = useState('/welcome');
   return (
     <>
@@ -104,3 +104,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

@@ -1,6 +1,4 @@
 ---
-nav:
-  title: Table
 title: DragSortTable
 atomId: DragSortTable
 group: Table

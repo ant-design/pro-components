@@ -1,6 +1,4 @@
 ---
-nav:
-  title: Form
 title: ProFormDependency
 order: 1
 atomId: ProFormDependency

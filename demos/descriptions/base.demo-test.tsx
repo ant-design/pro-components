@@ -1,7 +1,7 @@
 import { ProDescriptions } from '@ant-design/pro-components';
 import { Button } from 'antd';
 
-export default () => {
+const Demo = () => {
   return (
     <>
       <ProDescriptions.Item label="文本" valueType="option">
@@ -34,3 +34,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

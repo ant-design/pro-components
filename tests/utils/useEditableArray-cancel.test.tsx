@@ -125,15 +125,17 @@ describe('useEditableArray - Cancel Operation', () => {
   };
 
   it('📝 取消编辑时应该正确调用 onCancel 回调', async () => {
-    const onCancel = vi.fn(async (
-      key: RecordKey,
-      record: TestRecordType & { index?: number },
-      originRow: TestRecordType & { index?: number },
-    ) => {
-      expect(key).toBe(1);
-      expect(originRow).toEqual({ id: 1, name: 'test1', value: 'value1' });
-      return Promise.resolve();
-    });
+    const onCancel = vi.fn(
+      async (
+        key: RecordKey,
+        record: TestRecordType & { index?: number },
+        originRow: TestRecordType & { index?: number },
+      ) => {
+        expect(key).toBe(1);
+        expect(originRow).toEqual({ id: 1, name: 'test1', value: 'value1' });
+        return Promise.resolve();
+      },
+    );
 
     const wrapper = render(
       <TestComponent onCancel={onCancel} tableName="testTable" />,
@@ -165,16 +167,18 @@ describe('useEditableArray - Cancel Operation', () => {
   });
 
   it('📝 取消编辑时 onCancel 回调应该接收到正确的参数', async () => {
-    const onCancel = vi.fn(async (
-      key: RecordKey,
-      record: TestRecordType & { index?: number },
-      originRow: TestRecordType & { index?: number },
-    ) => {
-      expect(key).toBe(2);
-      expect(originRow).toEqual({ id: 2, name: 'test2', value: 'value2' });
-      expect(record).toBeDefined();
-      return Promise.resolve();
-    });
+    const onCancel = vi.fn(
+      async (
+        key: RecordKey,
+        record: TestRecordType & { index?: number },
+        originRow: TestRecordType & { index?: number },
+      ) => {
+        expect(key).toBe(2);
+        expect(originRow).toEqual({ id: 2, name: 'test2', value: 'value2' });
+        expect(record).toBeDefined();
+        return Promise.resolve();
+      },
+    );
 
     const wrapper = render(
       <TestComponent onCancel={onCancel} tableName="testTable" />,
@@ -453,15 +457,17 @@ describe('useEditableArray - Cancel Operation', () => {
   });
 
   it('📝 取消编辑时应该正确处理 key 映射（tableName 场景）', async () => {
-    const onCancel = vi.fn(async (
-      key: RecordKey,
-      record: TestRecordType & { index?: number },
-      originRow: TestRecordType & { index?: number },
-    ) => {
-      expect(key).toBe(1);
-      expect(originRow).toEqual({ id: 1, name: 'test1', value: 'value1' });
-      return Promise.resolve();
-    });
+    const onCancel = vi.fn(
+      async (
+        key: RecordKey,
+        record: TestRecordType & { index?: number },
+        originRow: TestRecordType & { index?: number },
+      ) => {
+        expect(key).toBe(1);
+        expect(originRow).toEqual({ id: 1, name: 'test1', value: 'value1' });
+        return Promise.resolve();
+      },
+    );
 
     const wrapper = render(
       <TestComponent onCancel={onCancel} tableName="testTable" />,
@@ -518,15 +524,17 @@ describe('useEditableArray - Cancel Operation', () => {
   });
 
   it('📝 取消新行编辑时应该正确处理 newLineConfig', async () => {
-    const onCancel = vi.fn(async (
-      key: RecordKey,
-      record: TestRecordType & { index?: number },
-      originRow: TestRecordType & { index?: number },
-      newLineConfig?: NewLineConfig<TestRecordType>,
-    ) => {
-      expect(newLineConfig).toBeDefined();
-      return Promise.resolve();
-    });
+    const onCancel = vi.fn(
+      async (
+        key: RecordKey,
+        record: TestRecordType & { index?: number },
+        originRow: TestRecordType & { index?: number },
+        newLineConfig?: NewLineConfig<TestRecordType>,
+      ) => {
+        expect(newLineConfig).toBeDefined();
+        return Promise.resolve();
+      },
+    );
 
     const wrapper = render(
       <TestComponent onCancel={onCancel} tableName="testTable" />,

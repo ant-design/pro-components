@@ -48,7 +48,7 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
       open={open || false}
       onOpenChange={onOpenChange}
       styles={{
-        body: {
+        container: {
           padding: 0,
         },
       }}

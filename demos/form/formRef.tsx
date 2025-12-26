@@ -4,7 +4,7 @@ import {
   ProFormDatePicker,
   ProFormText,
 } from '@ant-design/pro-components';
-import { Button, message } from 'antd';
+import { Button, message, Space } from 'antd';
 import dayjs from 'dayjs';
 import { useRef } from 'react';
 
@@ -16,7 +16,7 @@ const waitTime = (time: number = 100) => {
   });
 };
 
-export default () => {
+const Demo = () => {
   const formRef = useRef<ProFormInstance>();
   const onFill = () => {
     formRef?.current?.setFieldsValue({
@@ -56,7 +56,7 @@ export default () => {
             <Button htmlType="button" onClick={getCompanyName} key="read">
               读取公司
             </Button>,
-            <Button.Group key="refs" style={{ display: 'block' }}>
+            <Space.Compact key="refs" style={{ display: 'block' }}>
               <Button htmlType="button" onClick={getFormatValues} key="format">
                 获取格式化后的所有数据
               </Button>
@@ -67,7 +67,7 @@ export default () => {
               >
                 校验表单并返回格式化后的所有数据
               </Button>
-            </Button.Group>,
+            </Space.Compact>,
           ];
         },
       }}
@@ -96,3 +96,9 @@ export default () => {
     </ProForm>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

@@ -13,29 +13,27 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
       >
         <form
           autocomplete="off"
-          class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
+          class="ant-form ant-form-horizontal css-var-r19 ant-form-css-var ant-pro-query-filter ant-pro-form"
         >
           <input
             style="display: none;"
             type="text"
           />
           <div
-            class="ant-row ant-row-start ant-pro-query-filter-row"
-            style="margin-left: -12px; margin-right: -12px;"
+            class="ant-row ant-row-start ant-pro-query-filter-row css-var-r19"
           >
             <div
-              class="ant-col ant-col-8 ant-pro-query-filter-row-split"
-              style="padding-left: 12px; padding-right: 12px;"
+              class="ant-col ant-col-8 ant-pro-query-filter-row-split css-var-r19"
             >
               <div
-                class="ant-form-item ant-form-item-horizontal"
+                class="ant-form-item css-var-r19 ant-form-css-var ant-form-item-horizontal"
                 style="flex-wrap: nowrap;"
               >
                 <div
-                  class="ant-row ant-form-item-row"
+                  class="ant-row ant-form-item-row css-var-r19"
                 >
                   <div
-                    class="ant-col ant-form-item-label"
+                    class="ant-col ant-form-item-label css-var-r19"
                     style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
@@ -47,7 +45,7 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                     </label>
                   </div>
                   <div
-                    class="ant-col ant-form-item-control"
+                    class="ant-col ant-form-item-control css-var-r19"
                     style="max-width: calc(100% - 80px);"
                   >
                     <div
@@ -57,7 +55,7 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-input-affix-wrapper ant-input-outlined"
+                          class="ant-input-affix-wrapper ant-input-outlined css-var-r19 ant-input-css-var"
                           style="width: 100%;"
                         >
                           <input
@@ -106,18 +104,17 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
               </div>
             </div>
             <div
-              class="ant-col ant-col-8 ant-pro-query-filter-row-split"
-              style="padding-left: 12px; padding-right: 12px;"
+              class="ant-col ant-col-8 ant-pro-query-filter-row-split css-var-r19"
             >
               <div
-                class="ant-form-item ant-form-item-horizontal"
+                class="ant-form-item css-var-r19 ant-form-css-var ant-form-item-horizontal"
                 style="flex-wrap: nowrap;"
               >
                 <div
-                  class="ant-row ant-form-item-row"
+                  class="ant-row ant-form-item-row css-var-r19"
                 >
                   <div
-                    class="ant-col ant-form-item-label"
+                    class="ant-col ant-form-item-label css-var-r19"
                     style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
@@ -129,7 +126,7 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                     </label>
                   </div>
                   <div
-                    class="ant-col ant-form-item-control"
+                    class="ant-col ant-form-item-control css-var-r19"
                     style="max-width: calc(100% - 80px);"
                   >
                     <div
@@ -139,66 +136,45 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-spin-nested-loading"
+                          class="ant-spin-nested-loading css-var-r19"
                         >
                           <div
                             class="ant-spin-container"
                           >
                             <div
-                              class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item ant-pro-field-tree-select ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-open ant-select-show-search"
+                              class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item ant-pro-field-tree-select css-var-r19 ant-select-css-var ant-tree-select-css-var ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-open ant-select-show-search"
                               options="[object Object],[object Object]"
                               style="min-width: 60px; width: 100%;"
                             >
                               <div
-                                class="ant-select-selector"
+                                class="ant-select-content"
                               >
-                                <span
-                                  class="ant-select-selection-wrap"
+                                <div
+                                  class="ant-select-content-item ant-select-content-item-suffix"
+                                  style="opacity: 1;"
                                 >
-                                  <div
-                                    class="ant-select-selection-overflow"
-                                  >
-                                    <div
-                                      class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-                                      style="opacity: 1;"
-                                    >
-                                      <div
-                                        class="ant-select-selection-search"
-                                        style="width: 0px;"
-                                      >
-                                        <input
-                                          aria-autocomplete="list"
-                                          aria-controls="treeSelect_list"
-                                          aria-expanded="true"
-                                          aria-haspopup="listbox"
-                                          aria-owns="treeSelect_list"
-                                          autocomplete="off"
-                                          class="ant-select-selection-search-input"
-                                          id="treeSelect"
-                                          role="combobox"
-                                          type="search"
-                                          value="Javasc"
-                                        />
-                                        <span
-                                          aria-hidden="true"
-                                          class="ant-select-selection-search-mirror"
-                                        >
-                                          Javasc 
-                                        </span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </span>
+                                  <input
+                                    aria-autocomplete="list"
+                                    aria-controls="treeSelect_list"
+                                    aria-expanded="true"
+                                    aria-haspopup="listbox"
+                                    aria-owns="treeSelect_list"
+                                    autocomplete="off"
+                                    class="ant-select-input"
+                                    id="treeSelect"
+                                    role="combobox"
+                                    style="--select-input-width: 0;"
+                                    type="search"
+                                    value="Javasc"
+                                  />
+                                </div>
                               </div>
-                              <span
-                                aria-hidden="true"
-                                class="ant-select-arrow"
-                                style="user-select: none;"
-                                unselectable="on"
+                              <div
+                                class="ant-select-suffix"
                               >
                                 <span
                                   aria-label="search"
-                                  class="anticon anticon-search ant-select-suffix"
+                                  class="anticon anticon-search"
                                   role="img"
                                 >
                                   <svg
@@ -215,12 +191,9 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                                     />
                                   </svg>
                                 </span>
-                              </span>
-                              <span
-                                aria-hidden="true"
+                              </div>
+                              <div
                                 class="ant-select-clear"
-                                style="user-select: none;"
-                                unselectable="on"
                               >
                                 <span
                                   aria-label="close-circle"
@@ -242,7 +215,7 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                                     />
                                   </svg>
                                 </span>
-                              </span>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -253,17 +226,17 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
               </div>
             </div>
             <div
-              class="ant-col ant-col-8"
-              style="padding-left: 12px; padding-right: 12px; text-align: end;"
+              class="ant-col ant-col-8 css-var-r19"
+              style="text-align: end;"
             >
               <div
-                class="ant-form-item ant-pro-query-filter-actions ant-form-item-horizontal"
+                class="ant-form-item ant-pro-query-filter-actions css-var-r19 ant-form-css-var ant-form-item-horizontal"
               >
                 <div
-                  class="ant-row ant-form-item-row"
+                  class="ant-row ant-form-item-row css-var-r19"
                 >
                   <div
-                    class="ant-col ant-form-item-label"
+                    class="ant-col ant-form-item-label css-var-r19"
                   >
                     <label
                       class="ant-form-item-no-colon"
@@ -273,7 +246,7 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                     </label>
                   </div>
                   <div
-                    class="ant-col ant-form-item-control"
+                    class="ant-col ant-form-item-control css-var-r19"
                   >
                     <div
                       class="ant-form-item-control-input"
@@ -282,7 +255,7 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center"
+                          class="ant-space ant-space-horizontal ant-space-align-center css-var-r19"
                           style="column-gap: 16px; row-gap: 16px;"
                         >
                           <div
@@ -292,7 +265,7 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+                                class="ant-btn css-var-r19 ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                                 type="button"
                               >
                                 <span>
@@ -300,7 +273,7 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                                 </span>
                               </button>
                               <button
-                                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+                                class="ant-btn css-var-r19 ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                                 type="button"
                               >
                                 <span>
@@ -348,7 +321,6 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                 >
                   <span>
                     <span
-                      aria-describedby="test-id"
                       aria-label="reload"
                       class="anticon anticon-reload"
                       role="img"
@@ -374,9 +346,8 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                 >
                   <span>
                     <span
-                      aria-describedby="test-id"
                       aria-label="column-height"
-                      class="anticon anticon-column-height ant-dropdown-trigger"
+                      class="anticon anticon-column-height"
                       role="img"
                       tabindex="-1"
                     >
@@ -400,7 +371,6 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                   class="ant-pro-table-list-toolbar-setting-item"
                 >
                   <span
-                    aria-describedby="test-id"
                     aria-label="setting"
                     class="anticon anticon-setting"
                     role="img"
@@ -426,16 +396,16 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
           </div>
         </div>
         <div
-          class="ant-table-wrapper"
+          class="css-var-r19 ant-table-css-var ant-table-wrapper"
         >
           <div
-            class="ant-spin-nested-loading"
+            class="ant-spin-nested-loading css-var-r19"
           >
             <div
               class="ant-spin-container"
             >
               <div
-                class="ant-table ant-table-middle"
+                class="ant-table ant-table-middle css-var-r19 ant-table-css-var"
               >
                 <div
                   class="ant-table-container"
@@ -494,7 +464,7 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                 </div>
               </div>
               <ul
-                class="ant-pagination ant-pagination-end ant-pagination-mini ant-table-pagination"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-r19"
               >
                 <li
                   class="ant-pagination-total-text"
@@ -674,49 +644,37 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                 >
                   <div
                     aria-label="页码"
-                    class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+                    class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-r19 ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
                   >
                     <div
-                      class="ant-select-selector"
+                      class="ant-select-content"
                     >
-                      <span
-                        class="ant-select-selection-wrap"
+                      <div
+                        class="ant-select-content-value"
+                        style="visibility: visible;"
+                        title="20 条/页"
                       >
-                        <span
-                          class="ant-select-selection-search"
-                        >
-                          <input
-                            aria-autocomplete="list"
-                            aria-controls="rc_select_TEST_OR_SSR_list"
-                            aria-expanded="false"
-                            aria-haspopup="listbox"
-                            aria-label="页码"
-                            aria-owns="rc_select_TEST_OR_SSR_list"
-                            autocomplete="off"
-                            class="ant-select-selection-search-input"
-                            id="rc_select_TEST_OR_SSR"
-                            role="combobox"
-                            type="search"
-                            value=""
-                          />
-                        </span>
-                        <span
-                          class="ant-select-selection-item"
-                          title="20 条/页"
-                        >
-                          20 条/页
-                        </span>
-                      </span>
+                        20 条/页
+                      </div>
+                      <input
+                        aria-autocomplete="list"
+                        aria-expanded="false"
+                        aria-haspopup="listbox"
+                        aria-label="页码"
+                        autocomplete="off"
+                        class="ant-select-input"
+                        id="test-id"
+                        role="combobox"
+                        type="search"
+                        value=""
+                      />
                     </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-arrow"
-                      style="user-select: none;"
-                      unselectable="on"
+                    <div
+                      class="ant-select-suffix"
                     >
                       <span
                         aria-label="down"
-                        class="anticon anticon-down ant-select-suffix"
+                        class="anticon anticon-down"
                         role="img"
                       >
                         <svg
@@ -733,7 +691,7 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                           />
                         </svg>
                       </span>
-                    </span>
+                    </div>
                   </div>
                 </li>
               </ul>

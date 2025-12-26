@@ -7,7 +7,7 @@ import {
 import { App, Typography } from 'antd';
 import Draggable from 'react-draggable';
 
-export default () => {
+const Demo = () => {
   const map = new Map<
     string,
     (
@@ -347,3 +347,9 @@ export default () => {
     </App>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

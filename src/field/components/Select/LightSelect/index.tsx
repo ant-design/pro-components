@@ -55,7 +55,6 @@ export const LightSelect: React.ForwardRefRenderFunction<
     onChange,
     value,
     mode,
-    children,
     defaultValue,
     size,
     showSearch,
@@ -235,7 +234,7 @@ export const LightSelect: React.ForwardRefRenderFunction<
             ? options
             : options?.filter((o) => {
                 if (optionFilterProp) {
-                  return toArray(o[optionFilterProp])
+                  return toArray(o[optionFilterProp as string])
                     .join('')
                     .toLowerCase()
                     .includes(keyword);

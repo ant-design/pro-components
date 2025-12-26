@@ -1,6 +1,4 @@
 ---
-nav:
-  title: Form
 title: Modal/DrawerForm
 atomId: ModalForm,DrawerForm
 group: Form
@@ -14,11 +12,11 @@ ModalForm and DrawerForm both provide triggers to reduce state usage, if you nee
 
 ## Modal Forms
 
-<code src="../../../demos/form/ModalForm/modal-form.tsx"  background="var(--main-bg-color)" oldtitle="Modal Forms"></code>
+<code src="../../../demos/form/ModalForm/modal-form.tsx" background="var(--main-bg-color)" old></code>
 
 ## Drawer Forms
 
-<code src="../../../demos/form/ModalForm/drawer-form.tsx"  background="var(--main-bg-color)" oldtitle="Drawer Forms"></code>
+<code src="../../../demos/form/ModalForm/drawer-form.tsx" background="var(--main-bg-color)" old></code>
 
 ## Nested Drawer Forms
 
@@ -30,15 +28,15 @@ ModalForm and DrawerForm both provide triggers to reduce state usage, if you nee
 
 ## Custom Modal Forms' Button
 
-<code src="../../../demos/form/ModalForm/modal-form-submitter.tsx"  background="var(--main-bg-color)" oldtitle="Custom Modal Forms' Button"></code>
+<code src="../../../demos/form/ModalForm/modal-form-submitter.tsx" background="var(--main-bg-color)" old></code>
 
 ## Use open and onOpenChange
 
-<code src="../../../demos/form/ModalForm/open-on-open-change.tsx"  background="var(--main-bg-color)" oldtitle="Use open and onOpenChange"></code>
+<code src="../../../demos/form/ModalForm/open-on-open-change.tsx" background="var(--main-bg-color)" old></code>
 
 ## Reset Form
 
-<code src="../../../demos/form/ModalForm/modal-form-reset.tsx"  background="var(--main-bg-color)" oldtitle="Reset Form"></code>
+<code src="../../../demos/form/ModalForm/modal-form-reset.tsx" background="var(--main-bg-color)" old></code>
 
 ## API
 

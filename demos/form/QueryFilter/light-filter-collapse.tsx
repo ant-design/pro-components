@@ -4,7 +4,7 @@ import {
   ProFormSelect,
 } from '@ant-design/pro-components';
 
-export default () => {
+const Demo = () => {
   return (
     <LightFilter
       initialValues={{
@@ -26,3 +26,9 @@ export default () => {
     </LightFilter>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

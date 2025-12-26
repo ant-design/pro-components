@@ -20,7 +20,7 @@ import { useState } from 'react';
 
 type LoginType = 'phone' | 'account';
 
-export default () => {
+const Demo = () => {
   const { token } = theme.useToken();
   const [loginType, setLoginType] = useState<LoginType>('phone');
 
@@ -189,3 +189,9 @@ export default () => {
     </ProConfigProvider>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

@@ -1,8 +1,6 @@
 ---
-nav:
-  title: Table
 group: Table
-title: DragSortTable - 拖动排序表格
+title: DragSortTable 拖动排序表格
 atomId: DragSortTable
 ---
 
@@ -14,7 +12,7 @@ atomId: DragSortTable
 
 ### 拖拽排序
 
-<code src="../../../demos/table/DragSortTable/drag.tsx"  background="var(--main-bg-color)" title="拖拽排序"></code>
+<code src="../../../demos/table/DragSortTable/drag.tsx" background="var(--main-bg-color)"></code>
 
 ### 拖拽排序编辑表格
 

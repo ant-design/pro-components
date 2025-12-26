@@ -1,180 +1,184 @@
 <DocumentFragment>
   <div
-    class="ant-app"
+    class="ant-app css-var-root"
   >
     <div>
       test
     </div>
     <div
-      style="margin-block-end: 16px;"
+      style="padding: 24px;"
     >
       <div
-        class="ant-radio-group ant-radio-group-outline"
-      >
-        <label
-          class="ant-radio-button-wrapper"
-        >
-          <span
-            class="ant-radio-button"
-          >
-            <input
-              class="ant-radio-button-input"
-              name="test-id"
-              type="radio"
-              value="large"
-            />
-            <span
-              class="ant-radio-button-inner"
-            />
-          </span>
-          <span
-            class="ant-radio-button-label"
-          >
-            Large
-          </span>
-        </label>
-        <label
-          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
-        >
-          <span
-            class="ant-radio-button ant-radio-button-checked"
-          >
-            <input
-              class="ant-radio-button-input"
-              name="test-id"
-              type="radio"
-              value="default"
-            />
-            <span
-              class="ant-radio-button-inner"
-            />
-          </span>
-          <span
-            class="ant-radio-button-label"
-          >
-            Default
-          </span>
-        </label>
-        <label
-          class="ant-radio-button-wrapper"
-        >
-          <span
-            class="ant-radio-button"
-          >
-            <input
-              class="ant-radio-button-input"
-              name="test-id"
-              type="radio"
-              value="small"
-            />
-            <span
-              class="ant-radio-button-inner"
-            />
-          </span>
-          <span
-            class="ant-radio-button-label"
-          >
-            Small
-          </span>
-        </label>
-      </div>
-    </div>
-    <div
-      class="ant-pro-checkcard ant-pro-checkcard-bordered"
-    >
-      <div
-        class="ant-pro-checkcard-content"
+        style="margin-block-end: 16px;"
       >
         <div
-          class="ant-pro-checkcard-detail"
+          class="ant-radio-group ant-radio-group-outline css-var-root ant-radio-css-var"
+        >
+          <label
+            class="ant-radio-button-wrapper css-var-root ant-radio-css-var"
+          >
+            <span
+              class="ant-radio-button"
+            >
+              <input
+                class="ant-radio-button-input"
+                name="test-id"
+                type="radio"
+                value="large"
+              />
+              <span
+                class="ant-radio-button-inner"
+              />
+            </span>
+            <span
+              class="ant-radio-button-label"
+            >
+              Large
+            </span>
+          </label>
+          <label
+            class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"
+          >
+            <span
+              class="ant-radio-button ant-radio-button-checked"
+            >
+              <input
+                class="ant-radio-button-input"
+                name="test-id"
+                type="radio"
+                value="default"
+              />
+              <span
+                class="ant-radio-button-inner"
+              />
+            </span>
+            <span
+              class="ant-radio-button-label"
+            >
+              Default
+            </span>
+          </label>
+          <label
+            class="ant-radio-button-wrapper css-var-root ant-radio-css-var"
+          >
+            <span
+              class="ant-radio-button"
+            >
+              <input
+                class="ant-radio-button-input"
+                name="test-id"
+                type="radio"
+                value="small"
+              />
+              <span
+                class="ant-radio-button-inner"
+              />
+            </span>
+            <span
+              class="ant-radio-button-label"
+            >
+              Small
+            </span>
+          </label>
+        </div>
+      </div>
+      <div
+        class="ant-pro-checkcard ant-pro-checkcard-bordered"
+      >
+        <div
+          class="ant-pro-checkcard-content"
         >
           <div
-            class="ant-pro-checkcard-header"
+            class="ant-pro-checkcard-detail"
           >
             <div
-              class="ant-pro-checkcard-header-left"
+              class="ant-pro-checkcard-header"
             >
               <div
-                class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
+                class="ant-pro-checkcard-header-left"
               >
-                Card title
+                <div
+                  class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
+                >
+                  Card title
+                </div>
               </div>
             </div>
-          </div>
-          <div
-            class="ant-pro-checkcard-description"
-          >
-            This is the description
+            <div
+              class="ant-pro-checkcard-description"
+            >
+              This is the description
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div
-      style="margin-top: 20px; padding: 20px; background-color: #f5f5f5; border-radius: 6px;"
-    >
-      <h4>
-        CheckCard Size Props 说明：
-      </h4>
-      <ul>
-        <li>
-          <strong>
-            size
-          </strong>
-          : 卡片尺寸，可选值：'large' | 'default' | 'small'
-        </li>
-        <li>
-          <strong>
-            title
-          </strong>
-          : 卡片标题
-        </li>
-        <li>
-          <strong>
-            description
-          </strong>
-          : 卡片描述信息
-        </li>
-      </ul>
-      <h4>
-        Size 尺寸说明：
-      </h4>
-      <ul>
-        <li>
-          <strong>
-            large
-          </strong>
-          : 大尺寸，适合重要内容的展示
-        </li>
-        <li>
-          <strong>
-            default
-          </strong>
-          : 默认尺寸，最常用的尺寸
-        </li>
-        <li>
-          <strong>
-            small
-          </strong>
-          : 小尺寸，适合紧凑布局
-        </li>
-      </ul>
-      <h4>
-        动态切换：
-      </h4>
-      <ul>
-        <li>
-          <strong>
-            Radio.Group
-          </strong>
-          : 使用单选按钮组来动态切换 size 属性
-        </li>
-        <li>
-          <strong>
-            useState
-          </strong>
-          : 使用 React Hook 管理 size 状态
-        </li>
-      </ul>
+      <div
+        style="margin-top: 20px; padding: 20px; background-color: #f5f5f5; border-radius: 6px;"
+      >
+        <h4>
+          CheckCard Size Props 说明：
+        </h4>
+        <ul>
+          <li>
+            <strong>
+              size
+            </strong>
+            : 卡片尺寸，可选值：'large' | 'default' | 'small'
+          </li>
+          <li>
+            <strong>
+              title
+            </strong>
+            : 卡片标题
+          </li>
+          <li>
+            <strong>
+              description
+            </strong>
+            : 卡片描述信息
+          </li>
+        </ul>
+        <h4>
+          Size 尺寸说明：
+        </h4>
+        <ul>
+          <li>
+            <strong>
+              large
+            </strong>
+            : 大尺寸，适合重要内容的展示
+          </li>
+          <li>
+            <strong>
+              default
+            </strong>
+            : 默认尺寸，最常用的尺寸
+          </li>
+          <li>
+            <strong>
+              small
+            </strong>
+            : 小尺寸，适合紧凑布局
+          </li>
+        </ul>
+        <h4>
+          动态切换：
+        </h4>
+        <ul>
+          <li>
+            <strong>
+              Radio.Group
+            </strong>
+            : 使用单选按钮组来动态切换 size 属性
+          </li>
+          <li>
+            <strong>
+              useState
+            </strong>
+            : 使用 React Hook 管理 size 状态
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </DocumentFragment>

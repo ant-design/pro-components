@@ -1,7 +1,7 @@
 ﻿import { BetaSchemaForm } from '@ant-design/pro-components';
 import { useEffect, useRef, useState } from 'react';
 
-export default () => {
+const Demo = () => {
   const targetRef = useRef();
 
   const [requestLibData, setRequestLibData] = useState(0);
@@ -34,3 +34,9 @@ export default () => {
     />
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

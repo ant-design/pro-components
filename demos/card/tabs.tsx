@@ -5,30 +5,30 @@ import { useState } from 'react';
 
 const { Option } = Select;
 
-export default () => {
+const Demo = () => {
   const [tab, setTab] = useState('tab2');
-  const [tabPosition, setTabPosition] =
-    useState<ProCardTabsProps['tabPosition']>('top');
+  const [tabPlacement, setTabPlacement] =
+    useState<ProCardTabsProps['tabPlacement']>('top');
 
   return (
     <>
       <div>
         <Space style={{ marginBlockEnd: 16 }}>
-          Tab position：
+          Tab placement：
           <Select
-            value={tabPosition}
-            onChange={(value) => setTabPosition(value)}
+            value={tabPlacement}
+            onChange={(value) => setTabPlacement(value)}
             popupMatchSelectWidth={false}
           >
             <Option value="top">top</Option>
             <Option value="bottom">bottom</Option>
-            <Option value="left">left</Option>
-            <Option value="right">right</Option>
+            <Option value="start">start</Option>
+            <Option value="end">end</Option>
           </Select>
         </Space>
         <ProCard
           tabs={{
-            tabPosition,
+            tabPlacement,
             activeKey: tab,
             items: [
               {
@@ -65,8 +65,8 @@ export default () => {
         <h4>ProCard Tabs 动态位置 Props 说明：</h4>
         <ul>
           <li>
-            <strong>tabs.tabPosition</strong>: 标签页位置，可选值：'top' |
-            'bottom' | 'left' | 'right'
+            <strong>tabs.tabPlacement</strong>: 标签页位置，可选值：'top' |
+            'bottom' | 'start' | 'end'
           </li>
           <li>
             <strong>tabs.activeKey</strong>: 当前激活的标签页 key
@@ -87,10 +87,12 @@ export default () => {
             <strong>bottom</strong>: 标签页显示在内容下方
           </li>
           <li>
-            <strong>left</strong>: 标签页显示在内容左侧
+            <strong>start</strong>: 标签页显示在内容开始侧（LTR 为左侧，RTL
+            为右侧）
           </li>
           <li>
-            <strong>right</strong>: 标签页显示在内容右侧
+            <strong>end</strong>: 标签页显示在内容结束侧（LTR 为右侧，RTL
+            为左侧）
           </li>
         </ul>
         <h4>Select 组件配置：</h4>
@@ -112,7 +114,7 @@ export default () => {
             <strong>tab</strong>: 使用 useState 管理当前激活的标签页
           </li>
           <li>
-            <strong>tabPosition</strong>: 使用 useState 管理标签页位置
+            <strong>tabPlacement</strong>: 使用 useState 管理标签页位置
           </li>
           <li>
             <strong>动态切换</strong>: 通过 Select 组件动态切换标签页位置
@@ -161,3 +163,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

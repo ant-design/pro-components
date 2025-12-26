@@ -28,7 +28,7 @@ const loopMenuItem = (menus: any[]): MenuDataItem[] =>
     children: routes && loopMenuItem(routes),
   }));
 
-export default () => {
+const Demo = () => {
   const [keyWord, setKeyWord] = useState('');
   return (
     <div
@@ -88,3 +88,9 @@ export default () => {
     </div>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

@@ -607,10 +607,12 @@ const DynamicSettings = () => {
                             marginBlockEnd: 8,
                             position: 'relative',
                           }}
-                          bodyStyle={{
-                            padding: 8,
-                            paddingInlineEnd: 16,
-                            paddingBlockStart: 16,
+                          styles={{
+                            body: {
+                              padding: 8,
+                              paddingInlineEnd: 16,
+                              paddingBlockStart: 16,
+                            },
                           }}
                         >
                           <div
@@ -824,4 +826,8 @@ const DynamicSettingsWithDocs = () => {
   );
 };
 
-export default DynamicSettingsWithDocs;
+export default () => (
+  <div style={{ padding: 24 }}>
+    <DynamicSettingsWithDocs />
+  </div>
+);

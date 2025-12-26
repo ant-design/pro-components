@@ -30,7 +30,7 @@ const content = (
   </Descriptions>
 );
 
-export default () => {
+const Demo = () => {
   const [settings, setSetting] = useState<Partial<ProSettings> | undefined>(
     undefined,
   );
@@ -151,3 +151,9 @@ export default () => {
     </ConfigProvider>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

@@ -171,7 +171,7 @@ const ErrorTrigger = () => {
   );
 };
 
-export default () => {
+const Demo = () => {
   const [custom, setCustom] = useState(true);
   return (
     <>
@@ -281,3 +281,9 @@ export default () => {
     </ul>
   </div>;
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

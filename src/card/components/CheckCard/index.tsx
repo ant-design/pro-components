@@ -147,6 +147,12 @@ interface CheckCardProps {
    */
   bodyStyle?: React.CSSProperties;
   /**
+   * Styles configuration.
+   */
+  styles?: {
+    body?: React.CSSProperties;
+  };
+  /**
    * The action area in the bottom right corner.
    */
   actions?: React.ReactNode[];
@@ -360,7 +366,7 @@ const CheckCard: React.FC<CheckCardProps> & {
       {props.children ? (
         <div
           className={classNames(`${prefixCls}-body`, hashId)}
-          style={props.bodyStyle}
+          style={props.styles?.body || props.bodyStyle}
         >
           {props.children}
         </div>

@@ -38,8 +38,7 @@ function demoTest(component: string, options?: Options) {
   ).get;
   Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
     get() {
-      let html = this.innerHTML;
-      html = html.replace(/<[^>]*>/g, '');
+      const html = this.textContent || '';
       const lines = Math.ceil(html.length / LINE_STR_COUNT);
       return lines * 16;
     },
@@ -87,11 +86,23 @@ function demoTest(component: string, options?: Options) {
   matchMediaSpy.mockImplementation(
     (query) =>
       ({
+        matches: query === '(max-width: 575px)',
+        // 支持最新的 addEventListener API
+        addEventListener: vi.fn(
+          (event: string, cb: (e: MediaQueryListEvent) => void) => {
+            if (event === 'change') {
+              cb({
+                matches: query === '(max-width: 575px)',
+              } as MediaQueryListEvent);
+            }
+          },
+        ),
+        removeEventListener: vi.fn(),
+        // 保留旧的 API 以向后兼容
         addListener: (cb: (e: { matches: boolean }) => void) => {
           cb({ matches: query === '(max-width: 575px)' });
         },
         removeListener: vi.fn(),
-        matches: query === '(max-width: 575px)',
       }) as any,
   );
 

@@ -274,13 +274,26 @@ function StepsForm<T = Record<string, any>>(
     const itemsProps = {
       items: formArray.map((item) => {
         const itemProps = formMapRef.current.get(item);
-        return {
+        const stepItemProps: any = {
           key: item,
           title: itemProps?.title,
           ...itemProps?.stepProps,
         };
+        // Convert deprecated description to content
+        if (stepItemProps.description) {
+          stepItemProps.content = stepItemProps.description;
+          delete stepItemProps.description;
+        }
+        return stepItemProps;
       }),
     };
+
+    // Convert deprecated direction to orientation
+    const processedStepsProps = stepsProps ? { ...stepsProps } : {};
+    if ('direction' in processedStepsProps) {
+      processedStepsProps.orientation = processedStepsProps.direction;
+      delete processedStepsProps.direction;
+    }
 
     return (
       <div
@@ -290,7 +303,7 @@ function StepsForm<T = Record<string, any>>(
         }}
       >
         <Steps
-          {...stepsProps}
+          {...processedStepsProps}
           {...itemsProps}
           current={step}
           onChange={undefined}

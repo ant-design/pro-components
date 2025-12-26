@@ -3,7 +3,7 @@ import { Button, Radio, Space } from 'antd';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import React from 'react';
 
-export default () => {
+const Demo = () => {
   const [size, setSize] = React.useState<SizeType>('middle');
   return (
     <div>
@@ -20,7 +20,7 @@ export default () => {
       <br />
       <br />
 
-      <Space direction="vertical">
+      <Space orientation="vertical">
         <LightFilter
           size={size}
           initialValues={{
@@ -86,3 +86,9 @@ export default () => {
     </div>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

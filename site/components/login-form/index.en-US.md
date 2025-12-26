@@ -1,6 +1,4 @@
 ---
-nav:
-  title: Form
 group: Form
 title: LoginForm/Page
 Order: 2

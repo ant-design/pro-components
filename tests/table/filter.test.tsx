@@ -831,7 +831,7 @@ describe('BasicTable filter', () => {
         'span.ant-table-filter-trigger',
       );
       expect(filterTriggers).toHaveLength(2);
-      const [ filterTrigger1, filterTrigger2 ] = filterTriggers;
+      const [filterTrigger1, filterTrigger2] = filterTriggers;
 
       await userEvent.click(filterTrigger1);
 
@@ -903,6 +903,6 @@ describe('BasicTable filter', () => {
         },
         { timeout: 15000 },
       );
-    }, 30000)
-  })
+    }, 30000);
+  });
 });

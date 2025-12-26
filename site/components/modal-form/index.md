@@ -1,8 +1,6 @@
 ---
-nav:
-  title: Form
 group: Form
-title: Modal/Drawer - 浮层表单
+title: Modal/Drawer 浮层表单
 atomId: ModalForm,DrawerForm
 order: 2
 ---
@@ -15,11 +13,11 @@ ModalForm 和 DrawerForm 都提供了 trigger 来减少 state 的使用，如果
 
 ## Modal 表单
 
-<code src="../../../demos/form/ModalForm/modal-form.tsx"  background="var(--main-bg-color)" title="Modal 表单"></code>
+<code src="../../../demos/form/ModalForm/modal-form.tsx" background="var(--main-bg-color)"></code>
 
 ## Drawer 表单
 
-<code src="../../../demos/form/ModalForm/drawer-form.tsx"  background="var(--main-bg-color)" title="Drawer 表单"></code>
+<code src="../../../demos/form/ModalForm/drawer-form.tsx" background="var(--main-bg-color)"></code>
 
 ## 嵌套浮层表单
 
@@ -31,15 +29,15 @@ ModalForm 和 DrawerForm 都提供了 trigger 来减少 state 的使用，如果
 
 ## 自定义 Modal 表单按钮
 
-<code src="../../../demos/form/ModalForm/modal-form-submitter.tsx"  background="var(--main-bg-color)" title="自定义 Modal 表单按钮"></code>
+<code src="../../../demos/form/ModalForm/modal-form-submitter.tsx" background="var(--main-bg-color)"></code>
 
 ## 使用 open 和 onOpenChange
 
-<code src="../../../demos/form/ModalForm/open-on-open-change.tsx"  background="var(--main-bg-color)" title="使用 open 和 onOpenChange"></code>
+<code src="../../../demos/form/ModalForm/open-on-open-change.tsx" background="var(--main-bg-color)"></code>
 
 ## 重置表单
 
-<code src="../../../demos/form/ModalForm/modal-form-reset.tsx"  background="var(--main-bg-color)" title="重置表单"></code>
+<code src="../../../demos/form/ModalForm/modal-form-reset.tsx" background="var(--main-bg-color)"></code>
 
 ## API
 

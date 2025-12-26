@@ -1,6 +1,5 @@
 import type { SelectProps } from 'antd';
 import { ConfigProvider, Spin } from 'antd';
-import type { ReactNode } from 'react';
 import React, {
   useContext,
   useEffect,
@@ -49,7 +48,6 @@ export type FieldSelectProps<FieldProps = any> = {
   variant?: 'outlined' | 'filled' | 'borderless';
   id?: string;
 
-  children?: ReactNode;
   /** 默认搜素条件 */
   defaultKeyWords?: string;
 } & ProFieldLightProps;
@@ -396,8 +394,6 @@ const FieldSelect: ProFieldFC<
     formItemRender,
     request,
     fieldProps,
-    plain,
-    children,
     light,
     proFieldKey,
     params,
@@ -521,6 +517,10 @@ const FieldSelect: ProFieldFC<
           fetchData={(keyWord) => {
             keyWordsRef.current = keyWord ?? '';
             fetchData(keyWord);
+            // 当 keyWord 为 undefined 时，清空 keyWordsRef 以确保 filterOption 不进行过滤
+            if (keyWord === undefined) {
+              keyWordsRef.current = '';
+            }
           }}
           resetData={resetData}
           optionItemRender={(item) => {

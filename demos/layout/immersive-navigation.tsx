@@ -48,7 +48,7 @@ const defaultHomeProps = {
   ],
 };
 
-export default () => {
+const Demo = () => {
   const [pathname, setPathname] = useState('/admin/sub-page1');
   return (
     <>
@@ -127,7 +127,12 @@ export default () => {
               height: '100%',
               background: '#fff',
             }}
-            icon="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*aPIBS5gRPu4AAAAAAAAAAAAAARQnAQ"
+            icon={
+              <img
+                src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*aPIBS5gRPu4AAAAAAAAAAAAAARQnAQ"
+                alt="404"
+              />
+            }
             title="Hello World"
             subTitle="Sorry, you are not authorized to access this page."
             extra={<Button type="primary">Back Home</Button>}
@@ -137,3 +142,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

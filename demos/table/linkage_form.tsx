@@ -64,7 +64,7 @@ const MySelect: React.FC<{
   );
 };
 
-export default () => {
+const Demo = () => {
   const columns: ProColumns<GithubIssueItem>[] = [
     {
       title: '序号',
@@ -260,3 +260,9 @@ export default () => {
     </ul>
   </div>;
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

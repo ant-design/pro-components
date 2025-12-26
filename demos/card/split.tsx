@@ -2,7 +2,7 @@ import { ProCard } from '@ant-design/pro-components';
 import RcResizeObserver from 'rc-resize-observer';
 import { useState } from 'react';
 
-export default () => {
+const Demo = () => {
   const [responsive, setResponsive] = useState(false);
 
   return (
@@ -152,3 +152,9 @@ export default () => {
     </>
   );
 };
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);
