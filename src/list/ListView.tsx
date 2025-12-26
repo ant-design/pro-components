@@ -1,23 +1,21 @@
 import { get } from '@rc-component/util';
-import type {
-  ListProps,
-  TableColumnType,
-  TablePaginationConfig,
-  TableProps,
-} from 'antd';
+import type { ListProps, TableColumnType, TableProps } from 'antd';
 import { ConfigProvider, List } from 'antd';
 import type { AnyObject } from 'antd/lib/_util/type';
 import type { PaginationConfig } from 'antd/lib/pagination';
-import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
-import usePagination from 'antd/lib/table/hooks/usePagination';
-import useSelection from 'antd/lib/table/hooks/useSelection';
-import type { GetRowKey, TableRowSelection } from 'antd/lib/table/interface';
 import classNames from 'classnames';
 import React, { useContext } from 'react';
 import type { CheckCardProps } from '../card';
 import { ProProvider } from '../provider';
 import type { ActionType } from '../table';
 import { PRO_LIST_KEYS_MAP } from './constants';
+import {
+  useLazyKVMap,
+  usePagination,
+  useSelection,
+  type GetRowKey,
+  type TableRowSelection,
+} from './hooks';
 import type { GetComponentProps } from './index';
 import type { ItemProps } from './Item';
 import ProListItem from './Item';
@@ -99,23 +97,141 @@ function ListView<RecordType extends AnyObject>(
 
   const [getRecordByKey] = useLazyKVMap(dataSource, 'children', getRowKey);
 
-  const usePaginationArgs = [() => {}, pagination] as [
-    onChange: (current: number, pageSize: number) => void,
-    pagination?: TablePaginationConfig | false,
-  ];
+  // 管理分页内部状态
+  const [internalPagination, setInternalPagination] = React.useState<{
+    current?: number;
+    pageSize?: number;
+  }>(() => {
+    if (pagination && typeof pagination === 'object') {
+      return {
+        current: pagination.current ?? pagination.defaultCurrent ?? 1,
+        pageSize: pagination.pageSize ?? pagination.defaultPageSize ?? 10,
+      };
+    }
+    return { current: 1, pageSize: 10 };
+  });
+
+  // 同步外部 pagination 的 current 和 pageSize（受控模式）
+  React.useEffect(() => {
+    if (pagination && typeof pagination === 'object') {
+      if (pagination.current !== undefined) {
+        setInternalPagination((prev) => ({
+          ...prev,
+          current: pagination.current,
+        }));
+      }
+      if (pagination.pageSize !== undefined) {
+        setInternalPagination((prev) => ({
+          ...prev,
+          pageSize: pagination.pageSize,
+        }));
+      }
+    }
+  }, [pagination]);
+
+  // 处理分页变化
+  const handlePaginationChange = React.useCallback(
+    (current: number, pageSize: number) => {
+      setInternalPagination({ current, pageSize });
+      if (pagination && typeof pagination === 'object' && pagination.onChange) {
+        pagination.onChange(current, pageSize);
+      }
+    },
+    [pagination],
+  );
+
+  // 处理 defaultPageSize 和 defaultCurrent，更新内部状态
+  React.useEffect(() => {
+    if (pagination && typeof pagination === 'object') {
+      const finalCurrent = pagination.current ?? pagination.defaultCurrent ?? 1;
+      const finalPageSize =
+        pagination.pageSize ?? pagination.defaultPageSize ?? 10;
+
+      setInternalPagination((prev) => {
+        // 只有在值真正改变时才更新
+        if (prev.current === finalCurrent && prev.pageSize === finalPageSize) {
+          return prev;
+        }
+        return {
+          current: finalCurrent,
+          pageSize: finalPageSize,
+        };
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pagination]);
+
+  // 合并分页配置
+  const mergedPaginationConfig = React.useMemo(() => {
+    if (pagination === false) {
+      return false;
+    }
+    if (!pagination || typeof pagination !== 'object') {
+      return {
+        current: internalPagination.current ?? 1,
+        pageSize: internalPagination.pageSize ?? 10,
+        total: dataSource.length,
+        onChange: handlePaginationChange,
+        onShowSizeChange: handlePaginationChange,
+      };
+    }
+    // 处理 defaultPageSize 和 defaultCurrent
+    const finalCurrent =
+      pagination.current ??
+      pagination.defaultCurrent ??
+      internalPagination.current ??
+      1;
+    const finalPageSize =
+      pagination.pageSize ??
+      pagination.defaultPageSize ??
+      internalPagination.pageSize ??
+      10;
+
+    // 计算最终的 total：如果用户没有指定 total，使用 dataSource.length
+    // 注意：这里使用原始的 dataSource.length，而不是 pageData.length
+    const finalTotal =
+      pagination.total !== undefined ? pagination.total : dataSource.length;
+
+    // 解构 pagination，排除 total，确保使用我们计算的 finalTotal
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { total: _total, ...restPaginationProps } = pagination;
+
+    // 确保 total 被正确设置，不会被 ...pagination 覆盖
+    return {
+      ...restPaginationProps,
+      current: finalCurrent,
+      pageSize: finalPageSize,
+      onChange: handlePaginationChange,
+      onShowSizeChange: handlePaginationChange,
+      total: finalTotal, // 确保使用我们计算的 total
+    };
+  }, [
+    pagination,
+    internalPagination,
+    dataSource.length,
+    handlePaginationChange,
+  ]);
 
   // 合并分页的的配置，这里是为了兼容 antd 的分页
   const [mergedPagination] = usePagination(
     dataSource.length,
-    usePaginationArgs[0],
-    usePaginationArgs[1],
+    handlePaginationChange,
+    mergedPaginationConfig,
   );
   /** 根据分页来返回不同的数据，模拟 table */
   const pageData = React.useMemo<readonly RecordType[]>(() => {
     if (
       pagination === false ||
-      !mergedPagination.pageSize ||
-      dataSource.length < mergedPagination.total!
+      mergedPagination === false ||
+      !mergedPagination.pageSize
+    ) {
+      return dataSource;
+    }
+
+    // 如果 total 存在且小于 dataSource.length，说明是服务端分页，不需要客户端分页
+    if (
+      mergedPagination.total !== undefined &&
+      mergedPagination.total < dataSource.length
     ) {
       return dataSource;
     }
@@ -212,8 +328,9 @@ function ListView<RecordType extends AnyObject>(
       )}
       dataSource={pageData as RecordType[]}
       pagination={
-        pagination &&
-        (mergedPagination as ListViewProps<RecordType>['pagination'])
+        mergedPagination === false
+          ? false
+          : (mergedPagination as ListViewProps<RecordType>['pagination'])
       }
       renderItem={(item, index) => {
         const listItemProps: Partial<ItemProps<RecordType>> = {

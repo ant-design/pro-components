@@ -1,6 +1,6 @@
 import { Card, Skeleton } from 'antd';
-import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint';
 import React, { useMemo } from 'react';
+import useBreakpoint from '../../../utils/useBreakpoint';
 import { Line, PageHeaderSkeleton } from '../List';
 
 export type DescriptionsPageSkeletonProps = {

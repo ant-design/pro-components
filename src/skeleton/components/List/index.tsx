@@ -1,6 +1,6 @@
 import { Card, Divider, Skeleton, Space } from 'antd';
-import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint';
 import React, { useMemo } from 'react';
+import useBreakpoint from '../../../utils/useBreakpoint';
 
 /** 一条分割线 */
 export const Line = ({ padding }: { padding?: string | number }) => (

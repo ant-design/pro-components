@@ -71,7 +71,7 @@ import type {
   UseEditableMapUtilType,
 } from './useEditableMap';
 import { useEditableMap } from './useEditableMap';
-import { useBreakpoint } from './useMediaQuery';
+import { useBreakpoint as useBreakpointFromMediaQuery } from './useMediaQuery';
 import { useMountMergeState } from './useMountMergeState';
 
 export * from './typing';
@@ -116,7 +116,7 @@ export {
   stringify,
   // function
   transformKeySubmitValue,
-  useBreakpoint,
+  useBreakpointFromMediaQuery as useBreakpoint,
   useDebounceFn,
   useDebounceValue,
   useDeepCompareEffect,
