@@ -49,6 +49,11 @@ const useFetchData = <DataSource extends RequestData<any>>(
   options: UseFetchProps,
 ): UseFetchDataAction => {
   /**
+   * 记录 fetch 的 id，防止竞态条件
+   */
+  const fetchRequestId = useRef(0);
+
+  /**
    * 用于保存组件是否被卸载的状态的引用
    * @type {React.MutableRefObject<boolean>}
    */
@@ -173,6 +178,7 @@ const useFetchData = <DataSource extends RequestData<any>>(
   });
   /** 请求数据 */
   const fetchList = async (isPolling: boolean) => {
+    const currentRequestId = fetchRequestId.current;
     // 需要手动触发的首次请求
     if (manualRequestRef.current) {
       manualRequestRef.current = false;
@@ -199,6 +205,10 @@ const useFetchData = <DataSource extends RequestData<any>>(
         total = 0,
         ...rest
       } = (await getData?.(pageParams)) || {};
+      // 如果 id 不一致，说明有新请求，直接返回
+      if (currentRequestId !== fetchRequestId.current) {
+        return [];
+      }
       // 如果失败了，直接返回，不走剩下的逻辑了
       if (success === false) return [];
 
@@ -211,12 +221,18 @@ const useFetchData = <DataSource extends RequestData<any>>(
       onLoad?.(responseData, rest);
       return responseData;
     } catch (e) {
+      // 如果 id 不一致，说明有新请求，直接返回
+      if (currentRequestId !== fetchRequestId.current) {
+        return;
+      }
       // 如果没有传递这个方法的话，需要把错误抛出去，以免吞掉错误
       if (onRequestError === undefined) throw new Error(e as string);
       if (tableDataList === undefined) setTableDataList([]);
       onRequestError(e as Error);
     } finally {
-      requestFinally();
+      if (currentRequestId === fetchRequestId.current) {
+        requestFinally();
+      }
     }
 
     return [];
@@ -235,6 +251,8 @@ const useFetchData = <DataSource extends RequestData<any>>(
     if (!getData) {
       return;
     }
+
+    fetchRequestId.current += 1;
 
     const abort = new AbortController();
     abortRef.current = abort;
