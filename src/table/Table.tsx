@@ -702,6 +702,13 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     pagination,
   });
 
+  const propsCardPropsObject =
+    propsCardProps && typeof propsCardProps === 'object' ? propsCardProps : undefined;
+  const propsCardBodyStyle =
+    propsCardPropsObject?.styles?.body || propsCardPropsObject?.bodyStyle;
+  const propsCardHeaderStyle =
+    propsCardPropsObject?.styles?.header || propsCardPropsObject?.headStyle;
+
   /** Table 区域的 dom，为了方便 render */
   const tableAreaDom =
     // cardProps 或者 有了name 就不需要这个padding了，不然会导致不好对齐
@@ -714,18 +721,9 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
         styles={{
           body: {
             ...cardBodyStyle,
-            ...(propsCardProps && typeof propsCardProps === 'object'
-              ? propsCardProps.styles?.body || propsCardProps.bodyStyle
-              : {}),
+            ...(propsCardBodyStyle || {}),
           },
-          ...(propsCardProps &&
-          typeof propsCardProps === 'object' &&
-          (propsCardProps.styles?.header || propsCardProps.headStyle)
-            ? {
-                header:
-                  propsCardProps.styles?.header || propsCardProps.headStyle,
-              }
-            : {}),
+          ...(propsCardHeaderStyle ? { header: propsCardHeaderStyle } : {}),
         }}
         {...propsCardProps}
       >
