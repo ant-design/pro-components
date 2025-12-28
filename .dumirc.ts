@@ -3,6 +3,7 @@ import path from 'path';
 
 export default defineConfig({
   title: 'ProComponents',
+  exportStatic: {},
   sitemap: { hostname: 'https://procomponents.ant.design' },
   alias: {
     '@ant-design/pro-components': path.resolve(__dirname, 'src'),
