@@ -868,6 +868,29 @@ const ProTable = <
     return {};
   });
 
+  /**
+   * `actionRef.current?.reset()` 会在同一事件循环里同步调用 `action.reload()`。
+   * 由于 React state 更新是异步的，如果仅 setState，reload 可能仍读取到旧的 formSearch。
+   * 使用 ref 作为请求参数的同步来源，保证 reset/toolbar 等场景下参数与表单展示一致。
+   */
+  const formSearchRef = useRef<Record<string, any> | undefined>(formSearch);
+  const setFormSearchWithRef = useCallback(
+    (
+      next:
+        | Record<string, any>
+        | undefined
+        | ((
+            prev: Record<string, any> | undefined,
+          ) => Record<string, any> | undefined),
+    ) => {
+      const nextValue =
+        typeof next === 'function' ? next(formSearchRef.current) : next;
+      formSearchRef.current = nextValue;
+      setFormSearch(nextValue);
+    },
+    [setFormSearch],
+  );
+
   const { defaultProFilter, defaultProSort } = useMemo(() => {
     const { sort, filter } = parseServerDefaultColumnConfig(
       flattenColumns(propsColumns),
@@ -898,7 +921,7 @@ const ProTable = <
     return async (pageParams?: Record<string, any>) => {
       const actionParams = {
         ...(pageParams || {}),
-        ...formSearch,
+        ...(formSearchRef.current || {}),
         ...params,
       };
 
@@ -1079,6 +1102,13 @@ const ProTable = <
 
       // 重置表单
       formRef?.current?.resetFields();
+
+      // 同步更新请求参数，避免 resetFields 后请求仍使用旧的 formSearch
+      const resetValues = formRef?.current?.getFieldsValue?.(true) ?? {};
+      const nextSearch = beforeSearchSubmit
+        ? beforeSearchSubmit(resetValues)
+        : resetValues;
+      setFormSearchWithRef((nextSearch ?? {}) as any);
     },
     editableUtils,
     scrollTo: (arg) => (antTableRef as any)?.current?.scrollTo?.(arg),
@@ -1179,7 +1209,7 @@ const ProTable = <
         );
 
         if (success !== false) {
-          setFormSearch({
+          setFormSearchWithRef({
             ...values,
             [name]: counter.keyWords,
           });
@@ -1187,9 +1217,9 @@ const ProTable = <
         }
       }
 
-      setFormSearch(values);
+      setFormSearchWithRef(values);
     },
-    [counter.keyWords, options, setFormSearch],
+    [counter.keyWords, options, setFormSearchWithRef],
   );
 
   const loading = useMemo(() => {
@@ -1249,7 +1279,7 @@ const ProTable = <
     options,
     optionsRender,
     actionRef,
-    setFormSearch,
+    setFormSearch: setFormSearchWithRef,
     formSearch,
   });
 
