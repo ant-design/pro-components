@@ -28,7 +28,7 @@ import {
   isBordered,
 } from './utils';
 
-function useEditableDataSource<T>({
+function getEditableDataSource<T>({
   dataSource,
   editableUtils,
   pagination,
@@ -50,65 +50,55 @@ function useEditableDataSource<T>({
   getRowKey: GetRowKey<any>;
   childrenColumnName?: string;
 }): T[] {
-  return useMemo(() => {
-    const baseData = Array.isArray(dataSource) ? [...dataSource] : [];
-    const newLineConfig = editableUtils?.newLineRecord;
-    const defaultValue = newLineConfig?.defaultValue;
+  const baseData = Array.isArray(dataSource) ? [...dataSource] : [];
+  const newLineConfig = editableUtils?.newLineRecord;
+  const defaultValue = newLineConfig?.defaultValue;
 
-    if (!newLineConfig || !defaultValue) {
-      return baseData;
-    }
-
-    const { options: newLineOptions } = newLineConfig;
-    const childrenName = childrenColumnName || 'children';
-
-    if (newLineOptions?.parentKey) {
-      const newRow = {
-        ...defaultValue,
-        map_row_parentKey: recordKeyToString(
-          newLineOptions.parentKey,
-        )?.toString(),
-      };
-      const actionProps = {
-        data: baseData,
-        getRowKey,
-        row: newRow,
-        key: newLineOptions?.recordKey ?? getRowKey(newRow as T, -1),
-        childrenColumnName: childrenName,
-      };
-
-      return editableRowByKey(
-        actionProps,
-        newLineOptions?.position === 'top' ? 'top' : 'update',
-      );
-    }
-
-    if (newLineOptions?.position === 'top') {
-      return [defaultValue, ...baseData];
-    }
-
-    const pageConfig =
-      pagination && typeof pagination === 'object' ? pagination : undefined;
-
-    if (pageConfig?.current && pageConfig?.pageSize) {
-      if (pageConfig.pageSize > baseData.length) {
-        baseData.push(defaultValue);
-        return baseData;
-      }
-      const insertIndex = pageConfig.current * pageConfig.pageSize - 1;
-      baseData.splice(insertIndex, 0, defaultValue);
-      return baseData;
-    }
-
-    baseData.push(defaultValue);
+  if (!newLineConfig || !defaultValue) {
     return baseData;
-  }, [
-    childrenColumnName,
-    dataSource,
-    editableUtils?.newLineRecord,
-    getRowKey,
-    pagination,
-  ]);
+  }
+
+  const { options: newLineOptions } = newLineConfig;
+  const childrenName = childrenColumnName || 'children';
+
+  if (newLineOptions?.parentKey) {
+    const newRow = {
+      ...defaultValue,
+      map_row_parentKey: recordKeyToString(newLineOptions.parentKey)?.toString(),
+    };
+    const actionProps = {
+      data: baseData,
+      getRowKey,
+      row: newRow,
+      key: newLineOptions?.recordKey ?? getRowKey(newRow as T, -1),
+      childrenColumnName: childrenName,
+    };
+
+    return editableRowByKey(
+      actionProps,
+      newLineOptions?.position === 'top' ? 'top' : 'update',
+    );
+  }
+
+  if (newLineOptions?.position === 'top') {
+    return [defaultValue, ...baseData];
+  }
+
+  const pageConfig =
+    pagination && typeof pagination === 'object' ? pagination : undefined;
+
+  if (pageConfig?.current && pageConfig?.pageSize) {
+    if (pageConfig.pageSize > baseData.length) {
+      baseData.push(defaultValue);
+      return baseData;
+    }
+    const insertIndex = pageConfig.current * pageConfig.pageSize - 1;
+    baseData.splice(insertIndex, 0, defaultValue);
+    return baseData;
+  }
+
+  baseData.push(defaultValue);
+  return baseData;
 }
 
 function getTableCardBodyStyle({
@@ -140,64 +130,6 @@ function getTableCardBodyStyle({
   }
 
   return { padding: 0 };
-}
-
-function useTableContent<T>({
-  editable,
-  name,
-  toolbarDom,
-  alertDom,
-  tableDom,
-  dateFormatter,
-  editableOnValuesChange,
-}: {
-  editable: ProTableProps<T, any, any>['editable'];
-  name: ProTableProps<T, any, any>['name'];
-  toolbarDom: React.ReactNode;
-  alertDom: React.ReactNode;
-  tableDom: React.ReactNode;
-  dateFormatter: ProTableProps<T, any, any>['dateFormatter'];
-  editableOnValuesChange: ((record: T, dataSource: T[]) => void) | undefined;
-}): React.ReactNode {
-  return useMemo(() => {
-    if (editable && !name) {
-      return (
-        <>
-          {toolbarDom}
-          {alertDom}
-          <ProForm
-            {...(editable.formProps as any)}
-            formRef={editable.formProps?.formRef as any}
-            component={false}
-            form={editable.form}
-            onValuesChange={editableOnValuesChange}
-            key="table"
-            submitter={false}
-            omitNil={false}
-            dateFormatter={dateFormatter}
-          >
-            {tableDom}
-          </ProForm>
-        </>
-      );
-    }
-
-    return (
-      <>
-        {toolbarDom}
-        {alertDom}
-        {tableDom}
-      </>
-    );
-  }, [
-    alertDom,
-    dateFormatter,
-    editable,
-    editableOnValuesChange,
-    name,
-    tableDom,
-    toolbarDom,
-  ]);
 }
 
 export function TableRender<T extends Record<string, any>, U, ValueType>(
@@ -249,13 +181,21 @@ export function TableRender<T extends Record<string, any>, U, ValueType>(
   } = props;
   const counter = useContext(TableContext);
 
-  const mergedDataSource = useEditableDataSource<T>({
-    dataSource: action.dataSource,
-    editableUtils,
-    pagination,
+  const mergedDataSource = useMemo(() => {
+    return getEditableDataSource<T>({
+      dataSource: action.dataSource,
+      editableUtils,
+      pagination,
+      getRowKey,
+      childrenColumnName: props.expandable?.childrenColumnName || 'children',
+    });
+  }, [
+    action.dataSource,
+    editableUtils?.newLineRecord,
     getRowKey,
-    childrenColumnName: props.expandable?.childrenColumnName || 'children',
-  });
+    pagination,
+    props.expandable?.childrenColumnName,
+  ]);
 
   /** 需要遍历一下，不然不支持嵌套表格 */
   const columns = useMemo(() => {
@@ -345,15 +285,32 @@ export function TableRender<T extends Record<string, any>, U, ValueType>(
       )
     : baseTableDom;
 
-  const tableContentDom = useTableContent<T>({
-    editable: props.editable,
-    name: props.name,
-    toolbarDom,
-    alertDom,
-    tableDom,
-    dateFormatter: props.dateFormatter,
-    editableOnValuesChange: editableUtils.onValuesChange,
-  });
+  const tableContentDom =
+    props.editable && !props.name ? (
+      <>
+        {toolbarDom}
+        {alertDom}
+        <ProForm
+          {...(props.editable.formProps as any)}
+          formRef={props.editable.formProps?.formRef as any}
+          component={false}
+          form={props.editable.form}
+          onValuesChange={editableUtils.onValuesChange}
+          key="table"
+          submitter={false}
+          omitNil={false}
+          dateFormatter={props.dateFormatter}
+        >
+          {tableDom}
+        </ProForm>
+      </>
+    ) : (
+      <>
+        {toolbarDom}
+        {alertDom}
+        {tableDom}
+      </>
+    );
 
   const cardBodyStyle = getTableCardBodyStyle({
     propsCardProps,
