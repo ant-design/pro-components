@@ -111,43 +111,35 @@ function useEditableDataSource<T>({
   ]);
 }
 
-function useTableCardBodyStyle({
+function getTableCardBodyStyle({
   propsCardProps,
   notNeedCardDom,
   name,
   hideToolbar,
   toolbarDom,
-  pagination,
 }: {
   propsCardProps: ProTableProps<any, any, any>['cardProps'];
   notNeedCardDom: boolean;
   name: ProTableProps<any, any, any>['name'];
   hideToolbar: boolean;
   toolbarDom: React.ReactNode;
-  pagination: ProTableProps<any, any, any>['pagination'];
 }): React.CSSProperties {
-  return useMemo(() => {
-    if (propsCardProps === false || notNeedCardDom || !!name) {
-      return {};
-    }
+  // cardProps === false 或存在 name 的场景不需要额外 padding 处理
+  if (propsCardProps === false || notNeedCardDom || !!name) {
+    return {};
+  }
 
-    if (hideToolbar) {
-      return { padding: 0 };
-    }
-
-    if (toolbarDom) {
-      return { paddingBlockStart: 0 };
-    }
-
+  // 显式隐藏 toolbar 时，统一不留 padding（避免误用 paddingBlockStart）
+  if (hideToolbar) {
     return { padding: 0 };
-  }, [
-    hideToolbar,
-    name,
-    notNeedCardDom,
-    pagination,
-    propsCardProps,
-    toolbarDom,
-  ]);
+  }
+
+  // 有 toolbar 的场景，需要让 ProCard body 顶部与 toolbar 对齐
+  if (toolbarDom) {
+    return { paddingBlockStart: 0 };
+  }
+
+  return { padding: 0 };
 }
 
 function useTableContent<T>({
@@ -326,16 +318,8 @@ export function TableRender<T extends Record<string, any>, U, ValueType>(
   /**
    * 是否需要 card 来包裹
    */
-  const notNeedCardDom = useMemo(() => {
-    if (
-      props.search === false &&
-      !props.headerTitle &&
-      props.toolBarRender === false
-    ) {
-      return true;
-    }
-    return false;
-  }, []);
+  const notNeedCardDom =
+    props.search === false && !props.headerTitle && props.toolBarRender === false;
 
   /** 默认的 table dom，如果是编辑模式，外面还要包个 form */
   const baseTableDom = (
@@ -371,13 +355,12 @@ export function TableRender<T extends Record<string, any>, U, ValueType>(
     editableOnValuesChange: editableUtils.onValuesChange,
   });
 
-  const cardBodyStyle = useTableCardBodyStyle({
+  const cardBodyStyle = getTableCardBodyStyle({
     propsCardProps,
     notNeedCardDom,
     name: props.name,
     hideToolbar,
     toolbarDom,
-    pagination,
   });
 
   /** Table 区域的 dom，为了方便 render */
