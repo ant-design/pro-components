@@ -65,7 +65,7 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
       onOpenChange={onOpenChange}
       styles={{
         ...popoverProps?.styles,
-        container: { padding: 0, ...popoverProps?.styles?.container },
+        container: { ...popoverProps?.styles?.container, padding: 0 },
       }}
       content={
         <div
