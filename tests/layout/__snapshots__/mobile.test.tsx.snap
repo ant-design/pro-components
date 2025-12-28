@@ -407,7 +407,7 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
         tabindex="-1"
       >
         <div
-          class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-start ant-drawer-mask-motion ant-drawer-mask-blur"
+          class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-active ant-drawer-mask-motion ant-drawer-mask-blur"
         />
         <div
           aria-hidden="true"
@@ -416,7 +416,7 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
           tabindex="0"
         />
         <div
-          class="ant-drawer-content-wrapper ant-drawer-panel-motion-left-appear ant-drawer-panel-motion-left-appear-start ant-drawer-panel-motion-left"
+          class="ant-drawer-content-wrapper ant-drawer-panel-motion-left-appear ant-drawer-panel-motion-left-appear-active ant-drawer-panel-motion-left"
           style="width: 215px;"
         >
           <div
@@ -447,7 +447,7 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
                       tabindex="0"
                     >
                       <li
-                        class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-inline-submenu ant-menu-submenu-open"
+                        class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-inline-submenu ant-menu-submenu-open ant-menu-submenu-selected"
                         role="none"
                       >
                         <div
