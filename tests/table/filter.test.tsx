@@ -234,6 +234,70 @@ describe('BasicTable filter', () => {
     expect(fn).not.toHaveBeenCalled();
   });
 
+  it('🎏 should not trigger request when filtering locally with custom onFilter', async () => {
+    const fn = vi.fn();
+    const { container } = render(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            title: 'Name',
+            dataIndex: 'name',
+          },
+          {
+            title: '状态',
+            dataIndex: 'status',
+            filters: [
+              { text: '启用', value: 'enabled' },
+              { text: '禁用', value: 'disabled' },
+            ],
+            onFilter: (value, record) => record.status === value,
+          },
+        ]}
+        request={async () => {
+          fn();
+          return {
+            total: 3,
+            success: true,
+            data: [
+              { key: '1', name: '项目 A', status: 'enabled' },
+              { key: '2', name: '项目 B', status: 'disabled' },
+              { key: '3', name: '项目 C', status: 'enabled' },
+            ],
+          };
+        }}
+        rowKey="key"
+        pagination={false}
+        search={false}
+      />,
+    );
+
+    await waitFor(() => {
+      expect(screen.queryByText('项目 A')).toBeInTheDocument();
+      expect(screen.queryByText('项目 B')).toBeInTheDocument();
+      expect(screen.queryByText('项目 C')).toBeInTheDocument();
+      fn.mockClear(); // 清除初始 request 调用
+    });
+
+    await userEvent.click(
+      container.querySelector('span.ant-table-filter-trigger')!,
+    );
+    await userEvent.click(screen.getByRole('menuitem', { name: /启用/i }));
+    await userEvent.click(
+      container.querySelector(
+        '.ant-table-filter-dropdown-btns .ant-btn-primary',
+      )!,
+    );
+
+    await waitFor(() => {
+      expect(screen.queryByText('项目 A')).toBeInTheDocument();
+      expect(screen.queryByText('项目 C')).toBeInTheDocument();
+      expect(screen.queryByText('项目 B')).not.toBeInTheDocument();
+    });
+
+    expect(fn).not.toHaveBeenCalled();
+  });
+
   it('🎏 should filter date request', async () => {
     const fn = vi.fn();
     const { container } = render(
