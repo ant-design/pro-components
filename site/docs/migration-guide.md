@@ -15,7 +15,7 @@ ProComponents 3.0 是一个主要版本升级，包含了一些破坏性变更�
 
 | 依赖  | 2.x 基线    | 3.0 最低要求 |
 | ----- | ----------- | ------------ |
-| antd  | `>= 4.20.0` | `>= 5.11.2`  |
+| antd  | `>= 4.20.0` | `>= 6.0.0`   |
 | React | `>= 16.9.0` | `>= 18.0.0`  |
 
 #### 子包版本对齐
@@ -47,7 +47,7 @@ ProComponents 3.0 是一个主要版本升级，包含了一些破坏性变更�
 以下以 `pnpm` 为例（如使用 `npm` 或 `yarn` 请替换为对应命令）：
 
 ```bash
-pnpm up antd@^5.11.2
+pnpm up antd@^6.0.0
 pnpm up @ant-design/pro-components@^3.0.0-beta.1
 pnpm install
 ```
@@ -405,7 +405,7 @@ const token = {
 
 #### 1. 移除 antd@4 兼容性代码
 
-**变更原因**: 专注于 antd@5 支持，简化代码库
+**变更原因**: 专注于 antd@6 支持，简化代码库
 
 - 移除了 `compareVersions` 工具函数
 - 移除了 `coverToNewToken` 兼容性函数
@@ -471,7 +471,7 @@ interface DataType {
 
 ```bash
 # 升级核心依赖
-pnpm up antd@^5.11.2
+pnpm up antd@^6.0.0
 pnpm up @ant-design/pro-components@^3.0.0-beta.1
 
 # 同步安装锁定版本
@@ -558,7 +558,7 @@ A: `actionsRender` 需要返回 `ReactNode[]` 或单个 `ReactNode`，请确认�
 
 ### Q: 升级后样式异常怎么办？
 
-A: 首先确认 antd 已升级至 5.11.2+，接着排查是否还有自定义样式引用了被移除的类名（如 `.ant-pro-card-tabpane`）。Token 重命名后，LESS/SCSS 中的变量也需要同步更新。
+A: 首先确认 antd 已升级至 6.0.0+，接着排查是否还有自定义样式引用了被移除的类名（如 `.ant-pro-card-tabpane`）。Token 重命名后，LESS/SCSS 中的变量也需要同步更新。
 
 ### Q: 升级后功能不工作怎么办？
 
@@ -587,6 +587,6 @@ ProComponents 3.0 的升级主要是为了：
 1. **简化代码库** - 移除废弃的兼容性代码
 2. **提高性能** - 减少不必要的检查和警告
 3. **统一 API** - 提供更一致的开发体验
-4. **现代化** - 专注于 antd@5 和现代 React 特性
+4. **现代化** - 专注于 antd@6 和现代 React 特性
 
 虽然升级过程可能需要一些工作，但这些改进将为未来的开发提供更好的基础。如果在迁移过程中遇到任何问题，请参考官方文档或提交 issue。

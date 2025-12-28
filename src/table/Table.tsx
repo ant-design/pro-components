@@ -702,16 +702,29 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     pagination,
   });
 
+  const propsCardPropsObject =
+    propsCardProps && typeof propsCardProps === 'object' ? propsCardProps : undefined;
+  const propsCardBodyStyle =
+    propsCardPropsObject?.styles?.body || propsCardPropsObject?.bodyStyle;
+  const propsCardHeaderStyle =
+    propsCardPropsObject?.styles?.header || propsCardPropsObject?.headStyle;
+
   /** Table 区域的 dom，为了方便 render */
   const tableAreaDom =
     // cardProps 或者 有了name 就不需要这个padding了，不然会导致不好对齐
-    propsCardProps === false || notNeedCardDom === true || !!props.name ? (
+    propsCardProps === false || notNeedCardDom || !!props.name ? (
       tableContentDom
     ) : (
       <ProCard
         ghost={props.ghost}
         variant={isBordered('table', cardBordered) ? 'outlined' : 'borderless'}
-        styles={{ body: cardBodyStyle }}
+        styles={{
+          body: {
+            ...cardBodyStyle,
+            ...(propsCardBodyStyle || {}),
+          },
+          ...(propsCardHeaderStyle ? { header: propsCardHeaderStyle } : {}),
+        }}
         {...propsCardProps}
       >
         {tableContentDom}
@@ -1255,7 +1268,7 @@ const ProTable = <
       onSizeChange={counter.setTableSize}
       pagination={pagination}
       searchNode={searchNode}
-      rowSelection={propsRowSelection !== false ? rowSelection : undefined}
+      rowSelection={propsRowSelection ? rowSelection : undefined}
       className={className}
       tableColumn={tableColumn}
       isLightFilter={isLightFilter}

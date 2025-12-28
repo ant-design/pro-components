@@ -314,6 +314,65 @@ describe('BasicTable sorter', () => {
     expect(fn).not.toHaveBeenCalled();
   }, 15000);
 
+  it('🎏 should not trigger request when sorting locally with compare object sorter', async () => {
+    const fn = vi.fn();
+    const { container } = render(
+      <ProTable<{ money: number }>
+        size="small"
+        columns={[
+          {
+            title: 'Name',
+            key: 'name',
+            dataIndex: 'name',
+          },
+          {
+            title: 'money',
+            key: 'money',
+            dataIndex: 'money',
+            sorter: {
+              compare: (a, b) => a.money - b.money,
+              multiple: 1,
+            },
+          },
+        ]}
+        request={async () => {
+          fn();
+          return {
+            total: 3,
+            success: true,
+            data: [
+              { key: '1', name: '项目 A', money: 100 },
+              { key: '2', name: '项目 B', money: 250 },
+              { key: '3', name: '项目 C', money: 150 },
+            ],
+          };
+        }}
+        rowKey="key"
+        pagination={false}
+        search={false}
+      />,
+    );
+
+    await waitFor(() => {
+      const rows = container.querySelectorAll('.ant-table-row');
+      expect(rows).toHaveLength(3);
+      fn.mockClear(); // 清除初始 request 调用
+    });
+
+    await userEvent.click(
+      container.querySelector('span.ant-table-column-sorter-down')!,
+    );
+
+    await waitFor(() => {
+      const rows = container.querySelectorAll('.ant-table-row');
+      expect(rows[0].firstChild?.textContent).toContain('项目 A');
+      expect(rows[1].firstChild?.textContent).toContain('项目 C');
+      expect(rows[2].firstChild?.textContent).toContain('项目 B');
+    });
+
+    expect(fn).not.toHaveBeenCalled();
+  });
+
   it('🎏 should sort data request', async () => {
     const fn = vi.fn();
     const { container } = render(

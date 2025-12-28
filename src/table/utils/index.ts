@@ -224,7 +224,7 @@ export const flattenColumns = (data: any[]) => {
  * @param onFilter 筛选函数
  * @returns 是否为本地筛选
  */
-export const isLocaleFilter = <T>(
+export const isLocalFilter = <T>(
   filters: ProColumnType<T>['filters'],
   onFilter: ProColumnType<T>['onFilter'],
 ) => {
@@ -232,16 +232,28 @@ export const isLocaleFilter = <T>(
 };
 
 /**
+ * @deprecated typo kept for backward compatibility
+ * use `isLocalFilter` instead
+ */
+export const isLocaleFilter = isLocalFilter;
+
+/**
  * 判断是否为本地排序
  * @param sorter 排序配置
  * @returns 是否为本地排序
  */
-export const isLocaleSorter = <T>(sorter: ProSorter<T>) => {
+export const isLocalSorter = <T>(sorter: ProSorter<T>) => {
   return (
     typeof sorter === 'function' ||
     (typeof sorter === 'object' && typeof sorter.compare === 'function')
   );
 };
+
+/**
+ * @deprecated typo kept for backward compatibility
+ * use `isLocalSorter` instead
+ */
+export const isLocaleSorter = isLocalSorter;
 
 /**
  * 获取服务端筛选数据
@@ -259,7 +271,7 @@ export const getServerFilterResult = <T>(
       const column = columns.find(
         (column) => parseDataIndex(column.dataIndex) === key,
       );
-      if (column != null && !isLocaleFilter(column.filters, column.onFilter))
+      if (column != null && !isLocalFilter(column.filters, column.onFilter))
         acc[key] = value as FilterValue;
 
       return acc;
@@ -281,7 +293,7 @@ export const getServerSorterResult = <T>(
   const serverSorter = result.reduce<Record<string, SortOrder | undefined>>(
     (acc, item) => {
       const sorter = item.column?.sorter;
-      if (sorter != null && isLocaleSorter<T>(sorter)) return acc;
+      if (sorter != null && isLocalSorter<T>(sorter)) return acc;
 
       const sortKey =
         typeof sorter === 'string'
@@ -311,12 +323,12 @@ export const parseServerDefaultColumnConfig = <T, Value>(
     if (!dataIndex) return; // 没有 dataIndex 的列不参与服务端排序/筛选
 
     // 当 column 启用服务端 filters 功能时，取出默认的筛选值
-    if (column.filters && !isLocaleFilter(column.filters, column.onFilter)) {
+    if (column.filters && !isLocalFilter(column.filters, column.onFilter)) {
       filter[dataIndex] = (column.defaultFilteredValue as FilterValue) ?? null;
     }
 
     // 当 column 启用服务端 sorter 功能时，取出默认的排序值
-    if (column.sorter && !isLocaleSorter(column.sorter)) {
+    if (column.sorter && !isLocalSorter(column.sorter)) {
       if (typeof column.sorter === 'string') {
         sort[column.sorter] = column.defaultSortOrder ?? null;
       } else {
@@ -346,7 +358,7 @@ export const parseProSortOrder = <T>(
   if (sorter == null) return undefined;
 
   // 如果是本地排序，不使用 proSort 中的值
-  if (isLocaleSorter(sorter)) return undefined;
+  if (isLocalSorter(sorter)) return undefined;
 
   // 服务端排序：确定排序键
   const sortKey =
@@ -381,7 +393,7 @@ export const parseProFilteredValue = <T>(
   if (filters == null) return undefined;
 
   // 如果是本地筛选，不使用 proFilter 中的值
-  if (isLocaleFilter(filters, onFilter)) return undefined;
+  if (isLocalFilter(filters, onFilter)) return undefined;
 
   // 服务端排序：获取筛选键
   const filterKey = parseDataIndex(dataIndex);
