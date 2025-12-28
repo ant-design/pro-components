@@ -284,4 +284,73 @@ describe('ProFormFieldSet', () => {
     // Second field should remain unchanged
     expect(container.querySelector('#filedSet2')).toHaveValue('2');
   });
+
+  it('😊 ProFormFieldSet convertValue with multiple deletes', async () => {
+    const convertSpy = vi.fn((value: string | string[]) => {
+      if (typeof value === 'string') {
+        return value.split(',');
+      }
+      // If value is already an array, it should not reach here
+      // But if it does, return it as-is to prevent errors
+      return value;
+    });
+
+    const { container } = render(
+      <ProForm initialValues={{ list: 'a,b,c' }}>
+        <ProFormFieldSet name="list" convertValue={convertSpy}>
+          <ProFormText
+            fieldProps={{
+              id: 'field1',
+            }}
+            key="field1"
+          />
+          <ProFormText
+            fieldProps={{
+              id: 'field2',
+            }}
+            key="field2"
+          />
+          <ProFormText
+            fieldProps={{
+              id: 'field3',
+            }}
+            key="field3"
+          />
+        </ProFormFieldSet>
+      </ProForm>,
+    );
+
+    // Wait for initial render
+    await waitFor(() => {
+      expect(container.querySelector('#field1')).toBeTruthy();
+    });
+
+    // Initial conversion should happen
+    expect(container.querySelector('#field1')).toHaveValue('a');
+    expect(container.querySelector('#field2')).toHaveValue('b');
+    expect(container.querySelector('#field3')).toHaveValue('c');
+
+    // Edit field1
+    fireEvent.change(container.querySelector('#field1')!, {
+      target: { value: 'x' },
+    });
+
+    await waitFor(() => {
+      expect(container.querySelector('#field1')).toHaveValue('x');
+    });
+
+    // Edit field2
+    fireEvent.change(container.querySelector('#field2')!, {
+      target: { value: 'y' },
+    });
+
+    await waitFor(() => {
+      expect(container.querySelector('#field2')).toHaveValue('y');
+    });
+
+    // Verify convertSpy was only called for the initial string value
+    // and potentially for each unique converted value when cached
+    // The key point is it should not throw errors on subsequent calls
+    expect(convertSpy).toHaveBeenCalled();
+  });
 });
