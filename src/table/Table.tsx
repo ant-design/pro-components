@@ -263,12 +263,7 @@ const ProTable = <
   const formSearchRef = useRef<Record<string, any> | undefined>(formSearch);
   const setFormSearchWithRef = useCallback(
     (
-      next:
-        | Record<string, any>
-        | undefined
-        | ((
-            prev: Record<string, any> | undefined,
-          ) => Record<string, any> | undefined),
+      next: React.SetStateAction<Record<string, any> | undefined>,
     ) => {
       const nextValue =
         typeof next === 'function' ? next(formSearchRef.current) : next;
