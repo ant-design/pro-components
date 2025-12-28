@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react';
 import type { Key } from 'react';
-import type { ActionType } from '..';
-import type { ProTableProps } from '../typing';
-import Toolbar from '../components/ToolBar';
+import type { ActionType } from '.';
+import type { ProTableProps } from './typing';
+import Toolbar from './components/ToolBar';
 
-export type CreatorToolbarContext<T extends Record<string, any>> = {
+export type TableToolbarProps<T extends Record<string, any>> = {
   toolBarRender: ProTableProps<T, any, any>['toolBarRender'];
   headerTitle: ProTableProps<T, any, any>['headerTitle'];
   hideToolbar: boolean;
@@ -22,8 +22,8 @@ export type CreatorToolbarContext<T extends Record<string, any>> = {
   formSearch: Record<string, any> | undefined;
 };
 
-export function useToolbarDom<T extends Record<string, any>>(
-  context: CreatorToolbarContext<T>,
+export function TableToolbar<T extends Record<string, any>>(
+  props: TableToolbarProps<T>,
 ): React.ReactNode {
   const {
     toolBarRender,
@@ -41,7 +41,7 @@ export function useToolbarDom<T extends Record<string, any>>(
     actionRef,
     setFormSearch,
     formSearch,
-  } = context;
+  } = props;
 
   return useMemo(() => {
     if (toolBarRender === false) {

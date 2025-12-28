@@ -56,9 +56,9 @@ import {
 } from './utils';
 import { columnSort } from './utils/columnSort';
 import { genProColumnToColumn } from './utils/genProColumnToColumn';
-import { useSearchNode } from './hooks/useSearchNode';
-import { useToolbarDom, type CreatorToolbarContext } from './hooks/useToolbarDom';
 import { TableRender } from './TableRender';
+import { TableSearch } from './TableSearch';
+import { TableToolbar } from './TableToolbar';
 
 function useRowKey<T>({
   rowKey,
@@ -616,26 +616,28 @@ const ProTable = <
     return action.loading;
   }, [action.loading]);
 
-  const searchNode = useSearchNode<T, U, ValueType>({
-    search,
-    type,
-    pagination,
-    beforeSearchSubmit,
-    actionRef,
-    columns: propsColumns,
-    onFormSearchSubmit,
-    ghost,
-    onReset: props.onReset,
-    onSubmit: props.onSubmit,
-    loading: !!loading,
-    manualRequest,
-    form: props.form,
-    formRef,
-    cardBordered: props.cardBordered,
-    dateFormatter: props.dateFormatter,
-    searchFormRender,
-    proTableProps: props,
-  });
+  const searchNode = (
+    <TableSearch<T, U, ValueType>
+      search={search}
+      type={type}
+      pagination={pagination}
+      beforeSearchSubmit={beforeSearchSubmit}
+      actionRef={actionRef}
+      columns={propsColumns}
+      onFormSearchSubmit={onFormSearchSubmit}
+      ghost={ghost}
+      onReset={props.onReset}
+      onSubmit={props.onSubmit}
+      loading={!!loading}
+      manualRequest={manualRequest}
+      form={props.form}
+      formRef={formRef}
+      cardBordered={props.cardBordered}
+      dateFormatter={props.dateFormatter}
+      searchFormRender={searchFormRender}
+      proTableProps={props}
+    />
+  );
 
   const selectedRows = useMemo(
     () => selectedRowKeys?.map((key) => preserveRecordsRef.current?.get(key)),
@@ -652,23 +654,25 @@ const ProTable = <
     [options, headerTitle, toolBarRender, toolbar, isLightFilter],
   );
 
-  const toolbarDom = useToolbarDom<T>({
-    toolBarRender,
-    headerTitle,
-    hideToolbar,
-    selectedRows,
-    selectedRowKeys,
-    tableColumn,
-    tooltip,
-    toolbar,
-    isLightFilter,
-    searchNode,
-    options,
-    optionsRender,
-    actionRef,
-    setFormSearch: setFormSearchWithRef,
-    formSearch,
-  });
+  const toolbarDom = (
+    <TableToolbar<T>
+      toolBarRender={toolBarRender}
+      headerTitle={headerTitle}
+      hideToolbar={hideToolbar}
+      selectedRows={selectedRows}
+      selectedRowKeys={selectedRowKeys}
+      tableColumn={tableColumn}
+      tooltip={tooltip}
+      toolbar={toolbar}
+      isLightFilter={isLightFilter}
+      searchNode={searchNode}
+      options={options}
+      optionsRender={optionsRender}
+      actionRef={actionRef}
+      setFormSearch={setFormSearchWithRef}
+      formSearch={formSearch}
+    />
+  );
 
   const alertDom = useAlertDom<T>({
     propsRowSelection,

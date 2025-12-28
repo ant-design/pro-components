@@ -1,28 +1,9 @@
 import React, { useMemo } from 'react';
-import type { ParamsType } from '../../provider';
-import type { ActionType, ProTableProps } from '../typing';
-import FormRender from '../components/Form';
+import type { ParamsType } from '../provider';
+import type { ActionType, ProTableProps } from './typing';
+import FormRender from './components/Form';
 
-export function useSearchNode<T extends Record<string, any>, U, ValueType>({
-  search,
-  type,
-  pagination,
-  beforeSearchSubmit,
-  actionRef,
-  columns,
-  onFormSearchSubmit,
-  ghost,
-  onReset,
-  onSubmit,
-  loading,
-  manualRequest,
-  form,
-  formRef,
-  cardBordered,
-  dateFormatter,
-  searchFormRender,
-  proTableProps,
-}: {
+export type TableSearchProps<T extends Record<string, any>, U, ValueType> = {
   search: ProTableProps<T, U, ValueType>['search'];
   type: ProTableProps<T, U, ValueType>['type'];
   pagination: ProTableProps<T, U, ValueType>['pagination'];
@@ -41,7 +22,32 @@ export function useSearchNode<T extends Record<string, any>, U, ValueType>({
   dateFormatter: ProTableProps<T, U, ValueType>['dateFormatter'];
   searchFormRender: ProTableProps<T, U, ValueType>['searchFormRender'];
   proTableProps: ProTableProps<T, U, ValueType>;
-}): React.ReactNode {
+};
+
+export function TableSearch<T extends Record<string, any>, U, ValueType>(
+  props: TableSearchProps<T, U, ValueType>,
+): React.ReactNode {
+  const {
+    search,
+    type,
+    pagination,
+    beforeSearchSubmit,
+    actionRef,
+    columns,
+    onFormSearchSubmit,
+    ghost,
+    onReset,
+    onSubmit,
+    loading,
+    manualRequest,
+    form,
+    formRef,
+    cardBordered,
+    dateFormatter,
+    searchFormRender,
+    proTableProps,
+  } = props;
+
   return useMemo(() => {
     const node =
       search === false && type !== 'form' ? null : (
