@@ -56,6 +56,11 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
   const { wrapSSR, hashId } = useStyle(prefixCls);
 
   const htmlRef = useRef<HTMLDivElement>(null);
+  const overlayInnerStyle = {
+    padding: 0,
+    ...popoverProps?.overlayInnerStyle,
+  } as React.CSSProperties;
+
   return wrapSSR(
     <Popover
       {...popoverProps}
@@ -63,10 +68,7 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
       trigger={['click']}
       open={open || false}
       onOpenChange={onOpenChange}
-      styles={{
-        ...popoverProps?.styles,
-        container: { ...popoverProps?.styles?.container, padding: 0 },
-      }}
+      overlayInnerStyle={overlayInnerStyle}
       content={
         <div
           ref={htmlRef}
