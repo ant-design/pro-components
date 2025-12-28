@@ -1,6 +1,6 @@
 import { FilterOutlined } from '@ant-design/icons';
 import { omit } from '@rc-component/util';
-import type { FormProps } from 'antd';
+import type { FormProps, PopoverProps } from 'antd';
 import { ConfigProvider } from 'antd';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import type { TooltipPlacement } from 'antd/lib/tooltip';
@@ -50,6 +50,20 @@ export type LightFilterProps<T, U = Record<string, any>> = {
    * @default bottomLeft
    */
   placement?: TooltipPlacement;
+  /**
+   * @name 透传给内部 Popover 的属性（折叠态弹层）
+   *
+   * @description
+   * LightFilter 在折叠态会使用 Popover 将筛选项渲染到 body 下；
+   * 可通过该属性为弹层根节点添加自定义类名（如 overlayClassName）以便做样式覆盖。
+   *
+   * @example
+   * popoverProps={{ overlayClassName: 'my-lightfilter-popover' }}
+   */
+  popoverProps?: Omit<
+    PopoverProps,
+    'children' | 'content' | 'trigger' | 'open' | 'onOpenChange' | 'placement'
+  >;
 } & Omit<FormProps<T>, 'onFinish'> &
   CommonFormProps<T, U>;
 
@@ -69,6 +83,10 @@ const LightFilterContainer: React.FC<{
   variant?: 'outlined' | 'filled' | 'borderless';
   footerRender?: LightFilterFooterRender;
   placement?: TooltipPlacement;
+  popoverProps?: Omit<
+    PopoverProps,
+    'children' | 'content' | 'trigger' | 'open' | 'onOpenChange' | 'placement'
+  >;
 }> = (props) => {
   const {
     items,
@@ -81,6 +99,7 @@ const LightFilterContainer: React.FC<{
     values,
     footerRender,
     placement,
+    popoverProps,
   } = props;
   const intl = useIntl();
   const lightFilterClassName = `${prefixCls}-light-filter`;
@@ -190,6 +209,7 @@ const LightFilterContainer: React.FC<{
                 setOpen(changeOpen);
               }}
               placement={placement}
+              popoverProps={popoverProps}
               label={renderCollapseLabelRender()}
               footerRender={footerRender}
               footer={{
@@ -264,6 +284,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
     variant,
     ignoreRules,
     footerRender,
+    popoverProps,
     ...reset
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -296,6 +317,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
             collapse={collapse}
             collapseLabel={collapseLabel}
             placement={placement}
+            popoverProps={popoverProps}
             values={values || {}}
             footerRender={footerRender}
             onValuesChange={(newValues: any) => {

@@ -1,3 +1,4 @@
+import type { PopoverProps } from 'antd';
 import { ConfigProvider, Popover } from 'antd';
 import type { TooltipPlacement } from 'antd/lib/tooltip';
 import classNames from 'classnames';
@@ -23,6 +24,19 @@ export type DropdownProps = {
   onOpenChange?: (open: boolean) => void;
   open?: boolean;
   placement?: TooltipPlacement;
+  /**
+   * @name 透传给 Popover 的属性
+   *
+   * @description
+   * 用于给弹层（portal 到 body 的容器）设置自定义类名/样式等，例如通过 overlayClassName 控制样式范围。
+   *
+   * @example
+   * popoverProps={{ overlayClassName: 'my-lightfilter-popover' }}
+   */
+  popoverProps?: Omit<
+    PopoverProps,
+    'children' | 'content' | 'trigger' | 'open' | 'onOpenChange' | 'placement'
+  >;
   children?: React.ReactNode;
 };
 const FilterDropdown: React.FC<DropdownProps> = (props) => {
@@ -35,6 +49,7 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
     disabled,
     footerRender,
     placement,
+    popoverProps,
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-core-field-dropdown');
@@ -43,14 +58,14 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
   const htmlRef = useRef<HTMLDivElement>(null);
   return wrapSSR(
     <Popover
+      {...popoverProps}
       placement={placement}
       trigger={['click']}
       open={open || false}
       onOpenChange={onOpenChange}
       styles={{
-        container: {
-          padding: 0,
-        },
+        ...popoverProps?.styles,
+        container: { padding: 0, ...popoverProps?.styles?.container },
       }}
       content={
         <div
