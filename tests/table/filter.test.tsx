@@ -276,7 +276,7 @@ describe('BasicTable filter', () => {
       expect(screen.queryByText('项目 A')).toBeInTheDocument();
       expect(screen.queryByText('项目 B')).toBeInTheDocument();
       expect(screen.queryByText('项目 C')).toBeInTheDocument();
-      fn.mockClear(); // 清除初始 request 調用
+      fn.mockClear(); // 清除初始 request 调用
     });
 
     await userEvent.click(
