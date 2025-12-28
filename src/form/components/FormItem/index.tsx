@@ -185,6 +185,8 @@ const WarpFormItem: React.FC<
   // Use refs to track conversion state
   // This prevents convertValue from being applied multiple times to already-converted values
   const convertCacheRef = useRef<Map<string, any>>(new Map());
+  // Limit cache size to prevent memory leaks in long-lived forms
+  const MAX_CACHE_SIZE = 100;
 
   const formDom = useMemo(() => {
     let getValuePropsFunc: any = (value: any) => {
@@ -208,6 +210,14 @@ const WarpFormItem: React.FC<
           // This is a new value, apply convertValue
           try {
             newValue = convertValue(value, props.name!);
+            
+            // Clear cache if it exceeds the size limit (FIFO)
+            if (convertCacheRef.current.size >= MAX_CACHE_SIZE) {
+              // Remove the oldest entry (first key in the map)
+              const firstKey = convertCacheRef.current.keys().next().value;
+              convertCacheRef.current.delete(firstKey);
+            }
+            
             // Cache the converted result
             convertCacheRef.current.set(cacheKey, newValue);
             
@@ -216,6 +226,10 @@ const WarpFormItem: React.FC<
             try {
               const convertedKey = JSON.stringify(newValue);
               if (convertedKey !== cacheKey) {
+                if (convertCacheRef.current.size >= MAX_CACHE_SIZE) {
+                  const firstKey = convertCacheRef.current.keys().next().value;
+                  convertCacheRef.current.delete(firstKey);
+                }
                 convertCacheRef.current.set(convertedKey, newValue);
               }
             } catch {
