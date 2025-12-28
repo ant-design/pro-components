@@ -229,4 +229,59 @@ describe('ProFormFieldSet', () => {
     expect(container.querySelector('#filedSet2')).toHaveValue('2');
     expect(container.querySelector('#filedSet3')).toHaveValue('2-2');
   });
+
+  it('😊 ProFormFieldSet convertValue should not reapply on edit', async () => {
+    const { container } = render(
+      <ProForm initialValues={{ list: '1,2' }}>
+        <ProFormFieldSet
+          name="list"
+          convertValue={(value: string) => {
+            // This mimics the example from the bug report: value.split(",")
+            // Should only be called once on initial load with string "1,2"
+            // Should NOT be called again when value is already an array like [1,2]
+            return value.split(',').map((item) => Number(item));
+          }}
+        >
+          <ProFormText
+            fieldProps={{
+              id: 'filedSet1',
+            }}
+            key="filedSet1"
+          />
+          <ProFormText
+            fieldProps={{
+              id: 'filedSet2',
+            }}
+            key="filedSet2"
+          />
+        </ProFormFieldSet>
+      </ProForm>,
+    );
+
+    // Wait for the form to render with converted values
+    await waitFor(() => {
+      expect(container.querySelector('#filedSet1')).toBeTruthy();
+      expect(container.querySelector('#filedSet2')).toBeTruthy();
+    });
+
+    // Initial values should be converted from "1,2" to [1, 2]
+    expect(container.querySelector('#filedSet1')).toHaveValue('1');
+    expect(container.querySelector('#filedSet2')).toHaveValue('2');
+
+    // Now edit the first field - this should not cause convertValue to be called again
+    // If it were called again on the array [1, 2], it would throw "value.split is not a function"
+    fireEvent.change(container.querySelector('#filedSet1')!, {
+      target: {
+        value: '3',
+      },
+    });
+
+    // Verify the change was applied successfully without errors
+    await waitFor(() => {
+      expect(container.querySelector('#filedSet1')).toHaveValue('3');
+    });
+
+    // Second field should remain unchanged
+    expect(container.querySelector('#filedSet2')).toHaveValue('2');
+  });
 });

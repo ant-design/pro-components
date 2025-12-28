@@ -2,7 +2,7 @@
 import type { FormItemProps } from 'antd';
 import { ConfigProvider, Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
-import React, { useContext, useEffect, useMemo } from 'react';
+import React, { useContext, useEffect, useMemo, useRef } from 'react';
 import {
   isDropdownValueType,
   omitUndefined,
@@ -182,9 +182,52 @@ const WarpFormItem: React.FC<
   help,
   ...props
 }) => {
+  // Use refs to track conversion state
+  // This prevents convertValue from being applied multiple times to already-converted values
+  const convertCacheRef = useRef<Map<string, any>>(new Map());
+
   const formDom = useMemo(() => {
     let getValuePropsFunc: any = (value: any) => {
-      const newValue = convertValue?.(value, props.name!) ?? value;
+      let newValue = value;
+      
+      if (convertValue) {
+        // Create a cache key from the value
+        // We use JSON.stringify to create a unique key for each value
+        let cacheKey: string;
+        try {
+          cacheKey = JSON.stringify(value);
+        } catch {
+          // If value can't be stringified, use a simple string representation
+          cacheKey = String(value);
+        }
+        
+        // Check if we have a cached conversion for this exact value
+        if (convertCacheRef.current.has(cacheKey)) {
+          newValue = convertCacheRef.current.get(cacheKey);
+        } else {
+          // This is a new value, apply convertValue
+          try {
+            newValue = convertValue(value, props.name!);
+            // Cache the converted result
+            convertCacheRef.current.set(cacheKey, newValue);
+            
+            // Also cache the converted value itself to prevent re-conversion
+            // when the form passes the converted value back to getValueProps
+            try {
+              const convertedKey = JSON.stringify(newValue);
+              if (convertedKey !== cacheKey) {
+                convertCacheRef.current.set(convertedKey, newValue);
+              }
+            } catch {
+              // Ignore if newValue can't be stringified
+            }
+          } catch (error) {
+            // If conversion fails, use the value as-is
+            newValue = value;
+          }
+        }
+      }
+      
       if (props.getValueProps) return props.getValueProps(newValue);
       return {
         [valuePropName || 'value']: newValue,
