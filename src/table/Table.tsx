@@ -702,10 +702,12 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     pagination,
   });
 
-  const { styles, bodyStyle, headStyle } =
-    (propsCardProps && typeof propsCardProps === 'object') ? propsCardProps : {};
-  const propsCardBodyStyle = styles?.body || bodyStyle;
-  const propsCardHeaderStyle = styles?.header || headStyle;
+  const propsCardPropsObject =
+    propsCardProps && typeof propsCardProps === 'object' ? propsCardProps : undefined;
+  const propsCardBodyStyle =
+    propsCardPropsObject?.styles?.body || propsCardPropsObject?.bodyStyle;
+  const propsCardHeaderStyle =
+    propsCardPropsObject?.styles?.header || propsCardPropsObject?.headStyle;
 
   /** Table 区域的 dom，为了方便 render */
   const tableAreaDom =
