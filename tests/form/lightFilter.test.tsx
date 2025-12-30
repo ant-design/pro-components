@@ -12,7 +12,7 @@ import {
   ProFormText,
   ProFormTimePicker,
 } from '@ant-design/pro-components';
-import { render, waitFor } from '@testing-library/react';
+import { fireEvent, render, waitFor } from '@testing-library/react';
 import dayjs from 'dayjs';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
@@ -469,5 +469,37 @@ describe('LightFilter', () => {
       '.ant-pro-core-field-dropdown-label',
     );
     expect(dropdownLabel).toBeTruthy();
+  });
+
+  it(' 🪕 should support popoverProps.overlayClassName in collapse mode', async () => {
+    const { container, baseElement } = render(
+      <LightFilter
+        collapse
+        popoverProps={{
+          overlayClassName: 'my-lightfilter-popover',
+        }}
+      >
+        <ProFormText name="name1" label="名称" />
+        <ProFormText name="name2" label="名称2" />
+      </LightFilter>,
+    );
+
+    await waitFor(() => {
+      expect(container.querySelector('.ant-pro-form-light-filter')).toBeTruthy();
+    });
+
+    // Before open, overlay shouldn't exist in body
+    expect(baseElement.querySelector('.my-lightfilter-popover')).toBeFalsy();
+
+    const dropdownLabel = container.querySelector(
+      '.ant-pro-core-field-dropdown-label',
+    ) as HTMLElement | null;
+    expect(dropdownLabel).toBeTruthy();
+
+    fireEvent.click(dropdownLabel!);
+
+    await waitFor(() => {
+      expect(baseElement.querySelector('.my-lightfilter-popover')).toBeTruthy();
+    });
   });
 });

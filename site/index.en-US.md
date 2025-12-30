@@ -5,7 +5,7 @@ hero:
   description: 🏆 Making Middle and Back-end Development Easier
   actions:
     - text: 🚀 Quick Start →
-      link: /components
+      link: /en-US/components
 footer: Open-source MIT Licensed | © 2017-present
 ---
 

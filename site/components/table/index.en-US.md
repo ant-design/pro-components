@@ -236,6 +236,15 @@ ref.current.cancelEditable(rowKey);
 
 > Requesting remote data is more complicated, please see [here](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params) for details.
 
+:::tip Local sort/filter with `request`
+When you provide `request`, ProTable will trigger a reload on sort/filter changes and pass server-related `sort` / `filter` into `request(params, sort, filter)` by default.
+
+If you want **client-side** sorting/filtering (and **do not** want to trigger `request`):
+
+- **Local filter**: configure both `filters` and `onFilter` (a function or `true`).
+- **Local sort**: set `sorter` to a compare function, or `{ compare }`. Avoid `sorter: true` (it means server-side sorting).
+:::
+
 | Property                               | Description                                                                                                                                                                                                                                  | Type                                                                                                  | Default Value |
 | -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------- |
 | title                                  | Basically the same as in antd, but supports passing in a method                                                                                                                                                                              | `ReactNode \| ((config: ProColumnType<T>, type: ProTableTypes) => ReactNode)`                         | -             |

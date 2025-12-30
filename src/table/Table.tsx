@@ -1,9 +1,6 @@
 import type { TablePaginationConfig } from 'antd';
 import { ConfigProvider, Table } from 'antd';
-import type {
-  GetRowKey,
-  SortOrder,
-} from 'antd/lib/table/interface';
+import type { GetRowKey, SortOrder } from 'antd/lib/table/interface';
 import classNames from 'classnames';
 import isEmpty from 'lodash-es/isEmpty';
 import isEqual from 'lodash-es/isEqual';
@@ -27,7 +24,6 @@ import ProConfigContext, {
 } from '../provider';
 import {
   ErrorBoundary,
-  omitUndefined,
   stringify,
   useDeepCompareEffect,
   useDeepCompareEffectDebounce,
@@ -37,6 +33,9 @@ import {
 import Alert from './components/Alert';
 import { Container, TableContext } from './Store/Provide';
 import { useStyle } from './style';
+import { TableRender } from './TableRender';
+import { TableSearch } from './TableSearch';
+import { TableToolbar } from './TableToolbar';
 import type {
   FilterValue,
   OptionSearchProps,
@@ -56,9 +55,6 @@ import {
 } from './utils';
 import { columnSort } from './utils/columnSort';
 import { genProColumnToColumn } from './utils/genProColumnToColumn';
-import { TableRender } from './TableRender';
-import { TableSearch } from './TableSearch';
-import { TableToolbar } from './TableToolbar';
 
 function useRowKey<T>({
   rowKey,
@@ -262,9 +258,7 @@ const ProTable = <
    */
   const formSearchRef = useRef<Record<string, any> | undefined>(formSearch);
   const setFormSearchWithRef = useCallback(
-    (
-      next: React.SetStateAction<Record<string, any> | undefined>,
-    ) => {
+    (next: React.SetStateAction<Record<string, any> | undefined>) => {
       const nextValue =
         typeof next === 'function' ? next(formSearchRef.current) : next;
       formSearchRef.current = nextValue;

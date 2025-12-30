@@ -94,4 +94,5 @@ LightFilter supports the following properties in addition to the API inherited f
 | ------------- | --------------------------------------------------------------------------------------------- | ----------- | ---------------------------- |
 | collapse      | whether to collapse all fields by default                                                     | `boolean`   | `false`                      |
 | collapseLabel | label of collapsed area                                                                       | `ReactNode` | `MoreFilter <DownOutlined/>` |
+| popoverProps  | Pass-through props to inner Popover (e.g. overlayClassName)                                   | `PopoverProps` | -                         |
 | placement     | The position where the selection box pops up: `bottomLeft` `bottomRight` `topLeft` `topRight` | string      | bottomLeft                   |
