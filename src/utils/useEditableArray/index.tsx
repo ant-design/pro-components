@@ -157,6 +157,11 @@ export type ActionRenderConfig<T, LineConfig = NewLineConfig<T>> = {
   editableKeys?: RowEditableConfig<T>['editableKeys'];
   recordKey: RecordKey;
   preEditRowRef: React.MutableRefObject<T | null>;
+  /**
+   * 多行编辑场景下，按 recordKey 缓存每一行进入编辑前的快照（允许为 null，用于标记“新建行”）
+   * 用于避免 preEditRowRef（单引用）在多行编辑时被覆盖导致取消误删/误还原的问题
+   */
+  preEditRowRefs?: React.MutableRefObject<Map<string, T | null>>;
   index?: number;
   cancelEditable: (key: RecordKey) => void;
   onSave: RowEditableConfig<T>['onSave'];
@@ -505,6 +510,7 @@ export const DeleteEditableAction: React.FC<
   recordKey,
   onDelete,
   preEditRowRef,
+  preEditRowRefs,
   row,
   children,
   deletePopconfirmMessage,
@@ -526,6 +532,10 @@ export const DeleteEditableAction: React.FC<
 
       return null;
     } finally {
+      const recordKeyStr = recordKeyToString(recordKey)?.toString();
+      if (recordKeyStr) {
+        preEditRowRefs?.current?.delete(recordKeyStr);
+      }
       if (preEditRowRef) preEditRowRef.current = null;
     }
   });
@@ -565,6 +575,7 @@ const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
     row,
     cancelText,
     preEditRowRef,
+    preEditRowRefs,
   } = props;
   const context = useContext(ProFormContext);
   const form = Form.useFormInstance();
@@ -575,6 +586,7 @@ const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
         e.stopPropagation();
         e.preventDefault();
         const isMapEditor = editorType === 'Map';
+        const recordKeyStr = recordKeyToString(recordKey)?.toString();
         const namePath = [tableName, recordKey]
           .flat(1)
           .filter(Boolean) as string[];
@@ -582,14 +594,40 @@ const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
           context?.getFieldFormatValue?.(namePath) ||
           form?.getFieldValue(namePath);
         const record = isMapEditor ? set({}, namePath, fields) : fields;
+
+        // 在清理编辑态前，先捕获“编辑前快照”（多行编辑时必须按 key 取值）
+        const cachedPreEditRow =
+          recordKeyStr != null ? preEditRowRefs?.current?.get(recordKeyStr) : undefined;
+
+        const isNewLineKeyMatch = (() => {
+          const newLineKey = newLineConfig?.options?.recordKey;
+          if (newLineKey == null || recordKey == null) return false;
+          const newLineKeyStr = recordKeyToString(newLineKey)?.toString();
+          const currentKeyStr = recordKeyToString(recordKey)?.toString();
+          if (!newLineKeyStr || !currentKeyStr) return false;
+          return newLineKeyStr === currentKeyStr;
+        })();
+
         const res = await onCancel?.(recordKey, record, row, newLineConfig);
         await cancelEditable(recordKey);
         /** 重置为默认值，不然编辑的行会丢掉 */
-        if (preEditRowRef?.current !== null) {
-          form.setFieldsValue(set({}, namePath, preEditRowRef?.current));
-        } else {
+        const restoreRow =
+          cachedPreEditRow ?? preEditRowRef?.current ?? row;
+        const shouldDeleteNewRow =
+          cachedPreEditRow === null ||
+          (cachedPreEditRow === undefined &&
+            preEditRowRef?.current === null &&
+            isNewLineKeyMatch);
+
+        if (shouldDeleteNewRow) {
           // 如果不存在历史值，说明是新的行，干掉他
           await props.onDelete?.(recordKey, row);
+        } else if (restoreRow != null) {
+          form.setFieldsValue(set({}, namePath, restoreRow));
+        }
+
+        if (recordKeyStr) {
+          preEditRowRefs?.current?.delete(recordKeyStr);
         }
         if (preEditRowRef) preEditRowRef.current = null;
 
@@ -656,6 +694,7 @@ export function useEditableArray<RecordType extends AnyObject>(
    * 点击开始编辑之前的保存数据用的
    */
   const preEditRowRef = useRef<RecordType | null>(null);
+  const preEditRowRefs = useRef<Map<string, RecordType | null>>(new Map());
 
   const [newLineRecordCache, setNewLineRecordCache] = useState<
     NewLineConfig<RecordType> | undefined
@@ -826,6 +865,10 @@ export function useEditableArray<RecordType extends AnyObject>(
       }
 
       preEditRowRef.current = record ?? findRecordByKey(recordKey) ?? null;
+      const recordKeyStr = recordKeyToString(recordKey)?.toString();
+      if (recordKeyStr) {
+        preEditRowRefs.current.set(recordKeyStr, preEditRowRef.current);
+      }
 
       return true;
     },
@@ -1223,6 +1266,11 @@ export function useEditableArray<RecordType extends AnyObject>(
 
       const recordKey = props.getRowKey(row, -1);
       validateRecordKey(recordKey);
+      const recordKeyStr = recordKeyToString(recordKey)?.toString();
+      if (recordKeyStr) {
+        // 新建行：用 null 作为快照标记，避免多行编辑取消时误删其他行
+        preEditRowRefs.current.set(recordKeyStr, null);
+      }
 
       const isAlreadyEditable = editableKeys?.some(
         (key) => key === recordKey || key?.toString() === recordKey?.toString(),
@@ -1331,6 +1379,10 @@ export function useEditableArray<RecordType extends AnyObject>(
 
       // 保存时解除编辑模式，统一在这里调用一次
       await cancelEditable(recordKey);
+      const recordKeyStr = recordKeyToString(recordKey)?.toString();
+      if (recordKeyStr) {
+        preEditRowRefs.current.delete(recordKeyStr);
+      }
       return res;
     },
   );
@@ -1357,6 +1409,10 @@ export function useEditableArray<RecordType extends AnyObject>(
       // 不传递 false时，重新form.setFieldsValue同一份静态数据，会导致该行始终处于不可编辑状态
       await cancelEditable(recordKey, false);
       props.setDataSource(editableRowByKey(actionProps, 'delete'));
+      const recordKeyStr = recordKeyToString(recordKey)?.toString();
+      if (recordKeyStr) {
+        preEditRowRefs.current.delete(recordKeyStr);
+      }
 
       return res;
     },
@@ -1409,6 +1465,7 @@ export function useEditableArray<RecordType extends AnyObject>(
       editableKeys,
       setEditableRowKeys,
       preEditRowRef,
+      preEditRowRefs,
       deletePopconfirmMessage:
         props.deletePopconfirmMessage ||
         `${intl.getMessage('deleteThisLine', '删除此项')}?`,
