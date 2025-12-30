@@ -235,6 +235,15 @@ ref.current.cancelEditable(rowKey);
 
 > 请求远程数据比较复杂，详细可以看[这里](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params)。
 
+:::tip 本地排序/筛选与 request
+当你提供了 `request` 时，ProTable 默认会在筛选/排序变化后触发一次重新请求，并把服务端需要的 `sort` / `filter` 透传给 `request(params, sort, filter)`。
+
+如果你希望**前端本地**排序/筛选（不触发 `request`），请使用以下写法：
+
+- **本地筛选**：同时配置 `filters` + `onFilter`（函数或 `true`）。
+- **本地排序**：将 `sorter` 设为比较函数，或 `{ compare }`。不要使用 `sorter: true`（这代表服务端排序）。
+:::
+
 | 属性                                   | 描述                                                                                                                                             | 类型                                                                                                  | 默认值 |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------- | ------ |
 | title                                  | 与 antd 中基本相同，但是支持通过传入一个方法                                                                                                     | `ReactNode \| ((config: ProColumnType<T>, type: ProTableTypes) => ReactNode)`                         | -      |
