@@ -4,6 +4,7 @@ import {
   fireEvent,
   render,
   waitFor,
+  within,
 } from '@testing-library/react';
 import { Form } from 'antd';
 import React, { useState } from 'react';
@@ -640,6 +641,110 @@ describe('useEditableArray - Cancel Operation', () => {
     await waitFor(() => {
       expect(onCancel).toHaveBeenCalledTimes(1);
       expect(wrapper.getByTestId('editable-keys').textContent).toBe('none');
+    });
+  });
+
+  it('🐛 多行编辑依次点击取消时不应误删后续行', async () => {
+    const onDelete = vi.fn(async () => Promise.resolve());
+    const onCancel = vi.fn(async () => Promise.resolve());
+
+    const MultiEditActionComponent: React.FC = () => {
+      const [dataSource, setDataSource] = useState<TestRecordType[]>([
+        { id: 1, name: 'test1', value: 'value1' },
+        { id: 2, name: 'test2', value: 'value2' },
+      ]);
+
+      const editableUtils = useEditableArray<TestRecordType>({
+        dataSource,
+        setDataSource,
+        getRowKey: (record) => record.id,
+        childrenColumnName: undefined,
+        onCancel,
+        onDelete,
+        type: 'multiple',
+        tableName: 'testTable',
+      });
+
+      const actions1 = editableUtils.actionRender({ ...dataSource[0], index: 0 });
+      const actions2 = editableUtils.actionRender({ ...dataSource[1], index: 1 });
+
+      return (
+        <Form>
+          <div data-testid="editable-keys">
+            {editableUtils.editableKeys?.join(',') || 'none'}
+          </div>
+          <div data-testid="data-source">
+            {dataSource.map((item) => `${item.id}:${item.name}`).join(',')}
+          </div>
+
+          <button
+            data-testid="start-edit-1"
+            onClick={() => editableUtils.startEditable(1, dataSource[0])}
+          >
+            Start Edit 1
+          </button>
+          <button
+            data-testid="start-edit-2"
+            onClick={() => editableUtils.startEditable(2, dataSource[1])}
+          >
+            Start Edit 2
+          </button>
+
+          <span data-testid="cancel-action-1">{actions1?.[2]}</span>
+          <span data-testid="cancel-action-2">{actions2?.[2]}</span>
+        </Form>
+      );
+    };
+
+    const wrapper = render(<MultiEditActionComponent />);
+
+    await waitFor(() => {
+      expect(wrapper.getByTestId('editable-keys').textContent).toBe('none');
+    });
+
+    act(() => {
+      fireEvent.click(wrapper.getByTestId('start-edit-1'));
+      vi.runAllTimers();
+    });
+
+    await waitFor(() => {
+      expect(wrapper.getByTestId('editable-keys').textContent).toBe('1');
+    });
+
+    act(() => {
+      fireEvent.click(wrapper.getByTestId('start-edit-2'));
+      vi.runAllTimers();
+    });
+
+    await waitFor(() => {
+      const keysText = wrapper.getByTestId('editable-keys').textContent || '';
+      expect(keysText.split(',').sort().join(',')).toBe('1,2');
+    });
+
+    const cancel1 = within(wrapper.getByTestId('cancel-action-1')).getByText('取消');
+    const cancel2 = within(wrapper.getByTestId('cancel-action-2')).getByText('取消');
+
+    act(() => {
+      fireEvent.click(cancel1);
+      vi.runAllTimers();
+    });
+
+    await waitFor(() => {
+      expect(wrapper.getByTestId('editable-keys').textContent).toBe('2');
+      expect(onDelete).not.toHaveBeenCalled();
+    });
+
+    act(() => {
+      fireEvent.click(cancel2);
+      vi.runAllTimers();
+    });
+
+    await waitFor(() => {
+      expect(wrapper.getByTestId('editable-keys').textContent).toBe('none');
+      expect(onDelete).not.toHaveBeenCalled();
+      expect(wrapper.getByTestId('data-source').textContent).toBe(
+        '1:test1,2:test2',
+      );
     });
   });
 });
