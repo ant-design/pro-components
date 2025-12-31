@@ -1,6 +1,5 @@
 import { omit, warning } from '@rc-component/util';
-import type { FormInstance, FormProps } from 'antd';
-import type { StepProps } from 'rc-steps/es/Step';
+import type { FormInstance, FormProps, StepsProps } from 'antd';
 import { useContext, useEffect, useImperativeHandle, useRef } from 'react';
 import type { CommonFormProps } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
@@ -9,7 +8,7 @@ const { noteOnce } = warning;
 
 export type StepFormProps<T = Record<string, any>, U = Record<string, any>> = {
   step?: number;
-  stepProps?: StepProps;
+  stepProps?: NonNullable<StepsProps['items']>[number];
   index?: number;
 } & Omit<FormProps<T>, 'onFinish' | 'form'> &
   Omit<CommonFormProps<T, U>, 'submitter' | 'form'>;
