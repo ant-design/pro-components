@@ -4,7 +4,7 @@ const targets = {
   edge: 142,
   firefox: 140,
   chrome: 112,
-  safari: 18.5,
+  safari: 18,
   opera: 124,
   electron: 39,
 };
