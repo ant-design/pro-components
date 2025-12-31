@@ -90,7 +90,7 @@
     "rc-footer": "^0.6.8",
     "rc-resize-observer": "^1.4.3",
     "rc-steps": "^6.0.1",
-    "rc-table": "^7.55.1",
+    "@rc-component/table": "^1.9.0",
     "react-draggable": "^4.5.0",
     "react-layout-kit": "^1.9.2",
     "react-lazy-load": "^4.0.1",
