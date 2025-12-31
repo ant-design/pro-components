@@ -46,7 +46,7 @@ const Demo = () => {
           name="base"
           title="Create Experiment"
           stepProps={{
-            description: 'All basic information is filled in here',
+            content: 'All basic information is filled in here',
           }}
           onFinish={async () => {
             console.log(formRef.current?.getFieldsValue());
@@ -77,7 +77,7 @@ const Demo = () => {
           name="checkbox"
           title="Set Parameters"
           stepProps={{
-            description: 'Fill in the operation parameters here',
+            content: 'Fill in the operation parameters here',
           }}
           onFinish={async () => {
             console.log(formRef.current?.getFieldsValue());
@@ -113,7 +113,7 @@ const Demo = () => {
           name="time"
           title="Publish Experiment"
           stepProps={{
-            description: 'Fill in the release criteria here',
+            content: 'Fill in the release criteria here',
           }}
         >
           <ProFormCheckbox.Group

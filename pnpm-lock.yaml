@@ -46,6 +46,15 @@ importers:
       '@emotion/serialize':
         specifier: ^1.3.3
         version: 1.3.3
+      '@rc-component/form':
+        specifier: ^1.6.0
+        version: 1.6.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@rc-component/resize-observer':
+        specifier: ^1.0.1
+        version: 1.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@rc-component/steps':
+        specifier: ^1.2.2
+        version: 1.2.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@rc-component/table':
         specifier: ^1.9.0
         version: 1.9.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -70,18 +79,6 @@ importers:
       path-to-regexp:
         specifier: ^6.3.0
         version: 6.3.0
-      rc-field-form:
-        specifier: ^2.7.1
-        version: 2.7.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      rc-footer:
-        specifier: ^0.6.8
-        version: 0.6.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      rc-resize-observer:
-        specifier: ^1.4.3
-        version: 1.4.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      rc-steps:
-        specifier: ^6.0.1
-        version: 6.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-draggable:
         specifier: ^4.5.0
         version: 4.5.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)

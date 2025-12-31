@@ -5,6 +5,7 @@ import {
   ProFormTreeSelect,
   QueryFilter,
 } from '@ant-design/pro-components';
+import { _el, _rs } from '@rc-component/resize-observer/es/utils/observerUtil';
 import {
   act,
   cleanup,
@@ -13,7 +14,6 @@ import {
   waitFor,
 } from '@testing-library/react';
 import { TreeSelect } from 'antd';
-import { _el, _rs } from 'rc-resize-observer/es/utils/observerUtil';
 import { afterEach, describe, expect, it } from 'vitest';
 import { waitForWaitTime } from '../util';
 

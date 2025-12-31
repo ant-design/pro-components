@@ -1,6 +1,6 @@
-﻿import type { FormItemProps } from 'antd';
+﻿import { FieldContext as RcFieldContext } from '@rc-component/form';
+import type { FormItemProps } from 'antd';
 import classnames from 'classnames';
-import { FieldContext as RcFieldContext } from 'rc-field-form';
 import React, { useContext, useMemo, useState } from 'react';
 import {
   omitUndefined,

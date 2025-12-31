@@ -2,7 +2,7 @@ import { ConfigProvider, Input, TabPaneProps, Tabs, Tooltip } from 'antd';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { SearchProps } from 'antd/lib/input';
 import classNames from 'classnames';
-import ResizeObserver from 'rc-resize-observer';
+import ResizeObserver from '@rc-component/resize-observer';
 import React, { useContext, useMemo, useState } from 'react';
 import { proTheme, useIntl } from '../../../provider';
 import { LabelIconTip } from '../../../utils';
