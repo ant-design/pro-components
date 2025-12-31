@@ -14,7 +14,7 @@ const FieldRangePicker: ProFieldFC<
   {
     text: string[];
     format?: string;
-    variant?: 'outlined' | 'borderless' | 'filled';
+    variant?: 'outlined' | 'borderless' | 'filled' | 'underlined';
     showTime?: boolean;
     picker?: 'time' | 'date' | 'week' | 'month' | 'quarter' | 'year';
   } & ProFieldLightProps
@@ -149,7 +149,7 @@ const FieldRangePicker: ProFieldFC<
             intl.getMessage('tableForm.selectPlaceholder', '请选择'),
           ]}
           variant={
-            plain === undefined ? 'outlined' : plain ? 'borderless' : 'outlined'
+            plain === undefined ? variant : plain ? 'borderless' : 'outlined'
           }
           {...fieldProps}
           value={dayValue}

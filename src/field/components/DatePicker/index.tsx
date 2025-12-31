@@ -29,7 +29,7 @@ const FieldDatePicker: ProFieldFC<
     text: string | number;
     format?: string;
     showTime?: boolean;
-    variant?: 'outlined' | 'borderless' | 'filled';
+    variant?: 'outlined' | 'borderless' | 'filled' | 'underlined';
     picker?: 'time' | 'date' | 'week' | 'month' | 'quarter' | 'year';
   } & ProFieldLightProps
 > = (
@@ -119,7 +119,7 @@ const FieldDatePicker: ProFieldFC<
           format={format}
           placeholder={placeholder}
           variant={
-            plain === undefined ? 'outlined' : plain ? 'borderless' : 'outlined'
+            plain === undefined ? variant : plain ? 'borderless' : 'outlined'
           }
           ref={ref}
           {...fieldProps}
