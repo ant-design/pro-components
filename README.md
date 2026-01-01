@@ -85,8 +85,6 @@ In essence, ProComponents is a robust, user-friendly, and versatile UI component
 
 ## 🖥 Browser compatibility
 
-支持范围：https://browsersl.ist/#q=defaults
-
 - Modern browsers
 - [Electron](https://www.electronjs.org/)
 
