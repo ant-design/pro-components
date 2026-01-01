@@ -56,11 +56,7 @@
     "update:deps": "pnpm up --latest"
   },
   "browserslist": [
-    "last 2 versions",
-    "Firefox ESR",
-    "> 1%",
-    "not dead",
-    "not ie 11"
+    "defaults"
   ],
   "resolutions": {
     "@types/react": "^18.0.38",
