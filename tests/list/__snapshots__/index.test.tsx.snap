@@ -13,10 +13,10 @@ exports[`List > 🚏 ProList support rowClassName as a function 1`] = `
         style="padding: 0px;"
       >
         <div
-          class="ant-list ant-list-split ant-pro-list-container css-var-_r_2f_"
+          class="ant-list ant-list-split ant-pro-list-container css-var-r2f"
         >
           <div
-            class="ant-spin-nested-loading css-var-_r_2f_"
+            class="ant-spin-nested-loading css-var-r2f"
           >
             <div
               class="ant-spin-container"
@@ -129,10 +129,10 @@ exports[`List > 🚏 ProList support rowClassName as a string 1`] = `
         style="padding: 0px;"
       >
         <div
-          class="ant-list ant-list-split ant-pro-list-container css-var-_r_2b_"
+          class="ant-list ant-list-split ant-pro-list-container css-var-r2b"
         >
           <div
-            class="ant-spin-nested-loading css-var-_r_2b_"
+            class="ant-spin-nested-loading css-var-r2b"
           >
             <div
               class="ant-spin-container"
@@ -204,10 +204,10 @@ exports[`List > 🚏 only has content 1`] = `
         style="padding: 0px;"
       >
         <div
-          class="ant-list ant-list-split ant-pro-list-container css-var-_r_d_"
+          class="ant-list ant-list-split ant-pro-list-container css-var-rd"
         >
           <div
-            class="ant-spin-nested-loading css-var-_r_d_"
+            class="ant-spin-nested-loading css-var-rd"
           >
             <div
               class="ant-spin-container"
@@ -256,10 +256,10 @@ exports[`List > 🚏 only has description 1`] = `
         style="padding: 0px;"
       >
         <div
-          class="ant-list ant-list-split ant-pro-list-container css-var-_r_h_"
+          class="ant-list ant-list-split ant-pro-list-container css-var-rh"
         >
           <div
-            class="ant-spin-nested-loading css-var-_r_h_"
+            class="ant-spin-nested-loading css-var-rh"
           >
             <div
               class="ant-spin-container"
@@ -289,17 +289,17 @@ exports[`List > 🚏 only has description 1`] = `
                             class="ant-pro-list-row-description"
                           >
                             <span
-                              class="ant-tag ant-tag-filled css-var-_r_h_"
+                              class="ant-tag ant-tag-filled css-var-rh"
                             >
                               语雀专栏
                             </span>
                             <span
-                              class="ant-tag ant-tag-filled css-var-_r_h_"
+                              class="ant-tag ant-tag-filled css-var-rh"
                             >
                               设计语言
                             </span>
                             <span
-                              class="ant-tag ant-tag-filled css-var-_r_h_"
+                              class="ant-tag ant-tag-filled css-var-rh"
                             >
                               蚂蚁金服
                             </span>
@@ -332,16 +332,16 @@ exports[`List > 🚏 show loading state 1`] = `
         style="padding: 0px;"
       >
         <div
-          class="ant-list ant-list-split ant-list-loading ant-pro-list-container css-var-_r_9_"
+          class="ant-list ant-list-split ant-list-loading ant-pro-list-container css-var-r9"
         >
           <div
-            class="ant-spin-nested-loading css-var-_r_9_"
+            class="ant-spin-nested-loading css-var-r9"
           >
             <div>
               <div
                 aria-busy="true"
                 aria-live="polite"
-                class="ant-spin ant-spin-spinning css-var-_r_9_"
+                class="ant-spin ant-spin-spinning css-var-r9"
               >
                 <span
                   class="ant-spin-dot-holder"

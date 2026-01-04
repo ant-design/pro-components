@@ -13,27 +13,27 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
       >
         <form
           autocomplete="off"
-          class="ant-form ant-form-horizontal css-var-_r_19_ ant-form-css-var ant-pro-query-filter ant-pro-form"
+          class="ant-form ant-form-horizontal css-var-r19 ant-form-css-var ant-pro-query-filter ant-pro-form"
         >
           <input
             style="display: none;"
             type="text"
           />
           <div
-            class="ant-row ant-row-start ant-pro-query-filter-row css-var-_r_19_"
+            class="ant-row ant-row-start ant-pro-query-filter-row css-var-r19"
           >
             <div
-              class="ant-col ant-col-8 ant-pro-query-filter-row-split css-var-_r_19_"
+              class="ant-col ant-col-8 ant-pro-query-filter-row-split css-var-r19"
             >
               <div
-                class="ant-form-item css-var-_r_19_ ant-form-css-var ant-form-item-horizontal"
+                class="ant-form-item css-var-r19 ant-form-css-var ant-form-item-horizontal"
                 style="flex-wrap: nowrap;"
               >
                 <div
-                  class="ant-row ant-form-item-row css-var-_r_19_"
+                  class="ant-row ant-form-item-row css-var-r19"
                 >
                   <div
-                    class="ant-col ant-form-item-label css-var-_r_19_"
+                    class="ant-col ant-form-item-label css-var-r19"
                     style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
@@ -45,7 +45,7 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                     </label>
                   </div>
                   <div
-                    class="ant-col ant-form-item-control css-var-_r_19_"
+                    class="ant-col ant-form-item-control css-var-r19"
                     style="max-width: calc(100% - 80px);"
                   >
                     <div
@@ -55,7 +55,7 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-input-affix-wrapper ant-input-outlined css-var-_r_19_ ant-input-css-var"
+                          class="ant-input-affix-wrapper ant-input-outlined css-var-r19 ant-input-css-var"
                           style="width: 100%;"
                         >
                           <input
@@ -104,17 +104,17 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
               </div>
             </div>
             <div
-              class="ant-col ant-col-8 ant-pro-query-filter-row-split css-var-_r_19_"
+              class="ant-col ant-col-8 ant-pro-query-filter-row-split css-var-r19"
             >
               <div
-                class="ant-form-item css-var-_r_19_ ant-form-css-var ant-form-item-horizontal"
+                class="ant-form-item css-var-r19 ant-form-css-var ant-form-item-horizontal"
                 style="flex-wrap: nowrap;"
               >
                 <div
-                  class="ant-row ant-form-item-row css-var-_r_19_"
+                  class="ant-row ant-form-item-row css-var-r19"
                 >
                   <div
-                    class="ant-col ant-form-item-label css-var-_r_19_"
+                    class="ant-col ant-form-item-label css-var-r19"
                     style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
@@ -126,7 +126,7 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                     </label>
                   </div>
                   <div
-                    class="ant-col ant-form-item-control css-var-_r_19_"
+                    class="ant-col ant-form-item-control css-var-r19"
                     style="max-width: calc(100% - 80px);"
                   >
                     <div
@@ -136,13 +136,13 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-spin-nested-loading css-var-_r_19_"
+                          class="ant-spin-nested-loading css-var-r19"
                         >
                           <div
                             class="ant-spin-container"
                           >
                             <div
-                              class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item ant-pro-field-tree-select css-var-_r_19_ ant-select-css-var ant-tree-select-css-var ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-open ant-select-show-search"
+                              class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item ant-pro-field-tree-select css-var-r19 ant-select-css-var ant-tree-select-css-var ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-open ant-select-show-search"
                               options="[object Object],[object Object]"
                               style="min-width: 60px; width: 100%;"
                             >
@@ -226,17 +226,17 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
               </div>
             </div>
             <div
-              class="ant-col ant-col-8 css-var-_r_19_"
+              class="ant-col ant-col-8 css-var-r19"
               style="text-align: end;"
             >
               <div
-                class="ant-form-item ant-pro-query-filter-actions css-var-_r_19_ ant-form-css-var ant-form-item-horizontal"
+                class="ant-form-item ant-pro-query-filter-actions css-var-r19 ant-form-css-var ant-form-item-horizontal"
               >
                 <div
-                  class="ant-row ant-form-item-row css-var-_r_19_"
+                  class="ant-row ant-form-item-row css-var-r19"
                 >
                   <div
-                    class="ant-col ant-form-item-label css-var-_r_19_"
+                    class="ant-col ant-form-item-label css-var-r19"
                   >
                     <label
                       class="ant-form-item-no-colon"
@@ -246,7 +246,7 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                     </label>
                   </div>
                   <div
-                    class="ant-col ant-form-item-control css-var-_r_19_"
+                    class="ant-col ant-form-item-control css-var-r19"
                   >
                     <div
                       class="ant-form-item-control-input"
@@ -255,7 +255,7 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center css-var-_r_19_"
+                          class="ant-space ant-space-horizontal ant-space-align-center css-var-r19"
                           style="column-gap: 16px; row-gap: 16px;"
                         >
                           <div
@@ -265,7 +265,7 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn css-var-_r_19_ ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+                                class="ant-btn css-var-r19 ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                                 type="button"
                               >
                                 <span>
@@ -273,7 +273,7 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                                 </span>
                               </button>
                               <button
-                                class="ant-btn css-var-_r_19_ ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+                                class="ant-btn css-var-r19 ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                                 type="button"
                               >
                                 <span>
@@ -396,16 +396,16 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
           </div>
         </div>
         <div
-          class="css-var-_r_19_ ant-table-css-var ant-table-wrapper"
+          class="css-var-r19 ant-table-css-var ant-table-wrapper"
         >
           <div
-            class="ant-spin-nested-loading css-var-_r_19_"
+            class="ant-spin-nested-loading css-var-r19"
           >
             <div
               class="ant-spin-container"
             >
               <div
-                class="ant-table ant-table-middle css-var-_r_19_ ant-table-css-var"
+                class="ant-table ant-table-middle css-var-r19 ant-table-css-var"
               >
                 <div
                   class="ant-table-container"
@@ -464,7 +464,7 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                 </div>
               </div>
               <ul
-                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-_r_19_"
+                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-r19"
               >
                 <li
                   class="ant-pagination-total-text"
@@ -644,7 +644,7 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                 >
                   <div
                     aria-label="页码"
-                    class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-_r_19_ ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+                    class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-r19 ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
                   >
                     <div
                       class="ant-select-content"

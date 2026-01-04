@@ -80,7 +80,7 @@ exports[`PageContainer > ⚡️ support more loading props 1`] = `
           <div
             aria-busy="true"
             aria-live="polite"
-            class="ant-spin ant-spin-lg ant-spin-spinning ant-spin-show-text css-var-_r_m_"
+            class="ant-spin ant-spin-lg ant-spin-spinning ant-spin-show-text css-var-rm"
           >
             <span
               class="ant-spin-dot-holder"
@@ -187,7 +187,7 @@ exports[`PageContainer > 🐲 FooterToolbar should know width 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout css-var-_r_11_"
+      class="ant-layout css-var-r11"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
@@ -351,7 +351,7 @@ exports[`PageContainer > 🐲 FooterToolbar should know width 1`] = `
                   style="margin-block-start: 16px;"
                 >
                   <div
-                    class="ant-skeleton ant-skeleton-active css-var-_r_14_"
+                    class="ant-skeleton ant-skeleton-active css-var-r14"
                   >
                     <div
                       class="ant-skeleton-section"
@@ -531,7 +531,7 @@ exports[`PageContainer > 🐲 footer should know width 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout css-var-_r_r_"
+      class="ant-layout css-var-rr"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
@@ -695,7 +695,7 @@ exports[`PageContainer > 🐲 footer should know width 1`] = `
                   style="margin-block-start: 16px;"
                 >
                   <div
-                    class="ant-skeleton ant-skeleton-active css-var-_r_u_"
+                    class="ant-skeleton ant-skeleton-active css-var-ru"
                   >
                     <div
                       class="ant-skeleton-section"
@@ -776,14 +776,14 @@ exports[`PageContainer > 🐲 pro-layout support breadcrumbProps 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout ant-layout-has-sider css-var-_r_19_"
+      class="ant-layout ant-layout-has-sider css-var-r19"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
         style="width: 256px; overflow: hidden; flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-_r_1a_"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-r1a"
         style="flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; width: 256px;"
       >
         <div
@@ -932,7 +932,7 @@ exports[`PageContainer > 🐲 pro-layout support breadcrumbProps 1`] = `
               style="padding: 24px;"
             >
               <div
-                class="ant-skeleton ant-skeleton-active css-var-_r_1a_"
+                class="ant-skeleton ant-skeleton-active css-var-r1a"
               >
                 <div
                   class="ant-skeleton-section"
@@ -984,7 +984,7 @@ exports[`PageContainer > 🐲 pro-layout support breadcrumbProps 1`] = `
               class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
             >
               <nav
-                class="ant-breadcrumb ant-page-header-breadcrumb css-var-_r_19_"
+                class="ant-breadcrumb ant-page-header-breadcrumb css-var-r19"
               >
                 <ol>
                   <li
@@ -1111,7 +1111,7 @@ exports[`PageContainer > 🔥 support footer and breadcrumb 1`] = `
       class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
     >
       <nav
-        class="ant-breadcrumb ant-page-header-breadcrumb css-var-_r_o_"
+        class="ant-breadcrumb ant-page-header-breadcrumb css-var-ro"
       >
         <ol>
           <li
