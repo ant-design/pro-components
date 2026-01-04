@@ -9,14 +9,14 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout ant-layout-has-sider css-var-r61"
+      class="ant-layout ant-layout-has-sider css-var-_r_63_"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
         style="width: 256px; overflow: hidden; flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-r62"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-_r_64_"
         style="flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; width: 256px;"
       >
         <div
@@ -165,7 +165,7 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
               style="padding: 24px;"
             >
               <div
-                class="ant-skeleton ant-skeleton-active css-var-r62"
+                class="ant-skeleton ant-skeleton-active css-var-_r_64_"
               >
                 <div
                   class="ant-skeleton-section"
@@ -220,7 +220,7 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout css-var-r65"
+      class="ant-layout css-var-_r_67_"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
@@ -384,7 +384,7 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
                   style="margin-block-start: 16px;"
                 >
                   <div
-                    class="ant-skeleton ant-skeleton-active css-var-r68"
+                    class="ant-skeleton ant-skeleton-active css-var-_r_6a_"
                   >
                     <div
                       class="ant-skeleton-section"
@@ -416,14 +416,14 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout ant-layout-has-sider css-var-r6b"
+      class="ant-layout ant-layout-has-sider css-var-_r_6d_"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
         style="width: 215px; overflow: hidden; flex-grow: 0; flex-shrink: 0; flex-basis: 215px; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s;"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-fixed-mix ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix css-var-r6c"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-fixed-mix ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix css-var-_r_6e_"
         style="flex-grow: 0; flex-shrink: 0; flex-basis: 215px; max-width: 215px; min-width: 215px; width: 215px;"
       >
         <div
@@ -436,7 +436,7 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
               style="padding: 24px;"
             >
               <div
-                class="ant-skeleton ant-skeleton-active css-var-r6c"
+                class="ant-skeleton ant-skeleton-active css-var-_r_6e_"
               >
                 <div
                   class="ant-skeleton-section"
@@ -646,14 +646,14 @@ exports[`BasicLayout > 🥩 base use 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout ant-layout-has-sider css-var-r2"
+      class="ant-layout ant-layout-has-sider css-var-_r_2_"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
         style="width: 256px; overflow: hidden; flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-r3"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-_r_3_"
         style="flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; width: 256px;"
       >
         <div
@@ -802,7 +802,7 @@ exports[`BasicLayout > 🥩 base use 1`] = `
               style="padding: 24px;"
             >
               <div
-                class="ant-skeleton ant-skeleton-active css-var-r3"
+                class="ant-skeleton ant-skeleton-active css-var-_r_3_"
               >
                 <div
                   class="ant-skeleton-section"
@@ -862,14 +862,14 @@ exports[`BasicLayout > 🥩 contentStyle should change dom 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout ant-layout-has-sider css-var-r3f"
+      class="ant-layout ant-layout-has-sider css-var-_r_3h_"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
         style="width: 256px; overflow: hidden; flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-r3g"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-_r_3i_"
         style="flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; width: 256px;"
       >
         <div
@@ -1018,7 +1018,7 @@ exports[`BasicLayout > 🥩 contentStyle should change dom 1`] = `
               style="padding: 24px;"
             >
               <div
-                class="ant-skeleton ant-skeleton-active css-var-r3g"
+                class="ant-skeleton ant-skeleton-active css-var-_r_3i_"
               >
                 <div
                   class="ant-skeleton-section"

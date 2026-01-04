@@ -13,16 +13,16 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
         style="padding: 0px;"
       >
         <div
-          class="css-var-rcb ant-table-css-var ant-table-wrapper"
+          class="css-var-_r_br_ ant-table-css-var ant-table-wrapper"
         >
           <div
-            class="ant-spin-nested-loading css-var-rcb"
+            class="ant-spin-nested-loading css-var-_r_br_"
           >
             <div
               class="ant-spin-container"
             >
               <div
-                class="ant-table ant-table-middle css-var-rcb ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-layout-fixed ant-table-scroll-horizontal"
+                class="ant-table ant-table-middle css-var-_r_br_ ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-layout-fixed ant-table-scroll-horizontal"
               >
                 <div
                   class="ant-table-container"
@@ -294,7 +294,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                           >
                             <span
                               aria-label="🐛 [BUG]yarn install命令 antd2.4.5会报错"
-                              class="ant-typography ant-typography-ellipsis css-var-rcb"
+                              class="ant-typography ant-typography-ellipsis css-var-_r_br_"
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
@@ -330,7 +330,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                             class="ant-table-cell"
                           >
                             <span
-                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-rcb"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-_r_br_"
                             >
                               <span
                                 class="ant-badge-status-dot ant-badge-status-processing"
@@ -390,7 +390,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                           >
                             <span
                               aria-label="🐛 [BUG]无法创建工程npm create umi"
-                              class="ant-typography ant-typography-ellipsis css-var-rcb"
+                              class="ant-typography ant-typography-ellipsis css-var-_r_br_"
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
@@ -426,7 +426,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                             class="ant-table-cell"
                           >
                             <span
-                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-rcb"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-_r_br_"
                             >
                               <span
                                 class="ant-badge-status-dot ant-badge-status-success"
@@ -486,7 +486,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                           >
                             <span
                               aria-label="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
-                              class="ant-typography ant-typography-ellipsis css-var-rcb"
+                              class="ant-typography ant-typography-ellipsis css-var-_r_br_"
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
@@ -522,7 +522,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                             class="ant-table-cell"
                           >
                             <span
-                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-rcb"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-_r_br_"
                             >
                               <span
                                 class="ant-badge-status-dot ant-badge-status-error"
@@ -562,7 +562,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
           </div>
         </div>
         <button
-          class="ant-btn css-var-rcb ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
+          class="ant-btn css-var-_r_br_ ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
           style="display: block; margin: 10px 0px; width: 100%;"
           type="button"
         >
@@ -615,16 +615,16 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
         style="padding: 0px;"
       >
         <div
-          class="css-var-r1 ant-table-css-var ant-table-wrapper"
+          class="css-var-_r_1_ ant-table-css-var ant-table-wrapper"
         >
           <div
-            class="ant-spin-nested-loading css-var-r1"
+            class="ant-spin-nested-loading css-var-_r_1_"
           >
             <div
               class="ant-spin-container"
             >
               <div
-                class="ant-table ant-table-middle css-var-r1 ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-layout-fixed ant-table-scroll-horizontal"
+                class="ant-table ant-table-middle css-var-_r_1_ ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-layout-fixed ant-table-scroll-horizontal"
               >
                 <div
                   class="ant-table-container"
@@ -896,7 +896,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                           >
                             <span
                               aria-label="🐛 [BUG]yarn install命令 antd2.4.5会报错"
-                              class="ant-typography ant-typography-ellipsis css-var-r1"
+                              class="ant-typography ant-typography-ellipsis css-var-_r_1_"
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
@@ -932,7 +932,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                             class="ant-table-cell"
                           >
                             <span
-                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-r1"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-_r_1_"
                             >
                               <span
                                 class="ant-badge-status-dot ant-badge-status-processing"
@@ -992,7 +992,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                           >
                             <span
                               aria-label="🐛 [BUG]无法创建工程npm create umi"
-                              class="ant-typography ant-typography-ellipsis css-var-r1"
+                              class="ant-typography ant-typography-ellipsis css-var-_r_1_"
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
@@ -1028,7 +1028,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                             class="ant-table-cell"
                           >
                             <span
-                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-r1"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-_r_1_"
                             >
                               <span
                                 class="ant-badge-status-dot ant-badge-status-success"
@@ -1088,7 +1088,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                           >
                             <span
                               aria-label="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
-                              class="ant-typography ant-typography-ellipsis css-var-r1"
+                              class="ant-typography ant-typography-ellipsis css-var-_r_1_"
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
@@ -1124,7 +1124,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                             class="ant-table-cell"
                           >
                             <span
-                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-r1"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-_r_1_"
                             >
                               <span
                                 class="ant-badge-status-dot ant-badge-status-error"

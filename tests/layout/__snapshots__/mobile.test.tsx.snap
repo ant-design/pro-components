@@ -9,7 +9,7 @@ exports[`mobile BasicLayout > 📱 base use 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout css-var-r2"
+      class="ant-layout css-var-_r_2_"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
@@ -202,7 +202,7 @@ exports[`mobile BasicLayout > 📱 layout menuHeaderRender 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout css-var-r1e"
+      class="ant-layout css-var-_r_1e_"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
@@ -268,7 +268,7 @@ exports[`mobile BasicLayout > 📱 layout menuHeaderRender with custom title 1`]
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout css-var-r1l"
+      class="ant-layout css-var-_r_1l_"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
@@ -334,7 +334,7 @@ exports[`mobile BasicLayout > 📱 layout menuHeaderRender=false 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout css-var-r17"
+      class="ant-layout css-var-_r_17_"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
@@ -399,15 +399,15 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout ant-layout-has-sider css-var-rj"
+      class="ant-layout ant-layout-has-sider css-var-_r_j_"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
-        class="ant-drawer ant-drawer-left css-var-rk ant-drawer-open ant-drawer-inline"
+        class="ant-drawer ant-drawer-left css-var-_r_k_ ant-drawer-open ant-drawer-inline"
         tabindex="-1"
       >
         <div
-          class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-start ant-drawer-mask-motion ant-drawer-mask-blur"
+          class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-active ant-drawer-mask-motion ant-drawer-mask-blur"
         />
         <div
           aria-hidden="true"
@@ -416,7 +416,7 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
           tabindex="0"
         />
         <div
-          class="ant-drawer-content-wrapper ant-drawer-panel-motion-left-appear ant-drawer-panel-motion-left-appear-start ant-drawer-panel-motion-left"
+          class="ant-drawer-content-wrapper ant-drawer-panel-motion-left-appear ant-drawer-panel-motion-left-appear-active ant-drawer-panel-motion-left"
           style="width: 215px;"
         >
           <div
@@ -430,7 +430,7 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
               style="height: 100vh; padding: 0px; display: flex; flex-direction: row; background-color: transparent;"
             >
               <aside
-                class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light css-var-rk"
+                class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light css-var-_r_k_"
                 style="flex-grow: 0; flex-shrink: 0; flex-basis: 215px; max-width: 215px; min-width: 215px; width: 215px;"
               >
                 <div
@@ -440,14 +440,14 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
                     style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; overflow-y: auto; overflow-x: hidden;"
                   >
                     <ul
-                      class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline css-var-rk ant-menu-css-var"
+                      class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline css-var-_r_k_ ant-menu-css-var"
                       data-menu-list="true"
                       role="menu"
                       style="background-color: transparent; border: none none; width: 100%;"
                       tabindex="0"
                     >
                       <li
-                        class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-inline-submenu ant-menu-submenu-open"
+                        class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-inline-submenu ant-menu-submenu-open ant-menu-submenu-selected"
                         role="none"
                       >
                         <div

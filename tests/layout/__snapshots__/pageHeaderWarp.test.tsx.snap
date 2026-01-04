@@ -9,14 +9,14 @@ exports[`BasicLayout > base use 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout ant-layout-has-sider css-var-r2"
+      class="ant-layout ant-layout-has-sider css-var-_r_2_"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
         style="width: 256px; overflow: hidden; flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-r3"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-_r_3_"
         style="flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; width: 256px;"
       >
         <div
@@ -165,7 +165,7 @@ exports[`BasicLayout > base use 1`] = `
               style="padding: 24px;"
             >
               <div
-                class="ant-skeleton ant-skeleton-active css-var-r3"
+                class="ant-skeleton ant-skeleton-active css-var-_r_3_"
               >
                 <div
                   class="ant-skeleton-section"
@@ -248,14 +248,14 @@ exports[`BasicLayout > content is text 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout ant-layout-has-sider css-var-r8"
+      class="ant-layout ant-layout-has-sider css-var-_r_b_"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
         style="width: 256px; overflow: hidden; flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-r9"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-_r_c_"
         style="flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; width: 256px;"
       >
         <div
@@ -404,7 +404,7 @@ exports[`BasicLayout > content is text 1`] = `
               style="padding: 24px;"
             >
               <div
-                class="ant-skeleton ant-skeleton-active css-var-r9"
+                class="ant-skeleton ant-skeleton-active css-var-_r_c_"
               >
                 <div
                   class="ant-skeleton-section"

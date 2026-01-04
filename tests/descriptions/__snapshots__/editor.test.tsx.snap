@@ -3,7 +3,7 @@
 exports[`Descriptions > 📝 columns support editable test 1`] = `
 <DocumentFragment>
   <div
-    class="ant-descriptions ant-pro-descriptions css-var-r13"
+    class="ant-descriptions ant-pro-descriptions css-var-_r_13_"
   >
     <div
       class="ant-descriptions-view"
@@ -31,14 +31,14 @@ exports[`Descriptions > 📝 columns support editable test 1`] = `
                       style="display: flex; gap: 8px; align-items: baseline;"
                     >
                       <div
-                        class="ant-form-item css-var-r13 ant-form-css-var ant-form-item-vertical"
+                        class="ant-form-item css-var-_r_13_ ant-form-css-var ant-form-item-vertical"
                         style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0; margin: 0px;"
                       >
                         <div
-                          class="ant-row ant-form-item-row css-var-r13"
+                          class="ant-row ant-form-item-row css-var-_r_13_"
                         >
                           <div
-                            class="ant-col ant-form-item-control css-var-r13"
+                            class="ant-col ant-form-item-control css-var-_r_13_"
                           >
                             <div
                               class="ant-form-item-control-input"
@@ -47,7 +47,7 @@ exports[`Descriptions > 📝 columns support editable test 1`] = `
                                 class="ant-form-item-control-input-content"
                               >
                                 <span
-                                  class="ant-input-affix-wrapper ant-input-outlined css-var-r13 ant-input-css-var"
+                                  class="ant-input-affix-wrapper ant-input-outlined css-var-_r_13_ ant-input-css-var"
                                 >
                                   <input
                                     class="ant-input"
@@ -169,7 +169,7 @@ exports[`Descriptions > 📝 columns support editable test 1`] = `
 exports[`Descriptions > 📝 formItemRender run defaultRender 1`] = `
 <DocumentFragment>
   <div
-    class="ant-descriptions ant-pro-descriptions css-var-r10"
+    class="ant-descriptions ant-pro-descriptions css-var-_r_10_"
   >
     <div
       class="ant-descriptions-view"
@@ -197,14 +197,14 @@ exports[`Descriptions > 📝 formItemRender run defaultRender 1`] = `
                       style="display: flex; gap: 8px; align-items: baseline;"
                     >
                       <div
-                        class="ant-form-item css-var-r10 ant-form-css-var ant-form-item-vertical"
+                        class="ant-form-item css-var-_r_10_ ant-form-css-var ant-form-item-vertical"
                         style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0; margin: 0px;"
                       >
                         <div
-                          class="ant-row ant-form-item-row css-var-r10"
+                          class="ant-row ant-form-item-row css-var-_r_10_"
                         >
                           <div
-                            class="ant-col ant-form-item-control css-var-r10"
+                            class="ant-col ant-form-item-control css-var-_r_10_"
                           >
                             <div
                               class="ant-form-item-control-input"
@@ -213,7 +213,7 @@ exports[`Descriptions > 📝 formItemRender run defaultRender 1`] = `
                                 class="ant-form-item-control-input-content"
                               >
                                 <span
-                                  class="ant-input-affix-wrapper ant-input-outlined css-var-r10 ant-input-css-var"
+                                  class="ant-input-affix-wrapper ant-input-outlined css-var-_r_10_ ant-input-css-var"
                                 >
                                   <input
                                     class="ant-input"
