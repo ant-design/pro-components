@@ -109,7 +109,7 @@ API is the same as ProTable
 | columns        | Column definition, used with request [columns](/components/table#columns)                                                                  | `ProColumns<T>[]`                              | -             |
 | editable       | Editable related configuration                                                                                                             | [EditableConfig](#editable-edit-configuration) | -             |
 | dataSource     | Data source                                                                                                                                | `T[]`                                          | -             |
-| actionRef      | Operation reference                                                                                                                        | `RefObject<ActionType>`                        | -             |
+| actionRef      | Operation reference                                                                                                                        | `React.Ref<ActionType>`                        | -             |
 
 ### editable edit configuration
 
