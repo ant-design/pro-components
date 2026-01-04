@@ -52,7 +52,7 @@ const WithValueFomFiledProps: React.FC<
     onChange?.(...restParams);
     if (isProFormComponent) return;
     if (isValidElementForFiledChildren) return undefined;
-    filedChildren?.props?.onChange?.(...restParams);
+    (filedChildren?.props as any)?.onChange?.(...restParams);
 
     (filedChildren?.props as Record<string, any>)?.fieldProps?.onChange?.(
       ...restParams,
@@ -63,7 +63,7 @@ const WithValueFomFiledProps: React.FC<
     if (isProFormComponent) return;
     if (isValidElementForFiledChildren) return;
     onBlur?.(...restParams);
-    filedChildren?.props?.onBlur?.(...restParams);
+    (filedChildren?.props as any)?.onBlur?.(...restParams);
     (filedChildren?.props as Record<string, any>)?.fieldProps?.onBlur?.(
       ...restParams,
     );
@@ -114,7 +114,7 @@ const WithValueFomFiledProps: React.FC<
     if (!React.isValidElement(filedChildren)) return undefined;
     return (...restParams: any[]) => {
       onChange?.(...restParams);
-      filedChildren?.props?.onChange?.(...restParams);
+      (filedChildren?.props as any)?.onChange?.(...restParams);
     };
   }, [fieldProps, filedChildren, onChange]);
 
@@ -125,7 +125,7 @@ const WithValueFomFiledProps: React.FC<
     omitUndefined({
       ...restProps,
       [valuePropName]: formFieldProps[valuePropName],
-      ...filedChildren.props,
+      ...(filedChildren.props as any),
       onChange: finalChange,
       fieldProps,
       onBlur: isProFormComponent && !isValidElementForFiledChildren && onBlur,
@@ -246,9 +246,9 @@ const WarpFormItem: React.FC<
               warnings: React.ReactNode[];
             },
             doms: {
-              input: JSX.Element;
-              errorList: JSX.Element;
-              extra: JSX.Element;
+              input: React.ReactElement;
+              errorList: React.ReactElement;
+              extra: React.ReactElement;
             },
           ) => (
             <>
@@ -369,7 +369,7 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
 
   const isDropdown =
     React.isValidElement(props.children) &&
-    isDropdownValueType(valueType || props.children.props.valueType);
+    isDropdownValueType(valueType || (props.children.props as any).valueType);
 
   const noLightFormItem = useMemo(() => {
     if (!lightProps?.light || lightProps?.customLightMode || isDropdown) {

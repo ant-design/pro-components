@@ -105,8 +105,8 @@ export type ProLayoutProps = GlobalTypes & {
    * */
   logo?:
     | React.ReactNode
-    | JSX.Element
-    | WithFalse<() => React.ReactNode | JSX.Element>;
+    | React.ReactElement
+    | WithFalse<() => React.ReactNode | React.ReactElement>;
 
   /**
    * @name 页面切换的时候触发
@@ -242,7 +242,7 @@ export type ProLayoutProps = GlobalTypes & {
    *
    * @example  重新获取菜单 actionRef.current.reload();
    * */
-  actionRef?: React.MutableRefObject<
+  actionRef?: React.RefObject<
     | {
         reload: () => void;
       }

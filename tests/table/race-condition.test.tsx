@@ -1,8 +1,8 @@
-import ProTable from '../../src/table';
-import { render, screen, waitFor, act } from '@testing-library/react';
-import React, { useState } from 'react';
-import { describe, it, expect } from 'vitest';
+import { act, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { useState } from 'react';
+import { describe, expect, it } from 'vitest';
+import ProTable from '../../src/table';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -18,16 +18,10 @@ describe('ProTable Race Condition', () => {
       const [current, setCurrent] = useState(1);
       return (
         <div>
-          <button
-            onClick={() => setCurrent(3)}
-            data-testid="btn-3"
-          >
+          <button onClick={() => setCurrent(3)} data-testid="btn-3">
             setCurrent 3
           </button>
-          <button
-             onClick={() => setCurrent(0)}
-             data-testid="btn-0"
-          >
+          <button onClick={() => setCurrent(0)} data-testid="btn-0">
             setCurrent 0
           </button>
           <ProTable
@@ -75,7 +69,7 @@ describe('ProTable Race Condition', () => {
     const btn0 = screen.getByTestId('btn-0');
 
     await userEvent.click(btn3);
-    
+
     // 等待 debounce (20-50ms) 让请求发出
     await act(async () => {
       await waitTime(50);
@@ -85,9 +79,12 @@ describe('ProTable Race Condition', () => {
     await userEvent.click(btn0);
 
     // 等待快请求回来 (100ms + debounce)
-    await waitFor(async () => {
-      expect(screen.getByText('title 0')).toBeInTheDocument();
-    }, { timeout: 2000 });
+    await waitFor(
+      async () => {
+        expect(screen.getByText('title 0')).toBeInTheDocument();
+      },
+      { timeout: 2000 },
+    );
 
     // 此时 title 0 应该已经显示。
     // 现在等待足够长的时间，让那个慢请求 (1000ms) 回来

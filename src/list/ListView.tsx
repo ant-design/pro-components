@@ -43,9 +43,9 @@ export type ListViewProps<RecordType> = Omit<
     renderItem?: (
       item: RecordType,
       index: number,
-      defaultDom: JSX.Element,
+      defaultDom: React.ReactElement,
     ) => React.ReactNode;
-    actionRef: React.MutableRefObject<ActionType | undefined>;
+    actionRef: React.RefObject<ActionType | undefined>;
     // 当非卡片模式时，用于为每一行的项目绑定事件，用户设置 `grid`时将会失效
     onRow?: GetComponentProps<RecordType>;
     // 兼容普通和卡片模式的事件绑定，代表每一个项目的事件，是对`onRow`的补充
@@ -274,9 +274,7 @@ function ListView<RecordType extends AnyObject>(
                     checked: isChecked,
                     onChange: React.isValidElement(checkboxDom)
                       ? (changeChecked) => {
-                          return (
-                            (checkboxDom as JSX.Element)?.props as any
-                          )?.onChange({
+                          return (checkboxDom?.props as any)?.onChange({
                             nativeEvent: {},
                             changeChecked,
                           });

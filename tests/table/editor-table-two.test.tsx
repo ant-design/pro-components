@@ -171,7 +171,7 @@ const EditorProTableDemo = (
     position?: 'top';
   } & TableRowEditable<DataSourceType>,
 ) => {
-  const actionRef = useRef<ActionType>();
+  const actionRef = useRef<ActionType>(undefined);
   const [editableKeys, setEditorRowKeys] = useMergedState<React.Key[]>(
     () => props.defaultKeys || [],
     {

@@ -598,7 +598,11 @@ const ProFieldComponent: React.ForwardRefRenderFunction<
       ...rest,
       mode: readonly ? 'read' : mode,
       formItemRender: formItemRender
-        ? (curText: any, props: ProFieldFCRenderProps, dom: JSX.Element) => {
+        ? (
+            curText: any,
+            props: ProFieldFCRenderProps,
+            dom: React.ReactElement,
+          ) => {
             const { placeholder: _placeholder, ...restProps } = props;
             const newDom = formItemRender(curText, restProps, dom);
             // formItemRender 之后的dom可能没有props，这里会帮忙注入一下
@@ -629,6 +633,4 @@ const ProFieldComponent: React.ForwardRefRenderFunction<
   return <React.Fragment>{renderedDom}</React.Fragment>;
 };
 
-export const ProField = React.forwardRef(
-  ProFieldComponent,
-) as typeof ProFieldComponent;
+export const ProField = React.forwardRef(ProFieldComponent);

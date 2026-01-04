@@ -229,13 +229,11 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
       >
         {actions.map((action, index) => {
           if (!React.isValidElement(action)) {
-            // eslint-disable-next-line react/no-array-index-key
             return <React.Fragment key={index}>{action}</React.Fragment>;
           }
           return React.cloneElement(action, {
-            // eslint-disable-next-line react/no-array-index-key
             key: index,
-            ...action?.props,
+            ...((action as any)?.props || {}),
           });
         })}
       </div>

@@ -41,7 +41,7 @@ function FieldHOC<T extends ProFieldLightProps>(
   if (props.isLight) {
     return (
       <div onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}>
-        {React.cloneElement(props.children as JSX.Element, {
+        {React.cloneElement(props.children as any, {
           labelTrigger,
           lightLabel,
         })}

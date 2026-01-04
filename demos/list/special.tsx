@@ -63,12 +63,12 @@ const Demo = () => {
     <>
       <ProList<{
         title: string;
-        subTitle: JSX.Element;
-        actions: JSX.Element[];
-        description: JSX.Element;
+        subTitle: React.ReactElement;
+        actions: React.ReactElement[];
+        description: React.ReactElement;
         type?: 'top' | 'inline' | 'new';
         avatar: string;
-        children: JSX.Element;
+        children: React.ReactElement;
       }>
         metas={{
           title: {},

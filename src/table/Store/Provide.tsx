@@ -37,13 +37,13 @@ export type UseContainerProps<T = any> = {
 };
 
 function useContainer(props: UseContainerProps = {} as Record<string, any>) {
-  const actionRef = useRef<ActionType>();
+  const actionRef = useRef<ActionType>(undefined);
   const rootDomRef = useRef<HTMLDivElement>(null);
   /** 父 form item 的 name */
-  const prefixNameRef = useRef<any>();
+  const prefixNameRef = useRef<any>(undefined);
 
   /** 自己 props 的引用 */
-  const propsRef = useRef<ProTableProps<any, any, any>>();
+  const propsRef = useRef<ProTableProps<any, any, any>>(undefined);
 
   // 共享状态比较难，就放到这里了
   const [keyWords, setKeyWords] = useState<string | undefined>('');

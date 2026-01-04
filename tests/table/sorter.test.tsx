@@ -475,7 +475,7 @@ describe('BasicTable sorter', () => {
   it('🎏 should pass string sorter parameters to request function', async () => {
     const fn = vi.fn();
     const TestComponent = () => {
-      const actionRef = useRef<ActionType>();
+      const actionRef = useRef<ActionType>(undefined);
 
       return (
         <ProTable
@@ -675,7 +675,7 @@ describe('BasicTable sorter', () => {
   describe('Reset action when use request sort', () => {
     it('🎏 should reset to defaultSortOrder with flat columns', async () => {
       const TestComponent = () => {
-        const actionRef = useRef<ActionType>();
+        const actionRef = useRef<ActionType>(undefined);
 
         return (
           <ProTable<{ money: number }>
@@ -781,7 +781,7 @@ describe('BasicTable sorter', () => {
 
     it('🎏 should reset to defaultSortOrder with nested columns', async () => {
       const TestComponent = () => {
-        const actionRef = useRef<ActionType>();
+        const actionRef = useRef<ActionType>(undefined);
 
         return (
           <ProTable<{ money: number; score: number }>

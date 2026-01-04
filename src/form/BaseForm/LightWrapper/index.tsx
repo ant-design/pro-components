@@ -43,9 +43,7 @@ export type LightWrapperProps = {
   placement?: TooltipPlacement;
 };
 
-const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
-  props,
-) => {
+const LightWrapper: React.FC<LightWrapperProps> = (props) => {
   const {
     label,
     size,
@@ -143,13 +141,13 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
         className={classNames(`${prefixCls}-container`, hashId, className)}
         style={style}
       >
-        {React.cloneElement(children as JSX.Element, {
+        {React.cloneElement(children as any, {
           ...rest,
           [valuePropName!]: tempValue,
           onChange: (e: any) => {
             setTempValue(e?.target ? e.target.value : e);
           },
-          ...(children as JSX.Element).props,
+          ...((children as any)?.props || {}),
         })}
       </div>
     </FilterDropdown>,

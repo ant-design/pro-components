@@ -17,7 +17,7 @@ const waitTime = (time: number = 100) => {
 };
 
 const Demo = () => {
-  const formRef = useRef<ProFormInstance>();
+  const formRef = useRef<ProFormInstance>(undefined);
   const onFill = () => {
     formRef?.current?.setFieldsValue({
       name: '张三',

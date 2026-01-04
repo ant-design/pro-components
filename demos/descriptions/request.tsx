@@ -4,7 +4,7 @@ import { Button } from 'antd';
 import { useRef } from 'react';
 
 const Demo = () => {
-  const actionRef = useRef<ProDescriptionsActionType>();
+  const actionRef = useRef<ProDescriptionsActionType>(undefined);
   return (
     <>
       <ProDescriptions

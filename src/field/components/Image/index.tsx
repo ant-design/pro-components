@@ -1,7 +1,6 @@
 import { Image, Input } from 'antd';
 import React from 'react';
 import { useIntl } from '../../../provider';
-import type { ProFieldFC } from '../../PureProField';
 
 export type FieldImageProps = {
   text: string;
@@ -54,4 +53,4 @@ const FieldImage = React.forwardRef<FieldImageProps, any>(
   },
 );
 
-export default FieldImage as ProFieldFC<FieldImageProps>;
+export default FieldImage;

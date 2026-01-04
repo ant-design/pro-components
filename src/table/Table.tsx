@@ -84,7 +84,7 @@ type CreatorToolbarContext<T extends Record<string, any>> = {
   searchNode: React.ReactNode;
   options: ProTableProps<T, any, any>['options'];
   optionsRender: ProTableProps<T, any, any>['optionsRender'];
-  actionRef: React.MutableRefObject<ActionType | undefined>;
+  actionRef: React.RefObject<ActionType | undefined>;
   setFormSearch: (value: Record<string, any> | undefined) => void;
   formSearch: Record<string, any> | undefined;
 };
@@ -360,7 +360,7 @@ function useSearchNode<T extends Record<string, any>, U, ValueType>({
   type: ProTableProps<T, U, ValueType>['type'];
   pagination: ProTableProps<T, U, ValueType>['pagination'];
   beforeSearchSubmit: ProTableProps<T, U, ValueType>['beforeSearchSubmit'];
-  actionRef: React.MutableRefObject<ActionType | undefined>;
+  actionRef: React.RefObject<ActionType | undefined>;
   columns: ProTableProps<T, U, ValueType>['columns'];
   onFormSearchSubmit: <Y extends ParamsType>(values: Y) => any;
   ghost: ProTableProps<T, U, ValueType>['ghost'];
@@ -369,7 +369,7 @@ function useSearchNode<T extends Record<string, any>, U, ValueType>({
   loading: boolean;
   manualRequest: ProTableProps<T, U, ValueType>['manualRequest'];
   form: ProTableProps<T, U, ValueType>['form'];
-  formRef: React.MutableRefObject<any>;
+  formRef: React.RefObject<any>;
   cardBordered: ProTableProps<T, U, ValueType>['cardBordered'];
   dateFormatter: ProTableProps<T, U, ValueType>['dateFormatter'];
   searchFormRender: ProTableProps<T, U, ValueType>['searchFormRender'];
@@ -545,7 +545,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     onFilterChange: (filter: Record<string, FilterValue>) => void;
     editableUtils: any;
     getRowKey: GetRowKey<any>;
-    tableRef: React.MutableRefObject<any>;
+    tableRef: React.RefObject<any>;
   },
 ) {
   const {
@@ -703,7 +703,9 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
   });
 
   const propsCardPropsObject =
-    propsCardProps && typeof propsCardProps === 'object' ? propsCardProps : undefined;
+    propsCardProps && typeof propsCardProps === 'object'
+      ? propsCardProps
+      : undefined;
   const propsCardBodyStyle =
     propsCardPropsObject?.styles?.body || propsCardPropsObject?.bodyStyle;
   const propsCardHeaderStyle =
@@ -834,11 +836,11 @@ const ProTable = <
   const className = classNames(defaultClassName, propsClassName, hashId);
 
   /** 通用的来操作子节点的工具类 */
-  const actionRef = useRef<ActionType>();
+  const actionRef = useRef<ActionType>(undefined);
   // antd Table 实例 ref（仅用于转发 scrollTo 能力）
   const antTableRef = useRef<any>(null);
 
-  const defaultFormRef = useRef();
+  const defaultFormRef = useRef(undefined);
   const formRef = propRef || defaultFormRef;
 
   useImperativeHandle(propsActionRef, () => actionRef.current);

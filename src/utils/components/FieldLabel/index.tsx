@@ -65,8 +65,8 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
   }));
 
   const wrapElements = (
-    array: (string | JSX.Element)[],
-  ): JSX.Element[] | string => {
+    array: (string | React.ReactElement)[],
+  ): React.ReactElement[] | string => {
     if (array.every((item) => typeof item === 'string')) return array.join(',');
 
     return array.map((item, index) => {

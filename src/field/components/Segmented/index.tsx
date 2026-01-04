@@ -26,7 +26,7 @@ const FieldSegmented: ProFieldFC<
     ...rest
   } = props;
 
-  const inputRef = useRef<HTMLInputElement>();
+  const inputRef = useRef<HTMLInputElement>(undefined);
 
   const [loading, options, fetchData] = useFieldFetchData(props);
 

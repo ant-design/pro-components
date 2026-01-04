@@ -98,7 +98,7 @@ export type ProDescriptionsProps<
   columns?: ProDescriptionsItemProps<RecordType, ValueType>[];
 
   /** 一些简单的操作 */
-  actionRef?: React.MutableRefObject<ProCoreActionType<any> | undefined>;
+  actionRef?: React.RefObject<ProCoreActionType<any> | undefined>;
 
   loading?: boolean;
 
@@ -320,7 +320,7 @@ const schemaToDescriptionsItem = (
   editableUtils?: UseEditableMapUtilType,
   emptyText?: React.ReactNode,
 ) => {
-  const options: JSX.Element[] = [];
+  const options: React.ReactElement[] = [];
   // 因为 Descriptions 只是个语法糖，children 是不会执行的，所以需要这里处理一下
   const children = items
     ?.map?.((item, index) => {
@@ -388,7 +388,7 @@ const schemaToDescriptionsItem = (
           ellipsis={item.ellipsis}
         />
       );
-      const field: DescriptionsItemType | JSX.Element =
+      const field: DescriptionsItemType | React.ReactElement =
         valueType !== 'option'
           ? ({
               ...restItem,
@@ -446,10 +446,10 @@ const schemaToDescriptionsItem = (
                   )}
                 </Component>
               </Descriptions.Item>
-            ) as JSX.Element);
+            ) as React.ReactElement);
       // 如果类型是 option 自动放到右上角
       if (valueType === 'option') {
-        options.push(field as JSX.Element);
+        options.push(field as React.ReactElement);
         return null;
       }
       return field;

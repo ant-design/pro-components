@@ -172,7 +172,7 @@
     "query-string": "^6.14.1",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
-    "react-markdown": "^8.0.7",
+    "react-markdown": "^10.1.0",
     "react-syntax-highlighter": "^15.6.6",
     "remark": "^15.0.1",
     "remark-gfm": "^4.0.1",

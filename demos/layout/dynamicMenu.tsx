@@ -16,7 +16,7 @@ let serviceData: any[] = customMenuDate;
 const Demo = () => {
   const actionRef = useRef<{
     reload: () => void;
-  }>();
+  }>(undefined);
   const [toggle, setToggle] = useState(false);
   return (
     <>

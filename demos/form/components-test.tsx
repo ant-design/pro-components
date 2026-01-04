@@ -1,4 +1,5 @@
 import { SmileOutlined } from '@ant-design/icons';
+import type { ProFormInstance } from '@ant-design/pro-components';
 import {
   ProForm,
   ProFormCheckbox,
@@ -13,7 +14,7 @@ import { Button, Input } from 'antd';
 import { useRef } from 'react';
 
 const Demo = () => {
-  const formRef = useRef();
+  const formRef = useRef<ProFormInstance>(undefined);
   return (
     <ProForm
       name="validate_other"

@@ -51,9 +51,9 @@ const Demo = () => {
   const [position, setPosition] = useState<'top' | 'bottom' | 'hidden'>(
     'bottom',
   );
-  const [controlled, setControlled] = useState<boolean>(false);
-  const formRef = useRef<ProFormInstance<any>>();
-  const editorFormRef = useRef<EditableFormInstance<DataSourceType>>();
+  const [controlled, setControlled] = useState(false);
+  const formRef = useRef<ProFormInstance<any>>(undefined);
+  const editorFormRef = useRef<EditableFormInstance<DataSourceType>>(undefined);
   const columns: ProColumns<DataSourceType>[] = [
     {
       title: '活动名称',

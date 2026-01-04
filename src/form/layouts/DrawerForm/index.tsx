@@ -47,7 +47,7 @@ export type DrawerFormProps<
     submitTimeout?: number;
 
     /** @name 用于触发抽屉打开的 dom ，只能设置一个*/
-    trigger?: JSX.Element;
+    trigger?: React.ReactElement;
 
     /** @name 受控的打开关闭 */
     open?: DrawerProps['open'];
@@ -140,7 +140,7 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
     [],
   );
 
-  const formRef = useRef<ProFormInstance>();
+  const formRef = useRef<ProFormInstance>(undefined);
 
   const resetFields = useCallback(() => {
     const form = rest.formRef?.current ?? rest.form ?? formRef.current;
@@ -182,11 +182,11 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
 
     return React.cloneElement(trigger, {
       key: 'trigger',
-      ...trigger.props,
+      ...(trigger.props as any),
       onClick: async (e: any) => {
         setOpen(!open);
         setResizableDrawer(!Object.keys(resizeInfo));
-        trigger.props?.onClick?.(e);
+        (trigger.props as any)?.onClick?.(e);
       },
     });
   }, [setOpen, trigger, open, setResizableDrawer, resizableDrawer]);
@@ -372,9 +372,7 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
             formRef={formRef}
             onInit={(_, form) => {
               if (rest.formRef) {
-                (
-                  rest.formRef as React.MutableRefObject<ProFormInstance<T>>
-                ).current = form;
+                rest.formRef.current = form;
               }
               rest?.onInit?.(_, form);
               formRef.current = form;

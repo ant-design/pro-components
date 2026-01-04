@@ -98,7 +98,10 @@ const Group: React.FC<ProFormGroupProps> = React.forwardRef(
       const hiddenChildren: React.ReactNode[] = [];
       const childrenList = React.Children.toArray(children).map(
         (element, index) => {
-          if (React.isValidElement(element) && element?.props?.hidden) {
+          if (
+            React.isValidElement(element) &&
+            (element?.props as any)?.hidden
+          ) {
             hiddenChildren.push(element);
             return null;
           }

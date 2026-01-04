@@ -52,7 +52,7 @@ export const AppsLogoComponents: React.FC<{
   const [open, setOpen] = useState(false);
 
   const cloneItemClick = (app: AppItemProps) => {
-    itemClick?.(app, popoverRef);
+    itemClick?.(app, popoverRef as React.RefObject<HTMLSpanElement>);
   };
 
   const defaultDomContent = useMemo(() => {

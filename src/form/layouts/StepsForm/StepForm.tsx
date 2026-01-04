@@ -15,7 +15,7 @@ export type StepFormProps<T = Record<string, any>, U = Record<string, any>> = {
   Omit<CommonFormProps<T, U>, 'submitter' | 'form'>;
 
 function StepForm<T = Record<string, any>>(stepNativeProps: StepFormProps<T>) {
-  const formRef = useRef<FormInstance | undefined>();
+  const formRef = useRef<FormInstance>(undefined);
   const context = useContext(StepsFormProvide);
   const stepContext = useContext(StepFormProvide);
 

@@ -39,7 +39,7 @@ export type ModalFormProps<
     submitTimeout?: number;
 
     /** @name 用于触发抽屉打开的 dom */
-    trigger?: JSX.Element;
+    trigger?: React.ReactElement;
 
     /** @name 受控的打开关闭 */
     open?: ModalProps['open'];
@@ -97,7 +97,7 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
     [],
   );
 
-  const formRef = useRef<ProFormInstance>();
+  const formRef = useRef<ProFormInstance>(undefined);
 
   const resetFields = useCallback(() => {
     const form = rest.form ?? rest.formRef?.current ?? formRef.current;
@@ -134,10 +134,10 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
 
     return React.cloneElement(trigger, {
       key: 'trigger',
-      ...trigger.props,
+      ...(trigger.props as any),
       onClick: async (e: any) => {
         setOpen(!open);
-        trigger.props?.onClick?.(e);
+        (trigger.props as any)?.onClick?.(e);
       },
     });
   }, [setOpen, trigger, open]);
@@ -285,9 +285,7 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
           {...rest}
           onInit={(_, form) => {
             if (rest.formRef) {
-              (
-                rest.formRef as React.MutableRefObject<ProFormInstance<T>>
-              ).current = form;
+              rest.formRef.current = form;
             }
             rest?.onInit?.(_, form);
             formRef.current = form;

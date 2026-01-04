@@ -173,7 +173,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
 ];
 
 const Demo = () => {
-  const actionRef = useRef<ActionType>();
+  const actionRef = useRef<ActionType>(undefined);
 
   return (
     <ConfigProvider prefixCls="canvas">

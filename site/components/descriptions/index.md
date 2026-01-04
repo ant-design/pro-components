@@ -109,7 +109,7 @@ API 与 ProTable 相同
 | columns        | 列定义，与 request 配合使用 [columns](/components/table#columns)                                  | `ProColumns<T>[]`                        | -            |
 | editable       | 编辑的相关配置                                                                                    | [EditableConfig](#editable-编辑配置)     | -            |
 | dataSource     | 数据源                                                                                            | `T[]`                                    | -            |
-| actionRef      | 操作引用                                                                                          | `MutableRefObject<ActionType>`           | -            |
+| actionRef      | 操作引用                                                                                          | `RefObject<ActionType>`                  | -            |
 
 ### editable 编辑配置
 

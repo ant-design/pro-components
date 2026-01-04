@@ -271,7 +271,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
   const [values, setValues] = useState<Record<string, any>>(() => {
     return { ...initialValues };
   });
-  const formRef = useRef<ProFormInstance>();
+  const formRef = useRef<ProFormInstance>(undefined);
 
   useImperativeHandle(userFormRef, () => formRef.current, [formRef.current]);
 

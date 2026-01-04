@@ -1,4 +1,5 @@
 ﻿import { PlusOutlined } from '@ant-design/icons';
+import type { ProFormInstance } from '@ant-design/pro-components';
 import {
   DrawerForm,
   ModalForm,
@@ -19,7 +20,7 @@ const waitTime = (time: number = 100) => {
 };
 
 const Demo = () => {
-  const formRef = useRef();
+  const formRef = useRef<ProFormInstance>(undefined);
   return (
     <div
       style={{

@@ -124,21 +124,21 @@ export type EditableProTableProps<
 };
 
 const EditableTableActionContext = React.createContext<
-  React.MutableRefObject<ActionType | undefined> | undefined
+  React.RefObject<ActionType | undefined> | undefined
 >(undefined);
 
 /** 可编辑表格的按钮 */
 function RecordCreator<T = Record<string, any>>(
-  props: RecordCreatorProps<T> & { children: JSX.Element },
+  props: RecordCreatorProps<T> & { children: React.ReactElement },
 ) {
   const { children, record, position, newRecordType, parentKey } = props;
   const actionRef = useContext(EditableTableActionContext);
 
   return React.cloneElement(children, {
-    ...children.props,
+    ...(children.props as any),
     onClick: async (e: any) => {
       // 如果返回了false，接触掉默认行为
-      const isOk = await children.props.onClick?.(e);
+      const isOk = await (children.props as any)?.onClick?.(e);
       if (isOk === false) return;
 
       if (actionRef?.current) {
@@ -464,8 +464,8 @@ function EditableTable<
   } = props;
 
   const preData = useRef<readonly DataType[] | undefined>(undefined);
-  const actionRef = useRef<ActionType>();
-  const formRef = useRef<ProFormInstance>();
+  const actionRef = useRef<ActionType>(undefined);
+  const formRef = useRef<ProFormInstance>(undefined);
   const form = Form.useFormInstance();
 
   // 设置 ref

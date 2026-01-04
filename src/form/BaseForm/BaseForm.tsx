@@ -113,9 +113,7 @@ export type CommonFormProps<
    *
    * - formRef.current.nativeElement => `2.29.1+`
    */
-  formRef?:
-    | React.MutableRefObject<ProFormRef<T> | undefined>
-    | React.RefObject<ProFormRef<T> | undefined>;
+  formRef?: React.RefObject<ProFormRef<T> | undefined>;
 
   /**
    * @name 同步结果到 url 中
@@ -422,7 +420,7 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
     return React.Children.toArray(children as any).map((item, index) => {
       if (index === 0 && React.isValidElement(item) && autoFocusFirstInput) {
         return React.cloneElement(item, {
-          ...item.props,
+          ...(item.props as any),
           autoFocus: autoFocusFirstInput,
         });
       }
