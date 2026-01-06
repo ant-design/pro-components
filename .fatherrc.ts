@@ -1,9 +1,9 @@
 import { defineConfig } from 'father';
 
 const targets = {
-  edge: 142,
+  edge: 141,
   firefox: 140,
-  chrome: 112,
+  chrome: 109,
   safari: 18,
   opera: 124,
   electron: 39,
