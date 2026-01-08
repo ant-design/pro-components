@@ -27,7 +27,6 @@ import { ProFormContext } from '../components/ProFormContext';
 import { useDeepCompareEffectDebounce } from '../hooks/useDeepCompareEffect';
 import { usePrevious } from '../hooks/usePrevious';
 import { merge } from '../merge';
-import { useMountMergeState } from '../useMountMergeState';
 const { noteOnce } = rcWarning;
 
 /**
@@ -397,7 +396,7 @@ export function SaveEditableAction<T>(
 ) {
   const context = useContext(ProFormContext);
   const form = Form.useFormInstance();
-  const [loading, setLoading] = useMountMergeState<boolean>(false);
+  const [loading, setLoading] = useState(false);
   const save = useRefFunction(async () => {
     try {
       const isMapEditor = editorType === 'Map';
@@ -515,7 +514,7 @@ export const DeleteEditableAction: React.FC<
   children,
   deletePopconfirmMessage,
 }) => {
-  const [loading, setLoading] = useMountMergeState<boolean>(() => false);
+  const [loading, setLoading] = useState(false);
 
   const onConfirm = useRefFunction(async () => {
     try {
@@ -597,7 +596,9 @@ const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
 
         // 在清理编辑态前，先捕获“编辑前快照”（多行编辑时必须按 key 取值）
         const cachedPreEditRow =
-          recordKeyStr != null ? preEditRowRefs?.current?.get(recordKeyStr) : undefined;
+          recordKeyStr != null
+            ? preEditRowRefs?.current?.get(recordKeyStr)
+            : undefined;
 
         const isNewLineKeyMatch = (() => {
           const newLineKey = newLineConfig?.options?.recordKey;
@@ -611,8 +612,7 @@ const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
         const res = await onCancel?.(recordKey, record, row, newLineConfig);
         await cancelEditable(recordKey);
         /** 重置为默认值，不然编辑的行会丢掉 */
-        const restoreRow =
-          cachedPreEditRow ?? preEditRowRef?.current ?? row;
+        const restoreRow = cachedPreEditRow ?? preEditRowRef?.current ?? row;
         const shouldDeleteNewRow =
           cachedPreEditRow === null ||
           (cachedPreEditRow === undefined &&

@@ -3,6 +3,7 @@
   set as namePathSet,
   omit,
   set,
+  useMergedState,
   warning,
 } from '@rc-component/util';
 import { useUrlSearchParams } from '@umijs/use-params';
@@ -35,7 +36,6 @@ import {
   runFunction,
   transformKeySubmitValue,
   useFetchData,
-  useMountMergeState,
   usePrevious,
   useRefFunction,
   useStyle,
@@ -668,7 +668,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     ...propRest
   } = props;
   const formRef = useRef<ProFormRef<any>>({} as any);
-  const [loading, setLoading] = useMountMergeState<boolean>(false, {
+  const [loading, setLoading] = useMergedState<boolean>(false, {
     onChange: onLoadingChange,
     value: propsLoading,
   });
