@@ -1,7 +1,7 @@
 ﻿import { merge, useMergedState, warning } from '@rc-component/util';
 import type { DrawerProps, FormProps } from 'antd';
 import { ConfigProvider, Drawer } from 'antd';
-import classNames from 'classnames';
+import classNames from 'clsx';
 import React, {
   useCallback,
   useContext,

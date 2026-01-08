@@ -1,6 +1,6 @@
 import { CheckOutlined } from '@ant-design/icons';
 import { Tooltip } from 'antd';
-import classNames from 'classnames';
+import classNames from 'clsx';
 import { useMemo } from 'react';
 
 export type BlockCheckboxProps = {

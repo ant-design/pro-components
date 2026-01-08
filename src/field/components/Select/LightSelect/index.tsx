@@ -2,7 +2,7 @@ import { SearchOutlined } from '@ant-design/icons';
 import { toArray } from '@rc-component/util';
 import type { SelectProps } from 'antd';
 import { ConfigProvider, Input, Select } from 'antd';
-import classNames from 'classnames';
+import classNames from 'clsx';
 import React, { useContext, useMemo, useState } from 'react';
 import { FieldLabel, useStyle } from '../../../../utils';
 import type { ProFieldLightProps } from '../../../PureProField';

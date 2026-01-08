@@ -1,5 +1,5 @@
 import { ConfigProvider } from 'antd';
-import classNames from 'classnames';
+import classNames from 'clsx';
 import React, { useContext, useMemo, useRef } from 'react';
 import { isNeedOpenHash, ProProvider } from '../../../provider';
 

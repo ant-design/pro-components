@@ -14,7 +14,7 @@ import type {
   FormListProps,
 } from 'antd/lib/form/FormList';
 import type { NamePath } from 'antd/lib/form/interface';
-import classNames from 'classnames';
+import classNames from 'clsx';
 import type { ReactNode } from 'react';
 import React, {
   useContext,

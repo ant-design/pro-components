@@ -4,7 +4,7 @@ import type { FormProps, PopoverProps } from 'antd';
 import { ConfigProvider } from 'antd';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import type { TooltipPlacement } from 'antd/lib/tooltip';
-import classNames from 'classnames';
+import classNames from 'clsx';
 import React, {
   useContext,
   useEffect,

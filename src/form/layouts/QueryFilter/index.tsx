@@ -1,9 +1,9 @@
-/* eslint-disable no-param-reassign */ import { useMergedState } from '@rc-component/util';
+/* eslint-disable no-param-reassign */ import RcResizeObserver from '@rc-component/resize-observer';
+import { useMergedState } from '@rc-component/util';
 import type { ColProps, FormItemProps, RowProps } from 'antd';
 import { Col, ConfigProvider, Form, Row } from 'antd';
 import type { FormInstance, FormProps } from 'antd/lib/form/Form';
-import classNames from 'classnames';
-import RcResizeObserver from '@rc-component/resize-observer';
+import classNames from 'clsx';
 import type { ReactElement } from 'react';
 import React, { useContext, useMemo } from 'react';
 import { ProProvider, useIntl } from '../../../provider';

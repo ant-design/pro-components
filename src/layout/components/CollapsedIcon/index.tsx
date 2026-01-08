@@ -1,4 +1,4 @@
-﻿import classNames from 'classnames';
+﻿import classNames from 'clsx';
 import { ArrowSvgIcon } from '../SiderMenu/Arrow';
 import { useStyle } from './style';
 

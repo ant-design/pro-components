@@ -1,7 +1,7 @@
 import { MenuOutlined } from '@ant-design/icons';
 import type { AvatarProps } from 'antd';
 import { ConfigProvider } from 'antd';
-import classNames from 'classnames';
+import classNames from 'clsx';
 import React, { useContext } from 'react';
 import type { PureSettings } from '../../defaultSettings';
 import type { MenuDataItem } from '../../index';

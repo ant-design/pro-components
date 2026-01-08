@@ -2,7 +2,7 @@ import { createFromIconfontCN } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Menu, Skeleton, Tooltip } from 'antd';
 import { ItemType } from 'antd/lib/menu/interface';
-import classNames from 'classnames';
+import classNames from 'clsx';
 import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import type { ProTokenType } from '../../../provider';
 import { ProProvider } from '../../../provider';

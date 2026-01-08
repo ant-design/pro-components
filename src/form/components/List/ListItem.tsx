@@ -13,7 +13,7 @@ import type {
   FormListOperation,
   FormListProps,
 } from 'antd/lib/form/FormList';
-import classNames from 'classnames';
+import classNames from 'clsx';
 import type { CSSProperties, ReactNode } from 'react';
 import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { FormListContext } from '.';

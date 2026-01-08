@@ -1,7 +1,7 @@
 import { RightOutlined } from '@ant-design/icons';
 import { omit, useMergedState } from '@rc-component/util';
 import { ConfigProvider, Grid, Tabs } from 'antd';
-import classNames from 'classnames';
+import classNames from 'clsx';
 import React, { useContext } from 'react';
 import { LabelIconTip } from '../../../utils';
 import type { Breakpoint, CardProps, Gutter } from '../../typing';

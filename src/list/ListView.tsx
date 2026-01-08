@@ -12,7 +12,7 @@ import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
 import usePagination from 'antd/lib/table/hooks/usePagination';
 import useSelection from 'antd/lib/table/hooks/useSelection';
 import type { GetRowKey, TableRowSelection } from 'antd/lib/table/interface';
-import classNames from 'classnames';
+import classNames from 'clsx';
 import React, { useContext } from 'react';
 import type { CheckCardProps } from '../card';
 import { ProProvider } from '../provider';

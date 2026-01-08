@@ -2,7 +2,7 @@ import { Summary } from '@rc-component/table';
 import type { TablePaginationConfig } from 'antd';
 import { ConfigProvider, Table } from 'antd';
 import type { GetRowKey, SortOrder } from 'antd/lib/table/interface';
-import classNames from 'classnames';
+import classNames from 'clsx';
 import isEmpty from 'lodash-es/isEmpty';
 import isEqual from 'lodash-es/isEqual';
 import React, {

@@ -13,7 +13,7 @@ import {
   Watermark,
   WatermarkProps,
 } from 'antd';
-import classNames from 'classnames';
+import classNames from 'clsx';
 import type { ReactNode } from 'react';
 import React, { useContext, useEffect, useMemo } from 'react';
 import type { GenerateStyle } from '../../../provider';

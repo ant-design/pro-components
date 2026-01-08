@@ -1,5 +1,5 @@
 ﻿import { Popover } from 'antd';
-import classNames from 'classnames';
+import classNames from 'clsx';
 import React, { useMemo, useState } from 'react';
 import { AppsLogo } from './AppsLogo';
 import { DefaultContent } from './DefaultContent';

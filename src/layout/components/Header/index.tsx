@@ -1,5 +1,5 @@
 import { ConfigProvider, Layout } from 'antd';
-import classNames from 'classnames';
+import classNames from 'clsx';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { isNeedOpenHash, ProProvider } from '../../../provider';
 import type { WithFalse } from '../../typing';

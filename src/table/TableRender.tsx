@@ -9,17 +9,13 @@ import type {
   SortOrder,
   TableCurrentDataSource,
 } from 'antd/lib/table/interface';
-import classNames from 'classnames';
-import React, { Key, useContext, useMemo } from 'react';
+import classNames from 'clsx';
+import React, { useContext, useMemo } from 'react';
 import ProCard from '../card';
 import ProForm, { GridContext } from '../form';
 import { editableRowByKey, omitUndefined, recordKeyToString } from '../utils';
 import { TableContext } from './Store/Provide';
-import type {
-  FilterValue,
-  ProTableProps,
-  UseFetchDataAction,
-} from './typing';
+import type { FilterValue, ProTableProps, UseFetchDataAction } from './typing';
 import {
   flattenColumns,
   genColumnKey,
@@ -64,7 +60,9 @@ function getEditableDataSource<T>({
   if (newLineOptions?.parentKey) {
     const newRow = {
       ...defaultValue,
-      map_row_parentKey: recordKeyToString(newLineOptions.parentKey)?.toString(),
+      map_row_parentKey: recordKeyToString(
+        newLineOptions.parentKey,
+      )?.toString(),
     };
     const actionProps = {
       data: baseData,
@@ -259,7 +257,9 @@ export function TableRender<T extends Record<string, any>, U, ValueType>(
    * 是否需要 card 来包裹
    */
   const notNeedCardDom =
-    props.search === false && !props.headerTitle && props.toolBarRender === false;
+    props.search === false &&
+    !props.headerTitle &&
+    props.toolBarRender === false;
 
   /** 默认的 table dom，如果是编辑模式，外面还要包个 form */
   const baseTableDom = (
@@ -396,4 +396,3 @@ export function TableRender<T extends Record<string, any>, U, ValueType>(
     </ConfigProvider>
   );
 }
-

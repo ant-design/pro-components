@@ -1,6 +1,6 @@
 ﻿import type { ColorPickerProps } from 'antd';
 import { ColorPicker, ConfigProvider } from 'antd';
-import classNames from 'classnames';
+import classNames from 'clsx';
 import React, { useContext } from 'react';
 import type { ProFieldFC } from '../../PureProField';
 

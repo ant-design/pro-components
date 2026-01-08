@@ -1,6 +1,6 @@
 import type { AvatarProps, SiderProps } from 'antd';
 import { Avatar, Layout, Menu, Space } from 'antd';
-import classNames from 'classnames';
+import classNames from 'clsx';
 import type { CSSProperties, FC, ReactNode } from 'react';
 import React, { useContext, useMemo } from 'react';
 import type { GenerateStyle } from '../../../provider';

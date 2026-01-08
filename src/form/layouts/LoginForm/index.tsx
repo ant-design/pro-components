@@ -1,5 +1,5 @@
 import { ConfigProvider } from 'antd';
-import classNames from 'classnames';
+import classNames from 'clsx';
 import React, { useContext, useMemo } from 'react';
 import { useIntl } from '../../../provider';
 import type { SubmitterProps } from '../../BaseForm/Submitter';

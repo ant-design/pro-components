@@ -1,7 +1,7 @@
 import { DownOutlined, EllipsisOutlined } from '@ant-design/icons';
 import type { MenuItemProps } from 'antd';
 import { Button, ConfigProvider, Dropdown } from 'antd';
-import classnames from 'classnames';
+import classnames from 'clsx';
 import React, { useContext } from 'react';
 
 interface MenuItems extends MenuItemProps {

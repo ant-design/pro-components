@@ -1,6 +1,6 @@
 import { RightOutlined } from '@ant-design/icons';
 import { ConfigProvider, Space } from 'antd';
-import classNames from 'classnames';
+import classNames from 'clsx';
 import React, { useCallback, useContext, useMemo } from 'react';
 import { LabelIconTip, useMountMergeState } from '../../../../utils';
 import FieldContext from '../../../FieldContext';

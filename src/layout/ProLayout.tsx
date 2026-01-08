@@ -4,7 +4,7 @@ import type { BreadcrumbProps, WatermarkProps } from 'antd';
 import { ConfigProvider, Layout } from 'antd';
 import type { AnyObject } from 'antd/lib/_util/type';
 import type { ItemType } from 'antd/lib/breadcrumb/Breadcrumb';
-import classNames from 'classnames';
+import classNames from 'clsx';
 import type { CSSProperties } from 'react';
 import React, {
   useCallback,

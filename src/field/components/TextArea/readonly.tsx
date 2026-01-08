@@ -1,6 +1,6 @@
 import { omit } from '@rc-component/util';
 import { ConfigProvider } from 'antd';
-import classNames from 'classnames';
+import classNames from 'clsx';
 import React, { useContext } from 'react';
 import { useStyle } from '../../../utils';
 import type { ProFieldFC } from '../../PureProField';
