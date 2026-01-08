@@ -58,11 +58,6 @@
   "browserslist": [
     "defaults"
   ],
-  "resolutions": {
-    "@types/react": "^18.0.38",
-    "@types/react-dom": "^18.0.11",
-    "@types/responselike": "^1.0.0"
-  },
   "dependencies": {
     "@ant-design/cssinjs": "^2.0.2",
     "@ant-design/icons": "^6.1.0",
@@ -129,7 +124,7 @@
     "@umijs/plugin-analytics": "^0.2.4",
     "@umijs/test": "^3.5.43",
     "@umijs/test-utils": "^3.5.43",
-    "@umijs/utils": "^4.6.19",
+    "@umijs/utils": "^4.6.21",
     "@vitejs/plugin-legacy": "^6.1.1",
     "@vitest/browser": "^3.2.4",
     "@vitest/coverage-istanbul": "^3.2.4",
@@ -152,7 +147,7 @@
     "father": "^4.6.13",
     "gh-pages": "^5.0.0",
     "glob": "^8.1.0",
-    "happy-dom": "^20.0.11",
+    "happy-dom": "^20.1.0",
     "identity-obj-proxy": "^3.0.0",
     "inquirer": "^8.2.7",
     "jest-canvas-mock": "^2.5.2",
@@ -184,11 +179,11 @@
     "ts-node": "^10.9.2",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
-    "umi": "^4.6.19",
+    "umi": "^4.6.21",
     "umi-request": "^1.4.0",
     "unified": "^11.0.5",
     "unist-util-visit": "^5.0.0",
-    "vite": "^7.3.0",
+    "vite": "^7.3.1",
     "vitest": "^3.2.4",
     "write-pkg": "^4.0.0",
     "xhr-mock": "^2.5.1",
