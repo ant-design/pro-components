@@ -1,4 +1,4 @@
-﻿import { GetRowKey } from 'antd/lib/table/interface';
+﻿import { GetRowKey } from 'antd/es/table/interface';
 import React from 'react';
 import { ParamsType } from '../../../provider';
 import { ProColumns } from '../../typing';

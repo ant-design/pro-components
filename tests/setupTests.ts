@@ -1,5 +1,5 @@
 ﻿import '@testing-library/jest-dom/vitest';
-import { defaultConfig } from 'antd/lib/theme/internal';
+import { defaultConfig } from 'antd/es/theme/internal';
 import crypto from 'crypto';
 import MockDate from 'mockdate';
 import React from 'react';

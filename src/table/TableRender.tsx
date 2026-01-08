@@ -8,7 +8,7 @@ import type {
   GetRowKey,
   SortOrder,
   TableCurrentDataSource,
-} from 'antd/lib/table/interface';
+} from 'antd/es/table/interface';
 import classNames from 'classnames';
 import React, { Key, useContext, useMemo } from 'react';
 import ProCard from '../card';

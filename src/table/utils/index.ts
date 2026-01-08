@@ -3,7 +3,7 @@ import type {
   FilterValue as AntFilterValue,
   SorterResult,
   SortOrder,
-} from 'antd/lib/table/interface';
+} from 'antd/es/table/interface';
 import type React from 'react';
 import { Key } from 'react';
 import type { IntlType } from '../../provider';

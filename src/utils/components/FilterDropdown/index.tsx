@@ -1,6 +1,6 @@
 import type { PopoverProps } from 'antd';
 import { ConfigProvider, Popover } from 'antd';
-import type { TooltipPlacement } from 'antd/lib/tooltip';
+import type { TooltipPlacement } from 'antd/es/tooltip';
 import classNames from 'classnames';
 import React, { useContext, useRef } from 'react';
 import type { DropdownFooterProps } from '../DropdownFooter';

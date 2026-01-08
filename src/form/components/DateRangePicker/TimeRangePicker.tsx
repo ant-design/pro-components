@@ -1,4 +1,4 @@
-﻿import type { RangePickerProps } from 'antd/lib/date-picker';
+﻿import type { RangePickerProps } from 'antd/es/date-picker';
 import React, { useContext } from 'react';
 import { FieldTimeRangePicker } from '../../../field';
 import { ProConfigProvider } from '../../../provider';

@@ -1,6 +1,6 @@
 import { CloseCircleFilled, DownOutlined } from '@ant-design/icons';
 import { ConfigProvider } from 'antd';
-import type { SizeType } from 'antd/lib/config-provider/SizeContext';
+import type { SizeType } from 'antd/es/config-provider/SizeContext';
 import classNames from 'classnames';
 import React, { useContext, useImperativeHandle, useRef } from 'react';
 import { useIntl } from '../../../provider';

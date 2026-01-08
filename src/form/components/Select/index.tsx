@@ -1,6 +1,6 @@
 import type { SelectProps } from 'antd';
-import type { BaseOptionType } from 'antd/lib/cascader';
-import type { DefaultOptionType, RefSelectProps } from 'antd/lib/select';
+import type { BaseOptionType } from 'antd/es/cascader';
+import type { DefaultOptionType, RefSelectProps } from 'antd/es/select';
 import React, { useContext } from 'react';
 import { FieldSelect } from '../../../field';
 import { ProConfigProvider } from '../../../provider';

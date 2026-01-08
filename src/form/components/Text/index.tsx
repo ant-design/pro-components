@@ -1,6 +1,6 @@
 import { omit } from '@rc-component/util';
 import { Form, Popover, PopoverProps, type InputProps } from 'antd';
-import type { InputRef, PasswordProps } from 'antd/lib/input';
+import type { InputRef, PasswordProps } from 'antd/es/input';
 import React, { useState } from 'react';
 import { FieldPassword } from '../../../field';
 import { ProConfigProvider } from '../../../provider';

@@ -1,7 +1,7 @@
 import { toArray, useMergedState } from '@rc-component/util';
 import type { FormInstance, StepsProps } from 'antd';
 import { Button, Col, ConfigProvider, Form, Row, Space, Steps } from 'antd';
-import type { FormProviderProps } from 'antd/lib/form/context';
+import type { FormProviderProps } from 'antd/es/form/context';
 import classNames from 'classnames';
 import React, {
   useCallback,

@@ -2,8 +2,8 @@ import { FilterOutlined } from '@ant-design/icons';
 import { omit } from '@rc-component/util';
 import type { FormProps, PopoverProps } from 'antd';
 import { ConfigProvider } from 'antd';
-import type { SizeType } from 'antd/lib/config-provider/SizeContext';
-import type { TooltipPlacement } from 'antd/lib/tooltip';
+import type { SizeType } from 'antd/es/config-provider/SizeContext';
+import type { TooltipPlacement } from 'antd/es/tooltip';
 import classNames from 'classnames';
 import React, {
   useContext,

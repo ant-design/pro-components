@@ -2,8 +2,8 @@ import { omit, useMergedState, warning } from '@rc-component/util';
 import { getMatchMenu } from '@umijs/route-utils';
 import type { BreadcrumbProps, WatermarkProps } from 'antd';
 import { ConfigProvider, Layout } from 'antd';
-import type { AnyObject } from 'antd/lib/_util/type';
-import type { ItemType } from 'antd/lib/breadcrumb/Breadcrumb';
+import type { AnyObject } from 'antd/es/_util/type';
+import type { ItemType } from 'antd/es/breadcrumb/Breadcrumb';
 import classNames from 'classnames';
 import type { CSSProperties } from 'react';
 import React, {

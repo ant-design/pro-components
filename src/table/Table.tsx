@@ -1,7 +1,7 @@
 import { Summary } from '@rc-component/table';
 import type { TablePaginationConfig } from 'antd';
 import { ConfigProvider, Table } from 'antd';
-import type { GetRowKey, SortOrder } from 'antd/lib/table/interface';
+import type { GetRowKey, SortOrder } from 'antd/es/table/interface';
 import classNames from 'classnames';
 import isEmpty from 'lodash-es/isEmpty';
 import isEqual from 'lodash-es/isEqual';

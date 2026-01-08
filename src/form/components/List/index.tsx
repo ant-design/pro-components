@@ -7,13 +7,13 @@ import {
 import { warning } from '@rc-component/util';
 import type { ColProps } from 'antd';
 import { ConfigProvider, Form } from 'antd';
-import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
+import type { LabelTooltipType } from 'antd/es/form/FormItemLabel';
 import type {
   FormListFieldData,
   FormListOperation,
   FormListProps,
-} from 'antd/lib/form/FormList';
-import type { NamePath } from 'antd/lib/form/interface';
+} from 'antd/es/form/FormList';
+import type { NamePath } from 'antd/es/form/interface';
 import classNames from 'classnames';
 import type { ReactNode } from 'react';
 import React, {

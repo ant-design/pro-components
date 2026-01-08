@@ -1,5 +1,5 @@
 import { ConfigProvider } from 'antd';
-import type { TooltipPlacement } from 'antd/lib/tooltip';
+import type { TooltipPlacement } from 'antd/es/tooltip';
 import classNames from 'classnames';
 import React, { useContext, useMemo, useState } from 'react';
 import {

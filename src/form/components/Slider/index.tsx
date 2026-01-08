@@ -1,5 +1,5 @@
 import type { SliderSingleProps } from 'antd';
-import type { SliderBaseProps, SliderRangeProps } from 'antd/lib/slider';
+import type { SliderBaseProps, SliderRangeProps } from 'antd/es/slider';
 import React from 'react';
 import { FieldSlider } from '../../../field';
 import { ProConfigProvider } from '../../../provider';

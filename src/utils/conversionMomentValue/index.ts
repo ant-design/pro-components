@@ -1,5 +1,5 @@
 import { get } from '@rc-component/util';
-import type { InternalNamePath, NamePath } from 'antd/lib/form/interface';
+import type { InternalNamePath, NamePath } from 'antd/es/form/interface';
 import dayjs from 'dayjs';
 import quarterOfYear from 'dayjs/plugin/quarterOfYear';
 import { isNil } from '../isNil';
