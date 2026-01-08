@@ -780,11 +780,11 @@ exports[`PageContainer > 🐲 pro-layout support breadcrumbProps 1`] = `
       style="min-height: 100%; flex-direction: row;"
     >
       <div
-        style="width: 256px; overflow: hidden; flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
+        style="width: 256px; overflow: hidden; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s; flex-grow: 0; flex-shrink: 0; flex-basis: 256px;"
       />
       <aside
         class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-r1a"
-        style="flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; width: 256px;"
+        style="max-width: 256px; min-width: 256px; width: 256px; flex-grow: 0; flex-shrink: 0; flex-basis: 256px;"
       >
         <div
           class="ant-layout-sider-children"
@@ -926,7 +926,7 @@ exports[`PageContainer > 🐲 pro-layout support breadcrumbProps 1`] = `
             </a>
           </div>
           <div
-            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; overflow-y: auto; overflow-x: hidden;"
+            style="overflow-y: auto; overflow-x: hidden; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
           >
             <div
               style="padding: 24px;"

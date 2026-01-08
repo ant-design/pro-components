@@ -412,7 +412,7 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
         <div
           aria-hidden="true"
           data-sentinel="start"
-          style="width: 0px; height: 0px; overflow: hidden; outline-color: none; outline-style: none; outline-width: initial; position: absolute;"
+          style="width: 0px; height: 0px; overflow: hidden; position: absolute; outline-color: none; outline-style: none; outline-width: initial;"
           tabindex="0"
         />
         <div
@@ -431,13 +431,13 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
             >
               <aside
                 class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light css-var-rk"
-                style="flex-grow: 0; flex-shrink: 0; flex-basis: 215px; max-width: 215px; min-width: 215px; width: 215px;"
+                style="max-width: 215px; min-width: 215px; width: 215px; flex-grow: 0; flex-shrink: 0; flex-basis: 215px;"
               >
                 <div
                   class="ant-layout-sider-children"
                 >
                   <div
-                    style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; overflow-y: auto; overflow-x: hidden;"
+                    style="overflow-y: auto; overflow-x: hidden; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                   >
                     <ul
                       class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline css-var-rk ant-menu-css-var"
@@ -546,7 +546,7 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
         <div
           aria-hidden="true"
           data-sentinel="end"
-          style="width: 0px; height: 0px; overflow: hidden; outline-color: none; outline-style: none; outline-width: initial; position: absolute;"
+          style="width: 0px; height: 0px; overflow: hidden; position: absolute; outline-color: none; outline-style: none; outline-width: initial;"
           tabindex="0"
         />
       </div>

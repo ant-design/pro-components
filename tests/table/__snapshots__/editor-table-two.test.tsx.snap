@@ -13,16 +13,16 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
         style="padding: 0px;"
       >
         <div
-          class="css-var-r33 ant-table-css-var ant-table-wrapper"
+          class="css-var-r30 ant-table-css-var ant-table-wrapper"
         >
           <div
-            class="ant-spin-nested-loading css-var-r33"
+            class="ant-spin-nested-loading css-var-r30"
           >
             <div
               class="ant-spin-container"
             >
               <div
-                class="ant-table ant-table-middle css-var-r33 ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-layout-fixed ant-table-scroll-horizontal"
+                class="ant-table ant-table-middle css-var-r30 ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-layout-fixed ant-table-scroll-horizontal"
               >
                 <div
                   class="ant-table-container"
@@ -153,7 +153,7 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                             style="visibility: hidden;"
                           >
                             <button
-                              class="ant-btn css-var-r33 ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
+                              class="ant-btn css-var-r30 ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
                               style="display: block; margin: 10px 0px; width: 100%;"
                               type="button"
                             >
@@ -193,7 +193,7 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                             style="position: absolute; left: 0px; width: 100%;"
                           >
                             <button
-                              class="ant-btn css-var-r33 ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
+                              class="ant-btn css-var-r30 ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
                               style="display: block; margin: 10px 0px; width: 100%;"
                               type="button"
                             >
@@ -239,14 +239,14 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                           style="height: 0px;"
                         >
                           <td
-                            style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
+                            style="padding-top: 0px; padding-bottom: 0px; height: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial;"
                           >
                             <div
                               style="height: 0px; overflow: hidden; font-weight: bold;"
                             />
                           </td>
                           <td
-                            style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
+                            style="padding-top: 0px; padding-bottom: 0px; height: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial;"
                           >
                             <div
                               style="height: 0px; overflow: hidden; font-weight: bold;"
@@ -289,7 +289,7 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                             </div>
                           </td>
                           <td
-                            style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
+                            style="padding-top: 0px; padding-bottom: 0px; height: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial;"
                           >
                             <div
                               style="height: 0px; overflow: hidden; font-weight: bold;"
@@ -303,7 +303,7 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                                   状态
                                 </span>
                                 <span
-                                  class="ant-dropdown-trigger ant-table-filter-trigger"
+                                  class="ant-table-filter-trigger"
                                   role="button"
                                   tabindex="-1"
                                 >
@@ -331,7 +331,7 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                             </div>
                           </td>
                           <td
-                            style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
+                            style="padding-top: 0px; padding-bottom: 0px; height: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial;"
                           >
                             <div
                               style="height: 0px; overflow: hidden; font-weight: bold;"
@@ -340,7 +340,7 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                             </div>
                           </td>
                           <td
-                            style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
+                            style="padding-top: 0px; padding-bottom: 0px; height: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial;"
                           >
                             <div
                               style="height: 0px; overflow: hidden; font-weight: bold;"
@@ -379,17 +379,17 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                               style="display: inline-flex; align-items: center; max-width: 100%;"
                             >
                               <span
-                                class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-var-r33"
-                                style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; min-width: 0; margin: 0px; padding: 0px;"
+                                class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-var-r30"
+                                style="min-width: 0; margin: 0px; padding: 0px; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                                 title=""
                               >
                                 🐛 [BUG]yarn install命令 antd2.4.5会报错
                               </span>
                               <span
-                                style="flex-grow: 0; flex-shrink: 0; flex-basis: auto; user-select: none;"
+                                style="user-select: none; flex-grow: 0; flex-shrink: 0; flex-basis: auto;"
                               >
                                 <span
-                                  class="ant-typography css-var-r33"
+                                  class="ant-typography css-var-r30"
                                   style="margin: 0px; padding: 0px;"
                                 >
                                   <button
@@ -425,7 +425,7 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                             class="ant-table-cell"
                           >
                             <span
-                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-r33"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-r30"
                             >
                               <span
                                 class="ant-badge-status-dot ant-badge-status-processing"
@@ -486,17 +486,17 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                               style="display: inline-flex; align-items: center; max-width: 100%;"
                             >
                               <span
-                                class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-var-r33"
-                                style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; min-width: 0; margin: 0px; padding: 0px;"
+                                class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-var-r30"
+                                style="min-width: 0; margin: 0px; padding: 0px; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                                 title=""
                               >
                                 🐛 [BUG]无法创建工程npm create umi
                               </span>
                               <span
-                                style="flex-grow: 0; flex-shrink: 0; flex-basis: auto; user-select: none;"
+                                style="user-select: none; flex-grow: 0; flex-shrink: 0; flex-basis: auto;"
                               >
                                 <span
-                                  class="ant-typography css-var-r33"
+                                  class="ant-typography css-var-r30"
                                   style="margin: 0px; padding: 0px;"
                                 >
                                   <button
@@ -532,7 +532,7 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                             class="ant-table-cell"
                           >
                             <span
-                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-r33"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-r30"
                             >
                               <span
                                 class="ant-badge-status-dot ant-badge-status-success"
@@ -593,17 +593,17 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                               style="display: inline-flex; align-items: center; max-width: 100%;"
                             >
                               <span
-                                class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-var-r33"
-                                style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; min-width: 0; margin: 0px; padding: 0px;"
+                                class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-var-r30"
+                                style="min-width: 0; margin: 0px; padding: 0px; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                                 title=""
                               >
                                 🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
                               </span>
                               <span
-                                style="flex-grow: 0; flex-shrink: 0; flex-basis: auto; user-select: none;"
+                                style="user-select: none; flex-grow: 0; flex-shrink: 0; flex-basis: auto;"
                               >
                                 <span
-                                  class="ant-typography css-var-r33"
+                                  class="ant-typography css-var-r30"
                                   style="margin: 0px; padding: 0px;"
                                 >
                                   <button
@@ -639,7 +639,7 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                             class="ant-table-cell"
                           >
                             <span
-                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-r33"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-r30"
                             >
                               <span
                                 class="ant-badge-status-dot ant-badge-status-error"
