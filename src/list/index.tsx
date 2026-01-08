@@ -1,7 +1,7 @@
 import type { ListProps, PaginationProps } from 'antd';
 import { ConfigProvider } from 'antd';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
-import classNames from 'clsx';
+import { clsx } from 'clsx';
 import React, { useContext, useImperativeHandle, useMemo, useRef } from 'react';
 import type { CheckCardProps } from '../card';
 import { ProConfigProvider } from '../provider';
@@ -154,7 +154,7 @@ function NoProVideProList<
   const prefixCls = getPrefixCls('pro-list', props.prefixCls);
 
   const { wrapSSR, hashId } = useStyle(prefixCls);
-  const listClassName = classNames(prefixCls, hashId, {
+  const listClassName = clsx(prefixCls, hashId, {
     [`${prefixCls}-no-split`]: !split,
   });
 
@@ -168,7 +168,7 @@ function NoProVideProList<
       rowSelection={propRowSelection}
       search={search}
       options={options}
-      className={classNames(prefixCls, className, listClassName)}
+      className={clsx(prefixCls, className, listClassName)}
       columns={proTableColumns}
       rowKey={rowKey}
       tableViewRender={({

@@ -3,7 +3,7 @@ import ResizeObserver from '@rc-component/resize-observer';
 import type { AvatarProps, BreadcrumbProps, TagType } from 'antd';
 import { Avatar, Breadcrumb, ConfigProvider, Space } from 'antd';
 import type { DirectionType } from 'antd/lib/config-provider';
-import classNames from 'clsx';
+import { clsx } from 'clsx';
 import React from 'react';
 import type { ContentWidth } from '../../defaultSettings';
 import useStyle from './style';
@@ -62,7 +62,7 @@ const renderBreadcrumb = (breadcrumb: BreadcrumbProps, prefixCls: string) => {
   return (
     <Breadcrumb
       {...breadcrumb}
-      className={classNames(`${prefixCls}-breadcrumb`, breadcrumb.className)}
+      className={clsx(`${prefixCls}-breadcrumb`, breadcrumb.className)}
     />
   );
 };
@@ -100,7 +100,7 @@ const renderTitle = (
           {backIconDom}
           {avatar && (
             <Avatar
-              className={classNames(
+              className={clsx(
                 `${headingPrefixCls}-avatar`,
                 hashId,
                 avatar.className,
@@ -208,7 +208,7 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
       ? renderBreadcrumb({ items: breadcrumbRenderDomFromProps }, prefixCls)
       : breadcrumbRenderDomFromProps;
 
-  const className = classNames(prefixCls, hashId, customizeClassName, {
+  const className = clsx(prefixCls, hashId, customizeClassName, {
     [`${prefixCls}-has-breadcrumb`]: !!breadcrumbDom,
     [`${prefixCls}-has-footer`]: !!footer,
     [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -221,7 +221,7 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
   const footerDom = renderFooter(prefixCls, footer, hashId);
 
   if (!breadcrumbDom && !title && !footerDom && !childDom) {
-    return <div className={classNames(hashId, [`${prefixCls}-no-children`])} />;
+    return <div className={clsx(hashId, [`${prefixCls}-no-children`])} />;
   }
 
   return wrapSSR(

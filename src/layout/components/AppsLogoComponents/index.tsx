@@ -1,5 +1,5 @@
 ﻿import { Popover } from 'antd';
-import classNames from 'clsx';
+import { clsx } from 'clsx';
 import React, { useMemo, useState } from 'react';
 import { AppsLogo } from './AppsLogo';
 import { DefaultContent } from './DefaultContent';
@@ -105,7 +105,7 @@ export const AppsLogoComponents: React.FC<{
           onClick={(e) => {
             e.stopPropagation();
           }}
-          className={classNames(`${baseClassName}-icon`, hashId, {
+          className={clsx(`${baseClassName}-icon`, hashId, {
             [`${baseClassName}-icon-active`]: open,
           })}
         >

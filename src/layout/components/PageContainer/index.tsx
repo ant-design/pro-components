@@ -13,7 +13,7 @@ import {
   Watermark,
   WatermarkProps,
 } from 'antd';
-import classNames from 'clsx';
+import { clsx } from 'clsx';
 import type { ReactNode } from 'react';
 import React, { useContext, useEffect, useMemo } from 'react';
 import type { GenerateStyle } from '../../../provider';
@@ -387,14 +387,10 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
     return children ? (
       <>
         <div
-          className={classNames(
-            hashId,
-            `${basePageContainer}-children-container`,
-            {
-              [`${basePageContainer}-children-container-no-header`]:
-                !pageHeaderDom,
-            },
-          )}
+          className={clsx(hashId, `${basePageContainer}-children-container`, {
+            [`${basePageContainer}-children-container-no-header`]:
+              !pageHeaderDom,
+          })}
           style={childrenContentStyle}
         >
           {children}
@@ -416,7 +412,7 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
     return dom;
   }, [props.waterMarkProps, value.waterMarkProps, loadingDom, content]);
 
-  const containerClassName = classNames(basePageContainer, hashId, className, {
+  const containerClassName = clsx(basePageContainer, hashId, className, {
     [`${basePageContainer}-with-footer`]: footer,
     [`${basePageContainer}-with-affix`]: fixedHeader && pageHeaderDom,
     [`${basePageContainer}-stylish`]: !!restProps.stylish,

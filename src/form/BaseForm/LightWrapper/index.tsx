@@ -1,6 +1,6 @@
 import { ConfigProvider } from 'antd';
 import type { TooltipPlacement } from 'antd/lib/tooltip';
-import classNames from 'clsx';
+import { clsx } from 'clsx';
 import React, { useContext, useMemo, useState } from 'react';
 import {
   dateArrayFormatter,
@@ -140,7 +140,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
       footerRender={footerRender}
     >
       <div
-        className={classNames(`${prefixCls}-container`, hashId, className)}
+        className={clsx(`${prefixCls}-container`, hashId, className)}
         style={style}
       >
         {React.cloneElement(children as JSX.Element, {

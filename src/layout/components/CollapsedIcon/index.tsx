@@ -1,4 +1,4 @@
-﻿import classNames from 'clsx';
+﻿import { clsx } from 'clsx';
 import { ArrowSvgIcon } from '../SiderMenu/Arrow';
 import { useStyle } from './style';
 
@@ -9,7 +9,7 @@ export const CollapsedIcon: React.FC<any> = (props) => {
   return wrapSSR(
     <div
       {...rest}
-      className={classNames(props.className, hashId, {
+      className={clsx(props.className, hashId, {
         [`${props.className}-collapsed`]: collapsed,
         [`${props.className}-is-mobile`]: isMobile,
       })}

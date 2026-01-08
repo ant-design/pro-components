@@ -1,7 +1,8 @@
 import { ConfigProvider } from 'antd';
-import classNames from 'clsx';
+import { clsx } from 'clsx';
 import React, { useContext } from 'react';
 import useStyle from './style';
+
 export type ProCardDividerProps = {
   /**
    * 样式
@@ -31,7 +32,7 @@ const ProCardDivider: React.FC<ProCardDividerProps> = (props) => {
 
   const { className, style = {}, type } = props;
 
-  const classString = classNames(prefixCls, className, hashId, {
+  const classString = clsx(prefixCls, className, hashId, {
     [`${prefixCls}-${type}`]: type,
   });
 

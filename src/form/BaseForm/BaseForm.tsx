@@ -1,4 +1,5 @@
-/* eslint-disable react-hooks/exhaustive-deps */ import {
+/* eslint-disable react-hooks/exhaustive-deps */
+import {
   get,
   set as namePathSet,
   omit,
@@ -9,7 +10,7 @@ import { useUrlSearchParams } from '@umijs/use-params';
 import type { FormInstance, FormItemProps, FormProps } from 'antd';
 import { ConfigProvider, Form, Spin } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
-import classNames from 'clsx';
+import { clsx } from 'clsx';
 import type dayjs from 'dayjs';
 import React, {
   useContext,
@@ -28,10 +29,10 @@ import type {
   SearchTransformKeyFn,
 } from '../../utils';
 import {
-  ProFormContext,
   conversionMomentValue,
   isDeepEqualReact,
   nanoid,
+  ProFormContext,
   runFunction,
   transformKeySubmitValue,
   useFetchData,
@@ -51,6 +52,7 @@ import type {
 import { EditOrReadOnlyContext } from './EditOrReadOnlyContext';
 import type { SubmitterProps } from './Submitter';
 import Submitter from './Submitter';
+
 const { noteOnce } = warning;
 
 // Define ProFormInstance and ProFormRef
@@ -965,7 +967,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
                   transformKey(values, !!omitNil),
                 );
               }}
-              className={classNames(props.className, prefixCls, hashId)}
+              className={clsx(props.className, prefixCls, hashId)}
               onFinish={onFinish}
             >
               <BaseFormComponents<T, U>

@@ -1,6 +1,6 @@
 import type { SelectProps } from 'antd';
 import { ConfigProvider, Select } from 'antd';
-import classNames from 'clsx';
+import { clsx } from 'clsx';
 import React, {
   useContext,
   useEffect,
@@ -165,7 +165,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
 
   // 兼容 renderXXX API。
 
-  const classString = classNames(prefixCls, className, {
+  const classString = clsx(prefixCls, className, {
     [`${prefixCls}-disabled`]: disabled,
   });
 

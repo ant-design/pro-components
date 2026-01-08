@@ -1,4 +1,4 @@
-import classNames from 'clsx';
+import { clsx } from 'clsx';
 import React from 'react';
 import useStyle from './style';
 
@@ -18,13 +18,13 @@ const ProCardActions: React.FC<ProCardActionsProps> = (props) => {
   const { wrapSSR, hashId } = useStyle(prefixCls);
   if (Array.isArray(actions) && actions?.length) {
     return wrapSSR(
-      <ul className={classNames(`${prefixCls}-actions`, hashId)}>
+      <ul className={clsx(`${prefixCls}-actions`, hashId)}>
         {actions.map((action, index) => (
           // eslint-disable-next-line react/no-array-index-key
           <li
             style={{ width: `${100 / actions.length}%`, padding: 0, margin: 0 }}
             key={`action-${index}`}
-            className={classNames(`${prefixCls}-actions-item`, hashId)}
+            className={clsx(`${prefixCls}-actions-item`, hashId)}
           >
             {action}
           </li>
@@ -33,7 +33,7 @@ const ProCardActions: React.FC<ProCardActionsProps> = (props) => {
     );
   }
   return wrapSSR(
-    <ul className={classNames(`${prefixCls}-actions`, hashId)}>{actions}</ul>,
+    <ul className={clsx(`${prefixCls}-actions`, hashId)}>{actions}</ul>,
   );
 };
 

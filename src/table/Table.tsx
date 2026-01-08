@@ -2,7 +2,7 @@ import { Summary } from '@rc-component/table';
 import type { TablePaginationConfig } from 'antd';
 import { ConfigProvider, Table } from 'antd';
 import type { GetRowKey, SortOrder } from 'antd/lib/table/interface';
-import classNames from 'clsx';
+import { clsx } from 'clsx';
 import isEmpty from 'lodash-es/isEmpty';
 import isEqual from 'lodash-es/isEqual';
 import React, {
@@ -216,7 +216,7 @@ const ProTable = <
   } = props;
   const { wrapSSR, hashId } = useStyle(props.defaultClassName);
 
-  const className = classNames(defaultClassName, propsClassName, hashId);
+  const className = clsx(defaultClassName, propsClassName, hashId);
 
   /** 通用的来操作子节点的工具类 */
   const actionRef = useRef<ActionType>();

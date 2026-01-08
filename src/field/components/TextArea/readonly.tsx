@@ -1,6 +1,6 @@
 import { omit } from '@rc-component/util';
 import { ConfigProvider } from 'antd';
-import classNames from 'clsx';
+import { clsx } from 'clsx';
 import React, { useContext } from 'react';
 import { useStyle } from '../../../utils';
 import type { ProFieldFC } from '../../PureProField';
@@ -31,7 +31,7 @@ const FieldTextAreaReadonly: ProFieldFC<{
   return wrapSSR(
     <span
       ref={ref}
-      className={classNames(hashId, readonlyClassName, compClassName)}
+      className={clsx(hashId, readonlyClassName, compClassName)}
       {...omit(fieldProps, ['autoSize', 'classNames', 'styles'])}
     >
       {text ?? '-'}

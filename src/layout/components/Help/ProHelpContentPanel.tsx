@@ -1,4 +1,4 @@
-﻿import classNames from 'clsx';
+﻿import { clsx } from 'clsx';
 import React, { useContext, useEffect, useMemo, useRef } from 'react';
 import { ProProvider } from '../../../provider';
 import { useDebounceFn } from '../../../utils';
@@ -115,7 +115,7 @@ export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({
   const renderItem = (item: ProHelpDataSource<any>['children'][number]) => {
     if (item?.asyncLoad) {
       return (
-        <div className={classNames(className, hashId)} id={item.title}>
+        <div className={clsx(className, hashId)} id={item.title}>
           <AsyncContentPanel
             key={item?.key}
             item={item!}
@@ -129,7 +129,7 @@ export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({
     }
 
     return (
-      <div className={classNames(className, hashId)} id={item.title}>
+      <div className={clsx(className, hashId)} id={item.title}>
         <RenderContentPanel
           onInit={(ref) => {
             if (!scrollHeightMap.current) return;
@@ -145,7 +145,7 @@ export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({
     return (
       <div
         ref={divRef}
-        className={classNames(`${className}-infinite-scroll`, hashId)}
+        className={clsx(`${className}-infinite-scroll`, hashId)}
         style={{
           overflow: 'auto',
         }}

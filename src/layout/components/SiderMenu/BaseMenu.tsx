@@ -2,7 +2,7 @@ import { createFromIconfontCN } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Menu, Skeleton, Tooltip } from 'antd';
 import { ItemType } from 'antd/lib/menu/interface';
-import classNames from 'clsx';
+import { clsx } from 'clsx';
 import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import type { ProTokenType } from '../../../provider';
 import { ProProvider } from '../../../provider';
@@ -175,6 +175,13 @@ const getMenuTitleSymbol = (title: React.ReactNode) => {
 };
 
 class MenuUtil {
+  props: BaseMenuProps & {
+    token?: ProTokenType;
+    menuRenderType?: 'header' | 'sider';
+    baseClassName: string;
+    hashId: string;
+  };
+
   constructor(
     props: BaseMenuProps & {
       token?: ProTokenType;
@@ -185,13 +192,6 @@ class MenuUtil {
   ) {
     this.props = props;
   }
-
-  props: BaseMenuProps & {
-    token?: ProTokenType;
-    menuRenderType?: 'header' | 'sider';
-    baseClassName: string;
-    hashId: string;
-  };
 
   getNavMenuItems = (
     menusData: MenuDataItem[] = [],
@@ -244,18 +244,14 @@ class MenuUtil {
 
       const defaultTitle = (
         <div
-          className={classNames(
-            `${baseClassName}-item-title`,
-            this.props?.hashId,
-            {
-              [`${baseClassName}-item-title-collapsed`]: collapsed,
-              [`${baseClassName}-item-title-collapsed-level-${noGroupLevel}`]:
-                collapsed,
-              [`${baseClassName}-group-item-title`]: menuType === 'group',
-              [`${baseClassName}-item-collapsed-show-title`]:
-                menu?.collapsedShowTitle && collapsed,
-            },
-          )}
+          className={clsx(`${baseClassName}-item-title`, this.props?.hashId, {
+            [`${baseClassName}-item-title-collapsed`]: collapsed,
+            [`${baseClassName}-item-title-collapsed-level-${noGroupLevel}`]:
+              collapsed,
+            [`${baseClassName}-group-item-title`]: menuType === 'group',
+            [`${baseClassName}-item-collapsed-show-title`]:
+              menu?.collapsedShowTitle && collapsed,
+          })}
         >
           {/* 收起的时候group模式就不要展示icon了，放不下 */}
           {menuType === 'group' && collapsed ? null : shouldHasIcon &&
@@ -269,16 +265,12 @@ class MenuUtil {
             defaultIcon
           )}
           <span
-            className={classNames(
-              `${baseClassName}-item-text`,
-              this.props?.hashId,
-              {
-                [`${baseClassName}-item-text-has-icon`]:
-                  menuType !== 'group' &&
-                  shouldHasIcon &&
-                  (iconDom || defaultIcon),
-              },
-            )}
+            className={clsx(`${baseClassName}-item-text`, this.props?.hashId, {
+              [`${baseClassName}-item-text-has-icon`]:
+                menuType !== 'group' &&
+                shouldHasIcon &&
+                (iconDom || defaultIcon),
+            })}
           >
             {name}
           </span>
@@ -313,7 +305,7 @@ class MenuUtil {
           label: title,
           onClick: isGroup ? undefined : item.onTitleClick,
           children: childrenList,
-          className: classNames({
+          className: clsx({
             [`${baseClassName}-group`]: menuType === 'group',
             [`${baseClassName}-submenu`]: menuType !== 'group',
             [`${baseClassName}-submenu-has-icon`]:
@@ -404,17 +396,13 @@ class MenuUtil {
     let defaultItem = (
       <div
         key={itemPath}
-        className={classNames(
-          `${baseClassName}-item-title`,
-          this.props?.hashId,
-          {
-            [`${baseClassName}-item-title-collapsed`]: collapsed,
-            [`${baseClassName}-item-title-collapsed-level-${noGroupLevel}`]:
-              collapsed,
-            [`${baseClassName}-item-collapsed-show-title`]:
-              menu?.collapsedShowTitle && collapsed,
-          },
-        )}
+        className={clsx(`${baseClassName}-item-title`, this.props?.hashId, {
+          [`${baseClassName}-item-title-collapsed`]: collapsed,
+          [`${baseClassName}-item-title-collapsed-level-${noGroupLevel}`]:
+            collapsed,
+          [`${baseClassName}-item-collapsed-show-title`]:
+            menu?.collapsedShowTitle && collapsed,
+        })}
       >
         <span
           className={`${baseClassName}-item-icon ${this.props?.hashId}`.trim()}
@@ -425,14 +413,10 @@ class MenuUtil {
           {icon || <span className="anticon">{defaultIcon}</span>}
         </span>
         <span
-          className={classNames(
-            `${baseClassName}-item-text`,
-            this.props?.hashId,
-            {
-              [`${baseClassName}-item-text-has-icon`]:
-                hasIcon && (icon || defaultIcon),
-            },
-          )}
+          className={clsx(`${baseClassName}-item-text`, this.props?.hashId, {
+            [`${baseClassName}-item-text-has-icon`]:
+              hasIcon && (icon || defaultIcon),
+          })}
         >
           {menuItemTitle}
         </span>
@@ -448,18 +432,14 @@ class MenuUtil {
           onClick={() => {
             window?.open?.(itemPath, '_blank');
           }}
-          className={classNames(
-            `${baseClassName}-item-title`,
-            this.props?.hashId,
-            {
-              [`${baseClassName}-item-title-collapsed`]: collapsed,
-              [`${baseClassName}-item-title-collapsed-level-${noGroupLevel}`]:
-                collapsed,
-              [`${baseClassName}-item-link`]: true,
-              [`${baseClassName}-item-collapsed-show-title`]:
-                menu?.collapsedShowTitle && collapsed,
-            },
-          )}
+          className={clsx(`${baseClassName}-item-title`, this.props?.hashId, {
+            [`${baseClassName}-item-title-collapsed`]: collapsed,
+            [`${baseClassName}-item-title-collapsed-level-${noGroupLevel}`]:
+              collapsed,
+            [`${baseClassName}-item-link`]: true,
+            [`${baseClassName}-item-collapsed-show-title`]:
+              menu?.collapsedShowTitle && collapsed,
+          })}
         >
           <span
             className={`${baseClassName}-item-icon ${this.props?.hashId}`.trim()}
@@ -470,14 +450,10 @@ class MenuUtil {
             {icon || <span className="anticon">{defaultIcon}</span>}
           </span>
           <span
-            className={classNames(
-              `${baseClassName}-item-text`,
-              this.props?.hashId,
-              {
-                [`${baseClassName}-item-text-has-icon`]:
-                  hasIcon && (icon || defaultIcon),
-              },
-            )}
+            className={clsx(`${baseClassName}-item-text`, this.props?.hashId, {
+              [`${baseClassName}-item-text-has-icon`]:
+                hasIcon && (icon || defaultIcon),
+            })}
           >
             {menuItemTitle}
           </span>
@@ -724,7 +700,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         border: 'none',
         ...style,
       }}
-      className={classNames(className, hashId, baseClassName, {
+      className={clsx(className, hashId, baseClassName, {
         [`${baseClassName}-horizontal`]: mode === 'horizontal',
         [`${baseClassName}-collapsed`]: props.collapsed,
       })}

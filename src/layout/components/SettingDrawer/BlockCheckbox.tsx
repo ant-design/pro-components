@@ -1,6 +1,6 @@
 import { CheckOutlined } from '@ant-design/icons';
 import { Tooltip } from 'antd';
-import classNames from 'clsx';
+import { clsx } from 'clsx';
 import { useMemo } from 'react';
 
 export type BlockCheckboxProps = {
@@ -29,7 +29,7 @@ const BlockCheckbox: React.FC<BlockCheckboxProps> = ({
     const domList = (list || []).map((item) => (
       <Tooltip title={item.title} key={item.key}>
         <div
-          className={classNames(
+          className={clsx(
             hashId,
             `${baseClassName}-item`,
             `${baseClassName}-item-${item.key}`,
@@ -54,7 +54,7 @@ const BlockCheckbox: React.FC<BlockCheckboxProps> = ({
     return domList;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value, list?.length, onChange]);
-  return <div className={classNames(baseClassName, hashId)}>{dom}</div>;
+  return <div className={clsx(baseClassName, hashId)}>{dom}</div>;
 };
 
 export { BlockCheckbox };

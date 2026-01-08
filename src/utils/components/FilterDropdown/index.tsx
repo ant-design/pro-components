@@ -1,7 +1,7 @@
 import type { PopoverProps } from 'antd';
 import { ConfigProvider, Popover } from 'antd';
 import type { TooltipPlacement } from 'antd/lib/tooltip';
-import classNames from 'clsx';
+import { clsx } from 'clsx';
 import React, { useContext, useRef } from 'react';
 import type { DropdownFooterProps } from '../DropdownFooter';
 import { DropdownFooter } from '../DropdownFooter';
@@ -72,7 +72,7 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
       content={
         <div
           ref={htmlRef}
-          className={classNames(`${prefixCls}-overlay`, {
+          className={clsx(`${prefixCls}-overlay`, {
             [`${prefixCls}-overlay-${placement}`]: placement,
             hashId,
           })}

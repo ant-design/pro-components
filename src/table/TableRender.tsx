@@ -9,7 +9,7 @@ import type {
   SortOrder,
   TableCurrentDataSource,
 } from 'antd/lib/table/interface';
-import classNames from 'clsx';
+import { clsx } from 'clsx';
 import React, { useContext, useMemo } from 'react';
 import ProCard from '../card';
 import ProForm, { GridContext } from '../form';
@@ -364,7 +364,7 @@ export function TableRender<T extends Record<string, any>, U, ValueType>(
 
   const proTableDom = (
     <div
-      className={classNames(className, {
+      className={clsx(className, {
         [`${defaultClassName}-polling`]: action.pollingLoading,
       })}
       style={style}
@@ -373,7 +373,7 @@ export function TableRender<T extends Record<string, any>, U, ValueType>(
       {isLightFilter ? null : searchNode}
       {/* 渲染一个额外的区域，用于一些自定义 */}
       {type !== 'form' && props.tableExtraRender && (
-        <div className={classNames(className, `${defaultClassName}-extra`)}>
+        <div className={clsx(className, `${defaultClassName}-extra`)}>
           {props.tableExtraRender(props, action.dataSource || [])}
         </div>
       )}

@@ -1,7 +1,7 @@
 import { useMergedState } from '@rc-component/util';
 import type { RadioGroupProps, TreeSelectProps } from 'antd';
 import { ConfigProvider, Spin, TreeSelect } from 'antd';
-import classNames from 'clsx';
+import { clsx } from 'clsx';
 import React, {
   useContext,
   useImperativeHandle,
@@ -206,7 +206,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
             fetchData(undefined);
             onBlur?.(event);
           }}
-          className={classNames(fieldProps?.className, layoutClassName)}
+          className={clsx(fieldProps?.className, layoutClassName)}
         />
       </Spin>
     );

@@ -1,5 +1,5 @@
 import { ConfigProvider } from 'antd';
-import classNames from 'clsx';
+import { clsx } from 'clsx';
 import React, { useContext, useMemo } from 'react';
 import { useIntl } from '../../../provider';
 import type { ProFormProps } from '../ProForm';
@@ -131,7 +131,7 @@ export function LoginFormPage<T = Record<string, any>>(
 
   return wrapSSR(
     <div
-      className={classNames(baseClassName, hashId)}
+      className={clsx(baseClassName, hashId)}
       style={{
         ...style,
         position: 'relative',
@@ -169,7 +169,7 @@ export function LoginFormPage<T = Record<string, any>>(
           />
         </div>
       ) : null}
-      <div className={classNames(baseClassName, hashId)}>
+      <div className={clsx(baseClassName, hashId)}>
         <div className={getCls('notice')}>
           {activityConfig && (
             <div

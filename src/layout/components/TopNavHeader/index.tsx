@@ -1,5 +1,5 @@
 import { ConfigProvider } from 'antd';
-import classNames from 'clsx';
+import { clsx } from 'clsx';
 import React, { useContext, useMemo, useRef } from 'react';
 import { isNeedOpenHash, ProProvider } from '../../../provider';
 
@@ -146,20 +146,20 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
 
   return wrapSSR(
     <div
-      className={classNames(prefixCls, hashId, propsClassName, {
+      className={clsx(prefixCls, hashId, propsClassName, {
         [`${prefixCls}-light`]: true,
       })}
       style={style}
     >
       <div
         ref={ref}
-        className={classNames(`${prefixCls}-main`, hashId, {
+        className={clsx(`${prefixCls}-main`, hashId, {
           [`${prefixCls}-wide`]: contentWidth === 'Fixed' && layout === 'top',
         })}
       >
         {headerDom && (
           <div
-            className={classNames(`${prefixCls}-main-left ${hashId}`)}
+            className={clsx(`${prefixCls}-main-left ${hashId}`)}
             onClick={onMenuHeaderClick}
           >
             <AppsLogoComponents {...props} />

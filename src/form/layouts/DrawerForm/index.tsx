@@ -1,7 +1,7 @@
 ﻿import { merge, useMergedState, warning } from '@rc-component/util';
 import type { DrawerProps, FormProps } from 'antd';
 import { ConfigProvider, Drawer } from 'antd';
-import classNames from 'clsx';
+import { clsx } from 'clsx';
 import React, {
   useCallback,
   useContext,
@@ -17,6 +17,7 @@ import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import { SubmitterProps } from '../../BaseForm/Submitter';
 import { useStyle } from './style';
+
 const { noteOnce } = warning;
 
 export type CustomizeResizeType = {
@@ -348,7 +349,7 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
       >
         {resize ? (
           <div
-            className={classNames(getCls('sidebar-dragger'), hashId, {
+            className={clsx(getCls('sidebar-dragger'), hashId, {
               [getCls('sidebar-dragger-min-disabled')]:
                 drawerWidth === resizeInfo?.minWidth,
               [getCls('sidebar-dragger-max-disabled')]:

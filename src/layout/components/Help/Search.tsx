@@ -1,7 +1,7 @@
 ﻿import { SearchOutlined } from '@ant-design/icons';
 import type { SelectProps } from 'antd';
 import { ConfigProvider, Select } from 'antd';
-import classNames from 'clsx';
+import { clsx } from 'clsx';
 import React, { useContext, useState } from 'react';
 import { ProProvider, useStyle } from '../../../provider';
 import { useDebounceFn } from '../../../utils';
@@ -119,7 +119,7 @@ export const ProHelpSelect: React.FC<
   return (
     <>
       {!open ? (
-        <div className={classNames(iconClassName, hashId)}>
+        <div className={clsx(iconClassName, hashId)}>
           <SearchOutlined
             title="search panel"
             onClick={() => {

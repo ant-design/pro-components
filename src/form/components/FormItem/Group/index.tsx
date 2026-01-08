@@ -1,6 +1,6 @@
 import { RightOutlined } from '@ant-design/icons';
 import { ConfigProvider, Space } from 'antd';
-import classNames from 'clsx';
+import { clsx } from 'clsx';
 import React, { useCallback, useContext, useMemo } from 'react';
 import { LabelIconTip, useMountMergeState } from '../../../../utils';
 import FieldContext from '../../../FieldContext';
@@ -75,7 +75,7 @@ const Group: React.FC<ProFormGroupProps> = React.forwardRef(
       ({ children: dom }: { children: React.ReactNode }) => (
         <Space
           {...spaceProps}
-          className={classNames(
+          className={clsx(
             `${className}-container ${hashId}`,
             spaceProps?.className,
           )}
@@ -131,7 +131,7 @@ const Group: React.FC<ProFormGroupProps> = React.forwardRef(
     return wrapSSR(
       <ColWrapper>
         <div
-          className={classNames(className, hashId, {
+          className={clsx(className, hashId, {
             [`${className}-twoLine`]: labelLayout === 'twoLine',
           })}
           style={style}

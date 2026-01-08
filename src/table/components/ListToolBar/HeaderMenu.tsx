@@ -1,7 +1,7 @@
 import { DownOutlined } from '@ant-design/icons';
 import { useMergedState } from '@rc-component/util';
 import { Dropdown, Space, Tabs } from 'antd';
-import classNames from 'clsx';
+import { clsx } from 'clsx';
 import React, { useContext } from 'react';
 import { ProProvider } from '../../../provider';
 
@@ -50,7 +50,7 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
   if (type === 'inline') {
     return (
       <div
-        className={classNames(
+        className={clsx(
           `${prefixCls}-menu`,
           `${prefixCls}-inline-menu`,
           hashId,
@@ -62,7 +62,7 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
             onClick={() => {
               setActiveKey(item.key);
             }}
-            className={classNames(
+            className={clsx(
               `${prefixCls}-inline-menu-item`,
               activeItem.key === item.key
                 ? `${prefixCls}-inline-menu-item-active`
@@ -91,9 +91,7 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
   }
 
   return (
-    <div
-      className={classNames(`${prefixCls}-menu`, `${prefixCls}-dropdownmenu`)}
-    >
+    <div className={clsx(`${prefixCls}-menu`, `${prefixCls}-dropdownmenu`)}>
       <Dropdown
         trigger={['click']}
         menu={{

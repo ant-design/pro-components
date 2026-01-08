@@ -1,5 +1,5 @@
 import { ConfigProvider } from 'antd';
-import classNames from 'clsx';
+import { clsx } from 'clsx';
 import React, { useContext } from 'react';
 import { useStyle } from './style';
 
@@ -26,7 +26,7 @@ const ProCardOperation: React.FC<ProCardOperationProps> = (props) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-card-operation');
   const { wrapSSR, hashId } = useStyle(prefixCls);
-  const classString = classNames(prefixCls, className, hashId);
+  const classString = clsx(prefixCls, className, hashId);
 
   return wrapSSR(
     <div className={classString} style={style}>

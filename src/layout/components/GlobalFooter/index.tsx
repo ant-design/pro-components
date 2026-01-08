@@ -1,5 +1,5 @@
 import { ConfigProvider } from 'antd';
-import classNames from 'clsx';
+import { clsx } from 'clsx';
 import React, { useContext } from 'react';
 import type { WithFalse } from '../../typing';
 import { useStyle } from './style';
@@ -41,7 +41,7 @@ const GlobalFooter = ({
   }
 
   return wrapSSR(
-    <div className={classNames(baseClassName, hashId, className)} style={style}>
+    <div className={clsx(baseClassName, hashId, className)} style={style}>
       {links && (
         <div className={`${baseClassName}-list ${hashId}`.trim()}>
           {links.map((link) => (
