@@ -45,16 +45,20 @@ const FormSearch = <T, U>(props: BaseFormProps<T, U> & { ghost?: boolean }) => {
     onReset,
   } = props;
 
-  const onSubmitHandler = useCallback(
-    (value: U, firstLoad: boolean) => {
-      // 只传入 pagination 中的 current 和 pageSize 参数
-      const pageInfo = pagination
+  // 只传入 pagination 中的 current 和 pageSize 参数
+  const pageInfo = useMemo(
+    () =>
+      pagination
         ? omitUndefined({
             current: pagination.current,
             pageSize: pagination.pageSize,
           })
-        : {};
+        : {},
+    [pagination],
+  );
 
+  const onSubmitHandler = useCallback(
+    (value: U, firstLoad: boolean) => {
       const submitParams = {
         ...value,
         _timestamp: Date.now(),
@@ -77,18 +81,11 @@ const FormSearch = <T, U>(props: BaseFormProps<T, U> & { ghost?: boolean }) => {
         onSubmit?.(value);
       }
     },
-    [pagination, beforeSearchSubmit, action, onSubmit, onFormSearchSubmit],
+    [pageInfo, beforeSearchSubmit, action, onSubmit, onFormSearchSubmit],
   );
 
   const onResetHandler = useCallback(
     (value: Partial<U>) => {
-      const pageInfo = pagination
-        ? omitUndefined({
-            current: pagination.current,
-            pageSize: pagination.pageSize,
-          })
-        : {};
-
       const omitParams = omit(
         beforeSearchSubmit({ ...value, ...pageInfo }),
         Object.keys(pageInfo!),
@@ -100,18 +97,7 @@ const FormSearch = <T, U>(props: BaseFormProps<T, U> & { ghost?: boolean }) => {
       });
       onReset?.();
     },
-    [pagination, beforeSearchSubmit, action, onFormSearchSubmit, onReset],
-  );
-
-  const pageInfo = useMemo(
-    () =>
-      pagination
-        ? omitUndefined({
-            current: pagination.current,
-            pageSize: pagination.pageSize,
-          })
-        : {},
-    [pagination],
+    [pageInfo, beforeSearchSubmit, action, onFormSearchSubmit, onReset],
   );
 
   return (
