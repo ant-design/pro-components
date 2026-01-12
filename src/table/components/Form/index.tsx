@@ -163,7 +163,7 @@ const isPropsEqual = <T, U>(
     search: prev.search,
     manualRequest: prev.manualRequest,
   };
-  return !isDeepEqualReact(diffProps, {
+  return isDeepEqualReact(diffProps, {
     columns: next.columns,
     formRef: next.formRef,
     loading: next.loading,
