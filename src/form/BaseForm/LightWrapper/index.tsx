@@ -91,7 +91,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
     ) {
       return dateArrayFormatter(
         labelValue,
-        (dateFormatterMap as any)[valueType] || 'YYYY-MM-DD',
+        (valueType && (dateFormatterMap as any)[valueType]) || 'YYYY-MM-DD',
       );
     }
     if (Array.isArray(labelValue))

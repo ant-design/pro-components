@@ -412,4 +412,4 @@ const isPropsEqual = <T,>(
   );
 };
 
-export default memo(ToolbarRender, isPropsEqual);
+export default memo(ToolbarRender, isPropsEqual) as typeof ToolbarRender;
