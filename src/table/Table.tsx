@@ -1,4 +1,5 @@
 import { Summary } from '@rc-component/table';
+import { useControlledState } from '@rc-component/util';
 import type { TablePaginationConfig } from 'antd';
 import { ConfigProvider, Table } from 'antd';
 import type { GetRowKey, SortOrder } from 'antd/lib/table/interface';
@@ -13,6 +14,7 @@ import React, {
   useImperativeHandle,
   useMemo,
   useRef,
+  useState,
 } from 'react';
 import type { ActionType } from '.';
 import ValueTypeToComponent from '../field/ValueTypeToComponent';
@@ -28,7 +30,6 @@ import {
   useDeepCompareEffect,
   useDeepCompareEffectDebounce,
   useEditableArray,
-  useMountMergeState,
 } from '../utils';
 import Alert from './components/Alert';
 import { Container, TableContext } from './Store/Provide';
@@ -229,27 +230,25 @@ const ProTable = <
   useImperativeHandle(propsActionRef, () => actionRef.current);
 
   /** 单选多选的相关逻辑 */
-  const [selectedRowKeys, setSelectedRowKeys] = useMountMergeState<
+  const [selectedRowKeys, setSelectedRowKeys] = useControlledState<
     (string | number)[] | Key[] | undefined
   >(
     propsRowSelection
       ? propsRowSelection?.defaultSelectedRowKeys || []
       : undefined,
-    {
-      value: propsRowSelection ? propsRowSelection.selectedRowKeys : undefined,
-    },
+    propsRowSelection ? propsRowSelection.selectedRowKeys : undefined,
   );
 
-  const [formSearch, setFormSearch] = useMountMergeState<
-    Record<string, any> | undefined
-  >(() => {
-    // 如果手动模式，或者 search 不存在的时候设置为 undefined
-    // undefined 就不会触发首次加载
-    if (manualRequest || search !== false) {
-      return undefined;
-    }
-    return {};
-  });
+  const [formSearch, setFormSearch] = useState<Record<string, any> | undefined>(
+    () => {
+      // 如果手动模式，或者 search 不存在的时候设置为 undefined
+      // undefined 就不会触发首次加载
+      if (manualRequest || search !== false) {
+        return undefined;
+      }
+      return {};
+    },
+  );
 
   /**
    * `actionRef.current?.reset()` 会在同一事件循环里同步调用 `action.reload()`。
@@ -277,9 +276,9 @@ const ProTable = <
     };
   }, [propsColumns]);
   const [proFilter, setProFilter] =
-    useMountMergeState<Record<string, FilterValue>>(defaultProFilter);
+    useState<Record<string, FilterValue>>(defaultProFilter);
   const [proSort, setProSort] =
-    useMountMergeState<Record<string, SortOrder>>(defaultProSort);
+    useState<Record<string, SortOrder>>(defaultProSort);
 
   const intl = useIntl();
 

@@ -112,7 +112,6 @@
     "@testing-library/user-event": "^14.6.1",
     "@types/glob": "^8.1.0",
     "@types/history": "^4.7.11",
-    "@types/lodash": "^4.17.21",
     "@types/lodash-es": "^4.17.12",
     "@types/mockjs": "^1.0.10",
     "@types/node": "^14.18.63",

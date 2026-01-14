@@ -15,13 +15,8 @@ import React, {
 } from 'react';
 import useSWR, { useSWRConfig } from 'swr';
 import type { GenerateStyle, ProTokenType } from '../provider';
-import { isNeedOpenHash, ProConfigProvider, ProProvider } from '../provider';
-import {
-  isBrowser,
-  useBreakpoint,
-  useDocumentTitle,
-  useMountMergeState,
-} from '../utils';
+import { ProConfigProvider, ProProvider, isNeedOpenHash } from '../provider';
+import { isBrowser, useBreakpoint, useDocumentTitle } from '../utils';
 import { Logo } from './assert/Logo';
 import { DefaultFooter as Footer } from './components/Footer';
 import type { HeaderViewProps } from './components/Header';
@@ -449,7 +444,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
 
   const prefixCls = props.prefixCls ?? context.getPrefixCls('pro');
 
-  const [menuLoading, setMenuLoading] = useMountMergeState(false, {
+  const [menuLoading, setMenuLoading] = useMergedState(false, {
     value: menu?.loading,
     onChange: menu?.onLoadingChange,
   });

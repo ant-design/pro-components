@@ -1,4 +1,5 @@
 import { createFromIconfontCN } from '@ant-design/icons';
+import { useMergedState } from '@rc-component/util';
 import type { MenuProps } from 'antd';
 import { Menu, Skeleton, Tooltip } from 'antd';
 import { ItemType } from 'antd/lib/menu/interface';
@@ -6,7 +7,7 @@ import { clsx } from 'clsx';
 import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import type { ProTokenType } from '../../../provider';
 import { ProProvider } from '../../../provider';
-import { isImg, isUrl, useMountMergeState } from '../../../utils';
+import { isImg, isUrl } from '../../../utils';
 import type { PureSettings } from '../../defaultSettings';
 import { defaultSettings } from '../../defaultSettings';
 import type {
@@ -547,13 +548,9 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   // 用于减少 defaultOpenKeys 计算的组件
   const defaultOpenKeysRef = useRef<string[]>([]);
 
-  const [defaultOpenAll, setDefaultOpenAll] = useMountMergeState(
-    menu?.defaultOpenAll,
-  );
+  const [defaultOpenAll, setDefaultOpenAll] = useState(menu?.defaultOpenAll);
 
-  const [openKeys, setOpenKeys] = useMountMergeState<
-    (string | number)[] | false
-  >(
+  const [openKeys, setOpenKeys] = useMergedState<(string | number)[] | false>(
     () => {
       if (menu?.defaultOpenAll) {
         return getOpenKeysFromMenuData(menuData) || [];
@@ -569,18 +566,19 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     },
   );
 
-  const [selectedKeys, setSelectedKeys] = useMountMergeState<
-    string[] | undefined
-  >([], {
-    value: propsSelectedKeys,
-    onChange: onSelect
-      ? (keys) => {
-          if (onSelect && keys) {
-            onSelect(keys as any);
+  const [selectedKeys, setSelectedKeys] = useMergedState<string[] | undefined>(
+    [],
+    {
+      value: propsSelectedKeys,
+      onChange: onSelect
+        ? (keys) => {
+            if (onSelect && keys) {
+              onSelect(keys as any);
+            }
           }
-        }
-      : undefined,
-  });
+        : undefined,
+    },
+  );
   useEffect(() => {
     if (menu?.defaultOpenAll || propsOpenKeys === false) {
       return;

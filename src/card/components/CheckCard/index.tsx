@@ -1,8 +1,8 @@
+import { useMergedState } from '@rc-component/util';
 import { Avatar, ConfigProvider } from 'antd';
 import { clsx } from 'clsx';
 import type { MouseEventHandler } from 'react';
 import React, { useContext, useEffect, useMemo } from 'react';
-import { useMountMergeState } from '../../../utils';
 import ProCardActions from '../Actions';
 import type { CheckCardGroupProps } from './Group';
 import CheckCardGroup, { CardLoading, CheckCardGroupConnext } from './Group';
@@ -169,7 +169,7 @@ export interface CheckCardState {
 const CheckCard: React.FC<CheckCardProps> & {
   Group: typeof CheckCardGroup;
 } = (props) => {
-  const [stateChecked, setStateChecked] = useMountMergeState<boolean>(
+  const [stateChecked, setStateChecked] = useMergedState<boolean>(
     props.defaultChecked || false,
     {
       value: props.checked,

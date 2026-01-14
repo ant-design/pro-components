@@ -137,7 +137,7 @@ formRef 内置了几个方法来获取转化之后的值，这也是相比 antd 
 ```tsx | pure
   export type SearchTransformKeyFn = (
     value: any,
-    namePath: string,
+    namePath: string[],
     allValues: any,
   ) => string | Record<string, any>;
 
@@ -163,6 +163,42 @@ formRef 内置了几个方法来获取转化之后的值，这也是相比 antd 
    */
   transform?: SearchTransformKeyFn;
 ```
+
+#### transform 的两种常见返回写法（建议直接照着用）
+
+`transform` 的返回值常见有两种写法：
+
+- **1）返回普通值（最直观，也最稳定）**：会替换当前字段的提交值。
+
+```tsx | pure
+<ProFormText
+  name="name"
+  transform={(value) => `${value}:suffix`}
+/>
+// 提交时：{ name: 'xxx:suffix' }
+```
+
+- **2）返回对象（用于“改名/拆分字段/写回嵌套路径”）**：推荐按字段的 `name` / `namePath` 构造对象，避免“看起来对但提交没变”的情况。
+
+```tsx | pure
+import { set } from '@rc-component/util';
+
+// 写回同一路径（推荐：不依赖外层 merge 行为）
+<ProFormText
+  name={['company', 'name']}
+  transform={(value) => set({}, ['company', 'name'], `${value}:suffix`)}
+/>
+// 提交时：{ company: { name: 'xxx:suffix' } }
+
+// 变更 key（示例：把 name 写成 displayName）
+<ProFormText
+  name="name"
+  transform={(value) => ({ displayName: value })}
+/>
+// 提交时：{ displayName: 'xxx' }（注意：这会改变最终输出结构）
+```
+
+> 提醒：`SearchTransformKeyFn` 的类型签名里第二个参数是 `namePath: string[]`，但在部分场景（例如嵌套、`ProFormList`）里你可能会观察到传入值并不总是你期望的“完整路径数组”。这也是推荐你**直接用组件的 `name` 构造返回对象**的原因。
 
 ## 代码示例
 
@@ -248,7 +284,7 @@ ProForm 是对 antd Form 的再封装，如果你想要自定义表单元素，P
 | submitter                                       | 提交按钮相关配置                                                                                                                               | `SubmitterProps<{form?: FormInstance<any>}> \| false`                                                      | `true`          |
 | loading                                         | 表单按钮的 loading 状态                                                                                                                        | `boolean`                                                                                                  | -               |
 | onLoadingChange                                 | loading 状态改变时的回调                                                                                                                       | `(loading: boolean) => void`                                                                               | -               |
-| formRef                                         | 获取表单所使用的 form，ProFormInstance 相比 antd Form 增加了格式化数据的方法                                                                   | `React.MutableRefObject<ProFormRef<T> \| undefined> \| React.RefObject<ProFormRef<T> \| undefined>`        | -               |
+| formRef                                         | 获取表单所使用的 form，`ProFormInstance` 相比 antd Form 增加了格式化数据的方法                                                                  | `React.MutableRefObject<(ProFormInstance<T> & { nativeElement?: HTMLElement; focus?: () => void }) \| undefined> \| React.RefObject<(ProFormInstance<T> & { nativeElement?: HTMLElement; focus?: () => void }) \| undefined>` | - |
 | syncToUrl                                       | 同步参数到 url 上，url 只支持 string，在使用之前最好读一下[url 中的参数类型](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) | `boolean \| ((values: T, type: 'get' \| 'set') => T)`                                                      | -               |
 | syncToUrlAsImportant                            | 当 syncToUrl 为 true，在页面回显示时，以url上的参数为主，默认为false                                                                           | `boolean`                                                                                                  | `false`         |
 | extraUrlParams                                  | 额外的 url 参数                                                                                                                                | `Record<string, any>`                                                                                      | -               |
@@ -260,7 +296,7 @@ ProForm 是对 antd Form 的再封装，如果你想要自定义表单元素，P
 | request                                         | 发起网络请求的参数，返回值会覆盖给 initialValues                                                                                               | `ProRequestData<T, U>`                                                                                     | -               |
 | isKeyPressSubmit                                | 是否使用回车提交                                                                                                                               | `boolean`                                                                                                  | -               |
 | formKey                                         | 用于控制form 是否相同的key，高阶用法                                                                                                           | `string`                                                                                                   | -               |
-| autoFocusFirstInput                             | 自动 focus 表单第一个输入框，只对有input的类型有效                                                                                             | `boolean`                                                                                                  | -               |
+| autoFocusFirstInput                             | 自动 focus 表单第一个输入框，只对有 input 的类型有效                                                                                           | `boolean`                                                                                                  | `true`          |
 | readonly                                        | 是否只读模式，对所有表单项生效，优先低于表单项的 readonly                                                                                      | `boolean`                                                                                                  | -               |
 | grid                                            | 开启栅格化模式，宽度默认百分比，请使用 `colProps` 控制宽度 [查看示例](/components/form#栅格化布局)                                             | `boolean`                                                                                                  | `false`         |
 | rowProps                                        | 开启 `grid` 模式时传递给 `Row`, 仅在`ProFormGroup`, `ProFormList`, `ProFormFieldSet` 中有效                                                    | [RowProps](https://ant.design/components/grid/#Row)                                                        | `{ gutter: 8 }` |
@@ -488,6 +524,7 @@ export default () => {
 | :-------------------------------: | :----------------------------------------------------------------------------------------: | :--: |
 |      `getFieldsFormatValue`       |      使用方法与 `FormInstance` 的 `getFieldsValue` 方法相同，将返回格式化后的所有数据      |      |
 |       `getFieldFormatValue`       |      使用方法与 `FormInstance` 的 `getFieldValue` 方法相同，将返回格式化后的指定数据       |      |
+|   `getFieldFormatValueObject`     | 使用方法与 `FormInstance` 的 `getFieldValue` 方法相同，将返回格式化后的指定数据（包含 name） |      |
 | `validateFieldsReturnFormatValue` | 使用方法与 `FormInstance` 的 `validateFields` 方法相同，验证通过后将返回格式化后的所有数据 |      |
 
 <code src="../../../demos/form/modalform-test.tsx"  debug></code>

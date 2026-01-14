@@ -13922,7 +13922,7 @@ snapshots:
       '@types/istanbul-lib-coverage': 2.0.6
       collect-v8-coverage: 1.0.3
 
-  '@jest/test-sequencer@26.6.3(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@14.18.63)(typescript@5.9.3))':
+  '@jest/test-sequencer@26.6.3':
     dependencies:
       '@jest/test-result': 26.6.2
       graceful-fs: 4.2.11
@@ -13930,11 +13930,7 @@ snapshots:
       jest-runner: 26.6.3(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@14.18.63)(typescript@5.9.3))
       jest-runtime: 26.6.3(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@14.18.63)(typescript@5.9.3))
     transitivePeerDependencies:
-      - bufferutil
-      - canvas
       - supports-color
-      - ts-node
-      - utf-8-validate
 
   '@jest/transform@26.6.2':
     dependencies:
@@ -20746,7 +20742,7 @@ snapshots:
   jest-config@26.6.3(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@14.18.63)(typescript@5.9.3)):
     dependencies:
       '@babel/core': 7.28.5
-      '@jest/test-sequencer': 26.6.3(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@14.18.63)(typescript@5.9.3))
+      '@jest/test-sequencer': 26.6.3
       '@jest/types': 26.6.2
       babel-jest: 26.6.3(@babel/core@7.28.5)
       chalk: 4.1.2

@@ -1,5 +1,5 @@
 import { RightOutlined } from '@ant-design/icons';
-import { omit } from '@rc-component/util';
+import { omit, useMergedState } from '@rc-component/util';
 import { ConfigProvider, Skeleton } from 'antd';
 import { clsx } from 'clsx';
 import React, {
@@ -11,7 +11,6 @@ import React, {
   useState,
 } from 'react';
 import { ProConfigProvider, proTheme } from '../../../provider';
-import { useMountMergeState } from '../../../utils';
 import CheckCard from './index';
 import { useStyle } from './style';
 
@@ -318,7 +317,7 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
     'size',
   ]);
 
-  const [stateValue, setStateValue] = useMountMergeState<
+  const [stateValue, setStateValue] = useMergedState<
     CheckCardValueType[] | CheckCardValueType | undefined
   >(props.defaultValue, {
     value: props.value,
