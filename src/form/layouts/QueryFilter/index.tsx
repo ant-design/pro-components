@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
 import RcResizeObserver from '@rc-component/resize-observer';
+import { useMergedState } from '@rc-component/util';
 import type { ColProps, FormItemProps, RowProps } from 'antd';
 import { Col, ConfigProvider, Form, Row } from 'antd';
 import type { FormInstance, FormProps } from 'antd/lib/form/Form';
