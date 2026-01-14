@@ -164,43 +164,41 @@ formRef 内置了几个方法来获取转化之后的值，这也是相比 antd 
   transform?: SearchTransformKeyFn;
 ```
 
-#### transform 的两种常见返回写法（强烈建议读完）
+#### transform 的两种常见返回写法（建议直接照着用）
 
-`transform` 的返回值有两类常用语义：
+`transform` 的返回值常见有两种写法：
 
-- **返回普通值（推荐优先使用）**：会直接替换当前字段在 `namePath` 对应位置的值。
+- **1）返回普通值（最直观，也最稳定）**：会替换当前字段的提交值。
 
 ```tsx | pure
 <ProFormText
-  name={['company', 'name']}
+  name="name"
   transform={(value) => `${value}:suffix`}
 />
-// 提交时：{ company: { name: 'xxx:suffix' } }
+// 提交时：{ name: 'xxx:suffix' }
 ```
 
-- **返回对象（用于“改名/拆分字段/输出多个字段”）**：
-  - **在数组行（如 `ProFormList` 的子项）里**：返回的对象会合并到“当前行对象”上（常用于把 `name` 改成 `displayName`）。
-  - **在非数组路径里**：返回的对象会合并到表单结果的根对象上；如果你希望把结果写回到原来的嵌套路径，请按 `namePath` 构造对象（例如用 `set`）。
+- **2）返回对象（用于“改名/拆分字段/写回嵌套路径”）**：推荐按字段的 `name` / `namePath` 构造对象，避免“看起来对但提交没变”的情况。
 
 ```tsx | pure
 import { set } from '@rc-component/util';
 
-// 1) ProFormList 行内改名：合并到当前行对象（推荐写法）
-<ProFormList name="users">
-  <ProFormText
-    name="name"
-    transform={(value) => ({ displayName: value })}
-  />
-</ProFormList>
-// 提交时：{ users: [{ displayName: 'xxx' }] }
-
-// 2) 非数组路径：想“写回原路径”请按 namePath 构造对象
+// 写回同一路径（推荐：不依赖外层 merge 行为）
 <ProFormText
   name={['company', 'name']}
-  transform={(value, namePath) => set({}, namePath, `${value}:suffix`)}
+  transform={(value) => set({}, ['company', 'name'], `${value}:suffix`)}
 />
 // 提交时：{ company: { name: 'xxx:suffix' } }
+
+// 变更 key（示例：把 name 写成 displayName）
+<ProFormText
+  name="name"
+  transform={(value) => ({ displayName: value })}
+/>
+// 提交时：{ displayName: 'xxx' }（注意：这会改变最终输出结构）
 ```
+
+> 提醒：`SearchTransformKeyFn` 的类型签名里第二个参数是 `namePath: string[]`，但在部分场景（例如嵌套、`ProFormList`）里你可能会观察到传入值并不总是你期望的“完整路径数组”。这也是推荐你**直接用组件的 `name` 构造返回对象**的原因。
 
 ## 代码示例
 
