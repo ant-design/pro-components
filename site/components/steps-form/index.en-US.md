@@ -33,12 +33,12 @@ StepsForm manages the data of sub forms through a Provider, each word form is a 
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
 | current         | The number of steps in the current form, starting from `0`                                                                                  | `number`                                           | 0       |
 | onCurrentChange | current The event that changed                                                                                                              | `(current:number)=>void`                           | -       |
-| onFinish        | Triggered when the last step of the form was submitted successfully                                                                         | `(values:T)=>void`                                 | -       |
+| onFinish        | Triggered when the last step is submitted successfully. If returns a truthy value, it will reset all forms and step back to the first step | `(values: T) => Promise<boolean \| void>`          | -       |
 | stepsProps      | StepsForm's own props for Steps, used in the same way as [antd](https://ant.design/components/steps/), but without the current and onChange | [ props](https://ant.design/components/steps/#API) | -       |
-| stepFormRender  | Customize the currently displayed form, return dom inside the form                                                                          | `(form) => ReactNode`                              | -       |
-| stepsFormRender | Customize the entire form area, returning the dom on the outside of the form                                                                | `(form,submitter) => ReactNode`                    | -       |
-| stepsRender     | Customize the stepsizer                                                                                                                     | `(steps,dom)=> ReactNode`                          | -       |
-| formRef         | A reference to the StepForm action for custom triggering                                                                                    | `MutableRefObject<FormInstance>`                   | -       |
+| stepFormRender  | Customize the currently displayed form, return dom inside the form                                                                          | `(formDom: ReactNode) => ReactNode`                | -       |
+| stepsFormRender | Customize the entire form area, returning the dom on the outside of the form                                                                | `(formDom: ReactNode, submitter: ReactNode) => ReactNode` | - |
+| stepsRender     | Customize the stepper                                                                                                                       | `(steps, dom) => ReactNode`                        | -       |
+| formRef         | A reference to the current step form instance                                                                                               | `MutableRefObject<ProFormInstance<any> \| undefined \| null>` | - |
 
 ### StepForm
 
@@ -46,4 +46,4 @@ Exactly the same as [ProForm](/components/form), except that onFinish supports P
 
 | Parameters | Description                 | Type                         | Default |
 | ---------- | --------------------------- | ---------------------------- | ------- |
-| onFinish   | form submit success trigger | `(values:T)=>Promise<false>` | -       |
+| onFinish   | Form submit success trigger | `(values: T) => Promise<boolean \| void> \| void` | - |
