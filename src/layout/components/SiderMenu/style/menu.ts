@@ -1,4 +1,4 @@
-﻿import type { GenerateStyle, ProAliasToken } from '../../../../provider';
+import type { GenerateStyle, ProAliasToken } from '../../../../provider';
 import { useStyle as useAntdStyle } from '../../../../provider';
 import type { MenuMode } from '../BaseMenu';
 
@@ -31,8 +31,6 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         width: '100%',
         height: '100%',
         display: 'inline-flex',
-      },
-      [`${token.antCls}-menu-title-content`]: {
         '&:first-child': {
           width: '100%',
         },
@@ -67,6 +65,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         flexDirection: 'row',
         alignItems: 'center',
         gap: token.marginXS,
+        width: '100%',
         [`${token.componentCls}-item-text`]: {
           maxWidth: '100%',
           textOverflow: 'ellipsis',
