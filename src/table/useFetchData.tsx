@@ -1,9 +1,9 @@
-import { useEffect, useRef } from 'react';
+import { useMergedState } from '@rc-component/util';
+import { useEffect, useRef, useState } from 'react';
 import {
   runFunction,
   useDebounceFn,
   useDeepCompareEffect,
-  useMountMergeState,
   usePrevious,
   useRefFunction,
 } from '../utils';
@@ -81,7 +81,7 @@ const useFetchData = <DataSource extends RequestData<any>>(
   /**
    * 用于存储最新的数据，这样可以在切换的时候保持数据的一致性
    */
-  const [tableDataList, setTableDataList] = useMountMergeState<
+  const [tableDataList, setTableDataList] = useMergedState<
     DataSource[] | undefined
   >(defaultData, {
     value: options?.dataSource,
@@ -91,7 +91,7 @@ const useFetchData = <DataSource extends RequestData<any>>(
   /**
    * 表格的加载状态
    */
-  const [tableLoading, setTableLoading] = useMountMergeState<boolean>(false, {
+  const [tableLoading, setTableLoading] = useMergedState<boolean>(false, {
     value:
       typeof options?.loading === 'object'
         ? options?.loading?.spinning
@@ -100,14 +100,14 @@ const useFetchData = <DataSource extends RequestData<any>>(
   });
 
   /**
-   * 表示页面信息的类型  useMountMergeState 钩子的初始值和参数
+   * 表示页面信息的类型  useMergedState 钩子的初始值和参数
    * @typedef {object} PageInfo
    * @property {number} current 当前页码
    * @property {number} pageSize 页面大小
    * @property {number} total 数据总量
    * @type {[PageInfo, React.Dispatch<React.SetStateAction<PageInfo>>]}
    */
-  const [pageInfo, setPageInfoState] = useMountMergeState<PageInfo>(
+  const [pageInfo, setPageInfoState] = useMergedState<PageInfo>(
     () => mergeOptionAndPageInfo(options),
     {
       onChange: options?.onPageInfoChange,
@@ -128,7 +128,7 @@ const useFetchData = <DataSource extends RequestData<any>>(
     }
   });
 
-  const [pollingLoading, setPollingLoading] = useMountMergeState(false);
+  const [pollingLoading, setPollingLoading] = useState(false);
 
   // Batching update  https://github.com/facebook/react/issues/14259
   const setDataAndLoading = (newData: DataSource[], dataTotal: number) => {

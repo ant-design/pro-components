@@ -7,7 +7,6 @@ import {
   dateFormatterMap,
   FieldLabel,
   FilterDropdown,
-  useMountMergeState,
 } from '../../../utils';
 import type { LightFilterFooterRender } from '../../typing';
 import { useStyle } from './style';
@@ -72,7 +71,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
   const [tempValue, setTempValue] = useState<string | undefined | null>(
     (props as any)[valuePropName!],
   );
-  const [open, setOpen] = useMountMergeState<boolean>(false);
+  const [open, setOpen] = useState(false);
 
   const onChange = (...restParams: any[]) => {
     otherFieldProps?.onChange?.(...restParams);

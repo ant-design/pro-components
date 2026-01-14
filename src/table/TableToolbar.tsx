@@ -1,8 +1,8 @@
-import React, { useMemo } from 'react';
 import type { Key } from 'react';
+import React, { useMemo } from 'react';
 import type { ActionType } from '.';
-import type { ProTableProps } from './typing';
 import Toolbar from './components/ToolBar';
+import type { ProTableProps } from './typing';
 
 export type TableToolbarProps<T extends Record<string, any>> = {
   toolBarRender: ProTableProps<T, any, any>['toolBarRender'];
@@ -87,4 +87,3 @@ export function TableToolbar<T extends Record<string, any>>(
     toolbar,
   ]);
 }
-
