@@ -84,9 +84,10 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
   /** DateRange的转化，dayjs 的 toString 有点不好用 */
   const labelValueText = useMemo(() => {
     if (!labelValue) return labelValue;
+    const lowerValueType = valueType?.toLowerCase?.();
     if (
-      valueType?.toLowerCase()?.endsWith('range') &&
-      valueType !== 'digitRange' &&
+      lowerValueType?.endsWith('range') &&
+      lowerValueType !== 'digitrange' &&
       !labelFormatter
     ) {
       return dateArrayFormatter(
