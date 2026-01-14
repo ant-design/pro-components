@@ -226,7 +226,6 @@ function processNestedObjectTransforms(
   parentsKey: React.Key[] | undefined,
   currentTransforms: any,
   rootMergeObjects: any[],
-  rootValues: any,
 ): any {
   const isArrayValues = Array.isArray(tempValues);
   let tempResult: any = isArrayValues ? [] : {};
@@ -258,11 +257,7 @@ function processNestedObjectTransforms(
 
     if (transformFunction && typeof transformFunction === 'function') {
       // 执行转换
-      const transformed = transformFunction(
-        itemValue,
-        key.map(String),
-        rootValues,
-      );
+      const transformed = transformFunction(itemValue, entityKey, tempValues);
 
       if (
         typeof transformed === 'object' &&
@@ -283,8 +278,8 @@ function processNestedObjectTransforms(
         // 如果返回原始值，用新键替换
         tempResult[entityKey] = transformed;
       }
-    } else if ((isPlainObj(itemValue) || Array.isArray(itemValue)) && !isNil(itemValue)) {
-      // 递归处理嵌套对象/数组（但跳过 null 值）
+    } else if (isPlainObj(itemValue) && !isNil(itemValue)) {
+      // 递归处理嵌套对象（但跳过 null 值）
       const nestedTransforms = currentTransforms[entityKey];
       if (nestedTransforms && typeof nestedTransforms === 'object') {
         // 如果当前键有嵌套转换配置，传递嵌套配置
@@ -293,7 +288,6 @@ function processNestedObjectTransforms(
           key,
           nestedTransforms,
           rootMergeObjects,
-          rootValues,
         );
         // 检查是否有任何子属性被转换为对象（会被添加到 rootMergeObjects）
         // 如果 nested 为空或只包含被转换的属性，我们不保留这个对象
@@ -301,17 +295,13 @@ function processNestedObjectTransforms(
         if (hasRemainingContent) {
           tempResult[entityKey] = nested;
         }
-      } else if (Array.isArray(itemValue)) {
-        // 数组必须有对应的嵌套转换配置才递归，避免跨路径误命中（如多层 ProFormList）
-        tempResult[entityKey] = itemValue;
       } else {
-        // 对象场景：保持向后兼容，允许使用当前转换配置递归查找
+        // 否则继续使用当前转换配置递归
         const nested = processNestedObjectTransforms(
           itemValue,
           key,
           currentTransforms,
           rootMergeObjects,
-          rootValues,
         );
         tempResult[entityKey] = nested;
       }
@@ -381,7 +371,6 @@ export const transformKeySubmitValue = <T extends object = any>(
       undefined,
       objectTransforms,
       rootMergeObjects,
-      result,
     );
   }
 
