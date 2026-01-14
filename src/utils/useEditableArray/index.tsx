@@ -46,6 +46,20 @@ export const recordKeyToString = (rowKey: RecordKey): React.Key => {
   return rowKey;
 };
 
+/**
+ * Normalize antd Form `NamePath` segments.
+ *
+ * - Preserve `0` (number) and other falsy-but-valid segments
+ * - Flatten nested arrays (e.g. `name={['a','b']}`)
+ * - Convert number segments to string to align with `spellNamePath` behavior
+ */
+const normalizeNamePath = (...segments: any[]): (string | number)[] => {
+  return segments
+    .flat(1)
+    .filter((key) => key !== undefined && key !== null)
+    .map((key) => (typeof key === 'number' ? key.toString() : key));
+};
+
 export type AddLineOptions = {
   position?: 'top' | 'bottom';
   recordKey?: RecordKey;
@@ -402,13 +416,10 @@ export function SaveEditableAction<T>(
       const isMapEditor = editorType === 'Map';
       // 为了兼容类型为 array 的 dataIndex,当 recordKey 是一个数组时，用于获取表单值的 key 只取第一项，
       // 从表单中获取回来之后，再根据 namepath 获取具体的某个字段并设置
-      const namePath = [
+      const namePath = normalizeNamePath(
         tableName,
         Array.isArray(recordKey) ? recordKey[0] : recordKey,
-      ]
-        .map((key) => key?.toString())
-        .flat(1)
-        .filter(Boolean) as string[];
+      ) as string[];
       setLoading(true);
       try {
         await form.validateFields(namePath, {
@@ -423,9 +434,16 @@ export function SaveEditableAction<T>(
         throw error;
       }
 
-      const fields =
-        context?.getFieldFormatValue?.(namePath) ||
-        form.getFieldValue(namePath);
+      const fields = (() => {
+        // `getFieldFormatValue` will unwrap object results (by returning the first value),
+        // which breaks editable row save when `namePath` points to a row object.
+        // Prefer `getFieldFormatValueObject` and then pick the row by `namePath`.
+        const formattedObject =
+          context?.getFieldFormatValueObject?.(namePath as any);
+        const formattedRow =
+          formattedObject != null ? get(formattedObject, namePath as any) : null;
+        return formattedRow ?? form.getFieldValue(namePath);
+      })();
       // 处理 dataIndex 为数组的情况
       if (Array.isArray(recordKey) && recordKey.length > 1) {
         // 获取 namepath
@@ -586,12 +604,14 @@ const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
         e.preventDefault();
         const isMapEditor = editorType === 'Map';
         const recordKeyStr = recordKeyToString(recordKey)?.toString();
-        const namePath = [tableName, recordKey]
-          .flat(1)
-          .filter(Boolean) as string[];
-        const fields =
-          context?.getFieldFormatValue?.(namePath) ||
-          form?.getFieldValue(namePath);
+        const namePath = normalizeNamePath(tableName, recordKey) as string[];
+        const fields = (() => {
+          const formattedObject =
+            context?.getFieldFormatValueObject?.(namePath as any);
+          const formattedRow =
+            formattedObject != null ? get(formattedObject, namePath as any) : null;
+          return formattedRow ?? form?.getFieldValue(namePath);
+        })();
         const record = isMapEditor ? set({}, namePath, fields) : fields;
 
         // 在清理编辑态前，先捕获“编辑前快照”（多行编辑时必须按 key 取值）
@@ -996,9 +1016,10 @@ export function useEditableArray<RecordType extends AnyObject>(
           if (form) {
             if (props.tableName) {
               // name 模式：重置为原始值
-              const namePath = [props.tableName, recordKey]
-                .flat(1)
-                .filter(Boolean) as string[];
+              const namePath = normalizeNamePath(
+                props.tableName,
+                recordKey,
+              ) as string[];
               form.setFieldsValue(set({}, namePath, originRow));
             } else {
               // 非 name 模式：清除该行的所有表单字段
