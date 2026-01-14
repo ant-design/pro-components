@@ -301,8 +301,11 @@ function processNestedObjectTransforms(
         if (hasRemainingContent) {
           tempResult[entityKey] = nested;
         }
+      } else if (Array.isArray(itemValue)) {
+        // 数组必须有对应的嵌套转换配置才递归，避免跨路径误命中（如多层 ProFormList）
+        tempResult[entityKey] = itemValue;
       } else {
-        // 否则继续使用当前转换配置递归
+        // 对象场景：保持向后兼容，允许使用当前转换配置递归查找
         const nested = processNestedObjectTransforms(
           itemValue,
           key,

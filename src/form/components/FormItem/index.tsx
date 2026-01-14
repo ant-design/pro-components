@@ -1,4 +1,4 @@
-﻿import { omit } from '@rc-component/util';
+import { omit } from '@rc-component/util';
 import type { FormItemProps } from 'antd';
 import { ConfigProvider, Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
@@ -343,6 +343,11 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
   /** 从 context 中拿到的值 */
   const name = useMemo(() => {
     if (props.name === undefined) return props.name;
+    // ProFormList 子项：使用 listName（完整路径）保证嵌套 list 下 namePath 正确
+    if ((formListField as any)?.listName !== undefined) {
+      return [(formListField as any).listName, props.name].flat(1) as string[];
+    }
+    // 兼容旧结构：仅有 index 时，至少保证为数组
     if (formListField.name !== undefined) {
       return [formListField.name, props.name].flat(1) as string[];
     }
