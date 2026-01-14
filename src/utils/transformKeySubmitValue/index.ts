@@ -283,8 +283,8 @@ function processNestedObjectTransforms(
         // 如果返回原始值，用新键替换
         tempResult[entityKey] = transformed;
       }
-    } else if (isPlainObj(itemValue) && !isNil(itemValue)) {
-      // 递归处理嵌套对象（但跳过 null 值）
+    } else if ((isPlainObj(itemValue) || Array.isArray(itemValue)) && !isNil(itemValue)) {
+      // 递归处理嵌套对象/数组（但跳过 null 值）
       const nestedTransforms = currentTransforms[entityKey];
       if (nestedTransforms && typeof nestedTransforms === 'object') {
         // 如果当前键有嵌套转换配置，传递嵌套配置
