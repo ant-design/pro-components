@@ -13,9 +13,12 @@ describe('ProForm transform', () => {
     const fn = vi.fn();
     const formRef = { current: undefined as any };
 
-    render(
+    const { container } = render(
       <ProForm
         formRef={formRef}
+        initialValues={{
+          users: [{ name: 'John Doe' }],
+        }}
         onFinish={async (values) => {
           fn(values);
         }}
@@ -30,11 +33,14 @@ describe('ProForm transform', () => {
     );
 
     await waitFor(() => expect(formRef.current).toBeTruthy());
+    await waitFor(() => {
+      const inputs = container.querySelectorAll(
+        'input:not([style*="display: none"])',
+      );
+      expect(inputs.length).toBeGreaterThan(0);
+    });
 
     await act(async () => {
-      formRef.current?.setFieldsValue({
-        users: [{ name: 'John Doe' }],
-      });
       formRef.current?.submit?.();
     });
 
@@ -48,9 +54,17 @@ describe('ProForm transform', () => {
     const fn = vi.fn();
     const formRef = { current: undefined as any };
 
-    render(
+    const { container } = render(
       <ProForm
         formRef={formRef}
+        initialValues={{
+          departments: [
+            {
+              name: 'Engineering',
+              employees: [{ name: 'Alice' }],
+            },
+          ],
+        }}
         onFinish={async (values) => {
           fn(values);
         }}
@@ -73,16 +87,15 @@ describe('ProForm transform', () => {
     );
 
     await waitFor(() => expect(formRef.current).toBeTruthy());
+    await waitFor(() => {
+      const inputs = container.querySelectorAll(
+        'input:not([style*="display: none"])',
+      );
+      // department.name + employee.name
+      expect(inputs.length).toBeGreaterThanOrEqual(2);
+    });
 
     await act(async () => {
-      formRef.current?.setFieldsValue({
-        departments: [
-          {
-            name: 'Engineering',
-            employees: [{ name: 'Alice' }],
-          },
-        ],
-      });
       formRef.current?.submit?.();
     });
 
