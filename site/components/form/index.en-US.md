@@ -137,7 +137,7 @@ formRef has several built-in methods to get the converted value, which is also m
 ```tsx | pure
   export type SearchTransformKeyFn = (
     value: any,
-    namePath: string,
+    namePath: string[],
     allValues: any,
   ) => string | Record<string, any>;
 
@@ -162,6 +162,44 @@ formRef has several built-in methods to get the converted value, which is also m
    * transform: (value)=>{valueName:value.value,labelName:value.name}
    */
   transform?: SearchTransformKeyFn;
+```
+
+#### Two common return patterns for `transform` (please read)
+
+In practice, `transform` is usually used in two ways:
+
+- **Return a primitive (recommended)**: it replaces the value at the current `namePath`.
+
+```tsx | pure
+<ProFormText
+  name={['company', 'name']}
+  transform={(value) => `${value}:suffix`}
+/>
+// Submit: { company: { name: 'xxx:suffix' } }
+```
+
+- **Return an object (for rename/splitting/output multiple fields)**:
+  - **Inside array rows (e.g. `ProFormList` item)**: the returned object is merged into the current row object (useful for renaming `name` -> `displayName`).
+  - **For non-array paths**: the returned object is merged into the root result. If you want to write back to the original nested path, build an object using `namePath` (e.g. `set`).
+
+```tsx | pure
+import { set } from '@rc-component/util';
+
+// 1) Rename within ProFormList row (recommended)
+<ProFormList name="users">
+  <ProFormText
+    name="name"
+    transform={(value) => ({ displayName: value })}
+  />
+</ProFormList>
+// Submit: { users: [{ displayName: 'xxx' }] }
+
+// 2) Non-array path: write back to the same nested path
+<ProFormText
+  name={['company', 'name']}
+  transform={(value, namePath) => set({}, namePath, `${value}:suffix`)}
+/>
+// Submit: { company: { name: 'xxx:suffix' } }
 ```
 
 ## Code examples

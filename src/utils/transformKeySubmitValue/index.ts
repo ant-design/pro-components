@@ -226,6 +226,7 @@ function processNestedObjectTransforms(
   parentsKey: React.Key[] | undefined,
   currentTransforms: any,
   rootMergeObjects: any[],
+  rootValues: any,
 ): any {
   const isArrayValues = Array.isArray(tempValues);
   let tempResult: any = isArrayValues ? [] : {};
@@ -257,7 +258,11 @@ function processNestedObjectTransforms(
 
     if (transformFunction && typeof transformFunction === 'function') {
       // 执行转换
-      const transformed = transformFunction(itemValue, entityKey, tempValues);
+      const transformed = transformFunction(
+        itemValue,
+        key.map(String),
+        rootValues,
+      );
 
       if (
         typeof transformed === 'object' &&
@@ -288,6 +293,7 @@ function processNestedObjectTransforms(
           key,
           nestedTransforms,
           rootMergeObjects,
+          rootValues,
         );
         // 检查是否有任何子属性被转换为对象（会被添加到 rootMergeObjects）
         // 如果 nested 为空或只包含被转换的属性，我们不保留这个对象
@@ -302,6 +308,7 @@ function processNestedObjectTransforms(
           key,
           currentTransforms,
           rootMergeObjects,
+          rootValues,
         );
         tempResult[entityKey] = nested;
       }
@@ -371,6 +378,7 @@ export const transformKeySubmitValue = <T extends object = any>(
       undefined,
       objectTransforms,
       rootMergeObjects,
+      result,
     );
   }
 
