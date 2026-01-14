@@ -1,4 +1,5 @@
 import { get } from '@rc-component/util';
+import { cloneDeep } from 'lodash-es';
 import React from 'react';
 import { isNil } from '../isNil';
 import type { SearchTransformKeyFn } from '../typing';
@@ -219,6 +220,7 @@ function isInArrayPath(parentsKey: React.Key[]): boolean {
  * @param parentsKey - 父级路径
  * @param currentTransforms - 当前转换配置
  * @param rootMergeObjects - 存储需要在根级别合并的对象
+ * @param visited - 存储已经访问过的对象，防止循环引用
  * @returns 处理后的结果
  */
 function processNestedObjectTransforms(
@@ -226,7 +228,15 @@ function processNestedObjectTransforms(
   parentsKey: React.Key[] | undefined,
   currentTransforms: any,
   rootMergeObjects: any[],
+  visited: Set<any>,
 ): any {
+  if (tempValues != null && typeof tempValues === 'object') {
+     if (visited.has(tempValues)) {
+         return tempValues;
+     }
+     visited.add(tempValues);
+  }
+
   const isArrayValues = Array.isArray(tempValues);
   let tempResult: any = isArrayValues ? [] : {};
 
@@ -288,6 +298,7 @@ function processNestedObjectTransforms(
           key,
           nestedTransforms,
           rootMergeObjects,
+          visited,
         );
         // 检查是否有任何子属性被转换为对象（会被添加到 rootMergeObjects）
         // 如果 nested 为空或只包含被转换的属性，我们不保留这个对象
@@ -302,6 +313,7 @@ function processNestedObjectTransforms(
           key,
           currentTransforms,
           rootMergeObjects,
+          visited,
         );
         tempResult[entityKey] = nested;
       }
@@ -352,7 +364,7 @@ export const transformKeySubmitValue = <T extends object = any>(
   }
 
   // 创建一个深拷贝来避免修改原始数据
-  let result = JSON.parse(JSON.stringify(values));
+  let result = cloneDeep(values);
 
   // 分别处理不同格式的转换配置
   const { dotPathTransforms, objectTransforms } =
@@ -371,6 +383,7 @@ export const transformKeySubmitValue = <T extends object = any>(
       undefined,
       objectTransforms,
       rootMergeObjects,
+      new Set(),
     );
   }
 
