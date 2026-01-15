@@ -8,7 +8,7 @@ import {
 } from '@testing-library/react';
 import type { ProFormInstance } from '@ant-design/pro-components';
 import { Button } from 'antd';
-import { useRef } from 'react';
+import { createRef } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
 
@@ -57,7 +57,7 @@ describe('ModalForm', () => {
   });
 
   it('📦 ModelForm get formRef when use request', async () => {
-    const formRef = useRef<ProFormInstance>(undefined);
+    const formRef = createRef<ProFormInstance>();
     const wrapper = render(
       <ModalForm
         open
@@ -578,7 +578,7 @@ describe('ModalForm', () => {
   });
 
   it('📦 ModelForm get formRef when destroyOnHidden', async () => {
-    const formRef = useRef<ProFormInstance>(undefined);
+    const formRef = createRef<ProFormInstance>();
     const html = render(
       <ModalForm
         width={600}
