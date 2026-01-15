@@ -7,7 +7,7 @@ export const isDeepEqual = (a: any, b: any, ignoreKeys?: string[]) =>
   isDeepEqualReact(a, b, ignoreKeys);
 
 export function useDeepCompareMemoize(value: any, ignoreKeys?: any) {
-  const ref = useRef();
+  const ref = useRef(undefined);
   // it can be done by using useMemo as well
   // but useRef is rather cleaner and easier
   if (!isDeepEqual(value, ref.current, ignoreKeys)) {

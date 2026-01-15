@@ -72,7 +72,7 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
                 let hideHover = false;
                 // 如果配置了 hideHover 就不展示 hover 效果了
                 if (React.isValidElement(dom)) {
-                  hideHover = !!dom?.props?.['aria-hidden'];
+                  hideHover = !!(dom?.props as any)?.['aria-hidden'];
                 }
                 return (
                   <div

@@ -91,7 +91,7 @@ const DescriptionsDemo = (
   } & RowEditableConfig<DataSourceType>,
 ) => {
   const [form] = Form.useForm();
-  const actionRef = useRef<ProDescriptionsActionType>();
+  const actionRef = useRef<ProDescriptionsActionType>(undefined);
   const [editableKeys, setEditorRowKeys] = useMergedState<React.Key[]>(
     () => props.defaultKeys || [],
     {

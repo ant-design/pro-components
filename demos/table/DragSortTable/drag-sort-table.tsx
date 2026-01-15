@@ -84,7 +84,7 @@ const Demo = () => {
       dataIndex: 'address',
     },
   ];
-  const actionRef = useRef<ActionType>();
+  const actionRef = useRef<ActionType>(undefined);
   const [dataSource1, setDatasource1] = useState(data);
   const [dataSource2, setDatasource2] = useState(data);
   const handleDragSortEnd1 = (

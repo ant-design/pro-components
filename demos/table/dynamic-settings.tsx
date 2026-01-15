@@ -160,7 +160,7 @@ const initData = {
 };
 
 const DynamicSettings = () => {
-  const ref = useRef<ProFormInstance>();
+  const ref = useRef<ProFormInstance>(undefined);
 
   const [config, setConfig] = useState<any>(initData);
 

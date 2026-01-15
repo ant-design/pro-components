@@ -258,8 +258,8 @@ export type ProTableProps<DataSource, U, ValueType = 'text'> = {
    */
   tableViewRender?: (
     props: TableProps<DataSource>,
-    defaultDom: JSX.Element,
-  ) => JSX.Element | undefined;
+    defaultDom: React.ReactElement,
+  ) => React.ReactElement | undefined;
 
   /**
    * @name table 和搜索表单之间的 dom 渲染
@@ -278,7 +278,7 @@ export type ProTableProps<DataSource, U, ValueType = 'text'> = {
    */
   searchFormRender?: (
     props: ProTableProps<DataSource, U, ValueType>,
-    defaultDom: JSX.Element,
+    defaultDom: React.ReactElement,
   ) => React.ReactNode;
 
   /** @name 一个获得 dataSource 的方法 */

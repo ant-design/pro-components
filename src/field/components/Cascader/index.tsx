@@ -47,7 +47,7 @@ const FieldCascader: ProFieldFC<GroupProps> = (
   const layoutClassName = getPrefixCls('pro-field-cascader');
   const [loading, options, fetchData] = useFieldFetchData(rest);
   const intl = useIntl();
-  const cascaderRef = useRef();
+  const cascaderRef = useRef(undefined);
   const [open, setOpen] = useState(false);
 
   useImperativeHandle(

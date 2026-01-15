@@ -9,7 +9,7 @@ import FormRender from './FormRender';
 type BaseFormProps<T, U> = {
   pagination?: TablePaginationConfig | false;
   beforeSearchSubmit?: (params: Partial<U>) => any;
-  action: React.MutableRefObject<ActionType | undefined>;
+  action: React.RefObject<ActionType | undefined>;
   onSubmit?: (params: U) => void;
   onReset?: () => void;
   loading: boolean;

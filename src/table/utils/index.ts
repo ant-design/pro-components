@@ -85,7 +85,7 @@ export function mergePagination<T>(
  * @param onCleanSelected
  */
 export function useActionType<T>(
-  ref: React.MutableRefObject<ActionType | undefined>,
+  ref: React.RefObject<ActionType | undefined>,
   action: UseFetchDataAction<T>,
   props: {
     nativeElement?: HTMLDivElement;

@@ -14,7 +14,7 @@ const Demo = () => {
     FormListActionType<{
       name: string;
     }>
-  >();
+  >(undefined);
   return (
     <>
       <Space

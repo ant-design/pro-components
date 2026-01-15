@@ -14,7 +14,7 @@ export type StepFormProps<T = Record<string, any>, U = Record<string, any>> = {
   Omit<CommonFormProps<T, U>, 'submitter' | 'form'>;
 
 function StepForm<T = Record<string, any>>(stepNativeProps: StepFormProps<T>) {
-  const formRef = useRef<FormInstance | undefined>();
+  const formRef = useRef<FormInstance>(undefined);
   const context = useContext(StepsFormProvide);
   const stepContext = useContext(StepFormProvide);
 
@@ -44,7 +44,6 @@ function StepForm<T = Record<string, any>>(stepNativeProps: StepFormProps<T>) {
     return () => {
       context?.unRegForm(name);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (context && context?.formArrayRef) {

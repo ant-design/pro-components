@@ -22,7 +22,7 @@ const Demo = () => {
       company?: string;
       useMode?: string;
     }>
-  >();
+  >(undefined);
 
   const [readonly, setReadonly] = useState(false);
   return (

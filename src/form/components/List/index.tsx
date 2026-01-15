@@ -96,7 +96,7 @@ export type ProFormListProps<T> = Omit<FormListProps, 'children' | 'rules'> &
      * @example  actionRef?.current.get?.(1);
      * @example  actionRef?.current.getList?.();
      */
-    actionRef?: React.MutableRefObject<FormListActionType<T> | undefined>;
+    actionRef?: React.RefObject<FormListActionType<T> | undefined>;
     /** 放在div上面的属性 */
     style?: React.CSSProperties;
     /**
@@ -125,7 +125,7 @@ export type ProFormListProps<T> = Omit<FormListProps, 'children' | 'rules'> &
   } & Pick<ProFormGridConfig, 'colProps' | 'rowProps'>;
 
 function ProFormList<T>(props: ProFormListProps<T>) {
-  const actionRefs = useRef<FormListOperation>();
+  const actionRefs = useRef<FormListOperation>(undefined);
   const context = useContext(ConfigProvider.ConfigContext);
   const listContext = useContext(FormListContext);
   const baseClassName = context.getPrefixCls('pro-form-list');

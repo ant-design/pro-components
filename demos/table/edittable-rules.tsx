@@ -16,9 +16,9 @@ const defaultData: DataSourceType[] = [];
 
 const Demo = () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>(() => []);
-  const formRef = useRef<ProFormInstance<any>>();
-  const actionRef = useRef<ActionType>();
-  const editableFormRef = useRef<EditableFormInstance>();
+  const formRef = useRef<ProFormInstance<any>>(undefined);
+  const actionRef = useRef<ActionType>(undefined);
+  const editableFormRef = useRef<EditableFormInstance>(undefined);
   const columns: ProColumns<DataSourceType>[] = [
     {
       title: '关联题库',

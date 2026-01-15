@@ -118,7 +118,7 @@ const defaultData = [
 ];
 
 const Demo = () => {
-  const formRef = useRef<FormInstance>();
+  const formRef = useRef<FormInstance>(undefined);
   return (
     <ProForm
       formRef={formRef}

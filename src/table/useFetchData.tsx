@@ -51,7 +51,7 @@ const useFetchData = <DataSource extends RequestData<any>>(
   const umountRef = useRef<boolean>(false);
   /**
    * 用于保存 AbortController 实例的引用，方便需要时进行请求的取消操作
-   * @type {React.MutableRefObject<AbortController | null>}
+   * @type {React.RefObject<AbortController | null>}
    */
   const abortRef = useRef<AbortController | null>(null);
   /**
@@ -76,7 +76,7 @@ const useFetchData = <DataSource extends RequestData<any>>(
   const manualRequestRef = useRef<boolean>(manual);
 
   /** 轮询的setTime ID 存储 */
-  const pollingSetTimeRef = useRef<any>();
+  const pollingSetTimeRef = useRef<NodeJS.Timeout>(undefined);
 
   /**
    * 用于存储最新的数据，这样可以在切换的时候保持数据的一致性
@@ -116,7 +116,7 @@ const useFetchData = <DataSource extends RequestData<any>>(
 
   /**
    * 用于比较并设置页面信息和回调函数的引用更新
-   * @type {React.MutableRefObject<(changePageInfo: PageInfo) => void>}
+   * @type {React.RefObject<(changePageInfo: PageInfo) => void>}
    */
   const setPageInfo = useRefFunction((changePageInfo: PageInfo) => {
     if (

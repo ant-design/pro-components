@@ -40,10 +40,10 @@ type StepsFormProps<T = Record<string, any>> = {
     defaultDom: React.ReactNode,
   ) => React.ReactNode;
   /** @name 当前展示表单的 formRef */
-  formRef?: React.MutableRefObject<ProFormInstance<any> | undefined | null>;
+  formRef?: React.RefObject<ProFormInstance<any> | undefined>;
   /** @name 所有表单的 formMapRef */
-  formMapRef?: React.MutableRefObject<
-    React.MutableRefObject<FormInstance<any> | undefined>[]
+  formMapRef?: React.RefObject<
+    React.RefObject<FormInstance<any> | undefined>[]
   >;
   /**
    * 自定义单个表单
@@ -89,13 +89,13 @@ export const StepsFormProvide = React.createContext<
       unRegForm: (name: string) => void;
       onFormFinish: (name: string, formData: any) => void;
       keyArray: string[];
-      formArrayRef: React.MutableRefObject<
-        React.MutableRefObject<FormInstance<any> | undefined>[]
+      formArrayRef: React.RefObject<
+        React.RefObject<FormInstance<any> | undefined>[]
       >;
       loading: boolean;
       setLoading: (loading: boolean) => void;
       lastStep: boolean;
-      formMapRef: React.MutableRefObject<Map<string, StepFormProps>>;
+      formMapRef: React.RefObject<Map<string, StepFormProps>>;
       next: () => void;
     }
   | undefined
@@ -130,7 +130,7 @@ const StepsLayoutStrategy: Record<
             style: {
               height: '100%',
             },
-          })}
+          } as any)}
         </Col>
         <Col>
           <div
@@ -185,9 +185,9 @@ function StepsForm<T = Record<string, any>>(
 
   const formDataRef = useRef(new Map<string, Record<string, any>>());
   const formMapRef = useRef(new Map<string, StepFormProps>());
-  const formArrayRef = useRef<
-    React.MutableRefObject<FormInstance<any> | undefined>[]
-  >([]);
+  const formArrayRef = useRef<React.RefObject<FormInstance<any> | undefined>[]>(
+    [],
+  );
   const [formArray, setFormArray] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const intl = useIntl();

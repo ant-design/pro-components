@@ -80,7 +80,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(
   const formRef = useReactiveRef<ProFormInstance | undefined>(
     props.form || formInstance || form,
   );
-  const oldValuesRef = useRef<T>();
+  const oldValuesRef = useRef<T>(undefined);
   const propsRef = useLatest(props);
 
   /**
@@ -224,9 +224,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(
         {...restProps}
         onInit={(_, initForm) => {
           if (propsFormRef) {
-            (
-              propsFormRef as React.MutableRefObject<ProFormInstance<T>>
-            ).current = initForm;
+            propsFormRef.current = initForm;
           }
           restProps?.onInit?.(_, initForm);
           formRef.current = initForm;

@@ -242,7 +242,7 @@ const QueryFilterContent: React.FC<{
   split?: boolean;
   form: FormInstance<any>;
   items: React.ReactNode[];
-  submitter?: JSX.Element | false;
+  submitter?: React.ReactElement | false;
   showLength: number;
   collapseRender: QueryFilterProps<any>['collapseRender'];
   spanSize: {
@@ -308,7 +308,7 @@ const QueryFilterContent: React.FC<{
               dom,
             )
         : optionRender,
-      ...props.submitter.props,
+      ...(props.submitter.props as any),
     });
   }, [props, resetText, searchText, optionRender]);
 
@@ -331,7 +331,7 @@ const QueryFilterContent: React.FC<{
     ): { itemDom: React.ReactNode; hidden: boolean; colSpan: number } => {
       // 如果 formItem 自己配置了 hidden，默认使用它自己的
       const colSize = React.isValidElement<any>(item)
-        ? (item?.props?.colSize ?? 1)
+        ? ((item?.props as any)?.colSize ?? 1)
         : 1;
       const colSpan = Math.min(spanSize.span * (colSize || 1), 24);
       // 计算总的 totalSpan 长度
@@ -397,7 +397,7 @@ const QueryFilterContent: React.FC<{
     // 每一列的key, 一般是存在的
     const itemKey =
       (React.isValidElement(itemDom) &&
-        (itemDom.key || `${itemDom.props?.name}`)) ||
+        (itemDom.key || `${(itemDom.props as any)?.name}`)) ||
       index;
 
     if (24 - (currentSpan % 24) < colSpan) {

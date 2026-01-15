@@ -49,7 +49,7 @@ const jobType = [
 ];
 const EditExample = () => {
   const formMapRef = useRef<
-    React.MutableRefObject<ProFormInstance<any> | undefined>[]
+    React.RefObject<ProFormInstance<any> | undefined>[]
   >([]);
   useEffect(() => {
     waitTime(1000).then(() => {

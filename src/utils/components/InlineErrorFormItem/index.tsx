@@ -3,7 +3,9 @@ import type { NamePath } from '@rc-component/form/es/interface';
 import { get } from '@rc-component/util';
 import type { FormItemProps, PopoverProps } from 'antd';
 import { ConfigProvider, Form, Popover, theme } from 'antd';
+import type { ReactElement } from 'react';
 import React, { useContext, useEffect, useState } from 'react';
+
 import { useStyle } from './style';
 
 interface InlineErrorFormItemProps extends FormItemProps {
@@ -27,9 +29,9 @@ const FIX_INLINE_STYLE = {
 
 const InlineErrorFormItemPopover: React.FC<{
   inputProps: any;
-  input: JSX.Element;
-  errorList: JSX.Element;
-  extra: JSX.Element;
+  input: ReactElement;
+  errorList: ReactElement;
+  extra: ReactElement;
   popoverProps?: PopoverProps;
 }> = ({ inputProps, input, extra, errorList, popoverProps }) => {
   const [open, setOpen] = useState<boolean | undefined>(false);
@@ -120,9 +122,9 @@ const InternalFormItemFunction: React.FC<InternalProps & FormItemProps> = ({
             errors: any[];
           },
           doms: {
-            input: JSX.Element;
-            errorList: JSX.Element;
-            extra: JSX.Element;
+            input: ReactElement;
+            errorList: ReactElement;
+            extra: ReactElement;
           },
         ) => (
           <InlineErrorFormItemPopover

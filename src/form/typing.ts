@@ -107,7 +107,7 @@ export type LightFilterFooterRender =
        * @name 清除选择
        */
       onClear?: (e?: React.MouseEvent) => void,
-    ) => JSX.Element | false)
+    ) => React.ReactElement | false)
   | false;
 
 export type ProFormFieldItemProps<T = Record<string, any>, K = any> = {

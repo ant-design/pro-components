@@ -8,7 +8,7 @@ import { getFormatMessage } from './index';
 export const renderLayoutSettingItem = (item: SettingItemProps) => {
   const action = React.cloneElement(item.action, {
     disabled: item.disabled,
-  });
+  } as any);
   return (
     <Tooltip title={item.disabled ? item.disabledReason : ''} placement="left">
       <List.Item actions={[action]}>

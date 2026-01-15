@@ -1,12 +1,12 @@
-import type { MutableRefObject, RefObject } from 'react';
+import type { RefObject } from 'react';
 import { useMemo } from 'react';
 
 type Callback<T> = (currentRef: T) => void;
 
 export function useRefCallback<T>(
-  callback: Callback<MutableRefObject<T>>,
+  callback: Callback<RefObject<T>>,
   initialValue: T,
-): MutableRefObject<T>;
+): RefObject<T>;
 
 export function useRefCallback<T>(
   callback: Callback<RefObject<T>>,
@@ -14,14 +14,14 @@ export function useRefCallback<T>(
 ): RefObject<T>;
 
 export function useRefCallback<T = undefined>(
-  callback: Callback<MutableRefObject<T | undefined>>,
-): MutableRefObject<T | undefined>;
+  callback: Callback<RefObject<T | undefined>>,
+): RefObject<T | undefined>;
 
 export function useRefCallback<T>(
-  callback: Callback<MutableRefObject<T | null | undefined>>,
+  callback: Callback<RefObject<T | null | undefined>>,
   initialValue?: T | null,
-): MutableRefObject<T | null | undefined> {
-  const ref: MutableRefObject<T | null | undefined> = useMemo(() => {
+): RefObject<T | null | undefined> {
+  const ref: RefObject<T | null | undefined> = useMemo(() => {
     const defaultValue = {
       current: initialValue,
     };

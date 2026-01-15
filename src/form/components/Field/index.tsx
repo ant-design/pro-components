@@ -115,9 +115,9 @@ const BaseProFormField: React.FC<
   return (
     <PureProField
       text={fieldProps?.[valuePropName]}
-      render={render as any}
-      formItemRender={formItemRender as any}
-      valueType={(valueType as 'text') || 'text'}
+      render={render}
+      formItemRender={formItemRender}
+      valueType={valueType || 'text'}
       cacheForSwr={cacheForSwr}
       fieldProps={memoFieldProps}
       valueEnum={runFunction(valueEnum)}

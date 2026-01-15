@@ -40,6 +40,6 @@ export type ProFormInstanceType<T> = {
 
 export const ProFormContext = React.createContext<
   ProFormInstanceType<any> & {
-    formRef?: React.MutableRefObject<FormInstance<any>>;
+    formRef?: React.RefObject<FormInstance<any>>;
   }
 >({});

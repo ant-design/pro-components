@@ -8,7 +8,7 @@ type LightFilterFooterRender =
   | ((
       onConfirm?: (e?: React.MouseEvent) => void,
       onClear?: (e?: React.MouseEvent) => void,
-    ) => JSX.Element | false)
+    ) => React.ReactElement | false)
   | false;
 
 type OnClick = (e?: React.MouseEvent) => void;

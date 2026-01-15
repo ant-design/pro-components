@@ -578,7 +578,7 @@ describe('BasicTable filter', () => {
   describe('Reset action when use request filter', () => {
     it('🎏 should reset to defaultFilteredValue with flat columns', async () => {
       const TestComponent = () => {
-        const actionRef = useRef<ActionType>();
+        const actionRef = useRef<ActionType>(undefined);
 
         return (
           <ProTable
@@ -767,7 +767,7 @@ describe('BasicTable filter', () => {
 
     it('🎏 should reset to defaultFilteredValue with nested columns', async () => {
       const TestComponent = () => {
-        const actionRef = useRef<ActionType>();
+        const actionRef = useRef<ActionType>(undefined);
 
         return (
           <ProTable

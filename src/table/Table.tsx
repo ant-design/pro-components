@@ -220,11 +220,11 @@ const ProTable = <
   const className = classNames(defaultClassName, propsClassName, hashId);
 
   /** 通用的来操作子节点的工具类 */
-  const actionRef = useRef<ActionType>();
+  const actionRef = useRef<ActionType>(undefined);
   // antd Table 实例 ref（仅用于转发 scrollTo 能力）
   const antTableRef = useRef<any>(null);
 
-  const defaultFormRef = useRef();
+  const defaultFormRef = useRef(undefined);
   const formRef = propRef || defaultFormRef;
 
   useImperativeHandle(propsActionRef, () => actionRef.current);

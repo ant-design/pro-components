@@ -243,7 +243,7 @@ If you want **client-side** sorting/filtering (and **do not** want to trigger `r
 
 - **Local filter**: configure both `filters` and `onFilter` (a function or `true`).
 - **Local sort**: set `sorter` to a compare function, or `{ compare }`. Avoid `sorter: true` (it means server-side sorting).
-:::
+  :::
 
 | Property                               | Description                                                                                                                                                                                                                                  | Type                                                                                                  | Default Value |
 | -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------- |

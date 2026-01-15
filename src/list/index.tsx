@@ -116,7 +116,7 @@ function NoProVideProList<
     ...rest
   } = props;
 
-  const actionRef = useRef<ActionType>();
+  const actionRef = useRef<ActionType>(undefined);
 
   useImperativeHandle(rest.actionRef, () => actionRef.current, [
     actionRef.current,

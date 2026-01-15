@@ -3288,7 +3288,7 @@ describe('ProForm', () => {
         ProFormInstance<{
           date: string;
         }>
-      >();
+      >(undefined);
 
       useEffect(() => {
         formRef.current?.validateFieldsReturnFormatValue?.().then((val) => {
@@ -4230,7 +4230,7 @@ describe('ProForm', () => {
   });
 
   it('📦 debug transform registration', async () => {
-    const formRef = React.createRef<ProFormInstance<any>>();
+    const formRef = React.useRef<ProFormInstance<any>>(undefined);
     const wrapper = render(
       <ProForm
         formRef={formRef}
@@ -4377,7 +4377,7 @@ describe('ProForm 修复增强用例', () => {
   });
 
   it('dateTime 支持自定义格式字符串', async () => {
-    const formRef = React.createRef<ProFormInstance<any>>();
+    const formRef = React.useRef<ProFormInstance<any>>(undefined);
     const wrapper = render(
       <ProForm
         formRef={formRef}
