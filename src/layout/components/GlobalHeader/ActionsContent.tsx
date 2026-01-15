@@ -1,6 +1,6 @@
-﻿import { Avatar, ConfigProvider } from 'antd';
+﻿import ResizeObserver from '@rc-component/resize-observer';
+import { Avatar, ConfigProvider } from 'antd';
 import classNames from 'classnames';
-import ResizeObserver from 'rc-resize-observer';
 import React, { useContext, useMemo, useState } from 'react';
 import type { GlobalHeaderProps } from '.';
 import { useDebounceFn } from '../../../utils';

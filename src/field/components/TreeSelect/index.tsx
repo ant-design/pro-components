@@ -175,7 +175,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
                 }
               : undefined
           }
-          variant={!light ? 'outlined' : 'borderless'}
+          variant={!light ? variant : 'borderless'}
           {...fieldProps}
           treeData={options as TreeSelectProps['treeData']}
           showSearch={showSearch}

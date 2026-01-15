@@ -25,7 +25,7 @@ exports[`Descriptions > 📝 columns support editable test 1`] = `
                   style="min-width: 0;"
                 >
                   <div
-                    style="margin: -5px 0px; width: 100%;"
+                    style="width: 100%; margin: -5px 0px;"
                   >
                     <div
                       style="display: flex; gap: 8px; align-items: baseline;"
@@ -191,7 +191,7 @@ exports[`Descriptions > 📝 formItemRender run defaultRender 1`] = `
                   style="min-width: 0;"
                 >
                   <div
-                    style="margin: -5px 0px; width: 100%;"
+                    style="width: 100%; margin: -5px 0px;"
                   >
                     <div
                       style="display: flex; gap: 8px; align-items: baseline;"

@@ -352,76 +352,71 @@
             <strong>
               泛型支持
             </strong>
-            : ProDescriptions
-            <tablelistitem
-              link=""
-              tags=""
-            >
-              <li>
-                <strong>
-                  类型安全
-                </strong>
-                : 提供完整的类型检查
-              </li>
-              <h4>
-                使用场景：
-              </h4>
-              <ul>
-                <li>
-                  <strong>
-                    自定义组件
-                  </strong>
-                  : 需要特殊的展示组件
-                </li>
-                <li>
-                  <strong>
-                    复杂交互
-                  </strong>
-                  : 需要复杂的用户交互
-                </li>
-                <li>
-                  <strong>
-                    业务定制
-                  </strong>
-                  : 根据业务需求定制展示方式
-                </li>
-                <li>
-                  <strong>
-                    编辑功能
-                  </strong>
-                  : 需要自定义编辑组件
-                </li>
-              </ul>
-              <h4>
-                最佳实践：
-              </h4>
-              <ul>
-                <li>
-                  <strong>
-                    组件封装
-                  </strong>
-                  : 将复杂的自定义组件封装为独立组件
-                </li>
-                <li>
-                  <strong>
-                    类型定义
-                  </strong>
-                  : 为自定义组件定义完整的类型
-                </li>
-                <li>
-                  <strong>
-                    状态管理
-                  </strong>
-                  : 合理管理组件的内部状态
-                </li>
-                <li>
-                  <strong>
-                    交互设计
-                  </strong>
-                  : 提供清晰的用户交互反馈
-                </li>
-              </ul>
-            </tablelistitem>
+            : ProDescriptions&lt;TableListItem, 'link' | 'tags'&gt;
+          </li>
+          <li>
+            <strong>
+              类型安全
+            </strong>
+            : 提供完整的类型检查
+          </li>
+        </ul>
+        <h4>
+          使用场景：
+        </h4>
+        <ul>
+          <li>
+            <strong>
+              自定义组件
+            </strong>
+            : 需要特殊的展示组件
+          </li>
+          <li>
+            <strong>
+              复杂交互
+            </strong>
+            : 需要复杂的用户交互
+          </li>
+          <li>
+            <strong>
+              业务定制
+            </strong>
+            : 根据业务需求定制展示方式
+          </li>
+          <li>
+            <strong>
+              编辑功能
+            </strong>
+            : 需要自定义编辑组件
+          </li>
+        </ul>
+        <h4>
+          最佳实践：
+        </h4>
+        <ul>
+          <li>
+            <strong>
+              组件封装
+            </strong>
+            : 将复杂的自定义组件封装为独立组件
+          </li>
+          <li>
+            <strong>
+              类型定义
+            </strong>
+            : 为自定义组件定义完整的类型
+          </li>
+          <li>
+            <strong>
+              状态管理
+            </strong>
+            : 合理管理组件的内部状态
+          </li>
+          <li>
+            <strong>
+              交互设计
+            </strong>
+            : 提供清晰的用户交互反馈
           </li>
         </ul>
       </div>

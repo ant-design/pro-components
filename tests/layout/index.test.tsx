@@ -55,6 +55,33 @@ describe('BasicLayout', () => {
     html.unmount();
   });
 
+  it('🐞 menuItemRender clickable area should follow full title content', async () => {
+    const wrapper = render(
+      <ProLayout
+        menuDataRender={() => [
+          {
+            path: '/welcome',
+            name: '欢迎',
+          },
+        ]}
+        menuItemRender={(item, dom) => (
+          <div onClick={() => item.path}>{dom}</div>
+        )}
+      />,
+    );
+
+    await waitForWaitTime(100);
+
+    const titleContent = wrapper.baseElement.querySelector<HTMLElement>(
+      '.ant-pro-base-menu-inline .ant-menu-title-content',
+    );
+
+    expect(titleContent).toBeTruthy();
+    expect(getComputedStyle(titleContent!).width).toBe('100%');
+
+    wrapper.unmount();
+  });
+
   it('🥩 support loading', async () => {
     const wrapper = render(
       <ProLayout

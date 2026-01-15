@@ -137,7 +137,7 @@ formRef has several built-in methods to get the converted value, which is also m
 ```tsx | pure
   export type SearchTransformKeyFn = (
     value: any,
-    namePath: string,
+    namePath: string[],
     allValues: any,
   ) => string | Record<string, any>;
 
@@ -163,6 +163,42 @@ formRef has several built-in methods to get the converted value, which is also m
    */
   transform?: SearchTransformKeyFn;
 ```
+
+#### Two common return patterns for `transform` (recommended)
+
+In practice, `transform` is usually used in two ways:
+
+- **1) Return a primitive (most straightforward and stable)**: it replaces the submitted value of the current field.
+
+```tsx | pure
+<ProFormText
+  name="name"
+  transform={(value) => `${value}:suffix`}
+/>
+// Submit: { name: 'xxx:suffix' }
+```
+
+- **2) Return an object (rename/split/write back nested paths)**: we recommend building the object by the field `name`/`namePath` to avoid “looks correct but submit unchanged”.
+
+```tsx | pure
+import { set } from '@rc-component/util';
+
+// Write back to the same nested path (recommended)
+<ProFormText
+  name={['company', 'name']}
+  transform={(value) => set({}, ['company', 'name'], `${value}:suffix`)}
+/>
+// Submit: { company: { name: 'xxx:suffix' } }
+
+// Rename key example: name -> displayName
+<ProFormText
+  name="name"
+  transform={(value) => ({ displayName: value })}
+/>
+// Submit: { displayName: 'xxx' } (note: this changes the output shape)
+```
+
+> Note: `SearchTransformKeyFn` is typed as `(value, namePath: string[], allValues) => any`, but in some scenarios (nested paths / `ProFormList`) the runtime value may not always be the “full path array” you expected. That’s why using the component `name` to build the return object is often safer.
 
 ## Code examples
 
@@ -248,7 +284,7 @@ ProForm is a repackaging of antd Form, if you want to customize form elements, P
 | submitter                                       | Submitter button-related configuration                                                                                                                       | `SubmitterProps<{form?: FormInstance<any>}> \| false`                                                      | `true`          |
 | loading                                         | Form button loading state                                                                                                                                    | `boolean`                                                                                                  | -               |
 | onLoadingChange                                 | Callback when loading state changes                                                                                                                          | `(loading: boolean) => void`                                                                               | -               |
-| formRef                                         | Get the form used by the form, ProFormInstance adds data formatting methods compared to antd Form                                                            | `React.Ref<ProFormRef<T> \| undefined>`               | -               |
+| formRef                                         | Get the form instance. `ProFormInstance` adds formatted-value helpers compared to antd Form                                                                  | `React.MutableRefObject<(ProFormInstance<T> & { nativeElement?: HTMLElement; focus?: () => void }) \| undefined> \| React.RefObject<(ProFormInstance<T> & { nativeElement?: HTMLElement; focus?: () => void }) \| undefined>` | - |
 | syncToUrl                                       | sync parameters to url, url only supports string, better read [documentation](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) before using | `boolean \| ((values: T, type: 'get' \| 'set') => T)`                                                      | -               |
 | syncToUrlAsImportant                            | When syncToUrl is true, when the page is displayed, the parameters on the url are mainly used, default is false                                              | `boolean`                                                                                                  | `false`         |
 | extraUrlParams                                  | Extra url parameters                                                                                                                                         | `Record<string, any>`                                                                                      | -               |
@@ -260,7 +296,7 @@ ProForm is a repackaging of antd Form, if you want to customize form elements, P
 | request                                         | The parameters of the initiating network request, the return value will be overwritten to initialValues                                                      | `ProRequestData<T, U>`                                                                                     | -               |
 | isKeyPressSubmit                                | Whether to use carriage return to submit                                                                                                                     | `boolean`                                                                                                  | -               |
 | formKey                                         | Used to control whether the form key is the same, advanced usage                                                                                             | `string`                                                                                                   | -               |
-| autoFocusFirstInput                             | Auto focus the first input box of the form, only valid for types with input                                                                                  | `boolean`                                                                                                  | -               |
+| autoFocusFirstInput                             | Auto focus the first input of the form (only valid for input-like fields)                                                                                    | `boolean`                                                                                                  | `true`          |
 | readonly                                        | Whether read-only mode, effective for all form items, priority lower than readonly of form items                                                             | `boolean`                                                                                                  | -               |
 | grid                                            | Enable grid mode, default width percentage, use `colProps` to control width [view example](/components/form#grid-layout)                                     | `boolean`                                                                                                  | `false`         |
 | rowProps                                        | Passed to `Row` when `grid` mode is enabled, only valid in `ProFormGroup`, `ProFormList`, `ProFormFieldSet`                                                  | [RowProps](https://ant.design/components/grid/#Row)                                                        | `{ gutter: 8 }` |
@@ -490,6 +526,7 @@ export default () => {
 | :-------------------------------: | :---------------------------------------------------------------------------------------------------------------: | :-----: |
 |      `getFieldsFormatValue`       |             Usage is the same as `FormInstance`'s `getFieldsValue` method, returns all formatted data             |         |
 |       `getFieldFormatValue`       |          Usage is the same as `FormInstance`'s `getFieldValue` method, returns formatted specified data           |         |
+|   `getFieldFormatValueObject`     | Usage is the same as `FormInstance`'s `getFieldValue`, returns formatted specified data (including name path)     |         |
 | `validateFieldsReturnFormatValue` | Usage is the same as `FormInstance`'s `validateFields` method, returns all formatted data after validation passes |         |
 
 <code src="../../../demos/form/modalform-test.tsx"  debug></code>

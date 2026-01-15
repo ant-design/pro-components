@@ -1,13 +1,13 @@
-/* eslint-disable no-param-reassign */ import { useMergedState } from '@rc-component/util';
+/* eslint-disable no-param-reassign */ import RcResizeObserver from '@rc-component/resize-observer';
+import { useMergedState } from '@rc-component/util';
 import type { ColProps, FormItemProps, RowProps } from 'antd';
 import { Col, ConfigProvider, Form, Row } from 'antd';
 import type { FormInstance, FormProps } from 'antd/lib/form/Form';
 import classNames from 'classnames';
-import RcResizeObserver from 'rc-resize-observer';
 import type { ReactElement } from 'react';
-import React, { useContext, useMemo } from 'react';
+import React, { useContext, useMemo, useState } from 'react';
 import { ProProvider, useIntl } from '../../../provider';
-import { isBrowser, useMountMergeState } from '../../../utils';
+import { isBrowser } from '../../../utils';
 import type { CommonFormProps } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import type { ActionsProps } from './Actions';
@@ -529,11 +529,8 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
   const baseClassName = context.getPrefixCls('pro-query-filter');
   const { wrapSSR, hashId } = useStyle(baseClassName);
 
-  const [width, setWidth] = useMountMergeState(
-    () =>
-      (typeof style?.width === 'number'
-        ? style?.width
-        : defaultWidth) as number,
+  const [width, setWidth] = useState(() =>
+    typeof style?.width === 'number' ? style?.width : defaultWidth,
   );
 
   const spanSize = useMemo(

@@ -13,16 +13,16 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
         style="padding: 0px;"
       >
         <div
-          class="css-var-rcb ant-table-css-var ant-table-wrapper"
+          class="css-var-rbr ant-table-css-var ant-table-wrapper"
         >
           <div
-            class="ant-spin-nested-loading css-var-rcb"
+            class="ant-spin-nested-loading css-var-rbr"
           >
             <div
               class="ant-spin-container"
             >
               <div
-                class="ant-table ant-table-middle css-var-rcb ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-layout-fixed ant-table-scroll-horizontal"
+                class="ant-table ant-table-middle css-var-rbr ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-layout-fixed ant-table-scroll-horizontal"
               >
                 <div
                   class="ant-table-container"
@@ -155,14 +155,14 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                           style="height: 0px;"
                         >
                           <td
-                            style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
+                            style="padding-top: 0px; padding-bottom: 0px; height: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial;"
                           >
                             <div
                               style="height: 0px; overflow: hidden; font-weight: bold;"
                             />
                           </td>
                           <td
-                            style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
+                            style="padding-top: 0px; padding-bottom: 0px; height: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial;"
                           >
                             <div
                               style="height: 0px; overflow: hidden; font-weight: bold;"
@@ -205,7 +205,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                             </div>
                           </td>
                           <td
-                            style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
+                            style="padding-top: 0px; padding-bottom: 0px; height: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial;"
                           >
                             <div
                               style="height: 0px; overflow: hidden; font-weight: bold;"
@@ -219,7 +219,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                                   状态
                                 </span>
                                 <span
-                                  class="ant-dropdown-trigger ant-table-filter-trigger"
+                                  class="ant-table-filter-trigger"
                                   role="button"
                                   tabindex="-1"
                                 >
@@ -247,7 +247,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                             </div>
                           </td>
                           <td
-                            style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
+                            style="padding-top: 0px; padding-bottom: 0px; height: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial;"
                           >
                             <div
                               style="height: 0px; overflow: hidden; font-weight: bold;"
@@ -256,7 +256,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                             </div>
                           </td>
                           <td
-                            style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
+                            style="padding-top: 0px; padding-bottom: 0px; height: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial;"
                           >
                             <div
                               style="height: 0px; overflow: hidden; font-weight: bold;"
@@ -290,47 +290,58 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                           </td>
                           <td
                             class="ant-table-cell ant-table-cell-ellipsis"
-                            title="🐛 [BUG]yarn install命令 antd2.4.5会报错"
                           >
                             <span
-                              aria-label="🐛 [BUG]yarn install命令 antd2.4.5会报错"
-                              class="ant-typography ant-typography-ellipsis css-var-rcb"
-                              style="width: 100%; margin: 0px; padding: 0px;"
-                              title=""
+                              style="display: inline-flex; align-items: center; max-width: 100%;"
                             >
-                              🐛 [BUG]yarn install命令 antd2.4.5会报错
-                              <button
-                                aria-label="复制"
-                                class="ant-typography-copy"
-                                type="button"
+                              <span
+                                class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-var-rbr"
+                                style="min-width: 0; margin: 0px; padding: 0px; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
+                                title=""
+                              >
+                                🐛 [BUG]yarn install命令 antd2.4.5会报错
+                              </span>
+                              <span
+                                style="user-select: none; flex-grow: 0; flex-shrink: 0; flex-basis: auto;"
                               >
                                 <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
+                                  class="ant-typography css-var-rbr"
+                                  style="margin: 0px; padding: 0px;"
                                 >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
+                                  <button
+                                    aria-label="复制"
+                                    class="ant-typography-copy ant-typography-copy-icon-only"
+                                    type="button"
                                   >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
+                                    <span
+                                      aria-label="copy"
+                                      class="anticon anticon-copy"
+                                      role="img"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="copy"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </button>
                                 </span>
-                              </button>
+                              </span>
                             </span>
                           </td>
                           <td
                             class="ant-table-cell"
                           >
                             <span
-                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-rcb"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-rbr"
                             >
                               <span
                                 class="ant-badge-status-dot ant-badge-status-processing"
@@ -386,47 +397,58 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                           </td>
                           <td
                             class="ant-table-cell ant-table-cell-ellipsis"
-                            title="🐛 [BUG]无法创建工程npm create umi"
                           >
                             <span
-                              aria-label="🐛 [BUG]无法创建工程npm create umi"
-                              class="ant-typography ant-typography-ellipsis css-var-rcb"
-                              style="width: 100%; margin: 0px; padding: 0px;"
-                              title=""
+                              style="display: inline-flex; align-items: center; max-width: 100%;"
                             >
-                              🐛 [BUG]无法创建工程npm create umi
-                              <button
-                                aria-label="复制"
-                                class="ant-typography-copy"
-                                type="button"
+                              <span
+                                class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-var-rbr"
+                                style="min-width: 0; margin: 0px; padding: 0px; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
+                                title=""
+                              >
+                                🐛 [BUG]无法创建工程npm create umi
+                              </span>
+                              <span
+                                style="user-select: none; flex-grow: 0; flex-shrink: 0; flex-basis: auto;"
                               >
                                 <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
+                                  class="ant-typography css-var-rbr"
+                                  style="margin: 0px; padding: 0px;"
                                 >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
+                                  <button
+                                    aria-label="复制"
+                                    class="ant-typography-copy ant-typography-copy-icon-only"
+                                    type="button"
                                   >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
+                                    <span
+                                      aria-label="copy"
+                                      class="anticon anticon-copy"
+                                      role="img"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="copy"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </button>
                                 </span>
-                              </button>
+                              </span>
                             </span>
                           </td>
                           <td
                             class="ant-table-cell"
                           >
                             <span
-                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-rcb"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-rbr"
                             >
                               <span
                                 class="ant-badge-status-dot ant-badge-status-success"
@@ -482,47 +504,58 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                           </td>
                           <td
                             class="ant-table-cell ant-table-cell-ellipsis"
-                            title="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
                           >
                             <span
-                              aria-label="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
-                              class="ant-typography ant-typography-ellipsis css-var-rcb"
-                              style="width: 100%; margin: 0px; padding: 0px;"
-                              title=""
+                              style="display: inline-flex; align-items: center; max-width: 100%;"
                             >
-                              🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
-                              <button
-                                aria-label="复制"
-                                class="ant-typography-copy"
-                                type="button"
+                              <span
+                                class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-var-rbr"
+                                style="min-width: 0; margin: 0px; padding: 0px; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
+                                title=""
+                              >
+                                🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
+                              </span>
+                              <span
+                                style="user-select: none; flex-grow: 0; flex-shrink: 0; flex-basis: auto;"
                               >
                                 <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
+                                  class="ant-typography css-var-rbr"
+                                  style="margin: 0px; padding: 0px;"
                                 >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
+                                  <button
+                                    aria-label="复制"
+                                    class="ant-typography-copy ant-typography-copy-icon-only"
+                                    type="button"
                                   >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
+                                    <span
+                                      aria-label="copy"
+                                      class="anticon anticon-copy"
+                                      role="img"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="copy"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </button>
                                 </span>
-                              </button>
+                              </span>
                             </span>
                           </td>
                           <td
                             class="ant-table-cell"
                           >
                             <span
-                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-rcb"
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-rbr"
                             >
                               <span
                                 class="ant-badge-status-dot ant-badge-status-error"
@@ -562,7 +595,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
           </div>
         </div>
         <button
-          class="ant-btn css-var-rcb ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
+          class="ant-btn css-var-rbr ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
           style="display: block; margin: 10px 0px; width: 100%;"
           type="button"
         >
@@ -757,14 +790,14 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                           style="height: 0px;"
                         >
                           <td
-                            style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
+                            style="padding-top: 0px; padding-bottom: 0px; height: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial;"
                           >
                             <div
                               style="height: 0px; overflow: hidden; font-weight: bold;"
                             />
                           </td>
                           <td
-                            style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
+                            style="padding-top: 0px; padding-bottom: 0px; height: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial;"
                           >
                             <div
                               style="height: 0px; overflow: hidden; font-weight: bold;"
@@ -807,7 +840,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                             </div>
                           </td>
                           <td
-                            style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
+                            style="padding-top: 0px; padding-bottom: 0px; height: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial;"
                           >
                             <div
                               style="height: 0px; overflow: hidden; font-weight: bold;"
@@ -821,7 +854,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                                   状态
                                 </span>
                                 <span
-                                  class="ant-dropdown-trigger ant-table-filter-trigger"
+                                  class="ant-table-filter-trigger"
                                   role="button"
                                   tabindex="-1"
                                 >
@@ -849,7 +882,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                             </div>
                           </td>
                           <td
-                            style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
+                            style="padding-top: 0px; padding-bottom: 0px; height: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial;"
                           >
                             <div
                               style="height: 0px; overflow: hidden; font-weight: bold;"
@@ -858,7 +891,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                             </div>
                           </td>
                           <td
-                            style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; height: 0px;"
+                            style="padding-top: 0px; padding-bottom: 0px; height: 0px; border-top-width: 0px; border-top-style: initial; border-top-color: initial; border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial;"
                           >
                             <div
                               style="height: 0px; overflow: hidden; font-weight: bold;"
@@ -892,40 +925,51 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                           </td>
                           <td
                             class="ant-table-cell ant-table-cell-ellipsis"
-                            title="🐛 [BUG]yarn install命令 antd2.4.5会报错"
                           >
                             <span
-                              aria-label="🐛 [BUG]yarn install命令 antd2.4.5会报错"
-                              class="ant-typography ant-typography-ellipsis css-var-r1"
-                              style="width: 100%; margin: 0px; padding: 0px;"
-                              title=""
+                              style="display: inline-flex; align-items: center; max-width: 100%;"
                             >
-                              🐛 [BUG]yarn install命令 antd2.4.5会报错
-                              <button
-                                aria-label="复制"
-                                class="ant-typography-copy"
-                                type="button"
+                              <span
+                                class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-var-r1"
+                                style="min-width: 0; margin: 0px; padding: 0px; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
+                                title=""
+                              >
+                                🐛 [BUG]yarn install命令 antd2.4.5会报错
+                              </span>
+                              <span
+                                style="user-select: none; flex-grow: 0; flex-shrink: 0; flex-basis: auto;"
                               >
                                 <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
+                                  class="ant-typography css-var-r1"
+                                  style="margin: 0px; padding: 0px;"
                                 >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
+                                  <button
+                                    aria-label="复制"
+                                    class="ant-typography-copy ant-typography-copy-icon-only"
+                                    type="button"
                                   >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
+                                    <span
+                                      aria-label="copy"
+                                      class="anticon anticon-copy"
+                                      role="img"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="copy"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </button>
                                 </span>
-                              </button>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -988,40 +1032,51 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                           </td>
                           <td
                             class="ant-table-cell ant-table-cell-ellipsis"
-                            title="🐛 [BUG]无法创建工程npm create umi"
                           >
                             <span
-                              aria-label="🐛 [BUG]无法创建工程npm create umi"
-                              class="ant-typography ant-typography-ellipsis css-var-r1"
-                              style="width: 100%; margin: 0px; padding: 0px;"
-                              title=""
+                              style="display: inline-flex; align-items: center; max-width: 100%;"
                             >
-                              🐛 [BUG]无法创建工程npm create umi
-                              <button
-                                aria-label="复制"
-                                class="ant-typography-copy"
-                                type="button"
+                              <span
+                                class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-var-r1"
+                                style="min-width: 0; margin: 0px; padding: 0px; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
+                                title=""
+                              >
+                                🐛 [BUG]无法创建工程npm create umi
+                              </span>
+                              <span
+                                style="user-select: none; flex-grow: 0; flex-shrink: 0; flex-basis: auto;"
                               >
                                 <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
+                                  class="ant-typography css-var-r1"
+                                  style="margin: 0px; padding: 0px;"
                                 >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
+                                  <button
+                                    aria-label="复制"
+                                    class="ant-typography-copy ant-typography-copy-icon-only"
+                                    type="button"
                                   >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
+                                    <span
+                                      aria-label="copy"
+                                      class="anticon anticon-copy"
+                                      role="img"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="copy"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </button>
                                 </span>
-                              </button>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -1084,40 +1139,51 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                           </td>
                           <td
                             class="ant-table-cell ant-table-cell-ellipsis"
-                            title="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
                           >
                             <span
-                              aria-label="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
-                              class="ant-typography ant-typography-ellipsis css-var-r1"
-                              style="width: 100%; margin: 0px; padding: 0px;"
-                              title=""
+                              style="display: inline-flex; align-items: center; max-width: 100%;"
                             >
-                              🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
-                              <button
-                                aria-label="复制"
-                                class="ant-typography-copy"
-                                type="button"
+                              <span
+                                class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-var-r1"
+                                style="min-width: 0; margin: 0px; padding: 0px; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
+                                title=""
+                              >
+                                🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
+                              </span>
+                              <span
+                                style="user-select: none; flex-grow: 0; flex-shrink: 0; flex-basis: auto;"
                               >
                                 <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
+                                  class="ant-typography css-var-r1"
+                                  style="margin: 0px; padding: 0px;"
                                 >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
+                                  <button
+                                    aria-label="复制"
+                                    class="ant-typography-copy ant-typography-copy-icon-only"
+                                    type="button"
                                   >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
+                                    <span
+                                      aria-label="copy"
+                                      class="anticon anticon-copy"
+                                      role="img"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="copy"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </button>
                                 </span>
-                              </button>
+                              </span>
                             </span>
                           </td>
                           <td

@@ -118,8 +118,6 @@ exports[`SchemaForm > 😊 SchemaForm support columns 1`] = `
                 >
                   <div
                     class="ant-select-content-value ant-pro-filed-search-select-option"
-                    data-item="[object Object]"
-                    data_title="全部"
                     style="visibility: visible;"
                     title="全部"
                   >

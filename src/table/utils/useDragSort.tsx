@@ -15,7 +15,7 @@ import {
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import type { TableComponents } from 'rc-table/es/interface';
+import type { TableComponents } from '@rc-component/table/es/interface';
 import React, { createContext, useCallback, useContext, useMemo } from 'react';
 import { useRefFunction } from '../../utils';
 

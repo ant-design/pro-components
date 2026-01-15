@@ -1,5 +1,5 @@
 import { ProCard } from '@ant-design/pro-components';
-import RcResizeObserver from 'rc-resize-observer';
+import RcResizeObserver from '@rc-component/resize-observer';
 import { useState } from 'react';
 
 const Demo = () => {

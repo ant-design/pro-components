@@ -1,9 +1,9 @@
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
+import ResizeObserver from '@rc-component/resize-observer';
 import type { AvatarProps, BreadcrumbProps, TagType } from 'antd';
 import { Avatar, Breadcrumb, ConfigProvider, Space } from 'antd';
 import type { DirectionType } from 'antd/lib/config-provider';
 import classNames from 'classnames';
-import ResizeObserver from 'rc-resize-observer';
 import React from 'react';
 import type { ContentWidth } from '../../defaultSettings';
 import useStyle from './style';

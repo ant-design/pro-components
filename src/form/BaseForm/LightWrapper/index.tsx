@@ -7,7 +7,6 @@ import {
   dateFormatterMap,
   FieldLabel,
   FilterDropdown,
-  useMountMergeState,
 } from '../../../utils';
 import type { LightFilterFooterRender } from '../../typing';
 import { useStyle } from './style';
@@ -70,7 +69,7 @@ const LightWrapper: React.FC<LightWrapperProps> = (props) => {
   const [tempValue, setTempValue] = useState<string | undefined | null>(
     (props as any)[valuePropName!],
   );
-  const [open, setOpen] = useMountMergeState<boolean>(false);
+  const [open, setOpen] = useState(false);
 
   const onChange = (...restParams: any[]) => {
     otherFieldProps?.onChange?.(...restParams);
@@ -82,9 +81,10 @@ const LightWrapper: React.FC<LightWrapperProps> = (props) => {
   /** DateRange的转化，dayjs 的 toString 有点不好用 */
   const labelValueText = useMemo(() => {
     if (!labelValue) return labelValue;
+    const lowerValueType = valueType?.toLowerCase?.();
     if (
-      valueType?.toLowerCase()?.endsWith('range') &&
-      valueType !== 'digitRange' &&
+      lowerValueType?.endsWith('range') &&
+      lowerValueType !== 'digitrange' &&
       !labelFormatter
     ) {
       return dateArrayFormatter(

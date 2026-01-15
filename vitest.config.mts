@@ -30,7 +30,6 @@ export default defineConfig({
         'src/**/typing.ts',
         'src/**/demos/**',
         'src/utils/isDeepEqualReact/*.{ts,tsx}',
-        'src/utils/useMountMergeState/*.{ts,tsx}',
       ],
     },
     testTimeout: 600_0000, // 60 seconds

@@ -111,7 +111,7 @@ const FieldCascader: ProFieldFC<GroupProps> = (
   if (mode === 'edit') {
     let dom = (
       <Cascader
-        variant={!light ? 'outlined' : 'borderless'}
+        variant={!light ? variant : 'borderless'}
         ref={cascaderRef}
         open={open}
         suffixIcon={loading ? <LoadingOutlined /> : undefined}

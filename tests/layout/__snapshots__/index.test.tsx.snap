@@ -9,15 +9,15 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout ant-layout-has-sider css-var-r61"
+      class="ant-layout ant-layout-has-sider css-var-r6d"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
-        style="width: 256px; overflow: hidden; flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
+        style="width: 256px; overflow: hidden; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s; flex-grow: 0; flex-shrink: 0; flex-basis: 256px;"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-r62"
-        style="flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; width: 256px;"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-r6e"
+        style="max-width: 256px; min-width: 256px; width: 256px; flex-grow: 0; flex-shrink: 0; flex-basis: 256px;"
       >
         <div
           class="ant-layout-sider-children"
@@ -159,13 +159,13 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
             </a>
           </div>
           <div
-            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; overflow-y: auto; overflow-x: hidden;"
+            style="overflow-y: auto; overflow-x: hidden; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
           >
             <div
               style="padding: 24px;"
             >
               <div
-                class="ant-skeleton ant-skeleton-active css-var-r62"
+                class="ant-skeleton ant-skeleton-active css-var-r6e"
               >
                 <div
                   class="ant-skeleton-section"
@@ -220,7 +220,7 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout css-var-r65"
+      class="ant-layout css-var-r6h"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
@@ -384,7 +384,7 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
                   style="margin-block-start: 16px;"
                 >
                   <div
-                    class="ant-skeleton ant-skeleton-active css-var-r68"
+                    class="ant-skeleton ant-skeleton-active css-var-r6k"
                   >
                     <div
                       class="ant-skeleton-section"
@@ -416,27 +416,27 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout ant-layout-has-sider css-var-r6b"
+      class="ant-layout ant-layout-has-sider css-var-r6n"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
-        style="width: 215px; overflow: hidden; flex-grow: 0; flex-shrink: 0; flex-basis: 215px; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s;"
+        style="width: 215px; overflow: hidden; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s; flex-grow: 0; flex-shrink: 0; flex-basis: 215px;"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-fixed-mix ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix css-var-r6c"
-        style="flex-grow: 0; flex-shrink: 0; flex-basis: 215px; max-width: 215px; min-width: 215px; width: 215px;"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-fixed-mix ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix css-var-r6o"
+        style="max-width: 215px; min-width: 215px; width: 215px; flex-grow: 0; flex-shrink: 0; flex-basis: 215px;"
       >
         <div
           class="ant-layout-sider-children"
         >
           <div
-            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; overflow-y: auto; overflow-x: hidden;"
+            style="overflow-y: auto; overflow-x: hidden; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
           >
             <div
               style="padding: 24px;"
             >
               <div
-                class="ant-skeleton ant-skeleton-active css-var-r6c"
+                class="ant-skeleton ant-skeleton-active css-var-r6o"
               >
                 <div
                   class="ant-skeleton-section"
@@ -650,11 +650,11 @@ exports[`BasicLayout > 🥩 base use 1`] = `
       style="min-height: 100%; flex-direction: row;"
     >
       <div
-        style="width: 256px; overflow: hidden; flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
+        style="width: 256px; overflow: hidden; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s; flex-grow: 0; flex-shrink: 0; flex-basis: 256px;"
       />
       <aside
         class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-r3"
-        style="flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; width: 256px;"
+        style="max-width: 256px; min-width: 256px; width: 256px; flex-grow: 0; flex-shrink: 0; flex-basis: 256px;"
       >
         <div
           class="ant-layout-sider-children"
@@ -796,7 +796,7 @@ exports[`BasicLayout > 🥩 base use 1`] = `
             </a>
           </div>
           <div
-            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; overflow-y: auto; overflow-x: hidden;"
+            style="overflow-y: auto; overflow-x: hidden; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
           >
             <div
               style="padding: 24px;"
@@ -862,15 +862,15 @@ exports[`BasicLayout > 🥩 contentStyle should change dom 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout ant-layout-has-sider css-var-r3f"
+      class="ant-layout ant-layout-has-sider css-var-r3r"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
-        style="width: 256px; overflow: hidden; flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
+        style="width: 256px; overflow: hidden; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s; flex-grow: 0; flex-shrink: 0; flex-basis: 256px;"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-r3g"
-        style="flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; width: 256px;"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-r3s"
+        style="max-width: 256px; min-width: 256px; width: 256px; flex-grow: 0; flex-shrink: 0; flex-basis: 256px;"
       >
         <div
           class="ant-layout-sider-children"
@@ -1012,13 +1012,13 @@ exports[`BasicLayout > 🥩 contentStyle should change dom 1`] = `
             </a>
           </div>
           <div
-            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; overflow-y: auto; overflow-x: hidden;"
+            style="overflow-y: auto; overflow-x: hidden; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
           >
             <div
               style="padding: 24px;"
             >
               <div
-                class="ant-skeleton ant-skeleton-active css-var-r3g"
+                class="ant-skeleton ant-skeleton-active css-var-r3s"
               >
                 <div
                   class="ant-skeleton-section"
