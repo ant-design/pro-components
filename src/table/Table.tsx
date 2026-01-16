@@ -637,7 +637,10 @@ const ProTable = <
       formRef?.current?.resetFields();
 
       // 同步更新请求参数，避免 resetFields 后请求仍使用旧的 formSearch
-      const resetValues = formRef?.current?.getFieldsValue?.(true) ?? {};
+      const resetValues =
+        formRef?.current?.getFieldsFormatValue?.(true) ??
+        formRef?.current?.getFieldsValue?.(true) ??
+        {};
       const nextSearch = beforeSearchSubmit
         ? beforeSearchSubmit(resetValues)
         : resetValues;
