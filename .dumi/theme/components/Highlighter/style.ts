@@ -1,46 +1,22 @@
-import { createStyles } from 'antd-style';
+import { useMemo } from 'react';
+import { useThemeMode } from '../../utils/useThemeMode';
 
-export const useStyles = createStyles(({ token, css, cx, prefixCls }) => {
+export const useStyles = (prefixCls: string = 'ant') => {
+  const { isDarkMode } = useThemeMode();
   const prefix = `${prefixCls}-highlighter`;
   const buttonHoverCls = `${prefix}-hover-btn`;
 
+  const classNames = useMemo(
+    () => ({
+      container: `${prefix} dumi-highlighter-container`,
+      withBackground: `${prefix}-background dumi-highlighter-with-background`,
+      button: `${buttonHoverCls} dumi-highlighter-button`,
+    }),
+    [prefix, buttonHoverCls],
+  );
+
   return {
-    container: cx(
-      prefix,
-      css`
-        position: relative;
-
-        pre {
-          margin: 8px 0 !important;
-        }
-
-        &:hover {
-          .${buttonHoverCls} {
-            opacity: 1;
-          }
-        }
-      `,
-    ),
-    withBackground: cx(
-      `${prefix}-background`,
-      css`
-        pre {
-          background: ${token.colorFillTertiary} !important;
-          border-radius: 8px;
-          padding: 12px !important;
-        }
-      `,
-    ),
-
-    button: cx(
-      buttonHoverCls,
-      css`
-        opacity: 0;
-        position: absolute;
-        right: 8px;
-        top: 8px;
-        z-index: 50;
-      `,
-    ),
+    styles: classNames,
+    theme: { appearance: isDarkMode ? 'dark' : 'light' },
   };
-});
+};

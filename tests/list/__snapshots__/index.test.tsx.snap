@@ -205,50 +205,41 @@ exports[`List 🚏 only has content 1`] = `
     class="ant-pro"
   >
     <div
-      class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
+      class="ant-result ant-result-error"
     >
       <div
-        class="ant-pro-card"
+        class="ant-result-icon"
       >
-        <div
-          class="ant-pro-card-body"
-          style="padding-block-start: 0;"
+        <span
+          aria-label="close-circle"
+          class="anticon anticon-close-circle"
+          role="img"
         >
-          <div
-            class="ant-list ant-list-split ant-pro-list-container"
+          <svg
+            aria-hidden="true"
+            data-icon="close-circle"
+            fill="currentColor"
+            fill-rule="evenodd"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
           >
-            <div
-              class="ant-spin-nested-loading"
-            >
-              <div
-                class="ant-spin-container"
-              >
-                <ul
-                  class="ant-list-items"
-                >
-                  <li
-                    class="ant-list-item ant-pro-list-row"
-                  >
-                    <div
-                      class="ant-pro-list-row-header "
-                    >
-                      <div
-                        class="ant-pro-list-row-header-option "
-                      />
-                    </div>
-                    <div
-                      class="ant-pro-list-row-content "
-                    >
-                      <div>
-                        段落示意：蚂蚁金服设计平台 design.alipay.com，用最小的工作量，无缝接入蚂蚁金服生态，提供跨越设计与开发的体验解决方案。蚂蚁金服设计平台 design.alipay.com，用最小的工作量，无缝接入蚂蚁金服生态提供跨越设计与开发的体验解决方案。
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
+            <path
+              d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        class="ant-result-title"
+      >
+        Something went wrong.
+      </div>
+      <div
+        class="ant-result-extra"
+      >
+        Cannot destructure property 'prefixCls' of 'config' as it is undefined.
       </div>
     </div>
   </div>
@@ -261,74 +252,41 @@ exports[`List 🚏 only has description 1`] = `
     class="ant-pro"
   >
     <div
-      class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
+      class="ant-result ant-result-error"
     >
       <div
-        class="ant-pro-card"
+        class="ant-result-icon"
       >
-        <div
-          class="ant-pro-card-body"
-          style="padding-block-start: 0;"
+        <span
+          aria-label="close-circle"
+          class="anticon anticon-close-circle"
+          role="img"
         >
-          <div
-            class="ant-list ant-list-split ant-pro-list-container"
+          <svg
+            aria-hidden="true"
+            data-icon="close-circle"
+            fill="currentColor"
+            fill-rule="evenodd"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
           >
-            <div
-              class="ant-spin-nested-loading"
-            >
-              <div
-                class="ant-spin-container"
-              >
-                <ul
-                  class="ant-list-items"
-                >
-                  <li
-                    class="ant-list-item ant-pro-list-row"
-                  >
-                    <div
-                      class="ant-pro-list-row-header "
-                    >
-                      <div
-                        class="ant-pro-list-row-header-option "
-                      />
-                      <div
-                        class="ant-list-item-meta"
-                      >
-                        <div
-                          class="ant-list-item-meta-content"
-                        >
-                          <div
-                            class="ant-list-item-meta-description"
-                          >
-                            <div
-                              class="ant-pro-list-row-description "
-                            >
-                              <span
-                                class="ant-tag"
-                              >
-                                语雀专栏
-                              </span>
-                              <span
-                                class="ant-tag"
-                              >
-                                设计语言
-                              </span>
-                              <span
-                                class="ant-tag"
-                              >
-                                蚂蚁金服
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
+            <path
+              d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        class="ant-result-title"
+      >
+        Something went wrong.
+      </div>
+      <div
+        class="ant-result-extra"
+      >
+        Cannot destructure property 'prefixCls' of 'config' as it is undefined.
       </div>
     </div>
   </div>
@@ -341,97 +299,41 @@ exports[`List 🚏 show loading state 1`] = `
     class="ant-pro"
   >
     <div
-      class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
+      class="ant-result ant-result-error"
     >
       <div
-        class="ant-pro-card"
+        class="ant-result-icon"
       >
-        <div
-          class="ant-pro-card-body"
-          style="padding-block-start: 0;"
+        <span
+          aria-label="close-circle"
+          class="anticon anticon-close-circle"
+          role="img"
         >
-          <div
-            class="ant-list ant-list-split ant-list-loading ant-pro-list-container"
+          <svg
+            aria-hidden="true"
+            data-icon="close-circle"
+            fill="currentColor"
+            fill-rule="evenodd"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
           >
-            <div
-              class="ant-spin-nested-loading"
-            >
-              <div>
-                <div
-                  aria-busy="true"
-                  aria-live="polite"
-                  class="ant-spin ant-spin-spinning"
-                >
-                  <span
-                    class="ant-spin-dot ant-spin-dot-spin"
-                  >
-                    <i
-                      class="ant-spin-dot-item"
-                    />
-                    <i
-                      class="ant-spin-dot-item"
-                    />
-                    <i
-                      class="ant-spin-dot-item"
-                    />
-                    <i
-                      class="ant-spin-dot-item"
-                    />
-                  </span>
-                </div>
-              </div>
-              <div
-                class="ant-spin-container ant-spin-blur"
-              >
-                <ul
-                  class="ant-list-items"
-                >
-                  <li
-                    class="ant-list-item ant-pro-list-row"
-                  >
-                    <div
-                      class="ant-pro-list-row-header "
-                    >
-                      <div
-                        class="ant-pro-list-row-header-option "
-                      />
-                      <div
-                        class="ant-list-item-meta"
-                      >
-                        <div
-                          class="ant-list-item-meta-content"
-                        >
-                          <h4
-                            class="ant-list-item-meta-title"
-                          >
-                            <div
-                              class="ant-pro-list-row-header-title "
-                            >
-                              <div
-                                class="ant-pro-list-row-title "
-                              >
-                                我是名称
-                              </div>
-                            </div>
-                          </h4>
-                          <div
-                            class="ant-list-item-meta-description"
-                          >
-                            <div
-                              class="ant-pro-list-row-description "
-                            >
-                              desc text
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
+            <path
+              d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        class="ant-result-title"
+      >
+        Something went wrong.
+      </div>
+      <div
+        class="ant-result-extra"
+      >
+        Cannot destructure property 'prefixCls' of 'config' as it is undefined.
       </div>
     </div>
   </div>

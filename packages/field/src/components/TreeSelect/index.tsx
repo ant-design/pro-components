@@ -44,7 +44,8 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     searchValue: propsSearchValue,
     ...fieldProps
   } = (rest.fieldProps as TreeSelectProps<any>) || {};
-  const size = useContext(ConfigProvider.SizeContext);
+  const config = ConfigProvider.useConfig();
+  const size = useMemo(() => config.componentSize, [config.componentSize]);
   const intl = useIntl();
 
   const [loading, options, fetchData] = useFieldFetchData({

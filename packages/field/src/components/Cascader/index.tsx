@@ -33,7 +33,8 @@ const FieldCascader: ProFieldFC<GroupProps> = (
   const [loading, options, fetchData] = useFieldFetchData(rest);
   const intl = useIntl();
   const cascaderRef = useRef();
-  const size = useContext(ConfigProvider.SizeContext);
+  const config = ConfigProvider.useConfig();
+  const size = useMemo(() => config.componentSize, [config.componentSize]);
   const [open, setOpen] = useState(false);
 
   useImperativeHandle(ref, () => ({

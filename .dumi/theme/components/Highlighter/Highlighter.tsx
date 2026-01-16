@@ -1,5 +1,5 @@
 import { Loading3QuartersOutlined as Loading } from '@ant-design/icons';
-import { useThemeMode } from 'antd-style';
+import { useThemeMode } from '../../utils/useThemeMode';
 import { memo, useMemo, useState } from 'react';
 import { Center, Flexbox } from 'react-layout-kit';
 

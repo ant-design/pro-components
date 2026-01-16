@@ -16,6 +16,7 @@ exports[`utils 🪓 LabelIconTip 1`] = `
       xxx
     </div>
     <span
+      aria-describedby="test-id"
       class="ant-pro-core-label-tip-icon "
     >
       <span

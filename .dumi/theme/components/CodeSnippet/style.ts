@@ -1,20 +1,14 @@
-import { createStyles } from 'antd-style';
+import { theme } from 'antd';
+import { useMemo } from 'react';
+import { useThemeMode } from '../../utils/useThemeMode';
 
-export const useStyles = createStyles(
-  ({ css, token }) =>
-    css`
-      cursor: pointer;
-      &:hover {
-        background: ${token.colorFillSecondary};
-        border-radius: 4px;
-      }
-      pre {
-        background: none !important;
-        padding: 0 !important;
-        margin: 0;
-      }
-      code[class*='language-'] {
-        background: none;
-      }
-    `,
-);
+export const useStyles = () => {
+  const { token } = theme.useToken();
+  const { isDarkMode } = useThemeMode();
+  const className = useMemo(() => 'dumi-code-snippet', []);
+
+  return {
+    styles: className,
+    theme: { colorSuccess: token.colorSuccess, appearance: isDarkMode ? 'dark' : 'light' },
+  };
+};

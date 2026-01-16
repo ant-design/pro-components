@@ -1,45 +1,34 @@
 import { CheckOutlined, CopyOutlined } from '@ant-design/icons';
-import { Button, ConfigProvider, Tooltip } from 'antd';
-import { createStyles } from 'antd-style';
+import { Button, ConfigProvider, Tooltip, theme } from 'antd';
 import copy from 'copy-to-clipboard';
-import { FC } from 'react';
+import { FC, useEffect, useMemo, useRef } from 'react';
 import Highlighter, { HighlighterProps } from '../../components/Highlighter';
 import { useCopied } from '../../hooks/useCopied';
+import { useThemeMode } from '../../utils/useThemeMode';
 
-const useStyles = createStyles(({ token, css, cx }) => {
+const useStyles = () => {
+  const { token } = theme.useToken();
+  const { isDarkMode } = useThemeMode();
   const prefixCls = 'source-code';
   const buttonHoverCls = `${prefixCls}-hover-btn`;
 
+  const classNames = useMemo(
+    () => ({
+      container: `${prefixCls} dumi-source-code-container`,
+      button: `${buttonHoverCls} dumi-source-code-button`,
+    }),
+    [prefixCls, buttonHoverCls],
+  );
+
   return {
-    container: cx(
-      prefixCls,
-      css`
-        position: relative;
-
-        pre {
-          background: ${token.colorFillTertiary} !important;
-          border-radius: 8px;
-          padding: 12px !important;
-        }
-
-        &:hover {
-          .${buttonHoverCls} {
-            opacity: 1;
-          }
-        }
-      `,
-    ),
-    button: cx(
-      buttonHoverCls,
-      css`
-        opacity: 0;
-        position: absolute;
-        right: 8px;
-        top: 8px;
-      `,
-    ),
+    styles: classNames,
+    theme: {
+      colorSuccess: token.colorSuccess,
+      colorBgElevated: token.colorBgElevated,
+      appearance: isDarkMode ? 'dark' : 'light',
+    },
   };
-});
+};
 
 const SourceCode: FC<HighlighterProps> = ({ children, language }) => {
   const { copied, setCopied } = useCopied();

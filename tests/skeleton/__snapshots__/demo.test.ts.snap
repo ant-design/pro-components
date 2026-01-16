@@ -799,12 +799,11 @@ exports[`skeleton demos 📸 renders ./packages/skeleton/src/demos/list.static.t
               style="padding-block-end: 8px;"
             >
               <div
-                class="ant-space ant-space-horizontal ant-space-align-center"
+                class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                 style="width: 100%; justify-content: space-between;"
               >
                 <div
                   class="ant-space-item"
-                  style="margin-right: 8px;"
                 >
                   <div
                     class="ant-skeleton ant-skeleton-element ant-skeleton-active"
@@ -819,11 +818,10 @@ exports[`skeleton demos 📸 renders ./packages/skeleton/src/demos/list.static.t
                   class="ant-space-item"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                   >
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
                     >
                       <div
                         class="ant-skeleton ant-skeleton-element ant-skeleton-active"
@@ -1316,12 +1314,11 @@ exports[`skeleton demos 📸 renders ./packages/skeleton/src/demos/list.tsx corr
               style="padding-block-end: 8px;"
             >
               <div
-                class="ant-space ant-space-horizontal ant-space-align-center"
+                class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                 style="width: 100%; justify-content: space-between;"
               >
                 <div
                   class="ant-space-item"
-                  style="margin-right: 8px;"
                 >
                   <div
                     class="ant-skeleton ant-skeleton-element ant-skeleton-active"
@@ -1336,11 +1333,10 @@ exports[`skeleton demos 📸 renders ./packages/skeleton/src/demos/list.tsx corr
                   class="ant-space-item"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                   >
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
                     >
                       <div
                         class="ant-skeleton ant-skeleton-element ant-skeleton-active"
@@ -1742,12 +1738,11 @@ exports[`skeleton demos 📸 renders ./packages/skeleton/src/demos/result.tsx co
               />
             </div>
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center"
+              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
               style="margin-block-start: 24px;"
             >
               <div
                 class="ant-space-item"
-                style="margin-right: 8px;"
               >
                 <div
                   class="ant-skeleton ant-skeleton-element ant-skeleton-active"

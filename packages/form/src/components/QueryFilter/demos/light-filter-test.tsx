@@ -7,7 +7,7 @@ import {
   ProFormText,
 } from '@ant-design/pro-components';
 import { Radio } from 'antd';
-import type { SizeType } from 'antd/es/config-provider/SizeContext';
+import type { SizeType } from 'antd/es/config-provider';
 import dayjs from 'dayjs';
 import React from 'react';
 

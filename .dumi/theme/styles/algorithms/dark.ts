@@ -1,21 +1,7 @@
 import { theme } from 'antd';
-import { MappingAlgorithm } from 'antd-style';
+import type { ThemeConfig } from 'antd';
 
 // 这一版的暗色浅色系列已经差不多了
-const primaryColorsA = [
-  '#001736',
-  '#002653',
-  '#003572',
-  '#004593',
-  '#0055b6',
-  '#0066dc',
-  '#1677ff',
-  '#0f77f8',
-  '#0777f0',
-  '#0176e9',
-  '#0076e1',
-];
-
 const primaryColors = [
   '#001736',
   '#002653',
@@ -30,7 +16,7 @@ const primaryColors = [
   '#4796ff',
 ];
 
-export const darkAlgorithm: MappingAlgorithm = (seedToken, mapToken) => {
+export const darkAlgorithm = (seedToken: any, mapToken: any) => {
   const mergeToken = theme.darkAlgorithm(seedToken, mapToken);
 
   return {

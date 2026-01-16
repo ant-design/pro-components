@@ -1,6 +1,4 @@
-import { MappingAlgorithm } from 'antd-style';
-
-export const lightAlgorithm: MappingAlgorithm = (_, mapToken) => {
+export const lightAlgorithm = (_: any, mapToken: any) => {
   const primaryColors = [
     '#ffffff',
     '#d9ebfb',
@@ -27,5 +25,5 @@ export const lightAlgorithm: MappingAlgorithm = (_, mapToken) => {
     colorPrimaryTextHover: primaryColors[8],
     colorPrimaryText: primaryColors[9],
     colorPrimaryTextActive: primaryColors[10],
-  } as ReturnType<MappingAlgorithm>;
+  };
 };

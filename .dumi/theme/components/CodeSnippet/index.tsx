@@ -26,7 +26,7 @@ const CodeSnippet: FC<{ children: string }> = ({ children }) => {
       }
     >
       <div
-        className={styles}
+        className={styles.styles}
         onClick={() => {
           copy(children);
           setCopied();

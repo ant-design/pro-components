@@ -1,6 +1,6 @@
 import { ArrowDownOutlined, MenuOutlined } from '@ant-design/icons';
 import { Anchor, Collapse, ConfigProvider } from 'antd';
-import { useResponsive } from 'antd-style';
+import useResponsive from '../../utils/useResponsive';
 import { useLocation, useRouteMeta } from 'dumi';
 import { useMemo, useState, type FC } from 'react';
 

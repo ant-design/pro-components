@@ -1,11 +1,8 @@
-import type { GetCustomToken } from 'antd-style';
 import chroma from 'chroma-js';
+import type { ThemeConfig } from 'antd';
+import { theme } from 'antd';
 
-declare module 'antd-style' {
-  interface CustomToken extends SiteToken {}
-}
-
-interface SiteToken {
+export interface SiteToken {
   headerHeight: number;
   sidebarWidth: number;
   tocWidth: number;
@@ -24,11 +21,14 @@ interface SiteToken {
   colorSolid: string;
 }
 
-export const getCustomToken: GetCustomToken<SiteToken> = ({ isDarkMode, token }) => {
-  const gradientColor1 = token.blue;
-  const gradientColor2 = isDarkMode ? token.pink : token.cyan;
-  const gradientColor3 = token.purple;
-  const colorSolid = isDarkMode ? token.colorWhite : '#000';
+export const getCustomToken = (
+  isDarkMode: boolean,
+  antdToken: ReturnType<typeof theme.useToken>['token'],
+): SiteToken => {
+  const gradientColor1 = antdToken.blue;
+  const gradientColor2 = isDarkMode ? antdToken.pink : antdToken.cyan;
+  const gradientColor3 = antdToken.purple;
+  const colorSolid = isDarkMode ? antdToken.colorWhite : '#000';
 
   return {
     headerHeight: 64,

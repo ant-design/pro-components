@@ -10,7 +10,7 @@ import type {
   SearchTransformKeyFn,
 } from '@ant-design/pro-utils';
 import type { SpinProps, TableProps } from 'antd';
-import type { SizeType } from 'antd/es/config-provider/SizeContext';
+import type { SizeType } from 'antd/es/config-provider';
 import type { LabelTooltipType } from 'antd/es/form/FormItemLabel';
 import type { NamePath } from 'antd/es/form/interface';
 import type { SearchProps } from 'antd/es/input';

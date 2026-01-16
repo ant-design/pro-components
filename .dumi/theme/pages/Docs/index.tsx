@@ -14,9 +14,7 @@ import Sidebar from 'dumi/theme/slots/Sidebar';
 //@ts-ignore
 import Toc from 'dumi/theme/slots/Toc';
 
-import { ApiHeader } from '../../components/ApiHeader';
-
-import { useResponsive } from 'antd-style';
+import useResponsive from '../../utils/useResponsive';
 import { isApiPageSel, useSiteStore } from '../../store/useSiteStore';
 import { useStyles } from './styles';
 
@@ -50,17 +48,6 @@ const Docs: FC = memo(() => {
       <Header />
       <Toc />
       {mobile ? null : <Sidebar />}
-      {isApiPage ? (
-        <Flexbox style={{ gridArea: 'title' }}>
-          <Center>
-            <Flexbox style={{ maxWidth: theme.contentMaxWidth, width: '100%' }}>
-              <Flexbox padding={'0 48px'}>
-                <ApiHeader title={fm.title} description={fm.description} />
-              </Flexbox>
-            </Flexbox>
-          </Center>
-        </Flexbox>
-      ) : null}
       <Flexbox
         style={{
           zIndex: 10,

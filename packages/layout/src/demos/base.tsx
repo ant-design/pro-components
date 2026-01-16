@@ -16,27 +16,24 @@ import {
   ProLayout,
   SettingDrawer,
 } from '@ant-design/pro-components';
-import { css } from '@emotion/css';
 import { Button, Divider, Input, Dropdown, Popover, theme } from 'antd';
 import React, { useState } from 'react';
 import defaultProps from './_defaultProps';
 
 const Item: React.FC<{ children: React.ReactNode }> = (props) => {
   const { token } = theme.useToken();
+  const [isHovered, setIsHovered] = useState(false);
   return (
     <div
-      className={css`
-        color: ${token.colorTextSecondary};
-        font-size: 14px;
-        cursor: pointer;
-        line-height: 22px;
-        margin-bottom: 8px;
-        &:hover {
-          color: ${token.colorPrimary};
-        }
-      `}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       style={{
         width: '33.33%',
+        color: isHovered ? token.colorPrimary : token.colorTextSecondary,
+        fontSize: 14,
+        cursor: 'pointer',
+        lineHeight: 22,
+        marginBottom: 8,
       }}
     >
       {props.children}
@@ -80,6 +77,72 @@ const List: React.FC<{ title: string; style?: React.CSSProperties }> = (props) =
           return <Item key={index}>具体的解决方案-{index}</Item>;
         })}
       </div>
+    </div>
+  );
+};
+
+const ProductItem: React.FC<{ token: ReturnType<typeof theme.useToken>['token'] }> = ({
+  token,
+}) => {
+  const [isHovered, setIsHovered] = useState(false);
+  return (
+    <div
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      style={{
+        borderRadius: 4,
+        padding: 16,
+        marginTop: 4,
+        display: 'flex',
+        cursor: 'pointer',
+        backgroundColor: isHovered ? token.colorBgTextHover : 'transparent',
+      }}
+    >
+      <img src="https://gw.alipayobjects.com/zos/antfincdn/6FTGmLLmN/bianzu%25252013.svg" />
+      <div
+        style={{
+          marginInlineStart: 14,
+        }}
+      >
+        <div
+          style={{
+            fontSize: 14,
+            color: token.colorText,
+            lineHeight: 22,
+          }}
+        >
+          Ant Design
+        </div>
+        <div
+          style={{
+            fontSize: 12,
+            color: token.colorTextSecondary,
+            lineHeight: 20,
+          }}
+        >
+          杭州市较知名的 UI 设计语言
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const HoverableDiv: React.FC<{
+  token: ReturnType<typeof theme.useToken>['token'];
+  style?: React.CSSProperties;
+  children: React.ReactNode;
+}> = ({ token, style, children }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  return (
+    <div
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      style={{
+        ...style,
+        backgroundColor: isHovered ? token.colorBgTextHover : style?.backgroundColor,
+      }}
+    >
+      {children}
     </div>
   );
 };
@@ -128,62 +191,23 @@ const MenuCard = () => {
               }}
             >
               <div
-                className={css`
-                  font-size: 14px;
-                  color: ${token.colorText};
-                  line-height: 22px;
-                `}
+                style={{
+                  fontSize: 14,
+                  color: token.colorText,
+                  lineHeight: 22,
+                }}
               >
                 热门产品
               </div>
               {new Array(3).fill(1).map((name, index) => {
-                return (
-                  <div
-                    key={index}
-                    className={css`
-                      border-radius: 4px;
-                      padding: 16px;
-                      margin-top: 4px;
-                      display: flex;
-                      cursor: pointer;
-                      &:hover {
-                        background-color: ${token.colorBgTextHover};
-                      }
-                    `}
-                  >
-                    <img src="https://gw.alipayobjects.com/zos/antfincdn/6FTGmLLmN/bianzu%25252013.svg" />
-                    <div
-                      style={{
-                        marginInlineStart: 14,
-                      }}
-                    >
-                      <div
-                        className={css`
-                          font-size: 14px;
-                          color: ${token.colorText};
-                          line-height: 22px;
-                        `}
-                      >
-                        Ant Design
-                      </div>
-                      <div
-                        className={css`
-                          font-size: 12px;
-                          color: ${token.colorTextSecondary};
-                          line-height: 20px;
-                        `}
-                      >
-                        杭州市较知名的 UI 设计语言
-                      </div>
-                    </div>
-                  </div>
-                );
+                return <ProductItem key={index} token={token} />;
               })}
             </div>
           </div>
         }
       >
-        <div
+        <HoverableDiv
+          token={token}
           style={{
             color: token.colorTextHeading,
             fontWeight: 500,
@@ -194,15 +218,10 @@ const MenuCard = () => {
             paddingInlineEnd: 12,
             alignItems: 'center',
           }}
-          className={css`
-            &:hover {
-              background-color: ${token.colorBgTextHover};
-            }
-          `}
         >
           <span> 企业级资产中心</span>
           <CaretDownFilled />
-        </div>
+        </HoverableDiv>
       </Popover>
     </div>
   );

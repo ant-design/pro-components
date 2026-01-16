@@ -1,8 +1,7 @@
-import { styled, ThemeMode } from 'antd-style';
 import { memo, ReactNode, type FC } from 'react';
 import { Flexbox } from 'react-layout-kit';
 
-import { useThemeStore } from '../../store/useThemeStore';
+import { useThemeStore, type ThemeMode } from '../../store/useThemeStore';
 import NativeSelect from '../NativeSelect';
 
 const IconDark = () => (
@@ -23,9 +22,9 @@ const IconAuto = () => (
   </svg>
 );
 
-const IconWrapper = styled.span`
-  width: 12px;
-`;
+const IconWrapper: FC<{ children: ReactNode }> = ({ children }) => (
+  <span style={{ width: 12 }}>{children}</span>
+);
 
 const Option = ({ icon, label }: { icon: ReactNode; label: ReactNode }) => (
   <Flexbox horizontal gap={12} align={'center'}>

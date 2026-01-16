@@ -17,7 +17,5 @@
     "**/es/**",
     "**/test/**"
   ],
-  "packages": [
-    "packages/*"
-  ]
+  "packages": ["packages/*"]
 }

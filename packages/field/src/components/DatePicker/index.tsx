@@ -4,7 +4,7 @@ import type { DatePickerProps } from 'antd';
 import { ConfigProvider, DatePicker } from 'antd';
 import dayjs from 'dayjs';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useMemo, useState } from 'react';
 import type { ProFieldFC, ProFieldLightProps } from '../../index';
 
 // 兼容代码-----------
@@ -79,7 +79,8 @@ const FieldDatePicker: ProFieldFC<
   ref,
 ) => {
   const intl = useIntl();
-  const size = useContext(ConfigProvider.SizeContext);
+  const config = ConfigProvider.useConfig();
+  const size = useMemo(() => config.componentSize, [config.componentSize]);
   const [open, setOpen] = useState<boolean>(false);
 
   const { hashId, prefixCls, wrapSSR } = useDatePickerStyle();

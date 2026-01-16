@@ -403,6 +403,5 @@ export default defineConfig({
     '@box-shadow-base':
       '0 2px 8px -2px rgba(0,0,0,0.05), 0 1px 4px -1px rgba(25,15,15,0.07), 0 0 1px 0 rgba(0,0,0,0.08)',
   },
-  extraBabelPlugins: ['@emotion'],
   ignoreMomentLocale: true,
 });

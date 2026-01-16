@@ -1,4 +1,4 @@
-import { useTheme } from 'antd-style';
+import { useTheme } from '../../utils/useTheme';
 import { memo } from 'react';
 //@ts-ignore
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';

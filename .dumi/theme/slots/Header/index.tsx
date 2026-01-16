@@ -15,7 +15,7 @@ import Burger from '../../components/Burger';
 import GithubButton from '../../components/GithubButton';
 import ThemeSwitch from '../../components/ThemeSwitch';
 
-import { useResponsive } from 'antd-style';
+import useResponsive from '../../utils/useResponsive';
 import { useSiteStore } from '../../store/useSiteStore';
 import { useStyle } from './style';
 

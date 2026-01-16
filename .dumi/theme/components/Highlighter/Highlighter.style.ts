@@ -1,25 +1,21 @@
-import { createStyles } from 'antd-style';
+import { useMemo } from 'react';
+import { useThemeMode } from '../../utils/useThemeMode';
 
-export const useStyles = createStyles(({ css, token, cx, prefixCls }) => {
+export const useStyles = (prefixCls: string = 'ant') => {
+  const { isDarkMode } = useThemeMode();
   const prefix = `${prefixCls}-highlighter`;
 
+  const classNames = useMemo(
+    () => ({
+      shiki: `${prefix}-shiki dumi-highlighter-shiki`,
+      prism: `${prefix}-prism dumi-highlighter-prism`,
+      loading: 'dumi-highlighter-loading',
+    }),
+    [prefix],
+  );
+
   return {
-    shiki: cx(
-      `${prefix}-shiki`,
-      css`
-        .shiki {
-          overflow: scroll;
-        }
-      `,
-    ),
-
-    prism: cx(`${prefix}-prism`),
-
-    loading: css`
-      position: absolute;
-      bottom: 8px;
-      right: 12px;
-      color: ${token.colorTextTertiary};
-    `,
+    styles: classNames,
+    theme: { appearance: isDarkMode ? 'dark' : 'light' },
   };
-});
+};

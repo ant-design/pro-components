@@ -1,8 +1,8 @@
-import { GetAntdTheme, ThemeConfig } from 'antd-style';
+import type { ThemeConfig } from 'antd';
 import { darkAlgorithm, lightAlgorithm } from './algorithms';
 
-export const getAntdTheme: GetAntdTheme = (appearance) => {
-  const theme: ThemeConfig = {
+export const getAntdTheme = (appearance: 'light' | 'dark'): ThemeConfig => {
+  const themeConfig: ThemeConfig = {
     token: {
       colorTextBase: '#3d3e40',
     },
@@ -10,12 +10,12 @@ export const getAntdTheme: GetAntdTheme = (appearance) => {
   };
 
   if (appearance === 'dark') {
-    theme.token = {
+    themeConfig.token = {
       colorTextBase: '#c7ddff',
     };
 
-    theme.algorithm = darkAlgorithm;
+    themeConfig.algorithm = darkAlgorithm;
   }
 
-  return theme;
+  return themeConfig;
 };

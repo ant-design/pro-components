@@ -266,11 +266,11 @@ function EditableTable<
 
   useEffect(() => {
     if (!props.controlled) return;
+    const fieldsValue: Record<string, any> = {};
     value.forEach((current, index) => {
-      formRef.current?.setFieldsValue({
-        [getRowKey(current, index)]: current,
-      });
-    }, {});
+      fieldsValue[getRowKey(current, index)] = current;
+    });
+    formRef.current?.setFieldsValue(fieldsValue);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value, props.controlled]);
 

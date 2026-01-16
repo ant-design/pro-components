@@ -36,7 +36,7 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
               style="padding-left: 12px; padding-right: 12px;"
             >
               <div
-                class="ant-form-item"
+                class="ant-form-item ant-form-item-horizontal"
                 style="flex-wrap: nowrap;"
               >
                 <div
@@ -65,36 +65,40 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-loading"
+                          class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-loading"
                           style="width: 100%;"
                         >
                           <div
                             class="ant-select-selector"
                           >
                             <span
-                              class="ant-select-selection-search"
+                              class="ant-select-selection-wrap"
                             >
-                              <input
-                                aria-activedescendant="name_list_0"
-                                aria-autocomplete="list"
-                                aria-controls="name_list"
-                                aria-haspopup="listbox"
-                                aria-owns="name_list"
-                                autocomplete="off"
-                                class="ant-select-selection-search-input"
-                                id="name"
-                                readonly=""
-                                role="combobox"
-                                style="opacity: 0;"
-                                type="search"
-                                unselectable="on"
-                                value=""
-                              />
-                            </span>
-                            <span
-                              class="ant-select-selection-placeholder"
-                            >
-                              请选择
+                              <span
+                                class="ant-select-selection-search"
+                              >
+                                <input
+                                  aria-autocomplete="list"
+                                  aria-controls="name_list"
+                                  aria-expanded="false"
+                                  aria-haspopup="listbox"
+                                  aria-owns="name_list"
+                                  autocomplete="off"
+                                  class="ant-select-selection-search-input"
+                                  id="name"
+                                  readonly=""
+                                  role="combobox"
+                                  style="opacity: 0;"
+                                  type="search"
+                                  unselectable="on"
+                                  value=""
+                                />
+                              </span>
+                              <span
+                                class="ant-select-selection-placeholder"
+                              >
+                                请选择
+                              </span>
                             </span>
                           </div>
                           <span
@@ -135,7 +139,7 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
               style="padding-left: 12px; padding-right: 12px; text-align: end;"
             >
               <div
-                class="ant-form-item ant-pro-query-filter-actions "
+                class="ant-form-item ant-pro-query-filter-actions  ant-form-item-horizontal"
               >
                 <div
                   class="ant-row ant-form-item-row"
@@ -161,20 +165,20 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
                       >
                         <div
                           class="ant-space ant-space-horizontal ant-space-align-center"
+                          style="column-gap: 16px; row-gap: 16px;"
                         >
                           <div
                             class="ant-space-item"
                           >
                             <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
-                              style="flex-wrap: wrap; margin-bottom: -8px;"
+                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                              style="flex-wrap: wrap;"
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px; padding-bottom: 8px;"
                               >
                                 <button
-                                  class="ant-btn ant-btn-default"
+                                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                                   type="button"
                                 >
                                   <span>
@@ -184,10 +188,9 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
                               </div>
                               <div
                                 class="ant-space-item"
-                                style="padding-bottom: 8px;"
                               >
                                 <button
-                                  class="ant-btn ant-btn-primary"
+                                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                                   type="button"
                                 >
                                   <span>
@@ -235,6 +238,7 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -260,6 +264,7 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height ant-dropdown-trigger"
                         role="img"
@@ -285,6 +290,7 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
                     class="ant-pro-table-list-toolbar-setting-item "
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"
@@ -330,7 +336,6 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
                       <table
                         style="table-layout: auto;"
                       >
-                        <colgroup />
                         <thead
                           class="ant-table-thead"
                         >
@@ -364,6 +369,9 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
                                     width="64"
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
+                                    <title>
+                                      暂无数据
+                                    </title>
                                     <g
                                       fill="none"
                                       fill-rule="evenodd"
@@ -442,7 +450,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
               style="padding-left: 12px; padding-right: 12px;"
             >
               <div
-                class="qixian-form-item"
+                class="qixian-form-item qixian-form-item-horizontal"
                 style="flex-wrap: nowrap;"
               >
                 <div
@@ -471,7 +479,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                         class="qixian-form-item-control-input-content"
                       >
                         <span
-                          class="qixian-input-affix-wrapper"
+                          class="qixian-input-affix-wrapper qixian-input-outlined"
                           style="width: 100%;"
                         >
                           <input
@@ -484,10 +492,10 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                           <span
                             class="qixian-input-suffix"
                           >
-                            <span
+                            <button
                               class="qixian-input-clear-icon qixian-input-clear-icon-hidden"
-                              role="button"
                               tabindex="-1"
+                              type="button"
                             >
                               <span
                                 aria-label="close-circle"
@@ -498,17 +506,18 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                                   aria-hidden="true"
                                   data-icon="close-circle"
                                   fill="currentColor"
+                                  fill-rule="evenodd"
                                   focusable="false"
                                   height="1em"
                                   viewBox="64 64 896 896"
                                   width="1em"
                                 >
                                   <path
-                                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                                    d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
                                   />
                                 </svg>
                               </span>
-                            </span>
+                            </button>
                           </span>
                         </span>
                       </div>
@@ -522,7 +531,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
               style="padding-left: 12px; padding-right: 12px; text-align: end;"
             >
               <div
-                class="qixian-form-item qixian-pro-query-filter-actions "
+                class="qixian-form-item qixian-pro-query-filter-actions  qixian-form-item-horizontal"
               >
                 <div
                   class="qixian-row qixian-form-item-row"
@@ -548,20 +557,20 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                       >
                         <div
                           class="qixian-space qixian-space-horizontal qixian-space-align-center"
+                          style="column-gap: 16px; row-gap: 16px;"
                         >
                           <div
                             class="qixian-space-item"
                           >
                             <div
-                              class="qixian-space qixian-space-horizontal qixian-space-align-center"
-                              style="flex-wrap: wrap; margin-bottom: -8px;"
+                              class="qixian-space qixian-space-horizontal qixian-space-align-center qixian-space-gap-row-small qixian-space-gap-col-small"
+                              style="flex-wrap: wrap;"
                             >
                               <div
                                 class="qixian-space-item"
-                                style="margin-right: 8px; padding-bottom: 8px;"
                               >
                                 <button
-                                  class="qixian-btn qixian-btn-default"
+                                  class="qixian-btn qixian-btn-default qixian-btn-color-default qixian-btn-variant-outlined"
                                   type="button"
                                 >
                                   <span>
@@ -571,10 +580,9 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                               </div>
                               <div
                                 class="qixian-space-item"
-                                style="padding-bottom: 8px;"
                               >
                                 <button
-                                  class="qixian-btn qixian-btn-primary"
+                                  class="qixian-btn qixian-btn-primary qixian-btn-color-primary qixian-btn-variant-solid"
                                   type="button"
                                 >
                                   <span>
@@ -622,6 +630,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -647,6 +656,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height qixian-dropdown-trigger"
                         role="img"
@@ -672,6 +682,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                     class="qixian-pro-table-list-toolbar-setting-item "
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"
@@ -717,7 +728,6 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                       <table
                         style="table-layout: auto;"
                       >
-                        <colgroup />
                         <thead
                           class="qixian-table-thead"
                         >
@@ -751,6 +761,9 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                                     width="64"
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
+                                    <title>
+                                      暂无数据
+                                    </title>
                                     <g
                                       fill="none"
                                       fill-rule="evenodd"
@@ -829,7 +842,7 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
               style="padding-left: 12px; padding-right: 12px;"
             >
               <div
-                class="ant-form-item"
+                class="ant-form-item ant-form-item-horizontal"
                 style="flex-wrap: nowrap;"
               >
                 <div
@@ -858,7 +871,7 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-input-affix-wrapper"
+                          class="ant-input-affix-wrapper ant-input-outlined"
                           style="width: 100%;"
                         >
                           <input
@@ -871,10 +884,10 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
                           <span
                             class="ant-input-suffix"
                           >
-                            <span
+                            <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                              role="button"
                               tabindex="-1"
+                              type="button"
                             >
                               <span
                                 aria-label="close-circle"
@@ -885,17 +898,18 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
                                   aria-hidden="true"
                                   data-icon="close-circle"
                                   fill="currentColor"
+                                  fill-rule="evenodd"
                                   focusable="false"
                                   height="1em"
                                   viewBox="64 64 896 896"
                                   width="1em"
                                 >
                                   <path
-                                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                                    d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
                                   />
                                 </svg>
                               </span>
-                            </span>
+                            </button>
                           </span>
                         </span>
                       </div>
@@ -909,7 +923,7 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
               style="padding-left: 12px; padding-right: 12px; text-align: end;"
             >
               <div
-                class="ant-form-item ant-pro-query-filter-actions "
+                class="ant-form-item ant-pro-query-filter-actions  ant-form-item-horizontal"
               >
                 <div
                   class="ant-row ant-form-item-row"
@@ -935,20 +949,20 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
                       >
                         <div
                           class="ant-space ant-space-horizontal ant-space-align-center"
+                          style="column-gap: 16px; row-gap: 16px;"
                         >
                           <div
                             class="ant-space-item"
                           >
                             <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
-                              style="flex-wrap: wrap; margin-bottom: -8px;"
+                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                              style="flex-wrap: wrap;"
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px; padding-bottom: 8px;"
                               >
                                 <button
-                                  class="ant-btn ant-btn-default"
+                                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                                   type="button"
                                 >
                                   <span>
@@ -958,10 +972,9 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
                               </div>
                               <div
                                 class="ant-space-item"
-                                style="padding-bottom: 8px;"
                               >
                                 <button
-                                  class="ant-btn ant-btn-primary"
+                                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                                   type="button"
                                 >
                                   <span>
@@ -1009,6 +1022,7 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="reload"
                         class="anticon anticon-reload"
                         role="img"
@@ -1034,6 +1048,7 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
                   >
                     <span>
                       <span
+                        aria-describedby="test-id"
                         aria-label="column-height"
                         class="anticon anticon-column-height ant-dropdown-trigger"
                         role="img"
@@ -1059,6 +1074,7 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
                     class="ant-pro-table-list-toolbar-setting-item "
                   >
                     <span
+                      aria-describedby="test-id"
                       aria-label="setting"
                       class="anticon anticon-setting"
                       role="img"
@@ -1123,7 +1139,7 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
                             >
                               Name
                             </th>
-                            <td
+                            <th
                               class="ant-table-cell ant-table-row-expand-icon-cell"
                             />
                             <th
@@ -1137,13 +1153,12 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
                                   class="ant-checkbox-wrapper"
                                 >
                                   <span
-                                    class="ant-checkbox"
+                                    class="ant-checkbox ant-wave-target"
                                   >
                                     <input
                                       aria-label="Select all"
                                       class="ant-checkbox-input"
                                       type="checkbox"
-                                      value=""
                                     />
                                     <span
                                       class="ant-checkbox-inner"
@@ -1183,12 +1198,11 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
                                 class="ant-checkbox-wrapper"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
                                     type="checkbox"
-                                    value=""
                                   />
                                   <span
                                     class="ant-checkbox-inner"
@@ -1223,12 +1237,11 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
                                 class="ant-checkbox-wrapper"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
                                     type="checkbox"
-                                    value=""
                                   />
                                   <span
                                     class="ant-checkbox-inner"
@@ -1243,7 +1256,7 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
                   </div>
                 </div>
                 <ul
-                  class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
+                  class="ant-pagination ant-pagination-end ant-pagination-mini ant-table-pagination"
                 >
                   <li
                     class="ant-pagination-total-text"

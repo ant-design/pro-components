@@ -253,7 +253,8 @@ function BaseFormComponents<T = Record<string, any>>(
    */
   const formInstance = Form.useFormInstance();
 
-  const sizeContextValue = useContext(ConfigProvider.SizeContext);
+  const config = ConfigProvider.useConfig();
+  const sizeContextValue = useMemo(() => config.componentSize, [config.componentSize]);
 
   /** 同步 url 上的参数 */
   const formRef = useRef<ProFormInstance<any>>((form || formInstance) as any);
@@ -431,7 +432,7 @@ function BaseFormComponents<T = Record<string, any>>(
 
   return (
     <ProFormContext.Provider value={formatValues}>
-      <ConfigProvider.SizeContext.Provider value={rest.size || sizeContextValue}>
+      <ConfigProvider componentSize={rest.size || sizeContextValue}>
         <GridContext.Provider value={{ grid, colProps }}>
           {rest.component !== false && (
             <input
@@ -443,7 +444,7 @@ function BaseFormComponents<T = Record<string, any>>(
           )}
           {content}
         </GridContext.Provider>
-      </ConfigProvider.SizeContext.Provider>
+      </ConfigProvider>
     </ProFormContext.Provider>
   );
 }

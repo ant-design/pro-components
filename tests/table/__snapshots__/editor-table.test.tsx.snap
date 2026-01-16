@@ -68,6 +68,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                                   标题
                                 </div>
                                 <span
+                                  aria-describedby="test-id"
                                   class="ant-pro-core-label-tip-icon "
                                 >
                                   <span
@@ -179,18 +180,18 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                               title="🐛 [BUG]yarn install命令 antd2.4.5会报错"
                             >
                               <span
+                                aria-describedby="test-id"
                                 aria-label="🐛 [BUG]yarn install命令 antd2.4.5会报错"
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
                                 🐛 [BUG]yarn install命令 antd2.4.5会报错
-                                <div
+                                <button
+                                  aria-describedby="test-id"
                                   aria-label="复制"
                                   class="ant-typography-copy"
-                                  role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                  tabindex="0"
+                                  type="button"
                                 >
                                   <span
                                     aria-label="copy"
@@ -211,50 +212,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                                       />
                                     </svg>
                                   </span>
-                                </div>
-                                <span
-                                  aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
-                                >
-                                  lg
-                                </span>
-                                <span
-                                  aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
-                                >
-                                  <span
-                                    aria-hidden="true"
-                                  >
-                                    ...
-                                  </span>
-                                  <div
-                                    aria-label="复制"
-                                    class="ant-typography-copy"
-                                    role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                    tabindex="0"
-                                  >
-                                    <span
-                                      aria-label="copy"
-                                      class="anticon anticon-copy"
-                                      role="img"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        data-icon="copy"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="1em"
-                                        viewBox="64 64 896 896"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                        />
-                                      </svg>
-                                    </span>
-                                  </div>
-                                </span>
+                                </button>
                               </span>
                             </td>
                             <td
@@ -320,18 +278,18 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                               title="🐛 [BUG]无法创建工程npm create umi"
                             >
                               <span
+                                aria-describedby="test-id"
                                 aria-label="🐛 [BUG]无法创建工程npm create umi"
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
                                 🐛 [BUG]无法创建工程npm create umi
-                                <div
+                                <button
+                                  aria-describedby="test-id"
                                   aria-label="复制"
                                   class="ant-typography-copy"
-                                  role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                  tabindex="0"
+                                  type="button"
                                 >
                                   <span
                                     aria-label="copy"
@@ -352,50 +310,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                                       />
                                     </svg>
                                   </span>
-                                </div>
-                                <span
-                                  aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
-                                >
-                                  lg
-                                </span>
-                                <span
-                                  aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
-                                >
-                                  <span
-                                    aria-hidden="true"
-                                  >
-                                    ...
-                                  </span>
-                                  <div
-                                    aria-label="复制"
-                                    class="ant-typography-copy"
-                                    role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                    tabindex="0"
-                                  >
-                                    <span
-                                      aria-label="copy"
-                                      class="anticon anticon-copy"
-                                      role="img"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        data-icon="copy"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="1em"
-                                        viewBox="64 64 896 896"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                        />
-                                      </svg>
-                                    </span>
-                                  </div>
-                                </span>
+                                </button>
                               </span>
                             </td>
                             <td
@@ -461,18 +376,18 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                               title="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
                             >
                               <span
+                                aria-describedby="test-id"
                                 aria-label="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
                                 🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
-                                <div
+                                <button
+                                  aria-describedby="test-id"
                                   aria-label="复制"
                                   class="ant-typography-copy"
-                                  role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                  tabindex="0"
+                                  type="button"
                                 >
                                   <span
                                     aria-label="copy"
@@ -493,50 +408,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                                       />
                                     </svg>
                                   </span>
-                                </div>
-                                <span
-                                  aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
-                                >
-                                  lg
-                                </span>
-                                <span
-                                  aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
-                                >
-                                  <span
-                                    aria-hidden="true"
-                                  >
-                                    ...
-                                  </span>
-                                  <div
-                                    aria-label="复制"
-                                    class="ant-typography-copy"
-                                    role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                    tabindex="0"
-                                  >
-                                    <span
-                                      aria-label="copy"
-                                      class="anticon anticon-copy"
-                                      role="img"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        data-icon="copy"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="1em"
-                                        viewBox="64 64 896 896"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                        />
-                                      </svg>
-                                    </span>
-                                  </div>
-                                </span>
+                                </button>
                               </span>
                             </td>
                             <td
@@ -583,34 +455,35 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
             </div>
           </div>
           <button
-            class="ant-btn ant-btn-dashed"
+            class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
             style="display: block; margin: 10px 0px; width: 100%;"
             type="button"
           >
             <span
-              aria-label="plus"
-              class="anticon anticon-plus"
-              role="img"
+              class="ant-btn-icon"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="plus"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="plus"
+                class="anticon anticon-plus"
+                role="img"
               >
-                <defs>
-                  <style />
-                </defs>
-                <path
-                  d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-                />
-                <path
-                  d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  data-icon="plus"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                  />
+                  <path
+                    d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
+                  />
+                </svg>
+              </span>
             </span>
             <span>
               测试添加数据
@@ -691,6 +564,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                                   标题
                                 </div>
                                 <span
+                                  aria-describedby="test-id"
                                   class="ant-pro-core-label-tip-icon "
                                 >
                                   <span
@@ -802,18 +676,18 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                               title="🐛 [BUG]yarn install命令 antd2.4.5会报错"
                             >
                               <span
+                                aria-describedby="test-id"
                                 aria-label="🐛 [BUG]yarn install命令 antd2.4.5会报错"
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
                                 🐛 [BUG]yarn install命令 antd2.4.5会报错
-                                <div
+                                <button
+                                  aria-describedby="test-id"
                                   aria-label="复制"
                                   class="ant-typography-copy"
-                                  role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                  tabindex="0"
+                                  type="button"
                                 >
                                   <span
                                     aria-label="copy"
@@ -834,50 +708,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                                       />
                                     </svg>
                                   </span>
-                                </div>
-                                <span
-                                  aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
-                                >
-                                  lg
-                                </span>
-                                <span
-                                  aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
-                                >
-                                  <span
-                                    aria-hidden="true"
-                                  >
-                                    ...
-                                  </span>
-                                  <div
-                                    aria-label="复制"
-                                    class="ant-typography-copy"
-                                    role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                    tabindex="0"
-                                  >
-                                    <span
-                                      aria-label="copy"
-                                      class="anticon anticon-copy"
-                                      role="img"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        data-icon="copy"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="1em"
-                                        viewBox="64 64 896 896"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                        />
-                                      </svg>
-                                    </span>
-                                  </div>
-                                </span>
+                                </button>
                               </span>
                             </td>
                             <td
@@ -943,18 +774,18 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                               title="🐛 [BUG]无法创建工程npm create umi"
                             >
                               <span
+                                aria-describedby="test-id"
                                 aria-label="🐛 [BUG]无法创建工程npm create umi"
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
                                 🐛 [BUG]无法创建工程npm create umi
-                                <div
+                                <button
+                                  aria-describedby="test-id"
                                   aria-label="复制"
                                   class="ant-typography-copy"
-                                  role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                  tabindex="0"
+                                  type="button"
                                 >
                                   <span
                                     aria-label="copy"
@@ -975,50 +806,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                                       />
                                     </svg>
                                   </span>
-                                </div>
-                                <span
-                                  aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
-                                >
-                                  lg
-                                </span>
-                                <span
-                                  aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
-                                >
-                                  <span
-                                    aria-hidden="true"
-                                  >
-                                    ...
-                                  </span>
-                                  <div
-                                    aria-label="复制"
-                                    class="ant-typography-copy"
-                                    role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                    tabindex="0"
-                                  >
-                                    <span
-                                      aria-label="copy"
-                                      class="anticon anticon-copy"
-                                      role="img"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        data-icon="copy"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="1em"
-                                        viewBox="64 64 896 896"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                        />
-                                      </svg>
-                                    </span>
-                                  </div>
-                                </span>
+                                </button>
                               </span>
                             </td>
                             <td
@@ -1084,18 +872,18 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                               title="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
                             >
                               <span
+                                aria-describedby="test-id"
                                 aria-label="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
                                 🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
-                                <div
+                                <button
+                                  aria-describedby="test-id"
                                   aria-label="复制"
                                   class="ant-typography-copy"
-                                  role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                  tabindex="0"
+                                  type="button"
                                 >
                                   <span
                                     aria-label="copy"
@@ -1116,50 +904,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                                       />
                                     </svg>
                                   </span>
-                                </div>
-                                <span
-                                  aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
-                                >
-                                  lg
-                                </span>
-                                <span
-                                  aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
-                                >
-                                  <span
-                                    aria-hidden="true"
-                                  >
-                                    ...
-                                  </span>
-                                  <div
-                                    aria-label="复制"
-                                    class="ant-typography-copy"
-                                    role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                    tabindex="0"
-                                  >
-                                    <span
-                                      aria-label="copy"
-                                      class="anticon anticon-copy"
-                                      role="img"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        data-icon="copy"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="1em"
-                                        viewBox="64 64 896 896"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                        />
-                                      </svg>
-                                    </span>
-                                  </div>
-                                </span>
+                                </button>
                               </span>
                             </td>
                             <td

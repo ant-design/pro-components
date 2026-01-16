@@ -1,46 +1,21 @@
-import { createStyles } from 'antd-style';
+import { useMemo } from 'react';
+import { useThemeMode } from '../../utils/useThemeMode';
 
-export const useStyle = createStyles(({ css, responsive, token }) => ({
-  header: css`
-    top: 0;
-    max-width: 100vw;
-    position: sticky;
-    background-color: transparent;
-    backdrop-filter: blur(6px);
-    z-index: ${token.zIndexPopupBase - 50};
-    border-bottom: 1px solid ${token.colorSplit};
+export const useStyle = () => {
+  const { isDarkMode } = useThemeMode();
 
-    grid-area: head;
-    align-self: stretch;
+  const classNames = useMemo(
+    () => ({
+      header: 'dumi-header',
+      content: 'dumi-header-content',
+      left: 'dumi-header-left',
+      right: 'dumi-header-right',
+    }),
+    [],
+  );
 
-    ${responsive.mobile} {
-      background: ${token.colorBgContainer};
-    }
-  `,
-  content: css`
-    padding: 0 24px;
-    height: 64px;
-
-    ${responsive.mobile} {
-      padding: 0 16px;
-    }
-  `,
-  left: css``,
-  right: css`
-    flex: 1;
-    display: flex;
-    justify-content: space-between;
-
-    &-aside {
-      display: flex;
-      align-items: center;
-
-      ${responsive.mobile} {
-        justify-content: center;
-        margin: 8px 16px;
-        padding-top: 24px;
-        border-top: 1px solid ${token.colorBorder};
-      }
-    }
-  `,
-}));
+  return {
+    styles: classNames,
+    theme: { appearance: isDarkMode ? 'dark' : 'light' },
+  };
+};

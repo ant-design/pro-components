@@ -1,6 +1,7 @@
-import type { ThemeMode } from 'antd-style';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+
+export type ThemeMode = 'light' | 'dark' | 'auto';
 
 interface Store {
   themeMode: ThemeMode;
@@ -8,7 +9,7 @@ interface Store {
 export const useThemeStore = create<Store>()(
   persist(
     () => ({
-      themeMode: 'auto' as any,
+      themeMode: 'auto',
     }),
     { name: 'ANTD_STYLE_DOC_STORE' },
   ),

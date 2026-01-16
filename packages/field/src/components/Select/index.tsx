@@ -487,7 +487,8 @@ const FieldSelect: ProFieldFC<
   }, [fieldProps?.searchValue]);
 
   const [loading, options, fetchData, resetData] = useFieldFetchData(props);
-  const size = useContext(ConfigProvider.SizeContext);
+  const config = ConfigProvider.useConfig();
+  const size = useMemo(() => config.componentSize, [config.componentSize]);
   useImperativeHandle(ref, () => ({
     ...(inputRef.current || {}),
     fetchData: () => fetchData(),

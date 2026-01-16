@@ -123,26 +123,25 @@ exports[`PageContainer ⚡️ support more loading props 1`] = `
               class="ant-spin ant-spin-lg ant-spin-spinning ant-spin-show-text"
             >
               <span
-                class="ant-spin-dot ant-spin-dot-spin"
+                class="ant-spin-dot-holder"
               >
-                <i
-                  class="ant-spin-dot-item"
-                />
-                <i
-                  class="ant-spin-dot-item"
-                />
-                <i
-                  class="ant-spin-dot-item"
-                />
-                <i
-                  class="ant-spin-dot-item"
-                />
+                <span
+                  class="ant-spin-dot ant-spin-dot-spin"
+                >
+                  <i
+                    class="ant-spin-dot-item"
+                  />
+                  <i
+                    class="ant-spin-dot-item"
+                  />
+                  <i
+                    class="ant-spin-dot-item"
+                  />
+                  <i
+                    class="ant-spin-dot-item"
+                  />
+                </span>
               </span>
-              <div
-                class="ant-spin-text"
-              >
-                加载中
-              </div>
             </div>
           </div>
         </div>
@@ -239,7 +238,7 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
       <div
         class="ant-pro-layout-bg-list "
       />
-      <section
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -465,7 +464,7 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
             style="height: 64px; margin-block-start: 24px;"
           />
         </div>
-      </section>
+      </div>
     </div>
   </div>
 </div>
@@ -600,7 +599,7 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
       <div
         class="ant-pro-layout-bg-list "
       />
-      <section
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -832,7 +831,7 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
             style="height: 64px; margin-block-start: 24px;"
           />
         </div>
-      </section>
+      </div>
     </div>
   </div>
 </div>
@@ -849,7 +848,7 @@ exports[`PageContainer 🐲 pro-layout support breadcrumbProps 1`] = `
       <div
         class="ant-pro-layout-bg-list "
       />
-      <section
+      <div
         class="ant-layout ant-layout-has-sider"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -1061,35 +1060,28 @@ exports[`PageContainer 🐲 pro-layout support breadcrumbProps 1`] = `
                   class="ant-breadcrumb ant-page-header-breadcrumb"
                 >
                   <ol>
-                    <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <a
-                          href="index"
-                        >
-                          home
-                        </a>
-                      </span>
-                      <span
-                        class="ant-breadcrumb-separator"
-                      >
-                        &gt;
-                      </span>
+                    <li
+                      class="ant-breadcrumb-item"
+                    >
+                      <a
+                        href="index"
+                      />
                     </li>
-                    <li>
+                    <li
+                      aria-hidden="true"
+                      class="ant-breadcrumb-separator"
+                    >
+                      &gt;
+                    </li>
+                    <li
+                      class="ant-breadcrumb-item"
+                    >
                       <span
                         class="ant-dropdown-trigger ant-breadcrumb-overlay-link"
                       >
-                        <span
-                          class="ant-breadcrumb-link"
-                        >
-                          <a
-                            href="first"
-                          >
-                            first
-                          </a>
-                        </span>
+                        <a
+                          href="first"
+                        />
                         <span
                           aria-label="down"
                           class="anticon anticon-down"
@@ -1110,25 +1102,19 @@ exports[`PageContainer 🐲 pro-layout support breadcrumbProps 1`] = `
                           </svg>
                         </span>
                       </span>
-                      <span
-                        class="ant-breadcrumb-separator"
-                      >
-                        &gt;
-                      </span>
                     </li>
-                    <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          second
-                        </span>
-                      </span>
-                      <span
-                        class="ant-breadcrumb-separator"
-                      >
-                        &gt;
-                      </span>
+                    <li
+                      aria-hidden="true"
+                      class="ant-breadcrumb-separator"
+                    >
+                      &gt;
+                    </li>
+                    <li
+                      class="ant-breadcrumb-item"
+                    >
+                      <a
+                        href="second"
+                      />
                     </li>
                   </ol>
                 </nav>
@@ -1136,7 +1122,7 @@ exports[`PageContainer 🐲 pro-layout support breadcrumbProps 1`] = `
             </div>
           </main>
         </div>
-      </section>
+      </div>
     </div>
   </div>
 </DocumentFragment>
@@ -1236,19 +1222,15 @@ exports[`PageContainer 🔥 support footer and breadcrumb 1`] = `
           class="ant-breadcrumb ant-page-header-breadcrumb"
         >
           <ol>
-            <li>
-              <span
+            <li
+              class="ant-breadcrumb-item"
+            >
+              <a
                 class="ant-breadcrumb-link"
+                href="#/"
               >
-                <span>
-                  home
-                </span>
-              </span>
-              <span
-                class="ant-breadcrumb-separator"
-              >
-                /
-              </span>
+                home
+              </a>
             </li>
           </ol>
         </nav>

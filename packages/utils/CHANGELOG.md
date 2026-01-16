@@ -1,20 +1,14 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.5.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.5.6...@ant-design/pro-utils@2.5.7) (2023-02-17)
 
-
 ### Bug Fixes
 
-* **components:** fix valuetype no work error ([f6215e9](https://github.com/ant-design/pro-components/commit/f6215e98eaeb46fa979c1ca4ac40ceaa0828f9f3))
-* **field:** `optionFilterProp` doesn't work with LightFilter ([#6603](https://github.com/ant-design/pro-components/issues/6603)) ([0e287f6](https://github.com/ant-design/pro-components/commit/0e287f6dba1cdc0f31bcae60e3149ed6a276169d))
-* **form:** inconsistent digit value when precision=0 ([#6591](https://github.com/ant-design/pro-components/issues/6591)) ([f83092a](https://github.com/ant-design/pro-components/commit/f83092a50993f3a86b59565394c24228f7e8541e))
-
-
-
-
+- **components:** fix valuetype no work error ([f6215e9](https://github.com/ant-design/pro-components/commit/f6215e98eaeb46fa979c1ca4ac40ceaa0828f9f3))
+- **field:** `optionFilterProp` doesn't work with LightFilter ([#6603](https://github.com/ant-design/pro-components/issues/6603)) ([0e287f6](https://github.com/ant-design/pro-components/commit/0e287f6dba1cdc0f31bcae60e3149ed6a276169d))
+- **form:** inconsistent digit value when precision=0 ([#6591](https://github.com/ant-design/pro-components/issues/6591)) ([f83092a](https://github.com/ant-design/pro-components/commit/f83092a50993f3a86b59565394c24228f7e8541e))
 
 ## [2.5.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.5.5...@ant-design/pro-utils@2.5.6) (2023-02-10)
 

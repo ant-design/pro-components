@@ -7,7 +7,7 @@ import {
   ZhihuOutlined,
 } from '@ant-design/icons';
 import { Divider } from 'antd';
-import { useResponsive } from 'antd-style';
+import useResponsive from '../../utils/useResponsive';
 import React, { type FC } from 'react';
 import { Center, Flexbox } from 'react-layout-kit';
 import { useSiteStore } from '../../store/useSiteStore';
@@ -123,13 +123,6 @@ const Footer: FC = () => {
               title: '更新日志',
               url: '/changelog',
               // LinkComponent: Link,
-            },
-
-            {
-              icon: <IssuesCloseOutlined />,
-              title: '讨论',
-              url: 'https://github.com/ant-design/antd-style/issues',
-              openExternal: true,
             },
           ],
         },

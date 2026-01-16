@@ -9,11 +9,11 @@ export interface FooterProps {
   theme?: RcProps['theme'];
 }
 const Footer: FC<FooterProps> = ({ columns, bottom, theme }) => {
-  const { styles } = useStyles();
+  const { container, footer } = useStyles();
 
   return (
-    <div className={styles.container}>
-      <RcFooter theme={theme} className={styles.footer} columns={columns} bottom={bottom} />
+    <div className={container}>
+      <RcFooter theme={theme} className={footer} columns={columns} bottom={bottom} />
     </div>
   );
 };
