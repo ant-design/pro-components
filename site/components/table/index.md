@@ -76,7 +76,8 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | defaultData        | 默认的数据                                                                                         | `T[]`                                                                                                                                                                                                                    | -                                                                   |
 | dataSource         | Table 的数据，ProTable 推荐使用 `request` 来加载                                                   | `T[]`                                                                                                                                                                                                                    | -                                                                   |
 | onDataSourceChange | Table 的数据发生改变时触发                                                                         | `(dataSource: T[]) => void`                                                                                                                                                                                              | -                                                                   |
-| actionRef          | Table action 的引用，便于自定义触发                                                                | `React.Ref<ActionType \| undefined>`                                                                                                                                                                                     | -                                                                   |
+| pagination | 分页器的配置，`current` 和 `pageSize` 会被 `request` 接管 | `TablePaginationConfig` \| `false` | - |
+| actionRef | Table action 的引用，便于自定义触发 | `React.Ref<ActionType \| undefined>` | - |
 | formRef            | 可以获取到查询表单的 form 实例，用于一些灵活的配置                                                 | `TableFormItem<T>['formRef']`                                                                                                                                                                                            | -                                                                   |
 | toolBarRender      | 渲染工具栏，支持返回一个 dom 数组，会自动增加 margin-right                                         | `ToolBarProps<T>['toolBarRender'] \| false`                                                                                                                                                                              | -                                                                   |
 | optionsRender      | 自定义渲染工具栏选项                                                                               | `ToolBarProps<T>['optionsRender']`                                                                                                                                                                                       | -                                                                   |
@@ -104,7 +105,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | toolbar            | 透传 `ListToolBar` 配置项                                                                          | [ListToolBarProps](#listtoolbarprops)                                                                                                                                                                                    | -                                                                   |
 | tableExtraRender   | table 和搜索表单之间的 dom 渲染                                                                    | `(props: ProTableProps<T, U, ValueType>, dataSource: T[]) => ReactNode`                                                                                                                                                  | -                                                                   |
 | manualRequest      | 是否需要手动触发首次请求，配置为 `true` 时不可隐藏搜索表单                                         | `boolean`                                                                                                                                                                                                                | false                                                               |
-| editable           | 可编辑表格的相关配置                                                                               | `RowEditableConfig<T>`                                                                                                                                                                                                   | -                                                                   |
+| editable | 可编辑表格的相关配置，支持 `type="multiple"` 等。[配置详情](/components/editable-table) | `RowEditableConfig<T>` | - |
 | cardProps          | table 外面卡片的设置                                                                               | `ProCardProps \| false`                                                                                                                                                                                                  | -                                                                   |
 | cardBordered       | Table 和 Search 外围 Card 组件的边框                                                               | `boolean \| {search?: boolean, table?: boolean}`                                                                                                                                                                         | false                                                               |
 | ghost              | 幽灵模式，即是否取消表格区域的 padding                                                             | `boolean`                                                                                                                                                                                                                | false                                                               |
@@ -116,7 +117,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | style              | 外层容器的样式                                                                                     | `React.CSSProperties`                                                                                                                                                                                                    | -                                                                   |
 | rowSelection       | 选择项配置                                                                                         | `TableProps<T>['rowSelection'] & {alwaysShowAlert?: boolean} \| false`                                                                                                                                                   | -                                                                   |
 
-#### RecordCreator
+#### RecordCreator (EditableProTable)
 
 | 属性             | 描述                                                                | 类型              | 默认值   |
 | ---------------- | ------------------------------------------------------------------- | ----------------- | -------- |
@@ -196,53 +197,43 @@ export type SettingOptionType = {
 
 #### ActionRef 手动触发
 
-有时我们要手动触发 table 的 reload 等操作，可以使用 actionRef，可编辑表格也提供了一些操作来帮助我们更快地实现需求。
+有时我们要手动触发 table 的 reload 等操作，可以使用 actionRef。
+
+| 方法 | 描述 | 类型 |
+| --- | --- | --- |
+| reload | 刷新表格，如果传入 true 则重置页码 | `(resetPageIndex?: boolean) => void` |
+| reloadAndRest | 刷新并清空，页码也会重置，不包括表单 | `() => void` |
+| reset | 重置到默认值，包括表单 | `() => void` |
+| clearSelected | 清空选中项 | `() => void` |
+| startEditable | 开始编辑行 | `(rowKey: Key) => boolean` |
+| cancelEditable | 取消编辑行 | `(rowKey: Key) => boolean` |
+| scrollTo | 滚动到指定位置 | `(arg: number \| { index?: number; key?: Key; top?: number }) => void` |
+| fullScreen | 切换全屏 | `() => void` |
+| setPageInfo | 设置分页信息 | `(page: Partial<PageInfo>) => void` |
 
 ```tsx | pure
-interface ActionType {
-  reload: (resetPageIndex?: boolean) => void;
-  reloadAndRest: () => void;
-  reset: () => void;
-  clearSelected?: () => void;
-  startEditable: (rowKey: Key) => boolean;
-  cancelEditable: (rowKey: Key) => boolean;
-  // 滚动到指定位置
-  scrollTo: (
-    arg:
-      | number
-      | {
-          index?: number;
-          key?: Key;
-          top?: number;
-        },
-  ) => void;
-  // 全屏
-  fullScreen?: () => void;
-  // 设置页面信息
-  setPageInfo?: (page: Partial<PageInfo>) => void;
-}
-
+// 示例
 const ref = useRef<ActionType>();
 
 <ProTable actionRef={ref} />;
 
 // 刷新
-ref.current.reload();
+ref.current?.reload();
 
 // 刷新并清空,页码也会重置，不包括表单
-ref.current.reloadAndRest();
+ref.current?.reloadAndRest();
 
 // 重置到默认值，包括表单
-ref.current.reset();
+ref.current?.reset();
 
 // 清空选中项
-ref.current.clearSelected();
+ref.current?.clearSelected();
 
 // 开始编辑
-ref.current.startEditable(rowKey);
+ref.current?.startEditable(rowKey);
 
 // 结束编辑
-ref.current.cancelEditable(rowKey);
+ref.current?.cancelEditable(rowKey);
 ```
 
 ### Columns 列定义
