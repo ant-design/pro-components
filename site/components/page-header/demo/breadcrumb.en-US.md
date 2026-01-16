@@ -12,18 +12,18 @@ With breadcrumbs, it is suitable for deeper pages, allowing users to navigate qu
 import { PageHeader } from '@ant-design/pro-components';
 import React from 'react';
 
-const routes = [
+const items = [
   {
     path: 'index',
-    breadcrumbName: 'First-level Menu',
+    title: 'First-level Menu',
   },
   {
     path: 'first',
-    breadcrumbName: 'Second-level Menu',
+    title: 'Second-level Menu',
   },
   {
     path: 'second',
-    breadcrumbName: 'Third-level Menu',
+    title: 'Third-level Menu',
   },
 ];
 
@@ -31,7 +31,7 @@ const App: React.FC = () => (
   <PageHeader
     className="site-page-header"
     title="Title"
-    breadcrumb={{ routes }}
+    breadcrumb={{ items }}
     subTitle="This is a subtitle"
   />
 );

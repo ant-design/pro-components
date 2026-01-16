@@ -55,10 +55,10 @@ export type LightFilterProps<T, U = Record<string, any>> = {
    *
    * @description
    * LightFilter 在折叠态会使用 Popover 将筛选项渲染到 body 下；
-   * 可通过该属性为弹层根节点添加自定义类名（如 overlayClassName）以便做样式覆盖。
+   * 可通过该属性为弹层根节点添加自定义类名（如 classNames.root）以便做样式覆盖。
    *
    * @example
-   * popoverProps={{ overlayClassName: 'my-lightfilter-popover' }}
+   * popoverProps={{ classNames: { root: 'my-lightfilter-popover' } } }
    */
   popoverProps?: Omit<
     PopoverProps,
