@@ -207,6 +207,20 @@ interface ActionType {
   clearSelected?: () => void;
   startEditable: (rowKey: Key) => boolean;
   cancelEditable: (rowKey: Key) => boolean;
+  // Scroll to specified position
+  scrollTo: (
+    arg:
+      | number
+      | {
+          index?: number;
+          key?: Key;
+          top?: number;
+        },
+  ) => void;
+  // Full screen
+  fullScreen?: () => void;
+  // Set page information
+  setPageInfo?: (page: Partial<PageInfo>) => void;
 }
 
 const ref = useRef<ActionType>();

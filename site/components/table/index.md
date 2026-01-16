@@ -206,6 +206,20 @@ interface ActionType {
   clearSelected?: () => void;
   startEditable: (rowKey: Key) => boolean;
   cancelEditable: (rowKey: Key) => boolean;
+  // 滚动到指定位置
+  scrollTo: (
+    arg:
+      | number
+      | {
+          index?: number;
+          key?: Key;
+          top?: number;
+        },
+  ) => void;
+  // 全屏
+  fullScreen?: () => void;
+  // 设置页面信息
+  setPageInfo?: (page: Partial<PageInfo>) => void;
 }
 
 const ref = useRef<ActionType>();
