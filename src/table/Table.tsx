@@ -2,7 +2,15 @@ import { Summary } from '@rc-component/table';
 import { useControlledState } from '@rc-component/util';
 import type { TablePaginationConfig } from 'antd';
 import { ConfigProvider, Table } from 'antd';
-import type { GetRowKey, SortOrder } from 'antd/lib/table/interface';
+import type {
+  FilterValue as AntFilterValue,
+  SorterResult,
+} from 'antd/es/table/interface';
+import type {
+  GetRowKey,
+  SortOrder,
+  TableCurrentDataSource,
+} from 'antd/lib/table/interface';
 import classNames from 'classnames';
 import isEmpty from 'lodash-es/isEmpty';
 import isEqual from 'lodash-es/isEqual';
@@ -17,7 +25,9 @@ import React, {
   useState,
 } from 'react';
 import type { ActionType } from '.';
+import ProCard from '../card';
 import ValueTypeToComponent from '../field/ValueTypeToComponent';
+import ProForm, { GridContext } from '../form';
 import type { ParamsType } from '../provider';
 import ProConfigContext, {
   ProConfigProvider,
@@ -26,6 +36,9 @@ import ProConfigContext, {
 } from '../provider';
 import {
   ErrorBoundary,
+  editableRowByKey,
+  omitUndefined,
+  recordKeyToString,
   stringify,
   useDeepCompareEffect,
   useDeepCompareEffectDebounce,
@@ -34,7 +47,6 @@ import {
 import Alert from './components/Alert';
 import { Container, TableContext } from './Store/Provide';
 import { useStyle } from './style';
-import { TableRender } from './TableRender';
 import { TableSearch } from './TableSearch';
 import { TableToolbar } from './TableToolbar';
 import type {
@@ -50,12 +62,121 @@ import useFetchData from './useFetchData';
 import {
   flattenColumns,
   genColumnKey,
+  getServerFilterResult,
+  getServerSorterResult,
+  isBordered,
   mergePagination,
   parseServerDefaultColumnConfig,
   useActionType,
 } from './utils';
 import { columnSort } from './utils/columnSort';
 import { genProColumnToColumn } from './utils/genProColumnToColumn';
+
+function getEditableDataSource<T>({
+  dataSource,
+  editableUtils,
+  pagination,
+  getRowKey,
+  childrenColumnName,
+}: {
+  dataSource: readonly T[] | undefined;
+  editableUtils: {
+    newLineRecord?: {
+      options?: {
+        position?: 'top' | 'bottom' | string;
+        parentKey?: React.Key;
+        recordKey?: React.Key;
+      };
+      defaultValue?: T;
+    };
+  };
+  pagination: ProTableProps<T, any, any>['pagination'];
+  getRowKey: GetRowKey<any>;
+  childrenColumnName?: string;
+}): T[] {
+  const baseData = Array.isArray(dataSource) ? [...dataSource] : [];
+  const newLineConfig = editableUtils?.newLineRecord;
+  const defaultValue = newLineConfig?.defaultValue;
+
+  if (!newLineConfig || !defaultValue) {
+    return baseData;
+  }
+
+  const { options: newLineOptions } = newLineConfig;
+  const childrenName = childrenColumnName || 'children';
+
+  if (newLineOptions?.parentKey) {
+    const newRow = {
+      ...defaultValue,
+      map_row_parentKey: recordKeyToString(
+        newLineOptions.parentKey,
+      )?.toString(),
+    };
+    const actionProps = {
+      data: baseData,
+      getRowKey,
+      row: newRow,
+      key: newLineOptions?.recordKey ?? getRowKey(newRow as T, -1),
+      childrenColumnName: childrenName,
+    };
+
+    return editableRowByKey(
+      actionProps,
+      newLineOptions?.position === 'top' ? 'top' : 'update',
+    );
+  }
+
+  if (newLineOptions?.position === 'top') {
+    return [defaultValue, ...baseData];
+  }
+
+  const pageConfig =
+    pagination && typeof pagination === 'object' ? pagination : undefined;
+
+  if (pageConfig?.current && pageConfig?.pageSize) {
+    if (pageConfig.pageSize > baseData.length) {
+      baseData.push(defaultValue);
+      return baseData;
+    }
+    const insertIndex = pageConfig.current * pageConfig.pageSize - 1;
+    baseData.splice(insertIndex, 0, defaultValue);
+    return baseData;
+  }
+
+  baseData.push(defaultValue);
+  return baseData;
+}
+
+function getTableCardBodyStyle({
+  propsCardProps,
+  notNeedCardDom,
+  name,
+  hideToolbar,
+  toolbarDom,
+}: {
+  propsCardProps: ProTableProps<any, any, any>['cardProps'];
+  notNeedCardDom: boolean;
+  name: ProTableProps<any, any, any>['name'];
+  hideToolbar: boolean;
+  toolbarDom: React.ReactNode;
+}): React.CSSProperties {
+  // cardProps === false 或存在 name 的场景不需要额外 padding 处理
+  if (propsCardProps === false || notNeedCardDom || !!name) {
+    return {};
+  }
+
+  // 显式隐藏 toolbar 时，统一不留 padding（避免误用 paddingBlockStart）
+  if (hideToolbar) {
+    return { padding: 0 };
+  }
+
+  // 有 toolbar 的场景，需要让 ProCard body 顶部与 toolbar 对齐
+  if (toolbarDom) {
+    return { paddingBlockStart: 0 };
+  }
+
+  return { padding: 0 };
+}
 
 function useRowKey<T>({
   rowKey,
@@ -670,35 +791,215 @@ const ProTable = <
     tableAlertOptionRender: rest.tableAlertOptionRender,
     tableAlertRender,
   });
+
+  const mergedDataSource = useMemo(() => {
+    return getEditableDataSource<T>({
+      dataSource: action.dataSource,
+      editableUtils,
+      pagination,
+      getRowKey,
+      childrenColumnName: props.expandable?.childrenColumnName || 'children',
+    });
+  }, [
+    action.dataSource,
+    editableUtils?.newLineRecord,
+    getRowKey,
+    pagination,
+    props.expandable?.childrenColumnName,
+  ]);
+
+  const columns = useMemo(() => {
+    const loopFilter = (column: any[]): any[] => {
+      return column
+        .map((item) => {
+          const columnKey = genColumnKey(item.key, item.index);
+          const config = counter.columnsMap[columnKey];
+          if (config && config.show === false) {
+            return false;
+          }
+          if (item.children) {
+            return {
+              ...item,
+              children: loopFilter(item.children),
+            };
+          }
+          return item;
+        })
+        .filter(Boolean);
+    };
+    return loopFilter(tableColumn);
+  }, [counter.columnsMap, tableColumn]);
+
+  const useFilterColumns = useMemo(() => {
+    const _columns: any[] = flattenColumns(columns);
+    return _columns.filter((column) => !!column.filters);
+  }, [columns]);
+
+  const onSortChange = (sortConfig?: Record<string, SortOrder>) => {
+    if (isEqual(sortConfig, proSort)) return;
+    setProSort(sortConfig ?? {});
+  };
+
+  const onFilterChange = (filterConfig: Record<string, FilterValue>) => {
+    if (isEqual(filterConfig, proFilter)) return;
+    setProFilter(filterConfig ?? {});
+  };
+
+  const getTableProps = () => ({
+    ...rest,
+    size: counter.tableSize,
+    rowSelection: propsRowSelection === false ? undefined : rowSelection,
+    className: tableClassName,
+    style: tableStyle,
+    columns,
+    loading: action.loading,
+    dataSource: mergedDataSource,
+    pagination,
+    onChange: (
+      changePagination: TablePaginationConfig,
+      filters: Record<string, AntFilterValue | null>,
+      sorter: SorterResult<T> | SorterResult<T>[],
+      extra: TableCurrentDataSource<T>,
+    ) => {
+      rest.onChange?.(changePagination, filters, sorter, extra);
+
+      const serverFilter = getServerFilterResult(filters, useFilterColumns);
+      onFilterChange(omitUndefined(serverFilter));
+
+      const serverSorter = getServerSorterResult(sorter);
+      onSortChange(omitUndefined(serverSorter));
+    },
+  });
+
+  const notNeedCardDom = search === false && !headerTitle && !toolBarRender;
+
+  const baseTableDom = (
+    <GridContext.Provider
+      value={{
+        grid: false,
+        colProps: undefined,
+        rowProps: undefined,
+      }}
+    >
+      <Table<T> {...getTableProps()} rowKey={rowKey} ref={antTableRef} />
+    </GridContext.Provider>
+  );
+
+  const tableDom = props.tableViewRender
+    ? props.tableViewRender(
+        {
+          ...getTableProps(),
+          rowSelection: propsRowSelection !== false ? rowSelection : undefined,
+        },
+        baseTableDom,
+      )
+    : baseTableDom;
+
+  const tableContentDom =
+    props.editable && !isEditorTable ? (
+      <>
+        {toolbarDom}
+        {alertDom}
+        <ProForm
+          {...(props.editable.formProps as any)}
+          formRef={props.editable.formProps?.formRef as any}
+          component={false}
+          form={props.editable.form}
+          onValuesChange={editableUtils.onValuesChange}
+          key="table"
+          submitter={false}
+          omitNil={false}
+          dateFormatter={props.dateFormatter}
+        >
+          {tableDom}
+        </ProForm>
+      </>
+    ) : (
+      <>
+        {toolbarDom}
+        {alertDom}
+        {tableDom}
+      </>
+    );
+
+  const cardBodyStyle = getTableCardBodyStyle({
+    propsCardProps: cardProps,
+    notNeedCardDom,
+    name: props.name,
+    hideToolbar,
+    toolbarDom,
+  });
+
+  const tableAreaDom =
+    cardProps === false || notNeedCardDom || !!props.name ? (
+      tableContentDom
+    ) : (
+      <ProCard
+        ghost={ghost}
+        variant={isBordered('table', cardBordered) ? 'outlined' : 'borderless'}
+        styles={{
+          body: {
+            ...cardBodyStyle,
+            ...(cardProps && typeof cardProps === 'object'
+              ? cardProps.styles?.body || cardProps.bodyStyle
+              : {}),
+          },
+          ...(cardProps &&
+          typeof cardProps === 'object' &&
+          (cardProps.styles?.header || cardProps.headStyle)
+            ? {
+                header: cardProps.styles?.header || cardProps.headStyle,
+              }
+            : {}),
+        }}
+        {...cardProps}
+      >
+        {tableContentDom}
+      </ProCard>
+    );
+
+  const renderTable = () => {
+    if (props.tableRender) {
+      return props.tableRender(props, tableAreaDom!, {
+        toolbar: toolbarDom || undefined,
+        alert: alertDom || undefined,
+        table: tableDom || undefined,
+      });
+    }
+    return tableAreaDom;
+  };
+
+  const proTableDom = (
+    <div
+      className={classNames(className, {
+        [`${defaultClassName}-polling`]: action.pollingLoading,
+      })}
+      style={style}
+      ref={counter.rootDomRef}
+    >
+      {isLightFilter ? null : searchNode}
+      {type !== 'form' && props.tableExtraRender && (
+        <div className={classNames(className, `${defaultClassName}-extra`)}>
+          {props.tableExtraRender(props, action.dataSource || [])}
+        </div>
+      )}
+      {type !== 'form' && renderTable()}
+    </div>
+  );
+
+  if (!options || !options?.fullScreen) {
+    return wrapSSR(proTableDom);
+  }
   return wrapSSR(
-    <TableRender
-      {...props}
-      name={isEditorTable}
-      defaultClassName={defaultClassName}
-      size={counter.tableSize}
-      onSizeChange={counter.setTableSize}
-      pagination={pagination}
-      searchNode={searchNode}
-      rowSelection={propsRowSelection ? rowSelection : undefined}
-      className={className}
-      tableColumn={tableColumn}
-      isLightFilter={isLightFilter}
-      action={action}
-      alertDom={alertDom}
-      toolbarDom={toolbarDom}
-      hideToolbar={hideToolbar}
-      onSortChange={(sortConfig) => {
-        if (isEqual(sortConfig, proSort)) return;
-        setProSort(sortConfig ?? {});
+    <ConfigProvider
+      getPopupContainer={() => {
+        return (
+          (counter.rootDomRef.current || document.body) as any
+        ) as HTMLElement;
       }}
-      onFilterChange={(filterConfig) => {
-        if (isEqual(filterConfig, proFilter)) return;
-        setProFilter(filterConfig ?? {});
-      }}
-      editableUtils={editableUtils}
-      getRowKey={getRowKey}
-      tableRef={antTableRef}
-    />,
+    >
+      {proTableDom}
+    </ConfigProvider>,
   );
 };
 
