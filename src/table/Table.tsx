@@ -306,7 +306,6 @@ const ProTable = <
     ghost,
     pagination: propsPagination,
     actionRef: propsActionRef,
-    columns: propsColumns = [],
     toolBarRender,
     optionsRender,
     onLoad,
@@ -387,6 +386,12 @@ const ProTable = <
     [setFormSearch],
   );
 
+  const {
+    columns: propsColumns = [],
+    columnsState,
+    onColumnsStateChange,
+  } = props;
+
   const { defaultProFilter, defaultProSort } = useMemo(() => {
     const { sort, filter } = parseServerDefaultColumnConfig(
       flattenColumns(propsColumns),
@@ -396,10 +401,21 @@ const ProTable = <
       defaultProSort: sort,
     };
   }, [propsColumns]);
+
   const [proFilter, setProFilter] =
     useState<Record<string, FilterValue>>(defaultProFilter);
   const [proSort, setProSort] =
     useState<Record<string, SortOrder>>(defaultProSort);
+
+  /**
+   * 只有在 proColumns 变化的时候，才会重新更新 proFilter 和 proSort
+   * 这样可以避免 columns 变化的时候，filter 和 sort 被重置
+   */
+  useDeepCompareEffect(() => {
+    setProFilter(defaultProFilter);
+    setProSort(defaultProSort);
+  }, [defaultProFilter, defaultProSort]);
+
 
   const intl = useIntl();
 
@@ -512,6 +528,20 @@ const ProTable = <
     request,
     type,
   });
+
+  // 监听 pagination 的变化，修正 pageSize
+  useDeepCompareEffect(() => {
+    if (
+      pagination &&
+      (pagination.current !== action.pageInfo.current ||
+        pagination.pageSize !== action.pageInfo.pageSize)
+    ) {
+      action.setPageInfo({
+        current: pagination.current,
+        pageSize: pagination.pageSize,
+      });
+    }
+  }, [pagination]);
   useDeepCompareEffect(() => {
     // request 存在且params不为空，且已经请求过数据才需要设置。
     if (
@@ -530,6 +560,13 @@ const ProTable = <
 
   // 设置 name 到 store 中，里面用了 ref ，所以不用担心直接 set
   counter.setPrefixName(props.name);
+
+  // 设置 columnsState 到 store 中
+  useEffect(() => {
+    if (columnsState) {
+      counter.setColumnsMap(columnsState.value || columnsState.defaultValue);
+    }
+  }, [columnsState]);
 
   /** 清空所有的选中项 */
   const onCleanSelected = useCallback(() => {
@@ -1024,7 +1061,17 @@ const ProviderTableContainer = <
 
   const context = useContext(ProConfigContext);
   return (
-    <Container initValue={props}>
+    <Container
+      initValue={{
+        ...props,
+        columnsState: props.columnsState,
+        columns: props.columns,
+        onColumnsStateChange: props.onColumnsStateChange,
+        onSizeChange: props.onSizeChange,
+        size: props.size,
+        defaultSize: props.defaultSize,
+      }}
+    >
       <ProConfigProvider
         valueTypeMap={{ ...context.valueTypeMap, ...ValueTypeToComponent }}
         needDeps
