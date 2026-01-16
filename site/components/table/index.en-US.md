@@ -370,8 +370,7 @@ SearchProps is a property of antd's [Input.Search](https://ant.design/components
 
 #### TableDropdown
 
-| Parameters     | Description                                                                   | Type        | Default |
-| -------------- | ----------------------------------------------------------------------------- | ----------- | ------- |
-| key            | Unique identifier                                                             | `string`    | -       |
-| name           | Content                                                                       | `ReactNode` | -       |
-| (...Menu.Item) | [Menu.Item](https://ant.design/components/menu-cn/#Menu.Item) from Ant Design | `Menu.Item` | -       |
+| Parameters | Description | Type | Default |
+| --- | --- | --- | --- |
+| menus | Menu configuration | `{ key: string; name: ReactNode }[]` | - |
+| onSelect | Callback for selecting menu | `(key: string) => void` | - |
