@@ -162,4 +162,4 @@ const isPropsEqual = <T, U>(
   });
 };
 
-export default memo(FormSearch, isPropsEqual);
+export default memo(FormSearch, isPropsEqual) as typeof FormSearch;
