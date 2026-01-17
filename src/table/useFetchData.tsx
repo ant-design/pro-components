@@ -120,9 +120,12 @@ const useFetchData = <DataSource extends RequestData<any>>(
    */
   const setPageInfo = useRefFunction((changePageInfo: PageInfo) => {
     if (
-      changePageInfo.current !== pageInfo.current ||
-      changePageInfo.pageSize !== pageInfo.pageSize ||
-      changePageInfo.total !== pageInfo.total
+      (changePageInfo.current !== undefined &&
+        changePageInfo.current !== pageInfo.current) ||
+      (changePageInfo.pageSize !== undefined &&
+        changePageInfo.pageSize !== pageInfo.pageSize) ||
+      (changePageInfo.total !== undefined &&
+        changePageInfo.total !== pageInfo.total)
     ) {
       setPageInfoState(changePageInfo);
     }
