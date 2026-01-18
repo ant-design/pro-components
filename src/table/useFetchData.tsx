@@ -32,6 +32,8 @@ const mergeOptionAndPageInfo = ({ pageInfo }: UseFetchProps) => {
   return { current: 1, total: 0, pageSize: 20 };
 };
 
+import { usePageInfo } from './utils/usePageInfo';
+
 /**
  * useFetchData hook 用来获取数据并控制数据的状态和分页
  * @template T
@@ -118,18 +120,7 @@ const useFetchData = <DataSource extends RequestData<any>>(
    * 用于比较并设置页面信息和回调函数的引用更新
    * @type {React.MutableRefObject<(changePageInfo: PageInfo) => void>}
    */
-  const setPageInfo = useRefFunction((changePageInfo: PageInfo) => {
-    if (
-      (changePageInfo.current !== undefined &&
-        changePageInfo.current !== pageInfo.current) ||
-      (changePageInfo.pageSize !== undefined &&
-        changePageInfo.pageSize !== pageInfo.pageSize) ||
-      (changePageInfo.total !== undefined &&
-        changePageInfo.total !== pageInfo.total)
-    ) {
-      setPageInfoState(changePageInfo);
-    }
-  });
+  const setPageInfo = usePageInfo(pageInfo, setPageInfoState);
 
   const [pollingLoading, setPollingLoading] = useState(false);
 
