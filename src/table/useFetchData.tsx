@@ -429,10 +429,7 @@ const useFetchData = <DataSource extends RequestData<any>>(
      * @returns {Promise<void>} - 更新完成后解决的 Promise。
      */
     setPageInfo: async (info) => {
-      setPageInfo({
-        ...pageInfo,
-        ...info,
-      });
+      setPageInfo(info);
     },
   };
 };

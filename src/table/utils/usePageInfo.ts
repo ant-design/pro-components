@@ -30,16 +30,18 @@ export function usePageInfo(options: UseFetchProps) {
       onChange: options?.onPageInfoChange,
     },
   );
-  const setPageInfo = useRefFunction((changePageInfo: PageInfo) => {
+  const setPageInfo = useRefFunction((changePageInfo: Partial<PageInfo>) => {
+    const newPageInfo = {
+      ...pageInfo,
+      ...changePageInfo,
+    };
+
     if (
-      (changePageInfo.current !== undefined &&
-        changePageInfo.current !== pageInfo.current) ||
-      (changePageInfo.pageSize !== undefined &&
-        changePageInfo.pageSize !== pageInfo.pageSize) ||
-      (changePageInfo.total !== undefined &&
-        changePageInfo.total !== pageInfo.total)
+      newPageInfo.current !== pageInfo.current ||
+      newPageInfo.pageSize !== pageInfo.pageSize ||
+      newPageInfo.total !== pageInfo.total
     ) {
-      setPageInfoState(changePageInfo);
+      setPageInfoState(newPageInfo);
     }
   });
 
