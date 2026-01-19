@@ -14,24 +14,6 @@ import type {
   UseFetchProps,
 } from './typing';
 import { postDataPipeline } from './utils/index';
-
-/**
- * 组合用户的配置和默认值
- *
- * @param param0
- */
-const mergeOptionAndPageInfo = ({ pageInfo }: UseFetchProps) => {
-  if (pageInfo) {
-    const { current, defaultCurrent, pageSize, defaultPageSize } = pageInfo;
-    return {
-      current: current || defaultCurrent || 1,
-      total: 0,
-      pageSize: pageSize || defaultPageSize || 20,
-    };
-  }
-  return { current: 1, total: 0, pageSize: 20 };
-};
-
 import { usePageInfo } from './utils/usePageInfo';
 
 /**
@@ -109,18 +91,7 @@ const useFetchData = <DataSource extends RequestData<any>>(
    * @property {number} total 数据总量
    * @type {[PageInfo, React.Dispatch<React.SetStateAction<PageInfo>>]}
    */
-  const [pageInfo, setPageInfoState] = useMergedState<PageInfo>(
-    () => mergeOptionAndPageInfo(options),
-    {
-      onChange: options?.onPageInfoChange,
-    },
-  );
-
-  /**
-   * 用于比较并设置页面信息和回调函数的引用更新
-   * @type {React.MutableRefObject<(changePageInfo: PageInfo) => void>}
-   */
-  const setPageInfo = usePageInfo(pageInfo, setPageInfoState);
+  const [pageInfo, setPageInfo] = usePageInfo(options);
 
   const [pollingLoading, setPollingLoading] = useState(false);
 
