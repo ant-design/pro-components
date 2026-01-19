@@ -4,7 +4,7 @@ import type {
   LabelTooltipType,
   WrapperTooltipProps,
 } from 'antd/lib/form/FormItemLabel';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, { useContext } from 'react';
 import { useStyle } from './style';
 
@@ -36,13 +36,13 @@ export const LabelIconTip: React.FC<{
 
   return wrapSSR(
     <div
-      className={classNames(className, hashId)}
+      className={clsx(className, hashId)}
       onMouseDown={(e) => e.stopPropagation()}
       onMouseLeave={(e) => e.stopPropagation()}
       onMouseMove={(e) => e.stopPropagation()}
     >
       <div
-        className={classNames(`${className}-title`, hashId, {
+        className={clsx(`${className}-title`, hashId, {
           [`${className}-title-ellipsis`]: ellipsis,
         })}
       >

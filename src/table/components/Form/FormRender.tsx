@@ -1,7 +1,7 @@
 ﻿import { omit } from '@rc-component/util';
 import type { FormItemProps } from 'antd';
 import { ConfigProvider, Table } from 'antd';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, { useContext, useMemo } from 'react';
 import type {
   BaseQueryFilterProps,
@@ -203,7 +203,7 @@ const FormRender = <T, U = any>({
 
   return (
     <div
-      className={classNames(hashId, {
+      className={clsx(hashId, {
         [getPrefixCls('pro-card')]: true,
         [`${getPrefixCls('pro-card')}-border`]: !!bordered,
         [`${getPrefixCls('pro-card')}-bordered`]: !!bordered,

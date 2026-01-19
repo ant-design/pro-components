@@ -11,7 +11,7 @@ import type {
   SortOrder,
   TableCurrentDataSource,
 } from 'antd/lib/table/interface';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import isEmpty from 'lodash-es/isEmpty';
 import isEqual from 'lodash-es/isEqual';
 import React, {
@@ -35,8 +35,8 @@ import ProConfigContext, {
   useIntl,
 } from '../provider';
 import {
-  ErrorBoundary,
   editableRowByKey,
+  ErrorBoundary,
   omitUndefined,
   recordKeyToString,
   stringify,
@@ -337,7 +337,7 @@ const ProTable = <
   } = props;
   const { wrapSSR, hashId } = useStyle(props.defaultClassName);
 
-  const className = classNames(defaultClassName, propsClassName, hashId);
+  const className = clsx(defaultClassName, propsClassName, hashId);
 
   /** 通用的来操作子节点的工具类 */
   const actionRef = useRef<ActionType>();
@@ -415,7 +415,6 @@ const ProTable = <
     setProFilter(defaultProFilter);
     setProSort(defaultProSort);
   }, [defaultProFilter, defaultProSort]);
-
 
   const intl = useIntl();
 
@@ -1011,7 +1010,7 @@ const ProTable = <
 
   const proTableDom = (
     <div
-      className={classNames(className, {
+      className={clsx(className, {
         [`${defaultClassName}-polling`]: action.pollingLoading,
       })}
       style={style}
@@ -1019,7 +1018,7 @@ const ProTable = <
     >
       {isLightFilter ? null : searchNode}
       {type !== 'form' && props.tableExtraRender && (
-        <div className={classNames(className, `${defaultClassName}-extra`)}>
+        <div className={clsx(className, `${defaultClassName}-extra`)}>
           {props.tableExtraRender(props, action.dataSource || [])}
         </div>
       )}
@@ -1033,9 +1032,8 @@ const ProTable = <
   return wrapSSR(
     <ConfigProvider
       getPopupContainer={() => {
-        return (
-          (counter.rootDomRef.current || document.body) as any
-        ) as HTMLElement;
+        return (counter.rootDomRef.current ||
+          document.body) as any as HTMLElement;
       }}
     >
       {proTableDom}

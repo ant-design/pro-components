@@ -2,7 +2,7 @@ import ResizeObserver from '@rc-component/resize-observer';
 import { ConfigProvider, Input, TabPaneProps, Tabs, Tooltip } from 'antd';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { SearchProps } from 'antd/lib/input';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, { useContext, useMemo, useState } from 'react';
 import { proTheme, useIntl } from '../../../provider';
 import { LabelIconTip } from '../../../utils';
@@ -281,7 +281,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
     }
     return (
       <div
-        className={classNames(`${prefixCls}-left`, hashId, {
+        className={clsx(`${prefixCls}-left`, hashId, {
           [`${prefixCls}-left-has-tabs`]: menu?.type === 'tab',
           [`${prefixCls}-left-has-dropdown`]: menu?.type === 'dropdown',
           [`${prefixCls}-left-has-inline-menu`]: menu?.type === 'inline',
@@ -364,7 +364,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
 
   const titleNode = useMemo(() => {
     if (!hasRight && !hasLeft) return null;
-    const containerClassName = classNames(`${prefixCls}-container`, hashId, {
+    const containerClassName = clsx(`${prefixCls}-container`, hashId, {
       [`${prefixCls}-container-mobile`]: isMobile,
     });
     return (
@@ -395,7 +395,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
         <div
           ref={ref}
           style={style}
-          className={classNames(prefixCls, hashId, className)}
+          className={clsx(prefixCls, hashId, className)}
         >
           {titleNode}
           <ListToolBarTabBar

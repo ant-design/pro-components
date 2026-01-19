@@ -10,14 +10,14 @@ import {
   ConfigProvider,
   Popover,
   Space,
+  type TableColumnType,
   Tooltip,
   Tree,
   Typography,
-  type TableColumnType,
 } from 'antd';
 import type { CheckboxChangeEvent } from 'antd/lib/checkbox';
 import type { DataNode } from 'antd/lib/tree';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, { useContext, useEffect, useMemo, useRef } from 'react';
 import { ProProvider, useIntl } from '../../../provider';
 import { runFunction, useRefFunction } from '../../../utils';
@@ -362,7 +362,7 @@ const GroupCheckboxList: React.FC<{
   const showLeft = leftList && leftList.length > 0;
   return (
     <div
-      className={classNames(`${className}-list`, hashId, {
+      className={clsx(`${className}-list`, hashId, {
         [`${className}-list-group`]: showRight || showLeft,
       })}
     >

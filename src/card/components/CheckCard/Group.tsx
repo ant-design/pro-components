@@ -1,7 +1,7 @@
 import { RightOutlined } from '@ant-design/icons';
 import { omit, useMergedState } from '@rc-component/util';
 import { ConfigProvider, Skeleton } from 'antd';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, {
   createContext,
   useCallback,
@@ -125,7 +125,7 @@ export const CardLoading: React.FC<{
   hashId: string;
 }> = ({ prefixCls, hashId }) => {
   return (
-    <div className={classNames(`${prefixCls}-loading-content`, hashId)}>
+    <div className={clsx(`${prefixCls}-loading-content`, hashId)}>
       <Skeleton loading active paragraph={{ rows: 4 }} title={false} />
     </div>
   );
@@ -248,9 +248,9 @@ const SubCheckCardGroup: React.FC<{
   const { hashId } = proTheme.useToken();
   const baseCls = `${props.prefix}-sub-check-card`;
   return (
-    <div className={classNames(baseCls, hashId)}>
+    <div className={clsx(baseCls, hashId)}>
       <div
-        className={classNames(`${baseCls}-title`, hashId)}
+        className={clsx(`${baseCls}-title`, hashId)}
         onClick={() => {
           setCollapse(!collapse);
         }}
@@ -264,7 +264,7 @@ const SubCheckCardGroup: React.FC<{
         {props.title}
       </div>
       <div
-        className={classNames(`${baseCls}-panel`, hashId, {
+        className={clsx(`${baseCls}-panel`, hashId, {
           [`${baseCls}-panel-collapse`]: collapse,
         })}
       >
@@ -441,7 +441,7 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
     stateValue,
   ]);
 
-  const classString = classNames(groupPrefixCls, className, hashId);
+  const classString = clsx(groupPrefixCls, className, hashId);
 
   return wrapSSR(
     <CheckCardGroupConnext.Provider

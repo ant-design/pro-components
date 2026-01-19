@@ -1,9 +1,10 @@
-/* eslint-disable no-param-reassign */ import RcResizeObserver from '@rc-component/resize-observer';
+/* eslint-disable no-param-reassign */
+import RcResizeObserver from '@rc-component/resize-observer';
 import { useMergedState } from '@rc-component/util';
 import type { ColProps, FormItemProps, RowProps } from 'antd';
 import { Col, ConfigProvider, Form, Row } from 'antd';
 import type { FormInstance, FormProps } from 'antd/lib/form/Form';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import type { ReactElement } from 'react';
 import React, { useContext, useMemo, useState } from 'react';
 import { ProProvider, useIntl } from '../../../provider';
@@ -461,7 +462,7 @@ const QueryFilterContent: React.FC<{
     <Row
       gutter={searchGutter}
       justify="start"
-      className={classNames(`${baseClassName}-row`, hashId)}
+      className={clsx(`${baseClassName}-row`, hashId)}
       key="resize-observer-row"
     >
       {doms}
@@ -470,7 +471,7 @@ const QueryFilterContent: React.FC<{
           key="submitter"
           span={spanSize.span}
           offset={offset}
-          className={classNames(props.submitterColSpanProps?.className)}
+          className={clsx(props.submitterColSpanProps?.className)}
           {...props.submitterColSpanProps}
           style={{
             textAlign: 'end',
@@ -591,7 +592,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
             isKeyPressSubmit
             preserve={preserve}
             {...rest}
-            className={classNames(baseClassName, hashId, rest.className)}
+            className={clsx(baseClassName, hashId, rest.className)}
             onReset={onReset}
             style={style}
             layout={spanSize.layout}

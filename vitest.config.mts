@@ -1,5 +1,6 @@
 import { join } from 'path';
 import { defineConfig } from 'vitest/config';
+import { TEST_INITIAL_URL } from './tests/testConstants';
 /// <reference types="@vitest/browser/context" />
 
 export default defineConfig({
@@ -13,7 +14,7 @@ export default defineConfig({
     environment: 'happy-dom',
     environmentOptions: {
       happyDOM: {
-        url: 'http://localhost?navTheme=realDark&layout=mix&colorPrimary=techBlue&splitMenus=false&fixedHeader=true',
+        url: TEST_INITIAL_URL,
       },
     },
     server: {

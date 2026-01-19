@@ -3,7 +3,7 @@ import { useMergedState } from '@rc-component/util';
 import { ConfigProvider, List, Skeleton } from 'antd';
 import type { ListGridType } from 'antd/lib/list';
 import type { ExpandableConfig } from 'antd/lib/table/interface';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, { useContext, useMemo } from 'react';
 import type { CheckCardProps } from '../card';
 import { CheckCard } from '../card';
@@ -48,7 +48,7 @@ export function renderExpandIcon<RecordType>({
 
   return (
     <span
-      className={classNames(expandClassName, hashId, {
+      className={clsx(expandClassName, hashId, {
         [`${prefixCls}-row-expanded`]: expanded,
         [`${prefixCls}-row-collapsed`]: !expanded,
       })}
@@ -165,7 +165,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     onChange: propsOnExpand,
   });
 
-  const className = classNames(
+  const className = clsx(
     {
       [`${defaultClassName}-selected`]: !cardProps && selected,
       [`${defaultClassName}-show-action-hover`]: showActions === 'hover',
@@ -177,7 +177,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     defaultClassName,
   );
 
-  const extraClassName = classNames(hashId, {
+  const extraClassName = clsx(hashId, {
     [`${propsClassName}-extra`]: showExtra === 'hover',
   });
 
@@ -219,7 +219,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       <div className={`${defaultClassName}-header-container ${hashId}`.trim()}>
         {title && (
           <div
-            className={classNames(`${defaultClassName}-title`, hashId, {
+            className={clsx(`${defaultClassName}-title`, hashId, {
               [`${defaultClassName}-title-editable`]: isEditable,
             })}
           >
@@ -228,7 +228,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
         )}
         {subTitle && (
           <div
-            className={classNames(`${defaultClassName}-subTitle`, hashId, {
+            className={clsx(`${defaultClassName}-subTitle`, hashId, {
               [`${defaultClassName}-subTitle-editable`]: isEditable,
             })}
           >
@@ -256,7 +256,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       />
     ) : null;
 
-  const rowClassName = classNames(hashId, {
+  const rowClassName = clsx(hashId, {
     [`${defaultClassName}-item-has-checkbox`]: checkbox,
     [`${defaultClassName}-item-has-avatar`]: avatar,
     [className]: className,
@@ -282,7 +282,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
   const itemProps = onItem?.(record, index);
   const defaultDom = !cardProps ? (
     <List.Item
-      className={classNames(rowClassName, hashId, {
+      className={clsx(rowClassName, hashId, {
         [propsClassName]: propsClassName !== defaultClassName,
       })}
       {...rest}
@@ -374,7 +374,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
   }
   return (
     <div
-      className={classNames(hashId, {
+      className={clsx(hashId, {
         [`${className}-card`]: cardProps,
         [propsClassName]: propsClassName !== defaultClassName,
       })}

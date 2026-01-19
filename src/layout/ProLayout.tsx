@@ -4,7 +4,7 @@ import type { BreadcrumbProps, WatermarkProps } from 'antd';
 import { ConfigProvider, Layout } from 'antd';
 import type { AnyObject } from 'antd/lib/_util/type';
 import type { ItemType } from 'antd/lib/breadcrumb/Breadcrumb';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import type { CSSProperties } from 'react';
 import React, {
   useCallback,
@@ -675,7 +675,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   const { wrapSSR, hashId } = useStyle(proLayoutClassName);
 
   // gen className
-  const className = classNames(
+  const className = clsx(
     props.className,
     hashId,
     'ant-design-pro',
@@ -769,9 +769,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
       ) : (
         <div className={className}>
           {bgImgStyleList || token.layout?.bgLayout ? (
-            <div
-              className={classNames(`${proLayoutClassName}-bg-list`, hashId)}
-            >
+            <div className={clsx(`${proLayoutClassName}-bg-list`, hashId)}>
               {bgImgStyleList}
             </div>
           ) : null}

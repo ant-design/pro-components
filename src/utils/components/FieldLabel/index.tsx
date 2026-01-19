@@ -1,7 +1,7 @@
 import { CloseCircleFilled, DownOutlined } from '@ant-design/icons';
 import { ConfigProvider } from 'antd';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, { useContext, useImperativeHandle, useRef } from 'react';
 import { useIntl } from '../../../provider';
 import { useStyle } from './style';
@@ -168,7 +168,7 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
   };
   return wrapSSR(
     <span
-      className={classNames(
+      className={clsx(
         prefixCls,
         hashId,
         `${prefixCls}-${props.size ?? size ?? 'middle'}`,
@@ -192,11 +192,7 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
         <CloseCircleFilled
           role="button"
           title={intl.getMessage('form.lightFilter.clear', '清除')}
-          className={classNames(
-            `${prefixCls}-icon`,
-            hashId,
-            `${prefixCls}-close`,
-          )}
+          className={clsx(`${prefixCls}-icon`, hashId, `${prefixCls}-close`)}
           onClick={(e) => {
             if (!disabled) onClear?.();
             e.stopPropagation();
@@ -207,7 +203,7 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
       {downIcon !== false
         ? (downIcon ?? (
             <DownOutlined
-              className={classNames(
+              className={clsx(
                 `${prefixCls}-icon`,
                 hashId,
                 `${prefixCls}-arrow`,

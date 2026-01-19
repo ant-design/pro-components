@@ -1,6 +1,7 @@
-/* eslint-disable react-hooks/exhaustive-deps */ import { omit } from '@rc-component/util';
+/* eslint-disable react-hooks/exhaustive-deps */
+import { omit } from '@rc-component/util';
 import { ConfigProvider } from 'antd';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import type { ReactNode } from 'react';
 import React, { useContext, useEffect, useMemo } from 'react';
 import { createPortal } from 'react-dom';
@@ -91,7 +92,7 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
 
   const renderDom = (
     <div
-      className={classNames(className, hashId, baseClassName, {
+      className={clsx(className, hashId, baseClassName, {
         [`${baseClassName}-stylish`]: !!props.stylish,
       })}
       style={{ width, ...style }}

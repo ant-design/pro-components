@@ -14,7 +14,7 @@ import type {
   FormListProps,
 } from 'antd/lib/form/FormList';
 import type { NamePath } from 'antd/lib/form/interface';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import type { ReactNode } from 'react';
 import React, {
   useContext,
@@ -35,6 +35,7 @@ import type {
   ProFromListCommonProps,
 } from './ListItem';
 import { useStyle } from './style';
+
 const { noteOnce } = warning;
 
 const FormListContext = React.createContext<
@@ -247,7 +248,7 @@ function ProFormList<T>(props: ProFormListProps<T>) {
   if (!proFormContext.formRef) return null;
   return wrapSSR(
     <ColWrapper>
-      <div className={classNames(baseClassName, hashId)} style={style}>
+      <div className={clsx(baseClassName, hashId)} style={style}>
         <Form.Item
           label={label}
           prefixCls={prefixCls}

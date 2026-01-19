@@ -1,5 +1,5 @@
 import { ConfigProvider } from 'antd';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, { useContext, useMemo } from 'react';
 import { useIntl } from '../../../provider';
 import type { SubmitterProps } from '../../BaseForm/Submitter';
@@ -117,10 +117,7 @@ function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
   }, [logo]);
 
   return wrapSSR(
-    <div
-      className={classNames(getCls('container'), hashId)}
-      style={containerStyle}
-    >
+    <div className={clsx(getCls('container'), hashId)} style={containerStyle}>
       <div className={`${getCls('top')} ${hashId}`.trim()}>
         {title || logoDom ? (
           <div className={`${getCls('header')}`}>

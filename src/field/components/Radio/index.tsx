@@ -1,6 +1,6 @@
 import type { RadioGroupProps } from 'antd';
 import { ConfigProvider, Form, Radio, Spin } from 'antd';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, { useContext, useImperativeHandle, useRef } from 'react';
 import { objectToMap, proFieldParsingText, useStyle } from '../../../utils';
 import type { ProFieldFC } from '../../PureProField';
@@ -90,7 +90,7 @@ const FieldRadio: ProFieldFC<GroupProps> = (
         ref={radioRef}
         optionType={radioType}
         {...rest.fieldProps}
-        className={classNames(
+        className={clsx(
           rest.fieldProps?.className,
           {
             [`${layoutClassName}-error`]: status?.status === 'error',
