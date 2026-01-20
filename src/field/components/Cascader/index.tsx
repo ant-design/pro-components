@@ -1,7 +1,7 @@
 ﻿import { LoadingOutlined } from '@ant-design/icons';
 import type { RadioGroupProps } from 'antd';
 import { Cascader, ConfigProvider } from 'antd';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, {
   useContext,
   useImperativeHandle,
@@ -125,7 +125,7 @@ const FieldCascader: ProFieldFC<GroupProps> = (
           rest?.fieldProps?.onOpenChange?.(isOpen);
           setOpen(isOpen);
         }}
-        className={classNames(rest.fieldProps?.className, layoutClassName)}
+        className={clsx(rest.fieldProps?.className, layoutClassName)}
         options={options}
       />
     );

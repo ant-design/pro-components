@@ -1,6 +1,6 @@
 import type { AvatarProps, SiderProps } from 'antd';
 import { Avatar, Layout, Menu, Space } from 'antd';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import type { CSSProperties, FC, ReactNode } from 'react';
 import React, { useContext, useMemo } from 'react';
 import type { GenerateStyle } from '../../../provider';
@@ -240,7 +240,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     },
   );
 
-  const siderClassName = classNames(`${baseClassName}`, hashId, {
+  const siderClassName = clsx(`${baseClassName}`, hashId, {
     [`${baseClassName}-fixed`]: fixSiderbar,
     [`${baseClassName}-fixed-mix`]:
       layout === 'mix' && !isMobile && fixSiderbar,
@@ -307,7 +307,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
           align="center"
           size={4}
           orientation={collapsed ? 'vertical' : 'horizontal'}
-          className={classNames([
+          className={clsx([
             `${baseClassName}-actions-list`,
             collapsed && `${baseClassName}-actions-list-collapsed`,
             hashId,
@@ -372,7 +372,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
 
     return (
       <div
-        className={classNames(
+        className={clsx(
           `${baseClassName}-actions`,
           hashId,
           collapsed && `${baseClassName}-actions-collapsed`,
@@ -399,8 +399,8 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     <>
       {headerDom && (
         <div
-          className={classNames([
-            classNames(`${baseClassName}-logo`, hashId, {
+          className={clsx([
+            clsx(`${baseClassName}-logo`, hashId, {
               [`${baseClassName}-logo-collapsed`]: collapsed,
             }),
           ])}
@@ -414,7 +414,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
       )}
       {extraDom && (
         <div
-          className={classNames([
+          className={clsx([
             `${baseClassName}-extra`,
             !headerDom && `${baseClassName}-extra-no-logo`,
             hashId,
@@ -449,7 +449,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         {showSiderExtraDom && <>{actionAreaDom}</>}
         {menuFooterDom && (
           <div
-            className={classNames([
+            className={clsx([
               `${baseClassName}-footer`,
               hashId,
               { [`${baseClassName}-footer-collapsed`]: collapsed },
@@ -491,11 +491,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         style={style}
         theme={theme}
         width={siderWidth}
-        className={classNames(
-          siderClassName,
-          hashId,
-          hideMenuWhenCollapsedClassName,
-        )}
+        className={clsx(siderClassName, hashId, hideMenuWhenCollapsedClassName)}
       >
         {hideMenuWhenCollapsedClassName ? (
           <div

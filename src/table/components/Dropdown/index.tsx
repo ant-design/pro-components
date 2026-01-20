@@ -1,7 +1,7 @@
 import { DownOutlined, EllipsisOutlined } from '@ant-design/icons';
 import type { MenuItemProps } from 'antd';
 import { Button, ConfigProvider, Dropdown } from 'antd';
-import classnames from 'classnames';
+import { clsx } from 'clsx';
 import React, { useContext } from 'react';
 
 interface MenuItems extends MenuItemProps {
@@ -43,7 +43,7 @@ const DropdownButton: React.FC<DropdownProps> = ({
           key: item.key,
         })),
       }}
-      className={classnames(tempClassName, className)}
+      className={clsx(tempClassName, className)}
     >
       <Button style={style}>
         {children} <DownOutlined />
@@ -70,7 +70,7 @@ const TableDropdown: React.FC<DropdownProps> & {
           label: name,
         })),
       }}
-      className={classnames(className, propsClassName)}
+      className={clsx(className, propsClassName)}
     >
       <a style={style}>{children || <EllipsisOutlined />}</a>
     </Dropdown>

@@ -6,6 +6,7 @@ import { objectToMap, proFieldParsingText, useStyle } from '../../../utils';
 import type { ProFieldFC } from '../../PureProField';
 import type { FieldSelectProps } from '../Select';
 import { useFieldFetchData } from '../Select';
+
 export type GroupProps = {
   layout?: 'horizontal' | 'vertical';
   options?: CheckboxGroupProps['options'];
@@ -111,7 +112,7 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
       //@ts-ignore
       <Checkbox.Group
         {...restFieldProps}
-        className={classNames(
+        className={clsx(
           rest.fieldProps?.className,
           hashId,
           `${layoutClassName}-${layout}`,

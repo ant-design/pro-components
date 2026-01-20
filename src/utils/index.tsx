@@ -72,7 +72,6 @@ import type {
 } from './useEditableMap';
 import { useEditableMap } from './useEditableMap';
 import { useBreakpoint } from './useMediaQuery';
-import { useMountMergeState } from './useMountMergeState';
 
 export * from './typing';
 export {
@@ -128,7 +127,6 @@ export {
   useEditableMap,
   useFetchData,
   useLatest,
-  useMountMergeState,
   usePrevious,
   useReactiveRef,
   useRefCallback,

@@ -4,7 +4,7 @@ import type { BreadcrumbProps, WatermarkProps } from 'antd';
 import { ConfigProvider, Layout } from 'antd';
 import type { AnyObject } from 'antd/es/_util/type';
 import type { ItemType } from 'antd/es/breadcrumb/Breadcrumb';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import type { CSSProperties } from 'react';
 import React, {
   useCallback,
@@ -16,12 +16,7 @@ import React, {
 import useSWR, { useSWRConfig } from 'swr';
 import type { GenerateStyle, ProTokenType } from '../provider';
 import { ProConfigProvider, ProProvider, isNeedOpenHash } from '../provider';
-import {
-  isBrowser,
-  useBreakpoint,
-  useDocumentTitle,
-  useMountMergeState,
-} from '../utils';
+import { isBrowser, useBreakpoint, useDocumentTitle } from '../utils';
 import { Logo } from './assert/Logo';
 import { DefaultFooter as Footer } from './components/Footer';
 import type { HeaderViewProps } from './components/Header';
@@ -449,7 +444,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
 
   const prefixCls = props.prefixCls ?? context.getPrefixCls('pro');
 
-  const [menuLoading, setMenuLoading] = useMountMergeState(false, {
+  const [menuLoading, setMenuLoading] = useMergedState(false, {
     value: menu?.loading,
     onChange: menu?.onLoadingChange,
   });
@@ -680,7 +675,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   const { wrapSSR, hashId } = useStyle(proLayoutClassName);
 
   // gen className
-  const className = classNames(
+  const className = clsx(
     props.className,
     hashId,
     'ant-design-pro',
@@ -774,9 +769,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
       ) : (
         <div className={className}>
           {bgImgStyleList || token.layout?.bgLayout ? (
-            <div
-              className={classNames(`${proLayoutClassName}-bg-list`, hashId)}
-            >
+            <div className={clsx(`${proLayoutClassName}-bg-list`, hashId)}>
               {bgImgStyleList}
             </div>
           ) : null}

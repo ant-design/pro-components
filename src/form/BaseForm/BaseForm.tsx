@@ -1,8 +1,10 @@
-/* eslint-disable react-hooks/exhaustive-deps */ import {
+/* eslint-disable react-hooks/exhaustive-deps */
+import {
   get,
   set as namePathSet,
   omit,
   set,
+  useMergedState,
   warning,
 } from '@rc-component/util';
 import { useUrlSearchParams } from '@umijs/use-params';
@@ -28,14 +30,13 @@ import type {
   SearchTransformKeyFn,
 } from '../../utils';
 import {
-  ProFormContext,
   conversionMomentValue,
   isDeepEqualReact,
   nanoid,
+  ProFormContext,
   runFunction,
   transformKeySubmitValue,
   useFetchData,
-  useMountMergeState,
   usePrevious,
   useRefFunction,
   useStyle,
@@ -51,6 +52,7 @@ import type {
 import { EditOrReadOnlyContext } from './EditOrReadOnlyContext';
 import type { SubmitterProps } from './Submitter';
 import Submitter from './Submitter';
+
 const { noteOnce } = warning;
 
 // Define ProFormInstance and ProFormRef
@@ -668,7 +670,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     ...propRest
   } = props;
   const formRef = useRef<ProFormRef<any>>({} as any);
-  const [loading, setLoading] = useMountMergeState<boolean>(false, {
+  const [loading, setLoading] = useMergedState<boolean>(false, {
     onChange: onLoadingChange,
     value: propsLoading,
   });
@@ -965,7 +967,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
                   transformKey(values, !!omitNil),
                 );
               }}
-              className={classNames(props.className, prefixCls, hashId)}
+              className={clsx(props.className, prefixCls, hashId)}
               onFinish={onFinish}
             >
               <BaseFormComponents<T, U>

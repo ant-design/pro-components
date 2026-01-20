@@ -1,8 +1,9 @@
 import { RightOutlined } from '@ant-design/icons';
+import { useMergedState } from '@rc-component/util';
 import { ConfigProvider, Space } from 'antd';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, { useCallback, useContext, useMemo } from 'react';
-import { LabelIconTip, useMountMergeState } from '../../../../utils';
+import { LabelIconTip } from '../../../../utils';
 import FieldContext from '../../../FieldContext';
 import { useGridHelpers } from '../../../helpers/grid';
 import { ProFormGroupProps } from '../../../typing';
@@ -32,7 +33,7 @@ const Group: React.FC<ProFormGroupProps> = React.forwardRef(
       ...props,
     };
 
-    const [collapsed, setCollapsed] = useMountMergeState(
+    const [collapsed, setCollapsed] = useMergedState(
       () => defaultCollapsed || false,
       {
         value: props.collapsed,
@@ -75,7 +76,7 @@ const Group: React.FC<ProFormGroupProps> = React.forwardRef(
       ({ children: dom }: { children: React.ReactNode }) => (
         <Space
           {...spaceProps}
-          className={classNames(
+          className={clsx(
             `${className}-container ${hashId}`,
             spaceProps?.className,
           )}
@@ -131,7 +132,7 @@ const Group: React.FC<ProFormGroupProps> = React.forwardRef(
     return wrapSSR(
       <ColWrapper>
         <div
-          className={classNames(className, hashId, {
+          className={clsx(className, hashId, {
             [`${className}-twoLine`]: labelLayout === 'twoLine',
           })}
           style={style}

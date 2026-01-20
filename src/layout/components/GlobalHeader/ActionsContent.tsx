@@ -1,10 +1,11 @@
-﻿import { Avatar, ConfigProvider } from 'antd';
-import classNames from 'classnames';
-import ResizeObserver from '@rc-component/resize-observer';
+﻿import ResizeObserver from '@rc-component/resize-observer';
+import { Avatar, ConfigProvider } from 'antd';
+import { clsx } from 'clsx';
 import React, { useContext, useMemo, useState } from 'react';
 import type { GlobalHeaderProps } from '.';
 import { useDebounceFn } from '../../../utils';
 import { useStyle } from './rightContentStyle';
+
 /**
  * 抽离出来是为了防止 rightSize 经常改变导致菜单 render
  *
@@ -78,7 +79,7 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
                   <div
                     // eslint-disable-next-line react/no-array-index-key
                     key={index}
-                    className={classNames(
+                    className={clsx(
                       `${prefixCls}-header-actions-item ${hashId}`,
                       {
                         [`${prefixCls}-header-actions-hover`]: !hideHover,

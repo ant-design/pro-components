@@ -35,6 +35,7 @@ import type {
   ProFromListCommonProps,
 } from './ListItem';
 import { useStyle } from './style';
+
 const { noteOnce } = warning;
 
 const FormListContext = React.createContext<
@@ -247,7 +248,7 @@ function ProFormList<T>(props: ProFormListProps<T>) {
   if (!proFormContext.formRef) return null;
   return wrapSSR(
     <ColWrapper>
-      <div className={classNames(baseClassName, hashId)} style={style}>
+      <div className={clsx(baseClassName, hashId)} style={style}>
         <Form.Item
           label={label}
           prefixCls={prefixCls}

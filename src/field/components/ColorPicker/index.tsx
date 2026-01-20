@@ -1,6 +1,6 @@
 ﻿import type { ColorPickerProps } from 'antd';
 import { ColorPicker, ConfigProvider } from 'antd';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, { useContext } from 'react';
 import type { ProFieldFC } from '../../PureProField';
 
@@ -50,7 +50,7 @@ const FieldColorPicker: ProFieldFC<
     const dom = (
       <ColorPicker
         value={text}
-        className={classNames({ [prefixCls]: true })}
+        className={clsx({ [prefixCls]: true })}
         // 设置无法 open
         open={false}
       />
@@ -69,7 +69,7 @@ const FieldColorPicker: ProFieldFC<
         presets={[DEFAULT_PRESETS]}
         {...fieldProps}
         style={style}
-        className={classNames({ [prefixCls]: true })}
+        className={clsx({ [prefixCls]: true })}
       />
     );
     if (formItemRender) {

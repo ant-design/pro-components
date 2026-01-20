@@ -1,10 +1,9 @@
-import { omit } from '@rc-component/util';
+import { omit, useMergedState } from '@rc-component/util';
 import { Form, Popover, PopoverProps, type InputProps } from 'antd';
 import type { InputRef, PasswordProps } from 'antd/es/input';
 import React, { useState } from 'react';
 import { FieldPassword } from '../../../field';
 import { ProConfigProvider } from '../../../provider';
-import { useMountMergeState } from '../../../utils';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProField from '../Field';
 
@@ -50,7 +49,7 @@ const PassWordStrength: React.FC<
     children: React.ReactNode;
   }
 > = (props) => {
-  const [open, setOpen] = useMountMergeState<boolean>(props.open || false, {
+  const [open, setOpen] = useMergedState<boolean>(props.open || false, {
     value: props.open,
     onChange: props.onOpenChange,
   });

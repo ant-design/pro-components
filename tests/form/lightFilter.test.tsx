@@ -7,6 +7,7 @@ import {
   ProFormDateTimeRangePicker,
   ProFormDateWeekRangePicker,
   ProFormDateYearRangePicker,
+  ProFormDigitRange,
   ProFormSelect,
   ProFormSlider,
   ProFormText,
@@ -413,6 +414,39 @@ describe('LightFilter', () => {
     expect(weekLabel).toBe('2023-1st ~ 2023-2nd');
     expect(quarterLabel).toBe('2023-Q1 ~ 2023-Q1');
     expect(yearLabel).toBe('2022 ~ 2023');
+  });
+
+  it(' 🪕 should not format digitRange label as date range', async () => {
+    const { container } = render(
+      <LightFilter
+        initialValues={{
+          digitRange: [12, 34],
+        }}
+      >
+        <ProFormDigitRange
+          name="digitRange"
+          label="数字范围"
+          lightProps={{
+            // Simulate inconsistent casing from user config
+            valueType: 'DigitRange',
+          }}
+        />
+      </LightFilter>,
+    );
+
+    await waitFor(() => {
+      const fieldLabel = container.querySelector('.ant-pro-core-field-label');
+      expect(fieldLabel).toBeTruthy();
+      expect(fieldLabel?.textContent).toContain('数字范围');
+    });
+
+    const fieldLabelText =
+      container.querySelector('.ant-pro-core-field-label')?.textContent || '';
+
+    // If digitRange is mistakenly treated as dateRange, 12/34 would be formatted as timestamps (1970-...)
+    expect(fieldLabelText).not.toContain('1970-');
+    expect(fieldLabelText).toContain('12');
+    expect(fieldLabelText).toContain('34');
   });
 
   it(' 🪕 should support onFinish callback', async () => {

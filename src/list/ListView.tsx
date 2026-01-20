@@ -12,7 +12,7 @@ import useLazyKVMap from 'antd/es/table/hooks/useLazyKVMap';
 import usePagination from 'antd/es/table/hooks/usePagination';
 import useSelection from 'antd/es/table/hooks/useSelection';
 import type { GetRowKey, TableRowSelection } from 'antd/es/table/interface';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, { useContext } from 'react';
 import type { CheckCardProps } from '../card';
 import { ProProvider } from '../provider';
@@ -205,7 +205,7 @@ function ListView<RecordType extends AnyObject>(
   return (
     <List<RecordType>
       {...rest}
-      className={classNames(
+      className={clsx(
         getPrefixCls('pro-list-container', customizePrefixCls),
         hashId,
         rest.className,

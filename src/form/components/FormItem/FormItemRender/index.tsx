@@ -54,9 +54,8 @@ export function useControlModel<
   model?: T,
 ): { [P in GetArrayFieldType<T>]: ControlModelType };
 export function useControlModel<
-  T extends
-    | FormControlProps
-    | (string | FormControlMultiProps)[] = FormControlProps,
+  T extends FormControlProps | (string | FormControlMultiProps)[] =
+    FormControlProps,
 >({ value, onChange }: WithControlPropsType, model?: T): unknown {
   if (!Array.isArray(model)) {
     const p = getControlConfigProps(model);

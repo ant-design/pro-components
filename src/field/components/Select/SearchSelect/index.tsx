@@ -1,6 +1,6 @@
 import type { SelectProps } from 'antd';
 import { ConfigProvider, Select } from 'antd';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, {
   useContext,
   useEffect,
@@ -28,8 +28,10 @@ export type DataValueType<T> = KeyLabel & T;
 /** 可能单选，可能多选 */
 export type DataValuesType<T> = DataValueType<T> | DataValueType<T>[];
 
-export interface SearchSelectProps<T = Record<string, any>>
-  extends Omit<SelectProps<KeyLabel | KeyLabel[]>, 'options'> {
+export interface SearchSelectProps<T = Record<string, any>> extends Omit<
+  SelectProps<KeyLabel | KeyLabel[]>,
+  'options'
+> {
   /** 防抖动时间 默认10 单位ms */
   debounceTime?: number;
   /** 自定义搜索方法, 返回搜索结果的 Promise */
@@ -163,7 +165,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
 
   // 兼容 renderXXX API。
 
-  const classString = classNames(prefixCls, className, {
+  const classString = clsx(prefixCls, className, {
     [`${prefixCls}-disabled`]: disabled,
   });
 

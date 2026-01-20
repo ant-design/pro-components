@@ -946,7 +946,7 @@ function EditableTable<
             }
 
             // 在找到 changeItem 之后再更新 preData，确保后续比较正确
-            preData.current = value;
+            preData.current = list;
 
             return null;
           }}

@@ -6,7 +6,7 @@ import {
   ConfigProvider,
   Tooltip,
 } from 'antd';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, { useContext } from 'react';
 import { useStyle } from './style';
 
@@ -58,13 +58,13 @@ const Statistic: React.FC<StatisticProps> = (props) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-card-statistic');
   const { wrapSSR, hashId } = useStyle(prefixCls);
-  const classString = classNames(prefixCls, className, hashId);
-  const statusClass = classNames(`${prefixCls}-status`, hashId);
-  const iconClass = classNames(`${prefixCls}-icon`, hashId);
-  const wrapperClass = classNames(`${prefixCls}-wrapper`, hashId);
-  const contentClass = classNames(`${prefixCls}-content`, hashId);
+  const classString = clsx(prefixCls, className, hashId);
+  const statusClass = clsx(`${prefixCls}-status`, hashId);
+  const iconClass = clsx(`${prefixCls}-icon`, hashId);
+  const wrapperClass = clsx(`${prefixCls}-wrapper`, hashId);
+  const contentClass = clsx(`${prefixCls}-content`, hashId);
 
-  const statisticClassName = classNames(hashId, {
+  const statisticClassName = clsx(hashId, {
     [`${prefixCls}-layout-${layout}`]: layout,
     [`${prefixCls}-trend-${trend}`]: trend,
   });
@@ -75,7 +75,7 @@ const Statistic: React.FC<StatisticProps> = (props) => {
     </Tooltip>
   );
 
-  const trendIconClassName = classNames(`${prefixCls}-trend-icon`, hashId, {
+  const trendIconClassName = clsx(`${prefixCls}-trend-icon`, hashId, {
     [`${prefixCls}-trend-icon-${trend}`]: trend,
   });
 

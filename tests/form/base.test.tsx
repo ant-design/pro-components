@@ -27,24 +27,28 @@ import {
   afterAll,
   afterEach,
   beforeAll,
+  beforeEach,
   describe,
   expect,
   it,
   vi,
 } from 'vitest';
+import { TEST_INITIAL_URL } from '../testConstants';
 import { waitForWaitTime } from '../util';
-
-afterEach(() => {
-  cleanup();
-});
 
 describe('ProForm', () => {
   beforeAll(() => vi.useFakeTimers());
   afterAll(() => vi.useRealTimers());
 
+  beforeEach(() => {
+    // 重置 URL 状态以避免测试间状态污染
+    window.history.replaceState({}, '', TEST_INITIAL_URL);
+  });
+
   afterEach(() => {
     cleanup();
   });
+
   it('📦 submit props actionsRender=false', async () => {
     const wrapper = render(<ProForm submitter={false} />);
 

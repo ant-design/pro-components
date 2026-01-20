@@ -1,3 +1,4 @@
+import { useControlledState } from '@rc-component/util';
 import type { SelectProps } from 'antd';
 import { ConfigProvider, Spin } from 'antd';
 import React, {
@@ -21,7 +22,6 @@ import {
   useDebounceValue,
   useDeepCompareEffect,
   useDeepCompareMemo,
-  useMountMergeState,
   useRefFunction,
   useStyle,
 } from '../../../utils';
@@ -268,16 +268,9 @@ export const useFieldFetchData = (
     return data;
   }, [fieldProps]);
 
-  const [options, setOptions] = useMountMergeState<SelectOptionType>(
-    () => {
-      if (props.valueEnum) {
-        return getOptionsFormValueEnum(props.valueEnum);
-      }
-      return [];
-    },
-    {
-      value: defaultOptions,
-    },
+  const [options, setOptions] = useControlledState<SelectOptionType>(
+    () => (props.valueEnum ? getOptionsFormValueEnum(props.valueEnum) : []),
+    defaultOptions,
   );
 
   useDeepCompareEffect(() => {

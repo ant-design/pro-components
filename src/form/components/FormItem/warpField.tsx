@@ -1,6 +1,6 @@
 ﻿import { FieldContext as RcFieldContext } from '@rc-component/form';
 import type { FormItemProps } from 'antd';
-import classnames from 'classnames';
+import { clsx } from 'clsx';
 import React, { useContext, useMemo, useState } from 'react';
 import {
   omitUndefined,
@@ -225,7 +225,7 @@ export function warpField<P extends ProFormFieldItemProps = any>(
     const className = useDeepCompareMemo(() => {
       const isSizeEnum = width && WIDTH_SIZE_ENUM[width as 'xs'];
       return (
-        classnames(fieldProps?.className, {
+        clsx(fieldProps?.className, {
           'pro-field': isSizeEnum,
           [`pro-field-${width}`]: isSizeEnum && !isIgnoreWidth,
         }) || undefined

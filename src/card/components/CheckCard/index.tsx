@@ -1,8 +1,8 @@
+import { useMergedState } from '@rc-component/util';
 import { Avatar, ConfigProvider } from 'antd';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import type { MouseEventHandler } from 'react';
 import React, { useContext, useEffect, useMemo } from 'react';
-import { useMountMergeState } from '../../../utils';
 import ProCardActions from '../Actions';
 import type { CheckCardGroupProps } from './Group';
 import CheckCardGroup, { CardLoading, CheckCardGroupConnext } from './Group';
@@ -169,7 +169,7 @@ export interface CheckCardState {
 const CheckCard: React.FC<CheckCardProps> & {
   Group: typeof CheckCardGroup;
 } = (props) => {
-  const [stateChecked, setStateChecked] = useMountMergeState<boolean>(
+  const [stateChecked, setStateChecked] = useMergedState<boolean>(
     props.defaultChecked || false,
     {
       value: props.checked,
@@ -225,7 +225,7 @@ const CheckCard: React.FC<CheckCardProps> & {
    */
   const renderCover = (cls: string, coverDom: string | React.ReactNode) => {
     return (
-      <div className={classNames(`${cls}-cover`, hashId)}>
+      <div className={clsx(`${cls}-cover`, hashId)}>
         {typeof coverDom === 'string' ? (
           <img src={coverDom} alt="checkcard" />
         ) : (
@@ -265,7 +265,7 @@ const CheckCard: React.FC<CheckCardProps> & {
   } = checkCardProps;
   const sizeCls = getSizeCls(size);
 
-  const classString = classNames(prefixCls, className, hashId, {
+  const classString = clsx(prefixCls, className, hashId, {
     [`${prefixCls}-loading`]: cardLoading,
     [`${prefixCls}-${sizeCls}`]: sizeCls,
     [`${prefixCls}-checked`]: checked,
@@ -285,7 +285,7 @@ const CheckCard: React.FC<CheckCardProps> & {
     }
 
     const avatarDom = avatar ? (
-      <div className={classNames(`${prefixCls}-avatar`, hashId)}>
+      <div className={clsx(`${prefixCls}-avatar`, hashId)}>
         {typeof avatar === 'string' ? (
           <Avatar size={48} shape="square" src={avatar} />
         ) : (
@@ -295,36 +295,34 @@ const CheckCard: React.FC<CheckCardProps> & {
     ) : null;
 
     const headerDom = (title ?? extra) != null && (
-      <div className={classNames(`${prefixCls}-header`, hashId)}>
-        <div className={classNames(`${prefixCls}-header-left`, hashId)}>
+      <div className={clsx(`${prefixCls}-header`, hashId)}>
+        <div className={clsx(`${prefixCls}-header-left`, hashId)}>
           <div
-            className={classNames(`${prefixCls}-title`, hashId, {
+            className={clsx(`${prefixCls}-title`, hashId, {
               [`${prefixCls}-title-with-ellipsis`]: typeof title === 'string',
             })}
           >
             {title}
           </div>
           {props.subTitle ? (
-            <div className={classNames(`${prefixCls}-subTitle`, hashId)}>
+            <div className={clsx(`${prefixCls}-subTitle`, hashId)}>
               {props.subTitle}
             </div>
           ) : null}
         </div>
         {extra && (
-          <div className={classNames(`${prefixCls}-extra`, hashId)}>
-            {extra}
-          </div>
+          <div className={clsx(`${prefixCls}-extra`, hashId)}>{extra}</div>
         )}
       </div>
     );
 
     const descriptionDom = description ? (
-      <div className={classNames(`${prefixCls}-description`, hashId)}>
+      <div className={clsx(`${prefixCls}-description`, hashId)}>
         {description}
       </div>
     ) : null;
 
-    const metaClass = classNames(`${prefixCls}-content`, hashId, {
+    const metaClass = clsx(`${prefixCls}-content`, hashId, {
       [`${prefixCls}-avatar-header`]: avatarDom && headerDom && !descriptionDom,
     });
 
@@ -332,7 +330,7 @@ const CheckCard: React.FC<CheckCardProps> & {
       <div className={metaClass}>
         {avatarDom}
         {headerDom || descriptionDom ? (
-          <div className={classNames(`${prefixCls}-detail`, hashId)}>
+          <div className={clsx(`${prefixCls}-detail`, hashId)}>
             {headerDom}
             {descriptionDom}
           </div>
@@ -365,7 +363,7 @@ const CheckCard: React.FC<CheckCardProps> & {
       {metaDom}
       {props.children ? (
         <div
-          className={classNames(`${prefixCls}-body`, hashId)}
+          className={clsx(`${prefixCls}-body`, hashId)}
           style={props.styles?.body || props.bodyStyle}
         >
           {props.children}

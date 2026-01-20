@@ -1,5 +1,5 @@
 import { ConfigProvider } from 'antd';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import type { CSSProperties } from 'react';
 import React, { useContext } from 'react';
 import { RouteContext } from '../../context/RouteContext';
@@ -38,7 +38,7 @@ const GridContent: React.FC<GridContentProps> = (props) => {
 
   return wrapSSR(
     <div
-      className={classNames(className, hashId, propsClassName, {
+      className={clsx(className, hashId, propsClassName, {
         [`${className}-wide`]: isWide,
       })}
       style={style}

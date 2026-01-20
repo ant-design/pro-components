@@ -1,5 +1,5 @@
 import { ConfigProvider } from 'antd';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, { useContext } from 'react';
 import type { CardProps } from '../../typing';
 import Card from '../Card';
@@ -39,14 +39,14 @@ const StatisticCard: React.FC<StatisticCardProps> & {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-statistic-card');
   const { wrapSSR, hashId } = useStyle(prefixCls);
-  const classString = classNames(prefixCls, className, hashId);
+  const classString = clsx(prefixCls, className, hashId);
 
   // 在 StatisticCard 中时默认为 vertical。
   const statisticDom = statistic && (
     <Statistic layout="vertical" {...statistic} />
   );
 
-  const chartCls = classNames(`${prefixCls}-chart`, hashId, {
+  const chartCls = clsx(`${prefixCls}-chart`, hashId, {
     [`${prefixCls}-chart-left`]:
       chartPlacement === 'left' && chart && statistic,
     [`${prefixCls}-chart-right`]:
@@ -55,7 +55,7 @@ const StatisticCard: React.FC<StatisticCardProps> & {
 
   const chartDom = chart && <div className={chartCls}>{chart}</div>;
 
-  const contentCls = classNames(`${prefixCls}-content `, hashId, {
+  const contentCls = clsx(`${prefixCls}-content `, hashId, {
     [`${prefixCls}-content-horizontal`]:
       chartPlacement === 'left' || chartPlacement === 'right',
   });
