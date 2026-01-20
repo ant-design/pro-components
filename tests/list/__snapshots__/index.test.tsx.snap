@@ -6,109 +6,100 @@ exports[`List > 🚏 ProList support rowClassName as a function 1`] = `
     class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
   >
     <div
-      class="ant-pro-card"
+      class="ant-list ant-list-split ant-pro-list-container css-var-r2f"
     >
       <div
-        class="ant-pro-card-body"
-        style="padding: 0px;"
+        class="ant-spin-nested-loading css-var-r2f"
       >
         <div
-          class="ant-list ant-list-split ant-pro-list-container css-var-r2f"
+          class="ant-spin-container"
         >
-          <div
-            class="ant-spin-nested-loading css-var-r2f"
+          <ul
+            class="ant-list-items"
           >
-            <div
-              class="ant-spin-container"
+            <li
+              class="ant-list-item ant-pro-list-row even"
             >
-              <ul
-                class="ant-list-items"
+              <div
+                class="ant-pro-list-row-header"
               >
-                <li
-                  class="ant-list-item ant-pro-list-row even"
+                <div
+                  class="ant-pro-list-row-header-option"
+                />
+                <div
+                  class="ant-list-item-meta"
                 >
                   <div
-                    class="ant-pro-list-row-header"
+                    class="ant-list-item-meta-content"
                   >
-                    <div
-                      class="ant-pro-list-row-header-option"
-                    />
-                    <div
-                      class="ant-list-item-meta"
+                    <h4
+                      class="ant-list-item-meta-title"
                     >
                       <div
-                        class="ant-list-item-meta-content"
+                        class="ant-pro-list-row-header-container"
                       >
-                        <h4
-                          class="ant-list-item-meta-title"
-                        >
-                          <div
-                            class="ant-pro-list-row-header-container"
-                          >
-                            <div
-                              class="ant-pro-list-row-title"
-                            >
-                              我是名称
-                            </div>
-                          </div>
-                        </h4>
                         <div
-                          class="ant-list-item-meta-description"
+                          class="ant-pro-list-row-title"
                         >
-                          <div
-                            class="ant-pro-list-row-description"
-                          >
-                            desc text
-                          </div>
+                          我是名称
                         </div>
+                      </div>
+                    </h4>
+                    <div
+                      class="ant-list-item-meta-description"
+                    >
+                      <div
+                        class="ant-pro-list-row-description"
+                      >
+                        desc text
                       </div>
                     </div>
                   </div>
-                </li>
-                <li
-                  class="ant-list-item ant-pro-list-row odd"
+                </div>
+              </div>
+            </li>
+            <li
+              class="ant-list-item ant-pro-list-row odd"
+            >
+              <div
+                class="ant-pro-list-row-header"
+              >
+                <div
+                  class="ant-pro-list-row-header-option"
+                />
+                <div
+                  class="ant-list-item-meta"
                 >
                   <div
-                    class="ant-pro-list-row-header"
+                    class="ant-list-item-meta-content"
                   >
-                    <div
-                      class="ant-pro-list-row-header-option"
-                    />
-                    <div
-                      class="ant-list-item-meta"
+                    <h4
+                      class="ant-list-item-meta-title"
                     >
                       <div
-                        class="ant-list-item-meta-content"
+                        class="ant-pro-list-row-header-container"
                       >
-                        <h4
-                          class="ant-list-item-meta-title"
-                        >
-                          <div
-                            class="ant-pro-list-row-header-container"
-                          >
-                            <div
-                              class="ant-pro-list-row-title"
-                            >
-                              我是名称
-                            </div>
-                          </div>
-                        </h4>
                         <div
-                          class="ant-list-item-meta-description"
+                          class="ant-pro-list-row-title"
                         >
-                          <div
-                            class="ant-pro-list-row-description"
-                          >
-                            desc text
-                          </div>
+                          我是名称
                         </div>
+                      </div>
+                    </h4>
+                    <div
+                      class="ant-list-item-meta-description"
+                    >
+                      <div
+                        class="ant-pro-list-row-description"
+                      >
+                        desc text
                       </div>
                     </div>
                   </div>
-                </li>
-              </ul>
-            </div>
-          </div>
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -122,68 +113,59 @@ exports[`List > 🚏 ProList support rowClassName as a string 1`] = `
     class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
   >
     <div
-      class="ant-pro-card"
+      class="ant-list ant-list-split ant-pro-list-container css-var-r2b"
     >
       <div
-        class="ant-pro-card-body"
-        style="padding: 0px;"
+        class="ant-spin-nested-loading css-var-r2b"
       >
         <div
-          class="ant-list ant-list-split ant-pro-list-container css-var-r2b"
+          class="ant-spin-container"
         >
-          <div
-            class="ant-spin-nested-loading css-var-r2b"
+          <ul
+            class="ant-list-items"
           >
-            <div
-              class="ant-spin-container"
+            <li
+              class="ant-list-item ant-pro-list-row rowClassName"
             >
-              <ul
-                class="ant-list-items"
+              <div
+                class="ant-pro-list-row-header"
               >
-                <li
-                  class="ant-list-item ant-pro-list-row rowClassName"
+                <div
+                  class="ant-pro-list-row-header-option"
+                />
+                <div
+                  class="ant-list-item-meta"
                 >
                   <div
-                    class="ant-pro-list-row-header"
+                    class="ant-list-item-meta-content"
                   >
-                    <div
-                      class="ant-pro-list-row-header-option"
-                    />
-                    <div
-                      class="ant-list-item-meta"
+                    <h4
+                      class="ant-list-item-meta-title"
                     >
                       <div
-                        class="ant-list-item-meta-content"
+                        class="ant-pro-list-row-header-container"
                       >
-                        <h4
-                          class="ant-list-item-meta-title"
-                        >
-                          <div
-                            class="ant-pro-list-row-header-container"
-                          >
-                            <div
-                              class="ant-pro-list-row-title"
-                            >
-                              我是名称
-                            </div>
-                          </div>
-                        </h4>
                         <div
-                          class="ant-list-item-meta-description"
+                          class="ant-pro-list-row-title"
                         >
-                          <div
-                            class="ant-pro-list-row-description"
-                          >
-                            desc text
-                          </div>
+                          我是名称
                         </div>
+                      </div>
+                    </h4>
+                    <div
+                      class="ant-list-item-meta-description"
+                    >
+                      <div
+                        class="ant-pro-list-row-description"
+                      >
+                        desc text
                       </div>
                     </div>
                   </div>
-                </li>
-              </ul>
-            </div>
-          </div>
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -197,45 +179,36 @@ exports[`List > 🚏 only has content 1`] = `
     class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
   >
     <div
-      class="ant-pro-card"
+      class="ant-list ant-list-split ant-pro-list-container css-var-rd"
     >
       <div
-        class="ant-pro-card-body"
-        style="padding: 0px;"
+        class="ant-spin-nested-loading css-var-rd"
       >
         <div
-          class="ant-list ant-list-split ant-pro-list-container css-var-rd"
+          class="ant-spin-container"
         >
-          <div
-            class="ant-spin-nested-loading css-var-rd"
+          <ul
+            class="ant-list-items"
           >
-            <div
-              class="ant-spin-container"
+            <li
+              class="ant-list-item ant-pro-list-row"
             >
-              <ul
-                class="ant-list-items"
+              <div
+                class="ant-pro-list-row-header"
               >
-                <li
-                  class="ant-list-item ant-pro-list-row"
-                >
-                  <div
-                    class="ant-pro-list-row-header"
-                  >
-                    <div
-                      class="ant-pro-list-row-header-option"
-                    />
-                  </div>
-                  <div
-                    class="ant-pro-list-row-content"
-                  >
-                    <div>
-                      段落示意：蚂蚁金服设计平台 design.alipay.com，用最小的工作量，无缝接入蚂蚁金服生态，提供跨越设计与开发的体验解决方案。蚂蚁金服设计平台 design.alipay.com，用最小的工作量，无缝接入蚂蚁金服生态提供跨越设计与开发的体验解决方案。
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
+                <div
+                  class="ant-pro-list-row-header-option"
+                />
+              </div>
+              <div
+                class="ant-pro-list-row-content"
+              >
+                <div>
+                  段落示意：蚂蚁金服设计平台 design.alipay.com，用最小的工作量，无缝接入蚂蚁金服生态，提供跨越设计与开发的体验解决方案。蚂蚁金服设计平台 design.alipay.com，用最小的工作量，无缝接入蚂蚁金服生态提供跨越设计与开发的体验解决方案。
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -249,69 +222,60 @@ exports[`List > 🚏 only has description 1`] = `
     class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
   >
     <div
-      class="ant-pro-card"
+      class="ant-list ant-list-split ant-pro-list-container css-var-rh"
     >
       <div
-        class="ant-pro-card-body"
-        style="padding: 0px;"
+        class="ant-spin-nested-loading css-var-rh"
       >
         <div
-          class="ant-list ant-list-split ant-pro-list-container css-var-rh"
+          class="ant-spin-container"
         >
-          <div
-            class="ant-spin-nested-loading css-var-rh"
+          <ul
+            class="ant-list-items"
           >
-            <div
-              class="ant-spin-container"
+            <li
+              class="ant-list-item ant-pro-list-row"
             >
-              <ul
-                class="ant-list-items"
+              <div
+                class="ant-pro-list-row-header"
               >
-                <li
-                  class="ant-list-item ant-pro-list-row"
+                <div
+                  class="ant-pro-list-row-header-option"
+                />
+                <div
+                  class="ant-list-item-meta"
                 >
                   <div
-                    class="ant-pro-list-row-header"
+                    class="ant-list-item-meta-content"
                   >
                     <div
-                      class="ant-pro-list-row-header-option"
-                    />
-                    <div
-                      class="ant-list-item-meta"
+                      class="ant-list-item-meta-description"
                     >
                       <div
-                        class="ant-list-item-meta-content"
+                        class="ant-pro-list-row-description"
                       >
-                        <div
-                          class="ant-list-item-meta-description"
+                        <span
+                          class="ant-tag ant-tag-filled css-var-rh"
                         >
-                          <div
-                            class="ant-pro-list-row-description"
-                          >
-                            <span
-                              class="ant-tag ant-tag-filled css-var-rh"
-                            >
-                              语雀专栏
-                            </span>
-                            <span
-                              class="ant-tag ant-tag-filled css-var-rh"
-                            >
-                              设计语言
-                            </span>
-                            <span
-                              class="ant-tag ant-tag-filled css-var-rh"
-                            >
-                              蚂蚁金服
-                            </span>
-                          </div>
-                        </div>
+                          语雀专栏
+                        </span>
+                        <span
+                          class="ant-tag ant-tag-filled css-var-rh"
+                        >
+                          设计语言
+                        </span>
+                        <span
+                          class="ant-tag ant-tag-filled css-var-rh"
+                        >
+                          蚂蚁金服
+                        </span>
                       </div>
                     </div>
                   </div>
-                </li>
-              </ul>
-            </div>
-          </div>
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -325,96 +289,87 @@ exports[`List > 🚏 show loading state 1`] = `
     class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
   >
     <div
-      class="ant-pro-card"
+      class="ant-list ant-list-split ant-list-loading ant-pro-list-container css-var-r9"
     >
       <div
-        class="ant-pro-card-body"
-        style="padding: 0px;"
+        class="ant-spin-nested-loading css-var-r9"
       >
-        <div
-          class="ant-list ant-list-split ant-list-loading ant-pro-list-container css-var-r9"
-        >
+        <div>
           <div
-            class="ant-spin-nested-loading css-var-r9"
+            aria-busy="true"
+            aria-live="polite"
+            class="ant-spin ant-spin-spinning css-var-r9"
           >
-            <div>
-              <div
-                aria-busy="true"
-                aria-live="polite"
-                class="ant-spin ant-spin-spinning css-var-r9"
-              >
-                <span
-                  class="ant-spin-dot-holder"
-                >
-                  <span
-                    class="ant-spin-dot ant-spin-dot-spin"
-                  >
-                    <i
-                      class="ant-spin-dot-item"
-                    />
-                    <i
-                      class="ant-spin-dot-item"
-                    />
-                    <i
-                      class="ant-spin-dot-item"
-                    />
-                    <i
-                      class="ant-spin-dot-item"
-                    />
-                  </span>
-                </span>
-              </div>
-            </div>
-            <div
-              class="ant-spin-container ant-spin-blur"
+            <span
+              class="ant-spin-dot-holder"
             >
-              <ul
-                class="ant-list-items"
+              <span
+                class="ant-spin-dot ant-spin-dot-spin"
               >
-                <li
-                  class="ant-list-item ant-pro-list-row"
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+              </span>
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-spin-container ant-spin-blur"
+        >
+          <ul
+            class="ant-list-items"
+          >
+            <li
+              class="ant-list-item ant-pro-list-row"
+            >
+              <div
+                class="ant-pro-list-row-header"
+              >
+                <div
+                  class="ant-pro-list-row-header-option"
+                />
+                <div
+                  class="ant-list-item-meta"
                 >
                   <div
-                    class="ant-pro-list-row-header"
+                    class="ant-list-item-meta-content"
                   >
-                    <div
-                      class="ant-pro-list-row-header-option"
-                    />
-                    <div
-                      class="ant-list-item-meta"
+                    <h4
+                      class="ant-list-item-meta-title"
                     >
                       <div
-                        class="ant-list-item-meta-content"
+                        class="ant-pro-list-row-header-container"
                       >
-                        <h4
-                          class="ant-list-item-meta-title"
-                        >
-                          <div
-                            class="ant-pro-list-row-header-container"
-                          >
-                            <div
-                              class="ant-pro-list-row-title"
-                            >
-                              我是名称
-                            </div>
-                          </div>
-                        </h4>
                         <div
-                          class="ant-list-item-meta-description"
+                          class="ant-pro-list-row-title"
                         >
-                          <div
-                            class="ant-pro-list-row-description"
-                          >
-                            desc text
-                          </div>
+                          我是名称
                         </div>
+                      </div>
+                    </h4>
+                    <div
+                      class="ant-list-item-meta-description"
+                    >
+                      <div
+                        class="ant-pro-list-row-description"
+                      >
+                        desc text
                       </div>
                     </div>
                   </div>
-                </li>
-              </ul>
-            </div>
-          </div>
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

@@ -4,6 +4,7 @@ import {
   createEvent,
   fireEvent,
   render,
+  waitFor,
 } from '@testing-library/react';
 import { act } from 'react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
@@ -561,6 +562,17 @@ describe('Table ColumnSetting', () => {
       );
     });
     await waitForWaitTime(100);
+    
+    // rerender 后需要重新打开 Popover
+    act(() => {
+      html.baseElement
+        .querySelector<HTMLDivElement>(
+          '.ant-pro-table-list-toolbar-setting-item .anticon-setting',
+        )
+        ?.click();
+    });
+    await waitForWaitTime(100);
+    
     overlay = html.baseElement.querySelectorAll<HTMLDivElement>(
       '.ant-pro-table-column-setting-overlay .ant-pro-table-column-setting-list-title',
     );
@@ -653,16 +665,16 @@ describe('Table ColumnSetting', () => {
       input?.click();
     });
 
-    await waitForWaitTime(100);
-
-    expect(
-      html.baseElement.querySelectorAll<HTMLDivElement>(
-        'span.ant-checkbox.ant-checkbox-checked',
-      ).length +
+    await waitFor(() => {
+      const checkedCount =
+        html.baseElement.querySelectorAll<HTMLDivElement>(
+          'span.ant-checkbox.ant-checkbox-checked',
+        ).length +
         html.baseElement.querySelectorAll<HTMLDivElement>(
           'span.ant-tree-checkbox.ant-tree-checkbox-checked',
-        ).length,
-    ).toBe(2);
+        ).length;
+      expect(checkedCount).toBe(2);
+    });
 
     expect(callBack).toHaveBeenCalled();
 
@@ -853,7 +865,9 @@ describe('Table ColumnSetting', () => {
         ?.click();
     });
 
-    expect(onChange).toHaveBeenCalledTimes(2);
+    await waitFor(() => {
+      expect(onChange).toHaveBeenCalledTimes(2);
+    });
     expect((onChange.mock as any).lastCall[0]).toMatchInlineSnapshot(`
       {
         "3": {
@@ -965,16 +979,17 @@ describe('Table ColumnSetting', () => {
         )
         ?.click();
     });
-    await waitForWaitTime(100);
-
-    expect(
-      html.baseElement.querySelectorAll<HTMLDivElement>(
-        'span.ant-checkbox.ant-checkbox-checked',
-      ).length +
+    
+    await waitFor(() => {
+      const checkedCount =
+        html.baseElement.querySelectorAll<HTMLDivElement>(
+          'span.ant-checkbox.ant-checkbox-checked',
+        ).length +
         html.baseElement.querySelectorAll<HTMLDivElement>(
           'span.ant-tree-checkbox.ant-tree-checkbox-checked',
-        ).length,
-    ).toBe(2);
+        ).length;
+      expect(checkedCount).toBe(2);
+    });
 
     expect(callBack).toHaveBeenCalled();
   });

@@ -699,8 +699,8 @@ describe('Descriptions', () => {
     });
 
     await waitFor(() => {
-      // 由于数据结构问题，实际传递的是 undefined，调整期望值
-      expect(fn).toHaveBeenCalledWith(undefined);
+      // 代码已修复，现在能正确传递数组 dataIndex 的值
+      expect(fn).toHaveBeenCalledWith('2021-05-26 09:42:56');
     });
   });
 });

@@ -9,12 +9,14 @@ class ErrorBoundary extends React.Component<
   state = { hasError: false, errorInfo: '' };
 
   static getDerivedStateFromError(error: Error) {
+    console.warn('ErrorBoundary caught an error', error);
     return { hasError: true, errorInfo: error.message };
   }
 
   componentDidCatch(error: any, errorInfo: ErrorInfo) {
     // You can also log the error to an error reporting service
     // 这里可以添加错误上报逻辑
+    console.warn('ErrorBoundary caught an error', error, errorInfo);
   }
 
   render() {
