@@ -1,6 +1,6 @@
 import { ConfigProvider } from 'antd';
 import type { TooltipPlacement } from 'antd/es/tooltip';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, { useContext, useMemo, useState } from 'react';
 import {
   dateArrayFormatter,
