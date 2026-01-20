@@ -1,6 +1,6 @@
 ﻿import { Checkbox, ConfigProvider, Form, Spin, theme } from 'antd';
-import type { CheckboxGroupProps } from 'antd/lib/checkbox';
-import { clsx } from 'clsx';
+import type { CheckboxGroupProps } from 'antd/es/checkbox';
+import classNames from 'classnames';
 import React, { useContext, useImperativeHandle, useRef } from 'react';
 import { objectToMap, proFieldParsingText, useStyle } from '../../../utils';
 import type { ProFieldFC } from '../../PureProField';

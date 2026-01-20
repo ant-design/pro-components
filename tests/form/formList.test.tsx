@@ -19,7 +19,7 @@ import {
   waitFor,
 } from '@testing-library/react';
 import { Button, Form } from 'antd';
-import type { NamePath } from 'antd/lib/form/interface';
+import type { NamePath } from 'antd/es/form/interface';
 import dayjs from 'dayjs';
 import { pick } from 'lodash-es';
 import React, { act } from 'react';

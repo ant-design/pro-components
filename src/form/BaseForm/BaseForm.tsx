@@ -10,8 +10,8 @@ import {
 import { useUrlSearchParams } from '@umijs/use-params';
 import type { FormInstance, FormItemProps, FormProps } from 'antd';
 import { ConfigProvider, Form, Spin } from 'antd';
-import type { NamePath } from 'antd/lib/form/interface';
-import { clsx } from 'clsx';
+import type { NamePath } from 'antd/es/form/interface';
+import classNames from 'classnames';
 import type dayjs from 'dayjs';
 import React, {
   useContext,

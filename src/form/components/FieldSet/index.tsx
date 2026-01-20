@@ -1,7 +1,7 @@
 ﻿import { toArray } from '@rc-component/util';
 import type { SpaceProps } from 'antd';
 import { Space } from 'antd';
-import type { GroupProps } from 'antd/lib/input';
+import type { GroupProps } from 'antd/es/input';
 import React, { useCallback, useImperativeHandle } from 'react';
 import { runFunction, useRefFunction } from '../../../utils';
 import type { LightWrapperProps } from '../../BaseForm';

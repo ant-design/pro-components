@@ -13,7 +13,7 @@ import {
   StepsForm,
 } from '@ant-design/pro-components';
 import { ConfigProvider, Input } from 'antd';
-import enUS from 'antd/lib/locale/en_US';
+import enUS from 'antd/es/locale/en_US';
 
 const Demo = () => (
   <ConfigProvider locale={enUS}>

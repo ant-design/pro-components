@@ -15,8 +15,8 @@ import {
   Tree,
   Typography,
 } from 'antd';
-import type { CheckboxChangeEvent } from 'antd/lib/checkbox';
-import type { DataNode } from 'antd/lib/tree';
+import type { CheckboxChangeEvent } from 'antd/es/checkbox';
+import type { DataNode } from 'antd/es/tree';
 import { clsx } from 'clsx';
 import React, { useContext, useEffect, useMemo, useRef } from 'react';
 import { ProProvider, useIntl } from '../../../provider';
