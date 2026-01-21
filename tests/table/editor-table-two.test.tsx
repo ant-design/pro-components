@@ -9,7 +9,7 @@ import {
   ProForm,
   ProFormText,
 } from '@ant-design/pro-components';
-import { useMergedState } from '@rc-component/util';
+import { useControlledState } from '@rc-component/util';
 import {
   act,
   cleanup,
@@ -18,7 +18,7 @@ import {
   waitFor,
 } from '@testing-library/react';
 import { Button, Input, InputNumber } from 'antd';
-import React, { useRef } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
 type DataSourceType = {
@@ -172,19 +172,47 @@ const EditorProTableDemo = (
   } & TableRowEditable<DataSourceType>,
 ) => {
   const actionRef = useRef<ActionType>();
-  const [editableKeys, setEditorRowKeys] = useMergedState<React.Key[]>(
+  const [editableKeys, setEditorRowKeysInner] = useControlledState<React.Key[]>(
     () => props.defaultKeys || [],
-    {
-      value: props.editorRowKeys,
-      onChange: props.onEditorChange,
-    },
+    props.editorRowKeys,
   );
-  const [tableDataSource, setDataSource] = useMergedState<
+  const setEditorRowKeys = useCallback(
+    (updater: React.Key[] | ((prev: React.Key[]) => React.Key[])) => {
+      setEditorRowKeysInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: React.Key[]) => React.Key[])(prev)
+            : updater;
+        props.onEditorChange?.(next);
+        return next;
+      });
+    },
+    [props.onEditorChange],
+  );
+  const [tableDataSource, setDataSourceInner] = useControlledState<
     readonly DataSourceType[]
-  >(defaultData, {
-    value: props.dataSource,
-    onChange: props.onDataSourceChange,
-  });
+  >(defaultData, props.dataSource);
+  const setDataSource = useCallback(
+    (
+      updater:
+        | readonly DataSourceType[]
+        | ((prev: readonly DataSourceType[]) => readonly DataSourceType[]),
+    ) => {
+      setDataSourceInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (
+                updater as (
+                  p: readonly DataSourceType[],
+                ) => readonly DataSourceType[]
+              )(prev)
+            : updater;
+        props.onDataSourceChange?.(next);
+        return next;
+      });
+    },
+    [props.onDataSourceChange],
+  );
   return (
     <EditableProTable<DataSourceType>
       rowKey="id"

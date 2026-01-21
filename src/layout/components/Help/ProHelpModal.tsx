@@ -1,6 +1,7 @@
-﻿import { useMergedState } from '@rc-component/util';
+import { useControlledState } from '@rc-component/util';
 import type { ModalProps } from 'antd';
 import { Modal } from 'antd';
+import React, { useCallback } from 'react';
 import type { ProHelpPanelProps } from './ProHelpPanel';
 import { ProHelpPanel } from './ProHelpPanel';
 export type ProHelpModalProps = {
@@ -19,10 +20,23 @@ export const ProHelpModal: React.FC<ProHelpModalProps> = ({
   modalProps,
   ...props
 }) => {
-  const [modalOpen, setModalOpen] = useMergedState<boolean>(false, {
-    value: modalProps?.open,
-    onChange: modalProps?.afterClose,
-  });
+  const [modalOpen, setModalOpenInner] = useControlledState<boolean>(
+    false,
+    modalProps?.open,
+  );
+  const setModalOpen = useCallback(
+    (updater: boolean | ((prev: boolean) => boolean)) => {
+      setModalOpenInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: boolean) => boolean)(prev)
+            : updater;
+        modalProps?.afterClose?.(next);
+        return next;
+      });
+    },
+    [modalProps?.afterClose],
+  );
   return (
     <Modal
       onCancel={() => {

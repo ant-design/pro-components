@@ -1,5 +1,5 @@
 import { RightOutlined } from '@ant-design/icons';
-import { omit, useMergedState } from '@rc-component/util';
+import { omit, useControlledState } from '@rc-component/util';
 import { ConfigProvider, Skeleton } from 'antd';
 import { clsx } from 'clsx';
 import React, {
@@ -317,12 +317,27 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
     'size',
   ]);
 
-  const [stateValue, setStateValue] = useMergedState<
+  const [stateValue, setStateValueInner] = useControlledState<
     CheckCardValueType[] | CheckCardValueType | undefined
-  >(props.defaultValue, {
-    value: props.value,
-    onChange: props.onChange,
-  });
+  >(props.defaultValue, props.value);
+
+  const setStateValue = useCallback(
+    (
+      updater:
+        | CheckGroupValueType
+        | ((prev: CheckGroupValueType) => CheckGroupValueType),
+    ) => {
+      setStateValueInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: CheckGroupValueType) => CheckGroupValueType)(prev)
+            : updater;
+        onChange?.(next);
+        return next;
+      });
+    },
+    [onChange],
+  );
 
   const registerValueMap = useRef<Map<CheckCardValueType, any>>(new Map());
 

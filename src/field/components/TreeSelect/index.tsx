@@ -1,8 +1,9 @@
-import { useMergedState } from '@rc-component/util';
+import { useControlledState } from '@rc-component/util';
 import type { RadioGroupProps, TreeSelectProps } from 'antd';
 import { ConfigProvider, Spin, TreeSelect } from 'antd';
 import { clsx } from 'clsx';
 import React, {
+  useCallback,
   useContext,
   useImperativeHandle,
   useMemo,
@@ -63,12 +64,21 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     defaultKeyWords: propsSearchValue,
   });
 
-  const [searchValue, setSearchValue] = useMergedState<string | undefined>(
-    undefined,
-    {
-      onChange: onSearch as any,
-      value: propsSearchValue,
+  const [searchValue, setSearchValueInner] = useControlledState<
+    string | undefined
+  >(undefined, propsSearchValue);
+  const setSearchValue = useCallback(
+    (updater: string | undefined | ((prev: string | undefined) => string | undefined)) => {
+      setSearchValueInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: string | undefined) => string | undefined)(prev)
+            : updater;
+        (onSearch as (v?: string) => void)?.(next);
+        return next;
+      });
     },
+    [onSearch],
   );
 
   useImperativeHandle(ref, () => ({

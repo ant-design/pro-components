@@ -1,10 +1,11 @@
 import { PlusOutlined } from '@ant-design/icons';
-import { get, set, useMergedState } from '@rc-component/util';
+import { get, set, useControlledState } from '@rc-component/util';
 import type { ButtonProps, FormItemProps, TablePaginationConfig } from 'antd';
 import { Button, Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
 import type { GetRowKey } from 'antd/lib/table/interface';
 import React, {
+  useCallback,
   useContext,
   useEffect,
   useImperativeHandle,
@@ -492,14 +493,28 @@ function EditableTable<
     return [];
   };
 
-  const [value, setValue] = useMergedState<readonly DataType[]>(
+  const [value, setValueInner] = useControlledState<readonly DataType[]>(
     getInitialValue,
-    {
-      value: props.value,
-      // 在非受控模式下，onChange 应该在 onDataSourceChange 中触发
-      // 这样可以确保数据已经正确更新
-      onChange: props.controlled ? props.onChange : undefined,
+    props.value,
+  );
+  const onChangeFn = props.controlled ? props.onChange : undefined;
+  const setValue = useCallback(
+    (
+      updater:
+        | readonly DataType[]
+        | ((prev: readonly DataType[]) => readonly DataType[]),
+    ) => {
+      setValueInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: readonly DataType[]) => readonly DataType[])(prev)
+            : updater;
+        // 在非受控模式下，onChange 应该在 onDataSourceChange 中触发
+        onChangeFn?.(next);
+        return next;
+      });
     },
+    [onChangeFn],
   );
 
   const getRowKey = React.useMemo<

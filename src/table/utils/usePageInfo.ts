@@ -1,4 +1,5 @@
-import { useMergedState } from '@rc-component/util';
+import { useControlledState } from '@rc-component/util';
+import { useCallback } from 'react';
 import { useRefFunction } from '../../utils';
 import type { PageInfo, UseFetchProps } from '../typing';
 
@@ -24,11 +25,22 @@ const mergeOptionAndPageInfo = ({ pageInfo }: UseFetchProps) => {
  * 解决了 total 缺失导致的死循环问题
  */
 export function usePageInfo(options: UseFetchProps) {
-  const [pageInfo, setPageInfoState] = useMergedState<PageInfo>(
+  const [pageInfo, setPageInfoStateInner] = useControlledState<PageInfo>(
     () => mergeOptionAndPageInfo(options),
-    {
-      onChange: options?.onPageInfoChange,
+    undefined,
+  );
+  const setPageInfoState = useCallback(
+    (updater: PageInfo | ((prev: PageInfo) => PageInfo)) => {
+      setPageInfoStateInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: PageInfo) => PageInfo)(prev)
+            : updater;
+        options?.onPageInfoChange?.(next);
+        return next;
+      });
     },
+    [options?.onPageInfoChange],
   );
   const setPageInfo = useRefFunction((changePageInfo: Partial<PageInfo>) => {
     const newPageInfo = {
@@ -41,7 +53,7 @@ export function usePageInfo(options: UseFetchProps) {
       newPageInfo.pageSize !== pageInfo.pageSize ||
       newPageInfo.total !== pageInfo.total
     ) {
-      setPageInfoState(newPageInfo);
+      setPageInfoState(newPageInfo as PageInfo);
     }
   });
 

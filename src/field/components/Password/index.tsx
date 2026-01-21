@@ -1,7 +1,7 @@
 import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons';
-import { useMergedState } from '@rc-component/util';
+import { useControlledState } from '@rc-component/util';
 import { Input, Space } from 'antd';
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useIntl } from '../../../provider';
 import type { ProFieldFC } from '../../PureProField';
 
@@ -20,10 +20,23 @@ const FieldPassword: ProFieldFC<{
 ) => {
   const intl = useIntl();
 
-  const [open, setOpen] = useMergedState<boolean>(() => rest.open || false, {
-    value: rest.open,
-    onChange: rest.onOpenChange,
-  });
+  const [open, setOpenInner] = useControlledState<boolean>(
+    () => rest.open || false,
+    rest.open,
+  );
+  const setOpen = useCallback(
+    (updater: boolean | ((prev: boolean) => boolean)) => {
+      setOpenInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: boolean) => boolean)(prev)
+            : updater;
+        rest.onOpenChange?.(next);
+        return next;
+      });
+    },
+    [rest.onOpenChange],
+  );
 
   if (mode === 'read') {
     let dom = <>-</>;

@@ -1,7 +1,7 @@
-﻿import { CloseOutlined, ProfileOutlined } from '@ant-design/icons';
-import { useMergedState } from '@rc-component/util';
+import { CloseOutlined, ProfileOutlined } from '@ant-design/icons';
+import { useControlledState } from '@rc-component/util';
 import { Card, ConfigProvider, Menu } from 'antd';
-import React, { useContext, useMemo, useState } from 'react';
+import React, { useCallback, useContext, useMemo, useState } from 'react';
 import { ProProvider, isNeedOpenHash } from '../../../provider';
 
 import type { ProHelpDataSource } from './HelpProvide';
@@ -103,20 +103,46 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
   const className = getPrefixCls('pro-help');
   const { wrapSSR, hashId } = useStyle(className);
   const { dataSource } = useContext(ProHelpProvide);
-  const [selectedKey, setSelectedKey] = useMergedState<string | undefined>(
-    undefined,
-    {
-      defaultValue: props.defaultSelectedKey,
-      value: props.selectedKey,
-      onChange: props.onSelectedKeyChange,
+  const [selectedKey, setSelectedKeyInner] = useControlledState<
+    string | undefined
+  >(props.defaultSelectedKey ?? undefined, props.selectedKey);
+  const setSelectedKey = useCallback(
+    (
+      updater:
+        | string
+        | undefined
+        | ((prev: string | undefined) => string | undefined),
+    ) => {
+      setSelectedKeyInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: string | undefined) => string | undefined)(prev)
+            : updater;
+        props.onSelectedKeyChange?.(next);
+        return next;
+      });
     },
+    [props.onSelectedKeyChange],
   );
   const [openKey, setOpenKey] = useState('');
   const { token } = useContext(ProProvider);
-  const [showLeftPanel, setShowLeftPanel] = useMergedState(true, {
-    value: props.showLeftPanel,
-    onChange: props.onShowLeftPanelChange,
-  });
+  const [showLeftPanel, setShowLeftPanelInner] = useControlledState(
+    true,
+    props.showLeftPanel,
+  );
+  const setShowLeftPanel = useCallback(
+    (updater: boolean | ((prev: boolean) => boolean)) => {
+      setShowLeftPanelInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: boolean) => boolean)(prev)
+            : updater;
+        props.onShowLeftPanelChange?.(next);
+        return next;
+      });
+    },
+    [props.onShowLeftPanelChange],
+  );
 
   const dataSourceKeyMap = useMemo(() => {
     const map = new Map<

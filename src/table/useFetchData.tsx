@@ -1,5 +1,5 @@
-import { useMergedState } from '@rc-component/util';
-import { useEffect, useRef, useState } from 'react';
+import { useControlledState } from '@rc-component/util';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import {
   runFunction,
   useDebounceFn,
@@ -65,26 +65,59 @@ const useFetchData = <DataSource extends RequestData<any>>(
   /**
    * 用于存储最新的数据，这样可以在切换的时候保持数据的一致性
    */
-  const [tableDataList, setTableDataList] = useMergedState<
+  const [tableDataList, setTableDataListInner] = useControlledState<
     DataSource[] | undefined
-  >(defaultData, {
-    value: options?.dataSource,
-    onChange: options?.onDataSourceChange,
-  });
+  >(defaultData, options?.dataSource);
+  const setTableDataList = useCallback(
+    (
+      updater:
+        | DataSource[]
+        | undefined
+        | ((prev: DataSource[] | undefined) => DataSource[] | undefined),
+    ) => {
+      setTableDataListInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (
+                updater as (
+                  p: DataSource[] | undefined,
+                ) => DataSource[] | undefined
+              )(prev)
+            : updater;
+        options?.onDataSourceChange?.(next);
+        return next;
+      });
+    },
+    [options?.onDataSourceChange],
+  );
 
   /**
    * 表格的加载状态
    */
-  const [tableLoading, setTableLoading] = useMergedState<boolean>(false, {
-    value:
-      typeof options?.loading === 'object'
-        ? options?.loading?.spinning
-        : options?.loading,
-    onChange: options?.onLoadingChange,
-  });
+  const tableLoadingValue =
+    typeof options?.loading === 'object'
+      ? options?.loading?.spinning
+      : options?.loading;
+  const [tableLoading, setTableLoadingInner] = useControlledState<boolean>(
+    false,
+    tableLoadingValue,
+  );
+  const setTableLoading = useCallback(
+    (updater: boolean | ((prev: boolean) => boolean)) => {
+      setTableLoadingInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: boolean) => boolean)(prev)
+            : updater;
+        options?.onLoadingChange?.(next);
+        return next;
+      });
+    },
+    [options?.onLoadingChange],
+  );
 
   /**
-   * 表示页面信息的类型  useMergedState 钩子的初始值和参数
+   * 表示页面信息的类型
    * @typedef {object} PageInfo
    * @property {number} current 当前页码
    * @property {number} pageSize 页面大小

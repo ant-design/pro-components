@@ -1,10 +1,17 @@
 import { createFromIconfontCN } from '@ant-design/icons';
-import { useMergedState } from '@rc-component/util';
+import { useControlledState } from '@rc-component/util';
 import type { MenuProps } from 'antd';
 import { Menu, Skeleton, Tooltip } from 'antd';
 import { ItemType } from 'antd/lib/menu/interface';
 import { clsx } from 'clsx';
-import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import type { ProTokenType } from '../../../provider';
 import { ProProvider } from '../../../provider';
 import { isImg, isUrl } from '../../../utils';
@@ -550,7 +557,11 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
 
   const [defaultOpenAll, setDefaultOpenAll] = useState(menu?.defaultOpenAll);
 
-  const [openKeys, setOpenKeys] = useMergedState<(string | number)[] | false>(
+  const openKeysValue =
+    propsOpenKeys === false ? undefined : propsOpenKeys;
+  const [openKeys, setOpenKeysInner] = useControlledState<
+    (string | number)[] | false
+  >(
     () => {
       if (menu?.defaultOpenAll) {
         return getOpenKeysFromMenuData(menuData) || [];
@@ -560,24 +571,54 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       }
       return [];
     },
-    {
-      value: propsOpenKeys === false ? undefined : propsOpenKeys,
-      onChange: onOpenChange as any,
+    openKeysValue,
+  );
+  const setOpenKeys = useCallback(
+    (
+      updater:
+        | ((string | number)[] | false)
+        | ((prev: (string | number)[] | false) => (string | number)[] | false),
+    ) => {
+      setOpenKeysInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (
+                updater as (
+                  p: (string | number)[] | false,
+                ) => (string | number)[] | false
+              )(prev)
+            : updater;
+        (onOpenChange as (keys?: (string | number)[] | false) => void)?.(next);
+        return next;
+      });
     },
+    [onOpenChange],
   );
 
-  const [selectedKeys, setSelectedKeys] = useMergedState<string[] | undefined>(
-    [],
-    {
-      value: propsSelectedKeys,
-      onChange: onSelect
-        ? (keys) => {
-            if (onSelect && keys) {
-              onSelect(keys as any);
-            }
-          }
-        : undefined,
+  const [selectedKeys, setSelectedKeysInner] = useControlledState<
+    string[] | undefined
+  >([], propsSelectedKeys);
+  const setSelectedKeys = useCallback(
+    (
+      updater:
+        | string[]
+        | undefined
+        | ((prev: string[] | undefined) => string[] | undefined),
+    ) => {
+      setSelectedKeysInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: string[] | undefined) => string[] | undefined)(
+                prev,
+              )
+            : updater;
+        if (onSelect && next) {
+          onSelect(next as any);
+        }
+        return next;
+      });
     },
+    [onSelect],
   );
   useEffect(() => {
     if (menu?.defaultOpenAll || propsOpenKeys === false) {

@@ -1,7 +1,7 @@
-﻿import { useMergedState } from '@rc-component/util';
+import { useControlledState } from '@rc-component/util';
 import type { DrawerProps } from 'antd';
 import { Drawer } from 'antd';
-import React from 'react';
+import React, { useCallback } from 'react';
 import type { ProHelpPanelProps } from './ProHelpPanel';
 import { ProHelpPanel } from './ProHelpPanel';
 
@@ -21,10 +21,23 @@ export const ProHelpDrawer: React.FC<ProHelpDrawerProps> = ({
   drawerProps,
   ...props
 }) => {
-  const [drawerOpen, setDrawerOpen] = useMergedState<boolean>(false, {
-    value: drawerProps.open,
-    onChange: drawerProps.afterOpenChange,
-  });
+  const [drawerOpen, setDrawerOpenInner] = useControlledState<boolean>(
+    false,
+    drawerProps.open,
+  );
+  const setDrawerOpen = useCallback(
+    (updater: boolean | ((prev: boolean) => boolean)) => {
+      setDrawerOpenInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: boolean) => boolean)(prev)
+            : updater;
+        drawerProps.afterOpenChange?.(next);
+        return next;
+      });
+    },
+    [drawerProps.afterOpenChange],
+  );
   return (
     <Drawer
       closeIcon={null}

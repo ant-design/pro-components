@@ -1,5 +1,5 @@
-import { useMergedState } from '@rc-component/util';
-import { useEffect } from 'react';
+import { useControlledState } from '@rc-component/util';
+import { useCallback, useEffect } from 'react';
 
 export type RequestData<T = any> = {
   data?: T;
@@ -34,16 +34,52 @@ const useFetchData = <T extends RequestData>(
     defaultDataSource,
     onDataSourceChange,
   } = options || {};
-  const [entity, setEntity] = useMergedState<T['data']>(defaultDataSource, {
-    value: dataSource,
-    onChange: onDataSourceChange,
-  });
-  const [loading, setLoading] = useMergedState<boolean | undefined>(
-    options?.loading,
-    {
-      value: options?.loading,
-      onChange: options?.onLoadingChange,
+  const [entity, setEntityInner] = useControlledState<T['data']>(
+    defaultDataSource,
+    dataSource,
+  );
+  const setEntity = useCallback(
+    (
+      updater:
+        | T['data']
+        | ((prev: T['data']) => T['data']),
+    ) => {
+      setEntityInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: T['data']) => T['data'])(prev)
+            : updater;
+        onDataSourceChange?.(next);
+        return next;
+      });
     },
+    [onDataSourceChange],
+  );
+  const [loading, setLoadingInner] = useControlledState<boolean | undefined>(
+    options?.loading,
+    options?.loading,
+  );
+  const setLoading = useCallback(
+    (
+      updater:
+        | boolean
+        | undefined
+        | ((prev: boolean | undefined) => boolean | undefined),
+    ) => {
+      setLoadingInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (
+                updater as (
+                  p: boolean | undefined,
+                ) => boolean | undefined
+              )(prev)
+            : updater;
+        options?.onLoadingChange?.(next);
+        return next;
+      });
+    },
+    [options?.onLoadingChange],
   );
 
   const updateDataAndLoading = (data: T) => {

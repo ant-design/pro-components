@@ -1,8 +1,8 @@
 import { DownOutlined } from '@ant-design/icons';
-import { useMergedState } from '@rc-component/util';
+import { useControlledState } from '@rc-component/util';
 import { Dropdown, Space, Tabs } from 'antd';
 import { clsx } from 'clsx';
-import React, { useContext } from 'react';
+import React, { useCallback, useContext } from 'react';
 import { ProProvider } from '../../../provider';
 
 export type ListToolBarMenuItem = {
@@ -30,12 +30,22 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
     defaultActiveKey,
   } = props;
 
-  const [activeKey, setActiveKey] = useMergedState<React.Key>(
+  const [activeKey, setActiveKeyInner] = useControlledState<React.Key>(
     propActiveKey || (defaultActiveKey as React.Key),
-    {
-      value: propActiveKey,
-      onChange: props.onChange,
+    propActiveKey,
+  );
+  const setActiveKey = useCallback(
+    (updater: React.Key | ((prev: React.Key) => React.Key)) => {
+      setActiveKeyInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: React.Key) => React.Key)(prev)
+            : updater;
+        (props.onChange as ((key?: React.Key, prev?: React.Key) => void) | undefined)?.(next, prev);
+        return next;
+      });
     },
+    [props.onChange],
   );
 
   if (items.length < 1) {

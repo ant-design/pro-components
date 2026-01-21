@@ -1,4 +1,4 @@
-﻿import { useMergedState, warning } from '@rc-component/util';
+import { useControlledState, warning } from '@rc-component/util';
 import type { FormProps, ModalProps } from 'antd';
 import { ConfigProvider, Modal } from 'antd';
 import { merge } from 'lodash-es';
@@ -80,10 +80,20 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
   const [, forceUpdate] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const [open, setOpen] = useMergedState<boolean>(false, {
-    value: propsOpen,
-    onChange: onOpenChange,
-  });
+  const [open, setOpenInner] = useControlledState<boolean>(false, propsOpen);
+  const setOpen = useCallback(
+    (updater: boolean | ((prev: boolean) => boolean)) => {
+      setOpenInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: boolean) => boolean)(prev)
+            : updater;
+        onOpenChange?.(next);
+        return next;
+      });
+    },
+    [onOpenChange],
+  );
 
   const footerRef = useRef<HTMLDivElement | null>(null);
 

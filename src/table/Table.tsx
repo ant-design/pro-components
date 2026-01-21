@@ -16,7 +16,6 @@ import isEmpty from 'lodash-es/isEmpty';
 import isEqual from 'lodash-es/isEqual';
 import React, {
   Key,
-  useCallback,
   useContext,
   useEffect,
   useImperativeHandle,
@@ -43,6 +42,7 @@ import {
   useDeepCompareEffect,
   useDeepCompareEffectDebounce,
   useEditableArray,
+  useRefFunction,
 } from '../utils';
 import Alert from './components/Alert';
 import { Container, TableContext } from './Store/Provide';
@@ -379,14 +379,13 @@ const ProTable = <
    * 使用 ref 作为请求参数的同步来源，保证 reset/toolbar 等场景下参数与表单展示一致。
    */
   const formSearchRef = useRef<Record<string, any> | undefined>(formSearch);
-  const setFormSearchWithRef = useCallback(
+  const setFormSearchWithRef = useRefFunction(
     (next: React.SetStateAction<Record<string, any> | undefined>) => {
       const nextValue =
         typeof next === 'function' ? next(formSearchRef.current) : next;
       formSearchRef.current = nextValue;
       setFormSearch(nextValue);
     },
-    [setFormSearch],
   );
 
   const {
@@ -570,14 +569,14 @@ const ProTable = <
   }, [columnsState?.value]);
 
   /** 清空所有的选中项 */
-  const onCleanSelected = useCallback(() => {
+  const onCleanSelected = useRefFunction(() => {
     if (propsRowSelection && propsRowSelection.onChange) {
       propsRowSelection.onChange([], [], {
         type: 'none',
       });
     }
     setSelectedRowKeys([]);
-  }, [propsRowSelection, setSelectedRowKeys]);
+  });
 
   counter.propsRef.current = props as ProTableProps<any, any, any>;
 
@@ -736,7 +735,7 @@ const ProTable = <
   const isLightFilter: boolean =
     search !== false && search?.filterType === 'light';
 
-  const onFormSearchSubmit = useCallback(
+  const onFormSearchSubmit = useRefFunction(
     <Y extends ParamsType>(values: Y): any => {
       // 判断search.onSearch返回值决定是否更新formSearch
       if (options && options.search) {
@@ -759,7 +758,6 @@ const ProTable = <
 
       setFormSearchWithRef(values);
     },
-    [counter.keyWords, options, setFormSearchWithRef],
   );
 
   const loading = useMemo(() => {

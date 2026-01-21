@@ -1,7 +1,7 @@
 import { HolderOutlined } from '@ant-design/icons';
-import { useMergedState } from '@rc-component/util';
+import { useControlledState } from '@rc-component/util';
 import { ConfigProvider } from 'antd';
-import React, { useContext, useMemo } from 'react';
+import React, { useCallback, useContext, useMemo } from 'react';
 import type { ParamsType } from '../../../provider';
 import ProTable from '../../Table';
 import type { ProTableProps } from '../../typing';
@@ -38,12 +38,24 @@ function DragSortTable<
     ...otherProps
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const [dataSource, setDataSource] = useMergedState<T[]>(
+  const [dataSource, setDataSourceInner] = useControlledState<T[]>(
     () => defaultData || [],
-    {
-      value: originDataSource as T[],
-      onChange: onDataSourceChange,
+    originDataSource as T[],
+  );
+  const setDataSource = useCallback(
+    (
+      updater: T[] | ((prev: T[]) => T[]),
+    ) => {
+      setDataSourceInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: T[]) => T[])(prev)
+            : updater;
+        onDataSourceChange?.(next);
+        return next;
+      });
     },
+    [onDataSourceChange],
   );
 
   const { wrapSSR, hashId } = useStyle(getPrefixCls('pro-table-drag'));

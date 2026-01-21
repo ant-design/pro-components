@@ -1,4 +1,4 @@
-﻿import { merge, useMergedState, warning } from '@rc-component/util';
+import { merge, useControlledState, warning } from '@rc-component/util';
 import type { DrawerProps, FormProps } from 'antd';
 import { ConfigProvider, Drawer } from 'antd';
 import { clsx } from 'clsx';
@@ -124,10 +124,20 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
     width ? width : resize ? resizeInfo?.minWidth : 800,
   );
 
-  const [open, setOpen] = useMergedState<boolean>(!!propsOpen, {
-    value: propsOpen,
-    onChange: onOpenChange,
-  });
+  const [open, setOpenInner] = useControlledState<boolean>(!!propsOpen, propsOpen);
+  const setOpen = useCallback(
+    (updater: boolean | ((prev: boolean) => boolean)) => {
+      setOpenInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: boolean) => boolean)(prev)
+            : updater;
+        onOpenChange?.(next);
+        return next;
+      });
+    },
+    [onOpenChange],
+  );
 
   const footerRef = useRef<HTMLDivElement | null>(null);
 

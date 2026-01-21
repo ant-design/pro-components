@@ -1,10 +1,10 @@
 import { RightOutlined } from '@ant-design/icons';
-import { useMergedState } from '@rc-component/util';
+import { useControlledState } from '@rc-component/util';
 import { ConfigProvider, List, Skeleton } from 'antd';
 import type { ListGridType } from 'antd/lib/list';
 import type { ExpandableConfig } from 'antd/lib/table/interface';
 import { clsx } from 'clsx';
-import React, { useContext, useMemo } from 'react';
+import React, { useCallback, useContext, useMemo } from 'react';
 import type { CheckCardProps } from '../card';
 import { CheckCard } from '../card';
 import { ProProvider } from '../provider';
@@ -160,10 +160,23 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     expandedRowClassName,
   } = expandableConfig || {};
 
-  const [expanded, onExpand] = useMergedState<boolean>(!!propsExpand, {
-    value: propsExpand,
-    onChange: propsOnExpand,
-  });
+  const [expanded, onExpandInner] = useControlledState<boolean>(
+    !!propsExpand,
+    propsExpand,
+  );
+  const onExpand = useCallback(
+    (updater: boolean | ((prev: boolean) => boolean)) => {
+      onExpandInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: boolean) => boolean)(prev)
+            : updater;
+        propsOnExpand?.(next);
+        return next;
+      });
+    },
+    [propsOnExpand],
+  );
 
   const className = clsx(
     {

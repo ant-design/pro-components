@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */ import {
   get,
-  useMergedState,
+  useControlledState,
 } from '@rc-component/util';
 import { message } from 'antd';
 import type React from 'react';
@@ -67,18 +67,26 @@ export function useEditableMap<RecordType>(
   // Internationalization
   const intl = useIntl();
 
-  const [editableKeys, setEditableRowKeys] = useMergedState<React.Key[]>([], {
-    value: props.editableKeys,
-    onChange: props.onChange
-      ? (keys) => {
-          props?.onChange?.(
-            // 计算编辑的key
-            keys,
-            props.dataSource,
-          );
-        }
-      : undefined,
-  });
+  const [editableKeys, setEditableRowKeysInner] = useControlledState<
+    React.Key[]
+  >([], props.editableKeys);
+  const setEditableRowKeys = useCallback(
+    (
+      updater:
+        | React.Key[]
+        | ((prev: React.Key[]) => React.Key[]),
+    ) => {
+      setEditableRowKeysInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: React.Key[]) => React.Key[])(prev)
+            : updater;
+        props?.onChange?.(next, props.dataSource);
+        return next;
+      });
+    },
+    [props.onChange, props.dataSource],
+  );
 
   /** 一个用来标志的set 提供了方便的 api 来去重什么的 */
   const editableKeysSet = useMemo(() => {

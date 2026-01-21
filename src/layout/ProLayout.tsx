@@ -1,4 +1,4 @@
-import { omit, useMergedState, warning } from '@rc-component/util';
+import { omit, useControlledState, warning } from '@rc-component/util';
 import { getMatchMenu } from '@umijs/route-utils';
 import type { BreadcrumbProps, WatermarkProps } from 'antd';
 import { ConfigProvider, Layout } from 'antd';
@@ -444,10 +444,23 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
 
   const prefixCls = props.prefixCls ?? context.getPrefixCls('pro');
 
-  const [menuLoading, setMenuLoading] = useMergedState(false, {
-    value: menu?.loading,
-    onChange: menu?.onLoadingChange,
-  });
+  const [menuLoading, setMenuLoadingInner] = useControlledState(
+    false,
+    menu?.loading,
+  );
+  const setMenuLoading = useCallback(
+    (updater: boolean | ((prev: boolean) => boolean)) => {
+      setMenuLoadingInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: boolean) => boolean)(prev)
+            : updater;
+        menu?.onLoadingChange?.(next);
+        return next;
+      });
+    },
+    [menu?.onLoadingChange],
+  );
 
   // give a default key for swr
   const [defaultId] = useState(() => {
@@ -576,7 +589,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   /* Checking if the menu is loading and if it is, it will return a skeleton loading screen. */
   const hasLeftPadding = propsLayout !== 'top' && !isMobile;
 
-  const [collapsed, onCollapse] = useMergedState<boolean>(
+  const [collapsed, onCollapseInner] = useControlledState<boolean>(
     () => {
       if (defaultCollapsed !== undefined) return defaultCollapsed;
       if (process.env.NODE_ENV === 'TEST') return false;
@@ -584,10 +597,20 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
       if (colSize === 'md') return true;
       return false;
     },
-    {
-      value: props.collapsed,
-      onChange: propsOnCollapse,
+    props.collapsed,
+  );
+  const onCollapse = useCallback(
+    (updater: boolean | ((prev: boolean) => boolean)) => {
+      onCollapseInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: boolean) => boolean)(prev)
+            : updater;
+        propsOnCollapse?.(next);
+        return next;
+      });
     },
+    [propsOnCollapse],
   );
 
   // Splicing parameters, adding menuData and formatMessage in props

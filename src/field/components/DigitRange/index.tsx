@@ -1,6 +1,6 @@
-import { useMergedState } from '@rc-component/util';
+import { useControlledState } from '@rc-component/util';
 import { Input, InputNumber, Space } from 'antd';
-import React, { useRef } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { proTheme, useIntl } from '../../../provider';
 import type { ProFieldFC } from '../../PureProField';
 
@@ -37,10 +37,30 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
   const intl = useIntl();
 
   const { token } = proTheme.useToken();
-  const [valuePair, setValuePair] = useMergedState(() => defaultValue, {
-    value: value,
-    onChange: onChange,
-  });
+  const [valuePair, setValuePairInner] = useControlledState(
+    () => defaultValue,
+    value,
+  );
+  const setValuePair = useCallback(
+    (
+      updater:
+        | ValuePair
+        | undefined
+        | ((prev: ValuePair | undefined) => ValuePair | undefined),
+    ) => {
+      setValuePairInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: ValuePair | undefined) => ValuePair | undefined)(
+                prev,
+              )
+            : updater;
+        onChange?.(next);
+        return next;
+      });
+    },
+    [onChange],
+  );
   const valuePairRef = useRef(valuePair);
 
   if (type === 'read') {

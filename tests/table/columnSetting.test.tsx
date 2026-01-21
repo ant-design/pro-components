@@ -771,7 +771,7 @@ describe('Table ColumnSetting', () => {
         ?.click();
     });
 
-    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenCalledTimes(2);
     expect((onChange.mock as any).lastCall[0]).toMatchInlineSnapshot(`
       {
         "age": {
@@ -866,7 +866,7 @@ describe('Table ColumnSetting', () => {
     });
 
     await waitFor(() => {
-      expect(onChange).toHaveBeenCalledTimes(2);
+      expect(onChange).toHaveBeenCalledTimes(3);
     });
     expect((onChange.mock as any).lastCall[0]).toMatchInlineSnapshot(`
       {

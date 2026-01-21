@@ -4,10 +4,10 @@ import type {
   RowEditableConfig,
 } from '@ant-design/pro-components';
 import { ProDescriptions } from '@ant-design/pro-components';
-import { useMergedState } from '@rc-component/util';
+import { useControlledState } from '@rc-component/util';
 import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import { Form, InputNumber } from 'antd';
-import React, { act, useRef } from 'react';
+import React, { act, useCallback, useRef } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 type DataSourceType = {
   id: number;
@@ -92,20 +92,44 @@ const DescriptionsDemo = (
 ) => {
   const [form] = Form.useForm();
   const actionRef = useRef<ProDescriptionsActionType>();
-  const [editableKeys, setEditorRowKeys] = useMergedState<React.Key[]>(
+  const [editableKeys, setEditorRowKeysInner] = useControlledState<React.Key[]>(
     () => props.defaultKeys || [],
-    {
-      value: props.editorRowKeys,
-      onChange: props.onEditorChange,
-    },
+    props.editorRowKeys,
   );
-  const [dataSource, setDataSource] = useMergedState<
-    DataSourceType,
-    DataSourceType
-  >(props.dataSource as any, {
-    value: props.dataSource,
-    onChange: props.onDataSourceChange,
-  });
+  const setEditorRowKeys = useCallback(
+    (updater: React.Key[] | ((prev: React.Key[]) => React.Key[])) => {
+      setEditorRowKeysInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: React.Key[]) => React.Key[])(prev)
+            : updater;
+        props.onEditorChange?.(next);
+        return next;
+      });
+    },
+    [props.onEditorChange],
+  );
+  const [dataSource, setDataSourceInner] = useControlledState<DataSourceType>(
+    props.dataSource as any,
+    props.dataSource,
+  );
+  const setDataSource = useCallback(
+    (
+      updater:
+        | DataSourceType
+        | ((prev: DataSourceType) => DataSourceType),
+    ) => {
+      setDataSourceInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: DataSourceType) => DataSourceType)(prev)
+            : updater;
+        props.onDataSourceChange?.(next);
+        return next;
+      });
+    },
+    [props.onDataSourceChange],
+  );
   return (
     <ProDescriptions<DataSourceType>
       columns={columns}

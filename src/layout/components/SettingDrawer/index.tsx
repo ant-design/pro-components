@@ -4,7 +4,7 @@ import {
   NotificationOutlined,
   SettingOutlined,
 } from '@ant-design/icons';
-import { omit, useMergedState } from '@rc-component/util';
+import { omit, useControlledState } from '@rc-component/util';
 import { useUrlSearchParams } from '@umijs/use-params';
 import {
   Alert,
@@ -16,7 +16,7 @@ import {
   Switch,
   message,
 } from 'antd';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { isBrowser, merge } from '../../../utils';
 import type { ProSettings } from '../../defaultSettings';
 import { defaultSettings } from '../../defaultSettings';
@@ -217,10 +217,20 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   } = props;
   const firstRender = useRef<boolean>(true);
 
-  const [open, setOpen] = useMergedState(false, {
-    value: props.collapse,
-    onChange: props.onCollapseChange,
-  });
+  const [open, setOpenInner] = useControlledState(false, props.collapse);
+  const setOpen = useCallback(
+    (updater: boolean | ((prev: boolean) => boolean)) => {
+      setOpenInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: boolean) => boolean)(prev)
+            : updater;
+        props.onCollapseChange?.(next);
+        return next;
+      });
+    },
+    [props.onCollapseChange],
+  );
 
   const [language, setLanguage] = useState<string>(getLanguage());
   const [urlParams, setUrlParams] = useUrlSearchParams(
@@ -230,12 +240,30 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     },
   );
 
-  const [settingState, setSettingState] = useMergedState<Partial<ProSettings>>(
+  const [settingState, setSettingStateInner] = useControlledState<
+    Partial<ProSettings>
+  >(
     () => getParamsFromUrl(urlParams, propsSettings || propsDefaultSettings),
-    {
-      value: propsSettings,
-      onChange: onSettingChange,
+    propsSettings,
+  );
+  const setSettingState = useCallback(
+    (
+      updater:
+        | Partial<ProSettings>
+        | ((prev: Partial<ProSettings>) => Partial<ProSettings>),
+    ) => {
+      setSettingStateInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: Partial<ProSettings>) => Partial<ProSettings>)(
+                prev,
+              )
+            : updater;
+        onSettingChange?.(next);
+        return next;
+      });
     },
+    [onSettingChange],
   );
 
   const { navTheme, colorPrimary, siderMenuType, layout, colorWeak } =

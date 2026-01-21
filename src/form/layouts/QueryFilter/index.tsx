@@ -1,12 +1,12 @@
 /* eslint-disable no-param-reassign */
 import RcResizeObserver from '@rc-component/resize-observer';
-import { useMergedState } from '@rc-component/util';
+import { useControlledState } from '@rc-component/util';
 import type { ColProps, FormItemProps, RowProps } from 'antd';
 import { Col, ConfigProvider, Form, Row } from 'antd';
 import type { FormInstance, FormProps } from 'antd/lib/form/Form';
 import { clsx } from 'clsx';
 import type { ReactElement } from 'react';
-import React, { useContext, useMemo, useState } from 'react';
+import React, { useCallback, useContext, useMemo, useState } from 'react';
 import { ProProvider, useIntl } from '../../../provider';
 import { isBrowser } from '../../../utils';
 import type { CommonFormProps } from '../../BaseForm';
@@ -269,12 +269,22 @@ const QueryFilterContent: React.FC<{
   const searchText =
     props.searchText || intl.getMessage('tableForm.search', '搜索');
 
-  const [collapsed, setCollapsed] = useMergedState<boolean>(
+  const [collapsed, setCollapsedInner] = useControlledState<boolean>(
     () => props.defaultCollapsed && !!props.submitter,
-    {
-      value: props.collapsed,
-      onChange: props.onCollapse,
+    props.collapsed,
+  );
+  const setCollapsed = useCallback(
+    (updater: boolean | ((prev: boolean) => boolean)) => {
+      setCollapsedInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: boolean) => boolean)(prev)
+            : updater;
+        props.onCollapse?.(next);
+        return next;
+      });
     },
+    [props.onCollapse],
   );
 
   const {

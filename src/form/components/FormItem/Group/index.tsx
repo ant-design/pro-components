@@ -1,5 +1,5 @@
 import { RightOutlined } from '@ant-design/icons';
-import { useMergedState } from '@rc-component/util';
+import { useControlledState } from '@rc-component/util';
 import { ConfigProvider, Space } from 'antd';
 import { clsx } from 'clsx';
 import React, { useCallback, useContext, useMemo } from 'react';
@@ -33,12 +33,22 @@ const Group: React.FC<ProFormGroupProps> = React.forwardRef(
       ...props,
     };
 
-    const [collapsed, setCollapsed] = useMergedState(
+    const [collapsed, setCollapsedInner] = useControlledState(
       () => defaultCollapsed || false,
-      {
-        value: props.collapsed,
-        onChange: props.onCollapse,
+      props.collapsed,
+    );
+    const setCollapsed = useCallback(
+      (updater: boolean | ((prev: boolean) => boolean)) => {
+        setCollapsedInner((prev) => {
+          const next =
+            typeof updater === 'function'
+              ? (updater as (p: boolean) => boolean)(prev)
+              : updater;
+          props.onCollapse?.(next);
+          return next;
+        });
       },
+      [props.onCollapse],
     );
     const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 

@@ -1,4 +1,4 @@
-import { omit, useMergedState } from '@rc-component/util';
+import { omit, useControlledState } from '@rc-component/util';
 import type { InputNumberProps } from 'antd';
 import { InputNumber, Popover } from 'antd';
 import React, { useCallback, useMemo } from 'react';
@@ -231,10 +231,23 @@ const InputNumberPopover = React.forwardRef<
     },
     ref,
   ) => {
-    const [value, onChange] = useMergedState<any>(() => rest.defaultValue, {
-      value: rest.value,
-      onChange: rest.onChange,
-    });
+    const [value, setValueInner] = useControlledState<any>(
+      () => rest.defaultValue,
+      rest.value,
+    );
+    const onChange = useCallback(
+      (updater: any | ((prev: any) => any)) => {
+        setValueInner((prev) => {
+          const next =
+            typeof updater === 'function'
+              ? (updater as (p: any) => any)(prev)
+              : updater;
+          rest.onChange?.(next);
+          return next;
+        });
+      },
+      [rest.onChange],
+    );
 
     /**
      * 如果content 存在要根据 content 渲染一下

@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */ import { LoadingOutlined } from '@ant-design/icons';
 import {
   get,
+  useControlledState,
   warning as rcWarning,
   set,
-  useMergedState,
 } from '@rc-component/util';
 import type { FormInstance, FormProps } from 'antd';
 import { Form, Popconfirm, message } from 'antd';
@@ -14,6 +14,7 @@ import type { GetRowKey } from 'antd/lib/table/interface';
 import React, {
   createRef,
   forwardRef,
+  useCallback,
   useContext,
   useEffect,
   useImperativeHandle,
@@ -778,23 +779,34 @@ export function useEditableArray<RecordType extends AnyObject>(
     props.getRowKey,
   );
 
-  const [editableKeys, setEditableRowKeys] = useMergedState<
+  const [editableKeys, setEditableRowKeysInner] = useControlledState<
     React.Key[] | undefined
-  >([], {
-    value: props.editableKeys,
-    onChange: props.onChange
-      ? (keys) => {
-          props?.onChange?.(
-            // 计算编辑的key
-            keys?.filter((key) => key !== undefined) ?? [],
-            // 计算编辑的行
-            keys
-              ?.map((key) => getRecordByKey(key))
-              .filter((key) => key !== undefined) ?? [],
-          );
-        }
-      : undefined,
-  });
+  >([], props.editableKeys);
+  const setEditableRowKeys = useCallback(
+    (
+      updater:
+        | React.Key[]
+        | undefined
+        | ((prev: React.Key[] | undefined) => React.Key[] | undefined),
+    ) => {
+      setEditableRowKeysInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (
+                updater as (
+                  p: React.Key[] | undefined,
+                ) => React.Key[] | undefined
+              )(prev)
+            : updater;
+        props?.onChange?.(
+          next?.filter((key) => key !== undefined) ?? [],
+          next?.map((key) => getRecordByKey(key)).filter((k) => k !== undefined) ?? [],
+        );
+        return next;
+      });
+    },
+    [props.onChange, getRecordByKey],
+  );
 
   const editableKeysRef = usePrevious(editableKeys);
 
@@ -1365,6 +1377,11 @@ export function useEditableArray<RecordType extends AnyObject>(
       newLine?: NewLineConfig<RecordType>,
     ) => {
       const res = await props?.onSave?.(recordKey, editRow, originRow, newLine);
+
+      // 如果 onSave 返回 false，阻止保存：不更新 dataSource，不触发 onChange
+      if (res === false) {
+        return res;
+      }
 
       const { options } = newLine || newLineRecordRef.current || {};
       const isNewLine = !options?.parentKey && options?.recordKey === recordKey;

@@ -1,8 +1,8 @@
-import { useMergedState } from '@rc-component/util';
+import { useControlledState } from '@rc-component/util';
 import { Avatar, ConfigProvider } from 'antd';
 import { clsx } from 'clsx';
 import type { MouseEventHandler } from 'react';
-import React, { useContext, useEffect, useMemo } from 'react';
+import React, { useCallback, useContext, useEffect, useMemo } from 'react';
 import ProCardActions from '../Actions';
 import type { CheckCardGroupProps } from './Group';
 import CheckCardGroup, { CardLoading, CheckCardGroupConnext } from './Group';
@@ -169,12 +169,22 @@ export interface CheckCardState {
 const CheckCard: React.FC<CheckCardProps> & {
   Group: typeof CheckCardGroup;
 } = (props) => {
-  const [stateChecked, setStateChecked] = useMergedState<boolean>(
+  const [stateChecked, setStateCheckedInner] = useControlledState<boolean>(
     props.defaultChecked || false,
-    {
-      value: props.checked,
-      onChange: props.onChange,
+    props.checked,
+  );
+  const setStateChecked = useCallback(
+    (updater: boolean | ((prev: boolean) => boolean)) => {
+      setStateCheckedInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: boolean) => boolean)(prev)
+            : updater;
+        props.onChange?.(next);
+        return next;
+      });
     },
+    [props.onChange],
   );
   const checkCardGroup = useContext(CheckCardGroupConnext);
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);

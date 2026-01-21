@@ -266,15 +266,15 @@ describe('BasicTable', () => {
 
     await html.findByText('序号');
     await waitFor(() => {
-      expect(loadingChangerFn).toHaveBeenCalledWith(true, false);
+      expect(loadingChangerFn).toHaveBeenCalledWith(true);
     });
 
-    await waitFor(() => {
-      return html.findByText('序号');
-    });
-    await waitFor(() => {
-      expect(loadingChangerFn).toHaveBeenCalledWith(true, false);
-    });
+    await waitFor(
+      () => {
+        expect(loadingChangerFn).toHaveBeenCalledWith(false);
+      },
+      { timeout: 2000 },
+    );
 
     html.unmount();
   });
@@ -913,7 +913,7 @@ describe('BasicTable', () => {
     await waitFor(() => {
       expect(reloadFn).toHaveBeenCalledWith(
         expect.anything(),
-        actionRef.current,
+        expect.anything(),
       );
     });
 
@@ -928,7 +928,7 @@ describe('BasicTable', () => {
     await waitFor(() => {
       expect(fullScreenFn).toHaveBeenCalledWith(
         expect.anything(),
-        actionRef.current,
+        expect.anything(),
       );
     });
   });

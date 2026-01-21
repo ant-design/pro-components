@@ -1,8 +1,8 @@
 import { RightOutlined } from '@ant-design/icons';
-import { omit, useMergedState } from '@rc-component/util';
+import { omit, useControlledState } from '@rc-component/util';
 import { ConfigProvider, Grid, Tabs } from 'antd';
 import { clsx } from 'clsx';
-import React, { useContext } from 'react';
+import React, { useCallback, useContext } from 'react';
 import { LabelIconTip } from '../../../utils';
 import type { Breakpoint, CardProps, Gutter } from '../../typing';
 import Actions from '../Actions';
@@ -61,10 +61,23 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     xxl: false,
   };
 
-  const [collapsed, setCollapsed] = useMergedState<boolean>(defaultCollapsed, {
-    value: controlCollapsed,
-    onChange: onCollapse,
-  });
+  const [collapsed, setCollapsedInner] = useControlledState<boolean>(
+    defaultCollapsed,
+    controlCollapsed,
+  );
+  const setCollapsed = useCallback(
+    (updater: boolean | ((prev: boolean) => boolean)) => {
+      setCollapsedInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: boolean) => boolean)(prev)
+            : updater;
+        onCollapse?.(next);
+        return next;
+      });
+    },
+    [onCollapse],
+  );
 
   // 顺序决定如何进行响应式取值，按最大响应值依次取值，请勿修改。
   const responsiveArray: Breakpoint[] = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];

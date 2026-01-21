@@ -4,7 +4,7 @@ import {
   set as namePathSet,
   omit,
   set,
-  useMergedState,
+  useControlledState,
   warning,
 } from '@rc-component/util';
 import { useUrlSearchParams } from '@umijs/use-params';
@@ -14,6 +14,7 @@ import type { NamePath } from 'antd/lib/form/interface';
 import { clsx } from 'clsx';
 import type dayjs from 'dayjs';
 import React, {
+  useCallback,
   useContext,
   useEffect,
   useImperativeHandle,
@@ -670,10 +671,23 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     ...propRest
   } = props;
   const formRef = useRef<ProFormRef<any>>({} as any);
-  const [loading, setLoading] = useMergedState<boolean>(false, {
-    onChange: onLoadingChange,
-    value: propsLoading,
-  });
+  const [loading, setLoadingInner] = useControlledState<boolean>(
+    false,
+    propsLoading,
+  );
+  const setLoading = useCallback(
+    (updater: boolean | ((prev: boolean) => boolean)) => {
+      setLoadingInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: boolean) => boolean)(prev)
+            : updater;
+        onLoadingChange?.(next);
+        return next;
+      });
+    },
+    [onLoadingChange],
+  );
 
   const [urlSearch, setUrlSearch] = useUrlSearchParams(
     {},
