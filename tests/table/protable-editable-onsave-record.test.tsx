@@ -1,7 +1,12 @@
 import type { ProColumns } from '@ant-design/pro-components';
 import { ProForm, ProTable } from '@ant-design/pro-components';
-import { act, cleanup, fireEvent, render, waitFor } from '@testing-library/react';
-import React from 'react';
+import {
+  act,
+  cleanup,
+  fireEvent,
+  render,
+  waitFor,
+} from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
 
@@ -128,4 +133,3 @@ describe('ProTable editable onSave record', () => {
     expect(record).not.toHaveProperty('1');
   });
 });
-

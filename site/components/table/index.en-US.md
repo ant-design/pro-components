@@ -75,9 +75,9 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | postData           | Process the data obtained through `request`                                                                                                 | `(data: T[]) => T[]`                                                                                                                                                                                                                | -                                                                   |
 | defaultData        | Default data                                                                                                                                | `T[]`                                                                                                                                                                                                                               | -                                                                   |
 | dataSource         | Table data, ProTable recommends using `request` to load                                                                                     | `T[]`                                                                                                                                                                                                                               | -                                                                   |
-| onDataSourceChange | Triggered when Table data changes | `(dataSource: T[]) => void` | - |
-| pagination | Configuration of pagination. `current` and `pageSize` will be taken over by `request` | `TablePaginationConfig` \| `false` | - |
-| actionRef | Reference to Table action for custom triggering | `React.Ref<ActionType \| undefined>` | - |
+| onDataSourceChange | Triggered when Table data changes                                                                                                           | `(dataSource: T[]) => void`                                                                                                                                                                                                         | -                                                                   |
+| pagination         | Configuration of pagination. `current` and `pageSize` will be taken over by `request`                                                       | `TablePaginationConfig` \| `false`                                                                                                                                                                                                  | -                                                                   |
+| actionRef          | Reference to Table action for custom triggering                                                                                             | `React.Ref<ActionType \| undefined>`                                                                                                                                                                                                | -                                                                   |
 | formRef            | The form instance of the query form can be obtained for some flexible configuration                                                         | `TableFormItem<T>['formRef']`                                                                                                                                                                                                       | -                                                                   |
 | toolBarRender      | Render toolbar, support returning a dom array, will automatically increase margin-right                                                     | `ToolBarProps<T>['toolBarRender'] \| false`                                                                                                                                                                                         | -                                                                   |
 | optionsRender      | Custom render toolbar options                                                                                                               | `ToolBarProps<T>['optionsRender']`                                                                                                                                                                                                  | -                                                                   |
@@ -105,7 +105,7 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | toolbar            | Transparent transmission of `ListToolBar` configuration items                                                                               | [ListToolBarProps](#listtoolbarprops)                                                                                                                                                                                               | -                                                                   |
 | tableExtraRender   | dom rendering between table and search form                                                                                                 | `(props: ProTableProps<T, U, ValueType>, dataSource: T[]) => ReactNode`                                                                                                                                                             | -                                                                   |
 | manualRequest      | Do you need to manually trigger the first request? When configured as `true`, the search form cannot be hidden                              | `boolean`                                                                                                                                                                                                                           | false                                                               |
-| editable | Related configuration of editable table. [Details](/components/editable-table) | `RowEditableConfig<T>` | - |
+| editable           | Related configuration of editable table. [Details](/components/editable-table)                                                              | `RowEditableConfig<T>`                                                                                                                                                                                                              | -                                                                   |
 | cardProps          | Settings for the card outside the table                                                                                                     | `ProCardProps \| false`                                                                                                                                                                                                             | -                                                                   |
 | cardBordered       | Border of Card components around Table and Search                                                                                           | `boolean \| {search?: boolean, table?: boolean}`                                                                                                                                                                                    | false                                                               |
 | ghost              | Ghost mode, that is, whether to cancel the padding of the table content area.                                                               | `boolean`                                                                                                                                                                                                                           | false                                                               |
@@ -200,17 +200,17 @@ export type SettingOptionType = {
 
 Sometimes we need to manually trigger the reload of the table and other operations, we can use actionRef.
 
-| Method | Description | Type |
-| --- | --- | --- |
-| reload | Refresh the table, if true is passed, reset the page number | `(resetPageIndex?: boolean) => void` |
-| reloadAndRest | Refresh and clear, the page number will also be reset, excluding the form | `() => void` |
-| reset | Reset to default values, including forms | `() => void` |
-| clearSelected | Clear the selected item | `() => void` |
-| startEditable | Start editing row | `(rowKey: Key) => boolean` |
-| cancelEditable | Cancel editing row | `(rowKey: Key) => boolean` |
-| scrollTo | Scroll to specified position | `(arg: number \| { index?: number; key?: Key; top?: number }) => void` |
-| fullScreen | Switch full screen | `() => void` |
-| setPageInfo | Set page information | `(page: Partial<PageInfo>) => void` |
+| Method         | Description                                                               | Type                                                                   |
+| -------------- | ------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| reload         | Refresh the table, if true is passed, reset the page number               | `(resetPageIndex?: boolean) => void`                                   |
+| reloadAndRest  | Refresh and clear, the page number will also be reset, excluding the form | `() => void`                                                           |
+| reset          | Reset to default values, including forms                                  | `() => void`                                                           |
+| clearSelected  | Clear the selected item                                                   | `() => void`                                                           |
+| startEditable  | Start editing row                                                         | `(rowKey: Key) => boolean`                                             |
+| cancelEditable | Cancel editing row                                                        | `(rowKey: Key) => boolean`                                             |
+| scrollTo       | Scroll to specified position                                              | `(arg: number \| { index?: number; key?: Key; top?: number }) => void` |
+| fullScreen     | Switch full screen                                                        | `() => void`                                                           |
+| setPageInfo    | Set page information                                                      | `(page: Partial<PageInfo>) => void`                                    |
 
 ```tsx | pure
 // Example
@@ -248,7 +248,7 @@ If you want **client-side** sorting/filtering (and **do not** want to trigger `r
 
 - **Local filter**: configure both `filters` and `onFilter` (a function or `true`).
 - **Local sort**: set `sorter` to a compare function, or `{ compare }`. Avoid `sorter: true` (it means server-side sorting).
-:::
+  :::
 
 | Property                               | Description                                                                                                                                                                                                                                  | Type                                                                                                  | Default Value |
 | -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------- |
@@ -361,7 +361,7 @@ SearchProps is a property of antd's [Input.Search](https://ant.design/components
 
 #### TableDropdown
 
-| Parameters | Description | Type | Default |
-| --- | --- | --- | --- |
-| menus | Menu configuration | `{ key: string; name: ReactNode }[]` | - |
-| onSelect | Callback for selecting menu | `(key: string) => void` | - |
+| Parameters | Description                 | Type                                 | Default |
+| ---------- | --------------------------- | ------------------------------------ | ------- |
+| menus      | Menu configuration          | `{ key: string; name: ReactNode }[]` | -       |
+| onSelect   | Callback for selecting menu | `(key: string) => void`              | -       |

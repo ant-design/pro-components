@@ -562,7 +562,7 @@ describe('Table ColumnSetting', () => {
       );
     });
     await waitForWaitTime(100);
-    
+
     // rerender 后需要重新打开 Popover
     act(() => {
       html.baseElement
@@ -572,7 +572,7 @@ describe('Table ColumnSetting', () => {
         ?.click();
     });
     await waitForWaitTime(100);
-    
+
     overlay = html.baseElement.querySelectorAll<HTMLDivElement>(
       '.ant-pro-table-column-setting-overlay .ant-pro-table-column-setting-list-title',
     );
@@ -979,7 +979,7 @@ describe('Table ColumnSetting', () => {
         )
         ?.click();
     });
-    
+
     await waitFor(() => {
       const checkedCount =
         html.baseElement.querySelectorAll<HTMLDivElement>(

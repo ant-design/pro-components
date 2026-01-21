@@ -20,7 +20,9 @@ export const columnSort =
     const aKey = a.key || `${aIndex}`;
     const bKey = b.key || `${bIndex}`;
     if (columnsMap?.[aKey]?.order || columnsMap?.[bKey]?.order) {
-      return (columnsMap?.[aKey]?.order || 0) - (columnsMap?.[bKey]?.order || 0);
+      return (
+        (columnsMap?.[aKey]?.order || 0) - (columnsMap?.[bKey]?.order || 0)
+      );
     }
     return (a.index || 0) - (b.index || 0);
   };

@@ -43,9 +43,7 @@ function DragSortTable<
     originDataSource as T[],
   );
   const setDataSource = useCallback(
-    (
-      updater: T[] | ((prev: T[]) => T[]),
-    ) => {
+    (updater: T[] | ((prev: T[]) => T[])) => {
       setDataSourceInner((prev) => {
         const next =
           typeof updater === 'function'

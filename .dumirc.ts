@@ -65,7 +65,8 @@ export default defineConfig({
   // ssr: {},
   themeConfig: {
     name: 'ProComponents',
-    footer: 'Powered by <a href="https://d.umijs.org" target="_blank" rel="noreferrer">dumi</a>',
+    footer:
+      'Powered by <a href="https://d.umijs.org" target="_blank" rel="noreferrer">dumi</a>',
     logo: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
     socialLinks: {
       github: 'https://github.com/ant-design/pro-components',

@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */ import { LoadingOutlined } from '@ant-design/icons';
 import {
   get,
-  useControlledState,
   warning as rcWarning,
   set,
+  useControlledState,
 } from '@rc-component/util';
 import type { FormInstance, FormProps } from 'antd';
 import { Form, Popconfirm, message } from 'antd';
@@ -439,10 +439,13 @@ export function SaveEditableAction<T>(
         // `getFieldFormatValue` will unwrap object results (by returning the first value),
         // which breaks editable row save when `namePath` points to a row object.
         // Prefer `getFieldFormatValueObject` and then pick the row by `namePath`.
-        const formattedObject =
-          context?.getFieldFormatValueObject?.(namePath as any);
+        const formattedObject = context?.getFieldFormatValueObject?.(
+          namePath as any,
+        );
         const formattedRow =
-          formattedObject != null ? get(formattedObject, namePath as any) : null;
+          formattedObject != null
+            ? get(formattedObject, namePath as any)
+            : null;
         return formattedRow ?? form.getFieldValue(namePath);
       })();
       // 处理 dataIndex 为数组的情况
@@ -607,10 +610,13 @@ const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
         const recordKeyStr = recordKeyToString(recordKey)?.toString();
         const namePath = normalizeNamePath(tableName, recordKey) as string[];
         const fields = (() => {
-          const formattedObject =
-            context?.getFieldFormatValueObject?.(namePath as any);
+          const formattedObject = context?.getFieldFormatValueObject?.(
+            namePath as any,
+          );
           const formattedRow =
-            formattedObject != null ? get(formattedObject, namePath as any) : null;
+            formattedObject != null
+              ? get(formattedObject, namePath as any)
+              : null;
           return formattedRow ?? form?.getFieldValue(namePath);
         })();
         const record = isMapEditor ? set({}, namePath, fields) : fields;
@@ -800,7 +806,9 @@ export function useEditableArray<RecordType extends AnyObject>(
             : updater;
         props?.onChange?.(
           next?.filter((key) => key !== undefined) ?? [],
-          next?.map((key) => getRecordByKey(key)).filter((k) => k !== undefined) ?? [],
+          next
+            ?.map((key) => getRecordByKey(key))
+            .filter((k) => k !== undefined) ?? [],
         );
         return next;
       });

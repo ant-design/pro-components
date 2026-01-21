@@ -1,6 +1,6 @@
 import { ProCard } from '@ant-design/pro-components';
-import { Statistic } from 'antd';
 import RcResizeObserver from '@rc-component/resize-observer';
+import { Statistic } from 'antd';
 import { useState } from 'react';
 
 const { Divider } = ProCard;

@@ -68,7 +68,12 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     string | undefined
   >(undefined, propsSearchValue);
   const setSearchValue = useCallback(
-    (updater: string | undefined | ((prev: string | undefined) => string | undefined)) => {
+    (
+      updater:
+        | string
+        | undefined
+        | ((prev: string | undefined) => string | undefined),
+    ) => {
       setSearchValueInner((prev) => {
         const next =
           typeof updater === 'function'

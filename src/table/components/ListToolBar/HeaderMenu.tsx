@@ -41,7 +41,11 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
           typeof updater === 'function'
             ? (updater as (p: React.Key) => React.Key)(prev)
             : updater;
-        (props.onChange as ((key?: React.Key, prev?: React.Key) => void) | undefined)?.(next, prev);
+        (
+          props.onChange as
+            | ((key?: React.Key, prev?: React.Key) => void)
+            | undefined
+        )?.(next, prev);
         return next;
       });
     },

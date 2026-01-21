@@ -264,7 +264,9 @@ describe('Table ColumnSetting', () => {
     );
 
     await waitFor(() => {
-      expect(container.querySelector('tbody td')?.textContent).toContain('中文');
+      expect(container.querySelector('tbody td')?.textContent).toContain(
+        '中文',
+      );
     });
 
     const td = container.querySelector('tbody td')!;

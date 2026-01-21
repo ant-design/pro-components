@@ -55,11 +55,7 @@ function useContainer(props: UseContainerProps = {} as Record<string, any>) {
     props.size,
   );
   const setTableSize = useCallback(
-    (
-      updater:
-        | DensitySize
-        | ((prev: DensitySize) => DensitySize),
-    ) => {
+    (updater: DensitySize | ((prev: DensitySize) => DensitySize)) => {
       setTableSizeInner((prev) => {
         const next =
           typeof updater === 'function'
@@ -92,45 +88,44 @@ function useContainer(props: UseContainerProps = {} as Record<string, any>) {
 
   const [columnsMap, setColumnsMapInner] = useControlledState<
     Record<string, ColumnsState>
-  >(
-    () => {
-      const { persistenceType, persistenceKey } = props.columnsState || {};
+  >(() => {
+    const { persistenceType, persistenceKey } = props.columnsState || {};
 
-      if (persistenceKey && persistenceType && typeof window !== 'undefined') {
-        /** 从持久化中读取数据 */
-        const storage = window[persistenceType];
-        try {
-          const storageValue = storage?.getItem(persistenceKey);
-          if (storageValue) {
-            if (props?.columnsState?.defaultValue) {
-              // 实际生产中，defaultValue往往作为系统方默认配置，则优先级不应高于用户配置的storageValue
-              return merge(
-                {},
-                props?.columnsState?.defaultValue,
-                JSON.parse(storageValue),
-              );
-            }
-            return JSON.parse(storageValue);
+    if (persistenceKey && persistenceType && typeof window !== 'undefined') {
+      /** 从持久化中读取数据 */
+      const storage = window[persistenceType];
+      try {
+        const storageValue = storage?.getItem(persistenceKey);
+        if (storageValue) {
+          if (props?.columnsState?.defaultValue) {
+            // 实际生产中，defaultValue往往作为系统方默认配置，则优先级不应高于用户配置的storageValue
+            return merge(
+              {},
+              props?.columnsState?.defaultValue,
+              JSON.parse(storageValue),
+            );
           }
-        } catch (error) {
-          console.warn(error);
+          return JSON.parse(storageValue);
         }
+      } catch (error) {
+        console.warn(error);
       }
-      return (
-        props.columnsState?.value ||
-        props.columnsState?.defaultValue ||
-        defaultColumnKeyMap
-      );
-    },
-    props.columnsState?.value,
-  );
+    }
+    return (
+      props.columnsState?.value ||
+      props.columnsState?.defaultValue ||
+      defaultColumnKeyMap
+    );
+  }, props.columnsState?.value);
   const onColumnsMapChange =
     props.columnsState?.onChange || props.onColumnsStateChange;
   const setColumnsMap = useCallback(
     (
       updater:
         | Record<string, ColumnsState>
-        | ((prev: Record<string, ColumnsState>) => Record<string, ColumnsState>),
+        | ((
+            prev: Record<string, ColumnsState>,
+          ) => Record<string, ColumnsState>),
     ) => {
       setColumnsMapInner((prev) => {
         const next =

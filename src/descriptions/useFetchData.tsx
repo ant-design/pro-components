@@ -39,11 +39,7 @@ const useFetchData = <T extends RequestData>(
     dataSource,
   );
   const setEntity = useCallback(
-    (
-      updater:
-        | T['data']
-        | ((prev: T['data']) => T['data']),
-    ) => {
+    (updater: T['data'] | ((prev: T['data']) => T['data'])) => {
       setEntityInner((prev) => {
         const next =
           typeof updater === 'function'
@@ -69,11 +65,7 @@ const useFetchData = <T extends RequestData>(
       setLoadingInner((prev) => {
         const next =
           typeof updater === 'function'
-            ? (
-                updater as (
-                  p: boolean | undefined,
-                ) => boolean | undefined
-              )(prev)
+            ? (updater as (p: boolean | undefined) => boolean | undefined)(prev)
             : updater;
         options?.onLoadingChange?.(next);
         return next;

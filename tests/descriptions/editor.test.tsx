@@ -114,11 +114,7 @@ const DescriptionsDemo = (
     props.dataSource,
   );
   const setDataSource = useCallback(
-    (
-      updater:
-        | DataSourceType
-        | ((prev: DataSourceType) => DataSourceType),
-    ) => {
+    (updater: DataSourceType | ((prev: DataSourceType) => DataSourceType)) => {
       setDataSourceInner((prev) => {
         const next =
           typeof updater === 'function'

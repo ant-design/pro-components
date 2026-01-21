@@ -519,7 +519,9 @@ describe('LightFilter', () => {
     );
 
     await waitFor(() => {
-      expect(container.querySelector('.ant-pro-form-light-filter')).toBeTruthy();
+      expect(
+        container.querySelector('.ant-pro-form-light-filter'),
+      ).toBeTruthy();
     });
 
     // Before open, overlay shouldn't exist in body

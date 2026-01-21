@@ -231,10 +231,10 @@ function processNestedObjectTransforms(
   visited: Set<any>,
 ): any {
   if (tempValues != null && typeof tempValues === 'object') {
-     if (visited.has(tempValues)) {
-         return tempValues;
-     }
-     visited.add(tempValues);
+    if (visited.has(tempValues)) {
+      return tempValues;
+    }
+    visited.add(tempValues);
   }
 
   const isArrayValues = Array.isArray(tempValues);

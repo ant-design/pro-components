@@ -557,22 +557,18 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
 
   const [defaultOpenAll, setDefaultOpenAll] = useState(menu?.defaultOpenAll);
 
-  const openKeysValue =
-    propsOpenKeys === false ? undefined : propsOpenKeys;
+  const openKeysValue = propsOpenKeys === false ? undefined : propsOpenKeys;
   const [openKeys, setOpenKeysInner] = useControlledState<
     (string | number)[] | false
-  >(
-    () => {
-      if (menu?.defaultOpenAll) {
-        return getOpenKeysFromMenuData(menuData) || [];
-      }
-      if (propsOpenKeys === false) {
-        return false;
-      }
-      return [];
-    },
-    openKeysValue,
-  );
+  >(() => {
+    if (menu?.defaultOpenAll) {
+      return getOpenKeysFromMenuData(menuData) || [];
+    }
+    if (propsOpenKeys === false) {
+      return false;
+    }
+    return [];
+  }, openKeysValue);
   const setOpenKeys = useCallback(
     (
       updater:

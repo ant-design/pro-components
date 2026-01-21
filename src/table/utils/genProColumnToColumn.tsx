@@ -154,67 +154,64 @@ export function genProColumnToColumn<T extends AnyObject>(params: {
   const { columns, context, parents } = params;
   const subNameRecord = new Map<unknown, unknown[]>();
 
-  return (
-    columns
-      ?.map((columnProps, columnsIndex) => {
-        if (columnProps === Table.EXPAND_COLUMN) return columnProps;
-        if (columnProps === Table.SELECTION_COLUMN) return columnProps;
-        const {
-          key,
-          dataIndex,
-          valueEnum,
-          valueType = 'text',
-          children,
-        } = columnProps as ProColumns<T, any>;
-        const columnKey = genColumnKey(
-          key || dataIndex?.toString(),
-          [parents?.key, columnsIndex].filter(Boolean).join('-'),
-        );
-        const noNeedPro = !valueEnum && !valueType && !children;
-        if (noNeedPro) {
-          return {
-            index: columnsIndex,
-            ...columnProps,
-          };
-        }
-
-        const { filteredValue, sortOrder } = parseColumnFilterSort(
-          context.proFilter,
-          context.proSort,
-          columnProps,
-        );
-        const { fixed } = getColumnConfig(
-          context.counter.columnsMap,
-          columnKey,
-          columnProps,
-        );
-
-        const tempColumns = {
+  return columns
+    ?.map((columnProps, columnsIndex) => {
+      if (columnProps === Table.EXPAND_COLUMN) return columnProps;
+      if (columnProps === Table.SELECTION_COLUMN) return columnProps;
+      const {
+        key,
+        dataIndex,
+        valueEnum,
+        valueType = 'text',
+        children,
+      } = columnProps as ProColumns<T, any>;
+      const columnKey = genColumnKey(
+        key || dataIndex?.toString(),
+        [parents?.key, columnsIndex].filter(Boolean).join('-'),
+      );
+      const noNeedPro = !valueEnum && !valueType && !children;
+      if (noNeedPro) {
+        return {
           index: columnsIndex,
-          key: columnKey,
           ...columnProps,
-          title: renderColumnsTitle(columnProps),
-          valueEnum,
-          filters: resolveFilters(columnProps),
-          onFilter: resolveOnFilter(columnProps),
-          filteredValue,
-          sortOrder,
-          fixed,
-          width: columnProps.width || (columnProps.fixed ? 200 : undefined),
-          children: (columnProps as ProColumns<T, any>).children
-            ? genProColumnToColumn({
-                columns: (columnProps as ProColumns<T, any>)?.children ?? [],
-                context,
-                parents: { ...columnProps, key: columnKey } as ProColumns<
-                  T,
-                  any
-                >,
-              })
-            : undefined,
-          render: createCellRender(columnProps, context, subNameRecord),
         };
-        return omitUndefinedAndEmptyArr(tempColumns);
-      })
-      ?.filter((item) => !item.hideInTable) as unknown as ColumnToColumnReturnType<T>
-  );
+      }
+
+      const { filteredValue, sortOrder } = parseColumnFilterSort(
+        context.proFilter,
+        context.proSort,
+        columnProps,
+      );
+      const { fixed } = getColumnConfig(
+        context.counter.columnsMap,
+        columnKey,
+        columnProps,
+      );
+
+      const tempColumns = {
+        index: columnsIndex,
+        key: columnKey,
+        ...columnProps,
+        title: renderColumnsTitle(columnProps),
+        valueEnum,
+        filters: resolveFilters(columnProps),
+        onFilter: resolveOnFilter(columnProps),
+        filteredValue,
+        sortOrder,
+        fixed,
+        width: columnProps.width || (columnProps.fixed ? 200 : undefined),
+        children: (columnProps as ProColumns<T, any>).children
+          ? genProColumnToColumn({
+              columns: (columnProps as ProColumns<T, any>)?.children ?? [],
+              context,
+              parents: { ...columnProps, key: columnKey } as ProColumns<T, any>,
+            })
+          : undefined,
+        render: createCellRender(columnProps, context, subNameRecord),
+      };
+      return omitUndefinedAndEmptyArr(tempColumns);
+    })
+    ?.filter(
+      (item) => !item.hideInTable,
+    ) as unknown as ColumnToColumnReturnType<T>;
 }

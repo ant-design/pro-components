@@ -1,6 +1,6 @@
 import { ProCard } from '@ant-design/pro-components';
-import { Button, Space, Steps } from 'antd';
 import RcResizeObserver from '@rc-component/resize-observer';
+import { Button, Space, Steps } from 'antd';
 import { useState } from 'react';
 
 const Demo = () => {

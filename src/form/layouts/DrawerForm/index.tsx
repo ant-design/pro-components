@@ -124,7 +124,10 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
     width ? width : resize ? resizeInfo?.minWidth : 800,
   );
 
-  const [open, setOpenInner] = useControlledState<boolean>(!!propsOpen, propsOpen);
+  const [open, setOpenInner] = useControlledState<boolean>(
+    !!propsOpen,
+    propsOpen,
+  );
   const setOpen = useCallback(
     (updater: boolean | ((prev: boolean) => boolean)) => {
       setOpenInner((prev) => {

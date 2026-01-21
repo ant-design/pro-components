@@ -388,10 +388,7 @@ const ProTable = <
     },
   );
 
-  const {
-    columns: propsColumns = [],
-    columnsState,
-  } = props;
+  const { columns: propsColumns = [], columnsState } = props;
 
   const { defaultProFilter, defaultProSort } = useMemo(() => {
     const { sort, filter } = parseServerDefaultColumnConfig(

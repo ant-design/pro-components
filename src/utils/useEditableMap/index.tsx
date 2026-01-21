@@ -71,11 +71,7 @@ export function useEditableMap<RecordType>(
     React.Key[]
   >([], props.editableKeys);
   const setEditableRowKeys = useCallback(
-    (
-      updater:
-        | React.Key[]
-        | ((prev: React.Key[]) => React.Key[]),
-    ) => {
+    (updater: React.Key[] | ((prev: React.Key[]) => React.Key[])) => {
       setEditableRowKeysInner((prev) => {
         const next =
           typeof updater === 'function'

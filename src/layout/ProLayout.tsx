@@ -589,16 +589,13 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   /* Checking if the menu is loading and if it is, it will return a skeleton loading screen. */
   const hasLeftPadding = propsLayout !== 'top' && !isMobile;
 
-  const [collapsed, onCollapseInner] = useControlledState<boolean>(
-    () => {
-      if (defaultCollapsed !== undefined) return defaultCollapsed;
-      if (process.env.NODE_ENV === 'TEST') return false;
-      if (isMobile) return true;
-      if (colSize === 'md') return true;
-      return false;
-    },
-    props.collapsed,
-  );
+  const [collapsed, onCollapseInner] = useControlledState<boolean>(() => {
+    if (defaultCollapsed !== undefined) return defaultCollapsed;
+    if (process.env.NODE_ENV === 'TEST') return false;
+    if (isMobile) return true;
+    if (colSize === 'md') return true;
+    return false;
+  }, props.collapsed);
   const onCollapse = useCallback(
     (updater: boolean | ((prev: boolean) => boolean)) => {
       onCollapseInner((prev) => {
