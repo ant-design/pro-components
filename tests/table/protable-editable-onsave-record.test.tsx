@@ -97,7 +97,7 @@ describe('ProTable editable onSave record', () => {
       expect(onSave).toHaveBeenCalledTimes(1);
     });
 
-    const record = onSave.mock.calls[0][1] as any;
+    const record = (onSave.mock.calls[0] as unknown as [any, any, any])[1];
     expect(Number(record.all_money)).toBe(22);
     expect(record).not.toHaveProperty('0');
     expect(record).not.toHaveProperty('1');
@@ -127,7 +127,7 @@ describe('ProTable editable onSave record', () => {
       expect(onSave).toHaveBeenCalledTimes(1);
     });
 
-    const record = onSave.mock.calls[0][1] as any;
+    const record = (onSave.mock.calls[0] as unknown as [any, any, any])[1];
     expect(String(record.all_money)).toBe('22');
     expect(record).not.toHaveProperty('0');
     expect(record).not.toHaveProperty('1');

@@ -237,7 +237,7 @@ const InputNumberPopover = React.forwardRef<
     );
     const onChange = useCallback(
       (updater: any | ((prev: any) => any)) => {
-        setValueInner((prev) => {
+        setValueInner((prev: any) => {
           const next =
             typeof updater === 'function'
               ? (updater as (p: any) => any)(prev)

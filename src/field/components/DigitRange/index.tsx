@@ -48,7 +48,7 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
         | undefined
         | ((prev: ValuePair | undefined) => ValuePair | undefined),
     ) => {
-      setValuePairInner((prev) => {
+      setValuePairInner((prev: ValuePair | undefined) => {
         const next =
           typeof updater === 'function'
             ? (updater as (p: ValuePair | undefined) => ValuePair | undefined)(

@@ -31,7 +31,7 @@ export const ProHelpModal: React.FC<ProHelpModalProps> = ({
           typeof updater === 'function'
             ? (updater as (p: boolean) => boolean)(prev)
             : updater;
-        modalProps?.afterClose?.(next);
+        modalProps?.afterClose?.();
         return next;
       });
     },
