@@ -70,7 +70,10 @@ import {
   useActionType,
 } from './utils';
 import { columnSort } from './utils/columnSort';
-import { genProColumnToColumn } from './utils/genProColumnToColumn';
+import {
+  genProColumnToColumn,
+  type TableColumnContext,
+} from './utils/genProColumnToColumn';
 
 function getEditableDataSource<T>({
   dataSource,
@@ -84,8 +87,8 @@ function getEditableDataSource<T>({
     newLineRecord?: {
       options?: {
         position?: 'top' | 'bottom' | string;
-        parentKey?: React.Key;
-        recordKey?: React.Key;
+        parentKey?: React.Key | React.Key[];
+        recordKey?: React.Key | React.Key[];
       };
       defaultValue?: T;
     };
@@ -389,7 +392,6 @@ const ProTable = <
   const {
     columns: propsColumns = [],
     columnsState,
-    onColumnsStateChange,
   } = props;
 
   const { defaultProFilter, defaultProSort } = useMemo(() => {
@@ -560,12 +562,12 @@ const ProTable = <
   // 设置 name 到 store 中，里面用了 ref ，所以不用担心直接 set
   counter.setPrefixName(props.name);
 
-  // 设置 columnsState 到 store 中
+  // 设置 columnsState 到 store 中（仅在受控 value 时同步，避免在仅传 onChange 时用 {} 覆盖默认 state 导致多余 onChange）
   useEffect(() => {
-    if (columnsState) {
-      counter.setColumnsMap(columnsState.value || columnsState.defaultValue);
+    if (columnsState?.value !== undefined) {
+      counter.setColumnsMap(columnsState.value);
     }
-  }, [columnsState]);
+  }, [columnsState?.value]);
 
   /** 清空所有的选中项 */
   const onCleanSelected = useCallback(() => {
@@ -654,18 +656,21 @@ const ProTable = <
 
   // ---------- 列计算相关 start  -----------------
   const tableColumn = useMemo(() => {
-    return genProColumnToColumn<T>({
-      columns: propsColumns,
+    const columnContext: TableColumnContext<T> = {
       counter,
       columnEmptyText,
       type,
-      marginSM: token.marginSM,
       editableUtils,
-      rowKey,
-      childrenColumnName: props.expandable?.childrenColumnName,
+      marginSM: token.marginSM,
+      rowKey: rowKey ?? 'id',
+      childrenColumnName: props.expandable?.childrenColumnName ?? 'children',
       proFilter,
       proSort,
-    }).sort(columnSort(counter.columnsMap));
+    };
+    return genProColumnToColumn<T>({
+      columns: propsColumns,
+      context: columnContext,
+    }).sort(columnSort(counter.columnsMap ?? {}));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     propsColumns,
@@ -852,7 +857,7 @@ const ProTable = <
       return column
         .map((item) => {
           const columnKey = genColumnKey(item.key, item.index);
-          const config = counter.columnsMap[columnKey];
+          const config = counter.columnsMap?.[columnKey];
           if (config && config.show === false) {
             return false;
           }

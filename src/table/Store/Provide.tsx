@@ -1,4 +1,4 @@
-﻿import { useMergedState } from '@rc-component/util';
+import { useMergedState } from '@rc-component/util';
 import type { TableColumnType } from 'antd';
 import merge from 'lodash-es/merge';
 import {

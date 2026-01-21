@@ -1,4 +1,4 @@
-﻿import type { ColumnsState } from '../Store/Provide';
+import type { ColumnsState } from '../Store/Provide';
 
 export const columnSort =
   (columnsMap: Record<string, ColumnsState>) => (a: any, b: any) => {
@@ -19,8 +19,8 @@ export const columnSort =
     // 如果没有index，在 dataIndex 或者 key 不存在的时候他会报错
     const aKey = a.key || `${aIndex}`;
     const bKey = b.key || `${bIndex}`;
-    if (columnsMap[aKey]?.order || columnsMap[bKey]?.order) {
-      return (columnsMap[aKey]?.order || 0) - (columnsMap[bKey]?.order || 0);
+    if (columnsMap?.[aKey]?.order || columnsMap?.[bKey]?.order) {
+      return (columnsMap?.[aKey]?.order || 0) - (columnsMap?.[bKey]?.order || 0);
     }
     return (a.index || 0) - (b.index || 0);
   };
