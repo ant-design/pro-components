@@ -109,8 +109,7 @@ const FieldCascader: ProFieldFC<GroupProps> = (
   }
 
   if (mode === 'edit') {
-    const { onDropdownVisibleChange, ...fieldProps } = (rest.fieldProps ||
-      {}) as any;
+    const fieldProps = rest.fieldProps || {};
 
     let dom = (
       <Cascader
