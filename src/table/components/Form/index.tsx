@@ -1,7 +1,7 @@
 import { omit } from '@rc-component/util';
 import type { TablePaginationConfig } from 'antd';
-import React, { memo, useCallback, useMemo } from 'react';
-import { isDeepEqualReact, omitUndefined } from '../../../utils';
+import React, { memo, useMemo } from 'react';
+import { isDeepEqualReact, omitUndefined, useRefFunction } from '../../../utils';
 import type { ActionType, ProTableProps } from '../../typing';
 import { isBordered } from '../../utils/index';
 import FormRender from './FormRender';
@@ -57,87 +57,81 @@ const FormSearch = <T, U>(props: BaseFormProps<T, U> & { ghost?: boolean }) => {
     [pagination],
   );
 
-  const onSubmitHandler = useCallback(
-    (value: U, firstLoad: boolean) => {
-      // 检查是否需要验证
-      if (form?.ignoreRules === false && firstLoad) {
-        formRef?.current?.validateFields().then(() => {
-          const submitParams = {
-            ...value,
-            _timestamp: Date.now(),
-            ...pageInfo,
-          };
-          const omitParams = omit(
-            beforeSearchSubmit(submitParams),
-            Object.keys(pageInfo!),
-          ) as U;
-          onFormSearchSubmit(omitParams);
-          if (!firstLoad) {
-            // back first page
-            action.current?.setPageInfo?.({
-              current: 1,
-            });
-          }
-          // 不是第一次提交就不触发，第一次提交是 js 触发的
-          // 为了解决 https://github.com/ant-design/pro-components/issues/579
-          if (onSubmit && !firstLoad) {
-            onSubmit?.(value);
-          }
-        }).catch((e) => {
-          // 验证失败，不执行后续逻辑
-          // console.error(e);
-        });
-        return;
-      }
-
-      const submitParams = {
-        ...value,
-        _timestamp: Date.now(),
-        ...pageInfo,
-      };
-      const omitParams = omit(
-        beforeSearchSubmit(submitParams),
-        Object.keys(pageInfo!),
-      ) as U;
-      onFormSearchSubmit(omitParams);
-      if (!firstLoad) {
-        // back first page
-        action.current?.setPageInfo?.({
-          current: 1,
-        });
-      }
-      // 不是第一次提交就不触发，第一次提交是 js 触发的
-      // 为了解决 https://github.com/ant-design/pro-components/issues/579
-      if (onSubmit && !firstLoad) {
-        onSubmit?.(value);
-      }
-    },
-    [pageInfo, beforeSearchSubmit, action, onSubmit, onFormSearchSubmit, form],
-  );
-
-  const onResetHandler = useCallback(
-    (value: Partial<U>) => {
-      const resetLogic = () => {
+  const onSubmitHandler = useRefFunction((value: U, firstLoad: boolean) => {
+    // 检查是否需要验证
+    if (form?.ignoreRules === false && firstLoad) {
+      formRef?.current?.validateFields().then(() => {
+        const submitParams = {
+          ...value,
+          _timestamp: Date.now(),
+          ...pageInfo,
+        };
         const omitParams = omit(
-          beforeSearchSubmit({ ...value, ...pageInfo }),
+          beforeSearchSubmit(submitParams),
           Object.keys(pageInfo!),
         ) as U;
         onFormSearchSubmit(omitParams);
-        // back first page
-        action.current?.setPageInfo?.({
-          current: 1,
-        });
-        onReset?.();
-      };
+        if (!firstLoad) {
+          // back first page
+          action.current?.setPageInfo?.({
+            current: 1,
+          });
+        }
+        // 不是第一次提交就不触发，第一次提交是 js 触发的
+        // 为了解决 https://github.com/ant-design/pro-components/issues/579
+        if (onSubmit && !firstLoad) {
+          onSubmit?.(value);
+        }
+      }).catch((e) => {
+        // 验证失败，不执行后续逻辑
+        // console.error(e);
+      });
+      return;
+    }
 
-      if (form?.ignoreRules === false) {
-        formRef?.current?.validateFields().then(resetLogic).catch(() => {});
-        return;
-      }
-      resetLogic();
-    },
-    [pageInfo, beforeSearchSubmit, action, onFormSearchSubmit, onReset, form],
-  );
+    const submitParams = {
+      ...value,
+      _timestamp: Date.now(),
+      ...pageInfo,
+    };
+    const omitParams = omit(
+      beforeSearchSubmit(submitParams),
+      Object.keys(pageInfo!),
+    ) as U;
+    onFormSearchSubmit(omitParams);
+    if (!firstLoad) {
+      // back first page
+      action.current?.setPageInfo?.({
+        current: 1,
+      });
+    }
+    // 不是第一次提交就不触发，第一次提交是 js 触发的
+    // 为了解决 https://github.com/ant-design/pro-components/issues/579
+    if (onSubmit && !firstLoad) {
+      onSubmit?.(value);
+    }
+  });
+
+  const onResetHandler = useRefFunction((value: Partial<U>) => {
+    const resetLogic = () => {
+      const omitParams = omit(
+        beforeSearchSubmit({ ...value, ...pageInfo }),
+        Object.keys(pageInfo!),
+      ) as U;
+      onFormSearchSubmit(omitParams);
+      // back first page
+      action.current?.setPageInfo?.({
+        current: 1,
+      });
+      onReset?.();
+    };
+
+    if (form?.ignoreRules === false) {
+      formRef?.current?.validateFields().then(resetLogic).catch(() => {});
+      return;
+    }
+    resetLogic();
+  });
 
   return (
     <FormRender<U, T>
