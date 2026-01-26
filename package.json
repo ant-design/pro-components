@@ -82,7 +82,7 @@
     "clsx": "^2.1.1",
     "dayjs": "^1.11.19",
     "lodash-es": "^4.17.22",
-    "path-to-regexp": "^6.3.0",
+    "path-to-regexp": "^8.0.0",
     "react-draggable": "^4.5.0",
     "safe-stable-stringify": "^2.5.0",
     "swr": "^2.3.8"
@@ -135,7 +135,7 @@
     "cross-env": "^7.0.3",
     "dumi": "^2.4.21",
     "dumi-theme-antd-style": "^0.31.1",
-    "esbuild": "^0.25.12",
+    "esbuild": "^0.26.0",
     "eslint": "^8.57.1",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^4.6.2",
