@@ -59,6 +59,37 @@ const FormSearch = <T, U>(props: BaseFormProps<T, U> & { ghost?: boolean }) => {
 
   const onSubmitHandler = useCallback(
     (value: U, firstLoad: boolean) => {
+      // 检查是否需要验证
+      if (form?.ignoreRules === false && firstLoad) {
+        formRef?.current?.validateFields().then(() => {
+          const submitParams = {
+            ...value,
+            _timestamp: Date.now(),
+            ...pageInfo,
+          };
+          const omitParams = omit(
+            beforeSearchSubmit(submitParams),
+            Object.keys(pageInfo!),
+          ) as U;
+          onFormSearchSubmit(omitParams);
+          if (!firstLoad) {
+            // back first page
+            action.current?.setPageInfo?.({
+              current: 1,
+            });
+          }
+          // 不是第一次提交就不触发，第一次提交是 js 触发的
+          // 为了解决 https://github.com/ant-design/pro-components/issues/579
+          if (onSubmit && !firstLoad) {
+            onSubmit?.(value);
+          }
+        }).catch((e) => {
+          // 验证失败，不执行后续逻辑
+          // console.error(e);
+        });
+        return;
+      }
+
       const submitParams = {
         ...value,
         _timestamp: Date.now(),
@@ -81,23 +112,31 @@ const FormSearch = <T, U>(props: BaseFormProps<T, U> & { ghost?: boolean }) => {
         onSubmit?.(value);
       }
     },
-    [pageInfo, beforeSearchSubmit, action, onSubmit, onFormSearchSubmit],
+    [pageInfo, beforeSearchSubmit, action, onSubmit, onFormSearchSubmit, form],
   );
 
   const onResetHandler = useCallback(
     (value: Partial<U>) => {
-      const omitParams = omit(
-        beforeSearchSubmit({ ...value, ...pageInfo }),
-        Object.keys(pageInfo!),
-      ) as U;
-      onFormSearchSubmit(omitParams);
-      // back first page
-      action.current?.setPageInfo?.({
-        current: 1,
-      });
-      onReset?.();
+      const resetLogic = () => {
+        const omitParams = omit(
+          beforeSearchSubmit({ ...value, ...pageInfo }),
+          Object.keys(pageInfo!),
+        ) as U;
+        onFormSearchSubmit(omitParams);
+        // back first page
+        action.current?.setPageInfo?.({
+          current: 1,
+        });
+        onReset?.();
+      };
+
+      if (form?.ignoreRules === false) {
+        formRef?.current?.validateFields().then(resetLogic).catch(() => {});
+        return;
+      }
+      resetLogic();
     },
-    [pageInfo, beforeSearchSubmit, action, onFormSearchSubmit, onReset],
+    [pageInfo, beforeSearchSubmit, action, onFormSearchSubmit, onReset, form],
   );
 
   return (
