@@ -1,34 +1,38 @@
-﻿import { useEffect, useState } from 'react';
+import { theme } from 'antd';
+import { useEffect, useState } from 'react';
 import useMediaQuery from './query';
+
+const { getDesignToken } = theme;
+const token = getDesignToken();
 
 export const MediaQueryEnum = {
   xs: {
-    maxWidth: 575,
-    matchMedia: '(max-width: 575px)',
+    maxWidth: token.screenXSMax,
+    matchMedia: `(max-width: ${token.screenXSMax}px)`,
   },
   sm: {
-    minWidth: 576,
-    maxWidth: 767,
-    matchMedia: '(min-width: 576px) and (max-width: 767px)',
+    minWidth: token.screenSMMin,
+    maxWidth: token.screenSMMax,
+    matchMedia: `(min-width: ${token.screenSMMin}px) and (max-width: ${token.screenSMMax}px)`,
   },
   md: {
-    minWidth: 768,
-    maxWidth: 991,
-    matchMedia: '(min-width: 768px) and (max-width: 991px)',
+    minWidth: token.screenMDMin,
+    maxWidth: token.screenMDMax,
+    matchMedia: `(min-width: ${token.screenMDMin}px) and (max-width: ${token.screenMDMax}px)`,
   },
   lg: {
-    minWidth: 992,
-    maxWidth: 1199,
-    matchMedia: '(min-width: 992px) and (max-width: 1199px)',
+    minWidth: token.screenLGMin,
+    maxWidth: token.screenLGMax,
+    matchMedia: `(min-width: ${token.screenLGMin}px) and (max-width: ${token.screenLGMax}px)`,
   },
   xl: {
-    minWidth: 1200,
-    maxWidth: 1599,
-    matchMedia: '(min-width: 1200px) and (max-width: 1599px)',
+    minWidth: token.screenXLMin,
+    maxWidth: token.screenXLMax,
+    matchMedia: `(min-width: ${token.screenXLMin}px) and (max-width: ${token.screenXLMax}px)`,
   },
   xxl: {
-    minWidth: 1600,
-    matchMedia: '(min-width: 1600px)',
+    minWidth: token.screenXXLMin,
+    matchMedia: `(min-width: ${token.screenXXLMin}px)`,
   },
 };
 
