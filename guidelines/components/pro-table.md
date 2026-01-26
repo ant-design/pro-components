@@ -7,6 +7,8 @@
 - When you need built-in search/filter forms.
 - When you need to handle server-side sorting and pagination easily.
 
+**Note**: If you need an editable table, please refer to [EditableProTable](editable-pro-table.md).
+
 **Semantic**:
 - Uses `antd` Table under the hood but adds a search form above and toolbars.
 - `dataSource` can be fetched automatically via `request` prop.
@@ -87,12 +89,12 @@ export default () => {
           valueType: 'option',
           render: (text, record, _, action) => [
             <a
-              key="editable"
+              key="view"
               onClick={() => {
-                action?.startEditable?.(record.id);
+                // View action
               }}
             >
-              Edit
+              View
             </a>,
           ],
         },
@@ -107,9 +109,6 @@ export default () => {
           total: 0,
         };
       }}
-      editable={{
-        type: 'multiple',
-      }}
       columnsState={{
         persistenceKey: 'pro-table-singe-demos',
         persistenceType: 'localStorage',
@@ -120,17 +119,6 @@ export default () => {
       rowKey="id"
       search={{
         labelWidth: 'auto',
-      }}
-      form={{
-        // syncToUrl: (values, type) => {
-        //   if (type === 'get') {
-        //     return {
-        //       ...values,
-        //       created_at: [values.startTime, values.endTime],
-        //     };
-        //   }
-        //   return values;
-        // },
       }}
       pagination={{
         pageSize: 5,

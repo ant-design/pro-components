@@ -6,6 +6,7 @@ Here are the guidelines files and additional guidelines for the ProComponents:
 
 | Component | Overview | Guidelines file |
 |----------|----------|----------|
+| EditableProTable | Table with inline editing capabilities | [editable-pro-table.md](components/editable-pro-table.md) |
 | ProCard | Card component with better layout and actions | [pro-card.md](components/pro-card.md) |
 | ProDescriptions | Descriptions component with valueType support | [pro-descriptions.md](components/pro-descriptions.md) |
 | ProField | Atomic field component for display and edit | [pro-field.md](components/pro-field.md) |
