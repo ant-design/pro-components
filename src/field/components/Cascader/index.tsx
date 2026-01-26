@@ -1,4 +1,4 @@
-﻿import { LoadingOutlined } from '@ant-design/icons';
+import { LoadingOutlined } from '@ant-design/icons';
 import type { RadioGroupProps } from 'antd';
 import { Cascader, ConfigProvider } from 'antd';
 import { clsx } from 'clsx';
@@ -109,6 +109,12 @@ const FieldCascader: ProFieldFC<GroupProps> = (
   }
 
   if (mode === 'edit') {
+    const {
+      onDropdownVisibleChange,
+      onOpenChange,
+      ...fieldProps
+    } = (rest.fieldProps || {}) as any;
+
     let dom = (
       <Cascader
         variant={!light ? variant : 'borderless'}
@@ -119,13 +125,14 @@ const FieldCascader: ProFieldFC<GroupProps> = (
           placeholder ||
           intl.getMessage('tableForm.selectPlaceholder', '请选择')
         }
-        allowClear={rest.fieldProps?.allowClear !== false}
-        {...rest.fieldProps}
+        allowClear={fieldProps?.allowClear !== false}
+        {...fieldProps}
         onOpenChange={(isOpen) => {
-          rest?.fieldProps?.onOpenChange?.(isOpen);
+          onOpenChange?.(isOpen);
+          onDropdownVisibleChange?.(isOpen);
           setOpen(isOpen);
         }}
-        className={clsx(rest.fieldProps?.className, layoutClassName)}
+        className={clsx(fieldProps?.className, layoutClassName)}
         options={options}
       />
     );
@@ -134,13 +141,13 @@ const FieldCascader: ProFieldFC<GroupProps> = (
       dom =
         formItemRender(
           rest.text,
-          { mode, ...rest.fieldProps, options, loading },
+          { mode, ...fieldProps, options, loading },
           dom,
         ) ?? null;
     }
 
     if (light) {
-      const { disabled, value } = rest.fieldProps;
+      const { disabled, value } = fieldProps;
       const notEmpty = !!value && value?.length !== 0;
       return (
         <FieldLabel
@@ -159,7 +166,8 @@ const FieldCascader: ProFieldFC<GroupProps> = (
           downIcon={notEmpty || open ? false : undefined}
           onClick={() => {
             setOpen(true);
-            rest?.fieldProps?.onOpenChange?.(true);
+            onOpenChange?.(true);
+            onDropdownVisibleChange?.(true);
           }}
         />
       );
