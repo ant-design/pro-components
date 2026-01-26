@@ -6,15 +6,18 @@ Here are the guidelines files and additional guidelines for the ProComponents:
 
 | Component | Overview | Guidelines file |
 |----------|----------|----------|
-| EditableProTable | Table with inline editing capabilities | [editable-pro-table.md](components/editable-pro-table.md) |
 | ProCard | Card component with better layout and actions | [pro-card.md](components/pro-card.md) |
 | ProDescriptions | Descriptions component with valueType support | [pro-descriptions.md](components/pro-descriptions.md) |
 | ProField | Atomic field component for display and edit | [pro-field.md](components/pro-field.md) |
-| ProForm | Form component with layout and valueType support | [pro-form.md](components/pro-form.md) |
+| ProForm | Standard page form | [pro-form.md](components/pro-form.md) |
+| ModalForm | Form inside a modal | [modal-form.md](components/modal-form.md) |
+| DrawerForm | Form inside a drawer | [drawer-form.md](components/drawer-form.md) |
+| StepsForm | Multi-step form wizard | [steps-form.md](components/steps-form.md) |
 | ProLayout | Heavy-duty layout component | [pro-layout.md](components/pro-layout.md) |
 | ProList | List component with table-like features | [pro-list.md](components/pro-list.md) |
 | ProSkeleton | Skeleton loading component | [pro-skeleton.md](components/pro-skeleton.md) |
 | ProTable | Advanced table with search, filter, and valueType | [pro-table.md](components/pro-table.md) |
+| EditableProTable | Editable table for inline editing | [editable-pro-table.md](components/editable-pro-table.md) |
 
 ## General Component Usage and Best Practices
 

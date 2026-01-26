@@ -3,23 +3,20 @@
 **Purpose**: High-performance form component with layout capabilities and preset fields.
 
 **When to use**:
-- For data entry forms.
-- When you need complex layouts (groups, steps, modal forms).
-- When you want to use `valueType` fields like in ProTable.
+- For standard data entry forms on a page.
+- When you need a simple, direct form without modal or drawer wrappers.
 
-**Variants**:
-- `ProForm`: Standard form.
-- `ModalForm`: Form inside a modal.
-- `DrawerForm`: Form inside a drawer.
-- `StepsForm`: Multi-step form.
-- `QueryFilter`: Search form (used in ProTable).
-- `LightFilter`: Lightweight filter form.
+**Note**:
+- For forms in a Modal, see [ModalForm](modal-form.md).
+- For forms in a Drawer, see [DrawerForm](drawer-form.md).
+- For multi-step forms, see [StepsForm](steps-form.md).
 
 **API Overview**:
 - `onFinish`: Triggered on form submission. `(values) => Promise<boolean | void>`
 - `initialValues`: Initial values.
 - `submitter`: Configure the submit/reset buttons.
 - `layout`: Form layout ('horizontal', 'vertical', 'inline').
+- `grid`: Enable grid layout for children.
 
 **Field Components**:
 - `ProFormText`
@@ -89,7 +86,6 @@ export default () => {
 ```
 
 **Best Practices**:
-- Use `ProForm.Group` to group fields.
-- Use `width` prop to control field width (`xs`, `sm`, `md`, `lg`, `xl`) instead of raw pixels.
+- Use `ProForm.Group` to group related fields.
+- Use `width` prop to control field width (`xs`, `sm`, `md`, `lg`, `xl`) instead of raw pixels for consistency.
 - Use `request` in `ProFormSelect` to load options asynchronously.
-- Use `ModalForm` or `DrawerForm` for popup forms to handle visibility and loading states automatically.
