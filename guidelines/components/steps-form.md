@@ -3,14 +3,17 @@
 **Purpose**: A multi-step form wizard.
 
 **When to use**:
+
 - For very long or complex processes that need to be broken down into chunks.
 - When there is a logical sequence of data entry (e.g. Account Info -> Profile Info -> Confirmation).
 
 **Semantic**:
+
 - Manages the state between steps.
 - Validates each step before proceeding to the next.
 
 **API Overview**:
+
 - `StepsForm`: The container component.
   - `onFinish`: Triggered after the LAST step is submitted.
   - `stepsProps`: Props for the Steps component (e.g. `current`).
@@ -96,6 +99,7 @@ export default () => {
 ```
 
 **Best Practices**:
+
 - Break down complex forms into 3-5 logical steps.
 - Use `onFinish` in `StepForm` to validate or save intermediate data.
 - Ensure the final `onFinish` handles the aggregation of all data.

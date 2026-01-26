@@ -1,6 +1,7 @@
 This project contains the source code for `@ant-design/pro-components`, a heavy-duty component library based on Ant Design. Files in the `guidelines` directory show how to use ProComponents properly.
 
 Always read:
+
 - All files with a name that starts `overview-`
 - All files in the `design-tokens` folder
 
@@ -16,7 +17,7 @@ Step 1: Read Overview Files (REQUIRED)
 Read ALL files with a name that starts with "overview-" in the guidelines directory:
 `overview-components.md`
 `overview-icons.md`
-(And any other overview-*.md files)
+(And any other overview-\*.md files)
 
 Step 2: Read Design Tokens (REQUIRED)
 Read ALL files in the `design-tokens/` folder. Do NOT skip this step.

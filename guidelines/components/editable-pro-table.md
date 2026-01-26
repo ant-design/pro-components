@@ -3,15 +3,18 @@
 **Purpose**: A specific mode of ProTable for editing data rows directly within the table.
 
 **When to use**:
+
 - When you need to edit data line by line.
 - For inline editing scenarios where a full form is too heavy.
 - Supports adding new rows, deleting rows, and editing existing rows.
 
 **Semantic**:
+
 - Uses `ProTable` with the `editable` prop configuration.
 - Can manage data via `value` (controlled) or internal state.
 
 **API Overview**:
+
 - `editable`: Configuration object for edit mode.
   - `type`: 'single' | 'multiple' (default: 'single').
   - `editableKeys`: Keys of the rows currently being edited (controlled).
@@ -84,7 +87,7 @@ export default () => {
             };
           },
           // Columns can be editable
-          editable: true, 
+          editable: true,
         },
         {
           title: 'State',
@@ -113,7 +116,9 @@ export default () => {
             <a
               key="delete"
               onClick={() => {
-                setDataSource(dataSource.filter((item) => item.id !== record.id));
+                setDataSource(
+                  dataSource.filter((item) => item.id !== record.id),
+                );
               }}
             >
               Delete
@@ -138,6 +143,7 @@ export default () => {
 ```
 
 **Common Mistakes**:
+
 - Forgetting to provide a unique `rowKey`.
 - Not handling `editableKeys` properly in controlled mode.
 - Assuming `onSave` automatically updates the data source (you often need to update state manually or use `onChange` for local data).

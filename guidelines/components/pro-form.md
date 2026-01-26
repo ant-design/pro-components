@@ -3,15 +3,18 @@
 **Purpose**: High-performance form component with layout capabilities and preset fields.
 
 **When to use**:
+
 - For standard data entry forms on a page.
 - When you need a simple, direct form without modal or drawer wrappers.
 
 **Note**:
+
 - For forms in a Modal, see [ModalForm](modal-form.md).
 - For forms in a Drawer, see [DrawerForm](drawer-form.md).
 - For multi-step forms, see [StepsForm](steps-form.md).
 
 **API Overview**:
+
 - `onFinish`: Triggered on form submission. `(values) => Promise<boolean | void>`
 - `initialValues`: Initial values.
 - `submitter`: Configure the submit/reset buttons.
@@ -19,6 +22,7 @@
 - `grid`: Enable grid layout for children.
 
 **Field Components**:
+
 - `ProFormText`
 - `ProFormTextArea`
 - `ProFormSelect`
@@ -86,6 +90,7 @@ export default () => {
 ```
 
 **Best Practices**:
+
 - Use `ProForm.Group` to group related fields.
 - Use `width` prop to control field width (`xs`, `sm`, `md`, `lg`, `xl`) instead of raw pixels for consistency.
 - Use `request` in `ProFormSelect` to load options asynchronously.

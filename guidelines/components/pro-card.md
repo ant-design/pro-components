@@ -3,12 +3,14 @@
 **Purpose**: An extended Card component that supports grid layout, splitting, and tabs.
 
 **When to use**:
+
 - To organize content into sections.
 - To create dashboard layouts with multiple cards.
 - When you need a card that can be split vertically or horizontally.
 - When you need tabs inside a card.
 
 **API Overview**:
+
 - `title`: Card title.
 - `extra`: Action area in top right.
 - `split`: 'vertical' | 'horizontal'. Split the card into multiple sections.
@@ -82,6 +84,7 @@ export default () => {
 ```
 
 **Best Practices**:
+
 - Use `ghost` mode when placing cards on a gray background (like in `ProLayout`).
 - Use `split` to create master-detail views.
 - Use `colSpan` for responsive layouts.

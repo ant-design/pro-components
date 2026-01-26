@@ -3,6 +3,7 @@
 **Purpose**: Advanced table component that solves common table issues like search, filter, sort, and pagination.
 
 **When to use**:
+
 - For admin interfaces displaying lists of data.
 - When you need built-in search/filter forms.
 - When you need to handle server-side sorting and pagination easily.
@@ -10,6 +11,7 @@
 **Note**: If you need an editable table, please refer to [EditableProTable](editable-pro-table.md).
 
 **Semantic**:
+
 - Uses `antd` Table under the hood but adds a search form above and toolbars.
 - `dataSource` can be fetched automatically via `request` prop.
 
@@ -23,6 +25,7 @@
 - `actionRef`: Ref to trigger table actions like `reload()`.
 
 **ProColumns Configuration**:
+
 - `dataIndex`: Key in the data object.
 - `title`: Column header title.
 - `valueType`: Type of the data (e.g. `date`, `money`, `select`).
@@ -132,6 +135,7 @@ export default () => {
 ```
 
 **Common Mistakes**:
+
 - Forgetting `rowKey`.
 - Manually managing `dataSource` and `loading` when `request` is better.
 - Not using `valueType` and writing custom `render` for everything.

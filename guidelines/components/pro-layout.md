@@ -3,11 +3,13 @@
 **Purpose**: A heavy-duty layout component that provides a complete application frame including Sidebar, Header, Content, and Footer.
 
 **When to use**:
+
 - As the root component of your admin application.
 - When you need a responsive layout with collapsible sidebar.
 - When you need automatic menu generation from routes.
 
 **API Overview**:
+
 - `layout`: 'side' | 'top' | 'mix'.
 - `route`: Route configuration object.
 - `location`: Current location (usually from router).
@@ -76,6 +78,7 @@ export default (props) => {
 ```
 
 **Common Mistakes**:
+
 - Not passing `location` causing the menu highlight to fail.
 - Forgetting to handle `menuItemRender` when using a router (like `react-router-dom`) to use `Link` instead of `a` tags.
 - Using `mix` layout without setting `splitMenus` correctly for the desired behavior.

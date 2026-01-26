@@ -24,7 +24,8 @@
   "files": [
     "dist",
     "lib",
-    "es"
+    "es",
+    "guidelines"
   ],
   "scripts": {
     "bootstrap": "node ./scripts/bootstrap.mjs",

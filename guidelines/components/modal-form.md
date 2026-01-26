@@ -3,15 +3,18 @@
 **Purpose**: A form wrapped in a Modal, used for creating or editing data in a dialog.
 
 **When to use**:
+
 - For "Create" or "Edit" actions that don't require a full page.
 - When you need a quick interaction without leaving the current context.
 - When the form content is relatively short.
 
 **Semantic**:
+
 - Combines `antd` Modal and `ProForm`.
 - Automatically handles the `visible` (via `trigger`) and `loading` states.
 
 **API Overview**:
+
 - `trigger`: ReactNode. The element that opens the modal when clicked.
 - `title`: Modal title.
 - `width`: Modal width.
@@ -23,7 +26,11 @@
 **Usage Pattern**:
 
 ```tsx
-import { ModalForm, ProFormText, ProFormSelect } from '@ant-design/pro-components';
+import {
+  ModalForm,
+  ProFormText,
+  ProFormSelect,
+} from '@ant-design/pro-components';
 import { Button, message } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 
@@ -74,6 +81,7 @@ export default () => {
 ```
 
 **Best Practices**:
+
 - Always use `trigger` when possible to avoid managing `open` state manually.
 - Return `true` in `onFinish` to close the modal. Return `false` or nothing to keep it open (e.g. if validation fails).
 - Use `modalProps={{ destroyOnClose: true }}` to reset the form when closed.

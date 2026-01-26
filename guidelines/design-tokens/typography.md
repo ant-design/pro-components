@@ -5,6 +5,7 @@ ProComponents uses Ant Design's typography tokens.
 ## Token Categories
 
 ### Font Size
+
 - `fontSize`: Default font size (14px).
 - `fontSizeSM`: Small font size (12px).
 - `fontSizeLG`: Large font size (16px).
@@ -16,10 +17,12 @@ ProComponents uses Ant Design's typography tokens.
 - `fontSizeHeading5`: H5 size.
 
 ### Line Height
+
 - `lineHeight`: Default line height.
 - `lineHeightHeading1` to `lineHeightHeading5`: Line heights for headings.
 
 ### Font Weight
+
 - `fontWeightStrong`: Bold weight (600).
 
 ## Usage
@@ -33,7 +36,12 @@ const MyComponent = () => {
   const { token } = useToken();
 
   return (
-    <h1 style={{ fontSize: token.fontSizeHeading1, fontWeight: token.fontWeightStrong }}>
+    <h1
+      style={{
+        fontSize: token.fontSizeHeading1,
+        fontWeight: token.fontWeightStrong,
+      }}
+    >
       Title
     </h1>
   );

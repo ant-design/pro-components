@@ -3,15 +3,18 @@
 **Purpose**: A form wrapped in a Drawer, sliding from the side.
 
 **When to use**:
+
 - For creating or editing complex data that requires more vertical space than a Modal.
 - When you want to keep the user in context but offer a larger workspace.
 - For side-panel configuration or details editing.
 
 **Semantic**:
+
 - Combines `antd` Drawer and `ProForm`.
 - Handles `visible` and `loading` states automatically.
 
 **API Overview**:
+
 - `trigger`: ReactNode. The element that opens the drawer.
 - `title`: Drawer title.
 - `width`: Drawer width (default is usually enough, but can be customized).
@@ -21,7 +24,12 @@
 **Usage Pattern**:
 
 ```tsx
-import { DrawerForm, ProFormText, ProFormDatePicker, ProFormSelect } from '@ant-design/pro-components';
+import {
+  DrawerForm,
+  ProFormText,
+  ProFormDatePicker,
+  ProFormSelect,
+} from '@ant-design/pro-components';
 import { Button, message } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 
@@ -76,6 +84,7 @@ export default () => {
 ```
 
 **Best Practices**:
+
 - Similar to `ModalForm`, use `trigger` to avoid state management.
 - Use for longer forms where a Modal would require scrolling or feel cramped.
 - Consider `drawerProps={{ destroyOnClose: true }}` to clean up state.
