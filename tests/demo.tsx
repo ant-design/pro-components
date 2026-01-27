@@ -2,6 +2,7 @@ import {
   StyleProvider,
   legacyLogicalPropertiesTransformer,
 } from '@ant-design/cssinjs';
+import { ProConfigProvider } from '@ant-design/pro-components';
 import {
   act,
   cleanup,
@@ -74,10 +75,12 @@ function demoTest(component: string, options?: Options) {
         hashPriority="high"
         transformers={[legacyLogicalPropertiesTransformer]}
       >
-        <App>
-          <div>test</div>
-          {props.children}
-        </App>
+        <ProConfigProvider hashed={false}>
+          <App>
+            <div>test</div>
+            {props.children}
+          </App>
+        </ProConfigProvider>
       </StyleProvider>
     );
   };
