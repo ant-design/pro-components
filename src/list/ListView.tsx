@@ -261,7 +261,9 @@ function ListView<RecordType extends AnyObject>(
         const { isEditable, recordKey } =
           actionRef.current?.isEditable({ ...item, index }) || {};
 
-        const isChecked = selectedKeySet.has(recordKey || index);
+        // 使用 getRowKey 计算 key，确保与 useSelection 中的 key 一致
+        const rowKeyValue = getRowKey(item, index);
+        const isChecked = selectedKeySet.has(rowKeyValue);
 
         const defaultDom = (
           <ProListItem
@@ -277,8 +279,8 @@ function ListView<RecordType extends AnyObject>(
                           return (
                             (checkboxDom as JSX.Element)?.props as any
                           )?.onChange({
+                            target: { checked: changeChecked },
                             nativeEvent: {},
-                            changeChecked,
                           });
                         }
                       : undefined,

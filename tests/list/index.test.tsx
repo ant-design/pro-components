@@ -901,4 +901,67 @@ describe('List', () => {
       expect(fn2).toHaveBeenCalledWith('我是名称');
     });
   });
+
+  it('🚏 grid list with rowSelection should not have default checked items', async () => {
+    const { container } = reactRender(
+      <ProList
+        dataSource={[
+          { name: 'Item 1', id: '1' },
+          { name: 'Item 2', id: '2' },
+          { name: 'Item 3', id: '3' },
+        ]}
+        rowKey="id"
+        grid={{ gutter: 16, column: 2 }}
+        rowSelection={{}}
+        metas={{
+          title: { dataIndex: 'name' },
+        }}
+      />,
+    );
+
+    // 验证没有任何卡片被默认勾选
+    const checkedCards = container.querySelectorAll(
+      '.ant-pro-checkcard-checked',
+    );
+    expect(checkedCards.length).toBe(0);
+
+    // 验证所有卡片都存在
+    const allCards = container.querySelectorAll('.ant-pro-checkcard');
+    expect(allCards.length).toBe(3);
+  });
+
+  it('🚏 grid list rowSelection onChange should work correctly', async () => {
+    const onChange = vi.fn();
+    const { container } = reactRender(
+      <ProList
+        dataSource={[
+          { name: 'Item 1', id: '1' },
+          { name: 'Item 2', id: '2' },
+        ]}
+        rowKey="id"
+        grid={{ gutter: 16, column: 2 }}
+        rowSelection={{ onChange }}
+        metas={{
+          title: { dataIndex: 'name' },
+        }}
+      />,
+    );
+
+    // 点击第一个卡片来选中
+    const firstCard = container.querySelector('.ant-pro-checkcard');
+    expect(firstCard).toBeTruthy();
+
+    act(() => {
+      fireEvent.click(firstCard!);
+    });
+
+    // 等待 onChange 被调用并且卡片状态更新
+    await waitFor(() => {
+      expect(onChange).toHaveBeenCalled();
+      // 验证第一个卡片被选中
+      expect(
+        container.querySelector('.ant-pro-checkcard-checked'),
+      ).toBeTruthy();
+    });
+  });
 });
