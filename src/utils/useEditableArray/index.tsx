@@ -806,9 +806,11 @@ export function useEditableArray<RecordType extends AnyObject>(
             : updater;
         props?.onChange?.(
           next?.filter((key) => key !== undefined) ?? [],
-          next
+          (next
             ?.map((key) => getRecordByKey(key))
-            .filter((k) => k !== undefined) ?? [],
+            .filter((k): k is RecordType => k !== undefined) ?? []) as
+            | RecordType
+            | RecordType[],
         );
         return next;
       });
