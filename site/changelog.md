@@ -1,5 +1,36 @@
 # Changelog
 
+## [3.1.1-1] - 2026-01-27
+
+### 📚 文档
+
+- 📚 新增 Guidelines 设计指南文档，包含组件使用指南、设计令牌和最佳实践
+  - 📚 新增组件使用指南：ProTable、ProForm、ProLayout、ProCard、ModalForm、DrawerForm、StepsForm、EditableProTable
+  - 📚 新增设计令牌文档：颜色、布局、字体排版
+  - 📚 新增组件概览和图标使用指南
+
+---
+
+## [3.1.1-0] - 2026-01-27
+
+### 🐛 问题修复
+
+- ProTable
+  - 🐞 修复 `resetAll` 中使用 `getFieldsFormatValue` 以支持值转换 [#9403]
+  - 🐞 修复表格组件无限循环问题 [#9406]
+
+### 🛠 重构
+
+- Core
+  - 🛠 使用 `useControlledState` 替换 `useMergedState` 以改进状态管理
+- ProTable
+  - 🛠 增强列配置和上下文管理
+- Dependencies
+  - 🛠 使用 `clsx` 替换 `classnames` 以提升性能 [#9405]
+  - 🛠 移除未使用的依赖项 [#9402]
+
+---
+
 ## [3.1.0-0] - 2025-12-25
 
 ### 🚀 新特性
