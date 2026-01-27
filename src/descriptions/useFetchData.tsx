@@ -51,28 +51,19 @@ const useFetchData = <T extends RequestData>(
     },
     [onDataSourceChange],
   );
-  const [loading, setLoadingInner] = useControlledState<boolean | undefined>(
+  const [loading, setLoading] = useControlledState<boolean | undefined>(
     options?.loading,
     options?.loading,
   );
-  const setLoading = useCallback(
-    (
-      updater:
-        | boolean
-        | undefined
-        | ((prev: boolean | undefined) => boolean | undefined),
-    ) => {
-      setLoadingInner((prev) => {
-        const next =
-          typeof updater === 'function'
-            ? (updater as (p: boolean | undefined) => boolean | undefined)(prev)
-            : updater;
-        options?.onLoadingChange?.(next);
-        return next;
-      });
-    },
-    [options?.onLoadingChange],
-  );
+
+  /**
+   * 监听 loading 状态变化并调用 onLoadingChange 回调
+   * 使用 useEffect 避免在渲染阶段调用外部回调导致的 React 警告
+   * "Cannot update a component while rendering a different component"
+   */
+  useEffect(() => {
+    options?.onLoadingChange?.(loading);
+  }, [loading, options?.onLoadingChange]);
 
   const updateDataAndLoading = (data: T) => {
     setEntity(data);

@@ -671,23 +671,19 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     ...propRest
   } = props;
   const formRef = useRef<ProFormRef<any>>({} as any);
-  const [loading, setLoadingInner] = useControlledState<boolean>(
+  const [loading, setLoading] = useControlledState<boolean>(
     false,
     propsLoading,
   );
-  const setLoading = useCallback(
-    (updater: boolean | ((prev: boolean) => boolean)) => {
-      setLoadingInner((prev) => {
-        const next =
-          typeof updater === 'function'
-            ? (updater as (p: boolean) => boolean)(prev)
-            : updater;
-        onLoadingChange?.(next);
-        return next;
-      });
-    },
-    [onLoadingChange],
-  );
+
+  /**
+   * 监听 loading 状态变化并调用 onLoadingChange 回调
+   * 使用 useEffect 避免在渲染阶段调用外部回调导致的 React 警告
+   * "Cannot update a component while rendering a different component"
+   */
+  useEffect(() => {
+    onLoadingChange?.(loading);
+  }, [loading, onLoadingChange]);
 
   const [urlSearch, setUrlSearch] = useUrlSearchParams(
     {},

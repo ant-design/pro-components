@@ -455,12 +455,20 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
           typeof updater === 'function'
             ? (updater as (p: boolean) => boolean)(prev)
             : updater;
-        menu?.onLoadingChange?.(next);
         return next;
       });
     },
-    [menu?.onLoadingChange],
+    [],
   );
+
+  /**
+   * 监听 menuLoading 状态变化并调用 menu.onLoadingChange 回调
+   * 使用 useEffect 避免在渲染阶段调用外部回调导致的 React 警告
+   * "Cannot update a component while rendering a different component"
+   */
+  useEffect(() => {
+    menu?.onLoadingChange?.(menuLoading);
+  }, [menuLoading, menu?.onLoadingChange]);
 
   // give a default key for swr
   const [defaultId] = useState(() => {
