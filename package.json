@@ -41,6 +41,7 @@
     "docs:preview": "pnpm docs preview",
     "docs:create": "pnpm docs create",
     "docs:check": "pnpm docs check",
+    "prepublishOnly": "pnpm run test && pnpm run build",
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx  --fix ./ && npm run tsc",
     "prettier": "prettier --write \"**/**.{js,jsx,tsx,ts,less,md,yaml,json}\" --log-level warn",
     "createRelease": "node ./scripts/createRelease.mjs",
