@@ -17,8 +17,8 @@ import {
   render,
   waitFor,
 } from '@testing-library/react';
-import { Button, Input, InputNumber } from 'antd';
-import React, { useCallback, useRef } from 'react';
+import { Button, Input, InputNumber, Popover } from 'antd';
+import React, { useCallback, useRef, useState } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
 type DataSourceType = {
@@ -1135,5 +1135,84 @@ describe('EditorProTable 2', () => {
         timeout: 5000,
       },
     );
+  });
+
+  it('🐛 title function should not show duplicate popover layers', async () => {
+    const TitleWithPopover: React.FC<{
+      schema: ProColumns<DataSourceType>;
+      type: string;
+      dom: React.ReactNode;
+    }> = ({ schema, type, dom }) => {
+      const [open, setOpen] = useState(false);
+      return (
+        <Popover
+          content={
+            <div>
+              <p>批量操作内容</p>
+              <Input placeholder="输入内容" />
+            </div>
+          }
+          trigger="click"
+          open={open}
+          onOpenChange={setOpen}
+        >
+          <Button type="link" onClick={() => setOpen(true)}>
+            {schema.title || '标题'}
+          </Button>
+        </Popover>
+      );
+    };
+
+    const columnsWithTitleFunction: ProColumns<DataSourceType>[] = [
+      {
+        title: (schema, type, dom) => (
+          <TitleWithPopover schema={schema} type={type} dom={dom} />
+        ),
+        dataIndex: 'title',
+        valueType: 'text',
+      },
+      {
+        title: '状态',
+        dataIndex: 'state',
+        valueType: 'text',
+      },
+    ];
+
+    const wrapper = render(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        columns={columnsWithTitleFunction}
+        value={defaultData}
+        editable={{
+          editableKeys: [],
+        }}
+      />,
+    );
+
+    await waitForWaitTime(500);
+
+    // 查找标题按钮
+    const titleButton = wrapper.container.querySelector(
+      '.ant-btn-link',
+    ) as HTMLElement;
+
+    expect(titleButton).toBeTruthy();
+
+    // 点击标题按钮
+    act(() => {
+      titleButton?.click();
+    });
+
+    await waitForWaitTime(300);
+
+    // 验证只有一个 Popover 弹出层
+    const popovers = wrapper.container.querySelectorAll(
+      '.ant-popover:not(.ant-popover-hidden)',
+    );
+    // 应该只有一个可见的 Popover（不包括隐藏的）
+    const visiblePopovers = Array.from(popovers).filter(
+      (popover) => !popover.classList.contains('ant-popover-hidden'),
+    );
+    expect(visiblePopovers.length).toBeLessThanOrEqual(1);
   });
 });

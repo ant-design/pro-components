@@ -1,4 +1,5 @@
-﻿import type { GetRowKey, TableRowSelection } from 'antd/lib/table/interface';
+import type { GetRowKey, TableRowSelection } from 'antd/lib/table/interface';
+import { Checkbox } from 'antd';
 import React from 'react';
 
 type UseSelectionConfig<RecordType> = {
@@ -43,36 +44,43 @@ function useSelection<RecordType>(
 
   const selectedKeySet = React.useMemo(() => new Set(innerKeys), [innerKeys]);
 
-  const toggleKey = (key: React.Key, record: RecordType, checked: boolean) => {
-    const next = new Set(selectedKeySet);
-    if (checked) {
-      next.add(key);
-    } else {
-      next.delete(key);
-    }
+  const toggleKey = React.useCallback(
+    (key: React.Key, record: RecordType, checked: boolean) => {
+      setInnerKeys((prevKeys) => {
+        const prevSet = new Set(prevKeys);
+        const next = new Set(prevSet);
+        if (checked) {
+          next.add(key);
+        } else {
+          next.delete(key);
+        }
 
-    const nextKeys = Array.from(next);
+        const nextKeys = Array.from(next);
 
-    // Fire callbacks similar to antd rowSelection
-    const selectedRows = data.filter((item, idx) =>
-      next.has(getRowKey(item, idx)),
-    );
-    rowSelection?.onChange?.(nextKeys, selectedRows, {
-      type: 'multiple',
-      selectedRows,
-      selectedRowKeys: nextKeys,
-    } as any);
-    rowSelection?.onSelect?.(
-      record,
-      checked,
-      data.filter((item, idx) => next.has(getRowKey(item, idx))),
-      {} as any,
-    );
+        // Fire callbacks similar to antd rowSelection
+        const selectedRows = data.filter((item, idx) =>
+          next.has(getRowKey(item, idx)),
+        );
+        rowSelection?.onChange?.(nextKeys, selectedRows, {
+          type: 'multiple',
+          selectedRows,
+          selectedRowKeys: nextKeys,
+        } as any);
+        rowSelection?.onSelect?.(
+          record,
+          checked,
+          data.filter((item, idx) => next.has(getRowKey(item, idx))),
+          {} as any,
+        );
 
-    if (!controlledKeys) {
-      setInnerKeys(nextKeys);
-    }
-  };
+        if (!controlledKeys) {
+          return nextKeys;
+        }
+        return prevKeys;
+      });
+    },
+    [data, getRowKey, rowSelection, controlledKeys],
+  );
 
   const selectItemRender = React.useCallback(
     (columns?: any[]) => {
@@ -81,16 +89,20 @@ function useSelection<RecordType>(
         {
           render: (_text: any, record: RecordType, index: number) => {
             const key = getRowKey(record, index);
-            // We only need a stub element with onChange so ListView can extract and call it
-            return React.createElement('span', {
-              onChange: ({ changeChecked }: { changeChecked: boolean }) =>
-                toggleKey(key, record, changeChecked),
-            });
+            const checked = selectedKeySet.has(key);
+            return (
+              <Checkbox
+                checked={checked}
+                onChange={(e) => {
+                  toggleKey(key, record, e.target.checked);
+                }}
+              />
+            );
           },
         },
       ];
     },
-    [getRowKey, selectedKeySet, rowSelection, data],
+    [getRowKey, selectedKeySet, toggleKey],
   );
 
   return [selectItemRender, selectedKeySet] as const;
