@@ -81,6 +81,11 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
   const [loading, setLoading] = useState(false);
 
   const [open, setOpenInner] = useControlledState<boolean>(false, propsOpen);
+
+  /**
+   * 使用 queueMicrotask 延迟回调调用，避免在渲染阶段调用外部回调导致的 React 警告
+   * "Cannot update a component while rendering a different component"
+   */
   const setOpen = useCallback(
     (updater: boolean | ((prev: boolean) => boolean)) => {
       setOpenInner((prev) => {
@@ -88,7 +93,9 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
           typeof updater === 'function'
             ? (updater as (p: boolean) => boolean)(prev)
             : updater;
-        onOpenChange?.(next);
+        queueMicrotask(() => {
+          onOpenChange?.(next);
+        });
         return next;
       });
     },

@@ -196,6 +196,11 @@ function StepsForm<T = Record<string, any>>(
    * 受控的方式来操作表单
    */
   const [step, setStepInner] = useControlledState<number>(0, props.current);
+
+  /**
+   * 使用 queueMicrotask 延迟回调调用，避免在渲染阶段调用外部回调导致的 React 警告
+   * "Cannot update a component while rendering a different component"
+   */
   const setStep = useCallback(
     (updater: number | ((prev: number) => number)) => {
       setStepInner((prev) => {
@@ -203,7 +208,9 @@ function StepsForm<T = Record<string, any>>(
           typeof updater === 'function'
             ? (updater as (p: number) => number)(prev)
             : updater;
-        props.onCurrentChange?.(next);
+        queueMicrotask(() => {
+          props.onCurrentChange?.(next);
+        });
         return next;
       });
     },

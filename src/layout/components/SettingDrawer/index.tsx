@@ -218,6 +218,11 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   const firstRender = useRef<boolean>(true);
 
   const [open, setOpenInner] = useControlledState(false, props.collapse);
+
+  /**
+   * 使用 queueMicrotask 延迟回调调用，避免在渲染阶段调用外部回调导致的 React 警告
+   * "Cannot update a component while rendering a different component"
+   */
   const setOpen = useCallback(
     (updater: boolean | ((prev: boolean) => boolean)) => {
       setOpenInner((prev) => {
@@ -225,7 +230,9 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
           typeof updater === 'function'
             ? (updater as (p: boolean) => boolean)(prev)
             : updater;
-        props.onCollapseChange?.(next);
+        queueMicrotask(() => {
+          props.onCollapseChange?.(next);
+        });
         return next;
       });
     },
@@ -246,6 +253,11 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     () => getParamsFromUrl(urlParams, propsSettings || propsDefaultSettings),
     propsSettings,
   );
+
+  /**
+   * 使用 queueMicrotask 延迟回调调用，避免在渲染阶段调用外部回调导致的 React 警告
+   * "Cannot update a component while rendering a different component"
+   */
   const setSettingState = useCallback(
     (
       updater:
@@ -259,7 +271,9 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
                 prev,
               )
             : updater;
-        onSettingChange?.(next);
+        queueMicrotask(() => {
+          onSettingChange?.(next);
+        });
         return next;
       });
     },

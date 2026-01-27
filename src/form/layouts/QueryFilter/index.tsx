@@ -273,6 +273,11 @@ const QueryFilterContent: React.FC<{
     () => props.defaultCollapsed && !!props.submitter,
     props.collapsed,
   );
+
+  /**
+   * 使用 queueMicrotask 延迟回调调用，避免在渲染阶段调用外部回调导致的 React 警告
+   * "Cannot update a component while rendering a different component"
+   */
   const setCollapsed = useCallback(
     (updater: boolean | ((prev: boolean) => boolean)) => {
       setCollapsedInner((prev) => {
@@ -280,7 +285,9 @@ const QueryFilterContent: React.FC<{
           typeof updater === 'function'
             ? (updater as (p: boolean) => boolean)(prev)
             : updater;
-        props.onCollapse?.(next);
+        queueMicrotask(() => {
+          props.onCollapse?.(next);
+        });
         return next;
       });
     },

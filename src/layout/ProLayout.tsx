@@ -604,6 +604,11 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     if (colSize === 'md') return true;
     return false;
   }, props.collapsed);
+
+  /**
+   * 使用 queueMicrotask 延迟回调调用，避免在渲染阶段调用外部回调导致的 React 警告
+   * "Cannot update a component while rendering a different component"
+   */
   const onCollapse = useCallback(
     (updater: boolean | ((prev: boolean) => boolean)) => {
       onCollapseInner((prev) => {
@@ -611,7 +616,9 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
           typeof updater === 'function'
             ? (updater as (p: boolean) => boolean)(prev)
             : updater;
-        propsOnCollapse?.(next);
+        queueMicrotask(() => {
+          propsOnCollapse?.(next);
+        });
         return next;
       });
     },
