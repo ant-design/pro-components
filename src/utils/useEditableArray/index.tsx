@@ -7,9 +7,8 @@ import {
 } from '@rc-component/util';
 import type { FormInstance, FormProps } from 'antd';
 import { Form, Popconfirm, message } from 'antd';
-import { AnyObject } from 'antd/lib/_util/type';
+import type { AnyObject } from 'antd/lib/_util/type';
 import type { NamePath } from 'antd/lib/form/interface';
-import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
 import type { GetRowKey } from 'antd/lib/table/interface';
 import React, {
   createRef,
@@ -28,6 +27,7 @@ import { ProFormContext } from '../components/ProFormContext';
 import { useDeepCompareEffectDebounce } from '../hooks/useDeepCompareEffect';
 import { usePrevious } from '../hooks/usePrevious';
 import { merge } from '../merge';
+import useLazyKVMap from '../useLazyKVMap';
 const { noteOnce } = rcWarning;
 
 /**

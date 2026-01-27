@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-components",
-  "version": "3.1.1-0",
+  "version": "3.1.1-1",
   "type": "module",
   "description": "All-in-one package of @ant-design/pro-components",
   "keywords": [
@@ -52,7 +52,6 @@
     "test:ui": "cross-env TZ=UTC vitest --ui",
     "test:update": "cross-env TZ=UTC  vitest -u",
     "tsc": "tsc --noEmit",
-    "prepublishOnly": "npm run test && npm run build",
     "publish:beta": "npm publish --tag beta",
     "update:deps": "pnpm up --latest"
   },

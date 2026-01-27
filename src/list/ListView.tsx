@@ -8,15 +8,15 @@ import type {
 import { ConfigProvider, List } from 'antd';
 import type { AnyObject } from 'antd/lib/_util/type';
 import type { PaginationConfig } from 'antd/lib/pagination';
-import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
-import usePagination from 'antd/lib/table/hooks/usePagination';
-import useSelection from 'antd/lib/table/hooks/useSelection';
 import type { GetRowKey, TableRowSelection } from 'antd/lib/table/interface';
 import { clsx } from 'clsx';
 import React, { useContext } from 'react';
 import type { CheckCardProps } from '../card';
 import { ProProvider } from '../provider';
 import type { ActionType } from '../table';
+import useLazyKVMap from '../utils/useLazyKVMap';
+import usePagination from '../utils/usePagination';
+import useSelection from '../utils/useSelection';
 import { PRO_LIST_KEYS_MAP } from './constants';
 import type { GetComponentProps } from './index';
 import type { ItemProps } from './Item';
