@@ -6,10 +6,10 @@ exports[`List > 🚏 ProList support rowClassName as a function 1`] = `
     class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
   >
     <div
-      class="ant-list ant-list-split ant-pro-list-container css-var-r2f"
+      class="ant-list ant-list-split ant-pro-list-container css-var-r2n"
     >
       <div
-        class="ant-spin-nested-loading css-var-r2f"
+        class="ant-spin-nested-loading css-var-r2n"
       >
         <div
           class="ant-spin-container"
@@ -30,7 +30,7 @@ exports[`List > 🚏 ProList support rowClassName as a function 1`] = `
                     class="ant-pro-list-row-checkbox"
                   >
                     <label
-                      class="ant-checkbox-wrapper css-var-r2f ant-checkbox-css-var"
+                      class="ant-checkbox-wrapper css-var-r2n ant-checkbox-css-var"
                     >
                       <span
                         class="ant-checkbox ant-wave-target"
@@ -91,7 +91,7 @@ exports[`List > 🚏 ProList support rowClassName as a function 1`] = `
                     class="ant-pro-list-row-checkbox"
                   >
                     <label
-                      class="ant-checkbox-wrapper css-var-r2f ant-checkbox-css-var"
+                      class="ant-checkbox-wrapper css-var-r2n ant-checkbox-css-var"
                     >
                       <span
                         class="ant-checkbox ant-wave-target"
@@ -153,10 +153,10 @@ exports[`List > 🚏 ProList support rowClassName as a string 1`] = `
     class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
   >
     <div
-      class="ant-list ant-list-split ant-pro-list-container css-var-r2b"
+      class="ant-list ant-list-split ant-pro-list-container css-var-r2j"
     >
       <div
-        class="ant-spin-nested-loading css-var-r2b"
+        class="ant-spin-nested-loading css-var-r2j"
       >
         <div
           class="ant-spin-container"
@@ -177,7 +177,7 @@ exports[`List > 🚏 ProList support rowClassName as a string 1`] = `
                     class="ant-pro-list-row-checkbox"
                   >
                     <label
-                      class="ant-checkbox-wrapper css-var-r2b ant-checkbox-css-var"
+                      class="ant-checkbox-wrapper css-var-r2j ant-checkbox-css-var"
                     >
                       <span
                         class="ant-checkbox ant-wave-target"

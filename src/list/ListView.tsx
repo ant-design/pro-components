@@ -311,7 +311,17 @@ function ListView<RecordType extends AnyObject>(
         );
 
         if (renderItem) {
-          return renderItem(item, index, defaultDom);
+          const customDom = renderItem(item, index, defaultDom);
+          // When grid mode is enabled, wrap the renderItem result with card wrapper
+          // to ensure the Card appearance is preserved even when user doesn't use defaultDom
+          if (rest.grid) {
+            return (
+              <div className={clsx(hashId, `${prefixCls}-row-card`)}>
+                {customDom}
+              </div>
+            );
+          }
+          return customDom;
         }
         return defaultDom;
       }}

@@ -418,6 +418,61 @@ describe('List', () => {
     expect(screen.getByTestId('test_index')).toHaveTextContent('0');
   });
 
+  it('🚏 ProList support renderItem with grid should keep Card wrapper', async () => {
+    const { container } = reactRender(
+      <ProList
+        dataSource={[
+          {
+            name: '我是名称',
+            content: <div>我是内容</div>,
+          },
+        ]}
+        grid={{ gutter: 16, column: 2 }}
+        renderItem={(item, index, defaultDom) => {
+          return <div data-testid="custom-item">{defaultDom}</div>;
+        }}
+        rowKey={(item) => {
+          return item.name;
+        }}
+        metas={{
+          title: {
+            dataIndex: 'name',
+          },
+        }}
+      />,
+    );
+
+    // Should have Card wrapper when using grid mode with renderItem
+    expect(container.querySelector('.ant-pro-checkcard')).toBeTruthy();
+  });
+
+  it('🚏 ProList support renderItem with grid without using defaultDom should keep Card wrapper', async () => {
+    const { container } = reactRender(
+      <ProList
+        dataSource={[
+          {
+            name: '我是名称',
+            content: <div>我是内容</div>,
+          },
+        ]}
+        grid={{ gutter: 16, column: 2 }}
+        renderItem={(item, index) => {
+          return <div data-testid="custom-content">自定义内容: {item.name}</div>;
+        }}
+        rowKey={(item) => {
+          return item.name;
+        }}
+      />,
+    );
+
+    // Should have Card wrapper container even when user doesn't use defaultDom
+    // The card wrapper has class `ant-pro-list-row-card`
+    expect(container.querySelector('.ant-pro-list-row-card')).toBeTruthy();
+    expect(screen.getByTestId('custom-content')).toHaveTextContent(
+      '自定义内容: 我是名称',
+    );
+  });
+
   it('🚏 rowSelection', async () => {
     const Wrapper = () => {
       return (
