@@ -232,11 +232,6 @@ export type ProTableProps<DataSource, U, ValueType = 'text'> = {
   /** @name 列状态的配置，可以用来操作列功能 */
   columnsState?: ColumnStateType;
 
-  /**
-   * @deprecated 请使用 columnsState.onChange。保留兼容，后续版本将移除。
-   */
-  onColumnsStateChange?: (map: Record<string, ColumnsState>) => void;
-
   onSizeChange?: (size: DensitySize) => void;
 
   /**

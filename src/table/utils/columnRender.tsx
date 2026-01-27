@@ -40,11 +40,7 @@ export const renderColumnsTitle = (item: ProColumns<any>) => {
       ? item?.ellipsis
       : item?.ellipsis?.showTitle;
   if (title && typeof title === 'function') {
-    return title(
-      item,
-      'table',
-      <LabelIconTip label={null} tooltip={item.tooltip} />,
-    );
+    return title(item, 'table', null);
   }
   return (
     <LabelIconTip label={title} tooltip={item.tooltip} ellipsis={ellipsis} />

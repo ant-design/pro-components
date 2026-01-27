@@ -232,12 +232,6 @@ export const isLocalFilter = <T>(
 };
 
 /**
- * @deprecated typo kept for backward compatibility
- * use `isLocalFilter` instead
- */
-export const isLocaleFilter = isLocalFilter;
-
-/**
  * 判断是否为本地排序
  * @param sorter 排序配置
  * @returns 是否为本地排序
@@ -248,12 +242,6 @@ export const isLocalSorter = <T>(sorter: ProSorter<T>) => {
     (typeof sorter === 'object' && typeof sorter.compare === 'function')
   );
 };
-
-/**
- * @deprecated typo kept for backward compatibility
- * use `isLocalSorter` instead
- */
-export const isLocaleSorter = isLocalSorter;
 
 /**
  * 获取服务端筛选数据

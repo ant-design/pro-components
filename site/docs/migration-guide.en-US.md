@@ -104,7 +104,7 @@ pnpm install
 `columnsState` is now fully aligned with the controlled mode of antd Table. It is recommended to migrate as follows:
 
 - Copy the original `columnsStateMap` fully to `columnsState.value`.
-- If you need to listen for changes, use `columnsState.onChange`; the old `onColumnsStateChange` still retains a layer of compatibility but will be phased out in subsequent versions.
+- If you need to listen for changes, use `columnsState.onChange`; `onColumnsStateChange` has been removed, please migrate to `columnsState.onChange`.
 - If the project relies on column configuration persistence, please explicitly add `persistenceKey` and `persistenceType`.
 
 ```tsx | pure

@@ -27,7 +27,6 @@ import { getOpenKeysFromMenuData } from '../../utils/utils';
 import type { PrivateSiderMenuProps } from './SiderMenu';
 import { useStyle } from './style/menu';
 
-// todo
 export type MenuMode =
   | 'vertical'
   | 'vertical-left'

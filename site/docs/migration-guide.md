@@ -104,7 +104,7 @@ pnpm install
 `columnsState` 现已完全与 antd Table 的受控模式对齐，推荐按照以下方式迁移：
 
 - 将原来的 `columnsStateMap` 全量拷贝到 `columnsState.value`。
-- 如需监听变更，请改用 `columnsState.onChange`；旧的 `onColumnsStateChange` 仍保留一层兼容，但会在后续版本逐步淘汰。
+- 如需监听变更，请使用 `columnsState.onChange`；`onColumnsStateChange` 已被移除，请迁移到 `columnsState.onChange`。
 - 若项目依赖列配置持久化，请显式补充 `persistenceKey` 与 `persistenceType`。
 
 ```tsx | pure

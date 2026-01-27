@@ -28,7 +28,6 @@ export type ColumnsState = {
 export type ProTableColumn<T> = ColumnsState & TableColumnType<T>;
 
 export type UseContainerProps<T = any> = {
-  onColumnsStateChange?: (map: Record<string, ColumnsState>) => void;
   size?: DensitySize;
   defaultSize?: DensitySize;
   onSizeChange?: (size: DensitySize) => void;
@@ -117,8 +116,7 @@ function useContainer(props: UseContainerProps = {} as Record<string, any>) {
       defaultColumnKeyMap
     );
   }, props.columnsState?.value);
-  const onColumnsMapChange =
-    props.columnsState?.onChange || props.onColumnsStateChange;
+  const onColumnsMapChange = props.columnsState?.onChange;
   const setColumnsMap = useCallback(
     (
       updater:

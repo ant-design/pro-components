@@ -30,14 +30,11 @@ import {
 import type { RequestData } from './useFetchData';
 import useFetchData from './useFetchData';
 
-// todo remove it
 export interface DescriptionsItemProps {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
   label?: React.ReactNode;
-  labelStyle?: React.CSSProperties; // @deprecated Use styles.label instead
-  contentStyle?: React.CSSProperties; // @deprecated Use styles.content instead
   children: React.ReactNode;
   span?: number;
 }
@@ -489,7 +486,6 @@ const ProDescriptions = <
     actionRef,
     onRequestError,
     emptyText,
-    contentStyle,
     ...rest
   } = props;
 
@@ -628,7 +624,6 @@ const ProDescriptions = <
             styles={{
               content: {
                 minWidth: 0,
-                ...(contentStyle || {}),
               },
             }}
             extra={
