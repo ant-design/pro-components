@@ -104,6 +104,9 @@ function useSelection<RecordType>(
   const selectItemRender = React.useCallback(
     (columns?: any[]) => {
       void columns;
+      if (!rowSelection) {
+        return [];
+      }
       return [
         {
           render: (_text: any, record: RecordType, index: number) => {
