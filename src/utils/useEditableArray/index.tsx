@@ -808,7 +808,7 @@ export function useEditableArray<RecordType extends AnyObject>(
           next?.filter((key) => key !== undefined) ?? [],
           next
             ?.map((key) => getRecordByKey(key))
-            .filter((k) => k !== undefined) ?? [],
+            .filter((k): k is RecordType => k !== undefined) ?? [],
         );
         return next;
       });
