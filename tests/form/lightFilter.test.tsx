@@ -560,9 +560,9 @@ describe('LightFilter', () => {
     expect(borderedLabel).toBeFalsy();
   });
 
-  it(' 🪕 should support bordered prop', async () => {
+  it(' 🪕 should support outlined variant', async () => {
     const { container } = render(
-      <LightFilter bordered>
+      <LightFilter variant="outlined">
         <ProFormText name="name" label="Name" />
       </LightFilter>,
     );

@@ -29,10 +29,6 @@ export type LightFilterProps<T, U = Record<string, any>> = {
    */
   collapseLabel?: React.ReactNode;
   /**
-   * @name 是否显示边框
-   */
-  bordered?: boolean;
-  /**
    * @name 组件样式变体
    */
   variant?: 'outlined' | 'filled' | 'borderless';
@@ -291,7 +287,6 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
     ignoreRules,
     footerRender,
     popoverProps,
-    bordered,
     ...reset
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -302,8 +297,6 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
   const formRef = useRef<ProFormInstance>();
 
   useImperativeHandle(userFormRef, () => formRef.current, [formRef.current]);
-
-  const effectiveVariant = variant || (bordered ? 'outlined' : 'borderless');
 
   return (
     <BaseForm
@@ -322,7 +315,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
               return item;
             })}
             size={size}
-            variant={effectiveVariant}
+            variant={variant || 'borderless'}
             collapse={collapse}
             collapseLabel={collapseLabel}
             placement={placement}
