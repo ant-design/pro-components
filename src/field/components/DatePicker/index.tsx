@@ -45,12 +45,14 @@ const FieldDatePicker: ProFieldFC<
     showTime,
     fieldProps,
     picker,
-    variant,
+    variant: propsVariant,
     lightLabel,
   },
   ref,
 ) => {
   const intl = useIntl();
+
+  const variant = propsVariant ?? fieldProps?.variant;
 
   const [open, setOpen] = useState<boolean>(false);
 

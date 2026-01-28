@@ -16,10 +16,11 @@ const FieldSwitch: ProFieldFC<{
   fieldProps?: SwitchProps;
   variant?: 'outlined' | 'borderless' | 'filled';
 }> = (
-  { text, mode, render, light, label, formItemRender, fieldProps, variant },
+  { text, mode, render, light, label, formItemRender, fieldProps, variant: propsVariant },
   ref,
 ) => {
   const intl = useIntl();
+  const variant = propsVariant ?? fieldProps?.variant;
   const dom = useMemo(() => {
     if (text === undefined || text === null || `${text}`.length < 1) return '-';
     return text
