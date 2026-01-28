@@ -1,4 +1,4 @@
-﻿import { Popover } from 'antd';
+import { Popover } from 'antd';
 import { clsx } from 'clsx';
 import React, { useMemo, useState } from 'react';
 import { AppsLogo } from './AppsLogo';

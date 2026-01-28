@@ -55,12 +55,7 @@ function useSelection<RecordType>(
             selectedRows,
             selectedRowKeys: nextKeys,
           } as any);
-          rowSelection?.onSelect?.(
-            record,
-            checked,
-            selectedRows,
-            {} as any,
-          );
+          rowSelection?.onSelect?.(record, checked, selectedRows, {} as any);
           if (!controlledKeys) {
             return nextKeys;
           }
