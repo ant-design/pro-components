@@ -2,7 +2,7 @@ import { RightOutlined } from '@ant-design/icons';
 import { useControlledState } from '@rc-component/util';
 import { ConfigProvider, Space } from 'antd';
 import { clsx } from 'clsx';
-import React, { useCallback, useContext, useMemo } from 'react';
+import React, { useCallback, useContext, useMemo, useRef } from 'react';
 import { LabelIconTip } from '../../../../utils';
 import FieldContext from '../../../FieldContext';
 import { useGridHelpers } from '../../../helpers/grid';
@@ -39,6 +39,12 @@ const Group: React.FC<ProFormGroupProps> = React.forwardRef(
     );
 
     /**
+     * 使用 ref 保存回调函数的最新引用，避免将回调放入依赖数组导致的无限循环
+     */
+    const onCollapseRef = useRef(props.onCollapse);
+    onCollapseRef.current = props.onCollapse;
+
+    /**
      * 使用 queueMicrotask 延迟回调调用，避免在渲染阶段调用外部回调导致的 React 警告
      * "Cannot update a component while rendering a different component"
      */
@@ -50,12 +56,12 @@ const Group: React.FC<ProFormGroupProps> = React.forwardRef(
               ? (updater as (p: boolean) => boolean)(prev)
               : updater;
           queueMicrotask(() => {
-            props.onCollapse?.(next);
+            onCollapseRef.current?.(next);
           });
           return next;
         });
       },
-      [props.onCollapse],
+      [],
     );
     const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 

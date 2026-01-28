@@ -83,6 +83,12 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
   const [open, setOpenInner] = useControlledState<boolean>(false, propsOpen);
 
   /**
+   * 使用 ref 保存回调函数的最新引用，避免将回调放入依赖数组导致的无限循环
+   */
+  const onOpenChangeRef = useRef(onOpenChange);
+  onOpenChangeRef.current = onOpenChange;
+
+  /**
    * 使用 queueMicrotask 延迟回调调用，避免在渲染阶段调用外部回调导致的 React 警告
    * "Cannot update a component while rendering a different component"
    */
@@ -94,12 +100,12 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
             ? (updater as (p: boolean) => boolean)(prev)
             : updater;
         queueMicrotask(() => {
-          onOpenChange?.(next);
+          onOpenChangeRef.current?.(next);
         });
         return next;
       });
     },
-    [onOpenChange],
+    [],
   );
 
   const footerRef = useRef<HTMLDivElement | null>(null);

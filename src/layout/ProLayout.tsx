@@ -11,6 +11,7 @@ import React, {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from 'react';
 import useSWR, { useSWRConfig } from 'swr';
@@ -462,13 +463,19 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   );
 
   /**
+   * 使用 ref 保存回调函数的最新引用，避免将回调放入依赖数组导致的无限循环
+   */
+  const menuOnLoadingChangeRef = useRef(menu?.onLoadingChange);
+  menuOnLoadingChangeRef.current = menu?.onLoadingChange;
+
+  /**
    * 监听 menuLoading 状态变化并调用 menu.onLoadingChange 回调
    * 使用 useEffect 避免在渲染阶段调用外部回调导致的 React 警告
    * "Cannot update a component while rendering a different component"
    */
   useEffect(() => {
-    menu?.onLoadingChange?.(menuLoading);
-  }, [menuLoading, menu?.onLoadingChange]);
+    menuOnLoadingChangeRef.current?.(menuLoading);
+  }, [menuLoading]);
 
   // give a default key for swr
   const [defaultId] = useState(() => {
@@ -606,6 +613,12 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   }, props.collapsed);
 
   /**
+   * 使用 ref 保存回调函数的最新引用，避免将回调放入依赖数组导致的无限循环
+   */
+  const propsOnCollapseRef = useRef(propsOnCollapse);
+  propsOnCollapseRef.current = propsOnCollapse;
+
+  /**
    * 使用 queueMicrotask 延迟回调调用，避免在渲染阶段调用外部回调导致的 React 警告
    * "Cannot update a component while rendering a different component"
    */
@@ -617,12 +630,12 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
             ? (updater as (p: boolean) => boolean)(prev)
             : updater;
         queueMicrotask(() => {
-          propsOnCollapse?.(next);
+          propsOnCollapseRef.current?.(next);
         });
         return next;
       });
     },
-    [propsOnCollapse],
+    [],
   );
 
   // Splicing parameters, adding menuData and formatMessage in props

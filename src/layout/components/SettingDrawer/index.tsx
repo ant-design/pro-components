@@ -220,6 +220,12 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   const [open, setOpenInner] = useControlledState(false, props.collapse);
 
   /**
+   * 使用 ref 保存回调函数的最新引用，避免将回调放入依赖数组导致的无限循环
+   */
+  const onCollapseChangeRef = useRef(props.onCollapseChange);
+  onCollapseChangeRef.current = props.onCollapseChange;
+
+  /**
    * 使用 queueMicrotask 延迟回调调用，避免在渲染阶段调用外部回调导致的 React 警告
    * "Cannot update a component while rendering a different component"
    */
@@ -231,12 +237,12 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
             ? (updater as (p: boolean) => boolean)(prev)
             : updater;
         queueMicrotask(() => {
-          props.onCollapseChange?.(next);
+          onCollapseChangeRef.current?.(next);
         });
         return next;
       });
     },
-    [props.onCollapseChange],
+    [],
   );
 
   const [language, setLanguage] = useState<string>(getLanguage());
@@ -253,6 +259,12 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     () => getParamsFromUrl(urlParams, propsSettings || propsDefaultSettings),
     propsSettings,
   );
+
+  /**
+   * 使用 ref 保存回调函数的最新引用，避免将回调放入依赖数组导致的无限循环
+   */
+  const onSettingChangeRef = useRef(onSettingChange);
+  onSettingChangeRef.current = onSettingChange;
 
   /**
    * 使用 queueMicrotask 延迟回调调用，避免在渲染阶段调用外部回调导致的 React 警告
@@ -272,12 +284,12 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
               )
             : updater;
         queueMicrotask(() => {
-          onSettingChange?.(next);
+          onSettingChangeRef.current?.(next);
         });
         return next;
       });
     },
-    [onSettingChange],
+    [],
   );
 
   const { navTheme, colorPrimary, siderMenuType, layout, colorWeak } =

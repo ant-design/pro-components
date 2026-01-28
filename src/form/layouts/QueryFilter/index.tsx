@@ -6,7 +6,13 @@ import { Col, ConfigProvider, Form, Row } from 'antd';
 import type { FormInstance, FormProps } from 'antd/lib/form/Form';
 import { clsx } from 'clsx';
 import type { ReactElement } from 'react';
-import React, { useCallback, useContext, useMemo, useState } from 'react';
+import React, {
+  useCallback,
+  useContext,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { ProProvider, useIntl } from '../../../provider';
 import { isBrowser } from '../../../utils';
 import type { CommonFormProps } from '../../BaseForm';
@@ -275,6 +281,12 @@ const QueryFilterContent: React.FC<{
   );
 
   /**
+   * 使用 ref 保存回调函数的最新引用，避免将回调放入依赖数组导致的无限循环
+   */
+  const onCollapseRef = useRef(props.onCollapse);
+  onCollapseRef.current = props.onCollapse;
+
+  /**
    * 使用 queueMicrotask 延迟回调调用，避免在渲染阶段调用外部回调导致的 React 警告
    * "Cannot update a component while rendering a different component"
    */
@@ -286,12 +298,12 @@ const QueryFilterContent: React.FC<{
             ? (updater as (p: boolean) => boolean)(prev)
             : updater;
         queueMicrotask(() => {
-          props.onCollapse?.(next);
+          onCollapseRef.current?.(next);
         });
         return next;
       });
     },
-    [props.onCollapse],
+    [],
   );
 
   const {
