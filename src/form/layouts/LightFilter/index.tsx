@@ -29,6 +29,10 @@ export type LightFilterProps<T, U = Record<string, any>> = {
    */
   collapseLabel?: React.ReactNode;
   /**
+   * @name 是否显示边框
+   */
+  bordered?: boolean;
+  /**
    * @name 组件样式变体
    */
   variant?: 'outlined' | 'filled' | 'borderless';
@@ -184,6 +188,7 @@ const LightFilterContainer: React.FC<{
                 fieldProps: {
                   ...child.props.fieldProps,
                   placement: newPlacement,
+                  variant,
                 },
                 // proFieldProps 会直接作为 ProField 的 props 传递过去
                 proFieldProps: {
@@ -250,17 +255,18 @@ const LightFilterContainer: React.FC<{
                   ? fieldProps?.placement
                   : placement;
                 return (
-                  <div
-                    className={`${lightFilterClassName}-line ${hashId}`.trim()}
-                    key={key}
-                  >
-                    {React.cloneElement(child, {
-                      fieldProps: {
-                        ...newFieldProps,
-                        placement: newPlacement,
-                      },
-                    })}
-                  </div>
+            <div
+              className={`${lightFilterClassName}-line ${hashId}`.trim()}
+              key={key}
+            >
+              {React.cloneElement(child, {
+                fieldProps: {
+                  ...newFieldProps,
+                  placement: newPlacement,
+                  variant,
+                },
+              })}
+            </div>
                 );
               })}
             </FilterDropdown>
@@ -285,6 +291,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
     ignoreRules,
     footerRender,
     popoverProps,
+    bordered,
     ...reset
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -295,6 +302,8 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
   const formRef = useRef<ProFormInstance>();
 
   useImperativeHandle(userFormRef, () => formRef.current, [formRef.current]);
+
+  const effectiveVariant = variant || (bordered ? 'outlined' : 'borderless');
 
   return (
     <BaseForm
@@ -313,7 +322,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
               return item;
             })}
             size={size}
-            variant={variant}
+            variant={effectiveVariant}
             collapse={collapse}
             collapseLabel={collapseLabel}
             placement={placement}
