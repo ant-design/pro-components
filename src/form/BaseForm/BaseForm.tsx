@@ -671,7 +671,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     ...propRest
   } = props;
   const formRef = useRef<ProFormRef<any>>({} as any);
-  const [loading, setLoading] = useControlledState<boolean>(
+  const [loading, setLoadingInner] = useControlledState<boolean>(
     false,
     propsLoading,
   );
@@ -684,13 +684,24 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
   });
 
   /**
-   * 监听 loading 状态变化并调用 onLoadingChange 回调
-   * 使用 useEffect 避免在渲染阶段调用外部回调导致的 React 警告
-   * "Cannot update a component while rendering a different component"
+   * 包装 setLoading，使用 queueMicrotask 延迟回调调用
+   * 避免在渲染阶段调用外部回调导致的 React 警告
    */
-  useEffect(() => {
-    onLoadingChangeCallback(loading);
-  }, [loading, onLoadingChangeCallback]);
+  const setLoading = useCallback(
+    (updater: boolean | ((prev: boolean) => boolean)) => {
+      setLoadingInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: boolean) => boolean)(prev)
+            : updater;
+        queueMicrotask(() => {
+          onLoadingChangeCallback(next);
+        });
+        return next;
+      });
+    },
+    [onLoadingChangeCallback],
+  );
 
   const [urlSearch, setUrlSearch] = useUrlSearchParams(
     {},

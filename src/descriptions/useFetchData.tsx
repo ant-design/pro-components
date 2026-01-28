@@ -52,7 +52,7 @@ const useFetchData = <T extends RequestData>(
     },
     [onDataSourceChange],
   );
-  const [loading, setLoading] = useControlledState<boolean | undefined>(
+  const [loading, setLoadingInner] = useControlledState<boolean | undefined>(
     options?.loading,
     options?.loading,
   );
@@ -65,13 +65,29 @@ const useFetchData = <T extends RequestData>(
   });
 
   /**
-   * 监听 loading 状态变化并调用 onLoadingChange 回调
-   * 使用 useEffect 避免在渲染阶段调用外部回调导致的 React 警告
-   * "Cannot update a component while rendering a different component"
+   * 包装 setLoading，使用 queueMicrotask 延迟回调调用
+   * 避免在渲染阶段调用外部回调导致的 React 警告
    */
-  useEffect(() => {
-    onLoadingChange(loading);
-  }, [loading, onLoadingChange]);
+  const setLoading = useCallback(
+    (
+      updater:
+        | boolean
+        | undefined
+        | ((prev: boolean | undefined) => boolean | undefined),
+    ) => {
+      setLoadingInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: boolean | undefined) => boolean | undefined)(prev)
+            : updater;
+        queueMicrotask(() => {
+          onLoadingChange(next);
+        });
+        return next;
+      });
+    },
+    [onLoadingChange],
+  );
 
   const updateDataAndLoading = (data: T) => {
     setEntity(data);

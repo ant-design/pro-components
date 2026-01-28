@@ -454,18 +454,6 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     false,
     menu?.loading,
   );
-  const setMenuLoading = useCallback(
-    (updater: boolean | ((prev: boolean) => boolean)) => {
-      setMenuLoadingInner((prev) => {
-        const next =
-          typeof updater === 'function'
-            ? (updater as (p: boolean) => boolean)(prev)
-            : updater;
-        return next;
-      });
-    },
-    [],
-  );
 
   /**
    * 使用 useRefFunction 包装回调，确保引用稳定
@@ -475,13 +463,24 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   });
 
   /**
-   * 监听 menuLoading 状态变化并调用 menu.onLoadingChange 回调
-   * 使用 useEffect 避免在渲染阶段调用外部回调导致的 React 警告
-   * "Cannot update a component while rendering a different component"
+   * 包装 setMenuLoading，使用 queueMicrotask 延迟回调调用
+   * 避免在渲染阶段调用外部回调导致的 React 警告
    */
-  useEffect(() => {
-    menuOnLoadingChange(menuLoading);
-  }, [menuLoading, menuOnLoadingChange]);
+  const setMenuLoading = useCallback(
+    (updater: boolean | ((prev: boolean) => boolean)) => {
+      setMenuLoadingInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: boolean) => boolean)(prev)
+            : updater;
+        queueMicrotask(() => {
+          menuOnLoadingChange(next);
+        });
+        return next;
+      });
+    },
+    [menuOnLoadingChange],
+  );
 
   // give a default key for swr
   const [defaultId] = useState(() => {
