@@ -95,7 +95,7 @@ const LightFilterContainer: React.FC<{
     collapse,
     collapseLabel,
     onValuesChange,
-    variant,
+    variant = 'borderless',
     values,
     footerRender,
     placement,
@@ -251,18 +251,18 @@ const LightFilterContainer: React.FC<{
                   ? fieldProps?.placement
                   : placement;
                 return (
-            <div
-              className={`${lightFilterClassName}-line ${hashId}`.trim()}
-              key={key}
-            >
-              {React.cloneElement(child, {
-                fieldProps: {
-                  ...newFieldProps,
-                  placement: newPlacement,
-                  variant,
-                },
-              })}
-            </div>
+                  <div
+                    className={`${lightFilterClassName}-line ${hashId}`.trim()}
+                    key={key}
+                  >
+                    {React.cloneElement(child, {
+                      fieldProps: {
+                        ...newFieldProps,
+                        placement: newPlacement,
+                        variant,
+                      },
+                    })}
+                  </div>
                 );
               })}
             </FilterDropdown>

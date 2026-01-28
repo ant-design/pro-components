@@ -407,10 +407,16 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
         tabindex="-1"
       >
         <div
-          class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-active ant-drawer-mask-motion ant-drawer-mask-blur"
+          class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-start ant-drawer-mask-motion ant-drawer-mask-blur"
         />
         <div
-          class="ant-drawer-content-wrapper ant-drawer-panel-motion-left-appear ant-drawer-panel-motion-left-appear-active ant-drawer-panel-motion-left"
+          aria-hidden="true"
+          data-sentinel="start"
+          style="width: 0px; height: 0px; overflow: hidden; position: absolute; outline-color: none; outline-style: none; outline-width: initial;"
+          tabindex="0"
+        />
+        <div
+          class="ant-drawer-content-wrapper ant-drawer-panel-motion-left-appear ant-drawer-panel-motion-left-appear-start ant-drawer-panel-motion-left"
           style="width: 215px;"
         >
           <div
@@ -441,7 +447,7 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
                       tabindex="0"
                     >
                       <li
-                        class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-inline-submenu ant-menu-submenu-open ant-menu-submenu-selected"
+                        class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-inline-submenu ant-menu-submenu-open"
                         role="none"
                       >
                         <div
@@ -537,6 +543,12 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
             </div>
           </div>
         </div>
+        <div
+          aria-hidden="true"
+          data-sentinel="end"
+          style="width: 0px; height: 0px; overflow: hidden; position: absolute; outline-color: none; outline-style: none; outline-width: initial;"
+          tabindex="0"
+        />
       </div>
       <div
         class="ant-pro-layout-container"

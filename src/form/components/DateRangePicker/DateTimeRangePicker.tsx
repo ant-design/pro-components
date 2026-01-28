@@ -17,9 +17,7 @@ export const ProFormDateTimeRangePicker: React.FC<
   return (
     <BaseDateRanger
       ref={ref}
-      fieldProps={{
-        ...fieldProps,
-      }}
+      fieldProps={fieldProps}
       valueType={valueType}
       proFieldProps={proFieldProps}
       fieldConfig={{

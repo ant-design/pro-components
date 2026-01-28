@@ -176,7 +176,7 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
           [`${prefixCls}-active`]:
             (Array.isArray(value) ? value.length > 0 : !!value) || value === 0,
           [`${prefixCls}-disabled`]: disabled,
-          [`${prefixCls}-bordered`]: variant !== 'borderless',
+          [`${prefixCls}-bordered`]: variant === 'outlined',
           [`${prefixCls}-allow-clear`]: allowClear,
         },
         className,
