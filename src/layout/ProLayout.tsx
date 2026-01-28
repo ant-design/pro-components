@@ -17,7 +17,12 @@ import React, {
 import useSWR, { useSWRConfig } from 'swr';
 import type { GenerateStyle, ProTokenType } from '../provider';
 import { ProConfigProvider, ProProvider, isNeedOpenHash } from '../provider';
-import { isBrowser, useBreakpoint, useDocumentTitle } from '../utils';
+import {
+  isBrowser,
+  useBreakpoint,
+  useDocumentTitle,
+  useRefFunction,
+} from '../utils';
 import { Logo } from './assert/Logo';
 import { DefaultFooter as Footer } from './components/Footer';
 import type { HeaderViewProps } from './components/Header';
@@ -463,10 +468,11 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   );
 
   /**
-   * 使用 ref 保存回调函数的最新引用，避免将回调放入依赖数组导致的无限循环
+   * 使用 useRefFunction 包装回调，确保引用稳定
    */
-  const menuOnLoadingChangeRef = useRef(menu?.onLoadingChange);
-  menuOnLoadingChangeRef.current = menu?.onLoadingChange;
+  const menuOnLoadingChange = useRefFunction((loading: boolean) => {
+    menu?.onLoadingChange?.(loading);
+  });
 
   /**
    * 监听 menuLoading 状态变化并调用 menu.onLoadingChange 回调
@@ -474,8 +480,8 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
    * "Cannot update a component while rendering a different component"
    */
   useEffect(() => {
-    menuOnLoadingChangeRef.current?.(menuLoading);
-  }, [menuLoading]);
+    menuOnLoadingChange(menuLoading);
+  }, [menuLoading, menuOnLoadingChange]);
 
   // give a default key for swr
   const [defaultId] = useState(() => {
@@ -613,10 +619,11 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   }, props.collapsed);
 
   /**
-   * 使用 ref 保存回调函数的最新引用，避免将回调放入依赖数组导致的无限循环
+   * 使用 useRefFunction 包装回调，确保引用稳定
    */
-  const propsOnCollapseRef = useRef(propsOnCollapse);
-  propsOnCollapseRef.current = propsOnCollapse;
+  const onCollapseCallback = useRefFunction((c: boolean) => {
+    propsOnCollapse?.(c);
+  });
 
   /**
    * 使用 queueMicrotask 延迟回调调用，避免在渲染阶段调用外部回调导致的 React 警告
@@ -630,12 +637,12 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
             ? (updater as (p: boolean) => boolean)(prev)
             : updater;
         queueMicrotask(() => {
-          propsOnCollapseRef.current?.(next);
+          onCollapseCallback(next);
         });
         return next;
       });
     },
-    [],
+    [onCollapseCallback],
   );
 
   // Splicing parameters, adding menuData and formatMessage in props

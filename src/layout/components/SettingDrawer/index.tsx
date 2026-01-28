@@ -17,7 +17,7 @@ import {
   message,
 } from 'antd';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { isBrowser, merge } from '../../../utils';
+import { isBrowser, merge, useRefFunction } from '../../../utils';
 import type { ProSettings } from '../../defaultSettings';
 import { defaultSettings } from '../../defaultSettings';
 import { gLocaleObject, getLanguage } from '../../locales';
@@ -220,10 +220,11 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   const [open, setOpenInner] = useControlledState(false, props.collapse);
 
   /**
-   * 使用 ref 保存回调函数的最新引用，避免将回调放入依赖数组导致的无限循环
+   * 使用 useRefFunction 包装回调，确保引用稳定
    */
-  const onCollapseChangeRef = useRef(props.onCollapseChange);
-  onCollapseChangeRef.current = props.onCollapseChange;
+  const onCollapseChangeCallback = useRefFunction((o: boolean) => {
+    props.onCollapseChange?.(o);
+  });
 
   /**
    * 使用 queueMicrotask 延迟回调调用，避免在渲染阶段调用外部回调导致的 React 警告
@@ -237,12 +238,12 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
             ? (updater as (p: boolean) => boolean)(prev)
             : updater;
         queueMicrotask(() => {
-          onCollapseChangeRef.current?.(next);
+          onCollapseChangeCallback(next);
         });
         return next;
       });
     },
-    [],
+    [onCollapseChangeCallback],
   );
 
   const [language, setLanguage] = useState<string>(getLanguage());
@@ -261,10 +262,13 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   );
 
   /**
-   * 使用 ref 保存回调函数的最新引用，避免将回调放入依赖数组导致的无限循环
+   * 使用 useRefFunction 包装回调，确保引用稳定
    */
-  const onSettingChangeRef = useRef(onSettingChange);
-  onSettingChangeRef.current = onSettingChange;
+  const onSettingChangeCallback = useRefFunction(
+    (settings: Partial<ProSettings>) => {
+      onSettingChange?.(settings);
+    },
+  );
 
   /**
    * 使用 queueMicrotask 延迟回调调用，避免在渲染阶段调用外部回调导致的 React 警告
@@ -284,12 +288,12 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
               )
             : updater;
         queueMicrotask(() => {
-          onSettingChangeRef.current?.(next);
+          onSettingChangeCallback(next);
         });
         return next;
       });
     },
-    [],
+    [onSettingChangeCallback],
   );
 
   const { navTheme, colorPrimary, siderMenuType, layout, colorWeak } =

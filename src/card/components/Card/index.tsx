@@ -2,8 +2,8 @@ import { RightOutlined } from '@ant-design/icons';
 import { omit, useControlledState } from '@rc-component/util';
 import { ConfigProvider, Grid, Tabs } from 'antd';
 import { clsx } from 'clsx';
-import React, { useCallback, useContext, useRef } from 'react';
-import { LabelIconTip } from '../../../utils';
+import React, { useCallback, useContext } from 'react';
+import { LabelIconTip, useRefFunction } from '../../../utils';
 import type { Breakpoint, CardProps, Gutter } from '../../typing';
 import Actions from '../Actions';
 import Loading from '../Loading';
@@ -67,10 +67,11 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   );
 
   /**
-   * 使用 ref 保存回调函数的最新引用，避免将回调放入依赖数组导致的无限循环
+   * 使用 useRefFunction 包装回调，确保引用稳定
    */
-  const onCollapseRef = useRef(onCollapse);
-  onCollapseRef.current = onCollapse;
+  const onCollapseCallback = useRefFunction((c: boolean) => {
+    onCollapse?.(c);
+  });
 
   /**
    * 使用 queueMicrotask 延迟回调调用，避免在渲染阶段调用外部回调导致的 React 警告
@@ -84,12 +85,12 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
             ? (updater as (p: boolean) => boolean)(prev)
             : updater;
         queueMicrotask(() => {
-          onCollapseRef.current?.(next);
+          onCollapseCallback(next);
         });
         return next;
       });
     },
-    [],
+    [onCollapseCallback],
   );
 
   // 顺序决定如何进行响应式取值，按最大响应值依次取值，请勿修改。

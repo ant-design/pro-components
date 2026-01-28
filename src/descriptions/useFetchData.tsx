@@ -1,5 +1,6 @@
 import { useControlledState } from '@rc-component/util';
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect } from 'react';
+import { useRefFunction } from '../utils';
 
 export type RequestData<T = any> = {
   data?: T;
@@ -57,10 +58,11 @@ const useFetchData = <T extends RequestData>(
   );
 
   /**
-   * 使用 ref 保存回调函数的最新引用，避免将回调放入依赖数组导致的无限循环
+   * 使用 useRefFunction 包装回调，确保引用稳定
    */
-  const onLoadingChangeRef = useRef(options?.onLoadingChange);
-  onLoadingChangeRef.current = options?.onLoadingChange;
+  const onLoadingChange = useRefFunction((l?: boolean) => {
+    options?.onLoadingChange?.(l);
+  });
 
   /**
    * 监听 loading 状态变化并调用 onLoadingChange 回调
@@ -68,8 +70,8 @@ const useFetchData = <T extends RequestData>(
    * "Cannot update a component while rendering a different component"
    */
   useEffect(() => {
-    onLoadingChangeRef.current?.(loading);
-  }, [loading]);
+    onLoadingChange(loading);
+  }, [loading, onLoadingChange]);
 
   const updateDataAndLoading = (data: T) => {
     setEntity(data);

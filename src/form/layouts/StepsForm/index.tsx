@@ -198,10 +198,11 @@ function StepsForm<T = Record<string, any>>(
   const [step, setStepInner] = useControlledState<number>(0, props.current);
 
   /**
-   * 使用 ref 保存回调函数的最新引用，避免将回调放入依赖数组导致的无限循环
+   * 使用 useRefFunction 包装回调，确保引用稳定
    */
-  const onCurrentChangeRef = useRef(props.onCurrentChange);
-  onCurrentChangeRef.current = props.onCurrentChange;
+  const onCurrentChangeCallback = useRefFunction((current: number) => {
+    props.onCurrentChange?.(current);
+  });
 
   /**
    * 使用 queueMicrotask 延迟回调调用，避免在渲染阶段调用外部回调导致的 React 警告
@@ -215,12 +216,12 @@ function StepsForm<T = Record<string, any>>(
             ? (updater as (p: number) => number)(prev)
             : updater;
         queueMicrotask(() => {
-          onCurrentChangeRef.current?.(next);
+          onCurrentChangeCallback(next);
         });
         return next;
       });
     },
-    [],
+    [onCurrentChangeCallback],
   );
 
   const layoutRender = useMemo(() => {

@@ -677,10 +677,11 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
   );
 
   /**
-   * 使用 ref 保存回调函数的最新引用，避免将回调放入依赖数组导致的无限循环
+   * 使用 useRefFunction 包装回调，确保引用稳定
    */
-  const onLoadingChangeRef = useRef(onLoadingChange);
-  onLoadingChangeRef.current = onLoadingChange;
+  const onLoadingChangeCallback = useRefFunction((l: boolean) => {
+    onLoadingChange?.(l);
+  });
 
   /**
    * 监听 loading 状态变化并调用 onLoadingChange 回调
@@ -688,8 +689,8 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
    * "Cannot update a component while rendering a different component"
    */
   useEffect(() => {
-    onLoadingChangeRef.current?.(loading);
-  }, [loading]);
+    onLoadingChangeCallback(loading);
+  }, [loading, onLoadingChangeCallback]);
 
   const [urlSearch, setUrlSearch] = useUrlSearchParams(
     {},

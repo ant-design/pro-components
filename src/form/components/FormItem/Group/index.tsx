@@ -2,8 +2,8 @@ import { RightOutlined } from '@ant-design/icons';
 import { useControlledState } from '@rc-component/util';
 import { ConfigProvider, Space } from 'antd';
 import { clsx } from 'clsx';
-import React, { useCallback, useContext, useMemo, useRef } from 'react';
-import { LabelIconTip } from '../../../../utils';
+import React, { useCallback, useContext, useMemo } from 'react';
+import { LabelIconTip, useRefFunction } from '../../../../utils';
 import FieldContext from '../../../FieldContext';
 import { useGridHelpers } from '../../../helpers/grid';
 import { ProFormGroupProps } from '../../../typing';
@@ -39,10 +39,11 @@ const Group: React.FC<ProFormGroupProps> = React.forwardRef(
     );
 
     /**
-     * 使用 ref 保存回调函数的最新引用，避免将回调放入依赖数组导致的无限循环
+     * 使用 useRefFunction 包装回调，确保引用稳定
      */
-    const onCollapseRef = useRef(props.onCollapse);
-    onCollapseRef.current = props.onCollapse;
+    const onCollapseCallback = useRefFunction((c: boolean) => {
+      props.onCollapse?.(c);
+    });
 
     /**
      * 使用 queueMicrotask 延迟回调调用，避免在渲染阶段调用外部回调导致的 React 警告
@@ -56,12 +57,12 @@ const Group: React.FC<ProFormGroupProps> = React.forwardRef(
               ? (updater as (p: boolean) => boolean)(prev)
               : updater;
           queueMicrotask(() => {
-            onCollapseRef.current?.(next);
+            onCollapseCallback(next);
           });
           return next;
         });
       },
-      [],
+      [onCollapseCallback],
     );
     const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 

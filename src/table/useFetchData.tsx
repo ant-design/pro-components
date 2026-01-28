@@ -104,11 +104,11 @@ const useFetchData = <DataSource extends RequestData<any>>(
   );
 
   /**
-   * 使用 ref 保存回调函数的最新引用，避免将回调放入依赖数组导致的无限循环
-   * 当父组件未对 onLoadingChange 进行 memoize 时，直接放入依赖数组会导致问题
+   * 使用 useRefFunction 包装回调，确保引用稳定
    */
-  const onLoadingChangeRef = useRef(options?.onLoadingChange);
-  onLoadingChangeRef.current = options?.onLoadingChange;
+  const onLoadingChange = useRefFunction((loading: boolean) => {
+    options?.onLoadingChange?.(loading);
+  });
 
   /**
    * 监听 loading 状态变化并调用 onLoadingChange 回调
@@ -116,8 +116,8 @@ const useFetchData = <DataSource extends RequestData<any>>(
    * "Cannot update a component while rendering a different component"
    */
   useEffect(() => {
-    onLoadingChangeRef.current?.(tableLoading);
-  }, [tableLoading]);
+    onLoadingChange(tableLoading);
+  }, [tableLoading, onLoadingChange]);
 
   /**
    * 表示页面信息的类型

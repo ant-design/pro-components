@@ -6,15 +6,9 @@ import { Col, ConfigProvider, Form, Row } from 'antd';
 import type { FormInstance, FormProps } from 'antd/lib/form/Form';
 import { clsx } from 'clsx';
 import type { ReactElement } from 'react';
-import React, {
-  useCallback,
-  useContext,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import React, { useCallback, useContext, useMemo, useState } from 'react';
 import { ProProvider, useIntl } from '../../../provider';
-import { isBrowser } from '../../../utils';
+import { isBrowser, useRefFunction } from '../../../utils';
 import type { CommonFormProps } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import type { ActionsProps } from './Actions';
@@ -281,10 +275,11 @@ const QueryFilterContent: React.FC<{
   );
 
   /**
-   * 使用 ref 保存回调函数的最新引用，避免将回调放入依赖数组导致的无限循环
+   * 使用 useRefFunction 包装回调，确保引用稳定
    */
-  const onCollapseRef = useRef(props.onCollapse);
-  onCollapseRef.current = props.onCollapse;
+  const onCollapseCallback = useRefFunction((c: boolean) => {
+    props.onCollapse?.(c);
+  });
 
   /**
    * 使用 queueMicrotask 延迟回调调用，避免在渲染阶段调用外部回调导致的 React 警告
@@ -298,12 +293,12 @@ const QueryFilterContent: React.FC<{
             ? (updater as (p: boolean) => boolean)(prev)
             : updater;
         queueMicrotask(() => {
-          onCollapseRef.current?.(next);
+          onCollapseCallback(next);
         });
         return next;
       });
     },
-    [],
+    [onCollapseCallback],
   );
 
   const {
