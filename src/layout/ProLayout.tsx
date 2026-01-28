@@ -11,12 +11,18 @@ import React, {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from 'react';
 import useSWR, { useSWRConfig } from 'swr';
 import type { GenerateStyle, ProTokenType } from '../provider';
 import { ProConfigProvider, ProProvider, isNeedOpenHash } from '../provider';
-import { isBrowser, useBreakpoint, useDocumentTitle } from '../utils';
+import {
+  isBrowser,
+  useBreakpoint,
+  useDocumentTitle,
+  useRefFunction,
+} from '../utils';
 import { Logo } from './assert/Logo';
 import { DefaultFooter as Footer } from './components/Footer';
 import type { HeaderViewProps } from './components/Header';
@@ -448,6 +454,18 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     false,
     menu?.loading,
   );
+
+  /**
+   * 使用 useRefFunction 包装回调，确保引用稳定
+   */
+  const menuOnLoadingChange = useRefFunction((loading: boolean) => {
+    menu?.onLoadingChange?.(loading);
+  });
+
+  /**
+   * 包装 setMenuLoading，使用 queueMicrotask 延迟回调调用
+   * 避免在渲染阶段调用外部回调导致的 React 警告
+   */
   const setMenuLoading = useCallback(
     (updater: boolean | ((prev: boolean) => boolean)) => {
       setMenuLoadingInner((prev) => {
@@ -455,11 +473,13 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
           typeof updater === 'function'
             ? (updater as (p: boolean) => boolean)(prev)
             : updater;
-        menu?.onLoadingChange?.(next);
+        queueMicrotask(() => {
+          menuOnLoadingChange(next);
+        });
         return next;
       });
     },
-    [menu?.onLoadingChange],
+    [menuOnLoadingChange],
   );
 
   // give a default key for swr
@@ -596,6 +616,18 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     if (colSize === 'md') return true;
     return false;
   }, props.collapsed);
+
+  /**
+   * 使用 useRefFunction 包装回调，确保引用稳定
+   */
+  const onCollapseCallback = useRefFunction((c: boolean) => {
+    propsOnCollapse?.(c);
+  });
+
+  /**
+   * 使用 queueMicrotask 延迟回调调用，避免在渲染阶段调用外部回调导致的 React 警告
+   * "Cannot update a component while rendering a different component"
+   */
   const onCollapse = useCallback(
     (updater: boolean | ((prev: boolean) => boolean)) => {
       onCollapseInner((prev) => {
@@ -603,11 +635,13 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
           typeof updater === 'function'
             ? (updater as (p: boolean) => boolean)(prev)
             : updater;
-        propsOnCollapse?.(next);
+        queueMicrotask(() => {
+          onCollapseCallback(next);
+        });
         return next;
       });
     },
-    [propsOnCollapse],
+    [onCollapseCallback],
   );
 
   // Splicing parameters, adding menuData and formatMessage in props

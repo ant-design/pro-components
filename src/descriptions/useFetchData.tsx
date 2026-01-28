@@ -1,5 +1,6 @@
 import { useControlledState } from '@rc-component/util';
 import { useCallback, useEffect } from 'react';
+import { useRefFunction } from '../utils';
 
 export type RequestData<T = any> = {
   data?: T;
@@ -55,6 +56,18 @@ const useFetchData = <T extends RequestData>(
     options?.loading,
     options?.loading,
   );
+
+  /**
+   * 使用 useRefFunction 包装回调，确保引用稳定
+   */
+  const onLoadingChange = useRefFunction((l?: boolean) => {
+    options?.onLoadingChange?.(l);
+  });
+
+  /**
+   * 包装 setLoading，使用 queueMicrotask 延迟回调调用
+   * 避免在渲染阶段调用外部回调导致的 React 警告
+   */
   const setLoading = useCallback(
     (
       updater:
@@ -67,11 +80,13 @@ const useFetchData = <T extends RequestData>(
           typeof updater === 'function'
             ? (updater as (p: boolean | undefined) => boolean | undefined)(prev)
             : updater;
-        options?.onLoadingChange?.(next);
+        queueMicrotask(() => {
+          onLoadingChange(next);
+        });
         return next;
       });
     },
-    [options?.onLoadingChange],
+    [onLoadingChange],
   );
 
   const updateDataAndLoading = (data: T) => {

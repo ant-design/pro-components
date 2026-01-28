@@ -3,7 +3,7 @@ import { useControlledState } from '@rc-component/util';
 import { ConfigProvider, Space } from 'antd';
 import { clsx } from 'clsx';
 import React, { useCallback, useContext, useMemo } from 'react';
-import { LabelIconTip } from '../../../../utils';
+import { LabelIconTip, useRefFunction } from '../../../../utils';
 import FieldContext from '../../../FieldContext';
 import { useGridHelpers } from '../../../helpers/grid';
 import { ProFormGroupProps } from '../../../typing';
@@ -37,6 +37,18 @@ const Group: React.FC<ProFormGroupProps> = React.forwardRef(
       () => defaultCollapsed || false,
       props.collapsed,
     );
+
+    /**
+     * 使用 useRefFunction 包装回调，确保引用稳定
+     */
+    const onCollapseCallback = useRefFunction((c: boolean) => {
+      props.onCollapse?.(c);
+    });
+
+    /**
+     * 使用 queueMicrotask 延迟回调调用，避免在渲染阶段调用外部回调导致的 React 警告
+     * "Cannot update a component while rendering a different component"
+     */
     const setCollapsed = useCallback(
       (updater: boolean | ((prev: boolean) => boolean)) => {
         setCollapsedInner((prev) => {
@@ -44,11 +56,13 @@ const Group: React.FC<ProFormGroupProps> = React.forwardRef(
             typeof updater === 'function'
               ? (updater as (p: boolean) => boolean)(prev)
               : updater;
-          props.onCollapse?.(next);
+          queueMicrotask(() => {
+            onCollapseCallback(next);
+          });
           return next;
         });
       },
-      [props.onCollapse],
+      [onCollapseCallback],
     );
     const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 

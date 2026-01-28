@@ -3,7 +3,7 @@ import { omit, useControlledState } from '@rc-component/util';
 import { ConfigProvider, Grid, Tabs } from 'antd';
 import { clsx } from 'clsx';
 import React, { useCallback, useContext } from 'react';
-import { LabelIconTip } from '../../../utils';
+import { LabelIconTip, useRefFunction } from '../../../utils';
 import type { Breakpoint, CardProps, Gutter } from '../../typing';
 import Actions from '../Actions';
 import Loading from '../Loading';
@@ -65,6 +65,18 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     defaultCollapsed,
     controlCollapsed,
   );
+
+  /**
+   * 使用 useRefFunction 包装回调，确保引用稳定
+   */
+  const onCollapseCallback = useRefFunction((c: boolean) => {
+    onCollapse?.(c);
+  });
+
+  /**
+   * 使用 queueMicrotask 延迟回调调用，避免在渲染阶段调用外部回调导致的 React 警告
+   * "Cannot update a component while rendering a different component"
+   */
   const setCollapsed = useCallback(
     (updater: boolean | ((prev: boolean) => boolean)) => {
       setCollapsedInner((prev) => {
@@ -72,11 +84,13 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
           typeof updater === 'function'
             ? (updater as (p: boolean) => boolean)(prev)
             : updater;
-        onCollapse?.(next);
+        queueMicrotask(() => {
+          onCollapseCallback(next);
+        });
         return next;
       });
     },
-    [onCollapse],
+    [onCollapseCallback],
   );
 
   // 顺序决定如何进行响应式取值，按最大响应值依次取值，请勿修改。

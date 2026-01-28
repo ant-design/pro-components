@@ -675,6 +675,18 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     false,
     propsLoading,
   );
+
+  /**
+   * 使用 useRefFunction 包装回调，确保引用稳定
+   */
+  const onLoadingChangeCallback = useRefFunction((l: boolean) => {
+    onLoadingChange?.(l);
+  });
+
+  /**
+   * 包装 setLoading，使用 queueMicrotask 延迟回调调用
+   * 避免在渲染阶段调用外部回调导致的 React 警告
+   */
   const setLoading = useCallback(
     (updater: boolean | ((prev: boolean) => boolean)) => {
       setLoadingInner((prev) => {
@@ -682,11 +694,13 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
           typeof updater === 'function'
             ? (updater as (p: boolean) => boolean)(prev)
             : updater;
-        onLoadingChange?.(next);
+        queueMicrotask(() => {
+          onLoadingChangeCallback(next);
+        });
         return next;
       });
     },
-    [onLoadingChange],
+    [onLoadingChangeCallback],
   );
 
   const [urlSearch, setUrlSearch] = useUrlSearchParams(

@@ -17,7 +17,7 @@ import {
   message,
 } from 'antd';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { isBrowser, merge } from '../../../utils';
+import { isBrowser, merge, useRefFunction } from '../../../utils';
 import type { ProSettings } from '../../defaultSettings';
 import { defaultSettings } from '../../defaultSettings';
 import { gLocaleObject, getLanguage } from '../../locales';
@@ -218,6 +218,18 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   const firstRender = useRef<boolean>(true);
 
   const [open, setOpenInner] = useControlledState(false, props.collapse);
+
+  /**
+   * 使用 useRefFunction 包装回调，确保引用稳定
+   */
+  const onCollapseChangeCallback = useRefFunction((o: boolean) => {
+    props.onCollapseChange?.(o);
+  });
+
+  /**
+   * 使用 queueMicrotask 延迟回调调用，避免在渲染阶段调用外部回调导致的 React 警告
+   * "Cannot update a component while rendering a different component"
+   */
   const setOpen = useCallback(
     (updater: boolean | ((prev: boolean) => boolean)) => {
       setOpenInner((prev) => {
@@ -225,11 +237,13 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
           typeof updater === 'function'
             ? (updater as (p: boolean) => boolean)(prev)
             : updater;
-        props.onCollapseChange?.(next);
+        queueMicrotask(() => {
+          onCollapseChangeCallback(next);
+        });
         return next;
       });
     },
-    [props.onCollapseChange],
+    [onCollapseChangeCallback],
   );
 
   const [language, setLanguage] = useState<string>(getLanguage());
@@ -246,6 +260,20 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     () => getParamsFromUrl(urlParams, propsSettings || propsDefaultSettings),
     propsSettings,
   );
+
+  /**
+   * 使用 useRefFunction 包装回调，确保引用稳定
+   */
+  const onSettingChangeCallback = useRefFunction(
+    (settings: Partial<ProSettings>) => {
+      onSettingChange?.(settings);
+    },
+  );
+
+  /**
+   * 使用 queueMicrotask 延迟回调调用，避免在渲染阶段调用外部回调导致的 React 警告
+   * "Cannot update a component while rendering a different component"
+   */
   const setSettingState = useCallback(
     (
       updater:
@@ -259,11 +287,13 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
                 prev,
               )
             : updater;
-        onSettingChange?.(next);
+        queueMicrotask(() => {
+          onSettingChangeCallback(next);
+        });
         return next;
       });
     },
-    [onSettingChange],
+    [onSettingChangeCallback],
   );
 
   const { navTheme, colorPrimary, siderMenuType, layout, colorWeak } =

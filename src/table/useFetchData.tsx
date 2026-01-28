@@ -102,6 +102,18 @@ const useFetchData = <DataSource extends RequestData<any>>(
     false,
     tableLoadingValue,
   );
+
+  /**
+   * 使用 useRefFunction 包装回调，确保引用稳定
+   */
+  const onLoadingChange = useRefFunction((loading: boolean) => {
+    options?.onLoadingChange?.(loading);
+  });
+
+  /**
+   * 包装 setTableLoading，使用 queueMicrotask 延迟回调调用
+   * 避免在渲染阶段调用外部回调导致的 React 警告
+   */
   const setTableLoading = useCallback(
     (updater: boolean | ((prev: boolean) => boolean)) => {
       setTableLoadingInner((prev) => {
@@ -109,11 +121,13 @@ const useFetchData = <DataSource extends RequestData<any>>(
           typeof updater === 'function'
             ? (updater as (p: boolean) => boolean)(prev)
             : updater;
-        options?.onLoadingChange?.(next);
+        queueMicrotask(() => {
+          onLoadingChange(next);
+        });
         return next;
       });
     },
-    [options?.onLoadingChange],
+    [onLoadingChange],
   );
 
   /**
