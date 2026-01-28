@@ -1,5 +1,14 @@
 # Changelog
 
+## [3.1.2-0] - 2026-01-27
+
+### 🐛 Bug Fixes
+
+- useEditableArray
+  - 🐞 Fix type error in `onChange` callback by using type guard to ensure correct array type after filtering
+
+---
+
 ## [3.1.1-1] - 2026-01-27
 
 ### 📚 Documentation

@@ -93,6 +93,7 @@ export const LightSelect: React.ForwardRefRenderFunction<
           width: '153px',
           height: '28px',
           visibility: 'hidden',
+          opacity: 0,
           '&-selector': {
             height: 28,
           },

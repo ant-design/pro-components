@@ -1,4 +1,4 @@
-import { Checkbox } from 'antd';
+import { Checkbox, Radio } from 'antd';
 import type { GetRowKey, TableRowSelection } from 'antd/lib/table/interface';
 import React from 'react';
 
@@ -47,6 +47,20 @@ function useSelection<RecordType>(
   const toggleKey = React.useCallback(
     (key: React.Key, record: RecordType, checked: boolean) => {
       setInnerKeys((prevKeys) => {
+        if (rowSelection?.type === 'radio') {
+          const nextKeys = [key];
+          const selectedRows = [record];
+          rowSelection?.onChange?.(nextKeys, selectedRows, {
+            type: 'single',
+            selectedRows,
+            selectedRowKeys: nextKeys,
+          } as any);
+          rowSelection?.onSelect?.(record, checked, selectedRows, {} as any);
+          if (!controlledKeys) {
+            return nextKeys;
+          }
+          return prevKeys;
+        }
         const prevSet = new Set(prevKeys);
         const next = new Set(prevSet);
         if (checked) {
@@ -85,11 +99,24 @@ function useSelection<RecordType>(
   const selectItemRender = React.useCallback(
     (columns?: any[]) => {
       void columns;
+      if (!rowSelection) {
+        return [];
+      }
       return [
         {
           render: (_text: any, record: RecordType, index: number) => {
             const key = getRowKey(record, index);
             const checked = selectedKeySet.has(key);
+            if (rowSelection?.type === 'radio') {
+              return (
+                <Radio
+                  checked={checked}
+                  onChange={(e) => {
+                    toggleKey(key, record, e.target.checked);
+                  }}
+                />
+              );
+            }
             return (
               <Checkbox
                 checked={checked}
@@ -102,7 +129,7 @@ function useSelection<RecordType>(
         },
       ];
     },
-    [getRowKey, selectedKeySet, toggleKey],
+    [getRowKey, selectedKeySet, toggleKey, rowSelection?.type],
   );
 
   return [selectItemRender, selectedKeySet] as const;

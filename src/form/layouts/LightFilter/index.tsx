@@ -184,6 +184,7 @@ const LightFilterContainer: React.FC<{
                 fieldProps: {
                   ...child.props.fieldProps,
                   placement: newPlacement,
+                  variant,
                 },
                 // proFieldProps 会直接作为 ProField 的 props 传递过去
                 proFieldProps: {
@@ -250,17 +251,18 @@ const LightFilterContainer: React.FC<{
                   ? fieldProps?.placement
                   : placement;
                 return (
-                  <div
-                    className={`${lightFilterClassName}-line ${hashId}`.trim()}
-                    key={key}
-                  >
-                    {React.cloneElement(child, {
-                      fieldProps: {
-                        ...newFieldProps,
-                        placement: newPlacement,
-                      },
-                    })}
-                  </div>
+            <div
+              className={`${lightFilterClassName}-line ${hashId}`.trim()}
+              key={key}
+            >
+              {React.cloneElement(child, {
+                fieldProps: {
+                  ...newFieldProps,
+                  placement: newPlacement,
+                  variant,
+                },
+              })}
+            </div>
                 );
               })}
             </FilterDropdown>
@@ -313,7 +315,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
               return item;
             })}
             size={size}
-            variant={variant}
+            variant={variant || 'borderless'}
             collapse={collapse}
             collapseLabel={collapseLabel}
             placement={placement}

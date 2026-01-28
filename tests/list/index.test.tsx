@@ -901,4 +901,32 @@ describe('List', () => {
       expect(fn2).toHaveBeenCalledWith('我是名称');
     });
   });
+
+  it('🚏 rowSelection support radio', async () => {
+    const { container } = reactRender(
+      <ProList
+        dataSource={[
+          {
+            name: 'Item 1',
+          },
+          {
+            name: 'Item 2',
+          },
+        ]}
+        rowSelection={{
+          type: 'radio',
+        }}
+        metas={{
+          title: {
+            dataIndex: 'name',
+          },
+        }}
+      />,
+    );
+
+    expect(
+      container.querySelectorAll('.ant-radio-input').length,
+    ).toBeGreaterThan(0);
+    expect(container.querySelectorAll('.ant-checkbox-input').length).toBe(0);
+  });
 });

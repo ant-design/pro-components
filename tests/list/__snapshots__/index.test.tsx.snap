@@ -18,34 +18,14 @@ exports[`List > 🚏 ProList support rowClassName as a function 1`] = `
             class="ant-list-items"
           >
             <li
-              class="ant-list-item ant-pro-list-row-item-has-checkbox ant-pro-list-row even"
+              class="ant-list-item ant-pro-list-row even"
             >
               <div
                 class="ant-pro-list-row-header"
               >
                 <div
                   class="ant-pro-list-row-header-option"
-                >
-                  <div
-                    class="ant-pro-list-row-checkbox"
-                  >
-                    <label
-                      class="ant-checkbox-wrapper css-var-r2f ant-checkbox-css-var"
-                    >
-                      <span
-                        class="ant-checkbox ant-wave-target"
-                      >
-                        <input
-                          class="ant-checkbox-input"
-                          type="checkbox"
-                        />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
-                      </span>
-                    </label>
-                  </div>
-                </div>
+                />
                 <div
                   class="ant-list-item-meta"
                 >
@@ -79,34 +59,14 @@ exports[`List > 🚏 ProList support rowClassName as a function 1`] = `
               </div>
             </li>
             <li
-              class="ant-list-item ant-pro-list-row-item-has-checkbox ant-pro-list-row odd"
+              class="ant-list-item ant-pro-list-row odd"
             >
               <div
                 class="ant-pro-list-row-header"
               >
                 <div
                   class="ant-pro-list-row-header-option"
-                >
-                  <div
-                    class="ant-pro-list-row-checkbox"
-                  >
-                    <label
-                      class="ant-checkbox-wrapper css-var-r2f ant-checkbox-css-var"
-                    >
-                      <span
-                        class="ant-checkbox ant-wave-target"
-                      >
-                        <input
-                          class="ant-checkbox-input"
-                          type="checkbox"
-                        />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
-                      </span>
-                    </label>
-                  </div>
-                </div>
+                />
                 <div
                   class="ant-list-item-meta"
                 >
@@ -165,34 +125,14 @@ exports[`List > 🚏 ProList support rowClassName as a string 1`] = `
             class="ant-list-items"
           >
             <li
-              class="ant-list-item ant-pro-list-row-item-has-checkbox ant-pro-list-row rowClassName"
+              class="ant-list-item ant-pro-list-row rowClassName"
             >
               <div
                 class="ant-pro-list-row-header"
               >
                 <div
                   class="ant-pro-list-row-header-option"
-                >
-                  <div
-                    class="ant-pro-list-row-checkbox"
-                  >
-                    <label
-                      class="ant-checkbox-wrapper css-var-r2b ant-checkbox-css-var"
-                    >
-                      <span
-                        class="ant-checkbox ant-wave-target"
-                      >
-                        <input
-                          class="ant-checkbox-input"
-                          type="checkbox"
-                        />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
-                      </span>
-                    </label>
-                  </div>
-                </div>
+                />
                 <div
                   class="ant-list-item-meta"
                 >
@@ -251,34 +191,14 @@ exports[`List > 🚏 only has content 1`] = `
             class="ant-list-items"
           >
             <li
-              class="ant-list-item ant-pro-list-row-item-has-checkbox ant-pro-list-row"
+              class="ant-list-item ant-pro-list-row"
             >
               <div
                 class="ant-pro-list-row-header"
               >
                 <div
                   class="ant-pro-list-row-header-option"
-                >
-                  <div
-                    class="ant-pro-list-row-checkbox"
-                  >
-                    <label
-                      class="ant-checkbox-wrapper css-var-rd ant-checkbox-css-var"
-                    >
-                      <span
-                        class="ant-checkbox ant-wave-target"
-                      >
-                        <input
-                          class="ant-checkbox-input"
-                          type="checkbox"
-                        />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
-                      </span>
-                    </label>
-                  </div>
-                </div>
+                />
               </div>
               <div
                 class="ant-pro-list-row-content"
@@ -314,34 +234,14 @@ exports[`List > 🚏 only has description 1`] = `
             class="ant-list-items"
           >
             <li
-              class="ant-list-item ant-pro-list-row-item-has-checkbox ant-pro-list-row"
+              class="ant-list-item ant-pro-list-row"
             >
               <div
                 class="ant-pro-list-row-header"
               >
                 <div
                   class="ant-pro-list-row-header-option"
-                >
-                  <div
-                    class="ant-pro-list-row-checkbox"
-                  >
-                    <label
-                      class="ant-checkbox-wrapper css-var-rh ant-checkbox-css-var"
-                    >
-                      <span
-                        class="ant-checkbox ant-wave-target"
-                      >
-                        <input
-                          class="ant-checkbox-input"
-                          type="checkbox"
-                        />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
-                      </span>
-                    </label>
-                  </div>
-                </div>
+                />
                 <div
                   class="ant-list-item-meta"
                 >
@@ -429,34 +329,14 @@ exports[`List > 🚏 show loading state 1`] = `
             class="ant-list-items"
           >
             <li
-              class="ant-list-item ant-pro-list-row-item-has-checkbox ant-pro-list-row"
+              class="ant-list-item ant-pro-list-row"
             >
               <div
                 class="ant-pro-list-row-header"
               >
                 <div
                   class="ant-pro-list-row-header-option"
-                >
-                  <div
-                    class="ant-pro-list-row-checkbox"
-                  >
-                    <label
-                      class="ant-checkbox-wrapper css-var-r9 ant-checkbox-css-var"
-                    >
-                      <span
-                        class="ant-checkbox ant-wave-target"
-                      >
-                        <input
-                          class="ant-checkbox-input"
-                          type="checkbox"
-                        />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
-                      </span>
-                    </label>
-                  </div>
-                </div>
+                />
                 <div
                   class="ant-list-item-meta"
                 >
