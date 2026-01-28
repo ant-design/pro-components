@@ -37,7 +37,7 @@ const FieldCascader: ProFieldFC<GroupProps> = (
     render,
     label,
     light,
-    variant,
+    variant: propsVariant,
     ...rest
   },
   ref,
@@ -110,6 +110,7 @@ const FieldCascader: ProFieldFC<GroupProps> = (
 
   if (mode === 'edit') {
     const fieldProps = rest.fieldProps || {};
+    const variant = propsVariant ?? fieldProps?.variant;
 
     let dom = (
       <Cascader

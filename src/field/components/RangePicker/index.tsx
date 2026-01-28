@@ -31,12 +31,13 @@ const FieldRangePicker: ProFieldFC<
     plain,
     showTime,
     lightLabel,
-    variant,
+    variant: propsVariant,
     fieldProps,
   },
   ref,
 ) => {
   const intl = useIntl();
+  const variant = propsVariant ?? fieldProps?.variant;
 
   const [startText, endText] = Array.isArray(text) ? text : [];
   const [open, setOpen] = React.useState<boolean>(false);
