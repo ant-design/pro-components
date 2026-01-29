@@ -594,7 +594,9 @@ describe('BasicLayout', () => {
       ).map((item) => item && item?.click());
     });
 
-    expect(onCollapse).toHaveBeenCalled();
+    await waitFor(() => {
+      expect(onCollapse).toHaveBeenCalled();
+    });
 
     await waitForWaitTime(100);
     wrapper.unmount();

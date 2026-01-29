@@ -961,7 +961,9 @@ describe('ProForm', () => {
         .click();
     });
 
-    expect(fn).toHaveBeenCalledWith(true);
+    await waitFor(() => {
+      expect(fn).toHaveBeenCalledWith(true);
+    });
 
     act(() => {
       wrapper.baseElement
@@ -969,7 +971,9 @@ describe('ProForm', () => {
         .click();
     });
 
-    expect(fn).toHaveBeenCalledWith(false);
+    await waitFor(() => {
+      expect(fn).toHaveBeenCalledWith(false);
+    });
     wrapper.unmount();
   });
 
@@ -995,7 +999,9 @@ describe('ProForm', () => {
         .click();
     });
 
-    expect(fn).toHaveBeenCalledWith(false);
+    await waitFor(() => {
+      expect(fn).toHaveBeenCalledWith(false);
+    });
 
     act(() => {
       wrapper.baseElement
@@ -1003,7 +1009,9 @@ describe('ProForm', () => {
         .click();
     });
 
-    expect(fn).toHaveBeenCalledWith(true);
+    await waitFor(() => {
+      expect(fn).toHaveBeenCalledWith(true);
+    });
     wrapper.unmount();
   });
 
