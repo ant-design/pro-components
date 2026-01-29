@@ -1,4 +1,4 @@
-﻿import { omit } from '@rc-component/util';
+import { omit } from '@rc-component/util';
 import type { FormItemProps } from 'antd';
 import { ConfigProvider, Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
@@ -120,6 +120,10 @@ const WithValueFomFiledProps: React.FC<
 
   if (!React.isValidElement(filedChildren)) return <>{filedChildren}</>;
 
+  // restProps 可能来自 LightWrapper 的 cloneElement（light 模式下传入 variant/fieldProps），需保留以覆盖 filedChildren.props，避免内层控件线框双线
+  const variantFromRest = restProps.variant;
+  const fieldPropsFromRest = restProps.fieldProps;
+
   return React.cloneElement(
     filedChildren,
     omitUndefined({
@@ -127,7 +131,12 @@ const WithValueFomFiledProps: React.FC<
       [valuePropName]: formFieldProps[valuePropName],
       ...filedChildren.props,
       onChange: finalChange,
-      fieldProps,
+      fieldProps: {
+        ...(filedChildren.props as Record<string, any>)?.fieldProps,
+        ...fieldPropsFromRest,
+        ...fieldProps,
+      },
+      ...(variantFromRest !== undefined && { variant: variantFromRest }),
       onBlur: isProFormComponent && !isValidElementForFiledChildren && onBlur,
     }),
   );
@@ -400,11 +409,24 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
     </WithValueFomFiledProps>
   );
 
+  // LightFilter clone 经 ColWrapper 透传的 variant/fieldProps 需合并进 lightProps，否则 FieldDatePicker 等收不到 variant
+  const lightPropsForWrapper = useMemo(
+    () =>
+      omitUndefined({
+        ...lightProps,
+        ...(rest.variant !== undefined && { variant: rest.variant }),
+        ...(rest.fieldProps && {
+          fieldProps: { ...lightProps?.fieldProps, ...rest.fieldProps },
+        }),
+      }),
+    [lightProps, rest.variant, rest.fieldProps],
+  );
+
   const lightDom = noLightFormItem ? (
     children
   ) : (
     <LightWrapper
-      {...lightProps}
+      {...lightPropsForWrapper}
       key={rest.proFormFieldKey || rest.name?.toString()}
       size={size}
     >

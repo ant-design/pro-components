@@ -111,6 +111,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
       open={open}
       onOpenChange={setOpen}
       placement={placement}
+      variant={variant}
       label={
         <FieldLabel
           ellipsis
@@ -119,7 +120,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
             onChange?.();
             setTempValue(null);
           }}
-          variant={variant}
+          variant={variant === 'outlined' ? 'borderless' : variant}
           style={style}
           className={className}
           label={label}
@@ -150,6 +151,12 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
             setTempValue(e?.target ? e.target.value : e);
           },
           ...(children as JSX.Element).props,
+          // light 模式下由外层 FilterDropdown 统一描边，内层 Select/TreeSelect/DatePicker 等统一使用 borderless，各 Field 组件无需再根据 light 判断
+          variant: 'borderless' as const,
+          fieldProps: {
+            ...(children as JSX.Element).props?.fieldProps,
+            variant: 'borderless' as const,
+          },
         })}
       </div>
     </FilterDropdown>,

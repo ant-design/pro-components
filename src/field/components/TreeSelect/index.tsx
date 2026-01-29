@@ -36,7 +36,16 @@ export type TreeSelectFieldProps = TreeSelectProps<any> & {
  * @param ref
  */
 const FieldTreeSelect: ProFieldFC<GroupProps> = (
-  { radioType, formItemRender, mode, light, label, render, variant: propsVariant, ...rest },
+  {
+    radioType,
+    formItemRender,
+    mode,
+    light,
+    label,
+    render,
+    variant: propsVariant,
+    ...rest
+  },
   ref,
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -192,7 +201,6 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
                 }
               : undefined
           }
-          variant={!light ? variant : 'borderless'}
           {...fieldProps}
           treeData={options as TreeSelectProps['treeData']}
           showSearch={showSearch}

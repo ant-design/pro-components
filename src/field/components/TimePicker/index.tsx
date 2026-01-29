@@ -78,7 +78,7 @@ const FieldTimePicker: ProFieldFC<
           value={
             dayValue || open ? (
               <TimePicker
-                variant="borderless"
+                variant={variant ?? fieldProps?.variant}
                 format={format}
                 ref={ref}
                 {...fieldProps}
@@ -216,7 +216,7 @@ const FieldTimeRangePickerComponents: ProFieldFC<
           value={
             dayValue || open ? (
               <TimePicker.RangePicker
-                variant="borderless"
+                variant={variant ?? fieldProps?.variant}
                 format={format}
                 ref={ref}
                 {...fieldProps}
@@ -241,7 +241,7 @@ const FieldTimeRangePickerComponents: ProFieldFC<
           ref={ref}
           format={format}
           variant={
-            plain === undefined ? 'outlined' : plain ? 'borderless' : 'outlined'
+            plain === undefined ? variant : plain ? 'borderless' : 'outlined'
           }
           {...fieldProps}
           value={dayValue}

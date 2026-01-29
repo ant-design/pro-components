@@ -471,7 +471,6 @@ const FieldSelect: ProFieldFC<
       if (light) {
         return (
           <LightSelect
-            variant={variant}
             id={id}
             loading={loading}
             ref={inputRef}
@@ -498,7 +497,6 @@ const FieldSelect: ProFieldFC<
             minWidth: 100,
             ...rest.style,
           }}
-          variant={variant}
           id={id}
           loading={loading}
           ref={inputRef}

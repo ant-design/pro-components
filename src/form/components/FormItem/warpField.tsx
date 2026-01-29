@@ -1,4 +1,4 @@
-﻿import { FieldContext as RcFieldContext } from '@rc-component/form';
+import { FieldContext as RcFieldContext } from '@rc-component/form';
 import type { FormItemProps } from 'antd';
 import { clsx } from 'clsx';
 import React, { useContext, useMemo, useState } from 'react';
@@ -302,6 +302,7 @@ export function warpField<P extends ProFormFieldItemProps = any>(
           convertValue={convertValue}
           lightProps={omitUndefined({
             ...fieldProps,
+            variant: rest.variant ?? fieldProps?.variant,
             valueType,
             bordered,
             allowClear: field?.props?.allowClear ?? allowClear,

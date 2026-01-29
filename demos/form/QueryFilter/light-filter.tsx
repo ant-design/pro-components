@@ -15,11 +15,12 @@ import {
   ProFormTimePicker,
   ProFormTreeSelect,
 } from '@ant-design/pro-components';
-import { Radio, TreeSelect } from 'antd';
+import { Radio, Space, TreeSelect } from 'antd';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import dayjs from 'dayjs';
 import React from 'react';
 
+/** 树形选择数据 */
 const treeData = [
   {
     title: 'Node1',
@@ -57,59 +58,163 @@ const treeData = [
   },
 ];
 
+/** 级联区域数据 */
+const regionOptions = [
+  {
+    value: 'zhejiang',
+    label: '浙江',
+    children: [
+      {
+        value: 'hangzhou',
+        label: '杭州',
+        children: [
+          { value: 'xihu', label: '西湖' },
+          { value: 'binjiang', label: '滨江' },
+        ],
+      },
+      {
+        value: 'ningbo',
+        label: '宁波',
+        children: [
+          { value: 'jiangbei', label: '江北' },
+          { value: 'haishu', label: '海曙' },
+        ],
+      },
+    ],
+  },
+  {
+    value: 'jiangsu',
+    label: '江苏',
+    children: [
+      {
+        value: 'nanjing',
+        label: '南京',
+        children: [
+          { value: 'zhonghuamen', label: '中华门' },
+          { value: 'xuanwu', label: '玄武' },
+        ],
+      },
+      {
+        value: 'suzhou',
+        label: '苏州',
+        children: [
+          { value: 'gusu', label: '姑苏' },
+          { value: 'wuzhong', label: '吴中' },
+        ],
+      },
+    ],
+  },
+];
+
+type LightFilterVariant = 'outlined' | 'filled' | 'borderless';
+
+interface FilterFormValues {
+  sex?: { value: string; label: string }[];
+  area?: string[];
+  region?: string[];
+  treeSelect?: string[];
+  open?: boolean;
+  status?: boolean;
+  count?: number;
+  range?: [number, number];
+  slider?: number;
+  name?: string;
+  address?: string;
+  keyword?: string;
+  date?: string;
+  dateRange?: [string, string];
+  datetime?: string;
+  datetimeRanger?: [number, number];
+  time?: string;
+  timeRanger?: [number, number];
+  nameSet?: [string, string];
+}
+
+const defaultDate = dayjs('2024-01-15');
+const defaultDateTime = dayjs('2024-01-15 14:30:00');
+
 const Demo = () => {
   const [size, setSize] = React.useState<SizeType>('middle');
+  const [variant, setVariant] =
+    React.useState<LightFilterVariant>('borderless');
+
+  const initialValues: Partial<FilterFormValues> = {
+    keyword: '关键词示例',
+    sex: [
+      { value: 'man', label: '男' },
+      { value: 'woman', label: '女' },
+    ],
+    area: ['beijing', 'shanghai'],
+    region: ['zhejiang', 'hangzhou', 'xihu'],
+    treeSelect: ['0-0', '0-1'],
+    open: true,
+    status: false,
+    count: 100,
+    range: [20, 80],
+    slider: 50,
+    address: '北京市朝阳区',
+    date: defaultDate.format('YYYY-MM-DD'),
+    dateRange: [
+      defaultDate.format('YYYY-MM-DD'),
+      defaultDate.add(7, 'd').format('YYYY-MM-DD'),
+    ],
+    datetime: defaultDateTime.format('YYYY-MM-DD HH:mm:ss'),
+    datetimeRanger: [
+      defaultDateTime.add(-1, 'd').valueOf(),
+      defaultDateTime.valueOf(),
+    ],
+    time: defaultDateTime.format('HH:mm:ss'),
+    timeRanger: [
+      defaultDateTime.add(-1, 'h').valueOf(),
+      defaultDateTime.valueOf(),
+    ],
+    nameSet: ['张', '三'],
+  };
+
   return (
     <div>
-      <Radio.Group
-        value={size}
-        onChange={(e) => {
-          setSize(e.target.value);
-        }}
-      >
-        <Radio.Button value="middle">Middle</Radio.Button>
-        <Radio.Button value="small">Small</Radio.Button>
-      </Radio.Group>
-      <br />
-      <br />
-      <LightFilter<{
-        sex: string;
-      }>
-        initialValues={{
-          name1: 'yutingzhao1991',
-          name3: '2020-08-19',
-          range: [20, 80],
-          slider: 20,
-          sex: [
-            {
-              value: 'open1',
-              label: '打开',
-            },
-            {
-              value: 'closed2',
-              label: '关闭',
-            },
-          ],
-          datetimeRanger: [
-            dayjs('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
-            dayjs('2019-11-16 12:50:26').valueOf(),
-          ],
-          timeRanger: [
-            dayjs('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
-            dayjs('2019-11-16 12:50:26').valueOf(),
-          ],
-        }}
+      <Space wrap size="middle" style={{ marginBottom: 16 }}>
+        <Space>
+          <span>尺寸：</span>
+          <Radio.Group
+            value={size}
+            onChange={(e) => setSize(e.target.value)}
+            optionType="button"
+            buttonStyle="solid"
+          >
+            <Radio.Button value="middle">Middle</Radio.Button>
+            <Radio.Button value="small">Small</Radio.Button>
+          </Radio.Group>
+        </Space>
+        <Space>
+          <span>边框样式：</span>
+          <Radio.Group
+            value={variant}
+            onChange={(e) => setVariant(e.target.value)}
+            optionType="button"
+            buttonStyle="solid"
+          >
+            <Radio.Button value="borderless">无边框 (borderless)</Radio.Button>
+            <Radio.Button value="outlined">线框 (outlined)</Radio.Button>
+            <Radio.Button value="filled">填充 (filled)</Radio.Button>
+          </Radio.Group>
+        </Space>
+      </Space>
+
+      <LightFilter<FilterFormValues>
+        initialValues={initialValues}
         size={size}
-        onFinish={async (values) => console.log(values.sex)}
+        variant={variant}
+        onFinish={async (values) => {
+          console.log('筛选提交:', values);
+        }}
       >
         <ProFormSelect
           name="sex"
           label="性别"
           showSearch
           allowClear={false}
-          fieldProps={{
-            labelInValue: true,
-          }}
+          fieldProps={{ labelInValue: true }}
           valueEnum={{
             man: '男',
             woman: '女',
@@ -123,81 +228,50 @@ const Demo = () => {
             beijing: '北京',
             shanghai: '上海',
             hangzhou: '杭州',
+            guangzhou: '广州',
+            shenzhen: '深圳',
             long: '这是一个很长的用来测试溢出的项目',
           }}
         />
         <ProFormCheckbox.Group
-          name="checkbox-group"
-          label="Checkbox.Group"
+          name="checkboxGroup"
+          label="标签"
           options={['A', 'B', 'C', 'D', 'E', 'F']}
         />
         <ProFormTreeSelect
-          initialValue={['0-0', '0-1']}
-          label="树形下拉选择器"
+          label="树形选择"
+          name="treeSelect"
           fieldProps={{
-            fieldNames: {
-              label: 'title',
-            },
+            fieldNames: { label: 'title' },
             treeData,
             treeCheckable: true,
             showCheckedStrategy: TreeSelect.SHOW_PARENT,
-            placeholder: 'Please select',
+            placeholder: '请选择',
           }}
-          name="treeSelect"
         />
         <ProFormCascader
-          width="md"
-          request={async () => [
-            {
-              value: 'zhejiang',
-              label: '浙江',
-              children: [
-                {
-                  value: 'hangzhou',
-                  label: '杭州',
-                  children: [
-                    {
-                      value: 'xihu',
-                      label: '西湖',
-                    },
-                  ],
-                },
-              ],
-            },
-            {
-              value: 'jiangsu',
-              label: 'Jiangsu',
-              children: [
-                {
-                  value: 'nanjing',
-                  label: 'Nanjing',
-                  children: [
-                    {
-                      value: 'zhonghuamen',
-                      label: 'Zhong Hua Men',
-                    },
-                  ],
-                },
-              ],
-            },
-          ]}
-          name="area"
+          name="region"
           label="区域"
-          initialValue={['zhejiang', 'hangzhou', 'xihu']}
+          width="md"
+          fieldProps={{
+            options: regionOptions,
+            placeholder: '请选择省/市/区',
+          }}
         />
         <ProFormSwitch name="open" label="开关" />
-        <ProFormDigit name="count" label="数量" />
+        <ProFormSwitch name="status" label="状态" secondary />
+        <ProFormDigit name="count" label="数量" min={0} max={9999} />
         <ProFormSlider name="range" label="范围" range />
-        <ProFormSlider name="slider" label="范围" />
-        <ProFormText name="name1" label="名称" />
-        <ProFormSwitch name="open" label="开关" secondary />
-        <ProFormText name="name2" label="地址" secondary />
-        <ProFormDatePicker
-          name="name3"
-          label="不能清空的日期"
-          allowClear={false}
+        <ProFormSlider name="slider" label="滑块" />
+        <ProFormText name="keyword" label="关键词" placeholder="请输入关键词" />
+        <ProFormText
+          name="address"
+          label="地址"
+          secondary
+          placeholder="请输入地址"
         />
-        <ProFormDateRangePicker name="date" label="日期范围" />
+        <ProFormDatePicker name="date" label="日期" allowClear={false} />
+        <ProFormDateRangePicker name="dateRange" label="日期范围" />
         <ProFormDateTimePicker name="datetime" label="日期时间" />
         <ProFormDateTimeRangePicker
           name="datetimeRanger"
@@ -205,9 +279,9 @@ const Demo = () => {
         />
         <ProFormTimePicker name="time" label="时间" />
         <ProFormTimePicker.RangePicker name="timeRanger" label="时间范围" />
-        <ProFormFieldSet name="name" label="姓名">
-          <ProFormText />
-          <ProFormText />
+        <ProFormFieldSet name="nameSet" label="姓名">
+          <ProFormText placeholder="姓" />
+          <ProFormText placeholder="名" />
         </ProFormFieldSet>
       </LightFilter>
     </div>

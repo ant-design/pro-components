@@ -30,7 +30,6 @@ export type GroupProps = {
  */
 const FieldCascader: ProFieldFC<GroupProps> = (
   {
-    radioType,
     placeholder,
     formItemRender,
     mode,
@@ -111,10 +110,8 @@ const FieldCascader: ProFieldFC<GroupProps> = (
   if (mode === 'edit') {
     const fieldProps = rest.fieldProps || {};
     const variant = propsVariant ?? fieldProps?.variant;
-
     let dom = (
       <Cascader
-        variant={!light ? variant : 'borderless'}
         ref={cascaderRef}
         open={open}
         suffixIcon={loading ? <LoadingOutlined /> : undefined}

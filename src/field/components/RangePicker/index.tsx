@@ -112,7 +112,6 @@ const FieldRangePicker: ProFieldFC<
                 picker={picker}
                 showTime={showTime}
                 format={format}
-                variant="borderless"
                 {...fieldProps}
                 placeholder={
                   fieldProps.placeholder ?? [
@@ -134,7 +133,6 @@ const FieldRangePicker: ProFieldFC<
             ) : null
           }
           allowClear={false}
-          variant={variant}
           ref={lightLabel}
           downIcon={dayValue || open ? false : undefined}
         />

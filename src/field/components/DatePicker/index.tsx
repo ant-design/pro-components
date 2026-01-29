@@ -102,7 +102,6 @@ const FieldDatePicker: ProFieldFC<
                   setOpen(isOpen);
                   fieldProps?.onOpenChange?.(isOpen);
                 }}
-                variant="borderless"
                 open={open}
               />
             ) : undefined

@@ -20,6 +20,10 @@ export type DropdownProps = {
   footerRender?: FooterRender;
   padding?: number;
   disabled?: boolean;
+  /**
+   * @name 组件样式变体，outlined 时由 label 包装层统一绘制线框，避免与内部 FieldLabel 双线框
+   */
+  variant?: 'outlined' | 'filled' | 'borderless';
 
   onOpenChange?: (open: boolean) => void;
   open?: boolean;
@@ -50,6 +54,7 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
     footerRender,
     placement,
     popoverProps,
+    variant,
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-core-field-dropdown');
@@ -102,7 +107,15 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
         </div>
       }
     >
-      <span className={`${prefixCls}-label ${hashId}`.trim()}>{label}</span>
+      <span
+        className={clsx(
+          `${prefixCls}-label`,
+          hashId,
+          variant === 'outlined' && `${prefixCls}-label-bordered`,
+        )}
+      >
+        {label}
+      </span>
     </Popover>,
   );
 };
