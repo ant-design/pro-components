@@ -14,7 +14,16 @@ module.exports = {
     },
     project: './tsconfig.json',
   },
-  ignorePatterns: ['typings.d.ts', 'dist/**', 'lib/**', 'es/**', 'coverage/**'],
+  ignorePatterns: [
+    'typings.d.ts',
+    'dist/**',
+    'lib/**',
+    'es/**',
+    'coverage/**',
+    '*.json',
+    '.eslintrc.cjs',
+    '*.md',
+  ],
   plugins: ['react', 'react-hooks', '@typescript-eslint'],
   settings: {
     react: {
