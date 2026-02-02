@@ -9,7 +9,7 @@ import {
   render as reactRender,
   waitFor,
 } from '@testing-library/react';
-import { App } from 'antd';
+import { ConfigProvider } from 'antd';
 import glob from 'glob';
 import MockDate from 'mockdate';
 import {
@@ -75,12 +75,22 @@ function demoTest(component: string, options?: Options) {
         hashPriority="high"
         transformers={[legacyLogicalPropertiesTransformer]}
       >
-        <ProConfigProvider hashed={false}>
-          <App>
-            <div>test</div>
-            {props.children}
-          </App>
-        </ProConfigProvider>
+        <ConfigProvider
+          theme={{
+            zeroRuntime: true,
+            hashed: false,
+            cssVar: {
+              key: 'pro',
+            },
+          }}
+        >
+          <ProConfigProvider hashed={false}>
+            <>
+              <div>test</div>
+              {props.children}
+            </>
+          </ProConfigProvider>
+        </ConfigProvider>
       </StyleProvider>
     );
   };
