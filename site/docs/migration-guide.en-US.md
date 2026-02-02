@@ -72,6 +72,7 @@ pnpm install
 | ProCard      | `StatisticsCardProps`                   | `StatisticCardProps`                           | Update type references to avoid compilation errors.                                                                                      |
 | ProLayout    | `rightContentRender`                    | `actionsRender` + `avatarProps`                | Split the original right side content into action area and avatar configuration for independent maintenance.                             |
 | Layout Token | `marginInlinePageContainerContent` etc. | `paddingInlinePageContainerContent` etc.       | Replace Token names comprehensively to maintain theme granularity consistency.                                                           |
+| ProFormField | `plain`                                 | `variant`                                     | Remove `plain`, use `variant` to control field display variant (e.g. `borderless`, `outlined`).                                          |
 
 ### Table Component
 
@@ -401,6 +402,40 @@ const token = {
 
 In addition to the fields in the example, other Tokens named with `margin*PageContainerContent` have also been switched to the corresponding `padding*PageContainerContent`. Please replace them all at once. After replacement, it is recommended to perform a theme build or visual acceptance to confirm that no old fields are missed.
 
+### Field Component
+
+#### `plain` Parameter Removal
+
+**Reason for change**: Unify API by using `variant` to control display style
+
+```tsx | pure
+// ❌ Old version
+<ProFormText
+  name="name"
+  plain={true}
+/>
+
+<ProFormTimePicker
+  name="time"
+  plain
+/>
+
+// ✅ New version
+<ProFormText
+  name="name"
+  fieldProps={{ variant: 'borderless' }}
+/>
+
+<ProFormTimePicker
+  name="time"
+  fieldProps={{ variant: 'borderless' }}
+/>
+```
+
+The `plain` parameter has been completely removed and is no longer provided. For borderless/simplified display, use `fieldProps.variant: 'borderless'`; for default outlined style use `variant: 'outlined'`.
+
+When migrating, please search globally for `plain`, remove all `plain` or `plain={true}` props, and replace with `variant` configuration as needed.
+
 ### Compatibility Related
 
 #### 1. Remove antd@4 Compatibility Code
@@ -492,6 +527,7 @@ pnpm exec rg "fixHeader" src
 pnpm exec rg "tip[\"']" src
 pnpm exec rg "ProCard\.TabPane" src
 pnpm exec rg "rightContentRender" src
+pnpm exec rg "plain" src
 ```
 
 > In Windows PowerShell, you can use `Select-String -Path "src/**/*.tsx" -Pattern "columnsStateMap"` to achieve a similar effect.
@@ -513,6 +549,10 @@ pnpm exec rg "rightContentRender" src
    - Update `rightContentRender` to `actionsRender` + `avatarProps`
    - Update layout token property names
    - Check if custom header components rely on the old `rightContentRender` container
+
+4. **Migrate Field / ProFormField components**
+   - Remove all `plain` or `plain={true}` props
+   - Replace with `fieldProps.variant: 'borderless'` or `variant: 'outlined'` as needed
 
 Migrating from data-intensive components to layout components helps ensure data display is correct before dealing with visual differences.
 

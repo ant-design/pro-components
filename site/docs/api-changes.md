@@ -19,6 +19,7 @@ order: 2
 | ProLayout    | `rightContentRender`               | `actionsRender` + `avatarProps`     | 右侧内容渲染   |
 | Layout Token | `marginInlinePageContainerContent` | `paddingInlinePageContainerContent` | 页面容器内边距 |
 | Layout Token | `marginBlockPageContainerContent`  | `paddingBlockPageContainerContent`  | 页面容器内边距 |
+| ProFormField | `plain`                             | `variant`                           | 字段展示变体   |
 
 ### 版本要求变更
 
@@ -48,6 +49,10 @@ order: 2
 - [ ] `rightContentRender` → `actionsRender` + `avatarProps`
 - [ ] 布局 Token 属性重命名
 
+### ProFormField / Field 组件
+
+- [ ] `plain` → 移除，改用 `variant`（如 `variant: 'borderless'` 或 `variant: 'outlined'`）
+
 ### 兼容性
 
 - [ ] 移除 antd@4 兼容性代码
@@ -63,6 +68,7 @@ grep -r "fixHeader" src/
 grep -r "tip" src/
 grep -r "TabPane" src/
 grep -r "rightContentRender" src/
+grep -r "plain" src/
 
 # 更新依赖
 npm install antd@^6.0.0

@@ -19,6 +19,7 @@ order: 2
 | ProLayout    | `rightContentRender`               | `actionsRender` + `avatarProps`     | Right content rendering       |
 | Layout Token | `marginInlinePageContainerContent` | `paddingInlinePageContainerContent` | Page container inline padding |
 | Layout Token | `marginBlockPageContainerContent`  | `paddingBlockPageContainerContent`  | Page container block padding  |
+| ProFormField | `plain`                             | `variant`                           | Field display variant         |
 
 ### Version Requirements Changes
 
@@ -48,6 +49,10 @@ All sub-packages unified to version `3.0.0-beta.1`
 - [ ] `rightContentRender` → `actionsRender` + `avatarProps`
 - [ ] Layout token property renaming
 
+### ProFormField / Field Component
+
+- [ ] `plain` → Removed, use `variant` instead (e.g. `variant: 'borderless'` or `variant: 'outlined'`)
+
 ### Compatibility
 
 - [ ] Remove antd@4 compatibility code
@@ -63,6 +68,7 @@ grep -r "fixHeader" src/
 grep -r "tip" src/
 grep -r "TabPane" src/
 grep -r "rightContentRender" src/
+grep -r "plain" src/
 
 # Update dependencies
 npm install antd@^6.0.0

@@ -72,6 +72,7 @@ pnpm install
 | ProCard    | `StatisticsCardProps`                 | `StatisticCardProps`                           | 更新类型引用，避免编译错误。                                                                        |
 | ProLayout  | `rightContentRender`                  | `actionsRender` + `avatarProps`                | 将原右侧内容拆分为动作区域与头像配置，便于独立维护。                                                |
 | 布局 Token | `marginInlinePageContainerContent` 等 | `paddingInlinePageContainerContent` 等         | 全面替换 Token 名称，保持主题粒度一致。                                                             |
+| ProFormField | `plain`                               | `variant`                                     | 移除 `plain`，改用 `variant` 控制字段展示变体（如 `borderless`、`outlined`）。                       |
 
 ### Table 组件
 
@@ -401,6 +402,40 @@ const token = {
 
 除示例中的字段外，其它以 `margin*PageContainerContent` 命名的 Token 也全部切换为对应的 `padding*PageContainerContent`，请一次性替换完毕。替换后建议执行一次主题构建或视觉验收，确认没有遗漏旧字段。
 
+### Field 组件
+
+#### `plain` 参数移除
+
+**变更原因**: 统一使用 `variant` 控制展示样式，简化 API
+
+```tsx | pure
+// ❌ 旧版本
+<ProFormText
+  name="name"
+  plain={true}
+/>
+
+<ProFormTimePicker
+  name="time"
+  plain
+/>
+
+// ✅ 新版本
+<ProFormText
+  name="name"
+  fieldProps={{ variant: 'borderless' }}
+/>
+
+<ProFormTimePicker
+  name="time"
+  fieldProps={{ variant: 'borderless' }}
+/>
+```
+
+`plain` 已完全移除，不再提供该参数。若需无边框/简洁展示，请使用 `fieldProps.variant: 'borderless'`；默认线框样式使用 `variant: 'outlined'`。
+
+迁移时请全局搜索 `plain`，移除所有 `plain` 或 `plain={true}` 传参，并按需替换为 `variant` 配置。
+
 ### 兼容性相关
 
 #### 1. 移除 antd@4 兼容性代码
@@ -492,6 +527,7 @@ pnpm exec rg "fixHeader" src
 pnpm exec rg "tip[\"']" src
 pnpm exec rg "ProCard\.TabPane" src
 pnpm exec rg "rightContentRender" src
+pnpm exec rg "plain" src
 ```
 
 > 在 Windows PowerShell 中可使用 `Select-String -Path "src/**/*.tsx" -Pattern "columnsStateMap"` 达到类似效果。
@@ -513,6 +549,10 @@ pnpm exec rg "rightContentRender" src
    - 更新 `rightContentRender` 为 `actionsRender` + `avatarProps`
    - 更新布局 Token 属性名
    - 检查自定义头部组件是否依赖旧的 `rightContentRender` 容器
+
+4. **迁移 Field / ProFormField 组件**
+   - 移除所有 `plain` 或 `plain={true}` 传参
+   - 按需替换为 `fieldProps.variant: 'borderless'` 或 `variant: 'outlined'`
 
 迁移顺序从数据密集型组件到布局组件，有助于先确保数据展示正确，再处理视觉层面的差异。
 
