@@ -12,7 +12,6 @@ import dayjs from 'dayjs';
 import React, { act, useState } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime, waitTime } from '../util';
-import Demo from './fixtures/demo';
 import { TreeSelectDemo } from './fixtures/treeSelectDemo';
 
 const domRef = React.createRef();
@@ -1008,26 +1007,6 @@ describe('Field', () => {
 
     expect(onBlurFn).toHaveBeenCalledTimes(1);
     html.unmount();
-  });
-
-  it('🐴 edit and no plain', async () => {
-    const html = render(<Demo plain={false} state="edit" />);
-    expect(html.asFragment()).toMatchSnapshot();
-  });
-
-  it('🐴 edit and plain=true', async () => {
-    const html = render(<Demo plain state="edit" />);
-    expect(html.asFragment()).toMatchSnapshot();
-  });
-
-  it('🐴 read and plain', async () => {
-    const html = render(<Demo plain state="read" />);
-    expect(html.asFragment()).toMatchSnapshot();
-  });
-
-  it('🐴 read ant no plain', async () => {
-    const html = render(<Demo plain={false} state="read" />);
-    expect(html.asFragment()).toMatchSnapshot();
   });
 
   const valueTypes = [

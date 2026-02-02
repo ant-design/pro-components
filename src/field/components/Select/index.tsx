@@ -389,7 +389,7 @@ const FieldSelect: ProFieldFC<
     proFieldKey,
     params,
     label,
-    variant: propsVariant,
+    variant,
     id,
     lightLabel,
     labelTrigger,
@@ -404,8 +404,6 @@ const FieldSelect: ProFieldFC<
   useEffect(() => {
     keyWordsRef.current = fieldProps?.searchValue;
   }, [fieldProps?.searchValue]);
-
-  const variant = propsVariant ?? fieldProps?.variant;
 
   const [loading, options, fetchData, resetData] = useFieldFetchData(props);
   const { componentSize } = ConfigProvider?.useConfig?.() || {
@@ -478,6 +476,7 @@ const FieldSelect: ProFieldFC<
             size={componentSize}
             options={options}
             label={label}
+            labelVariant={variant}
             placeholder={intl.getMessage(
               'tableForm.selectPlaceholder',
               '请选择',

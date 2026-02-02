@@ -25,7 +25,6 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
       '&-active': {
         paddingBlock: 0,
         paddingInline: 8,
-        backgroundColor: token.colorBgTextHover,
         [`&${token.componentCls}-allow-clear:hover:not(${token.componentCls}-disabled)`]:
           {
             [`${token.componentCls}-arrow`]: {
@@ -91,12 +90,31 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
           fontSize: '6px',
         },
       },
-      '&-bordered': {
+      '&-outlined': {
         height: '32px',
         paddingBlock: 0,
         paddingInline: 8,
         border: `${token.lineWidth}px solid ${token.colorBorder}`,
-        borderRadius: '@border-radius-base',
+        borderRadius: token.borderRadius,
+        '&-active': {
+          backgroundColor: 'none',
+        },
+      },
+      '&-borderless': {
+        height: '32px',
+        '&-active': {
+          backgroundColor: token.colorBgTextHover,
+        },
+      },
+      '&-filled': {
+        height: '32px',
+        paddingBlock: 0,
+        paddingInline: 8,
+        border: 'none',
+        borderRadius: token.borderRadius,
+        '&-active': {
+          backgroundColor: token.colorBgContainer,
+        },
       },
       '&-bordered&-small': {
         height: '24px',

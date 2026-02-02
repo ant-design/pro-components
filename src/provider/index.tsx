@@ -101,10 +101,6 @@ export type BaseProFieldFC = {
    * @option edit 渲染编辑模式
    * */
   mode?: ProFieldFCMode;
-  /**
-   * 简约模式
-   */
-  plain?: boolean;
   /** 轻量模式 */
   light?: boolean;
   /** Label */

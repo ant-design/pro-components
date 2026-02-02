@@ -51,7 +51,6 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
   const { componentSize } = ConfigProvider?.useConfig?.() || {
     componentSize: 'middle',
   };
-  const size = componentSize;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-core-field-label');
   const { wrapSSR, hashId } = useStyle(prefixCls);
@@ -166,17 +165,20 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
     }
     return aLabel || placeholder;
   };
+
   return wrapSSR(
     <span
       className={clsx(
         prefixCls,
         hashId,
-        `${prefixCls}-${props.size ?? size ?? 'middle'}`,
+        `${prefixCls}-${props.size ?? componentSize ?? 'middle'}`,
         {
+          [`${prefixCls}-${variant || 'borderless'}-active`]:
+            (Array.isArray(value) ? value.length > 0 : !!value) || value === 0,
           [`${prefixCls}-active`]:
             (Array.isArray(value) ? value.length > 0 : !!value) || value === 0,
           [`${prefixCls}-disabled`]: disabled,
-          [`${prefixCls}-bordered`]: variant === 'outlined',
+          [`${prefixCls}-outlined`]: variant === 'outlined',
           [`${prefixCls}-allow-clear`]: allowClear,
         },
         className,

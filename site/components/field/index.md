@@ -38,6 +38,5 @@ return <Field text="100" valueType="money" mode={state} />;
 | text           | 需要格式化的值                                                 | any                                     | -      |
 | valueType      | 格式化的类型                                                   | ValueType                               | -      |
 | mode           | 组件的模式                                                     | `read` \| `edit` \| `update`            | `read` |
-| plain          | 精简模式                                                       | boolean                                 | false  |
 | formItemRender | 自定义 `mode=update \| edit` 下的 dom 表现，一般用于渲染编辑框 | `(item: any, config: any) => ReactNode` | -      |
 | render         | 自定义 `mode=read` 下的 dom 表现，只是单纯的表现形式           | `(item: any, config: any) => ReactNode` | -      |

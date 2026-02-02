@@ -68,7 +68,6 @@ const ProFormSelectComponents = <T, OptionType extends BaseOptionType = any>(
   ref: any,
 ) => {
   const context = useContext(FieldContext);
-
   return (
     <ProConfigProvider
       valueTypeMap={{

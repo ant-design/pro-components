@@ -15,8 +15,9 @@ dayjs.extend(relativeTime);
 const FieldFromNow: ProFieldFC<{
   text: string;
   format?: string;
+  variant?: 'outlined' | 'borderless' | 'filled' | 'underlined';
 }> = (
-  { text, mode, plain, render, formItemRender, format, fieldProps },
+  { text, mode, variant, render, formItemRender, format, fieldProps },
   ref,
 ) => {
   const intl = useIntl();
@@ -47,9 +48,7 @@ const FieldFromNow: ProFieldFC<{
         ref={ref}
         placeholder={placeholder}
         showTime
-        variant={
-          plain === undefined ? 'outlined' : plain ? 'borderless' : 'outlined'
-        }
+        variant={variant ?? fieldProps?.variant ?? 'outlined'}
         {...fieldProps}
         value={momentValue}
       />

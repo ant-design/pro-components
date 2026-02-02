@@ -41,18 +41,15 @@ const FieldDatePicker: ProFieldFC<
     light,
     render,
     formItemRender,
-    plain,
     showTime,
     fieldProps,
     picker,
-    variant: propsVariant,
     lightLabel,
+    variant,
   },
   ref,
 ) => {
   const intl = useIntl();
-
-  const variant = propsVariant ?? fieldProps?.variant;
 
   const [open, setOpen] = useState<boolean>(false);
 
@@ -119,9 +116,7 @@ const FieldDatePicker: ProFieldFC<
           showTime={showTime}
           format={format}
           placeholder={placeholder}
-          variant={
-            plain === undefined ? variant : plain ? 'borderless' : 'outlined'
-          }
+          variant={variant}
           ref={ref}
           {...fieldProps}
           value={dayValue}

@@ -548,15 +548,19 @@ describe('LightFilter', () => {
 
     // 等待渲染完成
     await waitFor(() => {
-       expect(container.querySelector('.ant-pro-form-light-filter')).toBeTruthy();
+      expect(
+        container.querySelector('.ant-pro-form-light-filter'),
+      ).toBeTruthy();
     });
-    
+
     // LightFilter 默认应该是 borderless，所以不应该有 ant-pro-core-field-label-bordered
     // 但是这里有点棘手，因为 ProFormText 渲染的结构可能很复杂。
     // 如果我们能找到 FieldLabel 并检查它的 class 就好了。
-    
+
     // 我们检查是否包含 bordered class
-    const borderedLabel = container.querySelector('.ant-pro-core-field-label-bordered');
+    const borderedLabel = container.querySelector(
+      '.ant-pro-core-field-label-bordered',
+    );
     expect(borderedLabel).toBeFalsy();
   });
 
@@ -568,10 +572,14 @@ describe('LightFilter', () => {
     );
 
     await waitFor(() => {
-       expect(container.querySelector('.ant-pro-form-light-filter')).toBeTruthy();
+      expect(
+        container.querySelector('.ant-pro-form-light-filter'),
+      ).toBeTruthy();
     });
 
-    const borderedLabel = await waitFor(() => container.querySelector('.ant-pro-core-field-label-bordered'));
+    const borderedLabel = await waitFor(() =>
+      container.querySelector('.ant-pro-core-field-label-outlined'),
+    );
     expect(borderedLabel).toBeTruthy();
   });
 });

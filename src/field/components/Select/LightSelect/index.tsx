@@ -21,6 +21,8 @@ export type LightSelectProps = {
   fetchDataOnSearch?: boolean;
   /** 变体类型 */
   variant?: 'outlined' | 'borderless' | 'filled' | 'underlined';
+
+  labelVariant?: 'outlined' | 'borderless' | 'filled' | 'underlined';
 } & ProFieldLightProps &
   SelectProps;
 
@@ -56,6 +58,7 @@ export const LightSelect: React.ForwardRefRenderFunction<
     value,
     mode,
     defaultValue,
+    labelVariant,
     size,
     showSearch,
     disabled,
@@ -133,7 +136,6 @@ export const LightSelect: React.ForwardRefRenderFunction<
   const filterValue = Array.isArray(value)
     ? value.map((v) => getValueOrLabel(valueMap, v))
     : getValueOrLabel(valueMap, value);
-
   return wrapSSR(
     <div
       className={clsx(
@@ -257,7 +259,7 @@ export const LightSelect: React.ForwardRefRenderFunction<
         label={label}
         placeholder={placeholder}
         disabled={disabled}
-        variant={variant}
+        variant={labelVariant}
         allowClear={!!allowClear}
         value={filterValue || value?.label || value}
         onClear={() => {

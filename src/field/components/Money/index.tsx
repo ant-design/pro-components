@@ -288,7 +288,6 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
     formItemRender,
     fieldProps,
     proFieldKey,
-    plain,
     valueEnum,
     placeholder,
     locale,

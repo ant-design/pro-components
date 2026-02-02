@@ -28,10 +28,7 @@ export function getProgressStatus(
 const FieldProgress: ProFieldFC<{
   text: number | string;
   placeholder?: string;
-}> = (
-  { text, mode, render, plain, formItemRender, fieldProps, placeholder },
-  ref,
-) => {
+}> = ({ text, mode, render, formItemRender, fieldProps, placeholder }, ref) => {
   const intl = useIntl();
   const placeholderValue =
     placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入');
@@ -49,7 +46,7 @@ const FieldProgress: ProFieldFC<{
         size="small"
         style={{ minWidth: 100, maxWidth: 320 }}
         percent={realValue}
-        steps={plain ? 10 : undefined}
+        steps={fieldProps?.steps}
         status={getProgressStatus(realValue as number)}
         {...fieldProps}
       />

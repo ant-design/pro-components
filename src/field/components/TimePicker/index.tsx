@@ -25,7 +25,6 @@ const FieldTimePicker: ProFieldFC<
     format = 'HH:mm:ss',
     render,
     formItemRender,
-    plain,
     fieldProps,
     lightLabel,
     variant,
@@ -105,9 +104,6 @@ const FieldTimePicker: ProFieldFC<
         <DatePicker.TimePicker
           ref={ref}
           format={format}
-          variant={
-            plain === undefined ? 'outlined' : plain ? 'borderless' : 'outlined'
-          }
           {...fieldProps}
           value={dayValue}
         />
@@ -143,7 +139,6 @@ const FieldTimeRangePickerComponents: ProFieldFC<
     format = 'HH:mm:ss',
     render,
     formItemRender,
-    plain,
     fieldProps,
     variant,
   },
@@ -211,7 +206,7 @@ const FieldTimeRangePickerComponents: ProFieldFC<
           }
           label={label}
           disabled={disabled}
-          variant={variant ?? fieldProps?.variant}
+          variant={variant}
           placeholder={placeholder}
           value={
             dayValue || open ? (
@@ -240,9 +235,7 @@ const FieldTimeRangePickerComponents: ProFieldFC<
         <TimePicker.RangePicker
           ref={ref}
           format={format}
-          variant={
-            plain === undefined ? variant : plain ? 'borderless' : 'outlined'
-          }
+          variant={variant}
           {...fieldProps}
           value={dayValue}
         />

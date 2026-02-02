@@ -1,7 +1,7 @@
-import React, { memo, useContext, useMemo } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { PureProField } from '../../../field';
 import type { ProSchema } from '../../../utils';
-import { isDeepEqualReact, runFunction, useRefFunction } from '../../../utils';
+import { runFunction, useRefFunction } from '../../../utils';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
 import type { ProFormFieldItemProps } from '../../typing';
 import warpField from '../FormItem/warpField';
@@ -16,7 +16,6 @@ export type ProFormFieldProps<
     // 用来判断是不是被嵌套渲染的 dom
     isDefaultDom?: boolean;
     ref?: any;
-    plain?: boolean;
     text?: any;
     getFieldProps?: () => Record<string, any>;
     getFormItemProps?: () => Record<string, any>;
@@ -129,11 +128,10 @@ const BaseProFormField: React.FC<
   );
 };
 
-const ProFormField = warpField<ProFormFieldProps>?.(
-  memo(BaseProFormField, (prevProps, nextProps) => {
-    return isDeepEqualReact(nextProps, prevProps, ['onChange', 'onBlur']);
-  }),
-) as <FiledProps, DataType = Record<string, any>>(
+const ProFormField = warpField<ProFormFieldProps>?.(BaseProFormField) as <
+  FiledProps,
+  DataType = Record<string, any>,
+>(
   props: ProFormFieldProps<DataType, FiledProps>,
 ) => React.ReactElement;
 

@@ -111,7 +111,6 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
       open={open}
       onOpenChange={setOpen}
       placement={placement}
-      variant={variant}
       label={
         <FieldLabel
           ellipsis
@@ -120,7 +119,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
             onChange?.();
             setTempValue(null);
           }}
-          variant={variant === 'outlined' ? 'borderless' : variant}
+          variant={variant}
           style={style}
           className={className}
           label={label}

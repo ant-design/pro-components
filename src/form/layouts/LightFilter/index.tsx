@@ -144,6 +144,7 @@ const LightFilterContainer: React.FC<{
     }
     return (
       <FieldLabel
+        variant={variant}
         size={size}
         label={intl.getMessage('form.lightFilter.more', '更多筛选')}
       />
@@ -184,7 +185,7 @@ const LightFilterContainer: React.FC<{
                 fieldProps: {
                   ...child.props.fieldProps,
                   placement: newPlacement,
-                  variant,
+                  variant: 'borderless',
                 },
                 // proFieldProps 会直接作为 ProField 的 props 传递过去
                 proFieldProps: {
