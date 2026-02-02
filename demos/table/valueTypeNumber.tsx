@@ -20,7 +20,7 @@ const tableListDataSource: TableListItem[] = Array.from(
   (_, i) => ({
     key: i,
     name: `TradeCode ${i}`,
-    status: DEMO_VALUE_ENUM[String(i % 4) as keyof typeof DEMO_VALUE_ENUM],
+    status: DEMO_VALUE_ENUM[(i % 4) as keyof typeof DEMO_VALUE_ENUM],
     updatedAt: FIXED_BASE_TIMESTAMP - (i * 500 + 100),
     createdAt: FIXED_BASE_TIMESTAMP - (i * 1000 + 200),
     createdAtRange: [

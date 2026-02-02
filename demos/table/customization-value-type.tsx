@@ -23,12 +23,11 @@ const tableListDataSource: TableListItem[] = Array.from(
     status: [
       {
         value: (i * 3 + 1) % 10,
-        label: DEMO_VALUE_ENUM[String(i % 4) as keyof typeof DEMO_VALUE_ENUM],
+        label: DEMO_VALUE_ENUM[(i % 4) as keyof typeof DEMO_VALUE_ENUM],
       },
       {
         value: (i * 5 + 2) % 10,
-        label:
-          DEMO_VALUE_ENUM[String((i + 1) % 4) as keyof typeof DEMO_VALUE_ENUM],
+        label: DEMO_VALUE_ENUM[((i + 1) % 4) as keyof typeof DEMO_VALUE_ENUM],
       },
     ],
   }),

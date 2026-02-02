@@ -30,7 +30,7 @@ const tableListDataSource: TableListItem[] = Array.from(
     image:
       'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
     name: `TradeCode ${i}`,
-    status: DEMO_VALUE_ENUM[String(i % 4) as keyof typeof DEMO_VALUE_ENUM],
+    status: DEMO_VALUE_ENUM[(i % 4) as keyof typeof DEMO_VALUE_ENUM],
     updatedAt: baseTime - (i * 500 + 100),
     createdAt: baseTime - (i * 1000 + 200),
     createdAtRange: [baseTime - (i * 1000 + 300), baseTime - (i * 1000 + 400)],

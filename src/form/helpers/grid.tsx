@@ -13,9 +13,14 @@ interface CommonProps {
   Wrapper?: React.FC<any>;
 }
 
+interface ColWrapperProps extends ColProps, CommonProps {
+  variant?: string;
+  fieldProps?: Record<string, any>;
+}
+
 export interface GridHelpers {
   RowWrapper: React.FC<RowProps & CommonProps>;
-  ColWrapper: React.FC<ColProps & CommonProps>;
+  ColWrapper: React.FC<ColWrapperProps>;
   grid: boolean;
 }
 
@@ -35,10 +40,13 @@ export const gridHelpers: (
     );
   },
   ColWrapper(
-    { children, Wrapper, variant, fieldProps, ...rest } = {} as Record<
-      string,
-      any
-    >,
+    {
+      children,
+      Wrapper,
+      variant,
+      fieldProps,
+      ...rest
+    }: ColWrapperProps = {} as ColWrapperProps,
   ) {
     const props = useMemo(() => {
       const originProps = { ...colProps, ...rest };

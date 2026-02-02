@@ -1707,7 +1707,7 @@ describe('BasicTable', () => {
   it('🐛 title function should not show duplicate popover layers in ProTable', async () => {
     const TitleWithPopover: React.FC<{
       schema: any;
-      type: string;
+      type?: string;
       dom: React.ReactNode;
     }> = ({ schema, type, dom }) => {
       const [open, setOpen] = useState(false);
@@ -1724,7 +1724,9 @@ describe('BasicTable', () => {
           onOpenChange={setOpen}
         >
           <Button type="link" onClick={() => setOpen(true)}>
-            {schema.title || '标题'}
+            {typeof schema.title === 'function'
+              ? '标题'
+              : (schema.title ?? '标题')}
           </Button>
         </Popover>
       );
@@ -1732,8 +1734,12 @@ describe('BasicTable', () => {
 
     const columnsWithTitleFunction = [
       {
-        title: (schema: any, type: string, dom: React.ReactNode) => (
-          <TitleWithPopover schema={schema} type={type} dom={dom} />
+        title: (schema: any, type?: string, dom?: React.ReactNode) => (
+          <TitleWithPopover
+            schema={schema}
+            type={type ?? 'text'}
+            dom={dom ?? null}
+          />
         ),
         dataIndex: 'name',
         valueType: 'text',

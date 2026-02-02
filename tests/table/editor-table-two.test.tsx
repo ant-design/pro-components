@@ -1140,7 +1140,7 @@ describe('EditorProTable 2', () => {
   it('🐛 title function should not show duplicate popover layers', async () => {
     const TitleWithPopover: React.FC<{
       schema: ProColumns<DataSourceType>;
-      type: string;
+      type?: string;
       dom: React.ReactNode;
     }> = ({ schema, type, dom }) => {
       const [open, setOpen] = useState(false);
@@ -1157,7 +1157,9 @@ describe('EditorProTable 2', () => {
           onOpenChange={setOpen}
         >
           <Button type="link" onClick={() => setOpen(true)}>
-            {schema.title || '标题'}
+            {typeof schema.title === 'function'
+              ? '标题'
+              : (schema.title ?? '标题')}
           </Button>
         </Popover>
       );
@@ -1166,7 +1168,7 @@ describe('EditorProTable 2', () => {
     const columnsWithTitleFunction: ProColumns<DataSourceType>[] = [
       {
         title: (schema, type, dom) => (
-          <TitleWithPopover schema={schema} type={type} dom={dom} />
+          <TitleWithPopover schema={schema} type={type ?? 'text'} dom={dom} />
         ),
         dataIndex: 'title',
         valueType: 'text',
