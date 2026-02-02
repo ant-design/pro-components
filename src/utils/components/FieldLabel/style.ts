@@ -109,12 +109,20 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
       },
       '&-filled': {
         height: '32px',
-        paddingBlock: 0,
-        paddingInline: 8,
-        border: 'none',
-        borderRadius: token.borderRadius,
-        '&-active': {
-          backgroundColor: token.colorBgContainer,
+        backgroundColor: token.colorBgTextHover,
+        border: `${token.lineWidth}px solid transparent`,
+        '&:hover': {
+          border: `${token.lineWidth}px solid ${token.colorPrimary}`,
+          backgroundColor: token.colorBgTextHover,
+        },
+      },
+      '&-underlined': {
+        height: '32px',
+        borderRadius: 0,
+        borderBottom: `${token.lineWidth}px solid ${token.colorSplit}`,
+        '&:hover': {
+          borderBottom: `${token.lineWidth}px solid ${token.colorPrimary}`,
+          backgroundColor: token.colorBgTextHover,
         },
       },
       '&-bordered&-small': {

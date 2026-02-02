@@ -197,6 +197,7 @@ const Demo = () => {
             <Radio.Button value="borderless">无边框 (borderless)</Radio.Button>
             <Radio.Button value="outlined">线框 (outlined)</Radio.Button>
             <Radio.Button value="filled">填充 (filled)</Radio.Button>
+            <Radio.Button value="underlined">下划线 (underlined)</Radio.Button>
           </Radio.Group>
         </Space>
       </Space>
