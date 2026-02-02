@@ -72,7 +72,7 @@ pnpm install
 | ProCard      | `StatisticsCardProps`                   | `StatisticCardProps`                           | Update type references to avoid compilation errors.                                                                                      |
 | ProLayout    | `rightContentRender`                    | `actionsRender` + `avatarProps`                | Split the original right side content into action area and avatar configuration for independent maintenance.                             |
 | Layout Token | `marginInlinePageContainerContent` etc. | `paddingInlinePageContainerContent` etc.       | Replace Token names comprehensively to maintain theme granularity consistency.                                                           |
-| ProFormField | `plain`                                 | `variant`                                     | Remove `plain`, use `variant` to control field display variant (e.g. `borderless`, `outlined`).                                          |
+| ProFormField | `plain`                                 | `variant`                                      | Remove `plain`, use `variant` to control field display variant (e.g. `borderless`, `outlined`).                                          |
 
 ### Table Component
 

@@ -19,7 +19,7 @@ order: 2
 | ProLayout    | `rightContentRender`               | `actionsRender` + `avatarProps`     | Right content rendering       |
 | Layout Token | `marginInlinePageContainerContent` | `paddingInlinePageContainerContent` | Page container inline padding |
 | Layout Token | `marginBlockPageContainerContent`  | `paddingBlockPageContainerContent`  | Page container block padding  |
-| ProFormField | `plain`                             | `variant`                           | Field display variant         |
+| ProFormField | `plain`                            | `variant`                           | Field display variant         |
 
 ### Version Requirements Changes
 

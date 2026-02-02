@@ -62,17 +62,17 @@ pnpm install
 
 ### 变更速查表
 
-| 组件       | 旧用法                                | 新用法                                         | 处理建议                                                                                            |
-| ---------- | ------------------------------------- | ---------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| ProTable   | `columnsStateMap`                     | `columnsState.value` + `columnsState.onChange` | 将原状态对象迁移到 `columnsState.value`，事件改用 `onChange`；若使用持久化需补充 `persistenceKey`。 |
-| ProTable   | `hideInSearch`                        | `search: false`                                | 使用 `search` 配置控制搜索区域显示，支持对象拓展。                                                  |
-| ProTable   | `fixHeader`                           | `scroll: { y: number }`                        | 使用 antd Table 原生 `scroll` 属性，按需设置高度。                                                  |
-| ProTable   | `tip`                                 | `tooltip`                                      | 将列提示迁移到 `tooltip`，可复用 antd `LabelTooltipType`。                                          |
-| ProCard    | `ProCard.TabPane`                     | `tabs.items`                                   | 使用 antd `Tabs` 的 `items` 属性描述页签，透传 `tabs` 其它配置。                                    |
-| ProCard    | `StatisticsCardProps`                 | `StatisticCardProps`                           | 更新类型引用，避免编译错误。                                                                        |
-| ProLayout  | `rightContentRender`                  | `actionsRender` + `avatarProps`                | 将原右侧内容拆分为动作区域与头像配置，便于独立维护。                                                |
-| 布局 Token | `marginInlinePageContainerContent` 等 | `paddingInlinePageContainerContent` 等         | 全面替换 Token 名称，保持主题粒度一致。                                                             |
-| ProFormField | `plain`                               | `variant`                                     | 移除 `plain`，改用 `variant` 控制字段展示变体（如 `borderless`、`outlined`）。                       |
+| 组件         | 旧用法                                | 新用法                                         | 处理建议                                                                                            |
+| ------------ | ------------------------------------- | ---------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| ProTable     | `columnsStateMap`                     | `columnsState.value` + `columnsState.onChange` | 将原状态对象迁移到 `columnsState.value`，事件改用 `onChange`；若使用持久化需补充 `persistenceKey`。 |
+| ProTable     | `hideInSearch`                        | `search: false`                                | 使用 `search` 配置控制搜索区域显示，支持对象拓展。                                                  |
+| ProTable     | `fixHeader`                           | `scroll: { y: number }`                        | 使用 antd Table 原生 `scroll` 属性，按需设置高度。                                                  |
+| ProTable     | `tip`                                 | `tooltip`                                      | 将列提示迁移到 `tooltip`，可复用 antd `LabelTooltipType`。                                          |
+| ProCard      | `ProCard.TabPane`                     | `tabs.items`                                   | 使用 antd `Tabs` 的 `items` 属性描述页签，透传 `tabs` 其它配置。                                    |
+| ProCard      | `StatisticsCardProps`                 | `StatisticCardProps`                           | 更新类型引用，避免编译错误。                                                                        |
+| ProLayout    | `rightContentRender`                  | `actionsRender` + `avatarProps`                | 将原右侧内容拆分为动作区域与头像配置，便于独立维护。                                                |
+| 布局 Token   | `marginInlinePageContainerContent` 等 | `paddingInlinePageContainerContent` 等         | 全面替换 Token 名称，保持主题粒度一致。                                                             |
+| ProFormField | `plain`                               | `variant`                                      | 移除 `plain`，改用 `variant` 控制字段展示变体（如 `borderless`、`outlined`）。                      |
 
 ### Table 组件
 

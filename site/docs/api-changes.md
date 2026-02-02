@@ -19,7 +19,7 @@ order: 2
 | ProLayout    | `rightContentRender`               | `actionsRender` + `avatarProps`     | 右侧内容渲染   |
 | Layout Token | `marginInlinePageContainerContent` | `paddingInlinePageContainerContent` | 页面容器内边距 |
 | Layout Token | `marginBlockPageContainerContent`  | `paddingBlockPageContainerContent`  | 页面容器内边距 |
-| ProFormField | `plain`                             | `variant`                           | 字段展示变体   |
+| ProFormField | `plain`                            | `variant`                           | 字段展示变体   |
 
 ### 版本要求变更
 
