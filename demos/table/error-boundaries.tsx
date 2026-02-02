@@ -1,4 +1,4 @@
-﻿import { EllipsisOutlined } from '@ant-design/icons';
+import { EllipsisOutlined } from '@ant-design/icons';
 import type { ProColumns } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
 import { Button, Result, Switch } from 'antd';
@@ -95,24 +95,19 @@ class CustomBoundary extends React.Component<
   }
 }
 
+import { createTableDataSource, DEMO_CREATOR_VALUE_ENUM } from '../mockData';
+
 export type TableListItem = {
   key: number;
   name: string;
   containers: number;
   creator: string;
 };
-const tableListDataSource: TableListItem[] = [];
 
-const creators = ['付小小', '曲丽丽', '林东东', '陈帅帅', '兼某某'];
-
-for (let i = 0; i < 5; i += 1) {
-  tableListDataSource.push({
-    key: i,
-    name: 'AppName',
-    containers: Math.floor(Math.random() * 20),
-    creator: creators[Math.floor(Math.random() * creators.length)],
-  });
-}
+const tableListDataSource = createTableDataSource({
+  count: 5,
+  namePrefix: 'AppName',
+}) as TableListItem[];
 
 const columns: ProColumns<TableListItem>[] = [
   {
@@ -130,14 +125,7 @@ const columns: ProColumns<TableListItem>[] = [
     title: '创建者',
     dataIndex: 'creator',
     valueType: 'select',
-    valueEnum: {
-      all: { text: '全部' },
-      付小小: { text: '付小小' },
-      曲丽丽: { text: '曲丽丽' },
-      林东东: { text: '林东东' },
-      陈帅帅: { text: '陈帅帅' },
-      兼某某: { text: '兼某某' },
-    },
+    valueEnum: DEMO_CREATOR_VALUE_ENUM,
   },
   {
     title: '操作',
@@ -196,90 +184,89 @@ const Demo = () => {
         rowKey="key"
         search={false}
       />
+      <div
+        style={{
+          marginTop: '20px',
+          padding: '20px',
+          backgroundColor: '#f5f5f5',
+          borderRadius: '6px',
+        }}
+      >
+        <h4>ProTable 错误边界 Props 说明：</h4>
+        <ul>
+          <li>
+            <strong>ProTable</strong>: 专业表格组件
+          </li>
+          <li>
+            <strong>Switch</strong>: 开关组件
+          </li>
+          <li>
+            <strong>Result</strong>: 结果组件
+          </li>
+          <li>
+            <strong>Button</strong>: 按钮组件
+          </li>
+          <li>
+            <strong>错误边界</strong>: 展示错误边界功能
+          </li>
+        </ul>
+        <h4>ProTable 配置：</h4>
+        <ul>
+          <li>
+            <strong>columns</strong>: 列配置
+          </li>
+          <li>
+            <strong>request</strong>: 请求函数
+          </li>
+          <li>
+            <strong>ErrorBoundary</strong>: 错误边界配置
+          </li>
+          <li>
+            <strong>headerTitle</strong>: 表格标题
+          </li>
+          <li>
+            <strong>rowKey</strong>: 行键
+          </li>
+          <li>
+            <strong>search</strong>: 搜索配置
+          </li>
+        </ul>
+        <h4>错误边界特点：</h4>
+        <ul>
+          <li>
+            <strong>自定义边界</strong>: 支持自定义错误边界
+          </li>
+          <li>
+            <strong>错误捕获</strong>: 支持错误捕获
+          </li>
+          <li>
+            <strong>错误处理</strong>: 支持错误处理
+          </li>
+          <li>
+            <strong>容错机制</strong>: 支持容错机制
+          </li>
+          <li>
+            <strong>错误展示</strong>: 支持错误展示
+          </li>
+          <li>
+            <strong>错误恢复</strong>: 支持错误恢复
+          </li>
+        </ul>
+        <h4>使用场景：</h4>
+        <ul>
+          <li>
+            <strong>错误处理</strong>: 错误处理需求
+          </li>
+          <li>
+            <strong>稳定性保证</strong>: 稳定性保证
+          </li>
+          <li>
+            <strong>用户体验</strong>: 用户体验优化
+          </li>
+        </ul>
+      </div>
     </>
   );
-
-  <div
-    style={{
-      marginTop: '20px',
-      padding: '20px',
-      backgroundColor: '#f5f5f5',
-      borderRadius: '6px',
-    }}
-  >
-    <h4>ProTable 错误边界 Props 说明：</h4>
-    <ul>
-      <li>
-        <strong>ProTable</strong>: 专业表格组件
-      </li>
-      <li>
-        <strong>Switch</strong>: 开关组件
-      </li>
-      <li>
-        <strong>Result</strong>: 结果组件
-      </li>
-      <li>
-        <strong>Button</strong>: 按钮组件
-      </li>
-      <li>
-        <strong>错误边界</strong>: 展示错误边界功能
-      </li>
-    </ul>
-    <h4>ProTable 配置：</h4>
-    <ul>
-      <li>
-        <strong>columns</strong>: 列配置
-      </li>
-      <li>
-        <strong>request</strong>: 请求函数
-      </li>
-      <li>
-        <strong>ErrorBoundary</strong>: 错误边界配置
-      </li>
-      <li>
-        <strong>headerTitle</strong>: 表格标题
-      </li>
-      <li>
-        <strong>rowKey</strong>: 行键
-      </li>
-      <li>
-        <strong>search</strong>: 搜索配置
-      </li>
-    </ul>
-    <h4>错误边界特点：</h4>
-    <ul>
-      <li>
-        <strong>自定义边界</strong>: 支持自定义错误边界
-      </li>
-      <li>
-        <strong>错误捕获</strong>: 支持错误捕获
-      </li>
-      <li>
-        <strong>错误处理</strong>: 支持错误处理
-      </li>
-      <li>
-        <strong>容错机制</strong>: 支持容错机制
-      </li>
-      <li>
-        <strong>错误展示</strong>: 支持错误展示
-      </li>
-      <li>
-        <strong>错误恢复</strong>: 支持错误恢复
-      </li>
-    </ul>
-    <h4>使用场景：</h4>
-    <ul>
-      <li>
-        <strong>错误处理</strong>: 错误处理需求
-      </li>
-      <li>
-        <strong>稳定性保证</strong>: 稳定性保证
-      </li>
-      <li>
-        <strong>用户体验</strong>: 用户体验优化
-      </li>
-    </ul>
-  </div>;
 };
 
 export default () => (

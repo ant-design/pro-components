@@ -7,6 +7,8 @@ import {
 } from '@ant-design/pro-components';
 import React, { useState } from 'react';
 
+import { createEditableRowId } from '../../mockData';
+
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -155,7 +157,7 @@ const Demo = () => {
           position !== 'hidden'
             ? {
                 position: position as 'top',
-                record: () => ({ id: (Math.random() * 1000000).toFixed(0) }),
+                record: () => ({ id: createEditableRowId() }),
                 newRecordType: 'dataSource',
               }
             : false

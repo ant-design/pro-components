@@ -1,6 +1,7 @@
 import { ProDescriptions } from '@ant-design/pro-components';
 import { Button } from 'antd';
-import dayjs from 'dayjs';
+
+import { FIXED_BASE_DATE } from '../mockData';
 
 const Demo = () => {
   return (
@@ -73,16 +74,16 @@ const Demo = () => {
         40
       </ProDescriptions.Item>
       <ProDescriptions.Item label="日期时间" valueType="dateTime">
-        {dayjs().valueOf()}
+        {FIXED_BASE_DATE.valueOf()}
       </ProDescriptions.Item>
       <ProDescriptions.Item label="日期" valueType="date">
-        {dayjs().valueOf()}
+        {FIXED_BASE_DATE.valueOf()}
       </ProDescriptions.Item>
       <ProDescriptions.Item label="日期区间" valueType="dateTimeRange">
-        {[dayjs().add(-1, 'd').valueOf(), dayjs().valueOf()]}
+        {[FIXED_BASE_DATE.add(-1, 'd').valueOf(), FIXED_BASE_DATE.valueOf()]}
       </ProDescriptions.Item>
       <ProDescriptions.Item label="时间" valueType="time">
-        {dayjs().valueOf()}
+        {FIXED_BASE_DATE.valueOf()}
       </ProDescriptions.Item>
       <ProDescriptions.Item label="代码块" valueType="code">
         {`

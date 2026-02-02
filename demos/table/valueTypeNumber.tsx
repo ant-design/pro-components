@@ -1,11 +1,6 @@
 import { ProTable } from '@ant-design/pro-components';
 
-const valueEnum = {
-  0: 'close',
-  1: 'running',
-  2: 'online',
-  3: 'error',
-};
+import { DEMO_VALUE_ENUM, FIXED_BASE_TIMESTAMP } from '../mockData';
 
 export type TableListItem = {
   key: number;
@@ -19,31 +14,31 @@ export type TableListItem = {
   createdAtRange: number[];
   code: string;
 };
-const tableListDataSource: TableListItem[] = [];
 
-for (let i = 0; i < 2; i += 1) {
-  tableListDataSource.push({
+const tableListDataSource: TableListItem[] = Array.from(
+  { length: 2 },
+  (_, i) => ({
     key: i,
     name: `TradeCode ${i}`,
-    status: valueEnum[((Math.floor(Math.random() * 10) % 4) + '') as '0'],
-    updatedAt: Date.now() - Math.floor(Math.random() * 1000),
-    createdAt: Date.now() - Math.floor(Math.random() * 2000),
+    status: DEMO_VALUE_ENUM[String(i % 4) as keyof typeof DEMO_VALUE_ENUM],
+    updatedAt: FIXED_BASE_TIMESTAMP - (i * 500 + 100),
+    createdAt: FIXED_BASE_TIMESTAMP - (i * 1000 + 200),
     createdAtRange: [
-      Date.now() - Math.floor(Math.random() * 2000),
-      Date.now() - Math.floor(Math.random() * 2000),
+      FIXED_BASE_TIMESTAMP - (i * 1000 + 300),
+      FIXED_BASE_TIMESTAMP - (i * 1000 + 400),
     ],
-    money: Math.floor(Math.random() * 2000) * i,
-    progress: Math.ceil(Math.random() * 100) + 1,
+    money: ((i * 111 + 222) % 2000) * (i + 1),
+    progress: ((i * 17 + 23) % 100) + 1,
     percent:
-      Math.random() > 0.5
-        ? ((i + 1) * 10 + Math.random()).toFixed(3)
-        : -((i + 1) * 10 + Math.random()).toFixed(2),
+      i % 2 === 0
+        ? ((i + 1) * 10 + 0.123).toFixed(3)
+        : -((i + 1) * 10 + 0.456).toFixed(2),
     code: `const getData = async params => {
   const data = await getData(params);
   return { list: data.data, ...data };
 };`,
-  });
-}
+  }),
+);
 
 const ValueTypeNumberTable = () => (
   <ProTable<TableListItem>

@@ -124,9 +124,9 @@ interface FilterFormValues {
   date?: string;
   dateRange?: [string, string];
   datetime?: string;
-  datetimeRanger?: [number, number];
+  datetimeRange?: [number, number];
   time?: string;
-  timeRanger?: [number, number];
+  timeRange?: [number, number];
   nameSet?: [string, string];
 }
 
@@ -159,12 +159,12 @@ const Demo = () => {
       defaultDate.add(7, 'd').format('YYYY-MM-DD'),
     ],
     datetime: defaultDateTime.format('YYYY-MM-DD HH:mm:ss'),
-    datetimeRanger: [
+    datetimeRange: [
       defaultDateTime.add(-1, 'd').valueOf(),
       defaultDateTime.valueOf(),
     ],
     time: defaultDateTime.format('HH:mm:ss'),
-    timeRanger: [
+    timeRange: [
       defaultDateTime.add(-1, 'h').valueOf(),
       defaultDateTime.valueOf(),
     ],
@@ -273,12 +273,9 @@ const Demo = () => {
         <ProFormDatePicker name="date" label="日期" allowClear={false} />
         <ProFormDateRangePicker name="dateRange" label="日期范围" />
         <ProFormDateTimePicker name="datetime" label="日期时间" />
-        <ProFormDateTimeRangePicker
-          name="datetimeRanger"
-          label="日期时间范围"
-        />
+        <ProFormDateTimeRangePicker name="datetimeRange" label="日期时间范围" />
         <ProFormTimePicker name="time" label="时间" />
-        <ProFormTimePicker.RangePicker name="timeRanger" label="时间范围" />
+        <ProFormTimePicker.RangePicker name="timeRange" label="时间范围" />
         <ProFormFieldSet name="nameSet" label="姓名">
           <ProFormText placeholder="姓" />
           <ProFormText placeholder="名" />

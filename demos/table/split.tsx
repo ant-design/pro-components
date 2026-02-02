@@ -4,6 +4,8 @@ import type { BadgeProps } from 'antd';
 import { Badge, Button } from 'antd';
 import React, { useEffect, useState } from 'react';
 
+import { FIXED_BASE_TIMESTAMP } from '../mockData';
+
 type TableListItem = {
   createdAtRange?: number[];
   createdAt: number;
@@ -47,7 +49,7 @@ const DetailList: React.FC<DetailListProps> = (props) => {
     const source = [];
     for (let i = 0; i < 15; i += 1) {
       source.push({
-        createdAt: Date.now() - Math.floor(Math.random() * 10000),
+        createdAt: FIXED_BASE_TIMESTAMP - (i * 500 + 100),
         code: `const getData = async params => {
           const data = await getData(params);
           return { list: data.data, ...data };
@@ -93,7 +95,7 @@ for (let i = 0; i < 10; i += 1) {
     ip: `106.14.98.1${i}4`,
     cpu: 10,
     mem: 20,
-    status: valueEnum[((Math.floor(Math.random() * 10) % 4) + '') as '0'],
+    status: valueEnum[i % 4],
     disk: 30,
   });
 }

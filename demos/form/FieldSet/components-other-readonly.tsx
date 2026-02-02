@@ -21,66 +21,18 @@ import {
 } from '@ant-design/pro-components';
 
 const options = [
-  {
-    id: 1,
-    label: '测试测试1',
-    value: 1,
-  },
-  {
-    id: 2,
-    label: '测试测试2',
-    value: 2,
-  },
-  {
-    id: 3,
-    label: '测试测试3',
-    value: 3,
-  },
-  {
-    id: 4,
-    label: '测试测试4',
-    value: 4,
-  },
-  {
-    id: 5,
-    label: '测试测试5',
-    value: 5,
-  },
-  {
-    id: 6,
-    label: '测试测试6',
-    value: 6,
-  },
-  {
-    id: 7,
-    label: '测试测试7',
-    value: 7,
-  },
-  {
-    id: 8,
-    label: '测试测试8',
-    value: 8,
-  },
-  {
-    id: 9,
-    label: '测试测试9',
-    value: 9,
-  },
-  {
-    id: 10,
-    label: '测试测试10',
-    value: 10,
-  },
-  {
-    id: 11,
-    label: '测试测试11',
-    value: 11,
-  },
-  {
-    id: 12,
-    label: '测试测试12',
-    value: 12,
-  },
+  { id: 1, label: '选项 A', value: 1 },
+  { id: 2, label: '选项 B', value: 2 },
+  { id: 3, label: '选项 C', value: 3 },
+  { id: 4, label: '选项 D', value: 4 },
+  { id: 5, label: '选项 E', value: 5 },
+  { id: 6, label: '选项 F', value: 6 },
+  { id: 7, label: '选项 G', value: 7 },
+  { id: 8, label: '选项 H', value: 8 },
+  { id: 9, label: '选项 I', value: 9 },
+  { id: 10, label: '选项 J', value: 10 },
+  { id: 11, label: '选项 K', value: 11 },
+  { id: 12, label: '选项 L', value: 12 },
 ];
 
 const Demo = () => (
@@ -103,7 +55,7 @@ const Demo = () => (
         name: '蚂蚁金服有限公司',
         radio: 'a',
         list: ['1', '2', '3'],
-        list2: ['1', '2', '5', '5'],
+        list2: ['1', '2', '3', '5'],
         select: 'china',
         'radio-button': 'a',
         dragger: [

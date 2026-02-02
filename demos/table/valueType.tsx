@@ -3,12 +3,7 @@ import { ProTable } from '@ant-design/pro-components';
 import { Space } from 'antd';
 import dayjs from 'dayjs';
 
-const valueEnum = {
-  0: 'close',
-  1: 'running',
-  2: 'online',
-  3: 'error',
-};
+import { DEMO_VALUE_ENUM } from '../mockData';
 
 export type TableListItem = {
   key: number;
@@ -24,37 +19,33 @@ export type TableListItem = {
   avatar: string;
   image: string;
 };
-const tableListDataSource: TableListItem[] = [];
 
-for (let i = 0; i < 2; i += 1) {
-  tableListDataSource.push({
+const baseTime = dayjs('2019-11-16 12:50:26').valueOf();
+const tableListDataSource: TableListItem[] = Array.from(
+  { length: 2 },
+  (_, i) => ({
     key: i,
     avatar:
       'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
     image:
       'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
     name: `TradeCode ${i}`,
-    status: valueEnum[((Math.floor(Math.random() * 10) % 4) + '') as '0'],
-    updatedAt:
-      dayjs('2019-11-16 12:50:26').valueOf() - Math.floor(Math.random() * 1000),
-    createdAt:
-      dayjs('2019-11-16 12:50:26').valueOf() - Math.floor(Math.random() * 2000),
-    createdAtRange: [
-      dayjs('2019-11-16 12:50:26').valueOf() - Math.floor(Math.random() * 2000),
-      dayjs('2019-11-16 12:50:26').valueOf() - Math.floor(Math.random() * 2000),
-    ],
-    money: Math.floor(Math.random() * 2000) * i,
-    progress: Math.ceil(Math.random() * 100) + 1,
+    status: DEMO_VALUE_ENUM[String(i % 4) as keyof typeof DEMO_VALUE_ENUM],
+    updatedAt: baseTime - (i * 500 + 100),
+    createdAt: baseTime - (i * 1000 + 200),
+    createdAtRange: [baseTime - (i * 1000 + 300), baseTime - (i * 1000 + 400)],
+    money: ((i * 111 + 222) % 2000) * (i + 1),
+    progress: ((i * 17 + 23) % 100) + 1,
     percent:
-      Math.random() > 0.5
-        ? ((i + 1) * 10 + Math.random()).toFixed(3)
-        : -((i + 1) * 10 + Math.random()).toFixed(2),
+      i % 2 === 0
+        ? ((i + 1) * 10 + 0.123).toFixed(3)
+        : -((i + 1) * 10 + 0.456).toFixed(2),
     code: `const getData = async params => {
   const data = await getData(params);
   return { list: data.data, ...data };
 };`,
-  });
-}
+  }),
+);
 
 const columns: ProColumns<TableListItem>[] = [
   {

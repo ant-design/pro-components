@@ -9,6 +9,8 @@ import type { InputRef } from 'antd';
 import { Button, Form, Input, Space, Tag } from 'antd';
 import React, { useRef, useState } from 'react';
 
+import { createEditableRowId } from '../../mockData';
+
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -172,7 +174,7 @@ const columns: ProColumns<DataSourceType>[] = [
         key="copy"
         record={{
           ...record,
-          id: (Math.random() * 1000000).toFixed(0),
+          id: createEditableRowId(),
         }}
       >
         <a>复制此项到末尾</a>
@@ -193,7 +195,7 @@ const Demo = () => {
           type="primary"
           onClick={() => {
             actionRef.current?.addEditRecord?.({
-              id: (Math.random() * 1000000).toFixed(0),
+              id: createEditableRowId(),
               title: '新的一行',
             });
           }}

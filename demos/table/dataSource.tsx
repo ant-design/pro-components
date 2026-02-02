@@ -3,12 +3,11 @@ import type { ProColumns } from '@ant-design/pro-components';
 import { ProTable, TableDropdown } from '@ant-design/pro-components';
 import { Button, Dropdown, Input } from 'antd';
 
-const valueEnum = {
-  0: 'close',
-  1: 'running',
-  2: 'online',
-  3: 'error',
-};
+import {
+  createTableDataSource,
+  DEMO_CREATOR_VALUE_ENUM,
+  DEMO_STATUS_VALUE_ENUM,
+} from '../mockData';
 
 export type TableListItem = {
   key: number;
@@ -21,26 +20,13 @@ export type TableListItem = {
   money: number;
   memo: string;
 };
-const tableListDataSource: TableListItem[] = [];
 
-const creators = ['付小小', '曲丽丽', '林东东', '陈帅帅', '兼某某'];
-
-for (let i = 0; i < 5; i += 1) {
-  tableListDataSource.push({
-    key: i,
-    name: 'AppName',
-    containers: Math.floor(Math.random() * 20),
-    creator: creators[Math.floor(Math.random() * creators.length)],
-    status: valueEnum[((Math.floor(Math.random() * 10) % 4) + '') as '0'],
-    createdAt: Date.now() - Math.floor(Math.random() * 2000),
-    money: Math.floor(Math.random() * 2000) * i,
-    progress: Math.ceil(Math.random() * 100) + 1,
-    memo:
-      i % 2 === 1
-        ? '很长很长很长很长很长很长很长的文字要展示但是要留下尾巴'
-        : '简短备注文案',
-  });
-}
+const tableListDataSource = createTableDataSource({
+  count: 5,
+  namePrefix: 'AppName',
+  withProgress: true,
+  withMoney: true,
+}) as TableListItem[];
 
 const columns: ProColumns<TableListItem>[] = [
   {
@@ -66,14 +52,7 @@ const columns: ProColumns<TableListItem>[] = [
   {
     title: '创建者',
     dataIndex: 'creator',
-    valueEnum: {
-      all: { text: '全部' },
-      付小小: { text: '付小小' },
-      曲丽丽: { text: '曲丽丽' },
-      林东东: { text: '林东东' },
-      陈帅帅: { text: '陈帅帅' },
-      兼某某: { text: '兼某某' },
-    },
+    valueEnum: DEMO_CREATOR_VALUE_ENUM,
   },
   {
     title: '状态',
@@ -81,13 +60,7 @@ const columns: ProColumns<TableListItem>[] = [
     initialValue: 'all',
     filters: true,
     onFilter: true,
-    valueEnum: {
-      all: { text: '全部', status: 'Default' },
-      close: { text: '关闭', status: 'Default' },
-      running: { text: '运行中', status: 'Processing' },
-      online: { text: '已上线', status: 'Success' },
-      error: { text: '异常', status: 'Error' },
-    },
+    valueEnum: DEMO_STATUS_VALUE_ENUM,
   },
   {
     title: '备注',
@@ -117,149 +90,150 @@ const columns: ProColumns<TableListItem>[] = [
 
 const Demo = () => {
   return (
-    <ProTable<TableListItem>
-      columns={columns}
-      request={(params, sorter, filter) => {
-        // 表单搜索项会从 params 传入，传递给后端接口。
-        console.log(params, sorter, filter);
-        return Promise.resolve({
-          data: tableListDataSource,
-          success: true,
-        });
-      }}
-      rowKey="key"
-      pagination={{
-        showQuickJumper: true,
-      }}
-      search={{
-        layout: 'vertical',
-        defaultCollapsed: false,
-      }}
-      dateFormatter="string"
-      toolbar={{
-        title: '高级表格',
-        tooltip: '这是一个标题提示',
-      }}
-      toolBarRender={() => [
-        <Button key="danger" danger>
-          危险按钮
-        </Button>,
-        <Button key="show">查看日志</Button>,
-        <Button type="primary" key="primary">
-          创建应用
-        </Button>,
+    <>
+      <ProTable<TableListItem>
+        columns={columns}
+        request={(params, sorter, filter) => {
+          // 表单搜索项会从 params 传入，传递给后端接口。
+          console.log(params, sorter, filter);
+          return Promise.resolve({
+            data: tableListDataSource,
+            success: true,
+          });
+        }}
+        rowKey="key"
+        pagination={{
+          showQuickJumper: true,
+        }}
+        search={{
+          layout: 'vertical',
+          defaultCollapsed: false,
+        }}
+        dateFormatter="string"
+        toolbar={{
+          title: '高级表格',
+          tooltip: '这是一个标题提示',
+        }}
+        toolBarRender={() => [
+          <Button key="danger" danger>
+            危险按钮
+          </Button>,
+          <Button key="show">查看日志</Button>,
+          <Button type="primary" key="primary">
+            创建应用
+          </Button>,
 
-        <Dropdown
-          key="menu"
-          menu={{
-            items: [
-              {
-                label: '1st item',
-                key: '1',
-              },
-              {
-                label: '2nd item',
-                key: '2',
-              },
-              {
-                label: '3rd item',
-                key: '3',
-              },
-            ],
-          }}
-        >
-          <Button>
-            <EllipsisOutlined />
-          </Button>
-        </Dropdown>,
-      ]}
-    />
+          <Dropdown
+            key="menu"
+            menu={{
+              items: [
+                {
+                  label: '1st item',
+                  key: '1',
+                },
+                {
+                  label: '2nd item',
+                  key: '2',
+                },
+                {
+                  label: '3rd item',
+                  key: '3',
+                },
+              ],
+            }}
+          >
+            <Button>
+              <EllipsisOutlined />
+            </Button>
+          </Dropdown>,
+        ]}
+      />
+      <div
+        style={{
+          marginTop: '20px',
+          padding: '20px',
+          backgroundColor: '#f5f5f5',
+          borderRadius: '6px',
+        }}
+      >
+        <h4>ProTable 数据源 Props 说明：</h4>
+        <ul>
+          <li>
+            <strong>ProTable</strong>: 专业表格组件
+          </li>
+          <li>
+            <strong>TableDropdown</strong>: 表格下拉菜单组件
+          </li>
+          <li>
+            <strong>Dropdown</strong>: 下拉菜单组件
+          </li>
+          <li>
+            <strong>数据源</strong>: 展示数据源功能
+          </li>
+        </ul>
+        <h4>ProTable 配置：</h4>
+        <ul>
+          <li>
+            <strong>columns</strong>: 列配置
+          </li>
+          <li>
+            <strong>request</strong>: 请求函数
+          </li>
+          <li>
+            <strong>rowKey</strong>: 行键
+          </li>
+          <li>
+            <strong>pagination</strong>: 分页配置
+          </li>
+          <li>
+            <strong>search</strong>: 搜索配置
+          </li>
+          <li>
+            <strong>dateFormatter</strong>: 日期格式化
+          </li>
+          <li>
+            <strong>toolbar</strong>: 工具栏配置
+          </li>
+          <li>
+            <strong>toolBarRender</strong>: 工具栏渲染
+          </li>
+        </ul>
+        <h4>数据源特点：</h4>
+        <ul>
+          <li>
+            <strong>自定义筛选</strong>: 支持自定义筛选
+          </li>
+          <li>
+            <strong>搜索功能</strong>: 支持搜索功能
+          </li>
+          <li>
+            <strong>状态过滤</strong>: 支持状态过滤
+          </li>
+          <li>
+            <strong>省略号显示</strong>: 支持省略号显示
+          </li>
+          <li>
+            <strong>复制功能</strong>: 支持复制功能
+          </li>
+          <li>
+            <strong>下拉操作</strong>: 支持下拉操作
+          </li>
+        </ul>
+        <h4>使用场景：</h4>
+        <ul>
+          <li>
+            <strong>数据展示</strong>: 数据展示系统
+          </li>
+          <li>
+            <strong>内容管理</strong>: 内容管理平台
+          </li>
+          <li>
+            <strong>应用管理</strong>: 应用管理系统
+          </li>
+        </ul>
+      </div>
+    </>
   );
-
-  <div
-    style={{
-      marginTop: '20px',
-      padding: '20px',
-      backgroundColor: '#f5f5f5',
-      borderRadius: '6px',
-    }}
-  >
-    <h4>ProTable 数据源 Props 说明：</h4>
-    <ul>
-      <li>
-        <strong>ProTable</strong>: 专业表格组件
-      </li>
-      <li>
-        <strong>TableDropdown</strong>: 表格下拉菜单组件
-      </li>
-      <li>
-        <strong>Dropdown</strong>: 下拉菜单组件
-      </li>
-      <li>
-        <strong>数据源</strong>: 展示数据源功能
-      </li>
-    </ul>
-    <h4>ProTable 配置：</h4>
-    <ul>
-      <li>
-        <strong>columns</strong>: 列配置
-      </li>
-      <li>
-        <strong>request</strong>: 请求函数
-      </li>
-      <li>
-        <strong>rowKey</strong>: 行键
-      </li>
-      <li>
-        <strong>pagination</strong>: 分页配置
-      </li>
-      <li>
-        <strong>search</strong>: 搜索配置
-      </li>
-      <li>
-        <strong>dateFormatter</strong>: 日期格式化
-      </li>
-      <li>
-        <strong>toolbar</strong>: 工具栏配置
-      </li>
-      <li>
-        <strong>toolBarRender</strong>: 工具栏渲染
-      </li>
-    </ul>
-    <h4>数据源特点：</h4>
-    <ul>
-      <li>
-        <strong>自定义筛选</strong>: 支持自定义筛选
-      </li>
-      <li>
-        <strong>搜索功能</strong>: 支持搜索功能
-      </li>
-      <li>
-        <strong>状态过滤</strong>: 支持状态过滤
-      </li>
-      <li>
-        <strong>省略号显示</strong>: 支持省略号显示
-      </li>
-      <li>
-        <strong>复制功能</strong>: 支持复制功能
-      </li>
-      <li>
-        <strong>下拉操作</strong>: 支持下拉操作
-      </li>
-    </ul>
-    <h4>使用场景：</h4>
-    <ul>
-      <li>
-        <strong>数据展示</strong>: 数据展示系统
-      </li>
-      <li>
-        <strong>内容管理</strong>: 内容管理平台
-      </li>
-      <li>
-        <strong>应用管理</strong>: 应用管理系统
-      </li>
-    </ul>
-  </div>;
 };
 
 export default () => (

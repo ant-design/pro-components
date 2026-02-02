@@ -60,7 +60,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     width: 100,
     order: 1,
     valueType: 'money',
-    renderText: () => (Math.random() * 100).toFixed(2),
+    renderText: () => '42.50',
   },
 ];
 

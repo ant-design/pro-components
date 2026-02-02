@@ -1,4 +1,4 @@
-﻿import type {
+import type {
   EditableFormInstance,
   ProColumns,
   ProFormInstance,
@@ -14,6 +14,8 @@ import {
 } from '@ant-design/pro-components';
 import { Button } from 'antd';
 import React, { useRef, useState } from 'react';
+
+import { createEditableRowId } from '../../mockData';
 
 type DataSourceType = {
   id: React.Key;
@@ -145,7 +147,7 @@ const Demo = () => {
           position !== 'hidden'
             ? {
                 position: position as 'top',
-                record: () => ({ id: (Math.random() * 1000000).toFixed(0) }),
+                record: () => ({ id: createEditableRowId() }),
               }
             : false
         }

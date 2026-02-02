@@ -32,7 +32,7 @@ const cascaderOptions = [
   },
 ];
 
-const valueEnumMap = {
+const valueEnumMap: Record<string, string> = {
   0: 'running',
   1: 'online',
   2: 'error',
@@ -44,16 +44,16 @@ export type TableListItem = {
   cascader: string[];
   treeSelect: string[];
 };
-const tableListDataSource: TableListItem[] = [];
 
-for (let i = 0; i < 2; i += 1) {
-  tableListDataSource.push({
+const tableListDataSource: TableListItem[] = Array.from(
+  { length: 2 },
+  (_, i) => ({
     key: i,
-    status: valueEnumMap[((Math.floor(Math.random() * 10) % 3) + '') as '0'],
+    status: valueEnumMap[String(i % 3)],
     cascader: ['fe', 'js'],
     treeSelect: ['fe', 'js'],
-  });
-}
+  }),
+);
 
 const valueEnum = {
   all: { text: '全部', status: 'Default' },

@@ -80,7 +80,10 @@ const Submitter: React.FC<SubmitterProps> = (props) => {
   if (resetButtonProps !== false) {
     dom.push(
       <Button
-        {...omit(resetButtonProps ?? {}, ['preventDefault'] as any)}
+        {...omit(resetButtonProps ?? {}, [
+          'preventDefault',
+          'fieldProps',
+        ] as any)}
         key="rest"
         onClick={(e) => {
           if (!resetButtonProps?.preventDefault) reset();
@@ -98,7 +101,10 @@ const Submitter: React.FC<SubmitterProps> = (props) => {
     dom.push(
       <Button
         type="primary"
-        {...omit(submitButtonProps || {}, ['preventDefault'])}
+        {...omit(submitButtonProps || {}, [
+          'preventDefault',
+          'fieldProps',
+        ] as any)}
         key="submit"
         onClick={(e) => {
           if (!submitButtonProps?.preventDefault) submit();

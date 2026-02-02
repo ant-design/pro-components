@@ -206,35 +206,8 @@ const WarpFormItem: React.FC<
       return (
         <Form.Item
           {...props}
-          //help={typeof help !== 'function' ? help : undefined}
           valuePropName={valuePropName}
           getValueProps={getValuePropsFunc}
-          // @ts-ignore
-          // _internalItemRender={{
-          //   mark: 'pro_table_render',
-          //   render: (
-          //     inputProps: FormItemProps & {
-          //       errors: React.ReactNode[];
-          //       warnings: React.ReactNode[];
-          //     },
-          //     doms: {
-          //       input: JSX.Element;
-          //       errorList: JSX.Element;
-          //       extra: JSX.Element;
-          //     },
-          //   ) => (
-          //     <>
-          //       {doms.input}
-          //       {typeof help === 'function'
-          //         ? help({
-          //             errors: inputProps.errors,
-          //             warnings: inputProps.warnings,
-          //           })
-          //         : doms.errorList}
-          //       {doms.extra}
-          //     </>
-          //   ),
-          // }}
         >
           {children}
         </Form.Item>
@@ -329,6 +302,7 @@ export type ProFormItemProps = FormItemProps & {
   dataFormat?: string;
   lightProps?: LightWrapperProps;
   proFormFieldKey?: any;
+  fieldProps?: Record<string, any>;
 } & WarpFormItemProps;
 
 const ProFormItem: React.FC<ProFormItemProps> = (props) => {
@@ -344,6 +318,7 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
     ignoreFormItem,
     lightProps,
     children: unusedChildren,
+    fieldProps,
     ...rest
   } = props;
   const formListField = useContext(FormListContext);
@@ -409,18 +384,7 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
     </WithValueFomFiledProps>
   );
 
-  // LightFilter clone 经 ColWrapper 透传的 variant/fieldProps 需合并进 lightProps，否则 FieldDatePicker 等收不到 variant
-  const lightPropsForWrapper = useMemo(
-    () =>
-      omitUndefined({
-        ...lightProps,
-        ...(rest.variant !== undefined && { variant: rest.variant }),
-        ...(rest.fieldProps && {
-          fieldProps: { ...lightProps?.fieldProps, ...rest.fieldProps },
-        }),
-      }),
-    [lightProps, rest.variant, rest.fieldProps],
-  );
+  const lightPropsForWrapper = omitUndefined(lightProps || {});
 
   const lightDom = noLightFormItem ? (
     children
