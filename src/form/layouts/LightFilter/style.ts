@@ -8,6 +8,7 @@ export interface LightFilterToken extends ProAliasToken {
 const genLightFilterStyle: GenerateStyle<LightFilterToken> = (token) => {
   return {
     [token.componentCls]: {
+      boxSizing: 'border-box',
       lineHeight: '30px',
       // @see https://yuque.antfin-inc.com/tech-ui/topics/523
       '&::before': {

@@ -187,7 +187,7 @@ const Demo = () => {
         width="md"
         disabled
         label="Project Name"
-        initialValue="xxxx Project"
+        initialValue="示例项目"
       />
       <ProFormTextArea
         colProps={{ span: 24 }}
@@ -199,7 +199,7 @@ const Demo = () => {
         name="mangerName"
         disabled
         label="Business Manager"
-        initialValue="Qitu"
+        initialValue="张三"
       />
       <ProFormCascader
         width="md"
@@ -240,7 +240,7 @@ const Demo = () => {
         name="areaList"
         label="Area"
         initialValue={['zhejiang', 'hangzhou', 'xihu']}
-        addonAfter={'qixian'}
+        addonAfter="区县"
       />
       <ProFormTreeSelect
         initialValue={['0-0-0']}

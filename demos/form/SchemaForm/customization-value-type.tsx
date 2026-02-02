@@ -4,6 +4,8 @@ import type { InputRef } from 'antd';
 import { Input, Space, Tag } from 'antd';
 import React, { useContext, useRef, useState } from 'react';
 
+import { DEMO_VALUE_ENUM } from '../../mockData';
+
 const valueEnum = {
   0: 'close',
   1: 'running',
@@ -152,17 +154,15 @@ const Demo = () => {
       <BetaSchemaForm<TableListItem, 'link' | 'tags'>
         initialValues={{
           key: 1,
-          name: `TradeCode 1`,
+          name: 'TradeCode 1',
           status: [
             {
-              value: Math.floor(Math.random() * 10),
-              label:
-                valueEnum[((Math.floor(Math.random() * 10) % 4) + '') as '1'],
+              value: 1,
+              label: DEMO_VALUE_ENUM[1],
             },
             {
-              value: Math.floor(Math.random() * 10),
-              label:
-                valueEnum[((Math.floor(Math.random() * 10) % 4) + '') as '1'],
+              value: 2,
+              label: DEMO_VALUE_ENUM[2],
             },
           ],
         }}

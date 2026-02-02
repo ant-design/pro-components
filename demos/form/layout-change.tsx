@@ -143,14 +143,14 @@ const Demo = () => {
               width="md"
               disabled
               label="Project Name"
-              initialValue="xxxx Project"
+              initialValue="示例项目"
             />
             <ProFormText
               width="xs"
               name="mangerName"
               disabled
               label="Business Manager"
-              initialValue="Qitu"
+              initialValue="张三"
             />
           </StepsForm.StepForm>
         </StepsForm>
@@ -331,14 +331,14 @@ const Demo = () => {
             width="md"
             disabled
             label="Project Name"
-            initialValue="xxxx Project"
+            initialValue="示例项目"
           />
           <ProFormText
             width="xs"
             name="mangerName"
             disabled
             label="Business Manager"
-            initialValue="Qitu"
+            initialValue="张三"
           />
         </FormComponents>
       </div>

@@ -1,11 +1,12 @@
-﻿import type {
+import type {
   ProFormColumnsType,
   ProFormLayoutType,
 } from '@ant-design/pro-components';
 import { BetaSchemaForm, ProFormSelect } from '@ant-design/pro-components';
 import { Alert, DatePicker, Space } from 'antd';
-import dayjs from 'dayjs';
 import { useState } from 'react';
+
+import { FIXED_BASE_DATE } from '../../mockData';
 
 const valueEnum = {
   all: { text: '全部', status: 'Default' },
@@ -96,7 +97,7 @@ const columns: ProFormColumnsType<DataItem>[] = [
     key: 'showTime',
     valueType: 'dateRange',
     dataIndex: 'createName',
-    initialValue: [dayjs().add(-1, 'm'), dayjs()],
+    initialValue: [FIXED_BASE_DATE.add(-1, 'm'), FIXED_BASE_DATE],
     formItemRender: () => <DatePicker.RangePicker />,
     width: 'md',
     colProps: {
@@ -108,7 +109,7 @@ const columns: ProFormColumnsType<DataItem>[] = [
     title: '更新时间',
     dataIndex: 'updateName',
     valueType: 'dateRange',
-    initialValue: [dayjs().add(-1, 'm'), dayjs()],
+    initialValue: [FIXED_BASE_DATE.add(-1, 'm'), FIXED_BASE_DATE],
     formItemRender: () => <DatePicker.RangePicker />,
     width: 'md',
     colProps: {
@@ -193,7 +194,7 @@ const columns: ProFormColumnsType<DataItem>[] = [
       },
       {
         valueType: 'dateTime',
-        initialValue: new Date(),
+        initialValue: FIXED_BASE_DATE.toDate(),
         dataIndex: 'currentTime',
         width: 'md',
       },

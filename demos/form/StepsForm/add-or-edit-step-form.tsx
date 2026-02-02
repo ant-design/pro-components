@@ -7,8 +7,9 @@ import {
   StepsForm,
 } from '@ant-design/pro-components';
 import type { Dayjs } from 'dayjs';
-import dayjs from 'dayjs';
 import React, { useEffect, useRef } from 'react';
+
+import { FIXED_BASE_DATE } from '../../mockData';
 
 type FormValue = {
   jobInfo: {
@@ -26,7 +27,7 @@ const formValue: FormValue = {
     type: 1,
   },
   syncTableInfo: {
-    timeRange: [dayjs().subtract(1, 'm'), dayjs()],
+    timeRange: [FIXED_BASE_DATE.subtract(1, 'm'), FIXED_BASE_DATE],
     title: 'example table title',
   },
 };

@@ -49,8 +49,8 @@ const Demo = () => {
         readonly={readonly}
         name="validate_other"
         initialValues={{
-          name: 'qixian',
-          password: '1ixian',
+          name: 'demo_user',
+          password: 'demo123',
           select: 'china',
           select2: '520000201604258831',
           useMode: { label: 'Unresolved', value: 'open', key: 'open' },

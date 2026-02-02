@@ -1,4 +1,4 @@
-﻿import type { GenerateStyle, ProAliasToken } from '../../../provider';
+import type { GenerateStyle, ProAliasToken } from '../../../provider';
 import { useStyle as useAntdStyle } from '../../../provider';
 
 export interface GridContentToken extends ProAliasToken {
@@ -8,6 +8,7 @@ export interface GridContentToken extends ProAliasToken {
 const genGridContentStyle: GenerateStyle<GridContentToken> = (token) => {
   return {
     [token.componentCls]: {
+      boxSizing: 'border-box',
       width: '100%',
       '&-wide': {
         maxWidth: 1152,

@@ -8,6 +8,7 @@ export interface ProToken extends ProAliasToken {
 const genProStyle: GenerateStyle<ProToken> = (token) => {
   return {
     [token.componentCls]: {
+      boxSizing: 'border-box',
       display: 'inline-flex',
       gap: token.marginXXS,
       alignItems: 'center',

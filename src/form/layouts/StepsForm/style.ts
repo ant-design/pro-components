@@ -8,6 +8,7 @@ export interface StepsFormToken extends ProAliasToken {
 const genStepsFormStyle: GenerateStyle<StepsFormToken> = (token) => {
   return {
     [token.componentCls]: {
+      boxSizing: 'border-box',
       '&-container': {
         width: 'max-content',
         minWidth: '420px',

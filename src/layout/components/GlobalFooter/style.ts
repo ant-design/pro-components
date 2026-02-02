@@ -1,4 +1,4 @@
-﻿import type { GenerateStyle, ProAliasToken } from '../../../provider';
+import type { GenerateStyle, ProAliasToken } from '../../../provider';
 import { useStyle as useAntdStyle } from '../../../provider';
 
 export interface GlobalFooterToken extends ProAliasToken {
@@ -9,6 +9,7 @@ export interface GlobalFooterToken extends ProAliasToken {
 const genFooterToolBarStyle: GenerateStyle<GlobalFooterToken> = (token) => {
   return {
     [token.componentCls]: {
+      boxSizing: 'border-box',
       marginBlock: 0,
       marginBlockStart: 48,
       marginBlockEnd: 24,

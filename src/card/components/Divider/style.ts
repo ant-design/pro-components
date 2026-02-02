@@ -10,6 +10,7 @@ const genDividerStyle: GenerateStyle<ProCardDividerToken> = (token) => {
 
   return {
     [componentCls]: {
+      boxSizing: 'border-box',
       '&-divider': {
         flex: 'none',
         width: token.lineWidth,

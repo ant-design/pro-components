@@ -8,6 +8,7 @@ export interface DrawerFormToken extends ProAliasToken {
 const genDrawerFormStyle: GenerateStyle<DrawerFormToken> = (token) => {
   return {
     [token.componentCls]: {
+      boxSizing: 'border-box',
       '&-sidebar-dragger': {
         width: '5px',
         cursor: 'ew-resize',

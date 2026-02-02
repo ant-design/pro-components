@@ -8,6 +8,7 @@ export interface ProListToken extends ProAliasToken {
 const genProListStyle: GenerateStyle<ProListToken> = (token) => {
   return {
     [token.componentCls]: {
+      boxSizing: 'border-box',
       lineHeight: '1',
       '&-container': {
         display: 'flex',

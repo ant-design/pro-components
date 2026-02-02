@@ -1,4 +1,4 @@
-﻿import type { GenerateStyle, ProAliasToken } from '../../../provider';
+import type { GenerateStyle, ProAliasToken } from '../../../provider';
 import { setAlpha, useStyle as useAntdStyle } from '../../../provider';
 
 export interface ProToken extends ProAliasToken {
@@ -8,6 +8,7 @@ export interface ProToken extends ProAliasToken {
 const genProStyle: GenerateStyle<ProToken> = (token) => {
   return {
     [token.componentCls]: {
+      boxSizing: 'border-box',
       marginBlockEnd: 16,
       backgroundColor: setAlpha(token.colorTextBase, 0.02),
       borderRadius: token.borderRadius,

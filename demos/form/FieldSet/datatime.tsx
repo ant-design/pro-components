@@ -1,4 +1,4 @@
-﻿import {
+import {
   ProForm,
   ProFormDateMonthRangePicker,
   ProFormDatePicker,
@@ -10,8 +10,10 @@
   ProFormDateYearRangePicker,
   ProFormTimePicker,
 } from '@ant-design/pro-components';
+
 import { Switch } from 'antd';
 import { useState } from 'react';
+import { FIXED_BASE_TIMESTAMP } from '../../mockData';
 
 export default () => {
   const [readonly, setReadonly] = useState(false);
@@ -33,16 +35,22 @@ export default () => {
       <ProForm
         readonly={readonly}
         initialValues={{
-          date: Date.now(),
-          dateWeek: Date.now(),
-          dateMonth: Date.now(),
-          dateQuarter: Date.now(),
-          dateYear: Date.now(),
-          dateTime: Date.now(),
+          date: FIXED_BASE_TIMESTAMP,
+          dateWeek: FIXED_BASE_TIMESTAMP,
+          dateMonth: FIXED_BASE_TIMESTAMP,
+          dateQuarter: FIXED_BASE_TIMESTAMP,
+          dateYear: FIXED_BASE_TIMESTAMP,
+          dateTime: FIXED_BASE_TIMESTAMP,
           time: '00:01:05',
           timeRange: ['05:00:00', '11:00:00'],
-          dateTimeRange: [Date.now(), Date.now() - 1000 * 60 * 60 * 24],
-          dateRange: [Date.now(), Date.now() - 1000 * 60 * 60 * 24],
+          dateTimeRange: [
+            FIXED_BASE_TIMESTAMP,
+            FIXED_BASE_TIMESTAMP - 1000 * 60 * 60 * 24,
+          ],
+          dateRange: [
+            FIXED_BASE_TIMESTAMP,
+            FIXED_BASE_TIMESTAMP - 1000 * 60 * 60 * 24,
+          ],
         }}
         onFinish={async (values) => {
           console.log(values);

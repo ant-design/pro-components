@@ -1,6 +1,8 @@
-﻿import type { ProFieldValueType } from '@ant-design/pro-components';
+import type { ProFieldValueType } from '@ant-design/pro-components';
 import { BetaSchemaForm, ProFormSelect } from '@ant-design/pro-components';
+
 import { useState } from 'react';
+import { FIXED_BASE_TIMESTAMP } from '../../mockData';
 
 const valueEnum = {
   all: { text: '全部', status: 'Default' },
@@ -23,27 +25,31 @@ const options = [
   { value: `password`, label: `密码输入框`, initialValue: '123456' },
   { value: `money`, label: `金额输入`, initialValue: '123456' },
   { value: `textarea`, label: `文本域`, initialValue: '123456\n121212' },
-  { value: `date`, label: `日期`, initialValue: Date.now() },
-  { value: `dateTime`, label: `日期时间`, initialValue: Date.now() },
-  { value: `dateWeek`, label: `周`, initialValue: Date.now() },
-  { value: `dateMonth`, label: `月`, initialValue: Date.now() },
-  { value: `dateQuarter`, label: `季度输入`, initialValue: Date.now() },
-  { value: `dateYear`, label: `年份输入`, initialValue: Date.now() },
+  { value: `date`, label: `日期`, initialValue: FIXED_BASE_TIMESTAMP },
+  { value: `dateTime`, label: `日期时间`, initialValue: FIXED_BASE_TIMESTAMP },
+  { value: `dateWeek`, label: `周`, initialValue: FIXED_BASE_TIMESTAMP },
+  { value: `dateMonth`, label: `月`, initialValue: FIXED_BASE_TIMESTAMP },
+  {
+    value: `dateQuarter`,
+    label: `季度输入`,
+    initialValue: FIXED_BASE_TIMESTAMP,
+  },
+  { value: `dateYear`, label: `年份输入`, initialValue: FIXED_BASE_TIMESTAMP },
   {
     value: `dateRange`,
     label: `日期区间`,
-    initialValue: [Date.now(), Date.now()],
+    initialValue: [FIXED_BASE_TIMESTAMP, FIXED_BASE_TIMESTAMP],
   },
   {
     value: `dateTimeRange`,
     label: `日期时间区间`,
-    initialValue: [Date.now(), Date.now()],
+    initialValue: [FIXED_BASE_TIMESTAMP, FIXED_BASE_TIMESTAMP],
   },
-  { value: `time`, label: `时间`, initialValue: Date.now() },
+  { value: `time`, label: `时间`, initialValue: FIXED_BASE_TIMESTAMP },
   {
     value: `timeRange`,
     label: `时间区间`,
-    initialValue: [Date.now(), Date.now()],
+    initialValue: [FIXED_BASE_TIMESTAMP, FIXED_BASE_TIMESTAMP],
   },
   { value: `text`, label: `文本框`, initialValue: '123456' },
   { value: `select`, label: `下拉框`, initialValue: 'open' },
@@ -63,7 +69,11 @@ const options = [
   },
   { value: `code`, label: `代码框`, initialValue: '# 2121' },
   { value: `switch`, label: `开关`, initialValue: 'open' },
-  { value: `fromNow`, label: `相对于当前时间`, initialValue: Date.now() },
+  {
+    value: `fromNow`,
+    label: `相对于当前时间`,
+    initialValue: FIXED_BASE_TIMESTAMP,
+  },
   {
     value: `image`,
     label: `图片`,
@@ -73,7 +83,7 @@ const options = [
   {
     value: `jsonCode`,
     label: `JSON代码框`,
-    initialValue: '{ "name":"qixian" }',
+    initialValue: '{ "name":"demo_user" }',
   },
   {
     value: `color`,

@@ -7,6 +7,8 @@ import {
 import { Input, message } from 'antd';
 import React, { useState } from 'react';
 
+import { FIXED_BASE_TIMESTAMP } from '../mockData';
+
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -128,7 +130,7 @@ const Demo = () => {
             newRecordType: 'dataSource',
             position: 'top',
             record: () => ({
-              id: Date.now(),
+              id: FIXED_BASE_TIMESTAMP,
               addonBefore: 'ccccccc',
               decs: 'testdesc',
             }),

@@ -30,7 +30,7 @@ const Demo = () => (
         'checkbox-group': ['A', 'B'],
         rate: 3.5,
         range: 5,
-        name: 'qixian',
+        name: 'demo_user',
       }}
       onFinish={async (value) => console.log(value)}
     >

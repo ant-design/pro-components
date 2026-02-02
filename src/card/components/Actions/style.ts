@@ -12,6 +12,7 @@ const genActionsStyle: GenerateStyle<ProCardActionsToken> = (token) => {
 
   return {
     [`${componentCls}-actions`]: {
+      boxSizing: 'border-box',
       marginBlock: 0,
       marginInline: 0,
       paddingBlock: 0,

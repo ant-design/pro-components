@@ -97,11 +97,8 @@ export function useStyle(
   styleFn: (token: ProAliasToken) => CSSInterpolation,
 ) {
   // eslint-disable-next-line prefer-const
-  let {
-    token = {} as Record<string, any> as ProAliasToken,
-    hashed,
-    prefixCls,
-  } = useContext(ProProvider);
+  let { token = {} as Record<string, any> as ProAliasToken, hashed } =
+    useContext(ProProvider);
 
   const { token: antdToken, hashId, theme } = antdTheme.useToken();
 

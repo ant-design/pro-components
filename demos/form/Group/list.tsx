@@ -1,4 +1,4 @@
-﻿import {
+import {
   ProForm,
   ProFormDatePicker,
   ProFormDigit,
@@ -42,13 +42,13 @@ const Demo = () => {
           name="project"
           width="md"
           label="项目名称"
-          initialValue="xxxx项目"
+          initialValue="示例项目"
         />
         <ProFormText
           width="xs"
           name="mangerName"
           label="商务经理"
-          initialValue="启途"
+          initialValue="张三"
         />
         <ProFormList
           name="users"
@@ -69,14 +69,14 @@ const Demo = () => {
             position,
           }}
           creatorRecord={{
-            name: 'test',
+            name: '',
           }}
           initialValue={[
             {
-              name: '1111',
-              nickName: '1111',
-              age: 111,
-              birth: '2021-02-18',
+              name: '张三',
+              nickName: '小三',
+              age: 28,
+              birth: '2024-01-15',
               sex: 'man',
               addrList: [{ addr: ['taiyuan', 'changfeng'] }],
             },

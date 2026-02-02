@@ -1,4 +1,4 @@
-﻿import { PlusOutlined } from '@ant-design/icons';
+import { PlusOutlined } from '@ant-design/icons';
 import {
   ModalForm,
   ProForm,
@@ -101,14 +101,14 @@ const Demo = () => {
         name="project"
         disabled
         label="Project Name"
-        initialValue="xxxx Project"
+        initialValue="示例项目"
       />
       <ProFormText
         width="xs"
         name="mangerName"
         disabled
         label="Business Manager"
-        initialValue="Qitu"
+        initialValue="张三"
       />
     </ModalForm>
   );

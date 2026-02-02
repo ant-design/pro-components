@@ -20,6 +20,8 @@ import {
   ProFormUploadDragger,
 } from '@ant-design/pro-components';
 
+import { FIXED_BASE_TIMESTAMP } from '../../mockData';
+
 const options = [
   { id: 1, label: '选项 A', value: 1 },
   { id: 2, label: '选项 B', value: 2 },
@@ -46,13 +48,13 @@ const Demo = () => (
       name="validate_other"
       initialValues={{
         'select-multiple': ['red', 'green'],
-        'select-multiple2': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        'select-multiple2': [1, 2, 3],
         useMode: 'all',
         switch: true,
         'input-number': 3,
         'checkbox-group': ['A', 'B'],
         rate: 3.5,
-        name: '蚂蚁金服有限公司',
+        name: '示例科技有限公司',
         radio: 'a',
         list: ['1', '2', '3'],
         list2: ['1', '2', '3', '5'],
@@ -61,20 +63,20 @@ const Demo = () => (
         dragger: [
           {
             uid: '1',
-            name: 'xxx.png',
+            name: '合同.pdf',
             status: 'done',
             response: 'Server Error 500', // custom error message to show
             url: 'https://gw.alipayobjects.com/zos/antfincdn/7%24YOiS6YIm/huaban.png',
           },
           {
             uid: '2',
-            name: 'yyy.png',
+            name: '营业执照.jpg',
             status: 'done',
             url: 'https://gw.alipayobjects.com/zos/antfincdn/7%24YOiS6YIm/huaban.png',
           },
           {
             uid: '3',
-            name: 'zzz.png',
+            name: '身份证.jpg',
             status: 'error',
             response: 'Server Error 500', // custom error message to show
             url: 'https://gw.alipayobjects.com/zos/antfincdn/7%24YOiS6YIm/huaban.png',
@@ -83,35 +85,41 @@ const Demo = () => (
         upload: [
           {
             uid: '1',
-            name: 'xxx.png',
+            name: '合同.pdf',
             status: 'done',
             response: 'Server Error 500', // custom error message to show
             url: 'https://gw.alipayobjects.com/zos/antfincdn/7%24YOiS6YIm/huaban.png',
           },
           {
             uid: '2',
-            name: 'yyy.png',
+            name: '营业执照.jpg',
             status: 'done',
             url: 'https://gw.alipayobjects.com/zos/antfincdn/7%24YOiS6YIm/huaban.png',
           },
           {
             uid: '3',
-            name: 'zzz.png',
+            name: '身份证.jpg',
             status: 'error',
             response: 'Server Error 500', // custom error message to show
             url: 'https://gw.alipayobjects.com/zos/antfincdn/7%24YOiS6YIm/huaban.png',
           },
         ],
-        date: Date.now(),
-        dateWeek: Date.now(),
-        dateMonth: Date.now(),
-        dateQuarter: Date.now(),
-        dateYear: Date.now(),
-        dateTime: Date.now(),
+        date: FIXED_BASE_TIMESTAMP,
+        dateWeek: FIXED_BASE_TIMESTAMP,
+        dateMonth: FIXED_BASE_TIMESTAMP,
+        dateQuarter: FIXED_BASE_TIMESTAMP,
+        dateYear: FIXED_BASE_TIMESTAMP,
+        dateTime: FIXED_BASE_TIMESTAMP,
         time: '00:01:05',
         timeRange: ['05:00:00', '11:00:00'],
-        dateTimeRange: [Date.now(), Date.now() - 1000 * 60 * 60 * 24],
-        dateRange: [Date.now(), Date.now() - 1000 * 60 * 60 * 24],
+        dateTimeRange: [
+          FIXED_BASE_TIMESTAMP,
+          FIXED_BASE_TIMESTAMP - 1000 * 60 * 60 * 24,
+        ],
+        dateRange: [
+          FIXED_BASE_TIMESTAMP,
+          FIXED_BASE_TIMESTAMP - 1000 * 60 * 60 * 24,
+        ],
       }}
       onValuesChange={(_, values) => {
         console.log(values);

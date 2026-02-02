@@ -1,4 +1,4 @@
-﻿import {
+import {
   GenerateStyle,
   ProAliasToken,
   setAlpha,
@@ -12,6 +12,7 @@ export interface LoginFormToken extends ProAliasToken {
 const genLoginFormStyle: GenerateStyle<LoginFormToken> = (token) => {
   return {
     [token.componentCls]: {
+      boxSizing: 'border-box',
       display: 'flex',
       width: '100%',
       height: '100%',

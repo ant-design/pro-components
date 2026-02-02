@@ -1,4 +1,4 @@
-﻿import type { GenerateStyle, ProAliasToken } from '../../../provider';
+import type { GenerateStyle, ProAliasToken } from '../../../provider';
 import { useStyle as useAntdStyle } from '../../../provider';
 
 export interface ProToken extends ProAliasToken {
@@ -9,6 +9,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
   const progressBgCls = `${token.antCls}-progress-bg`;
   return {
     [token.componentCls]: {
+      boxSizing: 'border-box',
       '&-multiple': {
         paddingBlockStart: 6,
         paddingBlockEnd: 12,
