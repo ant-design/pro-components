@@ -21,11 +21,11 @@ const Demo = () => {
         <ProCard>
           <Statistic title="Today's UV" value={79.0} precision={2} />
         </ProCard>
-        <Divider type={responsive ? 'horizontal' : 'vertical'} />
+        <Divider orientation={responsive ? 'horizontal' : 'vertical'} />
         <ProCard>
           <Statistic title="Frozen Amount" value={112893.0} precision={2} />
         </ProCard>
-        <Divider type={responsive ? 'horizontal' : 'vertical'} />
+        <Divider orientation={responsive ? 'horizontal' : 'vertical'} />
         <ProCard>
           <Statistic
             title="Information Completeness"
@@ -33,7 +33,7 @@ const Demo = () => {
             suffix="/ 100"
           />
         </ProCard>
-        <Divider type={responsive ? 'horizontal' : 'vertical'} />
+        <Divider orientation={responsive ? 'horizontal' : 'vertical'} />
         <ProCard>
           <Statistic title="Frozen Amount" value={112893.0} />
         </ProCard>

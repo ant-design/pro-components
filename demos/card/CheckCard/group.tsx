@@ -15,7 +15,7 @@ export default () => (
         options={['🍎 Apple', '🍐 Pear', '🍊 Orange']}
       />
       <br />
-      <Divider />
+      <Divider orientation="horizontal" />
       <CheckCard.Group
         size="small"
         options={[
