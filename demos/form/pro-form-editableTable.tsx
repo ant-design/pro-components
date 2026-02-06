@@ -4,7 +4,7 @@ import {
   ProForm,
   ProFormText,
 } from '@ant-design/pro-components';
-import { Input, message } from 'antd';
+import { Input, message, Space } from 'antd';
 import React, { useState } from 'react';
 
 import { FIXED_BASE_TIMESTAMP } from '../mockData';
@@ -71,7 +71,13 @@ const columns: ProColumns<DataSourceType>[] = [
     dataIndex: 'decs',
     formItemRender: (_, { record }) => {
       console.log('----===>', record);
-      return <Input addonBefore={(record as any)?.addonBefore} />;
+      const addonBefore = (record as any)?.addonBefore;
+      return (
+        <Space.Compact>
+          <Space.Addon>{addonBefore}</Space.Addon>
+          <Input />
+        </Space.Compact>
+      );
     },
   },
   {
