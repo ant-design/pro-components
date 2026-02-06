@@ -1,3 +1,4 @@
+import { omit } from '@rc-component/util';
 import type { RadioGroupProps, RadioProps } from 'antd';
 import { Radio } from 'antd';
 import React from 'react';
@@ -80,8 +81,9 @@ const RadioGroup: React.FC<ProFormRadioGroupProps> = React.forwardRef(
  */
 const ProFormRadioComponents: React.FC<ProFormFieldItemProps<RadioProps>> =
   React.forwardRef(({ fieldProps, children }, ref: any) => {
+    const { ...restFieldProps } = fieldProps || {};
     return (
-      <Radio {...fieldProps} ref={ref}>
+      <Radio {...omit(restFieldProps, ['allowClear'])} ref={ref}>
         {children}
       </Radio>
     );

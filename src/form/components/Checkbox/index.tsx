@@ -1,3 +1,4 @@
+import { omit } from '@rc-component/util';
 import type { CheckboxProps, CheckboxRef } from 'antd';
 import { Checkbox } from 'antd';
 import type { CheckboxGroupProps } from 'antd/lib/checkbox';
@@ -79,8 +80,9 @@ export type ProFormCheckboxProps = ProFormFieldItemProps<CheckboxProps>;
 const ProFormCheckboxComponents: React.FC<ProFormCheckboxProps> =
   React.forwardRef<CheckboxRef, ProFormCheckboxProps>(
     ({ fieldProps, children }, ref) => {
+      const { ...restFieldProps } = fieldProps || {};
       return (
-        <Checkbox ref={ref} {...fieldProps}>
+        <Checkbox ref={ref} {...omit(restFieldProps, ['allowClear'])}>
           {children}
         </Checkbox>
       );
