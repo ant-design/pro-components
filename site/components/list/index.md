@@ -61,6 +61,12 @@ atomId: ProList
 
 <code src="../../../demos/list/card-list.tsx" background="var(--main-bg-color)" old></code>
 
+### 自定义列表项（itemRender）
+
+通过 `itemRender` 自定义每一项的渲染，可基于默认内容 `defaultDom`（`React.ReactElement`）进行包装或完全自定义。
+
+<code src="../../../demos/list/render-item.tsx" background="var(--main-bg-color)" old></code>
+
 ## API
 
 ### ProList API
@@ -82,6 +88,7 @@ ProList 与 antd 的 [List](https://ant.design/components/list-cn/) 相比，API
 | showExtra        | 何时展示 extra                                                                                                                                                             | `'hover'` \| `'always'`                   | `'always'` |
 | onRow            | 与 antd 相同的[配置](https://ant.design/components/table-cn/#onRow-%E7%94%A8%E6%B3%95)，用户传入`grid`属性时，列表将会以卡片模式进行渲染，此事件将不会触发，请使用`onItem` | `function(record, index)`                 | -          |
 | onItem           | 与 antd 相同的[配置](https://ant.design/components/table-cn/#onRow-%E7%94%A8%E6%B3%95)，在所有类型点击某个项目都会触发该事件。                                             | `function(record, index)`                 | -          |
+| itemRender       | 自定义列表项渲染，参数为 `(item, index, defaultDom)`，`defaultDom` 为默认列表项元素（`React.ReactElement`），可基于其包装或完全自定义                                                                 | `ProListItemRender<T>`                     | -          |
 | rowClassName     | 自定义列表行的类名                                                                                                                                                         | `string`\| `(row, index) => string`       | -          |
 | itemHeaderRender | 自定义每一列的 header，与 itemRender 不同的时，它会保留多选和展开收起                                                                                                      | `(item: any, index: number) => ReactNode` | -          |
 | itemCardProps    | 自定义卡片列表的 proCard props，只在卡片列表下生效                                                                                                                         | `ProCardProps`                            | -          |

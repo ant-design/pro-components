@@ -8,7 +8,7 @@ import { ProConfigProvider } from '../provider';
 import type { ActionType, ProColumnType, ProTableProps } from '../table';
 import ProTable from '../table';
 import type { ItemProps } from './Item';
-import ListView from './ListView';
+import ListView, { type ProListItemRender } from './ListView';
 import { useStyle } from './style/index';
 
 export type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
@@ -79,6 +79,8 @@ export type ProListProps<
     rowClassName?: string | ((item: RecordType, index: number) => string);
     itemHeaderRender?: ItemProps<RecordType>['itemHeaderRender'];
     itemTitleRender?: ItemProps<RecordType>['itemTitleRender'];
+    /** 自定义列表项渲染，defaultDom 为默认渲染的列表项元素 */
+    itemRender?: ProListItemRender<RecordType>;
   };
 
 export type Key = React.Key;
@@ -104,7 +106,7 @@ function NoProVideProList<
     rowSelection: propRowSelection = false,
     pagination: propsPagination = false,
     itemLayout,
-    renderItem,
+    itemRender,
     grid,
     itemCardProps,
     onRow,
@@ -186,7 +188,7 @@ function NoProVideProList<
             itemTitleRender={itemTitleRender}
             prefixCls={props.prefixCls}
             columns={columns}
-            renderItem={renderItem}
+            itemRender={itemRender}
             actionRef={actionRef}
             dataSource={(dataSource || []) as RecordType[]}
             size={size as 'large'}
@@ -238,6 +240,8 @@ function ProList<
     </ProConfigProvider>
   );
 }
+
+export type { ProListItemRender } from './ListView';
 
 export { BaseProList, ProList };
 

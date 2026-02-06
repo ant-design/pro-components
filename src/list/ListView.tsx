@@ -26,6 +26,13 @@ type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
 type Key = React.Key;
 type TriggerEventHandler<RecordType> = (record: RecordType) => void;
 
+/** 自定义列表项渲染，defaultDom 为 ProList 默认渲染的列表项元素 */
+export type ProListItemRender<RecordType> = (
+  item: RecordType,
+  index: number,
+  defaultDom: React.ReactElement,
+) => React.ReactNode;
+
 export type ListViewProps<RecordType> = Omit<
   AntdListProps<RecordType>,
   'renderItem'
@@ -40,11 +47,7 @@ export type ListViewProps<RecordType> = Omit<
     rowSelection?: TableRowSelection<RecordType>;
     prefixCls?: string;
     dataSource: readonly RecordType[];
-    renderItem?: (
-      item: RecordType,
-      index: number,
-      defaultDom: JSX.Element,
-    ) => React.ReactNode;
+    itemRender?: ProListItemRender<RecordType>;
     actionRef: React.MutableRefObject<ActionType | undefined>;
     // 当非卡片模式时，用于为每一行的项目绑定事件，用户设置 `grid`时将会失效
     onRow?: GetComponentProps<RecordType>;
@@ -70,7 +73,7 @@ function ListView<RecordType extends AnyObject>(
     prefixCls: customizePrefixCls,
     actionRef,
     itemTitleRender,
-    renderItem,
+    itemRender,
     itemCardProps,
     itemHeaderRender,
     expandable: expandableConfig,
@@ -311,10 +314,34 @@ function ListView<RecordType extends AnyObject>(
           />
         );
 
-        if (renderItem) {
-          return renderItem(item, index, defaultDom);
+        let content: React.ReactNode = itemRender
+          ? itemRender(item, index, defaultDom)
+          : defaultDom;
+
+        if (rest.grid?.gutter) {
+          const gutter = rest.grid.gutter;
+          const [horizontal, vertical] = Array.isArray(gutter)
+            ? gutter
+            : [gutter, gutter];
+          const h = Number(horizontal) || 0;
+          const v = Number(vertical) || 0;
+          content = (
+            <div
+              style={{
+                paddingLeft: h / 2,
+                paddingRight: h / 2,
+                paddingTop: v / 2,
+                paddingBottom: v / 2,
+                width: '100%',
+                boxSizing: 'border-box',
+              }}
+            >
+              {content}
+            </div>
+          );
         }
-        return defaultDom;
+
+        return content;
       }}
     />
   );

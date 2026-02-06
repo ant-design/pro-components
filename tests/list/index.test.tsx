@@ -394,7 +394,7 @@ describe('List', () => {
     expect(fn).toHaveBeenCalledWith('我是名称');
   });
 
-  it('🚏 ProList support renderItem', async () => {
+  it('🚏 ProList support itemRender', async () => {
     const Wrapper = () => {
       return (
         <ProList
@@ -404,7 +404,7 @@ describe('List', () => {
               content: <div>我是内容</div>,
             },
           ]}
-          renderItem={(_, index) => {
+          itemRender={(_, index) => {
             return <div data-testid="test_index">{index}</div>;
           }}
           rowKey={(item) => {

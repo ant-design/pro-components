@@ -16,20 +16,25 @@
   }
 }
 
-// 表格样式优化
+// 表格样式优化（仅保留行间分隔，减少边框）
 .markdown table {
   table-layout: fixed;
   width: 100%;
+  border-collapse: collapse;
 
   th,
   td {
     padding: 12px 16px;
-    border: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
   }
 
   th {
     background: #fafafa;
     font-weight: 600;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
   }
 }
 

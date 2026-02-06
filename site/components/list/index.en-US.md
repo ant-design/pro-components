@@ -57,6 +57,12 @@ Based on ProTable implementation, it can be considered as a special case of ProT
 
 <code src="../../../demos/list/card-list.tsx"  background="var(--main-bg-color)" oldtitle="Card list"></code>
 
+### Custom list item (itemRender)
+
+Use `itemRender` to customize each item's rendering. The third argument `defaultDom` is the default list item element (`React.ReactElement`); you can wrap it or replace it.
+
+<code src="../../../demos/list/render-item.tsx" background="var(--main-bg-color)" old></code>
+
 ## API
 
 ### ProList API
@@ -78,6 +84,7 @@ Compared with antd's [List](https://ant.design/components/list-cn/), ProList's A
 | showExtra        | When to show extra                                                                                                                                                                                                                     | `'hover'` \| `'always'`                   | `'always'`    |
 | onRow            | The same [configuration](https://ant.design/components/table-cn/#onRow-%E7%94%A8%E6%B3%95) as antd. When the user passes in the `grid` property, the list will be rendered in card mode, this event will not fire, please use `onItem` | `function(record, index)`                 | -             |
 | onItem           | The same [configuration](https://ant.design/components/table-cn/#onRow-%E7%94%A8%E6%B3%95) as antd. Clicking on an item in all types will trigger this event.                                                                          | `function(record, index)`                 | -             |
+| itemRender       | Custom list item render. Signature `(item, index, defaultDom)`. `defaultDom` is the default list item element (`React.ReactElement`). Wrap or replace it                                                                              | `ProListItemRender<T>`                    | -             |
 | rowClassName     | Custom list row class name                                                                                                                                                                                                             | `string`\| `(row, index) => string`       | -             |
 | itemHeaderRender | Customize the header of each column. Different from itemRender, it will keep multi-select and expand and collapse                                                                                                                      | `(item: any, index: number) => ReactNode` | -             |
 | itemCardProps    | Custom card list proCard props, only valid under card list                                                                                                                                                                             | `ProCardProps`                            | -             |
