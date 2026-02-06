@@ -107,16 +107,18 @@ const MenuCard = () => {
         style={{
           height: '1.5em',
         }}
-        type="vertical"
+        orientation="vertical"
       />
       <Popover
         placement="bottom"
-        overlayStyle={{
-          width: 'calc(100vw - 24px)',
-          padding: '24px',
-          paddingTop: 8,
-          height: '307px',
-          borderRadius: '0 0 6px 6px',
+        styles={{
+          root: {
+            width: 'calc(100vw - 24px)',
+            padding: '24px',
+            paddingTop: 8,
+            height: '307px',
+            borderRadius: '0 0 6px 6px',
+          },
         }}
         content={
           <div style={{ display: 'flex', padding: '32px 40px' }}>

@@ -510,7 +510,7 @@ describe('LightFilter', () => {
       <LightFilter
         collapse
         popoverProps={{
-          overlayClassName: 'my-lightfilter-popover',
+          classNames: { root: 'my-lightfilter-popover' },
         }}
       >
         <ProFormText name="name1" label="名称" />

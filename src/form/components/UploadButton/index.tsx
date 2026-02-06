@@ -152,7 +152,7 @@ const BaseProFormUploadButton: React.FC<ProFormUploadButtonProps> =
           </Upload>
           {previewImage && (
             <Image
-              wrapperStyle={{ display: 'none' }}
+              styles={{ root: { display: 'none' } }}
               {...imageProps}
               preview={{
                 open: previewOpen,
