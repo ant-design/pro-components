@@ -1,7 +1,6 @@
 import { RightOutlined } from '@ant-design/icons';
 import { useControlledState } from '@rc-component/util';
-import { ConfigProvider, List, Skeleton } from 'antd';
-import type { ListGridType } from 'antd/lib/list';
+import { ConfigProvider, Skeleton } from 'antd';
 import type { ExpandableConfig } from 'antd/lib/table/interface';
 import { clsx } from 'clsx';
 import React, { useCallback, useContext, useMemo } from 'react';
@@ -9,6 +8,11 @@ import type { CheckCardProps } from '../card';
 import { CheckCard } from '../card';
 import { ProProvider } from '../provider';
 import type { GetComponentProps } from './index';
+import type { ListGridType } from './ProListBase';
+import {
+  ProListItem as BaseListItem,
+  ProListItemMeta as BaseListItemMeta,
+} from './ProListBase';
 
 export type RenderExpandIconProps<RecordType> = {
   prefixCls: string;
@@ -203,29 +207,15 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     if (!actions || cardActionProps === 'actions') {
       return undefined;
     }
-
-    return [
-      <div key="action" onClick={(e) => e.stopPropagation()}>
-        {actions}
-      </div>,
-    ];
+    return React.Children.toArray(actions);
   }, [actions, cardActionProps]);
 
   const actionsDom = useMemo(() => {
     if (!actions || !cardActionProps || cardActionProps === 'extra') {
       return undefined;
     }
-
-    return [
-      <div
-        key="action"
-        className={`${defaultClassName}-actions ${hashId}`.trim()}
-        onClick={(e) => e.stopPropagation()}
-      >
-        {actions}
-      </div>,
-    ];
-  }, [actions, cardActionProps, defaultClassName, hashId]);
+    return React.Children.toArray(actions);
+  }, [actions, cardActionProps]);
 
   const titleDom =
     title || subTitle ? (
@@ -255,7 +245,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     (itemTitleRender && itemTitleRender?.(record, index, titleDom)) ?? titleDom;
   const metaDom =
     metaTitle || avatar || subTitle || description ? (
-      <List.Item.Meta
+      <BaseListItemMeta
         avatar={avatar}
         title={metaTitle}
         description={
@@ -279,11 +269,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       return (
         <>
           {avatar}
-          <span
-            className={`${getPrefixCls(
-              'list-item-meta-title',
-            )} ${hashId}`.trim()}
-          >
+          <span className={`${prefixCls}-item-meta-title ${hashId}`.trim()}>
             {title}
           </span>
         </>
@@ -294,16 +280,20 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
 
   const itemProps = onItem?.(record, index);
   const defaultDom = !cardProps ? (
-    <List.Item
+    <BaseListItem
       className={clsx(rowClassName, hashId, {
         [propsClassName]: propsClassName !== defaultClassName,
       })}
       {...rest}
       actions={extraDom}
-      extra={!!extra && <div className={extraClassName}>{extra}</div>}
+      extra={
+        extra != null ? (
+          <div className={extraClassName}>{extra}</div>
+        ) : undefined
+      }
       {...onRow?.(record, index)}
       {...itemProps}
-      onClick={(e) => {
+      onClick={(e: React.MouseEvent<HTMLDivElement>) => {
         onRow?.(record, index)?.onClick?.(e);
         onItem?.(record, index)?.onClick?.(e);
         if (expandRowByClick) {
@@ -351,7 +341,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
           </div>
         )}
       </Skeleton>
-    </List.Item>
+    </BaseListItem>
   ) : (
     <CheckCard
       bordered

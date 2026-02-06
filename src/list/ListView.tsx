@@ -1,11 +1,6 @@
 import { get } from '@rc-component/util';
-import type {
-  ListProps,
-  TableColumnType,
-  TablePaginationConfig,
-  TableProps,
-} from 'antd';
-import { ConfigProvider, List } from 'antd';
+import type { TableColumnType, TablePaginationConfig, TableProps } from 'antd';
+import { ConfigProvider } from 'antd';
 import type { AnyObject } from 'antd/lib/_util/type';
 import type { PaginationConfig } from 'antd/lib/pagination';
 import type { GetRowKey, TableRowSelection } from 'antd/lib/table/interface';
@@ -21,6 +16,8 @@ import { PRO_LIST_KEYS_MAP } from './constants';
 import type { GetComponentProps } from './index';
 import type { ItemProps } from './Item';
 import ProListItem from './Item';
+import type { ListProps } from './ProListBase';
+import { ProListContainer } from './ProListBase';
 
 type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
 type Key = React.Key;
@@ -59,6 +56,7 @@ export type ListViewProps<RecordType> = Omit<
     itemTitleRender?: ItemProps<RecordType>['itemTitleRender'];
     itemCardProps?: CheckCardProps;
     pagination?: PaginationConfig;
+    hashId?: string;
   };
 
 function ListView<RecordType extends AnyObject>(
@@ -82,10 +80,12 @@ function ListView<RecordType extends AnyObject>(
     onRow,
     onItem,
     rowClassName,
+    hashId: propHashId,
     ...rest
   } = props;
 
-  const { hashId } = useContext(ProProvider);
+  const { hashId: contextHashId } = useContext(ProProvider);
+  const hashId = propHashId ?? contextHashId;
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
@@ -206,8 +206,9 @@ function ListView<RecordType extends AnyObject>(
   /** 这个是 选择框的 render 方法 为了兼容 antd 的 table,用了同样的渲染逻辑 所以看起来有点奇怪 */
   const selectItemDom = selectItemRender([])[0];
   return (
-    <List<RecordType>
+    <ProListContainer<RecordType>
       {...rest}
+      hashId={hashId}
       className={clsx(
         getPrefixCls('pro-list-container', customizePrefixCls),
         hashId,

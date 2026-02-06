@@ -1,4 +1,4 @@
-import type { ListProps, PaginationProps } from 'antd';
+import type { PaginationProps } from 'antd';
 import { ConfigProvider } from 'antd';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import { clsx } from 'clsx';
@@ -9,6 +9,7 @@ import type { ActionType, ProColumnType, ProTableProps } from '../table';
 import ProTable from '../table';
 import type { ItemProps } from './Item';
 import ListView, { type ProListItemRender } from './ListView';
+import type { ListProps } from './ProListBase';
 import { useStyle } from './style/index';
 
 export type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
@@ -207,6 +208,7 @@ function NoProVideProList<
             onItem={onItem}
             rowClassName={rowClassName}
             locale={locale}
+            hashId={hashId}
           />
         );
       }}

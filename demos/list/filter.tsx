@@ -60,7 +60,7 @@ const Demo = () => (
         dataIndex: 'labels',
         render: (_, row) => {
           return (
-            <Space size={0}>
+            <Space size={8}>
               {row.labels?.map((label: { name: string }) => (
                 <Tag color="blue" key={label.name}>
                   {label.name}

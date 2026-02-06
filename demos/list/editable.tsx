@@ -64,7 +64,7 @@ const Demo = () => {
         subTitle: {
           render: () => {
             return (
-              <Space size={0}>
+              <Space size={8}>
                 <Tag color="blue">Ant Design</Tag>
                 <Tag color="#5BD8A6">TechUI</Tag>
               </Space>
