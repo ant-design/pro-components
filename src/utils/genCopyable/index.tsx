@@ -52,8 +52,8 @@ const genEllipsis = (dom: React.ReactNode, item: any, text: string) => {
   if (isObject(ellipsis) && isObject(ellipsis.tooltip)) {
     return {
       tooltip: {
-        ...ellipsis.tooltip,
         title: text,
+        ...ellipsis.tooltip,
       },
     };
   }
