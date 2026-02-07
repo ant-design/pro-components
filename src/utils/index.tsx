@@ -55,6 +55,7 @@ import { objectToMap, proFieldParsingText } from './proFieldParsingText';
 import { runFunction } from './runFunction';
 import stringify from './stringify';
 import { transformKeySubmitValue } from './transformKeySubmitValue';
+import type { ProEllipsis } from './genCopyable';
 import type {
   RowEditableConfig,
   RowEditableType,
@@ -134,6 +135,7 @@ export {
   useStyle,
 };
 export type {
+  ProEllipsis,
   ProFormInstanceType,
   ProRequestData,
   RowEditableConfig,
