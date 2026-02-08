@@ -8,7 +8,7 @@ export type ProEllipsisTooltip = {
   tooltip?: TooltipProps;
 };
 
-export type ProEllipsis = { ellipsis?: ProEllipsisTooltip } | boolean;
+export type ProEllipsis = ProEllipsisTooltip | boolean;
 
 const isNeedTranText = (item: any): boolean => {
   if (item?.valueType?.toString().startsWith('date')) {
