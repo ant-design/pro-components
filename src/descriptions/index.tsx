@@ -12,6 +12,7 @@ import ProConfigContext, { ProConfigProvider, proTheme } from '../provider';
 import ProSkeleton from '../skeleton';
 import type {
   ProCoreActionType,
+  ProEllipsis,
   ProFieldValueType,
   ProSchema,
   ProSchemaComponentTypes,
@@ -64,7 +65,7 @@ export type ProDescriptionsItemProps<
     hide?: boolean;
     plain?: boolean;
     copyable?: boolean;
-    ellipsis?: boolean | { showTitle?: boolean };
+    ellipsis?: ProEllipsis;
     mode?: ProFieldFCMode;
     children?: React.ReactNode;
     /**

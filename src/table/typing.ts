@@ -22,6 +22,7 @@ import type {
 } from '../form';
 import type {
   ProCoreActionType,
+  ProEllipsis,
   ProSchema,
   ProSchemaComponentTypes,
   ProTableEditableFnType,
@@ -118,7 +119,7 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
     initialValue?: any;
 
     /** @name 是否缩略 */
-    ellipsis?: ColumnType<T>['ellipsis'];
+    ellipsis?: ProEllipsis;
     /** @name 是否拷贝 */
     copyable?: boolean;
 

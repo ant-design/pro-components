@@ -6,6 +6,7 @@ import type {
 } from 'antd/lib/form/FormItemLabel';
 import { clsx } from 'clsx';
 import React, { useContext } from 'react';
+import type { ProEllipsis } from '../../genCopyable';
 import { useStyle } from './style';
 
 /**
@@ -17,7 +18,7 @@ export const LabelIconTip: React.FC<{
   label: React.ReactNode;
   subTitle?: React.ReactNode;
   tooltip?: string | LabelTooltipType;
-  ellipsis?: boolean | { showTitle?: boolean };
+  ellipsis?: ProEllipsis;
 }> = React.memo((props) => {
   const { label, tooltip, ellipsis, subTitle } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
