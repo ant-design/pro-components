@@ -128,7 +128,7 @@ const Demo = () => {
         />
         <ProFormMoney
           label="Precision 0"
-          name="amount6"
+          name="amount7"
           initialValue={2222222222.222222}
           fieldProps={{ precision: 0 }}
           customSymbol="💰"
