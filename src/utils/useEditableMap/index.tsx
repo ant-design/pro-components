@@ -1,7 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */ import {
-  get,
-  useControlledState,
-} from '@rc-component/util';
+import { get, useControlledState } from '@rc-component/util';
 import { message } from 'antd';
 import type React from 'react';
 import { useCallback, useMemo, useRef } from 'react';

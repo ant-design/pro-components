@@ -434,8 +434,7 @@ const ProTable = <
         ...params,
       };
 
-      // eslint-disable-next-line no-underscore-dangle
-      delete (actionParams as any)._timestamp;
+      delete (actionParams)._timestamp;
       const response = await request(
         actionParams as unknown as U,
         proSort,
@@ -496,7 +495,6 @@ const ProTable = <
     document.addEventListener('visibilitychange', visibilitychange);
     return () =>
       document.removeEventListener('visibilitychange', visibilitychange);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   /** SelectedRowKeys受控处理selectRows */
@@ -552,7 +550,6 @@ const ProTable = <
         current: 1,
       });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params]);
 
   // 设置 name 到 store 中，里面用了 ref ，所以不用担心直接 set
@@ -667,14 +664,12 @@ const ProTable = <
       columns: propsColumns,
       context: columnContext,
     }).sort(columnSort(counter.columnsMap ?? {}));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     propsColumns,
     counter?.sortKeyColumns,
     counter?.columnsMap,
     columnEmptyText,
     type,
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     editableUtils.editableKeys && editableUtils.editableKeys.join(','),
     proFilter,
     proSort,

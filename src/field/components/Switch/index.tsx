@@ -27,7 +27,6 @@ const FieldSwitch: ProFieldFC<{
       ? (fieldProps?.checkedChildren ?? intl.getMessage('switch.open', '打开'))
       : (fieldProps?.unCheckedChildren ??
           intl.getMessage('switch.close', '关闭'));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fieldProps?.checkedChildren, fieldProps?.unCheckedChildren, text]);
 
   if (mode === 'read') {

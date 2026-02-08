@@ -86,8 +86,7 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
   ...rest
 }: DrawerFormProps<T, U>) {
   noteOnce(
-    // eslint-disable-next-line @typescript-eslint/dot-notation
-    !(rest as any)['footer'] || !drawerProps?.footer,
+    !(rest as any).footer || !drawerProps?.footer,
     'DrawerForm 是一个 ProForm 的特殊布局，如果想自定义按钮，请使用 submit.render 自定义。',
   );
   const resizeInfo: CustomizeResizeType = React.useMemo(() => {
@@ -191,8 +190,6 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
     if (resizableDrawer) {
       setDrawerWidth(resizeInfo?.minWidth);
     }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [propsOpen, open, resizableDrawer]);
 
   useImperativeHandle(

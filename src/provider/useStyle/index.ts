@@ -96,7 +96,6 @@ export function useStyle(
   componentName: string,
   styleFn: (token: ProAliasToken) => CSSInterpolation,
 ) {
-  // eslint-disable-next-line prefer-const
   let { token = {} as Record<string, any> as ProAliasToken, hashed } =
     useContext(ProProvider);
 

@@ -100,11 +100,9 @@ export const pureRenderText = (
     }
   }
 
-  // eslint-disable-next-line no-param-reassign
   delete props.emptyText;
 
   if (typeof valueType === 'object') {
-    // eslint-disable-next-line @typescript-eslint/no-use-before-define
     return pureRenderText(
       dataValue,
       valueType.type,
@@ -120,7 +118,6 @@ export const pureRenderText = (
     valueTypeMap && valueTypeMap[valueType as string];
 
   if (customValueTypeConfig) {
-    // eslint-disable-next-line no-param-reassign
     delete props.ref;
     if (mode === 'read') {
       const readDom = customValueTypeConfig.render?.(
@@ -208,7 +205,6 @@ const ProFieldComponent: React.ForwardRefRenderFunction<
         onChange: onChangeCallBack,
       }
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value, restFieldProps, onChangeCallBack]);
 
   const renderedDom = pureRenderText(

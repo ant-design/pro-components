@@ -229,11 +229,9 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
       >
         {actions.map((action, index) => {
           if (!React.isValidElement(action)) {
-            // eslint-disable-next-line react/no-array-index-key
             return <React.Fragment key={index}>{action}</React.Fragment>;
           }
           return React.cloneElement(action, {
-            // eslint-disable-next-line react/no-array-index-key
             key: index,
             ...action?.props,
           });
@@ -336,7 +334,6 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
             {settings.map((setting, index) => {
               const settingItem = getSettingItem(setting);
               return (
-                // eslint-disable-next-line react/no-array-index-key
                 <div
                   key={index}
                   className={`${prefixCls}-setting-item ${hashId}`.trim()}

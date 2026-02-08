@@ -1,10 +1,4 @@
-﻿/* eslint-disable no-restricted-syntax */
-/* eslint-disable no-continue */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-self-compare */
-/* eslint-disable eqeqeq */
-/* eslint-disable no-plusplus */
-// do not edit .js files directly - edit src/index.jst
+﻿// do not edit .js files directly - edit src/index.jst
 
 export function isDeepEqualReact(a: any, b: any, ignoreKeys?: string[]) {
   if (a === b) return true;
@@ -54,7 +48,6 @@ export function isDeepEqualReact(a: any, b: any, ignoreKeys?: string[]) {
     if (a.toString !== Object.prototype.toString && a.toString)
       return a.toString() === b.toString();
 
-    // eslint-disable-next-line prefer-const
     keys = Object.keys(a);
     length = keys.length;
     if (length !== Object.keys(b).length) return false;

@@ -52,7 +52,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
 
   const contentDom = useMemo(() => {
     const defaultDom = (
-      <ConfigProvider // @ts-ignore
+      <ConfigProvider
         theme={{
           hashed: isNeedOpenHash(),
           components: {

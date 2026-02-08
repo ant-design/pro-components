@@ -169,7 +169,6 @@ function useContainer(props: UseContainerProps = {} as Record<string, any>) {
         console.warn(error);
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     props.columnsState?.persistenceKey,
     props.columnsState?.persistenceType,
@@ -209,7 +208,6 @@ function useContainer(props: UseContainerProps = {} as Record<string, any>) {
       console.warn(error);
       clearPersistenceStorage();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     props.columnsState?.persistenceKey,
     columnsMap,

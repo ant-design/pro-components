@@ -418,7 +418,6 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
         JSON.stringify(counter.propsRef.current?.columnsState?.value || {}),
       );
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   /**

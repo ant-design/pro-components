@@ -320,7 +320,6 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
 
     return () =>
       window.document.removeEventListener('languagechange', onLanguageChange);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   /**

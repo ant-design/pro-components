@@ -109,7 +109,6 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
   if (mode === 'edit') {
     const { fieldNames, variant, ...restFieldProps } = rest.fieldProps || {};
     const dom = wrapSSR(
-      //@ts-ignore
       <Checkbox.Group
         {...restFieldProps}
         variant={variant}

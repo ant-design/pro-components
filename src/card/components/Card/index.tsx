@@ -305,7 +305,6 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
           <Tabs
             onChange={tabs.onChange}
             {...omit(tabs, ['cardProps'])}
-            // @ts-ignore
             items={ModifyTabItemsContent}
           >
             {loading ? loadingDOM : children}

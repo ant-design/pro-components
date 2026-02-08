@@ -266,7 +266,6 @@ const WarpFormItem: React.FC<
         {children}
       </Form.Item>
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [addonAfter, addonBefore, children, convertValue?.toString(), props]);
 
   return (
