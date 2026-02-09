@@ -259,7 +259,7 @@ describe('List', () => {
     expect(
       container.querySelectorAll('.ant-pro-list-row-description').length,
     ).toEqual(0);
-    await fireEvent.click(container.querySelector('.ant-list-item')!);
+    await fireEvent.click(container.querySelector('.ant-pro-list-item')!);
     expect(
       container.querySelector('.ant-pro-list-row-content')!.innerHTML,
     ).toEqual('<div>我是内容</div>');
@@ -463,11 +463,11 @@ describe('List', () => {
   it('🚏 support pagination', async () => {
     const { container } = reactRender(<PaginationDemo />);
 
-    expect(container.querySelectorAll('.ant-list-item').length).toEqual(5);
+    expect(container.querySelectorAll('.ant-pro-list-item').length).toEqual(5);
 
     fireEvent.click(container.querySelectorAll('.ant-pagination-item')[1]);
 
-    expect(container.querySelectorAll('.ant-list-item').length).toEqual(2);
+    expect(container.querySelectorAll('.ant-pro-list-item').length).toEqual(2);
 
     // antd@6 DOM 结构变化：
     // 1. Select 元素有 .ant-select 和 .ant-pagination-options-size-changer 类名
@@ -509,7 +509,7 @@ describe('List', () => {
     // 等待列表更新（分页大小改变后，应该显示所有7条数据）
     await waitFor(
       () => {
-        expect(container.querySelectorAll('.ant-list-item').length).toEqual(7);
+        expect(container.querySelectorAll('.ant-pro-list-item').length).toEqual(7);
       },
       {
         timeout: 3000,
@@ -618,11 +618,11 @@ describe('List', () => {
       />,
     );
 
-    fireEvent.click(container.querySelector('.ant-list-item')!);
+    fireEvent.click(container.querySelector('.ant-pro-list-item')!);
 
     expect(onClick).toHaveBeenCalled();
 
-    fireEvent.mouseEnter(container.querySelector('.ant-list-item')!);
+    fireEvent.mouseEnter(container.querySelector('.ant-pro-list-item')!);
 
     expect(onMouseEnter).toHaveBeenCalledWith('我是名称');
   });
@@ -651,7 +651,7 @@ describe('List', () => {
       />,
     );
 
-    expect(container.querySelector('li.ant-pro-list-row')!).toHaveClass(
+    expect(container.querySelector('.ant-pro-list-row')!).toHaveClass(
       customizedRowClassName,
     );
     expect(container).toMatchSnapshot();
@@ -688,10 +688,10 @@ describe('List', () => {
       />,
     );
 
-    expect(container.querySelectorAll('li.ant-pro-list-row')[0]).toHaveClass(
+    expect(container.querySelectorAll('.ant-pro-list-row')[0]).toHaveClass(
       'even',
     );
-    expect(container.querySelectorAll('li.ant-pro-list-row')[1]).toHaveClass(
+    expect(container.querySelectorAll('.ant-pro-list-row')[1]).toHaveClass(
       'odd',
     );
     expect(container).toMatchSnapshot();
