@@ -1,5 +1,5 @@
 import { ProList } from '@ant-design/pro-components';
-import { Slider, Space, Tag, Typography } from 'antd';
+import { Slider, Tag, Typography } from 'antd';
 import { useState } from 'react';
 
 const { Title, Text } = Typography;
@@ -52,7 +52,7 @@ export default () => {
         }}
       >
         <Title level={5}>Grid 配置</Title>
-        <Space direction="vertical" style={{ width: '100%' }} size="large">
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
           <div>
             <Text strong>列数 (column): {column}</Text>
             <Slider
@@ -88,7 +88,7 @@ export default () => {
               }}
             />
           </div>
-        </Space>
+        </div>
       </div>
 
       <ProList<any>
