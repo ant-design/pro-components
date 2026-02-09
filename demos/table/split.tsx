@@ -6,23 +6,21 @@ import React, { useEffect, useState } from 'react';
 
 import { FIXED_BASE_TIMESTAMP } from '../mockData';
 
-type TableListItem = {
+type LogItem = {
   createdAtRange?: number[];
   createdAt: number;
   code: string;
 };
 
-type DetailListProps = {
+type ServerDetailProps = {
   ip: string;
 };
 
-const DetailList: React.FC<DetailListProps> = (props) => {
+const ServerDetail: React.FC<ServerDetailProps> = (props) => {
   const { ip } = props;
-  const [tableListDataSource, setTableListDataSource] = useState<
-    TableListItem[]
-  >([]);
+  const [logDataSource, setLogDataSource] = useState<LogItem[]>([]);
 
-  const columns: ProColumns<TableListItem>[] = [
+  const columns: ProColumns<LogItem>[] = [
     {
       title: '时间点',
       key: 'createdAt',
@@ -30,7 +28,7 @@ const DetailList: React.FC<DetailListProps> = (props) => {
       valueType: 'dateTime',
     },
     {
-      title: '代码',
+      title: '执行日志',
       key: 'code',
       width: 80,
       dataIndex: 'code',
@@ -41,7 +39,7 @@ const DetailList: React.FC<DetailListProps> = (props) => {
       key: 'option',
       width: 80,
       valueType: 'option',
-      render: () => [<a key="a">预警</a>],
+      render: () => [<a key="alert">告警</a>],
     },
   ];
 
@@ -50,21 +48,21 @@ const DetailList: React.FC<DetailListProps> = (props) => {
     for (let i = 0; i < 15; i += 1) {
       source.push({
         createdAt: FIXED_BASE_TIMESTAMP - (i * 500 + 100),
-        code: `const getData = async params => {
-          const data = await getData(params);
-          return { list: data.data, ...data };
+        code: `const healthCheck = async (host) => {
+          const res = await fetch(host + '/health');
+          return { status: res.status, latency: res.headers.get('x-latency') };
         };`,
         key: i,
       });
     }
 
-    setTableListDataSource(source);
+    setLogDataSource(source);
   }, [ip]);
 
   return (
-    <ProTable<TableListItem>
+    <ProTable<LogItem>
       columns={columns}
-      dataSource={tableListDataSource}
+      dataSource={logDataSource}
       pagination={{
         pageSize: 3,
         showSizeChanger: false,
@@ -80,7 +78,7 @@ type statusType = BadgeProps['status'];
 
 const valueEnum: statusType[] = ['success', 'error', 'processing', 'default'];
 
-export type IpListItem = {
+export type ServerItem = {
   ip?: string;
   cpu?: number | string;
   mem?: number | string;
@@ -88,29 +86,29 @@ export type IpListItem = {
   status: statusType;
 };
 
-const ipListDataSource: IpListItem[] = [];
+const serverListDataSource: ServerItem[] = [];
 
 for (let i = 0; i < 10; i += 1) {
-  ipListDataSource.push({
-    ip: `106.14.98.1${i}4`,
-    cpu: 10,
-    mem: 20,
+  serverListDataSource.push({
+    ip: `10.0.${Math.floor(i / 3) + 1}.${(i * 11 + 100) % 256}`,
+    cpu: ((i * 7 + 15) % 60) + 10,
+    mem: ((i * 13 + 25) % 50) + 20,
     status: valueEnum[i % 4],
-    disk: 30,
+    disk: ((i * 11 + 30) % 40) + 15,
   });
 }
 
-type IPListProps = {
+type ServerListProps = {
   ip: string;
   onChange: (id: string) => void;
 };
 
-const IPList: React.FC<IPListProps> = (props) => {
+const ServerList: React.FC<ServerListProps> = (props) => {
   const { onChange } = props;
 
-  const columns: ProColumns<IpListItem>[] = [
+  const columns: ProColumns<ServerItem>[] = [
     {
-      title: 'IP',
+      title: '服务器 IP',
       key: 'ip',
       dataIndex: 'ip',
       render: (_, item) => {
@@ -127,7 +125,7 @@ const IPList: React.FC<IPListProps> = (props) => {
       },
     },
     {
-      title: 'Mem',
+      title: '内存',
       key: 'mem',
       dataIndex: 'mem',
       valueType: {
@@ -136,7 +134,7 @@ const IPList: React.FC<IPListProps> = (props) => {
       },
     },
     {
-      title: 'Disk',
+      title: '磁盘',
       key: 'disk',
       dataIndex: 'disk',
       valueType: {
@@ -146,13 +144,12 @@ const IPList: React.FC<IPListProps> = (props) => {
     },
   ];
   return (
-    <ProTable<IpListItem>
+    <ProTable<ServerItem>
       columns={columns}
       request={(params, sorter, filter) => {
-        // 表单搜索项会从 params 传入，传递给后端接口。
         console.log(params, sorter, filter);
         return Promise.resolve({
-          data: ipListDataSource,
+          data: serverListDataSource,
           success: true,
         });
       }}
@@ -164,8 +161,8 @@ const IPList: React.FC<IPListProps> = (props) => {
           },
         },
         actions: [
-          <Button key="list" type="primary">
-            新建项目
+          <Button key="add" type="primary">
+            添加节点
           </Button>,
         ],
       }}
@@ -186,122 +183,21 @@ const IPList: React.FC<IPListProps> = (props) => {
 };
 
 const Demo: React.FC = () => {
-  const [ip, setIp] = useState('0.0.0.0');
+  const [ip, setIp] = useState('10.0.1.100');
   return (
     <ProCard split="vertical">
       <ProCard colSpan="384px" ghost>
-        <IPList onChange={(cIp) => setIp(cIp)} ip={ip} />
+        <ServerList onChange={(cIp) => setIp(cIp)} ip={ip} />
       </ProCard>
       <ProCard title={ip}>
-        <DetailList ip={ip} />
+        <ServerDetail ip={ip} />
       </ProCard>
     </ProCard>
   );
 };
 
-const DemoWithDocs = () => {
-  return (
-    <>
-      <Demo />
-      <div
-        style={{
-          marginTop: '20px',
-          padding: '20px',
-          backgroundColor: '#f5f5f5',
-          borderRadius: '6px',
-        }}
-      >
-        <h4>ProTable 分割表格 Props 说明：</h4>
-        <ul>
-          <li>
-            <strong>ProTable</strong>: 专业表格组件
-          </li>
-          <li>
-            <strong>ProCard</strong>: 专业卡片组件
-          </li>
-          <li>
-            <strong>Badge</strong>: 徽章组件
-          </li>
-          <li>
-            <strong>Button</strong>: 按钮组件
-          </li>
-          <li>
-            <strong>分割表格</strong>: 展示分割表格功能
-          </li>
-        </ul>
-        <h4>ProTable 配置：</h4>
-        <ul>
-          <li>
-            <strong>columns</strong>: 列配置
-          </li>
-          <li>
-            <strong>dataSource</strong>: 数据源
-          </li>
-          <li>
-            <strong>pagination</strong>: 分页配置
-          </li>
-          <li>
-            <strong>rowKey</strong>: 行键
-          </li>
-          <li>
-            <strong>toolBarRender</strong>: 工具栏渲染
-          </li>
-          <li>
-            <strong>options</strong>: 选项配置
-          </li>
-          <li>
-            <strong>search</strong>: 搜索配置
-          </li>
-          <li>
-            <strong>onRow</strong>: 行事件
-          </li>
-          <li>
-            <strong>request</strong>: 请求函数
-          </li>
-          <li>
-            <strong>toolbar</strong>: 工具栏配置
-          </li>
-        </ul>
-        <h4>分割表格特点：</h4>
-        <ul>
-          <li>
-            <strong>垂直分割</strong>: 支持垂直分割
-          </li>
-          <li>
-            <strong>主从结构</strong>: 支持主从结构
-          </li>
-          <li>
-            <strong>联动显示</strong>: 支持联动显示
-          </li>
-          <li>
-            <strong>状态管理</strong>: 支持状态管理
-          </li>
-          <li>
-            <strong>百分比显示</strong>: 支持百分比显示
-          </li>
-          <li>
-            <strong>代码展示</strong>: 支持代码展示
-          </li>
-        </ul>
-        <h4>使用场景：</h4>
-        <ul>
-          <li>
-            <strong>监控系统</strong>: 监控系统需求
-          </li>
-          <li>
-            <strong>详情展示</strong>: 详情展示功能
-          </li>
-          <li>
-            <strong>主从界面</strong>: 主从界面需求
-          </li>
-        </ul>
-      </div>
-    </>
-  );
-};
-
 export default () => (
   <div style={{ padding: 24 }}>
-    <DemoWithDocs />
+    <Demo />
   </div>
 );
