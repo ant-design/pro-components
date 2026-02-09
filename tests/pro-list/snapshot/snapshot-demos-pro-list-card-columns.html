@@ -6,51 +6,120 @@
     style="background-color: #eee; margin: -24px; padding: 24px;"
   >
     <div
-      class="ant-form-item pro ant-form-css-var ant-form-item-horizontal"
+      class="ant-alert ant-alert-info ant-alert-with-description pro"
+      data-show="true"
+      role="alert"
+      style="margin-bottom: 16px;"
     >
+      <span
+        aria-label="info-circle"
+        class="anticon anticon-info-circle ant-alert-icon"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="info-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm32 664c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V456c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272zm-32-344a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+          />
+        </svg>
+      </span>
       <div
-        class="ant-row ant-form-item-row pro"
+        class="ant-alert-section"
       >
         <div
-          class="ant-col ant-form-item-label pro"
+          class="ant-alert-title"
         >
-          <label
-            class=""
-            title="幽灵模式"
-          >
-            幽灵模式
-          </label>
+          推荐使用 columns + listSlot API
         </div>
         <div
-          class="ant-col ant-form-item-control pro"
+          class="ant-alert-description"
+        >
+          新的 columns API 与 ProTable 保持一致，通过 listSlot 指定数据在列表项中的位置。相比 metas API 更加灵活和易于维护。
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-card ant-card-bordered ant-card-small pro"
+      style="margin-bottom: 16px;"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
         >
           <div
-            class="ant-form-item-control-input"
+            class="ant-card-head-title"
           >
-            <div
-              class="ant-form-item-control-input-content"
+            配置选项
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+        style="padding: 12px 16px;"
+      >
+        <div
+          style="display: flex; align-items: center; gap: 8px;"
+        >
+          <span>
+            操作按钮位置 (cardActionProps):
+          </span>
+          <div
+            class="ant-radio-group ant-radio-group-outline ant-radio-group-small pro ant-radio-css-var"
+          >
+            <label
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-checked pro ant-radio-css-var"
             >
-              <button
-                aria-checked="false"
-                class="ant-switch pro"
-                role="switch"
-                type="button"
+              <span
+                class="ant-radio-button ant-radio-button-checked"
               >
-                <div
-                  class="ant-switch-handle"
+                <input
+                  checked=""
+                  class="ant-radio-button-input"
+                  name="test-id"
+                  type="radio"
+                  value="extra"
                 />
                 <span
-                  class="ant-switch-inner"
-                >
-                  <span
-                    class="ant-switch-inner-checked"
-                  />
-                  <span
-                    class="ant-switch-inner-unchecked"
-                  />
-                </span>
-              </button>
-            </div>
+                  class="ant-radio-button-inner"
+                />
+              </span>
+              <span
+                class="ant-radio-button-label"
+              >
+                Extra（卡片右上角，推荐）
+              </span>
+            </label>
+            <label
+              class="ant-radio-button-wrapper pro ant-radio-css-var"
+            >
+              <span
+                class="ant-radio-button"
+              >
+                <input
+                  class="ant-radio-button-input"
+                  name="test-id"
+                  type="radio"
+                  value="actions"
+                />
+                <span
+                  class="ant-radio-button-inner"
+                />
+              </span>
+              <span
+                class="ant-radio-button-label"
+              >
+                Actions（卡片底部）
+              </span>
+            </label>
           </div>
         </div>
       </div>
@@ -77,7 +146,7 @@
                 <div
                   class="ant-pro-table-list-toolbar-title"
                 >
-                  卡片列表展示
+                  卡片列表（columns API）
                 </div>
               </div>
             </div>
@@ -115,23 +184,22 @@
                               style="width: 22px; height: 22px; font-size: 18px;"
                             >
                               <img
-                                src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                src="https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg"
                               />
                             </span>
                             <span
                               class="ant-pro-list-item-meta-title"
                             >
-                              语雀的天空
+                              ProTable
                             </span>
                           </div>
                           <div
                             class="ant-pro-checkcard-subTitle"
                           >
                             <span
-                              class="ant-tag ant-tag-filled pro"
-                              style="background-color: #ebfaf4; color: #5BD8A6;"
+                              class="ant-tag ant-tag-filled ant-tag-success pro"
                             >
-                              语雀专栏
+                              稳定版
                             </span>
                           </div>
                         </div>
@@ -139,14 +207,13 @@
                           class="ant-pro-checkcard-extra"
                         >
                           <div
-                            class="ant-pro-field-option"
-                            style="display: flex; gap: 16px; align-items: center;"
+                            style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                           >
                             <a>
-                              邀请
+                              安装
                             </a>
                             <a>
-                              删除
+                              文档
                             </a>
                           </div>
                         </div>
@@ -164,39 +231,14 @@
                         style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                       >
                         <div
-                          style="width: 200px;"
+                          style="margin-bottom: 8px;"
                         >
-                          <div>
-                            发布中
-                          </div>
-                          <div
-                            aria-valuemax="100"
-                            aria-valuemin="0"
-                            aria-valuenow="80"
-                            class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default pro"
-                            role="progressbar"
-                          >
-                            <div
-                              class="ant-progress-body"
-                              style="width: 100%;"
-                            >
-                              <div
-                                class="ant-progress-rail"
-                                style="height: 8px;"
-                              >
-                                <div
-                                  class="ant-progress-track"
-                                  style="width: 80%; height: 8px;"
-                                />
-                              </div>
-                              <span
-                                class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
-                                title="80%"
-                              >
-                                80%
-                              </span>
-                            </div>
-                          </div>
+                          高级表格组件，支持搜索、筛选、排序等功能
+                        </div>
+                        <div
+                          style="color: #999; font-size: 12px;"
+                        >
+                          表格组件 • 125.0K 下载 • ⭐ 4.8
                         </div>
                       </div>
                     </div>
@@ -230,23 +272,22 @@
                               style="width: 22px; height: 22px; font-size: 18px;"
                             >
                               <img
-                                src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                src="https://gw.alipayobjects.com/zos/antfincdn/FLrTNDvlna/youdaoyun.png"
                               />
                             </span>
                             <span
                               class="ant-pro-list-item-meta-title"
                             >
-                              Ant Design
+                              ProForm
                             </span>
                           </div>
                           <div
                             class="ant-pro-checkcard-subTitle"
                           >
                             <span
-                              class="ant-tag ant-tag-filled pro"
-                              style="background-color: #ebfaf4; color: #5BD8A6;"
+                              class="ant-tag ant-tag-filled ant-tag-success pro"
                             >
-                              语雀专栏
+                              稳定版
                             </span>
                           </div>
                         </div>
@@ -254,14 +295,13 @@
                           class="ant-pro-checkcard-extra"
                         >
                           <div
-                            class="ant-pro-field-option"
-                            style="display: flex; gap: 16px; align-items: center;"
+                            style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                           >
                             <a>
-                              邀请
+                              安装
                             </a>
                             <a>
-                              删除
+                              文档
                             </a>
                           </div>
                         </div>
@@ -279,39 +319,14 @@
                         style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                       >
                         <div
-                          style="width: 200px;"
+                          style="margin-bottom: 8px;"
                         >
-                          <div>
-                            发布中
-                          </div>
-                          <div
-                            aria-valuemax="100"
-                            aria-valuemin="0"
-                            aria-valuenow="80"
-                            class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default pro"
-                            role="progressbar"
-                          >
-                            <div
-                              class="ant-progress-body"
-                              style="width: 100%;"
-                            >
-                              <div
-                                class="ant-progress-rail"
-                                style="height: 8px;"
-                              >
-                                <div
-                                  class="ant-progress-track"
-                                  style="width: 80%; height: 8px;"
-                                />
-                              </div>
-                              <span
-                                class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
-                                title="80%"
-                              >
-                                80%
-                              </span>
-                            </div>
-                          </div>
+                          高级表单组件，简化表单开发流程
+                        </div>
+                        <div
+                          style="color: #999; font-size: 12px;"
+                        >
+                          表单组件 • 98.0K 下载 • ⭐ 4.9
                         </div>
                       </div>
                     </div>
@@ -345,23 +360,22 @@
                               style="width: 22px; height: 22px; font-size: 18px;"
                             >
                               <img
-                                src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg"
                               />
                             </span>
                             <span
                               class="ant-pro-list-item-meta-title"
                             >
-                              蚂蚁金服体验科技
+                              ProLayout
                             </span>
                           </div>
                           <div
                             class="ant-pro-checkcard-subTitle"
                           >
                             <span
-                              class="ant-tag ant-tag-filled pro"
-                              style="background-color: #ebfaf4; color: #5BD8A6;"
+                              class="ant-tag ant-tag-filled ant-tag-success pro"
                             >
-                              语雀专栏
+                              稳定版
                             </span>
                           </div>
                         </div>
@@ -369,14 +383,13 @@
                           class="ant-pro-checkcard-extra"
                         >
                           <div
-                            class="ant-pro-field-option"
-                            style="display: flex; gap: 16px; align-items: center;"
+                            style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                           >
                             <a>
-                              邀请
+                              安装
                             </a>
                             <a>
-                              删除
+                              文档
                             </a>
                           </div>
                         </div>
@@ -394,39 +407,14 @@
                         style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                       >
                         <div
-                          style="width: 200px;"
+                          style="margin-bottom: 8px;"
                         >
-                          <div>
-                            发布中
-                          </div>
-                          <div
-                            aria-valuemax="100"
-                            aria-valuemin="0"
-                            aria-valuenow="80"
-                            class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default pro"
-                            role="progressbar"
-                          >
-                            <div
-                              class="ant-progress-body"
-                              style="width: 100%;"
-                            >
-                              <div
-                                class="ant-progress-rail"
-                                style="height: 8px;"
-                              >
-                                <div
-                                  class="ant-progress-track"
-                                  style="width: 80%; height: 8px;"
-                                />
-                              </div>
-                              <span
-                                class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
-                                title="80%"
-                              >
-                                80%
-                              </span>
-                            </div>
-                          </div>
+                          开箱即用的中后台布局方案
+                        </div>
+                        <div
+                          style="color: #999; font-size: 12px;"
+                        >
+                          布局组件 • 156.0K 下载 • ⭐ 4.7
                         </div>
                       </div>
                     </div>
@@ -460,23 +448,22 @@
                               style="width: 22px; height: 22px; font-size: 18px;"
                             >
                               <img
-                                src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                src="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
                               />
                             </span>
                             <span
                               class="ant-pro-list-item-meta-title"
                             >
-                              TechUI
+                              ProCard
                             </span>
                           </div>
                           <div
                             class="ant-pro-checkcard-subTitle"
                           >
                             <span
-                              class="ant-tag ant-tag-filled pro"
-                              style="background-color: #ebfaf4; color: #5BD8A6;"
+                              class="ant-tag ant-tag-filled ant-tag-success pro"
                             >
-                              语雀专栏
+                              稳定版
                             </span>
                           </div>
                         </div>
@@ -484,14 +471,13 @@
                           class="ant-pro-checkcard-extra"
                         >
                           <div
-                            class="ant-pro-field-option"
-                            style="display: flex; gap: 16px; align-items: center;"
+                            style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                           >
                             <a>
-                              邀请
+                              安装
                             </a>
                             <a>
-                              删除
+                              文档
                             </a>
                           </div>
                         </div>
@@ -509,39 +495,14 @@
                         style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                       >
                         <div
-                          style="width: 200px;"
+                          style="margin-bottom: 8px;"
                         >
-                          <div>
-                            发布中
-                          </div>
-                          <div
-                            aria-valuemax="100"
-                            aria-valuemin="0"
-                            aria-valuenow="80"
-                            class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default pro"
-                            role="progressbar"
-                          >
-                            <div
-                              class="ant-progress-body"
-                              style="width: 100%;"
-                            >
-                              <div
-                                class="ant-progress-rail"
-                                style="height: 8px;"
-                              >
-                                <div
-                                  class="ant-progress-track"
-                                  style="width: 80%; height: 8px;"
-                                />
-                              </div>
-                              <span
-                                class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
-                                title="80%"
-                              >
-                                80%
-                              </span>
-                            </div>
-                          </div>
+                          可分割的卡片组件，支持多种布局
+                        </div>
+                        <div
+                          style="color: #999; font-size: 12px;"
+                        >
+                          卡片组件 • 67.0K 下载 • ⭐ 4.6
                         </div>
                       </div>
                     </div>
@@ -575,23 +536,22 @@
                               style="width: 22px; height: 22px; font-size: 18px;"
                             >
                               <img
-                                src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                src="https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg"
                               />
                             </span>
                             <span
                               class="ant-pro-list-item-meta-title"
                             >
-                              TechUI 2.0
+                              ProDescriptions
                             </span>
                           </div>
                           <div
                             class="ant-pro-checkcard-subTitle"
                           >
                             <span
-                              class="ant-tag ant-tag-filled pro"
-                              style="background-color: #ebfaf4; color: #5BD8A6;"
+                              class="ant-tag ant-tag-filled ant-tag-success pro"
                             >
-                              语雀专栏
+                              稳定版
                             </span>
                           </div>
                         </div>
@@ -599,14 +559,13 @@
                           class="ant-pro-checkcard-extra"
                         >
                           <div
-                            class="ant-pro-field-option"
-                            style="display: flex; gap: 16px; align-items: center;"
+                            style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                           >
                             <a>
-                              邀请
+                              安装
                             </a>
                             <a>
-                              删除
+                              文档
                             </a>
                           </div>
                         </div>
@@ -624,39 +583,14 @@
                         style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                       >
                         <div
-                          style="width: 200px;"
+                          style="margin-bottom: 8px;"
                         >
-                          <div>
-                            发布中
-                          </div>
-                          <div
-                            aria-valuemax="100"
-                            aria-valuemin="0"
-                            aria-valuenow="80"
-                            class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default pro"
-                            role="progressbar"
-                          >
-                            <div
-                              class="ant-progress-body"
-                              style="width: 100%;"
-                            >
-                              <div
-                                class="ant-progress-rail"
-                                style="height: 8px;"
-                              >
-                                <div
-                                  class="ant-progress-track"
-                                  style="width: 80%; height: 8px;"
-                                />
-                              </div>
-                              <span
-                                class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
-                                title="80%"
-                              >
-                                80%
-                              </span>
-                            </div>
-                          </div>
+                          高级描述列表组件，支持编辑和请求
+                        </div>
+                        <div
+                          style="color: #999; font-size: 12px;"
+                        >
+                          描述列表 • 45.0K 下载 • ⭐ 4.5
                         </div>
                       </div>
                     </div>
@@ -690,23 +624,22 @@
                               style="width: 22px; height: 22px; font-size: 18px;"
                             >
                               <img
-                                src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                src="https://gw.alipayobjects.com/zos/antfincdn/FLrTNDvlna/youdaoyun.png"
                               />
                             </span>
                             <span
                               class="ant-pro-list-item-meta-title"
                             >
-                              Bigfish
+                              ProList
                             </span>
                           </div>
                           <div
                             class="ant-pro-checkcard-subTitle"
                           >
                             <span
-                              class="ant-tag ant-tag-filled pro"
-                              style="background-color: #ebfaf4; color: #5BD8A6;"
+                              class="ant-tag ant-tag-filled ant-tag-success pro"
                             >
-                              语雀专栏
+                              稳定版
                             </span>
                           </div>
                         </div>
@@ -714,14 +647,13 @@
                           class="ant-pro-checkcard-extra"
                         >
                           <div
-                            class="ant-pro-field-option"
-                            style="display: flex; gap: 16px; align-items: center;"
+                            style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                           >
                             <a>
-                              邀请
+                              安装
                             </a>
                             <a>
-                              删除
+                              文档
                             </a>
                           </div>
                         </div>
@@ -739,39 +671,14 @@
                         style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                       >
                         <div
-                          style="width: 200px;"
+                          style="margin-bottom: 8px;"
                         >
-                          <div>
-                            发布中
-                          </div>
-                          <div
-                            aria-valuemax="100"
-                            aria-valuemin="0"
-                            aria-valuenow="80"
-                            class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default pro"
-                            role="progressbar"
-                          >
-                            <div
-                              class="ant-progress-body"
-                              style="width: 100%;"
-                            >
-                              <div
-                                class="ant-progress-rail"
-                                style="height: 8px;"
-                              >
-                                <div
-                                  class="ant-progress-track"
-                                  style="width: 80%; height: 8px;"
-                                />
-                              </div>
-                              <span
-                                class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
-                                title="80%"
-                              >
-                                80%
-                              </span>
-                            </div>
-                          </div>
+                          高级列表组件，支持多种展示模式
+                        </div>
+                        <div
+                          style="color: #999; font-size: 12px;"
+                        >
+                          列表组件 • 52.0K 下载 • ⭐ 4.7
                         </div>
                       </div>
                     </div>
@@ -805,23 +712,22 @@
                               style="width: 22px; height: 22px; font-size: 18px;"
                             >
                               <img
-                                src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg"
                               />
                             </span>
                             <span
                               class="ant-pro-list-item-meta-title"
                             >
-                              Umi
+                              ProSkeleton
                             </span>
                           </div>
                           <div
                             class="ant-pro-checkcard-subTitle"
                           >
                             <span
-                              class="ant-tag ant-tag-filled pro"
-                              style="background-color: #ebfaf4; color: #5BD8A6;"
+                              class="ant-tag ant-tag-filled ant-tag-processing pro"
                             >
-                              语雀专栏
+                              测试版
                             </span>
                           </div>
                         </div>
@@ -829,14 +735,13 @@
                           class="ant-pro-checkcard-extra"
                         >
                           <div
-                            class="ant-pro-field-option"
-                            style="display: flex; gap: 16px; align-items: center;"
+                            style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                           >
                             <a>
-                              邀请
+                              安装
                             </a>
                             <a>
-                              删除
+                              文档
                             </a>
                           </div>
                         </div>
@@ -854,39 +759,14 @@
                         style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                       >
                         <div
-                          style="width: 200px;"
+                          style="margin-bottom: 8px;"
                         >
-                          <div>
-                            发布中
-                          </div>
-                          <div
-                            aria-valuemax="100"
-                            aria-valuemin="0"
-                            aria-valuenow="80"
-                            class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default pro"
-                            role="progressbar"
-                          >
-                            <div
-                              class="ant-progress-body"
-                              style="width: 100%;"
-                            >
-                              <div
-                                class="ant-progress-rail"
-                                style="height: 8px;"
-                              >
-                                <div
-                                  class="ant-progress-track"
-                                  style="width: 80%; height: 8px;"
-                                />
-                              </div>
-                              <span
-                                class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
-                                title="80%"
-                              >
-                                80%
-                              </span>
-                            </div>
-                          </div>
+                          高级骨架屏组件，更好的加载体验
+                        </div>
+                        <div
+                          style="color: #999; font-size: 12px;"
+                        >
+                          骨架屏 • 34.0K 下载 • ⭐ 4.4
                         </div>
                       </div>
                     </div>
@@ -920,23 +800,22 @@
                               style="width: 22px; height: 22px; font-size: 18px;"
                             >
                               <img
-                                src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                src="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
                               />
                             </span>
                             <span
                               class="ant-pro-list-item-meta-title"
                             >
-                              Ant Design Pro
+                              ProField
                             </span>
                           </div>
                           <div
                             class="ant-pro-checkcard-subTitle"
                           >
                             <span
-                              class="ant-tag ant-tag-filled pro"
-                              style="background-color: #ebfaf4; color: #5BD8A6;"
+                              class="ant-tag ant-tag-filled ant-tag-success pro"
                             >
-                              语雀专栏
+                              稳定版
                             </span>
                           </div>
                         </div>
@@ -944,14 +823,13 @@
                           class="ant-pro-checkcard-extra"
                         >
                           <div
-                            class="ant-pro-field-option"
-                            style="display: flex; gap: 16px; align-items: center;"
+                            style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                           >
                             <a>
-                              邀请
+                              安装
                             </a>
                             <a>
-                              删除
+                              文档
                             </a>
                           </div>
                         </div>
@@ -969,39 +847,14 @@
                         style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                       >
                         <div
-                          style="width: 200px;"
+                          style="margin-bottom: 8px;"
                         >
-                          <div>
-                            发布中
-                          </div>
-                          <div
-                            aria-valuemax="100"
-                            aria-valuemin="0"
-                            aria-valuenow="80"
-                            class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default pro"
-                            role="progressbar"
-                          >
-                            <div
-                              class="ant-progress-body"
-                              style="width: 100%;"
-                            >
-                              <div
-                                class="ant-progress-rail"
-                                style="height: 8px;"
-                              >
-                                <div
-                                  class="ant-progress-track"
-                                  style="width: 80%; height: 8px;"
-                                />
-                              </div>
-                              <span
-                                class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
-                                title="80%"
-                              >
-                                80%
-                              </span>
-                            </div>
-                          </div>
+                          统一的字段渲染组件
+                        </div>
+                        <div
+                          style="color: #999; font-size: 12px;"
+                        >
+                          字段组件 • 28.0K 下载 • ⭐ 4.3
                         </div>
                       </div>
                     </div>

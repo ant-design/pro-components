@@ -29,6 +29,10 @@ Use `columns` with the `listSlot` property to share the same column configuratio
 
 <code src="../../../demos/pro-list/columns-card.tsx" background="var(--main-bg-color)"></code>
 
+### Grid config
+
+<code src="../../../demos/pro-list/grid-config.tsx" background="var(--main-bg-color)"></code>
+
 ### Table/List view switching
 
 Use the same `columns` for both ProTable and ProList. Switch between table and list views seamlessly by toggling the component.
@@ -125,65 +129,65 @@ For other APIs, refer to [ProTable](/en-US/components/table).
 
 ### ProList
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| columns | Column configuration, same as ProTable. Use `listSlot` to specify list item slots. See [columns Configuration](#columns-configuration-recommended) | `ProColumns<T>[]` | - |
-| metas | ~~Deprecated~~ List item configuration, see [Metas Configuration](#metas-configuration-deprecated). Please migrate to `columns` + `listSlot` | `Metas` | - |
-| dataSource | Same [configuration](https://ant.design/components/list-cn/#API) as antd. ProList recommends using `request` to load data | `T[]` | - |
-| request | Method to get `dataSource` | `(params: U & { pageSize?: number; current?: number; keyword?: string }, sort: Record<string, SortOrder>, filter: Record<string, FilterValue>) => Promise<{ data: T[]; success?: boolean; total?: number }>` | - |
-| params | Extra parameters for `request` query, triggers reload on change | `U` | - |
-| postData | Process data obtained through `request` | `(data: T[]) => T[]` | - |
-| defaultData | Default data | `T[]` | - |
-| onDataSourceChange | Triggered when data changes | `(dataSource: T[]) => void` | - |
-| actionRef | Table action reference for custom triggering | `React.Ref<ActionType \| undefined>` | - |
-| formRef | Get the form instance of the search form | `TableFormItem<T>['formRef']` | - |
-| rowKey | Row key, usually row id | `string` \| `(row: T, index: number) => string` | `'id'` |
-| headerTitle | Title on the top left | `ReactNode` | - |
-| tooltip | Tooltip next to the title | `string \| LabelTooltipType` | - |
-| loading | Whether loading | `boolean \| (item: any) => boolean` | `false` |
-| split | Whether to show a split line | `boolean` | `false` |
-| footer | List footer | `ReactNode` | - |
-| grid | Grid configuration, enables card mode when set | `ListGridType` | - |
-| itemLayout | List item layout direction | `'horizontal'` \| `'vertical'` | `'horizontal'` |
-| locale | Internationalization configuration | `{ emptyText?: ReactNode }` | - |
-| pagination | Pagination configuration, `current` and `pageSize` are managed by `request` | `PaginationConfig` \| `false` | `false` |
-| rowSelection | Row selection configuration | `TableProps<T>['rowSelection'] & { alwaysShowAlert?: boolean }` \| `false` | `false` |
-| expandable | Same [configuration](https://ant.design/components/table-cn/#expandable) as antd | `object` \| `false` | - |
-| showActions | When to show actions, not supported in CardList mode | `'hover'` \| `'always'` | `'always'` |
-| showExtra | When to show extra | `'hover'` \| `'always'` | `'always'` |
-| onRow | Same [configuration](https://ant.design/components/table-cn/#onRow-%E7%94%A8%E6%B3%95) as antd. When `grid` is set, the list renders in card mode and this event will not fire. Use `onItem` instead | `function(record, index)` | - |
-| onItem | Same [configuration](https://ant.design/components/table-cn/#onRow-%E7%94%A8%E6%B3%95) as antd. Clicking on an item in all types will trigger this event | `function(record, index)` | - |
-| itemRender | Custom list item render. `defaultDom` is the default list item element. Wrap or replace it | `(item: T, index: number, defaultDom: React.ReactElement) => ReactNode` | - |
-| rowClassName | Custom list row class name | `string` \| `(item: T, index: number) => string` | - |
-| itemHeaderRender | Customize the header of each item. Different from `itemRender`, it preserves multi-select and expand/collapse | `((item: T, index: number, defaultDom: JSX.Element \| null) => ReactNode)` \| `false` | - |
-| itemTitleRender | Customize the title rendering of each item | `((item: T, index: number, defaultDom: JSX.Element \| null) => ReactNode)` \| `false` | - |
-| itemCardProps | Custom card list props, only valid in card mode | `CheckCardProps` | - |
-| toolBarRender | Render toolbar, supports returning an array of dom, automatically adds margin-right | `ToolBarProps<T>['toolBarRender']` \| `false` | - |
-| search | Whether to show the search form, pass an object for search form configuration | `false` \| [SearchConfig](/en-US/components/table#search-search-form) | `false` |
-| onLoad | Triggered after data loading is complete, may fire multiple times | `(dataSource: T[]) => void` | - |
-| onLoadingChange | Triggered when loading changes, usually caused by network requests | `(loading: boolean \| SpinProps \| undefined) => void` | - |
-| onRequestError | Triggered when data loading fails | `(error: Error) => void` | - |
-| onSubmit | Triggered when the form is submitted | `(params: U) => void` | - |
-| onReset | Triggered when the form is reset | `() => void` | - |
-| cardProps | Card settings for the outer wrapper | `ProCardProps` \| `false` | - |
-| editable | Editable list configuration, see [Editable Table](/en-US/components/editable-table) | `RowEditableConfig<T>` | - |
-| manualRequest | Whether to manually trigger the first request | `boolean` | `false` |
-| ghost | Ghost mode, removes padding from the area | `boolean` | `false` |
-| dateFormatter | Convert dayjs format data to a specific type, false to skip conversion | `"string"` \| `"number"` \| `((value: dayjs.Dayjs, valueType: string) => string \| number)` \| `false` | `"string"` |
-| ErrorBoundary | Built-in error handling to prevent blank screens, `ErrorBoundary=false` disables it | `React.ComponentClass<any, any>` \| `false` | Built-in ErrorBoundary |
+| Property           | Description                                                                                                                                                                                          | Type                                                                                                                                                                                                         | Default                |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------- |
+| columns            | Column configuration, same as ProTable. Use `listSlot` to specify list item slots. See [columns Configuration](#columns-configuration-recommended)                                                   | `ProColumns<T>[]`                                                                                                                                                                                            | -                      |
+| metas              | ~~Deprecated~~ List item configuration, see [Metas Configuration](#metas-configuration-deprecated). Please migrate to `columns` + `listSlot`                                                         | `Metas`                                                                                                                                                                                                      | -                      |
+| dataSource         | Same [configuration](https://ant.design/components/list-cn/#API) as antd. ProList recommends using `request` to load data                                                                            | `T[]`                                                                                                                                                                                                        | -                      |
+| request            | Method to get `dataSource`                                                                                                                                                                           | `(params: U & { pageSize?: number; current?: number; keyword?: string }, sort: Record<string, SortOrder>, filter: Record<string, FilterValue>) => Promise<{ data: T[]; success?: boolean; total?: number }>` | -                      |
+| params             | Extra parameters for `request` query, triggers reload on change                                                                                                                                      | `U`                                                                                                                                                                                                          | -                      |
+| postData           | Process data obtained through `request`                                                                                                                                                              | `(data: T[]) => T[]`                                                                                                                                                                                         | -                      |
+| defaultData        | Default data                                                                                                                                                                                         | `T[]`                                                                                                                                                                                                        | -                      |
+| onDataSourceChange | Triggered when data changes                                                                                                                                                                          | `(dataSource: T[]) => void`                                                                                                                                                                                  | -                      |
+| actionRef          | Table action reference for custom triggering                                                                                                                                                         | `React.Ref<ActionType \| undefined>`                                                                                                                                                                         | -                      |
+| formRef            | Get the form instance of the search form                                                                                                                                                             | `TableFormItem<T>['formRef']`                                                                                                                                                                                | -                      |
+| rowKey             | Row key, usually row id                                                                                                                                                                              | `string` \| `(row: T, index: number) => string`                                                                                                                                                              | `'id'`                 |
+| headerTitle        | Title on the top left                                                                                                                                                                                | `ReactNode`                                                                                                                                                                                                  | -                      |
+| tooltip            | Tooltip next to the title                                                                                                                                                                            | `string \| LabelTooltipType`                                                                                                                                                                                 | -                      |
+| loading            | Whether loading                                                                                                                                                                                      | `boolean \| (item: any) => boolean`                                                                                                                                                                          | `false`                |
+| split              | Whether to show a split line                                                                                                                                                                         | `boolean`                                                                                                                                                                                                    | `false`                |
+| footer             | List footer                                                                                                                                                                                          | `ReactNode`                                                                                                                                                                                                  | -                      |
+| grid               | Grid configuration, enables card mode when set                                                                                                                                                       | `ListGridType`                                                                                                                                                                                               | -                      |
+| itemLayout         | List item layout direction                                                                                                                                                                           | `'horizontal'` \| `'vertical'`                                                                                                                                                                               | `'horizontal'`         |
+| locale             | Internationalization configuration                                                                                                                                                                   | `{ emptyText?: ReactNode }`                                                                                                                                                                                  | -                      |
+| pagination         | Pagination configuration, `current` and `pageSize` are managed by `request`                                                                                                                          | `PaginationConfig` \| `false`                                                                                                                                                                                | `false`                |
+| rowSelection       | Row selection configuration                                                                                                                                                                          | `TableProps<T>['rowSelection'] & { alwaysShowAlert?: boolean }` \| `false`                                                                                                                                   | `false`                |
+| expandable         | Same [configuration](https://ant.design/components/table-cn/#expandable) as antd                                                                                                                     | `object` \| `false`                                                                                                                                                                                          | -                      |
+| showActions        | When to show actions, not supported in CardList mode                                                                                                                                                 | `'hover'` \| `'always'`                                                                                                                                                                                      | `'always'`             |
+| showExtra          | When to show extra                                                                                                                                                                                   | `'hover'` \| `'always'`                                                                                                                                                                                      | `'always'`             |
+| onRow              | Same [configuration](https://ant.design/components/table-cn/#onRow-%E7%94%A8%E6%B3%95) as antd. When `grid` is set, the list renders in card mode and this event will not fire. Use `onItem` instead | `function(record, index)`                                                                                                                                                                                    | -                      |
+| onItem             | Same [configuration](https://ant.design/components/table-cn/#onRow-%E7%94%A8%E6%B3%95) as antd. Clicking on an item in all types will trigger this event                                             | `function(record, index)`                                                                                                                                                                                    | -                      |
+| itemRender         | Custom list item render. `defaultDom` is the default list item element. Wrap or replace it                                                                                                           | `(item: T, index: number, defaultDom: React.ReactElement) => ReactNode`                                                                                                                                      | -                      |
+| rowClassName       | Custom list row class name                                                                                                                                                                           | `string` \| `(item: T, index: number) => string`                                                                                                                                                             | -                      |
+| itemHeaderRender   | Customize the header of each item. Different from `itemRender`, it preserves multi-select and expand/collapse                                                                                        | `((item: T, index: number, defaultDom: JSX.Element \| null) => ReactNode)` \| `false`                                                                                                                        | -                      |
+| itemTitleRender    | Customize the title rendering of each item                                                                                                                                                           | `((item: T, index: number, defaultDom: JSX.Element \| null) => ReactNode)` \| `false`                                                                                                                        | -                      |
+| itemCardProps      | Custom card list props, only valid in card mode                                                                                                                                                      | `CheckCardProps`                                                                                                                                                                                             | -                      |
+| toolBarRender      | Render toolbar, supports returning an array of dom, automatically adds margin-right                                                                                                                  | `ToolBarProps<T>['toolBarRender']` \| `false`                                                                                                                                                                | -                      |
+| search             | Whether to show the search form, pass an object for search form configuration                                                                                                                        | `false` \| [SearchConfig](/en-US/components/table#search-search-form)                                                                                                                                        | `false`                |
+| onLoad             | Triggered after data loading is complete, may fire multiple times                                                                                                                                    | `(dataSource: T[]) => void`                                                                                                                                                                                  | -                      |
+| onLoadingChange    | Triggered when loading changes, usually caused by network requests                                                                                                                                   | `(loading: boolean \| SpinProps \| undefined) => void`                                                                                                                                                       | -                      |
+| onRequestError     | Triggered when data loading fails                                                                                                                                                                    | `(error: Error) => void`                                                                                                                                                                                     | -                      |
+| onSubmit           | Triggered when the form is submitted                                                                                                                                                                 | `(params: U) => void`                                                                                                                                                                                        | -                      |
+| onReset            | Triggered when the form is reset                                                                                                                                                                     | `() => void`                                                                                                                                                                                                 | -                      |
+| cardProps          | Card settings for the outer wrapper                                                                                                                                                                  | `ProCardProps` \| `false`                                                                                                                                                                                    | -                      |
+| editable           | Editable list configuration, see [Editable Table](/en-US/components/editable-table)                                                                                                                  | `RowEditableConfig<T>`                                                                                                                                                                                       | -                      |
+| manualRequest      | Whether to manually trigger the first request                                                                                                                                                        | `boolean`                                                                                                                                                                                                    | `false`                |
+| ghost              | Ghost mode, removes padding from the area                                                                                                                                                            | `boolean`                                                                                                                                                                                                    | `false`                |
+| dateFormatter      | Convert dayjs format data to a specific type, false to skip conversion                                                                                                                               | `"string"` \| `"number"` \| `((value: dayjs.Dayjs, valueType: string) => string \| number)` \| `false`                                                                                                       | `"string"`             |
+| ErrorBoundary      | Built-in error handling to prevent blank screens, `ErrorBoundary=false` disables it                                                                                                                  | `React.ComponentClass<any, any>` \| `false`                                                                                                                                                                  | Built-in ErrorBoundary |
 
 ### ActionRef
 
 Sometimes you need to manually trigger ProList's reload and other operations. Use actionRef, which works identically to [ProTable ActionRef](/en-US/components/table#actionref).
 
-| Method | Description | Type |
-| --- | --- | --- |
-| reload | Reload the list, pass true to reset page index | `(resetPageIndex?: boolean) => void` |
-| reloadAndRest | Reload and clear, page index is also reset, excluding the form | `() => void` |
-| reset | Reset to default values, including the form | `() => void` |
-| clearSelected | Clear selected items | `() => void` |
-| startEditable | Start editing a row | `(rowKey: Key) => boolean` |
-| cancelEditable | Cancel editing a row | `(rowKey: Key) => boolean` |
+| Method         | Description                                                    | Type                                 |
+| -------------- | -------------------------------------------------------------- | ------------------------------------ |
+| reload         | Reload the list, pass true to reset page index                 | `(resetPageIndex?: boolean) => void` |
+| reloadAndRest  | Reload and clear, page index is also reset, excluding the form | `() => void`                         |
+| reset          | Reset to default values, including the form                    | `() => void`                         |
+| clearSelected  | Clear selected items                                           | `() => void`                         |
+| startEditable  | Start editing a row                                            | `(rowKey: Key) => boolean`           |
+| cancelEditable | Cancel editing a row                                           | `(rowKey: Key) => boolean`           |
 
 ```tsx | pure
 const ref = useRef<ActionType>();
@@ -211,25 +215,25 @@ The same `columns` can be used for both ProTable (table view) and ProList (list 
 
 #### ProList Extended Column Properties
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| listSlot | Specifies which slot of the list item this column maps to | `'title'` \| `'subTitle'` \| `'avatar'` \| `'description'` \| `'content'` \| `'actions'` \| `'aside'` \| `'type'` | - |
-| cardActionProps | When `listSlot` is `'actions'`, sets where actions render in card mode | `'actions'` \| `'extra'` | `'extra'` |
+| Property        | Description                                                            | Type                                                                                                              | Default   |
+| --------------- | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | --------- |
+| listSlot        | Specifies which slot of the list item this column maps to              | `'title'` \| `'subTitle'` \| `'avatar'` \| `'description'` \| `'content'` \| `'actions'` \| `'aside'` \| `'type'` | -         |
+| cardActionProps | When `listSlot` is `'actions'`, sets where actions render in card mode | `'actions'` \| `'extra'`                                                                                          | `'extra'` |
 
 All other column properties are identical to ProTable's `ProColumns` (`dataIndex`, `valueType`, `render`, `search`, `valueEnum`, etc.). See [ProTable columns](/en-US/components/table).
 
 #### listSlot Slot Reference
 
-| Slot Value | Description | Default valueType |
-| --- | --- | --- |
-| `title` | List item title | `text` |
-| `subTitle` | List item subtitle | `text` |
-| `avatar` | List item avatar | `avatar` |
-| `description` | List item description | `textarea` |
-| `content` | List item content area | `text` |
-| `actions` | List item action area | `option` |
-| `aside` | Supplementary side content (e.g. images, progress bars, non-interactive content) | `text` |
-| `type` | List item type (`'new'` \| `'top'` \| `'inline'`) | `text` |
+| Slot Value    | Description                                                                      | Default valueType |
+| ------------- | -------------------------------------------------------------------------------- | ----------------- |
+| `title`       | List item title                                                                  | `text`            |
+| `subTitle`    | List item subtitle                                                               | `text`            |
+| `avatar`      | List item avatar                                                                 | `avatar`          |
+| `description` | List item description                                                            | `textarea`        |
+| `content`     | List item content area                                                           | `text`            |
+| `actions`     | List item action area                                                            | `option`          |
+| `aside`       | Supplementary side content (e.g. images, progress bars, non-interactive content) | `text`            |
+| `type`        | List item type (`'new'` \| `'top'` \| `'inline'`)                                | `text`            |
 
 #### Usage Example
 
@@ -275,79 +279,79 @@ Metas uses object keys to map list item parts (title, avatar, description, etc.)
 
 #### Metas.[Meta] Generic API
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| dataIndex | The path corresponding to the data in the data item, supports querying nested paths through an array | `string` \| `string[]` | - |
-| valueType | Value type, same as ProTable, generates different renderers | [`valueType`](/en-US/components/schema#valuetype) | `'text'` |
-| render | Custom render function | `(text: ReactNode, record: T, index: number) => ReactNode \| ReactNode[]` | - |
-| valueEnum | Enum of values, automatically converts the value as a key to display the corresponding content | [valueEnum](/en-US/components/schema#valueenum) | - |
-| search | Configure search for the column, false to hide | `false` \| `{ transform: (value: any) => any }` | - |
-| editable | Whether editable in editable list | `false` \| `(text: any, record: T, index: number) => boolean` | - |
-| fieldProps | Props for the search form, passed to the form item | `(form, config) => Record \| Record` | - |
-| formItemProps | Configuration passed to Form.Item | `(form, config) => formItemProps` \| `formItemProps` | - |
-| formItemRender | Render the input component of the search form | `(item, { type, defaultRender, formItemProps, fieldProps, ...rest }, form) => ReactNode` | - |
-| key | React key | `React.Key` | - |
+| Property       | Description                                                                                          | Type                                                                                     | Default  |
+| -------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | -------- |
+| dataIndex      | The path corresponding to the data in the data item, supports querying nested paths through an array | `string` \| `string[]`                                                                   | -        |
+| valueType      | Value type, same as ProTable, generates different renderers                                          | [`valueType`](/en-US/components/schema#valuetype)                                        | `'text'` |
+| render         | Custom render function                                                                               | `(text: ReactNode, record: T, index: number) => ReactNode \| ReactNode[]`                | -        |
+| valueEnum      | Enum of values, automatically converts the value as a key to display the corresponding content       | [valueEnum](/en-US/components/schema#valueenum)                                          | -        |
+| search         | Configure search for the column, false to hide                                                       | `false` \| `{ transform: (value: any) => any }`                                          | -        |
+| editable       | Whether editable in editable list                                                                    | `false` \| `(text: any, record: T, index: number) => boolean`                            | -        |
+| fieldProps     | Props for the search form, passed to the form item                                                   | `(form, config) => Record \| Record`                                                     | -        |
+| formItemProps  | Configuration passed to Form.Item                                                                    | `(form, config) => formItemProps` \| `formItemProps`                                     | -        |
+| formItemRender | Render the input component of the search form                                                        | `(item, { type, defaultRender, formItemProps, fieldProps, ...rest }, form) => ReactNode` | -        |
+| key            | React key                                                                                            | `React.Key`                                                                              | -        |
 
 #### Metas.type
 
 The field type corresponding to dataSource is `'new'` | `'top'` | `'inline'`.
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| dataIndex | - | - | `'type'` |
+| Property  | Description | Type | Default  |
+| --------- | ----------- | ---- | -------- |
+| dataIndex | -           | -    | `'type'` |
 
 #### Metas.title
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| dataIndex | - | - | `'title'` |
+| Property  | Description | Type | Default   |
+| --------- | ----------- | ---- | --------- |
+| dataIndex | -           | -    | `'title'` |
 
 #### Metas.subTitle
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| dataIndex | - | - | `'subTitle'` |
+| Property  | Description | Type | Default      |
+| --------- | ----------- | ---- | ------------ |
+| dataIndex | -           | -    | `'subTitle'` |
 
 #### Metas.description
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| dataIndex | - | - | `'description'` |
+| Property  | Description | Type | Default         |
+| --------- | ----------- | ---- | --------------- |
+| dataIndex | -           | -    | `'description'` |
 
 #### Metas.avatar
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| dataIndex | - | - | `'avatar'` |
+| Property  | Description | Type | Default    |
+| --------- | ----------- | ---- | ---------- |
+| dataIndex | -           | -    | `'avatar'` |
 
 #### Metas.actions
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| dataIndex | - | - | `'actions'` |
-| cardActionProps | Set where the card list renders actions | `'actions'` \| `'extra'` | `'extra'` |
+| Property        | Description                             | Type                     | Default     |
+| --------------- | --------------------------------------- | ------------------------ | ----------- |
+| dataIndex       | -                                       | -                        | `'actions'` |
+| cardActionProps | Set where the card list renders actions | `'actions'` \| `'extra'` | `'extra'`   |
 
 #### Metas.content
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| dataIndex | - | - | `'content'` |
+| Property  | Description | Type | Default     |
+| --------- | ----------- | ---- | ----------- |
+| dataIndex | -           | -    | `'content'` |
 
 #### Metas.extra
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| dataIndex | - | - | `'extra'` |
+| Property  | Description | Type | Default   |
+| --------- | ----------- | ---- | --------- |
+| dataIndex | -           | -    | `'extra'` |
 
 ### Batch operations
 
 Same as ProTable, batch operations require setting `rowSelection`. See [ProTable Batch Operations](/en-US/components/table#batch-operations) for details.
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| alwaysShowAlert | Always show alert, hidden by default when nothing is selected (built-in property of `rowSelection`) | `boolean` | - |
-| tableAlertRender | Custom left info area of the batch operation toolbar, false to hide | `({ selectedRowKeys: Key[], selectedRows: T[], onCleanSelected: () => void }) => ReactNode)` \| `false` | - |
-| tableAlertOptionRender | Custom right options area of the batch operation toolbar, false to hide | `({ selectedRowKeys: Key[], selectedRows: T[], onCleanSelected: () => void }) => ReactNode)` \| `false` | - |
+| Property               | Description                                                                                         | Type                                                                                                    | Default |
+| ---------------------- | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------- |
+| alwaysShowAlert        | Always show alert, hidden by default when nothing is selected (built-in property of `rowSelection`) | `boolean`                                                                                               | -       |
+| tableAlertRender       | Custom left info area of the batch operation toolbar, false to hide                                 | `({ selectedRowKeys: Key[], selectedRows: T[], onCleanSelected: () => void }) => ReactNode)` \| `false` | -       |
+| tableAlertOptionRender | Custom right options area of the batch operation toolbar, false to hide                             | `({ selectedRowKeys: Key[], selectedRows: T[], onCleanSelected: () => void }) => ReactNode)` \| `false` | -       |
 
 ### Search Form
 
@@ -359,13 +363,13 @@ ProList generates a search form based on fields with `search` configured in colu
 
 #### Migration Reference
 
-| metas syntax | columns syntax |
-| --- | --- |
-| `title: { dataIndex: 'name' }` | `{ dataIndex: 'name', listSlot: 'title' }` |
-| `avatar: { dataIndex: 'img' }` | `{ dataIndex: 'img', listSlot: 'avatar' }` |
-| `description: { dataIndex: 'desc' }` | `{ dataIndex: 'desc', listSlot: 'description' }` |
-| `actions: { cardActionProps: 'actions', render: ... }` | `{ listSlot: 'actions', cardActionProps: 'actions', render: ... }` |
-| `extra: { render: ... }` | `{ listSlot: 'aside', render: ... }` |
+| metas syntax                                            | columns syntax                                                       |
+| ------------------------------------------------------- | -------------------------------------------------------------------- |
+| `title: { dataIndex: 'name' }`                          | `{ dataIndex: 'name', listSlot: 'title' }`                           |
+| `avatar: { dataIndex: 'img' }`                          | `{ dataIndex: 'img', listSlot: 'avatar' }`                           |
+| `description: { dataIndex: 'desc' }`                    | `{ dataIndex: 'desc', listSlot: 'description' }`                     |
+| `actions: { cardActionProps: 'actions', render: ... }`  | `{ listSlot: 'actions', cardActionProps: 'actions', render: ... }`   |
+| `extra: { render: ... }`                                | `{ listSlot: 'aside', render: ... }`                                 |
 | `status: { title: 'Status', valueType: 'select', ... }` | `{ title: 'Status', dataIndex: 'status', valueType: 'select', ... }` |
 
 #### Full Example

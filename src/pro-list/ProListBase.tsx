@@ -2,8 +2,7 @@
  * 内部 List 容器与 List.Item / List.Item.Meta 实现，用于替代 antd List（antd List 已停止维护）
  * 保持与 antd List 相同的 DOM 结构及类名，以便复用 antd 的 list 样式
  */
-import { ConfigProvider, Empty, Pagination, Row } from 'antd';
-import type { RowProps } from 'antd/lib/grid';
+import { ConfigProvider, Empty, Pagination } from 'antd';
 import type { PaginationConfig } from 'antd/lib/pagination';
 import { clsx } from 'clsx';
 import React, { useContext, useMemo } from 'react';
@@ -19,7 +18,7 @@ export type ColumnType =
   | 'xl'
   | 'xxl';
 export interface ListGridType {
-  gutter?: RowProps['gutter'];
+  gutter?: number | [number, number];
   column?: ColumnCount;
   xs?: ColumnCount;
   sm?: ColumnCount;
@@ -311,16 +310,15 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps<any>>(
       );
     };
 
-    const colStyle = useMemo(() => {
+    const gridStyle = useMemo(() => {
       if (!grid?.column) return undefined;
-      
+
       const style: React.CSSProperties = {
-        width: `${100 / grid.column}%`,
-        maxWidth: `${100 / grid.column}%`,
+        display: 'grid',
+        gridTemplateColumns: `repeat(${grid.column}, 1fr)`,
       };
-      
-      // 处理 gutter：Row 的 gutter 会给 Row 添加负 margin，
-      // Row 的直接子元素需要添加 padding 来配合
+
+      // 处理 gutter：使用 grid gap 属性
       if (grid.gutter) {
         const gutter = grid.gutter;
         const [horizontal, vertical] = Array.isArray(gutter)
@@ -328,13 +326,11 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps<any>>(
           : [gutter, gutter];
         const h = Number(horizontal) || 0;
         const v = Number(vertical) || 0;
-        
-        style.paddingLeft = h / 2;
-        style.paddingRight = h / 2;
-        style.paddingTop = v / 2;
-        style.paddingBottom = v / 2;
+
+        style.columnGap = h;
+        style.rowGap = v;
       }
-      
+
       return style;
     }, [grid?.column, grid?.gutter]);
 
@@ -348,13 +344,7 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps<any>>(
         renderInternalItem(item, idx),
       );
       childrenContent = grid ? (
-        <Row gutter={grid.gutter}>
-          {items.map((child, idx) => (
-            <div key={child?.key ?? idx} style={colStyle}>
-              {child}
-            </div>
-          ))}
-        </Row>
+        <div style={gridStyle}>{items}</div>
       ) : (
         <ul className={`${prefixCls}-items`}>{items}</ul>
       );
