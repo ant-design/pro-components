@@ -174,15 +174,6 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
       | 'type'
       | (string & {});
 
-    /**
-     * 用于 ProList 卡片模式，当 listSlot 为 'actions' 时，指定 actions 渲染的位置
-     *
-     * @name actions 渲染位置
-     * @default 'extra'
-     * @example cardActionProps: 'actions'
-     */
-    cardActionProps?: 'extra' | 'actions';
-
     /** @name 只读 */
     readonly?: boolean;
 

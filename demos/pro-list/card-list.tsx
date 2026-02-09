@@ -1,8 +1,4 @@
-import {
-  ProFormRadio,
-  ProFormSwitch,
-  ProList,
-} from '@ant-design/pro-components';
+import { ProFormSwitch, ProList } from '@ant-design/pro-components';
 import { Progress, Tag } from 'antd';
 import { useState } from 'react';
 
@@ -53,23 +49,6 @@ export default () => {
         padding: 24,
       }}
     >
-      <ProFormRadio.Group
-        label="actions 放置的地方"
-        options={[
-          {
-            label: '设置为 action',
-            value: 'actions',
-          },
-          {
-            label: '设置为 extra',
-            value: 'extra',
-          },
-        ]}
-        fieldProps={{
-          value: cardActionProps,
-          onChange: (e) => setCardActionProps(e.target.value),
-        }}
-      />
       <ProFormSwitch
         label="幽灵模式"
         fieldProps={{
