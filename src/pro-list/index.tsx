@@ -43,16 +43,6 @@ export type ProListMeta<T> = Pick<
   key?: React.Key;
 };
 
-type ProListMetaAction<T> = ProListMeta<T> & {
-  /**
-   * @example
-   *   `cardActionProps = 'actions';`;
-   *
-   * @name 选择映射到 card 上的 props，默认为extra
-   */
-  cardActionProps?: 'extra' | 'actions';
-};
-
 type IfAny<T, Y, N> = 0 extends 1 & T ? Y : N;
 type IsAny<T> = IfAny<T, true, false>;
 
@@ -64,7 +54,7 @@ export type BaseProListMetas<T = any> = {
   description?: ProListMeta<T>;
   avatar?: ProListMeta<T>;
   content?: ProListMeta<T>;
-  actions?: ProListMetaAction<T>;
+  actions?: ProListMeta<T>;
 };
 
 /**
@@ -72,7 +62,7 @@ export type BaseProListMetas<T = any> = {
  */
 export type ProListMetas<T = any> = BaseProListMetas<T> & {
   [key in keyof T]?: IsAny<T> extends true
-    ? ProListMetaAction<T>
+    ? ProListMeta<T>
     : ProListMeta<T>;
 };
 

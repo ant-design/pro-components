@@ -39,7 +39,6 @@ const columns: ProColumns<DataItem>[] = [
   { dataIndex: 'content', listSlot: 'content' },
   {
     listSlot: 'actions',
-    cardActionProps: 'extra',
     render: () => [
       <a key="invite">邀请</a>,
       <a key="delete">删除</a>,

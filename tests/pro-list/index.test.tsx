@@ -799,7 +799,7 @@ describe('List', () => {
     ).toBeFalsy();
   });
 
-  it('🚏 list support actions render to actions props', async () => {
+  it('🚏 list support actions render to extra props', async () => {
     const html = reactRender(
       <ProList
         grid={{ gutter: 16, column: 2 }}
@@ -820,7 +820,6 @@ describe('List', () => {
             dataIndex: ['desc', 'text'],
           },
           actions: {
-            cardActionProps: 'actions',
             render: () => [
               <a key="edit" id="edit">
                 修复
@@ -832,7 +831,11 @@ describe('List', () => {
     );
     await waitForWaitTime(1000);
 
-    expect(!!html.baseElement.querySelector('.ant-pro-card-extra')).toBeFalsy();
+    expect(html.baseElement.textContent?.includes('修复')).toBeTruthy();
+    // actions 统一渲染到 extra 位置，不再渲染到 card actions
+    expect(
+      !!html.baseElement.querySelector('.ant-pro-card-actions'),
+    ).toBeFalsy();
 
     act(() => {
       html.queryByText('修复')?.click();
@@ -872,7 +875,6 @@ describe('List', () => {
             dataIndex: ['desc', 'text'],
           },
           actions: {
-            cardActionProps: 'actions',
             render: () => [
               <a key="edit" id="edit">
                 修复
@@ -995,7 +997,7 @@ describe('List', () => {
     ).toEqual('列的名称');
   });
 
-  it('🚏 columns API: actions with cardActionProps', async () => {
+  it('🚏 columns API: actions always render to extra in card mode', async () => {
     const html = reactRender(
       <ProList
         grid={{ gutter: 16, column: 2 }}
@@ -1011,7 +1013,6 @@ describe('List', () => {
           },
           {
             listSlot: 'actions',
-            cardActionProps: 'actions',
             render: () => [
               <a key="edit" id="edit">
                 修复
@@ -1023,7 +1024,11 @@ describe('List', () => {
     );
     await waitForWaitTime(1000);
 
-    expect(!!html.baseElement.querySelector('.ant-pro-card-extra')).toBeFalsy();
+    expect(html.baseElement.textContent?.includes('修复')).toBeTruthy();
+    // actions 统一渲染到 extra，不再有 card actions
+    expect(
+      !!html.baseElement.querySelector('.ant-pro-card-actions'),
+    ).toBeFalsy();
 
     act(() => {
       html.queryByText('修复')?.click();
@@ -1241,7 +1246,6 @@ describe('List', () => {
           { dataIndex: 'name', listSlot: 'title' },
           {
             listSlot: 'actions',
-            cardActionProps: 'actions',
             render: () => [<a key="a">操作</a>],
           },
         ]}
@@ -1551,7 +1555,7 @@ describe('List', () => {
     expect(container.textContent?.includes('操作')).toBeTruthy();
   });
 
-  it('🚏 columns API: actions default to extra in card mode', async () => {
+  it('🚏 columns API: actions render to extra in card mode', async () => {
     const html = reactRender(
       <ProList
         grid={{ gutter: 16, column: 2 }}
@@ -1560,7 +1564,6 @@ describe('List', () => {
           { dataIndex: 'name', listSlot: 'title' },
           {
             listSlot: 'actions',
-            // 不传 cardActionProps，默认渲染到 extra
             render: () => [<a key="act">默认操作</a>],
           },
         ]}
@@ -1568,7 +1571,7 @@ describe('List', () => {
     );
     await waitForWaitTime(1000);
     expect(html.baseElement.textContent?.includes('默认操作')).toBeTruthy();
-    // 默认不渲染到 actions 位置
+    // actions 统一渲染到 extra 位置
     expect(
       !!html.baseElement.querySelector('.ant-pro-card-actions'),
     ).toBeFalsy();

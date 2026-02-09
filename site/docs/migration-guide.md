@@ -458,7 +458,6 @@ ProList 的 `metas` API 已废弃，推荐使用 `columns` + `listSlot` 替代�
       search: false,
     },
     actions: {
-      cardActionProps: 'actions',
       render: (_, row) => [<a key="edit">编辑</a>],
       search: false,
     },
@@ -484,7 +483,6 @@ ProList 的 `metas` API 已废弃，推荐使用 `columns` + `listSlot` 替代�
     },
     {
       listSlot: 'actions',
-      cardActionProps: 'actions',
       render: (_, row) => [<a key="edit">编辑</a>],
       search: false,
     },
@@ -507,7 +505,7 @@ ProList 的 `metas` API 已废弃，推荐使用 `columns` + `listSlot` 替代�
 | `description: { dataIndex: 'desc' }` | `{ dataIndex: 'desc', listSlot: 'description' }` |
 | `subTitle: { render: ... }` | `{ listSlot: 'subTitle', render: ... }` |
 | `content: {}` | `{ dataIndex: 'content', listSlot: 'content' }` |
-| `actions: { cardActionProps: 'actions' }` | `{ listSlot: 'actions', cardActionProps: 'actions' }` |
+| `actions: { render: ... }` | `{ listSlot: 'actions', render: ... }` |
 | `extra: { render: ... }` | `{ listSlot: 'aside', render: ... }` |
 | `type: {}` | `{ dataIndex: 'type', listSlot: 'type' }` |
 
@@ -631,7 +629,7 @@ pnpm exec rg "metas" src
 4. **迁移 List 组件**
    - 将 `metas` 对象改为 `columns` 数组
    - 每个 meta 的键名转为 `listSlot` 属性
-   - `cardActionProps` 保持不变，直接放到列配置中
+   - 卡片模式下 actions 统一渲染到 `extra` 位置
 
 5. **迁移 Field / ProFormField 组件**
    - 移除所有 `plain` 或 `plain={true}` 传参

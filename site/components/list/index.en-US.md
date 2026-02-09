@@ -205,7 +205,7 @@ ref.current?.clearSelected();
 
 ### columns Configuration (Recommended)
 
-ProList's `columns` is fully compatible with ProTable. It additionally supports `listSlot` and `cardActionProps` properties to control list item rendering.
+ProList's `columns` is fully compatible with ProTable. It additionally supports the `listSlot` property to control list item rendering.
 
 The same `columns` can be used for both ProTable (table view) and ProList (list view). ProTable ignores the `listSlot` property, while ProList uses it to map data to list item slots. Columns without `listSlot` are not rendered in list items but still participate in search form generation.
 
@@ -214,7 +214,6 @@ The same `columns` can be used for both ProTable (table view) and ProList (list 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | listSlot | Specifies which slot of the list item this column maps to | `'title'` \| `'subTitle'` \| `'avatar'` \| `'description'` \| `'content'` \| `'actions'` \| `'aside'` \| `'type'` | - |
-| cardActionProps | When `listSlot` is `'actions'`, sets where actions render in card mode | `'actions'` \| `'extra'` | `'extra'` |
 
 All other column properties are identical to ProTable's `ProColumns` (`dataIndex`, `valueType`, `render`, `search`, `valueEnum`, etc.). See [ProTable columns](/en-US/components/table).
 
@@ -325,7 +324,6 @@ The field type corresponding to dataSource is `'new'` | `'top'` | `'inline'`.
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | dataIndex | - | - | `'actions'` |
-| cardActionProps | Set where the card list renders actions | `'actions'` \| `'extra'` | `'extra'` |
 
 #### Metas.content
 
@@ -364,7 +362,7 @@ ProList generates a search form based on fields with `search` configured in colu
 | `title: { dataIndex: 'name' }` | `{ dataIndex: 'name', listSlot: 'title' }` |
 | `avatar: { dataIndex: 'img' }` | `{ dataIndex: 'img', listSlot: 'avatar' }` |
 | `description: { dataIndex: 'desc' }` | `{ dataIndex: 'desc', listSlot: 'description' }` |
-| `actions: { cardActionProps: 'actions', render: ... }` | `{ listSlot: 'actions', cardActionProps: 'actions', render: ... }` |
+| `actions: { render: ... }` | `{ listSlot: 'actions', render: ... }` |
 | `extra: { render: ... }` | `{ listSlot: 'aside', render: ... }` |
 | `status: { title: 'Status', valueType: 'select', ... }` | `{ title: 'Status', dataIndex: 'status', valueType: 'select', ... }` |
 
@@ -384,7 +382,6 @@ ProList generates a search form based on fields with `search` configured in colu
       search: false,
     },
     actions: {
-      cardActionProps: 'actions',
       render: (_, row) => [<a key="edit">Edit</a>],
       search: false,
     },
@@ -413,7 +410,6 @@ ProList generates a search form based on fields with `search` configured in colu
     },
     {
       listSlot: 'actions',
-      cardActionProps: 'actions',
       render: (_, row) => [<a key="edit">Edit</a>],
       search: false,
     },

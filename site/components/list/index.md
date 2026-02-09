@@ -205,7 +205,7 @@ ref.current?.clearSelected();
 
 ### columns 配置（推荐）
 
-ProList 的 `columns` 与 ProTable 完全兼容，额外支持 `listSlot` 和 `cardActionProps` 两个属性来控制列表项的渲染。
+ProList 的 `columns` 与 ProTable 完全兼容，额外支持 `listSlot` 属性来控制列表项的渲染。
 
 同一份 `columns` 可以同时用于 ProTable（表格视图）和 ProList（列表视图），ProTable 会忽略 `listSlot` 属性，ProList 使用 `listSlot` 将数据映射到列表项的各个插槽位置。没有 `listSlot` 的列不会渲染到列表项中，但仍会参与搜索表单的生成。
 
@@ -214,7 +214,6 @@ ProList 的 `columns` 与 ProTable 完全兼容，额外支持 `listSlot` 和 `c
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | listSlot | 指定该列映射到列表项的哪个插槽位置 | `'title'` \| `'subTitle'` \| `'avatar'` \| `'description'` \| `'content'` \| `'actions'` \| `'aside'` \| `'type'` | - |
-| cardActionProps | 当 `listSlot` 为 `'actions'` 时，设置卡片列表把 actions 渲染到哪里 | `'actions'` \| `'extra'` | `'extra'` |
 
 其余列属性与 ProTable 的 `ProColumns` 完全一致（`dataIndex`、`valueType`、`render`、`search`、`valueEnum` 等），详见 [ProTable columns](/components/table)。
 
@@ -325,7 +324,6 @@ Metas 使用对象的键名来映射列表项各个部分（标题、头像、�
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | dataIndex | - | - | `'actions'` |
-| cardActionProps | 设置卡片列表把 action 渲染到哪里 | `'actions'` \| `'extra'` | `'extra'` |
 
 #### Metas.content
 
@@ -364,7 +362,7 @@ ProList 会根据 columns 或 metas 中配置了 `search` 的字段来生成搜�
 | `title: { dataIndex: 'name' }` | `{ dataIndex: 'name', listSlot: 'title' }` |
 | `avatar: { dataIndex: 'img' }` | `{ dataIndex: 'img', listSlot: 'avatar' }` |
 | `description: { dataIndex: 'desc' }` | `{ dataIndex: 'desc', listSlot: 'description' }` |
-| `actions: { cardActionProps: 'actions', render: ... }` | `{ listSlot: 'actions', cardActionProps: 'actions', render: ... }` |
+| `actions: { render: ... }` | `{ listSlot: 'actions', render: ... }` |
 | `extra: { render: ... }` | `{ listSlot: 'aside', render: ... }` |
 | `status: { title: '状态', valueType: 'select', ... }` | `{ title: '状态', dataIndex: 'status', valueType: 'select', ... }` |
 
@@ -384,7 +382,6 @@ ProList 会根据 columns 或 metas 中配置了 `search` 的字段来生成搜�
       search: false,
     },
     actions: {
-      cardActionProps: 'actions',
       render: (_, row) => [<a key="edit">编辑</a>],
       search: false,
     },
@@ -413,7 +410,6 @@ ProList 会根据 columns 或 metas 中配置了 `search` 的字段来生成搜�
     },
     {
       listSlot: 'actions',
-      cardActionProps: 'actions',
       render: (_, row) => [<a key="edit">编辑</a>],
       search: false,
     },

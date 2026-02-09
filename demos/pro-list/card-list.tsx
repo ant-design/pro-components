@@ -1,5 +1,4 @@
 import {
-  ProFormRadio,
   ProFormSwitch,
   ProList,
 } from '@ant-design/pro-components';
@@ -40,10 +39,6 @@ const data = [
 }));
 
 export default () => {
-  const [cardActionProps, setCardActionProps] = useState<'actions' | 'extra'>(
-    'extra',
-  );
-
   const [ghost, setGhost] = useState<boolean>(false);
   return (
     <div
@@ -53,23 +48,6 @@ export default () => {
         padding: 24,
       }}
     >
-      <ProFormRadio.Group
-        label="actions 放置的地方"
-        options={[
-          {
-            label: '设置为 action',
-            value: 'actions',
-          },
-          {
-            label: '设置为 extra',
-            value: 'extra',
-          },
-        ]}
-        fieldProps={{
-          value: cardActionProps,
-          onChange: (e) => setCardActionProps(e.target.value),
-        }}
-      />
       <ProFormSwitch
         label="幽灵模式"
         fieldProps={{
@@ -105,9 +83,7 @@ export default () => {
           type: {},
           avatar: {},
           content: {},
-          actions: {
-            cardActionProps,
-          },
+          actions: {},
         }}
         headerTitle="卡片列表展示"
         dataSource={data}

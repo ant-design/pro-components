@@ -86,7 +86,6 @@ export type ItemProps<RecordType> = {
   grid?: ListGridType;
   expand?: boolean;
   rowSupportExpand?: boolean;
-  cardActionProps?: 'actions' | 'extra';
   onExpand?: (expand: boolean) => void;
   expandable?: ExpandableConfig<any>;
   showActions?: 'hover' | 'always';
@@ -150,7 +149,6 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     onRow,
     onItem,
     itemHeaderRender,
-    cardActionProps,
     extra,
     ...rest
   } = props;
@@ -203,11 +201,8 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     [actions],
   );
 
-  // cardActionProps 决定 actions 渲染到 extra 还是 actions 位置
-  const extraDom =
-    actionsArray && cardActionProps !== 'actions' ? actionsArray : undefined;
-  const actionsDom =
-    actionsArray && cardActionProps === 'actions' ? actionsArray : undefined;
+  // 卡片模式下，actions 统一渲染到 extra 位置
+  const extraDom = actionsArray ?? undefined;
 
   const titleDom =
     title || subTitle ? (
@@ -290,7 +285,6 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
           title={cardTitleDom}
           subTitle={subTitle}
           extra={extraDom}
-          actions={actionsDom}
           bodyStyle={{ padding: 24, ...cardProps.bodyStyle }}
           {...(itemProps as CheckCardProps)}
           onClick={(e) => {
