@@ -1,5 +1,14 @@
+import type { TooltipProps } from 'antd';
 import { Typography } from 'antd';
+import isObject from 'lodash-es/isObject';
 import React from 'react';
+
+export type ProEllipsisTooltip = {
+  showTitle?: boolean;
+  tooltip?: TooltipProps;
+};
+
+export type ProEllipsis = ProEllipsisTooltip | boolean;
 
 const isNeedTranText = (item: any): boolean => {
   if (item?.valueType?.toString().startsWith('date')) {
@@ -11,11 +20,10 @@ const isNeedTranText = (item: any): boolean => {
   return false;
 };
 
-const getEllipsis = (item: any) => {
+const getEllipsis = (item: any): ProEllipsisTooltip | boolean => {
   if (item.ellipsis?.showTitle === false) {
     return false;
   }
-
   return item.ellipsis;
 };
 
@@ -26,19 +34,32 @@ const normalizeCopyText = (text: unknown) => {
 };
 
 const genEllipsis = (dom: React.ReactNode, item: any, text: string) => {
+  const ellipsis = getEllipsis(item);
+  if (!ellipsis || !text) {
+    return false;
+  }
   /** 有些 valueType 需要设置copy的为string */
   const needTranText = isNeedTranText(item);
-  return getEllipsis(item) && text
-    ? {
-        tooltip:
-          // 支持一下 tooltip 的关闭
-          item?.tooltip !== false && needTranText ? (
-            <div className="pro-table-tooltip-text">{dom}</div>
-          ) : (
-            text
-          ),
-      }
-    : false;
+
+  // 支持一下 tooltip 的关闭
+  if (needTranText && item?.tooltip !== false) {
+    return {
+      tooltip: <div className="pro-table-tooltip-text">{dom}</div>,
+    };
+  }
+
+  // 如果 ellipsis 是对象且包含 tooltip 属性,合并 tooltip 的属性
+  if (isObject(ellipsis) && isObject(ellipsis.tooltip)) {
+    return {
+      tooltip: {
+        title: text,
+        ...ellipsis.tooltip,
+      },
+    };
+  }
+  return {
+    tooltip: text,
+  };
 };
 
 /**
