@@ -81,7 +81,7 @@ const Demo = () => {
             );
           }
           return (
-            <Space direction="vertical">
+            <Space orientation="vertical">
               <Button
                 size="small"
                 icon={<LeftOutlined />}

@@ -140,9 +140,9 @@ Refer to [Statistic](https://ant.design/components/statistic/) for more APIs, su
 
 Used to separate numerical statistics when grouping.
 
-| Property | Description         | Type                     | Default |
-| -------- | ------------------- | ------------------------ | ------- |
-| type     | Type of the divider | `horizontal \| vertical` | -       |
+| Property    | Description         | Type                     | Default |
+| ----------- | ------------------- | ------------------------ | ------- |
+| orientation | Type of the divider | `horizontal \| vertical` | -       |
 
 ### Operation
 

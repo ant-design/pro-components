@@ -209,9 +209,9 @@ All properties of [Tabs.TabPane](https://ant.design/components/tabs-cn/#Tabs.Tab
 
 Used to separate when grouping content.
 
-| parameter | description     | type                     | default value |
-| --------- | --------------- | ------------------------ | ------------- |
-| type      | Separation type | `horizontal \| vertical` | -             |
+| parameter   | description     | type                     | default value |
+| ----------- | --------------- | ------------------------ | ------------- |
+| orientation | Separation type | `horizontal \| vertical` | -             |
 
 ### ProCard.Group
 

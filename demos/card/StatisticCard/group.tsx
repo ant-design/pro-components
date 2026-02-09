@@ -27,7 +27,7 @@ const Demo = () => {
               precision: 2,
             }}
           />
-          <Divider type={responsive ? 'horizontal' : 'vertical'} />
+          <Divider orientation={responsive ? 'horizontal' : 'vertical'} />
           <StatisticCard
             statistic={{
               title: 'Frozen Amount',
@@ -36,7 +36,7 @@ const Demo = () => {
               suffix: 'Yuan',
             }}
           />
-          <Divider type={responsive ? 'horizontal' : 'vertical'} />
+          <Divider orientation={responsive ? 'horizontal' : 'vertical'} />
           <StatisticCard
             statistic={{
               title: 'Information Completeness',
@@ -97,7 +97,7 @@ const Demo = () => {
         <h4>Divider Props：</h4>
         <ul>
           <li>
-            <strong>type</strong>: 分割线类型，'horizontal'
+            <strong>orientation</strong>: 分割线类型，'horizontal'
             表示水平分割线，'vertical' 表示垂直分割线
           </li>
         </ul>
