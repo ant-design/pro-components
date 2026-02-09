@@ -1,8 +1,6 @@
 import { ProList } from '@ant-design/pro-components';
-import { Slider, Tag, Typography } from 'antd';
+import { Alert, Card, Col, Row, Segmented, Slider, Switch, Tag } from 'antd';
 import { useState } from 'react';
-
-const { Title, Text } = Typography;
 
 const data = [
   '语雀的天空',
@@ -35,73 +33,126 @@ const data = [
 export default () => {
   const [column, setColumn] = useState<number>(3);
   const [gutter, setGutter] = useState<number>(16);
+  const [bordered, setBordered] = useState<boolean>(true);
+  const [ghost, setGhost] = useState<boolean>(false);
+  const [showActions, setShowActions] = useState<'hover' | 'always'>('hover');
 
   return (
-    <div
-      style={{
-        backgroundColor: '#f5f5f5',
-        padding: 24,
-      }}
-    >
-      <div
-        style={{
-          backgroundColor: '#fff',
-          padding: 24,
-          marginBottom: 24,
-          borderRadius: 8,
-        }}
-      >
-        <Title level={5}>Grid 配置</Title>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
-          <div>
-            <Text strong>列数 (column): {column}</Text>
-            <Slider
-              min={1}
-              max={6}
-              value={column}
-              onChange={setColumn}
-              marks={{
-                1: '1',
-                2: '2',
-                3: '3',
-                4: '4',
-                5: '5',
-                6: '6',
-              }}
-            />
-          </div>
-          <div>
-            <Text strong>间距 (gutter): {gutter}px</Text>
-            <Slider
-              min={0}
-              max={48}
-              step={4}
-              value={gutter}
-              onChange={setGutter}
-              marks={{
-                0: '0',
-                8: '8',
-                16: '16',
-                24: '24',
-                32: '32',
-                48: '48',
-              }}
-            />
-          </div>
-        </div>
-      </div>
+    <div style={{ padding: 24, backgroundColor: '#f5f5f5' }}>
+      <Alert
+        title="Grid 布局配置"
+        description="ProList 使用 CSS Grid 实现网格布局，支持自定义列数和间距。通过 grid 属性配置，可以实现响应式的卡片网格布局。"
+        type="info"
+        showIcon
+        style={{ marginBottom: 24 }}
+      />
+
+      <Card title="配置面板" style={{ marginBottom: 24 }}>
+        <Row gutter={[24, 24]}>
+          <Col xs={24} md={12}>
+            <div>
+              <div style={{ marginBottom: 8, fontWeight: 500 }}>
+                列数 (column): {column}
+              </div>
+              <Slider
+                min={1}
+                max={6}
+                value={column}
+                onChange={setColumn}
+                marks={{
+                  1: '1',
+                  2: '2',
+                  3: '3',
+                  4: '4',
+                  5: '5',
+                  6: '6',
+                }}
+              />
+            </div>
+          </Col>
+
+          <Col xs={24} md={12}>
+            <div>
+              <div style={{ marginBottom: 8, fontWeight: 500 }}>
+                间距 (gutter): {gutter}px
+              </div>
+              <Slider
+                min={0}
+                max={48}
+                step={4}
+                value={gutter}
+                onChange={setGutter}
+                marks={{
+                  0: '0',
+                  8: '8',
+                  16: '16',
+                  24: '24',
+                  32: '32',
+                  48: '48',
+                }}
+              />
+            </div>
+          </Col>
+
+          <Col xs={24} md={8}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <span style={{ fontWeight: 500 }}>显示边框:</span>
+              <Switch checked={bordered} onChange={setBordered} />
+            </div>
+          </Col>
+
+          <Col xs={24} md={8}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <span style={{ fontWeight: 500 }}>幽灵模式:</span>
+              <Switch checked={ghost} onChange={setGhost} />
+            </div>
+          </Col>
+
+          <Col xs={24} md={8}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <span style={{ fontWeight: 500 }}>操作按钮:</span>
+              <Segmented
+                value={showActions}
+                onChange={setShowActions}
+                options={[
+                  { label: '悬停显示', value: 'hover' },
+                  { label: '始终显示', value: 'always' },
+                ]}
+              />
+            </div>
+          </Col>
+        </Row>
+
+        <Alert
+          title="代码示例"
+          description={
+            <pre style={{ margin: 0, fontSize: 12 }}>
+              {`<ProList
+  grid={{ gutter: ${gutter}, column: ${column} }}
+  itemCardProps={{ bordered: ${bordered}, ghost: ${ghost} }}
+  showActions="${showActions}"
+  ...
+/>`}
+            </pre>
+          }
+          type="success"
+          style={{ marginTop: 24 }}
+        />
+      </Card>
 
       <ProList<any>
         grid={{ gutter, column }}
         itemCardProps={{
-          bordered: true,
+          bordered,
+          ghost,
         }}
+        ghost={ghost}
         pagination={{
           defaultPageSize: 12,
           showSizeChanger: true,
           pageSizeOptions: ['6', '12', '18', '24'],
         }}
-        showActions="hover"
+        showActions={showActions}
         metas={{
           title: {},
           subTitle: {},
@@ -111,8 +162,8 @@ export default () => {
             cardActionProps: 'extra',
           },
         }}
-        headerTitle="Grid 布局配置示例"
-        tooltip="可以通过调整上方的滑块来改变列数和间距"
+        headerTitle="Grid 布局示例"
+        tooltip="使用 CSS Grid 实现的响应式卡片布局"
         dataSource={data}
       />
     </div>

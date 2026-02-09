@@ -1,5 +1,5 @@
-import { ProFormSwitch, ProList } from '@ant-design/pro-components';
-import { Progress, Tag } from 'antd';
+import { ProList } from '@ant-design/pro-components';
+import { Card, Progress, Radio, Switch, Tag } from 'antd';
 import { useState } from 'react';
 
 const data = [
@@ -18,16 +18,8 @@ const data = [
   avatar:
     'https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg',
   content: (
-    <div
-      style={{
-        flex: 1,
-      }}
-    >
-      <div
-        style={{
-          width: 200,
-        }}
-      >
+    <div style={{ flex: 1 }}>
+      <div style={{ width: 200 }}>
         <div>发布中</div>
         <Progress percent={80} />
       </div>
@@ -39,8 +31,8 @@ export default () => {
   const [cardActionProps, setCardActionProps] = useState<'actions' | 'extra'>(
     'extra',
   );
-
   const [ghost, setGhost] = useState<boolean>(false);
+
   return (
     <div
       style={{
@@ -49,13 +41,31 @@ export default () => {
         padding: 24,
       }}
     >
-      <ProFormSwitch
-        label="幽灵模式"
-        fieldProps={{
-          checked: ghost,
-          onChange: (e) => setGhost(e),
-        }}
-      />
+      <Card
+        title="配置选项"
+        size="small"
+        style={{ marginBottom: 16 }}
+        styles={{ body: { padding: '12px 16px' } }}
+      >
+        <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <span>幽灵模式:</span>
+            <Switch checked={ghost} onChange={setGhost} size="small" />
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <span>操作按钮位置:</span>
+            <Radio.Group
+              value={cardActionProps}
+              onChange={(e) => setCardActionProps(e.target.value)}
+              size="small"
+            >
+              <Radio.Button value="extra">Extra</Radio.Button>
+              <Radio.Button value="actions">Actions</Radio.Button>
+            </Radio.Group>
+          </div>
+        </div>
+      </Card>
+
       <ProList<any>
         ghost={ghost}
         itemCardProps={{

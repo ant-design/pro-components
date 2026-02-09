@@ -6,50 +6,110 @@
     style="background-color: #eee; margin: -24px; padding: 24px;"
   >
     <div
-      class="ant-form-item pro ant-form-css-var ant-form-item-horizontal"
+      class="ant-card ant-card-bordered ant-card-small pro"
+      style="margin-bottom: 16px;"
     >
       <div
-        class="ant-row ant-form-item-row pro"
+        class="ant-card-head"
       >
         <div
-          class="ant-col ant-form-item-label pro"
-        >
-          <label
-            class=""
-            title="幽灵模式"
-          >
-            幽灵模式
-          </label>
-        </div>
-        <div
-          class="ant-col ant-form-item-control pro"
+          class="ant-card-head-wrapper"
         >
           <div
-            class="ant-form-item-control-input"
+            class="ant-card-head-title"
           >
-            <div
-              class="ant-form-item-control-input-content"
+            配置选项
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+        style="padding: 12px 16px;"
+      >
+        <div
+          style="display: flex; gap: 24px; flex-wrap: wrap;"
+        >
+          <div
+            style="display: flex; align-items: center; gap: 8px;"
+          >
+            <span>
+              幽灵模式:
+            </span>
+            <button
+              aria-checked="false"
+              class="ant-switch ant-switch-small pro"
+              role="switch"
+              type="button"
             >
-              <button
-                aria-checked="false"
-                class="ant-switch pro"
-                role="switch"
-                type="button"
+              <div
+                class="ant-switch-handle"
+              />
+              <span
+                class="ant-switch-inner"
               >
-                <div
-                  class="ant-switch-handle"
+                <span
+                  class="ant-switch-inner-checked"
                 />
                 <span
-                  class="ant-switch-inner"
+                  class="ant-switch-inner-unchecked"
+                />
+              </span>
+            </button>
+          </div>
+          <div
+            style="display: flex; align-items: center; gap: 8px;"
+          >
+            <span>
+              操作按钮位置:
+            </span>
+            <div
+              class="ant-radio-group ant-radio-group-outline ant-radio-group-small pro ant-radio-css-var"
+            >
+              <label
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-checked pro ant-radio-css-var"
+              >
+                <span
+                  class="ant-radio-button ant-radio-button-checked"
                 >
-                  <span
-                    class="ant-switch-inner-checked"
+                  <input
+                    checked=""
+                    class="ant-radio-button-input"
+                    name="test-id"
+                    type="radio"
+                    value="extra"
                   />
                   <span
-                    class="ant-switch-inner-unchecked"
+                    class="ant-radio-button-inner"
                   />
                 </span>
-              </button>
+                <span
+                  class="ant-radio-button-label"
+                >
+                  Extra
+                </span>
+              </label>
+              <label
+                class="ant-radio-button-wrapper pro ant-radio-css-var"
+              >
+                <span
+                  class="ant-radio-button"
+                >
+                  <input
+                    class="ant-radio-button-input"
+                    name="test-id"
+                    type="radio"
+                    value="actions"
+                  />
+                  <span
+                    class="ant-radio-button-inner"
+                  />
+                </span>
+                <span
+                  class="ant-radio-button-label"
+                >
+                  Actions
+                </span>
+              </label>
             </div>
           </div>
         </div>
