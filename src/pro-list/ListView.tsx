@@ -236,9 +236,11 @@ function ListView<RecordType extends AnyObject>(
             ? get(item, dataIndex as string[])
             : item[dataIndex];
 
-          /** 如果cardActionProps 需要直接使用源数组，因为 action 必须要源数组 */
-          if (cardActionProps === 'actions' && listSlot === 'actions') {
-            listItemProps.cardActionProps = cardActionProps;
+          /** cardActionProps 控制 actions 在卡片上的渲染位置（extra 或 actions） */
+          if (listSlot === 'actions' && cardActionProps) {
+            listItemProps.cardActionProps = cardActionProps as
+              | 'extra'
+              | 'actions';
           }
           // 调用protable的列配置渲染数据
           const data = column.render

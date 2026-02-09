@@ -1,5 +1,5 @@
 /**
- * 卡片模式使用 columns + listSlot，actions 的 cardActionProps 控制渲染位置
+ * 卡片模式使用 columns + listSlot，actions 默认渲染到卡片的 extra 位置
  */
 import { ProList } from '@ant-design/pro-components';
 import type { ProColumns } from '@ant-design/pro-components';
@@ -39,7 +39,7 @@ const columns: ProColumns<DataItem>[] = [
   { dataIndex: 'content', listSlot: 'content' },
   {
     listSlot: 'actions',
-    cardActionProps: 'actions',
+    cardActionProps: 'extra',
     render: () => [
       <a key="invite">邀请</a>,
       <a key="delete">删除</a>,
