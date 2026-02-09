@@ -41,6 +41,7 @@ const SearchTable = () => (
             createdAt: 1705113600000,
           },
         ],
+        total: 3,
         success: true,
       };
     }}

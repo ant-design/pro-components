@@ -150,6 +150,7 @@ const ServerList: React.FC<ServerListProps> = (props) => {
         console.log(params, sorter, filter);
         return Promise.resolve({
           data: serverListDataSource,
+          total: serverListDataSource.length,
           success: true,
         });
       }}

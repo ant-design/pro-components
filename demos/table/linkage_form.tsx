@@ -116,6 +116,7 @@ const Demo = () => {
               state: 'closed',
             },
           ],
+          total: 1,
           success: true,
         };
       }}

@@ -38,6 +38,7 @@ const Demo = () => {
               createdAt: 1705286400000,
             },
           ],
+          total: 1,
           success: true,
         })
       }

@@ -43,6 +43,7 @@ const Demo = () => {
           console.log('-->', params);
           return Promise.resolve({
             data: [mockData],
+            total: 1,
             success: true,
           });
         }}
@@ -69,6 +70,7 @@ const Demo = () => {
           console.log('-->', params);
           return Promise.resolve({
             data: [mockData],
+            total: 1,
             success: true,
           });
         }}
@@ -94,6 +96,7 @@ const Demo = () => {
           console.log('-->', params);
           return Promise.resolve({
             data: [mockData],
+            total: 1,
             success: true,
           });
         }}

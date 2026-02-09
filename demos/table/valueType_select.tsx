@@ -170,6 +170,7 @@ const Demo = () => (
       request={() => {
         return Promise.resolve({
           data: tableListDataSource,
+          total: tableListDataSource.length,
           success: true,
         });
       }}

@@ -58,6 +58,7 @@ const Demo = () => {
           console.log(params, sorter, filter);
           return Promise.resolve({
             data: tableListDataSource,
+            total: tableListDataSource.length,
             success: true,
           });
         }}
