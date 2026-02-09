@@ -88,12 +88,19 @@ export type Key = React.Key;
 
 export type TriggerEventHandler<RecordType> = (record: RecordType) => void;
 
-function NoProVideProList<
+/** 根据 meta key 推导默认的 valueType */
+const DEFAULT_VALUE_TYPE_MAP: Record<string, string> = {
+  avatar: 'avatar',
+  actions: 'option',
+  description: 'textarea',
+};
+
+function InternalProList<
   RecordType extends Record<string, any>,
   U extends Record<string, any> = Record<string, any>,
 >(props: ProListProps<RecordType, U>) {
   const {
-    metas: metals,
+    metas,
     split,
     footer,
     rowKey,
@@ -128,31 +135,18 @@ function NoProVideProList<
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
   const proTableColumns: ProColumnType<RecordType>[] = useMemo(() => {
-    const columns: ProColumnType<RecordType>[] = [];
-    Object.keys(metals || {}).forEach((key) => {
-      const meta = metals![key] || {};
-      let { valueType } = meta;
-      if (!valueType) {
-        // 根据 key 给不同的 valueType
-        if (key === 'avatar') {
-          valueType = 'avatar';
-        }
-        if (key === 'actions') {
-          valueType = 'option';
-        }
-        if (key === 'description') {
-          valueType = 'textarea';
-        }
-      }
-      columns.push({
+    if (!metas) return [];
+    return Object.keys(metas).map((key) => {
+      const meta = metas[key] || {};
+      const valueType = meta.valueType || DEFAULT_VALUE_TYPE_MAP[key];
+      return {
         listKey: key,
-        dataIndex: meta?.dataIndex || key,
+        dataIndex: meta.dataIndex || key,
         ...meta,
         valueType,
-      });
+      };
     });
-    return columns;
-  }, [metals]);
+  }, [metas]);
 
   const prefixCls = getPrefixCls('pro-list', props.prefixCls);
 
@@ -216,13 +210,14 @@ function NoProVideProList<
   );
 }
 
+/** BaseProList 默认隐藏卡片、搜索和工具栏 */
 function BaseProList<
   RecordType extends Record<string, any>,
   U extends Record<string, any> = Record<string, any>,
 >(props: ProListProps<RecordType, U>) {
   return (
     <ProConfigProvider needDeps>
-      <NoProVideProList
+      <InternalProList
         cardProps={false}
         search={false}
         toolBarRender={false}
@@ -238,7 +233,7 @@ function ProList<
 >(props: ProListProps<RecordType, U>) {
   return (
     <ProConfigProvider needDeps>
-      <NoProVideProList {...props} />
+      <InternalProList {...props} />
     </ProConfigProvider>
   );
 }

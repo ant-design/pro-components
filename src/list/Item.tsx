@@ -115,10 +115,9 @@ export type ItemProps<RecordType> = {
 };
 
 function ProListItem<RecordType>(props: ItemProps<RecordType>) {
-  const { prefixCls: customizePrefixCls } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const { hashId } = useContext(ProProvider);
-  const prefixCls = getPrefixCls('pro-list', customizePrefixCls);
+  const prefixCls = getPrefixCls('pro-list', props.prefixCls);
   const defaultClassName = `${prefixCls}-row`;
 
   const {
@@ -126,7 +125,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     subTitle,
     content,
     itemTitleRender,
-    prefixCls: restPrefixCls,
+    prefixCls: _prefixCls,
     actions,
     item,
     recordKey,
@@ -194,30 +193,25 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     defaultClassName,
   );
 
-  const extraClassName = clsx(hashId, `${propsClassName}-extra`);
-
   const needExpanded =
     expanded || Object.values(expandableConfig || {}).length === 0;
   const expandedRowDom =
     expandedRowRender && expandedRowRender(record, index, indentSize, expanded);
 
-  const extraDom = useMemo(() => {
-    if (!actions || cardActionProps === 'actions') {
-      return undefined;
-    }
-    return React.Children.toArray(actions);
-  }, [actions, cardActionProps]);
+  const actionsArray = useMemo(
+    () => (actions ? React.Children.toArray(actions) : undefined),
+    [actions],
+  );
 
-  const actionsDom = useMemo(() => {
-    if (!actions || !cardActionProps || cardActionProps === 'extra') {
-      return undefined;
-    }
-    return React.Children.toArray(actions);
-  }, [actions, cardActionProps]);
+  // cardActionProps 决定 actions 渲染到 extra 还是 actions 位置
+  const extraDom =
+    actionsArray && cardActionProps !== 'actions' ? actionsArray : undefined;
+  const actionsDom =
+    actionsArray && cardActionProps === 'actions' ? actionsArray : undefined;
 
   const titleDom =
     title || subTitle ? (
-      <div className={`${defaultClassName}-header-container ${hashId}`.trim()}>
+      <div className={clsx(`${defaultClassName}-header-container`, hashId)}>
         {title && (
           <div
             className={clsx(`${defaultClassName}-title`, hashId, {
@@ -249,7 +243,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
         description={
           description &&
           needExpanded && (
-            <div className={`${className}-description ${hashId}`.trim()}>
+            <div className={clsx(`${className}-description`, hashId)}>
               {description}
             </div>
           )
@@ -257,27 +251,69 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       />
     ) : null;
 
+  const itemProps = onItem?.(record, index);
+  const hasExpandableConfig = Object.keys(expandableConfig || {}).length > 0;
+
+  const expandedRowClassStr =
+    typeof expandedRowClassName === 'function'
+      ? expandedRowClassName(record, index, indentSize)
+      : expandedRowClassName;
+
+  const headerDom = (itemHeaderRender?.(record, index, metaDom)) ?? metaDom;
+
+  // 卡片模式渲染
+  if (cardProps) {
+    const cardTitleDom =
+      avatar || title ? (
+        <>
+          {avatar}
+          <span className={clsx(`${prefixCls}-item-meta-title`, hashId)}>
+            {title}
+          </span>
+        </>
+      ) : null;
+
+    return (
+      <div
+        className={clsx(hashId, `${className}-card`, {
+          [propsClassName]: propsClassName !== defaultClassName,
+        })}
+        style={style}
+      >
+        <CheckCard
+          bordered
+          style={{ width: '100%' }}
+          {...cardProps}
+          title={cardTitleDom}
+          subTitle={subTitle}
+          extra={extraDom}
+          actions={actionsDom}
+          bodyStyle={{ padding: 24, ...cardProps.bodyStyle }}
+          {...(itemProps as CheckCardProps)}
+          onClick={(e: any) => {
+            cardProps?.onClick?.(e);
+            itemProps?.onClick?.(e);
+          }}
+        >
+          <Skeleton avatar title={false} loading={loading} active>
+            <div className={clsx(`${className}-header`, hashId)}>
+              {itemTitleRender?.(record, index, titleDom)}
+              {content}
+            </div>
+          </Skeleton>
+        </CheckCard>
+      </div>
+    );
+  }
+
+  // 列表模式渲染
   const rowClassName = clsx(hashId, {
     [`${defaultClassName}-item-has-checkbox`]: checkbox,
     [`${defaultClassName}-item-has-avatar`]: avatar,
     [className]: className,
   });
-  const cardTitleDom = useMemo(() => {
-    if (avatar || title) {
-      return (
-        <>
-          {avatar}
-          <span className={`${prefixCls}-item-meta-title ${hashId}`.trim()}>
-            {title}
-          </span>
-        </>
-      );
-    }
-    return null;
-  }, [avatar, getPrefixCls, hashId, title]);
 
-  const itemProps = onItem?.(record, index);
-  const defaultDom = !cardProps ? (
+  return (
     <BaseListItem
       className={clsx(rowClassName, hashId, {
         [propsClassName]: propsClassName !== defaultClassName,
@@ -295,14 +331,14 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       }}
     >
       <Skeleton avatar title={false} loading={loading} active>
-        <div className={`${className}-header ${hashId}`.trim()}>
-          <div className={`${className}-header-option ${hashId}`.trim()}>
+        <div className={clsx(`${className}-header`, hashId)}>
+          <div className={clsx(`${className}-header-option`, hashId)}>
             {!!checkbox && (
-              <div className={`${className}-checkbox ${hashId}`.trim()}>
+              <div className={clsx(`${className}-checkbox`, hashId)}>
                 {checkbox}
               </div>
             )}
-            {Object.values(expandableConfig || {}).length > 0 &&
+            {hasExpandableConfig &&
               rowSupportExpand &&
               renderExpandIcon({
                 prefixCls,
@@ -313,72 +349,19 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
                 record,
               } as RenderExpandIconProps<RecordType>)}
           </div>
-          {(itemHeaderRender && itemHeaderRender?.(record, index, metaDom)) ??
-            metaDom}
+          {headerDom}
           {extraDom}
         </div>
         {needExpanded && (content || expandedRowDom) && (
-          <div className={`${className}-content ${hashId}`.trim()}>
+          <div className={clsx(`${className}-content`, hashId)}>
             {content}
             {expandedRowRender && rowSupportExpand && (
-              <div
-                className={
-                  expandedRowClassName &&
-                  typeof expandedRowClassName !== 'string'
-                    ? expandedRowClassName(record, index, indentSize)
-                    : expandedRowClassName
-                }
-              >
-                {expandedRowDom}
-              </div>
+              <div className={expandedRowClassStr}>{expandedRowDom}</div>
             )}
           </div>
         )}
       </Skeleton>
     </BaseListItem>
-  ) : (
-    <CheckCard
-      bordered
-      style={{
-        width: '100%',
-      }}
-      {...cardProps}
-      title={cardTitleDom}
-      subTitle={subTitle}
-      extra={extraDom}
-      actions={actionsDom}
-      bodyStyle={{
-        padding: 24,
-        ...cardProps.bodyStyle,
-      }}
-      {...(itemProps as CheckCardProps)}
-      onClick={(e: any) => {
-        cardProps?.onClick?.(e);
-        itemProps?.onClick?.(e);
-      }}
-    >
-      <Skeleton avatar title={false} loading={loading} active>
-        <div className={`${className}-header ${hashId}`.trim()}>
-          {itemTitleRender && itemTitleRender?.(record, index, titleDom)}
-          {content}
-        </div>
-      </Skeleton>
-    </CheckCard>
-  );
-
-  if (!cardProps) {
-    return defaultDom;
-  }
-  return (
-    <div
-      className={clsx(hashId, {
-        [`${className}-card`]: cardProps,
-        [propsClassName]: propsClassName !== defaultClassName,
-      })}
-      style={style}
-    >
-      {defaultDom}
-    </div>
   );
 }
 

@@ -102,16 +102,11 @@ function ListView<RecordType extends AnyObject>(
 
   const [getRecordByKey] = useLazyKVMap(dataSource, 'children', getRowKey);
 
-  const usePaginationArgs = [() => {}, pagination] as [
-    onChange: (current: number, pageSize: number) => void,
-    pagination?: TablePaginationConfig | false,
-  ];
-
-  // 合并分页的的配置，这里是为了兼容 antd 的分页
+  // 合并分页配置，兼容 antd 的分页
   const [mergedPagination] = usePagination(
     dataSource.length,
-    usePaginationArgs[0],
-    usePaginationArgs[1],
+    () => {},
+    pagination,
   );
   /** 根据分页来返回不同的数据，模拟 table */
   const pageData = React.useMemo<readonly RecordType[]>(() => {
@@ -133,7 +128,7 @@ function ListView<RecordType extends AnyObject>(
   const prefixCls = getPrefixCls('pro-list', customizePrefixCls);
 
   /** 提供和 table 一样的 rowSelection 配置 */
-  const useSelectionArgs = [
+  const [selectItemRender, selectedKeySet] = useSelection(
     {
       getRowKey,
       getRecordByKey,
@@ -143,12 +138,9 @@ function ListView<RecordType extends AnyObject>(
       expandType: 'row',
       childrenColumnName: 'children',
       locale: {},
-    },
+    } as any,
     rowSelection,
-    // 这个 API 用的不好，先 any 一下
-  ] as [any, TableRowSelection<RecordType>];
-
-  const [selectItemRender, selectedKeySet] = useSelection(...useSelectionArgs);
+  );
 
   // 提供和 Table 一样的 expand 支持
   const {
@@ -254,50 +246,46 @@ function ListView<RecordType extends AnyObject>(
             : rawData;
           if (data !== '-') (listItemProps as any)[column.listKey] = data;
         });
-        let checkboxDom: React.ReactNode;
-        if (selectItemDom && selectItemDom.render) {
-          checkboxDom = selectItemDom.render(
+          const checkboxDom = selectItemDom?.render?.(
             item,
             item,
             index,
           ) as React.ReactNode;
-        }
+
         const { isEditable, recordKey } =
           actionRef.current?.isEditable({ ...item, index }) || {};
 
         const isChecked = selectedKeySet.has(recordKey || index);
+        const itemKey = getRowKey(item, index);
+
+        const cardProps = rest.grid
+          ? {
+              ...itemCardProps,
+              ...rest.grid,
+              checked: isChecked,
+              onChange: React.isValidElement(checkboxDom)
+                ? (changeChecked: boolean) =>
+                    (
+                      (checkboxDom as JSX.Element)?.props as any
+                    )?.onChange({
+                      nativeEvent: {},
+                      target: { checked: changeChecked },
+                      changeChecked,
+                    })
+                : undefined,
+            }
+          : undefined;
 
         const defaultDom = (
           <ProListItem
             key={recordKey}
-            cardProps={
-              rest.grid
-                ? {
-                    ...itemCardProps,
-                    ...rest.grid,
-                    checked: isChecked,
-                    onChange: React.isValidElement(checkboxDom)
-                      ? (changeChecked) => {
-                          return (
-                            (checkboxDom as JSX.Element)?.props as any
-                          )?.onChange({
-                            nativeEvent: {},
-                            target: { checked: changeChecked },
-                            changeChecked,
-                          });
-                        }
-                      : undefined,
-                  }
-                : undefined
-            }
+            cardProps={cardProps}
             {...listItemProps}
             recordKey={recordKey}
             isEditable={isEditable || false}
             expandable={expandableConfig}
-            expand={mergedExpandedKeys.has(getRowKey(item, index))}
-            onExpand={() => {
-              onTriggerExpand(item);
-            }}
+            expand={mergedExpandedKeys.has(itemKey)}
+            onExpand={() => onTriggerExpand(item)}
             index={index}
             record={item}
             item={item}
@@ -305,45 +293,42 @@ function ListView<RecordType extends AnyObject>(
             showExtra={showExtra}
             itemTitleRender={itemTitleRender}
             itemHeaderRender={itemHeaderRender}
-            rowSupportExpand={
-              !rowExpandable || (rowExpandable && rowExpandable(item))
-            }
-            selected={selectedKeySet.has(getRowKey(item, index))}
+            rowSupportExpand={!rowExpandable || rowExpandable(item)}
+            selected={selectedKeySet.has(itemKey)}
             checkbox={checkboxDom as React.ReactElement}
             onRow={onRow}
             onItem={onItem}
           />
         );
 
-        let content: React.ReactNode = itemRender
+        const renderedContent = itemRender
           ? itemRender(item, index, defaultDom)
           : defaultDom;
 
-        if (rest.grid?.gutter) {
-          const gutter = rest.grid.gutter;
-          const [horizontal, vertical] = Array.isArray(gutter)
-            ? gutter
-            : [gutter, gutter];
-          const h = Number(horizontal) || 0;
-          const v = Number(vertical) || 0;
-          content = (
-            <div
-              className={`${prefixCls}-grid-item ${hashId}`.trim()}
-              style={{
-                paddingLeft: h / 2,
-                paddingRight: h / 2,
-                paddingTop: v / 2,
-                paddingBottom: v / 2,
-                width: '100%',
-                boxSizing: 'border-box',
-              }}
-            >
-              {content}
-            </div>
-          );
-        }
+        if (!rest.grid?.gutter) return renderedContent;
 
-        return content;
+        const gutter = rest.grid.gutter;
+        const [horizontal, vertical] = Array.isArray(gutter)
+          ? gutter
+          : [gutter, gutter];
+        const h = Number(horizontal) || 0;
+        const v = Number(vertical) || 0;
+
+        return (
+          <div
+            className={clsx(`${prefixCls}-grid-item`, hashId)}
+            style={{
+              paddingLeft: h / 2,
+              paddingRight: h / 2,
+              paddingTop: v / 2,
+              paddingBottom: v / 2,
+              width: '100%',
+              boxSizing: 'border-box',
+            }}
+          >
+            {renderedContent}
+          </div>
+        );
       }}
     />
   );
