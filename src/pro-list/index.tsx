@@ -2,7 +2,14 @@ import type { PaginationProps } from 'antd';
 import { ConfigProvider } from 'antd';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import { clsx } from 'clsx';
-import React, { useContext, useImperativeHandle, useMemo, useRef } from 'react';
+import { warning } from '@rc-component/util';
+import React, {
+  useContext,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+} from 'react';
 import type { CheckCardProps } from '../card';
 import { ProConfigProvider } from '../provider';
 import type {
@@ -185,6 +192,15 @@ function InternalProList<
   useImperativeHandle(rest.actionRef, () => actionRef.current, [
     actionRef.current,
   ]);
+
+  // metas 废弃提示，仅在开发环境触发一次
+  useEffect(() => {
+    warning(
+      !metas,
+      '[ProList] `metas` is deprecated. Please use `columns` with `listSlot` instead. ' +
+        'See: columns={[ { dataIndex: "name", listSlot: "title" } ]}',
+    );
+  }, []);
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
