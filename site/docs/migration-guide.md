@@ -511,6 +511,8 @@ ProList 的 `metas` API 已废弃，推荐使用 `columns` + `listSlot` 替代�
 
 > **提示**：`metas` 中没有 `listSlot` 对应的键（如 `status`）会以键名作为 `dataIndex`，迁移时需要显式补上 `dataIndex`。迁移后同一份 `columns` 可直接传给 `ProTable` 使用，实现列表和表格的一键切换。详见 [ProList 文档](/components/list)。
 
+> ⚠️ `cardActionProps` 已被移除。卡片模式下 `actions` 统一渲染到卡片 `extra` 位置，如需自定义操作区的渲染位置，可通过 `content` 插槽自行开发实现。
+
 ### 兼容性相关
 
 #### 1. 移除 antd@4 兼容性代码

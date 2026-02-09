@@ -511,6 +511,8 @@ Migration reference:
 
 > **Tip**: metas keys without a corresponding `listSlot` (e.g. `status`) use the key name as `dataIndex`. When migrating, you need to explicitly add `dataIndex`. After migration, the same `columns` can be directly passed to `ProTable`, enabling one-click switching between list and table views. See [ProList documentation](/en-US/components/list).
 
+> ⚠️ `cardActionProps` has been removed. In card mode, `actions` are always rendered in the card's `extra` position. To customize the actions rendering position, use the `content` slot instead.
+
 ### Compatibility Related
 
 #### 1. Remove antd@4 Compatibility Code

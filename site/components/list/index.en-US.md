@@ -226,9 +226,11 @@ All other column properties are identical to ProTable's `ProColumns` (`dataIndex
 | `avatar` | List item avatar | `avatar` |
 | `description` | List item description | `textarea` |
 | `content` | List item content area | `text` |
-| `actions` | List item action area | `option` |
+| `actions` | List item action area, rendered in card `extra` position in card mode | `option` |
 | `aside` | Supplementary side content (e.g. images, progress bars, non-interactive content) | `text` |
 | `type` | List item type (`'new'` \| `'top'` \| `'inline'`) | `text` |
+
+> ⚠️ `cardActionProps` has been removed. In card mode, `actions` are always rendered in the card's `extra` position. If you need to customize the actions rendering position (e.g. render at the bottom of the card), you can implement it through the `content` slot.
 
 #### Usage Example
 
@@ -324,6 +326,8 @@ The field type corresponding to dataSource is `'new'` | `'top'` | `'inline'`.
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | dataIndex | - | - | `'actions'` |
+
+> ⚠️ `cardActionProps` has been removed. In card mode, actions are always rendered in the card's `extra` position. To customize the actions layout, use the `content` slot instead.
 
 #### Metas.content
 

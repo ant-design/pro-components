@@ -226,9 +226,11 @@ ProList 的 `columns` 与 ProTable 完全兼容，额外支持 `listSlot` 属性
 | `avatar` | 列表项头像 | `avatar` |
 | `description` | 列表项描述 | `textarea` |
 | `content` | 列表项内容区域 | `text` |
-| `actions` | 列表项操作区 | `option` |
+| `actions` | 列表项操作区，卡片模式下统一渲染到卡片 `extra` 位置 | `option` |
 | `aside` | 列表项附属内容，通常展示在右侧（如图片、进度条等非交互内容） | `text` |
 | `type` | 列表项类型（`'new'` \| `'top'` \| `'inline'`） | `text` |
+
+> ⚠️ `cardActionProps` 已被移除。卡片模式下 `actions` 统一渲染到卡片的 `extra` 位置。如果需要自定义操作区的渲染位置（如渲染到卡片底部），可以通过 `content` 插槽自行开发实现。
 
 #### 使用示例
 
@@ -324,6 +326,8 @@ Metas 使用对象的键名来映射列表项各个部分（标题、头像、�
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | dataIndex | - | - | `'actions'` |
+
+> ⚠️ `cardActionProps` 已被移除。卡片模式下 actions 统一渲染到卡片 `extra` 位置，如需自定义操作区布局，可通过 `content` 插槽自行实现。
 
 #### Metas.content
 
