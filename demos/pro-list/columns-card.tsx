@@ -1,5 +1,5 @@
 /**
- * 卡片模式使用 columns + listKey，actions 的 cardActionProps 控制渲染位置
+ * 卡片模式使用 columns + listSlot，actions 的 cardActionProps 控制渲染位置
  */
 import { ProList } from '@ant-design/pro-components';
 import type { ProColumns } from '@ant-design/pro-components';
@@ -33,12 +33,12 @@ const data: DataItem[] = [
 }));
 
 const columns: ProColumns<DataItem>[] = [
-  { dataIndex: 'title', listKey: 'title' },
-  { dataIndex: 'subTitle', listKey: 'subTitle' },
-  { dataIndex: 'avatar', listKey: 'avatar' },
-  { dataIndex: 'content', listKey: 'content' },
+  { dataIndex: 'title', listSlot: 'title' },
+  { dataIndex: 'subTitle', listSlot: 'subTitle' },
+  { dataIndex: 'avatar', listSlot: 'avatar' },
+  { dataIndex: 'content', listSlot: 'content' },
   {
-    listKey: 'actions',
+    listSlot: 'actions',
     cardActionProps: 'actions',
     render: () => [
       <a key="invite">邀请</a>,

@@ -221,30 +221,30 @@ function ListView<RecordType extends AnyObject>(
 
         (
           columns as (TableColumnType<RecordType> & {
-            listKey: string;
+            listSlot: string;
             cardActionProps: string;
           })[]
         )?.forEach((column) => {
-          const { listKey, cardActionProps } = column;
-          if (!PRO_LIST_KEYS_MAP.has(listKey)) {
+          const { listSlot, cardActionProps } = column;
+          if (!PRO_LIST_KEYS_MAP.has(listSlot)) {
             return;
           }
           const dataIndex = (column.dataIndex ||
-            listKey ||
+            listSlot ||
             column.key) as string;
           const rawData = Array.isArray(dataIndex)
             ? get(item, dataIndex as string[])
             : item[dataIndex];
 
           /** 如果cardActionProps 需要直接使用源数组，因为 action 必须要源数组 */
-          if (cardActionProps === 'actions' && listKey === 'actions') {
+          if (cardActionProps === 'actions' && listSlot === 'actions') {
             listItemProps.cardActionProps = cardActionProps;
           }
           // 调用protable的列配置渲染数据
           const data = column.render
             ? column.render(rawData, item, index)
             : rawData;
-          if (data !== '-') (listItemProps as any)[column.listKey] = data;
+          if (data !== '-') (listItemProps as any)[column.listSlot] = data;
         });
         const checkboxDom = selectItemDom?.render?.(
           item,

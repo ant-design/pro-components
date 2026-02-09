@@ -60,7 +60,7 @@ export type BaseProListMetas<T = any> = {
 };
 
 /**
- * @deprecated 推荐使用 columns + listKey 的方式，与 ProTable 共用同一套 API
+ * @deprecated 推荐使用 columns + listSlot 的方式，与 ProTable 共用同一套 API
  */
 export type ProListMetas<T = any> = BaseProListMetas<T> & {
   [key in keyof T]?: IsAny<T> extends true
@@ -81,15 +81,15 @@ export type ProListProps<
   AntdListProps<RecordType> & {
     tooltip?: LabelTooltipType | string;
     /**
-     * @deprecated 推荐使用 columns + listKey 的方式，与 ProTable 共用同一套 API
+     * @deprecated 推荐使用 columns + listSlot 的方式，与 ProTable 共用同一套 API
      *
      * @example 旧 API（metas）
      * metas={{ title: { dataIndex: 'name' }, avatar: { dataIndex: 'avatar' } }}
      *
-     * @example 新 API（columns + listKey）
+     * @example 新 API（columns + listSlot）
      * columns={[
-     *   { title: '名称', dataIndex: 'name', listKey: 'title' },
-     *   { dataIndex: 'avatar', listKey: 'avatar' },
+     *   { title: '名称', dataIndex: 'name', listSlot: 'title' },
+     *   { dataIndex: 'avatar', listSlot: 'avatar' },
      * ]}
      */
     metas?: ProListMetas<RecordType>;
@@ -126,7 +126,7 @@ function metasToColumns<RecordType>(
     const meta = metas[key] || {};
     const valueType = meta.valueType || DEFAULT_VALUE_TYPE_MAP[key];
     return {
-      listKey: key,
+      listSlot: key,
       dataIndex: meta.dataIndex || key,
       ...meta,
       valueType,
@@ -135,15 +135,15 @@ function metasToColumns<RecordType>(
 }
 
 /**
- * 为带有 listKey 的 columns 填充默认 valueType
+ * 为带有 listSlot 的 columns 填充默认 valueType
  */
 function enrichColumnsWithDefaults<RecordType>(
   columns: ProColumns<RecordType>[],
 ): ProColumnType<RecordType>[] {
   return columns.map((col) => {
-    const { listKey } = col;
-    if (!listKey) return col;
-    const valueType = col.valueType || DEFAULT_VALUE_TYPE_MAP[listKey];
+    const { listSlot } = col;
+    if (!listSlot) return col;
+    const valueType = col.valueType || DEFAULT_VALUE_TYPE_MAP[listSlot];
     return valueType ? { ...col, valueType } : col;
   });
 }
@@ -190,7 +190,7 @@ function InternalProList<
 
   /**
    * columns 优先级高于 metas
-   * - 如果传入了 columns（且含有 listKey），直接使用 columns
+   * - 如果传入了 columns（且含有 listSlot），直接使用 columns
    * - 如果只传入了 metas，将 metas 转换为 columns（向后兼容）
    */
   const proTableColumns: ProColumnType<RecordType>[] = useMemo(() => {

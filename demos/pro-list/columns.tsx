@@ -1,5 +1,5 @@
 /**
- * 使用 columns + listKey 的新 API，与 ProTable 兼容
+ * 使用 columns + listSlot 的新 API，与 ProTable 兼容
  */
 import { ProList } from '@ant-design/pro-components';
 import type { ProColumns } from '@ant-design/pro-components';
@@ -52,23 +52,23 @@ const dataSource: DataItem[] = [
 
 /**
  * 同一份 columns 可同时用于 ProTable 和 ProList
- * ProTable 忽略 listKey，ProList 使用 listKey 映射到列表项的各个部分
+ * ProTable 忽略 listSlot，ProList 使用 listSlot 映射到列表项的各个部分
  */
 const columns: ProColumns<DataItem>[] = [
   {
     title: '名称',
     dataIndex: 'name',
-    listKey: 'title',
+    listSlot: 'title',
   },
   {
     dataIndex: 'image',
-    listKey: 'avatar',
+    listSlot: 'avatar',
     search: false,
   },
   {
     title: '标签',
     dataIndex: 'labels',
-    listKey: 'subTitle',
+    listSlot: 'subTitle',
     search: false,
     render: (_, row) => (
       <Space size={8}>
@@ -83,12 +83,12 @@ const columns: ProColumns<DataItem>[] = [
   {
     title: '描述',
     dataIndex: 'desc',
-    listKey: 'description',
+    listSlot: 'description',
     search: false,
   },
   {
     title: '操作',
-    listKey: 'actions',
+    listSlot: 'actions',
     search: false,
     render: (_, row) => [
       <a key="edit">编辑</a>,

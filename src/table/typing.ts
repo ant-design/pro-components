@@ -157,13 +157,13 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
     editable?: boolean | ProTableEditableFnType<T>;
 
     /**
-     * 用于 ProList，指定该列映射到列表项的哪个部分
+     * 用于 ProList，指定该列映射到列表项的哪个插槽位置
      *
-     * @name 列表映射键
-     * @example listKey: 'title'
-     * @example listKey: 'avatar'
+     * @name 列表项插槽
+     * @example listSlot: 'title'
+     * @example listSlot: 'avatar'
      */
-    listKey?:
+    listSlot?:
       | 'title'
       | 'subTitle'
       | 'avatar'
@@ -174,7 +174,7 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
       | (string & {});
 
     /**
-     * 用于 ProList 卡片模式，当 listKey 为 'actions' 时，指定 actions 渲染的位置
+     * 用于 ProList 卡片模式，当 listSlot 为 'actions' 时，指定 actions 渲染的位置
      *
      * @name actions 渲染位置
      * @default 'extra'

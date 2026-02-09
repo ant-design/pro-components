@@ -935,7 +935,7 @@ describe('List', () => {
 
   // ============ columns API 测试 ============
 
-  it('🚏 columns API: basic use with listKey', async () => {
+  it('🚏 columns API: basic use with listSlot', async () => {
     const { container } = reactRender(
       <ProList
         dataSource={[
@@ -950,11 +950,11 @@ describe('List', () => {
           {
             title: '名称',
             dataIndex: 'name',
-            listKey: 'title',
+            listSlot: 'title',
           },
           {
             dataIndex: ['desc', 'text'],
-            listKey: 'description',
+            listSlot: 'description',
           },
         ]}
       />,
@@ -979,7 +979,7 @@ describe('List', () => {
         columns={[
           {
             dataIndex: 'name',
-            listKey: 'title',
+            listSlot: 'title',
           },
         ]}
         metas={{
@@ -1007,10 +1007,10 @@ describe('List', () => {
         columns={[
           {
             dataIndex: 'name',
-            listKey: 'title',
+            listSlot: 'title',
           },
           {
-            listKey: 'actions',
+            listSlot: 'actions',
             cardActionProps: 'actions',
             render: () => [
               <a key="edit" id="edit">
@@ -1047,11 +1047,11 @@ describe('List', () => {
           columns={[
             {
               dataIndex: 'name',
-              listKey: 'title',
+              listSlot: 'title',
             },
             {
               dataIndex: 'content',
-              listKey: 'content',
+              listSlot: 'content',
             },
           ]}
           expandable={{ expandedRowKeys, onExpandedRowsChange, onExpand }}
@@ -1082,10 +1082,10 @@ describe('List', () => {
         columns={[
           {
             dataIndex: 'name',
-            listKey: 'title',
+            listSlot: 'title',
           },
           {
-            listKey: 'description',
+            listSlot: 'description',
             render: () => (
               <>
                 <Tag>标签一</Tag>
@@ -1110,8 +1110,8 @@ describe('List', () => {
     };
     // 这组 columns 可以同时用于 ProTable 和 ProList
     const sharedColumns: ProColumns<DataItem>[] = [
-      { title: '名称', dataIndex: 'name', listKey: 'title' },
-      { dataIndex: 'avatar', listKey: 'avatar', search: false },
+      { title: '名称', dataIndex: 'name', listSlot: 'title' },
+      { dataIndex: 'avatar', listSlot: 'avatar', search: false },
     ];
 
     const { container } = reactRender(
@@ -1146,7 +1146,7 @@ describe('List', () => {
           columns={[
             {
               dataIndex: 'name',
-              listKey: 'title',
+              listSlot: 'title',
             },
           ]}
         />
@@ -1170,7 +1170,7 @@ describe('List', () => {
     ).not.toBeChecked();
   });
 
-  it('🚏 columns API: columns without listKey are ignored in list rendering', async () => {
+  it('🚏 columns API: columns without listSlot are ignored in list rendering', async () => {
     const { container } = reactRender(
       <ProList
         dataSource={[
@@ -1182,10 +1182,10 @@ describe('List', () => {
         columns={[
           {
             dataIndex: 'name',
-            listKey: 'title',
+            listSlot: 'title',
           },
           {
-            // 没有 listKey 的列不会渲染到列表项中
+            // 没有 listSlot 的列不会渲染到列表项中
             title: '状态',
             dataIndex: 'status',
             valueType: 'select',
