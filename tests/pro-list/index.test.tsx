@@ -1686,4 +1686,302 @@ describe('List', () => {
       container.querySelector('.ant-pro-list-row-description')!.innerHTML,
     ).toEqual('嵌套描述');
   });
+
+  // ============ 边缘场景测试 ============
+
+  it('🚏 edge: empty columns array renders empty list', async () => {
+    const { container } = reactRender(
+      <ProList dataSource={[{ name: 'a' }]} columns={[]} />,
+    );
+    // 有数据项但没有任何列配置，不应该崩溃
+    expect(container.querySelector('.ant-pro-list')).toBeTruthy();
+  });
+
+  it('🚏 edge: columns with no listSlot renders items without slots', async () => {
+    const { container } = reactRender(
+      <ProList
+        dataSource={[{ name: 'a', status: 'open' }]}
+        columns={[
+          { title: '状态', dataIndex: 'status', valueType: 'select' },
+        ]}
+      />,
+    );
+    // 没有任何 listSlot，列表项应无 title/description 等内容
+    expect(container.querySelector('.ant-pro-list-row-title')).toBeFalsy();
+    expect(
+      container.querySelector('.ant-pro-list-row-description'),
+    ).toBeFalsy();
+  });
+
+  it('🚏 edge: undefined columns falls back to metas', async () => {
+    const { container } = reactRender(
+      <ProList
+        dataSource={[{ name: '回退名称' }]}
+        columns={undefined}
+        metas={{ title: { dataIndex: 'name' } }}
+      />,
+    );
+    expect(
+      container.querySelector('.ant-pro-list-row-title')!.innerHTML,
+    ).toEqual('回退名称');
+  });
+
+  it('🚏 edge: null dataSource does not crash', async () => {
+    const { container } = reactRender(
+      <ProList
+        dataSource={null as any}
+        columns={[{ dataIndex: 'name', listSlot: 'title' }]}
+      />,
+    );
+    expect(container.querySelector('.ant-pro-list')).toBeTruthy();
+  });
+
+  it('🚏 edge: empty dataSource array shows empty state', async () => {
+    const { container } = reactRender(
+      <ProList
+        dataSource={[]}
+        columns={[{ dataIndex: 'name', listSlot: 'title' }]}
+      />,
+    );
+    expect(
+      container.querySelector('.ant-empty-description')!.innerHTML,
+    ).toEqual('暂无数据');
+  });
+
+  it('🚏 edge: duplicate listSlot uses last column value', async () => {
+    const { container } = reactRender(
+      <ProList
+        dataSource={[{ first: '第一个', second: '第二个' }]}
+        columns={[
+          { dataIndex: 'first', listSlot: 'title' },
+          { dataIndex: 'second', listSlot: 'title' },
+        ]}
+      />,
+    );
+    // 后面的列会覆盖前面的（forEach 顺序）
+    expect(
+      container.querySelector('.ant-pro-list-row-title')!.innerHTML,
+    ).toEqual('第二个');
+  });
+
+  it('🚏 edge: render returns "-" is skipped', async () => {
+    const { container } = reactRender(
+      <ProList
+        dataSource={[{ name: '名称' }]}
+        columns={[
+          { dataIndex: 'name', listSlot: 'title' },
+          {
+            listSlot: 'description',
+            render: () => '-',
+          },
+        ]}
+      />,
+    );
+    expect(
+      container.querySelector('.ant-pro-list-row-title')!.innerHTML,
+    ).toEqual('名称');
+    // render 返回 '-' 的列不会渲染
+    expect(
+      container.querySelector('.ant-pro-list-row-description'),
+    ).toBeFalsy();
+  });
+
+  it('🚏 edge: dataIndex points to non-existent field renders nothing', async () => {
+    const { container } = reactRender(
+      <ProList
+        dataSource={[{ name: '存在' }]}
+        columns={[
+          { dataIndex: 'name', listSlot: 'title' },
+          { dataIndex: 'nonExistent', listSlot: 'description' },
+        ]}
+      />,
+    );
+    expect(
+      container.querySelector('.ant-pro-list-row-title')!.innerHTML,
+    ).toEqual('存在');
+    // 不存在的字段不渲染 description
+    expect(
+      container.querySelector('.ant-pro-list-row-description'),
+    ).toBeFalsy();
+  });
+
+  it('🚏 edge: rowKey as function works with columns', async () => {
+    const { container } = reactRender(
+      <ProList
+        dataSource={[
+          { uid: 'u1', name: '项目一' },
+          { uid: 'u2', name: '项目二' },
+        ]}
+        rowKey={(item: any) => item.uid}
+        columns={[{ dataIndex: 'name', listSlot: 'title' }]}
+        rowSelection={{}}
+      />,
+    );
+    expect(container.querySelectorAll('.ant-checkbox-input').length).toEqual(2);
+  });
+
+  it('🚏 edge: only actions column with no title/avatar/description', async () => {
+    const { container } = reactRender(
+      <ProList
+        dataSource={[{ id: '1' }]}
+        columns={[
+          {
+            listSlot: 'actions',
+            render: () => [<a key="act">唯一操作</a>],
+          },
+        ]}
+      />,
+    );
+    expect(container.querySelector('.ant-pro-list-row-title')).toBeFalsy();
+    expect(container.textContent?.includes('唯一操作')).toBeTruthy();
+  });
+
+  it('🚏 edge: type slot renders correctly', async () => {
+    const { container } = reactRender(
+      <ProList
+        dataSource={[{ name: 'Top项', itemType: 'top' }]}
+        columns={[
+          { dataIndex: 'name', listSlot: 'title' },
+          { dataIndex: 'itemType', listSlot: 'type' },
+        ]}
+      />,
+    );
+    expect(
+      container.querySelector('.ant-pro-list-row-type-top'),
+    ).toBeTruthy();
+  });
+
+  it('🚏 edge: columns dynamically change', async () => {
+    const Wrapper = () => {
+      const [showDesc, setShowDesc] = useState(false);
+      const cols = [
+        { dataIndex: 'name', listSlot: 'title' as const },
+        ...(showDesc
+          ? [{ dataIndex: 'desc', listSlot: 'description' as const }]
+          : []),
+      ];
+      return (
+        <>
+          <button data-testid="toggle" onClick={() => setShowDesc(true)}>
+            切换
+          </button>
+          <ProList
+            dataSource={[{ name: '名称', desc: '描述' }]}
+            columns={cols}
+          />
+        </>
+      );
+    };
+    const { container } = reactRender(<Wrapper />);
+
+    expect(
+      container.querySelector('.ant-pro-list-row-description'),
+    ).toBeFalsy();
+
+    act(() => {
+      fireEvent.click(screen.getByTestId('toggle'));
+    });
+
+    await waitFor(() => {
+      expect(
+        container.querySelector('.ant-pro-list-row-description'),
+      ).toBeTruthy();
+    });
+  });
+
+  it('🚏 edge: showExtra hover with columns', async () => {
+    const { container } = reactRender(
+      <ProList
+        dataSource={[{ name: '名称' }]}
+        columns={[
+          { dataIndex: 'name', listSlot: 'title' },
+          {
+            listSlot: 'aside',
+            render: () => <div>附属</div>,
+          },
+        ]}
+        showExtra="hover"
+      />,
+    );
+    expect(
+      container.querySelector('.ant-pro-list-row-show-extra-hover'),
+    ).toBeTruthy();
+  });
+
+  it('🚏 edge: columns with key fallback when no dataIndex', async () => {
+    const { container } = reactRender(
+      <ProList
+        dataSource={[{ title: '通过key取值' }]}
+        columns={[
+          { key: 'title', listSlot: 'title' },
+        ]}
+      />,
+    );
+    // 当没有 dataIndex 时，使用 listSlot 或 key 作为 fallback
+    // listSlot='title' 会作为 dataIndex fallback
+    expect(
+      container.querySelector('.ant-pro-list-row-title')!.textContent,
+    ).toEqual('通过key取值');
+  });
+
+  it('🚏 edge: both metas and empty columns array uses metas', async () => {
+    const { container } = reactRender(
+      <ProList
+        dataSource={[{ name: 'metas生效' }]}
+        columns={[]}
+        metas={{ title: { dataIndex: 'name' } }}
+      />,
+    );
+    // 空 columns 数组 length=0，应回退到 metas
+    expect(
+      container.querySelector('.ant-pro-list-row-title')!.innerHTML,
+    ).toEqual('metas生效');
+  });
+
+  it('🚏 edge: columns with render returning ReactNode array for actions', async () => {
+    const { container } = reactRender(
+      <ProList
+        dataSource={[{ name: '名称' }]}
+        columns={[
+          { dataIndex: 'name', listSlot: 'title' },
+          {
+            listSlot: 'actions',
+            render: () => [
+              <a key="a">操作一</a>,
+              <a key="b">操作二</a>,
+              <a key="c">操作三</a>,
+            ],
+          },
+        ]}
+      />,
+    );
+    expect(container.textContent?.includes('操作一')).toBeTruthy();
+    expect(container.textContent?.includes('操作二')).toBeTruthy();
+    expect(container.textContent?.includes('操作三')).toBeTruthy();
+  });
+
+  it('🚏 edge: loading state with columns does not crash', async () => {
+    const { container } = reactRender(
+      <ProList
+        dataSource={[{ name: '名称' }]}
+        columns={[{ dataIndex: 'name', listSlot: 'title' }]}
+        loading={true}
+      />,
+    );
+    // loading 状态不应导致崩溃，列表容器应正常存在
+    expect(container.querySelector('.ant-pro-list')).toBeTruthy();
+  });
+
+  it('🚏 edge: split=false with columns', async () => {
+    const { container } = reactRender(
+      <ProList
+        dataSource={[{ name: 'a' }, { name: 'b' }]}
+        columns={[{ dataIndex: 'name', listSlot: 'title' }]}
+        split={false}
+      />,
+    );
+    expect(
+      container.querySelector('.ant-pro-list-no-split'),
+    ).toBeTruthy();
+  });
 });
