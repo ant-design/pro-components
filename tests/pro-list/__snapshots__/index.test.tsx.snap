@@ -1,0 +1,310 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`List > 🚏 ProList support rowClassName as a function 1`] = `
+<div>
+  <div
+    class="ant-pro-table ant-pro-list ant-pro-list-no-split"
+  >
+    <div
+      class="ant-pro-list ant-pro-list-split ant-pro-list-container"
+    >
+      <ul
+        class="ant-pro-list-items"
+      >
+        <li
+          class="ant-pro-list-item ant-pro-list-row even"
+        >
+          <div
+            class="ant-pro-list-row-header"
+          >
+            <div
+              class="ant-pro-list-row-header-option"
+            />
+            <div
+              class="ant-pro-list-item-meta"
+            >
+              <div
+                class="ant-pro-list-item-meta-content"
+              >
+                <h4
+                  class="ant-pro-list-item-meta-title"
+                >
+                  <div
+                    class="ant-pro-list-row-header-container"
+                  >
+                    <div
+                      class="ant-pro-list-row-title"
+                    >
+                      我是名称
+                    </div>
+                  </div>
+                </h4>
+                <div
+                  class="ant-pro-list-item-meta-description"
+                >
+                  <div
+                    class="ant-pro-list-row-description"
+                  >
+                    desc text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li
+          class="ant-pro-list-item ant-pro-list-row odd"
+        >
+          <div
+            class="ant-pro-list-row-header"
+          >
+            <div
+              class="ant-pro-list-row-header-option"
+            />
+            <div
+              class="ant-pro-list-item-meta"
+            >
+              <div
+                class="ant-pro-list-item-meta-content"
+              >
+                <h4
+                  class="ant-pro-list-item-meta-title"
+                >
+                  <div
+                    class="ant-pro-list-row-header-container"
+                  >
+                    <div
+                      class="ant-pro-list-row-title"
+                    >
+                      我是名称
+                    </div>
+                  </div>
+                </h4>
+                <div
+                  class="ant-pro-list-item-meta-description"
+                >
+                  <div
+                    class="ant-pro-list-row-description"
+                  >
+                    desc text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`List > 🚏 ProList support rowClassName as a string 1`] = `
+<div>
+  <div
+    class="ant-pro-table ant-pro-list ant-pro-list-no-split"
+  >
+    <div
+      class="ant-pro-list ant-pro-list-split ant-pro-list-container"
+    >
+      <ul
+        class="ant-pro-list-items"
+      >
+        <li
+          class="ant-pro-list-item ant-pro-list-row rowClassName"
+        >
+          <div
+            class="ant-pro-list-row-header"
+          >
+            <div
+              class="ant-pro-list-row-header-option"
+            />
+            <div
+              class="ant-pro-list-item-meta"
+            >
+              <div
+                class="ant-pro-list-item-meta-content"
+              >
+                <h4
+                  class="ant-pro-list-item-meta-title"
+                >
+                  <div
+                    class="ant-pro-list-row-header-container"
+                  >
+                    <div
+                      class="ant-pro-list-row-title"
+                    >
+                      我是名称
+                    </div>
+                  </div>
+                </h4>
+                <div
+                  class="ant-pro-list-item-meta-description"
+                >
+                  <div
+                    class="ant-pro-list-row-description"
+                  >
+                    desc text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`List > 🚏 only has content 1`] = `
+<div>
+  <div
+    class="ant-pro-table ant-pro-list ant-pro-list-no-split"
+  >
+    <div
+      class="ant-pro-list ant-pro-list-split ant-pro-list-container"
+    >
+      <ul
+        class="ant-pro-list-items"
+      >
+        <li
+          class="ant-pro-list-item ant-pro-list-row"
+        >
+          <div
+            class="ant-pro-list-row-header"
+          >
+            <div
+              class="ant-pro-list-row-header-option"
+            />
+          </div>
+          <div
+            class="ant-pro-list-row-content"
+          >
+            <div>
+              段落示意：蚂蚁金服设计平台 design.alipay.com，用最小的工作量，无缝接入蚂蚁金服生态，提供跨越设计与开发的体验解决方案。蚂蚁金服设计平台 design.alipay.com，用最小的工作量，无缝接入蚂蚁金服生态提供跨越设计与开发的体验解决方案。
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`List > 🚏 only has description 1`] = `
+<div>
+  <div
+    class="ant-pro-table ant-pro-list ant-pro-list-no-split"
+  >
+    <div
+      class="ant-pro-list ant-pro-list-split ant-pro-list-container"
+    >
+      <ul
+        class="ant-pro-list-items"
+      >
+        <li
+          class="ant-pro-list-item ant-pro-list-row"
+        >
+          <div
+            class="ant-pro-list-row-header"
+          >
+            <div
+              class="ant-pro-list-row-header-option"
+            />
+            <div
+              class="ant-pro-list-item-meta"
+            >
+              <div
+                class="ant-pro-list-item-meta-content"
+              >
+                <div
+                  class="ant-pro-list-item-meta-description"
+                >
+                  <div
+                    class="ant-pro-list-row-description"
+                  >
+                    <span
+                      class="ant-tag ant-tag-filled css-var-rh"
+                    >
+                      语雀专栏
+                    </span>
+                    <span
+                      class="ant-tag ant-tag-filled css-var-rh"
+                    >
+                      设计语言
+                    </span>
+                    <span
+                      class="ant-tag ant-tag-filled css-var-rh"
+                    >
+                      蚂蚁金服
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`List > 🚏 show loading state 1`] = `
+<div>
+  <div
+    class="ant-pro-table ant-pro-list ant-pro-list-no-split"
+  >
+    <div
+      class="ant-pro-list ant-pro-list-split ant-pro-list-loading ant-pro-list-container"
+    >
+      <ul
+        class="ant-pro-list-items"
+      >
+        <li
+          class="ant-pro-list-item ant-pro-list-row"
+        >
+          <div
+            class="ant-pro-list-row-header"
+          >
+            <div
+              class="ant-pro-list-row-header-option"
+            />
+            <div
+              class="ant-pro-list-item-meta"
+            >
+              <div
+                class="ant-pro-list-item-meta-content"
+              >
+                <h4
+                  class="ant-pro-list-item-meta-title"
+                >
+                  <div
+                    class="ant-pro-list-row-header-container"
+                  >
+                    <div
+                      class="ant-pro-list-row-title"
+                    >
+                      我是名称
+                    </div>
+                  </div>
+                </h4>
+                <div
+                  class="ant-pro-list-item-meta-description"
+                >
+                  <div
+                    class="ant-pro-list-row-description"
+                  >
+                    desc text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

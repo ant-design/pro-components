@@ -20,6 +20,7 @@ import {
   dateFormatterMap,
 } from './conversionMomentValue';
 import { dateArrayFormatter } from './dateArrayFormatter';
+import type { ProEllipsis } from './genCopyable';
 import { genCopyable } from './genCopyable';
 import { getFieldPropsOrFormItemProps } from './getFieldPropsOrFormItemProps';
 import { useDebounceFn } from './hooks/useDebounceFn';
@@ -55,7 +56,6 @@ import { objectToMap, proFieldParsingText } from './proFieldParsingText';
 import { runFunction } from './runFunction';
 import stringify from './stringify';
 import { transformKeySubmitValue } from './transformKeySubmitValue';
-import type { ProEllipsis } from './genCopyable';
 import type {
   RowEditableConfig,
   RowEditableType,
