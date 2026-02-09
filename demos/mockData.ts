@@ -16,23 +16,23 @@ export const FIXED_BASE_DATE = dayjs('2024-01-15');
 // 人员数据
 // ============================
 
-/** 创建者列表（常见中文人名） */
+/** 创建者列表（阿里花名风格） */
 export const DEMO_CREATORS = [
-  '张伟',
-  '李娜',
-  '王磊',
-  '赵敏',
-  '刘洋',
+  '书琰',
+  '逄一',
+  '期贤',
+  '玄霜',
+  '怀渊',
 ] as const;
 
 /** 创建者列 valueEnum */
 export const DEMO_CREATOR_VALUE_ENUM = {
   all: { text: '全部' },
-  张伟: { text: '张伟' },
-  李娜: { text: '李娜' },
-  王磊: { text: '王磊' },
-  赵敏: { text: '赵敏' },
-  刘洋: { text: '刘洋' },
+  书琰: { text: '书琰' },
+  逄一: { text: '逄一' },
+  期贤: { text: '期贤' },
+  玄霜: { text: '玄霜' },
+  怀渊: { text: '怀渊' },
 } as const;
 
 // ============================
@@ -225,7 +225,7 @@ export const DEMO_EDITABLE_TASKS: EditableTaskItem[] = [
   {
     id: 624748504,
     title: '优化首页加载速度',
-    assignee: '张伟',
+    assignee: '书琰',
     priority: 'high',
     status: 'open',
     description: '首页白屏时间超过 3s，需优化资源加载和首屏渲染',
@@ -235,7 +235,7 @@ export const DEMO_EDITABLE_TASKS: EditableTaskItem[] = [
   {
     id: 624691229,
     title: '修复登录超时问题',
-    assignee: '李娜',
+    assignee: '逄一',
     priority: 'urgent',
     status: 'closed',
     description: '用户反馈高峰期登录请求超时，需排查连接池配置',
@@ -245,7 +245,7 @@ export const DEMO_EDITABLE_TASKS: EditableTaskItem[] = [
   {
     id: 624674560,
     title: '新增数据导出功能',
-    assignee: '王磊',
+    assignee: '期贤',
     priority: 'medium',
     status: 'processing',
     description: '支持将查询结果导出为 Excel 和 CSV 格式',
@@ -314,7 +314,7 @@ export const DEMO_PROJECT_LIST = [
 export const DEMO_ORDER_DETAIL = {
   orderNo: 'ORD-2024-0115-0001',
   customerName: '杭州星辰科技有限公司',
-  contactPerson: '张伟',
+  contactPerson: '书琰',
   contactPhone: '138****6789',
   productName: '企业版云服务套餐',
   amount: 128000,

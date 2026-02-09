@@ -167,7 +167,7 @@ const Demo = () => {
         name="mangerName"
         disabled
         label="商务经理"
-        initialValue="王磊"
+        initialValue="期贤"
       />
       <ProFormCascader
         width="md"

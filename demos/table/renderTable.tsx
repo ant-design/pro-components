@@ -119,7 +119,7 @@ const Demo = () => {
         <Card>
           <Descriptions size="small" column={3}>
             <Descriptions.Item label="实例数">{data.length}</Descriptions.Item>
-            <Descriptions.Item label="负责人">张伟</Descriptions.Item>
+            <Descriptions.Item label="负责人">书琰</Descriptions.Item>
             <Descriptions.Item label="关联项目">
               <a>智慧零售平台</a>
             </Descriptions.Item>
