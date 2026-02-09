@@ -6,50 +6,110 @@
     style="background-color: #eee; margin: -24px; padding: 24px;"
   >
     <div
-      class="ant-form-item pro ant-form-css-var ant-form-item-horizontal"
+      class="ant-card ant-card-bordered ant-card-small pro"
+      style="margin-bottom: 16px;"
     >
       <div
-        class="ant-row ant-form-item-row pro"
+        class="ant-card-head"
       >
         <div
-          class="ant-col ant-form-item-label pro"
-        >
-          <label
-            class=""
-            title="幽灵模式"
-          >
-            幽灵模式
-          </label>
-        </div>
-        <div
-          class="ant-col ant-form-item-control pro"
+          class="ant-card-head-wrapper"
         >
           <div
-            class="ant-form-item-control-input"
+            class="ant-card-head-title"
           >
-            <div
-              class="ant-form-item-control-input-content"
+            配置选项
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+        style="padding: 12px 16px;"
+      >
+        <div
+          style="display: flex; gap: 24px; flex-wrap: wrap;"
+        >
+          <div
+            style="display: flex; align-items: center; gap: 8px;"
+          >
+            <span>
+              幽灵模式:
+            </span>
+            <button
+              aria-checked="false"
+              class="ant-switch ant-switch-small pro"
+              role="switch"
+              type="button"
             >
-              <button
-                aria-checked="false"
-                class="ant-switch pro"
-                role="switch"
-                type="button"
+              <div
+                class="ant-switch-handle"
+              />
+              <span
+                class="ant-switch-inner"
               >
-                <div
-                  class="ant-switch-handle"
+                <span
+                  class="ant-switch-inner-checked"
                 />
                 <span
-                  class="ant-switch-inner"
+                  class="ant-switch-inner-unchecked"
+                />
+              </span>
+            </button>
+          </div>
+          <div
+            style="display: flex; align-items: center; gap: 8px;"
+          >
+            <span>
+              操作按钮位置:
+            </span>
+            <div
+              class="ant-radio-group ant-radio-group-outline ant-radio-group-small pro ant-radio-css-var"
+            >
+              <label
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-checked pro ant-radio-css-var"
+              >
+                <span
+                  class="ant-radio-button ant-radio-button-checked"
                 >
-                  <span
-                    class="ant-switch-inner-checked"
+                  <input
+                    checked=""
+                    class="ant-radio-button-input"
+                    name="test-id"
+                    type="radio"
+                    value="extra"
                   />
                   <span
-                    class="ant-switch-inner-unchecked"
+                    class="ant-radio-button-inner"
                   />
                 </span>
-              </button>
+                <span
+                  class="ant-radio-button-label"
+                >
+                  Extra
+                </span>
+              </label>
+              <label
+                class="ant-radio-button-wrapper pro ant-radio-css-var"
+              >
+                <span
+                  class="ant-radio-button"
+                >
+                  <input
+                    class="ant-radio-button-input"
+                    name="test-id"
+                    type="radio"
+                    value="actions"
+                  />
+                  <span
+                    class="ant-radio-button-inner"
+                  />
+                </span>
+                <span
+                  class="ant-radio-button-label"
+                >
+                  Actions
+                </span>
+              </label>
             </div>
           </div>
         </div>
@@ -121,7 +181,7 @@
                             <span
                               class="ant-pro-list-item-meta-title"
                             >
-                              语雀的天空
+                              企业官网重构
                             </span>
                           </div>
                           <div
@@ -129,9 +189,9 @@
                           >
                             <span
                               class="ant-tag ant-tag-filled pro"
-                              style="background-color: #ebfaf4; color: #5BD8A6;"
+                              style="background-color: #fbe9ea; color: #ff4d4f;"
                             >
-                              语雀专栏
+                              前端组
                             </span>
                           </div>
                         </div>
@@ -143,10 +203,10 @@
                             style="display: flex; gap: 16px; align-items: center;"
                           >
                             <a>
-                              邀请
+                              详情
                             </a>
                             <a>
-                              删除
+                              编辑
                             </a>
                           </div>
                         </div>
@@ -163,17 +223,17 @@
                       <div
                         style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                       >
-                        <div
-                          style="width: 200px;"
-                        >
-                          <div>
-                            发布中
+                        <div>
+                          <div
+                            style="margin-bottom: 8px; color: #666;"
+                          >
+                            进行中
                           </div>
                           <div
                             aria-valuemax="100"
                             aria-valuemin="0"
-                            aria-valuenow="80"
-                            class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default pro"
+                            aria-valuenow="85"
+                            class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small pro"
                             role="progressbar"
                           >
                             <div
@@ -182,18 +242,18 @@
                             >
                               <div
                                 class="ant-progress-rail"
-                                style="height: 8px;"
+                                style="height: 6px;"
                               >
                                 <div
                                   class="ant-progress-track"
-                                  style="width: 80%; height: 8px;"
+                                  style="width: 85%; height: 6px;"
                                 />
                               </div>
                               <span
                                 class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
-                                title="80%"
+                                title="85%"
                               >
-                                80%
+                                85%
                               </span>
                             </div>
                           </div>
@@ -236,7 +296,7 @@
                             <span
                               class="ant-pro-list-item-meta-title"
                             >
-                              Ant Design
+                              移动端 App 开发
                             </span>
                           </div>
                           <div
@@ -244,9 +304,9 @@
                           >
                             <span
                               class="ant-tag ant-tag-filled pro"
-                              style="background-color: #ebfaf4; color: #5BD8A6;"
+                              style="background-color: #fbe9ea; color: #ff4d4f;"
                             >
-                              语雀专栏
+                              移动组
                             </span>
                           </div>
                         </div>
@@ -258,10 +318,10 @@
                             style="display: flex; gap: 16px; align-items: center;"
                           >
                             <a>
-                              邀请
+                              详情
                             </a>
                             <a>
-                              删除
+                              编辑
                             </a>
                           </div>
                         </div>
@@ -278,17 +338,17 @@
                       <div
                         style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                       >
-                        <div
-                          style="width: 200px;"
-                        >
-                          <div>
-                            发布中
+                        <div>
+                          <div
+                            style="margin-bottom: 8px; color: #666;"
+                          >
+                            进行中
                           </div>
                           <div
                             aria-valuemax="100"
                             aria-valuemin="0"
-                            aria-valuenow="80"
-                            class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default pro"
+                            aria-valuenow="60"
+                            class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small pro"
                             role="progressbar"
                           >
                             <div
@@ -297,18 +357,18 @@
                             >
                               <div
                                 class="ant-progress-rail"
-                                style="height: 8px;"
+                                style="height: 6px;"
                               >
                                 <div
                                   class="ant-progress-track"
-                                  style="width: 80%; height: 8px;"
+                                  style="width: 60%; height: 6px;"
                                 />
                               </div>
                               <span
                                 class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
-                                title="80%"
+                                title="60%"
                               >
-                                80%
+                                60%
                               </span>
                             </div>
                           </div>
@@ -351,7 +411,7 @@
                             <span
                               class="ant-pro-list-item-meta-title"
                             >
-                              蚂蚁金服体验科技
+                              数据可视化平台
                             </span>
                           </div>
                           <div
@@ -359,9 +419,9 @@
                           >
                             <span
                               class="ant-tag ant-tag-filled pro"
-                              style="background-color: #ebfaf4; color: #5BD8A6;"
+                              style="background-color: #fef6e7; color: #faad14;"
                             >
-                              语雀专栏
+                              数据组
                             </span>
                           </div>
                         </div>
@@ -373,10 +433,10 @@
                             style="display: flex; gap: 16px; align-items: center;"
                           >
                             <a>
-                              邀请
+                              详情
                             </a>
                             <a>
-                              删除
+                              编辑
                             </a>
                           </div>
                         </div>
@@ -393,17 +453,17 @@
                       <div
                         style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                       >
-                        <div
-                          style="width: 200px;"
-                        >
-                          <div>
-                            发布中
+                        <div>
+                          <div
+                            style="margin-bottom: 8px; color: #666;"
+                          >
+                            测试中
                           </div>
                           <div
                             aria-valuemax="100"
                             aria-valuemin="0"
-                            aria-valuenow="80"
-                            class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default pro"
+                            aria-valuenow="92"
+                            class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small pro"
                             role="progressbar"
                           >
                             <div
@@ -412,18 +472,18 @@
                             >
                               <div
                                 class="ant-progress-rail"
-                                style="height: 8px;"
+                                style="height: 6px;"
                               >
                                 <div
                                   class="ant-progress-track"
-                                  style="width: 80%; height: 8px;"
+                                  style="width: 92%; height: 6px;"
                                 />
                               </div>
                               <span
                                 class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
-                                title="80%"
+                                title="92%"
                               >
-                                80%
+                                92%
                               </span>
                             </div>
                           </div>
@@ -466,7 +526,7 @@
                             <span
                               class="ant-pro-list-item-meta-title"
                             >
-                              TechUI
+                              用户管理系统
                             </span>
                           </div>
                           <div
@@ -474,9 +534,9 @@
                           >
                             <span
                               class="ant-tag ant-tag-filled pro"
-                              style="background-color: #ebfaf4; color: #5BD8A6;"
+                              style="background-color: #fef6e7; color: #faad14;"
                             >
-                              语雀专栏
+                              后端组
                             </span>
                           </div>
                         </div>
@@ -488,10 +548,10 @@
                             style="display: flex; gap: 16px; align-items: center;"
                           >
                             <a>
-                              邀请
+                              详情
                             </a>
                             <a>
-                              删除
+                              编辑
                             </a>
                           </div>
                         </div>
@@ -508,17 +568,17 @@
                       <div
                         style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                       >
-                        <div
-                          style="width: 200px;"
-                        >
-                          <div>
-                            发布中
+                        <div>
+                          <div
+                            style="margin-bottom: 8px; color: #666;"
+                          >
+                            开发中
                           </div>
                           <div
                             aria-valuemax="100"
                             aria-valuemin="0"
-                            aria-valuenow="80"
-                            class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default pro"
+                            aria-valuenow="45"
+                            class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small pro"
                             role="progressbar"
                           >
                             <div
@@ -527,18 +587,18 @@
                             >
                               <div
                                 class="ant-progress-rail"
-                                style="height: 8px;"
+                                style="height: 6px;"
                               >
                                 <div
                                   class="ant-progress-track"
-                                  style="width: 80%; height: 8px;"
+                                  style="width: 45%; height: 6px;"
                                 />
                               </div>
                               <span
                                 class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
-                                title="80%"
+                                title="45%"
                               >
-                                80%
+                                45%
                               </span>
                             </div>
                           </div>
@@ -581,7 +641,7 @@
                             <span
                               class="ant-pro-list-item-meta-title"
                             >
-                              TechUI 2.0
+                              CI/CD 流程优化
                             </span>
                           </div>
                           <div
@@ -589,9 +649,9 @@
                           >
                             <span
                               class="ant-tag ant-tag-filled pro"
-                              style="background-color: #ebfaf4; color: #5BD8A6;"
+                              style="background-color: #effde7; color: #52c41a;"
                             >
-                              语雀专栏
+                              DevOps
                             </span>
                           </div>
                         </div>
@@ -603,10 +663,10 @@
                             style="display: flex; gap: 16px; align-items: center;"
                           >
                             <a>
-                              邀请
+                              详情
                             </a>
                             <a>
-                              删除
+                              编辑
                             </a>
                           </div>
                         </div>
@@ -623,17 +683,17 @@
                       <div
                         style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                       >
-                        <div
-                          style="width: 200px;"
-                        >
-                          <div>
-                            发布中
+                        <div>
+                          <div
+                            style="margin-bottom: 8px; color: #666;"
+                          >
+                            进行中
                           </div>
                           <div
                             aria-valuemax="100"
                             aria-valuemin="0"
-                            aria-valuenow="80"
-                            class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default pro"
+                            aria-valuenow="78"
+                            class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small pro"
                             role="progressbar"
                           >
                             <div
@@ -642,18 +702,18 @@
                             >
                               <div
                                 class="ant-progress-rail"
-                                style="height: 8px;"
+                                style="height: 6px;"
                               >
                                 <div
                                   class="ant-progress-track"
-                                  style="width: 80%; height: 8px;"
+                                  style="width: 78%; height: 6px;"
                                 />
                               </div>
                               <span
                                 class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
-                                title="80%"
+                                title="78%"
                               >
-                                80%
+                                78%
                               </span>
                             </div>
                           </div>
@@ -696,7 +756,7 @@
                             <span
                               class="ant-pro-list-item-meta-title"
                             >
-                              Bigfish
+                              性能监控系统
                             </span>
                           </div>
                           <div
@@ -704,9 +764,9 @@
                           >
                             <span
                               class="ant-tag ant-tag-filled pro"
-                              style="background-color: #ebfaf4; color: #5BD8A6;"
+                              style="background-color: #effde7; color: #52c41a;"
                             >
-                              语雀专栏
+                              运维组
                             </span>
                           </div>
                         </div>
@@ -718,10 +778,10 @@
                             style="display: flex; gap: 16px; align-items: center;"
                           >
                             <a>
-                              邀请
+                              详情
                             </a>
                             <a>
-                              删除
+                              编辑
                             </a>
                           </div>
                         </div>
@@ -738,17 +798,17 @@
                       <div
                         style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                       >
-                        <div
-                          style="width: 200px;"
-                        >
-                          <div>
-                            发布中
+                        <div>
+                          <div
+                            style="margin-bottom: 8px; color: #666;"
+                          >
+                            规划中
                           </div>
                           <div
                             aria-valuemax="100"
                             aria-valuemin="0"
-                            aria-valuenow="80"
-                            class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default pro"
+                            aria-valuenow="30"
+                            class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small pro"
                             role="progressbar"
                           >
                             <div
@@ -757,18 +817,18 @@
                             >
                               <div
                                 class="ant-progress-rail"
-                                style="height: 8px;"
+                                style="height: 6px;"
                               >
                                 <div
                                   class="ant-progress-track"
-                                  style="width: 80%; height: 8px;"
+                                  style="width: 30%; height: 6px;"
                                 />
                               </div>
                               <span
                                 class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
-                                title="80%"
+                                title="30%"
                               >
-                                80%
+                                30%
                               </span>
                             </div>
                           </div>
@@ -811,7 +871,7 @@
                             <span
                               class="ant-pro-list-item-meta-title"
                             >
-                              Umi
+                              微服务架构升级
                             </span>
                           </div>
                           <div
@@ -819,9 +879,9 @@
                           >
                             <span
                               class="ant-tag ant-tag-filled pro"
-                              style="background-color: #ebfaf4; color: #5BD8A6;"
+                              style="background-color: #fbe9ea; color: #ff4d4f;"
                             >
-                              语雀专栏
+                              架构组
                             </span>
                           </div>
                         </div>
@@ -833,10 +893,10 @@
                             style="display: flex; gap: 16px; align-items: center;"
                           >
                             <a>
-                              邀请
+                              详情
                             </a>
                             <a>
-                              删除
+                              编辑
                             </a>
                           </div>
                         </div>
@@ -853,17 +913,17 @@
                       <div
                         style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                       >
-                        <div
-                          style="width: 200px;"
-                        >
-                          <div>
-                            发布中
+                        <div>
+                          <div
+                            style="margin-bottom: 8px; color: #666;"
+                          >
+                            开发中
                           </div>
                           <div
                             aria-valuemax="100"
                             aria-valuemin="0"
-                            aria-valuenow="80"
-                            class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default pro"
+                            aria-valuenow="55"
+                            class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small pro"
                             role="progressbar"
                           >
                             <div
@@ -872,18 +932,18 @@
                             >
                               <div
                                 class="ant-progress-rail"
-                                style="height: 8px;"
+                                style="height: 6px;"
                               >
                                 <div
                                   class="ant-progress-track"
-                                  style="width: 80%; height: 8px;"
+                                  style="width: 55%; height: 6px;"
                                 />
                               </div>
                               <span
                                 class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
-                                title="80%"
+                                title="55%"
                               >
-                                80%
+                                55%
                               </span>
                             </div>
                           </div>
@@ -926,7 +986,7 @@
                             <span
                               class="ant-pro-list-item-meta-title"
                             >
-                              Ant Design Pro
+                              设计系统建设
                             </span>
                           </div>
                           <div
@@ -934,9 +994,9 @@
                           >
                             <span
                               class="ant-tag ant-tag-filled pro"
-                              style="background-color: #ebfaf4; color: #5BD8A6;"
+                              style="background-color: #fef6e7; color: #faad14;"
                             >
-                              语雀专栏
+                              设计组
                             </span>
                           </div>
                         </div>
@@ -948,10 +1008,10 @@
                             style="display: flex; gap: 16px; align-items: center;"
                           >
                             <a>
-                              邀请
+                              详情
                             </a>
                             <a>
-                              删除
+                              编辑
                             </a>
                           </div>
                         </div>
@@ -968,17 +1028,17 @@
                       <div
                         style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                       >
-                        <div
-                          style="width: 200px;"
-                        >
-                          <div>
-                            发布中
+                        <div>
+                          <div
+                            style="margin-bottom: 8px; color: #666;"
+                          >
+                            进行中
                           </div>
                           <div
                             aria-valuemax="100"
                             aria-valuemin="0"
-                            aria-valuenow="80"
-                            class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default pro"
+                            aria-valuenow="70"
+                            class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small pro"
                             role="progressbar"
                           >
                             <div
@@ -987,18 +1047,18 @@
                             >
                               <div
                                 class="ant-progress-rail"
-                                style="height: 8px;"
+                                style="height: 6px;"
                               >
                                 <div
                                   class="ant-progress-track"
-                                  style="width: 80%; height: 8px;"
+                                  style="width: 70%; height: 6px;"
                                 />
                               </div>
                               <span
                                 class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
-                                title="80%"
+                                title="70%"
                               >
-                                80%
+                                70%
                               </span>
                             </div>
                           </div>
