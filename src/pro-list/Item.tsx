@@ -125,10 +125,10 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     subTitle,
     content,
     itemTitleRender,
-    prefixCls: _prefixCls,
+    prefixCls: _prefixCls, // eslint-disable-line @typescript-eslint/no-unused-vars
     actions,
-    item,
-    recordKey,
+    item: _item, // eslint-disable-line @typescript-eslint/no-unused-vars
+    recordKey: _recordKey, // eslint-disable-line @typescript-eslint/no-unused-vars
     avatar,
     cardProps,
     description,
