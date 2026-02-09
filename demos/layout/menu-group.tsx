@@ -82,7 +82,7 @@ const Demo = () => {
         avatarProps={{
           icon: <UserOutlined />,
           size: 'small',
-          title: '七妮妮',
+          title: '书琰',
         }}
         actionsRender={() => [
           <InfoCircleOutlined key="InfoCircleOutlined" />,
