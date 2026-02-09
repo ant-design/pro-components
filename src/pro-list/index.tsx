@@ -18,6 +18,7 @@ import type {
   ProColumnType,
   ProTableProps,
 } from '../table';
+import type { ProFieldValueType } from '../utils';
 import ProTable from '../table';
 import type { ItemProps } from './Item';
 import ListView, { type ProListItemRender } from './ListView';
@@ -116,8 +117,8 @@ export type Key = React.Key;
 
 export type TriggerEventHandler<RecordType> = (record: RecordType) => void;
 
-/** 根据 meta key 推导默认的 valueType */
-const DEFAULT_VALUE_TYPE_MAP: Record<string, string> = {
+/** 根据 listSlot 推导默认的 valueType */
+const DEFAULT_VALUE_TYPE_MAP: Record<string, ProFieldValueType> = {
   avatar: 'avatar',
   actions: 'option',
   description: 'textarea',
