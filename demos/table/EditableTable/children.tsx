@@ -88,7 +88,7 @@ const Demo = () => {
   });
   const columns: ProColumns<DataSourceType>[] = [
     {
-      title: '活动名称',
+      title: '任务名称',
       dataIndex: 'title',
       formItemProps: (form, { rowIndex }) => {
         return {

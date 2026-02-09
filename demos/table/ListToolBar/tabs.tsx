@@ -19,7 +19,6 @@ export type TableListItem = {
 
 const baseData = createTableDataSource({
   count: 5,
-  namePrefix: 'AppName',
 }) as unknown as TableListItem[];
 const tableListDataSource = baseData.map((item, i) => ({
   ...item,
