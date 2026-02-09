@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 const dataSource = [
   {
-    title: '语雀的天空',
+    title: '智慧零售平台',
     avatar:
       'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
   },

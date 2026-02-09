@@ -137,7 +137,7 @@ const Demo = () => {
                   blankTarget: true,
                 },
               ]}
-              copyright="2022 蚂蚁金服体验技术部出品"
+              copyright="2024 星辰科技体验技术部出品"
             />
           ) : null
         }

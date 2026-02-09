@@ -12,16 +12,16 @@ const IconText = ({ icon, text }: { icon: any; text: string }) => (
 
 const dataSource = [
   {
-    title: '语雀的天空',
+    title: '智慧零售平台',
   },
   {
     title: 'Ant Design',
   },
   {
-    title: '蚂蚁金服体验科技',
+    title: '云原生微服务框架',
   },
   {
-    title: 'TechUI',
+    title: '数据可视化引擎',
   },
 ];
 
@@ -44,9 +44,9 @@ const Demo = () => {
         description: {
           render: () => (
             <>
-              <Tag>语雀专栏</Tag>
+              <Tag>技术专栏</Tag>
               <Tag>设计语言</Tag>
-              <Tag>蚂蚁金服</Tag>
+              <Tag>云原生</Tag>
             </>
           ),
         },
@@ -82,9 +82,7 @@ const Demo = () => {
           render: () => {
             return (
               <div>
-                段落示意：蚂蚁金服设计平台
-                design.alipay.com，用最小的工作量，无缝接入蚂蚁金服生态，提供跨越设计与开发的体验解决方案。蚂蚁金服设计平台
-                design.alipay.com，用最小的工作量，无缝接入蚂蚁金服生态提供跨越设计与开发的体验解决方案。
+                面向企业级中后台的数据可视化解决方案，以最小的接入成本提供丰富的图表类型与交互能力，助力业务快速搭建数据看板与分析报表。
               </div>
             );
           },

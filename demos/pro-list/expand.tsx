@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 const dataSource = [
   {
-    title: '语雀的天空',
+    title: '智慧零售平台',
     avatar:
       'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
   },
@@ -15,12 +15,12 @@ const dataSource = [
       'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
   },
   {
-    title: '蚂蚁金服体验科技',
+    title: '云原生微服务框架',
     avatar:
       'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
   },
   {
-    title: 'TechUI',
+    title: '数据可视化引擎',
     avatar:
       'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
   },
@@ -49,7 +49,7 @@ const Demo = () => {
             return (
               <Space size={8}>
                 <Tag color="blue">Ant Design</Tag>
-                <Tag color="#5BD8A6">TechUI</Tag>
+                <Tag color="#5BD8A6">可视化</Tag>
               </Space>
             );
           },

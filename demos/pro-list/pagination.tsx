@@ -3,16 +3,16 @@ import { ProList } from '@ant-design/pro-components';
 import { Progress, Tag } from 'antd';
 
 const data = [
-  '语雀的天空',
-  'Ant Design',
-  '蚂蚁金服体验科技',
-  'TechUI',
-  'TechUI 2.0',
-  'Bigfish',
-  'Umi',
+  '智慧零售平台',
+  'Ant Design Pro',
+  '云原生微服务框架',
+  '数据可视化引擎',
+  '智能客服系统',
+  'DevOps 工具链',
+  '统一权限管理中心',
 ].map((item) => ({
   title: item,
-  subTitle: <Tag color="#5BD8A6">语雀专栏</Tag>,
+  subTitle: <Tag color="#5BD8A6">技术专栏</Tag>,
   actions: [
     <a key="invite">邀请</a>,
     <a key="operate">操作</a>,

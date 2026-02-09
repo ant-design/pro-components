@@ -28,7 +28,7 @@ const dataSource: ProjectItem[] = [
     description: '开箱即用的中台前端/设计解决方案',
     status: 'active',
     owner: {
-      name: '张三',
+      name: '书琰',
       avatar: 'https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png',
     },
     tags: ['React', 'TypeScript', 'Ant Design'],
@@ -40,7 +40,7 @@ const dataSource: ProjectItem[] = [
     description: '专业级别的中后台组件库',
     status: 'active',
     owner: {
-      name: '李四',
+      name: '逄一',
       avatar: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
     },
     tags: ['React', 'Components'],

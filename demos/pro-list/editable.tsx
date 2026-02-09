@@ -5,7 +5,7 @@ import { useState } from 'react';
 const defaultData = [
   {
     id: '1',
-    name: '语雀的天空',
+    name: '智慧零售平台',
     image:
       'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
     desc: '我是一条测试的描述',
@@ -19,14 +19,14 @@ const defaultData = [
   },
   {
     id: '3',
-    name: '蚂蚁金服体验科技',
+    name: '云原生微服务框架',
     image:
       'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
     desc: '我是一条测试的描述',
   },
   {
     id: '4',
-    name: 'TechUI',
+    name: '数据可视化引擎',
     image:
       'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
     desc: '我是一条测试的描述',
@@ -66,7 +66,7 @@ const Demo = () => {
             return (
               <Space size={8}>
                 <Tag color="blue">Ant Design</Tag>
-                <Tag color="#5BD8A6">TechUI</Tag>
+                <Tag color="#5BD8A6">可视化</Tag>
               </Space>
             );
           },

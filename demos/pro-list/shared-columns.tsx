@@ -18,11 +18,11 @@ type DataItem = {
 const dataSource: DataItem[] = [
   {
     id: '1',
-    name: '语雀的天空',
+    name: '智慧零售平台',
     avatar:
       'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
     status: 'open',
-    labels: ['语雀专栏', '设计语言'],
+    labels: ['技术专栏', '设计语言'],
     updatedAt: '2024-01-15',
   },
   {
@@ -36,11 +36,11 @@ const dataSource: DataItem[] = [
   },
   {
     id: '3',
-    name: '蚂蚁金服体验科技',
+    name: '云原生微服务框架',
     avatar:
       'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
     status: 'closed',
-    labels: ['蚂蚁金服', 'TechUI'],
+    labels: ['云原生', '可视化'],
     updatedAt: '2024-03-10',
   },
 ];
