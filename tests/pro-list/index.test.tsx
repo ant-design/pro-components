@@ -1201,4 +1201,440 @@ describe('List', () => {
       container.querySelector('.ant-pro-list-row-title')!.innerHTML,
     ).toEqual('名称');
   });
+
+  it('🚏 columns API: onRow works', async () => {
+    const onClick = vi.fn();
+    const onMouseEnter = vi.fn();
+    const { container } = reactRender(
+      <ProList
+        dataSource={[
+          { name: '测试名称', desc: '测试描述' },
+        ]}
+        columns={[
+          { dataIndex: 'name', listSlot: 'title' },
+          { dataIndex: 'desc', listSlot: 'description' },
+        ]}
+        onRow={(record: any) => ({
+          onMouseEnter: () => onMouseEnter(record.name),
+          onClick: () => onClick(record.name),
+        })}
+      />,
+    );
+
+    fireEvent.click(container.querySelector('.ant-pro-list-item')!);
+    expect(onClick).toHaveBeenCalledWith('测试名称');
+
+    fireEvent.mouseEnter(container.querySelector('.ant-pro-list-item')!);
+    expect(onMouseEnter).toHaveBeenCalledWith('测试名称');
+  });
+
+  it('🚏 columns API: onItem works with grid/card mode', async () => {
+    const onClick = vi.fn();
+    const html = reactRender(
+      <ProList
+        grid={{ gutter: 16, column: 2 }}
+        onItem={(record: any) => ({
+          onClick: () => onClick(record.name),
+        })}
+        dataSource={[{ name: '卡片名称' }]}
+        columns={[
+          { dataIndex: 'name', listSlot: 'title' },
+          {
+            listSlot: 'actions',
+            cardActionProps: 'actions',
+            render: () => [<a key="a">操作</a>],
+          },
+        ]}
+      />,
+    );
+    await waitForWaitTime(1000);
+
+    act(() => {
+      fireEvent.click(
+        html.baseElement.querySelector(
+          '.ant-pro-list-row-card .ant-pro-checkcard',
+        )!,
+      );
+    });
+
+    await waitFor(() => {
+      expect(onClick).toHaveBeenCalledWith('卡片名称');
+    });
+  });
+
+  it('🚏 columns API: rowClassName as string', async () => {
+    const { container } = reactRender(
+      <ProList
+        dataSource={[{ name: '名称' }]}
+        columns={[{ dataIndex: 'name', listSlot: 'title' }]}
+        rowClassName="custom-row-class"
+      />,
+    );
+    expect(container.querySelector('.ant-pro-list-row')!).toHaveClass(
+      'custom-row-class',
+    );
+  });
+
+  it('🚏 columns API: rowClassName as function', async () => {
+    const { container } = reactRender(
+      <ProList
+        dataSource={[{ name: 'A' }, { name: 'B' }]}
+        columns={[{ dataIndex: 'name', listSlot: 'title' }]}
+        rowClassName={(_, index) => (index === 0 ? 'first' : 'rest')}
+      />,
+    );
+    expect(container.querySelectorAll('.ant-pro-list-row')[0]).toHaveClass(
+      'first',
+    );
+    expect(container.querySelectorAll('.ant-pro-list-row')[1]).toHaveClass(
+      'rest',
+    );
+  });
+
+  it('🚏 columns API: itemRender works', async () => {
+    reactRender(
+      <ProList
+        dataSource={[{ name: '自定义项' }]}
+        columns={[{ dataIndex: 'name', listSlot: 'title' }]}
+        itemRender={(item, index) => (
+          <div data-testid="custom-item">
+            {index}-{(item as any).name}
+          </div>
+        )}
+        rowKey="name"
+      />,
+    );
+    expect(screen.getByTestId('custom-item')).toHaveTextContent(
+      '0-自定义项',
+    );
+  });
+
+  it('🚏 columns API: itemHeaderRender works', async () => {
+    const html = reactRender(
+      <ProList
+        dataSource={[{ name: '名称' }]}
+        columns={[
+          { dataIndex: 'name', listSlot: 'title' },
+          { dataIndex: 'name', listSlot: 'description' },
+        ]}
+        itemHeaderRender={(item: any) => <>自定义头:{item.name}</>}
+      />,
+    );
+    await waitForWaitTime(1200);
+    expect(
+      html.baseElement.textContent?.includes('自定义头:名称'),
+    ).toBeTruthy();
+  });
+
+  it('🚏 columns API: itemTitleRender works', async () => {
+    const html = reactRender(
+      <ProList
+        dataSource={[{ name: '标题名称' }]}
+        columns={[{ dataIndex: 'name', listSlot: 'title' }]}
+        itemTitleRender={(item: any) => <>渲染标题:{item.name}</>}
+      />,
+    );
+    await waitForWaitTime(1200);
+    expect(
+      html.baseElement.textContent?.includes('渲染标题:标题名称'),
+    ).toBeTruthy();
+  });
+
+  it('🚏 columns API: BaseProList works', async () => {
+    const { container } = reactRender(
+      <BaseProList
+        dataSource={[{ name: '基础列表', desc: '描述文本' }]}
+        columns={[
+          { dataIndex: 'name', listSlot: 'title' },
+          { dataIndex: 'desc', listSlot: 'description' },
+        ]}
+      />,
+    );
+    expect(
+      container.querySelector('.ant-pro-list-row-title')!.innerHTML,
+    ).toEqual('基础列表');
+    expect(
+      container.querySelector('.ant-pro-list-row-description')!.innerHTML,
+    ).toEqual('描述文本');
+    // BaseProList 不显示卡片
+    expect(container.querySelectorAll('.ant-pro-card')!.length).toBe(0);
+  });
+
+  it('🚏 columns API: empty state', async () => {
+    const { container } = reactRender(
+      <ProList
+        columns={[{ dataIndex: 'name', listSlot: 'title' }]}
+      />,
+    );
+    expect(
+      container.querySelector('.ant-empty-description')!.innerHTML,
+    ).toEqual('暂无数据');
+  });
+
+  it('🚏 columns API: request and search with light filter', async () => {
+    const onRequest = vi.fn();
+    const { container, findByText, baseElement } = reactRender(
+      <ProList<any, { title: string }>
+        columns={[
+          {
+            title: '标题',
+            dataIndex: 'title',
+            listSlot: 'title',
+          },
+        ]}
+        request={(params, sort, filter) => {
+          if (params.title) {
+            onRequest(params, sort, filter);
+          }
+          return Promise.resolve({
+            success: true,
+            data: [{ title: '标题1' }, { title: '标题2' }],
+          });
+        }}
+        pagination={{ pageSize: 5, onShowSizeChange: () => {} }}
+        search={{ filterType: 'light' }}
+      />,
+    );
+
+    await waitFor(() => {
+      expect(
+        container.querySelectorAll('.ant-pro-list-row-title').length,
+      ).toEqual(2);
+    });
+
+    fireEvent.click(container.querySelector('.ant-pro-core-field-label')!);
+    act(() => {
+      fireEvent.change(baseElement.querySelector('.ant-input')!, {
+        target: { value: 'test' },
+      });
+    });
+    await act(async () => {
+      (await findByText('确 认')).click();
+    });
+
+    await waitFor(() => {
+      expect(onRequest).toHaveBeenCalledWith(
+        { current: 1, pageSize: 5, title: 'test' },
+        {},
+        {},
+      );
+    });
+  });
+
+  it('🚏 columns API: expandRowByClick works', async () => {
+    const onExpand = vi.fn();
+    const Wrapper = () => {
+      const [expandedRowKeys, onExpandedRowsChange] = useState<readonly Key[]>(
+        [],
+      );
+      return (
+        <ProList
+          dataSource={[
+            { name: '点击展开', content: <div>展开的内容</div> },
+          ]}
+          columns={[
+            { dataIndex: 'name', listSlot: 'title' },
+            { dataIndex: 'content', listSlot: 'content' },
+          ]}
+          expandable={{
+            expandedRowKeys,
+            onExpandedRowsChange,
+            onExpand,
+            expandRowByClick: true,
+          }}
+        />
+      );
+    };
+    const { container } = reactRender(<Wrapper />);
+    await fireEvent.click(container.querySelector('.ant-pro-list-item')!);
+    expect(
+      container.querySelector('.ant-pro-list-row-content')!.innerHTML,
+    ).toEqual('<div>展开的内容</div>');
+    expect(onExpand).toHaveBeenCalledWith(true, expect.objectContaining({ name: '点击展开' }));
+  });
+
+  it('🚏 columns API: expandedRowRender works', async () => {
+    const Wrapper = () => {
+      const [expandedRowKeys, onExpandedRowsChange] = useState<readonly Key[]>(
+        [],
+      );
+      return (
+        <ProList
+          dataSource={[{ name: '行展开' }]}
+          columns={[
+            { dataIndex: 'name', listSlot: 'title' },
+            { dataIndex: 'name', listSlot: 'content' },
+          ]}
+          expandable={{
+            expandedRowKeys,
+            onExpandedRowsChange,
+            expandedRowClassName: () => 'expanded-custom',
+            expandedRowRender: (_, index) => <div>展开行:{index}</div>,
+          }}
+          rowKey="name"
+        />
+      );
+    };
+    const { container } = reactRender(<Wrapper />);
+    await fireEvent.click(
+      container.querySelector('.ant-pro-list-row-expand-icon')!,
+    );
+    expect(
+      container.querySelector('.ant-pro-list-row-content .expanded-custom')!
+        .innerHTML,
+    ).toEqual('<div>展开行:0</div>');
+  });
+
+  it('🚏 columns API: radio selection works', async () => {
+    const { container } = reactRender(
+      <ProList
+        dataSource={[{ name: 'Item 1' }, { name: 'Item 2' }]}
+        rowSelection={{ type: 'radio' }}
+        columns={[{ dataIndex: 'name', listSlot: 'title' }]}
+      />,
+    );
+    expect(
+      container.querySelectorAll('.ant-radio-input').length,
+    ).toBeGreaterThan(0);
+    expect(container.querySelectorAll('.ant-checkbox-input').length).toBe(0);
+  });
+
+  it('🚏 columns API: all slots render correctly', async () => {
+    const { container } = reactRender(
+      <ProList
+        dataSource={[
+          {
+            name: '完整标题',
+            sub: '副标题内容',
+            avatar:
+              'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+            desc: '描述文本',
+          },
+        ]}
+        columns={[
+          { dataIndex: 'name', listSlot: 'title' },
+          { dataIndex: 'sub', listSlot: 'subTitle' },
+          { dataIndex: 'avatar', listSlot: 'avatar' },
+          { dataIndex: 'desc', listSlot: 'description' },
+          {
+            listSlot: 'content',
+            render: () => <div className="test-content">内容区域</div>,
+          },
+          {
+            listSlot: 'actions',
+            render: () => [<a key="act">操作</a>],
+          },
+        ]}
+      />,
+    );
+    // title
+    expect(
+      container.querySelector('.ant-pro-list-row-title')!.textContent,
+    ).toEqual('完整标题');
+    // subTitle
+    expect(
+      container.querySelector('.ant-pro-list-row-subTitle')!.textContent,
+    ).toEqual('副标题内容');
+    // avatar
+    expect(
+      container.querySelector('.ant-pro-list-item-meta-avatar'),
+    ).toBeTruthy();
+    // description
+    expect(
+      container.querySelector('.ant-pro-list-row-description')!.textContent,
+    ).toEqual('描述文本');
+    // content
+    expect(container.querySelector('.test-content')!.textContent).toEqual(
+      '内容区域',
+    );
+    // actions (默认以 extra 形式渲染，不会出现 ant-pro-list-item-action)
+    expect(container.textContent?.includes('操作')).toBeTruthy();
+  });
+
+  it('🚏 columns API: actions default to extra in card mode', async () => {
+    const html = reactRender(
+      <ProList
+        grid={{ gutter: 16, column: 2 }}
+        dataSource={[{ name: '名称' }]}
+        columns={[
+          { dataIndex: 'name', listSlot: 'title' },
+          {
+            listSlot: 'actions',
+            // 不传 cardActionProps，默认渲染到 extra
+            render: () => [<a key="act">默认操作</a>],
+          },
+        ]}
+      />,
+    );
+    await waitForWaitTime(1000);
+    expect(html.baseElement.textContent?.includes('默认操作')).toBeTruthy();
+    // 默认不渲染到 actions 位置
+    expect(
+      !!html.baseElement.querySelector('.ant-pro-card-actions'),
+    ).toBeFalsy();
+  });
+
+  it('🚏 columns API: showActions hover hides actions initially', async () => {
+    const { container } = reactRender(
+      <ProList
+        dataSource={[{ name: '名称' }]}
+        columns={[
+          { dataIndex: 'name', listSlot: 'title' },
+          {
+            listSlot: 'actions',
+            render: () => [<a key="act">悬停操作</a>],
+          },
+        ]}
+        showActions="hover"
+      />,
+    );
+    // showActions='hover' 会添加对应 class
+    expect(
+      container.querySelector('.ant-pro-list-row-show-action-hover'),
+    ).toBeTruthy();
+  });
+
+  it('🚏 columns API: defaultExpandedRowKeys works', async () => {
+    const { container } = reactRender(
+      <ProList
+        dataSource={[
+          { name: '项目A', content: <div>内容A</div>, key: 'a' },
+          { name: '项目B', content: <div>内容B</div>, key: 'b' },
+        ]}
+        rowKey="key"
+        columns={[
+          { dataIndex: 'name', listSlot: 'title' },
+          { dataIndex: 'content', listSlot: 'content' },
+        ]}
+        expandable={{ defaultExpandedRowKeys: ['b'] }}
+      />,
+    );
+    // 只有 B 展开
+    const contents = container.querySelectorAll('.ant-pro-list-row-content');
+    expect(contents.length).toEqual(1);
+    expect(contents[0].innerHTML).toEqual('<div>内容B</div>');
+  });
+
+  it('🚏 columns API: nested dataIndex works', async () => {
+    const { container } = reactRender(
+      <ProList
+        dataSource={[
+          {
+            user: { info: { nickname: '嵌套名称' } },
+            meta: { brief: '嵌套描述' },
+          },
+        ]}
+        columns={[
+          { dataIndex: ['user', 'info', 'nickname'], listSlot: 'title' },
+          { dataIndex: ['meta', 'brief'], listSlot: 'description' },
+        ]}
+      />,
+    );
+    expect(
+      container.querySelector('.ant-pro-list-row-title')!.innerHTML,
+    ).toEqual('嵌套名称');
+    expect(
+      container.querySelector('.ant-pro-list-row-description')!.innerHTML,
+    ).toEqual('嵌套描述');
+  });
 });

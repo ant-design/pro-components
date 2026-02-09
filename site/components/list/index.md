@@ -29,6 +29,20 @@ ProList 基于 ProTable 实现，可以认为是 ProTable 的一个特例，将�
 
 <code src="../../../demos/pro-list/columns-card.tsx" background="var(--main-bg-color)"></code>
 
+### 表格/列表一键切换
+
+同一份 `columns` 同时传给 ProTable 和 ProList，通过切换组件即可在表格和列表视图之间无缝切换。
+
+<code src="../../../demos/pro-list/columns-shared.tsx" background="var(--main-bg-color)"></code>
+
+### 搜索列表（columns + request）
+
+<code src="../../../demos/pro-list/columns-search.tsx" background="var(--main-bg-color)"></code>
+
+### 可编辑列表（columns）
+
+<code src="../../../demos/pro-list/columns-editable.tsx" background="var(--main-bg-color)"></code>
+
 ### 编辑列表
 
 <code src="../../../demos/pro-list/editable.tsx" background="var(--main-bg-color)"></code>

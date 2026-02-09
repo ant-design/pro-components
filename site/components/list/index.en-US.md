@@ -29,6 +29,20 @@ Use `columns` with the `listSlot` property to share the same column configuratio
 
 <code src="../../../demos/pro-list/columns-card.tsx" background="var(--main-bg-color)"></code>
 
+### Table/List view switching
+
+Use the same `columns` for both ProTable and ProList. Switch between table and list views seamlessly by toggling the component.
+
+<code src="../../../demos/pro-list/columns-shared.tsx" background="var(--main-bg-color)"></code>
+
+### Search list (columns + request)
+
+<code src="../../../demos/pro-list/columns-search.tsx" background="var(--main-bg-color)"></code>
+
+### Editable list (columns)
+
+<code src="../../../demos/pro-list/columns-editable.tsx" background="var(--main-bg-color)"></code>
+
 ### Edit list
 
 <code src="../../../demos/pro-list/editable.tsx" background="var(--main-bg-color)"></code>
