@@ -259,7 +259,10 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       ? expandedRowClassName(record, index, indentSize)
       : expandedRowClassName;
 
-  const headerDom = itemHeaderRender?.(record, index, metaDom) ?? metaDom;
+  const headerDom =
+    typeof itemHeaderRender === 'function'
+      ? itemHeaderRender(record, index, metaDom)
+      : metaDom;
 
   // 卡片模式渲染
   if (cardProps) {
@@ -290,14 +293,15 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
           actions={actionsDom}
           bodyStyle={{ padding: 24, ...cardProps.bodyStyle }}
           {...(itemProps as CheckCardProps)}
-          onClick={(e: React.MouseEvent<HTMLDivElement>) => {
+          onClick={(e) => {
             cardProps?.onClick?.(e);
-            itemProps?.onClick?.(e);
+            itemProps?.onClick?.(e as any);
           }}
         >
           <Skeleton avatar title={false} loading={loading} active>
             <div className={clsx(`${className}-header`, hashId)}>
-              {itemTitleRender?.(record, index, titleDom)}
+              {typeof itemTitleRender === 'function' &&
+                itemTitleRender(record, index, titleDom)}
               {content}
             </div>
           </Skeleton>
