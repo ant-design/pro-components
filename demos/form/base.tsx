@@ -16,6 +16,11 @@ import { TreeSelect, message } from 'antd';
 import moment from 'dayjs';
 import { useRef } from 'react';
 
+import {
+  DEMO_AREA_CASCADER,
+  DEMO_DEPARTMENT_TREE,
+} from '../mockData';
+
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -23,43 +28,6 @@ const waitTime = (time: number = 100) => {
     }, time);
   });
 };
-
-const treeData = [
-  {
-    title: 'Node1',
-    value: '0-0',
-    key: '0-0',
-    children: [
-      {
-        title: 'Child Node1',
-        value: '0-0-0',
-        key: '0-0-0',
-      },
-    ],
-  },
-  {
-    title: 'Node2',
-    value: '0-1',
-    key: '0-1',
-    children: [
-      {
-        title: 'Child Node3',
-        value: '0-1-0',
-        key: '0-1-0',
-      },
-      {
-        title: 'Child Node4',
-        value: '0-1-1',
-        key: '0-1-1',
-      },
-      {
-        title: 'Child Node5',
-        value: '0-1-2',
-        key: '0-1-2',
-      },
-    ],
-  },
-];
 
 const Demo = () => {
   const formRef = useRef<
@@ -82,7 +50,7 @@ const Demo = () => {
         console.log('validateFields:', val1);
         const val2 = await formRef.current?.validateFieldsReturnFormatValue?.();
         console.log('validateFieldsReturnFormatValue:', val2);
-        message.success('Submission successful');
+        message.success('提交成功');
       }}
       formRef={formRef}
       params={{ id: '100' }}
@@ -94,7 +62,7 @@ const Demo = () => {
       request={async () => {
         await waitTime(1500);
         return {
-          name: 'Ant Design Co., Ltd.',
+          name: '杭州星辰科技有限公司',
           useMode: 'chapter',
         };
       }}
@@ -106,34 +74,34 @@ const Demo = () => {
           name="name"
           required
           dependencies={[['contract', 'name']]}
-          addonBefore={<a>How to get the customer name?</a>}
-          addonAfter={<a>Click to see more</a>}
-          label="Contract Customer Name"
-          tooltip="Up to 24 characters"
-          placeholder="Please enter a name"
-          rules={[{ required: true, message: 'This is a required field' }]}
+          addonBefore={<a>如何获取客户名称？</a>}
+          addonAfter={<a>点击查看更多</a>}
+          label="签约客户名称"
+          tooltip="最长 24 个字符"
+          placeholder="请输入客户名称"
+          rules={[{ required: true, message: '此项为必填项' }]}
         />
         <ProFormText
           width="md"
           name="company"
-          label="Our Company Name"
-          placeholder="Please enter a name"
+          label="我方公司名称"
+          placeholder="请输入公司名称"
         />
       </ProForm.Group>
       <ProForm.Group>
-        <ProFormDigit name="count" label="Number of People" width="lg" />
+        <ProFormDigit name="count" label="项目团队人数" width="lg" />
       </ProForm.Group>
       <ProForm.Group>
         <ProFormText
           name={['contract', 'name']}
           width="md"
-          label="Contract Name"
-          placeholder="Please enter a name"
+          label="合同名称"
+          placeholder="请输入合同名称"
         />
         <ProFormDateRangePicker
           width="md"
           name={['contract', 'createTime']}
-          label="Contract Effective Time"
+          label="合同有效期"
         />
       </ProForm.Group>
       <ProForm.Group>
@@ -141,135 +109,104 @@ const Demo = () => {
           options={[
             {
               value: 'chapter',
-              label: 'Effective after stamping',
+              label: '盖章后生效',
             },
           ]}
           readonly
           width="xs"
           cacheForSwr
           name="useMode"
-          label="Contract Agreed Effective Method"
+          label="合同约定生效方式"
         />
         <ProFormSelect.SearchSelect
           width="xs"
           options={[
             {
               value: 'time',
-              label: 'Terminate after performance',
+              label: '履行完毕后终止',
               type: 'time',
               options: [
                 {
                   value: 'time1',
-                  label: 'Terminate after performance 1',
+                  label: '履行完毕后终止（自动续期）',
                 },
                 {
                   value: 'time2',
-                  label: 'Terminate after performance 2',
+                  label: '履行完毕后终止（不续期）',
                 },
               ],
             },
           ]}
           name="unusedMode"
-          label="Contract Agreed Invalid Method"
+          label="合同约定失效方式"
         />
         <ProFormMoney
           width="md"
           name="money"
-          label="Contract Agreed Amount"
+          label="合同签约金额"
           fieldProps={{
             numberPopoverRender: true,
           }}
         />
       </ProForm.Group>
-      <ProFormText width="sm" name="id" label="Main Contract Number" />
+      <ProFormText width="sm" name="id" label="主合同编号" />
       <ProFormText
         name="project"
         width="md"
         disabled
-        label="Project Name"
-        initialValue="示例项目"
+        label="关联项目"
+        initialValue="智慧零售平台"
       />
       <ProFormTextArea
         colProps={{ span: 24 }}
         name="address"
-        label="Detailed Work Address or Home Address"
+        label="详细办公地址"
       />
       <ProFormText
         width="xs"
         name="mangerName"
         disabled
-        label="Business Manager"
-        initialValue="张三"
+        label="商务经理"
+        initialValue="王磊"
       />
       <ProFormCascader
         width="md"
-        request={async () => [
-          {
-            value: 'zhejiang',
-            label: 'Zhejiang',
-            children: [
-              {
-                value: 'hangzhou',
-                label: 'Hangzhou',
-                children: [
-                  {
-                    value: 'xihu',
-                    label: 'West Lake',
-                  },
-                ],
-              },
-            ],
-          },
-          {
-            value: 'jiangsu',
-            label: 'Jiangsu',
-            children: [
-              {
-                value: 'nanjing',
-                label: 'Nanjing',
-                children: [
-                  {
-                    value: 'zhonghuamen',
-                    label: 'Zhong Hua Men',
-                  },
-                ],
-              },
-            ],
-          },
-        ]}
+        request={async () => DEMO_AREA_CASCADER as any}
         name="areaList"
-        label="Area"
-        initialValue={['zhejiang', 'hangzhou', 'xihu']}
+        label="所在地区"
+        initialValue={['zhejiang', 'hangzhou', 'binjiang']}
         addonAfter="区县"
       />
       <ProFormTreeSelect
-        initialValue={['0-0-0']}
-        label="Tree Select"
+        initialValue={['tech-fe']}
+        label="所属部门"
         width={600}
         fieldProps={{
           fieldNames: {
             label: 'title',
           },
-          treeData,
+          treeData: DEMO_DEPARTMENT_TREE as any,
           treeCheckable: true,
           showCheckedStrategy: TreeSelect.SHOW_PARENT,
-          placeholder: 'Please select',
+          placeholder: '请选择部门',
         }}
       />
       <ProFormDatePicker
         name="date"
+        label="签约日期"
         transform={(value) => {
           return {
             date: moment(value).unix(),
           };
         }}
       />
-      <ProFormList name="datas">
+      <ProFormList name="datas" label="补充条款">
         {() => {
           return (
             <>
               <ProFormDatePicker
                 name="date"
+                label="生效日期"
                 transform={(value) => {
                   return {
                     date: moment(value).unix(),
@@ -277,50 +214,19 @@ const Demo = () => {
                 }}
               />
 
-              <ProFormList name="innerDatas">
+              <ProFormList name="innerDatas" label="子条款">
                 {() => {
                   return (
                     <>
                       <ProFormDatePicker
                         name="date"
+                        label="子条款生效日期"
                         transform={(value) => {
                           return {
                             date: moment(value).unix(),
                           };
                         }}
                       />
-                      <ProFormList name="innerDatas">
-                        {() => {
-                          return (
-                            <>
-                              <ProFormDatePicker
-                                name="date"
-                                transform={(value) => {
-                                  return {
-                                    date: moment(value).unix(),
-                                  };
-                                }}
-                              />
-                              <ProFormList name="innerDatas">
-                                {() => {
-                                  return (
-                                    <>
-                                      <ProFormDatePicker
-                                        name="date"
-                                        transform={(value) => {
-                                          return {
-                                            date: moment(value).unix(),
-                                          };
-                                        }}
-                                      />
-                                    </>
-                                  );
-                                }}
-                              </ProFormList>
-                            </>
-                          );
-                        }}
-                      </ProFormList>
                     </>
                   );
                 }}

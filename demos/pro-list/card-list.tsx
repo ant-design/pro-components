@@ -2,19 +2,69 @@ import { ProFormSwitch, ProList } from '@ant-design/pro-components';
 import { Progress, Tag } from 'antd';
 import { useState } from 'react';
 
-const data = [
-  '语雀的天空',
-  'Ant Design',
-  '蚂蚁金服体验科技',
-  'TechUI',
-  'TechUI 2.0',
-  'Bigfish',
-  'Umi',
-  'Ant Design Pro',
-].map((item) => ({
-  title: item,
-  subTitle: <Tag color="#5BD8A6">语雀专栏</Tag>,
-  actions: [<a key="run">邀请</a>, <a key="delete">删除</a>],
+const projectData = [
+  {
+    title: '智慧零售平台',
+    tag: '核心项目',
+    tagColor: '#108ee9',
+    progress: 85,
+    progressLabel: '开发中',
+  },
+  {
+    title: 'Ant Design Pro',
+    tag: '开源项目',
+    tagColor: '#87d068',
+    progress: 100,
+    progressLabel: '已上线',
+  },
+  {
+    title: '数据可视化引擎',
+    tag: '创新孵化',
+    tagColor: '#f50',
+    progress: 60,
+    progressLabel: '开发中',
+  },
+  {
+    title: '云原生微服务框架',
+    tag: '基础设施',
+    tagColor: '#2db7f5',
+    progress: 92,
+    progressLabel: '测试中',
+  },
+  {
+    title: '智能客服系统',
+    tag: 'AI 应用',
+    tagColor: '#722ed1',
+    progress: 45,
+    progressLabel: '开发中',
+  },
+  {
+    title: '统一权限管理中心',
+    tag: '基础设施',
+    tagColor: '#2db7f5',
+    progress: 100,
+    progressLabel: '已上线',
+  },
+  {
+    title: '实时数据仓库',
+    tag: '大数据',
+    tagColor: '#eb2f96',
+    progress: 70,
+    progressLabel: '开发中',
+  },
+  {
+    title: 'DevOps 工具链',
+    tag: '效能平台',
+    tagColor: '#13c2c2',
+    progress: 88,
+    progressLabel: '灰度发布',
+  },
+];
+
+const data = projectData.map((item) => ({
+  title: item.title,
+  subTitle: <Tag color={item.tagColor}>{item.tag}</Tag>,
+  actions: [<a key="invite">邀请</a>, <a key="archive">归档</a>],
   avatar:
     'https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg',
   content: (
@@ -28,8 +78,8 @@ const data = [
           width: 200,
         }}
       >
-        <div>发布中</div>
-        <Progress percent={80} />
+        <div>{item.progressLabel}</div>
+        <Progress percent={item.progress} />
       </div>
     </div>
   ),
@@ -88,7 +138,7 @@ export default () => {
             cardActionProps,
           },
         }}
-        headerTitle="卡片列表展示"
+        headerTitle="项目卡片列表"
         dataSource={data}
       />
     </div>
