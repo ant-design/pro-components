@@ -259,7 +259,6 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           flex: '1',
           flexDirection: 'column',
           marginBlock: 0,
-          marginInline: 32,
         },
         '&-subTitle': {
           display: 'inline-flex',
@@ -338,7 +337,6 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           [`${token.proComponentsCls}-list-item-extra`]: {
             display: 'flex',
             alignItems: 'center',
-            marginInlineStart: '32px',
             [`${token.componentCls}-row-description`]: {
               marginBlockStart: 16,
             },
