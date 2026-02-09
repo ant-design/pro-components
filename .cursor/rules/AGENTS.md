@@ -15,24 +15,22 @@
 ### 开发环境要求
 
 - Node.js 版本 >= 16
-- 推荐使用 npm 或 yarn
+- **包管理工具：使用 pnpm**
 - Chrome 80+ 浏览器兼容性
 
 ### 安装依赖
 
 ```bash
-npm install
-# 或
-yarn install
+pnpm install
 ```
 
 ### 开发命令
 
 ```bash
-npm start     # 启动开发服务器
-npm run build # 构建项目
-npm test      # 运行测试
-npm run lint  # 代码检查
+pnpm start     # 启动开发服务器
+pnpm run build # 构建项目
+pnpm test      # 运行测试
+pnpm run lint  # 代码检查
 ```
 
 ## 代码风格指南
