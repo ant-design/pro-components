@@ -4,6 +4,7 @@ const PRO_LIST_KEYS = [
   'avatar',
   'description',
   'extra',
+  'aside',
   'content',
   'actions',
   'type',

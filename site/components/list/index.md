@@ -213,7 +213,7 @@ ProList 的 `columns` 与 ProTable 完全兼容，额外支持 `listSlot` 和 `c
 
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| listSlot | 指定该列映射到列表项的哪个插槽位置 | `'title'` \| `'subTitle'` \| `'avatar'` \| `'description'` \| `'content'` \| `'actions'` \| `'type'` | - |
+| listSlot | 指定该列映射到列表项的哪个插槽位置 | `'title'` \| `'subTitle'` \| `'avatar'` \| `'description'` \| `'content'` \| `'actions'` \| `'aside'` \| `'type'` | - |
 | cardActionProps | 当 `listSlot` 为 `'actions'` 时，设置卡片列表把 actions 渲染到哪里 | `'actions'` \| `'extra'` | `'extra'` |
 
 其余列属性与 ProTable 的 `ProColumns` 完全一致（`dataIndex`、`valueType`、`render`、`search`、`valueEnum` 等），详见 [ProTable columns](/components/table)。
@@ -228,6 +228,7 @@ ProList 的 `columns` 与 ProTable 完全兼容，额外支持 `listSlot` 和 `c
 | `description` | 列表项描述 | `textarea` |
 | `content` | 列表项内容区域 | `text` |
 | `actions` | 列表项操作区 | `option` |
+| `aside` | 列表项附属内容，通常展示在右侧（如图片、进度条等非交互内容） | `text` |
 | `type` | 列表项类型（`'new'` \| `'top'` \| `'inline'`） | `text` |
 
 #### 使用示例
@@ -364,6 +365,7 @@ ProList 会根据 columns 或 metas 中配置了 `search` 的字段来生成搜�
 | `avatar: { dataIndex: 'img' }` | `{ dataIndex: 'img', listSlot: 'avatar' }` |
 | `description: { dataIndex: 'desc' }` | `{ dataIndex: 'desc', listSlot: 'description' }` |
 | `actions: { cardActionProps: 'actions', render: ... }` | `{ listSlot: 'actions', cardActionProps: 'actions', render: ... }` |
+| `extra: { render: ... }` | `{ listSlot: 'aside', render: ... }` |
 | `status: { title: '状态', valueType: 'select', ... }` | `{ title: '状态', dataIndex: 'status', valueType: 'select', ... }` |
 
 #### 完整示例

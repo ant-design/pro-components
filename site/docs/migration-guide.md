@@ -508,6 +508,7 @@ ProList 的 `metas` API 已废弃，推荐使用 `columns` + `listSlot` 替代�
 | `subTitle: { render: ... }` | `{ listSlot: 'subTitle', render: ... }` |
 | `content: {}` | `{ dataIndex: 'content', listSlot: 'content' }` |
 | `actions: { cardActionProps: 'actions' }` | `{ listSlot: 'actions', cardActionProps: 'actions' }` |
+| `extra: { render: ... }` | `{ listSlot: 'aside', render: ... }` |
 | `type: {}` | `{ dataIndex: 'type', listSlot: 'type' }` |
 
 > **提示**：`metas` 中没有 `listSlot` 对应的键（如 `status`）会以键名作为 `dataIndex`，迁移时需要显式补上 `dataIndex`。迁移后同一份 `columns` 可直接传给 `ProTable` 使用，实现列表和表格的一键切换。详见 [ProList 文档](/components/list)。

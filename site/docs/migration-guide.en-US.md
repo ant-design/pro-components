@@ -508,6 +508,7 @@ Migration reference:
 | `subTitle: { render: ... }` | `{ listSlot: 'subTitle', render: ... }` |
 | `content: {}` | `{ dataIndex: 'content', listSlot: 'content' }` |
 | `actions: { cardActionProps: 'actions' }` | `{ listSlot: 'actions', cardActionProps: 'actions' }` |
+| `extra: { render: ... }` | `{ listSlot: 'aside', render: ... }` |
 | `type: {}` | `{ dataIndex: 'type', listSlot: 'type' }` |
 
 > **Tip**: metas keys without a corresponding `listSlot` (e.g. `status`) use the key name as `dataIndex`. When migrating, you need to explicitly add `dataIndex`. After migration, the same `columns` can be directly passed to `ProTable`, enabling one-click switching between list and table views. See [ProList documentation](/en-US/components/list).

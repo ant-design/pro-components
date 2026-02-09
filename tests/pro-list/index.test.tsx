@@ -1280,7 +1280,7 @@ describe('List', () => {
       <ProList
         dataSource={[{ name: 'A' }, { name: 'B' }]}
         columns={[{ dataIndex: 'name', listSlot: 'title' }]}
-        rowClassName={(_, index) => (index === 0 ? 'first' : 'rest')}
+        rowClassName={(_: any, index: number) => (index === 0 ? 'first' : 'rest')}
       />,
     );
     expect(container.querySelectorAll('.ant-pro-list-row')[0]).toHaveClass(
@@ -1613,6 +1613,55 @@ describe('List', () => {
     const contents = container.querySelectorAll('.ant-pro-list-row-content');
     expect(contents.length).toEqual(1);
     expect(contents[0].innerHTML).toEqual('<div>内容B</div>');
+  });
+
+  it('🚏 columns API: aside slot renders to extra area', async () => {
+    const { container } = reactRender(
+      <ProList
+        itemLayout="vertical"
+        dataSource={[{ name: '标题', sideImg: 'https://example.com/img.png' }]}
+        columns={[
+          { dataIndex: 'name', listSlot: 'title' },
+          {
+            listSlot: 'aside',
+            render: () => (
+              <img
+                width={272}
+                alt="side"
+                src="https://example.com/img.png"
+                data-testid="aside-img"
+              />
+            ),
+          },
+        ]}
+      />,
+    );
+    // aside 映射到 Item 的 extra 属性
+    expect(container.querySelector('[data-testid="aside-img"]')).toBeTruthy();
+  });
+
+  it('🚏 columns API: aside and actions coexist without conflict', async () => {
+    const { container } = reactRender(
+      <ProList
+        dataSource={[{ name: '名称' }]}
+        columns={[
+          { dataIndex: 'name', listSlot: 'title' },
+          {
+            listSlot: 'aside',
+            render: () => <div data-testid="aside-content">附属内容</div>,
+          },
+          {
+            listSlot: 'actions',
+            render: () => [<a key="edit">编辑</a>],
+          },
+        ]}
+      />,
+    );
+    // 两者互不冲突
+    expect(
+      container.querySelector('[data-testid="aside-content"]'),
+    ).toBeTruthy();
+    expect(container.textContent?.includes('编辑')).toBeTruthy();
   });
 
   it('🚏 columns API: nested dataIndex works', async () => {

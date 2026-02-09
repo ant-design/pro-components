@@ -170,6 +170,7 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
       | 'description'
       | 'content'
       | 'actions'
+      | 'aside'
       | 'type'
       | (string & {});
 

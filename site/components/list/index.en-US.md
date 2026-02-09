@@ -213,7 +213,7 @@ The same `columns` can be used for both ProTable (table view) and ProList (list 
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| listSlot | Specifies which slot of the list item this column maps to | `'title'` \| `'subTitle'` \| `'avatar'` \| `'description'` \| `'content'` \| `'actions'` \| `'type'` | - |
+| listSlot | Specifies which slot of the list item this column maps to | `'title'` \| `'subTitle'` \| `'avatar'` \| `'description'` \| `'content'` \| `'actions'` \| `'aside'` \| `'type'` | - |
 | cardActionProps | When `listSlot` is `'actions'`, sets where actions render in card mode | `'actions'` \| `'extra'` | `'extra'` |
 
 All other column properties are identical to ProTable's `ProColumns` (`dataIndex`, `valueType`, `render`, `search`, `valueEnum`, etc.). See [ProTable columns](/en-US/components/table).
@@ -228,6 +228,7 @@ All other column properties are identical to ProTable's `ProColumns` (`dataIndex
 | `description` | List item description | `textarea` |
 | `content` | List item content area | `text` |
 | `actions` | List item action area | `option` |
+| `aside` | Supplementary side content (e.g. images, progress bars, non-interactive content) | `text` |
 | `type` | List item type (`'new'` \| `'top'` \| `'inline'`) | `text` |
 
 #### Usage Example
@@ -364,6 +365,7 @@ ProList generates a search form based on fields with `search` configured in colu
 | `avatar: { dataIndex: 'img' }` | `{ dataIndex: 'img', listSlot: 'avatar' }` |
 | `description: { dataIndex: 'desc' }` | `{ dataIndex: 'desc', listSlot: 'description' }` |
 | `actions: { cardActionProps: 'actions', render: ... }` | `{ listSlot: 'actions', cardActionProps: 'actions', render: ... }` |
+| `extra: { render: ... }` | `{ listSlot: 'aside', render: ... }` |
 | `status: { title: 'Status', valueType: 'select', ... }` | `{ title: 'Status', dataIndex: 'status', valueType: 'select', ... }` |
 
 #### Full Example
