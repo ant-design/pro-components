@@ -123,10 +123,10 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           },
         },
         '&-card': {
-          marginBlock: 8,
+          marginBlock: 0,
           marginInline: 0,
           paddingBlock: 0,
-          paddingInline: 8,
+          paddingInline: 0,
           '&:hover': {
             backgroundColor: 'transparent',
           },
