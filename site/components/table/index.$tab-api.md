@@ -7,53 +7,31 @@ legacy: /table
 
 ## 代码演示
 
-## 查询表格
+### 基础用法
 
-<code src="../../../demos/table/single.tsx" background="var(--main-bg-color)"></code>
+<code src="../../../demos/table/single.tsx" background="var(--main-bg-color)" title="查询表格"></code>
 
-<code src="../../../demos/table/theme.tsx" background="var(--main-bg-color)" iframe="550" title="黑色主紧凑主题"></code>
+<code src="../../../demos/table/normal.tsx" background="var(--main-bg-color)" title="无查询表单"></code>
 
-<code src="../../../demos/table/single-test.tsx" debug background="var(--main-bg-color)" ></code>
-
-<code src="../../../demos/table/no-option.tsx"  background="var(--main-bg-color)" title="查询（无按钮）表格"></code>
-
-<code src="../../../demos/table/dataSource.tsx"  background="var(--main-bg-color)" title="使用 DataSource" ></code>
-
-<code src="../../../demos/table/normal.tsx"  background="var(--main-bg-color)" title="无查询表单"></code>
-
-<code src="../../../demos/table/lightfilter.tsx"  background="var(--main-bg-color)" title="轻量筛选替换查询表单"></code>
+<code src="../../../demos/table/dataSource.tsx" background="var(--main-bg-color)" title="使用 DataSource"></code>
 
 <code src="../../../demos/table/no-title.tsx" id="no-title-table" background="var(--main-bg-color)" title="无 ToolBar 的表格"></code>
 
-## 必填的查询表单
+### 搜索与筛选
 
-尽量使用 initialValue 来解决问题，必填项挫败感比较强
+<code src="../../../demos/table/no-option.tsx" background="var(--main-bg-color)" title="查询（无按钮）表格"></code>
 
-<code src="../../../demos/table/open-rules.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../../../demos/table/lightfilter.tsx" background="var(--main-bg-color)" title="轻量筛选替换查询表单"></code>
 
-<code src="../../../demos/table/table-nested.tsx"  background="var(--main-bg-color)" title="嵌套表格"></code>
+<code src="../../../demos/table/search.tsx" background="var(--main-bg-color)" title="使用自带 keyWords 搜索的 table"></code>
 
-<code src="../../../demos/table/split.tsx"  background="var(--main-bg-color)" title="左右结构"></code>
+<code src="../../../demos/table/search_option.tsx" background="var(--main-bg-color)" title="搜索选项自定义"></code>
 
-<code src="../../../demos/table/batchOption.tsx"  background="var(--main-bg-color)" title="表格批量操作"></code>
+<code src="../../../demos/table/open-rules.tsx" background="var(--main-bg-color)" title="必填的查询表单"></code>
 
-<code src="../../../demos/table/form.tsx"  background="var(--main-bg-color)" title="通过 formRef 来操作查询表单"></code>
+尽量使用 initialValue 来解决问题，必填项挫败感比较强。
 
-## RTL (النسخة العربية)
-
-RTL means right-to-left.
-
-<code src="../../../demos/table/rtl_table.tsx"  background="var(--main-bg-color)" ></code>
-
-## 受控的表格设置栏
-
-可以默认隐藏某些栏，但是在操作栏中可以选择
-
-<code src="../../../demos/table/pollinga.tsx"  background="var(--main-bg-color)" title="表格轮询"></code>
-
-<code src="../../../demos/table/dateFormatter.tsx"  background="var(--main-bg-color)" title="dateFormatter-日期格式化"></code>
-
-## 搜索表单自定义
+### 搜索表单自定义
 
 当内置的表单项无法满足我们的基本需求，这时候我们就需要来自定义一下默认的组件，我们可以通过 `fieldProps` 和 `formItemRender` 配合来使用。
 
@@ -101,11 +79,11 @@ formItemRender: (
   ) => JSX.Element | false | null;
 ```
 
-<code src="../../../demos/table/linkage_form.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../../../demos/table/linkage_form.tsx" background="var(--main-bg-color)" title="动态联动搜索栏"></code>
 
-### FAQ
+<code src="../../../demos/table/form.tsx" background="var(--main-bg-color)" title="通过 formRef 来操作查询表单"></code>
 
-### 为什么不能自己设置 value 和 onchange
+#### 为什么不能自己设置 value 和 onchange
 
 被 ProTable 包装的控件，表单控件会自动添加 value（或 valuePropName 指定的其他属性） onChange（或 trigger 指定的其他属性），数据同步将被 Form 接管，这会导致以下结果：
 
@@ -115,27 +93,59 @@ formItemRender: (
 
 - 你不应该用 setState，可以使用 form.setFieldsValue 来动态改变表单值。
 
-#### 为什么设置 defaultValue 不生效？\#
+#### 为什么设置 defaultValue 不生效？
 
 因为 ProTable 子组件会转为受控模式。因而 defaultValue 不会生效。你需要在 Form 上通过 initialValues 设置默认值。
 
-<code src="../../../demos/table/search_option.tsx"  background="var(--main-bg-color)" ></code>
+### 表格功能
 
-## Toolbar 自定义
+<code src="../../../demos/table/batchOption.tsx" background="var(--main-bg-color)" title="表格批量操作"></code>
 
-使用 `toolbar`属性扩展配置工具栏渲染。
+<code src="../../../demos/table/table-nested.tsx" background="var(--main-bg-color)" title="嵌套表格"></code>
 
-<code src="../../../demos/table/listToolBar.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../../../demos/table/split.tsx" background="var(--main-bg-color)" title="左右结构"></code>
 
-<code src="../../../demos/table/renderTable.tsx"  background="var(--main-bg-color)" title="表格主体自定义"></code>
+<code src="../../../demos/table/pollinga.tsx" background="var(--main-bg-color)" title="表格轮询"></code>
 
-## 卡片表格
+<code src="../../../demos/table/dateFormatter.tsx" background="var(--main-bg-color)" title="dateFormatter - 日期格式化"></code>
+
+### Toolbar 自定义
+
+使用 `toolbar` 属性扩展配置工具栏渲染。
+
+<code src="../../../demos/table/listToolBar.tsx" background="var(--main-bg-color)" title="Toolbar 自定义"></code>
+
+<code src="../../../demos/table/renderTable.tsx" background="var(--main-bg-color)" title="表格主体自定义"></code>
+
+### 卡片表格
 
 有些业务有自己的定制逻辑，可以不完全遵循 ProTable 的设计规则，但可以利用 ProTable 的 API 实现。如通过 `cardProps` 配置卡片属性，通过 `headTitle` 配置行动点在左侧。
 
 <code src="../../../demos/table/card-title.tsx" background="var(--main-bg-color)" desc="使用卡片标题，行动点在左侧。"></code>
 
-## 国际化相关的配置
+### 值类型示例
+
+#### valueType - 日期类
+
+<code src="../../../demos/table/valueTypeDate.tsx" background="var(--main-bg-color)"></code>
+
+#### valueType - 数字类
+
+<code src="../../../demos/table/valueTypeNumber.tsx" background="var(--main-bg-color)"></code>
+
+#### valueType - 样式类
+
+<code src="../../../demos/table/valueType.tsx" background="var(--main-bg-color)"></code>
+
+#### valueType - 选择类
+
+<code src="../../../demos/table/valueType_select.tsx" background="var(--main-bg-color)"></code>
+
+#### 自定义 valueType
+
+<code src="../../../demos/table/customization-value-type.tsx" background="var(--main-bg-color)"></code>
+
+### 国际化相关的配置
 
 ProTable 内置了国际化的支持，作为一个文本量比较少的组件，我们可以自行实现国际化，成本也很低。
 
@@ -176,8 +186,7 @@ const enLocale = {
   },
 };
 
-// 生成 intl 对象import { afterEach, describe, expect, it, vi } from 'vitest';
-import   { ProProvider } from '@ant-design/pro-components';
+import { ProProvider } from '@ant-design/pro-components';
 const enUSIntl = createIntl('en_US', enUS);
 const values = useContext(ProProvider)
 
@@ -187,39 +196,27 @@ const values = useContext(ProProvider)
 </ProProvider.Provider>;
 ```
 
-<code src="../../../demos/table/intl.tsx"  background="var(--main-bg-color)" title="国际化相关的配置"></code>
+<code src="../../../demos/table/intl.tsx" background="var(--main-bg-color)" title="国际化相关的配置"></code>
 
-<code src="../../../demos/table/search.tsx"  background="var(--main-bg-color)" title="使用自带 keyWords 搜索的 table"></code>
+### RTL (النسخة العربية)
 
-## 值类型示例
+RTL means right-to-left.
 
-### valueType - 日期类
+<code src="../../../demos/table/rtl_table.tsx" background="var(--main-bg-color)"></code>
 
-<code src="../../../demos/table/valueTypeDate.tsx"  background="var(--main-bg-color)" ></code>
+### 主题
 
-### valueType - 数字类
+<code src="../../../demos/table/theme.tsx" background="var(--main-bg-color)" iframe="550" title="黑色主题 / 紧凑主题"></code>
 
-<code src="../../../demos/table/valueTypeNumber.tsx"  background="var(--main-bg-color)" ></code>
+### 自定义错误边界
 
-### valueType - 样式类
-
-<code src="../../../demos/table/valueType.tsx"  background="var(--main-bg-color)" ></code>
-
-### valueType - 选择类
-
-<code src="../../../demos/table/valueType_select.tsx"  background="var(--main-bg-color)" ></code>
-
-### 自定义 valueType
-
-<code src="../../../demos/table/customization-value-type.tsx"  background="var(--main-bg-color)" ></code>
-
-## 自定义错误边界
-
-<code src="../../../demos/table/error-boundaries.tsx"  background="var(--main-bg-color)" iframe="572"></code>
+<code src="../../../demos/table/error-boundaries.tsx" background="var(--main-bg-color)" iframe="572"></code>
 
 <code src="../../../demos/table/error-boundaries-false.tsx" title="取消自定义错误边界" iframe="462"></code>
 
-<code src="../../../demos/table/config-provider.tsx" debug  background="var(--main-bg-color)" ></code>
+<code src="../../../demos/table/config-provider.tsx" debug background="var(--main-bg-color)"></code>
+
+<code src="../../../demos/table/single-test.tsx" debug background="var(--main-bg-color)"></code>
 
 ## 列表工具栏
 
