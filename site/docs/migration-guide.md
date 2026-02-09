@@ -73,6 +73,7 @@ pnpm install
 | ProLayout    | `rightContentRender`                  | `actionsRender` + `avatarProps`                | 将原右侧内容拆分为动作区域与头像配置，便于独立维护。                                                |
 | 布局 Token   | `marginInlinePageContainerContent` 等 | `paddingInlinePageContainerContent` 等         | 全面替换 Token 名称，保持主题粒度一致。                                                             |
 | ProFormField | `plain`                               | `variant`                                      | 移除 `plain`，改用 `variant` 控制字段展示变体（如 `borderless`、`outlined`）。                      |
+| ProList      | `metas`                               | `columns` + `listSlot`                         | 将 metas 对象的键值对转为 columns 数组元素，键名改为 `listSlot`，详见 [ProList 迁移](#list-组件)。  |
 
 ### Table 组件
 
@@ -436,6 +437,82 @@ const token = {
 
 迁移时请全局搜索 `plain`，移除所有 `plain` 或 `plain={true}` 传参，并按需替换为 `variant` 配置。
 
+### List 组件
+
+#### `metas` → `columns` + `listSlot`
+
+**变更原因**: 统一 ProList 与 ProTable 的列配置 API，使同一份 `columns` 可同时用于表格和列表视图
+
+ProList 的 `metas` API 已废弃，推荐使用 `columns` + `listSlot` 替代。迁移规则：将 metas 对象的每个键值对转为 columns 数组中的一个元素，键名对应 `listSlot`，值的属性直接展开到列配置中。
+
+```tsx | pure
+// ❌ 旧版本
+<ProList
+  metas={{
+    title: { dataIndex: 'name', title: '名称' },
+    avatar: { dataIndex: 'avatar', search: false },
+    description: { dataIndex: 'desc', search: false },
+    subTitle: {
+      dataIndex: 'labels',
+      render: (_, row) => <Tag>{row.label}</Tag>,
+      search: false,
+    },
+    actions: {
+      cardActionProps: 'actions',
+      render: (_, row) => [<a key="edit">编辑</a>],
+      search: false,
+    },
+    status: {
+      title: '状态',
+      valueType: 'select',
+      valueEnum: { open: { text: '未解决' }, closed: { text: '已解决' } },
+    },
+  }}
+/>
+
+// ✅ 新版本
+<ProList
+  columns={[
+    { title: '名称', dataIndex: 'name', listSlot: 'title' },
+    { dataIndex: 'avatar', listSlot: 'avatar', search: false },
+    { dataIndex: 'desc', listSlot: 'description', search: false },
+    {
+      dataIndex: 'labels',
+      listSlot: 'subTitle',
+      render: (_, row) => <Tag>{row.label}</Tag>,
+      search: false,
+    },
+    {
+      listSlot: 'actions',
+      cardActionProps: 'actions',
+      render: (_, row) => [<a key="edit">编辑</a>],
+      search: false,
+    },
+    {
+      title: '状态',
+      dataIndex: 'status',
+      valueType: 'select',
+      valueEnum: { open: { text: '未解决' }, closed: { text: '已解决' } },
+    },
+  ]}
+/>
+```
+
+迁移对照表：
+
+| metas 写法 | columns 写法 |
+| --- | --- |
+| `title: { dataIndex: 'name' }` | `{ dataIndex: 'name', listSlot: 'title' }` |
+| `avatar: { dataIndex: 'img' }` | `{ dataIndex: 'img', listSlot: 'avatar' }` |
+| `description: { dataIndex: 'desc' }` | `{ dataIndex: 'desc', listSlot: 'description' }` |
+| `subTitle: { render: ... }` | `{ listSlot: 'subTitle', render: ... }` |
+| `content: {}` | `{ dataIndex: 'content', listSlot: 'content' }` |
+| `actions: { cardActionProps: 'actions' }` | `{ listSlot: 'actions', cardActionProps: 'actions' }` |
+| `extra: { render: ... }` | `{ listSlot: 'aside', render: ... }` |
+| `type: {}` | `{ dataIndex: 'type', listSlot: 'type' }` |
+
+> **提示**：`metas` 中没有 `listSlot` 对应的键（如 `status`）会以键名作为 `dataIndex`，迁移时需要显式补上 `dataIndex`。迁移后同一份 `columns` 可直接传给 `ProTable` 使用，实现列表和表格的一键切换。详见 [ProList 文档](/components/list)。
+
 ### 兼容性相关
 
 #### 1. 移除 antd@4 兼容性代码
@@ -528,6 +605,7 @@ pnpm exec rg "tip[\"']" src
 pnpm exec rg "ProCard\.TabPane" src
 pnpm exec rg "rightContentRender" src
 pnpm exec rg "plain" src
+pnpm exec rg "metas" src
 ```
 
 > 在 Windows PowerShell 中可使用 `Select-String -Path "src/**/*.tsx" -Pattern "columnsStateMap"` 达到类似效果。
@@ -550,7 +628,12 @@ pnpm exec rg "plain" src
    - 更新布局 Token 属性名
    - 检查自定义头部组件是否依赖旧的 `rightContentRender` 容器
 
-4. **迁移 Field / ProFormField 组件**
+4. **迁移 List 组件**
+   - 将 `metas` 对象改为 `columns` 数组
+   - 每个 meta 的键名转为 `listSlot` 属性
+   - `cardActionProps` 保持不变，直接放到列配置中
+
+5. **迁移 Field / ProFormField 组件**
    - 移除所有 `plain` 或 `plain={true}` 传参
    - 按需替换为 `fieldProps.variant: 'borderless'` 或 `variant: 'outlined'`
 

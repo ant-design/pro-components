@@ -19,6 +19,30 @@ ProList 基于 ProTable 实现，可以认为是 ProTable 的一个特例，将�
 
 <code src="../../../demos/pro-list/base.tsx" background="var(--main-bg-color)"></code>
 
+### 使用 columns + listSlot（推荐）
+
+通过 `columns` 配合 `listSlot` 属性，可以和 ProTable 共用同一份列配置。`listSlot` 指定该列映射到列表项的哪个插槽（如 `title`、`avatar`、`description` 等）。
+
+<code src="../../../demos/pro-list/columns.tsx" background="var(--main-bg-color)"></code>
+
+### 卡片列表（columns + listSlot）
+
+<code src="../../../demos/pro-list/columns-card.tsx" background="var(--main-bg-color)"></code>
+
+### 表格/列表一键切换
+
+同一份 `columns` 同时传给 ProTable 和 ProList，通过切换组件即可在表格和列表视图之间无缝切换。
+
+<code src="../../../demos/pro-list/columns-shared.tsx" background="var(--main-bg-color)"></code>
+
+### 搜索列表（columns + request）
+
+<code src="../../../demos/pro-list/columns-search.tsx" background="var(--main-bg-color)"></code>
+
+### 可编辑列表（columns）
+
+<code src="../../../demos/pro-list/columns-editable.tsx" background="var(--main-bg-color)"></code>
+
 ### 编辑列表
 
 <code src="../../../demos/pro-list/editable.tsx" background="var(--main-bg-color)"></code>
@@ -59,7 +83,7 @@ ProList 基于 ProTable 实现，可以认为是 ProTable 的一个特例，将�
 
 <code src="../../../demos/pro-list/pagination.tsx" background="var(--main-bg-color)"></code>
 
-### 卡片列表
+### 卡片列表（metas）
 
 <code src="../../../demos/pro-list/card-list.tsx" background="var(--main-bg-color)"></code>
 
@@ -71,7 +95,12 @@ ProList 基于 ProTable 实现，可以认为是 ProTable 的一个特例，将�
 
 ## API
 
-ProList 在 ProTable 上进行了一层封装，使用 `metas` 代替 `columns` 来配置列表项的展现形式。这里只列出与 ProTable 不同的 API，其余 API 与 [ProTable](/components/table) 相同。
+ProList 基于 ProTable 封装，支持两种列配置方式：
+
+- **`columns` + `listSlot`（推荐）**：与 ProTable 共用相同的 `columns` 数组，通过 `listSlot` 指定每列映射到列表项的哪个插槽位置。同一份 `columns` 可同时用于 ProTable 和 ProList，便于在表格和列表之间切换。
+- **`metas`（已废弃）**：旧的配置方式，使用对象的键名来映射列表项的各个部分。仍可正常使用，但推荐迁移到 `columns` + `listSlot`。
+
+其余 API 与 [ProTable](/components/table) 相同。
 
 ### request
 
@@ -98,6 +127,8 @@ ProList 在 ProTable 上进行了一层封装，使用 `metas` 代替 `columns` 
 
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
+| columns | 列配置，与 ProTable 相同，通过 `listSlot` 指定列表项插槽，详见 [columns 配置](#columns-配置推荐) | `ProColumns<T>[]` | - |
+| metas | ~~已废弃~~ 列表项配置，详见 [Metas 配置](#metas-配置已废弃)，推荐使用 `columns` + `listSlot` | `Metas` | - |
 | dataSource | 与 antd 相同的[配置](https://ant.design/components/list-cn/#API)，ProList 推荐使用 `request` 来加载 | `T[]` | - |
 | request | 获取 `dataSource` 的方法 | `(params: U & { pageSize?: number; current?: number; keyword?: string }, sort: Record<string, SortOrder>, filter: Record<string, FilterValue>) => Promise<{ data: T[]; success?: boolean; total?: number }>` | - |
 | params | 用于 `request` 查询的额外参数，一旦变化会触发重新加载 | `U` | - |
@@ -106,7 +137,6 @@ ProList 在 ProTable 上进行了一层封装，使用 `metas` 代替 `columns` 
 | onDataSourceChange | 数据发生改变时触发 | `(dataSource: T[]) => void` | - |
 | actionRef | Table action 的引用，便于自定义触发 | `React.Ref<ActionType \| undefined>` | - |
 | formRef | 可以获取到查询表单的 form 实例，用于一些灵活的配置 | `TableFormItem<T>['formRef']` | - |
-| metas | 列表项配置，类似 Table 中的 columns，详见 [Metas 配置](#metas-配置) | `Metas` | - |
 | rowKey | 行的 key，一般是行 id | `string` \| `(row: T, index: number) => string` | `'id'` |
 | headerTitle | 左上角的 title | `ReactNode` | - |
 | tooltip | 标题旁边的 tooltip | `string \| LabelTooltipType` | - |
@@ -173,9 +203,75 @@ ref.current?.reset();
 ref.current?.clearSelected();
 ```
 
-### Metas 配置
+### columns 配置（推荐）
 
-Metas 是 ProList 的核心配置，使用 `metas` 定义列表项各个部分（标题、头像、描述等）对应的数据字段，类似于 ProTable 的 `columns`。
+ProList 的 `columns` 与 ProTable 完全兼容，额外支持 `listSlot` 和 `cardActionProps` 两个属性来控制列表项的渲染。
+
+同一份 `columns` 可以同时用于 ProTable（表格视图）和 ProList（列表视图），ProTable 会忽略 `listSlot` 属性，ProList 使用 `listSlot` 将数据映射到列表项的各个插槽位置。没有 `listSlot` 的列不会渲染到列表项中，但仍会参与搜索表单的生成。
+
+#### ProList 扩展的列属性
+
+| 属性 | 描述 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| listSlot | 指定该列映射到列表项的哪个插槽位置 | `'title'` \| `'subTitle'` \| `'avatar'` \| `'description'` \| `'content'` \| `'actions'` \| `'aside'` \| `'type'` | - |
+| cardActionProps | 当 `listSlot` 为 `'actions'` 时，设置卡片列表把 actions 渲染到哪里 | `'actions'` \| `'extra'` | `'extra'` |
+
+其余列属性与 ProTable 的 `ProColumns` 完全一致（`dataIndex`、`valueType`、`render`、`search`、`valueEnum` 等），详见 [ProTable columns](/components/table)。
+
+#### listSlot 插槽说明
+
+| 插槽值 | 说明 | 默认 valueType |
+| --- | --- | --- |
+| `title` | 列表项标题 | `text` |
+| `subTitle` | 列表项副标题 | `text` |
+| `avatar` | 列表项头像 | `avatar` |
+| `description` | 列表项描述 | `textarea` |
+| `content` | 列表项内容区域 | `text` |
+| `actions` | 列表项操作区 | `option` |
+| `aside` | 列表项附属内容，通常展示在右侧（如图片、进度条等非交互内容） | `text` |
+| `type` | 列表项类型（`'new'` \| `'top'` \| `'inline'`） | `text` |
+
+#### 使用示例
+
+```tsx | pure
+import type { ProColumns } from '@ant-design/pro-components';
+
+// 同一份 columns 可同时用于 ProTable 和 ProList
+const columns: ProColumns<DataItem>[] = [
+  { title: '名称', dataIndex: 'name', listSlot: 'title' },
+  { dataIndex: 'avatar', listSlot: 'avatar', search: false },
+  { dataIndex: 'desc', listSlot: 'description', search: false },
+  {
+    title: '标签',
+    dataIndex: 'labels',
+    listSlot: 'subTitle',
+    search: false,
+    render: (_, row) => <Tag>{row.label}</Tag>,
+  },
+  {
+    title: '操作',
+    listSlot: 'actions',
+    search: false,
+    render: (_, row) => [<a key="edit">编辑</a>],
+  },
+  {
+    title: '状态',
+    dataIndex: 'status',
+    valueType: 'select',
+    valueEnum: { open: { text: '未解决' }, closed: { text: '已解决' } },
+    // 没有 listSlot，不渲染到列表项中，仅用于搜索
+  },
+];
+
+<ProList columns={columns} />  // 列表视图
+<ProTable columns={columns} /> // 表格视图
+```
+
+### Metas 配置（已废弃）
+
+> **已废弃**：`metas` 仍可正常使用，但推荐迁移到 `columns` + `listSlot`。详见下方[从 metas 迁移到 columns](#从-metas-迁移到-columns) 指引。
+
+Metas 使用对象的键名来映射列表项各个部分（标题、头像、描述等）对应的数据字段。
 
 #### Metas.[Meta] 通用 API
 
@@ -255,4 +351,80 @@ Metas 是 ProList 的核心配置，使用 `metas` 定义列表项各个部分�
 
 ### 搜索表单
 
-ProList 会根据 metas 中配置了 `search` 的字段来生成搜索表单，用法与 [ProTable 搜索表单](/components/table#搜索表单) 一致。
+ProList 会根据 columns 或 metas 中配置了 `search` 的字段来生成搜索表单，用法与 [ProTable 搜索表单](/components/table#搜索表单) 一致。
+
+### 从 metas 迁移到 columns
+
+`metas` 已废弃，推荐迁移到 `columns` + `listSlot`。迁移规则非常简单：将 metas 对象的每个键值对转换为 columns 数组中的一个元素，键名对应 `listSlot`，值的属性直接展开到列配置中。
+
+#### 迁移对照表
+
+| metas 写法 | columns 写法 |
+| --- | --- |
+| `title: { dataIndex: 'name' }` | `{ dataIndex: 'name', listSlot: 'title' }` |
+| `avatar: { dataIndex: 'img' }` | `{ dataIndex: 'img', listSlot: 'avatar' }` |
+| `description: { dataIndex: 'desc' }` | `{ dataIndex: 'desc', listSlot: 'description' }` |
+| `actions: { cardActionProps: 'actions', render: ... }` | `{ listSlot: 'actions', cardActionProps: 'actions', render: ... }` |
+| `extra: { render: ... }` | `{ listSlot: 'aside', render: ... }` |
+| `status: { title: '状态', valueType: 'select', ... }` | `{ title: '状态', dataIndex: 'status', valueType: 'select', ... }` |
+
+#### 完整示例
+
+**迁移前（metas）：**
+
+```tsx | pure
+<ProList
+  metas={{
+    title: { dataIndex: 'name', title: '名称' },
+    avatar: { dataIndex: 'avatar', search: false },
+    description: { dataIndex: 'desc', search: false },
+    subTitle: {
+      dataIndex: 'labels',
+      render: (_, row) => <Tag>{row.label}</Tag>,
+      search: false,
+    },
+    actions: {
+      cardActionProps: 'actions',
+      render: (_, row) => [<a key="edit">编辑</a>],
+      search: false,
+    },
+    status: {
+      title: '状态',
+      valueType: 'select',
+      valueEnum: { open: { text: '未解决' }, closed: { text: '已解决' } },
+    },
+  }}
+/>
+```
+
+**迁移后（columns + listSlot）：**
+
+```tsx | pure
+<ProList
+  columns={[
+    { title: '名称', dataIndex: 'name', listSlot: 'title' },
+    { dataIndex: 'avatar', listSlot: 'avatar', search: false },
+    { dataIndex: 'desc', listSlot: 'description', search: false },
+    {
+      dataIndex: 'labels',
+      listSlot: 'subTitle',
+      render: (_, row) => <Tag>{row.label}</Tag>,
+      search: false,
+    },
+    {
+      listSlot: 'actions',
+      cardActionProps: 'actions',
+      render: (_, row) => [<a key="edit">编辑</a>],
+      search: false,
+    },
+    {
+      title: '状态',
+      dataIndex: 'status',
+      valueType: 'select',
+      valueEnum: { open: { text: '未解决' }, closed: { text: '已解决' } },
+    },
+  ]}
+/>
+```
+
+> **提示**：迁移后的 `columns` 可以直接传给 `ProTable` 使用，实现列表和表格视图的一键切换。

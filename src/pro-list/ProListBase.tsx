@@ -8,8 +8,6 @@ import type { PaginationConfig } from 'antd/lib/pagination';
 import { clsx } from 'clsx';
 import React, { useContext, useMemo } from 'react';
 
-const RESPONSIVE_ARRAY = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'] as const;
-
 export type ColumnCount = number;
 export type ColumnType =
   | 'gutter'

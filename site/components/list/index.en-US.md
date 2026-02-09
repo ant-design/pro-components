@@ -19,6 +19,30 @@ When you need a standard list presentation, or need to flexibly switch between l
 
 <code src="../../../demos/pro-list/base.tsx" background="var(--main-bg-color)"></code>
 
+### Using columns + listSlot (Recommended)
+
+Use `columns` with the `listSlot` property to share the same column configuration with ProTable. `listSlot` specifies which slot of the list item the column maps to (e.g. `title`, `avatar`, `description`).
+
+<code src="../../../demos/pro-list/columns.tsx" background="var(--main-bg-color)"></code>
+
+### Card list (columns + listSlot)
+
+<code src="../../../demos/pro-list/columns-card.tsx" background="var(--main-bg-color)"></code>
+
+### Table/List view switching
+
+Use the same `columns` for both ProTable and ProList. Switch between table and list views seamlessly by toggling the component.
+
+<code src="../../../demos/pro-list/columns-shared.tsx" background="var(--main-bg-color)"></code>
+
+### Search list (columns + request)
+
+<code src="../../../demos/pro-list/columns-search.tsx" background="var(--main-bg-color)"></code>
+
+### Editable list (columns)
+
+<code src="../../../demos/pro-list/columns-editable.tsx" background="var(--main-bg-color)"></code>
+
 ### Edit list
 
 <code src="../../../demos/pro-list/editable.tsx" background="var(--main-bg-color)"></code>
@@ -59,7 +83,7 @@ When you need a standard list presentation, or need to flexibly switch between l
 
 <code src="../../../demos/pro-list/pagination.tsx" background="var(--main-bg-color)"></code>
 
-### Card list
+### Card list (metas)
 
 <code src="../../../demos/pro-list/card-list.tsx" background="var(--main-bg-color)"></code>
 
@@ -71,7 +95,12 @@ Use `itemRender` to customize each item's rendering. The third argument `default
 
 ## API
 
-ProList is a layer of encapsulation on top of ProTable, using `metas` instead of `columns` to configure the presentation of list items. Only the APIs that differ from ProTable are listed here; for the rest, refer to [ProTable](/en-US/components/table).
+ProList is built on top of ProTable and supports two column configuration approaches:
+
+- **`columns` + `listSlot` (Recommended)**: Shares the same `columns` array with ProTable. Use `listSlot` to specify which slot of the list item each column maps to. The same `columns` can be used for both ProTable and ProList, making it easy to switch between table and list views.
+- **`metas` (Deprecated)**: The legacy configuration using object keys to map list item parts. Still functional but migration to `columns` + `listSlot` is recommended.
+
+For other APIs, refer to [ProTable](/en-US/components/table).
 
 ### request
 
@@ -98,6 +127,8 @@ ProList is a layer of encapsulation on top of ProTable, using `metas` instead of
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
+| columns | Column configuration, same as ProTable. Use `listSlot` to specify list item slots. See [columns Configuration](#columns-configuration-recommended) | `ProColumns<T>[]` | - |
+| metas | ~~Deprecated~~ List item configuration, see [Metas Configuration](#metas-configuration-deprecated). Please migrate to `columns` + `listSlot` | `Metas` | - |
 | dataSource | Same [configuration](https://ant.design/components/list-cn/#API) as antd. ProList recommends using `request` to load data | `T[]` | - |
 | request | Method to get `dataSource` | `(params: U & { pageSize?: number; current?: number; keyword?: string }, sort: Record<string, SortOrder>, filter: Record<string, FilterValue>) => Promise<{ data: T[]; success?: boolean; total?: number }>` | - |
 | params | Extra parameters for `request` query, triggers reload on change | `U` | - |
@@ -106,7 +137,6 @@ ProList is a layer of encapsulation on top of ProTable, using `metas` instead of
 | onDataSourceChange | Triggered when data changes | `(dataSource: T[]) => void` | - |
 | actionRef | Table action reference for custom triggering | `React.Ref<ActionType \| undefined>` | - |
 | formRef | Get the form instance of the search form | `TableFormItem<T>['formRef']` | - |
-| metas | List item configuration, similar to columns in Table, see [Metas Configuration](#metas-configuration) | `Metas` | - |
 | rowKey | Row key, usually row id | `string` \| `(row: T, index: number) => string` | `'id'` |
 | headerTitle | Title on the top left | `ReactNode` | - |
 | tooltip | Tooltip next to the title | `string \| LabelTooltipType` | - |
@@ -173,9 +203,75 @@ ref.current?.reset();
 ref.current?.clearSelected();
 ```
 
-### Metas Configuration
+### columns Configuration (Recommended)
 
-Metas is the core configuration of ProList. Use `metas` to define which data fields map to each part of the list item (title, avatar, description, etc.), similar to ProTable's `columns`.
+ProList's `columns` is fully compatible with ProTable. It additionally supports `listSlot` and `cardActionProps` properties to control list item rendering.
+
+The same `columns` can be used for both ProTable (table view) and ProList (list view). ProTable ignores the `listSlot` property, while ProList uses it to map data to list item slots. Columns without `listSlot` are not rendered in list items but still participate in search form generation.
+
+#### ProList Extended Column Properties
+
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| listSlot | Specifies which slot of the list item this column maps to | `'title'` \| `'subTitle'` \| `'avatar'` \| `'description'` \| `'content'` \| `'actions'` \| `'aside'` \| `'type'` | - |
+| cardActionProps | When `listSlot` is `'actions'`, sets where actions render in card mode | `'actions'` \| `'extra'` | `'extra'` |
+
+All other column properties are identical to ProTable's `ProColumns` (`dataIndex`, `valueType`, `render`, `search`, `valueEnum`, etc.). See [ProTable columns](/en-US/components/table).
+
+#### listSlot Slot Reference
+
+| Slot Value | Description | Default valueType |
+| --- | --- | --- |
+| `title` | List item title | `text` |
+| `subTitle` | List item subtitle | `text` |
+| `avatar` | List item avatar | `avatar` |
+| `description` | List item description | `textarea` |
+| `content` | List item content area | `text` |
+| `actions` | List item action area | `option` |
+| `aside` | Supplementary side content (e.g. images, progress bars, non-interactive content) | `text` |
+| `type` | List item type (`'new'` \| `'top'` \| `'inline'`) | `text` |
+
+#### Usage Example
+
+```tsx | pure
+import type { ProColumns } from '@ant-design/pro-components';
+
+// Same columns for both ProTable and ProList
+const columns: ProColumns<DataItem>[] = [
+  { title: 'Name', dataIndex: 'name', listSlot: 'title' },
+  { dataIndex: 'avatar', listSlot: 'avatar', search: false },
+  { dataIndex: 'desc', listSlot: 'description', search: false },
+  {
+    title: 'Labels',
+    dataIndex: 'labels',
+    listSlot: 'subTitle',
+    search: false,
+    render: (_, row) => <Tag>{row.label}</Tag>,
+  },
+  {
+    title: 'Actions',
+    listSlot: 'actions',
+    search: false,
+    render: (_, row) => [<a key="edit">Edit</a>],
+  },
+  {
+    title: 'Status',
+    dataIndex: 'status',
+    valueType: 'select',
+    valueEnum: { open: { text: 'Open' }, closed: { text: 'Closed' } },
+    // No listSlot — not rendered in list items, search only
+  },
+];
+
+<ProList columns={columns} />  // List view
+<ProTable columns={columns} /> // Table view
+```
+
+### Metas Configuration (Deprecated)
+
+> **Deprecated**: `metas` still works but migration to `columns` + `listSlot` is recommended. See the [Migration Guide](#migrating-from-metas-to-columns) below.
+
+Metas uses object keys to map list item parts (title, avatar, description, etc.) to data fields.
 
 #### Metas.[Meta] Generic API
 
@@ -255,4 +351,80 @@ Same as ProTable, batch operations require setting `rowSelection`. See [ProTable
 
 ### Search Form
 
-ProList generates a search form based on fields with `search` configured in metas. Usage is identical to [ProTable Search Form](/en-US/components/table#search-form).
+ProList generates a search form based on fields with `search` configured in columns or metas. Usage is identical to [ProTable Search Form](/en-US/components/table#search-form).
+
+### Migrating from metas to columns
+
+`metas` is deprecated. Migration to `columns` + `listSlot` is straightforward: convert each key-value pair in the metas object to an element in the columns array, where the key becomes the `listSlot` and the value's properties are spread into the column configuration.
+
+#### Migration Reference
+
+| metas syntax | columns syntax |
+| --- | --- |
+| `title: { dataIndex: 'name' }` | `{ dataIndex: 'name', listSlot: 'title' }` |
+| `avatar: { dataIndex: 'img' }` | `{ dataIndex: 'img', listSlot: 'avatar' }` |
+| `description: { dataIndex: 'desc' }` | `{ dataIndex: 'desc', listSlot: 'description' }` |
+| `actions: { cardActionProps: 'actions', render: ... }` | `{ listSlot: 'actions', cardActionProps: 'actions', render: ... }` |
+| `extra: { render: ... }` | `{ listSlot: 'aside', render: ... }` |
+| `status: { title: 'Status', valueType: 'select', ... }` | `{ title: 'Status', dataIndex: 'status', valueType: 'select', ... }` |
+
+#### Full Example
+
+**Before (metas):**
+
+```tsx | pure
+<ProList
+  metas={{
+    title: { dataIndex: 'name', title: 'Name' },
+    avatar: { dataIndex: 'avatar', search: false },
+    description: { dataIndex: 'desc', search: false },
+    subTitle: {
+      dataIndex: 'labels',
+      render: (_, row) => <Tag>{row.label}</Tag>,
+      search: false,
+    },
+    actions: {
+      cardActionProps: 'actions',
+      render: (_, row) => [<a key="edit">Edit</a>],
+      search: false,
+    },
+    status: {
+      title: 'Status',
+      valueType: 'select',
+      valueEnum: { open: { text: 'Open' }, closed: { text: 'Closed' } },
+    },
+  }}
+/>
+```
+
+**After (columns + listSlot):**
+
+```tsx | pure
+<ProList
+  columns={[
+    { title: 'Name', dataIndex: 'name', listSlot: 'title' },
+    { dataIndex: 'avatar', listSlot: 'avatar', search: false },
+    { dataIndex: 'desc', listSlot: 'description', search: false },
+    {
+      dataIndex: 'labels',
+      listSlot: 'subTitle',
+      render: (_, row) => <Tag>{row.label}</Tag>,
+      search: false,
+    },
+    {
+      listSlot: 'actions',
+      cardActionProps: 'actions',
+      render: (_, row) => [<a key="edit">Edit</a>],
+      search: false,
+    },
+    {
+      title: 'Status',
+      dataIndex: 'status',
+      valueType: 'select',
+      valueEnum: { open: { text: 'Open' }, closed: { text: 'Closed' } },
+    },
+  ]}
+/>
+```
+
+> **Tip**: After migration, the same `columns` can be passed directly to `ProTable` for a one-click switch between list and table views.
