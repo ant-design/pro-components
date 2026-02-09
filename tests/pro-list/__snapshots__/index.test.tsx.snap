@@ -3,7 +3,7 @@
 exports[`List > 🚏 ProList support rowClassName as a function 1`] = `
 <div>
   <div
-    class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
+    class="ant-pro-table ant-pro-list ant-pro-list-no-split"
   >
     <div
       class="ant-pro-list ant-pro-list-split ant-pro-list-container"
@@ -102,7 +102,7 @@ exports[`List > 🚏 ProList support rowClassName as a function 1`] = `
 exports[`List > 🚏 ProList support rowClassName as a string 1`] = `
 <div>
   <div
-    class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
+    class="ant-pro-table ant-pro-list ant-pro-list-no-split"
   >
     <div
       class="ant-pro-list ant-pro-list-split ant-pro-list-container"
@@ -160,7 +160,7 @@ exports[`List > 🚏 ProList support rowClassName as a string 1`] = `
 exports[`List > 🚏 only has content 1`] = `
 <div>
   <div
-    class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
+    class="ant-pro-table ant-pro-list ant-pro-list-no-split"
   >
     <div
       class="ant-pro-list ant-pro-list-split ant-pro-list-container"
@@ -195,7 +195,7 @@ exports[`List > 🚏 only has content 1`] = `
 exports[`List > 🚏 only has description 1`] = `
 <div>
   <div
-    class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
+    class="ant-pro-table ant-pro-list ant-pro-list-no-split"
   >
     <div
       class="ant-pro-list ant-pro-list-split ant-pro-list-container"
@@ -254,7 +254,7 @@ exports[`List > 🚏 only has description 1`] = `
 exports[`List > 🚏 show loading state 1`] = `
 <div>
   <div
-    class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
+    class="ant-pro-table ant-pro-list ant-pro-list-no-split"
   >
     <div
       class="ant-pro-list ant-pro-list-split ant-pro-list-loading ant-pro-list-container"

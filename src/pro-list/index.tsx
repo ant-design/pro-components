@@ -165,7 +165,7 @@ function InternalProList<
       rowSelection={propRowSelection}
       search={search}
       options={options}
-      className={clsx(prefixCls, className, listClassName)}
+      className={clsx(className, listClassName)}
       columns={proTableColumns}
       rowKey={rowKey}
       tableViewRender={({
