@@ -290,7 +290,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
           actions={actionsDom}
           bodyStyle={{ padding: 24, ...cardProps.bodyStyle }}
           {...(itemProps as CheckCardProps)}
-          onClick={(e: any) => {
+          onClick={(e: React.MouseEvent<HTMLDivElement>) => {
             cardProps?.onClick?.(e);
             itemProps?.onClick?.(e);
           }}
