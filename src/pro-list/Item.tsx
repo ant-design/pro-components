@@ -278,7 +278,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
 
     return (
       <div
-        className={clsx(hashId, `${className}-card`, {
+        className={clsx(hashId, `${className}-card-container`, {
           [propsClassName]: propsClassName !== defaultClassName,
         })}
         style={style}
@@ -286,6 +286,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
         <CheckCard
           bordered
           style={{ width: '100%' }}
+          className={clsx(`${defaultClassName}-card`, hashId)}
           {...cardProps}
           title={cardTitleDom}
           subTitle={subTitle}

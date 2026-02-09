@@ -886,15 +886,11 @@ describe('List', () => {
 
     act(() => {
       fireEvent.mouseEnter(
-        html.baseElement.querySelector(
-          '.ant-pro-list-row-card .ant-pro-checkcard',
-        )!,
+        html.baseElement.querySelector('.ant-pro-list-row-card')!,
         {},
       );
       fireEvent.click(
-        html.baseElement.querySelector(
-          '.ant-pro-list-row-card .ant-pro-checkcard',
-        )!,
+        html.baseElement.querySelector('.ant-pro-list-row-card')!,
         {},
       );
     });
@@ -1138,10 +1134,7 @@ describe('List', () => {
     const Wrapper = () => {
       return (
         <ProList
-          dataSource={[
-            { name: '项目一' },
-            { name: '项目二' },
-          ]}
+          dataSource={[{ name: '项目一' }, { name: '项目二' }]}
           rowSelection={{}}
           columns={[
             {
@@ -1207,9 +1200,7 @@ describe('List', () => {
     const onMouseEnter = vi.fn();
     const { container } = reactRender(
       <ProList
-        dataSource={[
-          { name: '测试名称', desc: '测试描述' },
-        ]}
+        dataSource={[{ name: '测试名称', desc: '测试描述' }]}
         columns={[
           { dataIndex: 'name', listSlot: 'title' },
           { dataIndex: 'desc', listSlot: 'description' },
@@ -1251,9 +1242,7 @@ describe('List', () => {
 
     act(() => {
       fireEvent.click(
-        html.baseElement.querySelector(
-          '.ant-pro-list-row-card .ant-pro-checkcard',
-        )!,
+        html.baseElement.querySelector('.ant-pro-list-row-card')!,
       );
     });
 
@@ -1280,7 +1269,9 @@ describe('List', () => {
       <ProList
         dataSource={[{ name: 'A' }, { name: 'B' }]}
         columns={[{ dataIndex: 'name', listSlot: 'title' }]}
-        rowClassName={(_: any, index: number) => (index === 0 ? 'first' : 'rest')}
+        rowClassName={(_: any, index: number) =>
+          index === 0 ? 'first' : 'rest'
+        }
       />,
     );
     expect(container.querySelectorAll('.ant-pro-list-row')[0]).toHaveClass(
@@ -1304,9 +1295,7 @@ describe('List', () => {
         rowKey="name"
       />,
     );
-    expect(screen.getByTestId('custom-item')).toHaveTextContent(
-      '0-自定义项',
-    );
+    expect(screen.getByTestId('custom-item')).toHaveTextContent('0-自定义项');
   });
 
   it('🚏 columns API: itemHeaderRender works', async () => {
@@ -1362,9 +1351,7 @@ describe('List', () => {
 
   it('🚏 columns API: empty state', async () => {
     const { container } = reactRender(
-      <ProList
-        columns={[{ dataIndex: 'name', listSlot: 'title' }]}
-      />,
+      <ProList columns={[{ dataIndex: 'name', listSlot: 'title' }]} />,
     );
     expect(
       container.querySelector('.ant-empty-description')!.innerHTML,
@@ -1429,9 +1416,7 @@ describe('List', () => {
       );
       return (
         <ProList
-          dataSource={[
-            { name: '点击展开', content: <div>展开的内容</div> },
-          ]}
+          dataSource={[{ name: '点击展开', content: <div>展开的内容</div> }]}
           columns={[
             { dataIndex: 'name', listSlot: 'title' },
             { dataIndex: 'content', listSlot: 'content' },
@@ -1450,7 +1435,10 @@ describe('List', () => {
     expect(
       container.querySelector('.ant-pro-list-row-content')!.innerHTML,
     ).toEqual('<div>展开的内容</div>');
-    expect(onExpand).toHaveBeenCalledWith(true, expect.objectContaining({ name: '点击展开' }));
+    expect(onExpand).toHaveBeenCalledWith(
+      true,
+      expect.objectContaining({ name: '点击展开' }),
+    );
   });
 
   it('🚏 columns API: expandedRowRender works', async () => {
@@ -1701,9 +1689,7 @@ describe('List', () => {
     const { container } = reactRender(
       <ProList
         dataSource={[{ name: 'a', status: 'open' }]}
-        columns={[
-          { title: '状态', dataIndex: 'status', valueType: 'select' },
-        ]}
+        columns={[{ title: '状态', dataIndex: 'status', valueType: 'select' }]}
       />,
     );
     // 没有任何 listSlot，列表项应无 title/description 等内容
@@ -1846,9 +1832,7 @@ describe('List', () => {
         ]}
       />,
     );
-    expect(
-      container.querySelector('.ant-pro-list-row-type-top'),
-    ).toBeTruthy();
+    expect(container.querySelector('.ant-pro-list-row-type-top')).toBeTruthy();
   });
 
   it('🚏 edge: columns dynamically change', async () => {
@@ -1912,9 +1896,7 @@ describe('List', () => {
     const { container } = reactRender(
       <ProList
         dataSource={[{ title: '通过key取值' }]}
-        columns={[
-          { key: 'title', listSlot: 'title' },
-        ]}
+        columns={[{ key: 'title', listSlot: 'title' }]}
       />,
     );
     // 当没有 dataIndex 时，使用 listSlot 或 key 作为 fallback
@@ -1980,8 +1962,6 @@ describe('List', () => {
         split={false}
       />,
     );
-    expect(
-      container.querySelector('.ant-pro-list-no-split'),
-    ).toBeTruthy();
+    expect(container.querySelector('.ant-pro-list-no-split')).toBeTruthy();
   });
 });

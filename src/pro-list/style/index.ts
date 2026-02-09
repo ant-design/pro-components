@@ -122,7 +122,13 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
             display: 'flex',
           },
         },
-        '&-card': {
+        [`&-card`]: {
+          marginBlock: 0,
+          marginInline: 0,
+          paddingBlock: 0,
+          paddingInline: 0,
+        },
+        '&-card-container': {
           marginBlock: 0,
           marginInline: 0,
           paddingBlock: 0,
@@ -130,6 +136,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           '&:hover': {
             backgroundColor: 'transparent',
           },
+
           [`${token.proComponentsCls}-list-item-meta-title`]: {
             flexShrink: 9,
             marginBlock: 0,
