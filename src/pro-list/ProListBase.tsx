@@ -2,11 +2,12 @@
  * 内部 List 容器与 List.Item / List.Item.Meta 实现，用于替代 antd List（antd List 已停止维护）
  * 保持与 antd List 相同的 DOM 结构及类名，以便复用 antd 的 list 样式
  */
-import { ConfigProvider, Empty, Pagination, Row } from 'antd';
+import { ConfigProvider, Empty, Pagination } from 'antd';
 import type { RowProps } from 'antd/lib/grid';
 import type { PaginationConfig } from 'antd/lib/pagination';
 import { clsx } from 'clsx';
 import React, { useContext, useMemo } from 'react';
+import { useBreakpoint } from '../utils/useMediaQuery';
 
 export type ColumnCount = number;
 export type ColumnType =
@@ -311,32 +312,103 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps<any>>(
       );
     };
 
-    const colStyle = useMemo(() => {
-      if (!grid?.column) return undefined;
-      
+    const breakpoint = useBreakpoint();
+
+    /**
+     * 根据当前断点获取列数
+     */
+    const getResponsiveColumn = useMemo(() => {
+      if (!grid) return 1;
+
+      const { column, xs, sm, md, lg, xl, xxl } = grid;
+
+      // 根据断点优先级返回列数
+      if (breakpoint === 'xxl' && xxl !== undefined) return xxl;
+      if (breakpoint === 'xl' && xl !== undefined) return xl;
+      if (breakpoint === 'lg' && lg !== undefined) return lg;
+      if (breakpoint === 'md' && md !== undefined) return md;
+      if (breakpoint === 'sm' && sm !== undefined) return sm;
+      if (breakpoint === 'xs' && xs !== undefined) return xs;
+
+      // 降级处理：如果当前断点没有配置，向下查找最近的配置
+      const breakpoints = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
+      const currentIndex = breakpoints.indexOf(breakpoint || 'md');
+
+      for (let i = currentIndex + 1; i < breakpoints.length; i++) {
+        const bp = breakpoints[i] as ColumnType;
+        if (grid[bp] !== undefined) return grid[bp] as number;
+      }
+
+      // 最后使用 column 默认值
+      return column ?? 1;
+    }, [grid, breakpoint]);
+
+    /**
+     * 计算 grid 容器样式（flex 布局）
+     */
+    const gridContainerStyle = useMemo(() => {
+      if (!grid) return undefined;
+
       const style: React.CSSProperties = {
-        width: `${100 / grid.column}%`,
-        maxWidth: `${100 / grid.column}%`,
+        display: 'flex',
+        flexWrap: 'wrap',
       };
-      
-      // 处理 gutter：Row 的 gutter 会给 Row 添加负 margin，
-      // Row 的直接子元素需要添加 padding 来配合
+
+      // 处理 gutter
       if (grid.gutter) {
-        const gutter = grid.gutter;
+        const [horizontal, vertical] = Array.isArray(grid.gutter)
+          ? grid.gutter
+          : [grid.gutter, grid.gutter];
+        const h = Number(horizontal) || 0;
+        const v = Number(vertical) || 0;
+
+        // flex 容器使用负 margin 来抵消子元素的 padding
+        style.marginLeft = -h / 2;
+        style.marginRight = -h / 2;
+        style.marginTop = -v / 2;
+        style.marginBottom = -v / 2;
+      }
+
+      return style;
+    }, [grid?.gutter]);
+
+    /**
+     * 计算每个 item 的样式（flex 子项）
+     */
+    const colStyle = useMemo(() => {
+      if (!grid) return undefined;
+
+      const { gutter } = grid;
+      const column = getResponsiveColumn;
+
+      const style: React.CSSProperties = {
+        display: 'flex',
+      };
+
+      // 处理 gutter
+      if (gutter) {
         const [horizontal, vertical] = Array.isArray(gutter)
           ? gutter
           : [gutter, gutter];
         const h = Number(horizontal) || 0;
         const v = Number(vertical) || 0;
-        
+
         style.paddingLeft = h / 2;
         style.paddingRight = h / 2;
         style.paddingTop = v / 2;
         style.paddingBottom = v / 2;
       }
-      
+
+      // 计算每列的宽度
+      if (column) {
+        // 使用 flex-basis 和 max-width 确保准确的宽度
+        const percentage = 100 / column;
+        style.flexBasis = `${percentage}%`;
+        style.maxWidth = `${percentage}%`;
+      }
+
       return style;
-    }, [grid?.column, grid?.gutter]);
+    }, [grid?.gutter, getResponsiveColumn]);
 
     const { renderEmpty } = useContext(ConfigProvider.ConfigContext);
     let childrenContent: React.ReactNode;
@@ -348,13 +420,13 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps<any>>(
         renderInternalItem(item, idx),
       );
       childrenContent = grid ? (
-        <Row gutter={grid.gutter}>
+        <div style={gridContainerStyle}>
           {items.map((child, idx) => (
             <div key={child?.key ?? idx} style={colStyle}>
               {child}
             </div>
           ))}
-        </Row>
+        </div>
       ) : (
         <ul className={`${prefixCls}-items`}>{items}</ul>
       );
