@@ -73,31 +73,37 @@ Use `itemRender` to customize each item's rendering. The third argument `default
 
 Compared with antd's [List](https://ant.design/components/list-cn/), ProList's API design is more like Table, so that the presentation form of data items can be quickly defined by configuration. It also makes it easier to switch between Table and List. **In addition, ProList is implemented based on ProTable. Except for Table-related APIs, ProList supports most of ProTable's APIs**.
 
-| Parameter        | Description                                                                                                                                                                                                                        | Type                                                               | Default    |
-| :--------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------- | :--------- |
-| dataSource       | Same [configuration](https://ant.design/components/list-cn/#API) as antd                                                                                                                                                           | `any[]`                                                            | -          |
-| actionRef        | Table action reference for custom triggering                                                                                                                                                                                       | `MutableRefObject<ActionType>`                                     | -          |
-| metas            | List item configuration, similar to columns in Table                                                                                                                                                                               | `Metas`                                                            | -          |
-| rowKey           | Row key, usually row id                                                                                                                                                                                                            | `string` \| `(row, index) => string`                               | `'id'`     |
-| headerTitle      | List header main title                                                                                                                                                                                                             | `React.ReactNode`                                                  | -          |
-| loading          | Whether loading                                                                                                                                                                                                                    | `boolean` \| `(item: any) => boolean`                              | `false`    |
-| split            | Whether to show a split line                                                                                                                                                                                                       | `boolean`                                                          | `false`    |
-| rowSelection     | Same [configuration](https://ant.design/components/table-cn/#rowSelection) as antd                                                                                                                                                 | `object` \| `boolean`                                              | `false`    |
-| expandable       | Same [configuration](https://ant.design/components/table-cn/#expandable) as antd                                                                                                                                                   | `object` \| `false`                                                | -          |
-| showActions      | When to show actions, not supported in CardList mode                                                                                                                                                                               | `'hover'` \| `'always'`                                            | `'always'` |
-| showExtra        | When to show extra                                                                                                                                                                                                                 | `'hover'` \| `'always'`                                            | `'always'` |
-| onRow            | Same [configuration](https://ant.design/components/table-cn/#onRow-%E7%94%A8%E6%B3%95) as antd. When the user passes in the `grid` property, the list will be rendered in card mode. This event will not fire, please use `onItem` | `function(record, index)`                                          | -          |
-| onItem           | Same [configuration](https://ant.design/components/table-cn/#onRow-%E7%94%A8%E6%B3%95) as antd. Clicking on an item in all types will trigger this event                                                                           | `function(record, index)`                                          | -          |
-| itemRender       | Custom list item render. Signature `(item, index, defaultDom)`. `defaultDom` is the default list item element (`React.ReactElement`). Wrap or replace it                                                                           | `ProListItemRender<T>`                                             | -          |
-| rowClassName     | Custom list row class name                                                                                                                                                                                                         | `string` \| `(row, index) => string`                               | -          |
-| itemHeaderRender | Customize the header of each column. Different from itemRender, it will keep multi-select and expand/collapse                                                                                                                      | `(item: any, index: number) => ReactNode`                          | -          |
-| itemTitleRender  | Customize the title rendering of each column                                                                                                                                                                                       | `(item: any, index: number, defaultDom: JSX.Element) => ReactNode` | -          |
-| itemCardProps    | Custom card list proCard props, only valid under card list                                                                                                                                                                         | `ProCardProps`                                                     | -          |
-| request          | Method to obtain data                                                                                                                                                                                                              | `(params: U) => Promise<RequestData<T>>`                           | -          |
-| params           | Extra parameters for request query                                                                                                                                                                                                 | `U`                                                                | -          |
-| postData         | Process the data obtained through request                                                                                                                                                                                          | `(data: T[]) => T[]`                                               | -          |
-| onLoad           | Triggered after data loading is complete                                                                                                                                                                                           | `(dataSource: T[]) => void`                                        | -          |
-| onRequestError   | Triggered when data loading fails                                                                                                                                                                                                  | `(error: Error) => void`                                           | -          |
+| Parameter | Description | Type | Default |
+| :--- | :--- | :--- | :--- |
+| dataSource | Same [configuration](https://ant.design/components/list-cn/#API) as antd | `any[]` | - |
+| actionRef | Table action reference for custom triggering | `MutableRefObject<ActionType>` | - |
+| metas | List item configuration, similar to columns in Table | `Metas` | - |
+| rowKey | Row key, usually row id | `string` \| `(row, index) => string` | `'id'` |
+| headerTitle | List header main title | `React.ReactNode` | - |
+| tooltip | Tooltip next to the title | `string` \| `LabelTooltipType` | - |
+| loading | Whether loading | `boolean` \| `(item: any) => boolean` | `false` |
+| split | Whether to show a split line | `boolean` | `false` |
+| footer | List footer | `React.ReactNode` | - |
+| grid | Grid configuration, enables card mode when set | `ListGridType` | - |
+| itemLayout | List item layout direction | `'horizontal'` \| `'vertical'` | `'horizontal'` |
+| locale | Internationalization configuration | `{ emptyText?: ReactNode }` | - |
+| pagination | Pagination configuration, same [configuration](https://ant.design/components/pagination-cn/) as antd | `PaginationConfig` \| `false` | `false` |
+| rowSelection | Same [configuration](https://ant.design/components/table-cn/#rowSelection) as antd | `object` \| `boolean` | `false` |
+| expandable | Same [configuration](https://ant.design/components/table-cn/#expandable) as antd | `object` \| `false` | - |
+| showActions | When to show actions, not supported in CardList mode | `'hover'` \| `'always'` | `'always'` |
+| showExtra | When to show extra | `'hover'` \| `'always'` | `'always'` |
+| onRow | Same [configuration](https://ant.design/components/table-cn/#onRow-%E7%94%A8%E6%B3%95) as antd. When the `grid` property is set, the list renders in card mode and this event will not fire. Use `onItem` instead | `function(record, index)` | - |
+| onItem | Same [configuration](https://ant.design/components/table-cn/#onRow-%E7%94%A8%E6%B3%95) as antd. Clicking on an item in all types will trigger this event | `function(record, index)` | - |
+| itemRender | Custom list item render. `defaultDom` is the default list item element (`React.ReactElement`). Wrap or replace it | `(item: T, index: number, defaultDom: React.ReactElement) => ReactNode` | - |
+| rowClassName | Custom list row class name | `string` \| `(item: T, index: number) => string` | - |
+| itemHeaderRender | Customize the header of each column. Different from `itemRender`, it preserves multi-select and expand/collapse | `((item: T, index: number, defaultDom: JSX.Element \| null) => ReactNode)` \| `false` | - |
+| itemTitleRender | Customize the title rendering of each column | `((item: T, index: number, defaultDom: JSX.Element \| null) => ReactNode)` \| `false` | - |
+| itemCardProps | Custom card list props, only valid in card mode | `CheckCardProps` | - |
+| request | Method to obtain data | `(params: U) => Promise<RequestData<T>>` | - |
+| params | Extra parameters for request query | `U` | - |
+| postData | Process the data obtained through request | `(data: T[]) => T[]` | - |
+| onLoad | Triggered after data loading is complete | `(dataSource: T[]) => void` | - |
+| onRequestError | Triggered when data loading fails | `(error: Error) => void` | - |
 
 ### Batch operations
 
@@ -105,59 +111,65 @@ Same [configuration](https://procomponents.ant.design/components/table/#%E6%89%B
 
 ### Metas.[Meta] Generic API
 
-| Parameter | Description                                                                                          | Type                                                                                        | Default  |
-| :-------- | :--------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------ | :------- |
-| dataIndex | The path corresponding to the data in the data item, supports querying nested paths through an array | `string` \| `string[]`                                                                      | -        |
-| valueType | Value type, same as ProTable                                                                         | `'text'` \| `'date'` ...                                                                    | `'text'` |
-| render    | Custom render function                                                                               | `(text: React.ReactNode, record: T, index: number) => React.ReactNode \| React.ReactNode[]` | -        |
+| Parameter | Description | Type | Default |
+| :--- | :--- | :--- | :--- |
+| dataIndex | The path corresponding to the data in the data item, supports querying nested paths through an array | `string` \| `string[]` | - |
+| valueType | Value type, same as ProTable | `'text'` \| `'date'` ... | `'text'` |
+| render | Custom render function | `(text: ReactNode, record: T, index: number) => ReactNode \| ReactNode[]` | - |
+| valueEnum | Enum of values, automatically converts the value as a key to display the corresponding content | `Record<string, { text: string; status: string }>` | - |
+| search | Whether to show this column's search item in the query form | `boolean` \| `object` | - |
+| editable | Whether editable | `boolean` \| `object` | - |
+| fieldProps | Props passed to the editing component | `object` | - |
+| formItemProps | Props passed to Form.Item | `object` | - |
+| key | React key | `React.Key` | - |
 
 ### Metas.type
 
 The field type corresponding to dataSource is `'new'` | `'top'` | `'inline'`.
 
-| Parameter | Description | Type | Default  |
-| :-------- | :---------- | :--- | :------- |
-| dataIndex | -           | -    | `'type'` |
+| Parameter | Description | Type | Default |
+| :--- | :--- | :--- | :--- |
+| dataIndex | - | - | `'type'` |
 
 ### Metas.title
 
-| Parameter | Description | Type | Default   |
-| :-------- | :---------- | :--- | :-------- |
-| dataIndex | -           | -    | `'title'` |
+| Parameter | Description | Type | Default |
+| :--- | :--- | :--- | :--- |
+| dataIndex | - | - | `'title'` |
 
 ### Metas.subTitle
 
-| Parameter | Description | Type | Default      |
-| :-------- | :---------- | :--- | :----------- |
-| dataIndex | -           | -    | `'subTitle'` |
+| Parameter | Description | Type | Default |
+| :--- | :--- | :--- | :--- |
+| dataIndex | - | - | `'subTitle'` |
 
 ### Metas.description
 
-| Parameter | Description | Type | Default         |
-| :-------- | :---------- | :--- | :-------------- |
-| dataIndex | -           | -    | `'description'` |
+| Parameter | Description | Type | Default |
+| :--- | :--- | :--- | :--- |
+| dataIndex | - | - | `'description'` |
 
 ### Metas.avatar
 
-| Parameter | Description | Type | Default    |
-| :-------- | :---------- | :--- | :--------- |
-| dataIndex | -           | -    | `'avatar'` |
+| Parameter | Description | Type | Default |
+| :--- | :--- | :--- | :--- |
+| dataIndex | - | - | `'avatar'` |
 
 ### Metas.actions
 
-| Parameter       | Description                             | Type                     | Default     |
-| :-------------- | :-------------------------------------- | :----------------------- | :---------- |
-| dataIndex       | -                                       | -                        | `'actions'` |
-| cardActionProps | Set where the card list renders actions | `'actions'` \| `'extra'` | `'extra'`   |
+| Parameter | Description | Type | Default |
+| :--- | :--- | :--- | :--- |
+| dataIndex | - | - | `'actions'` |
+| cardActionProps | Set where the card list renders actions | `'actions'` \| `'extra'` | `'extra'` |
 
 ### Metas.content
 
-| Parameter | Description | Type | Default     |
-| :-------- | :---------- | :--- | :---------- |
-| dataIndex | -           | -    | `'content'` |
+| Parameter | Description | Type | Default |
+| :--- | :--- | :--- | :--- |
+| dataIndex | - | - | `'content'` |
 
 ### Metas.extra
 
-| Parameter | Description | Type | Default   |
-| :-------- | :---------- | :--- | :-------- |
-| dataIndex | -           | -    | `'extra'` |
+| Parameter | Description | Type | Default |
+| :--- | :--- | :--- | :--- |
+| dataIndex | - | - | `'extra'` |
