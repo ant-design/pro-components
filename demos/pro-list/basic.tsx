@@ -52,7 +52,7 @@ const dataSource: ProjectItem[] = [
     description: '插件化的企业级前端应用框架',
     status: 'active',
     owner: {
-      name: '王五',
+      name: '期贤',
       avatar: 'https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png',
     },
     tags: ['Framework', 'React'],
@@ -64,7 +64,7 @@ const dataSource: ProjectItem[] = [
     description: '移动端设计规范和组件库',
     status: 'pending',
     owner: {
-      name: '赵六',
+      name: '玄霜',
       avatar: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
     },
     tags: ['Mobile', 'React'],
@@ -76,7 +76,7 @@ const dataSource: ProjectItem[] = [
     description: '简单好用的 React 图表库',
     status: 'archived',
     owner: {
-      name: '孙七',
+      name: '怀渊',
       avatar: 'https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png',
     },
     tags: ['Charts', 'Visualization'],
