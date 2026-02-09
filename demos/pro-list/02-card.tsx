@@ -2,26 +2,38 @@ import { ProList } from '@ant-design/pro-components';
 import { Card, Progress, Radio, Switch, Tag } from 'antd';
 import { useState } from 'react';
 
-const data = [
-  '语雀的天空',
-  'Ant Design',
-  '蚂蚁金服体验科技',
-  'TechUI',
-  'TechUI 2.0',
-  'Bigfish',
-  'Umi',
-  'Ant Design Pro',
-].map((item) => ({
-  title: item,
-  subTitle: <Tag color="#5BD8A6">语雀专栏</Tag>,
-  actions: [<a key="run">邀请</a>, <a key="delete">删除</a>],
-  avatar:
-    'https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg',
+const projects = [
+  { name: '企业官网重构', progress: 85, status: '进行中', team: '前端组', priority: 'high' },
+  { name: '移动端 App 开发', progress: 60, status: '进行中', team: '移动组', priority: 'high' },
+  { name: '数据可视化平台', progress: 92, status: '测试中', team: '数据组', priority: 'medium' },
+  { name: '用户管理系统', progress: 45, status: '开发中', team: '后端组', priority: 'medium' },
+  { name: 'CI/CD 流程优化', progress: 78, status: '进行中', team: 'DevOps', priority: 'low' },
+  { name: '性能监控系统', progress: 30, status: '规划中', team: '运维组', priority: 'low' },
+  { name: '微服务架构升级', progress: 55, status: '开发中', team: '架构组', priority: 'high' },
+  { name: '设计系统建设', progress: 70, status: '进行中', team: '设计组', priority: 'medium' },
+];
+
+const priorityColor = {
+  high: '#ff4d4f',
+  medium: '#faad14',
+  low: '#52c41a',
+};
+
+const data = projects.map((project, index) => ({
+  id: index,
+  title: project.name,
+  subTitle: <Tag color={priorityColor[project.priority]}>{project.team}</Tag>,
+  actions: [<a key="detail">详情</a>, <a key="edit">编辑</a>],
+  avatar: 'https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg',
   content: (
     <div style={{ flex: 1 }}>
-      <div style={{ width: 200 }}>
-        <div>发布中</div>
-        <Progress percent={80} />
+      <div>
+        <div style={{ marginBottom: 8, color: '#666' }}>{project.status}</div>
+        <Progress
+          percent={project.progress}
+          size="small"
+          status={project.progress === 100 ? 'success' : 'active'}
+        />
       </div>
     </div>
   ),
