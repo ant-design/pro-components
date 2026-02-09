@@ -87,10 +87,6 @@ ProList 基于 ProTable 实现，可以认为是 ProTable 的一个特例，将�
 
 <code src="../../../demos/pro-list/pagination.tsx" background="var(--main-bg-color)"></code>
 
-### 卡片列表（metas）
-
-<code src="../../../demos/pro-list/card-list.tsx" background="var(--main-bg-color)"></code>
-
 ### 自定义列表项（itemRender）
 
 通过 `itemRender` 自定义每一项的渲染，可基于默认内容 `defaultDom`（`React.ReactElement`）进行包装或完全自定义。

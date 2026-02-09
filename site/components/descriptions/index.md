@@ -61,7 +61,7 @@ interface RequestData {
 
 根据配置格式化日期
 
-<code src="../../../demos/descriptions/format.tsx" title="format configuration" ></code>
+<code src="../../../demos/descriptions/format.tsx" title="格式化配置" ></code>
 
 ### 远程请求数据
 
