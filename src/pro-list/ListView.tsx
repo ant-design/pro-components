@@ -1,5 +1,5 @@
 import { get } from '@rc-component/util';
-import type { TableColumnType, TablePaginationConfig, TableProps } from 'antd';
+import type { TableColumnType, TableProps } from 'antd';
 import { ConfigProvider } from 'antd';
 import type { AnyObject } from 'antd/lib/_util/type';
 import type { PaginationConfig } from 'antd/lib/pagination';
@@ -246,11 +246,11 @@ function ListView<RecordType extends AnyObject>(
             : rawData;
           if (data !== '-') (listItemProps as any)[column.listKey] = data;
         });
-          const checkboxDom = selectItemDom?.render?.(
-            item,
-            item,
-            index,
-          ) as React.ReactNode;
+        const checkboxDom = selectItemDom?.render?.(
+          item,
+          item,
+          index,
+        ) as React.ReactNode;
 
         const { isEditable, recordKey } =
           actionRef.current?.isEditable({ ...item, index }) || {};
@@ -265,9 +265,7 @@ function ListView<RecordType extends AnyObject>(
               checked: isChecked,
               onChange: React.isValidElement(checkboxDom)
                 ? (changeChecked: boolean) =>
-                    (
-                      (checkboxDom as JSX.Element)?.props as any
-                    )?.onChange({
+                    ((checkboxDom as JSX.Element)?.props as any)?.onChange({
                       nativeEvent: {},
                       target: { checked: changeChecked },
                       changeChecked,

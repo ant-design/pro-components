@@ -16,7 +16,16 @@ const FieldSwitch: ProFieldFC<{
   fieldProps?: SwitchProps;
   variant?: 'outlined' | 'borderless' | 'filled';
 }> = (
-  { text, mode, render, light, label, formItemRender, fieldProps, variant: propsVariant },
+  {
+    text,
+    mode,
+    render,
+    light,
+    label,
+    formItemRender,
+    fieldProps,
+    variant: propsVariant,
+  },
   ref,
 ) => {
   const intl = useIntl();

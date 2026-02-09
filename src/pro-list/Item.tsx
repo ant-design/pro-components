@@ -259,7 +259,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       ? expandedRowClassName(record, index, indentSize)
       : expandedRowClassName;
 
-  const headerDom = (itemHeaderRender?.(record, index, metaDom)) ?? metaDom;
+  const headerDom = itemHeaderRender?.(record, index, metaDom) ?? metaDom;
 
   // 卡片模式渲染
   if (cardProps) {

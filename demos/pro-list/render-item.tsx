@@ -40,42 +40,42 @@ export default () => {
         padding: 64,
       }}
     >
-    <Tabs
-      defaultActiveKey="all"
-      items={[
-        { key: 'all', label: '全部应用' },
-        { key: 'dev', label: '开发类' },
-        { key: 'ops', label: '运维类' },
-        { key: 'office', label: '办公类' },
-      ]}
-      style={{ marginBottom: 16 }}
-    />
-    <ProList<AppItem>
-      rowKey="id"
-      grid={{ gutter: 16, column: 3 }}
-      pagination={false}
-      metas={{
-        title: { dataIndex: 'title' },
-        avatar: { dataIndex: 'avatar' },
-        description: { dataIndex: 'description' },
-      }}
-      dataSource={APPLICATIONS}
-      itemRender={(item) => (
-        <div
-          style={{
-            width: '100%',
-            minWidth: 0,
-            boxSizing: 'border-box',
-            borderRadius: 8,
-            padding: 24,
-            height: '100%',
-            cursor: 'pointer',
-            boxShadow: '0 1px 2px rgba(0,0,0,0.03)',
+      <Tabs
+        defaultActiveKey="all"
+        items={[
+          { key: 'all', label: '全部应用' },
+          { key: 'dev', label: '开发类' },
+          { key: 'ops', label: '运维类' },
+          { key: 'office', label: '办公类' },
+        ]}
+        style={{ marginBottom: 16 }}
+      />
+      <ProList<AppItem>
+        rowKey="id"
+        grid={{ gutter: 16, column: 3 }}
+        pagination={false}
+        metas={{
+          title: { dataIndex: 'title' },
+          avatar: { dataIndex: 'avatar' },
+          description: { dataIndex: 'description' },
+        }}
+        dataSource={APPLICATIONS}
+        itemRender={(item) => (
+          <div
+            style={{
+              width: '100%',
+              minWidth: 0,
+              boxSizing: 'border-box',
+              borderRadius: 8,
+              padding: 24,
+              height: '100%',
+              cursor: 'pointer',
+              boxShadow: '0 1px 2px rgba(0,0,0,0.03)',
               background: token.colorBgContainer,
             }}
-          tabIndex={0}
-        >
-          <div style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}>
+            tabIndex={0}
+          >
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}>
               <Avatar
                 src={item.avatar}
                 shape="square"
@@ -92,10 +92,10 @@ export default () => {
                 >
                   {item.title}
                 </div>
-              <div
-                style={{
-                  color: token.colorTextSecondary,
-                  fontSize: 14,
+                <div
+                  style={{
+                    color: token.colorTextSecondary,
+                    fontSize: 14,
                     lineHeight: 1.5,
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
@@ -105,12 +105,12 @@ export default () => {
                   }}
                 >
                   {item.description}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      )}
-    />
-  </div>
+        )}
+      />
+    </div>
   );
 };

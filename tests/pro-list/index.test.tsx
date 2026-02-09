@@ -509,7 +509,9 @@ describe('List', () => {
     // 等待列表更新（分页大小改变后，应该显示所有7条数据）
     await waitFor(
       () => {
-        expect(container.querySelectorAll('.ant-pro-list-item').length).toEqual(7);
+        expect(container.querySelectorAll('.ant-pro-list-item').length).toEqual(
+          7,
+        );
       },
       {
         timeout: 3000,
