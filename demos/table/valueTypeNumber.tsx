@@ -19,7 +19,7 @@ const tableListDataSource: TableListItem[] = Array.from(
   { length: 2 },
   (_, i) => ({
     key: i,
-    name: `TradeCode ${i}`,
+    name: i === 0 ? '用户认证服务' : '支付网关',
     status: DEMO_VALUE_ENUM[(i % 4) as keyof typeof DEMO_VALUE_ENUM],
     updatedAt: FIXED_BASE_TIMESTAMP - (i * 500 + 100),
     createdAt: FIXED_BASE_TIMESTAMP - (i * 1000 + 200),
@@ -27,24 +27,24 @@ const tableListDataSource: TableListItem[] = Array.from(
       FIXED_BASE_TIMESTAMP - (i * 1000 + 300),
       FIXED_BASE_TIMESTAMP - (i * 1000 + 400),
     ],
-    money: ((i * 111 + 222) % 2000) * (i + 1),
+    money: ((i * 3456 + 7890) % 50000) * 100,
     progress: ((i * 17 + 23) % 100) + 1,
     percent:
       i % 2 === 0
         ? ((i + 1) * 10 + 0.123).toFixed(3)
         : -((i + 1) * 10 + 0.456).toFixed(2),
-    code: `const getData = async params => {
-  const data = await getData(params);
-  return { list: data.data, ...data };
+    code: `const healthCheck = async (host) => {
+  const res = await fetch(host + '/health');
+  return { status: res.status };
 };`,
   }),
 );
 
-const ValueTypeNumberTable = () => (
+const Demo = () => (
   <ProTable<TableListItem>
     columns={[
       {
-        title: '进度',
+        title: '部署进度',
         key: 'progress',
         dataIndex: 'progress',
         valueType: (item) => ({
@@ -54,27 +54,27 @@ const ValueTypeNumberTable = () => (
         width: 200,
       },
       {
-        title: '金额',
+        title: '合同金额',
         dataIndex: 'money',
         valueType: 'money',
         width: 150,
       },
       {
-        title: '数字',
+        title: '请求量',
         dataIndex: 'money',
         key: 'digit',
         valueType: 'digit',
         width: 150,
       },
       {
-        title: '数字',
+        title: '响应时间',
         dataIndex: 'money',
         key: 'second',
         valueType: 'second',
         width: 150,
       },
       {
-        title: '百分比',
+        title: 'CPU 占用',
         key: 'percent',
         width: 120,
         dataIndex: 'percent',
@@ -89,7 +89,7 @@ const ValueTypeNumberTable = () => (
         valueType: 'option',
         render: (_, row, index, action) => [
           <a
-            key="a"
+            key="edit"
             onClick={() => {
               action?.startEditable(row.key);
             }}
@@ -107,86 +107,12 @@ const ValueTypeNumberTable = () => (
       });
     }}
     rowKey="key"
-    headerTitle="数字类"
+    headerTitle="数值类型展示"
   />
 );
 
-const ValueTypeNumberWithDocs = () => {
-  return (
-    <>
-      {ValueTypeNumberTable()}
-      <div
-        style={{
-          marginTop: '20px',
-          padding: '20px',
-          backgroundColor: '#f5f5f5',
-          borderRadius: '6px',
-        }}
-      >
-        <h4>ProTable 值类型数字 Props 说明：</h4>
-        <ul>
-          <li>
-            <strong>ProTable</strong>: 专业表格组件
-          </li>
-          <li>
-            <strong>值类型数字</strong>: 展示值类型数字功能
-          </li>
-        </ul>
-        <h4>ProTable 配置：</h4>
-        <ul>
-          <li>
-            <strong>columns</strong>: 列配置
-          </li>
-          <li>
-            <strong>request</strong>: 请求函数
-          </li>
-          <li>
-            <strong>rowKey</strong>: 行键
-          </li>
-          <li>
-            <strong>headerTitle</strong>: 表格标题
-          </li>
-        </ul>
-        <h4>值类型数字特点：</h4>
-        <ul>
-          <li>
-            <strong>进度条</strong>: 支持进度条
-          </li>
-          <li>
-            <strong>金额</strong>: 支持金额
-          </li>
-          <li>
-            <strong>数字</strong>: 支持数字
-          </li>
-          <li>
-            <strong>秒数</strong>: 支持秒数
-          </li>
-          <li>
-            <strong>百分比</strong>: 支持百分比
-          </li>
-          <li>
-            <strong>动态状态</strong>: 支持动态状态
-          </li>
-        </ul>
-        <h4>使用场景：</h4>
-        <ul>
-          <li>
-            <strong>数字类</strong>: 数字类数据展示
-          </li>
-          <li>
-            <strong>统计展示</strong>: 统计展示功能
-          </li>
-          <li>
-            <strong>进度监控</strong>: 进度监控需求
-          </li>
-        </ul>
-      </div>
-    </>
-  );
-};
-
 export default () => (
   <div style={{ padding: 24 }}>
-    <ValueTypeNumberWithDocs />
+    <Demo />
   </div>
 );

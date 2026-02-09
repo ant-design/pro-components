@@ -3,41 +3,41 @@ import type { ProColumns } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
 import { Button } from 'antd';
 
-type GithubIssueItem = {
+type ServiceItem = {
   key: number;
   name: string;
   createdAt: number;
 };
 
-const columns: ProColumns<GithubIssueItem>[] = [
+const columns: ProColumns<ServiceItem>[] = [
   {
-    title: 'index',
+    title: '序号',
     dataIndex: 'index',
     valueType: 'indexBorder',
   },
   {
-    title: 'Title',
+    title: '服务名称',
     dataIndex: 'name',
   },
   {
-    title: 'Money',
+    title: '合同金额',
     dataIndex: 'title',
     width: 100,
     valueType: 'money',
-    renderText: () => '42.50',
+    renderText: () => '128000',
   },
 ];
 
-const SearchOptionTable = () => (
-  <ProTable<GithubIssueItem>
+const Demo = () => (
+  <ProTable<ServiceItem>
     columns={columns}
     request={async () => {
       return {
         data: [
           {
             key: 1,
-            name: `TradeCode ${1}`,
-            createdAt: 1602572994055,
+            name: '企业版云服务套餐',
+            createdAt: 1705286400000,
           },
         ],
         success: true,
@@ -45,13 +45,13 @@ const SearchOptionTable = () => (
     }}
     rowKey="key"
     dateFormatter="string"
-    headerTitle="查询 Table"
+    headerTitle="搜索选项自定义"
     search={{
       defaultCollapsed: false,
       labelWidth: 'auto',
       optionRender: (searchConfig, formProps, dom) => [
         ...dom.reverse(),
-        <Button key="out" onClick={() => {}}>
+        <Button key="export" onClick={() => {}}>
           导出
         </Button>,
       ],
@@ -65,94 +65,8 @@ const SearchOptionTable = () => (
   />
 );
 
-const SearchOptionTableWithDocs = () => {
-  return (
-    <>
-      {SearchOptionTable()}
-      <div
-        style={{
-          marginTop: '20px',
-          padding: '20px',
-          backgroundColor: '#f5f5f5',
-          borderRadius: '6px',
-        }}
-      >
-        <h4>ProTable 搜索选项 Props 说明：</h4>
-        <ul>
-          <li>
-            <strong>ProTable</strong>: 专业表格组件
-          </li>
-          <li>
-            <strong>Button</strong>: 按钮组件
-          </li>
-          <li>
-            <strong>搜索选项</strong>: 展示搜索选项功能
-          </li>
-        </ul>
-        <h4>ProTable 配置：</h4>
-        <ul>
-          <li>
-            <strong>columns</strong>: 列配置
-          </li>
-          <li>
-            <strong>request</strong>: 请求函数
-          </li>
-          <li>
-            <strong>rowKey</strong>: 行键
-          </li>
-          <li>
-            <strong>dateFormatter</strong>: 日期格式化
-          </li>
-          <li>
-            <strong>headerTitle</strong>: 表格标题
-          </li>
-          <li>
-            <strong>search</strong>: 搜索配置
-          </li>
-          <li>
-            <strong>toolBarRender</strong>: 工具栏渲染
-          </li>
-        </ul>
-        <h4>搜索选项特点：</h4>
-        <ul>
-          <li>
-            <strong>自定义选项</strong>: 支持自定义选项
-          </li>
-          <li>
-            <strong>选项渲染</strong>: 支持选项渲染
-          </li>
-          <li>
-            <strong>默认展开</strong>: 支持默认展开
-          </li>
-          <li>
-            <strong>标签宽度</strong>: 支持标签宽度
-          </li>
-          <li>
-            <strong>导出功能</strong>: 支持导出功能
-          </li>
-          <li>
-            <strong>货币类型</strong>: 支持货币类型
-          </li>
-        </ul>
-        <h4>使用场景：</h4>
-        <ul>
-          <li>
-            <strong>高级搜索</strong>: 高级搜索需求
-          </li>
-          <li>
-            <strong>自定义操作</strong>: 自定义操作功能
-          </li>
-          <li>
-            <strong>复杂查询</strong>: 复杂查询需求
-          </li>
-        </ul>
-      </div>
-    </>
-  );
-};
-
 export default () => (
   <div style={{ padding: 24 }}>
-    <SearchOptionTableWithDocs />
+    <Demo />
   </div>
 );
