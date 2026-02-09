@@ -147,8 +147,6 @@ atomId: ProCard
 | title                 | 标题                                                                                                                           | `React.ReactNode`                                                   | -            |        |
 | subTitle              | 副标题                                                                                                                         | `React.ReactNode`                                                   | -            |        |
 | tooltip               | 标题说明                                                                                                                       | `string \| LabelTooltipType`                                        | -            |        |
-| headStyle             | 标题的 style 样式                                                                                                              | `CSSProperties`                                                     | -            |        |
-| bodyStyle             | 内容区的 style 样式                                                                                                            | `CSSProperties`                                                     | -            |        |
 | extra                 | 右上角自定义区域                                                                                                               | `React.ReactNode`                                                   | -            |        |
 | layout                | 内容布局，支持垂直居中                                                                                                         | `default` \| `center`                                               | default      |        |
 | type                  | 卡片类型                                                                                                                       | `default` \| `inner`                                                | default      |        |
@@ -176,6 +174,7 @@ atomId: ProCard
 | boxShadow             | card的阴影                                                                                                                     | `boolean`                                                           | false        |        |
 | tabs                  | 标签栏配置                                                                                                                     | 见下面 ProCardTabs                                                  | -            |        |
 | variant               | 卡片变体类型                                                                                                                   | `'outlined' \| 'borderless'`                                        | `'outlined'` | 5.24.0 |
+| styles                | 自定义标题/内容区 style 样式                                                                                                   | `{body:CSSProperties,header:CSSProperties}`                         | -            |        |
 
 ### ProCardTabs
 

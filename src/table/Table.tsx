@@ -979,17 +979,9 @@ const ProTable = <
         styles={{
           body: {
             ...cardBodyStyle,
-            ...(cardProps && typeof cardProps === 'object'
-              ? cardProps.styles?.body || cardProps.bodyStyle
-              : {}),
+            ...(cardProps?.styles?.body ?? {}),
           },
-          ...(cardProps &&
-          typeof cardProps === 'object' &&
-          (cardProps.styles?.header || cardProps.headStyle)
-            ? {
-                header: cardProps.styles?.header || cardProps.headStyle,
-              }
-            : {}),
+          header: cardProps?.styles?.header,
         }}
         {...cardProps}
       >
