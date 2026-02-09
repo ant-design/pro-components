@@ -1,170 +1,197 @@
 import type { ProColumns } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
+import { Radio, Space } from 'antd';
+import { useState } from 'react';
 
-const cascaderOptions = [
-  {
-    field: 'front end',
-    value: 'fe',
-    language: [
-      {
-        field: 'Javascript',
-        value: 'js',
-      },
-      {
-        field: 'Typescript',
-        value: 'ts',
-      },
-    ],
-  },
-  {
-    field: 'back end',
-    value: 'be',
-    language: [
-      {
-        field: 'Java',
-        value: 'java',
-      },
-      {
-        field: 'Go',
-        value: 'go',
-      },
-    ],
-  },
-];
-
-const valueEnumMap: Record<string, string> = {
-  0: 'running',
-  1: 'online',
-  2: 'error',
-};
-
-export type TableListItem = {
-  key: number;
-  status: string | number;
-  cascader: string[];
-  treeSelect: string[];
-};
-
-const tableListDataSource: TableListItem[] = Array.from(
-  { length: 2 },
-  (_, i) => ({
-    key: i,
-    status: valueEnumMap[String(i % 3)],
-    cascader: ['fe', 'js'],
-    treeSelect: ['fe', 'js'],
-  }),
-);
-
-const valueEnum = {
+/** 服务状态枚举 */
+const statusEnum = {
   all: { text: '全部', status: 'Default' },
   running: { text: '运行中', status: 'Processing' },
   online: { text: '已上线', status: 'Success' },
   error: { text: '异常', status: 'Error' },
 };
 
-const columns: ProColumns<TableListItem>[] = [
-  {
-    title: '状态',
-    valueType: 'select',
-    dataIndex: 'status',
-    initialValue: ['all'],
-    width: 100,
-    valueEnum,
-  },
-  {
-    title: '单选状态',
-    dataIndex: 'status',
-    valueType: 'radio',
-    initialValue: 'all',
-    width: 100,
-    valueEnum,
-  },
-  {
-    title: '单选按钮状态',
-    dataIndex: 'status',
-    valueType: 'radioButton',
-    initialValue: 'all',
-    width: 100,
-    valueEnum,
-  },
-  {
-    title: '多选状态',
-    dataIndex: 'status',
-    initialValue: ['all'],
-    width: 100,
-    valueType: 'checkbox',
-    valueEnum,
-  },
-  {
-    title: '级联选择器',
-    key: 'cascader',
-    dataIndex: 'cascader',
-    width: 100,
-    fieldProps: {
-      options: cascaderOptions,
-      fieldNames: {
-        children: 'language',
-        label: 'field',
-      },
-    },
-    valueType: 'cascader',
-  },
-  {
-    title: '树形下拉框',
-    key: 'treeSelect',
-    dataIndex: 'treeSelect',
-    width: 100,
-    // request: async () => cascaderOptions,
-    fieldProps: {
-      options: cascaderOptions,
-      fieldNames: {
-        children: 'language',
-        label: 'field',
-      },
-      showSearch: true,
-      filterTreeNode: true,
-      multiple: true,
-      treeNodeFilterProp: 'field',
-    },
-    valueType: 'treeSelect',
-  },
-  {
-    title: '时间范围',
-    key: 'dateTimeRange',
-    dataIndex: 'dateTimeRange',
-    hideInTable: true,
-    valueType: 'dateTimeRange',
-    fieldProps: {
-      // placeholder: []
-    },
-    formItemRender: (_, { type, defaultRender }) => {
-      if (type === 'form') {
-        return null;
-      }
+/** 优先级枚举 */
+const priorityEnum = {
+  urgent: { text: '紧急', status: 'Error' },
+  high: { text: '高', status: 'Warning' },
+  medium: { text: '中', status: 'Processing' },
+  low: { text: '低', status: 'Default' },
+};
 
-      return defaultRender(_);
-    },
+/** 技术栈级联选项 */
+const techStackOptions = [
+  {
+    label: '前端',
+    value: 'frontend',
+    children: [
+      { label: 'React', value: 'react' },
+      { label: 'Vue', value: 'vue' },
+      { label: 'Angular', value: 'angular' },
+    ],
   },
   {
-    title: '操作',
-    key: 'option',
-    width: 120,
-    valueType: 'option',
-    render: (_, row, index, action) => [
-      <a
-        key="a"
-        onClick={() => {
-          action?.startEditable(row.key);
-        }}
-      >
-        编辑
-      </a>,
+    label: '后端',
+    value: 'backend',
+    children: [
+      { label: 'Java', value: 'java' },
+      { label: 'Go', value: 'go' },
+      { label: 'Node.js', value: 'nodejs' },
+    ],
+  },
+  {
+    label: '基础设施',
+    value: 'infra',
+    children: [
+      { label: 'Kubernetes', value: 'k8s' },
+      { label: 'Docker', value: 'docker' },
+      { label: 'Terraform', value: 'terraform' },
     ],
   },
 ];
 
-const Demo = () => (
-  <>
+/** 部门树形选项 */
+const departmentOptions = [
+  {
+    label: '技术研发部',
+    value: 'tech',
+    children: [
+      { label: '前端开发组', value: 'tech-fe' },
+      { label: '后端开发组', value: 'tech-be' },
+      { label: '测试保障组', value: 'tech-qa' },
+    ],
+  },
+  {
+    label: '产品设计部',
+    value: 'product',
+    children: [
+      { label: '产品策划组', value: 'product-pm' },
+      { label: 'UX 设计组', value: 'product-ux' },
+    ],
+  },
+];
+
+type ValueTypeKey =
+  | 'select'
+  | 'radio'
+  | 'radioButton'
+  | 'checkbox'
+  | 'cascader'
+  | 'treeSelect';
+
+const VALUE_TYPE_OPTIONS: { label: string; value: ValueTypeKey }[] = [
+  { label: '下拉选择 select', value: 'select' },
+  { label: '单选 radio', value: 'radio' },
+  { label: '单选按钮 radioButton', value: 'radioButton' },
+  { label: '多选 checkbox', value: 'checkbox' },
+  { label: '级联 cascader', value: 'cascader' },
+  { label: '树形 treeSelect', value: 'treeSelect' },
+];
+
+export type TableListItem = {
+  key: number;
+  name: string;
+  status: string;
+  priority: string;
+  techStack: string[];
+  department: string[];
+};
+
+const tableListDataSource: TableListItem[] = [
+  {
+    key: 0,
+    name: '用户认证服务',
+    status: 'running',
+    priority: 'high',
+    techStack: ['frontend', 'react'],
+    department: ['tech-fe'],
+  },
+  {
+    key: 1,
+    name: '订单处理中心',
+    status: 'online',
+    priority: 'urgent',
+    techStack: ['backend', 'java'],
+    department: ['tech-be'],
+  },
+  {
+    key: 2,
+    name: '支付网关',
+    status: 'error',
+    priority: 'medium',
+    techStack: ['backend', 'go'],
+    department: ['tech-be'],
+  },
+];
+
+const Demo = () => {
+  const [statusType, setStatusType] = useState<ValueTypeKey>('select');
+
+  const columns: ProColumns<TableListItem>[] = [
+    {
+      title: '应用名称',
+      dataIndex: 'name',
+      width: 140,
+      search: false,
+    },
+    {
+      title: `状态（${VALUE_TYPE_OPTIONS.find((o) => o.value === statusType)?.label}）`,
+      dataIndex: 'status',
+      valueType: statusType,
+      initialValue: statusType === 'checkbox' ? ['all'] : 'all',
+      width: 160,
+      valueEnum: statusEnum,
+    },
+    {
+      title: '优先级（select）',
+      dataIndex: 'priority',
+      valueType: 'select',
+      width: 120,
+      valueEnum: priorityEnum,
+    },
+    {
+      title: '技术栈（cascader）',
+      key: 'techStack',
+      dataIndex: 'techStack',
+      width: 160,
+      valueType: 'cascader',
+      fieldProps: {
+        options: techStackOptions,
+      },
+    },
+    {
+      title: '所属部门（treeSelect）',
+      key: 'department',
+      dataIndex: 'department',
+      width: 180,
+      valueType: 'treeSelect',
+      fieldProps: {
+        options: departmentOptions,
+        showSearch: true,
+        filterTreeNode: true,
+        multiple: true,
+        treeNodeFilterProp: 'label',
+      },
+    },
+    {
+      title: '操作',
+      key: 'option',
+      width: 80,
+      valueType: 'option',
+      render: (_, row, index, action) => [
+        <a
+          key="edit"
+          onClick={() => {
+            action?.startEditable(row.key);
+          }}
+        >
+          编辑
+        </a>,
+      ],
+    },
+  ];
+
+  return (
     <ProTable<TableListItem>
       columns={columns}
       request={() => {
@@ -183,85 +210,22 @@ const Demo = () => (
         type: 'multiple',
       }}
       rowKey="key"
-      headerTitle="样式类"
+      headerTitle="枚举类型 valueType 切换"
+      toolBarRender={() => [
+        <Space key="switch">
+          <span>状态列类型：</span>
+          <Radio.Group
+            optionType="button"
+            size="small"
+            value={statusType}
+            onChange={(e) => setStatusType(e.target.value)}
+            options={VALUE_TYPE_OPTIONS}
+          />
+        </Space>,
+      ]}
     />
-    <div
-      style={{
-        marginTop: '20px',
-        padding: '20px',
-        backgroundColor: '#f5f5f5',
-        borderRadius: '6px',
-      }}
-    >
-      <h4>ProTable 值类型选择 Props 说明：</h4>
-      <ul>
-        <li>
-          <strong>ProTable</strong>: 专业表格组件
-        </li>
-        <li>
-          <strong>值类型选择</strong>: 展示值类型选择功能
-        </li>
-      </ul>
-      <h4>ProTable 配置：</h4>
-      <ul>
-        <li>
-          <strong>columns</strong>: 列配置
-        </li>
-        <li>
-          <strong>request</strong>: 请求函数
-        </li>
-        <li>
-          <strong>search</strong>: 搜索配置
-        </li>
-        <li>
-          <strong>editable</strong>: 可编辑配置
-        </li>
-        <li>
-          <strong>rowKey</strong>: 行键
-        </li>
-        <li>
-          <strong>headerTitle</strong>: 表格标题
-        </li>
-      </ul>
-      <h4>值类型选择特点：</h4>
-      <ul>
-        <li>
-          <strong>选择器</strong>: 支持选择器
-        </li>
-        <li>
-          <strong>单选按钮</strong>: 支持单选按钮
-        </li>
-        <li>
-          <strong>多选框</strong>: 支持多选框
-        </li>
-        <li>
-          <strong>级联选择</strong>: 支持级联选择
-        </li>
-        <li>
-          <strong>树形选择</strong>: 支持树形选择
-        </li>
-        <li>
-          <strong>时间范围</strong>: 支持时间范围
-        </li>
-        <li>
-          <strong>多行编辑</strong>: 支持多行编辑
-        </li>
-      </ul>
-      <h4>使用场景：</h4>
-      <ul>
-        <li>
-          <strong>表单选择</strong>: 表单选择需求
-        </li>
-        <li>
-          <strong>数据筛选</strong>: 数据筛选功能
-        </li>
-        <li>
-          <strong>复杂选择</strong>: 复杂选择需求
-        </li>
-      </ul>
-    </div>
-  </>
-);
+  );
+};
 
 export default () => (
   <div style={{ padding: 24 }}>
