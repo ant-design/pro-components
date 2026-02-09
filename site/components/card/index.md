@@ -174,7 +174,7 @@ atomId: ProCard
 | boxShadow             | card的阴影                                                                                                                     | `boolean`                                                           | false        |        |
 | tabs                  | 标签栏配置                                                                                                                     | 见下面 ProCardTabs                                                  | -            |        |
 | variant               | 卡片变体类型                                                                                                                   | `'outlined' \| 'borderless'`                                        | `'outlined'` | 5.24.0 |
-| styles                | 自定义标题/内容区 style 样式                                                                                                   | `{body:CSSProperties,header:CSSProperties}`                         | -            |        |
+| styles                | 自定义标题/内容区 style 样式                                                                                                   | `{ body: CSSProperties, header: CSSProperties }`                    | -            |        |
 
 ### ProCardTabs
 
