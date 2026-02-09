@@ -156,8 +156,31 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
     /** @name 可编辑表格是否可编辑 */
     editable?: boolean | ProTableEditableFnType<T>;
 
-    /** @private */
-    listKey?: string;
+    /**
+     * 用于 ProList，指定该列映射到列表项的哪个部分
+     *
+     * @name 列表映射键
+     * @example listKey: 'title'
+     * @example listKey: 'avatar'
+     */
+    listKey?:
+      | 'title'
+      | 'subTitle'
+      | 'avatar'
+      | 'description'
+      | 'content'
+      | 'actions'
+      | 'type'
+      | (string & {});
+
+    /**
+     * 用于 ProList 卡片模式，当 listKey 为 'actions' 时，指定 actions 渲染的位置
+     *
+     * @name actions 渲染位置
+     * @default 'extra'
+     * @example cardActionProps: 'actions'
+     */
+    cardActionProps?: 'extra' | 'actions';
 
     /** @name 只读 */
     readonly?: boolean;

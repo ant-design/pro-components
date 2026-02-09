@@ -1,3 +1,4 @@
+import type { ProColumns } from '@ant-design/pro-components';
 import { BaseProList, ProList } from '@ant-design/pro-components';
 import {
   cleanup,
@@ -930,5 +931,274 @@ describe('List', () => {
       container.querySelectorAll('.ant-radio-input').length,
     ).toBeGreaterThan(0);
     expect(container.querySelectorAll('.ant-checkbox-input').length).toBe(0);
+  });
+
+  // ============ columns API 测试 ============
+
+  it('🚏 columns API: basic use with listKey', async () => {
+    const { container } = reactRender(
+      <ProList
+        dataSource={[
+          {
+            name: '我是名称',
+            desc: {
+              text: 'desc text',
+            },
+          },
+        ]}
+        columns={[
+          {
+            title: '名称',
+            dataIndex: 'name',
+            listKey: 'title',
+          },
+          {
+            dataIndex: ['desc', 'text'],
+            listKey: 'description',
+          },
+        ]}
+      />,
+    );
+    expect(
+      container.querySelector('.ant-pro-list-row-title')!.innerHTML,
+    ).toEqual('我是名称');
+    expect(
+      container.querySelector('.ant-pro-list-row-description')!.innerHTML,
+    ).toEqual('desc text');
+  });
+
+  it('🚏 columns API: columns take priority over metas', async () => {
+    const { container } = reactRender(
+      <ProList
+        dataSource={[
+          {
+            name: '列的名称',
+            altName: 'meta的名称',
+          },
+        ]}
+        columns={[
+          {
+            dataIndex: 'name',
+            listKey: 'title',
+          },
+        ]}
+        metas={{
+          title: {
+            dataIndex: 'altName',
+          },
+        }}
+      />,
+    );
+    // columns 优先级高于 metas
+    expect(
+      container.querySelector('.ant-pro-list-row-title')!.innerHTML,
+    ).toEqual('列的名称');
+  });
+
+  it('🚏 columns API: actions with cardActionProps', async () => {
+    const html = reactRender(
+      <ProList
+        grid={{ gutter: 16, column: 2 }}
+        dataSource={[
+          {
+            name: '我是名称',
+          },
+        ]}
+        columns={[
+          {
+            dataIndex: 'name',
+            listKey: 'title',
+          },
+          {
+            listKey: 'actions',
+            cardActionProps: 'actions',
+            render: () => [
+              <a key="edit" id="edit">
+                修复
+              </a>,
+            ],
+          },
+        ]}
+      />,
+    );
+    await waitForWaitTime(1000);
+
+    expect(!!html.baseElement.querySelector('.ant-pro-card-extra')).toBeFalsy();
+
+    act(() => {
+      html.queryByText('修复')?.click();
+    });
+  });
+
+  it('🚏 columns API: expandable support', async () => {
+    const onExpand = vi.fn();
+    const Wrapper = () => {
+      const [expandedRowKeys, onExpandedRowsChange] = useState<readonly Key[]>(
+        [],
+      );
+      return (
+        <ProList
+          dataSource={[
+            {
+              name: '我是名称',
+              content: <div>我是内容</div>,
+            },
+          ]}
+          columns={[
+            {
+              dataIndex: 'name',
+              listKey: 'title',
+            },
+            {
+              dataIndex: 'content',
+              listKey: 'content',
+            },
+          ]}
+          expandable={{ expandedRowKeys, onExpandedRowsChange, onExpand }}
+        />
+      );
+    };
+    const { container } = reactRender(<Wrapper />);
+    await fireEvent.click(
+      container.querySelector('.ant-pro-list-row-expand-icon')!,
+    );
+    expect(
+      container.querySelector('.ant-pro-list-row-content')!.innerHTML,
+    ).toEqual('<div>我是内容</div>');
+    expect(onExpand).toHaveBeenCalledWith(
+      true,
+      expect.objectContaining({ name: '我是名称' }),
+    );
+  });
+
+  it('🚏 columns API: with render function', async () => {
+    const { container } = reactRender(
+      <ProList
+        dataSource={[
+          {
+            name: '我是名称',
+          },
+        ]}
+        columns={[
+          {
+            dataIndex: 'name',
+            listKey: 'title',
+          },
+          {
+            listKey: 'description',
+            render: () => (
+              <>
+                <Tag>标签一</Tag>
+                <Tag>标签二</Tag>
+              </>
+            ),
+          },
+        ]}
+      />,
+    );
+    expect(
+      container.querySelector('.ant-pro-list-row-description'),
+    ).toBeTruthy();
+    expect(container.querySelectorAll('.ant-tag').length).toEqual(2);
+  });
+
+  it('🚏 columns API: compatible with ProTable ProColumns type', async () => {
+    type DataItem = {
+      id: string;
+      name: string;
+      avatar: string;
+    };
+    // 这组 columns 可以同时用于 ProTable 和 ProList
+    const sharedColumns: ProColumns<DataItem>[] = [
+      { title: '名称', dataIndex: 'name', listKey: 'title' },
+      { dataIndex: 'avatar', listKey: 'avatar', search: false },
+    ];
+
+    const { container } = reactRender(
+      <ProList<DataItem>
+        rowKey="id"
+        dataSource={[
+          {
+            id: '1',
+            name: '测试名称',
+            avatar:
+              'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+          },
+        ]}
+        columns={sharedColumns}
+      />,
+    );
+
+    expect(
+      container.querySelector('.ant-pro-list-row-title')!.innerHTML,
+    ).toEqual('测试名称');
+  });
+
+  it('🚏 columns API: rowSelection works', async () => {
+    const Wrapper = () => {
+      return (
+        <ProList
+          dataSource={[
+            { name: '项目一' },
+            { name: '项目二' },
+          ]}
+          rowSelection={{}}
+          columns={[
+            {
+              dataIndex: 'name',
+              listKey: 'title',
+            },
+          ]}
+        />
+      );
+    };
+    const { container } = reactRender(<Wrapper />);
+
+    expect(container.querySelectorAll('.ant-checkbox-input')!.length).toEqual(
+      2,
+    );
+
+    fireEvent.change(container.querySelectorAll('.ant-checkbox-input')[0], {
+      target: {
+        checked: true,
+      },
+    });
+
+    expect(container.querySelectorAll('.ant-checkbox-input')[0]).toBeChecked();
+    expect(
+      container.querySelectorAll('.ant-checkbox-input')[1],
+    ).not.toBeChecked();
+  });
+
+  it('🚏 columns API: columns without listKey are ignored in list rendering', async () => {
+    const { container } = reactRender(
+      <ProList
+        dataSource={[
+          {
+            name: '名称',
+            status: 'open',
+          },
+        ]}
+        columns={[
+          {
+            dataIndex: 'name',
+            listKey: 'title',
+          },
+          {
+            // 没有 listKey 的列不会渲染到列表项中
+            title: '状态',
+            dataIndex: 'status',
+            valueType: 'select',
+            valueEnum: {
+              open: { text: '未解决' },
+              closed: { text: '已解决' },
+            },
+          },
+        ]}
+      />,
+    );
+    expect(
+      container.querySelector('.ant-pro-list-row-title')!.innerHTML,
+    ).toEqual('名称');
   });
 });

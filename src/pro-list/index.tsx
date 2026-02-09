@@ -5,7 +5,12 @@ import { clsx } from 'clsx';
 import React, { useContext, useImperativeHandle, useMemo, useRef } from 'react';
 import type { CheckCardProps } from '../card';
 import { ProConfigProvider } from '../provider';
-import type { ActionType, ProColumnType, ProTableProps } from '../table';
+import type {
+  ActionType,
+  ProColumns,
+  ProColumnType,
+  ProTableProps,
+} from '../table';
 import ProTable from '../table';
 import type { ItemProps } from './Item';
 import ListView, { type ProListItemRender } from './ListView';
@@ -53,6 +58,10 @@ export type BaseProListMetas<T = any> = {
   content?: ProListMeta<T>;
   actions?: ProListMetaAction<T>;
 };
+
+/**
+ * @deprecated 推荐使用 columns + listKey 的方式，与 ProTable 共用同一套 API
+ */
 export type ProListMetas<T = any> = BaseProListMetas<T> & {
   [key in keyof T]?: IsAny<T> extends true
     ? ProListMetaAction<T>
@@ -71,6 +80,18 @@ export type ProListProps<
 > = Omit<ProTableProps<RecordType, Params, ValueType>, 'size' | 'footer'> &
   AntdListProps<RecordType> & {
     tooltip?: LabelTooltipType | string;
+    /**
+     * @deprecated 推荐使用 columns + listKey 的方式，与 ProTable 共用同一套 API
+     *
+     * @example 旧 API（metas）
+     * metas={{ title: { dataIndex: 'name' }, avatar: { dataIndex: 'avatar' } }}
+     *
+     * @example 新 API（columns + listKey）
+     * columns={[
+     *   { title: '名称', dataIndex: 'name', listKey: 'title' },
+     *   { dataIndex: 'avatar', listKey: 'avatar' },
+     * ]}
+     */
     metas?: ProListMetas<RecordType>;
     showActions?: 'hover' | 'always';
     showExtra?: 'hover' | 'always';
@@ -95,12 +116,45 @@ const DEFAULT_VALUE_TYPE_MAP: Record<string, string> = {
   description: 'textarea',
 };
 
+/**
+ * 将 metas 对象转换为 columns 数组（向后兼容）
+ */
+function metasToColumns<RecordType>(
+  metas: ProListMetas<RecordType>,
+): ProColumnType<RecordType>[] {
+  return Object.keys(metas).map((key) => {
+    const meta = metas[key] || {};
+    const valueType = meta.valueType || DEFAULT_VALUE_TYPE_MAP[key];
+    return {
+      listKey: key,
+      dataIndex: meta.dataIndex || key,
+      ...meta,
+      valueType,
+    };
+  });
+}
+
+/**
+ * 为带有 listKey 的 columns 填充默认 valueType
+ */
+function enrichColumnsWithDefaults<RecordType>(
+  columns: ProColumns<RecordType>[],
+): ProColumnType<RecordType>[] {
+  return columns.map((col) => {
+    const { listKey } = col;
+    if (!listKey) return col;
+    const valueType = col.valueType || DEFAULT_VALUE_TYPE_MAP[listKey];
+    return valueType ? { ...col, valueType } : col;
+  });
+}
+
 function InternalProList<
   RecordType extends Record<string, any>,
   U extends Record<string, any> = Record<string, any>,
 >(props: ProListProps<RecordType, U>) {
   const {
     metas,
+    columns: propsColumns,
     split,
     footer,
     rowKey,
@@ -134,19 +188,18 @@ function InternalProList<
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
+  /**
+   * columns 优先级高于 metas
+   * - 如果传入了 columns（且含有 listKey），直接使用 columns
+   * - 如果只传入了 metas，将 metas 转换为 columns（向后兼容）
+   */
   const proTableColumns: ProColumnType<RecordType>[] = useMemo(() => {
+    if (propsColumns && propsColumns.length > 0) {
+      return enrichColumnsWithDefaults<RecordType>(propsColumns);
+    }
     if (!metas) return [];
-    return Object.keys(metas).map((key) => {
-      const meta = metas[key] || {};
-      const valueType = meta.valueType || DEFAULT_VALUE_TYPE_MAP[key];
-      return {
-        listKey: key,
-        dataIndex: meta.dataIndex || key,
-        ...meta,
-        valueType,
-      };
-    });
-  }, [metas]);
+    return metasToColumns<RecordType>(metas);
+  }, [propsColumns, metas]);
 
   const prefixCls = getPrefixCls('pro-list', props.prefixCls);
 
