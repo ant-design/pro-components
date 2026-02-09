@@ -307,30 +307,7 @@ function ListView<RecordType extends AnyObject>(
           ? itemRender(item, index, defaultDom)
           : defaultDom;
 
-        if (!rest.grid?.gutter) return renderedContent;
-
-        const gutter = rest.grid.gutter;
-        const [horizontal, vertical] = Array.isArray(gutter)
-          ? gutter
-          : [gutter, gutter];
-        const h = Number(horizontal) || 0;
-        const v = Number(vertical) || 0;
-
-        return (
-          <div
-            className={clsx(`${prefixCls}-grid-item`, hashId)}
-            style={{
-              paddingLeft: h / 2,
-              paddingRight: h / 2,
-              paddingTop: v / 2,
-              paddingBottom: v / 2,
-              width: '100%',
-              boxSizing: 'border-box',
-            }}
-          >
-            {renderedContent}
-          </div>
-        );
+        return renderedContent;
       }}
     />
   );

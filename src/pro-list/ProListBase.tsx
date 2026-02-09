@@ -313,11 +313,30 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps<any>>(
 
     const colStyle = useMemo(() => {
       if (!grid?.column) return undefined;
-      return {
+      
+      const style: React.CSSProperties = {
         width: `${100 / grid.column}%`,
         maxWidth: `${100 / grid.column}%`,
       };
-    }, [grid?.column]);
+      
+      // 处理 gutter：Row 的 gutter 会给 Row 添加负 margin，
+      // Row 的直接子元素需要添加 padding 来配合
+      if (grid.gutter) {
+        const gutter = grid.gutter;
+        const [horizontal, vertical] = Array.isArray(gutter)
+          ? gutter
+          : [gutter, gutter];
+        const h = Number(horizontal) || 0;
+        const v = Number(vertical) || 0;
+        
+        style.paddingLeft = h / 2;
+        style.paddingRight = h / 2;
+        style.paddingTop = v / 2;
+        style.paddingBottom = v / 2;
+      }
+      
+      return style;
+    }, [grid?.column, grid?.gutter]);
 
     const { renderEmpty } = useContext(ConfigProvider.ConfigContext);
     let childrenContent: React.ReactNode;
