@@ -1,3 +1,3 @@
 import demoTest from '../demo';
 
-demoTest('list');
+demoTest('pro-list');

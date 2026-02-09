@@ -10,7 +10,7 @@ import { Tag } from 'antd';
 import type { Key } from 'react';
 import { act, useState } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import PaginationDemo from '../../demos/list/pagination';
+import PaginationDemo from '../../demos/pro-list/pagination';
 import { waitForWaitTime } from '../util';
 
 type DataSourceType = {

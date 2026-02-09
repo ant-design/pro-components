@@ -282,7 +282,7 @@ export default defineConfig({
             },
             {
               title: 'ProList',
-              link: '/en-US/components/list',
+              link: '/en-US/components/pro-list',
             },
             {
               title: 'ProDescriptions',
@@ -398,7 +398,7 @@ export default defineConfig({
             },
             {
               title: 'ProList - 高级列表',
-              link: '/components/list',
+              link: '/components/pro-list',
             },
             {
               title: 'ProDescriptions - 定义列表',
