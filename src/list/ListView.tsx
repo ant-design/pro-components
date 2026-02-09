@@ -328,6 +328,7 @@ function ListView<RecordType extends AnyObject>(
           const v = Number(vertical) || 0;
           content = (
             <div
+              className={`${prefixCls}-grid-item ${hashId}`.trim()}
               style={{
                 paddingLeft: h / 2,
                 paddingRight: h / 2,

@@ -2,7 +2,7 @@
  * 内部 List 容器与 List.Item / List.Item.Meta 实现，用于替代 antd List（antd List 已停止维护）
  * 保持与 antd List 相同的 DOM 结构及类名，以便复用 antd 的 list 样式
  */
-import { ConfigProvider, Empty, Pagination, Row, Spin } from 'antd';
+import { ConfigProvider, Empty, Pagination, Row } from 'antd';
 import type { RowProps } from 'antd/lib/grid';
 import type { PaginationConfig } from 'antd/lib/pagination';
 import { clsx } from 'clsx';
@@ -409,13 +409,8 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps<any>>(
         <div ref={ref} style={style} className={classString} {...rest}>
           {showPaginationTop && paginationNode}
           {header && <div className={`${prefixCls}-header`}>{header}</div>}
-          <Spin
-            spinning={isLoading}
-            {...(typeof loading === 'object' ? loading : {})}
-          >
-            {childrenContent}
-            {children}
-          </Spin>
+          {childrenContent}
+          {children}
           {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
           {loadMore}
           {showPaginationBottom && paginationNode}

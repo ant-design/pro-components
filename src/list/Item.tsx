@@ -194,9 +194,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     defaultClassName,
   );
 
-  const extraClassName = clsx(hashId, {
-    [`${propsClassName}-extra`]: showExtra === 'hover',
-  });
+  const extraClassName = clsx(hashId, `${propsClassName}-extra`);
 
   const needExpanded =
     expanded || Object.values(expandableConfig || {}).length === 0;
@@ -285,12 +283,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
         [propsClassName]: propsClassName !== defaultClassName,
       })}
       {...rest}
-      actions={extraDom}
-      extra={
-        extra != null ? (
-          <div className={extraClassName}>{extra}</div>
-        ) : undefined
-      }
+      extra={extra}
       {...onRow?.(record, index)}
       {...itemProps}
       onClick={(e: React.MouseEvent<HTMLDivElement>) => {
@@ -322,6 +315,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
           </div>
           {(itemHeaderRender && itemHeaderRender?.(record, index, metaDom)) ??
             metaDom}
+          {extraDom}
         </div>
         {needExpanded && (content || expandedRowDom) && (
           <div className={`${className}-content ${hashId}`.trim()}>

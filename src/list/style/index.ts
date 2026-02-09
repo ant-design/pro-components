@@ -35,7 +35,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
       },
       [`${token.proComponentsCls}-list-item`]: {
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: 'column',
         flex: 1,
         minWidth: 0,
         padding: token.paddingSM,
@@ -286,6 +286,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           flex: '1',
           alignItems: 'flex-start',
           justifyContent: 'flex-start',
+          width: '100%',
           minWidth: 0,
           h4: {
             margin: 0,

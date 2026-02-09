@@ -73,7 +73,12 @@ const Demo = () => {
         },
         actions: {
           render: () => {
-            return [<a key="init">邀请</a>, '发布'];
+            return [
+              <a key="init">邀请</a>,
+              <Button key="publish" type="text">
+                发布
+              </Button>,
+            ];
           },
         },
       }}
