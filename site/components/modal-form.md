@@ -13,31 +13,31 @@ ModalForm 和 DrawerForm 都提供了 trigger 来减少 state 的使用，如果
 
 ## Modal 表单
 
-<code src="../../../demos/form/ModalForm/modal-form.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/form/ModalForm/modal-form.tsx" background="var(--main-bg-color)"></code>
 
 ## Drawer 表单
 
-<code src="../../../demos/form/ModalForm/drawer-form.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/form/ModalForm/drawer-form.tsx" background="var(--main-bg-color)"></code>
 
 ## 嵌套浮层表单
 
-<code src="../../../demos/form/ModalForm/drawer-form-nested.tsx" debug  background="var(--main-bg-color)" title="Drawer Forms"></code>
+<code src="../../demos/form/ModalForm/drawer-form-nested.tsx" debug  background="var(--main-bg-color)" title="Drawer Forms"></code>
 
 ### Debug：请求加载中关闭（Modal + Drawer）
 
-<code src="../../../demos/form/ModalForm/modal-form-request-destroy-debug.tsx" debug background="var(--main-bg-color)" title="Debug: destroyOnHidden + request (Modal & Drawer)"></code>
+<code src="../../demos/form/ModalForm/modal-form-request-destroy-debug.tsx" debug background="var(--main-bg-color)" title="Debug: destroyOnHidden + request (Modal & Drawer)"></code>
 
 ## 自定义 Modal 表单按钮
 
-<code src="../../../demos/form/ModalForm/modal-form-submitter.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/form/ModalForm/modal-form-submitter.tsx" background="var(--main-bg-color)"></code>
 
 ## 使用 open 和 onOpenChange
 
-<code src="../../../demos/form/ModalForm/open-on-open-change.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/form/ModalForm/open-on-open-change.tsx" background="var(--main-bg-color)"></code>
 
 ## 重置表单
 
-<code src="../../../demos/form/ModalForm/modal-form-reset.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/form/ModalForm/modal-form-reset.tsx" background="var(--main-bg-color)"></code>
 
 ## API
 

@@ -17,81 +17,81 @@ ProList 基于 ProTable 实现，可以认为是 ProTable 的一个特例，将�
 
 ### 基本使用
 
-<code src="../../../demos/pro-list/base.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/base.tsx" background="var(--main-bg-color)"></code>
 
 ### 使用 columns + listSlot（推荐）
 
 通过 `columns` 配合 `listSlot` 属性，可以和 ProTable 共用同一份列配置。`listSlot` 指定该列映射到列表项的哪个插槽（如 `title`、`avatar`、`description` 等）。
 
-<code src="../../../demos/pro-list/columns.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/columns.tsx" background="var(--main-bg-color)"></code>
 
 ### 卡片列表（columns + listSlot）
 
-<code src="../../../demos/pro-list/columns-card.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/columns-card.tsx" background="var(--main-bg-color)"></code>
 
 ### 网格配置
 
-<code src="../../../demos/pro-list/grid-config.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/grid-config.tsx" background="var(--main-bg-color)"></code>
 
 ### 表格/列表一键切换
 
 同一份 `columns` 同时传给 ProTable 和 ProList，通过切换组件即可在表格和列表视图之间无缝切换。
 
-<code src="../../../demos/pro-list/columns-shared.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/columns-shared.tsx" background="var(--main-bg-color)"></code>
 
 ### 搜索列表（columns + request）
 
-<code src="../../../demos/pro-list/columns-search.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/columns-search.tsx" background="var(--main-bg-color)"></code>
 
 ### 可编辑列表（columns）
 
-<code src="../../../demos/pro-list/columns-editable.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/columns-editable.tsx" background="var(--main-bg-color)"></code>
 
 ### 编辑列表
 
-<code src="../../../demos/pro-list/editable.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/editable.tsx" background="var(--main-bg-color)"></code>
 
 ### 带工具栏的列表
 
-<code src="../../../demos/pro-list/ToolBar.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/ToolBar.tsx" background="var(--main-bg-color)"></code>
 
 ### 支持展开的列表
 
-<code src="../../../demos/pro-list/expand.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/expand.tsx" background="var(--main-bg-color)"></code>
 
 ### 支持选中的列表
 
-<code src="../../../demos/pro-list/selectedRow.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/selectedRow.tsx" background="var(--main-bg-color)"></code>
 
 ### 查询列表
 
-<code src="../../../demos/pro-list/search.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/search.tsx" background="var(--main-bg-color)"></code>
 
 ### 带筛选和异步请求的列表
 
-<code src="../../../demos/pro-list/filter.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/filter.tsx" background="var(--main-bg-color)"></code>
 
 ### 大小和分割线
 
-<code src="../../../demos/pro-list/size.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/size.tsx" background="var(--main-bg-color)"></code>
 
 ### 竖排样式
 
-<code src="../../../demos/pro-list/layout.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/layout.tsx" background="var(--main-bg-color)"></code>
 
 ### 一些预设的模式
 
-<code src="../../../demos/pro-list/special.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/special.tsx" background="var(--main-bg-color)"></code>
 
 ### 翻页
 
-<code src="../../../demos/pro-list/pagination.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/pagination.tsx" background="var(--main-bg-color)"></code>
 
 ### 自定义列表项（itemRender）
 
 通过 `itemRender` 自定义每一项的渲染，可基于默认内容 `defaultDom`（`React.ReactElement`）进行包装或完全自定义。
 
-<code src="../../../demos/pro-list/render-item.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/render-item.tsx" background="var(--main-bg-color)"></code>
 
 ## API
 

@@ -23,11 +23,11 @@ PageContainer 是一个页面容器组件，提供了统一的页面布局结构
 
 ## 代码演示
 
-<code src="../../../demos/layout/PageContainer/basic.tsx" background="var(--main-bg-color)" title="基础用法" description="PageContainer 提供了标准的页面布局结构"></code>
+<code src="../../demos/layout/PageContainer/basic.tsx" background="var(--main-bg-color)" title="基础用法" description="PageContainer 提供了标准的页面布局结构"></code>
 
-<code src="../../../demos/layout/PageContainer/fixHeader.tsx" background="var(--main-bg-color)" title="固定头部" description="可以固定页面头部，在内容滚动时保持可见"></code>
+<code src="../../demos/layout/PageContainer/fixHeader.tsx" background="var(--main-bg-color)" title="固定头部" description="可以固定页面头部，在内容滚动时保持可见"></code>
 
-<code src="../../../demos/layout/PageContainer/hideBreadMenu.tsx" background="var(--main-bg-color)" title="隐藏面包屑" description="可以隐藏面包屑导航，简化页面结构"></code>
+<code src="../../demos/layout/PageContainer/hideBreadMenu.tsx" background="var(--main-bg-color)" title="隐藏面包屑" description="可以隐藏面包屑导航，简化页面结构"></code>
 
 ## API
 

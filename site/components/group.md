@@ -363,36 +363,36 @@ name 参数必须要是一个数组，如果是嵌套的结构可以这样配置
 
 ### 自定义删除和复制的 tooltip
 
-<code src="../../../demos/form/Group/list-tooltip.tsx" title="ProForm.List" ></code>
+<code src="../../demos/form/Group/list-tooltip.tsx" title="ProForm.List" ></code>
 
 ### 联动的 FormList
 
-<code src="../../../demos/form/Group/base-use.tsx" title="ProForm.List" ></code>
+<code src="../../demos/form/Group/base-use.tsx" title="ProForm.List" ></code>
 
 ### 可调整的新建按钮位置
 
-<code src="../../../demos/form/Group/list.tsx" title="ProForm.List-position" ></code>
+<code src="../../demos/form/Group/list.tsx" title="ProForm.List-position" ></code>
 
 ### 表单互相嵌套
 
-<code src="../../../demos/form/Group/nested-list.tsx" title="ProForm.List-ProFormList" ></code>
+<code src="../../demos/form/Group/nested-list.tsx" title="ProForm.List-ProFormList" ></code>
 
 ### 复杂联动
 
-<code src="../../../demos/form/Group/dependency.tsx" title="ProForm.List-dependency" ></code>
+<code src="../../demos/form/Group/dependency.tsx" title="ProForm.List-dependency" ></code>
 
 ### 行为守卫
 
-<code src="../../../demos/form/Group/pro-form-list.tsx"></code>
+<code src="../../demos/form/Group/pro-form-list.tsx"></code>
 
 ### 增删条目限制
 
-<code src="../../../demos/form/Group/countLimit.tsx" id="countLimit-1"></code>
+<code src="../../demos/form/Group/countLimit.tsx" id="countLimit-1"></code>
 
 ### 横向布局
 
-<code src="../../../demos/form/Group/horizontal-layout.tsx" id="horizontal-layout-1"></code>
+<code src="../../demos/form/Group/horizontal-layout.tsx" id="horizontal-layout-1"></code>
 
 ### 箭头排序
 
-<code src="../../../demos/form/Group//list-arrowsort.tsx" ></code>
+<code src="../../demos/form/Group//list-arrowsort.tsx" ></code>

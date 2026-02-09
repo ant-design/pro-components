@@ -12,39 +12,39 @@ atomId: EditableProTable
 
 ### 可编辑表格
 
-<code src="../../../demos/table/EditableTable/basic.tsx"  background="var(--main-bg-color)"></code>
+<code src="../../demos/table/EditableTable/basic.tsx"  background="var(--main-bg-color)"></code>
 
 ### 单元格编辑
 
-<code src="../../../demos/table/EditableTable/cell-editor-table.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../../demos/table/EditableTable/cell-editor-table.tsx"  background="var(--main-bg-color)" ></code>
 
 ### 行编辑
 
-<code src="../../../demos/table/EditableTable/row-editor-table.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../../demos/table/EditableTable/row-editor-table.tsx"  background="var(--main-bg-color)" ></code>
 
 ### 与 FormItem 配合
 
-<code src="../../../demos/table/EditableTable/form-item.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../../demos/table/EditableTable/form-item.tsx"  background="var(--main-bg-color)" ></code>
 
 ### 与编辑表格外的内容联动
 
-<code src="../../../demos/table/EditableTable/form-linkage.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../../demos/table/EditableTable/form-linkage.tsx"  background="var(--main-bg-color)" ></code>
 
 ### 有子列的表格增加
 
-<code src="../../../demos/table/EditableTable/children.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../../demos/table/EditableTable/children.tsx"  background="var(--main-bg-color)" ></code>
 
 ### 自定义可编辑表格
 
-<code src="../../../demos/table/EditableTable/custom.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../../demos/table/EditableTable/custom.tsx"  background="var(--main-bg-color)" ></code>
 
 ### 实时保存的编辑表格
 
-<code src="../../../demos/table/EditableTable/real-time-editing.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../../demos/table/EditableTable/real-time-editing.tsx"  background="var(--main-bg-color)" ></code>
 
 ### 复杂的编辑表格
 
-<code src="../../../demos/table/EditableTable/fuza.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../../demos/table/EditableTable/fuza.tsx"  background="var(--main-bg-color)" ></code>
 
 ## EditableProTable
 

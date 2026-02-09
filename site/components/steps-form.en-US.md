@@ -13,19 +13,19 @@ StepsForm manages the data of sub forms through a Provider, each word form is a 
 
 ## Step-by-Step Forms
 
-<code src="../../../demos/form/StepsForm/steps-from.tsx" ></code>
+<code src="../../demos/form/StepsForm/steps-from.tsx" ></code>
 
 ## Step-by-Step Forms - Multi-Card
 
-<code src="../../../demos/form/StepsForm/multi-card-step-form.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../../demos/form/StepsForm/multi-card-step-form.tsx"  background="var(--main-bg-color)" ></code>
 
 ## Step-by-Step Forms - Works with Modal
 
-<code src="../../../demos/form/StepsForm/modal-step-form.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../../demos/form/StepsForm/modal-step-form.tsx"  background="var(--main-bg-color)" ></code>
 
 ## StepForm in edit scene
 
-<code src="../../../demos/form/StepsForm/add-or-edit-step-form.tsx" oldtitle="自定义分步表单按钮"></code>
+<code src="../../demos/form/StepsForm/add-or-edit-step-form.tsx" oldtitle="自定义分步表单按钮"></code>
 
 ## StepsForm
 

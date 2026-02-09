@@ -23,11 +23,11 @@ PageContainer is a page container component that provides a unified page layout 
 
 ## Code Demo
 
-<code src="../../../demos/layout/PageContainer/basic.tsx" background="var(--main-bg-color)" title="Basic Usage" description="PageContainer provides standard page layout structure"></code>
+<code src="../../demos/layout/PageContainer/basic.tsx" background="var(--main-bg-color)" title="Basic Usage" description="PageContainer provides standard page layout structure"></code>
 
-<code src="../../../demos/layout/PageContainer/fixHeader.tsx" background="var(--main-bg-color)" title="Fixed Header" description="You can fix the page header to keep it visible when content scrolls"></code>
+<code src="../../demos/layout/PageContainer/fixHeader.tsx" background="var(--main-bg-color)" title="Fixed Header" description="You can fix the page header to keep it visible when content scrolls"></code>
 
-<code src="../../../demos/layout/PageContainer/hideBreadMenu.tsx" background="var(--main-bg-color)" title="Hide Breadcrumb" description="You can hide breadcrumb navigation to simplify page structure"></code>
+<code src="../../demos/layout/PageContainer/hideBreadMenu.tsx" background="var(--main-bg-color)" title="Hide Breadcrumb" description="You can hide breadcrumb navigation to simplify page structure"></code>
 
 ## API
 

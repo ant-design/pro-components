@@ -72,7 +72,7 @@ ProForm is a degradable encapsulation based on antd Form, fully aligned with ant
 | [LightFilter](/components/query-filter)         | Generally used as an inline built-in filter, such as card action bar and table action bar.                            |
 | [StepsForm](/components/steps-form)             | Step form, needs to be used with StepForm configuration.                                                              |
 
-<code src="../../../demos/form/layout-change.tsx" title="Form layout switching"></code>
+<code src="../../demos/form/layout-change.tsx" title="Form layout switching"></code>
 
 ## Data conversion
 
@@ -199,36 +199,36 @@ import { set } from '@rc-component/util';
 
 ## Code examples
 
-<code src="../../../demos/form/base.tsx" title="Basic Usage"></code>
+<code src="../../demos/form/base.tsx" title="Basic Usage"></code>
 
 ### Label and Form Item Layout
 
 Except for fixed layout form styles like `LightFilter` and `QueryFilter`, other form layouts support configuring three layout methods consistent with `antd`.
 
-<code src="../../../demos/form/form-layout.tsx"  ></code>
+<code src="../../demos/form/form-layout.tsx"  ></code>
 
 ### Grid layout
 
 Supported in `ProForm`, `SchemaForm`, `ModalForm`, `DrawerForm`, `StepsForm`
 
-<code src="../../../demos/form/form-layout-grid.tsx" ></code>
+<code src="../../demos/form/form-layout-grid.tsx" ></code>
 
-<code src="../../../demos/form/dependency.tsx" title="Form Linkage"></code>
+<code src="../../demos/form/dependency.tsx" title="Form Linkage"></code>
 
-<code src="../../../demos/form/formRef.tsx" id="formRef-usage" description="
+<code src="../../demos/form/formRef.tsx" id="formRef-usage" description="
 You can get a reference to the form instance via `formRef`, through which you can call form methods to implement form reset, set form, get form values, etc." title="Form Method Call"></code>
 
 ### Sync submission results to url
 
 When opening, the url parameters are also set as default values, supports transform, but pay attention to field mapping.
 
-<code src="../../../demos/form/sync-to-url.tsx" ></code>
+<code src="../../demos/form/sync-to-url.tsx" ></code>
 
-<code src="../../../demos/form/money.tsx" title="Money"></code>
+<code src="../../demos/form/money.tsx" title="Money"></code>
 
-<code src="../../../demos/form/layout-footer.tsx" iframe="580" title="Fixed Footer"></code>
+<code src="../../demos/form/layout-footer.tsx" iframe="580" title="Fixed Footer"></code>
 
-<code src="../../../demos/form/pro-form-editableTable.tsx" title="ProForm and EditableTable used together"></code>
+<code src="../../demos/form/pro-form-editableTable.tsx" title="ProForm and EditableTable used together"></code>
 
 ## Components that hijack render functions
 
@@ -246,7 +246,7 @@ Forms are essential in middle and backend projects, and are usually accompanied 
 
 Start with an official example [Customized Form Controls](https://ant.design/components/form/#components-form-demo-customized-form-controls)
 
-<code src="../../../demos/form/antd.tsx" description="Official Example"></code> <code src="../../../demos/form/antd.modify.tsx" description="Modify using hooks"></code> <code src="../../../demos/form/antd.nest.tsx" description="Nested Usage"></code>
+<code src="../../demos/form/antd.tsx" description="Official Example"></code> <code src="../../demos/form/antd.modify.tsx" description="Modify using hooks"></code> <code src="../../demos/form/antd.nest.tsx" description="Nested Usage"></code>
 
 ### FormControlRender
 
@@ -254,19 +254,19 @@ Using FormControlRender allows you to write code inline and write logic more fle
 
 Sometimes you need to use Form.Item.useStatus, but you must meet the usage specifications of hooks, which makes development require extraction into a separate component for use, and cannot be used inline, and FormControlRender solves this situation very well.
 
-<code src="../../../demos/form/form-control-render.tsx"></code>
+<code src="../../demos/form/form-control-render.tsx"></code>
 
 ### FormItemRender & ProFormItemRender
 
 Using FormItemRender or ProFormItemRender makes it easier to write form items in Form
 
-<code src="../../../demos/form/form-item-render.tsx"></code>
+<code src="../../demos/form/form-item-render.tsx"></code>
 
-<code src="../../../demos/form/linkage-customization.tsx" debug></code>
+<code src="../../demos/form/linkage-customization.tsx" debug></code>
 
-<code src="../../../demos/form/pro-form-dependency.debug.tsx"  debug></code>
+<code src="../../demos/form/pro-form-dependency.debug.tsx"  debug></code>
 
-<code src="../../../demos/form/label-col.tsx" debug></code>
+<code src="../../demos/form/label-col.tsx" debug></code>
 
 ## ProForm
 
@@ -409,7 +409,7 @@ While we would prefer not to modify the submitter, it is a common requirement to
 
 This property is a high-level wrapper made by ProForm based on the original Antd's `FormInstance`, adding some more convenient methods. Usage is as follows:
 
-<code src="../../../demos/form/formRef.tsx" id="formRef-api" title="Usage of formRef"></code>
+<code src="../../demos/form/formRef.tsx" id="formRef-api" title="Usage of formRef"></code>
 
 ```tsx | pure
 import type { ProFormInstance } from '@ant-design/pro-components';
@@ -526,6 +526,6 @@ export default () => {
 |    `getFieldFormatValueObject`    |   Usage is the same as `FormInstance`'s `getFieldValue`, returns formatted specified data (including name path)   |         |
 | `validateFieldsReturnFormatValue` | Usage is the same as `FormInstance`'s `validateFields` method, returns all formatted data after validation passes |         |
 
-<code src="../../../demos/form/modalform-test.tsx"  debug></code>
+<code src="../../demos/form/modalform-test.tsx"  debug></code>
 
-<code src="../../../demos/form/params-formref.tsx"  debug></code>
+<code src="../../demos/form/params-formref.tsx"  debug></code>

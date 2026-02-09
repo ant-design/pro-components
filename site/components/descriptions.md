@@ -51,41 +51,41 @@ interface RequestData {
 
 ### 基本使用
 
-<code src="../../../demos/descriptions/base.tsx" title="基础定义列表" ></code>
+<code src="../../demos/descriptions/base.tsx" title="基础定义列表" ></code>
 
 ### 数组类型 dataIndex
 
-<code src="../../../demos/descriptions/arrayDataIndex.tsx" title="数组类型dataIndex" ></code>
+<code src="../../demos/descriptions/arrayDataIndex.tsx" title="数组类型dataIndex" ></code>
 
 ### 格式化配置
 
 根据配置格式化日期
 
-<code src="../../../demos/descriptions/format.tsx" title="格式化配置" ></code>
+<code src="../../demos/descriptions/format.tsx" title="格式化配置" ></code>
 
 ### 远程请求数据
 
 通过请求接口数据来展示定义列表
 
-<code src="../../../demos/descriptions/request.tsx"></code>
+<code src="../../demos/descriptions/request.tsx"></code>
 
 ### columns 配置
 
 通过请求接口数据和 columns 来展示定义列表
 
-<code src="../../../demos/descriptions/columns.tsx"></code>
+<code src="../../demos/descriptions/columns.tsx"></code>
 
 ### dataSource 配置数据
 
 ProDescriptions 支持了和 Table 相同的 dataSource
 
-<code src="../../../demos/descriptions/use-data-source.tsx"></code>
+<code src="../../demos/descriptions/use-data-source.tsx"></code>
 
 ### 可编辑的定义列表
 
 API 与 ProTable 相同
 
-<code src="../../../demos/descriptions/editable.tsx"></code>
+<code src="../../demos/descriptions/editable.tsx"></code>
 
 ## API
 

@@ -124,25 +124,25 @@ The most important part of SchemaForm is the Schema type definition. We use the 
 
 The most basic usage of SchemaForm, generating standard form pages through JSON configuration. Supports defining form items via `columns` and switching layouts via `layoutType`.
 
-<code src="../../../demos/form/SchemaForm/schema.tsx" title="Basic Schema Form"></code>
+<code src="../../demos/form/SchemaForm/schema.tsx" title="Basic Schema Form"></code>
 
 ### Modal & Drawer Form
 
 By setting `layoutType` to `ModalForm` or `DrawerForm`, you can quickly convert forms into modal or drawer modes without manually managing `open` state.
 
-<code src="../../../demos/form/SchemaForm/ModalAndDrawerForm.tsx" title="ModalForm and DrawerForm"></code>
+<code src="../../demos/form/SchemaForm/ModalAndDrawerForm.tsx" title="ModalForm and DrawerForm"></code>
 
 ### Step Form (StepsForm)
 
 By setting `layoutType` to `StepsForm` or `StepForm`, you can generate step forms. In this case, `columns` should be a 2D array, where each array element represents the configuration of form items for a step.
 
-<code src="../../../demos/form/SchemaForm/steps-form.tsx" title="JSON Generate Step Form"></code>
+<code src="../../demos/form/SchemaForm/steps-form.tsx" title="JSON Generate Step Form"></code>
 
 ### Embedded Mode (Embed)
 
 By setting `layoutType` to `Embed`, you can generate only form items without the Form container. This is useful when you need to embed SchemaForm into an existing ProForm or other containers.
 
-<code src="../../../demos/form/SchemaForm/embed.tsx" title="Embed in ProForm"></code>
+<code src="../../demos/form/SchemaForm/embed.tsx" title="Embed in ProForm"></code>
 
 ## Advanced Usage
 
@@ -150,7 +150,7 @@ By setting `layoutType` to `Embed`, you can generate only form items without the
 
 Using `valueType: 'dependency'` can achieve complex form linkages. When dependent fields change, the current item update is automatically triggered.
 
-<code src="../../../demos/form/SchemaForm/dependency.tsx" title="Use ProFormDependency"></code>
+<code src="../../demos/form/SchemaForm/dependency.tsx" title="Use ProFormDependency"></code>
 
 ### High Performance Mode
 
@@ -159,12 +159,12 @@ For large forms, you can use `shouldUpdate` and `dependencies` for fine-grained 
 - **dependencies**: Specify dependent fields, update only when dependent fields change.
 - **shouldUpdate**: Custom update logic, return false to prevent update.
 
-<code src="../../../demos/form/SchemaForm/dependencies.tsx" title="Combine shouldUpdate=false and dependencies to trigger update"></code>
+<code src="../../demos/form/SchemaForm/dependencies.tsx" title="Combine shouldUpdate=false and dependencies to trigger update"></code>
 
-<code src="../../../demos/form/SchemaForm/dynamic-rerender.tsx" title="Dynamic control of re-rendering"></code>
+<code src="../../demos/form/SchemaForm/dynamic-rerender.tsx" title="Dynamic control of re-rendering"></code>
 
 ### List Configuration (FormList)
 
 Supports `valueType: 'formList'` to generate dynamically addable/removable list forms.
 
-<code src="../../../demos/form/SchemaForm/form-list-required.tsx" title="FormList Required Validation" debug></code>
+<code src="../../demos/form/SchemaForm/form-list-required.tsx" title="FormList Required Validation" debug></code>

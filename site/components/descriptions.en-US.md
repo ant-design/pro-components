@@ -51,41 +51,41 @@ interface RequestData {
 
 ### Basic usage
 
-<code src="../../../demos/descriptions/base.tsx" title="Basic definition list"></code>
+<code src="../../demos/descriptions/base.tsx" title="Basic definition list"></code>
 
 ### Array type dataIndex
 
-<code src="../../../demos/descriptions/arrayDataIndex.tsx"></code>
+<code src="../../demos/descriptions/arrayDataIndex.tsx"></code>
 
 ### Format configuration
 
 Format the date according to format
 
-<code src="../../../demos/descriptions/format.tsx"></code>
+<code src="../../demos/descriptions/format.tsx"></code>
 
 ### Remote request data
 
 Display the definition list by requesting interface data
 
-<code src="../../../demos/descriptions/request.tsx"></code>
+<code src="../../demos/descriptions/request.tsx"></code>
 
 ### Columns configuration
 
 Display the definition list by requesting interface data and columns
 
-<code src="../../../demos/descriptions/columns.tsx"></code>
+<code src="../../demos/descriptions/columns.tsx"></code>
 
 ### dataSource configuration data
 
 ProDescriptions supports the same dataSource as Table
 
-<code src="../../../demos/descriptions/use-data-source.tsx"></code>
+<code src="../../demos/descriptions/use-data-source.tsx"></code>
 
 ### Editable definition list
 
 API is the same as ProTable
 
-<code src="../../../demos/descriptions/editable.tsx"></code>
+<code src="../../demos/descriptions/editable.tsx"></code>
 
 ## API
 

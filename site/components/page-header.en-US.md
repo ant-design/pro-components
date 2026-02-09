@@ -32,8 +32,8 @@ PageHeader can be used to highlight the page topic, display important informatio
 
 ## Code Examples
 
-<code src="../../../demos/layout/PageHeader/basic.tsx" background="var(--main-bg-color)" title="Basic Page Header" description="Standard header, suitable for use in scenarios that require a brief description"></code>
+<code src="../../demos/layout/PageHeader/basic.tsx" background="var(--main-bg-color)" title="Basic Page Header" description="Standard header, suitable for use in scenarios that require a brief description"></code>
 
-<code src="../../../demos/layout/PageHeader/ghost.tsx" background="var(--main-bg-color)" title="white background mode" description="The default PageHeader is a transparent background. In some cases, PageHeader needs its own background color"></code>
+<code src="../../demos/layout/PageHeader/ghost.tsx" background="var(--main-bg-color)" title="white background mode" description="The default PageHeader is a transparent background. In some cases, PageHeader needs its own background color"></code>
 
-<code src="../../../demos/layout/PageHeader/breadcrumb.tsx" background="var(--main-bg-color)" title="Use with breadcrumbs" description="With breadcrumbs, it is suitable for deeper pages, allowing users to navigate quickly"></code>
+<code src="../../demos/layout/PageHeader/breadcrumb.tsx" background="var(--main-bg-color)" title="Use with breadcrumbs" description="With breadcrumbs, it is suitable for deeper pages, allowing users to navigate quickly"></code>

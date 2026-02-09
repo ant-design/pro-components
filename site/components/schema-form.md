@@ -124,25 +124,25 @@ SchemaForm 表单最重要就是 Schema 的类型定义，我们使用了与 tab
 
 SchemaForm 最基础的用法，通过 JSON 配置生成标准的表单页面。支持通过 `columns` 定义表单项，通过 `layoutType` 切换布局。
 
-<code src="../../../demos/form/SchemaForm/schema.tsx" title="基础 Schema 表单"></code>
+<code src="../../demos/form/SchemaForm/schema.tsx" title="基础 Schema 表单"></code>
 
 ### 浮层表单 (ModalForm & DrawerForm)
 
 通过设置 `layoutType` 为 `ModalForm` 或 `DrawerForm`，可以快速将表单转换为弹窗或抽屉模式，无需手动维护 `open` 状态。
 
-<code src="../../../demos/form/SchemaForm/ModalAndDrawerForm.tsx" title="ModalForm 和 DrawerForm"></code>
+<code src="../../demos/form/SchemaForm/ModalAndDrawerForm.tsx" title="ModalForm 和 DrawerForm"></code>
 
 ### 分步表单 (StepsForm)
 
 通过设置 `layoutType` 为 `StepsForm` 或 `StepForm`，可以生成分步表单。此时 `columns` 应该是一个二维数组，每个数组元素代表一步的表单项配置。
 
-<code src="../../../demos/form/SchemaForm/steps-form.tsx" title="JSON 生成分步表单"></code>
+<code src="../../demos/form/SchemaForm/steps-form.tsx" title="JSON 生成分步表单"></code>
 
 ### 嵌入模式 (Embed)
 
 通过设置 `layoutType` 为 `Embed`，可以只生成表单项而不生成 Form 容器。这在需要将 SchemaForm 嵌入到已有的 ProForm 或其他容器中时非常有用。
 
-<code src="../../../demos/form/SchemaForm/embed.tsx" title="嵌入到 ProForm 中"></code>
+<code src="../../demos/form/SchemaForm/embed.tsx" title="嵌入到 ProForm 中"></code>
 
 ## 高级用法
 
@@ -150,7 +150,7 @@ SchemaForm 最基础的用法，通过 JSON 配置生成标准的表单页面。
 
 使用 `valueType: 'dependency'` 可以实现复杂的表单联动。当依赖的字段发生变化时，会自动触发当前项的更新。
 
-<code src="../../../demos/form/SchemaForm/dependency.tsx" title="使用 ProFormDependency"></code>
+<code src="../../demos/form/SchemaForm/dependency.tsx" title="使用 ProFormDependency"></code>
 
 ### 高性能模式
 
@@ -159,12 +159,12 @@ SchemaForm 最基础的用法，通过 JSON 配置生成标准的表单页面。
 - **dependencies**: 指定依赖字段，仅当依赖字段变化时更新。
 - **shouldUpdate**: 自定义更新逻辑，返回 false 阻止更新。
 
-<code src="../../../demos/form/SchemaForm/dependencies.tsx" title="结合 shouldUpdate=false 和 dependencies 触发更新"></code>
+<code src="../../demos/form/SchemaForm/dependencies.tsx" title="结合 shouldUpdate=false 和 dependencies 触发更新"></code>
 
-<code src="../../../demos/form/SchemaForm/dynamic-rerender.tsx" title="动态控制是否重渲染"></code>
+<code src="../../demos/form/SchemaForm/dynamic-rerender.tsx" title="动态控制是否重渲染"></code>
 
 ### 列表配置 (FormList)
 
 支持 `valueType: 'formList'` 来生成动态增减的列表表单。
 
-<code src="../../../demos/form/SchemaForm/form-list-required.tsx" title="FormList Required 校验" debug></code>
+<code src="../../demos/form/SchemaForm/form-list-required.tsx" title="FormList Required 校验" debug></code>

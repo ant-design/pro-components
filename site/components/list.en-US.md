@@ -17,85 +17,85 @@ When you need a standard list presentation, or need to flexibly switch between l
 
 ### Basic usage
 
-<code src="../../../demos/pro-list/base.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/base.tsx" background="var(--main-bg-color)"></code>
 
 ### Using columns + listSlot (Recommended)
 
 Use `columns` with the `listSlot` property to share the same column configuration with ProTable. `listSlot` specifies which slot of the list item the column maps to (e.g. `title`, `avatar`, `description`).
 
-<code src="../../../demos/pro-list/columns.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/columns.tsx" background="var(--main-bg-color)"></code>
 
 ### Card list (columns + listSlot)
 
-<code src="../../../demos/pro-list/columns-card.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/columns-card.tsx" background="var(--main-bg-color)"></code>
 
 ### Grid config
 
-<code src="../../../demos/pro-list/grid-config.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/grid-config.tsx" background="var(--main-bg-color)"></code>
 
 ### Table/List view switching
 
 Use the same `columns` for both ProTable and ProList. Switch between table and list views seamlessly by toggling the component.
 
-<code src="../../../demos/pro-list/columns-shared.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/columns-shared.tsx" background="var(--main-bg-color)"></code>
 
 ### Search list (columns + request)
 
-<code src="../../../demos/pro-list/columns-search.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/columns-search.tsx" background="var(--main-bg-color)"></code>
 
 ### Editable list (columns)
 
-<code src="../../../demos/pro-list/columns-editable.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/columns-editable.tsx" background="var(--main-bg-color)"></code>
 
 ### Edit list
 
-<code src="../../../demos/pro-list/editable.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/editable.tsx" background="var(--main-bg-color)"></code>
 
 ### List with toolbar
 
-<code src="../../../demos/pro-list/ToolBar.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/ToolBar.tsx" background="var(--main-bg-color)"></code>
 
 ### Expandable list
 
-<code src="../../../demos/pro-list/expand.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/expand.tsx" background="var(--main-bg-color)"></code>
 
 ### List with row selection
 
-<code src="../../../demos/pro-list/selectedRow.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/selectedRow.tsx" background="var(--main-bg-color)"></code>
 
 ### Search list
 
-<code src="../../../demos/pro-list/search.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/search.tsx" background="var(--main-bg-color)"></code>
 
 ### List with filtering and asynchronous requests
 
-<code src="../../../demos/pro-list/filter.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/filter.tsx" background="var(--main-bg-color)"></code>
 
 ### Size and divider
 
-<code src="../../../demos/pro-list/size.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/size.tsx" background="var(--main-bg-color)"></code>
 
 ### Vertical style
 
-<code src="../../../demos/pro-list/layout.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/layout.tsx" background="var(--main-bg-color)"></code>
 
 ### Some preset modes
 
-<code src="../../../demos/pro-list/special.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/special.tsx" background="var(--main-bg-color)"></code>
 
 ### Pagination
 
-<code src="../../../demos/pro-list/pagination.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/pagination.tsx" background="var(--main-bg-color)"></code>
 
 ### Card list (metas)
 
-<code src="../../../demos/pro-list/card-list.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/card-list.tsx" background="var(--main-bg-color)"></code>
 
 ### Custom list item (itemRender)
 
 Use `itemRender` to customize each item's rendering. The third argument `defaultDom` is the default list item element (`React.ReactElement`); you can wrap it or replace it.
 
-<code src="../../../demos/pro-list/render-item.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/pro-list/render-item.tsx" background="var(--main-bg-color)"></code>
 
 ## API
 

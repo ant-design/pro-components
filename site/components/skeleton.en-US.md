@@ -22,17 +22,17 @@ return <Skeleton type="list" />;
 
 ### List
 
-<code src="../../../demos/skeleton/list.tsx" old></code>
+<code src="../../demos/skeleton/list.tsx" old></code>
 
-<code src="../../../demos/skeleton/list.static.tsx" old debug></code>
+<code src="../../demos/skeleton/list.static.tsx" old debug></code>
 
 ### Results page
 
-<code src="../../../demos/skeleton/result.tsx" old></code>
+<code src="../../demos/skeleton/result.tsx" old></code>
 
 ### Details page
 
-<code src="../../../demos/skeleton/descriptions.tsx" old></code>
+<code src="../../demos/skeleton/descriptions.tsx" old></code>
 
 ## API
 

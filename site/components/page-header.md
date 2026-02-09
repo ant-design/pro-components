@@ -32,8 +32,8 @@ cover: https://gw.alipayobjects.com/zos/alicdn/6bKE0Cq0R/PageHeader.svg
 
 ## 代码演示
 
-<code src="../../../demos/layout/PageHeader/basic.tsx" background="var(--main-bg-color)" title="标准样式" description="标准页头，适合使用在需要简单描述的场景"></code>
+<code src="../../demos/layout/PageHeader/basic.tsx" background="var(--main-bg-color)" title="标准样式" description="标准页头，适合使用在需要简单描述的场景"></code>
 
-<code src="../../../demos/layout/PageHeader/ghost.tsx" background="var(--main-bg-color)" title="白底模式" description="默认 PageHeader 是透明底色的。在某些情况下，PageHeader 需要自己的背景颜色"></code>
+<code src="../../demos/layout/PageHeader/ghost.tsx" background="var(--main-bg-color)" title="白底模式" description="默认 PageHeader 是透明底色的。在某些情况下，PageHeader 需要自己的背景颜色"></code>
 
-<code src="../../../demos/layout/PageHeader/breadcrumb.tsx" background="var(--main-bg-color)" title="带面包屑页头" description="带面包屑页头，适合层级比较深的页面，让用户可以快速导航"></code>
+<code src="../../demos/layout/PageHeader/breadcrumb.tsx" background="var(--main-bg-color)" title="带面包屑页头" description="带面包屑页头，适合层级比较深的页面，让用户可以快速导航"></code>

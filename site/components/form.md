@@ -72,7 +72,7 @@ ProForm 是基于 antd Form 的可降级封装，与 antd 功能完全对齐，�
 | [LightFilter](/components/query-filter)         | 一般用于作为行内内置的筛选，比如卡片操作栏和表格操作栏。                              |
 | [StepsForm](/components/steps-form)             | 分步表单，需要配置 StepForm 使用。                                                    |
 
-<code src="../../../demos/form/layout-change.tsx" title="Form 的 layout 切换"></code>
+<code src="../../demos/form/layout-change.tsx" title="Form 的 layout 切换"></code>
 
 ## 数据转化
 
@@ -199,36 +199,36 @@ import { set } from '@rc-component/util';
 
 ## 代码示例
 
-<code src="../../../demos/form/base.tsx" title="基本使用"></code>
+<code src="../../demos/form/base.tsx" title="基本使用"></code>
 
 ### 标签与表单项布局
 
 除了 `LightFilter` 和 `QueryFilter` 这样固定布局的表单样式，其他表单布局支持配置与 `antd` 一致的三种布局方式。
 
-<code src="../../../demos/form/form-layout.tsx"  ></code>
+<code src="../../demos/form/form-layout.tsx"  ></code>
 
 ### 栅格化布局
 
 同时支持在 `ProForm`, `SchemaForm`, `ModalForm`, `DrawerForm`, `StepsForm` 中使用
 
-<code src="../../../demos/form/form-layout-grid.tsx" ></code>
+<code src="../../demos/form/form-layout-grid.tsx" ></code>
 
-<code src="../../../demos/form/dependency.tsx" title="表单联动"></code>
+<code src="../../demos/form/dependency.tsx" title="表单联动"></code>
 
-<code src="../../../demos/form/formRef.tsx" id="formRef-usage" description="
+<code src="../../demos/form/formRef.tsx" id="formRef-usage" description="
 你可以通过 `formRef` 获取到表单实例的引用，通过引用可以调用表单方法实现表单重置，设置表单，获取表单值等功能。" title="表单方法调用"></code>
 
 ### 同步提交结果到 url
 
 打开时也会把 url 的参数设置为默认值，支持 transform, 但是要注意字段的映射。
 
-<code src="../../../demos/form/sync-to-url.tsx" ></code>
+<code src="../../demos/form/sync-to-url.tsx" ></code>
 
-<code src="../../../demos/form/money.tsx" title="金额"></code>
+<code src="../../demos/form/money.tsx" title="金额"></code>
 
-<code src="../../../demos/form/layout-footer.tsx" iframe="580" title="固定页脚"></code>
+<code src="../../demos/form/layout-footer.tsx" iframe="580" title="固定页脚"></code>
 
-<code src="../../../demos/form/pro-form-editableTable.tsx" title="ProForm 和 EditableTable 同时使用"></code>
+<code src="../../demos/form/pro-form-editableTable.tsx" title="ProForm 和 EditableTable 同时使用"></code>
 
 ## 劫持渲染函数的组件
 
@@ -246,7 +246,7 @@ FormItemRender 用来专门处理，采用 render props 的方式来组织代码
 
 从一个官网例子开始[自定义表单项](https://ant.design/components/form-cn#components-form-demo-customized-form-controls)
 
-<code src="../../../demos/form/antd.tsx" description="官网例子"></code> <code src="../../../demos/form/antd.modify.tsx" description="使用和hooks改造"></code> <code src="../../../demos/form/antd.nest.tsx" description="嵌套使用"></code>
+<code src="../../demos/form/antd.tsx" description="官网例子"></code> <code src="../../demos/form/antd.modify.tsx" description="使用和hooks改造"></code> <code src="../../demos/form/antd.nest.tsx" description="嵌套使用"></code>
 
 ### FormControlRender
 
@@ -254,19 +254,19 @@ FormItemRender 用来专门处理，采用 render props 的方式来组织代码
 
 有的时候需要使用 Form.Item.useStatus，但必须满足 hooks 的使用规范，这使得开发就必须提取成单独的组件来使用，没办法内联使用，而 FormControlRender 很好的解决这种情况
 
-<code src="../../../demos/form/form-control-render.tsx"></code>
+<code src="../../demos/form/form-control-render.tsx"></code>
 
 ### FormItemRender & ProFormItemRender
 
 使用 FormItemRender 或者 ProFormItemRender 可以更方便的在 Form 里书写表单项
 
-<code src="../../../demos/form/form-item-render.tsx"></code>
+<code src="../../demos/form/form-item-render.tsx"></code>
 
-<code src="../../../demos/form/linkage-customization.tsx" debug></code>
+<code src="../../demos/form/linkage-customization.tsx" debug></code>
 
-<code src="../../../demos/form/pro-form-dependency.debug.tsx"  debug></code>
+<code src="../../demos/form/pro-form-dependency.debug.tsx"  debug></code>
 
-<code src="../../../demos/form/label-col.tsx" debug></code>
+<code src="../../demos/form/label-col.tsx" debug></code>
 
 ## ProForm
 
@@ -409,7 +409,7 @@ ProFormInstance 与 antd 的 form 相比增加了一些能力。
 
 该属性是 ProForm 在原有的 Antd 的 `FormInstance` 的基础上做的一个上层分装，增加了一些更加便捷的方法。使用方式如下：
 
-<code src="../../../demos/form/formRef.tsx" id="formRef-api" title="formRef的使用"></code>
+<code src="../../demos/form/formRef.tsx" id="formRef-api" title="formRef的使用"></code>
 
 ```tsx | pure
 import type { ProFormInstance } from '@ant-design/pro-components';
@@ -524,6 +524,6 @@ export default () => {
 |    `getFieldFormatValueObject`    | 使用方法与 `FormInstance` 的 `getFieldValue` 方法相同，将返回格式化后的指定数据（包含 name） |      |
 | `validateFieldsReturnFormatValue` |  使用方法与 `FormInstance` 的 `validateFields` 方法相同，验证通过后将返回格式化后的所有数据  |      |
 
-<code src="../../../demos/form/modalform-test.tsx"  debug></code>
+<code src="../../demos/form/modalform-test.tsx"  debug></code>
 
-<code src="../../../demos/form/params-formref.tsx"  debug></code>
+<code src="../../demos/form/params-formref.tsx"  debug></code>

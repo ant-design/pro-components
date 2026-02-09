@@ -11,17 +11,17 @@ title: ProField 原子组件
 
 ## DEMO
 
-<code src="../../../demos/field/base.tsx" ></code>
+<code src="../../demos/field/base.tsx" ></code>
 
-<code src="../../../demos/field/base_test.tsx" debug></code>
+<code src="../../demos/field/base_test.tsx" debug></code>
 
-<code src="../../../demos/field/search-value.tsx" debug></code>
+<code src="../../demos/field/search-value.tsx" debug></code>
 
-<code src="../../../demos/field/search-value-autoClearSearchValue.tsx" debug></code>
+<code src="../../demos/field/search-value-autoClearSearchValue.tsx" debug></code>
 
-<code src="../../../demos/field/tree-select-search-value.tsx" debug></code>
+<code src="../../demos/field/tree-select-search-value.tsx" debug></code>
 
-<code src="../../../demos/field/select-request.tsx" debug></code>
+<code src="../../demos/field/select-request.tsx" debug></code>
 
 ## API
 
