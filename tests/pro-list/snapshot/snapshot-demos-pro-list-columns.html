@@ -27,7 +27,24 @@
                 <div
                   class="ant-pro-table-list-toolbar-title"
                 >
-                  基础列表
+                  columns API（与 ProTable 兼容）
+                </div>
+              </div>
+              <div
+                class="ant-pro-table-list-toolbar-right"
+                style="align-items: center;"
+              >
+                <div
+                  style="display: flex; align-items: center; gap: 8px;"
+                >
+                  <button
+                    class="ant-btn pro ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+                    type="button"
+                  >
+                    <span>
+                      新 建
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -39,14 +56,38 @@
               class="ant-pro-list-items"
             >
               <li
-                class="ant-pro-list-item ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row"
+                class="ant-pro-list-item ant-pro-list-row-item-has-avatar ant-pro-list-row"
               >
                 <div
-                  class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
+                  class="ant-pro-list-row-header"
                 >
                   <div
-                    class="ant-pro-list-row-show-action-hover ant-pro-list-row-header-option"
-                  />
+                    class="ant-pro-list-row-header-option"
+                  >
+                    <span
+                      class="ant-pro-list-row-expand-icon ant-pro-list-row-collapsed"
+                    >
+                      <span
+                        aria-label="right"
+                        class="anticon anticon-right"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="right"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                  </div>
                   <div
                     class="ant-pro-list-item-meta"
                   >
@@ -89,32 +130,22 @@
                                 <span
                                   class="ant-tag ant-tag-filled ant-tag-blue pro"
                                 >
-                                  Ant Design
+                                  语雀专栏
                                 </span>
                               </div>
                               <div
                                 class="ant-space-item"
                               >
                                 <span
-                                  class="ant-tag ant-tag-filled pro"
-                                  style="background-color: #eafaf4; color: #5BD8A6;"
+                                  class="ant-tag ant-tag-filled ant-tag-blue pro"
                                 >
-                                  TechUI
+                                  设计语言
                                 </span>
                               </div>
                             </div>
                           </div>
                         </div>
                       </h4>
-                      <div
-                        class="ant-pro-list-item-meta-description"
-                      >
-                        <div
-                          class="ant-pro-list-row-show-action-hover ant-pro-list-row-description"
-                        >
-                          我是一条测试的描述
-                        </div>
-                      </div>
                     </div>
                   </div>
                   <div
@@ -123,18 +154,45 @@
                     <a>
                       编辑
                     </a>
+                    <a>
+                      删除
+                    </a>
                   </div>
                 </div>
               </li>
               <li
-                class="ant-pro-list-item ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row"
+                class="ant-pro-list-item ant-pro-list-row-item-has-avatar ant-pro-list-row"
               >
                 <div
-                  class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
+                  class="ant-pro-list-row-header"
                 >
                   <div
-                    class="ant-pro-list-row-show-action-hover ant-pro-list-row-header-option"
-                  />
+                    class="ant-pro-list-row-header-option"
+                  >
+                    <span
+                      class="ant-pro-list-row-expand-icon ant-pro-list-row-collapsed"
+                    >
+                      <span
+                        aria-label="right"
+                        class="anticon anticon-right"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="right"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                  </div>
                   <div
                     class="ant-pro-list-item-meta"
                   >
@@ -184,8 +242,7 @@
                                 class="ant-space-item"
                               >
                                 <span
-                                  class="ant-tag ant-tag-filled pro"
-                                  style="background-color: #eafaf4; color: #5BD8A6;"
+                                  class="ant-tag ant-tag-filled ant-tag-blue pro"
                                 >
                                   TechUI
                                 </span>
@@ -194,15 +251,6 @@
                           </div>
                         </div>
                       </h4>
-                      <div
-                        class="ant-pro-list-item-meta-description"
-                      >
-                        <div
-                          class="ant-pro-list-row-show-action-hover ant-pro-list-row-description"
-                        >
-                          我是一条测试的描述
-                        </div>
-                      </div>
                     </div>
                   </div>
                   <div
@@ -211,18 +259,45 @@
                     <a>
                       编辑
                     </a>
+                    <a>
+                      删除
+                    </a>
                   </div>
                 </div>
               </li>
               <li
-                class="ant-pro-list-item ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row"
+                class="ant-pro-list-item ant-pro-list-row-item-has-avatar ant-pro-list-row"
               >
                 <div
-                  class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
+                  class="ant-pro-list-row-header"
                 >
                   <div
-                    class="ant-pro-list-row-show-action-hover ant-pro-list-row-header-option"
-                  />
+                    class="ant-pro-list-row-header-option"
+                  >
+                    <span
+                      class="ant-pro-list-row-expand-icon ant-pro-list-row-collapsed"
+                    >
+                      <span
+                        aria-label="right"
+                        class="anticon anticon-right"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="right"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                  </div>
                   <div
                     class="ant-pro-list-item-meta"
                   >
@@ -265,32 +340,13 @@
                                 <span
                                   class="ant-tag ant-tag-filled ant-tag-blue pro"
                                 >
-                                  Ant Design
-                                </span>
-                              </div>
-                              <div
-                                class="ant-space-item"
-                              >
-                                <span
-                                  class="ant-tag ant-tag-filled pro"
-                                  style="background-color: #eafaf4; color: #5BD8A6;"
-                                >
-                                  TechUI
+                                  蚂蚁金服
                                 </span>
                               </div>
                             </div>
                           </div>
                         </div>
                       </h4>
-                      <div
-                        class="ant-pro-list-item-meta-description"
-                      >
-                        <div
-                          class="ant-pro-list-row-show-action-hover ant-pro-list-row-description"
-                        >
-                          我是一条测试的描述
-                        </div>
-                      </div>
                     </div>
                   </div>
                   <div
@@ -299,18 +355,45 @@
                     <a>
                       编辑
                     </a>
+                    <a>
+                      删除
+                    </a>
                   </div>
                 </div>
               </li>
               <li
-                class="ant-pro-list-item ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row"
+                class="ant-pro-list-item ant-pro-list-row-item-has-avatar ant-pro-list-row"
               >
                 <div
-                  class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
+                  class="ant-pro-list-row-header"
                 >
                   <div
-                    class="ant-pro-list-row-show-action-hover ant-pro-list-row-header-option"
-                  />
+                    class="ant-pro-list-row-header-option"
+                  >
+                    <span
+                      class="ant-pro-list-row-expand-icon ant-pro-list-row-collapsed"
+                    >
+                      <span
+                        aria-label="right"
+                        class="anticon anticon-right"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="right"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                  </div>
                   <div
                     class="ant-pro-list-item-meta"
                   >
@@ -353,16 +436,6 @@
                                 <span
                                   class="ant-tag ant-tag-filled ant-tag-blue pro"
                                 >
-                                  Ant Design
-                                </span>
-                              </div>
-                              <div
-                                class="ant-space-item"
-                              >
-                                <span
-                                  class="ant-tag ant-tag-filled pro"
-                                  style="background-color: #eafaf4; color: #5BD8A6;"
-                                >
                                   TechUI
                                 </span>
                               </div>
@@ -370,15 +443,6 @@
                           </div>
                         </div>
                       </h4>
-                      <div
-                        class="ant-pro-list-item-meta-description"
-                      >
-                        <div
-                          class="ant-pro-list-row-show-action-hover ant-pro-list-row-description"
-                        >
-                          我是一条测试的描述
-                        </div>
-                      </div>
                     </div>
                   </div>
                   <div
@@ -386,6 +450,9 @@
                   >
                     <a>
                       编辑
+                    </a>
+                    <a>
+                      删除
                     </a>
                   </div>
                 </div>
