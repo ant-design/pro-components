@@ -718,7 +718,7 @@ describe('ProForm', () => {
 
     act(() => {
       fireEvent.change(
-        wrapper.baseElement.querySelectorAll<HTMLElement>('input#name')[0],
+        wrapper.baseElement.querySelector<HTMLElement>('input[id$="_name"]')!,
         {
           target: {
             value: 'test',
@@ -915,7 +915,7 @@ describe('ProForm', () => {
     await wrapper.findByText('提 交');
     act(() => {
       fireEvent.change(
-        wrapper.baseElement.querySelectorAll<HTMLElement>('input#name')[0],
+        wrapper.baseElement.querySelector<HTMLElement>('input[id$="_name"]')!,
         {
           target: {
             value: 'test',
@@ -926,9 +926,9 @@ describe('ProForm', () => {
 
     act(() => {
       fireEvent.change(
-        wrapper.baseElement.querySelectorAll<HTMLElement>(
-          'input#name2_text',
-        )[0],
+        wrapper.baseElement.querySelector<HTMLElement>(
+          'input[id$="_name2_text"]',
+        )!,
         {
           target: {
             value: 'test2',
@@ -3603,7 +3603,9 @@ describe('ProForm', () => {
     await waitForWaitTime(300);
     act(() => {
       const dom =
-        html.baseElement.querySelector<HTMLInputElement>('input#count')!;
+        html.baseElement.querySelector<HTMLInputElement>(
+          'input[id$="_count"]',
+        )!;
       fireEvent.change(dom, {
         target: {
           value: '22.22',
@@ -3614,7 +3616,9 @@ describe('ProForm', () => {
     });
     await waitForWaitTime(300);
     expect(
-      html.baseElement.querySelector<HTMLInputElement>('input#count')?.value,
+      html.baseElement.querySelector<HTMLInputElement>(
+        'input[id$="_count"]',
+      )?.value,
     ).toBe('22');
 
     await act(async () => {
@@ -3647,7 +3651,9 @@ describe('ProForm', () => {
     await waitForWaitTime(100);
 
     const dom =
-      html.baseElement.querySelector<HTMLInputElement>('input#count')!;
+      html.baseElement.querySelector<HTMLInputElement>(
+        'input[id$="_count"]',
+      )!;
 
     await act(async () => {
       fireEvent.change(dom, {

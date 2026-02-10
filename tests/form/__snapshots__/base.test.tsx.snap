@@ -5,6 +5,7 @@ exports[`ProForm > 📦 submit props actionsRender is one 1`] = `
   <form
     autocomplete="off"
     class="ant-form ant-form-vertical css-var-r19 ant-form-css-var ant-pro-form"
+    id="pro-form-13"
   >
     <input
       style="display: none;"
@@ -22,6 +23,7 @@ exports[`ProForm > 📦 submit props actionsRender=()=>[] 1`] = `
   <form
     autocomplete="off"
     class="ant-form ant-form-vertical css-var-r1r ant-form-css-var ant-pro-form"
+    id="pro-form-19"
   >
     <input
       style="display: none;"
@@ -36,6 +38,7 @@ exports[`ProForm > 📦 submit props actionsRender=()=>false 1`] = `
   <form
     autocomplete="off"
     class="ant-form ant-form-vertical css-var-r16 ant-form-css-var ant-pro-form"
+    id="pro-form-12"
   >
     <input
       style="display: none;"
@@ -51,6 +54,7 @@ exports[`ProForm > 📦 submit props actionsRender=false 1`] = `
   <form
     autocomplete="off"
     class="ant-form ant-form-vertical css-var-r1 ant-form-css-var ant-pro-form"
+    id="pro-form-0"
   >
     <input
       style="display: none;"
@@ -65,6 +69,7 @@ exports[`ProForm > 📦 submit props actionsRender=false 2`] = `
   <form
     autocomplete="off"
     class="ant-form ant-form-vertical css-var-r1o ant-form-css-var ant-pro-form"
+    id="pro-form-18"
   >
     <input
       style="display: none;"
@@ -79,6 +84,7 @@ exports[`ProForm > 📦 submit props render=()=>[] 1`] = `
   <form
     autocomplete="off"
     class="ant-form ant-form-vertical css-var-r1u ant-form-css-var ant-pro-form"
+    id="pro-form-20"
   >
     <input
       style="display: none;"
@@ -101,6 +107,7 @@ exports[`ProForm > 📦 submitted value should be consistent with input when pre
   <form
     autocomplete="off"
     class="ant-form ant-form-vertical css-var-rbd ant-form-css-var ant-pro-form"
+    id="pro-form-66"
   >
     <input
       style="display: none;"
@@ -117,7 +124,7 @@ exports[`ProForm > 📦 submitted value should be consistent with input when pre
         >
           <label
             class=""
-            for="count"
+            for="pro-form-66_count"
             title="人数"
           >
             人数
@@ -141,7 +148,7 @@ exports[`ProForm > 📦 submitted value should be consistent with input when pre
                   aria-valuenow="22"
                   autocomplete="off"
                   class="ant-input-number-input"
-                  id="count"
+                  id="pro-form-66_count"
                   placeholder="请输入"
                   role="spinbutton"
                   step="1"
@@ -240,6 +247,7 @@ exports[`ProForm > 📦 submitter props support resetButtonProps 1`] = `
   <form
     autocomplete="off"
     class="ant-form ant-form-vertical css-var-r24 ant-form-css-var ant-pro-form"
+    id="pro-form-22"
   >
     <input
       style="display: none;"
@@ -274,6 +282,7 @@ exports[`ProForm > 📦 submitter props support submitButtonProps 1`] = `
   <form
     autocomplete="off"
     class="ant-form ant-form-vertical css-var-r21 ant-form-css-var ant-pro-form"
+    id="pro-form-21"
   >
     <input
       style="display: none;"
@@ -308,6 +317,7 @@ exports[`ProForm > 📦 validateFieldsReturnFormatValue 1`] = `
   <form
     autocomplete="off"
     class="ant-form ant-form-vertical css-var-ra7 ant-form-css-var ant-pro-form"
+    id="pro-form-60"
   >
     <input
       style="display: none;"
@@ -337,7 +347,7 @@ exports[`ProForm > 📦 validateFieldsReturnFormatValue 1`] = `
                   <input
                     aria-invalid="false"
                     autocomplete="off"
-                    id="date"
+                    id="pro-form-60_date"
                     placeholder="请选择"
                     size="12"
                     value="2021-07-28"
@@ -426,6 +436,7 @@ exports[`ProForm > 📦 valueType digit with precision value 1`] = `
   <form
     autocomplete="off"
     class="ant-form ant-form-vertical css-var-rb8 ant-form-css-var ant-pro-form"
+    id="pro-form-65"
   >
     <input
       style="display: none;"
@@ -442,7 +453,7 @@ exports[`ProForm > 📦 valueType digit with precision value 1`] = `
         >
           <label
             class=""
-            for="count"
+            for="pro-form-65_count"
             title="人数"
           >
             人数
@@ -466,7 +477,7 @@ exports[`ProForm > 📦 valueType digit with precision value 1`] = `
                   aria-valuenow="22"
                   autocomplete="off"
                   class="ant-input-number-input"
-                  id="count"
+                  id="pro-form-65_count"
                   placeholder="请输入"
                   role="spinbutton"
                   step="1"
@@ -565,6 +576,7 @@ exports[`ProForm > 📦 when dateFormatter is a Function 1`] = `
   <form
     autocomplete="off"
     class="ant-form ant-form-vertical css-var-raj ant-form-css-var ant-pro-form"
+    id="pro-form-62"
   >
     <input
       style="display: none;"
@@ -594,7 +606,7 @@ exports[`ProForm > 📦 when dateFormatter is a Function 1`] = `
                   <input
                     aria-invalid="false"
                     autocomplete="off"
-                    id="datetime"
+                    id="pro-form-62_datetime"
                     placeholder="请选择"
                     size="21"
                     value="2021-08-09 12:12:12"
@@ -665,7 +677,7 @@ exports[`ProForm > 📦 when dateFormatter is a Function 1`] = `
         >
           <label
             class=""
-            for="time2"
+            for="pro-form-62_time2"
             title="时间"
           >
             时间
@@ -689,7 +701,7 @@ exports[`ProForm > 📦 when dateFormatter is a Function 1`] = `
                   <input
                     aria-invalid="false"
                     autocomplete="off"
-                    id="time2"
+                    id="pro-form-62_time2"
                     placeholder="请选择时间"
                     size="10"
                     value=""

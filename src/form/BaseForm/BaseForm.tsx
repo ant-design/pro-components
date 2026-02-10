@@ -187,7 +187,7 @@ export type CommonFormProps<
   /** 是否回车提交 */
   isKeyPressSubmit?: boolean;
 
-  /** 用于控制form 是否相同的key，高阶用法 */
+  /** 用于控制 form 是否相同的 key，高阶用法 */
   formKey?: string;
 
   /**
@@ -630,8 +630,11 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
   );
 }
 
-/** 自动的formKey 防止重复 */
+/** 自动的 formKey 防止重复 */
 let requestFormCacheId = 0;
+
+/** 为表单生成唯一 name 的自增计数器，用于未显式指定 name 时 */
+let formNameCounter = 0;
 
 export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
   props: BaseFormProps<T, U>,
@@ -706,6 +709,10 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     { disabled: !syncToUrl },
   );
   const curFormKey = useRef<string>(nanoid());
+  const formNameRef = useRef<string | null>(null);
+  if (formNameRef.current === null) {
+    formNameRef.current = `pro-form-${formNameCounter++}`;
+  }
 
   useEffect(() => {
     requestFormCacheId += 0;
@@ -961,6 +968,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
                 'labelWidth',
                 'autoFocusFirstInput',
               ] as any[])}
+              name={propRest.name ?? formNameRef.current!}
               ref={(instance) => {
                 if (!formRef.current) return;
                 formRef.current.nativeElement = instance?.nativeElement;
