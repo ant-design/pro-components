@@ -49,8 +49,8 @@ const Demo = () => {
   const [itemLayout, setItemLayout] = useState<'horizontal' | 'vertical'>(
     'horizontal',
   );
-  const [variant, setVariant] = useState<'default' | 'bordered' | 'borderless'>(
-    'default',
+  const [variant, setVariant] = useState<'outlined' | 'borderless' | 'filled'>(
+    'borderless',
   );
   const [split, setSplit] = useState(true);
 
@@ -84,8 +84,8 @@ const Demo = () => {
             value={variant}
             onChange={(v) => setVariant(v as any)}
             options={[
-              { label: '默认 default', value: 'default' },
-              { label: '带边框 bordered', value: 'bordered' },
+              { label: '线框 outlined', value: 'outlined' },
+              { label: '填充 filled', value: 'filled' },
               { label: '无边框 borderless', value: 'borderless' },
             ]}
           />

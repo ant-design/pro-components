@@ -338,6 +338,13 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
             },
           },
         },
+        '&-filled': {
+          backgroundColor: token.colorFillQuaternary,
+          borderRadius: token.borderRadius,
+          [`${token.componentCls}-toolbar`]: {
+            borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+          },
+        },
         '&-borderless': {
           [`${token.componentCls}-toolbar`]: {
             borderBlockEnd: 'none',
