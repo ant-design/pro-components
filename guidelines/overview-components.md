@@ -14,7 +14,7 @@ Here are the guidelines files and additional guidelines for the ProComponents:
 | DrawerForm       | Form inside a drawer                              | [drawer-form.md](components/drawer-form.md)               |
 | StepsForm        | Multi-step form wizard                            | [steps-form.md](components/steps-form.md)                 |
 | ProLayout        | Heavy-duty layout component                       | [pro-layout.md](components/pro-layout.md)                 |
-| ProList          | List component with table-like features           | [pro-list.md](components/pro-list.md)                     |
+| ProList          | List component with table-like features           | [list.md](components/list.md)                     |
 | ProSkeleton      | Skeleton loading component                        | [pro-skeleton.md](components/pro-skeleton.md)             |
 | ProTable         | Advanced table with search, filter, and valueType | [pro-table.md](components/pro-table.md)                   |
 | EditableProTable | Editable table for inline editing                 | [editable-pro-table.md](components/editable-pro-table.md) |
