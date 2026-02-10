@@ -53,6 +53,12 @@ atomId: ProCard
 
 <code src="../../demos/card/split.tsx" background="var(--main-bg-color)"  ></code>
 
+### ProCard.Group 分割线
+
+通过 `ProCard.Group` 的 `split` 属性可以为分组内的子卡片添加分割线，支持 `vertical`（垂直）和 `horizontal`（水平）两种方向。
+
+<code src="../../demos/card/split-line.tsx" background="var(--main-bg-color)"></code>
+
 ### 栅格间隔
 
 栅格常常需要和间隔进行配合，你可以使用 `gutter` 属性，我们推荐使用 `(16+8n)px` 作为栅格间隔 (n 是自然数)，如果要支持响应式，可以写成 `{ xs: 8, sm: 16, md: 24, lg: 32 }`。如果需要垂直间距，可以写成数组形式 `[水平间距, 垂直间距][16, { xs: 8, sm: 16, md: 24, lg: 32 }]`。
@@ -79,10 +85,12 @@ atomId: ProCard
 
 ### 可折叠
 
-- 你可以使用 `collapsible` 来配置卡片是否可折叠，通过 `defaultCollapsed` 属性配置是否默认折叠。
+- 你可以使用 `collapsible` 来配置卡片是否可折叠，支持 `icon`（图标触发）和 `header`（标题触发）两种模式，通过 `defaultCollapsed` 属性配置是否默认折叠。
 - 或者你可以通过 `collapsed` 属性受控进行自定义。
 
 <code src="../../demos/card/collapsible.tsx" background="var(--main-bg-color)" ></code>
+
+<code src="../../demos/card/collapsible-mode.tsx" background="var(--main-bg-color)" title="折叠触发模式" description="collapsible 支持 icon（图标触发）和 header（标题触发）两种模式"></code>
 
 ### 卡片组展开
 
@@ -223,3 +231,8 @@ atomId: ProCard
 ### ProCard.Group
 
 属性同 ProCard，会取消卡片内容边距，用于将多个卡片进行分组。
+
+| 参数      | 说明                 | 类型                           | 默认值   |
+| --------- | -------------------- | ------------------------------ | -------- |
+| split     | 子卡片之间的分割线方向 | `'vertical'` \| `'horizontal'` | -        |
+| direction | 子卡片排列方向       | `'row'` \| `'column'`          | `'row'`  |
