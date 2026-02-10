@@ -23,6 +23,7 @@ import React, {
   useRef,
 } from 'react';
 import { useIntl } from '../../../provider';
+import type { LabelTooltipType } from '../../../utils';
 import { ProFormContext } from '../../../utils';
 import FieldContext from '../../FieldContext';
 import { useGridHelpers } from '../../helpers';
@@ -34,8 +35,6 @@ import type {
   ProFromListCommonProps,
 } from './ListItem';
 import { useStyle } from './style';
-// 兼容 antd 6.x 版本
-type LabelTooltipType = any;
 
 const { noteOnce } = warning;
 

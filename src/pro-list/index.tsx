@@ -18,13 +18,11 @@ import type {
   ProTableProps,
 } from '../table';
 import ProTable from '../table';
-import type { ProFieldValueType } from '../utils';
+import type { LabelTooltipType, ProFieldValueType } from '../utils';
 import type { ItemProps } from './Item';
 import ListView, { type ProListItemRender } from './ListView';
 import type { ListProps } from './ProListBase';
 import { useStyle } from './style/index';
-// 兼容 antd 6.x 版本
-type LabelTooltipType = any;
 
 export type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
 

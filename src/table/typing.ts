@@ -20,6 +20,7 @@ import type {
   QueryFilterProps,
 } from '../form';
 import type {
+  LabelTooltipType,
   ProCoreActionType,
   ProEllipsis,
   ProSchema,
@@ -34,8 +35,6 @@ import type { ListToolBarProps } from './components/ListToolBar';
 import type { OptionConfig, ToolBarProps } from './components/ToolBar';
 import type { DensitySize } from './components/ToolBar/DensityIcon';
 import type { ColumnsState, ContainerType } from './Store/Provide';
-// 兼容 antd 6.x 版本
-type LabelTooltipType = any;
 
 export type PageInfo = {
   pageSize: number;

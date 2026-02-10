@@ -4,12 +4,11 @@ import type { SearchProps } from 'antd/lib/input';
 import { clsx } from 'clsx';
 import React, { useContext, useMemo, useState } from 'react';
 import { proTheme, useIntl } from '../../../provider';
+import type { LabelTooltipType } from '../../../utils';
 import { LabelIconTip } from '../../../utils';
 import type { ListToolBarHeaderMenuProps } from './HeaderMenu';
 import HeaderMenu from './HeaderMenu';
 import { useStyle } from './style';
-// 兼容 antd 6.x 版本
-type LabelTooltipType = any;
 
 export type ListToolBarSetting = {
   icon: React.ReactNode;

@@ -10,6 +10,7 @@ import React, {
 } from 'react';
 import type { IntlType } from '../../../provider';
 import { useIntl } from '../../../provider';
+import type { LabelTooltipType } from '../../../utils';
 import { isDeepEqualReact, omitUndefined } from '../../../utils';
 import { TableContext } from '../../Store/Provide';
 import type {
@@ -22,8 +23,6 @@ import type { ListToolBarProps } from '../ListToolBar';
 import ListToolBar from '../ListToolBar';
 import DensityIcon from './DensityIcon';
 import FullScreenIcon from './FullscreenIcon';
-// 兼容 antd 6.x 版本
-type LabelTooltipType = any;
 
 export type SettingOptionType = {
   draggable?: boolean;

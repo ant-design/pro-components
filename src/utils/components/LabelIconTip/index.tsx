@@ -3,10 +3,8 @@ import { ConfigProvider, Tooltip } from 'antd';
 import { clsx } from 'clsx';
 import React, { useContext } from 'react';
 import type { ProEllipsis } from '../../genCopyable';
+import type { LabelTooltipType, WrapperTooltipProps } from '../../typing';
 import { useStyle } from './style';
-// 兼容 antd 6.x 版本
-type LabelTooltipType = any;
-type WrapperTooltipProps = any;
 
 /**
  * 在 form 的 label 后面增加一个 tips 来展示一些说明文案

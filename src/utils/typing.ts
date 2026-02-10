@@ -28,8 +28,10 @@ import type { SliderRangeProps } from 'antd/lib/slider';
 import type { ReactNode } from 'react';
 import type { ProSchemaValueEnumType } from '../provider';
 import type { UseEditableUtilType } from './useEditableArray';
+
 // 兼容 antd 6.x 版本
-type LabelTooltipType = any;
+export type LabelTooltipType = any;
+export type WrapperTooltipProps = any;
 
 export type ProFormBaseGroupProps = {
   /**

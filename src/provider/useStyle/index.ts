@@ -35,7 +35,8 @@ export type GenerateStyle<
   ReturnType = CSSInterpolation,
 > = (token: ComponentToken, ...rest: any[]) => ReturnType;
 
-export const proTheme = antdTheme as typeof antdTheme;
+// 为了兼容 antd 类型，这里使用 any
+export const proTheme = antdTheme as any;
 
 export type UseStyleResult = {
   wrapSSR: (node: React.ReactElement) => React.ReactElement;
@@ -125,7 +126,7 @@ export function useStyle(
       layer: {
         name: 'antd-pro',
       },
-    },
+    } as any,
     () => styleFn(token as ProAliasToken),
   );
 

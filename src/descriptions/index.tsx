@@ -22,6 +22,7 @@ import {
   ErrorBoundary,
   InlineErrorFormItem,
   LabelIconTip,
+  LabelTooltipType,
   genCopyable,
   getFieldPropsOrFormItemProps,
   stringify,
@@ -29,8 +30,6 @@ import {
 } from '../utils';
 import type { RequestData } from './useFetchData';
 import useFetchData from './useFetchData';
-// 兼容 antd 6.x 版本
-type LabelTooltipType = any;
 
 export interface DescriptionsItemProps {
   prefixCls?: string;
