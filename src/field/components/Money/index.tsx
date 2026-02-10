@@ -250,6 +250,7 @@ const InputNumberPopover = React.forwardRef<
     // 跟踪组件挂载状态，防止在卸载后执行状态更新
     const mountedRef = useRef(true);
     useEffect(() => {
+      mountedRef.current = true;
       return () => {
         mountedRef.current = false;
       };
