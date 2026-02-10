@@ -121,11 +121,10 @@ const statusMap = {
 const data = apps.map((app) => ({
   id: app.id,
   title: app.name,
-  subTitle: <Tag color={statusMap[app.status].color}>{statusMap[app.status].text}</Tag>,
-  actions: [
-    <a key="view">打开</a>,
-    <a key="settings">设置</a>,
-  ],
+  subTitle: (
+    <Tag color={statusMap[app.status].color}>{statusMap[app.status].text}</Tag>
+  ),
+  actions: [<a key="view">打开</a>, <a key="settings">设置</a>],
   avatar: app.icon,
   content: (
     <div>
@@ -138,11 +137,10 @@ const data = apps.map((app) => ({
 }));
 
 export default () => {
-  const [column, setColumn] = useState<number>(3);
-  const [gutter, setGutter] = useState<number>(16);
+  const [column, setColumn] = useState<number>(2);
+  const [gutter, setGutter] = useState<number>(8);
   const [bordered, setBordered] = useState<boolean>(true);
   const [ghost, setGhost] = useState<boolean>(false);
-  const [showActions, setShowActions] = useState<'hover' | 'always'>('hover');
 
   return (
     <div style={{ padding: 24, backgroundColor: '#f5f5f5' }}>
@@ -217,13 +215,13 @@ export default () => {
 
           <Col xs={24} md={8}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-              <span style={{ fontWeight: 500 }}>操作按钮:</span>
+              <span style={{ fontWeight: 500 }}>边框:</span>
               <Segmented
-                value={showActions}
-                onChange={setShowActions}
+                value={bordered ? 'bordered' : 'borderless'}
+                onChange={(v) => setBordered(v === 'bordered')}
                 options={[
-                  { label: '悬停显示', value: 'hover' },
-                  { label: '始终显示', value: 'always' },
+                  { label: '有边框', value: 'bordered' },
+                  { label: '无边框', value: 'borderless' },
                 ]}
               />
             </div>
@@ -237,7 +235,6 @@ export default () => {
               {`<ProList
   grid={{ gutter: ${gutter}, column: ${column} }}
   itemCardProps={{ bordered: ${bordered}, ghost: ${ghost} }}
-  showActions="${showActions}"
   ...
 />`}
             </pre>
@@ -259,16 +256,13 @@ export default () => {
           showSizeChanger: true,
           pageSizeOptions: ['6', '12', '18', '24'],
         }}
-        showActions={showActions}
-        metas={{
-          title: {},
-          subTitle: {},
-          avatar: {},
-          content: {},
-          actions: {
-            cardActionProps: 'extra',
-          },
-        }}
+        columns={[
+          { dataIndex: 'title', listSlot: 'title' },
+          { dataIndex: 'subTitle', listSlot: 'subTitle' },
+          { dataIndex: 'avatar', listSlot: 'avatar' },
+          { dataIndex: 'content', listSlot: 'content' },
+          { dataIndex: 'actions', listSlot: 'actions' },
+        ]}
         headerTitle="Grid 布局示例"
         tooltip="使用 CSS Grid 实现的响应式卡片布局"
         dataSource={data}

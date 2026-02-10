@@ -29,7 +29,18 @@ import {
 import React, { useState } from 'react';
 import defaultProps from './_defaultProps';
 
-const Item: React.FC<{ children: React.ReactNode }> = (props) => {
+const SOLUTIONS = {
+  金融行业: ['智能风控平台', '供应链金融', '数字银行核心', '保险理赔系统', '资产管理中台', '合规审计平台'],
+  通用方案: ['统一权限中心', '数据可视化引擎', '微服务治理框架', '低代码搭建平台', '智能客服系统', 'DevOps 工具链'],
+};
+
+const HOT_PRODUCTS = [
+  { name: 'Ant Design Pro', desc: '开箱即用的中台前端解决方案' },
+  { name: '数据可视化引擎', desc: '企业级数据看板与图表分析工具' },
+  { name: '微服务治理框架', desc: '基于 K8s 的服务注册与发现' },
+];
+
+const SolutionItem: React.FC<{ children: React.ReactNode }> = (props) => {
   const { token } = theme.useToken();
   return (
     <div
@@ -57,9 +68,11 @@ const Item: React.FC<{ children: React.ReactNode }> = (props) => {
   );
 };
 
-const List: React.FC<{ title: string; style?: React.CSSProperties }> = (
-  props,
-) => {
+const SolutionCategory: React.FC<{
+  title: string;
+  items: string[];
+  style?: React.CSSProperties;
+}> = (props) => {
   const { token } = theme.useToken();
 
   return (
@@ -86,9 +99,9 @@ const List: React.FC<{ title: string; style?: React.CSSProperties }> = (
           flexWrap: 'wrap',
         }}
       >
-        {new Array(6).fill(1).map((_, index) => {
-          return <Item key={index}>具体的解决方案-{index}</Item>;
-        })}
+        {props.items.map((item) => (
+          <SolutionItem key={item}>{item}</SolutionItem>
+        ))}
       </div>
     </div>
   );
@@ -123,12 +136,11 @@ const MenuCard = () => {
         content={
           <div style={{ display: 'flex', padding: '32px 40px' }}>
             <div style={{ flex: 1 }}>
-              <List title="金融解决方案" />
-              <List
-                title="其他解决方案"
-                style={{
-                  marginBlockStart: 32,
-                }}
+              <SolutionCategory title="金融行业" items={SOLUTIONS['金融行业']} />
+              <SolutionCategory
+                title="通用方案"
+                items={SOLUTIONS['通用方案']}
+                style={{ marginBlockStart: 32 }}
               />
             </div>
 
@@ -148,49 +160,47 @@ const MenuCard = () => {
               >
                 热门产品
               </div>
-              {new Array(3).fill(1).map((name, index) => {
-                return (
+              {HOT_PRODUCTS.map((product) => (
+                <div
+                  key={product.name}
+                  className={css`
+                    border-radius: 4px;
+                    padding: 16px;
+                    margin-top: 4px;
+                    display: flex;
+                    cursor: pointer;
+                    &:hover {
+                      background-color: ${token.colorBgTextHover};
+                    }
+                  `}
+                >
+                  <img src="https://gw.alipayobjects.com/zos/antfincdn/6FTGmLLmN/bianzu%25252013.svg" />
                   <div
-                    key={index}
-                    className={css`
-                      border-radius: 4px;
-                      padding: 16px;
-                      margin-top: 4px;
-                      display: flex;
-                      cursor: pointer;
-                      &:hover {
-                        background-color: ${token.colorBgTextHover};
-                      }
-                    `}
+                    style={{
+                      marginInlineStart: 14,
+                    }}
                   >
-                    <img src="https://gw.alipayobjects.com/zos/antfincdn/6FTGmLLmN/bianzu%25252013.svg" />
                     <div
-                      style={{
-                        marginInlineStart: 14,
-                      }}
+                      className={css`
+                        font-size: 14px;
+                        color: ${token.colorText};
+                        line-height: 22px;
+                      `}
                     >
-                      <div
-                        className={css`
-                          font-size: 14px;
-                          color: ${token.colorText};
-                          line-height: 22px;
-                        `}
-                      >
-                        Ant Design
-                      </div>
-                      <div
-                        className={css`
-                          font-size: 12px;
-                          color: ${token.colorTextSecondary};
-                          line-height: 20px;
-                        `}
-                      >
-                        杭州市较知名的 UI 设计语言
-                      </div>
+                      {product.name}
+                    </div>
+                    <div
+                      className={css`
+                        font-size: 12px;
+                        color: ${token.colorTextSecondary};
+                        line-height: 20px;
+                      `}
+                    >
+                      {product.desc}
                     </div>
                   </div>
-                );
-              })}
+                </div>
+              ))}
             </div>
           </div>
         }
@@ -326,7 +336,7 @@ const Demo = () => {
             avatarProps={{
               src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
               size: 'small',
-              title: '七妮妮',
+              title: '书琰',
               render: (props, dom) => {
                 return (
                   <Dropdown

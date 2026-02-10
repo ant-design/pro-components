@@ -20,7 +20,6 @@ export type TableListItem = {
 
 const tableListDataSource = createTableDataSource({
   count: 5,
-  namePrefix: 'AppName',
 }) as TableListItem[];
 
 const columns: ProColumns<TableListItem>[] = [
@@ -30,7 +29,7 @@ const columns: ProColumns<TableListItem>[] = [
     render: (_) => <a>{_}</a>,
   },
   {
-    title: '创建者',
+    title: '负责人',
     dataIndex: 'creator',
     valueEnum: DEMO_CREATOR_VALUE_ENUM,
   },
@@ -60,9 +59,9 @@ const columns: ProColumns<TableListItem>[] = [
     width: 120,
     valueType: 'option',
     render: (_, record) => [
-      record.status === 'close' && <a key="link">发布</a>,
+      record.status === 'close' && <a key="publish">发布</a>,
       (record.status === 'running' || record.status === 'online') && (
-        <a key="warn">停用</a>
+        <a key="stop">停用</a>
       ),
       record.status === 'error' && <a key="republish">重新发布</a>,
       <a
@@ -100,156 +99,64 @@ const Demo = () => {
   const [activeKey, setActiveKey] = useState<React.Key>('tab1');
 
   return (
-    <>
-      <ProTable<TableListItem>
-        columns={columns}
-        request={(params, sorter, filter) => {
-          // 表单搜索项会从 params 传入，传递给后端接口。
-          console.log(params, sorter, filter);
-          return Promise.resolve({
-            data: tableListDataSource,
-            success: true,
-          });
-        }}
-        toolbar={{
-          filter: (
-            <LightFilter>
-              <ProFormDatePicker name="startdate" label="响应日期" />
-            </LightFilter>
-          ),
-          menu: {
-            type: 'tab',
-            activeKey: activeKey,
-            items: [
-              {
-                key: 'tab1',
-                label: <span>应用{renderBadge(99, activeKey === 'tab1')}</span>,
-              },
-              {
-                key: 'tab2',
-                label: <span>项目{renderBadge(30, activeKey === 'tab2')}</span>,
-              },
-              {
-                key: 'tab3',
-                label: <span>文章{renderBadge(30, activeKey === 'tab3')}</span>,
-              },
-            ],
-            onChange: (key) => {
-              setActiveKey(key as string);
+    <ProTable<TableListItem>
+      columns={columns}
+      request={(params, sorter, filter) => {
+        console.log(params, sorter, filter);
+        return Promise.resolve({
+          data: tableListDataSource,
+          total: tableListDataSource.length,
+          success: true,
+        });
+      }}
+      toolbar={{
+        filter: (
+          <LightFilter>
+            <ProFormDatePicker name="startdate" label="部署日期" />
+          </LightFilter>
+        ),
+        menu: {
+          type: 'tab',
+          activeKey: activeKey,
+          items: [
+            {
+              key: 'tab1',
+              label: <span>应用{renderBadge(99, activeKey === 'tab1')}</span>,
             },
-          },
-          actions: [
-            <Button key="primary" type="primary">
-              新建应用
-            </Button>,
+            {
+              key: 'tab2',
+              label: <span>项目{renderBadge(30, activeKey === 'tab2')}</span>,
+            },
+            {
+              key: 'tab3',
+              label: <span>文档{renderBadge(12, activeKey === 'tab3')}</span>,
+            },
           ],
-        }}
-        rowKey="key"
-        pagination={{
-          showQuickJumper: true,
-        }}
-        search={false}
-        dateFormatter="string"
-        options={{
-          setting: {
-            draggable: true,
-            checkable: true,
-            checkedReset: false,
-            extra: [<a key="confirm">确认</a>],
+          onChange: (key) => {
+            setActiveKey(key as string);
           },
-        }}
-      />
-      <div
-        style={{
-          marginTop: '20px',
-          padding: '20px',
-          backgroundColor: '#f5f5f5',
-          borderRadius: '6px',
-        }}
-      >
-        <h4>ProTable 列表工具栏 Props 说明：</h4>
-        <ul>
-          <li>
-            <strong>ProTable</strong>: 专业表格组件
-          </li>
-          <li>
-            <strong>LightFilter</strong>: 轻量过滤器组件
-          </li>
-          <li>
-            <strong>ProFormDatePicker</strong>: 专业表单日期选择器组件
-          </li>
-          <li>
-            <strong>Badge</strong>: 徽章组件
-          </li>
-          <li>
-            <strong>Button</strong>: 按钮组件
-          </li>
-          <li>
-            <strong>列表工具栏</strong>: 展示列表工具栏功能
-          </li>
-        </ul>
-        <h4>ProTable 配置：</h4>
-        <ul>
-          <li>
-            <strong>columns</strong>: 列配置
-          </li>
-          <li>
-            <strong>request</strong>: 请求函数
-          </li>
-          <li>
-            <strong>toolbar</strong>: 工具栏配置
-          </li>
-          <li>
-            <strong>rowKey</strong>: 行键
-          </li>
-          <li>
-            <strong>pagination</strong>: 分页配置
-          </li>
-          <li>
-            <strong>search</strong>: 搜索配置
-          </li>
-          <li>
-            <strong>dateFormatter</strong>: 日期格式化
-          </li>
-          <li>
-            <strong>options</strong>: 选项配置
-          </li>
-        </ul>
-        <h4>列表工具栏特点：</h4>
-        <ul>
-          <li>
-            <strong>过滤器</strong>: 支持过滤器
-          </li>
-          <li>
-            <strong>菜单切换</strong>: 支持菜单切换
-          </li>
-          <li>
-            <strong>徽章显示</strong>: 支持徽章显示
-          </li>
-          <li>
-            <strong>操作按钮</strong>: 支持操作按钮
-          </li>
-          <li>
-            <strong>状态管理</strong>: 支持状态管理
-          </li>
-          <li>
-            <strong>列设置</strong>: 支持列设置
-          </li>
-        </ul>
-        <h4>使用场景：</h4>
-        <ul>
-          <li>
-            <strong>应用管理</strong>: 应用管理系统
-          </li>
-          <li>
-            <strong>项目管理</strong>: 项目管理系统
-          </li>
-          <li>
-            <strong>内容管理</strong>: 内容管理系统
-          </li>
-        </ul>
-      </div>
-    </>
+        },
+        actions: [
+          <Button key="primary" type="primary">
+            新建应用
+          </Button>,
+        ],
+      }}
+      rowKey="key"
+      pagination={{
+        showQuickJumper: true,
+      }}
+      search={false}
+      dateFormatter="string"
+      options={{
+        setting: {
+          draggable: true,
+          checkable: true,
+          checkedReset: false,
+          extra: [<a key="confirm">确认</a>],
+        },
+      }}
+    />
   );
 };
 

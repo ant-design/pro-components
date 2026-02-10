@@ -22,7 +22,6 @@ export type TableListItem = {
 
 const tableListDataSource = createTableDataSource({
   count: 5,
-  namePrefix: 'AppName',
 }) as TableListItem[];
 
 const columns: ProColumns<TableListItem>[] = [
@@ -42,11 +41,11 @@ const columns: ProColumns<TableListItem>[] = [
     dataIndex: 'creator',
     valueEnum: {
       all: { text: '全部' },
-      付小小: { text: '付小小' },
-      曲丽丽: { text: '曲丽丽' },
-      林东东: { text: '林东东' },
-      陈帅帅: { text: '陈帅帅' },
-      兼某某: { text: '兼某某' },
+      书琰: { text: '书琰' },
+      逄一: { text: '逄一' },
+      期贤: { text: '期贤' },
+      玄霜: { text: '玄霜' },
+      怀渊: { text: '怀渊' },
     },
   },
   {
@@ -74,6 +73,7 @@ const Demo = () => {
           console.log(params, sorter, filter);
           return Promise.resolve({
             data: tableListDataSource,
+            total: tableListDataSource.length,
             success: true,
           });
         }}

@@ -106,7 +106,6 @@ export type TableListItem = {
 
 const tableListDataSource = createTableDataSource({
   count: 5,
-  namePrefix: 'AppName',
 }) as TableListItem[];
 
 const columns: ProColumns<TableListItem>[] = [
@@ -176,6 +175,7 @@ const Demo = () => {
           console.log(params, sorter, filter);
           return Promise.resolve({
             data: tableListDataSource,
+            total: tableListDataSource.length,
             success: true,
           });
         }}

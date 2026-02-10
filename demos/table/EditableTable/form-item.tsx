@@ -30,19 +30,19 @@ type DataSourceType = {
 const defaultData: DataSourceType[] = [
   {
     id: '624748504',
-    title: '活动名称一',
-    decs: '这个活动真好玩',
+    title: '优化首页加载速度',
+    decs: '首页白屏时间超过 3s，需优化资源加载和首屏渲染',
     state: 'open',
-    created_at: 1590486176000,
-    update_at: 1590486176000,
+    created_at: 1705286400000,
+    update_at: 1705372800000,
   },
   {
     id: '624691229',
-    title: '活动名称二',
-    decs: '这个活动真好玩',
+    title: '修复登录超时问题',
+    decs: '用户反馈高峰期登录请求超时，需排查连接池配置',
     state: 'closed',
-    created_at: 1590481162000,
-    update_at: 1590481162000,
+    created_at: 1705200000000,
+    update_at: 1705286400000,
   },
 ];
 
@@ -58,7 +58,7 @@ const Demo = () => {
   const editorFormRef = useRef<EditableFormInstance<DataSourceType>>();
   const columns: ProColumns<DataSourceType>[] = [
     {
-      title: '活动名称',
+      title: '任务名称',
       dataIndex: 'title',
       formItemProps: () => {
         return {

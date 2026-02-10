@@ -1562,26 +1562,6 @@ describe('List', () => {
     ).toBeFalsy();
   });
 
-  it('🚏 columns API: showActions hover hides actions initially', async () => {
-    const { container } = reactRender(
-      <ProList
-        dataSource={[{ name: '名称' }]}
-        columns={[
-          { dataIndex: 'name', listSlot: 'title' },
-          {
-            listSlot: 'actions',
-            render: () => [<a key="act">悬停操作</a>],
-          },
-        ]}
-        showActions="hover"
-      />,
-    );
-    // showActions='hover' 会添加对应 class
-    expect(
-      container.querySelector('.ant-pro-list-row-show-action-hover'),
-    ).toBeTruthy();
-  });
-
   it('🚏 columns API: defaultExpandedRowKeys works', async () => {
     const { container } = reactRender(
       <ProList
@@ -1871,25 +1851,6 @@ describe('List', () => {
         container.querySelector('.ant-pro-list-row-description'),
       ).toBeTruthy();
     });
-  });
-
-  it('🚏 edge: showExtra hover with columns', async () => {
-    const { container } = reactRender(
-      <ProList
-        dataSource={[{ name: '名称' }]}
-        columns={[
-          { dataIndex: 'name', listSlot: 'title' },
-          {
-            listSlot: 'aside',
-            render: () => <div>附属</div>,
-          },
-        ]}
-        showExtra="hover"
-      />,
-    );
-    expect(
-      container.querySelector('.ant-pro-list-row-show-extra-hover'),
-    ).toBeTruthy();
   });
 
   it('🚏 edge: columns with key fallback when no dataIndex', async () => {

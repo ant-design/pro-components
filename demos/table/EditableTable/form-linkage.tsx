@@ -25,7 +25,7 @@ type DataSourceType = {
 const defaultData: DataSourceType[] = [
   {
     id: 624748504,
-    associate: '题库名称一',
+    associate: '前端基础知识',
     questionsNum: 10,
     type: 'multiple',
     scoringMethod: 'continuous',
@@ -33,7 +33,7 @@ const defaultData: DataSourceType[] = [
   },
   {
     id: 624691229,
-    associate: '题库名称二',
+    associate: 'React 框架进阶',
     questionsNum: 10,
     scoringMethod: 'continuous',
     type: 'radio',
@@ -41,7 +41,7 @@ const defaultData: DataSourceType[] = [
   },
   {
     id: 624748503,
-    associate: '题库名称三',
+    associate: 'TypeScript 类型系统',
     questionsNum: 10,
     type: 'judge',
     scoringMethod: 'continuous',
@@ -49,7 +49,7 @@ const defaultData: DataSourceType[] = [
   },
   {
     id: 624691220,
-    associate: '题库名称四',
+    associate: '算法与数据结构',
     questionsNum: 10,
     scoringMethod: 'continuous',
     type: 'vacant',
