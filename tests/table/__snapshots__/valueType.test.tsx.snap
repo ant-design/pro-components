@@ -136,7 +136,9 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-spin-nested-loading css-var-r19"
+                          aria-busy="false"
+                          aria-live="polite"
+                          class="ant-spin css-var-r19"
                         >
                           <div
                             class="ant-spin-container"
@@ -399,7 +401,9 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
           class="css-var-r19 ant-table-css-var ant-table-wrapper"
         >
           <div
-            class="ant-spin-nested-loading css-var-r19"
+            aria-busy="false"
+            aria-live="polite"
+            class="ant-spin css-var-r19"
           >
             <div
               class="ant-spin-container"
@@ -464,7 +468,7 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                 </div>
               </div>
               <ul
-                class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-r19"
+                class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-r19"
               >
                 <li
                   class="ant-pagination-total-text"
@@ -646,15 +650,10 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                     class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-r19 ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
                   >
                     <div
-                      class="ant-select-content"
+                      class="ant-select-content ant-select-content-has-value"
+                      title="20 条/页"
                     >
-                      <div
-                        class="ant-select-content-value"
-                        style="visibility: visible;"
-                        title="20 条/页"
-                      >
-                        20 条/页
-                      </div>
+                      20 条/页
                       <input
                         aria-autocomplete="list"
                         aria-expanded="false"

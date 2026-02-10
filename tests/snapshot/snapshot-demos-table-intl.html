@@ -313,15 +313,10 @@
                         class="ant-select ant-select-borderless pro ant-select-css-var ant-select-single ant-select-show-arrow"
                       >
                         <div
-                          class="ant-select-content"
+                          class="ant-select-content ant-select-content-has-value"
+                          title="zhCNIntl"
                         >
-                          <div
-                            class="ant-select-content-value"
-                            style="visibility: visible;"
-                            title="zhCNIntl"
-                          >
-                            zhCNIntl
-                          </div>
+                          zhCNIntl
                           <input
                             aria-autocomplete="list"
                             aria-expanded="false"
@@ -487,7 +482,9 @@
             class="pro ant-table-css-var ant-table-wrapper"
           >
             <div
-              class="ant-spin-nested-loading pro"
+              aria-busy="false"
+              aria-live="polite"
+              class="ant-spin pro"
             >
               <div
                 class="ant-spin-container"
@@ -535,9 +532,7 @@
                                       aria-label="Select all"
                                       class="ant-checkbox-input"
                                       type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
+                                      value=""
                                     />
                                   </span>
                                 </label>
@@ -582,9 +577,7 @@
                                   <input
                                     class="ant-checkbox-input"
                                     type="checkbox"
-                                  />
-                                  <span
-                                    class="ant-checkbox-inner"
+                                    value=""
                                   />
                                 </span>
                               </label>
@@ -617,7 +610,7 @@
                   </div>
                 </div>
                 <ul
-                  class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end pro"
+                  class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end pro"
                 >
                   <li
                     class="ant-pagination-total-text"

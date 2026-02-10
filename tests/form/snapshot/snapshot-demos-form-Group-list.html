@@ -22,6 +22,7 @@
             >
               <div
                 class="ant-radio-group ant-radio-group-outline ant-radio-group-small ant-pro-field-radio-horizontal pro ant-radio-css-var"
+                role="radiogroup"
               >
                 <label
                   class="ant-radio-wrapper ant-radio-wrapper-in-form-item pro ant-radio-css-var"
@@ -34,9 +35,6 @@
                       name="test-id"
                       type="radio"
                       value="top"
-                    />
-                    <span
-                      class="ant-radio-inner"
                     />
                   </span>
                   <span
@@ -58,9 +56,6 @@
                       type="radio"
                       value="bottom"
                     />
-                    <span
-                      class="ant-radio-inner"
-                    />
                   </span>
                   <span
                     class="ant-radio-label"
@@ -77,6 +72,7 @@
     <form
       autocomplete="off"
       class="ant-form ant-form-vertical ant-form-small pro ant-form-css-var ant-pro-form"
+      id="group-list-demo"
     >
       <input
         style="display: none;"
@@ -93,7 +89,7 @@
           >
             <label
               class=""
-              for="id"
+              for="group-list-demo_id"
               title="主合同编号"
             >
               主合同编号
@@ -113,7 +109,7 @@
                 >
                   <input
                     class="ant-input ant-input-sm"
-                    id="id"
+                    id="group-list-demo_id"
                     placeholder="请输入"
                     type="text"
                     value=""
@@ -165,7 +161,7 @@
           >
             <label
               class=""
-              for="project"
+              for="group-list-demo_project"
               title="项目名称"
             >
               项目名称
@@ -185,7 +181,7 @@
                 >
                   <input
                     class="ant-input ant-input-sm"
-                    id="project"
+                    id="group-list-demo_project"
                     placeholder="请输入"
                     type="text"
                     value="示例项目"
@@ -237,7 +233,7 @@
           >
             <label
               class=""
-              for="mangerName"
+              for="group-list-demo_mangerName"
               title="商务经理"
             >
               商务经理
@@ -257,7 +253,7 @@
                 >
                   <input
                     class="ant-input ant-input-sm"
-                    id="mangerName"
+                    id="group-list-demo_mangerName"
                     placeholder="请输入"
                     type="text"
                     value="书琰"
@@ -358,7 +354,7 @@
                                     >
                                       <label
                                         class="ant-form-item-required"
-                                        for="users_0_name"
+                                        for="group-list-demo_users_0_name"
                                         title="姓名"
                                       >
                                         姓名
@@ -378,7 +374,7 @@
                                           >
                                             <input
                                               class="ant-input ant-input-sm"
-                                              id="users_0_name"
+                                              id="group-list-demo_users_0_name"
                                               placeholder="请输入"
                                               type="text"
                                               value="书琰"
@@ -434,7 +430,7 @@
                                     >
                                       <label
                                         class=""
-                                        for="users_0_age"
+                                        for="group-list-demo_users_0_age"
                                         title="年龄"
                                       >
                                         年龄
@@ -457,7 +453,7 @@
                                               aria-valuenow="28"
                                               autocomplete="off"
                                               class="ant-input-number-input"
-                                              id="users_0_age"
+                                              id="group-list-demo_users_0_age"
                                               placeholder="请输入"
                                               role="spinbutton"
                                               step="1"
@@ -542,7 +538,7 @@
                                     >
                                       <label
                                         class=""
-                                        for="users_0_sex"
+                                        for="group-list-demo_users_0_sex"
                                         title="性别"
                                       >
                                         性别
@@ -562,11 +558,10 @@
                                             style="min-width: 100px;"
                                           >
                                             <div
-                                              class="ant-select-content"
+                                              class="ant-select-content ant-select-content-has-value ant-select-content-has-option-style"
                                             >
                                               <div
                                                 class="ant-select-content-value ant-pro-filed-search-select-option"
-                                                style="visibility: visible;"
                                                 title="男性"
                                               >
                                                 男性
@@ -577,7 +572,7 @@
                                                 aria-haspopup="listbox"
                                                 autocomplete="off"
                                                 class="ant-select-input"
-                                                id="users_0_sex"
+                                                id="group-list-demo_users_0_sex"
                                                 readonly=""
                                                 role="combobox"
                                                 type="search"
@@ -652,7 +647,7 @@
                                     >
                                       <label
                                         class=""
-                                        for="users_0_birth"
+                                        for="group-list-demo_users_0_birth"
                                         title="出生日期"
                                       >
                                         出生日期
@@ -676,7 +671,7 @@
                                               <input
                                                 aria-invalid="false"
                                                 autocomplete="off"
-                                                id="users_0_birth"
+                                                id="group-list-demo_users_0_birth"
                                                 placeholder="请选择"
                                                 size="12"
                                                 value="2024-01-15"
@@ -751,7 +746,7 @@
                                     >
                                       <label
                                         class=""
-                                        for="users_0_addr"
+                                        for="group-list-demo_users_0_addr"
                                         title="地址"
                                       >
                                         地址
@@ -768,7 +763,6 @@
                                         >
                                           <div
                                             class="ant-space ant-space-horizontal ant-space-align-start ant-space-gap-row-small ant-space-gap-col-small pro"
-                                            style="flex-wrap: wrap;"
                                           >
                                             <div
                                               class="ant-space-item"

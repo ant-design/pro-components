@@ -54,6 +54,7 @@
                           >
                             <div
                               class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal pro ant-radio-css-var"
+                              role="radiogroup"
                             >
                               <label
                                 class="ant-radio-wrapper ant-radio-wrapper-in-form-item pro ant-radio-css-var"
@@ -66,9 +67,6 @@
                                     name="test-id"
                                     type="radio"
                                     value="top"
-                                  />
-                                  <span
-                                    class="ant-radio-inner"
                                   />
                                 </span>
                                 <span
@@ -90,9 +88,6 @@
                                     type="radio"
                                     value="bottom"
                                   />
-                                  <span
-                                    class="ant-radio-inner"
-                                  />
                                 </span>
                                 <span
                                   class="ant-radio-label"
@@ -111,9 +106,6 @@
                                     name="test-id"
                                     type="radio"
                                     value="hidden"
-                                  />
-                                  <span
-                                    class="ant-radio-inner"
                                   />
                                 </span>
                                 <span
@@ -136,7 +128,9 @@
             class="pro ant-table-css-var ant-table-wrapper"
           >
             <div
-              class="ant-spin-nested-loading pro"
+              aria-busy="false"
+              aria-live="polite"
+              class="ant-spin pro"
             >
               <div
                 class="ant-spin-container"

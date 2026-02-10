@@ -8,6 +8,7 @@
     <form
       autocomplete="off"
       class="ant-form ant-form-vertical pro ant-form-css-var ant-pro-form"
+      id="base-form-demo"
     >
       <input
         style="display: none;"
@@ -35,32 +36,36 @@
                   >
                     <label
                       class="ant-form-item-required"
-                      for="name"
+                      for="base-form-demo_name"
                       title="签约客户名称"
                     >
                       签约客户名称
                       <span
-                        aria-label="question-circle"
-                        class="anticon anticon-question-circle ant-form-item-tooltip"
-                        role="img"
-                        title=""
+                        class="ant-form-item-tooltip"
+                        tabindex="-1"
                       >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="question-circle"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
+                        <span
+                          aria-label="question-circle"
+                          class="anticon anticon-question-circle"
+                          role="img"
                         >
-                          <path
-                            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-                          />
-                          <path
-                            d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"
-                          />
-                        </svg>
+                          <svg
+                            aria-hidden="true"
+                            data-icon="question-circle"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                            />
+                            <path
+                              d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"
+                            />
+                          </svg>
+                        </span>
                       </span>
                     </label>
                   </div>
@@ -88,7 +93,7 @@
                           >
                             <input
                               class="ant-input"
-                              id="name"
+                              id="base-form-demo_name"
                               placeholder="请输入客户名称"
                               type="text"
                               value="杭州星辰科技有限公司"
@@ -152,7 +157,7 @@
                   >
                     <label
                       class=""
-                      for="company"
+                      for="base-form-demo_company"
                       title="我方公司名称"
                     >
                       我方公司名称
@@ -172,7 +177,7 @@
                         >
                           <input
                             class="ant-input"
-                            id="company"
+                            id="base-form-demo_company"
                             placeholder="请输入公司名称"
                             type="text"
                             value=""
@@ -239,7 +244,7 @@
                   >
                     <label
                       class=""
-                      for="count"
+                      for="base-form-demo_count"
                       title="项目团队人数"
                     >
                       项目团队人数
@@ -261,7 +266,7 @@
                             aria-valuemin="0"
                             autocomplete="off"
                             class="ant-input-number-input"
-                            id="count"
+                            id="base-form-demo_count"
                             placeholder="请输入"
                             role="spinbutton"
                             step="1"
@@ -357,7 +362,7 @@
                   >
                     <label
                       class=""
-                      for="contract_name"
+                      for="base-form-demo_contract_name"
                       title="合同名称"
                     >
                       合同名称
@@ -377,7 +382,7 @@
                         >
                           <input
                             class="ant-input"
-                            id="contract_name"
+                            id="base-form-demo_contract_name"
                             placeholder="请输入合同名称"
                             type="text"
                             value=""
@@ -433,7 +438,7 @@
                   >
                     <label
                       class=""
-                      for="contract_createTime"
+                      for="base-form-demo_contract_createTime"
                       title="合同有效期"
                     >
                       合同有效期
@@ -458,7 +463,7 @@
                               aria-invalid="false"
                               autocomplete="off"
                               date-range="start"
-                              id="contract_createTime"
+                              id="base-form-demo_contract_createTime"
                               placeholder="请选择"
                               size="12"
                               value=""
@@ -563,7 +568,7 @@
                   >
                     <label
                       class=""
-                      for="useMode"
+                      for="base-form-demo_useMode"
                       title="合同约定生效方式"
                     >
                       合同约定生效方式
@@ -599,7 +604,7 @@
                   >
                     <label
                       class=""
-                      for="unusedMode"
+                      for="base-form-demo_unusedMode"
                       title="合同约定失效方式"
                     >
                       合同约定失效方式
@@ -642,7 +647,7 @@
                                 aria-haspopup="listbox"
                                 autocomplete="off"
                                 class="ant-select-input"
-                                id="unusedMode"
+                                id="base-form-demo_unusedMode"
                                 role="combobox"
                                 style="--select-input-width: 0;"
                                 type="search"
@@ -671,7 +676,7 @@
                   >
                     <label
                       class=""
-                      for="money"
+                      for="base-form-demo_money"
                       title="合同签约金额"
                     >
                       合同签约金额
@@ -692,7 +697,7 @@
                           <input
                             autocomplete="off"
                             class="ant-input-number-input"
-                            id="money"
+                            id="base-form-demo_money"
                             placeholder="请输入"
                             role="spinbutton"
                             step="1"
@@ -777,7 +782,7 @@
           >
             <label
               class=""
-              for="id"
+              for="base-form-demo_id"
               title="主合同编号"
             >
               主合同编号
@@ -797,7 +802,7 @@
                 >
                   <input
                     class="ant-input"
-                    id="id"
+                    id="base-form-demo_id"
                     placeholder="请输入"
                     type="text"
                     value=""
@@ -849,7 +854,7 @@
           >
             <label
               class=""
-              for="project"
+              for="base-form-demo_project"
               title="关联项目"
             >
               关联项目
@@ -870,7 +875,7 @@
                   <input
                     class="ant-input ant-input-disabled"
                     disabled=""
-                    id="project"
+                    id="base-form-demo_project"
                     placeholder="请输入"
                     type="text"
                     value="智慧零售平台"
@@ -922,7 +927,7 @@
           >
             <label
               class=""
-              for="address"
+              for="base-form-demo_address"
               title="详细办公地址"
             >
               详细办公地址
@@ -939,7 +944,7 @@
               >
                 <textarea
                   class="ant-input ant-input-outlined pro ant-input-css-var"
-                  id="address"
+                  id="base-form-demo_address"
                   placeholder="请输入"
                   rows="3"
                 />
@@ -959,7 +964,7 @@
           >
             <label
               class=""
-              for="mangerName"
+              for="base-form-demo_mangerName"
               title="商务经理"
             >
               商务经理
@@ -980,7 +985,7 @@
                   <input
                     class="ant-input ant-input-disabled"
                     disabled=""
-                    id="mangerName"
+                    id="base-form-demo_mangerName"
                     placeholder="请输入"
                     type="text"
                     value="期贤"
@@ -1032,7 +1037,7 @@
           >
             <label
               class=""
-              for="areaList"
+              for="base-form-demo_areaList"
               title="所在地区"
             >
               所在地区
@@ -1054,22 +1059,17 @@
                     class="ant-select ant-cascader ant-select-outlined ant-select-in-form-item pro-field pro-field-md ant-pro-field-cascader ant-select-css-var ant-cascader-css-var pro ant-select-single ant-select-allow-clear ant-select-show-arrow"
                   >
                     <div
-                      class="ant-select-content"
+                      class="ant-select-content ant-select-content-has-value"
+                      title="zhejiang / hangzhou / binjiang"
                     >
-                      <div
-                        class="ant-select-content-value"
-                        style="visibility: visible;"
-                        title="zhejiang / hangzhou / binjiang"
-                      >
-                        zhejiang / hangzhou / binjiang
-                      </div>
+                      zhejiang / hangzhou / binjiang
                       <input
                         aria-autocomplete="list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
                         autocomplete="off"
                         class="ant-select-input"
-                        id="areaList"
+                        id="base-form-demo_areaList"
                         readonly=""
                         role="combobox"
                         type="search"
@@ -1161,7 +1161,9 @@
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-spin-nested-loading pro"
+                  aria-busy="false"
+                  aria-live="polite"
+                  class="ant-spin pro"
                 >
                   <div
                     class="ant-spin-container"
@@ -1245,7 +1247,7 @@
           >
             <label
               class=""
-              for="date"
+              for="base-form-demo_date"
               title="签约日期"
             >
               签约日期
@@ -1269,7 +1271,7 @@
                     <input
                       aria-invalid="false"
                       autocomplete="off"
-                      id="date"
+                      id="base-form-demo_date"
                       placeholder="请选择"
                       size="12"
                       value=""

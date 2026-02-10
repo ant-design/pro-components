@@ -9,7 +9,9 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
       class="css-var-rbr ant-table-css-var ant-table-wrapper"
     >
       <div
-        class="ant-spin-nested-loading css-var-rbr"
+        aria-busy="false"
+        aria-live="polite"
+        class="ant-spin css-var-rbr"
       >
         <div
           class="ant-spin-container"
@@ -635,7 +637,9 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
       class="css-var-r1 ant-table-css-var ant-table-wrapper"
     >
       <div
-        class="ant-spin-nested-loading css-var-r1"
+        aria-busy="false"
+        aria-live="polite"
+        class="ant-spin css-var-r1"
       >
         <div
           class="ant-spin-container"
