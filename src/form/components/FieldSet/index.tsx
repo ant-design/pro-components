@@ -110,12 +110,25 @@ const FieldSet: React.FC<ProFormFieldSetProps> = (props) => {
   const { RowWrapper } = useGridHelpers(rest);
 
   const Wrapper: React.FC = useCallback(
-    ({ children: dom }: { children?: React.ReactNode }) => (
-      <Components {...(space as SpaceProps)} align="start" wrap>
-        {dom}
-      </Components>
-    ),
-    [Components, space],
+    ({ children: dom }: { children?: React.ReactNode }) => {
+      // 从 space props 中提取 wrap，如果未定义则不传递
+      const spacePropsWithWrap = {
+        ...(space as SpaceProps),
+        align: 'start' as const,
+      };
+      
+      // 只有当 space 中明确定义了 wrap 时才传递，否则使用组件默认行为
+      if (type === 'space' && (space as SpaceProps)?.wrap !== undefined) {
+        spacePropsWithWrap.wrap = (space as SpaceProps).wrap;
+      }
+      
+      return (
+        <Components {...spacePropsWithWrap}>
+          {dom}
+        </Components>
+      );
+    },
+    [Components, space, type],
   );
 
   return <RowWrapper Wrapper={Wrapper}>{list}</RowWrapper>;
