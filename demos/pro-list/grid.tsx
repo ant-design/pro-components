@@ -121,11 +121,10 @@ const statusMap = {
 const data = apps.map((app) => ({
   id: app.id,
   title: app.name,
-  subTitle: <Tag color={statusMap[app.status].color}>{statusMap[app.status].text}</Tag>,
-  actions: [
-    <a key="view">打开</a>,
-    <a key="settings">设置</a>,
-  ],
+  subTitle: (
+    <Tag color={statusMap[app.status].color}>{statusMap[app.status].text}</Tag>
+  ),
+  actions: [<a key="view">打开</a>, <a key="settings">设置</a>],
   avatar: app.icon,
   content: (
     <div>
@@ -138,8 +137,8 @@ const data = apps.map((app) => ({
 }));
 
 export default () => {
-  const [column, setColumn] = useState<number>(3);
-  const [gutter, setGutter] = useState<number>(16);
+  const [column, setColumn] = useState<number>(2);
+  const [gutter, setGutter] = useState<number>(8);
   const [bordered, setBordered] = useState<boolean>(true);
   const [ghost, setGhost] = useState<boolean>(false);
   const [showActions, setShowActions] = useState<'hover' | 'always'>('hover');

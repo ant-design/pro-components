@@ -29,7 +29,9 @@ const DemoField: React.FC<{
 const Demo = () => {
   const [state, setState] = useState<ProFieldFCMode>('read');
   return (
-    <>
+    <div
+      style={{ padding: 24, display: 'flex', flexDirection: 'column', gap: 24 }}
+    >
       <div style={{ marginBlockEnd: 16 }}>
         <span>模式：</span>
         <Segmented
@@ -135,11 +137,7 @@ const Demo = () => {
 
       <Descriptions column={2} title="枚举选择类">
         <Descriptions.Item label="选择框 select">
-          <DemoField
-            initialValue="open"
-            mode={state}
-            valueEnum={statusEnum}
-          />
+          <DemoField initialValue="open" mode={state} valueEnum={statusEnum} />
         </Descriptions.Item>
         <Descriptions.Item label="单选 radio">
           <DemoField
@@ -409,7 +407,7 @@ pnpm run deploy --env production`}
           />
         </Descriptions.Item>
       </Descriptions>
-    </>
+    </div>
   );
 };
 
