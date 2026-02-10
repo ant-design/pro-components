@@ -7,10 +7,6 @@ export type Gutter = number | Partial<Record<Breakpoint, number>>;
 export type ColSpanType = number | string;
 type CollapsibleType = 'icon' | 'header' | boolean;
 type CardPropsBase = {
-  /** 标题样式 */
-  headStyle?: React.CSSProperties;
-  /** 内容样式 */
-  bodyStyle?: React.CSSProperties;
   /** 样式配置 */
   styles?: {
     header?: React.CSSProperties;
