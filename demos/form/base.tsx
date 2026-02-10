@@ -52,7 +52,7 @@ const Demo = () => {
       }}
       formRef={formRef}
       params={{ id: '100' }}
-      formKey="base-form-use-demo"
+      formKey="base-demo"
       dateFormatter={(value, valueType) => {
         console.log('---->', value, valueType);
         return value.format('YYYY/MM/DD HH:mm:ss');
