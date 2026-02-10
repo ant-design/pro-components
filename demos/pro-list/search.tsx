@@ -40,7 +40,6 @@ const Demo = () => (
     pagination={{
       pageSize: 5,
     }}
-    showActions="hover"
     metas={{
       title: {
         dataIndex: 'user',

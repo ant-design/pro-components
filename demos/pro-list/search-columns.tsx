@@ -93,7 +93,6 @@ const Demo = () => (
       )
     }
     pagination={{ pageSize: 5 }}
-    showActions="hover"
     columns={columns}
   />
 );

@@ -82,7 +82,6 @@ const Demo = () => {
       rowKey="id"
       headerTitle="可编辑列表（columns API）"
       dataSource={dataSource}
-      showActions="hover"
       editable={{
         onSave: async (key, record, originRow) => {
           console.log(key, record, originRow);

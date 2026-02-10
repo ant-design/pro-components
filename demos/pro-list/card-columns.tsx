@@ -108,9 +108,6 @@ const data: DataItem[] = [
 ];
 
 export default () => {
-  const [cardActionProps, setCardActionProps] = useState<'extra' | 'actions'>(
-    'extra',
-  );
 
   const columns: ProColumns<DataItem>[] = [
     {
@@ -148,7 +145,6 @@ export default () => {
     {
       title: '操作',
       listSlot: 'actions',
-      cardActionProps,
       render: () => [
         <a key="install">安装</a>,
         <a key="docs">文档</a>,
@@ -172,30 +168,8 @@ export default () => {
         style={{ marginBottom: 16 }}
       />
 
-      <Card
-        title="配置选项"
-        size="small"
-        style={{ marginBottom: 16 }}
-        styles={{ body: { padding: '12px 16px' } }}
-      >
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <span>操作按钮位置 (cardActionProps):</span>
-          <Radio.Group
-            value={cardActionProps}
-            onChange={(e) => setCardActionProps(e.target.value)}
-            size="small"
-          >
-            <Radio.Button value="extra">
-              Extra（卡片右上角，推荐）
-            </Radio.Button>
-            <Radio.Button value="actions">Actions（卡片底部）</Radio.Button>
-          </Radio.Group>
-        </div>
-      </Card>
-
       <ProList<DataItem>
         pagination={{ defaultPageSize: 8, showSizeChanger: false }}
-        showActions="hover"
         rowSelection={{}}
         grid={{ gutter: 16, column: 2 }}
         columns={columns}

@@ -149,7 +149,6 @@ For other APIs, refer to [ProTable](/en-US/components/table).
 | pagination         | Pagination configuration, `current` and `pageSize` are managed by `request`                                                                                                                          | `PaginationConfig` \| `false`                                                                                                                                                                                | `false`                |
 | rowSelection       | Row selection configuration                                                                                                                                                                          | `TableProps<T>['rowSelection'] & { alwaysShowAlert?: boolean }` \| `false`                                                                                                                                   | `false`                |
 | expandable         | Same [configuration](https://ant.design/components/table-cn/#expandable) as antd                                                                                                                     | `object` \| `false`                                                                                                                                                                                          | -                      |
-| showActions        | When to show actions, not supported in CardList mode                                                                                                                                                 | `'hover'` \| `'always'`                                                                                                                                                                                      | `'always'`             |
 | showExtra          | When to show extra                                                                                                                                                                                   | `'hover'` \| `'always'`                                                                                                                                                                                      | `'always'`             |
 | onRow              | Same [configuration](https://ant.design/components/table-cn/#onRow-%E7%94%A8%E6%B3%95) as antd. When `grid` is set, the list renders in card mode and this event will not fire. Use `onItem` instead | `function(record, index)`                                                                                                                                                                                    | -                      |
 | onItem             | Same [configuration](https://ant.design/components/table-cn/#onRow-%E7%94%A8%E6%B3%95) as antd. Clicking on an item in all types will trigger this event                                             | `function(record, index)`                                                                                                                                                                                    | -                      |
@@ -205,7 +204,6 @@ ref.current?.clearSelected();
 
 ### columns Configuration (Recommended)
 
-ProList's `columns` is fully compatible with ProTable. It additionally supports `listSlot` and `cardActionProps` properties to control list item rendering.
 
 The same `columns` can be used for both ProTable (table view) and ProList (list view). ProTable ignores the `listSlot` property, while ProList uses it to map data to list item slots. Columns without `listSlot` are not rendered in list items but still participate in search form generation.
 
@@ -214,7 +212,6 @@ The same `columns` can be used for both ProTable (table view) and ProList (list 
 | Property        | Description                                                            | Type                                                                                                              | Default   |
 | --------------- | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | --------- |
 | listSlot        | Specifies which slot of the list item this column maps to              | `'title'` \| `'subTitle'` \| `'avatar'` \| `'description'` \| `'content'` \| `'actions'` \| `'aside'` \| `'type'` | -         |
-| cardActionProps | When `listSlot` is `'actions'`, sets where actions render in card mode | `'actions'` \| `'extra'`                                                                                          | `'extra'` |
 
 All other column properties are identical to ProTable's `ProColumns` (`dataIndex`, `valueType`, `render`, `search`, `valueEnum`, etc.). See [ProTable columns](/en-US/components/table).
 
@@ -325,7 +322,6 @@ The field type corresponding to dataSource is `'new'` | `'top'` | `'inline'`.
 | Property        | Description                             | Type                     | Default     |
 | --------------- | --------------------------------------- | ------------------------ | ----------- |
 | dataIndex       | -                                       | -                        | `'actions'` |
-| cardActionProps | Set where the card list renders actions | `'actions'` \| `'extra'` | `'extra'`   |
 
 #### Metas.content
 
@@ -364,7 +360,6 @@ ProList generates a search form based on fields with `search` configured in colu
 | `title: { dataIndex: 'name' }`                          | `{ dataIndex: 'name', listSlot: 'title' }`                           |
 | `avatar: { dataIndex: 'img' }`                          | `{ dataIndex: 'img', listSlot: 'avatar' }`                           |
 | `description: { dataIndex: 'desc' }`                    | `{ dataIndex: 'desc', listSlot: 'description' }`                     |
-| `actions: { cardActionProps: 'actions', render: ... }`  | `{ listSlot: 'actions', cardActionProps: 'actions', render: ... }`   |
 | `extra: { render: ... }`                                | `{ listSlot: 'aside', render: ... }`                                 |
 | `status: { title: 'Status', valueType: 'select', ... }` | `{ title: 'Status', dataIndex: 'status', valueType: 'select', ... }` |
 
@@ -384,7 +379,6 @@ ProList generates a search form based on fields with `search` configured in colu
       search: false,
     },
     actions: {
-      cardActionProps: 'actions',
       render: (_, row) => [<a key="edit">Edit</a>],
       search: false,
     },
@@ -413,7 +407,6 @@ ProList generates a search form based on fields with `search` configured in colu
     },
     {
       listSlot: 'actions',
-      cardActionProps: 'actions',
       render: (_, row) => [<a key="edit">Edit</a>],
       search: false,
     },

@@ -43,15 +43,7 @@ export type ProListMeta<T> = Pick<
   key?: React.Key;
 };
 
-type ProListMetaAction<T> = ProListMeta<T> & {
-  /**
-   * @example
-   *   `cardActionProps = 'actions';`;
-   *
-   * @name 选择映射到 card 上的 props，默认为extra
-   */
-  cardActionProps?: 'extra' | 'actions';
-};
+type ProListMetaAction<T> = ProListMeta<T>;
 
 type IfAny<T, Y, N> = 0 extends 1 & T ? Y : N;
 type IsAny<T> = IfAny<T, true, false>;
@@ -101,7 +93,6 @@ export type ProListProps<
      * ]}
      */
     metas?: ProListMetas<RecordType>;
-    showActions?: 'hover' | 'always';
     showExtra?: 'hover' | 'always';
     onRow?: GetComponentProps<RecordType>;
     onItem?: GetComponentProps<RecordType>;
@@ -171,7 +162,6 @@ function InternalProList<
     options = false,
     search = false,
     expandable,
-    showActions,
     showExtra,
     rowSelection: propRowSelection = false,
     pagination: propsPagination = false,
@@ -262,7 +252,6 @@ function InternalProList<
             rowKey={rowKey}
             expandable={expandable}
             rowSelection={propRowSelection === false ? undefined : rowSelection}
-            showActions={showActions}
             showExtra={showExtra}
             pagination={pagination as PaginationProps}
             itemLayout={itemLayout}

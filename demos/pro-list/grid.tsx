@@ -142,7 +142,6 @@ export default () => {
   const [gutter, setGutter] = useState<number>(16);
   const [bordered, setBordered] = useState<boolean>(true);
   const [ghost, setGhost] = useState<boolean>(false);
-  const [showActions, setShowActions] = useState<'hover' | 'always'>('hover');
 
   return (
     <div style={{ padding: 24, backgroundColor: '#f5f5f5' }}>
@@ -217,13 +216,13 @@ export default () => {
 
           <Col xs={24} md={8}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-              <span style={{ fontWeight: 500 }}>操作按钮:</span>
+              <span style={{ fontWeight: 500 }}>边框:</span>
               <Segmented
-                value={showActions}
-                onChange={setShowActions}
+                value={bordered ? 'bordered' : 'borderless'}
+                onChange={(v) => setBordered(v === 'bordered')}
                 options={[
-                  { label: '悬停显示', value: 'hover' },
-                  { label: '始终显示', value: 'always' },
+                  { label: '有边框', value: 'bordered' },
+                  { label: '无边框', value: 'borderless' },
                 ]}
               />
             </div>
@@ -237,7 +236,6 @@ export default () => {
               {`<ProList
   grid={{ gutter: ${gutter}, column: ${column} }}
   itemCardProps={{ bordered: ${bordered}, ghost: ${ghost} }}
-  showActions="${showActions}"
   ...
 />`}
             </pre>
@@ -259,15 +257,12 @@ export default () => {
           showSizeChanger: true,
           pageSizeOptions: ['6', '12', '18', '24'],
         }}
-        showActions={showActions}
         metas={{
           title: {},
           subTitle: {},
           avatar: {},
           content: {},
-          actions: {
-            cardActionProps: 'extra',
-          },
+          actions: {},
         }}
         headerTitle="Grid 布局示例"
         tooltip="使用 CSS Grid 实现的响应式卡片布局"

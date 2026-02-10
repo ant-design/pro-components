@@ -40,9 +40,6 @@ const data = projects.map((project, index) => ({
 }));
 
 export default () => {
-  const [cardActionProps, setCardActionProps] = useState<'actions' | 'extra'>(
-    'extra',
-  );
   const [ghost, setGhost] = useState<boolean>(false);
 
   return (
@@ -64,17 +61,6 @@ export default () => {
             <span>幽灵模式:</span>
             <Switch checked={ghost} onChange={setGhost} size="small" />
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <span>操作按钮位置:</span>
-            <Radio.Group
-              value={cardActionProps}
-              onChange={(e) => setCardActionProps(e.target.value)}
-              size="small"
-            >
-              <Radio.Button value="extra">Extra</Radio.Button>
-              <Radio.Button value="actions">Actions</Radio.Button>
-            </Radio.Group>
-          </div>
         </div>
       </Card>
 
@@ -87,7 +73,6 @@ export default () => {
           defaultPageSize: 8,
           showSizeChanger: false,
         }}
-        showActions="hover"
         rowSelection={{}}
         grid={{ gutter: 16, column: 2 }}
         onItem={(record: any) => {
@@ -106,9 +91,7 @@ export default () => {
           type: {},
           avatar: {},
           content: {},
-          actions: {
-            cardActionProps,
-          },
+          actions: {},
         }}
         headerTitle="卡片列表展示"
         dataSource={data}

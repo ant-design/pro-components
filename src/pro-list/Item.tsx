@@ -86,10 +86,8 @@ export type ItemProps<RecordType> = {
   grid?: ListGridType;
   expand?: boolean;
   rowSupportExpand?: boolean;
-  cardActionProps?: 'actions' | 'extra';
   onExpand?: (expand: boolean) => void;
   expandable?: ExpandableConfig<any>;
-  showActions?: 'hover' | 'always';
   showExtra?: 'hover' | 'always';
   type?: 'new' | 'top' | 'inline' | 'subheader';
   isEditable: boolean;
@@ -141,7 +139,6 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     onExpand: propsOnExpand,
     expandable: expandableConfig,
     rowSupportExpand,
-    showActions,
     showExtra,
     type,
     style,
@@ -150,7 +147,6 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     onRow,
     onItem,
     itemHeaderRender,
-    cardActionProps,
     extra,
     ...rest
   } = props;
@@ -184,7 +180,6 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
   const className = clsx(
     {
       [`${defaultClassName}-selected`]: !cardProps && selected,
-      [`${defaultClassName}-show-action-hover`]: showActions === 'hover',
       [`${defaultClassName}-type-${type}`]: !!type,
       [`${defaultClassName}-editable`]: isEditable,
       [`${defaultClassName}-show-extra-hover`]: showExtra === 'hover',
@@ -202,12 +197,6 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     () => (actions ? React.Children.toArray(actions) : undefined),
     [actions],
   );
-
-  // cardActionProps 决定 actions 渲染到 extra 还是 actions 位置
-  const extraDom =
-    actionsArray && cardActionProps !== 'actions' ? actionsArray : undefined;
-  const actionsDom =
-    actionsArray && cardActionProps === 'actions' ? actionsArray : undefined;
 
   const titleDom =
     title || subTitle ? (
@@ -290,8 +279,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
           {...cardProps}
           title={cardTitleDom}
           subTitle={subTitle}
-          extra={extraDom}
-          actions={actionsDom}
+          extra={actionsArray}
           bodyStyle={{ padding: 24, ...cardProps.bodyStyle }}
           {...(itemProps as CheckCardProps)}
           onClick={(e) => {
@@ -355,7 +343,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
               } as RenderExpandIconProps<RecordType>)}
           </div>
           {headerDom}
-          {extraDom}
+          {actionsArray}
         </div>
         {needExpanded && (content || expandedRowDom) && (
           <div className={clsx(`${className}-content`, hashId)}>

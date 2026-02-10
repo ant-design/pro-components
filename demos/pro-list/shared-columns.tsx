@@ -128,7 +128,6 @@ export default () => {
           headerTitle="列表视图"
           columns={columns}
           dataSource={dataSource}
-          showActions="hover"
         />
       ) : (
         <ProTable<DataItem>

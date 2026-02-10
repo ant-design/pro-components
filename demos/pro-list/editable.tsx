@@ -42,7 +42,6 @@ const Demo = () => {
       rowKey="id"
       headerTitle="基础列表"
       dataSource={dataSource}
-      showActions="hover"
       editable={{
         onSave: async (key, record, originRow) => {
           console.log(key, record, originRow);

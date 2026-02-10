@@ -17,7 +17,7 @@ ProList 基于 ProTable 实现，可以认为是 ProTable 的一个特例，将�
 
 ### 枚举属性切换
 
-通过 Segmented 分段选择器一键切换 `itemLayout`、`showActions`、`showExtra`、`cardActionProps` 四个枚举属性。
+通过 Segmented 分段选择器一键切换 `itemLayout`、`showExtra` 两个枚举属性。
 
 <code src="../../demos/pro-list/enum-switch.tsx" background="var(--main-bg-color)" title="枚举属性切换"></code>
 
@@ -155,7 +155,6 @@ ProList 基于 ProTable 封装，支持两种列配置方式：
 | pagination         | 分页器的配置，`current` 和 `pageSize` 会被 `request` 接管                                                                                                       | `PaginationConfig` \| `false`                                                                                                                                                                                | `false`            |
 | rowSelection       | 选择项配置                                                                                                                                                      | `TableProps<T>['rowSelection'] & { alwaysShowAlert?: boolean }` \| `false`                                                                                                                                   | `false`            |
 | expandable         | 与 antd 相同的[配置](https://ant.design/components/table-cn/#expandable)                                                                                        | `object` \| `false`                                                                                                                                                                                          | -                  |
-| showActions        | 何时展示 actions，CardList 模式下不生效                                                                                                                         | `'hover'` \| `'always'`                                                                                                                                                                                      | `'always'`         |
 | showExtra          | 何时展示 extra                                                                                                                                                  | `'hover'` \| `'always'`                                                                                                                                                                                      | `'always'`         |
 | onRow              | 与 antd 相同的[配置](https://ant.design/components/table-cn/#onRow-%E7%94%A8%E6%B3%95)，用户传入 `grid` 属性时列表以卡片模式渲染，此事件不触发，请使用 `onItem` | `function(record, index)`                                                                                                                                                                                    | -                  |
 | onItem             | 与 antd 相同的[配置](https://ant.design/components/table-cn/#onRow-%E7%94%A8%E6%B3%95)，在所有类型点击某个项目都会触发该事件                                    | `function(record, index)`                                                                                                                                                                                    | -                  |
@@ -211,7 +210,6 @@ ref.current?.clearSelected();
 
 ### columns 配置（推荐）
 
-ProList 的 `columns` 与 ProTable 完全兼容，额外支持 `listSlot` 和 `cardActionProps` 两个属性来控制列表项的渲染。
 
 同一份 `columns` 可以同时用于 ProTable（表格视图）和 ProList（列表视图），ProTable 会忽略 `listSlot` 属性，ProList 使用 `listSlot` 将数据映射到列表项的各个插槽位置。没有 `listSlot` 的列不会渲染到列表项中，但仍会参与搜索表单的生成。
 
@@ -220,7 +218,6 @@ ProList 的 `columns` 与 ProTable 完全兼容，额外支持 `listSlot` 和 `c
 | 属性            | 描述                                                               | 类型                                                                                                              | 默认值    |
 | --------------- | ------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- | --------- |
 | listSlot        | 指定该列映射到列表项的哪个插槽位置                                 | `'title'` \| `'subTitle'` \| `'avatar'` \| `'description'` \| `'content'` \| `'actions'` \| `'aside'` \| `'type'` | -         |
-| cardActionProps | 当 `listSlot` 为 `'actions'` 时，设置卡片列表把 actions 渲染到哪里 | `'actions'` \| `'extra'`                                                                                          | `'extra'` |
 
 其余列属性与 ProTable 的 `ProColumns` 完全一致（`dataIndex`、`valueType`、`render`、`search`、`valueEnum` 等），详见 [ProTable columns](/components/table)。
 
@@ -331,7 +328,6 @@ Metas 使用对象的键名来映射列表项各个部分（标题、头像、�
 | 属性            | 描述                             | 类型                     | 默认值      |
 | --------------- | -------------------------------- | ------------------------ | ----------- |
 | dataIndex       | -                                | -                        | `'actions'` |
-| cardActionProps | 设置卡片列表把 action 渲染到哪里 | `'actions'` \| `'extra'` | `'extra'`   |
 
 #### Metas.content
 
@@ -370,7 +366,6 @@ ProList 会根据 columns 或 metas 中配置了 `search` 的字段来生成搜�
 | `title: { dataIndex: 'name' }`                         | `{ dataIndex: 'name', listSlot: 'title' }`                         |
 | `avatar: { dataIndex: 'img' }`                         | `{ dataIndex: 'img', listSlot: 'avatar' }`                         |
 | `description: { dataIndex: 'desc' }`                   | `{ dataIndex: 'desc', listSlot: 'description' }`                   |
-| `actions: { cardActionProps: 'actions', render: ... }` | `{ listSlot: 'actions', cardActionProps: 'actions', render: ... }` |
 | `extra: { render: ... }`                               | `{ listSlot: 'aside', render: ... }`                               |
 | `status: { title: '状态', valueType: 'select', ... }`  | `{ title: '状态', dataIndex: 'status', valueType: 'select', ... }` |
 
@@ -390,7 +385,6 @@ ProList 会根据 columns 或 metas 中配置了 `search` 的字段来生成搜�
       search: false,
     },
     actions: {
-      cardActionProps: 'actions',
       render: (_, row) => [<a key="edit">编辑</a>],
       search: false,
     },
@@ -419,7 +413,6 @@ ProList 会根据 columns 或 metas 中配置了 `search` 的字段来生成搜�
     },
     {
       listSlot: 'actions',
-      cardActionProps: 'actions',
       render: (_, row) => [<a key="edit">编辑</a>],
       search: false,
     },

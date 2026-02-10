@@ -49,11 +49,7 @@ const Demo = () => {
   const [itemLayout, setItemLayout] = useState<'horizontal' | 'vertical'>(
     'horizontal',
   );
-  const [showActions, setShowActions] = useState<'hover' | 'always'>('always');
   const [showExtra, setShowExtra] = useState<'hover' | 'always'>('always');
-  const [cardActionProps, setCardActionProps] = useState<'extra' | 'actions'>(
-    'extra',
-  );
 
   return (
     <div>
@@ -80,17 +76,6 @@ const Demo = () => {
           />
         </Space>
         <Space>
-          <span>showActions 操作展示：</span>
-          <Segmented
-            value={showActions}
-            onChange={(v) => setShowActions(v as any)}
-            options={[
-              { label: '始终 always', value: 'always' },
-              { label: '悬停 hover', value: 'hover' },
-            ]}
-          />
-        </Space>
-        <Space>
           <span>showExtra 额外内容：</span>
           <Segmented
             value={showExtra}
@@ -101,23 +86,11 @@ const Demo = () => {
             ]}
           />
         </Space>
-        <Space>
-          <span>cardActionProps 操作区位置：</span>
-          <Segmented
-            value={cardActionProps}
-            onChange={(v) => setCardActionProps(v as any)}
-            options={[
-              { label: '右上角 extra', value: 'extra' },
-              { label: '底部 actions', value: 'actions' },
-            ]}
-          />
-        </Space>
       </Space>
 
       <ProList<ProjectItem>
         headerTitle="项目列表枚举切换"
         itemLayout={itemLayout}
-        showActions={showActions}
         showExtra={showExtra}
         dataSource={dataSource}
         rowKey="title"
@@ -147,7 +120,6 @@ const Demo = () => {
             ),
           },
           actions: {
-            cardActionProps,
             render: () => [
               <a key="view">查看</a>,
               <a key="edit">编辑</a>,

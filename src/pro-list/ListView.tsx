@@ -39,7 +39,6 @@ export type ListViewProps<RecordType> = Omit<
     'columns' | 'dataSource' | 'expandable' | 'pagination'
   > & {
     rowKey?: string | keyof RecordType | GetRowKey<RecordType>;
-    showActions?: 'hover' | 'always';
     showExtra?: 'hover' | 'always';
     rowSelection?: TableRowSelection<RecordType>;
     prefixCls?: string;
@@ -66,7 +65,6 @@ function ListView<RecordType extends AnyObject>(
     dataSource,
     columns,
     rowKey,
-    showActions,
     showExtra,
     prefixCls: customizePrefixCls,
     actionRef,
@@ -222,10 +220,9 @@ function ListView<RecordType extends AnyObject>(
         (
           columns as (TableColumnType<RecordType> & {
             listSlot: string;
-            cardActionProps: string;
           })[]
         )?.forEach((column) => {
-          const { listSlot, cardActionProps } = column;
+          const { listSlot } = column;
           if (!PRO_LIST_KEYS_MAP.has(listSlot)) {
             return;
           }
@@ -236,12 +233,6 @@ function ListView<RecordType extends AnyObject>(
             ? get(item, dataIndex as string[])
             : item[dataIndex];
 
-          /** cardActionProps 控制 actions 在卡片上的渲染位置（extra 或 actions） */
-          if (listSlot === 'actions' && cardActionProps) {
-            listItemProps.cardActionProps = cardActionProps as
-              | 'extra'
-              | 'actions';
-          }
           // 调用protable的列配置渲染数据
           const data = column.render
             ? column.render(rawData, item, index)
@@ -291,7 +282,6 @@ function ListView<RecordType extends AnyObject>(
             index={index}
             record={item}
             item={item}
-            showActions={showActions}
             showExtra={showExtra}
             itemTitleRender={itemTitleRender}
             itemHeaderRender={itemHeaderRender}
