@@ -155,6 +155,7 @@ function InternalProList<
     columns: propsColumns,
     split,
     bordered,
+    variant,
     footer,
     rowKey,
     tooltip,
@@ -249,6 +250,7 @@ function InternalProList<
             footer={footer}
             split={split}
             bordered={bordered}
+            variant={variant}
             rowKey={rowKey}
             expandable={expandable}
             rowSelection={propRowSelection === false ? undefined : rowSelection}

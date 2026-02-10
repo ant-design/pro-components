@@ -49,7 +49,9 @@ const Demo = () => {
   const [itemLayout, setItemLayout] = useState<'horizontal' | 'vertical'>(
     'horizontal',
   );
-  const [bordered, setBordered] = useState(false);
+  const [variant, setVariant] = useState<'default' | 'bordered' | 'borderless'>(
+    'default',
+  );
   const [split, setSplit] = useState(true);
 
   return (
@@ -77,13 +79,14 @@ const Demo = () => {
           />
         </Space>
         <Space>
-          <span>bordered 外边框：</span>
+          <span>variant 外观变体：</span>
           <Segmented
-            value={bordered ? 'true' : 'false'}
-            onChange={(v) => setBordered(v === 'true')}
+            value={variant}
+            onChange={(v) => setVariant(v as any)}
             options={[
-              { label: '无边框', value: 'false' },
-              { label: '有边框', value: 'true' },
+              { label: '默认 default', value: 'default' },
+              { label: '带边框 bordered', value: 'bordered' },
+              { label: '无边框 borderless', value: 'borderless' },
             ]}
           />
         </Space>
@@ -103,7 +106,7 @@ const Demo = () => {
       <ProList<ProjectItem>
         headerTitle="项目列表枚举切换"
         itemLayout={itemLayout}
-        bordered={bordered}
+        variant={variant}
         split={split}
         dataSource={dataSource}
         rowKey="title"
