@@ -317,30 +317,31 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps<any>>(
     /**
      * 根据当前断点获取列数
      */
-    const getResponsiveColumn = useMemo(() => {
+    const getResponsiveColumn = useMemo((): number => {
       if (!grid) return 1;
 
-      const { column, xs, sm, md, lg, xl, xxl } = grid;
+      const breakpoints: Array<'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs'> = [
+        'xxl',
+        'xl',
+        'lg',
+        'md',
+        'sm',
+        'xs',
+      ];
+      const currentBreakpoint = breakpoint || 'md';
+      const startIndex = breakpoints.indexOf(currentBreakpoint);
 
-      // 根据断点优先级返回列数
-      if (breakpoint === 'xxl' && xxl !== undefined) return xxl;
-      if (breakpoint === 'xl' && xl !== undefined) return xl;
-      if (breakpoint === 'lg' && lg !== undefined) return lg;
-      if (breakpoint === 'md' && md !== undefined) return md;
-      if (breakpoint === 'sm' && sm !== undefined) return sm;
-      if (breakpoint === 'xs' && xs !== undefined) return xs;
-
-      // 降级处理：如果当前断点没有配置，向下查找最近的配置
-      const breakpoints = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
-      const currentIndex = breakpoints.indexOf(breakpoint || 'md');
-
-      for (let i = currentIndex + 1; i < breakpoints.length; i++) {
-        const bp = breakpoints[i] as ColumnType;
-        if (grid[bp] !== undefined) return grid[bp] as number;
+      // 从当前断点开始，向下查找第一个已定义的列数
+      for (let i = startIndex; i < breakpoints.length; i++) {
+        const bp = breakpoints[i];
+        const colCount = grid[bp];
+        if (colCount !== undefined) {
+          return colCount as number;
+        }
       }
 
-      // 最后使用 column 默认值
-      return column ?? 1;
+      // 最后使用 column 默认值，确保不为 0（避免除以零）
+      return (grid.column as number) || 1;
     }, [grid, breakpoint]);
 
     /**
@@ -358,7 +359,7 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps<any>>(
       if (grid.gutter) {
         const [horizontal, vertical] = Array.isArray(grid.gutter)
           ? grid.gutter
-          : [grid.gutter, grid.gutter];
+          : [grid.gutter, 0];
         const h = Number(horizontal) || 0;
         const v = Number(vertical) || 0;
 
@@ -389,7 +390,7 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps<any>>(
       if (gutter) {
         const [horizontal, vertical] = Array.isArray(gutter)
           ? gutter
-          : [gutter, gutter];
+          : [gutter, 0];
         const h = Number(horizontal) || 0;
         const v = Number(vertical) || 0;
 
@@ -399,8 +400,8 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps<any>>(
         style.paddingBottom = v / 2;
       }
 
-      // 计算每列的宽度
-      if (column) {
+      // 计算每列的宽度（确保 column 有效，避免除以零）
+      if (column > 0) {
         // 使用 flex-basis 和 max-width 确保准确的宽度
         const percentage = 100 / column;
         style.flexBasis = `${percentage}%`;
