@@ -22,7 +22,7 @@ const Demo = () => {
   return (
     <div>
       <ProCard style={{ marginBlockEnd: 16 }} variant="outlined">
-        <Space direction="vertical" size={12} style={{ width: '100%' }}>
+        <Space orientation="vertical" size={12} style={{ width: '100%' }}>
           <Space>
             <span>layout 导航模式：</span>
             <Segmented
