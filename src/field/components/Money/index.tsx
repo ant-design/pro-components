@@ -221,6 +221,7 @@ const InputNumberPopover = React.forwardRef<
   any,
   InputNumberProps & {
     open?: boolean;
+    onOpenChange?: (open: boolean) => void;
     contentRender?: (props: InputNumberProps) => React.ReactNode;
   } & {
     numberFormatOptions?: any;
@@ -233,6 +234,7 @@ const InputNumberPopover = React.forwardRef<
       numberFormatOptions,
       numberPopoverRender,
       open,
+      onOpenChange,
       ...rest
     },
     ref,
@@ -277,6 +279,9 @@ const InputNumberPopover = React.forwardRef<
     // 优化的 onOpenChange 处理器
     const handleOpenChange = useCallback(
       (visible: boolean) => {
+        // 通知父组件状态变化
+        onOpenChange?.(visible);
+        
         // 如果是受控模式（传入了 open prop），不更新本地状态
         if (open === undefined) {
           // 使用 queueMicrotask 延迟状态更新，避免在渲染期间触发 flushSync
@@ -288,7 +293,7 @@ const InputNumberPopover = React.forwardRef<
           });
         }
       },
-      [open],
+      [open, onOpenChange],
     );
 
     /**
