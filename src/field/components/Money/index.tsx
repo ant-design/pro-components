@@ -1,7 +1,7 @@
 import { omit, useControlledState } from '@rc-component/util';
 import type { InputNumberProps } from 'antd';
 import { InputNumber, Popover } from 'antd';
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { intlMap as allIntlMap, useIntl } from '../../../provider';
 import type { ProFieldFC } from '../../PureProField';
 
@@ -235,10 +235,17 @@ const InputNumberPopover = React.forwardRef<
       () => rest.defaultValue,
       rest.value,
     );
-    
-    // 使用本地状态管理 Popover 显示，避免在渲染期间触发 flushSync
-    const [localOpen, setLocalOpen] = useState(false);
-    
+
+    // 使用本地状态管理 Popover 显示，同时支持受控模式
+    const [localOpen, setLocalOpen] = useState(open ?? false);
+
+    // 同步外部 open 属性到本地状态，支持受控模式
+    useEffect(() => {
+      if (open !== undefined) {
+        setLocalOpen(open);
+      }
+    }, [open]);
+
     const onChange = useCallback(
       (updater: any | ((prev: any) => any)) => {
         setValueInner((prev: any) => {
@@ -254,12 +261,18 @@ const InputNumberPopover = React.forwardRef<
     );
 
     // 优化的 onOpenChange 处理器
-    const handleOpenChange = useCallback((visible: boolean) => {
-      // 使用 queueMicrotask 延迟状态更新，避免在渲染期间触发 flushSync
-      queueMicrotask(() => {
-        setLocalOpen(visible);
-      });
-    }, []);
+    const handleOpenChange = useCallback(
+      (visible: boolean) => {
+        // 如果是受控模式（传入了 open prop），不更新本地状态
+        if (open === undefined) {
+          // 使用 queueMicrotask 延迟状态更新，避免在渲染期间触发 flushSync
+          queueMicrotask(() => {
+            setLocalOpen(visible);
+          });
+        }
+      },
+      [open],
+    );
 
     /**
      * 如果content 存在要根据 content 渲染一下
