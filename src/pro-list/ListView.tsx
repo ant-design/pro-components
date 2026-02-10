@@ -39,7 +39,6 @@ export type ListViewProps<RecordType> = Omit<
     'columns' | 'dataSource' | 'expandable' | 'pagination'
   > & {
     rowKey?: string | keyof RecordType | GetRowKey<RecordType>;
-    showExtra?: 'hover' | 'always';
     rowSelection?: TableRowSelection<RecordType>;
     prefixCls?: string;
     dataSource: readonly RecordType[];
@@ -65,7 +64,6 @@ function ListView<RecordType extends AnyObject>(
     dataSource,
     columns,
     rowKey,
-    showExtra,
     prefixCls: customizePrefixCls,
     actionRef,
     itemTitleRender,
@@ -282,7 +280,6 @@ function ListView<RecordType extends AnyObject>(
             index={index}
             record={item}
             item={item}
-            showExtra={showExtra}
             itemTitleRender={itemTitleRender}
             itemHeaderRender={itemHeaderRender}
             rowSupportExpand={!rowExpandable || rowExpandable(item)}

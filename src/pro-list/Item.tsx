@@ -88,7 +88,6 @@ export type ItemProps<RecordType> = {
   rowSupportExpand?: boolean;
   onExpand?: (expand: boolean) => void;
   expandable?: ExpandableConfig<any>;
-  showExtra?: 'hover' | 'always';
   type?: 'new' | 'top' | 'inline' | 'subheader';
   isEditable: boolean;
   recordKey: string | number | undefined;
@@ -139,7 +138,6 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     onExpand: propsOnExpand,
     expandable: expandableConfig,
     rowSupportExpand,
-    showExtra,
     type,
     style,
     className: propsClassName = defaultClassName,
@@ -182,7 +180,6 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       [`${defaultClassName}-selected`]: !cardProps && selected,
       [`${defaultClassName}-type-${type}`]: !!type,
       [`${defaultClassName}-editable`]: isEditable,
-      [`${defaultClassName}-show-extra-hover`]: showExtra === 'hover',
     },
     hashId,
     defaultClassName,

@@ -93,7 +93,6 @@ export type ProListProps<
      * ]}
      */
     metas?: ProListMetas<RecordType>;
-    showExtra?: 'hover' | 'always';
     onRow?: GetComponentProps<RecordType>;
     onItem?: GetComponentProps<RecordType>;
     itemCardProps?: CheckCardProps;
@@ -162,7 +161,6 @@ function InternalProList<
     options = false,
     search = false,
     expandable,
-    showExtra,
     rowSelection: propRowSelection = false,
     pagination: propsPagination = false,
     itemLayout,
@@ -252,7 +250,6 @@ function InternalProList<
             rowKey={rowKey}
             expandable={expandable}
             rowSelection={propRowSelection === false ? undefined : rowSelection}
-            showExtra={showExtra}
             pagination={pagination as PaginationProps}
             itemLayout={itemLayout}
             loading={loading}

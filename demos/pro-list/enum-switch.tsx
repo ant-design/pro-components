@@ -49,8 +49,6 @@ const Demo = () => {
   const [itemLayout, setItemLayout] = useState<'horizontal' | 'vertical'>(
     'horizontal',
   );
-  const [showExtra, setShowExtra] = useState<'hover' | 'always'>('always');
-
   return (
     <div>
       <Space
@@ -75,23 +73,11 @@ const Demo = () => {
             ]}
           />
         </Space>
-        <Space>
-          <span>showExtra 额外内容：</span>
-          <Segmented
-            value={showExtra}
-            onChange={(v) => setShowExtra(v as any)}
-            options={[
-              { label: '始终 always', value: 'always' },
-              { label: '悬停 hover', value: 'hover' },
-            ]}
-          />
-        </Space>
       </Space>
 
       <ProList<ProjectItem>
         headerTitle="项目列表枚举切换"
         itemLayout={itemLayout}
-        showExtra={showExtra}
         dataSource={dataSource}
         rowKey="title"
         split
