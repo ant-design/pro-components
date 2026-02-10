@@ -1,18 +1,20 @@
 import { Keyframes } from '@ant-design/cssinjs';
 import type { GenerateStyle, ProAliasToken } from '../../provider';
-import { useStyle as useAntdStyle } from '../../provider';
+import { setAlpha, useStyle as useAntdStyle } from '../../provider';
 
 export interface ProListToken extends ProAliasToken {
   componentCls: string;
 }
 
-export const techUiListActive = new Keyframes('techUiListActive', {
-  '0%': { backgroundColor: 'unset' },
-  '30%': { background: '#fefbe6' },
-  '100%': { backgroundColor: 'unset' },
-}) as any;
+const genTechUiListActiveKeyframes = (token: ProListToken) =>
+  new Keyframes('techUiListActive', {
+    '0%': { backgroundColor: 'unset' },
+    '30%': { background: token.colorWarningBg ?? setAlpha(token.colorWarning, 0.15) },
+    '100%': { backgroundColor: 'unset' },
+  }) as any;
 
 const genProListStyle: GenerateStyle<ProListToken> = (token) => {
+  const techUiListActive = genTechUiListActiveKeyframes(token);
   return {
     [token.componentCls]: {
       boxSizing: 'border-box',
@@ -21,7 +23,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
       },
       backgroundColor: 'transparent',
 
-      [`${token.proComponentsCls}-table-alert`]: { marginBlockEnd: '16px' },
+      [`${token.proComponentsCls}-table-alert`]: { marginBlockEnd: token.margin },
       [`${token.proComponentsCls}-list-item`]: {
         display: 'flex',
         flexDirection: 'column',
@@ -59,13 +61,13 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         flexDirection: 'row',
         alignItems: 'flex-start',
         minWidth: 0,
-        gap: '8px',
+        gap: token.marginXS,
       },
       [`${token.proComponentsCls}-list-item-meta-title`]: {
         display: 'flex',
         flexWrap: 'wrap',
         alignItems: 'center',
-        gap: '8px',
+        gap: token.marginXS,
         borderBlockEnd: 'none',
         margin: 0,
         minWidth: 0,
@@ -114,13 +116,13 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           minWidth: 0,
           display: 'flex',
           flexDirection: 'column',
-          gap: '4px',
+          gap: token.marginXXS,
         },
         [`${token.proComponentsCls}-list-item-meta-title`]: {
           display: 'flex',
           flexWrap: 'wrap',
           alignItems: 'center',
-          gap: '8px',
+          gap: token.marginXS,
           borderBlockEnd: 'none',
           margin: 0,
         },
@@ -131,7 +133,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           },
         },
         '&:hover': {
-          backgroundColor: 'rgba(0, 0, 0, 0.02)',
+          backgroundColor: setAlpha(token.colorTextBase, 0.02),
           transition: 'background-color 0.3s',
           [`${token.proComponentsCls}-list-item-action`]: {
             display: 'flex',
@@ -172,14 +174,14 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
             flexShrink: 9,
             marginBlock: 0,
             marginInline: 0,
-            lineHeight: '22px',
+            lineHeight: 22,
           },
         },
         [`&${token.componentCls}-row-editable`]: {
           [`${token.proComponentsCls}-list-item`]: {
             '&-meta': {
               '&-avatar,&-description,&-title': {
-                paddingBlock: 6,
+                paddingBlock: token.paddingSM,
                 paddingInline: 0,
                 '&-editable': {
                   paddingBlock: 0,
@@ -215,8 +217,8 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           backgroundImage:
             "url('https://gw.alipayobjects.com/zos/antfincdn/DehQfMbOJb/icon.svg')",
           backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'left top',
-          backgroundSize: '12px 12px',
+          backgroundPosition: '0 0',
+          backgroundSize: `${token.fontSizeSM}px ${token.fontSizeSM}px`,
         },
         '&-show-action-hover': {
           [`${token.proComponentsCls}-list-item-action,
@@ -246,29 +248,28 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          height: '44px',
-          paddingInline: 24,
+          height: 44,
+          paddingInline: token.paddingLG,
           paddingBlock: 0,
           color: token.colorTextSecondary,
-          lineHeight: '44px',
-          background: 'rgba(0, 0, 0, 0.02)',
+          lineHeight: 44,
+          background: setAlpha(token.colorTextBase, 0.02),
           '&-actions': {
             display: 'none',
           },
           '&-actions *': {
-            marginInlineEnd: 8,
+            marginInlineEnd: token.marginXS,
             '&:last-child': {
               marginInlineEnd: 0,
             },
           },
         },
         '&-expand-icon': {
-          marginInlineEnd: 8,
+          marginInlineEnd: token.marginXS,
           display: 'flex',
-          fontSize: 12,
+          fontSize: token.fontSizeSM,
           cursor: 'pointer',
-          height: '24px',
-          marginRight: 4,
+          height: 24,
           color: token.colorTextSecondary,
           '> .anticon > svg': {
             transition: '0.3s',
@@ -285,7 +286,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           wordBreak: 'break-word',
           cursor: 'pointer',
           '&-editable': {
-            paddingBlock: 8,
+            paddingBlock: token.paddingSM,
           },
           '&:hover': {
             color: token.colorPrimary,
@@ -302,14 +303,14 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           display: 'inline-flex',
           flexWrap: 'wrap',
           alignItems: 'center',
-          gap: '4px',
-          color: 'rgba(0, 0, 0, 0.45)',
+          gap: token.marginXXS,
+          color: token.colorTextSecondary,
           '&-editable': {
-            paddingBlock: 8,
+            paddingBlock: token.paddingSM,
           },
         },
         '&-description': {
-          marginBlockStart: '4px',
+          marginBlockStart: token.marginXXS,
           wordBreak: 'break-all',
           flexShrink: 0,
         },
@@ -338,7 +339,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           flexDirection: 'row',
           flexWrap: 'wrap',
           alignItems: 'center',
-          gap: '8px',
+          gap: token.marginXS,
           flex: '1',
           minWidth: 0,
         },
@@ -347,11 +348,11 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           flexShrink: 0,
           alignItems: 'center',
         },
-        '&-checkbox': { width: '16px', marginInlineEnd: '12px' },
+        '&-checkbox': { width: 16, marginInlineEnd: token.marginSM },
 
         [`${token.proComponentsCls}-list-vertical`]: {
           [`${token.componentCls}-row`]: {
-            borderBlockEnd: '12px 18px 12px 24px',
+            marginBlockEnd: token.marginSM,
           },
           '&-header-title': {
             display: 'flex',
@@ -360,12 +361,12 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
             justifyContent: 'center',
           },
           '&-content': { marginBlock: 0, marginInline: 0 },
-          '&-subTitle': { marginBlockStart: 8 },
+          '&-subTitle': { marginBlockStart: token.marginXS },
           [`${token.proComponentsCls}-list-item-extra`]: {
             display: 'flex',
             alignItems: 'center',
             [`${token.componentCls}-row-description`]: {
-              marginBlockStart: 16,
+              marginBlockStart: token.margin,
             },
           },
           [`${token.proComponentsCls}-list-bordered ${token.proComponentsCls}-list-item`]:
@@ -384,7 +385,11 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           marginBlockEnd: token.margin,
         },
         [`${token.proComponentsCls}-list-list`]: {
-          '&-item': { cursor: 'pointer', paddingBlock: 12, paddingInline: 12 },
+          '&-item': {
+            cursor: 'pointer',
+            paddingBlock: token.paddingSM,
+            paddingInline: token.paddingSM,
+          },
         },
         [`${token.proComponentsCls}-list-vertical ${token.proComponentsCls}-list-row`]:
           {
@@ -395,13 +400,13 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
             },
             [`${token.proComponentsCls}-list-item`]: {
               width: '100%',
-              paddingBlock: 12,
-              paddingInlineStart: 24,
-              paddingInlineEnd: 18,
+              paddingBlock: token.paddingSM,
+              paddingInlineStart: token.paddingLG,
+              paddingInlineEnd: token.paddingMD,
               [`${token.proComponentsCls}-list-item-meta-avatar`]: {
                 display: 'flex',
                 alignItems: 'center',
-                marginInlineEnd: 8,
+                marginInlineEnd: token.marginXS,
               },
               [`${token.proComponentsCls}-list-item-meta-title`]: {
                 marginBlock: 0,
