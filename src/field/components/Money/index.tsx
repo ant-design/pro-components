@@ -1,7 +1,7 @@
 import { omit, useControlledState } from '@rc-component/util';
 import type { InputNumberProps } from 'antd';
 import { InputNumber, Popover } from 'antd';
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { intlMap as allIntlMap, useIntl } from '../../../provider';
 import type { ProFieldFC } from '../../PureProField';
 
@@ -238,6 +238,14 @@ const InputNumberPopover = React.forwardRef<
 
     // 使用本地状态管理 Popover 显示，同时支持受控模式
     const [localOpen, setLocalOpen] = useState(open ?? false);
+    
+    // 跟踪组件挂载状态，防止在卸载后执行状态更新
+    const mountedRef = useRef(true);
+    useEffect(() => {
+      return () => {
+        mountedRef.current = false;
+      };
+    }, []);
 
     // 同步外部 open 属性到本地状态，支持受控模式
     useEffect(() => {
@@ -267,7 +275,10 @@ const InputNumberPopover = React.forwardRef<
         if (open === undefined) {
           // 使用 queueMicrotask 延迟状态更新，避免在渲染期间触发 flushSync
           queueMicrotask(() => {
-            setLocalOpen(visible);
+            // 检查组件是否仍然挂载，避免在卸载后更新状态
+            if (mountedRef.current) {
+              setLocalOpen(visible);
+            }
           });
         }
       },
