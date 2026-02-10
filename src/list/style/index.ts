@@ -21,7 +21,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
       '*, *::before, *::after': {
         boxSizing: 'border-box',
       },
-      backgroundColor: 'transparent',
+      backgroundColor: token.colorBgContainer,
 
       [`${token.proComponentsCls}-table-alert`]: { marginBlockEnd: token.margin },
       [`${token.proComponentsCls}-list-item`]: {
