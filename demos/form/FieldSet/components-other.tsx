@@ -47,7 +47,7 @@ const Demo = () => {
       />
       <ProForm
         readonly={readonly}
-        name="validate_other"
+        name="field-set-components-other-demo"
         initialValues={{
           name: 'demo_user',
           password: 'demo123',

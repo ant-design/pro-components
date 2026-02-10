@@ -24,6 +24,7 @@ const Demo = () => {
       name: string;
       company: string;
     }>
+      name="modal-form-drawer-form-demo"
       title="Create New Form"
       resize={{
         onResize() {

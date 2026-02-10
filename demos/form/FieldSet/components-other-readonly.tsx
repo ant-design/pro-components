@@ -45,7 +45,7 @@ const Demo = () => (
   >
     <ProForm
       readonly
-      name="validate_other"
+      name="field-set-components-other-readonly-demo"
       initialValues={{
         'select-multiple': ['red', 'green'],
         'select-multiple2': [1, 2, 3],
