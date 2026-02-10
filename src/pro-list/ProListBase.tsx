@@ -221,7 +221,7 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps<any>>(
     const {
       pagination = false,
       prefixCls: customizePrefixCls,
-      variant = 'default',
+      variant = 'borderless',
       split = true,
       className,
       rootClassName,
