@@ -309,14 +309,26 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps<any>>(
       );
     };
 
-    const screens = Grid.useBreakpoint() || {
+    const rawScreens = Grid.useBreakpoint();
+    const defaultScreens = {
       xs: true,
       sm: true,
       md: true,
       lg: false,
       xl: false,
       xxl: false,
-    };
+    } as const;
+    const screens = useMemo(() => {
+      if (rawScreens == null) return defaultScreens;
+      return {
+        xxl: rawScreens.xxl ?? defaultScreens.xxl,
+        xl: rawScreens.xl ?? defaultScreens.xl,
+        lg: rawScreens.lg ?? defaultScreens.lg,
+        md: rawScreens.md ?? defaultScreens.md,
+        sm: rawScreens.sm ?? defaultScreens.sm,
+        xs: rawScreens.xs ?? defaultScreens.xs,
+      };
+    }, [rawScreens]);
 
     /**
      * 根据当前断点获取列数，与 antd Grid/Card 响应式逻辑一致
