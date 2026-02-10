@@ -1,7 +1,6 @@
 import { ReloadOutlined } from '@ant-design/icons';
 import type { TableColumnType } from 'antd';
 import { Tooltip } from 'antd';
-import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import React, {
   memo,
   useCallback,
@@ -11,6 +10,7 @@ import React, {
 } from 'react';
 import type { IntlType } from '../../../provider';
 import { useIntl } from '../../../provider';
+import type { LabelTooltipType } from '../../../utils';
 import { isDeepEqualReact, omitUndefined } from '../../../utils';
 import { TableContext } from '../../Store/Provide';
 import type {

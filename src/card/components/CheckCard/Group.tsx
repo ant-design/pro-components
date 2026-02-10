@@ -391,15 +391,13 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
 
   const children = useMemo((): React.ReactNode => {
     if (loading) {
-      return (
-        new Array(
-          options.length || React.Children.toArray(props.children).length || 1,
-        )
-          .fill(0)
-          .map((_, index) => (
-            <CheckCard key={index} loading />
-          )) as React.ReactNode[]
-      );
+      return new Array(
+        options.length || React.Children.toArray(props.children).length || 1,
+      )
+        .fill(0)
+        .map((_, index) => (
+          <CheckCard key={index} loading />
+        )) as React.ReactNode[];
     }
 
     if (options && options.length > 0) {

@@ -1,6 +1,5 @@
 import type { SpinProps, TableProps } from 'antd';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
-import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { NamePath } from 'antd/lib/form/interface';
 import type { SearchProps } from 'antd/lib/input';
 import type {
@@ -21,6 +20,7 @@ import type {
   QueryFilterProps,
 } from '../form';
 import type {
+  LabelTooltipType,
   ProCoreActionType,
   ProEllipsis,
   ProSchema,

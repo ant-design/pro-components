@@ -396,7 +396,7 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
     <LightWrapper
       {...lightPropsForWrapper}
       key={rest.proFormFieldKey || rest.name?.toString()}
-      size={size}
+      size={size as any}
     >
       {children}
     </LightWrapper>

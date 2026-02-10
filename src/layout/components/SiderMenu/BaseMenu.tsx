@@ -718,8 +718,8 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   }
   return wrapSSR(
     <Menu
-      {...openKeysProps}
-      tooltip={false}
+      {...(openKeysProps as any)}
+      {...({ tooltip: false } as any)}
       key="Menu"
       mode={mode}
       inlineIndent={16}

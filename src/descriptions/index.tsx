@@ -3,7 +3,6 @@ import { get, toArray } from '@rc-component/util';
 import type { DescriptionsProps, FormInstance, FormProps } from 'antd';
 import { ConfigProvider, Descriptions, Space } from 'antd';
 import type { DescriptionsItemType } from 'antd/lib/descriptions';
-import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import React, { useContext, useEffect } from 'react';
 import ValueTypeToComponent from '../field/ValueTypeToComponent';
 import ProForm, { ProFormField } from '../form';
@@ -23,6 +22,7 @@ import {
   ErrorBoundary,
   InlineErrorFormItem,
   LabelIconTip,
+  LabelTooltipType,
   genCopyable,
   getFieldPropsOrFormItemProps,
   stringify,

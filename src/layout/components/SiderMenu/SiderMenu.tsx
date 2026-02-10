@@ -299,37 +299,34 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     return dom;
   }, [avatarProps, baseClassName, collapsed]);
 
-  const actionsDom = useMemo(
-    () => {
-      if (!actionsRender) return null;
-      return (
-        <Space
-          align="center"
-          size={4}
-          orientation={collapsed ? 'vertical' : 'horizontal'}
-          className={clsx([
-            `${baseClassName}-actions-list`,
-            collapsed && `${baseClassName}-actions-list-collapsed`,
-            hashId,
-          ])}
-        >
-          {[actionsRender?.(props as HeaderViewProps)]
-            .flat(1)
-            .map((item, index) => {
-              return (
-                <div
-                  key={index}
-                  className={`${baseClassName}-actions-list-item ${hashId}`.trim()}
-                >
-                  {item}
-                </div>
-              );
-            })}
-        </Space>
-      );
-    },
-    [actionsRender, baseClassName, collapsed],
-  );
+  const actionsDom = useMemo(() => {
+    if (!actionsRender) return null;
+    return (
+      <Space
+        align="center"
+        size={4}
+        orientation={collapsed ? 'vertical' : 'horizontal'}
+        className={clsx([
+          `${baseClassName}-actions-list`,
+          collapsed && `${baseClassName}-actions-list-collapsed`,
+          hashId,
+        ])}
+      >
+        {[actionsRender?.(props as HeaderViewProps)]
+          .flat(1)
+          .map((item, index) => {
+            return (
+              <div
+                key={index}
+                className={`${baseClassName}-actions-list-item ${hashId}`.trim()}
+              >
+                {item}
+              </div>
+            );
+          })}
+      </Space>
+    );
+  }, [actionsRender, baseClassName, collapsed]);
 
   const appsDom = useMemo(() => {
     return (

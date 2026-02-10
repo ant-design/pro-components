@@ -7,7 +7,6 @@ import {
 import { warning } from '@rc-component/util';
 import type { ColProps } from 'antd';
 import { ConfigProvider, Form } from 'antd';
-import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type {
   FormListFieldData,
   FormListOperation,
@@ -24,6 +23,7 @@ import React, {
   useRef,
 } from 'react';
 import { useIntl } from '../../../provider';
+import type { LabelTooltipType } from '../../../utils';
 import { ProFormContext } from '../../../utils';
 import FieldContext from '../../FieldContext';
 import { useGridHelpers } from '../../helpers';

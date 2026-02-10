@@ -1,4 +1,5 @@
 import { ConfigProvider } from 'antd';
+import type { SizeType as AntdSizeType } from 'antd/lib/config-provider/SizeContext';
 import type { TooltipPlacement } from 'antd/lib/tooltip';
 import { clsx } from 'clsx';
 import React, { useContext, useMemo, useState } from 'react';
@@ -11,7 +12,7 @@ import {
 import type { LightFilterFooterRender } from '../../typing';
 import { useStyle } from './style';
 
-export type SizeType = 'small' | 'middle' | 'large' | undefined;
+export type SizeType = AntdSizeType;
 
 export type LightWrapperProps = {
   label?: React.ReactNode;

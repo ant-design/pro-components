@@ -1,7 +1,6 @@
 import { warning } from '@rc-component/util';
 import type { PaginationProps } from 'antd';
 import { ConfigProvider } from 'antd';
-import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import { clsx } from 'clsx';
 import React, {
   useContext,
@@ -19,7 +18,7 @@ import type {
   ProTableProps,
 } from '../table';
 import ProTable from '../table';
-import type { ProFieldValueType } from '../utils';
+import type { LabelTooltipType, ProFieldValueType } from '../utils';
 import type { ItemProps } from './Item';
 import ListView, { type ProListItemRender } from './ListView';
 import type { ListProps } from './ProListBase';

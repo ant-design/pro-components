@@ -181,7 +181,7 @@ The `Steps` component is combined with the `ProCard` component to complete the v
 | onCollapse            | Collapsed card event, invalid when controlled                                                                                                                                 | `(collapsed: boolean) => void`                               | -            |         |
 | tabs                  | Tab configuration                                                                                                                                                             | See below ProCardTabs                                        | -            |         |
 | variant               | Card variants                                                                                                                                                                 | `'outlined' \| 'borderless'`                                 | `'outlined'` | 5.24.0  |
-| styles                | custom header/body style                                                                                                                                                    | `{ body: CSSProperties, header: CSSProperties }`             | -            |         |
+| styles                | custom header/body style                                                                                                                                                      | `{ body: CSSProperties, header: CSSProperties }`             | -            |         |
 
 ### ProCardTabs
 

@@ -40,6 +40,31 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         width: '100%',
       },
 
+      // 分割线样式：col 之间的分割线
+      [` ${componentCls}-col${componentCls}-split-vertical`]: {
+        borderInlineEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+      },
+      [` ${componentCls}-col${componentCls}-split-horizontal`]: {
+        borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+      },
+
+      // Divider 分割线组件样式
+      [`${componentCls}-divider`]: {
+        flex: 'none',
+        alignSelf: 'stretch',
+        width: token.lineWidth,
+        marginInline: token.marginXS,
+        marginBlock: token.marginLG,
+        backgroundColor: token.colorSplit,
+        [`&${componentCls}-divider-horizontal`]: {
+          width: 'auto',
+          alignSelf: 'auto',
+          height: token.lineWidth,
+          marginInline: token.marginLG,
+          marginBlock: token.marginXS,
+        },
+      },
+
       '&-border': {
         border: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
       },
@@ -211,19 +236,17 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
             paddingBlock: token.paddingSM,
           },
         },
+        [` ${componentCls}-divider`]: {
+          marginBlock: token.marginLG,
+          marginInline: token.marginXS,
+          [`&${componentCls}-divider-horizontal`]: {
+            marginBlock: token.marginXS,
+            marginInline: token.marginLG,
+          },
+        },
         [`${componentCls}-header${componentCls}-header-collapsible`]: {
           paddingBlock: token.paddingXS,
         },
-      },
-    },
-
-    [`${componentCls}-col`]: {
-      [`&${componentCls}-split-vertical`]: {
-        borderInlineEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
-      },
-
-      [`&${componentCls}-split-horizontal`]: {
-        borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
       },
     },
 

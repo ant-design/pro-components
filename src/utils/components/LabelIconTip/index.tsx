@@ -1,12 +1,9 @@
 import { InfoCircleOutlined } from '@ant-design/icons';
 import { ConfigProvider, Tooltip } from 'antd';
-import type {
-  LabelTooltipType,
-  WrapperTooltipProps,
-} from 'antd/lib/form/FormItemLabel';
 import { clsx } from 'clsx';
 import React, { useContext } from 'react';
 import type { ProEllipsis } from '../../genCopyable';
+import type { LabelTooltipType, WrapperTooltipProps } from '../../typing';
 import { useStyle } from './style';
 
 /**

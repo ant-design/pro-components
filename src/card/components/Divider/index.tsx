@@ -30,7 +30,11 @@ const ProCardDivider: React.FC<ProCardDividerProps> = (props) => {
   const prefixCls = `${proCardPrefixCls}-divider`;
   const { wrapSSR, hashId } = useStyle(proCardPrefixCls);
 
-  const { className, style = {}, orientation } = props;
+  const {
+    className,
+    style = {},
+    orientation = 'vertical',
+  } = props;
 
   const classString = clsx(prefixCls, className, hashId, {
     [`${prefixCls}-${orientation}`]: orientation,
