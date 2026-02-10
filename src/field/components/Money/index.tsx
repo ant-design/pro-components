@@ -1,7 +1,7 @@
 import { omit, useControlledState } from '@rc-component/util';
 import type { InputNumberProps } from 'antd';
 import { InputNumber, Popover } from 'antd';
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback, useRef, useMemo, useState } from 'react';
 import { intlMap as allIntlMap, useIntl } from '../../../provider';
 import type { ProFieldFC } from '../../PureProField';
 
@@ -235,6 +235,12 @@ const InputNumberPopover = React.forwardRef<
       () => rest.defaultValue,
       rest.value,
     );
+    
+    // 使用本地状态管理 Popover 显示，避免在渲染期间触发 flushSync
+    const [localOpen, setLocalOpen] = useState(false);
+    // 使用 ref 追踪是否正在处理状态更新，避免重复调度
+    const isUpdatingRef = useRef(false);
+    
     const onChange = useCallback(
       (updater: any | ((prev: any) => any)) => {
         setValueInner((prev: any) => {
@@ -246,8 +252,21 @@ const InputNumberPopover = React.forwardRef<
           return next;
         });
       },
-      [rest.onChange],
+      [rest, setValueInner],
     );
+    
+    // 优化的 onOpenChange 处理器
+    const handleOpenChange = useCallback((visible: boolean) => {
+      // 如果正在更新，跳过
+      if (isUpdatingRef.current) return;
+      
+      isUpdatingRef.current = true;
+      // 使用 queueMicrotask 延迟状态更新，避免在渲染期间触发 flushSync
+      queueMicrotask(() => {
+        setLocalOpen(visible);
+        isUpdatingRef.current = false;
+      });
+    }, []);
 
     /**
      * 如果content 存在要根据 content 渲染一下
@@ -257,10 +276,16 @@ const InputNumberPopover = React.forwardRef<
       value,
     });
 
+    // 没有 dom 时不显示 Popover
+    if (!dom) {
+      return <InputNumber ref={ref} {...rest} value={value} onChange={onChange} />;
+    }
+
     return (
       <Popover
         placement="topLeft"
-        open={dom ? open : false}
+        open={localOpen}
+        onOpenChange={handleOpenChange}
         trigger={['focus', 'click']}
         content={dom}
         getPopupContainer={(triggerNode) => {
