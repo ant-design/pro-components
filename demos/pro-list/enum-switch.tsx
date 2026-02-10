@@ -49,6 +49,9 @@ const Demo = () => {
   const [itemLayout, setItemLayout] = useState<'horizontal' | 'vertical'>(
     'horizontal',
   );
+  const [bordered, setBordered] = useState(false);
+  const [split, setSplit] = useState(true);
+
   return (
     <div>
       <Space
@@ -73,14 +76,37 @@ const Demo = () => {
             ]}
           />
         </Space>
+        <Space>
+          <span>bordered 外边框：</span>
+          <Segmented
+            value={bordered ? 'true' : 'false'}
+            onChange={(v) => setBordered(v === 'true')}
+            options={[
+              { label: '无边框', value: 'false' },
+              { label: '有边框', value: 'true' },
+            ]}
+          />
+        </Space>
+        <Space>
+          <span>split 分割线：</span>
+          <Segmented
+            value={split ? 'true' : 'false'}
+            onChange={(v) => setSplit(v === 'true')}
+            options={[
+              { label: '有分割线', value: 'true' },
+              { label: '无分割线', value: 'false' },
+            ]}
+          />
+        </Space>
       </Space>
 
       <ProList<ProjectItem>
         headerTitle="项目列表枚举切换"
         itemLayout={itemLayout}
+        bordered={bordered}
+        split={split}
         dataSource={dataSource}
         rowKey="title"
-        split
         toolBarRender={() => [
           <Button key="new" type="primary">
             新建项目

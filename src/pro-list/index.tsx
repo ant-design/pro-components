@@ -154,6 +154,7 @@ function InternalProList<
     metas,
     columns: propsColumns,
     split,
+    bordered,
     footer,
     rowKey,
     tooltip,
@@ -247,6 +248,7 @@ function InternalProList<
             size={size as 'large'}
             footer={footer}
             split={split}
+            bordered={bordered}
             rowKey={rowKey}
             expandable={expandable}
             rowSelection={propRowSelection === false ? undefined : rowSelection}

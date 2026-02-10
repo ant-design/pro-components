@@ -17,7 +17,7 @@ ProList 基于 ProTable 实现，可以认为是 ProTable 的一个特例，将�
 
 ### 枚举属性切换
 
-通过 Segmented 分段选择器切换 `itemLayout` 枚举属性。
+通过 Segmented 分段选择器切换 `itemLayout`、`bordered`、`split` 属性。
 
 <code src="../../demos/pro-list/enum-switch.tsx" background="var(--main-bg-color)" title="枚举属性切换"></code>
 

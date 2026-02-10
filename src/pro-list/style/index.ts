@@ -329,8 +329,35 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
             },
         },
         '&-bordered': {
+          border: `${token.lineWidth}px ${token.lineType} ${token.colorBorderSecondary}`,
+          borderRadius: token.borderRadius,
           [`${token.componentCls}-toolbar`]: {
-            borderBlockEnd: `1px solid ${token.colorSplit}`,
+            borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorBorderSecondary}`,
+          },
+          [`${token.proComponentsCls}-list-items`]: {
+            [`${token.proComponentsCls}-list-item`]: {
+              borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorBorderSecondary}`,
+              borderRadius: 0,
+              '&:last-child': {
+                borderBlockEnd: 'none',
+              },
+            },
+          },
+          [`${token.componentCls}-row`]: {
+            borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorBorderSecondary}`,
+            '&:last-child': {
+              borderBlockEnd: 'none',
+            },
+          },
+          [`${token.proComponentsCls}-list-header`]: {
+            paddingInline: token.paddingLG,
+            paddingBlock: token.paddingSM,
+            borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorBorderSecondary}`,
+          },
+          [`${token.proComponentsCls}-list-footer`]: {
+            paddingInline: token.paddingLG,
+            paddingBlock: token.paddingSM,
+            borderBlockStart: `${token.lineWidth}px ${token.lineType} ${token.colorBorderSecondary}`,
           },
         },
         [`${token.proComponentsCls}-list-vertical`]: {
