@@ -73,6 +73,7 @@ const Demo = () => {
       />
       <h1>嵌套json表单</h1>
       <ProForm
+        name="schema-form-dependency-demo"
         initialValues={{
           type: 'money',
         }}

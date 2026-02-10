@@ -29,6 +29,7 @@ const Demo = () => {
       <LightFilter<{
         sex: string;
       }>
+        name="query-filter-light-filter-test-demo"
         initialValues={{
           name1: 'yutingzhao1991',
           name3: '2020-08-19',

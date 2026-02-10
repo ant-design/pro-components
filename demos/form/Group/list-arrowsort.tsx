@@ -14,7 +14,10 @@ const Demo = () => {
         gap: 16,
       }}
     >
-      <ProForm onFinish={async (e) => console.log(e)}>
+      <ProForm
+        name="list-arrowsort-demo"
+        onFinish={async (e) => console.log(e)}
+      >
         <ProFormText name="name" label="姓名" />
 
         <ProFormList

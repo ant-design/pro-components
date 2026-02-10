@@ -288,6 +288,7 @@ const Demo = () => {
         />
       </Space>
       <BetaSchemaForm<DataItem>
+        name="schema-form-schema-demo"
         trigger={<a>点击我</a>}
         layoutType={layoutType}
         steps={[

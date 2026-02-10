@@ -23,6 +23,7 @@ const Demo = () => {
       name: string;
       company: string;
     }>
+      name="modal-form-demo"
       title="Create New Form"
       trigger={
         <Button type="primary">

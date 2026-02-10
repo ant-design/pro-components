@@ -17,6 +17,7 @@ const waitTime = (time: number = 100) => {
 const Demo = () => {
   return (
     <ProForm
+      name="form-dependency-demo"
       onFinish={async (values) => {
         await waitTime(2000);
         console.log(values);

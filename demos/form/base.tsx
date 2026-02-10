@@ -40,6 +40,7 @@ const Demo = () => {
       company?: string;
       useMode?: string;
     }>
+      name="base-form-demo"
       onFinish={async (values) => {
         await waitTime(2000);
         console.log(values);

@@ -10,7 +10,10 @@
 
 const Demo = () => {
   return (
-    <ProForm onFinish={async (e) => console.log(e)}>
+    <ProForm
+      name="dependency-debug-demo"
+      onFinish={async (e) => console.log(e)}
+    >
       <ProFormText name="name" label="姓名" />
       <ProFormList
         name="users"

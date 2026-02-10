@@ -78,7 +78,7 @@ const Demo = () => {
         <StepsForm.StepForm<{
           name: string;
         }>
-          name="base"
+          name="customize-steps-from-base"
           title="创建实验"
           onFinish={async ({ name }) => {
             console.log(name);
@@ -106,7 +106,7 @@ const Demo = () => {
         <StepsForm.StepForm<{
           checkbox: string;
         }>
-          name="checkbox"
+          name="customize-steps-from-checkbox"
           title="设置参数"
         >
           <ProFormCheckbox.Group
@@ -129,7 +129,7 @@ const Demo = () => {
             />
           </ProForm.Group>
         </StepsForm.StepForm>
-        <StepsForm.StepForm name="time" title="发布实验">
+        <StepsForm.StepForm name="customize-steps-from-time" title="发布实验">
           <ProFormCheckbox.Group
             name="checkbox"
             label="部署单元"

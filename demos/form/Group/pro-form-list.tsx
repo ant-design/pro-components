@@ -67,7 +67,7 @@ const Demo = () => {
           获取所有数据
         </Button>
       </Space>
-      <ProForm onFinish={async (e) => console.log(e)}>
+      <ProForm name="pro-form-list-demo" onFinish={async (e) => console.log(e)}>
         <ProFormList
           name="users"
           label="用户信息"

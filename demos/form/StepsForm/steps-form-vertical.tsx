@@ -29,7 +29,7 @@ const Demo = () => {
         name: string;
       }>
         stepsProps={{
-          direction: 'vertical',
+          orientation: 'vertical',
         }}
         formRef={formRef}
         onFinish={async () => {
@@ -45,7 +45,7 @@ const Demo = () => {
         <StepsForm.StepForm<{
           name: string;
         }>
-          name="base"
+          name="steps-form-vertical-base"
           title="创建实验"
           stepProps={{
             description: '这里填入的都是基本信息',
@@ -76,7 +76,7 @@ const Demo = () => {
         <StepsForm.StepForm<{
           checkbox: string;
         }>
-          name="checkbox"
+          name="steps-form-vertical-checkbox"
           title="设置参数"
           stepProps={{
             description: '这里填入运维参数',
@@ -117,7 +117,7 @@ const Demo = () => {
         <StepsForm.StepForm<{
           checkbox: string;
         }>
-          name="step3"
+          name="steps-form-vertical-step3"
           title="第三步"
           stepProps={{
             description: '这里填入运维参数',

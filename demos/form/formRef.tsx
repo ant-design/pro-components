@@ -44,6 +44,7 @@ const Demo = () => {
 
   return (
     <ProForm
+      name="formref-demo"
       title="新建表单"
       formRef={formRef}
       submitter={{

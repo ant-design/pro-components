@@ -8,7 +8,7 @@
 
 const Demo = () => {
   return (
-    <ProForm>
+    <ProForm name="dependency-demo">
       <ProFormSelect
         options={[
           {

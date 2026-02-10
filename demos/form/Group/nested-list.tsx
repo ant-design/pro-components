@@ -8,7 +8,7 @@
 
 const Demo = () => {
   return (
-    <ProForm onFinish={async (e) => console.log(e)}>
+    <ProForm name="nested-list-demo" onFinish={async (e) => console.log(e)}>
       <ProFormText name="name" label="姓名" />
       <ProFormList
         name="users"

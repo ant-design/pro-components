@@ -6,7 +6,7 @@
 
 const Demo = () => {
   return (
-    <ProForm>
+    <ProForm name="field-set-upload-demo">
       <ProFormUploadButton
         title="上传按钮的文本变啦"
         name="upload"

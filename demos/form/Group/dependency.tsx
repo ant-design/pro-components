@@ -8,7 +8,7 @@
 
 const Demo = () => {
   return (
-    <ProForm>
+    <ProForm name="group-dependency-demo">
       <ProFormList
         name={['default', 'users']}
         label="用户信息"
