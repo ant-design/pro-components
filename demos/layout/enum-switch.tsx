@@ -4,11 +4,7 @@ import {
   QuestionCircleFilled,
 } from '@ant-design/icons';
 import type { ProSettings } from '@ant-design/pro-components';
-import {
-  PageContainer,
-  ProCard,
-  ProLayout,
-} from '@ant-design/pro-components';
+import { PageContainer, ProCard, ProLayout } from '@ant-design/pro-components';
 import { Segmented, Space, theme } from 'antd';
 import { useState } from 'react';
 import defaultProps from './_defaultProps';

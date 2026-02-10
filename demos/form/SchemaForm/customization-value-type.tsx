@@ -6,7 +6,7 @@ import React, { useContext, useRef, useState } from 'react';
 
 import { DEMO_VALUE_ENUM } from '../../mockData';
 
-const valueEnum = {
+const _valueEnum = {
   0: 'close',
   1: 'running',
   2: 'online',

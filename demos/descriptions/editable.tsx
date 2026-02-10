@@ -88,12 +88,10 @@ const Demo = () => {
             mode: 'multiple',
           },
           request: async () =>
-            ['优秀', '良好', '一般', '待改进', '不合格'].map(
-              (item, index) => ({
-                label: item,
-                value: index,
-              }),
-            ),
+            ['优秀', '良好', '一般', '待改进', '不合格'].map((item, index) => ({
+              label: item,
+              value: index,
+            })),
         },
         {
           title: '签约日期',

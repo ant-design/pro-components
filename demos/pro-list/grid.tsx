@@ -113,7 +113,7 @@ const apps = [
   },
 ];
 
-const statusMap = {
+const statusMap: Record<string, { text: string; color: string }> = {
   active: { text: '运行中', color: 'success' },
   beta: { text: '测试中', color: 'processing' },
 };
