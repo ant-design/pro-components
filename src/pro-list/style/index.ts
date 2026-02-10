@@ -20,23 +20,45 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         boxSizing: 'border-box',
       },
       backgroundColor: 'transparent',
-      [`${token.proComponentsCls}-table-alert`]: { marginBlockEnd: '16px' },
-      [`${token.proComponentsCls}-list-items`]: {
-        padding: 0,
-        margin: 0,
-        listStyle: 'none',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: token.marginSM,
+      '&-split': {
+        [`${token.componentCls}-row`]: {
+          borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+          '&:last-child': {
+            borderBlockEnd: 'none',
+          },
+        },
         [`${token.proComponentsCls}-list-item`]: {
-          padding: token.paddingXS,
-          display: 'flex',
-          borderRadius: token.borderRadius,
-          listStyle: 'none',
-          flex: 1,
-          minWidth: 0,
+          borderRadius: 0,
+          borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+          '&:last-child': {
+            borderBlockEnd: 'none',
+          },
         },
       },
+      '&-filled': {
+        backgroundColor: token.colorFillQuaternary,
+        borderRadius: token.borderRadius,
+        [`${token.componentCls}-toolbar`]: {
+          borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+        },
+      },
+      '&-outlined': {
+        border: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+        borderRadius: token.borderRadius,
+      },
+      '&-borderless': {
+        [`${token.componentCls}-toolbar`]: {
+          borderBlockEnd: 'none',
+        },
+      },
+      '&-no-split': {
+        [`${token.componentCls}-row`]: { borderBlockEnd: 'none' },
+        [`${token.proComponentsCls}-list ${token.proComponentsCls}-list-item`]:
+          {
+            borderBlockEnd: 'none',
+          },
+      },
+      [`${token.proComponentsCls}-table-alert`]: { marginBlockEnd: '16px' },
       [`${token.proComponentsCls}-list-item`]: {
         display: 'flex',
         flexDirection: 'column',
@@ -44,6 +66,8 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         minWidth: 0,
         padding: token.paddingXS,
         alignItems: 'flex-start',
+        borderRadius: token.borderRadius,
+        listStyle: 'none',
         '& > *:first-child': {
           flex: 1,
           minWidth: 0,
@@ -321,77 +345,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           alignItems: 'center',
         },
         '&-checkbox': { width: '16px', marginInlineEnd: '12px' },
-        '&-split': {
-          [`${token.componentCls}-row`]: {
-            borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
-            '&:last-child': {
-              borderBlockEnd: 'none',
-            },
-          },
-          [`${token.proComponentsCls}-list-items`]: {
-            gap: 0,
-            [`${token.proComponentsCls}-list-item`]: {
-              borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
-              '&:last-child': {
-                borderBlockEnd: 'none',
-              },
-            },
-          },
-        },
-        '&-filled': {
-          backgroundColor: token.colorFillQuaternary,
-          borderRadius: token.borderRadius,
-          [`${token.componentCls}-toolbar`]: {
-            borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
-          },
-        },
-        '&-borderless': {
-          [`${token.componentCls}-toolbar`]: {
-            borderBlockEnd: 'none',
-          },
-          [`${token.componentCls}-row`]: {
-            borderBlockEnd: 'none',
-          },
-        },
-        '&-no-split': {
-          [`${token.componentCls}-row`]: { borderBlockEnd: 'none' },
-          [`${token.proComponentsCls}-list ${token.proComponentsCls}-list-item`]:
-            {
-              borderBlockEnd: 'none',
-            },
-        },
-        '&-bordered': {
-          border: `${token.lineWidth}px ${token.lineType} ${token.colorBorderSecondary}`,
-          borderRadius: token.borderRadius,
-          [`${token.componentCls}-toolbar`]: {
-            borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorBorderSecondary}`,
-          },
-          [`${token.proComponentsCls}-list-items`]: {
-            [`${token.proComponentsCls}-list-item`]: {
-              borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorBorderSecondary}`,
-              borderRadius: 0,
-              '&:last-child': {
-                borderBlockEnd: 'none',
-              },
-            },
-          },
-          [`${token.componentCls}-row`]: {
-            borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorBorderSecondary}`,
-            '&:last-child': {
-              borderBlockEnd: 'none',
-            },
-          },
-          [`${token.proComponentsCls}-list-header`]: {
-            paddingInline: token.paddingLG,
-            paddingBlock: token.paddingSM,
-            borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorBorderSecondary}`,
-          },
-          [`${token.proComponentsCls}-list-footer`]: {
-            paddingInline: token.paddingLG,
-            paddingBlock: token.paddingSM,
-            borderBlockStart: `${token.lineWidth}px ${token.lineType} ${token.colorBorderSecondary}`,
-          },
-        },
+
         [`${token.proComponentsCls}-list-vertical`]: {
           [`${token.componentCls}-row`]: {
             borderBlockEnd: '12px 18px 12px 24px',
