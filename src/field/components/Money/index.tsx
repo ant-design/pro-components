@@ -250,7 +250,7 @@ const InputNumberPopover = React.forwardRef<
           return next;
         });
       },
-      [rest, setValueInner],
+      [rest.onChange, setValueInner],
     );
     
     // 优化的 onOpenChange 处理器
