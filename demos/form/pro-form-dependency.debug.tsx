@@ -14,7 +14,6 @@ const Demo = () => {
       name="dependency-debug-demo"
       onFinish={async (e) => console.log(e)}
     >
-      name="pro-form-dependency.debug-demo"
       <ProFormText name="name" label="姓名" />
       <ProFormList
         name="users"

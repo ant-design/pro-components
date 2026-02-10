@@ -43,7 +43,6 @@ const Demo = () => {
         readonly={readonly}
         onFinish={async (e) => console.log(e)}
       >
-        name="group-list-tooltip-demo"
         <ProFormText name="name" label="姓名" />
         <ProFormList
           name="labels"
