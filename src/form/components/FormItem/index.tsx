@@ -25,8 +25,8 @@ const FormItemProvide = React.createContext<{
 /**
  * 把value扔给 fieldProps，方便给自定义用
  *
- * @param param0
  * @returns
+ * @param formFieldProps
  */
 const WithValueFomFiledProps: React.FC<
   Record<string, any> & {
@@ -131,11 +131,16 @@ const WithValueFomFiledProps: React.FC<
       [valuePropName]: formFieldProps[valuePropName],
       ...filedChildren.props,
       onChange: finalChange,
-      fieldProps: {
-        ...(filedChildren.props as Record<string, any>)?.fieldProps,
-        ...fieldPropsFromRest,
-        ...fieldProps,
-      },
+      // 只有当子组件是 ProFormComponent 时才传递 fieldProps，避免传递给原生 DOM 元素
+      ...(!isProFormComponent && fieldProps
+        ? {
+            fieldProps: {
+              ...(filedChildren.props as Record<string, any>)?.fieldProps,
+              ...fieldPropsFromRest,
+              ...fieldProps,
+            },
+          }
+        : {}),
       ...(variantFromRest !== undefined && { variant: variantFromRest }),
       onBlur: isProFormComponent && !isValidElementForFiledChildren && onBlur,
     }),
