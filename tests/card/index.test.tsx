@@ -159,6 +159,40 @@ describe('Card', () => {
     wrapper.unmount();
   });
 
+  it('🥩 collapsible icon mode with custom icon render', async () => {
+    const fn = vi.fn();
+    const wrapper = render(
+      <ProCard
+        title="仅图标可折叠"
+        collapsibleIconRender={({ collapsed }: { collapsed: boolean }) =>
+          collapsed ? <span>展开</span> : <span>收起</span>
+        }
+        collapsible="icon"
+        defaultCollapsed
+        onCollapse={fn}
+      >
+        内容
+      </ProCard>,
+    );
+    await wrapper.findAllByText('仅图标可折叠');
+
+    expect(
+      !!wrapper.baseElement.querySelector<HTMLDivElement>(
+        '.ant-pro-card-collapse',
+      ),
+    ).toBeTruthy();
+
+    act(() => {
+      wrapper.baseElement
+        .querySelector<HTMLSpanElement>('.ant-pro-card-collapsible-icon')
+        ?.click();
+    });
+
+    await waitFor(() => {
+      expect(fn).toHaveBeenCalledWith(false);
+    });
+  });
+
   it('🥩 tabs onChange', async () => {
     const fn = vi.fn();
     const wrapper = render(
