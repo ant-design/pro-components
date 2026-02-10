@@ -21,7 +21,6 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
       '*, *::before, *::after': {
         boxSizing: 'border-box',
       },
-      backgroundColor: token.colorBgContainer,
       zIndex: 1,
       [`${token.antCls}-table-wrapper ${token.antCls}-table-pagination${token.antCls}-pagination`]:
         {

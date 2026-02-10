@@ -965,7 +965,7 @@ const ProTable = <
   });
 
   const tableAreaDom =
-    cardProps === false || notNeedCardDom || !!props.name ? (
+    cardProps === false || !!props.name ? (
       tableContentDom
     ) : (
       <ProCard
