@@ -63,26 +63,26 @@ QueryFilter supports the following properties in addition to the API inherited f
 
 #### Responsive Breakpoint Rules
 
-Note that the values of the breakpoints are the size of the form container and not the viewport size.
+Note that the values of the breakpoints are the size of the form container and not the viewport size. Breakpoint configuration inherits from antd design tokens and is consistent with [Grid](https://ant.design/components/grid) responsive breakpoints.
 
 ##### Rules for default layout
 
-| container-width breakpoint | single-row display form single-column count (including action area) | default layout |
+| container-width breakpoint  | single-row display form single-column count (including action area) | default layout |
 | -------------------------- | ------------------------------------------------------------------- | -------------- |
-| `≧ 1352px`                 | 4 columns                                                           | `horizontal`   |
-| `≧ 1062px`                 | 3 columns                                                           | `horizontal`   |
-| `≧ 701px && < 1063px`      | 3 columns                                                           | `horizontal`   |
-| `≧ 513px && < 701px`       | 2 columns                                                           | `vertical`     |
-| `< 513px`                  | 1 column                                                            | `vertical`     |
+| `≧ 1200px`                 | 4 columns                                                           | `horizontal`   |
+| `≧ 992px && < 1200px`      | 3 columns                                                           | `horizontal`   |
+| `≧ 768px && < 992px`       | 3 columns                                                           | `horizontal`   |
+| `≧ 576px && < 768px`       | 2 columns                                                           | `vertical`     |
+| `< 576px`                  | 1 column                                                            | `vertical`     |
 
 ##### Rules when forcing top and bottom layout
 
-| container width breakpoint | single row display table single column count (including operation area) |
+| container width breakpoint  | single row display table single column count (including operation area) |
 | -------------------------- | ----------------------------------------------------------------------- |
-| `≧ 1057px`                 | 4 columns                                                               |
-| `≧ 785px && < 1057px`      | 3 columns                                                               |
-| `≧ 513px && < 785px`       | 2 columns                                                               |
-| `< 513px`                  | 1 column                                                                |
+| `≧ 1200px`                 | 4 columns                                                               |
+| `≧ 768px && < 1200px`      | 3 columns                                                               |
+| `≧ 576px && < 768px`       | 2 columns                                                               |
+| `< 576px`                  | 1 column                                                                |
 
 ### LightFilter
 

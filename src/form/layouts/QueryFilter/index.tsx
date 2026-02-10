@@ -1,7 +1,7 @@
 import RcResizeObserver from '@rc-component/resize-observer';
 import { useControlledState } from '@rc-component/util';
 import type { ColProps, FormItemProps, RowProps } from 'antd';
-import { Col, ConfigProvider, Form, Row } from 'antd';
+import { Col, ConfigProvider, Form, Row, theme } from 'antd';
 import type { FormInstance, FormProps } from 'antd/lib/form/Form';
 import { clsx } from 'clsx';
 import type { ReactElement } from 'react';
@@ -14,31 +14,45 @@ import type { ActionsProps } from './Actions';
 import Actions from './Actions';
 import { useStyle } from './style';
 
-const CONFIG_SPAN_BREAKPOINTS = {
-  xs: 513,
-  sm: 513,
-  md: 785,
-  lg: 992,
-  xl: 1057,
-  xxl: Infinity,
+/** 从 antd 设计 token 获取断点配置，与 Grid 响应式布局保持一致 */
+const getBreakpointsFromToken = () => {
+  const token = theme.getDesignToken();
+  return {
+    xs: token.screenSMMin,
+    sm: token.screenMDMin,
+    md: token.screenLGMin,
+    lg: token.screenXLMin,
+    xl: token.screenXXLMin,
+    xxl: Infinity,
+  } as const;
 };
-/** 配置表单列变化的容器宽度断点 */
-const BREAKPOINTS = {
-  vertical: [
-    // [breakpoint, cols, layout]
-    [513, 1, 'vertical'],
-    [785, 2, 'vertical'],
-    [1057, 3, 'vertical'],
-    [Infinity, 4, 'vertical'],
-  ],
-  default: [
-    [513, 1, 'vertical'],
-    [701, 2, 'vertical'],
-    [1062, 3, 'horizontal'],
-    [1352, 3, 'horizontal'],
-    [Infinity, 4, 'horizontal'],
-  ],
+
+const CONFIG_SPAN_BREAKPOINTS = getBreakpointsFromToken();
+
+/** 配置表单列变化的容器宽度断点，继承 antd 断点值 */
+const getBreakpoints = (): {
+  vertical: (string | number)[][];
+  default: (string | number)[][];
+} => {
+  const bp = getBreakpointsFromToken();
+  return {
+    vertical: [
+      [bp.xs, 1, 'vertical'],
+      [bp.md, 2, 'vertical'],
+      [bp.xl, 3, 'vertical'],
+      [Infinity, 4, 'vertical'],
+    ],
+    default: [
+      [bp.xs, 1, 'vertical'],
+      [bp.sm, 2, 'vertical'],
+      [bp.lg, 3, 'horizontal'],
+      [bp.xl, 3, 'horizontal'],
+      [Infinity, 4, 'horizontal'],
+    ],
+  };
 };
+
+const BREAKPOINTS = getBreakpoints();
 
 /**
  * 合并用户和默认的配置
