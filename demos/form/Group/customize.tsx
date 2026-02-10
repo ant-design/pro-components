@@ -56,7 +56,6 @@ const Demo = () => {
     <ProCard variant="outlined" split="vertical" headerBordered>
       <ProCard colSpan="calc(100% - 400px)">
         <ProForm name="group-customize-demo-1">
-          name="group-customize-demo"
           <ProFormList
             name="users"
             label="用户信息"

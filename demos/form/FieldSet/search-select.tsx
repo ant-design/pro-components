@@ -20,7 +20,6 @@ export default () => {
         onChange={setReadonly}
       />
       <ProForm name="search-select-demo" readonly={readonly}>
-        name="field-set-search-select-demo"
         <ProForm.Group>
           <ProFormSelect.SearchSelect
             name="userQuery"

@@ -68,7 +68,6 @@ const Demo = () => {
         </Button>
       </Space>
       <ProForm name="pro-form-list-demo" onFinish={async (e) => console.log(e)}>
-        name="group-pro-form-list-demo"
         <ProFormList
           name="users"
           label="用户信息"

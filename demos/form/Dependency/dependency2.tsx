@@ -35,7 +35,6 @@ const Demo = () => {
   const depName3: NamePath[] = ['a', 'b', ['c', 'a']];
   return (
     <ProForm name="dependency2-demo" initialValues={initialValues}>
-      name="dependency-dependency2-demo"
       <ProFormGroup>
         <ProFormText name="a" label="a" />
         <ProFormText name="b" label="b" />

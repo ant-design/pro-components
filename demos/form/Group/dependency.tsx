@@ -9,7 +9,6 @@
 const Demo = () => {
   return (
     <ProForm name="group-dependency-demo">
-      name="group-dependency-demo"
       <ProFormList
         name={['default', 'users']}
         label="用户信息"

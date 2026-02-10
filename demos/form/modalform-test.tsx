@@ -43,7 +43,6 @@ const Demo = () => {
       <div>
         在form里面可以
         <ProForm name="modalform-test-demo" layout="horizontal">
-          name="modalform-test-demo"
           <FormModal />
           <ProFormList
             name="attributes"

@@ -8,7 +8,6 @@ import {
 const Demo = () => {
   return (
     <ProForm name="horizontal-layout-demo" layout="horizontal">
-      name="group-horizontal-layout-demo"
       <ProFormList
         name="attributes"
         label="规格"
