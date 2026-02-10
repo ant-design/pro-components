@@ -17,13 +17,7 @@ export const FIXED_BASE_DATE = dayjs('2024-01-15');
 // ============================
 
 /** 创建者列表（阿里花名风格） */
-export const DEMO_CREATORS = [
-  '书琰',
-  '逄一',
-  '期贤',
-  '玄霜',
-  '怀渊',
-] as const;
+export const DEMO_CREATORS = ['书琰', '逄一', '期贤', '玄霜', '怀渊'] as const;
 
 /** 创建者列 valueEnum */
 export const DEMO_CREATOR_VALUE_ENUM = {
@@ -168,7 +162,7 @@ export function createTableDataSource(
     const baseItem: BasicTableItem = {
       key: i,
       name: appName,
-      containers: (i * 3 + 2) % 12 + 1,
+      containers: ((i * 3 + 2) % 12) + 1,
       creator: DEMO_CREATORS[i % DEMO_CREATORS.length],
       status: DEMO_VALUE_ENUM[statusKeys[i % 4]],
       createdAt: FIXED_BASE_TIMESTAMP - i * 86400000,
@@ -419,8 +413,16 @@ export const DEMO_DEPARTMENT_TREE = [
     key: 'marketing',
     children: [
       { title: '品牌推广组', value: 'marketing-brand', key: 'marketing-brand' },
-      { title: '用户增长组', value: 'marketing-growth', key: 'marketing-growth' },
-      { title: '内容运营组', value: 'marketing-content', key: 'marketing-content' },
+      {
+        title: '用户增长组',
+        value: 'marketing-growth',
+        key: 'marketing-growth',
+      },
+      {
+        title: '内容运营组',
+        value: 'marketing-content',
+        key: 'marketing-content',
+      },
     ],
   },
 ] as const;

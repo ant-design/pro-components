@@ -1,8 +1,8 @@
 /**
  * 使用 columns + listSlot 的新 API，与 ProTable 兼容
  */
-import { ProList } from '@ant-design/pro-components';
 import type { ProColumns } from '@ant-design/pro-components';
+import { ProList } from '@ant-design/pro-components';
 import { Button, Space, Tag } from 'antd';
 import type { Key } from 'react';
 import { useState } from 'react';
@@ -90,10 +90,7 @@ const columns: ProColumns<DataItem>[] = [
     title: '操作',
     listSlot: 'actions',
     search: false,
-    render: (_, row) => [
-      <a key="edit">编辑</a>,
-      <a key="delete">删除</a>,
-    ],
+    render: () => [<a key="edit">编辑</a>, <a key="delete">删除</a>],
   },
 ];
 

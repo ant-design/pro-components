@@ -2,10 +2,9 @@
  * 卡片模式使用 columns + listSlot，推荐使用新的 columns API
  * actions 在卡片模式下默认渲染到 extra 位置
  */
-import { ProList } from '@ant-design/pro-components';
 import type { ProColumns } from '@ant-design/pro-components';
-import { Alert, Card, Progress, Radio, Tag } from 'antd';
-import { useState } from 'react';
+import { ProList } from '@ant-design/pro-components';
+import { Alert, Tag } from 'antd';
 
 type DataItem = {
   id: string;
@@ -30,7 +29,8 @@ const data: DataItem[] = [
     title: 'ProTable',
     category: '表格组件',
     description: '高级表格组件，支持搜索、筛选、排序等功能',
-    avatar: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
+    avatar:
+      'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
     downloads: 125000,
     rating: 4.8,
     status: 'stable',
@@ -40,7 +40,8 @@ const data: DataItem[] = [
     title: 'ProForm',
     category: '表单组件',
     description: '高级表单组件，简化表单开发流程',
-    avatar: 'https://gw.alipayobjects.com/zos/antfincdn/FLrTNDvlna/youdaoyun.png',
+    avatar:
+      'https://gw.alipayobjects.com/zos/antfincdn/FLrTNDvlna/youdaoyun.png',
     downloads: 98000,
     rating: 4.9,
     status: 'stable',
@@ -50,7 +51,8 @@ const data: DataItem[] = [
     title: 'ProLayout',
     category: '布局组件',
     description: '开箱即用的中后台布局方案',
-    avatar: 'https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg',
+    avatar:
+      'https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg',
     downloads: 156000,
     rating: 4.7,
     status: 'stable',
@@ -70,7 +72,8 @@ const data: DataItem[] = [
     title: 'ProDescriptions',
     category: '描述列表',
     description: '高级描述列表组件，支持编辑和请求',
-    avatar: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
+    avatar:
+      'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
     downloads: 45000,
     rating: 4.5,
     status: 'stable',
@@ -80,7 +83,8 @@ const data: DataItem[] = [
     title: 'ProList',
     category: '列表组件',
     description: '高级列表组件，支持多种展示模式',
-    avatar: 'https://gw.alipayobjects.com/zos/antfincdn/FLrTNDvlna/youdaoyun.png',
+    avatar:
+      'https://gw.alipayobjects.com/zos/antfincdn/FLrTNDvlna/youdaoyun.png',
     downloads: 52000,
     rating: 4.7,
     status: 'stable',
@@ -90,7 +94,8 @@ const data: DataItem[] = [
     title: 'ProSkeleton',
     category: '骨架屏',
     description: '高级骨架屏组件，更好的加载体验',
-    avatar: 'https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg',
+    avatar:
+      'https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg',
     downloads: 34000,
     rating: 4.4,
     status: 'beta',
@@ -108,7 +113,6 @@ const data: DataItem[] = [
 ];
 
 export default () => {
-
   const columns: ProColumns<DataItem>[] = [
     {
       title: '组件名称',
@@ -137,7 +141,8 @@ export default () => {
         <div style={{ flex: 1 }}>
           <div style={{ marginBottom: 8 }}>{record.description}</div>
           <div style={{ color: '#999', fontSize: 12 }}>
-            {record.category} • {(record.downloads / 1000).toFixed(1)}K 下载 • ⭐ {record.rating}
+            {record.category} • {(record.downloads / 1000).toFixed(1)}K 下载 •
+            ⭐ {record.rating}
           </div>
         </div>
       ),
@@ -145,10 +150,7 @@ export default () => {
     {
       title: '操作',
       listSlot: 'actions',
-      render: () => [
-        <a key="install">安装</a>,
-        <a key="docs">文档</a>,
-      ],
+      render: () => [<a key="install">安装</a>, <a key="docs">文档</a>],
     },
   ];
 

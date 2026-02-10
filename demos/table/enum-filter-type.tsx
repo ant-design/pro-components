@@ -18,7 +18,9 @@ type TableListItem = {
   createdAt: number;
 };
 
-const tableListDataSource = createTableDataSource({ count: 5 }) as TableListItem[];
+const tableListDataSource = createTableDataSource({
+  count: 5,
+}) as TableListItem[];
 
 const columns: ProColumns<TableListItem>[] = [
   {

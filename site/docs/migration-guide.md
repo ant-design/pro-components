@@ -498,15 +498,15 @@ ProList 的 `metas` API 已废弃，推荐使用 `columns` + `listSlot` 替代�
 
 迁移对照表：
 
-| metas 写法 | columns 写法 |
-| --- | --- |
-| `title: { dataIndex: 'name' }` | `{ dataIndex: 'name', listSlot: 'title' }` |
-| `avatar: { dataIndex: 'img' }` | `{ dataIndex: 'img', listSlot: 'avatar' }` |
+| metas 写法                           | columns 写法                                     |
+| ------------------------------------ | ------------------------------------------------ |
+| `title: { dataIndex: 'name' }`       | `{ dataIndex: 'name', listSlot: 'title' }`       |
+| `avatar: { dataIndex: 'img' }`       | `{ dataIndex: 'img', listSlot: 'avatar' }`       |
 | `description: { dataIndex: 'desc' }` | `{ dataIndex: 'desc', listSlot: 'description' }` |
-| `subTitle: { render: ... }` | `{ listSlot: 'subTitle', render: ... }` |
-| `content: {}` | `{ dataIndex: 'content', listSlot: 'content' }` |
-| `extra: { render: ... }` | `{ listSlot: 'aside', render: ... }` |
-| `type: {}` | `{ dataIndex: 'type', listSlot: 'type' }` |
+| `subTitle: { render: ... }`          | `{ listSlot: 'subTitle', render: ... }`          |
+| `content: {}`                        | `{ dataIndex: 'content', listSlot: 'content' }`  |
+| `extra: { render: ... }`             | `{ listSlot: 'aside', render: ... }`             |
+| `type: {}`                           | `{ dataIndex: 'type', listSlot: 'type' }`        |
 
 > **提示**：`metas` 中没有 `listSlot` 对应的键（如 `status`）会以键名作为 `dataIndex`，迁移时需要显式补上 `dataIndex`。迁移后同一份 `columns` 可直接传给 `ProTable` 使用，实现列表和表格的一键切换。详见 [ProList 文档](/components/list)。
 
