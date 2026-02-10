@@ -1,8 +1,8 @@
 /**
  * columns API 配合 request 和搜索表单
  */
-import { ProList } from '@ant-design/pro-components';
 import type { ProColumns } from '@ant-design/pro-components';
+import { ProList } from '@ant-design/pro-components';
 import { Button, Space, Tag } from 'antd';
 import request from 'umi-request';
 

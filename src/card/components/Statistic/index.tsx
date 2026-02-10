@@ -45,7 +45,7 @@ const Statistic: React.FC<StatisticProps> = (props) => {
     layout = 'inline',
     style,
     description,
-    children,
+    children: _children,
     title,
     tip,
     status,

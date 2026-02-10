@@ -67,7 +67,11 @@ const Demo = () => {
       key: 'direction',
       hideInTable: true,
       dataIndex: 'direction',
-      formItemRender: (item, { type, defaultRender, ...rest }, form) => {
+      formItemRender: (
+        item,
+        { type, defaultRender: _defaultRender, ...rest },
+        form,
+      ) => {
         if (type === 'form') {
           return null;
         }

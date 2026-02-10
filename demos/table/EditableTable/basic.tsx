@@ -7,11 +7,7 @@ import {
 } from '@ant-design/pro-components';
 import React, { useState } from 'react';
 
-import {
-  createEditableRowId,
-  DEMO_EDITABLE_TASKS,
-  DEMO_TASK_STATUS_ENUM,
-} from '../../mockData';
+import { createEditableRowId, DEMO_TASK_STATUS_ENUM } from '../../mockData';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {

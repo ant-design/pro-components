@@ -498,15 +498,15 @@ ProList's `metas` API is deprecated. Use `columns` + `listSlot` instead. Migrati
 
 Migration reference:
 
-| metas syntax | columns syntax |
-| --- | --- |
-| `title: { dataIndex: 'name' }` | `{ dataIndex: 'name', listSlot: 'title' }` |
-| `avatar: { dataIndex: 'img' }` | `{ dataIndex: 'img', listSlot: 'avatar' }` |
+| metas syntax                         | columns syntax                                   |
+| ------------------------------------ | ------------------------------------------------ |
+| `title: { dataIndex: 'name' }`       | `{ dataIndex: 'name', listSlot: 'title' }`       |
+| `avatar: { dataIndex: 'img' }`       | `{ dataIndex: 'img', listSlot: 'avatar' }`       |
 | `description: { dataIndex: 'desc' }` | `{ dataIndex: 'desc', listSlot: 'description' }` |
-| `subTitle: { render: ... }` | `{ listSlot: 'subTitle', render: ... }` |
-| `content: {}` | `{ dataIndex: 'content', listSlot: 'content' }` |
-| `extra: { render: ... }` | `{ listSlot: 'aside', render: ... }` |
-| `type: {}` | `{ dataIndex: 'type', listSlot: 'type' }` |
+| `subTitle: { render: ... }`          | `{ listSlot: 'subTitle', render: ... }`          |
+| `content: {}`                        | `{ dataIndex: 'content', listSlot: 'content' }`  |
+| `extra: { render: ... }`             | `{ listSlot: 'aside', render: ... }`             |
+| `type: {}`                           | `{ dataIndex: 'type', listSlot: 'type' }`        |
 
 > **Tip**: metas keys without a corresponding `listSlot` (e.g. `status`) use the key name as `dataIndex`. When migrating, you need to explicitly add `dataIndex`. After migration, the same `columns` can be directly passed to `ProTable`, enabling one-click switching between list and table views. See [ProList documentation](/en-US/components/list).
 

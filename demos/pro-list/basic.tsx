@@ -1,5 +1,5 @@
-import { ProList } from '@ant-design/pro-components';
 import type { ProColumns } from '@ant-design/pro-components';
+import { ProList } from '@ant-design/pro-components';
 import { Avatar, Space, Tag } from 'antd';
 
 type ProjectItem = {
@@ -29,7 +29,8 @@ const dataSource: ProjectItem[] = [
     status: 'active',
     owner: {
       name: '书琰',
-      avatar: 'https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png',
+      avatar:
+        'https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png',
     },
     tags: ['React', 'TypeScript', 'Ant Design'],
     updatedAt: '2024-02-09',
@@ -41,7 +42,8 @@ const dataSource: ProjectItem[] = [
     status: 'active',
     owner: {
       name: '逄一',
-      avatar: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+      avatar:
+        'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
     },
     tags: ['React', 'Components'],
     updatedAt: '2024-02-08',
@@ -53,7 +55,8 @@ const dataSource: ProjectItem[] = [
     status: 'active',
     owner: {
       name: '期贤',
-      avatar: 'https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png',
+      avatar:
+        'https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png',
     },
     tags: ['Framework', 'React'],
     updatedAt: '2024-02-07',
@@ -65,7 +68,8 @@ const dataSource: ProjectItem[] = [
     status: 'pending',
     owner: {
       name: '玄霜',
-      avatar: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+      avatar:
+        'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
     },
     tags: ['Mobile', 'React'],
     updatedAt: '2024-02-06',
@@ -77,7 +81,8 @@ const dataSource: ProjectItem[] = [
     status: 'archived',
     owner: {
       name: '怀渊',
-      avatar: 'https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png',
+      avatar:
+        'https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png',
     },
     tags: ['Charts', 'Visualization'],
     updatedAt: '2024-02-05',
@@ -128,10 +133,7 @@ const columns: ProColumns<ProjectItem>[] = [
   {
     title: '操作',
     listSlot: 'actions',
-    render: () => [
-      <a key="view">查看</a>,
-      <a key="edit">编辑</a>,
-    ],
+    render: () => [<a key="view">查看</a>, <a key="edit">编辑</a>],
   },
 ];
 

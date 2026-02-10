@@ -52,7 +52,7 @@ const tableListDataSource: TableListItem[] = Array.from(
   (_, i) => ({
     key: i,
     name: DEMO_APP_NAMES[i % DEMO_APP_NAMES.length],
-    containers: (i * 3 + 2) % 12 + 1,
+    containers: ((i * 3 + 2) % 12) + 1,
     creator: DEMO_CREATORS[i % DEMO_CREATORS.length],
     status: statusMap[String(i % 5)],
     createdAt: FIXED_BASE_TIMESTAMP - i * 86400000,

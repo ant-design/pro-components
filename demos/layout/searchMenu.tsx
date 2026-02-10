@@ -23,7 +23,7 @@ const filterByMenuData = (
     .filter((item) => item) as MenuDataItem[];
 
 const loopMenuItem = (menus: any[]): MenuDataItem[] =>
-  menus.map(({ icon, routes, ...item }) => ({
+  menus.map(({ icon: _icon, routes, ...item }) => ({
     ...item,
     children: routes && loopMenuItem(routes),
   }));

@@ -62,8 +62,22 @@ const Demo = () => (
         listSlot: 'actions',
         search: false,
         render: (text, row) => [
-          <a href={row.url} target="_blank" rel="noopener noreferrer" key="link">详情</a>,
-          <a href={row.url} target="_blank" rel="noopener noreferrer" key="view">查看</a>,
+          <a
+            href={row.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            key="link"
+          >
+            详情
+          </a>,
+          <a
+            href={row.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            key="view"
+          >
+            查看
+          </a>,
         ],
       },
       {

@@ -16,10 +16,7 @@ import { TreeSelect, message } from 'antd';
 import moment from 'dayjs';
 import { useRef } from 'react';
 
-import {
-  DEMO_AREA_CASCADER,
-  DEMO_DEPARTMENT_TREE,
-} from '../mockData';
+import { DEMO_AREA_CASCADER, DEMO_DEPARTMENT_TREE } from '../mockData';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {

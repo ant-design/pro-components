@@ -203,14 +203,13 @@ ref.current?.clearSelected();
 
 ### columns Configuration (Recommended)
 
-
 The same `columns` can be used for both ProTable (table view) and ProList (list view). ProTable ignores the `listSlot` property, while ProList uses it to map data to list item slots. Columns without `listSlot` are not rendered in list items but still participate in search form generation.
 
 #### ProList Extended Column Properties
 
-| Property        | Description                                                            | Type                                                                                                              | Default   |
-| --------------- | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | --------- |
-| listSlot        | Specifies which slot of the list item this column maps to              | `'title'` \| `'subTitle'` \| `'avatar'` \| `'description'` \| `'content'` \| `'actions'` \| `'aside'` \| `'type'` | -         |
+| Property | Description                                               | Type                                                                                                              | Default |
+| -------- | --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ------- |
+| listSlot | Specifies which slot of the list item this column maps to | `'title'` \| `'subTitle'` \| `'avatar'` \| `'description'` \| `'content'` \| `'actions'` \| `'aside'` \| `'type'` | -       |
 
 All other column properties are identical to ProTable's `ProColumns` (`dataIndex`, `valueType`, `render`, `search`, `valueEnum`, etc.). See [ProTable columns](/en-US/components/table).
 
@@ -318,9 +317,9 @@ The field type corresponding to dataSource is `'new'` | `'top'` | `'inline'`.
 
 #### Metas.actions
 
-| Property        | Description                             | Type                     | Default     |
-| --------------- | --------------------------------------- | ------------------------ | ----------- |
-| dataIndex       | -                                       | -                        | `'actions'` |
+| Property  | Description | Type | Default     |
+| --------- | ----------- | ---- | ----------- |
+| dataIndex | -           | -    | `'actions'` |
 
 #### Metas.content
 

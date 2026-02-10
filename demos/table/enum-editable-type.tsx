@@ -1,5 +1,9 @@
 import type { ProColumns } from '@ant-design/pro-components';
-import { EditableProTable, ProCard, ProFormField } from '@ant-design/pro-components';
+import {
+  EditableProTable,
+  ProCard,
+  ProFormField,
+} from '@ant-design/pro-components';
 import { Segmented } from 'antd';
 import React, { useState } from 'react';
 
@@ -38,7 +42,9 @@ const defaultData: DataSourceType[] = [
 ];
 
 const Demo = () => {
-  const [editableType, setEditableType] = useState<'single' | 'multiple'>('multiple');
+  const [editableType, setEditableType] = useState<'single' | 'multiple'>(
+    'multiple',
+  );
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>([]);
   const [dataSource, setDataSource] = useState<readonly DataSourceType[]>([]);
 

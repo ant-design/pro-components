@@ -820,7 +820,6 @@ describe('List', () => {
             dataIndex: ['desc', 'text'],
           },
           actions: {
-            cardActionProps: 'actions',
             render: () => [
               <a key="edit" id="edit">
                 修复
@@ -872,7 +871,6 @@ describe('List', () => {
             dataIndex: ['desc', 'text'],
           },
           actions: {
-            cardActionProps: 'actions',
             render: () => [
               <a key="edit" id="edit">
                 修复
@@ -1007,7 +1005,6 @@ describe('List', () => {
           },
           {
             listSlot: 'actions',
-            cardActionProps: 'actions',
             render: () => [
               <a key="edit" id="edit">
                 修复
@@ -1232,7 +1229,6 @@ describe('List', () => {
           { dataIndex: 'name', listSlot: 'title' },
           {
             listSlot: 'actions',
-            cardActionProps: 'actions',
             render: () => [<a key="a">操作</a>],
           },
         ]}
