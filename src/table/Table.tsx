@@ -964,25 +964,29 @@ const ProTable = <
     toolbarDom,
   });
 
-  const tableAreaDom =
-    cardProps === false || (type !== 'list' && notNeedCardDom) || !!props.name ? (
-      tableContentDom
-    ) : (
-      <ProCard
-        ghost={ghost}
-        variant={isBordered('table', cardBordered) ? 'outlined' : 'borderless'}
-        styles={{
-          body: {
-            ...cardBodyStyle,
-            ...(cardProps?.styles?.body ?? {}),
-          },
-          header: cardProps?.styles?.header,
-        }}
-        {...cardProps}
-      >
-        {tableContentDom}
-      </ProCard>
-    );
+  const useCard =
+    cardProps !== false &&
+    !props.name &&
+    (type === 'list' || !notNeedCardDom);
+
+  const tableAreaDom = useCard ? (
+    <ProCard
+      ghost={ghost}
+      variant={isBordered('table', cardBordered) ? 'outlined' : 'borderless'}
+      styles={{
+        body: {
+          ...cardBodyStyle,
+          ...(cardProps?.styles?.body ?? {}),
+        },
+        header: cardProps?.styles?.header,
+      }}
+      {...cardProps}
+    >
+      {tableContentDom}
+    </ProCard>
+  ) : (
+    tableContentDom
+  );
 
   const renderTable = () => {
     if (props.tableRender) {
