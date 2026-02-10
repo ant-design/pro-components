@@ -130,7 +130,7 @@
     "@vitest/coverage-istanbul": "^3.2.4",
     "@vitest/ui": "^3.2.4",
     "animated-scroll-to": "^2.3.2",
-    "antd": "^6.1.4",
+    "antd": "^6.3.0",
     "chalk": "^4.1.2",
     "copy-to-clipboard": "^3.3.3",
     "cross-env": "^7.0.3",
