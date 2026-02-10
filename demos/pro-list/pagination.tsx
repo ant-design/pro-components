@@ -49,14 +49,14 @@ const Demo = () => {
         defaultPageSize: 5,
         showSizeChanger: true,
       }}
-      metas={{
-        title: {},
-        subTitle: {},
-        type: {},
-        avatar: {},
-        content: {},
-        actions: {},
-      }}
+      columns={[
+        { dataIndex: 'title', listSlot: 'title' },
+        { dataIndex: 'subTitle', listSlot: 'subTitle' },
+        { dataIndex: 'type', listSlot: 'type' },
+        { dataIndex: 'avatar', listSlot: 'avatar' },
+        { dataIndex: 'content', listSlot: 'content' },
+        { dataIndex: 'actions', listSlot: 'actions' },
+      ]}
       headerTitle="翻页"
       dataSource={data}
     />

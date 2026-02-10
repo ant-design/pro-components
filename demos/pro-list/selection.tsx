@@ -42,15 +42,15 @@ const Demo = () => {
           </Button>,
         ];
       }}
-      metas={{
-        title: {},
-        description: {
-          render: () => {
-            return 'Ant Design, a design language for background applications, is refined by Ant UED Team';
-          },
+      columns={[
+        { dataIndex: 'title', listSlot: 'title' },
+        {
+          listSlot: 'description',
+          render: () => '面向企业级中后台的设计解决方案',
         },
-        avatar: {},
-        extra: {
+        { dataIndex: 'avatar', listSlot: 'avatar' },
+        {
+          listSlot: 'aside',
           render: () => (
             <div
               style={{
@@ -71,17 +71,16 @@ const Demo = () => {
             </div>
           ),
         },
-        actions: {
-          render: () => {
-            return [
-              <a key="init">邀请</a>,
-              <Button key="publish" type="text">
-                发布
-              </Button>,
-            ];
-          },
+        {
+          listSlot: 'actions',
+          render: () => [
+            <a key="init">邀请</a>,
+            <Button key="publish" type="text">
+              发布
+            </Button>,
+          ],
         },
-      }}
+      ]}
       rowKey="title"
       headerTitle="支持选中的列表"
       rowSelection={rowSelection}

@@ -42,25 +42,24 @@ const Demo = () => {
       }}
       expandable={{ expandedRowKeys, onExpandedRowsChange: setExpandedRowKeys }}
       dataSource={dataSource}
-      metas={{
-        title: {},
-        subTitle: {
-          render: () => {
-            return (
-              <Space size={8}>
-                <Tag color="blue">Ant Design</Tag>
-                <Tag color="#5BD8A6">可视化</Tag>
-              </Space>
-            );
-          },
+      columns={[
+        { dataIndex: 'title', listSlot: 'title' },
+        {
+          listSlot: 'subTitle',
+          render: () => (
+            <Space size={8}>
+              <Tag color="blue">Ant Design</Tag>
+              <Tag color="#5BD8A6">可视化</Tag>
+            </Space>
+          ),
         },
-        description: {
-          render: () => {
-            return 'Ant Design, a design language for background applications, is refined by Ant UED Team';
-          },
+        {
+          listSlot: 'description',
+          render: () => '面向企业级中后台的设计解决方案',
         },
-        avatar: {},
-        content: {
+        { dataIndex: 'avatar', listSlot: 'avatar' },
+        {
+          listSlot: 'content',
           render: () => (
             <div
               style={{
@@ -81,12 +80,11 @@ const Demo = () => {
             </div>
           ),
         },
-        actions: {
-          render: () => {
-            return <a key="invite">邀请</a>;
-          },
+        {
+          listSlot: 'actions',
+          render: () => <a key="invite">邀请</a>,
         },
-      }}
+      ]}
     />
   );
 };

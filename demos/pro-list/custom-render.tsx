@@ -54,11 +54,11 @@ export default () => {
         rowKey="id"
         grid={{ gutter: 16, column: 3 }}
         pagination={false}
-        metas={{
-          title: { dataIndex: 'title' },
-          avatar: { dataIndex: 'avatar' },
-          description: { dataIndex: 'description' },
-        }}
+        columns={[
+          { dataIndex: 'title', listSlot: 'title' },
+          { dataIndex: 'avatar', listSlot: 'avatar' },
+          { dataIndex: 'description', listSlot: 'description' },
+        ]}
         dataSource={APPLICATIONS}
         itemRender={(item) => (
           <div

@@ -49,28 +49,21 @@ const Demo = () => {
         },
       }}
       onDataSourceChange={setDataSource}
-      metas={{
-        title: {
-          dataIndex: 'name',
+      columns={[
+        { dataIndex: 'name', listSlot: 'title' },
+        { dataIndex: 'image', listSlot: 'avatar', editable: false },
+        { dataIndex: 'desc', listSlot: 'description' },
+        {
+          listSlot: 'subTitle',
+          render: () => (
+            <Space size={8}>
+              <Tag color="blue">Ant Design</Tag>
+              <Tag color="#5BD8A6">可视化</Tag>
+            </Space>
+          ),
         },
-        avatar: {
-          dataIndex: 'image',
-          editable: false,
-        },
-        description: {
-          dataIndex: 'desc',
-        },
-        subTitle: {
-          render: () => {
-            return (
-              <Space size={8}>
-                <Tag color="blue">Ant Design</Tag>
-                <Tag color="#5BD8A6">可视化</Tag>
-              </Space>
-            );
-          },
-        },
-        actions: {
+        {
+          listSlot: 'actions',
           render: (text, row, index, action) => [
             <a
               onClick={() => {
@@ -82,7 +75,7 @@ const Demo = () => {
             </a>,
           ],
         },
-      }}
+      ]}
     />
   );
 };

@@ -90,11 +90,12 @@ const Demo = () => {
             </Button>,
           ];
         }}
-        metas={{
-          title: {},
-          description: {},
-          avatar: {},
-          content: {
+        columns={[
+          { dataIndex: 'title', listSlot: 'title' },
+          { dataIndex: 'description', listSlot: 'description' },
+          { dataIndex: 'avatar', listSlot: 'avatar' },
+          {
+            listSlot: 'content',
             render: (_, record) => (
               <div
                 style={{
@@ -118,10 +119,11 @@ const Demo = () => {
               </div>
             ),
           },
-          actions: {
+          {
+            listSlot: 'actions',
             render: () => [<a key="invite">邀请</a>],
           },
-        }}
+        ]}
         expandable={{
           expandedRowKeys,
           defaultExpandAllRows: false,

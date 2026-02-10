@@ -256,13 +256,13 @@ export default () => {
           showSizeChanger: true,
           pageSizeOptions: ['6', '12', '18', '24'],
         }}
-        metas={{
-          title: {},
-          subTitle: {},
-          avatar: {},
-          content: {},
-          actions: {},
-        }}
+        columns={[
+          { dataIndex: 'title', listSlot: 'title' },
+          { dataIndex: 'subTitle', listSlot: 'subTitle' },
+          { dataIndex: 'avatar', listSlot: 'avatar' },
+          { dataIndex: 'content', listSlot: 'content' },
+          { dataIndex: 'actions', listSlot: 'actions' },
+        ]}
         headerTitle="Grid 布局示例"
         tooltip="使用 CSS Grid 实现的响应式卡片布局"
         dataSource={data}

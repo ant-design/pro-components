@@ -86,26 +86,21 @@ const Demo = () => {
       actionRef={action}
       dataSource={dataSource}
       editable={{}}
-      metas={{
-        title: {
+      columns={[
+        {
           dataIndex: 'name',
+          listSlot: 'title',
           valueType: 'select',
           fieldProps: {
             showSearch: true,
             placement: 'bottomRight',
-            options: [
-              {
-                label: '实验名称1',
-                value: '实验名称1',
-              },
-            ],
+            options: [{ label: '实验名称1', value: '实验名称1' }],
           },
         },
-        description: {
-          key: 'desc',
-        },
-        content: {
+        { dataIndex: 'desc', listSlot: 'description' },
+        {
           dataIndex: 'content',
+          listSlot: 'content',
           render: (text) => (
             <div
               key="label"
@@ -134,28 +129,20 @@ const Demo = () => {
             </div>
           ),
         },
-        actions: {
+        {
+          listSlot: 'actions',
           render: (text, row) => [
             <a
-              href={row.html_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              key="link"
-              onClick={() => {
-                action.current?.startEditable(row.name);
-              }}
+              key="edit"
+              onClick={() => action.current?.startEditable(row.name)}
             >
               编辑
             </a>,
-            <a target="_blank" rel="noopener noreferrer" key="warning">
-              复制
-            </a>,
-            <a target="_blank" rel="noopener noreferrer" key="view">
-              删除
-            </a>,
+            <a key="copy">复制</a>,
+            <a key="delete">删除</a>,
           ],
         },
-      }}
+      ]}
       toolbar={{
         menu: {
           activeKey,

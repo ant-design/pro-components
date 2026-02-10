@@ -85,14 +85,14 @@ export default () => {
             },
           };
         }}
-        metas={{
-          title: {},
-          subTitle: {},
-          type: {},
-          avatar: {},
-          content: {},
-          actions: {},
-        }}
+        columns={[
+          { dataIndex: 'title', listSlot: 'title' },
+          { dataIndex: 'subTitle', listSlot: 'subTitle' },
+          { dataIndex: 'type', listSlot: 'type' },
+          { dataIndex: 'avatar', listSlot: 'avatar' },
+          { dataIndex: 'content', listSlot: 'content' },
+          { dataIndex: 'actions', listSlot: 'actions' },
+        ]}
         headerTitle="卡片列表展示"
         dataSource={data}
       />

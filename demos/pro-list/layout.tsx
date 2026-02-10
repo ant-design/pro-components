@@ -39,9 +39,10 @@ const Demo = () => {
       rowKey="id"
       headerTitle="竖排样式"
       dataSource={dataSource}
-      metas={{
-        title: {},
-        description: {
+      columns={[
+        { dataIndex: 'title', listSlot: 'title' },
+        {
+          listSlot: 'description',
           render: () => (
             <>
               <Tag>技术专栏</Tag>
@@ -50,26 +51,16 @@ const Demo = () => {
             </>
           ),
         },
-        actions: {
+        {
+          listSlot: 'actions',
           render: () => [
-            <IconText
-              icon={StarOutlined}
-              text="156"
-              key="list-vertical-star-o"
-            />,
-            <IconText
-              icon={LikeOutlined}
-              text="156"
-              key="list-vertical-like-o"
-            />,
-            <IconText
-              icon={MessageOutlined}
-              text="2"
-              key="list-vertical-message"
-            />,
+            <IconText icon={StarOutlined} text="156" key="star" />,
+            <IconText icon={LikeOutlined} text="156" key="like" />,
+            <IconText icon={MessageOutlined} text="2" key="message" />,
           ],
         },
-        extra: {
+        {
+          listSlot: 'aside',
           render: () => (
             <img
               width={272}
@@ -78,16 +69,15 @@ const Demo = () => {
             />
           ),
         },
-        content: {
-          render: () => {
-            return (
-              <div>
-                面向企业级中后台的数据可视化解决方案，以最小的接入成本提供丰富的图表类型与交互能力，助力业务快速搭建数据看板与分析报表。
-              </div>
-            );
-          },
+        {
+          listSlot: 'content',
+          render: () => (
+            <div>
+              面向企业级中后台的数据可视化解决方案，以最小的接入成本提供丰富的图表类型与交互能力，助力业务快速搭建数据看板与分析报表。
+            </div>
+          ),
         },
-      }}
+      ]}
     />
   );
 };

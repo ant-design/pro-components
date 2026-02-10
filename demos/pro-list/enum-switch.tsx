@@ -115,11 +115,12 @@ const Demo = () => {
             新建项目
           </Button>,
         ]}
-        metas={{
-          title: {},
-          avatar: {},
-          description: {},
-          extra: {
+        columns={[
+          { dataIndex: 'title', listSlot: 'title' },
+          { dataIndex: 'avatar', listSlot: 'avatar' },
+          { dataIndex: 'description', listSlot: 'description' },
+          {
+            listSlot: 'aside',
             render: (_, record) => (
               <div style={{ width: 200 }}>
                 <div>
@@ -134,14 +135,15 @@ const Demo = () => {
               </div>
             ),
           },
-          actions: {
+          {
+            listSlot: 'actions',
             render: () => [
               <a key="view">查看</a>,
               <a key="edit">编辑</a>,
               <a key="archive">归档</a>,
             ],
           },
-        }}
+        ]}
       />
     </div>
   );

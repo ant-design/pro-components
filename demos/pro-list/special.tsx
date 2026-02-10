@@ -70,15 +70,15 @@ const Demo = () => {
         avatar: string;
         children: JSX.Element;
       }>
-        metas={{
-          title: {},
-          subTitle: {},
-          type: {},
-          description: {},
-          avatar: {},
-          content: {},
-          actions: {},
-        }}
+        columns={[
+          { dataIndex: 'title', listSlot: 'title' },
+          { dataIndex: 'subTitle', listSlot: 'subTitle' },
+          { dataIndex: 'type', listSlot: 'type' },
+          { dataIndex: 'description', listSlot: 'description' },
+          { dataIndex: 'avatar', listSlot: 'avatar' },
+          { dataIndex: 'content', listSlot: 'content' },
+          { dataIndex: 'actions', listSlot: 'actions' },
+        ]}
         toolBarRender={() => [
           <Button
             key="3"
