@@ -86,7 +86,7 @@ type DataSourceType = {
     key: string;
     label: string;
   }[];
-  state?: string;
+  status?: string;
   created_at?: number;
   children?: DataSourceType[];
 };
@@ -94,23 +94,23 @@ type DataSourceType = {
 const defaultData: DataSourceType[] = [
   {
     id: 624748504,
-    title: '活动名称一',
-    labels: [{ key: 'woman', label: '川妹子' }],
-    state: 'open',
-    created_at: 1590486176000,
+    title: '优化首页加载速度',
+    labels: [{ key: 'perf', label: '性能优化' }],
+    status: 'open',
+    created_at: 1705286400000,
   },
   {
     id: 624691229,
-    title: '活动名称二',
-    labels: [{ key: 'man', label: '西北汉子' }],
-    state: 'closed',
-    created_at: 1590481162000,
+    title: '修复登录超时问题',
+    labels: [{ key: 'bug', label: '缺陷修复' }],
+    status: 'closed',
+    created_at: 1705200000000,
   },
 ];
 
 const columns: ProColumns<DataSourceType>[] = [
   {
-    title: '活动名称',
+    title: '任务名称',
     dataIndex: 'title',
     formItemProps: {
       rules: [
@@ -124,17 +124,17 @@ const columns: ProColumns<DataSourceType>[] = [
   },
   {
     title: '状态',
-    key: 'state',
-    dataIndex: 'state',
+    key: 'status',
+    dataIndex: 'status',
     valueType: 'select',
     valueEnum: {
       all: { text: '全部', status: 'Default' },
       open: {
-        text: '未解决',
+        text: '待处理',
         status: 'Error',
       },
       closed: {
-        text: '已解决',
+        text: '已完成',
         status: 'Success',
       },
     },
@@ -196,7 +196,7 @@ const Demo = () => {
           onClick={() => {
             actionRef.current?.addEditRecord?.({
               id: createEditableRowId(),
-              title: '新的一行',
+              title: '新建任务',
             });
           }}
           icon={<PlusOutlined />}
@@ -219,9 +219,8 @@ const Demo = () => {
           x: 960,
         }}
         actionRef={actionRef}
-        headerTitle="可编辑表格"
+        headerTitle="自定义可编辑表格"
         maxLength={5}
-        // 关闭默认的新建按钮
         recordCreatorProps={false}
         columns={columns}
         request={async () => ({

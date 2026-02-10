@@ -12,6 +12,10 @@ const genAppsLogoComponentsStyle: GenerateStyle<AppsLogoComponentsToken> = (
 ) => {
   return {
     [token.componentCls]: {
+      boxSizing: 'border-box',
+      '*, *::before, *::after': {
+        boxSizing: 'border-box',
+      },
       '&-icon': {
         display: 'inline-flex',
         alignItems: 'center',

@@ -1,4 +1,4 @@
-﻿import type { CSSInterpolation } from '@ant-design/cssinjs';
+import type { CSSInterpolation } from '@ant-design/cssinjs';
 import type { GenerateStyle, ProAliasToken } from '../../provider';
 import { useStyle as useAntdStyle } from '../../provider';
 export interface ProLayoutToken extends ProAliasToken {
@@ -11,6 +11,10 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken> = (token) => {
       backgroundColor: 'transparent !important',
     },
     [token.componentCls]: {
+      boxSizing: 'border-box',
+      '*, *::before, *::after': {
+        boxSizing: 'border-box',
+      },
       [`& ${token.antCls}-layout`]: {
         display: 'flex',
         backgroundColor: 'transparent',

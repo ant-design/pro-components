@@ -131,7 +131,7 @@ const Demo = () => {
               updated_at: 1590487382000,
               closed_at: null,
               author_association: 'NONE',
-              user: 'chenshuai2144',
+              user: 'shuyan',
               avatar:
                 'https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png',
             },
@@ -169,7 +169,7 @@ const Demo = () => {
               updated_at: 1590487382000,
               closed_at: null,
               author_association: 'NONE',
-              user: 'chenshuai2144',
+              user: 'shuyan',
               avatar:
                 'https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png',
             },

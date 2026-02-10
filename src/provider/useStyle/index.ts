@@ -67,6 +67,9 @@ export const resetComponent = (token: ProAliasToken): CSSObject => ({
   fontSize: token.fontSize,
   lineHeight: token.lineHeight,
   listStyle: 'none',
+  '*, *::before, *::after': {
+    boxSizing: 'border-box',
+  },
 });
 
 export const operationUnit = (token: ProAliasToken): CSSObject => ({

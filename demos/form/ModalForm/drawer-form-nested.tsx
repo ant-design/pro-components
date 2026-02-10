@@ -139,7 +139,7 @@ const Demo = () => {
               name="mangerName"
               disabled
               label="商务经理"
-              initialValue="张三"
+              initialValue="书琰"
             />
           </DrawerForm>
         </DrawerForm>
@@ -255,7 +255,7 @@ const Demo = () => {
               name="mangerName"
               disabled
               label="商务经理"
-              initialValue="张三"
+              initialValue="书琰"
             />
           </ModalForm>
         </ModalForm>

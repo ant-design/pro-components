@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 const dataSource = [
   {
-    title: '语雀的天空',
+    title: '智慧零售平台',
     avatar:
       'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
   },
@@ -15,12 +15,12 @@ const dataSource = [
       'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
   },
   {
-    title: '蚂蚁金服体验科技',
+    title: '云原生微服务框架',
     avatar:
       'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
   },
   {
-    title: 'TechUI',
+    title: '数据可视化引擎',
     avatar:
       'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
   },
@@ -42,15 +42,15 @@ const Demo = () => {
           </Button>,
         ];
       }}
-      metas={{
-        title: {},
-        description: {
-          render: () => {
-            return 'Ant Design, a design language for background applications, is refined by Ant UED Team';
-          },
+      columns={[
+        { dataIndex: 'title', listSlot: 'title' },
+        {
+          listSlot: 'description',
+          render: () => '面向企业级中后台的设计解决方案',
         },
-        avatar: {},
-        extra: {
+        { dataIndex: 'avatar', listSlot: 'avatar' },
+        {
+          listSlot: 'aside',
           render: () => (
             <div
               style={{
@@ -71,17 +71,16 @@ const Demo = () => {
             </div>
           ),
         },
-        actions: {
-          render: () => {
-            return [
-              <a key="init">邀请</a>,
-              <Button key="publish" type="text">
-                发布
-              </Button>,
-            ];
-          },
+        {
+          listSlot: 'actions',
+          render: () => [
+            <a key="init">邀请</a>,
+            <Button key="publish" type="text">
+              发布
+            </Button>,
+          ],
         },
-      }}
+      ]}
       rowKey="title"
       headerTitle="支持选中的列表"
       rowSelection={rowSelection}
