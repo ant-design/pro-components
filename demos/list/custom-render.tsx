@@ -1,5 +1,5 @@
 import { ProList } from '@ant-design/pro-components';
-import { Avatar, Tabs, theme } from 'antd';
+import { Avatar, theme } from 'antd';
 
 const APPLICATIONS = [
   {
@@ -40,16 +40,6 @@ export default () => {
         padding: 64,
       }}
     >
-      <Tabs
-        defaultActiveKey="all"
-        items={[
-          { key: 'all', label: '全部应用' },
-          { key: 'dev', label: '开发类' },
-          { key: 'ops', label: '运维类' },
-          { key: 'office', label: '办公类' },
-        ]}
-        style={{ marginBottom: 16 }}
-      />
       <ProList<AppItem>
         rowKey="id"
         grid={{ gutter: 16, column: 3 }}
@@ -60,6 +50,17 @@ export default () => {
           { dataIndex: 'description', listSlot: 'description' },
         ]}
         dataSource={APPLICATIONS}
+        toolbar={{
+          menu: {
+            type: 'tab',
+            items: [
+              { key: 'all', label: '全部应用' },
+              { key: 'dev', label: '开发类' },
+              { key: 'ops', label: '运维类' },
+              { key: 'office', label: '办公类' },
+            ],
+          },
+        }}
         itemRender={(item) => (
           <div
             style={{
