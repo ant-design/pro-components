@@ -59,11 +59,10 @@
                             style="width: 100%;"
                           >
                             <div
-                              class="ant-select-content"
+                              class="ant-select-content ant-select-content-has-value ant-select-content-has-option-style"
                             >
                               <div
                                 class="ant-select-content-value ant-pro-filed-search-select-option"
-                                style="visibility: visible;"
                                 title="全部"
                               >
                                 全部
@@ -335,7 +334,9 @@
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-spin-nested-loading pro"
+                            aria-busy="false"
+                            aria-live="polite"
+                            class="ant-spin pro"
                           >
                             <div
                               class="ant-spin-container"
@@ -550,6 +551,7 @@
                     >
                       <div
                         class="ant-radio-group ant-radio-group-outline ant-radio-group-small pro ant-radio-css-var"
+                        role="radiogroup"
                       >
                         <label
                           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked pro ant-radio-css-var"
@@ -563,9 +565,6 @@
                               name="test-id"
                               type="radio"
                               value="select"
-                            />
-                            <span
-                              class="ant-radio-button-inner"
                             />
                           </span>
                           <span
@@ -586,9 +585,6 @@
                               type="radio"
                               value="radio"
                             />
-                            <span
-                              class="ant-radio-button-inner"
-                            />
                           </span>
                           <span
                             class="ant-radio-button-label"
@@ -607,9 +603,6 @@
                               name="test-id"
                               type="radio"
                               value="radioButton"
-                            />
-                            <span
-                              class="ant-radio-button-inner"
                             />
                           </span>
                           <span
@@ -630,9 +623,6 @@
                               type="radio"
                               value="checkbox"
                             />
-                            <span
-                              class="ant-radio-button-inner"
-                            />
                           </span>
                           <span
                             class="ant-radio-button-label"
@@ -652,9 +642,6 @@
                               type="radio"
                               value="cascader"
                             />
-                            <span
-                              class="ant-radio-button-inner"
-                            />
                           </span>
                           <span
                             class="ant-radio-button-label"
@@ -673,9 +660,6 @@
                               name="test-id"
                               type="radio"
                               value="treeSelect"
-                            />
-                            <span
-                              class="ant-radio-button-inner"
                             />
                           </span>
                           <span
@@ -774,7 +758,9 @@
             class="pro ant-table-css-var ant-table-wrapper"
           >
             <div
-              class="ant-spin-nested-loading pro"
+              aria-busy="false"
+              aria-live="polite"
+              class="ant-spin pro"
             >
               <div
                 class="ant-spin-container"
@@ -1135,7 +1121,7 @@
                   </div>
                 </div>
                 <ul
-                  class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end pro"
+                  class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end pro"
                 >
                   <li
                     class="ant-pagination-total-text"

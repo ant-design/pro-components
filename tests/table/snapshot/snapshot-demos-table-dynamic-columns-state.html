@@ -211,6 +211,7 @@
                           <div
                             class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal pro ant-radio-css-var"
                             id="status"
+                            role="radiogroup"
                           >
                             <label
                               class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item pro ant-radio-css-var"
@@ -224,9 +225,6 @@
                                   name="status"
                                   type="radio"
                                   value="close"
-                                />
-                                <span
-                                  class="ant-radio-button-inner"
                                 />
                               </span>
                               <span
@@ -246,9 +244,6 @@
                                   name="status"
                                   type="radio"
                                   value="running"
-                                />
-                                <span
-                                  class="ant-radio-button-inner"
                                 />
                               </span>
                               <span
@@ -682,7 +677,9 @@
             class="pro ant-table-css-var ant-table-wrapper"
           >
             <div
-              class="ant-spin-nested-loading pro"
+              aria-busy="false"
+              aria-live="polite"
+              class="ant-spin pro"
             >
               <div
                 class="ant-spin-container"
@@ -1297,7 +1294,7 @@
                   </div>
                 </div>
                 <ul
-                  class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end pro"
+                  class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end pro"
                 >
                   <li
                     class="ant-pagination-total-text"

@@ -202,7 +202,7 @@ exports[`mobile BasicLayout > 📱 layout menuHeaderRender 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout css-var-r1e"
+      class="ant-layout css-var-r1h"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
@@ -268,7 +268,7 @@ exports[`mobile BasicLayout > 📱 layout menuHeaderRender with custom title 1`]
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout css-var-r1l"
+      class="ant-layout css-var-r1o"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
@@ -334,7 +334,7 @@ exports[`mobile BasicLayout > 📱 layout menuHeaderRender=false 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout css-var-r17"
+      class="ant-layout css-var-r1a"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
@@ -399,21 +399,15 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout ant-layout-has-sider css-var-rj"
+      class="ant-layout ant-layout-has-sider css-var-rk"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
-        class="ant-drawer ant-drawer-left css-var-rk ant-drawer-open ant-drawer-inline"
+        class="ant-drawer ant-drawer-left css-var-rl ant-drawer-open ant-drawer-inline"
         tabindex="-1"
       >
         <div
-          class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-start ant-drawer-mask-motion ant-drawer-mask-blur"
-        />
-        <div
-          aria-hidden="true"
-          data-sentinel="start"
-          style="width: 0px; height: 0px; overflow: hidden; position: absolute; outline-color: none; outline-style: none; outline-width: initial;"
-          tabindex="0"
+          class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-start ant-drawer-mask-motion"
         />
         <div
           class="ant-drawer-content-wrapper ant-drawer-panel-motion-left-appear ant-drawer-panel-motion-left-appear-start ant-drawer-panel-motion-left"
@@ -430,7 +424,7 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
               style="height: 100vh; padding: 0px; display: flex; flex-direction: row; background-color: transparent;"
             >
               <aside
-                class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light css-var-rk"
+                class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light css-var-rl"
                 style="max-width: 215px; min-width: 215px; width: 215px; flex-grow: 0; flex-shrink: 0; flex-basis: 215px;"
               >
                 <div
@@ -440,7 +434,7 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
                     style="overflow-y: auto; overflow-x: hidden; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                   >
                     <ul
-                      class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline css-var-rk ant-menu-css-var"
+                      class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline css-var-rl ant-menu-css-var"
                       data-menu-list="true"
                       role="menu"
                       style="background-color: transparent; border: none none; width: 100%;"
@@ -543,12 +537,6 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
             </div>
           </div>
         </div>
-        <div
-          aria-hidden="true"
-          data-sentinel="end"
-          style="width: 0px; height: 0px; overflow: hidden; position: absolute; outline-color: none; outline-style: none; outline-width: initial;"
-          tabindex="0"
-        />
       </div>
       <div
         class="ant-pro-layout-container"

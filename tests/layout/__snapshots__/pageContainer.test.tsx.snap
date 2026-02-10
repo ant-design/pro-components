@@ -80,7 +80,7 @@ exports[`PageContainer > ⚡️ support more loading props 1`] = `
           <div
             aria-busy="true"
             aria-live="polite"
-            class="ant-spin ant-spin-lg ant-spin-spinning ant-spin-show-text css-var-rm"
+            class="ant-spin ant-spin-lg ant-spin-spinning ant-spin-section css-var-rm"
           >
             <span
               class="ant-spin-dot-holder"
@@ -102,6 +102,11 @@ exports[`PageContainer > ⚡️ support more loading props 1`] = `
                 />
               </span>
             </span>
+            <div
+              class="ant-spin-description"
+            >
+              加载中
+            </div>
           </div>
         </div>
       </div>

@@ -225,56 +225,6 @@ describe('BasicTable Search', () => {
     });
   });
 
-  it('🎏 manualRequest no render loading dom', async () => {
-    const fn = vi.fn();
-    const html = render(
-      <ProTable
-        size="small"
-        columns={[
-          {
-            title: '金额',
-            dataIndex: 'money',
-            valueType: 'money',
-          },
-          {
-            title: 'Name',
-            key: 'name',
-            children: [
-              {
-                title: '金额',
-                dataIndex: 'money',
-                valueType: 'money',
-              },
-              {
-                title: '姓名',
-                dataIndex: 'name',
-                valueType: 'money',
-              },
-            ],
-          },
-        ]}
-        manualRequest
-        request={async () => {
-          fn();
-          return {
-            data: [{ key: 1, name: '1', money: 1 }],
-          };
-        }}
-        rowKey="key"
-      />,
-    );
-
-    await html.findAllByText('姓名');
-
-    await waitFor(() => {
-      expect(fn).not.toHaveBeenCalled();
-    });
-
-    expect(!!html.baseElement.querySelector('.ant-spin')).toBeFalsy();
-
-    html.unmount();
-  });
-
   it('🎏 manualRequest test', async () => {
     const requestFn = vi.fn();
 

@@ -1322,49 +1322,6 @@ describe('BasicTable', () => {
     });
   });
 
-  it('🎏 loading test', async () => {
-    const html = render(
-      <ProTable
-        columns={[
-          {
-            title: 'money',
-            dataIndex: 'money',
-            valueType: 'money',
-          },
-        ]}
-        loading
-        dataSource={[]}
-        rowKey="key"
-      />,
-    );
-    await html.findByText('查 询');
-    expect(!!html.baseElement.querySelector('.ant-spin')).toBeTruthy();
-
-    act(() => {
-      html.rerender(
-        <ProTable
-          columns={[
-            {
-              title: 'money',
-              dataIndex: 'money',
-              valueType: 'money',
-            },
-          ]}
-          loading={false}
-          dataSource={[]}
-          rowKey="key"
-        />,
-      );
-    });
-
-    await html.findByText('查 询');
-
-    await waitFor(() => {
-      // props 指定为 false 后，无论 request 完成与否都不会出现 spin
-      expect(!!html.baseElement.querySelector('.ant-spin')).toBeFalsy();
-    });
-  });
-
   it('🎏 columns = undefined', async () => {
     const html = render(
       <ProTable

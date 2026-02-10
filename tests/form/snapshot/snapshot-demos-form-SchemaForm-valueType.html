@@ -35,11 +35,10 @@
                 style="width: 200px;"
               >
                 <div
-                  class="ant-select-content"
+                  class="ant-select-content ant-select-content-has-value ant-select-content-has-option-style"
                 >
                   <div
                     class="ant-select-content-value ant-pro-filed-search-select-option"
-                    style="visibility: visible;"
                     title="文本框"
                   >
                     文本框
@@ -89,6 +88,7 @@
     <form
       autocomplete="off"
       class="ant-form ant-form-vertical pro ant-form-css-var ant-pro-form"
+      id="schema-form-value-type-demo"
     >
       <input
         style="display: none;"
@@ -121,7 +121,7 @@
                   >
                     <label
                       class="ant-form-item-required"
-                      for="text"
+                      for="schema-form-value-type-demo_text"
                       title="编辑器"
                     >
                       编辑器
@@ -147,22 +147,17 @@
                           style="min-width: 100px;"
                         >
                           <div
-                            class="ant-select-content"
+                            class="ant-select-content ant-select-content-has-value"
+                            title="123456"
                           >
-                            <div
-                              class="ant-select-content-value"
-                              style="visibility: visible;"
-                              title="123456"
-                            >
-                              123456
-                            </div>
+                            123456
                             <input
                               aria-autocomplete="list"
                               aria-expanded="false"
                               aria-haspopup="listbox"
                               autocomplete="off"
                               class="ant-select-input"
-                              id="text"
+                              id="schema-form-value-type-demo_text"
                               readonly=""
                               role="combobox"
                               type="search"
@@ -237,7 +232,7 @@
                   >
                     <label
                       class=""
-                      for="text"
+                      for="schema-form-value-type-demo_text"
                       title="只读"
                     >
                       只读
