@@ -1,4 +1,4 @@
-﻿import type { GenerateStyle, ProAliasToken } from '../../../../provider';
+import type { GenerateStyle, ProAliasToken } from '../../../../provider';
 import { useStyle as useAntdStyle } from '../../../../provider';
 
 export interface SettingDrawerToken extends ProAliasToken {
@@ -8,6 +8,10 @@ export interface SettingDrawerToken extends ProAliasToken {
 const genSettingDrawerStyle: GenerateStyle<SettingDrawerToken> = (token) => {
   return {
     [`${token.componentCls}-handle`]: {
+      boxSizing: 'border-box',
+      '*, *::before, *::after': {
+        boxSizing: 'border-box',
+      },
       position: 'fixed',
       insetBlockStart: '240px',
       insetInlineEnd: '0px',

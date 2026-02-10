@@ -15,6 +15,10 @@ export const techUiListActive = new Keyframes('techUiListActive', {
 const genProListStyle: GenerateStyle<ProListToken> = (token) => {
   return {
     [token.componentCls]: {
+      boxSizing: 'border-box',
+      '*, *::before, *::after': {
+        boxSizing: 'border-box',
+      },
       backgroundColor: 'transparent',
       [`${token.proComponentsCls}-table-alert`]: { marginBlockEnd: '16px' },
       [`${token.proComponentsCls}-list-items`]: {
