@@ -71,8 +71,7 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
   ...rest
 }: ModalFormProps<T, U>) {
   noteOnce(
-    // eslint-disable-next-line @typescript-eslint/dot-notation
-    !(rest as any)['footer'] || !modalProps?.footer,
+    !(rest as any).footer || !modalProps?.footer,
     'ModalForm 是一个 ProForm 的特殊布局，如果想自定义按钮，请使用 submit.render 自定义。',
   );
 
@@ -149,7 +148,6 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
     if (propsOpen) {
       onOpenChange?.(true);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [propsOpen]);
 
   const triggerDom = useMemo(() => {

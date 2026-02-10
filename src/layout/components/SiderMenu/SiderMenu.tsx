@@ -328,7 +328,6 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         </Space>
       );
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [actionsRender, baseClassName, collapsed],
   );
 

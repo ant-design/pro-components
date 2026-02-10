@@ -201,7 +201,6 @@ const CacheClean = () => {
       // @ts-ignore
       cache.clear();
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return null;
 };
@@ -372,8 +371,6 @@ const ConfigProviderContainer: React.FC<{
         </ProConfigContext.Provider>
       </AntdConfigProvider>
     );
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     restConfig,
     themeConfig,

@@ -152,7 +152,6 @@ const CellRenderFromItem = <T extends AnyObject>(
         {children}
       </InlineErrorFormItem>
     ),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [key, formItemName],
   );
 

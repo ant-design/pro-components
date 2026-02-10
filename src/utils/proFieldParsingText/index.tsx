@@ -92,7 +92,6 @@ export const proFieldParsingText = (
     return (
       <Space key={key} separator="," size={2} wrap>
         {text.map((value, index) =>
-          // @ts-ignore
           proFieldParsingText(value, valueEnumParams, index),
         )}
       </Space>

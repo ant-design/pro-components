@@ -130,7 +130,6 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
     showSearch,
     fieldNames,
     defaultSearchValue,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     preserveOriginalLabel: _preserveOriginalLabel = false,
     ...restProps
   } = props;

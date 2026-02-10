@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { omit } from '@rc-component/util';
 import { ConfigProvider } from 'antd';
 import { clsx } from 'clsx';
@@ -56,7 +55,6 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
       return '100%';
     }
     return isMobile ? '100%' : `calc(100% - ${siderWidth}px)`;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value.collapsed, value.hasSiderMenu, value.isMobile, value.siderWidth]);
 
   const containerDom = useMemo(() => {
@@ -87,7 +85,6 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
     return () => {
       value?.setHasFooterToolbar?.(false);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const renderDom = (

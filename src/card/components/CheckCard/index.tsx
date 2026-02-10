@@ -206,7 +206,6 @@ const CheckCard: React.FC<CheckCardProps> & {
   useEffect(() => {
     checkCardGroup?.registerValue?.(props.value);
     return () => checkCardGroup?.cancelValue?.(props.value);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.value]);
 
   const {

@@ -182,7 +182,6 @@ export const defaultRenderText = (
     }
   }
 
-  // eslint-disable-next-line no-param-reassign
   delete props.emptyText;
 
   if (typeof valueType === 'object') {
@@ -192,7 +191,6 @@ export const defaultRenderText = (
   const customValueTypeConfig =
     valueTypeMap && valueTypeMap[valueType as string];
   if (customValueTypeConfig) {
-    // eslint-disable-next-line no-param-reassign
     delete props.ref;
     if (mode === 'read') {
       return customValueTypeConfig.render?.(
@@ -585,7 +583,6 @@ const ProFieldComponent: React.ForwardRefRenderFunction<
         onChange: onChangeCallBack,
       }
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value, restFieldProps, onChangeCallBack]);
 
   const renderedDom = defaultRenderText(

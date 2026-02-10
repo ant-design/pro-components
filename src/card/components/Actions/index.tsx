@@ -20,7 +20,6 @@ const ProCardActions: React.FC<ProCardActionsProps> = (props) => {
     return wrapSSR(
       <ul className={clsx(`${prefixCls}-actions`, hashId)}>
         {actions.map((action, index) => (
-          // eslint-disable-next-line react/no-array-index-key
           <li
             style={{ width: `${100 / actions.length}%`, padding: 0, margin: 0 }}
             key={`action-${index}`}

@@ -83,7 +83,6 @@ const BaseProFormUploadDragger: React.FC<ProFormUploadDraggerProps> =
         proFieldProps?.readonly !== true;
       return (
         <Upload.Dragger
-          // @ts-ignore
           ref={ref}
           name="files"
           action={action}
