@@ -20,19 +20,21 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         boxSizing: 'border-box',
       },
       backgroundColor: 'transparent',
-      '&-split': {
-        [`${token.componentCls}-row`]: {
-          borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
-          '&:last-child': {
-            borderBlockEnd: 'none',
-          },
-        },
-        [`${token.proComponentsCls}-list-item`]: {
-          borderRadius: 0,
-          borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
-          '&:last-child': {
-            borderBlockEnd: 'none',
-          },
+
+      [`${token.proComponentsCls}-table-alert`]: { marginBlockEnd: '16px' },
+      [`${token.proComponentsCls}-list-item`]: {
+        display: 'flex',
+        flexDirection: 'column',
+        cursor: 'pointer',
+        flex: 1,
+        minWidth: 0,
+        padding: token.paddingXS,
+        alignItems: 'flex-start',
+        borderRadius: token.borderRadius,
+        listStyle: 'none',
+        '& > *:first-child': {
+          flex: 1,
+          minWidth: 0,
         },
       },
       '&-filled': {
@@ -51,28 +53,6 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           borderBlockEnd: 'none',
         },
       },
-      '&-no-split': {
-        [`${token.componentCls}-row`]: { borderBlockEnd: 'none' },
-        [`${token.proComponentsCls}-list ${token.proComponentsCls}-list-item`]:
-          {
-            borderBlockEnd: 'none',
-          },
-      },
-      [`${token.proComponentsCls}-table-alert`]: { marginBlockEnd: '16px' },
-      [`${token.proComponentsCls}-list-item`]: {
-        display: 'flex',
-        flexDirection: 'column',
-        flex: 1,
-        minWidth: 0,
-        padding: token.paddingXS,
-        alignItems: 'flex-start',
-        borderRadius: token.borderRadius,
-        listStyle: 'none',
-        '& > *:first-child': {
-          flex: 1,
-          minWidth: 0,
-        },
-      },
       [`${token.proComponentsCls}-list-item-meta`]: {
         display: 'flex',
         flex: 1,
@@ -89,6 +69,29 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         borderBlockEnd: 'none',
         margin: 0,
         minWidth: 0,
+      },
+      '&-split': {
+        [`${token.componentCls}-row`]: {
+          borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+          '&:last-child': {
+            borderBlockEnd: 'none',
+          },
+        },
+        [`${token.proComponentsCls}-list-item`]: {
+          borderRadius: 0,
+          borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+          '&:last-child': {
+            borderBlockEnd: 'none',
+          },
+        },
+      },
+
+      '&-no-split': {
+        [`${token.componentCls}-row`]: { borderBlockEnd: 'none' },
+        [`${token.proComponentsCls}-list ${token.proComponentsCls}-list-item`]:
+          {
+            borderBlockEnd: 'none',
+          },
       },
       [`${token.proComponentsCls}-list-item-action,
         ${token.proComponentsCls}-card-extra,
