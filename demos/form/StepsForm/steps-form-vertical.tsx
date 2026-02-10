@@ -29,7 +29,7 @@ const Demo = () => {
         name: string;
       }>
         stepsProps={{
-          direction: 'vertical',
+          orientation: 'vertical',
         }}
         formRef={formRef}
         onFinish={async () => {
