@@ -9,7 +9,9 @@ export interface ProListToken extends ProAliasToken {
 const genTechUiListActiveKeyframes = (token: ProListToken) =>
   new Keyframes('techUiListActive', {
     '0%': { backgroundColor: 'unset' },
-    '30%': { background: token.colorWarningBg ?? setAlpha(token.colorWarning, 0.15) },
+    '30%': {
+      background: token.colorWarningBg ?? setAlpha(token.colorWarning, 0.15),
+    },
     '100%': { backgroundColor: 'unset' },
   }) as any;
 
@@ -23,7 +25,14 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
       },
       backgroundColor: 'transparent',
 
-      [`${token.proComponentsCls}-table-alert`]: { marginBlockEnd: token.margin },
+      [`${token.proComponentsCls}-list-items`]: {
+        margin: 0,
+        padding: 0,
+        listStyle: 'none',
+      },
+      [`${token.proComponentsCls}-table-alert`]: {
+        marginBlockEnd: token.margin,
+      },
       [`${token.proComponentsCls}-list-item`]: {
         display: 'flex',
         flexDirection: 'column',
@@ -401,7 +410,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
             [`${token.proComponentsCls}-list-item`]: {
               width: '100%',
               paddingBlock: token.paddingSM,
-              paddingInlineStart: token.paddingLG,
+              paddingInlineStart: 0,
               paddingInlineEnd: token.paddingMD,
               [`${token.proComponentsCls}-list-item-meta-avatar`]: {
                 display: 'flex',
@@ -411,6 +420,11 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
               [`${token.proComponentsCls}-list-item-meta-title`]: {
                 marginBlock: 0,
                 marginInline: 0,
+              },
+            },
+            '&-item-has-avatar': {
+              [`${token.proComponentsCls}-list-item`]: {
+                paddingInlineStart: token.paddingLG,
               },
             },
           },
