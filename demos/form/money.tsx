@@ -53,7 +53,7 @@ const Demo = () => {
         }}
         formRef={formRef}
         params={{ id: '100' }}
-        formKey="base-form-use-demo"
+        formKey="money-demo"
         readonly={readonly}
         request={async () => {
           await waitTime(100);

@@ -14,7 +14,7 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <Form form={form} onFinish={console.log}>
+    <Form name="form-control-render-demo" form={form} onFinish={console.log}>
       <Form.Item
         name={'text1'}
         label="文本框（没错误边框）"

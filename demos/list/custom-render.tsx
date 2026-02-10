@@ -42,7 +42,16 @@ export default () => {
     >
       <ProList<AppItem>
         rowKey="id"
-        grid={{ gutter: 16, column: 3 }}
+        split
+        grid={{
+          xs: 1,
+          sm: 2,
+          md: 2,
+          lg: 4,
+          xl: 4,
+          xxl: 4,
+          gutter: [16, 16],
+        }}
         pagination={false}
         columns={[
           { dataIndex: 'title', listSlot: 'title' },
