@@ -25,6 +25,16 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
       },
       backgroundColor: 'transparent',
 
+      // 确保链接使用默认链接颜色，不被父元素的文本颜色覆盖
+      a: {
+        color: token.colorLink,
+        '&:hover': {
+          color: token.colorLinkHover,
+        },
+        '&:active': {
+          color: token.colorLinkActive,
+        },
+      },
       [`${token.proComponentsCls}-list-items`]: {
         margin: 0,
         padding: 0,
@@ -422,11 +432,10 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
                 marginInline: 0,
               },
             },
-            '&-item-has-avatar': {
-              [`${token.proComponentsCls}-list-item`]: {
-                paddingInlineStart: token.paddingLG,
-              },
-            },
+          },
+        [`${token.proComponentsCls}-list-vertical ${token.proComponentsCls}-list-row${token.componentCls}-row-item-has-avatar ${token.proComponentsCls}-list-item`]:
+          {
+            paddingInlineStart: token.paddingLG,
           },
       },
     },
