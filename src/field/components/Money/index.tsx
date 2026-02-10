@@ -1,7 +1,13 @@
 import { omit, useControlledState } from '@rc-component/util';
 import type { InputNumberProps } from 'antd';
 import { InputNumber, Popover } from 'antd';
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { intlMap as allIntlMap, useIntl } from '../../../provider';
 import type { ProFieldFC } from '../../PureProField';
 
@@ -238,7 +244,7 @@ const InputNumberPopover = React.forwardRef<
 
     // 使用本地状态管理 Popover 显示，同时支持受控模式
     const [localOpen, setLocalOpen] = useState(open ?? false);
-    
+
     // 跟踪组件挂载状态，防止在卸载后执行状态更新
     const mountedRef = useRef(true);
     useEffect(() => {
