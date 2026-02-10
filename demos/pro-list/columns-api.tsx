@@ -18,35 +18,35 @@ type DataItem = {
 const dataSource: DataItem[] = [
   {
     id: '1',
-    name: '语雀的天空',
+    name: '智慧零售平台',
     image:
       'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
     desc: 'Ant Design, a design language for background applications, is refined by Ant UED Team',
-    labels: ['语雀专栏', '设计语言'],
+    labels: ['技术专栏', '设计语言'],
   },
   {
     id: '2',
     name: 'Ant Design',
     image:
       'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
-    desc: '蚂蚁金服设计平台 design.alipay.com，用最小的工作量，无缝接入蚂蚁金服生态',
-    labels: ['Ant Design', 'TechUI'],
+    desc: '企业级数据看板与可视化分析工具，开箱即用的图表方案',
+    labels: ['Ant Design', '可视化'],
   },
   {
     id: '3',
-    name: '蚂蚁金服体验科技',
+    name: '云原生微服务框架',
     image:
       'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
-    desc: '蚂蚁金服体验科技是一个致力于提升用户体验的技术团队',
-    labels: ['蚂蚁金服'],
+    desc: '基于 K8s 的微服务开发与治理框架，支持服务注册与发现',
+    labels: ['云原生'],
   },
   {
     id: '4',
-    name: 'TechUI',
+    name: '数据可视化引擎',
     image:
       'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
-    desc: 'TechUI 是一个面向企业级中后台的设计解决方案',
-    labels: ['TechUI'],
+    desc: '面向企业级中后台的数据可视化解决方案',
+    labels: ['可视化'],
   },
 ];
 

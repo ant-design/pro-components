@@ -10,21 +10,65 @@ import React, { useState } from 'react';
 type DataSourceType = {
   id: React.Key;
   title?: string;
-  decs?: string;
-  state?: string;
+  description?: string;
+  status?: string;
   created_at?: number;
   children?: DataSourceType[];
 };
 
-const defaultData: DataSourceType[] = new Array(20).fill(1).map((_, index) => {
-  return {
-    id: (Date.now() + index).toString(),
-    title: `活动名称${index}`,
-    decs: '这个活动真好玩',
-    state: 'open',
-    created_at: 1590486176000,
-  };
-});
+const taskNames = [
+  '优化首页加载速度',
+  '修复登录超时问题',
+  '新增数据导出功能',
+  '重构权限管理模块',
+  '接入第三方支付 SDK',
+  '升级 React 18',
+  '优化搜索算法',
+  '增加单元测试覆盖',
+  '实现深色模式',
+  '接入埋点 SDK',
+  '优化图片懒加载',
+  '重构表格组件',
+  '添加国际化支持',
+  '修复移动端适配',
+  '集成 CI/CD 流程',
+  '优化打包体积',
+  '实现 WebSocket 通信',
+  '添加操作审计日志',
+  '优化缓存策略',
+  '重构路由模块',
+];
+
+const taskDescs = [
+  '首页白屏时间超过 3s',
+  '高峰期登录请求超时',
+  '导出 Excel 和 CSV',
+  '细粒度权限控制',
+  '对接微信和支付宝',
+  '升级到最新 LTS 版本',
+  'ES 查询响应慢',
+  '核心模块覆盖率 > 90%',
+  '支持系统主题切换',
+  '用户行为数据采集',
+  '减少首屏图片请求',
+  '提升大数据量渲染性能',
+  '支持中英日三语',
+  'iOS Safari 布局异常',
+  '自动化构建和部署',
+  '减少 vendor chunk 体积',
+  '实时消息推送',
+  '记录关键操作日志',
+  '减少 API 冗余请求',
+  '支持嵌套路由和权限路由',
+];
+
+const defaultData: DataSourceType[] = taskNames.map((name, index) => ({
+  id: (1705286400000 + index).toString(),
+  title: name,
+  description: taskDescs[index],
+  status: index % 3 === 0 ? 'open' : index % 3 === 1 ? 'processing' : 'closed',
+  created_at: 1705286400000 - index * 86400000,
+}));
 
 const Demo = () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>(() =>
@@ -36,7 +80,7 @@ const Demo = () => {
 
   const columns: ProColumns<DataSourceType>[] = [
     {
-      title: '活动名称',
+      title: '任务名称',
       dataIndex: 'title',
       width: '30%',
       formItemProps: {
@@ -47,42 +91,42 @@ const Demo = () => {
             message: '此项是必填项',
           },
           {
-            message: '必须包含数字',
-            pattern: /[0-9]/,
+            max: 30,
+            whitespace: true,
+            message: '最长为 30 位',
           },
           {
-            max: 16,
+            min: 4,
             whitespace: true,
-            message: '最长为 16 位',
-          },
-          {
-            min: 6,
-            whitespace: true,
-            message: '最小为 6 位',
+            message: '最小为 4 位',
           },
         ],
       },
     },
     {
       title: '状态',
-      key: 'state',
-      dataIndex: 'state',
+      key: 'status',
+      dataIndex: 'status',
       valueType: 'select',
       valueEnum: {
         all: { text: '全部', status: 'Default' },
         open: {
-          text: '未解决',
+          text: '待处理',
           status: 'Error',
         },
+        processing: {
+          text: '进行中',
+          status: 'Processing',
+        },
         closed: {
-          text: '已解决',
+          text: '已完成',
           status: 'Success',
         },
       },
     },
     {
       title: '描述',
-      dataIndex: 'decs',
+      dataIndex: 'description',
     },
     {
       title: '操作',
@@ -97,7 +141,7 @@ const Demo = () => {
   return (
     <>
       <EditableProTable<DataSourceType>
-        headerTitle="可编辑表格"
+        headerTitle="实时编辑任务列表"
         columns={columns}
         rowKey="id"
         scroll={{
@@ -117,7 +161,6 @@ const Demo = () => {
               type="primary"
               key="save"
               onClick={() => {
-                // dataSource 就是当前数据，可以调用 api 将其保存
                 console.log(dataSource);
               }}
             >

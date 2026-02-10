@@ -277,12 +277,12 @@ const Demo = () => (
         label="地址列表"
         initialValue={[
           {
-            name: '张三',
-            addr: '地址1',
+            name: '书琰',
+            addr: '杭州市滨江区',
           },
           {
-            name: '李四',
-            addr: '地址2',
+            name: '逄一',
+            addr: '北京市海淀区',
           },
         ]}
       >

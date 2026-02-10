@@ -154,7 +154,7 @@ const Demo = () => {
       <BetaSchemaForm<TableListItem, 'link' | 'tags'>
         initialValues={{
           key: 1,
-          name: 'TradeCode 1',
+          name: '用户认证服务',
           status: [
             {
               value: 1,

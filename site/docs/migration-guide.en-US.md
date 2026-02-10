@@ -458,7 +458,6 @@ ProList's `metas` API is deprecated. Use `columns` + `listSlot` instead. Migrati
       search: false,
     },
     actions: {
-      cardActionProps: 'actions',
       render: (_, row) => [<a key="edit">Edit</a>],
       search: false,
     },
@@ -484,7 +483,6 @@ ProList's `metas` API is deprecated. Use `columns` + `listSlot` instead. Migrati
     },
     {
       listSlot: 'actions',
-      cardActionProps: 'actions',
       render: (_, row) => [<a key="edit">Edit</a>],
       search: false,
     },
@@ -507,7 +505,6 @@ Migration reference:
 | `description: { dataIndex: 'desc' }` | `{ dataIndex: 'desc', listSlot: 'description' }` |
 | `subTitle: { render: ... }` | `{ listSlot: 'subTitle', render: ... }` |
 | `content: {}` | `{ dataIndex: 'content', listSlot: 'content' }` |
-| `actions: { cardActionProps: 'actions' }` | `{ listSlot: 'actions', cardActionProps: 'actions' }` |
 | `extra: { render: ... }` | `{ listSlot: 'aside', render: ... }` |
 | `type: {}` | `{ dataIndex: 'type', listSlot: 'type' }` |
 
@@ -631,7 +628,6 @@ pnpm exec rg "metas" src
 4. **Migrate List components**
    - Convert the `metas` object to a `columns` array
    - Convert each meta key to a `listSlot` property
-   - Keep `cardActionProps` as-is, placed directly in the column configuration
 
 5. **Migrate Field / ProFormField components**
    - Remove all `plain` or `plain={true}` props

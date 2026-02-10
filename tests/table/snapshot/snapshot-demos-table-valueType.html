@@ -42,9 +42,9 @@
                       <label
                         class=""
                         for="code"
-                        title="代码"
+                        title="部署脚本"
                       >
-                        代码
+                        部署脚本
                       </label>
                     </div>
                     <div
@@ -122,9 +122,9 @@
                       <label
                         class=""
                         for="avatar"
-                        title="头像"
+                        title="负责人"
                       >
-                        头像
+                        负责人
                       </label>
                     </div>
                     <div
@@ -165,9 +165,9 @@
                     <label
                       class=""
                       for="image"
-                      title="图片"
+                      title="架构图"
                     >
-                      图片
+                      架构图
                     </label>
                   </div>
                   <div
@@ -309,7 +309,7 @@
                 <div
                   class="ant-pro-table-list-toolbar-title"
                 >
-                  样式类
+                  多值类型展示
                 </div>
               </div>
               <div
@@ -453,19 +453,19 @@
                               class="ant-table-cell"
                               scope="col"
                             >
-                              代码
+                              部署脚本
                             </th>
                             <th
                               class="ant-table-cell"
                               scope="col"
                             >
-                              头像
+                              负责人
                             </th>
                             <th
                               class="ant-table-cell"
                               scope="col"
                             >
-                              图片
+                              架构图
                             </th>
                             <th
                               class="ant-table-cell"
@@ -507,9 +507,9 @@
                                 style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px; width: min-content;"
                               >
                                 <code>
-                                  const getData = async params =&gt; {
-  const data = await getData(params);
-  return { list: data.data, ...data };
+                                  const healthCheck = async (host) =&gt; {
+  const res = await fetch(host + '/health');
+  return { status: res.status };
 };
                                 </code>
                               </pre>
@@ -538,11 +538,11 @@
                                   class="ant-space-item"
                                 >
                                   <a
-                                    href="https://github.com/chenshuai2144"
+                                    href="https://github.com/ant-design"
                                     rel="noopener noreferrer"
                                     target="_blank"
                                   >
-                                    chenshuai2144
+                                    书琰
                                   </a>
                                 </div>
                               </div>
@@ -605,9 +605,9 @@
                                 style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px; width: min-content;"
                               >
                                 <code>
-                                  const getData = async params =&gt; {
-  const data = await getData(params);
-  return { list: data.data, ...data };
+                                  const healthCheck = async (host) =&gt; {
+  const res = await fetch(host + '/health');
+  return { status: res.status };
 };
                                 </code>
                               </pre>
@@ -636,11 +636,11 @@
                                   class="ant-space-item"
                                 >
                                   <a
-                                    href="https://github.com/chenshuai2144"
+                                    href="https://github.com/ant-design"
                                     rel="noopener noreferrer"
                                     target="_blank"
                                   >
-                                    chenshuai2144
+                                    书琰
                                   </a>
                                 </div>
                               </div>
@@ -915,126 +915,6 @@
           </div>
         </div>
       </div>
-    </div>
-    <div
-      style="margin-top: 20px; padding: 20px; background-color: #f5f5f5; border-radius: 6px;"
-    >
-      <h4>
-        ProTable 值类型 Props 说明：
-      </h4>
-      <ul>
-        <li>
-          <strong>
-            ProTable
-          </strong>
-          : 专业表格组件
-        </li>
-        <li>
-          <strong>
-            Space
-          </strong>
-          : 间距组件
-        </li>
-        <li>
-          <strong>
-            值类型
-          </strong>
-          : 展示值类型功能
-        </li>
-      </ul>
-      <h4>
-        ProTable 配置：
-      </h4>
-      <ul>
-        <li>
-          <strong>
-            columns
-          </strong>
-          : 列配置
-        </li>
-        <li>
-          <strong>
-            request
-          </strong>
-          : 请求函数
-        </li>
-        <li>
-          <strong>
-            rowKey
-          </strong>
-          : 行键
-        </li>
-        <li>
-          <strong>
-            headerTitle
-          </strong>
-          : 表格标题
-        </li>
-      </ul>
-      <h4>
-        值类型特点：
-      </h4>
-      <ul>
-        <li>
-          <strong>
-            序号
-          </strong>
-          : 支持序号
-        </li>
-        <li>
-          <strong>
-            边框序号
-          </strong>
-          : 支持边框序号
-        </li>
-        <li>
-          <strong>
-            代码
-          </strong>
-          : 支持代码
-        </li>
-        <li>
-          <strong>
-            头像
-          </strong>
-          : 支持头像
-        </li>
-        <li>
-          <strong>
-            图片
-          </strong>
-          : 支持图片
-        </li>
-        <li>
-          <strong>
-            自定义渲染
-          </strong>
-          : 支持自定义渲染
-        </li>
-      </ul>
-      <h4>
-        使用场景：
-      </h4>
-      <ul>
-        <li>
-          <strong>
-            样式展示
-          </strong>
-          : 样式展示需求
-        </li>
-        <li>
-          <strong>
-            多媒体
-          </strong>
-          : 多媒体展示
-        </li>
-        <li>
-          <strong>
-            用户信息
-          </strong>
-          : 用户信息展示
-        </li>
-      </ul>
     </div>
   </div>
 </DocumentFragment>

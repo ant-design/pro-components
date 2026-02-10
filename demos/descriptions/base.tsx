@@ -7,12 +7,12 @@ const Demo = () => {
   return (
     <ProDescriptions
       column={2}
-      title="高级定义列表"
-      tooltip="包含了从服务器请求，columns等功能"
+      title="订单详情"
+      tooltip="展示订单的详细信息，包括金额、状态、日期等多种值类型"
     >
       <ProDescriptions.Item valueType="option">
         <Button key="primary" type="primary">
-          提交
+          提交审核
         </Button>
       </ProDescriptions.Item>
       <ProDescriptions.Item
@@ -22,91 +22,91 @@ const Demo = () => {
           return _ + _;
         }}
         ellipsis
-        label="文本"
+        label="订单备注"
       >
-        这是一段很长很长超级超级长的无意义说明文本并且重复了很多没有意义的词语，就是为了让它变得很长很长超级超级长
+        客户要求在一季度内完成全部部署上线工作，优先安排专属技术支持团队跟进对接，确保各环节顺利推进
       </ProDescriptions.Item>
       <ProDescriptions.Item
-        label="金额"
-        tooltip="仅供参考，以实际为准"
+        label="合同金额"
+        tooltip="仅供参考，以实际签约合同为准"
         valueType="money"
       >
-        100
+        128000
       </ProDescriptions.Item>
-      <ProDescriptions.Item label="百分比" valueType="percent">
-        100
+      <ProDescriptions.Item label="完成进度" valueType="percent">
+        75
       </ProDescriptions.Item>
       <ProDescriptions.Item
-        label="选择框"
+        label="订单状态"
         valueEnum={{
           all: { text: '全部', status: 'Default' },
-          open: {
-            text: '未解决',
-            status: 'Error',
-          },
-          closed: {
-            text: '已解决',
-            status: 'Success',
+          pending: {
+            text: '待审核',
+            status: 'Warning',
           },
           processing: {
-            text: '解决中',
+            text: '处理中',
             status: 'Processing',
+          },
+          completed: {
+            text: '已完成',
+            status: 'Success',
+          },
+          rejected: {
+            text: '已驳回',
+            status: 'Error',
           },
         }}
       >
-        open
+        processing
       </ProDescriptions.Item>
       <ProDescriptions.Item
-        label="远程选择框"
+        label="付款方式"
         request={async () => [
-          { label: '全部', value: 'all' },
-          { label: '未解决', value: 'open' },
-          { label: '已解决', value: 'closed' },
-          { label: '解决中', value: 'processing' },
+          { label: '对公转账', value: 'bank' },
+          { label: '支付宝', value: 'alipay' },
+          { label: '微信支付', value: 'wechat' },
+          { label: '信用卡', value: 'credit' },
         ]}
       >
-        closed
+        bank
       </ProDescriptions.Item>
-      <ProDescriptions.Item label="进度条" valueType="progress">
-        40
+      <ProDescriptions.Item label="交付进度" valueType="progress">
+        75
       </ProDescriptions.Item>
-      <ProDescriptions.Item label="日期时间" valueType="dateTime">
+      <ProDescriptions.Item label="下单时间" valueType="dateTime">
         {FIXED_BASE_DATE.valueOf()}
       </ProDescriptions.Item>
-      <ProDescriptions.Item label="日期" valueType="date">
+      <ProDescriptions.Item label="签约日期" valueType="date">
         {FIXED_BASE_DATE.valueOf()}
       </ProDescriptions.Item>
-      <ProDescriptions.Item label="日期区间" valueType="dateTimeRange">
-        {[FIXED_BASE_DATE.add(-1, 'd').valueOf(), FIXED_BASE_DATE.valueOf()]}
+      <ProDescriptions.Item label="服务周期" valueType="dateTimeRange">
+        {[FIXED_BASE_DATE.valueOf(), FIXED_BASE_DATE.add(365, 'd').valueOf()]}
       </ProDescriptions.Item>
-      <ProDescriptions.Item label="时间" valueType="time">
+      <ProDescriptions.Item label="创建时间" valueType="time">
         {FIXED_BASE_DATE.valueOf()}
       </ProDescriptions.Item>
-      <ProDescriptions.Item label="代码块" valueType="code">
+      <ProDescriptions.Item label="部署脚本" valueType="code">
         {`
-yarn run v1.22.0
-$ eslint --format=pretty ./packages
-Done in 9.70s.
-          `}
+pnpm install
+pnpm run build
+pnpm run deploy --env production
+        `}
       </ProDescriptions.Item>
-      <ProDescriptions.Item label="JSON 代码块" valueType="jsonCode">
+      <ProDescriptions.Item label="服务配置" valueType="jsonCode">
         {`{
-  "compilerOptions": {
-    "target": "esnext",
-    "moduleResolution": "node",
-    "jsx": "preserve",
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": true,
-
-    "declaration": true,
-    "skipLibCheck": true
-  },
-  "include": ["**/src", "**/docs", "scripts", "**/demo", ".eslintrc.js"]
-}
-`}
+  "service": {
+    "name": "user-auth-service",
+    "port": 8080,
+    "replicas": 3,
+    "healthCheck": "/api/health",
+    "env": "production",
+    "resources": {
+      "cpu": "500m",
+      "memory": "512Mi"
+    }
+  }
+}`}
       </ProDescriptions.Item>
     </ProDescriptions>
   );

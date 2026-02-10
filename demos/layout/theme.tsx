@@ -57,7 +57,7 @@ const Demo = () => {
       avatarProps={{
         src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
         size: 'small',
-        title: '七妮妮',
+        title: '书琰',
       }}
       actionsRender={(props) => {
         if (props.isMobile) return [];

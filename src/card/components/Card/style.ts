@@ -18,6 +18,9 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
       display: 'flex',
       flexDirection: 'column',
       boxSizing: 'border-box',
+      '*, *::before, *::after': {
+        boxSizing: 'border-box',
+      },
       width: '100%',
       marginBlock: 0,
       marginInline: 0,

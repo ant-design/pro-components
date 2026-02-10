@@ -12,34 +12,34 @@ import { TreeSelect } from 'antd';
 
 const treeData = [
   {
-    title: 'Node1',
+    title: '技术研发部',
     value: '0-0',
     key: '0-0',
     children: [
       {
-        title: 'Child Node1',
+        title: '前端开发组',
         value: '0-0-0',
         key: '0-0-0',
       },
     ],
   },
   {
-    title: 'Node2',
+    title: '产品设计部',
     value: '0-1',
     key: '0-1',
     children: [
       {
-        title: 'Child Node3',
+        title: '产品策划组',
         value: '0-1-0',
         key: '0-1-0',
       },
       {
-        title: 'Child Node4',
+        title: 'UX 设计组',
         value: '0-1-1',
         key: '0-1-1',
       },
       {
-        title: 'Child Node5',
+        title: '用户研究组',
         value: '0-1-2',
         key: '0-1-2',
       },

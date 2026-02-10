@@ -48,7 +48,7 @@ const Demo = () => {
           width="xs"
           name="mangerName"
           label="商务经理"
-          initialValue="张三"
+          initialValue="书琰"
         />
         <ProFormList
           name="users"
@@ -73,8 +73,8 @@ const Demo = () => {
           }}
           initialValue={[
             {
-              name: '张三',
-              nickName: '小三',
+              name: '书琰',
+              nickName: '琰琰',
               age: 28,
               birth: '2024-01-15',
               sex: 'man',
