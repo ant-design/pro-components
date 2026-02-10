@@ -77,7 +77,6 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
                 }
                 return (
                   <div
-                    // eslint-disable-next-line react/no-array-index-key
                     key={index}
                     className={clsx(
                       `${prefixCls}-header-actions-item ${hashId}`,
@@ -140,7 +139,6 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
                   ? contentRender({
                       ...props,
                       // 测试专用
-                      //@ts-ignore
                       rightContentSize: rightSize,
                     })
                   : null}

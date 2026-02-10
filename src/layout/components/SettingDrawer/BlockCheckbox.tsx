@@ -52,7 +52,6 @@ const BlockCheckbox: React.FC<BlockCheckboxProps> = ({
       </Tooltip>
     ));
     return domList;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value, list?.length, onChange]);
   return <div className={clsx(baseClassName, hashId)}>{dom}</div>;
 };

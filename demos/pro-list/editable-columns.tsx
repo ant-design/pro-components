@@ -1,8 +1,8 @@
 /**
  * columns API 配合可编辑列表
  */
-import { ProList } from '@ant-design/pro-components';
 import type { ProColumns } from '@ant-design/pro-components';
+import { ProList } from '@ant-design/pro-components';
 import { Space, Tag } from 'antd';
 import { useState } from 'react';
 

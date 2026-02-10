@@ -28,7 +28,6 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (
     if (isMobile === true) {
       onCollapse?.(true);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isMobile]);
 
   const omitProps = omit(props, ['className', 'style']);

@@ -207,8 +207,6 @@ const WrappedProFormText: typeof ProFormText & {
 
 WrappedProFormText.Password = Password;
 
-// @ts-ignore
-// eslint-disable-next-line no-param-reassign
 WrappedProFormText.displayName = 'ProFormComponent';
 
 export default WrappedProFormText;

@@ -197,7 +197,6 @@ function ProFormList<T>(props: ProFormListProps<T>) {
     return [listContext.name, rest.name].flat(1);
   }, [listContext.name, rest.name]);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useImperativeHandle(
     actionRef,
     () =>

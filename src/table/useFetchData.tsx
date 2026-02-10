@@ -327,7 +327,6 @@ const useFetchData = <DataSource extends RequestData<any>>(
     return () => {
       clearTimeout(pollingSetTimeRef.current);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [polling]);
 
   useEffect(() => {
@@ -370,7 +369,6 @@ const useFetchData = <DataSource extends RequestData<any>>(
       abortFetch();
       fetchListDebounce.run(false);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageInfo?.current]);
 
   // pageSize 修改后返回第一页
@@ -380,7 +378,6 @@ const useFetchData = <DataSource extends RequestData<any>>(
     }
     abortFetch();
     fetchListDebounce.run(false);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageInfo?.pageSize]);
 
   /**

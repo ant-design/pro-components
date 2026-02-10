@@ -1,4 +1,4 @@
-﻿import { Checkbox, ConfigProvider, Form, Spin, theme } from 'antd';
+import { Checkbox, ConfigProvider, Form, Spin, theme } from 'antd';
 import type { CheckboxGroupProps } from 'antd/lib/checkbox';
 import { clsx } from 'clsx';
 import React, { useContext, useImperativeHandle, useRef } from 'react';
@@ -107,9 +107,12 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
   }
 
   if (mode === 'edit') {
-    const { fieldNames, variant, ...restFieldProps } = rest.fieldProps || {};
+    const {
+      fieldNames: _fieldNames,
+      variant,
+      ...restFieldProps
+    } = rest.fieldProps || {};
     const dom = wrapSSR(
-      //@ts-ignore
       <Checkbox.Group
         {...restFieldProps}
         variant={variant}

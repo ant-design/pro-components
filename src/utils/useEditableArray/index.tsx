@@ -1,4 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */ import { LoadingOutlined } from '@ant-design/icons';
+import { LoadingOutlined } from '@ant-design/icons';
 import {
   get,
   warning as rcWarning,

@@ -336,7 +336,6 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
     return () => {
       value?.setHasPageContainer?.((num) => num - 1);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const { token } = useContext(ProProvider);
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);

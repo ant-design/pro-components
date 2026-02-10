@@ -6,15 +6,12 @@ import type { ProFieldFC } from '../../PureProField';
 const addArrayKeys = (doms: React.ReactNode[]) =>
   doms.map((dom, index) => {
     if (!React.isValidElement(dom)) {
-      // eslint-disable-next-line react/no-array-index-key
       return <React.Fragment key={index}>{dom}</React.Fragment>;
     }
     return React.cloneElement(dom, {
-      // eslint-disable-next-line react/no-array-index-key
       key: index,
       ...dom?.props,
       style: {
-        // @ts-ignore
         ...dom?.props?.style,
       },
     });

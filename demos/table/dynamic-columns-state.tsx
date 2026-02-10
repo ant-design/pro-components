@@ -4,7 +4,11 @@ import { ProTable } from '@ant-design/pro-components';
 import { Input, Tooltip } from 'antd';
 import { useState } from 'react';
 
-import { DEMO_APP_NAMES, DEMO_CREATORS, FIXED_BASE_TIMESTAMP } from '../mockData';
+import {
+  DEMO_APP_NAMES,
+  DEMO_CREATORS,
+  FIXED_BASE_TIMESTAMP,
+} from '../mockData';
 
 const valueEnum: Record<string, string> = {
   0: 'close',
@@ -29,7 +33,7 @@ const tableListDataSource: TableListItem[] = Array.from(
   (_, i) => ({
     key: i,
     name: DEMO_APP_NAMES[i % DEMO_APP_NAMES.length],
-    containers: (i * 3 + 2) % 12 + 1,
+    containers: ((i * 3 + 2) % 12) + 1,
     creator: DEMO_CREATORS[i % DEMO_CREATORS.length],
     status: valueEnum[String(i % 2)],
     createdAt: FIXED_BASE_TIMESTAMP - i * 86400000,

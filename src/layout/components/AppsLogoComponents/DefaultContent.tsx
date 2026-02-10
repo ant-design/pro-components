@@ -16,7 +16,6 @@ export const DefaultContent: React.FC<{
           if (app?.children?.length) {
             return (
               <div
-                // eslint-disable-next-line react/no-array-index-key
                 key={index}
                 className={`${baseClassName}-content-list-item-group ${hashId}`.trim()}
               >
@@ -36,7 +35,6 @@ export const DefaultContent: React.FC<{
           }
           return (
             <li
-              // eslint-disable-next-line react/no-array-index-key
               key={index}
               className={`${baseClassName}-content-list-item ${hashId}`.trim()}
               onClick={(e) => {

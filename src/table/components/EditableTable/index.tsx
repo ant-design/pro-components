@@ -422,7 +422,6 @@ function useCreatorButton<DataType>({
     }
 
     return createButtonDom(recordCreatorProps, value, intl);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [maxLength, recordCreatorProps, value?.length, intl]);
 
   const buttonRenderProps = useMemo(() => {

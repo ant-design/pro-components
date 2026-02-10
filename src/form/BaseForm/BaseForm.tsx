@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import {
   get,
   set as namePathSet,
@@ -510,7 +509,6 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
       isEqual,
       `The initialValues only take effect when the form is initialized, if you need to load asynchronously recommended request, or the initialValues ? <Form/> : null `,
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.initialValues]);
 
   // 初始化给一个默认的 form
@@ -825,7 +823,6 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
   useEffect(() => {
     if (!syncToUrl) return;
     setUrlSearch(genParams(syncToUrl, getGenParams(), 'set'));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [extraUrlParams, getGenParams, syncToUrl]);
 
   const getPopupContainer = useMemo(() => {

@@ -534,7 +534,6 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
 
   useEffect(() => {
     setMenuLoading(isLoading);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoading]);
 
   const { cache } = useSWRConfig();
@@ -542,7 +541,6 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     return () => {
       if (cache instanceof Map) cache.delete(defaultId);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const menuInfoData = useMemo<{
@@ -762,7 +760,6 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   /** 页面切换的时候触发 */
   useEffect(() => {
     props.onPageChange?.(props.location);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname, location.pathname?.search]);
 
   const [hasFooterToolbar, setHasFooterToolbar] = useState(false);
@@ -835,7 +832,6 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
             }}
           >
             <ConfigProvider
-              // @ts-ignore
               theme={{
                 hashed: isNeedOpenHash(),
                 token: {

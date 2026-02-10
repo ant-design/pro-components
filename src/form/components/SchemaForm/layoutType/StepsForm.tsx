@@ -36,7 +36,6 @@ const StepsForm = <T, ValueType>({
       <BetaSchemaForm<T, ValueType>
         grid={grid}
         {...(step as FormSchema<T, ValueType>)}
-        // eslint-disable-next-line react/no-array-index-key
         key={index}
         layoutType="StepForm"
         columns={columns[index]}

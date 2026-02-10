@@ -1,8 +1,8 @@
 /**
  * 同一份 columns 同时用于 ProTable 和 ProList，一键切换视图
  */
-import { ProList, ProTable } from '@ant-design/pro-components';
 import type { ProColumns } from '@ant-design/pro-components';
+import { ProList, ProTable } from '@ant-design/pro-components';
 import { Radio, Space, Tag } from 'antd';
 import { useState } from 'react';
 
@@ -99,10 +99,7 @@ const columns: ProColumns<DataItem>[] = [
     title: '操作',
     listSlot: 'actions',
     search: false,
-    render: () => [
-      <a key="edit">编辑</a>,
-      <a key="delete">删除</a>,
-    ],
+    render: () => [<a key="edit">编辑</a>, <a key="delete">删除</a>],
   },
 ];
 

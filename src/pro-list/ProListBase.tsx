@@ -6,6 +6,7 @@ import { ConfigProvider, Empty, Pagination } from 'antd';
 import type { PaginationConfig } from 'antd/lib/pagination';
 import { clsx } from 'clsx';
 import React, { useContext, useMemo } from 'react';
+import { useBreakpoint } from '../utils/useMediaQuery';
 
 export type ColumnCount = number;
 export type ColumnType =
@@ -309,29 +310,104 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps<any>>(
       );
     };
 
-    const gridStyle = useMemo(() => {
-      if (!grid?.column) return undefined;
+    const breakpoint = useBreakpoint();
+
+    /**
+     * 根据当前断点获取列数
+     */
+    const getResponsiveColumn = useMemo((): number => {
+      if (!grid) return 1;
+
+      const breakpoints: Array<'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs'> = [
+        'xxl',
+        'xl',
+        'lg',
+        'md',
+        'sm',
+        'xs',
+      ];
+      const currentBreakpoint = breakpoint || 'md';
+      const startIndex = breakpoints.indexOf(currentBreakpoint);
+
+      // 从当前断点开始，向下查找第一个已定义的列数
+      for (let i = startIndex; i < breakpoints.length; i++) {
+        const bp = breakpoints[i];
+        const colCount = grid[bp];
+        if (colCount !== undefined) {
+          return colCount as number;
+        }
+      }
+
+      // 最后使用 column 默认值，确保不为 0（避免除以零）
+      return (grid.column as number) || 1;
+    }, [grid, breakpoint]);
+
+    /**
+     * 计算 grid 容器样式（flex 布局）
+     */
+    const gridContainerStyle = useMemo(() => {
+      if (!grid) return undefined;
 
       const style: React.CSSProperties = {
-        display: 'grid',
-        gridTemplateColumns: `repeat(${grid.column}, 1fr)`,
+        display: 'flex',
+        flexWrap: 'wrap',
       };
 
-      // 处理 gutter：使用 grid gap 属性
+      // 处理 gutter
       if (grid.gutter) {
-        const gutter = grid.gutter;
-        const [horizontal, vertical] = Array.isArray(gutter)
-          ? gutter
-          : [gutter, gutter];
+        const [horizontal, vertical] = Array.isArray(grid.gutter)
+          ? grid.gutter
+          : [grid.gutter, 0];
         const h = Number(horizontal) || 0;
         const v = Number(vertical) || 0;
 
-        style.columnGap = h;
-        style.rowGap = v;
+        // flex 容器使用负 margin 来抵消子元素的 padding
+        style.marginLeft = -h / 2;
+        style.marginRight = -h / 2;
+        style.marginTop = -v / 2;
+        style.marginBottom = -v / 2;
       }
 
       return style;
-    }, [grid?.column, grid?.gutter]);
+    }, [grid?.gutter]);
+
+    /**
+     * 计算每个 item 的样式（flex 子项）
+     */
+    const colStyle = useMemo(() => {
+      if (!grid) return undefined;
+
+      const { gutter } = grid;
+      const column = getResponsiveColumn;
+
+      const style: React.CSSProperties = {
+        display: 'flex',
+      };
+
+      // 处理 gutter
+      if (gutter) {
+        const [horizontal, vertical] = Array.isArray(gutter)
+          ? gutter
+          : [gutter, 0];
+        const h = Number(horizontal) || 0;
+        const v = Number(vertical) || 0;
+
+        style.paddingLeft = h / 2;
+        style.paddingRight = h / 2;
+        style.paddingTop = v / 2;
+        style.paddingBottom = v / 2;
+      }
+
+      // 计算每列的宽度（确保 column 有效，避免除以零）
+      if (column > 0) {
+        // 使用 flex-basis 和 max-width 确保准确的宽度
+        const percentage = 100 / column;
+        style.flexBasis = `${percentage}%`;
+        style.maxWidth = `${percentage}%`;
+      }
+
+      return style;
+    }, [grid?.gutter, getResponsiveColumn]);
 
     const { renderEmpty } = useContext(ConfigProvider.ConfigContext);
     let childrenContent: React.ReactNode;
@@ -342,7 +418,17 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps<any>>(
       const items = splitDataSource.map((item, idx) =>
         renderInternalItem(item, idx),
       );
-      childrenContent = grid ? <div style={gridStyle}>{items}</div> : items;
+      childrenContent = grid ? (
+        <div style={gridContainerStyle}>
+          {items.map((child, idx) => (
+            <div key={child?.key ?? idx} style={colStyle}>
+              {child}
+            </div>
+          ))}
+        </div>
+      ) : (
+        <ul className={`${prefixCls}-items`}>{items}</ul>
+      );
     } else if (!children && !isLoading) {
       const emptyContent = locale?.emptyText ??
         (typeof renderEmpty === 'function' ? renderEmpty('List') : null) ?? (

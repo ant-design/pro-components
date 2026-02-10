@@ -342,7 +342,6 @@ class MenuUtil {
       disabled: item.disabled,
       key: item.key! || item.path!,
       onClick: item.onTitleClick,
-      // eslint-disable-next-line react/no-is-mounted
       label: this.getMenuItemPath(item, level, noGroupLevel),
     };
   };
@@ -623,7 +622,6 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       setOpenKeys(matchMenuKeys);
       setSelectedKeys(matchMenuKeys);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [matchMenuKeys.join('-')]);
 
   useEffect(() => {
@@ -668,7 +666,6 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
 
   const openKeysProps = useMemo(
     () => getOpenKeysProps(openKeys, props),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [openKeys && openKeys.join(','), props.layout, props.collapsed],
   );
   const { wrapSSR, hashId } = useStyle(baseClassName, mode);
@@ -722,7 +719,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   return wrapSSR(
     <Menu
       {...openKeysProps}
-      _internalDisableMenuItemTitleTooltip
+      tooltip={false}
       key="Menu"
       mode={mode}
       inlineIndent={16}

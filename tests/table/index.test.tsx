@@ -1709,7 +1709,7 @@ describe('BasicTable', () => {
       schema: any;
       type?: string;
       dom: React.ReactNode;
-    }> = ({ schema, type, dom }) => {
+    }> = ({ schema, type: _type, dom: _dom }) => {
       const [open, setOpen] = useState(false);
       return (
         <Popover

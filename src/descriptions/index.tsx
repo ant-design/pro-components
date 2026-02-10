@@ -328,14 +328,14 @@ const schemaToDescriptionsItem = (
         };
       }
       const {
-        valueEnum,
-        render,
+        valueEnum: _valueEnum,
+        render: _render,
         renderText,
         mode,
-        plain,
+        plain: _plain,
         dataIndex,
-        request,
-        params,
+        request: _request,
+        params: _params,
         editable,
         ...restItem
       } = item as ProDescriptionsItemProps;
@@ -486,7 +486,7 @@ const ProDescriptions = <
     onLoadingChange,
     actionRef,
     onRequestError,
-    emptyText,
+    emptyText: _emptyText,
     ...rest
   } = props;
 

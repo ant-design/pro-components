@@ -17,8 +17,6 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   const {
     className,
     style,
-    bodyStyle,
-    headStyle,
     styles,
     title,
     subTitle,
@@ -231,9 +229,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     [`${prefixCls}-body-wrap`]: wrap && containProCard,
   });
 
-  // 支持新的 styles API，同时保持向后兼容
-  const cardBodyStyle = styles?.body || bodyStyle;
-  const cardHeadStyle = styles?.header || headStyle;
+  const bodyStylePadding = styles?.body?.padding;
 
   const loadingDOM = React.isValidElement(loading) ? (
     loading
@@ -241,7 +237,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     <Loading
       prefix={prefixCls}
       style={
-        cardBodyStyle?.padding === 0 || cardBodyStyle?.padding === '0px'
+        bodyStylePadding === 0 || bodyStylePadding === '0px'
           ? { padding: 24 }
           : undefined
       }
@@ -280,7 +276,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
             [`${prefixCls}-header-border`]: headerBordered || type === 'inner',
             [`${prefixCls}-header-collapsible`]: collapsibleButton,
           })}
-          style={cardHeadStyle}
+          style={styles?.header}
           onClick={() => {
             if (collapsible === 'header' || collapsible === true)
               setCollapsed(!collapsed);
@@ -305,14 +301,13 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
           <Tabs
             onChange={tabs.onChange}
             {...omit(tabs, ['cardProps'])}
-            // @ts-ignore
             items={ModifyTabItemsContent}
           >
             {loading ? loadingDOM : children}
           </Tabs>
         </div>
       ) : (
-        <div className={bodyCls} style={cardBodyStyle}>
+        <div className={bodyCls} style={styles?.body}>
           {loading ? loadingDOM : childrenModified}
         </div>
       )}

@@ -236,7 +236,8 @@ function ListView<RecordType extends AnyObject>(
             ? column.render(rawData, item, index)
             : rawData;
           // aside 是 extra 的新名称，映射到 Item 的 extra 属性
-          const propKey = column.listSlot === 'aside' ? 'extra' : column.listSlot;
+          const propKey =
+            column.listSlot === 'aside' ? 'extra' : column.listSlot;
           if (data !== '-') (listItemProps as any)[propKey] = data;
         });
         const checkboxDom = selectItemDom?.render?.(

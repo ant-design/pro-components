@@ -30,8 +30,22 @@ import React, { useState } from 'react';
 import defaultProps from './_defaultProps';
 
 const SOLUTIONS = {
-  金融行业: ['智能风控平台', '供应链金融', '数字银行核心', '保险理赔系统', '资产管理中台', '合规审计平台'],
-  通用方案: ['统一权限中心', '数据可视化引擎', '微服务治理框架', '低代码搭建平台', '智能客服系统', 'DevOps 工具链'],
+  金融行业: [
+    '智能风控平台',
+    '供应链金融',
+    '数字银行核心',
+    '保险理赔系统',
+    '资产管理中台',
+    '合规审计平台',
+  ],
+  通用方案: [
+    '统一权限中心',
+    '数据可视化引擎',
+    '微服务治理框架',
+    '低代码搭建平台',
+    '智能客服系统',
+    'DevOps 工具链',
+  ],
 };
 
 const HOT_PRODUCTS = [
@@ -136,7 +150,10 @@ const MenuCard = () => {
         content={
           <div style={{ display: 'flex', padding: '32px 40px' }}>
             <div style={{ flex: 1 }}>
-              <SolutionCategory title="金融行业" items={SOLUTIONS['金融行业']} />
+              <SolutionCategory
+                title="金融行业"
+                items={SOLUTIONS['金融行业']}
+              />
               <SolutionCategory
                 title="通用方案"
                 items={SOLUTIONS['通用方案']}

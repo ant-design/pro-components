@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import RcResizeObserver from '@rc-component/resize-observer';
 import { useControlledState } from '@rc-component/util';
 import type { ColProps, FormItemProps, RowProps } from 'antd';

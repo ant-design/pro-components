@@ -134,7 +134,6 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
     wrapSSR(
       <>
         <ConfigProvider
-          // @ts-ignore
           theme={{
             hashed: isNeedOpenHash(),
             components: {

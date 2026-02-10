@@ -123,12 +123,8 @@ const Demo = () => {
             <Descriptions.Item label="关联项目">
               <a>智慧零售平台</a>
             </Descriptions.Item>
-            <Descriptions.Item label="创建时间">
-              2024-01-10
-            </Descriptions.Item>
-            <Descriptions.Item label="上线时间">
-              2024-01-15
-            </Descriptions.Item>
+            <Descriptions.Item label="创建时间">2024-01-10</Descriptions.Item>
+            <Descriptions.Item label="上线时间">2024-01-15</Descriptions.Item>
           </Descriptions>
         </Card>
       )}

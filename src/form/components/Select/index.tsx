@@ -194,7 +194,6 @@ const WrappedProFormSelect = ProFormSelect as (<
 WrappedProFormSelect.SearchSelect = ProFormSearchSelect;
 
 // @ts-ignore
-// eslint-disable-next-line no-param-reassign
 WrappedProFormSelect.displayName = 'ProFormComponent';
 
 export default WrappedProFormSelect;
