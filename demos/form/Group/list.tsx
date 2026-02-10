@@ -33,6 +33,7 @@ const Demo = () => {
         ]}
       />
       <ProForm
+        name="group-list-demo"
         onFinish={async (values) => {
           console.log('Received values of form:', values);
         }}

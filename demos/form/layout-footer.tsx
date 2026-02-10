@@ -43,6 +43,7 @@ const Demo = () => {
       <PageContainer title="Input Form">
         <Card>
           <ProForm
+            name="layout-footer-demo"
             submitter={{
               render: (_, dom) => <FooterToolbar>{dom}</FooterToolbar>,
             }}

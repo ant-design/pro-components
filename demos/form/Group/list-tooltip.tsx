@@ -38,9 +38,13 @@ const Demo = () => {
           }}
         />
       </ProForm.Item>
-      <ProForm readonly={readonly} onFinish={async (e) => console.log(e)}>
+      <ProForm
+        name="list-tooltip-demo"
+        readonly={readonly}
+        onFinish={async (e) => console.log(e)}
+      >
+        name="group-list-tooltip-demo"
         <ProFormText name="name" label="姓名" />
-
         <ProFormList
           name="labels"
           label="用户信息"

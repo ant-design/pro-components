@@ -55,7 +55,8 @@ const Demo = () => {
   return (
     <ProCard variant="outlined" split="vertical" headerBordered>
       <ProCard colSpan="calc(100% - 400px)">
-        <ProForm>
+        <ProForm name="group-customize-demo-1">
+          name="group-customize-demo"
           <ProFormList
             name="users"
             label="用户信息"
@@ -78,6 +79,7 @@ const Demo = () => {
       </ProCard>
       <ProCard colSpan="400px" title="配置菜单">
         <ProForm
+          name="group-customize-demo-2"
           submitter={false}
           initialValues={initialValue}
           onValuesChange={(_, values) => {

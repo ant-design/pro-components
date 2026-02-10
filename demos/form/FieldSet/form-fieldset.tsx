@@ -26,6 +26,7 @@ export default () => {
         onChange={setReadonly}
       />
       <ProForm
+        name="field-set-form-fieldset-demo"
         readonly={readonly}
         initialValues={{
           list: ['1', '2', '3'],

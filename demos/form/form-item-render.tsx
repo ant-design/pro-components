@@ -90,6 +90,7 @@ const Demo = () => {
   return (
     <div>
       <ProForm
+        name="form-item-render-demo"
         form={form}
         onValuesChange={console.log}
         onFinish={async (values) => {

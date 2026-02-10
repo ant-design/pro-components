@@ -56,7 +56,7 @@ const Demo = () => {
         }}
       >
         <StepsForm.StepForm
-          name="base"
+          name="modal-step-form-base"
           title="创建实验"
           onFinish={async () => {
             await waitTime(2000);
@@ -83,7 +83,7 @@ const Demo = () => {
             placeholder="请输入备注"
           />
         </StepsForm.StepForm>
-        <StepsForm.StepForm name="checkbox" title="设置参数">
+        <StepsForm.StepForm name="modal-step-form-checkbox" title="设置参数">
           <ProFormCheckbox.Group
             name="checkbox"
             label="迁移类型"
@@ -104,7 +104,7 @@ const Demo = () => {
             />
           </ProForm.Group>
         </StepsForm.StepForm>
-        <StepsForm.StepForm name="time" title="发布实验">
+        <StepsForm.StepForm name="modal-step-form-time" title="发布实验">
           <ProFormCheckbox.Group
             name="checkbox"
             label="部署单元"

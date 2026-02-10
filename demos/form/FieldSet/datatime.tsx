@@ -33,6 +33,7 @@ export default () => {
         onChange={setReadonly}
       />
       <ProForm
+        name="field-set-datatime-demo"
         readonly={readonly}
         initialValues={{
           date: FIXED_BASE_TIMESTAMP,

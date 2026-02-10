@@ -43,7 +43,7 @@ const Demo = () => {
         <StepsForm.StepForm<{
           name: string;
         }>
-          name="base"
+          name="steps-from-base"
           title="Create Experiment"
           stepProps={{
             content: 'All basic information is filled in here',
@@ -74,7 +74,7 @@ const Demo = () => {
         <StepsForm.StepForm<{
           checkbox: string;
         }>
-          name="checkbox"
+          name="steps-from-checkbox"
           title="Set Parameters"
           stepProps={{
             content: 'Fill in the operation parameters here',
@@ -110,7 +110,7 @@ const Demo = () => {
           </ProForm.Group>
         </StepsForm.StepForm>
         <StepsForm.StepForm
-          name="time"
+          name="steps-from-time"
           title="Publish Experiment"
           stepProps={{
             content: 'Fill in the release criteria here',

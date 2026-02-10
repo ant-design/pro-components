@@ -17,6 +17,7 @@ const Demo = () => {
 
   return (
     <ProForm
+      name="captcha-form-demo"
       title="新建表单"
       submitter={{
         render: (props, doms) => {
