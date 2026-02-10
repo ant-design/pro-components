@@ -10,6 +10,12 @@ atomId: EditableProTable
 
 ## 代码演示
 
+### 编辑模式切换
+
+通过 Segmented 切换 `editable.type`，在单行编辑（single）和多行编辑（multiple）之间一键切换。
+
+<code src="../../demos/table/enum-editable-type.tsx" background="var(--main-bg-color)"></code>
+
 ### 可编辑表格
 
 <code src="../../demos/table/EditableTable/basic.tsx"  background="var(--main-bg-color)"></code>

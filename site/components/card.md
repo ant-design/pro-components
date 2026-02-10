@@ -20,6 +20,12 @@ atomId: ProCard
 
 ## 代码演示
 
+### 枚举属性切换
+
+通过 Segmented 分段选择器一键切换 `size`、`variant`、`layout`、`type`、`direction`、`split`、`collapsible` 七个枚举属性。
+
+<code src="../../demos/card/enum-switch.tsx" background="var(--main-bg-color)" title="枚举属性切换"></code>
+
 <code src="../../demos/card/basic.tsx" background="var(--main-bg-color)" title="基础卡片" description="当单独使用时 `ProCard` 就是一个普通的卡片。"></code>
 
 <code src="../../demos/card/colspan.tsx" background="var(--main-bg-color)" title="栅格布局" description="当嵌套子卡片时, 组件会自动切换为 `flex` 弹性盒布局，你可以将 `direction`设置为`column`来指定 Flex 方向，你还可以通过配置 `ghost` 属性为 `true` 来去掉背景色和 padding 方便页内布局。"></code>

@@ -17,6 +17,12 @@ legacy: /table
 
 <code src="../../demos/table/no-title.tsx" id="no-title-table" background="var(--main-bg-color)" title="无 ToolBar 的表格"></code>
 
+### 搜索栏类型切换
+
+通过 Segmented 切换 `search.filterType`，在查询表单（query）和轻量筛选（light）之间一键切换。
+
+<code src="../../demos/table/enum-filter-type.tsx" background="var(--main-bg-color)" title="搜索栏类型切换"></code>
+
 ### 搜索与筛选
 
 <code src="../../demos/table/no-option.tsx" background="var(--main-bg-color)" title="查询（无按钮）表格"></code>
