@@ -321,6 +321,23 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           alignItems: 'center',
         },
         '&-checkbox': { width: '16px', marginInlineEnd: '12px' },
+        '&-split': {
+          [`${token.componentCls}-row`]: {
+            borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+            '&:last-child': {
+              borderBlockEnd: 'none',
+            },
+          },
+          [`${token.proComponentsCls}-list-items`]: {
+            gap: 0,
+            [`${token.proComponentsCls}-list-item`]: {
+              borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+              '&:last-child': {
+                borderBlockEnd: 'none',
+              },
+            },
+          },
+        },
         '&-no-split': {
           [`${token.componentCls}-row`]: { borderBlockEnd: 'none' },
           [`${token.proComponentsCls}-list ${token.proComponentsCls}-list-item`]:
