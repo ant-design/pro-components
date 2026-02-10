@@ -154,7 +154,6 @@ function InternalProList<
     metas,
     columns: propsColumns,
     split,
-    bordered,
     variant,
     footer,
     rowKey,
@@ -249,7 +248,6 @@ function InternalProList<
             size={size as 'large'}
             footer={footer}
             split={split}
-            bordered={bordered}
             variant={variant}
             rowKey={rowKey}
             expandable={expandable}

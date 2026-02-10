@@ -33,8 +33,6 @@ export interface ListLocale {
   emptyText?: React.ReactNode;
 }
 export interface ListProps<T = any> {
-  /** @deprecated 请使用 variant="bordered" 替代 */
-  bordered?: boolean;
   variant?: 'default' | 'bordered' | 'borderless';
   className?: string;
   rootClassName?: string;
@@ -223,8 +221,7 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps<any>>(
     const {
       pagination = false,
       prefixCls: customizePrefixCls,
-      bordered = false,
-      variant,
+      variant = 'default',
       split = true,
       className,
       rootClassName,
@@ -404,7 +401,7 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps<any>>(
         [`${prefixCls}-vertical`]: itemLayout === 'vertical',
         [`${prefixCls}-${sizeCls}`]: sizeCls,
         [`${prefixCls}-split`]: split,
-        [`${prefixCls}-bordered`]: variant ? variant === 'bordered' : bordered,
+        [`${prefixCls}-bordered`]: variant === 'bordered',
         [`${prefixCls}-borderless`]: variant === 'borderless',
         [`${prefixCls}-loading`]: isLoading,
         [`${prefixCls}-grid`]: !!grid,
