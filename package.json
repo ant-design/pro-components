@@ -29,7 +29,7 @@
   ],
   "scripts": {
     "bootstrap": "node ./scripts/bootstrap.mjs",
-    "build": "father build",
+    "build": "father build && node scripts/add-esm-extensions.mjs",
     "changelog": "node ./scripts/changelogs.mjs",
     "checkPublish": "npm run sync:tnpm && node ./scripts/checkPublish.mjs && npm run sync:tnpm",
     "deploy": "cross-env SITE_DEPLOY='TRUE' npm run site && gh-pages -d ./dist",
