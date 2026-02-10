@@ -1,49 +1,8 @@
-import type { GenerateStyle, ProAliasToken } from '../../../provider';
 import { useStyle as useAntdStyle } from '../../../provider';
 
-interface ProCardDividerToken extends ProAliasToken {
-  componentCls: string;
-}
-
-const genDividerStyle: GenerateStyle<ProCardDividerToken> = (token) => {
-  const { componentCls } = token;
-
-  return {
-    [componentCls]: {
-      boxSizing: 'border-box',
-      '&-divider': {
-        flex: 'none',
-        width: token.lineWidth,
-        marginInline: token.marginXS,
-        marginBlock: token.marginLG,
-        backgroundColor: token.colorSplit,
-        '&-horizontal': {
-          width: 'initial',
-          height: token.lineWidth,
-          marginInline: token.marginLG,
-          marginBlock: token.marginXS,
-        },
-      },
-
-      '&&-size-small &-divider': {
-        marginBlock: token.marginLG,
-        marginInline: token.marginXS,
-        '&-horizontal': {
-          marginBlock: token.marginXS,
-          marginInline: token.marginLG,
-        },
-      },
-    },
-  };
-};
-
-export default function useStyle(prefixCls: string) {
-  return useAntdStyle('ProCardDivider', (token) => {
-    const proCardDividerToken: ProCardDividerToken = {
-      ...token,
-      componentCls: `.${prefixCls}`,
-    };
-
-    return [genDividerStyle(proCardDividerToken)];
-  });
+/**
+ * Divider 样式已合并至 ProCard style.ts，此 hook 仅用于获取 hashId 和 wrapSSR
+ */
+export default function useStyle(_prefixCls: string) {
+  return useAntdStyle('ProCardDivider', () => ({}));
 }

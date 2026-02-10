@@ -243,17 +243,36 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       }
     />
   );
+  const handleCollapsibleIconClick = useCallback(() => {
+    if (collapsible === 'icon') setCollapsed((prev) => !prev);
+  }, [collapsible, setCollapsed]);
+
   // 非受控情况下展示
   const collapsibleButton =
     collapsible &&
     controlCollapsed === undefined &&
     (collapsibleIconRender ? (
-      collapsibleIconRender({ collapsed })
+      <span
+        role="button"
+        tabIndex={collapsible === 'icon' ? 0 : undefined}
+        className={`${prefixCls}-collapsible-icon ${hashId}`.trim()}
+        onClick={collapsible === 'icon' ? handleCollapsibleIconClick : undefined}
+        onKeyDown={
+          collapsible === 'icon'
+            ? (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  handleCollapsibleIconClick();
+                }
+              }
+            : undefined
+        }
+      >
+        {collapsibleIconRender({ collapsed })}
+      </span>
     ) : (
       <RightOutlined
-        onClick={() => {
-          if (collapsible === 'icon') setCollapsed(!collapsed);
-        }}
+        onClick={handleCollapsibleIconClick}
         rotate={!collapsed ? 90 : undefined}
         className={`${prefixCls}-collapsible-icon ${hashId}`.trim()}
       />
