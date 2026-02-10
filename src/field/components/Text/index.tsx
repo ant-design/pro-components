@@ -24,7 +24,10 @@ const FieldText: ProFieldFC<{
 
   useEffect(() => {
     if (autoFocus) {
-      inputRef.current?.focus();
+      // 使用 queueMicrotask 延迟 focus 调用，避免在渲染期间触发 flushSync
+      queueMicrotask(() => {
+        inputRef.current?.focus();
+      });
     }
   }, [autoFocus]);
 
