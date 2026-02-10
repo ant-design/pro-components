@@ -379,7 +379,7 @@ describe('BasicTable', () => {
     });
 
     await waitFor(() => {
-      expect(!!html.baseElement.querySelector('.ant-pro-card')).toBe(true);
+      expect(!!html.baseElement.querySelector('.ant-pro-card')).toBe(false);
     });
 
     act(() => {
