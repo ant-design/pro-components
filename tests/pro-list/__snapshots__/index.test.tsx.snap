@@ -6,12 +6,12 @@ exports[`List > 🚏 ProList support rowClassName as a function 1`] = `
     class="ant-pro-table ant-pro-list ant-pro-list-no-split"
   >
     <div
-      class="ant-pro-list ant-pro-list-split ant-pro-list-container"
+      class="ant-pro-list ant-pro-list-split ant-pro-list-borderless ant-pro-list-container"
     >
       <ul
         class="ant-pro-list-items"
       >
-        <li
+        <div
           class="ant-pro-list-item ant-pro-list-row even"
         >
           <div
@@ -51,8 +51,8 @@ exports[`List > 🚏 ProList support rowClassName as a function 1`] = `
               </div>
             </div>
           </div>
-        </li>
-        <li
+        </div>
+        <div
           class="ant-pro-list-item ant-pro-list-row odd"
         >
           <div
@@ -92,7 +92,7 @@ exports[`List > 🚏 ProList support rowClassName as a function 1`] = `
               </div>
             </div>
           </div>
-        </li>
+        </div>
       </ul>
     </div>
   </div>
@@ -105,12 +105,12 @@ exports[`List > 🚏 ProList support rowClassName as a string 1`] = `
     class="ant-pro-table ant-pro-list ant-pro-list-no-split"
   >
     <div
-      class="ant-pro-list ant-pro-list-split ant-pro-list-container"
+      class="ant-pro-list ant-pro-list-split ant-pro-list-borderless ant-pro-list-container"
     >
       <ul
         class="ant-pro-list-items"
       >
-        <li
+        <div
           class="ant-pro-list-item ant-pro-list-row rowClassName"
         >
           <div
@@ -150,7 +150,7 @@ exports[`List > 🚏 ProList support rowClassName as a string 1`] = `
               </div>
             </div>
           </div>
-        </li>
+        </div>
       </ul>
     </div>
   </div>
@@ -163,12 +163,12 @@ exports[`List > 🚏 only has content 1`] = `
     class="ant-pro-table ant-pro-list ant-pro-list-no-split"
   >
     <div
-      class="ant-pro-list ant-pro-list-split ant-pro-list-container"
+      class="ant-pro-list ant-pro-list-split ant-pro-list-borderless ant-pro-list-container"
     >
       <ul
         class="ant-pro-list-items"
       >
-        <li
+        <div
           class="ant-pro-list-item ant-pro-list-row"
         >
           <div
@@ -185,7 +185,7 @@ exports[`List > 🚏 only has content 1`] = `
               段落示意：蚂蚁金服设计平台 design.alipay.com，用最小的工作量，无缝接入蚂蚁金服生态，提供跨越设计与开发的体验解决方案。蚂蚁金服设计平台 design.alipay.com，用最小的工作量，无缝接入蚂蚁金服生态提供跨越设计与开发的体验解决方案。
             </div>
           </div>
-        </li>
+        </div>
       </ul>
     </div>
   </div>
@@ -198,12 +198,12 @@ exports[`List > 🚏 only has description 1`] = `
     class="ant-pro-table ant-pro-list ant-pro-list-no-split"
   >
     <div
-      class="ant-pro-list ant-pro-list-split ant-pro-list-container"
+      class="ant-pro-list ant-pro-list-split ant-pro-list-borderless ant-pro-list-container"
     >
       <ul
         class="ant-pro-list-items"
       >
-        <li
+        <div
           class="ant-pro-list-item ant-pro-list-row"
         >
           <div
@@ -244,7 +244,7 @@ exports[`List > 🚏 only has description 1`] = `
               </div>
             </div>
           </div>
-        </li>
+        </div>
       </ul>
     </div>
   </div>
@@ -257,12 +257,12 @@ exports[`List > 🚏 show loading state 1`] = `
     class="ant-pro-table ant-pro-list ant-pro-list-no-split"
   >
     <div
-      class="ant-pro-list ant-pro-list-split ant-pro-list-loading ant-pro-list-container"
+      class="ant-pro-list ant-pro-list-split ant-pro-list-borderless ant-pro-list-loading ant-pro-list-container"
     >
       <ul
         class="ant-pro-list-items"
       >
-        <li
+        <div
           class="ant-pro-list-item ant-pro-list-row"
         >
           <div
@@ -302,7 +302,7 @@ exports[`List > 🚏 show loading state 1`] = `
               </div>
             </div>
           </div>
-        </li>
+        </div>
       </ul>
     </div>
   </div>

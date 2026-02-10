@@ -3,7 +3,6 @@
  * 保持与 antd List 相同的 DOM 结构及类名，以便复用 antd 的 list 样式
  */
 import { ConfigProvider, Empty, Pagination } from 'antd';
-import type { RowProps } from 'antd/lib/grid';
 import type { PaginationConfig } from 'antd/lib/pagination';
 import { clsx } from 'clsx';
 import React, { useContext, useMemo } from 'react';
@@ -20,7 +19,7 @@ export type ColumnType =
   | 'xl'
   | 'xxl';
 export interface ListGridType {
-  gutter?: RowProps['gutter'];
+  gutter?: number | [number, number];
   column?: ColumnCount;
   xs?: ColumnCount;
   sm?: ColumnCount;
@@ -35,7 +34,7 @@ export interface ListLocale {
   emptyText?: React.ReactNode;
 }
 export interface ListProps<T = any> {
-  bordered?: boolean;
+  variant?: 'outlined' | 'borderless' | 'filled';
   className?: string;
   rootClassName?: string;
   style?: React.CSSProperties;
@@ -150,9 +149,8 @@ const InternalProListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
         </div>
       ) : null;
 
-    const Element = grid ? 'div' : 'li';
     const itemChildren = (
-      <Element
+      <div
         {...(rest as React.HTMLAttributes<HTMLElement>)}
         className={clsx(`${prefixCls}-item`, className)}
       >
@@ -175,7 +173,7 @@ const InternalProListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
             )}
           </>
         )}
-      </Element>
+      </div>
     );
 
     if (grid) {
@@ -223,7 +221,7 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps<any>>(
     const {
       pagination = false,
       prefixCls: customizePrefixCls,
-      bordered = false,
+      variant = 'borderless',
       split = true,
       className,
       rootClassName,
@@ -484,7 +482,7 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps<any>>(
         [`${prefixCls}-vertical`]: itemLayout === 'vertical',
         [`${prefixCls}-${sizeCls}`]: sizeCls,
         [`${prefixCls}-split`]: split,
-        [`${prefixCls}-bordered`]: bordered,
+        [`${prefixCls}-${variant}`]: variant,
         [`${prefixCls}-loading`]: isLoading,
         [`${prefixCls}-grid`]: !!grid,
         [`${prefixCls}-something-after-last-item`]: isSomethingAfterLastItem,

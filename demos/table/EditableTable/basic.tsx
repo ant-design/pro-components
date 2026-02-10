@@ -7,7 +7,11 @@ import {
 } from '@ant-design/pro-components';
 import React, { useState } from 'react';
 
-import { createEditableRowId } from '../../mockData';
+import {
+  createEditableRowId,
+  DEMO_EDITABLE_TASKS,
+  DEMO_TASK_STATUS_ENUM,
+} from '../../mockData';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -21,8 +25,8 @@ type DataSourceType = {
   id: React.Key;
   title?: string;
   readonly?: string;
-  decs?: string;
-  state?: string;
+  description?: string;
+  status?: string;
   created_at?: number;
   update_at?: number;
   children?: DataSourceType[];
@@ -31,21 +35,21 @@ type DataSourceType = {
 const defaultData: DataSourceType[] = [
   {
     id: 624748504,
-    title: '活动名称一',
-    readonly: '活动名称一',
-    decs: '这个活动真好玩',
-    state: 'open',
-    created_at: 1590486176000,
-    update_at: 1590486176000,
+    title: '优化首页加载速度',
+    readonly: '优化首页加载速度',
+    description: '首页白屏时间超过 3s，需优化资源加载和首屏渲染',
+    status: 'open',
+    created_at: 1705286400000,
+    update_at: 1705372800000,
   },
   {
     id: 624691229,
-    title: '活动名称二',
-    readonly: '活动名称二',
-    decs: '这个活动真好玩',
-    state: 'closed',
-    created_at: 1590481162000,
-    update_at: 1590481162000,
+    title: '修复登录超时问题',
+    readonly: '修复登录超时问题',
+    description: '用户反馈高峰期登录请求超时，需排查连接池配置',
+    status: 'closed',
+    created_at: 1705200000000,
+    update_at: 1705286400000,
   },
 ];
 
@@ -58,7 +62,7 @@ const Demo = () => {
 
   const columns: ProColumns<DataSourceType>[] = [
     {
-      title: '活动名称',
+      title: '任务名称',
       dataIndex: 'title',
       tooltip: '只读，使用form.getFieldValue获取不到值',
       formItemProps: (form, { rowIndex }) => {
@@ -67,14 +71,13 @@ const Demo = () => {
             rowIndex > 1 ? [{ required: true, message: '此项为必填项' }] : [],
         };
       },
-      // 第一行不允许编辑
       editable: (text, record, index) => {
         return index !== 0;
       },
       width: '15%',
     },
     {
-      title: '活动名称二',
+      title: '任务名称（只读）',
       dataIndex: 'readonly',
       tooltip: '只读，使用form.getFieldValue可以获取到值',
       readonly: true,
@@ -82,26 +85,16 @@ const Demo = () => {
     },
     {
       title: '状态',
-      key: 'state',
-      dataIndex: 'state',
+      key: 'status',
+      dataIndex: 'status',
       valueType: 'select',
-      valueEnum: {
-        all: { text: '全部', status: 'Default' },
-        open: {
-          text: '未解决',
-          status: 'Error',
-        },
-        closed: {
-          text: '已解决',
-          status: 'Success',
-        },
-      },
+      valueEnum: DEMO_TASK_STATUS_ENUM,
     },
     {
       title: '描述',
-      dataIndex: 'decs',
+      dataIndex: 'description',
       fieldProps: (form, { rowKey, rowIndex }) => {
-        if (form.getFieldValue([rowKey || '', 'title']) === '不好玩') {
+        if (form.getFieldValue([rowKey || '', 'title']) === '暂不处理') {
           return {
             disabled: true,
           };
@@ -115,7 +108,7 @@ const Demo = () => {
       },
     },
     {
-      title: '活动时间',
+      title: '创建时间',
       dataIndex: 'created_at',
       valueType: 'date',
     },
@@ -148,7 +141,7 @@ const Demo = () => {
     <>
       <EditableProTable<DataSourceType>
         rowKey="id"
-        headerTitle="可编辑表格"
+        headerTitle="任务管理"
         maxLength={5}
         scroll={{
           x: 960,

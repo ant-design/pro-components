@@ -19,7 +19,6 @@ export type TableListItem = {
 
 const baseData = createTableDataSource({
   count: 5,
-  namePrefix: 'AppName',
 }) as unknown as TableListItem[];
 const tableListDataSource = baseData.map((item, i) => ({
   ...item,
@@ -133,6 +132,7 @@ const Demo = () => {
           console.log(params, sorter, filter);
           return Promise.resolve({
             data: tableListDataSource,
+            total: tableListDataSource.length,
             success: true,
           });
         }}
