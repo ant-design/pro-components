@@ -1,8 +1,8 @@
+import { warning } from '@rc-component/util';
 import type { PaginationProps } from 'antd';
 import { ConfigProvider } from 'antd';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import { clsx } from 'clsx';
-import { warning } from '@rc-component/util';
 import React, {
   useContext,
   useEffect,
@@ -18,8 +18,8 @@ import type {
   ProColumnType,
   ProTableProps,
 } from '../table';
-import type { ProFieldValueType } from '../utils';
 import ProTable from '../table';
+import type { ProFieldValueType } from '../utils';
 import type { ItemProps } from './Item';
 import ListView, { type ProListItemRender } from './ListView';
 import type { ListProps } from './ProListBase';
@@ -212,6 +212,7 @@ function InternalProList<
   const { wrapSSR, hashId } = useStyle(prefixCls);
   const listClassName = clsx(prefixCls, hashId, {
     [`${prefixCls}-no-split`]: !split,
+    [`${prefixCls}-${variant}`]: variant,
   });
 
   return wrapSSR(

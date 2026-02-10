@@ -148,9 +148,8 @@ const InternalProListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
         </div>
       ) : null;
 
-    const Element = grid ? 'div' : 'li';
     const itemChildren = (
-      <Element
+      <div
         {...(rest as React.HTMLAttributes<HTMLElement>)}
         className={clsx(`${prefixCls}-item`, className)}
       >
@@ -173,7 +172,7 @@ const InternalProListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
             )}
           </>
         )}
-      </Element>
+      </div>
     );
 
     if (grid) {
@@ -343,11 +342,7 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps<any>>(
       const items = splitDataSource.map((item, idx) =>
         renderInternalItem(item, idx),
       );
-      childrenContent = grid ? (
-        <div style={gridStyle}>{items}</div>
-      ) : (
-        <ul className={`${prefixCls}-items`}>{items}</ul>
-      );
+      childrenContent = grid ? <div style={gridStyle}>{items}</div> : items;
     } else if (!children && !isLoading) {
       const emptyContent = locale?.emptyText ??
         (typeof renderEmpty === 'function' ? renderEmpty('List') : null) ?? (
@@ -401,9 +396,7 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps<any>>(
         [`${prefixCls}-vertical`]: itemLayout === 'vertical',
         [`${prefixCls}-${sizeCls}`]: sizeCls,
         [`${prefixCls}-split`]: split,
-        [`${prefixCls}-bordered`]: variant === 'outlined',
-        [`${prefixCls}-borderless`]: variant === 'borderless',
-        [`${prefixCls}-filled`]: variant === 'filled',
+        [`${prefixCls}-${variant}`]: variant,
         [`${prefixCls}-loading`]: isLoading,
         [`${prefixCls}-grid`]: !!grid,
         [`${prefixCls}-something-after-last-item`]: isSomethingAfterLastItem,
