@@ -252,7 +252,7 @@ const InputNumberPopover = React.forwardRef<
       },
       [rest.onChange, setValueInner],
     );
-    
+      [rest.onChange, setValueInner],
     // 优化的 onOpenChange 处理器
     const handleOpenChange = useCallback((visible: boolean) => {
       // 使用 queueMicrotask 延迟状态更新，避免在渲染期间触发 flushSync
