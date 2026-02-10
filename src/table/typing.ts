@@ -1,6 +1,5 @@
 import type { SpinProps, TableProps } from 'antd';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
-import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { NamePath } from 'antd/lib/form/interface';
 import type { SearchProps } from 'antd/lib/input';
 import type {
@@ -35,6 +34,8 @@ import type { ListToolBarProps } from './components/ListToolBar';
 import type { OptionConfig, ToolBarProps } from './components/ToolBar';
 import type { DensitySize } from './components/ToolBar/DensityIcon';
 import type { ColumnsState, ContainerType } from './Store/Provide';
+// 兼容 antd 6.x 版本
+type LabelTooltipType = any;
 
 export type PageInfo = {
   pageSize: number;

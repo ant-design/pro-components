@@ -1,6 +1,8 @@
 import type { TabPaneProps, TabsProps } from 'antd';
-import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { ReactNode } from 'react';
+
+// 兼容 antd 6.x 版本
+type LabelTooltipType = any;
 
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type Gutter = number | Partial<Record<Breakpoint, number>>;

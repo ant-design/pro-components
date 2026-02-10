@@ -22,13 +22,14 @@ import type {
 } from 'antd';
 import type { RangePickerProps } from 'antd/lib/date-picker';
 import type { FormInstance, FormItemProps } from 'antd/lib/form';
-import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { NamePath } from 'antd/lib/form/interface';
 import type { PasswordProps, TextAreaProps } from 'antd/lib/input';
 import type { SliderRangeProps } from 'antd/lib/slider';
 import type { ReactNode } from 'react';
 import type { ProSchemaValueEnumType } from '../provider';
 import type { UseEditableUtilType } from './useEditableArray';
+// 兼容 antd 6.x 版本
+type LabelTooltipType = any;
 
 export type ProFormBaseGroupProps = {
   /**

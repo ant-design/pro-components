@@ -1,6 +1,5 @@
 import ResizeObserver from '@rc-component/resize-observer';
 import { ConfigProvider, Input, TabPaneProps, Tabs, Tooltip } from 'antd';
-import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { SearchProps } from 'antd/lib/input';
 import { clsx } from 'clsx';
 import React, { useContext, useMemo, useState } from 'react';
@@ -9,6 +8,8 @@ import { LabelIconTip } from '../../../utils';
 import type { ListToolBarHeaderMenuProps } from './HeaderMenu';
 import HeaderMenu from './HeaderMenu';
 import { useStyle } from './style';
+// 兼容 antd 6.x 版本
+type LabelTooltipType = any;
 
 export type ListToolBarSetting = {
   icon: React.ReactNode;

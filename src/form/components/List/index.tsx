@@ -7,7 +7,6 @@ import {
 import { warning } from '@rc-component/util';
 import type { ColProps } from 'antd';
 import { ConfigProvider, Form } from 'antd';
-import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type {
   FormListFieldData,
   FormListOperation,
@@ -35,6 +34,8 @@ import type {
   ProFromListCommonProps,
 } from './ListItem';
 import { useStyle } from './style';
+// 兼容 antd 6.x 版本
+type LabelTooltipType = any;
 
 const { noteOnce } = warning;
 

@@ -118,7 +118,7 @@ export function useStyle(
   // Register styles (side effect only in v2)
   useStyleRegister(
     {
-      theme,
+      theme: theme as any,
       token,
       path: [componentName],
       nonce: csp?.nonce,

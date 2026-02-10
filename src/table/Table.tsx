@@ -434,7 +434,7 @@ const ProTable = <
         ...params,
       };
 
-      delete (actionParams)._timestamp;
+      delete actionParams._timestamp;
       const response = await request(
         actionParams as unknown as U,
         proSort,
@@ -1055,8 +1055,8 @@ const ProviderTableContainer = <
         columnsState: props.columnsState,
         columns: props.columns,
         onSizeChange: props.onSizeChange,
-        size: props.size,
-        defaultSize: props.defaultSize,
+        size: (props.size as any) || undefined,
+        defaultSize: (props.defaultSize as any) || undefined,
       }}
     >
       <ProConfigProvider

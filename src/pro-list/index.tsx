@@ -1,7 +1,6 @@
 import { warning } from '@rc-component/util';
 import type { PaginationProps } from 'antd';
 import { ConfigProvider } from 'antd';
-import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import { clsx } from 'clsx';
 import React, {
   useContext,
@@ -24,6 +23,8 @@ import type { ItemProps } from './Item';
 import ListView, { type ProListItemRender } from './ListView';
 import type { ListProps } from './ProListBase';
 import { useStyle } from './style/index';
+// 兼容 antd 6.x 版本
+type LabelTooltipType = any;
 
 export type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
 

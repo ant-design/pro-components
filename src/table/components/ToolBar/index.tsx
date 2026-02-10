@@ -1,7 +1,6 @@
 import { ReloadOutlined } from '@ant-design/icons';
 import type { TableColumnType } from 'antd';
 import { Tooltip } from 'antd';
-import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import React, {
   memo,
   useCallback,
@@ -23,6 +22,8 @@ import type { ListToolBarProps } from '../ListToolBar';
 import ListToolBar from '../ListToolBar';
 import DensityIcon from './DensityIcon';
 import FullScreenIcon from './FullscreenIcon';
+// 兼容 antd 6.x 版本
+type LabelTooltipType = any;
 
 export type SettingOptionType = {
   draggable?: boolean;
