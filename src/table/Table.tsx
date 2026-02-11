@@ -964,11 +964,12 @@ const ProTable = <
     toolbarDom,
   });
 
-  /** 是否使用 ProCard 包裹：未禁用、非可编辑表格，且 ProList 或有搜索/工具栏/标题时使用 */
-  const useCard =
-    cardProps !== false &&
-    !props.name &&
-    (type === 'list' || !notNeedCardDom);
+  /** ProTable：有搜索/工具栏/标题时使用卡片包裹 */
+  const useCardForTable =
+    cardProps !== false && !props.name && !notNeedCardDom;
+  /** ProList：始终使用卡片包裹（除非 cardProps 为 false） */
+  const useCardForList = cardProps !== false && !props.name && type === 'list';
+  const useCard = useCardForTable || useCardForList;
 
   const tableAreaDom = useCard ? (
     <ProCard
