@@ -964,13 +964,12 @@ const ProTable = <
     toolbarDom,
   });
 
-  /** ProTable：有搜索/工具栏/标题时使用卡片包裹 */
+  /** ProTable：有搜索/工具栏/标题时使用卡片包裹；可编辑表格（name）不包裹 */
   /** ProList：始终使用卡片包裹（除非 cardProps 为 false） */
   const useCard = useMemo(() => {
     const useCardForTable =
       cardProps !== false && !props.name && !notNeedCardDom;
-    const useCardForList =
-      cardProps !== false && !props.name && type === 'list';
+    const useCardForList = cardProps !== false && type === 'list';
     return useCardForTable || useCardForList;
   }, [cardProps, props.name, type, notNeedCardDom]);
 
