@@ -29,7 +29,7 @@
   ],
   "scripts": {
     "bootstrap": "node ./scripts/bootstrap.mjs",
-    "build": "father build && node scripts/add-esm-extensions.mjs",
+    "build": "tsup && node scripts/tsup-restructure.mjs && father build",
     "changelog": "node ./scripts/changelogs.mjs",
     "checkPublish": "npm run sync:tnpm && node ./scripts/checkPublish.mjs && npm run sync:tnpm",
     "deploy": "cross-env SITE_DEPLOY='TRUE' npm run site && gh-pages -d ./dist",
@@ -145,6 +145,7 @@
     "express": "^4.22.1",
     "fast-deep-equal": "^3.1.3",
     "father": "^4.6.13",
+    "tsup": "^8.5.1",
     "gh-pages": "^5.0.0",
     "glob": "^8.1.0",
     "happy-dom": "^20.0.11",
