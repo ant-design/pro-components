@@ -977,6 +977,7 @@ const ProTable = <
 
   const tableAreaDom = useCard ? (
     <ProCard
+      {...resolvedCardProps}
       ghost={ghost}
       variant={isBordered('table', cardBordered) ? 'outlined' : 'borderless'}
       styles={{
@@ -986,7 +987,6 @@ const ProTable = <
         },
         header: resolvedCardProps.styles?.header,
       }}
-      {...resolvedCardProps}
     >
       {tableContentDom}
     </ProCard>
