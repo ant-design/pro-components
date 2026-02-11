@@ -59,11 +59,6 @@
   "browserslist": [
     "defaults"
   ],
-  "resolutions": {
-    "@types/react": "^18.0.38",
-    "@types/react-dom": "^18.0.11",
-    "@types/responselike": "^1.0.0"
-  },
   "dependencies": {
     "@ant-design/cssinjs": "^2.0.2",
     "@ant-design/icons": "^6.1.0",
@@ -107,7 +102,6 @@
     "@testing-library/react-hooks": "^8.0.1",
     "@testing-library/user-event": "^14.6.1",
     "@types/glob": "^8.1.0",
-    "@types/history": "^4.7.11",
     "@types/lodash-es": "^4.17.12",
     "@types/mockjs": "^1.0.10",
     "@types/node": "^14.18.63",
