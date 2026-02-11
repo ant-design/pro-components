@@ -55,7 +55,12 @@ const Demo = () => {
   const [split, setSplit] = useState(true);
 
   return (
-    <div>
+    <div
+      style={{
+        background: '#ddd',
+        padding: 24,
+      }}
+    >
       <Space
         direction="vertical"
         size={12}
@@ -63,6 +68,7 @@ const Demo = () => {
           width: '100%',
           marginBlockEnd: 16,
           padding: 16,
+          background: '#ddd',
           border: '1px solid #f0f0f0',
           borderRadius: 8,
         }}
