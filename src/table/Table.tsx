@@ -965,11 +965,14 @@ const ProTable = <
   });
 
   /** ProTable：有搜索/工具栏/标题时使用卡片包裹 */
-  const useCardForTable =
-    cardProps !== false && !props.name && !notNeedCardDom;
   /** ProList：始终使用卡片包裹（除非 cardProps 为 false） */
-  const useCardForList = cardProps !== false && !props.name && type === 'list';
-  const useCard = useCardForTable || useCardForList;
+  const useCard = useMemo(() => {
+    const useCardForTable =
+      cardProps !== false && !props.name && !notNeedCardDom;
+    const useCardForList =
+      cardProps !== false && !props.name && type === 'list';
+    return useCardForTable || useCardForList;
+  }, [cardProps, props.name, type, notNeedCardDom]);
 
   const tableAreaDom = useCard ? (
     <ProCard
