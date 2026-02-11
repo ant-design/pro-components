@@ -7,6 +7,7 @@
   >
     <form
       class="ant-form ant-form-horizontal pro ant-form-css-var"
+      id="form-control-render-demo"
     >
       <div
         class="ant-form-item pro ant-form-css-var ant-form-item-has-error ant-form-item-horizontal"
@@ -19,7 +20,7 @@
           >
             <label
               class="ant-form-item-required"
-              for="text1"
+              for="form-control-render-demo_text1"
               title="文本框（没错误边框）"
             >
               文本框（没错误边框）
@@ -35,10 +36,10 @@
                 class="ant-form-item-control-input-content"
               >
                 <textarea
-                  aria-describedby="text1_help"
+                  aria-describedby="form-control-render-demo_text1_help"
                   aria-invalid="true"
                   aria-required="true"
-                  id="text1"
+                  id="form-control-render-demo_text1"
                 />
               </div>
             </div>
@@ -59,7 +60,7 @@
           >
             <label
               class="ant-form-item-required"
-              for="text2"
+              for="form-control-render-demo_text2"
               title="文本框（添加自定义的错误边框）"
             >
               文本框（添加自定义的错误边框）
@@ -75,7 +76,7 @@
                 class="ant-form-item-control-input-content"
               >
                 <textarea
-                  id="text2"
+                  id="form-control-render-demo_text2"
                   style="border-color: red;"
                 />
               </div>
@@ -97,7 +98,7 @@
           >
             <label
               class="ant-form-item-required"
-              for="check"
+              for="form-control-render-demo_check"
               title="复选框"
             >
               复选框
@@ -119,11 +120,11 @@
                     class="ant-checkbox ant-wave-target"
                   >
                     <input
-                      aria-describedby="check_help"
+                      aria-describedby="form-control-render-demo_check_help"
                       aria-invalid="true"
                       aria-required="true"
                       class="ant-checkbox-input"
-                      id="check"
+                      id="form-control-render-demo_check"
                       type="checkbox"
                       value=""
                     />
@@ -153,7 +154,7 @@
           >
             <label
               class="ant-form-item-required"
-              for="check2"
+              for="form-control-render-demo_check2"
               title="复选框"
             >
               复选框
@@ -176,12 +177,12 @@
                     class="ant-checkbox ant-wave-target"
                   >
                     <input
-                      aria-describedby="check2_help"
+                      aria-describedby="form-control-render-demo_check2_help"
                       aria-invalid="true"
                       aria-required="true"
                       class="ant-checkbox-input"
                       errors="请输入复选框"
-                      id="check2"
+                      id="form-control-render-demo_check2"
                       status="error"
                       type="checkbox"
                       value=""
