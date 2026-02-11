@@ -964,25 +964,35 @@ const ProTable = <
     toolbarDom,
   });
 
-  const tableAreaDom =
-    cardProps === false || notNeedCardDom || !!props.name ? (
-      tableContentDom
-    ) : (
-      <ProCard
-        ghost={ghost}
-        variant={isBordered('table', cardBordered) ? 'outlined' : 'borderless'}
-        styles={{
-          body: {
-            ...cardBodyStyle,
-            ...(cardProps?.styles?.body ?? {}),
-          },
-          header: cardProps?.styles?.header,
-        }}
-        {...cardProps}
-      >
-        {tableContentDom}
-      </ProCard>
-    );
+  /** ProTable：有搜索/工具栏/标题时使用卡片包裹；可编辑表格（name）不包裹 */
+  /** ProList：始终使用卡片包裹（除非 cardProps 为 false） */
+  const useCard = useMemo(() => {
+    const useCardForTable =
+      cardProps !== false && !props.name && !notNeedCardDom;
+    const useCardForList = cardProps !== false && type === 'list';
+    return useCardForTable || useCardForList;
+  }, [cardProps, props.name, type, notNeedCardDom]);
+
+  const resolvedCardProps = cardProps === false ? {} : cardProps ?? {};
+
+  const tableAreaDom = useCard ? (
+    <ProCard
+      {...resolvedCardProps}
+      ghost={ghost}
+      variant={isBordered('table', cardBordered) ? 'outlined' : 'borderless'}
+      styles={{
+        body: {
+          ...cardBodyStyle,
+          ...(resolvedCardProps.styles?.body ?? {}),
+        },
+        header: resolvedCardProps.styles?.header,
+      }}
+    >
+      {tableContentDom}
+    </ProCard>
+  ) : (
+    tableContentDom
+  );
 
   const renderTable = () => {
     if (props.tableRender) {
