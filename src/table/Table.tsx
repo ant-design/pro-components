@@ -973,6 +973,8 @@ const ProTable = <
     return useCardForTable || useCardForList;
   }, [cardProps, props.name, type, notNeedCardDom]);
 
+  const resolvedCardProps = cardProps === false ? {} : cardProps ?? {};
+
   const tableAreaDom = useCard ? (
     <ProCard
       ghost={ghost}
@@ -980,11 +982,11 @@ const ProTable = <
       styles={{
         body: {
           ...cardBodyStyle,
-          ...(cardProps?.styles?.body ?? {}),
+          ...(resolvedCardProps.styles?.body ?? {}),
         },
-        header: cardProps?.styles?.header,
+        header: resolvedCardProps.styles?.header,
       }}
-      {...cardProps}
+      {...resolvedCardProps}
     >
       {tableContentDom}
     </ProCard>
