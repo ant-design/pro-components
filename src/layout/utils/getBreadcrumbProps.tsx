@@ -12,7 +12,11 @@ import { urlToList } from './pathTools';
 export type BreadcrumbProLayoutProps = {
   breadcrumbList?: { title: string; href: string }[];
   home?: string;
-  location?: Location;
+  location?:
+    | Location
+    | {
+        pathname?: string;
+      };
   menu?: ProSettings['menu'];
   breadcrumbMap?: Map<string, MenuDataItem>;
   formatMessage?: (message: MessageDescriptor) => string;
