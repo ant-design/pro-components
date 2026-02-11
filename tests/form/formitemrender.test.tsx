@@ -1,4 +1,8 @@
-import { pickControlProps, useControlModel } from '@ant-design/pro-components';
+import {
+  pickControlProps,
+  pickControlPropsWithId,
+  useControlModel,
+} from '@ant-design/pro-components';
 import { cleanup, renderHook } from '@testing-library/react';
 import { afterEach, describe, expect, test, vi } from 'vitest';
 
@@ -128,5 +132,41 @@ describe('ProForm.FormItemRender target branch test', () => {
     };
 
     controlProps.onChange(event);
+  });
+
+  test('pickControlPropsWithId extracts value, onChange, id and aria attributes', () => {
+    const props: any = {
+      value: 'test value',
+      onChange: vi.fn(),
+      id: 'field-id',
+      'aria-describedby': 'error-message-id',
+      'aria-invalid': true,
+      'aria-required': true,
+    };
+
+    const controlProps = pickControlPropsWithId(props);
+
+    expect(controlProps).toMatchObject({
+      value: 'test value',
+      id: 'field-id',
+      'aria-describedby': 'error-message-id',
+      'aria-invalid': true,
+      'aria-required': true,
+    });
+    expect(controlProps.onChange).toBeDefined();
+  });
+
+  test('pickControlPropsWithId omits undefined aria attributes', () => {
+    const props: any = {
+      value: '',
+      onChange: vi.fn(),
+      id: 'field-id',
+    };
+
+    const controlProps = pickControlPropsWithId(props);
+
+    expect(controlProps).not.toHaveProperty('aria-describedby');
+    expect(controlProps).not.toHaveProperty('aria-invalid');
+    expect(controlProps).not.toHaveProperty('aria-required');
   });
 });
