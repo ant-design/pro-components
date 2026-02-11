@@ -964,6 +964,7 @@ const ProTable = <
     toolbarDom,
   });
 
+  /** 是否使用 ProCard 包裹：未禁用、非可编辑表格，且 ProList 或有搜索/工具栏/标题时使用 */
   const useCard =
     cardProps !== false &&
     !props.name &&
