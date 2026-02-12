@@ -10,6 +10,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import isObject from 'lodash-es/isObject';
 import { useIntl } from '../../../provider';
 import { FieldLabel, objectToMap, proFieldParsingText } from '../../../utils';
 import type { ProFieldFC } from '../../PureProField';
@@ -203,14 +204,23 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
           }
           {...fieldProps}
           treeData={options as TreeSelectProps['treeData']}
-          showSearch={showSearch}
           style={{
             minWidth: 60,
             ...fieldProps.style,
           }}
           allowClear={fieldProps.allowClear !== false}
-          searchValue={searchValue as string}
-          autoClearSearchValue={autoClearSearchValue}
+          showSearch={{
+            searchValue,
+            onSearch: (value) => {
+              // fix 不支持请求的情况下不刷新options
+              if (fetchDataOnSearch && rest?.request) {
+                fetchData(value);
+              }
+              setSearchValue(value);
+            },
+            autoClearSearchValue,
+            ...(isObject(showSearch) ? showSearch : {}),
+          }}
           onClear={() => {
             onClear?.();
             fetchData(undefined);
@@ -219,13 +229,6 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
             }
           }}
           onChange={onChange}
-          onSearch={(value) => {
-            // fix 不支持请求的情况下不刷新options
-            if (fetchDataOnSearch && rest?.request) {
-              fetchData(value);
-            }
-            setSearchValue(value);
-          }}
           onBlur={(event) => {
             setSearchValue(undefined);
             fetchData(undefined);
