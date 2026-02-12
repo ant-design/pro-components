@@ -427,7 +427,7 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps<any>>(
           ))}
         </div>
       ) : (
-        <ul className={`${prefixCls}-items`}>{items}</ul>
+        items
       );
     } else if (!children && !isLoading) {
       const emptyContent = locale?.emptyText ??
