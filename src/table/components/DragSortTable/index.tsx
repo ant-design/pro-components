@@ -49,7 +49,10 @@ function DragSortTable<
           typeof updater === 'function'
             ? (updater as (p: T[]) => T[])(prev)
             : updater;
-        onDataSourceChange?.(next);
+        // 使用 queueMicrotask 延迟回调，避免在渲染期间更新其他组件状态
+        queueMicrotask(() => {
+          onDataSourceChange?.(next);
+        });
         return next;
       });
     },

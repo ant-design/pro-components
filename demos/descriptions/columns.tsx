@@ -54,8 +54,8 @@ const Demo = () => {
             valueType: 'date',
           },
           {
-            title: '时间',
-            key: 'date',
+            title: '时间（自定义格式）',
+            key: 'date-formatted',
             dataIndex: 'date',
             valueType: 'date',
             fieldProps: {
@@ -79,7 +79,7 @@ const Demo = () => {
           },
           {
             title: 'money无符号',
-            key: 'money',
+            key: 'money-no-symbol',
             dataIndex: 'money',
             valueType: 'money',
             fieldProps: {
