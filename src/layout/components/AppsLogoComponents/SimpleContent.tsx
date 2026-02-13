@@ -14,7 +14,7 @@ export const renderLogo = (
   logo: React.ReactNode | (() => React.ReactNode),
   title?: React.ReactNode,
 ): React.ReactNode => {
-  if (isString(logo) && isUrl(logo)) {
+  if (logo && isString(logo) && isUrl(logo)) {
     return <img src={logo} alt="logo" />;
   }
 
@@ -22,11 +22,11 @@ export const renderLogo = (
     return logo();
   }
 
-  if (isString(logo)) {
+  if (logo && isString(logo)) {
     return <div id="avatarLogo">{logo}</div>;
   }
 
-  if (!logo && isString(title)) {
+  if (!logo && title && isString(title)) {
     const symbol = title.substring(0, 1);
     return <div id="avatarLogo">{symbol}</div>;
   }
