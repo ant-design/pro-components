@@ -1,5 +1,6 @@
 import { get } from '@rc-component/util';
 import type { AnyObject } from 'antd/lib/_util/type';
+import isNil from 'lodash-es/isNil';
 import React from 'react';
 import { isMergeCell } from '.';
 import type { ProFieldEmptyText } from '../../field';
@@ -9,7 +10,7 @@ import type {
   ProTableEditableFnType,
   UseEditableUtilType,
 } from '../../utils';
-import { LabelIconTip, genCopyable, isNil } from '../../utils';
+import { LabelIconTip, genCopyable } from '../../utils';
 import type { ContainerType } from '../Store/Provide';
 import type { ActionType, ProColumns } from '../typing';
 import cellRenderToFromItem from './cellRenderToFromItem';

@@ -2,7 +2,7 @@ import { get } from '@rc-component/util';
 import type { InternalNamePath, NamePath } from 'antd/lib/form/interface';
 import dayjs from 'dayjs';
 import quarterOfYear from 'dayjs/plugin/quarterOfYear';
-import { isNil } from '../isNil';
+import isNil from 'lodash-es/isNil';
 import type { ProFieldValueType } from '../typing';
 
 dayjs.extend(quarterOfYear);

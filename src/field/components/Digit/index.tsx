@@ -1,8 +1,8 @@
 import { omit } from '@rc-component/util';
 import { InputNumber } from 'antd';
+import isNil from 'lodash-es/isNil';
 import React, { useCallback } from 'react';
 import { useIntl } from '../../../provider';
-import { isNil } from '../../../utils';
 import type { ProFieldFC } from '../../PureProField';
 
 export type FieldDigitProps = {

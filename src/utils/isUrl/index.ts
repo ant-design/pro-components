@@ -1,17 +1,17 @@
+import isString from 'lodash-es/isString';
+
 /**
- * 判断是不是一个 url
- * @param  {string|undefined} path
- * @returns boolean
+ * @description 判断是不是一个 url
  */
-export const isUrl = (path: string | undefined): boolean => {
-  if (!path) return false;
+export const isUrl = (path: unknown): boolean => {
+  if (!isString(path)) return false;
   if (!path.startsWith('http')) {
     return false;
   }
   try {
-    const url = new URL(path);
-    return !!url;
-  } catch (error) {
+    new URL(path);
+    return true;
+  } catch {
     return false;
   }
 };

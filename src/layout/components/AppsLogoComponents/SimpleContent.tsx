@@ -1,3 +1,4 @@
+import isString from 'lodash-es/isString';
 import React from 'react';
 import { isUrl } from '../../../utils';
 import type { AppItemProps, AppListProps } from './types';
@@ -13,7 +14,7 @@ export const renderLogo = (
   logo: React.ReactNode | (() => React.ReactNode),
   title?: React.ReactNode,
 ): React.ReactNode => {
-  if (logo && typeof logo === 'string' && isUrl(logo)) {
+  if (isString(logo) && isUrl(logo)) {
     return <img src={logo} alt="logo" />;
   }
 
@@ -21,11 +22,11 @@ export const renderLogo = (
     return logo();
   }
 
-  if (logo && typeof logo === 'string') {
+  if (isString(logo)) {
     return <div id="avatarLogo">{logo}</div>;
   }
 
-  if (!logo && title && typeof title === 'string') {
+  if (!logo && isString(title)) {
     const symbol = title.substring(0, 1);
     return <div id="avatarLogo">{symbol}</div>;
   }
