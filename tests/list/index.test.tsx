@@ -48,10 +48,10 @@ describe('List', () => {
       />,
     );
     expect(
-      container.querySelector('.ant-pro-list-row-title')!.innerHTML,
+      container.querySelector('.ant-pro-list-item-title')!.innerHTML,
     ).toEqual('我是名称');
     expect(
-      container.querySelector('.ant-pro-list-row-description')!.innerHTML,
+      container.querySelector('.ant-pro-list-item-description')!.innerHTML,
     ).toEqual('desc text');
   });
 
@@ -83,10 +83,10 @@ describe('List', () => {
       />,
     );
     expect(
-      container.querySelector('.ant-pro-list-row-title')!.innerHTML,
+      container.querySelector('.ant-pro-list-item-title')!.innerHTML,
     ).toEqual('我是名称');
     expect(
-      container.querySelector('.ant-pro-list-row-description')!.innerHTML,
+      container.querySelector('.ant-pro-list-item-description')!.innerHTML,
     ).toEqual('desc text');
     expect(container.querySelectorAll('.ant-pro-card')!.length).toBe(0);
   });
@@ -213,13 +213,13 @@ describe('List', () => {
     };
     const { container } = reactRender(<Wrapper />);
     expect(
-      container.querySelectorAll('.ant-pro-list-row-description').length,
+      container.querySelectorAll('.ant-pro-list-item-description').length,
     ).toEqual(0);
     await fireEvent.click(
-      container.querySelector('.ant-pro-list-row-expand-icon')!,
+      container.querySelector('.ant-pro-list-item-expand-icon')!,
     );
     expect(
-      container.querySelector('.ant-pro-list-row-content')!.innerHTML,
+      container.querySelector('.ant-pro-list-item-content')!.innerHTML,
     ).toEqual('<div>我是内容</div>');
     expect(onExpand).toHaveBeenCalledWith(
       true,
@@ -258,11 +258,11 @@ describe('List', () => {
     };
     const { container } = reactRender(<Wrapper />);
     expect(
-      container.querySelectorAll('.ant-pro-list-row-description').length,
+      container.querySelectorAll('.ant-pro-list-item-description').length,
     ).toEqual(0);
     await fireEvent.click(container.querySelector('.ant-pro-list-item')!);
     expect(
-      container.querySelector('.ant-pro-list-row-content')!.innerHTML,
+      container.querySelector('.ant-pro-list-item-content')!.innerHTML,
     ).toEqual('<div>我是内容</div>');
     expect(onExpand).toHaveBeenCalledWith(
       true,
@@ -301,7 +301,7 @@ describe('List', () => {
     };
     const { container } = reactRender(<Wrapper />);
     expect(
-      container.querySelector('.ant-pro-list-row-content')!.innerHTML,
+      container.querySelector('.ant-pro-list-item-content')!.innerHTML,
     ).toEqual('<div>我是内容b</div>');
   });
 
@@ -342,15 +342,15 @@ describe('List', () => {
     };
     const { container } = reactRender(<Wrapper />);
     expect(
-      container.querySelectorAll('.ant-pro-list-row-description').length,
+      container.querySelectorAll('.ant-pro-list-item-description').length,
     ).toEqual(0);
-    // html.find('.ant-pro-list-row-expand-icon').simulate('click');
+    // html.find('.ant-pro-list-item-expand-icon').simulate('click');
     await fireEvent.click(
-      container.querySelector('.ant-pro-list-row-expand-icon')!,
+      container.querySelector('.ant-pro-list-item-expand-icon')!,
     );
     expect(
       container.querySelector(
-        '.ant-pro-list-row-content .test-custom-class-name',
+        '.ant-pro-list-item-content .test-custom-class-name',
       )!.innerHTML,
     ).toEqual('<div>expand:0</div>');
   });
@@ -557,7 +557,7 @@ describe('List', () => {
 
     await waitFor(async () => {
       expect(
-        container.querySelectorAll('.ant-pro-list-row-title').length,
+        container.querySelectorAll('.ant-pro-list-item-title').length,
       ).toEqual(2);
     });
 
@@ -654,7 +654,7 @@ describe('List', () => {
       />,
     );
 
-    expect(container.querySelector('.ant-pro-list-row')!).toHaveClass(
+    expect(container.querySelector('.ant-pro-list-item')!).toHaveClass(
       customizedRowClassName,
     );
     expect(container).toMatchSnapshot();
@@ -691,10 +691,10 @@ describe('List', () => {
       />,
     );
 
-    expect(container.querySelectorAll('.ant-pro-list-row')[0]).toHaveClass(
+    expect(container.querySelectorAll('.ant-pro-list-item')[0]).toHaveClass(
       'even',
     );
-    expect(container.querySelectorAll('.ant-pro-list-row')[1]).toHaveClass(
+    expect(container.querySelectorAll('.ant-pro-list-item')[1]).toHaveClass(
       'odd',
     );
     expect(container).toMatchSnapshot();
@@ -884,11 +884,11 @@ describe('List', () => {
 
     act(() => {
       fireEvent.mouseEnter(
-        html.baseElement.querySelector('.ant-pro-list-row-card')!,
+        html.baseElement.querySelector('.ant-pro-list-item-card')!,
         {},
       );
       fireEvent.click(
-        html.baseElement.querySelector('.ant-pro-list-row-card')!,
+        html.baseElement.querySelector('.ant-pro-list-item-card')!,
         {},
       );
     });
@@ -954,10 +954,10 @@ describe('List', () => {
       />,
     );
     expect(
-      container.querySelector('.ant-pro-list-row-title')!.innerHTML,
+      container.querySelector('.ant-pro-list-item-title')!.innerHTML,
     ).toEqual('我是名称');
     expect(
-      container.querySelector('.ant-pro-list-row-description')!.innerHTML,
+      container.querySelector('.ant-pro-list-item-description')!.innerHTML,
     ).toEqual('desc text');
   });
 
@@ -985,7 +985,7 @@ describe('List', () => {
     );
     // columns 优先级高于 metas
     expect(
-      container.querySelector('.ant-pro-list-row-title')!.innerHTML,
+      container.querySelector('.ant-pro-list-item-title')!.innerHTML,
     ).toEqual('列的名称');
   });
 
@@ -1053,10 +1053,10 @@ describe('List', () => {
     };
     const { container } = reactRender(<Wrapper />);
     await fireEvent.click(
-      container.querySelector('.ant-pro-list-row-expand-icon')!,
+      container.querySelector('.ant-pro-list-item-expand-icon')!,
     );
     expect(
-      container.querySelector('.ant-pro-list-row-content')!.innerHTML,
+      container.querySelector('.ant-pro-list-item-content')!.innerHTML,
     ).toEqual('<div>我是内容</div>');
     expect(onExpand).toHaveBeenCalledWith(
       true,
@@ -1090,7 +1090,7 @@ describe('List', () => {
       />,
     );
     expect(
-      container.querySelector('.ant-pro-list-row-description'),
+      container.querySelector('.ant-pro-list-item-description'),
     ).toBeTruthy();
     expect(container.querySelectorAll('.ant-tag').length).toEqual(2);
   });
@@ -1123,7 +1123,7 @@ describe('List', () => {
     );
 
     expect(
-      container.querySelector('.ant-pro-list-row-title')!.innerHTML,
+      container.querySelector('.ant-pro-list-item-title')!.innerHTML,
     ).toEqual('测试名称');
   });
 
@@ -1188,7 +1188,7 @@ describe('List', () => {
       />,
     );
     expect(
-      container.querySelector('.ant-pro-list-row-title')!.innerHTML,
+      container.querySelector('.ant-pro-list-item-title')!.innerHTML,
     ).toEqual('名称');
   });
 
@@ -1238,7 +1238,7 @@ describe('List', () => {
 
     act(() => {
       fireEvent.click(
-        html.baseElement.querySelector('.ant-pro-list-row-card')!,
+        html.baseElement.querySelector('.ant-pro-list-item-card')!,
       );
     });
 
@@ -1255,7 +1255,7 @@ describe('List', () => {
         rowClassName="custom-row-class"
       />,
     );
-    expect(container.querySelector('.ant-pro-list-row')!).toHaveClass(
+    expect(container.querySelector('.ant-pro-list-item')!).toHaveClass(
       'custom-row-class',
     );
   });
@@ -1270,10 +1270,10 @@ describe('List', () => {
         }
       />,
     );
-    expect(container.querySelectorAll('.ant-pro-list-row')[0]).toHaveClass(
+    expect(container.querySelectorAll('.ant-pro-list-item')[0]).toHaveClass(
       'first',
     );
-    expect(container.querySelectorAll('.ant-pro-list-row')[1]).toHaveClass(
+    expect(container.querySelectorAll('.ant-pro-list-item')[1]).toHaveClass(
       'rest',
     );
   });
@@ -1336,10 +1336,10 @@ describe('List', () => {
       />,
     );
     expect(
-      container.querySelector('.ant-pro-list-row-title')!.innerHTML,
+      container.querySelector('.ant-pro-list-item-title')!.innerHTML,
     ).toEqual('基础列表');
     expect(
-      container.querySelector('.ant-pro-list-row-description')!.innerHTML,
+      container.querySelector('.ant-pro-list-item-description')!.innerHTML,
     ).toEqual('描述文本');
     // BaseProList 不显示卡片
     expect(container.querySelectorAll('.ant-pro-card')!.length).toBe(0);
@@ -1381,7 +1381,7 @@ describe('List', () => {
 
     await waitFor(() => {
       expect(
-        container.querySelectorAll('.ant-pro-list-row-title').length,
+        container.querySelectorAll('.ant-pro-list-item-title').length,
       ).toEqual(2);
     });
 
@@ -1429,7 +1429,7 @@ describe('List', () => {
     const { container } = reactRender(<Wrapper />);
     await fireEvent.click(container.querySelector('.ant-pro-list-item')!);
     expect(
-      container.querySelector('.ant-pro-list-row-content')!.innerHTML,
+      container.querySelector('.ant-pro-list-item-content')!.innerHTML,
     ).toEqual('<div>展开的内容</div>');
     expect(onExpand).toHaveBeenCalledWith(
       true,
@@ -1461,10 +1461,10 @@ describe('List', () => {
     };
     const { container } = reactRender(<Wrapper />);
     await fireEvent.click(
-      container.querySelector('.ant-pro-list-row-expand-icon')!,
+      container.querySelector('.ant-pro-list-item-expand-icon')!,
     );
     expect(
-      container.querySelector('.ant-pro-list-row-content .expanded-custom')!
+      container.querySelector('.ant-pro-list-item-content .expanded-custom')!
         .innerHTML,
     ).toEqual('<div>展开行:0</div>');
   });
@@ -1513,11 +1513,11 @@ describe('List', () => {
     );
     // title
     expect(
-      container.querySelector('.ant-pro-list-row-title')!.textContent,
+      container.querySelector('.ant-pro-list-item-title')!.textContent,
     ).toEqual('完整标题');
     // subTitle
     expect(
-      container.querySelector('.ant-pro-list-row-subTitle')!.textContent,
+      container.querySelector('.ant-pro-list-item-subTitle')!.textContent,
     ).toEqual('副标题内容');
     // avatar
     expect(
@@ -1525,7 +1525,7 @@ describe('List', () => {
     ).toBeTruthy();
     // description
     expect(
-      container.querySelector('.ant-pro-list-row-description')!.textContent,
+      container.querySelector('.ant-pro-list-item-description')!.textContent,
     ).toEqual('描述文本');
     // content
     expect(container.querySelector('.test-content')!.textContent).toEqual(
@@ -1574,7 +1574,7 @@ describe('List', () => {
       />,
     );
     // 只有 B 展开
-    const contents = container.querySelectorAll('.ant-pro-list-row-content');
+    const contents = container.querySelectorAll('.ant-pro-list-item-content');
     expect(contents.length).toEqual(1);
     expect(contents[0].innerHTML).toEqual('<div>内容B</div>');
   });
@@ -1644,10 +1644,10 @@ describe('List', () => {
       />,
     );
     expect(
-      container.querySelector('.ant-pro-list-row-title')!.innerHTML,
+      container.querySelector('.ant-pro-list-item-title')!.innerHTML,
     ).toEqual('嵌套名称');
     expect(
-      container.querySelector('.ant-pro-list-row-description')!.innerHTML,
+      container.querySelector('.ant-pro-list-item-description')!.innerHTML,
     ).toEqual('嵌套描述');
   });
 
@@ -1669,9 +1669,9 @@ describe('List', () => {
       />,
     );
     // 没有任何 listSlot，列表项应无 title/description 等内容
-    expect(container.querySelector('.ant-pro-list-row-title')).toBeFalsy();
+    expect(container.querySelector('.ant-pro-list-item-title')).toBeFalsy();
     expect(
-      container.querySelector('.ant-pro-list-row-description'),
+      container.querySelector('.ant-pro-list-item-description'),
     ).toBeFalsy();
   });
 
@@ -1684,7 +1684,7 @@ describe('List', () => {
       />,
     );
     expect(
-      container.querySelector('.ant-pro-list-row-title')!.innerHTML,
+      container.querySelector('.ant-pro-list-item-title')!.innerHTML,
     ).toEqual('回退名称');
   });
 
@@ -1722,7 +1722,7 @@ describe('List', () => {
     );
     // 后面的列会覆盖前面的（forEach 顺序）
     expect(
-      container.querySelector('.ant-pro-list-row-title')!.innerHTML,
+      container.querySelector('.ant-pro-list-item-title')!.innerHTML,
     ).toEqual('第二个');
   });
 
@@ -1740,11 +1740,11 @@ describe('List', () => {
       />,
     );
     expect(
-      container.querySelector('.ant-pro-list-row-title')!.innerHTML,
+      container.querySelector('.ant-pro-list-item-title')!.innerHTML,
     ).toEqual('名称');
     // render 返回 '-' 的列不会渲染
     expect(
-      container.querySelector('.ant-pro-list-row-description'),
+      container.querySelector('.ant-pro-list-item-description'),
     ).toBeFalsy();
   });
 
@@ -1759,11 +1759,11 @@ describe('List', () => {
       />,
     );
     expect(
-      container.querySelector('.ant-pro-list-row-title')!.innerHTML,
+      container.querySelector('.ant-pro-list-item-title')!.innerHTML,
     ).toEqual('存在');
     // 不存在的字段不渲染 description
     expect(
-      container.querySelector('.ant-pro-list-row-description'),
+      container.querySelector('.ant-pro-list-item-description'),
     ).toBeFalsy();
   });
 
@@ -1794,7 +1794,7 @@ describe('List', () => {
         ]}
       />,
     );
-    expect(container.querySelector('.ant-pro-list-row-title')).toBeFalsy();
+    expect(container.querySelector('.ant-pro-list-item-title')).toBeFalsy();
     expect(container.textContent?.includes('唯一操作')).toBeTruthy();
   });
 
@@ -1808,7 +1808,7 @@ describe('List', () => {
         ]}
       />,
     );
-    expect(container.querySelector('.ant-pro-list-row-type-top')).toBeTruthy();
+    expect(container.querySelector('.ant-pro-list-item-type-top')).toBeTruthy();
   });
 
   it('🚏 edge: columns dynamically change', async () => {
@@ -1835,7 +1835,7 @@ describe('List', () => {
     const { container } = reactRender(<Wrapper />);
 
     expect(
-      container.querySelector('.ant-pro-list-row-description'),
+      container.querySelector('.ant-pro-list-item-description'),
     ).toBeFalsy();
 
     act(() => {
@@ -1844,7 +1844,7 @@ describe('List', () => {
 
     await waitFor(() => {
       expect(
-        container.querySelector('.ant-pro-list-row-description'),
+        container.querySelector('.ant-pro-list-item-description'),
       ).toBeTruthy();
     });
   });
@@ -1859,7 +1859,7 @@ describe('List', () => {
     // 当没有 dataIndex 时，使用 listSlot 或 key 作为 fallback
     // listSlot='title' 会作为 dataIndex fallback
     expect(
-      container.querySelector('.ant-pro-list-row-title')!.textContent,
+      container.querySelector('.ant-pro-list-item-title')!.textContent,
     ).toEqual('通过key取值');
   });
 
@@ -1873,7 +1873,7 @@ describe('List', () => {
     );
     // 空 columns 数组 length=0，应回退到 metas
     expect(
-      container.querySelector('.ant-pro-list-row-title')!.innerHTML,
+      container.querySelector('.ant-pro-list-item-title')!.innerHTML,
     ).toEqual('metas生效');
   });
 

@@ -39,7 +39,7 @@ export function renderExpandIcon<RecordType>({
   hashId,
 }: RenderExpandIconProps<RecordType>) {
   let icon = expandIcon as React.ReactNode;
-  const expandClassName = `${prefixCls}-row-expand-icon`;
+  const expandClassName = `${prefixCls}-item-expand-icon`;
 
   const onClick: React.MouseEventHandler<HTMLElement> = (event) => {
     onExpand(!expanded);
@@ -53,8 +53,8 @@ export function renderExpandIcon<RecordType>({
   return (
     <span
       className={clsx(expandClassName, hashId, {
-        [`${prefixCls}-row-expanded`]: expanded,
-        [`${prefixCls}-row-collapsed`]: !expanded,
+        [`${prefixCls}-item-expanded`]: expanded,
+        [`${prefixCls}-item-collapsed`]: !expanded,
       })}
       onClick={onClick}
     >
@@ -115,7 +115,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const { hashId } = useContext(ProProvider);
   const prefixCls = getPrefixCls('pro-list', props.prefixCls);
-  const defaultClassName = `${prefixCls}-row`;
+  const defaultClassName = `${prefixCls}-item`;
 
   const {
     title,
@@ -298,8 +298,8 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
 
   // 列表模式渲染
   const rowClassName = clsx(hashId, {
-    [`${defaultClassName}-item-has-checkbox`]: checkbox,
-    [`${defaultClassName}-item-has-avatar`]: avatar,
+    [`${defaultClassName}-has-checkbox`]: checkbox,
+    [`${defaultClassName}-has-avatar`]: avatar,
     [className]: className,
   });
 

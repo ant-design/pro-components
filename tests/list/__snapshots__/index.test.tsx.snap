@@ -15,13 +15,13 @@ exports[`List > 🚏 ProList support rowClassName as a function 1`] = `
           class="ant-pro-list ant-pro-list-split ant-pro-list-borderless ant-pro-list-container"
         >
           <div
-            class="ant-pro-list-item ant-pro-list-row even"
+            class="ant-pro-list-item ant-pro-list-item even"
           >
             <div
-              class="ant-pro-list-row-header"
+              class="ant-pro-list-item-header"
             >
               <div
-                class="ant-pro-list-row-header-option"
+                class="ant-pro-list-item-header-option"
               />
               <div
                 class="ant-pro-list-item-meta"
@@ -33,10 +33,10 @@ exports[`List > 🚏 ProList support rowClassName as a function 1`] = `
                     class="ant-pro-list-item-meta-title"
                   >
                     <div
-                      class="ant-pro-list-row-header-container"
+                      class="ant-pro-list-item-header-container"
                     >
                       <div
-                        class="ant-pro-list-row-title"
+                        class="ant-pro-list-item-title"
                       >
                         我是名称
                       </div>
@@ -46,7 +46,7 @@ exports[`List > 🚏 ProList support rowClassName as a function 1`] = `
                     class="ant-pro-list-item-meta-description"
                   >
                     <div
-                      class="ant-pro-list-row-description"
+                      class="ant-pro-list-item-description"
                     >
                       desc text
                     </div>
@@ -56,13 +56,13 @@ exports[`List > 🚏 ProList support rowClassName as a function 1`] = `
             </div>
           </div>
           <div
-            class="ant-pro-list-item ant-pro-list-row odd"
+            class="ant-pro-list-item ant-pro-list-item odd"
           >
             <div
-              class="ant-pro-list-row-header"
+              class="ant-pro-list-item-header"
             >
               <div
-                class="ant-pro-list-row-header-option"
+                class="ant-pro-list-item-header-option"
               />
               <div
                 class="ant-pro-list-item-meta"
@@ -74,10 +74,10 @@ exports[`List > 🚏 ProList support rowClassName as a function 1`] = `
                     class="ant-pro-list-item-meta-title"
                   >
                     <div
-                      class="ant-pro-list-row-header-container"
+                      class="ant-pro-list-item-header-container"
                     >
                       <div
-                        class="ant-pro-list-row-title"
+                        class="ant-pro-list-item-title"
                       >
                         我是名称
                       </div>
@@ -87,7 +87,7 @@ exports[`List > 🚏 ProList support rowClassName as a function 1`] = `
                     class="ant-pro-list-item-meta-description"
                   >
                     <div
-                      class="ant-pro-list-row-description"
+                      class="ant-pro-list-item-description"
                     >
                       desc text
                     </div>
@@ -118,13 +118,13 @@ exports[`List > 🚏 ProList support rowClassName as a string 1`] = `
           class="ant-pro-list ant-pro-list-split ant-pro-list-borderless ant-pro-list-container"
         >
           <div
-            class="ant-pro-list-item ant-pro-list-row rowClassName"
+            class="ant-pro-list-item ant-pro-list-item rowClassName"
           >
             <div
-              class="ant-pro-list-row-header"
+              class="ant-pro-list-item-header"
             >
               <div
-                class="ant-pro-list-row-header-option"
+                class="ant-pro-list-item-header-option"
               />
               <div
                 class="ant-pro-list-item-meta"
@@ -136,10 +136,10 @@ exports[`List > 🚏 ProList support rowClassName as a string 1`] = `
                     class="ant-pro-list-item-meta-title"
                   >
                     <div
-                      class="ant-pro-list-row-header-container"
+                      class="ant-pro-list-item-header-container"
                     >
                       <div
-                        class="ant-pro-list-row-title"
+                        class="ant-pro-list-item-title"
                       >
                         我是名称
                       </div>
@@ -149,7 +149,7 @@ exports[`List > 🚏 ProList support rowClassName as a string 1`] = `
                     class="ant-pro-list-item-meta-description"
                   >
                     <div
-                      class="ant-pro-list-row-description"
+                      class="ant-pro-list-item-description"
                     >
                       desc text
                     </div>
@@ -180,17 +180,17 @@ exports[`List > 🚏 only has content 1`] = `
           class="ant-pro-list ant-pro-list-split ant-pro-list-borderless ant-pro-list-container"
         >
           <div
-            class="ant-pro-list-item ant-pro-list-row"
+            class="ant-pro-list-item ant-pro-list-item"
           >
             <div
-              class="ant-pro-list-row-header"
+              class="ant-pro-list-item-header"
             >
               <div
-                class="ant-pro-list-row-header-option"
+                class="ant-pro-list-item-header-option"
               />
             </div>
             <div
-              class="ant-pro-list-row-content"
+              class="ant-pro-list-item-content"
             >
               <div>
                 段落示意：蚂蚁金服设计平台 design.alipay.com，用最小的工作量，无缝接入蚂蚁金服生态，提供跨越设计与开发的体验解决方案。蚂蚁金服设计平台 design.alipay.com，用最小的工作量，无缝接入蚂蚁金服生态提供跨越设计与开发的体验解决方案。
@@ -219,13 +219,13 @@ exports[`List > 🚏 only has description 1`] = `
           class="ant-pro-list ant-pro-list-split ant-pro-list-borderless ant-pro-list-container"
         >
           <div
-            class="ant-pro-list-item ant-pro-list-row"
+            class="ant-pro-list-item ant-pro-list-item"
           >
             <div
-              class="ant-pro-list-row-header"
+              class="ant-pro-list-item-header"
             >
               <div
-                class="ant-pro-list-row-header-option"
+                class="ant-pro-list-item-header-option"
               />
               <div
                 class="ant-pro-list-item-meta"
@@ -237,7 +237,7 @@ exports[`List > 🚏 only has description 1`] = `
                     class="ant-pro-list-item-meta-description"
                   >
                     <div
-                      class="ant-pro-list-row-description"
+                      class="ant-pro-list-item-description"
                     >
                       <span
                         class="ant-tag ant-tag-filled css-var-rh"
@@ -282,13 +282,13 @@ exports[`List > 🚏 show loading state 1`] = `
           class="ant-pro-list ant-pro-list-split ant-pro-list-borderless ant-pro-list-loading ant-pro-list-container"
         >
           <div
-            class="ant-pro-list-item ant-pro-list-row"
+            class="ant-pro-list-item ant-pro-list-item"
           >
             <div
-              class="ant-pro-list-row-header"
+              class="ant-pro-list-item-header"
             >
               <div
-                class="ant-pro-list-row-header-option"
+                class="ant-pro-list-item-header-option"
               />
               <div
                 class="ant-pro-list-item-meta"
@@ -300,10 +300,10 @@ exports[`List > 🚏 show loading state 1`] = `
                     class="ant-pro-list-item-meta-title"
                   >
                     <div
-                      class="ant-pro-list-row-header-container"
+                      class="ant-pro-list-item-header-container"
                     >
                       <div
-                        class="ant-pro-list-row-title"
+                        class="ant-pro-list-item-title"
                       >
                         我是名称
                       </div>
@@ -313,7 +313,7 @@ exports[`List > 🚏 show loading state 1`] = `
                     class="ant-pro-list-item-meta-description"
                   >
                     <div
-                      class="ant-pro-list-row-description"
+                      class="ant-pro-list-item-description"
                     >
                       desc text
                     </div>
