@@ -218,6 +218,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
           showSearch={
             showSearch
               ? {
+                  ...showSearchConfig,
                   searchValue,
                   onSearch: (value) => {
                     if (fetchDataOnSearch && rest?.request) {
@@ -225,7 +226,6 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
                     }
                     setSearchValue(value);
                   },
-                  ...showSearchConfig,
                 }
               : false
           }
