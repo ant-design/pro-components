@@ -55,7 +55,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
   const [open, setOpen] = useState(false);
 
   const rawFieldProps = rest.fieldProps as TreeSelectFieldProps;
-  const showSearchConfig = isObject(rawFieldProps.showSearch)
+  const showSearchConfig = isObject(rawFieldProps?.showSearch)
     ? rawFieldProps.showSearch
     : {};
   const {
@@ -238,8 +238,10 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
           }}
           onChange={onChange}
           onBlur={(event) => {
-            setSearchValue(undefined);
-            fetchData(undefined);
+            if (showSearch) {
+              setSearchValue(undefined);
+              fetchData(undefined);
+            }
             onBlur?.(event);
           }}
           className={clsx(fieldProps?.className, layoutClassName)}
