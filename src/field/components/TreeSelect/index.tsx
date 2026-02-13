@@ -60,7 +60,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     : {};
   const {
     searchValue: propsSearchValue,
-    autoClearSearchValue,
+    autoClearSearchValue = true,
     onSearch,
   } = showSearchConfig;
 
