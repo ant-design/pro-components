@@ -221,6 +221,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
                   ...showSearchConfig,
                   searchValue,
                   onSearch: (value) => {
+                    // fix 不支持请求的情况下不刷新options
                     if (fetchDataOnSearch && rest?.request) {
                       fetchData(value);
                     }
