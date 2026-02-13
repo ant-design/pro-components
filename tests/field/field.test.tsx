@@ -780,7 +780,6 @@ describe('Field', () => {
         showSearch={{
           onSearch: (e: string) => {
             onSearch(e);
-            console.log(e);
           },
         }}
       />,
