@@ -2,6 +2,7 @@ import { useControlledState } from '@rc-component/util';
 import type { RadioGroupProps, TreeSelectProps } from 'antd';
 import { ConfigProvider, Spin, TreeSelect } from 'antd';
 import { clsx } from 'clsx';
+import isObject from 'lodash-es/isObject';
 import React, {
   useCallback,
   useContext,
@@ -10,7 +11,6 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import isObject from 'lodash-es/isObject';
 import { useIntl } from '../../../provider';
 import { FieldLabel, objectToMap, proFieldParsingText } from '../../../utils';
 import type { ProFieldFC } from '../../PureProField';
@@ -54,21 +54,27 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
   const treeSelectRef = useRef(null);
   const [open, setOpen] = useState(false);
 
+  const rawFieldProps = rest.fieldProps as TreeSelectFieldProps;
+  const showSearchConfig = isObject(rawFieldProps.showSearch)
+    ? rawFieldProps.showSearch
+    : {};
   const {
+    searchValue: propsSearchValue,
+    autoClearSearchValue,
     onSearch,
+  } = showSearchConfig;
+
+  const {
     onClear,
     onChange: propsOnChange,
     onBlur,
     showSearch,
-    autoClearSearchValue,
     treeData,
     fetchDataOnSearch,
-    searchValue: propsSearchValue,
     ...fieldProps
-  } = rest.fieldProps as TreeSelectFieldProps;
+  } = rawFieldProps;
 
   const variant = propsVariant ?? (fieldProps as any)?.variant;
-
   const intl = useIntl();
 
   const [loading, options, fetchData] = useFieldFetchData({
@@ -209,18 +215,20 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
             ...fieldProps.style,
           }}
           allowClear={fieldProps.allowClear !== false}
-          showSearch={{
-            searchValue,
-            onSearch: (value) => {
-              // fix 不支持请求的情况下不刷新options
-              if (fetchDataOnSearch && rest?.request) {
-                fetchData(value);
-              }
-              setSearchValue(value);
-            },
-            autoClearSearchValue,
-            ...(isObject(showSearch) ? showSearch : {}),
-          }}
+          showSearch={
+            showSearch
+              ? {
+                  searchValue,
+                  onSearch: (value) => {
+                    if (fetchDataOnSearch && rest?.request) {
+                      fetchData(value);
+                    }
+                    setSearchValue(value);
+                  },
+                  ...showSearchConfig,
+                }
+              : false
+          }
           onClear={() => {
             onClear?.();
             fetchData(undefined);
