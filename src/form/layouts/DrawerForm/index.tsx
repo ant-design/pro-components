@@ -22,8 +22,8 @@ const { noteOnce } = warning;
 
 export type CustomizeResizeType = {
   onResize?: () => void;
-  maxWidth?: DrawerProps['width'];
-  minWidth?: DrawerProps['width'];
+  maxWidth?: DrawerProps['size'];
+  minWidth?: DrawerProps['size'];
 };
 
 export type DrawerFormProps<
@@ -63,7 +63,7 @@ export type DrawerFormProps<
     title?: DrawerProps['title'];
 
     /** @name 抽屉的宽度 */
-    width?: DrawerProps['width'];
+    size?: DrawerProps['size'];
 
     /**
      *
@@ -79,7 +79,7 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
   onFinish,
   submitTimeout,
   title,
-  width,
+  size,
   resize,
   onOpenChange,
   open: propsOpen,
@@ -119,8 +119,8 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
   const [loading, setLoading] = useState(false);
   const [resizableDrawer, setResizableDrawer] = useState(false);
 
-  const [drawerWidth, setDrawerWidth] = useState<DrawerProps['width']>(
-    width ? width : resize ? resizeInfo?.minWidth : 800,
+  const [drawerWidth, setDrawerWidth] = useState<DrawerProps['size']>(
+    size ? size : resize ? resizeInfo?.minWidth : 800,
   );
 
   const [open, setOpenInner] = useControlledState<boolean>(
@@ -314,7 +314,7 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
       const offsetRight: number | string = ((document.body.offsetWidth ||
         1000) -
         (e.clientX - document.body.offsetLeft)) as number | string;
-      const minWidth = resizeInfo?.minWidth ?? (width || 800);
+      const minWidth = resizeInfo?.minWidth ?? (size || 800);
       const maxWidth = resizeInfo?.maxWidth ?? window.innerWidth * 0.8;
 
       if (offsetRight < minWidth) {
@@ -328,7 +328,7 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
 
       setDrawerWidth(offsetRight);
     },
-    [resizeInfo?.maxWidth, resizeInfo?.minWidth, width],
+    [resizeInfo?.maxWidth, resizeInfo?.minWidth, size],
   );
 
   const cbHandleMouseUp = useCallback(() => {
