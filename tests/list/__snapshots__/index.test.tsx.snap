@@ -15,7 +15,7 @@ exports[`List > 🚏 ProList support rowClassName as a function 1`] = `
           class="ant-pro-list ant-pro-list-split ant-pro-list-borderless ant-pro-list-container"
         >
           <div
-            class="ant-pro-list-item ant-pro-list-item even"
+            class="ant-pro-list-item even"
           >
             <div
               class="ant-pro-list-item-header"
@@ -56,7 +56,7 @@ exports[`List > 🚏 ProList support rowClassName as a function 1`] = `
             </div>
           </div>
           <div
-            class="ant-pro-list-item ant-pro-list-item odd"
+            class="ant-pro-list-item odd"
           >
             <div
               class="ant-pro-list-item-header"
@@ -118,7 +118,7 @@ exports[`List > 🚏 ProList support rowClassName as a string 1`] = `
           class="ant-pro-list ant-pro-list-split ant-pro-list-borderless ant-pro-list-container"
         >
           <div
-            class="ant-pro-list-item ant-pro-list-item rowClassName"
+            class="ant-pro-list-item rowClassName"
           >
             <div
               class="ant-pro-list-item-header"
@@ -180,7 +180,7 @@ exports[`List > 🚏 only has content 1`] = `
           class="ant-pro-list ant-pro-list-split ant-pro-list-borderless ant-pro-list-container"
         >
           <div
-            class="ant-pro-list-item ant-pro-list-item"
+            class="ant-pro-list-item"
           >
             <div
               class="ant-pro-list-item-header"
@@ -219,7 +219,7 @@ exports[`List > 🚏 only has description 1`] = `
           class="ant-pro-list ant-pro-list-split ant-pro-list-borderless ant-pro-list-container"
         >
           <div
-            class="ant-pro-list-item ant-pro-list-item"
+            class="ant-pro-list-item"
           >
             <div
               class="ant-pro-list-item-header"
@@ -282,7 +282,7 @@ exports[`List > 🚏 show loading state 1`] = `
           class="ant-pro-list ant-pro-list-split ant-pro-list-borderless ant-pro-list-loading ant-pro-list-container"
         >
           <div
-            class="ant-pro-list-item ant-pro-list-item"
+            class="ant-pro-list-item"
           >
             <div
               class="ant-pro-list-item-header"

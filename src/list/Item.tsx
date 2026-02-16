@@ -296,18 +296,22 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     );
   }
 
-  // 列表模式渲染
-  const rowClassName = clsx(hashId, {
-    [`${defaultClassName}-has-checkbox`]: checkbox,
-    [`${defaultClassName}-has-avatar`]: avatar,
-    [className]: className,
-  });
+  // 列表模式渲染：仅传递修饰符，不传递 defaultClassName（BaseListItem 已添加 ant-pro-list-item）
+  const baseListItemClassName = clsx(
+    hashId,
+    {
+      [`${defaultClassName}-has-checkbox`]: checkbox,
+      [`${defaultClassName}-has-avatar`]: avatar,
+      [`${defaultClassName}-selected`]: !cardProps && selected,
+      [`${defaultClassName}-type-${type}`]: !!type,
+      [`${defaultClassName}-editable`]: isEditable,
+    },
+    propsClassName !== defaultClassName ? propsClassName : null,
+  );
 
   return (
     <BaseListItem
-      className={clsx(rowClassName, hashId, {
-        [propsClassName]: propsClassName !== defaultClassName,
-      })}
+      className={baseListItemClassName}
       {...rest}
       extra={extra}
       {...onRow?.(record, index)}
