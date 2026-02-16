@@ -32,8 +32,10 @@ const FieldTextArea: ProFieldFC<{
       <Input.TextArea
         ref={ref}
         rows={3}
-        onKeyPress={(e) => {
-          if (e.key === 'Enter') e.stopPropagation();
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            e.stopPropagation();
+          }
         }}
         placeholder={intl.getMessage('tableForm.inputPlaceholder', '请输入')}
         {...fieldProps}

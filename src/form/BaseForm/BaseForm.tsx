@@ -948,7 +948,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
         >
           <FormListContext.Provider value={{}}>
             <Form
-              onKeyPress={(event) => {
+              onKeyDown={(event) => {
                 if (!isKeyPressSubmit) return;
                 if (event.key === 'Enter') {
                   formRef.current?.submit();
