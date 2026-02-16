@@ -340,6 +340,9 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           justifyContent: 'flex-start',
           width: '100%',
           minWidth: 0,
+          [`${token.proComponentsCls}-list-item-action`]: {
+            alignSelf: 'center',
+          },
           h4: {
             margin: 0,
             padding: 0,

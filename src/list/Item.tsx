@@ -340,7 +340,21 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
               } as RenderExpandIconProps<RecordType>)}
           </div>
           {headerDom}
-          {actionsArray}
+          {actionsArray && actionsArray.length > 0 ? (
+            <div
+              className={clsx(`${prefixCls}-item-action`, hashId)}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {actionsArray.map((action, i) => (
+                <div
+                  key={i}
+                  className={clsx(`${prefixCls}-item-action-item`, hashId)}
+                >
+                  {action}
+                </div>
+              ))}
+            </div>
+          ) : null}
         </div>
         {needExpanded && (content || expandedRowDom) && (
           <div className={clsx(`${className}-content`, hashId)}>
