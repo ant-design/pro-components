@@ -161,9 +161,10 @@ describe('QueryFilter', () => {
       </QueryFilter>,
     );
 
+    // 1064 宽度在 antd lg 断点 (992-1200)，为 3 列布局，默认展示 2 项，隐藏 2 项
     expect(
       container.querySelectorAll('.ant-row .ant-form-item-hidden'),
-    ).toHaveLength(1);
+    ).toHaveLength(2);
   });
 
   it('🕵️‍♀️ submitter support render', async () => {
