@@ -960,6 +960,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
                 'ref',
                 'labelWidth',
                 'autoFocusFirstInput',
+                'rootClassName',
               ] as any[])}
               ref={(instance) => {
                 if (!formRef.current) return;
@@ -992,7 +993,8 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
                   transformKey(values, !!omitNil),
                 );
               }}
-              className={clsx(props.className, prefixCls, hashId)}
+              className={props.className}
+              rootClassName={clsx(prefixCls, hashId, props.rootClassName)}
               onFinish={onFinish}
             >
               <BaseFormComponents<T, U>
