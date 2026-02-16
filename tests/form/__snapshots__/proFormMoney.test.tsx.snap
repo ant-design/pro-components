@@ -131,20 +131,20 @@ exports[`💵 ProFormMoney > 💵 can input negative 1`] = `
 <div>
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical css-var-r15 ant-form-css-var ant-pro-form"
+    class="ant-form ant-form-vertical css-var-rr ant-form-css-var ant-pro-form"
   >
     <input
       style="display: none;"
       type="text"
     />
     <div
-      class="ant-form-item css-var-r15 ant-form-css-var ant-form-item-has-success ant-form-item-vertical"
+      class="ant-form-item css-var-rr ant-form-css-var ant-form-item-has-success ant-form-item-vertical"
     >
       <div
-        class="ant-row ant-form-item-row css-var-r15"
+        class="ant-row ant-form-item-row css-var-rr"
       >
         <div
-          class="ant-col ant-form-item-control css-var-r15"
+          class="ant-col ant-form-item-control css-var-rr"
         >
           <div
             class="ant-form-item-control-input"
@@ -153,7 +153,7 @@ exports[`💵 ProFormMoney > 💵 can input negative 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-input-number ant-input-number-mode-input css-var-r15 ant-input-number-css-var ant-input-number-status-success ant-input-number-outlined ant-input-number-in-form-item ant-input-number-focused"
+                class="ant-input-number ant-input-number-mode-input css-var-rr ant-input-number-css-var ant-input-number-status-success ant-input-number-outlined ant-input-number-in-form-item ant-input-number-focused"
                 style="width: 100%;"
               >
                 <input
@@ -234,7 +234,7 @@ exports[`💵 ProFormMoney > 💵 can input negative 1`] = `
       style="display: flex; gap: 8px; align-items: center;"
     >
       <button
-        class="ant-btn css-var-r15 ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-rr ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -242,7 +242,7 @@ exports[`💵 ProFormMoney > 💵 can input negative 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn css-var-r15 ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-rr ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -258,20 +258,20 @@ exports[`💵 ProFormMoney > 💵 can not input negative 1`] = `
 <div>
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical css-var-ru ant-form-css-var ant-pro-form"
+    class="ant-form ant-form-vertical css-var-rm ant-form-css-var ant-pro-form"
   >
     <input
       style="display: none;"
       type="text"
     />
     <div
-      class="ant-form-item css-var-ru ant-form-css-var ant-form-item-vertical"
+      class="ant-form-item css-var-rm ant-form-css-var ant-form-item-vertical"
     >
       <div
-        class="ant-row ant-form-item-row css-var-ru"
+        class="ant-row ant-form-item-row css-var-rm"
       >
         <div
-          class="ant-col ant-form-item-control css-var-ru"
+          class="ant-col ant-form-item-control css-var-rm"
         >
           <div
             class="ant-form-item-control-input"
@@ -280,7 +280,7 @@ exports[`💵 ProFormMoney > 💵 can not input negative 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-input-number ant-input-number-mode-input css-var-ru ant-input-number-css-var ant-input-number-outlined ant-input-number-in-form-item ant-input-number-focused"
+                class="ant-input-number ant-input-number-mode-input css-var-rm ant-input-number-css-var ant-input-number-outlined ant-input-number-in-form-item ant-input-number-focused"
                 style="width: 100%;"
               >
                 <input
@@ -361,7 +361,7 @@ exports[`💵 ProFormMoney > 💵 can not input negative 1`] = `
       style="display: flex; gap: 8px; align-items: center;"
     >
       <button
-        class="ant-btn css-var-ru ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-rm ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -369,7 +369,7 @@ exports[`💵 ProFormMoney > 💵 can not input negative 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn css-var-ru ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-rm ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -385,20 +385,20 @@ exports[`💵 ProFormMoney > 💵 moneySymbol with custom locale 1`] = `
 <div>
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical css-var-rg ant-form-css-var ant-pro-form"
+    class="ant-form ant-form-vertical css-var-rc ant-form-css-var ant-pro-form"
   >
     <input
       style="display: none;"
       type="text"
     />
     <div
-      class="ant-form-item css-var-rg ant-form-css-var ant-form-item-vertical"
+      class="ant-form-item css-var-rc ant-form-css-var ant-form-item-vertical"
     >
       <div
-        class="ant-row ant-form-item-row css-var-rg"
+        class="ant-row ant-form-item-row css-var-rc"
       >
         <div
-          class="ant-col ant-form-item-control css-var-rg"
+          class="ant-col ant-form-item-control css-var-rc"
         >
           <div
             class="ant-form-item-control-input"
@@ -407,7 +407,7 @@ exports[`💵 ProFormMoney > 💵 moneySymbol with custom locale 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-input-number ant-input-number-mode-input css-var-rg ant-input-number-css-var ant-input-number-outlined ant-input-number-in-form-item ant-input-number-focused"
+                class="ant-input-number ant-input-number-mode-input css-var-rc ant-input-number-css-var ant-input-number-outlined ant-input-number-in-form-item ant-input-number-focused"
                 style="width: 100%;"
               >
                 <input
@@ -488,7 +488,7 @@ exports[`💵 ProFormMoney > 💵 moneySymbol with custom locale 1`] = `
       style="display: flex; gap: 8px; align-items: center;"
     >
       <button
-        class="ant-btn css-var-rg ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-rc ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -496,7 +496,7 @@ exports[`💵 ProFormMoney > 💵 moneySymbol with custom locale 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn css-var-rg ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-rc ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -512,20 +512,20 @@ exports[`💵 ProFormMoney > 💵 moneySymbol with custom symbol 1`] = `
 <div>
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical css-var-rn ant-form-css-var ant-pro-form"
+    class="ant-form ant-form-vertical css-var-rh ant-form-css-var ant-pro-form"
   >
     <input
       style="display: none;"
       type="text"
     />
     <div
-      class="ant-form-item css-var-rn ant-form-css-var ant-form-item-vertical"
+      class="ant-form-item css-var-rh ant-form-css-var ant-form-item-vertical"
     >
       <div
-        class="ant-row ant-form-item-row css-var-rn"
+        class="ant-row ant-form-item-row css-var-rh"
       >
         <div
-          class="ant-col ant-form-item-control css-var-rn"
+          class="ant-col ant-form-item-control css-var-rh"
         >
           <div
             class="ant-form-item-control-input"
@@ -534,7 +534,7 @@ exports[`💵 ProFormMoney > 💵 moneySymbol with custom symbol 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-input-number ant-input-number-mode-input css-var-rn ant-input-number-css-var ant-input-number-outlined ant-input-number-in-form-item ant-input-number-focused"
+                class="ant-input-number ant-input-number-mode-input css-var-rh ant-input-number-css-var ant-input-number-outlined ant-input-number-in-form-item ant-input-number-focused"
                 style="width: 100%;"
               >
                 <input
@@ -615,7 +615,7 @@ exports[`💵 ProFormMoney > 💵 moneySymbol with custom symbol 1`] = `
       style="display: flex; gap: 8px; align-items: center;"
     >
       <button
-        class="ant-btn css-var-rn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-rh ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -623,7 +623,7 @@ exports[`💵 ProFormMoney > 💵 moneySymbol with custom symbol 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn css-var-rn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-rh ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -639,20 +639,20 @@ exports[`💵 ProFormMoney > 💵 moneySymbol with global locale 1`] = `
 <div>
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical css-var-r9 ant-form-css-var ant-pro-form"
+    class="ant-form ant-form-vertical css-var-r7 ant-form-css-var ant-pro-form"
   >
     <input
       style="display: none;"
       type="text"
     />
     <div
-      class="ant-form-item css-var-r9 ant-form-css-var ant-form-item-vertical"
+      class="ant-form-item css-var-r7 ant-form-css-var ant-form-item-vertical"
     >
       <div
-        class="ant-row ant-form-item-row css-var-r9"
+        class="ant-row ant-form-item-row css-var-r7"
       >
         <div
-          class="ant-col ant-form-item-control css-var-r9"
+          class="ant-col ant-form-item-control css-var-r7"
         >
           <div
             class="ant-form-item-control-input"
@@ -661,7 +661,7 @@ exports[`💵 ProFormMoney > 💵 moneySymbol with global locale 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-input-number ant-input-number-mode-input css-var-r9 ant-input-number-css-var ant-input-number-outlined ant-input-number-in-form-item ant-input-number-focused"
+                class="ant-input-number ant-input-number-mode-input css-var-r7 ant-input-number-css-var ant-input-number-outlined ant-input-number-in-form-item ant-input-number-focused"
                 style="width: 100%;"
               >
                 <input
@@ -742,7 +742,7 @@ exports[`💵 ProFormMoney > 💵 moneySymbol with global locale 1`] = `
       style="display: flex; gap: 8px; align-items: center;"
     >
       <button
-        class="ant-btn css-var-r9 ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-r7 ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -750,7 +750,7 @@ exports[`💵 ProFormMoney > 💵 moneySymbol with global locale 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn css-var-r9 ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-r7 ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -766,20 +766,20 @@ exports[`💵 ProFormMoney > 💵 update money precision when init 1`] = `
 <div>
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical css-var-r1c ant-form-css-var ant-pro-form"
+    class="ant-form ant-form-vertical css-var-r10 ant-form-css-var ant-pro-form"
   >
     <input
       style="display: none;"
       type="text"
     />
     <div
-      class="ant-form-item css-var-r1c ant-form-css-var ant-form-item-vertical"
+      class="ant-form-item css-var-r10 ant-form-css-var ant-form-item-vertical"
     >
       <div
-        class="ant-row ant-form-item-row css-var-r1c"
+        class="ant-row ant-form-item-row css-var-r10"
       >
         <div
-          class="ant-col ant-form-item-control css-var-r1c"
+          class="ant-col ant-form-item-control css-var-r10"
         >
           <div
             class="ant-form-item-control-input"
@@ -788,7 +788,7 @@ exports[`💵 ProFormMoney > 💵 update money precision when init 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-input-number ant-input-number-mode-input css-var-r1c ant-input-number-css-var ant-input-number-outlined ant-input-number-in-form-item ant-input-number-focused"
+                class="ant-input-number ant-input-number-mode-input css-var-r10 ant-input-number-css-var ant-input-number-outlined ant-input-number-in-form-item ant-input-number-focused"
                 style="width: 100%;"
               >
                 <input
@@ -869,7 +869,7 @@ exports[`💵 ProFormMoney > 💵 update money precision when init 1`] = `
       style="display: flex; gap: 8px; align-items: center;"
     >
       <button
-        class="ant-btn css-var-r1c ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-r10 ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -877,7 +877,7 @@ exports[`💵 ProFormMoney > 💵 update money precision when init 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn css-var-r1c ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-r10 ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
