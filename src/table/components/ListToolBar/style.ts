@@ -22,7 +22,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         alignItems: 'center',
         justifyContent: 'flex-start',
         color: token.colorTextHeading,
-        fontWeight: '500',
+        fontWeight: token.fontWeightStrong,
         fontSize: token.fontSizeLG,
       },
       '&-search:not(:last-child)': {
