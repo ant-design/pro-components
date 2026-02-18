@@ -14,56 +14,71 @@ import type { ActionsProps } from './Actions';
 import Actions from './Actions';
 import { useStyle } from './style';
 
-/** 从 antd 设计 token 获取断点配置，与 Grid 响应式布局保持一致 */
-const getBreakpointsFromToken = () => {
-  const token = theme.getDesignToken();
-  return {
-    xs: token.screenSMMin,
-    sm: token.screenMDMin,
-    md: token.screenLGMin,
-    lg: token.screenXLMin,
-    xl: token.screenXXLMin,
-    xxl: Infinity,
-  } as const;
-};
-
-const CONFIG_SPAN_BREAKPOINTS = getBreakpointsFromToken();
-
-/** 配置表单列变化的容器宽度断点，继承 antd 断点值 */
-const getBreakpoints = (): {
-  vertical: (string | number)[][];
-  default: (string | number)[][];
-} => {
-  const bp = getBreakpointsFromToken();
-  return {
-    vertical: [
-      [bp.xs, 1, 'vertical'],
-      [bp.md, 2, 'vertical'],
-      [bp.xl, 3, 'vertical'],
-      [Infinity, 4, 'vertical'],
-    ],
-    default: [
-      [bp.xs, 1, 'vertical'],
-      [bp.sm, 2, 'vertical'],
-      [bp.lg, 3, 'horizontal'],
-      [bp.xl, 3, 'horizontal'],
-      [Infinity, 4, 'horizontal'],
-    ],
+type BreakpointsConfig = {
+  breakpoints: {
+    vertical: (string | number)[][];
+    default: (string | number)[][];
+  };
+  configSpanBreakpoints: {
+    xs: number;
+    sm: number;
+    md: number;
+    lg: number;
+    xl: number;
+    xxl: number;
   };
 };
 
-const BREAKPOINTS = getBreakpoints();
+/** 从 antd 设计 token 获取断点配置，与 Grid 响应式布局保持一致 */
+const getBreakpointsConfig = (token: {
+  screenSMMin?: number;
+  screenMDMin?: number;
+  screenLGMin?: number;
+  screenXLMin?: number;
+  screenXXLMin?: number;
+}): BreakpointsConfig => {
+  const defaultToken = theme.getDesignToken();
+  const t = { ...defaultToken, ...token };
+  const bp = {
+    xs: t.screenSMMin ?? 576,
+    sm: t.screenMDMin ?? 768,
+    md: t.screenLGMin ?? 992,
+    lg: t.screenXLMin ?? 1200,
+    xl: t.screenXXLMin ?? 1600,
+    xxl: Infinity,
+  } as const;
+
+  return {
+    configSpanBreakpoints: bp,
+    breakpoints: {
+      vertical: [
+        [bp.xs, 1, 'vertical'],
+        [bp.md, 2, 'vertical'],
+        [bp.xl, 3, 'vertical'],
+        [Infinity, 4, 'vertical'],
+      ],
+      default: [
+        [bp.xs, 1, 'vertical'],
+        [bp.sm, 2, 'vertical'],
+        [bp.xl, 3, 'horizontal'],
+        [Infinity, 4, 'horizontal'],
+      ],
+    },
+  };
+};
 
 /**
  * 合并用户和默认的配置
  *
  * @param layout
  * @param width
+ * @param breakpointsConfig 从 theme.useToken() 获取，支持 ConfigProvider 主题定制
  */
 const getSpanConfig = (
   layout: FormProps['layout'],
   width: number,
-  span?: SpanConfig,
+  span: SpanConfig | undefined,
+  breakpointsConfig: BreakpointsConfig,
 ): { span: number; layout: FormProps['layout'] } => {
   if (span && typeof span === 'number') {
     return {
@@ -72,15 +87,16 @@ const getSpanConfig = (
     };
   }
 
+  const { breakpoints, configSpanBreakpoints } = breakpointsConfig;
   const spanConfig: (string | number)[][] = span
-    ? ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].map((key) => [
-        CONFIG_SPAN_BREAKPOINTS[key as 'xs'],
-        24 / (span as any)[key as 'sm'],
+    ? (['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const).map((key) => [
+        configSpanBreakpoints[key],
+        24 / (span as Record<string, number>)[key],
         'horizontal',
       ])
-    : BREAKPOINTS[(layout as 'default') || 'default'];
+    : breakpoints[(layout as 'default') || 'default'];
 
-  const breakPoint = (spanConfig || BREAKPOINTS.default).find(
+  const breakPoint = (spanConfig || breakpoints.default).find(
     (item) => width < (item[0] as number) + 16, // 16 = 2 * (ant-row -8px margin)
   );
 
@@ -566,14 +582,26 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
   const context = useContext(ConfigProvider.ConfigContext);
   const baseClassName = context.getPrefixCls('pro-query-filter');
   const { wrapSSR, hashId } = useStyle(baseClassName);
+  const { token } = theme.useToken();
 
   const [width, setWidth] = useState(() =>
     typeof style?.width === 'number' ? style?.width : defaultWidth,
   );
 
+  const breakpointsConfig = useMemo(
+    () => getBreakpointsConfig(token),
+    [
+      token.screenSMMin,
+      token.screenMDMin,
+      token.screenLGMin,
+      token.screenXLMin,
+      token.screenXXLMin,
+    ],
+  );
+
   const spanSize = useMemo(
-    () => getSpanConfig(layout, width + 16, span),
-    [layout, width, span],
+    () => getSpanConfig(layout, width + 16, span, breakpointsConfig),
+    [layout, width, span, breakpointsConfig],
   );
 
   const showLength = useMemo(() => {

@@ -67,11 +67,12 @@ Note that the values of the breakpoints are the size of the form container and n
 
 ##### Rules for default layout
 
+Breakpoints use antd design tokens (xs=576, sm=768, md=992, lg=1200, xl=1600 by default):
+
 | container-width breakpoint  | single-row display form single-column count (including action area) | default layout |
 | -------------------------- | ------------------------------------------------------------------- | -------------- |
-| `≧ 1200px`                 | 4 columns                                                           | `horizontal`   |
-| `≧ 992px && < 1200px`      | 3 columns                                                           | `horizontal`   |
-| `≧ 768px && < 992px`       | 3 columns                                                           | `horizontal`   |
+| `≧ 1600px`                 | 4 columns                                                           | `horizontal`   |
+| `≧ 768px && < 1600px`      | 3 columns                                                           | `horizontal`   |
 | `≧ 576px && < 768px`       | 2 columns                                                           | `vertical`     |
 | `< 576px`                  | 1 column                                                            | `vertical`     |
 
@@ -79,9 +80,9 @@ Note that the values of the breakpoints are the size of the form container and n
 
 | container width breakpoint  | single row display table single column count (including operation area) |
 | -------------------------- | ----------------------------------------------------------------------- |
-| `≧ 1200px`                 | 4 columns                                                               |
-| `≧ 768px && < 1200px`      | 3 columns                                                               |
-| `≧ 576px && < 768px`       | 2 columns                                                               |
+| `≧ 1600px`                 | 4 columns                                                               |
+| `≧ 992px && < 1600px`      | 3 columns                                                               |
+| `≧ 576px && < 992px`       | 2 columns                                                               |
 | `< 576px`                  | 1 column                                                                |
 
 ### LightFilter
