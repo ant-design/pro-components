@@ -93,6 +93,9 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
         onChange={(e) => fieldProps?.onChange?.(proxyChange(e))}
         onBlur={(e) => {
           const value = e.target.value;
+          if (value === '') {
+            fieldProps?.onBlur?.(e);
+          }
           const processedValue = proxyChange(value);
           // 更新输入框的值
           if (e.target && typeof processedValue === 'number') {
@@ -100,7 +103,6 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
             // 触发 onChange 事件以更新表单值
             fieldProps?.onChange?.(processedValue);
           }
-          fieldProps?.onBlur?.(e);
         }}
       />
     );
