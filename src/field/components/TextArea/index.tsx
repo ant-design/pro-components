@@ -8,7 +8,8 @@ import FieldTextAreaReadonly from './readonly';
 /**
  * 最基本的组件，就是个普通的 Input.TextArea
  *
- * @param
+ * @param props
+ * @param ref
  */
 const FieldTextArea: ProFieldFC<{
   text: string;

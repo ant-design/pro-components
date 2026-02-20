@@ -9,7 +9,15 @@ import type { ProFieldFC } from '../../PureProField';
 /**
  * 评分组件
  *
- * @param
+ * @param text
+ * @param mode
+ * @param render
+ * @param light
+ * @param label
+ * @param formItemRender
+ * @param fieldProps
+ * @param propsVariant
+ * @param ref
  */
 const FieldSwitch: ProFieldFC<{
   text: boolean;
