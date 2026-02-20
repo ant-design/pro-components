@@ -9,7 +9,7 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
       class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
     >
       <div
-        class="ant-pro-query-filter-container "
+        class="ant-pro-query-filter-container"
       >
         <form
           autocomplete="off"

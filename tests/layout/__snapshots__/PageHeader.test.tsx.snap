@@ -11,7 +11,7 @@ exports[`PageContainer > pageHeader should render correctly int RTL direction 1`
   class="ant-page-header ant-page-header-ghost"
 >
   <div
-    class="ant-page-header-heading "
+    class="ant-page-header-heading"
   >
     <div
       class="ant-page-header-heading-left"
@@ -32,7 +32,7 @@ exports[`PageContainer > pageHeader should support className 1`] = `
   class="ant-page-header not-works ant-page-header-ghost"
 >
   <div
-    class="ant-page-header-heading "
+    class="ant-page-header-heading"
   >
     <div
       class="ant-page-header-heading-left"
@@ -54,7 +54,7 @@ exports[`PageContainer > 💄 base use 1`] = `
     class="ant-page-header ant-page-header-ghost"
   >
     <div
-      class="ant-page-header-heading "
+      class="ant-page-header-heading"
     >
       <div
         class="ant-page-header-heading-left"

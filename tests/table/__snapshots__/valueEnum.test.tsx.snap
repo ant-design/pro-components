@@ -9,7 +9,7 @@ exports[`Table valueEnum > 🎏 customization valueType 1`] = `
       class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
     >
       <div
-        class="ant-pro-query-filter-container "
+        class="ant-pro-query-filter-container"
       >
         <form
           autocomplete="off"
