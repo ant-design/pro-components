@@ -1,8 +1,7 @@
 import { EllipsisOutlined } from '@ant-design/icons';
 import { ProList } from '@ant-design/pro-components';
 import { Button, Progress, Tag } from 'antd';
-import React, { Key } from 'react';
-import { useState } from 'react';
+import React, { Key, useState } from 'react';
 
 const types = ['top', 'inline', 'new'];
 const data = [
