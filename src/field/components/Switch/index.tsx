@@ -7,7 +7,7 @@ import { FieldLabel } from '../../../utils';
 import type { ProFieldFC } from '../../PureProField';
 
 /**
- * 评分组件
+ * 开关组件
  *
  * @param text
  * @param mode
