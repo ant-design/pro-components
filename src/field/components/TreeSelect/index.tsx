@@ -67,18 +67,20 @@ const FieldTreeSelect: ProFieldFC<{} & FieldSelectProps> = (
   } = omit(rest.fieldProps, ['treeData']) as TreeSelectFieldProps;
   const showSearchConfig = typeof showSearch === 'object' ? showSearch : {};
 
-  //兼容过时API onSearch
-  const onSearch = showSearchConfig?.onSearch
-    ? showSearchConfig.onSearch
-    : propsOnSearch;
+  const onSearch =
+    showSearchConfig?.onSearch !== undefined
+      ? showSearchConfig.onSearch
+      : propsOnSearch;
   //兼容过时API autoClearSearchValue
-  const autoClearSearchValue = showSearchConfig?.autoClearSearchValue
-    ? showSearchConfig.autoClearSearchValue
-    : propsAutoClearSearchValue;
+  const autoClearSearchValue =
+    showSearchConfig?.autoClearSearchValue !== undefined
+      ? showSearchConfig.autoClearSearchValue
+      : propsAutoClearSearchValue;
   //兼容过时API searchValue
-  const propsSearchValue = showSearchConfig?.searchValue
-    ? showSearchConfig.searchValue
-    : propsSearchValueProp;
+  const propsSearchValue =
+    showSearchConfig?.searchValue !== undefined
+      ? showSearchConfig.searchValue
+      : propsSearchValueProp;
 
   const variant = propsVariant ?? (fieldProps as any)?.variant;
 
