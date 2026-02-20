@@ -95,6 +95,7 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
           const value = e.target.value;
           if (value === '') {
             fieldProps?.onBlur?.(e);
+            return;
           }
           const processedValue = proxyChange(value);
           // 更新输入框的值
