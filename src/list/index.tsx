@@ -18,6 +18,7 @@ import type {
   ProTableProps,
 } from '../table';
 import ProTable from '../table';
+import { isBordered } from '../table/utils';
 import type { LabelTooltipType, ProFieldValueType } from '../utils';
 import type { ItemProps } from './Item';
 import ListView, { type ProListItemRender } from './ListView';
@@ -153,7 +154,8 @@ function InternalProList<
     metas,
     columns: propsColumns,
     split,
-    variant,
+    variant: propsVariant,
+    cardBordered,
     footer,
     rowKey,
     tooltip,
@@ -175,6 +177,11 @@ function InternalProList<
     itemTitleRender,
     ...rest
   } = props;
+
+  // 与 ProTable 2.0 样式对齐：当未显式传入 variant 时，根据 cardBordered 推导
+  const variant =
+    propsVariant ??
+    (isBordered('table', cardBordered) ? 'outlined' : 'borderless');
 
   const actionRef = useRef<ActionType>();
 
@@ -217,6 +224,7 @@ function InternalProList<
   return wrapSSR(
     <ProTable<RecordType, U>
       tooltip={tooltip}
+      cardBordered={cardBordered}
       {...(rest as any)}
       actionRef={actionRef}
       pagination={propsPagination}
