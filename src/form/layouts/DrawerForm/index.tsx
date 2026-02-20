@@ -112,8 +112,7 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
   const context = useContext(ConfigProvider.ConfigContext);
   const baseClassName = context.getPrefixCls('pro-form-drawer');
   const { wrapSSR, hashId } = useStyle(baseClassName);
-  const getCls = (className: string) =>
-    `${baseClassName}-${className} ${hashId}`;
+  const getCls = (className: string) => `${baseClassName}-${className}`;
 
   const [, forceUpdate] = useState([]);
   const [loading, setLoading] = useState(false);
