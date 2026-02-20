@@ -16,6 +16,7 @@ import {
   Switch,
   message,
 } from 'antd';
+import { clsx } from 'clsx';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { isBrowser, merge, useRefFunction } from '../../../utils';
 import type { ProSettings } from '../../defaultSettings';
@@ -44,7 +45,7 @@ type MergerSettingsType<T> = Partial<T> & {
 
 const Body: React.FC<BodyProps> = ({ children, hashId, prefixCls, title }) => (
   <div style={{ marginBlockEnd: 12 }}>
-    <h3 className={`${prefixCls}-body-title ${hashId}`.trim()}>{title}</h3>
+    <h3 className={clsx(`${prefixCls}-body-title`, hashId)}>{title}</h3>
     {children}
   </div>
 );
@@ -394,7 +395,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   return wrapSSR(
     <>
       <div
-        className={`${baseClassName}-handle ${hashId}`.trim()}
+        className={clsx(`${baseClassName}-handle`, hashId)}
         onClick={() => setOpen(!open)}
         style={{
           width: 48,
@@ -429,7 +430,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
         }}
         {...drawerProps}
       >
-        <div className={`${baseClassName}-drawer-content ${hashId}`.trim()}>
+        <div className={clsx(`${baseClassName}-drawer-content`, hashId)}>
           <Body
             title={formatMessage({
               id: 'app.setting.pagestyle',
@@ -579,7 +580,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
                 title={formatMessage({ id: 'app.setting.othersettings' })}
               >
                 <List
-                  className={`${baseClassName}-list ${hashId}`.trim()}
+                  className={clsx(`${baseClassName}-list`, hashId)}
                   split={false}
                   size="small"
                   renderItem={renderLayoutSettingItem}

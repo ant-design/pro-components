@@ -18,10 +18,12 @@ export type ListToolBarHeaderMenuProps = {
   items?: ListToolBarMenuItem[];
   onChange?: (activeKey?: React.Key) => void;
   prefixCls?: string;
+  hashId?: string;
 };
 
 const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
-  const { hashId } = useContext(ProProvider);
+  const { hashId: contextHashId } = useContext(ProProvider);
+  const hashId = props.hashId ?? contextHashId;
   const {
     items = [],
     type = 'inline',
@@ -105,7 +107,13 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
   }
 
   return (
-    <div className={clsx(`${prefixCls}-menu`, `${prefixCls}-dropdownmenu`)}>
+    <div
+      className={clsx(
+        `${prefixCls}-menu`,
+        `${prefixCls}-dropdownmenu`,
+        hashId,
+      )}
+    >
       <Dropdown
         trigger={['click']}
         menu={{
@@ -120,7 +128,7 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
           })),
         }}
       >
-        <Space className={`${prefixCls}-dropdownmenu-label`}>
+        <Space className={clsx(`${prefixCls}-dropdownmenu-label`, hashId)}>
           {activeItem.label}
           <DownOutlined />
         </Space>

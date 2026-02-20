@@ -87,7 +87,7 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
               return htmlRef.current || document.body;
             }}
           >
-            <div className={`${prefixCls}-content ${hashId}`.trim()}>
+            <div className={clsx(`${prefixCls}-content`, hashId)}>
               {children}
             </div>
           </ConfigProvider>

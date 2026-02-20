@@ -139,7 +139,7 @@ const renderFooter: React.FC<
   if (Array.isArray(tabList) || tabBarExtraContent) {
     return (
       <Tabs
-        className={`${prefixedClassName}-tabs ${hashId}`.trim()}
+        className={clsx(`${prefixedClassName}-tabs`, hashId)}
         activeKey={tabActiveKey}
         onChange={(key) => {
           if (onTabChange) {
@@ -169,17 +169,17 @@ const renderPageHeader = (
     return null;
   }
   return (
-    <div className={`${prefixedClassName}-detail ${hashId}`.trim()}>
-      <div className={`${prefixedClassName}-main ${hashId}`.trim()}>
-        <div className={`${prefixedClassName}-row ${hashId}`.trim()}>
+    <div className={clsx(`${prefixedClassName}-detail`, hashId)}>
+      <div className={clsx(`${prefixedClassName}-main`, hashId)}>
+        <div className={clsx(`${prefixedClassName}-row`, hashId)}>
           {content && (
-            <div className={`${prefixedClassName}-content ${hashId}`.trim()}>
+            <div className={clsx(`${prefixedClassName}-content`, hashId)}>
               {content}
             </div>
           )}
           {extraContent && (
             <div
-              className={`${prefixedClassName}-extraContent ${hashId}`.trim()}
+              className={clsx(`${prefixedClassName}-extraContent`, hashId)}
             >
               {extraContent}
             </div>
@@ -296,7 +296,7 @@ const memoRenderPageHeader = (
   return (
     <PageHeader
       {...pageHeaderProps}
-      className={`${prefixedClassName}-warp-page-header ${hashId}`.trim()}
+      className={clsx(`${prefixedClassName}-warp-page-header`, hashId)}
       breadcrumb={
         breadcrumbRender === false
           ? undefined
@@ -430,9 +430,9 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
                   : 1
               }
               {...affixProps}
-              className={`${basePageContainer}-affix ${hashId}`.trim()}
+              className={clsx(`${basePageContainer}-affix`, hashId)}
             >
-              <div className={`${basePageContainer}-warp ${hashId}`.trim()}>
+              <div className={clsx(`${basePageContainer}-warp`, hashId)}>
                 {pageHeaderDom}
               </div>
             </Affix>

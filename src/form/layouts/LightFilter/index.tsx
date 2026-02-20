@@ -137,7 +137,7 @@ const LightFilterContainer: React.FC<{
     if (collapse) {
       return (
         <FilterOutlined
-          className={`${lightFilterClassName}-collapse-icon ${hashId}`.trim()}
+          className={clsx(`${lightFilterClassName}-collapse-icon`, hashId)}
         />
       );
     }
@@ -164,7 +164,7 @@ const LightFilterContainer: React.FC<{
         },
       )}
     >
-      <div className={`${lightFilterClassName}-container ${hashId}`.trim()}>
+      <div className={clsx(`${lightFilterClassName}-container`, hashId)}>
         {outsideItems.map((child: any, index) => {
           if (!child?.props) {
             return child;
@@ -177,7 +177,7 @@ const LightFilterContainer: React.FC<{
 
           return (
             <div
-              className={`${lightFilterClassName}-item ${hashId}`.trim()}
+              className={clsx(`${lightFilterClassName}-item`, hashId)}
               key={key || index}
             >
               {React.cloneElement(child, {
@@ -200,7 +200,7 @@ const LightFilterContainer: React.FC<{
         })}
         {collapseItems.length ? (
           <div
-            className={`${lightFilterClassName}-item ${hashId}`.trim()}
+            className={clsx(`${lightFilterClassName}-item`, hashId)}
             key="more"
           >
             <FilterDropdown
@@ -252,7 +252,7 @@ const LightFilterContainer: React.FC<{
                   : placement;
                 return (
                   <div
-                    className={`${lightFilterClassName}-line ${hashId}`.trim()}
+                    className={clsx(`${lightFilterClassName}-line`, hashId)}
                     key={key}
                   >
                     {React.cloneElement(child, {

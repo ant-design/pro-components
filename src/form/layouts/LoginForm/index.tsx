@@ -118,7 +118,7 @@ function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
 
   return wrapSSR(
     <div className={clsx(getCls('container'), hashId)} style={containerStyle}>
-      <div className={`${getCls('top')} ${hashId}`.trim()}>
+      <div className={clsx(getCls('top'), hashId)}>
         {title || logoDom ? (
           <div className={`${getCls('header')}`}>
             {logoDom ? <span className={getCls('logo')}>{logoDom}</span> : null}
