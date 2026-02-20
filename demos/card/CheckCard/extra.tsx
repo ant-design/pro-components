@@ -76,7 +76,7 @@ const Demo = () => (
       <h4>Dropdown 组件 Props：</h4>
       <ul>
         <li>
-          <strong>placement</strong>: 下拉菜单出现位置，如 'topCenter'
+          <strong>placement</strong>: 下拉菜单出现位置，如 'top'
         </li>
         <li>
           <strong>menu</strong>: 菜单配置对象
