@@ -777,9 +777,11 @@ describe('Field', () => {
       <TreeSelectDemo
         multiple={false}
         labelInValue={false}
-        onSearch={(e) => {
-          onSearch(e);
-          console.log(e);
+        showSearch={{
+          onSearch: (e) => {
+            onSearch(e);
+            console.log(e);
+          },
         }}
       />,
     );
@@ -795,10 +797,12 @@ describe('Field', () => {
     act(() => {
       html.rerender(
         <TreeSelectDemo
-          searchValue="ProComponents"
+          showSearch={{
+            searchValue: 'ProComponents',
+            onSearch: onSearch,
+          }}
           multiple={false}
           labelInValue={false}
-          onSearch={onSearch}
         />,
       );
     });
@@ -876,7 +880,9 @@ describe('Field', () => {
       const [value, setValue] = useState();
       return (
         <TreeSelectDemo
-          onSearch={onSearchFn}
+          showSearch={{
+            onSearch: onSearchFn,
+          }}
           onBlur={onBlurFn}
           onClear={onClearFn}
           loadData={async (node) => {
