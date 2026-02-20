@@ -104,6 +104,7 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
             // 触发 onChange 事件以更新表单值
             fieldProps?.onChange?.(processedValue);
           }
+          fieldProps?.onBlur?.(e);
         }}
       />
     );
