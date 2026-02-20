@@ -272,7 +272,7 @@ const QueryFilterContent: React.FC<{
   split?: boolean;
   form: FormInstance<any>;
   items: React.ReactNode[];
-  submitter?: JSX.Element | false;
+  submitter?: React.JSX.Element | false;
   showLength: number;
   collapseRender: QueryFilterProps<any>['collapseRender'];
   spanSize: {

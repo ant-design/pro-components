@@ -259,7 +259,7 @@ function ListView<RecordType extends AnyObject>(
               checked: isChecked,
               onChange: React.isValidElement(checkboxDom)
                 ? (changeChecked: boolean) =>
-                    ((checkboxDom as JSX.Element)?.props as any)?.onChange({
+                    ((checkboxDom React.JSX)?.props as any)?.onChange({
                       nativeEvent: {},
                       target: { checked: changeChecked },
                       changeChecked,

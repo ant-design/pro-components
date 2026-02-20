@@ -233,9 +233,9 @@ const WarpFormItem: React.FC<
               warnings: React.ReactNode[];
             },
             doms: {
-              input: JSX.Element;
-              errorList: JSX.Element;
-              extra: JSX.Element;
+              input: React.JSX.Element;
+              errorList: React.JSX.Element;
+              extra: React.JSX.Element;
             },
           ) => (
             <>

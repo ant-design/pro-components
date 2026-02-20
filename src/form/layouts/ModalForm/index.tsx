@@ -40,7 +40,7 @@ export type ModalFormProps<
     submitTimeout?: number;
 
     /** @name 用于触发抽屉打开的 dom */
-    trigger?: JSX.Element;
+    trigger?: React.JSX.Element;
 
     /** @name 受控的打开关闭 */
     open?: ModalProps['open'];

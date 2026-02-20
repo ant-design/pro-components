@@ -51,7 +51,7 @@ export interface ListProps<T = any> {
   renderItem?: (
     item: T,
     index: number,
-    defaultDom: JSX.Element | null,
+    defaultDom: React.JSX.Element | null,
   ) => React.ReactNode;
   size?: ListSize;
   split?: boolean;

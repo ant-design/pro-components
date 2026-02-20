@@ -31,7 +31,7 @@ export type SubmitterProps<T = Record<string, any>> = {
             submit: () => void;
             reset: () => void;
           },
-        dom: JSX.Element[],
+        dom: React.JSX.Element[],
       ) => React.ReactNode[] | React.ReactNode | false)
     | false;
 };
@@ -130,7 +130,7 @@ const Submitter: React.FC<SubmitterProps> = (props) => {
       return null;
     }
     if (renderDom?.length === 1) {
-      return renderDom[0] as JSX.Element;
+      return renderDom[0] as React.JSX.Element;
     }
     return (
       <div
@@ -144,7 +144,7 @@ const Submitter: React.FC<SubmitterProps> = (props) => {
       </div>
     );
   }
-  return renderDom as JSX.Element;
+  return renderDom as React.JSX.Element;
 };
 
 export default Submitter;

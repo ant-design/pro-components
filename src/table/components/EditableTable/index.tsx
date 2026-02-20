@@ -130,7 +130,7 @@ const EditableTableActionContext = React.createContext<
 
 /** 可编辑表格的按钮 */
 function RecordCreator<T = Record<string, any>>(
-  props: RecordCreatorProps<T> & { children: JSX.Element },
+  props: RecordCreatorProps<T> & { children: React.JSX.Element },
 ) {
   const { children, record, position, newRecordType, parentKey } = props;
   const actionRef = useContext(EditableTableActionContext);
