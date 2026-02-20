@@ -1320,7 +1320,9 @@ describe('EditorProTable', () => {
         editable={{
           onChange: (keys) => fn(keys[0]),
         }}
-        defaultExpandAllRows={true}
+        expandable={{
+          defaultExpandAllRows: true,
+        }}
         recordCreatorProps={{
           parentKey: () => 6246747901,
           position: 'top',
@@ -1380,7 +1382,9 @@ describe('EditorProTable', () => {
         editable={{
           onChange: (keys) => fn(keys[0]),
         }}
-        defaultExpandAllRows={true}
+        expandable={{
+          defaultExpandAllRows: true,
+        }}
         recordCreatorProps={{
           parentKey: () => 6246747901,
           record: {
@@ -1450,7 +1454,9 @@ describe('EditorProTable', () => {
         editable={{
           onChange: (keys) => fn(keys[0]),
         }}
-        defaultExpandAllRows={true}
+        expandable={{
+          defaultExpandAllRows: true,
+        }}
         recordCreatorProps={{
           parentKey: () => 6246747901,
           record: {
