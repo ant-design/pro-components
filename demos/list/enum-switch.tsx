@@ -49,11 +49,8 @@ const Demo = () => {
   const [itemLayout, setItemLayout] = useState<'horizontal' | 'vertical'>(
     'horizontal',
   );
-  const [variant, setVariant] = useState<
-    'outlined' | 'borderless' | 'filled' | undefined
-  >(undefined);
-  const [cardBordered, setCardBordered] = useState<boolean | { table?: boolean }>(
-    false,
+  const [variant, setVariant] = useState<'outlined' | 'borderless' | 'filled'>(
+    'borderless',
   );
   const [split, setSplit] = useState(true);
 
@@ -88,25 +85,11 @@ const Demo = () => {
           />
         </Space>
         <Space>
-          <span>cardBordered（2.0 样式）：</span>
+          <span>variant 外观变体：</span>
           <Segmented
-            value={cardBordered === true ? 'true' : 'false'}
-            onChange={(v) =>
-              setCardBordered(v === 'true' ? { table: true } : false)
-            }
+            value={variant}
+            onChange={(v) => setVariant(v as any)}
             options={[
-              { label: '有边框', value: 'true' },
-              { label: '无边框', value: 'false' },
-            ]}
-          />
-        </Space>
-        <Space>
-          <span>variant 外观变体（覆盖 cardBordered）：</span>
-          <Segmented
-            value={variant ?? 'auto'}
-            onChange={(v) => setVariant(v === 'auto' ? undefined : (v as any))}
-            options={[
-              { label: '自动', value: 'auto' },
               { label: '线框 outlined', value: 'outlined' },
               { label: '填充 filled', value: 'filled' },
               { label: '无边框 borderless', value: 'borderless' },
@@ -129,7 +112,6 @@ const Demo = () => {
       <ProList<ProjectItem>
         headerTitle="项目列表枚举切换"
         itemLayout={itemLayout}
-        cardBordered={cardBordered}
         variant={variant}
         split={split}
         dataSource={dataSource}
