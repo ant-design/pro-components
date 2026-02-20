@@ -33,6 +33,14 @@ export type TreeSelectFieldProps = TreeSelectProps<any> & {
 /**
  * Tree select
  * A function that returns a React component.
+ * @param radioType
+ * @param formItemRender
+ * @param mode
+ * @param light
+ * @param label
+ * @param render
+ * @param propsVariant
+ * @param rest
  * @param ref
  */
 const FieldTreeSelect: ProFieldFC<GroupProps> = (

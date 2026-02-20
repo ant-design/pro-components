@@ -14,7 +14,11 @@ export type ProFormDigitProps = ProFormFieldItemProps<
 /**
  * 数组选择组件
  *
- * @param
+ * @param fieldProps
+ * @param min
+ * @param proFieldProps
+ * @param max
+ * @param rest
  * @param ref
  */
 const ProFormDigit: React.ForwardRefRenderFunction<any, ProFormDigitProps> = (

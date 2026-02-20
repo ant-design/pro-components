@@ -13,13 +13,16 @@ export type FieldDigitProps = {
 /**
  * 数字组件
  *
- * @param FieldDigitProps {
- *     text: number;
- *     moneySymbol?: string; }
+ * @param text
+ * @param type
+ * @param render
+ * @param placeholder
+ * @param formItemRender
+ * @param fieldProps
  * @param ref
  */
 const FieldDigit: ProFieldFC<FieldDigitProps> = (
-  { text, mode: type, render, placeholder, formItemRender, fieldProps }: any,
+  { text, mode: type, render, placeholder, formItemRender, fieldProps },
   ref,
 ) => {
   const intl = useIntl();

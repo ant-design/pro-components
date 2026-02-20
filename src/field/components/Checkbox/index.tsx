@@ -15,7 +15,11 @@ export type GroupProps = {
 /**
  * 多选组件
  *
- * @param param0
+ * @param layout
+ * @param formItemRender
+ * @param mode
+ * @param render
+ * @param rest
  * @param ref
  */
 const FieldCheckbox: ProFieldFC<GroupProps> = (
