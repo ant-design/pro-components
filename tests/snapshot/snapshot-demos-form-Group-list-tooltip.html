@@ -9,78 +9,46 @@
       style="display: flex; flex-direction: column; gap: 16px;"
     >
       <div
-        class="ant-form-item pro ant-form-css-var ant-form-item-horizontal"
+        aria-label="segmented control"
+        aria-orientation="horizontal"
+        class="ant-segmented ant-segmented-block pro"
+        role="radiogroup"
+        tabindex="0"
       >
         <div
-          class="ant-row ant-form-item-row pro"
+          class="ant-segmented-group"
         >
-          <div
-            class="ant-col ant-form-item-label pro"
+          <label
+            class="ant-segmented-item ant-segmented-item-selected"
           >
-            <label
-              class=""
-              for="mode"
-              title="模式"
-            >
-              模式
-            </label>
-          </div>
-          <div
-            class="ant-col ant-form-item-control pro"
-          >
+            <input
+              checked=""
+              class="ant-segmented-item-input"
+              name="test-id"
+              type="radio"
+            />
             <div
-              class="ant-form-item-control-input"
+              class="ant-segmented-item-label"
+              title="编辑"
             >
-              <div
-                class="ant-form-item-control-input-content"
-              >
-                <div
-                  aria-label="segmented control"
-                  aria-orientation="horizontal"
-                  class="ant-segmented ant-segmented-block pro"
-                  id="mode"
-                  role="radiogroup"
-                  tabindex="0"
-                >
-                  <div
-                    class="ant-segmented-group"
-                  >
-                    <label
-                      class="ant-segmented-item ant-segmented-item-selected"
-                    >
-                      <input
-                        checked=""
-                        class="ant-segmented-item-input"
-                        name="test-id"
-                        type="radio"
-                      />
-                      <div
-                        class="ant-segmented-item-label"
-                        title="编辑"
-                      >
-                        编辑
-                      </div>
-                    </label>
-                    <label
-                      class="ant-segmented-item"
-                    >
-                      <input
-                        class="ant-segmented-item-input"
-                        name="test-id"
-                        type="radio"
-                      />
-                      <div
-                        class="ant-segmented-item-label"
-                        title="只读"
-                      >
-                        只读
-                      </div>
-                    </label>
-                  </div>
-                </div>
-              </div>
+              编辑
             </div>
-          </div>
+          </label>
+          <label
+            class="ant-segmented-item"
+          >
+            <input
+              class="ant-segmented-item-input"
+              name="test-id"
+              type="radio"
+            />
+            <div
+              class="ant-segmented-item-label"
+              title="只读"
+            >
+              只读
+            </div>
+          </label>
         </div>
       </div>
       <form
