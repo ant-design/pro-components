@@ -115,11 +115,8 @@ function ListView<RecordType extends AnyObject>(
     }
 
     const { current = 1, pageSize = 10 } = mergedPagination;
-    const currentPageData = dataSource.slice(
-      (current - 1) * pageSize,
-      current * pageSize,
-    );
-    return currentPageData;
+
+    return dataSource.slice((current - 1) * pageSize, current * pageSize);
   }, [dataSource, mergedPagination, pagination]);
   const prefixCls = getPrefixCls('pro-list', customizePrefixCls);
 
@@ -259,7 +256,9 @@ function ListView<RecordType extends AnyObject>(
               checked: isChecked,
               onChange: React.isValidElement(checkboxDom)
                 ? (changeChecked: boolean) =>
-                    ((checkboxDom React.JSX)?.props as any)?.onChange({
+                    (
+                      (checkboxDom as React.JSX.Element)?.props as any
+                    )?.onChange({
                       nativeEvent: {},
                       target: { checked: changeChecked },
                       changeChecked,
