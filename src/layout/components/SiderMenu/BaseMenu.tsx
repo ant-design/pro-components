@@ -50,7 +50,7 @@ const MenuItemTooltip = (props: {
   }, [props.collapsed]);
 
   if (props.disable) {
-    return props.children as JSX.Element;
+    return props.children as React.JSX.Element;
   }
 
   return (

@@ -18,7 +18,7 @@ export type FooterToolbarProps = {
   className?: string;
   renderContent?: (
     props: FooterToolbarProps & RouteContextType & { leftWidth?: string },
-    dom: JSX.Element,
+    dom: React.JSX.Element,
   ) => ReactNode;
   prefixCls?: string;
   stylish?: GenerateStyle<FooterToolBarToken>;

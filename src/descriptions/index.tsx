@@ -318,7 +318,7 @@ const schemaToDescriptionsItem = (
   editableUtils?: UseEditableMapUtilType,
   emptyText?: React.ReactNode,
 ) => {
-  const options: JSX.Element[] = [];
+  const options: React.JSX.Element[] = [];
   // 因为 Descriptions 只是个语法糖，children 是不会执行的，所以需要这里处理一下
   const children = items
     ?.map?.((item, index) => {
@@ -386,7 +386,7 @@ const schemaToDescriptionsItem = (
           ellipsis={item.ellipsis}
         />
       );
-      const field: DescriptionsItemType | JSX.Element =
+      const field: DescriptionsItemType | React.JSX.Element =
         valueType !== 'option'
           ? ({
               ...restItem,
@@ -444,10 +444,10 @@ const schemaToDescriptionsItem = (
                   )}
                 </Component>
               </Descriptions.Item>
-            ) as JSX.Element);
+            ) as React.JSX.Element);
       // 如果类型是 option 自动放到右上角
       if (valueType === 'option') {
-        options.push(field as JSX.Element);
+        options.push(field as React.JSX.Element);
         return null;
       }
       return field;

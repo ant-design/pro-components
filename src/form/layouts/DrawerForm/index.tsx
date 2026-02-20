@@ -22,8 +22,8 @@ const { noteOnce } = warning;
 
 export type CustomizeResizeType = {
   onResize?: () => void;
-  maxWidth?: DrawerProps['width'];
-  minWidth?: DrawerProps['width'];
+  maxWidth?: DrawerProps['size'];
+  minWidth?: DrawerProps['size'];
 };
 
 export type DrawerFormProps<
@@ -48,7 +48,7 @@ export type DrawerFormProps<
     submitTimeout?: number;
 
     /** @name 用于触发抽屉打开的 dom ，只能设置一个*/
-    trigger?: JSX.Element;
+    trigger?: React.JSX.Element;
 
     /** @name 受控的打开关闭 */
     open?: DrawerProps['open'];
@@ -63,7 +63,7 @@ export type DrawerFormProps<
     title?: DrawerProps['title'];
 
     /** @name 抽屉的宽度 */
-    width?: DrawerProps['width'];
+    width?: DrawerProps['size'];
 
     /**
      *
@@ -118,7 +118,7 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
   const [loading, setLoading] = useState(false);
   const [resizableDrawer, setResizableDrawer] = useState(false);
 
-  const [drawerWidth, setDrawerWidth] = useState<DrawerProps['width']>(
+  const [drawerWidth, setDrawerWidth] = useState<DrawerProps['size']>(
     width ? width : resize ? resizeInfo?.minWidth : 800,
   );
 

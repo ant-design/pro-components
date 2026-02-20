@@ -28,9 +28,9 @@ const FIX_INLINE_STYLE = {
 
 const InlineErrorFormItemPopover: React.FC<{
   inputProps: any;
-  input: JSX.Element;
-  errorList: JSX.Element;
-  extra: JSX.Element;
+  input: React.JSX.Element;
+  errorList: React.JSX.Element;
+  extra: React.JSX.Element;
   popoverProps?: PopoverProps;
 }> = ({ inputProps, input, extra, errorList, popoverProps }) => {
   const [open, setOpen] = useState<boolean | undefined>(false);
@@ -129,9 +129,9 @@ const InternalFormItemFunction: React.FC<InternalProps & FormItemProps> = ({
             errors: any[];
           },
           doms: {
-            input: JSX.Element;
-            errorList: JSX.Element;
-            extra: JSX.Element;
+            input: React.JSX.Element;
+            errorList: React.JSX.Element;
+            extra: React.JSX.Element;
           },
         ) => (
           <InlineErrorFormItemPopover

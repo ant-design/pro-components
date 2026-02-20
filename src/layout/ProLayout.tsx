@@ -105,8 +105,8 @@ export type ProLayoutProps = GlobalTypes & {
    * */
   logo?:
     | React.ReactNode
-    | JSX.Element
-    | WithFalse<() => React.ReactNode | JSX.Element>;
+    | React.JSX.Element
+    | WithFalse<() => React.ReactNode | React.JSX.Element>;
 
   /**
    * @name 页面切换的时候触发
