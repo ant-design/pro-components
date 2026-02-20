@@ -67,7 +67,12 @@ const Demo = () => {
           rate: 3.5,
           segmented: 'open',
           segmented2: 'open',
-          treeSelect: ['0-1'],
+          treeSelect: [
+            {
+              title: 'Child Node3',
+              value: '0-1-0',
+            },
+          ],
         }}
         onValuesChange={(_, values) => {
           console.log(values);
@@ -272,61 +277,7 @@ const Demo = () => {
               },
             }}
           />
-          <ProFormTreeSelect
-            name="treeSelectOptions"
-            label={'TreeSelect Options'}
-            placeholder="Please tree select"
-            allowClear
-            width={330}
-            secondary
-            fieldProps={{
-              options: [
-                {
-                  title: 'Node1',
-                  value: '0-0',
-                  children: [
-                    {
-                      title: 'Child Node1',
-                      value: '0-0-0',
-                    },
-                  ],
-                },
-                {
-                  title: 'Node2',
-                  value: '0-1',
-                  children: [
-                    {
-                      title: 'Child Node3',
-                      value: '0-1-0',
-                    },
-                    {
-                      title: 'Child Node4',
-                      value: '0-1-1',
-                    },
-                    {
-                      title: 'Child Node5',
-                      value: '0-1-2',
-                    },
-                  ],
-                },
-              ],
-              suffixIcon: null,
-              showSearch: {
-                autoClearSearchValue: true,
-                filterTreeNode: true,
-                treeNodeFilterProp: 'title',
-                onSearch: (value) => {
-                  console.log('onSearch', value);
-                },
-              },
-              popupMatchSelectWidth: false,
-              labelInValue: true,
-              multiple: true,
-              fieldNames: {
-                label: 'title',
-              },
-            }}
-          />
+
           <ProFormRadio.Group
             name="radio"
             label="Radio.Group"
