@@ -247,10 +247,8 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     if (collapsible === 'icon') setCollapsed((prev) => !prev);
   }, [collapsible, setCollapsed]);
 
-  // 非受控情况下展示
   const collapsibleButton =
     collapsible &&
-    controlCollapsed === undefined &&
     (collapsibleIconRender ? (
       <span
         role="button"
