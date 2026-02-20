@@ -93,7 +93,7 @@
     "@babel/core": "^7.28.5",
     "@babel/eslint-plugin": "^7.27.1",
     "@babel/parser": "^7.28.5",
-    "@babel/plugin-proposal-object-rest-spread": "^7.20.7",
+    "@babel/plugin-transform-object-rest-spread": "^7.28.6",
     "@babel/preset-env": "^7.28.5",
     "@babel/preset-react": "^7.28.5",
     "@babel/preset-typescript": "^7.28.5",

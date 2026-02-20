@@ -175,7 +175,7 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
 
       [`${componentCls}-title`]: {
         color: token.colorText,
-        fontWeight: 500,
+        fontWeight: token.fontWeightStrong,
         fontSize: token.fontSizeLG,
         lineHeight: token.lineHeight,
       },

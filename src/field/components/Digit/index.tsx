@@ -13,9 +13,13 @@ export type FieldDigitProps = {
 /**
  * 数字组件
  *
- * @param FieldDigitProps {
- *     text: number;
- *     moneySymbol?: string; }
+ * @param text
+ * @param type
+ * @param render
+ * @param placeholder
+ * @param formItemRender
+ * @param fieldProps
+ * @param ref
  */
 const FieldDigit: ProFieldFC<FieldDigitProps> = (
   { text, mode: type, render, placeholder, formItemRender, fieldProps },
@@ -89,6 +93,10 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
         onChange={(e) => fieldProps?.onChange?.(proxyChange(e))}
         onBlur={(e) => {
           const value = e.target.value;
+          if (value === '') {
+            fieldProps?.onBlur?.(e);
+            return;
+          }
           const processedValue = proxyChange(value);
           // 更新输入框的值
           if (e.target && typeof processedValue === 'number') {

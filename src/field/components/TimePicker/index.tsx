@@ -120,7 +120,16 @@ const FieldTimePicker: ProFieldFC<
 /**
  * 时间区间选择
  *
- * @param param0
+ * @param text
+ * @param light
+ * @param label
+ * @param mode
+ * @param lightLabel
+ * @param format
+ * @param render
+ * @param formItemRender
+ * @param fieldProps
+ * @param variant
  * @param ref
  */
 const FieldTimeRangePickerComponents: ProFieldFC<

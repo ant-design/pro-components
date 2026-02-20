@@ -22,7 +22,19 @@ const formatDate = (text: any, format: any) => {
 /**
  * 日期选择组件
  *
- * @param
+ * @param text
+ * @param mode
+ * @param format
+ * @param label
+ * @param light
+ * @param render
+ * @param formItemRender
+ * @param showTime
+ * @param fieldProps
+ * @param picker
+ * @param lightLabel
+ * @param variant
+ * @param ref
  */
 const FieldDatePicker: ProFieldFC<
   {
