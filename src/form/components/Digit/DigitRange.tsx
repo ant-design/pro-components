@@ -26,7 +26,10 @@ export type ProFormDigitRangeProps =
 /**
  * 数组选择组件
  *
- * @param
+ * @param fieldProps
+ * @param proFieldProps
+ * @param rest
+ * @param ref
  */
 const ProFormDigit: React.ForwardRefRenderFunction<
   any,
