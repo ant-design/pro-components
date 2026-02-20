@@ -156,8 +156,16 @@ atomId: ProCard
 
 ## API
 
+ProCard 兼容 antd Card API，以下 props 与 antd Card 保持一致。
+
 | 参数                  | 说明                                                                                                                           | 类型                                                                | 默认值       | 版本   |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------- | ------------ | ------ |
+| bordered              | 是否有边框，已废弃请使用 `variant`                                                                                             | `boolean`                                                           | true         |        |
+| headStyle             | 头部样式，已废弃请使用 `styles.header`                                                                                        | `CSSProperties`                                                    | -            |        |
+| bodyStyle             | 内容区域样式，已废弃请使用 `styles.body`                                                                                      | `CSSProperties`                                                    | -            |        |
+| rootClassName         | 卡片根节点类名                                                                                                                 | `string`                                                            | -            |        |
+| cover                 | 卡片封面                                                                                                                       | `React.ReactNode`                                                   | -            |        |
+| classNames            | 语义化 classNames，结构同 antd Card                                                                                           | `{ root?, header?, body?, extra?, title?, actions?, cover? }`       | -            |        |
 | title                 | 标题                                                                                                                           | `React.ReactNode`                                                   | -            |        |
 | subTitle              | 副标题                                                                                                                         | `React.ReactNode`                                                   | -            |        |
 | tooltip               | 标题说明                                                                                                                       | `string \| LabelTooltipType`                                        | -            |        |
@@ -187,8 +195,8 @@ atomId: ProCard
 | onChecked             | 选中改变                                                                                                                       | `(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void`         | -            |        |
 | boxShadow             | card的阴影                                                                                                                     | `boolean`                                                           | false        |        |
 | tabs                  | 标签栏配置                                                                                                                     | 见下面 ProCardTabs                                                  | -            |        |
-| variant               | 卡片变体类型                                                                                                                   | `'outlined' \| 'borderless'`                                        | `'outlined'` | 5.24.0 |
-| styles                | 自定义标题/内容区 style 样式                                                                                                   | `{ body: CSSProperties, header: CSSProperties }`                    | -            |        |
+| variant               | 卡片变体类型，与 antd Card 一致                                                                                                | `'outlined' \| 'borderless'`                                        | `'outlined'` | 5.24.0 |
+| styles                | 自定义样式，结构与 antd Card 一致                                                                                             | `{ root?, header?, body?, extra?, title?, actions?, cover?: CSSProperties }` | -            |        |
 
 ### ProCardTabs
 

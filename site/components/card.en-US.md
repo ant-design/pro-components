@@ -170,8 +170,16 @@ The `Steps` component is combined with the `ProCard` component to complete the v
 
 ## API
 
+ProCard is compatible with antd Card API. The following props are consistent with antd Card.
+
 | Parameters            | Description                                                                                                                                                                   | Type                                                         | Default      | Version |
 | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ------------ | ------- |
+| bordered              | Whether to show border, deprecated use `variant` instead                                                                                                                       | `boolean`                                                    | true         |         |
+| headStyle             | Header style, deprecated use `styles.header` instead                                                                                                                          | `CSSProperties`                                              | -            |         |
+| bodyStyle             | Body style, deprecated use `styles.body` instead                                                                                                                               | `CSSProperties`                                              | -            |         |
+| rootClassName         | Root className of card                                                                                                                                                        | `string`                                                     | -            |         |
+| cover                 | Card cover                                                                                                                                                                    | `React.ReactNode`                                            | -            |         |
+| classNames            | Semantic classNames, same structure as antd Card                                                                                                                              | `{ root?, header?, body?, extra?, title?, actions?, cover? }` | -            |         |
 | title                 | Card title                                                                                                                                                                    | `React.ReactNode`                                            | -            |         |
 | subTitle              | Subtitle                                                                                                                                                                      | `React.ReactNode`                                            | -            |         |
 | tooltip               | Icon hover prompt information on the right side of the title                                                                                                                  | `string` \| `LabelTooltipType`                                | -            |         |
@@ -196,8 +204,8 @@ The `Steps` component is combined with the `ProCard` component to complete the v
 | defaultCollapsed      | Default collapsing, invalid when controlled                                                                                                                                   | `boolean`                                                    | false        |         |
 | onCollapse            | Collapsed card event, invalid when controlled                                                                                                                                 | `(collapsed: boolean) => void`                               | -            |         |
 | tabs                  | Tab configuration                                                                                                                                                             | See below ProCardTabs                                       | -            |         |
-| variant               | Card variants                                                                                                                                                                 | `'outlined'` \| `'borderless'`                               | `'outlined'` | 5.24.0  |
-| styles                | Custom header/body style                                                                                                                                                      | `{ body: CSSProperties, header: CSSProperties }`             | -            |         |
+| variant               | Card variants, same as antd Card                                                                                                                                              | `'outlined'` \| `'borderless'`                               | `'outlined'` | 5.24.0  |
+| styles                | Custom styles, same structure as antd Card                                                                                                                                    | `{ root?, header?, body?, extra?, title?, actions?, cover?: CSSProperties }` | -            |         |
 
 ### ProCardTabs
 
