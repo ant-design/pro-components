@@ -381,7 +381,7 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
   }}
   // tree-select args
   fieldProps={{
-    suffixIcon: null
+    suffixIcon: null,
     filterTreeNode: true,
     showSearch: true,
     popupMatchSelectWidth: false,
