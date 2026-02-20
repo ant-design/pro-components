@@ -12,7 +12,7 @@ export type ProFormDigitProps = ProFormFieldItemProps<
   max?: InputNumberProps['max'];
 };
 /**
- * 数组选择组件
+ * 数字输入组件
  *
  * @param fieldProps
  * @param min

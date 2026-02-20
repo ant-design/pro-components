@@ -24,7 +24,7 @@ export type ProFormDigitRangeProps =
     separatorWidth?: number;
   };
 /**
- * 数组选择组件
+ * 数字范围输入组件
  *
  * @param fieldProps
  * @param proFieldProps
