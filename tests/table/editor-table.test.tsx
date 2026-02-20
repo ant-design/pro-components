@@ -814,8 +814,11 @@ describe('EditorProTable', () => {
       </ProForm>,
     );
 
-    await act(async () => {
-      (await wrapper.queryByText('添加一行数据'))?.click();
+    await waitFor(() => {
+      const addBtn =
+        wrapper.container.querySelector<HTMLButtonElement>('#new-button');
+      expect(addBtn).toBeTruthy();
+      addBtn?.click();
     });
 
     await waitForWaitTime(200);
@@ -846,8 +849,11 @@ describe('EditorProTable', () => {
       </ProForm>,
     );
 
-    await act(async () => {
-      (await wrapper.queryAllByText('添加一行数据')).at(0)?.click();
+    await waitFor(() => {
+      const addBtn =
+        wrapper.container.querySelector<HTMLButtonElement>('#new-button');
+      expect(addBtn).toBeTruthy();
+      addBtn?.click();
     });
 
     await waitForWaitTime(200);
@@ -1241,7 +1247,9 @@ describe('EditorProTable', () => {
         editable={{
           onChange: (keys) => fn(keys[0]),
         }}
-        defaultExpandAllRows={true}
+        expandable={{
+          defaultExpandAllRows: true,
+        }}
         recordCreatorProps={{
           parentKey: () => 6246747901,
           position: 'top',
