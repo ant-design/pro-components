@@ -92,7 +92,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         '&::before': { borderBlockEnd: 0 },
         [`${token.antCls}-tabs-nav-list`]: {
           marginBlockStart: 0,
-          '${token.antCls}-tabs-tab': {
+          [`${token.antCls}-tabs-tab`]: {
             paddingBlockStart: 0,
           },
         },
