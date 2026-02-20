@@ -314,7 +314,7 @@ function StepsForm<T = Record<string, any>>(
 
     return (
       <div
-        className={`${prefixCls}-steps-container ${hashId}`.trim()}
+        className={clsx(`${prefixCls}-steps-container`, hashId)}
         style={{
           maxWidth: Math.min(formArray.length * 320, 1160),
         }}
@@ -491,7 +491,7 @@ function StepsForm<T = Record<string, any>>(
   const formContainer = useMemo(
     () => (
       <div
-        className={`${prefixCls}-container ${hashId}`.trim()}
+        className={clsx(`${prefixCls}-container`, hashId)}
         style={containerStyle}
       >
         {formDom}

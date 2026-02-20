@@ -106,7 +106,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
         <BaseMenu
           theme={dark ? 'dark' : 'light'}
           {...props}
-          className={`${prefixCls}-base-menu ${hashId}`.trim()}
+          className={clsx(`${prefixCls}-base-menu`, hashId)}
           {...props.menuProps}
           style={{
             width: '100%',
@@ -164,7 +164,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
           >
             <AppsLogoComponents {...props} />
             <div
-              className={`${prefixCls}-logo ${hashId}`.trim()}
+              className={clsx(`${prefixCls}-logo`, hashId)}
               key="logo"
               id="logo"
             >
@@ -174,7 +174,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
         )}
         <div
           style={{ flex: 1 }}
-          className={`${prefixCls}-menu ${hashId}`.trim()}
+          className={clsx(`${prefixCls}-menu`, hashId)}
         >
           {contentDom}
         </div>

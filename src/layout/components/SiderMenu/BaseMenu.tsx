@@ -264,7 +264,7 @@ class MenuUtil {
           {menuType === 'group' && collapsed ? null : shouldHasIcon &&
             iconDom ? (
             <span
-              className={`${baseClassName}-item-icon ${this.props?.hashId}`.trim()}
+              className={clsx(`${baseClassName}-item-icon`, this.props?.hashId)}
             >
               {iconDom}
             </span>
@@ -411,7 +411,7 @@ class MenuUtil {
         })}
       >
         <span
-          className={`${baseClassName}-item-icon ${this.props?.hashId}`.trim()}
+          className={clsx(`${baseClassName}-item-icon`, this.props?.hashId)}
           style={{
             display: defaultIcon === null && !icon ? 'none' : '',
           }}
@@ -448,7 +448,7 @@ class MenuUtil {
           })}
         >
           <span
-            className={`${baseClassName}-item-icon ${this.props?.hashId}`.trim()}
+            className={clsx(`${baseClassName}-item-icon`, this.props?.hashId)}
             style={{
               display: defaultIcon === null && !icon ? 'none' : '',
             }}

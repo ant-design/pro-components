@@ -1,6 +1,7 @@
 import { HolderOutlined } from '@ant-design/icons';
 import { useControlledState } from '@rc-component/util';
 import { ConfigProvider } from 'antd';
+import { clsx } from 'clsx';
 import React, { useCallback, useContext, useMemo } from 'react';
 import type { ParamsType } from '../../../provider';
 import ProTable from '../../Table';
@@ -68,9 +69,11 @@ function DragSortTable<
       const defaultDom = (
         <HolderOutlined
           {...rest}
-          className={`${getPrefixCls('pro-table-drag-icon')} ${
-            className || ''
-          } ${hashId || ''}`.trim()}
+          className={clsx(
+            getPrefixCls('pro-table-drag-icon'),
+            className,
+            hashId,
+          )}
         />
       );
 

@@ -165,7 +165,7 @@ const Group: React.FC<ProFormGroupProps> = React.forwardRef(
           {hiddenDoms}
           {(title || tooltip || extra) && (
             <div
-              className={`${className}-title ${hashId}`.trim()}
+              className={clsx(`${className}-title`, hashId)}
               style={titleStyle}
               onClick={() => {
                 setCollapsed(!collapsed);
