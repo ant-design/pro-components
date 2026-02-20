@@ -214,18 +214,22 @@ const FieldTreeSelect: ProFieldFC<{} & FieldSelectProps> = (
           }
           {...fieldProps}
           treeData={options as TreeSelectProps['treeData']}
-          showSearch={{
-            ...showSearchConfig,
-            searchValue: searchValue,
-            autoClearSearchValue: autoClearSearchValue,
-            onSearch: (value) => {
-              // fix 不支持请求的情况下不刷新options
-              if (fetchDataOnSearch && rest?.request) {
-                fetchData(value);
-              }
-              setSearchValue(value);
-            },
-          }}
+          showSearch={
+            showSearch
+              ? {
+                  ...showSearchConfig,
+                  searchValue: searchValue,
+                  autoClearSearchValue: autoClearSearchValue,
+                  onSearch: (value) => {
+                    // fix 不支持请求的情况下不刷新options
+                    if (fetchDataOnSearch && rest?.request) {
+                      fetchData(value);
+                    }
+                    setSearchValue(value);
+                  },
+                }
+              : showSearch
+          }
           style={{
             minWidth: 60,
             ...fieldProps.style,
