@@ -1,4 +1,4 @@
-import type { TabPaneProps, TabsProps } from 'antd';
+import type { CardProps as AntdCardProps, TabPaneProps, TabsProps } from 'antd';
 import type { ReactNode } from 'react';
 import type { LabelTooltipType } from '../utils';
 
@@ -9,12 +9,34 @@ export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type Gutter = number | Partial<Record<Breakpoint, number>>;
 export type ColSpanType = number | string;
 type CollapsibleType = 'icon' | 'header' | boolean;
-type CardPropsBase = {
-  /** 样式配置 */
-  styles?: {
-    header?: React.CSSProperties;
-    body?: React.CSSProperties;
-  };
+
+/** 与 antd Card 一致的 styles 结构 */
+export interface ProCardStyles {
+  root?: React.CSSProperties;
+  header?: React.CSSProperties;
+  body?: React.CSSProperties;
+  extra?: React.CSSProperties;
+  title?: React.CSSProperties;
+  actions?: React.CSSProperties;
+  cover?: React.CSSProperties;
+}
+
+/** 与 antd Card 一致的 classNames 结构 */
+export interface ProCardClassNames {
+  root?: string;
+  header?: string;
+  body?: string;
+  extra?: string;
+  title?: string;
+  actions?: string;
+  cover?: string;
+}
+
+type CardPropsBase = Pick<AntdCardProps, 'rootClassName' | 'cover'> & {
+  /** 样式配置，与 antd Card styles 结构一致 */
+  styles?: ProCardStyles;
+  /** 语义化 classNames，与 antd Card classNames 结构一致 */
+  classNames?: ProCardClassNames;
   /** 页头是否有分割线 */
   headerBordered?: boolean;
   /** 卡片标题 */
@@ -46,7 +68,7 @@ type CardPropsBase = {
   actions?: React.ReactNode[] | React.ReactNode;
   /** 拆分卡片方式 */
   split?: 'vertical' | 'horizontal';
-  /** Card variants */
+  /** 卡片变体，与 antd Card variant 一致 */
   variant?: 'outlined' | 'borderless';
   /**
    * 鼠标移过时可浮起

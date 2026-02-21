@@ -16,6 +16,7 @@ type ProCardChildType = React.ReactElement<CardProps, any>;
 const Card = React.forwardRef((props: CardProps, ref: any) => {
   const {
     className,
+    rootClassName,
     style,
     styles,
     title,
@@ -28,7 +29,9 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     tooltip,
     split,
     headerBordered = false,
-    variant = 'outlined',
+    variant: customVariant,
+    cover,
+    classNames,
     boxShadow = false,
     children,
     size,
@@ -48,6 +51,18 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     type,
     ...rest
   } = props;
+
+  const variant = customVariant ?? 'outlined';
+
+  const mergedStyles = {
+    header: styles?.header,
+    body: styles?.body,
+    root: styles?.root,
+    extra: styles?.extra,
+    title: styles?.title,
+    actions: styles?.actions,
+    cover: styles?.cover,
+  };
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
   const screens = useBreakpoint() || {
@@ -208,28 +223,35 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     return element;
   });
 
-  const cardCls = clsx(`${prefixCls}`, className, hashId, {
-    [`${prefixCls}-border`]: variant === 'outlined',
-    [`${prefixCls}-box-shadow`]: boxShadow,
-    [`${prefixCls}-contain-card`]: containProCard,
-    [`${prefixCls}-loading`]: loading,
-    [`${prefixCls}-split`]: split === 'vertical' || split === 'horizontal',
-    [`${prefixCls}-ghost`]: ghost,
-    [`${prefixCls}-hoverable`]: hoverable,
-    [`${prefixCls}-size-${size}`]: size,
-    [`${prefixCls}-type-${type}`]: type,
-    [`${prefixCls}-collapse`]: collapsed,
-    [`${prefixCls}-checked`]: checked,
-  });
+  const cardCls = clsx(
+    `${prefixCls}`,
+    className,
+    rootClassName,
+    hashId,
+    classNames?.root,
+    {
+      [`${prefixCls}-border`]: variant === 'outlined',
+      [`${prefixCls}-box-shadow`]: boxShadow,
+      [`${prefixCls}-contain-card`]: containProCard,
+      [`${prefixCls}-loading`]: loading,
+      [`${prefixCls}-split`]: split === 'vertical' || split === 'horizontal',
+      [`${prefixCls}-ghost`]: ghost,
+      [`${prefixCls}-hoverable`]: hoverable,
+      [`${prefixCls}-size-${size}`]: size,
+      [`${prefixCls}-type-${type}`]: type,
+      [`${prefixCls}-collapse`]: collapsed,
+      [`${prefixCls}-checked`]: checked,
+    },
+  );
 
-  const bodyCls = clsx(`${prefixCls}-body`, hashId, {
+  const bodyCls = clsx(`${prefixCls}-body`, hashId, classNames?.body, {
     [`${prefixCls}-body-center`]: layout === 'center',
     [`${prefixCls}-body-direction-column`]:
       split === 'horizontal' || direction === 'column',
     [`${prefixCls}-body-wrap`]: wrap && containProCard,
   });
 
-  const bodyStylePadding = styles?.body?.padding;
+  const bodyStylePadding = mergedStyles.body?.padding;
 
   const loadingDOM = React.isValidElement(loading) ? (
     loading
@@ -276,10 +298,25 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       />
     ));
 
+  const headerCls = clsx(
+    `${prefixCls}-header`,
+    hashId,
+    classNames?.header,
+    {
+      [`${prefixCls}-header-border`]: headerBordered || type === 'inner',
+      [`${prefixCls}-header-collapsible`]: collapsibleButton,
+    },
+  );
+
+  const titleCls = clsx(`${prefixCls}-title`, hashId, classNames?.title);
+  const extraCls = clsx(`${prefixCls}-extra`, hashId, classNames?.extra);
+
+  const rootStyle = { ...mergedStyles.root, ...style };
+
   return wrapSSR(
     <div
       className={cardCls}
-      style={style}
+      style={rootStyle}
       ref={ref}
       onClick={(e) => {
         onChecked?.(e);
@@ -289,28 +326,34 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     >
       {(title || extra || collapsibleButton) && (
         <div
-          className={clsx(`${prefixCls}-header`, hashId, {
-            [`${prefixCls}-header-border`]: headerBordered || type === 'inner',
-            [`${prefixCls}-header-collapsible`]: collapsibleButton,
-          })}
-          style={styles?.header}
+          className={headerCls}
+          style={mergedStyles.header}
           onClick={() => {
             if (collapsible === 'header' || collapsible === true)
               setCollapsed(!collapsed);
           }}
         >
-          <div className={clsx(`${prefixCls}-title`, hashId)}>
+          <div className={titleCls} style={mergedStyles.title}>
             {collapsibleButton}
             <LabelIconTip label={title} tooltip={tooltip} subTitle={subTitle} />
           </div>
           {extra && (
             <div
-              className={clsx(`${prefixCls}-extra`, hashId)}
+              className={extraCls}
+              style={mergedStyles.extra}
               onClick={(e) => e.stopPropagation()}
             >
               {extra}
             </div>
           )}
+        </div>
+      )}
+      {cover && !collapsed && (
+        <div
+          className={clsx(`${prefixCls}-cover`, hashId, classNames?.cover)}
+          style={mergedStyles.cover}
+        >
+          {cover}
         </div>
       )}
       {tabs ? (
@@ -324,11 +367,13 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
           </Tabs>
         </div>
       ) : (
-        <div className={bodyCls} style={styles?.body}>
+        <div className={bodyCls} style={mergedStyles.body}>
           {loading ? loadingDOM : childrenModified}
         </div>
       )}
-      {actions ? <Actions actions={actions} prefixCls={prefixCls} /> : null}
+      {actions ? (
+        <Actions actions={actions} prefixCls={prefixCls} />
+      ) : null}
     </div>,
   );
 });

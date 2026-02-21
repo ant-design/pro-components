@@ -202,6 +202,18 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         },
       },
 
+      [`${componentCls}-cover`]: {
+        overflow: 'hidden',
+        borderRadius: `${token.borderRadius}px ${token.borderRadius}px 0 0`,
+        '& > *': {
+          width: '100%',
+          display: 'block',
+        },
+        '& img': {
+          verticalAlign: 'middle',
+        },
+      },
+
       [`${componentCls}-body`]: {
         display: 'block',
         boxSizing: 'border-box',

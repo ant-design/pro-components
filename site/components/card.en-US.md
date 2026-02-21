@@ -136,7 +136,7 @@ The header is automatically hidden when there is no content.
 
 ### With border
 
-Configure the `bordered` property to control whether the card is bordered.
+Configure the `variant` property to control card border style. Use `outlined` for bordered and `borderless` for borderless.
 
 <code src="../../demos/card/bordered.tsx" background="var(--main-bg-color)" title="With border"></code>
 
@@ -170,8 +170,12 @@ The `Steps` component is combined with the `ProCard` component to complete the v
 
 ## API
 
+ProCard is compatible with antd Card API. The following props are consistent with antd Card.
+
 | Parameters            | Description                                                                                                                                                                   | Type                                                         | Default      | Version |
 | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ------------ | ------- |
+| cover                 | Card cover                                                                                                                                                                    | `React.ReactNode`                                            | -            |         |
+| classNames            | Semantic classNames, same structure as antd Card                                                                                                                              | `{ root?, header?, body?, extra?, title?, actions?, cover? }` | -            |         |
 | title                 | Card title                                                                                                                                                                    | `React.ReactNode`                                            | -            |         |
 | subTitle              | Subtitle                                                                                                                                                                      | `React.ReactNode`                                            | -            |         |
 | tooltip               | Icon hover prompt information on the right side of the title                                                                                                                  | `string` \| `LabelTooltipType`                                | -            |         |
@@ -196,8 +200,8 @@ The `Steps` component is combined with the `ProCard` component to complete the v
 | defaultCollapsed      | Default collapsing, invalid when controlled                                                                                                                                   | `boolean`                                                    | false        |         |
 | onCollapse            | Collapsed card event, invalid when controlled                                                                                                                                 | `(collapsed: boolean) => void`                               | -            |         |
 | tabs                  | Tab configuration                                                                                                                                                             | See below ProCardTabs                                       | -            |         |
-| variant               | Card variants                                                                                                                                                                 | `'outlined'` \| `'borderless'`                               | `'outlined'` | 5.24.0  |
-| styles                | Custom header/body style                                                                                                                                                      | `{ body: CSSProperties, header: CSSProperties }`             | -            |         |
+| variant               | Card variants, same as antd Card                                                                                                                                              | `'outlined'` \| `'borderless'`                               | `'outlined'` | 5.24.0  |
+| styles                | Custom styles, same structure as antd Card                                                                                                                                    | `{ root?, header?, body?, extra?, title?, actions?, cover?: CSSProperties }` | -            |         |
 
 ### ProCardTabs
 
