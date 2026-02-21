@@ -32,17 +32,17 @@ const genLightFilterStyle: GenerateStyle<LightFilterToken> = (token) => {
         },
         /** Space 包裹时使用较小间距，与 LightFilter 整体风格一致 */
         [`${token.antCls}-space:not(${token.antCls}-space-compact)`]: {
-          gap: `${token.marginXS}px !important`,
+          gap: token.marginXS,
         },
         /** Space.Compact 内 FieldLabel 紧凑布局：去除间距、合并边框 */
         [`${token.antCls}-space-compact`]: {
           display: 'inline-flex',
           gap: 0,
           [`& > *`]: {
-            marginInlineStart: '0 !important',
+            marginInlineStart: 0,
           },
           [`& > *:not(:first-child)`]: {
-            marginInlineStart: `-${token.lineWidth}px !important`,
+            marginInlineStart: `-${token.lineWidth}px`,
             [`[class*="field-label"], [class*="field-dropdown"]`]: {
               borderStartStartRadius: 0,
               borderEndStartRadius: 0,

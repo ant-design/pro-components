@@ -18,7 +18,26 @@ import { FieldLabel, FilterDropdown } from '../../../utils';
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import type { LightFilterFooterRender } from '../../typing';
+import { ProForm } from '../ProForm';
 import { useStyle } from './style';
+
+const isSpaceOrCompact = (child: any) =>
+  child?.type === Space || child?.type === Space.Compact;
+
+const cloneSpaceWithChildrenProps = (
+  child: React.ReactElement,
+  injectProps: (grandChild: React.ReactElement) => Record<string, any>,
+) =>
+  React.cloneElement(child, {
+    children: React.Children.map(
+      (child.props as { children?: React.ReactNode }).children,
+      (grandChild) => {
+        if (!React.isValidElement(grandChild) || !grandChild.props)
+          return grandChild;
+        return React.cloneElement(grandChild, injectProps(grandChild));
+      },
+    ),
+  });
 
 export type LightFilterProps<T, U = Record<string, any>> = {
   collapse?: boolean;
@@ -175,48 +194,40 @@ const LightFilterContainer: React.FC<{
             ? fieldProps?.placement
             : placement;
 
-          /** Space/Space.Compact 不接收 fieldProps 等（会透传到 DOM 导致警告），仅为其子项注入 light 模式 props */
-          if (child.type === Space || child.type === Space.Compact) {
+          if (isSpaceOrCompact(child)) {
+            const clonedSpace = cloneSpaceWithChildrenProps(
+              child,
+              (grandChild) => {
+                const grandFieldProps = grandChild.props?.fieldProps || {};
+                const grandPlacement =
+                  grandFieldProps.placement ?? newPlacement;
+                return {
+                  fieldProps: {
+                    ...grandFieldProps,
+                    placement: grandPlacement,
+                    variant: 'borderless',
+                  },
+                  proFieldProps: {
+                    ...grandChild.props?.proFieldProps,
+                    light: true,
+                    label: grandChild.props?.label,
+                    variant,
+                  },
+                  variant,
+                };
+              },
+            );
             return (
               <div
                 className={clsx(`${lightFilterClassName}-item`, hashId)}
                 key={key || index}
               >
-                {React.cloneElement(child, {
-                  /** Space.Compact 紧凑无间距，Space 使用 small 减小间距 */
+                {React.cloneElement(clonedSpace, {
                   size: child.type === Space.Compact ? 0 : 'small',
                   style: {
                     ...(child.props as { style?: React.CSSProperties }).style,
                     ...(child.type === Space.Compact ? { gap: 0 } : {}),
                   },
-                  children: React.Children.map(
-                    (child.props as { children?: React.ReactNode }).children,
-                    (grandChild) => {
-                      if (
-                        !React.isValidElement(grandChild) ||
-                        !grandChild.props
-                      )
-                        return grandChild;
-                      const grandFieldProps =
-                        grandChild.props?.fieldProps || {};
-                      const grandPlacement =
-                        grandFieldProps.placement ?? newPlacement;
-                      return React.cloneElement(grandChild, {
-                        fieldProps: {
-                          ...grandFieldProps,
-                          placement: grandPlacement,
-                          variant: 'borderless',
-                        },
-                        proFieldProps: {
-                          ...grandChild.props?.proFieldProps,
-                          light: true,
-                          label: grandChild.props?.label,
-                          variant,
-                        },
-                        variant,
-                      });
-                    },
-                  ),
                 })}
               </div>
             );
@@ -269,10 +280,7 @@ const LightFilterContainer: React.FC<{
                 onClear: () => {
                   const clearValues = {} as Record<string, any>;
                   const collectNames = (item: any) => {
-                    if (
-                      React.isValidElement(item) &&
-                      (item.type === Space || item.type === Space.Compact)
-                    ) {
+                    if (React.isValidElement(item) && isSpaceOrCompact(item)) {
                       React.Children.forEach(
                         (item.props as { children?: React.ReactNode }).children,
                         (c) => collectNames(c),
@@ -288,51 +296,42 @@ const LightFilterContainer: React.FC<{
             >
               {collapseItems.map((child: any, collapseIndex: number) => {
                 const { key } = child;
-                /** Space/Space.Compact 不接收 fieldProps，仅为其子项注入 */
-                if (child.type === Space || child.type === Space.Compact) {
+                if (isSpaceOrCompact(child)) {
+                  const clonedSpace = cloneSpaceWithChildrenProps(
+                    child,
+                    (grandChild) => {
+                      const { name, fieldProps: grandFieldProps } =
+                        grandChild.props;
+                      const newFieldProps = {
+                        ...grandFieldProps,
+                        onChange: (e: any) => {
+                          setMoreValues({
+                            ...moreValues,
+                            [name]: e?.target ? e.target.value : e,
+                          });
+                          return false;
+                        },
+                      };
+                      if (moreValues.hasOwnProperty(name)) {
+                        newFieldProps[
+                          grandChild.props.valuePropName || 'value'
+                        ] = moreValues[name];
+                      }
+                      return {
+                        fieldProps: {
+                          ...newFieldProps,
+                          placement: grandFieldProps?.placement ?? placement,
+                          variant,
+                        },
+                      };
+                    },
+                  );
                   return (
                     <div
                       className={clsx(`${lightFilterClassName}-line`, hashId)}
                       key={key || `space-${collapseIndex}`}
                     >
-                      {React.cloneElement(child, {
-                        children: React.Children.map(
-                          (child.props as { children?: React.ReactNode })
-                            .children,
-                          (grandChild) => {
-                            if (
-                              !React.isValidElement(grandChild) ||
-                              !grandChild.props
-                            )
-                              return grandChild;
-                            const { name, fieldProps: grandFieldProps } =
-                              grandChild.props;
-                            const newFieldProps = {
-                              ...grandFieldProps,
-                              onChange: (e: any) => {
-                                setMoreValues({
-                                  ...moreValues,
-                                  [name]: e?.target ? e.target.value : e,
-                                });
-                                return false;
-                              },
-                            };
-                            if (moreValues.hasOwnProperty(name)) {
-                              newFieldProps[
-                                grandChild.props.valuePropName || 'value'
-                              ] = moreValues[name];
-                            }
-                            return React.cloneElement(grandChild, {
-                              fieldProps: {
-                                ...newFieldProps,
-                                placement:
-                                  grandFieldProps?.placement ?? placement,
-                                variant,
-                              },
-                            });
-                          },
-                        ),
-                      })}
+                      {clonedSpace}
                     </div>
                   );
                 }
@@ -412,9 +411,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
             prefixCls={prefixCls}
             items={items?.flatMap((item: any) => {
               if (!item || !item?.type) return item;
-              /** 如果是 ProFormGroup，直接拼接dom */
-              if (item?.type?.displayName === 'ProForm-Group')
-                return item.props.children;
+              if (item.type === ProForm.Group) return item.props.children;
               return item;
             })}
             size={size}
