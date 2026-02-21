@@ -1,6 +1,6 @@
-import React from 'react';
 import { clsx } from 'clsx';
 import isString from 'lodash-es/isString';
+import React from 'react';
 import { isUrl } from '../../../utils';
 import type { AppItemProps, AppListProps } from './types';
 
