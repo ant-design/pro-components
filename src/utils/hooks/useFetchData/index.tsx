@@ -1,4 +1,4 @@
-﻿import { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import useSWR from 'swr';
 
 let testId = 0;
@@ -23,7 +23,7 @@ export function useFetchData<T, U = Record<string, any>>(props: {
     return testId.toString();
   });
 
-  const proFieldKeyRef = useRef(cacheKey);
+  const _proFieldKeyRef = useRef(cacheKey);
 
   const fetchData = async () => {
     abortRef.current?.abort();
@@ -43,7 +43,7 @@ export function useFetchData<T, U = Record<string, any>>(props: {
     }
   };
 
-  const { data, error, isValidating } = useSWR(
+  const { data, error: _error, isValidating } = useSWR(
     props.request ? [cacheKey, props.params] : null,
     fetchData,
     {
