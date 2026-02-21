@@ -41,7 +41,7 @@ export function useFetchData<T, U = Record<string, any>>(props: {
     }
   };
 
-  const { data, error: _error, isValidating } = useSWR(
+  const { data, isValidating } = useSWR(
     props.request ? [cacheKey, props.params] : null,
     fetchData,
     {
