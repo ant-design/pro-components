@@ -11,6 +11,15 @@ export type FieldDigitProps = {
 };
 
 /**
+ * 判断字符串是否为空或仅包含空白字符
+ * @param {string} str - 要检查的字符串
+ * @returns {boolean} - 如果为空或仅包含空白字符返回 true，否则返回 false
+ */
+function isEmptyOrWhitespace(str?: string): boolean {
+  return isNil(str) || str === '' || str?.trim() === '';
+}
+
+/**
  * 数字组件
  *
  * @param text
@@ -93,7 +102,7 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
         onChange={(e) => fieldProps?.onChange?.(proxyChange(e))}
         onBlur={(e) => {
           const value = e.target.value;
-          if (value === '') {
+          if (isEmptyOrWhitespace(value)) {
             fieldProps?.onBlur?.(e);
             return;
           }
