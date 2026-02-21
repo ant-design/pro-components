@@ -6,7 +6,7 @@ export default {
     lightFilter: {
       more: 'Ще',
       clear: 'Очистити',
-      reset: 'Очистити',
+      reset: 'Скинути',
       confirm: 'Ок',
       itemUnit: 'Позиції',
     },
