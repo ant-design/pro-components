@@ -23,8 +23,6 @@ export function useFetchData<T, U = Record<string, any>>(props: {
     return testId.toString();
   });
 
-  const _proFieldKeyRef = useRef(cacheKey);
-
   const fetchData = async () => {
     abortRef.current?.abort();
     const abort = new AbortController();
