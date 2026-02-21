@@ -1,8 +1,9 @@
-﻿import { LoadingOutlined } from '@ant-design/icons';
+import { LoadingOutlined } from '@ant-design/icons';
 import type { NamePath } from '@rc-component/form/es/interface';
 import { get } from '@rc-component/util';
 import type { FormItemProps, PopoverProps } from 'antd';
 import { ConfigProvider, Form, Popover, theme } from 'antd';
+import { clsx } from 'clsx';
 import React, { useContext, useEffect, useState } from 'react';
 import { useStyle } from './style';
 
@@ -61,14 +62,22 @@ const InlineErrorFormItemPopover: React.FC<{
       getTooltipContainer={popoverProps?.getTooltipContainer}
       content={wrapSSR(
         <div
-          className={`${prefixCls}-form-item ${hashId} ${token.hashId}`.trim()}
+          className={clsx(
+            `${prefixCls}-form-item`,
+            hashId,
+            token.hashId,
+          )}
           style={{
             margin: 0,
             padding: 0,
           }}
         >
           <div
-            className={`${prefixCls}-form-item-with-help ${hashId} ${token.hashId}`.trim()}
+            className={clsx(
+              `${prefixCls}-form-item-with-help`,
+              hashId,
+              token.hashId,
+            )}
           >
             {loading ? <LoadingOutlined /> : null}
             {errorList}

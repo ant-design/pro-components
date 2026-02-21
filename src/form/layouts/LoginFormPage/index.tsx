@@ -117,8 +117,7 @@ export function LoginFormPage<T = Record<string, any>>(
   const baseClassName = context.getPrefixCls('pro-form-login-page');
   const { wrapSSR, hashId } = useStyle(baseClassName);
 
-  const getCls = (className: string) =>
-    `${baseClassName}-${className} ${hashId}`.trim();
+  const getCls = (className: string) => `${baseClassName}-${className}`;
 
   /** 生成logo 的dom，如果是string 设置为图片 如果是个 dom 就原样保留 */
   const logoDom = useMemo(() => {
@@ -170,54 +169,73 @@ export function LoginFormPage<T = Record<string, any>>(
         </div>
       ) : null}
       <div className={clsx(baseClassName, hashId)}>
-        <div className={getCls('notice')}>
+        <div className={clsx(getCls('notice'), hashId)}>
           {activityConfig && (
             <div
-              className={getCls('notice-activity')}
+              className={clsx(getCls('notice-activity'), hashId)}
               style={activityConfig.style}
             >
               {activityConfig.title && (
-                <div className={getCls('notice-activity-title')}>
+                <div className={clsx(getCls('notice-activity-title'), hashId)}>
                   {activityConfig.title}
                 </div>
               )}
               {activityConfig.subTitle && (
-                <div className={getCls('notice-activity-subTitle')}>
+                <div
+                  className={clsx(
+                    getCls('notice-activity-subTitle'),
+                    hashId,
+                  )}
+                >
                   {activityConfig.subTitle}
                 </div>
               )}
               {activityConfig.action && (
-                <div className={getCls('notice-activity-action')}>
+                <div
+                  className={clsx(getCls('notice-activity-action'), hashId)}
+                >
                   {activityConfig.action}
                 </div>
               )}
             </div>
           )}
         </div>
-        <div className={getCls('left')}>
-          <div className={getCls('container')} style={containerStyle}>
-            <div className={getCls('top')}>
+        <div className={clsx(getCls('left'), hashId)}>
+          <div
+            className={clsx(getCls('container'), hashId)}
+            style={containerStyle}
+          >
+            <div className={clsx(getCls('top'), hashId)}>
               {title || logoDom ? (
-                <div className={getCls('header')}>
+                <div className={clsx(getCls('header'), hashId)}>
                   {logoDom ? (
-                    <span className={getCls('logo')}>{logoDom}</span>
+                    <span className={clsx(getCls('logo'), hashId)}>
+                      {logoDom}
+                    </span>
                   ) : null}
                   {title ? (
-                    <span className={getCls('title')}>{title}</span>
+                    <span className={clsx(getCls('title'), hashId)}>
+                      {title}
+                    </span>
                   ) : null}
                 </div>
               ) : null}
               {subTitle ? (
-                <div className={getCls('desc')}>{subTitle}</div>
+                <div className={clsx(getCls('desc'), hashId)}>
+                  {subTitle}
+                </div>
               ) : null}
             </div>
-            <div className={getCls('main')} style={mainStyle}>
+            <div className={clsx(getCls('main'), hashId)} style={mainStyle}>
               <ProForm isKeyPressSubmit {...proFormProps} submitter={submitter}>
                 {message}
                 {children}
               </ProForm>
               {actions ? (
-                <div className={getCls('other')} style={otherStyle}>
+                <div
+                  className={clsx(getCls('other'), hashId)}
+                  style={otherStyle}
+                >
                   {actions}
                 </div>
               ) : null}

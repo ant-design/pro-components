@@ -467,7 +467,11 @@ const QueryFilterContent: React.FC<{
         <Col
           key={itemKey}
           span={colSpan}
-          className={`${props.baseClassName}-row-split-line ${props.baseClassName}-row-split ${hashId}`.trim()}
+          className={clsx(
+              `${props.baseClassName}-row-split-line`,
+              `${props.baseClassName}-row-split`,
+              hashId,
+            )}
         >
           {itemDom}
         </Col>
@@ -477,7 +481,7 @@ const QueryFilterContent: React.FC<{
     return (
       <Col
         key={itemKey}
-        className={`${props.baseClassName}-row-split ${hashId}`.trim()}
+        className={clsx(`${props.baseClassName}-row-split`, hashId)}
         span={colSpan}
       >
         {itemDom}
@@ -534,7 +538,7 @@ const QueryFilterContent: React.FC<{
             label=" "
             colon={false}
             shouldUpdate={false}
-            className={`${baseClassName}-actions ${hashId}`.trim()}
+            className={clsx(`${baseClassName}-actions`, hashId)}
           >
             <Actions
               hiddenNum={hiddenNum}
@@ -650,7 +654,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
       {(ref) => (
         <div
           ref={ref}
-          className={`${baseClassName}-container ${hashId}`}
+          className={clsx(`${baseClassName}-container`, hashId)}
           style={props.containerStyle}
         >
           <BaseForm

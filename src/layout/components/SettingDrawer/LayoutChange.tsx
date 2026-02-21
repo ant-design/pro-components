@@ -1,4 +1,5 @@
 import { List, Select, Switch, Tooltip } from 'antd';
+import { clsx } from 'clsx';
 import React from 'react';
 import type { ProSettings } from '../../defaultSettings';
 import { defaultSettings } from '../../defaultSettings';
@@ -29,7 +30,7 @@ const LayoutSetting: React.FC<{
 
   return (
     <List
-      className={`${prefixCls}-list ${hashId}`.trim()}
+      className={clsx(`${prefixCls}-list`, hashId)}
       split={false}
       dataSource={[
         {
@@ -41,7 +42,7 @@ const LayoutSetting: React.FC<{
             <Select
               value={contentWidth || 'Fixed'}
               size="small"
-              className={`content-width ${hashId}`.trim()}
+              className={clsx('content-width', hashId)}
               onSelect={(value: string) => {
                 changeSetting('contentWidth', value);
               }}

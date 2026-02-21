@@ -1,3 +1,4 @@
+import { clsx } from 'clsx';
 import React from 'react';
 import { isUrl } from '../../../utils';
 import type { AppItemProps, AppListProps } from './types';
@@ -40,17 +41,23 @@ export const SimpleContent: React.FC<{
 }> = (props) => {
   const { appList, baseClassName, hashId, itemClick } = props;
   return (
-    <div className={`${baseClassName}-content ${hashId}`.trim()}>
-      <ul className={`${baseClassName}-content-list ${hashId}`.trim()}>
+    <div className={clsx(`${baseClassName}-content`, hashId)}>
+      <ul className={clsx(`${baseClassName}-content-list`, hashId)}>
         {appList?.map((app, index) => {
           if (app?.children?.length) {
             return (
               <div
                 key={index}
-                className={`${baseClassName}-content-list-item-group ${hashId}`.trim()}
+                className={clsx(
+                  `${baseClassName}-content-list-item-group`,
+                  hashId,
+                )}
               >
                 <div
-                  className={`${baseClassName}-content-list-item-group-title ${hashId}`.trim()}
+                  className={clsx(
+                    `${baseClassName}-content-list-item-group-title`,
+                    hashId,
+                  )}
                 >
                   {app.title}
                 </div>
@@ -66,7 +73,7 @@ export const SimpleContent: React.FC<{
           return (
             <li
               key={index}
-              className={`${baseClassName}-content-list-item ${hashId}`.trim()}
+              className={clsx(`${baseClassName}-content-list-item`, hashId)}
               onClick={(e) => {
                 e.stopPropagation();
                 itemClick?.(app);

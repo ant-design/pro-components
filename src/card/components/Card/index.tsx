@@ -253,7 +253,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       <span
         role="button"
         tabIndex={collapsible === 'icon' ? 0 : undefined}
-        className={`${prefixCls}-collapsible-icon ${hashId}`.trim()}
+        className={clsx(`${prefixCls}-collapsible-icon`, hashId)}
         onClick={collapsible === 'icon' ? handleCollapsibleIconClick : undefined}
         onKeyDown={
           collapsible === 'icon'
@@ -272,7 +272,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       <RightOutlined
         onClick={handleCollapsibleIconClick}
         rotate={!collapsed ? 90 : undefined}
-        className={`${prefixCls}-collapsible-icon ${hashId}`.trim()}
+        className={clsx(`${prefixCls}-collapsible-icon`, hashId)}
       />
     ));
 
@@ -299,13 +299,13 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
               setCollapsed(!collapsed);
           }}
         >
-          <div className={`${prefixCls}-title ${hashId}`.trim()}>
+          <div className={clsx(`${prefixCls}-title`, hashId)}>
             {collapsibleButton}
             <LabelIconTip label={title} tooltip={tooltip} subTitle={subTitle} />
           </div>
           {extra && (
             <div
-              className={`${prefixCls}-extra ${hashId}`.trim()}
+              className={clsx(`${prefixCls}-extra`, hashId)}
               onClick={(e) => e.stopPropagation()}
             >
               {extra}
@@ -314,7 +314,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
         </div>
       )}
       {tabs ? (
-        <div className={`${prefixCls}-tabs ${hashId}`.trim()}>
+        <div className={clsx(`${prefixCls}-tabs`, hashId)}>
           <Tabs
             onChange={tabs.onChange}
             {...omit(tabs, ['cardProps'])}

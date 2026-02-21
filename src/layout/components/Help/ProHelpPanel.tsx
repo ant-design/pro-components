@@ -1,6 +1,7 @@
 import { CloseOutlined, ProfileOutlined } from '@ant-design/icons';
 import { useControlledState } from '@rc-component/util';
 import { Card, ConfigProvider, Menu } from 'antd';
+import { clsx } from 'clsx';
 import React, { useCallback, useContext, useMemo, useState } from 'react';
 import { ProProvider, isNeedOpenHash } from '../../../provider';
 
@@ -170,7 +171,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
 
   const defaultExtraActions = {
     collapsePanelAction: (
-      <div className={`${className}-actions-item ${hashId}`.trim()}>
+      <div className={clsx(`${className}-actions-item`, hashId)}>
         <ProfileOutlined
           title="collapse panel"
           onClick={() => {
@@ -181,8 +182,8 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
     ),
     helpSelectAction: (
       <ProHelpSelect
-        iconClassName={`${className}-actions-item`}
-        className={`${hashId} ${className}-actions-input`}
+        iconClassName={clsx(`${className}-actions-item`, hashId)}
+        className={clsx(hashId, `${className}-actions-input`)}
         value={selectedKey}
         onChange={(value, item) => {
           setSelectedKey(value);
@@ -191,7 +192,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
       />
     ),
     closeAction: (
-      <div className={`${className}-actions-item ${hashId}`.trim()}>
+      <div className={clsx(`${className}-actions-item`, hashId)}>
         <CloseOutlined
           title="close panel"
           onClick={() => {
@@ -204,7 +205,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
 
   const extraDomList = () => {
     return (
-      <div className={`${className}-actions ${hashId}`.trim()}>
+      <div className={clsx(`${className}-actions`, hashId)}>
         {extraRender ? (
           extraRender(
             defaultExtraActions.collapsePanelAction,
@@ -246,7 +247,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
       >
         {showLeftPanel ? (
           <div
-            className={`${hashId} ${className}-left-panel `}
+            className={clsx(hashId, `${className}-left-panel`)}
             style={{
               height,
             }}
@@ -288,7 +289,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
               }}
             >
               <Menu
-                className={`${hashId} ${className}-left-panel-menu`}
+                className={clsx(hashId, `${className}-left-panel-menu`)}
                 openKeys={[parentKey, openKey]}
                 onOpenChange={(keys) => {
                   setOpenKey(keys.at(-1) || '');
@@ -315,7 +316,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
           </div>
         ) : null}
         <div
-          className={`${hashId} ${className}-content-panel`}
+          className={clsx(hashId, `${className}-content-panel`)}
           style={{
             height,
           }}
@@ -323,13 +324,13 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
           {selectedKey ? (
             <ProHelpContentPanel
               parentItem={dataSourceKeyMap.get(parentKey)}
-              className={`${className}-content-render`}
+              className={clsx(`${className}-content-render`, hashId)}
               selectedKey={selectedKey}
               onScroll={(key) => setSelectedKey(key)}
             />
           ) : null}
           {footer ? (
-            <div className={`${hashId} ${className}-footer`}>{footer}</div>
+            <div className={clsx(hashId, `${className}-footer`)}>{footer}</div>
           ) : null}
         </div>
       </Card>

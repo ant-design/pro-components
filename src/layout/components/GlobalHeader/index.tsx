@@ -148,7 +148,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (
     <div className={className} style={{ ...style }}>
       {isMobile && (
         <span
-          className={`${baseClassName}-collapsed-button ${hashId}`.trim()}
+          className={clsx(`${baseClassName}-collapsed-button`, hashId)}
           onClick={() => {
             onCollapse?.(!collapsed);
           }}

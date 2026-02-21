@@ -42,13 +42,13 @@ const renderBack = (
     return null;
   }
   return (
-    <div className={`${prefixCls}-back ${hashId}`.trim()}>
+    <div className={clsx(`${prefixCls}-back`, hashId)}>
       <div
         role="button"
         onClick={(e) => {
           onBack?.(e);
         }}
-        className={`${prefixCls}-back-button ${hashId}`.trim()}
+        className={clsx(`${prefixCls}-back-button`, hashId)}
         aria-label="back"
       >
         {backIcon}
@@ -94,9 +94,9 @@ const renderTitle = (
   const backIconDom = renderBack(prefixCls, hashId, backIcon, onBack);
   const hasTitle = backIconDom || avatar || hasHeading;
   return (
-    <div className={headingPrefixCls + ' ' + hashId}>
+    <div className={clsx(headingPrefixCls, hashId)}>
       {hasTitle && (
-        <div className={`${headingPrefixCls}-left ${hashId}`.trim()}>
+        <div className={clsx(`${headingPrefixCls}-left`, hashId)}>
           {backIconDom}
           {avatar && (
             <Avatar
@@ -110,7 +110,7 @@ const renderTitle = (
           )}
           {title && (
             <span
-              className={`${headingPrefixCls}-title ${hashId}`.trim()}
+              className={clsx(`${headingPrefixCls}-title`, hashId)}
               title={typeof title === 'string' ? title : undefined}
             >
               {title}
@@ -118,21 +118,21 @@ const renderTitle = (
           )}
           {subTitle && (
             <span
-              className={`${headingPrefixCls}-sub-title ${hashId}`.trim()}
+              className={clsx(`${headingPrefixCls}-sub-title`, hashId)}
               title={typeof subTitle === 'string' ? subTitle : undefined}
             >
               {subTitle}
             </span>
           )}
           {tags && (
-            <span className={`${headingPrefixCls}-tags ${hashId}`.trim()}>
+            <span className={clsx(`${headingPrefixCls}-tags`, hashId)}>
               {tags}
             </span>
           )}
         </div>
       )}
       {extra && (
-        <span className={`${headingPrefixCls}-extra ${hashId}`.trim()}>
+        <span className={clsx(`${headingPrefixCls}-extra`, hashId)}>
           <Space>{extra}</Space>
         </span>
       )}
@@ -147,7 +147,7 @@ const renderFooter = (
 ) => {
   if (footer) {
     return (
-      <div className={`${prefixCls}-footer ${hashId}`.trim()}>{footer}</div>
+      <div className={clsx(`${prefixCls}-footer`, hashId)}>{footer}</div>
     );
   }
   return null;
@@ -157,7 +157,7 @@ const renderChildren = (
   prefixCls: string,
   children: React.ReactNode,
   hashId: string,
-) => <div className={`${prefixCls}-content ${hashId}`.trim()}>{children}</div>;
+) => <div className={clsx(`${prefixCls}-content`, hashId)}>{children}</div>;
 
 const PageHeader: React.FC<PageHeaderProps> = (props) => {
   const [compact, updateCompact] = React.useState<boolean>(false);

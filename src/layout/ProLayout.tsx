@@ -880,7 +880,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
             </ConfigProvider>
             <div
               style={genLayoutStyle}
-              className={`${proLayoutClassName}-container ${hashId}`.trim()}
+              className={clsx(`${proLayoutClassName}-container`, hashId)}
             >
               {headerDom}
               <WrapContent

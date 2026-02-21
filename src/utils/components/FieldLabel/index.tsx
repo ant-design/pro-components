@@ -109,7 +109,7 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
           onClick={() => {
             onLabelClick?.();
           }}
-          className={`${prefixCls}-text`}
+          className={clsx(`${prefixCls}-text`, hashId)}
         >
           {aLabel}
           {': '}
