@@ -174,7 +174,7 @@ const LightFilterContainer: React.FC<{
       collapseItems: collapseItemsArr,
       outsideItems: outsideItemsArr,
     };
-  }, [props.items]);
+  }, [items]);
 
   const renderCollapseLabelRender = () => {
     if (collapseLabel) {
@@ -328,7 +328,7 @@ const LightFilterContainer: React.FC<{
                           return false;
                         },
                       };
-                      if (moreValues.hasOwnProperty(name)) {
+                      if (name in moreValues) {
                         newFieldProps[
                           grandChild.props.valuePropName || 'value'
                         ] = moreValues[name];
@@ -362,7 +362,7 @@ const LightFilterContainer: React.FC<{
                     return false;
                   },
                 };
-                if (moreValues.hasOwnProperty(name)) {
+                if (name in moreValues) {
                   newFieldProps[child.props.valuePropName || 'value'] =
                     moreValues[name];
                 }
