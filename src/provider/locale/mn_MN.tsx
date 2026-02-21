@@ -4,6 +4,7 @@ export default {
     lightFilter: {
       more: 'Илүү',
       clear: 'Цэвэрлэх',
+      reset: 'Шинэчлэх',
       confirm: 'Баталгаажуулах',
       itemUnit: 'Нэгжүүд',
     },

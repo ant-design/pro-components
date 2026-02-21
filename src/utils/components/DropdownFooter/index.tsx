@@ -43,7 +43,7 @@ const DropdownFooter: React.FC<DropdownFooterProps> = (props) => {
         e.stopPropagation();
       }}
     >
-      {intl.getMessage('form.lightFilter.clear', '清除')}
+      {intl.getMessage('form.lightFilter.reset', '重置')}
     </Button>,
     <Button
       key="confirm"

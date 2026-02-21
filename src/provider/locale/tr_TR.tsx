@@ -4,6 +4,7 @@ export default {
     lightFilter: {
       more: 'Daha Fazla',
       clear: 'Temizle',
+      reset: 'Sıfırla',
       confirm: 'Onayla',
       itemUnit: 'Öğeler',
     },

@@ -4,6 +4,7 @@ export default {
     lightFilter: {
       more: 'بیشتر',
       clear: 'پاک کردن',
+      reset: 'بازنشانی',
       confirm: 'تایید',
       itemUnit: 'مورد',
     },

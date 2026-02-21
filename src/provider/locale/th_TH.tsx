@@ -6,6 +6,7 @@ export default {
     lightFilter: {
       more: 'มากกว่า',
       clear: 'ชัดเจน',
+      reset: 'รีเซ็ต',
       confirm: 'ยืนยัน',
       itemUnit: 'รายการ',
     },

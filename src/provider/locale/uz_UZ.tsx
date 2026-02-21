@@ -4,6 +4,7 @@ export default {
     lightFilter: {
       more: 'Yana',
       clear: 'Tozalash',
+      reset: 'Qayta tiklash',
       confirm: 'OK',
       itemUnit: 'Pozitsiyalar',
     },

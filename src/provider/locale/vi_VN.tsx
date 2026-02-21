@@ -4,6 +4,7 @@ export default {
     lightFilter: {
       more: 'Nhiều hơn',
       clear: 'Trong',
+      reset: 'Làm lại',
       confirm: 'Xác nhận',
       itemUnit: 'Mục',
     },

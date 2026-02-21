@@ -6,6 +6,7 @@ export default {
     lightFilter: {
       more: 'Víc',
       clear: 'Vymazat',
+      reset: 'Resetovat',
       confirm: 'Potvrdit',
       itemUnit: 'Položky',
     },

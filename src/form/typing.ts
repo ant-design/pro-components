@@ -104,7 +104,7 @@ export type LightFilterFooterRender =
        */
       onConfirm?: (e?: React.MouseEvent) => void,
       /**
-       * @name 清除选择
+       * @name 重置到初始值
        */
       onClear?: (e?: React.MouseEvent) => void,
     ) => JSX.Element | false)
@@ -159,8 +159,8 @@ export type ProFormFieldItemProps<T = Record<string, any>, K = any> = {
   /**
    * @name QueryFilter 上的footer
    *
-   * @example 自定义清除按钮
-   * footerRender={(onConfirm,onClear)=>{ return <Button onClick={onClear}>清除</Button> }}
+   * @example 自定义重置按钮
+   * footerRender={(onConfirm,onClear)=>{ return <Button onClick={onClear}>重置</Button> }}
    */
   footerRender?: LightFilterFooterRender;
 

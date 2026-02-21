@@ -6,6 +6,7 @@ export default {
     lightFilter: {
       more: 'Mai multe filtre',
       clear: 'Curăță',
+      reset: 'Resetează',
       confirm: 'Confirmă',
       itemUnit: 'elemente',
     },

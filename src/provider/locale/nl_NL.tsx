@@ -6,6 +6,7 @@ export default {
     lightFilter: {
       more: 'Meer filters',
       clear: 'Wissen',
+      reset: 'Resetten',
       confirm: 'Bevestigen',
       itemUnit: 'item',
     },

@@ -6,6 +6,7 @@ export default {
     lightFilter: {
       more: 'Fler filter',
       clear: 'Rensa',
+      reset: 'Återställ',
       confirm: 'Bekräfta',
       itemUnit: 'objekt',
     },

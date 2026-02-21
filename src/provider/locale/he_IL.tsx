@@ -6,6 +6,7 @@ export default {
     lightFilter: {
       more: 'יותר',
       clear: 'נקה',
+      reset: 'איפוס',
       confirm: 'אישור',
       itemUnit: 'פריטים',
     },

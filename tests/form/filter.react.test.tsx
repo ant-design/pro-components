@@ -69,7 +69,7 @@ describe('✔️ ProFormLightFilter', () => {
 
     await act(async () => {
       (await html.findAllByTitle('qixian')).at(0)?.click();
-      (await html.findAllByText('清除')).at(0)?.parentElement?.click();
+      (await html.findAllByText('重置')).at(0)?.parentElement?.click();
     });
 
     await act(async () => {

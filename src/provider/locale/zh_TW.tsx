@@ -6,6 +6,7 @@ export default {
     lightFilter: {
       more: '更多篩選',
       clear: '清除',
+      reset: '重置',
       confirm: '確認',
       itemUnit: '項',
     },

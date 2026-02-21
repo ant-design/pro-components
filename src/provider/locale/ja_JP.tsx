@@ -4,6 +4,7 @@ export default {
     lightFilter: {
       more: '更に',
       clear: 'クリア',
+      reset: 'リセット',
       confirm: '確認',
       itemUnit: 'アイテム',
     },

@@ -4,6 +4,7 @@ export default {
     lightFilter: {
       more: '더보기',
       clear: '초기화',
+      reset: '초기화',
       confirm: '확인',
       itemUnit: '건수',
     },

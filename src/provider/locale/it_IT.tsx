@@ -4,6 +4,7 @@ export default {
     lightFilter: {
       more: 'più',
       clear: 'pulisci',
+      reset: 'Pulisci',
       confirm: 'conferma',
       itemUnit: 'elementi',
     },

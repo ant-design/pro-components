@@ -4,6 +4,7 @@ export default {
     lightFilter: {
       more: 'Mais',
       clear: 'Limpar',
+      reset: 'Limpar',
       confirm: 'Confirmar',
       itemUnit: 'Itens',
     },

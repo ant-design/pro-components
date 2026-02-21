@@ -4,6 +4,7 @@ export default {
     lightFilter: {
       more: 'Više',
       clear: 'Očisti',
+      reset: 'Resetuj',
       confirm: 'Potvrdi',
       itemUnit: 'Stavke',
     },

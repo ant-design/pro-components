@@ -4,6 +4,7 @@ export default {
     lightFilter: {
       more: 'Lebih banyak',
       clear: 'Jelas',
+      reset: 'Menetapkan semula',
       confirm: 'Mengesahkan',
       itemUnit: 'Item',
     },

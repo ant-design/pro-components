@@ -1,6 +1,6 @@
 import { FilterOutlined } from '@ant-design/icons';
 import { omit } from '@rc-component/util';
-import type { FormProps, PopoverProps } from 'antd';
+import type { FormInstance, FormProps, PopoverProps } from 'antd';
 import { ConfigProvider, Space } from 'antd';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import type { TooltipPlacement } from 'antd/lib/tooltip';
@@ -59,8 +59,8 @@ export type LightFilterProps<T, U = Record<string, any>> = {
   /**
    * @name 自定义 footerRender
    *
-   * @example 自定义清除
-   * footerRender={(onConfirm,onClear)=>{  return <a onClick={onClear}>清除</a> })}
+   * @example 自定义重置按钮
+   * footerRender={(onConfirm,onClear)=>{ return <a onClick={onClear}>重置</a> }}
    */
   footerRender?: LightFilterFooterRender;
 
@@ -87,16 +87,41 @@ export type LightFilterProps<T, U = Record<string, any>> = {
   CommonFormProps<T, U>;
 
 /**
- * 单行的查询表单，一般用于配合 table 或者 list使用 有时也会用于 card 的额外区域
- *
- * @param props
+ * 判断当前表单值是否与初始值不同（用于 effective 样式）
  */
+const isValuesDifferentFromInitial = (
+  values: Record<string, any>,
+  initialValues?: Record<string, any>,
+): boolean => {
+  const initial = initialValues ?? {};
+  const keys = new Set([...Object.keys(values), ...Object.keys(initial)]);
+  for (const key of keys) {
+    const val = values[key];
+    const initVal = initial[key];
+    const valFilled = Array.isArray(val) ? val.length > 0 : val;
+    const initFilled = Array.isArray(initVal) ? initVal.length > 0 : initVal;
+    if (valFilled !== initFilled) return true;
+    if (valFilled && Array.isArray(val) && Array.isArray(initVal)) {
+      if (val.length !== initVal.length || val.some((v, i) => v !== initVal[i]))
+        return true;
+    } else if (valFilled && val !== initVal) {
+      return true;
+    }
+  }
+  return false;
+};
+
 const LightFilterContainer: React.FC<{
   items: React.ReactNode[];
   prefixCls: string;
   size?: SizeType;
   values: Record<string, any>;
-  onValuesChange: (values: Record<string, any>) => void;
+  initialValues?: Record<string, any>;
+  form?: FormInstance;
+  onValuesChange: (
+    values: Record<string, any>,
+    options?: { replace?: boolean },
+  ) => void;
   collapse?: boolean;
   collapseLabel?: React.ReactNode;
   variant?: 'outlined' | 'filled' | 'borderless';
@@ -116,6 +141,8 @@ const LightFilterContainer: React.FC<{
     onValuesChange,
     variant = 'borderless',
     values,
+    initialValues,
+    form,
     footerRender,
     placement,
     popoverProps,
@@ -176,9 +203,9 @@ const LightFilterContainer: React.FC<{
         hashId,
         `${lightFilterClassName}-${size}`,
         {
-          [`${lightFilterClassName}-effective`]: Object.keys(values).some(
-            (key) =>
-              Array.isArray(values[key]) ? values[key].length > 0 : values[key],
+          [`${lightFilterClassName}-effective`]: isValuesDifferentFromInitial(
+            values,
+            initialValues,
           ),
         },
       )}
@@ -278,19 +305,8 @@ const LightFilterContainer: React.FC<{
                   setOpen(false);
                 },
                 onClear: () => {
-                  const clearValues = {} as Record<string, any>;
-                  const collectNames = (item: any) => {
-                    if (React.isValidElement(item) && isSpaceOrCompact(item)) {
-                      React.Children.forEach(
-                        (item.props as { children?: React.ReactNode }).children,
-                        (c) => collectNames(c),
-                      );
-                    } else if (item?.props?.name) {
-                      clearValues[item.props.name] = undefined;
-                    }
-                  };
-                  collapseItems.forEach(collectNames);
-                  onValuesChange(clearValues);
+                  form?.resetFields();
+                  onValuesChange(initialValues ?? {}, { replace: true });
                 },
               }}
             >
@@ -405,10 +421,12 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
       size={size}
       initialValues={initialValues}
       form={userForm}
-      contentRender={(items) => {
+      contentRender={(items, _submitter, form) => {
         return (
           <LightFilterContainer
             prefixCls={prefixCls}
+            form={form}
+            initialValues={initialValues}
             items={items?.flatMap((item: any) => {
               if (!item || !item?.type) return item;
               if (item.type === ProForm.Group) return item.props.children;
@@ -422,11 +440,13 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
             popoverProps={popoverProps}
             values={values || {}}
             footerRender={footerRender}
-            onValuesChange={(newValues: any) => {
-              const newAllValues = {
-                ...values,
-                ...newValues,
-              };
+            onValuesChange={(
+              newValues: any,
+              options?: { replace?: boolean },
+            ) => {
+              const newAllValues = options?.replace
+                ? newValues
+                : { ...values, ...newValues };
               setValues(newAllValues);
               formRef.current?.setFieldsValue(newAllValues);
               formRef.current?.submit();
