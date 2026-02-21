@@ -56,11 +56,7 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
           val = numVal;
         }
       }
-      if (
-        typeof val === 'number' &&
-        !isNil(val) &&
-        !isNil(fieldProps.precision)
-      ) {
+      if (typeof val === 'number' && !isNil(fieldProps.precision)) {
         val = Number(val.toFixed(fieldProps.precision));
       }
       return val;
