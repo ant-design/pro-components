@@ -4,7 +4,7 @@ export default {
     lightFilter: {
       more: 'Més',
       clear: 'Netejar',
-      reset: 'Netejar',
+      reset: 'Reiniciar',
       confirm: 'Confirmar',
       itemUnit: 'Elements',
     },
