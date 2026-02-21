@@ -250,7 +250,7 @@ const LightFilterContainer: React.FC<{
                 key={key || index}
               >
                 {React.cloneElement(clonedSpace, {
-                  size: child.type === Space.Compact ? 0 : 'small',
+                  ...(child.type === Space && { size: 'small' }),
                   style: {
                     ...(child.props as { style?: React.CSSProperties }).style,
                     ...(child.type === Space.Compact ? { gap: 0 } : {}),
