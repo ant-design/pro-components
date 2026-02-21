@@ -21,12 +21,14 @@ import type { LightFilterFooterRender } from '../../typing';
 import { ProForm } from '../ProForm';
 import { useStyle } from './style';
 
-const isSpaceOrCompact = (child: any) =>
+const isSpaceOrCompact = (
+  child: React.ReactElement | null | undefined,
+): child is React.ReactElement =>
   child?.type === Space || child?.type === Space.Compact;
 
 const cloneSpaceWithChildrenProps = (
   child: React.ReactElement,
-  injectProps: (grandChild: React.ReactElement) => Record<string, any>,
+  injectProps: (grandChild: React.ReactElement) => Record<string, unknown>,
 ) =>
   React.cloneElement(child, {
     children: React.Children.map(
@@ -87,7 +89,17 @@ export type LightFilterProps<T, U = Record<string, any>> = {
   CommonFormProps<T, U>;
 
 /**
+ * 判断值是否为空（undefined、null、''、空数组视为空，用于归一化比较）
+ */
+const isValueEmpty = (v: any): boolean => {
+  if (v === undefined || v === null || v === '') return true;
+  if (Array.isArray(v)) return v.length === 0;
+  return false;
+};
+
+/**
  * 判断当前表单值是否与初始值不同（用于 effective 样式）
+ * 空值（undefined、null、''、[]）归一化后再比较，避免清空输入后 effective 残留
  */
 const isValuesDifferentFromInitial = (
   values: Record<string, any>,
@@ -98,8 +110,8 @@ const isValuesDifferentFromInitial = (
   for (const key of keys) {
     const val = values[key];
     const initVal = initial[key];
-    const valFilled = Array.isArray(val) ? val.length > 0 : val;
-    const initFilled = Array.isArray(initVal) ? initVal.length > 0 : initVal;
+    const valFilled = !isValueEmpty(val);
+    const initFilled = !isValueEmpty(initVal);
     if (valFilled !== initFilled) return true;
     if (valFilled && Array.isArray(val) && Array.isArray(initVal)) {
       if (val.length !== initVal.length || val.some((v, i) => v !== initVal[i]))
