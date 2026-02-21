@@ -822,8 +822,7 @@ function EditableTable<
   const { position } = recordCreatorProps || {};
   const isTop = position === 'top';
 
-  const { creatorButtonDom: _creatorButtonDom, buttonRenderProps } =
-    useCreatorButton<DataType>({
+  const { buttonRenderProps } = useCreatorButton<DataType>({
     recordCreatorProps,
     maxLength,
     value,
