@@ -30,6 +30,31 @@ const genLightFilterStyle: GenerateStyle<LightFilterToken> = (token) => {
         [`${token.antCls}-form-item`]: {
           marginBlock: 0,
         },
+        /** Space 包裹时使用较小间距，与 LightFilter 整体风格一致 */
+        [`${token.antCls}-space:not(${token.antCls}-space-compact)`]: {
+          gap: `${token.marginXS}px !important`,
+        },
+        /** Space.Compact 内 FieldLabel 紧凑布局：去除间距、合并边框 */
+        [`${token.antCls}-space-compact`]: {
+          display: 'inline-flex',
+          gap: 0,
+          [`& > *`]: {
+            marginInlineStart: '0 !important',
+          },
+          [`& > *:not(:first-child)`]: {
+            marginInlineStart: `-${token.lineWidth}px !important`,
+            [`[class*="field-label"], [class*="field-dropdown"]`]: {
+              borderStartStartRadius: 0,
+              borderEndStartRadius: 0,
+            },
+          },
+          [`& > *:not(:last-child)`]: {
+            [`[class*="field-label"], [class*="field-dropdown"]`]: {
+              borderStartEndRadius: 0,
+              borderEndEndRadius: 0,
+            },
+          },
+        },
       },
       '&-line': { minWidth: '198px' },
       '&-line:not(:first-child)': {

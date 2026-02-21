@@ -42,6 +42,14 @@ All options in collapsed mode are collapsed by default, with or without values, 
 
 <code src="../../demos/form/QueryFilter/light-filter-collapse.tsx" ></code>
 
+### Light filtering - Space wrapped fields
+
+Supports wrapping multiple filter items with `Space` or `Space.Compact` for compact layout.
+
+<code src="../../demos/form/QueryFilter/light-filter-space.tsx" ></code>
+
+<code src="../../demos/form/QueryFilter/light-filter-space-collapse.tsx" title="Light filtering - collapsed mode - Space wrapped fields"></code>
+
 ## API
 
 ### QueryFilter

@@ -1,7 +1,7 @@
 import { FilterOutlined } from '@ant-design/icons';
 import { omit } from '@rc-component/util';
 import type { FormProps, PopoverProps } from 'antd';
-import { ConfigProvider } from 'antd';
+import { ConfigProvider, Space } from 'antd';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import type { TooltipPlacement } from 'antd/lib/tooltip';
 import { clsx } from 'clsx';
@@ -175,6 +175,53 @@ const LightFilterContainer: React.FC<{
             ? fieldProps?.placement
             : placement;
 
+          /** Space/Space.Compact 不接收 fieldProps 等（会透传到 DOM 导致警告），仅为其子项注入 light 模式 props */
+          if (child.type === Space || child.type === Space.Compact) {
+            return (
+              <div
+                className={clsx(`${lightFilterClassName}-item`, hashId)}
+                key={key || index}
+              >
+                {React.cloneElement(child, {
+                  /** Space.Compact 紧凑无间距，Space 使用 small 减小间距 */
+                  size: child.type === Space.Compact ? 0 : 'small',
+                  style: {
+                    ...(child.props as { style?: React.CSSProperties }).style,
+                    ...(child.type === Space.Compact ? { gap: 0 } : {}),
+                  },
+                  children: React.Children.map(
+                    (child.props as { children?: React.ReactNode }).children,
+                    (grandChild) => {
+                      if (
+                        !React.isValidElement(grandChild) ||
+                        !grandChild.props
+                      )
+                        return grandChild;
+                      const grandFieldProps =
+                        grandChild.props?.fieldProps || {};
+                      const grandPlacement =
+                        grandFieldProps.placement ?? newPlacement;
+                      return React.cloneElement(grandChild, {
+                        fieldProps: {
+                          ...grandFieldProps,
+                          placement: grandPlacement,
+                          variant: 'borderless',
+                        },
+                        proFieldProps: {
+                          ...grandChild.props?.proFieldProps,
+                          light: true,
+                          label: grandChild.props?.label,
+                          variant,
+                        },
+                        variant,
+                      });
+                    },
+                  ),
+                })}
+              </div>
+            );
+          }
+
           return (
             <div
               className={clsx(`${lightFilterClassName}-item`, hashId)}
@@ -186,7 +233,6 @@ const LightFilterContainer: React.FC<{
                   placement: newPlacement,
                   variant: 'borderless',
                 },
-                // proFieldProps 会直接作为 ProField 的 props 传递过去
                 proFieldProps: {
                   ...child.props.proFieldProps,
                   light: true,
@@ -222,16 +268,74 @@ const LightFilterContainer: React.FC<{
                 },
                 onClear: () => {
                   const clearValues = {} as Record<string, any>;
-                  collapseItems.forEach((child: any) => {
-                    const { name } = child.props;
-                    clearValues[name] = undefined;
-                  });
+                  const collectNames = (item: any) => {
+                    if (
+                      React.isValidElement(item) &&
+                      (item.type === Space || item.type === Space.Compact)
+                    ) {
+                      React.Children.forEach(
+                        (item.props as { children?: React.ReactNode }).children,
+                        (c) => collectNames(c),
+                      );
+                    } else if (item?.props?.name) {
+                      clearValues[item.props.name] = undefined;
+                    }
+                  };
+                  collapseItems.forEach(collectNames);
                   onValuesChange(clearValues);
                 },
               }}
             >
-              {collapseItems.map((child: any) => {
+              {collapseItems.map((child: any, collapseIndex: number) => {
                 const { key } = child;
+                /** Space/Space.Compact 不接收 fieldProps，仅为其子项注入 */
+                if (child.type === Space || child.type === Space.Compact) {
+                  return (
+                    <div
+                      className={clsx(`${lightFilterClassName}-line`, hashId)}
+                      key={key || `space-${collapseIndex}`}
+                    >
+                      {React.cloneElement(child, {
+                        children: React.Children.map(
+                          (child.props as { children?: React.ReactNode })
+                            .children,
+                          (grandChild) => {
+                            if (
+                              !React.isValidElement(grandChild) ||
+                              !grandChild.props
+                            )
+                              return grandChild;
+                            const { name, fieldProps: grandFieldProps } =
+                              grandChild.props;
+                            const newFieldProps = {
+                              ...grandFieldProps,
+                              onChange: (e: any) => {
+                                setMoreValues({
+                                  ...moreValues,
+                                  [name]: e?.target ? e.target.value : e,
+                                });
+                                return false;
+                              },
+                            };
+                            if (moreValues.hasOwnProperty(name)) {
+                              newFieldProps[
+                                grandChild.props.valuePropName || 'value'
+                              ] = moreValues[name];
+                            }
+                            return React.cloneElement(grandChild, {
+                              fieldProps: {
+                                ...newFieldProps,
+                                placement:
+                                  grandFieldProps?.placement ?? placement,
+                                variant,
+                              },
+                            });
+                          },
+                        ),
+                      })}
+                    </div>
+                  );
+                }
                 const { name, fieldProps } = child.props;
                 const newFieldProps = {
                   ...fieldProps,
@@ -284,11 +388,10 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
     placement,
     formRef: userFormRef,
     variant,
-    ignoreRules,
     footerRender,
     popoverProps,
     ...reset
-  } = props;
+  } = omit(props, ['ignoreRules']);
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-form');
   const [values, setValues] = useState<Record<string, any>>(() => {

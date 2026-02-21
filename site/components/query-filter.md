@@ -39,6 +39,12 @@ atomId: QueryFilter,LightFilter
 
 <code src="../../demos/form/QueryFilter/light-filter-placement.tsx" title="轻量筛选-弹出框对齐方式"></code>
 
+支持使用 `Space` 或 `Space.Compact` 包裹多个筛选项，实现紧凑布局。
+
+<code src="../../demos/form/QueryFilter/light-filter-space.tsx" title="轻量筛选-Space 包裹字段"></code>
+
+<code src="../../demos/form/QueryFilter/light-filter-space-collapse.tsx" title="轻量筛选-折叠模式-Space 包裹字段"></code>
+
 ## API
 
 ### QueryFilter
