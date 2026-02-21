@@ -136,7 +136,7 @@ The header is automatically hidden when there is no content.
 
 ### With border
 
-Configure the `bordered` property to control whether the card is bordered.
+Configure the `variant` property to control card border style. Use `outlined` for bordered and `borderless` for borderless.
 
 <code src="../../demos/card/bordered.tsx" background="var(--main-bg-color)" title="With border"></code>
 
@@ -174,10 +174,6 @@ ProCard is compatible with antd Card API. The following props are consistent wit
 
 | Parameters            | Description                                                                                                                                                                   | Type                                                         | Default      | Version |
 | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ------------ | ------- |
-| bordered              | Whether to show border, deprecated use `variant` instead                                                                                                                       | `boolean`                                                    | true         |         |
-| headStyle             | Header style, deprecated use `styles.header` instead                                                                                                                          | `CSSProperties`                                              | -            |         |
-| bodyStyle             | Body style, deprecated use `styles.body` instead                                                                                                                               | `CSSProperties`                                              | -            |         |
-| rootClassName         | Root className of card                                                                                                                                                        | `string`                                                     | -            |         |
 | cover                 | Card cover                                                                                                                                                                    | `React.ReactNode`                                            | -            |         |
 | classNames            | Semantic classNames, same structure as antd Card                                                                                                                              | `{ root?, header?, body?, extra?, title?, actions?, cover? }` | -            |         |
 | title                 | Card title                                                                                                                                                                    | `React.ReactNode`                                            | -            |         |

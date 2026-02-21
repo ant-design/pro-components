@@ -30,9 +30,6 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     split,
     headerBordered = false,
     variant: customVariant,
-    bordered,
-    headStyle,
-    bodyStyle,
     cover,
     classNames,
     boxShadow = false,
@@ -55,14 +52,11 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     ...rest
   } = props;
 
-  // 与 antd Card 一致：bordered 映射到 variant
-  const variant =
-    customVariant ?? (bordered === false ? 'borderless' : 'outlined');
+  const variant = customVariant ?? 'outlined';
 
-  // 与 antd Card 一致：合并 headStyle/bodyStyle 到 styles
   const mergedStyles = {
-    header: { ...headStyle, ...styles?.header },
-    body: { ...bodyStyle, ...styles?.body },
+    header: styles?.header,
+    body: styles?.body,
     root: styles?.root,
     extra: styles?.extra,
     title: styles?.title,

@@ -124,9 +124,9 @@ atomId: ProCard
 
 ### 带边框
 
-配置 `bordered` 属性控制是否卡片带边框。
+配置 `variant` 属性控制卡片边框样式，`outlined` 为带边框，`borderless` 为无边框。
 
-<code src="../../demos/card/bordered.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/card/bordered.tsx" background="var(--main-bg-color)" title="带边框"></code>
 
 <code src="../../demos/card/hoverable.tsx" title="浮出效果" desc="通过 hoverable 配置浮出效果" background="var(--main-bg-color)" ></code>
 
@@ -160,10 +160,6 @@ ProCard 兼容 antd Card API，以下 props 与 antd Card 保持一致。
 
 | 参数                  | 说明                                                                                                                           | 类型                                                                | 默认值       | 版本   |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------- | ------------ | ------ |
-| bordered              | 是否有边框，已废弃请使用 `variant`                                                                                             | `boolean`                                                           | true         |        |
-| headStyle             | 头部样式，已废弃请使用 `styles.header`                                                                                        | `CSSProperties`                                                    | -            |        |
-| bodyStyle             | 内容区域样式，已废弃请使用 `styles.body`                                                                                      | `CSSProperties`                                                    | -            |        |
-| rootClassName         | 卡片根节点类名                                                                                                                 | `string`                                                            | -            |        |
 | cover                 | 卡片封面                                                                                                                       | `React.ReactNode`                                                   | -            |        |
 | classNames            | 语义化 classNames，结构同 antd Card                                                                                           | `{ root?, header?, body?, extra?, title?, actions?, cover? }`       | -            |        |
 | title                 | 标题                                                                                                                           | `React.ReactNode`                                                   | -            |        |

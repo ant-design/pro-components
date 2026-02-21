@@ -19,6 +19,7 @@
 - `tabs`: Configure tabs inside the card.
 - `collapsible`: Whether the card can be collapsed.
 - `ghost`: Transparent background.
+- `variant`: `'outlined'` | `'borderless'`. Card border style.
 
 **Usage Pattern**:
 
@@ -31,7 +32,7 @@ export default () => {
       title="Card Title"
       extra="More"
       split="vertical"
-      bordered
+      variant="outlined"
       headerBordered
     >
       <ProCard title="Left Details" colSpan="50%">
@@ -49,13 +50,13 @@ export default () => {
 
 ```tsx
 <ProCard gutter={16} ghost>
-  <ProCard colSpan={12} layout="center" bordered>
+  <ProCard colSpan={12} layout="center" variant="outlined">
     Col 12
   </ProCard>
-  <ProCard colSpan={6} layout="center" bordered>
+  <ProCard colSpan={6} layout="center" variant="outlined">
     Col 6
   </ProCard>
-  <ProCard colSpan={6} layout="center" bordered>
+  <ProCard colSpan={6} layout="center" variant="outlined">
     Col 6
   </ProCard>
 </ProCard>

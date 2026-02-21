@@ -50,10 +50,7 @@ const Demo = () => {
             <strong>outlined</strong>: 带边框的卡片样式，适合需要明确边界的场景
           </li>
           <li>
-            <strong>filled</strong>: 填充式卡片样式，背景色填充
-          </li>
-          <li>
-            <strong>elevated</strong>: 提升式卡片样式，带有阴影效果
+            <strong>borderless</strong>: 无边框的卡片样式
           </li>
         </ul>
       </div>

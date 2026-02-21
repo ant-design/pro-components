@@ -32,10 +32,7 @@ export interface ProCardClassNames {
   cover?: string;
 }
 
-type CardPropsBase = Pick<
-  AntdCardProps,
-  'bordered' | 'headStyle' | 'bodyStyle' | 'rootClassName' | 'cover'
-> & {
+type CardPropsBase = Pick<AntdCardProps, 'rootClassName' | 'cover'> & {
   /** 样式配置，与 antd Card styles 结构一致 */
   styles?: ProCardStyles;
   /** 语义化 classNames，与 antd Card classNames 结构一致 */
