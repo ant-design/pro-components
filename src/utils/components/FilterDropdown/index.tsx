@@ -11,7 +11,7 @@ export type FooterRender =
   | ((
       onConfirm?: (e?: React.MouseEvent) => void,
       onClear?: (e?: React.MouseEvent) => void,
-    ) => JSX.Element | false)
+    ) => React.JSX.Element | false)
   | false;
 
 export type DropdownProps = {
@@ -87,7 +87,7 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
               return htmlRef.current || document.body;
             }}
           >
-            <div className={`${prefixCls}-content ${hashId}`.trim()}>
+            <div className={clsx(`${prefixCls}-content`, hashId)}>
               {children}
             </div>
           </ConfigProvider>

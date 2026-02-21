@@ -2,11 +2,10 @@
  * 内部 List 容器与 List.Item / List.Item.Meta 实现，用于替代 antd List（antd List 已停止维护）
  * 保持与 antd List 相同的 DOM 结构及类名，以便复用 antd 的 list 样式
  */
-import { ConfigProvider, Empty, Pagination } from 'antd';
+import { ConfigProvider, Empty, Grid, Pagination } from 'antd';
 import type { PaginationConfig } from 'antd/lib/pagination';
 import { clsx } from 'clsx';
 import React, { useContext, useMemo } from 'react';
-import { useBreakpoint } from '../utils/useMediaQuery';
 
 export type ColumnCount = number;
 export type ColumnType =
@@ -52,7 +51,7 @@ export interface ListProps<T = any> {
   renderItem?: (
     item: T,
     index: number,
-    defaultDom: JSX.Element | null,
+    defaultDom: React.JSX.Element | null,
   ) => React.ReactNode;
   size?: ListSize;
   split?: boolean;
@@ -310,15 +309,34 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps<any>>(
       );
     };
 
-    const breakpoint = useBreakpoint();
+    const rawScreens = Grid.useBreakpoint();
+    const defaultScreens = {
+      xs: true,
+      sm: true,
+      md: true,
+      lg: false,
+      xl: false,
+      xxl: false,
+    } as const;
+    const screens = useMemo(() => {
+      if (rawScreens == null) return defaultScreens;
+      return {
+        xxl: rawScreens.xxl ?? defaultScreens.xxl,
+        xl: rawScreens.xl ?? defaultScreens.xl,
+        lg: rawScreens.lg ?? defaultScreens.lg,
+        md: rawScreens.md ?? defaultScreens.md,
+        sm: rawScreens.sm ?? defaultScreens.sm,
+        xs: rawScreens.xs ?? defaultScreens.xs,
+      };
+    }, [rawScreens]);
 
     /**
-     * 根据当前断点获取列数
+     * 根据当前断点获取列数，与 antd Grid/Card 响应式逻辑一致
      */
     const getResponsiveColumn = useMemo((): number => {
       if (!grid) return 1;
 
-      const breakpoints: Array<'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs'> = [
+      const responsiveArray: Array<'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs'> = [
         'xxl',
         'xl',
         'lg',
@@ -326,21 +344,16 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps<any>>(
         'sm',
         'xs',
       ];
-      const currentBreakpoint = breakpoint || 'md';
-      const startIndex = breakpoints.indexOf(currentBreakpoint);
 
-      // 从当前断点开始，向下查找第一个已定义的列数
-      for (let i = startIndex; i < breakpoints.length; i++) {
-        const bp = breakpoints[i];
-        const colCount = grid[bp];
-        if (colCount !== undefined) {
-          return colCount as number;
+      for (let i = 0; i < responsiveArray.length; i += 1) {
+        const breakpoint = responsiveArray[i];
+        if (screens[breakpoint] && grid[breakpoint] !== undefined) {
+          return grid[breakpoint] as number;
         }
       }
 
-      // 最后使用 column 默认值，确保不为 0（避免除以零）
       return (grid.column as number) || 1;
-    }, [grid, breakpoint]);
+    }, [grid, screens]);
 
     /**
      * 计算 grid 容器样式（flex 布局）

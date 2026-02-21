@@ -38,13 +38,13 @@ const BlockCheckbox: React.FC<BlockCheckboxProps> = ({
           onClick={() => onChange(item.key)}
         >
           <CheckOutlined
-            className={`${baseClassName}-selectIcon ${hashId}`.trim()}
+            className={clsx(`${baseClassName}-selectIcon`, hashId)}
             style={{
               display: value === item.key ? 'block' : 'none',
             }}
           />
           {item?.icon ? (
-            <div className={`${baseClassName}-icon ${hashId}`.trim()}>
+            <div className={clsx(`${baseClassName}-icon`, hashId)}>
               {item.icon}
             </div>
           ) : null}

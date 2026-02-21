@@ -19,7 +19,7 @@ export type RenderExpandIconProps<RecordType> = {
   expanded: boolean;
   expandIcon:
     | React.ReactNode
-    | JSX.Element
+    | React.JSX.Element
     | ((props: {
         onExpand: (expanded: boolean) => void;
         expanded: boolean;
@@ -99,14 +99,14 @@ export type ItemProps<RecordType> = {
     | ((
         item: RecordType,
         index: number,
-        defaultDom: JSX.Element | null,
+        defaultDom: React.JSX.Element | null,
       ) => React.ReactNode)
     | false;
   itemTitleRender?:
     | ((
         item: RecordType,
         index: number,
-        defaultDom: JSX.Element | null,
+        defaultDom: React.JSX.Element | null,
       ) => React.ReactNode)
     | false;
 };
@@ -340,7 +340,21 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
               } as RenderExpandIconProps<RecordType>)}
           </div>
           {headerDom}
-          {actionsArray}
+          {actionsArray && actionsArray.length > 0 ? (
+            <div
+              className={clsx(`${prefixCls}-item-action`, hashId)}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {actionsArray.map((action, i) => (
+                <div
+                  key={i}
+                  className={clsx(`${prefixCls}-item-action-item`, hashId)}
+                >
+                  {action}
+                </div>
+              ))}
+            </div>
+          ) : null}
         </div>
         {needExpanded && (content || expandedRowDom) && (
           <div className={clsx(`${className}-content`, hashId)}>

@@ -1,5 +1,5 @@
 import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons';
-import { useControlledState } from '@rc-component/util';
+import { omit, useControlledState } from '@rc-component/util';
 import { Input, Space } from 'antd';
 import React, { useCallback } from 'react';
 import { useIntl } from '../../../provider';
@@ -8,18 +8,19 @@ import type { ProFieldFC } from '../../PureProField';
 /**
  * 最基本的组件，就是个普通的 Input.Password
  *
- * @param
+ * @param props
+ * @param ref
  */
 const FieldPassword: ProFieldFC<{
   text: string;
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
-}> = (
-  { text, mode, render, formItemRender, fieldProps, proFieldKey, ...rest },
-  ref,
-) => {
+}> = (props, ref) => {
   const intl = useIntl();
-
+  const { text, mode, render, formItemRender, fieldProps, ...rest } = omit(
+    props,
+    ['proFieldKey'],
+  );
   const [open, setOpenInner] = useControlledState<boolean>(
     () => rest.open || false,
     rest.open,

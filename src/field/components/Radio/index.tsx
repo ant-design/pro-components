@@ -15,7 +15,11 @@ export type GroupProps = {
 /**
  * 单选组件
  *
- * @param param0
+ * @param radioType
+ * @param formItemRender
+ * @param mode
+ * @param render
+ * @param rest
  * @param ref
  */
 const FieldRadio: ProFieldFC<GroupProps> = (

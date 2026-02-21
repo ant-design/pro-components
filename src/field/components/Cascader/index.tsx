@@ -25,7 +25,14 @@ export type GroupProps = {
 /**
  * 级联选择组件
  *
- * @param param0
+ * @param placeholder
+ * @param formItemRender
+ * @param mode
+ * @param render
+ * @param label
+ * @param light
+ * @param variant
+ * @param rest
  * @param ref
  */
 const FieldCascader: ProFieldFC<GroupProps> = (

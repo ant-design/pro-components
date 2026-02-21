@@ -62,7 +62,7 @@ const Demo = () => {
       }}
     >
       <Space
-        direction="vertical"
+        orientation="vertical"
         size={12}
         style={{
           width: '100%',

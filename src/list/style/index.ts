@@ -9,7 +9,9 @@ export interface ProListToken extends ProAliasToken {
 const genTechUiListActiveKeyframes = (token: ProListToken) =>
   new Keyframes('techUiListActive', {
     '0%': { backgroundColor: 'unset' },
-    '30%': { background: token.colorWarningBg ?? setAlpha(token.colorWarning, 0.15) },
+    '30%': {
+      background: token.colorWarningBg ?? setAlpha(token.colorWarning, 0.15),
+    },
     '100%': { backgroundColor: 'unset' },
   }) as any;
 
@@ -23,7 +25,19 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
       },
       backgroundColor: 'transparent',
 
-      [`${token.proComponentsCls}-table-alert`]: { marginBlockEnd: token.margin },
+      // 确保链接使用默认链接颜色，不被父元素的文本颜色覆盖
+      a: {
+        color: token.colorLink,
+        '&:hover': {
+          color: token.colorLinkHover,
+        },
+        '&:active': {
+          color: token.colorLinkActive,
+        },
+      },
+      [`${token.proComponentsCls}-table-alert`]: {
+        marginBlockEnd: token.margin,
+      },
       [`${token.proComponentsCls}-list-item`]: {
         display: 'flex',
         flexDirection: 'column',
@@ -326,6 +340,9 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           justifyContent: 'flex-start',
           width: '100%',
           minWidth: 0,
+          [`${token.proComponentsCls}-list-item-action`]: {
+            alignSelf: 'center',
+          },
           h4: {
             margin: 0,
             padding: 0,

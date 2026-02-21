@@ -64,8 +64,8 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
   }));
 
   const wrapElements = (
-    array: (string | JSX.Element)[],
-  ): JSX.Element[] | string => {
+    array: (string | React.JSX.Element)[],
+  ): React.JSX.Element[] | string => {
     if (array.every((item) => typeof item === 'string')) return array.join(',');
 
     return array.map((item, index) => {
@@ -109,7 +109,7 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
           onClick={() => {
             onLabelClick?.();
           }}
-          className={`${prefixCls}-text`}
+          className={clsx(`${prefixCls}-text`, hashId)}
         >
           {aLabel}
           {': '}

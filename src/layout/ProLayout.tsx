@@ -105,8 +105,8 @@ export type ProLayoutProps = GlobalTypes & {
    * */
   logo?:
     | React.ReactNode
-    | JSX.Element
-    | WithFalse<() => React.ReactNode | JSX.Element>;
+    | React.JSX.Element
+    | WithFalse<() => React.ReactNode | React.JSX.Element>;
 
   /**
    * @name 页面切换的时候触发
@@ -880,7 +880,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
             </ConfigProvider>
             <div
               style={genLayoutStyle}
-              className={`${proLayoutClassName}-container ${hashId}`.trim()}
+              className={clsx(`${proLayoutClassName}-container`, hashId)}
             >
               {headerDom}
               <WrapContent

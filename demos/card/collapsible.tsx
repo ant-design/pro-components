@@ -112,6 +112,23 @@ export default () => {
           Content
         </ProCard>
         <ProCard
+          title="Collapsible - Custom Icon (Controlled)"
+          collapsibleIconRender={({
+            collapsed: buildInCollapsed,
+          }: {
+            collapsed: boolean;
+          }) =>
+            buildInCollapsed ? <span>Collapse - </span> : <span>Expand - </span>
+          }
+          style={{ marginBlockStart: 16 }}
+          headerBordered
+          collapsible
+          collapsed={collapsed}
+          onCollapse={setCollapsed}
+        >
+          Content
+        </ProCard>
+        <ProCard
           title="Collapsible - Custom Icon"
           collapsibleIconRender={({
             collapsed: buildInCollapsed,

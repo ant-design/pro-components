@@ -175,7 +175,7 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
 
       [`${componentCls}-title`]: {
         color: token.colorText,
-        fontWeight: 500,
+        fontWeight: token.fontWeightStrong,
         fontSize: token.fontSizeLG,
         lineHeight: token.lineHeight,
       },
@@ -199,6 +199,18 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
 
         '& svg': {
           transition: `transform ${token.motionDurationMid}`,
+        },
+      },
+
+      [`${componentCls}-cover`]: {
+        overflow: 'hidden',
+        borderRadius: `${token.borderRadius}px ${token.borderRadius}px 0 0`,
+        '& > *': {
+          width: '100%',
+          display: 'block',
+        },
+        '& img': {
+          verticalAlign: 'middle',
         },
       },
 

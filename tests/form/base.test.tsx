@@ -56,6 +56,23 @@ describe('ProForm', () => {
     wrapper.unmount();
   });
 
+  it('📦 className and rootClassName should work correctly', () => {
+    const wrapper = render(
+      <ProForm
+        className="custom-form-class"
+        rootClassName="custom-root-class"
+        submitter={false}
+      >
+        <ProFormText name="test" />
+      </ProForm>,
+    );
+    const form = wrapper.container.querySelector('form');
+    expect(form?.className).toContain('ant-pro-form');
+    expect(form?.className).toContain('custom-form-class');
+    expect(form?.className).toContain('custom-root-class');
+    wrapper.unmount();
+  });
+
   it('📦 componentSize is work', async () => {
     const wrapper = render(
       <ConfigProvider componentSize="small">

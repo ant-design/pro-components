@@ -43,7 +43,7 @@ const GridContent: React.FC<GridContentProps> = (props) => {
       })}
       style={style}
     >
-      <div className={`${prefixCls}-grid-content-children ${hashId}`.trim()}>
+      <div className={clsx(`${prefixCls}-grid-content-children`, hashId)}>
         {children}
       </div>
     </div>,

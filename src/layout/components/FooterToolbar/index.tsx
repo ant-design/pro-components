@@ -18,7 +18,7 @@ export type FooterToolbarProps = {
   className?: string;
   renderContent?: (
     props: FooterToolbarProps & RouteContextType & { leftWidth?: string },
-    dom: JSX.Element,
+    dom: React.JSX.Element,
   ) => ReactNode;
   prefixCls?: string;
   stylish?: GenerateStyle<FooterToolBarToken>;
@@ -69,8 +69,8 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
   });
   const dom = (
     <>
-      <div className={`${baseClassName}-left ${hashId}`.trim()}>{extra}</div>
-      <div className={`${baseClassName}-right ${hashId}`.trim()}>
+      <div className={clsx(`${baseClassName}-left`, hashId)}>{extra}</div>
+      <div className={clsx(`${baseClassName}-right`, hashId)}>
         {children}
       </div>
     </>

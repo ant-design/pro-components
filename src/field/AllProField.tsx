@@ -97,6 +97,7 @@ type RenderProps = Omit<ProFieldFCRenderProps, 'text' | 'placeholder'> &
  *
  * @param text String | number
  * @param valueType ProColumnsValueObjectType
+ * @param props
  */
 const defaultRenderTextByObject = (
   text: ProFieldTextType,
@@ -154,6 +155,8 @@ const defaultRenderTextByObject = (
  *
  * @param dataValue
  * @param valueType
+ * @param props
+ * @param valueTypeMap
  */
 export const defaultRenderText = (
   dataValue: ProFieldTextType,
@@ -595,7 +598,7 @@ const ProFieldComponent: React.ForwardRefRenderFunction<
       ...rest,
       mode: readonly ? 'read' : mode,
       formItemRender: formItemRender
-        ? (curText: any, props: ProFieldFCRenderProps, dom: JSX.Element) => {
+        ? (curText: any, props: ProFieldFCRenderProps, dom: React.JSX.Element) => {
             const { placeholder: _placeholder, ...restProps } = props;
             const newDom = formItemRender(curText, restProps, dom);
             // formItemRender 之后的dom可能没有props，这里会帮忙注入一下

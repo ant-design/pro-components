@@ -4,7 +4,7 @@ exports[`ProForm > 📦 submit props actionsRender is one 1`] = `
 <DocumentFragment>
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical css-var-r19 ant-form-css-var ant-pro-form"
+    class="ant-form ant-form-vertical css-var-r1c ant-form-css-var ant-pro-form"
   >
     <input
       style="display: none;"
@@ -21,7 +21,7 @@ exports[`ProForm > 📦 submit props actionsRender=()=>[] 1`] = `
 <DocumentFragment>
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical css-var-r1r ant-form-css-var ant-pro-form"
+    class="ant-form ant-form-vertical css-var-r1u ant-form-css-var ant-pro-form"
   >
     <input
       style="display: none;"
@@ -35,7 +35,7 @@ exports[`ProForm > 📦 submit props actionsRender=()=>false 1`] = `
 <DocumentFragment>
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical css-var-r16 ant-form-css-var ant-pro-form"
+    class="ant-form ant-form-vertical css-var-r19 ant-form-css-var ant-pro-form"
   >
     <input
       style="display: none;"
@@ -64,7 +64,7 @@ exports[`ProForm > 📦 submit props actionsRender=false 2`] = `
 <DocumentFragment>
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical css-var-r1o ant-form-css-var ant-pro-form"
+    class="ant-form ant-form-vertical css-var-r1r ant-form-css-var ant-pro-form"
   >
     <input
       style="display: none;"
@@ -78,14 +78,14 @@ exports[`ProForm > 📦 submit props render=()=>[] 1`] = `
 <DocumentFragment>
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical css-var-r1u ant-form-css-var ant-pro-form"
+    class="ant-form ant-form-vertical css-var-r21 ant-form-css-var ant-pro-form"
   >
     <input
       style="display: none;"
       type="text"
     />
     <button
-      class="ant-btn css-var-r1u ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      class="ant-btn css-var-r21 ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -100,20 +100,20 @@ exports[`ProForm > 📦 submitted value should be consistent with input when pre
 <DocumentFragment>
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical css-var-rb5 ant-form-css-var ant-pro-form"
+    class="ant-form ant-form-vertical css-var-rb8 ant-form-css-var ant-pro-form"
   >
     <input
       style="display: none;"
       type="text"
     />
     <div
-      class="ant-form-item css-var-rb5 ant-form-css-var ant-form-item-has-success ant-form-item-vertical"
+      class="ant-form-item css-var-rb8 ant-form-css-var ant-form-item-has-success ant-form-item-vertical"
     >
       <div
-        class="ant-row ant-form-item-row css-var-rb5"
+        class="ant-row ant-form-item-row css-var-rb8"
       >
         <div
-          class="ant-col ant-form-item-label css-var-rb5"
+          class="ant-col ant-form-item-label css-var-rb8"
         >
           <label
             class=""
@@ -124,7 +124,7 @@ exports[`ProForm > 📦 submitted value should be consistent with input when pre
           </label>
         </div>
         <div
-          class="ant-col ant-form-item-control css-var-rb5"
+          class="ant-col ant-form-item-control css-var-rb8"
         >
           <div
             class="ant-form-item-control-input"
@@ -133,7 +133,7 @@ exports[`ProForm > 📦 submitted value should be consistent with input when pre
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-input-number ant-input-number-mode-input css-var-rb5 ant-input-number-css-var ant-input-number-status-success ant-input-number-outlined ant-input-number-in-form-item"
+                class="ant-input-number ant-input-number-mode-input css-var-rb8 ant-input-number-css-var ant-input-number-status-success ant-input-number-outlined ant-input-number-in-form-item"
                 style="width: 100%;"
               >
                 <input
@@ -215,7 +215,7 @@ exports[`ProForm > 📦 submitted value should be consistent with input when pre
       style="display: flex; gap: 8px; align-items: center;"
     >
       <button
-        class="ant-btn css-var-rb5 ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-rb8 ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -223,7 +223,7 @@ exports[`ProForm > 📦 submitted value should be consistent with input when pre
         </span>
       </button>
       <button
-        class="ant-btn css-var-rb5 ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-rb8 ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -239,7 +239,7 @@ exports[`ProForm > 📦 submitter props support resetButtonProps 1`] = `
 <DocumentFragment>
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical css-var-r24 ant-form-css-var ant-pro-form"
+    class="ant-form ant-form-vertical css-var-r27 ant-form-css-var ant-pro-form"
   >
     <input
       style="display: none;"
@@ -249,7 +249,7 @@ exports[`ProForm > 📦 submitter props support resetButtonProps 1`] = `
       style="display: flex; gap: 8px; align-items: center;"
     >
       <button
-        class="ant-btn css-var-r24 ant-btn-default ant-btn-color-default ant-btn-variant-outlined test_button"
+        class="ant-btn css-var-r27 ant-btn-default ant-btn-color-default ant-btn-variant-outlined test_button"
         type="button"
       >
         <span>
@@ -257,7 +257,7 @@ exports[`ProForm > 📦 submitter props support resetButtonProps 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn css-var-r24 ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-r27 ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -273,7 +273,7 @@ exports[`ProForm > 📦 submitter props support submitButtonProps 1`] = `
 <DocumentFragment>
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical css-var-r21 ant-form-css-var ant-pro-form"
+    class="ant-form ant-form-vertical css-var-r24 ant-form-css-var ant-pro-form"
   >
     <input
       style="display: none;"
@@ -283,7 +283,7 @@ exports[`ProForm > 📦 submitter props support submitButtonProps 1`] = `
       style="display: flex; gap: 8px; align-items: center;"
     >
       <button
-        class="ant-btn css-var-r21 ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-r24 ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -291,7 +291,7 @@ exports[`ProForm > 📦 submitter props support submitButtonProps 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn css-var-r21 ant-btn-primary ant-btn-color-primary ant-btn-variant-solid test_button"
+        class="ant-btn css-var-r24 ant-btn-primary ant-btn-color-primary ant-btn-variant-solid test_button"
         type="button"
       >
         <span>
@@ -307,20 +307,20 @@ exports[`ProForm > 📦 validateFieldsReturnFormatValue 1`] = `
 <DocumentFragment>
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical css-var-r9v ant-form-css-var ant-pro-form"
+    class="ant-form ant-form-vertical css-var-ra2 ant-form-css-var ant-pro-form"
   >
     <input
       style="display: none;"
       type="text"
     />
     <div
-      class="ant-form-item css-var-r9v ant-form-css-var ant-form-item-has-success ant-form-item-vertical"
+      class="ant-form-item css-var-ra2 ant-form-css-var ant-form-item-has-success ant-form-item-vertical"
     >
       <div
-        class="ant-row ant-form-item-row css-var-r9v"
+        class="ant-row ant-form-item-row css-var-ra2"
       >
         <div
-          class="ant-col ant-form-item-control css-var-r9v"
+          class="ant-col ant-form-item-control css-var-ra2"
         >
           <div
             class="ant-form-item-control-input"
@@ -329,7 +329,7 @@ exports[`ProForm > 📦 validateFieldsReturnFormatValue 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-picker ant-picker-focused ant-picker-outlined ant-picker-status-success css-var-r9v ant-picker-css-var"
+                class="ant-picker ant-picker-focused ant-picker-outlined ant-picker-status-success css-var-ra2 ant-picker-css-var"
               >
                 <div
                   class="ant-picker-input"
@@ -401,7 +401,7 @@ exports[`ProForm > 📦 validateFieldsReturnFormatValue 1`] = `
       style="display: flex; gap: 8px; align-items: center;"
     >
       <button
-        class="ant-btn css-var-r9v ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-ra2 ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -409,7 +409,7 @@ exports[`ProForm > 📦 validateFieldsReturnFormatValue 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn css-var-r9v ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-ra2 ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -425,20 +425,20 @@ exports[`ProForm > 📦 valueType digit with precision value 1`] = `
 <DocumentFragment>
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical css-var-rb0 ant-form-css-var ant-pro-form"
+    class="ant-form ant-form-vertical css-var-rb3 ant-form-css-var ant-pro-form"
   >
     <input
       style="display: none;"
       type="text"
     />
     <div
-      class="ant-form-item css-var-rb0 ant-form-css-var ant-form-item-has-success ant-form-item-vertical"
+      class="ant-form-item css-var-rb3 ant-form-css-var ant-form-item-has-success ant-form-item-vertical"
     >
       <div
-        class="ant-row ant-form-item-row css-var-rb0"
+        class="ant-row ant-form-item-row css-var-rb3"
       >
         <div
-          class="ant-col ant-form-item-label css-var-rb0"
+          class="ant-col ant-form-item-label css-var-rb3"
         >
           <label
             class=""
@@ -449,7 +449,7 @@ exports[`ProForm > 📦 valueType digit with precision value 1`] = `
           </label>
         </div>
         <div
-          class="ant-col ant-form-item-control css-var-rb0"
+          class="ant-col ant-form-item-control css-var-rb3"
         >
           <div
             class="ant-form-item-control-input"
@@ -458,7 +458,7 @@ exports[`ProForm > 📦 valueType digit with precision value 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-input-number ant-input-number-mode-input css-var-rb0 ant-input-number-css-var ant-input-number-status-success ant-input-number-outlined ant-input-number-in-form-item"
+                class="ant-input-number ant-input-number-mode-input css-var-rb3 ant-input-number-css-var ant-input-number-status-success ant-input-number-outlined ant-input-number-in-form-item"
                 style="width: 100%;"
               >
                 <input
@@ -540,7 +540,7 @@ exports[`ProForm > 📦 valueType digit with precision value 1`] = `
       style="display: flex; gap: 8px; align-items: center;"
     >
       <button
-        class="ant-btn css-var-rb0 ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-rb3 ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -548,7 +548,7 @@ exports[`ProForm > 📦 valueType digit with precision value 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn css-var-rb0 ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-rb3 ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -564,20 +564,20 @@ exports[`ProForm > 📦 when dateFormatter is a Function 1`] = `
 <DocumentFragment>
   <form
     autocomplete="off"
-    class="ant-form ant-form-vertical css-var-rab ant-form-css-var ant-pro-form"
+    class="ant-form ant-form-vertical css-var-rae ant-form-css-var ant-pro-form"
   >
     <input
       style="display: none;"
       type="text"
     />
     <div
-      class="ant-form-item css-var-rab ant-form-css-var ant-form-item-vertical"
+      class="ant-form-item css-var-rae ant-form-css-var ant-form-item-vertical"
     >
       <div
-        class="ant-row ant-form-item-row css-var-rab"
+        class="ant-row ant-form-item-row css-var-rae"
       >
         <div
-          class="ant-col ant-form-item-control css-var-rab"
+          class="ant-col ant-form-item-control css-var-rae"
         >
           <div
             class="ant-form-item-control-input"
@@ -586,7 +586,7 @@ exports[`ProForm > 📦 when dateFormatter is a Function 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-picker ant-picker-focused ant-picker-outlined css-var-rab ant-picker-css-var"
+                class="ant-picker ant-picker-focused ant-picker-outlined css-var-rae ant-picker-css-var"
               >
                 <div
                   class="ant-picker-input"
@@ -655,13 +655,13 @@ exports[`ProForm > 📦 when dateFormatter is a Function 1`] = `
       </div>
     </div>
     <div
-      class="ant-form-item css-var-rab ant-form-css-var ant-form-item-vertical"
+      class="ant-form-item css-var-rae ant-form-css-var ant-form-item-vertical"
     >
       <div
-        class="ant-row ant-form-item-row css-var-rab"
+        class="ant-row ant-form-item-row css-var-rae"
       >
         <div
-          class="ant-col ant-form-item-label css-var-rab"
+          class="ant-col ant-form-item-label css-var-rae"
         >
           <label
             class=""
@@ -672,7 +672,7 @@ exports[`ProForm > 📦 when dateFormatter is a Function 1`] = `
           </label>
         </div>
         <div
-          class="ant-col ant-form-item-control css-var-rab"
+          class="ant-col ant-form-item-control css-var-rae"
         >
           <div
             class="ant-form-item-control-input"
@@ -681,7 +681,7 @@ exports[`ProForm > 📦 when dateFormatter is a Function 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-picker ant-picker-outlined css-var-rab ant-picker-css-var"
+                class="ant-picker ant-picker-outlined css-var-rae ant-picker-css-var"
               >
                 <div
                   class="ant-picker-input"
@@ -731,7 +731,7 @@ exports[`ProForm > 📦 when dateFormatter is a Function 1`] = `
       style="display: flex; gap: 8px; align-items: center;"
     >
       <button
-        class="ant-btn css-var-rab ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-rae ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -739,7 +739,7 @@ exports[`ProForm > 📦 when dateFormatter is a Function 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn css-var-rab ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-rae ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>

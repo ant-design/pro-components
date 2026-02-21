@@ -1,5 +1,5 @@
-import { useControlledState } from '@rc-component/util';
-import type { RadioGroupProps, TreeSelectProps } from 'antd';
+import { omit, useControlledState } from '@rc-component/util';
+import type { TreeSelectProps } from 'antd';
 import { ConfigProvider, Spin, TreeSelect } from 'antd';
 import { clsx } from 'clsx';
 import React, {
@@ -16,13 +16,7 @@ import type { ProFieldFC } from '../../PureProField';
 import type { FieldSelectProps } from '../Select';
 import { useFieldFetchData } from '../Select';
 
-export type GroupProps = {
-  options?: RadioGroupProps['options'];
-  radioType?: 'button' | 'radio';
-  variant?: 'outlined' | 'borderless' | 'filled';
-} & FieldSelectProps;
-
-export type TreeSelectFieldProps = TreeSelectProps<any> & {
+export type TreeSelectFieldProps = TreeSelectProps & {
   /**
    * 当搜索关键词发生变化时是否请求远程数据
    *
@@ -33,11 +27,18 @@ export type TreeSelectFieldProps = TreeSelectProps<any> & {
 /**
  * Tree select
  * A function that returns a React component.
+
+ * @param formItemRender
+ * @param mode
+ * @param light
+ * @param label
+ * @param render
+ * @param propsVariant
+ * @param rest
  * @param ref
  */
-const FieldTreeSelect: ProFieldFC<GroupProps> = (
+const FieldTreeSelect: ProFieldFC<{} & FieldSelectProps> = (
   {
-    radioType,
     formItemRender,
     mode,
     light,
@@ -54,17 +55,32 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
   const [open, setOpen] = useState(false);
 
   const {
-    onSearch,
     onClear,
     onChange: propsOnChange,
     onBlur,
     showSearch,
-    autoClearSearchValue,
-    treeData,
     fetchDataOnSearch,
-    searchValue: propsSearchValue,
+    onSearch: propsOnSearch,
+    autoClearSearchValue: propsAutoClearSearchValue,
+    searchValue: propsSearchValueProp,
     ...fieldProps
-  } = rest.fieldProps as TreeSelectFieldProps;
+  } = omit(rest.fieldProps, ['treeData']) as TreeSelectFieldProps;
+  const showSearchConfig = typeof showSearch === 'object' ? showSearch : {};
+
+  const onSearch =
+    showSearchConfig?.onSearch !== undefined
+      ? showSearchConfig.onSearch
+      : propsOnSearch;
+  //兼容过时API autoClearSearchValue
+  const autoClearSearchValue =
+    showSearchConfig?.autoClearSearchValue !== undefined
+      ? showSearchConfig.autoClearSearchValue
+      : propsAutoClearSearchValue;
+  //兼容过时API searchValue
+  const propsSearchValue =
+    showSearchConfig?.searchValue !== undefined
+      ? showSearchConfig.searchValue
+      : propsSearchValueProp;
 
   const variant = propsVariant ?? (fieldProps as any)?.variant;
 
@@ -203,14 +219,27 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
           }
           {...fieldProps}
           treeData={options as TreeSelectProps['treeData']}
-          showSearch={showSearch}
+          showSearch={
+            showSearch
+              ? {
+                  ...showSearchConfig,
+                  searchValue: searchValue,
+                  autoClearSearchValue: autoClearSearchValue,
+                  onSearch: (value) => {
+                    // fix 不支持请求的情况下不刷新options
+                    if (fetchDataOnSearch && rest?.request) {
+                      fetchData(value);
+                    }
+                    setSearchValue(value);
+                  },
+                }
+              : showSearch
+          }
           style={{
             minWidth: 60,
             ...fieldProps.style,
           }}
           allowClear={fieldProps.allowClear !== false}
-          searchValue={searchValue as string}
-          autoClearSearchValue={autoClearSearchValue}
           onClear={() => {
             onClear?.();
             fetchData(undefined);
@@ -219,13 +248,6 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
             }
           }}
           onChange={onChange}
-          onSearch={(value) => {
-            // fix 不支持请求的情况下不刷新options
-            if (fetchDataOnSearch && rest?.request) {
-              fetchData(value);
-            }
-            setSearchValue(value);
-          }}
           onBlur={(event) => {
             setSearchValue(undefined);
             fetchData(undefined);

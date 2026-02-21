@@ -6,7 +6,13 @@ import type { ProFieldFC } from '../../PureProField';
 /**
  * 最基本的组件，就是个普通的 Input
  *
- * @param
+ * @param text
+ * @param mode
+ * @param render
+ * @param formItemRender
+ * @param fieldProps
+ * @param emptyText
+ * @param ref
  */
 const FieldText: ProFieldFC<{
   text: string;

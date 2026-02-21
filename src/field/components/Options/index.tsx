@@ -62,7 +62,7 @@ const FieldOptions: ProFieldFC = (
     if (!React.isValidElement(text)) {
       return null;
     }
-    return text as JSX.Element;
+    return text as React.JSX.Element;
   }
 
   return (
