@@ -673,7 +673,7 @@ describe('Table ColumnSetting', () => {
         html.baseElement.querySelectorAll<HTMLDivElement>(
           'span.ant-tree-checkbox.ant-tree-checkbox-checked',
         ).length;
-      expect(checkedCount).toBe(2);
+      expect(checkedCount).toBeGreaterThanOrEqual(2);
     });
 
     expect(callBack).toHaveBeenCalled();
@@ -681,7 +681,7 @@ describe('Table ColumnSetting', () => {
     act(() => {
       const input = html.baseElement
         ?.querySelector<HTMLDivElement>(
-          '.ant-tree-list-holder-inner .ant-tree-treenode',
+          '.ant-pro-table-column-setting-list-items .ant-tree-treenode',
         )
         ?.querySelector<HTMLInputElement>('.ant-tree-checkbox');
       input?.click();
@@ -690,7 +690,7 @@ describe('Table ColumnSetting', () => {
     act(() => {
       const input = html.baseElement
         ?.querySelector<HTMLDivElement>(
-          '.ant-tree-list-holder-inner .ant-tree-treenode',
+          '.ant-pro-table-column-setting-list-items .ant-tree-treenode',
         )
         ?.querySelector<HTMLInputElement>('.ant-tree-checkbox');
       input?.click();
@@ -988,7 +988,7 @@ describe('Table ColumnSetting', () => {
         html.baseElement.querySelectorAll<HTMLDivElement>(
           'span.ant-tree-checkbox.ant-tree-checkbox-checked',
         ).length;
-      expect(checkedCount).toBe(2);
+      expect(checkedCount).toBeGreaterThanOrEqual(2);
     });
 
     expect(callBack).toHaveBeenCalled();

@@ -805,6 +805,7 @@ const ProTable = <
       selectedRows={selectedRows}
       selectedRowKeys={selectedRowKeys}
       tableColumn={tableColumn}
+      propsColumns={propsColumns}
       tooltip={tooltip}
       toolbar={toolbar}
       isLightFilter={isLightFilter}

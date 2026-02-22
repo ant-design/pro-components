@@ -23,24 +23,26 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
           paddingInline: 0,
           paddingBlockEnd: 8,
         },
-        [`${token.antCls}-tree-node-content-wrapper:hover`]: {
-          backgroundColor: 'transparent',
-        },
-        [`${token.antCls}-tree-draggable-icon`]: { cursor: 'grab' },
-        [`${token.antCls}-tree-treenode`]: {
-          alignItems: 'center',
-          '&:hover': {
-            [`${token.componentCls}-list-item-option`]: {
-              display: 'block',
-            },
-          },
-          [`${token.antCls}-tree-checkbox`]: {
-            marginInlineEnd: '4px',
-          },
-          [`${token.antCls}-tree-title`]: {
-            width: '100%',
+      },
+      '&-list-item-wrapper': {
+        display: 'flex',
+        alignItems: 'center',
+        minHeight: 24,
+        gap: 4,
+        '&:hover': {
+          [`${token.componentCls}-list-item-option`]: {
+            display: 'block',
           },
         },
+      },
+      '&-list-item-drag-handle': {
+        cursor: 'grab',
+        color: token.colorTextSecondary,
+        marginInlineStart: 'auto',
+      },
+      '&-list-items': {
+        display: 'flex',
+        flexDirection: 'column',
       },
     },
     [`${token.componentCls}-action-rest-button`]: {

@@ -1,10 +1,26 @@
 import {
+  HolderOutlined,
   SettingOutlined,
   VerticalAlignBottomOutlined,
   VerticalAlignMiddleOutlined,
   VerticalAlignTopOutlined,
 } from '@ant-design/icons';
-import { omit } from '@rc-component/util';
+import type { DragEndEvent } from '@dnd-kit/core';
+import {
+  DndContext,
+  MouseSensor,
+  PointerSensor,
+  rectIntersection,
+  useSensor,
+  useSensors,
+} from '@dnd-kit/core';
+import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
+import {
+  SortableContext,
+  useSortable,
+  verticalListSortingStrategy,
+} from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
 import {
   Checkbox,
   ConfigProvider,
@@ -12,11 +28,9 @@ import {
   Space,
   type TableColumnType,
   Tooltip,
-  Tree,
   Typography,
 } from 'antd';
 import type { CheckboxChangeEvent } from 'antd/lib/checkbox';
-import type { DataNode } from 'antd/lib/tree';
 import { clsx } from 'clsx';
 import React, { useContext, useEffect, useMemo, useRef } from 'react';
 import { ProProvider, useIntl } from '../../../provider';
@@ -31,6 +45,18 @@ import { useStyle } from './style';
 type ColumnSettingProps<T = any> = SettingOptionType & {
   columns: TableColumnType<T>[];
 };
+
+interface FlattenColumnItem {
+  key: string;
+  columnKey: string;
+  title: React.ReactNode;
+  fixed?: boolean | 'left' | 'right';
+  disabled?: boolean;
+  disableCheckbox?: boolean;
+  isLeaf: boolean;
+  parentKey?: string;
+  childKeys?: string[];
+}
 
 const ToolTipIcon: React.FC<{
   title: string;
@@ -112,6 +138,93 @@ const CheckboxListItem: React.FC<{
   );
 };
 
+const SortableListItem: React.FC<{
+  id: string;
+  item: FlattenColumnItem;
+  className: string;
+  checkable: boolean;
+  showListItemOption: boolean;
+  checked: boolean;
+  onCheck: (key: string, checked: boolean) => void;
+}> = ({
+  id,
+  item,
+  className,
+  checkable,
+  showListItemOption,
+  checked,
+  onCheck,
+}) => {
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging,
+  } = useSortable({ id });
+
+  const style: React.CSSProperties = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+    opacity: isDragging ? 0.5 : 1,
+  };
+
+  const normalizedTitle = runFunction(item.title, { ...item, key: item.columnKey });
+  const wrappedTitle = (
+    <Typography.Text
+      style={{ width: 80 }}
+      ellipsis={{ tooltip: normalizedTitle }}
+    >
+      {normalizedTitle}
+    </Typography.Text>
+  );
+
+  return (
+    <div
+      ref={setNodeRef}
+      style={style}
+      className={clsx(`${className}-list-item-wrapper`, 'ant-tree-treenode')}
+    >
+      {checkable && (
+        <span
+          className={clsx('ant-tree-checkbox', {
+            'ant-tree-checkbox-checked': checked,
+            'ant-tree-checkbox-disabled': item.disableCheckbox,
+          })}
+          onClick={(e) => {
+            e.stopPropagation();
+            if (!item.disableCheckbox) onCheck(item.columnKey, !checked);
+          }}
+        >
+          <Checkbox
+            checked={checked}
+            disabled={item.disableCheckbox}
+            onChange={(e) => onCheck(item.columnKey, e.target.checked)}
+            onClick={(e) => e.stopPropagation()}
+          />
+        </span>
+      )}
+      <div className="ant-tree-node-content-wrapper" {...attributes} {...listeners}>
+        <CheckboxListItem
+          className={className}
+          columnKey={item.columnKey}
+          title={wrappedTitle}
+          fixed={item.fixed}
+          showListItemOption={showListItemOption}
+          isLeaf={item.isLeaf}
+        />
+        <span
+          className={clsx(`${className}-list-item-drag-handle`)}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <HolderOutlined />
+        </span>
+      </div>
+    </div>
+  );
+};
+
 const CheckboxList: React.FC<{
   list: (ProColumns<any> & { index?: number })[];
   className?: string;
@@ -136,63 +249,80 @@ const CheckboxList: React.FC<{
   const { columnsMap, setColumnsMap, sortKeyColumns, setSortKeyColumns } =
     useContext(TableContext);
   const show = list && list.length > 0;
-  const treeDataConfig = useMemo(() => {
-    if (!show) return {};
-    const checkedKeys: string[] = [];
-    const treeMap = new Map<
-      string | number,
-      DataNode & { parentKey?: string }
-    >();
+
+  const { flatItems, itemMap } = useMemo(() => {
+    if (!show) return { flatItems: [] as FlattenColumnItem[], itemMap: new Map<string, FlattenColumnItem>() };
+    const flatItems: FlattenColumnItem[] = [];
+    const itemMap = new Map<string, FlattenColumnItem>();
 
     const loopData = (
       data: any[],
-      parentConfig?: ColumnsState & {
-        columnKey: string;
-      },
-    ): DataNode[] =>
-      data.map(({ key, dataIndex: _dataIndex, children, ...rest }) => {
+      parentConfig?: ColumnsState & { columnKey: string },
+    ): string[] => {
+      const keys: string[] = [];
+      data.forEach(({ key, dataIndex: _dataIndex, children, ...rest }, idx) => {
         const columnKey = genColumnKey(
           key,
-          [parentConfig?.columnKey, rest.index].filter(Boolean).join('-'),
+          [parentConfig?.columnKey, rest.index ?? idx].filter(Boolean).join('-'),
         );
         const config = columnsMap?.[columnKey || 'null'] || { show: true };
-        if (config.show !== false && !children) {
-          checkedKeys.push(columnKey);
+
+        let childKeys: string[] | undefined;
+        if (children?.length) {
+          childKeys = loopData(children, { ...config, columnKey });
         }
 
-        const item: DataNode = {
+        const item: FlattenColumnItem = {
           key: columnKey,
-          ...omit(rest, ['className']),
-          selectable: false,
+          columnKey,
+          title: rest.title,
+          fixed: config.fixed ?? rest.fixed,
           disabled: config.disable === true,
           disableCheckbox:
             typeof config.disable === 'boolean'
               ? config.disable
               : config.disable?.checkbox,
-          isLeaf: parentConfig ? true : undefined,
+          isLeaf: !!parentConfig,
+          parentKey: parentConfig?.columnKey,
+          childKeys,
         };
-
-        if (children) {
-          item.children = loopData(children, {
-            ...config,
-            columnKey,
-          });
-          // 如果children 已经全部是show了，把自己也设置为show
-          if (
-            item.children?.every((childrenItem) =>
-              checkedKeys?.includes(childrenItem.key as string),
-            )
-          ) {
-            checkedKeys.push(columnKey);
-          }
-        }
-        treeMap.set(key, { ...item, parentKey: parentConfig?.columnKey });
-        return item;
+        flatItems.push(item);
+        itemMap.set(columnKey, item);
+        keys.push(columnKey);
       });
-    return { list: loopData(list), keys: checkedKeys, map: treeMap };
+      return keys;
+    };
+    loopData(list);
+    return { flatItems, itemMap };
   }, [columnsMap, list, show]);
 
-  /** 移动到指定的位置 */
+  const orderedItems = useMemo(() => {
+    if (!flatItems.length) return [];
+    const keysInGroup = new Set(flatItems.map((i) => i.columnKey));
+    const ordered = sortKeyColumns.filter((k) => keysInGroup.has(k));
+    const orderedSet = new Set(ordered);
+    const unordered = flatItems.filter((i) => !orderedSet.has(i.columnKey));
+    return [...ordered.map((k) => itemMap.get(k)!).filter(Boolean), ...unordered];
+  }, [flatItems, itemMap, sortKeyColumns]);
+
+  const checkedKeys = useMemo(() => {
+    const keys: string[] = [];
+    flatItems.forEach((item) => {
+      const config = columnsMap?.[item.columnKey] || { show: true };
+      if (!item.childKeys?.length) {
+        if (config.show !== false) keys.push(item.columnKey);
+      }
+    });
+    for (let i = flatItems.length - 1; i >= 0; i--) {
+      const item = flatItems[i];
+      if (item.childKeys?.length) {
+        const allChildrenChecked = item.childKeys.every((ck) => keys.includes(ck));
+        if (allChildrenChecked) keys.push(item.columnKey);
+      }
+    }
+    return keys;
+  }, [columnsMap, flatItems]);
+
   const move = useRefFunction(
     (id: React.Key, targetId: React.Key, dropPosition: number) => {
       const newMap = { ...columnsMap };
@@ -215,99 +345,135 @@ const CheckboxList: React.FC<{
           targetItem,
         );
       }
-      // 重新生成排序数组
       newColumns.forEach((key, order) => {
         newMap[key] = { ...(newMap[key] || {}), order };
       });
-      // 更新数组
       setColumnsMap(newMap);
       setSortKeyColumns(newColumns);
     },
   );
 
-  /** 选中反选功能 */
-  const onCheckTree = useRefFunction((e) => {
+  const onCheckItem = useRefFunction((key: string, checked: boolean) => {
     const newColumnMap = { ...columnsMap };
+    const item = itemMap.get(key);
+    if (!item) return;
 
-    const loopSetShow = (key: string | number) => {
-      const newSetting = { ...newColumnMap[key] };
-      newSetting.show = e.checked;
-      // 如果含有子节点，也要选中
-      if (treeDataConfig.map?.get(key)?.children) {
-        treeDataConfig.map
-          .get(key)
-          ?.children?.forEach((item) => loopSetShow(item.key as string));
-      }
-
-      // 如果子节点选择，那父节点也应该选中
-      const parentKey = treeDataConfig.map?.get(key)?.parentKey;
-      if (parentKey) {
-        newColumnMap[parentKey] = { ...newColumnMap[parentKey], show: true };
-      }
-
-      newColumnMap[key] = newSetting;
+    const loopSetShow = (k: string) => {
+      const setting = { ...newColumnMap[k] };
+      setting.show = checked;
+      newColumnMap[k] = setting;
+      itemMap.get(k)?.childKeys?.forEach(loopSetShow);
     };
-    loopSetShow(e.node.key);
-    setColumnsMap({ ...newColumnMap });
+    loopSetShow(key);
+
+    const parentKey = item.parentKey;
+    if (parentKey && checked) {
+      newColumnMap[parentKey] = { ...newColumnMap[parentKey], show: true };
+    }
+    setColumnsMap(newColumnMap);
+  });
+
+  const sensors = useSensors(
+    useSensor(PointerSensor, { activationConstraint: { distance: 5 } }),
+    useSensor(MouseSensor, { activationConstraint: { distance: 5 } }),
+  );
+
+  const handleDragEnd = useRefFunction((event: DragEndEvent) => {
+    const { active, over } = event;
+    if (!over || active.id === over.id) return;
+    const oldIndex = orderedItems.findIndex((i) => i.columnKey === active.id);
+    const newIndex = orderedItems.findIndex((i) => i.columnKey === over.id);
+    if (oldIndex < 0 || newIndex < 0) return;
+    const dragKey = orderedItems[oldIndex].columnKey;
+    const dropKey = orderedItems[newIndex].columnKey;
+    move(dragKey, dropKey, newIndex);
   });
 
   if (!show) {
     return null;
   }
 
-  const listDom = (
-    <Tree
-      itemHeight={24}
-      draggable={
-        draggable &&
-        !!treeDataConfig.list?.length &&
-        treeDataConfig.list?.length > 1
-      }
-      checkable={checkable}
-      onDrop={(info) => {
-        const dropKey = info.node.key;
-        const dragKey = info.dragNode.key;
-        const { dropPosition, dropToGap } = info;
-        const position =
-          dropPosition === -1 || !dropToGap ? dropPosition + 1 : dropPosition;
-        move(dragKey, dropKey, position);
-      }}
-      blockNode
-      onCheck={(_, e) => onCheckTree(e)}
-      checkedKeys={treeDataConfig.keys}
-      showLine={false}
-      titleRender={(_node) => {
-        const node = { ..._node, children: undefined };
-        if (!node.title) return null;
-        const normalizedTitle = runFunction(node.title, node);
-        const wrappedTitle = (
-          <Typography.Text
-            style={{ width: 80 }}
-            ellipsis={{ tooltip: normalizedTitle }}
-          >
-            {normalizedTitle}
-          </Typography.Text>
-        );
+  const canDrag =
+    draggable && orderedItems.length > 1;
 
-        return (
-          <CheckboxListItem
-            className={className}
-            {...omit(node, ['key'])}
-            showListItemOption={showListItemOption}
-            title={wrappedTitle}
-            columnKey={node.key as string}
-          />
-        );
-      }}
-      height={listHeight}
-      treeData={treeDataConfig.list?.map(
-        ({
-          disabled: _disabled /* 不透传 disabled，使子节点禁用时也可以拖动调整顺序 */,
-          ...config
-        }) => config,
-      )}
-    />
+  const listDom = canDrag ? (
+    <DndContext
+      sensors={sensors}
+      collisionDetection={rectIntersection}
+      modifiers={[restrictToVerticalAxis]}
+      onDragEnd={handleDragEnd}
+    >
+      <SortableContext
+        items={orderedItems.map((i) => i.columnKey as string)}
+        strategy={verticalListSortingStrategy}
+      >
+        <div
+          className={clsx(`${className}-list-items`, hashId)}
+          style={{ maxHeight: listHeight, overflow: 'auto' }}
+        >
+          {orderedItems.map((item) => (
+            <SortableListItem
+              key={item.columnKey}
+              id={item.columnKey ?? ''}
+              item={item}
+              className={className ?? ''}
+              checkable={checkable}
+              showListItemOption={showListItemOption}
+              checked={checkedKeys.includes(item.columnKey)}
+              onCheck={onCheckItem}
+            />
+          ))}
+        </div>
+      </SortableContext>
+    </DndContext>
+  ) : (
+    <div
+      className={clsx(`${className}-list-items`, hashId)}
+      style={{ maxHeight: listHeight, overflow: 'auto' }}
+    >
+      {orderedItems.map((item) => (
+        <div
+          key={item.columnKey}
+          className={clsx(`${className}-list-item-wrapper`, 'ant-tree-treenode')}
+        >
+          <div className="ant-tree-node-content-wrapper">
+            {checkable && (
+              <span
+                className={clsx('ant-tree-checkbox', {
+                  'ant-tree-checkbox-checked': checkedKeys.includes(item.columnKey),
+                  'ant-tree-checkbox-disabled': item.disableCheckbox,
+                })}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <Checkbox
+                  checked={checkedKeys.includes(item.columnKey)}
+                  disabled={item.disableCheckbox}
+                  onChange={(e) => onCheckItem(item.columnKey, e.target.checked)}
+                  onClick={(e) => e.stopPropagation()}
+                />
+              </span>
+            )}
+            <CheckboxListItem
+              className={className}
+              columnKey={item.columnKey}
+              title={
+                <Typography.Text
+                  style={{ width: 80 }}
+                  ellipsis={{ tooltip: runFunction(item.title, { ...item, key: item.columnKey }) }}
+                >
+                  {runFunction(item.title, { ...item, key: item.columnKey })}
+                </Typography.Text>
+              }
+              fixed={item.fixed}
+              showListItemOption={showListItemOption}
+              isLeaf={item.isLeaf}
+            />
+          </div>
+        </div>
+      ))}
+    </div>
   );
+
   return (
     <>
       {showTitle && (
@@ -341,12 +507,12 @@ const GroupCheckboxList: React.FC<{
   const list: (ProColumns<any> & { index?: number })[] = [];
   const intl = useIntl();
 
+  const { columnsMap } = useContext(TableContext);
   localColumns.forEach((item) => {
-    /** 不在 setting 中展示的 */
-    if (item.hideInSetting) {
-      return;
-    }
-    const { fixed } = item;
+    if (item.hideInSetting) return;
+    const columnKey = genColumnKey(item.key, item.index);
+    const configFixed = columnsMap?.[columnKey]?.fixed;
+    const fixed = configFixed ?? item.fixed;
     if (fixed === 'left') {
       leftList.push(item);
       return;
@@ -375,7 +541,6 @@ const GroupCheckboxList: React.FC<{
         className={className}
         listHeight={listsHeight}
       />
-      {/* 如果没有任何固定，不需要显示title */}
       <CheckboxList
         list={list}
         draggable={draggable}
@@ -401,7 +566,6 @@ const GroupCheckboxList: React.FC<{
 
 function ColumnSetting<T>(props: ColumnSettingProps<T>) {
   const columnRef = useRef(null);
-  // 获得当前上下文的 hashID
   const counter = useContext(TableContext);
   const localColumns: TableColumnType<T> &
     {
@@ -420,11 +584,6 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
     }
   }, []);
 
-  /**
-   * 设置全部选中，或全部未选中
-   *
-   * @param show
-   */
   const setAllSelectAction = useRefFunction((show: boolean = true) => {
     const columnKeyMap = {} as Record<string, any>;
     const loopColumns = (columns: any) => {
@@ -432,7 +591,6 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
         const columnKey = genColumnKey(key, index);
         if (columnKey) {
           columnKeyMap[columnKey] = {
-            // 子节点 disable 时，不修改节点显示状态
             show: disable ? columnsMap?.[columnKey]?.show : show,
             fixed,
             disable,
@@ -448,7 +606,6 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
     setColumnsMap(columnKeyMap);
   });
 
-  /** 全选和反选 */
   const checkedAll = useRefFunction((e: CheckboxChangeEvent) => {
     if (e.target.checked) {
       setAllSelectAction();
@@ -457,7 +614,6 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
     }
   });
 
-  /** 重置项目 */
   const clearClick = useRefFunction(() => {
     clearPersistenceStorage?.();
     setColumnsMap(
@@ -467,12 +623,10 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
     );
   });
 
-  // 未选中的 key 列表
   const unCheckedKeys = Object.values(columnsMap).filter(
     (value) => !value || value.show === false,
   );
 
-  // 是否已经选中
   const indeterminate =
     unCheckedKeys.length > 0 && unCheckedKeys.length !== localColumns.length;
 

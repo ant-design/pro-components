@@ -70,6 +70,7 @@ export type ToolBarProps<T = unknown> = {
   className?: string;
   onSearch?: (keyWords: string) => void;
   columns: TableColumnType<T>[];
+  settingColumns?: TableColumnType<T>[];
 };
 
 function getButtonText(
@@ -171,6 +172,7 @@ function ToolBar<T>({
   toolbar,
   onSearch,
   columns,
+  settingColumns,
   optionsRender,
   ...rest
 }: ToolBarProps<T>) {
@@ -202,7 +204,7 @@ function ToolBar<T>({
         intl,
       },
       action,
-      columns,
+      settingColumns ?? columns,
     );
     if (optionsRender) {
       return optionsRender(
@@ -289,6 +291,7 @@ export type ToolbarRenderProps<T> = {
   onFormSearchSubmit: (params: any) => void;
   searchNode: React.ReactNode;
   tableColumn: any[];
+  propsColumns?: any[];
   tooltip?: string | LabelTooltipType;
   selectedRows: T[];
   selectedRowKeys: React.Key[] | (string | number)[];
@@ -308,6 +311,7 @@ const ToolbarRender = <T,>(props: ToolbarRenderProps<T>) => {
   const {
     hideToolbar,
     tableColumn,
+    propsColumns,
     options,
     searchNode,
     tooltip,
@@ -359,6 +363,7 @@ const ToolbarRender = <T,>(props: ToolbarRenderProps<T>) => {
     <ToolBar<T>
       tooltip={tooltip}
       columns={tableColumn}
+      settingColumns={propsColumns}
       options={options}
       headerTitle={headerTitle}
       action={actionRef}
@@ -387,6 +392,7 @@ const isPropsEqual = <T,>(
     {
       hideToolbar: prev.hideToolbar,
       tableColumn: prev.tableColumn,
+      propsColumns: prev.propsColumns,
       options: prev.options,
       tooltip: prev.tooltip,
       toolbar: prev.toolbar,
@@ -399,6 +405,7 @@ const isPropsEqual = <T,>(
     {
       hideToolbar: next.hideToolbar,
       tableColumn: next.tableColumn,
+      propsColumns: next.propsColumns,
       options: next.options,
       tooltip: next.tooltip,
       toolbar: next.toolbar,

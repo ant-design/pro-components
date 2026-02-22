@@ -11,6 +11,7 @@ export type TableToolbarProps<T extends Record<string, any>> = {
   selectedRows: T[];
   selectedRowKeys: (string | number | Key)[] | undefined;
   tableColumn: any[];
+  propsColumns?: any[];
   tooltip: ProTableProps<T, any, any>['tooltip'];
   toolbar: ProTableProps<T, any, any>['toolbar'];
   isLightFilter: boolean;
@@ -32,6 +33,7 @@ export function TableToolbar<T extends Record<string, any>>(
     selectedRows,
     selectedRowKeys,
     tableColumn,
+    propsColumns,
     tooltip,
     toolbar,
     isLightFilter,
@@ -54,6 +56,7 @@ export function TableToolbar<T extends Record<string, any>>(
         selectedRows={selectedRows}
         selectedRowKeys={selectedRowKeys!}
         tableColumn={tableColumn}
+        propsColumns={propsColumns}
         tooltip={tooltip}
         toolbar={toolbar}
         onFormSearchSubmit={(newValues) => {
@@ -81,6 +84,7 @@ export function TableToolbar<T extends Record<string, any>>(
     selectedRowKeys,
     selectedRows,
     setFormSearch,
+    propsColumns,
     tableColumn,
     toolBarRender,
     tooltip,
