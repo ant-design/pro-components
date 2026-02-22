@@ -62,7 +62,7 @@ export default {
       save: 'Kaydet',
       cancel: 'Vazgeç',
       delete: 'Sil',
-      add: 'foegje in rige gegevens ta',
+      add: 'Bir veri satırı ekle',
     },
   },
   switch: {

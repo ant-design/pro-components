@@ -186,7 +186,7 @@ const LightFilterContainer: React.FC<{
       collapseItems: collapseItemsArr,
       outsideItems: outsideItemsArr,
     };
-  }, [items]);
+  }, [items, collapse]);
 
   const renderCollapseLabelRender = () => {
     if (collapseLabel) {
@@ -330,6 +330,7 @@ const LightFilterContainer: React.FC<{
                     (grandChild) => {
                       const { name, fieldProps: grandFieldProps } =
                         grandChild.props;
+                      if (!name) return {};
                       const newFieldProps = {
                         ...grandFieldProps,
                         onChange: (e: any) => {
