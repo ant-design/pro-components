@@ -8,7 +8,6 @@ import {
   useRefFunction,
 } from '../utils';
 import type {
-  PageInfo,
   RequestData,
   UseFetchDataAction,
   UseFetchProps,

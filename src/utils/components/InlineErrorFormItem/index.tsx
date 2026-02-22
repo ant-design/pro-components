@@ -117,7 +117,7 @@ const InternalFormItemFunction: React.FC<InternalProps & FormItemProps> = ({
             JSON.stringify(get(prev, shouldName)) !==
             JSON.stringify(get(next, shouldName))
           );
-        } catch (error) {
+        } catch (_error) {
           return true;
         }
       }}
@@ -183,7 +183,7 @@ export const InlineErrorFormItem = (props: InlineErrorFormItemProps) => {
                   JSON.stringify(get(prev, shouldName)) !==
                   JSON.stringify(get(next, shouldName))
                 );
-              } catch (error) {
+              } catch (_error) {
                 return true;
               }
             }
