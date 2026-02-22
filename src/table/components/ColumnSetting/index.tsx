@@ -150,7 +150,7 @@ const CheckboxList: React.FC<{
         columnKey: string;
       },
     ): DataNode[] =>
-      data.map(({ key, dataIndex, children, ...rest }) => {
+      data.map(({ key, dataIndex: _dataIndex, children, ...rest }) => {
         const columnKey = genColumnKey(
           key,
           [parentConfig?.columnKey, rest.index].filter(Boolean).join('-'),
@@ -302,7 +302,7 @@ const CheckboxList: React.FC<{
       height={listHeight}
       treeData={treeDataConfig.list?.map(
         ({
-          disabled /* 不透传 disabled，使子节点禁用时也可以拖动调整顺序 */,
+          disabled: _disabled /* 不透传 disabled，使子节点禁用时也可以拖动调整顺序 */,
           ...config
         }) => config,
       )}

@@ -87,7 +87,7 @@ const SortableRow = (props: any) => {
  * 拖拽排序表格的 cell，用与判断要不要展示 handle
  */
 const SortableItemCell = React.memo((props: any) => {
-  const { dragSortKey, ...rest } = props;
+  const { dragSortKey: _dragSortKey, ...rest } = props;
   const { handle } = useContext(SortableItemContextValue);
   if (handle) {
     return (

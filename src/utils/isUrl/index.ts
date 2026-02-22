@@ -11,7 +11,7 @@ export const isUrl = (path: string | undefined): boolean => {
   try {
     const url = new URL(path);
     return !!url;
-  } catch (error) {
+  } catch (_error) {
     return false;
   }
 };
