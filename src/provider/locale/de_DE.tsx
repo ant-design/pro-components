@@ -3,7 +3,7 @@ export default {
   form: {
     lightFilter: {
       more: 'Mehr',
-      clear: 'Zurücksetzen',
+      clear: 'Leeren',
       reset: 'Zurücksetzen',
       confirm: 'Bestätigen',
       itemUnit: 'Einträge',
@@ -19,7 +19,7 @@ export default {
     selectPlaceholder: 'Bitte auswählen',
   },
   alert: {
-    clear: 'Zurücksetzen',
+    clear: 'Leeren',
     selected: 'Ausgewählt',
     item: 'Eintrag',
   },
