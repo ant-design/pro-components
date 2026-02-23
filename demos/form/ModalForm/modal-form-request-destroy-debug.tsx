@@ -29,9 +29,11 @@ const Demo = () => {
       </ModalForm>
       <div style={{ height: 16 }} />
       <DrawerForm
-        title="Debug: destroyOnHidden + request (Drawer)"
         trigger={<Button type="primary">Open Drawer (Debug)</Button>}
-        drawerProps={{ destroyOnHidden: true }}
+        drawerProps={{
+          destroyOnHidden: true,
+          title: 'Debug: destroyOnHidden + request (Drawer)',
+        }}
         // Simulate async data loading
         request={async () => {
           await wait(3000);

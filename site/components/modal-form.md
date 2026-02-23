@@ -67,8 +67,5 @@ DrawerForm 组合了 Drawer 和 ProForm 可以减少繁琐的状态管理。
 | open          | 是否打开                                                                                                                             | `boolean`                        | -       |
 | onOpenChange  | open 改变时触发                                                                                                                      | `(open: boolean) => void`        | -       |
 | drawerProps   | Drawer 的 props，使用方式与 [antd](https://ant.design/components/drawer-cn/) 相同。注意：不支持传入 `open`，请使用顶层的 `open` 控制 | `Omit<DrawerProps, 'open'>`      | -       |
-| title         | 抽屉的标题                                                                                                                           | `DrawerProps['title']`           | -       |
-| width         | 抽屉的宽度（受控属性，使用时权重高于 `resize`）                                                                                      | `DrawerProps['width']`           | -       |
-| resize        | 是否允许拖拽调整抽屉宽度；为 `true` 时使用默认配置，也可以传入对象进行配置                                                           | `CustomizeResizeType \| boolean` | `false` |
 | onFinish      | 提交数据时触发，返回真值会关闭抽屉；若配置了 `destroyOnHidden` 还会在关闭后重置表单                                                  | `(values: any) => Promise<any>`  | -       |
 | submitTimeout | 提交数据时，禁用取消按钮的超时时间（毫秒）                                                                                           | `number`                         | -       |

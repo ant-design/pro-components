@@ -7,6 +7,7 @@ import {
   ProFormText,
 } from '@ant-design/pro-components';
 import { Button, Form, message } from 'antd';
+import { useState } from 'react';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -18,6 +19,7 @@ const waitTime = (time: number = 100) => {
 
 const Demo = () => {
   const [form] = Form.useForm<{ name: string; company: string }>();
+  const [size, setSize] = useState(256);
 
   return (
     <DrawerForm<{
@@ -25,14 +27,6 @@ const Demo = () => {
       company: string;
     }>
       name="modal-form-drawer-form-demo"
-      title="Create New Form"
-      resize={{
-        onResize() {
-          console.log('resize!');
-        },
-        maxWidth: window.innerWidth * 0.8,
-        minWidth: 300,
-      }}
       form={form}
       trigger={
         <Button type="primary">
@@ -42,7 +36,12 @@ const Demo = () => {
       }
       autoFocusFirstInput
       drawerProps={{
+        title: 'Create New Form',
         destroyOnHidden: true,
+        size,
+        resizable: {
+          onResize: (newSize) => setSize(newSize),
+        },
       }}
       submitTimeout={2000}
       onFinish={async (values) => {
