@@ -13,7 +13,7 @@ import {
   ProFormText,
   ProFormTimePicker,
 } from '@ant-design/pro-components';
-import { fireEvent, render, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { Space } from 'antd';
 import dayjs from 'dayjs';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
@@ -339,9 +339,7 @@ describe('LightFilter', () => {
   });
 
   it(' 🪕 should support Space wrapped fields', async () => {
-    const onFinish = vi.fn();
-
-    const { container, baseElement } = render(
+    const { container } = render(
       <LightFilter
         initialValues={{
           type: 'username',
@@ -349,7 +347,6 @@ describe('LightFilter', () => {
         }}
         variant="outlined"
         collapse
-        onFinish={onFinish}
       >
         <Space.Compact>
           <ProFormSelect
@@ -392,16 +389,13 @@ describe('LightFilter', () => {
     fireEvent.click(dropdownLabel!);
 
     await waitFor(() => {
-      // 应包含 4 个表单项：type、value、type2、value2
-      const selects = baseElement.querySelectorAll('.ant-select');
-      const inputs = baseElement.querySelectorAll('.ant-input');
-      expect(selects.length).toBeGreaterThanOrEqual(2);
-      expect(inputs.length).toBeGreaterThanOrEqual(2);
+      // 应包含至少 2 个下拉与 2 个输入框（type、value、type2、value2）
+      expect(screen.getAllByRole('combobox').length).toBeGreaterThanOrEqual(2);
+      expect(screen.getAllByRole('textbox').length).toBeGreaterThanOrEqual(2);
+      // 验证 initialValues 生效：type='username' 显示「用户名」，type2='fullName' 显示「姓名」
+      expect(screen.getByText('用户名')).toBeTruthy();
+      expect(screen.getByText('姓名')).toBeTruthy();
     });
-
-    // 验证 initialValues 生效：type='username' 显示「用户名」，type2='fullName' 显示「姓名」
-    expect(baseElement.textContent).toContain('用户名');
-    expect(baseElement.textContent).toContain('姓名');
   });
 
   it(' 🪕 should support onValuesChange callback', async () => {

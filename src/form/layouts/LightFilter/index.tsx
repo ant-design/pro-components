@@ -98,8 +98,31 @@ const isValueEmpty = (v: any): boolean => {
 };
 
 /**
+ * 对象/数组的结构相等比较（浅层，用于日期范围等对象值）
+ */
+const isShallowEqual = (a: any, b: any): boolean => {
+  if (a === b) return true;
+  if (
+    typeof a !== 'object' ||
+    a === null ||
+    typeof b !== 'object' ||
+    b === null
+  )
+    return false;
+  const keysA = Object.keys(a as object);
+  const keysB = Object.keys(b as object);
+  if (keysA.length !== keysB.length) return false;
+  return keysA.every(
+    (k) =>
+      k in (b as object) &&
+      (a as Record<string, unknown>)[k] === (b as Record<string, unknown>)[k],
+  );
+};
+
+/**
  * 判断当前表单值是否与初始值不同（用于 effective 样式）
  * 空值（undefined、null、''、[]）归一化后再比较，避免清空输入后 effective 残留
+ * 对象类型做结构比较，避免引用不等导致 effective 残留
  */
 const isValuesDifferentFromInitial = (
   values: Record<string, any>,
@@ -117,7 +140,16 @@ const isValuesDifferentFromInitial = (
       if (val.length !== initVal.length || val.some((v, i) => v !== initVal[i]))
         return true;
     } else if (valFilled && val !== initVal) {
-      return true;
+      if (
+        typeof val === 'object' &&
+        val !== null &&
+        typeof initVal === 'object' &&
+        initVal !== null
+      ) {
+        if (!isShallowEqual(val, initVal)) return true;
+      } else {
+        return true;
+      }
     }
   }
   return false;
@@ -234,9 +266,15 @@ const LightFilterContainer: React.FC<{
             : placement;
 
           if (isSpaceOrCompact(child)) {
-            const clonedSpace = cloneSpaceWithChildrenProps(
-              child,
-              (grandChild) => {
+            const spaceExtraProps = {
+              ...(child.type === Space && { size: 'small' as const }),
+              style: {
+                ...(child.props as { style?: React.CSSProperties }).style,
+                ...(child.type === Space.Compact ? { gap: 0 } : {}),
+              },
+            };
+            const clonedSpace = React.cloneElement(
+              cloneSpaceWithChildrenProps(child, (grandChild) => {
                 const grandFieldProps = grandChild.props?.fieldProps || {};
                 const grandPlacement =
                   grandFieldProps.placement ?? newPlacement;
@@ -254,20 +292,15 @@ const LightFilterContainer: React.FC<{
                   },
                   variant,
                 };
-              },
+              }),
+              spaceExtraProps,
             );
             return (
               <div
                 className={clsx(`${lightFilterClassName}-item`, hashId)}
                 key={key || index}
               >
-                {React.cloneElement(clonedSpace, {
-                  ...(child.type === Space && { size: 'small' }),
-                  style: {
-                    ...(child.props as { style?: React.CSSProperties }).style,
-                    ...(child.type === Space.Compact ? { gap: 0 } : {}),
-                  },
-                })}
+                {clonedSpace}
               </div>
             );
           }
@@ -334,10 +367,12 @@ const LightFilterContainer: React.FC<{
                       const newFieldProps = {
                         ...grandFieldProps,
                         onChange: (e: any) => {
-                          setMoreValues({
-                            ...moreValues,
-                            [name]: e?.target ? e.target.value : e,
-                          });
+                          const event = e as { target?: { value?: any } };
+                          const value = event?.target ? event.target.value : e;
+                          setMoreValues((prev) => ({
+                            ...prev,
+                            [name]: value,
+                          }));
                           return false;
                         },
                       };
@@ -365,13 +400,25 @@ const LightFilterContainer: React.FC<{
                   );
                 }
                 const { name, fieldProps } = child.props;
+                if (!name) {
+                  return (
+                    <div
+                      className={clsx(`${lightFilterClassName}-line`, hashId)}
+                      key={key}
+                    >
+                      {child}
+                    </div>
+                  );
+                }
                 const newFieldProps = {
                   ...fieldProps,
                   onChange: (e: any) => {
-                    setMoreValues({
-                      ...moreValues,
-                      [name]: e?.target ? e.target.value : e,
-                    });
+                    const event = e as { target?: { value?: any } };
+                    const value = event?.target ? event.target.value : e;
+                    setMoreValues((prev) => ({
+                      ...prev,
+                      [name]: value,
+                    }));
                     return false;
                   },
                 };
@@ -418,7 +465,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
     variant,
     footerRender,
     popoverProps,
-    ...reset
+    ...rest
   } = omit(props, ['ignoreRules']);
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-form');
@@ -454,7 +501,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
             values={values || {}}
             footerRender={footerRender}
             onValuesChange={(
-              newValues: any,
+              newValues: Record<string, any>,
               options?: { replace?: boolean },
             ) => {
               const newAllValues = options?.replace
@@ -464,7 +511,10 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
               formRef.current?.setFieldsValue(newAllValues);
               formRef.current?.submit();
               if (onValuesChange) {
-                onValuesChange(newValues, newAllValues);
+                // 第二参数应为表单当前全量值，与 antd Form.onValuesChange(changedValues, allValues) 一致
+                const allValues =
+                  formRef.current?.getFieldsValue() ?? newAllValues;
+                onValuesChange(newValues as Partial<T>, allValues as T);
               }
             }}
           />
@@ -480,7 +530,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
           width: undefined,
         },
       }}
-      {...omit(reset, ['labelWidth'] as any[])}
+      {...omit(rest, ['labelWidth'] as any[])}
       onValuesChange={(_, allValues) => {
         setValues(allValues);
         onValuesChange?.(_, allValues);
