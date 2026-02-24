@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
-import { isNil } from '../isNil';
+import isNil from 'lodash-es/isNil';
 
 dayjs.extend(customParseFormat);
 

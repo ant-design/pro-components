@@ -1,8 +1,8 @@
 import { omit } from '@rc-component/util';
 import { InputNumber } from 'antd';
+import isNil from 'lodash-es/isNil';
 import React, { useCallback } from 'react';
 import { useIntl } from '../../../provider';
-import { isNil } from '../../../utils';
 import type { ProFieldFC } from '../../PureProField';
 
 export type FieldDigitProps = {
@@ -56,11 +56,7 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
           val = numVal;
         }
       }
-      if (
-        typeof val === 'number' &&
-        !isNil(val) &&
-        !isNil(fieldProps.precision)
-      ) {
+      if (typeof val === 'number' && !isNil(fieldProps.precision)) {
         val = Number(val.toFixed(fieldProps.precision));
       }
       return val;

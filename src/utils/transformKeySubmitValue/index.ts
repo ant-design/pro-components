@@ -1,7 +1,7 @@
 import { get } from '@rc-component/util';
 import { cloneDeep } from 'lodash-es';
+import isNil from 'lodash-es/isNil';
 import React from 'react';
-import { isNil } from '../isNil';
 import type { SearchTransformKeyFn } from '../typing';
 
 export type DataFormatMapType = Record<
