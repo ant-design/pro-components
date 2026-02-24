@@ -256,7 +256,7 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
   return (
     <>
       <Drawer
-        {...drawerProps}
+        {...(drawerProps ?? {})}
         open={open}
         afterOpenChange={(open) => {
           if (!open && drawerProps?.destroyOnHidden) {
