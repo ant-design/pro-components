@@ -262,7 +262,7 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
   return (
     <>
       <Modal
-        {...modalProps}
+        {...(modalProps ?? {})}
         open={open}
         onCancel={(e) => {
           // 提交表单loading时，阻止弹框关闭
