@@ -643,4 +643,62 @@ describe('LightFilter', () => {
     );
     expect(borderedLabel).toBeTruthy();
   });
+
+  it(' 🪕 should reset Space-wrapped fields correctly in collapse mode on clear', async () => {
+    const onValuesChange = vi.fn();
+
+    const { container, baseElement } = render(
+      <LightFilter
+        initialValues={{ type: 'username', keyword: 'hello' }}
+        onValuesChange={onValuesChange}
+        collapse
+      >
+        <Space>
+          <ProFormSelect
+            name="type"
+            options={[
+              { value: 'username', label: '用户名' },
+              { value: 'email', label: '邮箱' },
+            ]}
+          />
+          <ProFormText name="keyword" placeholder="关键字" />
+        </Space>
+      </LightFilter>,
+    );
+
+    await waitFor(() => {
+      expect(
+        container.querySelector('.ant-pro-form-light-filter'),
+      ).toBeTruthy();
+    });
+
+    // 展开 popover
+    const dropdownLabel = container.querySelector(
+      '.ant-pro-core-field-dropdown-label',
+    ) as HTMLElement;
+    expect(dropdownLabel).toBeTruthy();
+    fireEvent.click(dropdownLabel);
+
+    // 等待 popover 中的输入框出现并验证初始值
+    const keywordInput = await waitFor(() => {
+      const input = baseElement.querySelector<HTMLInputElement>(
+        'input[placeholder="关键字"]',
+      );
+      expect(input).toBeTruthy();
+      return input!;
+    });
+    expect(keywordInput.value).toBe('hello');
+
+    // 触发重置（点击清除按钮）
+    const clearBtn = baseElement.querySelector(
+      '.ant-pro-core-field-dropdown-footer-clear',
+    ) as HTMLElement | null;
+    if (clearBtn) {
+      fireEvent.click(clearBtn);
+      // 重置后 Space 内受控字段的值应被清空
+      await waitFor(() => {
+        expect(keywordInput.value).toBe('');
+      });
+    }
+  });
 });

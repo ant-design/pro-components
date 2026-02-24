@@ -20,7 +20,7 @@ const handleFinish = async (values: LightFilterSpaceValues) => {
  * LightFilter 支持 Space 和 Space.Compact 包裹的字段，
  * 可将多个筛选项组合在同一行展示，常用于搜索类型+关键词等场景。
  */
-const Demo = () => (
+const LightFilterSpaceDemo = () => (
   <LightFilter
     initialValues={{
       type: 'username',
@@ -56,7 +56,7 @@ const Demo = () => (
 
 const LightFilterSpacePage = () => (
   <div style={{ padding: 24 }}>
-    <Demo />
+    <LightFilterSpaceDemo />
   </div>
 );
 

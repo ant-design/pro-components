@@ -19,7 +19,7 @@ const handleFinish = async (values: LightFilterSpaceCollapseValues) => {
 /**
  * 折叠模式下，Space 和 Space.Compact 包裹的字段会整体放入「更多筛选」弹层。
  */
-const Demo = () => (
+const LightFilterSpaceCollapseDemo = () => (
   <LightFilter
     initialValues={{
       type: 'username',
@@ -56,7 +56,7 @@ const Demo = () => (
 
 const LightFilterSpaceCollapsePage = () => (
   <div style={{ padding: 24 }}>
-    <Demo />
+    <LightFilterSpaceCollapseDemo />
   </div>
 );
 
