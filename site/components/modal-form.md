@@ -66,6 +66,6 @@ DrawerForm 组合了 Drawer 和 ProForm 可以减少繁琐的状态管理。
 | trigger       | 用于触发抽屉打开的 dom，一般是 Button                                                                                                | `JSX.Element`                    | -       |
 | open          | 是否打开                                                                                                                             | `boolean`                        | -       |
 | onOpenChange  | open 改变时触发                                                                                                                      | `(open: boolean) => void`        | -       |
-| drawerProps   | Drawer 的 props，使用方式与 [antd](https://ant-design.antgroup.com/components/drawer#api) 相同。注意：不支持传入 `open`，请使用顶层的 `open` 控制 | `Omit<DrawerProps, 'open'>`      | -       |
+| drawerProps   | Drawer 的 props，使用方式与 [antd](https://ant.designcomponents/drawer#api) 相同。注意：不支持传入 `open`，请使用顶层的 `open` 控制 | `Omit<DrawerProps, 'open'>`      | -       |
 | onFinish      | 提交数据时触发，返回真值会关闭抽屉；若配置了 `destroyOnHidden` 还会在关闭后重置表单                                                  | `(values: any) => Promise<any>`  | -       |
 | submitTimeout | 提交数据时，禁用取消按钮的超时时间（毫秒）                                                                                           | `number`                         | -       |

@@ -48,7 +48,7 @@ export type DrawerFormProps<
     /** @name 打开关闭的事件 */
     onOpenChange?: (open: boolean) => void;
 
-    /** @name antd的Drawer组件[props](https://ant-design.antgroup.com/components/drawer#api) */
+    /** @name antd的Drawer组件[props](https://ant.design/components/drawer#api) */
     drawerProps?: Omit<DrawerProps, 'open'>;
   };
 
