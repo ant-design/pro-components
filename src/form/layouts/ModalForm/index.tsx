@@ -48,14 +48,8 @@ export type ModalFormProps<
     /** @name 打开关闭的事件 */
     onOpenChange?: (open: boolean) => void;
 
-    /** @name 弹框的属性 */
+    /** @description antd Modal [props](https://ant.design/components/modal#api) */
     modalProps?: Omit<ModalProps, 'open'>;
-
-    /** @name 弹框的标题 */
-    title?: ModalProps['title'];
-
-    /** @name 弹框的宽度 */
-    width?: ModalProps['width'];
   };
 
 function ModalForm<T = Record<string, any>, U = Record<string, any>>({
@@ -65,8 +59,6 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
   modalProps,
   onFinish,
   submitTimeout,
-  title,
-  width,
   open: propsOpen,
   ...rest
 }: ModalFormProps<T, U>) {
@@ -270,8 +262,6 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
   return (
     <>
       <Modal
-        title={title}
-        width={width || 800}
         {...modalProps}
         open={open}
         onCancel={(e) => {

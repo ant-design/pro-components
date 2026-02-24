@@ -8,9 +8,11 @@ const Demo = () => {
   return (
     <>
       <ModalForm
-        title="Debug: destroyOnHidden + request"
         trigger={<Button type="primary">Open (Debug)</Button>}
-        modalProps={{ destroyOnHidden: true }}
+        modalProps={{
+          destroyOnHidden: true,
+          title: 'Debug: destroyOnHidden + request',
+        }}
         // Simulate async data loading
         request={async () => {
           await wait(3000);

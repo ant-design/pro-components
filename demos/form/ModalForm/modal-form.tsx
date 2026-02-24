@@ -24,7 +24,6 @@ const Demo = () => {
       company: string;
     }>
       name="modal-form-demo"
-      title="Create New Form"
       trigger={
         <Button type="primary">
           <PlusOutlined />
@@ -36,6 +35,7 @@ const Demo = () => {
       modalProps={{
         destroyOnHidden: true,
         onCancel: () => console.log('run'),
+        title: 'Create New Form',
       }}
       submitTimeout={2000}
       onFinish={async (values) => {
