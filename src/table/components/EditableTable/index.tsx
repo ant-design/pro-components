@@ -207,7 +207,7 @@ function handlePaginationInsert<DataType>(
   return result;
 }
 
-function useEditableDataSource<DataType>({
+function _useEditableDataSource<DataType>({
   actionDataSource,
   editableUtils,
   pagination,
@@ -451,15 +451,15 @@ function EditableTable<
   const {
     onTableChange,
     maxLength,
-    formItemProps,
+    formItemProps: _formItemProps,
     recordCreatorProps,
     rowKey,
-    controlled,
+    controlled: _controlled,
     defaultValue,
-    onChange,
+    onChange: _onChange,
     editableFormRef,
     // @ts-ignore
-    autoFocus,
+    autoFocus: _autoFocus,
     ...rest
   } = props;
 
@@ -822,7 +822,7 @@ function EditableTable<
   const { position } = recordCreatorProps || {};
   const isTop = position === 'top';
 
-  const { creatorButtonDom, buttonRenderProps } = useCreatorButton<DataType>({
+  const { buttonRenderProps } = useCreatorButton<DataType>({
     recordCreatorProps,
     maxLength,
     value,
@@ -1004,7 +1004,7 @@ function FieldEditableTable<
           return (
             JSON.stringify(get(prev, name)) !== JSON.stringify(get(next, name))
           );
-        } catch (error) {
+        } catch (_error) {
           return true;
         }
       }}
