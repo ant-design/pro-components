@@ -450,8 +450,8 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   const prefixCls = props.prefixCls ?? context.getPrefixCls('pro');
 
   const [menuLoadingState, _setMenuLoadingInner] = useControlledState(
-    false,
     menu?.loading,
+    { defaultValue: false },
   );
 
   /**
