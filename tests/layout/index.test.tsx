@@ -65,7 +65,16 @@ describe('BasicLayout', () => {
           },
         ]}
         menuItemRender={(item, dom) => (
-          <div onClick={() => item.path}>{dom}</div>
+          <div
+            role="button"
+            tabIndex={0}
+            onClick={() => void item.path}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') void item.path;
+            }}
+          >
+            {dom}
+          </div>
         )}
       />,
     );
@@ -547,7 +556,15 @@ describe('BasicLayout', () => {
       <ProLayout
         siderWidth={undefined}
         logo={
-          <div onClick={onLogoClick} id="test_log">
+          <div
+            role="button"
+            tabIndex={0}
+            onClick={onLogoClick}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') onLogoClick();
+            }}
+            id="test_log"
+          >
             Logo
           </div>
         }
@@ -1250,14 +1267,22 @@ describe('BasicLayout', () => {
           }}
           location={{ pathname }}
           menuItemRender={(item, dom) => (
-            <a
+            <button
+              type="button"
+              style={{
+                background: 'none',
+                border: 'none',
+                padding: 0,
+                font: 'inherit',
+                cursor: 'pointer',
+              }}
               onClick={() => {
                 item.onClick();
                 setPathname(item.path || '/welcome');
               }}
             >
               {dom}
-            </a>
+            </button>
           )}
           menuDataRender={() => [
             {
@@ -1338,14 +1363,22 @@ describe('BasicLayout', () => {
           onSelect={fn}
           location={{ pathname }}
           menuItemRender={(item, dom) => (
-            <a
+            <button
+              type="button"
+              style={{
+                background: 'none',
+                border: 'none',
+                padding: 0,
+                font: 'inherit',
+                cursor: 'pointer',
+              }}
               onClick={() => {
                 item.onClick();
                 setPathname(item.path || '/welcome');
               }}
             >
               {dom}
-            </a>
+            </button>
           )}
           menuDataRender={() => [
             {
@@ -1565,14 +1598,22 @@ describe('BasicLayout', () => {
           }}
           location={{ pathname }}
           menuItemRender={(item, dom) => (
-            <a
+            <button
+              type="button"
+              style={{
+                background: 'none',
+                border: 'none',
+                padding: 0,
+                font: 'inherit',
+                cursor: 'pointer',
+              }}
               onClick={() => {
                 item.onClick();
                 setPathname(item.path || '/welcome');
               }}
             >
               {dom}
-            </a>
+            </button>
           )}
           menuDataRender={() => [
             {
@@ -1659,14 +1700,22 @@ describe('BasicLayout', () => {
           }}
           location={{ pathname }}
           menuItemRender={(item, dom) => (
-            <a
+            <button
+              type="button"
+              style={{
+                background: 'none',
+                border: 'none',
+                padding: 0,
+                font: 'inherit',
+                cursor: 'pointer',
+              }}
               onClick={() => {
                 item?.onClick?.();
                 setPathname(item.path || '/welcome');
               }}
             >
               {dom}
-            </a>
+            </button>
           )}
           menuDataRender={() => [
             {

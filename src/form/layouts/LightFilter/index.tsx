@@ -110,6 +110,32 @@ const LightFilterContainer: React.FC<{
     ...values,
   }));
 
+  const collapseLabelNode = useMemo(() => {
+    if (collapseLabel) return collapseLabel;
+    if (collapse) {
+      return (
+        <FilterOutlined
+          className={clsx(`${lightFilterClassName}-collapse-icon`, hashId)}
+        />
+      );
+    }
+    return (
+      <FieldLabel
+        variant={variant}
+        size={size}
+        label={intl.getMessage('form.lightFilter.more', '更多筛选')}
+      />
+    );
+  }, [
+    collapseLabel,
+    collapse,
+    lightFilterClassName,
+    hashId,
+    variant,
+    size,
+    intl,
+  ]);
+
   const { collapseItems, outsideItems } = useMemo(() => {
     const collapseItemsArr: React.ReactNode[] = [];
     const outsideItemsArr: React.ReactNode[] = [];
@@ -126,26 +152,6 @@ const LightFilterContainer: React.FC<{
       outsideItems: outsideItemsArr,
     };
   }, [props.items]);
-
-  const renderCollapseLabelRender = () => {
-    if (collapseLabel) {
-      return collapseLabel;
-    }
-    if (collapse) {
-      return (
-        <FilterOutlined
-          className={clsx(`${lightFilterClassName}-collapse-icon`, hashId)}
-        />
-      );
-    }
-    return (
-      <FieldLabel
-        variant={variant}
-        size={size}
-        label={intl.getMessage('form.lightFilter.more', '更多筛选')}
-      />
-    );
-  };
 
   return wrapSSR(
     <div
@@ -208,7 +214,7 @@ const LightFilterContainer: React.FC<{
               }}
               placement={placement}
               popoverProps={popoverProps}
-              label={renderCollapseLabelRender()}
+                label={collapseLabelNode}
               footerRender={footerRender}
               footer={{
                 onConfirm: () => {

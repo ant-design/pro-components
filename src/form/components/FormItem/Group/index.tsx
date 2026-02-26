@@ -166,10 +166,18 @@ const Group: React.FC<ProFormGroupProps> = React.forwardRef(
           {hiddenDoms}
           {(title || tooltip || extra) && (
             <div
+              role="button"
+              tabIndex={0}
               className={clsx(`${className}-title`, hashId)}
               style={titleStyle}
               onClick={() => {
                 setCollapsed(!collapsed);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  setCollapsed(!collapsed);
+                }
               }}
             >
               {extra ? (
@@ -182,7 +190,13 @@ const Group: React.FC<ProFormGroupProps> = React.forwardRef(
                   }}
                 >
                   {titleDom}
-                  <span onClick={(e) => e.stopPropagation()}>{extra}</span>
+                  <span
+                    role="presentation"
+                    onClick={(e) => e.stopPropagation()}
+                    onKeyDown={(e) => e.stopPropagation()}
+                  >
+                    {extra}
+                  </span>
                 </div>
               ) : (
                 titleDom

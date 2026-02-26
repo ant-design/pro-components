@@ -329,8 +329,16 @@ const Demo = () => {
         }}
         menuItemRender={(item, dom) => (
           <div
+            role="button"
+            tabIndex={0}
             onClick={() => {
               setPathname(item.path || '/welcome');
+            }}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                setPathname(item.path || '/welcome');
+              }
             }}
           >
             {dom}
@@ -338,14 +346,20 @@ const Demo = () => {
         )}
         headerTitleRender={(logo, title, _) => {
           const defaultDom = (
-            <a
-              onClick={() => {
-                console.log('titheaderTitle clicked');
+            <button
+              type="button"
+              style={{
+                background: 'none',
+                border: 'none',
+                padding: 0,
+                font: 'inherit',
+                cursor: 'pointer',
               }}
+              onClick={() => console.log('titheaderTitle clicked')}
             >
               {logo}
               {title}
-            </a>
+            </button>
           );
           if (
             typeof document === 'undefined' ||
