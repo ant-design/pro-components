@@ -2,7 +2,7 @@
  * 内部 List 容器与 List.Item / List.Item.Meta 实现，用于替代 antd List（antd List 已停止维护）
  * 保持与 antd List 相同的 DOM 结构及类名，以便复用 antd 的 list 样式
  */
-import { ConfigProvider, Empty, Grid, Pagination } from 'antd';
+import { ConfigProvider, Empty, Grid, Pagination, Spin } from 'antd';
 import type { PaginationConfig } from 'antd/lib/pagination';
 import { clsx } from 'clsx';
 import React, { useContext, useMemo } from 'react';
@@ -445,7 +445,7 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps<any>>(
     } else if (!children && !isLoading) {
       const emptyContent = locale?.emptyText ??
         (typeof renderEmpty === 'function' ? renderEmpty('List') : null) ?? (
-          <Empty description="暂无数据" />
+          <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
         );
       childrenContent = (
         <div className={`${prefixCls}-empty-text`}>{emptyContent}</div>
@@ -508,13 +508,15 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps<any>>(
     return (
       <ProListContext.Provider value={contextValue}>
         <div ref={ref} style={style} className={classString} {...rest}>
-          {showPaginationTop && paginationNode}
-          {header && <div className={`${prefixCls}-header`}>{header}</div>}
-          {childrenContent}
-          {children}
-          {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
-          {loadMore}
-          {showPaginationBottom && paginationNode}
+          <Spin spinning={isLoading}>
+            {showPaginationTop && paginationNode}
+            {header && <div className={`${prefixCls}-header`}>{header}</div>}
+            {childrenContent}
+            {children}
+            {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
+            {loadMore}
+            {showPaginationBottom && paginationNode}
+          </Spin>
         </div>
       </ProListContext.Provider>
     );
