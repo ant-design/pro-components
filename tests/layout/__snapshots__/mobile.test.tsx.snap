@@ -472,10 +472,11 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
                           />
                         </div>
                         <ul
-                          class="ant-menu ant-menu-sub ant-menu-inline"
+                          class="ant-menu ant-menu-sub ant-menu-inline ant-motion-collapse-enter ant-motion-collapse-enter-active ant-motion-collapse"
                           data-menu-list="true"
                           id="rc-menu-uuid-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925-popup"
                           role="menu"
+                          style="height: 0px; opacity: 1;"
                         >
                           <li
                             class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-inline-submenu"
