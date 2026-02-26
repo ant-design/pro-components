@@ -16,7 +16,7 @@ const FullScreenIcon = React.forwardRef<HTMLSpanElement>((_, ref) => {
     };
   }, []);
   return fullscreen ? (
-    <Tooltip title={intl.getMessage('tableToolBar.exitFullScreen', '全屏')}>
+    <Tooltip title={intl.getMessage('tableToolBar.exitFullScreen', '退出全屏')}>
       <span ref={ref}>
         <FullscreenExitOutlined />
       </span>
