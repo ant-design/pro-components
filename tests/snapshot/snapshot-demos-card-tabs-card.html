@@ -1,0 +1,263 @@
+<DocumentFragment>
+  <div>
+    test
+  </div>
+  <div
+    style="padding: 24px;"
+  >
+    <div
+      class="ant-pro-card ant-pro-card-border"
+    >
+      <div
+        class="ant-pro-card-tabs"
+      >
+        <div
+          class="ant-tabs ant-tabs-top ant-tabs-card pro ant-tabs-css-var"
+        >
+          <div
+            aria-orientation="horizontal"
+            class="ant-tabs-nav"
+            role="tablist"
+          >
+            <div
+              class="ant-tabs-nav-wrap"
+            >
+              <div
+                class="ant-tabs-nav-list"
+                style="transform: translate(0px, 0px);"
+              >
+                <div
+                  class="ant-tabs-tab ant-tabs-tab-active"
+                  data-node-key="tab1"
+                >
+                  <div
+                    aria-controls="rc-tabs-test-panel-tab1"
+                    aria-selected="true"
+                    class="ant-tabs-tab-btn"
+                    id="rc-tabs-test-tab-tab1"
+                    role="tab"
+                    tabindex="0"
+                  >
+                    Product One
+                  </div>
+                </div>
+                <div
+                  class="ant-tabs-tab"
+                  data-node-key="tab2"
+                >
+                  <div
+                    aria-controls="rc-tabs-test-panel-tab2"
+                    aria-selected="false"
+                    class="ant-tabs-tab-btn"
+                    id="rc-tabs-test-tab-tab2"
+                    role="tab"
+                    tabindex="-1"
+                  >
+                    Product Two
+                  </div>
+                </div>
+                <div
+                  class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+                  style="width: 0px; left: 0px; transform: translateX(-50%);"
+                />
+              </div>
+            </div>
+            <div
+              class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+            >
+              <button
+                aria-controls="rc-tabs-test-more-popup"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                class="ant-tabs-nav-more"
+                id="rc-tabs-test-more"
+                style="visibility: hidden; order: 1;"
+                type="button"
+              >
+                <span
+                  aria-label="ellipsis"
+                  class="anticon anticon-ellipsis"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="ellipsis"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-content-holder"
+          >
+            <div
+              class="ant-tabs-content ant-tabs-content-top"
+            >
+              <div
+                aria-hidden="false"
+                aria-labelledby="rc-tabs-test-tab-tab1"
+                class="ant-tabs-tabpane ant-tabs-tabpane-active"
+                id="rc-tabs-test-panel-tab1"
+                role="tabpanel"
+                tabindex="0"
+              >
+                Content One
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      style="margin-top: 20px; padding: 20px; background-color: #f5f5f5; border-radius: 6px;"
+    >
+      <h4>
+        ProCard Tabs Card 类型 Props 说明：
+      </h4>
+      <ul>
+        <li>
+          <strong>
+            tabs.type
+          </strong>
+          : 标签页类型，'card' 表示卡片式标签页
+        </li>
+        <li>
+          <strong>
+            tabs.items
+          </strong>
+          : 标签页配置数组
+        </li>
+      </ul>
+      <h4>
+        Tab Item 配置：
+      </h4>
+      <ul>
+        <li>
+          <strong>
+            key
+          </strong>
+          : 标签页的唯一标识
+        </li>
+        <li>
+          <strong>
+            label
+          </strong>
+          : 标签页标题
+        </li>
+        <li>
+          <strong>
+            children
+          </strong>
+          : 标签页内容
+        </li>
+      </ul>
+      <h4>
+        Card 类型特点：
+      </h4>
+      <ul>
+        <li>
+          <strong>
+            卡片样式
+          </strong>
+          : 标签页以卡片形式显示
+        </li>
+        <li>
+          <strong>
+            视觉分离
+          </strong>
+          : 每个标签页都有独立的卡片边框
+        </li>
+        <li>
+          <strong>
+            突出显示
+          </strong>
+          : 当前选中的标签页更加突出
+        </li>
+      </ul>
+      <h4>
+        与其他类型的区别：
+      </h4>
+      <ul>
+        <li>
+          <strong>
+            line 类型
+          </strong>
+          : 默认类型，使用下划线标识当前标签
+        </li>
+        <li>
+          <strong>
+            card 类型
+          </strong>
+          : 使用卡片样式，视觉分离更明显
+        </li>
+        <li>
+          <strong>
+            editable-card 类型
+          </strong>
+          : 可编辑的卡片式标签页
+        </li>
+      </ul>
+      <h4>
+        使用场景：
+      </h4>
+      <ul>
+        <li>
+          <strong>
+            产品展示
+          </strong>
+          : 展示不同产品的详细信息
+        </li>
+        <li>
+          <strong>
+            功能模块
+          </strong>
+          : 展示不同的功能模块
+        </li>
+        <li>
+          <strong>
+            内容分类
+          </strong>
+          : 对内容进行分类展示
+        </li>
+        <li>
+          <strong>
+            设置页面
+          </strong>
+          : 不同设置选项的展示
+        </li>
+      </ul>
+      <h4>
+        最佳实践：
+      </h4>
+      <ul>
+        <li>
+          <strong>
+            标签清晰
+          </strong>
+          : 确保标签标题清晰易懂
+        </li>
+        <li>
+          <strong>
+            内容相关
+          </strong>
+          : 确保标签页内容与标题相关
+        </li>
+        <li>
+          <strong>
+            数量控制
+          </strong>
+          : 避免过多的标签页影响用户体验
+        </li>
+      </ul>
+    </div>
+  </div>
+</DocumentFragment>
