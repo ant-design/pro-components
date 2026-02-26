@@ -1,6 +1,6 @@
 import { PlusOutlined } from '@ant-design/icons';
 import { get, set, useControlledState } from '@rc-component/util';
-import type { ButtonProps, FormItemProps, TablePaginationConfig } from 'antd';
+import type { ButtonProps, FormItemProps } from 'antd';
 import { Button, Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
 import type { GetRowKey } from 'antd/lib/table/interface';
@@ -21,10 +21,6 @@ import {
   useDeepCompareEffect,
   useRefFunction,
 } from '../../../utils';
-import {
-  editableRowByKey,
-  recordKeyToString,
-} from '../../../utils/useEditableArray';
 import ProTable from '../../Table';
 import type { ActionType, ProTableProps } from '../../typing';
 
@@ -151,125 +147,6 @@ function RecordCreator<T = Record<string, any>>(
       }
     },
   });
-}
-
-/**
- * 处理嵌套行的新增
- */
-function handleNestedRowInsert<DataType>(
-  baseData: DataType[],
-  defaultValue: DataType,
-  newLineOptions: {
-    parentKey?: React.Key;
-    recordKey?: React.Key;
-    position?: 'top' | 'bottom' | string;
-  },
-  getRowKey: GetRowKey<any>,
-  childrenColumnName: string,
-): DataType[] {
-  if (!newLineOptions.recordKey) {
-    return baseData;
-  }
-
-  const actionProps = {
-    data: baseData,
-    getRowKey,
-    row: {
-      ...defaultValue,
-      map_row_parentKey: recordKeyToString(
-        newLineOptions.parentKey!,
-      )?.toString(),
-    },
-    key: newLineOptions.recordKey,
-    childrenColumnName,
-  };
-
-  return editableRowByKey(
-    actionProps,
-    newLineOptions.position === 'top' ? 'top' : 'update',
-  );
-}
-
-/**
- * 处理分页场景下的新增
- */
-function handlePaginationInsert<DataType>(
-  baseData: DataType[],
-  defaultValue: DataType,
-  pageConfig: TablePaginationConfig,
-): DataType[] {
-  if (pageConfig.pageSize! > baseData.length) {
-    return [...baseData, defaultValue];
-  }
-  const insertIndex = pageConfig.current! * pageConfig.pageSize! - 1;
-  const result = [...baseData];
-  result.splice(insertIndex, 0, defaultValue);
-  return result;
-}
-
-function _useEditableDataSource<DataType>({
-  actionDataSource,
-  editableUtils,
-  pagination,
-  getRowKey,
-  childrenColumnName,
-}: {
-  actionDataSource: readonly DataType[] | undefined;
-  editableUtils: {
-    newLineRecord?: {
-      options?: {
-        position?: 'top' | 'bottom' | string;
-        parentKey?: React.Key;
-        recordKey?: React.Key;
-      };
-      defaultValue?: DataType;
-    };
-  };
-  pagination: false | TablePaginationConfig | undefined;
-  getRowKey: GetRowKey<any>;
-  childrenColumnName?: string;
-}): DataType[] {
-  return useMemo(() => {
-    const newLineConfig = editableUtils?.newLineRecord;
-    const baseData = Array.isArray(actionDataSource)
-      ? [...actionDataSource]
-      : [];
-
-    if (!newLineConfig?.defaultValue) {
-      return baseData;
-    }
-
-    const { options: newLineOptions, defaultValue } = newLineConfig;
-
-    if (newLineOptions?.parentKey) {
-      return handleNestedRowInsert(
-        baseData,
-        defaultValue,
-        newLineOptions,
-        getRowKey,
-        childrenColumnName || 'children',
-      );
-    }
-
-    if (newLineOptions?.position === 'top') {
-      return [defaultValue, ...baseData];
-    }
-
-    const pageConfig =
-      pagination && typeof pagination === 'object' ? pagination : undefined;
-
-    if (pageConfig?.current && pageConfig?.pageSize) {
-      return handlePaginationInsert(baseData, defaultValue, pageConfig);
-    }
-
-    return [...baseData, defaultValue];
-  }, [
-    actionDataSource,
-    childrenColumnName,
-    editableUtils?.newLineRecord,
-    getRowKey,
-    pagination,
-  ]);
 }
 
 /**

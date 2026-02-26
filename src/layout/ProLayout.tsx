@@ -99,9 +99,9 @@ export type ProLayoutProps = GlobalTypes & {
    * @name logo 的配置，可以配置url，React 组件 和 false
    *
    * @example 设置 logo 为网络地址  logo="https://avatars1.githubusercontent.com/u/8186664?s=460&v=4"
-   * @example 设置 logo 为组件  logo={<img src="https://avatars1.githubusercontent.com/u/8186664?s=460&v=4"/>}
+   * @example 设置 logo 为组件  logo={<img src="https://avatars1.githubusercontent.com/u/8186664?s=460&v=4" alt="" />}
    * @example 设置 logo 为 false 不显示 logo  logo={false}
-   * @example 设置 logo 为 方法  logo={()=> <img src="https://avatars1.githubusercontent.com/u/8186664?s=460&v=4"/> }
+   * @example 设置 logo 为 方法  logo={()=> <img src="https://avatars1.githubusercontent.com/u/8186664?s=460&v=4" alt="" /> }
    * */
   logo?:
     | React.ReactNode
@@ -449,7 +449,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
 
   const prefixCls = props.prefixCls ?? context.getPrefixCls('pro');
 
-  const [menuLoading, setMenuLoadingInner] = useControlledState(
+  const [menuLoadingState, _setMenuLoadingInner] = useControlledState(
     false,
     menu?.loading,
   );
@@ -460,26 +460,6 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   const menuOnLoadingChange = useRefFunction((loading: boolean) => {
     menu?.onLoadingChange?.(loading);
   });
-
-  /**
-   * 包装 setMenuLoading，使用 queueMicrotask 延迟回调调用
-   * 避免在渲染阶段调用外部回调导致的 React 警告
-   */
-  const setMenuLoading = useCallback(
-    (updater: boolean | ((prev: boolean) => boolean)) => {
-      setMenuLoadingInner((prev) => {
-        const next =
-          typeof updater === 'function'
-            ? (updater as (p: boolean) => boolean)(prev)
-            : updater;
-        queueMicrotask(() => {
-          menuOnLoadingChange(next);
-        });
-        return next;
-      });
-    },
-    [menuOnLoadingChange],
-  );
 
   // give a default key for swr
   const [defaultId] = useState(() => {
@@ -517,13 +497,16 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   const { data, mutate, isLoading } = useSWR(
     [defaultId, menu?.params],
     async ([, params]) => {
-      setMenuLoading(true);
-      const menuDataItems = await menu?.request?.(
-        params || {},
-        route?.children || route?.routes || [],
-      );
-      setMenuLoading(false);
-      return menuDataItems;
+      menuOnLoadingChange(true);
+      try {
+        const menuDataItems = await menu?.request?.(
+          params || {},
+          route?.children || route?.routes || [],
+        );
+        return menuDataItems;
+      } finally {
+        menuOnLoadingChange(false);
+      }
     },
     {
       revalidateOnFocus: false,
@@ -532,9 +515,8 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     },
   );
 
-  useEffect(() => {
-    setMenuLoading(isLoading);
-  }, [isLoading]);
+  const menuLoading =
+    menu?.loading ?? (menu?.request ? isLoading : menuLoadingState);
 
   const { cache } = useSWRConfig();
   useEffect(() => {
@@ -779,6 +761,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
           <img
             key={index}
             src={item.src}
+            alt=""
             style={{
               position: 'absolute',
               ...item,

@@ -143,6 +143,7 @@ const Group: React.FC<ProFormGroupProps> = React.forwardRef(
         </RowWrapper>,
         hiddenChildren.length > 0 ? (
           <div
+            key="hidden"
             style={{
               display: 'none',
             }}

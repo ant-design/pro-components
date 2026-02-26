@@ -176,7 +176,7 @@ const MenuCard = () => {
                     }
                   `}
                 >
-                  <img src="https://gw.alipayobjects.com/zos/antfincdn/6FTGmLLmN/bianzu%25252013.svg" />
+                  <img src="https://gw.alipayobjects.com/zos/antfincdn/6FTGmLLmN/bianzu%25252013.svg" alt="" />
                   <div
                     style={{
                       marginInlineStart: 14,

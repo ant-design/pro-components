@@ -191,7 +191,7 @@ const MenuCard = () => {
                     }
                   `}
                 >
-                  <img src="https://gw.alipayobjects.com/zos/antfincdn/6FTGmLLmN/bianzu%25252013.svg" />
+                  <img src="https://gw.alipayobjects.com/zos/antfincdn/6FTGmLLmN/bianzu%25252013.svg" alt="" />
                   <div
                     style={{
                       marginInlineStart: 14,
@@ -377,7 +377,7 @@ const Demo = () => {
               if (typeof window === 'undefined') return [];
               return [
                 props.layout !== 'side' && document.body.clientWidth > 1400 ? (
-                  <SearchInput />
+                  <SearchInput key="SearchInput" />
                 ) : undefined,
                 <InfoCircleFilled key="InfoCircleFilled" />,
                 <QuestionCircleFilled key="QuestionCircleFilled" />,

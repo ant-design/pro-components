@@ -110,7 +110,7 @@ function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
   const logoDom = useMemo(() => {
     if (!logo) return null;
     if (typeof logo === 'string') {
-      return <img src={logo} />;
+      return <img src={logo} alt="" />;
     }
     return logo;
   }, [logo]);

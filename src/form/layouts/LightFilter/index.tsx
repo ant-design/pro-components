@@ -106,12 +106,9 @@ const LightFilterContainer: React.FC<{
   const { wrapSSR, hashId } = useStyle(lightFilterClassName);
 
   const [open, setOpen] = useState<boolean>(false);
-  const [moreValues, setMoreValues] = useState<Record<string, any>>(() => {
-    return { ...values };
-  });
-  useEffect(() => {
-    setMoreValues({ ...values });
-  }, [values]);
+  const [moreValues, setMoreValues] = useState<Record<string, any>>(() => ({
+    ...values,
+  }));
 
   const { collapseItems, outsideItems } = useMemo(() => {
     const collapseItemsArr: React.ReactNode[] = [];
@@ -306,6 +303,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
       contentRender={(items) => {
         return (
           <LightFilterContainer
+            key={JSON.stringify(values || {})}
             prefixCls={prefixCls}
             items={items?.flatMap((item: any) => {
               if (!item || !item?.type) return item;
