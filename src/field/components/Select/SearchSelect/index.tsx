@@ -141,8 +141,8 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
   } = fieldNames || {};
 
   const [searchValue, setSearchValue] = useControlledState(
-    defaultSearchValue,
     propsSearchValue,
+    { defaultValue: defaultSearchValue },
   );
 
   const selectRef = useRef<any>();
