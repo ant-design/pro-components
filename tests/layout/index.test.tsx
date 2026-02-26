@@ -56,6 +56,7 @@ describe('BasicLayout', () => {
   });
 
   it('🐞 menuItemRender clickable area should follow full title content', async () => {
+    const handleMenuItemClick = vi.fn();
     const wrapper = render(
       <ProLayout
         menuDataRender={() => [
@@ -65,7 +66,17 @@ describe('BasicLayout', () => {
           },
         ]}
         menuItemRender={(item, dom) => (
-          <div onClick={() => item.path}>{dom}</div>
+          <div
+            role="button"
+            tabIndex={0}
+            onClick={() => handleMenuItemClick(item.path)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ')
+                handleMenuItemClick(item.path);
+            }}
+          >
+            {dom}
+          </div>
         )}
       />,
     );
@@ -298,7 +309,7 @@ describe('BasicLayout', () => {
               {
                 title: '前端应用框架',
                 icon: () => (
-                  <img src="https://img.alicdn.com/tfs/TB1zomHwxv1gK0jSZFFXXb0sXXa-200-200.png" />
+                  <img src="https://img.alicdn.com/tfs/TB1zomHwxv1gK0jSZFFXXb0sXXa-200-200.png" alt="" />
                 ),
                 url: 'https://umijs.org/zh-CN/docs',
               },
@@ -547,7 +558,15 @@ describe('BasicLayout', () => {
       <ProLayout
         siderWidth={undefined}
         logo={
-          <div onClick={onLogoClick} id="test_log">
+          <div
+            role="button"
+            tabIndex={0}
+            onClick={onLogoClick}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') onLogoClick();
+            }}
+            id="test_log"
+          >
             Logo
           </div>
         }
@@ -1250,14 +1269,22 @@ describe('BasicLayout', () => {
           }}
           location={{ pathname }}
           menuItemRender={(item, dom) => (
-            <a
+            <button
+              type="button"
+              style={{
+                background: 'none',
+                border: 'none',
+                padding: 0,
+                font: 'inherit',
+                cursor: 'pointer',
+              }}
               onClick={() => {
                 item.onClick();
                 setPathname(item.path || '/welcome');
               }}
             >
               {dom}
-            </a>
+            </button>
           )}
           menuDataRender={() => [
             {
@@ -1338,14 +1365,22 @@ describe('BasicLayout', () => {
           onSelect={fn}
           location={{ pathname }}
           menuItemRender={(item, dom) => (
-            <a
+            <button
+              type="button"
+              style={{
+                background: 'none',
+                border: 'none',
+                padding: 0,
+                font: 'inherit',
+                cursor: 'pointer',
+              }}
               onClick={() => {
                 item.onClick();
                 setPathname(item.path || '/welcome');
               }}
             >
               {dom}
-            </a>
+            </button>
           )}
           menuDataRender={() => [
             {
@@ -1565,14 +1600,22 @@ describe('BasicLayout', () => {
           }}
           location={{ pathname }}
           menuItemRender={(item, dom) => (
-            <a
+            <button
+              type="button"
+              style={{
+                background: 'none',
+                border: 'none',
+                padding: 0,
+                font: 'inherit',
+                cursor: 'pointer',
+              }}
               onClick={() => {
                 item.onClick();
                 setPathname(item.path || '/welcome');
               }}
             >
               {dom}
-            </a>
+            </button>
           )}
           menuDataRender={() => [
             {
@@ -1659,14 +1702,22 @@ describe('BasicLayout', () => {
           }}
           location={{ pathname }}
           menuItemRender={(item, dom) => (
-            <a
+            <button
+              type="button"
+              style={{
+                background: 'none',
+                border: 'none',
+                padding: 0,
+                font: 'inherit',
+                cursor: 'pointer',
+              }}
               onClick={() => {
                 item?.onClick?.();
                 setPathname(item.path || '/welcome');
               }}
             >
               {dom}
-            </a>
+            </button>
           )}
           menuDataRender={() => [
             {

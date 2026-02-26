@@ -123,7 +123,7 @@ export function LoginFormPage<T = Record<string, any>>(
   const logoDom = useMemo(() => {
     if (!logo) return null;
     if (typeof logo === 'string') {
-      return <img src={logo} />;
+      return <img src={logo} alt="" />;
     }
     return logo;
   }, [logo]);

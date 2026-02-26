@@ -18,7 +18,7 @@ const AppGroupList: any = [
       },
       {
         icon: () => (
-          <img src="https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg" />
+          <img src="https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg" alt="" />
         ),
         title: 'Pro Components',
         url: 'https://procomponents.ant.design/',

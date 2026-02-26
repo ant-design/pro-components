@@ -191,7 +191,7 @@ const MenuCard = () => {
                     }
                   `}
                 >
-                  <img src="https://gw.alipayobjects.com/zos/antfincdn/6FTGmLLmN/bianzu%25252013.svg" />
+                  <img src="https://gw.alipayobjects.com/zos/antfincdn/6FTGmLLmN/bianzu%25252013.svg" alt="" />
                   <div
                     style={{
                       marginInlineStart: 14,
@@ -377,7 +377,7 @@ const Demo = () => {
               if (typeof window === 'undefined') return [];
               return [
                 props.layout !== 'side' && document.body.clientWidth > 1400 ? (
-                  <SearchInput />
+                  <SearchInput key="SearchInput" />
                 ) : undefined,
                 <InfoCircleFilled key="InfoCircleFilled" />,
                 <QuestionCircleFilled key="QuestionCircleFilled" />,
@@ -386,10 +386,19 @@ const Demo = () => {
             }}
             headerTitleRender={(logo, title, _) => {
               const defaultDom = (
-                <a>
+                <button
+                  type="button"
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    padding: 0,
+                    font: 'inherit',
+                    cursor: 'pointer',
+                  }}
+                >
                   {logo}
                   {title}
-                </a>
+                </button>
               );
               if (typeof window === 'undefined') return defaultDom;
               if (document.body.clientWidth < 1400) {
@@ -420,8 +429,16 @@ const Demo = () => {
             onMenuHeaderClick={(e) => console.log(e)}
             menuItemRender={(item, dom) => (
               <div
+                role="button"
+                tabIndex={0}
                 onClick={() => {
                   setPathname(item.path || '/welcome');
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    setPathname(item.path || '/welcome');
+                  }
                 }}
               >
                 {dom}

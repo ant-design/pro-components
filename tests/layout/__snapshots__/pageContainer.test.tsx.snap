@@ -351,27 +351,7 @@ exports[`PageContainer > 🐲 FooterToolbar should know width 1`] = `
               <div
                 class="ant-pro-top-nav-header-menu"
                 style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
-              >
-                <div
-                  style="margin-block-start: 16px;"
-                >
-                  <div
-                    class="ant-skeleton ant-skeleton-active css-var-r14"
-                  >
-                    <div
-                      class="ant-skeleton-section"
-                    >
-                      <ul
-                        class="ant-skeleton-paragraph"
-                      >
-                        <li
-                          style="width: 61%;"
-                        />
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              />
             </div>
           </div>
         </header>
@@ -695,27 +675,7 @@ exports[`PageContainer > 🐲 footer should know width 1`] = `
               <div
                 class="ant-pro-top-nav-header-menu"
                 style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
-              >
-                <div
-                  style="margin-block-start: 16px;"
-                >
-                  <div
-                    class="ant-skeleton ant-skeleton-active css-var-ru"
-                  >
-                    <div
-                      class="ant-skeleton-section"
-                    >
-                      <ul
-                        class="ant-skeleton-paragraph"
-                      >
-                        <li
-                          style="width: 61%;"
-                        />
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              />
             </div>
           </div>
         </header>
@@ -932,32 +892,7 @@ exports[`PageContainer > 🐲 pro-layout support breadcrumbProps 1`] = `
           </div>
           <div
             style="overflow-y: auto; overflow-x: hidden; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
-          >
-            <div
-              style="padding: 24px;"
-            >
-              <div
-                class="ant-skeleton ant-skeleton-active css-var-r1a"
-              >
-                <div
-                  class="ant-skeleton-section"
-                >
-                  <ul
-                    class="ant-skeleton-paragraph"
-                  >
-                    <li />
-                    <li />
-                    <li />
-                    <li />
-                    <li />
-                    <li
-                      style="width: 61%;"
-                    />
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
+          />
           <div
             class="ant-pro-sider-collapsed-button"
           >

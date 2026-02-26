@@ -1,3 +1,4 @@
+import { useControlledState } from '@rc-component/util';
 import type { SelectProps } from 'antd';
 import { ConfigProvider, Select } from 'antd';
 import { clsx } from 'clsx';
@@ -6,7 +7,6 @@ import React, {
   useEffect,
   useImperativeHandle,
   useRef,
-  useState,
 } from 'react';
 import type { RequestOptionsType } from '../../../../utils';
 import { nanoid } from '../../../../utils';
@@ -140,8 +140,9 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
     options: optionsPropsName = 'options',
   } = fieldNames || {};
 
-  const [searchValue, setSearchValue] = useState(
-    propsSearchValue ?? defaultSearchValue,
+  const [searchValue, setSearchValue] = useControlledState(
+    defaultSearchValue,
+    propsSearchValue,
   );
 
   const selectRef = useRef<any>();
@@ -153,10 +154,6 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       selectRef?.current?.focus();
     }
   }, [restProps.autoFocus]);
-
-  useEffect(() => {
-    setSearchValue(propsSearchValue);
-  }, [propsSearchValue]);
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
