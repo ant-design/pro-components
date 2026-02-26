@@ -17,7 +17,7 @@ exports[`List > 🚏 ProList support rowClassName as a function 1`] = `
           <div
             aria-busy="false"
             aria-live="polite"
-            class="ant-spin css-var-r2h"
+            class="ant-spin css-var-_r_2h_"
           >
             <div
               class="ant-spin-container"
@@ -130,7 +130,7 @@ exports[`List > 🚏 ProList support rowClassName as a string 1`] = `
           <div
             aria-busy="false"
             aria-live="polite"
-            class="ant-spin css-var-r2d"
+            class="ant-spin css-var-_r_2d_"
           >
             <div
               class="ant-spin-container"
@@ -202,7 +202,7 @@ exports[`List > 🚏 only has content 1`] = `
           <div
             aria-busy="false"
             aria-live="polite"
-            class="ant-spin css-var-rd"
+            class="ant-spin css-var-_r_d_"
           >
             <div
               class="ant-spin-container"
@@ -251,7 +251,7 @@ exports[`List > 🚏 only has description 1`] = `
           <div
             aria-busy="false"
             aria-live="polite"
-            class="ant-spin css-var-rh"
+            class="ant-spin css-var-_r_h_"
           >
             <div
               class="ant-spin-container"
@@ -278,17 +278,17 @@ exports[`List > 🚏 only has description 1`] = `
                           class="ant-pro-list-row-description"
                         >
                           <span
-                            class="ant-tag ant-tag-filled css-var-rh"
+                            class="ant-tag ant-tag-filled css-var-_r_h_"
                           >
                             语雀专栏
                           </span>
                           <span
-                            class="ant-tag ant-tag-filled css-var-rh"
+                            class="ant-tag ant-tag-filled css-var-_r_h_"
                           >
                             设计语言
                           </span>
                           <span
-                            class="ant-tag ant-tag-filled css-var-rh"
+                            class="ant-tag ant-tag-filled css-var-_r_h_"
                           >
                             蚂蚁金服
                           </span>
@@ -324,7 +324,7 @@ exports[`List > 🚏 show loading state 1`] = `
           <div
             aria-busy="false"
             aria-live="polite"
-            class="ant-spin css-var-r9"
+            class="ant-spin css-var-_r_9_"
           >
             <div
               class="ant-spin-container"

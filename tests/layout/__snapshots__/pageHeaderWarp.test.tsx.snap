@@ -9,14 +9,14 @@ exports[`BasicLayout > base use 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout ant-layout-has-sider css-var-r2"
+      class="ant-layout ant-layout-has-sider css-var-_r_2_"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
         style="width: 256px; overflow: hidden; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s; flex-grow: 0; flex-shrink: 0; flex-basis: 256px;"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-r3"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-_r_3_"
         style="max-width: 256px; min-width: 256px; width: 256px; flex-grow: 0; flex-shrink: 0; flex-basis: 256px;"
       >
         <div
@@ -162,7 +162,7 @@ exports[`BasicLayout > base use 1`] = `
             style="overflow-y: auto; overflow-x: hidden; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline css-var-r3 ant-menu-css-var"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline css-var-_r_3_ ant-menu-css-var"
               data-menu-list="true"
               role="menu"
               style="background-color: transparent; border: none none; width: 100%;"
@@ -308,14 +308,14 @@ exports[`BasicLayout > content is text 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout ant-layout-has-sider css-var-r9"
+      class="ant-layout ant-layout-has-sider css-var-_r_9_"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
         style="width: 256px; overflow: hidden; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s; flex-grow: 0; flex-shrink: 0; flex-basis: 256px;"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-ra"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-_r_a_"
         style="max-width: 256px; min-width: 256px; width: 256px; flex-grow: 0; flex-shrink: 0; flex-basis: 256px;"
       >
         <div
@@ -461,7 +461,7 @@ exports[`BasicLayout > content is text 1`] = `
             style="overflow-y: auto; overflow-x: hidden; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline css-var-ra ant-menu-css-var"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline css-var-_r_a_ ant-menu-css-var"
               data-menu-list="true"
               role="menu"
               style="background-color: transparent; border: none none; width: 100%;"
