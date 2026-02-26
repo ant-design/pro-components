@@ -505,7 +505,7 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps>(
     return (
       <ProListContext.Provider value={contextValue}>
         <div ref={ref} style={style} className={classString} {...rest}>
-          <Spin spinning={isLoading}>
+<Spin spinning={isLoading} delay={100}>
             {showPaginationTop && paginationNode}
             {header && <div className={`${prefixCls}-header`}>{header}</div>}
             {childrenContent}
