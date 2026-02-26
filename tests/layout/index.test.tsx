@@ -56,6 +56,7 @@ describe('BasicLayout', () => {
   });
 
   it('🐞 menuItemRender clickable area should follow full title content', async () => {
+    const handleMenuItemClick = vi.fn();
     const wrapper = render(
       <ProLayout
         menuDataRender={() => [
@@ -68,9 +69,10 @@ describe('BasicLayout', () => {
           <div
             role="button"
             tabIndex={0}
-            onClick={() => void item.path}
+            onClick={() => handleMenuItemClick(item.path)}
             onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') void item.path;
+              if (e.key === 'Enter' || e.key === ' ')
+                handleMenuItemClick(item.path);
             }}
           >
             {dom}

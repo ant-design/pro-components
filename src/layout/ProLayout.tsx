@@ -494,7 +494,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     [propsFormatMessage],
   );
 
-  const { data, mutate, isLoading } = useSWR(
+  const { data, mutate, isValidating } = useSWR(
     [defaultId, menu?.params],
     async ([, params]) => {
       menuOnLoadingChange(true);
@@ -516,7 +516,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   );
 
   const menuLoading =
-    menu?.loading ?? (menu?.request ? isLoading : menuLoadingState);
+    menu?.loading ?? (menu?.request ? isValidating : menuLoadingState);
 
   const { cache } = useSWRConfig();
   useEffect(() => {

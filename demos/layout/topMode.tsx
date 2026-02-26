@@ -355,7 +355,7 @@ const Demo = () => {
                 font: 'inherit',
                 cursor: 'pointer',
               }}
-              onClick={() => console.log('titheaderTitle clicked')}
+              onClick={() => console.log('headerTitle clicked')}
             >
               {logo}
               {title}
