@@ -215,7 +215,7 @@ const defaultPaginationProps = {
   position: 'bottom' as const,
 };
 
-const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps<any>>(
+const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps>(
   function ProListContainerInner(props, ref) {
     const {
       pagination = false,
@@ -442,7 +442,7 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps<any>>(
       ) : (
         items
       );
-    } else if (!children && !isLoading) {
+    } else if (!children) {
       const emptyContent = locale?.emptyText ??
         (typeof renderEmpty === 'function' ? renderEmpty('List') : null) ?? (
           <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
@@ -450,8 +450,6 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps<any>>(
       childrenContent = (
         <div className={`${prefixCls}-empty-text`}>{emptyContent}</div>
       );
-    } else if (isLoading) {
-      childrenContent = <div style={{ minHeight: 53 }} />;
     } else {
       childrenContent = children;
     }
@@ -504,7 +502,6 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps<any>>(
       className,
       rootClassName,
     );
-
     return (
       <ProListContext.Provider value={contextValue}>
         <div ref={ref} style={style} className={classString} {...rest}>
@@ -512,7 +509,6 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps<any>>(
             {showPaginationTop && paginationNode}
             {header && <div className={`${prefixCls}-header`}>{header}</div>}
             {childrenContent}
-            {children}
             {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
             {loadMore}
             {showPaginationBottom && paginationNode}
