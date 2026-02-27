@@ -355,11 +355,12 @@ ProList generates a search form based on fields with `search` configured in colu
 #### Migration Reference
 
 | metas syntax                                            | columns syntax                                                       |
-| ------------------------------------------------------- | -------------------------------------------------------------------- |
+|---------------------------------------------------------| -------------------------------------------------------------------- |
 | `title: { dataIndex: 'name' }`                          | `{ dataIndex: 'name', listSlot: 'title' }`                           |
 | `avatar: { dataIndex: 'img' }`                          | `{ dataIndex: 'img', listSlot: 'avatar' }`                           |
 | `description: { dataIndex: 'desc' }`                    | `{ dataIndex: 'desc', listSlot: 'description' }`                     |
-| `extra: { render: ... }`                                | `{ listSlot: 'content', render: ... }`                                 |
+| `content: {}`                                           | `{ dataIndex: 'content', listSlot: 'content' }`  |
+| `extra: { render: ... }`                                | `{ listSlot: 'extra', render: ... }`                                 |
 | `status: { title: 'Status', valueType: 'select', ... }` | `{ title: 'Status', dataIndex: 'status', valueType: 'select', ... }` |
 
 #### Full Example
