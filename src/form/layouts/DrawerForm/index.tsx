@@ -1,7 +1,6 @@
 import { merge, useControlledState, warning } from '@rc-component/util';
 import type { DrawerProps, FormProps } from 'antd';
 import { ConfigProvider, Drawer } from 'antd';
-import { clsx } from 'clsx';
 import React, {
   useCallback,
   useContext,
@@ -12,19 +11,12 @@ import React, {
   useState,
 } from 'react';
 import { createPortal } from 'react-dom';
-import { isBrowser, omitUndefined, useRefFunction } from '../../../utils';
+import { useRefFunction } from '../../../utils';
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import { SubmitterProps } from '../../BaseForm/Submitter';
-import { useStyle } from './style';
 
 const { noteOnce } = warning;
-
-export type CustomizeResizeType = {
-  onResize?: () => void;
-  maxWidth?: DrawerProps['size'];
-  minWidth?: DrawerProps['size'];
-};
 
 export type DrawerFormProps<
   T = Record<string, any>,
@@ -56,20 +48,8 @@ export type DrawerFormProps<
     /** @name 打开关闭的事件 */
     onOpenChange?: (open: boolean) => void;
 
-    /** @name 抽屉的配置 */
+    /** @name antd的Drawer组件[props](https://ant.design/components/drawer#api) */
     drawerProps?: Omit<DrawerProps, 'open'>;
-
-    /** @name 抽屉的标题 */
-    title?: DrawerProps['title'];
-
-    /** @name 抽屉的宽度 */
-    width?: DrawerProps['size'];
-
-    /**
-     *
-     * @name draggableDrawer
-     */
-    resize?: CustomizeResizeType | boolean;
   };
 
 function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
@@ -78,9 +58,6 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
   drawerProps,
   onFinish,
   submitTimeout,
-  title,
-  width,
-  resize,
   onOpenChange,
   open: propsOpen,
   ...rest
@@ -89,38 +66,11 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
     !(rest as any).footer || !drawerProps?.footer,
     'DrawerForm 是一个 ProForm 的特殊布局，如果想自定义按钮，请使用 submit.render 自定义。',
   );
-  const resizeInfo: CustomizeResizeType = React.useMemo(() => {
-    const defaultResize: CustomizeResizeType = {
-      onResize: () => {},
-      maxWidth: isBrowser() ? window.innerWidth * 0.8 : undefined,
-      minWidth: 300,
-    };
-    if (typeof resize === 'boolean') {
-      if (resize) {
-        return defaultResize;
-      } else {
-        return {};
-      }
-    }
-    return omitUndefined({
-      onResize: resize?.onResize ?? defaultResize.onResize,
-      maxWidth: resize?.maxWidth ?? defaultResize.maxWidth,
-      minWidth: resize?.minWidth ?? defaultResize.minWidth,
-    });
-  }, [resize]);
 
   const context = useContext(ConfigProvider.ConfigContext);
-  const baseClassName = context.getPrefixCls('pro-form-drawer');
-  const { wrapSSR, hashId } = useStyle(baseClassName);
-  const getCls = (className: string) => `${baseClassName}-${className}`;
 
   const [, forceUpdate] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [resizableDrawer, setResizableDrawer] = useState(false);
-
-  const [drawerWidth, setDrawerWidth] = useState<DrawerProps['size']>(
-    width ? width : resize ? resizeInfo?.minWidth : 800,
-  );
 
   const [open, setOpenInner] = useControlledState<boolean>(
     !!propsOpen,
@@ -185,11 +135,7 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
     if (open && propsOpen) {
       onOpenChange?.(true);
     }
-
-    if (resizableDrawer) {
-      setDrawerWidth(resizeInfo?.minWidth);
-    }
-  }, [propsOpen, open, resizableDrawer]);
+  }, [propsOpen, open]);
 
   useImperativeHandle(
     rest.formRef,
@@ -209,11 +155,10 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
       ...trigger.props,
       onClick: async (e: any) => {
         setOpen(!open);
-        setResizableDrawer(!Object.keys(resizeInfo));
         trigger.props?.onClick?.(e);
       },
     });
-  }, [setOpen, trigger, open, setResizableDrawer, resizableDrawer]);
+  }, [setOpen, trigger, open]);
 
   const submitterConfig = useMemo(() => {
     if (rest.submitter === false) {
@@ -308,42 +253,10 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
     return result;
   });
 
-  const cbHandleMouseMove = useCallback(
-    (e: MouseEvent) => {
-      const offsetRight: number | string = ((document.body.offsetWidth ||
-        1000) -
-        (e.clientX - document.body.offsetLeft)) as number | string;
-      const minWidth = resizeInfo?.minWidth ?? (width || 800);
-      const maxWidth = resizeInfo?.maxWidth ?? window.innerWidth * 0.8;
-
-      if (offsetRight < minWidth) {
-        setDrawerWidth(minWidth);
-        return;
-      }
-      if (offsetRight > maxWidth) {
-        setDrawerWidth(maxWidth);
-        return;
-      }
-
-      setDrawerWidth(offsetRight);
-    },
-    [resizeInfo?.maxWidth, resizeInfo?.minWidth, width],
-  );
-
-  const cbHandleMouseUp = useCallback(() => {
-    document.removeEventListener('mousemove', cbHandleMouseMove);
-    document.removeEventListener('mouseup', cbHandleMouseUp);
-  }, [cbHandleMouseMove]);
-
-  return wrapSSR(
+  return (
     <>
       <Drawer
-        {...drawerProps}
-        destroyOnHidden={drawerProps?.destroyOnHidden}
-        title={title}
-        size={
-          typeof drawerWidth === 'number' ? drawerWidth : (drawerWidth as any)
-        }
+        {...(drawerProps ?? {})}
         open={open}
         afterOpenChange={(open) => {
           if (!open && drawerProps?.destroyOnHidden) {
@@ -370,53 +283,33 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
           )
         }
       >
-        {resize ? (
-          <div
-            className={clsx(getCls('sidebar-dragger'), hashId, {
-              [getCls('sidebar-dragger-min-disabled')]:
-                drawerWidth === resizeInfo?.minWidth,
-              [getCls('sidebar-dragger-max-disabled')]:
-                drawerWidth === resizeInfo?.maxWidth,
-            })}
-            onMouseDown={(e) => {
-              resizeInfo?.onResize?.();
-              e.stopPropagation();
-              e.preventDefault();
-              document.addEventListener('mousemove', cbHandleMouseMove);
-              document.addEventListener('mouseup', cbHandleMouseUp);
-              setResizableDrawer(true);
-            }}
-          />
-        ) : null}
-        <>
-          <BaseForm<T, U>
-            formComponentType="DrawerForm"
-            layout="vertical"
-            {...rest}
-            formRef={formRef}
-            onInit={(_, form) => {
-              if (rest.formRef) {
-                (
-                  rest.formRef as React.MutableRefObject<ProFormInstance<T>>
-                ).current = form;
-              }
-              rest?.onInit?.(_, form);
-              formRef.current = form;
-            }}
-            submitter={submitterConfig}
-            onFinish={async (values) => {
-              const result = await onFinishHandle(values);
-              // fix: #6006 如果 result 为 true,那么必然会触发抽屉关闭，我们无需在 此处重置表单，只需在抽屉关闭时重置即可
-              return result;
-            }}
-            contentRender={contentRender}
-          >
-            {children}
-          </BaseForm>
-        </>
+        <BaseForm<T, U>
+          formComponentType="DrawerForm"
+          layout="vertical"
+          {...rest}
+          formRef={formRef}
+          onInit={(_, form) => {
+            if (rest.formRef) {
+              (
+                rest.formRef as React.MutableRefObject<ProFormInstance<T>>
+              ).current = form;
+            }
+            rest?.onInit?.(_, form);
+            formRef.current = form;
+          }}
+          submitter={submitterConfig}
+          onFinish={async (values) => {
+            const result = await onFinishHandle(values);
+            // fix: #6006 如果 result 为 true,那么必然会触发抽屉关闭，我们无需在 此处重置表单，只需在抽屉关闭时重置即可
+            return result;
+          }}
+          contentRender={contentRender}
+        >
+          {children}
+        </BaseForm>
       </Drawer>
       {triggerDom}
-    </>,
+    </>
   );
 }
 
