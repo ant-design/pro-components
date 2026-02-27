@@ -359,7 +359,7 @@ ProList generates a search form based on fields with `search` configured in colu
 | `title: { dataIndex: 'name' }`                          | `{ dataIndex: 'name', listSlot: 'title' }`                           |
 | `avatar: { dataIndex: 'img' }`                          | `{ dataIndex: 'img', listSlot: 'avatar' }`                           |
 | `description: { dataIndex: 'desc' }`                    | `{ dataIndex: 'desc', listSlot: 'description' }`                     |
-| `extra: { render: ... }`                                | `{ listSlot: 'aside', render: ... }`                                 |
+| `extra: { render: ... }`                                | `{ listSlot: 'content', render: ... }`                                 |
 | `status: { title: 'Status', valueType: 'select', ... }` | `{ title: 'Status', dataIndex: 'status', valueType: 'select', ... }` |
 
 #### Full Example

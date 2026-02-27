@@ -60,7 +60,7 @@ const Demo = () => {
           ],
         },
         {
-          listSlot: 'aside',
+          listSlot: 'content',
           render: () => (
             <img
               width={272}

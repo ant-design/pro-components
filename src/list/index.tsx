@@ -178,9 +178,7 @@ function InternalProList<
 
   const actionRef = useRef<ActionType>();
 
-  useImperativeHandle(rest.actionRef, () => actionRef.current, [
-    actionRef.current,
-  ]);
+  useImperativeHandle(rest.actionRef, () => actionRef.current);
 
   // metas 废弃提示，仅在开发环境触发一次
   useEffect(() => {
