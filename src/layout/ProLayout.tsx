@@ -759,7 +759,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
       return bgLayoutImgList?.map((item, index) => {
         return (
           <img
-            key={item.src ?? `bg-layout-${index}`}
+            key={`bg-layout-${index}`}
             src={item.src}
             alt=""
             style={{
