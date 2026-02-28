@@ -297,7 +297,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
       [`${token.proComponentsCls}-list-item-main`]: {
         display: 'flex',
         flexDirection: 'row',
-        alignItems: 'flex-start',
+        alignItems: 'center',
         flex: 1,
         minWidth: 0,
         width: '100%',
