@@ -15,6 +15,55 @@ const genTechUiListActiveKeyframes = (token: ProListToken) =>
     '100%': { backgroundColor: 'unset' },
   }) as any;
 
+const genProListResponsiveStyle: GenerateStyle<ProListToken> = (token) => {
+  const { screenMD, screenSM, contentWidth } = token as ProListToken & {
+    screenMD?: number;
+    screenSM?: number;
+    contentWidth?: number;
+  };
+  return {
+    [`@media screen and (max-width: ${screenMD}px)`]: {
+      [token.componentCls]: {
+        [`${token.proComponentsCls}-list-item`]: {
+          [`${token.proComponentsCls}-list-item-action`]: {
+            marginInlineStart: token.marginLG,
+          },
+        },
+        [`&${token.proComponentsCls}-list-vertical`]: {
+          [`${token.proComponentsCls}-list-item`]: {
+            [`${token.proComponentsCls}-list-item-extra`]: {
+              marginInlineStart: token.marginLG,
+            },
+          },
+        },
+      },
+    },
+    [`@media screen and (max-width: ${screenSM}px)`]: {
+      [token.componentCls]: {
+        [`${token.proComponentsCls}-list-item`]: {
+          flexWrap: 'wrap',
+          [`${token.proComponentsCls}-list-item-action`]: {
+            marginInlineStart: token.marginSM,
+          },
+        },
+        [`&${token.proComponentsCls}-list-vertical`]: {
+          [`${token.proComponentsCls}-list-item`]: {
+            flexWrap: 'wrap-reverse',
+            [`${token.proComponentsCls}-list-item-main`]: {
+              minWidth: contentWidth,
+            },
+            [`${token.proComponentsCls}-list-item-extra`]: {
+              marginBlockStart: 'auto',
+              marginBlockEnd: token.margin,
+              marginInline: 'auto',
+            },
+          },
+        },
+      },
+    },
+  };
+};
+
 const genProListStyle: GenerateStyle<ProListToken> = (token) => {
   const techUiListActive = genTechUiListActiveKeyframes(token);
   return {
@@ -40,17 +89,25 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
       },
       [`${token.proComponentsCls}-list-item`]: {
         display: 'flex',
-        flexDirection: 'column',
+        flexDirection: 'row',
+        alignItems: 'flex-start',
         cursor: 'pointer',
         flex: 1,
         minWidth: 0,
         padding: token.paddingXS,
-        alignItems: 'flex-start',
         borderRadius: token.borderRadius,
         listStyle: 'none',
         '& > *:first-child': {
           flex: 1,
           minWidth: 0,
+        },
+        [`${token.proComponentsCls}-list-item-action`]: {
+          flex: '0 0 auto',
+          alignSelf: 'center',
+          marginInlineStart: token.marginXXL,
+        },
+        [`${token.proComponentsCls}-list-item-extra`]: {
+          alignSelf: 'center',
         },
       },
       '&-filled': {
@@ -85,6 +142,14 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         borderBlockEnd: 'none',
         margin: 0,
         minWidth: 0,
+        color: token.colorText,
+        fontSize: token.fontSize,
+        lineHeight: token.lineHeight,
+      },
+      [`${token.proComponentsCls}-list-item-meta-description`]: {
+        color: token.colorTextDescription,
+        fontSize: token.fontSize,
+        lineHeight: token.lineHeight,
       },
       '&-split': {
         [`${token.componentCls}-row`]: {
@@ -95,10 +160,6 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         },
         [`${token.proComponentsCls}-list-item`]: {
           borderRadius: 0,
-          borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
-          '&:last-child': {
-            borderBlockEnd: 'none',
-          },
         },
       },
 
@@ -108,6 +169,145 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           {
             borderBlockEnd: 'none',
           },
+      },
+      '&-grid': {
+        [`${token.componentCls}-row`]: {
+          borderBlockEnd: 'none',
+        },
+        [`${token.componentCls}-grid-container`]: {
+          display: 'flex',
+          flexWrap: 'wrap',
+        },
+        [`${token.componentCls}-grid-col`]: {
+          display: 'flex',
+          '> *': {
+            flex: 1,
+            minWidth: 0,
+          },
+        },
+        [`${token.proComponentsCls}-list-item`]: {
+          display: 'flex',
+          flexDirection: 'column',
+          flex: 1,
+          borderBlockEnd: 'none',
+        },
+      },
+      // 垂直布局：样式必须在 list 根级别，因 vertical 类在 list 根节点上
+      [`&${token.proComponentsCls}-list-vertical`]: {
+        [`${token.proComponentsCls}-list-item`]: {
+          alignItems: 'initial',
+        },
+        [`${token.proComponentsCls}-list-item-main`]: {
+          display: 'block',
+          flex: 1,
+          [`${token.proComponentsCls}-list-item-meta`]: {
+            marginBlockEnd: token.padding,
+            [`${token.proComponentsCls}-list-item-meta-title`]: {
+              marginBlockStart: 0,
+              marginBlockEnd: token.paddingSM,
+              color: token.colorText,
+              fontSize: token.fontSizeLG,
+              lineHeight: token.lineHeightLG,
+            },
+          },
+          [`${token.proComponentsCls}-list-item-action`]: {
+            marginBlockStart: token.padding,
+            marginInlineStart: 'auto',
+            '> *': {
+              paddingBlock: 0,
+              paddingInline: token.padding,
+              '&:first-child': {
+                paddingInlineStart: 0,
+              },
+            },
+          },
+        },
+        [`${token.componentCls}-row`]: {
+          marginBlockEnd: token.marginSM,
+          '&-header-title': {
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+            justifyContent: 'center',
+          },
+          '&-content': { marginBlock: 0, marginInline: 0 },
+          '&-sub-title': { marginBlockStart: token.marginXS },
+        },
+        [`${token.proComponentsCls}-list-item-extra`]: {
+          display: 'flex',
+          alignItems: 'center',
+          marginInlineStart: token.marginXL,
+          [`${token.componentCls}-row-description`]: {
+            marginBlockStart: token.margin,
+          },
+        },
+        [`${token.proComponentsCls}-list-bordered ${token.proComponentsCls}-list-item`]:
+          {
+            paddingInline: 0,
+          },
+        [`${token.componentCls}-row-show-extra-hover`]: {
+          [`${token.proComponentsCls}-list-item-extra`]: {
+            display: 'none',
+          },
+        },
+        [`${token.proComponentsCls}-list-pagination`]: {
+          marginBlockStart: token.margin,
+          marginBlockEnd: token.margin,
+        },
+        [`${token.proComponentsCls}-list-list`]: {
+          '&-item': {
+            cursor: 'pointer',
+            paddingBlock: token.paddingSM,
+            paddingInline: token.paddingSM,
+          },
+        },
+        [`${token.proComponentsCls}-list-row`]: {
+          '&-header': {
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+            paddingBlock: 0,
+            paddingInline: 0,
+            borderBlockEnd: 'none',
+          },
+          '&-content': {
+            marginBlockStart: token.marginSM,
+            marginInlineStart: 0,
+          },
+          [`${token.proComponentsCls}-list-item`]: {
+            width: '100%',
+            paddingBlock: token.paddingSM,
+            paddingInlineStart: token.paddingLG,
+            paddingInlineEnd: token.paddingMD,
+            [`${token.proComponentsCls}-list-item-meta-avatar`]: {
+              display: 'flex',
+              alignItems: 'center',
+              marginInlineEnd: token.marginXS,
+            },
+            [`${token.proComponentsCls}-list-item-meta-title`]: {
+              marginBlockStart: 0,
+              marginBlockEnd: token.paddingSM,
+              marginInline: 0,
+              fontSize: token.fontSizeLG,
+              lineHeight: token.lineHeightLG,
+            },
+          },
+        },
+      },
+      [`${token.proComponentsCls}-list-item-main`]: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'flex-start',
+        flex: 1,
+        minWidth: 0,
+        width: '100%',
+        '& > *:first-child': {
+          flex: 1,
+          minWidth: 0,
+        },
+        [`${token.proComponentsCls}-list-item-action`]: {
+          alignSelf: 'center',
+        },
       },
       [`${token.proComponentsCls}-list-item-action,
         ${token.proComponentsCls}-card-extra,
@@ -188,7 +388,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
             flexShrink: 9,
             marginBlock: 0,
             marginInline: 0,
-            lineHeight: 22,
+            lineHeight: token.lineHeightLG,
           },
         },
         [`&${token.componentCls}-row-editable`]: {
@@ -262,11 +462,11 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          height: 44,
+          height: token.controlHeightLG,
           paddingInline: token.paddingLG,
           paddingBlock: 0,
           color: token.colorTextSecondary,
-          lineHeight: 44,
+          lineHeight: token.controlHeightLG,
           background: setAlpha(token.colorTextBase, 0.02),
           '&-actions': {
             display: 'none',
@@ -283,14 +483,14 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           display: 'flex',
           fontSize: token.fontSizeSM,
           cursor: 'pointer',
-          height: 24,
+          height: token.controlHeightSM,
           color: token.colorTextSecondary,
           '> .anticon > svg': {
             transition: '0.3s',
           },
         },
         '&-expanded': {
-          ' > .anticon > svg': {
+          '> .anticon > svg': {
             transform: 'rotate(90deg)',
           },
         },
@@ -312,8 +512,9 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           flex: '1',
           flexDirection: 'column',
           marginBlock: 0,
+          marginInlineStart: token.marginXL,
         },
-        '&-subTitle': {
+        '&-sub-title': {
           display: 'inline-flex',
           flexWrap: 'wrap',
           alignItems: 'center',
@@ -365,36 +566,9 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           flexShrink: 0,
           alignItems: 'center',
         },
-        '&-checkbox': { width: 16, marginInlineEnd: token.marginSM },
-
-        [`${token.proComponentsCls}-list-vertical`]: {
-          [`${token.componentCls}-row`]: {
-            marginBlockEnd: token.marginSM,
-          },
-          '&-header-title': {
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'flex-start',
-            justifyContent: 'center',
-          },
-          '&-content': { marginBlock: 0, marginInline: 0 },
-          '&-subTitle': { marginBlockStart: token.marginXS },
-          [`${token.proComponentsCls}-list-item-extra`]: {
-            display: 'flex',
-            alignItems: 'center',
-            [`${token.componentCls}-row-description`]: {
-              marginBlockStart: token.margin,
-            },
-          },
-          [`${token.proComponentsCls}-list-bordered ${token.proComponentsCls}-list-item`]:
-            {
-              paddingInline: 0,
-            },
-          [`${token.componentCls}-row-show-extra-hover`]: {
-            [`${token.proComponentsCls}-list-item-extra `]: {
-              display: 'none',
-            },
-          },
+        '&-checkbox': {
+          width: token.fontSizeLG,
+          marginInlineEnd: token.marginSM,
         },
 
         [`${token.proComponentsCls}-list-pagination`]: {
@@ -408,29 +582,6 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
             paddingInline: token.paddingSM,
           },
         },
-        [`${token.proComponentsCls}-list-vertical ${token.proComponentsCls}-list-row`]:
-          {
-            '&-header': {
-              paddingBlock: 0,
-              paddingInline: 0,
-              borderBlockEnd: 'none',
-            },
-            [`${token.proComponentsCls}-list-item`]: {
-              width: '100%',
-              paddingBlock: token.paddingSM,
-              paddingInlineStart: token.paddingLG,
-              paddingInlineEnd: token.paddingMD,
-              [`${token.proComponentsCls}-list-item-meta-avatar`]: {
-                display: 'flex',
-                alignItems: 'center',
-                marginInlineEnd: token.marginXS,
-              },
-              [`${token.proComponentsCls}-list-item-meta-title`]: {
-                marginBlock: 0,
-                marginInline: 0,
-              },
-            },
-          },
       },
     },
   };
@@ -443,6 +594,9 @@ export function useStyle(prefixCls: string) {
       componentCls: `.${prefixCls}`,
     };
 
-    return [genProListStyle(proListToken)];
+    return [
+      genProListStyle(proListToken),
+      genProListResponsiveStyle(proListToken),
+    ];
   });
 }

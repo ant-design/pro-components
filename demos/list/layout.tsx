@@ -1,6 +1,6 @@
 import { LikeOutlined, MessageOutlined, StarOutlined } from '@ant-design/icons';
 import { ProList } from '@ant-design/pro-components';
-import { Button, Tag } from 'antd';
+import { Button, Space, Tag } from 'antd';
 import React from 'react';
 
 const IconText = ({ icon, text }: { icon: any; text: string }) => (
@@ -44,11 +44,11 @@ const Demo = () => {
         {
           listSlot: 'description',
           render: () => (
-            <>
+            <Space orientation="horizontal">
               <Tag>技术专栏</Tag>
               <Tag>设计语言</Tag>
               <Tag>云原生</Tag>
-            </>
+            </Space>
           ),
         },
         {

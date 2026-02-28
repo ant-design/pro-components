@@ -115,7 +115,6 @@ export interface ListItemProps extends React.HTMLAttributes<HTMLDivElement> {
   style?: React.CSSProperties;
   extra?: React.ReactNode;
   actions?: React.ReactNode[];
-  colStyle?: React.CSSProperties;
 }
 
 const InternalProListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
@@ -126,7 +125,6 @@ const InternalProListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
       actions,
       extra,
       className,
-      colStyle,
       ...rest
     } = props;
     const { grid, itemLayout } = useContext(ProListContext);
@@ -148,36 +146,39 @@ const InternalProListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
         </div>
       ) : null;
 
+    const isVerticalWithExtra = itemLayout === 'vertical' && extra != null;
+
+    const extraContent =
+      extra != null ? (
+        <div className={`${prefixCls}-item-extra`} key="extra">
+          {extra}
+        </div>
+      ) : null;
+
+    const mainContent = (
+      <div className={`${prefixCls}-item-main`} key="main">
+        {children}
+        {actionsContent}
+        {!isVerticalWithExtra && extraContent}
+      </div>
+    );
+
     const itemChildren = (
       <div
+        ref={ref}
         {...(rest as React.HTMLAttributes<HTMLElement>)}
         className={clsx(`${prefixCls}-item`, className)}
       >
-        {itemLayout === 'vertical' && extra ? (
-          <>
-            <div className={`${prefixCls}-item-main`} key="content">
-              {children}
-              {actionsContent}
-            </div>
-            <div className={`${prefixCls}-item-extra`} key="extra">
-              {extra}
-            </div>
-          </>
-        ) : (
-          <>
-            {children}
-            {actionsContent}
-            {extra != null && (
-              <React.Fragment key="extra">{extra}</React.Fragment>
-            )}
-          </>
-        )}
+        {mainContent}
+        {isVerticalWithExtra && extraContent}
       </div>
     );
 
     if (grid) {
       return (
-        <div ref={ref} style={{ width: '100%', ...colStyle }}>
+        <div
+          style={{ display: 'flex', flexDirection: 'column', width: '100%' }}
+        >
           {itemChildren}
         </div>
       );
@@ -214,6 +215,15 @@ const defaultPaginationProps = {
   total: 0,
   position: 'bottom' as const,
 };
+
+const DEFAULT_SCREENS = {
+  xs: true,
+  sm: true,
+  md: true,
+  lg: false,
+  xl: false,
+  xxl: false,
+} as const;
 
 const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps>(
   function ProListContainerInner(props, ref) {
@@ -310,23 +320,15 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps>(
     };
 
     const rawScreens = Grid.useBreakpoint();
-    const defaultScreens = {
-      xs: true,
-      sm: true,
-      md: true,
-      lg: false,
-      xl: false,
-      xxl: false,
-    } as const;
     const screens = useMemo(() => {
-      if (rawScreens == null) return defaultScreens;
+      if (rawScreens == null) return DEFAULT_SCREENS;
       return {
-        xxl: rawScreens.xxl ?? defaultScreens.xxl,
-        xl: rawScreens.xl ?? defaultScreens.xl,
-        lg: rawScreens.lg ?? defaultScreens.lg,
-        md: rawScreens.md ?? defaultScreens.md,
-        sm: rawScreens.sm ?? defaultScreens.sm,
-        xs: rawScreens.xs ?? defaultScreens.xs,
+        xxl: rawScreens.xxl ?? DEFAULT_SCREENS.xxl,
+        xl: rawScreens.xl ?? DEFAULT_SCREENS.xl,
+        lg: rawScreens.lg ?? DEFAULT_SCREENS.lg,
+        md: rawScreens.md ?? DEFAULT_SCREENS.md,
+        sm: rawScreens.sm ?? DEFAULT_SCREENS.sm,
+        xs: rawScreens.xs ?? DEFAULT_SCREENS.xs,
       };
     }, [rawScreens]);
 
@@ -366,19 +368,15 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps>(
         flexWrap: 'wrap',
       };
 
-      // 处理 gutter
       if (grid.gutter) {
         const [horizontal, vertical] = Array.isArray(grid.gutter)
           ? grid.gutter
-          : [grid.gutter, 0];
+          : [grid.gutter, grid.gutter];
         const h = Number(horizontal) || 0;
         const v = Number(vertical) || 0;
 
-        // flex 容器使用负 margin 来抵消子元素的 padding
-        style.marginLeft = -h / 2;
-        style.marginRight = -h / 2;
-        style.marginTop = -v / 2;
-        style.marginBottom = -v / 2;
+        style.marginInline = `${-h / 2}px`;
+        style.marginBlock = `${-v / 2}px`;
       }
 
       return style;
@@ -397,18 +395,15 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps>(
         display: 'flex',
       };
 
-      // 处理 gutter
       if (gutter) {
         const [horizontal, vertical] = Array.isArray(gutter)
           ? gutter
-          : [gutter, 0];
+          : [gutter, gutter];
         const h = Number(horizontal) || 0;
         const v = Number(vertical) || 0;
 
-        style.paddingLeft = h / 2;
-        style.paddingRight = h / 2;
-        style.paddingTop = v / 2;
-        style.paddingBottom = v / 2;
+        style.paddingInline = `${h / 2}px`;
+        style.paddingBlock = `${v / 2}px`;
       }
 
       // 计算每列的宽度（确保 column 有效，避免除以零）
@@ -432,9 +427,16 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps>(
         renderInternalItem(item, idx),
       );
       childrenContent = grid ? (
-        <div style={gridContainerStyle}>
+        <div
+          className={`${prefixCls}-grid-container`}
+          style={gridContainerStyle}
+        >
           {items.map((child, idx) => (
-            <div key={child?.key ?? idx} style={colStyle}>
+            <div
+              key={child?.key ?? idx}
+              className={`${prefixCls}-grid-col`}
+              style={colStyle}
+            >
               {child}
             </div>
           ))}

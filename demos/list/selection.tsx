@@ -50,24 +50,15 @@ const Demo = () => {
         },
         { dataIndex: 'avatar', listSlot: 'avatar' },
         {
-          listSlot: 'aside',
+          listSlot: 'content',
           render: () => (
             <div
               style={{
-                minWidth: 200,
-                flex: 1,
-                display: 'flex',
-                justifyContent: 'flex-end',
+                width: '200px',
               }}
             >
-              <div
-                style={{
-                  width: '200px',
-                }}
-              >
-                <div>发布中</div>
-                <Progress percent={80} />
-              </div>
+              <div>发布中</div>
+              <Progress percent={80} />
             </div>
           ),
         },
