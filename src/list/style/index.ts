@@ -87,6 +87,11 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
       [`${token.proComponentsCls}-table-alert`]: {
         marginBlockEnd: token.margin,
       },
+      [`${token.proComponentsCls}-list-pagination`]: {
+        marginBlockStart: token.margin,
+        marginBlockEnd: 0,
+        marginInline: 0,
+      },
       [`${token.proComponentsCls}-list-item`]: {
         display: 'flex',
         flexDirection: 'row',
@@ -249,10 +254,6 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           [`${token.proComponentsCls}-list-item-extra`]: {
             display: 'none',
           },
-        },
-        [`${token.proComponentsCls}-list-pagination`]: {
-          marginBlockStart: token.margin,
-          marginBlockEnd: token.margin,
         },
         [`${token.proComponentsCls}-list-list`]: {
           '&-item': {
@@ -569,11 +570,6 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         '&-checkbox': {
           width: token.fontSizeLG,
           marginInlineEnd: token.marginSM,
-        },
-
-        [`${token.proComponentsCls}-list-pagination`]: {
-          marginBlockStart: token.margin,
-          marginBlockEnd: token.margin,
         },
         [`${token.proComponentsCls}-list-list`]: {
           '&-item': {
