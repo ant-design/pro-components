@@ -23,20 +23,6 @@ const FormItemProvide = React.createContext<{
 }>({});
 
 /**
- * 计算传给子组件的 onBlur，保证只能是 function 或 undefined，不能是 false（避免 React 报错）
- * @internal 供 FormItem 与单测使用
- */
-export function getChildOnBlurValue(
-  isProFormComponent: boolean,
-  isValidElementForFiledChildren: boolean,
-  onBlur: ((...args: any[]) => void) | undefined,
-): ((...args: any[]) => void) | undefined {
-  return isProFormComponent && !isValidElementForFiledChildren
-    ? onBlur
-    : undefined;
-}
-
-/**
  * 把value扔给 fieldProps，方便给自定义用
  *
  * @returns
@@ -156,11 +142,10 @@ const WithValueFomFiledProps: React.FC<
           }
         : {}),
       ...(variantFromRest !== undefined && { variant: variantFromRest }),
-      onBlur: getChildOnBlurValue(
-        isProFormComponent,
-        isValidElementForFiledChildren,
-        onBlur,
-      ),
+      onBlur:
+        isProFormComponent && !isValidElementForFiledChildren && typeof onBlur === 'function'
+          ? onBlur
+          : undefined,
     }),
   );
 };
