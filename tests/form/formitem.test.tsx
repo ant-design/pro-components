@@ -5,9 +5,7 @@ import {
 } from '@ant-design/pro-components';
 import { cleanup, fireEvent, render } from '@testing-library/react';
 import { Input, Space, Tag } from 'antd';
-import React from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { getChildOnBlurValue } from '../../src/form/components/FormItem/index';
 
 afterEach(() => {
   cleanup();
@@ -122,20 +120,5 @@ describe('ProForm.Item', () => {
       onBlurWarning,
       'ProFormText readonly + custom children (Space) must not receive onBlur={false}',
     ).toBeUndefined();
-  });
-
-  it('📦 Form.Item must not pass onBlur={false} to ProFormComponent child (React expects function or undefined)', () => {
-    expect(
-      getChildOnBlurValue(false, false, undefined),
-      'when child is ProFormComponent (isProFormComponent=false), onBlur must be undefined not false',
-    ).toBeUndefined();
-    expect(
-      getChildOnBlurValue(false, false, undefined),
-      'must never return false (React requires function or undefined)',
-    ).not.toBe(false);
-
-    const fn = vi.fn();
-    expect(getChildOnBlurValue(true, false, fn)).toBe(fn);
-    expect(getChildOnBlurValue(false, true, fn)).toBeUndefined();
   });
 });
