@@ -27,7 +27,10 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         },
         '&:hover': {
           color: token.colorText,
-          backgroundColor: token.colorInfoBg,
+          backgroundColor: token.colorBgTextHover,
+        },
+        '&:active': {
+          backgroundColor: token.colorBgTextActive,
         },
         '&:active': {
           backgroundColor: token.colorInfoBg,
