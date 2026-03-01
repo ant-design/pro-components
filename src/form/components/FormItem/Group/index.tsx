@@ -3,33 +3,11 @@ import { useControlledState } from '@rc-component/util';
 import { ConfigProvider, Space } from 'antd';
 import { clsx } from 'clsx';
 import React, { useCallback, useContext, useMemo } from 'react';
-import { LabelIconTip, useRefFunction } from '../../../../utils';
+import { autoFocusToFirstChild, LabelIconTip, useRefFunction } from '../../../../utils';
 import FieldContext from '../../../FieldContext';
 import { useGridHelpers } from '../../../helpers/grid';
 import { ProFormGroupProps } from '../../../typing';
 import { useStyle } from './style';
-
-/**
- * 将 autoFocus 应用到第一个子节点；若首个子节点是 Fragment，则递归应用到其第一个子节点，
- * 避免向 React.Fragment 传入非法 props。
- */
-function applyAutoFocusToFirstChild(
-  node: React.ReactNode,
-  autoFocus: boolean,
-): React.ReactNode {
-  if (!autoFocus || !React.isValidElement(node)) return node;
-  if (node.type === React.Fragment) {
-    const children = React.Children.toArray(node.props.children);
-    const newChildren = children.map((child, index) =>
-      index === 0 ? applyAutoFocusToFirstChild(child, autoFocus) : child,
-    );
-    return React.cloneElement(node, {}, ...newChildren);
-  }
-  return React.cloneElement(node, {
-    ...(node.props as any),
-    autoFocus,
-  });
-}
 
 const Group: React.FC<ProFormGroupProps> = React.forwardRef(
   (props, ref: any) => {
@@ -150,7 +128,7 @@ const Group: React.FC<ProFormGroupProps> = React.forwardRef(
             return null;
           }
           if (index === 0 && React.isValidElement(element) && autoFocus) {
-            return applyAutoFocusToFirstChild(
+            return autoFocusToFirstChild(
               element,
               autoFocus,
             ) as React.ReactElement;

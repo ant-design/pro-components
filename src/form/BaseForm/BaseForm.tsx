@@ -30,6 +30,7 @@ import type {
   SearchTransformKeyFn,
 } from '../../utils';
 import {
+  autoFocusToFirstChild,
   conversionMomentValue,
   isDeepEqualReact,
   nanoid,
@@ -52,28 +53,6 @@ import type {
 import { EditOrReadOnlyContext } from './EditOrReadOnlyContext';
 import type { SubmitterProps } from './Submitter';
 import Submitter from './Submitter';
-
-/**
- * 将 autoFocusFirstInput 应用到第一个子节点；若首个子节点是 Fragment，则递归应用到其第一个子节点，
- * 避免向 React.Fragment 传入非法 props。
- */
-function applyAutoFocusToFirstChild(
-  node: React.ReactNode,
-  autoFocus: boolean,
-): React.ReactNode {
-  if (!autoFocus || !React.isValidElement(node)) return node;
-  if (node.type === React.Fragment) {
-    const children = React.Children.toArray(node.props.children);
-    const newChildren = children.map((child, index) =>
-      index === 0 ? applyAutoFocusToFirstChild(child, autoFocus) : child,
-    );
-    return React.cloneElement(node, {}, ...newChildren);
-  }
-  return React.cloneElement(node, {
-    ...(node.props as any),
-    autoFocus,
-  });
-}
 
 const { noteOnce } = warning;
 
@@ -445,7 +424,7 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
   const items = useMemo(() => {
     return React.Children.toArray(children as any).map((item, index) => {
       if (index === 0 && React.isValidElement(item) && autoFocusFirstInput) {
-        return applyAutoFocusToFirstChild(
+        return autoFocusToFirstChild(
           item,
           autoFocusFirstInput,
         ) as React.ReactElement;
