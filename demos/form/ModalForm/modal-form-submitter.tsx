@@ -13,7 +13,7 @@ const Demo = () => {
   return (
     <Space>
       <ModalForm
-        title="Create New Form"
+        modalProps={{ title: 'Create New Form' }}
         trigger={<Button type="primary">Custom Footer Buttons</Button>}
         submitter={{
           render: (props, defaultDoms) => {
@@ -53,7 +53,7 @@ const Demo = () => {
         />
       </ModalForm>
       <ModalForm
-        title="Create New Form"
+        modalProps={{ title: 'Create New Form' }}
         trigger={<Button type="primary">Custom Text</Button>}
         submitter={{
           searchConfig: {
@@ -84,7 +84,7 @@ const Demo = () => {
         />
       </ModalForm>
       <ModalForm
-        title="Create New Form"
+        modalProps={{ title: 'Create New Form' }}
         trigger={<Button type="primary">Hide or Modify Button Style</Button>}
         submitter={{
           resetButtonProps: {
@@ -119,7 +119,7 @@ const Demo = () => {
         />
       </ModalForm>
       <ModalForm
-        title="Hide Footer"
+        modalProps={{ title: 'Hide Footer' }}
         trigger={<Button type="primary">Hide Footer</Button>}
         submitter={false}
       >

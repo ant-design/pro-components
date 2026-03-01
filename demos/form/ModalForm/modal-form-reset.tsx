@@ -19,7 +19,7 @@ const Demo = () => {
   return (
     <Space>
       <ModalForm
-        title="Create New Form"
+        modalProps={{ title: 'Create New Form' }}
         formRef={restFormRef}
         open={modalVisible}
         trigger={
@@ -67,7 +67,7 @@ const Demo = () => {
         />
       </ModalForm>
       <ModalForm
-        title="Create New Form"
+        modalProps={{ title: 'Create New Form' }}
         formRef={formRef}
         trigger={<Button type="primary">Reset via custom footer button</Button>}
         submitter={{
