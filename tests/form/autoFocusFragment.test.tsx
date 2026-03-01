@@ -4,8 +4,7 @@ import {
   ProFormText,
   QueryFilter,
 } from '@ant-design/pro-components';
-import { cleanup, render } from '@testing-library/react';
-import React from 'react';
+import { cleanup, render, waitFor } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
 afterEach(() => {
@@ -78,7 +77,7 @@ describe('autoFocus with React.Fragment', () => {
     errorSpy.mockRestore();
   });
 
-  it('ProForm with autoFocusFirstInput should still pass autoFocus when first child is not Fragment', () => {
+  it('ProForm with autoFocusFirstInput should still pass autoFocus when first child is not Fragment', async () => {
     const { container } = render(
       <ProForm autoFocusFirstInput>
         <ProFormText label="a" name="a" />
@@ -86,9 +85,15 @@ describe('autoFocus with React.Fragment', () => {
       </ProForm>,
     );
 
-    expect(container.querySelectorAll('.ant-input').length).toBeGreaterThanOrEqual(
-      1,
-    );
+    const inputs = container.querySelectorAll('.ant-input');
+    expect(inputs.length).toBeGreaterThanOrEqual(2);
+
+    const firstInput = inputs[0];
+    expect(firstInput).toBeTruthy();
+
+    await waitFor(() => {
+      expect(document.activeElement).toBe(firstInput);
+    });
   });
 
   it('should not apply autoFocus when autoFocusFirstInput is false', () => {
