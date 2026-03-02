@@ -2,7 +2,12 @@ import { CheckOutlined, CloseOutlined, EditOutlined } from '@ant-design/icons';
 import { get, toArray } from '@rc-component/util';
 import type { DescriptionsProps, FormInstance, FormProps } from 'antd';
 import { ConfigProvider, Descriptions, Space } from 'antd';
-import type { DescriptionsItemType } from 'antd/lib/descriptions';
+import type { Breakpoint } from 'antd/es/_util/responsiveObserver';
+import type { DescriptionsItemType } from 'antd/es/descriptions';
+import {
+  CellSemanticClassNames,
+  CellSemanticStyles,
+} from 'antd/es/descriptions/DescriptionsContext';
 import React, { useContext, useEffect } from 'react';
 import ValueTypeToComponent from '../field/ValueTypeToComponent';
 import ProForm, { ProFormField } from '../form';
