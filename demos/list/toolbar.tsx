@@ -79,7 +79,7 @@ const renderBadge = (count: number, active = false) => {
 
 const Demo = () => {
   const [activeKey, setActiveKey] = useState<React.Key | undefined>('tab1');
-  const action = useRef<ActionType>();
+  const action = useRef<ActionType>(undefined);
   return (
     <ProList<any>
       rowKey="name"

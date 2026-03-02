@@ -1,8 +1,8 @@
-﻿import { BetaSchemaForm } from '@ant-design/pro-components';
+import { BetaSchemaForm } from '@ant-design/pro-components';
 import { useEffect, useRef, useState } from 'react';
 
 const Demo = () => {
-  const targetRef = useRef();
+  const targetRef = useRef(undefined);
 
   const [requestLibData, setRequestLibData] = useState(0);
   useEffect(() => {

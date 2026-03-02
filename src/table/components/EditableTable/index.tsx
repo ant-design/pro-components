@@ -340,9 +340,9 @@ function EditableTable<
     ...rest
   } = props;
 
-  const preData = useRef<readonly DataType[] | undefined>(undefined);
-  const actionRef = useRef<ActionType>();
-  const formRef = useRef<ProFormInstance>();
+  const preData = useRef<readonly DataType[]>(undefined);
+  const actionRef = useRef<ActionType>(undefined);
+  const formRef = useRef<ProFormInstance>(undefined);
   const form = Form.useFormInstance();
 
   // 设置 ref

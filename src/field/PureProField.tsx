@@ -253,6 +253,4 @@ const ProFieldComponent: React.ForwardRefRenderFunction<
   return <React.Fragment>{renderedDom}</React.Fragment>;
 };
 
-export const PureProField = React.forwardRef(
-  ProFieldComponent,
-) as typeof ProFieldComponent;
+export const PureProField = React.forwardRef(ProFieldComponent);

@@ -1,3 +1,4 @@
+import type { CaptFieldRef } from '@ant-design/pro-components';
 import { ProForm, ProFormCaptcha } from '@ant-design/pro-components';
 import { Button, message } from 'antd';
 import { useRef } from 'react';
@@ -11,8 +12,8 @@ const waitTime = (time: number = 100) => {
 };
 
 const Demo = () => {
-  const captchaRef = useRef();
-  const inputRef = useRef();
+  const captchaRef = useRef<CaptFieldRef>(undefined);
+  const inputRef = useRef(undefined);
 
   return (
     <ProForm
@@ -25,7 +26,6 @@ const Demo = () => {
             <Button
               htmlType="button"
               onClick={() => {
-                // @ts-ignore
                 captchaRef.current?.startTiming();
               }}
               key="edit"
@@ -35,7 +35,6 @@ const Demo = () => {
             <Button
               htmlType="button"
               onClick={() => {
-                // @ts-ignore
                 captchaRef.current?.endTiming();
               }}
               key="edit2"

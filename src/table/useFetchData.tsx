@@ -59,7 +59,7 @@ const useFetchData = <DataSource extends RequestData<any>>(
   const manualRequestRef = useRef<boolean>(manual);
 
   /** 轮询的setTime ID 存储 */
-  const pollingSetTimeRef = useRef<any>();
+  const pollingSetTimeRef = useRef<NodeJS.Timeout>(undefined);
 
   /**
    * 用于存储最新的数据，这样可以在切换的时候保持数据的一致性

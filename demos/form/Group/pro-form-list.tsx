@@ -1,4 +1,4 @@
-﻿import type { FormListActionType } from '@ant-design/pro-components';
+import type { FormListActionType } from '@ant-design/pro-components';
 import {
   ProCard,
   ProForm,
@@ -14,7 +14,7 @@ const Demo = () => {
     FormListActionType<{
       name: string;
     }>
-  >();
+  >(undefined);
   return (
     <>
       <Space

@@ -65,7 +65,7 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
   });
 
   const { token } = theme.useToken?.();
-  const checkBoxRef = useRef();
+  const checkBoxRef = useRef(undefined);
   useImperativeHandle(
     ref,
     () => ({

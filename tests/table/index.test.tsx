@@ -682,7 +682,7 @@ describe('BasicTable', () => {
     const fn = vi.fn();
 
     const Reload = () => {
-      const actionRef = useRef<ActionType>();
+      const actionRef = useRef<ActionType>(undefined);
       return (
         <ProTable
           actionRef={actionRef}

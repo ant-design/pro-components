@@ -29,7 +29,7 @@ const FieldRadio: ProFieldFC<GroupProps> = (
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const layoutClassName = getPrefixCls('pro-field-radio');
   const [loading, options, fetchData] = useFieldFetchData(rest);
-  const radioRef = useRef();
+  const radioRef = useRef(undefined);
   const status = Form.Item?.useStatus?.();
 
   useImperativeHandle(

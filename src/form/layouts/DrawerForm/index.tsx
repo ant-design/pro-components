@@ -166,7 +166,7 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
     [],
   );
 
-  const formRef = useRef<ProFormInstance>();
+  const formRef = useRef<ProFormInstance>(undefined);
 
   const resetFields = useCallback(() => {
     const form = rest.formRef?.current ?? rest.form ?? formRef.current;

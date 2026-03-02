@@ -3,7 +3,7 @@ import { Input, Tooltip } from 'antd';
 import { useRef } from 'react';
 
 const Demo = () => {
-  const actionRef = useRef();
+  const actionRef = useRef(undefined);
   return (
     <ProDescriptions
       actionRef={actionRef}

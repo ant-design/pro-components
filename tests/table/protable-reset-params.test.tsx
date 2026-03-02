@@ -54,8 +54,8 @@ describe('ProTable actionRef.reset()', () => {
     ];
 
     const Demo = () => {
-      const actionRef = useRef<ActionType>();
-      const formRef = useRef<ProFormInstance>();
+      const actionRef = useRef<ActionType>(undefined);
+      const formRef = useRef<ProFormInstance>(undefined);
 
       return (
         <ProTable<DataItem>

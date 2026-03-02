@@ -1,4 +1,4 @@
-﻿import type { FormProps } from 'antd';
+import type { FormProps } from 'antd';
 import { Form } from 'antd';
 import React, {
   useCallback,
@@ -80,7 +80,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(
   const formRef = useReactiveRef<ProFormInstance | undefined>(
     props.form || formInstance || form,
   );
-  const oldValuesRef = useRef<T>();
+  const oldValuesRef = useRef<T>(undefined);
   const propsRef = useLatest(props);
 
   /**

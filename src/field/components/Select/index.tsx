@@ -396,7 +396,7 @@ const FieldSelect: ProFieldFC<
     ...rest
   } = props;
 
-  const inputRef = useRef();
+  const inputRef = useRef(undefined);
   const intl = useIntl();
   const keyWordsRef = useRef<string>('');
   const { fieldNames } = fieldProps;

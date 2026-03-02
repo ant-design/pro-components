@@ -629,6 +629,4 @@ const ProFieldComponent: React.ForwardRefRenderFunction<
   return <React.Fragment>{renderedDom}</React.Fragment>;
 };
 
-export const ProField = React.forwardRef(
-  ProFieldComponent,
-) as typeof ProFieldComponent;
+export const ProField = React.forwardRef(ProFieldComponent);

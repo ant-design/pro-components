@@ -11,7 +11,7 @@ export function useDebounceFn<T extends any[], U = any>(
 ) {
   const callback = useRefFunction(fn);
 
-  const timer = useRef<any>();
+  const timer = useRef<NodeJS.Timeout>(null);
 
   const cancel = useCallback(() => {
     if (timer.current) {

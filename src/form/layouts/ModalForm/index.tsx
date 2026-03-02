@@ -121,7 +121,7 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
     [],
   );
 
-  const formRef = useRef<ProFormInstance>();
+  const formRef = useRef<ProFormInstance>(undefined);
 
   const resetFields = useCallback(() => {
     const form = rest.form ?? rest.formRef?.current ?? formRef.current;

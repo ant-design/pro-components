@@ -33,7 +33,7 @@ const Demo = () => {
       company?: string;
       useMode?: string;
     }>
-  >();
+  >(undefined);
   return (
     <ProForm<{
       name: string;

@@ -3223,7 +3223,7 @@ describe('ProForm', () => {
         ProFormInstance<{
           date: string;
         }>
-      >();
+      >(undefined);
 
       useEffect(() => {
         formRef.current?.validateFieldsReturnFormatValue?.().then((val) => {

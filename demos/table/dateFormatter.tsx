@@ -29,7 +29,7 @@ const mockData = {
 };
 
 const Demo = () => {
-  const ref = useRef<ProFormInstance>();
+  const ref = useRef<ProFormInstance>(undefined);
   const [collapsed, setCollapsed] = useState(false);
 
   return (

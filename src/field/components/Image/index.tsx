@@ -54,4 +54,4 @@ const FieldImage = React.forwardRef<FieldImageProps, any>(
   },
 );
 
-export default FieldImage as ProFieldFC<FieldImageProps>;
+export default FieldImage;
