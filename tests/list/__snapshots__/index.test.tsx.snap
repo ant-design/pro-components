@@ -17,7 +17,7 @@ exports[`List > 🚏 ProList support rowClassName as a function 1`] = `
           <div
             aria-busy="false"
             aria-live="polite"
-            class="ant-spin css-var-_r_2h_"
+            class="ant-spin css-var-r2h"
           >
             <div
               class="ant-spin-container"
@@ -138,7 +138,7 @@ exports[`List > 🚏 ProList support rowClassName as a string 1`] = `
           <div
             aria-busy="false"
             aria-live="polite"
-            class="ant-spin css-var-_r_2d_"
+            class="ant-spin css-var-r2d"
           >
             <div
               class="ant-spin-container"
@@ -214,7 +214,7 @@ exports[`List > 🚏 only has content 1`] = `
           <div
             aria-busy="false"
             aria-live="polite"
-            class="ant-spin css-var-_r_d_"
+            class="ant-spin css-var-rd"
           >
             <div
               class="ant-spin-container"
@@ -267,7 +267,7 @@ exports[`List > 🚏 only has description 1`] = `
           <div
             aria-busy="false"
             aria-live="polite"
-            class="ant-spin css-var-_r_h_"
+            class="ant-spin css-var-rh"
           >
             <div
               class="ant-spin-container"

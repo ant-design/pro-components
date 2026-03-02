@@ -6,52 +6,84 @@
     style="padding: 24px;"
   >
     <div>
-      <div
-        class="ant-form-item pro ant-form-css-var ant-form-item-horizontal"
+      <form
+        autocomplete="off"
+        class="ant-form ant-form-vertical pro ant-form-css-var ant-pro-form"
       >
+        <input
+          style="display: none;"
+          type="text"
+        />
         <div
-          class="ant-row ant-form-item-row pro"
+          class="ant-form-item pro ant-form-css-var ant-form-item-vertical"
         >
           <div
-            class="ant-col ant-form-item-control pro"
+            class="ant-row ant-form-item-row pro"
           >
             <div
-              class="ant-form-item-control-input"
+              class="ant-col ant-form-item-control pro"
             >
               <div
-                class="ant-form-item-control-input-content"
+                class="ant-form-item-control-input"
               >
                 <div
-                  class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select pro ant-select-css-var ant-select-single ant-select-show-search"
-                  style="width: 330px;"
+                  class="ant-form-item-control-input-content"
                 >
                   <div
-                    class="ant-select-content"
+                    class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select pro ant-select-css-var ant-select-focused ant-select-single ant-select-open ant-select-show-search"
+                    style="width: 330px;"
                   >
                     <div
-                      class="ant-select-placeholder"
-                      style="visibility: visible;"
+                      class="ant-select-content"
                     >
-                      请输入搜索关键字
+                      <div
+                        class="ant-select-placeholder"
+                        style="visibility: visible;"
+                      >
+                        请输入搜索关键字
+                      </div>
+                      <input
+                        aria-activedescendant="name_list_0"
+                        aria-autocomplete="list"
+                        aria-controls="name_list"
+                        aria-expanded="true"
+                        aria-haspopup="listbox"
+                        aria-owns="name_list"
+                        autocomplete="off"
+                        class="ant-select-input"
+                        id="name"
+                        role="combobox"
+                        type="search"
+                        value=""
+                      />
                     </div>
-                    <input
-                      aria-autocomplete="list"
-                      aria-expanded="false"
-                      aria-haspopup="listbox"
-                      autocomplete="off"
-                      class="ant-select-input"
-                      id="name"
-                      role="combobox"
-                      type="search"
-                      value=""
-                    />
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+        <div
+          style="display: flex; gap: 8px; align-items: center;"
+        >
+          <button
+            class="ant-btn pro ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+            type="button"
+          >
+            <span>
+              重 置
+            </span>
+          </button>
+          <button
+            class="ant-btn pro ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+            type="button"
+          >
+            <span>
+              提 交
+            </span>
+          </button>
+        </div>
+      </form>
       <div
         class="keys"
       >

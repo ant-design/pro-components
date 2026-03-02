@@ -6,18 +6,18 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
     class="ant-pro-table"
   >
     <div
-      class="css-var-_r_30_ ant-table-css-var ant-table-wrapper"
+      class="css-var-r30 ant-table-css-var ant-table-wrapper"
     >
       <div
         aria-busy="false"
         aria-live="polite"
-        class="ant-spin css-var-_r_30_"
+        class="ant-spin css-var-r30"
       >
         <div
           class="ant-spin-container"
         >
           <div
-            class="ant-table ant-table-middle css-var-_r_30_ ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-layout-fixed ant-table-scroll-horizontal"
+            class="ant-table ant-table-middle css-var-r30 ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-layout-fixed ant-table-scroll-horizontal"
           >
             <div
               class="ant-table-container"
@@ -148,7 +148,7 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                         style="visibility: hidden;"
                       >
                         <button
-                          class="ant-btn css-var-_r_30_ ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
+                          class="ant-btn css-var-r30 ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
                           style="display: block; margin: 10px 0px; width: 100%;"
                           type="button"
                         >
@@ -188,7 +188,7 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                         style="position: absolute; left: 0px; width: 100%;"
                       >
                         <button
-                          class="ant-btn css-var-_r_30_ ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
+                          class="ant-btn css-var-r30 ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
                           style="display: block; margin: 10px 0px; width: 100%;"
                           type="button"
                         >
@@ -374,7 +374,7 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                           style="display: inline-flex; align-items: center; max-width: 100%;"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-var-_r_30_"
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-var-r30"
                             style="min-width: 0; margin: 0px; padding: 0px; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                             title=""
                           >
@@ -384,7 +384,7 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                             style="user-select: none; flex-grow: 0; flex-shrink: 0; flex-basis: auto;"
                           >
                             <span
-                              class="ant-typography css-var-_r_30_"
+                              class="ant-typography css-var-r30"
                               style="margin: 0px; padding: 0px;"
                             >
                               <button
@@ -420,7 +420,7 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                         class="ant-table-cell"
                       >
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-_r_30_"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-r30"
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-processing"
@@ -481,7 +481,7 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                           style="display: inline-flex; align-items: center; max-width: 100%;"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-var-_r_30_"
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-var-r30"
                             style="min-width: 0; margin: 0px; padding: 0px; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                             title=""
                           >
@@ -491,7 +491,7 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                             style="user-select: none; flex-grow: 0; flex-shrink: 0; flex-basis: auto;"
                           >
                             <span
-                              class="ant-typography css-var-_r_30_"
+                              class="ant-typography css-var-r30"
                               style="margin: 0px; padding: 0px;"
                             >
                               <button
@@ -527,7 +527,7 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                         class="ant-table-cell"
                       >
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-_r_30_"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-r30"
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-success"
@@ -588,7 +588,7 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                           style="display: inline-flex; align-items: center; max-width: 100%;"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-var-_r_30_"
+                            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-var-r30"
                             style="min-width: 0; margin: 0px; padding: 0px; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                             title=""
                           >
@@ -598,7 +598,7 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                             style="user-select: none; flex-grow: 0; flex-shrink: 0; flex-basis: auto;"
                           >
                             <span
-                              class="ant-typography css-var-_r_30_"
+                              class="ant-typography css-var-r30"
                               style="margin: 0px; padding: 0px;"
                             >
                               <button
@@ -634,7 +634,7 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
                         class="ant-table-cell"
                       >
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-_r_30_"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-r30"
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-error"
