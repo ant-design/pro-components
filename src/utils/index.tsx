@@ -6,6 +6,7 @@ import {
   useStyle,
 } from '../provider';
 
+import { autoFocusToFirstChild } from './autoFocusToFirstChild';
 import { DropdownFooter } from './components/DropdownFooter';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { FieldLabel } from './components/FieldLabel';
@@ -76,6 +77,7 @@ import { useBreakpoint } from './useMediaQuery';
 
 export * from './typing';
 export {
+  autoFocusToFirstChild,
   conversionMomentValue,
   conversionMomentValue as conversionSubmitValue,
   convertMoment,

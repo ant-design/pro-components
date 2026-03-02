@@ -1517,7 +1517,7 @@ describe('List', () => {
     ).toEqual('完整标题');
     // subTitle
     expect(
-      container.querySelector('.ant-pro-list-row-subTitle')!.textContent,
+      container.querySelector('.ant-pro-list-row-sub-title')!.textContent,
     ).toEqual('副标题内容');
     // avatar
     expect(
@@ -1587,7 +1587,7 @@ describe('List', () => {
         columns={[
           { dataIndex: 'name', listSlot: 'title' },
           {
-            listSlot: 'aside',
+            listSlot: 'content',
             render: () => (
               <img
                 width={272}
@@ -1611,7 +1611,7 @@ describe('List', () => {
         columns={[
           { dataIndex: 'name', listSlot: 'title' },
           {
-            listSlot: 'aside',
+            listSlot: 'content',
             render: () => <div data-testid="aside-content">附属内容</div>,
           },
           {

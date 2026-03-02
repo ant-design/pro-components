@@ -142,7 +142,10 @@ const WithValueFomFiledProps: React.FC<
           }
         : {}),
       ...(variantFromRest !== undefined && { variant: variantFromRest }),
-      onBlur: isProFormComponent && !isValidElementForFiledChildren && onBlur,
+      onBlur:
+        isProFormComponent && !isValidElementForFiledChildren && typeof onBlur === 'function'
+          ? onBlur
+          : undefined,
     }),
   );
 };

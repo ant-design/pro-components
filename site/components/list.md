@@ -361,11 +361,12 @@ ProList 会根据 columns 或 metas 中配置了 `search` 的字段来生成搜�
 #### 迁移对照表
 
 | metas 写法                                            | columns 写法                                                       |
-| ----------------------------------------------------- | ------------------------------------------------------------------ |
-| `title: { dataIndex: 'name' }`                        | `{ dataIndex: 'name', listSlot: 'title' }`                         |
-| `avatar: { dataIndex: 'img' }`                        | `{ dataIndex: 'img', listSlot: 'avatar' }`                         |
-| `description: { dataIndex: 'desc' }`                  | `{ dataIndex: 'desc', listSlot: 'description' }`                   |
-| `extra: { render: ... }`                              | `{ listSlot: 'aside', render: ... }`                               |
+|-----------------------------------------------------| ------------------------------------------------------------------ |
+| `title: { dataIndex: 'name' }`                      | `{ dataIndex: 'name', listSlot: 'title' }`                         |
+| `avatar: { dataIndex: 'img' }`                      | `{ dataIndex: 'img', listSlot: 'avatar' }`                         |
+| `description: { dataIndex: 'desc' }`                | `{ dataIndex: 'desc', listSlot: 'description' }`                   |
+| `content: {}`                                       | `{ dataIndex: 'content', listSlot: 'content' }`  |
+| `extra: { render: ... }`                            | `{ listSlot: 'aside', render: ... }`                               |
 | `status: { title: '状态', valueType: 'select', ... }` | `{ title: '状态', dataIndex: 'status', valueType: 'select', ... }` |
 
 #### 完整示例

@@ -30,6 +30,7 @@ import type {
   SearchTransformKeyFn,
 } from '../../utils';
 import {
+  autoFocusToFirstChild,
   conversionMomentValue,
   isDeepEqualReact,
   nanoid,
@@ -423,10 +424,10 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
   const items = useMemo(() => {
     return React.Children.toArray(children as any).map((item, index) => {
       if (index === 0 && React.isValidElement(item) && autoFocusFirstInput) {
-        return React.cloneElement(item, {
-          ...item.props,
-          autoFocus: autoFocusFirstInput,
-        });
+        return autoFocusToFirstChild(
+          item,
+          autoFocusFirstInput,
+        ) as React.ReactElement;
       }
       return item;
     });

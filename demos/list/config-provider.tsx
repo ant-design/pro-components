@@ -29,7 +29,7 @@ const Demo = () => {
           },
           { dataIndex: 'avatar', listSlot: 'avatar' },
           {
-            listSlot: 'aside',
+            listSlot: 'content',
             render: () => (
               <div
                 style={{

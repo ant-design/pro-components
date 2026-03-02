@@ -166,22 +166,18 @@ function ListView<RecordType extends AnyObject>(
   const onTriggerExpand: TriggerEventHandler<RecordType> = React.useCallback(
     (record: RecordType) => {
       const key = getRowKey(record, dataSource.indexOf(record));
-      let newExpandedKeys: Key[];
       const hasKey = mergedExpandedKeys.has(key);
+      const nextKeys = new Set(mergedExpandedKeys);
       if (hasKey) {
-        mergedExpandedKeys.delete(key);
-        newExpandedKeys = [...mergedExpandedKeys];
+        nextKeys.delete(key);
       } else {
-        newExpandedKeys = [...mergedExpandedKeys, key];
+        nextKeys.add(key);
       }
+      const newExpandedKeys = [...nextKeys];
 
       setInnerExpandedKeys(newExpandedKeys);
-      if (onExpand) {
-        onExpand(!hasKey, record);
-      }
-      if (onExpandedRowsChange) {
-        onExpandedRowsChange(newExpandedKeys);
-      }
+      onExpand?.(!hasKey, record);
+      onExpandedRowsChange?.(newExpandedKeys);
     },
     [getRowKey, mergedExpandedKeys, dataSource, onExpand, onExpandedRowsChange],
   );
@@ -246,8 +242,8 @@ function ListView<RecordType extends AnyObject>(
         const { isEditable, recordKey } =
           actionRef.current?.isEditable({ ...item, index }) || {};
 
-        const isChecked = selectedKeySet.has(recordKey || index);
         const itemKey = getRowKey(item, index);
+        const isChecked = selectedKeySet.has(itemKey);
 
         const cardProps = rest.grid
           ? {

@@ -113,7 +113,7 @@ export type ItemProps<RecordType> = {
 
 function ProListItem<RecordType>(props: ItemProps<RecordType>) {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const { hashId } = useContext(ProProvider);
+  const { hashId, token } = useContext(ProProvider);
   const prefixCls = getPrefixCls('pro-list', props.prefixCls);
   const defaultClassName = `${prefixCls}-row`;
 
@@ -185,8 +185,9 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     defaultClassName,
   );
 
-  const needExpanded =
-    expanded || Object.values(expandableConfig || {}).length === 0;
+  const hasExpandBehavior =
+    expandableConfig != null && Object.keys(expandableConfig).length > 0;
+  const needExpanded = expanded || !hasExpandBehavior;
   const expandedRowDom =
     expandedRowRender && expandedRowRender(record, index, indentSize, expanded);
 
@@ -209,8 +210,8 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
         )}
         {subTitle && (
           <div
-            className={clsx(`${defaultClassName}-subTitle`, hashId, {
-              [`${defaultClassName}-subTitle-editable`]: isEditable,
+            className={clsx(`${defaultClassName}-sub-title`, hashId, {
+              [`${defaultClassName}-sub-title-editable`]: isEditable,
             })}
           >
             {subTitle}
@@ -238,7 +239,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     ) : null;
 
   const itemProps = onItem?.(record, index);
-  const hasExpandableConfig = Object.keys(expandableConfig || {}).length > 0;
+  const hasExpandableConfig = hasExpandBehavior;
 
   const expandedRowClassStr =
     typeof expandedRowClassName === 'function'
@@ -277,7 +278,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
           title={cardTitleDom}
           subTitle={subTitle}
           extra={actionsArray}
-          bodyStyle={{ padding: 24, ...cardProps.bodyStyle }}
+          bodyStyle={{ padding: token.paddingLG, ...cardProps.bodyStyle }}
           {...(itemProps as CheckCardProps)}
           onClick={(e) => {
             cardProps?.onClick?.(e);
@@ -309,6 +310,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
         [propsClassName]: propsClassName !== defaultClassName,
       })}
       {...rest}
+      actions={actionsArray}
       extra={extra}
       {...onRow?.(record, index)}
       {...itemProps}
@@ -340,21 +342,6 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
               } as RenderExpandIconProps<RecordType>)}
           </div>
           {headerDom}
-          {actionsArray && actionsArray.length > 0 ? (
-            <div
-              className={clsx(`${prefixCls}-item-action`, hashId)}
-              onClick={(e) => e.stopPropagation()}
-            >
-              {actionsArray.map((action, i) => (
-                <div
-                  key={i}
-                  className={clsx(`${prefixCls}-item-action-item`, hashId)}
-                >
-                  {action}
-                </div>
-              ))}
-            </div>
-          ) : null}
         </div>
         {needExpanded && (content || expandedRowDom) && (
           <div className={clsx(`${className}-content`, hashId)}>

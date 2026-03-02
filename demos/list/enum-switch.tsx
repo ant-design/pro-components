@@ -126,7 +126,7 @@ const Demo = () => {
           { dataIndex: 'avatar', listSlot: 'avatar' },
           { dataIndex: 'description', listSlot: 'description' },
           {
-            listSlot: 'aside',
+            listSlot: 'content',
             render: (_, record) => (
               <div style={{ width: 200 }}>
                 <div>
