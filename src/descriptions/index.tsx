@@ -36,8 +36,15 @@ export interface DescriptionsItemProps {
   className?: string;
   style?: React.CSSProperties;
   label?: React.ReactNode;
+  classNames?: CellSemanticClassNames;
+  styles?: CellSemanticStyles;
   children: React.ReactNode;
-  span?: number;
+  span?:
+    | number
+    | 'filled'
+    | {
+        [key in Breakpoint]?: number;
+      };
 }
 
 /**
