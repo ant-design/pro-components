@@ -1,10 +1,12 @@
 import { InboxOutlined } from '@ant-design/icons';
+import type { DraggerProps, GetRef, UploadProps } from 'antd';
 import { ConfigProvider, Upload } from 'antd';
-import type { DraggerProps, UploadProps, UploadRef } from 'antd/lib/upload';
 import React, { useContext } from 'react';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
 import type { ProFormFieldItemProps } from '../../typing';
 import warpField from '../FormItem/warpField';
+
+type UploadRef = GetRef<typeof Upload.Dragger>;
 
 export type ProFormUploadDraggerProps = ProFormFieldItemProps<DraggerProps> & {
   /**
