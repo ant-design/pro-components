@@ -252,8 +252,8 @@ importers:
         specifier: ^8.1.0
         version: 8.1.0
       happy-dom:
-        specifier: ^20.8.1
-        version: 20.8.1
+        specifier: ^20.8.3
+        version: 20.8.3
       identity-obj-proxy:
         specifier: ^3.0.0
         version: 3.0.0
@@ -364,7 +364,7 @@ importers:
         version: 7.3.1(@types/node@14.18.63)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.22.1)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)
       vitest:
         specifier: ^3.2.4
-        version: 3.2.4(@types/debug@4.1.12)(@types/node@14.18.63)(@vitest/browser@3.2.4)(@vitest/ui@3.2.4)(happy-dom@20.8.1)(jiti@2.6.1)(jsdom@16.7.0)(less@4.5.1)(lightningcss@1.22.1)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)
+        version: 3.2.4(@types/debug@4.1.12)(@types/node@14.18.63)(@vitest/browser@3.2.4)(@vitest/ui@3.2.4)(happy-dom@20.8.3)(jiti@2.6.1)(jsdom@16.7.0)(less@4.5.1)(lightningcss@1.22.1)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)
       write-pkg:
         specifier: ^4.0.0
         version: 4.0.0
@@ -1907,14 +1907,14 @@ packages:
   '@floating-ui/core@0.6.2':
     resolution: {integrity: sha512-jktYRmZwmau63adUG3GKOAVCofBXkk55S/zQ94XOorAHhwqFIOFAy1rSp2N0Wp6/tGbe9V3u/ExlGZypyY17rg==}
 
-  '@floating-ui/core@1.7.4':
-    resolution: {integrity: sha512-C3HlIdsBxszvm5McXlB8PeOEWfBhcGBTZGkGlWc2U0KFY5IwG5OQEuQ8rq52DZmcHDlPLd+YFBK+cZcytwIFWg==}
+  '@floating-ui/core@1.7.5':
+    resolution: {integrity: sha512-1Ih4WTWyw0+lKyFMcBHGbb5U5FtuHJuujoyyr5zTaWS5EYMeT6Jb2AuDeftsCsEuchO+mM2ij5+q9crhydzLhQ==}
 
   '@floating-ui/dom@0.4.5':
     resolution: {integrity: sha512-b+prvQgJt8pieaKYMSJBXHxX/DYwdLsAWxKYqnO5dO2V4oo/TYBZJAUQCVNjTWWsrs6o4VDrNcP9+E70HAhJdw==}
 
-  '@floating-ui/dom@1.7.5':
-    resolution: {integrity: sha512-N0bD2kIPInNHUHehXhMke1rBGs1dwqvC9O9KYMyyjK7iXt7GAhnro7UlcuYcGdS/yYOlq0MAVgrow8IbWJwyqg==}
+  '@floating-ui/dom@1.7.6':
+    resolution: {integrity: sha512-9gZSAI5XM36880PPMm//9dfiEngYoC6Am2izES1FF406YFsjvyBMmeJ2g4SAju3xWwtuynNRFL2s9hgxpLI5SQ==}
 
   '@floating-ui/react-dom-interactions@0.3.1':
     resolution: {integrity: sha512-tP2KEh7EHJr5hokSBHcPGojb+AorDNUf0NYfZGg/M+FsMvCOOsSEeEF0O1NDfETIzDnpbHnCs0DuvCFhSMSStg==}
@@ -1926,8 +1926,8 @@ packages:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
 
-  '@floating-ui/react-dom@2.1.7':
-    resolution: {integrity: sha512-0tLRojf/1Go2JgEVm+3Frg9A3IW8bJgKgdO0BN5RkF//ufuz2joZM63Npau2ff3J6lUVYgDSNzNkR+aH3IVfjg==}
+  '@floating-ui/react-dom@2.1.8':
+    resolution: {integrity: sha512-cC52bHwM/n/CxS87FH0yWdngEZrjdtLW/qVruo68qg+prK7ZQ4YGdut2GyDVpoGeAYe/h899rVeOVm6Oi40k2A==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
@@ -1938,8 +1938,8 @@ packages:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
 
-  '@floating-ui/utils@0.2.10':
-    resolution: {integrity: sha512-aGTxbpbg8/b5JfU1HXSrbH3wXZuLPJcNEcZQFMxLs3oSzgtVu6nFPkbbGGUvBcUjKV2YyB9Wxxabo+HEH9tcRQ==}
+  '@floating-ui/utils@0.2.11':
+    resolution: {integrity: sha512-RiB/yIh78pcIxl6lLMG0CgBXAZ2Y0eVHqMPYugu+9U0AeT6YBeiJpf7lbdJNIugFP5SIjwNRgo4DhR1Qxi26Gg==}
 
   '@formatjs/ecma402-abstract@2.3.6':
     resolution: {integrity: sha512-HJnTFeRM2kVFVr5gr5kH1XP6K0JcJtE7Lzvtr3FS/so5f1kpsqqqxy5JF+FRaO6H2qmcMfAUIox7AJteieRtVw==}
@@ -6485,8 +6485,8 @@ packages:
   handle-thing@2.0.1:
     resolution: {integrity: sha512-9Qn4yBxelxoh2Ow62nP+Ka/kMnOXRi8BXnRaUwezLNhqelnN49xKz4F/dPP8OYLxLxq6JDtZb2i9XznUQbNPTg==}
 
-  happy-dom@20.8.1:
-    resolution: {integrity: sha512-G7FzZWri593A5xjQuSNFcMjSOADw1XRZOngdKZtl8gVl9RAdyxPf1KV3sLFkqppmBYgxnWVaLCQ0hQKAwmjTfw==}
+  happy-dom@20.8.3:
+    resolution: {integrity: sha512-lMHQRRwIPyJ70HV0kkFT7jH/gXzSI7yDkQFe07E2flwmNDFoWUTRMKpW2sglsnpeA7b6S2TJPp98EbQxai8eaQ==}
     engines: {node: '>=20.0.0'}
 
   hard-rejection@2.1.0:
@@ -13403,18 +13403,18 @@ snapshots:
 
   '@floating-ui/core@0.6.2': {}
 
-  '@floating-ui/core@1.7.4':
+  '@floating-ui/core@1.7.5':
     dependencies:
-      '@floating-ui/utils': 0.2.10
+      '@floating-ui/utils': 0.2.11
 
   '@floating-ui/dom@0.4.5':
     dependencies:
       '@floating-ui/core': 0.6.2
 
-  '@floating-ui/dom@1.7.5':
+  '@floating-ui/dom@1.7.6':
     dependencies:
-      '@floating-ui/core': 1.7.4
-      '@floating-ui/utils': 0.2.10
+      '@floating-ui/core': 1.7.5
+      '@floating-ui/utils': 0.2.11
 
   '@floating-ui/react-dom-interactions@0.3.1(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
@@ -13436,21 +13436,21 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
 
-  '@floating-ui/react-dom@2.1.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@floating-ui/react-dom@2.1.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@floating-ui/dom': 1.7.5
+      '@floating-ui/dom': 1.7.6
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
   '@floating-ui/react@0.24.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@floating-ui/react-dom': 2.1.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@floating-ui/react-dom': 2.1.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       aria-hidden: 1.2.6
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       tabbable: 6.4.0
 
-  '@floating-ui/utils@0.2.10': {}
+  '@floating-ui/utils@0.2.11': {}
 
   '@formatjs/ecma402-abstract@2.3.6':
     dependencies:
@@ -16140,7 +16140,7 @@ snapshots:
       magic-string: 0.30.21
       sirv: 3.0.2
       tinyrainbow: 2.0.0
-      vitest: 3.2.4(@types/debug@4.1.12)(@types/node@14.18.63)(@vitest/browser@3.2.4)(@vitest/ui@3.2.4)(happy-dom@20.8.1)(jiti@2.6.1)(jsdom@16.7.0)(less@4.5.1)(lightningcss@1.22.1)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)
+      vitest: 3.2.4(@types/debug@4.1.12)(@types/node@14.18.63)(@vitest/browser@3.2.4)(@vitest/ui@3.2.4)(happy-dom@20.8.3)(jiti@2.6.1)(jsdom@16.7.0)(less@4.5.1)(lightningcss@1.22.1)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)
       ws: 8.19.0
     optionalDependencies:
       playwright: 1.58.2
@@ -16162,7 +16162,7 @@ snapshots:
       magicast: 0.3.5
       test-exclude: 7.0.2
       tinyrainbow: 2.0.0
-      vitest: 3.2.4(@types/debug@4.1.12)(@types/node@14.18.63)(@vitest/browser@3.2.4)(@vitest/ui@3.2.4)(happy-dom@20.8.1)(jiti@2.6.1)(jsdom@16.7.0)(less@4.5.1)(lightningcss@1.22.1)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)
+      vitest: 3.2.4(@types/debug@4.1.12)(@types/node@14.18.63)(@vitest/browser@3.2.4)(@vitest/ui@3.2.4)(happy-dom@20.8.3)(jiti@2.6.1)(jsdom@16.7.0)(less@4.5.1)(lightningcss@1.22.1)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -16211,7 +16211,7 @@ snapshots:
       sirv: 3.0.2
       tinyglobby: 0.2.15
       tinyrainbow: 2.0.0
-      vitest: 3.2.4(@types/debug@4.1.12)(@types/node@14.18.63)(@vitest/browser@3.2.4)(@vitest/ui@3.2.4)(happy-dom@20.8.1)(jiti@2.6.1)(jsdom@16.7.0)(less@4.5.1)(lightningcss@1.22.1)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)
+      vitest: 3.2.4(@types/debug@4.1.12)(@types/node@14.18.63)(@vitest/browser@3.2.4)(@vitest/ui@3.2.4)(happy-dom@20.8.3)(jiti@2.6.1)(jsdom@16.7.0)(less@4.5.1)(lightningcss@1.22.1)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)
 
   '@vitest/utils@3.2.4':
     dependencies:
@@ -19427,7 +19427,7 @@ snapshots:
 
   handle-thing@2.0.1: {}
 
-  happy-dom@20.8.1:
+  happy-dom@20.8.3:
     dependencies:
       '@types/node': 25.3.3
       '@types/whatwg-mimetype': 3.0.2
@@ -25814,7 +25814,7 @@ snapshots:
       terser: 5.46.0
       tsx: 4.21.0
 
-  vitest@3.2.4(@types/debug@4.1.12)(@types/node@14.18.63)(@vitest/browser@3.2.4)(@vitest/ui@3.2.4)(happy-dom@20.8.1)(jiti@2.6.1)(jsdom@16.7.0)(less@4.5.1)(lightningcss@1.22.1)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0):
+  vitest@3.2.4(@types/debug@4.1.12)(@types/node@14.18.63)(@vitest/browser@3.2.4)(@vitest/ui@3.2.4)(happy-dom@20.8.3)(jiti@2.6.1)(jsdom@16.7.0)(less@4.5.1)(lightningcss@1.22.1)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0):
     dependencies:
       '@types/chai': 5.2.3
       '@vitest/expect': 3.2.4
@@ -25844,7 +25844,7 @@ snapshots:
       '@types/node': 14.18.63
       '@vitest/browser': 3.2.4(playwright@1.58.2)(vite@7.3.1(@types/node@14.18.63)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.22.1)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0))(vitest@3.2.4)
       '@vitest/ui': 3.2.4(vitest@3.2.4)
-      happy-dom: 20.8.1
+      happy-dom: 20.8.3
       jsdom: 16.7.0
     transitivePeerDependencies:
       - jiti
