@@ -7,6 +7,7 @@ import type {
   UploadProps,
 } from 'antd';
 import { Button, Image, Upload } from 'antd';
+import type { UploadRef } from 'antd/es/upload';
 import React, { useContext, useMemo, useState } from 'react';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
 import type { ProFormFieldItemProps } from '../../typing';
@@ -18,8 +19,8 @@ type PickUploadProps = Pick<
 >;
 type FileType = Parameters<GetProp<UploadProps, 'beforeUpload'>>[0];
 export type ProFormUploadButtonProps = ProFormFieldItemProps<
-  UploadProps<any>,
-  HTMLElement
+  UploadProps,
+  UploadRef
 > & {
   /**
    * @name  上传文件的图标
@@ -81,7 +82,7 @@ const getBase64 = (file: FileType): Promise<string> =>
  * @param
  */
 const BaseProFormUploadButton: React.FC<ProFormUploadButtonProps> =
-  React.forwardRef(
+  React.forwardRef<UploadRef, ProFormUploadButtonProps>(
     (
       {
         fieldProps,

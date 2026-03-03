@@ -1,6 +1,6 @@
 import { InboxOutlined } from '@ant-design/icons';
 import { ConfigProvider, Upload } from 'antd';
-import type { DraggerProps, UploadProps } from 'antd/lib/upload';
+import type { DraggerProps, UploadProps, UploadRef } from 'antd/lib/upload';
 import React, { useContext } from 'react';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
 import type { ProFormFieldItemProps } from '../../typing';
@@ -54,7 +54,7 @@ export type ProFormUploadDraggerProps = ProFormFieldItemProps<DraggerProps> & {
  * @param
  */
 const BaseProFormUploadDragger: React.FC<ProFormUploadDraggerProps> =
-  React.forwardRef(
+  React.forwardRef<UploadRef, ProFormUploadDraggerProps>(
     (
       {
         fieldProps,
@@ -69,7 +69,7 @@ const BaseProFormUploadDragger: React.FC<ProFormUploadDraggerProps> =
         max,
         proFieldProps,
       },
-      ref: any,
+      ref,
     ) => {
       const context = useContext(ConfigProvider.ConfigContext);
       const modeContext = useContext(EditOrReadOnlyContext);
