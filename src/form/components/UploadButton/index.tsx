@@ -14,7 +14,7 @@ import type { ProFormFieldItemProps } from '../../typing';
 import warpField from '../FormItem/warpField';
 
 type PickUploadProps = Pick<
-  UploadProps<any>,
+  UploadProps,
   'listType' | 'action' | 'accept' | 'fileList' | 'onChange'
 >;
 type FileType = Parameters<GetProp<UploadProps, 'beforeUpload'>>[0];
