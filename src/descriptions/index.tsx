@@ -388,7 +388,9 @@ const schemaToDescriptionsItem = (
       const Component = showEditIcon ? Space : React.Fragment;
 
       const contentDom: React.ReactNode =
-        fieldMode === 'edit' ? text : genCopyable(text, item, text);
+        fieldMode === 'edit'
+          ? text
+          : genCopyable(text, item, text, defaultData);
 
       const key = restItem.key || restItem.label?.toString() || index;
       const label = (title || restItem.label || restItem.tooltip) && (
