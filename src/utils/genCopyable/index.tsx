@@ -33,19 +33,34 @@ const normalizeCopyText = (text: unknown) => {
   return text === null || text === undefined ? '' : String(text).trimEnd();
 };
 
-const genEllipsis = (dom: React.ReactNode, item: any, text: string) => {
+const isReactElement = (value: unknown): value is React.ReactElement =>
+  React.isValidElement(value);
+
+const genEllipsis = (
+  dom: React.ReactNode,
+  item: any,
+  text: string,
+  rawText: unknown,
+) => {
   const ellipsis = getEllipsis(item);
-  if (!ellipsis || !text) {
+  if (!ellipsis) {
     return false;
   }
   /** 有些 valueType 需要设置copy的为string */
   const needTranText = isNeedTranText(item);
 
+  // renderText 返回 React 元素时，使用 dom 作为 tooltip 避免 [object Object]
+  const isRenderTextReturningJsx = isReactElement(rawText);
+
   // 支持一下 tooltip 的关闭
-  if (needTranText && item?.tooltip !== false) {
+  if ((needTranText || isRenderTextReturningJsx) && item?.tooltip !== false) {
     return {
       tooltip: <div className="pro-table-tooltip-text">{dom}</div>,
     };
+  }
+
+  if (!text) {
+    return false;
   }
 
   // 如果 ellipsis 是对象且包含 tooltip 属性,合并 tooltip 的属性
@@ -65,15 +80,19 @@ const genEllipsis = (dom: React.ReactNode, item: any, text: string) => {
 /**
  * 生成 Copyable 或 Ellipsis 的 dom
  *
- * @param dom
- * @param item
- * @param text
+ * @param dom 渲染后的 DOM 节点
+ * @param item 列配置
+ * @param text renderText 的返回值，可能是 string/number 或 React 元素
  */
-export const genCopyable = (dom: React.ReactNode, item: any, text: string) => {
+export const genCopyable = (
+  dom: React.ReactNode,
+  item: any,
+  text: string | React.ReactNode,
+) => {
   if (!item.copyable && !item.ellipsis) return dom;
 
   const normalizedText = normalizeCopyText(text);
-  const ellipsis = genEllipsis(dom, item, normalizedText);
+  const ellipsis = genEllipsis(dom, item, normalizedText, text);
 
   // `Typography.Text` with `copyable` will render an internal separator whitespace
   // between text and icon. When users "multi-click to select all" in a table cell,

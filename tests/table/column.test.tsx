@@ -1,6 +1,6 @@
 import { ProTable } from '@ant-design/pro-components';
 import { cleanup, render, waitFor } from '@testing-library/react';
-import { ConfigProvider, Table } from 'antd';
+import { Badge, ConfigProvider, Table } from 'antd';
 import dayjs from 'dayjs';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { request } from './demo';
@@ -275,5 +275,52 @@ describe('Table ColumnSetting', () => {
     // When selecting/copying the cell text, trailing whitespace should not exist.
     expect(text).toBe(text.trimEnd());
     expect(text.endsWith('\u00a0')).toBe(false);
+  });
+
+  it('🐛 ellipsis tooltip 不显示 [object Object] 当 renderText 返回 JSX', async () => {
+    const { container } = render(
+      <ProTable
+        search={false}
+        toolBarRender={false}
+        columns={[
+          {
+            title: '手机号',
+            dataIndex: 'phone',
+            ellipsis: true,
+            renderText: (text, row) =>
+              text ? (
+                <span>
+                  {row.phoneVerified ? (
+                    <Badge status="success" />
+                  ) : (
+                    <Badge status="error" />
+                  )}
+                  &nbsp;
+                  {text}
+                </span>
+              ) : (
+                text
+              ),
+          },
+        ]}
+        dataSource={[
+          {
+            key: '1',
+            phone: '13800138000',
+            phoneVerified: true,
+          },
+        ]}
+        rowKey="key"
+      />,
+    );
+
+    await waitFor(() => {
+      expect(container.querySelector('tbody td')?.textContent).toContain(
+        '13800138000',
+      );
+    });
+
+    // 修复：renderText 返回 JSX 时 ellipsis tooltip 不应显示 [object Object]
+    expect(container.innerHTML).not.toContain('[object Object]');
   });
 });
