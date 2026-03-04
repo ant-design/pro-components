@@ -286,6 +286,7 @@ describe('Table ColumnSetting', () => {
           {
             title: '手机号',
             dataIndex: 'phone',
+            width: 80,
             ellipsis: true,
             renderText: (text, row) =>
               text ? (

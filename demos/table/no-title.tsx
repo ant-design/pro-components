@@ -1,7 +1,7 @@
 import { DownOutlined } from '@ant-design/icons';
 import type { ProColumns } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
-import { Dropdown, Popconfirm, Space } from 'antd';
+import { Avatar, Dropdown, Popconfirm, Space } from 'antd';
 import React from 'react';
 
 export type Member = {
@@ -91,6 +91,16 @@ const MemberList: React.FC = () => {
     {
       dataIndex: 'email',
       title: '账号',
+      ellipsis: true,
+      copyable: true,
+      renderText: (_dom, row) => {
+        return (
+          <React.Fragment>
+            <Avatar src={row.avatar} />
+            {row.nickName}
+          </React.Fragment>
+        );
+      },
     },
     {
       dataIndex: 'role',

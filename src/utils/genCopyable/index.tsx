@@ -52,10 +52,19 @@ const genEllipsis = (
   // renderText 返回 React 元素时，使用 dom 作为 tooltip 避免 [object Object]
   const isRenderTextReturningJsx = isReactElement(rawText);
 
-  // 支持一下 tooltip 的关闭
+  // 支持一下 tooltip 的关闭，合并 ellipsis.tooltip 自定义属性（placement 等）
   if ((needTranText || isRenderTextReturningJsx) && item?.tooltip !== false) {
+    const tooltipTitle = <div className="pro-table-tooltip-text">{dom}</div>;
+    if (isObject(ellipsis) && isObject(ellipsis.tooltip)) {
+      return {
+        tooltip: {
+          title: tooltipTitle,
+          ...ellipsis.tooltip,
+        },
+      };
+    }
     return {
-      tooltip: <div className="pro-table-tooltip-text">{dom}</div>,
+      tooltip: tooltipTitle,
     };
   }
 
@@ -83,15 +92,20 @@ const genEllipsis = (
  * @param dom 渲染后的 DOM 节点
  * @param item 列配置
  * @param text renderText 的返回值，可能是 string/number 或 React 元素
+ * @param copyText 用于复制的原始文本，当 renderText 返回 JSX 时避免复制 [object Object]
  */
 export const genCopyable = (
   dom: React.ReactNode,
   item: any,
   text: string | React.ReactNode,
+  copyText?: unknown,
 ) => {
   if (!item.copyable && !item.ellipsis) return dom;
 
   const normalizedText = normalizeCopyText(text);
+  // renderText 返回 JSX 时使用原始文本避免复制 [object Object]
+  const resolvedCopyText =
+    copyText !== undefined ? normalizeCopyText(copyText) : normalizedText;
   const ellipsis = genEllipsis(dom, item, normalizedText, text);
 
   // `Typography.Text` with `copyable` will render an internal separator whitespace
@@ -119,12 +133,12 @@ export const genCopyable = (
         >
           {dom}
         </Typography.Text>
-        {normalizedText ? (
+        {resolvedCopyText ? (
           <span style={{ flex: 'none', userSelect: 'none' }}>
             <Typography.Text
               style={{ margin: 0, padding: 0 }}
               // Render icon only; no extra selectable separator text nodes.
-              copyable={{ text: normalizedText, tooltips: ['', ''] }}
+              copyable={{ text: resolvedCopyText, tooltips: ['', ''] }}
             />
           </span>
         ) : null}

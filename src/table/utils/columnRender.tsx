@@ -137,7 +137,7 @@ export function columnRender<T extends AnyObject>({
   const dom: React.ReactNode =
     mode === 'edit'
       ? textDom
-      : genCopyable(textDom, columnProps, renderTextStr);
+      : genCopyable(textDom, columnProps, renderTextStr, text);
 
   /** 如果是编辑模式，并且 formItemRender 存在直接走 formItemRender */
   if (mode === 'edit') {
