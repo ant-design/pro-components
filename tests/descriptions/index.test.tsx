@@ -440,59 +440,65 @@ describe('descriptions', () => {
   it('🐛 copyable 复制 renderText 返回 JSX 时应使用原始值而非 [object Object]', async () => {
     const RAW_VALUE = '13800138000';
     const writeTextMock = vi.fn().mockResolvedValue(undefined);
+    const originalClipboard = navigator.clipboard;
 
-    Object.defineProperty(navigator, 'clipboard', {
-      value: { writeText: writeTextMock },
-      writable: true,
-      configurable: true,
-    });
+    try {
+      Object.defineProperty(navigator, 'clipboard', {
+        value: { writeText: writeTextMock },
+        writable: true,
+        configurable: true,
+      });
 
-    const wrapper = render(
-      <ProDescriptions
-        dataSource={{
-          phone: RAW_VALUE,
-          phoneVerified: true,
-        }}
-        columns={[
-          {
-            title: '手机号',
-            dataIndex: 'phone',
-            copyable: true,
-            renderText: (text, row) =>
-              text ? (
-                <span>
-                  {row.phoneVerified ? (
-                    <Badge status="success" />
-                  ) : (
-                    <Badge status="error" />
-                  )}
-                  &nbsp;
-                  {text}
-                </span>
-              ) : (
-                text
-              ),
-          },
-        ]}
-      />,
-    );
+      const wrapper = render(
+        <ProDescriptions
+          dataSource={{
+            phone: RAW_VALUE,
+            phoneVerified: true,
+          }}
+          columns={[
+            {
+              title: '手机号',
+              dataIndex: 'phone',
+              copyable: true,
+              renderText: (text, row) =>
+                text ? (
+                  <span>
+                    {row.phoneVerified ? (
+                      <Badge status="success" />
+                    ) : (
+                      <Badge status="error" />
+                    )}
+                    &nbsp;
+                    {text}
+                  </span>
+                ) : (
+                  text
+                ),
+            },
+          ]}
+        />,
+      );
 
-    await waitFor(() => {
-      expect(
-        wrapper.baseElement.querySelector(
+      const copyBtn = await waitFor(() => {
+        const el = wrapper.baseElement.querySelector(
           '.ant-descriptions-item-content .ant-typography-copy',
-        ),
-      ).toBeTruthy();
-    });
+        );
+        expect(el).toBeTruthy();
+        return el as HTMLElement;
+      });
 
-    const copyBtn = wrapper.baseElement.querySelector(
-      '.ant-descriptions-item-content .ant-typography-copy',
-    )!;
-    fireEvent.click(copyBtn);
+      fireEvent.click(copyBtn);
 
-    await waitFor(() => {
-      expect(writeTextMock).toHaveBeenCalledWith(RAW_VALUE);
-      expect(writeTextMock).not.toHaveBeenCalledWith('[object Object]');
-    });
+      await waitFor(() => {
+        expect(writeTextMock).toHaveBeenCalledWith(RAW_VALUE);
+        expect(writeTextMock).not.toHaveBeenCalledWith('[object Object]');
+      });
+    } finally {
+      Object.defineProperty(navigator, 'clipboard', {
+        value: originalClipboard,
+        writable: true,
+        configurable: true,
+      });
+    }
   });
 });
