@@ -175,6 +175,8 @@ const ProFormUploadButton = warpField<ProFormUploadButtonProps>?.(
   {
     getValueFromEvent: (value: { fileList: UploadProps['fileList'] }) =>
       value.fileList,
+    // 阻止点击 label 时触发隐藏的 file input focus，避免误打开文件选择器
+    htmlFor: '',
   },
 ) as typeof BaseProFormUploadButton;
 
