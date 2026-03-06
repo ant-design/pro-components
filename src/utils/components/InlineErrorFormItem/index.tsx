@@ -27,14 +27,20 @@ const FIX_INLINE_STYLE = {
 };
 
 const InlineErrorFormItemPopover: React.FC<{
-  inputProps: any;
+  inputProps: FormItemProps & {
+    errors?: React.ReactNode[];
+    warnings?: React.ReactNode[];
+  };
   input: React.JSX.Element;
   errorList: React.JSX.Element;
   extra: React.JSX.Element;
   popoverProps?: PopoverProps;
 }> = ({ inputProps, input, extra, errorList, popoverProps }) => {
   const [open, setOpen] = useState<boolean | undefined>(false);
-  const [errorStringList, setErrorList] = useState<string[]>([]);
+  const [messages, setMessages] = useState<{
+    errors: React.ReactNode[];
+    warnings: React.ReactNode[];
+  }>({ errors: [], warnings: [] });
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls();
 
@@ -42,16 +48,42 @@ const InlineErrorFormItemPopover: React.FC<{
   const { wrapSSR, hashId } = useStyle(`${prefixCls}-form-item-with-help`);
   useEffect(() => {
     if (inputProps.validateStatus !== 'validating') {
-      setErrorList(inputProps.errors);
+      setMessages({
+        errors: inputProps.errors ?? [],
+        warnings: inputProps.warnings ?? [],
+      });
     }
-  }, [inputProps.errors, inputProps.validateStatus]);
+  }, [inputProps.errors, inputProps.warnings, inputProps.validateStatus]);
 
   const loading = inputProps.validateStatus === 'validating';
+  const hasMessages =
+    (messages.errors?.length ?? 0) + (messages.warnings?.length ?? 0) >= 1;
+
+  const renderMessageContent = () => (
+    <>
+      {messages.errors?.map((error, index) => (
+        <div
+          key={`error-${index}`}
+          className={clsx(`${prefixCls}-form-item-explain-error`, hashId)}
+        >
+          {error}
+        </div>
+      ))}
+      {messages.warnings?.map((warning, index) => (
+        <div
+          key={`warning-${index}`}
+          className={clsx(`${prefixCls}-form-item-explain-warning`, hashId)}
+        >
+          {warning}
+        </div>
+      ))}
+    </>
+  );
 
   return (
     <Popover
       key="popover"
-      open={errorStringList.length < 1 ? false : open}
+      open={!hasMessages ? false : open}
       onOpenChange={(changeOpen: boolean) => {
         if (changeOpen === open) return;
         setOpen(changeOpen);
@@ -62,11 +94,7 @@ const InlineErrorFormItemPopover: React.FC<{
       getTooltipContainer={popoverProps?.getTooltipContainer}
       content={wrapSSR(
         <div
-          className={clsx(
-            `${prefixCls}-form-item`,
-            hashId,
-            token.hashId,
-          )}
+          className={clsx(`${prefixCls}-form-item`, hashId, token.hashId)}
           style={{
             margin: 0,
             padding: 0,
@@ -80,7 +108,7 @@ const InlineErrorFormItemPopover: React.FC<{
             )}
           >
             {loading ? <LoadingOutlined /> : null}
-            {errorList}
+            {hasMessages ? renderMessageContent() : errorList}
           </div>
         </div>,
       )}

@@ -1,6 +1,12 @@
 import type { ProCoreActionType } from '@ant-design/pro-components';
 import { ProDescriptions } from '@ant-design/pro-components';
-import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
+import {
+  cleanup,
+  fireEvent,
+  render,
+  waitFor,
+  within,
+} from '@testing-library/react';
 import { Badge, Button, Input } from 'antd';
 import React, { act } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
@@ -479,13 +485,9 @@ describe('descriptions', () => {
         />,
       );
 
-      const copyBtn = await waitFor(() => {
-        const el = wrapper.baseElement.querySelector(
-          '.ant-descriptions-item-content .ant-typography-copy',
-        );
-        expect(el).toBeTruthy();
-        return el as HTMLElement;
-      });
+      const copyBtn = await waitFor(() =>
+        within(wrapper.baseElement).getByRole('button', { name: '复制' }),
+      );
 
       fireEvent.click(copyBtn);
 

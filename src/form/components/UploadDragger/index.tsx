@@ -83,6 +83,8 @@ const BaseProFormUploadDragger: React.FC<ProFormUploadDraggerProps> =
         (max === undefined || !value || value?.length < max) &&
         mode !== 'read' &&
         proFieldProps?.readonly !== true;
+      // 参考 antd：不传 id 给 Upload，避免点击 label 触发 file input 打开文件选择器
+      const { id: _id, ...uploadFieldProps } = fieldProps || {};
       return (
         <Upload.Dragger
           ref={ref}
@@ -90,20 +92,20 @@ const BaseProFormUploadDragger: React.FC<ProFormUploadDraggerProps> =
           action={action}
           accept={accept}
           fileList={value}
-          {...fieldProps}
+          {...uploadFieldProps}
           onChange={(info) => {
             onChange?.(info);
-            if (fieldProps?.onChange) {
-              fieldProps?.onChange(info);
+            if (uploadFieldProps?.onChange) {
+              uploadFieldProps?.onChange(info);
             }
           }}
           style={{
             flexDirection: 'column',
             alignItems: 'center',
-            ...fieldProps?.style,
+            ...uploadFieldProps?.style,
             display: !showUploadButton
               ? 'none'
-              : fieldProps?.style?.display || 'flex',
+              : uploadFieldProps?.style?.display || 'flex',
           }}
         >
           <p className={`${baseClassName}-drag-icon`}>{icon}</p>
@@ -129,8 +131,6 @@ const ProFormUploadDragger = warpField<ProFormUploadDraggerProps>?.(
   {
     getValueFromEvent: (value: { fileList: UploadProps['fileList'] }) =>
       value.fileList,
-    // 阻止点击 label 时触发隐藏的 file input focus，避免误打开文件选择器
-    htmlFor: '',
   },
 ) as typeof BaseProFormUploadDragger;
 
