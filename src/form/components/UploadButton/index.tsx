@@ -121,6 +121,8 @@ const BaseProFormUploadButton: React.FC<ProFormUploadButtonProps> =
         (max === undefined || !value || value?.length < max) && mode !== 'read';
       const isPictureCard =
         (listType ?? fieldProps?.listType) === 'picture-card';
+      // 参考 antd：不传 id 给 Upload，避免点击 label 触发 file input 打开文件选择器
+      const { id: _id, ...uploadFieldProps } = fieldProps || {};
       return (
         <>
           <Upload
@@ -130,10 +132,10 @@ const BaseProFormUploadButton: React.FC<ProFormUploadButtonProps> =
             listType={listType || 'picture'}
             fileList={value}
             onPreview={handlePreview}
-            {...fieldProps}
-            name={fieldProps?.name ?? 'file'}
+            {...uploadFieldProps}
+            name={uploadFieldProps?.name ?? 'file'}
             onChange={(info) => {
-              fieldProps?.onChange?.(info);
+              uploadFieldProps?.onChange?.(info);
             }}
           >
             {showUploadButton &&
@@ -143,7 +145,7 @@ const BaseProFormUploadButton: React.FC<ProFormUploadButtonProps> =
                 </span>
               ) : (
                 <Button
-                  disabled={disabled || fieldProps?.disabled}
+                  disabled={disabled || uploadFieldProps?.disabled}
                   {...buttonProps}
                 >
                   {icon}

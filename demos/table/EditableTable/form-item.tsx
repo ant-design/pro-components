@@ -16,6 +16,7 @@ import { Button } from 'antd';
 import React, { useRef, useState } from 'react';
 
 import { createEditableRowId } from '../../mockData';
+import isEmpty from 'lodash-es/isEmpty';
 
 type DataSourceType = {
   id: React.Key;
@@ -60,10 +61,25 @@ const Demo = () => {
     {
       title: '任务名称',
       dataIndex: 'title',
-      formItemProps: () => {
-        return {
-          rules: [{ required: true, message: '此项为必填项' }],
-        };
+      formItemProps: (_form, _config) =>{
+        return ({
+          rules: [
+            // 自定义 validator 放前面，空值时显式通过，避免干扰 required
+            {
+              warningOnly: true,
+              validator: (_rule: any, value: any) => {
+                if (isEmpty(value)) {
+                  return Promise.resolve();
+                }
+                if ('warningOnly' === value) {
+                  throw new Error('Warning Only');
+                }
+                return Promise.resolve();
+              },
+            },
+            { required: true, message: '此项为必填项' },
+          ],
+        });
       },
       width: '30%',
     },
