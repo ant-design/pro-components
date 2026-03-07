@@ -155,7 +155,7 @@ const Demo = () => {
           x: 960,
         }}
         editableFormRef={editorFormRef}
-        headerTitle="可编辑表格1"
+        headerTitle="可编辑表格"
         maxLength={5}
         name="table"
         controlled={controlled}
