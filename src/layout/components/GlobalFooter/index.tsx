@@ -41,7 +41,11 @@ const GlobalFooter = ({
   }
 
   return wrapSSR(
-    <div className={clsx(baseClassName, hashId, className)} style={style}>
+    <div
+      className={clsx(baseClassName, hashId, className)}
+      style={style}
+      data-testid="pro-global-footer"
+    >
       {links && (
         <div className={clsx(`${baseClassName}-list`, hashId)}>
           {links.map((link) => (
