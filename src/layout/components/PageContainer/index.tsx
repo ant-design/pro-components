@@ -420,7 +420,11 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
   return wrapSSR(
     stylish.wrapSSR(
       <>
-        <div style={style} className={containerClassName}>
+        <div
+          style={style}
+          className={containerClassName}
+          data-testid="pro-page-container"
+        >
           {fixedHeader && pageHeaderDom ? (
             // 在 hasHeader 且 fixedHeader 的情况下，才需要设置高度
             <Affix

@@ -1012,6 +1012,7 @@ const ProTable = <
       })}
       style={style}
       ref={counter.rootDomRef}
+      data-testid="pro-table"
     >
       {isLightFilter ? null : searchNode}
       {type !== 'form' && props.tableExtraRender && (

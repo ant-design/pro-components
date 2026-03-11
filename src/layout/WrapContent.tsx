@@ -26,12 +26,20 @@ const WrapContent: React.FC<{
 
   const ErrorComponent = props.ErrorBoundary || ErrorBoundary;
   return props.ErrorBoundary === false ? (
-    <Layout.Content className={contentClassName} style={style}>
+    <Layout.Content
+      className={contentClassName}
+      style={style}
+      data-testid="pro-layout-content"
+    >
       {children}
     </Layout.Content>
   ) : (
     <ErrorComponent>
-      <Layout.Content className={contentClassName} style={style}>
+      <Layout.Content
+        className={contentClassName}
+        style={style}
+        data-testid="pro-layout-content"
+      >
         {children}
       </Layout.Content>
     </ErrorComponent>
