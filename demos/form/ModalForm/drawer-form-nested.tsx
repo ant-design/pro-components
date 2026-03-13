@@ -58,6 +58,7 @@ const Demo = () => {
             company: string;
           }>
             name="modal-form-drawer-form-nested-demo-3"
+            title="新建表单"
             formRef={formRef}
             trigger={
               <Button type="primary">
@@ -66,7 +67,6 @@ const Demo = () => {
               </Button>
             }
             drawerProps={{
-              title: '新建表单',
               forceRender: true,
               destroyOnHidden: true,
             }}
