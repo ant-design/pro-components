@@ -227,7 +227,12 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
   return wrapSSR(
     <ResizeObserver onResize={onResize}>
       {(ref) => (
-        <div ref={ref} className={className} style={style}>
+        <div
+          ref={ref}
+          className={className}
+          style={style}
+          data-testid="pro-page-header"
+        >
           {breadcrumbDom}
           {title}
           {childDom}

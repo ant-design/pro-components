@@ -145,7 +145,11 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (
     </span>
   );
   return wrapSSR(
-    <div className={className} style={{ ...style }}>
+    <div
+      className={className}
+      style={{ ...style }}
+      data-testid="pro-layout-global-header"
+    >
       {isMobile && (
         <span
           className={clsx(`${baseClassName}-collapsed-button`, hashId)}

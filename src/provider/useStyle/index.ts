@@ -4,7 +4,7 @@ import { TinyColor } from '@ctrl/tinycolor';
 import { ConfigProvider as AntdConfigProvider, theme as antdTheme } from 'antd';
 import type { GlobalToken } from 'antd/lib/theme/interface';
 import type React from 'react';
-import { useContext } from 'react';
+import { useContext, useMemo, useRef } from 'react';
 import { ProProvider } from '../index';
 import type { ProTokenType } from '../typing/layoutToken';
 
@@ -90,6 +90,24 @@ export const operationUnit = (token: ProAliasToken): CSSObject => ({
   },
 });
 
+const hashString = (input: string): string => {
+  let hash = 5381;
+  for (let i = 0; i < input.length; i += 1) {
+    hash = (hash * 33) ^ input.charCodeAt(i);
+  }
+  return (hash >>> 0).toString(36);
+};
+
+const getProTokenKey = (token: ProAliasToken): string => {
+  try {
+    // ProProvider exposes finalToken instead of useCacheToken token,
+    // so build a stable key from Pro token payload directly.
+    return hashString(JSON.stringify(token));
+  } catch {
+    return '';
+  }
+};
+
 /**
  * 封装了一下 antd 的 useStyle
  * @param componentName {string} 组件的名字
@@ -117,11 +135,38 @@ export function useStyle(
   token.antCls = `.${getPrefixCls()}`;
 
   // Register styles (side effect only in v2)
+  // Keep path sensitive to both antd theme and Pro token updates.
+  const proTokenKey = useMemo(() => {
+    return getProTokenKey(token as ProAliasToken);
+  }, [token]);
+
+  // Keep path monotonic across toggles to avoid style order issues
+  // when switching dark -> light (back to an old key).
+  const styleKey = [
+    hashId,
+    (theme as any).id,
+    token.themeId,
+    proTokenKey,
+  ]
+    .filter(Boolean)
+    .join('-');
+
+  const lastStyleKeyRef = useRef<string>('');
+  const styleVersionRef = useRef(0);
+  if (lastStyleKeyRef.current !== styleKey) {
+    styleVersionRef.current += 1;
+    lastStyleKeyRef.current = styleKey;
+  }
+
+  const stylePath = [componentName, styleKey, styleVersionRef.current].filter(
+    Boolean,
+  );
+
   useStyleRegister(
     {
       theme: theme as any,
       token,
-      path: [componentName],
+      path: stylePath,
       nonce: csp?.nonce,
       layer: {
         name: 'antd-pro',
@@ -130,7 +175,6 @@ export function useStyle(
     () => styleFn(token as ProAliasToken),
   );
 
-  // Return identity wrapper and hashId
   return {
     wrapSSR: (node: React.ReactElement) => node,
     hashId: hashed ? hashId : '',

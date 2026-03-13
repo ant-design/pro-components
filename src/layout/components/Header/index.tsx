@@ -157,7 +157,11 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
               }}
             />
           )}
-          <Header className={className} style={style}>
+          <Header
+            className={className}
+            style={style}
+            data-testid="pro-layout-header"
+          >
             {renderContent()}
           </Header>
         </ConfigProvider>

@@ -29,7 +29,11 @@ const DefaultFooter: React.FC<FooterProps> = ({
   className,
   prefixCls,
 }: FooterProps) => (
-  <Footer className={className} style={{ padding: 0, ...style }}>
+  <Footer
+    className={className}
+    style={{ padding: 0, ...style }}
+    data-testid="pro-layout-footer"
+  >
     <GlobalFooter
       links={links}
       prefixCls={prefixCls}

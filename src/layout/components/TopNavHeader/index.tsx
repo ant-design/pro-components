@@ -150,6 +150,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
         [`${prefixCls}-light`]: true,
       })}
       style={style}
+      data-testid="pro-layout-top-nav-header"
     >
       <div
         ref={ref}

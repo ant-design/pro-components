@@ -484,6 +484,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
           onCollapse?.(collapse);
         }}
         collapsedWidth={collapsedWidth}
+        data-testid="pro-layout-sider"
         style={style}
         theme={theme}
         width={siderWidth}

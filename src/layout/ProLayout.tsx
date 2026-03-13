@@ -804,7 +804,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
       {props.pure ? (
         <>{children}</>
       ) : (
-        <div className={className}>
+        <div className={className} data-testid="pro-layout">
           {bgImgStyleList || token.layout?.bgLayout ? (
             <div className={clsx(`${proLayoutClassName}-bg-list`, hashId)}>
               {bgImgStyleList}
