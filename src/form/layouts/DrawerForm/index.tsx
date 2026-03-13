@@ -74,6 +74,10 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
     !(rest as any).footer || !drawerProps?.footer,
     'DrawerForm 是一个 ProForm 的特殊布局，如果想自定义按钮，请使用 submit.render 自定义。',
   );
+  noteOnce(
+    (rest as any)?.resize,
+    'resize is removed, please use `drawerProps.resize` instead of `resize`',
+  );
 
   const context = useContext(ConfigProvider.ConfigContext);
 

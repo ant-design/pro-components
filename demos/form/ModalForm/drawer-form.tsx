@@ -27,6 +27,7 @@ const Demo = () => {
       company: string;
     }>
       name="modal-form-drawer-form-demo"
+      title="Create New Form"
       form={form}
       trigger={
         <Button type="primary">
@@ -35,7 +36,6 @@ const Demo = () => {
         </Button>
       }
       autoFocusFirstInput
-      title="Create New Form"
       drawerProps={{
         destroyOnHidden: true,
         size,

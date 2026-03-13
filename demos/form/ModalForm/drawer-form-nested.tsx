@@ -32,15 +32,15 @@ const Demo = () => {
           company: string;
         }>
           name="modal-form-drawer-form-nested-demo-4"
+          title="新建表单"
           formRef={formRef}
+          width={600}
           trigger={
             <Button type="primary">
               <PlusOutlined />
               新建 Drawer 表单
             </Button>
           }
-          title="新建表单"
-          width="middle"
           drawerProps={{
             forceRender: true,
             destroyOnHidden: true,
