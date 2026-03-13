@@ -45,29 +45,29 @@ ModalForm 和 DrawerForm 都提供了 trigger 来减少 state 的使用，如果
 
 ModalForm 组合了 Modal 和 ProForm 可以减少繁琐的状态管理。
 
-| 参数          | 说明                                                                                                                               | 类型                            | 默认值  |
-| ------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | ------- |
-| trigger       | 用于触发 Modal 打开的 dom，一般是 Button                                                                                           | `JSX.Element`                   | -       |
-| open          | 是否打开                                                                                                                           | `boolean`                       | `false` |
-| onOpenChange  | open 改变时触发                                                                                                                    | `(open: boolean) => void`       | -       |
-| modalProps    | Modal 的 props，使用方式与 [antd](https://ant.design/components/modal-cn/) 相同。注意：不支持传入 `open`，请使用顶层的 `open` 控制 | `Omit<ModalProps, 'open'>`      | -       |
-| title         | 弹框的标题                                                                                                                         | `ModalProps['title']`           | -       |
-| width         | 弹框的宽度                                                                                                                         | `ModalProps['width']`           | 520     |
-| onFinish      | 提交数据时触发，返回真值会关闭弹框；若配置了 `destroyOnHidden` 还会在关闭后重置表单                                                | `(values: any) => Promise<any>` | -       |
-| submitTimeout | 提交数据时，禁用取消按钮的超时时间（毫秒）                                                                                         | `number`                        | -       |
-| submitter     | 提交按钮相关配置，使用方式与 [ProForm](/components/form) 相同                                                                      | `SubmitterProps \| false`       | -       |
+| 参数          | 说明                                                                                                                                  | 类型                            | 默认值  |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | ------- |
+| trigger       | 用于触发 Modal 打开的 dom，一般是 Button                                                                                              | `JSX.Element`                   | -       |
+| open          | 是否打开                                                                                                                              | `boolean`                       | `false` |
+| onOpenChange  | open 改变时触发                                                                                                                       | `(open: boolean) => void`       | -       |
+| modalProps    | Modal 的 props，使用方式与 [antd](https://ant.design/components/modal-cn#api) 相同。注意：不支持传入 `open`，请使用顶层的 `open` 控制 | `Omit<ModalProps, 'open'>`      | -       |
+| title         | 弹框的标题                                                                                                                            | `ModalProps['title']`           | -       |
+| width         | 弹框的宽度                                                                                                                            | `ModalProps['width']`           | 520     |
+| onFinish      | 提交数据时触发，返回真值会关闭弹框；若配置了 `destroyOnHidden` 还会在关闭后重置表单                                                   | `(values: any) => Promise<any>` | -       |
+| submitTimeout | 提交数据时，禁用取消按钮的超时时间（毫秒）                                                                                            | `number`                        | -       |
+| submitter     | 提交按钮相关配置，使用方式与 [ProForm](/components/form) 相同                                                                         | `SubmitterProps \| false`       | -       |
 
 ### DrawerForm
 
 DrawerForm 组合了 Drawer 和 ProForm 可以减少繁琐的状态管理。
 
-| 参数          | 说明                                                                                                                                | 类型                            | 默认值    |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | --------- |
-| trigger       | 用于触发抽屉打开的 dom，一般是 Button                                                                                               | `JSX.Element`                   | -         |
-| open          | 是否打开                                                                                                                            | `boolean`                       | `false`   |
-| onOpenChange  | open 改变时触发                                                                                                                     | `(open: boolean) => void`       | -         |
-| title         | 抽屉的标题                                                                                                                          | `ReactNode`                     | -         |
-| width         | 抽屉的宽度                                                                                                                          | `DrawerProps['size']`           | 'default' |
-| drawerProps   | Drawer 的 props，使用方式与 [antd](https://ant.designcomponents/drawer#api) 相同。注意：不支持传入 `open`，请使用顶层的 `open` 控制 | `Omit<DrawerProps, 'open'>`     | -         |
-| onFinish      | 提交数据时触发，返回真值会关闭抽屉；若配置了 `destroyOnHidden` 还会在关闭后重置表单                                                 | `(values: any) => Promise<any>` | -         |
-| submitTimeout | 提交数据时，禁用取消按钮的超时时间（毫秒）                                                                                          | `number`                        | -         |
+| 参数          | 说明                                                                                                                                 | 类型                            | 默认值    |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------- | --------- |
+| trigger       | 用于触发抽屉打开的 dom，一般是 Button                                                                                                | `JSX.Element`                   | -         |
+| open          | 是否打开                                                                                                                             | `boolean`                       | `false`   |
+| onOpenChange  | open 改变时触发                                                                                                                      | `(open: boolean) => void`       | -         |
+| title         | 抽屉的标题                                                                                                                           | `ReactNode`                     | -         |
+| width         | 抽屉的宽度                                                                                                                           | `DrawerProps['size']`           | 'default' |
+| drawerProps   | Drawer 的 props，使用方式与 [antd](https://ant.design/components/drawer#api) 相同。注意：不支持传入 `open`，请使用顶层的 `open` 控制 | `Omit<DrawerProps, 'open'>`     | -         |
+| onFinish      | 提交数据时触发，返回真值会关闭抽屉；若配置了 `destroyOnHidden` 还会在关闭后重置表单                                                  | `(values: any) => Promise<any>` | -         |
+| submitTimeout | 提交数据时，禁用取消按钮的超时时间（毫秒）                                                                                           | `number`                        | -         |
