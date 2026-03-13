@@ -35,8 +35,8 @@ const Demo = () => {
         </Button>
       }
       autoFocusFirstInput
+      title="Create New Form"
       drawerProps={{
-        title: 'Create New Form',
         destroyOnHidden: true,
         size,
         resizable: {

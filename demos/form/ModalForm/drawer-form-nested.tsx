@@ -39,10 +39,10 @@ const Demo = () => {
               新建 Drawer 表单
             </Button>
           }
+          title="新建表单"
+          width="middle"
           drawerProps={{
             forceRender: true,
-            title: '新建表单',
-            size: 600,
             destroyOnHidden: true,
           }}
           onFinish={async (values) => {

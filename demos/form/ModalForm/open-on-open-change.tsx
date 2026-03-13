@@ -114,7 +114,7 @@ const Demo = () => {
       </ModalForm>
       <DrawerForm
         onOpenChange={setDrawerVisit}
-        drawerProps={{ title: 'Create New Form' }}
+        title="Create New Form"
         open={drawerVisit}
         onFinish={async () => {
           message.success('Submission successful');

@@ -48,8 +48,14 @@ export type DrawerFormProps<
     /** @name 打开关闭的事件 */
     onOpenChange?: (open: boolean) => void;
 
-    /** @name antd的Drawer组件[props](https://ant.design/components/drawer#api) */
+    /** @name antd drawer 的 props，使用方式与 [antd](https://ant.design/components/drawer#api) 相同。注意：不支持传入 `open`，请使用顶层的 `open` 控制 */
     drawerProps?: Omit<DrawerProps, 'open'>;
+
+    /** @name 抽屉的标题 */
+    title?: DrawerProps['title'];
+
+    /** @name 抽屉的宽度 */
+    width?: DrawerProps['size'];
   };
 
 function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
@@ -60,6 +66,8 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
   submitTimeout,
   onOpenChange,
   open: propsOpen,
+  title,
+  width,
   ...rest
 }: DrawerFormProps<T, U>) {
   noteOnce(
@@ -256,6 +264,8 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
   return (
     <>
       <Drawer
+        title={title}
+        size={width}
         {...(drawerProps ?? {})}
         open={open}
         afterOpenChange={(open) => {
