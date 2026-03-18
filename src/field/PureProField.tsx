@@ -109,8 +109,8 @@ export const pureRenderText = (
       dataValue,
       valueType.type,
       {
-        ...valueType,
         ...props,
+        ...valueType,
       } as RenderProps,
       valueTypeMap,
     );

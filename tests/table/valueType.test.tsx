@@ -86,6 +86,41 @@ afterEach(() => {
 });
 
 describe('BasicTable valueType', () => {
+  it('🎏 table valueType function should keep percent precision config', async () => {
+    const html = render(
+      <ProTable
+        columns={[
+          {
+            title: 'percent',
+            dataIndex: 'percent',
+            valueType: () => ({ type: 'percent', precision: 8 }),
+          },
+        ]}
+        rowKey="key"
+        search={false}
+        options={false}
+        pagination={false}
+        request={() =>
+          Promise.resolve({
+            total: 1,
+            data: [
+              {
+                key: 1,
+                percent: 0.000001,
+              },
+            ],
+            success: true,
+          })
+        }
+      />,
+    );
+
+    await waitForWaitTime(1200);
+
+    expect(await html.findByText('0.00000100%')).toBeTruthy();
+
+    html.unmount();
+  });
   it('🎏 table support user valueType', async () => {
     const html = render(
       <ProProvider.Provider

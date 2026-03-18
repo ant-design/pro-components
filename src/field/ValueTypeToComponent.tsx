@@ -53,7 +53,10 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
           mode={props.mode}
           text={text}
           placeholder={placeholder}
-          fieldProps={fieldProps}
+          fieldProps={{
+            status: props.status,
+            ...fieldProps,
+          }}
         />
       );
     },
@@ -66,7 +69,10 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
           mode={props.mode}
           text={text}
           placeholder={placeholder}
-          fieldProps={fieldProps}
+          fieldProps={{
+            status: props.status,
+            ...fieldProps,
+          }}
         />
       );
     },
@@ -82,6 +88,8 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
           text={text}
           placeholder={placeholder}
           fieldProps={fieldProps}
+          locale={props.locale}
+          moneySymbol={props.moneySymbol}
         />
       );
     },
@@ -95,6 +103,8 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
           text={text}
           placeholder={placeholder}
           fieldProps={fieldProps}
+          locale={props.locale}
+          moneySymbol={props.moneySymbol}
         />
       );
     },
@@ -110,6 +120,9 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
           text={text}
           placeholder={placeholder}
           fieldProps={fieldProps}
+          precision={props.precision}
+          showSymbol={props.showSymbol}
+          showColor={props.showColor}
         />
       );
     },
@@ -123,6 +136,9 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
           text={text}
           placeholder={placeholder}
           fieldProps={fieldProps}
+          precision={props.precision}
+          showSymbol={props.showSymbol}
+          showColor={props.showColor}
         />
       );
     },
