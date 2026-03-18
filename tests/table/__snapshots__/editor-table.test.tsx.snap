@@ -4,6 +4,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
 <DocumentFragment>
   <div
     class="ant-pro-table"
+    data-testid="pro-table"
   >
     <div
       class="css-var-rbr ant-table-css-var ant-table-wrapper"
@@ -644,6 +645,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
 <DocumentFragment>
   <div
     class="ant-pro-table"
+    data-testid="pro-table"
   >
     <div
       class="css-var-r1 ant-table-css-var ant-table-wrapper"
