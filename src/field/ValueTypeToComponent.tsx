@@ -42,19 +42,31 @@ dayjs.extend(isoWeek);
 dayjs.extend(weekOfYear);
 dayjs.extend(weekday);
 
+const getValueTypeObjectProps = (props: Record<string, any>) => ({
+  status: props.status,
+  locale: props.locale,
+  moneySymbol: props.moneySymbol,
+  precision: props.precision,
+  showSymbol: props.showSymbol,
+  showColor: props.showColor,
+});
+
 const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
   progress: {
     render: (text, props) => {
       const fieldProps = pickProProps(props.fieldProps);
       const placeholder =
         typeof props.placeholder === 'string' ? props.placeholder : undefined;
+      const valueTypeObjectProps = getValueTypeObjectProps(
+        props as Record<string, any>,
+      );
       return (
         <FieldProgress
           mode={props.mode}
           text={text}
           placeholder={placeholder}
           fieldProps={{
-            status: props.status,
+            status: valueTypeObjectProps.status,
             ...fieldProps,
           }}
         />
@@ -64,13 +76,16 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
       const fieldProps = pickProProps(props.fieldProps);
       const placeholder =
         typeof props.placeholder === 'string' ? props.placeholder : undefined;
+      const valueTypeObjectProps = getValueTypeObjectProps(
+        props as Record<string, any>,
+      );
       return (
         <FieldProgress
           mode={props.mode}
           text={text}
           placeholder={placeholder}
           fieldProps={{
-            status: props.status,
+            status: valueTypeObjectProps.status,
             ...fieldProps,
           }}
         />
@@ -82,14 +97,17 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
       const fieldProps = pickProProps(props.fieldProps);
       const placeholder =
         typeof props.placeholder === 'string' ? props.placeholder : undefined;
+      const valueTypeObjectProps = getValueTypeObjectProps(
+        props as Record<string, any>,
+      );
       return (
         <FieldMoney
           mode={props.mode}
           text={text}
           placeholder={placeholder}
           fieldProps={fieldProps}
-          locale={props.locale}
-          moneySymbol={props.moneySymbol}
+          locale={valueTypeObjectProps.locale}
+          moneySymbol={valueTypeObjectProps.moneySymbol}
         />
       );
     },
@@ -97,14 +115,17 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
       const fieldProps = pickProProps(props.fieldProps);
       const placeholder =
         typeof props.placeholder === 'string' ? props.placeholder : undefined;
+      const valueTypeObjectProps = getValueTypeObjectProps(
+        props as Record<string, any>,
+      );
       return (
         <FieldMoney
           mode={props.mode}
           text={text}
           placeholder={placeholder}
           fieldProps={fieldProps}
-          locale={props.locale}
-          moneySymbol={props.moneySymbol}
+          locale={valueTypeObjectProps.locale}
+          moneySymbol={valueTypeObjectProps.moneySymbol}
         />
       );
     },
@@ -114,15 +135,18 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
       const fieldProps = pickProProps(props.fieldProps);
       const placeholder =
         typeof props.placeholder === 'string' ? props.placeholder : undefined;
+      const valueTypeObjectProps = getValueTypeObjectProps(
+        props as Record<string, any>,
+      );
       return (
         <FieldPercent
           mode={props.mode}
           text={text}
           placeholder={placeholder}
           fieldProps={fieldProps}
-          precision={props.precision}
-          showSymbol={props.showSymbol}
-          showColor={props.showColor}
+          precision={valueTypeObjectProps.precision}
+          showSymbol={valueTypeObjectProps.showSymbol}
+          showColor={valueTypeObjectProps.showColor}
         />
       );
     },
@@ -130,15 +154,18 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
       const fieldProps = pickProProps(props.fieldProps);
       const placeholder =
         typeof props.placeholder === 'string' ? props.placeholder : undefined;
+      const valueTypeObjectProps = getValueTypeObjectProps(
+        props as Record<string, any>,
+      );
       return (
         <FieldPercent
           mode={props.mode}
           text={text}
           placeholder={placeholder}
           fieldProps={fieldProps}
-          precision={props.precision}
-          showSymbol={props.showSymbol}
-          showColor={props.showColor}
+          precision={valueTypeObjectProps.precision}
+          showSymbol={valueTypeObjectProps.showSymbol}
+          showColor={valueTypeObjectProps.showColor}
         />
       );
     },
