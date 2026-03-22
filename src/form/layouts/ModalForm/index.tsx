@@ -271,7 +271,7 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
     <>
       <Modal
         title={title}
-        width={width || 800}
+        width={width}
         {...modalProps}
         open={open}
         onCancel={(e) => {
