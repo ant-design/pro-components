@@ -10,11 +10,11 @@ const addArrayKeys = (doms: React.ReactNode[]) =>
     }
     return React.cloneElement(dom, {
       key: index,
-      ...dom?.props,
+      ...(dom?.props ?? {}),
       style: {
-        ...dom?.props?.style,
+        ...((dom.props as any)?.style ?? {}),
       },
-    });
+    } as any);
   });
 
 /**

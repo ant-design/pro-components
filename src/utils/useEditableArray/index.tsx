@@ -1192,15 +1192,15 @@ export function useEditableArray<RecordType extends AnyObject>(
     },
   );
 
-  const saveRefsMap = useRef<
-    Map<React.Key, React.RefObject<SaveEditableActionRef>>
-  >(new Map<React.Key, React.RefObject<SaveEditableActionRef>>());
+  const saveRefsMap = useRef(
+    new Map<React.Key, React.RefObject<SaveEditableActionRef | null>>(),
+  );
 
   useEffect(() => {
     const editableKeysSet = new Set(
       editableKeys?.map((key) => key?.toString()) ?? [],
     );
-    saveRefsMap.current.forEach((ref, key) => {
+    saveRefsMap.current.forEach((_, key) => {
       if (!editableKeysSet.has(key?.toString())) {
         saveRefsMap.current.delete(key);
       }

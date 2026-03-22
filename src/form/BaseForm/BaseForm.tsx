@@ -12,6 +12,7 @@ import { ConfigProvider, Form, Spin } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
 import { clsx } from 'clsx';
 import type dayjs from 'dayjs';
+import type { RefObject } from 'react';
 import React, {
   useCallback,
   useContext,
@@ -58,7 +59,7 @@ const { noteOnce } = warning;
 
 // Define ProFormInstance and ProFormRef
 export type ProFormInstance<T = any> = FormInstance<T> & ProFormInstanceType<T>;
-type ProFormRef<T> = ProFormInstance<T> & {
+export type ProFormRef<T> = ProFormInstance<T> & {
   /** 原生 DOM 元素引用 */
   nativeElement?: HTMLElement;
   /** 聚焦方法 */
@@ -116,9 +117,7 @@ export type CommonFormProps<
    *
    * - formRef.current.nativeElement => `2.29.1+`
    */
-  formRef?:
-    | React.MutableRefObject<ProFormRef<T> | undefined>
-    | React.RefObject<ProFormRef<T> | undefined>;
+  formRef?: RefObject<ProFormRef<T> | undefined | null>;
 
   /**
    * @name 同步结果到 url 中

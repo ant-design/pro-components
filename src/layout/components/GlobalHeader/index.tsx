@@ -41,7 +41,7 @@ export type GlobalHeaderProps = {
   /** 相关品牌的列表项 点击事件，当事件存在时，appList 内配置的 url 不在自动跳转 */
   itemClick?: (
     item: AppItemProps,
-    popoverRef?: React.RefObject<HTMLSpanElement>,
+    popoverRef?: React.RefObject<HTMLSpanElement | null>,
   ) => void;
   menuData?: MenuDataItem[];
   onMenuHeaderClick?: (e: React.MouseEvent<HTMLDivElement>) => void;

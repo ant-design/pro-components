@@ -1,6 +1,6 @@
 import { Popover } from 'antd';
 import { clsx } from 'clsx';
-import React, { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { AppsLogo } from './AppsLogo';
 import { DefaultContent } from './DefaultContent';
 import { SimpleContent } from './SimpleContent';
@@ -39,13 +39,13 @@ export const AppsLogoComponents: React.FC<{
   ) => React.ReactNode;
   onItemClick?: (
     item: AppItemProps,
-    popoverRef?: React.RefObject<HTMLSpanElement>,
+    popoverRef?: React.RefObject<HTMLSpanElement | null>,
   ) => void;
   prefixCls?: string;
 }> = (props) => {
   const { appList, appListRender, prefixCls, onItemClick: itemClick } = props;
-  const ref = React.useRef<HTMLDivElement>(null);
-  const popoverRef = React.useRef<HTMLSpanElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
+  const popoverRef = useRef<HTMLSpanElement>(null);
   const baseClassName = `${prefixCls}-layout-apps`;
   const { wrapSSR, hashId } = useStyle(baseClassName);
 

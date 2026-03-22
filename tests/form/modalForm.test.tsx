@@ -8,7 +8,7 @@ import {
 } from '@testing-library/react';
 import type { FormInstance } from 'antd';
 import { Button } from 'antd';
-import { createRef } from 'react';
+import { createRef, useRef } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
 
@@ -57,7 +57,7 @@ describe('ModalForm', () => {
   });
 
   it('📦 ModelForm get formRef when use request', async () => {
-    const formRef = createRef<FormInstance>();
+    const formRef = useRef<FormInstance>(null);
     const wrapper = render(
       <ModalForm
         open

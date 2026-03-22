@@ -90,7 +90,7 @@ const Demo = () => {
   };
   const itemClick = (
     item: AppItemProps,
-    popoverRef?: React.RefObject<HTMLSpanElement>,
+    popoverRef?: React.RefObject<HTMLSpanElement | null>,
   ) => {
     // 点击后关闭 Popover
     popoverRef?.current?.click?.();

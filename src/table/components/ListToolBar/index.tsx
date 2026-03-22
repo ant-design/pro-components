@@ -234,7 +234,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
           }
           return React.cloneElement(action, {
             key: index,
-            ...action?.props,
+            ...((action?.props ?? {}) as any),
           });
         })}
       </div>

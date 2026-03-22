@@ -13,7 +13,11 @@ import React, {
 } from 'react';
 import { createPortal } from 'react-dom';
 import { useRefFunction } from '../../../utils';
-import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
+import type {
+  CommonFormProps,
+  ProFormInstance,
+  ProFormRef,
+} from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import { SubmitterProps } from '../../BaseForm/Submitter';
 const { noteOnce } = warning;
@@ -109,7 +113,7 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
     [onOpenChangeCallback],
   );
 
-  const footerRef = useRef<HTMLDivElement | null>(null);
+  const footerRef = useRef<HTMLDivElement>(null);
 
   const footerDomRef: React.RefCallback<HTMLDivElement> = useCallback(
     (element) => {
@@ -121,7 +125,7 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
     [],
   );
 
-  const formRef = useRef<ProFormInstance>(undefined);
+  const formRef = useRef<ProFormInstance>(null);
 
   const resetFields = useCallback(() => {
     const form = rest.form ?? rest.formRef?.current ?? formRef.current;
@@ -136,11 +140,9 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
     }
   }, [modalProps?.destroyOnHidden, rest.form, rest.formRef]);
 
-  useImperativeHandle(
+  useImperativeHandle<ProFormRef<T> | undefined | null, ProFormInstance | null>(
     rest.formRef,
-    () => {
-      return formRef.current;
-    },
+    () => formRef.current,
     [formRef.current],
   );
 
@@ -308,9 +310,7 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
           {...rest}
           onInit={(_, form) => {
             if (rest.formRef) {
-              (
-                rest.formRef as React.MutableRefObject<ProFormInstance<T>>
-              ).current = form;
+              rest.formRef.current = form;
             }
             rest?.onInit?.(_, form);
             formRef.current = form;

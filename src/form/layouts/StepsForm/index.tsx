@@ -130,7 +130,7 @@ const StepsLayoutStrategy: Record<
             style: {
               height: '100%',
             },
-          })}
+          } as any)}
         </Col>
         <Col>
           <div
