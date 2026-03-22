@@ -4,6 +4,7 @@ exports[`Table valueEnum > 🎏 customization valueType 1`] = `
 <DocumentFragment>
   <div
     class="ant-pro-table"
+    data-testid="pro-table"
   >
     <div
       class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
@@ -251,7 +252,7 @@ exports[`Table valueEnum > 🎏 customization valueType 1`] = `
               class="ant-spin-container"
             >
               <div
-                class="ant-table ant-table-middle css-var-_r_k_ ant-table-css-var"
+                class="ant-table ant-table-medium css-var-_r_k_ ant-table-css-var"
               >
                 <div
                   class="ant-table-container"

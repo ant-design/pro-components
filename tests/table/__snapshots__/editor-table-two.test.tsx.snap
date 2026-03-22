@@ -4,6 +4,7 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
 <DocumentFragment>
   <div
     class="ant-pro-table"
+    data-testid="pro-table"
   >
     <div
       class="css-var-_r_30_ ant-table-css-var ant-table-wrapper"
@@ -17,7 +18,7 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
           class="ant-spin-container"
         >
           <div
-            class="ant-table ant-table-middle css-var-_r_30_ ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-layout-fixed ant-table-scroll-horizontal"
+            class="ant-table ant-table-medium css-var-_r_30_ ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-layout-fixed ant-table-scroll-horizontal"
           >
             <div
               class="ant-table-container"

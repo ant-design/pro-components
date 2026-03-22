@@ -4,6 +4,7 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
 <DocumentFragment>
   <div
     class="ant-pro-table"
+    data-testid="pro-table"
   >
     <div
       class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
@@ -410,7 +411,7 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
               class="ant-spin-container"
             >
               <div
-                class="ant-table ant-table-middle css-var-_r_19_ ant-table-css-var"
+                class="ant-table ant-table-medium css-var-_r_19_ ant-table-css-var"
               >
                 <div
                   class="ant-table-container"

@@ -4,6 +4,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
 <DocumentFragment>
   <div
     class="ant-pro-table"
+    data-testid="pro-table"
   >
     <div
       class="css-var-_r_bf_ ant-table-css-var ant-table-wrapper"
@@ -17,7 +18,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
           class="ant-spin-container"
         >
           <div
-            class="ant-table ant-table-middle css-var-_r_bf_ ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-layout-fixed ant-table-scroll-horizontal"
+            class="ant-table ant-table-medium css-var-_r_bf_ ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-layout-fixed ant-table-scroll-horizontal"
           >
             <div
               class="ant-table-container"
@@ -644,6 +645,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
 <DocumentFragment>
   <div
     class="ant-pro-table"
+    data-testid="pro-table"
   >
     <div
       class="css-var-_r_1_ ant-table-css-var ant-table-wrapper"
@@ -657,7 +659,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
           class="ant-spin-container"
         >
           <div
-            class="ant-table ant-table-middle css-var-_r_1_ ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-layout-fixed ant-table-scroll-horizontal"
+            class="ant-table ant-table-medium css-var-_r_1_ ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-layout-fixed ant-table-scroll-horizontal"
           >
             <div
               class="ant-table-container"

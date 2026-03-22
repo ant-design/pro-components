@@ -4,6 +4,7 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
 <DocumentFragment>
   <div
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
+    data-testid="pro-layout"
   >
     <div
       class="ant-pro-layout-bg-list"
@@ -17,6 +18,7 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
       />
       <aside
         class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-_r_5v_"
+        data-testid="pro-layout-sider"
         style="max-width: 256px; min-width: 256px; width: 256px; flex-grow: 0; flex-shrink: 0; flex-basis: 256px;"
       >
         <div
@@ -209,12 +211,14 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
       >
         <main
           class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+          data-testid="pro-layout-content"
         />
       </div>
     </div>
   </div>
   <div
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-top-menu ant-pro-layout-fix-siderbar ant-pro-layout-top"
+    data-testid="pro-layout"
   >
     <div
       class="ant-pro-layout-bg-list"
@@ -229,9 +233,11 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
       >
         <header
           class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header-action ant-pro-layout-header-top-menu ant-pro-layout-header-header"
+          data-testid="pro-layout-header"
         >
           <div
             class="ant-pro-top-nav-header ant-pro-top-nav-header-light"
+            data-testid="pro-layout-top-nav-header"
           >
             <div
               class="ant-pro-top-nav-header-main"
@@ -405,12 +411,14 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
         </header>
         <main
           class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+          data-testid="pro-layout-content"
         />
       </div>
     </div>
   </div>
   <div
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
+    data-testid="pro-layout"
   >
     <div
       class="ant-pro-layout-bg-list"
@@ -424,6 +432,7 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
       />
       <aside
         class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-fixed-mix ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix css-var-_r_69_"
+        data-testid="pro-layout-sider"
         style="max-width: 215px; min-width: 215px; width: 215px; flex-grow: 0; flex-shrink: 0; flex-basis: 215px;"
       >
         <div
@@ -484,9 +493,11 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
         />
         <header
           class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-fixed-header-action ant-pro-layout-header-header"
+          data-testid="pro-layout-header"
         >
           <div
             class="ant-pro-global-header"
+            data-testid="pro-layout-global-header"
           >
             <div
               class="ant-pro-global-header-logo ant-pro-global-header-logo-mix"
@@ -630,6 +641,7 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
         </header>
         <main
           class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+          data-testid="pro-layout-content"
         />
       </div>
     </div>
@@ -641,6 +653,7 @@ exports[`BasicLayout > 🥩 base use 1`] = `
 <DocumentFragment>
   <div
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
+    data-testid="pro-layout"
   >
     <div
       class="ant-pro-layout-bg-list"
@@ -654,6 +667,7 @@ exports[`BasicLayout > 🥩 base use 1`] = `
       />
       <aside
         class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-_r_3_"
+        data-testid="pro-layout-sider"
         style="max-width: 256px; min-width: 256px; width: 256px; flex-grow: 0; flex-shrink: 0; flex-basis: 256px;"
       >
         <div
@@ -821,6 +835,7 @@ exports[`BasicLayout > 🥩 base use 1`] = `
       >
         <main
           class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+          data-testid="pro-layout-content"
         />
       </div>
     </div>
@@ -832,6 +847,7 @@ exports[`BasicLayout > 🥩 contentStyle should change dom 1`] = `
 <DocumentFragment>
   <div
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
+    data-testid="pro-layout"
   >
     <div
       class="ant-pro-layout-bg-list"
@@ -845,6 +861,7 @@ exports[`BasicLayout > 🥩 contentStyle should change dom 1`] = `
       />
       <aside
         class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-_r_3n_"
+        data-testid="pro-layout-sider"
         style="max-width: 256px; min-width: 256px; width: 256px; flex-grow: 0; flex-shrink: 0; flex-basis: 256px;"
       >
         <div
@@ -1012,6 +1029,7 @@ exports[`BasicLayout > 🥩 contentStyle should change dom 1`] = `
       >
         <main
           class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+          data-testid="pro-layout-content"
           style="padding: 56px;"
         />
       </div>
