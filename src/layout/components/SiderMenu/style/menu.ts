@@ -40,6 +40,19 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         alignItems: 'center',
       },
       [`&&-collapsed`]: {
+        // antd ≥6.3.4 折叠 Menu 对 title-content 隐藏更彻底（如 #57360）；Pro 图标在 label 内，需恢复可见（布局仍由 *-item-title-collapsed 控制）
+        [`&${token.antCls}-menu-inline-collapsed`]: {
+          [`> ${token.antCls}-menu-item > ${token.antCls}-menu-title-content,
+            > ${token.antCls}-menu-item-group > ${token.antCls}-menu-item-group-list > ${token.antCls}-menu-item > ${token.antCls}-menu-title-content,
+            > ${token.antCls}-menu-item-group > ${token.antCls}-menu-item-group-list > ${token.antCls}-menu-submenu > ${token.antCls}-menu-submenu-title > ${token.antCls}-menu-title-content,
+            > ${token.antCls}-menu-submenu > ${token.antCls}-menu-submenu-title > ${token.antCls}-menu-title-content`]:
+            {
+              width: '100% !important',
+              maxWidth: '100%',
+              opacity: '1 !important',
+              overflow: 'visible !important',
+            },
+        },
         [`${token.antCls}-menu-item, 
         ${token.antCls}-menu-item-group > ${token.antCls}-menu-item-group-list > ${token.antCls}-menu-item, 
         ${token.antCls}-menu-item-group > ${token.antCls}-menu-item-group-list > ${token.antCls}-menu-submenu > ${token.antCls}-menu-submenu-title, 
