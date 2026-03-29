@@ -12,6 +12,7 @@ exports[`Table ColumnSetting > 🎏 config provide render 1`] = `
 <div>
   <div
     class="qixian-pro-table"
+    data-testid="pro-table"
   >
     <div
       class="qixian-pro-card qixian-pro-table-search qixian-pro-table-search-query-filter"
@@ -393,6 +394,7 @@ exports[`Table ColumnSetting > 🎏 extra columns 1`] = `
 <div>
   <div
     class="ant-pro-table"
+    data-testid="pro-table"
   >
     <div
       class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"

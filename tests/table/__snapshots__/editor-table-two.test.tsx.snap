@@ -4,6 +4,7 @@ exports[`EditorProTable 2 > 📝 EditableProTable support recordCreatorProps.pos
 <DocumentFragment>
   <div
     class="ant-pro-table"
+    data-testid="pro-table"
   >
     <div
       class="css-var-r30 ant-table-css-var ant-table-wrapper"

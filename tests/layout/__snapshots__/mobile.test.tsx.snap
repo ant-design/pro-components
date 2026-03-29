@@ -4,6 +4,7 @@ exports[`mobile BasicLayout > 📱 base use 1`] = `
 <DocumentFragment>
   <div
     class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-side"
+    data-testid="pro-layout"
   >
     <div
       class="ant-pro-layout-bg-list"
@@ -18,9 +19,11 @@ exports[`mobile BasicLayout > 📱 base use 1`] = `
       >
         <header
           class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-header"
+          data-testid="pro-layout-header"
         >
           <div
             class="ant-pro-global-header"
+            data-testid="pro-layout-global-header"
           >
             <span
               class="ant-pro-global-header-collapsed-button"
@@ -184,6 +187,7 @@ exports[`mobile BasicLayout > 📱 base use 1`] = `
         </header>
         <main
           class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+          data-testid="pro-layout-content"
         >
           welcome
         </main>
@@ -197,6 +201,7 @@ exports[`mobile BasicLayout > 📱 layout menuHeaderRender 1`] = `
 <DocumentFragment>
   <div
     class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
+    data-testid="pro-layout"
   >
     <div
       class="ant-pro-layout-bg-list"
@@ -215,9 +220,11 @@ exports[`mobile BasicLayout > 📱 layout menuHeaderRender 1`] = `
         />
         <header
           class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-header"
+          data-testid="pro-layout-header"
         >
           <div
             class="ant-pro-global-header"
+            data-testid="pro-layout-global-header"
           >
             <span
               class="ant-pro-global-header-collapsed-button"
@@ -250,6 +257,7 @@ exports[`mobile BasicLayout > 📱 layout menuHeaderRender 1`] = `
         </header>
         <main
           class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+          data-testid="pro-layout-content"
         >
           welcome
         </main>
@@ -263,6 +271,7 @@ exports[`mobile BasicLayout > 📱 layout menuHeaderRender with custom title 1`]
 <DocumentFragment>
   <div
     class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
+    data-testid="pro-layout"
   >
     <div
       class="ant-pro-layout-bg-list"
@@ -281,9 +290,11 @@ exports[`mobile BasicLayout > 📱 layout menuHeaderRender with custom title 1`]
         />
         <header
           class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-header"
+          data-testid="pro-layout-header"
         >
           <div
             class="ant-pro-global-header"
+            data-testid="pro-layout-global-header"
           >
             <span
               class="ant-pro-global-header-collapsed-button"
@@ -316,6 +327,7 @@ exports[`mobile BasicLayout > 📱 layout menuHeaderRender with custom title 1`]
         </header>
         <main
           class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+          data-testid="pro-layout-content"
         >
           welcome
         </main>
@@ -329,6 +341,7 @@ exports[`mobile BasicLayout > 📱 layout menuHeaderRender=false 1`] = `
 <DocumentFragment>
   <div
     class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
+    data-testid="pro-layout"
   >
     <div
       class="ant-pro-layout-bg-list"
@@ -347,9 +360,11 @@ exports[`mobile BasicLayout > 📱 layout menuHeaderRender=false 1`] = `
         />
         <header
           class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-header"
+          data-testid="pro-layout-header"
         >
           <div
             class="ant-pro-global-header"
+            data-testid="pro-layout-global-header"
           >
             <span
               class="ant-pro-global-header-collapsed-button"
@@ -381,6 +396,7 @@ exports[`mobile BasicLayout > 📱 layout menuHeaderRender=false 1`] = `
         </header>
         <main
           class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+          data-testid="pro-layout-content"
         >
           welcome
         </main>
@@ -394,6 +410,7 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
 <DocumentFragment>
   <div
     class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
+    data-testid="pro-layout"
   >
     <div
       class="ant-pro-layout-bg-list"
@@ -411,6 +428,7 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
         />
         <div
           class="ant-drawer-content-wrapper ant-drawer-panel-motion-left-appear ant-drawer-panel-motion-left-appear-start ant-drawer-panel-motion-left"
+          data-testid="pro-layout-sider"
           style="width: 215px;"
         >
           <div
@@ -425,6 +443,7 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
             >
               <aside
                 class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light css-var-rl"
+                data-testid="pro-layout-sider"
                 style="max-width: 215px; min-width: 215px; width: 215px; flex-grow: 0; flex-shrink: 0; flex-basis: 215px;"
               >
                 <div
@@ -549,9 +568,11 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
         />
         <header
           class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-fixed-header-action ant-pro-layout-header-header"
+          data-testid="pro-layout-header"
         >
           <div
             class="ant-pro-global-header"
+            data-testid="pro-layout-global-header"
           >
             <span
               class="ant-pro-global-header-collapsed-button"
@@ -715,6 +736,7 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
         </header>
         <main
           class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
+          data-testid="pro-layout-content"
         >
           welcome
         </main>

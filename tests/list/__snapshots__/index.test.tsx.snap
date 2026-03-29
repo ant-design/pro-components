@@ -4,6 +4,7 @@ exports[`List > 🚏 ProList support rowClassName as a function 1`] = `
 <div>
   <div
     class="ant-pro-table ant-pro-list ant-pro-list-no-split"
+    data-testid="pro-table"
   >
     <div
       class="ant-pro-card"
@@ -13,6 +14,7 @@ exports[`List > 🚏 ProList support rowClassName as a function 1`] = `
       >
         <div
           class="ant-pro-list ant-pro-list-split ant-pro-list-borderless ant-pro-list-container"
+          data-testid="pro-list-view"
         >
           <div
             aria-busy="false"
@@ -125,6 +127,7 @@ exports[`List > 🚏 ProList support rowClassName as a string 1`] = `
 <div>
   <div
     class="ant-pro-table ant-pro-list ant-pro-list-no-split"
+    data-testid="pro-table"
   >
     <div
       class="ant-pro-card"
@@ -134,6 +137,7 @@ exports[`List > 🚏 ProList support rowClassName as a string 1`] = `
       >
         <div
           class="ant-pro-list ant-pro-list-split ant-pro-list-borderless ant-pro-list-container"
+          data-testid="pro-list-view"
         >
           <div
             aria-busy="false"
@@ -201,6 +205,7 @@ exports[`List > 🚏 only has content 1`] = `
 <div>
   <div
     class="ant-pro-table ant-pro-list ant-pro-list-no-split"
+    data-testid="pro-table"
   >
     <div
       class="ant-pro-card"
@@ -210,6 +215,7 @@ exports[`List > 🚏 only has content 1`] = `
       >
         <div
           class="ant-pro-list ant-pro-list-split ant-pro-list-borderless ant-pro-list-container"
+          data-testid="pro-list-view"
         >
           <div
             aria-busy="false"
@@ -254,6 +260,7 @@ exports[`List > 🚏 only has description 1`] = `
 <div>
   <div
     class="ant-pro-table ant-pro-list ant-pro-list-no-split"
+    data-testid="pro-table"
   >
     <div
       class="ant-pro-card"
@@ -263,6 +270,7 @@ exports[`List > 🚏 only has description 1`] = `
       >
         <div
           class="ant-pro-list ant-pro-list-split ant-pro-list-borderless ant-pro-list-container"
+          data-testid="pro-list-view"
         >
           <div
             aria-busy="false"
@@ -331,6 +339,7 @@ exports[`List > 🚏 show loading state 1`] = `
 <div>
   <div
     class="ant-pro-table ant-pro-list ant-pro-list-no-split"
+    data-testid="pro-table"
   >
     <div
       class="ant-pro-card"
@@ -340,6 +349,7 @@ exports[`List > 🚏 show loading state 1`] = `
       >
         <div
           class="ant-pro-list ant-pro-list-split ant-pro-list-borderless ant-pro-list-loading ant-pro-list-container"
+          data-testid="pro-list-view"
         >
           <div
             aria-busy="true"

@@ -4,6 +4,7 @@ exports[`BasicLayout > base use 1`] = `
 <div>
   <div
     class="ant-design-pro ant-pro-layout screen-lg ant-pro-layout-fix-siderbar ant-pro-layout-side"
+    data-testid="pro-layout"
   >
     <div
       class="ant-pro-layout-bg-list"
@@ -17,6 +18,7 @@ exports[`BasicLayout > base use 1`] = `
       />
       <aside
         class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-r3"
+        data-testid="pro-layout-sider"
         style="max-width: 256px; min-width: 256px; width: 256px; flex-grow: 0; flex-shrink: 0; flex-basis: 256px;"
       >
         <div
@@ -269,12 +271,15 @@ exports[`BasicLayout > base use 1`] = `
       >
         <main
           class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
+          data-testid="pro-layout-content"
         >
           <div
             class="ant-pro-page-container"
+            data-testid="pro-page-container"
           >
             <div
               class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
+              data-testid="pro-page-header"
             >
               <div
                 class="ant-page-header-heading"
@@ -303,6 +308,7 @@ exports[`BasicLayout > content is text 1`] = `
 <div>
   <div
     class="ant-design-pro ant-pro-layout screen-lg ant-pro-layout-fix-siderbar ant-pro-layout-side"
+    data-testid="pro-layout"
   >
     <div
       class="ant-pro-layout-bg-list"
@@ -316,6 +322,7 @@ exports[`BasicLayout > content is text 1`] = `
       />
       <aside
         class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-ra"
+        data-testid="pro-layout-sider"
         style="max-width: 256px; min-width: 256px; width: 256px; flex-grow: 0; flex-shrink: 0; flex-basis: 256px;"
       >
         <div
@@ -568,12 +575,15 @@ exports[`BasicLayout > content is text 1`] = `
       >
         <main
           class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
+          data-testid="pro-layout-content"
         >
           <div
             class="ant-pro-page-container"
+            data-testid="pro-page-container"
           >
             <div
               class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
+              data-testid="pro-page-header"
             >
               <div
                 class="ant-page-header-heading"

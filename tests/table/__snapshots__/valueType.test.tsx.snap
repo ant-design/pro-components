@@ -4,6 +4,7 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
 <DocumentFragment>
   <div
     class="ant-pro-table"
+    data-testid="pro-table"
   >
     <div
       class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
