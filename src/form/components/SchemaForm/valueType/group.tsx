@@ -1,5 +1,5 @@
-import { ProFormGroup } from '../../../../layouts';
-import type { ProSchemaRenderValueTypeFunction } from '../../typing';
+import { ProFormGroup } from '../../../layouts';
+import type { ProSchemaRenderValueTypeFunction } from '../typing';
 
 export const group: ProSchemaRenderValueTypeFunction = (item, { genItems }) => {
   if (item.valueType === 'group') {

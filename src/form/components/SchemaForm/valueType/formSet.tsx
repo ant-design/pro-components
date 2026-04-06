@@ -1,5 +1,5 @@
-import ProFormFieldSet from '../../../FieldSet';
-import type { ProSchemaRenderValueTypeFunction } from '../../typing';
+import ProFormFieldSet from '../../FieldSet';
+import type { ProSchemaRenderValueTypeFunction } from '../typing';
 
 export const formSet: ProSchemaRenderValueTypeFunction = (
   item,

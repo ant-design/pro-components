@@ -2,12 +2,11 @@
 
 ## [3.1.3-0] - 2026-04-06
 
-### 🛠 Refactor
+### 🛠 Refactor / Documentation
 
 - ProForm
-  - 🛠 Internal architecture cleanup: modular `BaseForm`, split `warpField`, `BetaSchemaForm` column normalization (`normalizeColumnToItemType`), `SchemaForm/valueType/pipeline`, and split `src/form/typing/`; **no intentional breaking changes** to public exports or default behavior
-  - ✅ Added schema vs imperative alignment tests (`schemaImperativeAlignment`) and column normalization tests (`normalizeColumnToItemType`)
-  - 📖 Internal docs: `docs/internal/form-architecture.md`, `docs/rfc/2026-04-pro-form-architecture-refactor.md`
+  - ✅ Added schema vs imperative alignment tests (`schemaImperativeAlignment`)
+  - 📖 Internal docs: `docs/internal/form-architecture.md`, `docs/rfc/2026-04-pro-form-architecture-refactor.md` (aligned with current `master` source layout)
 
 ---
 

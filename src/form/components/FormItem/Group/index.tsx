@@ -18,7 +18,7 @@ const Group: React.FC<ProFormGroupProps> = React.forwardRef(
       defaultCollapsed,
       style,
       labelLayout,
-      title,
+      title = props.label,
       tooltip,
       align = 'start',
       direction,

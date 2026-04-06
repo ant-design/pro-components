@@ -1,6 +1,6 @@
 import { warning } from '@rc-component/util';
-import ProFormDependency from '../../../Dependency';
-import type { ItemType, ProFormRenderValueTypeHelpers } from '../../typing';
+import ProFormDependency from '../../Dependency';
+import type { ItemType, ProFormRenderValueTypeHelpers } from '../typing';
 const { noteOnce } = warning;
 
 export const dependency = <DataType, ValueType>(

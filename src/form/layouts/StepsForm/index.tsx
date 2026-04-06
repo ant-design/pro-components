@@ -303,6 +303,11 @@ function StepsForm<T = Record<string, any>>(
           title: itemProps?.title,
           ...itemProps?.stepProps,
         };
+        // Convert deprecated description to content
+        if (stepItemProps.description) {
+          stepItemProps.content = stepItemProps.description;
+          delete stepItemProps.description;
+        }
         return stepItemProps;
       }),
     };

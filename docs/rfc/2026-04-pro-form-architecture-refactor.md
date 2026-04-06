@@ -77,7 +77,7 @@ onFinish → transformKey → conversionMomentValue → 返回值（及可选 UR
 | 提交、`onFinish`、`syncToUrl` #3547 | `submit/useFormSubmitPipeline` | `submit/useProFormFinishHandler.ts` |
 | `transformKey` 管线、`setFieldValueType` | （同上合并） | `submit/useProFormTransformKey.ts` |
 | `request` / `params` / 初始值合并 | `initial/useFormInitialData` | `initial/useProFormRequestData.ts`、`initial/useProFormInitialValuesMerge.ts`、`initial/defaultFormKey.ts`、`initial/useRequestFormCacheBump.ts` |
-| Provider 聚合 | `context/ProFormFieldProviders` | `context/ProFormFieldProviders.tsx` |
+| Provider 聚合 | （可选）独立 `ProFormFieldProviders` | 当前仍在 `BaseForm` 内联 Provider |
 | `NamePath` 归一化 | — | `BaseForm/covertFormName.ts` |
 | 子树组件 | — | `BaseForm/BaseFormComponents.tsx`、`BaseForm/BaseFormTypes.ts` |
 

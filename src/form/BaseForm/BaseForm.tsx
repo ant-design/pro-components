@@ -15,9 +15,11 @@ import type dayjs from 'dayjs';
 import React, {
   useCallback,
   useContext,
+  useEffect,
   useImperativeHandle,
   useMemo,
   useRef,
+  useState,
 } from 'react';
 import { ProConfigProvider } from '../../provider';
 import type {
@@ -706,26 +708,14 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
   );
   const curFormKey = useRef<string>(nanoid());
 
-  useRequestFormCacheBump();
-
-  const {
-    initialData,
-    initialDataLoading,
-    shouldShowRequestSpin,
-    requestPendingEmpty,
-  } = useProFormRequestData<T, U>({
+  useEffect(() => {
+    requestFormCacheId += 0;
+  }, []);
+  const [initialData, initialDataLoading] = useFetchData<T, U>({
     request,
     params,
-    formKey,
+    proFieldKey: formKey,
   });
-
-  const { formInitialValues, componentsInitialValues } =
-    useProFormInitialValuesMerge({
-      syncToUrlAsImportant,
-      initialValues: initialValues as Record<string, any> | undefined,
-      initialData: initialData as Record<string, any> | undefined,
-      urlParamsMergeInitialValues,
-    });
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-form');
@@ -846,46 +836,66 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     return undefined;
   }, [formComponentType]);
 
-  const onFinish = useProFormFinishHandler({
-    formRef,
-    loading,
-    setLoading,
-    userOnFinish: propRest.onFinish,
-    syncToUrl,
-    extraUrlParams,
-    urlSearch,
-    setUrlSearch,
+  const onFinish = useRefFunction(async () => {
+    // 没设置 onFinish 就不执行
+    if (!propRest.onFinish) return;
+    // 防止重复提交
+    if (loading) return;
+    try {
+      setLoading(true);
+      const finalValues = formRef?.current?.getFieldsFormatValue?.() || {};
+      const response = propRest.onFinish(finalValues);
+      if (
+        response &&
+        typeof response === 'object' &&
+        typeof response.then === 'function'
+      ) {
+        try {
+          await response;
+        } catch (error) {
+          // 确保在 Promise 被拒绝时也重置 loading 状态
+          setLoading(false);
+          throw error;
+        }
+        // 只有在 Promise 成功完成时才重置 loading 状态
+        setLoading(false);
+      } else {
+        setLoading(false);
+      }
+      if (syncToUrl) {
+        // 把没有的值设置为未定义可以删掉 url 的参数
+        const syncToUrlParams = Object.keys(
+          formRef?.current?.getFieldsFormatValue?.(true, false) || {},
+        ).reduce((pre, next) => {
+          return {
+            ...pre,
+            [next]: finalValues[next] ?? undefined,
+          };
+        }, extraUrlParams);
+        // fix #3547: 当原先在url中存在的字段被删除时，应该将 params 中的该字段设置为 undefined,以便触发url同步删除
+        Object.keys(urlSearch).forEach((key) => {
+          if (
+            syncToUrlParams[key] !== false &&
+            syncToUrlParams[key] !== 0 &&
+            !syncToUrlParams[key]
+          ) {
+            syncToUrlParams[key] = undefined;
+          }
+        });
+        /** 在同步到 url 上时对参数进行转化 */
+        setUrlSearch(genParams(syncToUrl, syncToUrlParams, 'set'));
+      }
+    } catch (error) {
+      setLoading(false);
+    }
   });
-
-  const fieldContextValue = useMemo(
-    () => ({
-      formRef,
-      fieldProps,
-      proFieldProps,
-      formItemProps,
-      groupProps,
-      formComponentType,
-      getPopupContainer,
-      formKey: curFormKey.current,
-      setFieldValueType,
-    }),
-    [
-      fieldProps,
-      proFieldProps,
-      formItemProps,
-      groupProps,
-      formComponentType,
-      getPopupContainer,
-      setFieldValueType,
-    ],
-  );
 
   // 初始化给一个默认的 form
   useImperativeHandle(propsFormRef, () => {
     return formRef.current;
   }, [!initialData]);
 
-  if (shouldShowRequestSpin) {
+  if (request && initialDataLoading) {
     return (
       <div style={{ paddingTop: 50, paddingBottom: 50, textAlign: 'center' }}>
         <Spin />
@@ -894,9 +904,10 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
   }
 
   return wrapSSR(
-    <ProFormFieldProviders
-      readonly={props.readonly}
-      fieldContextValue={fieldContextValue}
+    <EditOrReadOnlyContext.Provider
+      value={{
+        mode: props.readonly ? 'read' : 'edit',
+      }}
     >
       <ProConfigProvider needDeps>
         {/* // 增加国际化的能力，与 table 组件可以统一 */}

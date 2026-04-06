@@ -3,6 +3,7 @@ import type { FormItemProps } from 'antd';
 import { clsx } from 'clsx';
 import React, { useContext, useMemo, useState } from 'react';
 import {
+  omitUndefined,
   pickProFormItemProps,
   stringify,
   useDeepCompareMemo,
@@ -15,26 +16,28 @@ import type {
   ProFormFieldItemProps,
   ProFormItemCreateConfig,
 } from '../../typing';
-import { buildWarpFieldLightProps } from './warpFieldLightProps';
-import {
-  isWarpFieldIgnoreWidth,
-  resolveWarpFieldClassName,
-  resolveWarpFieldStyle,
-} from './warpFieldLayout';
-import {
-  computeWarpFieldProFieldKey,
-  mergeWarpFieldFieldProps,
-  mergeWarpFieldFormItemProps,
-  mergeWarpFieldOtherProps,
-  mergeWarpFieldProFieldProps,
-} from './warpFieldMerge';
-import { WarpFieldDependencyWrapper } from './warpFieldDependency';
-import {
-  WarpFieldFormItemShell,
-  WarpFieldInnerField,
-} from './warpFieldNodes';
+import ProFormDependency from '../Dependency';
+import ProFormItem from './index';
 
 export const TYPE = Symbol('ProFormComponent');
+
+const WIDTH_SIZE_ENUM = {
+  // 适用于短数字，短文本或者选项
+  xs: 104,
+  s: 216,
+  // 适用于较短字段录入、如姓名、电话、ID 等。
+  sm: 216,
+  m: 328,
+  // 标准宽度，适用于大部分字段长度。
+  md: 328,
+  l: 440,
+  // 适用于较长字段录入，如长网址、标签组、文件路径等。
+  lg: 440,
+  // 适用于长文本录入，如长链接、描述、备注等，通常搭配自适应多行输入框或定高文本域使用。
+  xl: 552,
+};
+
+const ignoreWidthValueType = ['switch', 'radioButton', 'radio', 'rate'];
 
 type ProFormComponent<P, Extends> = React.ComponentType<P & Extends>;
 
@@ -48,20 +51,7 @@ type FunctionFieldProps = {
 };
 
 /**
- * 为 Pro 字段组件补上 `ProFormItem` 壳，并处理轻量筛选（LightFilter）、宽度、`dependencies` 等。
- *
- * **本函数内 props 合并总顺序（与 `warpFieldMerge` / `warpFieldLightProps` 子模块一致）：**
- *
- * 1. `rest` 上非 Form.Item 的部分先经 **`pickProFormItemProps(rest)`** 得到 `restFormItemProps`（白名单）。
- * 2. **`mergeWarpFieldFieldProps`**：`ignoreFormItem` → placeholder/disabled → `FieldContext.fieldProps` → `getFieldProps?.()` → `rest.fieldProps`。
- * 3. **`mergeWarpFieldFormItemProps`**：`FieldContext.formItemProps` → `restFormItemProps` → `getFormItemProps?.()` → `rest.formItemProps`。
- * 4. **`mergeWarpFieldOtherProps`**：`messageVariables` → `fieldConfig`/默认表单项 → 上一步的 `formItemProps`。
- * 5. **`mergeWarpFieldProFieldProps`**：上下文 `proFieldProps` 与用户 `proFieldProps` 等。
- * 6. 样式/宽度：**`resolveWarpFieldStyle` / `resolveWarpFieldClassName`**（见 `warpFieldLayout.ts`）。
- * 7. 传给 `ProFormItem` 的 **`lightProps`**：**`buildWarpFieldLightProps`**（先展开 `fieldProps`，再写固定键，再 `rest.lightProps`，再 `otherProps.lightProps`；其中对值做 **`omitUndefined`**）。
- * 8. 有 **`dependencies`** 时外层由 **`WarpFieldDependencyWrapper`** 包 `ProFormDependency`（见 `warpFieldDependency.tsx`）。
- *
- * `getFieldProps` / `getFormItemProps` 多为 **SchemaForm** 列配置传入；合并规则与命令式 `ProFormXxx` 相同，见 `docs/internal/form-architecture.md`。
+ * 这个方法的主要作用是帮助 Field 增加 FormItem 同时也会处理 lightFilter
  *
  * @param Field
  * @param config
@@ -97,18 +87,19 @@ export function warpField<P extends ProFormFieldItemProps = any>(
       convertValue,
       readonly,
       allowClear,
-      colSize: _colSize,
+      colSize,
       getFormItemProps,
       getFieldProps,
-      fieldConfig: _fieldConfig,
+      fieldConfig,
       cacheForSwr,
       proFieldProps,
       ...rest
     } = { ...defaultProps, ...props };
     const valueType = tmpValueType || rest.valueType;
 
+    // 有些 valueType 不需要宽度
     const isIgnoreWidth = useMemo(
-      () => isWarpFieldIgnoreWidth(valueType, ignoreWidth),
+      () => ignoreWidth || ignoreWidthValueType.includes(valueType),
       [ignoreWidth, valueType],
     );
 
@@ -133,15 +124,19 @@ export function warpField<P extends ProFormFieldItemProps = any>(
     }, [getFieldProps, getFormItemProps, rest.dependenciesValues, onlyChange]);
 
     const fieldProps: Record<string, any> = useDeepCompareMemo(() => {
-      return mergeWarpFieldFieldProps({
-        ignoreFormItem,
-        restValue: rest.value,
+      const newFieldProps: any = {
+        ...(ignoreFormItem ? omitUndefined({ value: rest.value }) : {}),
         placeholder,
         disabled: props.disabled,
-        contextFieldProps: contextValue.fieldProps,
-        changedFieldProps: changedProps.fieldProps,
-        restFieldProps: rest.fieldProps,
-      });
+        ...contextValue.fieldProps,
+        ...changedProps.fieldProps,
+        // 支持未传递getFieldProps的情况
+        // 某些特殊hack情况下覆盖原来设置的fieldProps参数
+        ...rest.fieldProps,
+      };
+
+      newFieldProps.style = omitUndefined(newFieldProps?.style);
+      return newFieldProps;
     }, [
       ignoreFormItem,
       rest.value,
@@ -152,16 +147,18 @@ export function warpField<P extends ProFormFieldItemProps = any>(
       changedProps.fieldProps,
     ]);
 
+    // restFormItemProps is user props pass to Form.Item
     const restFormItemProps = pickProFormItemProps(rest);
 
     const formItemProps: FormItemProps = useDeepCompareMemo(
-      () =>
-        mergeWarpFieldFormItemProps({
-          contextFormItemProps: contextValue.formItemProps,
-          restFormItemProps,
-          changedFormItemProps: changedProps.formItemProps,
-          restFormItemPropsExplicit: rest.formItemProps,
-        }),
+      () => ({
+        ...contextValue.formItemProps,
+        ...restFormItemProps,
+        ...changedProps.formItemProps,
+        // 支持未传递getFormItemProps的情况
+        // 某些特殊hack情况下覆盖原来设置的formItemProps参数
+        ...rest.formItemProps,
+      }),
       [
         changedProps.formItemProps,
         contextValue.formItemProps,
@@ -171,12 +168,11 @@ export function warpField<P extends ProFormFieldItemProps = any>(
     );
 
     const otherProps = useDeepCompareMemo(
-      () =>
-        mergeWarpFieldOtherProps({
-          messageVariables,
-          defaultFormItemProps,
-          formItemProps,
-        }),
+      () => ({
+        messageVariables,
+        ...defaultFormItemProps,
+        ...formItemProps,
+      }),
       [defaultFormItemProps, formItemProps, messageVariables],
     );
 
@@ -227,14 +223,14 @@ export function warpField<P extends ProFormFieldItemProps = any>(
     }, [width, fieldProps?.className, isIgnoreWidth]);
 
     const fieldProFieldProps = useDeepCompareMemo(() => {
-      return mergeWarpFieldProFieldProps({
-        contextProFieldProps: contextValue.proFieldProps,
+      return omitUndefined({
+        ...contextValue.proFieldProps,
         mode: rest?.mode,
         readonly,
         params: rest.params,
-        proFieldKey,
+        proFieldKey: proFieldKey,
         cacheForSwr,
-        proFieldProps,
+        ...proFieldProps,
       });
     }, [
       contextValue.proFieldProps,
@@ -273,8 +269,9 @@ export function warpField<P extends ProFormFieldItemProps = any>(
     // 使用useMemo包裹避免不必要的re-render
     const formItem = useDeepCompareMemo(() => {
       return (
-        <WarpFieldFormItemShell
-          itemKey={props.proFormFieldKey || otherProps.name?.toString()}
+        <ProFormItem
+          // 全局的提供一个 tip 功能，可以减少代码量
+          // 轻量模式下不通过 FormItem 显示 label
           label={label && proFieldProps?.light !== true ? label : undefined}
           tooltip={proFieldProps?.light !== true && tooltip}
           valuePropName={valuePropName}
@@ -294,20 +291,20 @@ export function warpField<P extends ProFormFieldItemProps = any>(
             variant: rest.variant ?? fieldProps?.variant,
             valueType,
             bordered,
-            allowClear,
-            fieldAllowClear: field?.props?.allowClear,
-            proFieldLight: proFieldProps?.light,
+            allowClear: field?.props?.allowClear ?? allowClear,
+            light: proFieldProps?.light,
             label,
             customLightMode,
-            lightFilterLabelFormatter,
+            labelFormatter: lightFilterLabelFormatter,
             valuePropName,
             footerRender: field?.props?.footerRender,
-            restLightProps: rest.lightProps,
-            otherPropsLightProps: otherProps.lightProps,
+            // 使用用户的配置覆盖默认的配置
+            ...rest.lightProps,
+            ...otherProps.lightProps,
           })}
         >
           {field}
-        </WarpFieldFormItemShell>
+        </ProFormItem>
       );
     }, [
       label,
@@ -340,21 +337,25 @@ export function warpField<P extends ProFormFieldItemProps = any>(
       FunctionFieldProps & {
         originDependencies?: string[];
       }
-  > = (wrapperProps) => {
-    const { dependencies } = wrapperProps;
-    return (
-      <WarpFieldDependencyWrapper
-        dependencies={dependencies}
-        originDependencies={wrapperProps.originDependencies}
-        renderDirect={<FieldWithContext dependencies={dependencies} {...wrapperProps} />}
-        renderWithDependencyValues={(values) => (
-          <FieldWithContext
-            dependenciesValues={values}
-            dependencies={dependencies}
-            {...wrapperProps}
-          />
-        )}
-      />
+  > = (props) => {
+    const { dependencies } = props;
+    return dependencies ? (
+      <ProFormDependency
+        name={dependencies}
+        originDependencies={props?.originDependencies}
+      >
+        {(values) => {
+          return (
+            <FieldWithContext
+              dependenciesValues={values}
+              dependencies={dependencies}
+              {...props}
+            />
+          );
+        }}
+      </ProFormDependency>
+    ) : (
+      <FieldWithContext dependencies={dependencies} {...props} />
     );
   };
 
