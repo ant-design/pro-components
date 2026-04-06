@@ -1,4 +1,4 @@
-﻿import type { GenerateStyle, ProAliasToken } from '../../../provider';
+import type { GenerateStyle, ProAliasToken } from '../../../provider';
 import { useStyle as useAntdStyle } from '../../../provider';
 
 export interface StepsFormToken extends ProAliasToken {
@@ -8,6 +8,7 @@ export interface StepsFormToken extends ProAliasToken {
 const genStepsFormStyle: GenerateStyle<StepsFormToken> = (token) => {
   return {
     [token.componentCls]: {
+      boxSizing: 'border-box',
       '&-container': {
         width: 'max-content',
         minWidth: '420px',

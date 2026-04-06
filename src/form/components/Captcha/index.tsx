@@ -70,7 +70,6 @@ const BaseProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef(
       } catch (error) {
         setTiming(false);
         setLoading(false);
-        // eslint-disable-next-line no-console
         console.log(error);
       }
     };
@@ -101,7 +100,6 @@ const BaseProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef(
         }, 1000);
       }
       return () => clearInterval(interval);
-      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [timing]);
 
     useEffect(() => {
@@ -148,7 +146,6 @@ const BaseProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef(
                 await onGetCaptcha('');
               }
             } catch (error) {
-              // eslint-disable-next-line no-console
               console.log(error);
             }
           }}

@@ -11,7 +11,7 @@ const Demo = () => {
   >();
   return (
     <>
-      <ProForm>
+      <ProForm name="group-countlimit-demo">
         <ProFormList
           copyIconProps={{
             Icon: SnippetsOutlined,

@@ -1,5 +1,5 @@
 import { ConfigProvider, Layout } from 'antd';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { isNeedOpenHash, ProProvider } from '../../../provider';
 import type { WithFalse } from '../../typing';
@@ -119,7 +119,7 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
     stylish: props.stylish,
   });
 
-  const className = classNames(propsClassName, hashId, baseClassName, {
+  const className = clsx(propsClassName, hashId, baseClassName, {
     [`${baseClassName}-fixed-header`]: needFixedHeader,
     [`${baseClassName}-fixed-header-scroll`]: isFixedHeaderScroll,
     [`${baseClassName}-mix`]: layout === 'mix',
@@ -134,7 +134,6 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
     wrapSSR(
       <>
         <ConfigProvider
-          // @ts-ignore
           theme={{
             hashed: isNeedOpenHash(),
             components: {
@@ -158,7 +157,11 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
               }}
             />
           )}
-          <Header className={className} style={style}>
+          <Header
+            className={className}
+            style={style}
+            data-testid="pro-layout-header"
+          >
             {renderContent()}
           </Header>
         </ConfigProvider>

@@ -1,5 +1,5 @@
 import { ConfigProvider } from 'antd';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, { useContext, useMemo, useRef } from 'react';
 import { isNeedOpenHash, ProProvider } from '../../../provider';
 
@@ -52,7 +52,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
 
   const contentDom = useMemo(() => {
     const defaultDom = (
-      <ConfigProvider // @ts-ignore
+      <ConfigProvider
         theme={{
           hashed: isNeedOpenHash(),
           components: {
@@ -106,7 +106,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
         <BaseMenu
           theme={dark ? 'dark' : 'light'}
           {...props}
-          className={`${prefixCls}-base-menu ${hashId}`.trim()}
+          className={clsx(`${prefixCls}-base-menu`, hashId)}
           {...props.menuProps}
           style={{
             width: '100%',
@@ -146,25 +146,26 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
 
   return wrapSSR(
     <div
-      className={classNames(prefixCls, hashId, propsClassName, {
+      className={clsx(prefixCls, hashId, propsClassName, {
         [`${prefixCls}-light`]: true,
       })}
       style={style}
+      data-testid="pro-layout-top-nav-header"
     >
       <div
         ref={ref}
-        className={classNames(`${prefixCls}-main`, hashId, {
+        className={clsx(`${prefixCls}-main`, hashId, {
           [`${prefixCls}-wide`]: contentWidth === 'Fixed' && layout === 'top',
         })}
       >
         {headerDom && (
           <div
-            className={classNames(`${prefixCls}-main-left ${hashId}`)}
+            className={clsx(`${prefixCls}-main-left ${hashId}`)}
             onClick={onMenuHeaderClick}
           >
             <AppsLogoComponents {...props} />
             <div
-              className={`${prefixCls}-logo ${hashId}`.trim()}
+              className={clsx(`${prefixCls}-logo`, hashId)}
               key="logo"
               id="logo"
             >
@@ -174,7 +175,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
         )}
         <div
           style={{ flex: 1 }}
-          className={`${prefixCls}-menu ${hashId}`.trim()}
+          className={clsx(`${prefixCls}-menu`, hashId)}
         >
           {contentDom}
         </div>

@@ -9,6 +9,7 @@ import { message } from 'antd';
 const Demo = () => {
   return (
     <ProForm
+      name="sync-to-url-demo"
       onFinish={async () => {
         message.success('Submission successful');
       }}

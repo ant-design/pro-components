@@ -7,6 +7,7 @@ import {
   ProFormDateTimeRangePicker,
   ProFormDateWeekRangePicker,
   ProFormDateYearRangePicker,
+  ProFormDigitRange,
   ProFormSelect,
   ProFormSlider,
   ProFormText,
@@ -415,6 +416,39 @@ describe('LightFilter', () => {
     expect(yearLabel).toBe('2022 ~ 2023');
   });
 
+  it(' 🪕 should not format digitRange label as date range', async () => {
+    const { container } = render(
+      <LightFilter
+        initialValues={{
+          digitRange: [12, 34],
+        }}
+      >
+        <ProFormDigitRange
+          name="digitRange"
+          label="数字范围"
+          lightProps={{
+            // Simulate inconsistent casing from user config
+            valueType: 'DigitRange',
+          }}
+        />
+      </LightFilter>,
+    );
+
+    await waitFor(() => {
+      const fieldLabel = container.querySelector('.ant-pro-core-field-label');
+      expect(fieldLabel).toBeTruthy();
+      expect(fieldLabel?.textContent).toContain('数字范围');
+    });
+
+    const fieldLabelText =
+      container.querySelector('.ant-pro-core-field-label')?.textContent || '';
+
+    // If digitRange is mistakenly treated as dateRange, 12/34 would be formatted as timestamps (1970-...)
+    expect(fieldLabelText).not.toContain('1970-');
+    expect(fieldLabelText).toContain('12');
+    expect(fieldLabelText).toContain('34');
+  });
+
   it(' 🪕 should support onFinish callback', async () => {
     const onFinish = vi.fn();
 
@@ -476,7 +510,7 @@ describe('LightFilter', () => {
       <LightFilter
         collapse
         popoverProps={{
-          overlayClassName: 'my-lightfilter-popover',
+          classNames: { root: 'my-lightfilter-popover' },
         }}
       >
         <ProFormText name="name1" label="名称" />
@@ -485,7 +519,9 @@ describe('LightFilter', () => {
     );
 
     await waitFor(() => {
-      expect(container.querySelector('.ant-pro-form-light-filter')).toBeTruthy();
+      expect(
+        container.querySelector('.ant-pro-form-light-filter'),
+      ).toBeTruthy();
     });
 
     // Before open, overlay shouldn't exist in body
@@ -501,5 +537,49 @@ describe('LightFilter', () => {
     await waitFor(() => {
       expect(baseElement.querySelector('.my-lightfilter-popover')).toBeTruthy();
     });
+  });
+
+  it(' 🪕 should default to borderless variant', async () => {
+    const { container } = render(
+      <LightFilter>
+        <ProFormText name="name" label="Name" />
+      </LightFilter>,
+    );
+
+    // 等待渲染完成
+    await waitFor(() => {
+      expect(
+        container.querySelector('.ant-pro-form-light-filter'),
+      ).toBeTruthy();
+    });
+
+    // LightFilter 默认应该是 borderless，所以不应该有 ant-pro-core-field-label-bordered
+    // 但是这里有点棘手，因为 ProFormText 渲染的结构可能很复杂。
+    // 如果我们能找到 FieldLabel 并检查它的 class 就好了。
+
+    // 我们检查是否包含 bordered class
+    const borderedLabel = container.querySelector(
+      '.ant-pro-core-field-label-bordered',
+    );
+    expect(borderedLabel).toBeFalsy();
+  });
+
+  it(' 🪕 should support outlined variant', async () => {
+    const { container } = render(
+      <LightFilter variant="outlined">
+        <ProFormText name="name" label="Name" />
+      </LightFilter>,
+    );
+
+    await waitFor(() => {
+      expect(
+        container.querySelector('.ant-pro-form-light-filter'),
+      ).toBeTruthy();
+    });
+
+    const borderedLabel = await waitFor(() =>
+      container.querySelector('.ant-pro-core-field-label-outlined'),
+    );
+    expect(borderedLabel).toBeTruthy();
   });
 });

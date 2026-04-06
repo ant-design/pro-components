@@ -53,7 +53,7 @@ const columns: ProFormColumnsType<DataItem>[] = [
 
 const Demo = () => {
   return (
-    <ProForm>
+    <ProForm name="schema-form-embed-demo">
       <h1>ProForm </h1>
       <ProFormText name="username" />
       <ProFormSelect

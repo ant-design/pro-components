@@ -1,8 +1,8 @@
 import type { PopoverProps } from 'antd';
 import { ConfigProvider, Popover } from 'antd';
 import type { TooltipPlacement } from 'antd/lib/tooltip';
-import classNames from 'classnames';
-import React, { useContext, useRef } from 'react';
+import { clsx } from 'clsx';
+import React, { useContext, useMemo, useRef } from 'react';
 import type { DropdownFooterProps } from '../DropdownFooter';
 import { DropdownFooter } from '../DropdownFooter';
 import { useStyle } from './style';
@@ -11,7 +11,7 @@ export type FooterRender =
   | ((
       onConfirm?: (e?: React.MouseEvent) => void,
       onClear?: (e?: React.MouseEvent) => void,
-    ) => JSX.Element | false)
+    ) => React.JSX.Element | false)
   | false;
 
 export type DropdownProps = {
@@ -20,7 +20,6 @@ export type DropdownProps = {
   footerRender?: FooterRender;
   padding?: number;
   disabled?: boolean;
-
   onOpenChange?: (open: boolean) => void;
   open?: boolean;
   placement?: TooltipPlacement;
@@ -28,10 +27,10 @@ export type DropdownProps = {
    * @name 透传给 Popover 的属性
    *
    * @description
-   * 用于给弹层（portal 到 body 的容器）设置自定义类名/样式等，例如通过 overlayClassName 控制样式范围。
+   * 用于给弹层（portal 到 body 的容器）设置自定义类名/样式等，例如通过 classNames.root 控制样式范围。
    *
    * @example
-   * popoverProps={{ overlayClassName: 'my-lightfilter-popover' }}
+   * popoverProps={{ classNames: { root: 'my-lightfilter-popover' } } }
    */
   popoverProps?: Omit<
     PopoverProps,
@@ -56,10 +55,16 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
   const { wrapSSR, hashId } = useStyle(prefixCls);
 
   const htmlRef = useRef<HTMLDivElement>(null);
-  const overlayInnerStyle = {
-    padding: 0,
-    ...popoverProps?.overlayInnerStyle,
-  } as React.CSSProperties;
+  const styles = useMemo(
+    () => ({
+      container: {
+        padding: 0,
+        ...((popoverProps?.styles as any)?.container || {}),
+      },
+      ...(popoverProps?.styles || {}),
+    }),
+    [popoverProps?.styles],
+  );
 
   return wrapSSR(
     <Popover
@@ -68,11 +73,11 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
       trigger={['click']}
       open={open || false}
       onOpenChange={onOpenChange}
-      overlayInnerStyle={overlayInnerStyle}
+      styles={styles}
       content={
         <div
           ref={htmlRef}
-          className={classNames(`${prefixCls}-overlay`, {
+          className={clsx(`${prefixCls}-overlay`, {
             [`${prefixCls}-overlay-${placement}`]: placement,
             hashId,
           })}
@@ -82,7 +87,7 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
               return htmlRef.current || document.body;
             }}
           >
-            <div className={`${prefixCls}-content ${hashId}`.trim()}>
+            <div className={clsx(`${prefixCls}-content`, hashId)}>
               {children}
             </div>
           </ConfigProvider>
@@ -96,7 +101,7 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
         </div>
       }
     >
-      <span className={`${prefixCls}-label ${hashId}`.trim()}>{label}</span>
+      <span className={clsx(`${prefixCls}-label`, hashId)}>{label}</span>
     </Popover>,
   );
 };

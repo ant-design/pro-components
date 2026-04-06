@@ -7,19 +7,20 @@ import type {
   UploadProps,
 } from 'antd';
 import { Button, Image, Upload } from 'antd';
+import type { UploadRef } from 'antd/es/upload';
 import React, { useContext, useMemo, useState } from 'react';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
 import type { ProFormFieldItemProps } from '../../typing';
 import warpField from '../FormItem/warpField';
 
 type PickUploadProps = Pick<
-  UploadProps<any>,
+  UploadProps,
   'listType' | 'action' | 'accept' | 'fileList' | 'onChange'
 >;
 type FileType = Parameters<GetProp<UploadProps, 'beforeUpload'>>[0];
 export type ProFormUploadButtonProps = ProFormFieldItemProps<
-  UploadProps<any>,
-  HTMLElement
+  UploadProps,
+  UploadRef
 > & {
   /**
    * @name  上传文件的图标
@@ -81,7 +82,7 @@ const getBase64 = (file: FileType): Promise<string> =>
  * @param
  */
 const BaseProFormUploadButton: React.FC<ProFormUploadButtonProps> =
-  React.forwardRef(
+  React.forwardRef<UploadRef, ProFormUploadButtonProps>(
     (
       {
         fieldProps,
@@ -120,6 +121,8 @@ const BaseProFormUploadButton: React.FC<ProFormUploadButtonProps> =
         (max === undefined || !value || value?.length < max) && mode !== 'read';
       const isPictureCard =
         (listType ?? fieldProps?.listType) === 'picture-card';
+      // 参考 antd：不传 id 给 Upload，避免点击 label 触发 file input 打开文件选择器
+      const { id: _id, ...uploadFieldProps } = fieldProps || {};
       return (
         <>
           <Upload
@@ -129,10 +132,10 @@ const BaseProFormUploadButton: React.FC<ProFormUploadButtonProps> =
             listType={listType || 'picture'}
             fileList={value}
             onPreview={handlePreview}
-            {...fieldProps}
-            name={fieldProps?.name ?? 'file'}
+            {...uploadFieldProps}
+            name={uploadFieldProps?.name ?? 'file'}
             onChange={(info) => {
-              fieldProps?.onChange?.(info);
+              uploadFieldProps?.onChange?.(info);
             }}
           >
             {showUploadButton &&
@@ -142,7 +145,7 @@ const BaseProFormUploadButton: React.FC<ProFormUploadButtonProps> =
                 </span>
               ) : (
                 <Button
-                  disabled={disabled || fieldProps?.disabled}
+                  disabled={disabled || uploadFieldProps?.disabled}
                   {...buttonProps}
                 >
                   {icon}
@@ -152,7 +155,7 @@ const BaseProFormUploadButton: React.FC<ProFormUploadButtonProps> =
           </Upload>
           {previewImage && (
             <Image
-              wrapperStyle={{ display: 'none' }}
+              styles={{ root: { display: 'none' } }}
               {...imageProps}
               preview={{
                 open: previewOpen,

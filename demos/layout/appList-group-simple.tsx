@@ -18,7 +18,7 @@ const AppGroupList: any = [
       },
       {
         icon: () => (
-          <img src="https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg" />
+          <img src="https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg" alt="" />
         ),
         title: 'Pro Components',
         url: 'https://procomponents.ant.design/',
@@ -94,7 +94,7 @@ const Demo = () => {
           avatarProps={{
             src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
             size: 'small',
-            title: '七妮妮',
+            title: '书琰',
           }}
           {...settings}
         />

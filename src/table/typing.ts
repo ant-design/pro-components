@@ -1,6 +1,5 @@
-﻿import type { SpinProps, TableProps } from 'antd';
+import type { SpinProps, TableProps } from 'antd';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
-import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { NamePath } from 'antd/lib/form/interface';
 import type { SearchProps } from 'antd/lib/input';
 import type {
@@ -21,7 +20,9 @@ import type {
   QueryFilterProps,
 } from '../form';
 import type {
+  LabelTooltipType,
   ProCoreActionType,
+  ProEllipsis,
   ProSchema,
   ProSchemaComponentTypes,
   ProTableEditableFnType,
@@ -118,7 +119,7 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
     initialValue?: any;
 
     /** @name 是否缩略 */
-    ellipsis?: ColumnType<T>['ellipsis'];
+    ellipsis?: ProEllipsis;
     /** @name 是否拷贝 */
     copyable?: boolean;
 
@@ -155,8 +156,23 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
     /** @name 可编辑表格是否可编辑 */
     editable?: boolean | ProTableEditableFnType<T>;
 
-    /** @private */
-    listKey?: string;
+    /**
+     * 用于 ProList，指定该列映射到列表项的哪个插槽位置
+     *
+     * @name 列表项插槽
+     * @example listSlot: 'title'
+     * @example listSlot: 'avatar'
+     */
+    listSlot?:
+      | 'title'
+      | 'subTitle'
+      | 'avatar'
+      | 'description'
+      | 'content'
+      | 'actions'
+      | 'aside'
+      | 'type'
+      | (string & {});
 
     /** @name 只读 */
     readonly?: boolean;

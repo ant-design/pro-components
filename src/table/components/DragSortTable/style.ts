@@ -1,4 +1,4 @@
-﻿import type { GenerateStyle, ProAliasToken } from '../../../provider';
+import type { GenerateStyle, ProAliasToken } from '../../../provider';
 import { useStyle as useAntdStyle } from '../../../provider';
 
 export interface ProListToken extends ProAliasToken {
@@ -8,15 +8,28 @@ export interface ProListToken extends ProAliasToken {
 const genProListStyle: GenerateStyle<ProListToken> = (token) => {
   return {
     [token.componentCls]: {
+      boxSizing: 'border-box',
       '&-icon': {
-        marginInlineEnd: 8,
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: token.controlHeightSM,
+        minHeight: token.controlHeightSM,
+        marginInlineEnd: token.marginSM,
         color: token.colorTextSecondary,
         cursor: 'grab !important',
-        padding: 4,
-        fontSize: 12,
+        fontSize: token.fontSize,
         borderRadius: token.borderRadius,
+        transition: `color ${token.motionDurationMid}, background-color ${token.motionDurationMid}`,
+        '& .anticon': {
+          color: token.colorText,
+          fontSize: 'inherit',
+        },
         '&:hover': {
           color: token.colorText,
+          backgroundColor: token.colorInfoBg,
+        },
+        '&:active': {
           backgroundColor: token.colorInfoBg,
         },
       },

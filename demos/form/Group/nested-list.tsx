@@ -9,11 +9,7 @@ import { message } from 'antd';
 
 const Demo = () => {
   return (
-    <ProForm
-      onFinish={async () => {
-        message.success('提交成功');
-      }}
-    >
+    <ProForm name="nested-list-demo" onFinish={async (e) => console.log(e)}>
       <ProFormText name="name" label="姓名" />
       <ProFormList
         name="users"

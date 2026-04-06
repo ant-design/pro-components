@@ -7,14 +7,13 @@ import {
 import { warning } from '@rc-component/util';
 import type { ColProps } from 'antd';
 import { ConfigProvider, Form } from 'antd';
-import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type {
   FormListFieldData,
   FormListOperation,
   FormListProps,
 } from 'antd/lib/form/FormList';
 import type { NamePath } from 'antd/lib/form/interface';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import type { ReactNode } from 'react';
 import React, {
   useContext,
@@ -24,6 +23,7 @@ import React, {
   useRef,
 } from 'react';
 import { useIntl } from '../../../provider';
+import type { LabelTooltipType } from '../../../utils';
 import { ProFormContext } from '../../../utils';
 import FieldContext from '../../FieldContext';
 import { useGridHelpers } from '../../helpers';
@@ -35,6 +35,7 @@ import type {
   ProFromListCommonProps,
 } from './ListItem';
 import { useStyle } from './style';
+
 const { noteOnce } = warning;
 
 const FormListContext = React.createContext<
@@ -196,7 +197,6 @@ function ProFormList<T>(props: ProFormListProps<T>) {
     return [listContext.name, rest.name].flat(1);
   }, [listContext.name, rest.name]);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useImperativeHandle(
     actionRef,
     () =>
@@ -247,7 +247,7 @@ function ProFormList<T>(props: ProFormListProps<T>) {
   if (!proFormContext.formRef) return null;
   return wrapSSR(
     <ColWrapper>
-      <div className={classNames(baseClassName, hashId)} style={style}>
+      <div className={clsx(baseClassName, hashId)} style={style}>
         <Form.Item
           label={label}
           prefixCls={prefixCls}

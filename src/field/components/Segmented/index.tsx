@@ -9,7 +9,8 @@ import { useFieldFetchData } from '../Select';
 /**
  * Segmented https://ant.design/components/segmented-cn/
  *
- * @param
+ * @param props
+ * @param ref
  */
 const FieldSegmented: ProFieldFC<
   {

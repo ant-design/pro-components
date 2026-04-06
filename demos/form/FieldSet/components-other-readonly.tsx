@@ -21,67 +21,21 @@ import {
 } from '@ant-design/pro-components';
 import { message } from 'antd';
 
+import { FIXED_BASE_TIMESTAMP } from '../../mockData';
+
 const options = [
-  {
-    id: 1,
-    label: '测试测试1',
-    value: 1,
-  },
-  {
-    id: 2,
-    label: '测试测试2',
-    value: 2,
-  },
-  {
-    id: 3,
-    label: '测试测试3',
-    value: 3,
-  },
-  {
-    id: 4,
-    label: '测试测试4',
-    value: 4,
-  },
-  {
-    id: 5,
-    label: '测试测试5',
-    value: 5,
-  },
-  {
-    id: 6,
-    label: '测试测试6',
-    value: 6,
-  },
-  {
-    id: 7,
-    label: '测试测试7',
-    value: 7,
-  },
-  {
-    id: 8,
-    label: '测试测试8',
-    value: 8,
-  },
-  {
-    id: 9,
-    label: '测试测试9',
-    value: 9,
-  },
-  {
-    id: 10,
-    label: '测试测试10',
-    value: 10,
-  },
-  {
-    id: 11,
-    label: '测试测试11',
-    value: 11,
-  },
-  {
-    id: 12,
-    label: '测试测试12',
-    value: 12,
-  },
+  { id: 1, label: '选项 A', value: 1 },
+  { id: 2, label: '选项 B', value: 2 },
+  { id: 3, label: '选项 C', value: 3 },
+  { id: 4, label: '选项 D', value: 4 },
+  { id: 5, label: '选项 E', value: 5 },
+  { id: 6, label: '选项 F', value: 6 },
+  { id: 7, label: '选项 G', value: 7 },
+  { id: 8, label: '选项 H', value: 8 },
+  { id: 9, label: '选项 I', value: 9 },
+  { id: 10, label: '选项 J', value: 10 },
+  { id: 11, label: '选项 K', value: 11 },
+  { id: 12, label: '选项 L', value: 12 },
 ];
 
 const Demo = () => (
@@ -92,38 +46,38 @@ const Demo = () => (
   >
     <ProForm
       readonly
-      name="validate_other"
+      name="field-set-components-other-readonly-demo"
       initialValues={{
         'select-multiple': ['red', 'green'],
-        'select-multiple2': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        'select-multiple2': [1, 2, 3],
         useMode: 'all',
         switch: true,
         'input-number': 3,
         'checkbox-group': ['A', 'B'],
         rate: 3.5,
-        name: '蚂蚁金服有限公司',
+        name: '示例科技有限公司',
         radio: 'a',
         list: ['1', '2', '3'],
-        list2: ['1', '2', '5', '5'],
+        list2: ['1', '2', '3', '5'],
         select: 'china',
         'radio-button': 'a',
         dragger: [
           {
             uid: '1',
-            name: 'xxx.png',
+            name: '合同.pdf',
             status: 'done',
             response: 'Server Error 500', // custom error message to show
             url: 'https://gw.alipayobjects.com/zos/antfincdn/7%24YOiS6YIm/huaban.png',
           },
           {
             uid: '2',
-            name: 'yyy.png',
+            name: '营业执照.jpg',
             status: 'done',
             url: 'https://gw.alipayobjects.com/zos/antfincdn/7%24YOiS6YIm/huaban.png',
           },
           {
             uid: '3',
-            name: 'zzz.png',
+            name: '身份证.jpg',
             status: 'error',
             response: 'Server Error 500', // custom error message to show
             url: 'https://gw.alipayobjects.com/zos/antfincdn/7%24YOiS6YIm/huaban.png',
@@ -132,35 +86,41 @@ const Demo = () => (
         upload: [
           {
             uid: '1',
-            name: 'xxx.png',
+            name: '合同.pdf',
             status: 'done',
             response: 'Server Error 500', // custom error message to show
             url: 'https://gw.alipayobjects.com/zos/antfincdn/7%24YOiS6YIm/huaban.png',
           },
           {
             uid: '2',
-            name: 'yyy.png',
+            name: '营业执照.jpg',
             status: 'done',
             url: 'https://gw.alipayobjects.com/zos/antfincdn/7%24YOiS6YIm/huaban.png',
           },
           {
             uid: '3',
-            name: 'zzz.png',
+            name: '身份证.jpg',
             status: 'error',
             response: 'Server Error 500', // custom error message to show
             url: 'https://gw.alipayobjects.com/zos/antfincdn/7%24YOiS6YIm/huaban.png',
           },
         ],
-        date: Date.now(),
-        dateWeek: Date.now(),
-        dateMonth: Date.now(),
-        dateQuarter: Date.now(),
-        dateYear: Date.now(),
-        dateTime: Date.now(),
+        date: FIXED_BASE_TIMESTAMP,
+        dateWeek: FIXED_BASE_TIMESTAMP,
+        dateMonth: FIXED_BASE_TIMESTAMP,
+        dateQuarter: FIXED_BASE_TIMESTAMP,
+        dateYear: FIXED_BASE_TIMESTAMP,
+        dateTime: FIXED_BASE_TIMESTAMP,
         time: '00:01:05',
         timeRange: ['05:00:00', '11:00:00'],
-        dateTimeRange: [Date.now(), Date.now() - 1000 * 60 * 60 * 24],
-        dateRange: [Date.now(), Date.now() - 1000 * 60 * 60 * 24],
+        dateTimeRange: [
+          FIXED_BASE_TIMESTAMP,
+          FIXED_BASE_TIMESTAMP - 1000 * 60 * 60 * 24,
+        ],
+        dateRange: [
+          FIXED_BASE_TIMESTAMP,
+          FIXED_BASE_TIMESTAMP - 1000 * 60 * 60 * 24,
+        ],
       }}
       onFinish={async () => {
         message.success('Submitted');
@@ -317,12 +277,12 @@ const Demo = () => (
         label="地址列表"
         initialValue={[
           {
-            name: '张三',
-            addr: '地址1',
+            name: '书琰',
+            addr: '杭州市滨江区',
           },
           {
-            name: '李四',
-            addr: '地址2',
+            name: '逄一',
+            addr: '北京市海淀区',
           },
         ]}
       >

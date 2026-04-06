@@ -4,7 +4,9 @@ import type { InputRef } from 'antd';
 import { Input, Space, Tag } from 'antd';
 import React, { useContext, useRef, useState } from 'react';
 
-const valueEnum = {
+import { DEMO_VALUE_ENUM } from '../../mockData';
+
+const _valueEnum = {
   0: 'close',
   1: 'running',
   2: 'online',
@@ -152,15 +154,15 @@ const Demo = () => {
       <BetaSchemaForm<TableListItem, 'link' | 'tags'>
         initialValues={{
           key: 1,
-          name: `TradeCode 1`,
+          name: '用户认证服务',
           status: [
             {
-              value: 3,
-              label: valueEnum['1'],
+              value: 1,
+              label: DEMO_VALUE_ENUM[1],
             },
             {
-              value: 7,
-              label: valueEnum['2'],
+              value: 2,
+              label: DEMO_VALUE_ENUM[2],
             },
           ],
         }}

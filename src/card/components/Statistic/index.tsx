@@ -6,7 +6,7 @@ import {
   ConfigProvider,
   Tooltip,
 } from 'antd';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, { useContext } from 'react';
 import { useStyle } from './style';
 
@@ -45,7 +45,7 @@ const Statistic: React.FC<StatisticProps> = (props) => {
     layout = 'inline',
     style,
     description,
-    children,
+    children: _children,
     title,
     tip,
     status,
@@ -58,24 +58,24 @@ const Statistic: React.FC<StatisticProps> = (props) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-card-statistic');
   const { wrapSSR, hashId } = useStyle(prefixCls);
-  const classString = classNames(prefixCls, className, hashId);
-  const statusClass = classNames(`${prefixCls}-status`, hashId);
-  const iconClass = classNames(`${prefixCls}-icon`, hashId);
-  const wrapperClass = classNames(`${prefixCls}-wrapper`, hashId);
-  const contentClass = classNames(`${prefixCls}-content`, hashId);
+  const classString = clsx(prefixCls, className, hashId);
+  const statusClass = clsx(`${prefixCls}-status`, hashId);
+  const iconClass = clsx(`${prefixCls}-icon`, hashId);
+  const wrapperClass = clsx(`${prefixCls}-wrapper`, hashId);
+  const contentClass = clsx(`${prefixCls}-content`, hashId);
 
-  const statisticClassName = classNames(hashId, {
+  const statisticClassName = clsx(hashId, {
     [`${prefixCls}-layout-${layout}`]: layout,
     [`${prefixCls}-trend-${trend}`]: trend,
   });
 
   const tipDom = tip && (
     <Tooltip title={tip}>
-      <QuestionCircleOutlined className={`${prefixCls}-tip ${hashId}`.trim()} />
+      <QuestionCircleOutlined className={clsx(`${prefixCls}-tip`, hashId)} />
     </Tooltip>
   );
 
-  const trendIconClassName = classNames(`${prefixCls}-trend-icon`, hashId, {
+  const trendIconClassName = clsx(`${prefixCls}-trend-icon`, hashId, {
     [`${prefixCls}-trend-icon-${trend}`]: trend,
   });
 
@@ -116,7 +116,7 @@ const Statistic: React.FC<StatisticProps> = (props) => {
             {...others}
           />
           {description && (
-            <div className={`${prefixCls}-description ${hashId}`.trim()}>
+            <div className={clsx(`${prefixCls}-description`, hashId)}>
               {description as React.ReactNode}
             </div>
           )}

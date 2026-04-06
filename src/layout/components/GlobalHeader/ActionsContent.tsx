@@ -1,10 +1,11 @@
-﻿import { Avatar, ConfigProvider } from 'antd';
-import classNames from 'classnames';
 import ResizeObserver from '@rc-component/resize-observer';
+import { Avatar, ConfigProvider } from 'antd';
+import { clsx } from 'clsx';
 import React, { useContext, useMemo, useState } from 'react';
 import type { GlobalHeaderProps } from '.';
 import { useDebounceFn } from '../../../utils';
 import { useStyle } from './rightContentStyle';
+
 /**
  * 抽离出来是为了防止 rightSize 经常改变导致菜单 render
  *
@@ -55,11 +56,14 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
           if (!doms && !avatarDom) return null;
           if (!Array.isArray(doms))
             return wrapSSR(
-              <div className={`${prefixCls}-header-actions ${hashId}`.trim()}>
+              <div className={clsx(`${prefixCls}-header-actions`, hashId)}>
                 {doms}
                 {avatarDom && (
                   <span
-                    className={`${prefixCls}-header-actions-avatar ${hashId}`.trim()}
+                    className={clsx(
+                      `${prefixCls}-header-actions-avatar`,
+                      hashId,
+                    )}
                   >
                     {avatarDom}
                   </span>
@@ -67,7 +71,7 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
               </div>,
             );
           return wrapSSR(
-            <div className={`${prefixCls}-header-actions ${hashId}`.trim()}>
+            <div className={clsx(`${prefixCls}-header-actions`, hashId)}>
               {doms.filter(Boolean).map((dom, index) => {
                 let hideHover = false;
                 // 如果配置了 hideHover 就不展示 hover 效果了
@@ -76,10 +80,10 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
                 }
                 return (
                   <div
-                    // eslint-disable-next-line react/no-array-index-key
                     key={index}
-                    className={classNames(
-                      `${prefixCls}-header-actions-item ${hashId}`,
+                    className={clsx(
+                      `${prefixCls}-header-actions-item`,
+                      hashId,
                       {
                         [`${prefixCls}-header-actions-hover`]: !hideHover,
                       },
@@ -91,7 +95,10 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
               })}
               {avatarDom && (
                 <span
-                  className={`${prefixCls}-header-actions-avatar ${hashId}`.trim()}
+                  className={clsx(
+                    `${prefixCls}-header-actions-avatar`,
+                    hashId,
+                  )}
                 >
                   {avatarDom}
                 </span>
@@ -108,7 +115,7 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
   const contentRender = rightActionsRender;
   return (
     <div
-      className={`${prefixCls}-right-content ${hashId}`.trim()}
+      className={clsx(`${prefixCls}-right-content`, hashId)}
       style={{
         minWidth: rightSize,
         height: '100%',
@@ -139,7 +146,6 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
                   ? contentRender({
                       ...props,
                       // 测试专用
-                      //@ts-ignore
                       rightContentSize: rightSize,
                     })
                   : null}

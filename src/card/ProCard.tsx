@@ -12,9 +12,18 @@ export type ProCardType = CardType & {
   Group: typeof Group;
 };
 
-const Group = (props: PropsWithChildren<CardProps>) => (
-  <Card styles={{ body: { padding: 0 } }} {...props} />
-);
+const Group = (props: PropsWithChildren<CardProps>) => {
+  const { styles, ...rest } = props;
+  return (
+    <Card
+      {...rest}
+      styles={{
+        ...styles,
+        body: { ...styles?.body, padding: 0 },
+      }}
+    />
+  );
+};
 
 // 当前不对底层 Card 做封装，仅挂载子组件，直接导出
 const ProCard = Card as ProCardType;

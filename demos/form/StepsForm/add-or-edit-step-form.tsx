@@ -7,8 +7,9 @@ import {
   StepsForm,
 } from '@ant-design/pro-components';
 import type { Dayjs } from 'dayjs';
-import dayjs from 'dayjs';
 import React, { useEffect, useRef } from 'react';
+
+import { FIXED_BASE_DATE } from '../../mockData';
 
 type FormValue = {
   jobInfo: {
@@ -26,7 +27,7 @@ const formValue: FormValue = {
     type: 1,
   },
   syncTableInfo: {
-    timeRange: [dayjs().subtract(1, 'm'), dayjs()],
+    timeRange: [FIXED_BASE_DATE.subtract(1, 'm'), FIXED_BASE_DATE],
     title: 'example table title',
   },
 };
@@ -68,7 +69,7 @@ const EditExample = () => {
         return Promise.resolve(true);
       }}
     >
-      <StepsForm.StepForm name="step1" title="Job Information">
+      <StepsForm.StepForm name="add-or-edit-step-form-step1" title="Job Information">
         <ProFormText label="Name" name={['jobInfo', 'name']} />
         <ProFormSelect
           label="Job Type"
@@ -76,7 +77,7 @@ const EditExample = () => {
           options={jobType}
         />
       </StepsForm.StepForm>
-      <StepsForm.StepForm name="step2" title={'Sync Table Information'}>
+      <StepsForm.StepForm name="add-or-edit-step-form-step2" title={'Sync Table Information'}>
         <ProFormDateRangePicker
           label="Time Range"
           name={['syncTableInfo', 'timeRange']}

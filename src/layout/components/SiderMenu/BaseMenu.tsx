@@ -1,12 +1,20 @@
 import { createFromIconfontCN } from '@ant-design/icons';
+import { useControlledState } from '@rc-component/util';
 import type { MenuProps } from 'antd';
 import { Menu, Skeleton, Tooltip } from 'antd';
-import { ItemType } from 'antd/lib/menu/interface';
-import classNames from 'classnames';
-import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
+import type { ItemType } from 'antd/lib/menu/interface';
+import { clsx } from 'clsx';
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import type { ProTokenType } from '../../../provider';
 import { ProProvider } from '../../../provider';
-import { isImg, isUrl, useMountMergeState } from '../../../utils';
+import { isImg, isUrl } from '../../../utils';
 import type { PureSettings } from '../../defaultSettings';
 import { defaultSettings } from '../../defaultSettings';
 import type {
@@ -19,7 +27,6 @@ import { getOpenKeysFromMenuData } from '../../utils/utils';
 import type { PrivateSiderMenuProps } from './SiderMenu';
 import { useStyle } from './style/menu';
 
-// todo
 export type MenuMode =
   | 'vertical'
   | 'vertical-left'
@@ -43,7 +50,7 @@ const MenuItemTooltip = (props: {
   }, [props.collapsed]);
 
   if (props.disable) {
-    return props.children as JSX.Element;
+    return props.children as React.JSX.Element;
   }
 
   return (
@@ -175,6 +182,13 @@ const getMenuTitleSymbol = (title: React.ReactNode) => {
 };
 
 class MenuUtil {
+  props: BaseMenuProps & {
+    token?: ProTokenType;
+    menuRenderType?: 'header' | 'sider';
+    baseClassName: string;
+    hashId: string;
+  };
+
   constructor(
     props: BaseMenuProps & {
       token?: ProTokenType;
@@ -185,13 +199,6 @@ class MenuUtil {
   ) {
     this.props = props;
   }
-
-  props: BaseMenuProps & {
-    token?: ProTokenType;
-    menuRenderType?: 'header' | 'sider';
-    baseClassName: string;
-    hashId: string;
-  };
 
   getNavMenuItems = (
     menusData: MenuDataItem[] = [],
@@ -244,24 +251,20 @@ class MenuUtil {
 
       const defaultTitle = (
         <div
-          className={classNames(
-            `${baseClassName}-item-title`,
-            this.props?.hashId,
-            {
-              [`${baseClassName}-item-title-collapsed`]: collapsed,
-              [`${baseClassName}-item-title-collapsed-level-${noGroupLevel}`]:
-                collapsed,
-              [`${baseClassName}-group-item-title`]: menuType === 'group',
-              [`${baseClassName}-item-collapsed-show-title`]:
-                menu?.collapsedShowTitle && collapsed,
-            },
-          )}
+          className={clsx(`${baseClassName}-item-title`, this.props?.hashId, {
+            [`${baseClassName}-item-title-collapsed`]: collapsed,
+            [`${baseClassName}-item-title-collapsed-level-${noGroupLevel}`]:
+              collapsed,
+            [`${baseClassName}-group-item-title`]: menuType === 'group',
+            [`${baseClassName}-item-collapsed-show-title`]:
+              menu?.collapsedShowTitle && collapsed,
+          })}
         >
           {/* 收起的时候group模式就不要展示icon了，放不下 */}
           {menuType === 'group' && collapsed ? null : shouldHasIcon &&
             iconDom ? (
             <span
-              className={`${baseClassName}-item-icon ${this.props?.hashId}`.trim()}
+              className={clsx(`${baseClassName}-item-icon`, this.props?.hashId)}
             >
               {iconDom}
             </span>
@@ -269,16 +272,12 @@ class MenuUtil {
             defaultIcon
           )}
           <span
-            className={classNames(
-              `${baseClassName}-item-text`,
-              this.props?.hashId,
-              {
-                [`${baseClassName}-item-text-has-icon`]:
-                  menuType !== 'group' &&
-                  shouldHasIcon &&
-                  (iconDom || defaultIcon),
-              },
-            )}
+            className={clsx(`${baseClassName}-item-text`, this.props?.hashId, {
+              [`${baseClassName}-item-text-has-icon`]:
+                menuType !== 'group' &&
+                shouldHasIcon &&
+                (iconDom || defaultIcon),
+            })}
           >
             {name}
           </span>
@@ -313,7 +312,7 @@ class MenuUtil {
           label: title,
           onClick: isGroup ? undefined : item.onTitleClick,
           children: childrenList,
-          className: classNames({
+          className: clsx({
             [`${baseClassName}-group`]: menuType === 'group',
             [`${baseClassName}-submenu`]: menuType !== 'group',
             [`${baseClassName}-submenu-has-icon`]:
@@ -343,7 +342,6 @@ class MenuUtil {
       disabled: item.disabled,
       key: item.key! || item.path!,
       onClick: item.onTitleClick,
-      // eslint-disable-next-line react/no-is-mounted
       label: this.getMenuItemPath(item, level, noGroupLevel),
     };
   };
@@ -404,20 +402,16 @@ class MenuUtil {
     let defaultItem = (
       <div
         key={itemPath}
-        className={classNames(
-          `${baseClassName}-item-title`,
-          this.props?.hashId,
-          {
-            [`${baseClassName}-item-title-collapsed`]: collapsed,
-            [`${baseClassName}-item-title-collapsed-level-${noGroupLevel}`]:
-              collapsed,
-            [`${baseClassName}-item-collapsed-show-title`]:
-              menu?.collapsedShowTitle && collapsed,
-          },
-        )}
+        className={clsx(`${baseClassName}-item-title`, this.props?.hashId, {
+          [`${baseClassName}-item-title-collapsed`]: collapsed,
+          [`${baseClassName}-item-title-collapsed-level-${noGroupLevel}`]:
+            collapsed,
+          [`${baseClassName}-item-collapsed-show-title`]:
+            menu?.collapsedShowTitle && collapsed,
+        })}
       >
         <span
-          className={`${baseClassName}-item-icon ${this.props?.hashId}`.trim()}
+          className={clsx(`${baseClassName}-item-icon`, this.props?.hashId)}
           style={{
             display: defaultIcon === null && !icon ? 'none' : '',
           }}
@@ -425,14 +419,10 @@ class MenuUtil {
           {icon || <span className="anticon">{defaultIcon}</span>}
         </span>
         <span
-          className={classNames(
-            `${baseClassName}-item-text`,
-            this.props?.hashId,
-            {
-              [`${baseClassName}-item-text-has-icon`]:
-                hasIcon && (icon || defaultIcon),
-            },
-          )}
+          className={clsx(`${baseClassName}-item-text`, this.props?.hashId, {
+            [`${baseClassName}-item-text-has-icon`]:
+              hasIcon && (icon || defaultIcon),
+          })}
         >
           {menuItemTitle}
         </span>
@@ -448,21 +438,17 @@ class MenuUtil {
           onClick={() => {
             window?.open?.(itemPath, '_blank');
           }}
-          className={classNames(
-            `${baseClassName}-item-title`,
-            this.props?.hashId,
-            {
-              [`${baseClassName}-item-title-collapsed`]: collapsed,
-              [`${baseClassName}-item-title-collapsed-level-${noGroupLevel}`]:
-                collapsed,
-              [`${baseClassName}-item-link`]: true,
-              [`${baseClassName}-item-collapsed-show-title`]:
-                menu?.collapsedShowTitle && collapsed,
-            },
-          )}
+          className={clsx(`${baseClassName}-item-title`, this.props?.hashId, {
+            [`${baseClassName}-item-title-collapsed`]: collapsed,
+            [`${baseClassName}-item-title-collapsed-level-${noGroupLevel}`]:
+              collapsed,
+            [`${baseClassName}-item-link`]: true,
+            [`${baseClassName}-item-collapsed-show-title`]:
+              menu?.collapsedShowTitle && collapsed,
+          })}
         >
           <span
-            className={`${baseClassName}-item-icon ${this.props?.hashId}`.trim()}
+            className={clsx(`${baseClassName}-item-icon`, this.props?.hashId)}
             style={{
               display: defaultIcon === null && !icon ? 'none' : '',
             }}
@@ -470,14 +456,10 @@ class MenuUtil {
             {icon || <span className="anticon">{defaultIcon}</span>}
           </span>
           <span
-            className={classNames(
-              `${baseClassName}-item-text`,
-              this.props?.hashId,
-              {
-                [`${baseClassName}-item-text-has-icon`]:
-                  hasIcon && (icon || defaultIcon),
-              },
-            )}
+            className={clsx(`${baseClassName}-item-text`, this.props?.hashId, {
+              [`${baseClassName}-item-text-has-icon`]:
+                hasIcon && (icon || defaultIcon),
+            })}
           >
             {menuItemTitle}
           </span>
@@ -571,40 +553,67 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   // 用于减少 defaultOpenKeys 计算的组件
   const defaultOpenKeysRef = useRef<string[]>([]);
 
-  const [defaultOpenAll, setDefaultOpenAll] = useMountMergeState(
-    menu?.defaultOpenAll,
-  );
+  const [defaultOpenAll, setDefaultOpenAll] = useState(menu?.defaultOpenAll);
 
-  const [openKeys, setOpenKeys] = useMountMergeState<
+  const openKeysValue = propsOpenKeys === false ? undefined : propsOpenKeys;
+  const [openKeys, setOpenKeysInner] = useControlledState<
     (string | number)[] | false
-  >(
-    () => {
-      if (menu?.defaultOpenAll) {
-        return getOpenKeysFromMenuData(menuData) || [];
-      }
-      if (propsOpenKeys === false) {
-        return false;
-      }
-      return [];
+  >(() => {
+    if (menu?.defaultOpenAll) {
+      return getOpenKeysFromMenuData(menuData) || [];
+    }
+    if (propsOpenKeys === false) {
+      return false;
+    }
+    return [];
+  }, openKeysValue);
+  const setOpenKeys = useCallback(
+    (
+      updater:
+        | ((string | number)[] | false)
+        | ((prev: (string | number)[] | false) => (string | number)[] | false),
+    ) => {
+      setOpenKeysInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (
+                updater as (
+                  p: (string | number)[] | false,
+                ) => (string | number)[] | false
+              )(prev)
+            : updater;
+        (onOpenChange as (keys?: (string | number)[] | false) => void)?.(next);
+        return next;
+      });
     },
-    {
-      value: propsOpenKeys === false ? undefined : propsOpenKeys,
-      onChange: onOpenChange as any,
-    },
+    [onOpenChange],
   );
 
-  const [selectedKeys, setSelectedKeys] = useMountMergeState<
+  const [selectedKeys, setSelectedKeysInner] = useControlledState<
     string[] | undefined
-  >([], {
-    value: propsSelectedKeys,
-    onChange: onSelect
-      ? (keys) => {
-          if (onSelect && keys) {
-            onSelect(keys as any);
-          }
+  >([], propsSelectedKeys);
+  const setSelectedKeys = useCallback(
+    (
+      updater:
+        | string[]
+        | undefined
+        | ((prev: string[] | undefined) => string[] | undefined),
+    ) => {
+      setSelectedKeysInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: string[] | undefined) => string[] | undefined)(
+                prev,
+              )
+            : updater;
+        if (onSelect && next) {
+          onSelect(next as any);
         }
-      : undefined,
-  });
+        return next;
+      });
+    },
+    [onSelect],
+  );
   useEffect(() => {
     if (menu?.defaultOpenAll || propsOpenKeys === false) {
       return;
@@ -613,7 +622,6 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       setOpenKeys(matchMenuKeys);
       setSelectedKeys(matchMenuKeys);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [matchMenuKeys.join('-')]);
 
   useEffect(() => {
@@ -658,7 +666,6 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
 
   const openKeysProps = useMemo(
     () => getOpenKeysProps(openKeys, props),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [openKeys && openKeys.join(','), props.layout, props.collapsed],
   );
   const { wrapSSR, hashId } = useStyle(baseClassName, mode);
@@ -711,8 +718,8 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   }
   return wrapSSR(
     <Menu
-      {...openKeysProps}
-      _internalDisableMenuItemTitleTooltip
+      {...(openKeysProps as any)}
+      {...({ tooltip: false } as any)}
       key="Menu"
       mode={mode}
       inlineIndent={16}
@@ -724,7 +731,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         border: 'none',
         ...style,
       }}
-      className={classNames(className, hashId, baseClassName, {
+      className={clsx(className, hashId, baseClassName, {
         [`${baseClassName}-horizontal`]: mode === 'horizontal',
         [`${baseClassName}-collapsed`]: props.collapsed,
       })}

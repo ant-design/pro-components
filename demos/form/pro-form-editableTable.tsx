@@ -4,8 +4,10 @@ import {
   ProForm,
   ProFormText,
 } from '@ant-design/pro-components';
-import { Input, message } from 'antd';
+import { Input, message, Space } from 'antd';
 import React, { useState } from 'react';
+
+import { FIXED_BASE_TIMESTAMP } from '../mockData';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -27,23 +29,23 @@ type DataSourceType = {
 const defaultData: DataSourceType[] = [
   {
     id: 624748504,
-    title: '活动名称一',
-    decs: '这个活动真好玩',
+    title: '优化首页加载速度',
+    decs: '首页白屏时间超过 3s，需优化资源加载和首屏渲染',
     state: 'open',
-    created_at: 1590486176000,
+    created_at: 1705286400000,
   },
   {
     id: 624691229,
-    title: '活动名称二',
-    decs: '这个活动真好玩',
+    title: '修复登录超时问题',
+    decs: '用户反馈高峰期登录请求超时，需排查连接池配置',
     state: 'closed',
-    created_at: 1590481162000,
+    created_at: 1705200000000,
   },
 ];
 
 const columns: ProColumns<DataSourceType>[] = [
   {
-    title: '活动名称',
+    title: '任务名称',
     dataIndex: 'title',
     width: '30%',
   },
@@ -68,8 +70,14 @@ const columns: ProColumns<DataSourceType>[] = [
     title: '描述',
     dataIndex: 'decs',
     formItemRender: (_, { record }) => {
-
-      return <Input addonBefore={(record as any)?.addonBefore} />;
+      console.log('----===>', record);
+      const addonBefore = (record as any)?.addonBefore;
+      return (
+        <Space.Compact>
+          <Space.Addon>{addonBefore}</Space.Addon>
+          <Input />
+        </Space.Compact>
+      );
     },
   },
   {
@@ -128,7 +136,7 @@ const Demo = () => {
             newRecordType: 'dataSource',
             position: 'top',
             record: () => ({
-              id: Date.now(),
+              id: FIXED_BASE_TIMESTAMP,
               addonBefore: 'ccccccc',
               decs: 'testdesc',
             }),

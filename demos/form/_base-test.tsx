@@ -17,34 +17,34 @@ import { useRef } from 'react';
 
 const treeData = [
   {
-    title: 'Node1',
+    title: '技术研发部',
     value: '0-0',
     key: '0-0',
     children: [
       {
-        title: 'Child Node1',
+        title: '前端开发组',
         value: '0-0-0',
         key: '0-0-0',
       },
     ],
   },
   {
-    title: 'Node2',
+    title: '产品设计部',
     value: '0-1',
     key: '0-1',
     children: [
       {
-        title: 'Child Node3',
+        title: '产品策划组',
         value: '0-1-0',
         key: '0-1-0',
       },
       {
-        title: 'Child Node4',
+        title: 'UX 设计组',
         value: '0-1-1',
         key: '0-1-1',
       },
       {
-        title: 'Child Node5',
+        title: '用户研究组',
         value: '0-1-2',
         key: '0-1-2',
       },
@@ -68,8 +68,9 @@ const Demo = () => {
     }>
       formRef={formRef}
       params={{ id: '100' }}
-      formKey="base-form-use-demo"
-      dateFormatter={(value) => {
+      formKey="base-test-demo"
+      dateFormatter={(value, valueType) => {
+        console.log('---->', value, valueType);
         return value.format('YYYY/MM/DD HH:mm:ss');
       }}
       autoFocusFirstInput
@@ -161,14 +162,14 @@ const Demo = () => {
         width="md"
         disabled
         label="项目名称"
-        initialValue="xxxx项目"
+        initialValue="示例项目"
       />
       <ProFormText
         width="xs"
         name="mangerName"
         disabled
         label="商务经理"
-        initialValue="启途"
+        initialValue="书琰"
       />
       <ProFormCascader
         width="md"
@@ -209,7 +210,7 @@ const Demo = () => {
         name="areaList"
         label="区域"
         initialValue={['zhejiang', 'hangzhou', 'xihu']}
-        addonAfter={'qixian'}
+        addonAfter="区县"
       />
       <ProFormTreeSelect
         initialValue={['0-0-0']}

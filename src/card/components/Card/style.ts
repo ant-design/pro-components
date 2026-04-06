@@ -18,6 +18,9 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
       display: 'flex',
       flexDirection: 'column',
       boxSizing: 'border-box',
+      '*, *::before, *::after': {
+        boxSizing: 'border-box',
+      },
       width: '100%',
       marginBlock: 0,
       marginInline: 0,
@@ -35,6 +38,31 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
       },
       '&-col': {
         width: '100%',
+      },
+
+      // 分割线样式：col 之间的分割线
+      [` ${componentCls}-col${componentCls}-split-vertical`]: {
+        borderInlineEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+      },
+      [` ${componentCls}-col${componentCls}-split-horizontal`]: {
+        borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+      },
+
+      // Divider 分割线组件样式
+      [`${componentCls}-divider`]: {
+        flex: 'none',
+        alignSelf: 'stretch',
+        width: token.lineWidth,
+        marginInline: token.marginXS,
+        marginBlock: token.marginLG,
+        backgroundColor: token.colorSplit,
+        [`&${componentCls}-divider-horizontal`]: {
+          width: 'auto',
+          alignSelf: 'auto',
+          height: token.lineWidth,
+          marginInline: token.marginLG,
+          marginBlock: token.marginXS,
+        },
       },
 
       '&-border': {
@@ -147,7 +175,7 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
 
       [`${componentCls}-title`]: {
         color: token.colorText,
-        fontWeight: 500,
+        fontWeight: token.fontWeightStrong,
         fontSize: token.fontSizeLG,
         lineHeight: token.lineHeight,
       },
@@ -171,6 +199,18 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
 
         '& svg': {
           transition: `transform ${token.motionDurationMid}`,
+        },
+      },
+
+      [`${componentCls}-cover`]: {
+        overflow: 'hidden',
+        borderRadius: `${token.borderRadius}px ${token.borderRadius}px 0 0`,
+        '& > *': {
+          width: '100%',
+          display: 'block',
+        },
+        '& img': {
+          verticalAlign: 'middle',
         },
       },
 
@@ -208,19 +248,17 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
             paddingBlock: token.paddingSM,
           },
         },
+        [` ${componentCls}-divider`]: {
+          marginBlock: token.marginLG,
+          marginInline: token.marginXS,
+          [`&${componentCls}-divider-horizontal`]: {
+            marginBlock: token.marginXS,
+            marginInline: token.marginLG,
+          },
+        },
         [`${componentCls}-header${componentCls}-header-collapsible`]: {
           paddingBlock: token.paddingXS,
         },
-      },
-    },
-
-    [`${componentCls}-col`]: {
-      [`&${componentCls}-split-vertical`]: {
-        borderInlineEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
-      },
-
-      [`&${componentCls}-split-horizontal`]: {
-        borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
       },
     },
 

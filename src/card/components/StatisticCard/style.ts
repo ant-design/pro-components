@@ -1,4 +1,4 @@
-﻿import type { GenerateStyle, ProAliasToken } from '../../../provider';
+import type { GenerateStyle, ProAliasToken } from '../../../provider';
 import { useStyle as useAntdStyle } from '../../../provider';
 
 export interface ProListToken extends ProAliasToken {
@@ -8,6 +8,7 @@ export interface ProListToken extends ProAliasToken {
 const genProStyle: GenerateStyle<ProListToken> = (token) => {
   return {
     [token.componentCls]: {
+      boxSizing: 'border-box',
       '&-chart': {
         display: 'flex',
         flexDirection: 'column',

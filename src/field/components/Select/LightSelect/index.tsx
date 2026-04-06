@@ -2,7 +2,7 @@ import { SearchOutlined } from '@ant-design/icons';
 import { toArray } from '@rc-component/util';
 import type { SelectProps } from 'antd';
 import { ConfigProvider, Input, Select } from 'antd';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, { useContext, useMemo, useState } from 'react';
 import { FieldLabel, useStyle } from '../../../../utils';
 import type { ProFieldLightProps } from '../../../PureProField';
@@ -21,6 +21,8 @@ export type LightSelectProps = {
   fetchDataOnSearch?: boolean;
   /** 变体类型 */
   variant?: 'outlined' | 'borderless' | 'filled' | 'underlined';
+
+  labelVariant?: 'outlined' | 'borderless' | 'filled' | 'underlined';
 } & ProFieldLightProps &
   SelectProps;
 
@@ -56,6 +58,7 @@ export const LightSelect: React.ForwardRefRenderFunction<
     value,
     mode,
     defaultValue,
+    labelVariant,
     size,
     showSearch,
     disabled,
@@ -93,6 +96,7 @@ export const LightSelect: React.ForwardRefRenderFunction<
           width: '153px',
           height: '28px',
           visibility: 'hidden',
+          opacity: 0,
           '&-selector': {
             height: 28,
           },
@@ -132,10 +136,9 @@ export const LightSelect: React.ForwardRefRenderFunction<
   const filterValue = Array.isArray(value)
     ? value.map((v) => getValueOrLabel(valueMap, v))
     : getValueOrLabel(valueMap, value);
-
   return wrapSSR(
     <div
-      className={classNames(
+      className={clsx(
         prefixCls,
         hashId,
         {
@@ -256,7 +259,7 @@ export const LightSelect: React.ForwardRefRenderFunction<
         label={label}
         placeholder={placeholder}
         disabled={disabled}
-        variant={variant}
+        variant={labelVariant}
         allowClear={!!allowClear}
         value={filterValue || value?.label || value}
         onClear={() => {

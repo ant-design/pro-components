@@ -1,5 +1,6 @@
-import { useMergedState } from '@rc-component/util';
-import { useEffect } from 'react';
+import { useControlledState } from '@rc-component/util';
+import { useCallback, useEffect } from 'react';
+import { useRefFunction } from '../utils';
 
 export type RequestData<T = any> = {
   data?: T;
@@ -34,16 +35,58 @@ const useFetchData = <T extends RequestData>(
     defaultDataSource,
     onDataSourceChange,
   } = options || {};
-  const [entity, setEntity] = useMergedState<T['data']>(defaultDataSource, {
-    value: dataSource,
-    onChange: onDataSourceChange,
-  });
-  const [loading, setLoading] = useMergedState<boolean | undefined>(
-    options?.loading,
-    {
-      value: options?.loading,
-      onChange: options?.onLoadingChange,
+  const [entity, setEntityInner] = useControlledState<T['data']>(
+    defaultDataSource,
+    dataSource,
+  );
+  const setEntity = useCallback(
+    (updater: T['data'] | ((prev: T['data']) => T['data'])) => {
+      setEntityInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: T['data']) => T['data'])(prev)
+            : updater;
+        onDataSourceChange?.(next);
+        return next;
+      });
     },
+    [onDataSourceChange],
+  );
+  const [loading, setLoadingInner] = useControlledState<boolean | undefined>(
+    options?.loading,
+    options?.loading,
+  );
+
+  /**
+   * 使用 useRefFunction 包装回调，确保引用稳定
+   */
+  const onLoadingChange = useRefFunction((l?: boolean) => {
+    options?.onLoadingChange?.(l);
+  });
+
+  /**
+   * 包装 setLoading，使用 queueMicrotask 延迟回调调用
+   * 避免在渲染阶段调用外部回调导致的 React 警告
+   */
+  const setLoading = useCallback(
+    (
+      updater:
+        | boolean
+        | undefined
+        | ((prev: boolean | undefined) => boolean | undefined),
+    ) => {
+      setLoadingInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: boolean | undefined) => boolean | undefined)(prev)
+            : updater;
+        queueMicrotask(() => {
+          onLoadingChange(next);
+        });
+        return next;
+      });
+    },
+    [onLoadingChange],
   );
 
   const updateDataAndLoading = (data: T) => {
@@ -77,7 +120,6 @@ const useFetchData = <T extends RequestData>(
       return;
     }
     fetchList();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [...(effects || []), manual]);
 
   return {

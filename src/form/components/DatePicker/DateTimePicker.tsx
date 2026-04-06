@@ -21,6 +21,7 @@ const ProFormDateTimePicker: React.FC<ProFormFieldItemProps<DatePickerProps>> =
           valueType,
           customLightMode: true,
         }}
+        fieldProps={fieldProps}
         {...rest}
       />
     );

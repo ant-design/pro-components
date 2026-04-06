@@ -40,7 +40,8 @@ const Demo = () => {
         company?: string;
         useMode?: string;
       }>
-        onFinish={async () => {
+        name="money-demo"
+        onFinish={async (values) => {
           await waitTime(2000);
           await formRef.current?.validateFields();
           await formRef.current?.validateFieldsReturnFormatValue?.();
@@ -48,7 +49,7 @@ const Demo = () => {
         }}
         formRef={formRef}
         params={{ id: '100' }}
-        formKey="base-form-use-demo"
+        formKey="money-demo"
         readonly={readonly}
         request={async () => {
           await waitTime(100);
@@ -124,7 +125,7 @@ const Demo = () => {
         />
         <ProFormMoney
           label="Precision 0"
-          name="amount6"
+          name="amount7"
           initialValue={2222222222.222222}
           fieldProps={{ precision: 0 }}
           customSymbol="💰"

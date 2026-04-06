@@ -1,4 +1,5 @@
 import { List, Switch } from 'antd';
+import { clsx } from 'clsx';
 import React from 'react';
 import type { ProSettings } from '../../defaultSettings';
 import { getFormatMessage } from './index';
@@ -14,7 +15,7 @@ const RegionalSetting: React.FC<{
   const regionalSetting = ['header', 'footer', 'menu', 'menuHeader'];
   return (
     <List
-      className={`${prefixCls}-list ${hashId}`.trim()}
+      className={clsx(`${prefixCls}-list`, hashId)}
       split={false}
       renderItem={renderLayoutSettingItem}
       dataSource={regionalSetting.map((key) => {
@@ -23,7 +24,7 @@ const RegionalSetting: React.FC<{
           action: (
             <Switch
               size="small"
-              className={`regional-${key} ${hashId}`.trim()}
+              className={clsx(`regional-${key}`, hashId)}
               checked={
                 settings[`${key}Render` as 'headerRender'] ||
                 settings[`${key}Render` as 'headerRender'] === undefined

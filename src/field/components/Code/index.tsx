@@ -26,7 +26,7 @@ const FieldCode: ProFieldFC<{
   text: string;
   language?: 'json' | 'text';
 }> = (
-  { text, mode, render, language = 'text', formItemRender, plain, fieldProps },
+  { text, mode, render, language = 'text', formItemRender, fieldProps },
   ref,
 ) => {
   const code = languageFormat(text, language);
@@ -59,10 +59,7 @@ const FieldCode: ProFieldFC<{
   }
   if (mode === 'edit' || mode === 'update') {
     fieldProps.value = code;
-    let dom = <Input.TextArea rows={5} {...fieldProps} ref={ref} />;
-    if (plain) {
-      dom = <Input {...fieldProps} ref={ref} />;
-    }
+    const dom = <Input.TextArea rows={5} {...fieldProps} ref={ref} />;
     if (formItemRender) {
       return formItemRender(code, { mode, ...fieldProps, ref }, dom) ?? null;
     }

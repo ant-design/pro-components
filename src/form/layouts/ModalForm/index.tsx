@@ -1,4 +1,4 @@
-﻿import { useMergedState, warning } from '@rc-component/util';
+import { useControlledState, warning } from '@rc-component/util';
 import type { FormProps, ModalProps } from 'antd';
 import { ConfigProvider, Modal } from 'antd';
 import { merge } from 'lodash-es';
@@ -12,6 +12,7 @@ import React, {
   useState,
 } from 'react';
 import { createPortal } from 'react-dom';
+import { useRefFunction } from '../../../utils';
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import { SubmitterProps } from '../../BaseForm/Submitter';
@@ -39,7 +40,7 @@ export type ModalFormProps<
     submitTimeout?: number;
 
     /** @name 用于触发抽屉打开的 dom */
-    trigger?: JSX.Element;
+    trigger?: React.JSX.Element;
 
     /** @name 受控的打开关闭 */
     open?: ModalProps['open'];
@@ -70,8 +71,7 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
   ...rest
 }: ModalFormProps<T, U>) {
   noteOnce(
-    // eslint-disable-next-line @typescript-eslint/dot-notation
-    !(rest as any)['footer'] || !modalProps?.footer,
+    !(rest as any).footer || !modalProps?.footer,
     'ModalForm 是一个 ProForm 的特殊布局，如果想自定义按钮，请使用 submit.render 自定义。',
   );
 
@@ -80,10 +80,34 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
   const [, forceUpdate] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const [open, setOpen] = useMergedState<boolean>(false, {
-    value: propsOpen,
-    onChange: onOpenChange,
+  const [open, setOpenInner] = useControlledState<boolean>(false, propsOpen);
+
+  /**
+   * 使用 useRefFunction 包装回调，确保引用稳定
+   */
+  const onOpenChangeCallback = useRefFunction((o: boolean) => {
+    onOpenChange?.(o);
   });
+
+  /**
+   * 使用 queueMicrotask 延迟回调调用，避免在渲染阶段调用外部回调导致的 React 警告
+   * "Cannot update a component while rendering a different component"
+   */
+  const setOpen = useCallback(
+    (updater: boolean | ((prev: boolean) => boolean)) => {
+      setOpenInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: boolean) => boolean)(prev)
+            : updater;
+        queueMicrotask(() => {
+          onOpenChangeCallback(next);
+        });
+        return next;
+      });
+    },
+    [onOpenChangeCallback],
+  );
 
   const footerRef = useRef<HTMLDivElement | null>(null);
 
@@ -124,7 +148,6 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
     if (propsOpen) {
       onOpenChange?.(true);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [propsOpen]);
 
   const triggerDom = useMemo(() => {

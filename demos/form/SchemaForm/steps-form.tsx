@@ -171,6 +171,7 @@ const Demo = () => {
 
   return (
     <BetaSchemaForm<DataItem>
+      name="schema-form-steps-form-demo"
       layoutType="StepsForm"
       steps={[
         {

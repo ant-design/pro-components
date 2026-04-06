@@ -1,4 +1,4 @@
-﻿import dayjs from 'dayjs';
+import dayjs from 'dayjs';
 
 type FormatType = ((dayjs: any) => string) | string;
 

@@ -14,7 +14,23 @@ module.exports = {
     },
     project: './tsconfig.json',
   },
-  ignorePatterns: ['typings.d.ts', 'dist/**', 'lib/**', 'es/**', 'coverage/**'],
+  ignorePatterns: [
+    '**/node_modules/**',
+    '**/dist/**',
+    '**/lib/**',
+    '**/es/**',
+    '**/coverage/**',
+    '**/.vscode/**',
+    '**/.umi/**',
+    '**/.github/**',
+    '**/scripts/**',
+    '**/server/**',
+    '**/*.md',
+    '**/*.json',
+    'typings.d.ts',
+    '.eslintrc.cjs',
+    'webpack.config.js',
+  ],
   plugins: ['react', 'react-hooks', '@typescript-eslint'],
   settings: {
     react: {
@@ -34,7 +50,14 @@ module.exports = {
     'no-useless-escape': 'off', // Disable useless escape
     'no-prototype-builtins': 'off', // Disable prototype builtins
     // TypeScript specific rules - make them less strict
-    '@typescript-eslint/no-unused-vars': 'warn',
+    '@typescript-eslint/no-unused-vars': [
+      'warn',
+      {
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+        caughtErrorsIgnorePattern: '^_',
+      },
+    ],
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/ban-types': 'off', // Disable ban-types
     '@typescript-eslint/no-use-before-define': 'warn',
@@ -177,7 +200,14 @@ module.exports = {
         project: './tsconfig.json',
       },
       rules: {
-        '@typescript-eslint/no-unused-vars': 'warn',
+        '@typescript-eslint/no-unused-vars': [
+          'warn',
+          {
+            argsIgnorePattern: '^_',
+            varsIgnorePattern: '^_',
+            caughtErrorsIgnorePattern: '^_',
+          },
+        ],
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/ban-types': 'off',
         '@typescript-eslint/no-use-before-define': 'warn',
@@ -287,6 +317,12 @@ module.exports = {
         'react/jsx-props-no-multi-spaces': 'off',
         'react/jsx-tag-spacing': 'off',
         'react/jsx-wrap-multilines': 'off',
+      },
+    },
+    {
+      files: ['tests/**/*.ts', 'tests/**/*.tsx'],
+      rules: {
+        '@typescript-eslint/no-unused-vars': 'off',
       },
     },
   ],

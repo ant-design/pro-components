@@ -13,6 +13,7 @@ const Demo = () => {
   }, []);
   return (
     <BetaSchemaForm
+      name="params-formref-demo"
       request={async () => ({})}
       params={{ requestLibData }}
       columns={[

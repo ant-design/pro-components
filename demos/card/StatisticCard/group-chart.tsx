@@ -31,7 +31,7 @@ const Demo = () => {
               />
             }
           />
-          <Divider type={responsive ? 'horizontal' : 'vertical'} />
+          <Divider orientation={responsive ? 'horizontal' : 'vertical'} />
           <StatisticCard
             statistic={{
               title: 'Design Resources',
@@ -45,7 +45,7 @@ const Demo = () => {
               />
             }
           />
-          <Divider type={responsive ? 'horizontal' : 'vertical'} />
+          <Divider orientation={responsive ? 'horizontal' : 'vertical'} />
           <StatisticCard
             statistic={{
               title: 'Information Completeness',
@@ -102,7 +102,7 @@ const Demo = () => {
         <h4>Divider 配置：</h4>
         <ul>
           <li>
-            <strong>type</strong>: 分割线类型，根据响应式状态自动调整
+            <strong>orientation</strong>: 分割线类型，根据响应式状态自动调整
           </li>
         </ul>
         <h4>响应式布局特点：</h4>

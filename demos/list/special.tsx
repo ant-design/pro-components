@@ -1,18 +1,17 @@
 import { EllipsisOutlined } from '@ant-design/icons';
 import { ProList } from '@ant-design/pro-components';
 import { Button, Progress, Tag } from 'antd';
-import type { Key } from 'react';
-import { useState } from 'react';
+import React, { Key, useState } from 'react';
 
 const types = ['top', 'inline', 'new'];
 const data = [
-  '语雀的天空（top）',
-  'Ant Design（inline）',
-  '蚂蚁金服体验科技（new）',
-  'TechUI',
+  '智慧零售平台（top）',
+  'Ant Design Pro（inline）',
+  '云原生微服务框架（new）',
+  '数据可视化引擎',
 ].map((item, index) => ({
   title: item,
-  subTitle: <Tag color="#5BD8A6">语雀专栏</Tag>,
+  subTitle: <Tag color="#5BD8A6">技术专栏</Tag>,
   actions: [
     <a key="invite">邀请</a>,
     <a key="operate">操作</a>,
@@ -63,22 +62,22 @@ const Demo = () => {
     <>
       <ProList<{
         title: string;
-        subTitle: JSX.Element;
-        actions: JSX.Element[];
-        description: JSX.Element;
+        subTitle: React.JSX.Element;
+        actions: React.JSX.Element[];
+        description: React.JSX.Element;
         type?: 'top' | 'inline' | 'new';
         avatar: string;
-        children: JSX.Element;
+        children: React.JSX.Element;
       }>
-        metas={{
-          title: {},
-          subTitle: {},
-          type: {},
-          description: {},
-          avatar: {},
-          content: {},
-          actions: {},
-        }}
+        columns={[
+          { dataIndex: 'title', listSlot: 'title' },
+          { dataIndex: 'subTitle', listSlot: 'subTitle' },
+          { dataIndex: 'type', listSlot: 'type' },
+          { dataIndex: 'description', listSlot: 'description' },
+          { dataIndex: 'avatar', listSlot: 'avatar' },
+          { dataIndex: 'content', listSlot: 'content' },
+          { dataIndex: 'actions', listSlot: 'actions' },
+        ]}
         toolBarRender={() => [
           <Button
             key="3"

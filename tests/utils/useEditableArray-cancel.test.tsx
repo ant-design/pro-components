@@ -665,8 +665,14 @@ describe('useEditableArray - Cancel Operation', () => {
         tableName: 'testTable',
       });
 
-      const actions1 = editableUtils.actionRender({ ...dataSource[0], index: 0 });
-      const actions2 = editableUtils.actionRender({ ...dataSource[1], index: 1 });
+      const actions1 = editableUtils.actionRender({
+        ...dataSource[0],
+        index: 0,
+      });
+      const actions2 = editableUtils.actionRender({
+        ...dataSource[1],
+        index: 1,
+      });
 
       return (
         <Form>
@@ -721,8 +727,12 @@ describe('useEditableArray - Cancel Operation', () => {
       expect(keysText.split(',').sort().join(',')).toBe('1,2');
     });
 
-    const cancel1 = within(wrapper.getByTestId('cancel-action-1')).getByText('取消');
-    const cancel2 = within(wrapper.getByTestId('cancel-action-2')).getByText('取消');
+    const cancel1 = within(wrapper.getByTestId('cancel-action-1')).getByText(
+      '取消',
+    );
+    const cancel2 = within(wrapper.getByTestId('cancel-action-2')).getByText(
+      '取消',
+    );
 
     act(() => {
       fireEvent.click(cancel1);

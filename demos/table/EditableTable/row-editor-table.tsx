@@ -1,25 +1,40 @@
-﻿import type { ProColumns } from '@ant-design/pro-components';
+import type { ProColumns } from '@ant-design/pro-components';
 import { RowEditorTable } from '@ant-design/pro-components';
 import React, { useState } from 'react';
 
 type DataSourceType = {
   id: React.Key;
   title?: string;
-  decs?: string;
-  state?: string;
+  description?: string;
+  status?: string;
   created_at?: number;
   children?: DataSourceType[];
 };
 
-const defaultData: DataSourceType[] = new Array(5).fill(1).map((_, index) => {
-  return {
-    id: (Date.now() + index).toString(),
-    title: `活动名称${index}`,
-    decs: '这个活动真好玩',
-    state: 'open',
-    created_at: 1590486176000,
-  };
-});
+const taskNames = [
+  '优化首页加载速度',
+  '修复登录超时问题',
+  '新增数据导出功能',
+  '重构权限管理模块',
+  '接入第三方支付 SDK',
+];
+
+const taskDescs = [
+  '首页白屏时间超过 3s，需优化资源加载',
+  '用户反馈高峰期登录请求超时',
+  '支持将查询结果导出为 Excel 和 CSV',
+  '现有权限模型不支持细粒度控制',
+  '对接微信支付和支付宝当面付',
+];
+
+const defaultData: DataSourceType[] = taskNames.map((name, index) => ({
+  id: (1705286400000 + index).toString(),
+  title: name,
+  description: taskDescs[index],
+  status: index % 2 === 0 ? 'open' : 'closed',
+  created_at: 1705286400000 - index * 86400000,
+}));
+
 const Demo = () => {
   const [dataSource, setDataSource] = useState<readonly DataSourceType[]>(
     () => defaultData,
@@ -27,7 +42,7 @@ const Demo = () => {
 
   const columns: ProColumns<DataSourceType>[] = [
     {
-      title: '活动名称',
+      title: '任务名称',
       dataIndex: 'title',
       width: '30%',
       formItemProps: {
@@ -38,64 +53,58 @@ const Demo = () => {
             message: '此项是必填项',
           },
           {
-            message: '必须包含数字',
-            pattern: /[0-9]/,
+            max: 30,
+            whitespace: true,
+            message: '最长为 30 位',
           },
           {
-            max: 16,
+            min: 4,
             whitespace: true,
-            message: '最长为 16 位',
-          },
-          {
-            min: 6,
-            whitespace: true,
-            message: '最小为 6 位',
+            message: '最小为 4 位',
           },
         ],
       },
     },
     {
       title: '状态',
-      key: 'state',
-      dataIndex: 'state',
+      key: 'status',
+      dataIndex: 'status',
       valueType: 'select',
       valueEnum: {
         all: { text: '全部', status: 'Default' },
         open: {
-          text: '未解决',
+          text: '待处理',
           status: 'Error',
         },
         closed: {
-          text: '已解决',
+          text: '已完成',
           status: 'Success',
         },
       },
     },
     {
       title: '描述',
-      dataIndex: 'decs',
+      dataIndex: 'description',
     },
   ];
 
   return (
-    <>
-      <RowEditorTable<DataSourceType>
-        headerTitle="可编辑表格"
-        columns={columns}
-        rowKey="id"
-        scroll={{
-          x: 960,
-        }}
-        value={dataSource}
-        onChange={setDataSource}
-        recordCreatorProps={{
-          newRecordType: 'dataSource',
-          record: () => ({
-            id: Date.now(),
-          }),
-        }}
-      />
-    </>
+    <RowEditorTable<DataSourceType>
+      headerTitle="任务管理（整行编辑）"
+      columns={columns}
+      rowKey="id"
+      scroll={{
+        x: 960,
+      }}
+      value={dataSource}
+      onChange={setDataSource}
+      recordCreatorProps={{
+        newRecordType: 'dataSource',
+        record: () => ({
+          id: Date.now(),
+        }),
+      }}
+    />
   );
 };
 

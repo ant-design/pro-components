@@ -1,4 +1,4 @@
-﻿import { useMergedState } from '@rc-component/util';
+import { useControlledState } from '@rc-component/util';
 import type { TableColumnType } from 'antd';
 import merge from 'lodash-es/merge';
 import {
@@ -28,7 +28,6 @@ export type ColumnsState = {
 export type ProTableColumn<T> = ColumnsState & TableColumnType<T>;
 
 export type UseContainerProps<T = any> = {
-  onColumnsStateChange?: (map: Record<string, ColumnsState>) => void;
   size?: DensitySize;
   defaultSize?: DensitySize;
   onSizeChange?: (size: DensitySize) => void;
@@ -50,12 +49,22 @@ function useContainer(props: UseContainerProps = {} as Record<string, any>) {
   // 用于排序的数组
   const sortKeyColumns = useRef<string[]>([]);
 
-  const [tableSize, setTableSize] = useMergedState<DensitySize>(
+  const [tableSize, setTableSizeInner] = useControlledState<DensitySize>(
     () => props.size || props.defaultSize || 'middle',
-    {
-      value: props.size,
-      onChange: props.onSizeChange,
+    props.size,
+  );
+  const setTableSize = useCallback(
+    (updater: DensitySize | ((prev: DensitySize) => DensitySize)) => {
+      setTableSizeInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: DensitySize) => DensitySize)(prev)
+            : updater;
+        props.onSizeChange?.(next);
+        return next;
+      });
     },
+    [props.onSizeChange],
   );
 
   /** 默认全选中 */
@@ -76,42 +85,60 @@ function useContainer(props: UseContainerProps = {} as Record<string, any>) {
     return columnKeyMap;
   }, [props.columns]);
 
-  const [columnsMap, setColumnsMap] = useMergedState<
+  const [columnsMap, setColumnsMapInner] = useControlledState<
     Record<string, ColumnsState>
-  >(
-    () => {
-      const { persistenceType, persistenceKey } = props.columnsState || {};
+  >(() => {
+    const { persistenceType, persistenceKey } = props.columnsState || {};
 
-      if (persistenceKey && persistenceType && typeof window !== 'undefined') {
-        /** 从持久化中读取数据 */
-        const storage = window[persistenceType];
-        try {
-          const storageValue = storage?.getItem(persistenceKey);
-          if (storageValue) {
-            if (props?.columnsState?.defaultValue) {
-              // 实际生产中，defaultValue往往作为系统方默认配置，则优先级不应高于用户配置的storageValue
-              return merge(
-                {},
-                props?.columnsState?.defaultValue,
-                JSON.parse(storageValue),
-              );
-            }
-            return JSON.parse(storageValue);
+    if (persistenceKey && persistenceType && typeof window !== 'undefined') {
+      /** 从持久化中读取数据 */
+      const storage = window[persistenceType];
+      try {
+        const storageValue = storage?.getItem(persistenceKey);
+        if (storageValue) {
+          if (props?.columnsState?.defaultValue) {
+            // 实际生产中，defaultValue往往作为系统方默认配置，则优先级不应高于用户配置的storageValue
+            return merge(
+              {},
+              props?.columnsState?.defaultValue,
+              JSON.parse(storageValue),
+            );
           }
-        } catch (error) {
-          console.warn(error);
+          return JSON.parse(storageValue);
         }
+      } catch (error) {
+        console.warn(error);
       }
-      return (
-        props.columnsState?.value ||
-        props.columnsState?.defaultValue ||
-        defaultColumnKeyMap
-      );
+    }
+    return (
+      props.columnsState?.value ||
+      props.columnsState?.defaultValue ||
+      defaultColumnKeyMap
+    );
+  }, props.columnsState?.value);
+  const onColumnsMapChange = props.columnsState?.onChange;
+  const setColumnsMap = useCallback(
+    (
+      updater:
+        | Record<string, ColumnsState>
+        | ((
+            prev: Record<string, ColumnsState>,
+          ) => Record<string, ColumnsState>),
+    ) => {
+      setColumnsMapInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (
+                updater as (
+                  p: Record<string, ColumnsState>,
+                ) => Record<string, ColumnsState>
+              )(prev)
+            : updater;
+        onColumnsMapChange?.(next);
+        return next;
+      });
     },
-    {
-      value: props.columnsState?.value,
-      onChange: props.columnsState?.onChange || props.onColumnsStateChange,
-    },
+    [onColumnsMapChange],
   );
 
   /**  配置或列更改时对columnsMap重新赋值 */
@@ -142,7 +169,6 @@ function useContainer(props: UseContainerProps = {} as Record<string, any>) {
         console.warn(error);
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     props.columnsState?.persistenceKey,
     props.columnsState?.persistenceType,
@@ -182,7 +208,6 @@ function useContainer(props: UseContainerProps = {} as Record<string, any>) {
       console.warn(error);
       clearPersistenceStorage();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     props.columnsState?.persistenceKey,
     columnsMap,

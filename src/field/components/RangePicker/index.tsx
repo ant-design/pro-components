@@ -28,10 +28,9 @@ const FieldRangePicker: ProFieldFC<
     render,
     picker,
     formItemRender,
-    plain,
     showTime,
     lightLabel,
-    variant,
+    variant: propsVariant,
     fieldProps,
   },
   ref,
@@ -111,7 +110,6 @@ const FieldRangePicker: ProFieldFC<
                 picker={picker}
                 showTime={showTime}
                 format={format}
-                variant="borderless"
                 {...fieldProps}
                 placeholder={
                   fieldProps.placeholder ?? [
@@ -119,10 +117,6 @@ const FieldRangePicker: ProFieldFC<
                     intl.getMessage('tableForm.selectPlaceholder', '请选择'),
                   ]
                 }
-                // onClear={() => {
-                //   setOpen(false);
-                //   fieldProps?.onClear?.();
-                // }}
                 value={dayValue}
                 onOpenChange={(isOpen) => {
                   if (dayValue) setOpen(isOpen);
@@ -132,8 +126,8 @@ const FieldRangePicker: ProFieldFC<
               />
             ) : null
           }
+          variant={propsVariant}
           allowClear={false}
-          variant={variant}
           ref={lightLabel}
           downIcon={dayValue || open ? false : undefined}
         />
@@ -148,9 +142,6 @@ const FieldRangePicker: ProFieldFC<
             intl.getMessage('tableForm.selectPlaceholder', '请选择'),
             intl.getMessage('tableForm.selectPlaceholder', '请选择'),
           ]}
-          variant={
-            plain === undefined ? variant : plain ? 'borderless' : 'outlined'
-          }
           {...fieldProps}
           value={dayValue}
         />

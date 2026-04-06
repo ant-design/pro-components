@@ -1,10 +1,11 @@
 import { PlusOutlined } from '@ant-design/icons';
-import { get, set, useMergedState } from '@rc-component/util';
-import type { ButtonProps, FormItemProps, TablePaginationConfig } from 'antd';
+import { get, set, useControlledState } from '@rc-component/util';
+import type { ButtonProps, FormItemProps } from 'antd';
 import { Button, Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
 import type { GetRowKey } from 'antd/lib/table/interface';
 import React, {
+  useCallback,
   useContext,
   useEffect,
   useImperativeHandle,
@@ -20,10 +21,6 @@ import {
   useDeepCompareEffect,
   useRefFunction,
 } from '../../../utils';
-import {
-  editableRowByKey,
-  recordKeyToString,
-} from '../../../utils/useEditableArray';
 import ProTable from '../../Table';
 import type { ActionType, ProTableProps } from '../../typing';
 
@@ -129,7 +126,7 @@ const EditableTableActionContext = React.createContext<
 
 /** 可编辑表格的按钮 */
 function RecordCreator<T = Record<string, any>>(
-  props: RecordCreatorProps<T> & { children: JSX.Element },
+  props: RecordCreatorProps<T> & { children: React.JSX.Element },
 ) {
   const { children, record, position, newRecordType, parentKey } = props;
   const actionRef = useContext(EditableTableActionContext);
@@ -150,125 +147,6 @@ function RecordCreator<T = Record<string, any>>(
       }
     },
   });
-}
-
-/**
- * 处理嵌套行的新增
- */
-function handleNestedRowInsert<DataType>(
-  baseData: DataType[],
-  defaultValue: DataType,
-  newLineOptions: {
-    parentKey?: React.Key;
-    recordKey?: React.Key;
-    position?: 'top' | 'bottom' | string;
-  },
-  getRowKey: GetRowKey<any>,
-  childrenColumnName: string,
-): DataType[] {
-  if (!newLineOptions.recordKey) {
-    return baseData;
-  }
-
-  const actionProps = {
-    data: baseData,
-    getRowKey,
-    row: {
-      ...defaultValue,
-      map_row_parentKey: recordKeyToString(
-        newLineOptions.parentKey!,
-      )?.toString(),
-    },
-    key: newLineOptions.recordKey,
-    childrenColumnName,
-  };
-
-  return editableRowByKey(
-    actionProps,
-    newLineOptions.position === 'top' ? 'top' : 'update',
-  );
-}
-
-/**
- * 处理分页场景下的新增
- */
-function handlePaginationInsert<DataType>(
-  baseData: DataType[],
-  defaultValue: DataType,
-  pageConfig: TablePaginationConfig,
-): DataType[] {
-  if (pageConfig.pageSize! > baseData.length) {
-    return [...baseData, defaultValue];
-  }
-  const insertIndex = pageConfig.current! * pageConfig.pageSize! - 1;
-  const result = [...baseData];
-  result.splice(insertIndex, 0, defaultValue);
-  return result;
-}
-
-function useEditableDataSource<DataType>({
-  actionDataSource,
-  editableUtils,
-  pagination,
-  getRowKey,
-  childrenColumnName,
-}: {
-  actionDataSource: readonly DataType[] | undefined;
-  editableUtils: {
-    newLineRecord?: {
-      options?: {
-        position?: 'top' | 'bottom' | string;
-        parentKey?: React.Key;
-        recordKey?: React.Key;
-      };
-      defaultValue?: DataType;
-    };
-  };
-  pagination: false | TablePaginationConfig | undefined;
-  getRowKey: GetRowKey<any>;
-  childrenColumnName?: string;
-}): DataType[] {
-  return useMemo(() => {
-    const newLineConfig = editableUtils?.newLineRecord;
-    const baseData = Array.isArray(actionDataSource)
-      ? [...actionDataSource]
-      : [];
-
-    if (!newLineConfig?.defaultValue) {
-      return baseData;
-    }
-
-    const { options: newLineOptions, defaultValue } = newLineConfig;
-
-    if (newLineOptions?.parentKey) {
-      return handleNestedRowInsert(
-        baseData,
-        defaultValue,
-        newLineOptions,
-        getRowKey,
-        childrenColumnName || 'children',
-      );
-    }
-
-    if (newLineOptions?.position === 'top') {
-      return [defaultValue, ...baseData];
-    }
-
-    const pageConfig =
-      pagination && typeof pagination === 'object' ? pagination : undefined;
-
-    if (pageConfig?.current && pageConfig?.pageSize) {
-      return handlePaginationInsert(baseData, defaultValue, pageConfig);
-    }
-
-    return [...baseData, defaultValue];
-  }, [
-    actionDataSource,
-    childrenColumnName,
-    editableUtils?.newLineRecord,
-    getRowKey,
-    pagination,
-  ]);
 }
 
 /**
@@ -421,7 +299,6 @@ function useCreatorButton<DataType>({
     }
 
     return createButtonDom(recordCreatorProps, value, intl);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [maxLength, recordCreatorProps, value?.length, intl]);
 
   const buttonRenderProps = useMemo(() => {
@@ -451,15 +328,15 @@ function EditableTable<
   const {
     onTableChange,
     maxLength,
-    formItemProps,
+    formItemProps: _formItemProps,
     recordCreatorProps,
     rowKey,
-    controlled,
+    controlled: _controlled,
     defaultValue,
-    onChange,
+    onChange: _onChange,
     editableFormRef,
     // @ts-ignore
-    autoFocus,
+    autoFocus: _autoFocus,
     ...rest
   } = props;
 
@@ -492,14 +369,28 @@ function EditableTable<
     return [];
   };
 
-  const [value, setValue] = useMergedState<readonly DataType[]>(
+  const [value, setValueInner] = useControlledState<readonly DataType[]>(
     getInitialValue,
-    {
-      value: props.value,
-      // 在非受控模式下，onChange 应该在 onDataSourceChange 中触发
-      // 这样可以确保数据已经正确更新
-      onChange: props.controlled ? props.onChange : undefined,
+    props.value,
+  );
+  const onChangeFn = props.controlled ? props.onChange : undefined;
+  const setValue = useCallback(
+    (
+      updater:
+        | readonly DataType[]
+        | ((prev: readonly DataType[]) => readonly DataType[]),
+    ) => {
+      setValueInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: readonly DataType[]) => readonly DataType[])(prev)
+            : updater;
+        // 在非受控模式下，onChange 应该在 onDataSourceChange 中触发
+        onChangeFn?.(next);
+        return next;
+      });
     },
+    [onChangeFn],
   );
 
   const getRowKey = React.useMemo<
@@ -808,7 +699,7 @@ function EditableTable<
   const { position } = recordCreatorProps || {};
   const isTop = position === 'top';
 
-  const { creatorButtonDom, buttonRenderProps } = useCreatorButton<DataType>({
+  const { buttonRenderProps } = useCreatorButton<DataType>({
     recordCreatorProps,
     maxLength,
     value,
@@ -946,7 +837,7 @@ function EditableTable<
             }
 
             // 在找到 changeItem 之后再更新 preData，确保后续比较正确
-            preData.current = value;
+            preData.current = list;
 
             return null;
           }}
@@ -990,7 +881,7 @@ function FieldEditableTable<
           return (
             JSON.stringify(get(prev, name)) !== JSON.stringify(get(next, name))
           );
-        } catch (error) {
+        } catch (_error) {
           return true;
         }
       }}

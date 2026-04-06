@@ -3,7 +3,6 @@ import type {
   BreadcrumbItemType,
   ItemType,
 } from 'antd/lib/breadcrumb/Breadcrumb';
-import type H from 'history';
 import { match } from 'path-to-regexp';
 import type { ProSettings } from '../defaultSettings';
 import type { ProLayoutProps } from '../ProLayout';
@@ -14,7 +13,7 @@ export type BreadcrumbProLayoutProps = {
   breadcrumbList?: { title: string; href: string }[];
   home?: string;
   location?:
-    | H.Location
+    | Location
     | {
         pathname?: string;
       };
@@ -76,7 +75,7 @@ export const getBreadcrumb = (
         try {
           if (path?.startsWith('http')) return false;
           return match(path.replace('?', ''))(url);
-        } catch (error) {
+        } catch (_error) {
           return false;
         }
       },

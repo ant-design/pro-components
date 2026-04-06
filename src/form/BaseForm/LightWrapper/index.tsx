@@ -1,18 +1,18 @@
 import { ConfigProvider } from 'antd';
+import type { SizeType as AntdSizeType } from 'antd/lib/config-provider/SizeContext';
 import type { TooltipPlacement } from 'antd/lib/tooltip';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, { useContext, useMemo, useState } from 'react';
 import {
   dateArrayFormatter,
   dateFormatterMap,
   FieldLabel,
   FilterDropdown,
-  useMountMergeState,
 } from '../../../utils';
 import type { LightFilterFooterRender } from '../../typing';
 import { useStyle } from './style';
 
-export type SizeType = 'small' | 'middle' | 'large' | undefined;
+export type SizeType = AntdSizeType;
 
 export type LightWrapperProps = {
   label?: React.ReactNode;
@@ -72,7 +72,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
   const [tempValue, setTempValue] = useState<string | undefined | null>(
     (props as any)[valuePropName!],
   );
-  const [open, setOpen] = useMountMergeState<boolean>(false);
+  const [open, setOpen] = useState(false);
 
   const onChange = (...restParams: any[]) => {
     otherFieldProps?.onChange?.(...restParams);
@@ -84,14 +84,15 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
   /** DateRange的转化，dayjs 的 toString 有点不好用 */
   const labelValueText = useMemo(() => {
     if (!labelValue) return labelValue;
+    const lowerValueType = valueType?.toLowerCase?.();
     if (
-      valueType?.toLowerCase()?.endsWith('range') &&
-      valueType !== 'digitRange' &&
+      lowerValueType?.endsWith('range') &&
+      lowerValueType !== 'digitrange' &&
       !labelFormatter
     ) {
       return dateArrayFormatter(
         labelValue,
-        (dateFormatterMap as any)[valueType] || 'YYYY-MM-DD',
+        (valueType && (dateFormatterMap as any)[valueType]) || 'YYYY-MM-DD',
       );
     }
     if (Array.isArray(labelValue))
@@ -140,16 +141,22 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
       footerRender={footerRender}
     >
       <div
-        className={classNames(`${prefixCls}-container`, hashId, className)}
+        className={clsx(`${prefixCls}-container`, hashId, className)}
         style={style}
       >
-        {React.cloneElement(children as JSX.Element, {
+        {React.cloneElement(children as React.JSX.Element, {
           ...rest,
           [valuePropName!]: tempValue,
           onChange: (e: any) => {
             setTempValue(e?.target ? e.target.value : e);
           },
-          ...(children as JSX.Element).props,
+          ...(children as React.JSX.Element).props,
+          // light 模式下由外层 FilterDropdown 统一描边，内层 Select/TreeSelect/DatePicker 等统一使用 borderless，各 Field 组件无需再根据 light 判断
+          variant: 'borderless' as const,
+          fieldProps: {
+            ...(children as React.JSX.Element).props?.fieldProps,
+            variant: 'borderless' as const,
+          },
         })}
       </div>
     </FilterDropdown>,

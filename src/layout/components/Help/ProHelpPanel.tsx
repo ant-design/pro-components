@@ -1,7 +1,8 @@
-﻿import { CloseOutlined, ProfileOutlined } from '@ant-design/icons';
-import { useMergedState } from '@rc-component/util';
+import { CloseOutlined, ProfileOutlined } from '@ant-design/icons';
+import { useControlledState } from '@rc-component/util';
 import { Card, ConfigProvider, Menu } from 'antd';
-import React, { useContext, useMemo, useState } from 'react';
+import { clsx } from 'clsx';
+import React, { useCallback, useContext, useMemo, useState } from 'react';
 import { ProProvider, isNeedOpenHash } from '../../../provider';
 
 import type { ProHelpDataSource } from './HelpProvide';
@@ -103,20 +104,46 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
   const className = getPrefixCls('pro-help');
   const { wrapSSR, hashId } = useStyle(className);
   const { dataSource } = useContext(ProHelpProvide);
-  const [selectedKey, setSelectedKey] = useMergedState<string | undefined>(
-    undefined,
-    {
-      defaultValue: props.defaultSelectedKey,
-      value: props.selectedKey,
-      onChange: props.onSelectedKeyChange,
+  const [selectedKey, setSelectedKeyInner] = useControlledState<
+    string | undefined
+  >(props.defaultSelectedKey ?? undefined, props.selectedKey);
+  const setSelectedKey = useCallback(
+    (
+      updater:
+        | string
+        | undefined
+        | ((prev: string | undefined) => string | undefined),
+    ) => {
+      setSelectedKeyInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: string | undefined) => string | undefined)(prev)
+            : updater;
+        props.onSelectedKeyChange?.(next);
+        return next;
+      });
     },
+    [props.onSelectedKeyChange],
   );
   const [openKey, setOpenKey] = useState('');
   const { token } = useContext(ProProvider);
-  const [showLeftPanel, setShowLeftPanel] = useMergedState(true, {
-    value: props.showLeftPanel,
-    onChange: props.onShowLeftPanelChange,
-  });
+  const [showLeftPanel, setShowLeftPanelInner] = useControlledState(
+    true,
+    props.showLeftPanel,
+  );
+  const setShowLeftPanel = useCallback(
+    (updater: boolean | ((prev: boolean) => boolean)) => {
+      setShowLeftPanelInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: boolean) => boolean)(prev)
+            : updater;
+        props.onShowLeftPanelChange?.(next);
+        return next;
+      });
+    },
+    [props.onShowLeftPanelChange],
+  );
 
   const dataSourceKeyMap = useMemo(() => {
     const map = new Map<
@@ -144,7 +171,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
 
   const defaultExtraActions = {
     collapsePanelAction: (
-      <div className={`${className}-actions-item ${hashId}`.trim()}>
+      <div className={clsx(`${className}-actions-item`, hashId)}>
         <ProfileOutlined
           title="collapse panel"
           onClick={() => {
@@ -155,8 +182,8 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
     ),
     helpSelectAction: (
       <ProHelpSelect
-        iconClassName={`${className}-actions-item`}
-        className={`${hashId} ${className}-actions-input`}
+        iconClassName={clsx(`${className}-actions-item`, hashId)}
+        className={clsx(hashId, `${className}-actions-input`)}
         value={selectedKey}
         onChange={(value, item) => {
           setSelectedKey(value);
@@ -165,7 +192,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
       />
     ),
     closeAction: (
-      <div className={`${className}-actions-item ${hashId}`.trim()}>
+      <div className={clsx(`${className}-actions-item`, hashId)}>
         <CloseOutlined
           title="close panel"
           onClick={() => {
@@ -178,7 +205,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
 
   const extraDomList = () => {
     return (
-      <div className={`${className}-actions ${hashId}`.trim()}>
+      <div className={clsx(`${className}-actions`, hashId)}>
         {extraRender ? (
           extraRender(
             defaultExtraActions.collapsePanelAction,
@@ -220,7 +247,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
       >
         {showLeftPanel ? (
           <div
-            className={`${hashId} ${className}-left-panel `}
+            className={clsx(hashId, `${className}-left-panel`)}
             style={{
               height,
             }}
@@ -262,7 +289,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
               }}
             >
               <Menu
-                className={`${hashId} ${className}-left-panel-menu`}
+                className={clsx(hashId, `${className}-left-panel-menu`)}
                 openKeys={[parentKey, openKey]}
                 onOpenChange={(keys) => {
                   setOpenKey(keys.at(-1) || '');
@@ -289,7 +316,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
           </div>
         ) : null}
         <div
-          className={`${hashId} ${className}-content-panel`}
+          className={clsx(hashId, `${className}-content-panel`)}
           style={{
             height,
           }}
@@ -297,13 +324,13 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
           {selectedKey ? (
             <ProHelpContentPanel
               parentItem={dataSourceKeyMap.get(parentKey)}
-              className={`${className}-content-render`}
+              className={clsx(`${className}-content-render`, hashId)}
               selectedKey={selectedKey}
               onScroll={(key) => setSelectedKey(key)}
             />
           ) : null}
           {footer ? (
-            <div className={`${hashId} ${className}-footer`}>{footer}</div>
+            <div className={clsx(hashId, `${className}-footer`)}>{footer}</div>
           ) : null}
         </div>
       </Card>

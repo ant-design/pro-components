@@ -1,14 +1,27 @@
-import type { ListProps, PaginationProps } from 'antd';
+import { warning } from '@rc-component/util';
+import type { PaginationProps } from 'antd';
 import { ConfigProvider } from 'antd';
-import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
-import classNames from 'classnames';
-import React, { useContext, useImperativeHandle, useMemo, useRef } from 'react';
+import { clsx } from 'clsx';
+import React, {
+  useContext,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+} from 'react';
 import type { CheckCardProps } from '../card';
 import { ProConfigProvider } from '../provider';
-import type { ActionType, ProColumnType, ProTableProps } from '../table';
+import type {
+  ActionType,
+  ProColumns,
+  ProColumnType,
+  ProTableProps,
+} from '../table';
 import ProTable from '../table';
+import type { LabelTooltipType, ProFieldValueType } from '../utils';
 import type { ItemProps } from './Item';
-import ListView from './ListView';
+import ListView, { type ProListItemRender } from './ListView';
+import type { ListProps } from './ProListBase';
 import { useStyle } from './style/index';
 
 export type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
@@ -29,15 +42,7 @@ export type ProListMeta<T> = Pick<
   key?: React.Key;
 };
 
-type ProListMetaAction<T> = ProListMeta<T> & {
-  /**
-   * @example
-   *   `cardActionProps = 'actions';`;
-   *
-   * @name 选择映射到 card 上的 props，默认为extra
-   */
-  cardActionProps?: 'extra' | 'actions';
-};
+type ProListMetaAction<T> = ProListMeta<T>;
 
 type IfAny<T, Y, N> = 0 extends 1 & T ? Y : N;
 type IsAny<T> = IfAny<T, true, false>;
@@ -52,6 +57,10 @@ export type BaseProListMetas<T = any> = {
   content?: ProListMeta<T>;
   actions?: ProListMetaAction<T>;
 };
+
+/**
+ * @deprecated 推荐使用 columns + listSlot 的方式，与 ProTable 共用同一套 API
+ */
 export type ProListMetas<T = any> = BaseProListMetas<T> & {
   [key in keyof T]?: IsAny<T> extends true
     ? ProListMetaAction<T>
@@ -70,28 +79,81 @@ export type ProListProps<
 > = Omit<ProTableProps<RecordType, Params, ValueType>, 'size' | 'footer'> &
   AntdListProps<RecordType> & {
     tooltip?: LabelTooltipType | string;
+    /**
+     * @deprecated 推荐使用 columns + listSlot 的方式，与 ProTable 共用同一套 API
+     *
+     * @example 旧 API（metas）
+     * metas={{ title: { dataIndex: 'name' }, avatar: { dataIndex: 'avatar' } }}
+     *
+     * @example 新 API（columns + listSlot）
+     * columns={[
+     *   { title: '名称', dataIndex: 'name', listSlot: 'title' },
+     *   { dataIndex: 'avatar', listSlot: 'avatar' },
+     * ]}
+     */
     metas?: ProListMetas<RecordType>;
-    showActions?: 'hover' | 'always';
-    showExtra?: 'hover' | 'always';
     onRow?: GetComponentProps<RecordType>;
     onItem?: GetComponentProps<RecordType>;
     itemCardProps?: CheckCardProps;
     rowClassName?: string | ((item: RecordType, index: number) => string);
     itemHeaderRender?: ItemProps<RecordType>['itemHeaderRender'];
     itemTitleRender?: ItemProps<RecordType>['itemTitleRender'];
+    /** 自定义列表项渲染，defaultDom 为默认渲染的列表项元素 */
+    itemRender?: ProListItemRender<RecordType>;
   };
 
 export type Key = React.Key;
 
 export type TriggerEventHandler<RecordType> = (record: RecordType) => void;
 
-function NoProVideProList<
+/** 根据 listSlot 推导默认的 valueType */
+const DEFAULT_VALUE_TYPE_MAP: Record<string, ProFieldValueType> = {
+  avatar: 'avatar',
+  actions: 'option',
+  description: 'textarea',
+};
+
+/**
+ * 将 metas 对象转换为 columns 数组（向后兼容）
+ */
+function metasToColumns<RecordType>(
+  metas: ProListMetas<RecordType>,
+): ProColumnType<RecordType>[] {
+  return Object.keys(metas).map((key) => {
+    const meta = metas[key] || {};
+    const valueType = meta.valueType || DEFAULT_VALUE_TYPE_MAP[key];
+    return {
+      listSlot: key,
+      dataIndex: meta.dataIndex || key,
+      ...meta,
+      valueType,
+    };
+  });
+}
+
+/**
+ * 为带有 listSlot 的 columns 填充默认 valueType
+ */
+function enrichColumnsWithDefaults<RecordType>(
+  columns: ProColumns<RecordType>[],
+): ProColumnType<RecordType>[] {
+  return columns.map((col) => {
+    const { listSlot } = col;
+    if (!listSlot) return col;
+    const valueType = col.valueType || DEFAULT_VALUE_TYPE_MAP[listSlot];
+    return valueType ? { ...col, valueType } : col;
+  });
+}
+
+function InternalProList<
   RecordType extends Record<string, any>,
   U extends Record<string, any> = Record<string, any>,
 >(props: ProListProps<RecordType, U>) {
   const {
-    metas: metals,
+    metas,
+    columns: propsColumns,
     split,
+    variant,
     footer,
     rowKey,
     tooltip,
@@ -99,12 +161,10 @@ function NoProVideProList<
     options = false,
     search = false,
     expandable,
-    showActions,
-    showExtra,
     rowSelection: propRowSelection = false,
     pagination: propsPagination = false,
     itemLayout,
-    renderItem,
+    itemRender,
     grid,
     itemCardProps,
     onRow,
@@ -118,44 +178,38 @@ function NoProVideProList<
 
   const actionRef = useRef<ActionType>();
 
-  useImperativeHandle(rest.actionRef, () => actionRef.current, [
-    actionRef.current,
-  ]);
+  useImperativeHandle(rest.actionRef, () => actionRef.current);
+
+  // metas 废弃提示，仅在开发环境触发一次
+  useEffect(() => {
+    warning(
+      !metas,
+      '[ProList] `metas` is deprecated. Please use `columns` with `listSlot` instead. ' +
+        'See: columns={[ { dataIndex: "name", listSlot: "title" } ]}',
+    );
+  }, []);
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
+  /**
+   * columns 优先级高于 metas
+   * - 如果传入了 columns（且含有 listSlot），直接使用 columns
+   * - 如果只传入了 metas，将 metas 转换为 columns（向后兼容）
+   */
   const proTableColumns: ProColumnType<RecordType>[] = useMemo(() => {
-    const columns: ProColumnType<RecordType>[] = [];
-    Object.keys(metals || {}).forEach((key) => {
-      const meta = metals![key] || {};
-      let { valueType } = meta;
-      if (!valueType) {
-        // 根据 key 给不同的 valueType
-        if (key === 'avatar') {
-          valueType = 'avatar';
-        }
-        if (key === 'actions') {
-          valueType = 'option';
-        }
-        if (key === 'description') {
-          valueType = 'textarea';
-        }
-      }
-      columns.push({
-        listKey: key,
-        dataIndex: meta?.dataIndex || key,
-        ...meta,
-        valueType,
-      });
-    });
-    return columns;
-  }, [metals]);
+    if (propsColumns && propsColumns.length > 0) {
+      return enrichColumnsWithDefaults<RecordType>(propsColumns);
+    }
+    if (!metas) return [];
+    return metasToColumns<RecordType>(metas);
+  }, [propsColumns, metas]);
 
   const prefixCls = getPrefixCls('pro-list', props.prefixCls);
 
   const { wrapSSR, hashId } = useStyle(prefixCls);
-  const listClassName = classNames(prefixCls, hashId, {
+  const listClassName = clsx(prefixCls, hashId, {
     [`${prefixCls}-no-split`]: !split,
+    [`${prefixCls}-${variant}`]: variant,
   });
 
   return wrapSSR(
@@ -168,7 +222,7 @@ function NoProVideProList<
       rowSelection={propRowSelection}
       search={search}
       options={options}
-      className={classNames(prefixCls, className, listClassName)}
+      className={clsx(className, listClassName)}
       columns={proTableColumns}
       rowKey={rowKey}
       tableViewRender={({
@@ -186,17 +240,16 @@ function NoProVideProList<
             itemTitleRender={itemTitleRender}
             prefixCls={props.prefixCls}
             columns={columns}
-            renderItem={renderItem}
+            itemRender={itemRender}
             actionRef={actionRef}
             dataSource={(dataSource || []) as RecordType[]}
             size={size as 'large'}
             footer={footer}
             split={split}
+            variant={variant}
             rowKey={rowKey}
             expandable={expandable}
             rowSelection={propRowSelection === false ? undefined : rowSelection}
-            showActions={showActions}
-            showExtra={showExtra}
             pagination={pagination as PaginationProps}
             itemLayout={itemLayout}
             loading={loading}
@@ -205,6 +258,7 @@ function NoProVideProList<
             onItem={onItem}
             rowClassName={rowClassName}
             locale={locale}
+            hashId={hashId}
           />
         );
       }}
@@ -212,13 +266,14 @@ function NoProVideProList<
   );
 }
 
+/** BaseProList 默认隐藏卡片、搜索和工具栏 */
 function BaseProList<
   RecordType extends Record<string, any>,
   U extends Record<string, any> = Record<string, any>,
 >(props: ProListProps<RecordType, U>) {
   return (
     <ProConfigProvider needDeps>
-      <NoProVideProList
+      <InternalProList
         cardProps={false}
         search={false}
         toolBarRender={false}
@@ -234,10 +289,12 @@ function ProList<
 >(props: ProListProps<RecordType, U>) {
   return (
     <ProConfigProvider needDeps>
-      <NoProVideProList {...props} />
+      <InternalProList {...props} />
     </ProConfigProvider>
   );
 }
+
+export type { ProListItemRender } from './ListView';
 
 export { BaseProList, ProList };
 

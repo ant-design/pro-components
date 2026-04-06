@@ -1,5 +1,5 @@
 import { ConfigProvider } from 'antd';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, { useContext, useMemo } from 'react';
 import { useIntl } from '../../../provider';
 import type { SubmitterProps } from '../../BaseForm/Submitter';
@@ -104,34 +104,36 @@ function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
   const context = useContext(ConfigProvider.ConfigContext);
   const baseClassName = context.getPrefixCls('pro-form-login');
   const { wrapSSR, hashId } = useStyle(baseClassName);
-  const getCls = (className: string) =>
-    `${baseClassName}-${className} ${hashId}`;
+  const getCls = (className: string) => `${baseClassName}-${className}`;
 
   /** 生成logo 的dom，如果是string 设置为图片 如果是个 dom 就原样保留 */
   const logoDom = useMemo(() => {
     if (!logo) return null;
     if (typeof logo === 'string') {
-      return <img src={logo} />;
+      return <img src={logo} alt="" />;
     }
     return logo;
   }, [logo]);
 
   return wrapSSR(
-    <div
-      className={classNames(getCls('container'), hashId)}
-      style={containerStyle}
-    >
-      <div className={`${getCls('top')} ${hashId}`.trim()}>
+    <div className={clsx(getCls('container'), hashId)} style={containerStyle}>
+      <div className={clsx(getCls('top'), hashId)}>
         {title || logoDom ? (
-          <div className={`${getCls('header')}`}>
-            {logoDom ? <span className={getCls('logo')}>{logoDom}</span> : null}
-            {title ? <span className={getCls('title')}>{title}</span> : null}
+          <div className={clsx(getCls('header'), hashId)}>
+            {logoDom ? (
+              <span className={clsx(getCls('logo'), hashId)}>{logoDom}</span>
+            ) : null}
+            {title ? (
+              <span className={clsx(getCls('title'), hashId)}>{title}</span>
+            ) : null}
           </div>
         ) : null}
-        {subTitle ? <div className={getCls('desc')}>{subTitle}</div> : null}
+        {subTitle ? (
+          <div className={clsx(getCls('desc'), hashId)}>{subTitle}</div>
+        ) : null}
       </div>
       <div
-        className={getCls('main')}
+        className={clsx(getCls('main'), hashId)}
         style={{
           width: 328,
           ...contentStyle,
@@ -142,7 +144,7 @@ function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
           {children}
         </ProForm>
         {actions ? (
-          <div className={getCls('main-other')} style={otherStyle}>
+          <div className={clsx(getCls('main-other'), hashId)} style={otherStyle}>
             {actions}
           </div>
         ) : null}

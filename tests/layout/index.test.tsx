@@ -55,6 +55,44 @@ describe('BasicLayout', () => {
     html.unmount();
   });
 
+  it('🐞 menuItemRender clickable area should follow full title content', async () => {
+    const handleMenuItemClick = vi.fn();
+    const wrapper = render(
+      <ProLayout
+        menuDataRender={() => [
+          {
+            path: '/welcome',
+            name: '欢迎',
+          },
+        ]}
+        menuItemRender={(item, dom) => (
+          <div
+            role="button"
+            tabIndex={0}
+            onClick={() => handleMenuItemClick(item.path)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ')
+                handleMenuItemClick(item.path);
+            }}
+          >
+            {dom}
+          </div>
+        )}
+      />,
+    );
+
+    await waitForWaitTime(100);
+
+    const titleContent = wrapper.baseElement.querySelector<HTMLElement>(
+      '.ant-pro-base-menu-inline .ant-menu-title-content',
+    );
+
+    expect(titleContent).toBeTruthy();
+    expect(getComputedStyle(titleContent!).width).toBe('100%');
+
+    wrapper.unmount();
+  });
+
   it('🥩 support loading', async () => {
     const wrapper = render(
       <ProLayout
@@ -271,7 +309,7 @@ describe('BasicLayout', () => {
               {
                 title: '前端应用框架',
                 icon: () => (
-                  <img src="https://img.alicdn.com/tfs/TB1zomHwxv1gK0jSZFFXXb0sXXa-200-200.png" />
+                  <img src="https://img.alicdn.com/tfs/TB1zomHwxv1gK0jSZFFXXb0sXXa-200-200.png" alt="" />
                 ),
                 url: 'https://umijs.org/zh-CN/docs',
               },
@@ -520,7 +558,15 @@ describe('BasicLayout', () => {
       <ProLayout
         siderWidth={undefined}
         logo={
-          <div onClick={onLogoClick} id="test_log">
+          <div
+            role="button"
+            tabIndex={0}
+            onClick={onLogoClick}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') onLogoClick();
+            }}
+            id="test_log"
+          >
             Logo
           </div>
         }
@@ -567,7 +613,9 @@ describe('BasicLayout', () => {
       ).map((item) => item && item?.click());
     });
 
-    expect(onCollapse).toHaveBeenCalled();
+    await waitFor(() => {
+      expect(onCollapse).toHaveBeenCalled();
+    });
 
     await waitForWaitTime(100);
     wrapper.unmount();
@@ -1221,14 +1269,22 @@ describe('BasicLayout', () => {
           }}
           location={{ pathname }}
           menuItemRender={(item, dom) => (
-            <a
+            <button
+              type="button"
+              style={{
+                background: 'none',
+                border: 'none',
+                padding: 0,
+                font: 'inherit',
+                cursor: 'pointer',
+              }}
               onClick={() => {
                 item.onClick();
                 setPathname(item.path || '/welcome');
               }}
             >
               {dom}
-            </a>
+            </button>
           )}
           menuDataRender={() => [
             {
@@ -1309,14 +1365,22 @@ describe('BasicLayout', () => {
           onSelect={fn}
           location={{ pathname }}
           menuItemRender={(item, dom) => (
-            <a
+            <button
+              type="button"
+              style={{
+                background: 'none',
+                border: 'none',
+                padding: 0,
+                font: 'inherit',
+                cursor: 'pointer',
+              }}
               onClick={() => {
                 item.onClick();
                 setPathname(item.path || '/welcome');
               }}
             >
               {dom}
-            </a>
+            </button>
           )}
           menuDataRender={() => [
             {
@@ -1536,14 +1600,22 @@ describe('BasicLayout', () => {
           }}
           location={{ pathname }}
           menuItemRender={(item, dom) => (
-            <a
+            <button
+              type="button"
+              style={{
+                background: 'none',
+                border: 'none',
+                padding: 0,
+                font: 'inherit',
+                cursor: 'pointer',
+              }}
               onClick={() => {
                 item.onClick();
                 setPathname(item.path || '/welcome');
               }}
             >
               {dom}
-            </a>
+            </button>
           )}
           menuDataRender={() => [
             {
@@ -1630,14 +1702,22 @@ describe('BasicLayout', () => {
           }}
           location={{ pathname }}
           menuItemRender={(item, dom) => (
-            <a
+            <button
+              type="button"
+              style={{
+                background: 'none',
+                border: 'none',
+                padding: 0,
+                font: 'inherit',
+                cursor: 'pointer',
+              }}
               onClick={() => {
                 item?.onClick?.();
                 setPathname(item.path || '/welcome');
               }}
             >
               {dom}
-            </a>
+            </button>
           )}
           menuDataRender={() => [
             {

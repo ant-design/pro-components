@@ -2,13 +2,14 @@ import {
   StyleProvider,
   legacyLogicalPropertiesTransformer,
 } from '@ant-design/cssinjs';
+import { ProConfigProvider } from '@ant-design/pro-components';
 import {
   act,
   cleanup,
   render as reactRender,
   waitFor,
 } from '@testing-library/react';
-import { App } from 'antd';
+import { ConfigProvider } from 'antd';
 import glob from 'glob';
 import MockDate from 'mockdate';
 import {
@@ -91,10 +92,22 @@ function demoTest(component: string, options?: DemoTestOptions) {
         hashPriority="high"
         transformers={[legacyLogicalPropertiesTransformer]}
       >
-        <App>
-          <div>test</div>
-          {props.children}
-        </App>
+        <ConfigProvider
+          theme={{
+            zeroRuntime: true,
+            hashed: false,
+            cssVar: {
+              key: 'pro',
+            },
+          }}
+        >
+          <ProConfigProvider hashed={false}>
+            <>
+              <div>test</div>
+              {props.children}
+            </>
+          </ProConfigProvider>
+        </ConfigProvider>
       </StyleProvider>
     );
   };

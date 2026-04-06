@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useIntl } from '../../../provider';
 import { isBrowser } from '../../../utils';
 
-const FullScreenIcon = () => {
+const FullScreenIcon = React.forwardRef<HTMLSpanElement>((_, ref) => {
   const intl = useIntl();
   const [fullscreen, setFullscreen] = useState<boolean>(false);
   useEffect(() => {
@@ -16,14 +16,18 @@ const FullScreenIcon = () => {
     };
   }, []);
   return fullscreen ? (
-    <Tooltip title={intl.getMessage('tableToolBar.exitFullScreen', '全屏')}>
-      <FullscreenExitOutlined />
+    <Tooltip title={intl.getMessage('tableToolBar.exitFullScreen', '退出全屏')}>
+      <span ref={ref}>
+        <FullscreenExitOutlined />
+      </span>
     </Tooltip>
   ) : (
     <Tooltip title={intl.getMessage('tableToolBar.fullScreen', '全屏')}>
-      <FullscreenOutlined />
+      <span ref={ref}>
+        <FullscreenOutlined />
+      </span>
     </Tooltip>
   );
-};
+});
 
 export default React.memo(FullScreenIcon);

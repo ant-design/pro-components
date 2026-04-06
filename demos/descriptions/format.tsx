@@ -1,5 +1,6 @@
 import { ProDescriptions } from '@ant-design/pro-components';
-import dayjs from 'dayjs';
+
+import { FIXED_BASE_DATE } from '../mockData';
 
 const Demo = () => {
   return (
@@ -16,7 +17,7 @@ const Demo = () => {
           }}
           valueType="date"
         >
-          {dayjs().valueOf()}
+          {FIXED_BASE_DATE.valueOf()}
         </ProDescriptions.Item>
         <ProDescriptions.Item
           label="日期区间"
@@ -25,7 +26,7 @@ const Demo = () => {
           }}
           valueType="dateTimeRange"
         >
-          {[dayjs().add(-1, 'd').valueOf(), dayjs().valueOf()]}
+          {[FIXED_BASE_DATE.add(-1, 'd').valueOf(), FIXED_BASE_DATE.valueOf()]}
         </ProDescriptions.Item>
         <ProDescriptions.Item
           label="时间"
@@ -34,7 +35,7 @@ const Demo = () => {
           }}
           valueType="time"
         >
-          {dayjs().valueOf()}
+          {FIXED_BASE_DATE.valueOf()}
         </ProDescriptions.Item>
 
         <ProDescriptions.Item
@@ -44,7 +45,7 @@ const Demo = () => {
           }}
           valueType="dateTime"
         >
-          {dayjs().valueOf()}
+          {FIXED_BASE_DATE.valueOf()}
         </ProDescriptions.Item>
 
         <ProDescriptions.Item
@@ -54,7 +55,7 @@ const Demo = () => {
           }}
           valueType="fromNow"
         >
-          {dayjs().add(-1, 'month').valueOf()}
+          {FIXED_BASE_DATE.add(-1, 'month').valueOf()}
         </ProDescriptions.Item>
       </ProDescriptions>
 

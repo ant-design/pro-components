@@ -1,10 +1,9 @@
-import { omit } from '@rc-component/util';
+import { omit, useControlledState } from '@rc-component/util';
 import { Form, Popover, PopoverProps, type InputProps } from 'antd';
 import type { InputRef, PasswordProps } from 'antd/lib/input';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { FieldPassword } from '../../../field';
 import { ProConfigProvider } from '../../../provider';
-import { useMountMergeState } from '../../../utils';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProField from '../Field';
 
@@ -50,10 +49,23 @@ const PassWordStrength: React.FC<
     children: React.ReactNode;
   }
 > = (props) => {
-  const [open, setOpen] = useMountMergeState<boolean>(props.open || false, {
-    value: props.open,
-    onChange: props.onOpenChange,
-  });
+  const [open, setOpenInner] = useControlledState<boolean>(
+    props.open || false,
+    props.open,
+  );
+  const setOpen = useCallback(
+    (updater: boolean | ((prev: boolean) => boolean)) => {
+      setOpenInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: boolean) => boolean)(prev)
+            : updater;
+        props.onOpenChange?.(next);
+        return next;
+      });
+    },
+    [props.onOpenChange],
+  );
   return (
     <Form.Item shouldUpdate noStyle>
       {(form) => {
@@ -195,8 +207,6 @@ const WrappedProFormText: typeof ProFormText & {
 
 WrappedProFormText.Password = Password;
 
-// @ts-ignore
-// eslint-disable-next-line no-param-reassign
 WrappedProFormText.displayName = 'ProFormComponent';
 
 export default WrappedProFormText;

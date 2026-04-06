@@ -4,6 +4,7 @@ import { message } from 'antd';
 const Demo = () => {
   return (
     <ProForm
+      name="label-in-value-demo"
       onFinish={async () => {
         message.success('提交成功');
       }}

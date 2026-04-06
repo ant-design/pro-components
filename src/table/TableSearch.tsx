@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import type { ParamsType } from '../provider';
-import type { ActionType, ProTableProps } from './typing';
 import FormRender from './components/Form';
+import type { ActionType, ProTableProps } from './typing';
 
 export type TableSearchProps<T extends Record<string, any>, U, ValueType> = {
   search: ProTableProps<T, U, ValueType>['search'];
@@ -98,4 +98,3 @@ export function TableSearch<T extends Record<string, any>, U, ValueType>(
     type,
   ]);
 }
-

@@ -1,10 +1,10 @@
-import { omit, useMergedState, warning } from '@rc-component/util';
+import { omit, useControlledState, warning } from '@rc-component/util';
 import { getMatchMenu } from '@umijs/route-utils';
 import type { BreadcrumbProps, WatermarkProps } from 'antd';
 import { ConfigProvider, Layout } from 'antd';
 import type { AnyObject } from 'antd/lib/_util/type';
 import type { ItemType } from 'antd/lib/breadcrumb/Breadcrumb';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import type { CSSProperties } from 'react';
 import React, {
   useCallback,
@@ -20,7 +20,7 @@ import {
   isBrowser,
   useBreakpoint,
   useDocumentTitle,
-  useMountMergeState,
+  useRefFunction,
 } from '../utils';
 import { Logo } from './assert/Logo';
 import { DefaultFooter as Footer } from './components/Footer';
@@ -99,14 +99,14 @@ export type ProLayoutProps = GlobalTypes & {
    * @name logo 的配置，可以配置url，React 组件 和 false
    *
    * @example 设置 logo 为网络地址  logo="https://avatars1.githubusercontent.com/u/8186664?s=460&v=4"
-   * @example 设置 logo 为组件  logo={<img src="https://avatars1.githubusercontent.com/u/8186664?s=460&v=4"/>}
+   * @example 设置 logo 为组件  logo={<img src="https://avatars1.githubusercontent.com/u/8186664?s=460&v=4" alt="" />}
    * @example 设置 logo 为 false 不显示 logo  logo={false}
-   * @example 设置 logo 为 方法  logo={()=> <img src="https://avatars1.githubusercontent.com/u/8186664?s=460&v=4"/> }
+   * @example 设置 logo 为 方法  logo={()=> <img src="https://avatars1.githubusercontent.com/u/8186664?s=460&v=4" alt="" /> }
    * */
   logo?:
     | React.ReactNode
-    | JSX.Element
-    | WithFalse<() => React.ReactNode | JSX.Element>;
+    | React.JSX.Element
+    | WithFalse<() => React.ReactNode | React.JSX.Element>;
 
   /**
    * @name 页面切换的时候触发
@@ -449,9 +449,16 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
 
   const prefixCls = props.prefixCls ?? context.getPrefixCls('pro');
 
-  const [menuLoading, setMenuLoading] = useMountMergeState(false, {
-    value: menu?.loading,
-    onChange: menu?.onLoadingChange,
+  const [menuLoadingState, _setMenuLoadingInner] = useControlledState(
+    false,
+    menu?.loading,
+  );
+
+  /**
+   * 使用 useRefFunction 包装回调，确保引用稳定
+   */
+  const menuOnLoadingChange = useRefFunction((loading: boolean) => {
+    menu?.onLoadingChange?.(loading);
   });
 
   // give a default key for swr
@@ -487,16 +494,19 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     [propsFormatMessage],
   );
 
-  const { data, mutate, isLoading } = useSWR(
+  const { data, mutate, isValidating } = useSWR(
     [defaultId, menu?.params],
     async ([, params]) => {
-      setMenuLoading(true);
-      const menuDataItems = await menu?.request?.(
-        params || {},
-        route?.children || route?.routes || [],
-      );
-      setMenuLoading(false);
-      return menuDataItems;
+      menuOnLoadingChange(true);
+      try {
+        const menuDataItems = await menu?.request?.(
+          params || {},
+          route?.children || route?.routes || [],
+        );
+        return menuDataItems;
+      } finally {
+        menuOnLoadingChange(false);
+      }
     },
     {
       revalidateOnFocus: false,
@@ -505,17 +515,14 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     },
   );
 
-  useEffect(() => {
-    setMenuLoading(isLoading);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isLoading]);
+  const menuLoading =
+    menu?.loading ?? (menu?.request ? isValidating : menuLoadingState);
 
   const { cache } = useSWRConfig();
   useEffect(() => {
     return () => {
       if (cache instanceof Map) cache.delete(defaultId);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const menuInfoData = useMemo<{
@@ -581,18 +588,39 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   /* Checking if the menu is loading and if it is, it will return a skeleton loading screen. */
   const hasLeftPadding = propsLayout !== 'top' && !isMobile;
 
-  const [collapsed, onCollapse] = useMergedState<boolean>(
-    () => {
-      if (defaultCollapsed !== undefined) return defaultCollapsed;
-      if (process.env.NODE_ENV === 'TEST') return false;
-      if (isMobile) return true;
-      if (colSize === 'md') return true;
-      return false;
+  const [collapsed, onCollapseInner] = useControlledState<boolean>(() => {
+    if (defaultCollapsed !== undefined) return defaultCollapsed;
+    if (process.env.NODE_ENV === 'TEST') return false;
+    if (isMobile) return true;
+    if (colSize === 'md') return true;
+    return false;
+  }, props.collapsed);
+
+  /**
+   * 使用 useRefFunction 包装回调，确保引用稳定
+   */
+  const onCollapseCallback = useRefFunction((c: boolean) => {
+    propsOnCollapse?.(c);
+  });
+
+  /**
+   * 使用 queueMicrotask 延迟回调调用，避免在渲染阶段调用外部回调导致的 React 警告
+   * "Cannot update a component while rendering a different component"
+   */
+  const onCollapse = useCallback(
+    (updater: boolean | ((prev: boolean) => boolean)) => {
+      onCollapseInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: boolean) => boolean)(prev)
+            : updater;
+        queueMicrotask(() => {
+          onCollapseCallback(next);
+        });
+        return next;
+      });
     },
-    {
-      value: props.collapsed,
-      onChange: propsOnCollapse,
-    },
+    [onCollapseCallback],
   );
 
   // Splicing parameters, adding menuData and formatMessage in props
@@ -680,7 +708,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   const { wrapSSR, hashId } = useStyle(proLayoutClassName);
 
   // gen className
-  const className = classNames(
+  const className = clsx(
     props.className,
     hashId,
     'ant-design-pro',
@@ -714,7 +742,6 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   /** 页面切换的时候触发 */
   useEffect(() => {
     props.onPageChange?.(props.location);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname, location.pathname?.search]);
 
   const [hasFooterToolbar, setHasFooterToolbar] = useState(false);
@@ -732,8 +759,13 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
       return bgLayoutImgList?.map((item, index) => {
         return (
           <img
-            key={index}
+            key={
+              item.src
+                ? `${item.src}-${index}`
+                : `bg-layout-${index}`
+            }
             src={item.src}
+            alt=""
             style={{
               position: 'absolute',
               ...item,
@@ -772,11 +804,9 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
       {props.pure ? (
         <>{children}</>
       ) : (
-        <div className={className}>
+        <div className={className} data-testid="pro-layout">
           {bgImgStyleList || token.layout?.bgLayout ? (
-            <div
-              className={classNames(`${proLayoutClassName}-bg-list`, hashId)}
-            >
+            <div className={clsx(`${proLayoutClassName}-bg-list`, hashId)}>
               {bgImgStyleList}
             </div>
           ) : null}
@@ -789,7 +819,6 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
             }}
           >
             <ConfigProvider
-              // @ts-ignore
               theme={{
                 hashed: isNeedOpenHash(),
                 token: {
@@ -838,7 +867,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
             </ConfigProvider>
             <div
               style={genLayoutStyle}
-              className={`${proLayoutClassName}-container ${hashId}`.trim()}
+              className={clsx(`${proLayoutClassName}-container`, hashId)}
             >
               {headerDom}
               <WrapContent

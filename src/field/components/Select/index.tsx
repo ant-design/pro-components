@@ -1,3 +1,4 @@
+import { useControlledState } from '@rc-component/util';
 import type { SelectProps } from 'antd';
 import { ConfigProvider, Spin } from 'antd';
 import React, {
@@ -21,7 +22,6 @@ import {
   useDebounceValue,
   useDeepCompareEffect,
   useDeepCompareMemo,
-  useMountMergeState,
   useRefFunction,
   useStyle,
 } from '../../../utils';
@@ -159,7 +159,7 @@ function filerByItem(
 /**
  * 把 value 的枚举转化为数组
  *
- * @param valueEnum
+ * @param valueEnumParams
  */
 export const proFieldParsingValueEnumToArray = (
   valueEnumParams: ProFieldValueEnumType,
@@ -268,16 +268,9 @@ export const useFieldFetchData = (
     return data;
   }, [fieldProps]);
 
-  const [options, setOptions] = useMountMergeState<SelectOptionType>(
-    () => {
-      if (props.valueEnum) {
-        return getOptionsFormValueEnum(props.valueEnum);
-      }
-      return [];
-    },
-    {
-      value: defaultOptions,
-    },
+  const [options, setOptions] = useControlledState<SelectOptionType>(
+    () => (props.valueEnum ? getOptionsFormValueEnum(props.valueEnum) : []),
+    defaultOptions,
   );
 
   useDeepCompareEffect(() => {
@@ -319,10 +312,8 @@ export const useFieldFetchData = (
       ),
     {
       revalidateIfStale: !cacheForSwr,
-      // 打开 cacheForSwr 的时候才应该支持两个功能
       revalidateOnReconnect: cacheForSwr,
       shouldRetryOnError: false,
-      // @todo 这个功能感觉应该搞个API出来
       revalidateOnFocus: false,
     },
   );
@@ -478,7 +469,6 @@ const FieldSelect: ProFieldFC<
       if (light) {
         return (
           <LightSelect
-            variant={variant}
             id={id}
             loading={loading}
             ref={inputRef}
@@ -486,6 +476,7 @@ const FieldSelect: ProFieldFC<
             size={componentSize}
             options={options}
             label={label}
+            labelVariant={variant}
             placeholder={intl.getMessage(
               'tableForm.selectPlaceholder',
               '请选择',
@@ -505,7 +496,6 @@ const FieldSelect: ProFieldFC<
             minWidth: 100,
             ...rest.style,
           }}
-          variant={variant}
           id={id}
           loading={loading}
           ref={inputRef}

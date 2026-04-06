@@ -6,7 +6,13 @@ import type { ProFieldFC } from '../../PureProField';
 /**
  * 最基本的组件，就是个普通的 Input
  *
- * @param
+ * @param text
+ * @param mode
+ * @param render
+ * @param formItemRender
+ * @param fieldProps
+ * @param emptyText
+ * @param ref
  */
 const FieldText: ProFieldFC<{
   text: string;
@@ -24,7 +30,10 @@ const FieldText: ProFieldFC<{
 
   useEffect(() => {
     if (autoFocus) {
-      inputRef.current?.focus();
+      // 使用 queueMicrotask 延迟 focus 调用，避免在渲染期间触发 flushSync
+      queueMicrotask(() => {
+        inputRef.current?.focus();
+      });
     }
   }, [autoFocus]);
 

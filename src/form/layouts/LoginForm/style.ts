@@ -1,4 +1,4 @@
-﻿import type { GenerateStyle, ProAliasToken } from '../../../provider';
+import type { GenerateStyle, ProAliasToken } from '../../../provider';
 import { useStyle as useAntdStyle } from '../../../provider';
 
 export interface LoginFormToken extends ProAliasToken {
@@ -8,6 +8,7 @@ export interface LoginFormToken extends ProAliasToken {
 const genLoginFormStyle: GenerateStyle<LoginFormToken> = (token) => {
   return {
     [token.componentCls]: {
+      boxSizing: 'border-box',
       '&-container': {
         display: 'flex',
         flex: '1',

@@ -10,6 +10,10 @@ const [sm, md, lg, xl] = [576, 768, 992, 1200].map(
 const genPageContainerStyle: GenerateStyle<PageContainerToken> = (token) => {
   return {
     [token.componentCls]: {
+      boxSizing: 'border-box',
+      '*, *::before, *::after': {
+        boxSizing: 'border-box',
+      },
       position: 'relative',
       '&-children-container': {
         paddingBlockStart: 0,

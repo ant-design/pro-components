@@ -22,7 +22,6 @@ export function useDeepCompareEffect(
   dependencies: DependencyList,
   ignoreKeys?: string[],
 ) {
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(effect, useDeepCompareMemoize(dependencies || [], ignoreKeys));
 }
 
@@ -38,7 +37,6 @@ export function useDeepCompareEffectDebounce(
   useEffect(
     () => {
       effectDn.run();
-      // eslint-disable-next-line react-hooks/exhaustive-deps
     },
     useDeepCompareMemoize(dependencies || [], ignoreKeys),
   );

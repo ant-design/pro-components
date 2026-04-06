@@ -1,7 +1,7 @@
 import { RightOutlined } from '@ant-design/icons';
-import { omit } from '@rc-component/util';
+import { omit, useControlledState } from '@rc-component/util';
 import { ConfigProvider, Skeleton } from 'antd';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, {
   createContext,
   useCallback,
@@ -11,7 +11,6 @@ import React, {
   useState,
 } from 'react';
 import { ProConfigProvider, proTheme } from '../../../provider';
-import { useMountMergeState } from '../../../utils';
 import CheckCard from './index';
 import { useStyle } from './style';
 
@@ -126,7 +125,7 @@ export const CardLoading: React.FC<{
   hashId: string;
 }> = ({ prefixCls, hashId }) => {
   return (
-    <div className={classNames(`${prefixCls}-loading-content`, hashId)}>
+    <div className={clsx(`${prefixCls}-loading-content`, hashId)}>
       <Skeleton loading active paragraph={{ rows: 4 }} title={false} />
     </div>
   );
@@ -249,9 +248,9 @@ const SubCheckCardGroup: React.FC<{
   const { hashId } = proTheme.useToken();
   const baseCls = `${props.prefix}-sub-check-card`;
   return (
-    <div className={classNames(baseCls, hashId)}>
+    <div className={clsx(baseCls, hashId)}>
       <div
-        className={classNames(`${baseCls}-title`, hashId)}
+        className={clsx(`${baseCls}-title`, hashId)}
         onClick={() => {
           setCollapse(!collapse);
         }}
@@ -265,7 +264,7 @@ const SubCheckCardGroup: React.FC<{
         {props.title}
       </div>
       <div
-        className={classNames(`${baseCls}-panel`, hashId, {
+        className={clsx(`${baseCls}-panel`, hashId, {
           [`${baseCls}-panel-collapse`]: collapse,
         })}
       >
@@ -318,12 +317,27 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
     'size',
   ]);
 
-  const [stateValue, setStateValue] = useMountMergeState<
+  const [stateValue, setStateValueInner] = useControlledState<
     CheckCardValueType[] | CheckCardValueType | undefined
-  >(props.defaultValue, {
-    value: props.value,
-    onChange: props.onChange,
-  });
+  >(props.defaultValue, props.value);
+
+  const setStateValue = useCallback(
+    (
+      updater:
+        | CheckGroupValueType
+        | ((prev: CheckGroupValueType) => CheckGroupValueType),
+    ) => {
+      setStateValueInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: CheckGroupValueType) => CheckGroupValueType)(prev)
+            : updater;
+        onChange?.(next);
+        return next;
+      });
+    },
+    [onChange],
+  );
 
   const registerValueMap = useRef<Map<CheckCardValueType, any>>(new Map());
 
@@ -377,16 +391,13 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
 
   const children = useMemo((): React.ReactNode => {
     if (loading) {
-      return (
-        new Array(
-          options.length || React.Children.toArray(props.children).length || 1,
-        )
-          .fill(0)
-          // eslint-disable-next-line react/no-array-index-key
-          .map((_, index) => (
-            <CheckCard key={index} loading />
-          )) as React.ReactNode[]
-      );
+      return new Array(
+        options.length || React.Children.toArray(props.children).length || 1,
+      )
+        .fill(0)
+        .map((_, index) => (
+          <CheckCard key={index} loading />
+        )) as React.ReactNode[];
     }
 
     if (options && options.length > 0) {
@@ -442,7 +453,7 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
     stateValue,
   ]);
 
-  const classString = classNames(groupPrefixCls, className, hashId);
+  const classString = clsx(groupPrefixCls, className, hashId);
 
   return wrapSSR(
     <CheckCardGroupConnext.Provider

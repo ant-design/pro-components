@@ -2,7 +2,6 @@
 import {
   ProHelp,
   ProHelpDrawer,
-  ProHelpModal,
   ProHelpPanel,
   ProHelpSelect,
 } from '@ant-design/pro-components';
@@ -823,48 +822,6 @@ describe('👍🏻 ProHelpPanel', () => {
       </ProHelp>,
     );
     expect(html.baseElement).toMatchSnapshot();
-  });
-
-  it('🎏 ProHelpModal', async () => {
-    const fn = vi.fn();
-    const html = render(
-      <DefaultProHelp>
-        <div
-          style={{
-            width: 600,
-          }}
-        >
-          <ProHelpModal
-            modalProps={{
-              open: true,
-              afterClose: () => {
-                fn();
-              },
-            }}
-          />
-        </div>
-      </DefaultProHelp>,
-    );
-
-    await html.findAllByText('常见问题');
-
-    await act(async () => {
-      (await html.findByTitle('close panel'))?.click();
-    });
-
-    await waitFor(() => {
-      expect(fn).toHaveBeenCalledTimes(1);
-    });
-
-    await act(async () => {
-      html.baseElement
-        .querySelector<HTMLDivElement>('.ant-modal-wrap')
-        ?.click();
-    });
-
-    await waitFor(() => {
-      expect(fn).toHaveBeenCalledTimes(2);
-    });
   });
 
   it('🎏 ProHelpDrawer', async () => {

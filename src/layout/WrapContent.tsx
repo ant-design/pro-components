@@ -1,5 +1,5 @@
 import { Layout } from 'antd';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import type { CSSProperties } from 'react';
 import React, { useContext } from 'react';
 import { ProProvider } from '../provider';
@@ -19,19 +19,27 @@ const WrapContent: React.FC<{
   const { hashId } = useContext(ProProvider);
   const { style, prefixCls, children, hasPageContainer = 0 } = props;
 
-  const contentClassName = classNames(`${prefixCls}-content`, hashId, {
+  const contentClassName = clsx(`${prefixCls}-content`, hashId, {
     [`${prefixCls}-has-header`]: props.hasHeader,
     [`${prefixCls}-content-has-page-container`]: hasPageContainer > 0,
   });
 
   const ErrorComponent = props.ErrorBoundary || ErrorBoundary;
   return props.ErrorBoundary === false ? (
-    <Layout.Content className={contentClassName} style={style}>
+    <Layout.Content
+      className={contentClassName}
+      style={style}
+      data-testid="pro-layout-content"
+    >
       {children}
     </Layout.Content>
   ) : (
     <ErrorComponent>
-      <Layout.Content className={contentClassName} style={style}>
+      <Layout.Content
+        className={contentClassName}
+        style={style}
+        data-testid="pro-layout-content"
+      >
         {children}
       </Layout.Content>
     </ErrorComponent>

@@ -15,7 +15,7 @@ const Demo = () => (
       }}
       content={
         <Descriptions column={2} style={{ marginBlockEnd: -16 }}>
-          <Descriptions.Item label="Creator">曲丽丽</Descriptions.Item>
+          <Descriptions.Item label="Creator">逄一</Descriptions.Item>
           <Descriptions.Item label="Associated form">
             <a>421421</a>
           </Descriptions.Item>

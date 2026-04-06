@@ -1,8 +1,9 @@
-import { useMergedState } from '@rc-component/util';
-import type { RadioGroupProps, TreeSelectProps } from 'antd';
+import { omit, useControlledState } from '@rc-component/util';
+import type { TreeSelectProps } from 'antd';
 import { ConfigProvider, Spin, TreeSelect } from 'antd';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, {
+  useCallback,
   useContext,
   useImperativeHandle,
   useMemo,
@@ -15,13 +16,7 @@ import type { ProFieldFC } from '../../PureProField';
 import type { FieldSelectProps } from '../Select';
 import { useFieldFetchData } from '../Select';
 
-export type GroupProps = {
-  options?: RadioGroupProps['options'];
-  radioType?: 'button' | 'radio';
-  variant?: 'outlined' | 'borderless' | 'filled';
-} & FieldSelectProps;
-
-export type TreeSelectFieldProps = TreeSelectProps<any> & {
+export type TreeSelectFieldProps = TreeSelectProps & {
   /**
    * 当搜索关键词发生变化时是否请求远程数据
    *
@@ -32,10 +27,26 @@ export type TreeSelectFieldProps = TreeSelectProps<any> & {
 /**
  * Tree select
  * A function that returns a React component.
+
+ * @param formItemRender
+ * @param mode
+ * @param light
+ * @param label
+ * @param render
+ * @param propsVariant
+ * @param rest
  * @param ref
  */
-const FieldTreeSelect: ProFieldFC<GroupProps> = (
-  { radioType, formItemRender, mode, light, label, render, variant, ...rest },
+const FieldTreeSelect: ProFieldFC<{} & FieldSelectProps> = (
+  {
+    formItemRender,
+    mode,
+    light,
+    label,
+    render,
+    variant: propsVariant,
+    ...rest
+  },
   ref,
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -44,17 +55,34 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
   const [open, setOpen] = useState(false);
 
   const {
-    onSearch,
     onClear,
     onChange: propsOnChange,
     onBlur,
     showSearch,
-    autoClearSearchValue,
-    treeData,
     fetchDataOnSearch,
-    searchValue: propsSearchValue,
+    onSearch: propsOnSearch,
+    autoClearSearchValue: propsAutoClearSearchValue,
+    searchValue: propsSearchValueProp,
     ...fieldProps
-  } = rest.fieldProps as TreeSelectFieldProps;
+  } = omit(rest.fieldProps, ['treeData']) as TreeSelectFieldProps;
+  const showSearchConfig = typeof showSearch === 'object' ? showSearch : {};
+
+  const onSearch =
+    showSearchConfig?.onSearch !== undefined
+      ? showSearchConfig.onSearch
+      : propsOnSearch;
+  //兼容过时API autoClearSearchValue
+  const autoClearSearchValue =
+    showSearchConfig?.autoClearSearchValue !== undefined
+      ? showSearchConfig.autoClearSearchValue
+      : propsAutoClearSearchValue;
+  //兼容过时API searchValue
+  const propsSearchValue =
+    showSearchConfig?.searchValue !== undefined
+      ? showSearchConfig.searchValue
+      : propsSearchValueProp;
+
+  const variant = propsVariant ?? (fieldProps as any)?.variant;
 
   const intl = useIntl();
 
@@ -63,12 +91,26 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     defaultKeyWords: propsSearchValue,
   });
 
-  const [searchValue, setSearchValue] = useMergedState<string | undefined>(
-    undefined,
-    {
-      onChange: onSearch as any,
-      value: propsSearchValue,
+  const [searchValue, setSearchValueInner] = useControlledState<
+    string | undefined
+  >(undefined, propsSearchValue);
+  const setSearchValue = useCallback(
+    (
+      updater:
+        | string
+        | undefined
+        | ((prev: string | undefined) => string | undefined),
+    ) => {
+      setSearchValueInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: string | undefined) => string | undefined)(prev)
+            : updater;
+        (onSearch as (v?: string) => void)?.(next);
+        return next;
+      });
     },
+    [onSearch],
   );
 
   useImperativeHandle(ref, () => ({
@@ -175,17 +217,29 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
                 }
               : undefined
           }
-          variant={!light ? variant : 'borderless'}
           {...fieldProps}
           treeData={options as TreeSelectProps['treeData']}
-          showSearch={showSearch}
+          showSearch={
+            showSearch
+              ? {
+                  ...showSearchConfig,
+                  searchValue: searchValue,
+                  autoClearSearchValue: autoClearSearchValue,
+                  onSearch: (value) => {
+                    // fix 不支持请求的情况下不刷新options
+                    if (fetchDataOnSearch && rest?.request) {
+                      fetchData(value);
+                    }
+                    setSearchValue(value);
+                  },
+                }
+              : showSearch
+          }
           style={{
             minWidth: 60,
             ...fieldProps.style,
           }}
           allowClear={fieldProps.allowClear !== false}
-          searchValue={searchValue as string}
-          autoClearSearchValue={autoClearSearchValue}
           onClear={() => {
             onClear?.();
             fetchData(undefined);
@@ -194,19 +248,12 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
             }
           }}
           onChange={onChange}
-          onSearch={(value) => {
-            // fix 不支持请求的情况下不刷新options
-            if (fetchDataOnSearch && rest?.request) {
-              fetchData(value);
-            }
-            setSearchValue(value);
-          }}
           onBlur={(event) => {
             setSearchValue(undefined);
             fetchData(undefined);
             onBlur?.(event);
           }}
-          className={classNames(fieldProps?.className, layoutClassName)}
+          className={clsx(fieldProps?.className, layoutClassName)}
         />
       </Spin>
     );

@@ -18,34 +18,30 @@ const Demo = () => {
         gap: 16,
       }}
     >
-      <ProForm.Item name="mode" label="模式">
-        <Segmented
-          block
-          options={[
-            {
-              label: '编辑',
-              title: '编辑',
-              value: 'edit',
-            },
-            {
-              label: '只读',
-              title: '只读',
-              value: 'readonly',
-            },
-          ]}
-          onChange={(e) => {
-            setReadonly(e === 'readonly');
-          }}
-        />
-      </ProForm.Item>
-      <ProForm
-        readonly={readonly}
-        onFinish={async () => {
-          message.success('提交成功');
+      <Segmented
+        block
+        options={[
+          {
+            label: '编辑',
+            title: '编辑',
+            value: 'edit',
+          },
+          {
+            label: '只读',
+            title: '只读',
+            value: 'readonly',
+          },
+        ]}
+        onChange={(e) => {
+          setReadonly(e === 'readonly');
         }}
+      />
+      <ProForm
+        name="list-tooltip-demo"
+        readonly={readonly}
+        onFinish={async (e) => console.log(e)}
       >
         <ProFormText name="name" label="姓名" />
-
         <ProFormList
           name="labels"
           label="用户信息"

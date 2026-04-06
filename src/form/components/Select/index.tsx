@@ -50,7 +50,17 @@ export type ProFormSelectProps<
 /**
  * 选择框
  *
- * @param
+ * @param fieldProps
+ * @param children
+ * @param params
+ * @param proFieldProps
+ * @param mode
+ * @param valueEnum
+ * @param request
+ * @param showSearch
+ * @param options
+ * @param rest
+ * @param ref
  */
 const ProFormSelectComponents = <T, OptionType extends BaseOptionType = any>(
   {
@@ -68,7 +78,6 @@ const ProFormSelectComponents = <T, OptionType extends BaseOptionType = any>(
   ref: any,
 ) => {
   const context = useContext(FieldContext);
-
   return (
     <ProConfigProvider
       valueTypeMap={{
@@ -195,7 +204,6 @@ const WrappedProFormSelect = ProFormSelect as (<
 WrappedProFormSelect.SearchSelect = ProFormSearchSelect;
 
 // @ts-ignore
-// eslint-disable-next-line no-param-reassign
 WrappedProFormSelect.displayName = 'ProFormComponent';
 
 export default WrappedProFormSelect;

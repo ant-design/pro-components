@@ -14,6 +14,7 @@ const FieldTimePicker: ProFieldFC<
   {
     text: string | number;
     format?: string;
+    variant?: 'outlined' | 'borderless' | 'filled' | 'underlined';
   } & ProFieldLightProps
 > = (
   {
@@ -24,9 +25,9 @@ const FieldTimePicker: ProFieldFC<
     format = 'HH:mm:ss',
     render,
     formItemRender,
-    plain,
     fieldProps,
     lightLabel,
+    variant,
   },
   ref,
 ) => {
@@ -72,10 +73,11 @@ const FieldTimePicker: ProFieldFC<
           }
           label={label}
           disabled={disabled}
+          variant={variant ?? fieldProps?.variant}
           value={
             dayValue || open ? (
               <TimePicker
-                variant="borderless"
+                variant={variant ?? fieldProps?.variant}
                 format={format}
                 ref={ref}
                 {...fieldProps}
@@ -102,9 +104,6 @@ const FieldTimePicker: ProFieldFC<
         <DatePicker.TimePicker
           ref={ref}
           format={format}
-          variant={
-            plain === undefined ? 'outlined' : plain ? 'borderless' : 'outlined'
-          }
           {...fieldProps}
           value={dayValue}
         />
@@ -121,13 +120,23 @@ const FieldTimePicker: ProFieldFC<
 /**
  * 时间区间选择
  *
- * @param param0
+ * @param text
+ * @param light
+ * @param label
+ * @param mode
+ * @param lightLabel
+ * @param format
+ * @param render
+ * @param formItemRender
+ * @param fieldProps
+ * @param variant
  * @param ref
  */
 const FieldTimeRangePickerComponents: ProFieldFC<
   {
     text: string[] | number[];
     format?: string;
+    variant?: 'outlined' | 'borderless' | 'filled' | 'underlined';
   } & ProFieldLightProps
 > = (
   {
@@ -139,8 +148,8 @@ const FieldTimeRangePickerComponents: ProFieldFC<
     format = 'HH:mm:ss',
     render,
     formItemRender,
-    plain,
     fieldProps,
+    variant,
   },
   ref,
 ) => {
@@ -206,11 +215,12 @@ const FieldTimeRangePickerComponents: ProFieldFC<
           }
           label={label}
           disabled={disabled}
+          variant={variant}
           placeholder={placeholder}
           value={
             dayValue || open ? (
               <TimePicker.RangePicker
-                variant="borderless"
+                variant={variant ?? fieldProps?.variant}
                 format={format}
                 ref={ref}
                 {...fieldProps}
@@ -234,9 +244,7 @@ const FieldTimeRangePickerComponents: ProFieldFC<
         <TimePicker.RangePicker
           ref={ref}
           format={format}
-          variant={
-            plain === undefined ? 'outlined' : plain ? 'borderless' : 'outlined'
-          }
+          variant={variant}
           {...fieldProps}
           value={dayValue}
         />

@@ -1,43 +1,70 @@
-/* eslint-disable no-param-reassign */ import { useMergedState } from '@rc-component/util';
-import type { ColProps, FormItemProps, RowProps } from 'antd';
-import { Col, ConfigProvider, Form, Row } from 'antd';
-import type { FormInstance, FormProps } from 'antd/lib/form/Form';
-import classNames from 'classnames';
 import RcResizeObserver from '@rc-component/resize-observer';
+import { useControlledState } from '@rc-component/util';
+import type { ColProps, FormItemProps, RowProps } from 'antd';
+import { Col, ConfigProvider, Form, Row, theme } from 'antd';
+import type { FormInstance, FormProps } from 'antd/lib/form/Form';
+import { clsx } from 'clsx';
 import type { ReactElement } from 'react';
-import React, { useContext, useMemo } from 'react';
+import React, { useCallback, useContext, useMemo, useState } from 'react';
 import { ProProvider, useIntl } from '../../../provider';
-import { isBrowser, useMountMergeState } from '../../../utils';
+import { isBrowser, useRefFunction } from '../../../utils';
 import type { CommonFormProps } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import type { ActionsProps } from './Actions';
 import Actions from './Actions';
 import { useStyle } from './style';
 
-const CONFIG_SPAN_BREAKPOINTS = {
-  xs: 513,
-  sm: 513,
-  md: 785,
-  lg: 992,
-  xl: 1057,
-  xxl: Infinity,
+type BreakpointsConfig = {
+  breakpoints: {
+    vertical: (string | number)[][];
+    default: (string | number)[][];
+  };
+  configSpanBreakpoints: {
+    xs: number;
+    sm: number;
+    md: number;
+    lg: number;
+    xl: number;
+    xxl: number;
+  };
 };
-/** 配置表单列变化的容器宽度断点 */
-const BREAKPOINTS = {
-  vertical: [
-    // [breakpoint, cols, layout]
-    [513, 1, 'vertical'],
-    [785, 2, 'vertical'],
-    [1057, 3, 'vertical'],
-    [Infinity, 4, 'vertical'],
-  ],
-  default: [
-    [513, 1, 'vertical'],
-    [701, 2, 'vertical'],
-    [1062, 3, 'horizontal'],
-    [1352, 3, 'horizontal'],
-    [Infinity, 4, 'horizontal'],
-  ],
+
+/** 从 antd 设计 token 获取断点配置，与 Grid 响应式布局保持一致 */
+const getBreakpointsConfig = (token: {
+  screenSMMin?: number;
+  screenMDMin?: number;
+  screenLGMin?: number;
+  screenXLMin?: number;
+  screenXXLMin?: number;
+}): BreakpointsConfig => {
+  const defaultToken = theme.getDesignToken();
+  const t = { ...defaultToken, ...token };
+  const bp = {
+    xs: t.screenSMMin ?? 576,
+    sm: t.screenMDMin ?? 768,
+    md: t.screenLGMin ?? 992,
+    lg: t.screenXLMin ?? 1200,
+    xl: t.screenXXLMin ?? 1600,
+    xxl: Infinity,
+  } as const;
+
+  return {
+    configSpanBreakpoints: bp,
+    breakpoints: {
+      vertical: [
+        [bp.xs, 1, 'vertical'],
+        [bp.md, 2, 'vertical'],
+        [bp.xl, 3, 'vertical'],
+        [Infinity, 4, 'vertical'],
+      ],
+      default: [
+        [bp.xs, 1, 'vertical'],
+        [bp.sm, 2, 'vertical'],
+        [bp.xl, 3, 'horizontal'],
+        [Infinity, 4, 'horizontal'],
+      ],
+    },
+  };
 };
 
 /**
@@ -45,11 +72,13 @@ const BREAKPOINTS = {
  *
  * @param layout
  * @param width
+ * @param breakpointsConfig 从 theme.useToken() 获取，支持 ConfigProvider 主题定制
  */
 const getSpanConfig = (
   layout: FormProps['layout'],
   width: number,
-  span?: SpanConfig,
+  span: SpanConfig | undefined,
+  breakpointsConfig: BreakpointsConfig,
 ): { span: number; layout: FormProps['layout'] } => {
   if (span && typeof span === 'number') {
     return {
@@ -58,15 +87,16 @@ const getSpanConfig = (
     };
   }
 
+  const { breakpoints, configSpanBreakpoints } = breakpointsConfig;
   const spanConfig: (string | number)[][] = span
-    ? ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].map((key) => [
-        CONFIG_SPAN_BREAKPOINTS[key as 'xs'],
-        24 / (span as any)[key as 'sm'],
+    ? (['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const).map((key) => [
+        configSpanBreakpoints[key],
+        24 / (span as Record<string, number>)[key],
         'horizontal',
       ])
-    : BREAKPOINTS[(layout as 'default') || 'default'];
+    : breakpoints[(layout as 'default') || 'default'];
 
-  const breakPoint = (spanConfig || BREAKPOINTS.default).find(
+  const breakPoint = (spanConfig || breakpoints.default).find(
     (item) => width < (item[0] as number) + 16, // 16 = 2 * (ant-row -8px margin)
   );
 
@@ -242,7 +272,7 @@ const QueryFilterContent: React.FC<{
   split?: boolean;
   form: FormInstance<any>;
   items: React.ReactNode[];
-  submitter?: JSX.Element | false;
+  submitter?: React.JSX.Element | false;
   showLength: number;
   collapseRender: QueryFilterProps<any>['collapseRender'];
   spanSize: {
@@ -268,12 +298,36 @@ const QueryFilterContent: React.FC<{
   const searchText =
     props.searchText || intl.getMessage('tableForm.search', '搜索');
 
-  const [collapsed, setCollapsed] = useMergedState<boolean>(
+  const [collapsed, setCollapsedInner] = useControlledState<boolean>(
     () => props.defaultCollapsed && !!props.submitter,
-    {
-      value: props.collapsed,
-      onChange: props.onCollapse,
+    props.collapsed,
+  );
+
+  /**
+   * 使用 useRefFunction 包装回调，确保引用稳定
+   */
+  const onCollapseCallback = useRefFunction((c: boolean) => {
+    props.onCollapse?.(c);
+  });
+
+  /**
+   * 使用 queueMicrotask 延迟回调调用，避免在渲染阶段调用外部回调导致的 React 警告
+   * "Cannot update a component while rendering a different component"
+   */
+  const setCollapsed = useCallback(
+    (updater: boolean | ((prev: boolean) => boolean)) => {
+      setCollapsedInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: boolean) => boolean)(prev)
+            : updater;
+        queueMicrotask(() => {
+          onCollapseCallback(next);
+        });
+        return next;
+      });
     },
+    [onCollapseCallback],
   );
 
   const {
@@ -413,7 +467,11 @@ const QueryFilterContent: React.FC<{
         <Col
           key={itemKey}
           span={colSpan}
-          className={`${props.baseClassName}-row-split-line ${props.baseClassName}-row-split ${hashId}`.trim()}
+          className={clsx(
+              `${props.baseClassName}-row-split-line`,
+              `${props.baseClassName}-row-split`,
+              hashId,
+            )}
         >
           {itemDom}
         </Col>
@@ -423,7 +481,7 @@ const QueryFilterContent: React.FC<{
     return (
       <Col
         key={itemKey}
-        className={`${props.baseClassName}-row-split ${hashId}`.trim()}
+        className={clsx(`${props.baseClassName}-row-split`, hashId)}
         span={colSpan}
       >
         {itemDom}
@@ -461,7 +519,7 @@ const QueryFilterContent: React.FC<{
     <Row
       gutter={searchGutter}
       justify="start"
-      className={classNames(`${baseClassName}-row`, hashId)}
+      className={clsx(`${baseClassName}-row`, hashId)}
       key="resize-observer-row"
     >
       {doms}
@@ -470,7 +528,7 @@ const QueryFilterContent: React.FC<{
           key="submitter"
           span={spanSize.span}
           offset={offset}
-          className={classNames(props.submitterColSpanProps?.className)}
+          className={clsx(props.submitterColSpanProps?.className)}
           {...props.submitterColSpanProps}
           style={{
             textAlign: 'end',
@@ -480,7 +538,7 @@ const QueryFilterContent: React.FC<{
             label=" "
             colon={false}
             shouldUpdate={false}
-            className={`${baseClassName}-actions ${hashId}`.trim()}
+            className={clsx(`${baseClassName}-actions`, hashId)}
           >
             <Actions
               hiddenNum={hiddenNum}
@@ -528,17 +586,26 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
   const context = useContext(ConfigProvider.ConfigContext);
   const baseClassName = context.getPrefixCls('pro-query-filter');
   const { wrapSSR, hashId } = useStyle(baseClassName);
+  const { token } = theme.useToken();
 
-  const [width, setWidth] = useMountMergeState(
-    () =>
-      (typeof style?.width === 'number'
-        ? style?.width
-        : defaultWidth) as number,
+  const [width, setWidth] = useState(() =>
+    typeof style?.width === 'number' ? style?.width : defaultWidth,
+  );
+
+  const breakpointsConfig = useMemo(
+    () => getBreakpointsConfig(token),
+    [
+      token.screenSMMin,
+      token.screenMDMin,
+      token.screenLGMin,
+      token.screenXLMin,
+      token.screenXXLMin,
+    ],
   );
 
   const spanSize = useMemo(
-    () => getSpanConfig(layout, width + 16, span),
-    [layout, width, span],
+    () => getSpanConfig(layout, width + 16, span, breakpointsConfig),
+    [layout, width, span, breakpointsConfig],
   );
 
   const showLength = useMemo(() => {
@@ -587,14 +654,14 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
       {(ref) => (
         <div
           ref={ref}
-          className={`${baseClassName}-container ${hashId}`}
+          className={clsx(`${baseClassName}-container`, hashId)}
           style={props.containerStyle}
         >
           <BaseForm
             isKeyPressSubmit
             preserve={preserve}
             {...rest}
-            className={classNames(baseClassName, hashId, rest.className)}
+            className={clsx(baseClassName, hashId, rest.className)}
             onReset={onReset}
             style={style}
             layout={spanSize.layout}

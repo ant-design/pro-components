@@ -6,6 +6,7 @@ import {
   useStyle,
 } from '../provider';
 
+import { autoFocusToFirstChild } from './autoFocusToFirstChild';
 import { DropdownFooter } from './components/DropdownFooter';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { FieldLabel } from './components/FieldLabel';
@@ -20,6 +21,7 @@ import {
   dateFormatterMap,
 } from './conversionMomentValue';
 import { dateArrayFormatter } from './dateArrayFormatter';
+import type { ProEllipsis } from './genCopyable';
 import { genCopyable } from './genCopyable';
 import { getFieldPropsOrFormItemProps } from './getFieldPropsOrFormItemProps';
 import { useDebounceFn } from './hooks/useDebounceFn';
@@ -72,10 +74,10 @@ import type {
 } from './useEditableMap';
 import { useEditableMap } from './useEditableMap';
 import { useBreakpoint } from './useMediaQuery';
-import { useMountMergeState } from './useMountMergeState';
 
 export * from './typing';
 export {
+  autoFocusToFirstChild,
   conversionMomentValue,
   conversionMomentValue as conversionSubmitValue,
   convertMoment,
@@ -128,7 +130,6 @@ export {
   useEditableMap,
   useFetchData,
   useLatest,
-  useMountMergeState,
   usePrevious,
   useReactiveRef,
   useRefCallback,
@@ -136,6 +137,7 @@ export {
   useStyle,
 };
 export type {
+  ProEllipsis,
   ProFormInstanceType,
   ProRequestData,
   RowEditableConfig,

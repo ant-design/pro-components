@@ -1,4 +1,4 @@
-﻿import type { GenerateStyle, ProAliasToken } from '../../../provider';
+import type { GenerateStyle, ProAliasToken } from '../../../provider';
 import { useStyle as useAntdStyle } from '../../../provider';
 
 export interface ProToken extends ProAliasToken {
@@ -8,6 +8,16 @@ export interface ProToken extends ProAliasToken {
 const genProStyle: GenerateStyle<ProToken> = (token) => {
   return {
     [`${token.componentCls}-label`]: { cursor: 'pointer' },
+    [`${token.componentCls}-label-bordered`]: {
+      display: 'inline-flex',
+      alignItems: 'center',
+      height: token.controlHeight,
+      paddingBlock: 0,
+      paddingInline: token.paddingSM,
+      border: `${token.lineWidth}px solid ${token.colorBorder}`,
+      borderRadius: token.borderRadius,
+      boxSizing: 'border-box',
+    },
     [`${token.componentCls}-overlay`]: {
       minWidth: '200px',
       marginBlockStart: '4px',

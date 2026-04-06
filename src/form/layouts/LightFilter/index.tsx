@@ -4,7 +4,7 @@ import type { FormProps, PopoverProps } from 'antd';
 import { ConfigProvider } from 'antd';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import type { TooltipPlacement } from 'antd/lib/tooltip';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, {
   useContext,
   useEffect,
@@ -55,10 +55,10 @@ export type LightFilterProps<T, U = Record<string, any>> = {
    *
    * @description
    * LightFilter 在折叠态会使用 Popover 将筛选项渲染到 body 下；
-   * 可通过该属性为弹层根节点添加自定义类名（如 overlayClassName）以便做样式覆盖。
+   * 可通过该属性为弹层根节点添加自定义类名（如 classNames.root）以便做样式覆盖。
    *
    * @example
-   * popoverProps={{ overlayClassName: 'my-lightfilter-popover' }}
+   * popoverProps={{ classNames: { root: 'my-lightfilter-popover' } } }
    */
   popoverProps?: Omit<
     PopoverProps,
@@ -95,7 +95,7 @@ const LightFilterContainer: React.FC<{
     collapse,
     collapseLabel,
     onValuesChange,
-    variant,
+    variant = 'borderless',
     values,
     footerRender,
     placement,
@@ -106,12 +106,35 @@ const LightFilterContainer: React.FC<{
   const { wrapSSR, hashId } = useStyle(lightFilterClassName);
 
   const [open, setOpen] = useState<boolean>(false);
-  const [moreValues, setMoreValues] = useState<Record<string, any>>(() => {
-    return { ...values };
-  });
-  useEffect(() => {
-    setMoreValues({ ...values });
-  }, [values]);
+  const [moreValues, setMoreValues] = useState<Record<string, any>>(() => ({
+    ...values,
+  }));
+
+  const collapseLabelNode = useMemo(() => {
+    if (collapseLabel) return collapseLabel;
+    if (collapse) {
+      return (
+        <FilterOutlined
+          className={clsx(`${lightFilterClassName}-collapse-icon`, hashId)}
+        />
+      );
+    }
+    return (
+      <FieldLabel
+        variant={variant}
+        size={size}
+        label={intl.getMessage('form.lightFilter.more', '更多筛选')}
+      />
+    );
+  }, [
+    collapseLabel,
+    collapse,
+    lightFilterClassName,
+    hashId,
+    variant,
+    size,
+    intl,
+  ]);
 
   const { collapseItems, outsideItems } = useMemo(() => {
     const collapseItemsArr: React.ReactNode[] = [];
@@ -128,31 +151,11 @@ const LightFilterContainer: React.FC<{
       collapseItems: collapseItemsArr,
       outsideItems: outsideItemsArr,
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.items]);
-
-  const renderCollapseLabelRender = () => {
-    if (collapseLabel) {
-      return collapseLabel;
-    }
-    if (collapse) {
-      return (
-        <FilterOutlined
-          className={`${lightFilterClassName}-collapse-icon ${hashId}`.trim()}
-        />
-      );
-    }
-    return (
-      <FieldLabel
-        size={size}
-        label={intl.getMessage('form.lightFilter.more', '更多筛选')}
-      />
-    );
-  };
 
   return wrapSSR(
     <div
-      className={classNames(
+      className={clsx(
         lightFilterClassName,
         hashId,
         `${lightFilterClassName}-${size}`,
@@ -164,7 +167,7 @@ const LightFilterContainer: React.FC<{
         },
       )}
     >
-      <div className={`${lightFilterClassName}-container ${hashId}`.trim()}>
+      <div className={clsx(`${lightFilterClassName}-container`, hashId)}>
         {outsideItems.map((child: any, index) => {
           if (!child?.props) {
             return child;
@@ -177,13 +180,14 @@ const LightFilterContainer: React.FC<{
 
           return (
             <div
-              className={`${lightFilterClassName}-item ${hashId}`.trim()}
+              className={clsx(`${lightFilterClassName}-item`, hashId)}
               key={key || index}
             >
               {React.cloneElement(child, {
                 fieldProps: {
                   ...child.props.fieldProps,
                   placement: newPlacement,
+                  variant: 'borderless',
                 },
                 // proFieldProps 会直接作为 ProField 的 props 传递过去
                 proFieldProps: {
@@ -199,7 +203,7 @@ const LightFilterContainer: React.FC<{
         })}
         {collapseItems.length ? (
           <div
-            className={`${lightFilterClassName}-item ${hashId}`.trim()}
+            className={clsx(`${lightFilterClassName}-item`, hashId)}
             key="more"
           >
             <FilterDropdown
@@ -210,7 +214,7 @@ const LightFilterContainer: React.FC<{
               }}
               placement={placement}
               popoverProps={popoverProps}
-              label={renderCollapseLabelRender()}
+                label={collapseLabelNode}
               footerRender={footerRender}
               footer={{
                 onConfirm: () => {
@@ -251,13 +255,14 @@ const LightFilterContainer: React.FC<{
                   : placement;
                 return (
                   <div
-                    className={`${lightFilterClassName}-line ${hashId}`.trim()}
+                    className={clsx(`${lightFilterClassName}-line`, hashId)}
                     key={key}
                   >
                     {React.cloneElement(child, {
                       fieldProps: {
                         ...newFieldProps,
                         placement: newPlacement,
+                        variant,
                       },
                     })}
                   </div>
@@ -304,6 +309,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
       contentRender={(items) => {
         return (
           <LightFilterContainer
+            key={JSON.stringify(values || {})}
             prefixCls={prefixCls}
             items={items?.flatMap((item: any) => {
               if (!item || !item?.type) return item;
@@ -313,7 +319,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
               return item;
             })}
             size={size}
-            variant={variant}
+            variant={variant || 'borderless'}
             collapse={collapse}
             collapseLabel={collapseLabel}
             placement={placement}

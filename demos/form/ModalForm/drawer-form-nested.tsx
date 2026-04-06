@@ -1,4 +1,4 @@
-﻿import { PlusOutlined } from '@ant-design/icons';
+import { PlusOutlined } from '@ant-design/icons';
 import {
   DrawerForm,
   ModalForm,
@@ -31,6 +31,7 @@ const Demo = () => {
           name: string;
           company: string;
         }>
+          name="modal-form-drawer-form-nested-demo-4"
           title="新建表单"
           formRef={formRef}
           width={600}
@@ -56,6 +57,7 @@ const Demo = () => {
             name: string;
             company: string;
           }>
+            name="modal-form-drawer-form-nested-demo-3"
             title="新建表单"
             formRef={formRef}
             trigger={
@@ -132,14 +134,14 @@ const Demo = () => {
               name="project"
               disabled
               label="项目名称"
-              initialValue="xxxx项目"
+              initialValue="示例项目"
             />
             <ProFormText
               width="xs"
               name="mangerName"
               disabled
               label="商务经理"
-              initialValue="启途"
+              initialValue="书琰"
             />
           </DrawerForm>
         </DrawerForm>
@@ -148,6 +150,7 @@ const Demo = () => {
           name: string;
           company: string;
         }>
+          name="modal-form-drawer-form-nested-demo-2"
           title="新建表单"
           formRef={formRef}
           trigger={
@@ -172,6 +175,7 @@ const Demo = () => {
             name: string;
             company: string;
           }>
+            name="modal-form-drawer-form-nested-demo-1"
             title="新建表单"
             formRef={formRef}
             trigger={
@@ -248,14 +252,14 @@ const Demo = () => {
               name="project"
               disabled
               label="项目名称"
-              initialValue="xxxx项目"
+              initialValue="示例项目"
             />
             <ProFormText
               width="xs"
               name="mangerName"
               disabled
               label="商务经理"
-              initialValue="启途"
+              initialValue="书琰"
             />
           </ModalForm>
         </ModalForm>

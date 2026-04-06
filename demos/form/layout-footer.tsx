@@ -43,6 +43,7 @@ const Demo = () => {
       <PageContainer title="Input Form">
         <Card>
           <ProForm
+            name="layout-footer-demo"
             submitter={{
               render: (_, dom) => <FooterToolbar>{dom}</FooterToolbar>,
             }}
@@ -104,14 +105,14 @@ const Demo = () => {
               name="project"
               disabled
               label="Project Name"
-              initialValue="xxxx Project"
+              initialValue="示例项目"
             />
             <ProFormText
               width="xs"
               name="mangerName"
               disabled
               label="Business Manager"
-              initialValue="Qitu"
+              initialValue="书琰"
             />
             <ProForm.Group>
               <ProFormSelect

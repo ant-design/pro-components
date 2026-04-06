@@ -634,6 +634,60 @@ describe('utils', () => {
     });
   });
 
+  it('📅 InlineErrorFormItem shows popover for warningOnly validation', async () => {
+    const warningMessage = 'warning text';
+    const html = render(
+      <Form>
+        <InlineErrorFormItem
+          errorType="popover"
+          rules={[
+            {
+              warningOnly: true,
+              validator(_, value) {
+                if (value === 0 || value === '0') {
+                  return Promise.reject(new Error(warningMessage));
+                }
+                return Promise.resolve();
+              },
+            },
+          ]}
+          popoverProps={{ trigger: ['click', 'focus'] }}
+          name="count"
+        >
+          <Input id="warning_test" role="warning_test_input" type="number" />
+        </InlineErrorFormItem>
+      </Form>,
+    );
+
+    await html.findByRole('warning_test_input');
+
+    await act(async () => {
+      const dom = await html.findByRole('warning_test_input');
+      fireEvent.change(dom!, {
+        target: { value: '0' },
+      });
+    });
+
+    await act(async () => {
+      (await html.findByRole('warning_test_input')).focus();
+    });
+
+    await waitFor(
+      () => {
+        const popoverContent = html.baseElement.querySelector(
+          'div.ant-popover .ant-popover-content',
+        );
+        expect(!!popoverContent).toBeTruthy();
+        const warningEl = html.baseElement.querySelector(
+          '.ant-form-item-explain-warning',
+        );
+        expect(!!warningEl).toBeTruthy();
+        expect(warningEl?.textContent).toContain(warningMessage);
+      },
+      { timeout: 3000 },
+    );
+  });
+
   it('📅 transformKeySubmitValue return string', async () => {
     const html = await transformKeySubmitValue(
       {

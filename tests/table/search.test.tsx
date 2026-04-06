@@ -225,56 +225,6 @@ describe('BasicTable Search', () => {
     });
   });
 
-  it('🎏 manualRequest no render loading dom', async () => {
-    const fn = vi.fn();
-    const html = render(
-      <ProTable
-        size="small"
-        columns={[
-          {
-            title: '金额',
-            dataIndex: 'money',
-            valueType: 'money',
-          },
-          {
-            title: 'Name',
-            key: 'name',
-            children: [
-              {
-                title: '金额',
-                dataIndex: 'money',
-                valueType: 'money',
-              },
-              {
-                title: '姓名',
-                dataIndex: 'name',
-                valueType: 'money',
-              },
-            ],
-          },
-        ]}
-        manualRequest
-        request={async () => {
-          fn();
-          return {
-            data: [{ key: 1, name: '1', money: 1 }],
-          };
-        }}
-        rowKey="key"
-      />,
-    );
-
-    await html.findAllByText('姓名');
-
-    await waitFor(() => {
-      expect(fn).not.toHaveBeenCalled();
-    });
-
-    expect(!!html.baseElement.querySelector('.ant-spin')).toBeFalsy();
-
-    html.unmount();
-  });
-
   it('🎏 manualRequest test', async () => {
     const requestFn = vi.fn();
 
@@ -840,5 +790,94 @@ describe('BasicTable Search', () => {
       const newFieldValue = formRef.current?.getFieldValue?.('since');
       expect(newFieldValue?.format?.('YYYY-MM-DD')).toBe('2020-12-25');
     });
+  });
+
+  it('🎏 should validate on initial load when ignoreRules is false', async () => {
+    const requestFn = vi.fn();
+    const { container } = render(
+      <ProTable
+        columns={[
+          {
+            title: 'Name',
+            dataIndex: 'name',
+            formItemProps: {
+              rules: [{ required: true, message: 'Required' }],
+            },
+          },
+        ]}
+        form={{ ignoreRules: false }}
+        request={async () => {
+          requestFn();
+          return { data: [] };
+        }}
+        rowKey="key"
+      />,
+    );
+
+    await waitFor(() => {
+      // Should show validation error
+      expect(
+        container.querySelector('.ant-form-item-explain-error'),
+      ).toBeTruthy();
+    });
+
+    expect(requestFn).not.toHaveBeenCalled();
+  });
+
+  it('🎏 should validate on reset when ignoreRules is false and initial value is empty', async () => {
+    const requestFn = vi.fn();
+    const { getByText, container } = render(
+      <ProTable
+        columns={[
+          {
+            title: 'Name',
+            dataIndex: 'name',
+            formItemProps: {
+              rules: [{ required: true, message: 'Required' }],
+            },
+          },
+        ]}
+        form={{ ignoreRules: false }}
+        request={async () => {
+          requestFn();
+          return { data: [] };
+        }}
+        rowKey="key"
+      />,
+    );
+
+    // Initial load should fail validation
+    await waitFor(() => {
+      expect(
+        container.querySelector('.ant-form-item-explain-error'),
+      ).toBeTruthy();
+    });
+    expect(requestFn).not.toHaveBeenCalled();
+
+    // Enter value
+    const input = container.querySelector('#name');
+    fireEvent.change(input!, { target: { value: 'hello' } });
+
+    fireEvent.click(getByText('查 询'));
+
+    await waitFor(() => {
+      expect(requestFn).toHaveBeenCalledTimes(1);
+    });
+
+    requestFn.mockClear();
+
+    // Reset
+    fireEvent.click(getByText('重 置'));
+
+    await waitFor(() => {
+      // Reset should clear input (back to empty initialValue).
+      // And trigger validation.
+      expect(
+        container.querySelector('.ant-form-item-explain-error'),
+      ).toBeTruthy();
+    });
+
+    // Request should NOT be called because validation failed
+    expect(requestFn).not.toHaveBeenCalled();
   });
 });

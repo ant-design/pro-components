@@ -90,6 +90,7 @@ const Demo = () => {
   return (
     <div>
       <ProForm
+        name="form-item-render-demo"
         form={form}
         onFinish={async () => {
           message.success('提交成功');

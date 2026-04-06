@@ -1,7 +1,13 @@
 import type { ProCoreActionType } from '@ant-design/pro-components';
 import { ProDescriptions } from '@ant-design/pro-components';
-import { cleanup, render, waitFor } from '@testing-library/react';
-import { Button, Input } from 'antd';
+import {
+  cleanup,
+  fireEvent,
+  render,
+  waitFor,
+  within,
+} from '@testing-library/react';
+import { Badge, Button, Input } from 'antd';
 import React, { act } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 afterEach(() => {
@@ -435,5 +441,66 @@ describe('descriptions', () => {
     });
 
     wrapper.unmount();
+  });
+
+  it('🐛 copyable 复制 renderText 返回 JSX 时应使用原始值而非 [object Object]', async () => {
+    const RAW_VALUE = '13800138000';
+    const writeTextMock = vi.fn().mockResolvedValue(undefined);
+    const originalClipboard = navigator.clipboard;
+
+    try {
+      Object.defineProperty(navigator, 'clipboard', {
+        value: { writeText: writeTextMock },
+        writable: true,
+        configurable: true,
+      });
+
+      const wrapper = render(
+        <ProDescriptions
+          dataSource={{
+            phone: RAW_VALUE,
+            phoneVerified: true,
+          }}
+          columns={[
+            {
+              title: '手机号',
+              dataIndex: 'phone',
+              copyable: true,
+              renderText: (text, row) =>
+                text ? (
+                  <span>
+                    {row.phoneVerified ? (
+                      <Badge status="success" />
+                    ) : (
+                      <Badge status="error" />
+                    )}
+                    &nbsp;
+                    {text}
+                  </span>
+                ) : (
+                  text
+                ),
+            },
+          ]}
+        />,
+      );
+
+      const copyBtn = await waitFor(() =>
+        within(wrapper.baseElement).getByRole('button', { name: '复制' }),
+      );
+
+      fireEvent.click(copyBtn);
+
+      await waitFor(() => {
+        expect(writeTextMock).toHaveBeenCalledWith(RAW_VALUE);
+        expect(writeTextMock).not.toHaveBeenCalledWith('[object Object]');
+      });
+    } finally {
+      Object.defineProperty(navigator, 'clipboard', {
+        value: originalClipboard,
+        writable: true,
+        configurable: true,
+      });
+    }
   });
 });

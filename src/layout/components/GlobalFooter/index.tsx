@@ -1,5 +1,5 @@
 import { ConfigProvider } from 'antd';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, { useContext } from 'react';
 import type { WithFalse } from '../../typing';
 import { useStyle } from './style';
@@ -41,12 +41,16 @@ const GlobalFooter = ({
   }
 
   return wrapSSR(
-    <div className={classNames(baseClassName, hashId, className)} style={style}>
+    <div
+      className={clsx(baseClassName, hashId, className)}
+      style={style}
+      data-testid="pro-global-footer"
+    >
       {links && (
-        <div className={`${baseClassName}-list ${hashId}`.trim()}>
+        <div className={clsx(`${baseClassName}-list`, hashId)}>
           {links.map((link) => (
             <a
-              className={`${baseClassName}-list-link ${hashId}`.trim()}
+              className={clsx(`${baseClassName}-list-link`, hashId)}
               key={link.key}
               title={link.key}
               target={link.blankTarget ? '_blank' : '_self'}
@@ -59,7 +63,7 @@ const GlobalFooter = ({
         </div>
       )}
       {copyright && (
-        <div className={`${baseClassName}-copyright ${hashId}`.trim()}>
+        <div className={clsx(`${baseClassName}-copyright`, hashId)}>
           {copyright}
         </div>
       )}

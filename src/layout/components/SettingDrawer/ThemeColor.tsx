@@ -1,5 +1,6 @@
 import { CheckOutlined } from '@ant-design/icons';
 import { Tooltip } from 'antd';
+import { clsx } from 'clsx';
 import React from 'react';
 
 export type TagProps = {
@@ -39,7 +40,7 @@ const ThemeColor: React.ForwardRefRenderFunction<
   }
   const baseClassName = `${prefixCls}-theme-color`;
   return (
-    <div className={`${baseClassName} ${hashId}`.trim()}>
+    <div className={clsx(baseClassName, hashId)}>
       {colorList?.map(({ key, color, title }) => {
         if (!key) return null;
         return (
@@ -53,7 +54,7 @@ const ThemeColor: React.ForwardRefRenderFunction<
             }
           >
             <Tag
-              className={`${baseClassName}-block ${hashId}`.trim()}
+              className={clsx(`${baseClassName}-block`, hashId)}
               color={color}
               check={value === color}
               onClick={() => onChange && onChange(color)}

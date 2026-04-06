@@ -3,29 +3,32 @@
 exports[`List > 🚏 ProList support rowClassName as a function 1`] = `
 <div>
   <div
-    class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
+    class="ant-pro-table ant-pro-list ant-pro-list-no-split"
+    data-testid="pro-table"
   >
     <div
       class="ant-pro-card"
     >
       <div
         class="ant-pro-card-body"
-        style="padding: 0px;"
       >
         <div
-          class="ant-list ant-list-split ant-pro-list-container css-var-r2f"
+          class="ant-pro-list ant-pro-list-split ant-pro-list-borderless ant-pro-list-container"
+          data-testid="pro-list-view"
         >
           <div
-            class="ant-spin-nested-loading css-var-r2f"
+            aria-busy="false"
+            aria-live="polite"
+            class="ant-spin css-var-r2h"
           >
             <div
               class="ant-spin-container"
             >
-              <ul
-                class="ant-list-items"
+              <div
+                class="ant-pro-list-item ant-pro-list-row even"
               >
-                <li
-                  class="ant-list-item ant-pro-list-row even"
+                <div
+                  class="ant-pro-list-item-main"
                 >
                   <div
                     class="ant-pro-list-row-header"
@@ -34,13 +37,13 @@ exports[`List > 🚏 ProList support rowClassName as a function 1`] = `
                       class="ant-pro-list-row-header-option"
                     />
                     <div
-                      class="ant-list-item-meta"
+                      class="ant-pro-list-item-meta"
                     >
                       <div
-                        class="ant-list-item-meta-content"
+                        class="ant-pro-list-item-meta-content"
                       >
                         <h4
-                          class="ant-list-item-meta-title"
+                          class="ant-pro-list-item-meta-title"
                         >
                           <div
                             class="ant-pro-list-row-header-container"
@@ -53,7 +56,7 @@ exports[`List > 🚏 ProList support rowClassName as a function 1`] = `
                           </div>
                         </h4>
                         <div
-                          class="ant-list-item-meta-description"
+                          class="ant-pro-list-item-meta-description"
                         >
                           <div
                             class="ant-pro-list-row-description"
@@ -64,9 +67,13 @@ exports[`List > 🚏 ProList support rowClassName as a function 1`] = `
                       </div>
                     </div>
                   </div>
-                </li>
-                <li
-                  class="ant-list-item ant-pro-list-row odd"
+                </div>
+              </div>
+              <div
+                class="ant-pro-list-item ant-pro-list-row odd"
+              >
+                <div
+                  class="ant-pro-list-item-main"
                 >
                   <div
                     class="ant-pro-list-row-header"
@@ -75,13 +82,13 @@ exports[`List > 🚏 ProList support rowClassName as a function 1`] = `
                       class="ant-pro-list-row-header-option"
                     />
                     <div
-                      class="ant-list-item-meta"
+                      class="ant-pro-list-item-meta"
                     >
                       <div
-                        class="ant-list-item-meta-content"
+                        class="ant-pro-list-item-meta-content"
                       >
                         <h4
-                          class="ant-list-item-meta-title"
+                          class="ant-pro-list-item-meta-title"
                         >
                           <div
                             class="ant-pro-list-row-header-container"
@@ -94,7 +101,7 @@ exports[`List > 🚏 ProList support rowClassName as a function 1`] = `
                           </div>
                         </h4>
                         <div
-                          class="ant-list-item-meta-description"
+                          class="ant-pro-list-item-meta-description"
                         >
                           <div
                             class="ant-pro-list-row-description"
@@ -105,8 +112,8 @@ exports[`List > 🚏 ProList support rowClassName as a function 1`] = `
                       </div>
                     </div>
                   </div>
-                </li>
-              </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -119,29 +126,32 @@ exports[`List > 🚏 ProList support rowClassName as a function 1`] = `
 exports[`List > 🚏 ProList support rowClassName as a string 1`] = `
 <div>
   <div
-    class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
+    class="ant-pro-table ant-pro-list ant-pro-list-no-split"
+    data-testid="pro-table"
   >
     <div
       class="ant-pro-card"
     >
       <div
         class="ant-pro-card-body"
-        style="padding: 0px;"
       >
         <div
-          class="ant-list ant-list-split ant-pro-list-container css-var-r2b"
+          class="ant-pro-list ant-pro-list-split ant-pro-list-borderless ant-pro-list-container"
+          data-testid="pro-list-view"
         >
           <div
-            class="ant-spin-nested-loading css-var-r2b"
+            aria-busy="false"
+            aria-live="polite"
+            class="ant-spin css-var-r2d"
           >
             <div
               class="ant-spin-container"
             >
-              <ul
-                class="ant-list-items"
+              <div
+                class="ant-pro-list-item ant-pro-list-row rowClassName"
               >
-                <li
-                  class="ant-list-item ant-pro-list-row rowClassName"
+                <div
+                  class="ant-pro-list-item-main"
                 >
                   <div
                     class="ant-pro-list-row-header"
@@ -150,13 +160,13 @@ exports[`List > 🚏 ProList support rowClassName as a string 1`] = `
                       class="ant-pro-list-row-header-option"
                     />
                     <div
-                      class="ant-list-item-meta"
+                      class="ant-pro-list-item-meta"
                     >
                       <div
-                        class="ant-list-item-meta-content"
+                        class="ant-pro-list-item-meta-content"
                       >
                         <h4
-                          class="ant-list-item-meta-title"
+                          class="ant-pro-list-item-meta-title"
                         >
                           <div
                             class="ant-pro-list-row-header-container"
@@ -169,7 +179,7 @@ exports[`List > 🚏 ProList support rowClassName as a string 1`] = `
                           </div>
                         </h4>
                         <div
-                          class="ant-list-item-meta-description"
+                          class="ant-pro-list-item-meta-description"
                         >
                           <div
                             class="ant-pro-list-row-description"
@@ -180,8 +190,8 @@ exports[`List > 🚏 ProList support rowClassName as a string 1`] = `
                       </div>
                     </div>
                   </div>
-                </li>
-              </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -194,29 +204,32 @@ exports[`List > 🚏 ProList support rowClassName as a string 1`] = `
 exports[`List > 🚏 only has content 1`] = `
 <div>
   <div
-    class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
+    class="ant-pro-table ant-pro-list ant-pro-list-no-split"
+    data-testid="pro-table"
   >
     <div
       class="ant-pro-card"
     >
       <div
         class="ant-pro-card-body"
-        style="padding: 0px;"
       >
         <div
-          class="ant-list ant-list-split ant-pro-list-container css-var-rd"
+          class="ant-pro-list ant-pro-list-split ant-pro-list-borderless ant-pro-list-container"
+          data-testid="pro-list-view"
         >
           <div
-            class="ant-spin-nested-loading css-var-rd"
+            aria-busy="false"
+            aria-live="polite"
+            class="ant-spin css-var-rd"
           >
             <div
               class="ant-spin-container"
             >
-              <ul
-                class="ant-list-items"
+              <div
+                class="ant-pro-list-item ant-pro-list-row"
               >
-                <li
-                  class="ant-list-item ant-pro-list-row"
+                <div
+                  class="ant-pro-list-item-main"
                 >
                   <div
                     class="ant-pro-list-row-header"
@@ -232,8 +245,8 @@ exports[`List > 🚏 only has content 1`] = `
                       段落示意：蚂蚁金服设计平台 design.alipay.com，用最小的工作量，无缝接入蚂蚁金服生态，提供跨越设计与开发的体验解决方案。蚂蚁金服设计平台 design.alipay.com，用最小的工作量，无缝接入蚂蚁金服生态提供跨越设计与开发的体验解决方案。
                     </div>
                   </div>
-                </li>
-              </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -246,29 +259,32 @@ exports[`List > 🚏 only has content 1`] = `
 exports[`List > 🚏 only has description 1`] = `
 <div>
   <div
-    class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
+    class="ant-pro-table ant-pro-list ant-pro-list-no-split"
+    data-testid="pro-table"
   >
     <div
       class="ant-pro-card"
     >
       <div
         class="ant-pro-card-body"
-        style="padding: 0px;"
       >
         <div
-          class="ant-list ant-list-split ant-pro-list-container css-var-rh"
+          class="ant-pro-list ant-pro-list-split ant-pro-list-borderless ant-pro-list-container"
+          data-testid="pro-list-view"
         >
           <div
-            class="ant-spin-nested-loading css-var-rh"
+            aria-busy="false"
+            aria-live="polite"
+            class="ant-spin css-var-rh"
           >
             <div
               class="ant-spin-container"
             >
-              <ul
-                class="ant-list-items"
+              <div
+                class="ant-pro-list-item ant-pro-list-row"
               >
-                <li
-                  class="ant-list-item ant-pro-list-row"
+                <div
+                  class="ant-pro-list-item-main"
                 >
                   <div
                     class="ant-pro-list-row-header"
@@ -277,13 +293,13 @@ exports[`List > 🚏 only has description 1`] = `
                       class="ant-pro-list-row-header-option"
                     />
                     <div
-                      class="ant-list-item-meta"
+                      class="ant-pro-list-item-meta"
                     >
                       <div
-                        class="ant-list-item-meta-content"
+                        class="ant-pro-list-item-meta-content"
                       >
                         <div
-                          class="ant-list-item-meta-description"
+                          class="ant-pro-list-item-meta-description"
                         >
                           <div
                             class="ant-pro-list-row-description"
@@ -308,8 +324,8 @@ exports[`List > 🚏 only has description 1`] = `
                       </div>
                     </div>
                   </div>
-                </li>
-              </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -322,57 +338,56 @@ exports[`List > 🚏 only has description 1`] = `
 exports[`List > 🚏 show loading state 1`] = `
 <div>
   <div
-    class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
+    class="ant-pro-table ant-pro-list ant-pro-list-no-split"
+    data-testid="pro-table"
   >
     <div
       class="ant-pro-card"
     >
       <div
         class="ant-pro-card-body"
-        style="padding: 0px;"
       >
         <div
-          class="ant-list ant-list-split ant-list-loading ant-pro-list-container css-var-r9"
+          class="ant-pro-list ant-pro-list-split ant-pro-list-borderless ant-pro-list-loading ant-pro-list-container"
+          data-testid="pro-list-view"
         >
           <div
-            class="ant-spin-nested-loading css-var-r9"
+            aria-busy="true"
+            aria-live="polite"
+            class="ant-spin ant-spin-spinning css-var-r9"
           >
-            <div>
-              <div
-                aria-busy="true"
-                aria-live="polite"
-                class="ant-spin ant-spin-spinning css-var-r9"
+            <div
+              class="ant-spin-section"
+            >
+              <span
+                class="ant-spin-dot-holder"
               >
                 <span
-                  class="ant-spin-dot-holder"
+                  class="ant-spin-dot ant-spin-dot-spin"
                 >
-                  <span
-                    class="ant-spin-dot ant-spin-dot-spin"
-                  >
-                    <i
-                      class="ant-spin-dot-item"
-                    />
-                    <i
-                      class="ant-spin-dot-item"
-                    />
-                    <i
-                      class="ant-spin-dot-item"
-                    />
-                    <i
-                      class="ant-spin-dot-item"
-                    />
-                  </span>
+                  <i
+                    class="ant-spin-dot-item"
+                  />
+                  <i
+                    class="ant-spin-dot-item"
+                  />
+                  <i
+                    class="ant-spin-dot-item"
+                  />
+                  <i
+                    class="ant-spin-dot-item"
+                  />
                 </span>
-              </div>
+              </span>
             </div>
             <div
-              class="ant-spin-container ant-spin-blur"
+              class="ant-spin-container"
             >
-              <ul
-                class="ant-list-items"
+              <div
+                class="ant-pro-list-item ant-pro-list-row"
               >
-                <li
-                  class="ant-list-item ant-pro-list-row"
+                <div
+                  class="ant-pro-list-item-main"
                 >
                   <div
                     class="ant-pro-list-row-header"
@@ -381,13 +396,13 @@ exports[`List > 🚏 show loading state 1`] = `
                       class="ant-pro-list-row-header-option"
                     />
                     <div
-                      class="ant-list-item-meta"
+                      class="ant-pro-list-item-meta"
                     >
                       <div
-                        class="ant-list-item-meta-content"
+                        class="ant-pro-list-item-meta-content"
                       >
                         <h4
-                          class="ant-list-item-meta-title"
+                          class="ant-pro-list-item-meta-title"
                         >
                           <div
                             class="ant-pro-list-row-header-container"
@@ -400,7 +415,7 @@ exports[`List > 🚏 show loading state 1`] = `
                           </div>
                         </h4>
                         <div
-                          class="ant-list-item-meta-description"
+                          class="ant-pro-list-item-meta-description"
                         >
                           <div
                             class="ant-pro-list-row-description"
@@ -411,8 +426,8 @@ exports[`List > 🚏 show loading state 1`] = `
                       </div>
                     </div>
                   </div>
-                </li>
-              </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>

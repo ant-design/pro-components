@@ -13,7 +13,7 @@ import type {
   FormListOperation,
   FormListProps,
 } from 'antd/lib/form/FormList';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import type { CSSProperties, ReactNode } from 'react';
 import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { FormListContext } from '.';
@@ -413,10 +413,7 @@ const ProFormListItem: React.FC<
           <LoadingOutlined />
         ) : (
           <Icon
-            className={classNames(
-              `${prefixCls}-action-icon action-copy`,
-              hashId,
-            )}
+            className={clsx(`${prefixCls}-action-icon action-copy`, hashId)}
             onClick={async () => {
               setLoadingCopy(true);
               const row = formInstance?.getFieldValue(
@@ -455,10 +452,7 @@ const ProFormListItem: React.FC<
           <LoadingOutlined />
         ) : (
           <Icon
-            className={classNames(
-              `${prefixCls}-action-icon action-remove`,
-              hashId,
-            )}
+            className={clsx(`${prefixCls}-action-icon action-remove`, hashId)}
             onClick={async () => {
               setLoadingRemove(true);
               await action.remove(field.name);
@@ -494,7 +488,7 @@ const ProFormListItem: React.FC<
     return (
       <Tooltip title={tooltipText} key="up">
         <Icon
-          className={classNames(`${prefixCls}-action-icon action-up`, hashId)}
+          className={clsx(`${prefixCls}-action-icon action-up`, hashId)}
           onClick={async () => {
             await action.move(index, toIndex);
           }}
@@ -517,7 +511,7 @@ const ProFormListItem: React.FC<
     return (
       <Tooltip title={tooltipText} key="down">
         <Icon
-          className={classNames(`${prefixCls}-action-icon action-down`, hashId)}
+          className={clsx(`${prefixCls}-action-icon action-down`, hashId)}
           onClick={async () => {
             await action.move(index, toIndex);
           }}
@@ -540,7 +534,7 @@ const ProFormListItem: React.FC<
   const dom =
     actions.length > 0 && mode !== 'read' ? (
       <div
-        className={classNames(
+        className={clsx(
           `${prefixCls}-action`,
           {
             [`${prefixCls}-action-small`]: componentSize === 'small',
@@ -575,11 +569,7 @@ const ProFormListItem: React.FC<
     {
       listDom: (
         <div
-          className={classNames(
-            `${prefixCls}-container`,
-            containerClassName,
-            hashId,
-          )}
+          className={clsx(`${prefixCls}-container`, containerClassName, hashId)}
           style={{
             width: grid ? '100%' : undefined,
             ...containerStyle,
@@ -593,7 +583,7 @@ const ProFormListItem: React.FC<
     options,
   ) || (
     <div
-      className={classNames(`${prefixCls}-item`, hashId, {
+      className={clsx(`${prefixCls}-item`, hashId, {
         [`${prefixCls}-item-default`]: alwaysShowItemLabel === undefined,
         [`${prefixCls}-item-show-label`]: alwaysShowItemLabel,
       })}
@@ -603,11 +593,7 @@ const ProFormListItem: React.FC<
       }}
     >
       <div
-        className={classNames(
-          `${prefixCls}-container`,
-          containerClassName,
-          hashId,
-        )}
+        className={clsx(`${prefixCls}-container`, containerClassName, hashId)}
         style={{
           width: grid ? '100%' : undefined,
           ...containerStyle,

@@ -72,6 +72,8 @@ type RenderProps = Omit<ProFieldFCRenderProps, 'text' | 'placeholder'> &
  *
  * @param dataValue
  * @param valueType
+ * @param props
+ * @param valueTypeMap
  */
 export const pureRenderText = (
   dataValue: ProFieldTextType,
@@ -100,11 +102,9 @@ export const pureRenderText = (
     }
   }
 
-  // eslint-disable-next-line no-param-reassign
   delete props.emptyText;
 
   if (typeof valueType === 'object') {
-    // eslint-disable-next-line @typescript-eslint/no-use-before-define
     return pureRenderText(
       dataValue,
       valueType.type,
@@ -120,7 +120,6 @@ export const pureRenderText = (
     valueTypeMap && valueTypeMap[valueType as string];
 
   if (customValueTypeConfig) {
-    // eslint-disable-next-line no-param-reassign
     delete props.ref;
     if (mode === 'read') {
       const readDom = customValueTypeConfig.render?.(
@@ -139,7 +138,7 @@ export const pureRenderText = (
             text: dataValue as React.ReactNode,
             ...props,
           },
-          readDom as JSX.Element,
+          readDom as React.JSX.Element,
         );
       }
       return readDom;
@@ -160,7 +159,7 @@ export const pureRenderText = (
             text: dataValue as React.ReactNode,
             ...props,
           },
-          dom as JSX.Element,
+          dom as React.JSX.Element,
         );
       }
       return dom;
@@ -208,7 +207,6 @@ const ProFieldComponent: React.ForwardRefRenderFunction<
         onChange: onChangeCallBack,
       }
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value, restFieldProps, onChangeCallBack]);
 
   const renderedDom = pureRenderText(
@@ -221,7 +219,11 @@ const ProFieldComponent: React.ForwardRefRenderFunction<
       ...rest,
       mode: readonly ? 'read' : mode,
       formItemRender: formItemRender
-        ? (curText: any, props: ProFieldFCRenderProps, dom: JSX.Element) => {
+        ? (
+            curText: any,
+            props: ProFieldFCRenderProps,
+            dom: React.JSX.Element,
+          ) => {
             const { placeholder: _placeholder, ...restProps } = props;
             const newDom = formItemRender(curText, restProps, dom);
             // formItemRender 之后的dom可能没有props，这里会帮忙注入一下

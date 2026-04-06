@@ -54,9 +54,8 @@ export function useControlModel<
   model?: T,
 ): { [P in GetArrayFieldType<T>]: ControlModelType };
 export function useControlModel<
-  T extends
-    | FormControlProps
-    | (string | FormControlMultiProps)[] = FormControlProps,
+  T extends FormControlProps | (string | FormControlMultiProps)[] =
+    FormControlProps,
 >({ value, onChange }: WithControlPropsType, model?: T): unknown {
   if (!Array.isArray(model)) {
     const p = getControlConfigProps(model);
@@ -141,13 +140,29 @@ export function pickControlProps(props: FormControlInjectProps) {
   };
 }
 
+const ARIA_CONTROL_ATTRS = [
+  'aria-describedby',
+  'aria-invalid',
+  'aria-required',
+] as const;
+
 /**
- * 提取props中的 value、onChange 和 id 属性
+ * 提取 props 中的 value、onChange、id 及无障碍属性（aria-describedby、aria-invalid、aria-required）
  */
 export function pickControlPropsWithId(props: FormControlInjectProps) {
+  const ariaAttrs = ARIA_CONTROL_ATTRS.reduce(
+    (acc, key) => {
+      if (props[key] !== undefined) {
+        acc[key] = props[key];
+      }
+      return acc;
+    },
+    {} as Record<string, string | boolean>,
+  );
   return {
     ...pickControlProps(props),
     id: props.id,
+    ...ariaAttrs,
   };
 }
 

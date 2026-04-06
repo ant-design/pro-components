@@ -1,10 +1,12 @@
 import { InboxOutlined } from '@ant-design/icons';
+import type { DraggerProps, GetRef, UploadProps } from 'antd';
 import { ConfigProvider, Upload } from 'antd';
-import type { DraggerProps, UploadProps } from 'antd/lib/upload';
 import React, { useContext } from 'react';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
 import type { ProFormFieldItemProps } from '../../typing';
 import warpField from '../FormItem/warpField';
+
+type UploadRef = GetRef<typeof Upload.Dragger>;
 
 export type ProFormUploadDraggerProps = ProFormFieldItemProps<DraggerProps> & {
   /**
@@ -54,7 +56,7 @@ export type ProFormUploadDraggerProps = ProFormFieldItemProps<DraggerProps> & {
  * @param
  */
 const BaseProFormUploadDragger: React.FC<ProFormUploadDraggerProps> =
-  React.forwardRef(
+  React.forwardRef<UploadRef, ProFormUploadDraggerProps>(
     (
       {
         fieldProps,
@@ -69,7 +71,7 @@ const BaseProFormUploadDragger: React.FC<ProFormUploadDraggerProps> =
         max,
         proFieldProps,
       },
-      ref: any,
+      ref,
     ) => {
       const context = useContext(ConfigProvider.ConfigContext);
       const modeContext = useContext(EditOrReadOnlyContext);
@@ -81,28 +83,29 @@ const BaseProFormUploadDragger: React.FC<ProFormUploadDraggerProps> =
         (max === undefined || !value || value?.length < max) &&
         mode !== 'read' &&
         proFieldProps?.readonly !== true;
+      // 参考 antd：不传 id 给 Upload，避免点击 label 触发 file input 打开文件选择器
+      const { id: _id, ...uploadFieldProps } = fieldProps || {};
       return (
         <Upload.Dragger
-          // @ts-ignore
           ref={ref}
           name="files"
           action={action}
           accept={accept}
           fileList={value}
-          {...fieldProps}
+          {...uploadFieldProps}
           onChange={(info) => {
             onChange?.(info);
-            if (fieldProps?.onChange) {
-              fieldProps?.onChange(info);
+            if (uploadFieldProps?.onChange) {
+              uploadFieldProps?.onChange(info);
             }
           }}
           style={{
             flexDirection: 'column',
             alignItems: 'center',
-            ...fieldProps?.style,
+            ...uploadFieldProps?.style,
             display: !showUploadButton
               ? 'none'
-              : fieldProps?.style?.display || 'flex',
+              : uploadFieldProps?.style?.display || 'flex',
           }}
         >
           <p className={`${baseClassName}-drag-icon`}>{icon}</p>

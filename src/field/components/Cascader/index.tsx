@@ -1,7 +1,7 @@
-﻿import { LoadingOutlined } from '@ant-design/icons';
+import { LoadingOutlined } from '@ant-design/icons';
 import type { RadioGroupProps } from 'antd';
 import { Cascader, ConfigProvider } from 'antd';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, {
   useContext,
   useImperativeHandle,
@@ -25,21 +25,18 @@ export type GroupProps = {
 /**
  * 级联选择组件
  *
- * @param param0
+ * @param placeholder
+ * @param formItemRender
+ * @param mode
+ * @param render
+ * @param label
+ * @param light
+ * @param variant
+ * @param rest
  * @param ref
  */
 const FieldCascader: ProFieldFC<GroupProps> = (
-  {
-    radioType,
-    placeholder,
-    formItemRender,
-    mode,
-    render,
-    label,
-    light,
-    variant,
-    ...rest
-  },
+  { placeholder, formItemRender, mode, render, label, light, variant, ...rest },
   ref,
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -109,9 +106,9 @@ const FieldCascader: ProFieldFC<GroupProps> = (
   }
 
   if (mode === 'edit') {
+    const fieldProps = rest.fieldProps || {};
     let dom = (
       <Cascader
-        variant={!light ? variant : 'borderless'}
         ref={cascaderRef}
         open={open}
         suffixIcon={loading ? <LoadingOutlined /> : undefined}
@@ -119,13 +116,13 @@ const FieldCascader: ProFieldFC<GroupProps> = (
           placeholder ||
           intl.getMessage('tableForm.selectPlaceholder', '请选择')
         }
-        allowClear={rest.fieldProps?.allowClear !== false}
-        {...rest.fieldProps}
+        allowClear={fieldProps?.allowClear !== false}
+        {...fieldProps}
         onOpenChange={(isOpen) => {
-          rest?.fieldProps?.onOpenChange?.(isOpen);
+          fieldProps?.onOpenChange?.(isOpen);
           setOpen(isOpen);
         }}
-        className={classNames(rest.fieldProps?.className, layoutClassName)}
+        className={clsx(fieldProps?.className, layoutClassName)}
         options={options}
       />
     );
@@ -134,13 +131,13 @@ const FieldCascader: ProFieldFC<GroupProps> = (
       dom =
         formItemRender(
           rest.text,
-          { mode, ...rest.fieldProps, options, loading },
+          { mode, ...fieldProps, options, loading },
           dom,
         ) ?? null;
     }
 
     if (light) {
-      const { disabled, value } = rest.fieldProps;
+      const { disabled, value } = fieldProps;
       const notEmpty = !!value && value?.length !== 0;
       return (
         <FieldLabel
@@ -159,7 +156,7 @@ const FieldCascader: ProFieldFC<GroupProps> = (
           downIcon={notEmpty || open ? false : undefined}
           onClick={() => {
             setOpen(true);
-            rest?.fieldProps?.onOpenChange?.(true);
+            fieldProps?.onOpenChange?.(true);
           }}
         />
       );

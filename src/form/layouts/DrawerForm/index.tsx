@@ -1,7 +1,7 @@
-﻿import { merge, useMergedState, warning } from '@rc-component/util';
+import { merge, useControlledState, warning } from '@rc-component/util';
 import type { DrawerProps, FormProps } from 'antd';
 import { ConfigProvider, Drawer } from 'antd';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, {
   useCallback,
   useContext,
@@ -17,12 +17,13 @@ import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import { SubmitterProps } from '../../BaseForm/Submitter';
 import { useStyle } from './style';
+
 const { noteOnce } = warning;
 
 export type CustomizeResizeType = {
   onResize?: () => void;
-  maxWidth?: DrawerProps['width'];
-  minWidth?: DrawerProps['width'];
+  maxWidth?: DrawerProps['size'];
+  minWidth?: DrawerProps['size'];
 };
 
 export type DrawerFormProps<
@@ -47,7 +48,7 @@ export type DrawerFormProps<
     submitTimeout?: number;
 
     /** @name 用于触发抽屉打开的 dom ，只能设置一个*/
-    trigger?: JSX.Element;
+    trigger?: React.JSX.Element;
 
     /** @name 受控的打开关闭 */
     open?: DrawerProps['open'];
@@ -62,7 +63,7 @@ export type DrawerFormProps<
     title?: DrawerProps['title'];
 
     /** @name 抽屉的宽度 */
-    width?: DrawerProps['width'];
+    width?: DrawerProps['size'];
 
     /**
      *
@@ -85,8 +86,7 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
   ...rest
 }: DrawerFormProps<T, U>) {
   noteOnce(
-    // eslint-disable-next-line @typescript-eslint/dot-notation
-    !(rest as any)['footer'] || !drawerProps?.footer,
+    !(rest as any).footer || !drawerProps?.footer,
     'DrawerForm 是一个 ProForm 的特殊布局，如果想自定义按钮，请使用 submit.render 自定义。',
   );
   const resizeInfo: CustomizeResizeType = React.useMemo(() => {
@@ -112,21 +112,47 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
   const context = useContext(ConfigProvider.ConfigContext);
   const baseClassName = context.getPrefixCls('pro-form-drawer');
   const { wrapSSR, hashId } = useStyle(baseClassName);
-  const getCls = (className: string) =>
-    `${baseClassName}-${className} ${hashId}`;
+  const getCls = (className: string) => `${baseClassName}-${className}`;
 
   const [, forceUpdate] = useState([]);
   const [loading, setLoading] = useState(false);
   const [resizableDrawer, setResizableDrawer] = useState(false);
 
-  const [drawerWidth, setDrawerWidth] = useState<DrawerProps['width']>(
+  const [drawerWidth, setDrawerWidth] = useState<DrawerProps['size']>(
     width ? width : resize ? resizeInfo?.minWidth : 800,
   );
 
-  const [open, setOpen] = useMergedState<boolean>(!!propsOpen, {
-    value: propsOpen,
-    onChange: onOpenChange,
+  const [open, setOpenInner] = useControlledState<boolean>(
+    !!propsOpen,
+    propsOpen,
+  );
+
+  /**
+   * 使用 useRefFunction 包装回调，确保引用稳定
+   */
+  const onOpenChangeCallback = useRefFunction((o: boolean) => {
+    onOpenChange?.(o);
   });
+
+  /**
+   * 使用 queueMicrotask 延迟回调调用，避免在渲染阶段调用外部回调导致的 React 警告
+   * "Cannot update a component while rendering a different component"
+   */
+  const setOpen = useCallback(
+    (updater: boolean | ((prev: boolean) => boolean)) => {
+      setOpenInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: boolean) => boolean)(prev)
+            : updater;
+        queueMicrotask(() => {
+          onOpenChangeCallback(next);
+        });
+        return next;
+      });
+    },
+    [onOpenChangeCallback],
+  );
 
   const footerRef = useRef<HTMLDivElement | null>(null);
 
@@ -163,8 +189,6 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
     if (resizableDrawer) {
       setDrawerWidth(resizeInfo?.minWidth);
     }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [propsOpen, open, resizableDrawer]);
 
   useImperativeHandle(
@@ -348,7 +372,7 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
       >
         {resize ? (
           <div
-            className={classNames(getCls('sidebar-dragger'), hashId, {
+            className={clsx(getCls('sidebar-dragger'), hashId, {
               [getCls('sidebar-dragger-min-disabled')]:
                 drawerWidth === resizeInfo?.minWidth,
               [getCls('sidebar-dragger-max-disabled')]:

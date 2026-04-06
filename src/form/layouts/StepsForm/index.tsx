@@ -1,8 +1,8 @@
-import { toArray, useMergedState } from '@rc-component/util';
+import { toArray, useControlledState } from '@rc-component/util';
 import type { FormInstance, StepsProps } from 'antd';
 import { Button, Col, ConfigProvider, Form, Row, Space, Steps } from 'antd';
 import type { FormProviderProps } from 'antd/lib/form/context';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, {
   useCallback,
   useContext,
@@ -195,10 +195,34 @@ function StepsForm<T = Record<string, any>>(
   /**
    * 受控的方式来操作表单
    */
-  const [step, setStep] = useMergedState<number>(0, {
-    value: props.current,
-    onChange: props.onCurrentChange,
+  const [step, setStepInner] = useControlledState<number>(0, props.current);
+
+  /**
+   * 使用 useRefFunction 包装回调，确保引用稳定
+   */
+  const onCurrentChangeCallback = useRefFunction((current: number) => {
+    props.onCurrentChange?.(current);
   });
+
+  /**
+   * 使用 queueMicrotask 延迟回调调用，避免在渲染阶段调用外部回调导致的 React 警告
+   * "Cannot update a component while rendering a different component"
+   */
+  const setStep = useCallback(
+    (updater: number | ((prev: number) => number)) => {
+      setStepInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: number) => number)(prev)
+            : updater;
+        queueMicrotask(() => {
+          onCurrentChangeCallback(next);
+        });
+        return next;
+      });
+    },
+    [onCurrentChangeCallback],
+  );
 
   const layoutRender = useMemo(() => {
     return StepsLayoutStrategy[stepsProps?.orientation || 'horizontal'];
@@ -285,13 +309,13 @@ function StepsForm<T = Record<string, any>>(
 
     return (
       <div
-        className={`${prefixCls}-steps-container ${hashId}`.trim()}
+        className={clsx(`${prefixCls}-steps-container`, hashId)}
         style={{
           maxWidth: Math.min(formArray.length * 320, 1160),
         }}
       >
         <Steps
-          {...(stepsProps || {})}
+          {...stepsProps}
           {...itemsProps}
           current={step}
           onChange={undefined}
@@ -425,7 +449,7 @@ function StepsForm<T = Record<string, any>>(
         : {};
       return (
         <div
-          className={classNames(`${prefixCls}-step`, hashId, {
+          className={clsx(`${prefixCls}-step`, hashId, {
             [`${prefixCls}-step-active`]: isShow,
           })}
           key={name}
@@ -462,7 +486,7 @@ function StepsForm<T = Record<string, any>>(
   const formContainer = useMemo(
     () => (
       <div
-        className={`${prefixCls}-container ${hashId}`.trim()}
+        className={clsx(`${prefixCls}-container`, hashId)}
         style={containerStyle}
       >
         {formDom}
@@ -501,7 +525,7 @@ function StepsForm<T = Record<string, any>>(
   ]);
 
   return wrapSSR(
-    <div className={classNames(prefixCls, hashId)}>
+    <div className={clsx(prefixCls, hashId)}>
       <Form.Provider {...rest}>
         <StepsFormProvide.Provider
           value={{

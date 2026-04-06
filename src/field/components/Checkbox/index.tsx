@@ -1,11 +1,12 @@
-﻿import { Checkbox, ConfigProvider, Form, Spin, theme } from 'antd';
+import { Checkbox, ConfigProvider, Form, Spin, theme } from 'antd';
 import type { CheckboxGroupProps } from 'antd/lib/checkbox';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, { useContext, useImperativeHandle, useRef } from 'react';
 import { objectToMap, proFieldParsingText, useStyle } from '../../../utils';
 import type { ProFieldFC } from '../../PureProField';
 import type { FieldSelectProps } from '../Select';
 import { useFieldFetchData } from '../Select';
+
 export type GroupProps = {
   layout?: 'horizontal' | 'vertical';
   options?: CheckboxGroupProps['options'];
@@ -14,7 +15,11 @@ export type GroupProps = {
 /**
  * 多选组件
  *
- * @param param0
+ * @param layout
+ * @param formItemRender
+ * @param mode
+ * @param render
+ * @param rest
  * @param ref
  */
 const FieldCheckbox: ProFieldFC<GroupProps> = (
@@ -106,12 +111,16 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
   }
 
   if (mode === 'edit') {
-    const { fieldNames, ...restFieldProps } = rest.fieldProps || {};
+    const {
+      fieldNames: _fieldNames,
+      variant,
+      ...restFieldProps
+    } = rest.fieldProps || {};
     const dom = wrapSSR(
-      //@ts-ignore
       <Checkbox.Group
         {...restFieldProps}
-        className={classNames(
+        variant={variant}
+        className={clsx(
           rest.fieldProps?.className,
           hashId,
           `${layoutClassName}-${layout}`,

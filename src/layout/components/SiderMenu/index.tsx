@@ -1,6 +1,6 @@
 import { omit } from '@rc-component/util';
 import { ConfigProvider, Drawer } from 'antd';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, { useContext, useEffect } from 'react';
 import { ProProvider } from '../../../provider';
 import type { PrivateSiderMenuProps, SiderMenuProps } from './SiderMenu';
@@ -28,7 +28,6 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (
     if (isMobile === true) {
       onCollapse?.(true);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isMobile]);
 
   const omitProps = omit(props, ['className', 'style']);
@@ -42,7 +41,7 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (
     proLayoutCollapsedWidth: collapsedWidth,
   });
 
-  const siderClassName = classNames(`${prefixCls}-sider`, className, hashId);
+  const siderClassName = clsx(`${prefixCls}-sider`, className, hashId);
 
   if (hide) {
     return null;
@@ -52,7 +51,8 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (
     isMobile ? (
       <Drawer
         placement={direction === 'rtl' ? 'right' : 'left'}
-        className={classNames(`${prefixCls}-drawer-sider`, className)}
+        className={clsx(`${prefixCls}-drawer-sider`, className)}
+        data-testid="pro-layout-sider"
         open={!collapsed}
         afterOpenChange={(open) => {
           if (!open) {

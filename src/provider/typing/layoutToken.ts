@@ -1,4 +1,4 @@
-﻿import { setAlpha } from '../useStyle';
+import { setAlpha } from '../useStyle';
 
 export type BaseLayoutDesignToken = {
   hashId: string;

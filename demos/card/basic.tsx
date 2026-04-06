@@ -8,86 +8,47 @@ const Demo = () => {
   return (
     <>
       <ProCard
-        title="Default Size"
+        title="用户认证服务"
         variant="outlined"
         extra={
           <ProFormGroup>
             <ProFormSwitch
               name="Enable"
               noStyle
-              checkedChildren={'Enabled'}
-              unCheckedChildren={'Disabled'}
+              checkedChildren={'运行中'}
+              unCheckedChildren={'已停止'}
             />
           </ProFormGroup>
         }
-        tooltip="This is a tooltip"
+        tooltip="管理用户认证与授权的核心服务"
         style={{ maxWidth: 300 }}
       >
-        <div>Card content</div>
-        <div>Card content</div>
-        <div>Card content</div>
+        <div>实例数量：3</div>
+        <div>CPU 占用：45%</div>
+        <div>内存占用：1.2 GB</div>
       </ProCard>
       <ProCard
-        title="Card with Shadow"
-        extra="extra"
-        tooltip="This is a tooltip"
+        title="订单处理中心"
+        extra="v2.3.1"
+        tooltip="处理全站订单的创建、支付与履约"
         style={{ maxWidth: 300 }}
         boxShadow
       >
-        <div>Card content</div>
-        <div>Card content</div>
-        <div>Card content</div>
+        <div>日均订单：52 万</div>
+        <div>平均延迟：23ms</div>
+        <div>成功率：99.97%</div>
       </ProCard>
       <ProCard
-        title="Small Size Card"
-        extra="extra"
-        tooltip="This is a tooltip"
+        title="支付网关"
+        extra="v1.8.0"
+        tooltip="对接第三方支付渠道的统一网关"
         style={{ maxWidth: 300, marginBlockStart: 24 }}
         size="small"
       >
-        <div>Card content</div>
-        <div>Card content</div>
-        <div>Card content</div>
+        <div>微信支付：已接入</div>
+        <div>支付宝：已接入</div>
+        <div>银联：接入中</div>
       </ProCard>
-
-      <div
-        style={{
-          marginTop: '20px',
-          padding: '20px',
-          backgroundColor: '#f5f5f5',
-          borderRadius: '6px',
-        }}
-      >
-        <h4>ProCard Props 说明：</h4>
-        <ul>
-          <li>
-            <strong>title</strong>: 卡片标题，可以是字符串或 React 节点
-          </li>
-          <li>
-            <strong>variant</strong>: 卡片变体样式，可选值：'outlined' |
-            'filled' | 'elevated'
-          </li>
-          <li>
-            <strong>extra</strong>: 卡片右上角操作区域，可以是字符串或 React
-            节点
-          </li>
-          <li>
-            <strong>tooltip</strong>: 卡片的提示信息
-          </li>
-          <li>
-            <strong>style</strong>: 卡片的样式对象
-          </li>
-          <li>
-            <strong>boxShadow</strong>: 是否显示阴影效果，布尔值
-          </li>
-          <li>
-            <strong>size</strong>: 卡片尺寸，可选值：'default' | 'small'
-          </li>
-          <li>
-            <strong>children</strong>: 卡片内容区域
-          </li>
-        </ul>
-      </div>
     </>
   );
 };

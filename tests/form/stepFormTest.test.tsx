@@ -1,4 +1,4 @@
-﻿import { ProFormText, StepsForm } from '@ant-design/pro-components';
+import { ProFormText, StepsForm } from '@ant-design/pro-components';
 import {
   cleanup,
   fireEvent,
@@ -269,7 +269,9 @@ describe('StepsForm', () => {
 
     fireEvent.click(await screen.getByText('rest'));
 
-    expect(fn).toHaveBeenCalledWith(0);
+    await waitFor(() => {
+      expect(fn).toHaveBeenCalledWith(0);
+    });
     unmount();
   });
 

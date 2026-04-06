@@ -1,4 +1,4 @@
-﻿import type { GenerateStyle, ProAliasToken } from '../../../provider';
+import type { GenerateStyle, ProAliasToken } from '../../../provider';
 import { useStyle as useAntdStyle } from '../../../provider';
 
 export interface ProListToken extends ProAliasToken {
@@ -8,12 +8,13 @@ export interface ProListToken extends ProAliasToken {
 const genProListStyle: GenerateStyle<ProListToken> = (token) => {
   return {
     [token.componentCls]: {
+      boxSizing: 'border-box',
       lineHeight: '1',
       '&-container': {
         display: 'flex',
         justifyContent: 'space-between',
         paddingBlock: token.padding,
-        paddingInline: 0,
+        paddingInline: token.paddingXS,
         '&-mobile': { flexDirection: 'column' },
       },
       '&-title': {
@@ -21,7 +22,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         alignItems: 'center',
         justifyContent: 'flex-start',
         color: token.colorTextHeading,
-        fontWeight: '500',
+        fontWeight: token.fontWeightStrong,
         fontSize: token.fontSizeLG,
       },
       '&-search:not(:last-child)': {
@@ -91,7 +92,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         '&::before': { borderBlockEnd: 0 },
         [`${token.antCls}-tabs-nav-list`]: {
           marginBlockStart: 0,
-          '${token.antCls}-tabs-tab': {
+          [`${token.antCls}-tabs-tab`]: {
             paddingBlockStart: 0,
           },
         },

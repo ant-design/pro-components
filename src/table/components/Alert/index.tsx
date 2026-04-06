@@ -1,4 +1,5 @@
 import { ConfigProvider, Space } from 'antd';
+import { clsx } from 'clsx';
 import React, { Key, useContext } from 'react';
 import type { IntlType } from '../../../provider';
 import { useIntl } from '../../../provider';
@@ -76,14 +77,14 @@ function TableAlert<T>({
     return null;
   }
   return wrapSSR(
-    <div className={`${className} ${hashId}`.trim()}>
-      <div className={`${className}-container ${hashId}`.trim()}>
-        <div className={`${className}-info ${hashId}`.trim()}>
-          <div className={`${className}-info-content ${hashId}`.trim()}>
+    <div className={clsx(className, hashId)}>
+      <div className={clsx(`${className}-container`, hashId)}>
+        <div className={clsx(`${className}-info`, hashId)}>
+          <div className={clsx(`${className}-info-content`, hashId)}>
             {dom}
           </div>
           {option ? (
-            <div className={`${className}-info-option ${hashId}`.trim()}>
+            <div className={clsx(`${className}-info-option`, hashId)}>
               {option}
             </div>
           ) : null}

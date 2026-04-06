@@ -1,6 +1,6 @@
 import type { ColProps, RowProps } from 'antd';
 import { Col, Row } from 'antd';
-import { createContext, useContext, useMemo } from 'react';
+import React, { createContext, useContext, useMemo } from 'react';
 import type { ProFormGridConfig } from '../typing';
 
 export const GridContext = createContext<ProFormGridConfig>({
@@ -13,9 +13,14 @@ interface CommonProps {
   Wrapper?: React.FC<any>;
 }
 
+interface ColWrapperProps extends ColProps, CommonProps {
+  variant?: string;
+  fieldProps?: Record<string, any>;
+}
+
 export interface GridHelpers {
   RowWrapper: React.FC<RowProps & CommonProps>;
-  ColWrapper: React.FC<ColProps & CommonProps>;
+  ColWrapper: React.FC<ColWrapperProps>;
   grid: boolean;
 }
 
@@ -34,7 +39,15 @@ export const gridHelpers: (
       </Row>
     );
   },
-  ColWrapper({ children, Wrapper, ...rest } = {} as Record<string, any>) {
+  ColWrapper(
+    {
+      children,
+      Wrapper,
+      variant,
+      fieldProps,
+      ...rest
+    }: ColWrapperProps = {} as ColWrapperProps,
+  ) {
     const props = useMemo(() => {
       const originProps = { ...colProps, ...rest };
 
@@ -52,11 +65,31 @@ export const gridHelpers: (
       return originProps;
     }, [rest]);
 
+    // LightFilter clone 传入的 variant/fieldProps 需透传给 ProFormItem，否则 lightProps 无 variant
+    const childrenWithProps =
+      (variant !== undefined || fieldProps !== undefined) &&
+      React.Children.count(children) === 1 &&
+      React.isValidElement(children)
+        ? React.cloneElement(children as React.ReactElement<any>, {
+            ...(variant !== undefined && { variant }),
+            ...(fieldProps && {
+              fieldProps: {
+                ...(children as React.ReactElement<any>)?.props?.fieldProps,
+                ...fieldProps,
+              },
+            }),
+          })
+        : children;
+
     if (!grid) {
-      return Wrapper ? <Wrapper>{children}</Wrapper> : children;
+      return Wrapper ? (
+        <Wrapper>{childrenWithProps}</Wrapper>
+      ) : (
+        childrenWithProps
+      );
     }
 
-    return (<Col {...props}>{children}</Col>) as any;
+    return (<Col {...props}>{childrenWithProps}</Col>) as any;
   },
 });
 
@@ -84,12 +117,10 @@ export const useGridHelpers = (
         colProps: config?.colProps || colProps,
         Wrapper: config?.Wrapper,
       }),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [
       config?.Wrapper,
       config.grid,
       grid,
-      // eslint-disable-next-line react-hooks/exhaustive-deps
       JSON.stringify([colProps, config?.colProps, config?.rowProps]),
     ],
   );

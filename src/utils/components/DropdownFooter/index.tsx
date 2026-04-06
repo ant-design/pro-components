@@ -1,5 +1,5 @@
 import { Button, ConfigProvider } from 'antd';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, { useContext } from 'react';
 import { useIntl } from '../../../provider';
 import { useStyle } from './style';
@@ -8,7 +8,7 @@ type LightFilterFooterRender =
   | ((
       onConfirm?: (e?: React.MouseEvent) => void,
       onClear?: (e?: React.MouseEvent) => void,
-    ) => JSX.Element | false)
+    ) => React.JSX.Element | false)
   | false;
 
 type OnClick = (e?: React.MouseEvent) => void;
@@ -65,7 +65,7 @@ const DropdownFooter: React.FC<DropdownFooterProps> = (props) => {
 
   return wrapSSR(
     <div
-      className={classNames(prefixCls, hashId)}
+      className={clsx(prefixCls, hashId)}
       onClick={(e) =>
         (e.target as Element).getAttribute('data-type') !== 'confirm' &&
         e.stopPropagation()

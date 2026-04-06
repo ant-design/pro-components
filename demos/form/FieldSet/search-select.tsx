@@ -19,7 +19,7 @@ export default () => {
         unCheckedChildren="Read Only"
         onChange={setReadonly}
       />
-      <ProForm readonly={readonly}>
+      <ProForm name="search-select-demo" readonly={readonly}>
         <ProForm.Group>
           <ProFormSelect.SearchSelect
             name="userQuery"

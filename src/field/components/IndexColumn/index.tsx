@@ -1,5 +1,5 @@
 import { ConfigProvider } from 'antd';
-import classnames from 'classnames';
+import { clsx } from 'clsx';
 import React, { useContext } from 'react';
 import { useStyle } from '../../../utils';
 
@@ -41,7 +41,7 @@ const IndexColumn: React.ForwardRefRenderFunction<
   return wrapSSR(
     <div
       ref={ref}
-      className={classnames(className, hashId, {
+      className={clsx(className, hashId, {
         [`${className}-border`]: border,
         'top-three': (children as number) > 3,
       })}

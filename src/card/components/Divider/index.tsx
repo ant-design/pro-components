@@ -1,7 +1,8 @@
 import { ConfigProvider } from 'antd';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, { useContext } from 'react';
 import useStyle from './style';
+
 export type ProCardDividerProps = {
   /**
    * 样式
@@ -20,7 +21,7 @@ export type ProCardDividerProps = {
    *
    * @default vertical
    */
-  type?: 'horizontal' | 'vertical';
+  orientation?: 'horizontal' | 'vertical';
 };
 
 const ProCardDivider: React.FC<ProCardDividerProps> = (props) => {
@@ -29,10 +30,14 @@ const ProCardDivider: React.FC<ProCardDividerProps> = (props) => {
   const prefixCls = `${proCardPrefixCls}-divider`;
   const { wrapSSR, hashId } = useStyle(proCardPrefixCls);
 
-  const { className, style = {}, type } = props;
+  const {
+    className,
+    style = {},
+    orientation = 'vertical',
+  } = props;
 
-  const classString = classNames(prefixCls, className, hashId, {
-    [`${prefixCls}-${type}`]: type,
+  const classString = clsx(prefixCls, className, hashId, {
+    [`${prefixCls}-${orientation}`]: orientation,
   });
 
   return wrapSSR(<div className={classString} style={style} />);

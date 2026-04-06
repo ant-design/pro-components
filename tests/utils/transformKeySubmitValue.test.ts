@@ -601,9 +601,11 @@ describe('transformKeySubmitValue', () => {
     const transforms = {
       name: (value: string) => ({ displayName: value }),
     };
-    // 函数值会被 isPlainObj 排除，不会被处理
+    // 函数值会被 cloneDeep 保留（如果是 lodash-es 的行为），或者 transformKeySubmitValue 逻辑不再剔除它
+    // 之前 JSON.stringify 会剔除函数，现在 cloneDeep 会保留
     expect(transformKeySubmitValue(values, transforms)).toEqual({
       displayName: 'John',
+      handler: expect.any(Function),
     });
   });
 });

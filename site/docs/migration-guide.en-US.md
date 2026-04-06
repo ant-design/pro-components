@@ -72,6 +72,8 @@ pnpm install
 | ProCard      | `StatisticsCardProps`                   | `StatisticCardProps`                           | Update type references to avoid compilation errors.                                                                                      |
 | ProLayout    | `rightContentRender`                    | `actionsRender` + `avatarProps`                | Split the original right side content into action area and avatar configuration for independent maintenance.                             |
 | Layout Token | `marginInlinePageContainerContent` etc. | `paddingInlinePageContainerContent` etc.       | Replace Token names comprehensively to maintain theme granularity consistency.                                                           |
+| ProFormField | `plain`                                 | `variant`                                      | Remove `plain`, use `variant` to control field display variant (e.g. `borderless`, `outlined`).                                          |
+| ProList      | `metas`                                 | `columns` + `listSlot`                         | Convert metas object key-value pairs to columns array elements, key becomes `listSlot`. See [ProList Migration](#list-component).        |
 
 ### Table Component
 
@@ -104,7 +106,7 @@ pnpm install
 `columnsState` is now fully aligned with the controlled mode of antd Table. It is recommended to migrate as follows:
 
 - Copy the original `columnsStateMap` fully to `columnsState.value`.
-- If you need to listen for changes, use `columnsState.onChange`; the old `onColumnsStateChange` still retains a layer of compatibility but will be phased out in subsequent versions.
+- If you need to listen for changes, use `columnsState.onChange`; `onColumnsStateChange` has been removed, please migrate to `columnsState.onChange`.
 - If the project relies on column configuration persistence, please explicitly add `persistenceKey` and `persistenceType`.
 
 ```tsx | pure
@@ -401,6 +403,113 @@ const token = {
 
 In addition to the fields in the example, other Tokens named with `margin*PageContainerContent` have also been switched to the corresponding `padding*PageContainerContent`. Please replace them all at once. After replacement, it is recommended to perform a theme build or visual acceptance to confirm that no old fields are missed.
 
+### Field Component
+
+#### `plain` Parameter Removal
+
+**Reason for change**: Unify API by using `variant` to control display style
+
+```tsx | pure
+// ❌ Old version
+<ProFormText
+  name="name"
+  plain={true}
+/>
+
+<ProFormTimePicker
+  name="time"
+  plain
+/>
+
+// ✅ New version
+<ProFormText
+  name="name"
+  fieldProps={{ variant: 'borderless' }}
+/>
+
+<ProFormTimePicker
+  name="time"
+  fieldProps={{ variant: 'borderless' }}
+/>
+```
+
+The `plain` parameter has been completely removed and is no longer provided. For borderless/simplified display, use `fieldProps.variant: 'borderless'`; for default outlined style use `variant: 'outlined'`.
+
+When migrating, please search globally for `plain`, remove all `plain` or `plain={true}` props, and replace with `variant` configuration as needed.
+
+### List Component
+
+#### `metas` → `columns` + `listSlot`
+
+**Reason for change**: Unify ProList and ProTable column configuration APIs so the same `columns` can be used for both table and list views
+
+ProList's `metas` API is deprecated. Use `columns` + `listSlot` instead. Migration rule: convert each key-value pair in the metas object to an element in the columns array, where the key becomes `listSlot` and the value's properties are spread into the column configuration.
+
+```tsx | pure
+// ❌ Old version
+<ProList
+  metas={{
+    title: { dataIndex: 'name', title: 'Name' },
+    avatar: { dataIndex: 'avatar', search: false },
+    description: { dataIndex: 'desc', search: false },
+    subTitle: {
+      dataIndex: 'labels',
+      render: (_, row) => <Tag>{row.label}</Tag>,
+      search: false,
+    },
+    actions: {
+      render: (_, row) => [<a key="edit">Edit</a>],
+      search: false,
+    },
+    status: {
+      title: 'Status',
+      valueType: 'select',
+      valueEnum: { open: { text: 'Open' }, closed: { text: 'Closed' } },
+    },
+  }}
+/>
+
+// ✅ New version
+<ProList
+  columns={[
+    { title: 'Name', dataIndex: 'name', listSlot: 'title' },
+    { dataIndex: 'avatar', listSlot: 'avatar', search: false },
+    { dataIndex: 'desc', listSlot: 'description', search: false },
+    {
+      dataIndex: 'labels',
+      listSlot: 'subTitle',
+      render: (_, row) => <Tag>{row.label}</Tag>,
+      search: false,
+    },
+    {
+      listSlot: 'actions',
+      render: (_, row) => [<a key="edit">Edit</a>],
+      search: false,
+    },
+    {
+      title: 'Status',
+      dataIndex: 'status',
+      valueType: 'select',
+      valueEnum: { open: { text: 'Open' }, closed: { text: 'Closed' } },
+    },
+  ]}
+/>
+```
+
+Migration reference:
+
+| metas syntax                         | columns syntax                                   |
+| ------------------------------------ | ------------------------------------------------ |
+| `title: { dataIndex: 'name' }`       | `{ dataIndex: 'name', listSlot: 'title' }`       |
+| `avatar: { dataIndex: 'img' }`       | `{ dataIndex: 'img', listSlot: 'avatar' }`       |
+| `description: { dataIndex: 'desc' }` | `{ dataIndex: 'desc', listSlot: 'description' }` |
+| `subTitle: { render: ... }`          | `{ listSlot: 'subTitle', render: ... }`          |
+| `content: {}`                        | `{ dataIndex: 'content', listSlot: 'content' }`  |
+| `extra: { render: ... }`             | `{ listSlot: 'aside', render: ... }`             |
+| `type: {}`                           | `{ dataIndex: 'type', listSlot: 'type' }`        |
+
+> **Tip**: metas keys without a corresponding `listSlot` (e.g. `status`) use the key name as `dataIndex`. When migrating, you need to explicitly add `dataIndex`. After migration, the same `columns` can be directly passed to `ProTable`, enabling one-click switching between list and table views. See [ProList documentation](/en-US/components/list).
+
 ### Compatibility Related
 
 #### 1. Remove antd@4 Compatibility Code
@@ -492,6 +601,8 @@ pnpm exec rg "fixHeader" src
 pnpm exec rg "tip[\"']" src
 pnpm exec rg "ProCard\.TabPane" src
 pnpm exec rg "rightContentRender" src
+pnpm exec rg "plain" src
+pnpm exec rg "metas" src
 ```
 
 > In Windows PowerShell, you can use `Select-String -Path "src/**/*.tsx" -Pattern "columnsStateMap"` to achieve a similar effect.
@@ -513,6 +624,14 @@ pnpm exec rg "rightContentRender" src
    - Update `rightContentRender` to `actionsRender` + `avatarProps`
    - Update layout token property names
    - Check if custom header components rely on the old `rightContentRender` container
+
+4. **Migrate List components**
+   - Convert the `metas` object to a `columns` array
+   - Convert each meta key to a `listSlot` property
+
+5. **Migrate Field / ProFormField components**
+   - Remove all `plain` or `plain={true}` props
+   - Replace with `fieldProps.variant: 'borderless'` or `variant: 'outlined'` as needed
 
 Migrating from data-intensive components to layout components helps ensure data display is correct before dealing with visual differences.
 

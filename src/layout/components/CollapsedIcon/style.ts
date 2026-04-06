@@ -1,4 +1,4 @@
-﻿import type { GenerateStyle, ProAliasToken } from '../../../provider';
+import type { GenerateStyle, ProAliasToken } from '../../../provider';
 import { useStyle as useAntdStyle } from '../../../provider';
 
 export interface SiderMenuToken extends ProAliasToken {
@@ -8,6 +8,7 @@ export interface SiderMenuToken extends ProAliasToken {
 const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
   return {
     [token.componentCls]: {
+      boxSizing: 'border-box',
       position: 'absolute',
       insetBlockStart: '18px',
       zIndex: '101',

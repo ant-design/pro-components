@@ -1,8 +1,9 @@
-﻿import { LoadingOutlined } from '@ant-design/icons';
+import { LoadingOutlined } from '@ant-design/icons';
 import type { NamePath } from '@rc-component/form/es/interface';
 import { get } from '@rc-component/util';
 import type { FormItemProps, PopoverProps } from 'antd';
 import { ConfigProvider, Form, Popover, theme } from 'antd';
+import { clsx } from 'clsx';
 import React, { useContext, useEffect, useState } from 'react';
 import { useStyle } from './style';
 
@@ -26,14 +27,20 @@ const FIX_INLINE_STYLE = {
 };
 
 const InlineErrorFormItemPopover: React.FC<{
-  inputProps: any;
-  input: JSX.Element;
-  errorList: JSX.Element;
-  extra: JSX.Element;
+  inputProps: FormItemProps & {
+    errors?: React.ReactNode[];
+    warnings?: React.ReactNode[];
+  };
+  input: React.JSX.Element;
+  errorList: React.JSX.Element;
+  extra: React.JSX.Element;
   popoverProps?: PopoverProps;
 }> = ({ inputProps, input, extra, errorList, popoverProps }) => {
   const [open, setOpen] = useState<boolean | undefined>(false);
-  const [errorStringList, setErrorList] = useState<string[]>([]);
+  const [messages, setMessages] = useState<{
+    errors: React.ReactNode[];
+    warnings: React.ReactNode[];
+  }>({ errors: [], warnings: [] });
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls();
 
@@ -41,16 +48,42 @@ const InlineErrorFormItemPopover: React.FC<{
   const { wrapSSR, hashId } = useStyle(`${prefixCls}-form-item-with-help`);
   useEffect(() => {
     if (inputProps.validateStatus !== 'validating') {
-      setErrorList(inputProps.errors);
+      setMessages({
+        errors: inputProps.errors ?? [],
+        warnings: inputProps.warnings ?? [],
+      });
     }
-  }, [inputProps.errors, inputProps.validateStatus]);
+  }, [inputProps.errors, inputProps.warnings, inputProps.validateStatus]);
 
   const loading = inputProps.validateStatus === 'validating';
+  const hasMessages =
+    (messages.errors?.length ?? 0) + (messages.warnings?.length ?? 0) >= 1;
+
+  const renderMessageContent = () => (
+    <>
+      {messages.errors?.map((error, index) => (
+        <div
+          key={`error-${index}`}
+          className={clsx(`${prefixCls}-form-item-explain-error`, hashId)}
+        >
+          {error}
+        </div>
+      ))}
+      {messages.warnings?.map((warning, index) => (
+        <div
+          key={`warning-${index}`}
+          className={clsx(`${prefixCls}-form-item-explain-warning`, hashId)}
+        >
+          {warning}
+        </div>
+      ))}
+    </>
+  );
 
   return (
     <Popover
       key="popover"
-      open={errorStringList.length < 1 ? false : open}
+      open={!hasMessages ? false : open}
       onOpenChange={(changeOpen: boolean) => {
         if (changeOpen === open) return;
         setOpen(changeOpen);
@@ -61,17 +94,21 @@ const InlineErrorFormItemPopover: React.FC<{
       getTooltipContainer={popoverProps?.getTooltipContainer}
       content={wrapSSR(
         <div
-          className={`${prefixCls}-form-item ${hashId} ${token.hashId}`.trim()}
+          className={clsx(`${prefixCls}-form-item`, hashId, token.hashId)}
           style={{
             margin: 0,
             padding: 0,
           }}
         >
           <div
-            className={`${prefixCls}-form-item-with-help ${hashId} ${token.hashId}`.trim()}
+            className={clsx(
+              `${prefixCls}-form-item-with-help`,
+              hashId,
+              token.hashId,
+            )}
           >
             {loading ? <LoadingOutlined /> : null}
-            {errorList}
+            {hasMessages ? renderMessageContent() : errorList}
           </div>
         </div>,
       )}
@@ -108,7 +145,7 @@ const InternalFormItemFunction: React.FC<InternalProps & FormItemProps> = ({
             JSON.stringify(get(prev, shouldName)) !==
             JSON.stringify(get(next, shouldName))
           );
-        } catch (error) {
+        } catch (_error) {
           return true;
         }
       }}
@@ -120,9 +157,9 @@ const InternalFormItemFunction: React.FC<InternalProps & FormItemProps> = ({
             errors: any[];
           },
           doms: {
-            input: JSX.Element;
-            errorList: JSX.Element;
-            extra: JSX.Element;
+            input: React.JSX.Element;
+            errorList: React.JSX.Element;
+            extra: React.JSX.Element;
           },
         ) => (
           <InlineErrorFormItemPopover
@@ -174,7 +211,7 @@ export const InlineErrorFormItem = (props: InlineErrorFormItemProps) => {
                   JSON.stringify(get(prev, shouldName)) !==
                   JSON.stringify(get(next, shouldName))
                 );
-              } catch (error) {
+              } catch (_error) {
                 return true;
               }
             }

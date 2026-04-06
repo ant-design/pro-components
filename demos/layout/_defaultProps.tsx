@@ -132,8 +132,8 @@ export default {
     },
     {
       icon: 'https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg',
-      title: '语雀',
-      desc: '知识创作与分享工具',
+      title: '知识库',
+      desc: '团队知识创作与分享工具',
       url: 'https://www.yuque.com/',
     },
     {

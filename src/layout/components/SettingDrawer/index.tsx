@@ -4,7 +4,7 @@ import {
   NotificationOutlined,
   SettingOutlined,
 } from '@ant-design/icons';
-import { omit, useMergedState } from '@rc-component/util';
+import { omit, useControlledState } from '@rc-component/util';
 import { useUrlSearchParams } from '@umijs/use-params';
 import {
   Alert,
@@ -16,8 +16,9 @@ import {
   Switch,
   message,
 } from 'antd';
-import React, { useEffect, useRef, useState } from 'react';
-import { isBrowser, merge } from '../../../utils';
+import { clsx } from 'clsx';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { isBrowser, merge, useRefFunction } from '../../../utils';
 import type { ProSettings } from '../../defaultSettings';
 import { defaultSettings } from '../../defaultSettings';
 import { gLocaleObject, getLanguage } from '../../locales';
@@ -44,7 +45,7 @@ type MergerSettingsType<T> = Partial<T> & {
 
 const Body: React.FC<BodyProps> = ({ children, hashId, prefixCls, title }) => (
   <div style={{ marginBlockEnd: 12 }}>
-    <h3 className={`${prefixCls}-body-title ${hashId}`.trim()}>{title}</h3>
+    <h3 className={clsx(`${prefixCls}-body-title`, hashId)}>{title}</h3>
     {children}
   </div>
 );
@@ -217,10 +218,34 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   } = props;
   const firstRender = useRef<boolean>(true);
 
-  const [open, setOpen] = useMergedState(false, {
-    value: props.collapse,
-    onChange: props.onCollapseChange,
+  const [open, setOpenInner] = useControlledState(false, props.collapse);
+
+  /**
+   * 使用 useRefFunction 包装回调，确保引用稳定
+   */
+  const onCollapseChangeCallback = useRefFunction((o: boolean) => {
+    props.onCollapseChange?.(o);
   });
+
+  /**
+   * 使用 queueMicrotask 延迟回调调用，避免在渲染阶段调用外部回调导致的 React 警告
+   * "Cannot update a component while rendering a different component"
+   */
+  const setOpen = useCallback(
+    (updater: boolean | ((prev: boolean) => boolean)) => {
+      setOpenInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: boolean) => boolean)(prev)
+            : updater;
+        queueMicrotask(() => {
+          onCollapseChangeCallback(next);
+        });
+        return next;
+      });
+    },
+    [onCollapseChangeCallback],
+  );
 
   const [language, setLanguage] = useState<string>(getLanguage());
   const [urlParams, setUrlParams] = useUrlSearchParams(
@@ -230,12 +255,46 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     },
   );
 
-  const [settingState, setSettingState] = useMergedState<Partial<ProSettings>>(
+  const [settingState, setSettingStateInner] = useControlledState<
+    Partial<ProSettings>
+  >(
     () => getParamsFromUrl(urlParams, propsSettings || propsDefaultSettings),
-    {
-      value: propsSettings,
-      onChange: onSettingChange,
+    propsSettings,
+  );
+
+  /**
+   * 使用 useRefFunction 包装回调，确保引用稳定
+   */
+  const onSettingChangeCallback = useRefFunction(
+    (settings: Partial<ProSettings>) => {
+      onSettingChange?.(settings);
     },
+  );
+
+  /**
+   * 使用 queueMicrotask 延迟回调调用，避免在渲染阶段调用外部回调导致的 React 警告
+   * "Cannot update a component while rendering a different component"
+   */
+  const setSettingState = useCallback(
+    (
+      updater:
+        | Partial<ProSettings>
+        | ((prev: Partial<ProSettings>) => Partial<ProSettings>),
+    ) => {
+      setSettingStateInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: Partial<ProSettings>) => Partial<ProSettings>)(
+                prev,
+              )
+            : updater;
+        queueMicrotask(() => {
+          onSettingChangeCallback(next);
+        });
+        return next;
+      });
+    },
+    [onSettingChangeCallback],
   );
 
   const { navTheme, colorPrimary, siderMenuType, layout, colorWeak } =
@@ -262,7 +321,6 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
 
     return () =>
       window.document.removeEventListener('languagechange', onLanguageChange);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   /**
@@ -337,7 +395,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   return wrapSSR(
     <>
       <div
-        className={`${baseClassName}-handle ${hashId}`.trim()}
+        className={clsx(`${baseClassName}-handle`, hashId)}
         onClick={() => setOpen(!open)}
         style={{
           width: 48,
@@ -372,7 +430,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
         }}
         {...drawerProps}
       >
-        <div className={`${baseClassName}-drawer-content ${hashId}`.trim()}>
+        <div className={clsx(`${baseClassName}-drawer-content`, hashId)}>
           <Body
             title={formatMessage({
               id: 'app.setting.pagestyle',
@@ -522,7 +580,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
                 title={formatMessage({ id: 'app.setting.othersettings' })}
               >
                 <List
-                  className={`${baseClassName}-list ${hashId}`.trim()}
+                  className={clsx(`${baseClassName}-list`, hashId)}
                   split={false}
                   size="small"
                   renderItem={renderLayoutSettingItem}

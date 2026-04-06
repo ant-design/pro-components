@@ -1,4 +1,4 @@
-﻿import { ProFormSelect } from '@ant-design/pro-components';
+import { ProForm, ProFormSelect } from '@ant-design/pro-components';
 import { useState } from 'react';
 
 export function App() {
@@ -33,47 +33,49 @@ export function App() {
 
   return (
     <div>
-      <ProFormSelect
-        name="name"
-        placeholder="请输入搜索关键字"
-        allowClear
-        width={330}
-        secondary
-        options={
-          [
-            {
-              v: 'v1',
-              l: 'l1',
+      <ProForm>
+        <ProFormSelect
+          name="name"
+          placeholder="请输入搜索关键字"
+          allowClear
+          width={330}
+          secondary
+          options={
+            [
+              {
+                v: 'v1',
+                l: 'l1',
+              },
+              {
+                v: 'v2',
+                l: 'l3',
+              },
+              {
+                v: 'v4',
+                l: 'l5',
+              },
+            ] as any
+          }
+          fieldProps={{
+            fieldNames: {
+              value: 'v',
+              label: 'l',
+              options: 'options',
             },
-            {
-              v: 'v2',
-              l: 'l3',
-            },
-            {
-              v: 'v4',
-              l: 'l5',
-            },
-          ] as any
-        }
-        fieldProps={{
-          fieldNames: {
-            value: 'v',
-            label: 'l',
-            options: 'options',
-          },
-          suffixIcon: null,
-          showSearch: true, // 使单选模式可搜索
-          popupMatchSelectWidth: false,
-          optionFilterProp: 'label', // 搜索时过滤对应的 option 属性
-          optionLabelProp: 'label', // 回填到选择框的 Option 的属性值
-          searchValue,
-          open: selectOpen,
-          onBlur: () => onBlur(),
-          onFocus: () => onFocus(),
-          onSearch: (val) => onSearch(val),
-          onSelect: () => onSelect(),
-        }}
-      />
+            suffixIcon: null,
+            showSearch: true, // 使单选模式可搜索
+            popupMatchSelectWidth: false,
+            optionFilterProp: 'label', // 搜索时过滤对应的 option 属性
+            optionLabelProp: 'label', // 回填到选择框的 Option 的属性值
+            searchValue,
+            open: selectOpen,
+            onBlur: () => onBlur(),
+            onFocus: () => onFocus(),
+            onSearch: (val) => onSearch(val),
+            onSelect: () => onSelect(),
+          }}
+        />
+      </ProForm>
       <div className="keys">
         <b>常用关键字：</b>
         {['l', 'c', 'a'].map((item) => {

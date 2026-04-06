@@ -1,7 +1,7 @@
 import type { Theme } from '@ant-design/cssinjs';
 import { useCacheToken } from '@ant-design/cssinjs';
 import { ConfigProvider as AntdConfigProvider, theme as antdTheme } from 'antd';
-import zh_CN from 'antd/lib/locale/zh_CN';
+import zh_CN from 'antd/es/locale/zh_CN';
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 import React, { useContext, useEffect, useMemo } from 'react';
@@ -101,10 +101,6 @@ export type BaseProFieldFC = {
    * @option edit 渲染编辑模式
    * */
   mode?: ProFieldFCMode;
-  /**
-   * 简约模式
-   */
-  plain?: boolean;
   /** 轻量模式 */
   light?: boolean;
   /** Label */
@@ -137,8 +133,8 @@ export type ProRenderFieldPropsType = {
     | ((
         text: any,
         props: Omit<ProFieldFCRenderProps, 'value' | 'onChange'>,
-        dom: JSX.Element,
-      ) => JSX.Element)
+        dom: React.JSX.Element,
+      ) => React.JSX.Element)
     | undefined;
   /**
    * 一个自定义的编辑渲染器。
@@ -151,8 +147,8 @@ export type ProRenderFieldPropsType = {
     | ((
         text: any,
         props: ProFieldFCRenderProps,
-        dom: JSX.Element,
-      ) => JSX.Element)
+        dom: React.JSX.Element,
+      ) => React.JSX.Element)
     | undefined;
 };
 
@@ -205,7 +201,6 @@ const CacheClean = () => {
       // @ts-ignore
       cache.clear();
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return null;
 };
@@ -376,8 +371,6 @@ const ConfigProviderContainer: React.FC<{
         </ProConfigContext.Provider>
       </AntdConfigProvider>
     );
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     restConfig,
     themeConfig,

@@ -1,5 +1,45 @@
 # Changelog
 
+## [3.1.2-0] - 2026-01-27
+
+### 🐛 Bug Fixes
+
+- useEditableArray
+  - 🐞 Fix type error in `onChange` callback by using type guard to ensure correct array type after filtering
+
+---
+
+## [3.1.1-1] - 2026-01-27
+
+### 📚 Documentation
+
+- 📚 Add Guidelines documentation, including component usage guides, design tokens, and best practices
+  - 📚 Add component usage guides: ProTable, ProForm, ProLayout, ProCard, ModalForm, DrawerForm, StepsForm, EditableProTable
+  - 📚 Add design token documentation: colors, layout, typography
+  - 📚 Add component overview and icon usage guides
+
+---
+
+## [3.1.1-0] - 2026-01-27
+
+### 🐛 Bug Fixes
+
+- ProTable
+  - 🐞 Fix using `getFieldsFormatValue` in `resetAll` to support value transformation [#9403]
+  - 🐞 Fix table component infinite loop issue [#9406]
+
+### 🛠 Refactoring
+
+- Core
+  - 🛠 Replace `useMergedState` with `useControlledState` for improved state management
+- ProTable
+  - 🛠 Enhance column configuration and context management
+- Dependencies
+  - 🛠 Replace `classnames` with `clsx` for improved performance [#9405]
+  - 🛠 Remove unused dependencies [#9402]
+
+---
+
 ## [3.1.0-0] - 2025-12-25
 
 ### 🚀 New Features

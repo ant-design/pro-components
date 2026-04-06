@@ -133,7 +133,6 @@ const DescriptionsItemSkeleton: React.FC<{
     >
       {new Array(arraySize).fill(null).map((_, index) => (
         <div
-          // eslint-disable-next-line react/no-array-index-key
           key={index}
           style={{
             flex: 1,
@@ -208,7 +207,6 @@ export const TableItemSkeleton = ({
       >
         {new Array(arraySize).fill(null).map((_, index) => (
           <div
-            // eslint-disable-next-line react/no-array-index-key
             key={index}
             style={{
               flex: 1,
@@ -266,7 +264,6 @@ export const TableSkeleton: React.FC<{
     />
     <TableItemSkeleton header active={active} />
     {new Array(size).fill(null).map((_, index) => (
-      // eslint-disable-next-line react/no-array-index-key
       <TableItemSkeleton key={index} active={active} />
     ))}
     <div

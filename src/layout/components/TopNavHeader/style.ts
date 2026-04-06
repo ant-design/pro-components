@@ -1,4 +1,4 @@
-﻿import type { GenerateStyle, ProAliasToken } from '../../../provider';
+import type { GenerateStyle, ProAliasToken } from '../../../provider';
 import { useStyle as useAntdStyle } from '../../../provider';
 
 export interface TopNavHeaderToken extends ProAliasToken {
@@ -8,6 +8,7 @@ export interface TopNavHeaderToken extends ProAliasToken {
 const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken> = (token) => {
   return {
     [token.componentCls]: {
+      boxSizing: 'border-box',
       position: 'relative',
       width: '100%',
       height: '100%',

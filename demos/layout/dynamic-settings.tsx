@@ -1,4 +1,4 @@
-﻿import { LikeOutlined, UserOutlined } from '@ant-design/icons';
+import { LikeOutlined, UserOutlined } from '@ant-design/icons';
 import type { ProSettings } from '@ant-design/pro-components';
 import {
   PageContainer,
@@ -12,7 +12,7 @@ import { demoOnMenuHeaderClick } from './_demoHandlers';
 
 const content = (
   <Descriptions size="small" column={2}>
-    <Descriptions.Item label="创建人">张三</Descriptions.Item>
+    <Descriptions.Item label="创建人">书琰</Descriptions.Item>
     <Descriptions.Item label="联系方式">
       <a>421421</a>
     </Descriptions.Item>

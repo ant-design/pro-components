@@ -16,9 +16,8 @@ const Demo = () => {
       }}
     >
       <ProForm
-        onFinish={async () => {
-          message.success('提交成功');
-        }}
+        name="list-arrowsort-demo"
+        onFinish={async (e) => console.log(e)}
       >
         <ProFormText name="name" label="姓名" />
 

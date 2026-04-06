@@ -1,14 +1,14 @@
 import { RightOutlined } from '@ant-design/icons';
-import { omit, useMergedState } from '@rc-component/util';
+import { omit, useControlledState } from '@rc-component/util';
 import { ConfigProvider, Grid, Tabs } from 'antd';
-import classNames from 'classnames';
-import React, { useContext } from 'react';
-import { LabelIconTip } from '../../../utils';
+import { clsx } from 'clsx';
+import React, { useCallback, useContext } from 'react';
+import { LabelIconTip, useRefFunction } from '../../../utils';
 import type { Breakpoint, CardProps, Gutter } from '../../typing';
 import Actions from '../Actions';
 import Loading from '../Loading';
-
 import useStyle from './style';
+
 const { useBreakpoint } = Grid;
 
 type ProCardChildType = React.ReactElement<CardProps, any>;
@@ -16,9 +16,8 @@ type ProCardChildType = React.ReactElement<CardProps, any>;
 const Card = React.forwardRef((props: CardProps, ref: any) => {
   const {
     className,
+    rootClassName,
     style,
-    bodyStyle,
-    headStyle,
     styles,
     title,
     subTitle,
@@ -30,7 +29,9 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     tooltip,
     split,
     headerBordered = false,
-    variant = 'outlined',
+    variant: customVariant,
+    cover,
+    classNames,
     boxShadow = false,
     children,
     size,
@@ -50,6 +51,18 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     type,
     ...rest
   } = props;
+
+  const variant = customVariant ?? 'outlined';
+
+  const mergedStyles = {
+    header: styles?.header,
+    body: styles?.body,
+    root: styles?.root,
+    extra: styles?.extra,
+    title: styles?.title,
+    actions: styles?.actions,
+    cover: styles?.cover,
+  };
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
   const screens = useBreakpoint() || {
@@ -61,10 +74,37 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     xxl: false,
   };
 
-  const [collapsed, setCollapsed] = useMergedState<boolean>(defaultCollapsed, {
-    value: controlCollapsed,
-    onChange: onCollapse,
+  const [collapsed, setCollapsedInner] = useControlledState<boolean>(
+    defaultCollapsed,
+    controlCollapsed,
+  );
+
+  /**
+   * 使用 useRefFunction 包装回调，确保引用稳定
+   */
+  const onCollapseCallback = useRefFunction((c: boolean) => {
+    onCollapse?.(c);
   });
+
+  /**
+   * 使用 queueMicrotask 延迟回调调用，避免在渲染阶段调用外部回调导致的 React 警告
+   * "Cannot update a component while rendering a different component"
+   */
+  const setCollapsed = useCallback(
+    (updater: boolean | ((prev: boolean) => boolean)) => {
+      setCollapsedInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: boolean) => boolean)(prev)
+            : updater;
+        queueMicrotask(() => {
+          onCollapseCallback(next);
+        });
+        return next;
+      });
+    },
+    [onCollapseCallback],
+  );
 
   // 顺序决定如何进行响应式取值，按最大响应值依次取值，请勿修改。
   const responsiveArray: Breakpoint[] = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
@@ -148,7 +188,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       const { colSpan } = element.props;
       const { span, colSpanStyle } = getColSpanStyle(colSpan);
 
-      const columnClassName = classNames([`${prefixCls}-col`], hashId, {
+      const columnClassName = clsx([`${prefixCls}-col`], hashId, {
         [`${prefixCls}-split-vertical`]:
           split === 'vertical' && index !== childrenArray.length - 1,
         [`${prefixCls}-split-horizontal`]:
@@ -183,30 +223,35 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     return element;
   });
 
-  const cardCls = classNames(`${prefixCls}`, className, hashId, {
-    [`${prefixCls}-border`]: variant === 'outlined',
-    [`${prefixCls}-box-shadow`]: boxShadow,
-    [`${prefixCls}-contain-card`]: containProCard,
-    [`${prefixCls}-loading`]: loading,
-    [`${prefixCls}-split`]: split === 'vertical' || split === 'horizontal',
-    [`${prefixCls}-ghost`]: ghost,
-    [`${prefixCls}-hoverable`]: hoverable,
-    [`${prefixCls}-size-${size}`]: size,
-    [`${prefixCls}-type-${type}`]: type,
-    [`${prefixCls}-collapse`]: collapsed,
-    [`${prefixCls}-checked`]: checked,
-  });
+  const cardCls = clsx(
+    `${prefixCls}`,
+    className,
+    rootClassName,
+    hashId,
+    classNames?.root,
+    {
+      [`${prefixCls}-border`]: variant === 'outlined',
+      [`${prefixCls}-box-shadow`]: boxShadow,
+      [`${prefixCls}-contain-card`]: containProCard,
+      [`${prefixCls}-loading`]: loading,
+      [`${prefixCls}-split`]: split === 'vertical' || split === 'horizontal',
+      [`${prefixCls}-ghost`]: ghost,
+      [`${prefixCls}-hoverable`]: hoverable,
+      [`${prefixCls}-size-${size}`]: size,
+      [`${prefixCls}-type-${type}`]: type,
+      [`${prefixCls}-collapse`]: collapsed,
+      [`${prefixCls}-checked`]: checked,
+    },
+  );
 
-  const bodyCls = classNames(`${prefixCls}-body`, hashId, {
+  const bodyCls = clsx(`${prefixCls}-body`, hashId, classNames?.body, {
     [`${prefixCls}-body-center`]: layout === 'center',
     [`${prefixCls}-body-direction-column`]:
       split === 'horizontal' || direction === 'column',
     [`${prefixCls}-body-wrap`]: wrap && containProCard,
   });
 
-  // 支持新的 styles API，同时保持向后兼容
-  const cardBodyStyle = styles?.body || bodyStyle;
-  const cardHeadStyle = styles?.header || headStyle;
+  const bodyStylePadding = mergedStyles.body?.padding;
 
   const loadingDOM = React.isValidElement(loading) ? (
     loading
@@ -214,32 +259,64 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     <Loading
       prefix={prefixCls}
       style={
-        cardBodyStyle?.padding === 0 || cardBodyStyle?.padding === '0px'
+        bodyStylePadding === 0 || bodyStylePadding === '0px'
           ? { padding: 24 }
           : undefined
       }
     />
   );
-  // 非受控情况下展示
+  const handleCollapsibleIconClick = useCallback(() => {
+    if (collapsible === 'icon') setCollapsed((prev) => !prev);
+  }, [collapsible, setCollapsed]);
+
   const collapsibleButton =
     collapsible &&
-    controlCollapsed === undefined &&
     (collapsibleIconRender ? (
-      collapsibleIconRender({ collapsed })
+      <span
+        role="button"
+        tabIndex={collapsible === 'icon' ? 0 : undefined}
+        className={clsx(`${prefixCls}-collapsible-icon`, hashId)}
+        onClick={collapsible === 'icon' ? handleCollapsibleIconClick : undefined}
+        onKeyDown={
+          collapsible === 'icon'
+            ? (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  handleCollapsibleIconClick();
+                }
+              }
+            : undefined
+        }
+      >
+        {collapsibleIconRender({ collapsed })}
+      </span>
     ) : (
       <RightOutlined
-        onClick={() => {
-          if (collapsible === 'icon') setCollapsed(!collapsed);
-        }}
+        onClick={handleCollapsibleIconClick}
         rotate={!collapsed ? 90 : undefined}
-        className={`${prefixCls}-collapsible-icon ${hashId}`.trim()}
+        className={clsx(`${prefixCls}-collapsible-icon`, hashId)}
       />
     ));
+
+  const headerCls = clsx(
+    `${prefixCls}-header`,
+    hashId,
+    classNames?.header,
+    {
+      [`${prefixCls}-header-border`]: headerBordered || type === 'inner',
+      [`${prefixCls}-header-collapsible`]: collapsibleButton,
+    },
+  );
+
+  const titleCls = clsx(`${prefixCls}-title`, hashId, classNames?.title);
+  const extraCls = clsx(`${prefixCls}-extra`, hashId, classNames?.extra);
+
+  const rootStyle = { ...mergedStyles.root, ...style };
 
   return wrapSSR(
     <div
       className={cardCls}
-      style={style}
+      style={rootStyle}
       ref={ref}
       onClick={(e) => {
         onChecked?.(e);
@@ -249,23 +326,21 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     >
       {(title || extra || collapsibleButton) && (
         <div
-          className={classNames(`${prefixCls}-header`, hashId, {
-            [`${prefixCls}-header-border`]: headerBordered || type === 'inner',
-            [`${prefixCls}-header-collapsible`]: collapsibleButton,
-          })}
-          style={cardHeadStyle}
+          className={headerCls}
+          style={mergedStyles.header}
           onClick={() => {
             if (collapsible === 'header' || collapsible === true)
               setCollapsed(!collapsed);
           }}
         >
-          <div className={`${prefixCls}-title ${hashId}`.trim()}>
+          <div className={titleCls} style={mergedStyles.title}>
             {collapsibleButton}
             <LabelIconTip label={title} tooltip={tooltip} subTitle={subTitle} />
           </div>
           {extra && (
             <div
-              className={`${prefixCls}-extra ${hashId}`.trim()}
+              className={extraCls}
+              style={mergedStyles.extra}
               onClick={(e) => e.stopPropagation()}
             >
               {extra}
@@ -273,23 +348,32 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
           )}
         </div>
       )}
+      {cover && !collapsed && (
+        <div
+          className={clsx(`${prefixCls}-cover`, hashId, classNames?.cover)}
+          style={mergedStyles.cover}
+        >
+          {cover}
+        </div>
+      )}
       {tabs ? (
-        <div className={`${prefixCls}-tabs ${hashId}`.trim()}>
+        <div className={clsx(`${prefixCls}-tabs`, hashId)}>
           <Tabs
             onChange={tabs.onChange}
             {...omit(tabs, ['cardProps'])}
-            // @ts-ignore
             items={ModifyTabItemsContent}
           >
             {loading ? loadingDOM : children}
           </Tabs>
         </div>
       ) : (
-        <div className={bodyCls} style={cardBodyStyle}>
+        <div className={bodyCls} style={mergedStyles.body}>
           {loading ? loadingDOM : childrenModified}
         </div>
       )}
-      {actions ? <Actions actions={actions} prefixCls={prefixCls} /> : null}
+      {actions ? (
+        <Actions actions={actions} prefixCls={prefixCls} />
+      ) : null}
     </div>,
   );
 });

@@ -13,6 +13,7 @@ import {
   ProFormSlider,
   ProFormSwitch,
   ProFormText,
+  ProFormTreeSelect,
   ProFormUploadButton,
   ProFormUploadDragger,
 } from '@ant-design/pro-components';
@@ -47,10 +48,10 @@ const Demo = () => {
       />
       <ProForm
         readonly={readonly}
-        name="validate_other"
+        name="field-set-components-other-demo"
         initialValues={{
-          name: 'qixian',
-          password: '1ixian',
+          name: 'demo_user',
+          password: 'demo123',
           select: 'china',
           select2: '520000201604258831',
           useMode: { label: 'Unresolved', value: 'open', key: 'open' },
@@ -66,6 +67,12 @@ const Demo = () => {
           rate: 3.5,
           segmented: 'open',
           segmented2: 'open',
+          treeSelect: [
+            {
+              title: 'Child Node3',
+              value: '0-1-0',
+            },
+          ],
         }}
         onFinish={async () => {
           message.success('Submitted');
@@ -198,6 +205,63 @@ const Demo = () => {
               changeOnSelect: true,
             }}
             name="area"
+          />
+          <ProFormTreeSelect
+            name="treeSelect"
+            label={'TreeSelect Request'}
+            placeholder="Please tree select"
+            allowClear
+            width={330}
+            secondary
+            request={async () => {
+              return [
+                {
+                  title: 'Node1',
+                  value: '0-0',
+                  children: [
+                    {
+                      title: 'Child Node1',
+                      value: '0-0-0',
+                    },
+                  ],
+                },
+                {
+                  title: 'Node2',
+                  value: '0-1',
+                  children: [
+                    {
+                      title: 'Child Node3',
+                      value: '0-1-0',
+                    },
+                    {
+                      title: 'Child Node4',
+                      value: '0-1-1',
+                    },
+                    {
+                      title: 'Child Node5',
+                      value: '0-1-2',
+                    },
+                  ],
+                },
+              ];
+            }}
+            fieldProps={{
+              suffixIcon: null,
+              showSearch: {
+                autoClearSearchValue: true,
+                filterTreeNode: true,
+                treeNodeFilterProp: 'title',
+                onSearch: (value) => {
+                  console.log('onSearch', value);
+                },
+              },
+              popupMatchSelectWidth: false,
+              labelInValue: true,
+              multiple: true,
+              fieldNames: {
+                label: 'title',
+              },
+            }}
           />
 
           <ProFormRadio.Group

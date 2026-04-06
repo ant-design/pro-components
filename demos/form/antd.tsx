@@ -78,7 +78,7 @@ const App: React.FC = () => {
 
   return (
     <Form
-      name="customized_form_controls"
+      name="customized_form_controls_antd"
       layout="inline"
       onFinish={onFinish}
       initialValues={{

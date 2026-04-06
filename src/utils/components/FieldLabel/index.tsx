@@ -1,7 +1,7 @@
 import { CloseCircleFilled, DownOutlined } from '@ant-design/icons';
 import { ConfigProvider } from 'antd';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, { useContext, useImperativeHandle, useRef } from 'react';
 import { useIntl } from '../../../provider';
 import { useStyle } from './style';
@@ -51,7 +51,6 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
   const { componentSize } = ConfigProvider?.useConfig?.() || {
     componentSize: 'middle',
   };
-  const size = componentSize;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-core-field-label');
   const { wrapSSR, hashId } = useStyle(prefixCls);
@@ -65,8 +64,8 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
   }));
 
   const wrapElements = (
-    array: (string | JSX.Element)[],
-  ): JSX.Element[] | string => {
+    array: (string | React.JSX.Element)[],
+  ): React.JSX.Element[] | string => {
     if (array.every((item) => typeof item === 'string')) return array.join(',');
 
     return array.map((item, index) => {
@@ -110,7 +109,7 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
           onClick={() => {
             onLabelClick?.();
           }}
-          className={`${prefixCls}-text`}
+          className={clsx(`${prefixCls}-text`, hashId)}
         >
           {aLabel}
           {': '}
@@ -166,17 +165,20 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
     }
     return aLabel || placeholder;
   };
+
   return wrapSSR(
     <span
-      className={classNames(
+      className={clsx(
         prefixCls,
         hashId,
-        `${prefixCls}-${props.size ?? size ?? 'middle'}`,
+        `${prefixCls}-${props.size ?? componentSize ?? 'middle'}`,
         {
+          [`${prefixCls}-${variant || 'borderless'}-active`]:
+            (Array.isArray(value) ? value.length > 0 : !!value) || value === 0,
           [`${prefixCls}-active`]:
             (Array.isArray(value) ? value.length > 0 : !!value) || value === 0,
           [`${prefixCls}-disabled`]: disabled,
-          [`${prefixCls}-bordered`]: variant !== 'borderless',
+          [`${prefixCls}-${variant}`]: variant,
           [`${prefixCls}-allow-clear`]: allowClear,
         },
         className,
@@ -192,11 +194,7 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
         <CloseCircleFilled
           role="button"
           title={intl.getMessage('form.lightFilter.clear', '清除')}
-          className={classNames(
-            `${prefixCls}-icon`,
-            hashId,
-            `${prefixCls}-close`,
-          )}
+          className={clsx(`${prefixCls}-icon`, hashId, `${prefixCls}-close`)}
           onClick={(e) => {
             if (!disabled) onClear?.();
             e.stopPropagation();
@@ -207,7 +205,7 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
       {downIcon !== false
         ? (downIcon ?? (
             <DownOutlined
-              className={classNames(
+              className={clsx(
                 `${prefixCls}-icon`,
                 hashId,
                 `${prefixCls}-arrow`,

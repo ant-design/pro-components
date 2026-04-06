@@ -1,7 +1,8 @@
 import { HolderOutlined } from '@ant-design/icons';
-import { useMergedState } from '@rc-component/util';
+import { useControlledState } from '@rc-component/util';
 import { ConfigProvider } from 'antd';
-import React, { useContext, useMemo } from 'react';
+import { clsx } from 'clsx';
+import React, { useCallback, useContext, useMemo } from 'react';
 import type { ParamsType } from '../../../provider';
 import ProTable from '../../Table';
 import type { ProTableProps } from '../../typing';
@@ -38,12 +39,25 @@ function DragSortTable<
     ...otherProps
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const [dataSource, setDataSource] = useMergedState<T[]>(
+  const [dataSource, setDataSourceInner] = useControlledState<T[]>(
     () => defaultData || [],
-    {
-      value: originDataSource as T[],
-      onChange: onDataSourceChange,
+    originDataSource as T[],
+  );
+  const setDataSource = useCallback(
+    (updater: T[] | ((prev: T[]) => T[])) => {
+      setDataSourceInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: T[]) => T[])(prev)
+            : updater;
+        // 使用 queueMicrotask 延迟回调，避免在渲染期间更新其他组件状态
+        queueMicrotask(() => {
+          onDataSourceChange?.(next);
+        });
+        return next;
+      });
     },
+    [onDataSourceChange],
   );
 
   const { wrapSSR, hashId } = useStyle(getPrefixCls('pro-table-drag'));
@@ -51,13 +65,16 @@ function DragSortTable<
   // 默认拖拽把手
   const DragHandle = useMemo(() => {
     return (dragHandleProps: any) => {
-      const { rowData, index, className, ...rest } = dragHandleProps;
+      const { rowData: _rowData, index: _index, className, ...rest } =
+        dragHandleProps;
       const defaultDom = (
         <HolderOutlined
           {...rest}
-          className={`${getPrefixCls('pro-table-drag-icon')} ${
-            className || ''
-          } ${hashId || ''}`.trim()}
+          className={clsx(
+            getPrefixCls('pro-table-drag-icon'),
+            className,
+            hashId,
+          )}
         />
       );
 

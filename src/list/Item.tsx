@@ -1,21 +1,25 @@
 import { RightOutlined } from '@ant-design/icons';
-import { useMergedState } from '@rc-component/util';
-import { ConfigProvider, List, Skeleton } from 'antd';
-import type { ListGridType } from 'antd/lib/list';
+import { useControlledState } from '@rc-component/util';
+import { ConfigProvider, Skeleton } from 'antd';
 import type { ExpandableConfig } from 'antd/lib/table/interface';
-import classNames from 'classnames';
-import React, { useContext, useMemo } from 'react';
+import { clsx } from 'clsx';
+import React, { useCallback, useContext, useMemo } from 'react';
 import type { CheckCardProps } from '../card';
 import { CheckCard } from '../card';
 import { ProProvider } from '../provider';
 import type { GetComponentProps } from './index';
+import type { ListGridType } from './ProListBase';
+import {
+  ProListItem as BaseListItem,
+  ProListItemMeta as BaseListItemMeta,
+} from './ProListBase';
 
 export type RenderExpandIconProps<RecordType> = {
   prefixCls: string;
   expanded: boolean;
   expandIcon:
     | React.ReactNode
-    | JSX.Element
+    | React.JSX.Element
     | ((props: {
         onExpand: (expanded: boolean) => void;
         expanded: boolean;
@@ -48,7 +52,7 @@ export function renderExpandIcon<RecordType>({
 
   return (
     <span
-      className={classNames(expandClassName, hashId, {
+      className={clsx(expandClassName, hashId, {
         [`${prefixCls}-row-expanded`]: expanded,
         [`${prefixCls}-row-collapsed`]: !expanded,
       })}
@@ -82,11 +86,8 @@ export type ItemProps<RecordType> = {
   grid?: ListGridType;
   expand?: boolean;
   rowSupportExpand?: boolean;
-  cardActionProps?: 'actions' | 'extra';
   onExpand?: (expand: boolean) => void;
   expandable?: ExpandableConfig<any>;
-  showActions?: 'hover' | 'always';
-  showExtra?: 'hover' | 'always';
   type?: 'new' | 'top' | 'inline' | 'subheader';
   isEditable: boolean;
   recordKey: string | number | undefined;
@@ -98,23 +99,22 @@ export type ItemProps<RecordType> = {
     | ((
         item: RecordType,
         index: number,
-        defaultDom: JSX.Element | null,
+        defaultDom: React.JSX.Element | null,
       ) => React.ReactNode)
     | false;
   itemTitleRender?:
     | ((
         item: RecordType,
         index: number,
-        defaultDom: JSX.Element | null,
+        defaultDom: React.JSX.Element | null,
       ) => React.ReactNode)
     | false;
 };
 
 function ProListItem<RecordType>(props: ItemProps<RecordType>) {
-  const { prefixCls: customizePrefixCls } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const { hashId } = useContext(ProProvider);
-  const prefixCls = getPrefixCls('pro-list', customizePrefixCls);
+  const { hashId, token } = useContext(ProProvider);
+  const prefixCls = getPrefixCls('pro-list', props.prefixCls);
   const defaultClassName = `${prefixCls}-row`;
 
   const {
@@ -122,10 +122,10 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     subTitle,
     content,
     itemTitleRender,
-    prefixCls: restPrefixCls,
+    prefixCls: _prefixCls, // eslint-disable-line @typescript-eslint/no-unused-vars
     actions,
-    item,
-    recordKey,
+    item: _item, // eslint-disable-line @typescript-eslint/no-unused-vars
+    recordKey: _recordKey, // eslint-disable-line @typescript-eslint/no-unused-vars
     avatar,
     cardProps,
     description,
@@ -138,8 +138,6 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     onExpand: propsOnExpand,
     expandable: expandableConfig,
     rowSupportExpand,
-    showActions,
-    showExtra,
     type,
     style,
     className: propsClassName = defaultClassName,
@@ -147,7 +145,6 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     onRow,
     onItem,
     itemHeaderRender,
-    cardActionProps,
     extra,
     ...rest
   } = props;
@@ -160,66 +157,51 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     expandedRowClassName,
   } = expandableConfig || {};
 
-  const [expanded, onExpand] = useMergedState<boolean>(!!propsExpand, {
-    value: propsExpand,
-    onChange: propsOnExpand,
-  });
+  const [expanded, onExpandInner] = useControlledState<boolean>(
+    !!propsExpand,
+    propsExpand,
+  );
+  const onExpand = useCallback(
+    (updater: boolean | ((prev: boolean) => boolean)) => {
+      onExpandInner((prev) => {
+        const next =
+          typeof updater === 'function'
+            ? (updater as (p: boolean) => boolean)(prev)
+            : updater;
+        propsOnExpand?.(next);
+        return next;
+      });
+    },
+    [propsOnExpand],
+  );
 
-  const className = classNames(
+  const className = clsx(
     {
       [`${defaultClassName}-selected`]: !cardProps && selected,
-      [`${defaultClassName}-show-action-hover`]: showActions === 'hover',
       [`${defaultClassName}-type-${type}`]: !!type,
       [`${defaultClassName}-editable`]: isEditable,
-      [`${defaultClassName}-show-extra-hover`]: showExtra === 'hover',
     },
     hashId,
     defaultClassName,
   );
 
-  const extraClassName = classNames(hashId, {
-    [`${propsClassName}-extra`]: showExtra === 'hover',
-  });
-
-  const needExpanded =
-    expanded || Object.values(expandableConfig || {}).length === 0;
+  const hasExpandBehavior =
+    expandableConfig != null && Object.keys(expandableConfig).length > 0;
+  const needExpanded = expanded || !hasExpandBehavior;
   const expandedRowDom =
     expandedRowRender && expandedRowRender(record, index, indentSize, expanded);
 
-  const extraDom = useMemo(() => {
-    if (!actions || cardActionProps === 'actions') {
-      return undefined;
-    }
-
-    return [
-      <div key="action" onClick={(e) => e.stopPropagation()}>
-        {actions}
-      </div>,
-    ];
-  }, [actions, cardActionProps]);
-
-  const actionsDom = useMemo(() => {
-    if (!actions || !cardActionProps || cardActionProps === 'extra') {
-      return undefined;
-    }
-
-    return [
-      <div
-        key="action"
-        className={`${defaultClassName}-actions ${hashId}`.trim()}
-        onClick={(e) => e.stopPropagation()}
-      >
-        {actions}
-      </div>,
-    ];
-  }, [actions, cardActionProps, defaultClassName, hashId]);
+  const actionsArray = useMemo(
+    () => (actions ? React.Children.toArray(actions) : undefined),
+    [actions],
+  );
 
   const titleDom =
     title || subTitle ? (
-      <div className={`${defaultClassName}-header-container ${hashId}`.trim()}>
+      <div className={clsx(`${defaultClassName}-header-container`, hashId)}>
         {title && (
           <div
-            className={classNames(`${defaultClassName}-title`, hashId, {
+            className={clsx(`${defaultClassName}-title`, hashId, {
               [`${defaultClassName}-title-editable`]: isEditable,
             })}
           >
@@ -228,8 +210,8 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
         )}
         {subTitle && (
           <div
-            className={classNames(`${defaultClassName}-subTitle`, hashId, {
-              [`${defaultClassName}-subTitle-editable`]: isEditable,
+            className={clsx(`${defaultClassName}-sub-title`, hashId, {
+              [`${defaultClassName}-sub-title-editable`]: isEditable,
             })}
           >
             {subTitle}
@@ -242,13 +224,13 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     (itemTitleRender && itemTitleRender?.(record, index, titleDom)) ?? titleDom;
   const metaDom =
     metaTitle || avatar || subTitle || description ? (
-      <List.Item.Meta
+      <BaseListItemMeta
         avatar={avatar}
         title={metaTitle}
         description={
           description &&
           needExpanded && (
-            <div className={`${className}-description ${hashId}`.trim()}>
+            <div className={clsx(`${className}-description`, hashId)}>
               {description}
             </div>
           )
@@ -256,41 +238,83 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       />
     ) : null;
 
-  const rowClassName = classNames(hashId, {
+  const itemProps = onItem?.(record, index);
+  const hasExpandableConfig = hasExpandBehavior;
+
+  const expandedRowClassStr =
+    typeof expandedRowClassName === 'function'
+      ? expandedRowClassName(record, index, indentSize)
+      : expandedRowClassName;
+
+  const headerDom =
+    typeof itemHeaderRender === 'function'
+      ? itemHeaderRender(record, index, metaDom)
+      : metaDom;
+
+  // 卡片模式渲染
+  if (cardProps) {
+    const cardTitleDom =
+      avatar || title ? (
+        <>
+          {avatar}
+          <span className={clsx(`${prefixCls}-item-meta-title`, hashId)}>
+            {title}
+          </span>
+        </>
+      ) : null;
+
+    return (
+      <div
+        className={clsx(hashId, `${className}-card-container`, {
+          [propsClassName]: propsClassName !== defaultClassName,
+        })}
+        style={style}
+      >
+        <CheckCard
+          bordered
+          style={{ width: '100%' }}
+          className={clsx(`${defaultClassName}-card`, hashId)}
+          {...cardProps}
+          title={cardTitleDom}
+          subTitle={subTitle}
+          extra={actionsArray}
+          bodyStyle={{ padding: token.paddingLG, ...cardProps.bodyStyle }}
+          {...(itemProps as CheckCardProps)}
+          onClick={(e) => {
+            cardProps?.onClick?.(e);
+            itemProps?.onClick?.(e as any);
+          }}
+        >
+          <Skeleton avatar title={false} loading={loading} active>
+            <div className={clsx(`${className}-header`, hashId)}>
+              {typeof itemTitleRender === 'function' &&
+                itemTitleRender(record, index, titleDom)}
+              {content}
+            </div>
+          </Skeleton>
+        </CheckCard>
+      </div>
+    );
+  }
+
+  // 列表模式渲染
+  const rowClassName = clsx(hashId, {
     [`${defaultClassName}-item-has-checkbox`]: checkbox,
     [`${defaultClassName}-item-has-avatar`]: avatar,
     [className]: className,
   });
-  const cardTitleDom = useMemo(() => {
-    if (avatar || title) {
-      return (
-        <>
-          {avatar}
-          <span
-            className={`${getPrefixCls(
-              'list-item-meta-title',
-            )} ${hashId}`.trim()}
-          >
-            {title}
-          </span>
-        </>
-      );
-    }
-    return null;
-  }, [avatar, getPrefixCls, hashId, title]);
 
-  const itemProps = onItem?.(record, index);
-  const defaultDom = !cardProps ? (
-    <List.Item
-      className={classNames(rowClassName, hashId, {
+  return (
+    <BaseListItem
+      className={clsx(rowClassName, hashId, {
         [propsClassName]: propsClassName !== defaultClassName,
       })}
       {...rest}
-      actions={extraDom}
-      extra={!!extra && <div className={extraClassName}>{extra}</div>}
+      actions={actionsArray}
+      extra={extra}
       {...onRow?.(record, index)}
       {...itemProps}
-      onClick={(e) => {
+      onClick={(e: React.MouseEvent<HTMLDivElement>) => {
         onRow?.(record, index)?.onClick?.(e);
         onItem?.(record, index)?.onClick?.(e);
         if (expandRowByClick) {
@@ -299,14 +323,14 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       }}
     >
       <Skeleton avatar title={false} loading={loading} active>
-        <div className={`${className}-header ${hashId}`.trim()}>
-          <div className={`${className}-header-option ${hashId}`.trim()}>
+        <div className={clsx(`${className}-header`, hashId)}>
+          <div className={clsx(`${className}-header-option`, hashId)}>
             {!!checkbox && (
-              <div className={`${className}-checkbox ${hashId}`.trim()}>
+              <div className={clsx(`${className}-checkbox`, hashId)}>
                 {checkbox}
               </div>
             )}
-            {Object.values(expandableConfig || {}).length > 0 &&
+            {hasExpandableConfig &&
               rowSupportExpand &&
               renderExpandIcon({
                 prefixCls,
@@ -317,71 +341,18 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
                 record,
               } as RenderExpandIconProps<RecordType>)}
           </div>
-          {(itemHeaderRender && itemHeaderRender?.(record, index, metaDom)) ??
-            metaDom}
+          {headerDom}
         </div>
         {needExpanded && (content || expandedRowDom) && (
-          <div className={`${className}-content ${hashId}`.trim()}>
+          <div className={clsx(`${className}-content`, hashId)}>
             {content}
             {expandedRowRender && rowSupportExpand && (
-              <div
-                className={
-                  expandedRowClassName &&
-                  typeof expandedRowClassName !== 'string'
-                    ? expandedRowClassName(record, index, indentSize)
-                    : expandedRowClassName
-                }
-              >
-                {expandedRowDom}
-              </div>
+              <div className={expandedRowClassStr}>{expandedRowDom}</div>
             )}
           </div>
         )}
       </Skeleton>
-    </List.Item>
-  ) : (
-    <CheckCard
-      bordered
-      style={{
-        width: '100%',
-      }}
-      {...cardProps}
-      title={cardTitleDom}
-      subTitle={subTitle}
-      extra={extraDom}
-      actions={actionsDom}
-      bodyStyle={{
-        padding: 24,
-        ...cardProps.bodyStyle,
-      }}
-      {...(itemProps as CheckCardProps)}
-      onClick={(e: any) => {
-        cardProps?.onClick?.(e);
-        itemProps?.onClick?.(e);
-      }}
-    >
-      <Skeleton avatar title={false} loading={loading} active>
-        <div className={`${className}-header ${hashId}`.trim()}>
-          {itemTitleRender && itemTitleRender?.(record, index, titleDom)}
-          {content}
-        </div>
-      </Skeleton>
-    </CheckCard>
-  );
-
-  if (!cardProps) {
-    return defaultDom;
-  }
-  return (
-    <div
-      className={classNames(hashId, {
-        [`${className}-card`]: cardProps,
-        [propsClassName]: propsClassName !== defaultClassName,
-      })}
-      style={style}
-    >
-      {defaultDom}
-    </div>
+    </BaseListItem>
   );
 }
 

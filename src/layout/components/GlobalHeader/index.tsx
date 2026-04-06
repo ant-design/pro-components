@@ -1,7 +1,7 @@
 import { MenuOutlined } from '@ant-design/icons';
 import type { AvatarProps } from 'antd';
 import { ConfigProvider } from 'antd';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import React, { useContext } from 'react';
 import type { PureSettings } from '../../defaultSettings';
 import type { MenuDataItem } from '../../index';
@@ -114,7 +114,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (
 
   const { wrapSSR, hashId } = useStyle(baseClassName);
 
-  const className = classNames(propClassName, baseClassName, hashId);
+  const className = clsx(propClassName, baseClassName, hashId);
 
   if (layout === 'mix' && !isMobile && splitMenus) {
     const noChildrenMenuData = (menuData || []).map((item) => ({
@@ -133,7 +133,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (
     );
   }
 
-  const logoClassNames = classNames(`${baseClassName}-logo`, hashId, {
+  const logoClassNames = clsx(`${baseClassName}-logo`, hashId, {
     [`${baseClassName}-logo-rtl`]: direction === 'rtl',
     [`${baseClassName}-logo-mix`]: layout === 'mix',
     [`${baseClassName}-logo-mobile`]: isMobile,
@@ -145,10 +145,14 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (
     </span>
   );
   return wrapSSR(
-    <div className={className} style={{ ...style }}>
+    <div
+      className={className}
+      style={{ ...style }}
+      data-testid="pro-layout-global-header"
+    >
       {isMobile && (
         <span
-          className={`${baseClassName}-collapsed-button ${hashId}`.trim()}
+          className={clsx(`${baseClassName}-collapsed-button`, hashId)}
           onClick={() => {
             onCollapse?.(!collapsed);
           }}

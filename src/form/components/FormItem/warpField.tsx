@@ -1,5 +1,6 @@
-﻿import { FieldContext as RcFieldContext } from '@rc-component/form';
+import { FieldContext as RcFieldContext } from '@rc-component/form';
 import type { FormItemProps } from 'antd';
+import { clsx } from 'clsx';
 import React, { useContext, useMemo, useState } from 'react';
 import {
   pickProFormItemProps,
@@ -70,8 +71,6 @@ export function warpField<P extends ProFormFieldItemProps = any>(
   config?: ProFormItemCreateConfig,
 ): ProFormComponent<P, ExtendsProps & FunctionFieldProps> {
   // 标记是否是 ProForm 的组件
-  // @ts-ignore
-  // eslint-disable-next-line no-param-reassign
   Field.displayName = 'ProFormComponent';
 
   const FieldWithContext: React.FC<P & ExtendsProps & FunctionFieldProps> = (
@@ -126,17 +125,12 @@ export function warpField<P extends ProFormFieldItemProps = any>(
     /**
      * dependenciesValues change to trigger re-execute of getFieldProps and getFormItemProps
      */
-    const changedProps = useDeepCompareMemo(
-      () => {
-        return {
-          formItemProps: getFormItemProps?.(),
-          fieldProps: getFieldProps?.(),
-        };
-      },
-
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      [getFieldProps, getFormItemProps, rest.dependenciesValues, onlyChange],
-    );
+    const changedProps = useDeepCompareMemo(() => {
+      return {
+        formItemProps: getFormItemProps?.(),
+        fieldProps: getFieldProps?.(),
+      };
+    }, [getFieldProps, getFormItemProps, rest.dependenciesValues, onlyChange]);
 
     const fieldProps: Record<string, any> = useDeepCompareMemo(() => {
       return mergeWarpFieldFieldProps({
@@ -189,12 +183,12 @@ export function warpField<P extends ProFormFieldItemProps = any>(
     const { prefixName } = useContext(RcFieldContext);
 
     const proFieldKey = useDeepCompareMemo(() => {
-      return computeWarpFieldProFieldKey({
-        name: otherProps?.name,
-        prefixName,
-        formKey: contextValue.formKey,
-      });
-      // eslint-disable-next-line react-hooks/exhaustive-deps
+      let name = otherProps?.name;
+      if (Array.isArray(name)) name = name.join('_');
+      if (Array.isArray(prefixName) && name)
+        name = `${prefixName.join('.')}.${name}`;
+      const key = name && `form-${contextValue.formKey ?? ''}-field-${name}`;
+      return key;
     }, [stringify(otherProps?.name), prefixName, contextValue.formKey]);
 
     const onChange = useRefFunction((...restParams: any[]) => {
@@ -207,21 +201,29 @@ export function warpField<P extends ProFormFieldItemProps = any>(
     });
 
     const style = useDeepCompareMemo(() => {
-      return resolveWarpFieldStyle({
-        width,
-        grid: contextValue.grid,
-        isIgnoreWidth,
-        fieldStyle: fieldProps?.style,
-      });
-      // eslint-disable-next-line react-hooks/exhaustive-deps
+      const newStyle = {
+        width:
+          width && !WIDTH_SIZE_ENUM[width as 'xs']
+            ? width
+            : contextValue.grid
+              ? '100%'
+              : undefined,
+        ...fieldProps?.style,
+      };
+
+      if (isIgnoreWidth) Reflect.deleteProperty(newStyle, 'width');
+
+      return omitUndefined(newStyle);
     }, [stringify(fieldProps?.style), contextValue.grid, isIgnoreWidth, width]);
 
     const className = useDeepCompareMemo(() => {
-      return resolveWarpFieldClassName({
-        width,
-        fieldClassName: fieldProps?.className,
-        isIgnoreWidth,
-      });
+      const isSizeEnum = width && WIDTH_SIZE_ENUM[width as 'xs'];
+      return (
+        clsx(fieldProps?.className, {
+          'pro-field': isSizeEnum,
+          [`pro-field-${width}`]: isSizeEnum && !isIgnoreWidth,
+        }) || undefined
+      );
     }, [width, fieldProps?.className, isIgnoreWidth]);
 
     const fieldProFieldProps = useDeepCompareMemo(() => {
@@ -256,16 +258,16 @@ export function warpField<P extends ProFormFieldItemProps = any>(
 
     const field = useDeepCompareMemo(() => {
       return (
-        <WarpFieldInnerField
-          Field={Field}
-          rest={rest as P}
-          fieldFieldProps={fieldFieldProps}
-          fieldProFieldProps={fieldProFieldProps}
-          fieldKey={props.proFormFieldKey || props.name}
-          fieldRef={props?.fieldRef}
+        <Field
+          key={props.proFormFieldKey || props.name}
+          // ProXxx 上面的 props 透传给 FieldProps，可能包含 Field 自定义的 props，
+          // 比如 ProFormSelect 的 request
+          {...(rest as P)}
+          fieldProps={fieldFieldProps}
+          proFieldProps={fieldProFieldProps}
+          ref={props?.fieldRef}
         />
       );
-      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [fieldProFieldProps, fieldFieldProps, rest]);
 
     // 使用useMemo包裹避免不必要的re-render
@@ -276,7 +278,8 @@ export function warpField<P extends ProFormFieldItemProps = any>(
           label={label && proFieldProps?.light !== true ? label : undefined}
           tooltip={proFieldProps?.light !== true && tooltip}
           valuePropName={valuePropName}
-          otherProps={otherProps}
+          key={props.proFormFieldKey || otherProps.name?.toString()}
+          {...otherProps}
           ignoreFormItem={ignoreFormItem}
           transform={transform}
           dataFormat={fieldProps?.format}
@@ -286,8 +289,9 @@ export function warpField<P extends ProFormFieldItemProps = any>(
             ...otherProps?.messageVariables,
           }}
           convertValue={convertValue}
-          lightProps={buildWarpFieldLightProps({
-            fieldProps,
+          lightProps={omitUndefined({
+            ...fieldProps,
+            variant: rest.variant ?? fieldProps?.variant,
             valueType,
             bordered,
             allowClear,

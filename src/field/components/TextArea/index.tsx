@@ -8,7 +8,8 @@ import FieldTextAreaReadonly from './readonly';
 /**
  * 最基本的组件，就是个普通的 Input.TextArea
  *
- * @param
+ * @param props
+ * @param ref
  */
 const FieldTextArea: ProFieldFC<{
   text: string;
@@ -32,8 +33,10 @@ const FieldTextArea: ProFieldFC<{
       <Input.TextArea
         ref={ref}
         rows={3}
-        onKeyPress={(e) => {
-          if (e.key === 'Enter') e.stopPropagation();
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            e.stopPropagation();
+          }
         }}
         placeholder={intl.getMessage('tableForm.inputPlaceholder', '请输入')}
         {...fieldProps}

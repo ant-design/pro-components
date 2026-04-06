@@ -1,4 +1,4 @@
-﻿import type { GenerateStyle, ProAliasToken } from '../../../../provider';
+import type { GenerateStyle, ProAliasToken } from '../../../../provider';
 import { useStyle as useAntdStyle } from '../../../../provider';
 import { genAppsLogoComponentsDefaultListStyle } from './default';
 import { genAppsLogoComponentsSimpleListStyle } from './simple';
@@ -12,6 +12,10 @@ const genAppsLogoComponentsStyle: GenerateStyle<AppsLogoComponentsToken> = (
 ) => {
   return {
     [token.componentCls]: {
+      boxSizing: 'border-box',
+      '*, *::before, *::after': {
+        boxSizing: 'border-box',
+      },
       '&-icon': {
         display: 'inline-flex',
         alignItems: 'center',
@@ -30,6 +34,7 @@ const genAppsLogoComponentsStyle: GenerateStyle<AppsLogoComponentsToken> = (
           backgroundColor: token.layout?.colorBgAppListIconHover,
         },
         '&-active': {
+          borderRadius: token.borderRadius,
           color: token.layout?.colorTextAppListIconHover,
           backgroundColor: token.layout?.colorBgAppListIconHover,
         },

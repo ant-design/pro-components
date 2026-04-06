@@ -35,7 +35,7 @@ const Demo = () => {
         }}
       >
         <StepsForm.StepForm
-          name="base"
+          name="multi-card-step-form-base"
           title="First Step"
           onFinish={async () => {
             await waitTime(2000);
@@ -117,7 +117,7 @@ const Demo = () => {
             />
           </ProCard>
         </StepsForm.StepForm>
-        <StepsForm.StepForm name="checkbox" title="Second Step">
+        <StepsForm.StepForm name="multi-card-step-form-checkbox" title="Second Step">
           <ProCard
             style={{
               minWidth: 800,
@@ -151,7 +151,7 @@ const Demo = () => {
             />
           </ProCard>
         </StepsForm.StepForm>
-        <StepsForm.StepForm name="time" title="Third Step">
+        <StepsForm.StepForm name="multi-card-step-form-time" title="Third Step">
           <ProCard
             style={{
               marginBlockEnd: 16,

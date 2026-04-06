@@ -8,7 +8,7 @@ import { Button } from 'antd';
 
 const Demo = () => {
   return (
-    <ProForm>
+    <ProForm name="group-base-use-demo">
       <ProFormList
         name={['default', 'users']}
         label="用户信息"

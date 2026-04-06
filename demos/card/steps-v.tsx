@@ -1,6 +1,6 @@
 import { ProCard } from '@ant-design/pro-components';
-import { Button, Space, Steps } from 'antd';
 import RcResizeObserver from '@rc-component/resize-observer';
+import { Button, Space, Steps } from 'antd';
 import { useState } from 'react';
 
 const Demo = () => {
@@ -21,7 +21,7 @@ const Demo = () => {
         >
           <ProCard colSpan={responsive ? 24 : 6}>
             <Steps
-              direction={responsive ? 'horizontal' : 'vertical'}
+              orientation={responsive ? 'horizontal' : 'vertical'}
               size="small"
               current={current}
               style={{ height: '100%' }}
@@ -82,7 +82,7 @@ const Demo = () => {
         <h4>Steps 组件配置：</h4>
         <ul>
           <li>
-            <strong>direction</strong>: 步骤条方向，响应式时自动调整
+            <strong>orientation</strong>: 步骤条方向，响应式时自动调整
           </li>
           <li>
             <strong>size</strong>: 步骤条尺寸，'small' 表示小尺寸

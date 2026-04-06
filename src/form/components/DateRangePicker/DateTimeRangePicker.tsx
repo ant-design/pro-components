@@ -1,4 +1,4 @@
-import { RangePickerProps } from 'antd/lib/date-picker';
+import type { RangePickerProps } from 'antd/lib/date-picker';
 import React from 'react';
 import { dateArrayFormatter } from '../../../utils';
 import type { ProFormFieldItemProps } from '../../typing';
@@ -17,9 +17,7 @@ export const ProFormDateTimeRangePicker: React.FC<
   return (
     <BaseDateRanger
       ref={ref}
-      fieldProps={{
-        ...fieldProps,
-      }}
+      fieldProps={fieldProps}
       valueType={valueType}
       proFieldProps={proFieldProps}
       fieldConfig={{

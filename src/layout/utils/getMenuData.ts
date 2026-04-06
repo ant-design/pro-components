@@ -4,7 +4,6 @@ import type { MenuDataItem, MessageDescriptor, Route } from '../typing';
 function fromEntries(iterable: any) {
   return [...iterable].reduce(
     (obj: Record<string, MenuDataItem>, [key, val]) => {
-      // eslint-disable-next-line no-param-reassign
       obj[key] = val;
       return obj;
     },

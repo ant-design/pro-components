@@ -17,6 +17,7 @@ const Demo = () => {
 
   return (
     <ProForm
+      name="captcha-form-demo"
       title="新建表单"
       submitter={{
         render: (props, doms) => {
@@ -27,7 +28,7 @@ const Demo = () => {
               onClick={() => {
                 captchaRef.current?.startTiming();
               }}
-              key="edit"
+              key="start"
             >
               手动开始计数
             </Button>,
@@ -36,7 +37,7 @@ const Demo = () => {
               onClick={() => {
                 captchaRef.current?.endTiming();
               }}
-              key="edit"
+              key="end"
             >
               手动结束计数
             </Button>,

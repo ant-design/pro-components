@@ -1,6 +1,6 @@
 import { get } from '@rc-component/util';
 import { Form } from 'antd';
-import { AnyObject } from 'antd/lib/_util/type';
+import type { AnyObject } from 'antd/lib/_util/type';
 import React, {
   useCallback,
   useContext,
@@ -152,7 +152,6 @@ const CellRenderFromItem = <T extends AnyObject>(
         {children}
       </InlineErrorFormItem>
     ),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [key, formItemName],
   );
 
@@ -251,7 +250,7 @@ const CellRenderFromItem = <T extends AnyObject>(
               JSON.stringify(get(pre, shouldName)) !==
               JSON.stringify(get(next, shouldName))
             );
-          } catch (error) {
+          } catch (_error) {
             return true;
           }
         }}

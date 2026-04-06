@@ -132,7 +132,6 @@ export function useActionType<T>(
     // 透出 scrollTo（如上层提供）
     scrollTo: props.scrollTo,
   };
-  // eslint-disable-next-line no-param-reassign
   ref.current = userAction;
 }
 

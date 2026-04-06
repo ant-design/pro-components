@@ -20,8 +20,8 @@ const Demo = () => {
   const formRef = useRef<ProFormInstance>();
   const onFill = () => {
     formRef?.current?.setFieldsValue({
-      name: '张三',
-      company: '蚂蚁金服',
+      name: '书琰',
+      company: '杭州星辰科技有限公司',
     });
   };
 
@@ -43,6 +43,7 @@ const Demo = () => {
 
   return (
     <ProForm
+      name="formref-demo"
       title="新建表单"
       formRef={formRef}
       submitter={{

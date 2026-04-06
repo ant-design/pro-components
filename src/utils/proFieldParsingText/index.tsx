@@ -80,8 +80,8 @@ type ProFieldStatusType =
  * 转化 text 和 valueEnum 通过 type 来添加 Status
  *
  * @param text
- * @param valueEnum
- * @param pure 纯净模式，不增加 status
+ * @param valueEnumParams
+ * @param key
  */
 export const proFieldParsingText = (
   text: string | number | (string | number)[],
@@ -92,7 +92,6 @@ export const proFieldParsingText = (
     return (
       <Space key={key} separator="," size={2} wrap>
         {text.map((value, index) =>
-          // @ts-ignore
           proFieldParsingText(value, valueEnumParams, index),
         )}
       </Space>

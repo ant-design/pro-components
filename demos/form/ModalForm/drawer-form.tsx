@@ -1,4 +1,4 @@
-﻿import { PlusOutlined } from '@ant-design/icons';
+import { PlusOutlined } from '@ant-design/icons';
 import {
   DrawerForm,
   ProForm,
@@ -24,6 +24,7 @@ const Demo = () => {
       name: string;
       company: string;
     }>
+      name="modal-form-drawer-form-demo"
       title="Create New Form"
       resize={{
         maxWidth: window.innerWidth * 0.8,
@@ -115,14 +116,14 @@ const Demo = () => {
         name="project"
         disabled
         label="Project Name"
-        initialValue="xxxx Project"
+        initialValue="示例项目"
       />
       <ProFormText
         width="xs"
         name="mangerName"
         disabled
         label="Business Manager"
-        initialValue="Qitu"
+        initialValue="书琰"
       />
     </DrawerForm>
   );

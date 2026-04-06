@@ -24,9 +24,12 @@ export type ProFormDigitRangeProps =
     separatorWidth?: number;
   };
 /**
- * 数组选择组件
+ * 数字范围输入组件
  *
- * @param
+ * @param fieldProps
+ * @param proFieldProps
+ * @param rest
+ * @param ref
  */
 const ProFormDigit: React.ForwardRefRenderFunction<
   any,

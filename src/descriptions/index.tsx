@@ -2,9 +2,12 @@ import { CheckOutlined, CloseOutlined, EditOutlined } from '@ant-design/icons';
 import { get, toArray } from '@rc-component/util';
 import type { DescriptionsProps, FormInstance, FormProps } from 'antd';
 import { ConfigProvider, Descriptions, Space } from 'antd';
-import type { DescriptionsItemProps } from 'antd/es/descriptions/Item';
-import type { DescriptionsItemType } from 'antd/lib/descriptions';
-import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
+import type { Breakpoint } from 'antd/es/_util/responsiveObserver';
+import type { DescriptionsItemType } from 'antd/es/descriptions';
+import {
+  CellSemanticClassNames,
+  CellSemanticStyles,
+} from 'antd/es/descriptions/DescriptionsContext';
 import React, { useContext, useEffect } from 'react';
 import ValueTypeToComponent from '../field/ValueTypeToComponent';
 import ProForm, { ProFormField } from '../form';
@@ -13,6 +16,7 @@ import ProConfigContext, { ProConfigProvider, proTheme } from '../provider';
 import ProSkeleton from '../skeleton';
 import type {
   ProCoreActionType,
+  ProEllipsis,
   ProFieldValueType,
   ProSchema,
   ProSchemaComponentTypes,
@@ -23,6 +27,7 @@ import {
   ErrorBoundary,
   InlineErrorFormItem,
   LabelIconTip,
+  LabelTooltipType,
   genCopyable,
   getFieldPropsOrFormItemProps,
   stringify,
@@ -31,7 +36,21 @@ import {
 import type { RequestData } from './useFetchData';
 import useFetchData from './useFetchData';
 
-export type { DescriptionsItemProps };
+export interface DescriptionsItemProps {
+  prefixCls?: string;
+  className?: string;
+  style?: React.CSSProperties;
+  label?: React.ReactNode;
+  classNames?: CellSemanticClassNames;
+  styles?: CellSemanticStyles;
+  children: React.ReactNode;
+  span?:
+    | number
+    | 'filled'
+    | {
+        [key in Breakpoint]?: number;
+      };
+}
 
 /**
  * 定义列表属性的类型定义，用于定义列表的一列
@@ -58,7 +77,7 @@ export type ProDescriptionsItemProps<
     hide?: boolean;
     plain?: boolean;
     copyable?: boolean;
-    ellipsis?: boolean | { showTitle?: boolean };
+    ellipsis?: ProEllipsis;
     mode?: ProFieldFCMode;
     children?: React.ReactNode;
     /**
@@ -311,7 +330,7 @@ const schemaToDescriptionsItem = (
   editableUtils?: UseEditableMapUtilType,
   emptyText?: React.ReactNode,
 ) => {
-  const options: JSX.Element[] = [];
+  const options: React.JSX.Element[] = [];
   // 因为 Descriptions 只是个语法糖，children 是不会执行的，所以需要这里处理一下
   const children = items
     ?.map?.((item, index) => {
@@ -321,14 +340,14 @@ const schemaToDescriptionsItem = (
         };
       }
       const {
-        valueEnum,
-        render,
+        valueEnum: _valueEnum,
+        render: _render,
         renderText,
         mode,
-        plain,
+        plain: _plain,
         dataIndex,
-        request,
-        params,
+        request: _request,
+        params: _params,
         editable,
         ...restItem
       } = item as ProDescriptionsItemProps;
@@ -369,7 +388,9 @@ const schemaToDescriptionsItem = (
       const Component = showEditIcon ? Space : React.Fragment;
 
       const contentDom: React.ReactNode =
-        fieldMode === 'edit' ? text : genCopyable(text, item, text);
+        fieldMode === 'edit'
+          ? text
+          : genCopyable(text, item, text, defaultData);
 
       const key = restItem.key || restItem.label?.toString() || index;
       const label = (title || restItem.label || restItem.tooltip) && (
@@ -379,7 +400,7 @@ const schemaToDescriptionsItem = (
           ellipsis={item.ellipsis}
         />
       );
-      const field: DescriptionsItemType | JSX.Element =
+      const field: DescriptionsItemType | React.JSX.Element =
         valueType !== 'option'
           ? ({
               ...restItem,
@@ -437,10 +458,10 @@ const schemaToDescriptionsItem = (
                   )}
                 </Component>
               </Descriptions.Item>
-            ) as JSX.Element);
+            ) as React.JSX.Element);
       // 如果类型是 option 自动放到右上角
       if (valueType === 'option') {
-        options.push(field as JSX.Element);
+        options.push(field as React.JSX.Element);
         return null;
       }
       return field;
@@ -479,8 +500,7 @@ const ProDescriptions = <
     onLoadingChange,
     actionRef,
     onRequestError,
-    emptyText,
-    contentStyle,
+    emptyText: _emptyText,
     ...rest
   } = props;
 
@@ -619,7 +639,6 @@ const ProDescriptions = <
             styles={{
               content: {
                 minWidth: 0,
-                ...(contentStyle || {}),
               },
             }}
             extra={

@@ -32,6 +32,7 @@ const Demo = () => {
       company?: string;
       useMode?: string;
     }>
+      name="form-layout-demo"
       {...formItemLayout}
       layout={formLayoutType}
       submitter={{

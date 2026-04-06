@@ -114,11 +114,10 @@ exports[`SchemaForm > 😊 SchemaForm support columns 1`] = `
                 style="min-width: 100px;"
               >
                 <div
-                  class="ant-select-content"
+                  class="ant-select-content ant-select-content-has-value ant-select-content-has-option-style"
                 >
                   <div
                     class="ant-select-content-value ant-pro-filed-search-select-option"
-                    style="visibility: visible;"
                     title="全部"
                   >
                     全部

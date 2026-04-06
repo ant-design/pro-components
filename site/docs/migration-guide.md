@@ -62,16 +62,18 @@ pnpm install
 
 ### 变更速查表
 
-| 组件       | 旧用法                                | 新用法                                         | 处理建议                                                                                            |
-| ---------- | ------------------------------------- | ---------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| ProTable   | `columnsStateMap`                     | `columnsState.value` + `columnsState.onChange` | 将原状态对象迁移到 `columnsState.value`，事件改用 `onChange`；若使用持久化需补充 `persistenceKey`。 |
-| ProTable   | `hideInSearch`                        | `search: false`                                | 使用 `search` 配置控制搜索区域显示，支持对象拓展。                                                  |
-| ProTable   | `fixHeader`                           | `scroll: { y: number }`                        | 使用 antd Table 原生 `scroll` 属性，按需设置高度。                                                  |
-| ProTable   | `tip`                                 | `tooltip`                                      | 将列提示迁移到 `tooltip`，可复用 antd `LabelTooltipType`。                                          |
-| ProCard    | `ProCard.TabPane`                     | `tabs.items`                                   | 使用 antd `Tabs` 的 `items` 属性描述页签，透传 `tabs` 其它配置。                                    |
-| ProCard    | `StatisticsCardProps`                 | `StatisticCardProps`                           | 更新类型引用，避免编译错误。                                                                        |
-| ProLayout  | `rightContentRender`                  | `actionsRender` + `avatarProps`                | 将原右侧内容拆分为动作区域与头像配置，便于独立维护。                                                |
-| 布局 Token | `marginInlinePageContainerContent` 等 | `paddingInlinePageContainerContent` 等         | 全面替换 Token 名称，保持主题粒度一致。                                                             |
+| 组件         | 旧用法                                | 新用法                                         | 处理建议                                                                                            |
+| ------------ | ------------------------------------- | ---------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| ProTable     | `columnsStateMap`                     | `columnsState.value` + `columnsState.onChange` | 将原状态对象迁移到 `columnsState.value`，事件改用 `onChange`；若使用持久化需补充 `persistenceKey`。 |
+| ProTable     | `hideInSearch`                        | `search: false`                                | 使用 `search` 配置控制搜索区域显示，支持对象拓展。                                                  |
+| ProTable     | `fixHeader`                           | `scroll: { y: number }`                        | 使用 antd Table 原生 `scroll` 属性，按需设置高度。                                                  |
+| ProTable     | `tip`                                 | `tooltip`                                      | 将列提示迁移到 `tooltip`，可复用 antd `LabelTooltipType`。                                          |
+| ProCard      | `ProCard.TabPane`                     | `tabs.items`                                   | 使用 antd `Tabs` 的 `items` 属性描述页签，透传 `tabs` 其它配置。                                    |
+| ProCard      | `StatisticsCardProps`                 | `StatisticCardProps`                           | 更新类型引用，避免编译错误。                                                                        |
+| ProLayout    | `rightContentRender`                  | `actionsRender` + `avatarProps`                | 将原右侧内容拆分为动作区域与头像配置，便于独立维护。                                                |
+| 布局 Token   | `marginInlinePageContainerContent` 等 | `paddingInlinePageContainerContent` 等         | 全面替换 Token 名称，保持主题粒度一致。                                                             |
+| ProFormField | `plain`                               | `variant`                                      | 移除 `plain`，改用 `variant` 控制字段展示变体（如 `borderless`、`outlined`）。                      |
+| ProList      | `metas`                               | `columns` + `listSlot`                         | 将 metas 对象的键值对转为 columns 数组元素，键名改为 `listSlot`，详见 [ProList 迁移](#list-组件)。  |
 
 ### Table 组件
 
@@ -104,7 +106,7 @@ pnpm install
 `columnsState` 现已完全与 antd Table 的受控模式对齐，推荐按照以下方式迁移：
 
 - 将原来的 `columnsStateMap` 全量拷贝到 `columnsState.value`。
-- 如需监听变更，请改用 `columnsState.onChange`；旧的 `onColumnsStateChange` 仍保留一层兼容，但会在后续版本逐步淘汰。
+- 如需监听变更，请使用 `columnsState.onChange`；`onColumnsStateChange` 已被移除，请迁移到 `columnsState.onChange`。
 - 若项目依赖列配置持久化，请显式补充 `persistenceKey` 与 `persistenceType`。
 
 ```tsx | pure
@@ -401,6 +403,113 @@ const token = {
 
 除示例中的字段外，其它以 `margin*PageContainerContent` 命名的 Token 也全部切换为对应的 `padding*PageContainerContent`，请一次性替换完毕。替换后建议执行一次主题构建或视觉验收，确认没有遗漏旧字段。
 
+### Field 组件
+
+#### `plain` 参数移除
+
+**变更原因**: 统一使用 `variant` 控制展示样式，简化 API
+
+```tsx | pure
+// ❌ 旧版本
+<ProFormText
+  name="name"
+  plain={true}
+/>
+
+<ProFormTimePicker
+  name="time"
+  plain
+/>
+
+// ✅ 新版本
+<ProFormText
+  name="name"
+  fieldProps={{ variant: 'borderless' }}
+/>
+
+<ProFormTimePicker
+  name="time"
+  fieldProps={{ variant: 'borderless' }}
+/>
+```
+
+`plain` 已完全移除，不再提供该参数。若需无边框/简洁展示，请使用 `fieldProps.variant: 'borderless'`；默认线框样式使用 `variant: 'outlined'`。
+
+迁移时请全局搜索 `plain`，移除所有 `plain` 或 `plain={true}` 传参，并按需替换为 `variant` 配置。
+
+### List 组件
+
+#### `metas` → `columns` + `listSlot`
+
+**变更原因**: 统一 ProList 与 ProTable 的列配置 API，使同一份 `columns` 可同时用于表格和列表视图
+
+ProList 的 `metas` API 已废弃，推荐使用 `columns` + `listSlot` 替代。迁移规则：将 metas 对象的每个键值对转为 columns 数组中的一个元素，键名对应 `listSlot`，值的属性直接展开到列配置中。
+
+```tsx | pure
+// ❌ 旧版本
+<ProList
+  metas={{
+    title: { dataIndex: 'name', title: '名称' },
+    avatar: { dataIndex: 'avatar', search: false },
+    description: { dataIndex: 'desc', search: false },
+    subTitle: {
+      dataIndex: 'labels',
+      render: (_, row) => <Tag>{row.label}</Tag>,
+      search: false,
+    },
+    actions: {
+      render: (_, row) => [<a key="edit">编辑</a>],
+      search: false,
+    },
+    status: {
+      title: '状态',
+      valueType: 'select',
+      valueEnum: { open: { text: '未解决' }, closed: { text: '已解决' } },
+    },
+  }}
+/>
+
+// ✅ 新版本
+<ProList
+  columns={[
+    { title: '名称', dataIndex: 'name', listSlot: 'title' },
+    { dataIndex: 'avatar', listSlot: 'avatar', search: false },
+    { dataIndex: 'desc', listSlot: 'description', search: false },
+    {
+      dataIndex: 'labels',
+      listSlot: 'subTitle',
+      render: (_, row) => <Tag>{row.label}</Tag>,
+      search: false,
+    },
+    {
+      listSlot: 'actions',
+      render: (_, row) => [<a key="edit">编辑</a>],
+      search: false,
+    },
+    {
+      title: '状态',
+      dataIndex: 'status',
+      valueType: 'select',
+      valueEnum: { open: { text: '未解决' }, closed: { text: '已解决' } },
+    },
+  ]}
+/>
+```
+
+迁移对照表：
+
+| metas 写法                           | columns 写法                                     |
+| ------------------------------------ | ------------------------------------------------ |
+| `title: { dataIndex: 'name' }`       | `{ dataIndex: 'name', listSlot: 'title' }`       |
+| `avatar: { dataIndex: 'img' }`       | `{ dataIndex: 'img', listSlot: 'avatar' }`       |
+| `description: { dataIndex: 'desc' }` | `{ dataIndex: 'desc', listSlot: 'description' }` |
+| `subTitle: { render: ... }`          | `{ listSlot: 'subTitle', render: ... }`          |
+| `content: {}`                        | `{ dataIndex: 'content', listSlot: 'content' }`  |
+| `extra: { render: ... }`             | `{ listSlot: 'aside', render: ... }`             |
+| `type: {}`                           | `{ dataIndex: 'type', listSlot: 'type' }`        |
+
+> **提示**：`metas` 中没有 `listSlot` 对应的键（如 `status`）会以键名作为 `dataIndex`，迁移时需要显式补上 `dataIndex`。迁移后同一份 `columns` 可直接传给 `ProTable` 使用，实现列表和表格的一键切换。详见 [ProList 文档](/components/list)。
+
 ### 兼容性相关
 
 #### 1. 移除 antd@4 兼容性代码
@@ -492,6 +601,8 @@ pnpm exec rg "fixHeader" src
 pnpm exec rg "tip[\"']" src
 pnpm exec rg "ProCard\.TabPane" src
 pnpm exec rg "rightContentRender" src
+pnpm exec rg "plain" src
+pnpm exec rg "metas" src
 ```
 
 > 在 Windows PowerShell 中可使用 `Select-String -Path "src/**/*.tsx" -Pattern "columnsStateMap"` 达到类似效果。
@@ -513,6 +624,14 @@ pnpm exec rg "rightContentRender" src
    - 更新 `rightContentRender` 为 `actionsRender` + `avatarProps`
    - 更新布局 Token 属性名
    - 检查自定义头部组件是否依赖旧的 `rightContentRender` 容器
+
+4. **迁移 List 组件**
+   - 将 `metas` 对象改为 `columns` 数组
+   - 每个 meta 的键名转为 `listSlot` 属性
+
+5. **迁移 Field / ProFormField 组件**
+   - 移除所有 `plain` 或 `plain={true}` 传参
+   - 按需替换为 `fieldProps.variant: 'borderless'` 或 `variant: 'outlined'`
 
 迁移顺序从数据密集型组件到布局组件，有助于先确保数据展示正确，再处理视觉层面的差异。
 

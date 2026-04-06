@@ -1,5 +1,5 @@
-﻿import { get } from '@rc-component/util';
-import { AnyObject } from 'antd/lib/_util/type';
+import { get } from '@rc-component/util';
+import type { AnyObject } from 'antd/lib/_util/type';
 import React from 'react';
 import { isMergeCell } from '.';
 import type { ProFieldEmptyText } from '../../field';
@@ -40,11 +40,7 @@ export const renderColumnsTitle = (item: ProColumns<any>) => {
       ? item?.ellipsis
       : item?.ellipsis?.showTitle;
   if (title && typeof title === 'function') {
-    return title(
-      item,
-      'table',
-      <LabelIconTip label={null} tooltip={item.tooltip} />,
-    );
+    return title(item, 'table', null);
   }
   return (
     <LabelIconTip label={title} tooltip={item.tooltip} ellipsis={ellipsis} />
@@ -141,7 +137,7 @@ export function columnRender<T extends AnyObject>({
   const dom: React.ReactNode =
     mode === 'edit'
       ? textDom
-      : genCopyable(textDom, columnProps, renderTextStr);
+      : genCopyable(textDom, columnProps, renderTextStr, text);
 
   /** 如果是编辑模式，并且 formItemRender 存在直接走 formItemRender */
   if (mode === 'edit') {
