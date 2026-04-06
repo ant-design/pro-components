@@ -3,7 +3,7 @@
 
 | 元数据      | 内容                                                                                                                                                                                                                                             |
 | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **状态**   | Draft（阶段 0～4：`typing/` 拆分完成；与 RFC 阶段目标对齐）                                                                                                                                                                                                                          |
+| **状态**   | **Accepted**（实施完成，2026-04-06；对外 API 无 intentional breaking）                                                                                                                                                                                                                 |
 | **创建日期** | 2026-04-06                                                                                                                                                                                                                                     |
 | **范围**   | `@ant-design/pro-form` / `src/form`                                                                                                                                                                                                            |
 | **相关文件** | `src/form/BaseForm/BaseForm.tsx`、`src/form/components/FormItem/warpField.tsx`（导出函数名为 `**warpField`**，与英文 *wrap* 拼写不同，**禁止**在 non-major 中重命名）、`src/form/layouts/SchemaForm`、`src/form/BetaSchemaForm`、`src/form/typing/`（入口 `index.ts`）、`src/form/index.tsx` |
@@ -266,5 +266,11 @@ npm run test:update -- tests/form
 
 
 ---
+
+## 结案说明（维护者）
+
+- 阶段 0～4 交付物均已合入主线方向代码；**开放问题 2–3**（`use-params` 抽象、`BetaSchemaForm` 命名）维持 RFC 默认策略，不在本迭代内改行为。
+- 合并前请以附录 **Definition of Done** 跑 `npm test -- tests/form` 与 `npm run lint`；快照类测试以当前 antd 版本为准按需更新。
+- 后续增量：仅 **对齐测试矩阵**、**Changelog** 与局部优化，不再扩展本 RFC 范围。
 
 *本 RFC 为架构与阶段规划，实施时以具体 PR 与代码审阅为准。*

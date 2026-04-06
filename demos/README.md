@@ -20,7 +20,7 @@
 | `form/QueryFilter/_query-filter-test.tsx`、`form/QueryFilter/_light-filter-test.tsx` | QueryFilter 调试 |
 | `form/_components-test.tsx`、`form/_base-test.tsx` | 组件/基础对照 |
 | `table/_single-test.tsx` | 表格单测对照 |
-| `descriptions/_base.demo-test.tsx`、`list/_test-config-provider.tsx`、`field/_base-test.tsx` | 各域调试 |
+| `descriptions/_base.demo-test.tsx`、`list/config-provider.tsx`、`field/_base-test.tsx` | 各域调试 |
 
 ## 与测试
 

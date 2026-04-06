@@ -95,7 +95,7 @@ URL (syncToUrl)    → urlSearch / urlParamsMergeInitialValues → 与 initialVa
 
 - **入口**：`src/form/components/SchemaForm/index.tsx` 导出 `BetaSchemaForm`（默认导出）；`layoutType` 映射到 `DrawerForm` / `QueryFilter` / `LightFilter` / `ModalForm` / `StepsForm` / `Embed` / `ProForm` 等（见文件内 `FormLayoutType`）。
 - **列 → 节点**：`renderValueType`（`src/form/components/SchemaForm/valueType/index.tsx` 等）与 `ValueTypeToComponent`（`src/field/ValueTypeToComponent`）协作，最终仍落到各 `ProFormXxx`（经 `warpField` 包装）。
-- **对齐测试**：`tests/form/schemaImperativeAlignment.test.tsx` — 覆盖 `valueType` **text、digit、select、dateTime、switch**：`BetaSchemaForm` 单列与对应 `ProFormText` / `ProFormDigit` / `ProFormSelect` / `ProFormDateTimePicker` / `ProFormSwitch` 在相同 `initialValues` 下 `getFieldsValue(true)` 一致（`dateTime` 用 `dayjs` 时间戳比较）。新增类型时建议在此文件追加一条用例。
+- **对齐测试**：`tests/form/schemaImperativeAlignment.test.tsx` — 覆盖 `valueType` **text、digit、select、dateTime、switch、date、checkbox**：`BetaSchemaForm` 单列与对应 `ProFormText` / `ProFormDigit` / `ProFormSelect` / `ProFormDateTimePicker` / `ProFormSwitch` / `ProFormDatePicker` / `ProFormCheckbox` 在相同 `initialValues` 下 `getFieldsValue(true)` 一致（日期类用 `dayjs` 时间戳比较）。新增类型时建议在此文件追加一条用例。
 
 ### `getFieldProps` / `getFormItemProps` 在 Schema 中的生成（便于阶段 3 对照）
 

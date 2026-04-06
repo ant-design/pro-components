@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.1.3-0] - 2026-04-06
+
+### 🛠 重构
+
+- ProForm
+  - 🛠 内部架构整理：`BaseForm` 模块化、`warpField` 拆分、`BetaSchemaForm` 列归一化（`normalizeColumnToItemType`）、`SchemaForm/valueType/pipeline`、`src/form/typing/` 分文件；**不改变** `@ant-design/pro-form` 公开导出与默认行为
+  - ✅ 新增 Schema 与命令式路径对齐单测（`schemaImperativeAlignment`）与列归一化单测（`normalizeColumnToItemType`）
+  - 📖 内部文档：`docs/internal/form-architecture.md`、`docs/rfc/2026-04-pro-form-architecture-refactor.md`
+
+---
+
 ## [3.1.2-0] - 2026-01-27
 
 ### 🐛 问题修复
