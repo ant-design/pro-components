@@ -34,7 +34,7 @@ const Demo = () => {
       />
       <ProForm
         onFinish={async (values) => {
-          console.log('Received values of form:', values);
+
         }}
       >
         <ProFormText width="sm" name="id" label="主合同编号" />
@@ -57,7 +57,7 @@ const Demo = () => {
             {
               required: true,
               validator: async (_, value) => {
-                console.log(value);
+
                 if (value && value.length > 0) {
                   return;
                 }

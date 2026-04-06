@@ -7,10 +7,15 @@
   ProFormSwitch,
   ProFormText,
 } from '@ant-design/pro-components';
+import { message } from 'antd';
 
 const Demo = () => {
   return (
-    <ProForm onFinish={async (e) => console.log(e)}>
+    <ProForm
+      onFinish={async () => {
+        message.success('提交成功');
+      }}
+    >
       <ProFormText name="name" label="姓名" />
       <ProFormList
         name="users"
@@ -59,7 +64,7 @@ const Demo = () => {
           </ProFormGroup>
           <ProFormDependency name={['is_show']}>
             {({ is_show }) => {
-              console.log(is_show);
+
               if (!is_show) return null;
               return (
                 <ProFormList

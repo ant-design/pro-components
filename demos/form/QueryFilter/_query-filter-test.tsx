@@ -35,7 +35,7 @@ const Demo = () => {
         company: string;
       }>
         onFinish={async (values) => {
-          console.log(values.name);
+
         }}
         span={6}
         defaultCollapsed={false}
@@ -55,7 +55,7 @@ const Demo = () => {
         company: string;
       }>
         onFinish={async (values) => {
-          console.log(values.name);
+
         }}
         span={6}
         defaultCollapsed={false}
@@ -73,7 +73,7 @@ const Demo = () => {
         company: string;
       }>
         onFinish={async (values) => {
-          console.log(values.name);
+
         }}
         defaultCollapsed={false}
       >
@@ -93,7 +93,7 @@ const Demo = () => {
         company: string;
       }>
         onFinish={async (values) => {
-          console.log(values.name);
+
         }}
         span={12}
         defaultCollapsed={false}
@@ -114,7 +114,7 @@ const Demo = () => {
         company: string;
       }>
         onFinish={async (values) => {
-          console.log(values.name);
+
         }}
         span={8}
         defaultCollapsed={false}
@@ -135,7 +135,7 @@ const Demo = () => {
         company: string;
       }>
         onFinish={async (values) => {
-          console.log(values.name);
+
         }}
         span={4}
         submitterColSpanProps={{ span: 12 }}

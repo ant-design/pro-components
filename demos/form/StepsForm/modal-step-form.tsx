@@ -30,7 +30,7 @@ const Demo = () => {
       </Button>
       <StepsForm
         onFinish={async (values) => {
-          console.log(values);
+
           await waitTime(1000);
           setVisible(false);
           message.success('提交成功');

@@ -51,7 +51,6 @@ const Demo = () => {
             description: '这里填入的都是基本信息',
           }}
           onFinish={async () => {
-            console.log(formRef.current?.getFieldsValue());
             await waitTime(2000);
             return true;
           }}
@@ -82,7 +81,6 @@ const Demo = () => {
             description: '这里填入运维参数',
           }}
           onFinish={async () => {
-            console.log(formRef.current?.getFieldsValue());
             return true;
           }}
         >
@@ -123,7 +121,6 @@ const Demo = () => {
             description: '这里填入运维参数',
           }}
           onFinish={async () => {
-            console.log(formRef.current?.getFieldsValue());
             return true;
           }}
         >

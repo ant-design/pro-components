@@ -5,7 +5,7 @@ import {
   ProFormDatePicker,
   ProTable,
 } from '@ant-design/pro-components';
-import { Button } from 'antd';
+import { Button, message } from 'antd';
 
 export type TableListItem = {
   key: number;
@@ -72,7 +72,6 @@ const Demo = () => {
       columns={columns}
       request={(params, sorter, filter) => {
         // 表单搜索项会从 params 传入，传递给后端接口。
-        console.log(params, sorter, filter);
         return Promise.resolve({
           data: tableListDataSource,
           success: true,
@@ -136,8 +135,8 @@ const Demo = () => {
               label: <span>文章3</span>,
             },
           ],
-          onChange: (activeKey) => {
-            console.log('activeKey', activeKey);
+          onChange: (key) => {
+            message.info(`当前 tab: ${key}`);
           },
         },
       }}

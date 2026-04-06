@@ -49,7 +49,7 @@ const Demo = () => {
             content: 'All basic information is filled in here',
           }}
           onFinish={async () => {
-            console.log(formRef.current?.getFieldsValue());
+
             await waitTime(2000);
             return true;
           }}
@@ -80,7 +80,7 @@ const Demo = () => {
             content: 'Fill in the operation parameters here',
           }}
           onFinish={async () => {
-            console.log(formRef.current?.getFieldsValue());
+
             return true;
           }}
         >

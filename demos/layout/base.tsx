@@ -28,6 +28,7 @@ import {
 } from 'antd';
 import React, { useState } from 'react';
 import defaultProps from './_defaultProps';
+import { demoOnMenuHeaderClick } from './_demoHandlers';
 
 const Item: React.FC<{ children: React.ReactNode }> = (props) => {
   const { token } = theme.useToken();
@@ -388,7 +389,7 @@ const Demo = () => {
                 </div>
               );
             }}
-            onMenuHeaderClick={() => {}}
+            onMenuHeaderClick={demoOnMenuHeaderClick}
             menuItemRender={(item, dom) => (
               <div
                 onClick={() => {

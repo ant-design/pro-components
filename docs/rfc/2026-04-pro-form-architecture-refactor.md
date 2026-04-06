@@ -3,10 +3,10 @@
 
 | 元数据      | 内容                                                                                                                                                                                                                                             |
 | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **状态**   | Draft                                                                                                                                                                                                                                          |
+| **状态**   | Draft（阶段 0～4：`typing/` 拆分完成；与 RFC 阶段目标对齐）                                                                                                                                                                                                                          |
 | **创建日期** | 2026-04-06                                                                                                                                                                                                                                     |
 | **范围**   | `@ant-design/pro-form` / `src/form`                                                                                                                                                                                                            |
-| **相关文件** | `src/form/BaseForm/BaseForm.tsx`、`src/form/components/FormItem/warpField.tsx`（导出函数名为 `**warpField`**，与英文 *wrap* 拼写不同，**禁止**在 non-major 中重命名）、`src/form/layouts/SchemaForm`、`src/form/BetaSchemaForm`、`src/form/typing.ts`、`src/form/index.tsx` |
+| **相关文件** | `src/form/BaseForm/BaseForm.tsx`、`src/form/components/FormItem/warpField.tsx`（导出函数名为 `**warpField`**，与英文 *wrap* 拼写不同，**禁止**在 non-major 中重命名）、`src/form/layouts/SchemaForm`、`src/form/BetaSchemaForm`、`src/form/typing/`（入口 `index.ts`）、`src/form/index.tsx` |
 
 
 ## 摘要
@@ -64,19 +64,22 @@ onFinish → transformKey → conversionMomentValue → 返回值（及可选 UR
 | 回归基线   | 跑通并固定现有 form 相关测试 + 关键 demos                                                              |
 
 
-**交付物**：`docs/internal/form-architecture.md`（或等价说明）+ CI 绿作为基线。
+**交付物**：`docs/internal/form-architecture.md`（或等价说明）+ CI 绿作为基线。**当前**：已提供 `form-architecture.md`（数据流 + `useEffect` 清单 + 路径索引）。
 
 ### 阶段 1：拆分 `BaseForm`（优先，收益最大）
 
-将 `src/form/BaseForm/BaseForm.tsx` 拆为 **纯逻辑模块 + 薄 UI 组装**。下表「建议路径」均相对于 `**src/form/`**（即新建目录形如 `src/form/sync/useUrlFormState.ts`，**不要**在仓库根目录单独建顶层 `form/`）。
+将 `src/form/BaseForm/BaseForm.tsx` 拆为 **纯逻辑模块 + 薄 UI 组装**。下表「建议路径」均相对于 `**src/form/`**（**不要**在仓库根目录单独建顶层 `form/`）。RFC 初稿中的模块名与实现文件名略有差异，**以下「实际路径」为代码真值**。
 
 
-| 模块（建议路径，父目录为 `src/form/`）       | 职责                                                                          |
-| ------------------------------- | --------------------------------------------------------------------------- |
-| `sync/useUrlFormState`          | `syncToUrl` / `extraUrlParams` / 与 `useUrlSearchParams` 交互                  |
-| `submit/useFormSubmitPipeline`  | `omitNil`、`transformKeySubmitValue`、`conversionMomentValue`、与 `onFinish` 衔接 |
-| `initial/useFormInitialData`    | `request`、`params`、`initialValues` 合并、`onInit` 时机                           |
-| `context/ProFormFieldProviders` | 仅负责将 `fieldProps` / `formItemProps` / `groupProps` / `grid` 等注入 Context     |
+| 职责 | RFC 初稿名 | 实际路径（`src/form/` 下） |
+| ---- | ---------- | ------------------------- |
+| URL 与 `initialValues` 合并状态 | `sync/useUrlFormState` | `sync/useUrlFormSync.ts` + `sync/genParams.ts` |
+| 提交、`onFinish`、`syncToUrl` #3547 | `submit/useFormSubmitPipeline` | `submit/useProFormFinishHandler.ts` |
+| `transformKey` 管线、`setFieldValueType` | （同上合并） | `submit/useProFormTransformKey.ts` |
+| `request` / `params` / 初始值合并 | `initial/useFormInitialData` | `initial/useProFormRequestData.ts`、`initial/useProFormInitialValuesMerge.ts`、`initial/defaultFormKey.ts`、`initial/useRequestFormCacheBump.ts` |
+| Provider 聚合 | `context/ProFormFieldProviders` | `context/ProFormFieldProviders.tsx` |
+| `NamePath` 归一化 | — | `BaseForm/covertFormName.ts` |
+| 子树组件 | — | `BaseForm/BaseFormComponents.tsx`、`BaseForm/BaseFormTypes.ts` |
 
 
 **BaseForm 本体**（仍可置于 `src/form/BaseForm/BaseForm.tsx` 或邻近文件）只保留：`Form` 壳、`contentRender`、`Submitter`、组合上述 hooks。
@@ -95,6 +98,14 @@ onFinish → transformKey → conversionMomentValue → 返回值（及可选 UR
 
 **验收**：单测覆盖「带/不带 LightFilter」「`ignoreFormItem`」「`dependency`」各一条；bundle 无明显上涨或说明原因。
 
+**当前进度**（阶段 2）：
+
+- 已拆：`warpFieldLayout.ts`、`warpFieldMerge.ts`、`warpFieldLightProps.ts`（`buildWarpFieldLightProps`）、`warpFieldNodes.tsx`、`warpFieldDependency.tsx`；`warpField.tsx` 为薄组装。
+- **`warpField.tsx` 文件头 JSDoc**：总流程注释（`pickProFormItemProps` → 各 merge → `buildWarpFieldLightProps` → `WarpFieldDependencyWrapper`）。
+- 单测：`tests/form/warpFieldLayout.test.ts`、`warpFieldMerge.test.ts`、`warpFieldLightProps.test.ts`（含命名用例 **LightFilter / `proFieldLight`**）、`warpFieldDependency.test.tsx`。
+- **文档**：`form-architecture.md` 补充 bundle 说明、Schema 专用 `getFieldProps`/`getFormItemProps` 备忘、轻量模式验收策略（纯函数 + 命名用例即可）。
+- **类型**：`FieldContextProps` 作为 `FiledContextProps` 别名导出（旧名保留，`@deprecated`）；大规模重命名仍非必须。
+
 ### 阶段 3：`SchemaForm` 与命令式路径对齐
 
 
@@ -107,13 +118,30 @@ onFinish → transformKey → conversionMomentValue → 返回值（及可选 UR
 
 **验收**：同一组 `columns` 在「Schema 渲染」与「手写 `ProFormXxx`」上行为一致（至少关键用例对齐测试）。
 
+**阶段 3 启动步骤（实施前摸底，不改变行为）**：
+
+1. ~~在 `docs/internal/form-architecture.md`（或独立小节）记录 `SchemaForm` / `BetaSchemaForm` 的入口文件、`columns` → 子组件的调用链。~~ **已做**（见「Schema 路径」与 `getFieldProps` 生成说明）。
+2. ~~用 `rg "getFieldProps|getFormItemProps"` 在 `src/form` 标出仅 Schema 路径使用的分支~~ **已文档化**：`BetaSchemaForm` 的 `genItems` 将列上 `fieldProps`/`formItemProps` 转为函数形态；其余以 `warpField` / `warpFieldMerge` 为准。
+3. ~~首条对齐测试（`text`）~~ **已做**：`tests/form/schemaImperativeAlignment.test.tsx`。
+
+**阶段 3（本轮已合并）**：
+
+- **纯函数**：`src/form/components/SchemaForm/normalizeColumnToItemType.ts`（`buildSchemaColumnGetters`、`mergeOriginColumnToItemType`），由 `BetaSchemaForm` 的 `genItems` 调用；单测 `tests/form/normalizeColumnToItemType.test.ts`。
+- **目录**：`valueType/pipeline/` 存放管道步骤；`field.tsx` 仍在 `valueType/` 根下。
+- **对齐测试**：`tests/form/schemaImperativeAlignment.test.tsx`（text / digit / select / dateTime / switch）。
+
+**阶段 3 当前**：已对齐 **text、digit、select、dateTime、switch**（见 `schemaImperativeAlignment.test.tsx`）；可继续加更多 `valueType` 用例。
+
 ### 阶段 4：类型与导出整理
 
 
 | 工作项              | 说明                                                                        |
 | ---------------- | ------------------------------------------------------------------------- |
-| 按域拆分 `typing.ts` | 例如：`submit.ts`、`fieldItem.ts`、`layout.ts`、`schema.ts`，`index` 再 re-export |
-| 对外兼容             | `src/form/index.tsx` 保持导出不变，仅内部路径调整                                       |
+| 按域拆分 `typing.ts` | `layout.ts`（`ProFormGridConfig`）、`fieldItem.ts`（字段扩展类型），`typing/index.ts` 统一 re-export |
+| 对外兼容             | `src/form/index.tsx` 仍从 `./typing` 引入；**不**改包入口导出名称 |
+| submit / schema 类型 | **不**在 `typing/index` 中二次 re-export：`BaseForm/BaseFormTypes` 与 `SchemaForm/typing` 互引 `typing` 会形成循环；提交/Schema 类型仍在原文件查阅 |
+
+**阶段 4 当前**：已完成目录拆分；`npm run build` / `tsc` 通过即可。
 
 
 ## 风险与顺序建议
@@ -146,13 +174,23 @@ onFinish → transformKey → conversionMomentValue → 返回值（及可选 UR
 - `BaseForm` 与提交/初始/URL 相关逻辑具备可单测模块。
 - 文档能支撑新贡献者理解数据流与扩展点（阶段 0 交付物或等价说明）。
 
+## 实施进度总览（维护者更新）
+
+| 阶段 | 状态 | 备注 |
+| --- | --- | --- |
+| 0 | 完成 | `docs/internal/form-architecture.md` |
+| 1 | 完成 | `BaseForm` 拆模块 + `genParams` / `base` 等单测 |
+| 2 | 基本完成（条文级） | 结构拆分、总流程注释、LightFilter 命名单测、bundle/Schema 备忘、`FieldContextProps` 别名；目录级收敛 Schema 留在阶段 3 |
+| 3 | 基本完成 | `normalizeColumnToItemType`、`valueType/pipeline`、对齐测试与文档 |
+| 4 | 完成 | `src/form/typing/{layout,fieldItem,index}.ts`；submit/schema 类型保留在原模块防循环 |
+
 ## 开放问题
 
-1. `docs/internal/` 是否纳入仓库，或仅发布在维护者 wiki？
+1. ~~`docs/internal/` 是否纳入仓库~~ **已决议**：纳入本仓库（见 `docs/internal/form-architecture.md`）。
 2. 是否与 `@umijs/use-params` 解耦或抽象接口，便于非 Umi 环境测试？
 3. `BetaSchemaForm` 与 `SchemaForm` 长期是否合并命名与导出策略？
 
-**在问题未决议前（实施默认策略）**：不改变是否新增 `docs/internal`、不新增对 `@umijs/use-params` 的抽象层、不合并或重命名 `BetaSchemaForm` / `SchemaForm`；仅做本 RFC 分阶段内的结构与测试补强。
+**在问题 2–3 未决议前（实施默认策略）**：不新增对 `@umijs/use-params` 的抽象层、不合并或重命名 `BetaSchemaForm` / `SchemaForm`；仅做本 RFC 分阶段内的结构与测试补强。
 
 ---
 
@@ -168,8 +206,11 @@ onFinish → transformKey → conversionMomentValue → 返回值（及可选 UR
 | 表单公共入口    | `src/form/index.tsx`                                                         |
 | BaseForm  | `src/form/BaseForm/BaseForm.tsx`                                             |
 | 字段包装      | `src/form/components/FormItem/warpField.tsx`                                 |
-| 类型聚合      | `src/form/typing.ts`                                                         |
-| Form 相关测试 | `tests/form/`（如 `base.test.tsx`、`schemaForm.test.tsx`、`dependency.test.tsx`） |
+| 字段包装拆分    | `warpFieldLayout.ts`、`warpFieldMerge.ts`、`warpFieldLightProps.ts`、`warpFieldNodes.tsx`、`warpFieldDependency.tsx` |
+| Schema 列归一化 | `src/form/components/SchemaForm/normalizeColumnToItemType.ts`              |
+| Schema valueType 管道 | `src/form/components/SchemaForm/valueType/pipeline/*`                  |
+| 类型聚合      | `src/form/typing/`（`layout.ts`、`fieldItem.ts`、`index.ts`）              |
+| Form 相关测试 | `tests/form/`（如 `base.test.tsx`、`genParams.test.ts`、`warpField*.test.ts`、`schemaImperativeAlignment.test.tsx`、`dependency.test.tsx`） |
 
 
 ### MUST

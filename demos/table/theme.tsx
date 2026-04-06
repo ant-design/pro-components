@@ -1,7 +1,15 @@
 import { EllipsisOutlined, PlusOutlined } from '@ant-design/icons';
 import type { ActionType, ProColumns } from '@ant-design/pro-components';
 import { ProTable, TableDropdown } from '@ant-design/pro-components';
-import { Button, ConfigProvider, Dropdown, Space, Tag, theme } from 'antd';
+import {
+  Button,
+  ConfigProvider,
+  Dropdown,
+  message,
+  Space,
+  Tag,
+  theme,
+} from 'antd';
 import { useRef } from 'react';
 import request from 'umi-request';
 
@@ -155,8 +163,7 @@ const Demo = () => {
           columns={columns}
           actionRef={actionRef}
           cardBordered
-          request={async (params, sort, filter) => {
-            console.log(sort, filter);
+          request={async (params) => {
             return request<{
               data: GithubIssueItem[];
             }>('https://proapi.azurewebsites.net/github/issues', {
@@ -169,8 +176,8 @@ const Demo = () => {
           columnsState={{
             persistenceKey: 'pro-table-singe-demos',
             persistenceType: 'localStorage',
-            onChange(value) {
-              console.log('value: ', value);
+            onChange: () => {
+              message.info('列设置已更新');
             },
           }}
           rowKey="id"
@@ -196,7 +203,9 @@ const Demo = () => {
           }}
           pagination={{
             pageSize: 5,
-            onChange: (page) => console.log(page),
+            onChange: (page, pageSize) => {
+              message.info(`第 ${page} 页${pageSize ? `，每页 ${pageSize} 条` : ''}`);
+            },
           }}
           dateFormatter="string"
           headerTitle="高级表格"

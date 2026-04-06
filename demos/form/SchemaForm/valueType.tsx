@@ -105,7 +105,7 @@ const Demo = () => {
       <BetaSchemaForm<DataItem>
         layoutType="Form"
         onFinish={async (values) => {
-          console.log(values);
+
         }}
         initialValues={options.reduce((pre, item) => {
           return {

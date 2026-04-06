@@ -5,7 +5,7 @@ import {
   ProFormList,
   ProFormText,
 } from '@ant-design/pro-components';
-import { Segmented } from 'antd';
+import { message, Segmented } from 'antd';
 import { useState } from 'react';
 
 const Demo = () => {
@@ -38,7 +38,12 @@ const Demo = () => {
           }}
         />
       </ProForm.Item>
-      <ProForm readonly={readonly} onFinish={async (e) => console.log(e)}>
+      <ProForm
+        readonly={readonly}
+        onFinish={async () => {
+          message.success('提交成功');
+        }}
+      >
         <ProFormText name="name" label="姓名" />
 
         <ProFormList

@@ -2,7 +2,7 @@ import {
   FormControlRender,
   pickControlPropsWithId,
 } from '@ant-design/pro-components';
-import { Button, Checkbox, Form } from 'antd';
+import { Button, Checkbox, Form, message } from 'antd';
 import React, { useEffect } from 'react';
 
 const App: React.FC = () => {
@@ -14,7 +14,12 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <Form form={form} onFinish={console.log}>
+    <Form
+      form={form}
+      onFinish={() => {
+        message.success('提交成功');
+      }}
+    >
       <Form.Item
         name={'text1'}
         label="文本框（没错误边框）"

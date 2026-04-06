@@ -32,6 +32,7 @@ export type {
 } from './components';
 export { FormListContext } from './components/List';
 export { FieldContext } from './FieldContext';
+export type { FieldContextProps } from './FieldContext';
 export * from './layouts';
 export type {
   LightFilterFooterRender,

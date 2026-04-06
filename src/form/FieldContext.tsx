@@ -9,6 +9,7 @@ import type {
 import type { CommonFormProps } from './BaseForm';
 import type { FieldProps, ProFormGroupProps } from './typing';
 
+/** @deprecated 拼写历史遗留；新代码请使用 {@link FieldContextProps} */
 export type FiledContextProps = {
   fieldProps?: FieldProps<unknown>;
   proFieldProps?: ProFieldProps;
@@ -31,6 +32,9 @@ export type FiledContextProps = {
   /** 表单的 getPopupContainer 控制 */
   getPopupContainer?: (e: HTMLElement) => ParentNode;
 } & Pick<CommonFormProps, 'formRef' | 'grid'>;
+
+/** `FieldContext` 的值类型（与 `FiledContextProps` 相同，修正命名） */
+export type FieldContextProps = FiledContextProps;
 
 const FieldContext = React.createContext<FiledContextProps>({});
 

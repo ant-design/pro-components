@@ -45,7 +45,7 @@ export default () => {
           dateRange: [Date.now(), Date.now() - 1000 * 60 * 60 * 24],
         }}
         onFinish={async (values) => {
-          console.log(values);
+
         }}
       >
         <ProForm.Group title="Date Related Group">

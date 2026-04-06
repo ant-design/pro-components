@@ -45,7 +45,7 @@ const Demo = () => {
       }}
       onFinish={async (values) => {
         await waitTime(2000);
-        console.log(values);
+
         message.success('提交成功');
         return true;
       }}
@@ -58,7 +58,9 @@ const Demo = () => {
           });
         }}
         onTiming={(count) => {
-          console.log('timing:', count);
+          if (count === 0) {
+            message.info('验证码倒计时结束');
+          }
         }}
         fieldRef={captchaRef}
         fieldProps={{ ref: inputRef }}

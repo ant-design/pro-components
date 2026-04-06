@@ -131,7 +131,7 @@ const Demo = () => {
     <ProTable<GithubIssueItem>
       columns={columns}
       request={async (params) => {
-        console.log(`request params:`, params);
+
         return {
           data: [
             {
@@ -156,7 +156,7 @@ const Demo = () => {
             key="out"
             onClick={() => {
               const values = searchConfig?.form?.getFieldsValue();
-              console.log(values);
+
             }}
           >
             导出

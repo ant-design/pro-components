@@ -3,13 +3,13 @@ import type {
   ProFormRenderValueTypeHelpers,
   ProSchemaRenderValueTypeFunction,
 } from '../typing';
-import { dependency } from './dependency';
-import { divider } from './divider';
+import { dependency } from './pipeline/dependency';
+import { divider } from './pipeline/divider';
 import { field } from './field';
-import { formList } from './formList';
-import { formSet } from './formSet';
-import { group } from './group';
-import { ignore } from './ignore';
+import { formList } from './pipeline/formList';
+import { formSet } from './pipeline/formSet';
+import { group } from './pipeline/group';
+import { ignore } from './pipeline/ignore';
 
 // 按照数组顺序执行
 const tasks: ProSchemaRenderValueTypeFunction<any, any>[] = [

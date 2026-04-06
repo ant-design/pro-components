@@ -9,7 +9,7 @@ import {
   ProFormUploadButton,
   ProFormUploadDragger,
 } from '@ant-design/pro-components';
-import { Button, Input } from 'antd';
+import { Button, Input, message } from 'antd';
 import { useRef } from 'react';
 
 const Demo = () => {
@@ -25,7 +25,9 @@ const Demo = () => {
         name: 'qixian',
       }}
       formRef={formRef}
-      onFinish={async (value) => console.log(value)}
+      onFinish={async () => {
+        message.success('提交成功');
+      }}
     >
       <ProFormUploadButton
         name="upload"

@@ -7,7 +7,7 @@ const Demo = () => (
       <CheckCard.Group
         multiple
         onChange={(value) => {
-          console.log('value', value);
+
         }}
         defaultValue={['A']}
       >
@@ -32,7 +32,7 @@ const Demo = () => (
         <CheckCard.Group
           multiple
           onChange={(value) => {
-            console.log('value', value);
+
           }}
           defaultValue={['A']}
         >

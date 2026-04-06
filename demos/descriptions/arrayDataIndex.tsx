@@ -23,7 +23,7 @@ const Demo = () => {
       }}
       editable={{
         onSave: async (keypath, newInfo, oriInfo) => {
-          console.log(keypath, newInfo, oriInfo);
+
           return true;
         },
       }}

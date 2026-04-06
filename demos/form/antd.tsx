@@ -1,4 +1,4 @@
-import { Button, Form, Input, Select } from 'antd';
+import { Button, Form, Input, message, Select } from 'antd';
 import React, { useState } from 'react';
 
 const { Option } = Select;
@@ -65,8 +65,8 @@ const PriceInput: React.FC<PriceInputProps> = ({ value = {}, onChange }) => {
 };
 
 const App: React.FC = () => {
-  const onFinish = (values: any) => {
-    console.log('Received values from form: ', values);
+  const onFinish = () => {
+    message.success('表单已提交');
   };
 
   const checkPrice = (_: any, value: { number: number }) => {

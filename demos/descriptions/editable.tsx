@@ -9,9 +9,6 @@ const Demo = () => {
       <ProDescriptions
         actionRef={actionRef}
         //   variant="outlined"
-        formProps={{
-          onValuesChange: (e, f) => console.log(f),
-        }}
         title="可编辑的定义列表"
         request={async () => {
           return Promise.resolve({

@@ -10,7 +10,7 @@ const Demo = () => {
     <ProForm
       layout="horizontal"
       onFinish={async (values) => {
-        console.log(values);
+
         return true;
       }}
     >

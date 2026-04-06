@@ -64,7 +64,7 @@ const EditExample = () => {
     <StepsForm
       formMapRef={formMapRef}
       onFinish={(values) => {
-        console.log(values);
+
         return Promise.resolve(true);
       }}
     >

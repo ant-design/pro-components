@@ -126,7 +126,6 @@ const Demo = () => {
       columns={columns}
       request={(params, sorter, filter) => {
         // 表单搜索项会从 params 传入，传递给后端接口。
-        console.log(params, sorter, filter);
         return Promise.resolve({
           data: tableListDataSource,
           success: true,

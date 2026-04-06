@@ -12,7 +12,7 @@ import {
   ProFormSegmented,
   ProFormSwitch,
 } from '@ant-design/pro-components';
-import { Button } from 'antd';
+import { Button, message } from 'antd';
 import React, { useRef, useState } from 'react';
 
 let demoNewRecordId = 9_000_000;
@@ -198,7 +198,7 @@ const Demo = () => {
             key="rows"
             onClick={() => {
               const rows = editorFormRef.current?.getRowsData?.();
-              console.log(rows);
+              message.info(JSON.stringify(rows ?? []));
             }}
           >
             获取 table 的数据
@@ -217,7 +217,6 @@ const Demo = () => {
               <a
                 key="set"
                 onClick={() => {
-                  console.log(config.index);
                   i++;
                   editorFormRef.current?.setRowData?.(config.index!, {
                     title: '动态设置的title' + i,

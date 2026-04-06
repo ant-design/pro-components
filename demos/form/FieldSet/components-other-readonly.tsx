@@ -19,6 +19,7 @@ import {
   ProFormUploadButton,
   ProFormUploadDragger,
 } from '@ant-design/pro-components';
+import { message } from 'antd';
 
 const options = [
   {
@@ -161,10 +162,9 @@ const Demo = () => (
         dateTimeRange: [Date.now(), Date.now() - 1000 * 60 * 60 * 24],
         dateRange: [Date.now(), Date.now() - 1000 * 60 * 60 * 24],
       }}
-      onValuesChange={(_, values) => {
-        console.log(values);
+      onFinish={async () => {
+        message.success('Submitted');
       }}
-      onFinish={async (value) => console.log(value)}
     >
       <ProForm.Group title="基础数据">
         <ProFormText

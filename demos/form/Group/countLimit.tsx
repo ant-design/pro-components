@@ -25,13 +25,13 @@ const Demo = () => {
           actionGuard={{
             beforeAddRow: async (defaultValue, insertIndex, count) => {
               return new Promise((resolve) => {
-                console.log(defaultValue?.name, insertIndex, count);
+
                 setTimeout(() => resolve(true), 1000);
               });
             },
             beforeRemoveRow: async (index, count) => {
               const row = actionRef.current?.get(index as number);
-              console.log('--->', index, count, row);
+
               return new Promise((resolve) => {
                 if (index === 0) {
                   resolve(false);

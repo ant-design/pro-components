@@ -116,7 +116,7 @@ const Demo = () => {
         shouldUpdate={false}
         layoutType="Form"
         onFinish={async (values) => {
-          console.log(values);
+
         }}
         columns={columns}
       />

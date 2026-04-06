@@ -3,6 +3,7 @@ import {
   ProFormDateTimePicker,
   ProFormSelect,
 } from '@ant-design/pro-components';
+import { message } from 'antd';
 
 const Demo = () => {
   return (
@@ -11,7 +12,9 @@ const Demo = () => {
         sex: 'man',
       }}
       collapse
-      onFinish={async (values) => console.log(values)}
+      onFinish={async () => {
+        message.success('提交成功');
+      }}
     >
       <ProFormSelect
         name="sex"

@@ -7,7 +7,7 @@ const Demo = () => (
   <>
     <CheckCard.Group
       onChange={(value) => {
-        console.log('value', value);
+
       }}
       defaultValue="A"
     >

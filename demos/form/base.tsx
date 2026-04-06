@@ -75,20 +75,16 @@ const Demo = () => {
       company?: string;
       useMode?: string;
     }>
-      onFinish={async (values) => {
+      onFinish={async () => {
         await waitTime(2000);
-        console.log(values);
-        const val1 = await formRef.current?.validateFields();
-        console.log('validateFields:', val1);
-        const val2 = await formRef.current?.validateFieldsReturnFormatValue?.();
-        console.log('validateFieldsReturnFormatValue:', val2);
+        await formRef.current?.validateFields();
+        await formRef.current?.validateFieldsReturnFormatValue?.();
         message.success('Submission successful');
       }}
       formRef={formRef}
       params={{ id: '100' }}
       formKey="base-form-use-demo"
       dateFormatter={(value, valueType) => {
-        console.log('---->', value, valueType);
         return value.format('YYYY/MM/DD HH:mm:ss');
       }}
       request={async () => {

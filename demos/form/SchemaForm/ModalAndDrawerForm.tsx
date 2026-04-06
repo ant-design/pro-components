@@ -38,7 +38,7 @@ const Demo = () => {
         trigger={<Button>点击我</Button>}
         layoutType={layoutType as 'ModalForm'}
         onFinish={async (values) => {
-          console.log(values);
+
         }}
         {...(layoutType === 'ModalForm'
           ? {

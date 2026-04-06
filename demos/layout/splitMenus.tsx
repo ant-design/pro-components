@@ -4,6 +4,7 @@ import {
   SettingDrawer,
 } from '@ant-design/pro-components';
 import defaultProps from './_defaultProps';
+import { demoOnMenuHeaderClick } from './_demoHandlers';
 
 const Demo = () => {
   return (
@@ -20,7 +21,7 @@ const Demo = () => {
         layout="mix"
         splitMenus
         headerRender={false}
-        onMenuHeaderClick={() => {}}
+        onMenuHeaderClick={demoOnMenuHeaderClick}
         formatMessage={({ id }) => id}
         style={{
           height: '100vh',

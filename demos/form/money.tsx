@@ -40,14 +40,10 @@ const Demo = () => {
         company?: string;
         useMode?: string;
       }>
-        onFinish={async (values) => {
+        onFinish={async () => {
           await waitTime(2000);
-          console.log(values);
-          const val1 = await formRef.current?.validateFields();
-          console.log('validateFields:', val1);
-          const val2 =
-            await formRef.current?.validateFieldsReturnFormatValue?.();
-          console.log('validateFieldsReturnFormatValue:', val2);
+          await formRef.current?.validateFields();
+          await formRef.current?.validateFieldsReturnFormatValue?.();
           message.success('Submission successful');
         }}
         formRef={formRef}

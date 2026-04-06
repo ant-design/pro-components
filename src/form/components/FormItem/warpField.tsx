@@ -47,7 +47,20 @@ type FunctionFieldProps = {
 };
 
 /**
- * 这个方法的主要作用是帮助 Field 增加 FormItem 同时也会处理 lightFilter
+ * 为 Pro 字段组件补上 `ProFormItem` 壳，并处理轻量筛选（LightFilter）、宽度、`dependencies` 等。
+ *
+ * **本函数内 props 合并总顺序（与 `warpFieldMerge` / `warpFieldLightProps` 子模块一致）：**
+ *
+ * 1. `rest` 上非 Form.Item 的部分先经 **`pickProFormItemProps(rest)`** 得到 `restFormItemProps`（白名单）。
+ * 2. **`mergeWarpFieldFieldProps`**：`ignoreFormItem` → placeholder/disabled → `FieldContext.fieldProps` → `getFieldProps?.()` → `rest.fieldProps`。
+ * 3. **`mergeWarpFieldFormItemProps`**：`FieldContext.formItemProps` → `restFormItemProps` → `getFormItemProps?.()` → `rest.formItemProps`。
+ * 4. **`mergeWarpFieldOtherProps`**：`messageVariables` → `fieldConfig`/默认表单项 → 上一步的 `formItemProps`。
+ * 5. **`mergeWarpFieldProFieldProps`**：上下文 `proFieldProps` 与用户 `proFieldProps` 等。
+ * 6. 样式/宽度：**`resolveWarpFieldStyle` / `resolveWarpFieldClassName`**（见 `warpFieldLayout.ts`）。
+ * 7. 传给 `ProFormItem` 的 **`lightProps`**：**`buildWarpFieldLightProps`**（先展开 `fieldProps`，再写固定键，再 `rest.lightProps`，再 `otherProps.lightProps`；其中对值做 **`omitUndefined`**）。
+ * 8. 有 **`dependencies`** 时外层由 **`WarpFieldDependencyWrapper`** 包 `ProFormDependency`（见 `warpFieldDependency.tsx`）。
+ *
+ * `getFieldProps` / `getFormItemProps` 多为 **SchemaForm** 列配置传入；合并规则与命令式 `ProFormXxx` 相同，见 `docs/internal/form-architecture.md`。
  *
  * @param Field
  * @param config

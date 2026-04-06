@@ -21,6 +21,17 @@ describe('warpFieldMerge', () => {
     expect(merged.c).toBe(3);
   });
 
+  it('mergeWarpFieldFieldProps: ignoreFormItem injects value from restValue', () => {
+    const merged = mergeWarpFieldFieldProps({
+      ignoreFormItem: true,
+      restValue: 'injected',
+      contextFieldProps: {},
+      changedFieldProps: {},
+      restFieldProps: {},
+    });
+    expect(merged.value).toBe('injected');
+  });
+
   it('mergeWarpFieldFormItemProps: explicit formItemProps wins', () => {
     const merged = mergeWarpFieldFormItemProps({
       contextFormItemProps: { label: 'ctx' },

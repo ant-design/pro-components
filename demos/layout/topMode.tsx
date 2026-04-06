@@ -309,10 +309,17 @@ const Demo = () => {
         )}
         headerTitleRender={(logo, title, _) => {
           const defaultDom = (
-            <a onClick={() => {}}>
+            <span
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 8,
+                cursor: 'pointer',
+              }}
+            >
               {logo}
               {title}
-            </a>
+            </span>
           );
           if (
             typeof document === 'undefined' ||

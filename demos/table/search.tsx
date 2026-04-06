@@ -24,7 +24,7 @@ const SearchTable = () => (
   <ProTable<GithubIssueItem>
     columns={columns}
     request={async (params) => {
-      console.log(params);
+
       return {
         data: [
           {

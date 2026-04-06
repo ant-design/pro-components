@@ -8,6 +8,7 @@ import {
 import { PageContainer, ProCard, ProLayout } from '@ant-design/pro-components';
 import { Button, Input } from 'antd';
 import { useState } from 'react';
+import { demoOnMenuHeaderClick } from './_demoHandlers';
 
 const Demo = () => {
   const [pathname, setPathname] = useState('/list/sub-page/sub-sub-page1');
@@ -194,7 +195,7 @@ const Demo = () => {
           </p>
         );
       }}
-      onMenuHeaderClick={() => {}}
+      onMenuHeaderClick={demoOnMenuHeaderClick}
       menuItemRender={(item, dom) => (
         <a
           onClick={() => {

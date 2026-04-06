@@ -11,7 +11,6 @@ import ValueTypeToComponent from '../../../field/ValueTypeToComponent';
 import ProConfigContext, { ProConfigProvider } from '../../../provider';
 import {
   LabelIconTip,
-  omitUndefined,
   runFunction,
   stringify,
   useDeepCompareMemo,
@@ -28,9 +27,12 @@ import { ProForm } from '../../layouts/ProForm';
 import { QueryFilter } from '../../layouts/QueryFilter';
 import { StepsForm as ProStepsForm } from '../../layouts/StepsForm';
 import { Embed, StepsForm } from './layoutType';
+import {
+  buildSchemaColumnGetters,
+  mergeOriginColumnToItemType,
+} from './normalizeColumnToItemType';
 import type {
   FormSchema,
-  ItemType,
   ProFormColumnsType,
   ProFormRenderValueTypeHelpers,
 } from './typing';
@@ -111,53 +113,17 @@ function BetaSchemaForm<T, ValueType = 'text'>(
             />,
           );
 
-          const item = omitUndefined({
+          const getters = buildSchemaColumnGetters({
+            originItem,
+            formRef,
+          });
+          const item = mergeOriginColumnToItemType({
+            originItem,
+            index,
             title,
             label: title,
-            name: originItem.name,
-            valueType: runFunction(originItem.valueType, {}),
-            key: originItem.key || originItem.dataIndex || index,
-            columns: originItem.columns,
-            valueEnum: originItem.valueEnum,
-            dataIndex: originItem.dataIndex || originItem.key,
-            initialValue: originItem.initialValue,
-            width: originItem.width,
-            index: originItem.index,
-            readonly: originItem.readonly,
-            colSize: originItem.colSize,
-            colProps: originItem.colProps,
-            rowProps: originItem.rowProps,
-            className: originItem.className,
-            tooltip: originItem.tooltip,
-            dependencies: originItem.dependencies,
-            proFieldProps: originItem.proFieldProps,
-            ignoreFormItem: originItem.ignoreFormItem,
-            getFieldProps: originItem.fieldProps
-              ? () =>
-                  runFunction(
-                    originItem.fieldProps,
-                    formRef.current,
-                    originItem,
-                  )
-              : undefined,
-            getFormItemProps: originItem.formItemProps
-              ? () =>
-                  runFunction(
-                    originItem.formItemProps,
-                    formRef.current,
-                    originItem,
-                  )
-              : undefined,
-            render: originItem.render,
-            formItemRender: originItem.formItemRender,
-            renderText: originItem.renderText,
-            request: originItem.request,
-            params: originItem.params,
-            transform: originItem.transform,
-            convertValue: originItem.convertValue,
-            debounceTime: originItem.debounceTime,
-            defaultKeyWords: originItem.defaultKeyWords,
-          }) as ItemType<any, any>;
+            getters,
+          });
 
           return renderValueType(item, {
             action,

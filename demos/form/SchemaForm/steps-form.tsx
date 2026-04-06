@@ -184,12 +184,12 @@ const Demo = () => {
         },
       ]}
       onCurrentChange={(current) => {
-        console.log('current: ', current);
+
       }}
       formRef={formRef}
       onFinish={async (values) => {
         return new Promise((resolve) => {
-          console.log(values);
+
           message.success('提交成功');
           setTimeout(() => {
             resolve(true);

@@ -6,7 +6,7 @@ import {
   ProFormSlider,
   ProFormText,
 } from '@ant-design/pro-components';
-import { Radio } from 'antd';
+import { Radio, message } from 'antd';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import dayjs from 'dayjs';
 import React from 'react';
@@ -54,7 +54,9 @@ const Demo = () => {
           ],
         }}
         size={size}
-        onFinish={async (values) => console.log(values.sex)}
+        onFinish={async () => {
+          message.success('提交成功');
+        }}
       >
         <ProFormSelect
           name="sex"

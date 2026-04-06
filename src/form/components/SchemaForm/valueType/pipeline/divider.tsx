@@ -1,5 +1,5 @@
 import { Divider } from 'antd';
-import type { ItemType } from '../typing';
+import type { ItemType } from '../../typing';
 
 export const divider = <DataType, ValueType = 'divider'>(
   item: ItemType<DataType, ValueType>,

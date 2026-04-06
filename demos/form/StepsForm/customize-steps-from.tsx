@@ -26,7 +26,7 @@ const Demo = () => {
         name: string;
       }>
         onFinish={async (values) => {
-          console.log(values);
+
           await waitTime(1000);
           message.success('提交成功');
         }}
@@ -81,7 +81,7 @@ const Demo = () => {
           name="base"
           title="创建实验"
           onFinish={async ({ name }) => {
-            console.log(name);
+
             await waitTime(2000);
             return true;
           }}

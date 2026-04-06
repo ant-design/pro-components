@@ -8,7 +8,7 @@ import {
   pickControlPropsWithId,
   useControlModel,
 } from '@ant-design/pro-components';
-import { Checkbox, Input, Select } from 'antd';
+import { Checkbox, Input, message, Select } from 'antd';
 
 const SingletonA = (
   props: WithControlPropsType<{
@@ -91,10 +91,8 @@ const Demo = () => {
     <div>
       <ProForm
         form={form}
-        onValuesChange={console.log}
-        onFinish={async (values) => {
-          console.log(values);
-          return;
+        onFinish={async () => {
+          message.success('提交成功');
         }}
       >
         <ProForm.Item name={'SingletonA'}>

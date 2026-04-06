@@ -18,7 +18,7 @@ class CustomBoundary extends React.Component<
   componentDidCatch(error: any, errorInfo: ErrorInfo) {
     // You can also log the error to an error reporting service
     // eslint-disable-next-line no-console
-    console.log(error, errorInfo);
+    console.error(error, errorInfo);
   }
 
   render() {
@@ -185,7 +185,6 @@ const Demo = () => {
         columns={columns}
         request={(params, sorter, filter) => {
           // 表单搜索项会从 params 传入，传递给后端接口。
-          console.log(params, sorter, filter);
           return Promise.resolve({
             data: tableListDataSource,
             success: true,

@@ -68,7 +68,7 @@ const columns: ProColumns<DataSourceType>[] = [
     title: '描述',
     dataIndex: 'decs',
     formItemRender: (_, { record }) => {
-      console.log('----===>', record);
+
       return <Input addonBefore={(record as any)?.addonBefore} />;
     },
   },
@@ -90,7 +90,7 @@ const Demo = () => {
       grid
       onFinish={async (values) => {
         await waitTime(2000);
-        console.log(values);
+
         message.success('提交成功');
       }}
       initialValues={{

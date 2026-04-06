@@ -92,10 +92,10 @@ export default () => {
         onItem={(record: any) => {
           return {
             onMouseEnter: () => {
-              console.log(record);
+
             },
             onClick: () => {
-              console.log(record);
+
             },
           };
         }}

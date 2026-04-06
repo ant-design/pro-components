@@ -7,7 +7,6 @@ const Demo = () => {
       onFinish={async () => {
         message.success('提交成功');
       }}
-      onValuesChange={(v) => console.log(v)}
     >
       <ProFormSelect
         options={[

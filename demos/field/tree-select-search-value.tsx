@@ -1,4 +1,5 @@
 ﻿import { ProForm, ProFormTreeSelect } from '@ant-design/pro-components';
+import { message } from 'antd';
 import { useState } from 'react';
 
 const treeData = [
@@ -71,7 +72,9 @@ export function App() {
         initialValues={{
           name: ['0-0'],
         }}
-        onFinish={async (e) => console.log(e)}
+        onFinish={async () => {
+          message.success('提交成功');
+        }}
       >
         <ProFormTreeSelect
           name="name"

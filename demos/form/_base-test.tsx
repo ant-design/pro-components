@@ -69,8 +69,7 @@ const Demo = () => {
       formRef={formRef}
       params={{ id: '100' }}
       formKey="base-form-use-demo"
-      dateFormatter={(value, valueType) => {
-        console.log('---->', value, valueType);
+      dateFormatter={(value) => {
         return value.format('YYYY/MM/DD HH:mm:ss');
       }}
       autoFocusFirstInput

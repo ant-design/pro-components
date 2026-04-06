@@ -2,6 +2,7 @@ import { CrownOutlined, SmileOutlined, UserOutlined } from '@ant-design/icons';
 import { PageContainer, ProLayout } from '@ant-design/pro-components';
 import { Button, Input, Result, Tag } from 'antd';
 import { useState } from 'react';
+import { demoOnMenuHeaderClick } from './_demoHandlers';
 
 const defaultProps = {
   routes: [
@@ -37,7 +38,7 @@ const Demo = () => {
         }}
         fixSiderbar
         headerRender={false}
-        onMenuHeaderClick={() => {}}
+        onMenuHeaderClick={demoOnMenuHeaderClick}
         menuItemRender={(item, dom) => (
           <a
             onClick={() => {

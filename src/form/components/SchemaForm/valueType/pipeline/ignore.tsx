@@ -1,4 +1,4 @@
-import type { ProSchemaRenderValueTypeFunction } from '../typing';
+import type { ProSchemaRenderValueTypeFunction } from '../../typing';
 
 export const ignore: ProSchemaRenderValueTypeFunction = (item) => {
   // 几种特殊的 value 不处理

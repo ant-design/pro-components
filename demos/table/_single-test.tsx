@@ -174,6 +174,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
 
 const Demo = () => {
   const actionRef = useRef<ActionType>();
+  const staticTableActionRef = useRef<ActionType>();
 
   return (
     <ConfigProvider prefixCls="canvas">
@@ -200,7 +201,7 @@ const Demo = () => {
       <ProTable columns={nestedColumns} dataSource={nestedData} />
       <ProTable<GithubIssueItem>
         columns={columns}
-        actionRef={(ref) => console.log(ref)}
+        actionRef={staticTableActionRef}
         dataSource={[
           {
             id: 624748504,

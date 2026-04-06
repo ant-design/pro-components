@@ -137,7 +137,7 @@ const Demo = () => {
         selectedRows,
         onCleanSelected,
       }) => {
-        console.log(selectedRowKeys, selectedRows);
+
         return (
           <Space size={24}>
             <span>

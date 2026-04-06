@@ -7,7 +7,7 @@ const Demo = () => (
       title="示例二"
       defaultChecked
       onChange={(checked) => {
-        console.log('checked', checked);
+
       }}
     />
 

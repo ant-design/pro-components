@@ -22,7 +22,7 @@ const Demo = () => {
         }}
       >
         {(f, index, action) => {
-          console.log(f, index, action);
+
           return (
             <>
               <ProFormText

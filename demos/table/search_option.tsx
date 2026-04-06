@@ -1,7 +1,7 @@
 import { PlusOutlined } from '@ant-design/icons';
 import type { ProColumns } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
-import { Button } from 'antd';
+import { Button, message } from 'antd';
 
 type GithubIssueItem = {
   key: number;
@@ -52,7 +52,12 @@ const SearchOptionTable = () => (
       labelWidth: 'auto',
       optionRender: (searchConfig, formProps, dom) => [
         ...dom.reverse(),
-        <Button key="out" onClick={() => {}}>
+        <Button
+          key="out"
+          onClick={() => {
+            message.info('演示：导出');
+          }}
+        >
           导出
         </Button>,
       ],
