@@ -249,7 +249,6 @@ export interface Route {
 
 ```tsx | pure
 import { GithubOutlined } from '@ant-design/icons';
-import { afterEach, describe, expect, it, vi } from 'vitest';
 import { DefaultFooter } from '@ant-design/pro-components';
 
 <DefaultFooter

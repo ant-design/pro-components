@@ -15,6 +15,8 @@ const waitTime = (time: number = 100) => {
   });
 };
 
+let demoNewRecordId = 9_000_000;
+
 type DataSourceType = {
   id?: React.Key;
   title?: string;
@@ -169,7 +171,7 @@ const Demo = () => {
           position: 'bottom',
           newRecordType: 'dataSource',
           parentKey: () => 624748504,
-          record: () => ({ id: (Math.random() * 1000000).toFixed(0) }),
+          record: () => ({ id: String(demoNewRecordId++) }),
         }}
         columns={columns}
         value={dataSource}

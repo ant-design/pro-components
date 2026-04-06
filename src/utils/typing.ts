@@ -36,11 +36,6 @@ export type ProFormBaseGroupProps = {
    */
   title?: React.ReactNode;
   /**
-   * @name 分组的标题
-   * @deprecated 尽量用 title
-   */
-  label?: React.ReactNode;
-  /**
    * @name 标题旁边的？号提示展示的信息
    *
    * @example 自定义提示信息

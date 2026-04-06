@@ -22,22 +22,20 @@ export type TableListItem = {
 const tableListDataSource: TableListItem[] = [];
 
 for (let i = 0; i < 2; i += 1) {
+  const base = Date.now();
   tableListDataSource.push({
     key: i,
     name: `TradeCode ${i}`,
-    status: valueEnum[((Math.floor(Math.random() * 10) % 4) + '') as '0'],
-    updatedAt: Date.now() - Math.floor(Math.random() * 1000),
-    createdAt: Date.now() - Math.floor(Math.random() * 2000),
-    createdAtRange: [
-      Date.now() - Math.floor(Math.random() * 2000),
-      Date.now() - Math.floor(Math.random() * 2000),
-    ],
-    money: Math.floor(Math.random() * 2000) * i,
-    progress: Math.ceil(Math.random() * 100) + 1,
+    status: valueEnum[((i % 4) + '') as '0'],
+    updatedAt: base - (i * 100 + 50),
+    createdAt: base - (i * 200 + 100),
+    createdAtRange: [base - (i * 300 + 150), base - (i * 100 + 50)],
+    money: Math.floor(((i + 1) * 331) % 2000) * i,
+    progress: ((i * 17) % 100) + 1,
     percent:
-      Math.random() > 0.5
-        ? ((i + 1) * 10 + Math.random()).toFixed(3)
-        : -((i + 1) * 10 + Math.random()).toFixed(2),
+      i % 2 === 0
+        ? ((i + 1) * 10 + 0.137).toFixed(3)
+        : (-((i + 1) * 10 + 0.42)).toFixed(2),
     code: `const getData = async params => {
   const data = await getData(params);
   return { list: data.data, ...data };

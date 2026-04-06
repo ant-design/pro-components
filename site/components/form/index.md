@@ -231,7 +231,7 @@ FormItemRender 用来专门处理，采用 render props 的方式来组织代码
 
 <code src="../../../demos/form/linkage-customization.tsx" debug></code>
 
-<code src="../../../demos/form/pro-form-dependency.debug.tsx"  debug></code>
+<code src="../../../demos/form/_pro-form-dependency.tsx"  debug></code>
 
 <code src="../../../demos/form/label-col.tsx" debug></code>
 
@@ -380,17 +380,13 @@ ProFormInstance 与 antd 的 form 相比增加了一些能力。
 
 ```tsx | pure
 import type { ProFormInstance } from '@ant-design/pro-components';
-import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   ProForm,
   ProFormDatePicker,
   ProFormText,
 } from '@ant-design/pro-components';
-import { afterEach, describe, expect, it, vi } from 'vitest';
 import { Button, message, Space } from 'antd';
-import { afterEach, describe, expect, it, vi } from 'vitest';
 import moment from 'dayjs';
-import { afterEach, describe, expect, it, vi } from 'vitest';
 import { useRef } from 'react';
 
 const waitTime = (time: number = 100) => {
@@ -490,6 +486,6 @@ export default () => {
 |       `getFieldFormatValue`       |      使用方法与 `FormInstance` 的 `getFieldValue` 方法相同，将返回格式化后的指定数据       |      |
 | `validateFieldsReturnFormatValue` | 使用方法与 `FormInstance` 的 `validateFields` 方法相同，验证通过后将返回格式化后的所有数据 |      |
 
-<code src="../../../demos/form/modalform-test.tsx"  debug></code>
+<code src="../../../demos/form/_modalform-test.tsx"  debug></code>
 
 <code src="../../../demos/form/params-formref.tsx"  debug></code>

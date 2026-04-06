@@ -1,3 +1,3 @@
-﻿import demoTest from './demo';
+﻿import demoTest, { DEMO_SNAPSHOT_ALL } from './demo';
 
-demoTest('demos');
+demoTest(DEMO_SNAPSHOT_ALL);

@@ -17,8 +17,10 @@ const Demo = () => {
       <ProDescriptions.Item
         span={2}
         valueType="text"
-        contentStyle={{
-          maxWidth: '80%',
+        styles={{
+          content: {
+            maxWidth: '80%',
+          },
         }}
         renderText={(_) => {
           return _ + _;

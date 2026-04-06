@@ -27,12 +27,12 @@ for (let i = 0; i < 5; i += 1) {
     name: `TradeCode ${i}`,
     status: [
       {
-        value: Math.floor(Math.random() * 10),
-        label: valueEnum[((Math.floor(Math.random() * 10) % 4) + '') as '0'],
+        value: (i * 2 + 1) % 10,
+        label: valueEnum[((i % 4) + '') as '0'],
       },
       {
-        value: Math.floor(Math.random() * 10),
-        label: valueEnum[((Math.floor(Math.random() * 10) % 4) + '') as '0'],
+        value: (i * 3 + 2) % 10,
+        label: valueEnum[((i + 1) % 4 + '') as '0'],
       },
     ],
   });

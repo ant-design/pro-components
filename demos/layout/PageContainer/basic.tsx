@@ -75,7 +75,7 @@ const Demo = () => (
       tabProps={{
         type: 'editable-card',
         hideAdd: true,
-        onEdit: (e, action) => console.log(e, action),
+        onEdit: () => {},
       }}
       footer={[
         <Button key="3">Reset</Button>,

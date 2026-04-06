@@ -17,6 +17,8 @@ const waitTime = (time: number = 100) => {
   });
 };
 
+let demoRowIdSeq = 9_500_000;
+
 const TagList: React.FC<{
   value?: {
     key: string;
@@ -172,7 +174,7 @@ const columns: ProColumns<DataSourceType>[] = [
         key="copy"
         record={{
           ...record,
-          id: (Math.random() * 1000000).toFixed(0),
+          id: String(demoRowIdSeq++),
         }}
       >
         <a>复制此项到末尾</a>
@@ -193,7 +195,7 @@ const Demo = () => {
           type="primary"
           onClick={() => {
             actionRef.current?.addEditRecord?.({
-              id: (Math.random() * 1000000).toFixed(0),
+              id: String(demoRowIdSeq++),
               title: '新的一行',
             });
           }}

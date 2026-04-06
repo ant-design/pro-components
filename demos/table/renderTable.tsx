@@ -24,8 +24,8 @@ for (let i = 0; i < 2; i += 1) {
   tableListDataSource.push({
     key: i,
     name: `TradeCode ${i}`,
-    createdAt: Date.now() - Math.floor(Math.random() * 2000),
-    progress: Math.ceil(Math.random() * 100) + 1,
+    createdAt: Date.now() - (i * 200 + 100) % 2000,
+    progress: ((i * 17) % 100) + 1,
   });
 }
 

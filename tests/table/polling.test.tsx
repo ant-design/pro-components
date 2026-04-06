@@ -9,7 +9,7 @@ import {
   it,
   vi,
 } from 'vitest';
-import { columns } from './demo';
+import { columns } from './fixtures';
 
 afterEach(() => {
   cleanup();

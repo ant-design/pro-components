@@ -29,17 +29,17 @@ for (let i = 0; i < 5; i += 1) {
   tableListDataSource.push({
     key: i,
     name: 'AppName',
-    containers: Math.floor(Math.random() * 20),
-    creator: creators[Math.floor(Math.random() * creators.length)],
-    status: valueEnum[((Math.floor(Math.random() * 10) % 2) + '') as '0'],
-    createdAt: Date.now() - Math.floor(Math.random() * 2000),
-    money: Math.floor(Math.random() * 2000) * i,
-    progress: Math.ceil(Math.random() * 100) + 1,
+    containers: (i * 3 + 5) % 20,
+    creator: creators[i % creators.length],
+    status: valueEnum[((i % 2) + '') as '0'],
+    createdAt: Date.now() - (i * 86412345) % 2000,
+    money: Math.floor(((i + 1) * 331) % 2000) * i,
+    progress: ((i * 17) % 100) + 1,
     memo:
       i % 2 === 1
         ? '很长很长很长很长很长很长很长的文字要展示但是要留下尾巴'
         : '简短备注文案',
-    statusText: '这是一段很随意的文字',
+    statusText: '示例状态描述',
   });
 }
 

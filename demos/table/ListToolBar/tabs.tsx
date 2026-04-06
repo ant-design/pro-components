@@ -31,9 +31,9 @@ for (let i = 0; i < 5; i += 1) {
   tableListDataSource.push({
     key: i,
     name: 'AppName',
-    status: Math.floor(Math.random() * 2),
-    containers: Math.floor(Math.random() * 20),
-    creator: creators[Math.floor(Math.random() * creators.length)],
+    status: i % 2,
+    containers: (i * 3 + 5) % 20,
+    creator: creators[i % creators.length],
   });
 }
 

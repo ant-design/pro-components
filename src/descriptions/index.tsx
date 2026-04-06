@@ -2,6 +2,7 @@ import { CheckOutlined, CloseOutlined, EditOutlined } from '@ant-design/icons';
 import { get, toArray } from '@rc-component/util';
 import type { DescriptionsProps, FormInstance, FormProps } from 'antd';
 import { ConfigProvider, Descriptions, Space } from 'antd';
+import type { DescriptionsItemProps } from 'antd/es/descriptions/Item';
 import type { DescriptionsItemType } from 'antd/lib/descriptions';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import React, { useContext, useEffect } from 'react';
@@ -30,17 +31,7 @@ import {
 import type { RequestData } from './useFetchData';
 import useFetchData from './useFetchData';
 
-// todo remove it
-export interface DescriptionsItemProps {
-  prefixCls?: string;
-  className?: string;
-  style?: React.CSSProperties;
-  label?: React.ReactNode;
-  labelStyle?: React.CSSProperties; // @deprecated Use styles.label instead
-  contentStyle?: React.CSSProperties; // @deprecated Use styles.content instead
-  children: React.ReactNode;
-  span?: number;
-}
+export type { DescriptionsItemProps };
 
 /**
  * 定义列表属性的类型定义，用于定义列表的一列

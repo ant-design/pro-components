@@ -27,6 +27,7 @@ import {
   afterAll,
   afterEach,
   beforeAll,
+  beforeEach,
   describe,
   expect,
   it,
@@ -38,9 +39,22 @@ afterEach(() => {
   cleanup();
 });
 
+/** 与 vitest.config.mts 中 happyDOM.url 一致，避免 syncToUrl 相关用例互相污染 location */
+const resetTestUrl = () => {
+  window.history.replaceState(
+    {},
+    '',
+    'http://localhost?navTheme=realDark&layout=mix&colorPrimary=techBlue&splitMenus=false&fixedHeader=true',
+  );
+};
+
 describe('ProForm', () => {
   beforeAll(() => vi.useFakeTimers());
   afterAll(() => vi.useRealTimers());
+
+  beforeEach(() => {
+    resetTestUrl();
+  });
 
   afterEach(() => {
     cleanup();

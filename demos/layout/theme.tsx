@@ -118,7 +118,7 @@ const Demo = () => {
           </p>
         );
       }}
-      onMenuHeaderClick={(e) => console.log(e)}
+      onMenuHeaderClick={() => {}}
       menuItemRender={(item, dom) => (
         <a
           onClick={() => {

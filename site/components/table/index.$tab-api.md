@@ -7,13 +7,15 @@ legacy: /table
 
 ## 代码演示
 
-## 查询表格
+以下为 ProTable 常见场景示例，按主题分组，可按需展开查看源码。
+
+### 查询表格
 
 <code src="../../../demos/table/single.tsx" background="var(--main-bg-color)"></code>
 
 <code src="../../../demos/table/theme.tsx" background="var(--main-bg-color)" iframe="550" title="黑色主紧凑主题"></code>
 
-<code src="../../../demos/table/single-test.tsx" debug background="var(--main-bg-color)" ></code>
+<code src="../../../demos/table/_single-test.tsx" debug background="var(--main-bg-color)" ></code>
 
 <code src="../../../demos/table/no-option.tsx"  background="var(--main-bg-color)" title="查询（无按钮）表格"></code>
 
@@ -49,7 +51,7 @@ RTL means right-to-left.
 
 可以默认隐藏某些栏，但是在操作栏中可以选择
 
-<code src="../../../demos/table/pollinga.tsx"  background="var(--main-bg-color)" title="表格轮询"></code>
+<code src="../../../demos/table/polling.tsx"  background="var(--main-bg-color)" title="表格轮询"></code>
 
 <code src="../../../demos/table/dateFormatter.tsx"  background="var(--main-bg-color)" title="dateFormatter-日期格式化"></code>
 
@@ -103,9 +105,7 @@ formItemRender: (
 
 <code src="../../../demos/table/linkage_form.tsx"  background="var(--main-bg-color)" ></code>
 
-### FAQ
-
-### 为什么不能自己设置 value 和 onchange
+### FAQ：为什么不能自己设置 value 和 onChange
 
 被 ProTable 包装的控件，表单控件会自动添加 value（或 valuePropName 指定的其他属性） onChange（或 trigger 指定的其他属性），数据同步将被 Form 接管，这会导致以下结果：
 
@@ -175,14 +175,16 @@ const enLocale = {
     densitySmall: 'Compact',
   },
 };
+```
 
-// 生成 intl 对象import { afterEach, describe, expect, it, vi } from 'vitest';
-import   { ProProvider } from '@ant-design/pro-components';
-const enUSIntl = createIntl('en_US', enUS);
-const values = useContext(ProProvider)
+使用 `createIntl` 与上文 `enLocale` 生成 `intl` 后，通过 `ProProvider` 注入：
 
-// 使用
-<ProProvider.Provider value={{ ...values, intl: enUSIntl }}>
+```typescript | pure
+import { ProProvider, createIntl } from '@ant-design/pro-components';
+
+const enUSIntl = createIntl('en_US', enLocale);
+
+<ProProvider.Provider value={{ intl: enUSIntl }}>
   <ProTable />
 </ProProvider.Provider>;
 ```
@@ -224,8 +226,6 @@ const values = useContext(ProProvider)
 ## 列表工具栏
 
 用于自定义表格的工具栏部分。
-
-### 代码演示
 
 <code src="../../../demos/table/ListToolBar/basic.tsx" background="var(--main-bg-color)" title="列表工具栏-基本使用"></code>
 

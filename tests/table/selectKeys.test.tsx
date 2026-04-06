@@ -3,7 +3,7 @@ import { cleanup, render, waitFor } from '@testing-library/react';
 import React, { act, useState } from 'react';
 import { afterAll, afterEach, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
-import { getFetchData } from './demo';
+import { getFetchData } from './fixtures';
 
 afterEach(() => {
   cleanup();

@@ -294,7 +294,6 @@ The default ProLayout does not provide a footer, but does provide a DefaultFoote
 
 ```tsx | pure
 import { GithubOutlined } from '@ant-design/icons';
-import { afterEach, describe, expect, it, vi } from 'vitest';
 import { DefaultFooter } from '@ant-design/pro-components';
 
 <DefaultFooter

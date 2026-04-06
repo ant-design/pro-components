@@ -13,7 +13,7 @@ title: ProField 原子组件
 
 <code src="../../../demos/field/base.tsx" ></code>
 
-<code src="../../../demos/field/base_test.tsx" debug></code>
+<code src="../../../demos/field/_base-test.tsx" debug></code>
 
 <code src="../../../demos/field/search-value.tsx" debug></code>
 

@@ -16,8 +16,8 @@ for (let i = 0; i < 1; i += 1) {
   tableListDataSource.push({
     key: i,
     name: 'AppName',
-    creator: creators[Math.floor(Math.random() * creators.length)],
-    createdAt: Date.now() - Math.floor(Math.random() * 100000),
+    creator: creators[i % creators.length],
+    createdAt: Date.now() - (i * 86412345) % 100000,
   });
 }
 

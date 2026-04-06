@@ -31,10 +31,10 @@ for (let i = 0; i < 5; i += 1) {
   tableListDataSource.push({
     key: i,
     name: 'AppName',
-    containers: Math.floor(Math.random() * 20),
-    status: valueEnum[((Math.floor(Math.random() * 10) % 4) + '') as '0'],
-    createdAt: Date.now() - Math.floor(Math.random() * 2000),
-    creator: creators[Math.floor(Math.random() * creators.length)],
+    containers: (i * 3 + 5) % 20,
+    status: valueEnum[((i % 4) + '') as '0'],
+    createdAt: Date.now() - (i * 86412345) % 2000,
+    creator: creators[i % creators.length],
   });
 }
 

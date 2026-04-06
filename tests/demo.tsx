@@ -21,11 +21,29 @@ import {
   vi,
 } from 'vitest';
 
-type Options = {
-  skip?: boolean;
+/** 全量 demo 快照时使用的虚拟模块名（勿与 `demos/all` 目录冲突） */
+export const DEMO_SNAPSHOT_ALL = '__all__';
+
+export type DemoTestOptions = {
+  /**
+   * - `true`：跳过该组件下全部 demo 快照
+   * - `string[]`：路径子串命中的文件跳过（用于临时屏蔽不稳定用例）
+   */
+  skip?: boolean | string[];
 };
 
-function demoTest(component: string, options?: Options) {
+function resolveDemoTsxPaths(component: string): string[] {
+  if (component === DEMO_SNAPSHOT_ALL) {
+    return glob.sync('./demos/**/[!_]*.tsx');
+  }
+  return glob.sync(`./demos/${component}/**/[!_]*.tsx`);
+}
+
+/**
+ * 对 `demos/<component>` 下（或全部）的示例做渲染快照回归。
+ * - 文件名以 `_` 开头的 `.tsx` 不会参与快照（本地调试/临时示例可如此命名）。
+ */
+function demoTest(component: string, options?: DemoTestOptions) {
   const LINE_STR_COUNT = 20;
   const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
   const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
@@ -64,9 +82,8 @@ function demoTest(component: string, options?: Options) {
     });
     window.getComputedStyle = originGetComputedStyle;
   });
-  // 支持 demos 下的所有非_开头的tsx文件
-  const files = glob.sync(`./demos/${component}/**/[!_]*.tsx`);
-  files.push(...glob.sync(`./${component}/**/**/[!_]*.tsx`));
+
+  const files = resolveDemoTsxPaths(component);
 
   const TestApp = (props: { children: any }) => {
     return (
@@ -87,7 +104,6 @@ function demoTest(component: string, options?: Options) {
     (query) =>
       ({
         matches: query === '(max-width: 575px)',
-        // 支持最新的 addEventListener API
         addEventListener: vi.fn(
           (event: string, cb: (e: MediaQueryListEvent) => void) => {
             if (event === 'change') {
@@ -98,7 +114,6 @@ function demoTest(component: string, options?: Options) {
           },
         ),
         removeEventListener: vi.fn(),
-        // 保留旧的 API 以向后兼容
         addListener: (cb: (e: { matches: boolean }) => void) => {
           cb({ matches: query === '(max-width: 575px)' });
         },
@@ -106,18 +121,20 @@ function demoTest(component: string, options?: Options) {
       }) as any,
   );
 
-  describe(`${component} demos`, () => {
+  const suiteTitle =
+    component === DEMO_SNAPSHOT_ALL ? 'all demos' : `${component} demos`;
+
+  describe(suiteTitle, () => {
     beforeAll(() => vi.useFakeTimers());
     afterAll(() => vi.useRealTimers());
     files.forEach((file) => {
-      let testMethod = options?.skip === true ? test.skip : test;
-      if (
-        Array.isArray(options?.skip) &&
-        options?.skip.some((c) => file.includes(c))
-      ) {
-        testMethod = test.skip;
-      }
-      testMethod(`📸 renders ${file} correctly`, async () => {
+      const runCase =
+        options?.skip === true ||
+        (Array.isArray(options?.skip) &&
+          options.skip.some((c) => file.includes(c)))
+          ? test.skip
+          : test;
+      runCase(`📸 renders ${file} correctly`, async () => {
         Math.random = () => 0.8404419276253765;
 
         const Demo = (await import(`.${file}`)).default;

@@ -37,12 +37,12 @@ for (let i = 0; i < 50; i += 1) {
   tableListDataSource.push({
     key: i,
     name: 'AppName-' + i,
-    containers: Math.floor(Math.random() * 20),
-    callNumber: Math.floor(Math.random() * 2000),
-    progress: Math.ceil(Math.random() * 100) + 1,
-    creator: creators[Math.floor(Math.random() * creators.length)],
-    status: valueEnum[((Math.floor(Math.random() * 10) % 4) + '') as '0'],
-    createdAt: Date.now() - Math.floor(Math.random() * 100000),
+    containers: (i * 3 + 5) % 20,
+    callNumber: (i * 127) % 2000,
+    progress: ((i * 17) % 100) + 1,
+    creator: creators[i % creators.length],
+    status: valueEnum[((i % 4) + '') as '0'],
+    createdAt: Date.now() - (i * 86412345) % 100000,
     memo:
       i % 2 === 1
         ? '很长很长很长很长很长很长很长的文字要展示但是要留下尾巴'

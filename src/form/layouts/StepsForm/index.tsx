@@ -201,8 +201,8 @@ function StepsForm<T = Record<string, any>>(
   });
 
   const layoutRender = useMemo(() => {
-    return StepsLayoutStrategy[stepsProps?.direction || 'horizontal'];
-  }, [stepsProps?.direction]);
+    return StepsLayoutStrategy[stepsProps?.orientation || 'horizontal'];
+  }, [stepsProps?.orientation]);
 
   const lastStep = useMemo(
     () => step === formArray.length - 1,
@@ -279,21 +279,9 @@ function StepsForm<T = Record<string, any>>(
           title: itemProps?.title,
           ...itemProps?.stepProps,
         };
-        // Convert deprecated description to content
-        if (stepItemProps.description) {
-          stepItemProps.content = stepItemProps.description;
-          delete stepItemProps.description;
-        }
         return stepItemProps;
       }),
     };
-
-    // Convert deprecated direction to orientation
-    const processedStepsProps = stepsProps ? { ...stepsProps } : {};
-    if ('direction' in processedStepsProps) {
-      processedStepsProps.orientation = processedStepsProps.direction;
-      delete processedStepsProps.direction;
-    }
 
     return (
       <div
@@ -303,7 +291,7 @@ function StepsForm<T = Record<string, any>>(
         }}
       >
         <Steps
-          {...processedStepsProps}
+          {...(stepsProps || {})}
           {...itemsProps}
           current={step}
           onChange={undefined}

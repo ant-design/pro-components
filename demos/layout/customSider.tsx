@@ -99,10 +99,7 @@ const Demo = () => {
             </div>,
           ];
         }}
-        menuRender={(props, defaultDom) => {
-          console.log('defaultDom', defaultDom);
-          return defaultDom;
-        }}
+        menuRender={(_, defaultDom) => defaultDom}
         menuItemRender={(item, dom) => (
           <div
             onClick={() => {

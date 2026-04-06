@@ -309,11 +309,7 @@ const Demo = () => {
         )}
         headerTitleRender={(logo, title, _) => {
           const defaultDom = (
-            <a
-              onClick={() => {
-                console.log('titheaderTitle clicked');
-              }}
-            >
+            <a onClick={() => {}}>
               {logo}
               {title}
             </a>

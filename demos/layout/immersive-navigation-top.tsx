@@ -37,7 +37,7 @@ const Demo = () => {
         }}
         fixSiderbar
         headerRender={false}
-        onMenuHeaderClick={(e) => console.log(e)}
+        onMenuHeaderClick={() => {}}
         menuItemRender={(item, dom) => (
           <a
             onClick={() => {

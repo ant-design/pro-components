@@ -18,7 +18,7 @@ order: 0
 
 <code src="../../../demos/layout/theme.tsx" iframe="650" title="通过 token 修改样式"></code>
 
-<code src="../../../demos/layout/debug-demo.tsx"  debug background="var(--main-bg-color)" iframe="550" title="黑色主紧凑主题"></code>
+<code src="../../../demos/layout/_debug-demo.tsx"  debug background="var(--main-bg-color)" iframe="550" title="黑色主紧凑主题"></code>
 
 <code src="../../../demos/layout/dark.tsx" iframe="650" title="黑色主题"></code>
 

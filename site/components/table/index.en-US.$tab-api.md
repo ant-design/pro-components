@@ -7,6 +7,8 @@ legacy: /table
 
 ## Code Demo
 
+Interactive examples for ProTable, grouped by topic. Open the code panel to copy into your project.
+
 ### Querying a table
 
 <code src="../../../demos/table/single.tsx"  background="var(--main-bg-color)" ></code>
@@ -53,7 +55,7 @@ You can hide some columns by default, but in the action column you can select
 
 ### Tables polling network data
 
-<code src="../../../demos/table/pollinga.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../../../demos/table/polling.tsx"  background="var(--main-bg-color)" ></code>
 
 ### Search form customization
 
@@ -70,7 +72,7 @@ formItemRender: (_, { type, defaultRender, formItemProps, fieldProps, . .rest },
   }
   const status = form.getFieldValue('state');
   if (status ! == 'open') {
-    return <Input {... .fieldProps} placeholder="Please enter test" />;
+    return <Input {...fieldProps} placeholder="Please enter test" />;
   }
   return defaultRender(_);
 };
@@ -154,14 +156,16 @@ const enLocale = {
     densitySmall: 'Compact',
   },
 };
+```
 
-// Generate the intl objectimport { afterEach, describe, expect, it, vi } from 'vitest';
-import   { ProProvider } from '@ant-design/pro-components';
-const enUSIntl = createIntl('en_US', enUS);
-const values = useContext(ProProvider)
+Use `createIntl` with the `enLocale` object above, then inject via `ProProvider`:
 
-// 使用
-<ProProvider.Provider value={{ ...values, intl: enUSIntl }}>
+```typescript | pure
+import { ProProvider, createIntl } from '@ant-design/pro-components';
+
+const enUSIntl = createIntl('en_US', enLocale);
+
+<ProProvider.Provider value={{ intl: enUSIntl }}>
   <ProTable />
 </ProProvider.Provider>;
 ```

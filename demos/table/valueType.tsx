@@ -27,6 +27,7 @@ export type TableListItem = {
 const tableListDataSource: TableListItem[] = [];
 
 for (let i = 0; i < 2; i += 1) {
+  const base = dayjs('2019-11-16 12:50:26').valueOf();
   tableListDataSource.push({
     key: i,
     avatar:
@@ -34,21 +35,16 @@ for (let i = 0; i < 2; i += 1) {
     image:
       'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
     name: `TradeCode ${i}`,
-    status: valueEnum[((Math.floor(Math.random() * 10) % 4) + '') as '0'],
-    updatedAt:
-      dayjs('2019-11-16 12:50:26').valueOf() - Math.floor(Math.random() * 1000),
-    createdAt:
-      dayjs('2019-11-16 12:50:26').valueOf() - Math.floor(Math.random() * 2000),
-    createdAtRange: [
-      dayjs('2019-11-16 12:50:26').valueOf() - Math.floor(Math.random() * 2000),
-      dayjs('2019-11-16 12:50:26').valueOf() - Math.floor(Math.random() * 2000),
-    ],
-    money: Math.floor(Math.random() * 2000) * i,
-    progress: Math.ceil(Math.random() * 100) + 1,
+    status: valueEnum[((i % 4) + '') as '0'],
+    updatedAt: base - (i * 100 + 50),
+    createdAt: base - (i * 200 + 100),
+    createdAtRange: [base - (i * 300 + 150), base - (i * 100 + 50)],
+    money: Math.floor(((i + 1) * 331) % 2000) * i,
+    progress: ((i * 17) % 100) + 1,
     percent:
-      Math.random() > 0.5
-        ? ((i + 1) * 10 + Math.random()).toFixed(3)
-        : -((i + 1) * 10 + Math.random()).toFixed(2),
+      i % 2 === 0
+        ? ((i + 1) * 10 + 0.137).toFixed(3)
+        : (-((i + 1) * 10 + 0.42)).toFixed(2),
     code: `const getData = async params => {
   const data = await getData(params);
   return { list: data.data, ...data };

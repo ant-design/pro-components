@@ -15,6 +15,8 @@ import {
 import { Button } from 'antd';
 import React, { useRef, useState } from 'react';
 
+let demoNewRecordId = 9_000_000;
+
 type DataSourceType = {
   id: React.Key;
   title?: string;
@@ -145,7 +147,7 @@ const Demo = () => {
           position !== 'hidden'
             ? {
                 position: position as 'top',
-                record: () => ({ id: (Math.random() * 1000000).toFixed(0) }),
+                record: () => ({ id: String(demoNewRecordId++) }),
               }
             : false
         }

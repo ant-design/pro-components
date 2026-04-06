@@ -277,7 +277,7 @@ const Demo = () => {
           />
           <ProFormColorPicker label="Color Picker" name="color" />
         </ProFormGroup>
-        <ProFormGroup label="Number Types">
+        <ProFormGroup title="Number Types">
           <ProFormDigitRange
             label="InputNumberRange"
             name="input-number-range"

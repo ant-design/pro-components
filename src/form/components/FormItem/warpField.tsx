@@ -1,9 +1,7 @@
 ﻿import { FieldContext as RcFieldContext } from '@rc-component/form';
 import type { FormItemProps } from 'antd';
-import classnames from 'classnames';
 import React, { useContext, useMemo, useState } from 'react';
 import {
-  omitUndefined,
   pickProFormItemProps,
   stringify,
   useDeepCompareMemo,
@@ -16,28 +14,26 @@ import type {
   ProFormFieldItemProps,
   ProFormItemCreateConfig,
 } from '../../typing';
-import ProFormDependency from '../Dependency';
-import ProFormItem from './index';
+import { buildWarpFieldLightProps } from './warpFieldLightProps';
+import {
+  isWarpFieldIgnoreWidth,
+  resolveWarpFieldClassName,
+  resolveWarpFieldStyle,
+} from './warpFieldLayout';
+import {
+  computeWarpFieldProFieldKey,
+  mergeWarpFieldFieldProps,
+  mergeWarpFieldFormItemProps,
+  mergeWarpFieldOtherProps,
+  mergeWarpFieldProFieldProps,
+} from './warpFieldMerge';
+import { WarpFieldDependencyWrapper } from './warpFieldDependency';
+import {
+  WarpFieldFormItemShell,
+  WarpFieldInnerField,
+} from './warpFieldNodes';
 
 export const TYPE = Symbol('ProFormComponent');
-
-const WIDTH_SIZE_ENUM = {
-  // 适用于短数字，短文本或者选项
-  xs: 104,
-  s: 216,
-  // 适用于较短字段录入、如姓名、电话、ID 等。
-  sm: 216,
-  m: 328,
-  // 标准宽度，适用于大部分字段长度。
-  md: 328,
-  l: 440,
-  // 适用于较长字段录入，如长网址、标签组、文件路径等。
-  lg: 440,
-  // 适用于长文本录入，如长链接、描述、备注等，通常搭配自适应多行输入框或定高文本域使用。
-  xl: 552,
-};
-
-const ignoreWidthValueType = ['switch', 'radioButton', 'radio', 'rate'];
 
 type ProFormComponent<P, Extends> = React.ComponentType<P & Extends>;
 
@@ -99,9 +95,8 @@ export function warpField<P extends ProFormFieldItemProps = any>(
     } = { ...defaultProps, ...props };
     const valueType = tmpValueType || rest.valueType;
 
-    // 有些 valueType 不需要宽度
     const isIgnoreWidth = useMemo(
-      () => ignoreWidth || ignoreWidthValueType.includes(valueType),
+      () => isWarpFieldIgnoreWidth(valueType, ignoreWidth),
       [ignoreWidth, valueType],
     );
 
@@ -131,19 +126,15 @@ export function warpField<P extends ProFormFieldItemProps = any>(
     );
 
     const fieldProps: Record<string, any> = useDeepCompareMemo(() => {
-      const newFieldProps: any = {
-        ...(ignoreFormItem ? omitUndefined({ value: rest.value }) : {}),
+      return mergeWarpFieldFieldProps({
+        ignoreFormItem,
+        restValue: rest.value,
         placeholder,
         disabled: props.disabled,
-        ...contextValue.fieldProps,
-        ...changedProps.fieldProps,
-        // 支持未传递getFieldProps的情况
-        // 某些特殊hack情况下覆盖原来设置的fieldProps参数
-        ...rest.fieldProps,
-      };
-
-      newFieldProps.style = omitUndefined(newFieldProps?.style);
-      return newFieldProps;
+        contextFieldProps: contextValue.fieldProps,
+        changedFieldProps: changedProps.fieldProps,
+        restFieldProps: rest.fieldProps,
+      });
     }, [
       ignoreFormItem,
       rest.value,
@@ -154,18 +145,16 @@ export function warpField<P extends ProFormFieldItemProps = any>(
       changedProps.fieldProps,
     ]);
 
-    // restFormItemProps is user props pass to Form.Item
     const restFormItemProps = pickProFormItemProps(rest);
 
     const formItemProps: FormItemProps = useDeepCompareMemo(
-      () => ({
-        ...contextValue.formItemProps,
-        ...restFormItemProps,
-        ...changedProps.formItemProps,
-        // 支持未传递getFormItemProps的情况
-        // 某些特殊hack情况下覆盖原来设置的formItemProps参数
-        ...rest.formItemProps,
-      }),
+      () =>
+        mergeWarpFieldFormItemProps({
+          contextFormItemProps: contextValue.formItemProps,
+          restFormItemProps,
+          changedFormItemProps: changedProps.formItemProps,
+          restFormItemPropsExplicit: rest.formItemProps,
+        }),
       [
         changedProps.formItemProps,
         contextValue.formItemProps,
@@ -175,24 +164,23 @@ export function warpField<P extends ProFormFieldItemProps = any>(
     );
 
     const otherProps = useDeepCompareMemo(
-      () => ({
-        messageVariables,
-        ...defaultFormItemProps,
-        ...formItemProps,
-      }),
+      () =>
+        mergeWarpFieldOtherProps({
+          messageVariables,
+          defaultFormItemProps,
+          formItemProps,
+        }),
       [defaultFormItemProps, formItemProps, messageVariables],
     );
 
     const { prefixName } = useContext(RcFieldContext);
 
     const proFieldKey = useDeepCompareMemo(() => {
-      let name = otherProps?.name;
-      if (Array.isArray(name)) name = name.join('_');
-      if (Array.isArray(prefixName) && name)
-        name = `${prefixName.join('.')}.${name}`;
-      const key = name && `form-${contextValue.formKey ?? ''}-field-${name}`;
-      return key;
-
+      return computeWarpFieldProFieldKey({
+        name: otherProps?.name,
+        prefixName,
+        formKey: contextValue.formKey,
+      });
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [stringify(otherProps?.name), prefixName, contextValue.formKey]);
 
@@ -206,41 +194,32 @@ export function warpField<P extends ProFormFieldItemProps = any>(
     });
 
     const style = useDeepCompareMemo(() => {
-      const newStyle = {
-        width:
-          width && !WIDTH_SIZE_ENUM[width as 'xs']
-            ? width
-            : contextValue.grid
-              ? '100%'
-              : undefined,
-        ...fieldProps?.style,
-      };
-
-      if (isIgnoreWidth) Reflect.deleteProperty(newStyle, 'width');
-
-      return omitUndefined(newStyle);
+      return resolveWarpFieldStyle({
+        width,
+        grid: contextValue.grid,
+        isIgnoreWidth,
+        fieldStyle: fieldProps?.style,
+      });
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [stringify(fieldProps?.style), contextValue.grid, isIgnoreWidth, width]);
 
     const className = useDeepCompareMemo(() => {
-      const isSizeEnum = width && WIDTH_SIZE_ENUM[width as 'xs'];
-      return (
-        classnames(fieldProps?.className, {
-          'pro-field': isSizeEnum,
-          [`pro-field-${width}`]: isSizeEnum && !isIgnoreWidth,
-        }) || undefined
-      );
+      return resolveWarpFieldClassName({
+        width,
+        fieldClassName: fieldProps?.className,
+        isIgnoreWidth,
+      });
     }, [width, fieldProps?.className, isIgnoreWidth]);
 
     const fieldProFieldProps = useDeepCompareMemo(() => {
-      return omitUndefined({
-        ...contextValue.proFieldProps,
+      return mergeWarpFieldProFieldProps({
+        contextProFieldProps: contextValue.proFieldProps,
         mode: rest?.mode,
         readonly,
         params: rest.params,
-        proFieldKey: proFieldKey,
+        proFieldKey,
         cacheForSwr,
-        ...proFieldProps,
+        proFieldProps,
       });
     }, [
       contextValue.proFieldProps,
@@ -264,15 +243,13 @@ export function warpField<P extends ProFormFieldItemProps = any>(
 
     const field = useDeepCompareMemo(() => {
       return (
-        <Field
-          // @ts-ignore
-          key={props.proFormFieldKey || props.name}
-          // ProXxx 上面的 props 透传给 FieldProps，可能包含 Field 自定义的 props，
-          // 比如 ProFormSelect 的 request
-          {...(rest as P)}
-          fieldProps={fieldFieldProps}
-          proFieldProps={fieldProFieldProps}
-          ref={props?.fieldRef}
+        <WarpFieldInnerField
+          Field={Field}
+          rest={rest as P}
+          fieldFieldProps={fieldFieldProps}
+          fieldProFieldProps={fieldProFieldProps}
+          fieldKey={props.proFormFieldKey || props.name}
+          fieldRef={props?.fieldRef}
         />
       );
       // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -281,16 +258,12 @@ export function warpField<P extends ProFormFieldItemProps = any>(
     // 使用useMemo包裹避免不必要的re-render
     const formItem = useDeepCompareMemo(() => {
       return (
-        <ProFormItem
-          // 全局的提供一个 tip 功能，可以减少代码量
-          // 轻量模式下不通过 FormItem 显示 label
+        <WarpFieldFormItemShell
+          itemKey={props.proFormFieldKey || otherProps.name?.toString()}
           label={label && proFieldProps?.light !== true ? label : undefined}
           tooltip={proFieldProps?.light !== true && tooltip}
           valuePropName={valuePropName}
-          // @ts-ignore
-          key={props.proFormFieldKey || otherProps.name?.toString()}
-          // @ts-ignore
-          {...otherProps}
+          otherProps={otherProps}
           ignoreFormItem={ignoreFormItem}
           transform={transform}
           dataFormat={fieldProps?.format}
@@ -300,24 +273,24 @@ export function warpField<P extends ProFormFieldItemProps = any>(
             ...otherProps?.messageVariables,
           }}
           convertValue={convertValue}
-          lightProps={omitUndefined({
-            ...fieldProps,
+          lightProps={buildWarpFieldLightProps({
+            fieldProps,
             valueType,
             bordered,
-            allowClear: field?.props?.allowClear ?? allowClear,
-            light: proFieldProps?.light,
+            allowClear,
+            fieldAllowClear: field?.props?.allowClear,
+            proFieldLight: proFieldProps?.light,
             label,
             customLightMode,
-            labelFormatter: lightFilterLabelFormatter,
+            lightFilterLabelFormatter,
             valuePropName,
             footerRender: field?.props?.footerRender,
-            // 使用用户的配置覆盖默认的配置
-            ...rest.lightProps,
-            ...otherProps.lightProps,
+            restLightProps: rest.lightProps,
+            otherPropsLightProps: otherProps.lightProps,
           })}
         >
           {field}
-        </ProFormItem>
+        </WarpFieldFormItemShell>
       );
     }, [
       label,
@@ -350,25 +323,21 @@ export function warpField<P extends ProFormFieldItemProps = any>(
       FunctionFieldProps & {
         originDependencies?: string[];
       }
-  > = (props) => {
-    const { dependencies } = props;
-    return dependencies ? (
-      <ProFormDependency
-        name={dependencies}
-        originDependencies={props?.originDependencies}
-      >
-        {(values) => {
-          return (
-            <FieldWithContext
-              dependenciesValues={values}
-              dependencies={dependencies}
-              {...props}
-            />
-          );
-        }}
-      </ProFormDependency>
-    ) : (
-      <FieldWithContext dependencies={dependencies} {...props} />
+  > = (wrapperProps) => {
+    const { dependencies } = wrapperProps;
+    return (
+      <WarpFieldDependencyWrapper
+        dependencies={dependencies}
+        originDependencies={wrapperProps.originDependencies}
+        renderDirect={<FieldWithContext dependencies={dependencies} {...wrapperProps} />}
+        renderWithDependencyValues={(values) => (
+          <FieldWithContext
+            dependenciesValues={values}
+            dependencies={dependencies}
+            {...wrapperProps}
+          />
+        )}
+      />
     );
   };
 

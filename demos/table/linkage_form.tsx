@@ -80,7 +80,7 @@ const Demo = () => {
       key: 'direction',
       hideInTable: true,
       dataIndex: 'direction',
-      formItemRender: (item, { type, defaultRender, ...rest }, form) => {
+      formItemRender: (item, { type, ...rest }, form) => {
         if (type === 'form') {
           return null;
         }

@@ -56,7 +56,7 @@ const Demo = () => {
           onClick={() => {
             if (ref.current) {
               ref.current.setFieldsValue({
-                name: 'test-xxx',
+                name: '示例应用名称',
               });
             }
           }}

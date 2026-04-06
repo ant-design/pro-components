@@ -23,12 +23,12 @@ const tableListDataSource: TableListItem = {
   name: `TradeCode 1`,
   status: [
     {
-      value: Math.floor(Math.random() * 10),
-      label: valueEnum[((Math.floor(Math.random() * 10) % 4) + '') as '0'],
+      value: 3,
+      label: valueEnum['1'],
     },
     {
-      value: Math.floor(Math.random() * 10),
-      label: valueEnum[((Math.floor(Math.random() * 10) % 4) + '') as '0'],
+      value: 7,
+      label: valueEnum['2'],
     },
   ],
 };
