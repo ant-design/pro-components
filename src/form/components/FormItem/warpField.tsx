@@ -97,10 +97,10 @@ export function warpField<P extends ProFormFieldItemProps = any>(
       convertValue,
       readonly,
       allowClear,
-      colSize,
+      colSize: _colSize,
       getFormItemProps,
       getFieldProps,
-      fieldConfig,
+      fieldConfig: _fieldConfig,
       cacheForSwr,
       proFieldProps,
       ...rest

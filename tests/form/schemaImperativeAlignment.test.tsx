@@ -5,6 +5,8 @@ import type {
 import {
   BetaSchemaForm,
   ProForm,
+  ProFormCheckbox,
+  ProFormDatePicker,
   ProFormDateTimePicker,
   ProFormDigit,
   ProFormSelect,
@@ -152,5 +154,36 @@ describe('Schema vs imperative alignment', () => {
 
     expectAlignedFieldValue(schemaValues.fieldSw, imperativeValues.fieldSw);
     expect(schemaValues.fieldSw).toBe(true);
+  });
+
+  it('date column (valueType date) matches ProFormDatePicker', async () => {
+    const fieldDay = dayjs('2023-06-10');
+    const initialValues = { fieldDay };
+    const columns: ProFormColumnsType<Record<string, any>>[] = [
+      { title: 'Day', dataIndex: 'fieldDay', valueType: 'date' },
+    ];
+
+    const schemaValues = await readSchemaFieldsValue(columns, initialValues);
+    const imperativeValues = await readImperativeFieldsValue(initialValues, (
+      <ProFormDatePicker name="fieldDay" />
+    ));
+
+    expectAlignedFieldValue(schemaValues.fieldDay, imperativeValues.fieldDay);
+    expect(dayjs.isDayjs(schemaValues.fieldDay)).toBe(true);
+  });
+
+  it('checkbox column matches ProFormCheckbox', async () => {
+    const initialValues = { fieldCk: true };
+    const columns: ProFormColumnsType<Record<string, any>>[] = [
+      { title: 'C', dataIndex: 'fieldCk', valueType: 'checkbox' },
+    ];
+
+    const schemaValues = await readSchemaFieldsValue(columns, initialValues);
+    const imperativeValues = await readImperativeFieldsValue(initialValues, (
+      <ProFormCheckbox name="fieldCk" />
+    ));
+
+    expectAlignedFieldValue(schemaValues.fieldCk, imperativeValues.fieldCk);
+    expect(schemaValues.fieldCk).toBe(true);
   });
 });

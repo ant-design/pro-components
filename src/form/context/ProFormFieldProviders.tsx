@@ -2,12 +2,12 @@ import React from 'react';
 import { ProConfigProvider } from '../../provider';
 import { FormListContext } from '../components/List';
 import FieldContext from '../FieldContext';
-import type { FiledContextProps } from '../FieldContext';
+import type { FieldContextProps } from '../FieldContext';
 import { EditOrReadOnlyContext } from '../BaseForm/EditOrReadOnlyContext';
 
 export type ProFormFieldProvidersProps = {
   readonly?: boolean;
-  fieldContextValue: FiledContextProps;
+  fieldContextValue: FieldContextProps;
   children: React.ReactNode;
 };
 
