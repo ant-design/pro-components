@@ -5,7 +5,6 @@ import {
   SettingOutlined,
 } from '@ant-design/icons';
 import { omit, useControlledState } from '@rc-component/util';
-import { useUrlSearchParams } from '@umijs/use-params';
 import {
   Alert,
   Button,
@@ -18,7 +17,12 @@ import {
 } from 'antd';
 import { clsx } from 'clsx';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { isBrowser, merge, useRefFunction } from '../../../utils';
+import {
+  isBrowser,
+  merge,
+  useRefFunction,
+  useUrlSearchParams,
+} from '../../../utils';
 import type { ProSettings } from '../../defaultSettings';
 import { defaultSettings } from '../../defaultSettings';
 import { gLocaleObject, getLanguage } from '../../locales';

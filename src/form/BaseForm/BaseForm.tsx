@@ -6,7 +6,6 @@ import {
   useControlledState,
   warning,
 } from '@rc-component/util';
-import { useUrlSearchParams } from '@umijs/use-params';
 import type { FormInstance, FormItemProps, FormProps } from 'antd';
 import { ConfigProvider, Form, Spin } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
@@ -41,6 +40,7 @@ import {
   usePrevious,
   useRefFunction,
   useStyle,
+  useUrlSearchParams,
 } from '../../utils';
 import { FormListContext } from '../components/List';
 import FieldContext from '../FieldContext';

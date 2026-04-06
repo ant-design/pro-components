@@ -187,10 +187,10 @@ onFinish → transformKey → conversionMomentValue → 返回值（及可选 UR
 ## 开放问题
 
 1. ~~`docs/internal/` 是否纳入仓库~~ **已决议**：纳入本仓库（见 `docs/internal/form-architecture.md`）。
-2. 是否与 `@umijs/use-params` 解耦或抽象接口，便于非 Umi 环境测试？
+2. ~~是否与 `@umijs/use-params` 解耦或抽象接口~~ **已决议**：已移除依赖；`useUrlSearchParams` 内联于 `src/utils/hooks/useUrlSearchParams/index.ts`（行为对齐原包 1.0.9），便于非 Umi 环境使用与测试。
 3. `BetaSchemaForm` 与 `SchemaForm` 长期是否合并命名与导出策略？
 
-**在问题 2–3 未决议前（实施默认策略）**：不新增对 `@umijs/use-params` 的抽象层、不合并或重命名 `BetaSchemaForm` / `SchemaForm`；仅做本 RFC 分阶段内的结构与测试补强。
+**在问题 3 未决议前（实施默认策略）**：不合并或重命名 `BetaSchemaForm` / `SchemaForm`；仅做本 RFC 分阶段内的结构与测试补强。
 
 ---
 
