@@ -25,9 +25,11 @@ const Demo = () => {
 
   return (
     <ProCard>
+      {/* allowStepSelect：可点击步骤条切换，不触发表单校验 */}
       <StepsForm<{
         name: string;
       }>
+        allowStepSelect
         stepsProps={{
           orientation: 'vertical',
         }}

@@ -221,6 +221,7 @@ function isInArrayPath(parentsKey: React.Key[]): boolean {
  * @param currentTransforms - 当前转换配置
  * @param rootMergeObjects - 存储需要在根级别合并的对象
  * @param visited - 存储已经访问过的对象，防止循环引用
+ * @param rootAllValues - 根级表单对象（与 `SearchTransformKeyFn` 第三参一致），整次转换过程中保持不变引用
  * @returns 处理后的结果
  */
 function processNestedObjectTransforms(
@@ -229,6 +230,7 @@ function processNestedObjectTransforms(
   currentTransforms: any,
   rootMergeObjects: any[],
   visited: Set<any>,
+  rootAllValues: any,
 ): any {
   if (tempValues != null && typeof tempValues === 'object') {
     if (visited.has(tempValues)) {
@@ -266,8 +268,12 @@ function processNestedObjectTransforms(
     }
 
     if (transformFunction && typeof transformFunction === 'function') {
-      // 执行转换
-      const transformed = transformFunction(itemValue, entityKey, tempValues);
+      const namePath = key.map((k) => String(k));
+      const transformed = transformFunction(
+        itemValue,
+        namePath,
+        rootAllValues,
+      );
 
       if (
         typeof transformed === 'object' &&
@@ -299,6 +305,7 @@ function processNestedObjectTransforms(
           nestedTransforms,
           rootMergeObjects,
           visited,
+          rootAllValues,
         );
         // 检查是否有任何子属性被转换为对象（会被添加到 rootMergeObjects）
         // 如果 nested 为空或只包含被转换的属性，我们不保留这个对象
@@ -314,6 +321,7 @@ function processNestedObjectTransforms(
           currentTransforms,
           rootMergeObjects,
           visited,
+          rootAllValues,
         );
         tempResult[entityKey] = nested;
       }
@@ -384,6 +392,7 @@ export const transformKeySubmitValue = <T extends object = any>(
       objectTransforms,
       rootMergeObjects,
       new Set(),
+      result,
     );
   }
 

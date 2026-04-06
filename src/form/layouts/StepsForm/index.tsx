@@ -20,6 +20,28 @@ import type { StepFormProps } from './StepForm';
 import StepForm from './StepForm';
 import { useStyle } from './style';
 
+/**
+ * 分步表单容器 ref：合并各步取值与跨步控制（`formRef` 仍仅指向当前步）
+ */
+export type StepsFormRef = {
+  /**
+   * 合并所有分步表单的 `getFieldsValue`（后者覆盖同名字段，与最终 `onFinish` 合并规则一致）
+   * @description 各步表单在 DOM 中均会挂载（非当前步仅隐藏），故包含尚未展示步骤里已有初值/已填值
+   */
+  getAllFieldsValue: () => Record<string, any>;
+  /**
+   * 合并所有分步表单的 `getFieldsFormatValue`（含 transform）
+   * @description 与各步挂载方式同 `getAllFieldsValue`
+   */
+  getAllFieldsFormatValue: (omitNil?: boolean) => Record<string, any>;
+  getCurrentStep: () => number;
+  /** 跳转到指定步，不触发表单校验；越界则忽略 */
+  setCurrentStep: (stepIndex: number) => void;
+  getStepFormInstance: (stepIndex: number) => ProFormInstance | undefined;
+  /** 清空分步缓存、重置各步表单并回到第一步 */
+  resetSteps: () => void;
+};
+
 type StepsFormProps<T = Record<string, any>> = {
   /**
    * 返回 true 会重置步数，并且清空表单
@@ -41,10 +63,20 @@ type StepsFormProps<T = Record<string, any>> = {
   ) => React.ReactNode;
   /** @name 当前展示表单的 formRef */
   formRef?: React.MutableRefObject<ProFormInstance<any> | undefined | null>;
+  /**
+   * 分步容器 ref：合并取值、指定步表单实例、无校验跳转等
+   * @name 分步容器 ref
+   */
+  stepsFormRef?: React.MutableRefObject<StepsFormRef | null | undefined>;
   /** @name 所有表单的 formMapRef */
   formMapRef?: React.MutableRefObject<
     React.MutableRefObject<FormInstance<any> | undefined>[]
   >;
+  /**
+   * 是否允许点击步骤条切换步骤（不触发表单校验；若多步存在同名字段，合并规则与提交一致）
+   * @default false
+   */
+  allowStepSelect?: boolean;
   /**
    * 自定义单个表单
    *
@@ -97,9 +129,28 @@ export const StepsFormProvide = React.createContext<
       lastStep: boolean;
       formMapRef: React.MutableRefObject<Map<string, StepFormProps>>;
       next: () => void;
+      /** 当前步骤下标，从 0 开始 */
+      current: number;
+      /** 已注册的分步数量 */
+      stepCount: number;
+      /** 跳转到指定步，不触发表单校验；越界则忽略 */
+      setCurrent: (index: number) => void;
     }
   | undefined
 >(undefined);
+
+/**
+ * 获取 StepsForm 上下文（current / setCurrent / stepCount / loading 等），须在 StepsForm 内使用
+ */
+export function useStepsFormContext() {
+  const ctx = useContext(StepsFormProvide);
+  if (!ctx) {
+    throw new Error(
+      '[@ant-design/pro-components] useStepsFormContext must be used within StepsForm',
+    );
+  }
+  return ctx;
+}
 
 interface LayoutRenderDom {
   stepsDom: React.ReactElement;
@@ -167,8 +218,8 @@ function StepsForm<T = Record<string, any>>(
   const { wrapSSR, hashId } = useStyle(prefixCls);
 
   const {
-    current,
-    onCurrentChange,
+    current: _propsCurrent,
+    onCurrentChange: _propsOnCurrentChange,
     submitter,
     stepsFormRender,
     stepsRender,
@@ -178,7 +229,9 @@ function StepsForm<T = Record<string, any>>(
     formProps,
     containerStyle,
     formRef,
+    stepsFormRef: propsStepsFormRef,
     formMapRef: propsFormMapRef,
+    allowStepSelect = false,
     layoutRender: propsLayoutRender,
     ...rest
   } = props;
@@ -255,13 +308,59 @@ function StepsForm<T = Record<string, any>>(
     formDataRef.current.delete(name);
   }, []);
 
-  useImperativeHandle(propsFormMapRef, () => formArrayRef.current, [
-    formArrayRef.current,
-  ]);
+  const setCurrentStepSafe = useRefFunction((index: number) => {
+    if (index < 0 || index >= formArrayRef.current.length) {
+      return;
+    }
+    setStep(index);
+  });
+
+  useImperativeHandle(propsFormMapRef, () => formArrayRef.current, [formArray]);
 
   useImperativeHandle(formRef, () => {
     return formArrayRef.current[step || 0]?.current;
-  }, [step, formArrayRef.current]);
+  }, [step, formArray.length]);
+
+  useImperativeHandle(
+    propsStepsFormRef,
+    (): StepsFormRef => ({
+      getAllFieldsValue: () => {
+        const parts: Record<string, any>[] = [];
+        formArrayRef.current.forEach((ref) => {
+          const inst = ref.current;
+          if (inst?.getFieldsValue) {
+            parts.push(inst.getFieldsValue(true));
+          }
+        });
+        return merge({}, ...parts);
+      },
+      getAllFieldsFormatValue: (omitNil?: boolean) => {
+        const parts: Record<string, any>[] = [];
+        formArrayRef.current.forEach((ref) => {
+          const inst = ref.current as ProFormInstance | undefined;
+          if (inst?.getFieldsFormatValue) {
+            parts.push(inst.getFieldsFormatValue(true, omitNil));
+          }
+        });
+        return merge({}, ...parts);
+      },
+      getCurrentStep: () => step,
+      setCurrentStep: (index: number) => {
+        setCurrentStepSafe(index);
+      },
+      getStepFormInstance: (index: number) => {
+        return formArrayRef.current[index]?.current as ProFormInstance | undefined;
+      },
+      resetSteps: () => {
+        formDataRef.current.clear();
+        setStep(0);
+        formArrayRef.current.forEach((r) => {
+          r.current?.resetFields?.();
+        });
+      },
+    }),
+    [step, setCurrentStepSafe, setStep],
+  );
 
   /**
    * ProForm处理了一下 from 的数据，在其中做了一些操作 如果使用 Provider 自带的，自带的数据处理就无法生效了
@@ -323,11 +422,26 @@ function StepsForm<T = Record<string, any>>(
           {...stepsProps}
           {...itemsProps}
           current={step}
-          onChange={undefined}
+          onChange={
+            allowStepSelect
+              ? (nextStep) => {
+                  setCurrentStepSafe(nextStep);
+                  stepsProps?.onChange?.(nextStep);
+                }
+              : stepsProps?.onChange
+          }
         />
       </div>
     );
-  }, [formArray, hashId, prefixCls, step, stepsProps]);
+  }, [
+    allowStepSelect,
+    formArray,
+    hashId,
+    prefixCls,
+    setCurrentStepSafe,
+    step,
+    stepsProps,
+  ]);
 
   const onSubmit = useRefFunction(() => {
     const from = formArrayRef.current[step];
@@ -544,6 +658,9 @@ function StepsForm<T = Record<string, any>>(
             lastStep,
             unRegForm,
             onFormFinish,
+            current: step,
+            stepCount: formArray.length,
+            setCurrent: setCurrentStepSafe,
           }}
         >
           {stepsFormDom}
@@ -566,6 +683,7 @@ function StepsFormWarp<T = Record<string, any>>(
 
 StepsFormWarp.StepForm = StepForm;
 StepsFormWarp.useForm = Form.useForm;
+StepsFormWarp.useStepsFormContext = useStepsFormContext;
 
 export { StepsFormWarp as StepsForm };
-export type { StepFormProps, StepsFormProps };
+export type { StepFormProps, StepsFormProps, StepsFormRef };

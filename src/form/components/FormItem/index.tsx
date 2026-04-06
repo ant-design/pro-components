@@ -294,8 +294,8 @@ export type ProFormItemProps = FormItemProps & {
   /**
    * @name 提交时转化值，一般用于将值转化为提交的数据
    * @param value 字段的值
-   * @param namePath 字段的name
-   * @param allValues 所有的字段
+   * @param namePath 从根到当前字段的路径（string[]），如 `['user','profile','name']`
+   * @param allValues 根级表单对象（与 `transformKeySubmitValue` 中传入的 values 同源引用，提交转换过程中会随其它字段一并变化）
    * @returns 字段新的值，如果返回对象，会和所有值 merge 一次
    *
    * @example {name:[a,b] => {name:a,b }    transform: (value,namePath,allValues)=> value.join(",")
