@@ -1,6 +1,6 @@
 import { Rate } from 'antd';
 import React from 'react';
-import type { ProFieldFC } from '../../PureProField';
+import type { ProFieldFC } from '../../types';
 
 /**
  * 评分组件

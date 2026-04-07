@@ -11,7 +11,7 @@ import React, {
 } from 'react';
 import { useIntl } from '../../../provider';
 import { FieldLabel, objectToMap, proFieldParsingText } from '../../../utils';
-import type { ProFieldFC } from '../../PureProField';
+import type { ProFieldFC } from '../../types';
 import type { FieldSelectProps } from '../Select';
 import { useFieldFetchData } from '../Select';
 

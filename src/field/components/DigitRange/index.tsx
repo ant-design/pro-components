@@ -2,7 +2,7 @@ import { useControlledState } from '@rc-component/util';
 import { Input, InputNumber, Space } from 'antd';
 import React, { useCallback, useRef } from 'react';
 import { proTheme, useIntl } from '../../../provider';
-import type { ProFieldFC } from '../../PureProField';
+import type { ProFieldFC } from '../../types';
 
 export type Value = string | number | undefined | null;
 

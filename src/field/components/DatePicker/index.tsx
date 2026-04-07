@@ -4,7 +4,7 @@ import weekOfYear from 'dayjs/plugin/weekOfYear';
 import React, { useState } from 'react';
 import { useIntl } from '../../../provider';
 import { FieldLabel, parseValueToDay } from '../../../utils';
-import type { ProFieldFC, ProFieldLightProps } from '../../PureProField';
+import type { ProFieldFC, ProFieldLightProps } from '../../types';
 
 dayjs.extend(weekOfYear);
 

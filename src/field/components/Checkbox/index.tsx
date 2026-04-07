@@ -3,7 +3,7 @@ import type { CheckboxGroupProps } from 'antd/lib/checkbox';
 import { clsx } from 'clsx';
 import React, { useContext, useImperativeHandle, useRef } from 'react';
 import { objectToMap, proFieldParsingText, useStyle } from '../../../utils';
-import type { ProFieldFC } from '../../PureProField';
+import type { ProFieldFC } from '../../types';
 import type { FieldSelectProps } from '../Select';
 import { useFieldFetchData } from '../Select';
 

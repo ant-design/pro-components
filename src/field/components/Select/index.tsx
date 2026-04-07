@@ -25,7 +25,7 @@ import {
   useRefFunction,
   useStyle,
 } from '../../../utils';
-import type { ProFieldFC, ProFieldLightProps } from '../../PureProField';
+import type { ProFieldFC, ProFieldLightProps } from '../../types';
 import LightSelect from './LightSelect';
 import SearchSelect from './SearchSelect';
 

@@ -9,7 +9,7 @@ import React, {
   useState,
 } from 'react';
 import { intlMap as allIntlMap, useIntl } from '../../../provider';
-import type { ProFieldFC } from '../../PureProField';
+import type { ProFieldFC } from '../../types';
 
 export type FieldMoneyProps = {
   text: number;

@@ -1,26 +1,10 @@
 import { Avatar } from 'antd';
-import dayjs from 'dayjs';
-import advancedFormat from 'dayjs/plugin/advancedFormat';
-import isoWeek from 'dayjs/plugin/isoWeek';
-import localeData from 'dayjs/plugin/localeData';
-import weekday from 'dayjs/plugin/weekday';
-import weekOfYear from 'dayjs/plugin/weekOfYear';
-import React, { useContext } from 'react';
-import type {
-  BaseProFieldFC,
-  ProFieldFCRenderProps,
-  ProRenderFieldPropsType,
-} from '../provider';
-import ProConfigContext from '../provider';
+import React from 'react';
 import {
-  omitUndefined,
   pickProProps,
-  ProFieldRequestData,
-  ProFieldTextType,
-  ProFieldValueObjectType,
-  ProFieldValueType,
-  useDeepCompareMemo,
-  useRefFunction,
+  type ProFieldTextType,
+  type ProFieldValueObjectType,
+  type ProFieldValueType,
 } from '../utils';
 import FieldCascader from './components/Cascader';
 import FieldCheckbox from './components/Checkbox';
@@ -50,59 +34,13 @@ import FieldTextArea from './components/TextArea';
 import FieldTimePicker, { FieldTimeRangePicker } from './components/TimePicker';
 import FieldTreeSelect from './components/TreeSelect';
 import FieldHOC from './FieldHOC';
-import { ProFieldPropsType } from './PureProField';
+import { createProField, type ProFieldRenderText } from './ProFieldCore';
+import type { ProFieldRenderProps } from './types';
 
-dayjs.extend(localeData);
-dayjs.extend(advancedFormat);
-dayjs.extend(isoWeek);
-dayjs.extend(weekOfYear);
-dayjs.extend(weekday);
-
-/** 默认的 Field 需要实现的功能 */
-
-export type ProFieldFC<T = {}> = React.ForwardRefRenderFunction<
-  any,
-  BaseProFieldFC & ProRenderFieldPropsType & T
->;
-
-/** 轻量筛选的field属性 */
-export type ProFieldLightProps = {
-  // label和clear图标的ref
-  lightLabel?: React.RefObject<{
-    labelRef: React.RefObject<HTMLElement>;
-    clearRef: React.RefObject<HTMLElement>;
-  }>;
-
-  // 是否点击了label
-  labelTrigger?: boolean;
-};
-
-/** Value type by function */
-export type ProFieldValueTypeFunction<T> = (
-  item: T,
-) => ProFieldValueType | ProFieldValueObjectType;
-
-type RenderProps = Omit<ProFieldFCRenderProps, 'text' | 'placeholder'> &
-  ProRenderFieldPropsType & {
-    /** 从服务器读取选项 */
-    request?: ProFieldRequestData;
-    emptyText?: React.ReactNode;
-    open?: boolean;
-    onOpenChange?: (open: boolean) => void;
-    [key: string]: any;
-  };
-
-/**
- * Render valueType object
- *
- * @param text String | number
- * @param valueType ProColumnsValueObjectType
- * @param props
- */
 const defaultRenderTextByObject = (
   text: ProFieldTextType,
   valueType: ProFieldValueObjectType,
-  props: RenderProps,
+  props: ProFieldRenderProps,
 ) => {
   const pickFormItemProps = pickProProps(props.fieldProps);
   if (valueType.type === 'progress') {
@@ -150,74 +88,12 @@ const defaultRenderTextByObject = (
   return text as React.ReactNode;
 };
 
-/**
- * 根据不同的类型来转化数值
- *
- * @param dataValue
- * @param valueType
- * @param props
- * @param valueTypeMap
- */
-export const defaultRenderText = (
+/** 内置 valueType 分支（读写共用，具体展示由子 Field 的 mode 决定） */
+function renderDefaultValueTypeLeaf(
   dataValue: ProFieldTextType,
-  valueType: ProFieldValueType | ProFieldValueObjectType,
-  props: RenderProps,
-  valueTypeMap: Record<string, ProRenderFieldPropsType>,
-): React.ReactNode => {
-  const { mode = 'read', emptyText = '-' } = props;
-
-  if (
-    emptyText !== false &&
-    mode === 'read' &&
-    valueType !== 'option' &&
-    valueType !== 'switch'
-  ) {
-    if (
-      typeof dataValue !== 'boolean' &&
-      typeof dataValue !== 'number' &&
-      !dataValue
-    ) {
-      const { fieldProps, render } = props;
-      if (render) {
-        return render(dataValue, { mode, ...fieldProps }, <>{emptyText}</>);
-      }
-      return <>{emptyText}</>;
-    }
-  }
-
-  delete props.emptyText;
-
-  if (typeof valueType === 'object') {
-    return defaultRenderTextByObject(dataValue, valueType, props);
-  }
-
-  const customValueTypeConfig =
-    valueTypeMap && valueTypeMap[valueType as string];
-  if (customValueTypeConfig) {
-    delete props.ref;
-    if (mode === 'read') {
-      return customValueTypeConfig.render?.(
-        dataValue,
-        {
-          text: dataValue as React.ReactNode,
-          ...props,
-          mode: mode || 'read',
-        },
-        <>{dataValue}</>,
-      );
-    }
-    if (mode === 'update' || mode === 'edit') {
-      return customValueTypeConfig.formItemRender?.(
-        dataValue,
-        {
-          text: dataValue as React.ReactNode,
-          ...props,
-        },
-        <>{dataValue}</>,
-      );
-    }
-  }
-
+  valueType: ProFieldValueType,
+  props: ProFieldRenderProps,
+): React.ReactNode {
   /** 如果是金额的值 */
   if (valueType === 'money') {
     return <FieldMoney {...props} text={dataValue as number} />;
@@ -395,7 +271,6 @@ export const defaultRenderText = (
 
   /** 如果是日期加时间类型的值的值 */
   if (valueType === 'dateTimeRange') {
-    // 值不存在的时候显示 "-"
     return (
       <FieldHOC isLight={props.light}>
         <FieldRangePicker
@@ -551,84 +426,114 @@ export const defaultRenderText = (
   }
 
   return <FieldText text={dataValue as string} {...props} />;
-};
+}
 
-const ProFieldComponent: React.ForwardRefRenderFunction<
-  any,
-  ProFieldPropsType
-> = (
-  {
-    text,
-    valueType = 'text',
-    mode = 'read',
-    onChange,
-    formItemRender,
-    value,
-    readonly,
-    fieldProps: restFieldProps,
-    ...rest
-  },
-  ref: any,
+/** 只读：空值占位、context valueTypeMap 的 render、内置 valueType */
+export const defaultRenderRead: ProFieldRenderText = (
+  dataValue,
+  valueType,
+  props,
+  valueTypeMap,
 ) => {
-  const context = useContext(ProConfigContext);
+  const { mode = 'read', emptyText = '-' } = props;
 
-  const onChangeCallBack = useRefFunction((...restParams: any[]) => {
-    restFieldProps?.onChange?.(...restParams);
-    onChange?.(...restParams);
-  });
-
-  const fieldProps: any = useDeepCompareMemo(() => {
-    return (
-      (value !== undefined || restFieldProps) && {
-        value,
-        // fieldProps 优先级更高，在类似 LightFilter 场景下需要覆盖默认的 value 和 onChange
-        ...omitUndefined(restFieldProps),
-        onChange: onChangeCallBack,
+  if (
+    emptyText !== false &&
+    mode === 'read' &&
+    valueType !== 'option' &&
+    valueType !== 'switch'
+  ) {
+    if (
+      typeof dataValue !== 'boolean' &&
+      typeof dataValue !== 'number' &&
+      !dataValue
+    ) {
+      const { fieldProps, render } = props;
+      if (render) {
+        return render(dataValue, { mode, ...fieldProps }, <>{emptyText}</>);
       }
+      return <>{emptyText}</>;
+    }
+  }
+
+  delete props.emptyText;
+
+  if (typeof valueType === 'object') {
+    return defaultRenderTextByObject(dataValue, valueType, props);
+  }
+
+  const customValueTypeConfig =
+    valueTypeMap && valueTypeMap[valueType as string];
+  if (customValueTypeConfig) {
+    delete props.ref;
+    return customValueTypeConfig.render?.(
+      dataValue,
+      {
+        text: dataValue as React.ReactNode,
+        ...props,
+        mode: mode || 'read',
+      },
+      <>{dataValue}</>,
     );
-  }, [value, restFieldProps, onChangeCallBack]);
+  }
 
-  const renderedDom = defaultRenderText(
-    mode === 'edit'
-      ? (fieldProps?.value ?? text ?? '')
-      : (text ?? fieldProps?.value ?? ''),
-    valueType || 'text',
-    omitUndefined({
-      ref,
-      ...rest,
-      mode: readonly ? 'read' : mode,
-      formItemRender: formItemRender
-        ? (curText: any, props: ProFieldFCRenderProps, dom: React.JSX.Element) => {
-            const { placeholder: _placeholder, ...restProps } = props;
-            const newDom = formItemRender(curText, restProps, dom);
-            // formItemRender 之后的dom可能没有props，这里会帮忙注入一下
-            if (React.isValidElement(newDom))
-              return React.cloneElement(newDom, {
-                ...fieldProps,
-                ...((newDom.props as any) || {}),
-              });
-            return newDom;
-          }
-        : undefined,
-      placeholder: formItemRender
-        ? undefined
-        : (rest?.placeholder ?? fieldProps?.placeholder),
-      fieldProps: pickProProps(
-        omitUndefined({
-          ...fieldProps,
-          placeholder: formItemRender
-            ? undefined
-            : (rest?.placeholder ?? fieldProps?.placeholder),
-        }),
-        Object.keys(context.valueTypeMap || {})?.includes(valueType as string),
-      ),
-    }),
-    context.valueTypeMap || {},
+  return renderDefaultValueTypeLeaf(
+    dataValue,
+    valueType as ProFieldValueType,
+    props,
   );
-
-  return <React.Fragment>{renderedDom}</React.Fragment>;
 };
 
-export const ProField = React.forwardRef(
-  ProFieldComponent,
-) as typeof ProFieldComponent;
+/** 编辑：context valueTypeMap 的 formItemRender、内置 valueType */
+export const defaultRenderEdit: ProFieldRenderText = (
+  dataValue,
+  valueType,
+  props,
+  valueTypeMap,
+) => {
+  delete props.emptyText;
+
+  if (typeof valueType === 'object') {
+    return defaultRenderTextByObject(dataValue, valueType, props);
+  }
+
+  const customValueTypeConfig =
+    valueTypeMap && valueTypeMap[valueType as string];
+  if (customValueTypeConfig) {
+    delete props.ref;
+    return customValueTypeConfig.formItemRender?.(
+      dataValue,
+      {
+        text: dataValue as React.ReactNode,
+        ...props,
+      },
+      <>{dataValue}</>,
+    );
+  }
+
+  return renderDefaultValueTypeLeaf(
+    dataValue,
+    valueType as ProFieldValueType,
+    props,
+  );
+};
+
+/** 按 mode 调度（直接调用 defaultRenderText 时与旧行为一致） */
+export const defaultRenderText: ProFieldRenderText = (
+  dataValue,
+  valueType,
+  props,
+  valueTypeMap,
+) => {
+  const m = props.mode ?? 'read';
+  return m === 'edit' || m === 'update'
+    ? defaultRenderEdit(dataValue, valueType, props, valueTypeMap)
+    : defaultRenderRead(dataValue, valueType, props, valueTypeMap);
+};
+
+export const ProField = createProField(
+  { renderRead: defaultRenderRead, renderEdit: defaultRenderEdit },
+  {
+    pickProPropsWithValueTypeMap: true,
+  },
+);

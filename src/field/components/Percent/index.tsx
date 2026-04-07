@@ -2,7 +2,7 @@ import { InputNumber } from 'antd';
 import type { ReactNode } from 'react';
 import React, { Fragment, useMemo } from 'react';
 import { useIntl } from '../../../provider';
-import type { ProFieldFC } from '../../PureProField';
+import type { ProFieldFC } from '../../types';
 import {
   getColorByRealValue,
   getRealTextWithPrecision,

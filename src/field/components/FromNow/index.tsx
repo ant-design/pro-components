@@ -4,7 +4,7 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import React from 'react';
 import { useIntl } from '../../../provider';
 import { parseValueToDay } from '../../../utils';
-import type { ProFieldFC } from '../../PureProField';
+import type { ProFieldFC } from '../../types';
 
 dayjs.extend(relativeTime);
 /**

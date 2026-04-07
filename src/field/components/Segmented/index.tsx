@@ -2,7 +2,7 @@ import { omit } from '@rc-component/util';
 import { Segmented, Spin } from 'antd';
 import React, { useImperativeHandle, useRef } from 'react';
 import { objectToMap, proFieldParsingText } from '../../../utils';
-import type { ProFieldFC } from '../../PureProField';
+import type { ProFieldFC } from '../../types';
 import type { FieldSelectProps } from '../Select';
 import { useFieldFetchData } from '../Select';
 

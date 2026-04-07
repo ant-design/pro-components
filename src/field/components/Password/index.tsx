@@ -3,7 +3,7 @@ import { omit, useControlledState } from '@rc-component/util';
 import { Input, Space } from 'antd';
 import React, { useCallback } from 'react';
 import { useIntl } from '../../../provider';
-import type { ProFieldFC } from '../../PureProField';
+import type { ProFieldFC } from '../../types';
 
 /**
  * 最基本的组件，就是个普通的 Input.Password

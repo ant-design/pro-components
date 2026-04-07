@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import React, { useCallback } from 'react';
 import { useIntl } from '../../../provider';
 import { FieldLabel, parseValueToDay } from '../../../utils';
-import type { ProFieldFC, ProFieldLightProps } from '../../PureProField';
+import type { ProFieldFC, ProFieldLightProps } from '../../types';
 
 /**
  * 日期范围选择组件

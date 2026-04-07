@@ -1,7 +1,7 @@
 import { Input } from 'antd';
 import React, { useEffect, useImperativeHandle, useRef } from 'react';
 import { useIntl } from '../../../provider';
-import type { ProFieldFC } from '../../PureProField';
+import type { ProFieldFC } from '../../types';
 
 /**
  * 最基本的组件，就是个普通的 Input

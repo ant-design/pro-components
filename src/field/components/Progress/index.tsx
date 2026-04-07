@@ -1,7 +1,7 @@
 import { InputNumber, Progress } from 'antd';
 import React, { useMemo } from 'react';
 import { useIntl } from '../../../provider';
-import type { ProFieldFC } from '../../PureProField';
+import type { ProFieldFC } from '../../types';
 import { toNumber } from '../Percent/util';
 
 export function getProgressStatus(

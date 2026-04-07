@@ -4,7 +4,7 @@ import { Switch } from 'antd';
 import React, { useMemo } from 'react';
 import { useIntl } from '../../../provider';
 import { FieldLabel } from '../../../utils';
-import type { ProFieldFC } from '../../PureProField';
+import type { ProFieldFC } from '../../types';
 
 /**
  * 开关组件
