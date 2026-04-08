@@ -1,4 +1,4 @@
-import type {
+﻿import type {
   ProFormColumnsType,
   ProFormInstance,
 } from '@ant-design/pro-components';
@@ -9,9 +9,11 @@ import {
   ProFormDatePicker,
   ProFormDateTimePicker,
   ProFormDigit,
+  ProFormField,
   ProFormSelect,
   ProFormSwitch,
   ProFormText,
+  ProFormTextArea,
 } from '@ant-design/pro-components';
 import { cleanup, render, waitFor } from '@testing-library/react';
 import dayjs from 'dayjs';
@@ -20,7 +22,8 @@ import { createRef } from 'react';
 import { afterEach, describe, expect, it } from 'vitest';
 
 /**
- * RFC 阶段 3：同一 `initialValues` 下，`BetaSchemaForm` 与手写 `ProFormXxx` 的 `getFieldsValue(true)` 应对齐。
+ * RFC 阶段 3 / ProField 路径：同一 `initialValues` 下，`BetaSchemaForm` 与手写 `ProFormXxx`（或 `ProFormField`）
+ * 的 `getFieldsValue(true)` 应对齐（见 `docs/internal/form-architecture.md`「Schema 路径」）。
  */
 
 function expectAlignedFieldValue(a: unknown, b: unknown) {
@@ -185,5 +188,35 @@ describe('Schema vs imperative alignment', () => {
 
     expectAlignedFieldValue(schemaValues.fieldCk, imperativeValues.fieldCk);
     expect(schemaValues.fieldCk).toBe(true);
+  });
+
+  it('textarea column matches ProFormTextArea', async () => {
+    const initialValues = { fieldTa: 'line1\nline2' };
+    const columns: ProFormColumnsType<Record<string, any>>[] = [
+      { title: 'T', dataIndex: 'fieldTa', valueType: 'textarea' },
+    ];
+
+    const schemaValues = await readSchemaFieldsValue(columns, initialValues);
+    const imperativeValues = await readImperativeFieldsValue(initialValues, (
+      <ProFormTextArea name="fieldTa" />
+    ));
+
+    expect(schemaValues.fieldTa).toBe(imperativeValues.fieldTa);
+    expect(schemaValues.fieldTa).toBe('line1\nline2');
+  });
+
+  it('password column matches ProFormField valueType password', async () => {
+    const initialValues = { fieldPw: 'secret' };
+    const columns: ProFormColumnsType<Record<string, any>>[] = [
+      { title: 'P', dataIndex: 'fieldPw', valueType: 'password' },
+    ];
+
+    const schemaValues = await readSchemaFieldsValue(columns, initialValues);
+    const imperativeValues = await readImperativeFieldsValue(initialValues, (
+      <ProFormField name="fieldPw" valueType="password" />
+    ));
+
+    expect(schemaValues.fieldPw).toBe(imperativeValues.fieldPw);
+    expect(schemaValues.fieldPw).toBe('secret');
   });
 });

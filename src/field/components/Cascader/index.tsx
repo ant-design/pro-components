@@ -1,7 +1,4 @@
-import { LoadingOutlined } from '@ant-design/icons';
-import type { RadioGroupProps } from 'antd';
-import { Cascader, ConfigProvider } from 'antd';
-import { clsx } from 'clsx';
+﻿import { ConfigProvider } from 'antd';
 import React, {
   useContext,
   useImperativeHandle,
@@ -10,30 +7,20 @@ import React, {
   useState,
 } from 'react';
 import { useIntl } from '../../../provider';
-import { FieldLabel, objectToMap, proFieldParsingText } from '../../../utils';
+import {
+  isProFieldEditOnlyMode,
+  isProFieldReadMode,
+} from '../../internal/fieldMode';
 import type { ProFieldFC } from '../../types';
-import type { FieldSelectProps } from '../Select';
 import { useFieldFetchData } from '../Select';
+import { FieldCascaderEdit } from './FieldCascaderEdit';
+import { FieldCascaderRead } from './FieldCascaderRead';
+import type { GroupProps } from './types';
 
-export type GroupProps = {
-  options?: RadioGroupProps['options'];
-  radioType?: 'button' | 'radio';
-  placeholder?: string;
-  variant?: 'outlined' | 'borderless' | 'filled';
-} & FieldSelectProps;
+export type { GroupProps };
 
 /**
  * 级联选择组件
- *
- * @param placeholder
- * @param formItemRender
- * @param mode
- * @param render
- * @param label
- * @param light
- * @param variant
- * @param rest
- * @param ref
  */
 const FieldCascader: ProFieldFC<GroupProps> = (
   { placeholder, formItemRender, mode, render, label, light, variant, ...rest },
@@ -57,12 +44,7 @@ const FieldCascader: ProFieldFC<GroupProps> = (
   );
 
   const optionsValueEnum = useMemo(() => {
-    if (mode !== 'read') return;
-    /**
-     * Support cascader fieldNames
-     *
-     * @see https://ant.design/components/cascader-cn/#header
-     */
+    if (!isProFieldReadMode(mode)) return;
     const {
       value: valuePropsName = 'value',
       label: labelPropsName = 'label',
@@ -89,79 +71,42 @@ const FieldCascader: ProFieldFC<GroupProps> = (
     return traverseOptions(options);
   }, [mode, options, rest.fieldProps?.fieldNames]);
 
-  if (mode === 'read') {
-    const dom = (
-      <>
-        {proFieldParsingText(
-          rest.text,
-          objectToMap(rest.valueEnum || optionsValueEnum),
-        )}
-      </>
-    );
-
-    if (render) {
-      return render(rest.text, { mode, ...rest.fieldProps }, dom) ?? null;
-    }
-    return dom;
-  }
-
-  if (mode === 'edit') {
-    const fieldProps = rest.fieldProps || {};
-    let dom = (
-      <Cascader
-        ref={cascaderRef}
-        open={open}
-        suffixIcon={loading ? <LoadingOutlined /> : undefined}
-        placeholder={
-          placeholder ||
-          intl.getMessage('tableForm.selectPlaceholder', '请选择')
-        }
-        allowClear={fieldProps?.allowClear !== false}
-        {...fieldProps}
-        onOpenChange={(isOpen) => {
-          fieldProps?.onOpenChange?.(isOpen);
-          setOpen(isOpen);
-        }}
-        className={clsx(fieldProps?.className, layoutClassName)}
-        options={options}
+  if (isProFieldReadMode(mode)) {
+    return (
+      <FieldCascaderRead
+        placeholder={placeholder}
+        formItemRender={formItemRender}
+        mode={mode}
+        render={render}
+        label={label}
+        light={light}
+        variant={variant}
+        optionsValueEnum={optionsValueEnum}
+        {...rest}
       />
     );
+  }
 
-    if (formItemRender) {
-      dom =
-        formItemRender(
-          rest.text,
-          { mode, ...fieldProps, options, loading },
-          dom,
-        ) ?? null;
-    }
-
-    if (light) {
-      const { disabled, value } = fieldProps;
-      const notEmpty = !!value && value?.length !== 0;
-      return (
-        <FieldLabel
-          label={label}
-          disabled={disabled}
-          variant={variant}
-          value={notEmpty || open ? dom : null}
-          style={
-            notEmpty
-              ? {
-                  paddingInlineEnd: 0,
-                }
-              : undefined
-          }
-          allowClear={false}
-          downIcon={notEmpty || open ? false : undefined}
-          onClick={() => {
-            setOpen(true);
-            fieldProps?.onOpenChange?.(true);
-          }}
-        />
-      );
-    }
-    return dom;
+  if (isProFieldEditOnlyMode(mode)) {
+    return (
+      <FieldCascaderEdit
+        placeholder={placeholder}
+        formItemRender={formItemRender}
+        mode={mode}
+        render={render}
+        label={label}
+        light={light}
+        variant={variant}
+        options={options}
+        loading={loading}
+        layoutClassName={layoutClassName}
+        open={open}
+        setOpen={setOpen}
+        cascaderRef={cascaderRef}
+        intl={intl}
+        {...rest}
+      />
+    );
   }
 
   return null;

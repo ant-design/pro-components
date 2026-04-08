@@ -1,36 +1,24 @@
-import { Slider } from 'antd';
-import React from 'react';
+﻿import React from 'react';
+import {
+  isProFieldEditOrUpdateMode,
+  isProFieldReadMode,
+} from '../../internal/fieldMode';
 import type { ProFieldFC } from '../../types';
+import { FieldSliderEdit } from './FieldSliderEdit';
+import { FieldSliderRead } from './FieldSliderRead';
+
 /**
  * 评分组件
- *
- * @param
  */
 const FieldSlider: ProFieldFC<{
   text: string;
-}> = ({ text, mode, render, formItemRender, fieldProps }, ref) => {
-  if (mode === 'read') {
-    const dom = text;
-    if (render) {
-      return render(text, { mode, ...fieldProps }, <>{dom}</>);
-    }
-    return <>{dom}</>;
+}> = (props, ref) => {
+  const { mode } = props;
+  if (isProFieldReadMode(mode)) {
+    return FieldSliderRead(props);
   }
-  if (mode === 'edit' || mode === 'update') {
-    const dom = (
-      <Slider
-        ref={ref}
-        {...fieldProps}
-        style={{
-          minWidth: 120,
-          ...fieldProps?.style,
-        }}
-      />
-    );
-    if (formItemRender) {
-      return formItemRender(text, { mode, ...fieldProps }, dom);
-    }
-    return dom;
+  if (isProFieldEditOrUpdateMode(mode)) {
+    return FieldSliderEdit(props, ref);
   }
   return null;
 };

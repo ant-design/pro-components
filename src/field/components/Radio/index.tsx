@@ -1,26 +1,20 @@
-import type { RadioGroupProps } from 'antd';
-import { ConfigProvider, Form, Radio, Spin } from 'antd';
-import { clsx } from 'clsx';
+﻿import { ConfigProvider, Form, Spin } from 'antd';
 import React, { useContext, useImperativeHandle, useRef } from 'react';
-import { objectToMap, proFieldParsingText, useStyle } from '../../../utils';
+import { useStyle } from '../../../utils';
+import {
+  isProFieldEditOnlyMode,
+  isProFieldReadMode,
+} from '../../internal/fieldMode';
 import type { ProFieldFC } from '../../types';
-import type { FieldSelectProps } from '../Select';
 import { useFieldFetchData } from '../Select';
+import { FieldRadioEdit } from './FieldRadioEdit';
+import { FieldRadioRead } from './FieldRadioRead';
+import type { GroupProps } from './types';
 
-export type GroupProps = {
-  options?: RadioGroupProps['options'];
-  radioType?: RadioGroupProps['optionType'];
-} & FieldSelectProps;
+export type { GroupProps };
 
 /**
  * 单选组件
- *
- * @param radioType
- * @param formItemRender
- * @param mode
- * @param render
- * @param rest
- * @param ref
  */
 const FieldRadio: ProFieldFC<GroupProps> = (
   { radioType, formItemRender, mode, render, ...rest },
@@ -41,7 +35,6 @@ const FieldRadio: ProFieldFC<GroupProps> = (
     [fetchData],
   );
 
-  // css
   const { wrapSSR, hashId } = useStyle('FieldRadioRadio', (token) => {
     return {
       [`.${layoutClassName}-error`]: {
@@ -67,55 +60,42 @@ const FieldRadio: ProFieldFC<GroupProps> = (
     return <Spin size="small" />;
   }
 
-  if (mode === 'read') {
-    const optionsValueEnum = options?.length
-      ? options?.reduce((pre: any, cur) => {
-          return { ...pre, [(cur.value as any) ?? '']: cur.label };
-        }, {})
-      : undefined;
-    const dom = (
-      <>
-        {proFieldParsingText(
-          rest.text,
-          objectToMap(rest.valueEnum || optionsValueEnum),
-        )}
-      </>
-    );
+  const optionsValueEnum = options?.length
+    ? options?.reduce((pre: any, cur) => {
+        return { ...pre, [(cur.value as any) ?? '']: cur.label };
+      }, {})
+    : undefined;
 
-    if (render) {
-      return render(rest.text, { mode, ...rest.fieldProps }, dom) ?? null;
-    }
-    return dom;
+  if (isProFieldReadMode(mode)) {
+    return (
+      <FieldRadioRead
+        radioType={radioType}
+        formItemRender={formItemRender}
+        mode={mode}
+        render={render}
+        optionsValueEnum={optionsValueEnum}
+        {...rest}
+      />
+    );
   }
 
-  if (mode === 'edit') {
-    const dom = wrapSSR(
-      <Radio.Group
-        ref={radioRef}
-        optionType={radioType}
-        {...rest.fieldProps}
-        className={clsx(
-          rest.fieldProps?.className,
-          {
-            [`${layoutClassName}-error`]: status?.status === 'error',
-            [`${layoutClassName}-warning`]: status?.status === 'warning',
-          },
-          hashId,
-          `${layoutClassName}-${rest.fieldProps.layout || 'horizontal'}`,
-        )}
+  if (isProFieldEditOnlyMode(mode)) {
+    return (
+      <FieldRadioEdit
+        radioType={radioType}
+        formItemRender={formItemRender}
+        mode={mode}
+        render={render}
         options={options}
-      />,
+        loading={loading}
+        radioRef={radioRef}
+        layoutClassName={layoutClassName}
+        wrapSSR={wrapSSR}
+        hashId={hashId}
+        status={status}
+        {...rest}
+      />
     );
-    if (formItemRender) {
-      return (
-        formItemRender(
-          rest.text,
-          { mode, ...rest.fieldProps, options, loading },
-          dom,
-        ) ?? null
-      );
-    }
-    return dom;
   }
 
   return null;

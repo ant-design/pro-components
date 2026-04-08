@@ -33,7 +33,7 @@ import FieldText from './components/Text';
 import FieldTextArea from './components/TextArea';
 import FieldTimePicker, { FieldTimeRangePicker } from './components/TimePicker';
 import FieldTreeSelect from './components/TreeSelect';
-import FieldHOC from './FieldHOC';
+import { wrapProFieldLight } from './internal/ProFieldLightWrapper';
 import { createProField, type ProFieldRenderText } from './ProFieldCore';
 import type { ProFieldRenderProps } from './types';
 
@@ -101,146 +101,137 @@ function renderDefaultValueTypeLeaf(
 
   /** 如果是日期的值 */
   if (valueType === 'date') {
-    return (
-      <FieldHOC isLight={props.light}>
-        <FieldDatePicker
-          text={dataValue as string}
-          format="YYYY-MM-DD"
-          {...props}
-        />
-      </FieldHOC>
+    return wrapProFieldLight(
+      props.light,
+      <FieldDatePicker
+        text={dataValue as string}
+        format="YYYY-MM-DD"
+        {...props}
+      />,
     );
   }
 
   /** 如果是周的值 */
   if (valueType === 'dateWeek') {
-    return (
-      <FieldHOC isLight={props.light}>
-        <FieldDatePicker
-          text={dataValue as string}
-          format="YYYY-wo"
-          picker="week"
-          {...props}
-        />
-      </FieldHOC>
+    return wrapProFieldLight(
+      props.light,
+      <FieldDatePicker
+        text={dataValue as string}
+        format="YYYY-wo"
+        picker="week"
+        {...props}
+      />,
     );
   }
 
   /** 如果是周范围的值 */
   if (valueType === 'dateWeekRange') {
     const { fieldProps, ...otherProps } = props;
-    return (
-      <FieldHOC isLight={props.light}>
-        <FieldRangePicker
-          text={dataValue as string[]}
-          format="YYYY-W"
-          showTime
-          fieldProps={{
-            picker: 'week',
-            ...fieldProps,
-          }}
-          {...otherProps}
-        />
-      </FieldHOC>
+    return wrapProFieldLight(
+      props.light,
+      <FieldRangePicker
+        text={dataValue as string[]}
+        format="YYYY-W"
+        showTime
+        fieldProps={{
+          picker: 'week',
+          ...fieldProps,
+        }}
+        {...otherProps}
+      />,
     );
   }
 
   /** 如果是月范围的值 */
   if (valueType === 'dateMonthRange') {
     const { fieldProps, ...otherProps } = props;
-    return (
-      <FieldHOC isLight={props.light}>
-        <FieldRangePicker
-          text={dataValue as string[]}
-          format="YYYY-MM"
-          showTime
-          fieldProps={{
-            picker: 'month',
-            ...fieldProps,
-          }}
-          {...otherProps}
-        />
-      </FieldHOC>
+    return wrapProFieldLight(
+      props.light,
+      <FieldRangePicker
+        text={dataValue as string[]}
+        format="YYYY-MM"
+        showTime
+        fieldProps={{
+          picker: 'month',
+          ...fieldProps,
+        }}
+        {...otherProps}
+      />,
     );
   }
 
   /** 如果是季范围的值 */
   if (valueType === 'dateQuarterRange') {
     const { fieldProps, ...otherProps } = props;
-    return (
-      <FieldHOC isLight={props.light}>
-        <FieldRangePicker
-          text={dataValue as string[]}
-          format="YYYY-Q"
-          showTime
-          fieldProps={{
-            picker: 'quarter',
-            ...fieldProps,
-          }}
-          {...otherProps}
-        />
-      </FieldHOC>
+    return wrapProFieldLight(
+      props.light,
+      <FieldRangePicker
+        text={dataValue as string[]}
+        format="YYYY-Q"
+        showTime
+        fieldProps={{
+          picker: 'quarter',
+          ...fieldProps,
+        }}
+        {...otherProps}
+      />,
     );
   }
 
   /** 如果是年范围的值 */
   if (valueType === 'dateYearRange') {
     const { fieldProps, ...otherProps } = props;
-    return (
-      <FieldHOC isLight={props.light}>
-        <FieldRangePicker
-          text={dataValue as string[]}
-          format="YYYY"
-          showTime
-          fieldProps={{
-            picker: 'year',
-            ...fieldProps,
-          }}
-          {...otherProps}
-        />
-      </FieldHOC>
+    return wrapProFieldLight(
+      props.light,
+      <FieldRangePicker
+        text={dataValue as string[]}
+        format="YYYY"
+        showTime
+        fieldProps={{
+          picker: 'year',
+          ...fieldProps,
+        }}
+        {...otherProps}
+      />,
     );
   }
 
   /** 如果是月的值 */
   if (valueType === 'dateMonth') {
-    return (
-      <FieldHOC isLight={props.light}>
-        <FieldDatePicker
-          text={dataValue as string}
-          format="YYYY-MM"
-          picker="month"
-          {...props}
-        />
-      </FieldHOC>
+    return wrapProFieldLight(
+      props.light,
+      <FieldDatePicker
+        text={dataValue as string}
+        format="YYYY-MM"
+        picker="month"
+        {...props}
+      />,
     );
   }
 
   /** 如果是季度的值 */
   if (valueType === 'dateQuarter') {
-    return (
-      <FieldHOC isLight={props.light}>
-        <FieldDatePicker
-          text={dataValue as string}
-          format="YYYY-[Q]Q"
-          picker="quarter"
-          {...props}
-        />
-      </FieldHOC>
+    return wrapProFieldLight(
+      props.light,
+      <FieldDatePicker
+        text={dataValue as string}
+        format="YYYY-[Q]Q"
+        picker="quarter"
+        {...props}
+      />,
     );
   }
 
   /** 如果是年的值 */
   if (valueType === 'dateYear') {
-    return (
-      <FieldHOC isLight={props.light}>
-        <FieldDatePicker
-          text={dataValue as string}
-          format="YYYY"
-          picker="year"
-          {...props}
-        />
-      </FieldHOC>
+    return wrapProFieldLight(
+      props.light,
+      <FieldDatePicker
+        text={dataValue as string}
+        format="YYYY"
+        picker="year"
+        {...props}
+      />,
     );
   }
 
@@ -257,55 +248,51 @@ function renderDefaultValueTypeLeaf(
 
   /** 如果是日期加时间类型的值 */
   if (valueType === 'dateTime') {
-    return (
-      <FieldHOC isLight={props.light}>
-        <FieldDatePicker
-          text={dataValue as string}
-          format="YYYY-MM-DD HH:mm:ss"
-          showTime
-          {...props}
-        />
-      </FieldHOC>
+    return wrapProFieldLight(
+      props.light,
+      <FieldDatePicker
+        text={dataValue as string}
+        format="YYYY-MM-DD HH:mm:ss"
+        showTime
+        {...props}
+      />,
     );
   }
 
   /** 如果是日期加时间类型的值的值 */
   if (valueType === 'dateTimeRange') {
-    return (
-      <FieldHOC isLight={props.light}>
-        <FieldRangePicker
-          text={dataValue as string[]}
-          format="YYYY-MM-DD HH:mm:ss"
-          showTime
-          {...props}
-        />
-      </FieldHOC>
+    return wrapProFieldLight(
+      props.light,
+      <FieldRangePicker
+        text={dataValue as string[]}
+        format="YYYY-MM-DD HH:mm:ss"
+        showTime
+        {...props}
+      />,
     );
   }
 
   /** 如果是时间类型的值 */
   if (valueType === 'time') {
-    return (
-      <FieldHOC isLight={props.light}>
-        <FieldTimePicker
-          text={dataValue as string}
-          format="HH:mm:ss"
-          {...props}
-        />
-      </FieldHOC>
+    return wrapProFieldLight(
+      props.light,
+      <FieldTimePicker
+        text={dataValue as string}
+        format="HH:mm:ss"
+        {...props}
+      />,
     );
   }
 
   /** 如果是时间类型的值 */
   if (valueType === 'timeRange') {
-    return (
-      <FieldHOC isLight={props.light}>
-        <FieldTimeRangePicker
-          text={dataValue as string[]}
-          format="HH:mm:ss"
-          {...props}
-        />
-      </FieldHOC>
+    return wrapProFieldLight(
+      props.light,
+      <FieldTimeRangePicker
+        text={dataValue as string[]}
+        format="HH:mm:ss"
+        {...props}
+      />,
     );
   }
 
@@ -367,10 +354,9 @@ function renderDefaultValueTypeLeaf(
     valueType === 'select' ||
     (valueType === 'text' && (props.valueEnum || props.request))
   ) {
-    return (
-      <FieldHOC isLight={props.light}>
-        <FieldSelect text={dataValue as string} {...props} />
-      </FieldHOC>
+    return wrapProFieldLight(
+      props.light,
+      <FieldSelect text={dataValue as string} {...props} />,
     );
   }
 

@@ -1,13 +1,12 @@
-import { get } from '@rc-component/util';
+﻿import { get } from '@rc-component/util';
 import { cloneDeep } from 'lodash-es';
 import React from 'react';
 import { isNil } from '../isNil';
 import type { SearchTransformKeyFn } from '../typing';
 
-export type DataFormatMapType = Record<
-  string,
-  SearchTransformKeyFn | undefined
->;
+export interface DataFormatMapType {
+  [key: string]: SearchTransformKeyFn | undefined | DataFormatMapType;
+}
 
 /**
  * 判断一个值是否为普通对象（可以被遍历的对象）

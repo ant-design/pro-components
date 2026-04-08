@@ -1,81 +1,30 @@
 ﻿import type { ColorPickerProps } from 'antd';
-import { ColorPicker, ConfigProvider } from 'antd';
-import { clsx } from 'clsx';
-import React, { useContext } from 'react';
+import React from 'react';
+import {
+  isProFieldEditOrUpdateMode,
+  isProFieldReadMode,
+} from '../../internal/fieldMode';
 import type { ProFieldFC } from '../../types';
-
-const DEFAULT_PRESETS = {
-  label: 'Recommended',
-  colors: [
-    '#F5222D',
-    '#FA8C16',
-    '#FADB14',
-    '#8BBB11',
-    '#52C41A',
-    '#13A8A8',
-    '#1677FF',
-    '#2F54EB',
-    '#722ED1',
-    '#EB2F96',
-    '#F5222D4D',
-    '#FA8C164D',
-    '#FADB144D',
-    '#8BBB114D',
-    '#52C41A4D',
-    '#13A8A84D',
-    '#1677FF4D',
-    '#2F54EB4D',
-    '#722ED14D',
-    '#EB2F964D',
-  ],
-};
+import { FieldColorPickerEdit } from './FieldColorPickerEdit';
+import { FieldColorPickerRead } from './FieldColorPickerRead';
 
 /**
  * 颜色组件
  * Antd > 5.5.0 的版本 使用 antd 的 ColorPicker
- * @param FieldColorPicker {
- *     text: number;
- *     moneySymbol?: string; }
  */
 const FieldColorPicker: ProFieldFC<
   {
     text: string;
     mode?: 'read' | 'edit' | 'update';
   } & Partial<Omit<ColorPickerProps, 'value' | 'mode'>>
-> = ({ text, mode: type, render, formItemRender, fieldProps }, ref: any) => {
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const prefixCls = getPrefixCls('pro-field-color-picker');
+> = (props, ref: any) => {
+  const { mode: type } = props;
 
-  if (type === 'read') {
-    const dom = (
-      <ColorPicker
-        value={text}
-        className={clsx({ [prefixCls]: true })}
-        // 设置无法 open
-        open={false}
-      />
-    );
-    if (render) {
-      return render(text, { mode: type, ...fieldProps }, dom);
-    }
-    return dom;
+  if (isProFieldReadMode(type)) {
+    return FieldColorPickerRead(props);
   }
-  if (type === 'edit' || type === 'update') {
-    // 解决 默认的 width 100% 问题
-    const style = { display: 'table-cell', ...fieldProps.style };
-    const dom = (
-      <ColorPicker
-        ref={ref}
-        presets={[DEFAULT_PRESETS]}
-        {...fieldProps}
-        style={style}
-        className={clsx({ [prefixCls]: true })}
-      />
-    );
-    if (formItemRender) {
-      return formItemRender(text, { mode: type, ...fieldProps, style }, dom);
-    }
-    return dom;
+  if (isProFieldEditOrUpdateMode(type)) {
+    return FieldColorPickerEdit(props, ref);
   }
   return null;
 };

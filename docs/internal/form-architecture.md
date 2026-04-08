@@ -1,4 +1,4 @@
-# ProForm 内部架构备忘（RFC 阶段 0 交付）
+﻿# ProForm 内部架构备忘（RFC 阶段 0 交付）
 
 本文档描述 `src/form/BaseForm/BaseForm.tsx` 的主数据流与副作用，供重构时对照顺序敏感点。实现以代码为准；如有出入以代码优先。
 
@@ -67,7 +67,7 @@ URL (syncToUrl)    → urlSearch / urlParamsMergeInitialValues → 与 initialVa
 
 - **入口**：`src/form/components/SchemaForm/index.tsx` 导出 `BetaSchemaForm`（默认导出）；`layoutType` 映射到 `DrawerForm` / `QueryFilter` / `LightFilter` / `ModalForm` / `StepsForm` / `Embed` / `ProForm` 等（见文件内 `FormLayoutType`）。
 - **列 → 节点**：`renderValueType`（`src/form/components/SchemaForm/valueType/index.tsx` 等）与 `ValueTypeToComponent`（`src/field/ValueTypeToComponent`）协作，最终仍落到各 `ProFormXxx`（经 `warpField` 包装）。
-- **对齐测试**：`tests/form/schemaImperativeAlignment.test.tsx` — 覆盖 `valueType` **text、digit、select、dateTime、switch、date、checkbox**：`BetaSchemaForm` 单列与对应 `ProFormText` / `ProFormDigit` / `ProFormSelect` / `ProFormDateTimePicker` / `ProFormSwitch` / `ProFormDatePicker` / `ProFormCheckbox` 在相同 `initialValues` 下 `getFieldsValue(true)` 一致（日期类用 `dayjs` 时间戳比较）。新增类型时建议在此文件追加一条用例。
+- **对齐测试**：`tests/form/schemaImperativeAlignment.test.tsx` — 覆盖 `valueType` **text、digit、select、dateTime、switch、date、checkbox、textarea、password**：`BetaSchemaForm` 单列与对应 `ProFormText` / `ProFormDigit` / `ProFormSelect` / `ProFormDateTimePicker` / `ProFormSwitch` / `ProFormDatePicker` / `ProFormCheckbox` / `ProFormTextArea` / `ProFormField`（`valueType="password"`）在相同 `initialValues` 下 `getFieldsValue(true)` 一致（日期类用 `dayjs` 时间戳比较）。新增类型时建议在此文件追加一条用例。
 
 ### `SchemaForm/valueType` 目录
 

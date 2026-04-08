@@ -1,5 +1,5 @@
-import { Avatar } from 'antd';
-import './initDayjs';
+﻿import { Avatar } from 'antd';
+import type { ReactNode } from 'react';
 import { FieldText } from '.';
 import { ProRenderFieldPropsType } from '../provider';
 import { pickProProps } from '../utils';
@@ -29,567 +29,288 @@ import FieldSwitch from './components/Switch';
 import FieldTextArea from './components/TextArea';
 import FieldTimePicker, { FieldTimeRangePicker } from './components/TimePicker';
 import FieldTreeSelect from './components/TreeSelect';
-import FieldHOC from './FieldHOC';
+import './initDayjs';
+import { wrapProFieldLight } from './internal/ProFieldLightWrapper';
+
+/**
+ * Built-in valueTypes use identical JSX for `render` (read) and `formItemRender` (edit).
+ * If a valueType needs different read vs edit behavior, use an explicit
+ * `{ render, formItemRender }` object for that key instead.
+ */
+function sameRenderPair(
+  fn: (text: any, props: any) => ReactNode,
+): ProRenderFieldPropsType {
+  return {
+    render: fn as ProRenderFieldPropsType['render'],
+    formItemRender: fn as ProRenderFieldPropsType['formItemRender'],
+  };
+}
 
 const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
-  progress: {
-    render: (text, props) => {
-      const fieldProps = pickProProps(props.fieldProps);
-      const placeholder =
-        typeof props.placeholder === 'string' ? props.placeholder : undefined;
-      return (
-        <FieldProgress
-          mode={props.mode}
-          text={text}
-          placeholder={placeholder}
-          fieldProps={fieldProps}
-        />
-      );
-    },
-    formItemRender: (text, props) => {
-      const fieldProps = pickProProps(props.fieldProps);
-      const placeholder =
-        typeof props.placeholder === 'string' ? props.placeholder : undefined;
-      return (
-        <FieldProgress
-          mode={props.mode}
-          text={text}
-          placeholder={placeholder}
-          fieldProps={fieldProps}
-        />
-      );
-    },
-  },
-  money: {
-    render: (text, props) => {
-      const fieldProps = pickProProps(props.fieldProps);
-      const placeholder =
-        typeof props.placeholder === 'string' ? props.placeholder : undefined;
-      return (
-        <FieldMoney
-          mode={props.mode}
-          text={text}
-          placeholder={placeholder}
-          fieldProps={fieldProps}
-        />
-      );
-    },
-    formItemRender: (text, props) => {
-      const fieldProps = pickProProps(props.fieldProps);
-      const placeholder =
-        typeof props.placeholder === 'string' ? props.placeholder : undefined;
-      return (
-        <FieldMoney
-          mode={props.mode}
-          text={text}
-          placeholder={placeholder}
-          fieldProps={fieldProps}
-        />
-      );
-    },
-  },
-  percent: {
-    render: (text, props) => {
-      const fieldProps = pickProProps(props.fieldProps);
-      const placeholder =
-        typeof props.placeholder === 'string' ? props.placeholder : undefined;
-      return (
-        <FieldPercent
-          mode={props.mode}
-          text={text}
-          placeholder={placeholder}
-          fieldProps={fieldProps}
-        />
-      );
-    },
-    formItemRender: (text, props) => {
-      const fieldProps = pickProProps(props.fieldProps);
-      const placeholder =
-        typeof props.placeholder === 'string' ? props.placeholder : undefined;
-      return (
-        <FieldPercent
-          mode={props.mode}
-          text={text}
-          placeholder={placeholder}
-          fieldProps={fieldProps}
-        />
-      );
-    },
-  },
-  image: {
-    render: (text, props) => <FieldImage {...props} text={text} />,
-    formItemRender: (text, props) => <FieldImage {...props} text={text} />,
-  },
-  date: {
-    render: (text, props) => (
-      <FieldHOC isLight={props.light}>
-        <FieldDatePicker format="YYYY-MM-DD" {...props} text={text} />
-      </FieldHOC>
+  progress: sameRenderPair((text, props) => {
+    const fieldProps = pickProProps(props.fieldProps);
+    const placeholder =
+      typeof props.placeholder === 'string' ? props.placeholder : undefined;
+    return (
+      <FieldProgress
+        mode={props.mode}
+        text={text}
+        placeholder={placeholder}
+        fieldProps={fieldProps}
+      />
+    );
+  }),
+  money: sameRenderPair((text, props) => {
+    const fieldProps = pickProProps(props.fieldProps);
+    const placeholder =
+      typeof props.placeholder === 'string' ? props.placeholder : undefined;
+    return (
+      <FieldMoney
+        mode={props.mode}
+        text={text}
+        placeholder={placeholder}
+        fieldProps={fieldProps}
+      />
+    );
+  }),
+  percent: sameRenderPair((text, props) => {
+    const fieldProps = pickProProps(props.fieldProps);
+    const placeholder =
+      typeof props.placeholder === 'string' ? props.placeholder : undefined;
+    return (
+      <FieldPercent
+        mode={props.mode}
+        text={text}
+        placeholder={placeholder}
+        fieldProps={fieldProps}
+      />
+    );
+  }),
+  image: sameRenderPair((text, props) => <FieldImage {...props} text={text} />),
+  date: sameRenderPair((text, props) =>
+    wrapProFieldLight(
+      props.light,
+      <FieldDatePicker format="YYYY-MM-DD" {...props} text={text} />,
     ),
-    formItemRender: (text, props) => (
-      <FieldHOC isLight={props.light}>
-        <FieldDatePicker format="YYYY-MM-DD" {...props} text={text} />
-      </FieldHOC>
+  ),
+  dateWeek: sameRenderPair((text, props) =>
+    wrapProFieldLight(
+      props.light,
+      <FieldDatePicker format="YYYY-wo" picker="week" {...props} text={text} />,
     ),
-  },
-  dateWeek: {
-    render: (text, props) => (
-      <FieldHOC isLight={props.light}>
-        <FieldDatePicker
-          format="YYYY-wo"
-          picker="week"
-          {...props}
-          text={text}
-        />
-      </FieldHOC>
-    ),
-    formItemRender: (text, props) => (
-      <FieldHOC isLight={props.light}>
-        <FieldDatePicker
-          format="YYYY-wo"
-          picker="week"
-          {...props}
-          text={text}
-        />
-      </FieldHOC>
-    ),
-  },
-  dateWeekRange: {
-    render: (text, props) => (
-      <FieldHOC isLight={props.light}>
-        <FieldRangePicker
-          format="YYYY-W"
-          showTime
-          fieldProps={{ picker: 'week', ...props.fieldProps }}
-          {...props}
-          text={text}
-        />
-      </FieldHOC>
-    ),
-    formItemRender: (text, props) => (
-      <FieldHOC isLight={props.light}>
-        <FieldRangePicker
-          format="YYYY-W"
-          showTime
-          fieldProps={{ picker: 'week', ...props.fieldProps }}
-          {...props}
-          text={text}
-        />
-      </FieldHOC>
-    ),
-  },
-  dateMonthRange: {
-    render: (text, props) => (
-      <FieldHOC isLight={props.light}>
-        <FieldRangePicker
-          format="YYYY-MM"
-          showTime
-          fieldProps={{ picker: 'month', ...props.fieldProps }}
-          {...props}
-          text={text}
-        />
-      </FieldHOC>
-    ),
-    formItemRender: (text, props) => (
-      <FieldHOC isLight={props.light}>
-        <FieldRangePicker
-          format="YYYY-MM"
-          showTime
-          fieldProps={{ picker: 'month', ...props.fieldProps }}
-          {...props}
-          text={text}
-        />
-      </FieldHOC>
-    ),
-  },
-  dateQuarterRange: {
-    render: (text, props) => (
-      <FieldHOC isLight={props.light}>
-        <FieldRangePicker
-          format="YYYY-Q"
-          showTime
-          fieldProps={{ picker: 'quarter', ...props.fieldProps }}
-          {...props}
-          text={text}
-        />
-      </FieldHOC>
-    ),
-    formItemRender: (text, props) => (
-      <FieldHOC isLight={props.light}>
-        <FieldRangePicker
-          format="YYYY-Q"
-          showTime
-          fieldProps={{ picker: 'quarter', ...props.fieldProps }}
-          {...props}
-          text={text}
-        />
-      </FieldHOC>
-    ),
-  },
-  dateYearRange: {
-    render: (text, props) => (
-      <FieldHOC isLight={props.light}>
-        <FieldRangePicker
-          format="YYYY"
-          showTime
-          fieldProps={{ picker: 'year', ...props.fieldProps }}
-          {...props}
-          text={text}
-        />
-      </FieldHOC>
-    ),
-    formItemRender: (text, props) => (
-      <FieldHOC isLight={props.light}>
-        <FieldRangePicker
-          format="YYYY"
-          showTime
-          fieldProps={{ picker: 'year', ...props.fieldProps }}
-          {...props}
-          text={text}
-        />
-      </FieldHOC>
-    ),
-  },
-  dateMonth: {
-    render: (text, props) => (
-      <FieldHOC isLight={props.light}>
-        <FieldDatePicker
-          format="YYYY-MM"
-          picker="month"
-          {...props}
-          text={text}
-        />
-      </FieldHOC>
-    ),
-    formItemRender: (text, props) => (
-      <FieldHOC isLight={props.light}>
-        <FieldDatePicker
-          format="YYYY-MM"
-          picker="month"
-          {...props}
-          text={text}
-        />
-      </FieldHOC>
-    ),
-  },
-  dateQuarter: {
-    render: (text, props) => (
-      <FieldHOC isLight={props.light}>
-        <FieldDatePicker
-          format="YYYY-[Q]Q"
-          picker="quarter"
-          {...props}
-          text={text}
-        />
-      </FieldHOC>
-    ),
-    formItemRender: (text, props) => (
-      <FieldHOC isLight={props.light}>
-        <FieldDatePicker
-          format="YYYY-[Q]Q"
-          picker="quarter"
-          {...props}
-          text={text}
-        />
-      </FieldHOC>
-    ),
-  },
-  dateYear: {
-    render: (text, props) => (
-      <FieldHOC isLight={props.light}>
-        <FieldDatePicker format="YYYY" picker="year" {...props} text={text} />
-      </FieldHOC>
-    ),
-    formItemRender: (text, props) => (
-      <FieldHOC isLight={props.light}>
-        <FieldDatePicker format="YYYY" picker="year" {...props} text={text} />
-      </FieldHOC>
-    ),
-  },
-  dateRange: {
-    render: (text, props) => (
-      <FieldRangePicker format="YYYY-MM-DD" {...props} text={text} />
-    ),
-    formItemRender: (text, props) => (
-      <FieldRangePicker format="YYYY-MM-DD" {...props} text={text} />
-    ),
-  },
-  dateTime: {
-    render: (text, props) => (
-      <FieldHOC isLight={props.light}>
-        <FieldDatePicker
-          format="YYYY-MM-DD HH:mm:ss"
-          showTime
-          {...props}
-          text={text}
-        />
-      </FieldHOC>
-    ),
-    formItemRender: (text, props) => (
-      <FieldHOC isLight={props.light}>
-        <FieldDatePicker
-          format="YYYY-MM-DD HH:mm:ss"
-          showTime
-          {...props}
-          text={text}
-        />
-      </FieldHOC>
-    ),
-  },
-  dateTimeRange: {
-    render: (text, props) => (
-      <FieldHOC isLight={props.light}>
-        <FieldRangePicker
-          format="YYYY-MM-DD HH:mm:ss"
-          showTime
-          {...props}
-          text={text}
-        />
-      </FieldHOC>
-    ),
-    formItemRender: (text, props) => (
-      <FieldHOC isLight={props.light}>
-        <FieldRangePicker
-          format="YYYY-MM-DD HH:mm:ss"
-          showTime
-          {...props}
-          text={text}
-        />
-      </FieldHOC>
-    ),
-  },
-  time: {
-    render: (text, props) => (
-      <FieldHOC isLight={props.light}>
-        <FieldTimePicker format="HH:mm:ss" {...props} text={text} />
-      </FieldHOC>
-    ),
-    formItemRender: (text, props) => (
-      <FieldHOC isLight={props.light}>
-        <FieldTimePicker format="HH:mm:ss" {...props} text={text} />
-      </FieldHOC>
-    ),
-  },
-  timeRange: {
-    render: (text, props) => (
-      <FieldHOC isLight={props.light}>
-        <FieldTimeRangePicker format="HH:mm:ss" {...props} text={text} />
-      </FieldHOC>
-    ),
-    formItemRender: (text, props) => (
-      <FieldHOC isLight={props.light}>
-        <FieldTimeRangePicker format="HH:mm:ss" {...props} text={text} />
-      </FieldHOC>
-    ),
-  },
-  fromNow: {
-    render: (text, props) => <FieldFromNow {...props} text={text} />,
-    formItemRender: (text, props) => <FieldFromNow {...props} text={text} />,
-  },
-  index: {
-    render: (text) => (
-      <FieldIndexColumn>{(text as number) + 1}</FieldIndexColumn>
-    ),
-    formItemRender: (text) => (
-      <FieldIndexColumn>{(text as number) + 1}</FieldIndexColumn>
-    ),
-  },
-  indexBorder: {
-    render: (text) => (
-      <FieldIndexColumn border>{(text as number) + 1}</FieldIndexColumn>
-    ),
-    formItemRender: (text) => (
-      <FieldIndexColumn border>{(text as number) + 1}</FieldIndexColumn>
-    ),
-  },
-  avatar: {
-    render: (text) => <Avatar src={text as string} size={22} shape="circle" />,
-    formItemRender: (text) => (
-      <Avatar src={text as string} size={22} shape="circle" />
-    ),
-  },
-  code: {
-    render: (text, props) => <FieldCode {...props} text={text} />,
-    formItemRender: (text, props) => <FieldCode {...props} text={text} />,
-  },
-  jsonCode: {
-    render: (text, props) => (
-      <FieldCode language="json" {...props} text={text} />
-    ),
-    formItemRender: (text, props) => (
-      <FieldCode language="json" {...props} text={text} />
-    ),
-  },
-  textarea: {
-    render: (text, props) => <FieldTextArea {...props} text={text} />,
-    formItemRender: (text, props) => <FieldTextArea {...props} text={text} />,
-  },
-  digit: {
-    render: (text, props) => {
-      const fieldProps = pickProProps(props.fieldProps);
-      const placeholder = Array.isArray(props.placeholder)
-        ? props.placeholder[0]
-        : typeof props.placeholder === 'string'
-          ? props.placeholder
-          : undefined;
-      const textValue = typeof text === 'number' ? text : Number(text) || 0;
-      return (
-        <FieldDigit
-          text={textValue}
-          placeholder={placeholder}
-          mode={props.mode}
-          fieldProps={fieldProps}
-        />
-      );
-    },
-    formItemRender: (text, props) => {
-      const fieldProps = pickProProps(props.fieldProps);
-      const placeholder = Array.isArray(props.placeholder)
-        ? props.placeholder[0]
-        : typeof props.placeholder === 'string'
-          ? props.placeholder
-          : undefined;
-      const textValue = typeof text === 'number' ? text : Number(text) || 0;
-      return (
-        <FieldDigit
-          text={textValue}
-          placeholder={placeholder}
-          mode={props.mode}
-          fieldProps={fieldProps}
-        />
-      );
-    },
-  },
-  digitRange: {
-    render: (text, props) => <FieldDigitRange {...props} text={text} />,
-    formItemRender: (text, props) => <FieldDigitRange {...props} text={text} />,
-  },
-  second: {
-    render: (text, props) => (
-      <FieldSecond
+  ),
+  dateWeekRange: sameRenderPair((text, props) =>
+    wrapProFieldLight(
+      props.light,
+      <FieldRangePicker
+        format="YYYY-W"
+        showTime
+        fieldProps={{ picker: 'week', ...props.fieldProps }}
         {...props}
         text={text}
-        placeholder={props.placeholder as string}
-      />
+      />,
     ),
-    formItemRender: (text, props) => (
-      <FieldSecond
+  ),
+  dateMonthRange: sameRenderPair((text, props) =>
+    wrapProFieldLight(
+      props.light,
+      <FieldRangePicker
+        format="YYYY-MM"
+        showTime
+        fieldProps={{ picker: 'month', ...props.fieldProps }}
         {...props}
         text={text}
-        placeholder={props.placeholder as string}
+      />,
+    ),
+  ),
+  dateQuarterRange: sameRenderPair((text, props) =>
+    wrapProFieldLight(
+      props.light,
+      <FieldRangePicker
+        format="YYYY-Q"
+        showTime
+        fieldProps={{ picker: 'quarter', ...props.fieldProps }}
+        {...props}
+        text={text}
+      />,
+    ),
+  ),
+  dateYearRange: sameRenderPair((text, props) =>
+    wrapProFieldLight(
+      props.light,
+      <FieldRangePicker
+        format="YYYY"
+        showTime
+        fieldProps={{ picker: 'year', ...props.fieldProps }}
+        {...props}
+        text={text}
+      />,
+    ),
+  ),
+  dateMonth: sameRenderPair((text, props) =>
+    wrapProFieldLight(
+      props.light,
+      <FieldDatePicker
+        format="YYYY-MM"
+        picker="month"
+        {...props}
+        text={text}
+      />,
+    ),
+  ),
+  dateQuarter: sameRenderPair((text, props) =>
+    wrapProFieldLight(
+      props.light,
+      <FieldDatePicker
+        format="YYYY-[Q]Q"
+        picker="quarter"
+        {...props}
+        text={text}
+      />,
+    ),
+  ),
+  dateYear: sameRenderPair((text, props) =>
+    wrapProFieldLight(
+      props.light,
+      <FieldDatePicker format="YYYY" picker="year" {...props} text={text} />,
+    ),
+  ),
+  dateRange: sameRenderPair((text, props) => (
+    <FieldRangePicker format="YYYY-MM-DD" {...props} text={text} />
+  )),
+  dateTime: sameRenderPair((text, props) =>
+    wrapProFieldLight(
+      props.light,
+      <FieldDatePicker
+        format="YYYY-MM-DD HH:mm:ss"
+        showTime
+        {...props}
+        text={text}
+      />,
+    ),
+  ),
+  dateTimeRange: sameRenderPair((text, props) =>
+    wrapProFieldLight(
+      props.light,
+      <FieldRangePicker
+        format="YYYY-MM-DD HH:mm:ss"
+        showTime
+        {...props}
+        text={text}
+      />,
+    ),
+  ),
+  time: sameRenderPair((text, props) =>
+    wrapProFieldLight(
+      props.light,
+      <FieldTimePicker format="HH:mm:ss" {...props} text={text} />,
+    ),
+  ),
+  timeRange: sameRenderPair((text, props) =>
+    wrapProFieldLight(
+      props.light,
+      <FieldTimeRangePicker format="HH:mm:ss" {...props} text={text} />,
+    ),
+  ),
+  fromNow: sameRenderPair((text, props) => (
+    <FieldFromNow {...props} text={text} />
+  )),
+  index: sameRenderPair((text) => (
+    <FieldIndexColumn>{(text as number) + 1}</FieldIndexColumn>
+  )),
+  indexBorder: sameRenderPair((text) => (
+    <FieldIndexColumn border>{(text as number) + 1}</FieldIndexColumn>
+  )),
+  avatar: sameRenderPair((text) => (
+    <Avatar src={text as string} size={22} shape="circle" />
+  )),
+  code: sameRenderPair((text, props) => <FieldCode {...props} text={text} />),
+  jsonCode: sameRenderPair((text, props) => (
+    <FieldCode language="json" {...props} text={text} />
+  )),
+  textarea: sameRenderPair((text, props) => (
+    <FieldTextArea {...props} text={text} />
+  )),
+  digit: sameRenderPair((text, props) => {
+    const fieldProps = pickProProps(props.fieldProps);
+    const placeholder = Array.isArray(props.placeholder)
+      ? props.placeholder[0]
+      : typeof props.placeholder === 'string'
+        ? props.placeholder
+        : undefined;
+    const textValue = typeof text === 'number' ? text : Number(text) || 0;
+    return (
+      <FieldDigit
+        text={textValue}
+        placeholder={placeholder}
+        mode={props.mode}
+        fieldProps={fieldProps}
       />
+    );
+  }),
+  digitRange: sameRenderPair((text, props) => (
+    <FieldDigitRange {...props} text={text} />
+  )),
+  second: sameRenderPair((text, props) => (
+    <FieldSecond
+      {...props}
+      text={text}
+      placeholder={props.placeholder as string}
+    />
+  )),
+  select: sameRenderPair((text, props) =>
+    wrapProFieldLight(props.light, <FieldSelect {...props} text={text} />),
+  ),
+  text: sameRenderPair((text, props) =>
+    'valueEnum' in props ? (
+      wrapProFieldLight(props.light, <FieldSelect {...props} text={text} />)
+    ) : (
+      <FieldText {...props} text={text as string} />
     ),
-  },
-  select: {
-    render: (text, props) => (
-      <FieldHOC isLight={props.light}>
-        <FieldSelect {...props} text={text} />
-      </FieldHOC>
-    ),
-    formItemRender: (text, props) => (
-      <FieldHOC isLight={props.light}>
-        <FieldSelect {...props} text={text} />
-      </FieldHOC>
-    ),
-  },
-  text: {
-    render: (text, props) =>
-      'valueEnum' in props ? (
-        <FieldHOC isLight={props.light}>
-          <FieldSelect {...props} text={text} />
-        </FieldHOC>
-      ) : (
-        <FieldText {...props} text={text as string} />
-      ),
-    formItemRender: (text, props) =>
-      'valueEnum' in props ? (
-        <FieldHOC isLight={props.light}>
-          <FieldSelect {...props} text={text} />
-        </FieldHOC>
-      ) : (
-        <FieldText {...props} text={text as string} />
-      ),
-  },
-  checkbox: {
-    render: (text, props) => <FieldCheckbox {...props} text={text} />,
-    formItemRender: (text, props) => <FieldCheckbox {...props} text={text} />,
-  },
-  radio: {
-    render: (text, props) => <FieldRadio {...props} text={text} />,
-    formItemRender: (text, props) => <FieldRadio {...props} text={text} />,
-  },
-  radioButton: {
-    render: (text, props) => (
-      <FieldRadio radioType="button" {...props} text={text} />
-    ),
-    formItemRender: (text, props) => (
-      <FieldRadio radioType="button" {...props} text={text} />
-    ),
-  },
-  rate: {
-    render: (text, props) => <FieldRate {...props} text={text} />,
-    formItemRender: (text, props) => <FieldRate {...props} text={text} />,
-  },
-  slider: {
-    render: (text, props) => <FieldSlider {...props} text={text} />,
-    formItemRender: (text, props) => <FieldSlider {...props} text={text} />,
-  },
-  switch: {
-    render: (text, props) => <FieldSwitch {...props} text={text} />,
-    formItemRender: (text, props) => <FieldSwitch {...props} text={text} />,
-  },
-  option: {
-    render: (text, props) => <FieldOptions {...props} text={text} />,
-    formItemRender: (text, props) => <FieldOptions {...props} text={text} />,
-  },
-  password: {
-    render: (text, props) => <FieldPassword {...props} text={text} />,
-    formItemRender: (text, props) => <FieldPassword {...props} text={text} />,
-  },
-  cascader: {
-    render: (text, props) => {
-      const fieldProps = pickProProps(props.fieldProps);
-      const placeholder =
-        typeof props.placeholder === 'string' ? props.placeholder : undefined;
-      return (
-        <FieldCascader
-          {...props}
-          mode={props.mode}
-          text={text}
-          placeholder={placeholder}
-          fieldProps={fieldProps}
-        />
-      );
-    },
-    formItemRender: (text, props) => {
-      const fieldProps = pickProProps(props.fieldProps);
-      const placeholder =
-        typeof props.placeholder === 'string' ? props.placeholder : undefined;
-      return (
-        <FieldCascader
-          {...props}
-          mode={props.mode}
-          text={text}
-          placeholder={placeholder}
-          fieldProps={fieldProps}
-        />
-      );
-    },
-  },
-  treeSelect: {
-    render: (text, props) => <FieldTreeSelect {...props} text={text} />,
-    formItemRender: (text, props) => <FieldTreeSelect {...props} text={text} />,
-  },
-  color: {
-    render: (text, props) => <FieldColorPicker {...props} text={text} />,
-    formItemRender: (text, props) => (
-      <FieldColorPicker {...props} text={text} />
-    ),
-  },
-  segmented: {
-    render: (text, props) => <FieldSegmented {...props} text={text} />,
-    formItemRender: (text, props) => <FieldSegmented {...props} text={text} />,
-  },
+  ),
+  checkbox: sameRenderPair((text, props) => (
+    <FieldCheckbox {...props} text={text} />
+  )),
+  radio: sameRenderPair((text, props) => <FieldRadio {...props} text={text} />),
+  radioButton: sameRenderPair((text, props) => (
+    <FieldRadio radioType="button" {...props} text={text} />
+  )),
+  rate: sameRenderPair((text, props) => <FieldRate {...props} text={text} />),
+  slider: sameRenderPair((text, props) => (
+    <FieldSlider {...props} text={text} />
+  )),
+  switch: sameRenderPair((text, props) => (
+    <FieldSwitch {...props} text={text} />
+  )),
+  option: sameRenderPair((text, props) => (
+    <FieldOptions {...props} text={text} />
+  )),
+  password: sameRenderPair((text, props) => (
+    <FieldPassword {...props} text={text} />
+  )),
+  cascader: sameRenderPair((text, props) => {
+    const fieldProps = pickProProps(props.fieldProps);
+    const placeholder =
+      typeof props.placeholder === 'string' ? props.placeholder : undefined;
+    return (
+      <FieldCascader
+        {...props}
+        mode={props.mode}
+        text={text}
+        placeholder={placeholder}
+        fieldProps={fieldProps}
+      />
+    );
+  }),
+  treeSelect: sameRenderPair((text, props) => (
+    <FieldTreeSelect {...props} text={text} />
+  )),
+  color: sameRenderPair((text, props) => (
+    <FieldColorPicker {...props} text={text} />
+  )),
+  segmented: sameRenderPair((text, props) => (
+    <FieldSegmented {...props} text={text} />
+  )),
 };
 
 export default ValueTypeToComponentMap;

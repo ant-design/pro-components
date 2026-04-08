@@ -1,51 +1,27 @@
-import { omit } from '@rc-component/util';
-import { Input } from 'antd';
-import React from 'react';
+﻿import React from 'react';
 import { useIntl } from '../../../provider';
+import {
+  isProFieldEditOrUpdateMode,
+  isProFieldReadMode,
+} from '../../internal/fieldMode';
 import type { ProFieldFC } from '../../types';
-import FieldTextAreaReadonly from './readonly';
+import { FieldTextAreaEdit } from './FieldTextAreaEdit';
+import { FieldTextAreaRead } from './FieldTextAreaRead';
 
 /**
  * 最基本的组件，就是个普通的 Input.TextArea
- *
- * @param props
- * @param ref
  */
 const FieldTextArea: ProFieldFC<{
   text: string;
 }> = (props, ref) => {
-  const { text, mode, render, formItemRender, fieldProps } = props;
+  const { mode } = props;
   const intl = useIntl();
 
-  if (mode === 'read') {
-    const dom = <FieldTextAreaReadonly {...props} ref={ref} />;
-    if (render) {
-      return render(
-        text,
-        { mode, ...(omit(fieldProps, ['showCount']) as any) },
-        dom,
-      );
-    }
-    return dom;
+  if (isProFieldReadMode(mode)) {
+    return FieldTextAreaRead(props, ref);
   }
-  if (mode === 'edit' || mode === 'update') {
-    const dom = (
-      <Input.TextArea
-        ref={ref}
-        rows={3}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter') {
-            e.stopPropagation();
-          }
-        }}
-        placeholder={intl.getMessage('tableForm.inputPlaceholder', '请输入')}
-        {...fieldProps}
-      />
-    );
-    if (formItemRender) {
-      return formItemRender(text, { mode, ...fieldProps }, dom);
-    }
-    return dom;
+  if (isProFieldEditOrUpdateMode(mode)) {
+    return FieldTextAreaEdit({ ...props, intl }, ref);
   }
   return null;
 };

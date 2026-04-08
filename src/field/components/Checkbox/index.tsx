@@ -1,26 +1,20 @@
-import { Checkbox, ConfigProvider, Form, Spin, theme } from 'antd';
-import type { CheckboxGroupProps } from 'antd/lib/checkbox';
-import { clsx } from 'clsx';
+﻿import { ConfigProvider, Form, Spin } from 'antd';
 import React, { useContext, useImperativeHandle, useRef } from 'react';
-import { objectToMap, proFieldParsingText, useStyle } from '../../../utils';
+import { useStyle } from '../../../utils';
+import {
+  isProFieldEditOnlyMode,
+  isProFieldReadMode,
+} from '../../internal/fieldMode';
 import type { ProFieldFC } from '../../types';
-import type { FieldSelectProps } from '../Select';
 import { useFieldFetchData } from '../Select';
+import { FieldCheckboxEdit } from './FieldCheckboxEdit';
+import { FieldCheckboxRead } from './FieldCheckboxRead';
+import type { GroupProps } from './types';
 
-export type GroupProps = {
-  layout?: 'horizontal' | 'vertical';
-  options?: CheckboxGroupProps['options'];
-} & FieldSelectProps;
+export type { GroupProps };
 
 /**
  * 多选组件
- *
- * @param layout
- * @param formItemRender
- * @param mode
- * @param render
- * @param rest
- * @param ref
  */
 const FieldCheckbox: ProFieldFC<GroupProps> = (
   { layout = 'horizontal', formItemRender, mode, render, ...rest },
@@ -30,7 +24,6 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
   const layoutClassName = getPrefixCls('pro-field-checkbox');
   const status = Form.Item?.useStatus?.();
   const [loading, options, fetchData] = useFieldFetchData(rest);
-  // css
   const { wrapSSR, hashId } = useStyle('Checkbox', (token) => {
     return {
       [`.${layoutClassName}`]: {
@@ -45,16 +38,13 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
           },
         },
         '&-vertical': {
-          //ant design 5
           [`&${token.antCls}-checkbox-group`]: {
             display: 'inline-block',
           },
-          //ant design 5
           [`${token.antCls}-checkbox-wrapper+${token.antCls}-checkbox-wrapper`]:
             {
               'margin-inline-start': '0  !important',
             },
-          //ant design 4
           [`${token.antCls}-checkbox-group-item`]: {
             display: 'flex',
             marginInlineEnd: 0,
@@ -64,7 +54,6 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
     };
   });
 
-  const { token } = theme.useToken?.();
   const checkBoxRef = useRef();
   useImperativeHandle(
     ref,
@@ -79,69 +68,41 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
     return <Spin size="small" />;
   }
 
-  if (mode === 'read') {
-    const optionsValueEnum = options?.length
-      ? options?.reduce((pre: any, cur) => {
-          return { ...pre, [(cur.value as any) ?? '']: cur.label };
-        }, {})
-      : undefined;
+  const optionsValueEnum = options?.length
+    ? options?.reduce((pre: any, cur) => {
+        return { ...pre, [(cur.value as any) ?? '']: cur.label };
+      }, {})
+    : undefined;
 
-    const dom = proFieldParsingText(
-      rest.text,
-      objectToMap(rest.valueEnum || optionsValueEnum),
-    );
-
-    if (render) {
-      return (
-        render(rest.text, { mode, ...rest.fieldProps }, <>{dom}</>) ?? null
-      );
-    }
+  if (isProFieldReadMode(mode)) {
     return (
-      <div
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          alignItems: 'center',
-          gap: token.marginSM,
-        }}
-      >
-        {dom}
-      </div>
+      <FieldCheckboxRead
+        layout={layout}
+        formItemRender={formItemRender}
+        mode={mode}
+        render={render}
+        optionsValueEnum={optionsValueEnum}
+        {...rest}
+      />
     );
   }
 
-  if (mode === 'edit') {
-    const {
-      fieldNames: _fieldNames,
-      variant,
-      ...restFieldProps
-    } = rest.fieldProps || {};
-    const dom = wrapSSR(
-      <Checkbox.Group
-        {...restFieldProps}
-        variant={variant}
-        className={clsx(
-          rest.fieldProps?.className,
-          hashId,
-          `${layoutClassName}-${layout}`,
-          {
-            [`${layoutClassName}-error`]: status?.status === 'error',
-            [`${layoutClassName}-warning`]: status?.status === 'warning',
-          },
-        )}
+  if (isProFieldEditOnlyMode(mode)) {
+    return (
+      <FieldCheckboxEdit
+        layout={layout}
+        formItemRender={formItemRender}
+        mode={mode}
+        render={render}
         options={options}
-      />,
+        loading={loading}
+        layoutClassName={layoutClassName}
+        wrapSSR={wrapSSR}
+        hashId={hashId}
+        status={status}
+        {...rest}
+      />
     );
-    if (formItemRender) {
-      return (
-        formItemRender(
-          rest.text,
-          { mode, ...rest.fieldProps, options, loading },
-          dom,
-        ) ?? null
-      );
-    }
-    return dom;
   }
 
   return null;

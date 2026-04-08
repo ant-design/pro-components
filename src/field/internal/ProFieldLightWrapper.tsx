@@ -1,7 +1,11 @@
-import React, { useCallback, useRef, useState } from 'react';
+﻿import React, { useCallback, useRef, useState } from 'react';
 import type { ProFieldLightProps } from '../types';
 
-function FieldHOC<T extends ProFieldLightProps>(
+/**
+ * Light 筛选专用：区分 label 点击与 clear，向子组件注入 `labelTrigger` / `lightLabel`。
+ * 与只读（read）/ 编辑（edit）无关；read/edit 分支请用 `fieldMode.ts` 中的工具函数。
+ */
+function ProFieldLightWrapper<T extends ProFieldLightProps>(
   props: T & {
     children: React.ReactNode;
     isLight?: boolean;
@@ -14,10 +18,8 @@ function FieldHOC<T extends ProFieldLightProps>(
     clearRef: React.RefObject<HTMLElement>;
   }>(null);
 
-  // 是label且不是label里面的clear图标触发事件
   const isTriggeredByLabel = useCallback(
     (e: React.MouseEvent) => {
-      // 两条语句结果分别命名，可读性好点
       const isLabelMouseDown = lightLabel.current?.labelRef?.current?.contains(
         e.target as HTMLElement,
       );
@@ -49,7 +51,21 @@ function FieldHOC<T extends ProFieldLightProps>(
     );
   }
 
-  return <>{props.children as string}</>;
+  return <>{props.children as React.ReactNode}</>;
 }
 
-export default FieldHOC;
+/**
+ * 非 light 时直接返回子元素；light 时包一层 {@link ProFieldLightWrapper}。
+ * 用于在需要处包一层 light 行为，避免重复的 JSX 包装。
+ */
+export function wrapProFieldLight(
+  isLight: boolean | undefined,
+  child: React.ReactElement,
+): React.ReactNode {
+  if (!isLight) {
+    return child;
+  }
+  return <ProFieldLightWrapper isLight>{child}</ProFieldLightWrapper>;
+}
+
+export default ProFieldLightWrapper;

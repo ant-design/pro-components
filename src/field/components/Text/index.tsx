@@ -1,18 +1,15 @@
-import { Input } from 'antd';
-import React, { useEffect, useImperativeHandle, useRef } from 'react';
+﻿import React, { useEffect, useImperativeHandle, useRef } from 'react';
 import { useIntl } from '../../../provider';
+import {
+  isProFieldEditOrUpdateMode,
+  isProFieldReadMode,
+} from '../../internal/fieldMode';
 import type { ProFieldFC } from '../../types';
+import { FieldTextEdit } from './FieldTextEdit';
+import { FieldTextRead } from './FieldTextRead';
 
 /**
  * 最基本的组件，就是个普通的 Input
- *
- * @param text
- * @param mode
- * @param render
- * @param formItemRender
- * @param fieldProps
- * @param emptyText
- * @param ref
  */
 const FieldText: ProFieldFC<{
   text: string;
@@ -21,51 +18,46 @@ const FieldText: ProFieldFC<{
   { text, mode, render, formItemRender, fieldProps, emptyText = '-' },
   ref,
 ) => {
-  const { autoFocus, prefix = '', suffix = '' } = fieldProps || {};
+  const { autoFocus } = fieldProps || {};
 
   const intl = useIntl();
-  const inputRef = useRef<HTMLInputElement>();
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useImperativeHandle(ref, () => inputRef.current, []);
 
   useEffect(() => {
     if (autoFocus) {
-      // 使用 queueMicrotask 延迟 focus 调用，避免在渲染期间触发 flushSync
       queueMicrotask(() => {
         inputRef.current?.focus();
       });
     }
   }, [autoFocus]);
 
-  if (mode === 'read') {
-    const dom = (
-      <>
-        {prefix}
-        {text ?? emptyText}
-        {suffix}
-      </>
-    );
-
-    if (render) {
-      return render(text, { mode, ...fieldProps }, dom) ?? emptyText;
-    }
-    return dom;
-  }
-  if (mode === 'edit' || mode === 'update') {
-    const placeholder = intl.getMessage('tableForm.inputPlaceholder', '请输入');
-    const dom = (
-      <Input
-        ref={inputRef}
-        placeholder={placeholder}
-        allowClear
-        {...fieldProps}
+  if (isProFieldReadMode(mode)) {
+    return (
+      <FieldTextRead
+        text={text}
+        mode={mode}
+        render={render}
+        formItemRender={formItemRender}
+        fieldProps={fieldProps}
+        emptyText={emptyText}
       />
     );
-
-    if (formItemRender) {
-      return formItemRender(text, { mode, ...fieldProps }, dom);
-    }
-    return dom;
+  }
+  if (isProFieldEditOrUpdateMode(mode)) {
+    return (
+      <FieldTextEdit
+        text={text}
+        mode={mode}
+        render={render}
+        formItemRender={formItemRender}
+        fieldProps={fieldProps}
+        emptyText={emptyText}
+        inputRef={inputRef}
+        intl={intl}
+      />
+    );
   }
   return null;
 };
