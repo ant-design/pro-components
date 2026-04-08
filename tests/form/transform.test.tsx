@@ -1,4 +1,4 @@
-import { ProForm, ProFormText } from '@ant-design/pro-components';
+﻿import { ProForm, ProFormText } from '@ant-design/pro-components';
 import { act, render } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
@@ -63,13 +63,10 @@ describe('ProForm transform (docs + regression tests)', () => {
     });
     await waitForWaitTime(100);
 
-    // If this assertion fails, it means namePath is correctly an array now.
-    // If it passes, it demonstrates the mismatch you observed in some scenarios.
-    expect(fn).toHaveBeenCalledWith(
-      expect.objectContaining({
-        __transform_namePath_type: 'string',
-      }),
-    );
+    // namePath must be string[] so nested transforms merge into the same path.
+    expect(fn).toHaveBeenCalledWith({
+      company: { name: 'Acme:x' },
+    });
   });
 
   it('expectation: transform should run on every submit even with initialValue (regression)', async () => {

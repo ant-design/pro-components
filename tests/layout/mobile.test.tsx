@@ -11,6 +11,7 @@ import {
   vi,
 } from 'vitest';
 import defaultProps from './defaultProps';
+import { waitForWaitTime } from '../util';
 
 afterEach(() => {
   cleanup();
@@ -81,6 +82,18 @@ describe('mobile BasicLayout', () => {
     await waitFor(async () => {
       await html.findAllByText('welcome');
     });
+    // Submenu collapse motion makes class names non-deterministic; wait until motion classes drop
+    await waitFor(
+      () => {
+        html.baseElement.querySelectorAll('ul.ant-menu-sub').forEach((ul) => {
+          if (/ant-motion-collapse-(enter|leave)/.test(ul.className)) {
+            throw new Error('menu motion');
+          }
+        });
+      },
+      { timeout: 10000 },
+    );
+    await waitForWaitTime(100);
     expect(html.asFragment()).toMatchSnapshot();
   });
 
