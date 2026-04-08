@@ -1,4 +1,4 @@
-import type {
+﻿import type {
   AvatarProps,
   CascaderProps,
   CheckboxProps,
@@ -38,6 +38,10 @@ export type ProFormBaseGroupProps = {
    * @name 分组的标题
    */
   title?: React.ReactNode;
+  /**
+   * @name 分组的标题，与 title 等价，兼容旧写法
+   */
+  label?: React.ReactNode;
   /**
    * @name 标题旁边的？号提示展示的信息
    *

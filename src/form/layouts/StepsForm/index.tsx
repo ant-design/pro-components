@@ -1,4 +1,4 @@
-import { toArray, useControlledState } from '@rc-component/util';
+﻿import { toArray, useControlledState } from '@rc-component/util';
 import type { FormInstance, StepsProps } from 'antd';
 import { Button, Col, ConfigProvider, Form, Row, Space, Steps } from 'antd';
 import type { FormProviderProps } from 'antd/lib/form/context';
@@ -686,4 +686,4 @@ StepsFormWarp.useForm = Form.useForm;
 StepsFormWarp.useStepsFormContext = useStepsFormContext;
 
 export { StepsFormWarp as StepsForm };
-export type { StepFormProps, StepsFormProps, StepsFormRef };
+export type { StepFormProps, StepsFormProps };
