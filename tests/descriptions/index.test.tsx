@@ -1,5 +1,5 @@
-import type { ProCoreActionType } from '@ant-design/pro-components';
-import { ProDescriptions } from '@ant-design/pro-components';
+﻿import type { ProCoreActionType } from '@ant-design/pro-components';
+import { ProDescriptions, ProDescriptionsItem } from '@ant-design/pro-components';
 import {
   cleanup,
   fireEvent,
@@ -159,13 +159,13 @@ describe('descriptions', () => {
           }
         >
           test reload
-          <ProDescriptions.Item label="文本" dataIndex="id" />
-          <ProDescriptions.Item
+          <ProDescriptionsItem label="文本" dataIndex="id" />
+          <ProDescriptionsItem
             dataIndex="date"
             label="日期"
             valueType="date"
           />
-          <ProDescriptions.Item
+          <ProDescriptionsItem
             label="money"
             dataIndex="money"
             valueType="money"
@@ -224,9 +224,9 @@ describe('descriptions', () => {
           </Button>
         }
       >
-        <ProDescriptions.Item label="文本" dataIndex="id" />
-        <ProDescriptions.Item dataIndex="date" label="日期" valueType="date" />
-        <ProDescriptions.Item
+        <ProDescriptionsItem label="文本" dataIndex="id" />
+        <ProDescriptionsItem dataIndex="date" label="日期" valueType="date" />
+        <ProDescriptionsItem
           label="money"
           dataIndex="money"
           valueType="money"
@@ -262,13 +262,13 @@ describe('descriptions', () => {
           }
           params={{ name: 'qixian' }}
         >
-          <ProDescriptions.Item label="文本" dataIndex="id" />
-          <ProDescriptions.Item
+          <ProDescriptionsItem label="文本" dataIndex="id" />
+          <ProDescriptionsItem
             dataIndex="date"
             label="日期"
             valueType="date"
           />
-          <ProDescriptions.Item
+          <ProDescriptionsItem
             label="money"
             dataIndex="money"
             valueType="money"
@@ -303,9 +303,9 @@ describe('descriptions', () => {
           </Button>
         }
       >
-        <ProDescriptions.Item label="文本" dataIndex="id" />
-        <ProDescriptions.Item dataIndex="date" label="日期" valueType="date" />
-        <ProDescriptions.Item
+        <ProDescriptionsItem label="文本" dataIndex="id" />
+        <ProDescriptionsItem dataIndex="date" label="日期" valueType="date" />
+        <ProDescriptionsItem
           label="money"
           dataIndex="money"
           valueType="money"
@@ -321,15 +321,15 @@ describe('descriptions', () => {
   it('🏊 Progress', async () => {
     const html = render(
       <ProDescriptions>
-        <ProDescriptions.Item label="进度条1" valueType="progress">
+        <ProDescriptionsItem label="进度条1" valueType="progress">
           40
-        </ProDescriptions.Item>
-        <ProDescriptions.Item label="进度条2" valueType="progress">
+        </ProDescriptionsItem>
+        <ProDescriptionsItem label="进度条2" valueType="progress">
           -1
-        </ProDescriptions.Item>
-        <ProDescriptions.Item label="进度条3" valueType="progress">
+        </ProDescriptionsItem>
+        <ProDescriptionsItem label="进度条3" valueType="progress">
           100
-        </ProDescriptions.Item>
+        </ProDescriptionsItem>
       </ProDescriptions>,
     );
     await waitFor(() => {
@@ -367,15 +367,15 @@ describe('descriptions', () => {
           },
         ]}
       >
-        <ProDescriptions.Item order={9} label="进度条1" valueType="progress">
+        <ProDescriptionsItem order={9} label="进度条1" valueType="progress">
           40
-        </ProDescriptions.Item>
-        <ProDescriptions.Item label="进度条2" valueType="progress">
+        </ProDescriptionsItem>
+        <ProDescriptionsItem label="进度条2" valueType="progress">
           -1
-        </ProDescriptions.Item>
-        <ProDescriptions.Item order={8} label="进度条3" valueType="progress">
+        </ProDescriptionsItem>
+        <ProDescriptionsItem order={8} label="进度条3" valueType="progress">
           100
-        </ProDescriptions.Item>
+        </ProDescriptionsItem>
       </ProDescriptions>,
     );
     expect(html.asFragment()).toMatchSnapshot();

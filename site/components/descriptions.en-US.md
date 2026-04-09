@@ -1,4 +1,4 @@
----
+﻿---
 title: ProDescriptions Definition List
 atomId: ProDescriptions
 order: 1
@@ -103,8 +103,8 @@ API is the same as ProTable
 | column         | The number of `ProDescriptionsItems` in a row, can be written as pixel value or support responsive object writing `{ xs: 1, sm: 2, md: 3}` | number                                         | 3             |
 | size           | Set the size of the list. Can be set to `middle`, `small`, or left blank (only setting `bordered={true}` takes effect)                     | `default` \| `middle` \| `small`               | -             |
 | layout         | Description layout                                                                                                                         | `horizontal` \| `vertical`                     | `horizontal`  |
-| colon          | Configure the default value of `colon` of `ProDescriptions.Item`                                                                           | boolean                                        | true          |
-| request        | Request data, when columns are not set, ProDescriptions.Item needs to set the corresponding dataIndex                                      | `(params: U) => Promise<RequestData<T>>`       | -             |
+| colon          | Configure the default value of `colon` for `Descriptions.Item` (use `ProDescriptionsItem` for typed props)                                 | boolean                                        | true          |
+| request        | Request data; when columns are not set, set `dataIndex` per item (use `ProDescriptionsItem` for children)                                  | `(params: U) => Promise<RequestData<T>>`       | -             |
 | onRequestError | Handling request errors, by default an error will be thrown directly                                                                       | `(error: Error) => void`                       | -             |
 | columns        | Column definition, used with request [columns](/components/table#columns)                                                                  | `ProColumns<T>[]`                              | -             |
 | editable       | Editable related configuration                                                                                                             | [EditableConfig](#editable-edit-configuration) | -             |
@@ -130,7 +130,7 @@ API is the same as ProTable
 | onlyOneLineEditorAlertMessage | Only one line can be edited                                                                                                                                                               | `ReactNode`                                                             | `Only one line can be edited at the same time` |
 | onlyAddOneLineAlertMessage    | Only one line can be added at the same time                                                                                                                                               | `ReactNode`                                                             | `Only add one line`                            |
 
-### ProDescriptions.Item
+### ProDescriptionsItem
 
 | Parameters | Description                                                                                                                    | Type                                                         | Default Value |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------ | ------------- |

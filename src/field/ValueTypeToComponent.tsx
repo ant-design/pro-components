@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import { FieldText } from '.';
 import { ProRenderFieldPropsType } from '../provider';
 import { pickProProps } from '../utils';
+import type { ProFieldBuiltinValueType } from '../utils/typing';
 import FieldCascader from './components/Cascader';
 import FieldCheckbox from './components/Checkbox';
 import FieldCode from './components/Code';
@@ -46,7 +47,11 @@ function sameRenderPair(
   };
 }
 
-const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
+/** 内置 valueType → render / formItemRender；键集合与 {@link ProFieldBuiltinValueType} 一致 */
+const ValueTypeToComponentMap: Record<
+  ProFieldBuiltinValueType,
+  ProRenderFieldPropsType
+> = {
   progress: sameRenderPair((text, props) => {
     const fieldProps = pickProProps(props.fieldProps);
     const placeholder =

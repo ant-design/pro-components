@@ -1,4 +1,4 @@
-import { omit } from '@rc-component/util';
+﻿import { omit } from '@rc-component/util';
 import type { FormItemProps } from 'antd';
 import { ConfigProvider, Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
@@ -6,12 +6,12 @@ import React, { useContext, useEffect, useMemo } from 'react';
 import {
   isDropdownValueType,
   omitUndefined,
-  ProFieldValueType,
   SearchConvertKeyFn,
   SearchTransformKeyFn,
   useDeepCompareMemo,
   useRefFunction,
 } from '../../../utils';
+import type { ProFieldValueType } from '../../../utils/typing';
 import type { LightWrapperProps } from '../../BaseForm';
 import { LightWrapper } from '../../BaseForm';
 import FieldContext from '../../FieldContext';

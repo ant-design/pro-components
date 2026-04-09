@@ -1,4 +1,4 @@
----
+﻿---
 title: ProDescriptions 定义列表
 atomId: ProDescriptions
 order: 1
@@ -103,8 +103,8 @@ API 与 ProTable 相同
 | column         | 一行的 `ProDescriptionsItems` 数量，可以写成像素值或支持响应式的对象写法 `{ xs: 1, sm: 2, md: 3}` | number                                   | 3            |
 | size           | 设置列表的大小。可以设置为 `middle` 、`small`，或不填（只有设置 `bordered={true}` 生效）          | `default` \| `middle` \| `small`         | -            |
 | layout         | 描述布局                                                                                          | `horizontal` \| `vertical`               | `horizontal` |
-| colon          | 配置 `ProDescriptions.Item` 的 `colon` 的默认值                                                   | boolean                                  | true         |
-| request        | 请求数据，不设置 columns 时 ProDescriptions.Item 需设置对应的 dataIndex                           | `(params: U) => Promise<RequestData<T>>` | -            |
+| colon          | 配置 `Descriptions.Item`（推荐使用 `ProDescriptionsItem`）的 `colon` 的默认值                     | boolean                                  | true         |
+| request        | 请求数据，不设置 columns 时需为每项设置对应的 dataIndex（子项使用 `ProDescriptionsItem`）         | `(params: U) => Promise<RequestData<T>>` | -            |
 | onRequestError | 处理 request 的错误，默认会直接抛出错误                                                           | `(error: Error) => void`                 | -            |
 | columns        | 列定义，与 request 配合使用 [columns](/components/table#columns)                                  | `ProColumns<T>[]`                        | -            |
 | editable       | 编辑的相关配置                                                                                    | [EditableConfig](#editable-编辑配置)     | -            |
@@ -130,7 +130,7 @@ API 与 ProTable 相同
 | onlyOneLineEditorAlertMessage | 只能编辑一行的的提示                                                                                    | `ReactNode`                                                             | `只能同时编辑一行` |
 | onlyAddOneLineAlertMessage    | 只能同时新增一行的提示                                                                                  | `ReactNode`                                                             | `只能新增一行`     |
 
-### ProDescriptions.Item
+### ProDescriptionsItem
 
 | 参数      | 说明                                                                        | 类型                                                         | 默认值 |
 | --------- | --------------------------------------------------------------------------- | ------------------------------------------------------------ | ------ |

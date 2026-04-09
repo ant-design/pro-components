@@ -1,4 +1,4 @@
-import type React from 'react';
+﻿import type React from 'react';
 import type {
   BaseProFieldFC,
   ProFieldFCRenderProps,
@@ -7,8 +7,7 @@ import type {
 import type {
   ProFieldRequestData,
   ProFieldTextType,
-  ProFieldValueObjectType,
-  ProFieldValueType,
+  ProFieldValueTypeInput,
 } from '../utils';
 
 export type ProFieldEmptyText = string | false;
@@ -31,7 +30,7 @@ export type ProFieldLightProps = {
 /** Value type by function */
 export type ProFieldValueTypeFunction<T> = (
   item: T,
-) => ProFieldValueType | ProFieldValueObjectType;
+) => ProFieldValueTypeInput;
 
 /** 传给各模式渲染函数（defaultRenderRead/Edit、pureRenderRead/Edit 等）的合并 props */
 export type ProFieldRenderProps = Omit<ProFieldFCRenderProps, 'text' | 'placeholder'> &
@@ -47,5 +46,5 @@ export type ProFieldRenderProps = Omit<ProFieldFCRenderProps, 'text' | 'placehol
 /** ProField / PureProField 对外 props */
 export type ProFieldPropsType = {
   text?: ProFieldTextType;
-  valueType?: ProFieldValueType | ProFieldValueObjectType;
+  valueType?: ProFieldValueTypeInput;
 } & ProFieldRenderProps;

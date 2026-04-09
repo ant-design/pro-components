@@ -1,5 +1,5 @@
-import type { ProDescriptionsActionType } from '@ant-design/pro-components';
-import { ProDescriptions } from '@ant-design/pro-components';
+﻿import type { ProDescriptionsActionType } from '@ant-design/pro-components';
+import { ProDescriptions, ProDescriptionsItem } from '@ant-design/pro-components';
 import { Button } from 'antd';
 import { useRef } from 'react';
 
@@ -28,7 +28,7 @@ const Demo = () => {
         },
       }}
     >
-      <ProDescriptions.Item
+      <ProDescriptionsItem
         formItemProps={{
           rules: [
             {
@@ -39,17 +39,17 @@ const Demo = () => {
         }}
         dataIndex={['info', 'id']}
       />
-      <ProDescriptions.Item
+      <ProDescriptionsItem
         dataIndex={['info', 'date']}
         label="日期"
         valueType="date"
       />
-      <ProDescriptions.Item
+      <ProDescriptionsItem
         label="money"
         dataIndex={['info', 'money']}
         valueType="money"
       />
-      <ProDescriptions.Item label="文本" valueType="option">
+      <ProDescriptionsItem label="文本" valueType="option">
         <Button
           type="primary"
           onClick={() => {
@@ -60,7 +60,7 @@ const Demo = () => {
           刷新
         </Button>
         <Button key="rest">重置</Button>
-      </ProDescriptions.Item>
+      </ProDescriptionsItem>
     </ProDescriptions>
   );
 };

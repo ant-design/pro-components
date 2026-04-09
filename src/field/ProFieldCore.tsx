@@ -1,4 +1,4 @@
-import './initDayjs';
+﻿import './initDayjs';
 import React, { useContext } from 'react';
 import type { ProFieldFCRenderProps, ProRenderFieldPropsType } from '../provider';
 import ProConfigContext from '../provider';
@@ -6,8 +6,7 @@ import {
   omitUndefined,
   pickProProps,
   type ProFieldTextType,
-  type ProFieldValueObjectType,
-  type ProFieldValueType,
+  type ProFieldValueTypeInput,
   useDeepCompareMemo,
   useRefFunction,
 } from '../utils';
@@ -15,7 +14,7 @@ import type { ProFieldPropsType, ProFieldRenderProps } from './types';
 
 export type ProFieldRenderText = (
   dataValue: ProFieldTextType,
-  valueType: ProFieldValueType | ProFieldValueObjectType,
+  valueType: ProFieldValueTypeInput,
   props: ProFieldRenderProps,
   valueTypeMap: Record<string, ProRenderFieldPropsType>,
 ) => React.ReactNode;

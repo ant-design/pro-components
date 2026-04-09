@@ -1,9 +1,9 @@
-import React from 'react';
+﻿import React from 'react';
 import type { ProRenderFieldPropsType } from '../provider';
 import {
   type ProFieldTextType,
-  type ProFieldValueObjectType,
   type ProFieldValueType,
+  type ProFieldValueTypeInput,
 } from '../utils';
 import type { FieldMoneyProps } from './components/Money';
 import FieldText from './components/Text';
@@ -22,7 +22,7 @@ export type ProFieldMoneyProps = FieldMoneyProps;
 /** 只读：空值占位、自定义 valueType 的 render、默认 FieldText */
 export const pureRenderRead: ProFieldRenderText = (
   dataValue: ProFieldTextType,
-  valueType: ProFieldValueType | ProFieldValueObjectType,
+  valueType: ProFieldValueTypeInput,
   props: ProFieldRenderProps,
   valueTypeMap: Record<string, ProRenderFieldPropsType>,
 ): React.ReactNode => {
@@ -93,7 +93,7 @@ export const pureRenderRead: ProFieldRenderText = (
 /** 编辑：自定义 valueType 的 formItemRender、默认 FieldText */
 export const pureRenderEdit: ProFieldRenderText = (
   dataValue: ProFieldTextType,
-  valueType: ProFieldValueType | ProFieldValueObjectType,
+  valueType: ProFieldValueTypeInput,
   props: ProFieldRenderProps,
   valueTypeMap: Record<string, ProRenderFieldPropsType>,
 ): React.ReactNode => {

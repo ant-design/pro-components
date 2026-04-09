@@ -5,8 +5,8 @@
 ## 类型文件（RFC 阶段 4）
 
 - **`src/form/typing/layout.ts`** — `ProFormGridConfig`（栅格/行列）。
-- **`src/form/typing/fieldItem.ts`** — `ProFormFieldItemProps`、`ExtendsProps`、`ProFormGroupProps` 等字段层类型。
-- **`src/form/typing/index.ts`** — 统一 re-export；对外仍通过 `import { … } from '@ant-design/pro-form'` 或 `from './typing'`。
+- **`src/form/typing.ts`** — `ProFormFieldItemProps`、`ExtendsProps`、`ProFormGroupProps`、`ProFormItemCreateConfig` 等（与 `layout.ts` 组合使用）。
+- **`src/form/typing.ts`** — 从 `../utils/typing` re-export `ProFieldValueType`、`ProFieldValueTypeInput`、`ProFieldBuiltinValueType` 等；业务侧记 **`ProFieldValueTypeInput`** 为 PureProField / ProFormField 的 `valueType` 入参别名。
 - **未并入本目录**：`CommonFormProps` 等仍定义在 `BaseForm/BaseForm.tsx` 附近；Schema 列类型见 `components/SchemaForm/typing.ts`。
 
 ## 主数据流

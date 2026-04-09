@@ -1,4 +1,4 @@
-import { ProDescriptions } from '@ant-design/pro-components';
+﻿import { ProDescriptions, ProDescriptionsItem } from '@ant-design/pro-components';
 import { Input, Tooltip } from 'antd';
 import { useRef } from 'react';
 
@@ -141,13 +141,13 @@ const Demo = () => {
         },
       ]}
     >
-      <ProDescriptions.Item
+      <ProDescriptionsItem
         dataIndex="percent"
         label="交付进度"
         valueType="percent"
       >
         75
-      </ProDescriptions.Item>
+      </ProDescriptionsItem>
     </ProDescriptions>
   );
 };

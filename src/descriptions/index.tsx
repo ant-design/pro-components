@@ -1,5 +1,5 @@
 ﻿export { FieldRender } from './FieldRender';
-export { ProDescriptions } from './ProDescriptions';
+export { ProDescriptions, ProDescriptionsItem } from './ProDescriptions';
 export { default } from './ProDescriptions';
 
 export type {

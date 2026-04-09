@@ -1,4 +1,4 @@
-import {
+﻿import {
   get,
   set as namePathSet,
   omit,
@@ -23,11 +23,11 @@ import React, {
 import { ProConfigProvider } from '../../provider';
 import type {
   ProFieldProps,
-  ProFieldValueType,
   ProFormInstanceType,
   ProRequestData,
   SearchTransformKeyFn,
 } from '../../utils';
+import type { ProFieldValueType } from '../../utils/typing';
 import {
   autoFocusToFirstChild,
   conversionMomentValue,

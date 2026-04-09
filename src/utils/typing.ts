@@ -252,25 +252,27 @@ export type ProFieldValueTypeWithFieldProps = {
  * @param jsonCode Json 的代码块，格式化了一下
  * @param color 颜色选择器
  */
-export type ProFieldValueType = Extract<
-  keyof ProFieldValueTypeWithFieldProps,
-  any
+export type ProFieldValueType = keyof ProFieldValueTypeWithFieldProps;
+
+/** Schema 布局用（group、formList…）；与 {@link ProFieldBuiltinValueType} 并集为 {@link ProFieldValueType} */
+export const PRO_FIELD_SCHEMA_LAYOUT_VALUE_TYPES = [
+  'group',
+  'formList',
+  'formSet',
+  'divider',
+  'dependency',
+] as const;
+
+export type ProFieldSchemaLayoutValueType =
+  (typeof PRO_FIELD_SCHEMA_LAYOUT_VALUE_TYPES)[number];
+
+/** 内置 Field 映射键（= 全量 valueType 去掉布局类） */
+export type ProFieldBuiltinValueType = Exclude<
+  ProFieldValueType,
+  ProFieldSchemaLayoutValueType
 >;
 
-/**
- * 这是一个泛型类型定义，用于定义 FieldPropsTypeBase 类型。该类型包含了以下类型参数：
-
- * Entity：表示表单项的数据实体类型，默认为 Record<string, any>。
- * ComponentsType：表示表单项对应的组件类型，默认为 'text'。
- * ExtraProps：表示表单项组件的额外属性类型，默认为 Record<string, any>。
- * FieldPropsType：表示表单项组件的属性类型，默认为 Record<string, any>。
- * 
- * 该类型定义了一种联合类型，可以是一个函数类型，也可以是一个对象类型。具体来说：
- * 如果是一个函数类型，它接收两个参数 form 和 config，并返回一个对象类型，该对象类型可以是 FieldPropsType 或 Record<string, any>。
- * 其中，form 是 antd 的 FormInstance 类型，config 是 ProSchema 和其它额外属性的联合类型，并包含了一些表单项相关的信息。
- * 如果不是一个函数类型，它可以是 FieldPropsType 或 Record<string, any> 中的任意一个。
- * 该类型的作用是定义一个通用的表单项属性类型，使得在不同的表单项组件中，可以共用这个属性类型，提高了代码的重用性。
- */
+/** fieldProps：固定类型、函数 `(form, config) => …` 或宽松 Record */
 type FieldPropsTypeBase<
   Entity = Record<string, any>,
   ComponentsType = 'text',
@@ -290,22 +292,7 @@ type FieldPropsTypeBase<
   | FieldPropsType
   | Record<string, any>;
 
-/**
- * 这段代码定义了一个泛型类型 ProFieldValueObject<Type>，它的泛型参数 Type 必须是 'progress'、'money'、'percent'、'image' 中的一个。
- * 当 Type 为 'progress'、'money'、'percent'、'image' 中的一种时，这个类型将被定义为一个对象，包含以下属性：
- *
- * - type: Type 类型值，即 'progress'、'money'、'percent'、'image' 中的一种；
- * - status: 字符串类型，表示状态，可选值为 'normal'、'active'、'success'、'exception' 或 undefined；
- * - locale: 字符串类型，表示地区；
- * - showSymbol: 布尔类型或函数类型，表示是否显示符号；
- * - showColor: 布尔类型，表示是否显示颜色；
- * - precision: 数字类型，表示精度；
- * - moneySymbol: 布尔类型，表示是否显示货币符号；
- * - request: ProFieldRequestData 类型，表示请求数据；
- * - width: 数字类型，表示宽度。
- *
- * 如果 Type 不是 'progress'、'money'、'percent'、'image' 中的一种，那么 ProFieldValueObject<Type> 的类型为 never。
- */
+/** 泛型：仅 progress | money | percent | image 时有属性，否则 never */
 export type ProFieldValueObject<Type> = Type extends
   | 'progress'
   | 'money'
@@ -326,17 +313,7 @@ export type ProFieldValueObject<Type> = Type extends
     }
   : never;
 
-/**
- * 这段代码定义了一个泛型类型 ValueTypeWithFieldPropsBase，它包含了以下属性：
- * - Entity：泛型类型，表示数据实体对象的类型；
- * - ComponentsType：泛型类型，表示组件的类型；
- * - ExtraProps：泛型类型，表示额外的属性；
- * - ValueType：泛型类型，表示字段的值类型，默认为字符串类型。
- *
- * 该类型的主要作用是用于定义 ProTable 组件的列属性 ProColumns 中的字段属性，包括字段的类型（valueType）和自定义属性（fieldProps）。其中：
- * - valueType 属性可以是字符串类型，也可以是 ProFieldValueType 枚举类型，也可以是一个对象类型 ProFieldValueObject，或者是一个返回值为这些类型之一的函数。它表示字段的类型，如文本、数字、日期等；
- * - fieldProps 属性是一个泛型类型 FieldPropsTypeBase，它表示该字段对应的组件的属性，用于定制组件的展示形式、校验规则、事件等等。根据字段类型的不同，其属性值也会有所不同。
- */
+/** ProColumns / ProSchema：`valueType` + 按类型收窄的 `fieldProps` */
 type ValueTypeWithFieldPropsBase<
   Entity = Record<string, any>,
   ComponentsType = 'form',
@@ -364,21 +341,6 @@ type ValueTypeWithFieldPropsBase<
   >;
 };
 
-/**
- * 这段代码定义了一个泛型类型 ValueTypeWithFieldProps，它有四个类型参数。
- * 这个类型的作用是用来描述在一个数据表格中某个字段的值（value）以及可能需要传递给这个字段的其他属性（fieldProps），以便在 UI 上正确地展示这个字段。
- * 具体来说，这个类型有一个属性 valueType，表示字段的值的类型，可以是 'text'、'money'、'percent'、'image'、ProFieldValueType 中的一个，也可以是一个函数。
- *
- * 它的参数是该行数据和组件类型（例如 'table' 或 'form'），返回值为上述值中的一种。
- *
- * 此外，这个类型还有一个属性 fieldProps，表示需要传递给该字段的其他属性，它的类型是一个泛型 FieldPropsTypeBase。这个泛型有四个类型参数，
- * 分别是：
- *  - Entity 表示该字段所在行的数据类型；
- *  - ComponentsType 表示该字段所在的组件类型；
- *  - ExtraProps 表示传递给该字段的其他属性的类型；
- *  - ValueType 表示该字段的值的类型，可以是 'text'、'money'、'percent'、'image'、ProFieldValueType 中的一种。
- * 最终，fieldProps 属性的类型会根据 valueType 的不同，来选择特定的类型进行限制，以确保传递给该字段的其他属性符合它的值的类型。
- */
 export type ValueTypeWithFieldProps<
   Entity,
   ComponentsType,
@@ -472,6 +434,11 @@ export type ProFieldValueObjectType = {
    */
   width?: number;
 };
+
+/** `PureProField` / `ProFormField` 的 `valueType`：全部字符串类型，或 money/percent 等对象简写 */
+export type ProFieldValueTypeInput =
+  | ProFieldValueType
+  | ProFieldValueObjectType;
 
 /**
  * 支持 Map 和 Record<string,any>

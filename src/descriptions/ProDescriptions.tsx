@@ -17,11 +17,6 @@ import type { ProDescriptionsItemProps, ProDescriptionsProps } from './typing';
 import type { RequestData } from './useFetchData';
 import useFetchData from './useFetchData';
 
-const ProDescriptionsItem: React.FC<ProDescriptionsItemProps> = (props) => (
-  <Descriptions.Item {...props}>{props.children}</Descriptions.Item>
-);
-ProDescriptionsItem.displayName = 'ProDescriptionsItem';
-
 const DefaultProDescriptionsDom = (dom: { children: any }) => dom.children;
 
 const ProDescriptions = <
@@ -107,8 +102,7 @@ const ProDescriptions = <
           !dataIndex &&
           !itemRequest &&
           !ellipsis &&
-          !copyable &&
-          (item as any).type?.displayName !== 'ProDescriptionsItem'
+          !copyable
         ) {
           return item;
         }
@@ -193,7 +187,8 @@ const ProDescriptions = <
   );
 };
 
-ProDescriptions.Item = ProDescriptionsItem;
+/** antd `Descriptions.Item`，并扩展 `ProDescriptionsItemProps`（`valueType`、`dataIndex` 等） */
+export const ProDescriptionsItem = Descriptions.Item as React.FC<ProDescriptionsItemProps>;
 
 export { ProDescriptions };
 export default ProDescriptions;

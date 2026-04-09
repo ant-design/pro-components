@@ -1,14 +1,14 @@
-import { ProDescriptions } from '@ant-design/pro-components';
+﻿import { ProDescriptions, ProDescriptionsItem } from '@ant-design/pro-components';
 import { Button } from 'antd';
 
 const Demo = () => {
   return (
     <>
-      <ProDescriptions.Item label="文本" valueType="option">
+      <ProDescriptionsItem label="文本" valueType="option">
         <Button key="primary" type="primary">
           提交
         </Button>
-      </ProDescriptions.Item>
+      </ProDescriptionsItem>
       <ProDescriptions
         column={2}
         title="高级定义列表"

@@ -1,4 +1,4 @@
-# AGENTS.md
+﻿# AGENTS.md
 
 > Ant Design Pro Components 项目开发指南 - 为 AI 编程助手提供项目上下文和开发规范
 
@@ -16,6 +16,7 @@
   - [测试指南](#测试指南)
   - [演示代码规范](#演示代码规范)
   - [国际化规范](#国际化规范)
+  - [ProField 与 valueType（RFC）](#profield-valuetype-rfc)
   - [组件开发模板](#组件开发模板)
 - [文档和 Changelog](#文档和-changelog-规范)
 - [Git 和 Pull Request](#git-和-pull-request-规范)
@@ -358,6 +359,14 @@ export function TestComp() {
   return <div>{intl.getMessage('key')}</div>;
 }
 ```
+
+### ProField 与 valueType（RFC） {#profield-valuetype-rfc}
+
+内置表格/表单字段通过 `valueType` 映射到 `src/field` 下具体组件；**ProDescriptions** 使用相同符号（`src/descriptions/typing.ts` re-export）。去重与包体积约定见 RFC：[docs/rfc/2026-04-profield-dedup-and-bundle-size.md](../../docs/rfc/2026-04-profield-dedup-and-bundle-size.md)。内部备忘：[docs/internal/profield-bundle-notes.md](../../docs/internal/profield-bundle-notes.md)。
+
+- **新增内置 `valueType`**：在 `src/field/ValueTypeToComponent.tsx` 的 `ValueTypeToComponentMap` 中注册（`Record<ProFieldBuiltinValueType, …>`）。`PureProField` / `ProFormField` 的 `valueType` 入参类型为 **`ProFieldValueTypeInput`**（字符串 `ProFieldValueType` 或 money/percent 等对象简写），定义在 `src/utils/typing.ts`。若表格 **`render`** 与表单 **`formItemRender`** 对应 JSX **完全一致**，必须使用 **`sameRenderPair(fn)`**，禁止复制双轨；仅当读写分叉时再写显式 `{ render, formItemRender }`。
+- **字段子组件 `mode` 分支**：优先使用 `src/field/internal/fieldMode.ts` 中的 `isProFieldReadMode`、`isProFieldEditOrUpdateMode`、`isProFieldEditOnlyMode`（其中「仅 edit、不含 update」的历史语义由 `isProFieldEditOnlyMode` 保持），避免在多个文件重复手写 `mode === 'read'` 等判断。
+- **依赖导入**：`antd`、`@ant-design/icons` 使用**具名导入**；避免 `import * as antd` 等易拉大全量的写法。
 
 ---
 

@@ -1,4 +1,4 @@
-import { ProDescriptions } from '@ant-design/pro-components';
+﻿import { ProDescriptions, ProDescriptionsItem } from '@ant-design/pro-components';
 
 const Demo = () => {
   return (
@@ -112,17 +112,17 @@ const Demo = () => {
           },
         ]}
       >
-        <ProDescriptions.Item
+        <ProDescriptionsItem
           dataIndex="percent"
           label="百分比"
           valueType="percent"
         >
           100
-        </ProDescriptions.Item>
+        </ProDescriptionsItem>
         <div>多余的dom</div>
-        <ProDescriptions.Item label="超链接">
+        <ProDescriptionsItem label="超链接">
           <a href="alipay.com">超链接</a>
-        </ProDescriptions.Item>
+        </ProDescriptionsItem>
       </ProDescriptions>
 
       <div
@@ -235,7 +235,7 @@ const Demo = () => {
             <strong>Columns 配置</strong>: 通过 columns 数组定义列
           </li>
           <li>
-            <strong>Item 组件</strong>: 同时支持 ProDescriptions.Item
+            <strong>Item 组件</strong>: 同时支持 ProDescriptionsItem
           </li>
           <li>
             <strong>优先级</strong>: Item 组件会覆盖 columns 中的配置

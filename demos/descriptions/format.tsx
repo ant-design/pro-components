@@ -1,4 +1,4 @@
-import { ProDescriptions } from '@ant-design/pro-components';
+﻿import { ProDescriptions, ProDescriptionsItem } from '@ant-design/pro-components';
 
 import { FIXED_BASE_DATE } from '../mockData';
 
@@ -10,7 +10,7 @@ const Demo = () => {
         title="高级定义列表"
         tooltip="包含了从服务器请求，columns等功能"
       >
-        <ProDescriptions.Item
+        <ProDescriptionsItem
           label="日期"
           fieldProps={{
             format: 'YYYY.MM.DD',
@@ -18,8 +18,8 @@ const Demo = () => {
           valueType="date"
         >
           {FIXED_BASE_DATE.valueOf()}
-        </ProDescriptions.Item>
-        <ProDescriptions.Item
+        </ProDescriptionsItem>
+        <ProDescriptionsItem
           label="日期区间"
           fieldProps={{
             format: 'YYYY.MM.DD HH:mm:ss',
@@ -27,8 +27,8 @@ const Demo = () => {
           valueType="dateTimeRange"
         >
           {[FIXED_BASE_DATE.add(-1, 'd').valueOf(), FIXED_BASE_DATE.valueOf()]}
-        </ProDescriptions.Item>
-        <ProDescriptions.Item
+        </ProDescriptionsItem>
+        <ProDescriptionsItem
           label="时间"
           fieldProps={{
             format: 'YYYY.MM.DD',
@@ -36,9 +36,9 @@ const Demo = () => {
           valueType="time"
         >
           {FIXED_BASE_DATE.valueOf()}
-        </ProDescriptions.Item>
+        </ProDescriptionsItem>
 
-        <ProDescriptions.Item
+        <ProDescriptionsItem
           label="时间日期"
           fieldProps={{
             format: 'YYYY.MM.DD HH:mm:ss',
@@ -46,9 +46,9 @@ const Demo = () => {
           valueType="dateTime"
         >
           {FIXED_BASE_DATE.valueOf()}
-        </ProDescriptions.Item>
+        </ProDescriptionsItem>
 
-        <ProDescriptions.Item
+        <ProDescriptionsItem
           label="更新时间"
           fieldProps={{
             format: 'YYYY.MM.DD',
@@ -56,7 +56,7 @@ const Demo = () => {
           valueType="fromNow"
         >
           {FIXED_BASE_DATE.add(-1, 'month').valueOf()}
-        </ProDescriptions.Item>
+        </ProDescriptionsItem>
       </ProDescriptions>
 
       <div
@@ -79,7 +79,7 @@ const Demo = () => {
             <strong>tooltip</strong>: 标题提示信息
           </li>
         </ul>
-        <h4>ProDescriptions.Item 配置：</h4>
+        <h4>ProDescriptionsItem 配置：</h4>
         <ul>
           <li>
             <strong>label</strong>: 标签文本

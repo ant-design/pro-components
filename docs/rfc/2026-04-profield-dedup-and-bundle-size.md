@@ -3,10 +3,11 @@
 
 | 元数据      | 内容                                                                                                                                                             |
 | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **状态**   | **Accepted（阶段 0～2 已实施，2026-04-08）**；阶段 3 仍为后续增量                                                                                                                      |
+| **状态**   | **Accepted**；阶段 0～2 已实施（2026-04-08）；**阶段 3 部分推进**：开发约定与导入审计已写入 AGENTS / 内部备忘；体积预算 CI、按域拆 `ValueTypeToComponent`、懒加载仍待评审 |
 | **创建日期** | 2026-04-08                                                                                                                                                     |
 | **阶段 1 实现** | `src/field/ValueTypeToComponent.tsx` 内 `sameRenderPair`；备忘见 `docs/internal/profield-bundle-notes.md`                                                                 |
 | **阶段 2 实现** | `src/field/internal/fieldMode.ts`：`isProFieldReadMode`、`isProFieldEditOrUpdateMode`、`isProFieldEditOnlyMode`（原仅为 `mode === 'edit'` 的交互分支保持不变，不含 `update`） |
+| **类型分层** | `src/utils/typing.ts`：`ProFieldValueType`、`ProFieldSchemaLayoutValueType`、`ProFieldBuiltinValueType`；`ValueTypeToComponent` 映射为 `Record<ProFieldBuiltinValueType, …>` |
 | **范围**   | `src/field`（`PureProField` / `ProFieldCore`、`ValueTypeToComponent.tsx`、各 `components/*`）、与 ProField 耦合的 `src/form/components/Field` 等                          |
 | **相关文件** | `src/field/ValueTypeToComponent.tsx`、`src/field/PureProField.tsx`、`src/field/ProFieldCore.tsx`、`src/field/components/`**、`src/form/components/Field/index.tsx` |
 
@@ -92,11 +93,12 @@
 ### 阶段 3：包体积专项（与阶段 1/2 穿插）
 
 
-| 方向       | 说明                                                          |
-| -------- | ----------------------------------------------------------- |
-| **导入路径** | 核对 antd / `@ant-design/icons` 等是否保持按需；避免 `import * as` 拉全量。 |
-| **侧向依赖** | 将仅被少数 valueType 使用的重依赖限制在 **懒加载子路径**（若做，必须单独评审 SSR 与测试策略）。  |
-| **文档**   | 在 `AGENTS.md` 或字段开发说明中明确：**新增 valueType 应优先复用工厂**，避免再复制双轨。  |
+| 方向       | 说明                                                          | 进展（2026-04） |
+| -------- | ----------------------------------------------------------- | ------------- |
+| **导入路径** | 核对 antd / `@ant-design/icons` 等是否保持按需；避免 `import * as` 拉全量。 | 已对 `src/field` 做抽样：`antd` / `@ant-design/icons` 均为**具名导入**，未发现 `import * as antd`；详见 `docs/internal/profield-bundle-notes.md`。 |
+| **侧向依赖** | 将仅被少数 valueType 使用的重依赖限制在 **懒加载子路径**（若做，必须单独评审 SSR 与测试策略）。  | 未实施；仍属开放项。 |
+| **文档**   | 在 `AGENTS.md` 或字段开发说明中明确：**新增 valueType 应优先复用工厂**，避免再复制双轨。  | 已写入 `.cursor/rules/AGENTS.md`「ProField 与 valueType（RFC）」。 |
+| **映射文件体积** | `ValueTypeToComponent.tsx` 顶层仍集中 `import` 各 `Field*`，与「单文件可维护性 vs chunk 形态」的权衡见开放问题 2。 | 仅文档记录，未改模块图。 |
 
 
 ## 风险与缓解
