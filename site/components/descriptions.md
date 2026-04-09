@@ -132,7 +132,7 @@ API 与 ProTable 相同
 
 ### columns 列配置
 
-每一项为 `ProDescriptionsItemProps`（与 ProTable 的 `columns` 同源 schema），常用字段如下：
+每一项为 `ProDescriptionsColumn`（与 ProTable 的 `columns` 同源 schema；`ProDescriptionsItemProps` 为别名），常用字段如下：
 
 | 参数      | 说明                                                                        | 类型                                                         | 默认值 |
 | --------- | --------------------------------------------------------------------------- | ------------------------------------------------------------ | ------ |

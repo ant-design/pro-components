@@ -132,7 +132,7 @@ API is the same as ProTable
 
 ### columns
 
-Each item is `ProDescriptionsItemProps` (same schema family as ProTable `columns`). Common fields:
+Each item is `ProDescriptionsColumn` (same schema family as ProTable `columns`; `ProDescriptionsItemProps` is an alias). Common fields:
 
 | Parameters | Description                                                                                                                    | Type                                                         | Default Value |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------ | ------------- |

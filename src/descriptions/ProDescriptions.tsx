@@ -12,8 +12,8 @@ import {
   useEditableMap,
 } from '../utils';
 import { schemaToDescriptionsItem } from './schemaToDescriptionsItem';
-import type { ProDescriptionsItemProps, ProDescriptionsProps } from './typing';
-import type { RequestData } from './useFetchData';
+import type { ProDescriptionsColumn, ProDescriptionsProps } from './typing';
+import type { ProDescriptionsRequestResult } from './useFetchData';
 import useFetchData from './useFetchData';
 
 const DefaultProDescriptionsDom = (dom: { children: any }) => dom.children;
@@ -40,15 +40,14 @@ const ProDescriptions = <
     ...rest
   } = props;
 
-  const { children: _ignoredChildren, ...descriptionsProps } = rest as typeof rest &
-    { children?: React.ReactNode };
-
   const proContext = useContext(ProConfigContext);
   const context = useContext(ConfigProvider.ConfigContext);
 
-  const action = useFetchData<RequestData>(
+  const action = useFetchData<RecordType, ProDescriptionsRequestResult<RecordType>>(
     async () => {
-      const data = request ? await request(params || {}) : { data: {} };
+      const data = request
+        ? await request(params)
+        : { data: {} as RecordType };
       return data;
     },
     {
@@ -82,7 +81,7 @@ const ProDescriptions = <
     return <ProSkeleton type="descriptions" list={false} pageHeader={false} />;
   }
 
-  const getColumns = (): ProDescriptionsItemProps<RecordType, ValueType>[] => {
+  const getColumns = (): ProDescriptionsColumn<RecordType, ValueType>[] => {
     return (columns || [])
       .filter((item) => {
         if (!item) return false;
@@ -104,7 +103,7 @@ const ProDescriptions = <
 
   const { options, children } = schemaToDescriptionsItem(
     getColumns(),
-    action.dataSource || {},
+    action.dataSource,
     actionRef?.current || action,
     editable ? editableUtils : undefined,
     props.emptyText,
@@ -113,12 +112,9 @@ const ProDescriptions = <
   const FormComponent = editable ? ProForm : DefaultProDescriptionsDom;
 
   let title = null;
-  if (descriptionsProps.title || descriptionsProps.tooltip) {
+  if (rest.title || rest.tooltip) {
     title = (
-      <LabelIconTip
-        label={descriptionsProps.title}
-        tooltip={descriptionsProps.tooltip}
-      />
+      <LabelIconTip label={rest.title} tooltip={rest.tooltip} />
     );
   }
 
@@ -138,17 +134,17 @@ const ProDescriptions = <
         >
           <Descriptions
             className={className}
-            {...descriptionsProps}
+            {...rest}
             styles={{
               content: {
                 minWidth: 0,
               },
             }}
             extra={
-              descriptionsProps.extra ? (
+              rest.extra ? (
                 <Space>
                   {options}
-                  {descriptionsProps.extra}
+                  {rest.extra}
                 </Space>
               ) : (
                 options

@@ -1,22 +1,22 @@
 ﻿import { get } from '@rc-component/util';
-import type { ProDescriptionsItemProps } from './typing';
+import type { ProDescriptionsColumn } from './typing';
 
 /**
- * 根据 dataIndex 获取值，支持 dataIndex 为数组（与重构前逻辑一致）
+ * 根据 dataIndex 从 entity 取值；无 dataIndex 或值为 undefined/null 时用列上的 children
  */
 export function getDataFromConfig(
-  item: ProDescriptionsItemProps,
-  entity: any,
+  item: ProDescriptionsColumn,
+  entity: Record<string, unknown> | undefined,
 ) {
   const { dataIndex } = item;
-  if (dataIndex) {
+  if (dataIndex != null && entity != null) {
     const data = Array.isArray(dataIndex)
       ? get(entity, dataIndex as string[])
-      : entity[dataIndex as string];
+      : (entity as Record<string, unknown>)[dataIndex as string];
 
-    if (data !== undefined || data !== null) {
+    if (data !== undefined && data !== null) {
       return data;
     }
   }
-  return item.children as string;
+  return item.children;
 }

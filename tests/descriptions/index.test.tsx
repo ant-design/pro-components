@@ -81,9 +81,9 @@ describe('descriptions', () => {
           },
         ]}
         request={async () => {
-          return new Promise((resolve) => {
+          return new Promise<{ data: Record<string, unknown> }>((resolve) => {
             setTimeout(() => {
-              resolve({ data: [] });
+              resolve({ data: {} });
             }, 5000);
           });
         }}
@@ -106,9 +106,9 @@ describe('descriptions', () => {
           ]}
           loading={false}
           request={async () => {
-            return new Promise((resolve) => {
+            return new Promise<{ data: Record<string, unknown> }>((resolve) => {
               setTimeout(() => {
-                resolve({ data: [] });
+                resolve({ data: {} });
               }, 5000);
             });
           }}
@@ -133,7 +133,10 @@ describe('descriptions', () => {
           title="高级定义列表 request"
           request={async () => {
             fn();
-            return new Promise((resolve) => {
+            return new Promise<{
+              success: boolean;
+              data: { id: string; date: string; money: string };
+            }>((resolve) => {
               setTimeout(() => {
                 resolve({
                   success: true,

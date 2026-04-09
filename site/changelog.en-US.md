@@ -5,7 +5,10 @@
 ### 🗑 Breaking Changes
 
 - ProDescriptions
-  - 🗑 Remove `ProDescriptionsItem` export; use `columns` instead (types remain `ProDescriptionsItemProps`)
+  - 🗑 Remove `ProDescriptionsItem` export; use `columns` instead
+  - 🛠 Rename column type to `ProDescriptionsColumn` (`ProDescriptionsItemProps` remains an alias)
+  - 🛠 Tighten `request` return type to `ProDescriptionsRequestResult<T>`; `params` is `Record<string, unknown>`; `onDataSourceChange` may receive `undefined`
+  - 🛠 `ProDescriptionsProps` no longer accepts `items` (generated internally)
 
 ### 🛠 Refactor / Documentation
 

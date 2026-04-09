@@ -2,31 +2,34 @@ import { useControlledState } from '@rc-component/util';
 import { useCallback, useEffect } from 'react';
 import { useRefFunction } from '../utils';
 
-export type RequestData<T = any> = {
+export type ProDescriptionsRequestResult<T = unknown> = {
   data?: T;
   success?: boolean;
-  [key: string]: any;
-} & Record<string, any>;
-export type UseFetchDataAction<T extends RequestData> = {
-  dataSource: T['data'] | T;
-  setDataSource: (value: T['data'] | T) => void;
+};
+
+/** @deprecated 使用 {@link ProDescriptionsRequestResult} */
+export type RequestData<T = unknown> = ProDescriptionsRequestResult<T>;
+
+export type UseProDescriptionsFetchAction<TData> = {
+  dataSource: TData | undefined;
+  setDataSource: (value: TData | undefined) => void;
   loading?: boolean;
   reload: () => Promise<void>;
 };
 
-const useFetchData = <T extends RequestData>(
-  getData: () => Promise<T>,
+const useFetchData = <TData, TResponse extends ProDescriptionsRequestResult<TData>>(
+  getData: () => Promise<TResponse>,
   options?: {
-    effects?: any[];
+    effects?: unknown[];
     manual: boolean;
     loading?: boolean;
     onLoadingChange?: (loading?: boolean) => void;
     onRequestError?: (e: Error) => void;
-    dataSource?: T['data'];
-    defaultDataSource?: T['data'];
-    onDataSourceChange?: (value: T['data']) => void;
+    dataSource?: TData;
+    defaultDataSource?: TData;
+    onDataSourceChange?: (value: TData | undefined) => void;
   },
-): UseFetchDataAction<T> => {
+): UseProDescriptionsFetchAction<TData> => {
   const {
     onRequestError,
     effects,
@@ -35,16 +38,21 @@ const useFetchData = <T extends RequestData>(
     defaultDataSource,
     onDataSourceChange,
   } = options || {};
-  const [entity, setEntityInner] = useControlledState<T['data']>(
+  const [entity, setEntityInner] = useControlledState<TData | undefined>(
     defaultDataSource,
     dataSource,
   );
   const setEntity = useCallback(
-    (updater: T['data'] | ((prev: T['data']) => T['data'])) => {
+    (
+      updater:
+        | TData
+        | undefined
+        | ((prev: TData | undefined) => TData | undefined),
+    ) => {
       setEntityInner((prev) => {
         const next =
           typeof updater === 'function'
-            ? (updater as (p: T['data']) => T['data'])(prev)
+            ? (updater as (p: TData | undefined) => TData | undefined)(prev)
             : updater;
         onDataSourceChange?.(next);
         return next;
@@ -89,7 +97,7 @@ const useFetchData = <T extends RequestData>(
     [onLoadingChange],
   );
 
-  const updateDataAndLoading = (data: T) => {
+  const updateDataAndLoading = (data: TData | undefined) => {
     setEntity(data);
     setLoading(false);
   };
