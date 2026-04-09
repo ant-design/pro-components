@@ -1,5 +1,5 @@
 ﻿import type { ProCoreActionType } from '@ant-design/pro-components';
-import { ProDescriptions, ProDescriptionsItem } from '@ant-design/pro-components';
+import { ProDescriptions } from '@ant-design/pro-components';
 import {
   cleanup,
   fireEvent,
@@ -157,21 +157,17 @@ describe('descriptions', () => {
               刷新
             </Button>
           }
-        >
-          test reload
-          <ProDescriptionsItem label="文本" dataIndex="id" />
-          <ProDescriptionsItem
-            dataIndex="date"
-            label="日期"
-            valueType="date"
-          />
-          <ProDescriptionsItem
-            label="money"
-            dataIndex="money"
-            valueType="money"
-            formItemRender={() => <Input />}
-          />
-        </ProDescriptions>
+          columns={[
+            { label: '文本', dataIndex: 'id' },
+            { dataIndex: 'date', label: '日期', valueType: 'date' },
+            {
+              label: 'money',
+              dataIndex: 'money',
+              valueType: 'money',
+              formItemRender: () => <Input />,
+            },
+          ]}
+        />
       );
     };
     const html = render(<Reload />);
@@ -223,15 +219,12 @@ describe('descriptions', () => {
             修改
           </Button>
         }
-      >
-        <ProDescriptionsItem label="文本" dataIndex="id" />
-        <ProDescriptionsItem dataIndex="date" label="日期" valueType="date" />
-        <ProDescriptionsItem
-          label="money"
-          dataIndex="money"
-          valueType="money"
-        />
-      </ProDescriptions>,
+        columns={[
+          { label: '文本', dataIndex: 'id' },
+          { dataIndex: 'date', label: '日期', valueType: 'date' },
+          { label: 'money', dataIndex: 'money', valueType: 'money' },
+        ]}
+      />,
     );
 
     // 等待数据加载完成
@@ -261,19 +254,12 @@ describe('descriptions', () => {
             </Button>
           }
           params={{ name: 'qixian' }}
-        >
-          <ProDescriptionsItem label="文本" dataIndex="id" />
-          <ProDescriptionsItem
-            dataIndex="date"
-            label="日期"
-            valueType="date"
-          />
-          <ProDescriptionsItem
-            label="money"
-            dataIndex="money"
-            valueType="money"
-          />
-        </ProDescriptions>,
+          columns={[
+            { label: '文本', dataIndex: 'id' },
+            { dataIndex: 'date', label: '日期', valueType: 'date' },
+            { label: 'money', dataIndex: 'money', valueType: 'money' },
+          ]}
+        />,
       );
     });
 
@@ -302,15 +288,12 @@ describe('descriptions', () => {
             修改
           </Button>
         }
-      >
-        <ProDescriptionsItem label="文本" dataIndex="id" />
-        <ProDescriptionsItem dataIndex="date" label="日期" valueType="date" />
-        <ProDescriptionsItem
-          label="money"
-          dataIndex="money"
-          valueType="money"
-        />
-      </ProDescriptions>,
+        columns={[
+          { label: '文本', dataIndex: 'id' },
+          { dataIndex: 'date', label: '日期', valueType: 'date' },
+          { label: 'money', dataIndex: 'money', valueType: 'money' },
+        ]}
+      />,
     );
 
     await waitFor(() => {
@@ -320,17 +303,13 @@ describe('descriptions', () => {
 
   it('🏊 Progress', async () => {
     const html = render(
-      <ProDescriptions>
-        <ProDescriptionsItem label="进度条1" valueType="progress">
-          40
-        </ProDescriptionsItem>
-        <ProDescriptionsItem label="进度条2" valueType="progress">
-          -1
-        </ProDescriptionsItem>
-        <ProDescriptionsItem label="进度条3" valueType="progress">
-          100
-        </ProDescriptionsItem>
-      </ProDescriptions>,
+      <ProDescriptions
+        columns={[
+          { label: '进度条1', valueType: 'progress', children: 40 },
+          { label: '进度条2', valueType: 'progress', children: -1 },
+          { label: '进度条3', valueType: 'progress', children: 100 },
+        ]}
+      />,
     );
     await waitFor(() => {
       expect(
@@ -365,18 +344,11 @@ describe('descriptions', () => {
             valueType: 'text',
             order: 100,
           },
+          { order: 9, label: '进度条1', valueType: 'progress', children: 40 },
+          { label: '进度条2', valueType: 'progress', children: -1 },
+          { order: 8, label: '进度条3', valueType: 'progress', children: 100 },
         ]}
-      >
-        <ProDescriptionsItem order={9} label="进度条1" valueType="progress">
-          40
-        </ProDescriptionsItem>
-        <ProDescriptionsItem label="进度条2" valueType="progress">
-          -1
-        </ProDescriptionsItem>
-        <ProDescriptionsItem order={8} label="进度条3" valueType="progress">
-          100
-        </ProDescriptionsItem>
-      </ProDescriptions>,
+      />,
     );
     expect(html.asFragment()).toMatchSnapshot();
   });

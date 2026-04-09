@@ -1,5 +1,5 @@
 ﻿import { EditOutlined } from '@ant-design/icons';
-import { Descriptions, Space } from 'antd';
+import { Space } from 'antd';
 import type { DescriptionsItemType } from 'antd/es/descriptions';
 import React from 'react';
 import type { ProCoreActionType, UseEditableMapUtilType } from '../utils';
@@ -19,11 +19,6 @@ export function schemaToDescriptionsItem(
   const options: React.JSX.Element[] = [];
   const children = items
     ?.map?.((item, index) => {
-      if (React.isValidElement(item)) {
-        return {
-          children: item,
-        };
-      }
       const {
         valueEnum: _valueEnum,
         render: _render,
@@ -111,7 +106,7 @@ export function schemaToDescriptionsItem(
               ),
             } as DescriptionsItemType)
           : ((
-              <Descriptions.Item {...restItem} key={key} label={label}>
+              <React.Fragment key={key}>
                 <Component>
                   <FieldRender
                     {...item}
@@ -134,7 +129,7 @@ export function schemaToDescriptionsItem(
                     />
                   )}
                 </Component>
-              </Descriptions.Item>
+              </React.Fragment>
             ) as React.JSX.Element);
       if (valueType === 'option') {
         options.push(field as React.JSX.Element);

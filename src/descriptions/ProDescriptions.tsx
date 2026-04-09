@@ -1,5 +1,4 @@
-﻿import { toArray } from '@rc-component/util';
-import type { DescriptionsItemType } from 'antd/es/descriptions';
+﻿import type { DescriptionsItemType } from 'antd/es/descriptions';
 import { ConfigProvider, Descriptions, Space } from 'antd';
 import React, { useContext, useEffect } from 'react';
 import ValueTypeToComponent from '../field/ValueTypeToComponent';
@@ -41,6 +40,9 @@ const ProDescriptions = <
     ...rest
   } = props;
 
+  const { children: _ignoredChildren, ...descriptionsProps } = rest as typeof rest &
+    { children?: React.ReactNode };
+
   const proContext = useContext(ProConfigContext);
   const context = useContext(ConfigProvider.ConfigContext);
 
@@ -81,38 +83,7 @@ const ProDescriptions = <
   }
 
   const getColumns = (): ProDescriptionsItemProps<RecordType, ValueType>[] => {
-    const childrenColumns = toArray(props.children)
-      .filter(Boolean)
-      .map((item) => {
-        if (!React.isValidElement(item)) {
-          return item;
-        }
-        const {
-          valueEnum,
-          valueType,
-          dataIndex,
-          ellipsis,
-          copyable,
-          request: itemRequest,
-        } = item?.props as ProDescriptionsItemProps;
-
-        if (
-          !valueType &&
-          !valueEnum &&
-          !dataIndex &&
-          !itemRequest &&
-          !ellipsis &&
-          !copyable
-        ) {
-          return item;
-        }
-
-        return {
-          ...(item?.props as ProDescriptionsItemProps),
-          entity: dataSource,
-        };
-      }) as ProDescriptionsItemProps<RecordType, ValueType>[];
-    return [...(columns || []), ...childrenColumns]
+    return (columns || [])
       .filter((item) => {
         if (!item) return false;
         if (
@@ -142,8 +113,13 @@ const ProDescriptions = <
   const FormComponent = editable ? ProForm : DefaultProDescriptionsDom;
 
   let title = null;
-  if (rest.title || rest.tooltip) {
-    title = <LabelIconTip label={rest.title} tooltip={rest.tooltip} />;
+  if (descriptionsProps.title || descriptionsProps.tooltip) {
+    title = (
+      <LabelIconTip
+        label={descriptionsProps.title}
+        tooltip={descriptionsProps.tooltip}
+      />
+    );
   }
 
   const className = context.getPrefixCls('pro-descriptions');
@@ -162,17 +138,17 @@ const ProDescriptions = <
         >
           <Descriptions
             className={className}
-            {...rest}
+            {...descriptionsProps}
             styles={{
               content: {
                 minWidth: 0,
               },
             }}
             extra={
-              rest.extra ? (
+              descriptionsProps.extra ? (
                 <Space>
                   {options}
-                  {rest.extra}
+                  {descriptionsProps.extra}
                 </Space>
               ) : (
                 options
@@ -186,9 +162,6 @@ const ProDescriptions = <
     </ErrorBoundary>
   );
 };
-
-/** antd `Descriptions.Item`，并扩展 `ProDescriptionsItemProps`（`valueType`、`dataIndex` 等） */
-export const ProDescriptionsItem = Descriptions.Item as React.FC<ProDescriptionsItemProps>;
 
 export { ProDescriptions };
 export default ProDescriptions;

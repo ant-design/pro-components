@@ -57,7 +57,7 @@ export type ProDescriptionsActionType = ProCoreActionType;
 export type ProDescriptionsProps<
   RecordType = Record<string, any>,
   ValueType = 'text',
-> = DescriptionsProps & {
+> = Omit<DescriptionsProps, 'children'> & {
   params?: Record<string, any>;
   onRequestError?: (e: Error) => void;
   request?: (params: Record<string, any> | undefined) => Promise<RequestData>;

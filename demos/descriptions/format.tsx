@@ -1,4 +1,4 @@
-﻿import { ProDescriptions, ProDescriptionsItem } from '@ant-design/pro-components';
+﻿import { ProDescriptions } from '@ant-design/pro-components';
 
 import { FIXED_BASE_DATE } from '../mockData';
 
@@ -9,55 +9,52 @@ const Demo = () => {
         column={2}
         title="高级定义列表"
         tooltip="包含了从服务器请求，columns等功能"
-      >
-        <ProDescriptionsItem
-          label="日期"
-          fieldProps={{
-            format: 'YYYY.MM.DD',
-          }}
-          valueType="date"
-        >
-          {FIXED_BASE_DATE.valueOf()}
-        </ProDescriptionsItem>
-        <ProDescriptionsItem
-          label="日期区间"
-          fieldProps={{
-            format: 'YYYY.MM.DD HH:mm:ss',
-          }}
-          valueType="dateTimeRange"
-        >
-          {[FIXED_BASE_DATE.add(-1, 'd').valueOf(), FIXED_BASE_DATE.valueOf()]}
-        </ProDescriptionsItem>
-        <ProDescriptionsItem
-          label="时间"
-          fieldProps={{
-            format: 'YYYY.MM.DD',
-          }}
-          valueType="time"
-        >
-          {FIXED_BASE_DATE.valueOf()}
-        </ProDescriptionsItem>
-
-        <ProDescriptionsItem
-          label="时间日期"
-          fieldProps={{
-            format: 'YYYY.MM.DD HH:mm:ss',
-          }}
-          valueType="dateTime"
-        >
-          {FIXED_BASE_DATE.valueOf()}
-        </ProDescriptionsItem>
-
-        <ProDescriptionsItem
-          label="更新时间"
-          fieldProps={{
-            format: 'YYYY.MM.DD',
-          }}
-          valueType="fromNow"
-        >
-          {FIXED_BASE_DATE.add(-1, 'month').valueOf()}
-        </ProDescriptionsItem>
-      </ProDescriptions>
+        columns={[
+          {
+            label: '日期',
+            fieldProps: {
+              format: 'YYYY.MM.DD',
+            },
+            valueType: 'date',
+            children: FIXED_BASE_DATE.valueOf(),
+          },
+          {
+            label: '日期区间',
+            fieldProps: {
+              format: 'YYYY.MM.DD HH:mm:ss',
+            },
+            valueType: 'dateTimeRange',
+            children: [
+              FIXED_BASE_DATE.add(-1, 'd').valueOf(),
+              FIXED_BASE_DATE.valueOf(),
+            ],
+          },
+          {
+            label: '时间',
+            fieldProps: {
+              format: 'YYYY.MM.DD',
+            },
+            valueType: 'time',
+            children: FIXED_BASE_DATE.valueOf(),
+          },
+          {
+            label: '时间日期',
+            fieldProps: {
+              format: 'YYYY.MM.DD HH:mm:ss',
+            },
+            valueType: 'dateTime',
+            children: FIXED_BASE_DATE.valueOf(),
+          },
+          {
+            label: '更新时间',
+            fieldProps: {
+              format: 'YYYY.MM.DD',
+            },
+            valueType: 'fromNow',
+            children: FIXED_BASE_DATE.add(-1, 'month').valueOf(),
+          },
+        ]}
+      />
 
       <div
         style={{
@@ -79,7 +76,7 @@ const Demo = () => {
             <strong>tooltip</strong>: 标题提示信息
           </li>
         </ul>
-        <h4>ProDescriptionsItem 配置：</h4>
+        <h4>列配置（columns）常用项：</h4>
         <ul>
           <li>
             <strong>label</strong>: 标签文本
@@ -91,7 +88,7 @@ const Demo = () => {
             <strong>fieldProps</strong>: 字段属性配置
           </li>
           <li>
-            <strong>children</strong>: 数据内容
+            <strong>children</strong>: 数据内容（无 dataIndex 时作为展示值）
           </li>
         </ul>
         <h4>FieldProps 格式化配置：</h4>
@@ -175,7 +172,7 @@ const Demo = () => {
             <strong>时间区间</strong>: 展示时间范围
           </li>
           <li>
-            <strong>相对时间</strong>: 展示相对时间，如"一个月前"
+            <strong>相对时间</strong>: 展示相对时间，如&quot;一个月前&quot;
           </li>
           <li>
             <strong>格式化定制</strong>: 根据需求定制显示格式

@@ -1,5 +1,5 @@
 ﻿import type { ProDescriptionsActionType } from '@ant-design/pro-components';
-import { ProDescriptions, ProDescriptionsItem } from '@ant-design/pro-components';
+import { ProDescriptions } from '@ant-design/pro-components';
 import { Button } from 'antd';
 import { useRef } from 'react';
 
@@ -17,27 +17,28 @@ const Demo = () => {
           });
         }}
         extra={<Button type="link">修改</Button>}
-      >
-        <ProDescriptionsItem dataIndex="id" />
-        <ProDescriptionsItem dataIndex="date" label="日期" valueType="date" />
-        <ProDescriptionsItem
-          label="money"
-          dataIndex="money"
-          valueType="money"
-        />
-        <ProDescriptionsItem label="文本" valueType="option">
-          <Button
-            type="primary"
-            onClick={() => {
-              actionRef.current?.reload();
-            }}
-            key="reload"
-          >
-            刷新
-          </Button>
-          <Button key="rest">重置</Button>
-        </ProDescriptionsItem>
-      </ProDescriptions>
+        columns={[
+          { dataIndex: 'id' },
+          { dataIndex: 'date', label: '日期', valueType: 'date' },
+          { label: 'money', dataIndex: 'money', valueType: 'money' },
+          {
+            label: '文本',
+            valueType: 'option',
+            render: () => [
+              <Button
+                type="primary"
+                onClick={() => {
+                  actionRef.current?.reload();
+                }}
+                key="reload"
+              >
+                刷新
+              </Button>,
+              <Button key="rest">重置</Button>,
+            ],
+          },
+        ]}
+      />
 
       <div
         style={{
@@ -78,7 +79,7 @@ const Demo = () => {
             <strong>错误处理</strong>: 自动处理请求错误
           </li>
         </ul>
-        <h4>ProDescriptionsItem 配置：</h4>
+        <h4>columns 与 request 配合：</h4>
         <ul>
           <li>
             <strong>dataIndex</strong>: 数据字段名，自动绑定到 request
@@ -91,7 +92,8 @@ const Demo = () => {
             <strong>valueType</strong>: 值类型，决定如何渲染数据
           </li>
           <li>
-            <strong>children</strong>: 自定义内容，如操作按钮
+            <strong>render</strong>: 自定义内容，如操作按钮（valueType 为
+            option 时放入 extra 区域）
           </li>
         </ul>
         <h4>ActionRef 操作方法：</h4>

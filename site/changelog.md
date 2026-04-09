@@ -2,6 +2,11 @@
 
 ## [3.1.3-0] - 2026-04-06
 
+### 🗑 破坏性变更
+
+- ProDescriptions
+  - 🗑 移除 `ProDescriptionsItem` 导出；请使用 `columns` 配置列（类型仍为 `ProDescriptionsItemProps`）
+
 ### 🛠 重构 / 文档
 
 - ProForm
