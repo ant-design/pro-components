@@ -1,9 +1,5 @@
 ﻿import type { DescriptionsProps, FormProps } from 'antd';
-import type { Breakpoint } from 'antd/es/_util/responsiveObserver';
-import type {
-  CellSemanticClassNames,
-  CellSemanticStyles,
-} from 'antd/es/descriptions/DescriptionsContext';
+import type { DescriptionsItemProps as AntdDescriptionsCellProps } from 'antd/es/descriptions/Item';
 import type React from 'react';
 import type { ProFieldFCMode } from '../provider';
 import type {
@@ -14,62 +10,68 @@ import type {
   RowEditableConfig,
 } from '../utils';
 import type { LabelTooltipType } from '../utils';
-import type { RequestData } from './useFetchData';
+import type { ProDescriptionsRequestResult } from './useFetchData';
 
-export interface DescriptionsItemProps {
-  prefixCls?: string;
-  className?: string;
-  style?: React.CSSProperties;
+/** antd Descriptions 单元格 props，与 `antd/es/descriptions/Item` 对齐 */
+export type DescriptionsItemProps = AntdDescriptionsCellProps;
+
+type ProDescriptionsCellLayout = Omit<
+  AntdDescriptionsCellProps,
+  'children' | 'label'
+> & {
   label?: React.ReactNode;
-  classNames?: CellSemanticClassNames;
-  styles?: CellSemanticStyles;
-  children: React.ReactNode;
-  span?:
-    | number
-    | 'filled'
-    | {
-        [key in Breakpoint]?: number;
-      };
-}
+  children?: React.ReactNode;
+};
 
-/** 描述列表单列：基于 {@link ProSchema}，含 hideInDescriptions、mode 等 */
-export type ProDescriptionsItemProps<
-  T = Record<string, any>,
-  ValueType = 'text',
+/**
+ * 描述列表单列配置（`columns` 数组元素）
+ */
+export type ProDescriptionsColumn<
+  TRecord = Record<string, unknown>,
+  TValueType = 'text',
 > = ProSchema<
-  T,
-  Omit<DescriptionsItemProps, 'children'> & {
+  TRecord,
+  ProDescriptionsCellLayout & {
     hide?: boolean;
     plain?: boolean;
     copyable?: boolean;
     ellipsis?: ProEllipsis;
     mode?: ProFieldFCMode;
-    children?: React.ReactNode;
     order?: number;
     index?: number;
   },
   ProSchemaComponentTypes,
-  ValueType
+  TValueType
 >;
+
+/**
+ * @deprecated 使用 {@link ProDescriptionsColumn}
+ */
+export type ProDescriptionsItemProps<
+  T = Record<string, unknown>,
+  ValueType = 'text',
+> = ProDescriptionsColumn<T, ValueType>;
 
 export type ProDescriptionsActionType = ProCoreActionType;
 
 export type ProDescriptionsProps<
-  RecordType = Record<string, any>,
-  ValueType = 'text',
-> = DescriptionsProps & {
-  params?: Record<string, any>;
+  TRecord extends Record<string, any> = Record<string, any>,
+  TValueType = 'text',
+> = Omit<DescriptionsProps, 'children' | 'items'> & {
+  params?: Record<string, unknown>;
   onRequestError?: (e: Error) => void;
-  request?: (params: Record<string, any> | undefined) => Promise<RequestData>;
-  columns?: ProDescriptionsItemProps<RecordType, ValueType>[];
+  request?: (
+    params: Record<string, unknown> | undefined,
+  ) => Promise<ProDescriptionsRequestResult<TRecord>>;
+  columns?: ProDescriptionsColumn<TRecord, TValueType>[];
   actionRef?: React.MutableRefObject<ProCoreActionType<any> | undefined>;
   loading?: boolean;
   onLoadingChange?: (loading?: boolean) => void;
   tooltip?: LabelTooltipType | string;
   formProps?: FormProps;
-  editable?: RowEditableConfig<RecordType>;
-  dataSource?: RecordType;
-  onDataSourceChange?: (value: RecordType) => void;
+  editable?: RowEditableConfig<TRecord>;
+  dataSource?: TRecord;
+  onDataSourceChange?: (value: TRecord | undefined) => void;
   emptyText?: React.ReactNode;
 };
 

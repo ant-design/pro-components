@@ -1,4 +1,4 @@
-﻿import { ProDescriptions, ProDescriptionsItem } from '@ant-design/pro-components';
+﻿import { ProDescriptions } from '@ant-design/pro-components';
 
 const Demo = () => {
   return (
@@ -110,20 +110,22 @@ const Demo = () => {
               </a>,
             ],
           },
+          {
+            dataIndex: 'percent',
+            label: '百分比',
+            valueType: 'percent',
+            children: 100,
+          },
+          {
+            title: '多余节点',
+            render: () => <div>多余的dom</div>,
+          },
+          {
+            label: '超链接',
+            children: <a href="alipay.com">超链接</a>,
+          },
         ]}
-      >
-        <ProDescriptionsItem
-          dataIndex="percent"
-          label="百分比"
-          valueType="percent"
-        >
-          100
-        </ProDescriptionsItem>
-        <div>多余的dom</div>
-        <ProDescriptionsItem label="超链接">
-          <a href="alipay.com">超链接</a>
-        </ProDescriptionsItem>
-      </ProDescriptions>
+      />
 
       <div
         style={{
@@ -229,16 +231,10 @@ const Demo = () => {
             <strong>样式控制</strong>: 完全控制渲染内容的样式
           </li>
         </ul>
-        <h4>混合使用特点：</h4>
+        <h4>列配置方式：</h4>
         <ul>
           <li>
-            <strong>Columns 配置</strong>: 通过 columns 数组定义列
-          </li>
-          <li>
-            <strong>Item 组件</strong>: 同时支持 ProDescriptionsItem
-          </li>
-          <li>
-            <strong>优先级</strong>: Item 组件会覆盖 columns 中的配置
+            <strong>columns</strong>: 通过 columns 数组统一定义全部展示项
           </li>
         </ul>
         <h4>使用场景：</h4>

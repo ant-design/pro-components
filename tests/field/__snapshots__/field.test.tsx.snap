@@ -567,7 +567,7 @@ exports[`Field > 🐴 money valueType is Object 10`] = `
 exports[`Field > 🐴 money valueType is Object 11`] = `
 <DocumentFragment>
   <span>
-    100 RSD
+    100,00 RSD
   </span>
 </DocumentFragment>
 `;
@@ -575,7 +575,7 @@ exports[`Field > 🐴 money valueType is Object 11`] = `
 exports[`Field > 🐴 money valueType is Object 12`] = `
 <DocumentFragment>
   <span>
-    RSD100 RSD
+    RSD100,00 RSD
   </span>
 </DocumentFragment>
 `;

@@ -1,14 +1,9 @@
-﻿import { ProDescriptions, ProDescriptionsItem } from '@ant-design/pro-components';
+﻿import { ProDescriptions } from '@ant-design/pro-components';
 import { Button } from 'antd';
 
 const Demo = () => {
   return (
     <>
-      <ProDescriptionsItem label="文本" valueType="option">
-        <Button key="primary" type="primary">
-          提交
-        </Button>
-      </ProDescriptionsItem>
       <ProDescriptions
         column={2}
         title="高级定义列表"
@@ -18,6 +13,15 @@ const Demo = () => {
           success: true,
         })}
         columns={[
+          {
+            label: '文本',
+            valueType: 'option',
+            render: () => [
+              <Button key="primary" type="primary">
+                提交
+              </Button>,
+            ],
+          },
           {
             title: () => '文本 2',
             key: 'text',

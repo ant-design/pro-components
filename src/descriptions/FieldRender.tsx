@@ -9,13 +9,13 @@ import {
   InlineErrorFormItem,
   getFieldPropsOrFormItemProps,
 } from '../utils';
-import type { ProDescriptionsItemProps } from './typing';
+import type { ProDescriptionsColumn } from './typing';
 
 /**
  * Descriptions 单列：只读 / 可编辑下的 ProFormField 渲染
  */
 export const FieldRender: React.FC<
-  Omit<ProDescriptionsItemProps<any>, 'valueType'> & {
+  Omit<ProDescriptionsColumn<any>, 'valueType'> & {
     text: any;
     valueType: ProFieldValueTypeInput;
     entity: any;

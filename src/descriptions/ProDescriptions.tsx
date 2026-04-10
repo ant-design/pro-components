@@ -1,5 +1,4 @@
-﻿import { toArray } from '@rc-component/util';
-import type { DescriptionsItemType } from 'antd/es/descriptions';
+﻿import type { DescriptionsItemType } from 'antd/es/descriptions';
 import { ConfigProvider, Descriptions, Space } from 'antd';
 import React, { useContext, useEffect } from 'react';
 import ValueTypeToComponent from '../field/ValueTypeToComponent';
@@ -13,8 +12,8 @@ import {
   useEditableMap,
 } from '../utils';
 import { schemaToDescriptionsItem } from './schemaToDescriptionsItem';
-import type { ProDescriptionsItemProps, ProDescriptionsProps } from './typing';
-import type { RequestData } from './useFetchData';
+import type { ProDescriptionsColumn, ProDescriptionsProps } from './typing';
+import type { ProDescriptionsRequestResult } from './useFetchData';
 import useFetchData from './useFetchData';
 
 const DefaultProDescriptionsDom = (dom: { children: any }) => dom.children;
@@ -44,9 +43,11 @@ const ProDescriptions = <
   const proContext = useContext(ProConfigContext);
   const context = useContext(ConfigProvider.ConfigContext);
 
-  const action = useFetchData<RequestData>(
+  const action = useFetchData<RecordType, ProDescriptionsRequestResult<RecordType>>(
     async () => {
-      const data = request ? await request(params || {}) : { data: {} };
+      const data = request
+        ? await request(params)
+        : { data: {} as RecordType };
       return data;
     },
     {
@@ -80,39 +81,8 @@ const ProDescriptions = <
     return <ProSkeleton type="descriptions" list={false} pageHeader={false} />;
   }
 
-  const getColumns = (): ProDescriptionsItemProps<RecordType, ValueType>[] => {
-    const childrenColumns = toArray(props.children)
-      .filter(Boolean)
-      .map((item) => {
-        if (!React.isValidElement(item)) {
-          return item;
-        }
-        const {
-          valueEnum,
-          valueType,
-          dataIndex,
-          ellipsis,
-          copyable,
-          request: itemRequest,
-        } = item?.props as ProDescriptionsItemProps;
-
-        if (
-          !valueType &&
-          !valueEnum &&
-          !dataIndex &&
-          !itemRequest &&
-          !ellipsis &&
-          !copyable
-        ) {
-          return item;
-        }
-
-        return {
-          ...(item?.props as ProDescriptionsItemProps),
-          entity: dataSource,
-        };
-      }) as ProDescriptionsItemProps<RecordType, ValueType>[];
-    return [...(columns || []), ...childrenColumns]
+  const getColumns = (): ProDescriptionsColumn<RecordType, ValueType>[] => {
+    return (columns || [])
       .filter((item) => {
         if (!item) return false;
         if (
@@ -133,7 +103,7 @@ const ProDescriptions = <
 
   const { options, children } = schemaToDescriptionsItem(
     getColumns(),
-    action.dataSource || {},
+    action.dataSource,
     actionRef?.current || action,
     editable ? editableUtils : undefined,
     props.emptyText,
@@ -143,7 +113,9 @@ const ProDescriptions = <
 
   let title = null;
   if (rest.title || rest.tooltip) {
-    title = <LabelIconTip label={rest.title} tooltip={rest.tooltip} />;
+    title = (
+      <LabelIconTip label={rest.title} tooltip={rest.tooltip} />
+    );
   }
 
   const className = context.getPrefixCls('pro-descriptions');
@@ -186,9 +158,6 @@ const ProDescriptions = <
     </ErrorBoundary>
   );
 };
-
-/** antd `Descriptions.Item`，并扩展 `ProDescriptionsItemProps`（`valueType`、`dataIndex` 等） */
-export const ProDescriptionsItem = Descriptions.Item as React.FC<ProDescriptionsItemProps>;
 
 export { ProDescriptions };
 export default ProDescriptions;

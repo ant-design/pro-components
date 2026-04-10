@@ -2,6 +2,14 @@
 
 ## [3.1.3-0] - 2026-04-06
 
+### 🗑 破坏性变更
+
+- ProDescriptions
+  - 🗑 移除 `ProDescriptionsItem` 导出；请使用 `columns` 配置列
+  - 🛠 列类型更名为 `ProDescriptionsColumn`（`ProDescriptionsItemProps` 保留为别名）
+  - 🛠 `request` 返回类型收紧为 `ProDescriptionsRequestResult<T>`；`params` 为 `Record<string, unknown>`；`onDataSourceChange` 可收到 `undefined`
+  - 🛠 `ProDescriptionsProps` 不再接受 `items`（由组件内部生成）
+
 ### 🛠 重构 / 文档
 
 - ProForm

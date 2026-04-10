@@ -1,10 +1,11 @@
 ﻿export { FieldRender } from './FieldRender';
-export { ProDescriptions, ProDescriptionsItem } from './ProDescriptions';
+export { ProDescriptions } from './ProDescriptions';
 export { default } from './ProDescriptions';
 
 export type {
   DescriptionsItemProps,
   ProDescriptionsActionType,
+  ProDescriptionsColumn,
   ProDescriptionsItemProps,
   ProDescriptionsProps,
   ProFieldBuiltinValueType,
@@ -13,4 +14,5 @@ export type {
   ProFieldValueType,
   ProFieldValueTypeInput,
 } from './typing';
+export type { ProDescriptionsRequestResult } from './useFetchData';
 export { PRO_FIELD_SCHEMA_LAYOUT_VALUE_TYPES } from './typing';

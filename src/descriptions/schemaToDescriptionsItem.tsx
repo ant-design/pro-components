@@ -1,5 +1,5 @@
 ﻿import { EditOutlined } from '@ant-design/icons';
-import { Descriptions, Space } from 'antd';
+import { Space } from 'antd';
 import type { DescriptionsItemType } from 'antd/es/descriptions';
 import React from 'react';
 import type { ProCoreActionType, UseEditableMapUtilType } from '../utils';
@@ -7,11 +7,11 @@ import { LabelIconTip, genCopyable } from '../utils';
 import { FieldRender } from './FieldRender';
 import { getDataFromConfig } from './getDataFromConfig';
 import { resolveDescriptionsValueType } from './resolveValueType';
-import type { ProDescriptionsItemProps } from './typing';
+import type { ProDescriptionsColumn } from './typing';
 
 export function schemaToDescriptionsItem(
-  items: ProDescriptionsItemProps<any, any>[],
-  entity: any,
+  items: ProDescriptionsColumn<any, any>[],
+  entity: Record<string, unknown> | undefined,
   action: ProCoreActionType<any>,
   editableUtils?: UseEditableMapUtilType,
   emptyText?: React.ReactNode,
@@ -19,11 +19,7 @@ export function schemaToDescriptionsItem(
   const options: React.JSX.Element[] = [];
   const children = items
     ?.map?.((item, index) => {
-      if (React.isValidElement(item)) {
-        return {
-          children: item,
-        };
-      }
+      const row = entity ?? {};
       const {
         valueEnum: _valueEnum,
         render: _render,
@@ -35,12 +31,12 @@ export function schemaToDescriptionsItem(
         params: _params,
         editable,
         ...restItem
-      } = item as ProDescriptionsItemProps;
+      } = item as ProDescriptionsColumn;
 
       const defaultData = getDataFromConfig(item, entity) ?? restItem.children;
 
       const text = renderText
-        ? renderText(defaultData, entity, index, action)
+        ? renderText(defaultData, row, index, action)
         : defaultData;
 
       const title =
@@ -48,7 +44,7 @@ export function schemaToDescriptionsItem(
           ? restItem.title(item, 'descriptions', null)
           : restItem.title;
 
-      const valueType = resolveDescriptionsValueType(item, entity || {});
+      const valueType = resolveDescriptionsValueType(item, row);
 
       const isEditable = editableUtils?.isEditable(
         (dataIndex as React.Key) || index,
@@ -60,7 +56,7 @@ export function schemaToDescriptionsItem(
         editableUtils &&
         fieldMode === 'read' &&
         editable !== false &&
-        editable?.(text, entity, index) !== false;
+        editable?.(text, row, index) !== false;
 
       const Component = showEditIcon ? Space : React.Fragment;
 
@@ -92,7 +88,7 @@ export function schemaToDescriptionsItem(
                     mode={fieldMode}
                     text={contentDom}
                     valueType={valueType}
-                    entity={entity}
+                    entity={row}
                     index={index}
                     emptyText={emptyText}
                     action={action}
@@ -111,7 +107,7 @@ export function schemaToDescriptionsItem(
               ),
             } as DescriptionsItemType)
           : ((
-              <Descriptions.Item {...restItem} key={key} label={label}>
+              <React.Fragment key={key}>
                 <Component>
                   <FieldRender
                     {...item}
@@ -119,7 +115,7 @@ export function schemaToDescriptionsItem(
                     mode={fieldMode}
                     text={contentDom}
                     valueType={valueType}
-                    entity={entity}
+                    entity={row}
                     index={index}
                     action={action}
                     editableUtils={editableUtils}
@@ -134,7 +130,7 @@ export function schemaToDescriptionsItem(
                     />
                   )}
                 </Component>
-              </Descriptions.Item>
+              </React.Fragment>
             ) as React.JSX.Element);
       if (valueType === 'option') {
         options.push(field as React.JSX.Element);
