@@ -11,7 +11,9 @@ export type InputNumberPopoverProps = InputNumberProps & {
   numberPopoverRender?: any;
 };
 
-const InputNumberPopover = React.forwardRef<any, InputNumberPopoverProps>(
+const InputNumberPopover: React.ForwardRefExoticComponent<
+  InputNumberPopoverProps & React.RefAttributes<any>
+> = React.forwardRef<any, InputNumberPopoverProps>(
   function InputNumberPopoverInner(
     {
       contentRender: content,
@@ -111,7 +113,5 @@ const InputNumberPopover = React.forwardRef<any, InputNumberPopoverProps>(
       </Popover>
     );
   },
-) as React.ForwardRefExoticComponent<
-  InputNumberPopoverProps & React.RefAttributes<any>
->;
+);
 export default InputNumberPopover;
