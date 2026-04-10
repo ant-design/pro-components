@@ -1,13 +1,9 @@
-﻿import type { PopoverProps } from 'antd';
+﻿import type { PopoverProps, ColorPickerProps } from 'antd';
 import React from 'react';
 import { FieldColorPicker } from '../../../field';
 import { ProConfigProvider } from '../../../provider';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProFromField from '../Field';
-type ColorPickerProps = {
-  value?: string;
-  onChange?: (color: string) => void;
-};
 
 export type ProFormColorPickerProps =
   ProFormFieldItemProps<ColorPickerProps> & {
