@@ -1,4 +1,4 @@
-﻿import {
+import {
   ArrowDownOutlined,
   ArrowUpOutlined,
   CopyOutlined,
@@ -118,8 +118,8 @@ export type ProFromListCommonProps = {
   /**
    * @name 提交时转化值，一般用于将值转化为提交的数据
    * @param value 字段的值
-   * @param namePath 字段的name
-   * @param allValues 所有的字段
+   * @param namePath 从根到当前字段的路径（string[]），列表字段为路径最后一段对应整段 list
+   * @param allValues 根级表单对象（提交转换中与 `transformKeySubmitValue` 的根 values 一致）
    * @returns 字段新的值，如果返回对象，会和所有值 merge 一次
    *
    * @example {name:[a,b] => {name:a,b }    transform: (value,namePath,allValues)=> value.join(",")

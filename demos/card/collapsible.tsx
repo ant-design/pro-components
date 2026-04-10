@@ -1,6 +1,6 @@
 import { RightOutlined } from '@ant-design/icons';
 import { ProCard } from '@ant-design/pro-components';
-import { Button } from 'antd';
+import { Button, message } from 'antd';
 import { useState } from 'react';
 
 export default () => {
@@ -21,7 +21,9 @@ export default () => {
           headerBordered
           collapsible
           defaultCollapsed
-          onCollapse={(collapse) => console.log(collapse)}
+          onCollapse={(collapsed) => {
+            message.info(collapsed ? '已收起' : '已展开');
+          }}
           extra={
             <Button
               size="small"
@@ -40,7 +42,9 @@ export default () => {
           headerBordered
           collapsible="icon"
           defaultCollapsed
-          onCollapse={(collapse) => console.log(collapse)}
+          onCollapse={(collapsed) => {
+            message.info(collapsed ? '已收起' : '已展开');
+          }}
           extra={
             <Button
               size="small"
@@ -60,7 +64,9 @@ export default () => {
           headerBordered
           collapsible
           defaultCollapsed
-          onCollapse={(collapse) => console.log(collapse)}
+          onCollapse={(collapsed) => {
+            message.info(collapsed ? '已收起' : '已展开');
+          }}
           extra={
             <Button
               size="small"
@@ -81,7 +87,9 @@ export default () => {
           headerBordered
           collapsible
           defaultCollapsed
-          onCollapse={(collapse) => console.log(collapse)}
+          onCollapse={(collapsed) => {
+            message.info(collapsed ? '已收起' : '已展开');
+          }}
           extra={
             <Button
               size="small"

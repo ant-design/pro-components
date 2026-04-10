@@ -5,7 +5,7 @@ import { ConfigProvider, Input, Select } from 'antd';
 import { clsx } from 'clsx';
 import React, { useContext, useMemo, useState } from 'react';
 import { FieldLabel, useStyle } from '../../../../utils';
-import type { ProFieldLightProps } from '../../../PureProField';
+import type { ProFieldLightProps } from '../../../types';
 
 export type LightSelectProps = {
   label?: string;

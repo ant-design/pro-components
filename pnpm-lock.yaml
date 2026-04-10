@@ -50,9 +50,6 @@ importers:
       '@umijs/route-utils':
         specifier: ^4.0.3
         version: 4.0.3
-      '@umijs/use-params':
-        specifier: ^1.0.9
-        version: 1.0.9(react@18.3.1)
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -3870,11 +3867,6 @@ packages:
 
   '@umijs/ui@3.0.1':
     resolution: {integrity: sha512-zcz37AJH0xt/6XVVbyO/hmsK9Hq4vH23HZ4KYVi5A8rbM9KeJkJigTS7ELOdArawZhVNGe+h3a5Oixs4a2QsWw==}
-
-  '@umijs/use-params@1.0.9':
-    resolution: {integrity: sha512-QlN0RJSBVQBwLRNxbxjQ5qzqYIGn+K7USppMoIOVlf7fxXHsnQZ2bEsa6Pm74bt6DVQxpUE8HqvdStn6Y9FV1w==}
-    peerDependencies:
-      react: '*'
 
   '@umijs/utils@3.5.43':
     resolution: {integrity: sha512-LQrCkZEa9Fb0zhId1n6CdU489tzJp4/usHVvVcTwjah7jF48zrHXD4OClGjSxvZ63d+3950mZY5IWE9UZVhnDg==}
@@ -15897,10 +15889,6 @@ snapshots:
       - supports-color
 
   '@umijs/ui@3.0.1': {}
-
-  '@umijs/use-params@1.0.9(react@18.3.1)':
-    dependencies:
-      react: 18.3.1
 
   '@umijs/utils@3.5.43':
     dependencies:

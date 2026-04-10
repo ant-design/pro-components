@@ -1,7 +1,6 @@
-import { omit, useControlledState } from '@rc-component/util';
+﻿import { omit, useControlledState } from '@rc-component/util';
 import type { TreeSelectProps } from 'antd';
-import { ConfigProvider, Spin, TreeSelect } from 'antd';
-import { clsx } from 'clsx';
+import { ConfigProvider } from 'antd';
 import React, {
   useCallback,
   useContext,
@@ -11,19 +10,18 @@ import React, {
   useState,
 } from 'react';
 import { useIntl } from '../../../provider';
-import { FieldLabel, objectToMap, proFieldParsingText } from '../../../utils';
-import type { ProFieldFC } from '../../PureProField';
+import {
+  isProFieldEditOnlyMode,
+  isProFieldReadMode,
+} from '../../internal/fieldMode';
+import type { ProFieldFC } from '../../types';
 import type { FieldSelectProps } from '../Select';
 import { useFieldFetchData } from '../Select';
+import { FieldTreeSelectEdit } from './FieldTreeSelectEdit';
+import { FieldTreeSelectRead } from './FieldTreeSelectRead';
+import type { TreeSelectFieldProps } from './types';
 
-export type TreeSelectFieldProps = TreeSelectProps & {
-  /**
-   * 当搜索关键词发生变化时是否请求远程数据
-   *
-   * @default true
-   */
-  fetchDataOnSearch?: boolean;
-};
+export type { TreeSelectFieldProps };
 /**
  * Tree select
  * A function that returns a React component.
@@ -119,7 +117,7 @@ const FieldTreeSelect: ProFieldFC<{} & FieldSelectProps> = (
   }));
 
   const optionsValueEnum = useMemo(() => {
-    if (mode !== 'read') return;
+    if (!isProFieldReadMode(mode)) return;
     /**
      * Support TreeSelect fieldNames
      * @see https://ant.design/components/tree-select-cn
@@ -163,138 +161,51 @@ const FieldTreeSelect: ProFieldFC<{} & FieldSelectProps> = (
     propsOnChange?.(value, optionList, extra);
   };
 
-  if (mode === 'read') {
-    const dom = (
-      <>
-        {proFieldParsingText(
-          rest.text,
-          objectToMap(rest.valueEnum || optionsValueEnum),
-        )}
-      </>
+  if (isProFieldReadMode(mode)) {
+    return (
+      <FieldTreeSelectRead
+        formItemRender={formItemRender}
+        mode={mode}
+        light={light}
+        label={label}
+        render={render}
+        variant={propsVariant}
+        optionsValueEnum={optionsValueEnum}
+        options={options}
+        {...rest}
+      />
     );
-
-    if (render) {
-      return (
-        render(
-          rest.text,
-          { mode, ...(fieldProps as any), treeData: options },
-          dom,
-        ) ?? null
-      );
-    }
-    return dom;
   }
-  if (mode === 'edit') {
-    const valuesLength = Array.isArray(fieldProps?.value)
-      ? fieldProps?.value?.length
-      : 0;
-    let dom = (
-      <Spin spinning={loading}>
-        <TreeSelect<string | undefined>
-          open={open}
-          onOpenChange={(isOpen) => {
-            fieldProps?.onOpenChange?.(isOpen);
-            setOpen(isOpen);
-          }}
-          ref={treeSelectRef}
-          popupMatchSelectWidth={!light}
-          placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
-          tagRender={
-            light
-              ? (item) => {
-                  if (valuesLength < 2) return <>{item.label}</>;
-                  /**
-                   * 性能不好，等我给 antd 提个issue
-                   */
-                  const itemIndex = fieldProps?.value?.findIndex(
-                    (v: any) => v === item.value || v.value === item.value,
-                  );
-                  return (
-                    <>
-                      {item.label} {itemIndex < valuesLength - 1 ? ',' : ''}
-                    </>
-                  );
-                }
-              : undefined
-          }
-          {...fieldProps}
-          treeData={options as TreeSelectProps['treeData']}
-          showSearch={
-            showSearch
-              ? {
-                  ...showSearchConfig,
-                  searchValue: searchValue,
-                  autoClearSearchValue: autoClearSearchValue,
-                  onSearch: (value) => {
-                    // fix 不支持请求的情况下不刷新options
-                    if (fetchDataOnSearch && rest?.request) {
-                      fetchData(value);
-                    }
-                    setSearchValue(value);
-                  },
-                }
-              : showSearch
-          }
-          style={{
-            minWidth: 60,
-            ...fieldProps.style,
-          }}
-          allowClear={fieldProps.allowClear !== false}
-          onClear={() => {
-            onClear?.();
-            fetchData(undefined);
-            if (showSearch) {
-              setSearchValue(undefined);
-            }
-          }}
-          onChange={onChange}
-          onBlur={(event) => {
-            setSearchValue(undefined);
-            fetchData(undefined);
-            onBlur?.(event);
-          }}
-          className={clsx(fieldProps?.className, layoutClassName)}
-        />
-      </Spin>
+  if (isProFieldEditOnlyMode(mode)) {
+    return (
+      <FieldTreeSelectEdit
+        text={rest.text as string}
+        mode="edit"
+        formItemRender={formItemRender}
+        light={light}
+        label={label}
+        variant={variant}
+        fieldProps={fieldProps}
+        open={open}
+        setOpen={setOpen}
+        treeSelectRef={treeSelectRef}
+        intl={intl}
+        loading={loading}
+        options={options}
+        fetchData={fetchData}
+        fetchDataOnSearch={fetchDataOnSearch}
+        hasRequest={!!rest.request}
+        showSearch={showSearch}
+        showSearchConfig={showSearchConfig}
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
+        autoClearSearchValue={autoClearSearchValue}
+        onClear={onClear}
+        treeSelectOnChange={onChange}
+        onBlur={onBlur}
+        layoutClassName={layoutClassName}
+      />
     );
-
-    if (formItemRender) {
-      dom =
-        formItemRender(
-          rest.text,
-          { mode, ...(fieldProps as any), options, loading },
-          dom,
-        ) ?? null;
-    }
-
-    if (light) {
-      const { disabled, placeholder } = fieldProps;
-      const notEmpty = !!fieldProps.value && fieldProps.value?.length !== 0;
-
-      return (
-        <FieldLabel
-          label={label}
-          disabled={disabled}
-          placeholder={placeholder}
-          onClick={() => {
-            setOpen(true);
-            fieldProps?.onOpenChange?.(true);
-          }}
-          variant={variant}
-          value={notEmpty || open ? dom : null}
-          style={
-            notEmpty
-              ? {
-                  paddingInlineEnd: 0,
-                }
-              : undefined
-          }
-          allowClear={false}
-          downIcon={false}
-        />
-      );
-    }
-    return dom;
   }
 
   return null;

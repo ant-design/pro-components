@@ -24,7 +24,7 @@ const Demo = () => {
     <>
       <StepsForm
         onFinish={async (values) => {
-          console.log(values);
+
           await waitTime(1000);
           message.success('Submission successful');
         }}

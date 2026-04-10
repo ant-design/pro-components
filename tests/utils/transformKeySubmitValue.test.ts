@@ -593,6 +593,32 @@ describe('transformKeySubmitValue', () => {
     });
   });
 
+  it('passes string[] namePath and root object to nested transforms', () => {
+    const values = {
+      user: {
+        profile: { name: 'Ann' },
+      },
+      other: 1,
+    };
+    let seenNamePath: string[] | undefined;
+    let seenRoot: typeof values | undefined;
+    const transforms = {
+      user: {
+        profile: {
+          name: (value: string, namePath: string[], allValues: typeof values) => {
+            seenNamePath = namePath;
+            seenRoot = allValues;
+            return { displayName: value };
+          },
+        },
+      },
+    };
+    transformKeySubmitValue(values, transforms);
+    expect(seenNamePath).toEqual(['user', 'profile', 'name']);
+    expect(seenRoot).toBeDefined();
+    expect(seenRoot?.other).toBe(1);
+  });
+
   it('handles transforms with function values in data', () => {
     const values = {
       name: 'John',

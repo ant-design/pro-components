@@ -3,7 +3,7 @@ import { ConfigProvider } from 'antd';
 import { clsx } from 'clsx';
 import React, { useContext } from 'react';
 import { useStyle } from '../../../utils';
-import type { ProFieldFC } from '../../PureProField';
+import type { ProFieldFC } from '../../types';
 
 /**
  * Input.TextArea 只读模式时渲染的组件

@@ -43,14 +43,13 @@ const msg: {
 If your backend data uses a familiar url, we could use a request to convert it, but it would be a pain to configure each table. If you're using umi's request, we can define a global transformer. We need to configure this in app.tsx
 
 ```tsx | pure
-import   { RequestConfig } from 'umi';
+import type { RequestConfig } from 'umi';
 
 export const request: RequestConfig = {
   errorConfig: {
     adaptor: (resData) => {
-      // resData is our own data
       return {
-        ... . resData,
+        ...resData,
         total: resData.sum,
         success: resData.ok,
         errorMessage: resData.message,
@@ -58,9 +57,12 @@ export const request: RequestConfig = {
     },
   },
 };
+```
 
-// when usedimport { afterEach, describe, expect, it, vi } from 'vitest';
-import   { request } from 'umi';
+When using UMI `request`:
+
+```tsx | pure
+import { request } from 'umi';
 
 <ProTable request={request('/list')} />;
 ```
@@ -73,7 +75,7 @@ const request = (url, options) => {
     .then((res) => res.json())
     .then((resData) => {
       return Promise.resolve({
-        ... . resData,
+        ...resData,
         total: resData.sum,
         success: resData.ok,
         errorMessage: resData.message,

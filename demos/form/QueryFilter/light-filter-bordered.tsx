@@ -8,7 +8,7 @@ import {
   ProFormSelect,
   ProFormTreeSelect,
 } from '@ant-design/pro-components';
-import { TreeSelect } from 'antd';
+import { TreeSelect, message } from 'antd';
 
 const treeData = [
   {
@@ -55,7 +55,9 @@ const Demo = () => {
       }}
       variant="outlined"
       collapseLabel={<FilterOutlined />}
-      onFinish={async (values) => console.log(values)}
+      onFinish={async () => {
+        message.success('提交成功');
+      }}
     >
       <ProFormSelect
         name="sex"

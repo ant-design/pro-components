@@ -5,7 +5,7 @@ import {
   ProFormDatePicker,
   ProTable,
 } from '@ant-design/pro-components';
-import { Button } from 'antd';
+import { Button, message } from 'antd';
 
 import { createTableDataSource, DEMO_CREATOR_VALUE_ENUM } from '../../mockData';
 

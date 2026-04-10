@@ -35,12 +35,13 @@ const Demo = () => {
       autoFocusFirstInput
       modalProps={{
         destroyOnHidden: true,
-        onCancel: () => console.log('run'),
+        onCancel: () => {
+          message.info('已关闭');
+        },
       }}
       submitTimeout={2000}
-      onFinish={async (values) => {
+      onFinish={async () => {
         await waitTime(2000);
-        console.log(values.name);
         message.success('Submission successful');
         return true;
       }}

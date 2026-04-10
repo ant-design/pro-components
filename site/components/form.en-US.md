@@ -413,17 +413,13 @@ This property is a high-level wrapper made by ProForm based on the original Antd
 
 ```tsx | pure
 import type { ProFormInstance } from '@ant-design/pro-components';
-import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   ProForm,
   ProFormDatePicker,
   ProFormText,
 } from '@ant-design/pro-components';
-import { afterEach, describe, expect, it, vi } from 'vitest';
 import { Button, message, Space } from 'antd';
-import { afterEach, describe, expect, it, vi } from 'vitest';
 import moment from 'dayjs';
-import { afterEach, describe, expect, it, vi } from 'vitest';
 import { useRef } from 'react';
 
 const waitTime = (time: number = 100) => {

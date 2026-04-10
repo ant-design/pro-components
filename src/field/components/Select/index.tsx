@@ -1,8 +1,7 @@
-import { useControlledState } from '@rc-component/util';
+﻿import { useControlledState } from '@rc-component/util';
 import type { SelectProps } from 'antd';
-import { ConfigProvider, Spin } from 'antd';
+import { ConfigProvider } from 'antd';
 import React, {
-  useContext,
   useEffect,
   useImperativeHandle,
   useMemo,
@@ -14,112 +13,25 @@ import { useIntl } from '../../../provider';
 import {
   nanoid,
   objectToMap,
-  proFieldParsingText,
-  ProFieldRequestData,
   ProFieldValueEnumType,
-  ProSchemaValueEnumObj,
   RequestOptionsType,
   useDebounceValue,
   useDeepCompareEffect,
   useDeepCompareMemo,
   useRefFunction,
-  useStyle,
 } from '../../../utils';
-import type { ProFieldFC, ProFieldLightProps } from '../../PureProField';
-import LightSelect from './LightSelect';
-import SearchSelect from './SearchSelect';
+import {
+  isProFieldEditOrUpdateMode,
+  isProFieldReadMode,
+} from '../../internal/fieldMode';
+import type { ProFieldFC } from '../../types';
+import { FieldSelectEdit } from './FieldSelectEdit';
+import { FieldSelectRead } from './FieldSelectRead';
+import type { FieldSelectProps } from './types';
+
+export type { FieldSelectProps };
 
 type SelectOptionType = Partial<RequestOptionsType>[];
-
-export type FieldSelectProps<FieldProps = any> = {
-  text: string;
-  /** 值的枚举，如果存在枚举，Search 中会生成 select */
-  valueEnum?: ProFieldValueEnumType;
-  /** 防抖动时间 默认10 单位ms */
-  debounceTime?: number;
-  /** 从服务器读取选项 */
-  request?: ProFieldRequestData;
-  /** 重新触发的时机 */
-  params?: any;
-
-  /** 组件的全局设置 */
-  fieldProps?: FieldProps;
-
-  variant?: 'outlined' | 'filled' | 'borderless';
-  id?: string;
-
-  /** 默认搜素条件 */
-  defaultKeyWords?: string;
-} & ProFieldLightProps;
-
-const Highlight: React.FC<{
-  label: string;
-  words: string[];
-}> = ({ label, words }) => {
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const lightCls = getPrefixCls('pro-select-item-option-content-light');
-  const optionCls = getPrefixCls('pro-select-item-option-content');
-
-  // css
-  const { wrapSSR } = useStyle('Highlight', (token) => {
-    return {
-      [`.${lightCls}`]: {
-        color: token.colorPrimary,
-      },
-      [`.${optionCls}`]: {
-        flex: 'auto',
-        overflow: 'hidden',
-        whiteSpace: 'nowrap',
-        textOverflow: 'ellipsis',
-      },
-    };
-  });
-
-  const matchKeywordsRE = new RegExp(
-    words
-      .map((word) => word.replace(/[-[\]/{}()*+?.\\^$|]/g, '\\$&'))
-      .join('|'),
-    'gi',
-  );
-
-  let matchText = label;
-
-  const elements: React.ReactNode[] = [];
-
-  while (matchText.length) {
-    const match = matchKeywordsRE.exec(matchText);
-    if (!match) {
-      elements.push(matchText);
-      break;
-    }
-
-    const start = match.index;
-    const matchLength = match[0].length + start;
-
-    elements.push(
-      matchText.slice(0, start),
-      React.createElement(
-        'span',
-        {
-          className: lightCls,
-        },
-        matchText.slice(start, matchLength),
-      ),
-    );
-    matchText = matchText.slice(matchLength);
-  }
-
-  return wrapSSR(
-    React.createElement(
-      'div',
-      {
-        title: label,
-        className: optionCls,
-      },
-      ...elements,
-    ),
-  );
-};
 
 /**
  * 递归筛选 item
@@ -406,9 +318,10 @@ const FieldSelect: ProFieldFC<
   }, [fieldProps?.searchValue]);
 
   const [loading, options, fetchData, resetData] = useFieldFetchData(props);
-  const { componentSize } = ConfigProvider?.useConfig?.() || {
-    componentSize: 'middle',
+  const { componentSize: componentSizeFromConfig } = ConfigProvider?.useConfig?.() || {
+    componentSize: undefined,
   };
+  const componentSize = componentSizeFromConfig ?? 'middle';
   useImperativeHandle(
     ref,
     () => ({
@@ -419,7 +332,7 @@ const FieldSelect: ProFieldFC<
   );
 
   const optionsValueEnum = useMemo(() => {
-    if (mode !== 'read') return;
+    if (!isProFieldReadMode(mode)) return;
 
     const {
       label: labelPropsName = 'label',
@@ -446,99 +359,42 @@ const FieldSelect: ProFieldFC<
     return traverseOptions(options);
   }, [fieldNames, mode, options]);
 
-  if (mode === 'read') {
-    const dom = (
-      <>
-        {proFieldParsingText(
-          rest.text,
-          objectToMap(
-            valueEnum || optionsValueEnum,
-          ) as unknown as ProSchemaValueEnumObj,
-        )}
-      </>
+  if (isProFieldReadMode(mode)) {
+    return (
+      <FieldSelectRead
+        mode={mode}
+        valueEnum={valueEnum}
+        render={render}
+        fieldProps={fieldProps}
+        optionsValueEnum={optionsValueEnum}
+        {...props}
+      />
     );
-
-    if (render) {
-      return render(dom, { mode, ...fieldProps }, dom) ?? null;
-    }
-    return dom;
   }
 
-  if (mode === 'edit' || mode === 'update') {
-    const renderDom = () => {
-      if (light) {
-        return (
-          <LightSelect
-            id={id}
-            loading={loading}
-            ref={inputRef}
-            allowClear
-            size={componentSize}
-            options={options}
-            label={label}
-            labelVariant={variant}
-            placeholder={intl.getMessage(
-              'tableForm.selectPlaceholder',
-              '请选择',
-            )}
-            lightLabel={lightLabel}
-            labelTrigger={labelTrigger}
-            fetchData={fetchData}
-            {...fieldProps}
-          />
-        );
-      }
-      return (
-        <SearchSelect
-          key="SearchSelect"
-          className={rest.className}
-          style={{
-            minWidth: 100,
-            ...rest.style,
-          }}
-          id={id}
-          loading={loading}
-          ref={inputRef}
-          allowClear
-          defaultSearchValue={props.defaultKeyWords}
-          notFoundContent={
-            loading ? <Spin size="small" /> : fieldProps?.notFoundContent
-          }
-          fetchData={(keyWord) => {
-            keyWordsRef.current = keyWord ?? '';
-            fetchData(keyWord);
-            // 当 keyWord 为 undefined 时，清空 keyWordsRef 以确保 filterOption 不进行过滤
-            if (keyWord === undefined) {
-              keyWordsRef.current = '';
-            }
-          }}
-          resetData={resetData}
-          optionItemRender={(item) => {
-            if (typeof item.label === 'string' && keyWordsRef.current) {
-              return (
-                <Highlight label={item.label} words={[keyWordsRef.current]} />
-              );
-            }
-            return item.label;
-          }}
-          placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
-          label={label}
-          {...fieldProps}
-          options={options}
-        />
-      );
-    };
-    const dom = renderDom();
-    if (formItemRender) {
-      return (
-        formItemRender(
-          rest.text,
-          { mode, ...fieldProps, options, loading },
-          dom,
-        ) ?? null
-      );
-    }
-    return dom;
+  if (isProFieldEditOrUpdateMode(mode)) {
+    return (
+      <FieldSelectEdit
+        mode={mode}
+        formItemRender={formItemRender}
+        fieldProps={fieldProps}
+        light={light}
+        id={id}
+        label={label}
+        variant={variant}
+        lightLabel={lightLabel}
+        labelTrigger={labelTrigger}
+        intl={intl}
+        loading={loading}
+        options={options}
+        fetchData={fetchData}
+        resetData={resetData}
+        inputRef={inputRef}
+        keyWordsRef={keyWordsRef}
+        componentSize={componentSize}
+        {...props}
+      />
+    );
   }
   return null;
 };

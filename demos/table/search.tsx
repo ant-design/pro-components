@@ -21,7 +21,7 @@ const SearchTable = () => (
       },
     ]}
     request={async (params) => {
-      console.log(params);
+
       return {
         data: [
           {

@@ -1,4 +1,4 @@
-import { Button, Form, Input, Select, Space } from 'antd';
+import { Button, Form, Input, message, Select, Space } from 'antd';
 import React from 'react';
 
 export function PriceInput() {
@@ -18,8 +18,8 @@ export function PriceInput() {
 }
 
 const App: React.FC = () => {
-  const onFinish = (values: any) => {
-    console.log('Received values from form: ', values);
+  const onFinish = () => {
+    message.success('表单已提交');
   };
 
   const checkPrice = (_: any, value: { number: number }) => {

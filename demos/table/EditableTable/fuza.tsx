@@ -123,7 +123,7 @@ const Demo = () => {
     <ProForm
       formRef={formRef}
       onValuesChange={(_, e) => {
-        console.log(e);
+
       }}
       initialValues={{ columnsInfo: defaultData, table: defaultData }}
     >

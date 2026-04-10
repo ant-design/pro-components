@@ -52,7 +52,7 @@ const Demo = () => {
           type="dashed"
           onClick={() => {
             const row = actionRef.current?.get(1);
-            console.log(row);
+            message.info(JSON.stringify(row ?? null));
           }}
         >
           获取一行数据
@@ -61,7 +61,7 @@ const Demo = () => {
           type="dashed"
           onClick={() => {
             const row = actionRef.current?.getList();
-            console.log(row);
+            message.info(JSON.stringify(row ?? []));
           }}
         >
           获取所有数据
@@ -82,7 +82,7 @@ const Demo = () => {
           actionGuard={{
             beforeAddRow: async (defaultValue, insertIndex) => {
               return new Promise((resolve) => {
-                console.log(defaultValue, insertIndex);
+
                 setTimeout(() => resolve(true), 1000);
               });
             },

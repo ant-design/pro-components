@@ -1,12 +1,12 @@
-import type { ColProps, FormItemProps, RowProps } from 'antd';
+﻿import type { ColProps, FormItemProps, RowProps } from 'antd';
 import type React from 'react';
 import type {
   ProFieldProps,
-  ProFieldValueType,
   ProFormBaseGroupProps,
   ProSchema,
   SearchConvertKeyFn,
 } from '../utils';
+import type { ProFieldValueType } from '../utils/typing';
 import type { ProFormInstance } from './BaseForm';
 import type { ProFormItemProps } from './components';
 import type { CaptFieldRef } from './components/Captcha';
@@ -176,3 +176,12 @@ export type ProFormFieldRemoteProps = Pick<
   ProSchema,
   'debounceTime' | 'request' | 'valueEnum' | 'params'
 >;
+
+export type {
+  ProFieldBuiltinValueType,
+  ProFieldSchemaLayoutValueType,
+  ProFieldValueObjectType,
+  ProFieldValueType,
+  ProFieldValueTypeInput,
+} from '../utils/typing';
+export { PRO_FIELD_SCHEMA_LAYOUT_VALUE_TYPES } from '../utils/typing';

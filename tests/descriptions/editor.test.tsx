@@ -113,18 +113,14 @@ const DescriptionsDemo = (
     props.dataSource as any,
     props.dataSource,
   );
-  const setDataSource = useCallback(
-    (updater: DataSourceType | ((prev: DataSourceType) => DataSourceType)) => {
-      setDataSourceInner((prev) => {
-        const next =
-          typeof updater === 'function'
-            ? (updater as (p: DataSourceType) => DataSourceType)(prev)
-            : updater;
-        props.onDataSourceChange?.(next);
-        return next;
-      });
+  const handleDataSourceChange = useCallback(
+    (value: DataSourceType | undefined) => {
+      if (value !== undefined) {
+        setDataSourceInner(value);
+        props.onDataSourceChange?.(value);
+      }
     },
-    [props.onDataSourceChange],
+    [props.onDataSourceChange, setDataSourceInner],
   );
   return (
     <ProDescriptions<DataSourceType>
@@ -146,7 +142,7 @@ const DescriptionsDemo = (
         </a>
       }
       dataSource={dataSource}
-      onDataSourceChange={setDataSource}
+      onDataSourceChange={handleDataSourceChange}
       editable={{
         ...props,
         form,

@@ -1,30 +1,24 @@
-import { Rate } from 'antd';
-import React from 'react';
-import type { ProFieldFC } from '../../PureProField';
+﻿import React from 'react';
+import {
+  isProFieldEditOrUpdateMode,
+  isProFieldReadMode,
+} from '../../internal/fieldMode';
+import type { ProFieldFC } from '../../types';
+import { FieldRateEdit } from './FieldRateEdit';
+import { FieldRateRead } from './FieldRateRead';
 
 /**
  * 评分组件
- *
- * @param
  */
 const FieldRate: ProFieldFC<{
   text: string;
-}> = ({ text, mode, render, formItemRender, fieldProps }, ref) => {
-  if (mode === 'read') {
-    const dom = (
-      <Rate allowHalf disabled ref={ref} {...fieldProps} value={text} />
-    );
-    if (render) {
-      return render(text, { mode, ...fieldProps }, <>{dom}</>);
-    }
-    return dom;
+}> = (props, ref) => {
+  const { mode } = props;
+  if (isProFieldReadMode(mode)) {
+    return FieldRateRead(props, ref);
   }
-  if (mode === 'edit' || mode === 'update') {
-    const dom = <Rate allowHalf ref={ref} {...fieldProps} />;
-    if (formItemRender) {
-      return formItemRender(text, { mode, ...fieldProps }, dom);
-    }
-    return dom;
+  if (isProFieldEditOrUpdateMode(mode)) {
+    return FieldRateEdit(props, ref);
   }
   return null;
 };

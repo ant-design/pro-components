@@ -116,7 +116,7 @@ const Demo = () => {
         name="schema-form-value-type-demo"
         layoutType="Form"
         onFinish={async (values) => {
-          console.log(values);
+
         }}
         initialValues={options.reduce((pre, item) => {
           return {

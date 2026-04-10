@@ -13,7 +13,12 @@ export type { ProFormProps } from './ProForm';
 export { QueryFilter } from './QueryFilter';
 export type { BaseQueryFilterProps, QueryFilterProps } from './QueryFilter';
 export { StepsForm } from './StepsForm';
-export type { StepFormProps, StepsFormProps } from './StepsForm';
+export type {
+  StepFormProps,
+  StepsFormProps,
+  StepsFormRef,
+} from './StepsForm';
+export { useStepsFormContext } from './StepsForm';
 export { ProForm };
 
 export const ProFormGroup = ProForm.Group;

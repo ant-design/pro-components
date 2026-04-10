@@ -1,15 +1,16 @@
-import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons';
-import { omit, useControlledState } from '@rc-component/util';
-import { Input, Space } from 'antd';
+﻿import { omit, useControlledState } from '@rc-component/util';
 import React, { useCallback } from 'react';
 import { useIntl } from '../../../provider';
-import type { ProFieldFC } from '../../PureProField';
+import {
+  isProFieldEditOrUpdateMode,
+  isProFieldReadMode,
+} from '../../internal/fieldMode';
+import type { ProFieldFC } from '../../types';
+import { FieldPasswordEdit } from './FieldPasswordEdit';
+import { FieldPasswordRead } from './FieldPasswordRead';
 
 /**
  * 最基本的组件，就是个普通的 Input.Password
- *
- * @param props
- * @param ref
  */
 const FieldPassword: ProFieldFC<{
   text: string;
@@ -39,35 +40,20 @@ const FieldPassword: ProFieldFC<{
     [rest.onOpenChange],
   );
 
-  if (mode === 'read') {
-    let dom = <>-</>;
-    if (text) {
-      dom = (
-        <Space>
-          <span ref={ref}>{open ? text : '********'}</span>
-          <a onClick={() => setOpen(!open)}>
-            {open ? <EyeOutlined /> : <EyeInvisibleOutlined />}
-          </a>
-        </Space>
-      );
-    }
-    if (render) {
-      return render(text, { mode, ...fieldProps }, dom);
-    }
-    return dom;
+  const merged = {
+    text,
+    mode,
+    render,
+    formItemRender,
+    fieldProps,
+    ...rest,
+  };
+
+  if (isProFieldReadMode(mode)) {
+    return FieldPasswordRead({ ...merged, open, setOpen }, ref);
   }
-  if (mode === 'edit' || mode === 'update') {
-    const dom = (
-      <Input.Password
-        placeholder={intl.getMessage('tableForm.inputPlaceholder', '请输入')}
-        ref={ref}
-        {...fieldProps}
-      />
-    );
-    if (formItemRender) {
-      return formItemRender(text, { mode, ...fieldProps }, dom);
-    }
-    return dom;
+  if (isProFieldEditOrUpdateMode(mode)) {
+    return FieldPasswordEdit({ ...merged, intl }, ref);
   }
   return null;
 };

@@ -1,62 +1,33 @@
-import { DatePicker, Tooltip } from 'antd';
-import dayjs from 'dayjs';
+﻿import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import React from 'react';
 import { useIntl } from '../../../provider';
-import { parseValueToDay } from '../../../utils';
-import type { ProFieldFC } from '../../PureProField';
+import {
+  isProFieldEditOrUpdateMode,
+  isProFieldReadMode,
+} from '../../internal/fieldMode';
+import type { ProFieldFC } from '../../types';
+import { FieldFromNowEdit } from './FieldFromNowEdit';
+import { FieldFromNowRead } from './FieldFromNowRead';
 
 dayjs.extend(relativeTime);
+
 /**
  * 与当前的时间进行比较 http://momentjs.cn/docs/displaying/fromnow.html
- *
- * @param
  */
 const FieldFromNow: ProFieldFC<{
   text: string;
   format?: string;
   variant?: 'outlined' | 'borderless' | 'filled' | 'underlined';
-}> = (
-  { text, mode, variant, render, formItemRender, format, fieldProps },
-  ref,
-) => {
+}> = (props, ref) => {
   const intl = useIntl();
+  const { mode } = props;
 
-  if (mode === 'read') {
-    const dom = (
-      <Tooltip
-        title={dayjs(text).format(
-          fieldProps?.format || format || 'YYYY-MM-DD HH:mm:ss',
-        )}
-      >
-        {dayjs(text).fromNow()}
-      </Tooltip>
-    );
-    if (render) {
-      return render(text, { mode, ...fieldProps }, <>{dom}</>);
-    }
-    return <>{dom}</>;
+  if (isProFieldReadMode(mode)) {
+    return FieldFromNowRead(props);
   }
-  if (mode === 'edit' || mode === 'update') {
-    const placeholder = intl.getMessage(
-      'tableForm.selectPlaceholder',
-      '请选择',
-    );
-    const momentValue = parseValueToDay(fieldProps.value) as dayjs.Dayjs;
-    const dom = (
-      <DatePicker
-        ref={ref}
-        placeholder={placeholder}
-        showTime
-        variant={variant ?? fieldProps?.variant ?? 'outlined'}
-        {...fieldProps}
-        value={momentValue}
-      />
-    );
-    if (formItemRender) {
-      return formItemRender(text, { mode, ...fieldProps }, dom);
-    }
-    return dom;
+  if (isProFieldEditOrUpdateMode(mode)) {
+    return FieldFromNowEdit({ ...props, intl }, ref);
   }
   return null;
 };

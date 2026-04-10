@@ -54,7 +54,6 @@ const Demo = () => {
       params={{ id: '100' }}
       formKey="base-demo"
       dateFormatter={(value, valueType) => {
-        console.log('---->', value, valueType);
         return value.format('YYYY/MM/DD HH:mm:ss');
       }}
       request={async () => {

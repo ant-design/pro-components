@@ -304,7 +304,7 @@ const Demo = () => {
         }}
         grid={layoutType !== 'LightFilter' && layoutType !== 'QueryFilter'}
         onFinish={async (values) => {
-          console.log(values);
+
         }}
         columns={(layoutType === 'StepsForm' ? [columns] : columns) as any}
       />

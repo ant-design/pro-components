@@ -54,7 +54,7 @@ export default () => {
           ],
         }}
         onFinish={async (values) => {
-          console.log(values);
+
         }}
       >
         <ProForm.Group title="Date Related Group">

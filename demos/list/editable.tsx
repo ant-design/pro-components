@@ -44,7 +44,7 @@ const Demo = () => {
       dataSource={dataSource}
       editable={{
         onSave: async (key, record, originRow) => {
-          console.log(key, record, originRow);
+
           return true;
         },
       }}

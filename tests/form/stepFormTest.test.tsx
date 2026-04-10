@@ -1,3 +1,4 @@
+import type { StepsFormRef } from '@ant-design/pro-components';
 import { ProFormText, StepsForm } from '@ant-design/pro-components';
 import {
   cleanup,
@@ -511,5 +512,31 @@ describe('StepsForm', () => {
       (await html.findByText('隐藏表单3')).click();
     });
     expect(html.container.querySelectorAll('.ant-steps-item')).toHaveLength(2);
+  });
+
+  it('🐲 stepsFormRef merges values from all steps', async () => {
+    const stepsFormRef = React.createRef<StepsFormRef | null>();
+    const html = render(
+      <StepsForm stepsFormRef={stepsFormRef} onFinish={vi.fn()}>
+        <StepsForm.StepForm name="a" title="表单1">
+          <ProFormText name="x" initialValue="1" />
+        </StepsForm.StepForm>
+        <StepsForm.StepForm name="b" title="表单2">
+          <ProFormText name="y" initialValue="2" />
+        </StepsForm.StepForm>
+      </StepsForm>,
+    );
+    await act(async () => {});
+    // 各 StepForm 均挂载，仅非当前步隐藏，故一开始即可合并到两步字段
+    expect(stepsFormRef.current?.getAllFieldsValue()).toEqual({ x: '1', y: '2' });
+    await act(async () => {
+      (await html.findByText('下一步')).click();
+    });
+    expect(stepsFormRef.current?.getAllFieldsValue()).toEqual({ x: '1', y: '2' });
+    expect(stepsFormRef.current?.getCurrentStep()).toBe(1);
+    await act(async () => {
+      stepsFormRef.current?.setCurrentStep(0);
+    });
+    expect(stepsFormRef.current?.getCurrentStep()).toBe(0);
   });
 });

@@ -1,7 +1,8 @@
-import React, { useContext, useMemo } from 'react';
+﻿import React, { useContext, useMemo } from 'react';
 import { PureProField } from '../../../field';
 import type { ProSchema } from '../../../utils';
 import { runFunction, useRefFunction } from '../../../utils';
+import type { ProFieldValueTypeInput } from '../../../utils';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
 import type { ProFormFieldItemProps } from '../../typing';
 import warpField from '../FormItem/warpField';
@@ -116,7 +117,7 @@ const BaseProFormField: React.FC<
       text={fieldProps?.[valuePropName]}
       render={render as any}
       formItemRender={formItemRender as any}
-      valueType={(valueType as 'text') || 'text'}
+      valueType={(valueType ?? 'text') as ProFieldValueTypeInput}
       cacheForSwr={cacheForSwr}
       fieldProps={memoFieldProps}
       valueEnum={runFunction(valueEnum)}

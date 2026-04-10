@@ -10,6 +10,7 @@ import { PageContainer, ProCard, ProLayout } from '@ant-design/pro-components';
 import { Input } from 'antd';
 import { useState } from 'react';
 import defaultProps from './_defaultProps';
+import { demoOnMenuHeaderClick } from './_demoHandlers';
 
 const Demo = () => {
   const settings: Partial<ProSettings> | undefined = {
@@ -113,7 +114,7 @@ const Demo = () => {
             </div>
           );
         }}
-        onMenuHeaderClick={(e) => console.log(e)}
+        onMenuHeaderClick={demoOnMenuHeaderClick}
         menuItemRender={(item, dom) => (
           <a
             onClick={() => {

@@ -1,16 +1,17 @@
-import { omit } from '@rc-component/util';
-import { Segmented, Spin } from 'antd';
+﻿import { Spin } from 'antd';
 import React, { useImperativeHandle, useRef } from 'react';
-import { objectToMap, proFieldParsingText } from '../../../utils';
-import type { ProFieldFC } from '../../PureProField';
+import {
+  isProFieldEditOrUpdateMode,
+  isProFieldReadMode,
+} from '../../internal/fieldMode';
+import type { ProFieldFC } from '../../types';
 import type { FieldSelectProps } from '../Select';
 import { useFieldFetchData } from '../Select';
+import { FieldSegmentedEdit } from './FieldSegmentedEdit';
+import { FieldSegmentedRead } from './FieldSegmentedRead';
 
 /**
  * Segmented https://ant.design/components/segmented-cn/
- *
- * @param props
- * @param ref
  */
 const FieldSegmented: ProFieldFC<
   {
@@ -27,7 +28,7 @@ const FieldSegmented: ProFieldFC<
     ...rest
   } = props;
 
-  const inputRef = useRef<HTMLInputElement>();
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const [loading, options, fetchData] = useFieldFetchData(props);
 
@@ -44,46 +45,30 @@ const FieldSegmented: ProFieldFC<
     return <Spin size="small" />;
   }
 
-  if (mode === 'read') {
-    const optionsValueEnum = options?.length
-      ? options?.reduce((pre: any, cur) => {
-          return { ...pre, [(cur.value as any) ?? '']: cur.label };
-        }, {})
-      : undefined;
+  const optionsValueEnum = options?.length
+    ? options?.reduce((pre: any, cur) => {
+        return { ...pre, [(cur.value as any) ?? '']: cur.label };
+      }, {})
+    : undefined;
 
-    const dom = (
-      <>
-        {proFieldParsingText(
-          rest.text,
-          objectToMap(rest.valueEnum || optionsValueEnum),
-        )}
-      </>
-    );
-
-    if (render) {
-      return (
-        render(rest.text, { mode, ...fieldProps }, <>{dom}</>) ?? emptyText
-      );
-    }
-    return dom;
-  }
-  if (mode === 'edit' || mode === 'update') {
-    const dom = (
-      <Segmented
-        ref={inputRef}
-        {...(omit(fieldProps || {}, ['allowClear']) as any)}
-        options={options}
+  if (isProFieldReadMode(mode)) {
+    return (
+      <FieldSegmentedRead
+        {...props}
+        optionsValueEnum={optionsValueEnum}
+        emptyText={emptyText}
       />
     );
-
-    if (formItemRender) {
-      return formItemRender(
-        rest.text,
-        { mode, ...fieldProps, options, loading },
-        dom,
-      );
-    }
-    return dom;
+  }
+  if (isProFieldEditOrUpdateMode(mode)) {
+    return (
+      <FieldSegmentedEdit
+        {...props}
+        options={options}
+        loading={loading}
+        inputRef={inputRef}
+      />
+    );
   }
   return null;
 };

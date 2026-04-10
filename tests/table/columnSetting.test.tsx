@@ -9,7 +9,7 @@ import {
 import { act } from 'react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
-import { columns } from './demo';
+import { columns } from './fixtures';
 
 function fireDragEvent(ele: HTMLElement, eventName: string, data: object) {
   // @ts-ignore

@@ -12,7 +12,7 @@ import {
   ProFormUploadButton,
   ProLayout,
 } from '@ant-design/pro-components';
-import { Card } from 'antd';
+import { Card, message } from 'antd';
 
 const Demo = () => {
   return (
@@ -47,7 +47,9 @@ const Demo = () => {
             submitter={{
               render: (_, dom) => <FooterToolbar>{dom}</FooterToolbar>,
             }}
-            onFinish={async (values) => console.log(values)}
+            onFinish={async () => {
+              message.success('Submitted successfully');
+            }}
           >
             <ProForm.Group>
               <ProFormText

@@ -47,7 +47,7 @@ const Demo = () => {
           }}
           onFinish={async (values) => {
             await waitTime(2000);
-            console.log(values.name);
+
             message.success('提交成功');
             // 不返回不会关闭弹框
             return true;
@@ -72,7 +72,7 @@ const Demo = () => {
             }}
             onFinish={async (values) => {
               await waitTime(2000);
-              console.log(values.name);
+
               message.success('提交成功');
               // 不返回不会关闭弹框
               return true;
@@ -165,7 +165,7 @@ const Demo = () => {
           }}
           onFinish={async (values) => {
             await waitTime(2000);
-            console.log(values.name);
+
             message.success('提交成功');
             // 不返回不会关闭弹框
             return true;
@@ -190,7 +190,7 @@ const Demo = () => {
             }}
             onFinish={async (values) => {
               await waitTime(2000);
-              console.log(values.name);
+
               message.success('提交成功');
               // 不返回不会关闭弹框
               return true;

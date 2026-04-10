@@ -1,4 +1,4 @@
-import { GridContext } from './helpers';
+﻿import { GridContext } from './helpers';
 import { ProForm } from './layouts';
 import type { ProFormGroupProps } from './typing';
 export { ProFormContext } from '../utils';
@@ -36,7 +36,13 @@ export * from './layouts';
 export type {
   LightFilterFooterRender,
   ProFormFieldItemProps as ProFormItemProps,
+  ProFieldBuiltinValueType,
+  ProFieldSchemaLayoutValueType,
+  ProFieldValueObjectType,
+  ProFieldValueType,
+  ProFieldValueTypeInput,
 } from './typing';
+export { PRO_FIELD_SCHEMA_LAYOUT_VALUE_TYPES } from './typing';
 export { GridContext, ProForm };
 export type { ProFormGroupProps as GroupProps };
 

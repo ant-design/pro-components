@@ -1,5 +1,23 @@
 # Changelog
 
+## [3.1.3-0] - 2026-04-06
+
+### 🗑 破坏性变更
+
+- ProDescriptions
+  - 🗑 移除 `ProDescriptionsItem` 导出；请使用 `columns` 配置列
+  - 🛠 列类型更名为 `ProDescriptionsColumn`（`ProDescriptionsItemProps` 保留为别名）
+  - 🛠 `request` 返回类型收紧为 `ProDescriptionsRequestResult<T>`；`params` 为 `Record<string, unknown>`；`onDataSourceChange` 可收到 `undefined`
+  - 🛠 `ProDescriptionsProps` 不再接受 `items`（由组件内部生成）
+
+### 🛠 重构 / 文档
+
+- ProForm
+  - ✅ 新增 Schema 与命令式路径对齐单测（`schemaImperativeAlignment`）
+  - 📖 内部文档：`docs/internal/form-architecture.md`、`docs/rfc/2026-04-pro-form-architecture-refactor.md`（与当前 `master` 源码路径对齐）
+
+---
+
 ## [3.1.2-0] - 2026-01-27
 
 ### 🐛 问题修复

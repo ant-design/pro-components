@@ -413,17 +413,13 @@ ProFormInstance 与 antd 的 form 相比增加了一些能力。
 
 ```tsx | pure
 import type { ProFormInstance } from '@ant-design/pro-components';
-import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   ProForm,
   ProFormDatePicker,
   ProFormText,
 } from '@ant-design/pro-components';
-import { afterEach, describe, expect, it, vi } from 'vitest';
 import { Button, message, Space } from 'antd';
-import { afterEach, describe, expect, it, vi } from 'vitest';
 import moment from 'dayjs';
-import { afterEach, describe, expect, it, vi } from 'vitest';
 import { useRef } from 'react';
 
 const waitTime = (time: number = 100) => {

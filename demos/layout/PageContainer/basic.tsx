@@ -1,6 +1,6 @@
 import { EllipsisOutlined } from '@ant-design/icons';
 import { PageContainer, ProCard } from '@ant-design/pro-components';
-import { Button, Dropdown } from 'antd';
+import { Button, Dropdown, message } from 'antd';
 
 const Demo = () => (
   <div
@@ -75,7 +75,9 @@ const Demo = () => (
       tabProps={{
         type: 'editable-card',
         hideAdd: true,
-        onEdit: (e, action) => console.log(e, action),
+        onEdit: (_targetKey, action) => {
+          message.info(`tab ${action}`);
+        },
       }}
       footer={[
         <Button key="3">Reset</Button>,

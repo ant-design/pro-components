@@ -1,4 +1,4 @@
----
+﻿---
 title: ProDescriptions Definition List
 atomId: ProDescriptions
 order: 1
@@ -100,11 +100,11 @@ API is the same as ProTable
 | loading        | Display a loaded skeleton screen, the skeleton screen and dom will not correspond one-to-one                                               | `boolean`                                      | -             |
 | extra          | Describe the operation area of ​​the list, displayed on the upper right                                                                    | `string` \| `ReactNode`                        | -             |
 | bordered       | Whether to display the border                                                                                                              | boolean                                        | false         |
-| column         | The number of `ProDescriptionsItems` in a row, can be written as pixel value or support responsive object writing `{ xs: 1, sm: 2, md: 3}` | number                                         | 3             |
+| column         | The number of description cells per row, can be written as pixel value or support responsive object writing `{ xs: 1, sm: 2, md: 3}` | number                                         | 3             |
 | size           | Set the size of the list. Can be set to `middle`, `small`, or left blank (only setting `bordered={true}` takes effect)                     | `default` \| `middle` \| `small`               | -             |
 | layout         | Description layout                                                                                                                         | `horizontal` \| `vertical`                     | `horizontal`  |
-| colon          | Configure the default value of `colon` of `ProDescriptions.Item`                                                                           | boolean                                        | true          |
-| request        | Request data, when columns are not set, ProDescriptions.Item needs to set the corresponding dataIndex                                      | `(params: U) => Promise<RequestData<T>>`       | -             |
+| colon          | Configure the default `colon` for antd `Descriptions` cells                                 | boolean                                        | true          |
+| request        | Request data; use with `dataIndex` in `columns`                                  | `(params: U) => Promise<RequestData<T>>`       | -             |
 | onRequestError | Handling request errors, by default an error will be thrown directly                                                                       | `(error: Error) => void`                       | -             |
 | columns        | Column definition, used with request [columns](/components/table#columns)                                                                  | `ProColumns<T>[]`                              | -             |
 | editable       | Editable related configuration                                                                                                             | [EditableConfig](#editable-edit-configuration) | -             |
@@ -130,7 +130,9 @@ API is the same as ProTable
 | onlyOneLineEditorAlertMessage | Only one line can be edited                                                                                                                                                               | `ReactNode`                                                             | `Only one line can be edited at the same time` |
 | onlyAddOneLineAlertMessage    | Only one line can be added at the same time                                                                                                                                               | `ReactNode`                                                             | `Only add one line`                            |
 
-### ProDescriptions.Item
+### columns
+
+Each item is `ProDescriptionsColumn` (same schema family as ProTable `columns`; `ProDescriptionsItemProps` is an alias). Common fields:
 
 | Parameters | Description                                                                                                                    | Type                                                         | Default Value |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------ | ------------- |
@@ -138,14 +140,14 @@ API is the same as ProTable
 | tooltip    | Supplementary description of the content, displayed after hover                                                                | string                                                       | -             |
 | ellipsis   | Whether to abbreviate automatically                                                                                            | `boolean`                                                    | -             |
 | copyable   | Whether to support copying                                                                                                     | `boolean`                                                    | -             |
-| span       | number of columns included                                                                                                     | number                                                       | 1             |
+| span       | Column span (antd Descriptions cell span)                                                                                                     | number                                                       | 1             |
 | valueType  | Formatted type                                                                                                                 | `ValueType`                                                  | -             |
 | valueEnum  | Enumeration of current column values ​​[valueEnum](/components/table#valueenum)                                                | `Record`                                                     | -             |
 | request    | Request enumerated data from the network                                                                                       | `()=>Promise<{[key:string`\|`number]:any}>`                  | -             |
 | dataIndex  | The key of the returned data is used in conjunction with the request of ProDescriptions for the definition list of the profile | `React.Text` \| `React.Text[]`                               | -             |
 | editable   | Whether it is editable in the edit table, the parameters of the function are the same as the render of the table               | `false` \| `(text: any, record: T,index: number) => boolean` | true          |
 
-> span is the number of Description.Item. span={2} will occupy the width of two DescriptionItem.
+> `span={2}` spans two description cells.
 
 ### ActionRef
 

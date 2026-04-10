@@ -30,15 +30,14 @@ const Demo = () => {
   };
 
   const getFormatValues = () => {
-    console.log(
-      '格式化后的所有数据：',
-      formRef.current?.getFieldsFormatValue?.(),
+    message.info(
+      `格式化后的所有数据：${JSON.stringify(formRef.current?.getFieldsFormatValue?.() ?? {})}`,
     );
   };
 
   const validateAndGetFormatValue = () => {
     formRef.current?.validateFieldsReturnFormatValue?.().then((values) => {
-      console.log('校验表单并返回格式化后的所有数据：', values);
+      message.success(`校验表单并返回格式化后的所有数据：${JSON.stringify(values)}`);
     });
   };
 
@@ -74,7 +73,6 @@ const Demo = () => {
       }}
       onFinish={async (values) => {
         await waitTime(2000);
-        console.log(values);
         message.success('提交成功');
         return true;
       }}

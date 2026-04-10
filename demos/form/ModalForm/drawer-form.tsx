@@ -27,9 +27,6 @@ const Demo = () => {
       name="modal-form-drawer-form-demo"
       title="Create New Form"
       resize={{
-        onResize() {
-          console.log('resize!');
-        },
         maxWidth: window.innerWidth * 0.8,
         minWidth: 300,
       }}
@@ -47,7 +44,7 @@ const Demo = () => {
       submitTimeout={2000}
       onFinish={async (values) => {
         await waitTime(2000);
-        console.log(values.name);
+
         message.success('Submission successful');
         // Not returning will not close the modal
         return true;

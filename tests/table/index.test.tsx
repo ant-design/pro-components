@@ -11,7 +11,7 @@ import {
 import { Button, Input, Popover } from 'antd';
 import React, { act, useRef, useState } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { columns, request } from './demo';
+import { columns, request } from './fixtures';
 
 afterEach(() => {
   cleanup();

@@ -57,7 +57,18 @@ export default defineConfig({
   resolve: {
     docDirs: ['site'],
   },
-  styles: [`.markdown table{table-layout: fixed;}`],
+  styles: [
+    `.markdown table{table-layout: fixed;}`,
+    // 组件文档：标题层级与示例块节奏（dumi 默认 previewer 已有 margin，此处补足文内排版）
+    `.markdown > h2 { margin-top: 40px; margin-bottom: 16px; font-weight: 600; }`,
+    `.markdown > h2:first-child { margin-top: 0; }`,
+    `.markdown > h3 { margin-top: 28px; margin-bottom: 12px; font-weight: 600; }`,
+    `.markdown > h4 { margin-top: 22px; margin-bottom: 8px; font-weight: 600; }`,
+    `.markdown > p { margin: 12px 0; line-height: 1.75; max-width: 960px; }`,
+    `.markdown > ul, .markdown > ol { margin: 12px 0 16px; padding-left: 1.25em; line-height: 1.75; }`,
+    `.dumi-default-previewer { margin: 28px 0 36px !important; }`,
+    `.markdown .dumi-default-previewer:first-of-type { margin-top: 20px !important; }`,
+  ],
   locales: [
     { id: 'zh-CN', name: '中文' },
     { id: 'en-US', name: 'English' },

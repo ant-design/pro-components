@@ -50,7 +50,7 @@ const Demo = () => {
       }}
       onFinish={async (values) => {
         await waitTime(2000);
-        console.log(values);
+
         message.success('Submission successful');
       }}
       params={{}}

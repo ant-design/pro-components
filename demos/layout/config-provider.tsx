@@ -15,6 +15,7 @@ import {
 } from 'antd';
 import { useState } from 'react';
 import defaultProps from './_defaultProps';
+import { demoOnMenuHeaderClick } from './_demoHandlers';
 
 const content = (
   <Descriptions size="small" column={2}>
@@ -73,7 +74,7 @@ const Demo = () => {
             </a>
           );
         }}
-        onMenuHeaderClick={(e) => console.log(e)}
+        onMenuHeaderClick={demoOnMenuHeaderClick}
         menuItemRender={(item, dom) => (
           <a
             onClick={() => {

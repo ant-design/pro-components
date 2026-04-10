@@ -12,7 +12,7 @@ import {
   ProFormUploadDragger,
   StepsForm,
 } from '@ant-design/pro-components';
-import { ConfigProvider, Input } from 'antd';
+import { ConfigProvider, Input, message } from 'antd';
 import enUS from 'antd/lib/locale/en_US';
 
 const Demo = () => (
@@ -32,7 +32,9 @@ const Demo = () => (
         range: 5,
         name: 'demo_user',
       }}
-      onFinish={async (value) => console.log(value)}
+      onFinish={async () => {
+        message.success('Submitted');
+      }}
     >
       <ProFormUploadButton
         name="upload"

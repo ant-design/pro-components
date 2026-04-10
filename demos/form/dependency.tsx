@@ -20,7 +20,7 @@ const Demo = () => {
       name="form-dependency-demo"
       onFinish={async (values) => {
         await waitTime(2000);
-        console.log(values);
+
         message.success('Submission successful');
       }}
       initialValues={{

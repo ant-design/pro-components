@@ -1,0 +1,46 @@
+﻿import { ProDescriptions } from '@ant-design/pro-components';
+import { Button } from 'antd';
+
+const Demo = () => {
+  return (
+    <>
+      <ProDescriptions
+        column={2}
+        title="高级定义列表"
+        tooltip="包含了从服务器请求，columns等功能"
+        request={async () => ({
+          data: [{ id: 1, money: 12345 }],
+          success: true,
+        })}
+        columns={[
+          {
+            label: '文本',
+            valueType: 'option',
+            render: () => [
+              <Button key="primary" type="primary">
+                提交
+              </Button>,
+            ],
+          },
+          {
+            title: () => '文本 2',
+            key: 'text',
+            dataIndex: 'id',
+          },
+          {
+            title: 'money',
+            key: 'money',
+            dataIndex: 'money',
+            valueType: { type: 'money', showSymbol: false },
+          },
+        ]}
+      />
+    </>
+  );
+};
+
+export default () => (
+  <div style={{ padding: 24 }}>
+    <Demo />
+  </div>
+);

@@ -159,7 +159,7 @@ recordCreatorProps = {
     display: 'none',
   },
   // https://ant.design/components/button/#API
-  ... .antButtonProps,
+  ...antButtonProps,
 };
 ```
 

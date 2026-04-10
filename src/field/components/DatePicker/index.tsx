@@ -1,40 +1,19 @@
-import { DatePicker } from 'antd';
-import dayjs from 'dayjs';
+﻿import dayjs from 'dayjs';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
 import React, { useState } from 'react';
 import { useIntl } from '../../../provider';
-import { FieldLabel, parseValueToDay } from '../../../utils';
-import type { ProFieldFC, ProFieldLightProps } from '../../PureProField';
+import {
+  isProFieldEditOrUpdateMode,
+  isProFieldReadMode,
+} from '../../internal/fieldMode';
+import type { ProFieldFC, ProFieldLightProps } from '../../types';
+import { FieldDatePickerEdit } from './FieldDatePickerEdit';
+import { FieldDatePickerRead } from './FieldDatePickerRead';
 
 dayjs.extend(weekOfYear);
 
-const formatDate = (text: any, format: any) => {
-  if (!text) return '-';
-  if (typeof format === 'function') {
-    return format(dayjs(text));
-  } else {
-    return dayjs(text).format(
-      (Array.isArray(format) ? format[0] : format) || 'YYYY-MM-DD',
-    );
-  }
-};
-
 /**
  * 日期选择组件
- *
- * @param text
- * @param mode
- * @param format
- * @param label
- * @param light
- * @param render
- * @param formItemRender
- * @param showTime
- * @param fieldProps
- * @param picker
- * @param lightLabel
- * @param variant
- * @param ref
  */
 const FieldDatePicker: ProFieldFC<
   {
@@ -65,80 +44,45 @@ const FieldDatePicker: ProFieldFC<
 
   const [open, setOpen] = useState<boolean>(false);
 
-  if (mode === 'read') {
-    const dom = formatDate(text, fieldProps.format || format);
-    if (render) {
-      return render(text, { mode, ...fieldProps }, <>{dom}</>);
-    }
-    return <>{dom}</>;
+  if (isProFieldReadMode(mode)) {
+    return (
+      <FieldDatePickerRead
+        text={text}
+        mode={mode}
+        format={format}
+        label={label}
+        light={light}
+        render={render}
+        formItemRender={formItemRender}
+        showTime={showTime}
+        fieldProps={fieldProps}
+        picker={picker}
+        lightLabel={lightLabel}
+        variant={variant}
+      />
+    );
   }
-  if (mode === 'edit' || mode === 'update') {
-    let dom;
-    const {
-      disabled,
-      value,
-      placeholder = intl.getMessage('tableForm.selectPlaceholder', '请选择'),
-    } = fieldProps;
-
-    const dayValue = parseValueToDay(value) as dayjs.Dayjs;
-
-    if (light) {
-      dom = (
-        <FieldLabel
-          label={label}
-          onClick={() => {
-            fieldProps?.onOpenChange?.(true);
-            setOpen(true);
-          }}
-          style={
-            dayValue
-              ? {
-                  paddingInlineEnd: 0,
-                }
-              : undefined
-          }
-          disabled={disabled}
-          value={
-            dayValue || open ? (
-              <DatePicker
-                picker={picker}
-                showTime={showTime}
-                format={format}
-                ref={ref}
-                {...fieldProps}
-                value={dayValue}
-                onOpenChange={(isOpen) => {
-                  setOpen(isOpen);
-                  fieldProps?.onOpenChange?.(isOpen);
-                }}
-                open={open}
-              />
-            ) : undefined
-          }
-          allowClear={false}
-          downIcon={dayValue || open ? false : undefined}
-          variant={variant}
-          ref={lightLabel}
-        />
-      );
-    } else {
-      dom = (
-        <DatePicker
-          picker={picker}
-          showTime={showTime}
-          format={format}
-          placeholder={placeholder}
-          variant={variant}
-          ref={ref}
-          {...fieldProps}
-          value={dayValue}
-        />
-      );
-    }
-    if (formItemRender) {
-      return formItemRender(text, { mode, ...fieldProps }, dom);
-    }
-    return dom;
+  if (isProFieldEditOrUpdateMode(mode)) {
+    return FieldDatePickerEdit(
+      {
+        text,
+        mode,
+        format,
+        label,
+        light,
+        render,
+        formItemRender,
+        showTime,
+        fieldProps,
+        picker,
+        lightLabel,
+        variant,
+        open,
+        setOpen,
+        intl,
+      },
+      ref,
+    );
   }
   return null;
 };

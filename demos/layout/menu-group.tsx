@@ -9,6 +9,7 @@ import {
 import { PageContainer, ProCard, ProLayout } from '@ant-design/pro-components';
 import { Button, Result } from 'antd';
 import { useState } from 'react';
+import { demoOnMenuHeaderClick } from './_demoHandlers';
 
 const Demo = () => {
   const [pathname, setPathname] = useState('/welcome');
@@ -103,7 +104,7 @@ const Demo = () => {
             </p>
           );
         }}
-        onMenuHeaderClick={(e) => console.log(e)}
+        onMenuHeaderClick={demoOnMenuHeaderClick}
         menuItemRender={(item, dom) => (
           <a
             onClick={() => {

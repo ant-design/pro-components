@@ -25,9 +25,11 @@ const Demo = () => {
 
   return (
     <ProCard>
+      {/* allowStepSelect：可点击步骤条切换，不触发表单校验 */}
       <StepsForm<{
         name: string;
       }>
+        allowStepSelect
         stepsProps={{
           orientation: 'vertical',
         }}
@@ -51,7 +53,6 @@ const Demo = () => {
             description: '这里填入的都是基本信息',
           }}
           onFinish={async () => {
-            console.log(formRef.current?.getFieldsValue());
             await waitTime(2000);
             return true;
           }}
@@ -82,7 +83,6 @@ const Demo = () => {
             description: '这里填入运维参数',
           }}
           onFinish={async () => {
-            console.log(formRef.current?.getFieldsValue());
             return true;
           }}
         >
@@ -123,7 +123,6 @@ const Demo = () => {
             description: '这里填入运维参数',
           }}
           onFinish={async () => {
-            console.log(formRef.current?.getFieldsValue());
             return true;
           }}
         >

@@ -4,15 +4,16 @@ import {
   SettingDrawer,
 } from '@ant-design/pro-components';
 import defaultProps from './_defaultProps';
+import { demoOnMenuHeaderClick } from './_demoHandlers';
 
 const Demo = () => {
   return (
     <>
       <ProLayout {...defaultProps} layout="mix" splitMenus pure>
-        children
+        <PageContainer>splitMenus + pure</PageContainer>
       </ProLayout>
       <ProLayout {...defaultProps} layout="mix" splitMenus>
-        children
+        <PageContainer>splitMenus</PageContainer>
       </ProLayout>
       <ProLayout
         {...defaultProps}
@@ -20,7 +21,7 @@ const Demo = () => {
         layout="mix"
         splitMenus
         headerRender={false}
-        onMenuHeaderClick={() => {}}
+        onMenuHeaderClick={demoOnMenuHeaderClick}
         formatMessage={({ id }) => id}
         style={{
           height: '100vh',
@@ -77,7 +78,7 @@ const Demo = () => {
           height: '100vh',
         }}
       >
-        xxxx
+        <PageContainer>splitMenus + fixSiderbar</PageContainer>
       </ProLayout>
 
       <ProLayout
@@ -88,7 +89,11 @@ const Demo = () => {
           pathname: '/welcome',
         }}
         openKeys={false}
-        actionsRender={() => [<a key="key">key</a>]}
+        actionsRender={() => [
+          <a key="docs" href="https://procomponents.ant.design/">
+            文档
+          </a>,
+        ]}
         avatarProps={{
           src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
           size: 'small',
@@ -97,7 +102,7 @@ const Demo = () => {
           height: '100vh',
         }}
       >
-        xxxx
+        <PageContainer>顶部操作区示例</PageContainer>
       </ProLayout>
       <ProLayout
         {...defaultProps}
@@ -114,7 +119,7 @@ const Demo = () => {
           height: '100vh',
         }}
       >
-        <PageContainer>xxxx</PageContainer>
+        <PageContainer>splitMenus 关闭时的侧栏与内容</PageContainer>
       </ProLayout>
       <SettingDrawer collapse />
     </>

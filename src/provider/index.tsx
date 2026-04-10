@@ -1,4 +1,4 @@
-import type { Theme } from '@ant-design/cssinjs';
+﻿import type { Theme } from '@ant-design/cssinjs';
 import { useCacheToken } from '@ant-design/cssinjs';
 import { ConfigProvider as AntdConfigProvider, theme as antdTheme } from 'antd';
 import zh_CN from 'antd/es/locale/zh_CN';
@@ -159,6 +159,7 @@ export type ParamsType = Record<string, any>;
  */
 export type ConfigContextPropsType = {
   intl?: IntlType;
+  /** 自定义或覆盖 valueType → render；键可与内置 `ProFieldBuiltinValueType` 重叠，也可为任意字符串 */
   valueTypeMap?: Record<string, ProRenderFieldPropsType>;
   token: ProAliasToken;
   hashId?: string;

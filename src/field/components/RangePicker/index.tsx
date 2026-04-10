@@ -1,14 +1,16 @@
-import { DatePicker } from 'antd';
-import dayjs from 'dayjs';
+﻿import dayjs from 'dayjs';
 import React, { useCallback } from 'react';
 import { useIntl } from '../../../provider';
-import { FieldLabel, parseValueToDay } from '../../../utils';
-import type { ProFieldFC, ProFieldLightProps } from '../../PureProField';
+import {
+  isProFieldEditOrUpdateMode,
+  isProFieldReadMode,
+} from '../../internal/fieldMode';
+import type { ProFieldFC, ProFieldLightProps } from '../../types';
+import { FieldRangePickerEdit } from './FieldRangePickerEdit';
+import { FieldRangePickerRead } from './FieldRangePickerRead';
 
 /**
  * 日期范围选择组件
- *
- * @param
  */
 const FieldRangePicker: ProFieldFC<
   {
@@ -39,7 +41,6 @@ const FieldRangePicker: ProFieldFC<
 
   const [startText, endText] = Array.isArray(text) ? text : [];
   const [open, setOpen] = React.useState<boolean>(false);
-  // antd 改了一下 交互，这里要兼容一下，不然会导致无法选中第二个数据
   const genFormatText = useCallback(
     (formatValue: dayjs.Dayjs) => {
       if (typeof fieldProps?.format === 'function') {
@@ -49,7 +50,6 @@ const FieldRangePicker: ProFieldFC<
     },
     [fieldProps, format],
   );
-  // activePickerIndex for https://github.com/ant-design/ant-design/issues/22158
   const parsedStartText: string = startText
     ? dayjs(startText).format(genFormatText(dayjs(startText)))
     : '';
@@ -57,100 +57,49 @@ const FieldRangePicker: ProFieldFC<
     ? dayjs(endText).format(genFormatText(dayjs(endText)))
     : '';
 
-  if (mode === 'read') {
-    const dom = (
-      <div
-        ref={ref}
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: 8,
-          alignItems: 'center',
-        }}
-      >
-        <div>{parsedStartText || '-'}</div>
-        <div>{parsedEndText || '-'}</div>
-      </div>
+  if (isProFieldReadMode(mode)) {
+    return FieldRangePickerRead(
+      {
+        text,
+        mode,
+        light,
+        label,
+        format,
+        render,
+        picker,
+        formItemRender,
+        showTime,
+        lightLabel,
+        variant: propsVariant,
+        fieldProps,
+        parsedStartText,
+        parsedEndText,
+      },
+      ref,
     );
-    if (render) {
-      return render(text, { mode, ...fieldProps }, <span>{dom}</span>);
-    }
-    return dom;
   }
 
-  if (mode === 'edit' || mode === 'update') {
-    const dayValue = parseValueToDay(fieldProps.value) as dayjs.Dayjs[];
-    let dom;
-    const handleRangeChange = (value: any) => {
-      fieldProps?.onChange?.(value);
-
-      if (!value) {
-        setOpen(false);
-      }
-    };
-    if (light) {
-      dom = (
-        <FieldLabel
-          label={label}
-          onClick={() => {
-            fieldProps?.onOpenChange?.(true);
-            setOpen(true);
-          }}
-          style={
-            dayValue
-              ? {
-                  paddingInlineEnd: 0,
-                }
-              : undefined
-          }
-          disabled={fieldProps.disabled}
-          value={
-            dayValue || open ? (
-              <DatePicker.RangePicker
-                picker={picker}
-                showTime={showTime}
-                format={format}
-                {...fieldProps}
-                placeholder={
-                  fieldProps.placeholder ?? [
-                    intl.getMessage('tableForm.selectPlaceholder', '请选择'),
-                    intl.getMessage('tableForm.selectPlaceholder', '请选择'),
-                  ]
-                }
-                value={dayValue}
-                onOpenChange={(isOpen) => {
-                  if (dayValue) setOpen(isOpen);
-                  fieldProps?.onOpenChange?.(isOpen);
-                }}
-                onChange={handleRangeChange}
-              />
-            ) : null
-          }
-          variant={propsVariant}
-          allowClear={false}
-          ref={lightLabel}
-          downIcon={dayValue || open ? false : undefined}
-        />
-      );
-    } else {
-      dom = (
-        <DatePicker.RangePicker
-          ref={ref}
-          format={format}
-          showTime={showTime}
-          placeholder={[
-            intl.getMessage('tableForm.selectPlaceholder', '请选择'),
-            intl.getMessage('tableForm.selectPlaceholder', '请选择'),
-          ]}
-          {...fieldProps}
-          value={dayValue}
-        />
-      );
-    }
-    if (formItemRender) {
-      return formItemRender(text, { mode, ...fieldProps }, dom);
-    }
-    return dom;
+  if (isProFieldEditOrUpdateMode(mode)) {
+    return FieldRangePickerEdit(
+      {
+        text,
+        mode,
+        light,
+        label,
+        format,
+        render,
+        picker,
+        formItemRender,
+        showTime,
+        lightLabel,
+        variant: propsVariant,
+        fieldProps,
+        open,
+        setOpen,
+        intl,
+      },
+      ref,
+    );
   }
   return null;
 };

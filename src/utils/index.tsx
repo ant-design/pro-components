@@ -39,6 +39,7 @@ import { usePrevious } from './hooks/usePrevious';
 import { useReactiveRef } from './hooks/useReactiveRef';
 import { useRefCallback } from './hooks/useRefCallback';
 import { useRefFunction } from './hooks/useRefFunction';
+import { useUrlSearchParams } from './hooks/useUrlSearchParams';
 import { isBrowser } from './isBrowser';
 import { isDeepEqualReact } from './isDeepEqualReact';
 import { isDropdownValueType } from './isDropdownValueType';
@@ -135,6 +136,7 @@ export {
   useRefCallback,
   useRefFunction,
   useStyle,
+  useUrlSearchParams,
 };
 export type {
   ProEllipsis,

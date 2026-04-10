@@ -28,6 +28,7 @@ import {
 } from 'antd';
 import React, { useState } from 'react';
 import defaultProps from './_defaultProps';
+import { demoOnMenuHeaderClick } from './_demoHandlers';
 
 const SOLUTIONS = {
   金融行业: [
@@ -426,7 +427,7 @@ const Demo = () => {
                 </div>
               );
             }}
-            onMenuHeaderClick={(e) => console.log(e)}
+            onMenuHeaderClick={demoOnMenuHeaderClick}
             menuItemRender={(item, dom) => (
               <div
                 role="button"

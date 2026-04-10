@@ -19,10 +19,18 @@ const Demo = () => (
     footerRender={() => (
       <DefaultFooter
         links={[
-          { key: 'test', title: 'layout', href: 'www.alipay.com' },
-          { key: 'test2', title: 'layout2', href: 'www.alipay.com' },
+          {
+            key: 'procomponents',
+            title: 'ProComponents',
+            href: 'https://procomponents.ant.design/',
+          },
+          {
+            key: 'antd',
+            title: 'Ant Design',
+            href: 'https://ant.design/',
+          },
         ]}
-        copyright="这是一条测试文案"
+        copyright="ProComponents 页脚示例"
       />
     )}
   >

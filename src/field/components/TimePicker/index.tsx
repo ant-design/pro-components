@@ -1,14 +1,18 @@
-import { DatePicker, TimePicker } from 'antd';
-import dayjs from 'dayjs';
+﻿import dayjs from 'dayjs';
 import React, { useState } from 'react';
 import { useIntl } from '../../../provider';
-import { FieldLabel, parseValueToDay } from '../../../utils';
-import type { ProFieldFC, ProFieldLightProps } from '../../PureProField';
+import {
+  isProFieldEditOrUpdateMode,
+  isProFieldReadMode,
+} from '../../internal/fieldMode';
+import type { ProFieldFC, ProFieldLightProps } from '../../types';
+import { FieldTimePickerEdit } from './FieldTimePickerEdit';
+import { FieldTimePickerRead } from './FieldTimePickerRead';
+import { FieldTimeRangePickerEdit } from './FieldTimeRangePickerEdit';
+import { FieldTimeRangePickerRead } from './FieldTimeRangePickerRead';
 
 /**
  * 时间选择组件
- *
- * @param
  */
 const FieldTimePicker: ProFieldFC<
   {
@@ -35,102 +39,50 @@ const FieldTimePicker: ProFieldFC<
   const intl = useIntl();
   const finalFormat = fieldProps?.format || format;
 
-  const isNumberOrMoment = dayjs.isDayjs(text) || typeof text === 'number';
-
-  if (mode === 'read') {
-    const dom = (
-      <span ref={ref}>
-        {text
-          ? dayjs(text, isNumberOrMoment ? undefined : finalFormat).format(
-              finalFormat,
-            )
-          : '-'}
-      </span>
+  if (isProFieldReadMode(mode)) {
+    return FieldTimePickerRead(
+      {
+        text,
+        mode,
+        light,
+        label,
+        format,
+        render,
+        formItemRender,
+        fieldProps,
+        lightLabel,
+        variant,
+        finalFormat,
+      },
+      ref,
     );
-    if (render) {
-      return render(text, { mode, ...fieldProps }, <span>{dom}</span>);
-    }
-    return dom;
   }
-  if (mode === 'edit' || mode === 'update') {
-    let dom;
-    const { disabled, value } = fieldProps;
-    const dayValue = parseValueToDay(value, finalFormat) as dayjs.Dayjs;
-
-    if (light) {
-      dom = (
-        <FieldLabel
-          onClick={() => {
-            fieldProps?.onOpenChange?.(true);
-            setOpen(true);
-          }}
-          style={
-            dayValue
-              ? {
-                  paddingInlineEnd: 0,
-                }
-              : undefined
-          }
-          label={label}
-          disabled={disabled}
-          variant={variant ?? fieldProps?.variant}
-          value={
-            dayValue || open ? (
-              <TimePicker
-                variant={variant ?? fieldProps?.variant}
-                format={format}
-                ref={ref}
-                {...fieldProps}
-                placeholder={
-                  fieldProps.placeholder ??
-                  intl.getMessage('tableForm.selectPlaceholder', '请选择')
-                }
-                value={dayValue}
-                onOpenChange={(isOpen) => {
-                  setOpen(isOpen);
-                  fieldProps?.onOpenChange?.(isOpen);
-                }}
-                open={open}
-              />
-            ) : null
-          }
-          downIcon={dayValue || open ? false : undefined}
-          allowClear={false}
-          ref={lightLabel}
-        />
-      );
-    } else {
-      dom = (
-        <DatePicker.TimePicker
-          ref={ref}
-          format={format}
-          {...fieldProps}
-          value={dayValue}
-        />
-      );
-    }
-    if (formItemRender) {
-      return formItemRender(text, { mode, ...fieldProps }, dom);
-    }
-    return dom;
+  if (isProFieldEditOrUpdateMode(mode)) {
+    return FieldTimePickerEdit(
+      {
+        text,
+        mode,
+        light,
+        label,
+        format,
+        render,
+        formItemRender,
+        fieldProps,
+        lightLabel,
+        variant,
+        finalFormat,
+        open,
+        setOpen,
+        intl,
+      },
+      ref,
+    );
   }
   return null;
 };
 
 /**
  * 时间区间选择
- *
- * @param text
- * @param light
- * @param label
- * @param mode
- * @param lightLabel
- * @param format
- * @param render
- * @param formItemRender
- * @param fieldProps
- * @param variant
- * @param ref
  */
 const FieldTimeRangePickerComponents: ProFieldFC<
   {
@@ -174,86 +126,45 @@ const FieldTimeRangePickerComponents: ProFieldFC<
       )
     : '';
 
-  if (mode === 'read') {
-    const dom = (
-      <div ref={ref}>
-        <div>{parsedStartText || '-'}</div>
-        <div>{parsedEndText || '-'}</div>
-      </div>
+  if (isProFieldReadMode(mode)) {
+    return FieldTimeRangePickerRead(
+      {
+        text,
+        light,
+        label,
+        mode,
+        lightLabel,
+        format,
+        render,
+        formItemRender,
+        fieldProps,
+        variant,
+        parsedStartText,
+        parsedEndText,
+      },
+      ref,
     );
-    if (render) {
-      return render(text, { mode, ...fieldProps }, <span>{dom}</span>);
-    }
-    return dom;
   }
-  if (mode === 'edit' || mode === 'update') {
-    const dayValue = parseValueToDay(
-      fieldProps.value,
-      finalFormat,
-    ) as dayjs.Dayjs[];
-    let dom;
-    if (light) {
-      const {
-        disabled,
-        placeholder = [
-          intl.getMessage('tableForm.selectPlaceholder', '请选择'),
-          intl.getMessage('tableForm.selectPlaceholder', '请选择'),
-        ],
-      } = fieldProps;
-      dom = (
-        <FieldLabel
-          onClick={() => {
-            fieldProps?.onOpenChange?.(true);
-            setOpen(true);
-          }}
-          style={
-            dayValue
-              ? {
-                  paddingInlineEnd: 0,
-                }
-              : undefined
-          }
-          label={label}
-          disabled={disabled}
-          variant={variant}
-          placeholder={placeholder}
-          value={
-            dayValue || open ? (
-              <TimePicker.RangePicker
-                variant={variant ?? fieldProps?.variant}
-                format={format}
-                ref={ref}
-                {...fieldProps}
-                placeholder={placeholder}
-                value={dayValue}
-                onOpenChange={(isOpen) => {
-                  setOpen(isOpen);
-                  fieldProps?.onOpenChange?.(isOpen);
-                }}
-                open={open}
-              />
-            ) : null
-          }
-          downIcon={dayValue || open ? false : undefined}
-          allowClear={false}
-          ref={lightLabel}
-        />
-      );
-    } else {
-      dom = (
-        <TimePicker.RangePicker
-          ref={ref}
-          format={format}
-          variant={variant}
-          {...fieldProps}
-          value={dayValue}
-        />
-      );
-    }
-    if (formItemRender) {
-      return formItemRender(text, { mode, ...fieldProps }, dom);
-    }
-    return dom;
+  if (isProFieldEditOrUpdateMode(mode)) {
+    return FieldTimeRangePickerEdit(
+      {
+        text,
+        light,
+        label,
+        mode,
+        lightLabel,
+        format,
+        render,
+        formItemRender,
+        fieldProps,
+        variant,
+        finalFormat,
+        open,
+        setOpen,
+        intl,
+      },
+      ref,
+    );
   }
   return null;
 };

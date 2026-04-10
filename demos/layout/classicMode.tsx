@@ -15,6 +15,7 @@ import {
 import { Button, Input } from 'antd';
 import { useState } from 'react';
 import defaultProps from './_defaultProps';
+import { demoOnMenuHeaderClick } from './_demoHandlers';
 
 const Demo = () => {
   const [settings, setSetting] = useState<Partial<ProSettings> | undefined>({
@@ -156,7 +157,7 @@ const Demo = () => {
             </div>
           );
         }}
-        onMenuHeaderClick={(e) => console.log(e)}
+        onMenuHeaderClick={demoOnMenuHeaderClick}
         menuItemRender={(item, dom) => (
           <a
             onClick={() => {

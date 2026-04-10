@@ -7,7 +7,7 @@ import { Button } from 'antd';
 import { SortOrder } from 'antd/es/table/interface';
 import { useRef, useState } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { getFetchData } from './demo';
+import { getFetchData } from './fixtures';
 
 afterEach(() => {
   cleanup();

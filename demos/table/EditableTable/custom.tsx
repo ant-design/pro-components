@@ -19,6 +19,8 @@ const waitTime = (time: number = 100) => {
   });
 };
 
+let demoRowIdSeq = 9_500_000;
+
 const TagList: React.FC<{
   value?: {
     key: string;

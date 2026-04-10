@@ -17,7 +17,7 @@ import {
   ProFormUploadButton,
   ProFormUploadDragger,
 } from '@ant-design/pro-components';
-import { Switch } from 'antd';
+import { message, Switch } from 'antd';
 import Mock from 'mockjs';
 import { useState } from 'react';
 
@@ -74,10 +74,9 @@ const Demo = () => {
             },
           ],
         }}
-        onValuesChange={(_, values) => {
-          console.log(values);
+        onFinish={async () => {
+          message.success('Submitted');
         }}
-        onFinish={async (value) => console.log(value)}
       >
         <ProFormGroup title="Text Types">
           <ProFormText width="md" name="name" label="Name" />
@@ -107,19 +106,6 @@ const Demo = () => {
             debounceTime={300}
             request={async ({ keyWords }) => {
               await waitTime(100);
-              console.log(
-                Mock.mock({
-                  'data|1-10': [
-                    {
-                      value: '@id',
-                      label: '@name',
-                    },
-                  ],
-                }).data.concat({
-                  value: keyWords,
-                  label: 'Target',
-                }),
-              );
               return Mock.mock({
                 'data|1-10': [
                   {
