@@ -4,10 +4,12 @@ import React, {
   useCallback,
   useEffect,
   useId,
+  useLayoutEffect,
   useMemo,
   useRef,
   useState,
 } from 'react';
+import { createPortal } from 'react-dom';
 import type { MenuMode } from './BaseMenu';
 import type { NavMenuNode } from './navMenuTypes';
 
@@ -65,6 +67,50 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
   });
   const popupPanelRef = useRef<HTMLDivElement>(null);
   const rootNavRef = useRef<HTMLElement>(null);
+  const submenuAnchorRefs = useRef<Map<string, HTMLDivElement>>(new Map());
+  const [popupPlacement, setPopupPlacement] = useState<{
+    top: number;
+    left: number;
+  } | null>(null);
+
+  const updatePopupPlacement = useCallback(() => {
+    if (!popupMode || !popupOpenKey) {
+      setPopupPlacement(null);
+      return;
+    }
+    const anchor = submenuAnchorRefs.current.get(popupOpenKey);
+    if (!anchor) {
+      setPopupPlacement(null);
+      return;
+    }
+    const rect = anchor.getBoundingClientRect();
+    const gap = 4;
+    if (mode === 'horizontal') {
+      setPopupPlacement({
+        top: rect.bottom + gap,
+        left: rect.left,
+      });
+    } else {
+      setPopupPlacement({
+        top: rect.top,
+        left: rect.right + gap,
+      });
+    }
+  }, [popupMode, popupOpenKey, mode]);
+
+  useLayoutEffect(() => {
+    updatePopupPlacement();
+  }, [updatePopupPlacement, nodes]);
+
+  useEffect(() => {
+    if (!popupMode || !popupOpenKey) return;
+    window.addEventListener('scroll', updatePopupPlacement, true);
+    window.addEventListener('resize', updatePopupPlacement);
+    return () => {
+      window.removeEventListener('scroll', updatePopupPlacement, true);
+      window.removeEventListener('resize', updatePopupPlacement);
+    };
+  }, [popupMode, popupOpenKey, updatePopupPlacement]);
 
   useEffect(() => {
     if (!popupMode) return;
@@ -158,6 +204,7 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
     return (
       <li
         key={node.key}
+        data-pro-layout-nav-leaf
         role="menuitem"
         tabIndex={disabled ? undefined : 0}
         className={clsx(
@@ -208,6 +255,7 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
       >
         <div
           className={clsx(`${baseClassName}-group-title`, hashId)}
+          data-pro-layout-nav-group-title
           role="presentation"
         >
           {node.label}
@@ -224,9 +272,41 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
 
   function renderPopup(node: Extract<NavMenuNode, { kind: 'submenu' }>) {
     const isOpen = popupOpenKey === node.key;
+    const setSubmenuAnchorRef = (el: HTMLDivElement | null) => {
+      if (el) {
+        submenuAnchorRefs.current.set(node.key, el);
+      } else {
+        submenuAnchorRefs.current.delete(node.key);
+      }
+    };
+
+    const popupPanel =
+      isOpen && typeof document !== 'undefined' ? (
+        createPortal(
+          <div
+            ref={popupPanelRef}
+            id={`${rootId}-popup-${node.key}`}
+            role="menu"
+            aria-labelledby={`${rootId}-submenu-${node.key}`}
+            className={clsx(`${baseClassName}-submenu-popup`, hashId)}
+            style={{
+              top: popupPlacement?.top,
+              left: popupPlacement?.left,
+              visibility: popupPlacement ? 'visible' : 'hidden',
+            }}
+          >
+            <ul className={clsx(`${baseClassName}-list`, hashId)} role="none">
+              {node.children.map((child) => renderNode(child, 1))}
+            </ul>
+          </div>,
+          document.body,
+        )
+      ) : null;
+
     return (
       <div
         key={node.key}
+        ref={setSubmenuAnchorRef}
         className={clsx(
           'ant-menu-submenu',
           'ant-menu-submenu-popup',
@@ -278,19 +358,7 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
             </span>
           </button>
         </div>
-        {isOpen ? (
-          <div
-            ref={popupPanelRef}
-            id={`${rootId}-popup-${node.key}`}
-            role="menu"
-            aria-labelledby={`${rootId}-submenu-${node.key}`}
-            className={clsx(`${baseClassName}-submenu-popup`, hashId)}
-          >
-            <ul className={clsx(`${baseClassName}-list`, hashId)} role="none">
-              {node.children.map((child) => renderNode(child, 1))}
-            </ul>
-          </div>
-        ) : null}
+        {popupPanel}
       </div>
     );
   }

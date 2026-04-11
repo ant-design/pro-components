@@ -66,6 +66,7 @@ const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken> = (token) => {
         minWidth: 0,
         display: 'flex',
         alignItems: 'center',
+        overflow: 'visible',
         paddingInline: 6,
         paddingBlock: 6,
         lineHeight: `${Math.max(

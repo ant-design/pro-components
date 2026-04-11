@@ -41,15 +41,14 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
           borderInlineEnd: `1px solid ${token.colorSplit}`,
           marginInlineEnd: -1,
         },
-        [`${token.antCls}-menu`]: {
-          [`${token.antCls}-menu-item-group-title`]: {
+        [`${token.componentCls}-menu [data-pro-layout-nav-root]`]: {
+          '[data-pro-layout-nav-group-title]': {
             fontSize: token.fontSizeSM,
             paddingBottom: 4,
           },
-          [`${token.antCls}-menu-item:not(${token.antCls}-menu-item-selected):hover`]:
-            {
-              color: token.layout?.sider?.colorTextMenuItemHover,
-            },
+          '[data-pro-layout-nav-leaf]:not([class*="--selected"]):hover': {
+            color: token.layout?.sider?.colorTextMenuItemHover,
+          },
         },
         '&-logo': {
           position: 'relative',
