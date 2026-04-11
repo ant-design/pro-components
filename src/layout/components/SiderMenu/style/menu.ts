@@ -6,27 +6,69 @@ export interface ProLayoutBaseMenuToken extends ProAliasToken {
   componentCls: string;
 }
 
+const navVar = {
+  colorText: '--pro-layout-nav-color-text',
+  colorBgHover: '--pro-layout-nav-color-bg-hover',
+  colorTextHover: '--pro-layout-nav-color-text-hover',
+  colorBgSelected: '--pro-layout-nav-color-bg-selected',
+  colorTextSelected: '--pro-layout-nav-color-text-selected',
+  colorDivider: '--pro-layout-nav-color-divider',
+  popupBg: '--pro-layout-nav-popup-bg',
+  indent: '--pro-layout-nav-indent',
+  iconSize: '--pro-layout-nav-icon-size',
+} as const;
+
 const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
   token,
   mode,
 ) => {
-  const menuToken = mode.includes('horizontal')
-    ? token.layout?.header
-    : token.layout?.sider;
+  const sider = token.layout?.sider;
+  const header = token.layout?.header;
+
+  const siderVars: Record<string, string> = {
+    [navVar.colorText]: sider?.colorTextMenu ?? 'var(--ant-color-text)',
+    [navVar.colorBgHover]: sider?.colorBgMenuItemHover ?? 'var(--ant-color-fill-secondary)',
+    [navVar.colorTextHover]:
+      sider?.colorTextMenuActive ?? 'var(--ant-color-text)',
+    [navVar.colorBgSelected]:
+      sider?.colorBgMenuItemSelected ?? 'var(--ant-color-fill-secondary)',
+    [navVar.colorTextSelected]:
+      sider?.colorTextMenuSelected ?? 'var(--ant-color-text)',
+    [navVar.colorDivider]:
+      sider?.colorMenuItemDivider ?? 'var(--ant-color-split)',
+    [navVar.popupBg]:
+      header?.colorBgMenuElevated ?? 'var(--ant-color-bg-elevated)',
+    [navVar.indent]: '16px',
+    [navVar.iconSize]: '16px',
+  };
+
+  const headerVars: Record<string, string> = {
+    [navVar.colorText]: header?.colorTextMenu ?? 'var(--ant-color-text-secondary)',
+    [navVar.colorBgHover]:
+      header?.colorBgMenuItemHover ?? 'var(--ant-color-fill-secondary)',
+    [navVar.colorTextHover]:
+      header?.colorTextMenuActive ?? 'var(--ant-color-text)',
+    [navVar.colorBgSelected]:
+      header?.colorBgMenuItemSelected ?? 'var(--ant-color-fill-tertiary)',
+    [navVar.colorTextSelected]:
+      header?.colorTextMenuSelected ?? 'var(--ant-color-text)',
+    [navVar.colorDivider]: 'var(--ant-color-split)',
+    [navVar.popupBg]:
+      header?.colorBgMenuElevated ?? 'var(--ant-color-bg-elevated)',
+    [navVar.indent]: '16px',
+    [navVar.iconSize]: '16px',
+  };
+
+  const isHorizontal = mode.includes('horizontal');
 
   return {
     [`${token.componentCls}`]: {
+      ...(!isHorizontal ? siderVars : headerVars),
       background: 'transparent',
-      color: menuToken?.colorTextMenu,
+      color: `var(${navVar.colorText})`,
       border: 'none',
-      [`${token.componentCls}-menu-item`]: {
-        transition: 'none !important',
-      },
-      [`${token.componentCls}-submenu-has-icon`]: {
-        [`> ${token.antCls}-menu-sub`]: {
-          paddingInlineStart: 10,
-        },
-      },
+      width: '100%',
+
       [`${token.antCls}-menu-title-content`]: {
         width: '100%',
         height: '100%',
@@ -35,49 +77,127 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           width: '100%',
         },
       },
-      [`${token.componentCls}-item-icon`]: {
-        display: 'flex',
-        alignItems: 'center',
+
+      [`${token.componentCls}-list`]: {
+        listStyle: 'none',
+        margin: 0,
+        padding: 0,
       },
-      [`&&-collapsed`]: {
-        // antd ≥6.3.4 折叠 Menu 对 title-content 隐藏更彻底（如 #57360）；Pro 图标在 label 内，需恢复可见（布局仍由 *-item-title-collapsed 控制）
-        [`&${token.antCls}-menu-inline-collapsed`]: {
-          [`> ${token.antCls}-menu-item > ${token.antCls}-menu-title-content,
-            > ${token.antCls}-menu-item-group > ${token.antCls}-menu-item-group-list > ${token.antCls}-menu-item > ${token.antCls}-menu-title-content,
-            > ${token.antCls}-menu-item-group > ${token.antCls}-menu-item-group-list > ${token.antCls}-menu-submenu > ${token.antCls}-menu-submenu-title > ${token.antCls}-menu-title-content,
-            > ${token.antCls}-menu-submenu > ${token.antCls}-menu-submenu-title > ${token.antCls}-menu-title-content`]:
-            {
-              width: '100% !important',
-              maxWidth: '100%',
-              opacity: '1 !important',
-              overflow: 'visible !important',
-            },
+
+      [`${token.componentCls}-item`]: {
+        listStyle: 'none',
+        margin: 0,
+        paddingBlock: token.marginXXS,
+        paddingInlineEnd: token.paddingSM,
+        cursor: 'pointer',
+        color: `var(${navVar.colorText})`,
+        borderRadius: `var(--ant-border-radius-lg)`,
+        outline: 'none',
+        transition: `background-color var(--ant-motion-duration-mid)`,
+
+        '&:focus-visible': {
+          outline: `var(--ant-line-width-focus) solid var(--ant-color-primary)`,
+          outlineOffset: 1,
         },
-        [`${token.antCls}-menu-item, 
-        ${token.antCls}-menu-item-group > ${token.antCls}-menu-item-group-list > ${token.antCls}-menu-item, 
-        ${token.antCls}-menu-item-group > ${token.antCls}-menu-item-group-list > ${token.antCls}-menu-submenu > ${token.antCls}-menu-submenu-title, 
-        ${token.antCls}-menu-submenu > ${token.antCls}-menu-submenu-title`]: {
-          paddingInline: '0 !important',
-          marginBlock: '4px !important',
+
+        '&:hover:not(&--disabled)': {
+          backgroundColor: `var(${navVar.colorBgHover})`,
+          color: `var(${navVar.colorTextHover})`,
         },
-        [`${token.antCls}-menu-item-group > ${token.antCls}-menu-item-group-list > ${token.antCls}-menu-submenu-selected > ${token.antCls}-menu-submenu-title, 
-        ${token.antCls}-menu-submenu-selected > ${token.antCls}-menu-submenu-title`]:
-          {
-            backgroundColor: menuToken?.colorBgMenuItemSelected,
-            borderRadius: token.borderRadiusLG,
-          },
-        [`${token.componentCls}-group`]: {
-          [`${token.antCls}-menu-item-group-title`]: {
-            paddingInline: 0,
-          },
+
+        '&--selected': {
+          backgroundColor: `var(${navVar.colorBgSelected})`,
+          color: `var(${navVar.colorTextSelected})`,
         },
+
+        '&--disabled': {
+          cursor: 'not-allowed',
+          opacity: 0.45,
+        },
+      },
+
+      [`${token.componentCls}-submenu`]: {
+        listStyle: 'none',
+        margin: 0,
+        padding: 0,
+        position: 'relative',
+      },
+
+      [`${token.componentCls}-submenu-title`]: {
+        width: '100%',
+        margin: 0,
+        paddingBlock: token.marginXXS,
+        paddingInlineEnd: token.paddingSM,
+        border: 'none',
+        background: 'transparent',
+        textAlign: 'inherit',
+        cursor: 'pointer',
+        color: `var(${navVar.colorText})`,
+        borderRadius: `var(--ant-border-radius-lg)`,
+        font: 'inherit',
+        display: 'block',
+
+        '&:focus-visible': {
+          outline: `var(--ant-line-width-focus) solid var(--ant-color-primary)`,
+          outlineOffset: 1,
+        },
+
+        '&:hover': {
+          backgroundColor: `var(${navVar.colorBgHover})`,
+          color: `var(${navVar.colorTextHover})`,
+        },
+      },
+
+      [`${token.componentCls}-submenu-title-wrap`]: {
+        width: '100%',
+      },
+
+      [`${token.componentCls}-submenu-inline`]: {
+        listStyle: 'none',
+        margin: 0,
+        padding: 0,
+      },
+
+      [`${token.componentCls}-submenu-popup`]: {
+        position: 'absolute',
+        insetInlineStart: 0,
+        insetBlockStart: '100%',
+        marginBlockStart: token.marginXXS,
+        minWidth: 160,
+        padding: token.paddingXXS,
+        zIndex: `var(--ant-z-index-popup-base)`,
+        boxShadow: `var(--ant-box-shadow-secondary)`,
+        borderRadius: `var(--ant-border-radius-lg)`,
+        backgroundColor: `color-mix(in srgb, var(${navVar.popupBg}) 72%, transparent)`,
+        WebkitBackdropFilter: 'blur(8px)',
+        backdropFilter: 'blur(8px)',
+      },
+
+      [`${token.componentCls}-group-title`]: {
+        fontSize: token.fontSizeSM,
+        color: `var(--ant-color-text-label)`,
+        paddingInline: token.paddingSM,
+        paddingBlock: token.paddingXXS,
+      },
+
+      [`${token.componentCls}-group-list`]: {
+        listStyle: 'none',
+        margin: 0,
+        padding: 0,
+      },
+
+      [`${token.componentCls}-divider`]: {
+        listStyle: 'none',
+        height: 1,
+        margin: 0,
+        borderBlockEnd: `1px solid var(${navVar.colorDivider})`,
       },
 
       '&-item-title': {
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        gap: token.marginXS,
+        gap: `var(--ant-margin-xs)`,
         width: '100%',
         [`${token.componentCls}-item-text`]: {
           maxWidth: '100%',
@@ -90,17 +210,17 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           minWidth: 40,
           height: 40,
           [`${token.componentCls}-item-icon`]: {
-            height: '16px',
-            width: '16px',
-            lineHeight: '16px !important',
+            height: `var(${navVar.iconSize})`,
+            width: `var(${navVar.iconSize})`,
+            lineHeight: `var(${navVar.iconSize})`,
             '.anticon': {
-              lineHeight: '16px !important',
-              height: '16px',
+              lineHeight: `var(${navVar.iconSize})`,
+              height: `var(${navVar.iconSize})`,
             },
           },
 
           [`${token.componentCls}-item-text-has-icon`]: {
-            display: 'none !important',
+            display: 'none',
           },
         },
         '&-collapsed-level-0': {
@@ -108,7 +228,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           justifyContent: 'center',
         },
         [`&${token.componentCls}-group-item-title`]: {
-          gap: token.marginXS,
+          gap: `var(--ant-margin-xs)`,
           height: 18,
           overflow: 'hidden',
         },
@@ -118,20 +238,20 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           [`&${token.componentCls}-item-title-collapsed`]: {
             display: 'flex',
             [`${token.componentCls}-item-icon`]: {
-              height: '16px',
-              width: '16px',
-              lineHeight: '16px !important',
+              height: `var(${navVar.iconSize})`,
+              width: `var(${navVar.iconSize})`,
+              lineHeight: `var(${navVar.iconSize})`,
               '.anticon': {
-                lineHeight: '16px!important',
-                height: '16px',
+                lineHeight: `var(${navVar.iconSize})`,
+                height: `var(${navVar.iconSize})`,
               },
             },
 
             [`${token.componentCls}-item-text`]: {
-              opacity: '1 !important',
-              display: 'inline !important',
+              opacity: 1,
+              display: 'inline',
               textAlign: 'center',
-              fontSize: 12,
+              fontSize: token.fontSizeSM,
               height: 12,
               lineHeight: '12px',
               overflow: 'hidden',
@@ -145,35 +265,102 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           },
         },
       },
-      '&-group': {
-        [`${token.antCls}-menu-item-group-title`]: {
-          fontSize: 12,
-          color: token.colorTextLabel,
+
+      [`${token.componentCls}-item-icon`]: {
+        display: 'flex',
+        alignItems: 'center',
+      },
+
+      [`${token.componentCls}-group`]: {
+        [`${token.componentCls}-group-title`]: {
           '.anticon': {
             marginInlineEnd: 8,
           },
         },
       },
 
-      '&-group-divider': {
-        color: token.colorTextSecondary,
-        fontSize: 12,
+      [`${token.componentCls}-group-divider`]: {
+        color: `var(--ant-color-text-secondary)`,
+        fontSize: token.fontSizeSM,
         lineHeight: 20,
       },
-    },
-    ...(mode.includes('horizontal')
-      ? {}
-      : {
-          [`${token.antCls}-menu-submenu${token.antCls}-menu-submenu-popup`]: {
-            [`${token.componentCls}-item-title`]: {
-              alignItems: 'flex-start',
-            },
+
+      [`&${token.componentCls}--collapsed`]: {
+        [`${token.componentCls}-item`]: {
+          paddingInline: '0 !important',
+          marginBlock: `${token.marginXXS} !important`,
+        },
+        [`${token.componentCls}-submenu-title-wrap`]: {
+          paddingInline: '0 !important',
+        },
+        [`${token.componentCls}-item-title`]: {
+          width: '100%',
+          maxWidth: '100%',
+          opacity: 1,
+          overflow: 'visible',
+        },
+        [`${token.componentCls}-submenu-open > ${token.componentCls}-submenu-title-wrap ${token.componentCls}-submenu-title`]:
+          {
+            backgroundColor: `var(${navVar.colorBgSelected})`,
+            borderRadius: `var(--ant-border-radius-lg)`,
           },
-        }),
-    [`${token.antCls}-menu-submenu-popup`]: {
-      backgroundColor: 'rgba(255, 255, 255, 0.42)',
-      '-webkit-backdrop-filter': 'blur(8px)',
-      backdropFilter: 'blur(8px)',
+        [`${token.componentCls}-group`]: {
+          [`${token.componentCls}-group-title`]: {
+            paddingInline: 0,
+          },
+        },
+      },
+    },
+
+    [`${token.componentCls}--horizontal`]: {
+      ...headerVars,
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'center',
+
+      [`> ${token.componentCls}-list`]: {
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        alignItems: 'center',
+        gap: token.marginXXS,
+      },
+
+      [`${token.componentCls}-item`]: {
+        paddingInline: token.paddingSM,
+        whiteSpace: 'nowrap',
+      },
+
+      [`${token.componentCls}-submenu`]: {
+        display: 'inline-block',
+        position: 'relative',
+      },
+
+      [`${token.componentCls}-submenu-title-wrap`]: {
+        paddingInlineStart: 0,
+      },
+
+      [`${token.componentCls}-submenu-popup`]: {
+        [`${token.componentCls}-item-title`]: {
+          alignItems: 'flex-start',
+        },
+      },
+    },
+
+    [`${token.componentCls}-link-list`]: {
+      listStyle: 'none',
+      margin: 0,
+      padding: 0,
+    },
+
+    [`${token.componentCls}-link-item`]: {
+      listStyle: 'none',
+      paddingBlock: token.marginXXS,
+      paddingInlineStart: `var(${navVar.indent})`,
+    },
+
+    [`${token.componentCls}-link`]: {
+      display: 'block',
     },
   };
 };

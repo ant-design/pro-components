@@ -75,6 +75,12 @@ type GlobalTypes = Omit<
 >;
 
 export type ProLayoutProps = GlobalTypes & {
+  /** 受控菜单选中项 */
+  selectedKeys?: string[];
+  /** 受控子菜单展开项，`false` 表示非受控 */
+  openKeys?: WithFalse<string[]>;
+  /** 菜单项选中时回调（自研菜单与历史 antd Menu 行为对齐） */
+  onSelect?: (info: { key: string; selectedKeys: string[] }) => void;
   stylish?: {
     header?: GenerateStyle<SiderMenuToken>;
     sider?: GenerateStyle<SiderMenuToken>;

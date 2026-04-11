@@ -1,5 +1,5 @@
 import type { AvatarProps, SiderProps } from 'antd';
-import { Avatar, Layout, Menu, Space } from 'antd';
+import { Avatar, ConfigProvider, Layout, Space } from 'antd';
 import { clsx } from 'clsx';
 import type { CSSProperties, FC, ReactNode } from 'react';
 import React, { useContext, useMemo } from 'react';
@@ -12,6 +12,9 @@ import { CollapsedIcon } from '../CollapsedIcon';
 import type { HeaderViewProps } from '../Header';
 import type { BaseMenuProps } from './BaseMenu';
 import { BaseMenu } from './BaseMenu';
+import type { NavMenuNode } from './navMenuTypes';
+import { ProLayoutNavMenu } from './ProLayoutNavMenu';
+import { useStyle as useBaseMenuStyle } from './style/menu';
 import type { SiderMenuToken } from './style/stylish';
 import { useStylish } from './style/stylish';
 
@@ -71,6 +74,10 @@ export const renderLogoAndTitle = (
 };
 
 export type SiderMenuProps = {
+  /** 与 ProLayout 一致的类名前缀，如 `ant-pro-layout` */
+  prefixCls?: string;
+  /** 传给 antd Sider 的 theme */
+  theme?: SiderProps['theme'];
   /** 品牌logo的标识 */
   logo?: React.ReactNode;
   /** 相关品牌的列表 */
@@ -219,14 +226,19 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     stylish,
     logoStyle,
   } = props;
-  const { hashId } = useContext(ProProvider);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const resolvedPrefixCls = prefixCls ?? getPrefixCls('pro');
+  const { hashId: hashIdFromProvider } = useContext(ProProvider);
+  const hashId = hashIdFromProvider ?? '';
   const showSiderExtraDom = useMemo(() => {
     if (isMobile) return false;
     if (layout === 'mix') return false;
     return true;
   }, [isMobile, layout]);
 
-  const baseClassName = `${prefixCls}-sider`;
+  const baseClassName = `${resolvedPrefixCls}-sider`;
+  const linkMenuBaseClassName = `${resolvedPrefixCls}-base-menu-inline`;
+  useBaseMenuStyle(linkMenuBaseClassName, 'inline');
 
   // 收起的宽度，从 menu 配置中读取，默认为 64
   const collapsedWidth = props.menu?.collapsedWidth ?? 64;
@@ -272,10 +284,15 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     [baseClassName, hashId, menuContentRender, onOpenChange, props],
   );
 
-  const linksMenuItems: any[] = (links || []).map((node, index) => ({
-    className: `${baseClassName}-link`,
-    label: node,
-    key: index,
+  const linksNavNodes: NavMenuNode[] = (links || []).map((node, index) => ({
+    kind: 'item',
+    key: `link-${index}`,
+    className: `${linkMenuBaseClassName}-link-item`,
+    label: (
+      <span className={clsx(`${baseClassName}-link`, hashId)}>
+        {node}
+      </span>
+    ),
   }));
 
   const menuRenderDom = useMemo(() => {
@@ -334,10 +351,10 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         onItemClick={props.itemClick}
         appListRender={props.appListRender}
         appList={props.appList}
-        prefixCls={props.prefixCls}
+        prefixCls={resolvedPrefixCls}
       />
     );
-  }, [props.appList, props.appListRender, props.prefixCls]);
+  }, [props.appList, props.appListRender, resolvedPrefixCls]);
 
   const collapsedDom = useMemo(() => {
     if (collapsedButtonRender === false) return null;
@@ -431,14 +448,15 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
       <SiderContext.Provider value={{}}>
         {links ? (
           <div className={clsx(`${baseClassName}-links`, hashId)}>
-            <Menu
-              inlineIndent={16}
-              className={clsx(`${baseClassName}-link-menu`, hashId)}
+            <ProLayoutNavMenu
+              baseClassName={linkMenuBaseClassName}
+              hashId={hashId}
+              mode="inline"
+              collapsed={collapsed}
               selectedKeys={[]}
               openKeys={[]}
-              theme={theme}
-              mode="inline"
-              items={linksMenuItems}
+              nodes={linksNavNodes}
+              className={clsx(`${baseClassName}-link-menu`, hashId)}
             />
           </div>
         ) : null}

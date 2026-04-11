@@ -22,6 +22,11 @@ import type {
   SettingDrawerState,
 } from './components/SettingDrawer';
 import { SettingDrawer } from './components/SettingDrawer';
+import type {
+  BaseMenuProps,
+  ProLayoutNavMenuDomProps,
+} from './components/SiderMenu/BaseMenu';
+import { BaseMenu } from './components/SiderMenu/BaseMenu';
 import type { TopNavHeaderProps } from './components/TopNavHeader';
 import { TopNavHeader } from './components/TopNavHeader';
 import type { RouteContextType } from './context/RouteContext';
@@ -36,6 +41,7 @@ export * from './components/Help';
 export type { ProSettings, ProSettings as Settings } from './defaultSettings';
 export type { MenuDataItem } from './typing';
 export {
+  BaseMenu,
   DefaultFooter,
   DefaultHeader,
   FooterToolbar,
@@ -55,10 +61,12 @@ export {
 export type {
   AppItemProps,
   AppListProps,
+  BaseMenuProps,
   FooterProps,
   HeaderProps,
   PageContainerProps,
   PageHeaderProps,
+  ProLayoutNavMenuDomProps,
   ProLayoutProps,
   RouteContextType,
   SettingDrawerProps,

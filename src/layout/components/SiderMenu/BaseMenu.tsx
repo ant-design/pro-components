@@ -1,9 +1,8 @@
 import { createFromIconfontCN } from '@ant-design/icons';
 import { useControlledState } from '@rc-component/util';
-import type { MenuProps } from 'antd';
-import { Menu, Skeleton, Tooltip } from 'antd';
-import type { ItemType } from 'antd/lib/menu/interface';
+import { ConfigProvider, Skeleton, Tooltip } from 'antd';
 import { clsx } from 'clsx';
+import type { HTMLAttributes } from 'react';
 import React, {
   useCallback,
   useContext,
@@ -25,6 +24,8 @@ import type {
 } from '../../typing';
 import { getOpenKeysFromMenuData } from '../../utils/utils';
 import type { PrivateSiderMenuProps } from './SiderMenu';
+import type { NavMenuNode } from './navMenuTypes';
+import { ProLayoutNavMenu } from './ProLayoutNavMenu';
 import { useStyle } from './style/menu';
 
 export type MenuMode =
@@ -33,6 +34,12 @@ export type MenuMode =
   | 'vertical-right'
   | 'horizontal'
   | 'inline';
+
+/** Props merged onto the root nav element (replaces antd `MenuProps` passthrough). */
+export type ProLayoutNavMenuDomProps = Omit<
+  HTMLAttributes<HTMLElement>,
+  'role' | 'onSelect' | 'children' | 'defaultValue'
+>;
 
 const MenuItemTooltip = (props: {
   collapsed?: boolean;
@@ -66,6 +73,10 @@ const MenuItemTooltip = (props: {
 };
 
 export type BaseMenuProps = {
+  prefixCls?: string;
+  /** 受控选中项，与路由 `matchMenuKeys` 配合使用 */
+  selectedKeys?: string[];
+  onSelect?: (info: { key: string; selectedKeys: string[] }) => void;
   className?: string;
   /** 默认的是否展开，会受到 breakpoint 的影响 */
   defaultCollapsed?: boolean;
@@ -76,10 +87,11 @@ export type BaseMenuProps = {
   mode?: MenuMode;
   onCollapse?: (collapsed: boolean) => void;
   openKeys?: WithFalse<string[]> | undefined;
+  /** 与 `openKeys` 配合的受控展开回调 */
   onOpenChange?: (openKeys: string[]) => void;
   iconPrefixes?: string;
-  /** 要给菜单的props, 参考antd-menu的属性。https://ant.design/components/menu-cn/ */
-  menuProps?: MenuProps;
+  /** 合并到自研菜单根节点 `nav` 上的 DOM 属性（不再透传 antd Menu） */
+  menuProps?: ProLayoutNavMenuDomProps;
   style?: React.CSSProperties;
   formatMessage?: (message: MessageDescriptor) => string;
 
@@ -136,7 +148,6 @@ export type BaseMenuProps = {
    */
   postMenuData?: (menusData?: MenuDataItem[]) => MenuDataItem[];
 } & Partial<RouterTypes> &
-  Omit<MenuProps, 'openKeys' | 'onOpenChange' | 'title'> &
   Partial<PureSettings>;
 
 let IconFont = createFromIconfontCN({
@@ -204,22 +215,21 @@ class MenuUtil {
     menusData: MenuDataItem[] = [],
     level: number,
     noGroupLevel: number,
-  ): ItemType[] =>
+  ): NavMenuNode[] =>
     menusData
       .map((item) => this.getSubMenuOrItem(item, level, noGroupLevel))
       .filter((item) => item)
-      .flat(1);
+      .flat(1) as NavMenuNode[];
 
   /** Get SubMenu or Item */
   getSubMenuOrItem = (
     item: MenuDataItem,
     level: number,
     noGroupLevel: number,
-  ): ItemType | ItemType[] => {
+  ): NavMenuNode | NavMenuNode[] => {
     const {
       subMenuItemRender,
       baseClassName,
-      prefixCls,
       collapsed,
       menu,
       iconPrefixes,
@@ -305,26 +315,35 @@ class MenuUtil {
         isGroup && level === 0 && this.props.collapsed ? level : level + 1,
       );
 
+      const submenuOrGroup: NavMenuNode =
+        menuType === 'group'
+          ? {
+              kind: 'group',
+              key: String(item.key! || item.path!),
+              label: title,
+              children: childrenList,
+              className: clsx(`${baseClassName}-group`),
+            }
+          : {
+              kind: 'submenu',
+              key: String(item.key! || item.path!),
+              label: title,
+              onTitleClick: (e) => item.onTitleClick?.(e),
+              children: childrenList,
+              className: clsx({
+                [`${baseClassName}-submenu`]: true,
+                [`${baseClassName}-submenu-has-icon`]:
+                  shouldHasIcon && iconDom,
+              }),
+            };
+
       return [
-        {
-          type: menuType,
-          key: item.key! || item.path!,
-          label: title,
-          onClick: isGroup ? undefined : item.onTitleClick,
-          children: childrenList,
-          className: clsx({
-            [`${baseClassName}-group`]: menuType === 'group',
-            [`${baseClassName}-submenu`]: menuType !== 'group',
-            [`${baseClassName}-submenu-has-icon`]:
-              menuType !== 'group' && shouldHasIcon && iconDom,
-          }),
-        } as ItemType,
+        submenuOrGroup,
         isGroup && level === 0
           ? ({
-              type: 'divider',
-              prefixCls,
+              kind: 'divider' as const,
+              key: `${item.key! || item.path!}-group-divider`,
               className: `${baseClassName}-divider`,
-              key: (item.key! || item.path!) + '-group-divider',
               style: {
                 padding: 0,
                 borderBlockEnd: 0,
@@ -332,16 +351,19 @@ class MenuUtil {
                 marginBlockStart: this.props.collapsed ? 4 : 8,
                 borderColor: designToken?.layout?.sider?.colorMenuItemDivider,
               },
-            } as ItemType)
+            } as NavMenuNode)
           : undefined,
-      ].filter(Boolean) as ItemType[];
+      ].filter(Boolean) as NavMenuNode[];
     }
 
+    const onTitle = (item as MenuDataItem & { onTitleClick?: () => void })
+      .onTitleClick;
     return {
+      kind: 'item' as const,
       className: `${baseClassName}-menu-item`,
       disabled: item.disabled,
-      key: item.key! || item.path!,
-      onClick: item.onTitleClick,
+      key: String(item.key! || item.path!),
+      onClick: onTitle ? () => onTitle() : undefined,
       label: this.getMenuItemPath(item, level, noGroupLevel),
     };
   };
@@ -509,47 +531,27 @@ class MenuUtil {
   };
 }
 
-/**
- * 生成openKeys 的对象，因为设置了openKeys 就会变成受控，所以需要一个空对象
- *
- * @param BaseMenuProps
- */
-const getOpenKeysProps = (
-  openKeys: (string | number)[] | false,
-  { layout, collapsed }: BaseMenuProps,
-): {
-  openKeys?: undefined | string[];
-} => {
-  let openKeysProps = {} as Record<string, any>;
-
-  if (openKeys && !collapsed && ['side', 'mix'].includes(layout || 'mix')) {
-    openKeysProps = {
-      openKeys,
-    };
-  }
-  return openKeysProps;
-};
-
 const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const {
     mode,
     className,
     onOpenChange,
     style,
     menuData,
-    prefixCls,
+    prefixCls: prefixClsProp = getPrefixCls('pro'),
     menu,
     matchMenuKeys,
     iconfontUrl,
     selectedKeys: propsSelectedKeys,
-    onSelect,
+    onSelect: propsOnSelect,
     menuRenderType,
     openKeys: propsOpenKeys,
   } = props;
 
-  const { dark, token: designToken } = useContext(ProProvider);
+  const { token: designToken } = useContext(ProProvider);
 
-  const baseClassName = `${prefixCls}-base-menu-${mode}`;
+  const baseClassName = `${prefixClsProp}-base-menu-${mode}`;
   // 用于减少 defaultOpenKeys 计算的组件
   const defaultOpenKeysRef = useRef<string[]>([]);
 
@@ -606,19 +608,19 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
                 prev,
               )
             : updater;
-        if (onSelect && next) {
-          onSelect(next as any);
+        if (propsOnSelect && next) {
+          propsOnSelect({ key: next[0]!, selectedKeys: next } as any);
         }
         return next;
       });
     },
-    [onSelect],
+    [propsOnSelect],
   );
   useEffect(() => {
     if (menu?.defaultOpenAll || propsOpenKeys === false) {
       return;
     }
-    if (matchMenuKeys) {
+    if (matchMenuKeys.length > 0) {
       setOpenKeys(matchMenuKeys);
       setSelectedKeys(matchMenuKeys);
     }
@@ -636,7 +638,10 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   useEffect(
     () => {
       // if pathname can't match, use the nearest parent's key
-      if (matchMenuKeys.join('-') !== (selectedKeys || []).join('-')) {
+      if (
+        matchMenuKeys.length > 0 &&
+        matchMenuKeys.join('-') !== (selectedKeys || []).join('-')
+      ) {
         setSelectedKeys(matchMenuKeys);
       }
       if (
@@ -645,13 +650,20 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         matchMenuKeys.join('-') !== (openKeys || []).join('-')
       ) {
         let newKeys: (string | number)[] | false = matchMenuKeys;
-        // 如果不自动关闭，我需要把 openKeys 放进去
         if (menu?.autoClose === false) {
           newKeys = Array.from(
             new Set([...matchMenuKeys, ...(openKeys || [])]),
           );
         }
-        setOpenKeys(newKeys);
+        if (
+          Array.isArray(newKeys) &&
+          newKeys.length === 0 &&
+          matchMenuKeys.length === 0
+        ) {
+          // 路由无法匹配菜单时保留展开态（如 pathname 被写成外链）
+        } else {
+          setOpenKeys(newKeys);
+        }
       } else if (menu?.ignoreFlatMenu && defaultOpenAll && !props.collapsed) {
         // 忽略用户手动折叠过的菜单状态，折叠按钮切换之后也可实现默认展开所有菜单
         // 但是如果用户手动点击关闭菜单，则应该遵循用户的选择
@@ -664,10 +676,6 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     [matchMenuKeys.join('-'), props.collapsed],
   );
 
-  const openKeysProps = useMemo(
-    () => getOpenKeysProps(openKeys, props),
-    [openKeys && openKeys.join(','), props.layout, props.collapsed],
-  );
   const { wrapSSR, hashId } = useStyle(baseClassName, mode);
 
   const menuUtils = useMemo(() => {
@@ -716,36 +724,52 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   if (finallyData && finallyData?.length < 1) {
     return null;
   }
+
+  const { className: menuPropsClassName, style: menuPropsStyle, ...restMenuProps } =
+    props.menuProps || {};
+
+  const inlineOpenKeys =
+    propsOpenKeys === false
+      ? []
+      : openKeys === false
+        ? []
+        : (openKeys || []).map((k) => String(k));
+
   return wrapSSR(
-    <Menu
-      {...(openKeysProps as any)}
-      {...({ tooltip: false } as any)}
-      key="Menu"
-      mode={mode}
-      inlineIndent={16}
-      defaultOpenKeys={defaultOpenKeysRef.current}
-      theme={dark ? 'dark' : 'light'}
-      selectedKeys={selectedKeys}
-      style={{
-        backgroundColor: 'transparent',
-        border: 'none',
-        ...style,
-      }}
-      className={clsx(className, hashId, baseClassName, {
-        [`${baseClassName}-horizontal`]: mode === 'horizontal',
-        [`${baseClassName}-collapsed`]: props.collapsed,
-      })}
-      items={menuUtils.getNavMenuItems(finallyData, 0, 0)}
+    <ProLayoutNavMenu
+      key="ProLayoutNavMenu"
+      baseClassName={baseClassName}
+      hashId={hashId}
+      mode={mode!}
+      collapsed={props.collapsed}
+      selectedKeys={(selectedKeys || []).map((k) => String(k))}
+      openKeys={inlineOpenKeys}
+      defaultOpenKeys={defaultOpenKeysRef.current.map((k) => String(k))}
+      nodes={menuUtils.getNavMenuItems(finallyData, 0, 0)}
       onOpenChange={(_openKeys) => {
         if (!props.collapsed) {
-          // 如果用户手动关闭所有菜单，则关闭自动展开
           if (_openKeys.length === 0) {
             setDefaultOpenAll(false);
           }
           setOpenKeys(_openKeys);
         }
       }}
-      {...props.menuProps}
+      onSelect={({ selectedKeys: sk }) => {
+        setSelectedKeys(sk);
+      }}
+      style={{
+        backgroundColor: 'transparent',
+        border: 'none',
+        ...style,
+        ...menuPropsStyle,
+      }}
+      className={clsx(className, hashId, baseClassName, menuPropsClassName, {
+        [`${baseClassName}-horizontal`]: mode === 'horizontal',
+        [`${baseClassName}--horizontal`]: mode === 'horizontal',
+        [`${baseClassName}-collapsed`]: props.collapsed,
+        [`${baseClassName}--collapsed`]: props.collapsed,
+      })}
+      {...restMenuProps}
     />,
   );
 };
