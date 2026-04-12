@@ -20,6 +20,7 @@ import { PageLoading } from './components/PageLoading';
 import type { BaseMenuProps } from './components/SiderMenu/BaseMenu';
 import { BaseMenu } from './components/SiderMenu/BaseMenu';
 import type { ProLayoutNavMenuProps } from './components/SiderMenu/ProLayoutNavMenu';
+import { proLayoutNavVar } from './components/SiderMenu/style/menu';
 import type {
   MenuMode,
   NavMenuDividerNode,
@@ -53,6 +54,7 @@ export {
   PageContainer,
   PageHeader,
   PageLoading,
+  proLayoutNavVar,
   ProBreadcrumb,
   ProLayout,
   ProPageHeader,

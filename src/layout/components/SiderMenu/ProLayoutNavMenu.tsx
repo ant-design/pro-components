@@ -54,7 +54,7 @@ interface ProLayoutNavMenuRenderContext {
   openKeysProp: (string | number)[];
   popupOpenKey: string | null;
   popupPlacement: { top: number; left: number } | null;
-  popupPanelRef: React.RefObject<HTMLUListElement | null>;
+  popupPanelRef: React.RefObject<HTMLUListElement>;
   submenuAnchorRefs: React.MutableRefObject<Map<string, HTMLButtonElement>>;
   setPopupOpenKey: React.Dispatch<React.SetStateAction<string | null>>;
   handleLeafActivate: (

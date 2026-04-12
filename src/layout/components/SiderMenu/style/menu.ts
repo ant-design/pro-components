@@ -1,3 +1,4 @@
+import type { CSSInterpolation } from '@ant-design/cssinjs';
 import type { CSSProperties } from 'react';
 import type { GenerateStyle } from '../../../../provider';
 import { useStyle as useAntdStyle } from '../../../../provider';
@@ -35,8 +36,11 @@ export function getProLayoutSiderCssVarsStyle(): CSSProperties {
   } as CSSProperties;
 }
 
-/** 主导航语义 token，统一在根 `nav` 上注入，子选择器只用 `var(--pro-layout-nav-*)` */
-const navVar = {
+/**
+ * 主导航 CSS 变量名表（值在根 `nav` 上由 `layoutNavCssVars` 注入）。
+ * 覆盖主题时在祖先上写 `--pro-layout-nav-*` 即可，无需改组件类名。
+ */
+export const proLayoutNavVar = {
   colorText: '--pro-layout-nav-color-text',
   colorBgHover: '--pro-layout-nav-color-bg-hover',
   colorTextHover: '--pro-layout-nav-color-text-hover',
@@ -54,16 +58,59 @@ const navVar = {
   itemFontWeight: '--pro-layout-nav-item-font-weight',
   itemPadBlock: '--pro-layout-nav-item-padding-block',
   itemPadInline: '--pro-layout-nav-item-padding-inline',
+  /** 顶栏横向菜单项左右内边距（较松） */
+  itemPadInlineLoose: '--pro-layout-nav-item-padding-inline-loose',
   stackGap: '--pro-layout-nav-stack-gap',
+  groupGapBlock: '--pro-layout-nav-group-gap-block',
   groupTitleFontSize: '--pro-layout-nav-group-title-font-size',
   groupTitleLineHeight: '--pro-layout-nav-group-title-line-height',
+  groupItemTitleHeight: '--pro-layout-nav-group-item-title-height',
   iconBox: '--pro-layout-nav-icon-box-size',
+  motionDuration: '--pro-layout-nav-motion-duration',
+  focusRingColor: '--pro-layout-nav-focus-ring-color',
+  itemDisabledOpacity: '--pro-layout-nav-item-disabled-opacity',
+  collapsedItemMarginBlock: '--pro-layout-nav-collapsed-item-margin-block',
+  collapsedTitleTrackWidth: '--pro-layout-nav-collapsed-title-track-width',
+  collapsedShowTitleLineHeight: '--pro-layout-nav-collapsed-show-title-line-height',
+  collapsedShowTitleTextFontSize: '--pro-layout-nav-collapsed-show-title-text-font-size',
+  collapsedShowTitleTextMaxHeight: '--pro-layout-nav-collapsed-show-title-text-max-height',
+  collapsedShowTitleTextLineHeight: '--pro-layout-nav-collapsed-show-title-text-line-height',
+  collapsedShowTitleTextMarginBlockStart:
+    '--pro-layout-nav-collapsed-show-title-text-margin-block-start',
+  groupDividerFontSize: '--pro-layout-nav-group-divider-font-size',
+  groupDividerLineHeight: '--pro-layout-nav-group-divider-line-height',
+  popupMinWidth: '--pro-layout-nav-popup-min-width',
+  popupMaxHeight: '--pro-layout-nav-popup-max-height',
+  popupPadding: '--pro-layout-nav-popup-padding',
 } as const;
 
 function layoutNavCssVars(surface: 'sider' | 'header'): Record<string, string> {
   const padInline = 8;
   const stackGap = 4;
   const itemH = 32;
+  /** 侧栏与顶栏共用的布局/动效默认值，避免在两套分支里复制粘贴 */
+  const layoutNavSharedDefaults: Record<string, string> = {
+    [proLayoutNavVar.itemPadInlineLoose]: 'var(--ant-padding-sm, 12px)',
+    [proLayoutNavVar.groupGapBlock]: '12px',
+    [proLayoutNavVar.groupItemTitleHeight]: '18px',
+    [proLayoutNavVar.motionDuration]: 'var(--ant-motion-duration-mid, 0.2s)',
+    [proLayoutNavVar.focusRingColor]: 'var(--ant-color-primary)',
+    [proLayoutNavVar.itemDisabledOpacity]: '0.45',
+    [proLayoutNavVar.collapsedItemMarginBlock]: 'var(--ant-margin-xxs, 4px)',
+    [proLayoutNavVar.collapsedTitleTrackWidth]: '20px',
+    [proLayoutNavVar.collapsedShowTitleLineHeight]: '16px',
+    [proLayoutNavVar.collapsedShowTitleTextFontSize]:
+      'calc(var(--ant-font-size, 14px) - 1px)',
+    [proLayoutNavVar.collapsedShowTitleTextMaxHeight]: '12px',
+    [proLayoutNavVar.collapsedShowTitleTextLineHeight]: '12px',
+    [proLayoutNavVar.collapsedShowTitleTextMarginBlockStart]: '4px',
+    [proLayoutNavVar.groupDividerFontSize]:
+      'calc(var(--ant-font-size, 14px) - 1px)',
+    [proLayoutNavVar.groupDividerLineHeight]: '20px',
+    [proLayoutNavVar.popupMinWidth]: '160px',
+    [proLayoutNavVar.popupMaxHeight]: 'calc(100vh - 32px)',
+    [proLayoutNavVar.popupPadding]: 'var(--ant-padding-xxs, 4px)',
+  };
   /** 侧栏主导航：浅灰底上的字色 / 交互；可通过覆盖 `--pro-layout-nav-*` 调整 */
   const siderNavText = 'rgba(9, 30, 66, 0.86)';
   const siderNavIcon = 'rgba(9, 30, 66, 0.31)';
@@ -73,51 +120,53 @@ function layoutNavCssVars(surface: 'sider' | 'header'): Record<string, string> {
   const siderNavSelectedText = '#0055cc';
   if (surface === 'sider') {
     return {
-      [navVar.colorText]: siderNavText,
-      [navVar.colorBgHover]: siderNavHoverBg,
-      [navVar.colorTextHover]: siderNavText,
-      [navVar.colorBgSelected]: siderNavSelectedBg,
-      [navVar.colorTextSelected]: siderNavSelectedText,
-      [navVar.colorDivider]: 'var(--ant-color-split)',
-      [navVar.popupBg]: 'var(--ant-color-bg-elevated)',
-      [navVar.indent]: '16px',
-      [navVar.colorIcon]: siderNavIcon,
-      [navVar.colorSection]: siderNavSection,
-      [navVar.itemHeight]: `${itemH}px`,
-      [navVar.itemRadius]: '6px',
-      [navVar.itemGap]: '8px',
-      [navVar.itemFontSize]: 'calc(var(--ant-font-size) + 1px)',
-      [navVar.itemFontWeight]: '500',
-      [navVar.itemPadBlock]: '6px',
-      [navVar.itemPadInline]: `${padInline}px`,
-      [navVar.stackGap]: `${stackGap}px`,
-      [navVar.groupTitleFontSize]: 'calc(var(--ant-font-size, 14px) - 1px)',
-      [navVar.groupTitleLineHeight]: '20px',
-      [navVar.iconBox]: '16px',
+      ...layoutNavSharedDefaults,
+      [proLayoutNavVar.colorText]: siderNavText,
+      [proLayoutNavVar.colorBgHover]: siderNavHoverBg,
+      [proLayoutNavVar.colorTextHover]: siderNavText,
+      [proLayoutNavVar.colorBgSelected]: siderNavSelectedBg,
+      [proLayoutNavVar.colorTextSelected]: siderNavSelectedText,
+      [proLayoutNavVar.colorDivider]: 'var(--ant-color-split)',
+      [proLayoutNavVar.popupBg]: 'var(--ant-color-bg-elevated)',
+      [proLayoutNavVar.indent]: '16px',
+      [proLayoutNavVar.colorIcon]: siderNavIcon,
+      [proLayoutNavVar.colorSection]: siderNavSection,
+      [proLayoutNavVar.itemHeight]: `${itemH}px`,
+      [proLayoutNavVar.itemRadius]: '6px',
+      [proLayoutNavVar.itemGap]: '8px',
+      [proLayoutNavVar.itemFontSize]: '14px',
+      [proLayoutNavVar.itemFontWeight]: '500',
+      [proLayoutNavVar.itemPadBlock]: '6px',
+      [proLayoutNavVar.itemPadInline]: `${padInline}px`,
+      [proLayoutNavVar.stackGap]: `${stackGap}px`,
+      [proLayoutNavVar.groupTitleFontSize]: 'calc(var(--ant-font-size, 14px) - 1px)',
+      [proLayoutNavVar.groupTitleLineHeight]: '20px',
+      [proLayoutNavVar.iconBox]: '16px',
     };
   }
   return {
-    [navVar.colorText]: 'var(--ant-color-text-secondary)',
-    [navVar.colorBgHover]: 'var(--ant-color-fill-secondary)',
-    [navVar.colorTextHover]: 'var(--ant-color-text)',
-    [navVar.colorBgSelected]: 'var(--ant-color-fill-tertiary)',
-    [navVar.colorTextSelected]: 'var(--ant-color-text)',
-    [navVar.colorDivider]: 'var(--ant-color-split)',
-    [navVar.popupBg]: 'var(--ant-color-bg-elevated)',
-    [navVar.indent]: '16px',
-    [navVar.colorIcon]: 'var(--ant-color-text-secondary)',
-    [navVar.colorSection]: 'var(--ant-color-text-description)',
-    [navVar.itemHeight]: `${itemH}px`,
-    [navVar.itemRadius]: '6px',
-    [navVar.itemGap]: '8px',
-    [navVar.itemFontSize]: 'var(--ant-font-size)',
-    [navVar.itemFontWeight]: '500',
-    [navVar.itemPadBlock]: '6px',
-    [navVar.itemPadInline]: `${padInline}px`,
-    [navVar.stackGap]: `${stackGap}px`,
-    [navVar.groupTitleFontSize]: 'var(--ant-font-size-sm)',
-    [navVar.groupTitleLineHeight]: '20px',
-    [navVar.iconBox]: '16px',
+    ...layoutNavSharedDefaults,
+    [proLayoutNavVar.colorText]: 'var(--ant-color-text-secondary)',
+    [proLayoutNavVar.colorBgHover]: 'var(--ant-color-fill-secondary)',
+    [proLayoutNavVar.colorTextHover]: 'var(--ant-color-text)',
+    [proLayoutNavVar.colorBgSelected]: 'var(--ant-color-fill-tertiary)',
+    [proLayoutNavVar.colorTextSelected]: 'var(--ant-color-text)',
+    [proLayoutNavVar.colorDivider]: 'var(--ant-color-split)',
+    [proLayoutNavVar.popupBg]: 'var(--ant-color-bg-elevated)',
+    [proLayoutNavVar.indent]: '16px',
+    [proLayoutNavVar.colorIcon]: 'var(--ant-color-text-secondary)',
+    [proLayoutNavVar.colorSection]: 'var(--ant-color-text-description)',
+    [proLayoutNavVar.itemHeight]: `${itemH}px`,
+    [proLayoutNavVar.itemRadius]: '6px',
+    [proLayoutNavVar.itemGap]: '8px',
+    [proLayoutNavVar.itemFontSize]: 'var(--ant-font-size)',
+    [proLayoutNavVar.itemFontWeight]: '500',
+    [proLayoutNavVar.itemPadBlock]: '6px',
+    [proLayoutNavVar.itemPadInline]: `${padInline}px`,
+    [proLayoutNavVar.stackGap]: `${stackGap}px`,
+    [proLayoutNavVar.groupTitleFontSize]: 'var(--ant-font-size-sm)',
+    [proLayoutNavVar.groupTitleLineHeight]: '20px',
+    [proLayoutNavVar.iconBox]: '16px',
   };
 }
 
@@ -127,7 +176,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
 ) => {
   const c = token.componentCls;
   const isHorizontal = mode.includes('horizontal');
-  const v = (name: keyof typeof navVar) => `var(${navVar[name]})`;
+  const v = (name: keyof typeof proLayoutNavVar) => `var(${proLayoutNavVar[name]})`;
 
   const rowItem: Record<string, unknown> = {
     boxSizing: 'border-box',
@@ -150,9 +199,9 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
     border: 'none',
     background: 'transparent',
     textAlign: 'start',
-    transition: `background-color var(--ant-motion-duration-mid, 0.2s), color var(--ant-motion-duration-mid, 0.2s)`,
+    transition: `background-color ${v('motionDuration')}, color ${v('motionDuration')}`,
     '&:focus-visible': {
-      outline: `2px solid var(--ant-color-primary)`,
+      outline: `2px solid ${v('focusRingColor')}`,
       outlineOffset: 1,
     },
   };
@@ -203,7 +252,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         },
         '&--disabled': {
           cursor: 'not-allowed',
-          opacity: 0.45,
+          opacity: v('itemDisabledOpacity'),
         },
       },
 
@@ -250,10 +299,10 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
       [`${c}-submenu-popup`]: {
         position: 'fixed',
         margin: 0,
-        minWidth: 160,
-        maxHeight: 'calc(100vh - 32px)',
+        minWidth: v('popupMinWidth'),
+        maxHeight: v('popupMaxHeight'),
         overflowY: 'auto',
-        padding: 'var(--ant-padding-xxs, 4px)',
+        padding: v('popupPadding'),
         zIndex: `var(--ant-z-index-popup-base)`,
         boxShadow: `var(--ant-box-shadow-secondary)`,
         borderRadius: `var(--ant-border-radius-lg)`,
@@ -267,7 +316,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
 
       /** 分组之间约 12px，组内项仍用 stackGap（4px） */
       [`${c}-group + ${c}-group`]: {
-        marginBlockStart: 12,
+        marginBlockStart: v('groupGapBlock'),
       },
 
       [`${c}-group-title`]: {
@@ -320,11 +369,11 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         },
         [`&${c}-group-item-title`]: {
           gap: v('itemGap'),
-          height: 18,
+          height: v('groupItemTitleHeight'),
           overflow: 'hidden',
         },
         [`&${c}-item-collapsed-show-title`]: {
-          lineHeight: '16px',
+          lineHeight: v('collapsedShowTitleLineHeight'),
           gap: 0,
           [`&${c}-item-title-collapsed`]: {
             display: 'flex',
@@ -333,10 +382,10 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
             [`${c}-item-text`]: {
               display: 'inline',
               textAlign: 'center',
-              fontSize: 'calc(var(--ant-font-size, 14px) - 1px)',
-              maxHeight: 12,
-              lineHeight: '12px',
-              marginBlockStart: 4,
+              fontSize: v('collapsedShowTitleTextFontSize'),
+              maxHeight: v('collapsedShowTitleTextMaxHeight'),
+              lineHeight: v('collapsedShowTitleTextLineHeight'),
+              marginBlockStart: v('collapsedShowTitleTextMarginBlockStart'),
             },
           },
         },
@@ -391,8 +440,8 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
 
       [`${c}-group-divider`]: {
         color: `var(--ant-color-text-secondary)`,
-        fontSize: 'calc(var(--ant-font-size, 14px) - 1px)',
-        lineHeight: 20,
+        fontSize: v('groupDividerFontSize'),
+        lineHeight: v('groupDividerLineHeight'),
       },
 
       /** `--collapsed` 与根 `nav` 同元素，须用 `&--collapsed` 复合选择器，勿写成后代 `${c} ${c}--collapsed` */
@@ -401,7 +450,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           paddingBlock: 0,
           paddingInlineStart: v('itemPadInline'),
           paddingInlineEnd: 0,
-          marginBlock: 'var(--ant-margin-xxs, 4px)',
+          marginBlock: v('collapsedItemMarginBlock'),
         },
         [`${c}-submenu-title`]: {
           paddingBlock: 0,
@@ -436,9 +485,9 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
     ...(mode === 'vertical'
       ? {
           [`&--collapsed ${c}-item-title-collapsed`]: {
-            width: 20,
-            minWidth: 20,
-            maxWidth: 20,
+            width: v('collapsedTitleTrackWidth'),
+            minWidth: v('collapsedTitleTrackWidth'),
+            maxWidth: v('collapsedTitleTrackWidth'),
             marginInline: 'auto',
             alignSelf: 'center',
           },
@@ -463,7 +512,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         minHeight: 'auto',
         height: 'auto',
         whiteSpace: 'nowrap',
-        paddingInline: 'var(--ant-padding-sm, 12px)',
+        paddingInline: v('itemPadInlineLoose'),
       },
       [`${c}-submenu`]: { display: 'inline-block' },
       [`${c}-submenu-title`]: {
@@ -489,7 +538,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
     },
 
     [`${c}-link`]: { display: 'block' },
-  };
+  } as CSSInterpolation;
 };
 
 export function useStyle(prefixCls: string, mode: MenuMode | undefined) {
