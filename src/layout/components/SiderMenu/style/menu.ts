@@ -260,7 +260,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
       [`${c}-group-title`]: {
         margin: 0,
         paddingInline: v('itemPadInline'),
-        paddingBlock: 0,
+        paddingBlockStart: v('stackGap'),
         paddingBlockEnd: v('stackGap'),
         fontSize: v('groupTitleFontSize'),
         fontWeight: v('itemFontWeight'),
