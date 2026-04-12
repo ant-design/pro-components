@@ -217,14 +217,28 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
       [`${c}-submenu-title`]: {
         ...rowItem,
         font: 'inherit',
-        /** 子菜单标题内联 DOM（与 leaf 一致） */
-        [`> *`]: {
+        gap: v('itemGap'),
+        [`${c}-submenu-title-text`]: {
           flex: 1,
           minWidth: 0,
           display: 'flex',
           flexDirection: 'row',
           alignItems: 'center',
           gap: v('itemGap'),
+        },
+        [`${c}-submenu-arrow`]: {
+          flexShrink: 0,
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: v('iconBox'),
+          height: v('iconBox'),
+          fontSize: '10px',
+          color: v('colorIcon'),
+          transition: `transform var(--ant-motion-duration-mid, 0.2s)`,
+        },
+        [`${c}-submenu-arrow--open`]: {
+          transform: 'rotate(-180deg)',
         },
         '&:hover': {
           backgroundColor: v('colorBgHover'),
@@ -246,6 +260,14 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           minWidth: 0,
         },
       },
+
+      /** 二级及以下子列表：左边线 + 内缩，区分多级深度 */
+      [`${c}-submenu-children[data-pro-layout-nav-submenu-children]:not([data-depth="0"])`]:
+        {
+          marginInlineStart: 4,
+          paddingInlineStart: 10,
+          borderInlineStart: `1px solid ${v('colorDivider')}`,
+        },
 
       [`${c}-submenu-popup`]: {
         position: 'fixed',

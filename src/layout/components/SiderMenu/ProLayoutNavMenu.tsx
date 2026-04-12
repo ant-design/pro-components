@@ -1,3 +1,4 @@
+import { DownOutlined } from '@ant-design/icons';
 import { clsx } from 'clsx';
 import type { CSSProperties, HTMLAttributes } from 'react';
 import React, {
@@ -238,7 +239,17 @@ function renderPopup(
           }
         }}
       >
-        {node.label}
+        <span className={`${baseClassName}-submenu-title-text`}>
+          {node.label}
+        </span>
+        <span
+          className={clsx(`${baseClassName}-submenu-arrow`, {
+            [`${baseClassName}-submenu-arrow--open`]: isOpen,
+          })}
+          aria-hidden
+        >
+          <DownOutlined />
+        </span>
       </button>
       {popupPanel}
     </React.Fragment>
@@ -279,10 +290,22 @@ function renderInlineSubmenu(
           }
         }}
       >
-        {node.label}
+        <span className={`${baseClassName}-submenu-title-text`}>
+          {node.label}
+        </span>
+        <span
+          className={clsx(`${baseClassName}-submenu-arrow`, {
+            [`${baseClassName}-submenu-arrow--open`]: isOpen,
+          })}
+          aria-hidden
+        >
+          <DownOutlined />
+        </span>
       </button>
       {isOpen ? (
         <ul
+          data-pro-layout-nav-submenu-children
+          data-depth={depth}
           className={clsx(
             `${baseClassName}-list`,
             `${baseClassName}-submenu-children`,
