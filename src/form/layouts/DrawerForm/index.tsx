@@ -350,7 +350,6 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
             resetFields();
           }
           drawerProps?.afterOpenChange?.(open);
-          onOpenChange?.(open);
         }}
         onClose={(e) => {
           // 提交表单loading时，阻止弹框关闭
