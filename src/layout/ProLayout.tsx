@@ -581,7 +581,6 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
 
   const {
     fixSiderbar,
-    navTheme,
     layout: propsLayout,
     ...rest
   } = {
@@ -879,13 +878,6 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
 const ProLayout: React.FC<ProLayoutProps> = (props) => {
   const { colorPrimary } = props;
 
-  const darkProps =
-    props.navTheme !== undefined
-      ? {
-          dark: props.navTheme === 'realDark',
-        }
-      : {};
-
   return (
     <ConfigProvider
       theme={
@@ -899,7 +891,6 @@ const ProLayout: React.FC<ProLayoutProps> = (props) => {
       }
     >
       <ProConfigProvider
-        {...darkProps}
         token={props.token}
         prefixCls={props.prefixCls}
       >

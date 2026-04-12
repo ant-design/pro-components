@@ -207,7 +207,6 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     fixSiderbar,
     menuFooterRender,
     onCollapse,
-    theme,
     siderWidth,
     isMobile,
     onMenuHeaderClick,
@@ -257,7 +256,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
       layout === 'mix' && !isMobile && fixSiderbar,
     [`${baseClassName}-collapsed`]: props.collapsed,
     [`${baseClassName}-layout-${layout}`]: layout && !isMobile,
-    [`${baseClassName}-light`]: theme !== 'dark',
+    [`${baseClassName}-light`]: true,
     [`${baseClassName}-mix`]: layout === 'mix' && !isMobile,
     [`${baseClassName}-stylish`]: !!stylish,
   });
@@ -503,7 +502,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         collapsedWidth={collapsedWidth}
         data-testid="pro-layout-sider"
         style={style}
-        theme={theme}
+        theme="light"
         width={siderWidth}
         className={clsx(siderClassName, hashId, hideMenuWhenCollapsedClassName)}
       >

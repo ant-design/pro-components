@@ -415,6 +415,19 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
       gap: v('stackGap'),
     },
 
+    /** vertical（侧栏收起）下标题区收窄为 20px 宽，便于在窄侧栏内居中 */
+    ...(mode === 'vertical'
+      ? {
+          [`${c}--collapsed ${c}-item-title-collapsed`]: {
+            width: 20,
+            minWidth: 20,
+            maxWidth: 20,
+            marginInline: 'auto',
+            alignSelf: 'center',
+          },
+        }
+      : {}),
+
     [`${c}--horizontal`]: {
       display: 'flex',
       flexDirection: 'row',

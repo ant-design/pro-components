@@ -23,6 +23,14 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
       [`${token.antCls}-layout-sider${token.componentCls}`]: {
         background: token.layout?.sider?.colorMenuBackground || 'transparent',
       },
+      /** antd Sider 收起：收紧内边距，内容区水平居中（背景仍由 token 控制） */
+      [`${token.antCls}-layout-sider${token.componentCls}${token.antCls}-layout-sider-collapsed`]:
+        {
+          [`& ${token.antCls}-layout-sider-children`]: {
+            paddingInline: 4,
+            alignItems: 'center',
+          },
+        },
       [token.componentCls]: {
         position: 'relative',
         boxSizing: 'border-box',
