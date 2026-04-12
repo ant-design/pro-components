@@ -532,19 +532,21 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     };
   }, []);
 
+  const routeListForMenu = useMemo(() => {
+    if (menu?.request) {
+      return data ?? route?.children ?? route?.routes ?? [];
+    }
+    return route?.children || route?.routes || [];
+  }, [menu?.request, data, route?.children, route?.routes]);
+
   const menuInfoData = useMemo<{
     breadcrumb?: Record<string, MenuDataItem>;
     breadcrumbMap?: Map<string, MenuDataItem>;
     menuData?: MenuDataItem[];
   }>(
     () =>
-      getMenuData(
-        data || route?.children || route?.routes || [],
-        menu,
-        formatMessage,
-        menuDataRender,
-      ),
-    [formatMessage, menu, menuDataRender, data, route?.children],
+      getMenuData(routeListForMenu, menu, formatMessage, menuDataRender),
+    [formatMessage, menu, menuDataRender, routeListForMenu],
   );
 
   const { breadcrumb, breadcrumbMap, menuData = [] } = menuInfoData || {};

@@ -18,6 +18,8 @@
 ### 🛠 Refactor / Documentation
 
 - ProLayout
+  - 💄 Deduplicate nav styles: only `ant-pro-base-menu-*` + `--pro-layout-nav-*`; drop `ant-menu-*` class names and CSS coupling; add `data-pro-layout-nav-submenu` on submenu rows for tests/customization
+  - 🐞 Without `menu.request`, do not let SWR `undefined` replace route menu data; when `menu.autoClose === false` and the pathname cannot match (e.g. external URL), keep user-expanded `openKeys`
   - 💄 Tighten sider / vertical nav layout: stacked groups with gap, section titles, 32px row height, 6px radius, 24px icon box; tune via `--pro-layout-nav-*`
   - 🛠 Replace antd `Menu` in sider and top navigation with custom `ProLayoutNavMenu`; `BaseMenu` `menuProps` now merges onto root `nav` as `ProLayoutNavMenuDomProps` (no longer forwards antd `MenuProps`)
   - 🛠 Menu styles use root `--pro-layout-nav-*` and `var(--ant-*)`; add `selectedKeys`, `openKeys`, and `onSelect` to `ProLayoutProps` typings

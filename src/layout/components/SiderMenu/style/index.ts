@@ -41,15 +41,6 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
           borderInlineEnd: `1px solid ${token.colorSplit}`,
           marginInlineEnd: -1,
         },
-        [`${token.componentCls}-menu [data-pro-layout-nav-root]`]: {
-          '[data-pro-layout-nav-group-title]': {
-            fontSize: token.fontSizeSM,
-            paddingBottom: 4,
-          },
-          '[data-pro-layout-nav-leaf]:not([class*="--selected"]):hover': {
-            color: token.layout?.sider?.colorTextMenuItemHover,
-          },
-        },
         '&-logo': {
           position: 'relative',
           display: 'flex',

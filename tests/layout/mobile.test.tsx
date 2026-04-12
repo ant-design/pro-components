@@ -85,7 +85,9 @@ describe('mobile BasicLayout', () => {
     // Submenu collapse motion makes class names non-deterministic; wait until motion classes drop
     await waitFor(
       () => {
-        html.baseElement.querySelectorAll('ul.ant-menu-sub').forEach((ul) => {
+        html.baseElement
+          .querySelectorAll('ul.ant-pro-base-menu-inline-submenu-inline')
+          .forEach((ul) => {
           if (/ant-motion-collapse-(enter|leave)/.test(ul.className)) {
             throw new Error('menu motion');
           }

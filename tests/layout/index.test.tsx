@@ -84,7 +84,7 @@ describe('BasicLayout', () => {
     await waitForWaitTime(100);
 
     const titleContent = wrapper.baseElement.querySelector<HTMLElement>(
-      '.ant-pro-base-menu-inline .ant-menu-title-content',
+      '.ant-pro-base-menu-inline .ant-pro-base-menu-inline-title-content',
     );
 
     expect(titleContent).toBeTruthy();
@@ -426,7 +426,7 @@ describe('BasicLayout', () => {
     // 等待组件完全渲染
     await waitFor(() => {
       expect(
-        wrapper.baseElement.querySelectorAll('.ant-menu-item-group-title')
+        wrapper.baseElement.querySelectorAll('[data-pro-layout-nav-group-title]')
           .length,
       ).toBeGreaterThanOrEqual(0);
     });
@@ -1135,7 +1135,9 @@ describe('BasicLayout', () => {
     await wrapper.findAllByText('列表页');
     // 欢迎不存在
     expect(
-      wrapper.baseElement.querySelector<HTMLDivElement>('li.ant-menu-item')
+      wrapper.baseElement.querySelector<HTMLDivElement>(
+        'li.ant-pro-base-menu-inline-item',
+      )
         ?.innerText,
     ).not.toContain('欢迎');
   });
@@ -1331,7 +1333,7 @@ describe('BasicLayout', () => {
     const html = render(<Demo />);
     await waitForWaitTime(100);
     expect(
-      html.baseElement.querySelectorAll('li.ant-menu-submenu').length,
+      html.baseElement.querySelectorAll('[data-pro-layout-nav-submenu]').length,
     ).toBe(2);
     const domParentMenu = await (await html.findAllByText('列表页')).at(0);
     act(() => {
@@ -1339,7 +1341,7 @@ describe('BasicLayout', () => {
     });
     await waitForWaitTime(2000);
     expect(
-      html.baseElement.querySelectorAll('li.ant-menu-submenu-open').length,
+      html.baseElement.querySelectorAll('[data-pro-layout-nav-submenu-open]').length,
     ).toBe(2);
     const domChildMenu = await (await html.findAllByText('二级列表页面')).at(0);
     const domLink = await (await html.findAllByText('AntDesign外链')).at(0);
@@ -1349,7 +1351,7 @@ describe('BasicLayout', () => {
     });
     await waitForWaitTime(2000);
     expect(
-      html.baseElement.querySelectorAll('li.ant-menu-submenu').length,
+      html.baseElement.querySelectorAll('[data-pro-layout-nav-submenu]').length,
     ).toBe(2);
   });
 
@@ -1684,10 +1686,10 @@ describe('BasicLayout', () => {
     await waitForWaitTime(100);
 
     expect(
-      html.baseElement.querySelectorAll('li.ant-menu-submenu').length,
+      html.baseElement.querySelectorAll('[data-pro-layout-nav-submenu]').length,
     ).toBe(3);
     expect(
-      html.baseElement.querySelectorAll('li.ant-menu-submenu-open').length,
+      html.baseElement.querySelectorAll('[data-pro-layout-nav-submenu-open]').length,
     ).toBe(3);
   });
 
@@ -1785,17 +1787,17 @@ describe('BasicLayout', () => {
     await waitForWaitTime(1200);
 
     expect(
-      html.baseElement.querySelectorAll('li.ant-menu-submenu').length,
+      html.baseElement.querySelectorAll('[data-pro-layout-nav-submenu]').length,
     ).toBe(3);
     expect(
-      html.baseElement.querySelectorAll('li.ant-menu-submenu-open').length,
+      html.baseElement.querySelectorAll('[data-pro-layout-nav-submenu-open]').length,
     ).toBe(3);
     await act(async () => {
       (await html.findByText('月表'))?.parentElement?.click();
     });
     await waitForWaitTime(800);
     expect(
-      html.baseElement.querySelectorAll('li.ant-menu-submenu-open').length,
+      html.baseElement.querySelectorAll('[data-pro-layout-nav-submenu-open]').length,
     ).toBe(0);
   });
 
@@ -1894,7 +1896,7 @@ describe('BasicLayout', () => {
     await waitForWaitTime(1000);
 
     expect(
-      html.baseElement.querySelectorAll('li.ant-menu-submenu-open').length,
+      html.baseElement.querySelectorAll('[data-pro-layout-nav-submenu-open]').length,
     ).toBe(2);
 
     act(() => {
@@ -1908,7 +1910,7 @@ describe('BasicLayout', () => {
     await waitForWaitTime(1000);
 
     expect(
-      html.baseElement.querySelectorAll('li.ant-menu-submenu-open').length,
+      html.baseElement.querySelectorAll('[data-pro-layout-nav-submenu-open]').length,
     ).toBe(0);
 
     act(() => {
@@ -1923,7 +1925,7 @@ describe('BasicLayout', () => {
 
     expect(onCollapse).toHaveBeenCalledTimes(2);
     expect(
-      html.baseElement.querySelectorAll('li.ant-menu-submenu-open').length,
+      html.baseElement.querySelectorAll('[data-pro-layout-nav-submenu-open]').length,
     ).toBe(2);
   });
 

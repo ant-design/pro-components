@@ -652,6 +652,15 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
             new Set([...matchMenuKeys, ...(openKeys || [])]),
           );
         }
+        // 外链等 pathname 无法匹配菜单时，match 为空；autoClose=false 时应保留用户已展开项
+        if (
+          matchMenuKeys.length === 0 &&
+          menu?.autoClose === false &&
+          Array.isArray(openKeys) &&
+          openKeys.length > 0
+        ) {
+          newKeys = [...openKeys];
+        }
         if (
           Array.isArray(newKeys) &&
           newKeys.length === 0 &&

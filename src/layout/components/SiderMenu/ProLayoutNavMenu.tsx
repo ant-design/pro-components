@@ -207,18 +207,10 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
         data-pro-layout-nav-leaf
         role="menuitem"
         tabIndex={disabled ? undefined : 0}
-        className={clsx(
-          'ant-menu-item',
-          `${baseClassName}-item`,
-          hashId,
-          node.className,
-          {
-            [`${baseClassName}-item--selected`]: selected,
-            'ant-menu-item-selected': selected,
-            [`${baseClassName}-item--disabled`]: disabled,
-            'ant-menu-item-disabled': disabled,
-          },
-        )}
+        className={clsx(`${baseClassName}-item`, hashId, node.className, {
+          [`${baseClassName}-item--selected`]: selected,
+          [`${baseClassName}-item--disabled`]: disabled,
+        })}
         aria-disabled={disabled || undefined}
         aria-selected={selected || undefined}
         style={{
@@ -233,10 +225,7 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
           }
         }}
       >
-        <span
-          className="ant-menu-title-content"
-          style={{ width: '100%', display: 'inline-flex' }}
-        >
+        <span className={`${baseClassName}-title-content`}>
           {node.label}
         </span>
       </li>
@@ -308,14 +297,12 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
         key={node.key}
         ref={setSubmenuAnchorRef}
         className={clsx(
-          'ant-menu-submenu',
-          'ant-menu-submenu-popup',
           `${baseClassName}-submenu`,
+          `${baseClassName}-submenu-anchor`,
           hashId,
           node.className,
           {
             [`${baseClassName}-submenu-open`]: isOpen,
-            'ant-menu-submenu-open': isOpen,
             [`${baseClassName}-submenu-has-icon`]: node.className?.includes(
               'submenu-has-icon',
             ),
@@ -326,14 +313,9 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
           <button
             type="button"
             id={`${rootId}-submenu-${node.key}`}
-            className={clsx(
-              'ant-menu-submenu-title',
-              `${baseClassName}-submenu-title`,
-              hashId,
-              {
-                [`${baseClassName}-submenu-title--open`]: isOpen,
-              },
-            )}
+            className={clsx(`${baseClassName}-submenu-title`, hashId, {
+              [`${baseClassName}-submenu-title--open`]: isOpen,
+            })}
             aria-expanded={isOpen}
             aria-haspopup="true"
             aria-controls={isOpen ? `${rootId}-popup-${node.key}` : undefined}
@@ -350,10 +332,7 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
               }
             }}
           >
-            <span
-              className="ant-menu-title-content"
-              style={{ width: '100%', display: 'inline-flex' }}
-            >
+            <span className={`${baseClassName}-title-content`}>
               {node.label}
             </span>
           </button>
@@ -371,15 +350,15 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
     return (
       <li
         key={node.key}
+        data-pro-layout-nav-submenu
+        data-pro-layout-nav-submenu-open={isOpen || undefined}
         className={clsx(
-          'ant-menu-submenu',
-          'ant-menu-submenu-inline',
           `${baseClassName}-submenu`,
+          `${baseClassName}-submenu-inline`,
           hashId,
           node.className,
           {
             [`${baseClassName}-submenu-open`]: isOpen,
-            'ant-menu-submenu-open': isOpen,
           },
         )}
         role="none"
@@ -392,14 +371,9 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
         >
           <button
             type="button"
-            className={clsx(
-              'ant-menu-submenu-title',
-              `${baseClassName}-submenu-title`,
-              hashId,
-              {
-                [`${baseClassName}-submenu-title--open`]: isOpen,
-              },
-            )}
+            className={clsx(`${baseClassName}-submenu-title`, hashId, {
+              [`${baseClassName}-submenu-title--open`]: isOpen,
+            })}
             aria-expanded={isOpen}
             aria-haspopup="true"
             onClick={(e) =>
@@ -411,10 +385,7 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
               }
             }}
           >
-            <span
-              className="ant-menu-title-content"
-              style={{ width: '100%', display: 'inline-flex' }}
-            >
+            <span className={`${baseClassName}-title-content`}>
               {node.label}
             </span>
           </button>
@@ -422,7 +393,6 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
         {isOpen ? (
           <ul
             className={clsx(
-              'ant-menu ant-menu-sub ant-menu-inline',
               `${baseClassName}-list`,
               `${baseClassName}-submenu-inline`,
               hashId,
@@ -470,8 +440,9 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
     >
       <ul
         className={clsx(
-          !isHorizontal && 'ant-menu ant-menu-root ant-menu-inline ant-pro-sider-menu',
           `${baseClassName}-list`,
+          !isHorizontal && `${baseClassName}-list--root`,
+          !isHorizontal && 'ant-pro-sider-menu',
           hashId,
         )}
         role={isHorizontal ? 'menubar' : 'menu'}
@@ -482,11 +453,8 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
               <li
                 key={n.key}
                 role="none"
-                className={clsx(
-                  'ant-menu-submenu',
-                  'ant-menu-submenu-inline',
-                  hashId,
-                )}
+                data-pro-layout-nav-submenu
+                className={clsx(`${baseClassName}-submenu`, hashId)}
               >
                 {renderPopup(n)}
               </li>
