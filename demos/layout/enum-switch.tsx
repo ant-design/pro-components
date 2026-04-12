@@ -19,88 +19,84 @@ const Demo = () => {
   const [pathname, setPathname] = useState('/welcome');
 
   return (
-    <div>
-      <ProCard style={{ marginBlockEnd: 16 }} variant="outlined">
-        <Space orientation="vertical" size={12} style={{ width: '100%' }}>
-          <Space>
-            <span>layout 导航模式：</span>
-            <Segmented
-              value={layout}
-              onChange={(v) => setLayout(v as any)}
-              options={[
-                { label: '侧栏 side', value: 'side' },
-                { label: '顶部 top', value: 'top' },
-                { label: '混合 mix', value: 'mix' },
-              ]}
-            />
-          </Space>
-          <Space>
-            <span>contentWidth 内容宽度：</span>
-            <Segmented
-              value={contentWidth}
-              onChange={(v) => setContentWidth(v as 'Fluid' | 'Fixed')}
-              options={[
-                { label: '流式 Fluid', value: 'Fluid' },
-                { label: '定宽 Fixed', value: 'Fixed' },
-              ]}
-            />
-          </Space>
-          <Space>
-            <span>siderMenuType 菜单模式：</span>
-            <Segmented
-              value={siderMenuType}
-              onChange={(v) => setSiderMenuType(v as any)}
-              options={[
-                { label: '子菜单 sub', value: 'sub' },
-                { label: '分组 group', value: 'group' },
-              ]}
-            />
-          </Space>
-        </Space>
-      </ProCard>
-
-      <div
-        style={{
-          height: 500,
-          overflow: 'auto',
-          border: `1px solid ${token.colorBorderSecondary}`,
-          borderRadius: token.borderRadius,
+    <div
+      style={{
+        height: 500,
+        overflow: 'auto',
+        border: `1px solid ${token.colorBorderSecondary}`,
+        borderRadius: token.borderRadius,
+      }}
+    >
+      <ProLayout
+        {...defaultProps}
+        layout={layout}
+        contentWidth={contentWidth}
+        siderMenuType={siderMenuType}
+        fixSiderbar
+        location={{ pathname }}
+        avatarProps={{
+          src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+          size: 'small',
+          title: '书琰',
         }}
+        actionsRender={() => [
+          <InfoCircleFilled key="info" />,
+          <QuestionCircleFilled key="question" />,
+          <GithubFilled key="github" />,
+        ]}
+        menuItemRender={(item, dom) => (
+          <div onClick={() => setPathname(item.path || '/welcome')}>
+            {dom}
+          </div>
+        )}
       >
-        <ProLayout
-          {...defaultProps}
-          layout={layout}
-          contentWidth={contentWidth}
-          siderMenuType={siderMenuType}
-          fixSiderbar
-          location={{ pathname }}
-          menu={{ collapsedShowGroupTitle: true }}
-          avatarProps={{
-            src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
-            size: 'small',
-            title: '书琰',
-          }}
-          actionsRender={() => [
-            <InfoCircleFilled key="info" />,
-            <QuestionCircleFilled key="question" />,
-            <GithubFilled key="github" />,
-          ]}
-          menuItemRender={(item, dom) => (
-            <div onClick={() => setPathname(item.path || '/welcome')}>
-              {dom}
+        <PageContainer>
+          <ProCard style={{ marginBlockEnd: 16 }} variant="outlined">
+            <Space orientation="vertical" size={12} style={{ width: '100%' }}>
+              <Space>
+                <span>layout 导航模式：</span>
+                <Segmented
+                  value={layout}
+                  onChange={(v) => setLayout(v as any)}
+                  options={[
+                    { label: '侧栏 side', value: 'side' },
+                    { label: '顶部 top', value: 'top' },
+                    { label: '混合 mix', value: 'mix' },
+                  ]}
+                />
+              </Space>
+              <Space>
+                <span>contentWidth 内容宽度：</span>
+                <Segmented
+                  value={contentWidth}
+                  onChange={(v) => setContentWidth(v as 'Fluid' | 'Fixed')}
+                  options={[
+                    { label: '流式 Fluid', value: 'Fluid' },
+                    { label: '定宽 Fixed', value: 'Fixed' },
+                  ]}
+                />
+              </Space>
+              <Space>
+                <span>siderMenuType 菜单模式：</span>
+                <Segmented
+                  value={siderMenuType}
+                  onChange={(v) => setSiderMenuType(v as any)}
+                  options={[
+                    { label: '子菜单 sub', value: 'sub' },
+                    { label: '分组 group', value: 'group' },
+                  ]}
+                />
+              </Space>
+            </Space>
+          </ProCard>
+          <ProCard style={{ minHeight: 300 }}>
+            <div>
+              当前配置：layout=<b>{layout}</b>、contentWidth=<b>{contentWidth}</b>
+              、siderMenuType=<b>{siderMenuType}</b>
             </div>
-          )}
-        >
-          <PageContainer>
-            <ProCard style={{ minHeight: 300 }}>
-              <div>
-                当前配置：layout=<b>{layout}</b>、contentWidth=<b>{contentWidth}</b>
-                、siderMenuType=<b>{siderMenuType}</b>
-              </div>
-            </ProCard>
-          </PageContainer>
-        </ProLayout>
-      </div>
+          </ProCard>
+        </PageContainer>
+      </ProLayout>
     </div>
   );
 };
