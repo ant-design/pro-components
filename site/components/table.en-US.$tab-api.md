@@ -84,7 +84,7 @@ The definition of `formItemRender`, the exact value of which can be seen by open
 
 <code src="../../demos/table/split.tsx" background="var(--main-bg-color)" title="Left-Right Structure"></code>
 
-<code src="../../demos/table/pollinga.tsx" background="var(--main-bg-color)" title="Table Polling"></code>
+<code src="../../demos/table/polling.tsx" background="var(--main-bg-color)" title="Table Polling"></code>
 
 <code src="../../demos/table/dateFormatter.tsx" background="var(--main-bg-color)" title="dateFormatter - Date Formatting"></code>
 
