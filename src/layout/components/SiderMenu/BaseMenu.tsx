@@ -770,6 +770,8 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         ...menuPropsStyle,
       }}
       className={clsx(className, hashId, baseClassName, menuPropsClassName, {
+        'ant-pro-sider-menu':
+          mode !== 'horizontal' && props.menuRenderType !== 'header',
         [`${baseClassName}-horizontal`]: mode === 'horizontal',
         [`${baseClassName}--horizontal`]: mode === 'horizontal',
         [`${baseClassName}-collapsed`]: props.collapsed,

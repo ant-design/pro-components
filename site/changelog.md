@@ -18,6 +18,7 @@
 ### 🛠 重构 / 文档
 
 - ProLayout
+  - 🛠 侧栏主导航 DOM 扁平化：非横向时根 `ul` 合并为 `nav`（少一层）；去掉 `title-content` / `submenu-title-wrap`；弹出层为单层 `ul`；`ant-pro-sider-menu` 仅挂在侧栏 `nav` 上避免重复类名
   - 💄 主导航样式去重：仅使用 `ant-pro-base-menu-*` 与 `--pro-layout-nav-*`，移除对 `ant-menu-*` 的类名与样式依赖；子菜单增加 `data-pro-layout-nav-submenu` 便于测试与定制
   - 🐞 无 `menu.request` 时不再误用 SWR 的 `undefined` 覆盖路由菜单；`menu.autoClose === false` 且路由无法匹配（如外链 pathname）时保留已展开项
   - 💄 侧栏/纵向主导航样式对齐紧凑侧栏：分组纵向 `gap`、分组标题、32px 行高条目、`6px` 圆角与图标区 24px；尺寸与色值通过 `--pro-layout-nav-*` 可调

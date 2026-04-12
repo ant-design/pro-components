@@ -65,9 +65,9 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
     if (!popupMode || defaultOpenKeys.length === 0) return null;
     return defaultOpenKeys[0] ?? null;
   });
-  const popupPanelRef = useRef<HTMLDivElement>(null);
+  const popupPanelRef = useRef<HTMLUListElement>(null);
   const rootNavRef = useRef<HTMLElement>(null);
-  const submenuAnchorRefs = useRef<Map<string, HTMLDivElement>>(new Map());
+  const submenuAnchorRefs = useRef<Map<string, HTMLButtonElement>>(new Map());
   const [popupPlacement, setPopupPlacement] = useState<{
     top: number;
     left: number;
@@ -225,9 +225,7 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
           }
         }}
       >
-        <span className={`${baseClassName}-title-content`}>
-          {node.label}
-        </span>
+        {node.label}
       </li>
     );
   }
@@ -261,7 +259,7 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
 
   function renderPopup(node: Extract<NavMenuNode, { kind: 'submenu' }>) {
     const isOpen = popupOpenKey === node.key;
-    const setSubmenuAnchorRef = (el: HTMLDivElement | null) => {
+    const setSubmenuAnchorRef = (el: HTMLButtonElement | null) => {
       if (el) {
         submenuAnchorRefs.current.set(node.key, el);
       } else {
@@ -272,73 +270,65 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
     const popupPanel =
       isOpen && typeof document !== 'undefined' ? (
         createPortal(
-          <div
+          <ul
             ref={popupPanelRef}
             id={`${rootId}-popup-${node.key}`}
             role="menu"
             aria-labelledby={`${rootId}-submenu-${node.key}`}
-            className={clsx(`${baseClassName}-submenu-popup`, hashId)}
+            className={clsx(
+              `${baseClassName}-list`,
+              `${baseClassName}-submenu-popup`,
+              hashId,
+            )}
             style={{
               top: popupPlacement?.top,
               left: popupPlacement?.left,
               visibility: popupPlacement ? 'visible' : 'hidden',
             }}
           >
-            <ul className={clsx(`${baseClassName}-list`, hashId)} role="none">
-              {node.children.map((child) => renderNode(child, 1))}
-            </ul>
-          </div>,
+            {node.children.map((child) => renderNode(child, 1))}
+          </ul>,
           document.body,
         )
       ) : null;
 
     return (
-      <div
-        key={node.key}
-        ref={setSubmenuAnchorRef}
-        className={clsx(
-          `${baseClassName}-submenu`,
-          `${baseClassName}-submenu-anchor`,
-          hashId,
-          node.className,
-          {
-            [`${baseClassName}-submenu-open`]: isOpen,
-            [`${baseClassName}-submenu-has-icon`]: node.className?.includes(
-              'submenu-has-icon',
-            ),
-          },
-        )}
-      >
-        <div className={clsx(`${baseClassName}-submenu-title-wrap`, hashId)}>
-          <button
-            type="button"
-            id={`${rootId}-submenu-${node.key}`}
-            className={clsx(`${baseClassName}-submenu-title`, hashId, {
+      <React.Fragment key={node.key}>
+        <button
+          type="button"
+          ref={setSubmenuAnchorRef}
+          id={`${rootId}-submenu-${node.key}`}
+          className={clsx(
+            `${baseClassName}-submenu-title`,
+            `${baseClassName}-submenu-anchor`,
+            hashId,
+            node.className,
+            {
               [`${baseClassName}-submenu-title--open`]: isOpen,
-            })}
-            aria-expanded={isOpen}
-            aria-haspopup="true"
-            aria-controls={isOpen ? `${rootId}-popup-${node.key}` : undefined}
-            onClick={(e) =>
-              handleSubmenuTitleClick(node.key, node.onTitleClick, e)
+              [`${baseClassName}-submenu-open`]: isOpen,
+              [`${baseClassName}-submenu-has-icon`]: node.className?.includes(
+                'submenu-has-icon',
+              ),
+            },
+          )}
+          aria-expanded={isOpen}
+          aria-haspopup="true"
+          aria-controls={isOpen ? `${rootId}-popup-${node.key}` : undefined}
+          onClick={(e) => handleSubmenuTitleClick(node.key, node.onTitleClick, e)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              handleSubmenuTitleClick(node.key, node.onTitleClick, e);
             }
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                handleSubmenuTitleClick(node.key, node.onTitleClick, e);
-              }
-              if (e.key === 'Escape' && isOpen) {
-                e.stopPropagation();
-                setPopupOpenKey(null);
-              }
-            }}
-          >
-            <span className={`${baseClassName}-title-content`}>
-              {node.label}
-            </span>
-          </button>
-        </div>
+            if (e.key === 'Escape' && isOpen) {
+              e.stopPropagation();
+              setPopupOpenKey(null);
+            }
+          }}
+        >
+          {node.label}
+        </button>
         {popupPanel}
-      </div>
+      </React.Fragment>
     );
   }
 
@@ -363,33 +353,27 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
         )}
         role="none"
       >
-        <div
-          className={clsx(`${baseClassName}-submenu-title-wrap`, hashId)}
+        <button
+          type="button"
+          className={clsx(`${baseClassName}-submenu-title`, hashId, {
+            [`${baseClassName}-submenu-title--open`]: isOpen,
+          })}
           style={{
             paddingInlineStart: depth * MENU_INDENT_PX,
           }}
-        >
-          <button
-            type="button"
-            className={clsx(`${baseClassName}-submenu-title`, hashId, {
-              [`${baseClassName}-submenu-title--open`]: isOpen,
-            })}
-            aria-expanded={isOpen}
-            aria-haspopup="true"
-            onClick={(e) =>
-              handleSubmenuTitleClick(node.key, node.onTitleClick, e)
+          aria-expanded={isOpen}
+          aria-haspopup="true"
+          onClick={(e) =>
+            handleSubmenuTitleClick(node.key, node.onTitleClick, e)
+          }
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              handleSubmenuTitleClick(node.key, node.onTitleClick, e);
             }
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                handleSubmenuTitleClick(node.key, node.onTitleClick, e);
-              }
-            }}
-          >
-            <span className={`${baseClassName}-title-content`}>
-              {node.label}
-            </span>
-          </button>
-        </div>
+          }}
+        >
+          {node.label}
+        </button>
         {isOpen ? (
           <ul
             className={clsx(
@@ -427,42 +411,59 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
 
   const isHorizontal = mode === 'horizontal';
 
+  const listClassName = clsx(
+    `${baseClassName}-list`,
+    !isHorizontal && `${baseClassName}-list--root`,
+    hashId,
+  );
+
+  const listBody = nodes.map((n) => {
+    if (popupMode && n.kind === 'submenu') {
+      return (
+        <li
+          key={n.key}
+          role="none"
+          data-pro-layout-nav-submenu
+          className={clsx(`${baseClassName}-submenu`, hashId)}
+        >
+          {renderPopup(n)}
+        </li>
+      );
+    }
+    return renderNode(n, 0);
+  });
+
+  if (isHorizontal) {
+    return (
+      <nav
+        ref={rootNavRef}
+        data-pro-layout-nav-root
+        {...restNavProps}
+        className={clsx(className, hashId, baseClassName, {
+          [`${baseClassName}--horizontal`]: true,
+          [`${baseClassName}--collapsed`]: !!collapsed,
+        })}
+        style={style}
+      >
+        <ul className={listClassName} role="menubar">
+          {listBody}
+        </ul>
+      </nav>
+    );
+  }
+
   return (
     <nav
       ref={rootNavRef}
       data-pro-layout-nav-root
       {...restNavProps}
-      className={clsx(className, hashId, baseClassName, {
-        [`${baseClassName}--horizontal`]: isHorizontal,
+      className={clsx(className, hashId, baseClassName, listClassName, {
         [`${baseClassName}--collapsed`]: !!collapsed,
       })}
       style={style}
+      role="menu"
     >
-      <ul
-        className={clsx(
-          `${baseClassName}-list`,
-          !isHorizontal && `${baseClassName}-list--root`,
-          !isHorizontal && 'ant-pro-sider-menu',
-          hashId,
-        )}
-        role={isHorizontal ? 'menubar' : 'menu'}
-      >
-        {nodes.map((n) => {
-          if (popupMode && n.kind === 'submenu') {
-            return (
-              <li
-                key={n.key}
-                role="none"
-                data-pro-layout-nav-submenu
-                className={clsx(`${baseClassName}-submenu`, hashId)}
-              >
-                {renderPopup(n)}
-              </li>
-            );
-          }
-          return renderNode(n, 0);
-        })}
-      </ul>
+      {listBody}
     </nav>
   );
 };

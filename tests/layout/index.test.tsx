@@ -83,12 +83,12 @@ describe('BasicLayout', () => {
 
     await waitForWaitTime(100);
 
-    const titleContent = wrapper.baseElement.querySelector<HTMLElement>(
-      '.ant-pro-base-menu-inline .ant-pro-base-menu-inline-title-content',
+    const titleRow = wrapper.baseElement.querySelector<HTMLElement>(
+      '.ant-pro-base-menu-inline-item .ant-pro-base-menu-inline-item-title',
     );
 
-    expect(titleContent).toBeTruthy();
-    expect(getComputedStyle(titleContent!).width).toBe('100%');
+    expect(titleRow).toBeTruthy();
+    expect(getComputedStyle(titleRow!).width).toBe('100%');
 
     wrapper.unmount();
   });
@@ -515,7 +515,7 @@ describe('BasicLayout', () => {
     await waitForWaitTime(100);
     expect(
       wrapper.baseElement.querySelector<HTMLDivElement>(
-        'ul.ant-pro-sider-menu',
+        'nav.ant-pro-sider-menu',
       ),
     ).toBeFalsy();
     act(() => {
@@ -546,7 +546,7 @@ describe('BasicLayout', () => {
 
     expect(
       wrapper.baseElement.querySelector<HTMLDivElement>(
-        'ul.ant-pro-sider-menu',
+        'nav.ant-pro-sider-menu',
       ),
     ).toBeTruthy();
     wrapper.unmount();
