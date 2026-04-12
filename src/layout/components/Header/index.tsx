@@ -1,6 +1,12 @@
 import { ConfigProvider, Layout } from 'antd';
 import { clsx } from 'clsx';
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 import { isNeedOpenHash, ProProvider } from '../../../provider';
 import type { WithFalse } from '../../typing';
 import { clearMenuItem } from '../../utils/utils';
@@ -47,15 +53,20 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
     layout,
     headerRender,
     headerContentRender,
+    menuData,
   } = props;
   const { token } = useContext(ProProvider);
   const context = useContext(ConfigProvider.ConfigContext);
   const [isFixedHeaderScroll, setIsFixedHeaderScroll] = useState(false);
   const needFixedHeader = fixedHeader || layout === 'mix';
 
+  const clearMenuData = useMemo(
+    () => clearMenuItem(menuData || []),
+    [menuData],
+  );
+
   const renderContent = useCallback(() => {
     const isTop = layout === 'top';
-    const clearMenuData = clearMenuItem(props.menuData || []);
 
     let defaultDom = (
       <GlobalHeader onCollapse={onCollapse} {...props} menuData={clearMenuData}>
@@ -76,7 +87,15 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
       return headerRender(props, defaultDom);
     }
     return defaultDom;
-  }, [headerContentRender, headerRender, isMobile, layout, onCollapse, props]);
+  }, [
+    clearMenuData,
+    headerContentRender,
+    headerRender,
+    isMobile,
+    layout,
+    onCollapse,
+    props,
+  ]);
   useEffect(() => {
     const dom = context?.getTargetContainer?.() || document.body;
 

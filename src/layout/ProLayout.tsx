@@ -273,7 +273,7 @@ export type ProLayoutProps = GlobalTypes & {
   isChildrenLayout?: boolean;
 };
 
-const headerRender = (
+const renderHeaderDom = (
   props: ProLayoutProps & {
     hasSiderMenu: boolean;
   },
@@ -634,23 +634,38 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     [onCollapseCallback],
   );
 
-  // Splicing parameters, adding menuData and formatMessage in props
-  const defaultProps = omit(
-    {
+  // 与侧栏/顶栏共享的配置对象：用 useMemo 稳定引用，减少 Header 内 renderContent 因父级重渲染而反复失效
+  const defaultProps = useMemo(
+    () =>
+      omit(
+        {
+          prefixCls,
+          ...props,
+          siderWidth,
+          ...currentMenuLayoutProps,
+          formatMessage,
+          breadcrumb,
+          menu: {
+            ...menu,
+            type: siderMenuType || menu?.type,
+            loading: menuLoading,
+          },
+          layout: propsLayout as 'side',
+        },
+        ['className', 'style', 'breadcrumbRender'],
+      ),
+    [
       prefixCls,
-      ...props,
+      props,
       siderWidth,
-      ...currentMenuLayoutProps,
+      currentMenuLayoutProps,
       formatMessage,
       breadcrumb,
-      menu: {
-        ...menu,
-        type: siderMenuType || menu?.type,
-        loading: menuLoading,
-      },
-      layout: propsLayout as 'side',
-    },
-    ['className', 'style', 'breadcrumbRender'],
+      menu,
+      siderMenuType,
+      menuLoading,
+      propsLayout,
+    ],
   );
 
   // gen page title
@@ -673,30 +688,51 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     props,
   );
 
-  // render sider dom
-  const siderMenuDom = renderSiderMenu(
-    {
-      ...defaultProps,
+  const siderMenuDom = useMemo(
+    () =>
+      renderSiderMenu(
+        {
+          ...defaultProps,
+          menuData,
+          onCollapse,
+          isMobile,
+          collapsed,
+        },
+        matchMenuKeys,
+      ),
+    [
+      defaultProps,
       menuData,
       onCollapse,
       isMobile,
       collapsed,
-    },
-    matchMenuKeys,
+      matchMenuKeys,
+    ],
   );
 
-  // render header dom
-  const headerDom = headerRender(
-    {
-      ...defaultProps,
-      children: null,
-      hasSiderMenu: !!siderMenuDom,
+  const headerDom = useMemo(
+    () =>
+      renderHeaderDom(
+        {
+          ...defaultProps,
+          children: null,
+          hasSiderMenu: !!siderMenuDom,
+          menuData,
+          isMobile,
+          collapsed,
+          onCollapse,
+        },
+        matchMenuKeys,
+      ),
+    [
+      defaultProps,
+      siderMenuDom,
       menuData,
       isMobile,
       collapsed,
       onCollapse,
-    },
-    matchMenuKeys,
+      matchMenuKeys,
+    ],
   );
 
   // render footer dom
