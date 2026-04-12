@@ -411,12 +411,15 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
       display: 'flex',
       flexDirection: 'column',
       minHeight: 0,
+      /** 根 `nav` 下多个顶级 `li`/片段之间的纵向间距（扁平 DOM 无外包 `ul`） */
+      gap: v('stackGap'),
     },
 
     [`${c}--horizontal`]: {
       display: 'flex',
       flexDirection: 'row',
       alignItems: 'center',
+      gap: v('stackGap'),
       [`> ${c}-list`]: {
         display: 'flex',
         flexDirection: 'row',
