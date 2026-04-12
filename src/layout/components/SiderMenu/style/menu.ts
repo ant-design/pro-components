@@ -118,7 +118,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
     minWidth: 0,
     margin: 0,
     paddingBlock: v('itemPadBlock'),
-    paddingInlineEnd: v('itemPadInline'),
+    paddingInline: v('itemPadInline'),
     borderRadius: v('itemRadius'),
     fontSize: v('itemFontSize'),
     fontWeight: v('itemFontWeight'),
@@ -220,6 +220,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         listStyle: 'none',
         margin: 0,
         padding: 0,
+        paddingBlockStart: v('stackGap'),
         ...stack,
         /** 嵌套子菜单行：子 `li` 在 flex 列中仍须显式去掉 marker */
         [`> li`]: {
@@ -255,6 +256,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         margin: 0,
         paddingInline: v('itemPadInline'),
         paddingBlock: 0,
+        paddingBlockEnd: v('stackGap'),
         fontSize: v('groupTitleFontSize'),
         fontWeight: v('itemFontWeight'),
         lineHeight: v('groupTitleLineHeight'),
@@ -354,16 +356,14 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         lineHeight: 20,
       },
 
-      [`&${c}--collapsed`]: {
+      [`${c}${c}--collapsed`]: {
         [`${c}-item`]: {
           paddingInline: '0 !important',
-          paddingInlineEnd: '0 !important',
           paddingBlock: '0 !important',
           marginBlock: `${token.marginXXS} !important`,
         },
         [`${c}-submenu-title`]: {
           paddingInline: '0 !important',
-          paddingInlineEnd: '0 !important',
           paddingBlock: '0 !important',
         },
         [`${c}-item-title`]: {
@@ -382,7 +382,6 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
     [`${c}:not(${c}--horizontal)`]: {
       display: 'flex',
       flexDirection: 'column',
-      gap: v('stackGap'),
       minHeight: 0,
     },
 

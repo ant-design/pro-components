@@ -18,6 +18,7 @@
 ### 🛠 Refactor / Documentation
 
 - ProLayout
+  - 💄 Nav spacing: symmetric row `padding-inline`; remove double `gap` on root `nav` vs list; extra vertical rhythm for group title and nested lists; fix collapsed selector to `nav--collapsed`
   - 🛠 Flatten sider nav DOM: non-horizontal root drops inner `ul` (merge list classes onto `nav`); remove `title-content` / `submenu-title-wrap`; popup is a single `ul`; `ant-pro-sider-menu` only on sider `nav` to avoid duplicate class tokens
   - 💄 Deduplicate nav styles: only `ant-pro-base-menu-*` + `--pro-layout-nav-*`; drop `ant-menu-*` class names and CSS coupling; add `data-pro-layout-nav-submenu` on submenu rows for tests/customization
   - 🐞 Without `menu.request`, do not let SWR `undefined` replace route menu data; when `menu.autoClose === false` and the pathname cannot match (e.g. external URL), keep user-expanded `openKeys`
