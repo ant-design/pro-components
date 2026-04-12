@@ -250,9 +250,6 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
 
       [`${c}-group`]: {
         ...stack,
-        [`${c}-group-title`]: {
-          '.anticon': { marginInlineEnd: 8 },
-        },
       },
 
       /** 分组之间约 12px，组内项仍用 stackGap（4px） */
@@ -342,19 +339,20 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         color: v('colorIcon'),
         fontSize: v('iconBox'),
         lineHeight: 0,
-        '.anticon': {
+        /** 图标区首子节点（如 @ant-design/icons 的 span 包裹层），不依赖 `.anticon` 类名 */
+        '> span': {
           display: 'inline-flex',
           alignItems: 'center',
           justifyContent: 'center',
           fontSize: 'inherit',
           lineHeight: 0,
+          '& > svg': {
+            width: '1em',
+            height: '1em',
+            display: 'block',
+          },
         },
-        '.anticon > svg': {
-          width: '1em',
-          height: '1em',
-          display: 'block',
-        },
-        svg: {
+        '> svg': {
           width: v('iconBox'),
           height: v('iconBox'),
           display: 'block',
