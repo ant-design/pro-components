@@ -381,6 +381,7 @@ describe('BasicLayout', () => {
     const wrapper = render(
       <ProLayout
         collapsed
+        menu={{ type: 'group' }}
         menuDataRender={() => [
           {
             path: '/welcome',
@@ -423,12 +424,13 @@ describe('BasicLayout', () => {
       </ProLayout>,
     );
 
-    // 等待组件完全渲染
+    // 收起态：`menu.type === 'group'` 时仍有分组标题节点，应用 CSS 隐藏
     await waitFor(() => {
-      expect(
-        wrapper.baseElement.querySelectorAll('[data-pro-layout-nav-group-title]')
-          .length,
-      ).toBeGreaterThanOrEqual(0);
+      const title = wrapper.baseElement.querySelector<HTMLElement>(
+        '[data-pro-layout-nav-group-title]',
+      );
+      expect(title).toBeTruthy();
+      expect(getComputedStyle(title!).display).toBe('none');
     });
 
     // collapsed 的时候action 将会消失

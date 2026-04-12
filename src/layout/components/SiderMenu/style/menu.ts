@@ -268,28 +268,6 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         color: v('colorSection'),
       },
 
-      /** 收起侧栏：分组标题仍展示，避免内层 `group-item-title` 固定高度把文字裁没 */
-      [`${c}--collapsed ${c}-group ${c}-group-title`]: {
-        width: '100%',
-        textAlign: 'center',
-        overflow: 'visible',
-      },
-      [`${c}--collapsed ${c}-group ${c}-group-title ${c}-item-title`]: {
-        height: 'auto',
-        minHeight: 'auto',
-        maxHeight: 'none',
-        overflow: 'visible',
-        width: '100%',
-        maxWidth: '100%',
-      },
-      [`${c}--collapsed ${c}-group ${c}-group-title ${c}-item-text`]: {
-        whiteSpace: 'normal',
-        overflow: 'visible',
-        textOverflow: 'clip',
-        lineHeight: 1.25,
-        maxHeight: 'none',
-      },
-
       [`${c}-group-list`]: {
         listStyle: 'none',
         margin: 0,
@@ -404,7 +382,8 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         lineHeight: 20,
       },
 
-      [`${c}--collapsed`]: {
+      /** `--collapsed` 与根 `nav` 同元素，须用 `&--collapsed` 复合选择器，勿写成后代 `${c} ${c}--collapsed` */
+      '&--collapsed': {
         [`${c}-item`]: {
           paddingBlock: 0,
           paddingInlineStart: v('itemPadInline'),
@@ -425,7 +404,10 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           backgroundColor: v('colorBgSelected'),
           borderRadius: v('itemRadius'),
         },
-        [`${c}-group ${c}-group-title`]: { paddingInline: 0 },
+        /** 侧栏收起：不展示分组标题，仅保留图标型菜单项 */
+        [`${c}-group ${c}-group-title`]: {
+          display: 'none',
+        },
       },
     },
 
@@ -440,7 +422,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
     /** vertical（侧栏收起）下标题区收窄为 20px 宽，便于在窄侧栏内居中 */
     ...(mode === 'vertical'
       ? {
-          [`${c}--collapsed ${c}-item-title-collapsed`]: {
+          [`&--collapsed ${c}-item-title-collapsed`]: {
             width: 20,
             minWidth: 20,
             maxWidth: 20,
