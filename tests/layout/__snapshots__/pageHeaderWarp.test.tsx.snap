@@ -179,7 +179,6 @@ exports[`BasicLayout > base use 1`] = `
                   aria-expanded="true"
                   aria-haspopup="true"
                   class="ant-pro-base-menu-inline-submenu-title ant-pro-base-menu-inline-submenu-title--open"
-                  style="padding-inline-start: 0;"
                   type="button"
                 >
                   <div
@@ -458,7 +457,6 @@ exports[`BasicLayout > content is text 1`] = `
                   aria-expanded="true"
                   aria-haspopup="true"
                   class="ant-pro-base-menu-inline-submenu-title ant-pro-base-menu-inline-submenu-title--open"
-                  style="padding-inline-start: 0;"
                   type="button"
                 >
                   <div

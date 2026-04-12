@@ -213,9 +213,11 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
         })}
         aria-disabled={disabled || undefined}
         aria-selected={selected || undefined}
-        style={{
-          paddingInlineStart: depth * MENU_INDENT_PX,
-        }}
+        style={
+          depth > 0
+            ? { paddingInlineStart: depth * MENU_INDENT_PX }
+            : undefined
+        }
         onClick={() => handleLeafActivate(node.key, disabled, node.onClick)}
         onKeyDown={(e) => {
           if (disabled) return;
@@ -358,9 +360,11 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
           className={clsx(`${baseClassName}-submenu-title`, hashId, {
             [`${baseClassName}-submenu-title--open`]: isOpen,
           })}
-          style={{
-            paddingInlineStart: depth * MENU_INDENT_PX,
-          }}
+          style={
+            depth > 0
+              ? { paddingInlineStart: depth * MENU_INDENT_PX }
+              : undefined
+          }
           aria-expanded={isOpen}
           aria-haspopup="true"
           onClick={(e) =>
