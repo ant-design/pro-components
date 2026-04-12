@@ -442,6 +442,54 @@ describe('BasicLayout', () => {
     wrapper.unmount();
   });
 
+  it('🥩 collapsed vertical: nested submenu (third level) renders inside popup', async () => {
+    const html = render(
+      <ProLayout
+        collapsed
+        location={{ pathname: '/a/b/c' }}
+        menuDataRender={() => [
+          {
+            path: '/a',
+            name: '一级',
+            children: [
+              {
+                path: '/a/b',
+                name: '二级',
+                children: [{ path: '/a/b/c', name: '三级页面' }],
+              },
+            ],
+          },
+        ]}
+      >
+        <div />
+      </ProLayout>,
+    );
+
+    await waitFor(() => {
+      expect(
+        html.baseElement.querySelectorAll('.ant-pro-base-menu-vertical-submenu')
+          .length,
+      ).toBeGreaterThanOrEqual(1);
+    });
+
+    const topSubmenuTitle = await html.findByText('一级');
+    act(() => {
+      topSubmenuTitle.click();
+    });
+
+    await waitFor(() => {
+      const popup = document.body.querySelector(
+        '[class*="ant-pro-base-menu-vertical-submenu-popup"]',
+      );
+      expect(popup).toBeTruthy();
+      expect(popup!.textContent).toContain('二级');
+      /** 路由已匹配三级时 openKeys 含祖先，二级默认展开，浮层内应直接出现三级叶子（勿再点二级，否则会 toggle 收起） */
+      expect(popup!.textContent).toContain('三级页面');
+    });
+
+    html.unmount();
+  });
+
   it('🥩 do not render footer', async () => {
     const wrapper = render(<ProLayout title="title" footerRender={false} />);
 

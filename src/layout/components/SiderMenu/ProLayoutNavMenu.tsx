@@ -46,6 +46,8 @@ interface ProLayoutNavMenuRenderContext {
   hashId: string;
   mode: MenuMode;
   popupMode: boolean;
+  /** 已在浮动子菜单面板内：嵌套子菜单用内联展开，避免再挂一层 portal 导致三级及以上无法展示 */
+  insideSubmenuPopup: boolean;
   rootId: string;
   selectedSet: Set<string>;
   openSet: Set<string>;
@@ -151,6 +153,7 @@ function renderGroup(
 function renderPopup(
   ctx: ProLayoutNavMenuRenderContext,
   node: Extract<NavMenuNode, { kind: 'submenu' }>,
+  depth: number,
 ) {
   const {
     baseClassName,
@@ -163,6 +166,10 @@ function renderPopup(
     setPopupOpenKey,
     handleSubmenuTitleClick,
   } = ctx;
+  const popupCtx: ProLayoutNavMenuRenderContext = {
+    ...ctx,
+    insideSubmenuPopup: true,
+  };
   const isOpen = popupOpenKey === node.key;
   const setSubmenuAnchorRef = (el: HTMLButtonElement | null) => {
     if (el) {
@@ -191,7 +198,9 @@ function renderPopup(
             visibility: popupPlacement ? 'visible' : 'hidden',
           }}
         >
-          {node.children.map((child) => renderNode(ctx, child, 1))}
+          {node.children.map((child) =>
+            renderNode(popupCtx, child, depth + 1),
+          )}
         </ul>,
         document.body,
       )
@@ -308,8 +317,8 @@ function renderNode(
     case 'group':
       return renderGroup(ctx, node, depth);
     case 'submenu':
-      if (ctx.popupMode) {
-        return renderPopup(ctx, node);
+      if (ctx.popupMode && !ctx.insideSubmenuPopup) {
+        return renderPopup(ctx, node, depth);
       }
       return renderInlineSubmenu(ctx, node, depth);
     default:
@@ -464,6 +473,7 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
     hashId,
     mode,
     popupMode,
+    insideSubmenuPopup: false,
     rootId,
     selectedSet,
     openSet,
@@ -494,7 +504,7 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
           data-pro-layout-nav-submenu
           className={clsx(`${baseClassName}-submenu`, hashId)}
         >
-          {renderPopup(renderCtx, n)}
+          {renderPopup(renderCtx, n, 0)}
         </li>
       );
     }

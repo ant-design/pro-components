@@ -10,14 +10,14 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout ant-layout-has-sider css-var-r5p"
+      class="ant-layout ant-layout-has-sider css-var-r5u"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
         style="width: 240px; overflow: hidden; max-width: 240px; min-width: 240px; transition: all 0.2s ease 0s; flex-grow: 0; flex-shrink: 0; flex-basis: 240px;"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-r5q"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-r5v"
         data-testid="pro-layout-sider"
         style="max-width: 240px; min-width: 240px; width: 240px; flex-grow: 0; flex-shrink: 0; flex-basis: 240px;"
       >
@@ -167,7 +167,7 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
               style="padding: 24px;"
             >
               <div
-                class="ant-skeleton ant-skeleton-active css-var-r5q"
+                class="ant-skeleton ant-skeleton-active css-var-r5v"
               >
                 <div
                   class="ant-skeleton-section"
@@ -224,7 +224,7 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout css-var-r5t"
+      class="ant-layout css-var-r62"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
@@ -390,7 +390,7 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
                   style="margin-block-start: 16px;"
                 >
                   <div
-                    class="ant-skeleton ant-skeleton-active css-var-r60"
+                    class="ant-skeleton ant-skeleton-active css-var-r65"
                   >
                     <div
                       class="ant-skeleton-section"
@@ -424,14 +424,14 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout ant-layout-has-sider css-var-r63"
+      class="ant-layout ant-layout-has-sider css-var-r68"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
         style="width: 215px; overflow: hidden; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s; flex-grow: 0; flex-shrink: 0; flex-basis: 215px;"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-fixed-mix ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix css-var-r64"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-fixed-mix ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix css-var-r69"
         data-testid="pro-layout-sider"
         style="max-width: 215px; min-width: 215px; width: 215px; flex-grow: 0; flex-shrink: 0; flex-basis: 215px;"
       >
@@ -445,7 +445,7 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
               style="padding: 24px;"
             >
               <div
-                class="ant-skeleton ant-skeleton-active css-var-r64"
+                class="ant-skeleton ant-skeleton-active css-var-r69"
               >
                 <div
                   class="ant-skeleton-section"
@@ -853,14 +853,14 @@ exports[`BasicLayout > 🥩 contentStyle should change dom 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout ant-layout-has-sider css-var-r3k"
+      class="ant-layout ant-layout-has-sider css-var-r3p"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
         style="width: 240px; overflow: hidden; max-width: 240px; min-width: 240px; transition: all 0.2s ease 0s; flex-grow: 0; flex-shrink: 0; flex-basis: 240px;"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-r3l"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-r3q"
         data-testid="pro-layout-sider"
         style="max-width: 240px; min-width: 240px; width: 240px; flex-grow: 0; flex-shrink: 0; flex-basis: 240px;"
       >
