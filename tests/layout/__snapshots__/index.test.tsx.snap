@@ -489,11 +489,12 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
       >
         <header
           class="ant-layout-header"
-          style="height: 56px; line-height: 56px; background-color: transparent; z-index: 19;"
+          style="height: 56px; line-height: 56px; background-color: transparent; z-index: 19; inset-inline-start: 215px; width: calc(100% - 215px);"
         />
         <header
           class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-fixed-header-action ant-pro-layout-header-header"
           data-testid="pro-layout-header"
+          style="inset-inline-start: 215px; width: calc(100% - 215px);"
         >
           <div
             class="ant-pro-global-header"

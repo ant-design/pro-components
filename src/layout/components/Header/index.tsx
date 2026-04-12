@@ -1,6 +1,12 @@
 import { ConfigProvider, Layout } from 'antd';
 import { clsx } from 'clsx';
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 import { isNeedOpenHash, ProProvider } from '../../../provider';
 import type { WithFalse } from '../../typing';
 import { clearMenuItem } from '../../utils/utils';
@@ -47,11 +53,31 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
     layout,
     headerRender,
     headerContentRender,
+    hasSiderMenu,
+    siderWidth,
   } = props;
   const { token } = useContext(ProProvider);
   const context = useContext(ConfigProvider.ConfigContext);
   const [isFixedHeaderScroll, setIsFixedHeaderScroll] = useState(false);
   const needFixedHeader = fixedHeader || layout === 'mix';
+
+  /** mix + fixed：顶栏 `position:fixed` 相对视口全宽会盖住侧栏，需与主内容区对齐 */
+  const fixedHeaderMixStyle = useMemo(() => {
+    if (!needFixedHeader || layout !== 'mix' || isMobile || !hasSiderMenu) {
+      return undefined;
+    }
+    const w =
+      typeof siderWidth === 'number'
+        ? siderWidth
+        : Number.parseInt(String(siderWidth ?? ''), 10);
+    if (!Number.isFinite(w) || w <= 0) {
+      return undefined;
+    }
+    return {
+      insetInlineStart: w,
+      width: `calc(100% - ${w}px)`,
+    } as const;
+  }, [needFixedHeader, layout, isMobile, hasSiderMenu, siderWidth]);
 
   const renderContent = useCallback(() => {
     const isTop = layout === 'top';
@@ -78,37 +104,23 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
     return defaultDom;
   }, [headerContentRender, headerRender, isMobile, layout, onCollapse, props]);
   useEffect(() => {
-    const dom = context?.getTargetContainer?.() || document.body;
-
-    const isFixedHeaderFn = () => {
-      const scrollTop = (dom as HTMLElement).scrollTop;
-
-      if (
-        scrollTop > (token.layout?.header?.heightLayoutHeader || 56) &&
-        !isFixedHeaderScroll
-      ) {
-        setIsFixedHeaderScroll(true);
-        return true;
-      }
-      if (isFixedHeaderScroll) {
-        setIsFixedHeaderScroll(false);
-      }
-      return false;
-    };
-
     if (!needFixedHeader) return;
     if (typeof window === 'undefined') return;
-    dom.addEventListener('scroll', isFixedHeaderFn, {
-      passive: true,
-    });
-    return () => {
-      dom.removeEventListener('scroll', isFixedHeaderFn);
+
+    const dom = context?.getTargetContainer?.() || document.body;
+    const threshold = token.layout?.header?.heightLayoutHeader || 56;
+
+    const handleScroll = () => {
+      const scrollTop = (dom as HTMLElement).scrollTop;
+      setIsFixedHeaderScroll(scrollTop > threshold);
     };
-  }, [
-    token.layout?.header?.heightLayoutHeader,
-    needFixedHeader,
-    isFixedHeaderScroll,
-  ]);
+
+    handleScroll();
+    dom.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      dom.removeEventListener('scroll', handleScroll);
+    };
+  }, [context, needFixedHeader, token.layout?.header?.heightLayoutHeader]);
 
   const isTop = layout === 'top';
   const baseClassName = `${prefixCls}-layout-header`;
@@ -154,12 +166,13 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
                 backgroundColor: 'transparent',
                 zIndex: 19,
                 ...style,
+                ...fixedHeaderMixStyle,
               }}
             />
           )}
           <Header
             className={className}
-            style={style}
+            style={{ ...style, ...fixedHeaderMixStyle }}
             data-testid="pro-layout-header"
           >
             {renderContent()}
