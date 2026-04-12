@@ -2,9 +2,9 @@ import { omit } from '@rc-component/util';
 import { ConfigProvider, Drawer } from 'antd';
 import { clsx } from 'clsx';
 import React, { useContext, useEffect } from 'react';
-import { ProProvider } from '../../../provider';
 import type { PrivateSiderMenuProps, SiderMenuProps } from './SiderMenu';
 import { SiderMenu } from './SiderMenu';
+import { getProLayoutSiderCssVarsStyle } from './style/menu';
 import { useStyle } from './style/index';
 
 const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (
@@ -21,8 +21,6 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (
     prefixCls,
     getContainer,
   } = props;
-
-  const { token } = useContext(ProProvider);
 
   useEffect(() => {
     if (isMobile === true) {
@@ -73,11 +71,12 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (
         size={siderWidth}
         styles={{
           body: {
+            ...getProLayoutSiderCssVarsStyle(),
             height: '100vh',
             padding: 0,
             display: 'flex',
             flexDirection: 'row',
-            backgroundColor: token.layout?.sider?.colorMenuBackground,
+            backgroundColor: 'var(--pro-layout-sider-bg)',
           },
         }}
       >

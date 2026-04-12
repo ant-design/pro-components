@@ -14,7 +14,10 @@ import type { BaseMenuProps } from './BaseMenu';
 import { BaseMenu } from './BaseMenu';
 import type { NavMenuNode } from './navMenuTypes';
 import { ProLayoutNavMenu } from './ProLayoutNavMenu';
-import { useStyle as useBaseMenuStyle } from './style/menu';
+import {
+  getProLayoutSiderCssVarsStyle,
+  useStyle as useBaseMenuStyle,
+} from './style/menu';
 import type { SiderMenuToken } from './style/stylish';
 import { useStylish } from './style/stylish';
 
@@ -238,6 +241,11 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   const baseClassName = `${resolvedPrefixCls}-sider`;
   const linkMenuBaseClassName = `${resolvedPrefixCls}-base-menu-inline`;
   useBaseMenuStyle(linkMenuBaseClassName, 'inline');
+
+  const siderCssVarsStyle = useMemo(
+    () => getProLayoutSiderCssVarsStyle(),
+    [],
+  );
 
   // 收起的宽度，从 menu 配置中读取，默认为 64
   const collapsedWidth = props.menu?.collapsedWidth ?? 64;
@@ -479,6 +487,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
       {fixSiderbar && !isMobile && !hideMenuWhenCollapsedClassName && (
         <div
           style={{
+            ...siderCssVarsStyle,
             width: collapsed ? collapsedWidth : siderWidth,
             overflow: 'hidden',
             flex: `0 0 ${collapsed ? collapsedWidth : siderWidth}px`,
@@ -501,7 +510,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         }}
         collapsedWidth={collapsedWidth}
         data-testid="pro-layout-sider"
-        style={style}
+        style={{ ...siderCssVarsStyle, ...style }}
         theme="light"
         width={siderWidth}
         className={clsx(siderClassName, hashId, hideMenuWhenCollapsedClassName)}

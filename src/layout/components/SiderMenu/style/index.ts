@@ -1,6 +1,7 @@
 ﻿import { Keyframes } from '@ant-design/cssinjs';
 import type { GenerateStyle, ProAliasToken } from '../../../../provider';
 import { useStyle as useAntdStyle } from '../../../../provider';
+import { proLayoutSiderVar } from './menu';
 export interface SiderMenuToken extends ProAliasToken {
   componentCls: string;
   proLayoutCollapsedWidth: number;
@@ -18,12 +19,14 @@ export const proLayoutTitleHide = new Keyframes('antBadgeLoadingCircle', {
 }) as any;
 
 const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
+  const sv = (k: keyof typeof proLayoutSiderVar) =>
+    `var(${proLayoutSiderVar[k]})`;
   return {
     [`${token.proComponentsCls}-layout`]: {
       [`${token.antCls}-layout-sider${token.componentCls}`]: {
-        background: token.layout?.sider?.colorMenuBackground || 'transparent',
+        background: sv('bg'),
       },
-      /** antd Sider 收起：收紧内边距，内容区水平居中（背景仍由 token 控制） */
+      /** antd Sider 收起：收紧内边距，内容区水平居中 */
       [`${token.antCls}-layout-sider${token.componentCls}${token.antCls}-layout-sider-collapsed`]:
         {
           [`& ${token.antCls}-layout-sider-children`]: {
@@ -47,8 +50,8 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
           flexDirection: 'column',
           height: '100%',
           gap: 12,
-          paddingInline: token.layout?.sider?.paddingInlineLayoutMenu,
-          paddingBlock: token.layout?.sider?.paddingBlockLayoutMenu,
+          paddingInline: sv('paddingInlineMenu'),
+          paddingBlock: sv('paddingBlockMenu'),
           borderInlineEnd: 'none',
           marginInlineEnd: 0,
         },
@@ -60,7 +63,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
           paddingInline: 8,
           paddingBlock: 8,
           minHeight: 42,
-          color: token.layout?.sider?.colorTextMenu,
+          color: sv('colorText'),
           cursor: 'pointer',
           borderBlockEnd: 'none',
           '> a': {
@@ -80,7 +83,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
               marginBlock: 0,
               marginInlineEnd: 0,
               marginInlineStart: 6,
-              color: token.layout?.sider?.colorTextMenuTitle,
+              color: sv('colorTextTitle'),
               animationName: proLayoutTitleHide,
               animationDuration: '.4s',
               animationTimingFunction: 'ease',
@@ -107,7 +110,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
           justifyContent: 'space-between',
           marginBlock: 4,
           marginInline: 0,
-          color: token.layout?.sider?.colorTextMenu,
+          color: sv('colorText'),
           '&-collapsed': {
             flexDirection: 'column-reverse',
             paddingBlock: 0,
@@ -116,7 +119,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
             transition: 'font-size 0.3s ease-in-out',
           },
           '&-list': {
-            color: token.layout?.sider?.colorTextMenuSecondary,
+            color: sv('colorTextSecondary'),
             '&-collapsed': {
               marginBlockEnd: 8,
               animationName: 'none',
@@ -127,9 +130,9 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
               lineHeight: '16px',
               fontSize: 16,
               cursor: 'pointer',
-              borderRadius: token.borderRadius,
+              borderRadius: sv('borderRadius'),
               '&:hover': {
-                background: token.colorBgTextHover,
+                background: sv('colorBgHover'),
               },
             },
           },
@@ -139,13 +142,13 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
             paddingBlock: 8,
             display: 'flex',
             alignItems: 'center',
-            gap: token.marginXS,
-            borderRadius: token.borderRadius,
+            gap: 'var(--ant-margin-xs, 8px)',
+            borderRadius: sv('borderRadius'),
             '& *': {
               cursor: 'pointer',
             },
             '&:hover': {
-              background: token.colorBgTextHover,
+              background: sv('colorBgHover'),
             },
           },
         },
@@ -174,9 +177,9 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
           background: 'transparent',
         },
         '&-footer': {
-          color: token.layout?.sider?.colorTextMenuSecondary,
+          color: sv('colorTextSecondary'),
           paddingBlockEnd: 16,
-          fontSize: token.fontSize,
+          fontSize: sv('fontSize'),
           animationName: proLayoutTitleHide,
           animationDuration: '.4s',
           animationTimingFunction: 'ease',
@@ -189,12 +192,8 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
         zIndex: '100',
         height: '100%',
         '&-mix': {
-          height: `calc(100% - ${
-            token.layout?.header?.heightLayoutHeader || 56
-          }px)`,
-          insetBlockStart: `${
-            token.layout?.header?.heightLayoutHeader || 56
-          }px`,
+          height: 'calc(100% - 56px)',
+          insetBlockStart: '56px',
         },
       },
     },

@@ -1,9 +1,38 @@
-import type { GenerateStyle, ProAliasToken } from '../../../../provider';
+import type { CSSProperties } from 'react';
+import type { GenerateStyle } from '../../../../provider';
 import { useStyle as useAntdStyle } from '../../../../provider';
 import type { MenuMode } from '../types';
 
-export interface ProLayoutBaseMenuToken extends ProAliasToken {
+/** 仅保留类名前缀；菜单视觉全部走 CSS 变量，避免再依赖 ProProvider token 字段 */
+export interface ProLayoutBaseMenuToken {
   componentCls: string;
+}
+
+/** 侧栏壳层（Sider / Drawer body）与文档站覆盖用 */
+export const proLayoutSiderVar = {
+  bg: '--pro-layout-sider-bg',
+  colorText: '--pro-layout-sider-color-text',
+  colorTextTitle: '--pro-layout-sider-color-text-title',
+  colorTextSecondary: '--pro-layout-sider-color-text-secondary',
+  paddingInlineMenu: '--pro-layout-sider-padding-inline-menu',
+  paddingBlockMenu: '--pro-layout-sider-padding-block-menu',
+  borderRadius: '--pro-layout-sider-border-radius',
+  colorBgHover: '--pro-layout-sider-color-bg-hover',
+  fontSize: '--pro-layout-sider-font-size',
+} as const;
+
+export function getProLayoutSiderCssVarsStyle(): CSSProperties {
+  return {
+    [proLayoutSiderVar.bg]: '#f7f8f9',
+    [proLayoutSiderVar.colorText]: 'var(--ant-color-text-secondary)',
+    [proLayoutSiderVar.colorTextTitle]: 'var(--ant-color-text)',
+    [proLayoutSiderVar.colorTextSecondary]: 'var(--ant-color-text-tertiary)',
+    [proLayoutSiderVar.paddingInlineMenu]: '8px',
+    [proLayoutSiderVar.paddingBlockMenu]: '12px',
+    [proLayoutSiderVar.borderRadius]: 'var(--ant-border-radius)',
+    [proLayoutSiderVar.colorBgHover]: 'var(--ant-color-fill-secondary)',
+    [proLayoutSiderVar.fontSize]: 'var(--ant-font-size)',
+  } as CSSProperties;
 }
 
 /** 主导航语义 token，统一在根 `nav` 上注入，子选择器只用 `var(--pro-layout-nav-*)` */
@@ -31,16 +60,11 @@ const navVar = {
   iconBox: '--pro-layout-nav-icon-box-size',
 } as const;
 
-function layoutNavCssVars(
-  token: ProLayoutBaseMenuToken,
-  surface: 'sider' | 'header',
-): Record<string, string> {
-  const s = token.layout?.sider;
-  const h = token.layout?.header;
+function layoutNavCssVars(surface: 'sider' | 'header'): Record<string, string> {
   const padInline = 8;
   const stackGap = 4;
   const itemH = 32;
-  /** 侧栏主导航：浅灰底条上的字色 / 交互（对齐常见产品侧栏，仍可通过 layout.sider / token 覆盖） */
+  /** 侧栏主导航：浅灰底上的字色 / 交互；可通过覆盖 `--pro-layout-nav-*` 调整 */
   const siderNavText = 'rgba(9, 30, 66, 0.86)';
   const siderNavIcon = 'rgba(9, 30, 66, 0.31)';
   const siderNavSection = 'rgba(9, 30, 66, 0.49)';
@@ -49,54 +73,49 @@ function layoutNavCssVars(
   const siderNavSelectedText = '#0055cc';
   if (surface === 'sider') {
     return {
-      [navVar.colorText]: s?.colorTextMenu ?? siderNavText,
-      [navVar.colorBgHover]: s?.colorBgMenuItemHover ?? siderNavHoverBg,
-      [navVar.colorTextHover]: s?.colorTextMenuActive ?? siderNavText,
-      [navVar.colorBgSelected]: s?.colorBgMenuItemSelected ?? siderNavSelectedBg,
-      [navVar.colorTextSelected]: s?.colorTextMenuSelected ?? siderNavSelectedText,
-      [navVar.colorDivider]:
-        s?.colorMenuItemDivider ?? 'var(--ant-color-split)',
-      [navVar.popupBg]:
-        h?.colorBgMenuElevated ?? 'var(--ant-color-bg-elevated)',
+      [navVar.colorText]: siderNavText,
+      [navVar.colorBgHover]: siderNavHoverBg,
+      [navVar.colorTextHover]: siderNavText,
+      [navVar.colorBgSelected]: siderNavSelectedBg,
+      [navVar.colorTextSelected]: siderNavSelectedText,
+      [navVar.colorDivider]: 'var(--ant-color-split)',
+      [navVar.popupBg]: 'var(--ant-color-bg-elevated)',
       [navVar.indent]: '16px',
       [navVar.colorIcon]: siderNavIcon,
       [navVar.colorSection]: siderNavSection,
       [navVar.itemHeight]: `${itemH}px`,
       [navVar.itemRadius]: '6px',
       [navVar.itemGap]: '8px',
-      [navVar.itemFontSize]: `${token.fontSizeSM + 1}px`,
+      [navVar.itemFontSize]: 'calc(var(--ant-font-size) + 1px)',
       [navVar.itemFontWeight]: '500',
       [navVar.itemPadBlock]: '6px',
       [navVar.itemPadInline]: `${padInline}px`,
       [navVar.stackGap]: `${stackGap}px`,
-      [navVar.groupTitleFontSize]: `${token.fontSizeSM}px`,
+      [navVar.groupTitleFontSize]: 'calc(var(--ant-font-size, 14px) - 1px)',
       [navVar.groupTitleLineHeight]: '20px',
       [navVar.iconBox]: '16px',
     };
   }
   return {
-    [navVar.colorText]: h?.colorTextMenu ?? 'var(--ant-color-text-secondary)',
-    [navVar.colorBgHover]:
-      h?.colorBgMenuItemHover ?? 'var(--ant-color-fill-secondary)',
-    [navVar.colorTextHover]: h?.colorTextMenuActive ?? 'var(--ant-color-text)',
-    [navVar.colorBgSelected]:
-      h?.colorBgMenuItemSelected ?? 'var(--ant-color-fill-tertiary)',
-    [navVar.colorTextSelected]:
-      h?.colorTextMenuSelected ?? 'var(--ant-color-text)',
+    [navVar.colorText]: 'var(--ant-color-text-secondary)',
+    [navVar.colorBgHover]: 'var(--ant-color-fill-secondary)',
+    [navVar.colorTextHover]: 'var(--ant-color-text)',
+    [navVar.colorBgSelected]: 'var(--ant-color-fill-tertiary)',
+    [navVar.colorTextSelected]: 'var(--ant-color-text)',
     [navVar.colorDivider]: 'var(--ant-color-split)',
-    [navVar.popupBg]: h?.colorBgMenuElevated ?? 'var(--ant-color-bg-elevated)',
+    [navVar.popupBg]: 'var(--ant-color-bg-elevated)',
     [navVar.indent]: '16px',
     [navVar.colorIcon]: 'var(--ant-color-text-secondary)',
     [navVar.colorSection]: 'var(--ant-color-text-description)',
     [navVar.itemHeight]: `${itemH}px`,
     [navVar.itemRadius]: '6px',
     [navVar.itemGap]: '8px',
-    [navVar.itemFontSize]: `${token.fontSize}px`,
+    [navVar.itemFontSize]: 'var(--ant-font-size)',
     [navVar.itemFontWeight]: '500',
     [navVar.itemPadBlock]: '6px',
     [navVar.itemPadInline]: `${padInline}px`,
     [navVar.stackGap]: `${stackGap}px`,
-    [navVar.groupTitleFontSize]: `${token.fontSizeSM}px`,
+    [navVar.groupTitleFontSize]: 'var(--ant-font-size-sm)',
     [navVar.groupTitleLineHeight]: '20px',
     [navVar.iconBox]: '16px',
   };
@@ -131,9 +150,9 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
     border: 'none',
     background: 'transparent',
     textAlign: 'start',
-    transition: `background-color ${token.motionDurationMid}, color ${token.motionDurationMid}`,
+    transition: `background-color var(--ant-motion-duration-mid, 0.2s), color var(--ant-motion-duration-mid, 0.2s)`,
     '&:focus-visible': {
-      outline: `${token.lineWidthFocus}px solid var(--ant-color-primary)`,
+      outline: `2px solid var(--ant-color-primary)`,
       outlineOffset: 1,
     },
   };
@@ -147,7 +166,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
 
   return {
     [c]: {
-      ...(isHorizontal ? layoutNavCssVars(token, 'header') : layoutNavCssVars(token, 'sider')),
+      ...(isHorizontal ? layoutNavCssVars('header') : layoutNavCssVars('sider')),
       background: 'transparent',
       border: 'none',
       width: '100%',
@@ -234,7 +253,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         minWidth: 160,
         maxHeight: 'calc(100vh - 32px)',
         overflowY: 'auto',
-        padding: token.paddingXXS,
+        padding: 'var(--ant-padding-xxs, 4px)',
         zIndex: `var(--ant-z-index-popup-base)`,
         boxShadow: `var(--ant-box-shadow-secondary)`,
         borderRadius: `var(--ant-border-radius-lg)`,
@@ -314,7 +333,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
             [`${c}-item-text`]: {
               display: 'inline',
               textAlign: 'center',
-              fontSize: token.fontSizeSM,
+              fontSize: 'calc(var(--ant-font-size, 14px) - 1px)',
               maxHeight: 12,
               lineHeight: '12px',
               marginBlockStart: 4,
@@ -372,7 +391,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
 
       [`${c}-group-divider`]: {
         color: `var(--ant-color-text-secondary)`,
-        fontSize: token.fontSizeSM,
+        fontSize: 'calc(var(--ant-font-size, 14px) - 1px)',
         lineHeight: 20,
       },
 
@@ -382,7 +401,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           paddingBlock: 0,
           paddingInlineStart: v('itemPadInline'),
           paddingInlineEnd: 0,
-          marginBlock: token.marginXXS,
+          marginBlock: 'var(--ant-margin-xxs, 4px)',
         },
         [`${c}-submenu-title`]: {
           paddingBlock: 0,
@@ -444,7 +463,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         minHeight: 'auto',
         height: 'auto',
         whiteSpace: 'nowrap',
-        paddingInline: token.paddingSM,
+        paddingInline: 'var(--ant-padding-sm, 12px)',
       },
       [`${c}-submenu`]: { display: 'inline-block' },
       [`${c}-submenu-title`]: {
@@ -474,9 +493,8 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
 };
 
 export function useStyle(prefixCls: string, mode: MenuMode | undefined) {
-  return useAntdStyle('ProLayoutBaseMenu' + mode, (token) => {
+  return useAntdStyle('ProLayoutBaseMenu' + mode, () => {
     const proLayoutMenuToken: ProLayoutBaseMenuToken = {
-      ...token,
       componentCls: `.${prefixCls}`,
     };
     return [genProLayoutBaseMenuStyle(proLayoutMenuToken, mode || 'inline')];

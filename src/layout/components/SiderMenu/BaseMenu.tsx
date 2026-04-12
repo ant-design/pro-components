@@ -10,8 +10,6 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import type { ProTokenType } from '../../../provider';
-import { ProProvider } from '../../../provider';
 import { isImg, isUrl } from '../../../utils';
 import type { PureSettings } from '../../defaultSettings';
 import { defaultSettings } from '../../defaultSettings';
@@ -191,7 +189,6 @@ const getMenuTitleSymbol = (title: React.ReactNode) => {
 
 class MenuUtil {
   props: BaseMenuProps & {
-    token?: ProTokenType;
     menuRenderType?: 'header' | 'sider';
     baseClassName: string;
     hashId: string;
@@ -199,7 +196,6 @@ class MenuUtil {
 
   constructor(
     props: BaseMenuProps & {
-      token?: ProTokenType;
       menuRenderType?: 'header' | 'sider';
       baseClassName: string;
       hashId: string;
@@ -233,8 +229,6 @@ class MenuUtil {
       layout,
     } = this.props;
     const isGroup = menu?.type === 'group' && layout !== 'top';
-    const designToken = this.props.token;
-
     const name = this.getIntlName(item);
     const children = item?.children;
 
@@ -336,7 +330,7 @@ class MenuUtil {
                 borderBlockEnd: 0,
                 margin: this.props.collapsed ? '4px' : '6px 16px',
                 marginBlockStart: this.props.collapsed ? 4 : 8,
-                borderColor: designToken?.layout?.sider?.colorMenuItemDivider,
+                borderColor: 'var(--pro-layout-nav-color-divider)',
               },
             } as NavMenuNode)
           : undefined,
@@ -536,8 +530,6 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     openKeys: propsOpenKeys,
   } = props;
 
-  const { token: designToken } = useContext(ProProvider);
-
   const baseClassName = `${prefixClsProp}-base-menu-${mode}`;
   // 用于减少 defaultOpenKeys 计算的组件
   const defaultOpenKeysRef = useRef<string[]>([]);
@@ -677,12 +669,11 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   const menuUtils = useMemo(() => {
     return new MenuUtil({
       ...props,
-      token: designToken,
       menuRenderType,
       baseClassName,
       hashId,
     });
-  }, [props, designToken, menuRenderType, baseClassName, hashId]);
+  }, [props, menuRenderType, baseClassName, hashId]);
 
   if (menu?.loading) {
     return (

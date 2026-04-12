@@ -439,12 +439,12 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
           >
             <div
               class="ant-drawer-body"
-              style="height: 100vh; padding: 0px; display: flex; flex-direction: row; background-color: #f7f8f9;"
+              style="--pro-layout-sider-bg: #f7f8f9; --pro-layout-sider-color-text: var(--ant-color-text-secondary); --pro-layout-sider-color-text-title: var(--ant-color-text); --pro-layout-sider-color-text-secondary: var(--ant-color-text-tertiary); --pro-layout-sider-padding-inline-menu: 8px; --pro-layout-sider-padding-block-menu: 12px; --pro-layout-sider-border-radius: var(--ant-border-radius); --pro-layout-sider-color-bg-hover: var(--ant-color-fill-secondary); --pro-layout-sider-font-size: var(--ant-font-size); height: 100vh; padding: 0px; display: flex; flex-direction: row; background-color: var(--pro-layout-sider-bg);"
             >
               <aside
                 class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light css-var-rj"
                 data-testid="pro-layout-sider"
-                style="max-width: 215px; min-width: 215px; width: 215px; flex-grow: 0; flex-shrink: 0; flex-basis: 215px;"
+                style="--pro-layout-sider-bg: #f7f8f9; --pro-layout-sider-color-text: var(--ant-color-text-secondary); --pro-layout-sider-color-text-title: var(--ant-color-text); --pro-layout-sider-color-text-secondary: var(--ant-color-text-tertiary); --pro-layout-sider-padding-inline-menu: 8px; --pro-layout-sider-padding-block-menu: 12px; --pro-layout-sider-border-radius: var(--ant-border-radius); --pro-layout-sider-color-bg-hover: var(--ant-color-fill-secondary); --pro-layout-sider-font-size: var(--ant-font-size); max-width: 215px; min-width: 215px; width: 215px; flex-grow: 0; flex-shrink: 0; flex-basis: 215px;"
               >
                 <div
                   class="ant-layout-sider-children"
