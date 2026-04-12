@@ -10,14 +10,14 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout ant-layout-has-sider css-var-r5u"
+      class="ant-layout ant-layout-has-sider css-var-r5e"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
         style="--pro-layout-sider-bg: #f7f8f9; --pro-layout-sider-color-text: var(--ant-color-text-secondary); --pro-layout-sider-color-text-title: var(--ant-color-text); --pro-layout-sider-color-text-secondary: var(--ant-color-text-tertiary); --pro-layout-sider-padding-inline-menu: 8px; --pro-layout-sider-padding-block-menu: 12px; --pro-layout-sider-border-radius: var(--ant-border-radius); --pro-layout-sider-color-bg-hover: var(--ant-color-fill-secondary); --pro-layout-sider-font-size: var(--ant-font-size); width: 240px; overflow: hidden; max-width: 240px; min-width: 240px; transition: all 0.2s ease 0s; flex-grow: 0; flex-shrink: 0; flex-basis: 240px;"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-r5v"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-r5f"
         data-testid="pro-layout-sider"
         style="--pro-layout-sider-bg: #f7f8f9; --pro-layout-sider-color-text: var(--ant-color-text-secondary); --pro-layout-sider-color-text-title: var(--ant-color-text); --pro-layout-sider-color-text-secondary: var(--ant-color-text-tertiary); --pro-layout-sider-padding-inline-menu: 8px; --pro-layout-sider-padding-block-menu: 12px; --pro-layout-sider-border-radius: var(--ant-border-radius); --pro-layout-sider-color-bg-hover: var(--ant-color-fill-secondary); --pro-layout-sider-font-size: var(--ant-font-size); max-width: 240px; min-width: 240px; width: 240px; flex-grow: 0; flex-shrink: 0; flex-basis: 240px;"
       >
@@ -167,7 +167,7 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
               style="padding: 24px;"
             >
               <div
-                class="ant-skeleton ant-skeleton-active css-var-r5v"
+                class="ant-skeleton ant-skeleton-active css-var-r5f"
               >
                 <div
                   class="ant-skeleton-section"
@@ -224,7 +224,7 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout css-var-r62"
+      class="ant-layout css-var-r5i"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
@@ -390,7 +390,7 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
                   style="margin-block-start: 16px;"
                 >
                   <div
-                    class="ant-skeleton ant-skeleton-active css-var-r65"
+                    class="ant-skeleton ant-skeleton-active css-var-r5l"
                   >
                     <div
                       class="ant-skeleton-section"
@@ -424,14 +424,14 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout ant-layout-has-sider css-var-r68"
+      class="ant-layout ant-layout-has-sider css-var-r5o"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
         style="--pro-layout-sider-bg: #f7f8f9; --pro-layout-sider-color-text: var(--ant-color-text-secondary); --pro-layout-sider-color-text-title: var(--ant-color-text); --pro-layout-sider-color-text-secondary: var(--ant-color-text-tertiary); --pro-layout-sider-padding-inline-menu: 8px; --pro-layout-sider-padding-block-menu: 12px; --pro-layout-sider-border-radius: var(--ant-border-radius); --pro-layout-sider-color-bg-hover: var(--ant-color-fill-secondary); --pro-layout-sider-font-size: var(--ant-font-size); width: 215px; overflow: hidden; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s; flex-grow: 0; flex-shrink: 0; flex-basis: 215px;"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-fixed-mix ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix css-var-r69"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-fixed-mix ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix css-var-r5p"
         data-testid="pro-layout-sider"
         style="--pro-layout-sider-bg: #f7f8f9; --pro-layout-sider-color-text: var(--ant-color-text-secondary); --pro-layout-sider-color-text-title: var(--ant-color-text); --pro-layout-sider-color-text-secondary: var(--ant-color-text-tertiary); --pro-layout-sider-padding-inline-menu: 8px; --pro-layout-sider-padding-block-menu: 12px; --pro-layout-sider-border-radius: var(--ant-border-radius); --pro-layout-sider-color-bg-hover: var(--ant-color-fill-secondary); --pro-layout-sider-font-size: var(--ant-font-size); max-width: 215px; min-width: 215px; width: 215px; flex-grow: 0; flex-shrink: 0; flex-basis: 215px;"
       >
@@ -445,7 +445,7 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
               style="padding: 24px;"
             >
               <div
-                class="ant-skeleton ant-skeleton-active css-var-r69"
+                class="ant-skeleton ant-skeleton-active css-var-r5p"
               >
                 <div
                   class="ant-skeleton-section"
@@ -853,14 +853,14 @@ exports[`BasicLayout > 🥩 contentStyle should change dom 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout ant-layout-has-sider css-var-r3p"
+      class="ant-layout ant-layout-has-sider css-var-r3n"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
         style="--pro-layout-sider-bg: #f7f8f9; --pro-layout-sider-color-text: var(--ant-color-text-secondary); --pro-layout-sider-color-text-title: var(--ant-color-text); --pro-layout-sider-color-text-secondary: var(--ant-color-text-tertiary); --pro-layout-sider-padding-inline-menu: 8px; --pro-layout-sider-padding-block-menu: 12px; --pro-layout-sider-border-radius: var(--ant-border-radius); --pro-layout-sider-color-bg-hover: var(--ant-color-fill-secondary); --pro-layout-sider-font-size: var(--ant-font-size); width: 240px; overflow: hidden; max-width: 240px; min-width: 240px; transition: all 0.2s ease 0s; flex-grow: 0; flex-shrink: 0; flex-basis: 240px;"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-r3q"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-r3o"
         data-testid="pro-layout-sider"
         style="--pro-layout-sider-bg: #f7f8f9; --pro-layout-sider-color-text: var(--ant-color-text-secondary); --pro-layout-sider-color-text-title: var(--ant-color-text); --pro-layout-sider-color-text-secondary: var(--ant-color-text-tertiary); --pro-layout-sider-padding-inline-menu: 8px; --pro-layout-sider-padding-block-menu: 12px; --pro-layout-sider-border-radius: var(--ant-border-radius); --pro-layout-sider-color-bg-hover: var(--ant-color-fill-secondary); --pro-layout-sider-font-size: var(--ant-font-size); max-width: 240px; min-width: 240px; width: 240px; flex-grow: 0; flex-shrink: 0; flex-basis: 240px;"
       >

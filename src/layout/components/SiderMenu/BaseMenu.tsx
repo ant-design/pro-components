@@ -55,6 +55,19 @@ const MenuItemTooltip = (props: {
     return props.children as React.JSX.Element;
   }
 
+  // 展开时无需气泡；收起且标题为纯文本时用原生 title，避免 antd Tooltip / rc-trigger 额外包一层 DOM
+  if (!props.collapsed) {
+    return props.children as React.JSX.Element;
+  }
+
+  const canUseNativeTitle =
+    typeof props.title === 'string' || typeof props.title === 'number';
+  if (canUseNativeTitle && React.isValidElement(props.children)) {
+    return React.cloneElement(props.children as React.ReactElement, {
+      title: String(props.title),
+    });
+  }
+
   return (
     <Tooltip
       title={props.title}
