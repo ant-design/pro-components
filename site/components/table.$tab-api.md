@@ -222,7 +222,7 @@ RTL means right-to-left.
 
 <code src="../../demos/table/config-provider.tsx" debug background="var(--main-bg-color)"></code>
 
-<code src="../../demos/table/single-test.tsx" debug background="var(--main-bg-color)"></code>
+<code src="../../demos/table/_single-test.tsx" debug background="var(--main-bg-color)"></code>
 
 ## 列表工具栏
 

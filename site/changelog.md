@@ -10,6 +10,11 @@
   - 🛠 `request` 返回类型收紧为 `ProDescriptionsRequestResult<T>`；`params` 为 `Record<string, unknown>`；`onDataSourceChange` 可收到 `undefined`
   - 🛠 `ProDescriptionsProps` 不再接受 `items`（由组件内部生成）
 
+### 🐛 问题修复
+
+- 站点文档
+  - 🐞 修正多处 `<code src>` 与 `demos/` 实际文件名不一致（如 `single-test` → `_single-test`、`debug-demo` → `_debug-demo`、`base_test` → `_base-test` 等），并修复 `group.md` 中 `Group//` 双斜杠路径
+
 ### 🛠 重构 / 文档
 
 - ProLayout

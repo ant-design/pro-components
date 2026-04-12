@@ -264,7 +264,7 @@ Using FormItemRender or ProFormItemRender makes it easier to write form items in
 
 <code src="../../demos/form/linkage-customization.tsx" debug></code>
 
-<code src="../../demos/form/pro-form-dependency.debug.tsx"  debug></code>
+<code src="../../demos/form/_pro-form-dependency.tsx"  debug></code>
 
 <code src="../../demos/form/label-col.tsx" debug></code>
 
@@ -522,6 +522,6 @@ export default () => {
 |    `getFieldFormatValueObject`    |   Usage is the same as `FormInstance`'s `getFieldValue`, returns formatted specified data (including name path)   |         |
 | `validateFieldsReturnFormatValue` | Usage is the same as `FormInstance`'s `validateFields` method, returns all formatted data after validation passes |         |
 
-<code src="../../demos/form/modalform-test.tsx"  debug></code>
+<code src="../../demos/form/_modalform-test.tsx"  debug></code>
 
 <code src="../../demos/form/params-formref.tsx"  debug></code>

@@ -10,6 +10,11 @@
   - 🛠 Tighten `request` return type to `ProDescriptionsRequestResult<T>`; `params` is `Record<string, unknown>`; `onDataSourceChange` may receive `undefined`
   - 🛠 `ProDescriptionsProps` no longer accepts `items` (generated internally)
 
+### 🐛 Bug Fixes
+
+- Site docs
+  - 🐞 Fix several `<code src>` paths that did not match files under `demos/` (e.g. `single-test` → `_single-test`, `debug-demo` → `_debug-demo`, `base_test` → `_base-test`) and correct a `Group//` double-slash path in `group.md`
+
 ### 🛠 Refactor / Documentation
 
 - ProLayout
