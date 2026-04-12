@@ -243,7 +243,6 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   // 收起的宽度，从 menu 配置中读取，默认为 64
   const collapsedWidth = props.menu?.collapsedWidth ?? 64;
 
-  // 之所以这样写是为了提升样式优先级，不然会被sider 自带的覆盖掉
   const stylishClassName = useStylish(
     `${baseClassName}.${baseClassName}-stylish`,
     {

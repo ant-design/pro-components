@@ -15,6 +15,8 @@ import type { MenuMode, ProLayoutNavMenuSelectInfo } from './types';
 
 const MENU_INDENT_PX = 16;
 
+const keyToString = (key: string | number) => String(key);
+
 export type ProLayoutNavMenuProps = {
   baseClassName: string;
   hashId: string;
@@ -39,7 +41,281 @@ export type ProLayoutNavMenuProps = {
   style?: CSSProperties;
 };
 
-const keyToString = (key: string | number) => String(key);
+interface ProLayoutNavMenuRenderContext {
+  baseClassName: string;
+  hashId: string;
+  mode: MenuMode;
+  popupMode: boolean;
+  rootId: string;
+  selectedSet: Set<string>;
+  openSet: Set<string>;
+  openKeysProp: (string | number)[];
+  popupOpenKey: string | null;
+  popupPlacement: { top: number; left: number } | null;
+  popupPanelRef: React.RefObject<HTMLUListElement | null>;
+  submenuAnchorRefs: React.MutableRefObject<Map<string, HTMLButtonElement>>;
+  setPopupOpenKey: React.Dispatch<React.SetStateAction<string | null>>;
+  handleLeafActivate: (
+    key: string,
+    disabled?: boolean,
+    onClick?: () => void,
+  ) => void;
+  handleSubmenuTitleClick: (
+    key: string,
+    onTitleClick: undefined | ((e: React.MouseEvent<Element>) => void),
+    e: React.MouseEvent | React.KeyboardEvent,
+  ) => void;
+}
+
+function renderDivider(
+  ctx: ProLayoutNavMenuRenderContext,
+  node: Extract<NavMenuNode, { kind: 'divider' }>,
+) {
+  const { baseClassName, hashId } = ctx;
+  return (
+    <li
+      key={node.key}
+      role="separator"
+      className={clsx(`${baseClassName}-divider`, hashId, node.className)}
+      style={node.style}
+    />
+  );
+}
+
+function renderLeaf(
+  ctx: ProLayoutNavMenuRenderContext,
+  node: Extract<NavMenuNode, { kind: 'item' }>,
+  depth: number,
+) {
+  const { baseClassName, hashId, selectedSet, handleLeafActivate } = ctx;
+  const selected = selectedSet.has(node.key);
+  const { disabled } = node;
+  return (
+    <li
+      key={node.key}
+      data-pro-layout-nav-leaf
+      role="menuitem"
+      tabIndex={disabled ? undefined : 0}
+      className={clsx(`${baseClassName}-item`, hashId, node.className, {
+        [`${baseClassName}-item--selected`]: selected,
+        [`${baseClassName}-item--disabled`]: disabled,
+      })}
+      aria-disabled={disabled || undefined}
+      aria-selected={selected || undefined}
+      style={
+        depth > 0 ? { paddingInlineStart: depth * MENU_INDENT_PX } : undefined
+      }
+      onClick={() => handleLeafActivate(node.key, disabled, node.onClick)}
+      onKeyDown={(e) => {
+        if (disabled) return;
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleLeafActivate(node.key, disabled, node.onClick);
+        }
+      }}
+    >
+      {node.label}
+    </li>
+  );
+}
+
+function renderGroup(
+  ctx: ProLayoutNavMenuRenderContext,
+  node: Extract<NavMenuNode, { kind: 'group' }>,
+  depth: number,
+) {
+  const { baseClassName, hashId } = ctx;
+  return (
+    <li
+      key={node.key}
+      className={clsx(`${baseClassName}-group`, hashId, node.className)}
+      role="presentation"
+    >
+      <div
+        className={clsx(`${baseClassName}-group-title`, hashId)}
+        data-pro-layout-nav-group-title
+        role="presentation"
+      >
+        {node.label}
+      </div>
+      <ul
+        className={clsx(`${baseClassName}-group-list`, hashId)}
+        role="group"
+      >
+        {node.children.map((child) => renderNode(ctx, child, depth))}
+      </ul>
+    </li>
+  );
+}
+
+function renderPopup(
+  ctx: ProLayoutNavMenuRenderContext,
+  node: Extract<NavMenuNode, { kind: 'submenu' }>,
+) {
+  const {
+    baseClassName,
+    hashId,
+    rootId,
+    popupOpenKey,
+    popupPlacement,
+    popupPanelRef,
+    submenuAnchorRefs,
+    setPopupOpenKey,
+    handleSubmenuTitleClick,
+  } = ctx;
+  const isOpen = popupOpenKey === node.key;
+  const setSubmenuAnchorRef = (el: HTMLButtonElement | null) => {
+    if (el) {
+      submenuAnchorRefs.current.set(node.key, el);
+    } else {
+      submenuAnchorRefs.current.delete(node.key);
+    }
+  };
+
+  const popupPanel =
+    isOpen && typeof document !== 'undefined' ? (
+      createPortal(
+        <ul
+          ref={popupPanelRef}
+          id={`${rootId}-popup-${node.key}`}
+          role="menu"
+          aria-labelledby={`${rootId}-submenu-${node.key}`}
+          className={clsx(
+            `${baseClassName}-list`,
+            `${baseClassName}-submenu-popup`,
+            hashId,
+          )}
+          style={{
+            top: popupPlacement?.top,
+            left: popupPlacement?.left,
+            visibility: popupPlacement ? 'visible' : 'hidden',
+          }}
+        >
+          {node.children.map((child) => renderNode(ctx, child, 1))}
+        </ul>,
+        document.body,
+      )
+    ) : null;
+
+  return (
+    <React.Fragment key={node.key}>
+      <button
+        type="button"
+        ref={setSubmenuAnchorRef}
+        id={`${rootId}-submenu-${node.key}`}
+        className={clsx(
+          `${baseClassName}-submenu-title`,
+          `${baseClassName}-submenu-anchor`,
+          hashId,
+          node.className,
+          {
+            [`${baseClassName}-submenu-title--open`]: isOpen,
+            [`${baseClassName}-submenu-open`]: isOpen,
+            [`${baseClassName}-submenu-has-icon`]: node.className?.includes(
+              'submenu-has-icon',
+            ),
+          },
+        )}
+        aria-expanded={isOpen}
+        aria-haspopup="true"
+        aria-controls={isOpen ? `${rootId}-popup-${node.key}` : undefined}
+        onClick={(e) => handleSubmenuTitleClick(node.key, node.onTitleClick, e)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            handleSubmenuTitleClick(node.key, node.onTitleClick, e);
+          }
+          if (e.key === 'Escape' && isOpen) {
+            e.stopPropagation();
+            setPopupOpenKey(null);
+          }
+        }}
+      >
+        {node.label}
+      </button>
+      {popupPanel}
+    </React.Fragment>
+  );
+}
+
+function renderInlineSubmenu(
+  ctx: ProLayoutNavMenuRenderContext,
+  node: Extract<NavMenuNode, { kind: 'submenu' }>,
+  depth: number,
+) {
+  const { baseClassName, hashId, openSet, handleSubmenuTitleClick } = ctx;
+  const isOpen = openSet.has(node.key);
+  return (
+    <li
+      key={node.key}
+      data-pro-layout-nav-submenu
+      data-pro-layout-nav-submenu-open={isOpen || undefined}
+      className={clsx(
+        `${baseClassName}-submenu`,
+        `${baseClassName}-submenu-inline`,
+        hashId,
+        node.className,
+        {
+          [`${baseClassName}-submenu-open`]: isOpen,
+        },
+      )}
+      role="none"
+    >
+      <button
+        type="button"
+        className={clsx(`${baseClassName}-submenu-title`, hashId, {
+          [`${baseClassName}-submenu-title--open`]: isOpen,
+        })}
+        style={
+          depth > 0 ? { paddingInlineStart: depth * MENU_INDENT_PX } : undefined
+        }
+        aria-expanded={isOpen}
+        aria-haspopup="true"
+        onClick={(e) => handleSubmenuTitleClick(node.key, node.onTitleClick, e)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            handleSubmenuTitleClick(node.key, node.onTitleClick, e);
+          }
+        }}
+      >
+        {node.label}
+      </button>
+      {isOpen ? (
+        <ul
+          className={clsx(
+            `${baseClassName}-list`,
+            `${baseClassName}-submenu-inline`,
+            hashId,
+          )}
+          role="menu"
+        >
+          {node.children.map((child) => renderNode(ctx, child, depth + 1))}
+        </ul>
+      ) : null}
+    </li>
+  );
+}
+
+function renderNode(
+  ctx: ProLayoutNavMenuRenderContext,
+  node: NavMenuNode,
+  depth: number,
+): React.ReactNode {
+  switch (node.kind) {
+    case 'divider':
+      return renderDivider(ctx, node);
+    case 'item':
+      return renderLeaf(ctx, node, depth);
+    case 'group':
+      return renderGroup(ctx, node, depth);
+    case 'submenu':
+      if (ctx.popupMode) {
+        return renderPopup(ctx, node);
+      }
+      return renderInlineSubmenu(ctx, node, depth);
+    default:
+      return null;
+  }
+}
 
 const isPopupMode = (mode: MenuMode, collapsed?: boolean) =>
   mode === 'horizontal' || (mode === 'vertical' && !!collapsed);
@@ -183,235 +459,23 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
     [onSelect, popupMode],
   );
 
-  /* eslint-disable @typescript-eslint/no-use-before-define -- inner helpers are mutually recursive */
-  function renderDivider(node: Extract<NavMenuNode, { kind: 'divider' }>) {
-    return (
-      <li
-        key={node.key}
-        role="separator"
-        className={clsx(`${baseClassName}-divider`, hashId, node.className)}
-        style={node.style}
-      />
-    );
-  }
-
-  function renderLeaf(
-    node: Extract<NavMenuNode, { kind: 'item' }>,
-    depth: number,
-  ) {
-    const selected = selectedSet.has(node.key);
-    const { disabled } = node;
-    return (
-      <li
-        key={node.key}
-        data-pro-layout-nav-leaf
-        role="menuitem"
-        tabIndex={disabled ? undefined : 0}
-        className={clsx(`${baseClassName}-item`, hashId, node.className, {
-          [`${baseClassName}-item--selected`]: selected,
-          [`${baseClassName}-item--disabled`]: disabled,
-        })}
-        aria-disabled={disabled || undefined}
-        aria-selected={selected || undefined}
-        style={
-          depth > 0
-            ? { paddingInlineStart: depth * MENU_INDENT_PX }
-            : undefined
-        }
-        onClick={() => handleLeafActivate(node.key, disabled, node.onClick)}
-        onKeyDown={(e) => {
-          if (disabled) return;
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            handleLeafActivate(node.key, disabled, node.onClick);
-          }
-        }}
-      >
-        {node.label}
-      </li>
-    );
-  }
-
-  function renderGroup(
-    node: Extract<NavMenuNode, { kind: 'group' }>,
-    depth: number,
-  ) {
-    return (
-      <li
-        key={node.key}
-        className={clsx(`${baseClassName}-group`, hashId, node.className)}
-        role="presentation"
-      >
-        <div
-          className={clsx(`${baseClassName}-group-title`, hashId)}
-          data-pro-layout-nav-group-title
-          role="presentation"
-        >
-          {node.label}
-        </div>
-        <ul
-          className={clsx(`${baseClassName}-group-list`, hashId)}
-          role="group"
-        >
-          {node.children.map((child) => renderNode(child, depth))}
-        </ul>
-      </li>
-    );
-  }
-
-  function renderPopup(node: Extract<NavMenuNode, { kind: 'submenu' }>) {
-    const isOpen = popupOpenKey === node.key;
-    const setSubmenuAnchorRef = (el: HTMLButtonElement | null) => {
-      if (el) {
-        submenuAnchorRefs.current.set(node.key, el);
-      } else {
-        submenuAnchorRefs.current.delete(node.key);
-      }
-    };
-
-    const popupPanel =
-      isOpen && typeof document !== 'undefined' ? (
-        createPortal(
-          <ul
-            ref={popupPanelRef}
-            id={`${rootId}-popup-${node.key}`}
-            role="menu"
-            aria-labelledby={`${rootId}-submenu-${node.key}`}
-            className={clsx(
-              `${baseClassName}-list`,
-              `${baseClassName}-submenu-popup`,
-              hashId,
-            )}
-            style={{
-              top: popupPlacement?.top,
-              left: popupPlacement?.left,
-              visibility: popupPlacement ? 'visible' : 'hidden',
-            }}
-          >
-            {node.children.map((child) => renderNode(child, 1))}
-          </ul>,
-          document.body,
-        )
-      ) : null;
-
-    return (
-      <React.Fragment key={node.key}>
-        <button
-          type="button"
-          ref={setSubmenuAnchorRef}
-          id={`${rootId}-submenu-${node.key}`}
-          className={clsx(
-            `${baseClassName}-submenu-title`,
-            `${baseClassName}-submenu-anchor`,
-            hashId,
-            node.className,
-            {
-              [`${baseClassName}-submenu-title--open`]: isOpen,
-              [`${baseClassName}-submenu-open`]: isOpen,
-              [`${baseClassName}-submenu-has-icon`]: node.className?.includes(
-                'submenu-has-icon',
-              ),
-            },
-          )}
-          aria-expanded={isOpen}
-          aria-haspopup="true"
-          aria-controls={isOpen ? `${rootId}-popup-${node.key}` : undefined}
-          onClick={(e) => handleSubmenuTitleClick(node.key, node.onTitleClick, e)}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              handleSubmenuTitleClick(node.key, node.onTitleClick, e);
-            }
-            if (e.key === 'Escape' && isOpen) {
-              e.stopPropagation();
-              setPopupOpenKey(null);
-            }
-          }}
-        >
-          {node.label}
-        </button>
-        {popupPanel}
-      </React.Fragment>
-    );
-  }
-
-  function renderInlineSubmenu(
-    node: Extract<NavMenuNode, { kind: 'submenu' }>,
-    depth: number,
-  ) {
-    const isOpen = openSet.has(node.key);
-    return (
-      <li
-        key={node.key}
-        data-pro-layout-nav-submenu
-        data-pro-layout-nav-submenu-open={isOpen || undefined}
-        className={clsx(
-          `${baseClassName}-submenu`,
-          `${baseClassName}-submenu-inline`,
-          hashId,
-          node.className,
-          {
-            [`${baseClassName}-submenu-open`]: isOpen,
-          },
-        )}
-        role="none"
-      >
-        <button
-          type="button"
-          className={clsx(`${baseClassName}-submenu-title`, hashId, {
-            [`${baseClassName}-submenu-title--open`]: isOpen,
-          })}
-          style={
-            depth > 0
-              ? { paddingInlineStart: depth * MENU_INDENT_PX }
-              : undefined
-          }
-          aria-expanded={isOpen}
-          aria-haspopup="true"
-          onClick={(e) =>
-            handleSubmenuTitleClick(node.key, node.onTitleClick, e)
-          }
-          onKeyDown={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              handleSubmenuTitleClick(node.key, node.onTitleClick, e);
-            }
-          }}
-        >
-          {node.label}
-        </button>
-        {isOpen ? (
-          <ul
-            className={clsx(
-              `${baseClassName}-list`,
-              `${baseClassName}-submenu-inline`,
-              hashId,
-            )}
-            role="menu"
-          >
-            {node.children.map((child) => renderNode(child, depth + 1))}
-          </ul>
-        ) : null}
-      </li>
-    );
-  }
-
-  function renderNode(node: NavMenuNode, depth: number): React.ReactNode {
-    switch (node.kind) {
-      case 'divider':
-        return renderDivider(node);
-      case 'item':
-        return renderLeaf(node, depth);
-      case 'group':
-        return renderGroup(node, depth);
-      case 'submenu':
-        if (popupMode) {
-          return renderPopup(node);
-        }
-        return renderInlineSubmenu(node, depth);
-      default:
-        return null;
-    }
-  }
-  /* eslint-enable @typescript-eslint/no-use-before-define */
+  const renderCtx: ProLayoutNavMenuRenderContext = {
+    baseClassName,
+    hashId,
+    mode,
+    popupMode,
+    rootId,
+    selectedSet,
+    openSet,
+    openKeysProp,
+    popupOpenKey,
+    popupPlacement,
+    popupPanelRef,
+    submenuAnchorRefs,
+    setPopupOpenKey,
+    handleLeafActivate,
+    handleSubmenuTitleClick,
+  };
 
   const isHorizontal = mode === 'horizontal';
 
@@ -430,11 +494,11 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
           data-pro-layout-nav-submenu
           className={clsx(`${baseClassName}-submenu`, hashId)}
         >
-          {renderPopup(n)}
+          {renderPopup(renderCtx, n)}
         </li>
       );
     }
-    return renderNode(n, 0);
+    return renderNode(renderCtx, n, 0);
   });
 
   if (isHorizontal) {

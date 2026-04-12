@@ -384,17 +384,17 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         lineHeight: 20,
       },
 
-      [`${c}${c}--collapsed`]: {
+      [`${c}--collapsed`]: {
         [`${c}-item`]: {
-          paddingBlock: '0 !important',
-          paddingInlineStart: `${v('itemPadInline')} !important`,
-          paddingInlineEnd: '0 !important',
-          marginBlock: `${token.marginXXS} !important`,
+          paddingBlock: 0,
+          paddingInlineStart: v('itemPadInline'),
+          paddingInlineEnd: 0,
+          marginBlock: token.marginXXS,
         },
         [`${c}-submenu-title`]: {
-          paddingBlock: '0 !important',
-          paddingInlineStart: `${v('itemPadInline')} !important`,
-          paddingInlineEnd: '0 !important',
+          paddingBlock: 0,
+          paddingInlineStart: v('itemPadInline'),
+          paddingInlineEnd: 0,
         },
         [`${c}-item-title`]: {
           width: '100%',
