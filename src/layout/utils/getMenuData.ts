@@ -1,16 +1,6 @@
 import { transformRoute } from '@umijs/route-utils';
 import type { MenuDataItem, MessageDescriptor, Route } from '../typing';
 
-function fromEntries(iterable: any) {
-  return [...iterable].reduce(
-    (obj: Record<string, MenuDataItem>, [key, val]) => {
-      obj[key] = val;
-      return obj;
-    },
-    {},
-  );
-}
-
 const getMenuData = (
   routes: Readonly<Route[]>,
   menu?: { locale?: boolean },
@@ -30,7 +20,7 @@ const getMenuData = (
 
   if (!menuDataRender) {
     return {
-      breadcrumb: fromEntries(breadcrumb),
+      breadcrumb: Object.fromEntries(breadcrumb),
       breadcrumbMap: breadcrumb,
       menuData,
     };

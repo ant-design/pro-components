@@ -365,6 +365,80 @@ class MenuUtil {
     return finalName;
   };
 
+  renderLeafMenuTitleDom = (params: {
+    itemPath: string;
+    title: React.ReactNode;
+    hasIcon: boolean;
+    icon: React.ReactNode | null;
+    defaultIcon: React.ReactNode | null;
+    noGroupLevel: number;
+    isHttpLink: boolean;
+  }) => {
+    const {
+      itemPath,
+      title,
+      hasIcon,
+      icon,
+      defaultIcon,
+      noGroupLevel,
+      isHttpLink,
+    } = params;
+    const { baseClassName, menu, collapsed, hashId } = this.props;
+
+    const iconSpan = (
+      <span
+        className={clsx(`${baseClassName}-item-icon`, hashId)}
+        style={{
+          display: defaultIcon === null && !icon ? 'none' : '',
+        }}
+      >
+        {icon || <span>{defaultIcon}</span>}
+      </span>
+    );
+
+    const textSpan = (
+      <span
+        className={clsx(`${baseClassName}-item-text`, hashId, {
+          [`${baseClassName}-item-text-has-icon`]:
+            hasIcon && (icon || defaultIcon),
+        })}
+      >
+        {title}
+      </span>
+    );
+
+    const titleClassName = clsx(`${baseClassName}-item-title`, hashId, {
+      [`${baseClassName}-item-title-collapsed`]: collapsed,
+      [`${baseClassName}-item-title-collapsed-level-${noGroupLevel}`]:
+        collapsed,
+      [`${baseClassName}-item-collapsed-show-title`]:
+        menu?.collapsedShowTitle && collapsed,
+      [`${baseClassName}-item-link`]: isHttpLink,
+    });
+
+    if (isHttpLink) {
+      return (
+        <span
+          key={itemPath}
+          onClick={() => {
+            window?.open?.(itemPath, '_blank');
+          }}
+          className={titleClassName}
+        >
+          {iconSpan}
+          {textSpan}
+        </span>
+      );
+    }
+
+    return (
+      <div key={itemPath} className={titleClassName}>
+        {iconSpan}
+        {textSpan}
+      </div>
+    );
+  };
+
   /**
    * 判断是否是http链接.返回 Link 或 a Judge whether it is http link.return a or Link
    *
@@ -402,73 +476,16 @@ class MenuUtil {
     const defaultIcon =
       collapsed && hasIcon ? getMenuTitleSymbol(menuItemTitle) : null;
 
-    let defaultItem = (
-      <div
-        key={itemPath}
-        className={clsx(`${baseClassName}-item-title`, this.props?.hashId, {
-          [`${baseClassName}-item-title-collapsed`]: collapsed,
-          [`${baseClassName}-item-title-collapsed-level-${noGroupLevel}`]:
-            collapsed,
-          [`${baseClassName}-item-collapsed-show-title`]:
-            menu?.collapsedShowTitle && collapsed,
-        })}
-      >
-        <span
-          className={clsx(`${baseClassName}-item-icon`, this.props?.hashId)}
-          style={{
-            display: defaultIcon === null && !icon ? 'none' : '',
-          }}
-        >
-          {icon || <span>{defaultIcon}</span>}
-        </span>
-        <span
-          className={clsx(`${baseClassName}-item-text`, this.props?.hashId, {
-            [`${baseClassName}-item-text-has-icon`]:
-              hasIcon && (icon || defaultIcon),
-          })}
-        >
-          {menuItemTitle}
-        </span>
-      </div>
-    );
     const isHttpUrl = isUrl(itemPath);
-
-    // Is it a http link
-    if (isHttpUrl) {
-      defaultItem = (
-        <span
-          key={itemPath}
-          onClick={() => {
-            window?.open?.(itemPath, '_blank');
-          }}
-          className={clsx(`${baseClassName}-item-title`, this.props?.hashId, {
-            [`${baseClassName}-item-title-collapsed`]: collapsed,
-            [`${baseClassName}-item-title-collapsed-level-${noGroupLevel}`]:
-              collapsed,
-            [`${baseClassName}-item-link`]: true,
-            [`${baseClassName}-item-collapsed-show-title`]:
-              menu?.collapsedShowTitle && collapsed,
-          })}
-        >
-          <span
-            className={clsx(`${baseClassName}-item-icon`, this.props?.hashId)}
-            style={{
-              display: defaultIcon === null && !icon ? 'none' : '',
-            }}
-          >
-            {icon || <span>{defaultIcon}</span>}
-          </span>
-          <span
-            className={clsx(`${baseClassName}-item-text`, this.props?.hashId, {
-              [`${baseClassName}-item-text-has-icon`]:
-                hasIcon && (icon || defaultIcon),
-            })}
-          >
-            {menuItemTitle}
-          </span>
-        </span>
-      );
-    }
+    const defaultItem = this.renderLeafMenuTitleDom({
+      itemPath,
+      title: menuItemTitle,
+      hasIcon,
+      icon,
+      defaultIcon,
+      noGroupLevel,
+      isHttpLink: isHttpUrl,
+    });
     if (menuItemRender) {
       const renderItemProps = {
         ...item,
