@@ -394,9 +394,12 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
     if (!popupMode) return;
     const handlePointerDown = (e: MouseEvent | TouchEvent) => {
       const root = rootNavRef.current;
+      const panel = popupPanelRef.current;
       const target = e.target as Node;
       if (!popupOpenKey) return;
       if (root?.contains(target)) return;
+      // 子菜单面板通过 portal 挂在 body 上，不在 rootNav 内；点在面板内不应视为「外部」关闭
+      if (panel?.contains(target)) return;
       setPopupOpenKey(null);
     };
     document.addEventListener('mousedown', handlePointerDown);
