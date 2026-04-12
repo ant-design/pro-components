@@ -8,7 +8,6 @@ import {
   PageContainer,
   ProCard,
   ProLayout,
-  SettingDrawer,
 } from '@ant-design/pro-components';
 import { useState } from 'react';
 import defaultProps from './_defaultProps';
@@ -90,15 +89,6 @@ const Demo = () => {
           </ProCard>
         </PageContainer>
       </ProLayout>
-      <SettingDrawer
-        pathname={pathname}
-        getContainer={() => document.getElementById('test-pro-layout')}
-        settings={settings}
-        onSettingChange={(changeSetting) => {
-          setSetting(changeSetting);
-        }}
-        disableUrlParams={false}
-      />
     </div>
   );
 };

@@ -4,7 +4,6 @@ import type {
   ProHelpDataSourceChildren,
 } from './HelpProvide';
 import { ProHelpProvide } from './HelpProvide';
-import { ProHelpSelect } from './Search';
 
 export * from './ProHelpContentPanel';
 export * from './ProHelpDrawer';
@@ -12,7 +11,7 @@ export * from './ProHelpModal';
 export * from './ProHelpPanel';
 export * from './ProHelpPopover';
 export * from './RenderContentPanel';
-export { ProHelpProvide, ProHelpSelect };
+export { ProHelpProvide };
 export type { ProHelpDataSource, ProHelpDataSourceChildren };
 
 export type ProHelpProps<ValueType> = {

@@ -1,5 +1,1 @@
-import settingDrawer from './en-US/settingDrawer';
-
-export default {
-  ...settingDrawer,
-};
+export default {};

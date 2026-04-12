@@ -14,7 +14,6 @@ import {
   ProCard,
   ProConfigProvider,
   ProLayout,
-  SettingDrawer,
 } from '@ant-design/pro-components';
 import { css } from '@emotion/css';
 import {
@@ -481,19 +480,6 @@ const Demo = () => {
                 <div />
               </ProCard>
             </PageContainer>
-
-            <SettingDrawer
-              pathname={pathname}
-              getContainer={(e: any) => {
-                if (typeof window === 'undefined') return e;
-                return document.getElementById('test-pro-layout');
-              }}
-              settings={settings}
-              onSettingChange={(changeSetting) => {
-                setSetting(changeSetting);
-              }}
-              disableUrlParams={false}
-            />
           </ProLayout>
         </ConfigProvider>
       </ProConfigProvider>

@@ -96,34 +96,6 @@ menu 中支持了部分常用的 menu 配置，可以帮助我们更好的管理
 | request         | 远程加载菜单的方法，会自动修改 loading 状态                                                    | `(params, defaultMenuData) => Promise<MenuDataItem[]>` | -        | -    |
 | type            | 菜单的类型                                                                                     | `'sub' \| 'group'`                                    | `'group'` | -    |
 
-### SettingDrawer
-
-| 参数             | 说明                                                                                  | 类型                                               | 默认值  | 版本 |
-| ---------------- | ------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- | ---- |
-| collapse         | 控制 SettingDrawer 的收起和展开                                                       | `boolean`                                          | -       | -    |
-| colorList        | 自带的颜色切换系统 (ColorList 的 title 会作为 Tooltip 显示)                            | `ColorList`                                        | -       | -    |
-| disableUrlParams | 禁止同步设置到查询参数                                                                | `boolean`                                          | false   | -    |
-| hideCopyButton   | 不展示 copy 功能                                                                      | `boolean`                                          | -       | -    |
-| hideHintAlert    | 删除下方的提示信息                                                                    | `boolean`                                          | -       | -    |
-| onCollapseChange | SettingDrawer 的折叠收起事件                                                          | `(collapsed: boolean) => void`                      | -       | -    |
-| onSettingChange  | [`Settings`](#Settings) 发生更改事件                                                  | `(settings: Settings) => void`                     | -       | -    |
-| settings         | layout 的设置                                                                         | [`Settings`](#Settings)                             | -       | -    |
-
-自带的颜色列表
-
-```tsx | pure
-const colorList = [
-  { key: 'daybreak', color: '#1890ff' },
-  { key: 'dust', color: '#F5222D' },
-  { key: 'volcano', color: '#FA541C' },
-  { key: 'sunset', color: '#FAAD14' },
-  { key: 'cyan', color: '#13C2C2' },
-  { key: 'green', color: '#52C41A' },
-  { key: 'geekblue', color: '#2F54EB' },
-  { key: 'purple', color: '#722ED1' },
-];
-```
-
 ### PageLoading
 
 一个简单的加载页面
@@ -375,9 +347,7 @@ Sider Token 是侧边菜单的色值，与顶部菜单不同。
 
 ### 自定义布局
 
-ProLayout 提供了一些 api 来删除用户不需要的区域。在 SettingDrawer 中也提供了一些配置来进行设置。
-
-![setting-drawer-render](https://gw.alipayobjects.com/zos/antfincdn/mCXDkK2pJ0/60298863-F5A5-4af2-923A-13EF912DB0E1.png)
+ProLayout 提供了一些 api 来删除用户不需要的区域。
 
 - `headerRender` 可以自定义顶栏
 - `footerRender` 可以自定义页脚

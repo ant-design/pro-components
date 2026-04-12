@@ -17,11 +17,6 @@ import {
 import type { PageHeaderProps } from './components/PageHeader';
 import { PageHeader } from './components/PageHeader';
 import { PageLoading } from './components/PageLoading';
-import type {
-  SettingDrawerProps,
-  SettingDrawerState,
-} from './components/SettingDrawer';
-import { SettingDrawer } from './components/SettingDrawer';
 import type { BaseMenuProps } from './components/SiderMenu/BaseMenu';
 import { BaseMenu } from './components/SiderMenu/BaseMenu';
 import type { ProLayoutNavMenuProps } from './components/SiderMenu/ProLayoutNavMenu';
@@ -63,7 +58,6 @@ export {
   ProLayout,
   ProPageHeader,
   RouteContext,
-  SettingDrawer,
   TopNavHeader,
 };
 export type {
@@ -85,8 +79,6 @@ export type {
   ProLayoutNavMenuSelectInfo,
   ProLayoutProps,
   RouteContextType,
-  SettingDrawerProps,
-  SettingDrawerState,
   TopNavHeaderProps,
 };
 export default ProLayout;

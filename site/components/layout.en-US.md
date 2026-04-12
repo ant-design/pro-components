@@ -141,34 +141,6 @@ menu supports some commonly used menu configurations to help us better manage me
 | onLoadingChange | Menu loading state change                                                                                                                                | `(loading)=>void`                                    | -       |
 | request         | Method for remote loading of menus, will automatically modify loading state                                                                              | `(params,defaultMenuDat) => Promise<MenuDataItem[]>` | -       |
 
-### SettingDrawer
-
-| Parameters       | Description                                                                                              | Type                                               | Default |
-| ---------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
-| collapse         | Control SettingDrawer collapse and expand                                                                | `boolean`                                          | -       |
-| onCollapseChange | SettingDrawer collapse event                                                                             | `(collapsed: boolean) => void`                     | -       |
-| settings         | layout settings                                                                                          | [`Settings`](#Settings) \| [`Settings`](#Settings) | -       |
-| onSettingChange  | [`Settings`](#Settings) A change event occurred                                                          | `(settings: [`Settings`](#Settings)) => void`      | -       |
-| hideHintAlert    | Delete the prompt message below                                                                          | `boolean`                                          | -       |
-| hideCopyButton   | Do not show copy function                                                                                | `boolean`                                          | -       |
-| disableUrlParams | Disable synchronization settings to query parameters                                                     | `boolean`                                          | `false` |
-| colorList        | Built-in color switching system (ColorList title will be displayed as Tooltip) ｜ `{key,color,title?}[]` | `ColorList`                                        |         |
-
-Built-in color list
-
-```tsx | pure
-const colorList = [
-  { key: 'daybreak', color: '#1890ff' },
-  { key: 'dust', color: '#F5222D' },
-  { key: 'volcano', color: '#FA541C' },
-  { key: 'sunset', color: '#FAAD14' },
-  { key: 'cyan', color: '#13C2C2' },
-  { key: 'green', color: '#52C41A' },
-  { key: 'geekblue', color: '#2F54EB' },
-  { key: 'purple', color: '#722ED1' },
-];
-```
-
 ### PageLoading
 
 A simple loading page
@@ -420,9 +392,7 @@ Sider Token is the color value of the side menu, which is different from the top
 
 ### Customizing Layout
 
-ProLayout provides some api to remove areas that are not needed by the user. Some configurations are also provided in SettingDrawer to set them.
-
-![setting-drawer-render](https://gw.alipayobjects.com/zos/antfincdn/mCXDkK2pJ0/60298863-F5A5-4af2-923A-13EF912DB0E1.png)
+ProLayout provides some api to remove areas that are not needed by the user.
 
 - `headerRender` can customize the top bar
 - `footerRender` can customize the footer

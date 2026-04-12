@@ -1,8 +1,4 @@
-import {
-  PageContainer,
-  ProLayout,
-  SettingDrawer,
-} from '@ant-design/pro-components';
+import { PageContainer, ProLayout } from '@ant-design/pro-components';
 import defaultProps from './_defaultProps';
 import { demoOnMenuHeaderClick } from './_demoHandlers';
 
@@ -121,7 +117,6 @@ const Demo = () => {
       >
         <PageContainer>splitMenus 关闭时的侧栏与内容</PageContainer>
       </ProLayout>
-      <SettingDrawer collapse />
     </>
   );
 };

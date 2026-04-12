@@ -2,7 +2,6 @@
 import {
   ProHelp,
   ProHelpPanel,
-  ProHelpSelect,
 } from '@ant-design/pro-components';
 import { App, Typography } from 'antd';
 import Draggable from 'react-draggable';
@@ -331,8 +330,6 @@ const Demo = () => {
           ]}
           valueTypeMap={map}
         >
-          <ProHelpSelect />
-
           <Draggable>
             <div
               style={{

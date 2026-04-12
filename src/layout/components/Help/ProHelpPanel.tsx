@@ -6,7 +6,6 @@ import React, { useCallback, useContext, useEffect, useMemo, useState } from 're
 import type { ProHelpDataSource } from './HelpProvide';
 import { ProHelpProvide } from './HelpProvide';
 import { ProHelpContentPanel } from './ProHelpContentPanel';
-import { ProHelpSelect } from './Search';
 import { useStyle } from './style';
 
 export const SelectKeyProvide = React.createContext<{
@@ -71,14 +70,12 @@ export type ProHelpPanelProps = {
    * 自定义渲染 extra 部分的内容
    *
    * @param {React.ReactNode} collapsePannelAction - 折叠收起的左侧按钮
-   * @param {React.ReactNode} helpSelectAction - 默认的帮助筛选按钮
    * @param {React.ReactNode} closeAction - 关闭操作按钮
    * @returns {React.ReactNode} - 返回自定义渲染的 extra 操作按钮
    *
    */
   extraRender?: (
     collapsePannelAction: React.ReactNode,
-    helpSelectAction: React.ReactNode,
     closeAction: React.ReactNode,
   ) => React.ReactNode;
 };
@@ -194,23 +191,6 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
         />
       </div>
     ),
-    helpSelectAction: (
-      <ProHelpSelect
-        iconClassName={clsx(`${className}-actions-item`, hashId)}
-        className={clsx(hashId, `${className}-actions-input`)}
-        value={selectedKey}
-        onChange={(value, option) => {
-          setSelectedKey(value);
-          const groupKey = (option as { dataItemKey?: string } | undefined)
-            ?.dataItemKey;
-          if (groupKey) {
-            setExpandedGroupKeys((prev) =>
-              prev.includes(groupKey) ? prev : [...prev, groupKey],
-            );
-          }
-        }}
-      />
-    ),
     closeAction: (
       <div className={clsx(`${className}-actions-item`, hashId)}>
         <CloseOutlined
@@ -229,13 +209,11 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
         {extraRender ? (
           extraRender(
             defaultExtraActions.collapsePanelAction,
-            defaultExtraActions.helpSelectAction,
             defaultExtraActions.closeAction,
           )
         ) : (
           <>
             {defaultExtraActions.collapsePanelAction}
-            {defaultExtraActions.helpSelectAction}
             {onClose ? defaultExtraActions.closeAction : null}
           </>
         )}
