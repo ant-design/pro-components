@@ -378,7 +378,7 @@ describe('👍🏻 ProHelpPanel', () => {
     });
 
     expect(
-      !!html.baseElement.querySelector('ant-pro-help-left-panel'),
+      !!html.baseElement.querySelector('.ant-pro-help-left-panel'),
     ).toBeFalsy();
   });
 
@@ -1040,10 +1040,10 @@ describe('👍🏻 ProHelpPanel', () => {
       }
     });
 
-    // 等待菜单项被选中
+    // 等待目录项被选中（自研帮助侧栏，不再使用 antd Menu）
     await waitFor(() => {
       const selectedItem = html.baseElement.querySelector(
-        '.ant-menu-item-selected',
+        '.ant-pro-help-nav-leaf--selected',
       );
       expect(selectedItem?.textContent).toBe(
         '证据包内包含哪些内容，如何下载证据包？',

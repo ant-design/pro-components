@@ -84,16 +84,15 @@ exports[`👍🏻 ProHelpPanel > 🎏 ProHelp is empty 1`] = `
         <div
           class="ant-pro-help-left-panel"
         >
-          <ul
-            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-help-left-panel-menu css-var-r1u ant-menu-css-var"
-            data-menu-list="true"
-            role="menu"
-            tabindex="0"
-          />
-          <div
-            aria-hidden="true"
-            style="display: none;"
-          />
+          <nav
+            aria-label="帮助中心"
+            class="ant-pro-help-left-panel-nav"
+          >
+            <ul
+              class="ant-pro-help-left-panel-tree"
+              role="list"
+            />
+          </nav>
         </div>
         <div
           class="ant-pro-help-content-panel"

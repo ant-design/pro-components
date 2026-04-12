@@ -36,12 +36,82 @@ const genProHelpStyle: GenerateStyle<ProHelpToken> = (token) => {
       minHeight: '648px',
       minWidth: 190,
       maxWidth: 190,
-      '&-menu': {
+      '&-nav': {
         width: 190,
         boxSizing: 'border-box',
         minWidth: 190,
         height: 'calc(100% - 40px)',
         marginBlock: 20,
+        fontSize: 12,
+        lineHeight: 1.2,
+      },
+      [`${token.componentCls}-left-panel-tree`]: {
+        listStyle: 'none',
+        margin: 0,
+        padding: 0,
+      },
+      [`${token.componentCls}-nav-group`]: {
+        listStyle: 'none',
+        margin: 0,
+        padding: 0,
+      },
+      [`${token.componentCls}-nav-group-title`]: {
+        width: '100%',
+        boxSizing: 'border-box',
+        textAlign: 'start',
+        cursor: 'pointer',
+        border: 'none',
+        background: 'transparent',
+        color: token.layout?.sider?.colorTextMenu || token.colorTextSecondary,
+        fontSize: 12,
+        fontWeight: token.fontWeightStrong,
+        lineHeight: 1.2,
+        paddingBlock: 6,
+        paddingInline: 8,
+        borderRadius: token.borderRadius,
+        marginBlockStart: 2,
+        '&:hover': {
+          color:
+            token.layout?.sider?.colorTextMenuActive || token.colorText,
+          backgroundColor:
+            token.layout?.sider?.colorBgMenuItemHover ||
+            token.colorFillSecondary,
+        },
+      },
+      [`${token.componentCls}-nav-leaf-list`]: {
+        listStyle: 'none',
+        margin: 0,
+        padding: 0,
+        paddingInlineStart: 8,
+      },
+      [`${token.componentCls}-nav-leaf`]: {
+        width: '100%',
+        boxSizing: 'border-box',
+        textAlign: 'start',
+        cursor: 'pointer',
+        border: 'none',
+        background: 'transparent',
+        color: token.layout?.sider?.colorTextMenu || token.colorTextSecondary,
+        fontSize: 12,
+        lineHeight: 1.2,
+        paddingBlock: 4,
+        paddingInline: 8,
+        borderRadius: token.borderRadius,
+        marginBlockStart: 2,
+        '&:hover': {
+          color:
+            token.layout?.sider?.colorTextMenuActive || token.colorText,
+          backgroundColor:
+            token.layout?.sider?.colorBgMenuItemHover ||
+            token.colorFillSecondary,
+        },
+        '&--selected': {
+          color:
+            token.layout?.sider?.colorTextMenuSelected || token.colorText,
+          backgroundColor:
+            token.layout?.sider?.colorBgMenuItemSelected ||
+            token.colorFillSecondary,
+        },
       },
     },
     [`${token.componentCls}-content-panel`]: {

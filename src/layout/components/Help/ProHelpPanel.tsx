@@ -1,10 +1,8 @@
 import { CloseOutlined, ProfileOutlined } from '@ant-design/icons';
 import { useControlledState } from '@rc-component/util';
-import { Card, ConfigProvider, Menu } from 'antd';
+import { Card, ConfigProvider } from 'antd';
 import { clsx } from 'clsx';
-import React, { useCallback, useContext, useMemo, useState } from 'react';
-import { ProProvider, isNeedOpenHash } from '../../../provider';
-
+import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import type { ProHelpDataSource } from './HelpProvide';
 import { ProHelpProvide } from './HelpProvide';
 import { ProHelpContentPanel } from './ProHelpContentPanel';
@@ -125,8 +123,6 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
     },
     [props.onSelectedKeyChange],
   );
-  const [openKey, setOpenKey] = useState('');
-  const { token } = useContext(ProProvider);
   const [showLeftPanel, setShowLeftPanelInner] = useControlledState(
     true,
     props.showLeftPanel,
@@ -169,6 +165,24 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
     [dataSourceKeyMap, selectedKey],
   );
 
+  const [expandedGroupKeys, setExpandedGroupKeys] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (parentKey) {
+      setExpandedGroupKeys((prev) =>
+        prev.includes(parentKey) ? prev : [...prev, parentKey],
+      );
+    }
+  }, [parentKey]);
+
+  const handleToggleGroup = useCallback((groupKey: string) => {
+    setExpandedGroupKeys((prev) =>
+      prev.includes(groupKey)
+        ? prev.filter((k) => k !== groupKey)
+        : [...prev, groupKey],
+    );
+  }, []);
+
   const defaultExtraActions = {
     collapsePanelAction: (
       <div className={clsx(`${className}-actions-item`, hashId)}>
@@ -185,9 +199,15 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
         iconClassName={clsx(`${className}-actions-item`, hashId)}
         className={clsx(hashId, `${className}-actions-input`)}
         value={selectedKey}
-        onChange={(value, item) => {
+        onChange={(value, option) => {
           setSelectedKey(value);
-          setOpenKey((item as any)?.dataItemKey);
+          const groupKey = (option as { dataItemKey?: string } | undefined)
+            ?.dataItemKey;
+          if (groupKey) {
+            setExpandedGroupKeys((prev) =>
+              prev.includes(groupKey) ? prev : [...prev, groupKey],
+            );
+          }
         }}
       />
     ),
@@ -252,67 +272,69 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
               height,
             }}
           >
-            <ConfigProvider
-              theme={{
-                hashed: isNeedOpenHash(),
-                token: {
-                  lineHeight: 1.2,
-                  fontSize: 12,
-                  controlHeightLG: 26,
-                },
-                components: {
-                  Menu: {
-                    itemBorderRadius: token.borderRadius,
-                    activeBarWidth: 0,
-                    activeBarBorderWidth: 0,
-                    itemSelectedBg:
-                      token.layout?.sider?.colorBgMenuItemSelected ||
-                      'rgba(0, 0, 0, 0.04)',
-                    itemActiveBg:
-                      token.layout?.sider?.colorBgMenuItemHover ||
-                      'rgba(0, 0, 0, 0.04)',
-                    itemColor:
-                      token.layout?.sider?.colorTextMenu ||
-                      'rgba(0, 0, 0, 0.65)',
-                    itemHoverColor:
-                      token.layout?.sider?.colorTextMenuActive ||
-                      'rgba(0, 0, 0, 0.85)',
-                    itemSelectedColor:
-                      token.layout?.sider?.colorTextMenuSelected ||
-                      'rgba(0, 0, 0, 1)',
-                    itemBg: 'transparent',
-                    subMenuItemBg: 'transparent',
-                    popupBg: token?.colorBgElevated,
-                    darkPopupBg: token?.colorBgElevated,
-                  },
-                },
-              }}
+            <nav
+              className={clsx(hashId, `${className}-left-panel-nav`)}
+              aria-label={title}
             >
-              <Menu
-                className={clsx(hashId, `${className}-left-panel-menu`)}
-                openKeys={[parentKey, openKey]}
-                onOpenChange={(keys) => {
-                  setOpenKey(keys.at(-1) || '');
-                }}
-                selectedKeys={selectedKey ? [selectedKey] : []}
-                onSelect={({ selectedKeys }) => {
-                  setSelectedKey(selectedKeys.at(-1) || '');
-                }}
-                mode="inline"
-                items={dataSource.map((item) => {
-                  return {
-                    key: item.key,
-                    label: item.title,
-                    children: item.children.map((child) => {
-                      return {
-                        key: child.key,
-                        label: child.title,
-                      };
-                    }),
-                  };
+              <ul
+                className={clsx(hashId, `${className}-left-panel-tree`)}
+                role="list"
+              >
+                {dataSource.map((group) => {
+                  const gKey = String(group.key);
+                  const groupOpen = expandedGroupKeys.includes(gKey);
+                  return (
+                    <li
+                      key={gKey}
+                      className={clsx(hashId, `${className}-nav-group`)}
+                      role="presentation"
+                    >
+                      <button
+                        type="button"
+                        className={clsx(hashId, `${className}-nav-group-title`)}
+                        aria-expanded={groupOpen}
+                        onClick={() => handleToggleGroup(gKey)}
+                      >
+                        {group.title}
+                      </button>
+                      {groupOpen && group.children?.length ? (
+                        <ul
+                          className={clsx(
+                            hashId,
+                            `${className}-nav-leaf-list`,
+                          )}
+                          role="list"
+                        >
+                          {group.children.map((child) => {
+                            const ck = String(child.key ?? child.title);
+                            const isSel = selectedKey === ck;
+                            return (
+                              <li key={ck} role="presentation">
+                                <button
+                                  type="button"
+                                  className={clsx(
+                                    hashId,
+                                    `${className}-nav-leaf`,
+                                    {
+                                      [`${className}-nav-leaf--selected`]:
+                                        isSel,
+                                    },
+                                  )}
+                                  aria-current={isSel ? 'true' : undefined}
+                                  onClick={() => setSelectedKey(ck)}
+                                >
+                                  {child.title}
+                                </button>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      ) : null}
+                    </li>
+                  );
                 })}
-              />
-            </ConfigProvider>
+              </ul>
+            </nav>
           </div>
         ) : null}
         <div
