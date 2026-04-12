@@ -18,6 +18,7 @@
 ### 🛠 Refactor / Documentation
 
 - ProLayout
+  - 💄 Tighten sider / vertical nav layout: stacked groups with gap, section titles, 32px row height, 6px radius, 24px icon box; tune via `--pro-layout-nav-*`
   - 🛠 Replace antd `Menu` in sider and top navigation with custom `ProLayoutNavMenu`; `BaseMenu` `menuProps` now merges onto root `nav` as `ProLayoutNavMenuDomProps` (no longer forwards antd `MenuProps`)
   - 🛠 Menu styles use root `--pro-layout-nav-*` and `var(--ant-*)`; add `selectedKeys`, `openKeys`, and `onSelect` to `ProLayoutProps` typings
   - 🛠 Centralize nav-related types in `types.ts` and export from the package: `MenuMode`, `ProLayoutNavMenuDomProps`, `ProLayoutNavMenuSelectInfo`, `NavMenuNode`, etc.; rename the third callback parameter of `menuItemRender` / `subMenuItemRender` / `menuTextRender` to `menuConfig` (distinct from `menuProps`)

@@ -16,6 +16,21 @@ const navVar = {
   popupBg: '--pro-layout-nav-popup-bg',
   indent: '--pro-layout-nav-indent',
   iconSize: '--pro-layout-nav-icon-size',
+  /** 侧栏图标区次要色（与正文区分） */
+  colorIcon: '--pro-layout-nav-color-icon',
+  /** 分组标题色 */
+  colorSection: '--pro-layout-nav-color-section',
+  itemHeight: '--pro-layout-nav-item-height',
+  itemRadius: '--pro-layout-nav-item-radius',
+  itemGap: '--pro-layout-nav-item-gap',
+  itemFontSize: '--pro-layout-nav-item-font-size',
+  itemFontWeight: '--pro-layout-nav-item-font-weight',
+  itemPadBlock: '--pro-layout-nav-item-padding-block',
+  itemPadInline: '--pro-layout-nav-item-padding-inline',
+  stackGap: '--pro-layout-nav-stack-gap',
+  groupTitleFontSize: '--pro-layout-nav-group-title-font-size',
+  groupTitleLineHeight: '--pro-layout-nav-group-title-line-height',
+  iconBox: '--pro-layout-nav-icon-box-size',
 } as const;
 
 const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
@@ -40,6 +55,19 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
       header?.colorBgMenuElevated ?? 'var(--ant-color-bg-elevated)',
     [navVar.indent]: '16px',
     [navVar.iconSize]: '16px',
+    [navVar.colorIcon]: 'var(--ant-color-text-secondary)',
+    [navVar.colorSection]: 'var(--ant-color-text-description)',
+    [navVar.itemHeight]: '32px',
+    [navVar.itemRadius]: '6px',
+    [navVar.itemGap]: '8px',
+    [navVar.itemFontSize]: `${token.fontSize}px`,
+    [navVar.itemFontWeight]: '500',
+    [navVar.itemPadBlock]: '6px',
+    [navVar.itemPadInline]: `${token.paddingXS}px`,
+    [navVar.stackGap]: `${token.marginXXS}px`,
+    [navVar.groupTitleFontSize]: `${token.fontSizeSM}px`,
+    [navVar.groupTitleLineHeight]: '20px',
+    [navVar.iconBox]: '24px',
   };
 
   const headerVars: Record<string, string> = {
@@ -57,6 +85,19 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
       header?.colorBgMenuElevated ?? 'var(--ant-color-bg-elevated)',
     [navVar.indent]: '16px',
     [navVar.iconSize]: '16px',
+    [navVar.colorIcon]: 'var(--ant-color-text-secondary)',
+    [navVar.colorSection]: 'var(--ant-color-text-description)',
+    [navVar.itemHeight]: '32px',
+    [navVar.itemRadius]: '6px',
+    [navVar.itemGap]: '8px',
+    [navVar.itemFontSize]: `${token.fontSize}px`,
+    [navVar.itemFontWeight]: '500',
+    [navVar.itemPadBlock]: '6px',
+    [navVar.itemPadInline]: `${token.paddingXS}px`,
+    [navVar.stackGap]: `${token.marginXXS}px`,
+    [navVar.groupTitleFontSize]: `${token.fontSizeSM}px`,
+    [navVar.groupTitleLineHeight]: '20px',
+    [navVar.iconBox]: '24px',
   };
 
   const isHorizontal = mode.includes('horizontal');
@@ -286,10 +327,16 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
       [`&${token.componentCls}--collapsed`]: {
         [`${token.componentCls}-item`]: {
           paddingInline: '0 !important',
+          paddingInlineEnd: '0 !important',
+          paddingBlock: '0 !important',
           marginBlock: `${token.marginXXS} !important`,
         },
         [`${token.componentCls}-submenu-title-wrap`]: {
           paddingInline: '0 !important',
+        },
+        [`${token.componentCls}-submenu-title`]: {
+          paddingInlineEnd: '0 !important',
+          paddingBlock: '0 !important',
         },
         [`${token.componentCls}-item-title`]: {
           width: '100%',
@@ -307,6 +354,118 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
             paddingInline: 0,
           },
         },
+      },
+    },
+
+    /** 侧栏 / 纵向：紧凑分组 + 32px 行高（对齐常见产品侧栏） */
+    [`${token.componentCls}:not(${token.componentCls}--horizontal)`]: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: `var(${navVar.stackGap})`,
+
+      [`> ${token.componentCls}-list`]: {
+        display: 'flex',
+        flexDirection: 'column',
+        gap: `var(${navVar.stackGap})`,
+        width: '100%',
+      },
+
+      [`${token.componentCls}-group`]: {
+        display: 'flex',
+        flexDirection: 'column',
+        gap: `var(${navVar.stackGap})`,
+        width: '100%',
+      },
+
+      [`${token.componentCls}-group-list`]: {
+        display: 'flex',
+        flexDirection: 'column',
+        gap: `var(${navVar.stackGap})`,
+        width: '100%',
+      },
+
+      [`${token.componentCls}-group-title`]: {
+        margin: 0,
+        marginBottom: 0,
+        paddingInline: `var(${navVar.itemPadInline})`,
+        paddingBlock: 0,
+        fontSize: `var(${navVar.groupTitleFontSize})`,
+        fontWeight: `var(${navVar.itemFontWeight})`,
+        lineHeight: `var(${navVar.groupTitleLineHeight})`,
+        color: `var(${navVar.colorSection})`,
+      },
+
+      [`${token.componentCls}-item`]: {
+        boxSizing: 'border-box',
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        width: '100%',
+        minHeight: `var(${navVar.itemHeight})`,
+        height: `var(${navVar.itemHeight})`,
+        margin: 0,
+        marginBottom: 0,
+        paddingBlock: `var(${navVar.itemPadBlock})`,
+        paddingInlineEnd: `var(${navVar.itemPadInline})`,
+        borderRadius: `var(${navVar.itemRadius})`,
+        fontSize: `var(${navVar.itemFontSize})`,
+        fontWeight: `var(${navVar.itemFontWeight})`,
+      },
+
+      [`${token.componentCls}-submenu-title`]: {
+        boxSizing: 'border-box',
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        width: '100%',
+        minHeight: `var(${navVar.itemHeight})`,
+        minWidth: 0,
+        margin: 0,
+        marginBottom: 0,
+        paddingBlock: `var(${navVar.itemPadBlock})`,
+        paddingInlineEnd: `var(${navVar.itemPadInline})`,
+        borderRadius: `var(${navVar.itemRadius})`,
+        fontSize: `var(${navVar.itemFontSize})`,
+        fontWeight: `var(${navVar.itemFontWeight})`,
+        textAlign: 'start',
+      },
+
+      [`${token.antCls}-menu-title-content`]: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: `var(${navVar.itemGap})`,
+        flex: 1,
+        minWidth: 0,
+        width: '100%',
+      },
+
+      [`${token.componentCls}-item-title`]: {
+        gap: `var(${navVar.itemGap})`,
+        minWidth: 0,
+        [`${token.componentCls}-item-text`]: {
+          flex: 1,
+          minWidth: 0,
+          textAlign: 'start',
+          wordBreak: 'normal',
+        },
+      },
+
+      [`${token.componentCls}-item-icon`]: {
+        flexShrink: 0,
+        width: `var(${navVar.iconBox})`,
+        height: `var(${navVar.iconBox})`,
+        color: `var(${navVar.colorIcon})`,
+        justifyContent: 'center',
+        '.anticon, svg': {
+          width: `var(${navVar.iconBox})`,
+          height: `var(${navVar.iconBox})`,
+          fontSize: `var(${navVar.iconBox})`,
+        },
+      },
+
+      [`${token.componentCls}-item--selected ${token.componentCls}-item-icon`]: {
+        color: `var(${navVar.colorTextSelected})`,
       },
     },
 

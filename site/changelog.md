@@ -18,6 +18,7 @@
 ### 🛠 重构 / 文档
 
 - ProLayout
+  - 💄 侧栏/纵向主导航样式对齐紧凑侧栏：分组纵向 `gap`、分组标题、32px 行高条目、`6px` 圆角与图标区 24px；尺寸与色值通过 `--pro-layout-nav-*` 可调
   - 🛠 侧栏与顶栏主导航不再使用 antd `Menu`，改为自研 `ProLayoutNavMenu`；`BaseMenu` 的 `menuProps` 改为合并到根 `nav` 的 `ProLayoutNavMenuDomProps`（不再透传 antd `MenuProps`）
   - 🛠 菜单样式以根节点 `--pro-layout-nav-*` 与 `var(--ant-*)` 为主；`ProLayoutProps` 补充 `selectedKeys`、`openKeys`、`onSelect` 类型声明
   - 🛠 主导航相关类型集中到 `types.ts` 并自包导出：`MenuMode`、`ProLayoutNavMenuDomProps`、`ProLayoutNavMenuSelectInfo`、`NavMenuNode` 等；`menuItemRender` / `subMenuItemRender` / `menuTextRender` 第三参类型参数更名为 `menuConfig`（与 `menuProps` 区分）
