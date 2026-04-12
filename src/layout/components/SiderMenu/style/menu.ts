@@ -195,12 +195,6 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         position: 'relative',
       },
 
-      [`${c}-submenu-anchor`]: {
-        display: 'block',
-        position: 'relative',
-        width: '100%',
-      },
-
       [`${c}-submenu-title`]: {
         ...rowItem,
         font: 'inherit',
@@ -219,13 +213,13 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         },
       },
 
-      [`${c}-submenu-inline`]: {
+      /** 子菜单展开列表（原 submenu-inline，类名缩短避免与 li.submenu 语义重复） */
+      [`${c}-submenu-children`]: {
         listStyle: 'none',
         margin: 0,
         padding: 0,
         paddingBlockStart: v('stackGap'),
         ...stack,
-        /** 嵌套子菜单行：子 `li` 在 flex 列中仍须显式去掉 marker */
         [`> li`]: {
           listStyle: 'none',
           display: 'block',
@@ -437,7 +431,8 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
       flexDirection: 'row',
       alignItems: 'center',
       gap: v('stackGap'),
-      [`> ${c}-list`]: {
+      /** 水平顶栏：根 `nav` 同时带 `-list`，顶级项横向排布 */
+      [`&${c}-list`]: {
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',

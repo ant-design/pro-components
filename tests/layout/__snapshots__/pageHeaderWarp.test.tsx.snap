@@ -170,7 +170,7 @@ exports[`BasicLayout > base use 1`] = `
               style="background-color: transparent; border: none none; width: 100%;"
             >
               <li
-                class="ant-pro-base-menu-inline-submenu ant-pro-base-menu-inline-submenu-inline ant-pro-base-menu-inline-submenu ant-pro-base-menu-inline-submenu-open"
+                class="ant-pro-base-menu-inline-submenu ant-pro-base-menu-inline-submenu ant-pro-base-menu-inline-submenu-open"
                 data-pro-layout-nav-submenu="true"
                 data-pro-layout-nav-submenu-open="true"
                 role="none"
@@ -192,11 +192,11 @@ exports[`BasicLayout > base use 1`] = `
                   </div>
                 </button>
                 <ul
-                  class="ant-pro-base-menu-inline-list ant-pro-base-menu-inline-submenu-inline"
+                  class="ant-pro-base-menu-inline-list ant-pro-base-menu-inline-submenu-children"
                   role="menu"
                 >
                   <li
-                    class="ant-pro-base-menu-inline-submenu ant-pro-base-menu-inline-submenu-inline ant-pro-base-menu-inline-submenu"
+                    class="ant-pro-base-menu-inline-submenu ant-pro-base-menu-inline-submenu"
                     data-pro-layout-nav-submenu="true"
                     role="none"
                   >
@@ -448,7 +448,7 @@ exports[`BasicLayout > content is text 1`] = `
               style="background-color: transparent; border: none none; width: 100%;"
             >
               <li
-                class="ant-pro-base-menu-inline-submenu ant-pro-base-menu-inline-submenu-inline ant-pro-base-menu-inline-submenu ant-pro-base-menu-inline-submenu-open"
+                class="ant-pro-base-menu-inline-submenu ant-pro-base-menu-inline-submenu ant-pro-base-menu-inline-submenu-open"
                 data-pro-layout-nav-submenu="true"
                 data-pro-layout-nav-submenu-open="true"
                 role="none"
@@ -470,11 +470,11 @@ exports[`BasicLayout > content is text 1`] = `
                   </div>
                 </button>
                 <ul
-                  class="ant-pro-base-menu-inline-list ant-pro-base-menu-inline-submenu-inline"
+                  class="ant-pro-base-menu-inline-list ant-pro-base-menu-inline-submenu-children"
                   role="menu"
                 >
                   <li
-                    class="ant-pro-base-menu-inline-submenu ant-pro-base-menu-inline-submenu-inline ant-pro-base-menu-inline-submenu"
+                    class="ant-pro-base-menu-inline-submenu ant-pro-base-menu-inline-submenu"
                     data-pro-layout-nav-submenu="true"
                     role="none"
                   >

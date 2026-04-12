@@ -86,7 +86,7 @@ describe('mobile BasicLayout', () => {
     await waitFor(
       () => {
         html.baseElement
-          .querySelectorAll('ul.ant-pro-base-menu-inline-submenu-inline')
+          .querySelectorAll('ul.ant-pro-base-menu-inline-submenu-children')
           .forEach((ul) => {
           if (/ant-motion-collapse-(enter|leave)/.test(ul.className)) {
             throw new Error('menu motion');

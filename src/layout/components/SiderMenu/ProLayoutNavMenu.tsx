@@ -214,7 +214,6 @@ function renderPopup(
         id={`${rootId}-submenu-${node.key}`}
         className={clsx(
           `${baseClassName}-submenu-title`,
-          `${baseClassName}-submenu-anchor`,
           hashId,
           node.className,
           {
@@ -258,15 +257,9 @@ function renderInlineSubmenu(
       key={node.key}
       data-pro-layout-nav-submenu
       data-pro-layout-nav-submenu-open={isOpen || undefined}
-      className={clsx(
-        `${baseClassName}-submenu`,
-        `${baseClassName}-submenu-inline`,
-        hashId,
-        node.className,
-        {
-          [`${baseClassName}-submenu-open`]: isOpen,
-        },
-      )}
+      className={clsx(`${baseClassName}-submenu`, hashId, node.className, {
+        [`${baseClassName}-submenu-open`]: isOpen,
+      })}
       role="none"
     >
       <button
@@ -292,7 +285,7 @@ function renderInlineSubmenu(
         <ul
           className={clsx(
             `${baseClassName}-list`,
-            `${baseClassName}-submenu-inline`,
+            `${baseClassName}-submenu-children`,
             hashId,
           )}
           role="menu"
@@ -517,15 +510,14 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
         ref={rootNavRef}
         data-pro-layout-nav-root
         {...restNavProps}
-        className={clsx(className, hashId, baseClassName, {
+        className={clsx(className, hashId, baseClassName, listClassName, {
           [`${baseClassName}--horizontal`]: true,
           [`${baseClassName}--collapsed`]: !!collapsed,
         })}
         style={style}
+        role="menubar"
       >
-        <ul className={listClassName} role="menubar">
-          {listBody}
-        </ul>
+        {listBody}
       </nav>
     );
   }
