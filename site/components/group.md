@@ -378,4 +378,4 @@ name 参数必须要是一个数组，如果是嵌套的结构可以这样配置
 
 ### 箭头排序
 
-<code src="../../demos/form/Group//list-arrowsort.tsx" ></code>
+<code src="../../demos/form/Group/list-arrowsort.tsx" ></code>

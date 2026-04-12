@@ -13,7 +13,7 @@ atomId: QueryFilter,LightFilter
 
 <code src="../../demos/form/QueryFilter/query-filter.tsx" title="基本使用"></code>
 
-<code src="../../demos/form/QueryFilter/query-filter-test.tsx" title="基本使用" debug></code>
+<code src="../../demos/form/QueryFilter/_query-filter-test.tsx" title="基本使用" debug></code>
 
 <code src="../../demos/form/QueryFilter/query-filter-collapsed.tsx" title="查询筛选-默认收起"></code>
 

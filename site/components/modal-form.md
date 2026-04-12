@@ -25,7 +25,7 @@ ModalForm 和 DrawerForm 都提供了 trigger 来减少 state 的使用，如果
 
 ### Debug：请求加载中关闭（Modal + Drawer）
 
-<code src="../../demos/form/ModalForm/modal-form-request-destroy-debug.tsx" debug background="var(--main-bg-color)" title="Debug: destroyOnHidden + request (Modal & Drawer)"></code>
+<code src="../../demos/form/ModalForm/_modal-form-request-destroy.tsx" debug background="var(--main-bg-color)" title="Debug: destroyOnHidden + request (Modal & Drawer)"></code>
 
 ## 自定义 Modal 表单按钮
 

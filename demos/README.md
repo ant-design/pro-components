@@ -8,7 +8,7 @@
 |------|------|
 | **Kebab-case** | 推荐 `basic.tsx`、`custom-filter.tsx` |
 | **`_` 前缀** | 文件名以 `_` 开头：适合 **debug / 临时对照**；文档仍可引用 |
-| **拼写** | 正式示例避免 `pollinga` 这类笔误；轮询示例为 `table/polling.tsx` |
+| **拼写** | 正式示例避免 `pollinga` 这类笔误；轮询示例为 `table/polling.tsx`；单测对照为 `table/_single-test.tsx`（勿写 `single-test.tsx`） |
 
 ## 已用 `_` 归类的调试向示例（节选）
 
