@@ -826,7 +826,6 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
           <Layout
             style={{
               minHeight: '100%',
-              // hack style
               flexDirection: siderMenuDom ? 'row' : undefined,
               ...style,
             }}
@@ -837,42 +836,6 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                 token: {
                   controlHeightLG:
                     token.layout?.sider?.menuHeight || token?.controlHeightLG,
-                },
-                components: {
-                  Menu: {
-                    itemBg:
-                      token.layout?.sider?.colorMenuBackground || 'transparent',
-                    subMenuItemBg:
-                      token.layout?.sider?.colorMenuBackground || 'transparent',
-                    itemBorderRadius: token.borderRadius,
-                    itemSelectedBg:
-                      token.layout?.sider?.colorBgMenuItemSelected ||
-                      token?.colorBgTextHover,
-                    itemHoverBg:
-                      token.layout?.sider?.colorBgMenuItemHover ||
-                      token?.colorBgTextHover,
-                    itemActiveBg:
-                      token.layout?.sider?.colorBgMenuItemActive ||
-                      token?.colorBgTextActive,
-                    horizontalItemSelectedBg:
-                      token.layout?.sider?.colorBgMenuItemSelected ||
-                      token?.colorBgTextHover,
-                    activeBarWidth: 0,
-                    activeBarHeight: 0,
-                    activeBarBorderWidth: 0,
-                    itemColor:
-                      token.layout?.sider?.colorTextMenu ||
-                      token?.colorTextSecondary,
-                    itemHoverColor:
-                      token.layout?.sider?.colorTextMenuItemHover ||
-                      'rgba(0, 0, 0, 0.85)', // 悬浮态
-                    itemSelectedColor:
-                      token.layout?.sider?.colorTextMenuSelected ||
-                      'rgba(0, 0, 0, 1)',
-                    popupBg: token?.colorBgElevated,
-                    darkSubMenuItemBg: 'transparent',
-                    darkPopupBg: token?.colorBgElevated,
-                  },
                 },
               }}
             >

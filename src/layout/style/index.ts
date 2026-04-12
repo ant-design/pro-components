@@ -8,7 +8,7 @@ export interface ProLayoutToken extends ProAliasToken {
 const genProLayoutStyle: GenerateStyle<ProLayoutToken> = (token) => {
   return {
     [`${token.antCls}-layout`]: {
-      backgroundColor: 'transparent !important',
+      backgroundColor: 'transparent',
     },
     [token.componentCls]: {
       boxSizing: 'border-box',

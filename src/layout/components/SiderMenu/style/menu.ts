@@ -339,7 +339,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         color: v('colorIcon'),
         fontSize: v('iconBox'),
         lineHeight: 0,
-        /** 图标区首子节点（如 @ant-design/icons 的 span 包裹层），不依赖 `.anticon` 类名 */
+        /** 图标区常见外包一层 span */
         '> span': {
           display: 'inline-flex',
           alignItems: 'center',

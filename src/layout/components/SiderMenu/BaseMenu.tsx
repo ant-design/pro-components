@@ -435,7 +435,7 @@ class MenuUtil {
             display: defaultIcon === null && !icon ? 'none' : '',
           }}
         >
-          {icon || <span className="anticon">{defaultIcon}</span>}
+          {icon || <span>{defaultIcon}</span>}
         </span>
         <span
           className={clsx(`${baseClassName}-item-text`, this.props?.hashId, {
@@ -472,7 +472,7 @@ class MenuUtil {
               display: defaultIcon === null && !icon ? 'none' : '',
             }}
           >
-            {icon || <span className="anticon">{defaultIcon}</span>}
+            {icon || <span>{defaultIcon}</span>}
           </span>
           <span
             className={clsx(`${baseClassName}-item-text`, this.props?.hashId, {
