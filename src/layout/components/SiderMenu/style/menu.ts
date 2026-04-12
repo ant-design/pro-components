@@ -291,8 +291,8 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           whiteSpace: 'nowrap',
         },
         '&-collapsed': {
-          minWidth: 40,
-          height: 40,
+          minWidth: v('itemHeight'),
+          height: v('itemHeight'),
           flexDirection: 'column',
           justifyContent: 'center',
           [`${c}-item-icon`]: {
