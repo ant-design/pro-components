@@ -489,6 +489,16 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
     },
 
     [`${c}-link`]: { display: 'block' },
+
+    /** inline 侧栏分组标题略小于默认 `groupTitleFontSize`，与菜单项层级区分更清晰 */
+    ...(mode === 'inline'
+      ? {
+          [`${c} ${c}-group-title`]: {
+            fontSize: 'var(--ant-font-size-sm)',
+            lineHeight: 'calc(var(--ant-font-size-sm) + 6px)',
+          },
+        }
+      : {}),
   };
 };
 
