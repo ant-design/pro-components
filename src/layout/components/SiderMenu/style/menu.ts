@@ -71,7 +71,7 @@ function layoutNavCssVars(
       [navVar.stackGap]: `${stackGap}px`,
       [navVar.groupTitleFontSize]: `${token.fontSizeSM}px`,
       [navVar.groupTitleLineHeight]: '20px',
-      [navVar.iconBox]: '24px',
+      [navVar.iconBox]: '16px',
     };
   }
   return {
@@ -98,7 +98,7 @@ function layoutNavCssVars(
     [navVar.stackGap]: `${stackGap}px`,
     [navVar.groupTitleFontSize]: `${token.fontSizeSM}px`,
     [navVar.groupTitleLineHeight]: '20px',
-    [navVar.iconBox]: '24px',
+    [navVar.iconBox]: '16px',
   };
 }
 
@@ -340,7 +340,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         width: v('iconBox'),
         height: v('iconBox'),
         color: v('colorIcon'),
-        fontSize: '20px',
+        fontSize: v('iconBox'),
         lineHeight: 0,
         '.anticon': {
           display: 'inline-flex',
@@ -355,13 +355,13 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           display: 'block',
         },
         svg: {
-          width: '20px',
-          height: '20px',
+          width: v('iconBox'),
+          height: v('iconBox'),
           display: 'block',
         },
         img: {
-          width: '20px',
-          height: '20px',
+          width: v('iconBox'),
+          height: v('iconBox'),
           display: 'block',
           objectFit: 'contain',
         },
