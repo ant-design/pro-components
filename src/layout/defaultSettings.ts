@@ -10,13 +10,6 @@ export type RenderSetting = {
 };
 export type PureSettings = {
   /**
-   * @name theme for nav menu
-   *
-   * @type  'realDark' | 'light' | undefined
-   */
-  navTheme?: 'realDark' | 'light' | undefined;
-
-  /**
    * @name layout 的布局方式
    * @type  'side' | 'top' | 'mix'
    *
@@ -138,7 +131,6 @@ export type PureSettings = {
 export type ProSettings = PureSettings & RenderSetting;
 
 const defaultSettings: ProSettings = {
-  navTheme: 'light',
   layout: 'side',
   contentWidth: 'Fluid',
   fixedHeader: false,

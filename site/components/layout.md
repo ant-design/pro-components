@@ -103,7 +103,6 @@ menu 中支持了部分常用的 menu 配置，可以帮助我们更好的管理
 | collapse         | 控制 SettingDrawer 的收起和展开                                                       | `boolean`                                          | -       | -    |
 | colorList        | 自带的颜色切换系统 (ColorList 的 title 会作为 Tooltip 显示)                            | `ColorList`                                        | -       | -    |
 | disableUrlParams | 禁止同步设置到查询参数                                                                | `boolean`                                          | false   | -    |
-| enableDarkTheme  | 打开黑色主题切换功能                                                                  | `boolean`                                          | false   | -    |
 | hideCopyButton   | 不展示 copy 功能                                                                      | `boolean`                                          | -       | -    |
 | hideHintAlert    | 删除下方的提示信息                                                                    | `boolean`                                          | -       | -    |
 | onCollapseChange | SettingDrawer 的折叠收起事件                                                          | `(collapsed: boolean) => void`                      | -       | -    |

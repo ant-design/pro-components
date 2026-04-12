@@ -4,6 +4,9 @@
 
 ### 🗑 Breaking Changes
 
+- ProLayout
+  - 🗑 Remove `navTheme` (no longer on `ProSettings` or route `MenuDataItem`); `SettingDrawer` drops the page light/dark style block and removes `enableDarkTheme`; sider `Sider` always uses `theme="light"` — use antd `ConfigProvider` `theme.algorithm` for app-wide dark mode
+
 - ProDescriptions
   - 🗑 Remove `ProDescriptionsItem` export; use `columns` instead
   - 🛠 Rename column type to `ProDescriptionsColumn` (`ProDescriptionsItemProps` remains an alias)

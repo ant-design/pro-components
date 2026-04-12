@@ -152,7 +152,6 @@ menu supports some commonly used menu configurations to help us better manage me
 | hideHintAlert    | Delete the prompt message below                                                                          | `boolean`                                          | -       |
 | hideCopyButton   | Do not show copy function                                                                                | `boolean`                                          | -       |
 | disableUrlParams | Disable synchronization settings to query parameters                                                     | `boolean`                                          | `false` |
-| enableDarkTheme  | Turn on black theme switching function ｜ `boolean`                                                      | `false`                                            |         |
 | colorList        | Built-in color switching system (ColorList title will be displayed as Tooltip) ｜ `{key,color,title?}[]` | `ColorList`                                        |         |
 
 Built-in color list

@@ -1,7 +1,4 @@
 export default {
-  'app.setting.pagestyle': '스타일 설정',
-  'app.setting.pagestyle.dark': '다크 모드',
-  'app.setting.pagestyle.light': '라이트 모드',
   'app.setting.content-width': '컨텐츠 너비',
   'app.setting.content-width.fixed': '고정',
   'app.setting.content-width.fluid': '흐름',

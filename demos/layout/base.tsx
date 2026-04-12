@@ -484,7 +484,6 @@ const Demo = () => {
 
             <SettingDrawer
               pathname={pathname}
-              enableDarkTheme
               getContainer={(e: any) => {
                 if (typeof window === 'undefined') return e;
                 return document.getElementById('test-pro-layout');

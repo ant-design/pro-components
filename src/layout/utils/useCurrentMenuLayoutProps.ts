@@ -13,7 +13,6 @@ const useCurrentMenuLayoutProps = (currentMenu: ProSettings) => {
           typeof currentMenu.layout !== 'object'
             ? currentMenu.layout
             : undefined,
-        navTheme: currentMenu.navTheme,
         menuRender: currentMenu.menuRender,
         footerRender: currentMenu.footerRender,
         menuHeaderRender: currentMenu.menuHeaderRender,
@@ -23,7 +22,6 @@ const useCurrentMenuLayoutProps = (currentMenu: ProSettings) => {
     );
   }, [
     currentMenu.layout,
-    currentMenu.navTheme,
     currentMenu.menuRender,
     currentMenu.footerRender,
     currentMenu.menuHeaderRender,

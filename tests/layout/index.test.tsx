@@ -1049,7 +1049,6 @@ describe('BasicLayout', () => {
             name: '搜索',
             exact: true,
             layout: 'mix',
-            navTheme: 'light',
           },
           {
             path: '/home',
@@ -1091,7 +1090,6 @@ describe('BasicLayout', () => {
               name: '搜索',
               exact: true,
               layout: 'mix',
-              navTheme: 'light',
             },
             {
               path: '/home',

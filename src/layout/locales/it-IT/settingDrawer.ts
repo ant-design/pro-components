@@ -1,7 +1,4 @@
 export default {
-  'app.setting.pagestyle': 'Impostazioni di stile',
-  'app.setting.pagestyle.dark': 'Tema scuro',
-  'app.setting.pagestyle.light': 'Tema chiaro',
   'app.setting.content-width': 'Largezza contenuto',
   'app.setting.content-width.fixed': 'Fissa',
   'app.setting.content-width.fluid': 'Fluida',

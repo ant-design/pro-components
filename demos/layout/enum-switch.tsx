@@ -13,7 +13,6 @@ const Demo = () => {
   const { token } = theme.useToken();
 
   const [layout, setLayout] = useState<ProSettings['layout']>('mix');
-  const [navTheme, setNavTheme] = useState<ProSettings['navTheme']>('light');
   const [contentWidth, setContentWidth] = useState<'Fluid' | 'Fixed'>('Fluid');
   const [siderMenuType, setSiderMenuType] = useState<'sub' | 'group'>('group');
 
@@ -36,21 +35,10 @@ const Demo = () => {
             />
           </Space>
           <Space>
-            <span>navTheme 导航主题：</span>
-            <Segmented
-              value={navTheme}
-              onChange={(v) => setNavTheme(v as any)}
-              options={[
-                { label: '亮色 light', value: 'light' },
-                { label: '暗色 realDark', value: 'realDark' },
-              ]}
-            />
-          </Space>
-          <Space>
             <span>contentWidth 内容宽度：</span>
             <Segmented
               value={contentWidth}
-              onChange={(v) => setContentWidth(v as any)}
+              onChange={(v) => setContentWidth(v as 'Fluid' | 'Fixed')}
               options={[
                 { label: '流式 Fluid', value: 'Fluid' },
                 { label: '定宽 Fixed', value: 'Fixed' },
@@ -82,7 +70,6 @@ const Demo = () => {
         <ProLayout
           {...defaultProps}
           layout={layout}
-          navTheme={navTheme}
           contentWidth={contentWidth}
           siderMenuType={siderMenuType}
           fixSiderbar
@@ -107,9 +94,8 @@ const Demo = () => {
           <PageContainer>
             <ProCard style={{ minHeight: 300 }}>
               <div>
-                当前配置：layout=<b>{layout}</b>、navTheme=<b>{navTheme}</b>、
-                contentWidth=<b>{contentWidth}</b>、siderMenuType=
-                <b>{siderMenuType}</b>
+                当前配置：layout=<b>{layout}</b>、contentWidth=<b>{contentWidth}</b>
+                、siderMenuType=<b>{siderMenuType}</b>
               </div>
             </ProCard>
           </PageContainer>

@@ -4,6 +4,9 @@
 
 ### 🗑 破坏性变更
 
+- ProLayout
+  - 🗑 移除 `navTheme`（`ProSettings` / 路由 `MenuDataItem` 等不再透传）；`SettingDrawer` 不再提供整页「亮色 / 暗色」切换，并移除 `enableDarkTheme`；侧栏 `Sider` 固定为 `theme="light"`，全局暗色请使用 antd `ConfigProvider` 的 `theme.algorithm`
+
 - ProDescriptions
   - 🗑 移除 `ProDescriptionsItem` 导出；请使用 `columns` 配置列
   - 🛠 列类型更名为 `ProDescriptionsColumn`（`ProDescriptionsItemProps` 保留为别名）

@@ -8,7 +8,7 @@ order: 0
 
 ### 枚举属性切换
 
-通过 Segmented 分段选择器一键切换 `layout`、`navTheme`、`contentWidth`、`siderMenuType` 四个枚举属性，直观对比不同配置的效果。
+通过 Segmented 分段选择器一键切换 `layout`、`contentWidth`、`siderMenuType` 等枚举属性，直观对比不同配置的效果。
 
 <code src="../../demos/layout/enum-switch.tsx" iframe="750" title="枚举属性切换"></code>
 

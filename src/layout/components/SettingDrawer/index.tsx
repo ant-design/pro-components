@@ -69,8 +69,6 @@ export type SettingDrawerProps = {
   getContainer?: any;
   hideHintAlert?: boolean;
   hideCopyButton?: boolean;
-  /** 使用实验性质的黑色主题 */
-  enableDarkTheme?: boolean;
   prefixCls?: string;
   colorList?: false | { key: string; color: string; title?: string }[];
   onSettingChange?: (settings: MergerSettingsType<ProSettings>) => void;
@@ -97,7 +95,7 @@ const getDifferentSetting = (
       //@ts-ignore
       key !== 'collapse'
     ) {
-      stateObj[key as 'navTheme'] = state[key as 'navTheme'];
+      stateObj[key as StateKey] = state[key as StateKey];
     } else {
       stateObj[key] = undefined;
     }
@@ -139,16 +137,14 @@ const initState = (
 
   const replaceSetting = {} as Record<string, any>;
   Object.keys(urlParams).forEach((key) => {
-    if (
-      defaultSettings[key as 'navTheme'] ||
-      defaultSettings[key as 'navTheme'] === undefined
-    ) {
-      if (key === 'colorPrimary') {
-        replaceSetting[key] = genStringToTheme(urlParams[key]);
-        return;
-      }
-      replaceSetting[key] = urlParams[key];
+    if (!Object.prototype.hasOwnProperty.call(defaultSettings, key)) {
+      return;
     }
+    if (key === 'colorPrimary') {
+      replaceSetting[key] = genStringToTheme(urlParams[key]);
+      return;
+    }
+    replaceSetting[key] = urlParams[key];
   });
   const newSettings: MergerSettingsType<ProSettings> = merge(
     {},
@@ -213,7 +209,6 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     ],
     getContainer,
     onSettingChange,
-    enableDarkTheme,
     prefixCls = 'ant-pro',
     pathname = isBrowser() ? window.location.pathname : '',
     disableUrlParams = true,
@@ -301,8 +296,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     [onSettingChangeCallback],
   );
 
-  const { navTheme, colorPrimary, siderMenuType, layout, colorWeak } =
-    settingState || {};
+  const { colorPrimary, siderMenuType, layout, colorWeak } = settingState || {};
 
   useEffect(() => {
     // 语言修改，这个是和 locale 是配置起来的
@@ -342,9 +336,6 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     }
     if (key === 'layout' && value !== 'mix') {
       nextState.splitMenus = false;
-    }
-    if (key === 'layout' && value === 'mix') {
-      nextState.navTheme = 'light';
     }
     if (key === 'colorWeak' && value === true) {
       const dom = document.querySelector('body');
@@ -435,44 +426,6 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
         {...drawerProps}
       >
         <div className={clsx(`${baseClassName}-drawer-content`, hashId)}>
-          <Body
-            title={formatMessage({
-              id: 'app.setting.pagestyle',
-              defaultMessage: 'Page style setting',
-            })}
-            hashId={hashId}
-            prefixCls={baseClassName}
-          >
-            <BlockCheckbox
-              hashId={hashId}
-              prefixCls={baseClassName}
-              list={[
-                {
-                  key: 'light',
-                  title: formatMessage({
-                    id: 'app.setting.pagestyle.light',
-                    defaultMessage: '亮色菜单风格',
-                  }),
-                },
-                {
-                  key: 'realDark',
-                  title: formatMessage({
-                    id: 'app.setting.pagestyle.realdark',
-                    defaultMessage: '暗色菜单风格',
-                  }),
-                },
-              ].filter((item) => {
-                if (item.key === 'dark' && settingState.layout === 'mix')
-                  return false;
-                if (item.key === 'realDark' && !enableDarkTheme) return false;
-                return true;
-              })}
-              value={navTheme!}
-              configType="theme"
-              key="navTheme"
-              onChange={(value) => changeSetting('navTheme', value)}
-            />
-          </Body>
           {colorList !== false && (
             <Body
               hashId={hashId}

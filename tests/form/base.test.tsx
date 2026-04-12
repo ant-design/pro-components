@@ -122,7 +122,7 @@ describe('ProForm', () => {
     const wrapper = render(
       <ProForm
         onFinish={async (values) => {
-          fn(values.navTheme);
+          fn(values.layoutTheme);
         }}
         syncToUrl
       >
@@ -131,7 +131,7 @@ describe('ProForm', () => {
             title: '主题',
             icon: <FontSizeOutlined />,
           }}
-          name="navTheme"
+          name="layoutTheme"
         />
       </ProForm>,
     );
@@ -156,7 +156,7 @@ describe('ProForm', () => {
     const wrapper = render(
       <ProForm
         onFinish={async (values) => {
-          fn(values.navTheme);
+          fn(values.layoutTheme);
         }}
         syncToUrl
         syncToUrlAsImportant
@@ -166,7 +166,7 @@ describe('ProForm', () => {
             title: '主题',
             icon: <FontSizeOutlined />,
           }}
-          name="navTheme"
+          name="layoutTheme"
         />
       </ProForm>,
     );
@@ -191,12 +191,12 @@ describe('ProForm', () => {
     const wrapper = render(
       <ProForm
         onFinish={async (values) => {
-          onFinish(values.navTheme);
+          onFinish(values.layoutTheme);
         }}
         syncToUrl
         syncToInitialValues={false}
       >
-        <ProFormText name="navTheme" />
+        <ProFormText name="layoutTheme" />
         <ProForm.Item shouldUpdate>
           {() => {
             return '123';
@@ -229,11 +229,11 @@ describe('ProForm', () => {
     const wrapper = render(
       <ProForm
         onFinish={async (values) => {
-          fn(values.navTheme);
+          fn(values.layoutTheme);
         }}
         initialValues={{}}
       >
-        <ProFormText name="navTheme" />
+        <ProFormText name="layoutTheme" />
       </ProForm>,
     );
 
@@ -246,11 +246,11 @@ describe('ProForm', () => {
       wrapper.rerender(
         <ProForm
           onFinish={async (values) => {
-            fn(values.navTheme);
+            fn(values.layoutTheme);
           }}
-          initialValues={{ navTheme: 'xxx' }}
+          initialValues={{ layoutTheme: 'xxx' }}
         >
-          <ProFormText name="navTheme" />
+          <ProFormText name="layoutTheme" />
         </ProForm>,
       );
     });

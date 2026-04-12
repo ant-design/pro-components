@@ -5,7 +5,7 @@
 
 /** 测试 URL 参数 */
 export const TEST_URL_PARAMS = {
-  navTheme: 'realDark',
+  layoutTheme: 'realDark',
   layout: 'mix',
   colorPrimary: 'techBlue',
   splitMenus: 'false',

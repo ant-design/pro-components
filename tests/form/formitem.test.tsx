@@ -17,21 +17,21 @@ describe('ProForm.Item', () => {
     const { container } = render(
       <ProForm
         initialValues={{
-          navTheme: 'dark',
+          layoutTheme: 'dark',
         }}
       >
         <ProFormText
           fieldProps={{
-            id: 'navTheme',
+            id: 'layoutTheme',
             onBlur: (e) => onBlur(e.target.value),
           }}
-          name="navTheme"
+          name="layoutTheme"
         />
       </ProForm>,
     );
 
-    fireEvent.focus(container.querySelector('input#navTheme')!);
-    fireEvent.blur(container.querySelector('input#navTheme')!);
+    fireEvent.focus(container.querySelector('input#layoutTheme')!);
+    fireEvent.blur(container.querySelector('input#layoutTheme')!);
 
     expect(onBlur).toHaveBeenCalledWith('dark');
     expect(onBlur).toHaveBeenCalledTimes(1);
@@ -43,7 +43,7 @@ describe('ProForm.Item', () => {
     const { container } = render(
       <ProForm
         initialValues={{
-          navTheme: 'dark',
+          layoutTheme: 'dark',
         }}
         onValuesChange={({ name }) => onValuesChange(name)}
       >
