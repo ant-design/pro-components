@@ -10,8 +10,8 @@ import React, {
   useState,
 } from 'react';
 import { createPortal } from 'react-dom';
-import type { MenuMode } from './BaseMenu';
 import type { NavMenuNode } from './navMenuTypes';
+import type { MenuMode, ProLayoutNavMenuSelectInfo } from './types';
 
 const MENU_INDENT_PX = 16;
 
@@ -24,7 +24,7 @@ export type ProLayoutNavMenuProps = {
   openKeys?: string[];
   defaultOpenKeys?: string[];
   onOpenChange?: (openKeys: string[]) => void;
-  onSelect?: (info: { key: string; selectedKeys: string[] }) => void;
+  onSelect?: (info: ProLayoutNavMenuSelectInfo) => void;
   nodes: NavMenuNode[];
 } & Omit<
   HTMLAttributes<HTMLElement>,

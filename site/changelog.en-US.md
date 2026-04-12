@@ -15,6 +15,7 @@
 - ProLayout
   - 🛠 Replace antd `Menu` in sider and top navigation with custom `ProLayoutNavMenu`; `BaseMenu` `menuProps` now merges onto root `nav` as `ProLayoutNavMenuDomProps` (no longer forwards antd `MenuProps`)
   - 🛠 Menu styles use root `--pro-layout-nav-*` and `var(--ant-*)`; add `selectedKeys`, `openKeys`, and `onSelect` to `ProLayoutProps` typings
+  - 🛠 Centralize nav-related types in `types.ts` and export from the package: `MenuMode`, `ProLayoutNavMenuDomProps`, `ProLayoutNavMenuSelectInfo`, `NavMenuNode`, etc.; rename the third callback parameter of `menuItemRender` / `subMenuItemRender` / `menuTextRender` to `menuConfig` (distinct from `menuProps`)
 - ProForm
   - ✅ Added schema vs imperative alignment tests (`schemaImperativeAlignment`)
   - 📖 Internal docs: `docs/internal/form-architecture.md`, `docs/rfc/2026-04-pro-form-architecture-refactor.md` (aligned with current `master` source layout)

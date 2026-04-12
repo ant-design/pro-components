@@ -15,6 +15,7 @@
 - ProLayout
   - 🛠 侧栏与顶栏主导航不再使用 antd `Menu`，改为自研 `ProLayoutNavMenu`；`BaseMenu` 的 `menuProps` 改为合并到根 `nav` 的 `ProLayoutNavMenuDomProps`（不再透传 antd `MenuProps`）
   - 🛠 菜单样式以根节点 `--pro-layout-nav-*` 与 `var(--ant-*)` 为主；`ProLayoutProps` 补充 `selectedKeys`、`openKeys`、`onSelect` 类型声明
+  - 🛠 主导航相关类型集中到 `types.ts` 并自包导出：`MenuMode`、`ProLayoutNavMenuDomProps`、`ProLayoutNavMenuSelectInfo`、`NavMenuNode` 等；`menuItemRender` / `subMenuItemRender` / `menuTextRender` 第三参类型参数更名为 `menuConfig`（与 `menuProps` 区分）
 - ProForm
   - ✅ 新增 Schema 与命令式路径对齐单测（`schemaImperativeAlignment`）
   - 📖 内部文档：`docs/internal/form-architecture.md`、`docs/rfc/2026-04-pro-form-architecture-refactor.md`（与当前 `master` 源码路径对齐）

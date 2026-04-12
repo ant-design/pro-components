@@ -29,6 +29,7 @@ import { DefaultHeader as Header } from './components/Header';
 import { PageLoading } from './components/PageLoading';
 import { SiderMenu } from './components/SiderMenu';
 import type { SiderMenuProps } from './components/SiderMenu/SiderMenu';
+import type { ProLayoutNavMenuSelectInfo } from './components/SiderMenu/types';
 import type { SiderMenuToken } from './components/SiderMenu/style';
 import { RouteContext } from './context/RouteContext';
 import type { ProSettings } from './defaultSettings';
@@ -80,7 +81,7 @@ export type ProLayoutProps = GlobalTypes & {
   /** 受控子菜单展开项，`false` 表示非受控 */
   openKeys?: WithFalse<string[]>;
   /** 菜单项选中时回调（自研菜单与历史 antd Menu 行为对齐） */
-  onSelect?: (info: { key: string; selectedKeys: string[] }) => void;
+  onSelect?: (info: ProLayoutNavMenuSelectInfo) => void;
   stylish?: {
     header?: GenerateStyle<SiderMenuToken>;
     sider?: GenerateStyle<SiderMenuToken>;

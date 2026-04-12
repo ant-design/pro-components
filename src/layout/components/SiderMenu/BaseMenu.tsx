@@ -2,7 +2,6 @@ import { createFromIconfontCN } from '@ant-design/icons';
 import { useControlledState } from '@rc-component/util';
 import { ConfigProvider, Skeleton, Tooltip } from 'antd';
 import { clsx } from 'clsx';
-import type { HTMLAttributes } from 'react';
 import React, {
   useCallback,
   useContext,
@@ -27,19 +26,17 @@ import type { PrivateSiderMenuProps } from './SiderMenu';
 import type { NavMenuNode } from './navMenuTypes';
 import { ProLayoutNavMenu } from './ProLayoutNavMenu';
 import { useStyle } from './style/menu';
+import type {
+  MenuMode,
+  ProLayoutNavMenuDomProps,
+  ProLayoutNavMenuSelectInfo,
+} from './types';
 
-export type MenuMode =
-  | 'vertical'
-  | 'vertical-left'
-  | 'vertical-right'
-  | 'horizontal'
-  | 'inline';
-
-/** Props merged onto the root nav element (replaces antd `MenuProps` passthrough). */
-export type ProLayoutNavMenuDomProps = Omit<
-  HTMLAttributes<HTMLElement>,
-  'role' | 'onSelect' | 'children' | 'defaultValue'
->;
+export type {
+  MenuMode,
+  ProLayoutNavMenuDomProps,
+  ProLayoutNavMenuSelectInfo,
+} from './types';
 
 const MenuItemTooltip = (props: {
   collapsed?: boolean;
@@ -76,7 +73,7 @@ export type BaseMenuProps = {
   prefixCls?: string;
   /** 受控选中项，与路由 `matchMenuKeys` 配合使用 */
   selectedKeys?: string[];
-  onSelect?: (info: { key: string; selectedKeys: string[] }) => void;
+  onSelect?: (info: ProLayoutNavMenuSelectInfo) => void;
   className?: string;
   /** 默认的是否展开，会受到 breakpoint 的影响 */
   defaultCollapsed?: boolean;
@@ -108,7 +105,7 @@ export type BaseMenuProps = {
         isUrl: boolean;
       },
       defaultDom: React.ReactNode,
-      menuProps: BaseMenuProps,
+      menuConfig: BaseMenuProps,
     ) => React.ReactNode
   >;
 
@@ -126,7 +123,7 @@ export type BaseMenuProps = {
         onClick: () => void;
       },
       defaultDom: React.ReactNode,
-      menuProps: BaseMenuProps & Partial<PrivateSiderMenuProps>,
+      menuConfig: BaseMenuProps & Partial<PrivateSiderMenuProps>,
     ) => React.ReactNode
   >;
 
@@ -137,7 +134,7 @@ export type BaseMenuProps = {
     (
       item: MenuDataItem,
       defaultText: React.ReactNode,
-      menuProps: BaseMenuProps,
+      menuConfig: BaseMenuProps,
     ) => React.ReactNode
   >;
 
@@ -608,8 +605,8 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
                 prev,
               )
             : updater;
-        if (propsOnSelect && next) {
-          propsOnSelect({ key: next[0]!, selectedKeys: next } as any);
+        if (propsOnSelect && next?.length) {
+          propsOnSelect({ key: next[0]!, selectedKeys: next });
         }
         return next;
       });

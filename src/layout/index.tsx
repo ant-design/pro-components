@@ -22,11 +22,19 @@ import type {
   SettingDrawerState,
 } from './components/SettingDrawer';
 import { SettingDrawer } from './components/SettingDrawer';
-import type {
-  BaseMenuProps,
-  ProLayoutNavMenuDomProps,
-} from './components/SiderMenu/BaseMenu';
+import type { BaseMenuProps } from './components/SiderMenu/BaseMenu';
 import { BaseMenu } from './components/SiderMenu/BaseMenu';
+import type { ProLayoutNavMenuProps } from './components/SiderMenu/ProLayoutNavMenu';
+import type {
+  MenuMode,
+  NavMenuDividerNode,
+  NavMenuGroupNode,
+  NavMenuLeafNode,
+  NavMenuNode,
+  NavMenuSubmenuNode,
+  ProLayoutNavMenuDomProps,
+  ProLayoutNavMenuSelectInfo,
+} from './components/SiderMenu/types';
 import type { TopNavHeaderProps } from './components/TopNavHeader';
 import { TopNavHeader } from './components/TopNavHeader';
 import type { RouteContextType } from './context/RouteContext';
@@ -64,9 +72,17 @@ export type {
   BaseMenuProps,
   FooterProps,
   HeaderProps,
+  MenuMode,
+  NavMenuDividerNode,
+  NavMenuGroupNode,
+  NavMenuLeafNode,
+  NavMenuNode,
+  NavMenuSubmenuNode,
   PageContainerProps,
   PageHeaderProps,
   ProLayoutNavMenuDomProps,
+  ProLayoutNavMenuProps,
+  ProLayoutNavMenuSelectInfo,
   ProLayoutProps,
   RouteContextType,
   SettingDrawerProps,
