@@ -264,7 +264,7 @@ describe('PageContainer', () => {
     );
 
     expect(container.querySelector('.ant-pro-footer-bar')).toHaveStyle(
-      'width: calc(100% - 256px)',
+      'width: calc(100% - 240px)',
     );
 
     rerender(
@@ -281,7 +281,7 @@ describe('PageContainer', () => {
     );
 
     expect(container.querySelector('.ant-pro-footer-bar')).toHaveStyle(
-      'width: calc(100% - 64px)',
+      'width: calc(100% - 48px)',
     );
 
     rerender(
@@ -322,7 +322,7 @@ describe('PageContainer', () => {
       </ProLayout>,
     );
     expect(container.querySelector('.ant-pro-footer-bar')).toHaveStyle(
-      'width: calc(100% - 256px)',
+      'width: calc(100% - 240px)',
     );
 
     rerender(
@@ -338,7 +338,7 @@ describe('PageContainer', () => {
     );
 
     expect(container.querySelector('.ant-pro-footer-bar')).toHaveStyle(
-      'width: calc(100% - 64px)',
+      'width: calc(100% - 48px)',
     );
 
     rerender(

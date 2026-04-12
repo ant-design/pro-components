@@ -14,12 +14,12 @@ exports[`BasicLayout > base use 1`] = `
       style="min-height: 100%; flex-direction: row;"
     >
       <div
-        style="width: 256px; overflow: hidden; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s; flex-grow: 0; flex-shrink: 0; flex-basis: 256px;"
+        style="width: 240px; overflow: hidden; max-width: 240px; min-width: 240px; transition: all 0.2s ease 0s; flex-grow: 0; flex-shrink: 0; flex-basis: 240px;"
       />
       <aside
         class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-r3"
         data-testid="pro-layout-sider"
-        style="max-width: 256px; min-width: 256px; width: 256px; flex-grow: 0; flex-shrink: 0; flex-basis: 256px;"
+        style="max-width: 240px; min-width: 240px; width: 240px; flex-grow: 0; flex-shrink: 0; flex-basis: 240px;"
       >
         <div
           class="ant-layout-sider-children"
@@ -293,12 +293,12 @@ exports[`BasicLayout > content is text 1`] = `
       style="min-height: 100%; flex-direction: row;"
     >
       <div
-        style="width: 256px; overflow: hidden; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s; flex-grow: 0; flex-shrink: 0; flex-basis: 256px;"
+        style="width: 240px; overflow: hidden; max-width: 240px; min-width: 240px; transition: all 0.2s ease 0s; flex-grow: 0; flex-shrink: 0; flex-basis: 240px;"
       />
       <aside
         class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-r8"
         data-testid="pro-layout-sider"
-        style="max-width: 256px; min-width: 256px; width: 256px; flex-grow: 0; flex-shrink: 0; flex-basis: 256px;"
+        style="max-width: 240px; min-width: 240px; width: 240px; flex-grow: 0; flex-shrink: 0; flex-basis: 240px;"
       >
         <div
           class="ant-layout-sider-children"

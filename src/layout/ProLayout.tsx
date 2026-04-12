@@ -414,9 +414,10 @@ const getPaddingInlineStart = (
   hasLeftPadding: boolean,
   collapsed: boolean | undefined,
   siderWidth: number,
+  collapsedWidth: number,
 ): number | undefined => {
   if (hasLeftPadding) {
-    return collapsed ? 64 : siderWidth;
+    return collapsed ? collapsedWidth : siderWidth;
   }
   return 0;
 };
@@ -449,8 +450,10 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   const siderWidth = useMemo(() => {
     if (propsSiderWidth) return propsSiderWidth;
     if (props.layout === 'mix') return 215;
-    return 256;
+    return 240;
   }, [props.layout, propsSiderWidth]);
+
+  const menuCollapsedWidth = menu?.collapsedWidth ?? 48;
 
   const context = useContext(ConfigProvider.ConfigContext);
 
@@ -736,6 +739,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     !!hasLeftPadding,
     collapsed,
     siderWidth,
+    menuCollapsedWidth,
   );
 
   // siderMenuDom 为空的时候，不需要 padding

@@ -40,28 +40,31 @@ function layoutNavCssVars(
   const padInline = 8;
   const stackGap = 4;
   const itemH = 32;
+  /** 侧栏主导航：浅灰底条上的字色 / 交互（对齐常见产品侧栏，仍可通过 layout.sider / token 覆盖） */
+  const siderNavText = 'rgba(9, 30, 66, 0.86)';
+  const siderNavIcon = 'rgba(9, 30, 66, 0.31)';
+  const siderNavSection = 'rgba(9, 30, 66, 0.49)';
+  const siderNavHoverBg = 'rgba(0, 0, 0, 0.04)';
+  const siderNavSelectedBg = 'rgba(29, 122, 252, 0.23)';
+  const siderNavSelectedText = '#0055cc';
   if (surface === 'sider') {
     return {
-      [navVar.colorText]: s?.colorTextMenu ?? 'var(--ant-color-text)',
-      [navVar.colorBgHover]:
-        s?.colorBgMenuItemHover ?? 'var(--ant-color-fill-secondary)',
-      [navVar.colorTextHover]:
-        s?.colorTextMenuActive ?? 'var(--ant-color-text)',
-      [navVar.colorBgSelected]:
-        s?.colorBgMenuItemSelected ?? 'var(--ant-color-fill-secondary)',
-      [navVar.colorTextSelected]:
-        s?.colorTextMenuSelected ?? 'var(--ant-color-text)',
+      [navVar.colorText]: s?.colorTextMenu ?? siderNavText,
+      [navVar.colorBgHover]: s?.colorBgMenuItemHover ?? siderNavHoverBg,
+      [navVar.colorTextHover]: s?.colorTextMenuActive ?? siderNavText,
+      [navVar.colorBgSelected]: s?.colorBgMenuItemSelected ?? siderNavSelectedBg,
+      [navVar.colorTextSelected]: s?.colorTextMenuSelected ?? siderNavSelectedText,
       [navVar.colorDivider]:
         s?.colorMenuItemDivider ?? 'var(--ant-color-split)',
       [navVar.popupBg]:
         h?.colorBgMenuElevated ?? 'var(--ant-color-bg-elevated)',
       [navVar.indent]: '16px',
-      [navVar.colorIcon]: 'var(--ant-color-text-secondary)',
-      [navVar.colorSection]: 'var(--ant-color-text-description)',
+      [navVar.colorIcon]: siderNavIcon,
+      [navVar.colorSection]: siderNavSection,
       [navVar.itemHeight]: `${itemH}px`,
       [navVar.itemRadius]: '6px',
       [navVar.itemGap]: '8px',
-      [navVar.itemFontSize]: `${token.fontSize}px`,
+      [navVar.itemFontSize]: `${token.fontSizeSM + 1}px`,
       [navVar.itemFontWeight]: '500',
       [navVar.itemPadBlock]: '6px',
       [navVar.itemPadInline]: `${padInline}px`,
@@ -252,6 +255,11 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         },
       },
 
+      /** 分组之间约 12px，组内项仍用 stackGap（4px） */
+      [`${c}-group + ${c}-group`]: {
+        marginBlockStart: 12,
+      },
+
       [`${c}-group-title`]: {
         margin: 0,
         paddingInline: v('itemPadInline'),
@@ -333,9 +341,9 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         height: v('iconBox'),
         color: v('colorIcon'),
         '.anticon, svg': {
-          width: v('iconBox'),
-          height: v('iconBox'),
-          fontSize: v('iconBox'),
+          width: 20,
+          height: 20,
+          fontSize: 20,
         },
       },
 

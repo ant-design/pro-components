@@ -145,5 +145,8 @@ const defaultSettings: ProSettings = {
   iconfontUrl: '',
   colorPrimary: '#1677FF',
   splitMenus: false,
+  menu: {
+    collapsedWidth: 48,
+  },
 };
 export { defaultSettings };

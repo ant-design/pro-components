@@ -653,7 +653,7 @@ describe('BasicLayout', () => {
       getComputedStyle(
         wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-sider')!,
       )?.width,
-    ).toBe('256px');
+    ).toBe('240px');
 
     await waitForWaitTime(100);
     wrapper.unmount();
