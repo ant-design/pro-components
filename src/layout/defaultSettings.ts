@@ -53,7 +53,8 @@ export type PureSettings = {
      */
     collapsedShowTitle?: boolean;
     /**
-     * 收起时也展示 分组菜单的标题
+     * 历史字段：分组标题在收起时始终保留，本项已不再参与渲染逻辑
+     * @deprecated
      */
     collapsedShowGroupTitle?: boolean;
     /**

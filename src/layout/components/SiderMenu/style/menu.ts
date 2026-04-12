@@ -268,6 +268,28 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         color: v('colorSection'),
       },
 
+      /** 收起侧栏：分组标题仍展示，避免内层 `group-item-title` 固定高度把文字裁没 */
+      [`${c}--collapsed ${c}-group ${c}-group-title`]: {
+        width: '100%',
+        textAlign: 'center',
+        overflow: 'visible',
+      },
+      [`${c}--collapsed ${c}-group ${c}-group-title ${c}-item-title`]: {
+        height: 'auto',
+        minHeight: 'auto',
+        maxHeight: 'none',
+        overflow: 'visible',
+        width: '100%',
+        maxWidth: '100%',
+      },
+      [`${c}--collapsed ${c}-group ${c}-group-title ${c}-item-text`]: {
+        whiteSpace: 'normal',
+        overflow: 'visible',
+        textOverflow: 'clip',
+        lineHeight: 1.25,
+        maxHeight: 'none',
+      },
+
       [`${c}-group-list`]: {
         listStyle: 'none',
         margin: 0,
