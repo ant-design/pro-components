@@ -340,10 +340,30 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         width: v('iconBox'),
         height: v('iconBox'),
         color: v('colorIcon'),
-        '.anticon, svg': {
-          width: 20,
-          height: 20,
-          fontSize: 20,
+        fontSize: '20px',
+        lineHeight: 0,
+        '.anticon': {
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontSize: 'inherit',
+          lineHeight: 0,
+        },
+        '.anticon > svg': {
+          width: '1em',
+          height: '1em',
+          display: 'block',
+        },
+        svg: {
+          width: '20px',
+          height: '20px',
+          display: 'block',
+        },
+        img: {
+          width: '20px',
+          height: '20px',
+          display: 'block',
+          objectFit: 'contain',
         },
       },
 
