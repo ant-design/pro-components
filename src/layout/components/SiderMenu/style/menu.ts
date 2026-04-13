@@ -373,7 +373,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           width: 'fit-content',
           maxWidth: '100%',
           minWidth: v('iconBox'),
-          height: v('itemHeight'),
+          height: 'auto',
           flexDirection: 'column',
           justifyContent: 'flex-start',
           alignItems: 'flex-start',
