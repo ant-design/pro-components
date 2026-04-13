@@ -237,11 +237,15 @@ function renderPopup(
    * Popover 挂 body 时，样式选择器依赖「带 hash 的菜单根」作祖先；
    * `--horizontal` 只放在外包层，避免与 `-list` 同写在 `ul` 上触发顶栏横向 flex 破坏纵向子项。
    */
+  /**
+   * 勿加 `--horizontal`：该修饰符下 `[c]--horizontal [c]-item` 等会命中浮层内所有叶子，
+   * 下拉被当成顶栏横条（28px 行高等），布局错乱。仅保留根类名 + hash 以挂载 cssinjs。
+   */
   const popupContent = (
     <div
       className={clsx(baseClassName, hashId, {
-        [`${baseClassName}--horizontal`]: ctx.mode === 'horizontal',
-        [`${baseClassName}--collapsed`]: !!ctx.collapsed,
+        [`${baseClassName}--collapsed`]:
+          !!ctx.collapsed && ctx.mode === 'vertical',
       })}
     >
       <ul
