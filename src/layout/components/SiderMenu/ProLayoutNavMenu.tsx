@@ -189,6 +189,7 @@ function renderGroup(
         className={clsx(`${baseClassName}-group-list`, hashId)}
         role="group"
       >
+        {/* eslint-disable-next-line @typescript-eslint/no-use-before-define -- renderNode 定义在文件后部 */}
         {node.children.map((child) => renderNode(ctx, child, depth))}
       </ul>
     </li>
@@ -243,6 +244,7 @@ function renderPopup(
           `${baseClassName}-submenu-popup`,
         )}
       >
+        {/* eslint-disable-next-line @typescript-eslint/no-use-before-define -- renderNode 定义在文件后部 */}
         {node.children.map((child) => renderNode(popupCtx, child, depth + 1))}
       </ul>
     </div>
@@ -378,6 +380,7 @@ function renderInlineSubmenu(
             role="menu"
             aria-labelledby={`${ctx.rootId}-submenu-inline-${node.key}`}
           >
+            {/* eslint-disable-next-line @typescript-eslint/no-use-before-define -- renderNode 定义在文件后部 */}
             {node.children.map((child) => renderNode(ctx, child, depth + 1))}
           </ul>
         </div>
@@ -565,6 +568,7 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
         </li>
       );
     }
+    // eslint-disable-next-line @typescript-eslint/no-use-before-define -- renderNode 定义在文件后部
     return renderNode(renderCtx, n, 0);
   });
 

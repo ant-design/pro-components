@@ -217,235 +217,115 @@ const getMenuTitleSymbol = (title: React.ReactNode) => {
   return null;
 };
 
-class MenuUtil {
-  props: BaseMenuProps & {
-    menuRenderType?: 'header' | 'sider';
+/** `MenuDataItem` → `NavMenuNode[]` 的构建上下文（原 `MenuUtil` 类，已改为纯函数） */
+type MenuNavBuildContext = BaseMenuProps &
+  PrivateSiderMenuProps & {
     baseClassName: string;
     hashId: string;
+    menuRenderType?: 'header' | 'sider';
   };
 
-  constructor(
-    props: BaseMenuProps & {
-      menuRenderType?: 'header' | 'sider';
-      baseClassName: string;
-      hashId: string;
-    },
-  ) {
-    this.props = props;
+function conversionMenuPath(path: string) {
+  if (path && path.indexOf('http') === 0) {
+    return path;
   }
+  return `/${path || ''}`.replace(/\/+/g, '/');
+}
 
-  getNavMenuItems = (
-    menusData: MenuDataItem[] = [],
-    level: number,
-    noGroupLevel: number,
-  ): NavMenuNode[] =>
-    menusData
-      .map((item) => this.getSubMenuOrItem(item, level, noGroupLevel))
-      .filter((item) => item)
-      .flat(1) as NavMenuNode[];
+function getIntlMenuName(ctx: MenuNavBuildContext, item: MenuDataItem) {
+  const { name, locale } = item;
+  const { menu, formatMessage } = ctx;
+  let finalName = name;
+  if (locale && menu?.locale !== false) {
+    finalName = formatMessage?.({
+      id: locale,
+      defaultMessage: name,
+    });
+  }
+  if (ctx.menuTextRender) {
+    return ctx.menuTextRender(item, finalName, ctx);
+  }
+  return finalName;
+}
 
-  /** Get SubMenu or Item */
-  getSubMenuOrItem = (
-    item: MenuDataItem,
-    level: number,
-    noGroupLevel: number,
-  ): NavMenuNode | NavMenuNode[] => {
-    const {
-      subMenuItemRender,
-      baseClassName,
-      collapsed,
-      menu,
-      iconPrefixes,
-      layout,
-    } = this.props;
-    const isGroup = menu?.type === 'group' && layout !== 'top';
-    const name = this.getIntlName(item);
-    const children = item?.children;
+function getMenuItemPath(
+  ctx: MenuNavBuildContext,
+  item: MenuDataItem,
+  level: number,
+  noGroupLevel: number,
+) {
+  const itemPath = conversionMenuPath(item.path || '/');
+  const {
+    location = { pathname: '/' },
+    isMobile,
+    onCollapse,
+    menuItemRender,
+    iconPrefixes,
+    baseClassName,
+    menu,
+    collapsed,
+    hashId,
+  } = ctx;
 
-    const menuType = isGroup && level === 0 ? ('group' as const) : undefined;
+  const menuItemTitle = getIntlMenuName(ctx, item);
+  const isGroup = menu?.type === 'group';
+  const hasIcon = level === 0 || (isGroup && level === 1);
+  const icon = !hasIcon
+    ? null
+    : getIcon(item.icon, iconPrefixes, `${baseClassName}-icon ${hashId}`);
 
-    if (Array.isArray(children) && children.length > 0) {
-      /** Menu 第一级可以有icon，或者 isGroup 时第二级别也要有 */
-      const shouldHasIcon = level === 0 || (isGroup && level === 1);
+  const defaultIcon =
+    collapsed && hasIcon ? getMenuTitleSymbol(menuItemTitle) : null;
 
-      //  get defaultTitle by menuItemRender
-      const iconDom = getIcon(
-        item.icon,
-        iconPrefixes,
-        `${baseClassName}-icon ${this.props?.hashId}`,
-      );
-      /**
-       * 如果没有icon在收起的时候用首字母代替
-       */
-      const defaultIcon =
-        collapsed && shouldHasIcon ? getMenuTitleSymbol(name) : null;
+  let defaultItem = (
+    <div
+      key={itemPath}
+      className={clsx(`${baseClassName}-item-title`, hashId, {
+        [`${baseClassName}-item-title-collapsed`]: collapsed,
+        [`${baseClassName}-item-title-collapsed-level-${noGroupLevel}`]:
+          collapsed,
+        [`${baseClassName}-item-collapsed-show-title`]:
+          menu?.collapsedShowTitle && collapsed,
+      })}
+    >
+      <span
+        className={clsx(`${baseClassName}-item-icon`, hashId)}
+        style={{
+          display: defaultIcon === null && !icon ? 'none' : '',
+        }}
+      >
+        {icon || <span>{defaultIcon}</span>}
+      </span>
+      <span
+        className={clsx(`${baseClassName}-item-text`, hashId, {
+          [`${baseClassName}-item-text-has-icon`]:
+            hasIcon && (icon || defaultIcon),
+        })}
+      >
+        {menuItemTitle}
+      </span>
+    </div>
+  );
+  const isHttpUrl = isUrl(itemPath);
 
-      const defaultTitle = (
-        <div
-          className={clsx(`${baseClassName}-item-title`, this.props?.hashId, {
-            [`${baseClassName}-item-title-collapsed`]: collapsed,
-            [`${baseClassName}-item-title-collapsed-level-${noGroupLevel}`]:
-              collapsed,
-            [`${baseClassName}-group-item-title`]: menuType === 'group',
-            [`${baseClassName}-item-collapsed-show-title`]:
-              menu?.collapsedShowTitle && collapsed,
-          })}
-        >
-          {/* 收起的时候group模式就不要展示icon了，放不下 */}
-          {menuType === 'group' && collapsed ? null : shouldHasIcon &&
-            iconDom ? (
-            <span
-              className={clsx(`${baseClassName}-item-icon`, this.props?.hashId)}
-            >
-              {iconDom}
-            </span>
-          ) : (
-            defaultIcon
-          )}
-          <span
-            className={clsx(`${baseClassName}-item-text`, this.props?.hashId, {
-              [`${baseClassName}-item-text-has-icon`]:
-                menuType !== 'group' &&
-                shouldHasIcon &&
-                (iconDom || defaultIcon),
-            })}
-          >
-            {name}
-          </span>
-        </div>
-      );
-
-      // subMenu only title render
-      const title = subMenuItemRender
-        ? subMenuItemRender({ ...item, isUrl: false }, defaultTitle, this.props)
-        : defaultTitle;
-
-      const childrenList = this.getNavMenuItems(
-        children,
-        level + 1,
-        isGroup && level === 0 && this.props.collapsed ? level : level + 1,
-      );
-
-      const submenuOrGroup: NavMenuNode =
-        menuType === 'group'
-          ? {
-              kind: 'group',
-              key: String(item.key! || item.path!),
-              label: title,
-              children: childrenList,
-              className: clsx(`${baseClassName}-group`),
-            }
-          : {
-              kind: 'submenu',
-              key: String(item.key! || item.path!),
-              label: title,
-              onTitleClick: (e) => item.onTitleClick?.(e),
-              children: childrenList,
-              hasIcon: !!(shouldHasIcon && iconDom),
-              className: clsx({
-                [`${baseClassName}-submenu`]: true,
-                [`${baseClassName}-submenu-has-icon`]:
-                  shouldHasIcon && iconDom,
-              }),
-            };
-
-      return [
-        submenuOrGroup,
-        isGroup && level === 0
-          ? ({
-              kind: 'divider' as const,
-              key: `${item.key! || item.path!}-group-divider`,
-              className: `${baseClassName}-divider`,
-              style: {
-                padding: 0,
-                borderBlockEnd: 0,
-                margin: this.props.collapsed ? '4px' : '6px 16px',
-                marginBlockStart: this.props.collapsed ? 4 : 8,
-                borderColor: 'var(--pro-layout-nav-color-divider)',
-              },
-            } as NavMenuNode)
-          : undefined,
-      ].filter(Boolean) as NavMenuNode[];
-    }
-
-    const onTitle = (item as MenuDataItem & { onTitleClick?: () => void })
-      .onTitleClick;
-    return {
-      kind: 'item' as const,
-      className: `${baseClassName}-menu-item`,
-      disabled: item.disabled,
-      key: String(item.key! || item.path!),
-      onClick: onTitle ? () => onTitle() : undefined,
-      label: this.getMenuItemPath(item, level, noGroupLevel),
-    };
-  };
-
-  getIntlName = (item: MenuDataItem) => {
-    const { name, locale } = item;
-    const { menu, formatMessage } = this.props;
-    let finalName = name;
-    if (locale && menu?.locale !== false) {
-      finalName = formatMessage?.({
-        id: locale,
-        defaultMessage: name,
-      });
-    }
-    if (this.props.menuTextRender) {
-      return this.props.menuTextRender(item, finalName, this.props);
-    }
-    return finalName;
-  };
-
-  /**
-   * 判断是否是http链接.返回 Link 或 a Judge whether it is http link.return a or Link
-   *
-   * @memberof SiderMenu
-   */
-  getMenuItemPath = (
-    item: MenuDataItem,
-    level: number,
-    noGroupLevel: number,
-  ) => {
-    const itemPath = this.conversionPath(item.path || '/');
-    const {
-      location = { pathname: '/' },
-      isMobile,
-      onCollapse,
-      menuItemRender,
-      iconPrefixes,
-    } = this.props;
-
-    // if local is true formatMessage all name。
-    const menuItemTitle = this.getIntlName(item);
-    const { baseClassName, menu, collapsed } = this.props;
-    const isGroup = menu?.type === 'group';
-    /** Menu 第一级可以有icon，或者 isGroup 时第二级别也要有 */
-    const hasIcon = level === 0 || (isGroup && level === 1);
-    const icon = !hasIcon
-      ? null
-      : getIcon(
-          item.icon,
-          iconPrefixes,
-          `${baseClassName}-icon ${this.props?.hashId}`,
-        );
-
-    // 如果没有 icon 在收起的时候用首字母代替
-    const defaultIcon =
-      collapsed && hasIcon ? getMenuTitleSymbol(menuItemTitle) : null;
-
-    let defaultItem = (
-      <div
+  if (isHttpUrl) {
+    defaultItem = (
+      <span
         key={itemPath}
-        className={clsx(`${baseClassName}-item-title`, this.props?.hashId, {
+        onClick={() => {
+          window?.open?.(itemPath, '_blank');
+        }}
+        className={clsx(`${baseClassName}-item-title`, hashId, {
           [`${baseClassName}-item-title-collapsed`]: collapsed,
           [`${baseClassName}-item-title-collapsed-level-${noGroupLevel}`]:
             collapsed,
+          [`${baseClassName}-item-link`]: true,
           [`${baseClassName}-item-collapsed-show-title`]:
             menu?.collapsedShowTitle && collapsed,
         })}
       >
         <span
-          className={clsx(`${baseClassName}-item-icon`, this.props?.hashId)}
+          className={clsx(`${baseClassName}-item-icon`, hashId)}
           style={{
             display: defaultIcon === null && !icon ? 'none' : '',
           }}
@@ -453,93 +333,175 @@ class MenuUtil {
           {icon || <span>{defaultIcon}</span>}
         </span>
         <span
-          className={clsx(`${baseClassName}-item-text`, this.props?.hashId, {
+          className={clsx(`${baseClassName}-item-text`, hashId, {
             [`${baseClassName}-item-text-has-icon`]:
               hasIcon && (icon || defaultIcon),
           })}
         >
           {menuItemTitle}
         </span>
-      </div>
+      </span>
     );
-    const isHttpUrl = isUrl(itemPath);
-
-    // Is it a http link
-    if (isHttpUrl) {
-      defaultItem = (
-        <span
-          key={itemPath}
-          onClick={() => {
-            window?.open?.(itemPath, '_blank');
-          }}
-          className={clsx(`${baseClassName}-item-title`, this.props?.hashId, {
-            [`${baseClassName}-item-title-collapsed`]: collapsed,
-            [`${baseClassName}-item-title-collapsed-level-${noGroupLevel}`]:
-              collapsed,
-            [`${baseClassName}-item-link`]: true,
-            [`${baseClassName}-item-collapsed-show-title`]:
-              menu?.collapsedShowTitle && collapsed,
-          })}
-        >
-          <span
-            className={clsx(`${baseClassName}-item-icon`, this.props?.hashId)}
-            style={{
-              display: defaultIcon === null && !icon ? 'none' : '',
-            }}
-          >
-            {icon || <span>{defaultIcon}</span>}
-          </span>
-          <span
-            className={clsx(`${baseClassName}-item-text`, this.props?.hashId, {
-              [`${baseClassName}-item-text-has-icon`]:
-                hasIcon && (icon || defaultIcon),
-            })}
-          >
-            {menuItemTitle}
-          </span>
-        </span>
-      );
-    }
-    if (menuItemRender) {
-      const renderItemProps = {
-        ...item,
-        isUrl: isHttpUrl,
-        itemPath,
-        isMobile,
-        replace: itemPath === location.pathname,
-        onClick: () => onCollapse && onCollapse(true),
-        children: undefined,
-      };
-      return level === 0 ? (
-        <MenuItemTooltip
-          collapsed={collapsed}
-          title={menuItemTitle}
-          disable={item.disabledTooltip}
-        >
-          {menuItemRender(renderItemProps, defaultItem, this.props)}
-        </MenuItemTooltip>
-      ) : (
-        menuItemRender(renderItemProps, defaultItem, this.props)
-      );
-    }
+  }
+  if (menuItemRender) {
+    const renderItemProps = {
+      ...item,
+      isUrl: isHttpUrl,
+      itemPath,
+      isMobile,
+      replace: itemPath === location.pathname,
+      onClick: () => onCollapse && onCollapse(true),
+      children: undefined,
+    };
     return level === 0 ? (
       <MenuItemTooltip
         collapsed={collapsed}
         title={menuItemTitle}
         disable={item.disabledTooltip}
       >
-        {defaultItem}
+        {menuItemRender(renderItemProps, defaultItem, ctx)}
       </MenuItemTooltip>
     ) : (
-      defaultItem
+      menuItemRender(renderItemProps, defaultItem, ctx)
     );
-  };
+  }
+  return level === 0 ? (
+    <MenuItemTooltip
+      collapsed={collapsed}
+      title={menuItemTitle}
+      disable={item.disabledTooltip}
+    >
+      {defaultItem}
+    </MenuItemTooltip>
+  ) : (
+    defaultItem
+  );
+}
 
-  conversionPath = (path: string) => {
-    if (path && path.indexOf('http') === 0) {
-      return path;
-    }
-    return `/${path || ''}`.replace(/\/+/g, '/');
+function getSubMenuOrItem(
+  ctx: MenuNavBuildContext,
+  item: MenuDataItem,
+  level: number,
+  noGroupLevel: number,
+): NavMenuNode | NavMenuNode[] {
+  const {
+    subMenuItemRender,
+    baseClassName,
+    collapsed,
+    menu,
+    iconPrefixes,
+    layout,
+    hashId,
+  } = ctx;
+  const isGroup = menu?.type === 'group' && layout !== 'top';
+  const name = getIntlMenuName(ctx, item);
+  const children = item?.children;
+
+  const menuType = isGroup && level === 0 ? ('group' as const) : undefined;
+
+  if (Array.isArray(children) && children.length > 0) {
+    const shouldHasIcon = level === 0 || (isGroup && level === 1);
+
+    const iconDom = getIcon(
+      item.icon,
+      iconPrefixes,
+      `${baseClassName}-icon ${hashId}`,
+    );
+    const defaultIcon =
+      collapsed && shouldHasIcon ? getMenuTitleSymbol(name) : null;
+
+    const defaultTitle = (
+      <div
+        className={clsx(`${baseClassName}-item-title`, hashId, {
+          [`${baseClassName}-item-title-collapsed`]: collapsed,
+          [`${baseClassName}-item-title-collapsed-level-${noGroupLevel}`]:
+            collapsed,
+          [`${baseClassName}-group-item-title`]: menuType === 'group',
+          [`${baseClassName}-item-collapsed-show-title`]:
+            menu?.collapsedShowTitle && collapsed,
+        })}
+      >
+        {menuType === 'group' && collapsed ? null : shouldHasIcon && iconDom ? (
+          <span className={clsx(`${baseClassName}-item-icon`, hashId)}>
+            {iconDom}
+          </span>
+        ) : (
+          defaultIcon
+        )}
+        <span
+          className={clsx(`${baseClassName}-item-text`, hashId, {
+            [`${baseClassName}-item-text-has-icon`]:
+              menuType !== 'group' &&
+              shouldHasIcon &&
+              (iconDom || defaultIcon),
+          })}
+        >
+          {name}
+        </span>
+      </div>
+    );
+
+    const title = subMenuItemRender
+      ? subMenuItemRender({ ...item, isUrl: false }, defaultTitle, ctx)
+      : defaultTitle;
+
+    const nextNoGroupLevel =
+      isGroup && level === 0 && ctx.collapsed ? level : level + 1;
+    const childrenList = children
+      .map((child) => getSubMenuOrItem(ctx, child, level + 1, nextNoGroupLevel))
+      .filter((item) => item)
+      .flat(1) as NavMenuNode[];
+
+    const submenuOrGroup: NavMenuNode =
+      menuType === 'group'
+        ? {
+            kind: 'group',
+            key: String(item.key! || item.path!),
+            label: title,
+            children: childrenList,
+            className: clsx(`${baseClassName}-group`),
+          }
+        : {
+            kind: 'submenu',
+            key: String(item.key! || item.path!),
+            label: title,
+            onTitleClick: (e) => item.onTitleClick?.(e),
+            children: childrenList,
+            hasIcon: !!(shouldHasIcon && iconDom),
+            className: clsx({
+              [`${baseClassName}-submenu`]: true,
+              [`${baseClassName}-submenu-has-icon`]: shouldHasIcon && iconDom,
+            }),
+          };
+
+    return [
+      submenuOrGroup,
+      isGroup && level === 0
+        ? ({
+            kind: 'divider' as const,
+            key: `${item.key! || item.path!}-group-divider`,
+            className: `${baseClassName}-divider`,
+            style: {
+              padding: 0,
+              borderBlockEnd: 0,
+              margin: ctx.collapsed ? '4px' : '6px 16px',
+              marginBlockStart: ctx.collapsed ? 4 : 8,
+              borderColor: 'var(--pro-layout-nav-color-divider)',
+            },
+          } as NavMenuNode)
+        : undefined,
+    ].filter(Boolean) as NavMenuNode[];
+  }
+
+  const onTitle = (item as MenuDataItem & { onTitleClick?: () => void })
+    .onTitleClick;
+  return {
+    kind: 'item' as const,
+    className: `${baseClassName}-menu-item`,
+    disabled: item.disabled,
+    key: String(item.key! || item.path!),
+    onClick: onTitle ? () => onTitle() : undefined,
+    label: getMenuItemPath(ctx, item, level, noGroupLevel),
   };
 }
 
@@ -697,14 +659,15 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
 
   const { wrapSSR, hashId } = useStyle(baseClassName, mode);
 
-  const menuUtils = useMemo(() => {
-    return new MenuUtil({
+  const menuNavCtx = useMemo<MenuNavBuildContext>(
+    () => ({
       ...props,
       menuRenderType,
       baseClassName,
       hashId,
-    });
-  }, [props, menuRenderType, baseClassName, hashId]);
+    }),
+    [props, menuRenderType, baseClassName, hashId],
+  );
 
   if (menu?.loading) {
     return (
@@ -763,7 +726,10 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       selectedKeys={(selectedKeys || []).map((k) => String(k))}
       openKeys={navOpenKeys}
       defaultOpenKeys={defaultOpenKeysRef.current.map((k) => String(k))}
-      nodes={menuUtils.getNavMenuItems(finallyData, 0, 0)}
+      nodes={finallyData
+        .map((item) => getSubMenuOrItem(menuNavCtx, item, 0, 0))
+        .filter(Boolean)
+        .flat(1) as NavMenuNode[]}
       onOpenChange={(_openKeys) => {
         if (!props.collapsed) {
           if (_openKeys.length === 0) {
