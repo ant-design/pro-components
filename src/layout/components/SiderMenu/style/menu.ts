@@ -234,6 +234,20 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         position: 'relative',
       },
 
+      /** 内联子菜单展开/收起：grid 0fr→1fr，无需量高 */
+      [`${c}-submenu-inline-wrap`]: {
+        display: 'grid',
+        gridTemplateRows: '0fr',
+        transition: `grid-template-rows var(--ant-motion-duration-mid, 0.2s) cubic-bezier(0.2, 0, 0, 1)`,
+      },
+      [`${c}-submenu-open > ${c}-submenu-inline-wrap`]: {
+        gridTemplateRows: '1fr',
+      },
+      [`${c}-submenu-inline-wrap-inner`]: {
+        minHeight: 0,
+        overflow: 'hidden',
+      },
+
       [`${c}-submenu-title`]: {
         ...rowItem,
         font: 'inherit',

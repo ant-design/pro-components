@@ -326,18 +326,28 @@ function renderInlineSubmenu(
       >
         {renderSubmenuTitleContent(ctx, isOpen, node.label)}
       </button>
-      {isOpen ? (
-        <ul
+      <div
+        className={clsx(`${baseClassName}-submenu-inline-wrap`, hashId)}
+        {...(!isOpen ? ({ inert: '' } as React.HTMLAttributes<HTMLDivElement>) : {})}
+      >
+        <div
           className={clsx(
-            `${baseClassName}-list`,
-            `${baseClassName}-submenu-children`,
+            `${baseClassName}-submenu-inline-wrap-inner`,
             hashId,
           )}
-          role="menu"
         >
-          {node.children.map((child) => renderNode(ctx, child, depth + 1))}
-        </ul>
-      ) : null}
+          <ul
+            className={clsx(
+              `${baseClassName}-list`,
+              `${baseClassName}-submenu-children`,
+              hashId,
+            )}
+            role="menu"
+          >
+            {node.children.map((child) => renderNode(ctx, child, depth + 1))}
+          </ul>
+        </div>
+      </div>
     </li>
   );
 }
