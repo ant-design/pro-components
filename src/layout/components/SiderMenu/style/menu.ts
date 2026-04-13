@@ -308,7 +308,8 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           minWidth: v('itemHeight'),
           height: v('itemHeight'),
           flexDirection: 'column',
-          justifyContent: 'center',
+          justifyContent: 'flex-start',
+          alignItems: 'flex-start',
           [`${c}-item-icon`]: {
             width: v('iconBox'),
             height: v('iconBox'),
@@ -317,7 +318,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         },
         '&-collapsed-level-0': {
           flexDirection: 'column',
-          justifyContent: 'center',
+          justifyContent: 'flex-start',
         },
         [`&${c}-group-item-title`]: {
           gap: v('itemGap'),
@@ -330,10 +331,10 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           [`&${c}-item-title-collapsed`]: {
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center',
+            alignItems: 'flex-start',
             [`${c}-item-text`]: {
               display: 'inline',
-              textAlign: 'center',
+              textAlign: 'start',
               fontSize: 'calc(var(--ant-font-size, 14px) - 1px)',
               maxHeight: 12,
               lineHeight: '12px',
@@ -432,30 +433,6 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
       /** 根 `nav` 下多个顶级 `li`/片段之间的纵向间距（扁平 DOM 无外包 `ul`） */
       gap: v('stackGap'),
     },
-
-    /** vertical 收起：侧栏宽度动画中左对齐；`data-pro-layout-nav-collapse-settled` 后再收窄居中（由 BaseMenu 延迟设置） */
-    ...(mode === 'vertical'
-      ? {
-          [`&--collapsed:not([data-pro-layout-nav-collapse-settled]) ${c}-item-title-collapsed`]:
-            {
-              width: '100%',
-              minWidth: 0,
-              maxWidth: '100%',
-              marginInline: 0,
-              alignSelf: 'stretch',
-              justifyContent: 'flex-start',
-              alignItems: 'flex-start',
-            },
-          [`&--collapsed[data-pro-layout-nav-collapse-settled] ${c}-item-title-collapsed`]:
-            {
-              width: 20,
-              minWidth: 20,
-              maxWidth: 20,
-              marginInline: 'auto',
-              alignSelf: 'center',
-            },
-        }
-      : {}),
 
     [`${c}--horizontal`]: {
       display: 'flex',

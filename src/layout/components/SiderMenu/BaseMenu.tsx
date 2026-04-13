@@ -87,11 +87,6 @@ export type BaseMenuProps = {
   iconPrefixes?: string;
   /** 合并到自研菜单根节点 `nav` 上的 DOM 属性（不再透传 antd Menu） */
   menuProps?: ProLayoutNavMenuDomProps;
-  /**
-   * 侧栏收起宽度动画结束后（ms）再在根 `nav` 上标记 `data-pro-layout-nav-collapse-settled`，
-   * 用于「动画中左对齐、落定后居中」的菜单项布局；`0` 表示立即 settled（顶栏等场景）。
-   */
-  collapseLayoutDelayMs?: number;
   style?: React.CSSProperties;
   formatMessage?: (message: MessageDescriptor) => string;
 
@@ -533,7 +528,6 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     onSelect: propsOnSelect,
     menuRenderType,
     openKeys: propsOpenKeys,
-    collapseLayoutDelayMs = 0,
   } = props;
 
   const baseClassName = `${prefixClsProp}-base-menu-${mode}`;
@@ -672,26 +666,6 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
 
   const { wrapSSR, hashId } = useStyle(baseClassName, mode);
 
-  const needCollapseLayoutSettle =
-    mode === 'vertical' && !!props.collapsed && collapseLayoutDelayMs > 0;
-  const [collapseLayoutSettled, setCollapseLayoutSettled] = useState(
-    () => !needCollapseLayoutSettle,
-  );
-
-  useEffect(() => {
-    if (!needCollapseLayoutSettle) {
-      setCollapseLayoutSettled(true);
-      return;
-    }
-    setCollapseLayoutSettled(false);
-    const timer = window.setTimeout(() => {
-      setCollapseLayoutSettled(true);
-    }, collapseLayoutDelayMs);
-    return () => {
-      window.clearTimeout(timer);
-    };
-  }, [needCollapseLayoutSettle, collapseLayoutDelayMs, props.collapsed]);
-
   const menuUtils = useMemo(() => {
     return new MenuUtil({
       ...props,
@@ -755,7 +729,6 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       hashId={hashId}
       mode={mode!}
       collapsed={props.collapsed}
-      collapseLayoutSettled={collapseLayoutSettled}
       selectedKeys={(selectedKeys || []).map((k) => String(k))}
       openKeys={inlineOpenKeys}
       defaultOpenKeys={defaultOpenKeysRef.current.map((k) => String(k))}

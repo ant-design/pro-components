@@ -196,9 +196,6 @@ export type SiderMenuProps = {
   style?: CSSProperties;
 } & Pick<BaseMenuProps, Exclude<keyof BaseMenuProps, ['onCollapse']>>;
 
-/** 与 `Sider` 上 `transition: all 0.2s` 对齐，收起宽度动画结束后再切换菜单项居中布局 */
-export const PRO_LAYOUT_SIDER_COLLAPSE_LAYOUT_DELAY_MS = 200;
-
 export type PrivateSiderMenuProps = {
   matchMenuKeys: string[];
   originCollapsed?: boolean;
@@ -284,7 +281,6 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
           key="base-menu"
           mode={collapsed && !isMobile ? 'vertical' : 'inline'}
           onOpenChange={onOpenChange}
-          collapseLayoutDelayMs={!isMobile ? PRO_LAYOUT_SIDER_COLLAPSE_LAYOUT_DELAY_MS : 0}
           style={{
             width: '100%',
           }}
