@@ -96,6 +96,8 @@ interface ProLayoutNavMenuRenderContext {
   mode: MenuMode;
   collapsed?: boolean;
   popupMode: boolean;
+  /** 顶栏/收起侧栏弹出层内：各子菜单展开态（与根 `openKeys` 分离） */
+  nestedPopupOpen: Record<string, boolean>;
   /** 已在浮动子菜单面板内：嵌套子菜单用内联展开，避免再挂一层 portal 导致三级及以上无法展示 */
   insideSubmenuPopup: boolean;
   rootId: string;
@@ -116,6 +118,7 @@ interface ProLayoutNavMenuRenderContext {
     key: string,
     onTitleClick: undefined | ((e: React.MouseEvent<Element>) => void),
     e: React.MouseEvent | React.KeyboardEvent,
+    opts?: { insideSubmenuPopup?: boolean },
   ) => void;
 }
 
@@ -302,8 +305,12 @@ function renderInlineSubmenu(
   node: Extract<NavMenuNode, { kind: 'submenu' }>,
   depth: number,
 ) {
-  const { baseClassName, hashId, openSet, handleSubmenuTitleClick } = ctx;
-  const isOpen = openSet.has(node.key);
+  const { baseClassName, hashId, openSet, handleSubmenuTitleClick, popupMode } =
+    ctx;
+  const isOpen =
+    popupMode && ctx.insideSubmenuPopup
+      ? !!ctx.nestedPopupOpen[node.key]
+      : openSet.has(node.key);
   return (
     <li
       key={node.key}
@@ -324,10 +331,16 @@ function renderInlineSubmenu(
         }
         aria-expanded={isOpen}
         aria-haspopup="true"
-        onClick={(e) => handleSubmenuTitleClick(node.key, node.onTitleClick, e)}
+        onClick={(e) =>
+          handleSubmenuTitleClick(node.key, node.onTitleClick, e, {
+            insideSubmenuPopup: ctx.insideSubmenuPopup,
+          })
+        }
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
-            handleSubmenuTitleClick(node.key, node.onTitleClick, e);
+            handleSubmenuTitleClick(node.key, node.onTitleClick, e, {
+              insideSubmenuPopup: ctx.insideSubmenuPopup,
+            });
           }
         }}
       >
@@ -412,6 +425,14 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
     top: number;
     left: number;
   } | null>(null);
+  /** 弹出层内多级子菜单展开（与根级 `popupOpenKey` 独立，避免顶栏一点击就关掉整层） */
+  const [nestedPopupOpen, setNestedPopupOpen] = useState<Record<string, boolean>>(
+    {},
+  );
+
+  useEffect(() => {
+    setNestedPopupOpen({});
+  }, [popupOpenKey]);
 
   const updatePopupPlacement = useCallback(() => {
     if (!popupMode || !popupOpenKey) {
@@ -459,6 +480,7 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
       const target = e.target as Node;
       if (!popupOpenKey) return;
       if (root?.contains(target)) return;
+      if (popupPanelRef.current?.contains(target)) return;
       setPopupOpenKey(null);
     };
     document.addEventListener('mousedown', handlePointerDown);
@@ -493,10 +515,18 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
       key: string,
       onTitleClick: undefined | ((e: React.MouseEvent<Element>) => void),
       e: React.MouseEvent | React.KeyboardEvent,
+      opts?: { insideSubmenuPopup?: boolean },
     ) => {
       e.preventDefault();
       if (onTitleClick && 'nativeEvent' in e) {
         onTitleClick(e as React.MouseEvent<Element>);
+      }
+      if (popupMode && opts?.insideSubmenuPopup) {
+        setNestedPopupOpen((prev) => ({
+          ...prev,
+          [key]: !prev[key],
+        }));
+        return;
       }
       if (popupMode) {
         setPopupOpenKey((prev) => (prev === key ? null : key));
@@ -529,6 +559,7 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
     mode,
     collapsed,
     popupMode,
+    nestedPopupOpen,
     insideSubmenuPopup: false,
     rootId,
     selectedSet,
