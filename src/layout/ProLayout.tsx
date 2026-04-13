@@ -634,6 +634,12 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     [onCollapseCallback],
   );
 
+  /** `siderMenuType` 为 `sub` | `group` 时必须覆盖 `menu.type`，否则 `menu.type: 'group'` 会让 `||` 取不到 `sub` */
+  const resolvedSiderMenuType =
+    siderMenuType === 'sub' || siderMenuType === 'group'
+      ? siderMenuType
+      : menu?.type;
+
   // Splicing parameters, adding menuData and formatMessage in props
   const defaultProps = omit(
     {
@@ -645,7 +651,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
       breadcrumb,
       menu: {
         ...menu,
-        type: siderMenuType || menu?.type,
+        type: resolvedSiderMenuType,
         loading: menuLoading,
       },
       layout: propsLayout as 'side',

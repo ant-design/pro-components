@@ -442,6 +442,41 @@ describe('BasicLayout', () => {
     wrapper.unmount();
   });
 
+  it('🥩 siderMenuType=sub overrides menu.type group', async () => {
+    const wrapper = render(
+      <ProLayout
+        siderMenuType="sub"
+        menu={{ type: 'group' }}
+        menuDataRender={() => [
+          {
+            path: '/welcome',
+            name: '欢迎',
+            children: [
+              {
+                path: '/welcome/welcome',
+                name: '子页',
+              },
+            ],
+          },
+        ]}
+      >
+        <div />
+      </ProLayout>,
+    );
+
+    await waitFor(() => {
+      expect(
+        wrapper.baseElement.querySelector('[data-pro-layout-nav-group-title]'),
+      ).toBeNull();
+      expect(
+        wrapper.baseElement.querySelectorAll('[data-pro-layout-nav-submenu]')
+          .length,
+      ).toBeGreaterThan(0);
+    });
+
+    wrapper.unmount();
+  });
+
   it('🥩 collapsed vertical: nested submenu (third level) renders inside popup', async () => {
     const html = render(
       <ProLayout
