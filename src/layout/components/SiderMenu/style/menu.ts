@@ -280,10 +280,6 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           transition: 'transform 0.2s ease',
           '& > span': { lineHeight: 0 },
         },
-        [`${c}-submenu-expand-icon${c}-submenu-expand-icon--popup-horizontal${c}-submenu-expand-icon--open`]:
-          {
-            transform: 'rotate(180deg)',
-          },
         [`${c}-submenu-expand-icon${c}-submenu-expand-icon--inline${c}-submenu-expand-icon--open`]:
           {
             transform: 'rotate(90deg)',

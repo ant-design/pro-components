@@ -1,4 +1,4 @@
-import { DownOutlined, RightOutlined } from '@ant-design/icons';
+import { RightOutlined } from '@ant-design/icons';
 import { clsx } from 'clsx';
 import type { CSSProperties, HTMLAttributes } from 'react';
 import React, {
@@ -38,8 +38,14 @@ function renderSubmenuTitleContent(
 ) {
   const { baseClassName, hashId } = ctx;
   const variant = getSubmenuExpandVariant(ctx);
-  const Icon =
-    variant === 'popup-horizontal' ? DownOutlined : RightOutlined;
+  /** 顶栏 horizontal：不展示子菜单展开箭头，与常见顶栏菜单一致 */
+  if (variant === 'popup-horizontal') {
+    return (
+      <span className={clsx(`${baseClassName}-submenu-title-inner`, hashId)}>
+        {label}
+      </span>
+    );
+  }
   return (
     <>
       <span className={clsx(`${baseClassName}-submenu-title-inner`, hashId)}>
@@ -49,14 +55,12 @@ function renderSubmenuTitleContent(
         className={clsx(`${baseClassName}-submenu-expand-icon`, hashId, {
           [`${baseClassName}-submenu-expand-icon--open`]: isOpen,
           [`${baseClassName}-submenu-expand-icon--inline`]: variant === 'inline',
-          [`${baseClassName}-submenu-expand-icon--popup-horizontal`]:
-            variant === 'popup-horizontal',
           [`${baseClassName}-submenu-expand-icon--popup-vertical`]:
             variant === 'popup-vertical',
         })}
         aria-hidden
       >
-        <Icon />
+        <RightOutlined />
       </span>
     </>
   );
