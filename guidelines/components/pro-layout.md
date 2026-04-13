@@ -10,7 +10,7 @@
 
 **API Overview**:
 
-- `layout`: 'side' | 'top' | 'mix'.
+- `layout`: 'side' | 'top' (legacy `mix` maps to `side`).
 - `route`: Route configuration object.
 - `location`: Current location (usually from router).
 - `menuItemRender`: Custom render for menu items.
@@ -30,8 +30,8 @@ export default (props) => {
     <ProLayout
       title="My Application"
       logo="https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg"
-      layout="mix"
-      splitMenus={false}
+      layout="side"
+      splitMenus
       route={{
         routes: [
           {

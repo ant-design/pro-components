@@ -200,7 +200,7 @@ exports[`mobile BasicLayout > 📱 base use 1`] = `
 exports[`mobile BasicLayout > 📱 layout menuHeaderRender 1`] = `
 <DocumentFragment>
   <div
-    class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
+    class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-side"
     data-testid="pro-layout"
   >
     <div
@@ -215,11 +215,7 @@ exports[`mobile BasicLayout > 📱 layout menuHeaderRender 1`] = `
         style="position: relative;"
       >
         <header
-          class="ant-layout-header"
-          style="height: 56px; line-height: 56px; background-color: transparent; z-index: 19;"
-        />
-        <header
-          class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-header"
+          class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-header"
           data-testid="pro-layout-header"
         >
           <div
@@ -270,7 +266,7 @@ exports[`mobile BasicLayout > 📱 layout menuHeaderRender 1`] = `
 exports[`mobile BasicLayout > 📱 layout menuHeaderRender with custom title 1`] = `
 <DocumentFragment>
   <div
-    class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
+    class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-side"
     data-testid="pro-layout"
   >
     <div
@@ -285,11 +281,7 @@ exports[`mobile BasicLayout > 📱 layout menuHeaderRender with custom title 1`]
         style="position: relative;"
       >
         <header
-          class="ant-layout-header"
-          style="height: 56px; line-height: 56px; background-color: transparent; z-index: 19;"
-        />
-        <header
-          class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-header"
+          class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-header"
           data-testid="pro-layout-header"
         >
           <div
@@ -340,7 +332,7 @@ exports[`mobile BasicLayout > 📱 layout menuHeaderRender with custom title 1`]
 exports[`mobile BasicLayout > 📱 layout menuHeaderRender=false 1`] = `
 <DocumentFragment>
   <div
-    class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
+    class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-side"
     data-testid="pro-layout"
   >
     <div
@@ -355,11 +347,7 @@ exports[`mobile BasicLayout > 📱 layout menuHeaderRender=false 1`] = `
         style="position: relative;"
       >
         <header
-          class="ant-layout-header"
-          style="height: 56px; line-height: 56px; background-color: transparent; z-index: 19;"
-        />
-        <header
-          class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-header"
+          class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-header"
           data-testid="pro-layout-header"
         >
           <div
@@ -409,7 +397,7 @@ exports[`mobile BasicLayout > 📱 layout menuHeaderRender=false 1`] = `
 exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
 <DocumentFragment>
   <div
-    class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
+    class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-side"
     data-testid="pro-layout"
   >
     <div
@@ -429,7 +417,7 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
         <div
           class="ant-drawer-content-wrapper ant-drawer-panel-motion-left-appear ant-drawer-panel-motion-left-appear-active ant-drawer-panel-motion-left"
           data-testid="pro-layout-sider"
-          style="width: 215px;"
+          style="width: 240px;"
         >
           <div
             aria-modal="true"
@@ -444,7 +432,7 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
               <aside
                 class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light css-var-rj"
                 data-testid="pro-layout-sider"
-                style="--pro-layout-sider-bg: #f7f8f9; --pro-layout-sider-color-text: var(--ant-color-text-secondary); --pro-layout-sider-color-text-title: var(--ant-color-text); --pro-layout-sider-color-text-secondary: var(--ant-color-text-tertiary); --pro-layout-sider-padding-inline-menu: 8px; --pro-layout-sider-padding-block-menu: 12px; --pro-layout-sider-border-radius: var(--ant-border-radius); --pro-layout-sider-color-bg-hover: var(--ant-color-fill-secondary); --pro-layout-sider-font-size: var(--ant-font-size); max-width: 215px; min-width: 215px; width: 215px; flex-grow: 0; flex-shrink: 0; flex-basis: 215px;"
+                style="--pro-layout-sider-bg: #f7f8f9; --pro-layout-sider-color-text: var(--ant-color-text-secondary); --pro-layout-sider-color-text-title: var(--ant-color-text); --pro-layout-sider-color-text-secondary: var(--ant-color-text-tertiary); --pro-layout-sider-padding-inline-menu: 8px; --pro-layout-sider-padding-block-menu: 12px; --pro-layout-sider-border-radius: var(--ant-border-radius); --pro-layout-sider-color-bg-hover: var(--ant-color-fill-secondary); --pro-layout-sider-font-size: var(--ant-font-size); max-width: 240px; min-width: 240px; width: 240px; flex-grow: 0; flex-shrink: 0; flex-basis: 240px;"
               >
                 <div
                   class="ant-layout-sider-children"
@@ -638,11 +626,7 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
         style="position: relative;"
       >
         <header
-          class="ant-layout-header"
-          style="height: 56px; line-height: 56px; background-color: transparent; z-index: 19;"
-        />
-        <header
-          class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-fixed-header-action ant-pro-layout-header-header"
+          class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header-action ant-pro-layout-header-header"
           data-testid="pro-layout-header"
         >
           <div
@@ -673,7 +657,7 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
               </span>
             </span>
             <span
-              class="ant-pro-global-header-logo ant-pro-global-header-logo-mix ant-pro-global-header-logo-mobile"
+              class="ant-pro-global-header-logo ant-pro-global-header-logo-mobile"
             >
               <a>
                 <svg

@@ -14,7 +14,7 @@ const Demo = () => (
       location={{
         pathname: '/admin/process/edit/123',
       }}
-      layout="mix"
+      layout="side"
       ErrorBoundary={false}
       headerContentRender={() => <ProBreadcrumb />}
       breadcrumbRender={(routers = []) => [

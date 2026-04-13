@@ -67,7 +67,7 @@ describe('BasicLayout', () => {
     const { rerender, container } = render(
       <ProLayout
         {...defaultProps}
-        layout="mix"
+        layout="side"
         splitMenus
         isMobile={false}
         headerContentRender={() => <span />}
@@ -79,7 +79,7 @@ describe('BasicLayout', () => {
     rerender(
       <ProLayout
         {...defaultProps}
-        layout="mix"
+        layout="side"
         splitMenus
         isMobile={false}
         headerContentRender={() => <span />}

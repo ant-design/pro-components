@@ -320,7 +320,7 @@ const renderSiderMenu = (
   let { menuData } = props;
 
   /** 如果是分割菜单模式，需要专门实现一下 */
-  if (splitMenus && (openKeys !== false || layout === 'mix') && !isMobile) {
+  if (splitMenus && openKeys !== false && !isMobile) {
     const [key] = selectedKeys || matchMenuKeys;
     if (key) {
       menuData =
@@ -449,9 +449,8 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
 
   const siderWidth = useMemo(() => {
     if (propsSiderWidth) return propsSiderWidth;
-    if (props.layout === 'mix') return 215;
     return 240;
-  }, [props.layout, propsSiderWidth]);
+  }, [propsSiderWidth]);
 
   const menuCollapsedWidth = menu?.collapsedWidth ?? 48;
 
@@ -581,12 +580,18 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
 
   const {
     fixSiderbar,
-    layout: propsLayout,
+    layout: propsLayoutRaw,
     ...rest
   } = {
     ...props,
     ...currentMenuLayoutProps,
   };
+
+  /** 历史 `mix` 已移除，按侧栏布局处理，避免旧配置直接失效 */
+  const propsLayout: NonNullable<ProSettings['layout']> =
+    (propsLayoutRaw as string | undefined) === 'mix'
+      ? 'side'
+      : propsLayoutRaw ?? 'side';
 
   const colSize = useBreakpoint();
 
@@ -648,7 +653,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
         type: siderMenuType || menu?.type,
         loading: menuLoading,
       },
-      layout: propsLayout as 'side',
+      layout: propsLayout,
     },
     ['className', 'style', 'breadcrumbRender'],
   );

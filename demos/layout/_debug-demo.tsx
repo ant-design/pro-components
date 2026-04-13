@@ -17,7 +17,7 @@ const Demo = () => {
   return (
     <ProLayout
       splitMenus
-      layout="mix"
+      layout="side"
       token={{
         bgLayout: 'rgba(160, 217, 17, 0.1)',
         colorTextAppListIcon: 'rgba(255, 255, 255, 1)',

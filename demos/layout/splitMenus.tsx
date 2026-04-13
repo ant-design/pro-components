@@ -5,16 +5,16 @@ import { demoOnMenuHeaderClick } from './_demoHandlers';
 const Demo = () => {
   return (
     <>
-      <ProLayout {...defaultProps} layout="mix" splitMenus pure>
+      <ProLayout {...defaultProps} layout="side" splitMenus pure>
         <PageContainer>splitMenus + pure</PageContainer>
       </ProLayout>
-      <ProLayout {...defaultProps} layout="mix" splitMenus>
+      <ProLayout {...defaultProps} layout="side" splitMenus>
         <PageContainer>splitMenus</PageContainer>
       </ProLayout>
       <ProLayout
         {...defaultProps}
         breadcrumbRender={false}
-        layout="mix"
+        layout="side"
         splitMenus
         headerRender={false}
         onMenuHeaderClick={demoOnMenuHeaderClick}
@@ -25,7 +25,7 @@ const Demo = () => {
       />
       <ProLayout
         {...defaultProps}
-        layout="mix"
+        layout="side"
         menuExtraRender={() => 'dom'}
         menuHeaderRender={() => <div />}
         splitMenus
@@ -57,7 +57,7 @@ const Demo = () => {
       />
       <ProLayout
         {...defaultProps}
-        layout="mix"
+        layout="side"
         menuHeaderRender={() => null}
         splitMenus
         fixSiderbar
@@ -79,7 +79,7 @@ const Demo = () => {
 
       <ProLayout
         {...defaultProps}
-        layout="mix"
+        layout="side"
         menuHeaderRender={() => null}
         location={{
           pathname: '/welcome',
@@ -102,7 +102,7 @@ const Demo = () => {
       </ProLayout>
       <ProLayout
         {...defaultProps}
-        layout="mix"
+        layout="side"
         menuHeaderRender={() => null}
         splitMenus={false}
         fixSiderbar

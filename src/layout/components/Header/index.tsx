@@ -29,6 +29,12 @@ export type HeaderViewProps = GlobalHeaderProps & {
   headerContentRender?: WithFalse<
     (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
   >;
+  /**
+   * 侧栏布局下顶栏横向菜单：`splitMenus` 时默认为一级菜单；也可单独用来包一层或完全自定义第二参数
+   */
+  headerMenuRender?: WithFalse<
+    (props: HeaderViewProps, defaultMenu: React.ReactNode) => React.ReactNode
+  >;
   siderWidth?: number;
   hasSiderMenu?: boolean;
 };
@@ -47,18 +53,55 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
     layout,
     headerRender,
     headerContentRender,
+    splitMenus,
+    headerMenuRender,
   } = props;
   const { token } = useContext(ProProvider);
   const context = useContext(ConfigProvider.ConfigContext);
   const [isFixedHeaderScroll, setIsFixedHeaderScroll] = useState(false);
-  const needFixedHeader = fixedHeader || layout === 'mix';
+  const needFixedHeader = fixedHeader;
 
   const renderContent = useCallback(() => {
     const isTop = layout === 'top';
     const clearMenuData = clearMenuItem(props.menuData || []);
 
+    const showSideHeaderMenu =
+      layout === 'side' &&
+      !isMobile &&
+      headerMenuRender !== false &&
+      (splitMenus || typeof headerMenuRender === 'function');
+
+    const headerStripMenuData = showSideHeaderMenu
+      ? splitMenus
+        ? clearMenuItem(
+            (props.menuData || []).map((item) => ({
+              ...item,
+              children: undefined,
+              routes: undefined,
+            })),
+          )
+        : clearMenuData
+      : clearMenuData;
+
+    const defaultSideHeaderMenu = showSideHeaderMenu ? (
+      <TopNavHeader
+        mode="horizontal"
+        onCollapse={onCollapse}
+        {...props}
+        layout="top"
+        splitMenus={false}
+        menuData={headerStripMenuData}
+      />
+    ) : null;
+
+    const sideHeaderMenuDom =
+      showSideHeaderMenu && headerMenuRender
+        ? headerMenuRender(props, defaultSideHeaderMenu)
+        : defaultSideHeaderMenu;
+
     let defaultDom = (
       <GlobalHeader onCollapse={onCollapse} {...props} menuData={clearMenuData}>
+        {sideHeaderMenuDom}
         {headerContentRender && headerContentRender(props, null)}
       </GlobalHeader>
     );
@@ -76,7 +119,16 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
       return headerRender(props, defaultDom);
     }
     return defaultDom;
-  }, [headerContentRender, headerRender, isMobile, layout, onCollapse, props]);
+  }, [
+    headerContentRender,
+    headerMenuRender,
+    headerRender,
+    isMobile,
+    layout,
+    onCollapse,
+    props,
+    splitMenus,
+  ]);
   useEffect(() => {
     const dom = context?.getTargetContainer?.() || document.body;
 
@@ -111,6 +163,12 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
   ]);
 
   const isTop = layout === 'top';
+  const showSideHeaderStrip =
+    layout === 'side' &&
+    !isMobile &&
+    headerMenuRender !== false &&
+    (splitMenus || typeof headerMenuRender === 'function');
+
   const baseClassName = `${prefixCls}-layout-header`;
   const { wrapSSR, hashId } = useStyle(baseClassName);
 
@@ -122,14 +180,13 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
   const className = clsx(propsClassName, hashId, baseClassName, {
     [`${baseClassName}-fixed-header`]: needFixedHeader,
     [`${baseClassName}-fixed-header-scroll`]: isFixedHeaderScroll,
-    [`${baseClassName}-mix`]: layout === 'mix',
     [`${baseClassName}-fixed-header-action`]: !collapsed,
     [`${baseClassName}-top-menu`]: isTop,
     [`${baseClassName}-header`]: true,
     [`${baseClassName}-stylish`]: !!props.stylish,
   });
 
-  if (layout === 'side' && !isMobile) return null;
+  if (layout === 'side' && !isMobile && !showSideHeaderStrip) return null;
   return stylish.wrapSSR(
     wrapSSR(
       <>

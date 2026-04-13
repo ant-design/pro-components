@@ -13,7 +13,7 @@ import defaultProps from './_defaultProps';
 
 const Demo = () => {
   const settings: ProSettings | undefined = {
-    layout: 'mix',
+    layout: 'side',
     splitMenus: true,
   };
 

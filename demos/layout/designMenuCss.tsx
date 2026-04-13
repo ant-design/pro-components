@@ -19,7 +19,7 @@ import { demoOnMenuHeaderClick } from './_demoHandlers';
 const Demo = () => {
   const [settings, setSetting] = useState<Partial<ProSettings> | undefined>({
     fixSiderbar: true,
-    layout: 'mix',
+    layout: 'side',
     splitMenus: true,
   });
 

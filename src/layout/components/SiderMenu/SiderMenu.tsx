@@ -64,7 +64,6 @@ export const renderLogoAndTitle = (
   if (props.isMobile) {
     return null;
   }
-  if (layout === 'mix' && renderKey === 'menuHeaderRender') return false;
   if (props.collapsed) {
     return <a key="title">{logoDom}</a>;
   }
@@ -234,9 +233,8 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   const hashId = hashIdFromProvider ?? '';
   const showSiderExtraDom = useMemo(() => {
     if (isMobile) return false;
-    if (layout === 'mix') return false;
     return true;
-  }, [isMobile, layout]);
+  }, [isMobile]);
 
   const baseClassName = `${resolvedPrefixCls}-sider`;
   const linkMenuBaseClassName = `${resolvedPrefixCls}-base-menu-sider`;
@@ -260,12 +258,9 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
 
   const siderClassName = clsx(`${baseClassName}`, hashId, {
     [`${baseClassName}-fixed`]: fixSiderbar,
-    [`${baseClassName}-fixed-mix`]:
-      layout === 'mix' && !isMobile && fixSiderbar,
     [`${baseClassName}-collapsed`]: props.collapsed,
     [`${baseClassName}-layout-${layout}`]: layout && !isMobile,
     [`${baseClassName}-light`]: true,
-    [`${baseClassName}-mix`]: layout === 'mix' && !isMobile,
     [`${baseClassName}-stylish`]: !!stylish,
   });
 

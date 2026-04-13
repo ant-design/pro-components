@@ -292,7 +292,7 @@ const SearchInput = () => {
 const Demo = () => {
   const [settings, setSetting] = useState<Partial<ProSettings> | undefined>({
     fixSiderbar: true,
-    layout: 'mix',
+    layout: 'side',
     splitMenus: true,
   });
 

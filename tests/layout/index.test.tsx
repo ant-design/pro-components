@@ -118,7 +118,8 @@ describe('BasicLayout', () => {
   it('🥩 support headerRender', async () => {
     const wrapper = render(
       <ProLayout
-        layout="mix"
+        layout="side"
+        splitMenus
         headerRender={() => <div id="testid">testid</div>}
       >
         XXX
@@ -607,7 +608,8 @@ describe('BasicLayout', () => {
       >
         <div ref={ref}>
           <ProLayout
-            layout="mix"
+            layout="side"
+            splitMenus
             fixedHeader
             title="fixed-header-scroll"
             stylish={{
@@ -1121,7 +1123,8 @@ describe('BasicLayout', () => {
     const wrapper = render(
       <ProLayout
         headerTitleRender={() => <h2 id="mix-test">mix title</h2>}
-        layout="mix"
+        layout="side"
+        splitMenus
         location={{
           pathname: '/',
         }}
@@ -1140,9 +1143,10 @@ describe('BasicLayout', () => {
       <ProLayout
         pageTitleRender={false}
         onMenuHeaderClick={onMenuHeaderClick}
-        layout="mix"
+        layout="side"
+        {...bigDefaultProps}
         location={{
-          pathname: '/',
+          pathname: '/welcome',
         }}
       />,
     );
@@ -1150,7 +1154,7 @@ describe('BasicLayout', () => {
     await waitForWaitTime(100);
     act(() => {
       wrapper.baseElement
-        .querySelector<HTMLDivElement>('div.ant-pro-global-header-logo')
+        .querySelector<HTMLDivElement>('div.ant-pro-sider-logo')
         ?.click();
     });
     expect(onMenuHeaderClick).toHaveBeenCalled();
@@ -1193,7 +1197,7 @@ describe('BasicLayout', () => {
             path: '/home/search',
             name: '搜索',
             exact: true,
-            layout: 'mix',
+            layout: 'top',
           },
           {
             path: '/home',
@@ -1211,9 +1215,8 @@ describe('BasicLayout', () => {
       const layoutElement =
         wrapper.baseElement.querySelector('.ant-design-pro');
       expect(layoutElement).toBeTruthy();
-      // 检查是否包含 mix 布局类
       expect(
-        layoutElement?.className.includes('ant-pro-layout-mix'),
+        layoutElement?.className.includes('ant-pro-layout-top-menu'),
       ).toBeTruthy();
     });
 
@@ -1234,7 +1237,7 @@ describe('BasicLayout', () => {
               path: '/home/search',
               name: '搜索',
               exact: true,
-              layout: 'mix',
+              layout: 'top',
             },
             {
               path: '/home',
@@ -1251,10 +1254,8 @@ describe('BasicLayout', () => {
       const layoutElement =
         wrapper.baseElement.querySelector('.ant-design-pro');
       expect(layoutElement).toBeTruthy();
-      // 检查是否包含 mix 布局类（因为当前路径匹配的是 mix 布局的菜单项）
       expect(
-        layoutElement?.className.includes('ant-pro-layout-mix') ||
-          layoutElement?.className.includes('ant-pro-layout-top-menu'),
+        layoutElement?.className.includes('ant-pro-layout-top-menu'),
       ).toBeTruthy();
     });
   });
@@ -1323,7 +1324,8 @@ describe('BasicLayout', () => {
           menu={{
             loading: true,
           }}
-          layout="mix"
+          layout="side"
+          splitMenus
           menuDataRender={() => [
             {
               path: '/welcome',

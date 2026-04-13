@@ -22,7 +22,7 @@ order: 0
 
 <code src="../../demos/layout/topMode.tsx" iframe="650" title="顶部导航"></code>
 
-<code src="../../demos/layout/mixMode.tsx" iframe="650" title="混合导航"></code>
+<code src="../../demos/layout/mixMode.tsx" iframe="650" title="顶栏一级 + 侧栏子菜单（splitMenus）"></code>
 
 <code src="../../demos/layout/classicMode.tsx" iframe="650" title="经典导航样式"></code>
 
