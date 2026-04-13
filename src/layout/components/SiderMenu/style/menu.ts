@@ -218,15 +218,47 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
       [`${c}-submenu-title`]: {
         ...rowItem,
         font: 'inherit',
-        /** 子菜单标题内联 DOM（与 leaf 一致） */
-        [`> *`]: {
+        /** 文案区（含 icon+文本）；右侧为展开指示器 */
+        [`${c}-submenu-title-inner`]: {
           flex: 1,
           minWidth: 0,
           display: 'flex',
           flexDirection: 'row',
           alignItems: 'center',
           gap: v('itemGap'),
+          [`> *`]: {
+            flex: 1,
+            minWidth: 0,
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            gap: v('itemGap'),
+          },
         },
+        [`${c}-submenu-expand-icon`]: {
+          display: 'inline-flex',
+          flexShrink: 0,
+          alignItems: 'center',
+          justifyContent: 'center',
+          marginInlineStart: 'auto',
+          color: v('colorIcon'),
+          fontSize: 10,
+          lineHeight: 0,
+          transition: 'transform 0.2s ease',
+          '& > span': { lineHeight: 0 },
+        },
+        [`${c}-submenu-expand-icon${c}-submenu-expand-icon--popup-horizontal${c}-submenu-expand-icon--open`]:
+          {
+            transform: 'rotate(180deg)',
+          },
+        [`${c}-submenu-expand-icon${c}-submenu-expand-icon--inline${c}-submenu-expand-icon--open`]:
+          {
+            transform: 'rotate(90deg)',
+          },
+        [`${c}-submenu-expand-icon${c}-submenu-expand-icon--popup-vertical${c}-submenu-expand-icon--open`]:
+          {
+            transform: 'rotate(90deg)',
+          },
         '&:hover': {
           backgroundColor: v('colorBgHover'),
           color: v('colorTextHover'),

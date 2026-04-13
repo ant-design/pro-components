@@ -1,3 +1,4 @@
+import { DownOutlined, RightOutlined } from '@ant-design/icons';
 import { clsx } from 'clsx';
 import type { CSSProperties, HTMLAttributes } from 'react';
 import React, {
@@ -16,6 +17,50 @@ import type { MenuMode, ProLayoutNavMenuSelectInfo } from './types';
 const MENU_INDENT_PX = 16;
 
 const keyToString = (key: string | number) => String(key);
+
+type SubmenuExpandVariant = 'inline' | 'popup-horizontal' | 'popup-vertical';
+
+function getSubmenuExpandVariant(ctx: {
+  popupMode: boolean;
+  mode: MenuMode;
+}): SubmenuExpandVariant {
+  if (!ctx.popupMode) return 'inline';
+  return ctx.mode === 'horizontal' ? 'popup-horizontal' : 'popup-vertical';
+}
+
+function renderSubmenuTitleContent(
+  ctx: Pick<
+    ProLayoutNavMenuRenderContext,
+    'baseClassName' | 'hashId' | 'mode' | 'popupMode'
+  >,
+  isOpen: boolean,
+  label: React.ReactNode,
+) {
+  const { baseClassName, hashId } = ctx;
+  const variant = getSubmenuExpandVariant(ctx);
+  const Icon =
+    variant === 'popup-horizontal' ? DownOutlined : RightOutlined;
+  return (
+    <>
+      <span className={clsx(`${baseClassName}-submenu-title-inner`, hashId)}>
+        {label}
+      </span>
+      <span
+        className={clsx(`${baseClassName}-submenu-expand-icon`, hashId, {
+          [`${baseClassName}-submenu-expand-icon--open`]: isOpen,
+          [`${baseClassName}-submenu-expand-icon--inline`]: variant === 'inline',
+          [`${baseClassName}-submenu-expand-icon--popup-horizontal`]:
+            variant === 'popup-horizontal',
+          [`${baseClassName}-submenu-expand-icon--popup-vertical`]:
+            variant === 'popup-vertical',
+        })}
+        aria-hidden
+      >
+        <Icon />
+      </span>
+    </>
+  );
+}
 
 export type ProLayoutNavMenuProps = {
   baseClassName: string;
@@ -238,7 +283,7 @@ function renderPopup(
           }
         }}
       >
-        {node.label}
+        {renderSubmenuTitleContent(ctx, isOpen, node.label)}
       </button>
       {popupPanel}
     </React.Fragment>
@@ -279,7 +324,7 @@ function renderInlineSubmenu(
           }
         }}
       >
-        {node.label}
+        {renderSubmenuTitleContent(ctx, isOpen, node.label)}
       </button>
       {isOpen ? (
         <ul
