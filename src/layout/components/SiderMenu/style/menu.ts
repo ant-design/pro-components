@@ -293,16 +293,18 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
             display: 'block',
           },
         },
-        /** 展开指示器随开关联动：`Popover` 触发器无 `li.submenu-open` 祖先，须挂在 `submenu-title--open` 上 */
-        [`${c}-submenu-title--open ${c}-submenu-expand-icon--open:not(${c}-submenu-expand-icon--horizontal)`]:
-          {
+        /**
+         * 须用 `&--open`：若写成 `${c}-submenu-title--open` 平铺在 `${c}-submenu-title` 下，
+         * cssinjs 会拼成 `.submenu-title .submenu-title--open …`，要求错误的后代结构，旋转永远不生效。
+         */
+        '&--open': {
+          [`${c}-submenu-expand-icon--open:not(${c}-submenu-expand-icon--horizontal)`]: {
             transform: 'rotate(90deg)',
           },
-        /** 顶栏一级：向下箭头展开时旋至朝上 */
-        [`${c}-submenu-title--open ${c}-submenu-expand-icon--horizontal.${c}-submenu-expand-icon--open`]:
-          {
+          [`${c}-submenu-expand-icon--horizontal.${c}-submenu-expand-icon--open`]: {
             transform: 'rotate(180deg)',
           },
+        },
         '&:hover': {
           backgroundColor: v('colorBgHover'),
           color: v('colorTextHover'),
