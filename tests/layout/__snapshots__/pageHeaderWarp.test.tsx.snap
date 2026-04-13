@@ -176,9 +176,11 @@ exports[`BasicLayout > base use 1`] = `
                 role="none"
               >
                 <button
+                  aria-controls=":r4:-inline-children-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925"
                   aria-expanded="true"
                   aria-haspopup="true"
                   class="ant-pro-base-menu-vertical-submenu-title ant-pro-base-menu-vertical-submenu-title--open"
+                  id=":r4:-submenu-inline-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925"
                   type="button"
                 >
                   <span
@@ -226,7 +228,9 @@ exports[`BasicLayout > base use 1`] = `
                     class="ant-pro-base-menu-vertical-submenu-expand-wrap-inner"
                   >
                     <ul
+                      aria-labelledby=":r4:-submenu-inline-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925"
                       class="ant-pro-base-menu-vertical-list ant-pro-base-menu-vertical-submenu-children"
+                      id=":r4:-inline-children-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925"
                       role="menu"
                     >
                       <li
@@ -238,6 +242,7 @@ exports[`BasicLayout > base use 1`] = `
                           aria-expanded="false"
                           aria-haspopup="true"
                           class="ant-pro-base-menu-vertical-submenu-title"
+                          id=":r4:-submenu-inline-/welcome"
                           style="padding-inline-start: 16px;"
                           type="button"
                         >
@@ -287,7 +292,9 @@ exports[`BasicLayout > base use 1`] = `
                             class="ant-pro-base-menu-vertical-submenu-expand-wrap-inner"
                           >
                             <ul
+                              aria-labelledby=":r4:-submenu-inline-/welcome"
                               class="ant-pro-base-menu-vertical-list ant-pro-base-menu-vertical-submenu-children"
+                              id=":r4:-inline-children-/welcome"
                               role="menu"
                             >
                               <li
@@ -344,6 +351,19 @@ exports[`BasicLayout > base use 1`] = `
         class="ant-pro-layout-container"
         style="position: relative;"
       >
+        <header
+          class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header-action ant-pro-layout-header-header"
+          data-testid="pro-layout-header"
+        >
+          <div
+            class="ant-pro-global-header"
+            data-testid="pro-layout-global-header"
+          >
+            <div
+              style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
+            />
+          </div>
+        </header>
         <main
           class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
           data-testid="pro-layout-content"
@@ -389,14 +409,14 @@ exports[`BasicLayout > content is text 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout ant-layout-has-sider css-var-r7"
+      class="ant-layout ant-layout-has-sider css-var-r8"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
         style="--pro-layout-sider-bg: #f7f8f9; --pro-layout-sider-color-text: var(--ant-color-text-secondary); --pro-layout-sider-color-text-title: var(--ant-color-text); --pro-layout-sider-color-text-secondary: var(--ant-color-text-tertiary); --pro-layout-sider-padding-inline-menu: 8px; --pro-layout-sider-padding-block-menu: 12px; --pro-layout-sider-border-radius: var(--ant-border-radius); --pro-layout-sider-color-bg-hover: var(--ant-color-fill-secondary); --pro-layout-sider-font-size: var(--ant-font-size); width: 240px; overflow: hidden; max-width: 240px; min-width: 240px; transition: all 0.2s ease 0s; flex-grow: 0; flex-shrink: 0; flex-basis: 240px;"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-r8"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-r9"
         data-testid="pro-layout-sider"
         style="--pro-layout-sider-bg: #f7f8f9; --pro-layout-sider-color-text: var(--ant-color-text-secondary); --pro-layout-sider-color-text-title: var(--ant-color-text); --pro-layout-sider-color-text-secondary: var(--ant-color-text-tertiary); --pro-layout-sider-padding-inline-menu: 8px; --pro-layout-sider-padding-block-menu: 12px; --pro-layout-sider-border-radius: var(--ant-border-radius); --pro-layout-sider-color-bg-hover: var(--ant-color-fill-secondary); --pro-layout-sider-font-size: var(--ant-font-size); max-width: 240px; min-width: 240px; width: 240px; flex-grow: 0; flex-shrink: 0; flex-basis: 240px;"
       >
@@ -555,9 +575,11 @@ exports[`BasicLayout > content is text 1`] = `
                 role="none"
               >
                 <button
+                  aria-controls=":ra:-inline-children-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925"
                   aria-expanded="true"
                   aria-haspopup="true"
                   class="ant-pro-base-menu-vertical-submenu-title ant-pro-base-menu-vertical-submenu-title--open"
+                  id=":ra:-submenu-inline-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925"
                   type="button"
                 >
                   <span
@@ -605,7 +627,9 @@ exports[`BasicLayout > content is text 1`] = `
                     class="ant-pro-base-menu-vertical-submenu-expand-wrap-inner"
                   >
                     <ul
+                      aria-labelledby=":ra:-submenu-inline-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925"
                       class="ant-pro-base-menu-vertical-list ant-pro-base-menu-vertical-submenu-children"
+                      id=":ra:-inline-children-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925"
                       role="menu"
                     >
                       <li
@@ -617,6 +641,7 @@ exports[`BasicLayout > content is text 1`] = `
                           aria-expanded="false"
                           aria-haspopup="true"
                           class="ant-pro-base-menu-vertical-submenu-title"
+                          id=":ra:-submenu-inline-/welcome"
                           style="padding-inline-start: 16px;"
                           type="button"
                         >
@@ -666,7 +691,9 @@ exports[`BasicLayout > content is text 1`] = `
                             class="ant-pro-base-menu-vertical-submenu-expand-wrap-inner"
                           >
                             <ul
+                              aria-labelledby=":ra:-submenu-inline-/welcome"
                               class="ant-pro-base-menu-vertical-list ant-pro-base-menu-vertical-submenu-children"
+                              id=":ra:-inline-children-/welcome"
                               role="menu"
                             >
                               <li
@@ -723,6 +750,19 @@ exports[`BasicLayout > content is text 1`] = `
         class="ant-pro-layout-container"
         style="position: relative;"
       >
+        <header
+          class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header-action ant-pro-layout-header-header"
+          data-testid="pro-layout-header"
+        >
+          <div
+            class="ant-pro-global-header"
+            data-testid="pro-layout-global-header"
+          >
+            <div
+              style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
+            />
+          </div>
+        </header>
         <main
           class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
           data-testid="pro-layout-content"

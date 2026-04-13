@@ -224,12 +224,8 @@ function renderPopup(
   };
 
   /**
-   * Popover 挂 body 时，样式选择器依赖「带 hash 的菜单根」作祖先；
-   * `--horizontal` 只放在外包层，避免与 `-list` 同写在 `ul` 上触发顶栏横向 flex 破坏纵向子项。
-   */
-  /**
-   * 勿加 `--horizontal`：该修饰符下 `[c]--horizontal [c]-item` 等会命中浮层内所有叶子，
-   * 下拉被当成顶栏横条（28px 行高等），布局错乱。仅保留根类名 + hash 以挂载 cssinjs。
+   * Popover 挂 body：外包层带 `baseClassName`+hash 以挂载 cssinjs；勿加 `--horizontal`，否则顶栏
+   * 28px 等规则会命中浮层内纵向子项导致错乱。
    */
   const popupContent = (
     <div
@@ -280,9 +276,9 @@ function renderPopup(
           {
             [`${baseClassName}-submenu-title--open`]: isOpen,
             [`${baseClassName}-submenu-open`]: isOpen,
-            [`${baseClassName}-submenu-has-icon`]: node.className?.includes(
-              'submenu-has-icon',
-            ),
+            [`${baseClassName}-submenu-has-icon`]:
+              !!node.hasIcon ||
+              node.className?.includes('submenu-has-icon'),
           },
         )}
         aria-expanded={isOpen}
@@ -321,6 +317,7 @@ function renderInlineSubmenu(
         ? !!nestedPopupOpen[node.key]
         : openSet.has(node.key)
       : openSet.has(node.key);
+  const inlineSubmenuListId = `${ctx.rootId}-inline-children-${node.key}`;
   return (
     <li
       key={node.key}
@@ -333,14 +330,19 @@ function renderInlineSubmenu(
     >
       <button
         type="button"
+        id={`${ctx.rootId}-submenu-inline-${node.key}`}
         className={clsx(`${baseClassName}-submenu-title`, hashId, {
           [`${baseClassName}-submenu-title--open`]: isOpen,
+          [`${baseClassName}-submenu-has-icon`]:
+            !!node.hasIcon ||
+            node.className?.includes('submenu-has-icon'),
         })}
         style={
           depth > 0 ? { paddingInlineStart: depth * MENU_INDENT_PX } : undefined
         }
         aria-expanded={isOpen}
         aria-haspopup="true"
+        aria-controls={isOpen ? inlineSubmenuListId : undefined}
         onClick={(e) =>
           handleSubmenuTitleClick(node.key, node.onTitleClick, e, {
             insideSubmenuPopup: ctx.insideSubmenuPopup,
@@ -367,12 +369,14 @@ function renderInlineSubmenu(
           )}
         >
           <ul
+            id={inlineSubmenuListId}
             className={clsx(
               `${baseClassName}-list`,
               `${baseClassName}-submenu-children`,
               hashId,
             )}
             role="menu"
+            aria-labelledby={`${ctx.rootId}-submenu-inline-${node.key}`}
           >
             {node.children.map((child) => renderNode(ctx, child, depth + 1))}
           </ul>
@@ -420,8 +424,15 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
   nodes,
   className,
   style,
-  ...restNavProps
+  ...restNavPropsRaw
 }) => {
+  /** 避免调用方经 `menuProps` 覆盖根 `nav` 的 `role` / hash `className` / `style` */
+  const {
+    role: _stripRole,
+    className: _stripClassName,
+    style: _stripStyle,
+    ...restNavProps
+  } = restNavPropsRaw as HTMLAttributes<HTMLElement>;
   const popupMode = isPopupMode(mode, collapsed);
   const rootId = useId();
   const [popupOpenKey, setPopupOpenKey] = useState<string | null>(() => {
@@ -452,12 +463,13 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
     setNestedPopupOpen(initial);
   }, [popupOpenKey]);
 
+  const defaultOpenKeysSerialized = JSON.stringify(defaultOpenKeys);
   useEffect(() => {
     if (!popupMode) return;
     if (defaultOpenKeys.length > 0) {
       setPopupOpenKey(defaultOpenKeys[0] ?? null);
     }
-  }, [popupMode, defaultOpenKeys.join(',')]);
+  }, [popupMode, defaultOpenKeysSerialized]);
 
   const selectedSet = useMemo(
     () => new Set(selectedKeys.map(keyToString)),

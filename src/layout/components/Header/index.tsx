@@ -163,11 +163,6 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
   ]);
 
   const isTop = layout === 'top';
-  const showSideHeaderStrip =
-    layout === 'side' &&
-    !isMobile &&
-    headerMenuRender !== false &&
-    (splitMenus || typeof headerMenuRender === 'function');
 
   const baseClassName = `${prefixCls}-layout-header`;
   const { wrapSSR, hashId } = useStyle(baseClassName);
@@ -186,7 +181,6 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
     [`${baseClassName}-stylish`]: !!props.stylish,
   });
 
-  if (layout === 'side' && !isMobile && !showSideHeaderStrip) return null;
   return stylish.wrapSSR(
     wrapSSR(
       <>

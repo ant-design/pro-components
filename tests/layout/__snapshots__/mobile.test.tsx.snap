@@ -453,9 +453,11 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
                         role="none"
                       >
                         <button
+                          aria-controls=":ro:-inline-children-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925"
                           aria-expanded="true"
                           aria-haspopup="true"
                           class="ant-pro-base-menu-vertical-submenu-title ant-pro-base-menu-vertical-submenu-title--open"
+                          id=":ro:-submenu-inline-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925"
                           type="button"
                         >
                           <span
@@ -503,7 +505,9 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
                             class="ant-pro-base-menu-vertical-submenu-expand-wrap-inner"
                           >
                             <ul
+                              aria-labelledby=":ro:-submenu-inline-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925"
                               class="ant-pro-base-menu-vertical-list ant-pro-base-menu-vertical-submenu-children"
+                              id=":ro:-inline-children-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925"
                               role="menu"
                             >
                               <li
@@ -515,6 +519,7 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
                                   aria-expanded="false"
                                   aria-haspopup="true"
                                   class="ant-pro-base-menu-vertical-submenu-title"
+                                  id=":ro:-submenu-inline-/welcome"
                                   style="padding-inline-start: 16px;"
                                   type="button"
                                 >
@@ -564,7 +569,9 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
                                     class="ant-pro-base-menu-vertical-submenu-expand-wrap-inner"
                                   >
                                     <ul
+                                      aria-labelledby=":ro:-submenu-inline-/welcome"
                                       class="ant-pro-base-menu-vertical-list ant-pro-base-menu-vertical-submenu-children"
+                                      id=":ro:-inline-children-/welcome"
                                       role="menu"
                                     >
                                       <li

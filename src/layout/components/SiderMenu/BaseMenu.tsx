@@ -341,6 +341,7 @@ class MenuUtil {
               label: title,
               onTitleClick: (e) => item.onTitleClick?.(e),
               children: childrenList,
+              hasIcon: !!(shouldHasIcon && iconDom),
               className: clsx({
                 [`${baseClassName}-submenu`]: true,
                 [`${baseClassName}-submenu-has-icon`]:
