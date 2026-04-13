@@ -185,7 +185,7 @@ function renderPopup(
     isOpen && typeof document !== 'undefined' ? (
       createPortal(
         <ul
-          ref={popupPanelRef}
+          ref={popupPanelRef as React.Ref<HTMLUListElement>}
           id={`${rootId}-popup-${node.key}`}
           role="menu"
           aria-labelledby={`${rootId}-submenu-${node.key}`}
@@ -517,11 +517,6 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
           [`${baseClassName}--horizontal`]: true,
           [`${baseClassName}--collapsed`]: !!collapsed,
         })}
-        data-pro-layout-nav-collapse-settled={
-          mode === 'vertical' && collapsed && collapseLayoutSettled
-            ? ''
-            : undefined
-        }
         style={style}
         role="menubar"
       >

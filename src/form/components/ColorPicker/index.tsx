@@ -1,15 +1,17 @@
-﻿import type { PopoverProps, ColorPickerProps } from 'antd';
+﻿import type { PopoverProps } from 'antd';
 import React from 'react';
 import { FieldColorPicker } from '../../../field';
 import { ProConfigProvider } from '../../../provider';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProFromField from '../Field';
 
-export type ProFormColorPickerProps =
-  ProFormFieldItemProps<ColorPickerProps> & {
-    popoverProps?: PopoverProps;
-    colors?: string[];
-  };
+/** 使用宽松字段类型，避免 d.ts 生成时拉入 `@rc-component/color-picker` 导致 TS2742 */
+export type ProFormColorPickerProps = ProFormFieldItemProps<
+  Record<string, unknown>
+> & {
+  popoverProps?: PopoverProps;
+  colors?: string[];
+};
 
 /**
  * 颜色选择组件

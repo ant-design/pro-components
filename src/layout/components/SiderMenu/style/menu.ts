@@ -1,3 +1,4 @@
+import type { CSSInterpolation } from '@ant-design/cssinjs';
 import type { CSSProperties } from 'react';
 import type { GenerateStyle } from '../../../../provider';
 import { useStyle as useAntdStyle } from '../../../../provider';
@@ -500,7 +501,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
     },
 
     [`${c}-link`]: { display: 'block' },
-  };
+  } as CSSInterpolation;
 };
 
 export function useStyle(prefixCls: string, mode: MenuMode | undefined) {
