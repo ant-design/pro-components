@@ -229,9 +229,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         '&--selected': {
           backgroundColor: v('colorBgSelected'),
           color: v('colorTextSelected'),
-          /** 选中态：柔和外环，无下划线 */
-          boxShadow: `0 0 0 2px var(--ant-color-primary-bg, rgba(22, 119, 255, 0.12))`,
-          transition: `background-color var(--ant-motion-duration-mid, 0.2s), color var(--ant-motion-duration-mid, 0.2s), box-shadow var(--ant-motion-duration-mid, 0.2s)`,
+          transition: `background-color var(--ant-motion-duration-mid, 0.2s), color var(--ant-motion-duration-mid, 0.2s)`,
         },
         '&--disabled': {
           cursor: 'not-allowed',
