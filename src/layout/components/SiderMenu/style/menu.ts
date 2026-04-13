@@ -458,18 +458,38 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         alignItems: 'center',
         gap: v('stackGap'),
       },
+      /** 顶部模式行高 28px（与常见顶栏菜单一致） */
       [`${c}-item`]: {
         width: 'auto',
-        minHeight: 'auto',
-        height: 'auto',
+        minHeight: 28,
+        height: 28,
         whiteSpace: 'nowrap',
+        paddingBlock: 0,
         paddingInline: 'var(--ant-padding-sm, 12px)',
+        [`> *`]: {
+          minHeight: 28,
+          height: 28,
+        },
       },
       [`${c}-submenu`]: { display: 'inline-block' },
       [`${c}-submenu-title`]: {
         width: 'auto',
-        minHeight: 'auto',
-        height: 'auto',
+        minHeight: 28,
+        height: 28,
+        paddingBlock: 0,
+        paddingInline: 'var(--ant-padding-sm, 12px)',
+        [`> *`]: {
+          minHeight: 28,
+          height: 28,
+        },
+      },
+      [`${c}-item-title`]: {
+        minHeight: 28,
+        height: 28,
+        lineHeight: '28px',
+      },
+      [`${c}-item-title ${c}-item-text`]: {
+        lineHeight: '28px',
       },
       [`${c}-submenu-popup`]: {
         [`${c}-item-title`]: { alignItems: 'flex-start' },
