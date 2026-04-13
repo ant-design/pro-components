@@ -233,19 +233,29 @@ function renderPopup(
     }
   };
 
+  /**
+   * Popover 挂 body 时，样式选择器依赖「带 hash 的菜单根」作祖先；
+   * `--horizontal` 只放在外包层，避免与 `-list` 同写在 `ul` 上触发顶栏横向 flex 破坏纵向子项。
+   */
   const popupContent = (
-    <ul
-      id={`${rootId}-popup-${node.key}`}
-      role="menu"
-      aria-labelledby={`${rootId}-submenu-${node.key}`}
-      className={clsx(
-        `${baseClassName}-list`,
-        `${baseClassName}-submenu-popup`,
-        hashId,
-      )}
+    <div
+      className={clsx(baseClassName, hashId, {
+        [`${baseClassName}--horizontal`]: ctx.mode === 'horizontal',
+        [`${baseClassName}--collapsed`]: !!ctx.collapsed,
+      })}
     >
-      {node.children.map((child) => renderNode(popupCtx, child, depth + 1))}
-    </ul>
+      <ul
+        id={`${rootId}-popup-${node.key}`}
+        role="menu"
+        aria-labelledby={`${rootId}-submenu-${node.key}`}
+        className={clsx(
+          `${baseClassName}-list`,
+          `${baseClassName}-submenu-popup`,
+        )}
+      >
+        {node.children.map((child) => renderNode(popupCtx, child, depth + 1))}
+      </ul>
+    </div>
   );
 
   return (
