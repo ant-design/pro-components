@@ -18,13 +18,13 @@ const MENU_INDENT_PX = 16;
 
 const keyToString = (key: string | number) => String(key);
 
-type SubmenuExpandVariant = 'inline' | 'popup-horizontal' | 'popup-vertical';
+type SubmenuExpandVariant = 'sider' | 'popup-horizontal' | 'popup-vertical';
 
 function getSubmenuExpandVariant(ctx: {
   popupMode: boolean;
   mode: MenuMode;
 }): SubmenuExpandVariant {
-  if (!ctx.popupMode) return 'inline';
+  if (!ctx.popupMode) return 'sider';
   return ctx.mode === 'horizontal' ? 'popup-horizontal' : 'popup-vertical';
 }
 
@@ -54,7 +54,7 @@ function renderSubmenuTitleContent(
       <span
         className={clsx(`${baseClassName}-submenu-expand-icon`, hashId, {
           [`${baseClassName}-submenu-expand-icon--open`]: isOpen,
-          [`${baseClassName}-submenu-expand-icon--inline`]: variant === 'inline',
+          [`${baseClassName}-submenu-expand-icon--sider`]: variant === 'sider',
           [`${baseClassName}-submenu-expand-icon--popup-vertical`]:
             variant === 'popup-vertical',
         })}
@@ -94,6 +94,7 @@ interface ProLayoutNavMenuRenderContext {
   baseClassName: string;
   hashId: string;
   mode: MenuMode;
+  collapsed?: boolean;
   popupMode: boolean;
   /** 已在浮动子菜单面板内：嵌套子菜单用内联展开，避免再挂一层 portal 导致三级及以上无法展示 */
   insideSubmenuPopup: boolean;
@@ -175,20 +176,22 @@ function renderGroup(
   node: Extract<NavMenuNode, { kind: 'group' }>,
   depth: number,
 ) {
-  const { baseClassName, hashId } = ctx;
+  const { baseClassName, hashId, collapsed } = ctx;
   return (
     <li
       key={node.key}
       className={clsx(`${baseClassName}-group`, hashId, node.className)}
       role="presentation"
     >
-      <div
-        className={clsx(`${baseClassName}-group-title`, hashId)}
-        data-pro-layout-nav-group-title
-        role="presentation"
-      >
-        {node.label}
-      </div>
+      {!collapsed ? (
+        <div
+          className={clsx(`${baseClassName}-group-title`, hashId)}
+          data-pro-layout-nav-group-title
+          role="presentation"
+        >
+          {node.label}
+        </div>
+      ) : null}
       <ul
         className={clsx(`${baseClassName}-group-list`, hashId)}
         role="group"
@@ -331,12 +334,12 @@ function renderInlineSubmenu(
         {renderSubmenuTitleContent(ctx, isOpen, node.label)}
       </button>
       <div
-        className={clsx(`${baseClassName}-submenu-inline-wrap`, hashId)}
+        className={clsx(`${baseClassName}-submenu-expand-wrap`, hashId)}
         {...(!isOpen ? ({ inert: '' } as React.HTMLAttributes<HTMLDivElement>) : {})}
       >
         <div
           className={clsx(
-            `${baseClassName}-submenu-inline-wrap-inner`,
+            `${baseClassName}-submenu-expand-wrap-inner`,
             hashId,
           )}
         >
@@ -524,6 +527,7 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
     baseClassName,
     hashId,
     mode,
+    collapsed,
     popupMode,
     insideSubmenuPopup: false,
     rootId,

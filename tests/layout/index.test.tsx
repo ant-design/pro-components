@@ -83,12 +83,18 @@ describe('BasicLayout', () => {
 
     await waitForWaitTime(100);
 
-    const titleRow = wrapper.baseElement.querySelector<HTMLElement>(
-      '.ant-pro-base-menu-inline-item .ant-pro-base-menu-inline-item-title',
+    const item = wrapper.baseElement.querySelector<HTMLElement>(
+      '.ant-pro-base-menu-vertical-item',
     );
+    const titleRow = item?.querySelector<HTMLElement>(
+      '.ant-pro-base-menu-vertical-item-title',
+    );
+    const clickWrap = item?.querySelector<HTMLElement>('[role="button"]');
 
     expect(titleRow).toBeTruthy();
-    expect(getComputedStyle(titleRow!).width).toBe('100%');
+    expect(clickWrap).toBeTruthy();
+    expect(clickWrap?.parentElement).toBe(item);
+    expect(clickWrap?.contains(titleRow!)).toBe(true);
 
     wrapper.unmount();
   });
@@ -424,13 +430,11 @@ describe('BasicLayout', () => {
       </ProLayout>,
     );
 
-    // 收起态：`menu.type === 'group'` 时仍有分组标题节点，应用 CSS 隐藏
+    // 收起态：分组标题节点不渲染（与侧栏窄宽度一致）
     await waitFor(() => {
-      const title = wrapper.baseElement.querySelector<HTMLElement>(
-        '[data-pro-layout-nav-group-title]',
-      );
-      expect(title).toBeTruthy();
-      expect(getComputedStyle(title!).display).toBe('none');
+      expect(
+        wrapper.baseElement.querySelector('[data-pro-layout-nav-group-title]'),
+      ).toBeNull();
     });
 
     // collapsed 的时候action 将会消失
@@ -1186,7 +1190,7 @@ describe('BasicLayout', () => {
     // 欢迎不存在
     expect(
       wrapper.baseElement.querySelector<HTMLDivElement>(
-        'li.ant-pro-base-menu-inline-item',
+        'li.ant-pro-base-menu-vertical-item',
       )
         ?.innerText,
     ).not.toContain('欢迎');

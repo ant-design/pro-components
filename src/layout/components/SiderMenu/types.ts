@@ -9,14 +9,9 @@ import type {
 } from './navMenuTypes';
 
 /**
- * 主导航渲染模式（与历史 antd Menu `mode` 命名对齐）。
+ * 主导航渲染模式：顶栏 `horizontal`，侧栏 `vertical`（展开与收起均如此，收起时子菜单为弹出层）。
  */
-export type MenuMode =
-  | 'vertical'
-  | 'vertical-left'
-  | 'vertical-right'
-  | 'horizontal'
-  | 'inline';
+export type MenuMode = 'vertical' | 'horizontal';
 
 /**
  * 可合并到 `ProLayoutNavMenu` 根节点 `<nav>` 上的 DOM 属性。

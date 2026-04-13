@@ -164,13 +164,13 @@ exports[`BasicLayout > base use 1`] = `
             style="overflow-y: auto; overflow-x: hidden; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
           >
             <nav
-              class="ant-pro-sider-menu ant-pro-base-menu-inline ant-pro-sider-menu ant-pro-base-menu-inline ant-pro-base-menu-inline-list ant-pro-base-menu-inline-list--root"
+              class="ant-pro-sider-menu ant-pro-base-menu-vertical ant-pro-sider-menu ant-pro-base-menu-vertical ant-pro-base-menu-vertical-list ant-pro-base-menu-vertical-list--root"
               data-pro-layout-nav-root="true"
               role="menu"
               style="background-color: transparent; border: none none; width: 100%;"
             >
               <li
-                class="ant-pro-base-menu-inline-submenu ant-pro-base-menu-inline-submenu ant-pro-base-menu-inline-submenu-open"
+                class="ant-pro-base-menu-vertical-submenu ant-pro-base-menu-vertical-submenu ant-pro-base-menu-vertical-submenu-open"
                 data-pro-layout-nav-submenu="true"
                 data-pro-layout-nav-submenu-open="true"
                 role="none"
@@ -178,47 +178,148 @@ exports[`BasicLayout > base use 1`] = `
                 <button
                   aria-expanded="true"
                   aria-haspopup="true"
-                  class="ant-pro-base-menu-inline-submenu-title ant-pro-base-menu-inline-submenu-title--open"
+                  class="ant-pro-base-menu-vertical-submenu-title ant-pro-base-menu-vertical-submenu-title--open"
                   type="button"
                 >
-                  <div
-                    class="ant-pro-base-menu-inline-item-title"
+                  <span
+                    class="ant-pro-base-menu-vertical-submenu-title-inner"
+                  >
+                    <div
+                      class="ant-pro-base-menu-vertical-item-title"
+                    >
+                      <span
+                        class="ant-pro-base-menu-vertical-item-text"
+                      >
+                        welcome
+                      </span>
+                    </div>
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="ant-pro-base-menu-vertical-submenu-expand-icon ant-pro-base-menu-vertical-submenu-expand-icon--open ant-pro-base-menu-vertical-submenu-expand-icon--sider"
                   >
                     <span
-                      class="ant-pro-base-menu-inline-item-text"
+                      aria-label="right"
+                      class="anticon anticon-right"
+                      role="img"
                     >
-                      welcome
-                    </span>
-                  </div>
-                </button>
-                <ul
-                  class="ant-pro-base-menu-inline-list ant-pro-base-menu-inline-submenu-children"
-                  role="menu"
-                >
-                  <li
-                    class="ant-pro-base-menu-inline-submenu ant-pro-base-menu-inline-submenu"
-                    data-pro-layout-nav-submenu="true"
-                    role="none"
-                  >
-                    <button
-                      aria-expanded="false"
-                      aria-haspopup="true"
-                      class="ant-pro-base-menu-inline-submenu-title"
-                      style="padding-inline-start: 16px;"
-                      type="button"
-                    >
-                      <div
-                        class="ant-pro-base-menu-inline-item-title"
+                      <svg
+                        aria-hidden="true"
+                        data-icon="right"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
                       >
-                        <span
-                          class="ant-pro-base-menu-inline-item-text"
+                        <path
+                          d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <div
+                  class="ant-pro-base-menu-vertical-submenu-expand-wrap"
+                >
+                  <div
+                    class="ant-pro-base-menu-vertical-submenu-expand-wrap-inner"
+                  >
+                    <ul
+                      class="ant-pro-base-menu-vertical-list ant-pro-base-menu-vertical-submenu-children"
+                      role="menu"
+                    >
+                      <li
+                        class="ant-pro-base-menu-vertical-submenu ant-pro-base-menu-vertical-submenu"
+                        data-pro-layout-nav-submenu="true"
+                        role="none"
+                      >
+                        <button
+                          aria-expanded="false"
+                          aria-haspopup="true"
+                          class="ant-pro-base-menu-vertical-submenu-title"
+                          style="padding-inline-start: 16px;"
+                          type="button"
                         >
-                          one
-                        </span>
-                      </div>
-                    </button>
-                  </li>
-                </ul>
+                          <span
+                            class="ant-pro-base-menu-vertical-submenu-title-inner"
+                          >
+                            <div
+                              class="ant-pro-base-menu-vertical-item-title"
+                            >
+                              <span
+                                class="ant-pro-base-menu-vertical-item-text"
+                              >
+                                one
+                              </span>
+                            </div>
+                          </span>
+                          <span
+                            aria-hidden="true"
+                            class="ant-pro-base-menu-vertical-submenu-expand-icon ant-pro-base-menu-vertical-submenu-expand-icon--sider"
+                          >
+                            <span
+                              aria-label="right"
+                              class="anticon anticon-right"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="right"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </button>
+                        <div
+                          class="ant-pro-base-menu-vertical-submenu-expand-wrap"
+                          inert=""
+                        >
+                          <div
+                            class="ant-pro-base-menu-vertical-submenu-expand-wrap-inner"
+                          >
+                            <ul
+                              class="ant-pro-base-menu-vertical-list ant-pro-base-menu-vertical-submenu-children"
+                              role="menu"
+                            >
+                              <li
+                                class="ant-pro-base-menu-vertical-item ant-pro-base-menu-vertical-menu-item"
+                                data-pro-layout-nav-leaf="true"
+                                role="menuitem"
+                                style="padding-inline-start: 32px;"
+                                tabindex="0"
+                              >
+                                <div
+                                  class="ant-pro-base-menu-vertical-item-title"
+                                >
+                                  <span
+                                    class="ant-pro-base-menu-vertical-item-icon"
+                                    style="display: none;"
+                                  >
+                                    <span />
+                                  </span>
+                                  <span
+                                    class="ant-pro-base-menu-vertical-item-text"
+                                  >
+                                    two
+                                  </span>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </li>
             </nav>
           </div>
@@ -442,13 +543,13 @@ exports[`BasicLayout > content is text 1`] = `
             style="overflow-y: auto; overflow-x: hidden; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
           >
             <nav
-              class="ant-pro-sider-menu ant-pro-base-menu-inline ant-pro-sider-menu ant-pro-base-menu-inline ant-pro-base-menu-inline-list ant-pro-base-menu-inline-list--root"
+              class="ant-pro-sider-menu ant-pro-base-menu-vertical ant-pro-sider-menu ant-pro-base-menu-vertical ant-pro-base-menu-vertical-list ant-pro-base-menu-vertical-list--root"
               data-pro-layout-nav-root="true"
               role="menu"
               style="background-color: transparent; border: none none; width: 100%;"
             >
               <li
-                class="ant-pro-base-menu-inline-submenu ant-pro-base-menu-inline-submenu ant-pro-base-menu-inline-submenu-open"
+                class="ant-pro-base-menu-vertical-submenu ant-pro-base-menu-vertical-submenu ant-pro-base-menu-vertical-submenu-open"
                 data-pro-layout-nav-submenu="true"
                 data-pro-layout-nav-submenu-open="true"
                 role="none"
@@ -456,47 +557,148 @@ exports[`BasicLayout > content is text 1`] = `
                 <button
                   aria-expanded="true"
                   aria-haspopup="true"
-                  class="ant-pro-base-menu-inline-submenu-title ant-pro-base-menu-inline-submenu-title--open"
+                  class="ant-pro-base-menu-vertical-submenu-title ant-pro-base-menu-vertical-submenu-title--open"
                   type="button"
                 >
-                  <div
-                    class="ant-pro-base-menu-inline-item-title"
+                  <span
+                    class="ant-pro-base-menu-vertical-submenu-title-inner"
+                  >
+                    <div
+                      class="ant-pro-base-menu-vertical-item-title"
+                    >
+                      <span
+                        class="ant-pro-base-menu-vertical-item-text"
+                      >
+                        welcome
+                      </span>
+                    </div>
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="ant-pro-base-menu-vertical-submenu-expand-icon ant-pro-base-menu-vertical-submenu-expand-icon--open ant-pro-base-menu-vertical-submenu-expand-icon--sider"
                   >
                     <span
-                      class="ant-pro-base-menu-inline-item-text"
+                      aria-label="right"
+                      class="anticon anticon-right"
+                      role="img"
                     >
-                      welcome
-                    </span>
-                  </div>
-                </button>
-                <ul
-                  class="ant-pro-base-menu-inline-list ant-pro-base-menu-inline-submenu-children"
-                  role="menu"
-                >
-                  <li
-                    class="ant-pro-base-menu-inline-submenu ant-pro-base-menu-inline-submenu"
-                    data-pro-layout-nav-submenu="true"
-                    role="none"
-                  >
-                    <button
-                      aria-expanded="false"
-                      aria-haspopup="true"
-                      class="ant-pro-base-menu-inline-submenu-title"
-                      style="padding-inline-start: 16px;"
-                      type="button"
-                    >
-                      <div
-                        class="ant-pro-base-menu-inline-item-title"
+                      <svg
+                        aria-hidden="true"
+                        data-icon="right"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
                       >
-                        <span
-                          class="ant-pro-base-menu-inline-item-text"
+                        <path
+                          d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <div
+                  class="ant-pro-base-menu-vertical-submenu-expand-wrap"
+                >
+                  <div
+                    class="ant-pro-base-menu-vertical-submenu-expand-wrap-inner"
+                  >
+                    <ul
+                      class="ant-pro-base-menu-vertical-list ant-pro-base-menu-vertical-submenu-children"
+                      role="menu"
+                    >
+                      <li
+                        class="ant-pro-base-menu-vertical-submenu ant-pro-base-menu-vertical-submenu"
+                        data-pro-layout-nav-submenu="true"
+                        role="none"
+                      >
+                        <button
+                          aria-expanded="false"
+                          aria-haspopup="true"
+                          class="ant-pro-base-menu-vertical-submenu-title"
+                          style="padding-inline-start: 16px;"
+                          type="button"
                         >
-                          one
-                        </span>
-                      </div>
-                    </button>
-                  </li>
-                </ul>
+                          <span
+                            class="ant-pro-base-menu-vertical-submenu-title-inner"
+                          >
+                            <div
+                              class="ant-pro-base-menu-vertical-item-title"
+                            >
+                              <span
+                                class="ant-pro-base-menu-vertical-item-text"
+                              >
+                                one
+                              </span>
+                            </div>
+                          </span>
+                          <span
+                            aria-hidden="true"
+                            class="ant-pro-base-menu-vertical-submenu-expand-icon ant-pro-base-menu-vertical-submenu-expand-icon--sider"
+                          >
+                            <span
+                              aria-label="right"
+                              class="anticon anticon-right"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="right"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </button>
+                        <div
+                          class="ant-pro-base-menu-vertical-submenu-expand-wrap"
+                          inert=""
+                        >
+                          <div
+                            class="ant-pro-base-menu-vertical-submenu-expand-wrap-inner"
+                          >
+                            <ul
+                              class="ant-pro-base-menu-vertical-list ant-pro-base-menu-vertical-submenu-children"
+                              role="menu"
+                            >
+                              <li
+                                class="ant-pro-base-menu-vertical-item ant-pro-base-menu-vertical-menu-item"
+                                data-pro-layout-nav-leaf="true"
+                                role="menuitem"
+                                style="padding-inline-start: 32px;"
+                                tabindex="0"
+                              >
+                                <div
+                                  class="ant-pro-base-menu-vertical-item-title"
+                                >
+                                  <span
+                                    class="ant-pro-base-menu-vertical-item-icon"
+                                    style="display: none;"
+                                  >
+                                    <span />
+                                  </span>
+                                  <span
+                                    class="ant-pro-base-menu-vertical-item-text"
+                                  >
+                                    two
+                                  </span>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </li>
             </nav>
           </div>

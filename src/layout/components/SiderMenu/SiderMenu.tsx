@@ -239,8 +239,8 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   }, [isMobile, layout]);
 
   const baseClassName = `${resolvedPrefixCls}-sider`;
-  const linkMenuBaseClassName = `${resolvedPrefixCls}-base-menu-inline`;
-  useBaseMenuStyle(linkMenuBaseClassName, 'inline');
+  const linkMenuBaseClassName = `${resolvedPrefixCls}-base-menu-sider`;
+  useBaseMenuStyle(linkMenuBaseClassName, 'vertical');
 
   const siderCssVarsStyle = useMemo(
     () => getProLayoutSiderCssVarsStyle(),
@@ -279,7 +279,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         <BaseMenu
           {...props}
           key="base-menu"
-          mode={collapsed && !isMobile ? 'vertical' : 'inline'}
+          mode="vertical"
           onOpenChange={onOpenChange}
           style={{
             width: '100%',
@@ -457,7 +457,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
             <ProLayoutNavMenu
               baseClassName={linkMenuBaseClassName}
               hashId={hashId}
-              mode="inline"
+              mode="vertical"
               collapsed={collapsed}
               selectedKeys={[]}
               openKeys={[]}

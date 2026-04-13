@@ -213,6 +213,15 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           alignItems: 'center',
           gap: v('itemGap'),
         },
+        /** `menuItemRender` 常见用 `role="button"` 扩大点击区域 */
+        [`> [role="button"]`]: {
+          flex: 1,
+          minWidth: 0,
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
+          gap: v('itemGap'),
+        },
         '&:hover:not(&--disabled)': {
           backgroundColor: v('colorBgHover'),
           color: v('colorTextHover'),
@@ -235,15 +244,15 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
       },
 
       /** 内联子菜单展开/收起：grid 0fr→1fr，无需量高 */
-      [`${c}-submenu-inline-wrap`]: {
+      [`${c}-submenu-expand-wrap`]: {
         display: 'grid',
         gridTemplateRows: '0fr',
         transition: `grid-template-rows var(--ant-motion-duration-mid, 0.2s) cubic-bezier(0.2, 0, 0, 1)`,
       },
-      [`${c}-submenu-open > ${c}-submenu-inline-wrap`]: {
+      [`${c}-submenu-open > ${c}-submenu-expand-wrap`]: {
         gridTemplateRows: '1fr',
       },
-      [`${c}-submenu-inline-wrap-inner`]: {
+      [`${c}-submenu-expand-wrap-inner`]: {
         minHeight: 0,
         overflow: 'hidden',
       },
@@ -280,7 +289,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           transition: 'transform 0.2s ease',
           '& > span': { lineHeight: 0 },
         },
-        [`${c}-submenu-expand-icon${c}-submenu-expand-icon--inline${c}-submenu-expand-icon--open`]:
+        [`${c}-submenu-expand-icon${c}-submenu-expand-icon--sider${c}-submenu-expand-icon--open`]:
           {
             transform: 'rotate(90deg)',
           },
@@ -294,7 +303,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         },
       },
 
-      /** 子菜单展开列表（原 submenu-inline，类名缩短避免与 li.submenu 语义重复） */
+      /** 侧栏内联展开的子菜单列表 */
       [`${c}-submenu-children`]: {
         listStyle: 'none',
         margin: 0,
@@ -482,11 +491,12 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           backgroundColor: v('colorBgSelected'),
           borderRadius: v('itemRadius'),
         },
-        /** 侧栏收起：不展示分组标题，仅保留图标型菜单项 */
-        [`${c}-group ${c}-group-title`]: {
-          display: 'none',
-        },
       },
+    },
+
+    /** 侧栏收起：不展示分组标题（完整选择器，避免嵌套编译差异） */
+    [`${c}--collapsed ${c}-group ${c}-group-title`]: {
+      display: 'none',
     },
 
     [`${c}:not(${c}--horizontal)`]: {
@@ -549,6 +559,6 @@ export function useStyle(prefixCls: string, mode: MenuMode | undefined) {
     const proLayoutMenuToken: ProLayoutBaseMenuToken = {
       componentCls: `.${prefixCls}`,
     };
-    return [genProLayoutBaseMenuStyle(proLayoutMenuToken, mode || 'inline')];
+    return [genProLayoutBaseMenuStyle(proLayoutMenuToken, mode || 'vertical')];
   });
 }

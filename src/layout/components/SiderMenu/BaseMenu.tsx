@@ -709,7 +709,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     return (
       <div
         style={
-          mode?.includes('inline')
+          mode !== 'horizontal'
             ? { padding: 24 }
             : {
                 marginBlockStart: 16,
@@ -720,7 +720,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
           active
           title={false}
           paragraph={{
-            rows: mode?.includes('inline') ? 6 : 1,
+            rows: mode !== 'horizontal' ? 6 : 1,
           }}
         />
       </div>
@@ -745,7 +745,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   const { className: menuPropsClassName, style: menuPropsStyle, ...restMenuProps } =
     props.menuProps || {};
 
-  const inlineOpenKeys =
+  const navOpenKeys =
     propsOpenKeys === false
       ? []
       : openKeys === false
@@ -760,7 +760,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       mode={mode!}
       collapsed={props.collapsed}
       selectedKeys={(selectedKeys || []).map((k) => String(k))}
-      openKeys={inlineOpenKeys}
+      openKeys={navOpenKeys}
       defaultOpenKeys={defaultOpenKeysRef.current.map((k) => String(k))}
       nodes={menuUtils.getNavMenuItems(finallyData, 0, 0)}
       onOpenChange={(_openKeys) => {
