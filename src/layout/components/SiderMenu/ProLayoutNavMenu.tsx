@@ -1,4 +1,3 @@
-import { RightOutlined } from '@ant-design/icons';
 import { Popover } from 'antd';
 import { clsx } from 'clsx';
 import type { CSSProperties, HTMLAttributes } from 'react';
@@ -17,51 +16,15 @@ const MENU_INDENT_PX = 16;
 
 const keyToString = (key: string | number) => String(key);
 
-type SubmenuExpandVariant = 'sider' | 'popup-horizontal' | 'popup-vertical';
-
-function getSubmenuExpandVariant(ctx: {
-  popupMode: boolean;
-  mode: MenuMode;
-}): SubmenuExpandVariant {
-  if (!ctx.popupMode) return 'sider';
-  return ctx.mode === 'horizontal' ? 'popup-horizontal' : 'popup-vertical';
-}
-
 function renderSubmenuTitleContent(
-  ctx: Pick<
-    ProLayoutNavMenuRenderContext,
-    'baseClassName' | 'hashId' | 'mode' | 'popupMode'
-  >,
-  isOpen: boolean,
+  ctx: Pick<ProLayoutNavMenuRenderContext, 'baseClassName' | 'hashId'>,
   label: React.ReactNode,
 ) {
   const { baseClassName, hashId } = ctx;
-  const variant = getSubmenuExpandVariant(ctx);
-  /** 顶栏 horizontal：不展示子菜单展开箭头，与常见顶栏菜单一致 */
-  if (variant === 'popup-horizontal') {
-    return (
-      <span className={clsx(`${baseClassName}-submenu-title-inner`, hashId)}>
-        {label}
-      </span>
-    );
-  }
   return (
-    <>
-      <span className={clsx(`${baseClassName}-submenu-title-inner`, hashId)}>
-        {label}
-      </span>
-      <span
-        className={clsx(`${baseClassName}-submenu-expand-icon`, hashId, {
-          [`${baseClassName}-submenu-expand-icon--open`]: isOpen,
-          [`${baseClassName}-submenu-expand-icon--sider`]: variant === 'sider',
-          [`${baseClassName}-submenu-expand-icon--popup-vertical`]:
-            variant === 'popup-vertical',
-        })}
-        aria-hidden
-      >
-        <RightOutlined />
-      </span>
-    </>
+    <span className={clsx(`${baseClassName}-submenu-title-inner`, hashId)}>
+      {label}
+    </span>
   );
 }
 
@@ -266,6 +229,7 @@ function renderPopup(
     <Popover
       key={node.key}
       open={isOpen}
+      arrow={false}
       onOpenChange={(nextOpen) => {
         setNestedPopupOpen({});
         setPopupOpenKey(nextOpen ? node.key : null);
@@ -310,7 +274,7 @@ function renderPopup(
           }
         }}
       >
-        {renderSubmenuTitleContent(ctx, isOpen, node.label)}
+        {renderSubmenuTitleContent(ctx, node.label)}
       </button>
     </Popover>
   );
@@ -363,7 +327,7 @@ function renderInlineSubmenu(
           }
         }}
       >
-        {renderSubmenuTitleContent(ctx, isOpen, node.label)}
+        {renderSubmenuTitleContent(ctx, node.label)}
       </button>
       <div
         className={clsx(`${baseClassName}-submenu-expand-wrap`, hashId)}
