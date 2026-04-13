@@ -3,6 +3,8 @@ import { useControlledState } from '@rc-component/util';
 import { ConfigProvider, Skeleton, Tooltip } from 'antd';
 import { clsx } from 'clsx';
 import React, {
+  cloneElement,
+  isValidElement,
   useCallback,
   useContext,
   useEffect,
@@ -53,6 +55,34 @@ const MenuItemTooltip = (props: {
 
   if (props.disable) {
     return props.children as React.JSX.Element;
+  }
+
+  /** 展开或过渡中：不包 Tooltip，避免多一层触发器 DOM */
+  if (!props.collapsed) {
+    return <>{props.children}</>;
+  }
+
+  const simpleTitle =
+    typeof props.title === 'string' || typeof props.title === 'number';
+
+  if (simpleTitle && isValidElement(props.children)) {
+    const t = String(props.title);
+    return cloneElement(props.children, {
+      title: t,
+      'aria-label': t,
+    } as React.HTMLAttributes<HTMLElement>);
+  }
+
+  if (simpleTitle) {
+    return (
+      <span
+        data-pro-layout-menu-item-title-wrap
+        title={String(props.title)}
+        aria-label={String(props.title)}
+      >
+        {props.children}
+      </span>
+    );
   }
 
   return (

@@ -185,8 +185,27 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
       [`${c}-item`]: {
         listStyle: 'none',
         ...rowItem,
-        /** 标题区（icon+文案）直接作为子节点，省一层 wrapper */
-        [`> *`]: {
+        /** 只对标题根节点拉伸，避免 Tooltip 等外包层占满一行导致收起态比图标大 */
+        [`> ${c}-item-title`]: {
+          flex: 1,
+          minWidth: 0,
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
+          gap: v('itemGap'),
+        },
+        /** `menuItemRender` 常见为 `<Link><defaultDom/></Link>` */
+        [`> a`]: {
+          flex: 1,
+          minWidth: 0,
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
+          gap: v('itemGap'),
+          color: 'inherit',
+          textDecoration: 'none',
+        },
+        [`> [data-pro-layout-menu-item-title-wrap]`]: {
           flex: 1,
           minWidth: 0,
           display: 'flex',
@@ -337,7 +356,9 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           whiteSpace: 'nowrap',
         },
         '&-collapsed': {
-          minWidth: v('itemHeight'),
+          width: 'fit-content',
+          maxWidth: '100%',
+          minWidth: v('iconBox'),
           height: v('itemHeight'),
           flexDirection: 'column',
           justifyContent: 'flex-start',
@@ -443,7 +464,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           paddingInlineEnd: 0,
         },
         [`${c}-item-title`]: {
-          width: '100%',
+          width: 'fit-content',
           maxWidth: '100%',
           overflow: 'visible',
         },

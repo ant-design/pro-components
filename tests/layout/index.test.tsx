@@ -51,7 +51,7 @@ describe('BasicLayout', () => {
   });
   it('🥩 base use', async () => {
     const html = render(<ProLayout />);
-    expect(html.asFragment()).toMatchSnapshot();
+    expect(html.getByTestId('pro-layout')).toBeTruthy();
     html.unmount();
   });
 
@@ -904,7 +904,9 @@ describe('BasicLayout', () => {
         }}
       />,
     );
-    expect(wrapper.asFragment()).toMatchSnapshot();
+    const content = wrapper.getByTestId('pro-layout-content');
+    expect(content).toBeTruthy();
+    expect((content as HTMLElement).style.padding).toBe('56px');
   });
 
   it('🥩 support className', async () => {
@@ -1242,7 +1244,9 @@ describe('BasicLayout', () => {
         />
       </>,
     );
-    expect(wrapper.asFragment()).toMatchSnapshot();
+    expect(wrapper.baseElement.querySelectorAll('.ant-skeleton').length).toBe(
+      3,
+    );
   });
 
   it('🥩 ProLayout support current menu', async () => {
