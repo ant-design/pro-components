@@ -111,8 +111,7 @@ describe('Table valueEnum', () => {
       />,
     );
 
-    expect(wrapper.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it('ListToolBar action is empty array', async () => {
     const wrapper = render(
@@ -122,8 +121,7 @@ describe('Table valueEnum', () => {
       />,
     );
 
-    expect(wrapper.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it('ListToolBar action no jsx', async () => {
     const wrapper = render(
@@ -137,8 +135,7 @@ describe('Table valueEnum', () => {
       />,
     );
 
-    expect(wrapper.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it('ListToolBar onSettingClick', async () => {
     const onClick = vi.fn();

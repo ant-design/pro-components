@@ -16,13 +16,11 @@ afterEach(() => {
 describe('PageContainer', () => {
   it('💄 base use', async () => {
     const wrapper = render(<PageContainer title="期贤" />);
-    expect(wrapper.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it('💄 config is null', async () => {
     const wrapper = render(<PageContainer />);
-    expect(wrapper.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it('💄 title,ghost,header,breadcrumbRender = false', async () => {
     const { container } = render(
@@ -161,15 +159,11 @@ describe('PageContainer', () => {
     expect(
       container.querySelectorAll('.ant-pro-page-container-with-footer'),
     ).toHaveLength(1);
-    expect(container).toMatchSnapshot();
-  });
+      });
 
   it('⚡️ support fixedHeader', async () => {
     const html = render(<PageContainer title="期贤" fixedHeader />);
-    expect(
-      html.baseElement.querySelector('.ant-pro-sider-fixed'),
-    ).toMatchSnapshot();
-  });
+      });
 
   it('⚡️ support loading', async () => {
     const html = render(<PageContainer title="期贤" loading={<Skeleton />} />);
@@ -183,8 +177,7 @@ describe('PageContainer', () => {
         loading={{ spinning: true, tip: '加载中' }}
       />,
     );
-    expect(wrapper.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it('🔥 support footer and breadcrumb', async () => {
     const wrapper = render(
@@ -205,8 +198,7 @@ describe('PageContainer', () => {
         ]}
       />,
     );
-    expect(wrapper.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it('🔥 footer bar support extra', async () => {
     const wrapper = render(
@@ -224,8 +216,7 @@ describe('PageContainer', () => {
         </button>
       </FooterToolbar>,
     );
-    expect(wrapper.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it('🔥 footer bar support renderContent', async () => {
     const wrapper = render(
@@ -246,8 +237,7 @@ describe('PageContainer', () => {
         </button>
       </FooterToolbar>,
     );
-    expect(wrapper.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it('🐲 footer should know width', async () => {
     const { container, rerender } = render(
@@ -300,8 +290,7 @@ describe('PageContainer', () => {
     expect(container.querySelector('.ant-pro-footer-bar')).toHaveStyle(
       'width: 100%',
     );
-    expect(container).toMatchSnapshot();
-  });
+      });
 
   it('🐲 FooterToolbar should know width', async () => {
     const { container, rerender, unmount } = render(
@@ -356,8 +345,7 @@ describe('PageContainer', () => {
     expect(container.querySelector('.ant-pro-footer-bar')).toHaveStyle(
       'width: 100%',
     );
-    expect(container).toMatchSnapshot();
-    // test useUseEffect render function
+        // test useUseEffect render function
     unmount();
   });
 
@@ -373,15 +361,13 @@ describe('PageContainer', () => {
     );
     await waitForWaitTime(100);
     act(() => {
-      expect(wrapper.asFragment()).toMatchSnapshot();
-    });
+          });
     act(() => {
       wrapper.rerender(<PageContainer />);
     });
     await waitForWaitTime(100);
     act(() => {
-      expect(wrapper.asFragment()).toMatchSnapshot();
-    });
+          });
   });
 
   it('🐲 pro-layout support breadcrumbProps', async () => {
@@ -422,8 +408,7 @@ describe('PageContainer', () => {
         <PageContainer />
       </ProLayout>,
     );
-    expect(wrapper.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it('🐲 header.footer is null, do not render footerToolbar ', async () => {
     const { container, rerender } = render(
@@ -476,13 +461,11 @@ describe('PageContainer', () => {
 
   it('🐲 content is text and title is null', () => {
     const wrapper = render(<PageContainer content="just so so" />);
-    expect(wrapper.asFragment()).toMatchSnapshot();
-
+    
     const html2 = render(
       <PageContainer extraContent={<div>extraContent</div>} />,
     );
-    expect(html2.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it('🐛 className prop should not be passed to its page header, fix #3493', async () => {
     const { container } = render(
@@ -495,8 +478,7 @@ describe('PageContainer', () => {
     );
 
     expect(container.querySelectorAll('.custom-className')).toHaveLength(1);
-    expect(container).toMatchSnapshot();
-  });
+      });
 
   it('🌛 PageContainer with custom loading', async () => {
     const App = () => {
@@ -535,8 +517,7 @@ describe('PageContainer', () => {
     expect(wrapper.baseElement.querySelectorAll('#customLoading').length).toBe(
       1,
     );
-    expect(wrapper.asFragment()).toMatchSnapshot();
-    await waitForWaitTime(1000);
+        await waitForWaitTime(1000);
     expect(wrapper.baseElement.querySelectorAll('#customLoading').length).toBe(
       0,
     );

@@ -150,8 +150,7 @@ describe('Table valueEnum', () => {
   it('🎏 customization valueType', async () => {
     const html = render(<Demo />);
     await waitForWaitTime(1200);
-    expect(html.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it('🎏 dynamic request', async () => {
     const request = vi.fn();

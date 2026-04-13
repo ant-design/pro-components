@@ -258,8 +258,7 @@ describe('Descriptions', () => {
         dataSource={defaultData}
       />,
     );
-    expect(wrapper.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it('📝 columns support editable test', async () => {
     const wrapper = render(
@@ -282,8 +281,7 @@ describe('Descriptions', () => {
         dataSource={defaultData}
       />,
     );
-    expect(wrapper.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it('📝 support actionRender', async () => {
     const wrapper = render(

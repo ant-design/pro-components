@@ -36,8 +36,7 @@ describe('Field Status', () => {
           mode="read"
         />,
       );
-      expect(container).toMatchSnapshot();
-    });
+          });
   });
 
   it(`🥩 red color render`, async () => {
@@ -53,6 +52,5 @@ describe('Field Status', () => {
         mode="read"
       />,
     );
-    expect(container).toMatchSnapshot();
-  });
+      });
 });

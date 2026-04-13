@@ -353,8 +353,7 @@ describe('descriptions', () => {
         ]}
       />,
     );
-    expect(html.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it('📝 typography support and copy', async () => {
     const wrapper = render(

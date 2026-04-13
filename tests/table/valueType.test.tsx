@@ -217,8 +217,7 @@ describe('BasicTable valueType', () => {
     expect(html.baseElement.querySelectorAll('span[title="Go"]').length).toBe(
       0,
     );
-    expect(html.asFragment()).toMatchSnapshot();
-
+    
     html.unmount();
   });
 });

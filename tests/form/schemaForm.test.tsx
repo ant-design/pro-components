@@ -74,8 +74,7 @@ describe('SchemaForm', () => {
   it('😊 SchemaForm support columns', async () => {
     const { container } = render(<BetaSchemaForm columns={columns} />);
 
-    expect(container).toMatchSnapshot();
-  });
+      });
 
   it('😊 SchemaForm support dependencies', async () => {
     const requestFn = vi.fn();

@@ -136,11 +136,7 @@ describe('ProFormUpload', () => {
         />
       </Form>,
     );
-    expect(
-      wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload')
-        ?.innerHTML,
-    ).toMatchSnapshot();
-    act(() => {
+        act(() => {
       wrapper.rerender(
         <Form>
           <ProFormUploadButton

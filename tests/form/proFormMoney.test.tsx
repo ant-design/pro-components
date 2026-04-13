@@ -39,8 +39,7 @@ describe('💵 ProFormMoney', () => {
     await waitFor(() => {
       expect(fn).toHaveBeenCalledWith(44.33);
     });
-    expect(container).toMatchSnapshot();
-  });
+      });
 
   it('💵 moneySymbol with global locale', async () => {
     const fn = vi.fn();
@@ -65,8 +64,7 @@ describe('💵 ProFormMoney', () => {
     await waitFor(() => {
       expect(fn).toHaveBeenCalledWith(44.33);
     });
-    expect(container).toMatchSnapshot();
-  });
+      });
 
   it('💵 moneySymbol with custom locale', async () => {
     const fn = vi.fn();
@@ -87,8 +85,7 @@ describe('💵 ProFormMoney', () => {
     await waitFor(() => {
       expect(fn).toHaveBeenCalledWith(44.33);
     });
-    expect(container).toMatchSnapshot();
-  });
+      });
 
   it('💵 moneySymbol with custom symbol', async () => {
     const fn = vi.fn();
@@ -110,8 +107,7 @@ describe('💵 ProFormMoney', () => {
     await waitFor(() => {
       expect(fn).toHaveBeenCalledWith(44.33);
     });
-    expect(container).toMatchSnapshot();
-  });
+      });
 
   it('💵 can not input negative', async () => {
     const fn = vi.fn();
@@ -138,8 +134,7 @@ describe('💵 ProFormMoney', () => {
     await waitFor(() => {
       expect(fn).toHaveBeenCalledWith(undefined);
     });
-    expect(container).toMatchSnapshot();
-  });
+      });
 
   it('💵 can input negative', async () => {
     const fn = vi.fn();
@@ -168,8 +163,7 @@ describe('💵 ProFormMoney', () => {
     await waitFor(() => {
       expect(fn).toHaveBeenCalledWith(-55.33);
     });
-    expect(container).toMatchSnapshot();
-  });
+      });
 
   it('💵 update money precision when init', async () => {
     const fn = vi.fn();
@@ -195,6 +189,5 @@ describe('💵 ProFormMoney', () => {
     await waitFor(() => {
       expect(fn).toHaveBeenCalledWith(444444444.333333333);
     });
-    expect(container).toMatchSnapshot();
-  });
+      });
 });

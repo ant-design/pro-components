@@ -51,7 +51,6 @@
     "test": "cross-env TZ=UTC vitest run",
     "test:coverage": "cross-env TZ=UTC TEST_LOG=none vitest run --coverage",
     "test:ui": "cross-env TZ=UTC vitest --ui",
-    "test:update": "cross-env TZ=UTC  vitest -u",
     "tsc": "tsc --noEmit",
     "publish:beta": "npm publish --tag beta",
     "update:deps": "pnpm up --latest"

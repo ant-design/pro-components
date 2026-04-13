@@ -73,7 +73,6 @@ pnpm test               # 运行测试（vitest）
 pnpm run lint           # 代码检查（eslint + tsc）
 pnpm run prettier       # 代码格式化
 pnpm run test:coverage  # 测试覆盖率报告
-pnpm run test:update    # 更新测试快照
 ```
 
 ### 项目结构
@@ -308,7 +307,6 @@ import type { RefType } from './types';
 ```bash
 pnpm test                  # 运行所有测试
 pnpm run test:coverage     # 生成覆盖率报告
-pnpm run test:update       # 更新测试快照
 pnpm run test:ui           # 启动 Vitest UI
 ```
 
@@ -538,12 +536,6 @@ pnpm run tsc
 ```
 
 ### 测试相关问题
-
-#### 快照测试失败
-
-```bash
-pnpm run test:update
-```
 
 ### 构建相关问题
 

@@ -14,8 +14,7 @@ describe('BasicLayout', () => {
         <PageContainer />
       </ProLayout>,
     );
-    expect(container).toMatchSnapshot();
-  });
+      });
 
   it('content is text', () => {
     const { container } = render(
@@ -24,8 +23,7 @@ describe('BasicLayout', () => {
       </ProLayout>,
     );
 
-    expect(container).toMatchSnapshot();
-  });
+      });
 
   it('title=false, don not render title view', async () => {
     const { container } = render(

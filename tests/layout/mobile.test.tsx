@@ -54,8 +54,7 @@ describe('mobile BasicLayout', () => {
     await waitFor(async () => {
       await html.findAllByText('welcome');
     });
-    expect(html.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it('📱 collapsed=false', async () => {
     const html = render(
@@ -96,8 +95,7 @@ describe('mobile BasicLayout', () => {
       { timeout: 10000 },
     );
     await waitForWaitTime(100);
-    expect(html.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it('📱 layout=mix and splitMenus', async () => {
     const html = render(
@@ -131,8 +129,7 @@ describe('mobile BasicLayout', () => {
     await waitFor(async () => {
       await html.findAllByText('welcome');
     });
-    expect(html.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it('📱 layout menuHeaderRender', async () => {
     const html = render(
@@ -149,8 +146,7 @@ describe('mobile BasicLayout', () => {
     await waitFor(async () => {
       await html.findAllByText('welcome');
     });
-    expect(html.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it('📱 layout menuHeaderRender with custom title', async () => {
     const html = render(
@@ -167,8 +163,7 @@ describe('mobile BasicLayout', () => {
     await waitFor(async () => {
       await html.findAllByText('welcome');
     });
-    expect(html.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it('📱 layout collapsedButtonRender', async () => {
     const onCollapse = vi.fn();

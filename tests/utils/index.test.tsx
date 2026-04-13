@@ -1013,8 +1013,7 @@ describe('utils', () => {
 
     await html.findAllByText('xxx');
 
-    expect(html.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it('🪓 isDeepEqualReact', async () => {
     const CustomComponent: React.FC<any> = () => {

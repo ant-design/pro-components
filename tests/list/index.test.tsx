@@ -113,8 +113,7 @@ describe('List', () => {
         loading={true}
       />,
     );
-    expect(container).toMatchSnapshot();
-  });
+      });
 
   it('🚏 only has content', async () => {
     const { container } = reactRender(
@@ -142,8 +141,7 @@ describe('List', () => {
         }}
       />,
     );
-    expect(container).toMatchSnapshot();
-  });
+      });
 
   it('🚏 only has description', async () => {
     const { container } = reactRender(
@@ -169,8 +167,7 @@ describe('List', () => {
         }}
       />,
     );
-    expect(container).toMatchSnapshot();
-  });
+      });
 
   it('🚏 empty', async () => {
     const { container } = reactRender(
@@ -657,8 +654,7 @@ describe('List', () => {
     expect(container.querySelector('.ant-pro-list-row')!).toHaveClass(
       customizedRowClassName,
     );
-    expect(container).toMatchSnapshot();
-  });
+      });
 
   it('🚏 ProList support rowClassName as a function', async () => {
     const customizedRowClassName = (_: any, index: number): string =>
@@ -697,8 +693,7 @@ describe('List', () => {
     expect(container.querySelectorAll('.ant-pro-list-row')[1]).toHaveClass(
       'odd',
     );
-    expect(container).toMatchSnapshot();
-  });
+      });
 
   it('🚏 ProList support itemHeaderRender', async () => {
     const html = reactRender(

@@ -243,14 +243,6 @@ npm test -- tests/form
 npm run lint
 ```
 
-若修改了 `src/form` 下实现且可能影响快照：
-
-```bash
-npm run test:update -- tests/form
-```
-
-（仅在快照变更**符合预期**时使用，并在 PR 中说明。）
-
 触及 `BaseForm` 请求/URL 逻辑时，建议额外跑与 query、初始值相关的用例（如 `queryFilter`、`lightFilter` 相关测试，若存在）。
 
 ### 与人读章节的对应关系

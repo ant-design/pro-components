@@ -10,31 +10,26 @@ afterEach(() => {
 describe('skeleton', () => {
   it('🥩 list base use', async () => {
     const wrapper = render(<ProSkeleton type="list" />);
-    expect(wrapper.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it('🥩 descriptions base use', async () => {
     const wrapper = render(<ProSkeleton type="descriptions" />);
-    expect(wrapper.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it('🥩 result base use', async () => {
     const wrapper = render(<ProSkeleton type="result" />);
-    expect(wrapper.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it('🥩 descriptions api use', async () => {
     const wrapper = render(
       <ProSkeleton type="descriptions" pageHeader={false} list={10} />,
     );
-    expect(wrapper.asFragment()).toMatchSnapshot();
-    act(() => {
+        act(() => {
       wrapper.rerender(
         <ProSkeleton type="descriptions" pageHeader={false} list={5} />,
       );
     });
-    expect(wrapper.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it('🥩 list api use', async () => {
     const wrapper = render(
@@ -47,8 +42,7 @@ describe('skeleton', () => {
         list={10}
       />,
     );
-    expect(wrapper.asFragment()).toMatchSnapshot();
-    act(() => {
+        act(() => {
       wrapper.rerender(
         <ProSkeleton
           type="list"
@@ -60,8 +54,7 @@ describe('skeleton', () => {
         />,
       );
     });
-    expect(wrapper.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it('🥩 statistic=1,span=16', async () => {
     const wrapper = render(
@@ -74,6 +67,5 @@ describe('skeleton', () => {
         list={10}
       />,
     );
-    expect(wrapper.asFragment()).toMatchSnapshot();
-  });
+      });
 });

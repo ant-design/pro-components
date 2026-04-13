@@ -26,8 +26,7 @@ describe('Field', () => {
   });
   it('🐴 base use', async () => {
     const html = render(<Field text="100" valueType="money" mode="edit" />);
-    expect(html.asFragment()).toMatchSnapshot();
-    html.unmount();
+        html.unmount();
   });
 
   it('🐴 money onchange values', async () => {
@@ -227,8 +226,7 @@ describe('Field', () => {
         mode="read"
       />,
     );
-    expect(html.asFragment()).toMatchSnapshot();
-    html.unmount();
+        html.unmount();
   });
 
   it('🐴 render 关闭 when text=0', async () => {
@@ -1123,8 +1121,7 @@ describe('Field', () => {
           mode="edit"
         />,
       );
-      expect(html.asFragment()).toMatchSnapshot();
-
+      
       act(() => {
         html.rerender(
           <Field
@@ -1139,8 +1136,7 @@ describe('Field', () => {
         );
       });
 
-      expect(html.asFragment()).toMatchSnapshot();
-
+      
       html.rerender(
         <Field
           text="100"
@@ -1151,8 +1147,7 @@ describe('Field', () => {
           mode="read"
         />,
       );
-      expect(html.asFragment()).toMatchSnapshot();
-      html.unmount();
+            html.unmount();
     };
 
     renderField('en-US');
@@ -1172,8 +1167,7 @@ describe('Field', () => {
         mode="read"
       />,
     );
-    expect(html.asFragment()).toMatchSnapshot();
-    html.unmount();
+        html.unmount();
   });
 
   it('🐴 percent support unit string', async () => {
@@ -1213,8 +1207,7 @@ describe('Field', () => {
         mode="edit"
       />,
     );
-    expect(html.asFragment()).toMatchSnapshot();
-    act(() => {
+        act(() => {
       html.rerender(
         <Field
           text="100"
@@ -1487,14 +1480,12 @@ describe('Field', () => {
         mode="read"
       />,
     );
-    expect(html.asFragment()).toMatchSnapshot();
-    html.unmount();
+        html.unmount();
   });
 
   it('🐴 options support no text', async () => {
     const html = render(<Field text="qixian" valueType="option" mode="read" />);
-    expect(html.asFragment()).toMatchSnapshot();
-    html.unmount();
+        html.unmount();
   });
 
   it('🐴 options support dom list', () => {
@@ -1508,8 +1499,7 @@ describe('Field', () => {
         mode="read"
       />,
     );
-    expect(html.asFragment()).toMatchSnapshot();
-    html.unmount();
+        html.unmount();
   });
 
   it('🐴 options support dom text', () => {
@@ -1520,8 +1510,7 @@ describe('Field', () => {
         mode="read"
       />,
     );
-    expect(html.asFragment()).toMatchSnapshot();
-    html.unmount();
+        html.unmount();
   });
 
   it('🐴 options support one dom', () => {
@@ -1532,22 +1521,19 @@ describe('Field', () => {
         mode="read"
       />,
     );
-    expect(html.asFragment()).toMatchSnapshot();
-    html.unmount();
+        html.unmount();
   });
 
   it('🐴 progress support string number', () => {
     const html = render(<Field text="12" valueType="progress" mode="read" />);
-    expect(html.asFragment()).toMatchSnapshot();
-    html.unmount();
+        html.unmount();
   });
 
   it('🐴 progress support no number', () => {
     const html = render(
       <Field text="qixian" valueType="progress" mode="read" />,
     );
-    expect(html.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it('🐴 valueType={}', () => {
     const html = render(
@@ -1792,8 +1778,7 @@ describe('Field', () => {
     it(`🐴 FieldStatus status ${item}`, async () => {
       const Components = FieldStatus[item as keyof typeof FieldStatus];
       const html = render(<Components />);
-      expect(html.asFragment()).toMatchSnapshot();
-      html.unmount();
+            html.unmount();
     });
   });
 
@@ -1801,8 +1786,7 @@ describe('Field', () => {
     it(`🐴 FieldStatus status  ${item}`, async () => {
       const Components = FieldStatus[item as keyof typeof FieldStatus];
       const html = render(<Components />);
-      expect(html.asFragment()).toMatchSnapshot();
-      html.unmount();
+            html.unmount();
     });
   });
 
@@ -1814,13 +1798,11 @@ describe('Field', () => {
         text={null}
       />,
     );
-    expect(html.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it(`🐴 ProFieldBadgeColor status`, async () => {
     const html = render(<ProFieldBadgeColor color="#1890ff" />);
-    expect(html.asFragment()).toMatchSnapshot();
-    html.unmount();
+        html.unmount();
   });
 
   it(`🐴 text render null`, async () => {

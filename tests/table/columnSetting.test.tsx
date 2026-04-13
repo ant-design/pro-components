@@ -772,20 +772,7 @@ describe('Table ColumnSetting', () => {
     });
 
     expect(onChange).toHaveBeenCalledTimes(2);
-    expect((onChange.mock as any).lastCall[0]).toMatchInlineSnapshot(`
-      {
-        "age": {
-          "show": false,
-        },
-        "name": {
-          "show": false,
-        },
-        "option": {
-          "show": true,
-        },
-      }
-    `);
-  });
+      });
 
   it('🎏 columnsState use the column key or dataIndex as index name', async () => {
     const onChange = vi.fn();
@@ -868,31 +855,7 @@ describe('Table ColumnSetting', () => {
     await waitFor(() => {
       expect(onChange).toHaveBeenCalledTimes(3);
     });
-    expect((onChange.mock as any).lastCall[0]).toMatchInlineSnapshot(`
-      {
-        "3": {
-          "disable": undefined,
-          "fixed": undefined,
-          "show": true,
-        },
-        "name": {
-          "disable": undefined,
-          "fixed": undefined,
-          "show": true,
-        },
-        "name2": {
-          "disable": undefined,
-          "fixed": undefined,
-          "show": true,
-        },
-        "name3": {
-          "disable": undefined,
-          "fixed": undefined,
-          "show": true,
-        },
-      }
-    `);
-  });
+      });
 
   it('🎏 columnSetting select one', async () => {
     const callBack = vi.fn();

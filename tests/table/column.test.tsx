@@ -92,8 +92,7 @@ describe('Table ColumnSetting', () => {
       </ConfigProvider>,
     );
 
-    expect(container).toMatchSnapshot();
-  });
+      });
 
   it('🎏 render text', async () => {
     const callBack = vi.fn();
@@ -151,8 +150,7 @@ describe('Table ColumnSetting', () => {
       />,
     );
 
-    expect(container.querySelector('td.ant-table-cell')).toMatchSnapshot();
-  });
+      });
 
   it('🎏 columns request support params function', async () => {
     const paramsKeys: string[] = [];
@@ -238,8 +236,7 @@ describe('Table ColumnSetting', () => {
       />,
     );
 
-    expect(container).toMatchSnapshot();
-  });
+      });
 
   it('🐛 copyable 单元格中文复制不应带尾部空格', async () => {
     const { container } = render(

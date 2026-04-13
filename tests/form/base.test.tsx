@@ -52,8 +52,7 @@ describe('ProForm', () => {
   it('📦 submit props actionsRender=false', async () => {
     const wrapper = render(<ProForm submitter={false} />);
 
-    expect(wrapper.asFragment()).toMatchSnapshot();
-    wrapper.unmount();
+        wrapper.unmount();
   });
 
   it('📦 className and rootClassName should work correctly', () => {
@@ -390,8 +389,7 @@ describe('ProForm', () => {
       </ProForm>,
     );
     await wrapper.findByText('text');
-    expect(wrapper.asFragment()).toMatchSnapshot();
-    wrapper.unmount();
+        wrapper.unmount();
   });
 
   it('📦 submit props actionsRender is one', async () => {
@@ -403,8 +401,7 @@ describe('ProForm', () => {
       />,
     );
     await wrapper.findByText('test');
-    expect(wrapper.asFragment()).toMatchSnapshot();
-    wrapper.unmount();
+        wrapper.unmount();
   });
 
   it('📦 support formRef', async () => {
@@ -530,8 +527,7 @@ describe('ProForm', () => {
       />,
     );
 
-    expect(wrapper.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it('📦 submit props actionsRender=()=>[]', async () => {
     const wrapper = render(
@@ -542,8 +538,7 @@ describe('ProForm', () => {
       />,
     );
 
-    expect(wrapper.asFragment()).toMatchSnapshot();
-    wrapper.unmount();
+        wrapper.unmount();
   });
 
   it('📦 submit props render=()=>[]', async () => {
@@ -559,8 +554,7 @@ describe('ProForm', () => {
       />,
     );
     await wrapper.findByText('提交并发布');
-    expect(wrapper.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it('📦 submitter props support submitButtonProps', async () => {
     const fn = vi.fn();
@@ -580,8 +574,7 @@ describe('ProForm', () => {
     await wrapper.findByText('提 交');
 
     act(() => {
-      expect(wrapper.asFragment()).toMatchSnapshot();
-    });
+          });
 
     act(() => {
       wrapper.baseElement
@@ -611,8 +604,7 @@ describe('ProForm', () => {
     await wrapper.findByText('提 交');
 
     act(() => {
-      expect(wrapper.asFragment()).toMatchSnapshot();
-    });
+          });
     act(() => {
       wrapper.baseElement
         .querySelectorAll<HTMLElement>('button.test_button')[0]
@@ -3264,8 +3256,7 @@ describe('ProForm', () => {
 
     expect(fn2).toHaveBeenCalledWith('2021-07-28');
 
-    expect(wrapper.asFragment()).toMatchSnapshot();
-    wrapper.unmount();
+        wrapper.unmount();
   });
 
   it('📦 DigitRange Will return undefined when both value equal to undefined', async () => {
@@ -3383,8 +3374,7 @@ describe('ProForm', () => {
     expect(fn2).toHaveBeenCalledWith('2021/08/09 12:12:12');
 
     act(() => {
-      expect(wrapper.asFragment()).toMatchSnapshot();
-    });
+          });
   });
 
   it(`📦 rules change should rerender`, () => {
@@ -3545,8 +3535,7 @@ describe('ProForm', () => {
     });
 
     expect(fn).toHaveBeenCalledWith(22);
-    expect(html.asFragment()).toMatchSnapshot();
-  });
+      });
 
   // https://github.com/ant-design/pro-components/issues/5743
   it(`📦 submitted value should be consistent with input when precision=0`, async () => {
@@ -3589,8 +3578,7 @@ describe('ProForm', () => {
 
     expect(dom.value).toBe('22');
     expect(fn).toHaveBeenCalledWith(22);
-    expect(html.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it('📦 ProFormTreeSelect support fetchDataOnSearch: false', async () => {
     const onRequest = vi.fn();

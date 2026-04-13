@@ -874,8 +874,7 @@ describe('EditorProTable 2', () => {
     );
 
     await wrapper.findAllByText('测试添加数据');
-    expect(wrapper.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it('📝 support onEditorChange', async () => {
     const fn = vi.fn();

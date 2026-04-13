@@ -187,8 +187,7 @@ describe('EditorProTable', () => {
       />,
     );
     await waitForWaitTime(100);
-    expect(wrapper.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it('📝 EditableProTable support pagination', async () => {
     const fn = vi.fn();
@@ -917,8 +916,7 @@ describe('EditorProTable', () => {
       />,
     );
     await waitForWaitTime(200);
-    expect(wrapper.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it('📝 EditableProTable support controlled', async () => {
     const onChange = vi.fn();

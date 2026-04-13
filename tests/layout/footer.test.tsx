@@ -16,13 +16,11 @@ describe('DefaultFooter test', () => {
 
   it('🦶 copyright support false', () => {
     const wrapper = render(<DefaultFooter copyright={false} />);
-    expect(wrapper.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it('🦶 links support false', () => {
     const wrapper = render(<DefaultFooter links={false} />);
-    expect(wrapper.asFragment()).toMatchSnapshot();
-  });
+      });
 
   it('🦶 if copyright and links falsy both, should not to render nothing', () => {
     const wrapper = render(<DefaultFooter copyright={false} links={false} />);

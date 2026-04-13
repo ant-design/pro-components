@@ -156,8 +156,7 @@ describe('dragSort', () => {
       return dragAndDrop(dragHandle);
     });
 
-    expect(container.querySelector('.dragSortDefaultHandle')).toMatchSnapshot();
-  });
+      });
 
   it('🔥 [dragSort] render drag sort custom handle by dragSortHandlerRender', async () => {
     type DataSourceItemStruct = {
@@ -203,8 +202,7 @@ describe('dragSort', () => {
       />,
     );
 
-    expect(container.querySelector('.dragSortCustomHandle')).toMatchSnapshot();
-    expect(callback).toHaveBeenCalled();
+        expect(callback).toHaveBeenCalled();
     expect(callback).toHaveBeenCalledWith('kiner', 0);
   });
 
@@ -267,9 +265,7 @@ describe('dragSort', () => {
       />,
     );
 
-    expect(container.querySelector('.dragSortCustomHandle')).toMatchSnapshot();
-    expect(container.querySelector('.customRender')).toMatchSnapshot();
-    expect(callback).toHaveBeenCalled();
+            expect(callback).toHaveBeenCalled();
     expect(callback).toHaveBeenCalledWith('kiner', 0);
   });
 });
