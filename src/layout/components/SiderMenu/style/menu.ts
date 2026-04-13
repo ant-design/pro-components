@@ -530,6 +530,10 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           backgroundColor: v('colorBgSelected'),
           borderRadius: v('itemRadius'),
         },
+        /** 收起侧栏：浮层内二级及以下不展示展开箭头（仍可用点击展开） */
+        [`${c}-submenu-popup ${c}-submenu-expand-icon`]: {
+          display: 'none',
+        },
       },
     },
 
