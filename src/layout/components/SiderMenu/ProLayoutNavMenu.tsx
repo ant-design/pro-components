@@ -1,23 +1,19 @@
 import { RightOutlined } from '@ant-design/icons';
+import { Popover } from 'antd';
 import { clsx } from 'clsx';
 import type { CSSProperties, HTMLAttributes } from 'react';
 import React, {
   useCallback,
   useEffect,
   useId,
-  useLayoutEffect,
   useMemo,
   useRef,
   useState,
 } from 'react';
-import { createPortal } from 'react-dom';
 import type { NavMenuNode } from './navMenuTypes';
 import type { MenuMode, ProLayoutNavMenuSelectInfo } from './types';
 
 const MENU_INDENT_PX = 16;
-
-/** 顶栏：从标题移到弹出层或相邻项时，避免闪关 */
-const HORIZONTAL_SUBMENU_HOVER_CLOSE_MS = 160;
 
 const keyToString = (key: string | number) => String(key);
 
@@ -108,10 +104,11 @@ interface ProLayoutNavMenuRenderContext {
   openSet: Set<string>;
   openKeysProp: (string | number)[];
   popupOpenKey: string | null;
-  popupPlacement: { top: number; left: number } | null;
-  popupPanelRef: React.RefObject<HTMLUListElement | null>;
   submenuAnchorRefs: React.MutableRefObject<Map<string, HTMLButtonElement>>;
   setPopupOpenKey: React.Dispatch<React.SetStateAction<string | null>>;
+  setNestedPopupOpen: React.Dispatch<
+    React.SetStateAction<Record<string, boolean>>
+  >;
   handleLeafActivate: (
     key: string,
     disabled?: boolean,
@@ -126,8 +123,6 @@ interface ProLayoutNavMenuRenderContext {
   /** 顶栏一级子菜单：hover 打开 / 延迟关闭（仅 `mode=horizontal` 且非浮层内） */
   onHorizontalTopSubmenuHoverEnter?: (key: string) => void;
   onHorizontalTopSubmenuHoverLeave?: () => void;
-  onHorizontalPopupHoverEnter?: () => void;
-  onHorizontalPopupHoverLeave?: () => void;
 }
 
 function renderDivider(
@@ -223,10 +218,9 @@ function renderPopup(
     hashId,
     rootId,
     popupOpenKey,
-    popupPlacement,
-    popupPanelRef,
     submenuAnchorRefs,
     setPopupOpenKey,
+    setNestedPopupOpen,
     handleSubmenuTitleClick,
   } = ctx;
   const popupCtx: ProLayoutNavMenuRenderContext = {
@@ -242,45 +236,38 @@ function renderPopup(
     }
   };
 
-  const popupPanel =
-    isOpen && typeof document !== 'undefined' ? (
-      createPortal(
-        <ul
-          ref={popupPanelRef as React.Ref<HTMLUListElement>}
-          id={`${rootId}-popup-${node.key}`}
-          role="menu"
-          aria-labelledby={`${rootId}-submenu-${node.key}`}
-          className={clsx(
-            `${baseClassName}-list`,
-            `${baseClassName}-submenu-popup`,
-            hashId,
-          )}
-          style={{
-            top: popupPlacement?.top,
-            left: popupPlacement?.left,
-            visibility: popupPlacement ? 'visible' : 'hidden',
-          }}
-          onPointerEnter={
-            ctx.mode === 'horizontal' && isOpen
-              ? ctx.onHorizontalPopupHoverEnter
-              : undefined
-          }
-          onPointerLeave={
-            ctx.mode === 'horizontal' && isOpen
-              ? ctx.onHorizontalPopupHoverLeave
-              : undefined
-          }
-        >
-          {node.children.map((child) =>
-            renderNode(popupCtx, child, depth + 1),
-          )}
-        </ul>,
-        document.body,
-      )
-    ) : null;
+  const popupContent = (
+    <ul
+      id={`${rootId}-popup-${node.key}`}
+      role="menu"
+      aria-labelledby={`${rootId}-submenu-${node.key}`}
+      className={clsx(
+        `${baseClassName}-list`,
+        `${baseClassName}-submenu-popup`,
+        hashId,
+      )}
+    >
+      {node.children.map((child) => renderNode(popupCtx, child, depth + 1))}
+    </ul>
+  );
 
   return (
-    <React.Fragment key={node.key}>
+    <Popover
+      key={node.key}
+      open={isOpen}
+      onOpenChange={(nextOpen) => {
+        setNestedPopupOpen({});
+        setPopupOpenKey(nextOpen ? node.key : null);
+      }}
+      trigger={ctx.mode === 'horizontal' ? ['hover', 'click'] : ['click', 'hover']}
+      placement={ctx.mode === 'horizontal' ? 'bottomLeft' : 'right'}
+      mouseEnterDelay={0.1}
+      mouseLeaveDelay={0.1}
+      destroyOnHidden
+      styles={{ container: { padding: 0 } }}
+      overlayClassName={clsx(`${baseClassName}-submenu-popover-overlay`, hashId)}
+      content={popupContent}
+    >
       <button
         type="button"
         ref={setSubmenuAnchorRef}
@@ -300,20 +287,14 @@ function renderPopup(
         aria-expanded={isOpen}
         aria-haspopup="true"
         aria-controls={isOpen ? `${rootId}-popup-${node.key}` : undefined}
-        onClick={(e) => handleSubmenuTitleClick(node.key, node.onTitleClick, e)}
-        onPointerEnter={
-          ctx.mode === 'horizontal' && !ctx.insideSubmenuPopup
-            ? () => ctx.onHorizontalTopSubmenuHoverEnter?.(node.key)
-            : undefined
-        }
-        onPointerLeave={
-          ctx.mode === 'horizontal' && !ctx.insideSubmenuPopup
-            ? () => ctx.onHorizontalTopSubmenuHoverLeave?.()
-            : undefined
-        }
+        onClick={(e) => {
+          node.onTitleClick?.(e as React.MouseEvent<Element>);
+        }}
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
-            handleSubmenuTitleClick(node.key, node.onTitleClick, e);
+            e.preventDefault();
+            setNestedPopupOpen({});
+            setPopupOpenKey((prev) => (prev === node.key ? null : node.key));
           }
           if (e.key === 'Escape' && isOpen) {
             e.stopPropagation();
@@ -323,8 +304,97 @@ function renderPopup(
       >
         {renderSubmenuTitleContent(ctx, isOpen, node.label)}
       </button>
-      {popupPanel}
-    </React.Fragment>
+    </Popover>
+  );
+}
+
+function renderNestedFlyoutSubmenu(
+  ctx: ProLayoutNavMenuRenderContext,
+  node: Extract<NavMenuNode, { kind: 'submenu' }>,
+  depth: number,
+) {
+  const { baseClassName, hashId, nestedPopupOpen, openSet, setNestedPopupOpen } =
+    ctx;
+  /** 未手动切换过时跟随路由 `openKeys`，否则以用户折叠为准 */
+  const isOpen =
+    Object.prototype.hasOwnProperty.call(nestedPopupOpen, node.key)
+      ? !!nestedPopupOpen[node.key]
+      : openSet.has(node.key);
+  const placement = ctx.mode === 'horizontal' ? 'bottomLeft' : 'right';
+
+  const panel = (
+    <ul
+      className={clsx(
+        `${baseClassName}-list`,
+        `${baseClassName}-submenu-popup`,
+        hashId,
+      )}
+      role="menu"
+    >
+      {node.children.map((child) => renderNode(ctx, child, depth + 1))}
+    </ul>
+  );
+
+  return (
+    <li
+      key={node.key}
+      data-pro-layout-nav-submenu
+      data-pro-layout-nav-submenu-open={isOpen || undefined}
+      className={clsx(`${baseClassName}-submenu`, hashId, node.className, {
+        [`${baseClassName}-submenu-open`]: isOpen,
+      })}
+      role="none"
+    >
+      <Popover
+        open={isOpen}
+        onOpenChange={(next) => {
+          setNestedPopupOpen((prev) => ({
+            ...prev,
+            [node.key]: next,
+          }));
+        }}
+        trigger={['click', 'hover']}
+        placement={placement}
+        mouseEnterDelay={0.08}
+        mouseLeaveDelay={0.08}
+        destroyOnHidden
+        styles={{ container: { padding: 0 } }}
+        overlayClassName={clsx(
+          `${baseClassName}-submenu-popover-overlay`,
+          hashId,
+        )}
+        content={panel}
+      >
+        <button
+          type="button"
+          className={clsx(`${baseClassName}-submenu-title`, hashId, {
+            [`${baseClassName}-submenu-title--open`]: isOpen,
+          })}
+          style={
+            depth > 0
+              ? { paddingInlineStart: depth * MENU_INDENT_PX }
+              : undefined
+          }
+          aria-expanded={isOpen}
+          aria-haspopup="true"
+          onClick={(e) => {
+            e.preventDefault();
+            node.onTitleClick?.(e as React.MouseEvent<Element>);
+          }}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              setNestedPopupOpen((prev) => ({
+                ...prev,
+                [node.key]: !prev[node.key],
+              }));
+            }
+          }}
+        >
+          {renderSubmenuTitleContent(ctx, isOpen, node.label)}
+        </button>
+      </Popover>
+    </li>
   );
 }
 
@@ -333,12 +403,12 @@ function renderInlineSubmenu(
   node: Extract<NavMenuNode, { kind: 'submenu' }>,
   depth: number,
 ) {
-  const { baseClassName, hashId, openSet, handleSubmenuTitleClick, popupMode } =
-    ctx;
-  const isOpen =
-    popupMode && ctx.insideSubmenuPopup
-      ? !!ctx.nestedPopupOpen[node.key]
-      : openSet.has(node.key);
+  if (ctx.popupMode && ctx.insideSubmenuPopup) {
+    return renderNestedFlyoutSubmenu(ctx, node, depth);
+  }
+
+  const { baseClassName, hashId, openSet, handleSubmenuTitleClick } = ctx;
+  const isOpen = openSet.has(node.key);
   return (
     <li
       key={node.key}
@@ -446,126 +516,29 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
     if (!popupMode || defaultOpenKeys.length === 0) return null;
     return defaultOpenKeys[0] ?? null;
   });
-  const popupPanelRef = useRef<HTMLUListElement>(null);
   const rootNavRef = useRef<HTMLElement>(null);
   const submenuAnchorRefs = useRef<Map<string, HTMLButtonElement>>(new Map());
-  const horizontalHoverCloseTimerRef = useRef<number | null>(null);
-  const [popupPlacement, setPopupPlacement] = useState<{
-    top: number;
-    left: number;
-  } | null>(null);
-  /** 弹出层内多级子菜单展开（与根级 `popupOpenKey` 独立，避免顶栏一点击就关掉整层） */
+  /** 弹出层内多级子菜单展开（与根级 `popupOpenKey` 独立） */
   const [nestedPopupOpen, setNestedPopupOpen] = useState<Record<string, boolean>>(
     {},
   );
 
+  const openKeysPropRef = useRef(openKeysProp);
+  openKeysPropRef.current = openKeysProp;
+
+  /** 根浮层切换时：用当前 `openKeys` 预展开嵌套 Popover */
   useEffect(() => {
-    setNestedPopupOpen({});
-  }, [popupOpenKey]);
-
-  const clearHorizontalHoverCloseTimer = useCallback(() => {
-    if (horizontalHoverCloseTimerRef.current != null) {
-      window.clearTimeout(horizontalHoverCloseTimerRef.current);
-      horizontalHoverCloseTimerRef.current = null;
-    }
-  }, []);
-
-  useEffect(() => {
-    return () => clearHorizontalHoverCloseTimer();
-  }, [clearHorizontalHoverCloseTimer]);
-
-  const scheduleHorizontalHoverClose = useCallback(() => {
-    if (mode !== 'horizontal') return;
-    clearHorizontalHoverCloseTimer();
-    horizontalHoverCloseTimerRef.current = window.setTimeout(() => {
-      horizontalHoverCloseTimerRef.current = null;
-      setPopupOpenKey(null);
-    }, HORIZONTAL_SUBMENU_HOVER_CLOSE_MS);
-  }, [mode, clearHorizontalHoverCloseTimer]);
-
-  const handleHorizontalTopSubmenuHoverEnter = useCallback(
-    (key: string) => {
-      if (mode !== 'horizontal') return;
-      clearHorizontalHoverCloseTimer();
-      setPopupOpenKey(key);
-    },
-    [mode, clearHorizontalHoverCloseTimer],
-  );
-
-  const handleHorizontalTopSubmenuHoverLeave = useCallback(() => {
-    if (mode !== 'horizontal') return;
-    scheduleHorizontalHoverClose();
-  }, [mode, scheduleHorizontalHoverClose]);
-
-  const handleHorizontalPopupHoverEnter = useCallback(() => {
-    if (mode !== 'horizontal') return;
-    clearHorizontalHoverCloseTimer();
-  }, [mode, clearHorizontalHoverCloseTimer]);
-
-  const handleHorizontalPopupHoverLeave = useCallback(() => {
-    if (mode !== 'horizontal') return;
-    scheduleHorizontalHoverClose();
-  }, [mode, scheduleHorizontalHoverClose]);
-
-  const updatePopupPlacement = useCallback(() => {
-    if (!popupMode || !popupOpenKey) {
-      setPopupPlacement(null);
+    if (!popupOpenKey) {
+      setNestedPopupOpen({});
       return;
     }
-    const anchor = submenuAnchorRefs.current.get(popupOpenKey);
-    if (!anchor) {
-      setPopupPlacement(null);
-      return;
-    }
-    const rect = anchor.getBoundingClientRect();
-    const gap = 4;
-    if (mode === 'horizontal') {
-      setPopupPlacement({
-        top: rect.bottom + gap,
-        left: rect.left,
-      });
-    } else {
-      setPopupPlacement({
-        top: rect.top,
-        left: rect.right + gap,
-      });
-    }
-  }, [popupMode, popupOpenKey, mode]);
-
-  useLayoutEffect(() => {
-    updatePopupPlacement();
-  }, [updatePopupPlacement, nodes]);
-
-  useEffect(() => {
-    if (!popupMode || !popupOpenKey) return;
-    window.addEventListener('scroll', updatePopupPlacement, true);
-    window.addEventListener('resize', updatePopupPlacement);
-    return () => {
-      window.removeEventListener('scroll', updatePopupPlacement, true);
-      window.removeEventListener('resize', updatePopupPlacement);
-    };
-  }, [popupMode, popupOpenKey, updatePopupPlacement]);
-
-  useEffect(() => {
-    if (!popupMode) return;
-    const handlePointerDown = (e: MouseEvent | TouchEvent) => {
-      const root = rootNavRef.current;
-      const target = e.target as Node;
-      if (!popupOpenKey) return;
-      if (root?.contains(target)) return;
-      if (popupPanelRef.current?.contains(target)) return;
-      clearHorizontalHoverCloseTimer();
-      setPopupOpenKey(null);
-    };
-    document.addEventListener('mousedown', handlePointerDown);
-    document.addEventListener('touchstart', handlePointerDown, {
-      passive: true,
+    const initial: Record<string, boolean> = {};
+    openKeysPropRef.current.forEach((k) => {
+      const s = String(k);
+      if (s !== popupOpenKey) initial[s] = true;
     });
-    return () => {
-      document.removeEventListener('mousedown', handlePointerDown);
-      document.removeEventListener('touchstart', handlePointerDown);
-    };
-  }, [popupMode, popupOpenKey, clearHorizontalHoverCloseTimer]);
+    setNestedPopupOpen(initial);
+  }, [popupOpenKey]);
 
   useEffect(() => {
     if (!popupMode) return;
@@ -603,7 +576,6 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
         return;
       }
       if (popupMode) {
-        clearHorizontalHoverCloseTimer();
         setPopupOpenKey((prev) => (prev === key ? null : key));
         return;
       }
@@ -613,7 +585,7 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
         : [...openKeysProp.map(keyToString), key];
       onOpenChange?.(next);
     },
-    [popupMode, openSet, openKeysProp, onOpenChange, clearHorizontalHoverCloseTimer],
+    [popupMode, openSet, openKeysProp, onOpenChange],
   );
 
   const handleLeafActivate = useCallback(
@@ -622,11 +594,10 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
       onClick?.();
       onSelect?.({ key, selectedKeys: [key] });
       if (popupMode) {
-        clearHorizontalHoverCloseTimer();
         setPopupOpenKey(null);
       }
     },
-    [onSelect, popupMode, clearHorizontalHoverCloseTimer],
+    [onSelect, popupMode],
   );
 
   const renderCtx: ProLayoutNavMenuRenderContext = {
@@ -642,20 +613,11 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
     openSet,
     openKeysProp,
     popupOpenKey,
-    popupPlacement,
-    popupPanelRef,
     submenuAnchorRefs,
     setPopupOpenKey,
+    setNestedPopupOpen,
     handleLeafActivate,
     handleSubmenuTitleClick,
-    onHorizontalTopSubmenuHoverEnter:
-      mode === 'horizontal' ? handleHorizontalTopSubmenuHoverEnter : undefined,
-    onHorizontalTopSubmenuHoverLeave:
-      mode === 'horizontal' ? handleHorizontalTopSubmenuHoverLeave : undefined,
-    onHorizontalPopupHoverEnter:
-      mode === 'horizontal' ? handleHorizontalPopupHoverEnter : undefined,
-    onHorizontalPopupHoverLeave:
-      mode === 'horizontal' ? handleHorizontalPopupHoverLeave : undefined,
   };
 
   const isHorizontal = mode === 'horizontal';

@@ -318,17 +318,25 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         },
       },
 
+      /** Popover 外壳：仅作 hook，避免与 antd 浮层 padding 叠加 */
+      [`${c}-submenu-popover-overlay`]: {
+        [`${c}-submenu-popup`]: {
+          margin: 0,
+        },
+      },
+
+      /** 顶栏 / 收起侧栏：由 antd `Popover` 定位，内容区不再 `position: fixed` */
       [`${c}-submenu-popup`]: {
-        position: 'fixed',
+        position: 'relative',
+        inset: 'auto',
         margin: 0,
         minWidth: 160,
         maxHeight: 'calc(100vh - 32px)',
         overflowY: 'auto',
         padding: 'var(--ant-padding-xxs, 4px)',
-        zIndex: `var(--ant-z-index-popup-base)`,
-        boxShadow: `var(--ant-box-shadow-secondary)`,
         borderRadius: `var(--ant-border-radius-lg)`,
         backgroundColor: v('popupBg'),
+        boxShadow: 'none',
         ...stack,
       },
 

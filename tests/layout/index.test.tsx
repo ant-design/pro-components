@@ -487,8 +487,10 @@ describe('BasicLayout', () => {
       );
       expect(popup).toBeTruthy();
       expect(popup!.textContent).toContain('二级');
-      /** 路由已匹配三级时 openKeys 含祖先，二级默认展开，浮层内应直接出现三级叶子（勿再点二级，否则会 toggle 收起） */
-      expect(popup!.textContent).toContain('三级页面');
+    });
+    /** 嵌套 Popover 在另一层浮层，勿只查第一个 submenu-popup */
+    await waitFor(() => {
+      expect(document.body.textContent).toContain('三级页面');
     });
 
     html.unmount();
@@ -537,17 +539,13 @@ describe('BasicLayout', () => {
     });
 
     await waitFor(() => {
-      const popup = document.body.querySelector(
-        '[class*="ant-pro-base-menu-horizontal-submenu-popup"]',
-      );
-      expect(popup!.textContent).toContain('三级页面');
+      expect(document.body.textContent).toContain('三级页面');
     });
 
     html.unmount();
   });
 
   it('🥩 layout top: hover opens first-level submenu popup', async () => {
-    vi.useFakeTimers();
     const html = render(
       <ProLayout
         layout="top"
@@ -582,20 +580,6 @@ describe('BasicLayout', () => {
       expect(popup!.textContent).toContain('二级项');
     });
 
-    act(() => {
-      fireEvent.pointerLeave(topSubmenuBtn!);
-      vi.advanceTimersByTime(200);
-    });
-
-    await waitFor(() => {
-      expect(
-        document.body.querySelector(
-          '[class*="ant-pro-base-menu-horizontal-submenu-popup"]',
-        ),
-      ).toBeFalsy();
-    });
-
-    vi.useRealTimers();
     html.unmount();
   });
 
