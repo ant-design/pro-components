@@ -555,10 +555,13 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
 };
 
 export function useStyle(prefixCls: string, mode: MenuMode | undefined) {
-  return useAntdStyle('ProLayoutBaseMenu' + mode, () => {
+  const resolvedMode = mode || 'vertical';
+  /** 须包含 `prefixCls`：侧栏主菜单与 links 均为 vertical，否则 cssinjs path 冲突会整段覆盖样式 */
+  const styleRegisterName = `ProLayoutBaseMenu-${prefixCls}-${resolvedMode}`;
+  return useAntdStyle(styleRegisterName, () => {
     const proLayoutMenuToken: ProLayoutBaseMenuToken = {
       componentCls: `.${prefixCls}`,
     };
-    return [genProLayoutBaseMenuStyle(proLayoutMenuToken, mode || 'vertical')];
+    return [genProLayoutBaseMenuStyle(proLayoutMenuToken, resolvedMode)];
   });
 }
