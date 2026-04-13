@@ -325,7 +325,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         },
       },
 
-      /** 顶栏 / 收起侧栏：由 antd `Popover` 定位，内容区不再 `position: fixed` */
+      /** 顶栏 / 收起侧栏：Popover 内层菜单（阴影保留；Popover 根节点另有 antd 阴影时可与之一致） */
       [`${c}-submenu-popup`]: {
         position: 'relative',
         inset: 'auto',
@@ -336,7 +336,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         padding: 'var(--ant-padding-xxs, 4px)',
         borderRadius: `var(--ant-border-radius-lg)`,
         backgroundColor: v('popupBg'),
-        boxShadow: 'none',
+        boxShadow: `var(--ant-box-shadow-secondary)`,
         ...stack,
       },
 

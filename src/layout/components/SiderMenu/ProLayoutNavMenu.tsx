@@ -120,9 +120,6 @@ interface ProLayoutNavMenuRenderContext {
     e: React.MouseEvent | React.KeyboardEvent,
     opts?: { insideSubmenuPopup?: boolean },
   ) => void;
-  /** 顶栏一级子菜单：hover 打开 / 延迟关闭（仅 `mode=horizontal` 且非浮层内） */
-  onHorizontalTopSubmenuHoverEnter?: (key: string) => void;
-  onHorizontalTopSubmenuHoverLeave?: () => void;
 }
 
 function renderDivider(
@@ -263,7 +260,6 @@ function renderPopup(
       placement={ctx.mode === 'horizontal' ? 'bottomLeft' : 'right'}
       mouseEnterDelay={0.1}
       mouseLeaveDelay={0.1}
-      destroyOnHidden
       styles={{ container: { padding: 0 } }}
       overlayClassName={clsx(`${baseClassName}-submenu-popover-overlay`, hashId)}
       content={popupContent}
@@ -287,14 +283,12 @@ function renderPopup(
         aria-expanded={isOpen}
         aria-haspopup="true"
         aria-controls={isOpen ? `${rootId}-popup-${node.key}` : undefined}
-        onClick={(e) => {
-          node.onTitleClick?.(e as React.MouseEvent<Element>);
-        }}
+        onClick={(e) =>
+          handleSubmenuTitleClick(node.key, node.onTitleClick, e)
+        }
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            setNestedPopupOpen({});
-            setPopupOpenKey((prev) => (prev === node.key ? null : node.key));
+            handleSubmenuTitleClick(node.key, node.onTitleClick, e);
           }
           if (e.key === 'Escape' && isOpen) {
             e.stopPropagation();
@@ -308,107 +302,20 @@ function renderPopup(
   );
 }
 
-function renderNestedFlyoutSubmenu(
-  ctx: ProLayoutNavMenuRenderContext,
-  node: Extract<NavMenuNode, { kind: 'submenu' }>,
-  depth: number,
-) {
-  const { baseClassName, hashId, nestedPopupOpen, openSet, setNestedPopupOpen } =
-    ctx;
-  /** 未手动切换过时跟随路由 `openKeys`，否则以用户折叠为准 */
-  const isOpen =
-    Object.prototype.hasOwnProperty.call(nestedPopupOpen, node.key)
-      ? !!nestedPopupOpen[node.key]
-      : openSet.has(node.key);
-  const placement = ctx.mode === 'horizontal' ? 'bottomLeft' : 'right';
-
-  const panel = (
-    <ul
-      className={clsx(
-        `${baseClassName}-list`,
-        `${baseClassName}-submenu-popup`,
-        hashId,
-      )}
-      role="menu"
-    >
-      {node.children.map((child) => renderNode(ctx, child, depth + 1))}
-    </ul>
-  );
-
-  return (
-    <li
-      key={node.key}
-      data-pro-layout-nav-submenu
-      data-pro-layout-nav-submenu-open={isOpen || undefined}
-      className={clsx(`${baseClassName}-submenu`, hashId, node.className, {
-        [`${baseClassName}-submenu-open`]: isOpen,
-      })}
-      role="none"
-    >
-      <Popover
-        open={isOpen}
-        onOpenChange={(next) => {
-          setNestedPopupOpen((prev) => ({
-            ...prev,
-            [node.key]: next,
-          }));
-        }}
-        trigger={['click', 'hover']}
-        placement={placement}
-        mouseEnterDelay={0.08}
-        mouseLeaveDelay={0.08}
-        destroyOnHidden
-        styles={{ container: { padding: 0 } }}
-        overlayClassName={clsx(
-          `${baseClassName}-submenu-popover-overlay`,
-          hashId,
-        )}
-        content={panel}
-      >
-        <button
-          type="button"
-          className={clsx(`${baseClassName}-submenu-title`, hashId, {
-            [`${baseClassName}-submenu-title--open`]: isOpen,
-          })}
-          style={
-            depth > 0
-              ? { paddingInlineStart: depth * MENU_INDENT_PX }
-              : undefined
-          }
-          aria-expanded={isOpen}
-          aria-haspopup="true"
-          onClick={(e) => {
-            e.preventDefault();
-            node.onTitleClick?.(e as React.MouseEvent<Element>);
-          }}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault();
-              setNestedPopupOpen((prev) => ({
-                ...prev,
-                [node.key]: !prev[node.key],
-              }));
-            }
-          }}
-        >
-          {renderSubmenuTitleContent(ctx, isOpen, node.label)}
-        </button>
-      </Popover>
-    </li>
-  );
-}
-
 function renderInlineSubmenu(
   ctx: ProLayoutNavMenuRenderContext,
   node: Extract<NavMenuNode, { kind: 'submenu' }>,
   depth: number,
 ) {
-  if (ctx.popupMode && ctx.insideSubmenuPopup) {
-    return renderNestedFlyoutSubmenu(ctx, node, depth);
-  }
-
-  const { baseClassName, hashId, openSet, handleSubmenuTitleClick } = ctx;
-  const isOpen = openSet.has(node.key);
+  const { baseClassName, hashId, openSet, handleSubmenuTitleClick, nestedPopupOpen } =
+    ctx;
+  /** 浮层内：嵌套子菜单用内联展开，禁止再套一层 Popover（会挂到 body 导致外层误关、无法点击） */
+  const isOpen =
+    ctx.popupMode && ctx.insideSubmenuPopup
+      ? Object.prototype.hasOwnProperty.call(nestedPopupOpen, node.key)
+        ? !!nestedPopupOpen[node.key]
+        : openSet.has(node.key)
+      : openSet.has(node.key);
   return (
     <li
       key={node.key}
