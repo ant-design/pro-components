@@ -261,7 +261,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
       [`${c}-submenu-title`]: {
         ...rowItem,
         font: 'inherit',
-        /** 文案区（含 icon+文本）；右侧为展开指示器 */
+        /** 文案区（含 icon+文本） */
         [`${c}-submenu-title-inner`]: {
           flex: 1,
           minWidth: 0,
@@ -269,7 +269,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           flexDirection: 'row',
           alignItems: 'center',
           gap: v('itemGap'),
-          [`> *`]: {
+          [`> *:not(${c}-submenu-expand-icon)`]: {
             flex: 1,
             minWidth: 0,
             display: 'flex',
@@ -279,25 +279,31 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           },
         },
         [`${c}-submenu-expand-icon`]: {
-          display: 'inline-flex',
           flexShrink: 0,
+          display: 'inline-flex',
           alignItems: 'center',
           justifyContent: 'center',
           marginInlineStart: 'auto',
+          fontSize: '10px',
           color: v('colorIcon'),
-          fontSize: 10,
-          lineHeight: 0,
-          transition: 'transform 0.2s ease',
-          '& > span': { lineHeight: 0 },
+          lineHeight: 1,
+          transition: `transform var(--ant-motion-duration-mid, 0.2s)`,
+          svg: {
+            display: 'block',
+          },
         },
-        [`${c}-submenu-expand-icon${c}-submenu-expand-icon--sider${c}-submenu-expand-icon--open`]:
-          {
-            transform: 'rotate(90deg)',
-          },
-        [`${c}-submenu-expand-icon${c}-submenu-expand-icon--popup-vertical${c}-submenu-expand-icon--open`]:
-          {
-            transform: 'rotate(90deg)',
-          },
+        /** 侧栏内联：展开时箭头朝下 */
+        [`${c}-submenu-open > ${c}-submenu-title ${c}-submenu-expand-icon--open`]: {
+          transform: 'rotate(90deg)',
+        },
+        /** 顶栏一级：展开时箭头朝上（Popover 在下方） */
+        [`${c}--horizontal ${c}-submenu-expand-icon--horizontal.${c}-submenu-expand-icon--open`]: {
+          transform: 'rotate(180deg)',
+        },
+        /** 浮层内纵向子菜单：标题上的箭头随展开旋转 */
+        [`${c}-submenu-popup ${c}-submenu-title ${c}-submenu-expand-icon--open`]: {
+          transform: 'rotate(90deg)',
+        },
         '&:hover': {
           backgroundColor: v('colorBgHover'),
           color: v('colorTextHover'),
@@ -499,10 +505,6 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         [`${c}-submenu${c}-submenu-open > ${c}-submenu-title`]: {
           backgroundColor: v('colorBgSelected'),
           borderRadius: v('itemRadius'),
-        },
-        /** 收起侧栏：浮层内二级及以下不展示展开箭头（仍可用点击展开） */
-        [`${c}-submenu-popup ${c}-submenu-expand-icon`]: {
-          display: 'none',
         },
       },
     },

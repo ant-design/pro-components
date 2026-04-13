@@ -1,3 +1,4 @@
+import { DownOutlined, RightOutlined } from '@ant-design/icons';
 import { Popover } from 'antd';
 import { clsx } from 'clsx';
 import type { CSSProperties, HTMLAttributes } from 'react';
@@ -17,13 +18,39 @@ const MENU_INDENT_PX = 16;
 const keyToString = (key: string | number) => String(key);
 
 function renderSubmenuTitleContent(
-  ctx: Pick<ProLayoutNavMenuRenderContext, 'baseClassName' | 'hashId'>,
+  ctx: Pick<
+    ProLayoutNavMenuRenderContext,
+    | 'baseClassName'
+    | 'hashId'
+    | 'collapsed'
+    | 'mode'
+    | 'popupMode'
+    | 'insideSubmenuPopup'
+  >,
   label: React.ReactNode,
+  isOpen: boolean,
 ) {
-  const { baseClassName, hashId } = ctx;
+  const { baseClassName, hashId, collapsed, mode, popupMode, insideSubmenuPopup } =
+    ctx;
+  const hideExpandIndicator = !!collapsed && mode === 'vertical';
+  const isHorizontalTopTrigger =
+    mode === 'horizontal' && popupMode && !insideSubmenuPopup;
+
   return (
     <span className={clsx(`${baseClassName}-submenu-title-inner`, hashId)}>
       {label}
+      {!hideExpandIndicator ? (
+        <span
+          className={clsx(`${baseClassName}-submenu-expand-icon`, hashId, {
+            [`${baseClassName}-submenu-expand-icon--open`]: isOpen,
+            [`${baseClassName}-submenu-expand-icon--horizontal`]:
+              isHorizontalTopTrigger,
+          })}
+          aria-hidden
+        >
+          {isHorizontalTopTrigger ? <DownOutlined /> : <RightOutlined />}
+        </span>
+      ) : null}
     </span>
   );
 }
@@ -274,7 +301,7 @@ function renderPopup(
           }
         }}
       >
-        {renderSubmenuTitleContent(ctx, node.label)}
+        {renderSubmenuTitleContent(ctx, node.label, isOpen)}
       </button>
     </Popover>
   );
@@ -327,7 +354,7 @@ function renderInlineSubmenu(
           }
         }}
       >
-        {renderSubmenuTitleContent(ctx, node.label)}
+        {renderSubmenuTitleContent(ctx, node.label, isOpen)}
       </button>
       <div
         className={clsx(`${baseClassName}-submenu-expand-wrap`, hashId)}
