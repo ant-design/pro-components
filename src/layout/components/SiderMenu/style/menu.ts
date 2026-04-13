@@ -432,18 +432,27 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
       gap: v('stackGap'),
     },
 
-    /** vertical 侧栏收起：标题区占满行并左对齐，避免宽度从 100% 收到 20px + margin:auto 时的「先居中再落定」观感 */
+    /** vertical 收起：侧栏宽度动画中左对齐；`data-pro-layout-nav-collapse-settled` 后再收窄居中（由 BaseMenu 延迟设置） */
     ...(mode === 'vertical'
       ? {
-          [`&--collapsed ${c}-item-title-collapsed`]: {
-            width: '100%',
-            minWidth: 0,
-            maxWidth: '100%',
-            marginInline: 0,
-            alignSelf: 'stretch',
-            justifyContent: 'flex-start',
-            alignItems: 'flex-start',
-          },
+          [`&--collapsed:not([data-pro-layout-nav-collapse-settled]) ${c}-item-title-collapsed`]:
+            {
+              width: '100%',
+              minWidth: 0,
+              maxWidth: '100%',
+              marginInline: 0,
+              alignSelf: 'stretch',
+              justifyContent: 'flex-start',
+              alignItems: 'flex-start',
+            },
+          [`&--collapsed[data-pro-layout-nav-collapse-settled] ${c}-item-title-collapsed`]:
+            {
+              width: 20,
+              minWidth: 20,
+              maxWidth: 20,
+              marginInline: 'auto',
+              alignSelf: 'center',
+            },
         }
       : {}),
 

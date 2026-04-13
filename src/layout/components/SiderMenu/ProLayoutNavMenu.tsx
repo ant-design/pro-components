@@ -22,6 +22,8 @@ export type ProLayoutNavMenuProps = {
   hashId: string;
   mode: MenuMode;
   collapsed?: boolean;
+  /** 侧栏宽度收起动画结束后为 true，用于延迟应用「图标居中」布局 */
+  collapseLayoutSettled?: boolean;
   selectedKeys?: string[];
   openKeys?: string[];
   defaultOpenKeys?: string[];
@@ -327,6 +329,7 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
   hashId,
   mode,
   collapsed,
+  collapseLayoutSettled = true,
   selectedKeys = [],
   openKeys: openKeysProp = [],
   defaultOpenKeys = [],
@@ -514,6 +517,11 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
           [`${baseClassName}--horizontal`]: true,
           [`${baseClassName}--collapsed`]: !!collapsed,
         })}
+        data-pro-layout-nav-collapse-settled={
+          mode === 'vertical' && collapsed && collapseLayoutSettled
+            ? ''
+            : undefined
+        }
         style={style}
         role="menubar"
       >
@@ -530,6 +538,11 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
       className={clsx(className, hashId, baseClassName, listClassName, {
         [`${baseClassName}--collapsed`]: !!collapsed,
       })}
+      data-pro-layout-nav-collapse-settled={
+        mode === 'vertical' && collapsed && collapseLayoutSettled
+          ? ''
+          : undefined
+      }
       style={style}
       role="menu"
     >
