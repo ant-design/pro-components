@@ -432,15 +432,17 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
       gap: v('stackGap'),
     },
 
-    /** vertical（侧栏收起）下标题区收窄为 20px 宽，便于在窄侧栏内居中 */
+    /** vertical 侧栏收起：标题区占满行并左对齐，避免宽度从 100% 收到 20px + margin:auto 时的「先居中再落定」观感 */
     ...(mode === 'vertical'
       ? {
           [`&--collapsed ${c}-item-title-collapsed`]: {
-            width: 20,
-            minWidth: 20,
-            maxWidth: 20,
-            marginInline: 'auto',
-            alignSelf: 'center',
+            width: '100%',
+            minWidth: 0,
+            maxWidth: '100%',
+            marginInline: 0,
+            alignSelf: 'stretch',
+            justifyContent: 'flex-start',
+            alignItems: 'flex-start',
           },
         }
       : {}),
