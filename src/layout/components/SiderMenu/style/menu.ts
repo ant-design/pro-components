@@ -1,4 +1,3 @@
-import { Keyframes } from '@ant-design/cssinjs';
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import type { CSSProperties } from 'react';
 import type { GenerateStyle } from '../../../../provider';
@@ -9,12 +8,6 @@ import type { MenuMode } from '../types';
 export interface ProLayoutBaseMenuToken {
   componentCls: string;
 }
-
-/** 选中项底部指示条展开 */
-const navItemSelectedBar = new Keyframes('proLayoutNavItemSelectedBar', {
-  '0%': { transform: 'scaleX(0)' },
-  '100%': { transform: 'scaleX(1)' },
-}) as unknown as string;
 
 /** 侧栏壳层（Sider / Drawer body）与文档站覆盖用 */
 export const proLayoutSiderVar = {
@@ -234,32 +227,11 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           color: v('colorTextHover'),
         },
         '&--selected': {
-          position: 'relative',
           backgroundColor: v('colorBgSelected'),
           color: v('colorTextSelected'),
-          /** 选中态：底部高亮条短动画 */
-          '&::before': {
-            content: '""',
-            position: 'absolute',
-            insetInline: v('itemPadInline'),
-            bottom: 2,
-            height: 2,
-            borderRadius: 1,
-            background: `var(--ant-color-primary, #1677ff)`,
-            transform: 'scaleX(0)',
-            transformOrigin: '50% 50%',
-            animationName: navItemSelectedBar,
-            animationDuration: `var(--ant-motion-duration-mid, 0.2s)`,
-            animationTimingFunction: 'cubic-bezier(0.2, 0, 0, 1)',
-            animationFillMode: 'forwards',
-            pointerEvents: 'none',
-          },
-          '@media (prefers-reduced-motion: reduce)': {
-            '&::before': {
-              animation: 'none',
-              transform: 'scaleX(1)',
-            },
-          },
+          /** 选中态：柔和外环，无下划线 */
+          boxShadow: `0 0 0 2px var(--ant-color-primary-bg, rgba(22, 119, 255, 0.12))`,
+          transition: `background-color var(--ant-motion-duration-mid, 0.2s), color var(--ant-motion-duration-mid, 0.2s), box-shadow var(--ant-motion-duration-mid, 0.2s)`,
         },
         '&--disabled': {
           cursor: 'not-allowed',
