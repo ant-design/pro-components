@@ -287,23 +287,22 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           fontSize: '10px',
           color: v('colorIcon'),
           lineHeight: 1,
+          transform: 'rotate(0deg)',
           transition: `transform var(--ant-motion-duration-mid, 0.2s)`,
           svg: {
             display: 'block',
           },
         },
-        /** 侧栏内联：展开时箭头朝下 */
-        [`${c}-submenu-open > ${c}-submenu-title ${c}-submenu-expand-icon--open`]: {
-          transform: 'rotate(90deg)',
-        },
-        /** 顶栏一级：展开时箭头朝上（Popover 在下方） */
-        [`${c}--horizontal ${c}-submenu-expand-icon--horizontal.${c}-submenu-expand-icon--open`]: {
-          transform: 'rotate(180deg)',
-        },
-        /** 浮层内纵向子菜单：标题上的箭头随展开旋转 */
-        [`${c}-submenu-popup ${c}-submenu-title ${c}-submenu-expand-icon--open`]: {
-          transform: 'rotate(90deg)',
-        },
+        /** 展开指示器随开关联动：`Popover` 触发器无 `li.submenu-open` 祖先，须挂在 `submenu-title--open` 上 */
+        [`${c}-submenu-title--open ${c}-submenu-expand-icon--open:not(${c}-submenu-expand-icon--horizontal)`]:
+          {
+            transform: 'rotate(90deg)',
+          },
+        /** 顶栏一级：向下箭头展开时旋至朝上 */
+        [`${c}-submenu-title--open ${c}-submenu-expand-icon--horizontal.${c}-submenu-expand-icon--open`]:
+          {
+            transform: 'rotate(180deg)',
+          },
         '&:hover': {
           backgroundColor: v('colorBgHover'),
           color: v('colorTextHover'),
