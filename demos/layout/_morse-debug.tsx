@@ -234,8 +234,4 @@ const Demo = () => {
   );
 };
 
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);
+export default () => <Demo />;

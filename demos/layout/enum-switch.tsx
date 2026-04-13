@@ -45,9 +45,7 @@ const Demo = () => {
           <GithubFilled key="github" />,
         ]}
         menuItemRender={(item, dom) => (
-          <div onClick={() => setPathname(item.path || '/welcome')}>
-            {dom}
-          </div>
+          <div onClick={() => setPathname(item.path || '/welcome')}>{dom}</div>
         )}
       >
         <PageContainer>
@@ -91,7 +89,8 @@ const Demo = () => {
           </ProCard>
           <ProCard style={{ minHeight: 300 }}>
             <div>
-              当前配置：layout=<b>{layout}</b>、contentWidth=<b>{contentWidth}</b>
+              当前配置：layout=<b>{layout}</b>、contentWidth=
+              <b>{contentWidth}</b>
               、siderMenuType=<b>{siderMenuType}</b>
             </div>
           </ProCard>
@@ -101,8 +100,4 @@ const Demo = () => {
   );
 };
 
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);
+export default () => <Demo />;

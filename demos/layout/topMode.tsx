@@ -176,7 +176,10 @@ const MenuCard = () => {
                     }
                   `}
                 >
-                  <img src="https://gw.alipayobjects.com/zos/antfincdn/6FTGmLLmN/bianzu%25252013.svg" alt="" />
+                  <img
+                    src="https://gw.alipayobjects.com/zos/antfincdn/6FTGmLLmN/bianzu%25252013.svg"
+                    alt=""
+                  />
                   <div
                     style={{
                       marginInlineStart: 14,
@@ -392,8 +395,4 @@ const Demo = () => {
   );
 };
 
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);
+export default () => <Demo />;

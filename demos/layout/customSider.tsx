@@ -4,11 +4,7 @@ import {
   QuestionCircleFilled,
 } from '@ant-design/icons';
 import type { ProSettings } from '@ant-design/pro-components';
-import {
-  PageContainer,
-  ProCard,
-  ProLayout,
-} from '@ant-design/pro-components';
+import { PageContainer, ProCard, ProLayout } from '@ant-design/pro-components';
 import { Avatar, Image, Space } from 'antd';
 import { useState } from 'react';
 import defaultProps from './_defaultProps';
@@ -125,8 +121,4 @@ const Demo = () => {
   );
 };
 
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);
+export default () => <Demo />;

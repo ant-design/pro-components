@@ -18,7 +18,10 @@ const AppGroupList: any = [
       },
       {
         icon: () => (
-          <img src="https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg" alt="" />
+          <img
+            src="https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg"
+            alt=""
+          />
         ),
         title: 'Pro Components',
         url: 'https://procomponents.ant.design/',
@@ -103,8 +106,4 @@ const Demo = () => {
   );
 };
 
-export default () => (
-  <div style={{ padding: 24 }}>
-    <Demo />
-  </div>
-);
+export default () => <Demo />;
