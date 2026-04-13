@@ -526,12 +526,16 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         height: 'auto',
         whiteSpace: 'nowrap',
         paddingInline: 'var(--ant-padding-sm, 12px)',
+        borderRadius: v('itemRadius'),
+        transition: `background-color var(--ant-motion-duration-mid, 0.2s), color var(--ant-motion-duration-mid, 0.2s)`,
       },
       [`${c}-submenu`]: { display: 'inline-block' },
       [`${c}-submenu-title`]: {
         width: 'auto',
         minHeight: 'auto',
         height: 'auto',
+        borderRadius: v('itemRadius'),
+        transition: `background-color var(--ant-motion-duration-mid, 0.2s), color var(--ant-motion-duration-mid, 0.2s)`,
       },
       [`${c}-submenu-popup`]: {
         [`${c}-item-title`]: { alignItems: 'flex-start' },

@@ -16,6 +16,9 @@ import type { MenuMode, ProLayoutNavMenuSelectInfo } from './types';
 
 const MENU_INDENT_PX = 16;
 
+/** 顶栏：从标题移到弹出层或相邻项时，避免闪关 */
+const HORIZONTAL_SUBMENU_HOVER_CLOSE_MS = 160;
+
 const keyToString = (key: string | number) => String(key);
 
 type SubmenuExpandVariant = 'sider' | 'popup-horizontal' | 'popup-vertical';
@@ -120,6 +123,11 @@ interface ProLayoutNavMenuRenderContext {
     e: React.MouseEvent | React.KeyboardEvent,
     opts?: { insideSubmenuPopup?: boolean },
   ) => void;
+  /** 顶栏一级子菜单：hover 打开 / 延迟关闭（仅 `mode=horizontal` 且非浮层内） */
+  onHorizontalTopSubmenuHoverEnter?: (key: string) => void;
+  onHorizontalTopSubmenuHoverLeave?: () => void;
+  onHorizontalPopupHoverEnter?: () => void;
+  onHorizontalPopupHoverLeave?: () => void;
 }
 
 function renderDivider(
@@ -252,6 +260,16 @@ function renderPopup(
             left: popupPlacement?.left,
             visibility: popupPlacement ? 'visible' : 'hidden',
           }}
+          onPointerEnter={
+            ctx.mode === 'horizontal' && isOpen
+              ? ctx.onHorizontalPopupHoverEnter
+              : undefined
+          }
+          onPointerLeave={
+            ctx.mode === 'horizontal' && isOpen
+              ? ctx.onHorizontalPopupHoverLeave
+              : undefined
+          }
         >
           {node.children.map((child) =>
             renderNode(popupCtx, child, depth + 1),
@@ -283,6 +301,16 @@ function renderPopup(
         aria-haspopup="true"
         aria-controls={isOpen ? `${rootId}-popup-${node.key}` : undefined}
         onClick={(e) => handleSubmenuTitleClick(node.key, node.onTitleClick, e)}
+        onPointerEnter={
+          ctx.mode === 'horizontal' && !ctx.insideSubmenuPopup
+            ? () => ctx.onHorizontalTopSubmenuHoverEnter?.(node.key)
+            : undefined
+        }
+        onPointerLeave={
+          ctx.mode === 'horizontal' && !ctx.insideSubmenuPopup
+            ? () => ctx.onHorizontalTopSubmenuHoverLeave?.()
+            : undefined
+        }
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
             handleSubmenuTitleClick(node.key, node.onTitleClick, e);
@@ -421,6 +449,7 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
   const popupPanelRef = useRef<HTMLUListElement>(null);
   const rootNavRef = useRef<HTMLElement>(null);
   const submenuAnchorRefs = useRef<Map<string, HTMLButtonElement>>(new Map());
+  const horizontalHoverCloseTimerRef = useRef<number | null>(null);
   const [popupPlacement, setPopupPlacement] = useState<{
     top: number;
     left: number;
@@ -433,6 +462,50 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
   useEffect(() => {
     setNestedPopupOpen({});
   }, [popupOpenKey]);
+
+  const clearHorizontalHoverCloseTimer = useCallback(() => {
+    if (horizontalHoverCloseTimerRef.current != null) {
+      window.clearTimeout(horizontalHoverCloseTimerRef.current);
+      horizontalHoverCloseTimerRef.current = null;
+    }
+  }, []);
+
+  useEffect(() => {
+    return () => clearHorizontalHoverCloseTimer();
+  }, [clearHorizontalHoverCloseTimer]);
+
+  const scheduleHorizontalHoverClose = useCallback(() => {
+    if (mode !== 'horizontal') return;
+    clearHorizontalHoverCloseTimer();
+    horizontalHoverCloseTimerRef.current = window.setTimeout(() => {
+      horizontalHoverCloseTimerRef.current = null;
+      setPopupOpenKey(null);
+    }, HORIZONTAL_SUBMENU_HOVER_CLOSE_MS);
+  }, [mode, clearHorizontalHoverCloseTimer]);
+
+  const handleHorizontalTopSubmenuHoverEnter = useCallback(
+    (key: string) => {
+      if (mode !== 'horizontal') return;
+      clearHorizontalHoverCloseTimer();
+      setPopupOpenKey(key);
+    },
+    [mode, clearHorizontalHoverCloseTimer],
+  );
+
+  const handleHorizontalTopSubmenuHoverLeave = useCallback(() => {
+    if (mode !== 'horizontal') return;
+    scheduleHorizontalHoverClose();
+  }, [mode, scheduleHorizontalHoverClose]);
+
+  const handleHorizontalPopupHoverEnter = useCallback(() => {
+    if (mode !== 'horizontal') return;
+    clearHorizontalHoverCloseTimer();
+  }, [mode, clearHorizontalHoverCloseTimer]);
+
+  const handleHorizontalPopupHoverLeave = useCallback(() => {
+    if (mode !== 'horizontal') return;
+    scheduleHorizontalHoverClose();
+  }, [mode, scheduleHorizontalHoverClose]);
 
   const updatePopupPlacement = useCallback(() => {
     if (!popupMode || !popupOpenKey) {
@@ -481,6 +554,7 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
       if (!popupOpenKey) return;
       if (root?.contains(target)) return;
       if (popupPanelRef.current?.contains(target)) return;
+      clearHorizontalHoverCloseTimer();
       setPopupOpenKey(null);
     };
     document.addEventListener('mousedown', handlePointerDown);
@@ -491,7 +565,7 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
       document.removeEventListener('mousedown', handlePointerDown);
       document.removeEventListener('touchstart', handlePointerDown);
     };
-  }, [popupMode, popupOpenKey]);
+  }, [popupMode, popupOpenKey, clearHorizontalHoverCloseTimer]);
 
   useEffect(() => {
     if (!popupMode) return;
@@ -529,6 +603,7 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
         return;
       }
       if (popupMode) {
+        clearHorizontalHoverCloseTimer();
         setPopupOpenKey((prev) => (prev === key ? null : key));
         return;
       }
@@ -538,7 +613,7 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
         : [...openKeysProp.map(keyToString), key];
       onOpenChange?.(next);
     },
-    [popupMode, openSet, openKeysProp, onOpenChange],
+    [popupMode, openSet, openKeysProp, onOpenChange, clearHorizontalHoverCloseTimer],
   );
 
   const handleLeafActivate = useCallback(
@@ -547,10 +622,11 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
       onClick?.();
       onSelect?.({ key, selectedKeys: [key] });
       if (popupMode) {
+        clearHorizontalHoverCloseTimer();
         setPopupOpenKey(null);
       }
     },
-    [onSelect, popupMode],
+    [onSelect, popupMode, clearHorizontalHoverCloseTimer],
   );
 
   const renderCtx: ProLayoutNavMenuRenderContext = {
@@ -572,6 +648,14 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
     setPopupOpenKey,
     handleLeafActivate,
     handleSubmenuTitleClick,
+    onHorizontalTopSubmenuHoverEnter:
+      mode === 'horizontal' ? handleHorizontalTopSubmenuHoverEnter : undefined,
+    onHorizontalTopSubmenuHoverLeave:
+      mode === 'horizontal' ? handleHorizontalTopSubmenuHoverLeave : undefined,
+    onHorizontalPopupHoverEnter:
+      mode === 'horizontal' ? handleHorizontalPopupHoverEnter : undefined,
+    onHorizontalPopupHoverLeave:
+      mode === 'horizontal' ? handleHorizontalPopupHoverLeave : undefined,
   };
 
   const isHorizontal = mode === 'horizontal';

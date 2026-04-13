@@ -546,6 +546,59 @@ describe('BasicLayout', () => {
     html.unmount();
   });
 
+  it('🥩 layout top: hover opens first-level submenu popup', async () => {
+    vi.useFakeTimers();
+    const html = render(
+      <ProLayout
+        layout="top"
+        menuDataRender={() => [
+          {
+            path: '/a',
+            name: '一级',
+            children: [{ path: '/a/b', name: '二级项' }],
+          },
+        ]}
+      >
+        <div />
+      </ProLayout>,
+    );
+
+    await waitFor(() => {
+      expect(html.getByText('一级')).toBeTruthy();
+    });
+
+    const topSubmenuBtn = html.getByText('一级').closest('button');
+    expect(topSubmenuBtn).toBeTruthy();
+
+    act(() => {
+      fireEvent.pointerEnter(topSubmenuBtn!);
+    });
+
+    await waitFor(() => {
+      const popup = document.body.querySelector(
+        '[class*="ant-pro-base-menu-horizontal-submenu-popup"]',
+      );
+      expect(popup).toBeTruthy();
+      expect(popup!.textContent).toContain('二级项');
+    });
+
+    act(() => {
+      fireEvent.pointerLeave(topSubmenuBtn!);
+      vi.advanceTimersByTime(200);
+    });
+
+    await waitFor(() => {
+      expect(
+        document.body.querySelector(
+          '[class*="ant-pro-base-menu-horizontal-submenu-popup"]',
+        ),
+      ).toBeFalsy();
+    });
+
+    vi.useRealTimers();
+    html.unmount();
+  });
+
   it('🥩 do not render footer', async () => {
     const wrapper = render(<ProLayout title="title" footerRender={false} />);
 
