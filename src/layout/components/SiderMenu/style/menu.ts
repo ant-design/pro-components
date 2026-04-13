@@ -542,8 +542,16 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           minHeight: 28,
           height: 28,
           alignItems: 'center',
+          /** 与图标区同高对齐：避免过大 line-height 把文字基线顶歪 */
+          [`${c}-item-icon`]: {
+            alignSelf: 'center',
+          },
           [`${c}-item-text`]: {
-            lineHeight: '28px',
+            display: 'inline-flex',
+            alignItems: 'center',
+            alignSelf: 'center',
+            lineHeight: 1,
+            height: v('iconBox'),
           },
         },
         [`> a`]: {
@@ -580,7 +588,12 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         transition: `background-color var(--ant-motion-duration-mid, 0.2s), color var(--ant-motion-duration-mid, 0.2s)`,
         [`${c}-submenu-title-inner`]: {
           minHeight: 28,
+          height: 28,
           alignItems: 'center',
+          [`> *`]: {
+            alignSelf: 'center',
+            lineHeight: 1,
+          },
         },
       },
       [`${c}-submenu-popup`]: {
