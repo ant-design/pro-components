@@ -6,7 +6,7 @@
 
 - ProLayout
   - 🛠 Refactor `BaseMenu`: replace legacy `MenuUtil` class with plain functions to build `NavMenuNode` (no antd `Menu` adapter class)
-  - 🛠 Extract `baseMenuItemPath.tsx` from `BaseMenu` for `getMenuItemPath`, external-link branch, and collapsed `MenuItemTooltip`
+  - 🛠 Extract `baseMenuNavNodes.tsx` from `BaseMenu` for `getIntlMenuName`, `getSubMenuOrItem`, `getMenuItemPath`, and collapsed `MenuItemTooltip`
   - 🗑 Remove `layout="mix"` from typings; runtime still accepts string `mix` and maps it to `side`. For top strip + sider children use `layout="side"` with `splitMenus`; customize the strip via `headerMenuRender`
   - 🗑 Remove `navTheme` (no longer on `ProSettings` or route `MenuDataItem`); sider `Sider` always uses `theme="light"` — use antd `ConfigProvider` `theme.algorithm` for app-wide dark mode
   - 🗑 Remove built-in `SettingDrawer` (no longer exported from `@ant-design/pro-components`)
