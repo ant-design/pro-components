@@ -87,6 +87,7 @@ function layoutNavCssVars(surface: 'sider' | 'header'): Record<string, string> {
       [navVar.itemHeight]: `${itemH}px`,
       [navVar.itemRadius]: '6px',
       [navVar.itemGap]: '8px',
+      /** 仅侧栏 vertical：`horizontal` 模式走本函数末尾 `return`，字号与字重不同 */
       [navVar.itemFontSize]: '14px',
       [navVar.itemFontWeight]: '400',
       [navVar.itemPadBlock]: '6px',
@@ -97,6 +98,7 @@ function layoutNavCssVars(surface: 'sider' | 'header'): Record<string, string> {
       [navVar.iconBox]: '16px',
     };
   }
+  /** 顶栏 horizontal：与侧栏分支互斥，由 `genProLayoutBaseMenuStyle` 的 `isHorizontal` 选用 */
   return {
     [navVar.colorText]: 'var(--ant-color-text-secondary)',
     [navVar.colorBgHover]: 'var(--ant-color-fill-secondary)',
