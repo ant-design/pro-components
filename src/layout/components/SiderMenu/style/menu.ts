@@ -508,6 +508,23 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           borderRadius: v('itemRadius'),
         },
       },
+      /**
+       * 侧栏收起：根 `nav` 同时带 `-list--root`，子 `li` 仍为 `width:100%` 会在窄宽度下整行拉成长条；
+       * 仅根列表下顶级项/子菜单收窄并居中，与图标区同宽视觉。
+       */
+      [`&${c}-list--root&--collapsed`]: {
+        alignItems: 'center',
+        [`> ${c}-item`]: {
+          width: 'auto',
+          maxWidth: '100%',
+          alignSelf: 'center',
+        },
+        [`> ${c}-submenu`]: {
+          width: 'auto',
+          maxWidth: '100%',
+          alignSelf: 'center',
+        },
+      },
     },
 
     /** 侧栏收起：不展示分组标题（完整选择器，避免嵌套编译差异） */

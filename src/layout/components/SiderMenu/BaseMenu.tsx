@@ -726,7 +726,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       selectedKeys={(selectedKeys || []).map((k) => String(k))}
       openKeys={navOpenKeys}
       defaultOpenKeys={defaultOpenKeysRef.current.map((k) => String(k))}
-      nodes={finallyData
+      nodes={(finallyData ?? [])
         .map((item) => getSubMenuOrItem(menuNavCtx, item, 0, 0))
         .filter(Boolean)
         .flat(1) as NavMenuNode[]}
