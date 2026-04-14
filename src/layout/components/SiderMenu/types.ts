@@ -19,7 +19,7 @@ export type MenuMode = 'vertical' | 'horizontal';
  */
 export type ProLayoutNavMenuDomProps = Omit<
   HTMLAttributes<HTMLElement>,
-  'role' | 'onSelect' | 'children' | 'defaultValue'
+  'onSelect' | 'children' | 'defaultValue'
 >;
 
 /**

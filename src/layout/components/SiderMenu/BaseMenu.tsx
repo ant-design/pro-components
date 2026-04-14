@@ -118,40 +118,6 @@ export type BaseMenuProps = {
 } & Partial<RouterTypes> &
   Partial<PureSettings>;
 
-let IconFont = createFromIconfontCN({
-  scriptUrl: defaultSettings.iconfontUrl,
-});
-
-// Allow menu.js config icon as string or ReactNode
-//   icon: 'setting',
-//   icon: 'icon-geren' #For Iconfont ,
-//   icon: 'http://demo.com/icon.png',
-//   icon: '/favicon.png',
-//   icon: <Icon type="setting" />,
-const getIcon = (
-  icon: string | React.ReactNode,
-  iconPrefixes: string = 'icon-',
-  className: string,
-): React.ReactNode => {
-  if (typeof icon === 'string' && icon !== '') {
-    if (isUrl(icon) || isImg(icon)) {
-      return (
-        <img
-          width={16}
-          key={icon}
-          src={icon}
-          alt="icon"
-          className={className}
-        />
-      );
-    }
-    if (icon.startsWith(iconPrefixes)) {
-      return <IconFont type={icon} />;
-    }
-  }
-  return icon;
-};
-
 const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const {
@@ -169,6 +135,47 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     menuRenderType,
     openKeys: propsOpenKeys,
   } = props;
+
+  const iconFontRef = useRef(
+    createFromIconfontCN({
+      scriptUrl: iconfontUrl ?? defaultSettings.iconfontUrl,
+    }),
+  );
+
+  useEffect(() => {
+    if (!iconfontUrl) return;
+    iconFontRef.current = createFromIconfontCN({
+      scriptUrl: iconfontUrl,
+    });
+  }, [iconfontUrl]);
+
+  const getIcon = useCallback(
+    (
+      icon: string | React.ReactNode,
+      iconPrefixes: string = 'icon-',
+      className: string,
+    ): React.ReactNode => {
+      if (typeof icon === 'string' && icon !== '') {
+        if (isUrl(icon) || isImg(icon)) {
+          return (
+            <img
+              width={16}
+              key={icon}
+              src={icon}
+              alt=""
+              className={className}
+            />
+          );
+        }
+        if (icon.startsWith(iconPrefixes)) {
+          const IconFont = iconFontRef.current;
+          return <IconFont type={icon} />;
+        }
+      }
+      return icon;
+    },
+    [],
+  );
 
   const baseClassName = `${prefixClsProp}-base-menu-${mode}`;
   // 用于减少 defaultOpenKeys 计算的组件
@@ -244,15 +251,6 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       setSelectedKeys(matchMenuKeys);
     }
   }, [matchMenuKeys.join('-')]);
-
-  useEffect(() => {
-    // reset IconFont
-    if (iconfontUrl) {
-      IconFont = createFromIconfontCN({
-        scriptUrl: iconfontUrl,
-      });
-    }
-  }, [iconfontUrl]);
 
   useEffect(
     () => {
@@ -391,10 +389,10 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       style={{
         backgroundColor: 'transparent',
         border: 'none',
-        ...style,
         ...menuPropsStyle,
+        ...style,
       }}
-      className={clsx(className, hashId, baseClassName, menuPropsClassName, {
+      className={clsx(menuPropsClassName, className, hashId, baseClassName, {
         'ant-pro-sider-menu':
           mode !== 'horizontal' && props.menuRenderType !== 'header',
         [`${baseClassName}-horizontal`]: mode === 'horizontal',

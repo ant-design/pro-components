@@ -3,7 +3,12 @@ import {
   InfoCircleFilled,
   QuestionCircleFilled,
 } from '@ant-design/icons';
-import { LoginForm, ProFormText, ProLayout } from '@ant-design/pro-components';
+import {
+  LoginForm,
+  ProFormText,
+  ProLayout,
+  type ProLayoutNavMenuDomProps,
+} from '@ant-design/pro-components';
 import {
   act,
   cleanup,
@@ -96,6 +101,27 @@ describe('BasicLayout', () => {
     expect(clickWrap?.parentElement).toBe(item);
     expect(clickWrap?.contains(titleRow!)).toBe(true);
 
+    wrapper.unmount();
+  });
+
+  it('🥩 TopNavHeader merges menuProps once on root nav', async () => {
+    const wrapper = render(
+      <ProLayout
+        layout="top"
+        menuDataRender={() => [
+          { path: '/welcome', name: '欢迎' },
+        ]}
+        menuProps={
+          { 'data-testid': 'top-nav-menu-root' } as ProLayoutNavMenuDomProps
+        }
+      />,
+    );
+    await waitForWaitTime(100);
+    const roots = wrapper.baseElement.querySelectorAll(
+      '[data-testid="top-nav-menu-root"]',
+    );
+    expect(roots.length).toBe(1);
+    expect(roots[0]?.tagName.toLowerCase()).toBe('nav');
     wrapper.unmount();
   });
 

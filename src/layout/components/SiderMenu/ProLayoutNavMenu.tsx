@@ -68,12 +68,7 @@ export type ProLayoutNavMenuProps = {
   nodes: NavMenuNode[];
 } & Omit<
   HTMLAttributes<HTMLElement>,
-  | 'role'
-  | 'onSelect'
-  | 'children'
-  | 'defaultValue'
-  | 'className'
-  | 'style'
+  'onSelect' | 'children' | 'defaultValue' | 'className' | 'style'
 > & {
   className?: string;
   style?: CSSProperties;
@@ -271,6 +266,7 @@ function renderPopup(
         type="button"
         ref={setSubmenuAnchorRef}
         id={`${rootId}-submenu-${node.key}`}
+        aria-label={node.ariaLabel}
         className={clsx(
           `${baseClassName}-submenu-title`,
           hashId,
@@ -333,6 +329,7 @@ function renderInlineSubmenu(
       <button
         type="button"
         id={`${ctx.rootId}-submenu-inline-${node.key}`}
+        aria-label={node.ariaLabel}
         className={clsx(`${baseClassName}-submenu-title`, hashId, {
           [`${baseClassName}-submenu-title--open`]: isOpen,
           [`${baseClassName}-submenu-has-icon`]:
@@ -429,11 +426,11 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
   style,
   ...restNavPropsRaw
 }) => {
-  /** 避免调用方经 `menuProps` 覆盖根 `nav` 的 `role` / hash `className` / `style` */
+  /** 合并顺序：先展开 menuProps，再由组件写回 `className`/`style`/`role`，避免 hash 与布局类被覆盖 */
   const {
-    role: _stripRole,
-    className: _stripClassName,
-    style: _stripStyle,
+    className: menuPropsClassName,
+    style: menuPropsStyle,
+    role: menuPropsRole,
     ...restNavProps
   } = restNavPropsRaw as HTMLAttributes<HTMLElement>;
   const popupMode = isPopupMode(mode, collapsed);
@@ -578,12 +575,19 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
         ref={rootNavRef}
         data-pro-layout-nav-root
         {...restNavProps}
-        className={clsx(className, hashId, baseClassName, listClassName, {
-          [`${baseClassName}--horizontal`]: true,
-          [`${baseClassName}--collapsed`]: !!collapsed,
-        })}
-        style={style}
-        role="menubar"
+        className={clsx(
+          menuPropsClassName,
+          className,
+          hashId,
+          baseClassName,
+          listClassName,
+          {
+            [`${baseClassName}--horizontal`]: true,
+            [`${baseClassName}--collapsed`]: !!collapsed,
+          },
+        )}
+        style={{ ...menuPropsStyle, ...style }}
+        role={menuPropsRole ?? 'menubar'}
       >
         {listBody}
       </nav>
@@ -595,11 +599,18 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
       ref={rootNavRef}
       data-pro-layout-nav-root
       {...restNavProps}
-      className={clsx(className, hashId, baseClassName, listClassName, {
-        [`${baseClassName}--collapsed`]: !!collapsed,
-      })}
-      style={style}
-      role="menu"
+      className={clsx(
+        menuPropsClassName,
+        className,
+        hashId,
+        baseClassName,
+        listClassName,
+        {
+          [`${baseClassName}--collapsed`]: !!collapsed,
+        },
+      )}
+      style={{ ...menuPropsStyle, ...style }}
+      role={menuPropsRole ?? 'menu'}
     >
       {listBody}
     </nav>

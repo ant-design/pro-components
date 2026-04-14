@@ -22,9 +22,10 @@ const MenuItemTooltip = (props: {
   const [open, setOpen] = useState(false);
   useEffect(() => {
     setOpen(false);
-    setTimeout(() => {
+    const timer = window.setTimeout(() => {
       setCollapsed(props.collapsed);
     }, 400);
+    return () => window.clearTimeout(timer);
   }, [props.collapsed]);
 
   if (props.disable) {
@@ -114,6 +115,17 @@ export function getMenuTitleSymbol(title: React.ReactNode) {
   return null;
 }
 
+function getSubmenuAriaLabel(ctx: MenuNavBuildContext, item: MenuDataItem) {
+  const text = getIntlMenuName(ctx, item);
+  if (typeof text === 'string' || typeof text === 'number') {
+    const s = String(text).trim();
+    if (s) return s;
+  }
+  const fallback = item.name ?? item.path ?? item.key;
+  if (typeof fallback === 'string' && fallback.trim()) return fallback.trim();
+  return String(item.key ?? '');
+}
+
 export function getMenuItemPath(
   ctx: MenuNavBuildContext,
   item: MenuDataItem,
@@ -176,12 +188,16 @@ export function getMenuItemPath(
   const isHttpUrl = isUrl(itemPath);
 
   if (isHttpUrl) {
+    const linkLabel =
+      typeof menuItemTitle === 'string' || typeof menuItemTitle === 'number'
+        ? String(menuItemTitle)
+        : String(item.name ?? item.path ?? 'link');
     defaultItem = (
-      <span
+      <a
         key={itemPath}
-        onClick={() => {
-          window?.open?.(itemPath, '_blank');
-        }}
+        href={itemPath}
+        target="_blank"
+        rel="noopener noreferrer"
         className={clsx(`${baseClassName}-item-title`, hashId, {
           [`${baseClassName}-item-title-collapsed`]: collapsed,
           [`${baseClassName}-item-title-collapsed-level-${noGroupLevel}`]:
@@ -190,6 +206,7 @@ export function getMenuItemPath(
           [`${baseClassName}-item-collapsed-show-title`]:
             menu?.collapsedShowTitle && collapsed,
         })}
+        aria-label={linkLabel}
       >
         <span
           className={clsx(`${baseClassName}-item-icon`, hashId)}
@@ -207,7 +224,7 @@ export function getMenuItemPath(
         >
           {menuItemTitle}
         </span>
-      </span>
+      </a>
     );
   }
   if (menuItemRender) {
@@ -335,6 +352,7 @@ export function getSubMenuOrItem(
             kind: 'submenu',
             key: String(item.key! || item.path!),
             label: title,
+            ariaLabel: getSubmenuAriaLabel(ctx, item),
             onTitleClick: (e) => item.onTitleClick?.(e),
             children: childrenList,
             hasIcon: !!(shouldHasIcon && iconDom),
