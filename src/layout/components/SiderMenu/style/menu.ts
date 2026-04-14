@@ -594,6 +594,10 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           height: 28,
           alignItems: 'center',
         },
+        [`> *`]: {
+          minHeight: 28,
+          height: 28,
+        },
       },
       [`${c}-submenu`]: {
         display: 'inline-flex',
@@ -620,6 +624,18 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
             lineHeight: 1,
           },
         },
+        [`> *`]: {
+          minHeight: 28,
+          height: 28,
+        },
+      },
+      [`${c}-item-title`]: {
+        minHeight: 28,
+        height: 28,
+        lineHeight: '28px',
+      },
+      [`${c}-item-title ${c}-item-text`]: {
+        lineHeight: '28px',
       },
       [`${c}-submenu-popup`]: {
         [`${c}-item-title`]: { alignItems: 'flex-start' },

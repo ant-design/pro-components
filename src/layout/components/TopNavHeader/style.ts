@@ -15,6 +15,7 @@ const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken> = (token) => {
       backgroundColor: 'transparent',
       '&-main': {
         display: 'flex',
+        alignItems: 'center',
         height: '100%',
         paddingInlineStart: '16px',
         '&-left': {
@@ -63,13 +64,11 @@ const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken> = (token) => {
         minWidth: 0,
         display: 'flex',
         alignItems: 'center',
+        alignSelf: 'stretch',
         overflow: 'visible',
         paddingInline: 6,
-        paddingBlock: 6,
-        lineHeight: `${Math.max(
-          (token.layout?.header?.heightLayoutHeader || 56) - 12,
-          40,
-        )}px`,
+        paddingBlock: 0,
+        lineHeight: 1,
       },
     },
   };
