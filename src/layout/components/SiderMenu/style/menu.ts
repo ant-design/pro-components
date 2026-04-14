@@ -88,7 +88,7 @@ function layoutNavCssVars(surface: 'sider' | 'header'): Record<string, string> {
       [navVar.itemRadius]: '6px',
       [navVar.itemGap]: '8px',
       [navVar.itemFontSize]: '14px',
-      [navVar.itemFontWeight]: '500',
+      [navVar.itemFontWeight]: '400',
       [navVar.itemPadBlock]: '6px',
       [navVar.itemPadInline]: `${padInline}px`,
       [navVar.stackGap]: `${stackGap}px`,
