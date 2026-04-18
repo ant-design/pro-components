@@ -1,5 +1,7 @@
 export default {
   moneySymbol: '€',
+  deleteThisLine: 'Supprimer cette ligne',
+  copyThisLine: 'Copier cette ligne',
   form: {
     lightFilter: {
       more: 'Plus',
@@ -31,7 +33,7 @@ export default {
   },
   tableToolBar: {
     leftPin: 'Épingler à gauche',
-    rightPin: 'Épingler à gauche',
+    rightPin: 'Épingler à droite',
     noPin: 'Sans épingle',
     leftFixedTitle: 'Fixer à gauche',
     rightFixedTitle: 'Fixer à droite',
@@ -41,10 +43,10 @@ export default {
     columnSetting: 'Réglages',
     fullScreen: 'Plein écran',
     exitFullScreen: 'Quitter Plein écran',
-    reload: 'Rafraichir',
+    reload: 'Actualiser',
     density: 'Densité',
     densityDefault: 'Par défaut',
-    densityLarger: 'Larger',
+    densityLarger: 'Plus grande',
     densityMiddle: 'Moyenne',
     densitySmall: 'Compacte',
   },
@@ -57,6 +59,8 @@ export default {
     submitText: 'Se connecter',
   },
   editableTable: {
+    onlyOneLineEditor: 'Une seule ligne peut être modifiée à la fois',
+    onlyAddOneLine: 'Une seule ligne peut être ajoutée à la fois',
     action: {
       save: 'Sauvegarder',
       cancel: 'Annuler',
@@ -66,6 +70,6 @@ export default {
   },
   switch: {
     open: 'ouvert',
-    close: 'près',
+    close: 'fermé',
   },
 };

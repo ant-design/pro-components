@@ -1,5 +1,7 @@
 export default {
   moneySymbol: 'UZS',
+  deleteThisLine: 'Bu qatorni oʻchirish',
+  copyThisLine: 'Bu qatorni nusxalash',
   form: {
     lightFilter: {
       more: 'Yana',
@@ -57,6 +59,8 @@ export default {
     submitText: 'Kirish',
   },
   editableTable: {
+    onlyOneLineEditor: 'Bir vaqtning oʻzida faqat bitta qator tahrirlanishi mumkin',
+    onlyAddOneLine: 'Bir vaqtning oʻzida faqat bitta qator qoʻshilishi mumkin',
     action: {
       save: 'Saqlash',
       cancel: 'Bekor qilish',

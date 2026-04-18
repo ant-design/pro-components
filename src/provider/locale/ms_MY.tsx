@@ -1,5 +1,7 @@
 export default {
   moneySymbol: 'RM',
+  deleteThisLine: 'Padam baris ini',
+  copyThisLine: 'Salin baris ini',
   form: {
     lightFilter: {
       more: 'Lebih banyak',
@@ -38,9 +40,9 @@ export default {
     noFixedTitle: 'Tidak Tetap',
     reset: 'Menetapkan semula',
     columnDisplay: 'Lajur',
-    columnSetting: 'Settings',
-    fullScreen: 'Full Screen',
-    exitFullScreen: 'Keluar Full Screen',
+    columnSetting: 'Tetapan',
+    fullScreen: 'Skrin penuh',
+    exitFullScreen: 'Keluar skrin penuh',
     reload: 'Muat Semula',
     density: 'Densiti',
     densityDefault: 'Biasa',
@@ -57,6 +59,8 @@ export default {
     submitText: 'Log Masuk',
   },
   editableTable: {
+    onlyOneLineEditor: 'Hanya satu baris boleh disunting pada satu masa',
+    onlyAddOneLine: 'Hanya satu baris boleh ditambah pada satu masa',
     action: {
       save: 'Simpan',
       cancel: 'Membatalkan',

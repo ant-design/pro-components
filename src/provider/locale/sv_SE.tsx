@@ -60,6 +60,7 @@ export default {
   },
   editableTable: {
     onlyOneLineEditor: 'Endast en rad kan redigeras åt gången',
+    onlyAddOneLine: 'Endast en rad kan läggas till åt gången',
     action: {
       save: 'Spara',
       cancel: 'Avbryt',

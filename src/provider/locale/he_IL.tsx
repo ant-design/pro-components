@@ -60,6 +60,7 @@ export default {
   },
   editableTable: {
     onlyOneLineEditor: 'ניתן לערוך רק שורה אחת',
+    onlyAddOneLine: 'ניתן להוסיף רק שורה אחת',
     action: {
       save: 'שמור',
       cancel: 'ביטול',

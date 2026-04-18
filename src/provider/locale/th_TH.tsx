@@ -60,6 +60,7 @@ export default {
   },
   editableTable: {
     onlyOneLineEditor: 'แก้ไขได้เพียงบรรทัดเดียวเท่านั้น',
+    onlyAddOneLine: 'เพิ่มได้เพียงบรรทัดเดียวเท่านั้น',
     action: {
       save: 'บันทึก',
       cancel: 'ยกเลิก',
