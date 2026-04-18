@@ -1,8 +1,8 @@
-import { createFromIconfontCN } from '@ant-design/icons';
 import { useControlledState } from '@rc-component/util';
 import { ConfigProvider, Skeleton } from 'antd';
 import { clsx } from 'clsx';
 import React, {
+  isValidElement,
   useCallback,
   useContext,
   useEffect,
@@ -11,7 +11,6 @@ import React, {
   useState,
 } from 'react';
 import { isImg, isUrl } from '../../../utils';
-import { defaultSettings } from '../../defaultSettings';
 import { getOpenKeysFromMenuData } from '../../utils/utils';
 import type { PrivateSiderMenuProps } from './SiderMenu';
 import {
@@ -39,37 +38,30 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     prefixCls: prefixClsProp = getPrefixCls('pro'),
     menu,
     matchMenuKeys,
-    iconfontUrl,
     selectedKeys: propsSelectedKeys,
     onSelect: propsOnSelect,
     menuRenderType,
     openKeys: propsOpenKeys,
   } = props;
 
-  const iconFontRef = useRef(
-    createFromIconfontCN({
-      scriptUrl: iconfontUrl ?? defaultSettings.iconfontUrl,
-    }),
-  );
-
-  useEffect(() => {
-    if (!iconfontUrl) return;
-    iconFontRef.current = createFromIconfontCN({
-      scriptUrl: iconfontUrl,
-    });
-  }, [iconfontUrl]);
-
   const getIcon = useCallback(
     (
       icon: string | React.ReactNode,
-      iconPrefixes: string = 'icon-',
+      _iconPrefixes: string | undefined,
       className: string,
     ): React.ReactNode => {
+      if (icon == null || icon === false) {
+        return null;
+      }
+      if (isValidElement(icon)) {
+        return icon;
+      }
       if (typeof icon === 'string' && icon !== '') {
         if (isUrl(icon) || isImg(icon)) {
           return (
             <img
               width={16}
+              height={16}
               key={icon}
               src={icon}
               alt=""
@@ -77,12 +69,8 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
             />
           );
         }
-        if (icon.startsWith(iconPrefixes)) {
-          const IconFont = iconFontRef.current;
-          return <IconFont type={icon} />;
-        }
       }
-      return icon;
+      return null;
     },
     [],
   );

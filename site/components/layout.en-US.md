@@ -86,7 +86,6 @@ ProLayout will automatically select the menu based on `location.pathname` and au
 | fixSiderbar                | whether to fix the navigation                                                                                                                                                                                                               | `boolean`                                                                                                                                      | `false`                                  |
 | breakpoint                 | Trigger [breakpoint](https://ant.design/components/grid/#Col) for responsive layouts                                                                                                                                                        | `Enum { 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' }`                                                                                                 | `lg`                                     |
 | menu                       | About [menu](#menu) configuration, temporarily only locale, locale can close the menu's own globalization                                                                                                                                   | [`menuConfig`](#menu)                                                                                                                          | `{ locale: true }`                       |
-| iconfontUrl                | Use the icon configuration of [IconFont](https://ant.design/components/icon/#components-icon-demo-iconfont)                                                                                                                                 | `URL`                                                                                                                                          | -                                        |
 | locale                     | Language settings for the current layout                                                                                                                                                                                                    | `LocaleType` (`'zh-CN'` \| `'zh-TW'` \| `'en-US'` \| `'it-IT'` \| `'ko-KR'`)                                                                   | navigator.language                       |
 | settings                   | settings for layout                                                                                                                                                                                                                         | [`Settings`](#Settings)                                                                                                                        | -                                        |
 | siderWidth                 | width of the side menu                                                                                                                                                                                                                      | `number`                                                                                                                                       | mix mode: 215, other: 256                |
@@ -214,10 +213,6 @@ export interface Settings {
   menu: { locale: boolean };
   title: string;
   pwa: boolean;
-  // Your custom iconfont Symbol script Url
-  // eg: // at.alicdn.com/t/font_1039637_btcrd5co4w.js
-  // Usage: https://github.com/ant-design/ant-design-pro/pull/3517
-  iconfontUrl: string;
   colorWeak: boolean;
 }
 ```
@@ -232,7 +227,7 @@ export interface MenuDataItem {
   children?: MenuDataItem[];
   hideChildrenInMenu?: boolean;
   hideInMenu?: boolean;
-  icon?: string;
+  icon?: React.ReactNode;
   locale?: string;
   name?: string;
   path: string;
@@ -475,7 +470,7 @@ export interface MenuDataItem {
   children?: MenuDataItem[];
   hideChildrenInMenu?: boolean;
   hideInMenu?: boolean;
-  icon?: string;
+  icon?: React.ReactNode;
   locale?: string;
   name?: string;
   path: string;
@@ -484,7 +479,7 @@ export interface MenuDataItem {
 ```
 
 - name is used to configure the name in the menu, and will be modified to the browser tab title
-- icon represents the body of the menu, only antd's icon, iconfont needs to be defined by yourself
+- icon is the menu icon: `@ant-design/icons`, a custom React node, or an image/SVG URL string
 - locale can set the internationalization of the menu name
 - hideInMenu will be configured to hide this route in the menu, name will have the same effect if not filled
 - hideChildrenInMenu will hide the children of this route in the menu

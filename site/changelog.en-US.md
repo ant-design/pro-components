@@ -5,6 +5,7 @@
 ### 🗑 Breaking Changes
 
 - ProLayout
+  - 🗑 Remove `iconfontUrl` and IconFont script loading; use React nodes for menu `icon` (e.g. `@ant-design/icons`) or image/SVG URL strings
   - 🗑 Remove `navTheme` (no longer on `ProSettings` or route `MenuDataItem`); sider `Sider` always uses `theme="light"` — use antd `ConfigProvider` `theme.algorithm` for app-wide dark mode
   - 🗑 Remove built-in `SettingDrawer` (no longer exported from `@ant-design/pro-components`)
   - 🗑 Remove the entire ProHelp suite (`ProHelp`, `ProHelpPanel`, `ProHelpDrawer`, `ProHelpModal`, `ProHelpPopover`, `ProHelpContentPanel`, `ProHelpProvide`, and related types such as `ProHelpDataSource` are no longer exported); pin an older version or re-implement in app code if needed
