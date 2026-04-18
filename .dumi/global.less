@@ -1,6 +1,25 @@
 // 全局样式文件
 // 用于定制文档站点的样式
 
+// Markdown 外链旁装饰 SVG（常为硬编码深色 fill）：与文字链同色，暗色模式下可见
+.markdown a[target='_blank'] svg {
+  fill: currentcolor;
+  stroke: currentcolor;
+  vertical-align: -0.125em;
+
+  path,
+  polygon,
+  circle,
+  rect {
+    &:not([fill='none']) {
+      fill: currentcolor;
+    }
+    &[stroke]:not([stroke='none']) {
+      stroke: currentcolor;
+    }
+  }
+}
+
 // 代码块样式优化
 .markdown {
   pre {
