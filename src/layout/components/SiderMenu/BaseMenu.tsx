@@ -14,10 +14,10 @@ import { isImg, isUrl } from '../../../utils';
 import { getOpenKeysFromMenuData } from '../../utils/utils';
 import type { PrivateSiderMenuProps } from './SiderMenu';
 import {
-  getMenuNavNodes,
-  type BaseMenuProps as BaseMenuNavProps,
-  type MenuNavBuildContext,
-} from './baseMenuNavNodes';
+  mapMenuDataToNavNodes,
+  type BaseMenuProps as BaseMenuTreeProps,
+  type BaseMenuTreeContext,
+} from './menuTree';
 import { ProLayoutNavMenu } from './ProLayoutNavMenu';
 import { useStyle } from './style/menu';
 export type {
@@ -26,7 +26,7 @@ export type {
   ProLayoutNavMenuSelectInfo,
 } from './types';
 
-export type BaseMenuProps = BaseMenuNavProps;
+export type BaseMenuProps = BaseMenuTreeProps;
 
 const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -45,8 +45,8 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     openKeys: propsOpenKeys,
   } = props;
 
-  const getIcon = useCallback(
-    (icon: string | React.ReactNode, className: string): React.ReactNode => {
+  const renderIcon = useCallback(
+    (icon: string | React.ReactNode, iconClassName: string): React.ReactNode => {
       if (icon == null || icon === false) {
         return null;
       }
@@ -62,7 +62,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
               key={icon}
               src={icon}
               alt=""
-              className={className}
+              className={iconClassName}
             />
           );
         }
@@ -193,15 +193,15 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
 
   const { wrapSSR, hashId } = useStyle(baseClassName, mode);
 
-  const menuNavCtx = useMemo<MenuNavBuildContext>(
+  const baseMenuTreeContext = useMemo<BaseMenuTreeContext>(
     () => ({
       ...props,
       menuRenderType,
       baseClassName,
       hashId,
-      getIcon,
+      renderIcon,
     }),
-    [props, menuRenderType, baseClassName, hashId, getIcon],
+    [props, menuRenderType, baseClassName, hashId, renderIcon],
   );
 
   if (menu?.loading) {
@@ -230,11 +230,11 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     defaultOpenKeysRef.current = matchMenuKeys;
   }
 
-  const finallyData = props.postMenuData
+  const resolvedMenuData = props.postMenuData
     ? props.postMenuData(menuData)
     : menuData;
 
-  if (finallyData && finallyData?.length < 1) {
+  if (resolvedMenuData && resolvedMenuData?.length < 1) {
     return null;
   }
 
@@ -244,7 +244,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     ...restMenuProps
   } = props.menuProps || {};
 
-  const inlineOpenKeys =
+  const openKeysForNav =
     propsOpenKeys === false
       ? []
       : openKeys === false
@@ -259,9 +259,9 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       mode={mode!}
       collapsed={props.collapsed}
       selectedKeys={(selectedKeys || []).map((k) => String(k))}
-      openKeys={inlineOpenKeys}
+      openKeys={openKeysForNav}
       defaultOpenKeys={defaultOpenKeysRef.current.map((k) => String(k))}
-      nodes={getMenuNavNodes(menuNavCtx, finallyData ?? [])}
+      nodes={mapMenuDataToNavNodes(baseMenuTreeContext, resolvedMenuData ?? [])}
       onOpenChange={(_openKeys) => {
         if (!props.collapsed) {
           if (_openKeys.length === 0) {

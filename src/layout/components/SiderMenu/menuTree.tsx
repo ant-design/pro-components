@@ -68,17 +68,17 @@ export type BaseMenuProps = {
 } & Partial<RouterTypes> &
   Partial<PureSettings>;
 
-/** 构建菜单树时的上下文（BaseMenu 注入 hashId、getIcon 等） */
-export type MenuNavBuildContext = BaseMenuProps & {
+/** BaseMenu 注入类名与 `renderIcon` 后的上下文，用于生成 `NavMenuNode` 树 */
+export type BaseMenuTreeContext = BaseMenuProps & {
   menuRenderType?: 'header' | 'sider';
   baseClassName: string;
   hashId: string;
-  getIcon: MenuNavGetIconFn;
+  renderIcon: BaseMenuIconRenderer;
 };
 
-export type MenuNavGetIconFn = (
+export type BaseMenuIconRenderer = (
   icon: string | React.ReactNode,
-  className: string,
+  iconClassName: string,
 ) => React.ReactNode;
 
 const MenuItemTooltip = (props: {
@@ -113,43 +113,44 @@ const MenuItemTooltip = (props: {
   );
 };
 
-const getMenuTitleSymbol = (title: React.ReactNode) => {
+/** 收起且无图标时用标题首字母占位 */
+function collapsedTitleLetter(title: React.ReactNode) {
   if (title && typeof title === 'string') {
     return title.substring(0, 1).toUpperCase();
   }
   return null;
-};
+}
 
-function conversionPath(path: string) {
+function normalizeMenuPath(path: string) {
   if (path && path.indexOf('http') === 0) {
     return path;
   }
   return `/${path || ''}`.replace(/\/+/g, '/');
 }
 
-function getIntlName(ctx: MenuNavBuildContext, item: MenuDataItem) {
+function resolveMenuItemTitle(ctx: BaseMenuTreeContext, item: MenuDataItem) {
   const { name, locale } = item;
   const { menu, formatMessage } = ctx;
-  let finalName = name;
+  let text = name;
   if (locale && menu?.locale !== false) {
-    finalName = formatMessage?.({
+    text = formatMessage?.({
       id: locale,
       defaultMessage: name,
     });
   }
   if (ctx.menuTextRender) {
-    return ctx.menuTextRender(item, finalName, ctx);
+    return ctx.menuTextRender(item, text, ctx);
   }
-  return finalName;
+  return text;
 }
 
-function getMenuItemPath(
-  ctx: MenuNavBuildContext,
+function renderLeafRow(
+  ctx: BaseMenuTreeContext,
   item: MenuDataItem,
   level: number,
-  noGroupLevel: number,
+  collapsedGroupDepth: number,
 ) {
-  const itemPath = conversionPath(item.path || '/');
+  const path = normalizeMenuPath(item.path || '/');
   const {
     location = { pathname: '/' },
     isMobile,
@@ -158,25 +159,25 @@ function getMenuItemPath(
     baseClassName,
     menu,
     collapsed,
-    getIcon,
+    renderIcon,
   } = ctx;
 
-  const menuItemTitle = getIntlName(ctx, item);
-  const isGroup = menu?.type === 'group';
-  const hasIcon = level === 0 || (isGroup && level === 1);
-  const icon = !hasIcon
+  const titleText = resolveMenuItemTitle(ctx, item);
+  const isGroupLayout = menu?.type === 'group';
+  const showIconSlot = level === 0 || (isGroupLayout && level === 1);
+  const iconNode = !showIconSlot
     ? null
-    : getIcon(item.icon, `${baseClassName}-icon ${ctx.hashId}`);
+    : renderIcon(item.icon, `${baseClassName}-icon ${ctx.hashId}`);
 
-  const defaultIcon =
-    collapsed && hasIcon ? getMenuTitleSymbol(menuItemTitle) : null;
+  const fallbackLetter =
+    collapsed && showIconSlot ? collapsedTitleLetter(titleText) : null;
 
-  let defaultItem = (
+  let row = (
     <div
-      key={itemPath}
+      key={path}
       className={clsx(`${baseClassName}-item-title`, ctx.hashId, {
         [`${baseClassName}-item-title-collapsed`]: collapsed,
-        [`${baseClassName}-item-title-collapsed-level-${noGroupLevel}`]:
+        [`${baseClassName}-item-title-collapsed-level-${collapsedGroupDepth}`]:
           collapsed,
         [`${baseClassName}-item-collapsed-show-title`]:
           menu?.collapsedShowTitle && collapsed,
@@ -185,33 +186,33 @@ function getMenuItemPath(
       <span
         className={clsx(`${baseClassName}-item-icon`, ctx.hashId)}
         style={{
-          display: defaultIcon === null && !icon ? 'none' : '',
+          display: fallbackLetter === null && !iconNode ? 'none' : '',
         }}
       >
-        {icon || <span>{defaultIcon}</span>}
+        {iconNode || <span>{fallbackLetter}</span>}
       </span>
       <span
         className={clsx(`${baseClassName}-item-text`, ctx.hashId, {
           [`${baseClassName}-item-text-has-icon`]:
-            hasIcon && (icon || defaultIcon),
+            showIconSlot && (iconNode || fallbackLetter),
         })}
       >
-        {menuItemTitle}
+        {titleText}
       </span>
     </div>
   );
-  const isHttpUrl = isUrl(itemPath);
+  const isExternalUrl = isUrl(path);
 
-  if (isHttpUrl) {
-    defaultItem = (
+  if (isExternalUrl) {
+    row = (
       <span
-        key={itemPath}
+        key={path}
         onClick={() => {
-          window?.open?.(itemPath, '_blank');
+          window?.open?.(path, '_blank');
         }}
         className={clsx(`${baseClassName}-item-title`, ctx.hashId, {
           [`${baseClassName}-item-title-collapsed`]: collapsed,
-          [`${baseClassName}-item-title-collapsed-level-${noGroupLevel}`]:
+          [`${baseClassName}-item-title-collapsed-level-${collapsedGroupDepth}`]:
             collapsed,
           [`${baseClassName}-item-link`]: true,
           [`${baseClassName}-item-collapsed-show-title`]:
@@ -221,18 +222,18 @@ function getMenuItemPath(
         <span
           className={clsx(`${baseClassName}-item-icon`, ctx.hashId)}
           style={{
-            display: defaultIcon === null && !icon ? 'none' : '',
+            display: fallbackLetter === null && !iconNode ? 'none' : '',
           }}
         >
-          {icon || <span>{defaultIcon}</span>}
+          {iconNode || <span>{fallbackLetter}</span>}
         </span>
         <span
           className={clsx(`${baseClassName}-item-text`, ctx.hashId, {
             [`${baseClassName}-item-text-has-icon`]:
-              hasIcon && (icon || defaultIcon),
+              showIconSlot && (iconNode || fallbackLetter),
           })}
         >
-          {menuItemTitle}
+          {titleText}
         </span>
       </span>
     );
@@ -240,133 +241,128 @@ function getMenuItemPath(
   if (menuItemRender) {
     const renderItemProps = {
       ...item,
-      isUrl: isHttpUrl,
-      itemPath,
+      isUrl: isExternalUrl,
+      itemPath: path,
       isMobile,
-      replace: itemPath === location.pathname,
+      replace: path === location.pathname,
       onClick: () => onCollapse && onCollapse(true),
       children: undefined,
     };
     return level === 0 ? (
       <MenuItemTooltip
         collapsed={collapsed}
-        title={menuItemTitle}
+        title={titleText}
         disable={item.disabledTooltip}
       >
-        {menuItemRender(renderItemProps, defaultItem, ctx)}
+        {menuItemRender(renderItemProps, row, ctx)}
       </MenuItemTooltip>
     ) : (
-      menuItemRender(renderItemProps, defaultItem, ctx)
+      menuItemRender(renderItemProps, row, ctx)
     );
   }
   return level === 0 ? (
     <MenuItemTooltip
       collapsed={collapsed}
-      title={menuItemTitle}
+      title={titleText}
       disable={item.disabledTooltip}
     >
-      {defaultItem}
+      {row}
     </MenuItemTooltip>
   ) : (
-    defaultItem
+    row
   );
 }
 
-function getSubMenuOrItem(
-  ctx: MenuNavBuildContext,
+function mapMenuItemToNavNode(
+  ctx: BaseMenuTreeContext,
   item: MenuDataItem,
-  level: number,
-  noGroupLevel: number,
+  depth: number,
+  collapsedGroupDepth: number,
 ): NavMenuNode | NavMenuNode[] {
-  const { subMenuItemRender, baseClassName, collapsed, menu, layout, getIcon } =
+  const { subMenuItemRender, baseClassName, collapsed, menu, layout, renderIcon } =
     ctx;
-  const isGroup = menu?.type === 'group' && layout !== 'top';
-  const name = getIntlName(ctx, item);
+  const useGroupChrome = menu?.type === 'group' && layout !== 'top';
+  const titleText = resolveMenuItemTitle(ctx, item);
   const children = item?.children;
 
-  const menuType = isGroup && level === 0 ? ('group' as const) : undefined;
+  const rowVariant = useGroupChrome && depth === 0 ? ('group' as const) : undefined;
 
   if (Array.isArray(children) && children.length > 0) {
-    const shouldHasIcon = level === 0 || (isGroup && level === 1);
+    const iconLevel = depth === 0 || (useGroupChrome && depth === 1);
 
-    const iconDom = getIcon(
+    const iconDom = renderIcon(
       item.icon,
       `${baseClassName}-icon ${ctx.hashId}`,
     );
-    const defaultIcon =
-      collapsed && shouldHasIcon ? getMenuTitleSymbol(name) : null;
+    const fallbackLetter =
+      collapsed && iconLevel ? collapsedTitleLetter(titleText) : null;
 
-    const defaultTitle = (
+    const defaultTitleRow = (
       <div
         className={clsx(`${baseClassName}-item-title`, ctx.hashId, {
           [`${baseClassName}-item-title-collapsed`]: collapsed,
-          [`${baseClassName}-item-title-collapsed-level-${noGroupLevel}`]:
+          [`${baseClassName}-item-title-collapsed-level-${collapsedGroupDepth}`]:
             collapsed,
-          [`${baseClassName}-group-item-title`]: menuType === 'group',
+          [`${baseClassName}-group-item-title`]: rowVariant === 'group',
           [`${baseClassName}-item-collapsed-show-title`]:
             menu?.collapsedShowTitle && collapsed,
         })}
       >
-        {menuType === 'group' && collapsed ? null : shouldHasIcon && iconDom ? (
-          <span
-            className={clsx(`${baseClassName}-item-icon`, ctx.hashId)}
-          >
-            {iconDom}
+        {rowVariant === 'group' && collapsed ? null : iconLevel &&
+          (iconDom || fallbackLetter) ? (
+          <span className={clsx(`${baseClassName}-item-icon`, ctx.hashId)}>
+            {iconDom ?? fallbackLetter}
           </span>
-        ) : (
-          defaultIcon
-        )}
+        ) : null}
         <span
           className={clsx(`${baseClassName}-item-text`, ctx.hashId, {
             [`${baseClassName}-item-text-has-icon`]:
-              menuType !== 'group' &&
-              shouldHasIcon &&
-              (iconDom || defaultIcon),
+              rowVariant !== 'group' &&
+              iconLevel &&
+              (iconDom || fallbackLetter),
           })}
         >
-          {name}
+          {titleText}
         </span>
       </div>
     );
 
-    const title = subMenuItemRender
-      ? subMenuItemRender({ ...item, isUrl: false }, defaultTitle, ctx)
-      : defaultTitle;
+    const titleCell = subMenuItemRender
+      ? subMenuItemRender({ ...item, isUrl: false }, defaultTitleRow, ctx)
+      : defaultTitleRow;
 
-    const childrenList =
-      /* getMenuNavNodes 与 getSubMenuOrItem 互为递归 */
-      // eslint-disable-next-line @typescript-eslint/no-use-before-define -- 二者定义顺序不可同时满足 hoist
-      getMenuNavNodes(
-        ctx,
-        children,
-        level + 1,
-        isGroup && level === 0 && ctx.collapsed ? level : level + 1,
-      );
+    const nextDepth = depth + 1;
+    const nextCollapsedDepth =
+      useGroupChrome && depth === 0 && ctx.collapsed ? depth : depth + 1;
 
-    const submenuOrGroup: NavMenuNode =
-      menuType === 'group'
+    const childNodes =
+      // eslint-disable-next-line @typescript-eslint/no-use-before-define -- `mapMenuDataToNavNodes` 与 `mapMenuItemToNavNode` 互递归
+      mapMenuDataToNavNodes(ctx, children, nextDepth, nextCollapsedDepth);
+
+    const branch: NavMenuNode =
+      rowVariant === 'group'
         ? {
             kind: 'group',
             key: String(item.key! || item.path!),
-            label: title,
-            children: childrenList,
+            label: titleCell,
+            children: childNodes,
             className: clsx(`${baseClassName}-group`),
           }
         : {
             kind: 'submenu',
             key: String(item.key! || item.path!),
-            label: title,
+            label: titleCell,
             onTitleClick: (e) => item.onTitleClick?.(e),
-            children: childrenList,
+            children: childNodes,
             className: clsx({
               [`${baseClassName}-submenu`]: true,
-              [`${baseClassName}-submenu-has-icon`]: shouldHasIcon && iconDom,
+              [`${baseClassName}-submenu-has-icon`]: iconLevel && iconDom,
             }),
           };
 
     return [
-      submenuOrGroup,
-      isGroup && level === 0
+      branch,
+      useGroupChrome && depth === 0
         ? ({
             kind: 'divider' as const,
             key: `${item.key! || item.path!}-group-divider`,
@@ -391,21 +387,21 @@ function getSubMenuOrItem(
     disabled: item.disabled,
     key: String(item.key! || item.path!),
     onClick: onTitle ? () => onTitle() : undefined,
-    label: getMenuItemPath(ctx, item, level, noGroupLevel),
+    label: renderLeafRow(ctx, item, depth, collapsedGroupDepth),
   };
 }
 
-function getMenuNavNodes(
-  ctx: MenuNavBuildContext,
-  menusData: MenuDataItem[] = [],
-  level = 0,
-  noGroupLevel = 0,
+/** 将 `menuData` 转为 `ProLayoutNavMenu` 所需的 `nodes` */
+function mapMenuDataToNavNodes(
+  ctx: BaseMenuTreeContext,
+  items: MenuDataItem[] = [],
+  depth = 0,
+  collapsedGroupDepth = 0,
 ): NavMenuNode[] {
-  return menusData
-    .map((item) => getSubMenuOrItem(ctx, item, level, noGroupLevel))
+  return items
+    .map((item) => mapMenuItemToNavNode(ctx, item, depth, collapsedGroupDepth))
     .filter(Boolean)
     .flat(1) as NavMenuNode[];
 }
 
-/** 将 `menuData` 转为 `ProLayoutNavMenu` 的 `nodes`（入口使用 `level=0`，内部递归） */
-export { getMenuNavNodes };
+export { mapMenuDataToNavNodes };
