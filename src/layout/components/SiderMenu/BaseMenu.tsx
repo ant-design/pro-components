@@ -14,8 +14,9 @@ import { isImg, isUrl } from '../../../utils';
 import { getOpenKeysFromMenuData } from '../../utils/utils';
 import type { PrivateSiderMenuProps } from './SiderMenu';
 import {
-  MenuUtil,
+  getMenuNavNodes,
   type BaseMenuProps as BaseMenuNavProps,
+  type MenuNavBuildContext,
 } from './baseMenuNavNodes';
 import { ProLayoutNavMenu } from './ProLayoutNavMenu';
 import { useStyle } from './style/menu';
@@ -45,11 +46,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   } = props;
 
   const getIcon = useCallback(
-    (
-      icon: string | React.ReactNode,
-      _iconPrefixes: string | undefined,
-      className: string,
-    ): React.ReactNode => {
+    (icon: string | React.ReactNode, className: string): React.ReactNode => {
       if (icon == null || icon === false) {
         return null;
       }
@@ -196,15 +193,16 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
 
   const { wrapSSR, hashId } = useStyle(baseClassName, mode);
 
-  const menuUtils = useMemo(() => {
-    return new MenuUtil({
+  const menuNavCtx = useMemo<MenuNavBuildContext>(
+    () => ({
       ...props,
       menuRenderType,
       baseClassName,
       hashId,
       getIcon,
-    });
-  }, [props, menuRenderType, baseClassName, hashId, getIcon]);
+    }),
+    [props, menuRenderType, baseClassName, hashId, getIcon],
+  );
 
   if (menu?.loading) {
     return (
@@ -263,7 +261,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       selectedKeys={(selectedKeys || []).map((k) => String(k))}
       openKeys={inlineOpenKeys}
       defaultOpenKeys={defaultOpenKeysRef.current.map((k) => String(k))}
-      nodes={menuUtils.getNavMenuItems(finallyData ?? [], 0, 0)}
+      nodes={getMenuNavNodes(menuNavCtx, finallyData ?? [])}
       onOpenChange={(_openKeys) => {
         if (!props.collapsed) {
           if (_openKeys.length === 0) {
