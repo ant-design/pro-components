@@ -1,56 +1,6 @@
 // 全局样式文件
 // 用于定制文档站点的样式
 
-// 外链图标：Less 里若写 content: url(data:image/svg+xml;base64,...) 未整体加引号，
-// 分号会被当成语句结束导致编译失败；应用 url("data:...")、~"url(...)" 或改用下方 mask。
-// 使用 mask + currentColor，暗色模式与链接文字同色；已有内联 svg 时不重复追加（:has）
-
-// 亮色 / 暗色可各用一套 base64 外形；换图时只改对应变量
-@markdown-external-link-icon-data-uri: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMiAxMiI+PHBhdGggZmlsbD0iYmxhY2siIGQ9Ik0xMCAxaDF2NGgtMVYzLjRMNi43IDYuNyA2IDZsNC00VjF6TTIgM2gzdjFIM3Y2aDZWOGgxdjNhMSAxIDAgMDEtMSAxSDNhMSAxIDAgMDEtMS0xVjRhMSAxIDAgMDExLTF6Ii8+PC9zdmc+';
-@markdown-external-link-icon-dark-data-uri: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMiAxMiI+PHBhdGggZmlsbD0iYmxhY2siIGQ9Ik0xMSAxSDd2MWgyLjU5TDUuMjkgNi4yOWwuNzEuNzFMMTAgMi41OVY1aDFWMXpNMSAzdjhoOFY2SDh2NEgyVjRoNFYzSDF6Ii8+PC9zdmc+';
-
-.markdown a[target='_blank']:not(:has(svg))::after {
-  content: '';
-  display: inline-block;
-  width: 0.85em;
-  height: 0.85em;
-  margin-inline-start: 0.25em;
-  vertical-align: -0.125em;
-  background-color: currentcolor;
-  mask-image: url(@markdown-external-link-icon-data-uri);
-  mask-repeat: no-repeat;
-  mask-position: center;
-  mask-size: contain;
-  -webkit-mask-image: url(@markdown-external-link-icon-data-uri);
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  -webkit-mask-size: contain;
-}
-
-[data-prefers-color='dark'] .markdown a[target='_blank']:not(:has(svg))::after {
-  mask-image: url(@markdown-external-link-icon-dark-data-uri);
-  -webkit-mask-image: url(@markdown-external-link-icon-dark-data-uri);
-}
-
-// Markdown 内外链旁内联 SVG（常为硬编码深色 fill）：与文字链同色
-.markdown a[target='_blank'] svg {
-  fill: currentcolor;
-  stroke: currentcolor;
-  vertical-align: -0.125em;
-
-  path,
-  polygon,
-  circle,
-  rect {
-    &:not([fill='none']) {
-      fill: currentcolor;
-    }
-    &[stroke]:not([stroke='none']) {
-      stroke: currentcolor;
-    }
-  }
-}
-
 // 代码块样式优化
 .markdown {
   pre {
