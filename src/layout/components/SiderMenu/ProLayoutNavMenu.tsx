@@ -54,7 +54,7 @@ interface ProLayoutNavMenuRenderContext {
   openKeysProp: (string | number)[];
   popupOpenKey: string | null;
   popupPlacement: { top: number; left: number } | null;
-  popupPanelRef: React.RefObject<HTMLUListElement | null>;
+  popupPanelRef: React.RefObject<HTMLUListElement>;
   submenuAnchorRefs: React.MutableRefObject<Map<string, HTMLButtonElement>>;
   setPopupOpenKey: React.Dispatch<React.SetStateAction<string | null>>;
   handleLeafActivate: (
@@ -144,6 +144,7 @@ function renderGroup(
         className={clsx(`${baseClassName}-group-list`, hashId)}
         role="group"
       >
+        {/* eslint-disable-next-line @typescript-eslint/no-use-before-define -- renderNode 定义在文件后部 */}
         {node.children.map((child) => renderNode(ctx, child, depth))}
       </ul>
     </li>
@@ -198,9 +199,10 @@ function renderPopup(
             visibility: popupPlacement ? 'visible' : 'hidden',
           }}
         >
-          {node.children.map((child) =>
-            renderNode(popupCtx, child, depth + 1),
-          )}
+          {node.children.map((child) => {
+            // eslint-disable-next-line @typescript-eslint/no-use-before-define -- renderNode 定义在文件后部
+            return renderNode(popupCtx, child, depth + 1);
+          })}
         </ul>,
         document.body,
       )
@@ -290,6 +292,7 @@ function renderInlineSubmenu(
           )}
           role="menu"
         >
+          {/* eslint-disable-next-line @typescript-eslint/no-use-before-define -- renderNode 定义在文件后部 */}
           {node.children.map((child) => renderNode(ctx, child, depth + 1))}
         </ul>
       ) : null}
@@ -501,6 +504,7 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
         </li>
       );
     }
+    // eslint-disable-next-line @typescript-eslint/no-use-before-define -- renderNode 定义在文件后部
     return renderNode(renderCtx, n, 0);
   });
 

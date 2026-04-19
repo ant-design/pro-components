@@ -84,6 +84,6 @@ ProLayout does not provide footer by default, if you want to have the same style
 
 <code src="../../demos/layout/customize-collapsed.tsx" iframe="650" title="Customized Collapse"></code>
 
-<code src="../../demos/layout/IconFont.tsx" iframe="650" title="Using IconFont"></code>
+<code src="../../demos/layout/menuIcons.tsx" iframe="650" title="Menu icons (SVG / React)"></code>
 
 <code src="../../demos/layout/ghost.tsx" iframe="650" title="Ghost Mode"></code>

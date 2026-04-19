@@ -1,3 +1,4 @@
+import type { CSSInterpolation } from '@ant-design/cssinjs';
 import type { CSSProperties } from 'react';
 import type { GenerateStyle } from '../../../../provider';
 import { useStyle as useAntdStyle } from '../../../../provider';
@@ -86,8 +87,8 @@ function layoutNavCssVars(surface: 'sider' | 'header'): Record<string, string> {
       [navVar.itemHeight]: `${itemH}px`,
       [navVar.itemRadius]: '6px',
       [navVar.itemGap]: '8px',
-      [navVar.itemFontSize]: 'calc(var(--ant-font-size) + 1px)',
-      [navVar.itemFontWeight]: '500',
+      [navVar.itemFontSize]: '14px',
+      [navVar.itemFontWeight]: '400',
       [navVar.itemPadBlock]: '6px',
       [navVar.itemPadInline]: `${padInline}px`,
       [navVar.stackGap]: `${stackGap}px`,
@@ -509,14 +510,16 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
     },
 
     [`${c}-link`]: { display: 'block' },
-  };
+  } as CSSInterpolation;
 };
 
 export function useStyle(prefixCls: string, mode: MenuMode | undefined) {
-  return useAntdStyle('ProLayoutBaseMenu' + mode, () => {
+  const resolvedMode = mode ?? 'vertical';
+  const styleRegisterName = `ProLayoutBaseMenu-${prefixCls}-${resolvedMode}`;
+  return useAntdStyle(styleRegisterName, () => {
     const proLayoutMenuToken: ProLayoutBaseMenuToken = {
       componentCls: `.${prefixCls}`,
     };
-    return [genProLayoutBaseMenuStyle(proLayoutMenuToken, mode || 'inline')];
+    return [genProLayoutBaseMenuStyle(proLayoutMenuToken, resolvedMode)];
   });
 }
