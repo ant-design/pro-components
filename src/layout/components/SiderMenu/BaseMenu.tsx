@@ -205,10 +205,12 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   );
 
   if (menu?.loading) {
+    const compactMenuSkeleton =
+      mode === 'horizontal' || !!props.collapsed;
     return (
       <div
         style={
-          mode === 'horizontal'
+          compactMenuSkeleton
             ? {
                 marginBlockStart: 16,
               }
@@ -219,7 +221,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
           active
           title={false}
           paragraph={{
-            rows: mode === 'horizontal' ? 1 : 6,
+            rows: compactMenuSkeleton ? 1 : 6,
           }}
         />
       </div>
@@ -276,10 +278,10 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       style={{
         backgroundColor: 'transparent',
         border: 'none',
-        ...menuPropsStyle,
         ...style,
+        ...menuPropsStyle,
       }}
-      className={clsx(menuPropsClassName, className, hashId, baseClassName, {
+      className={clsx(className, hashId, baseClassName, menuPropsClassName, {
         'ant-pro-sider-menu':
           mode !== 'horizontal' && props.menuRenderType !== 'header',
         [`${baseClassName}-horizontal`]: mode === 'horizontal',
