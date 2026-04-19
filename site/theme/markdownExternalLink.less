@@ -1,0 +1,47 @@
+// Markdown 外链装饰：Less 里未加引号的 url(data:image/svg+xml;base64,...) 会在分号处截断，
+// 故 data URI 必须用引号包一层；mask + currentcolor 适配亮/暗色链接色。
+
+@markdown-external-link-icon-data-uri: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMiAxMiI+PHBhdGggZmlsbD0iYmxhY2siIGQ9Ik0xMCAxaDF2NGgtMVYzLjRMNi43IDYuNyA2IDZsNC00VjF6TTIgM2gzdjFIM3Y2aDZWOGgxdjNhMSAxIDAgMDEtMSAxSDNhMSAxIDAgMDEtMS0xVjRhMSAxIDAgMDExLTF6Ii8+PC9zdmc+';
+// 暗色可选用不同外形（与亮色同一套则将变量改为相同字符串）
+@markdown-external-link-icon-dark-data-uri: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMiAxMiI+PHBhdGggZmlsbD0iYmxhY2siIGQ9Ik0xMSAxSDd2MWgyLjU5TDUuMjkgNi4yOWwuNzEuNzFMMTAgMi41OVY1aDFWMXpNMSAzdjhoOFY2SDh2NEgyVjRoNFYzSDF6Ii8+PC9zdmc+';
+
+.markdown a[target='_blank']:not(:has(svg))::after {
+  content: '';
+  display: inline-block;
+  width: 0.85em;
+  height: 0.85em;
+  margin-inline-start: 0.25em;
+  vertical-align: -0.125em;
+  background-color: currentcolor;
+  mask-image: url(@markdown-external-link-icon-data-uri);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-image: url(@markdown-external-link-icon-data-uri);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+}
+
+[data-prefers-color='dark'] .markdown a[target='_blank']:not(:has(svg))::after {
+  mask-image: url(@markdown-external-link-icon-dark-data-uri);
+  -webkit-mask-image: url(@markdown-external-link-icon-dark-data-uri);
+}
+
+.markdown a[target='_blank'] svg {
+  fill: currentcolor;
+  stroke: currentcolor;
+  vertical-align: -0.125em;
+
+  path,
+  polygon,
+  circle,
+  rect {
+    &:not([fill='none']) {
+      fill: currentcolor;
+    }
+    &[stroke]:not([stroke='none']) {
+      stroke: currentcolor;
+    }
+  }
+}
