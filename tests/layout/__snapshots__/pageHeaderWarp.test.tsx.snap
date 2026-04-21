@@ -176,157 +176,49 @@ exports[`BasicLayout > base use 1`] = `
                 role="none"
               >
                 <button
-                  aria-controls=":r4:-inline-children-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925"
                   aria-expanded="true"
                   aria-haspopup="true"
                   class="ant-pro-base-menu-vertical-submenu-title ant-pro-base-menu-vertical-submenu-title--open"
-                  id=":r4:-submenu-inline-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925"
                   type="button"
                 >
-                  <span
-                    class="ant-pro-base-menu-vertical-submenu-title-inner"
-                  >
-                    <div
-                      class="ant-pro-base-menu-vertical-item-title"
-                    >
-                      <span
-                        class="ant-pro-base-menu-vertical-item-text"
-                      >
-                        welcome
-                      </span>
-                    </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-pro-base-menu-vertical-submenu-expand-icon ant-pro-base-menu-vertical-submenu-expand-icon--open"
-                    >
-                      <span
-                        aria-label="right"
-                        class="anticon anticon-right"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="right"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                          />
-                        </svg>
-                      </span>
-                    </span>
-                  </span>
-                </button>
-                <div
-                  class="ant-pro-base-menu-vertical-submenu-expand-wrap"
-                >
                   <div
-                    class="ant-pro-base-menu-vertical-submenu-expand-wrap-inner"
+                    class="ant-pro-base-menu-vertical-item-title"
                   >
-                    <ul
-                      aria-labelledby=":r4:-submenu-inline-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925"
-                      class="ant-pro-base-menu-vertical-list ant-pro-base-menu-vertical-submenu-children"
-                      id=":r4:-inline-children-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925"
-                      role="menu"
+                    <span
+                      class="ant-pro-base-menu-vertical-item-text"
                     >
-                      <li
-                        class="ant-pro-base-menu-vertical-submenu ant-pro-base-menu-vertical-submenu"
-                        data-pro-layout-nav-submenu="true"
-                        role="none"
-                      >
-                        <button
-                          aria-expanded="false"
-                          aria-haspopup="true"
-                          class="ant-pro-base-menu-vertical-submenu-title"
-                          id=":r4:-submenu-inline-/welcome"
-                          style="padding-inline-start: 16px;"
-                          type="button"
-                        >
-                          <span
-                            class="ant-pro-base-menu-vertical-submenu-title-inner"
-                          >
-                            <div
-                              class="ant-pro-base-menu-vertical-item-title"
-                            >
-                              <span
-                                class="ant-pro-base-menu-vertical-item-text"
-                              >
-                                one
-                              </span>
-                            </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-pro-base-menu-vertical-submenu-expand-icon"
-                            >
-                              <span
-                                aria-label="right"
-                                class="anticon anticon-right"
-                                role="img"
-                              >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="right"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="64 64 896 896"
-                                  width="1em"
-                                >
-                                  <path
-                                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                                  />
-                                </svg>
-                              </span>
-                            </span>
-                          </span>
-                        </button>
-                        <div
-                          class="ant-pro-base-menu-vertical-submenu-expand-wrap"
-                          inert=""
-                        >
-                          <div
-                            class="ant-pro-base-menu-vertical-submenu-expand-wrap-inner"
-                          >
-                            <ul
-                              aria-labelledby=":r4:-submenu-inline-/welcome"
-                              class="ant-pro-base-menu-vertical-list ant-pro-base-menu-vertical-submenu-children"
-                              id=":r4:-inline-children-/welcome"
-                              role="menu"
-                            >
-                              <li
-                                class="ant-pro-base-menu-vertical-item ant-pro-base-menu-vertical-menu-item"
-                                data-pro-layout-nav-leaf="true"
-                                role="menuitem"
-                                style="padding-inline-start: 32px;"
-                                tabindex="0"
-                              >
-                                <div
-                                  class="ant-pro-base-menu-vertical-item-title"
-                                >
-                                  <span
-                                    class="ant-pro-base-menu-vertical-item-icon"
-                                    style="display: none;"
-                                  >
-                                    <span />
-                                  </span>
-                                  <span
-                                    class="ant-pro-base-menu-vertical-item-text"
-                                  >
-                                    two
-                                  </span>
-                                </div>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
+                      welcome
+                    </span>
                   </div>
-                </div>
+                </button>
+                <ul
+                  class="ant-pro-base-menu-vertical-list ant-pro-base-menu-vertical-submenu-children"
+                  role="menu"
+                >
+                  <li
+                    class="ant-pro-base-menu-vertical-submenu ant-pro-base-menu-vertical-submenu"
+                    data-pro-layout-nav-submenu="true"
+                    role="none"
+                  >
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      class="ant-pro-base-menu-vertical-submenu-title"
+                      style="padding-inline-start: 16px;"
+                      type="button"
+                    >
+                      <div
+                        class="ant-pro-base-menu-vertical-item-title"
+                      >
+                        <span
+                          class="ant-pro-base-menu-vertical-item-text"
+                        >
+                          one
+                        </span>
+                      </div>
+                    </button>
+                  </li>
+                </ul>
               </li>
             </nav>
           </div>
@@ -351,19 +243,6 @@ exports[`BasicLayout > base use 1`] = `
         class="ant-pro-layout-container"
         style="position: relative;"
       >
-        <header
-          class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header-action ant-pro-layout-header-header"
-          data-testid="pro-layout-header"
-        >
-          <div
-            class="ant-pro-global-header"
-            data-testid="pro-layout-global-header"
-          >
-            <div
-              style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
-            />
-          </div>
-        </header>
         <main
           class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
           data-testid="pro-layout-content"
@@ -409,14 +288,14 @@ exports[`BasicLayout > content is text 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout ant-layout-has-sider css-var-r8"
+      class="ant-layout ant-layout-has-sider css-var-r7"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
         style="--pro-layout-sider-bg: #f7f8f9; --pro-layout-sider-color-text: var(--ant-color-text-secondary); --pro-layout-sider-color-text-title: var(--ant-color-text); --pro-layout-sider-color-text-secondary: var(--ant-color-text-tertiary); --pro-layout-sider-padding-inline-menu: 8px; --pro-layout-sider-padding-block-menu: 12px; --pro-layout-sider-border-radius: var(--ant-border-radius); --pro-layout-sider-color-bg-hover: var(--ant-color-fill-secondary); --pro-layout-sider-font-size: var(--ant-font-size); width: 240px; overflow: hidden; max-width: 240px; min-width: 240px; transition: all 0.2s ease 0s; flex-grow: 0; flex-shrink: 0; flex-basis: 240px;"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-r9"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-r8"
         data-testid="pro-layout-sider"
         style="--pro-layout-sider-bg: #f7f8f9; --pro-layout-sider-color-text: var(--ant-color-text-secondary); --pro-layout-sider-color-text-title: var(--ant-color-text); --pro-layout-sider-color-text-secondary: var(--ant-color-text-tertiary); --pro-layout-sider-padding-inline-menu: 8px; --pro-layout-sider-padding-block-menu: 12px; --pro-layout-sider-border-radius: var(--ant-border-radius); --pro-layout-sider-color-bg-hover: var(--ant-color-fill-secondary); --pro-layout-sider-font-size: var(--ant-font-size); max-width: 240px; min-width: 240px; width: 240px; flex-grow: 0; flex-shrink: 0; flex-basis: 240px;"
       >
@@ -575,157 +454,49 @@ exports[`BasicLayout > content is text 1`] = `
                 role="none"
               >
                 <button
-                  aria-controls=":ra:-inline-children-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925"
                   aria-expanded="true"
                   aria-haspopup="true"
                   class="ant-pro-base-menu-vertical-submenu-title ant-pro-base-menu-vertical-submenu-title--open"
-                  id=":ra:-submenu-inline-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925"
                   type="button"
                 >
-                  <span
-                    class="ant-pro-base-menu-vertical-submenu-title-inner"
-                  >
-                    <div
-                      class="ant-pro-base-menu-vertical-item-title"
-                    >
-                      <span
-                        class="ant-pro-base-menu-vertical-item-text"
-                      >
-                        welcome
-                      </span>
-                    </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-pro-base-menu-vertical-submenu-expand-icon ant-pro-base-menu-vertical-submenu-expand-icon--open"
-                    >
-                      <span
-                        aria-label="right"
-                        class="anticon anticon-right"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="right"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                          />
-                        </svg>
-                      </span>
-                    </span>
-                  </span>
-                </button>
-                <div
-                  class="ant-pro-base-menu-vertical-submenu-expand-wrap"
-                >
                   <div
-                    class="ant-pro-base-menu-vertical-submenu-expand-wrap-inner"
+                    class="ant-pro-base-menu-vertical-item-title"
                   >
-                    <ul
-                      aria-labelledby=":ra:-submenu-inline-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925"
-                      class="ant-pro-base-menu-vertical-list ant-pro-base-menu-vertical-submenu-children"
-                      id=":ra:-inline-children-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925"
-                      role="menu"
+                    <span
+                      class="ant-pro-base-menu-vertical-item-text"
                     >
-                      <li
-                        class="ant-pro-base-menu-vertical-submenu ant-pro-base-menu-vertical-submenu"
-                        data-pro-layout-nav-submenu="true"
-                        role="none"
-                      >
-                        <button
-                          aria-expanded="false"
-                          aria-haspopup="true"
-                          class="ant-pro-base-menu-vertical-submenu-title"
-                          id=":ra:-submenu-inline-/welcome"
-                          style="padding-inline-start: 16px;"
-                          type="button"
-                        >
-                          <span
-                            class="ant-pro-base-menu-vertical-submenu-title-inner"
-                          >
-                            <div
-                              class="ant-pro-base-menu-vertical-item-title"
-                            >
-                              <span
-                                class="ant-pro-base-menu-vertical-item-text"
-                              >
-                                one
-                              </span>
-                            </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-pro-base-menu-vertical-submenu-expand-icon"
-                            >
-                              <span
-                                aria-label="right"
-                                class="anticon anticon-right"
-                                role="img"
-                              >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="right"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="64 64 896 896"
-                                  width="1em"
-                                >
-                                  <path
-                                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                                  />
-                                </svg>
-                              </span>
-                            </span>
-                          </span>
-                        </button>
-                        <div
-                          class="ant-pro-base-menu-vertical-submenu-expand-wrap"
-                          inert=""
-                        >
-                          <div
-                            class="ant-pro-base-menu-vertical-submenu-expand-wrap-inner"
-                          >
-                            <ul
-                              aria-labelledby=":ra:-submenu-inline-/welcome"
-                              class="ant-pro-base-menu-vertical-list ant-pro-base-menu-vertical-submenu-children"
-                              id=":ra:-inline-children-/welcome"
-                              role="menu"
-                            >
-                              <li
-                                class="ant-pro-base-menu-vertical-item ant-pro-base-menu-vertical-menu-item"
-                                data-pro-layout-nav-leaf="true"
-                                role="menuitem"
-                                style="padding-inline-start: 32px;"
-                                tabindex="0"
-                              >
-                                <div
-                                  class="ant-pro-base-menu-vertical-item-title"
-                                >
-                                  <span
-                                    class="ant-pro-base-menu-vertical-item-icon"
-                                    style="display: none;"
-                                  >
-                                    <span />
-                                  </span>
-                                  <span
-                                    class="ant-pro-base-menu-vertical-item-text"
-                                  >
-                                    two
-                                  </span>
-                                </div>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
+                      welcome
+                    </span>
                   </div>
-                </div>
+                </button>
+                <ul
+                  class="ant-pro-base-menu-vertical-list ant-pro-base-menu-vertical-submenu-children"
+                  role="menu"
+                >
+                  <li
+                    class="ant-pro-base-menu-vertical-submenu ant-pro-base-menu-vertical-submenu"
+                    data-pro-layout-nav-submenu="true"
+                    role="none"
+                  >
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      class="ant-pro-base-menu-vertical-submenu-title"
+                      style="padding-inline-start: 16px;"
+                      type="button"
+                    >
+                      <div
+                        class="ant-pro-base-menu-vertical-item-title"
+                      >
+                        <span
+                          class="ant-pro-base-menu-vertical-item-text"
+                        >
+                          one
+                        </span>
+                      </div>
+                    </button>
+                  </li>
+                </ul>
               </li>
             </nav>
           </div>
@@ -750,19 +521,6 @@ exports[`BasicLayout > content is text 1`] = `
         class="ant-pro-layout-container"
         style="position: relative;"
       >
-        <header
-          class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header-action ant-pro-layout-header-header"
-          data-testid="pro-layout-header"
-        >
-          <div
-            class="ant-pro-global-header"
-            data-testid="pro-layout-global-header"
-          >
-            <div
-              style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
-            />
-          </div>
-        </header>
         <main
           class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
           data-testid="pro-layout-content"

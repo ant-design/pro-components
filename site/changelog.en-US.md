@@ -5,9 +5,7 @@
 ### 🗑 Breaking Changes
 
 - ProLayout
-  - 🛠 Refactor `BaseMenu`: replace legacy `MenuUtil` class with plain functions to build `NavMenuNode` (no antd `Menu` adapter class)
-  - 🛠 Extract `baseMenuNavNodes.tsx` from `BaseMenu` for `getIntlMenuName`, `getSubMenuOrItem`, `getMenuItemPath`, and collapsed `MenuItemTooltip`
-  - 🗑 Remove `layout="mix"` from typings; runtime still accepts string `mix` and maps it to `side`. For top strip + sider children use `layout="side"` with `splitMenus`; customize the strip via `headerMenuRender`
+  - 🗑 Remove `iconfontUrl` and IconFont script loading; use React nodes for menu `icon` (e.g. `@ant-design/icons`) or image/SVG URL strings
   - 🗑 Remove `navTheme` (no longer on `ProSettings` or route `MenuDataItem`); sider `Sider` always uses `theme="light"` — use antd `ConfigProvider` `theme.algorithm` for app-wide dark mode
   - 🗑 Remove built-in `SettingDrawer` (no longer exported from `@ant-design/pro-components`)
   - 🗑 Remove the entire ProHelp suite (`ProHelp`, `ProHelpPanel`, `ProHelpDrawer`, `ProHelpModal`, `ProHelpPopover`, `ProHelpContentPanel`, `ProHelpProvide`, and related types such as `ProHelpDataSource` are no longer exported); pin an older version or re-implement in app code if needed
