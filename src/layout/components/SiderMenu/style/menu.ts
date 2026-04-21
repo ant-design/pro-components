@@ -88,7 +88,7 @@ function layoutNavCssVars(surface: 'sider' | 'header'): Record<string, string> {
       [navVar.itemRadius]: '6px',
       [navVar.itemGap]: '8px',
       [navVar.itemFontSize]: '14px',
-      [navVar.itemFontWeight]: '400',
+      [navVar.itemFontWeight]: '500',
       [navVar.itemPadBlock]: '6px',
       [navVar.itemPadInline]: `${padInline}px`,
       [navVar.stackGap]: `${stackGap}px`,
@@ -305,10 +305,13 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           whiteSpace: 'nowrap',
         },
         '&-collapsed': {
-          minWidth: v('itemHeight'),
-          height: v('itemHeight'),
+          width: 'fit-content',
+          maxWidth: '100%',
+          minWidth: v('iconBox'),
+          height: 'auto',
           flexDirection: 'column',
-          justifyContent: 'center',
+          justifyContent: 'flex-start',
+          alignItems: 'flex-start',
           [`${c}-item-icon`]: {
             width: v('iconBox'),
             height: v('iconBox'),
@@ -317,7 +320,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         },
         '&-collapsed-level-0': {
           flexDirection: 'column',
-          justifyContent: 'center',
+          justifyContent: 'flex-start',
         },
         [`&${c}-group-item-title`]: {
           gap: v('itemGap'),
@@ -330,10 +333,10 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           [`&${c}-item-title-collapsed`]: {
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center',
+            alignItems: 'flex-start',
             [`${c}-item-text`]: {
               display: 'inline',
-              textAlign: 'center',
+              textAlign: 'start',
               fontSize: 'calc(var(--ant-font-size, 14px) - 1px)',
               maxHeight: 12,
               lineHeight: '12px',
@@ -410,7 +413,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           paddingInlineEnd: 0,
         },
         [`${c}-item-title`]: {
-          width: '100%',
+          width: 'fit-content',
           maxWidth: '100%',
           overflow: 'visible',
         },
@@ -418,11 +421,12 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           backgroundColor: v('colorBgSelected'),
           borderRadius: v('itemRadius'),
         },
-        /** 侧栏收起：不展示分组标题，仅保留图标型菜单项 */
-        [`${c}-group ${c}-group-title`]: {
-          display: 'none',
-        },
       },
+    },
+
+    /** 侧栏收起：不展示分组标题（完整选择器，避免嵌套编译差异） */
+    [`${c}--collapsed ${c}-group ${c}-group-title`]: {
+      display: 'none',
     },
 
     [`${c}:not(${c}--horizontal)`]: {
@@ -432,19 +436,6 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
       /** 根 `nav` 下多个顶级 `li`/片段之间的纵向间距（扁平 DOM 无外包 `ul`） */
       gap: v('stackGap'),
     },
-
-    /** vertical（侧栏收起）下标题区收窄为 20px 宽，便于在窄侧栏内居中 */
-    ...(mode === 'vertical'
-      ? {
-          [`&--collapsed ${c}-item-title-collapsed`]: {
-            width: 20,
-            minWidth: 20,
-            maxWidth: 20,
-            marginInline: 'auto',
-            alignSelf: 'center',
-          },
-        }
-      : {}),
 
     [`${c}--horizontal`]: {
       display: 'flex',
