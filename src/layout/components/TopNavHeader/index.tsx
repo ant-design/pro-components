@@ -59,7 +59,6 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
         <BaseMenu
           {...props}
           className={clsx(`${prefixCls}-base-menu`, hashId)}
-          {...props.menuProps}
           style={{
             width: '100%',
             ...props.menuProps?.style,

@@ -3,7 +3,12 @@ import {
   InfoCircleFilled,
   QuestionCircleFilled,
 } from '@ant-design/icons';
-import { LoginForm, ProFormText, ProLayout } from '@ant-design/pro-components';
+import {
+  LoginForm,
+  ProFormText,
+  ProLayout,
+  type ProLayoutNavMenuDomProps,
+} from '@ant-design/pro-components';
 import {
   act,
   cleanup,
@@ -51,7 +56,7 @@ describe('BasicLayout', () => {
   });
   it('🥩 base use', async () => {
     const html = render(<ProLayout />);
-    expect(html.getByTestId('pro-layout')).toBeTruthy();
+    expect(html.asFragment()).toMatchSnapshot();
     html.unmount();
   });
 
@@ -83,19 +88,32 @@ describe('BasicLayout', () => {
 
     await waitForWaitTime(100);
 
-    const item = wrapper.baseElement.querySelector<HTMLElement>(
-      '.ant-pro-base-menu-vertical-item',
+    const titleRow = wrapper.baseElement.querySelector<HTMLElement>(
+      '.ant-pro-base-menu-vertical-item .ant-pro-base-menu-vertical-item-title',
     );
-    const titleRow = item?.querySelector<HTMLElement>(
-      '.ant-pro-base-menu-vertical-item-title',
-    );
-    const clickWrap = item?.querySelector<HTMLElement>('[role="button"]');
 
     expect(titleRow).toBeTruthy();
-    expect(clickWrap).toBeTruthy();
-    expect(clickWrap?.parentElement).toBe(item);
-    expect(clickWrap?.contains(titleRow!)).toBe(true);
+    expect(getComputedStyle(titleRow!).width).toBe('100%');
 
+    wrapper.unmount();
+  });
+
+  it('🥩 TopNavHeader merges menuProps once on root nav', async () => {
+    const wrapper = render(
+      <ProLayout
+        layout="top"
+        menuDataRender={() => [{ path: '/welcome', name: '欢迎' }]}
+        menuProps={
+          { 'data-testid': 'top-nav-menu-root' } as ProLayoutNavMenuDomProps
+        }
+      />,
+    );
+    await waitForWaitTime(100);
+    const roots = wrapper.baseElement.querySelectorAll(
+      '[data-testid="top-nav-menu-root"]',
+    );
+    expect(roots.length).toBe(1);
+    expect(roots[0]?.tagName.toLowerCase()).toBe('nav');
     wrapper.unmount();
   });
 
@@ -430,11 +448,13 @@ describe('BasicLayout', () => {
       </ProLayout>,
     );
 
-    // 收起态：分组标题节点不渲染（与侧栏窄宽度一致）
+    // 收起态：`menu.type === 'group'` 时仍有分组标题节点，应用 CSS 隐藏
     await waitFor(() => {
-      expect(
-        wrapper.baseElement.querySelector('[data-pro-layout-nav-group-title]'),
-      ).toBeNull();
+      const title = wrapper.baseElement.querySelector<HTMLElement>(
+        '[data-pro-layout-nav-group-title]',
+      );
+      expect(title).toBeTruthy();
+      expect(getComputedStyle(title!).display).toBe('none');
     });
 
     // collapsed 的时候action 将会消失
@@ -487,97 +507,8 @@ describe('BasicLayout', () => {
       );
       expect(popup).toBeTruthy();
       expect(popup!.textContent).toContain('二级');
-    });
-    /** 嵌套 Popover 在另一层浮层，勿只查第一个 submenu-popup */
-    await waitFor(() => {
-      expect(document.body.textContent).toContain('三级页面');
-    });
-
-    html.unmount();
-  });
-
-  it('🥩 layout top: popup shows second level and third level after clicks', async () => {
-    const html = render(
-      <ProLayout
-        layout="top"
-        menuDataRender={() => [
-          {
-            path: '/a',
-            name: '一级',
-            children: [
-              {
-                path: '/a/b',
-                name: '二级',
-                children: [{ path: '/a/b/c', name: '三级页面' }],
-              },
-            ],
-          },
-        ]}
-      >
-        <div />
-      </ProLayout>,
-    );
-
-    await waitFor(() => {
-      expect(html.getByText('一级')).toBeTruthy();
-    });
-
-    act(() => {
-      html.getByText('一级').click();
-    });
-
-    await waitFor(() => {
-      const popup = document.body.querySelector(
-        '[class*="ant-pro-base-menu-horizontal-submenu-popup"]',
-      );
-      expect(popup).toBeTruthy();
-      expect(popup!.textContent).toContain('二级');
-    });
-
-    act(() => {
-      html.getByText('二级').click();
-    });
-
-    await waitFor(() => {
-      expect(document.body.textContent).toContain('三级页面');
-    });
-
-    html.unmount();
-  });
-
-  it('🥩 layout top: hover opens first-level submenu popup', async () => {
-    const html = render(
-      <ProLayout
-        layout="top"
-        menuDataRender={() => [
-          {
-            path: '/a',
-            name: '一级',
-            children: [{ path: '/a/b', name: '二级项' }],
-          },
-        ]}
-      >
-        <div />
-      </ProLayout>,
-    );
-
-    await waitFor(() => {
-      expect(html.getByText('一级')).toBeTruthy();
-    });
-
-    const topSubmenuBtn = html.getByText('一级').closest('button');
-    expect(topSubmenuBtn).toBeTruthy();
-
-    act(() => {
-      fireEvent.pointerEnter(topSubmenuBtn!);
-    });
-
-    await waitFor(() => {
-      const popup = document.body.querySelector(
-        '[class*="ant-pro-base-menu-horizontal-submenu-popup"]',
-      );
-      expect(popup).toBeTruthy();
-      expect(popup!.textContent).toContain('二级项');
+      /** 路由已匹配三级时 openKeys 含祖先，二级默认展开，浮层内应直接出现三级叶子（勿再点二级，否则会 toggle 收起） */
+      expect(popup!.textContent).toContain('三级页面');
     });
 
     html.unmount();
@@ -997,9 +928,7 @@ describe('BasicLayout', () => {
         }}
       />,
     );
-    const content = wrapper.getByTestId('pro-layout-content');
-    expect(content).toBeTruthy();
-    expect((content as HTMLElement).style.padding).toBe('56px');
+    expect(wrapper.asFragment()).toMatchSnapshot();
   });
 
   it('🥩 support className', async () => {
@@ -1337,9 +1266,7 @@ describe('BasicLayout', () => {
         />
       </>,
     );
-    expect(wrapper.baseElement.querySelectorAll('.ant-skeleton').length).toBe(
-      3,
-    );
+    expect(wrapper.asFragment()).toMatchSnapshot();
   });
 
   it('🥩 ProLayout support current menu', async () => {

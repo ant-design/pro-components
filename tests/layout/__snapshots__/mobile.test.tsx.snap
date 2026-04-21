@@ -470,145 +470,44 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
                           class="ant-pro-base-menu-vertical-submenu-title ant-pro-base-menu-vertical-submenu-title--open"
                           type="button"
                         >
-                          <span
-                            class="ant-pro-base-menu-vertical-submenu-title-inner"
-                          >
-                            <div
-                              class="ant-pro-base-menu-vertical-item-title"
-                            >
-                              <span
-                                class="ant-pro-base-menu-vertical-item-text"
-                              >
-                                welcome
-                              </span>
-                            </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-pro-base-menu-vertical-submenu-expand-icon ant-pro-base-menu-vertical-submenu-expand-icon--open"
-                            >
-                              <span
-                                aria-label="right"
-                                class="anticon anticon-right"
-                                role="img"
-                              >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="right"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="64 64 896 896"
-                                  width="1em"
-                                >
-                                  <path
-                                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                                  />
-                                </svg>
-                              </span>
-                            </span>
-                          </span>
-                        </button>
-                        <div
-                          class="ant-pro-base-menu-vertical-submenu-expand-wrap"
-                        >
                           <div
-                            class="ant-pro-base-menu-vertical-submenu-expand-wrap-inner"
+                            class="ant-pro-base-menu-vertical-item-title"
                           >
-                            <ul
-                              class="ant-pro-base-menu-vertical-list ant-pro-base-menu-vertical-submenu-children"
-                              role="menu"
+                            <span
+                              class="ant-pro-base-menu-vertical-item-text"
                             >
-                              <li
-                                class="ant-pro-base-menu-vertical-submenu ant-pro-base-menu-vertical-submenu"
-                                data-pro-layout-nav-submenu="true"
-                                role="none"
-                              >
-                                <button
-                                  aria-expanded="false"
-                                  aria-haspopup="true"
-                                  class="ant-pro-base-menu-vertical-submenu-title"
-                                  style="padding-inline-start: 16px;"
-                                  type="button"
-                                >
-                                  <span
-                                    class="ant-pro-base-menu-vertical-submenu-title-inner"
-                                  >
-                                    <div
-                                      class="ant-pro-base-menu-vertical-item-title"
-                                    >
-                                      <span
-                                        class="ant-pro-base-menu-vertical-item-text"
-                                      >
-                                        one
-                                      </span>
-                                    </div>
-                                    <span
-                                      aria-hidden="true"
-                                      class="ant-pro-base-menu-vertical-submenu-expand-icon"
-                                    >
-                                      <span
-                                        aria-label="right"
-                                        class="anticon anticon-right"
-                                        role="img"
-                                      >
-                                        <svg
-                                          aria-hidden="true"
-                                          data-icon="right"
-                                          fill="currentColor"
-                                          focusable="false"
-                                          height="1em"
-                                          viewBox="64 64 896 896"
-                                          width="1em"
-                                        >
-                                          <path
-                                            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                                          />
-                                        </svg>
-                                      </span>
-                                    </span>
-                                  </span>
-                                </button>
-                                <div
-                                  class="ant-pro-base-menu-vertical-submenu-expand-wrap"
-                                  inert=""
-                                >
-                                  <div
-                                    class="ant-pro-base-menu-vertical-submenu-expand-wrap-inner"
-                                  >
-                                    <ul
-                                      class="ant-pro-base-menu-vertical-list ant-pro-base-menu-vertical-submenu-children"
-                                      role="menu"
-                                    >
-                                      <li
-                                        class="ant-pro-base-menu-vertical-item ant-pro-base-menu-vertical-menu-item"
-                                        data-pro-layout-nav-leaf="true"
-                                        role="menuitem"
-                                        style="padding-inline-start: 32px;"
-                                        tabindex="0"
-                                      >
-                                        <div
-                                          class="ant-pro-base-menu-vertical-item-title"
-                                        >
-                                          <span
-                                            class="ant-pro-base-menu-vertical-item-icon"
-                                            style="display: none;"
-                                          >
-                                            <span />
-                                          </span>
-                                          <span
-                                            class="ant-pro-base-menu-vertical-item-text"
-                                          >
-                                            two
-                                          </span>
-                                        </div>
-                                      </li>
-                                    </ul>
-                                  </div>
-                                </div>
-                              </li>
-                            </ul>
+                              welcome
+                            </span>
                           </div>
-                        </div>
+                        </button>
+                        <ul
+                          class="ant-pro-base-menu-vertical-list ant-pro-base-menu-vertical-submenu-children"
+                          role="menu"
+                        >
+                          <li
+                            class="ant-pro-base-menu-vertical-submenu ant-pro-base-menu-vertical-submenu"
+                            data-pro-layout-nav-submenu="true"
+                            role="none"
+                          >
+                            <button
+                              aria-expanded="false"
+                              aria-haspopup="true"
+                              class="ant-pro-base-menu-vertical-submenu-title"
+                              style="padding-inline-start: 16px;"
+                              type="button"
+                            >
+                              <div
+                                class="ant-pro-base-menu-vertical-item-title"
+                              >
+                                <span
+                                  class="ant-pro-base-menu-vertical-item-text"
+                                >
+                                  one
+                                </span>
+                              </div>
+                            </button>
+                          </li>
+                        </ul>
                       </li>
                     </nav>
                   </div>

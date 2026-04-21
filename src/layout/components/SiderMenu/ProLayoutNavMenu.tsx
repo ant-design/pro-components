@@ -1,59 +1,21 @@
-import { DownOutlined, RightOutlined } from '@ant-design/icons';
-import { Popover } from 'antd';
 import { clsx } from 'clsx';
 import type { CSSProperties, HTMLAttributes } from 'react';
 import React, {
   useCallback,
   useEffect,
   useId,
+  useLayoutEffect,
   useMemo,
   useRef,
   useState,
 } from 'react';
+import { createPortal } from 'react-dom';
 import type { NavMenuNode } from './navMenuTypes';
 import type { MenuMode, ProLayoutNavMenuSelectInfo } from './types';
 
 const MENU_INDENT_PX = 16;
 
 const keyToString = (key: string | number) => String(key);
-
-function renderSubmenuTitleContent(
-  ctx: Pick<
-    ProLayoutNavMenuRenderContext,
-    | 'baseClassName'
-    | 'hashId'
-    | 'collapsed'
-    | 'mode'
-    | 'popupMode'
-    | 'insideSubmenuPopup'
-  >,
-  label: React.ReactNode,
-  isOpen: boolean,
-) {
-  const { baseClassName, hashId, collapsed, mode, popupMode, insideSubmenuPopup } =
-    ctx;
-  const hideExpandIndicator = !!collapsed && mode === 'vertical';
-  const isHorizontalTopTrigger =
-    mode === 'horizontal' && popupMode && !insideSubmenuPopup;
-
-  return (
-    <span className={clsx(`${baseClassName}-submenu-title-inner`, hashId)}>
-      {label}
-      {!hideExpandIndicator ? (
-        <span
-          className={clsx(`${baseClassName}-submenu-expand-icon`, hashId, {
-            [`${baseClassName}-submenu-expand-icon--open`]: isOpen,
-            [`${baseClassName}-submenu-expand-icon--horizontal`]:
-              isHorizontalTopTrigger,
-          })}
-          aria-hidden
-        >
-          {isHorizontalTopTrigger ? <DownOutlined /> : <RightOutlined />}
-        </span>
-      ) : null}
-    </span>
-  );
-}
 
 export type ProLayoutNavMenuProps = {
   baseClassName: string;
@@ -83,10 +45,7 @@ interface ProLayoutNavMenuRenderContext {
   baseClassName: string;
   hashId: string;
   mode: MenuMode;
-  collapsed?: boolean;
   popupMode: boolean;
-  /** 顶栏/收起侧栏弹出层内：各子菜单展开态（与根 `openKeys` 分离） */
-  nestedPopupOpen: Record<string, boolean>;
   /** 已在浮动子菜单面板内：嵌套子菜单用内联展开，避免再挂一层 portal 导致三级及以上无法展示 */
   insideSubmenuPopup: boolean;
   rootId: string;
@@ -94,11 +53,10 @@ interface ProLayoutNavMenuRenderContext {
   openSet: Set<string>;
   openKeysProp: (string | number)[];
   popupOpenKey: string | null;
+  popupPlacement: { top: number; left: number } | null;
+  popupPanelRef: React.RefObject<HTMLUListElement>;
   submenuAnchorRefs: React.MutableRefObject<Map<string, HTMLButtonElement>>;
   setPopupOpenKey: React.Dispatch<React.SetStateAction<string | null>>;
-  setNestedPopupOpen: React.Dispatch<
-    React.SetStateAction<Record<string, boolean>>
-  >;
   handleLeafActivate: (
     key: string,
     disabled?: boolean,
@@ -108,7 +66,6 @@ interface ProLayoutNavMenuRenderContext {
     key: string,
     onTitleClick: undefined | ((e: React.MouseEvent<Element>) => void),
     e: React.MouseEvent | React.KeyboardEvent,
-    opts?: { insideSubmenuPopup?: boolean },
   ) => void;
 }
 
@@ -169,26 +126,25 @@ function renderGroup(
   node: Extract<NavMenuNode, { kind: 'group' }>,
   depth: number,
 ) {
-  const { baseClassName, hashId, collapsed } = ctx;
+  const { baseClassName, hashId } = ctx;
   return (
     <li
       key={node.key}
       className={clsx(`${baseClassName}-group`, hashId, node.className)}
       role="presentation"
     >
-      {!collapsed ? (
-        <div
-          className={clsx(`${baseClassName}-group-title`, hashId)}
-          data-pro-layout-nav-group-title
-          role="presentation"
-        >
-          {node.label}
-        </div>
-      ) : null}
+      <div
+        className={clsx(`${baseClassName}-group-title`, hashId)}
+        data-pro-layout-nav-group-title
+        role="presentation"
+      >
+        {node.label}
+      </div>
       <ul
         className={clsx(`${baseClassName}-group-list`, hashId)}
         role="group"
       >
+        {/* eslint-disable-next-line @typescript-eslint/no-use-before-define -- renderNode 定义在文件后部 */}
         {node.children.map((child) => renderNode(ctx, child, depth))}
       </ul>
     </li>
@@ -205,9 +161,10 @@ function renderPopup(
     hashId,
     rootId,
     popupOpenKey,
+    popupPlacement,
+    popupPanelRef,
     submenuAnchorRefs,
     setPopupOpenKey,
-    setNestedPopupOpen,
     handleSubmenuTitleClick,
   } = ctx;
   const popupCtx: ProLayoutNavMenuRenderContext = {
@@ -223,52 +180,36 @@ function renderPopup(
     }
   };
 
-  /**
-   * Popover 挂 body 时，样式选择器依赖「带 hash 的菜单根」作祖先；
-   * `--horizontal` 只放在外包层，避免与 `-list` 同写在 `ul` 上触发顶栏横向 flex 破坏纵向子项。
-   */
-  /**
-   * 勿加 `--horizontal`：该修饰符下 `[c]--horizontal [c]-item` 等会命中浮层内所有叶子，
-   * 下拉被当成顶栏横条（28px 行高等），布局错乱。仅保留根类名 + hash 以挂载 cssinjs。
-   */
-  const popupContent = (
-    <div
-      className={clsx(baseClassName, hashId, {
-        [`${baseClassName}--collapsed`]:
-          !!ctx.collapsed && ctx.mode === 'vertical',
-      })}
-    >
-      <ul
-        id={`${rootId}-popup-${node.key}`}
-        role="menu"
-        aria-labelledby={`${rootId}-submenu-${node.key}`}
-        className={clsx(
-          `${baseClassName}-list`,
-          `${baseClassName}-submenu-popup`,
-        )}
-      >
-        {node.children.map((child) => renderNode(popupCtx, child, depth + 1))}
-      </ul>
-    </div>
-  );
+  const popupPanel =
+    isOpen && typeof document !== 'undefined' ? (
+      createPortal(
+        <ul
+          ref={popupPanelRef}
+          id={`${rootId}-popup-${node.key}`}
+          role="menu"
+          aria-labelledby={`${rootId}-submenu-${node.key}`}
+          className={clsx(
+            `${baseClassName}-list`,
+            `${baseClassName}-submenu-popup`,
+            hashId,
+          )}
+          style={{
+            top: popupPlacement?.top,
+            left: popupPlacement?.left,
+            visibility: popupPlacement ? 'visible' : 'hidden',
+          }}
+        >
+          {node.children.map((child) => {
+            // eslint-disable-next-line @typescript-eslint/no-use-before-define -- renderNode 定义在文件后部
+            return renderNode(popupCtx, child, depth + 1);
+          })}
+        </ul>,
+        document.body,
+      )
+    ) : null;
 
   return (
-    <Popover
-      key={node.key}
-      open={isOpen}
-      arrow={false}
-      onOpenChange={(nextOpen) => {
-        setNestedPopupOpen({});
-        setPopupOpenKey(nextOpen ? node.key : null);
-      }}
-      trigger={ctx.mode === 'horizontal' ? ['hover', 'click'] : ['click', 'hover']}
-      placement={ctx.mode === 'horizontal' ? 'bottomLeft' : 'right'}
-      mouseEnterDelay={0.1}
-      mouseLeaveDelay={0.1}
-      styles={{ container: { padding: 0 } }}
-      overlayClassName={clsx(`${baseClassName}-submenu-popover-overlay`, hashId)}
-      content={popupContent}
-    >
+    <React.Fragment key={node.key}>
       <button
         type="button"
         ref={setSubmenuAnchorRef}
@@ -288,9 +229,7 @@ function renderPopup(
         aria-expanded={isOpen}
         aria-haspopup="true"
         aria-controls={isOpen ? `${rootId}-popup-${node.key}` : undefined}
-        onClick={(e) =>
-          handleSubmenuTitleClick(node.key, node.onTitleClick, e)
-        }
+        onClick={(e) => handleSubmenuTitleClick(node.key, node.onTitleClick, e)}
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
             handleSubmenuTitleClick(node.key, node.onTitleClick, e);
@@ -301,9 +240,10 @@ function renderPopup(
           }
         }}
       >
-        {renderSubmenuTitleContent(ctx, node.label, isOpen)}
+        {node.label}
       </button>
-    </Popover>
+      {popupPanel}
+    </React.Fragment>
   );
 }
 
@@ -312,15 +252,8 @@ function renderInlineSubmenu(
   node: Extract<NavMenuNode, { kind: 'submenu' }>,
   depth: number,
 ) {
-  const { baseClassName, hashId, openSet, handleSubmenuTitleClick, nestedPopupOpen } =
-    ctx;
-  /** 浮层内：嵌套子菜单用内联展开，禁止再套一层 Popover（会挂到 body 导致外层误关、无法点击） */
-  const isOpen =
-    ctx.popupMode && ctx.insideSubmenuPopup
-      ? Object.prototype.hasOwnProperty.call(nestedPopupOpen, node.key)
-        ? !!nestedPopupOpen[node.key]
-        : openSet.has(node.key)
-      : openSet.has(node.key);
+  const { baseClassName, hashId, openSet, handleSubmenuTitleClick } = ctx;
+  const isOpen = openSet.has(node.key);
   return (
     <li
       key={node.key}
@@ -341,43 +274,28 @@ function renderInlineSubmenu(
         }
         aria-expanded={isOpen}
         aria-haspopup="true"
-        onClick={(e) =>
-          handleSubmenuTitleClick(node.key, node.onTitleClick, e, {
-            insideSubmenuPopup: ctx.insideSubmenuPopup,
-          })
-        }
+        onClick={(e) => handleSubmenuTitleClick(node.key, node.onTitleClick, e)}
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
-            handleSubmenuTitleClick(node.key, node.onTitleClick, e, {
-              insideSubmenuPopup: ctx.insideSubmenuPopup,
-            });
+            handleSubmenuTitleClick(node.key, node.onTitleClick, e);
           }
         }}
       >
-        {renderSubmenuTitleContent(ctx, node.label, isOpen)}
+        {node.label}
       </button>
-      <div
-        className={clsx(`${baseClassName}-submenu-expand-wrap`, hashId)}
-        {...(!isOpen ? ({ inert: '' } as React.HTMLAttributes<HTMLDivElement>) : {})}
-      >
-        <div
+      {isOpen ? (
+        <ul
           className={clsx(
-            `${baseClassName}-submenu-expand-wrap-inner`,
+            `${baseClassName}-list`,
+            `${baseClassName}-submenu-children`,
             hashId,
           )}
+          role="menu"
         >
-          <ul
-            className={clsx(
-              `${baseClassName}-list`,
-              `${baseClassName}-submenu-children`,
-              hashId,
-            )}
-            role="menu"
-          >
-            {node.children.map((child) => renderNode(ctx, child, depth + 1))}
-          </ul>
-        </div>
-      </div>
+          {/* eslint-disable-next-line @typescript-eslint/no-use-before-define -- renderNode 定义在文件后部 */}
+          {node.children.map((child) => renderNode(ctx, child, depth + 1))}
+        </ul>
+      ) : null}
     </li>
   );
 }
@@ -428,29 +346,71 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
     if (!popupMode || defaultOpenKeys.length === 0) return null;
     return defaultOpenKeys[0] ?? null;
   });
+  const popupPanelRef = useRef<HTMLUListElement>(null);
   const rootNavRef = useRef<HTMLElement>(null);
   const submenuAnchorRefs = useRef<Map<string, HTMLButtonElement>>(new Map());
-  /** 弹出层内多级子菜单展开（与根级 `popupOpenKey` 独立） */
-  const [nestedPopupOpen, setNestedPopupOpen] = useState<Record<string, boolean>>(
-    {},
-  );
+  const [popupPlacement, setPopupPlacement] = useState<{
+    top: number;
+    left: number;
+  } | null>(null);
 
-  const openKeysPropRef = useRef(openKeysProp);
-  openKeysPropRef.current = openKeysProp;
-
-  /** 根浮层切换时：用当前 `openKeys` 预展开嵌套 Popover */
-  useEffect(() => {
-    if (!popupOpenKey) {
-      setNestedPopupOpen({});
+  const updatePopupPlacement = useCallback(() => {
+    if (!popupMode || !popupOpenKey) {
+      setPopupPlacement(null);
       return;
     }
-    const initial: Record<string, boolean> = {};
-    openKeysPropRef.current.forEach((k) => {
-      const s = String(k);
-      if (s !== popupOpenKey) initial[s] = true;
+    const anchor = submenuAnchorRefs.current.get(popupOpenKey);
+    if (!anchor) {
+      setPopupPlacement(null);
+      return;
+    }
+    const rect = anchor.getBoundingClientRect();
+    const gap = 4;
+    if (mode === 'horizontal') {
+      setPopupPlacement({
+        top: rect.bottom + gap,
+        left: rect.left,
+      });
+    } else {
+      setPopupPlacement({
+        top: rect.top,
+        left: rect.right + gap,
+      });
+    }
+  }, [popupMode, popupOpenKey, mode]);
+
+  useLayoutEffect(() => {
+    updatePopupPlacement();
+  }, [updatePopupPlacement, nodes]);
+
+  useEffect(() => {
+    if (!popupMode || !popupOpenKey) return;
+    window.addEventListener('scroll', updatePopupPlacement, true);
+    window.addEventListener('resize', updatePopupPlacement);
+    return () => {
+      window.removeEventListener('scroll', updatePopupPlacement, true);
+      window.removeEventListener('resize', updatePopupPlacement);
+    };
+  }, [popupMode, popupOpenKey, updatePopupPlacement]);
+
+  useEffect(() => {
+    if (!popupMode) return;
+    const handlePointerDown = (e: MouseEvent | TouchEvent) => {
+      const root = rootNavRef.current;
+      const target = e.target as Node;
+      if (!popupOpenKey) return;
+      if (root?.contains(target)) return;
+      setPopupOpenKey(null);
+    };
+    document.addEventListener('mousedown', handlePointerDown);
+    document.addEventListener('touchstart', handlePointerDown, {
+      passive: true,
     });
-    setNestedPopupOpen(initial);
-  }, [popupOpenKey]);
+    return () => {
+      document.removeEventListener('mousedown', handlePointerDown);
+      document.removeEventListener('touchstart', handlePointerDown);
+    };
+  }, [popupMode, popupOpenKey]);
 
   useEffect(() => {
     if (!popupMode) return;
@@ -474,18 +434,10 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
       key: string,
       onTitleClick: undefined | ((e: React.MouseEvent<Element>) => void),
       e: React.MouseEvent | React.KeyboardEvent,
-      opts?: { insideSubmenuPopup?: boolean },
     ) => {
       e.preventDefault();
       if (onTitleClick && 'nativeEvent' in e) {
         onTitleClick(e as React.MouseEvent<Element>);
-      }
-      if (popupMode && opts?.insideSubmenuPopup) {
-        setNestedPopupOpen((prev) => ({
-          ...prev,
-          [key]: !prev[key],
-        }));
-        return;
       }
       if (popupMode) {
         setPopupOpenKey((prev) => (prev === key ? null : key));
@@ -516,18 +468,17 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
     baseClassName,
     hashId,
     mode,
-    collapsed,
     popupMode,
-    nestedPopupOpen,
     insideSubmenuPopup: false,
     rootId,
     selectedSet,
     openSet,
     openKeysProp,
     popupOpenKey,
+    popupPlacement,
+    popupPanelRef,
     submenuAnchorRefs,
     setPopupOpenKey,
-    setNestedPopupOpen,
     handleLeafActivate,
     handleSubmenuTitleClick,
   };
@@ -553,6 +504,7 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
         </li>
       );
     }
+    // eslint-disable-next-line @typescript-eslint/no-use-before-define -- renderNode 定义在文件后部
     return renderNode(renderCtx, n, 0);
   });
 

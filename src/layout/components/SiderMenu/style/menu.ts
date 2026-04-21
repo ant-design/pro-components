@@ -185,36 +185,8 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
       [`${c}-item`]: {
         listStyle: 'none',
         ...rowItem,
-        /** 只对标题根节点拉伸，避免 Tooltip 等外包层占满一行导致收起态比图标大 */
-        [`> ${c}-item-title`]: {
-          flex: 1,
-          minWidth: 0,
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'center',
-          gap: v('itemGap'),
-        },
-        /** `menuItemRender` 常见为 `<Link><defaultDom/></Link>` */
-        [`> a`]: {
-          flex: 1,
-          minWidth: 0,
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'center',
-          gap: v('itemGap'),
-          color: 'inherit',
-          textDecoration: 'none',
-        },
-        [`> [data-pro-layout-menu-item-title-wrap]`]: {
-          flex: 1,
-          minWidth: 0,
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'center',
-          gap: v('itemGap'),
-        },
-        /** `menuItemRender` 常见用 `role="button"` 扩大点击区域 */
-        [`> [role="button"]`]: {
+        /** 标题区（icon+文案）直接作为子节点，省一层 wrapper */
+        [`> *`]: {
           flex: 1,
           minWidth: 0,
           display: 'flex',
@@ -229,7 +201,6 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         '&--selected': {
           backgroundColor: v('colorBgSelected'),
           color: v('colorTextSelected'),
-          transition: `background-color var(--ant-motion-duration-mid, 0.2s), color var(--ant-motion-duration-mid, 0.2s)`,
         },
         '&--disabled': {
           cursor: 'not-allowed',
@@ -244,65 +215,17 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         position: 'relative',
       },
 
-      /** 内联子菜单展开/收起：grid 0fr→1fr，无需量高 */
-      [`${c}-submenu-expand-wrap`]: {
-        display: 'grid',
-        gridTemplateRows: '0fr',
-        transition: `grid-template-rows var(--ant-motion-duration-mid, 0.2s) cubic-bezier(0.2, 0, 0, 1)`,
-      },
-      [`${c}-submenu-open > ${c}-submenu-expand-wrap`]: {
-        gridTemplateRows: '1fr',
-      },
-      [`${c}-submenu-expand-wrap-inner`]: {
-        minHeight: 0,
-        overflow: 'hidden',
-      },
-
       [`${c}-submenu-title`]: {
         ...rowItem,
         font: 'inherit',
-        /** 文案区（含 icon+文本） */
-        [`${c}-submenu-title-inner`]: {
+        /** 子菜单标题内联 DOM（与 leaf 一致） */
+        [`> *`]: {
           flex: 1,
           minWidth: 0,
           display: 'flex',
           flexDirection: 'row',
           alignItems: 'center',
           gap: v('itemGap'),
-          [`> *:not(${c}-submenu-expand-icon)`]: {
-            flex: 1,
-            minWidth: 0,
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'center',
-            gap: v('itemGap'),
-          },
-        },
-        [`${c}-submenu-expand-icon`]: {
-          flexShrink: 0,
-          display: 'inline-flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          marginInlineStart: 'auto',
-          fontSize: '10px',
-          color: v('colorIcon'),
-          lineHeight: 1,
-          transition: `transform var(--ant-motion-duration-mid, 0.2s)`,
-          svg: {
-            display: 'block',
-          },
-        },
-        /** 侧栏内联：展开时箭头朝下 */
-        [`${c}-submenu-open > ${c}-submenu-title ${c}-submenu-expand-icon--open`]: {
-          transform: 'rotate(90deg)',
-        },
-        /** 顶栏一级：展开时箭头朝上（Popover 在下方） */
-        [`${c}--horizontal ${c}-submenu-expand-icon--horizontal.${c}-submenu-expand-icon--open`]: {
-          transform: 'rotate(180deg)',
-        },
-        /** 浮层内纵向子菜单：标题上的箭头随展开旋转 */
-        [`${c}-submenu-popup ${c}-submenu-title ${c}-submenu-expand-icon--open`]: {
-          transform: 'rotate(90deg)',
         },
         '&:hover': {
           backgroundColor: v('colorBgHover'),
@@ -310,7 +233,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         },
       },
 
-      /** 侧栏内联展开的子菜单列表 */
+      /** 子菜单展开列表（原 submenu-inline，类名缩短避免与 li.submenu 语义重复） */
       [`${c}-submenu-children`]: {
         listStyle: 'none',
         margin: 0,
@@ -325,25 +248,17 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         },
       },
 
-      /** Popover 外壳：仅作 hook，避免与 antd 浮层 padding 叠加 */
-      [`${c}-submenu-popover-overlay`]: {
-        [`${c}-submenu-popup`]: {
-          margin: 0,
-        },
-      },
-
-      /** 顶栏 / 收起侧栏：Popover 内层菜单（阴影保留；Popover 根节点另有 antd 阴影时可与之一致） */
       [`${c}-submenu-popup`]: {
-        position: 'relative',
-        inset: 'auto',
+        position: 'fixed',
         margin: 0,
         minWidth: 160,
         maxHeight: 'calc(100vh - 32px)',
         overflowY: 'auto',
         padding: 'var(--ant-padding-xxs, 4px)',
+        zIndex: `var(--ant-z-index-popup-base)`,
+        boxShadow: `var(--ant-box-shadow-secondary)`,
         borderRadius: `var(--ant-border-radius-lg)`,
         backgroundColor: v('popupBg'),
-        boxShadow: `var(--ant-box-shadow-secondary)`,
         ...stack,
       },
 
@@ -535,7 +450,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         alignItems: 'center',
         gap: v('stackGap'),
       },
-      /** 顶栏一行 28px，与 TopNavHeader 菜单区对齐 */
+      /** 顶部模式行高 28px（与常见顶栏菜单一致） */
       [`${c}-item`]: {
         width: 'auto',
         minHeight: 28,
@@ -543,65 +458,30 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         whiteSpace: 'nowrap',
         paddingBlock: 0,
         paddingInline: 'var(--ant-padding-sm, 12px)',
-        borderRadius: v('itemRadius'),
-        transition: `background-color var(--ant-motion-duration-mid, 0.2s), color var(--ant-motion-duration-mid, 0.2s)`,
-        [`> ${c}-item-title`]: {
+        [`> *`]: {
           minHeight: 28,
           height: 28,
-          alignItems: 'center',
-          /** 与图标区同高对齐：避免过大 line-height 把文字基线顶歪 */
-          [`${c}-item-icon`]: {
-            alignSelf: 'center',
-          },
-          [`${c}-item-text`]: {
-            display: 'inline-flex',
-            alignItems: 'center',
-            alignSelf: 'center',
-            lineHeight: 1,
-            height: v('iconBox'),
-          },
-        },
-        [`> a`]: {
-          minHeight: 28,
-          height: 28,
-          alignItems: 'center',
-        },
-        [`> [data-pro-layout-menu-item-title-wrap]`]: {
-          minHeight: 28,
-          height: 28,
-          alignItems: 'center',
-        },
-        [`> [role="button"]`]: {
-          minHeight: 28,
-          height: 28,
-          alignItems: 'center',
         },
       },
-      [`${c}-submenu`]: {
-        display: 'inline-flex',
-        verticalAlign: 'middle',
-        alignItems: 'center',
-      },
+      [`${c}-submenu`]: { display: 'inline-block' },
       [`${c}-submenu-title`]: {
         width: 'auto',
         minHeight: 28,
         height: 28,
         paddingBlock: 0,
         paddingInline: 'var(--ant-padding-sm, 12px)',
-        borderRadius: v('itemRadius'),
-        lineHeight: '28px',
-        display: 'inline-flex',
-        alignItems: 'center',
-        transition: `background-color var(--ant-motion-duration-mid, 0.2s), color var(--ant-motion-duration-mid, 0.2s)`,
-        [`${c}-submenu-title-inner`]: {
+        [`> *`]: {
           minHeight: 28,
           height: 28,
-          alignItems: 'center',
-          [`> *`]: {
-            alignSelf: 'center',
-            lineHeight: 1,
-          },
         },
+      },
+      [`${c}-item-title`]: {
+        minHeight: 28,
+        height: 28,
+        lineHeight: '28px',
+      },
+      [`${c}-item-title ${c}-item-text`]: {
+        lineHeight: '28px',
       },
       [`${c}-submenu-popup`]: {
         [`${c}-item-title`]: { alignItems: 'flex-start' },
@@ -625,8 +505,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
 };
 
 export function useStyle(prefixCls: string, mode: MenuMode | undefined) {
-  const resolvedMode = mode || 'vertical';
-  /** 须包含 `prefixCls`：侧栏主菜单与 links 均为 vertical，否则 cssinjs path 冲突会整段覆盖样式 */
+  const resolvedMode = mode ?? 'vertical';
   const styleRegisterName = `ProLayoutBaseMenu-${prefixCls}-${resolvedMode}`;
   return useAntdStyle(styleRegisterName, () => {
     const proLayoutMenuToken: ProLayoutBaseMenuToken = {
