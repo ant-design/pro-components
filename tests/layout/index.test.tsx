@@ -136,7 +136,7 @@ describe('BasicLayout', () => {
   it('🥩 support headerRender', async () => {
     const wrapper = render(
       <ProLayout
-        layout="mix"
+        layout="side"
         headerRender={() => <div id="testid">testid</div>}
       >
         XXX
@@ -538,7 +538,7 @@ describe('BasicLayout', () => {
       >
         <div ref={ref}>
           <ProLayout
-            layout="mix"
+            layout="side"
             fixedHeader
             title="fixed-header-scroll"
             stylish={{
@@ -1046,30 +1046,13 @@ describe('BasicLayout', () => {
     });
   });
 
-  it('🥩 headerTitleRender ', async () => {
-    const wrapper = render(
-      <ProLayout
-        headerTitleRender={() => <h2 id="mix-test">mix title</h2>}
-        layout="mix"
-        location={{
-          pathname: '/',
-        }}
-      />,
-    );
-    await waitForWaitTime(100);
-    expect(
-      wrapper.baseElement.querySelector<HTMLDivElement>('#mix-test')
-        ?.textContent,
-    ).toBe('mix title');
-  });
-
   it('🥩 onMenuHeaderClick', async () => {
     const onMenuHeaderClick = vi.fn();
     const wrapper = render(
       <ProLayout
         pageTitleRender={false}
         onMenuHeaderClick={onMenuHeaderClick}
-        layout="mix"
+        layout="side"
         location={{
           pathname: '/',
         }}
@@ -1103,90 +1086,7 @@ describe('BasicLayout', () => {
     });
   });
 
-  it('🥩 support get config form menuItem', async () => {
-    const wrapper = render(
-      <ProLayout
-        location={{
-          pathname: '/home/search',
-        }}
-        menuDataRender={() => [
-          {
-            path: '/home/overview',
-            name: '概述',
-            exact: true,
-            layout: 'side',
-          },
-          {
-            path: '/home/search',
-            name: '搜索',
-            exact: true,
-            layout: 'mix',
-          },
-          {
-            path: '/home',
-            name: '首页',
-            layout: 'top',
-          },
-        ]}
-      />,
-    );
-
-    await waitForWaitTime(100);
-
-    // 等待组件完全渲染，然后检查布局类型
-    await waitFor(() => {
-      const layoutElement =
-        wrapper.baseElement.querySelector('.ant-design-pro');
-      expect(layoutElement).toBeTruthy();
-      // 菜单项上的 layout: mix 会映射为侧栏布局（见 ProLayout 对 mix 的兼容处理）
-      expect(
-        layoutElement?.className.includes('ant-pro-layout-side'),
-      ).toBeTruthy();
-    });
-
-    act(() => {
-      wrapper.rerender(
-        <ProLayout
-          location={{
-            pathname: '/home',
-          }}
-          menuDataRender={() => [
-            {
-              path: '/home/overview',
-              name: '概述',
-              exact: true,
-              layout: 'side',
-            },
-            {
-              path: '/home/search',
-              name: '搜索',
-              exact: true,
-              layout: 'mix',
-            },
-            {
-              path: '/home',
-              name: '首页',
-              layout: 'top',
-            },
-          ]}
-        />,
-      );
-    });
-    await waitForWaitTime(100);
-
-    await waitFor(() => {
-      const layoutElement =
-        wrapper.baseElement.querySelector('.ant-design-pro');
-      expect(layoutElement).toBeTruthy();
-      // 检查是否包含 mix 布局类（因为当前路径匹配的是 mix 布局的菜单项）
-      expect(
-        layoutElement?.className.includes('ant-pro-layout-mix') ||
-          layoutElement?.className.includes('ant-pro-layout-top-menu'),
-      ).toBeTruthy();
-    });
-  });
-
-  it('🥩 mix layout hideInMenu render right', async () => {
+  it('🥩 hideInMenu render right', async () => {
     const wrapper = render(
       <ProLayout
         menuDataRender={() => [
@@ -1235,22 +1135,6 @@ describe('BasicLayout', () => {
             loading: true,
           }}
           layout="top"
-          menuDataRender={() => [
-            {
-              path: '/welcome',
-              name: '欢迎',
-            },
-            {
-              name: '列表页',
-              path: '/list',
-            },
-          ]}
-        />
-        <ProLayout
-          menu={{
-            loading: true,
-          }}
-          layout="mix"
           menuDataRender={() => [
             {
               path: '/welcome',
