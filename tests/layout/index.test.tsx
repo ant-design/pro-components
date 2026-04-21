@@ -1078,9 +1078,7 @@ describe('BasicLayout', () => {
 
     await waitForWaitTime(100);
     act(() => {
-      wrapper.baseElement
-        .querySelector<HTMLDivElement>('div.ant-pro-global-header-logo')
-        ?.click();
+      wrapper.baseElement.querySelector<HTMLDivElement>('#logo')?.click();
     });
     expect(onMenuHeaderClick).toHaveBeenCalled();
   });
@@ -1140,9 +1138,9 @@ describe('BasicLayout', () => {
       const layoutElement =
         wrapper.baseElement.querySelector('.ant-design-pro');
       expect(layoutElement).toBeTruthy();
-      // 检查是否包含 mix 布局类
+      // 菜单项上的 layout: mix 会映射为侧栏布局（见 ProLayout 对 mix 的兼容处理）
       expect(
-        layoutElement?.className.includes('ant-pro-layout-mix'),
+        layoutElement?.className.includes('ant-pro-layout-side'),
       ).toBeTruthy();
     });
 
