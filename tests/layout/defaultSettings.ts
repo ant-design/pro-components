@@ -17,7 +17,7 @@ export type PureSettings = {
    * @name nav menu position: `side` or `top`
    * @name 导航菜单的位置
    */
-  layout: 'side' | 'top' | 'mix';
+  layout: 'side' | 'top';
   /** Layout of content: `Fluid` or `Fixed`, only works when layout is top */
   contentWidth: ContentWidth;
 

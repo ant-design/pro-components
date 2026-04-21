@@ -6,16 +6,13 @@ import React, { useContext } from 'react';
 import type { PureSettings } from '../../defaultSettings';
 import type { MenuDataItem } from '../../index';
 import type { WithFalse } from '../../typing';
-import { clearMenuItem } from '../../utils/utils';
-import { AppsLogoComponents, defaultRenderLogo } from '../AppsLogoComponents';
+import { defaultRenderLogo } from '../AppsLogoComponents';
 import type { AppItemProps, AppListProps } from '../AppsLogoComponents/types';
 import type { HeaderViewProps } from '../Header';
 import type {
   PrivateSiderMenuProps,
   SiderMenuProps,
 } from '../SiderMenu/SiderMenu';
-import { renderLogoAndTitle } from '../SiderMenu/SiderMenu';
-import { TopNavHeader } from '../TopNavHeader';
 import { ActionsContent } from './ActionsContent';
 import { useStyle } from './style';
 
@@ -100,13 +97,9 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (
     collapsed,
     onCollapse,
     menuHeaderRender,
-    onMenuHeaderClick,
     className: propClassName,
     style,
-    layout,
     children,
-    splitMenus,
-    menuData,
     prefixCls,
   } = props;
   const { getPrefixCls, direction } = useContext(ConfigProvider.ConfigContext);
@@ -116,26 +109,8 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (
 
   const className = clsx(propClassName, baseClassName, hashId);
 
-  if (layout === 'mix' && !isMobile && splitMenus) {
-    const noChildrenMenuData = (menuData || []).map((item) => ({
-      ...item,
-      children: undefined,
-      routes: undefined,
-    }));
-    const clearMenuData = clearMenuItem(noChildrenMenuData);
-    return (
-      <TopNavHeader
-        mode="horizontal"
-        {...props}
-        splitMenus={false}
-        menuData={clearMenuData}
-      />
-    );
-  }
-
   const logoClassNames = clsx(`${baseClassName}-logo`, hashId, {
     [`${baseClassName}-logo-rtl`]: direction === 'rtl',
-    [`${baseClassName}-logo-mix`]: layout === 'mix',
     [`${baseClassName}-logo-mobile`]: isMobile,
   });
 
@@ -161,17 +136,6 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (
         </span>
       )}
       {isMobile && renderLogo(menuHeaderRender, logoDom)}
-      {layout === 'mix' && !isMobile && (
-        <>
-          <AppsLogoComponents {...props} />
-          <div className={logoClassNames} onClick={onMenuHeaderClick}>
-            {renderLogoAndTitle(
-              { ...props, collapsed: false },
-              'headerTitleRender',
-            )}
-          </div>
-        </>
-      )}
       <div style={{ flex: 1 }}>{children}</div>
       {(props.actionsRender || props.avatarProps) && (
         <ActionsContent {...props} />

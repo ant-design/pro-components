@@ -11,13 +11,13 @@ export type RenderSetting = {
 export type PureSettings = {
   /**
    * @name layout 的布局方式
-   * @type  'side' | 'top' | 'mix'
+   * @type  'side' | 'top'
    *
    * @example 顶部菜单 layout="top"
    * @example 侧边菜单 layout="side"
-   * @example 混合布局 既有顶部也有侧边 layout="mix"
+   * @example 顶栏一级菜单 + 侧栏子菜单：layout="side" 且 `splitMenus`，或用 `headerMenuRender` 自定义顶栏菜单
    */
-  layout?: 'side' | 'top' | 'mix';
+  layout?: 'side' | 'top';
   /** @name layout of content: `Fluid` or `Fixed`, only works when layout is top */
   contentWidth?: ContentWidth;
   /** @name sticky header */
@@ -108,9 +108,7 @@ export type PureSettings = {
   /** @name 全局增加滤镜 */
   colorWeak?: boolean;
   /**
-   * 只在 mix 模式下生效
-   *
-   * @name 切割菜单
+   * @name 切割菜单：顶栏展示一级菜单，侧栏展示当前一级下的子菜单（仅 `layout="side"` 且非移动端）
    */
   splitMenus?: boolean;
   /**

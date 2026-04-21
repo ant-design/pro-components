@@ -85,7 +85,7 @@ const AppGroupList: any = [
 const Demo = () => {
   const settings: ProSettings = {
     fixSiderbar: true,
-    layout: 'mix',
+    layout: 'side',
     splitMenus: true,
   };
   const itemClick = (

@@ -73,7 +73,7 @@ describe('mobile BasicLayout', () => {
       <ProLayout
         {...defaultProps}
         getContainer={false}
-        layout="mix"
+        layout="side" splitMenus
         collapsed={false}
       >
         welcome
@@ -103,9 +103,9 @@ describe('mobile BasicLayout', () => {
     const html = render(
       <ProLayout
         {...defaultProps}
-        splitMenus
         getContainer={false}
-        layout="mix"
+        layout="side"
+        splitMenus
         collapsed={false}
       >
         welcome
@@ -122,7 +122,7 @@ describe('mobile BasicLayout', () => {
         {...defaultProps}
         collapsed
         getContainer={false}
-        layout="mix"
+        layout="side" splitMenus
         menuHeaderRender={false}
       >
         welcome
@@ -140,7 +140,7 @@ describe('mobile BasicLayout', () => {
         {...defaultProps}
         collapsed
         getContainer={false}
-        layout="mix"
+        layout="side" splitMenus
         menuHeaderRender={() => 'title'}
       >
         welcome
@@ -158,7 +158,7 @@ describe('mobile BasicLayout', () => {
         {...defaultProps}
         collapsed
         getContainer={false}
-        layout="mix"
+        layout="side" splitMenus
         menuHeaderRender={() => 'title'}
       >
         welcome
@@ -181,7 +181,7 @@ describe('mobile BasicLayout', () => {
           return 'div';
         }}
         getContainer={false}
-        layout="mix"
+        layout="side" splitMenus
       >
         welcome
       </ProLayout>,

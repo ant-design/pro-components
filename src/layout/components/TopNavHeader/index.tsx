@@ -37,7 +37,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
   let renderKey: HeaderRenderKey | undefined = undefined;
   if (props.menuHeaderRender !== undefined) {
     renderKey = 'menuHeaderRender';
-  } else if (layout === 'mix' || layout === 'top') {
+  } else if (layout === 'top') {
     renderKey = 'headerTitleRender';
   }
   const headerDom = renderLogoAndTitle(

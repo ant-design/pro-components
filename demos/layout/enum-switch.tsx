@@ -12,7 +12,8 @@ import defaultProps from './_defaultProps';
 const Demo = () => {
   const { token } = theme.useToken();
 
-  const [layout, setLayout] = useState<ProSettings['layout']>('mix');
+  const [layout, setLayout] = useState<ProSettings['layout']>('side');
+  const [splitMenus, setSplitMenus] = useState(false);
   const [contentWidth, setContentWidth] = useState<'Fluid' | 'Fixed'>('Fluid');
   const [siderMenuType, setSiderMenuType] = useState<'sub' | 'group'>('group');
 
@@ -30,6 +31,7 @@ const Demo = () => {
       <ProLayout
         {...defaultProps}
         layout={layout}
+        splitMenus={layout === 'side' ? splitMenus : false}
         contentWidth={contentWidth}
         siderMenuType={siderMenuType}
         fixSiderbar
@@ -57,14 +59,26 @@ const Demo = () => {
                 <span>layout 导航模式：</span>
                 <Segmented
                   value={layout}
-                  onChange={(v) => setLayout(v as any)}
+                  onChange={(v) => setLayout(v as ProSettings['layout'])}
                   options={[
                     { label: '侧栏 side', value: 'side' },
                     { label: '顶部 top', value: 'top' },
-                    { label: '混合 mix', value: 'mix' },
                   ]}
                 />
               </Space>
+              {layout === 'side' ? (
+                <Space>
+                  <span>顶栏一级菜单 splitMenus：</span>
+                  <Segmented
+                    value={splitMenus ? 'on' : 'off'}
+                    onChange={(v) => setSplitMenus(v === 'on')}
+                    options={[
+                      { label: '关闭', value: 'off' },
+                      { label: '开启', value: 'on' },
+                    ]}
+                  />
+                </Space>
+              ) : null}
               <Space>
                 <span>contentWidth 内容宽度：</span>
                 <Segmented

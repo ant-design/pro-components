@@ -35,7 +35,7 @@ const Demo = () => {
           ],
         },
       ]}
-      layout="mix"
+      layout="side"
       location={{
         pathname: '/one/two',
       }}
