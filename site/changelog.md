@@ -5,8 +5,7 @@
 ### 🗑 破坏性变更
 
 - ProLayout
-  - 🛠 `BaseMenu` 将原 `MenuUtil` 类改为纯函数构建 `NavMenuNode`，去掉为适配 antd `Menu` 遗留的 class 形态
-  - 🛠 `BaseMenu` 拆分 `baseMenuNavNodes.tsx`：`getIntlMenuName`、`getSubMenuOrItem`、`getMenuItemPath` 与收起态 `MenuItemTooltip` 独立文件
+  - 🗑 移除 `iconfontUrl` 与 `@ant-design/icons` 的 `IconFont` 脚本加载；菜单项 `icon` 请使用 React 节点（如 `@ant-design/icons`）、或图片/SVG 的 URL 字符串
   - 🗑 移除 `layout="mix"` 类型；运行时仍接受字符串 `mix` 并映射为 `side`。原「顶栏一级 + 侧栏子级」请使用 `layout="side"` 与 `splitMenus`，顶栏菜单可用 `headerMenuRender` 自定义
   - 🗑 移除 `navTheme`（`ProSettings` / 路由 `MenuDataItem` 等不再透传）；侧栏 `Sider` 固定为 `theme="light"`，全局暗色请使用 antd `ConfigProvider` 的 `theme.algorithm`
   - 🗑 移除内置 `SettingDrawer`（不再从 `@ant-design/pro-components` 导出）
