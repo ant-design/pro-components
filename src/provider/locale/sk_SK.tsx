@@ -60,6 +60,7 @@ export default {
   },
   editableTable: {
     onlyOneLineEditor: 'Upravovať možno iba jeden riadok',
+    onlyAddOneLine: 'Pridať možno iba jeden riadok',
     action: {
       save: 'Uložiť',
       cancel: 'Zrušiť',

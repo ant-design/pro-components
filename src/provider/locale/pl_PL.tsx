@@ -1,5 +1,7 @@
 export default {
   moneySymbol: 'zł',
+  deleteThisLine: 'Usuń ten wiersz',
+  copyThisLine: 'Kopiuj ten wiersz',
   form: {
     lightFilter: {
       more: 'Więcej',
@@ -49,18 +51,20 @@ export default {
     densitySmall: 'Kompaktowy',
   },
   stepsForm: {
-    next: 'Weiter',
-    prev: 'Zurück',
-    submit: 'Abschließen',
+    next: 'Dalej',
+    prev: 'Wstecz',
+    submit: 'Zakończ',
   },
   loginForm: {
     submitText: 'Zaloguj się',
   },
   editableTable: {
+    onlyOneLineEditor: 'Można edytować tylko jeden wiersz naraz',
+    onlyAddOneLine: 'Można dodać tylko jeden wiersz naraz',
     action: {
-      save: 'Zapisać',
+      save: 'Zapisz',
       cancel: 'Anuluj',
-      delete: 'Usunąć',
+      delete: 'Usuń',
       add: 'dodawanie wiersza danych',
     },
   },

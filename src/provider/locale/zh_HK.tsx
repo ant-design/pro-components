@@ -60,6 +60,7 @@ export default {
   },
   editableTable: {
     onlyOneLineEditor: '只能同時編輯一行',
+    onlyAddOneLine: '只能同時新增一行',
     action: {
       save: '保存',
       cancel: '取消',

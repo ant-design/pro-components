@@ -1,5 +1,7 @@
 export default {
   moneySymbol: 'تومان',
+  deleteThisLine: 'حذف این خط',
+  copyThisLine: 'کپی این خط',
   form: {
     lightFilter: {
       more: 'بیشتر',
@@ -57,6 +59,8 @@ export default {
     submitText: 'ورود',
   },
   editableTable: {
+    onlyOneLineEditor: 'فقط یک خط را می‌توان ویرایش کرد',
+    onlyAddOneLine: 'فقط یک خط را می‌توان اضافه کرد',
     action: {
       save: 'ذخیره',
       cancel: 'لغو',
@@ -66,6 +70,6 @@ export default {
   },
   switch: {
     open: 'باز',
-    close: 'نزدیک',
+    close: 'بسته',
   },
 };

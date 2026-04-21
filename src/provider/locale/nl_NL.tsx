@@ -60,6 +60,7 @@ export default {
   },
   editableTable: {
     onlyOneLineEditor: 'Slechts één regel tegelijk bewerken',
+    onlyAddOneLine: 'Slechts één regel tegelijk toevoegen',
     action: {
       save: 'Opslaan',
       cancel: 'Annuleren',

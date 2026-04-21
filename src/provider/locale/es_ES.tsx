@@ -1,5 +1,7 @@
 export default {
   moneySymbol: '€',
+  deleteThisLine: 'Eliminar esta línea',
+  copyThisLine: 'Copiar esta línea',
   form: {
     lightFilter: {
       more: 'Más',
@@ -57,6 +59,8 @@ export default {
     submitText: 'Entrar',
   },
   editableTable: {
+    onlyOneLineEditor: 'Solo se puede editar una línea a la vez',
+    onlyAddOneLine: 'Solo se puede añadir una línea a la vez',
     action: {
       save: 'Guardar',
       cancel: 'Descartar',
