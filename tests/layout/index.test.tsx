@@ -3,7 +3,12 @@ import {
   InfoCircleFilled,
   QuestionCircleFilled,
 } from '@ant-design/icons';
-import { LoginForm, ProFormText, ProLayout } from '@ant-design/pro-components';
+import {
+  LoginForm,
+  ProFormText,
+  ProLayout,
+  type ProLayoutNavMenuDomProps,
+} from '@ant-design/pro-components';
 import {
   act,
   cleanup,
@@ -84,12 +89,31 @@ describe('BasicLayout', () => {
     await waitForWaitTime(100);
 
     const titleRow = wrapper.baseElement.querySelector<HTMLElement>(
-      '.ant-pro-base-menu-inline-item .ant-pro-base-menu-inline-item-title',
+      '.ant-pro-base-menu-vertical-item .ant-pro-base-menu-vertical-item-title',
     );
 
     expect(titleRow).toBeTruthy();
     expect(getComputedStyle(titleRow!).width).toBe('100%');
 
+    wrapper.unmount();
+  });
+
+  it('🥩 TopNavHeader merges menuProps once on root nav', async () => {
+    const wrapper = render(
+      <ProLayout
+        layout="top"
+        menuDataRender={() => [{ path: '/welcome', name: '欢迎' }]}
+        menuProps={
+          { 'data-testid': 'top-nav-menu-root' } as ProLayoutNavMenuDomProps
+        }
+      />,
+    );
+    await waitForWaitTime(100);
+    const roots = wrapper.baseElement.querySelectorAll(
+      '[data-testid="top-nav-menu-root"]',
+    );
+    expect(roots.length).toBe(1);
+    expect(roots[0]?.tagName.toLowerCase()).toBe('nav');
     wrapper.unmount();
   });
 
@@ -1184,7 +1208,7 @@ describe('BasicLayout', () => {
     // 欢迎不存在
     expect(
       wrapper.baseElement.querySelector<HTMLDivElement>(
-        'li.ant-pro-base-menu-inline-item',
+        'li.ant-pro-base-menu-vertical-item',
       )
         ?.innerText,
     ).not.toContain('欢迎');

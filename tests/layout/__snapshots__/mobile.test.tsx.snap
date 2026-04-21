@@ -453,13 +453,13 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
                     style="overflow-y: auto; overflow-x: hidden; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                   >
                     <nav
-                      class="ant-pro-sider-menu ant-pro-base-menu-inline ant-pro-sider-menu ant-pro-base-menu-inline ant-pro-base-menu-inline-list ant-pro-base-menu-inline-list--root"
+                      class="ant-pro-sider-menu ant-pro-base-menu-vertical ant-pro-sider-menu ant-pro-base-menu-vertical ant-pro-base-menu-vertical-list ant-pro-base-menu-vertical-list--root"
                       data-pro-layout-nav-root="true"
                       role="menu"
                       style="background-color: transparent; border: none none; width: 100%;"
                     >
                       <li
-                        class="ant-pro-base-menu-inline-submenu ant-pro-base-menu-inline-submenu ant-pro-base-menu-inline-submenu-open"
+                        class="ant-pro-base-menu-vertical-submenu ant-pro-base-menu-vertical-submenu ant-pro-base-menu-vertical-submenu-open"
                         data-pro-layout-nav-submenu="true"
                         data-pro-layout-nav-submenu-open="true"
                         role="none"
@@ -467,40 +467,40 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
                         <button
                           aria-expanded="true"
                           aria-haspopup="true"
-                          class="ant-pro-base-menu-inline-submenu-title ant-pro-base-menu-inline-submenu-title--open"
+                          class="ant-pro-base-menu-vertical-submenu-title ant-pro-base-menu-vertical-submenu-title--open"
                           type="button"
                         >
                           <div
-                            class="ant-pro-base-menu-inline-item-title"
+                            class="ant-pro-base-menu-vertical-item-title"
                           >
                             <span
-                              class="ant-pro-base-menu-inline-item-text"
+                              class="ant-pro-base-menu-vertical-item-text"
                             >
                               welcome
                             </span>
                           </div>
                         </button>
                         <ul
-                          class="ant-pro-base-menu-inline-list ant-pro-base-menu-inline-submenu-children"
+                          class="ant-pro-base-menu-vertical-list ant-pro-base-menu-vertical-submenu-children"
                           role="menu"
                         >
                           <li
-                            class="ant-pro-base-menu-inline-submenu ant-pro-base-menu-inline-submenu"
+                            class="ant-pro-base-menu-vertical-submenu ant-pro-base-menu-vertical-submenu"
                             data-pro-layout-nav-submenu="true"
                             role="none"
                           >
                             <button
                               aria-expanded="false"
                               aria-haspopup="true"
-                              class="ant-pro-base-menu-inline-submenu-title"
+                              class="ant-pro-base-menu-vertical-submenu-title"
                               style="padding-inline-start: 16px;"
                               type="button"
                             >
                               <div
-                                class="ant-pro-base-menu-inline-item-title"
+                                class="ant-pro-base-menu-vertical-item-title"
                               >
                                 <span
-                                  class="ant-pro-base-menu-inline-item-text"
+                                  class="ant-pro-base-menu-vertical-item-text"
                                 >
                                   one
                                 </span>
