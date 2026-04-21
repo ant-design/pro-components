@@ -22,8 +22,9 @@ let genNanoid = (t = 21) => {
  * @description 生成uuid，如果不支持 randomUUID，就用 genNanoid
  */
 export const nanoid = (): string => {
-  if (window?.crypto?.randomUUID && typeof crypto.randomUUID === 'function') {
-    return crypto.randomUUID();
+  if (typeof window === 'undefined') return genNanoid();
+  if (window.crypto && typeof window.crypto.randomUUID === 'function') {
+    return window.crypto.randomUUID();
   }
   return genNanoid();
 };
