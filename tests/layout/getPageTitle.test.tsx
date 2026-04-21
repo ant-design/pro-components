@@ -12,7 +12,6 @@ const pageProps = {
   fixSiderbar: false,
   menu: { locale: true },
   title: 'Ant Design Pro',
-  iconfontUrl: '',
   colorPrimary: '#1677FF',
   prefixCls: 'ant-pro',
   siderWidth: 208,

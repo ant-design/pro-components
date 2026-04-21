@@ -5,6 +5,7 @@
 ### 🗑 破坏性变更
 
 - ProLayout
+  - 🗑 移除 `iconfontUrl` 与 `@ant-design/icons` 的 `IconFont` 脚本加载；菜单项 `icon` 请使用 React 节点（如 `@ant-design/icons`）、或图片/SVG 的 URL 字符串
   - 🗑 移除 `navTheme`（`ProSettings` / 路由 `MenuDataItem` 等不再透传）；侧栏 `Sider` 固定为 `theme="light"`，全局暗色请使用 antd `ConfigProvider` 的 `theme.algorithm`
   - 🗑 移除内置 `SettingDrawer`（不再从 `@ant-design/pro-components` 导出）
   - 🗑 移除 ProHelp 全家桶（`ProHelp`、`ProHelpPanel`、`ProHelpDrawer`、`ProHelpModal`、`ProHelpPopover`、`ProHelpContentPanel`、`ProHelpProvide` 及 `ProHelpDataSource` 等相关类型不再导出）；需要时请使用历史版本或自行实现

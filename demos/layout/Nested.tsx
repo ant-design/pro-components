@@ -1,4 +1,8 @@
-import { UserOutlined } from '@ant-design/icons';
+import {
+  FacebookOutlined,
+  TwitterOutlined,
+  UserOutlined,
+} from '@ant-design/icons';
 import { PageContainer, ProLayout } from '@ant-design/pro-components';
 import complexMenu from './complexMenu';
 
@@ -15,23 +19,29 @@ const Demo = () => (
       fixSiderbar={false}
       collapsedButtonRender={false}
       collapsed={false}
-      iconfontUrl="//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js"
       route={{
         routes: [
           {
             path: '/home',
             name: '收藏',
-            icon: 'icon-shoucang1',
+            icon: (
+              <img
+                src="https://gw.alipayobjects.com/zos/antfincdn/UCSef1BATc/nice.svg"
+                width={16}
+                height={16}
+                alt=""
+              />
+            ),
           },
           {
             path: '/home/overview',
             name: 'FaceBook',
-            icon: 'icon-facebook',
+            icon: <FacebookOutlined />,
           },
           {
             path: '/home/search',
             name: 'Twitter',
-            icon: 'icon-twitter',
+            icon: <TwitterOutlined />,
           },
         ],
       }}

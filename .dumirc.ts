@@ -1,5 +1,6 @@
-import { defineConfig } from 'dumi';
 import path from 'path';
+
+import { defineConfig } from 'dumi';
 
 export default defineConfig({
   title: 'ProComponents',
@@ -57,6 +58,7 @@ export default defineConfig({
   resolve: {
     docDirs: ['site'],
   },
+  plugins: [path.join(__dirname, 'site-dumi-plugin')],
   styles: [
     `.markdown table{table-layout: fixed;}`,
     // 组件文档：标题层级与示例块节奏（dumi 默认 previewer 已有 margin，此处补足文内排版）
