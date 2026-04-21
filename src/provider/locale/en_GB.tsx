@@ -1,5 +1,7 @@
 export default {
   moneySymbol: '£',
+  deleteThisLine: 'Delete this line',
+  copyThisLine: 'Copy this line',
   form: {
     lightFilter: {
       more: 'More',

@@ -1,5 +1,7 @@
 export default {
   moneySymbol: 'kn',
+  deleteThisLine: 'Izbriši ovaj redak',
+  copyThisLine: 'Kopiraj ovaj redak',
   form: {
     lightFilter: {
       more: 'Više',
@@ -57,6 +59,8 @@ export default {
     submitText: 'Prijava',
   },
   editableTable: {
+    onlyOneLineEditor: 'Istovremeno se može uređivati samo jedan redak',
+    onlyAddOneLine: 'Istovremeno se može dodati samo jedan redak',
     action: {
       save: 'Spremi',
       cancel: 'Odustani',

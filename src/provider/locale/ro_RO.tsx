@@ -60,6 +60,7 @@ export default {
   },
   editableTable: {
     onlyOneLineEditor: 'Se poate edita doar un rând simultan',
+    onlyAddOneLine: 'Se poate adăuga doar un rând simultan',
     action: {
       save: 'Salvează',
       cancel: 'Anulează',

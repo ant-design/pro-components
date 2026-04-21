@@ -1,5 +1,7 @@
 export default {
   moneySymbol: '₽',
+  deleteThisLine: 'Удалить эту строку',
+  copyThisLine: 'Копировать эту строку',
   form: {
     lightFilter: {
       more: 'Еще',
@@ -57,6 +59,8 @@ export default {
     submitText: 'Вход',
   },
   editableTable: {
+    onlyOneLineEditor: 'Одновременно можно редактировать только одну строку',
+    onlyAddOneLine: 'Одновременно можно добавить только одну строку',
     action: {
       save: 'Сохранить',
       cancel: 'Отменить',
@@ -65,7 +69,7 @@ export default {
     },
   },
   switch: {
-    open: 'Открытый чемпионат мира по теннису',
-    close: 'По адресу:',
+    open: 'Открыть',
+    close: 'Закрыть',
   },
 };

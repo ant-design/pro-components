@@ -1,6 +1,6 @@
 export default {
   moneySymbol: '₴',
-  deleteThisLine: 'Видатили рядок',
+  deleteThisLine: 'Видалити цей рядок',
   copyThisLine: 'Скопіювати рядок',
   form: {
     lightFilter: {
@@ -56,10 +56,11 @@ export default {
     submit: 'Завершити',
   },
   loginForm: {
-    submitText: 'Вхіх',
+    submitText: 'Вхід',
   },
   editableTable: {
     onlyOneLineEditor: 'Тільки один рядок може бути редагований одночасно',
+    onlyAddOneLine: 'Можна додати лише один рядок',
     action: {
       save: 'Зберегти',
       cancel: 'Відмінити',
