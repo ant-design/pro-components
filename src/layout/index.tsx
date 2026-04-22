@@ -35,7 +35,11 @@ import { TopNavHeader } from './components/TopNavHeader';
 import type { RouteContextType } from './context/RouteContext';
 import { RouteContext } from './context/RouteContext';
 import { getPageTitle } from './getPageTitle';
-import type { ProLayoutProps } from './ProLayout';
+import type {
+  ProLayoutLayoutMode,
+  ProLayoutMenuRenderCallbackProps,
+  ProLayoutProps,
+} from './ProLayout';
 import { ProLayout } from './ProLayout';
 import { getMenuData } from './utils/getMenuData';
 
@@ -76,6 +80,8 @@ export type {
   ProLayoutNavMenuDomProps,
   ProLayoutNavMenuProps,
   ProLayoutNavMenuSelectInfo,
+  ProLayoutLayoutMode,
+  ProLayoutMenuRenderCallbackProps,
   ProLayoutProps,
   RouteContextType,
   TopNavHeaderProps,

@@ -11,14 +11,13 @@ export type RenderSetting = {
 export type PureSettings = {
   /**
    * @name layout 的布局方式
-   * @type  'side' | 'top' | 'mix'
+   * @type  'side' | 'top'
    *
    * @example 顶部菜单 layout="top"
    * @example 侧边菜单 layout="side"
    * @example 顶栏一级菜单 + 侧栏子菜单：layout="side" 且 `splitMenus`，或用 `headerMenuRender` 自定义顶栏菜单
-   * @description `mix` 为历史值，ProLayout 内会按侧栏布局处理
    */
-  layout?: 'side' | 'top' | 'mix';
+  layout?: 'side' | 'top';
   /** @name layout of content: `Fluid` or `Fixed`, only works when layout is top */
   contentWidth?: ContentWidth;
   /** @name sticky header */

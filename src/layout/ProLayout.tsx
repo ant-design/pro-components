@@ -75,7 +75,32 @@ type GlobalTypes = Omit<
   'collapsed'
 >;
 
-export type ProLayoutProps = GlobalTypes & {
+/** ProLayout 根 props 上的 `layout`；含历史 `mix`（运行时按 `side` 处理） */
+export type ProLayoutLayoutMode = 'side' | 'top' | 'mix';
+
+const menuLayoutForPureSettings = (
+  layout: ProLayoutLayoutMode | undefined,
+): NonNullable<ProSettings['layout']> =>
+  layout === 'mix' || layout === undefined ? 'side' : layout;
+
+/** `menuRender` 回调首参：与 Header 一致，不含历史 `mix` */
+export type ProLayoutMenuRenderCallbackProps = Omit<ProLayoutProps, 'layout'> & {
+  layout?: NonNullable<ProSettings['layout']>;
+};
+
+const toMenuRenderCallbackProps = (
+  p: ProLayoutProps,
+): ProLayoutMenuRenderCallbackProps => ({
+  ...p,
+  layout: menuLayoutForPureSettings(p.layout),
+});
+
+export type ProLayoutProps = Omit<GlobalTypes, 'layout'> & {
+  /**
+   * @name layout 的布局方式（根组件）
+   * @deprecated `layout="mix"` 仍会被接受，运行时按 `side` 处理
+   */
+  layout?: ProLayoutLayoutMode;
   /** 受控菜单选中项 */
   selectedKeys?: string[];
   /** 受控子菜单展开项，`false` 表示非受控 */
@@ -286,6 +311,7 @@ const headerRender = (
     <Header
       matchMenuKeys={matchMenuKeys}
       {...props}
+      layout={menuLayoutForPureSettings(props.layout)}
       stylish={props.stylish?.header}
     />
   );
@@ -344,6 +370,7 @@ const renderSiderMenu = (
       <SiderMenu
         matchMenuKeys={matchMenuKeys}
         {...props}
+        layout={menuLayoutForPureSettings(props.layout)}
         hide
         stylish={props.stylish?.sider}
       />
@@ -354,13 +381,14 @@ const renderSiderMenu = (
     <SiderMenu
       matchMenuKeys={matchMenuKeys}
       {...props}
+      layout={menuLayoutForPureSettings(props.layout)}
       // 这里走了可以少一次循环
       menuData={clearMenuData}
       stylish={props.stylish?.sider}
     />
   );
   if (menuRender) {
-    return menuRender(props, defaultDom);
+    return menuRender(toMenuRenderCallbackProps(props), defaultDom);
   }
 
   return defaultDom;
@@ -588,10 +616,9 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   };
 
   /** 历史 `mix` 已移除，按侧栏布局处理，避免旧配置直接失效 */
-  const propsLayout: NonNullable<ProSettings['layout']> =
-    (propsLayoutRaw as string | undefined) === 'mix'
-      ? 'side'
-      : propsLayoutRaw ?? 'side';
+  const propsLayout = menuLayoutForPureSettings(
+    propsLayoutRaw as ProLayoutLayoutMode | undefined,
+  );
 
   const colSize = useBreakpoint();
 
