@@ -1,8 +1,9 @@
-﻿import { LoadingOutlined } from '@ant-design/icons';
+import { LoadingOutlined } from '@ant-design/icons';
 import { Cascader } from 'antd';
 import { clsx } from 'clsx';
 import React from 'react';
 import type { IntlType } from '../../../provider';
+import { FieldLabel } from '../../../utils';
 import type { ProFieldFC } from '../../types';
 import type { GroupProps } from './types';
 
@@ -16,11 +17,12 @@ type Props = Omit<Parameters<ProFieldFC<GroupProps>>[0], 'options'> & {
   intl: IntlType;
 };
 
-export function FieldCascaderEdit(props: Props) {
+export function FieldCascaderLightEdit(props: Props) {
   const {
     placeholder,
     formItemRender,
     mode,
+    label,
     variant,
     options,
     loading,
@@ -61,5 +63,27 @@ export function FieldCascaderEdit(props: Props) {
       ) ?? null;
   }
 
-  return dom;
+  const { disabled, value } = fieldProps;
+  const notEmpty = !!value && value?.length !== 0;
+  return (
+    <FieldLabel
+      label={label}
+      disabled={disabled}
+      variant={variant}
+      value={notEmpty || open ? dom : null}
+      style={
+        notEmpty
+          ? {
+              paddingInlineEnd: 0,
+            }
+          : undefined
+      }
+      allowClear={false}
+      downIcon={notEmpty || open ? false : undefined}
+      onClick={() => {
+        setOpen(true);
+        fieldProps?.onOpenChange?.(true);
+      }}
+    />
+  );
 }

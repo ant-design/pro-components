@@ -14,6 +14,7 @@ import {
 import type { ProFieldFC } from '../../types';
 import { useFieldFetchData } from '../Select';
 import { FieldCascaderEdit } from './FieldCascaderEdit';
+import { FieldCascaderLightEdit } from './FieldCascaderLightEdit';
 import { FieldCascaderRead } from './FieldCascaderRead';
 import type { GroupProps } from './types';
 
@@ -88,25 +89,26 @@ const FieldCascader: ProFieldFC<GroupProps> = (
   }
 
   if (isProFieldEditOnlyMode(mode)) {
-    return (
-      <FieldCascaderEdit
-        placeholder={placeholder}
-        formItemRender={formItemRender}
-        mode={mode}
-        render={render}
-        label={label}
-        light={light}
-        variant={variant}
-        options={options}
-        loading={loading}
-        layoutClassName={layoutClassName}
-        open={open}
-        setOpen={setOpen}
-        cascaderRef={cascaderRef}
-        intl={intl}
-        {...rest}
-      />
-    );
+    const editProps = {
+      placeholder,
+      formItemRender,
+      mode,
+      render,
+      label,
+      variant,
+      options,
+      loading,
+      layoutClassName,
+      open,
+      setOpen,
+      cascaderRef,
+      intl,
+      ...rest,
+    };
+    if (light) {
+      return <FieldCascaderLightEdit {...editProps} />;
+    }
+    return <FieldCascaderEdit {...editProps} />;
   }
 
   return null;

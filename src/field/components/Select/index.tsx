@@ -25,7 +25,8 @@ import {
   isProFieldReadMode,
 } from '../../internal/fieldMode';
 import type { ProFieldFC } from '../../types';
-import { FieldSelectEdit } from './FieldSelectEdit';
+import { FieldSelectLightEdit } from './FieldSelectLightEdit';
+import { FieldSelectSearchEdit } from './FieldSelectSearchEdit';
 import { FieldSelectRead } from './FieldSelectRead';
 import type { FieldSelectProps } from './types';
 
@@ -373,28 +374,33 @@ const FieldSelect: ProFieldFC<
   }
 
   if (isProFieldEditOrUpdateMode(mode)) {
-    return (
-      <FieldSelectEdit
-        mode={mode}
-        formItemRender={formItemRender}
-        fieldProps={fieldProps}
-        light={light}
-        id={id}
-        label={label}
-        variant={variant}
-        lightLabel={lightLabel}
-        labelTrigger={labelTrigger}
-        intl={intl}
-        loading={loading}
-        options={options}
-        fetchData={fetchData}
-        resetData={resetData}
-        inputRef={inputRef}
-        keyWordsRef={keyWordsRef}
-        componentSize={componentSize}
-        {...props}
-      />
-    );
+    const editProps = {
+      mode,
+      formItemRender,
+      fieldProps,
+      id,
+      label,
+      variant,
+      intl,
+      loading,
+      options,
+      fetchData,
+      resetData,
+      inputRef,
+      keyWordsRef,
+      componentSize,
+      ...props,
+    };
+    if (light) {
+      return (
+        <FieldSelectLightEdit
+          lightLabel={lightLabel}
+          labelTrigger={labelTrigger}
+          {...editProps}
+        />
+      );
+    }
+    return <FieldSelectSearchEdit {...editProps} />;
   }
   return null;
 };
