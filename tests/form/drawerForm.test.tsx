@@ -341,7 +341,10 @@ describe('DrawerForm', () => {
     });
 
     await waitForWaitTime(100);
-    expect(fn).toHaveBeenCalledTimes(2);
+    // No user onFinish: BaseForm skips submit handling, so the drawer does not
+    // close and onOpenChange is only the initial true from controlled open
+    expect(fn).toHaveBeenCalledTimes(1);
+    expect(fn).toHaveBeenCalledWith(true);
   });
 
   it('📦 submitter config no reset default config', async () => {

@@ -85,7 +85,7 @@ exports[`PageContainer > ⚡️ support more loading props 1`] = `
           <div
             aria-busy="true"
             aria-live="polite"
-            class="ant-spin ant-spin-lg ant-spin-spinning ant-spin-section css-var-rm"
+            class="ant-spin ant-spin-lg ant-spin-spinning ant-spin-section css-var-rn"
           >
             <span
               class="ant-spin-dot-holder"
@@ -203,7 +203,7 @@ exports[`PageContainer > 🐲 FooterToolbar should know width 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout css-var-r11"
+      class="ant-layout css-var-r12"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
@@ -539,7 +539,7 @@ exports[`PageContainer > 🐲 footer should know width 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout css-var-rr"
+      class="ant-layout css-var-rs"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
@@ -770,14 +770,14 @@ exports[`PageContainer > 🐲 pro-layout support breadcrumbProps 1`] = `
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout ant-layout-has-sider css-var-r19"
+      class="ant-layout ant-layout-has-sider css-var-r1a"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
         style="--pro-layout-sider-bg: #f7f8f9; --pro-layout-sider-color-text: var(--ant-color-text-secondary); --pro-layout-sider-color-text-title: var(--ant-color-text); --pro-layout-sider-color-text-secondary: var(--ant-color-text-tertiary); --pro-layout-sider-padding-inline-menu: 8px; --pro-layout-sider-padding-block-menu: 12px; --pro-layout-sider-border-radius: var(--ant-border-radius); --pro-layout-sider-color-bg-hover: var(--ant-color-fill-secondary); --pro-layout-sider-font-size: var(--ant-font-size); width: 240px; overflow: hidden; max-width: 240px; min-width: 240px; transition: all 0.2s ease 0s; flex-grow: 0; flex-shrink: 0; flex-basis: 240px;"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-r1a"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-var-r1b"
         data-testid="pro-layout-sider"
         style="--pro-layout-sider-bg: #f7f8f9; --pro-layout-sider-color-text: var(--ant-color-text-secondary); --pro-layout-sider-color-text-title: var(--ant-color-text); --pro-layout-sider-color-text-secondary: var(--ant-color-text-tertiary); --pro-layout-sider-padding-inline-menu: 8px; --pro-layout-sider-padding-block-menu: 12px; --pro-layout-sider-border-radius: var(--ant-border-radius); --pro-layout-sider-color-bg-hover: var(--ant-color-fill-secondary); --pro-layout-sider-font-size: var(--ant-font-size); max-width: 240px; min-width: 240px; width: 240px; flex-grow: 0; flex-shrink: 0; flex-basis: 240px;"
       >
@@ -944,6 +944,19 @@ exports[`PageContainer > 🐲 pro-layout support breadcrumbProps 1`] = `
         class="ant-pro-layout-container"
         style="position: relative;"
       >
+        <header
+          class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header-action ant-pro-layout-header-header"
+          data-testid="pro-layout-header"
+        >
+          <div
+            class="ant-pro-global-header"
+            data-testid="pro-layout-global-header"
+          >
+            <div
+              style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
+            />
+          </div>
+        </header>
         <main
           class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
           data-testid="pro-layout-content"
@@ -957,7 +970,7 @@ exports[`PageContainer > 🐲 pro-layout support breadcrumbProps 1`] = `
               data-testid="pro-page-header"
             >
               <nav
-                class="ant-breadcrumb ant-page-header-breadcrumb css-var-r19"
+                class="ant-breadcrumb ant-page-header-breadcrumb css-var-r1a"
               >
                 <ol>
                   <li
@@ -1089,7 +1102,7 @@ exports[`PageContainer > 🔥 support footer and breadcrumb 1`] = `
       data-testid="pro-page-header"
     >
       <nav
-        class="ant-breadcrumb ant-page-header-breadcrumb css-var-ro"
+        class="ant-breadcrumb ant-page-header-breadcrumb css-var-rp"
       >
         <ol>
           <li

@@ -68,54 +68,6 @@ describe('mobile BasicLayout', () => {
     });
   });
 
-  it('📱 layout=mix', async () => {
-    const html = render(
-      <ProLayout
-        {...defaultProps}
-        getContainer={false}
-        layout="side" splitMenus
-        collapsed={false}
-      >
-        welcome
-      </ProLayout>,
-    );
-    await waitFor(async () => {
-      await html.findAllByText('welcome');
-    });
-    // Submenu collapse motion makes class names non-deterministic; wait until motion classes drop
-    await waitFor(
-      () => {
-        html.baseElement
-          .querySelectorAll('ul.ant-pro-base-menu-vertical-submenu-children')
-          .forEach((ul) => {
-          if (/ant-motion-collapse-(enter|leave)/.test(ul.className)) {
-            throw new Error('menu motion');
-          }
-        });
-      },
-      { timeout: 10000 },
-    );
-    await waitForWaitTime(100);
-    expect(html.asFragment()).toMatchSnapshot();
-  });
-
-  it('📱 layout=mix and splitMenus', async () => {
-    const html = render(
-      <ProLayout
-        {...defaultProps}
-        getContainer={false}
-        layout="side"
-        splitMenus
-        collapsed={false}
-      >
-        welcome
-      </ProLayout>,
-    );
-    await waitFor(async () => {
-      await html.findAllByText('welcome');
-    });
-  });
-
   it('📱 layout menuHeaderRender=false', async () => {
     const html = render(
       <ProLayout

@@ -45,7 +45,7 @@ export const renderLogoAndTitle = (
   props: SiderMenuProps,
   renderKey: HeaderRenderKey = 'menuHeaderRender',
 ): React.ReactNode => {
-  const { logo, title, layout } = props;
+  const { logo, title } = props;
   const renderFunction = props[renderKey as 'menuHeaderRender'];
   if (renderFunction === false) {
     return null;
@@ -264,7 +264,17 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     [`${baseClassName}-stylish`]: !!stylish,
   });
 
-  const headerDom = renderLogoAndTitle(props);
+  const hasHeaderTitleRender =
+    'headerTitleRender' in props &&
+    (props as { headerTitleRender?: unknown }).headerTitleRender !== undefined;
+  const headerRenderKey: HeaderRenderKey =
+    props.menuHeaderRender !== undefined
+      ? 'menuHeaderRender'
+      : hasHeaderTitleRender
+        ? 'headerTitleRender'
+        : 'menuHeaderRender';
+
+  const headerDom = renderLogoAndTitle(props, headerRenderKey);
 
   const extraDom = menuExtraRender && menuExtraRender(props);
 
