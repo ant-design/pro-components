@@ -1,6 +1,6 @@
 ﻿import { useControlledState } from '@rc-component/util';
-import type { SelectProps } from 'antd';
-import { ConfigProvider } from 'antd';
+import type { GetRef, SelectProps } from 'antd';
+import { ConfigProvider, Select } from 'antd';
 import React, {
   useEffect,
   useImperativeHandle,
@@ -25,7 +25,8 @@ import {
   isProFieldReadMode,
 } from '../../internal/fieldMode';
 import type { ProFieldFC } from '../../types';
-import { FieldSelectEdit } from './FieldSelectEdit';
+import { FieldSelectLightEdit } from './FieldSelectLightEdit';
+import { FieldSelectSearchEdit } from './FieldSelectSearchEdit';
 import { FieldSelectRead } from './FieldSelectRead';
 import type { FieldSelectProps } from './types';
 
@@ -295,20 +296,19 @@ const FieldSelect: ProFieldFC<
     valueEnum,
     render,
     formItemRender,
-    request,
+    request: _request,
     fieldProps,
     light,
-    proFieldKey,
-    params,
+    proFieldKey: _proFieldKey,
+    params: _params,
     label,
     variant,
     id,
     lightLabel,
     labelTrigger,
-    ...rest
   } = props;
 
-  const inputRef = useRef();
+  const inputRef = useRef<GetRef<typeof Select>>(null);
   const intl = useIntl();
   const keyWordsRef = useRef<string>('');
   const { fieldNames } = fieldProps;
@@ -373,28 +373,33 @@ const FieldSelect: ProFieldFC<
   }
 
   if (isProFieldEditOrUpdateMode(mode)) {
-    return (
-      <FieldSelectEdit
-        mode={mode}
-        formItemRender={formItemRender}
-        fieldProps={fieldProps}
-        light={light}
-        id={id}
-        label={label}
-        variant={variant}
-        lightLabel={lightLabel}
-        labelTrigger={labelTrigger}
-        intl={intl}
-        loading={loading}
-        options={options}
-        fetchData={fetchData}
-        resetData={resetData}
-        inputRef={inputRef}
-        keyWordsRef={keyWordsRef}
-        componentSize={componentSize}
-        {...props}
-      />
-    );
+    const sharedEditProps = {
+      mode,
+      formItemRender,
+      fieldProps,
+      id,
+      label,
+      variant,
+      intl,
+      loading,
+      options,
+      fetchData,
+      resetData,
+      inputRef,
+      keyWordsRef,
+      ...props,
+    };
+    if (light) {
+      return (
+        <FieldSelectLightEdit
+          lightLabel={lightLabel}
+          labelTrigger={labelTrigger}
+          {...sharedEditProps}
+          componentSize={componentSize}
+        />
+      );
+    }
+    return <FieldSelectSearchEdit {...sharedEditProps} />;
   }
   return null;
 };

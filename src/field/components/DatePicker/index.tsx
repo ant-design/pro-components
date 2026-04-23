@@ -8,6 +8,7 @@ import {
 } from '../../internal/fieldMode';
 import type { ProFieldFC, ProFieldLightProps } from '../../types';
 import { FieldDatePickerEdit } from './FieldDatePickerEdit';
+import { FieldDatePickerLightEdit } from './FieldDatePickerLightEdit';
 import { FieldDatePickerRead } from './FieldDatePickerRead';
 
 dayjs.extend(weekOfYear);
@@ -63,26 +64,31 @@ const FieldDatePicker: ProFieldFC<
     );
   }
   if (isProFieldEditOrUpdateMode(mode)) {
-    return FieldDatePickerEdit(
-      {
-        text,
-        mode,
-        format,
-        label,
-        light,
-        render,
-        formItemRender,
-        showTime,
-        fieldProps,
-        picker,
-        lightLabel,
-        variant,
-        open,
-        setOpen,
-        intl,
-      },
-      ref,
-    );
+    const editProps = {
+      text,
+      mode,
+      format,
+      label,
+      render,
+      formItemRender,
+      showTime,
+      fieldProps,
+      picker,
+      variant,
+      intl,
+    };
+    if (light) {
+      return FieldDatePickerLightEdit(
+        {
+          ...editProps,
+          lightLabel,
+          open,
+          setOpen,
+        },
+        ref,
+      );
+    }
+    return FieldDatePickerEdit(editProps, ref);
   }
   return null;
 };

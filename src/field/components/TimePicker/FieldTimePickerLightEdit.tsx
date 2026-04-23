@@ -1,0 +1,91 @@
+import { TimePicker } from 'antd';
+import dayjs from 'dayjs';
+import React from 'react';
+import type { IntlType } from '../../../provider';
+import { FieldLabel, parseValueToDay } from '../../../utils';
+import type { ProFieldFC, ProFieldLightProps } from '../../types';
+
+type Props = Parameters<
+  ProFieldFC<
+    {
+      text: string | number;
+      format?: string;
+      variant?: 'outlined' | 'borderless' | 'filled' | 'underlined';
+    } & ProFieldLightProps
+  >
+>[0] & {
+  finalFormat: string;
+  format: string;
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  intl: IntlType;
+};
+
+export function FieldTimePickerLightEdit(props: Props, ref: React.Ref<unknown>) {
+  const {
+    text,
+    mode,
+    label,
+    format,
+    formItemRender,
+    fieldProps,
+    lightLabel,
+    variant,
+    finalFormat,
+    open,
+    setOpen,
+    intl,
+  } = props;
+  const { disabled, value } = fieldProps;
+  const dayValue = parseValueToDay(value, finalFormat) as dayjs.Dayjs;
+
+  const handleLabelClick = () => {
+    if (disabled) return;
+    fieldProps?.onOpenChange?.(true);
+    setOpen(true);
+  };
+
+  const dom = (
+    <FieldLabel
+      onClick={handleLabelClick}
+      style={
+        dayValue
+          ? {
+              paddingInlineEnd: 0,
+            }
+          : undefined
+      }
+      label={label}
+      disabled={disabled}
+      variant={variant ?? fieldProps?.variant}
+      value={
+        dayValue || open ? (
+          <TimePicker
+            format={format}
+            ref={ref as React.Ref<any>}
+            {...fieldProps}
+            variant={variant ?? fieldProps?.variant}
+            placeholder={
+              fieldProps.placeholder ??
+              intl.getMessage('tableForm.selectPlaceholder', '请选择')
+            }
+            value={dayValue}
+            onOpenChange={(isOpen) => {
+              setOpen(isOpen);
+              fieldProps?.onOpenChange?.(isOpen);
+            }}
+            open={open}
+          />
+        ) : null
+      }
+      downIcon={dayValue || open ? false : undefined}
+      allowClear={false}
+      ref={lightLabel}
+    />
+  );
+
+  if (formItemRender) {
+    return formItemRender(text, { mode, ...fieldProps }, dom);
+  }
+  return dom;
+}

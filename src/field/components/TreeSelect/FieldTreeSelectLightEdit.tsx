@@ -1,4 +1,4 @@
-﻿import type { GetRef } from 'antd';
+import type { GetRef } from 'antd';
 import type { TreeSelectProps } from 'antd';
 import { Spin, TreeSelect } from 'antd';
 import { clsx } from 'clsx';
@@ -12,7 +12,7 @@ type TreeSelectShowSearchObject = Exclude<
   boolean | undefined
 >;
 
-export interface FieldTreeSelectEditProps {
+export interface FieldTreeSelectLightEditProps {
   text: string;
   mode: 'edit';
   formItemRender?: (
@@ -48,13 +48,12 @@ export interface FieldTreeSelectEditProps {
   layoutClassName: string;
 }
 
-/**
- * TreeSelect 编辑分支：仅应在 `mode === 'edit'` 时使用（非 `update`）。
- */
-export function FieldTreeSelectEdit({
+export function FieldTreeSelectLightEdit({
   text,
   mode,
   formItemRender,
+  label,
+  variant,
   fieldProps,
   open,
   setOpen,
@@ -74,19 +73,36 @@ export function FieldTreeSelectEdit({
   treeSelectOnChange,
   onBlur,
   layoutClassName,
-}: FieldTreeSelectEditProps) {
+}: FieldTreeSelectLightEditProps) {
+  const valuesLength = Array.isArray(fieldProps?.value)
+    ? fieldProps?.value?.length
+    : 0;
+
+  const handleOpenChange = (isOpen: boolean) => {
+    setOpen(isOpen);
+    fieldProps?.onOpenChange?.(isOpen);
+  };
+
   let dom: React.ReactNode = (
     <Spin spinning={loading}>
       <TreeSelect<string | undefined>
-        open={open}
-        onOpenChange={(isOpen) => {
-          fieldProps?.onOpenChange?.(isOpen);
-          setOpen(isOpen);
-        }}
-        ref={treeSelectRef}
-        popupMatchSelectWidth
-        placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
         {...fieldProps}
+        open={open}
+        onOpenChange={handleOpenChange}
+        ref={treeSelectRef}
+        popupMatchSelectWidth={false}
+        placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
+        tagRender={(item) => {
+          if (valuesLength < 2) return <>{item.label}</>;
+          const itemIndex = fieldProps?.value?.findIndex(
+            (v: unknown) => v === item.value || (v as { value?: unknown }).value === item.value,
+          );
+          return (
+            <>
+              {item.label} {itemIndex < valuesLength - 1 ? ',' : ''}
+            </>
+          );
+        }}
         treeData={options}
         showSearch={
           showSearch
@@ -134,5 +150,32 @@ export function FieldTreeSelectEdit({
     );
   }
 
-  return dom;
+  const { disabled, placeholder } = fieldProps;
+  const notEmpty = !!fieldProps.value && fieldProps.value?.length !== 0;
+
+  const handleLabelClick = () => {
+    if (disabled) return;
+    setOpen(true);
+    fieldProps?.onOpenChange?.(true);
+  };
+
+  return (
+    <FieldLabel
+      label={label}
+      disabled={disabled}
+      placeholder={placeholder}
+      onClick={handleLabelClick}
+      variant={variant}
+      value={notEmpty || open ? dom : null}
+      style={
+        notEmpty
+          ? {
+              paddingInlineEnd: 0,
+            }
+          : undefined
+      }
+      allowClear={false}
+      downIcon={false}
+    />
+  );
 }

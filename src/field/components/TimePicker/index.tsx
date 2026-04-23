@@ -7,8 +7,10 @@ import {
 } from '../../internal/fieldMode';
 import type { ProFieldFC, ProFieldLightProps } from '../../types';
 import { FieldTimePickerEdit } from './FieldTimePickerEdit';
+import { FieldTimePickerLightEdit } from './FieldTimePickerLightEdit';
 import { FieldTimePickerRead } from './FieldTimePickerRead';
 import { FieldTimeRangePickerEdit } from './FieldTimeRangePickerEdit';
+import { FieldTimeRangePickerLightEdit } from './FieldTimeRangePickerLightEdit';
 import { FieldTimeRangePickerRead } from './FieldTimeRangePickerRead';
 
 /**
@@ -58,25 +60,30 @@ const FieldTimePicker: ProFieldFC<
     );
   }
   if (isProFieldEditOrUpdateMode(mode)) {
-    return FieldTimePickerEdit(
-      {
-        text,
-        mode,
-        light,
-        label,
-        format,
-        render,
-        formItemRender,
-        fieldProps,
-        lightLabel,
-        variant,
-        finalFormat,
-        open,
-        setOpen,
-        intl,
-      },
-      ref,
-    );
+    const editProps = {
+      text,
+      mode,
+      label,
+      format,
+      render,
+      formItemRender,
+      fieldProps,
+      variant,
+      finalFormat,
+    };
+    if (light) {
+      return FieldTimePickerLightEdit(
+        {
+          ...editProps,
+          lightLabel,
+          open,
+          setOpen,
+          intl,
+        },
+        ref,
+      );
+    }
+    return FieldTimePickerEdit(editProps, ref);
   }
   return null;
 };
@@ -146,25 +153,30 @@ const FieldTimeRangePickerComponents: ProFieldFC<
     );
   }
   if (isProFieldEditOrUpdateMode(mode)) {
-    return FieldTimeRangePickerEdit(
-      {
-        text,
-        light,
-        label,
-        mode,
-        lightLabel,
-        format,
-        render,
-        formItemRender,
-        fieldProps,
-        variant,
-        finalFormat,
-        open,
-        setOpen,
-        intl,
-      },
-      ref,
-    );
+    const editProps = {
+      text,
+      label,
+      mode,
+      format,
+      render,
+      formItemRender,
+      fieldProps,
+      variant,
+      finalFormat,
+    };
+    if (light) {
+      return FieldTimeRangePickerLightEdit(
+        {
+          ...editProps,
+          lightLabel,
+          open,
+          setOpen,
+          intl,
+        },
+        ref,
+      );
+    }
+    return FieldTimeRangePickerEdit(editProps, ref);
   }
   return null;
 };
