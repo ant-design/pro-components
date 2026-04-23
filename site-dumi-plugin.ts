@@ -15,6 +15,12 @@ export default function siteDumiPlugin(api: IApi) {
           'site/theme/markdownExternalLink.less',
         ),
       },
+      {
+        source: path.join(
+          api.paths.cwd,
+          'site/theme/otkAgenticBubbleListReset.less',
+        ),
+      },
     ];
   });
 }

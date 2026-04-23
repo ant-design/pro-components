@@ -1,0 +1,15 @@
+// 文档/演示中嵌入的 Ant Design Agentic 气泡列表默认包了一层固定布局；
+// 覆盖这些规则，避免在 ProComponents 站点中占用 flex/gap/滚动与最小高度行为。
+.otk-agentic-bubble-list {
+  display: block;
+  flex-direction: initial;
+  gap: 0;
+  min-height: 0;
+  padding: 0;
+  overflow: visible;
+}
+
+.otk-agentic-bubble-list .otk-agentic-bubble-list-content-list {
+  padding-top: 0;
+  padding-bottom: 0;
+}
