@@ -34,7 +34,7 @@ export { FormListContext } from './components/List';
 export { FieldContext } from './FieldContext';
 export * from './layouts';
 export type {
-  LightFormFooterRender,
+  LightFilterFooterRender,
   ProFormFieldItemProps as ProFormItemProps,
   ProFieldBuiltinValueType,
   ProFieldSchemaLayoutValueType,

@@ -2,8 +2,8 @@ import { ProForm } from './ProForm';
 
 export { DrawerForm } from './DrawerForm';
 export type { DrawerFormProps } from './DrawerForm';
-export { default as LightForm } from './LightForm';
-export type { LightFormProps } from './LightForm';
+export { default as LightFilter } from './LightFilter';
+export type { LightFilterProps } from './LightFilter';
 export { LoginForm } from './LoginForm';
 export type { LoginFormProps } from './LoginForm';
 export { LoginFormPage } from './LoginFormPage';

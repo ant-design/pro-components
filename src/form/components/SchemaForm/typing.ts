@@ -10,7 +10,7 @@ import type {
 import type { CommonFormProps } from '../../BaseForm';
 import type {
   DrawerFormProps,
-  LightFormProps,
+  LightFilterProps,
   ModalFormProps,
   ProFormProps,
   QueryFilterProps,
@@ -46,7 +46,7 @@ export type ProFormPropsType<T, ValueType = 'text'> =
       | ({ layoutType: 'DrawerForm' } & DrawerFormProps<T>)
       | ({ layoutType: 'ModalForm' } & ModalFormProps<T>)
       | ({ layoutType: 'QueryFilter' } & QueryFilterProps<T>)
-      | ({ layoutType: 'LightForm' } & LightFormProps<T>)
+      | ({ layoutType: 'LightFilter' } & LightFilterProps<T>)
       | ({ layoutType: 'StepForm' } & StepFormProps<T>)
       | { layoutType: 'Embed' }
     ) & {

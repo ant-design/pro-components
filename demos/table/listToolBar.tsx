@@ -1,6 +1,6 @@
 import type { ProColumns } from '@ant-design/pro-components';
 import {
-  LightForm,
+  LightFilter,
   ProFormDatePicker,
   ProTable,
 } from '@ant-design/pro-components';
@@ -111,9 +111,9 @@ const Demo = () => {
       }}
       toolbar={{
         filter: (
-          <LightForm>
+          <LightFilter>
             <ProFormDatePicker name="startdate" label="部署日期" />
-          </LightForm>
+          </LightFilter>
         ),
         menu: {
           type: 'tab',

@@ -77,8 +77,8 @@ ProForm comes with Filed , which basically corresponds to the valueType one by o
 | rowProps   | Passed to `Row` when `grid` mode is enabled, Applies only to `ProFormGroup`, `ProFormList`, `ProFormFieldSet`                                | [RowProps](https://ant.design/components/grid/#Row) | { gutter: 8 } |
 | colProps   | Passed to `Col` when `grid` mode is enabled                                                                                                  | [ColProps](https://ant.design/components/grid/#Col) | { xs: 24 }    |
 | tooltip    | will add an icon next to the label to show the configured information when hovered                                                           | `string \| tooltipProps`                            | -             |
-| secondary  | Whether secondary control, only valid for LightForm                                                                                        | `boolean`                                           | `false`       |
-| allowClear | Support for clearing, valid for LightForm, will also be passed to `fieldProps` if actively set.                                            | `boolean`                                           | `true`        |
+| secondary  | Whether secondary control, only valid for LightFilter                                                                                        | `boolean`                                           | `false`       |
+| allowClear | Support for clearing, valid for LightFilter, will also be passed to `fieldProps` if actively set.                                            | `boolean`                                           | `true`        |
 
 ### Width
 

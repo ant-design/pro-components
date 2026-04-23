@@ -1,13 +1,13 @@
 ---
 group: Form
-title: Query/LightForm 筛选表单
+title: Query/LightFilter 筛选表单
 order: 1
-atomId: QueryFilter,LightForm
+atomId: QueryFilter,LightFilter
 ---
 
-# QueryFilter / LightForm 筛选表单
+# QueryFilter / LightFilter 筛选表单
 
-有些是时候表单要与别的组件组合使用，常见的有 Table ，List 等，这时候就需要一些特殊形态的表单。QueryFilter 和 LightForm 解决了配合组件使用的问题，避免了复杂的样式设置。ProTable 中默认 支持了 QueryFilter 和 LightForm 作为自己的筛选表单。
+有些是时候表单要与别的组件组合使用，常见的有 Table ，List 等，这时候就需要一些特殊形态的表单。QueryFilter 和 LightFilter 解决了配合组件使用的问题，避免了复杂的样式设置。ProTable 中默认 支持了 QueryFilter 和 LightFilter 作为自己的筛选表单。
 
 ## 查询筛选
 
@@ -82,16 +82,16 @@ QueryFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
 | `≧ 576px && < 992px`     | 2 列                             |
 | `< 576px`                | 1 列                             |
 
-### LightForm
+### LightFilter
 
-LightForm 除了继承 ProForm 的 API 以外还支持下面的属性。
+LightFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
 
 | 参数          | 说明                                                           | 类型                                                                                                                        | 默认值                     |
 | ------------- | -------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
 | collapse      | 是否默认折叠全部字段                                           | `boolean`                                                                                                                   | `false`                    |
 | collapseLabel | 折叠区域的标签                                                 | `ReactNode`                                                                                                                 | `更多筛选 <DownOutlined/>` |
 | variant       | 样式变体                                                       | `'outlined' \| 'filled' \| 'borderless'`                                                                                    | -                          |
-| ignoreRules   | 是否忽略表单项的 rules（LightForm 场景一般不建议使用 rules） | `boolean`                                                                                                                   | -                          |
+| ignoreRules   | 是否忽略表单项的 rules（LightFilter 场景一般不建议使用 rules） | `boolean`                                                                                                                   | -                          |
 | footerRender  | 底部内容，当不需要默认底部按钮时，可以设为 `false`             | `((onConfirm?: (e?: React.MouseEvent) => void, onClear?: (e?: React.MouseEvent) => void) => JSX.Element \| false) \| false` | -                          |
 | popoverProps  | 透传给内部 Popover 的属性（折叠态弹层），可用 `classNames` 等  | `Omit<PopoverProps, 'children' \| 'content' \| 'trigger' \| 'open' \| 'onOpenChange' \| 'placement'>`                       | -                          |
 | placement     | 选择框弹出的位置                                               | `TooltipPlacement`                                                                                                          | `bottomLeft`               |

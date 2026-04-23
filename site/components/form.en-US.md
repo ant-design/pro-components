@@ -69,7 +69,7 @@ ProForm is a degradable encapsulation based on antd Form, fully aligned with ant
 | [ProForm](/components/form#proform)             | Standard Form, adds automatic `loading` in `onFinish` and automatic retrieval of default values ​​based on `request`. |
 | [ModalForm\|DrawerForm](/components/modal-form) | Added `trigger` on the basis of ProForm, no need to maintain `open` status.                                           |
 | [QueryFilter](/components/query-filter)         | Generally used as a filter form, needs to be used with other data display components.                                 |
-| [LightForm](/components/query-filter)         | Generally used as an inline built-in filter, such as card action bar and table action bar.                            |
+| [LightFilter](/components/query-filter)         | Generally used as an inline built-in filter, such as card action bar and table action bar.                            |
 | [StepsForm](/components/steps-form)             | Step form, needs to be used with StepForm configuration.                                                              |
 
 <code src="../../demos/form/layout-change.tsx" title="Form layout switching"></code>
@@ -203,7 +203,7 @@ import { set } from '@rc-component/util';
 
 ### Label and Form Item Layout
 
-Except for fixed layout form styles like `LightForm` and `QueryFilter`, other form layouts support configuring three layout methods consistent with `antd`.
+Except for fixed layout form styles like `LightFilter` and `QueryFilter`, other form layouts support configuring three layout methods consistent with `antd`.
 
 <code src="../../demos/form/form-layout.tsx"  ></code>
 
@@ -298,7 +298,7 @@ ProForm is a repackaging of antd Form, if you want to customize form elements, P
 | grid                                            | Enable grid mode, default width percentage, use `colProps` to control width [view example](/components/form#grid-layout)                                     | `boolean`                                                                                                                                                                                                                     | `false`         |
 | rowProps                                        | Passed to `Row` when `grid` mode is enabled, only valid in `ProFormGroup`, `ProFormList`, `ProFormFieldSet`                                                  | [RowProps](https://ant.design/components/grid/#Row)                                                                                                                                                                           | `{ gutter: 8 }` |
 | colProps                                        | Passed to `Col` when `grid` mode is enabled, only valid in `ProFormGroup`, `ProFormList`, `ProFormFieldSet`                                                  | [ColProps](https://ant.design/components/grid/#Col)                                                                                                                                                                           | `{ xs: 24 }`    |
-| [(...)](https://ant.design/components/form-cn/) | Note that `LightForm` and `QueryFilter` only support other antd `Form` component parameters except `wrapperCol` \| `labelCol` \| `layout`                  | -                                                                                                                                                                                                                             | -               |
+| [(...)](https://ant.design/components/form-cn/) | Note that `LightFilter` and `QueryFilter` only support other antd `Form` component parameters except `wrapperCol` \| `labelCol` \| `layout`                  | -                                                                                                                                                                                                                             | -               |
 
 ### ProFormInstance
 

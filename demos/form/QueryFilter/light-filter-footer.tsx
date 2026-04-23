@@ -1,4 +1,4 @@
-import { LightForm, ProFormText } from '@ant-design/pro-components';
+import { LightFilter, ProFormText } from '@ant-design/pro-components';
 import { Button, Radio, Space } from 'antd';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import React from 'react';
@@ -21,7 +21,7 @@ const Demo = () => {
       <br />
 
       <Space orientation="vertical">
-        <LightForm
+        <LightFilter
           size={size}
           initialValues={{
             name: 'Jack2',
@@ -40,18 +40,18 @@ const Demo = () => {
               </Button>
             )}
           />
-        </LightForm>
+        </LightFilter>
 
-        <LightForm
+        <LightFilter
           size={size}
           initialValues={{
             name: 'Jack2',
           }}
         >
           <ProFormText name="name" label="名称" footerRender={false} />
-        </LightForm>
+        </LightFilter>
 
-        <LightForm
+        <LightFilter
           size={size}
           initialValues={{
             name: 'Jack2',
@@ -61,9 +61,9 @@ const Demo = () => {
           footerRender={false}
         >
           <ProFormText name="name" label="名称" />
-        </LightForm>
+        </LightFilter>
 
-        <LightForm
+        <LightFilter
           size={size}
           initialValues={{
             name: 'Jack2',
@@ -81,7 +81,7 @@ const Demo = () => {
           )}
         >
           <ProFormText name="name" label="名称" />
-        </LightForm>
+        </LightFilter>
       </Space>
     </div>
   );

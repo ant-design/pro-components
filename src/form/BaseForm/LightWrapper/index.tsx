@@ -9,7 +9,7 @@ import {
   FieldLabel,
   FilterDropdown,
 } from '../../../utils';
-import type { LightFormFooterRender } from '../../typing';
+import type { LightFilterFooterRender } from '../../typing';
 import { useStyle } from './style';
 
 export type SizeType = AntdSizeType;
@@ -39,7 +39,7 @@ export type LightWrapperProps = {
   otherFieldProps?: any;
   valueType?: string;
   allowClear?: boolean;
-  footerRender?: LightFormFooterRender;
+  footerRender?: LightFilterFooterRender;
   placement?: TooltipPlacement;
 };
 

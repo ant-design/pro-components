@@ -275,7 +275,7 @@ const Demo = () => {
             'Form',
             'ModalForm',
             'DrawerForm',
-            'LightForm',
+            'LightFilter',
             'QueryFilter',
             'StepsForm',
             'StepForm',
@@ -302,7 +302,7 @@ const Demo = () => {
         colProps={{
           span: 12,
         }}
-        grid={layoutType !== 'LightForm' && layoutType !== 'QueryFilter'}
+        grid={layoutType !== 'LightFilter' && layoutType !== 'QueryFilter'}
         onFinish={async (values) => {
 
         }}

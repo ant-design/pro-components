@@ -19,7 +19,7 @@
 | 来源          | 说明                                                                                                                     |
 | ----------- | ---------------------------------------------------------------------------------------------------------------------- |
 | **单文件职责过多** | `BaseForm.tsx`（约近千行）集中：URL 同步、`request`/初始值、`transformKey` 提交、日期转换、`submitter`、网格布局、`FieldContext`、只读/编辑、`formRef` 增强等 |
-| **字段包装层厚**  | `warpField` 合并 `fieldConfig`、`LightForm`、宽度、`FormItem`、依赖等，`props` 分叉多                                               |
+| **字段包装层厚**  | `warpField` 合并 `fieldConfig`、`LightFilter`、宽度、`FormItem`、依赖等，`props` 分叉多                                               |
 | **上下文叠加**   | `FieldContext`、`ProFormContext`、`GridContext`、`EditOrReadOnlyContext`、`FormListContext`、`RcFieldContext` 等，阅读成本高       |
 | **两条建单路径**  | 手写 `ProFormXxx` vs `SchemaForm` / `BetaSchemaForm`（`columns` + `valueType`），行为要对齐但实现分叉                                 |
 | **类型面宽**    | `typing.ts` 与各组件 props 交叉引用，改动牵一发而动全身                                                                                  |
@@ -91,18 +91,18 @@ onFinish → transformKey → conversionMomentValue → 返回值（及可选 UR
 
 | 工作项  | 说明                                                                                        |
 | ---- | ----------------------------------------------------------------------------------------- |
-| 职责拆分 | 将「LightForm 专用」「宽度 `width`」「`ignoreFormItem`」等拆成独立小函数或子组件，避免单函数内多层分支                    |
+| 职责拆分 | 将「LightFilter 专用」「宽度 `width`」「`ignoreFormItem`」等拆成独立小函数或子组件，避免单函数内多层分支                    |
 | 统一入口 | 明确 `pickProFormItemProps` / `omitUndefined` 的调用顺序，用简短注释或类型固定，减少「仅 Schema 才走函数 props」的隐式规则 |
 | 可选   | `FieldContext` 类型修正（如 `FiledContextProps` 拼写）与字段收敛一起做，避免大范围重命名冲突                          |
 
 
-**验收**：单测覆盖「带/不带 LightForm」「`ignoreFormItem`」「`dependency`」各一条；bundle 无明显上涨或说明原因。
+**验收**：单测覆盖「带/不带 LightFilter」「`ignoreFormItem`」「`dependency`」各一条；bundle 无明显上涨或说明原因。
 
 **当前进度**（阶段 2）：
 
 - 已拆：`warpFieldLayout.ts`、`warpFieldMerge.ts`、`warpFieldLightProps.ts`（`buildWarpFieldLightProps`）、`warpFieldNodes.tsx`、`warpFieldDependency.tsx`；`warpField.tsx` 为薄组装。
 - **`warpField.tsx` 文件头 JSDoc**：总流程注释（`pickProFormItemProps` → 各 merge → `buildWarpFieldLightProps` → `WarpFieldDependencyWrapper`）。
-- 单测：`tests/form/warpFieldLayout.test.ts`、`warpFieldMerge.test.ts`、`warpFieldLightProps.test.ts`（含命名用例 **LightForm / `proFieldLight`**）、`warpFieldDependency.test.tsx`。
+- 单测：`tests/form/warpFieldLayout.test.ts`、`warpFieldMerge.test.ts`、`warpFieldLightProps.test.ts`（含命名用例 **LightFilter / `proFieldLight`**）、`warpFieldDependency.test.tsx`。
 - **文档**：`form-architecture.md` 补充 bundle 说明、Schema 专用 `getFieldProps`/`getFormItemProps` 备忘、轻量模式验收策略（纯函数 + 命名用例即可）。
 - **类型**：`FieldContextProps` 作为 `FiledContextProps` 别名导出（旧名保留，`@deprecated`）；大规模重命名仍非必须。
 
@@ -180,7 +180,7 @@ onFinish → transformKey → conversionMomentValue → 返回值（及可选 UR
 | --- | --- | --- |
 | 0 | 完成 | `docs/internal/form-architecture.md` |
 | 1 | 完成 | `BaseForm` 拆模块 + `genParams` / `base` 等单测 |
-| 2 | 基本完成（条文级） | 结构拆分、总流程注释、LightForm 命名单测、bundle/Schema 备忘、`FieldContextProps` 别名；目录级收敛 Schema 留在阶段 3 |
+| 2 | 基本完成（条文级） | 结构拆分、总流程注释、LightFilter 命名单测、bundle/Schema 备忘、`FieldContextProps` 别名；目录级收敛 Schema 留在阶段 3 |
 | 3 | 基本完成 | `normalizeColumnToItemType`、`valueType/pipeline`、对齐测试与文档 |
 | 4 | 完成 | `src/form/typing/{layout,fieldItem,index}.ts`；submit/schema 类型保留在原模块防循环 |
 

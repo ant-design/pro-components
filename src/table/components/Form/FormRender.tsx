@@ -34,15 +34,15 @@ export type SearchConfig = BaseQueryFilterProps & {
  *
  * @param isForm
  * @param searchConfig
- * @returns LightForm | QueryFilter | ProForm
+ * @returns LightFilter | QueryFilter | ProForm
  */
 const getFormCompetent = (
   isForm: boolean,
   searchConfig?: SearchConfig | false,
-): 'Form' | 'LightForm' | 'QueryFilter' => {
+): 'Form' | 'LightFilter' | 'QueryFilter' => {
   if (!isForm && searchConfig !== false) {
     if (searchConfig?.filterType === 'light') {
-      return 'LightForm';
+      return 'LightFilter';
     }
     return 'QueryFilter';
   }
@@ -56,7 +56,7 @@ const getFormCompetent = (
  * @param name
  */
 const getFromProps = (isForm: boolean, searchConfig: any, name: string) => {
-  if (!isForm && name === 'LightForm') {
+  if (!isForm && name === 'LightFilter') {
     // 传给轻量筛选表单的配置
     return omit(
       {
@@ -182,7 +182,7 @@ const FormRender = <T, U = any>({
             : {}),
           valueType: finalValueType,
           proFieldProps: {
-            ...(competentName === 'LightForm' && item.proFieldProps?.light === undefined
+            ...(competentName === 'LightFilter' && item.proFieldProps?.light === undefined
               ? { light: true }
               : {}),
             ...item.proFieldProps,

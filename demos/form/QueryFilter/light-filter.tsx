@@ -1,4 +1,4 @@
-import { LightForm } from '@ant-design/pro-components';
+import { LightFilter } from '@ant-design/pro-components';
 import { Radio, Space, TreeSelect } from 'antd';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import dayjs from 'dayjs';
@@ -90,7 +90,7 @@ const regionOptions = [
   },
 ];
 
-type LightFormVariant = 'outlined' | 'filled' | 'borderless';
+type LightFilterVariant = 'outlined' | 'filled' | 'borderless';
 
 interface FilterFormValues {
   sex?: { value: string; label: string }[];
@@ -120,7 +120,7 @@ const defaultDateTime = dayjs('2024-01-15 14:30:00');
 const Demo = () => {
   const [size, setSize] = React.useState<SizeType>('middle');
   const [variant, setVariant] =
-    React.useState<LightFormVariant>('borderless');
+    React.useState<LightFilterVariant>('borderless');
 
   const initialValues: Partial<FilterFormValues> = {
     keyword: '关键词示例',
@@ -186,7 +186,7 @@ const Demo = () => {
         </Space>
       </Space>
 
-      <LightForm<FilterFormValues>
+      <LightFilter<FilterFormValues>
         initialValues={initialValues}
         size={size}
         variant={variant}
@@ -194,7 +194,7 @@ const Demo = () => {
           console.log('筛选提交:', values);
         }}
       >
-        <LightForm.select
+        <LightFilter.select
           name="sex"
           label="性别"
           showSearch
@@ -205,7 +205,7 @@ const Demo = () => {
             woman: '女',
           }}
         />
-        <LightForm.select
+        <LightFilter.select
           name="area"
           label="地区"
           mode="multiple"
@@ -218,12 +218,12 @@ const Demo = () => {
             long: '这是一个很长的用来测试溢出的项目',
           }}
         />
-        <LightForm.checkboxGroup
+        <LightFilter.checkboxGroup
           name="checkboxGroup"
           label="标签"
           options={['A', 'B', 'C', 'D', 'E', 'F']}
         />
-        <LightForm.treeSelect
+        <LightFilter.treeSelect
           label="树形选择"
           name="treeSelect"
           fieldProps={{
@@ -234,7 +234,7 @@ const Demo = () => {
             placeholder: '请选择',
           }}
         />
-        <LightForm.cascader
+        <LightFilter.cascader
           name="region"
           label="区域"
           width="md"
@@ -243,29 +243,29 @@ const Demo = () => {
             placeholder: '请选择省/市/区',
           }}
         />
-        <LightForm.switch name="open" label="开关" />
-        <LightForm.switch name="status" label="状态" secondary />
-        <LightForm.digit name="count" label="数量" min={0} max={9999} />
-        <LightForm.slider name="range" label="范围" range />
-        <LightForm.slider name="slider" label="滑块" />
-        <LightForm.input name="keyword" label="关键词" placeholder="请输入关键词" />
-        <LightForm.input
+        <LightFilter.switch name="open" label="开关" />
+        <LightFilter.switch name="status" label="状态" secondary />
+        <LightFilter.digit name="count" label="数量" min={0} max={9999} />
+        <LightFilter.slider name="range" label="范围" range />
+        <LightFilter.slider name="slider" label="滑块" />
+        <LightFilter.input name="keyword" label="关键词" placeholder="请输入关键词" />
+        <LightFilter.input
           name="address"
           label="地址"
           secondary
           placeholder="请输入地址"
         />
-        <LightForm.date name="date" label="日期" allowClear={false} />
-        <LightForm.dateRange name="dateRange" label="日期范围" />
-        <LightForm.dateTime name="datetime" label="日期时间" />
-        <LightForm.dateTimeRange name="datetimeRange" label="日期时间范围" />
-        <LightForm.time name="time" label="时间" />
-        <LightForm.timePickerRange name="timeRange" label="时间范围" />
-        <LightForm.fieldSet name="nameSet" label="姓名">
-          <LightForm.input placeholder="姓" />
-          <LightForm.input placeholder="名" />
-        </LightForm.fieldSet>
-      </LightForm>
+        <LightFilter.date name="date" label="日期" allowClear={false} />
+        <LightFilter.dateRange name="dateRange" label="日期范围" />
+        <LightFilter.dateTime name="datetime" label="日期时间" />
+        <LightFilter.dateTimeRange name="datetimeRange" label="日期时间范围" />
+        <LightFilter.time name="time" label="时间" />
+        <LightFilter.timePickerRange name="timeRange" label="时间范围" />
+        <LightFilter.fieldSet name="nameSet" label="姓名">
+          <LightFilter.input placeholder="姓" />
+          <LightFilter.input placeholder="名" />
+        </LightFilter.fieldSet>
+      </LightFilter>
     </div>
   );
 };

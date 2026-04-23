@@ -10,36 +10,17 @@ import { useIntl } from '../../../provider';
 import { FieldLabel, FilterDropdown } from '../../../utils';
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
-import type { LightFormFooterRender } from '../../typing';
-import { lightFormFieldComponents } from './lightFormFields';
+import type { LightFilterFooterRender } from '../../typing';
+import { lightFilterFieldComponents } from './lightFilterFieldComponents';
 import { useStyle } from './style';
 
-export type LightFormLayoutProps<T, U = Record<string, any>> = {
+export type LightFilterLayoutProps<T, U = Record<string, any>> = {
   collapse?: boolean;
-  /**
-   * @name 收起的label dom
-   */
   collapseLabel?: React.ReactNode;
-  /**
-   * @name 组件样式变体
-   */
   variant?: 'outlined' | 'filled' | 'borderless';
-  /**
-   * @name 忽略 rules（轻量筛选场景一般不建议使用 rules），默认是 false
-   */
   ignoreRules?: boolean;
-  /**
-   * @name 折叠态弹层底部自定义渲染
-   */
-  footerRender?: LightFormFooterRender;
-  /**
-   * @name 弹层位置
-   * @default bottomLeft
-   */
+  footerRender?: LightFilterFooterRender;
   placement?: TooltipPlacement;
-  /**
-   * @name 透传给内部 Popover 的属性（折叠态）
-   */
   popoverProps?: Omit<
     PopoverProps,
     'children' | 'content' | 'trigger' | 'open' | 'onOpenChange' | 'placement'
@@ -47,7 +28,7 @@ export type LightFormLayoutProps<T, U = Record<string, any>> = {
 } & Omit<FormProps<T>, 'onFinish'> &
   CommonFormProps<T, U>;
 
-const LightFormContainer: React.FC<{
+const LightFilterContainer: React.FC<{
   items: React.ReactNode[];
   prefixCls: string;
   size?: SizeType;
@@ -56,7 +37,7 @@ const LightFormContainer: React.FC<{
   collapse?: boolean;
   collapseLabel?: React.ReactNode;
   variant?: 'outlined' | 'filled' | 'borderless';
-  footerRender?: LightFormFooterRender;
+  footerRender?: LightFilterFooterRender;
   placement?: TooltipPlacement;
   popoverProps?: Omit<
     PopoverProps,
@@ -77,8 +58,8 @@ const LightFormContainer: React.FC<{
     popoverProps,
   } = props;
   const intl = useIntl();
-  const lightFormClassName = `${prefixCls}-light-filter`;
-  const { wrapSSR, hashId } = useStyle(lightFormClassName);
+  const lightFilterClassName = `${prefixCls}-light-filter`;
+  const { wrapSSR, hashId } = useStyle(lightFilterClassName);
 
   const [open, setOpen] = useState<boolean>(false);
   const [moreValues, setMoreValues] = useState<Record<string, any>>(() => ({
@@ -90,7 +71,7 @@ const LightFormContainer: React.FC<{
     if (collapse) {
       return (
         <FilterOutlined
-          className={clsx(`${lightFormClassName}-collapse-icon`, hashId)}
+          className={clsx(`${lightFilterClassName}-collapse-icon`, hashId)}
         />
       );
     }
@@ -101,7 +82,7 @@ const LightFormContainer: React.FC<{
         label={intl.getMessage('form.lightFilter.more', '更多筛选')}
       />
     );
-  }, [collapseLabel, collapse, lightFormClassName, hashId, variant, size, intl]);
+  }, [collapseLabel, collapse, lightFilterClassName, hashId, variant, size, intl]);
 
   const { collapseItems, outsideItems } = useMemo(() => {
     const collapseItemsArr: React.ReactNode[] = [];
@@ -123,18 +104,18 @@ const LightFormContainer: React.FC<{
   return wrapSSR(
     <div
       className={clsx(
-        lightFormClassName,
+        lightFilterClassName,
         hashId,
-        `${lightFormClassName}-${size}`,
+        `${lightFilterClassName}-${size}`,
         {
-          [`${lightFormClassName}-effective`]: Object.keys(values).some(
+          [`${lightFilterClassName}-effective`]: Object.keys(values).some(
             (key) =>
               Array.isArray(values[key]) ? values[key].length > 0 : values[key],
           ),
         },
       )}
     >
-      <div className={clsx(`${lightFormClassName}-container`, hashId)}>
+      <div className={clsx(`${lightFilterClassName}-container`, hashId)}>
         {outsideItems.map((child: any, index) => {
           if (!child?.props) {
             return child;
@@ -147,7 +128,7 @@ const LightFormContainer: React.FC<{
 
           return (
             <div
-              className={clsx(`${lightFormClassName}-item`, hashId)}
+              className={clsx(`${lightFilterClassName}-item`, hashId)}
               key={key || index}
             >
               {React.cloneElement(child, {
@@ -168,7 +149,7 @@ const LightFormContainer: React.FC<{
         })}
         {collapseItems.length ? (
           <div
-            className={clsx(`${lightFormClassName}-item`, hashId)}
+            className={clsx(`${lightFilterClassName}-item`, hashId)}
             key="more"
           >
             <FilterDropdown
@@ -220,7 +201,7 @@ const LightFormContainer: React.FC<{
                   : placement;
                 return (
                   <div
-                    className={clsx(`${lightFormClassName}-line`, hashId)}
+                    className={clsx(`${lightFilterClassName}-line`, hashId)}
                     key={key}
                   >
                     {React.cloneElement(child, {
@@ -241,8 +222,8 @@ const LightFormContainer: React.FC<{
   );
 };
 
-function LightFormComponent<T = Record<string, any>>(
-  props: LightFormLayoutProps<T>,
+function LightFilterComponent<T = Record<string, any>>(
+  props: LightFilterLayoutProps<T>,
 ) {
   const {
     size,
@@ -270,12 +251,12 @@ function LightFormComponent<T = Record<string, any>>(
   return (
     <BaseForm
       size={size}
-      formComponentType="LightForm"
+      formComponentType="LightFilter"
       initialValues={initialValues}
       form={userForm}
       contentRender={(items) => {
         return (
-          <LightFormContainer
+          <LightFilterContainer
             key={JSON.stringify(values || {})}
             prefixCls={prefixCls}
             items={items?.flatMap((item: any) => {
@@ -327,11 +308,11 @@ function LightFormComponent<T = Record<string, any>>(
   );
 }
 
-type LightFormType = typeof LightFormComponent & typeof lightFormFieldComponents;
-const LightForm = LightFormComponent as LightFormType;
-Object.assign(LightForm, lightFormFieldComponents);
-(LightForm as { displayName?: string }).displayName = 'LightForm';
+type LightFilterType = typeof LightFilterComponent & typeof lightFilterFieldComponents;
+const LightFilter = LightFilterComponent as LightFilterType;
+Object.assign(LightFilter, lightFilterFieldComponents);
+(LightFilter as { displayName?: string }).displayName = 'LightFilter';
 
-export { LightForm };
-export default LightForm;
-export type { LightFormLayoutProps as LightFormProps };
+export { LightFilter };
+export default LightFilter;
+export type { LightFilterLayoutProps as LightFilterProps };

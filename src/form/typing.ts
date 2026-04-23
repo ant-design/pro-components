@@ -97,7 +97,7 @@ export type FieldProps<K> = {
   ref?: React.Ref<K>;
 };
 
-export type LightFormFooterRender =
+export type LightFilterFooterRender =
   | ((
       /**
        * @name 确认选择的值
@@ -125,7 +125,7 @@ export type ProFormFieldItemProps<T = Record<string, any>, K = any> = {
    */
   placeholder?: string | string[];
   /**
-   * @name 是否是次要控件，只针对 LightForm 下有效
+   * @name 是否是次要控件，只针对 LightFilter 下有效
    */
   secondary?: boolean;
   /**
@@ -162,7 +162,7 @@ export type ProFormFieldItemProps<T = Record<string, any>, K = any> = {
    * @example 自定义清除按钮
    * footerRender={(onConfirm,onClear)=>{ return <Button onClick={onClear}>清除</Button> }}
    */
-  footerRender?: LightFormFooterRender;
+  footerRender?: LightFilterFooterRender;
 
   children?: any;
 } & Omit<ProFormItemProps, 'valueType'> &

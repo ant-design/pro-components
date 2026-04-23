@@ -1,5 +1,5 @@
 import {
-  LightForm,
+  LightFilter,
   ProForm,
   ProFormDigit,
   ProFormSelect,
@@ -26,7 +26,7 @@ const Demo = () => {
       </Radio.Group>
       <br />
       <br />
-      <LightForm<{
+      <LightFilter<{
         sex: string;
       }>
         name="query-filter-light-filter-test-demo"
@@ -89,7 +89,7 @@ const Demo = () => {
           <ProFormSlider name="slider" label="范围" />
         </ProForm.Group>
         <ProFormText name="name1" label="名称" />
-      </LightForm>
+      </LightFilter>
     </div>
   );
 };

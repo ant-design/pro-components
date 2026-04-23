@@ -65,7 +65,7 @@ export const gridHelpers: (
       return originProps;
     }, [rest]);
 
-    // LightForm clone 传入的 variant/fieldProps 需透传给 ProFormItem，否则 lightProps 无 variant
+    // LightFilter clone 传入的 variant/fieldProps 需透传给 ProFormItem，否则 lightProps 无 variant
     const childrenWithProps =
       (variant !== undefined || fieldProps !== undefined) &&
       React.Children.count(children) === 1 &&

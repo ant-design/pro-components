@@ -1,4 +1,4 @@
-import { LightForm, ProFormText } from '@ant-design/pro-components';
+import { LightFilter, ProFormText } from '@ant-design/pro-components';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import dayjs from 'dayjs';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
@@ -9,12 +9,12 @@ import { dateArrayFormatter } from '../../src/utils/dateArrayFormatter';
 dayjs.extend(advancedFormat);
 dayjs.extend(weekOfYear);
 
-describe('LightForm', () => {
-  it(' 🪕 should not use light field label until using LightForm field helpers', async () => {
+describe('LightFilter', () => {
+  it(' 🪕 should not use light field label until using LightFilter field helpers', async () => {
     const { container } = render(
-      <LightForm>
+      <LightFilter>
         <ProFormText name="name1" label="名称" />
-      </LightForm>,
+      </LightFilter>,
     );
 
     await waitFor(() => {
@@ -27,9 +27,9 @@ describe('LightForm', () => {
 
   it(' 🪕 should render basic structure', async () => {
     const { container } = render(
-      <LightForm>
-        <LightForm.input name="name1" label="名称" />
-      </LightForm>,
+      <LightFilter>
+        <LightFilter.input name="name1" label="名称" />
+      </LightFilter>,
     );
 
     await waitFor(() => {
@@ -50,14 +50,14 @@ describe('LightForm', () => {
     const onValuesChange = vi.fn();
 
     const { container } = render(
-      <LightForm
+      <LightFilter
         initialValues={{
           name1: 'initial value',
         }}
         onValuesChange={onValuesChange}
       >
-        <LightForm.input name="name1" label="名称" />
-      </LightForm>,
+        <LightFilter.input name="name1" label="名称" />
+      </LightFilter>,
     );
 
     await waitFor(() => {
@@ -78,9 +78,9 @@ describe('LightForm', () => {
     const onValuesChange = vi.fn();
 
     const { container } = render(
-      <LightForm onValuesChange={onValuesChange} variant="outlined">
-        <LightForm.input name="name1" label="名称" />
-      </LightForm>,
+      <LightFilter onValuesChange={onValuesChange} variant="outlined">
+        <LightFilter.input name="name1" label="名称" />
+      </LightFilter>,
     );
 
     await waitFor(() => {
@@ -100,9 +100,9 @@ describe('LightForm', () => {
     const onValuesChange = vi.fn();
 
     const { container } = render(
-      <LightForm onValuesChange={onValuesChange} placement="topLeft">
-        <LightForm.input name="name1" label="名称" />
-      </LightForm>,
+      <LightFilter onValuesChange={onValuesChange} placement="topLeft">
+        <LightFilter.input name="name1" label="名称" />
+      </LightFilter>,
     );
 
     await waitFor(() => {
@@ -121,8 +121,8 @@ describe('LightForm', () => {
     const onValuesChange = vi.fn();
 
     const { container } = render(
-      <LightForm onValuesChange={onValuesChange}>
-        <LightForm.select
+      <LightFilter onValuesChange={onValuesChange}>
+        <LightFilter.select
           name="name1"
           label="名称"
           valueEnum={{
@@ -130,7 +130,7 @@ describe('LightForm', () => {
             closed: '已解决',
           }}
         />
-      </LightForm>,
+      </LightFilter>,
     );
 
     await waitFor(() => {
@@ -151,9 +151,9 @@ describe('LightForm', () => {
     const onValuesChange = vi.fn();
 
     const { container } = render(
-      <LightForm onValuesChange={onValuesChange}>
-        <LightForm.date name="name1" label="名称" />
-      </LightForm>,
+      <LightFilter onValuesChange={onValuesChange}>
+        <LightFilter.date name="name1" label="名称" />
+      </LightFilter>,
     );
 
     await waitFor(() => {
@@ -174,9 +174,9 @@ describe('LightForm', () => {
     const onValuesChange = vi.fn();
 
     const { container } = render(
-      <LightForm onValuesChange={onValuesChange}>
-        <LightForm.dateRange name="name1" label="名称" />
-      </LightForm>,
+      <LightFilter onValuesChange={onValuesChange}>
+        <LightFilter.dateRange name="name1" label="名称" />
+      </LightFilter>,
     );
 
     await waitFor(() => {
@@ -197,9 +197,9 @@ describe('LightForm', () => {
     const onValuesChange = vi.fn();
 
     const { container } = render(
-      <LightForm onValuesChange={onValuesChange}>
-        <LightForm.dateTime name="name1" label="名称" />
-      </LightForm>,
+      <LightFilter onValuesChange={onValuesChange}>
+        <LightFilter.dateTime name="name1" label="名称" />
+      </LightFilter>,
     );
 
     await waitFor(() => {
@@ -220,9 +220,9 @@ describe('LightForm', () => {
     const onValuesChange = vi.fn();
 
     const { container } = render(
-      <LightForm onValuesChange={onValuesChange}>
-        <LightForm.time name="name1" label="名称" />
-      </LightForm>,
+      <LightFilter onValuesChange={onValuesChange}>
+        <LightFilter.time name="name1" label="名称" />
+      </LightFilter>,
     );
 
     await waitFor(() => {
@@ -243,9 +243,9 @@ describe('LightForm', () => {
     const onValuesChange = vi.fn();
 
     const { container } = render(
-      <LightForm onValuesChange={onValuesChange}>
-        <LightForm.slider name="name1" label="名称" />
-      </LightForm>,
+      <LightFilter onValuesChange={onValuesChange}>
+        <LightFilter.slider name="name1" label="名称" />
+      </LightFilter>,
     );
 
     await waitFor(() => {
@@ -266,10 +266,10 @@ describe('LightForm', () => {
     const onValuesChange = vi.fn();
 
     const { container } = render(
-      <LightForm onValuesChange={onValuesChange} collapse>
-        <LightForm.input name="name1" label="名称" />
-        <LightForm.input name="name2" label="名称2" />
-      </LightForm>,
+      <LightFilter onValuesChange={onValuesChange} collapse>
+        <LightFilter.input name="name1" label="名称" />
+        <LightFilter.input name="name2" label="名称2" />
+      </LightFilter>,
     );
 
     await waitFor(() => {
@@ -293,14 +293,14 @@ describe('LightForm', () => {
     const onValuesChange = vi.fn();
 
     const { container } = render(
-      <LightForm
+      <LightFilter
         onValuesChange={onValuesChange}
         collapse
         collapseLabel="更多筛选"
       >
-        <LightForm.input name="name1" label="名称" />
-        <LightForm.input name="name2" label="名称2" />
-      </LightForm>,
+        <LightFilter.input name="name1" label="名称" />
+        <LightFilter.input name="name2" label="名称2" />
+      </LightFilter>,
     );
 
     await waitFor(() => {
@@ -321,10 +321,10 @@ describe('LightForm', () => {
     const onValuesChange = vi.fn();
 
     const { container } = render(
-      <LightForm onValuesChange={onValuesChange}>
-        <LightForm.input name="name1" label="名称" />
-        <LightForm.input name="name2" label="名称2" secondary />
-      </LightForm>,
+      <LightFilter onValuesChange={onValuesChange}>
+        <LightFilter.input name="name1" label="名称" />
+        <LightFilter.input name="name2" label="名称2" secondary />
+      </LightFilter>,
     );
 
     await waitFor(() => {
@@ -342,9 +342,9 @@ describe('LightForm', () => {
     const onValuesChange = vi.fn();
 
     const { container } = render(
-      <LightForm onValuesChange={onValuesChange}>
-        <LightForm.input name="name1" label="名称" />
-      </LightForm>,
+      <LightFilter onValuesChange={onValuesChange}>
+        <LightFilter.input name="name1" label="名称" />
+      </LightFilter>,
     );
 
     await waitFor(() => {
@@ -362,7 +362,7 @@ describe('LightForm', () => {
 
   it(' 🪕 should format date range labels by default', async () => {
     const { container } = render(
-      <LightForm
+      <LightFilter
         initialValues={{
           dateRange: [dayjs('2023-01-01'), dayjs('2023-01-03')],
           dateTimeRange: [
@@ -374,12 +374,12 @@ describe('LightForm', () => {
           yearRange: [dayjs('2022-01-01'), dayjs('2023-01-01')],
         }}
       >
-        <LightForm.dateRange name="dateRange" label="日期" />
-        <LightForm.dateTimeRange name="dateTimeRange" label="日期时间" />
-        <LightForm.weekRange name="weekRange" label="周" />
-        <LightForm.quarterRange name="quarterRange" label="季度" />
-        <LightForm.yearRange name="yearRange" label="年份" />
-      </LightForm>,
+        <LightFilter.dateRange name="dateRange" label="日期" />
+        <LightFilter.dateTimeRange name="dateTimeRange" label="日期时间" />
+        <LightFilter.weekRange name="weekRange" label="周" />
+        <LightFilter.quarterRange name="quarterRange" label="季度" />
+        <LightFilter.yearRange name="yearRange" label="年份" />
+      </LightFilter>,
     );
 
     await waitFor(() => {
@@ -419,12 +419,12 @@ describe('LightForm', () => {
 
   it(' 🪕 should not format digitRange label as date range', async () => {
     const { container } = render(
-      <LightForm
+      <LightFilter
         initialValues={{
           digitRange: [12, 34],
         }}
       >
-        <LightForm.digitRange
+        <LightFilter.digitRange
           name="digitRange"
           label="数字范围"
           lightProps={{
@@ -432,7 +432,7 @@ describe('LightForm', () => {
             valueType: 'DigitRange',
           }}
         />
-      </LightForm>,
+      </LightFilter>,
     );
 
     await waitFor(() => {
@@ -454,9 +454,9 @@ describe('LightForm', () => {
     const onFinish = vi.fn();
 
     const { container } = render(
-      <LightForm onFinish={onFinish}>
-        <LightForm.input name="name1" label="名称" />
-      </LightForm>,
+      <LightFilter onFinish={onFinish}>
+        <LightFilter.input name="name1" label="名称" />
+      </LightFilter>,
     );
 
     await waitFor(() => {
@@ -479,14 +479,14 @@ describe('LightForm', () => {
     ));
 
     const { container } = render(
-      <LightForm
+      <LightFilter
         onValuesChange={onValuesChange}
         footerRender={footerRender}
         collapse
       >
-        <LightForm.input name="name1" label="名称" />
-        <LightForm.input name="name2" label="名称2" />
-      </LightForm>,
+        <LightFilter.input name="name1" label="名称" />
+        <LightFilter.input name="name2" label="名称2" />
+      </LightFilter>,
     );
 
     await waitFor(() => {
@@ -508,15 +508,15 @@ describe('LightForm', () => {
 
   it(' 🪕 should support popoverProps.overlayClassName in collapse mode', async () => {
     const { container, baseElement } = render(
-      <LightForm
+      <LightFilter
         collapse
         popoverProps={{
           classNames: { root: 'my-lightfilter-popover' },
         }}
       >
-        <LightForm.input name="name1" label="名称" />
-        <LightForm.input name="name2" label="名称2" />
-      </LightForm>,
+        <LightFilter.input name="name1" label="名称" />
+        <LightFilter.input name="name2" label="名称2" />
+      </LightFilter>,
     );
 
     await waitFor(() => {
@@ -542,9 +542,9 @@ describe('LightForm', () => {
 
   it(' 🪕 should default to borderless variant', async () => {
     const { container } = render(
-      <LightForm>
-        <LightForm.input name="name" label="Name" />
-      </LightForm>,
+      <LightFilter>
+        <LightFilter.input name="name" label="Name" />
+      </LightFilter>,
     );
 
     // 等待渲染完成
@@ -554,7 +554,7 @@ describe('LightForm', () => {
       ).toBeTruthy();
     });
 
-    // LightForm 默认应该是 borderless，所以不应该有 ant-pro-core-field-label-bordered
+    // LightFilter 默认应该是 borderless，所以不应该有 ant-pro-core-field-label-bordered
     // 但是这里有点棘手，因为 ProFormText 渲染的结构可能很复杂。
     // 如果我们能找到 FieldLabel 并检查它的 class 就好了。
 
@@ -567,9 +567,9 @@ describe('LightForm', () => {
 
   it(' 🪕 should support outlined variant', async () => {
     const { container } = render(
-      <LightForm variant="outlined">
-        <LightForm.input name="name" label="Name" />
-      </LightForm>,
+      <LightFilter variant="outlined">
+        <LightFilter.input name="name" label="Name" />
+      </LightFilter>,
     );
 
     await waitFor(() => {

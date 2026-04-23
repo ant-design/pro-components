@@ -8,7 +8,7 @@ import {
 } from '@ant-design/icons';
 import {
   DrawerForm,
-  LightForm,
+  LightFilter,
   LoginForm,
   ModalForm,
   ProForm,
@@ -44,7 +44,7 @@ const Demo = () => {
     ModalForm,
     DrawerForm,
     QueryFilter,
-    LightForm,
+    LightFilter,
     StepsForm,
     LoginForm,
   };
@@ -63,7 +63,7 @@ const Demo = () => {
             onChange: (e) => setType(e.target.value),
           }}
           options={[
-            'LightForm',
+            'LightFilter',
             'ProForm',
             'ModalForm',
             'DrawerForm',
@@ -173,7 +173,7 @@ const Demo = () => {
             onChange: (e) => setType(e.target.value),
           }}
           options={[
-            'LightForm',
+            'LightFilter',
             'ProForm',
             'ModalForm',
             'DrawerForm',
@@ -239,7 +239,7 @@ const Demo = () => {
           onChange: (e) => setType(e.target.value),
         }}
         options={[
-          'LightForm',
+          'LightFilter',
           'ProForm',
           'ModalForm',
           'DrawerForm',

@@ -1,11 +1,11 @@
 import type { GenerateStyle, ProAliasToken } from '../../../provider';
 import { useStyle as useAntdStyle } from '../../../provider';
 
-export interface LightFormLayoutToken extends ProAliasToken {
+export interface LightFilterToken extends ProAliasToken {
   componentCls: string;
 }
 
-const genLightFormLayoutStyle: GenerateStyle<LightFormLayoutToken> = (token) => {
+const genLightFilterStyle: GenerateStyle<LightFilterToken> = (token) => {
   return {
     [token.componentCls]: {
       boxSizing: 'border-box',
@@ -53,12 +53,12 @@ const genLightFormLayoutStyle: GenerateStyle<LightFormLayoutToken> = (token) => 
 };
 
 export function useStyle(prefixCls: string) {
-  return useAntdStyle('LightForm', (token) => {
-    const layoutToken: LightFormLayoutToken = {
+  return useAntdStyle('LightFilter', (token) => {
+    const layoutToken: LightFilterToken = {
       ...token,
       componentCls: `.${prefixCls}`,
     };
 
-    return [genLightFormLayoutStyle(layoutToken)];
+    return [genLightFilterStyle(layoutToken)];
   });
 }

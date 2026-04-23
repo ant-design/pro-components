@@ -1,4 +1,4 @@
-import { LightForm, ProFormText, QueryFilter } from '@ant-design/pro-components';
+import { LightFilter, ProFormText, QueryFilter } from '@ant-design/pro-components';
 import { _el, _rs } from '@rc-component/resize-observer/es/utils/observerUtil';
 import {
   act,
@@ -15,21 +15,21 @@ afterEach(() => {
   cleanup();
 });
 
-describe('✔️ LightForm', () => {
+describe('✔️ LightFilter', () => {
   afterEach(() => {
     cleanup();
   });
   it(' ✔️ clear input values', async () => {
     const html = render(
-      <LightForm>
-        <LightForm.input
+      <LightFilter>
+        <LightFilter.input
           name="name1"
           label="名称"
           fieldProps={{
             role: 'name_input',
           }}
         />
-      </LightForm>,
+      </LightFilter>,
     );
 
     await act(async () => {
@@ -121,8 +121,8 @@ describe('✔️ LightForm', () => {
 
   it(' ✔️ lightFilter resize', async () => {
     const html = render(
-      <LightForm>
-        <LightForm.treeSelect
+      <LightFilter>
+        <LightFilter.treeSelect
           fieldProps={{
             fieldNames: {
               label: 'title',
@@ -167,7 +167,7 @@ describe('✔️ LightForm', () => {
           name="area"
           label="名称"
         />
-      </LightForm>,
+      </LightFilter>,
     );
     expect(html.baseElement.querySelector('.ant-select-open')).toBe(null);
 
@@ -188,8 +188,8 @@ describe('✔️ LightForm', () => {
 
   it(' ✔️ lightFilter ProFormCascader support label', async () => {
     const html = render(
-      <LightForm>
-        <LightForm.cascader
+      <LightFilter>
+        <LightFilter.cascader
           request={async () => [
             {
               value: 'zhejiang',
@@ -228,7 +228,7 @@ describe('✔️ LightForm', () => {
           initialValue={['zhejiang', 'hangzhou', 'xihu']}
           label="名称"
         />
-      </LightForm>,
+      </LightFilter>,
     );
     expect(html.baseElement.querySelector('.ant-select-open')).toBe(null);
 
