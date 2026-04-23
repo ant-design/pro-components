@@ -1,6 +1,6 @@
 ﻿import { useControlledState } from '@rc-component/util';
-import type { SelectProps } from 'antd';
-import { ConfigProvider } from 'antd';
+import type { GetRef, SelectProps } from 'antd';
+import { ConfigProvider, Select } from 'antd';
 import React, {
   useEffect,
   useImperativeHandle,
@@ -296,20 +296,19 @@ const FieldSelect: ProFieldFC<
     valueEnum,
     render,
     formItemRender,
-    request,
+    request: _request,
     fieldProps,
     light,
-    proFieldKey,
-    params,
+    proFieldKey: _proFieldKey,
+    params: _params,
     label,
     variant,
     id,
     lightLabel,
     labelTrigger,
-    ...rest
   } = props;
 
-  const inputRef = useRef();
+  const inputRef = useRef<GetRef<typeof Select>>(null);
   const intl = useIntl();
   const keyWordsRef = useRef<string>('');
   const { fieldNames } = fieldProps;
@@ -374,7 +373,7 @@ const FieldSelect: ProFieldFC<
   }
 
   if (isProFieldEditOrUpdateMode(mode)) {
-    const editProps = {
+    const sharedEditProps = {
       mode,
       formItemRender,
       fieldProps,
@@ -388,7 +387,6 @@ const FieldSelect: ProFieldFC<
       resetData,
       inputRef,
       keyWordsRef,
-      componentSize,
       ...props,
     };
     if (light) {
@@ -396,11 +394,12 @@ const FieldSelect: ProFieldFC<
         <FieldSelectLightEdit
           lightLabel={lightLabel}
           labelTrigger={labelTrigger}
-          {...editProps}
+          {...sharedEditProps}
+          componentSize={componentSize}
         />
       );
     }
-    return <FieldSelectSearchEdit {...editProps} />;
+    return <FieldSelectSearchEdit {...sharedEditProps} />;
   }
   return null;
 };

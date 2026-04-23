@@ -1,5 +1,6 @@
 import { LoadingOutlined } from '@ant-design/icons';
 import { Cascader } from 'antd';
+import type { CascaderProps, GetRef } from 'antd';
 import { clsx } from 'clsx';
 import React from 'react';
 import type { IntlType } from '../../../provider';
@@ -8,12 +9,12 @@ import type { ProFieldFC } from '../../types';
 import type { GroupProps } from './types';
 
 type Props = Omit<Parameters<ProFieldFC<GroupProps>>[0], 'options'> & {
-  options: any[];
+  options: NonNullable<CascaderProps['options']>;
   loading: boolean;
   layoutClassName: string;
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  cascaderRef: React.RefObject<any>;
+  cascaderRef: React.RefObject<GetRef<typeof Cascader>>;
   intl: IntlType;
 };
 
@@ -65,6 +66,13 @@ export function FieldCascaderLightEdit(props: Props) {
 
   const { disabled, value } = fieldProps;
   const notEmpty = !!value && value?.length !== 0;
+
+  const handleLabelClick = () => {
+    if (disabled) return;
+    setOpen(true);
+    fieldProps?.onOpenChange?.(true);
+  };
+
   return (
     <FieldLabel
       label={label}
@@ -80,10 +88,7 @@ export function FieldCascaderLightEdit(props: Props) {
       }
       allowClear={false}
       downIcon={notEmpty || open ? false : undefined}
-      onClick={() => {
-        setOpen(true);
-        fieldProps?.onOpenChange?.(true);
-      }}
+      onClick={handleLabelClick}
     />
   );
 }

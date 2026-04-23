@@ -28,6 +28,7 @@ export function FieldRangePickerEdit(props: Props, ref: React.Ref<unknown>) {
     showTime,
     fieldProps,
     intl,
+    variant: propsVariant,
   } = props;
 
   const dayValue = parseValueToDay(fieldProps.value) as dayjs.Dayjs[];
@@ -43,6 +44,7 @@ export function FieldRangePickerEdit(props: Props, ref: React.Ref<unknown>) {
         intl.getMessage('tableForm.selectPlaceholder', '请选择'),
       ]}
       {...fieldProps}
+      variant={propsVariant ?? fieldProps?.variant}
       value={dayValue}
     />
   );

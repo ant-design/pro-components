@@ -32,7 +32,7 @@ export function FieldDatePickerEdit(props: Props, ref: React.Ref<unknown>) {
   } = props;
 
   const {
-    disabled,
+    disabled: _disabled,
     value,
     placeholder = intl.getMessage('tableForm.selectPlaceholder', '请选择'),
   } = fieldProps;
@@ -45,9 +45,9 @@ export function FieldDatePickerEdit(props: Props, ref: React.Ref<unknown>) {
       showTime={showTime}
       format={format}
       placeholder={placeholder}
-      variant={variant}
       ref={ref as React.Ref<any>}
       {...fieldProps}
+      variant={variant ?? fieldProps?.variant}
       value={dayValue}
     />
   );

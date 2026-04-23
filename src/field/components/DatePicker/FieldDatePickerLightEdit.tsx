@@ -42,13 +42,16 @@ export function FieldDatePickerLightEdit(props: Props, ref: React.Ref<unknown>) 
 
   const dayValue = parseValueToDay(value) as dayjs.Dayjs;
 
+  const handleLabelClick = () => {
+    if (disabled) return;
+    fieldProps?.onOpenChange?.(true);
+    setOpen(true);
+  };
+
   const dom = (
     <FieldLabel
       label={label}
-      onClick={() => {
-        fieldProps?.onOpenChange?.(true);
-        setOpen(true);
-      }}
+      onClick={handleLabelClick}
       style={
         dayValue
           ? {
@@ -65,6 +68,7 @@ export function FieldDatePickerLightEdit(props: Props, ref: React.Ref<unknown>) 
             format={format}
             ref={ref as React.Ref<any>}
             {...fieldProps}
+            variant={variant ?? fieldProps?.variant}
             value={dayValue}
             onOpenChange={(isOpen) => {
               setOpen(isOpen);

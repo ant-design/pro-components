@@ -1,6 +1,6 @@
 ﻿import { omit, useControlledState } from '@rc-component/util';
-import type { TreeSelectProps } from 'antd';
-import { ConfigProvider } from 'antd';
+import type { GetRef, TreeSelectProps } from 'antd';
+import { ConfigProvider, TreeSelect } from 'antd';
 import React, {
   useCallback,
   useContext,
@@ -50,7 +50,7 @@ const FieldTreeSelect: ProFieldFC<{} & FieldSelectProps> = (
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const layoutClassName = getPrefixCls('pro-field-tree-select');
-  const treeSelectRef = useRef(null);
+  const treeSelectRef = useRef<GetRef<typeof TreeSelect>>(null);
   const [open, setOpen] = useState(false);
 
   const {
@@ -179,6 +179,7 @@ const FieldTreeSelect: ProFieldFC<{} & FieldSelectProps> = (
   }
   if (isProFieldEditOnlyMode(mode)) {
     const editProps = {
+      ...rest,
       text: rest.text as string,
       mode: 'edit' as const,
       formItemRender,
@@ -190,7 +191,7 @@ const FieldTreeSelect: ProFieldFC<{} & FieldSelectProps> = (
       treeSelectRef,
       intl,
       loading,
-      options,
+      options: options as NonNullable<TreeSelectProps['treeData']>,
       fetchData,
       fetchDataOnSearch,
       hasRequest: !!rest.request,

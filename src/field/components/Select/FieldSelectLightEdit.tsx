@@ -1,5 +1,8 @@
+import type { GetRef } from 'antd';
+import { Select } from 'antd';
 import React, { MutableRefObject } from 'react';
 import type { IntlType } from '../../../provider';
+import type { RequestOptionsType } from '../../../utils';
 import type { ProFieldFC } from '../../types';
 import LightSelect from './LightSelect';
 import type { FieldSelectFullProps } from './FieldSelectSearchEdit';
@@ -9,10 +12,10 @@ export type FieldSelectLightEditProps = Parameters<
 >[0] & {
   intl: IntlType;
   loading: boolean;
-  options: any[];
+  options: RequestOptionsType[];
   fetchData: (keyWord?: string) => void;
   resetData: () => void;
-  inputRef: React.RefObject<any>;
+  inputRef: React.RefObject<GetRef<typeof Select>>;
   keyWordsRef: MutableRefObject<string>;
   componentSize: string;
 };

@@ -53,12 +53,15 @@ export function FieldTimeRangePickerLightEdit(
     ],
   } = fieldProps;
 
+  const handleLabelClick = () => {
+    if (disabled) return;
+    fieldProps?.onOpenChange?.(true);
+    setOpen(true);
+  };
+
   const dom = (
     <FieldLabel
-      onClick={() => {
-        fieldProps?.onOpenChange?.(true);
-        setOpen(true);
-      }}
+      onClick={handleLabelClick}
       style={
         dayValue
           ? {
@@ -73,10 +76,10 @@ export function FieldTimeRangePickerLightEdit(
       value={
         dayValue || open ? (
           <TimePicker.RangePicker
-            variant={variant ?? fieldProps?.variant}
             format={format}
             ref={ref as React.Ref<any>}
             {...fieldProps}
+            variant={variant ?? fieldProps?.variant}
             placeholder={placeholder}
             value={dayValue}
             onOpenChange={(isOpen) => {

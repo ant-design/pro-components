@@ -39,12 +39,15 @@ export function FieldTimePickerLightEdit(props: Props, ref: React.Ref<unknown>) 
   const { disabled, value } = fieldProps;
   const dayValue = parseValueToDay(value, finalFormat) as dayjs.Dayjs;
 
+  const handleLabelClick = () => {
+    if (disabled) return;
+    fieldProps?.onOpenChange?.(true);
+    setOpen(true);
+  };
+
   const dom = (
     <FieldLabel
-      onClick={() => {
-        fieldProps?.onOpenChange?.(true);
-        setOpen(true);
-      }}
+      onClick={handleLabelClick}
       style={
         dayValue
           ? {
@@ -58,10 +61,10 @@ export function FieldTimePickerLightEdit(props: Props, ref: React.Ref<unknown>) 
       value={
         dayValue || open ? (
           <TimePicker
-            variant={variant ?? fieldProps?.variant}
             format={format}
             ref={ref as React.Ref<any>}
             {...fieldProps}
+            variant={variant ?? fieldProps?.variant}
             placeholder={
               fieldProps.placeholder ??
               intl.getMessage('tableForm.selectPlaceholder', '请选择')

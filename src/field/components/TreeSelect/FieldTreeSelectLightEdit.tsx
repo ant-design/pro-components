@@ -1,3 +1,4 @@
+import type { GetRef } from 'antd';
 import type { TreeSelectProps } from 'antd';
 import { Spin, TreeSelect } from 'antd';
 import { clsx } from 'clsx';
@@ -24,10 +25,10 @@ export interface FieldTreeSelectLightEditProps {
   fieldProps: TreeSelectFieldProps;
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  treeSelectRef: React.RefObject<any>;
+  treeSelectRef: React.RefObject<GetRef<typeof TreeSelect>>;
   intl: IntlType;
   loading: boolean;
-  options: any[];
+  options: NonNullable<TreeSelectProps['treeData']>;
   fetchData: (keyWord?: string) => void;
   fetchDataOnSearch?: boolean;
   hasRequest: boolean;
@@ -77,21 +78,24 @@ export function FieldTreeSelectLightEdit({
     ? fieldProps?.value?.length
     : 0;
 
+  const handleOpenChange = (isOpen: boolean) => {
+    setOpen(isOpen);
+    fieldProps?.onOpenChange?.(isOpen);
+  };
+
   let dom: React.ReactNode = (
     <Spin spinning={loading}>
       <TreeSelect<string | undefined>
+        {...fieldProps}
         open={open}
-        onOpenChange={(isOpen) => {
-          fieldProps?.onOpenChange?.(isOpen);
-          setOpen(isOpen);
-        }}
+        onOpenChange={handleOpenChange}
         ref={treeSelectRef}
         popupMatchSelectWidth={false}
         placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
         tagRender={(item) => {
           if (valuesLength < 2) return <>{item.label}</>;
           const itemIndex = fieldProps?.value?.findIndex(
-            (v: any) => v === item.value || v.value === item.value,
+            (v: unknown) => v === item.value || (v as { value?: unknown }).value === item.value,
           );
           return (
             <>
@@ -99,8 +103,7 @@ export function FieldTreeSelectLightEdit({
             </>
           );
         }}
-        {...fieldProps}
-        treeData={options as TreeSelectProps['treeData']}
+        treeData={options}
         showSearch={
           showSearch
             ? {
@@ -150,15 +153,18 @@ export function FieldTreeSelectLightEdit({
   const { disabled, placeholder } = fieldProps;
   const notEmpty = !!fieldProps.value && fieldProps.value?.length !== 0;
 
+  const handleLabelClick = () => {
+    if (disabled) return;
+    setOpen(true);
+    fieldProps?.onOpenChange?.(true);
+  };
+
   return (
     <FieldLabel
       label={label}
       disabled={disabled}
       placeholder={placeholder}
-      onClick={() => {
-        setOpen(true);
-        fieldProps?.onOpenChange?.(true);
-      }}
+      onClick={handleLabelClick}
       variant={variant}
       value={notEmpty || open ? dom : null}
       style={

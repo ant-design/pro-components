@@ -43,7 +43,7 @@ export function FieldRangePickerLightEdit(
   } = props;
 
   const dayValue = parseValueToDay(fieldProps.value) as dayjs.Dayjs[];
-  const handleRangeChange = (value: any) => {
+  const handleRangeChange = (value: unknown) => {
     fieldProps?.onChange?.(value);
 
     if (!value) {
@@ -51,13 +51,16 @@ export function FieldRangePickerLightEdit(
     }
   };
 
+  const handleLabelClick = () => {
+    if (fieldProps.disabled) return;
+    fieldProps?.onOpenChange?.(true);
+    setOpen(true);
+  };
+
   const dom = (
     <FieldLabel
       label={label}
-      onClick={() => {
-        fieldProps?.onOpenChange?.(true);
-        setOpen(true);
-      }}
+      onClick={handleLabelClick}
       style={
         dayValue
           ? {
@@ -79,12 +82,14 @@ export function FieldRangePickerLightEdit(
                 intl.getMessage('tableForm.selectPlaceholder', '请选择'),
               ]
             }
+            variant={propsVariant ?? fieldProps?.variant}
             value={dayValue}
             onOpenChange={(isOpen) => {
-              if (dayValue) setOpen(isOpen);
+              setOpen(isOpen);
               fieldProps?.onOpenChange?.(isOpen);
             }}
             onChange={handleRangeChange}
+            open={open}
           />
         ) : null
       }

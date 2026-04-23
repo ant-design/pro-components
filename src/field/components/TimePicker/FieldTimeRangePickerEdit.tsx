@@ -31,8 +31,8 @@ export function FieldTimeRangePickerEdit(
     <TimePicker.RangePicker
       ref={ref as React.Ref<any>}
       format={format}
-      variant={variant}
       {...fieldProps}
+      variant={variant ?? fieldProps?.variant}
       value={dayValue}
     />
   );

@@ -22,7 +22,7 @@ export function FieldSwitchLightEdit(props: Props, ref: React.Ref<unknown>) {
     <Switch
       ref={ref as React.Ref<any>}
       size="small"
-      {...omit(fieldProps, ['value'])}
+      {...omit(fieldProps || {}, ['value'])}
       checked={fieldProps?.checked ?? fieldProps?.value}
     />
   );
@@ -36,7 +36,7 @@ export function FieldSwitchLightEdit(props: Props, ref: React.Ref<unknown>) {
       value={
         <div
           style={{
-            paddingLeft: 8,
+            paddingInlineStart: 8,
           }}
         >
           {editDom}

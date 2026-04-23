@@ -20,7 +20,7 @@ export function FieldSwitchEdit(props: Props, ref: React.Ref<unknown>) {
   const editDom = (
     <Switch
       ref={ref as React.Ref<any>}
-      {...omit(fieldProps, ['value'])}
+      {...omit(fieldProps || {}, ['value'])}
       checked={fieldProps?.checked ?? fieldProps?.value}
     />
   );

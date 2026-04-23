@@ -1,7 +1,8 @@
-import type { SelectProps } from 'antd';
-import { Spin } from 'antd';
+import type { GetRef, SelectProps } from 'antd';
+import { Select, Spin } from 'antd';
 import React, { MutableRefObject } from 'react';
 import type { IntlType } from '../../../provider';
+import type { RequestOptionsType } from '../../../utils';
 import type { ProFieldFC } from '../../types';
 import SearchSelect from './SearchSelect';
 import { SelectHighlight } from './SelectHighlight';
@@ -15,12 +16,11 @@ export type FieldSelectSearchEditProps = Parameters<
 >[0] & {
   intl: IntlType;
   loading: boolean;
-  options: any[];
+  options: RequestOptionsType[];
   fetchData: (keyWord?: string) => void;
   resetData: () => void;
-  inputRef: React.RefObject<any>;
+  inputRef: React.RefObject<GetRef<typeof Select>>;
   keyWordsRef: MutableRefObject<string>;
-  componentSize: string;
 };
 
 export function FieldSelectSearchEdit(props: FieldSelectSearchEditProps) {
@@ -37,7 +37,6 @@ export function FieldSelectSearchEdit(props: FieldSelectSearchEditProps) {
     resetData,
     inputRef,
     keyWordsRef,
-    componentSize: _componentSize,
     ...rest
   } = props;
 

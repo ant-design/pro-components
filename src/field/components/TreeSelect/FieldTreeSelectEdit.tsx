@@ -1,4 +1,5 @@
-﻿import type { TreeSelectProps } from 'antd';
+﻿import type { GetRef } from 'antd';
+import type { TreeSelectProps } from 'antd';
 import { Spin, TreeSelect } from 'antd';
 import { clsx } from 'clsx';
 import React from 'react';
@@ -24,10 +25,10 @@ export interface FieldTreeSelectEditProps {
   fieldProps: TreeSelectFieldProps;
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  treeSelectRef: React.RefObject<any>;
+  treeSelectRef: React.RefObject<GetRef<typeof TreeSelect>>;
   intl: IntlType;
   loading: boolean;
-  options: any[];
+  options: NonNullable<TreeSelectProps['treeData']>;
   fetchData: (keyWord?: string) => void;
   fetchDataOnSearch?: boolean;
   hasRequest: boolean;
@@ -86,7 +87,7 @@ export function FieldTreeSelectEdit({
         popupMatchSelectWidth
         placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
         {...fieldProps}
-        treeData={options as TreeSelectProps['treeData']}
+        treeData={options}
         showSearch={
           showSearch
             ? {
