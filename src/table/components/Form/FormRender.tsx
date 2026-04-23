@@ -143,6 +143,14 @@ const FormRender = <T, U = any>({
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
+  const className = getPrefixCls('pro-table-search');
+  const formClassName = getPrefixCls('pro-table-form');
+
+  const competentName = useMemo(
+    () => getFormCompetent(isForm, searchConfig),
+    [searchConfig, isForm],
+  );
+
   const columnsList = useMemo(() => {
     return columns
       .filter((item) => {
@@ -174,20 +182,15 @@ const FormRender = <T, U = any>({
             : {}),
           valueType: finalValueType,
           proFieldProps: {
+            ...(competentName === 'LightFilter' && item.proFieldProps?.light === undefined
+              ? { light: true }
+              : {}),
             ...item.proFieldProps,
             proFieldKey: columnKey ? `table-field-${columnKey}` : undefined,
           },
         };
       });
-  }, [columns, type]);
-
-  const className = getPrefixCls('pro-table-search');
-  const formClassName = getPrefixCls('pro-table-form');
-
-  const competentName = useMemo(
-    () => getFormCompetent(isForm, searchConfig),
-    [searchConfig, isForm],
-  );
+  }, [columns, type, competentName]);
 
   // 传给每个表单的配置，理论上大家都需要
   const loadingProps: any = useMemo(

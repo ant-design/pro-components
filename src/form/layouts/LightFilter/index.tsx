@@ -192,7 +192,6 @@ const LightFilterContainer: React.FC<{
                 // proFieldProps 会直接作为 ProField 的 props 传递过去
                 proFieldProps: {
                   ...child.props.proFieldProps,
-                  light: true,
                   label: child.props.label,
                   variant,
                 },
@@ -304,6 +303,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
   return (
     <BaseForm
       size={size}
+      formComponentType="LightFilter"
       initialValues={initialValues}
       form={userForm}
       contentRender={(items) => {

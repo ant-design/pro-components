@@ -2,6 +2,7 @@ import { FontSizeOutlined } from '@ant-design/icons';
 import type { ProFormInstance } from '@ant-design/pro-components';
 import {
   LightFilter,
+  lightForm,
   ProForm,
   ProFormCaptcha,
   ProFormCheckbox,
@@ -1872,7 +1873,7 @@ describe('ProForm', () => {
     const onRequest = vi.fn();
     const wrapper = render(
       <LightFilter>
-        <ProFormSelect.SearchSelect
+        <lightForm.searchSelect
           name="userQuery"
           label="查询选择器"
           fieldProps={{
@@ -1911,7 +1912,7 @@ describe('ProForm', () => {
     const onRequest = vi.fn();
     const wrapper = render(
       <LightFilter>
-        <ProFormSelect.SearchSelect
+        <lightForm.searchSelect
           name="userQuery"
           label="查询选择器"
           fieldProps={{
