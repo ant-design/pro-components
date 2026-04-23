@@ -22,7 +22,7 @@ import {
 import type { ProFormInstance } from '../../BaseForm';
 import type { ProFormProps } from '../../layouts';
 import { DrawerForm } from '../../layouts/DrawerForm';
-import { LightFilter } from '../../layouts/LightFilter';
+import LightForm from '../../layouts/LightForm';
 import { ModalForm } from '../../layouts/ModalForm';
 import { ProForm } from '../../layouts/ProForm';
 import { QueryFilter } from '../../layouts/QueryFilter';
@@ -41,7 +41,7 @@ export * from './typing';
 const FormLayoutType = {
   DrawerForm,
   QueryFilter,
-  LightFilter,
+  LightForm,
   StepForm: ProStepsForm.StepForm,
   StepsForm: StepsForm,
   ModalForm,

@@ -723,8 +723,8 @@ const ProTable = <
     },
   };
 
-  /** 是不是 LightFilter, LightFilter 有一些特殊的处理 */
-  const isLightFilter: boolean =
+  /** LightForm（轻量筛选）时工具栏把 search 插到左侧 */
+  const isLightForm: boolean =
     search !== false && search?.filterType === 'light';
 
   const onFormSearchSubmit = useRefFunction(
@@ -793,8 +793,8 @@ const ProTable = <
       !headerTitle &&
       !toolBarRender &&
       !toolbar &&
-      !isLightFilter,
-    [options, headerTitle, toolBarRender, toolbar, isLightFilter],
+      !isLightForm,
+    [options, headerTitle, toolBarRender, toolbar, isLightForm],
   );
 
   const toolbarDom = (
@@ -807,7 +807,7 @@ const ProTable = <
       tableColumn={tableColumn}
       tooltip={tooltip}
       toolbar={toolbar}
-      isLightFilter={isLightFilter}
+      isLightForm={isLightForm}
       searchNode={searchNode}
       options={options}
       optionsRender={optionsRender}
@@ -1014,7 +1014,7 @@ const ProTable = <
       ref={counter.rootDomRef}
       data-testid="pro-table"
     >
-      {isLightFilter ? null : searchNode}
+      {isLightForm ? null : searchNode}
       {type !== 'form' && props.tableExtraRender && (
         <div className={clsx(className, `${defaultClassName}-extra`)}>
           {props.tableExtraRender(props, action.dataSource || [])}

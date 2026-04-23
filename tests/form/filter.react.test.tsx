@@ -1,9 +1,4 @@
-import {
-  LightFilter,
-  lightForm,
-  ProFormText,
-  QueryFilter,
-} from '@ant-design/pro-components';
+import { LightForm, ProFormText, QueryFilter } from '@ant-design/pro-components';
 import { _el, _rs } from '@rc-component/resize-observer/es/utils/observerUtil';
 import {
   act,
@@ -20,21 +15,21 @@ afterEach(() => {
   cleanup();
 });
 
-describe('✔️ ProFormLightFilter', () => {
+describe('✔️ LightForm', () => {
   afterEach(() => {
     cleanup();
   });
   it(' ✔️ clear input values', async () => {
     const html = render(
-      <LightFilter>
-        <lightForm.input
+      <LightForm>
+        <LightForm.input
           name="name1"
           label="名称"
           fieldProps={{
             role: 'name_input',
           }}
         />
-      </LightFilter>,
+      </LightForm>,
     );
 
     await act(async () => {
@@ -126,8 +121,8 @@ describe('✔️ ProFormLightFilter', () => {
 
   it(' ✔️ lightFilter resize', async () => {
     const html = render(
-      <LightFilter>
-        <lightForm.treeSelect
+      <LightForm>
+        <LightForm.treeSelect
           fieldProps={{
             fieldNames: {
               label: 'title',
@@ -172,7 +167,7 @@ describe('✔️ ProFormLightFilter', () => {
           name="area"
           label="名称"
         />
-      </LightFilter>,
+      </LightForm>,
     );
     expect(html.baseElement.querySelector('.ant-select-open')).toBe(null);
 
@@ -193,8 +188,8 @@ describe('✔️ ProFormLightFilter', () => {
 
   it(' ✔️ lightFilter ProFormCascader support label', async () => {
     const html = render(
-      <LightFilter>
-        <lightForm.cascader
+      <LightForm>
+        <LightForm.cascader
           request={async () => [
             {
               value: 'zhejiang',
@@ -233,7 +228,7 @@ describe('✔️ ProFormLightFilter', () => {
           initialValue={['zhejiang', 'hangzhou', 'xihu']}
           label="名称"
         />
-      </LightFilter>,
+      </LightForm>,
     );
     expect(html.baseElement.querySelector('.ant-select-open')).toBe(null);
 

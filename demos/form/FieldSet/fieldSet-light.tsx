@@ -1,5 +1,5 @@
 ﻿import {
-  LightFilter,
+  LightForm,
   ProFormFieldSet,
   ProFormSelect,
   ProFormText,
@@ -8,7 +8,7 @@
 export function App() {
   return (
     <div className="App">
-      <LightFilter
+      <LightForm
         initialValues={{
           name: [
             {
@@ -52,7 +52,7 @@ export function App() {
           />
           <ProFormText placeholder="请输入" />
         </ProFormFieldSet>
-      </LightFilter>
+      </LightForm>
     </div>
   );
 }

@@ -92,7 +92,7 @@ const WithValueFomFiledProps: React.FC<
     return omitUndefined({
       id: restProps.id,
       // 优先使用 children.props.fieldProps，
-      // 比如 LightFilter 中可能需要通过 fieldProps 覆盖 Form.Item 默认的 onChange
+      // 比如 LightForm 中可能需要通过 fieldProps 覆盖 Form.Item 默认的 onChange
       [valuePropName]: propsValuePropName,
       ...omitOnBlurAndOnChangeProps,
       onBlur: onBlurMemo,

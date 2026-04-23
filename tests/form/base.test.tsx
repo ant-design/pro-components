@@ -1,8 +1,7 @@
 import { FontSizeOutlined } from '@ant-design/icons';
 import type { ProFormInstance } from '@ant-design/pro-components';
 import {
-  LightFilter,
-  lightForm,
+  LightForm,
   ProForm,
   ProFormCaptcha,
   ProFormCheckbox,
@@ -1869,11 +1868,11 @@ describe('ProForm', () => {
     wrapper.unmount();
   });
 
-  it('📦 LightFilter + SearchSelect support fetchDataOnSearch: false', async () => {
+  it('📦 LightForm + SearchSelect support fetchDataOnSearch: false', async () => {
     const onRequest = vi.fn();
     const wrapper = render(
-      <LightFilter>
-        <lightForm.searchSelect
+      <LightForm>
+        <LightForm.searchSelect
           name="userQuery"
           label="查询选择器"
           fieldProps={{
@@ -1889,7 +1888,7 @@ describe('ProForm', () => {
             ];
           }}
         />
-      </LightFilter>,
+      </LightForm>,
     );
 
     await wrapper.findByText('查询选择器');
@@ -1908,11 +1907,11 @@ describe('ProForm', () => {
     expect(onRequest.mock.calls.length).toBe(1);
   });
 
-  it('📦 LightFilter + SearchSelect support fetchDataOnSearch: true', async () => {
+  it('📦 LightForm + SearchSelect support fetchDataOnSearch: true', async () => {
     const onRequest = vi.fn();
     const wrapper = render(
-      <LightFilter>
-        <lightForm.searchSelect
+      <LightForm>
+        <LightForm.searchSelect
           name="userQuery"
           label="查询选择器"
           fieldProps={{
@@ -1928,7 +1927,7 @@ describe('ProForm', () => {
             ];
           }}
         />
-      </LightFilter>,
+      </LightForm>,
     );
     await wrapper.findByText('查询选择器');
 

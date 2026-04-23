@@ -1,5 +1,5 @@
 import {
-  LightFilter,
+  LightForm,
   ProFormDatePicker,
   ProFormDateRangePicker,
   ProFormDateTimePicker,
@@ -30,7 +30,7 @@ const Demo = () => {
         <Radio.Button value="bottomLeft">bottomLeft</Radio.Button>
         <Radio.Button value="bottomRight">bottomRight</Radio.Button>
       </Radio.Group>
-      <LightFilter
+      <LightForm
         placement={mode}
         style={{
           marginBlockStart: '40px',
@@ -83,7 +83,7 @@ const Demo = () => {
           <ProFormText />
           <ProFormText />
         </ProFormFieldSet>
-      </LightFilter>
+      </LightForm>
     </div>
   );
 };

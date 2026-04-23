@@ -1,7 +1,7 @@
 import { EllipsisOutlined } from '@ant-design/icons';
 import type { ProColumns } from '@ant-design/pro-components';
 import {
-  LightFilter,
+  LightForm,
   ProFormDatePicker,
   ProTable,
 } from '@ant-design/pro-components';
@@ -74,9 +74,9 @@ const Demo = () => {
             },
           },
           filter: (
-            <LightFilter>
+            <LightForm>
               <ProFormDatePicker name="startdate" label="响应日期" />
-            </LightFilter>
+            </LightForm>
           ),
           actions: [
             <Button
@@ -107,7 +107,7 @@ const Demo = () => {
             <strong>ProTable</strong>: 专业表格组件
           </li>
           <li>
-            <strong>LightFilter</strong>: 轻量过滤器组件
+            <strong>LightForm</strong>: 轻量过滤器组件
           </li>
           <li>
             <strong>ProFormDatePicker</strong>: 专业表单日期选择器组件

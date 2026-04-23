@@ -261,7 +261,7 @@ export default defineConfig({
               link: '/en-US/components/schema-form',
             },
             {
-              title: 'Query/LightFilter',
+              title: 'Query/LightForm',
               link: '/en-US/components/query-filter',
             },
             {
@@ -377,7 +377,7 @@ export default defineConfig({
               link: '/components/schema-form',
             },
             {
-              title: ' Query/LightFilter - 筛选表单',
+              title: ' Query/LightForm - 筛选表单',
               link: '/components/query-filter',
             },
             {

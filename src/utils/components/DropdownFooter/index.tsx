@@ -4,12 +4,7 @@ import React, { useContext } from 'react';
 import { useIntl } from '../../../provider';
 import { useStyle } from './style';
 
-type LightFilterFooterRender =
-  | ((
-      onConfirm?: (e?: React.MouseEvent) => void,
-      onClear?: (e?: React.MouseEvent) => void,
-    ) => React.JSX.Element | false)
-  | false;
+import type { LightFormFooterRender } from '../../../form/typing';
 
 type OnClick = (e?: React.MouseEvent) => void;
 
@@ -17,7 +12,7 @@ export type DropdownFooterProps = {
   onClear?: OnClick;
   onConfirm?: OnClick;
   disabled?: boolean;
-  footerRender?: LightFilterFooterRender;
+  footerRender?: LightFormFooterRender;
   children?: React.ReactNode;
 };
 

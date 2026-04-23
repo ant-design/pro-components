@@ -31,11 +31,10 @@ export type {
   ProFormUploadDraggerProps,
 } from './components';
 export { FormListContext } from './components/List';
-export { lightForm } from './components/LightForm/lightForm';
 export { FieldContext } from './FieldContext';
 export * from './layouts';
 export type {
-  LightFilterFooterRender,
+  LightFormFooterRender,
   ProFormFieldItemProps as ProFormItemProps,
   ProFieldBuiltinValueType,
   ProFieldSchemaLayoutValueType,

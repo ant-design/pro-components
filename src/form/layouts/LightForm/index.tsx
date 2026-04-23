@@ -5,27 +5,19 @@ import { ConfigProvider } from 'antd';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import type { TooltipPlacement } from 'antd/lib/tooltip';
 import { clsx } from 'clsx';
-import React, {
-  useContext,
-  useEffect,
-  useImperativeHandle,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import React, { useContext, useImperativeHandle, useMemo, useRef, useState } from 'react';
 import { useIntl } from '../../../provider';
 import { FieldLabel, FilterDropdown } from '../../../utils';
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
-import type { LightFilterFooterRender } from '../../typing';
+import type { LightFormFooterRender } from '../../typing';
+import { lightFormFieldComponents } from './lightFormFields';
 import { useStyle } from './style';
 
-export type LightFilterProps<T, U = Record<string, any>> = {
+export type LightFormLayoutProps<T, U = Record<string, any>> = {
   collapse?: boolean;
   /**
    * @name 收起的label dom
-   *
-   * @example collapseLabel={"收起"}
    */
   collapseLabel?: React.ReactNode;
   /**
@@ -33,32 +25,20 @@ export type LightFilterProps<T, U = Record<string, any>> = {
    */
   variant?: 'outlined' | 'filled' | 'borderless';
   /**
-   * @name 忽略rules，一般而言 LightFilter 应该不支持rules，默认是 false。
+   * @name 忽略 rules（轻量筛选场景一般不建议使用 rules），默认是 false
    */
   ignoreRules?: boolean;
-
   /**
-   * @name 自定义 footerRender
-   *
-   * @example 自定义清除
-   * footerRender={(onConfirm,onClear)=>{  return <a onClick={onClear}>清除</a> })}
+   * @name 折叠态弹层底部自定义渲染
    */
-  footerRender?: LightFilterFooterRender;
-
+  footerRender?: LightFormFooterRender;
   /**
-   * @name 支持配置弹出的位置
+   * @name 弹层位置
    * @default bottomLeft
    */
   placement?: TooltipPlacement;
   /**
-   * @name 透传给内部 Popover 的属性（折叠态弹层）
-   *
-   * @description
-   * LightFilter 在折叠态会使用 Popover 将筛选项渲染到 body 下；
-   * 可通过该属性为弹层根节点添加自定义类名（如 classNames.root）以便做样式覆盖。
-   *
-   * @example
-   * popoverProps={{ classNames: { root: 'my-lightfilter-popover' } } }
+   * @name 透传给内部 Popover 的属性（折叠态）
    */
   popoverProps?: Omit<
     PopoverProps,
@@ -67,12 +47,7 @@ export type LightFilterProps<T, U = Record<string, any>> = {
 } & Omit<FormProps<T>, 'onFinish'> &
   CommonFormProps<T, U>;
 
-/**
- * 单行的查询表单，一般用于配合 table 或者 list使用 有时也会用于 card 的额外区域
- *
- * @param props
- */
-const LightFilterContainer: React.FC<{
+const LightFormContainer: React.FC<{
   items: React.ReactNode[];
   prefixCls: string;
   size?: SizeType;
@@ -81,7 +56,7 @@ const LightFilterContainer: React.FC<{
   collapse?: boolean;
   collapseLabel?: React.ReactNode;
   variant?: 'outlined' | 'filled' | 'borderless';
-  footerRender?: LightFilterFooterRender;
+  footerRender?: LightFormFooterRender;
   placement?: TooltipPlacement;
   popoverProps?: Omit<
     PopoverProps,
@@ -102,8 +77,8 @@ const LightFilterContainer: React.FC<{
     popoverProps,
   } = props;
   const intl = useIntl();
-  const lightFilterClassName = `${prefixCls}-light-filter`;
-  const { wrapSSR, hashId } = useStyle(lightFilterClassName);
+  const lightFormClassName = `${prefixCls}-light-filter`;
+  const { wrapSSR, hashId } = useStyle(lightFormClassName);
 
   const [open, setOpen] = useState<boolean>(false);
   const [moreValues, setMoreValues] = useState<Record<string, any>>(() => ({
@@ -115,7 +90,7 @@ const LightFilterContainer: React.FC<{
     if (collapse) {
       return (
         <FilterOutlined
-          className={clsx(`${lightFilterClassName}-collapse-icon`, hashId)}
+          className={clsx(`${lightFormClassName}-collapse-icon`, hashId)}
         />
       );
     }
@@ -126,15 +101,7 @@ const LightFilterContainer: React.FC<{
         label={intl.getMessage('form.lightFilter.more', '更多筛选')}
       />
     );
-  }, [
-    collapseLabel,
-    collapse,
-    lightFilterClassName,
-    hashId,
-    variant,
-    size,
-    intl,
-  ]);
+  }, [collapseLabel, collapse, lightFormClassName, hashId, variant, size, intl]);
 
   const { collapseItems, outsideItems } = useMemo(() => {
     const collapseItemsArr: React.ReactNode[] = [];
@@ -151,23 +118,23 @@ const LightFilterContainer: React.FC<{
       collapseItems: collapseItemsArr,
       outsideItems: outsideItemsArr,
     };
-  }, [props.items]);
+  }, [props.items, collapse]);
 
   return wrapSSR(
     <div
       className={clsx(
-        lightFilterClassName,
+        lightFormClassName,
         hashId,
-        `${lightFilterClassName}-${size}`,
+        `${lightFormClassName}-${size}`,
         {
-          [`${lightFilterClassName}-effective`]: Object.keys(values).some(
+          [`${lightFormClassName}-effective`]: Object.keys(values).some(
             (key) =>
               Array.isArray(values[key]) ? values[key].length > 0 : values[key],
           ),
         },
       )}
     >
-      <div className={clsx(`${lightFilterClassName}-container`, hashId)}>
+      <div className={clsx(`${lightFormClassName}-container`, hashId)}>
         {outsideItems.map((child: any, index) => {
           if (!child?.props) {
             return child;
@@ -180,7 +147,7 @@ const LightFilterContainer: React.FC<{
 
           return (
             <div
-              className={clsx(`${lightFilterClassName}-item`, hashId)}
+              className={clsx(`${lightFormClassName}-item`, hashId)}
               key={key || index}
             >
               {React.cloneElement(child, {
@@ -189,7 +156,6 @@ const LightFilterContainer: React.FC<{
                   placement: newPlacement,
                   variant: 'borderless',
                 },
-                // proFieldProps 会直接作为 ProField 的 props 传递过去
                 proFieldProps: {
                   ...child.props.proFieldProps,
                   label: child.props.label,
@@ -202,7 +168,7 @@ const LightFilterContainer: React.FC<{
         })}
         {collapseItems.length ? (
           <div
-            className={clsx(`${lightFilterClassName}-item`, hashId)}
+            className={clsx(`${lightFormClassName}-item`, hashId)}
             key="more"
           >
             <FilterDropdown
@@ -213,7 +179,7 @@ const LightFilterContainer: React.FC<{
               }}
               placement={placement}
               popoverProps={popoverProps}
-                label={collapseLabelNode}
+              label={collapseLabelNode}
               footerRender={footerRender}
               footer={{
                 onConfirm: () => {
@@ -245,7 +211,7 @@ const LightFilterContainer: React.FC<{
                     return false;
                   },
                 };
-                if (moreValues.hasOwnProperty(name)) {
+                if (Object.prototype.hasOwnProperty.call(moreValues, name)) {
                   newFieldProps[child.props.valuePropName || 'value'] =
                     moreValues[name];
                 }
@@ -254,7 +220,7 @@ const LightFilterContainer: React.FC<{
                   : placement;
                 return (
                   <div
-                    className={clsx(`${lightFilterClassName}-line`, hashId)}
+                    className={clsx(`${lightFormClassName}-line`, hashId)}
                     key={key}
                   >
                     {React.cloneElement(child, {
@@ -275,7 +241,9 @@ const LightFilterContainer: React.FC<{
   );
 };
 
-function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
+function LightFormComponent<T = Record<string, any>>(
+  props: LightFormLayoutProps<T>,
+) {
   const {
     size,
     collapse,
@@ -286,7 +254,6 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
     placement,
     formRef: userFormRef,
     variant,
-    ignoreRules,
     footerRender,
     popoverProps,
     ...reset
@@ -303,17 +270,16 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
   return (
     <BaseForm
       size={size}
-      formComponentType="LightFilter"
+      formComponentType="LightForm"
       initialValues={initialValues}
       form={userForm}
       contentRender={(items) => {
         return (
-          <LightFilterContainer
+          <LightFormContainer
             key={JSON.stringify(values || {})}
             prefixCls={prefixCls}
             items={items?.flatMap((item: any) => {
               if (!item || !item?.type) return item;
-              /** 如果是 ProFormGroup，直接拼接dom */
               if (item?.type?.displayName === 'ProForm-Group')
                 return item.props.children;
               return item;
@@ -361,4 +327,11 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
   );
 }
 
-export { LightFilter };
+type LightFormType = typeof LightFormComponent & typeof lightFormFieldComponents;
+const LightForm = LightFormComponent as LightFormType;
+Object.assign(LightForm, lightFormFieldComponents);
+(LightForm as { displayName?: string }).displayName = 'LightForm';
+
+export { LightForm };
+export default LightForm;
+export type { LightFormLayoutProps as LightFormProps };

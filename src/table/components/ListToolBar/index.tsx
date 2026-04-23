@@ -59,7 +59,7 @@ export type ListToolBarProps = {
   settings?: SettingPropType[];
   /** 是否多行展示 */
   multipleLine?: boolean;
-  /** 过滤区，通常配合 LightFilter 使用 */
+  /** 过滤区，通常配合 LightForm 使用 */
   filter?: React.ReactNode;
   /** 标签页配置，仅当 `multipleLine` 为 true 时有效 */
   tabs?: ListToolBarTabs;

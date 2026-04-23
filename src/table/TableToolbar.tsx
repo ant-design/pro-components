@@ -13,7 +13,7 @@ export type TableToolbarProps<T extends Record<string, any>> = {
   tableColumn: any[];
   tooltip: ProTableProps<T, any, any>['tooltip'];
   toolbar: ProTableProps<T, any, any>['toolbar'];
-  isLightFilter: boolean;
+  isLightForm: boolean;
   searchNode: React.ReactNode;
   options: ProTableProps<T, any, any>['options'];
   optionsRender: ProTableProps<T, any, any>['optionsRender'];
@@ -34,7 +34,7 @@ export function TableToolbar<T extends Record<string, any>>(
     tableColumn,
     tooltip,
     toolbar,
-    isLightFilter,
+    isLightForm,
     searchNode,
     options,
     optionsRender,
@@ -62,7 +62,7 @@ export function TableToolbar<T extends Record<string, any>>(
             ...newValues,
           });
         }}
-        searchNode={isLightFilter ? searchNode : null}
+        searchNode={isLightForm ? searchNode : null}
         options={options}
         optionsRender={optionsRender}
         actionRef={actionRef}
@@ -74,7 +74,7 @@ export function TableToolbar<T extends Record<string, any>>(
     formSearch,
     headerTitle,
     hideToolbar,
-    isLightFilter,
+    isLightForm,
     options,
     optionsRender,
     searchNode,

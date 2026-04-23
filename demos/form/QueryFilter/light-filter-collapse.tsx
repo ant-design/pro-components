@@ -1,9 +1,9 @@
-import { LightFilter, lightForm } from '@ant-design/pro-components';
+import { LightForm } from '@ant-design/pro-components';
 import { message } from 'antd';
 
 const Demo = () => {
   return (
-    <LightFilter
+    <LightForm
       initialValues={{
         sex: 'man',
       }}
@@ -12,7 +12,7 @@ const Demo = () => {
         message.success('提交成功');
       }}
     >
-      <lightForm.select
+      <LightForm.select
         name="sex"
         label="性别"
         showSearch
@@ -21,8 +21,8 @@ const Demo = () => {
           woman: '女',
         }}
       />
-      <lightForm.dateTime name="time" label="时间" />
-    </LightFilter>
+      <LightForm.dateTime name="time" label="时间" />
+    </LightForm>
   );
 };
 

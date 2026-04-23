@@ -28,7 +28,6 @@ export { default as ProFormField } from './Field';
 export type { ProFormFieldProps } from './Field';
 export { default as ProFormFieldSet } from './FieldSet';
 export type { ProFormFieldSetProps } from './FieldSet';
-export { lightForm } from './LightForm/lightForm';
 export { FormItemProvide, default as ProFormItem } from './FormItem';
 export type { ProFormItemProps } from './FormItem';
 export {

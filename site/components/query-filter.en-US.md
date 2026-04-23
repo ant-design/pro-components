@@ -1,12 +1,12 @@
 ---
-title: Query/LightFilter
-atomId: QueryFilter,LightFilter
+title: Query/LightForm
+atomId: QueryFilter,LightForm
 group: Form
 ---
 
-# QueryFilter / LightFilter
+# QueryFilter / LightForm
 
-QueryFilter and LightFilter solve the problem of using the form with other components, such as Table, List, etc., and avoid complicated style settings. QueryFilter and LightFilter are supported by default in ProTable as their own filter forms.
+QueryFilter and LightForm solve the problem of using the form with other components, such as Table, List, etc., and avoid complicated style settings. QueryFilter and LightForm are supported by default in ProTable as their own filter forms.
 
 ### Query Filter
 
@@ -85,16 +85,16 @@ Breakpoints use antd design tokens (xs=576, sm=768, md=992, lg=1200, xl=1600 by 
 | `≧ 576px && < 992px`       | 2 columns                                                               |
 | `< 576px`                  | 1 column                                                                |
 
-### LightFilter
+### LightForm
 
-LightFilter supports the following properties in addition to the API inherited from ProForm.
+LightForm supports the following properties in addition to the API inherited from ProForm.
 
 | Parameters    | Description                                                                          | Type                                                                                                                        | Default                      |
 | ------------- | ------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
 | collapse      | Whether to collapse all fields by default                                            | `boolean`                                                                                                                   | `false`                      |
 | collapseLabel | Label of collapsed area                                                              | `ReactNode`                                                                                                                 | `MoreFilter <DownOutlined/>` |
 | variant       | Visual variant                                                                       | `'outlined' \| 'filled' \| 'borderless'`                                                                                    | -                            |
-| ignoreRules   | Whether to ignore rules (rules are usually not recommended in LightFilter scenarios) | `boolean`                                                                                                                   | -                            |
+| ignoreRules   | Whether to ignore rules (rules are usually not recommended in LightForm scenarios) | `boolean`                                                                                                                   | -                            |
 | footerRender  | Footer content. Set to `false` to remove default footer buttons                      | `((onConfirm?: (e?: React.MouseEvent) => void, onClear?: (e?: React.MouseEvent) => void) => JSX.Element \| false) \| false` | -                            |
 | popoverProps  | Pass-through props to inner Popover (collapsed overlay), e.g. `classNames`           | `Omit<PopoverProps, 'children' \| 'content' \| 'trigger' \| 'open' \| 'onOpenChange' \| 'placement'>`                       | -                            |
 | placement     | The position where the selection box pops up                                         | `TooltipPlacement`                                                                                                          | `bottomLeft`                 |

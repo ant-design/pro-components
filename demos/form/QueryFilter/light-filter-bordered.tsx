@@ -1,6 +1,6 @@
 import { FilterOutlined } from '@ant-design/icons';
 import {
-  LightFilter,
+  LightForm,
   ProFormCascader,
   ProFormCheckbox,
   ProFormDatePicker,
@@ -49,7 +49,7 @@ const treeData = [
 
 const Demo = () => {
   return (
-    <LightFilter
+    <LightForm
       initialValues={{
         sex: 'man',
       }}
@@ -146,7 +146,7 @@ const Demo = () => {
         ]}
         name="area"
       />
-    </LightFilter>
+    </LightForm>
   );
 };
 

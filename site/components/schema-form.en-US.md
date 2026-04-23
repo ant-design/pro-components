@@ -34,7 +34,7 @@ SchemaForm provides the same API as [ProForm](/components/form#proform) and adds
 | `ModalForm`             | Modal form, supports all configurations of [ModalForm](/components/modal-form)                                                                                      |
 | `DrawerForm`            | Drawer form, supports all configurations of [DrawerForm](/components/modal-form)                                                                                    |
 | `StepsForm`\|`StepForm` | Step form. There are two modes: one uses `steps` and `columns` to generate, the other is implemented by nesting `layoutType=StepForm` within `layoutType=StepsForm` |
-| `LightFilter`           | Light filter, supports all configurations of [`LightFilter`](/components/query-filter)                                                                              |
+| `LightForm`           | Light filter, supports all configurations of [`LightForm`](/components/query-filter)                                                                              |
 | `QueryFilter`           | Query form, supports all configurations of [`QueryFilter`](/components/query-filter)                                                                                |
 | `Embed`                 | Embedded mode, only generates form items, does not generate Form. Can be mixed                                                                                      |
 

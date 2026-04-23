@@ -21,7 +21,7 @@ export type FiledContextProps = {
     },
   ) => void;
   /** Form 组件的类型 */
-  formComponentType?: 'DrawerForm' | 'ModalForm' | 'QueryFilter' | 'LightFilter' | string;
+  formComponentType?: 'DrawerForm' | 'ModalForm' | 'QueryFilter' | 'LightForm' | string;
   /** 获取表单实例计数器 */
   formKey?: string;
 
