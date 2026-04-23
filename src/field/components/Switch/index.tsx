@@ -7,6 +7,7 @@ import {
 } from '../../internal/fieldMode';
 import type { ProFieldFC } from '../../types';
 import { FieldSwitchEdit } from './FieldSwitchEdit';
+import { FieldSwitchLightEdit } from './FieldSwitchLightEdit';
 import { FieldSwitchRead } from './FieldSwitchRead';
 
 /**
@@ -54,19 +55,19 @@ const FieldSwitch: ProFieldFC<{
     );
   }
   if (isProFieldEditOrUpdateMode(mode)) {
-    return FieldSwitchEdit(
-      {
-        text,
-        mode,
-        render,
-        light,
-        label,
-        formItemRender,
-        fieldProps,
-        variant,
-      },
-      ref,
-    );
+    const editProps = {
+      text,
+      mode,
+      render,
+      label,
+      formItemRender,
+      fieldProps,
+      variant,
+    };
+    if (light) {
+      return FieldSwitchLightEdit(editProps, ref);
+    }
+    return FieldSwitchEdit(editProps, ref);
   }
   return null;
 };

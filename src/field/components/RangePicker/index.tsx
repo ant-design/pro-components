@@ -7,6 +7,7 @@ import {
 } from '../../internal/fieldMode';
 import type { ProFieldFC, ProFieldLightProps } from '../../types';
 import { FieldRangePickerEdit } from './FieldRangePickerEdit';
+import { FieldRangePickerLightEdit } from './FieldRangePickerLightEdit';
 import { FieldRangePickerRead } from './FieldRangePickerRead';
 
 /**
@@ -80,26 +81,31 @@ const FieldRangePicker: ProFieldFC<
   }
 
   if (isProFieldEditOrUpdateMode(mode)) {
-    return FieldRangePickerEdit(
-      {
-        text,
-        mode,
-        light,
-        label,
-        format,
-        render,
-        picker,
-        formItemRender,
-        showTime,
-        lightLabel,
-        variant: propsVariant,
-        fieldProps,
-        open,
-        setOpen,
-        intl,
-      },
-      ref,
-    );
+    const editProps = {
+      text,
+      mode,
+      label,
+      format,
+      render,
+      picker,
+      formItemRender,
+      showTime,
+      variant: propsVariant,
+      fieldProps,
+      intl,
+    };
+    if (light) {
+      return FieldRangePickerLightEdit(
+        {
+          ...editProps,
+          lightLabel,
+          open,
+          setOpen,
+        },
+        ref,
+      );
+    }
+    return FieldRangePickerEdit(editProps, ref);
   }
   return null;
 };

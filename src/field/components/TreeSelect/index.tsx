@@ -1,6 +1,6 @@
 ﻿import { omit, useControlledState } from '@rc-component/util';
-import type { TreeSelectProps } from 'antd';
-import { ConfigProvider } from 'antd';
+import type { GetRef, TreeSelectProps } from 'antd';
+import { ConfigProvider, TreeSelect } from 'antd';
 import React, {
   useCallback,
   useContext,
@@ -18,6 +18,7 @@ import type { ProFieldFC } from '../../types';
 import type { FieldSelectProps } from '../Select';
 import { useFieldFetchData } from '../Select';
 import { FieldTreeSelectEdit } from './FieldTreeSelectEdit';
+import { FieldTreeSelectLightEdit } from './FieldTreeSelectLightEdit';
 import { FieldTreeSelectRead } from './FieldTreeSelectRead';
 import type { TreeSelectFieldProps } from './types';
 
@@ -49,7 +50,7 @@ const FieldTreeSelect: ProFieldFC<{} & FieldSelectProps> = (
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const layoutClassName = getPrefixCls('pro-field-tree-select');
-  const treeSelectRef = useRef(null);
+  const treeSelectRef = useRef<GetRef<typeof TreeSelect>>(null);
   const [open, setOpen] = useState(false);
 
   const {
@@ -177,35 +178,37 @@ const FieldTreeSelect: ProFieldFC<{} & FieldSelectProps> = (
     );
   }
   if (isProFieldEditOnlyMode(mode)) {
-    return (
-      <FieldTreeSelectEdit
-        text={rest.text as string}
-        mode="edit"
-        formItemRender={formItemRender}
-        light={light}
-        label={label}
-        variant={variant}
-        fieldProps={fieldProps}
-        open={open}
-        setOpen={setOpen}
-        treeSelectRef={treeSelectRef}
-        intl={intl}
-        loading={loading}
-        options={options}
-        fetchData={fetchData}
-        fetchDataOnSearch={fetchDataOnSearch}
-        hasRequest={!!rest.request}
-        showSearch={showSearch}
-        showSearchConfig={showSearchConfig}
-        searchValue={searchValue}
-        setSearchValue={setSearchValue}
-        autoClearSearchValue={autoClearSearchValue}
-        onClear={onClear}
-        treeSelectOnChange={onChange}
-        onBlur={onBlur}
-        layoutClassName={layoutClassName}
-      />
-    );
+    const editProps = {
+      ...rest,
+      text: rest.text as string,
+      mode: 'edit' as const,
+      formItemRender,
+      label,
+      variant,
+      fieldProps,
+      open,
+      setOpen,
+      treeSelectRef,
+      intl,
+      loading,
+      options: options as NonNullable<TreeSelectProps['treeData']>,
+      fetchData,
+      fetchDataOnSearch,
+      hasRequest: !!rest.request,
+      showSearch,
+      showSearchConfig,
+      searchValue,
+      setSearchValue,
+      autoClearSearchValue,
+      onClear,
+      treeSelectOnChange: onChange,
+      onBlur,
+      layoutClassName,
+    };
+    if (light) {
+      return <FieldTreeSelectLightEdit {...editProps} />;
+    }
+    return <FieldTreeSelectEdit {...editProps} />;
   }
 
   return null;

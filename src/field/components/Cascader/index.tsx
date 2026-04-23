@@ -1,4 +1,5 @@
-﻿import { ConfigProvider } from 'antd';
+﻿import type { CascaderProps, GetRef } from 'antd';
+import { Cascader, ConfigProvider } from 'antd';
 import React, {
   useContext,
   useImperativeHandle,
@@ -14,6 +15,7 @@ import {
 import type { ProFieldFC } from '../../types';
 import { useFieldFetchData } from '../Select';
 import { FieldCascaderEdit } from './FieldCascaderEdit';
+import { FieldCascaderLightEdit } from './FieldCascaderLightEdit';
 import { FieldCascaderRead } from './FieldCascaderRead';
 import type { GroupProps } from './types';
 
@@ -31,7 +33,7 @@ const FieldCascader: ProFieldFC<GroupProps> = (
   const layoutClassName = getPrefixCls('pro-field-cascader');
   const [loading, options, fetchData] = useFieldFetchData(rest);
   const intl = useIntl();
-  const cascaderRef = useRef();
+  const cascaderRef = useRef<GetRef<typeof Cascader>>(null);
   const [open, setOpen] = useState(false);
 
   useImperativeHandle(
@@ -88,25 +90,26 @@ const FieldCascader: ProFieldFC<GroupProps> = (
   }
 
   if (isProFieldEditOnlyMode(mode)) {
-    return (
-      <FieldCascaderEdit
-        placeholder={placeholder}
-        formItemRender={formItemRender}
-        mode={mode}
-        render={render}
-        label={label}
-        light={light}
-        variant={variant}
-        options={options}
-        loading={loading}
-        layoutClassName={layoutClassName}
-        open={open}
-        setOpen={setOpen}
-        cascaderRef={cascaderRef}
-        intl={intl}
-        {...rest}
-      />
-    );
+    const editProps = {
+      ...rest,
+      placeholder,
+      formItemRender,
+      mode,
+      render,
+      label,
+      variant,
+      options: options as NonNullable<CascaderProps['options']>,
+      loading,
+      layoutClassName,
+      open,
+      setOpen,
+      cascaderRef,
+      intl,
+    };
+    if (light) {
+      return <FieldCascaderLightEdit {...editProps} />;
+    }
+    return <FieldCascaderEdit {...editProps} />;
   }
 
   return null;
