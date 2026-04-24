@@ -62,7 +62,7 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 />
 ```
 
-`request` is also supported in column configuration, but only for a few [valueType](/components/schema#valuetype).
+`request` is also supported in column configuration, but only for a few [valueType](/components/schema-form#common-valuetypes).
 
 ### ProTable
 
@@ -257,7 +257,7 @@ If you want **client-side** sorting/filtering (and **do not** want to trigger `r
 | ellipsis                               | Whether to abbreviate automatically                                                                                                                                                                                                          | `boolean` \| `{showTitle?: boolean}`                                                                  | -             |
 | copyable                               | Whether to support copying                                                                                                                                                                                                                   | `boolean`                                                                                             | -             |
 | valueEnum                              | The value enumeration will automatically convert the value as a key to retrieve the content to be displayed                                                                                                                                  | [valueEnum](/components/schema#valueenum)                                                             | -             |
-| valueType                              | The type of value, which will generate different renderers                                                                                                                                                                                   | [`valueType`](/components/schema#valuetype)                                                           | `text`        |
+| valueType                              | The type of value, which will generate different renderers                                                                                                                                                                                   | [`valueType`](/components/schema-form#common-valuetypes)                                                           | `text`        |
 | order                                  | The weight in the query form, the weight is ranked first                                                                                                                                                                                     | `number`                                                                                              | -             |
 | fieldProps                             | The props of the query form will be transparently transmitted to the form item. If it is rendered as Input, all props of input are supported. Similarly, if it is select, all props of select are also supported. Also supports method input | `(form,config)=>Record \| Record`                                                                     | -             |
 | `formItemProps`                        | The configuration passed to Form.Item can be configured with rules, but the default query form rules does not take effect. Need to configure `ignoreRules`                                                                                   | `(form,config)=>formItemProps` \| `formItemProps`                                                     | -             |
@@ -284,7 +284,7 @@ If you want **client-side** sorting/filtering (and **do not** want to trigger `r
 
 ### valueType value type
 
-ProTable encapsulates some commonly used value types to reduce repeated `render` operations. Configure a [`valueType`](/components/schema#valuetype) to display formatted response data.
+ProTable encapsulates some commonly used value types to reduce repeated `render` operations. Configure a [`valueType`](/components/schema-form#common-valuetypes) to display formatted response data.
 
 ### Batch operation
 
@@ -306,7 +306,7 @@ ProTable will generate a Form for filtering list data based on columns, and the 
 
 As per the specification, table forms do not require any mandatory parameters, and all clicks on search and reset will trigger a `request` to initiate a query.
 
-Form's columns are generated with different types based on [`valueType`](/components/schema#valuetype).
+Form's columns are generated with different types based on [`valueType`](/components/schema-form#common-valuetypes).
 
 > Columns with a valueType of index indexBorder option and no dataIndex and key will be ignored.
 
