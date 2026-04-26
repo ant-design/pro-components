@@ -13,6 +13,7 @@ import {
   ModalForm,
   ProForm,
   ProFormDateRangePicker,
+  ProFormDigit,
   ProFormRadio,
   ProFormSelect,
   ProFormText,
@@ -263,8 +264,7 @@ const Demo = () => {
             </Button>
           }
           onFinish={async (values: any) => {
-            await waitTime(2000);
-
+            await waitTime(500);
             message.success('Submission successful');
           }}
           initialValues={{
@@ -339,6 +339,17 @@ const Demo = () => {
             disabled
             label="Business Manager"
             initialValue="书琰"
+          />
+          <ProFormDigit
+            name="percent"
+            label="percent"
+            width="xs"
+            min={1}
+            max={10}
+            fieldProps={{
+              precision: 2,
+              addonAfter: '%',
+            }}
           />
         </FormComponents>
       </div>
