@@ -342,7 +342,7 @@ const Demo = () => {
           />
           <ProFormDigit
             name="percent"
-            label="percent"
+            label="Percent"
             width="xs"
             min={1}
             max={10}
