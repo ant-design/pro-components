@@ -3575,10 +3575,18 @@ describe('ProForm', () => {
     await act(async () => {
       fireEvent.change(dom, {
         target: {
-          value: '22.22.22',
+          value: '22.22', // 先建立合法的 decimalValue = 22.22
         },
       });
-      fireEvent.blur(dom);
+    });
+
+    await act(async () => {
+      fireEvent.change(dom, {
+        target: {
+          value: '22.22.22', // 再设置非法字符串
+        },
+      });
+      fireEvent.blur(dom); // blur 回退到 decimalValue → precision=0 → 22
     });
 
     await act(async () => {
