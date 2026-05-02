@@ -13,6 +13,35 @@ const MENU_INDENT_PX = 16;
 const keyToString = (key: string | number) => String(key);
 
 /**
+ * 在 nodes 子树里查找 `targetKey` 的位置，返回从根到该节点路径上**所有 submenu 的 key**
+ * （不含目标 leaf 自身、不含 group 节点的 key）。找不到返回 null。
+ *
+ * 用途：popup 打开时，根据 selectedKey 自动展开包含选中项的所有祖先 submenu。
+ */
+function findAncestorSubmenuKeys(
+  nodes: NavMenuNode[],
+  targetKey: string,
+): string[] | null {
+  for (const node of nodes) {
+    if (node.kind === 'item') {
+      if (node.key === targetKey) return [];
+      continue;
+    }
+    if (node.kind === 'submenu') {
+      if (node.key === targetKey) return [];
+      const sub = findAncestorSubmenuKeys(node.children, targetKey);
+      if (sub) return [node.key, ...sub];
+      continue;
+    }
+    if (node.kind === 'group') {
+      const sub = findAncestorSubmenuKeys(node.children, targetKey);
+      if (sub) return sub;
+    }
+  }
+  return null;
+}
+
+/**
  * Submenu 右侧指示器（chevron）。
  * - 朝向由 cssinjs 控制（默认朝右；inline 展开旋转 90deg；horizontal 顶栏改为朝下）；
  * - 颜色继承父级（与 button 文字色一致），无须单独传 props；
@@ -63,6 +92,8 @@ interface ProLayoutNavMenuRenderContext {
   insideSubmenuPopup: boolean;
   selectedSet: Set<string>;
   openSet: Set<string>;
+  /** popup 内 inline submenu 的展开 key 集合（仅在 popup 内使用，与顶级 popupOpenKey 解耦） */
+  popupInnerOpenSet: Set<string>;
   openKeysProp: (string | number)[];
   popupOpenKey: string | null;
   setPopupOpenKey: React.Dispatch<React.SetStateAction<string | null>>;
@@ -75,6 +106,7 @@ interface ProLayoutNavMenuRenderContext {
     key: string,
     onTitleClick: undefined | ((e: React.MouseEvent<Element>) => void),
     e: React.MouseEvent | React.KeyboardEvent,
+    insideSubmenuPopup: boolean,
   ) => void;
 }
 
@@ -238,7 +270,14 @@ function renderPopup(
       open={isOpen}
       arrow={false}
       destroyOnHidden
-      trigger={['hover', 'click']}
+      /**
+       * 只用 hover 触发，**不要加 click**：
+       * - 加上 click 后，Popover 自身的 click trigger 会 toggle 关闭已打开的 popup，
+       *   覆盖我们 `handleSubmenuTitleClick → setPopupOpenKey(key)` 的「保持打开」语义；
+       * - 关闭路径已足够：hover 离开、叶子点击（`handleLeafActivate` 里清 key）、
+       *   切换到其它顶级 submenu（state 互斥）、Esc 键。
+       */
+      trigger="hover"
       placement={mode === 'horizontal' ? 'bottomLeft' : 'rightTop'}
       align={{ offset: mode === 'horizontal' ? [0, 4] : [4, 0] }}
       /**
@@ -254,7 +293,7 @@ function renderPopup(
       classNames={{ root: clsx(`${baseClassName}-submenu-popup`, hashId) }}
       styles={{
         container: { padding: 0 },
-        content: { padding: 4 },
+        content: { padding: 4, minWidth: 140 },
         root: { maxHeight: 'calc(100vh - 32px)', overflowY: 'auto' },
       }}
       onOpenChange={(next) => {
@@ -278,7 +317,9 @@ function renderPopup(
         })}
         aria-expanded={isOpen}
         aria-haspopup="true"
-        onClick={(e) => handleSubmenuTitleClick(node.key, node.onTitleClick, e)}
+        onClick={(e) =>
+          handleSubmenuTitleClick(node.key, node.onTitleClick, e, false)
+        }
         onKeyDown={(e) => {
           if (e.key === 'Escape' && isOpen) {
             e.stopPropagation();
@@ -318,9 +359,18 @@ function renderInlineSubmenu(
    * - popup 模式（collapsed 侧栏 / horizontal）下 popup 内的内联 submenu：
    *   `openKeysProp` 不会包含三级 key，需要用本地 `popupOpenKey` 兜底，否则三级无法展开
    */
-  const isOpen = popupMode
-    ? popupOpenKey === node.key || openSet.has(node.key)
-    : openSet.has(node.key);
+  /**
+   * 三级及以下 submenu 的展开判定：
+   * - 非 popup 模式：以受控的 `openKeysProp` 为准（openSet 已映射）
+   * - popup 模式（侧栏 collapsed / horizontal）下 popup 内的内联 submenu：
+   *   用独立的 `popupInnerOpenSet`，与顶级 `popupOpenKey` 解耦，避免点击三级
+   *   submenu 时把顶级 popup 的 key 顶掉导致整个 popup 关闭。
+   */
+  const { popupInnerOpenSet, insideSubmenuPopup } = ctx;
+  const isOpen =
+    popupMode && insideSubmenuPopup
+      ? popupInnerOpenSet.has(node.key)
+      : openSet.has(node.key);
   /**
    * 二级、三级缩进通过外层 `li.paddingInlineStart` 实现，避免与 cssinjs 中
    * `${c}-item / ${c}-submenu-title` 的 `paddingInline` shorthand 冲突
@@ -346,10 +396,28 @@ function renderInlineSubmenu(
         })}
         aria-expanded={isOpen}
         aria-haspopup="true"
-        onClick={(e) => handleSubmenuTitleClick(node.key, node.onTitleClick, e)}
+        onClick={(e) => {
+          /**
+           * 阻止冒泡：popup 内的三级 submenu button 若不阻断，事件会冒到 Popover
+           * 的 trigger（顶级 button）上，被 antd Popover 误判为「点击 trigger」
+           * 进而关闭顶级 popup。
+           */
+          e.stopPropagation();
+          handleSubmenuTitleClick(
+            node.key,
+            node.onTitleClick,
+            e,
+            insideSubmenuPopup,
+          );
+        }}
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
-            handleSubmenuTitleClick(node.key, node.onTitleClick, e);
+            handleSubmenuTitleClick(
+              node.key,
+              node.onTitleClick,
+              e,
+              insideSubmenuPopup,
+            );
           }
         }}
       >
@@ -425,12 +493,60 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
     return defaultOpenKeys[0] ?? null;
   });
 
+  /**
+   * `popupInnerOpenSet`：popup 内三级 inline submenu 的展开 key 集合。
+   * - 与 `popupOpenKey` 完全解耦：避免点击 popup 内的三级 submenu 时，
+   *   把 `popupOpenKey` 的值顶掉、导致顶级 popup 被关闭；
+   * - 顶级 popup 切换 / 关闭时（`popupOpenKey` 变化）会一并清空，
+   *   下次重新打开仍是初始折叠状态。
+   */
+  const [popupInnerOpenSet, setPopupInnerOpenSet] = useState<Set<string>>(
+    () => new Set(),
+  );
+
   useEffect(() => {
     if (!popupMode) return;
     if (defaultOpenKeys.length > 0) {
       setPopupOpenKey(defaultOpenKeys[0] ?? null);
     }
   }, [popupMode, defaultOpenKeys.join(',')]);
+
+  /**
+   * 顶级 popup 状态联动 popup 内 inline 展开：
+   * - 关闭时：清空 `popupInnerOpenSet`，下次打开仍是初始折叠；
+   * - 打开时：根据当前 `selectedKeys` 自动展开包含选中项的所有祖先 submenu，
+   *   让用户一打开就能看到当前所在路径，无需手动点开三级。
+   */
+  useEffect(() => {
+    if (popupOpenKey === null) {
+      setPopupInnerOpenSet((prev) => (prev.size === 0 ? prev : new Set()));
+      return;
+    }
+    const topNode = nodes.find(
+      (n) => n.kind === 'submenu' && n.key === popupOpenKey,
+    );
+    if (!topNode || topNode.kind !== 'submenu') return;
+    /**
+     * 在该顶级 submenu 的子树里逐个 selectedKey 探路，把所有祖先 submenu key
+     * 收进 set。注意：根 popupOpenKey 自身是顶级 popup 的状态，不属于 inner。
+     */
+    const next = new Set<string>();
+    for (const sk of selectedKeys.map(keyToString)) {
+      const ancestors = findAncestorSubmenuKeys(topNode.children, sk);
+      if (ancestors) {
+        for (const k of ancestors) next.add(k);
+      }
+    }
+    setPopupInnerOpenSet((prev) => {
+      if (
+        prev.size === next.size &&
+        [...next].every((k) => prev.has(k))
+      ) {
+        return prev;
+      }
+      return next;
+    });
+  }, [popupOpenKey, nodes, selectedKeys.join(',')]);
 
   const selectedSet = useMemo(
     () => new Set(selectedKeys.map(keyToString)),
@@ -447,16 +563,29 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
       key: string,
       onTitleClick: undefined | ((e: React.MouseEvent<Element>) => void),
       e: React.MouseEvent | React.KeyboardEvent,
+      insideSubmenuPopup: boolean,
     ) => {
       e.preventDefault();
       if (onTitleClick && 'nativeEvent' in e) {
         onTitleClick(e as React.MouseEvent<Element>);
       }
       if (popupMode) {
+        if (insideSubmenuPopup) {
+          /**
+           * popup 内的三级 inline submenu：用独立的 `popupInnerOpenSet` toggle，
+           * 不动 `popupOpenKey`，避免顶级 popup 因 key 被覆盖而误关。
+           */
+          setPopupInnerOpenSet((prev) => {
+            const next = new Set(prev);
+            if (next.has(key)) next.delete(key);
+            else next.add(key);
+            return next;
+          });
+          return;
+        }
         /**
-         * popup 模式下点击 submenu 标题只「打开」，不再 toggle 关闭。
-         * - 关闭交给 Popover 自身：hover 离开、外部点击、Esc、叶子点击触发的
-         *   `setPopupOpenKey(null)` 都会正常关；
+         * 顶级 popup 触发器：点击只「打开」，不 toggle 关闭。
+         * - 关闭交给 Popover 自身：hover 离开、Esc、叶子点击 `setPopupOpenKey(null)`；
          * - 这样反复点击同一个标题不会出现「闪关一下」的视觉抖动。
          */
         setPopupOpenKey(key);
@@ -489,6 +618,7 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
     insideSubmenuPopup: false,
     selectedSet,
     openSet,
+    popupInnerOpenSet,
     openKeysProp,
     popupOpenKey,
     setPopupOpenKey,
