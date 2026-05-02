@@ -1,10 +1,4 @@
-import {
-  LightFilter,
-  ProFormCascader,
-  ProFormText,
-  ProFormTreeSelect,
-  QueryFilter,
-} from '@ant-design/pro-components';
+import { LightFilter, ProFormText, QueryFilter } from '@ant-design/pro-components';
 import { _el, _rs } from '@rc-component/resize-observer/es/utils/observerUtil';
 import {
   act,
@@ -21,14 +15,14 @@ afterEach(() => {
   cleanup();
 });
 
-describe('✔️ ProFormLightFilter', () => {
+describe('✔️ LightFilter', () => {
   afterEach(() => {
     cleanup();
   });
   it(' ✔️ clear input values', async () => {
     const html = render(
       <LightFilter>
-        <ProFormText
+        <LightFilter.input
           name="name1"
           label="名称"
           fieldProps={{
@@ -128,7 +122,7 @@ describe('✔️ ProFormLightFilter', () => {
   it(' ✔️ lightFilter resize', async () => {
     const html = render(
       <LightFilter>
-        <ProFormTreeSelect
+        <LightFilter.treeSelect
           fieldProps={{
             fieldNames: {
               label: 'title',
@@ -195,7 +189,7 @@ describe('✔️ ProFormLightFilter', () => {
   it(' ✔️ lightFilter ProFormCascader support label', async () => {
     const html = render(
       <LightFilter>
-        <ProFormCascader
+        <LightFilter.cascader
           request={async () => [
             {
               value: 'zhejiang',

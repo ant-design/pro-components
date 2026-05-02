@@ -1,8 +1,4 @@
-import {
-  LightFilter,
-  ProFormDateTimePicker,
-  ProFormSelect,
-} from '@ant-design/pro-components';
+import { LightFilter } from '@ant-design/pro-components';
 import { message } from 'antd';
 
 const Demo = () => {
@@ -16,7 +12,7 @@ const Demo = () => {
         message.success('提交成功');
       }}
     >
-      <ProFormSelect
+      <LightFilter.select
         name="sex"
         label="性别"
         showSearch
@@ -25,7 +21,7 @@ const Demo = () => {
           woman: '女',
         }}
       />
-      <ProFormDateTimePicker name="time" label="时间" />
+      <LightFilter.dateTime name="time" label="时间" />
     </LightFilter>
   );
 };
