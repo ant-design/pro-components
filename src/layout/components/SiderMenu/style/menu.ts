@@ -36,13 +36,25 @@ export function getProLayoutSiderCssVarsStyle(): CSSProperties {
   } as CSSProperties;
 }
 
-/** 主导航语义 token，统一在根 `nav` 上注入，子选择器只用 `var(--pro-layout-nav-*)` */
+/**
+ * 主导航语义 token，统一在根 `nav` 上注入，子选择器只用 `var(--pro-layout-nav-*)`
+ *
+ * 设计原则：
+ * 1. 所有视觉值都暴露为 `--pro-layout-nav-*` CSS 变量；
+ * 2. 默认值优先映射到外部「业务语义 token」（如 `--color-gray-text-default`、
+ *    `--color-primary-control-fill-ghost-active`、`--font-text-body-emphasized-base`），
+ *    业务侧只要在外层注入这套语义 token，菜单视觉就会自动对齐；
+ * 3. 业务语义 token 缺失时，再 fallback 到 antd token 或硬编码值，保证 pro-components
+ *    单跑文档站时仍然可用。
+ */
 const navVar = {
   colorText: '--pro-layout-nav-color-text',
   colorBgHover: '--pro-layout-nav-color-bg-hover',
   colorTextHover: '--pro-layout-nav-color-text-hover',
   colorBgSelected: '--pro-layout-nav-color-bg-selected',
   colorTextSelected: '--pro-layout-nav-color-text-selected',
+  /** 选中态的图标颜色，与选中态字色解耦（SidebarMenu 使用 primary-text-secondary） */
+  colorIconSelected: '--pro-layout-nav-color-icon-selected',
   colorDivider: '--pro-layout-nav-color-divider',
   popupBg: '--pro-layout-nav-popup-bg',
   indent: '--pro-layout-nav-indent',
@@ -53,72 +65,97 @@ const navVar = {
   itemGap: '--pro-layout-nav-item-gap',
   itemFontSize: '--pro-layout-nav-item-font-size',
   itemFontWeight: '--pro-layout-nav-item-font-weight',
+  /** 单一字体 shorthand，业务侧可通过 `--font-text-body-emphasized-base` 一次性覆盖 */
+  itemFont: '--pro-layout-nav-item-font',
   itemPadBlock: '--pro-layout-nav-item-padding-block',
   itemPadInline: '--pro-layout-nav-item-padding-inline',
   stackGap: '--pro-layout-nav-stack-gap',
+  /** 分组之间的间距，默认 12px */
+  groupGap: '--pro-layout-nav-group-gap',
   groupTitleFontSize: '--pro-layout-nav-group-title-font-size',
   groupTitleLineHeight: '--pro-layout-nav-group-title-line-height',
+  /** 图标容器尺寸，默认 24px（svg 自身按 18px 渲染） */
   iconBox: '--pro-layout-nav-icon-box-size',
+  iconSvgSize: '--pro-layout-nav-icon-svg-size',
 } as const;
 
 function layoutNavCssVars(surface: 'sider' | 'header'): Record<string, string> {
   const padInline = 8;
   const stackGap = 4;
   const itemH = 32;
-  /** 侧栏主导航：浅灰底上的字色 / 交互；可通过覆盖 `--pro-layout-nav-*` 调整 */
-  const siderNavText = 'rgba(9, 30, 66, 0.86)';
-  const siderNavIcon = 'rgba(9, 30, 66, 0.31)';
-  const siderNavSection = 'rgba(9, 30, 66, 0.49)';
-  const siderNavHoverBg = 'rgba(0, 0, 0, 0.04)';
-  const siderNavSelectedBg = 'rgba(29, 122, 252, 0.23)';
-  const siderNavSelectedText = '#0055cc';
   if (surface === 'sider') {
     return {
-      [navVar.colorText]: siderNavText,
-      [navVar.colorBgHover]: siderNavHoverBg,
-      [navVar.colorTextHover]: siderNavText,
-      [navVar.colorBgSelected]: siderNavSelectedBg,
-      [navVar.colorTextSelected]: siderNavSelectedText,
+      [navVar.colorText]:
+        'var(--color-gray-text-default, rgba(9, 30, 66, 0.86))',
+      [navVar.colorBgHover]:
+        'var(--color-gray-control-fill-hover, rgba(0, 0, 0, 0.04))',
+      [navVar.colorTextHover]:
+        'var(--color-gray-text-default, rgba(9, 30, 66, 0.86))',
+      [navVar.colorBgSelected]:
+        'var(--color-primary-control-fill-ghost-active, rgba(29, 122, 252, 0.23))',
+      [navVar.colorTextSelected]:
+        'var(--color-primary-text-default, #0055cc)',
+      [navVar.colorIconSelected]:
+        'var(--color-primary-text-secondary, var(--color-primary-text-default, #0055cc))',
       [navVar.colorDivider]: 'var(--ant-color-split)',
       [navVar.popupBg]: 'var(--ant-color-bg-elevated)',
       [navVar.indent]: '16px',
-      [navVar.colorIcon]: siderNavIcon,
-      [navVar.colorSection]: siderNavSection,
+      [navVar.colorIcon]:
+        'var(--color-gray-text-disabled, rgba(9, 30, 66, 0.31))',
+      [navVar.colorSection]:
+        'var(--color-gray-text-light, rgba(9, 30, 66, 0.49))',
       [navVar.itemHeight]: `${itemH}px`,
       [navVar.itemRadius]: '6px',
       [navVar.itemGap]: '8px',
       [navVar.itemFontSize]: '14px',
       [navVar.itemFontWeight]: '500',
+      [navVar.itemFont]:
+        'var(--font-text-body-emphasized-base, 500 14px / 22px var(--ant-font-family))',
       [navVar.itemPadBlock]: '6px',
       [navVar.itemPadInline]: `${padInline}px`,
       [navVar.stackGap]: `${stackGap}px`,
+      [navVar.groupGap]: '12px',
       [navVar.groupTitleFontSize]: 'calc(var(--ant-font-size, 14px) - 1px)',
       [navVar.groupTitleLineHeight]: '20px',
-      [navVar.iconBox]: '16px',
+      [navVar.iconBox]: '24px',
+      [navVar.iconSvgSize]: '18px',
     };
   }
   return {
-    [navVar.colorText]: 'var(--ant-color-text-secondary)',
-    [navVar.colorBgHover]: 'var(--ant-color-fill-secondary)',
-    [navVar.colorTextHover]: 'var(--ant-color-text)',
-    [navVar.colorBgSelected]: 'var(--ant-color-fill-tertiary)',
-    [navVar.colorTextSelected]: 'var(--ant-color-text)',
+    [navVar.colorText]:
+      'var(--color-gray-text-default, var(--ant-color-text-secondary))',
+    [navVar.colorBgHover]:
+      'var(--color-gray-control-fill-hover, var(--ant-color-fill-secondary))',
+    [navVar.colorTextHover]:
+      'var(--color-gray-text-default, var(--ant-color-text))',
+    [navVar.colorBgSelected]:
+      'var(--color-primary-control-fill-ghost-active, var(--ant-color-fill-tertiary))',
+    [navVar.colorTextSelected]:
+      'var(--color-primary-text-default, var(--ant-color-text))',
+    [navVar.colorIconSelected]:
+      'var(--color-primary-text-secondary, var(--color-primary-text-default, var(--ant-color-text)))',
     [navVar.colorDivider]: 'var(--ant-color-split)',
     [navVar.popupBg]: 'var(--ant-color-bg-elevated)',
     [navVar.indent]: '16px',
-    [navVar.colorIcon]: 'var(--ant-color-text-secondary)',
-    [navVar.colorSection]: 'var(--ant-color-text-description)',
+    [navVar.colorIcon]:
+      'var(--color-gray-text-light, var(--ant-color-text-secondary))',
+    [navVar.colorSection]:
+      'var(--color-gray-text-light, var(--ant-color-text-description))',
     [navVar.itemHeight]: `${itemH}px`,
     [navVar.itemRadius]: '6px',
     [navVar.itemGap]: '8px',
     [navVar.itemFontSize]: 'var(--ant-font-size)',
     [navVar.itemFontWeight]: '500',
+    [navVar.itemFont]:
+      'var(--font-text-body-emphasized-base, 500 var(--ant-font-size) / var(--ant-line-height) var(--ant-font-family))',
     [navVar.itemPadBlock]: '6px',
     [navVar.itemPadInline]: `${padInline}px`,
     [navVar.stackGap]: `${stackGap}px`,
+    [navVar.groupGap]: '12px',
     [navVar.groupTitleFontSize]: 'var(--ant-font-size-sm)',
     [navVar.groupTitleLineHeight]: '20px',
-    [navVar.iconBox]: '16px',
+    [navVar.iconBox]: '24px',
+    [navVar.iconSvgSize]: '18px',
   };
 }
 
@@ -143,6 +180,11 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
     paddingBlock: v('itemPadBlock'),
     paddingInline: v('itemPadInline'),
     borderRadius: v('itemRadius'),
+    /**
+     * 字号字重统一走 `itemFont` shorthand，业务侧覆盖 `--font-text-body-emphasized-base`
+     * 即可同时改写字号、字重、行高、字族；fontSize/fontWeight 作为兼容兜底。
+     */
+    font: v('itemFont'),
     fontSize: v('itemFontSize'),
     fontWeight: v('itemFontWeight'),
     color: v('colorText'),
@@ -266,9 +308,9 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         ...stack,
       },
 
-      /** 分组之间约 12px，组内项仍用 stackGap（4px） */
+      /** 分组之间默认 12px，组内项仍用 stackGap（4px）；通过 `--pro-layout-nav-group-gap` 覆盖 */
       [`${c}-group + ${c}-group`]: {
-        marginBlockStart: 12,
+        marginBlockStart: v('groupGap'),
       },
 
       [`${c}-group-title`]: {
@@ -354,7 +396,11 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         width: v('iconBox'),
         height: v('iconBox'),
         color: v('colorIcon'),
-        fontSize: v('iconBox'),
+        /**
+         * 图标实际渲染尺寸（svg）独立于容器尺寸；
+         * 容器 24px、svg 18px 与 SidebarMenu 一致，避免一级图标过小。
+         */
+        fontSize: v('iconSvgSize'),
         lineHeight: 0,
         /** 图标区常见外包一层 span */
         '> span': {
@@ -370,20 +416,21 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           },
         },
         '> svg': {
-          width: v('iconBox'),
-          height: v('iconBox'),
+          width: v('iconSvgSize'),
+          height: v('iconSvgSize'),
           display: 'block',
         },
         img: {
-          width: v('iconBox'),
-          height: v('iconBox'),
+          width: v('iconSvgSize'),
+          height: v('iconSvgSize'),
           display: 'block',
           objectFit: 'contain',
         },
       },
 
+      /** 选中态图标颜色单独走 token，保持与字色解耦（SidebarMenu 风格） */
       [`${c}-item--selected ${c}-item-icon`]: {
-        color: v('colorTextSelected'),
+        color: v('colorIconSelected'),
       },
 
       [`${c}-divider`]: {
