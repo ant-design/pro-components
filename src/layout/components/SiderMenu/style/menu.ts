@@ -77,6 +77,8 @@ const navVar = {
   /** 图标容器尺寸，默认 24px（svg 自身按 18px 渲染） */
   iconBox: '--pro-layout-nav-icon-box-size',
   iconSvgSize: '--pro-layout-nav-icon-svg-size',
+  /** submenu 右侧指示器（chevron）尺寸，默认 12px */
+  arrowSize: '--pro-layout-nav-arrow-size',
 } as const;
 
 function layoutNavCssVars(surface: 'sider' | 'header'): Record<string, string> {
@@ -93,8 +95,7 @@ function layoutNavCssVars(surface: 'sider' | 'header'): Record<string, string> {
         'var(--color-gray-text-default, rgba(9, 30, 66, 0.86))',
       [navVar.colorBgSelected]:
         'var(--color-primary-control-fill-ghost-active, rgba(29, 122, 252, 0.23))',
-      [navVar.colorTextSelected]:
-        'var(--color-primary-text-default, #0055cc)',
+      [navVar.colorTextSelected]: 'var(--color-primary-text-default, #0055cc)',
       [navVar.colorIconSelected]:
         'var(--color-primary-text-secondary, var(--color-primary-text-default, #0055cc))',
       [navVar.colorDivider]: 'var(--ant-color-split)',
@@ -108,7 +109,7 @@ function layoutNavCssVars(surface: 'sider' | 'header'): Record<string, string> {
       [navVar.itemRadius]: '6px',
       [navVar.itemGap]: '8px',
       [navVar.itemFontSize]: '14px',
-      [navVar.itemFontWeight]: '500',
+      [navVar.itemFontWeight]: 'normal',
       [navVar.itemFont]:
         'var(--font-text-body-emphasized-base, 500 14px / 22px var(--ant-font-family))',
       [navVar.itemPadBlock]: '6px',
@@ -119,6 +120,7 @@ function layoutNavCssVars(surface: 'sider' | 'header'): Record<string, string> {
       [navVar.groupTitleLineHeight]: '20px',
       [navVar.iconBox]: '24px',
       [navVar.iconSvgSize]: '18px',
+      [navVar.arrowSize]: '12px',
     };
   }
   return {
@@ -145,9 +147,9 @@ function layoutNavCssVars(surface: 'sider' | 'header'): Record<string, string> {
     [navVar.itemRadius]: '6px',
     [navVar.itemGap]: '8px',
     [navVar.itemFontSize]: 'var(--ant-font-size)',
-    [navVar.itemFontWeight]: '500',
+    [navVar.itemFontWeight]: 'normal',
     [navVar.itemFont]:
-      'var(--font-text-body-emphasized-base, 500 var(--ant-font-size) / var(--ant-line-height) var(--ant-font-family))',
+      'var(--font-text-body-emphasized-base, normal var(--ant-font-size) / var(--ant-line-height) var(--ant-font-family))',
     [navVar.itemPadBlock]: '6px',
     [navVar.itemPadInline]: `${padInline}px`,
     [navVar.stackGap]: `${stackGap}px`,
@@ -156,6 +158,7 @@ function layoutNavCssVars(surface: 'sider' | 'header'): Record<string, string> {
     [navVar.groupTitleLineHeight]: '20px',
     [navVar.iconBox]: '24px',
     [navVar.iconSvgSize]: '18px',
+    [navVar.arrowSize]: '12px',
   };
 }
 
@@ -209,7 +212,9 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
 
   return {
     [c]: {
-      ...(isHorizontal ? layoutNavCssVars('header') : layoutNavCssVars('sider')),
+      ...(isHorizontal
+        ? layoutNavCssVars('header')
+        : layoutNavCssVars('sider')),
       background: 'transparent',
       border: 'none',
       width: '100%',
@@ -224,9 +229,27 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
 
       [`${c}-list--root`]: !isHorizontal ? { flex: 1, minHeight: 0 } : {},
 
+      /**
+       * 外层 `<li>` 仅承担布局/缩进角色：
+       * - 视觉态（hover / selected / disabled）通过组合选择器作用到内层 `${c}-item-button`，
+       *   确保浏览器默认 `button` 边框/背景被完全 reset；
+       * - 缩进通过内联 `paddingInlineStart` 写在 `<li>` 上，避免与 `${c}-item-button` 的
+       *   `paddingInline` shorthand 冲突。
+       */
       [`${c}-item`]: {
         listStyle: 'none',
+        margin: 0,
+        padding: 0,
+      },
+
+      /** 真正承载点击/键盘交互与视觉的 `<button>`：完整 reset 浏览器默认样式 */
+      [`${c}-item-button`]: {
         ...rowItem,
+        /** 显式 reset：避免 UA 默认 `button` 的浅灰背景 / 1px border / 字体继承差异 */
+        appearance: 'none',
+        WebkitAppearance: 'none',
+        font: v('itemFont'),
+        fontFamily: 'inherit',
         /** 标题区（icon+文案）直接作为子节点，省一层 wrapper */
         [`> *`]: {
           flex: 1,
@@ -236,18 +259,33 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           alignItems: 'center',
           gap: v('itemGap'),
         },
-        '&:hover:not(&--disabled)': {
+        '&:hover:not(:disabled)': {
           backgroundColor: v('colorBgHover'),
           color: v('colorTextHover'),
         },
-        '&--selected': {
-          backgroundColor: v('colorBgSelected'),
-          color: v('colorTextSelected'),
-        },
-        '&--disabled': {
+        '&:disabled': {
           cursor: 'not-allowed',
           opacity: 0.45,
         },
+      },
+
+      /** Firefox 旧版本：button 内部的虚线焦点框 */
+      [`${c}-item-button::-moz-focus-inner, ${c}-submenu-title::-moz-focus-inner`]:
+        {
+          border: 0,
+          padding: 0,
+        },
+
+      /** 选中态：作用在外层 li 的修饰符上，组合选中 button */
+      [`${c}-item--selected ${c}-item-button`]: {
+        backgroundColor: v('colorBgSelected'),
+        color: v('colorTextSelected'),
+      },
+
+      /** 禁用 li 的兼容（部分场景外层 li 也带 disabled 修饰） */
+      [`${c}-item--disabled ${c}-item-button`]: {
+        cursor: 'not-allowed',
+        opacity: 0.45,
       },
 
       [`${c}-submenu`]: {
@@ -257,11 +295,22 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         position: 'relative',
       },
 
+      /**
+       * Submenu 标题本身就是 `<button>`：与 `${c}-item-button` 一样需要完整 reset 浏览器
+       * 默认样式，否则会出现外层灰边框（即图中的问题）。
+       *
+       * DOM：`<button> [item-title] [submenu-arrow] </button>`
+       * - `[item-title]`（第一个子节点）拿走剩余空间，承载 icon + label；
+       * - `[submenu-arrow]` 自然贴右，不参与 flex 拉伸。
+       */
       [`${c}-submenu-title`]: {
         ...rowItem,
-        font: 'inherit',
-        /** 子菜单标题内联 DOM（与 leaf 一致） */
-        [`> *`]: {
+        appearance: 'none',
+        WebkitAppearance: 'none',
+        font: v('itemFont'),
+        fontFamily: 'inherit',
+        /** 第一个子节点（item-title）拿走剩余空间；其它子节点（如 arrow）自适应 */
+        [`> :first-child`]: {
           flex: 1,
           minWidth: 0,
           display: 'flex',
@@ -273,6 +322,39 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           backgroundColor: v('colorBgHover'),
           color: v('colorTextHover'),
         },
+      },
+
+      /**
+       * Submenu 右侧指示器（chevron）。
+       * - 容器尺寸跟随 `--pro-layout-nav-arrow-size`（默认 12px）；
+       * - 颜色继承父级（与文字色一致），选中态会自动跟随；
+       * - 朝向：
+       *   * 默认（垂直 inline）：朝右（rotate(0deg)），展开时旋转 90deg 朝下；
+       *   * 水平顶栏：默认朝下（rotate(90deg)），展开时旋转 -90deg 收回为朝上；
+       *   * popup 模式（侧栏 collapsed 一级、horizontal 顶栏一级 popup）：始终朝右
+       *     提示「点击会弹出浮层」，由各自上下文规则覆盖。
+       */
+      [`${c}-submenu-arrow`]: {
+        flex: 'none',
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: v('arrowSize'),
+        height: v('arrowSize'),
+        marginInlineStart: v('itemGap'),
+        color: 'currentColor',
+        opacity: 0.6,
+        transition: `transform var(--ant-motion-duration-mid, 0.2s)`,
+        svg: {
+          width: '100%',
+          height: '100%',
+          display: 'block',
+        },
+      },
+
+      /** 展开态：inline 模式下旋转 90deg（chevron 朝下），与常见菜单组件一致 */
+      [`${c}-submenu-title--open ${c}-submenu-arrow`]: {
+        transform: 'rotate(90deg)',
       },
 
       /** 子菜单展开列表（原 submenu-inline，类名缩短避免与 li.submenu 语义重复） */
@@ -288,20 +370,6 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           width: '100%',
           minWidth: 0,
         },
-      },
-
-      [`${c}-submenu-popup`]: {
-        position: 'fixed',
-        margin: 0,
-        minWidth: 160,
-        maxHeight: 'calc(100vh - 32px)',
-        overflowY: 'auto',
-        padding: 'var(--ant-padding-xxs, 4px)',
-        zIndex: `var(--ant-z-index-popup-base)`,
-        boxShadow: `var(--ant-box-shadow-secondary)`,
-        borderRadius: `var(--ant-border-radius-lg)`,
-        backgroundColor: v('popupBg'),
-        ...stack,
       },
 
       [`${c}-group`]: {
@@ -389,43 +457,56 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
       },
 
       [`${c}-item-icon`]: {
-        display: 'flex',
+        display: 'inline-flex',
         flexShrink: 0,
         alignItems: 'center',
         justifyContent: 'center',
-        width: v('iconBox'),
-        height: v('iconBox'),
         color: v('colorIcon'),
         /**
-         * 图标实际渲染尺寸（svg）独立于容器尺寸；
-         * 容器 24px、svg 18px 与 SidebarMenu 一致，避免一级图标过小。
+         * 关键设计：icon 尺寸跟随**外层文本的 fontSize**，而不是强制 18px。
+         * - 一级菜单（item-button 字号 14px → 用 `--pro-layout-nav-icon-svg-size` 单独放大到 18px）
+         * - group-title（13px）下，svg 用 `1em` 自然跟随，视觉上与标题等高
+         *
+         * 因此：
+         * 1. 容器自身宽高用 `1em`（跟随父级 fontSize），不再写死 24px；
+         * 2. fontSize 设为 `inherit`（默认就是 inherit，显式写一遍提示语义）；
+         * 3. svg/anticon 用 `1em`，让字号链路自然传导。
+         *
+         * 一级菜单想要 18px 的图标，由 `${c}-item-button ${c}-item-icon`、
+         * `${c}-submenu-title ${c}-item-icon` 把 fontSize 单独放大到 `iconSvgSize`。
          */
-        fontSize: v('iconSvgSize'),
+        fontSize: 'inherit',
         lineHeight: 0,
-        /** 图标区常见外包一层 span */
-        '> span': {
+        span: {
           display: 'inline-flex',
           alignItems: 'center',
           justifyContent: 'center',
           fontSize: 'inherit',
           lineHeight: 0,
-          '& > svg': {
-            width: '1em',
-            height: '1em',
-            display: 'block',
-          },
         },
-        '> svg': {
-          width: v('iconSvgSize'),
-          height: v('iconSvgSize'),
+        svg: {
+          width: '1em',
+          height: '1em',
           display: 'block',
         },
         img: {
-          width: v('iconSvgSize'),
-          height: v('iconSvgSize'),
+          width: '1em',
+          height: '1em',
           display: 'block',
           objectFit: 'contain',
         },
+      },
+
+      /**
+       * 一级菜单与 submenu 标题：把 icon 的 fontSize 单独放大到 `iconSvgSize`（默认 18px）。
+       * 这样：
+       * - leaf / submenu 标题里 icon = 18px（与 SidebarMenu 一致）
+       * - group-title 里 icon = 13px（继承 group title 字号，与标题等高）
+       */
+      [`${c}-item-button ${c}-item-icon, ${c}-submenu-title ${c}-item-icon`]: {
+        fontSize: v('iconSvgSize'),
+        width: v('iconBox'),
+        height: v('iconBox'),
       },
 
       /** 选中态图标颜色单独走 token，保持与字色解耦（SidebarMenu 风格） */
@@ -533,6 +614,26 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
       [`${c}-submenu-popup`]: {
         [`${c}-item-title`]: { alignItems: 'flex-start' },
       },
+
+      /**
+       * 顶栏 horizontal 模式下的一级 submenu 触发器：箭头默认朝下（rotate 90deg），
+       * 提示「向下展开 popup」；popup 已展开时不旋转，避免出现指向反向的视觉。
+       */
+      [`${c}-submenu-title ${c}-submenu-arrow`]: {
+        transform: 'rotate(90deg)',
+      },
+      [`${c}-submenu-title--open ${c}-submenu-arrow`]: {
+        transform: 'rotate(90deg)',
+      },
+    },
+
+    /**
+     * popup 模式（侧栏 collapsed 一级 / horizontal 顶栏一级）下，
+     * 一级 submenu 触发器箭头朝右，提示「点击会向侧弹出浮层」。
+     * 注意：horizontal 块上面已单独覆盖为朝下，这里仅对 collapsed 侧栏生效。
+     */
+    [`${c}--collapsed ${c}-submenu-title ${c}-submenu-arrow`]: {
+      transform: 'rotate(0deg)',
     },
 
     [`${c}-link-list`]: {
@@ -548,6 +649,244 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
     },
 
     [`${c}-link`]: { display: 'block' },
+
+    /**
+     * Popup 浮层（antd `Popover` 的 `overlayClassName`）。
+     *
+     * 关键点：
+     * 1. 此选择器必须**位于顶级**（不嵌套在 `[c]` 内），因为 `Popover` 的 overlay 直接挂
+     *    在 `document.body` 下，不在 nav 子树里，与 `[c]` 没有祖先关系；
+     * 2. 主 nav 子树内的 reset/视觉规则（`list-style:none`、`item-button`、`submenu-title`、
+     *    `item-icon`、`item-title` 等）popup 内**全部接收不到**，所以这里必须把 popup 内
+     *    用到的规则原样补齐一份；
+     * 3. 注入 `--pro-layout-nav-*` token 默认值（与 sider 一致），保证业务侧外层即使没
+     *    透传 token，popup 内仍有合理的兜底。
+     */
+    [`${c}-submenu-popup`]: {
+      ...layoutNavCssVars('sider'),
+      color: v('colorText'),
+
+      /**
+       * 视觉相关：
+       * - 内层 padding / maxHeight / overflow 已通过 antd Popover 原生 API
+       *   （`styles.container` / `styles.root`）配置，这里不再覆盖 `.ant-popover-inner`；
+       * - 背景色 / 圆角走 antd Popover 自带 token（`colorBgElevated` /
+       *   `borderRadiusLG`），与全局主题保持一致；
+       * - 最小宽度 / 业务私有 token 通过 popup 容器的 `${c}-item-button` 等子规则
+       *   生效，无需额外覆盖。
+       */
+
+      /**
+       * 列表 reset：popup 内 `<ul>` / `<li>` 默认会带 disc 圆点 + 浏览器默认
+       * `padding-inline-start: 40px`，必须手动清掉，否则一级 panel 会向右被
+       * 推 40px、与 popover 内 padding 不对齐。
+       */
+      ul: {
+        listStyle: 'none',
+        margin: 0,
+        padding: 0,
+        paddingInlineStart: 0,
+        display: 'flex',
+        flexDirection: 'column',
+        gap: v('stackGap'),
+        width: '100%',
+      },
+      li: {
+        listStyle: 'none',
+        margin: 0,
+        padding: 0,
+      },
+
+      /** 子菜单 inline 展开（三级及以下）保持 stack */
+      [`${c}-submenu-children`]: {
+        listStyle: 'none',
+        margin: 0,
+        padding: 0,
+        paddingBlockStart: v('stackGap'),
+        display: 'flex',
+        flexDirection: 'column',
+        gap: v('stackGap'),
+        width: '100%',
+      },
+
+      /** Item 行（leaf）外层 li 仅承担布局/缩进 */
+      [`${c}-item`]: {
+        listStyle: 'none',
+        margin: 0,
+        padding: 0,
+      },
+
+      /** Item button：完整 reset + rowItem 视觉 */
+      [`${c}-item-button, ${c}-submenu-title`]: {
+        boxSizing: 'border-box',
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        width: '100%',
+        minHeight: v('itemHeight'),
+        height: v('itemHeight'),
+        minWidth: 0,
+        margin: 0,
+        paddingBlock: v('itemPadBlock'),
+        paddingInline: v('itemPadInline'),
+        borderRadius: v('itemRadius'),
+        font: v('itemFont'),
+        fontFamily: 'inherit',
+        fontSize: v('itemFontSize'),
+        fontWeight: v('itemFontWeight'),
+        color: v('colorText'),
+        cursor: 'pointer',
+        outline: 'none',
+        border: 'none',
+        background: 'transparent',
+        appearance: 'none',
+        WebkitAppearance: 'none',
+        textAlign: 'start',
+        transition: `background-color var(--ant-motion-duration-mid, 0.2s), color var(--ant-motion-duration-mid, 0.2s)`,
+        /**
+         * 第一个子节点（item-title）拿走剩余空间；后续子节点（如 submenu-arrow）
+         * 自然贴右，不参与 flex 拉伸。这与主区 `${c}-submenu-title` 规则保持一致，
+         * 否则 popup 内 arrow 会被 flex:1 撑大到与 title 等宽。
+         */
+        [`> :first-child`]: {
+          flex: 1,
+          minWidth: 0,
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
+          gap: v('itemGap'),
+        },
+        '&:hover:not(:disabled)': {
+          backgroundColor: v('colorBgHover'),
+          color: v('colorTextHover'),
+        },
+        '&:disabled': {
+          cursor: 'not-allowed',
+          opacity: 0.45,
+        },
+      },
+
+      /**
+       * popup 内 submenu 指示器（chevron）。规则需在 popup 容器里独立写一份：
+       * - popup 节点直接挂 `document.body`，吃不到主 nav 子树里的 `${c}-submenu-arrow`
+       *   规则；
+       * - popup 内的 submenu 都是 inline 展开（三级及以下），方向：默认朝右、
+       *   展开时旋转 90deg 朝下，与主区垂直 inline 行为一致。
+       */
+      [`${c}-submenu-arrow`]: {
+        flex: 'none',
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: v('arrowSize'),
+        height: v('arrowSize'),
+        marginInlineStart: v('itemGap'),
+        color: 'currentColor',
+        opacity: 0.6,
+        transition: `transform var(--ant-motion-duration-mid, 0.2s)`,
+        svg: {
+          width: '100%',
+          height: '100%',
+          display: 'block',
+        },
+      },
+      [`${c}-submenu-title--open ${c}-submenu-arrow`]: {
+        transform: 'rotate(90deg)',
+      },
+
+      [`${c}-item--selected ${c}-item-button`]: {
+        backgroundColor: v('colorBgSelected'),
+        color: v('colorTextSelected'),
+      },
+
+      /** Item title 行：icon + label 横向布局 */
+      [`${c}-item-title`]: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: v('itemGap'),
+        width: '100%',
+        minWidth: 0,
+      },
+
+      [`${c}-item-label`]: {
+        flex: 1,
+        minWidth: 0,
+        textAlign: 'start',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        whiteSpace: 'nowrap',
+      },
+
+      /** Icon 容器：默认跟随父字号；leaf/submenu-title 内单独放大到 18px */
+      [`${c}-item-icon`]: {
+        display: 'inline-flex',
+        flexShrink: 0,
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: v('colorIcon'),
+        fontSize: 'inherit',
+        lineHeight: 0,
+        span: {
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontSize: 'inherit',
+          lineHeight: 0,
+        },
+        svg: { width: '1em', height: '1em', display: 'block' },
+        img: {
+          width: '1em',
+          height: '1em',
+          display: 'block',
+          objectFit: 'contain',
+        },
+      },
+      [`${c}-item-button ${c}-item-icon, ${c}-submenu-title ${c}-item-icon`]: {
+        fontSize: v('iconSvgSize'),
+        width: v('iconBox'),
+        height: v('iconBox'),
+      },
+      [`${c}-item--selected ${c}-item-icon`]: {
+        color: v('colorIconSelected'),
+      },
+
+      /** Group 块：标题 + 列表 */
+      [`${c}-group`]: {
+        display: 'flex',
+        flexDirection: 'column',
+        gap: v('stackGap'),
+        width: '100%',
+      },
+      [`${c}-group + ${c}-group`]: {
+        marginBlockStart: v('groupGap'),
+      },
+      /**
+       * 用 `&&` 双类提升特异性，确保覆盖外层 `[c]` 内嵌套定义的 `${c}-group-title`
+       * 旧规则 `paddingInline: itemPadInline`。
+       *
+       * 左缩进 = 基础 padding + icon 容器 + icon→label 的 gap，
+       * 让 group title 的文字与下方 leaf 文字起始 x 对齐（"列表页面" 对齐 "二级列表页面"）。
+       */
+      [`&& ${c}-group-title`]: {
+        margin: 0,
+        paddingInlineStart: `calc(${v('itemPadInline')} + ${v('iconBox')} + ${v('itemGap')})`,
+        paddingInlineEnd: v('itemPadInline'),
+        paddingBlockStart: v('stackGap'),
+        paddingBlockEnd: v('stackGap'),
+        fontSize: v('groupTitleFontSize'),
+        fontWeight: v('itemFontWeight'),
+        lineHeight: v('groupTitleLineHeight'),
+        color: v('colorSection'),
+      },
+    },
+
+    /** Firefox 旧版本：popup 内 button 焦点框 reset */
+    [`${c}-submenu-popup ${c}-item-button::-moz-focus-inner, ${c}-submenu-popup ${c}-submenu-title::-moz-focus-inner`]:
+      {
+        border: 0,
+        padding: 0,
+      },
   } as CSSInterpolation;
 };
 

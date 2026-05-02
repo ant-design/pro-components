@@ -1,4 +1,4 @@
-﻿import { useCallback, useRef } from 'react';
+import { useCallback, useRef } from 'react';
 
 const useRefFunction = <T extends (...args: any) => any>(reFunction: T) => {
   const ref = useRef<any>(null);

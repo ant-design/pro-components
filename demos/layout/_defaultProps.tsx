@@ -1,6 +1,6 @@
 import {
-  ChromeFilled,
   CrownFilled,
+  ShopOutlined,
   SmileFilled,
   TabletFilled,
 } from '@ant-design/icons';
@@ -11,86 +11,127 @@ export default {
     routes: [
       {
         path: '/welcome',
-        name: '欢迎',
+        name: '工作台',
         icon: <SmileFilled />,
         component: './Welcome',
       },
       {
-        path: '/admin',
-        name: '管理页',
-        icon: <CrownFilled />,
-        access: 'canAdmin',
-        component: './Admin',
+        path: '/product',
+        name: '商品管理',
+        icon: <ShopOutlined />,
+        component: './Product',
         routes: [
           {
-            path: '/admin/sub-page1',
-            name: '一级页面',
-            icon: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
-            component: './Welcome',
-          },
-          {
-            path: '/admin/sub-page2',
-            name: '二级页面',
-            icon: <CrownFilled />,
-            component: './Welcome',
-          },
-          {
-            path: '/admin/sub-page3',
-            name: '三级页面',
-            icon: <CrownFilled />,
-            component: './Welcome',
-          },
-        ],
-      },
-      {
-        name: '列表页',
-        icon: <TabletFilled />,
-        path: '/list',
-        component: './ListTableList',
-        routes: [
-          {
-            path: '/list/sub-page',
-            name: '列表页面',
-            icon: <CrownFilled />,
+            path: '/product/list',
+            name: '商品列表',
             routes: [
               {
-                path: 'sub-sub-page1',
-                name: '一一级列表页面',
-                icon: <CrownFilled />,
+                path: 'on-sale',
+                name: '在售商品',
                 component: './Welcome',
               },
               {
-                path: 'sub-sub-page2',
-                name: '一二级列表页面',
-                icon: <CrownFilled />,
+                path: 'draft',
+                name: '草稿箱',
                 component: './Welcome',
               },
               {
-                path: 'sub-sub-page3',
-                name: '一三级列表页面',
-                icon: <CrownFilled />,
+                path: 'off-shelf',
+                name: '已下架',
                 component: './Welcome',
               },
             ],
           },
           {
-            path: '/list/sub-page2',
-            name: '二级列表页面',
-            icon: <CrownFilled />,
+            path: '/product/category',
+            name: '商品分类',
             component: './Welcome',
           },
           {
-            path: '/list/sub-page3',
-            name: '三级列表页面',
-            icon: <CrownFilled />,
+            path: '/product/brand',
+            name: '品牌管理',
+            component: './Welcome',
+          },
+          {
+            path: '/product/inventory',
+            name: '库存管理',
             component: './Welcome',
           },
         ],
       },
       {
-        path: 'https://ant.design',
-        name: 'Ant Design 官网外链',
-        icon: <ChromeFilled />,
+        path: '/order',
+        name: '订单中心',
+        icon: <TabletFilled />,
+        component: './Order',
+        routes: [
+          {
+            path: '/order/sales',
+            name: '销售订单',
+            routes: [
+              {
+                path: 'pending',
+                name: '待付款',
+                component: './Welcome',
+              },
+              {
+                path: 'paid',
+                name: '已付款',
+                component: './Welcome',
+              },
+              {
+                path: 'shipped',
+                name: '已发货',
+                component: './Welcome',
+              },
+              {
+                path: 'completed',
+                name: '已完成',
+                component: './Welcome',
+              },
+            ],
+          },
+          {
+            path: '/order/refund',
+            name: '退款售后',
+            component: './Welcome',
+          },
+          {
+            path: '/order/invoice',
+            name: '发票申请',
+            component: './Welcome',
+          },
+        ],
+      },
+      {
+        path: '/admin',
+        name: '系统管理',
+        icon: <CrownFilled />,
+        access: 'canAdmin',
+        component: './Admin',
+        routes: [
+          {
+            path: '/admin/users',
+            name: '用户管理',
+            icon: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
+            component: './Welcome',
+          },
+          {
+            path: '/admin/roles',
+            name: '角色权限',
+            component: './Welcome',
+          },
+          {
+            path: '/admin/menu',
+            name: '菜单管理',
+            component: './Welcome',
+          },
+          {
+            path: '/admin/audit-logs',
+            name: '操作日志',
+            component: './Welcome',
+          },
+        ],
       },
     ],
   },
