@@ -1,6 +1,5 @@
-﻿import React, { useCallback } from 'react';
+﻿import React from 'react';
 import { useIntl } from '../../../provider';
-import { isNil } from '../../../utils';
 import {
   isProFieldEditOrUpdateMode,
   isProFieldReadMode,
@@ -22,34 +21,7 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
   const intl = useIntl();
   const placeholderValue =
     placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入');
-  const proxyChange = useCallback(
-    (value: number | string | null) => {
-      let val = value ?? undefined;
 
-      if (!fieldProps.stringMode && typeof val === 'string') {
-        const numVal = Number(val);
-        if (isNaN(numVal)) {
-          const match = val.match(/^(\d+(?:\.\d+)?)/);
-          if (match) {
-            val = Number(match[1]);
-          } else {
-            val = undefined;
-          }
-        } else {
-          val = numVal;
-        }
-      }
-      if (
-        typeof val === 'number' &&
-        !isNil(val) &&
-        !isNil(fieldProps.precision)
-      ) {
-        val = Number(val.toFixed(fieldProps.precision));
-      }
-      return val;
-    },
-    [fieldProps],
-  );
   if (isProFieldReadMode(type)) {
     return FieldDigitRead(
       { text, mode: type, render, placeholder, formItemRender, fieldProps },
@@ -66,7 +38,6 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
         formItemRender,
         fieldProps,
         placeholderValue,
-        proxyChange,
       },
       ref,
     );
