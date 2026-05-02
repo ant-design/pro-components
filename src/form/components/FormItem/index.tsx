@@ -69,20 +69,18 @@ const WithValueFomFiledProps: React.FC<
     );
   });
 
+  const childFieldProps = React.isValidElement(filedChildren)
+    ? (filedChildren.props as Record<string, any>)?.fieldProps
+    : undefined;
+
   const omitOnBlurAndOnChangeProps = useDeepCompareMemo(
     () =>
       omit(
         // @ts-ignore
-        filedChildren?.props?.fieldProps || {},
+        childFieldProps || {},
         ['onBlur', 'onChange'],
       ),
-    [
-      omit(
-        // @ts-ignore
-        filedChildren?.props?.fieldProps || {},
-        ['onBlur', 'onChange'],
-      ),
-    ],
+    [childFieldProps],
   );
   const propsValuePropName = formFieldProps[valuePropName];
 

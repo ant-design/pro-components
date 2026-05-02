@@ -390,13 +390,12 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
           nameList,
         );
       },
-      /** 
       /**
-       *验字段后返回格式化之后的所有数据
+       * 验字段后返回格式化之后的所有数据
        * @param nameList (string|number)[]
        * @param omitNilParam boolean
        * @returns T
-       * 
+       *
        * @example validateFieldsReturnFormatValue -> {a:{b:value}}
        */
       validateFieldsReturnFormatValue: async (
@@ -493,7 +492,7 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
       return contentRender(wrapItems as any, submitterNode, formRef.current);
     }
     return wrapItems;
-  }, [grid, RowWrapper, items, contentRender, submitterNode]);
+  }, [grid, RowWrapper, items, contentRender, submitterNode, formRef]);
 
   const preInitialValues = usePrevious(props.initialValues);
 
@@ -595,7 +594,7 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
         return transformedKey ? transformedKey : {};
       },
     };
-  }, [omitNil, transformKey, formRef.current]);
+  }, [omitNil, transformKey, propsFormRef]);
   useEffect(() => {
     const finalValues = transformKey(
       formRef.current?.getFieldsValue?.(true),
