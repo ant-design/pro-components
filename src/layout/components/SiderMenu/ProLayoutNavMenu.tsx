@@ -213,6 +213,12 @@ function renderPopup(
   const isOpen = popupOpenKey === node.key;
   const hasIconClass = node.className?.includes('submenu-has-icon');
 
+  /**
+   * popup 内重置 depth 起算：popup 自身已经把当前 submenu「外移」到浮层里，
+   * 浮层内第一级不应该再继承外部 inline 缩进（外部 depth 可能是 0/1/2…）。
+   * - popup 内最外层 children：depth=0，无缩进；
+   * - popup 内嵌套的 inline submenu/leaf：仍按 0/1/2 递增缩进。
+   */
   const popupContent = (
     <ul
       role="menu"
@@ -221,7 +227,7 @@ function renderPopup(
     >
       {node.children.map((child) => {
         // eslint-disable-next-line @typescript-eslint/no-use-before-define -- renderNode 定义在文件后部
-        return renderNode(popupCtx, child, depth + 1);
+        return renderNode(popupCtx, child, 0);
       })}
     </ul>
   );
@@ -248,7 +254,7 @@ function renderPopup(
       classNames={{ root: clsx(`${baseClassName}-submenu-popup`, hashId) }}
       styles={{
         container: { padding: 0 },
-        content: { padding: 8 },
+        content: { padding: 4 },
         root: { maxHeight: 'calc(100vh - 32px)', overflowY: 'auto' },
       }}
       onOpenChange={(next) => {
@@ -447,7 +453,13 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
         onTitleClick(e as React.MouseEvent<Element>);
       }
       if (popupMode) {
-        setPopupOpenKey((prev) => (prev === key ? null : key));
+        /**
+         * popup 模式下点击 submenu 标题只「打开」，不再 toggle 关闭。
+         * - 关闭交给 Popover 自身：hover 离开、外部点击、Esc、叶子点击触发的
+         *   `setPopupOpenKey(null)` 都会正常关；
+         * - 这样反复点击同一个标题不会出现「闪关一下」的视觉抖动。
+         */
+        setPopupOpenKey(key);
         return;
       }
       const isOpen = openSet.has(key);
