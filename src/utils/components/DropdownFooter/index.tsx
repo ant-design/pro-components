@@ -4,12 +4,7 @@ import React, { useContext } from 'react';
 import { useIntl } from '../../../provider';
 import { useStyle } from './style';
 
-type LightFilterFooterRender =
-  | ((
-      onConfirm?: (e?: React.MouseEvent) => void,
-      onClear?: (e?: React.MouseEvent) => void,
-    ) => React.JSX.Element | false)
-  | false;
+import type { LightFilterFooterRender } from '../../../form/typing';
 
 type OnClick = (e?: React.MouseEvent) => void;
 

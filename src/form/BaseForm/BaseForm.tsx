@@ -219,7 +219,7 @@ export type BaseFormProps<T = Record<string, any>, U = Record<string, any>> = {
   /** 是否回车提交 */
   isKeyPressSubmit?: boolean;
   /** Form 组件的类型，内部使用 */
-  formComponentType?: 'DrawerForm' | 'ModalForm' | 'QueryFilter';
+  formComponentType?: 'DrawerForm' | 'ModalForm' | 'QueryFilter' | 'LightFilter';
 } & Omit<FormProps, 'onFinish'> &
   CommonFormProps<T, U>;
 

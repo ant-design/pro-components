@@ -10,7 +10,6 @@ const genLightFilterStyle: GenerateStyle<LightFilterToken> = (token) => {
     [token.componentCls]: {
       boxSizing: 'border-box',
       lineHeight: '30px',
-      // @see https://yuque.antfin-inc.com/tech-ui/topics/523
       '&::before': {
         display: 'block',
         height: 0,
@@ -55,11 +54,11 @@ const genLightFilterStyle: GenerateStyle<LightFilterToken> = (token) => {
 
 export function useStyle(prefixCls: string) {
   return useAntdStyle('LightFilter', (token) => {
-    const proCardToken: LightFilterToken = {
+    const layoutToken: LightFilterToken = {
       ...token,
       componentCls: `.${prefixCls}`,
     };
 
-    return [genLightFilterStyle(proCardToken)];
+    return [genLightFilterStyle(layoutToken)];
   });
 }

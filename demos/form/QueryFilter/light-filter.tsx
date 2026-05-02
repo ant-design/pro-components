@@ -1,20 +1,4 @@
-import {
-  LightFilter,
-  ProFormCascader,
-  ProFormCheckbox,
-  ProFormDatePicker,
-  ProFormDateRangePicker,
-  ProFormDateTimePicker,
-  ProFormDateTimeRangePicker,
-  ProFormDigit,
-  ProFormFieldSet,
-  ProFormSelect,
-  ProFormSlider,
-  ProFormSwitch,
-  ProFormText,
-  ProFormTimePicker,
-  ProFormTreeSelect,
-} from '@ant-design/pro-components';
+import { LightFilter } from '@ant-design/pro-components';
 import { Radio, Space, TreeSelect } from 'antd';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import dayjs from 'dayjs';
@@ -210,7 +194,7 @@ const Demo = () => {
           console.log('筛选提交:', values);
         }}
       >
-        <ProFormSelect
+        <LightFilter.select
           name="sex"
           label="性别"
           showSearch
@@ -221,7 +205,7 @@ const Demo = () => {
             woman: '女',
           }}
         />
-        <ProFormSelect
+        <LightFilter.select
           name="area"
           label="地区"
           mode="multiple"
@@ -234,12 +218,12 @@ const Demo = () => {
             long: '这是一个很长的用来测试溢出的项目',
           }}
         />
-        <ProFormCheckbox.Group
+        <LightFilter.checkboxGroup
           name="checkboxGroup"
           label="标签"
           options={['A', 'B', 'C', 'D', 'E', 'F']}
         />
-        <ProFormTreeSelect
+        <LightFilter.treeSelect
           label="树形选择"
           name="treeSelect"
           fieldProps={{
@@ -250,7 +234,7 @@ const Demo = () => {
             placeholder: '请选择',
           }}
         />
-        <ProFormCascader
+        <LightFilter.cascader
           name="region"
           label="区域"
           width="md"
@@ -259,28 +243,28 @@ const Demo = () => {
             placeholder: '请选择省/市/区',
           }}
         />
-        <ProFormSwitch name="open" label="开关" />
-        <ProFormSwitch name="status" label="状态" secondary />
-        <ProFormDigit name="count" label="数量" min={0} max={9999} />
-        <ProFormSlider name="range" label="范围" range />
-        <ProFormSlider name="slider" label="滑块" />
-        <ProFormText name="keyword" label="关键词" placeholder="请输入关键词" />
-        <ProFormText
+        <LightFilter.switch name="open" label="开关" />
+        <LightFilter.switch name="status" label="状态" secondary />
+        <LightFilter.digit name="count" label="数量" min={0} max={9999} />
+        <LightFilter.slider name="range" label="范围" range />
+        <LightFilter.slider name="slider" label="滑块" />
+        <LightFilter.input name="keyword" label="关键词" placeholder="请输入关键词" />
+        <LightFilter.input
           name="address"
           label="地址"
           secondary
           placeholder="请输入地址"
         />
-        <ProFormDatePicker name="date" label="日期" allowClear={false} />
-        <ProFormDateRangePicker name="dateRange" label="日期范围" />
-        <ProFormDateTimePicker name="datetime" label="日期时间" />
-        <ProFormDateTimeRangePicker name="datetimeRange" label="日期时间范围" />
-        <ProFormTimePicker name="time" label="时间" />
-        <ProFormTimePicker.RangePicker name="timeRange" label="时间范围" />
-        <ProFormFieldSet name="nameSet" label="姓名">
-          <ProFormText placeholder="姓" />
-          <ProFormText placeholder="名" />
-        </ProFormFieldSet>
+        <LightFilter.date name="date" label="日期" allowClear={false} />
+        <LightFilter.dateRange name="dateRange" label="日期范围" />
+        <LightFilter.dateTime name="datetime" label="日期时间" />
+        <LightFilter.dateTimeRange name="datetimeRange" label="日期时间范围" />
+        <LightFilter.time name="time" label="时间" />
+        <LightFilter.timePickerRange name="timeRange" label="时间范围" />
+        <LightFilter.fieldSet name="nameSet" label="姓名">
+          <LightFilter.input placeholder="姓" />
+          <LightFilter.input placeholder="名" />
+        </LightFilter.fieldSet>
       </LightFilter>
     </div>
   );

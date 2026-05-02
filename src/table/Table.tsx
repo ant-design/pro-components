@@ -723,7 +723,7 @@ const ProTable = <
     },
   };
 
-  /** 是不是 LightFilter, LightFilter 有一些特殊的处理 */
+  /** LightFilter（轻量筛选）时工具栏把 search 插到左侧 */
   const isLightFilter: boolean =
     search !== false && search?.filterType === 'light';
 

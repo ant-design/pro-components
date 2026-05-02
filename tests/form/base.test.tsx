@@ -1872,7 +1872,7 @@ describe('ProForm', () => {
     const onRequest = vi.fn();
     const wrapper = render(
       <LightFilter>
-        <ProFormSelect.SearchSelect
+        <LightFilter.searchSelect
           name="userQuery"
           label="查询选择器"
           fieldProps={{
@@ -1911,7 +1911,7 @@ describe('ProForm', () => {
     const onRequest = vi.fn();
     const wrapper = render(
       <LightFilter>
-        <ProFormSelect.SearchSelect
+        <LightFilter.searchSelect
           name="userQuery"
           label="查询选择器"
           fieldProps={{

@@ -1,18 +1,4 @@
-import {
-  LightFilter,
-  ProFormDatePicker,
-  ProFormDateQuarterRangePicker,
-  ProFormDateRangePicker,
-  ProFormDateTimePicker,
-  ProFormDateTimeRangePicker,
-  ProFormDateWeekRangePicker,
-  ProFormDateYearRangePicker,
-  ProFormDigitRange,
-  ProFormSelect,
-  ProFormSlider,
-  ProFormText,
-  ProFormTimePicker,
-} from '@ant-design/pro-components';
+import { LightFilter, ProFormText } from '@ant-design/pro-components';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import dayjs from 'dayjs';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
@@ -24,10 +10,25 @@ dayjs.extend(advancedFormat);
 dayjs.extend(weekOfYear);
 
 describe('LightFilter', () => {
-  it(' 🪕 should render basic structure', async () => {
+  it(' 🪕 should not use light field label until using LightFilter field helpers', async () => {
     const { container } = render(
       <LightFilter>
         <ProFormText name="name1" label="名称" />
+      </LightFilter>,
+    );
+
+    await waitFor(() => {
+      expect(
+        container.querySelector('.ant-pro-form-light-filter'),
+      ).toBeTruthy();
+    });
+    expect(container.querySelector('.ant-pro-core-field-label')).toBeFalsy();
+  });
+
+  it(' 🪕 should render basic structure', async () => {
+    const { container } = render(
+      <LightFilter>
+        <LightFilter.input name="name1" label="名称" />
       </LightFilter>,
     );
 
@@ -55,7 +56,7 @@ describe('LightFilter', () => {
         }}
         onValuesChange={onValuesChange}
       >
-        <ProFormText name="name1" label="名称" />
+        <LightFilter.input name="name1" label="名称" />
       </LightFilter>,
     );
 
@@ -78,7 +79,7 @@ describe('LightFilter', () => {
 
     const { container } = render(
       <LightFilter onValuesChange={onValuesChange} variant="outlined">
-        <ProFormText name="name1" label="名称" />
+        <LightFilter.input name="name1" label="名称" />
       </LightFilter>,
     );
 
@@ -100,7 +101,7 @@ describe('LightFilter', () => {
 
     const { container } = render(
       <LightFilter onValuesChange={onValuesChange} placement="topLeft">
-        <ProFormText name="name1" label="名称" />
+        <LightFilter.input name="name1" label="名称" />
       </LightFilter>,
     );
 
@@ -121,7 +122,7 @@ describe('LightFilter', () => {
 
     const { container } = render(
       <LightFilter onValuesChange={onValuesChange}>
-        <ProFormSelect
+        <LightFilter.select
           name="name1"
           label="名称"
           valueEnum={{
@@ -151,7 +152,7 @@ describe('LightFilter', () => {
 
     const { container } = render(
       <LightFilter onValuesChange={onValuesChange}>
-        <ProFormDatePicker name="name1" label="名称" />
+        <LightFilter.date name="name1" label="名称" />
       </LightFilter>,
     );
 
@@ -174,7 +175,7 @@ describe('LightFilter', () => {
 
     const { container } = render(
       <LightFilter onValuesChange={onValuesChange}>
-        <ProFormDateRangePicker name="name1" label="名称" />
+        <LightFilter.dateRange name="name1" label="名称" />
       </LightFilter>,
     );
 
@@ -197,7 +198,7 @@ describe('LightFilter', () => {
 
     const { container } = render(
       <LightFilter onValuesChange={onValuesChange}>
-        <ProFormDateTimePicker name="name1" label="名称" />
+        <LightFilter.dateTime name="name1" label="名称" />
       </LightFilter>,
     );
 
@@ -220,7 +221,7 @@ describe('LightFilter', () => {
 
     const { container } = render(
       <LightFilter onValuesChange={onValuesChange}>
-        <ProFormTimePicker name="name1" label="名称" />
+        <LightFilter.time name="name1" label="名称" />
       </LightFilter>,
     );
 
@@ -243,7 +244,7 @@ describe('LightFilter', () => {
 
     const { container } = render(
       <LightFilter onValuesChange={onValuesChange}>
-        <ProFormSlider name="name1" label="名称" />
+        <LightFilter.slider name="name1" label="名称" />
       </LightFilter>,
     );
 
@@ -266,8 +267,8 @@ describe('LightFilter', () => {
 
     const { container } = render(
       <LightFilter onValuesChange={onValuesChange} collapse>
-        <ProFormText name="name1" label="名称" />
-        <ProFormText name="name2" label="名称2" />
+        <LightFilter.input name="name1" label="名称" />
+        <LightFilter.input name="name2" label="名称2" />
       </LightFilter>,
     );
 
@@ -297,8 +298,8 @@ describe('LightFilter', () => {
         collapse
         collapseLabel="更多筛选"
       >
-        <ProFormText name="name1" label="名称" />
-        <ProFormText name="name2" label="名称2" />
+        <LightFilter.input name="name1" label="名称" />
+        <LightFilter.input name="name2" label="名称2" />
       </LightFilter>,
     );
 
@@ -321,8 +322,8 @@ describe('LightFilter', () => {
 
     const { container } = render(
       <LightFilter onValuesChange={onValuesChange}>
-        <ProFormText name="name1" label="名称" />
-        <ProFormText name="name2" label="名称2" secondary />
+        <LightFilter.input name="name1" label="名称" />
+        <LightFilter.input name="name2" label="名称2" secondary />
       </LightFilter>,
     );
 
@@ -342,7 +343,7 @@ describe('LightFilter', () => {
 
     const { container } = render(
       <LightFilter onValuesChange={onValuesChange}>
-        <ProFormText name="name1" label="名称" />
+        <LightFilter.input name="name1" label="名称" />
       </LightFilter>,
     );
 
@@ -373,11 +374,11 @@ describe('LightFilter', () => {
           yearRange: [dayjs('2022-01-01'), dayjs('2023-01-01')],
         }}
       >
-        <ProFormDateRangePicker name="dateRange" label="日期" />
-        <ProFormDateTimeRangePicker name="dateTimeRange" label="日期时间" />
-        <ProFormDateWeekRangePicker name="weekRange" label="周" />
-        <ProFormDateQuarterRangePicker name="quarterRange" label="季度" />
-        <ProFormDateYearRangePicker name="yearRange" label="年份" />
+        <LightFilter.dateRange name="dateRange" label="日期" />
+        <LightFilter.dateTimeRange name="dateTimeRange" label="日期时间" />
+        <LightFilter.weekRange name="weekRange" label="周" />
+        <LightFilter.quarterRange name="quarterRange" label="季度" />
+        <LightFilter.yearRange name="yearRange" label="年份" />
       </LightFilter>,
     );
 
@@ -423,7 +424,7 @@ describe('LightFilter', () => {
           digitRange: [12, 34],
         }}
       >
-        <ProFormDigitRange
+        <LightFilter.digitRange
           name="digitRange"
           label="数字范围"
           lightProps={{
@@ -454,7 +455,7 @@ describe('LightFilter', () => {
 
     const { container } = render(
       <LightFilter onFinish={onFinish}>
-        <ProFormText name="name1" label="名称" />
+        <LightFilter.input name="name1" label="名称" />
       </LightFilter>,
     );
 
@@ -483,8 +484,8 @@ describe('LightFilter', () => {
         footerRender={footerRender}
         collapse
       >
-        <ProFormText name="name1" label="名称" />
-        <ProFormText name="name2" label="名称2" />
+        <LightFilter.input name="name1" label="名称" />
+        <LightFilter.input name="name2" label="名称2" />
       </LightFilter>,
     );
 
@@ -513,8 +514,8 @@ describe('LightFilter', () => {
           classNames: { root: 'my-lightfilter-popover' },
         }}
       >
-        <ProFormText name="name1" label="名称" />
-        <ProFormText name="name2" label="名称2" />
+        <LightFilter.input name="name1" label="名称" />
+        <LightFilter.input name="name2" label="名称2" />
       </LightFilter>,
     );
 
@@ -542,7 +543,7 @@ describe('LightFilter', () => {
   it(' 🪕 should default to borderless variant', async () => {
     const { container } = render(
       <LightFilter>
-        <ProFormText name="name" label="Name" />
+        <LightFilter.input name="name" label="Name" />
       </LightFilter>,
     );
 
@@ -567,7 +568,7 @@ describe('LightFilter', () => {
   it(' 🪕 should support outlined variant', async () => {
     const { container } = render(
       <LightFilter variant="outlined">
-        <ProFormText name="name" label="Name" />
+        <LightFilter.input name="name" label="Name" />
       </LightFilter>,
     );
 
