@@ -36,8 +36,6 @@ export interface SearchSelectProps<T = Record<string, any>> extends Omit<
   debounceTime?: number;
   /** 自定义搜索方法, 返回搜索结果的 Promise */
   request?: (params: { query: string }) => Promise<DataValueType<T>[]>;
-  /** 自定义选项渲染 */
-  optionItemRender?: (item: DataValueType<T>) => React.ReactNode;
   /** 指定组件中的值 */
   value?: KeyLabel | KeyLabel[];
   /** 指定默认选中的条目 */
@@ -108,7 +106,6 @@ export interface SearchSelectProps<T = Record<string, any>> extends Omit<
 
 const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
   const {
-    optionItemRender,
     mode,
     onSearch,
     onFocus,
@@ -261,7 +258,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
         key: value ?? `${label?.toString()}-${index}-${nanoid()}`,
         'data-item': item,
         className: `${prefixCls}-option ${itemClassName || ''}`.trim(),
-        label: optionItemRender?.(item as any) || label,
+        label,
       } as DefaultOptionType;
     });
   };

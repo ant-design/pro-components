@@ -5,7 +5,6 @@ import type { IntlType } from '../../../provider';
 import type { RequestOptionsType } from '../../../utils';
 import type { ProFieldFC } from '../../types';
 import SearchSelect from './SearchSelect';
-import { SelectHighlight } from './SelectHighlight';
 import type { FieldSelectProps } from './types';
 
 export type FieldSelectFullProps = FieldSelectProps &
@@ -64,17 +63,6 @@ export function FieldSelectSearchEdit(props: FieldSelectSearchEditProps) {
         }
       }}
       resetData={resetData}
-      optionItemRender={(item) => {
-        if (typeof item.label === 'string' && keyWordsRef.current) {
-          return (
-            <SelectHighlight
-              label={item.label}
-              words={[keyWordsRef.current]}
-            />
-          );
-        }
-        return item.label;
-      }}
       placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
       label={label}
       {...fieldProps}

@@ -312,11 +312,6 @@ Customize options：
     { label: '已解决', value: 'closed' },
     { label: '解决中', value: 'processing' },
   ]}
-  fieldProps={{
-    optionItemRender(item) {
-      return item.label + ' - ' + item.value;
-    },
-  }}
   placeholder="Please select a country"
   rules={[{ required: true, message: 'Please select your country!' }]}
 />
