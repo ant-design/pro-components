@@ -120,7 +120,11 @@ function processDotPathTransforms(
   result: any,
   dotPathTransforms: Record<string, SearchTransformKeyFn>,
 ): void {
-  for (const dotPath in dotPathTransforms) {
+  // 用 Object.keys 替代 for...in：
+  //  - for...in 会遍历到原型链上的 enumerable 属性（虽然这里上游已经过滤过，但守门更稳）
+  //  - Object.keys 在 ES2015+ 明确按「先整数升序、再字符串插入序」遍历，多个 transform
+  //    路径相互覆盖时（如 'a.b' 和 'a.c' 都返回对象 merge 到 a）顺序更可预期
+  for (const dotPath of Object.keys(dotPathTransforms)) {
     const transform = dotPathTransforms[dotPath];
     if (typeof transform !== 'function') continue;
 
@@ -139,14 +143,25 @@ function processDotPathTransforms(
       transformed !== null &&
       !Array.isArray(transformed)
     ) {
-      // 如果返回对象，删除原键并将对象的键值对合并到父级
+      // 如果返回对象，需要按父节点形状分别处理：
+      // - 父节点是数组（如 `'list.0' -> v => ({X: 'A'})`）：旧实现走 `delete list[0]`
+      //   + `Object.assign(list, {X:'A'})`，会把 list 变成 `[<empty>, ..., X:'A']`，
+      //   即在数组上加 string key、留下空 slot，破坏数组形状。改为直接把返回对象整体
+      //   赋值到该索引位置（`list[0] = {X:'A'}`）。
+      // - 父节点是对象（如 `'users.0.name' -> v => ({displayName:v})`，此时 parent 是
+      //   `users[0]` 这个对象元素）：保持现有协议 —— 删原 key + 合并新对象到该父对象。
+      //   这是测试 `transforms array values` 锁定的行为。
       const parentPath = pathArray.slice(0, -1);
       const parentObj =
         parentPath.length > 0 ? get(result, parentPath) : result;
+      const lastKey = pathArray[pathArray.length - 1];
 
-      if (parentObj && typeof parentObj === 'object') {
-        const keyToDelete = pathArray[pathArray.length - 1];
-        delete parentObj[keyToDelete];
+      if (Array.isArray(parentObj)) {
+        // 父节点是数组：直接整体替换该索引位置的值
+        parentObj[lastKey as number] = transformed;
+      } else if (parentObj && typeof parentObj === 'object') {
+        // 父节点是对象：保持原协议（删旧 key + 合并新对象）
+        delete parentObj[lastKey];
         Object.assign(parentObj, transformed);
       }
     } else {
