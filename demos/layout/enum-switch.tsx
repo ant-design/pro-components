@@ -1,17 +1,17 @@
 import {
-  AppstoreOutlined,
+  AppstoreFilled,
   AuditOutlined,
   BranchesOutlined,
-  ContainerOutlined,
+  ContainerFilled,
   FileDoneOutlined,
   GithubFilled,
-  HomeOutlined,
+  HomeFilled,
   InfoCircleFilled,
   OrderedListOutlined,
-  ProfileOutlined,
+  ProfileFilled,
   QuestionCircleFilled,
-  SafetyOutlined,
-  TagsOutlined,
+  SafetyCertificateFilled,
+  TagsFilled,
   TeamOutlined,
   UnorderedListOutlined,
 } from '@ant-design/icons';
@@ -28,7 +28,7 @@ const routeWithSecondLevelIcons = {
     {
       path: '/welcome',
       name: '工作台',
-      icon: <HomeOutlined />,
+      icon: <HomeFilled />,
       component: './Welcome',
     },
     {
@@ -49,19 +49,19 @@ const routeWithSecondLevelIcons = {
         {
           path: '/product/category',
           name: '商品分类',
-          icon: <AppstoreOutlined />,
+          icon: <AppstoreFilled />,
           component: './Welcome',
         },
         {
           path: '/product/brand',
           name: '品牌管理',
-          icon: <TagsOutlined />,
+          icon: <TagsFilled />,
           component: './Welcome',
         },
         {
           path: '/product/inventory',
           name: '库存管理',
-          icon: <ContainerOutlined />,
+          icon: <ContainerFilled />,
           component: './Welcome',
         },
       ],
@@ -111,13 +111,13 @@ const routeWithSecondLevelIcons = {
         {
           path: '/admin/roles',
           name: '角色权限',
-          icon: <SafetyOutlined />,
+          icon: <SafetyCertificateFilled />,
           component: './Welcome',
         },
         {
           path: '/admin/menu',
           name: '菜单管理',
-          icon: <ProfileOutlined />,
+          icon: <ProfileFilled />,
           component: './Welcome',
         },
         {
