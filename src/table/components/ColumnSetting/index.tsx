@@ -472,14 +472,24 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
     );
   });
 
-  // 未选中的 key 列表
-  const unCheckedKeys = Object.values(columnsMap).filter(
-    (value) => !value || value.show === false,
-  );
+  // 未选中的 key 列表 —— 从 localColumns（当前可见列）派生，而非从 columnsMap 全量
+  // 派生。columnsMap 可能含有 hideInSetting 列或运行时被删掉的「过期 key」，导致分子
+  // 与分母（localColumns.length）不对齐，indeterminate 计算出现偏差。
+  const unCheckedKeys = useMemo(() => {
+    return localColumns.filter(({ key, dataIndex }, index) => {
+      const columnKey = genColumnKey(key ?? (dataIndex as React.Key), index);
+      const state = columnsMap?.[columnKey];
+      return state && state.show === false;
+    });
+  }, [columnsMap, localColumns]);
 
-  // 是否已经选中
+  // 是否全部列都已选中
+  const allChecked =
+    unCheckedKeys.length === 0 && localColumns.length > 0;
+
+  // 是否部分选中（indeterminate）
   const indeterminate =
-    unCheckedKeys.length > 0 && unCheckedKeys.length !== localColumns.length;
+    unCheckedKeys.length > 0 && unCheckedKeys.length < localColumns.length;
 
   const intl = useIntl();
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -495,10 +505,7 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
           ) : (
             <Checkbox
               indeterminate={indeterminate}
-              checked={
-                unCheckedKeys.length === 0 &&
-                unCheckedKeys.length !== localColumns.length
-              }
+              checked={allChecked}
               onChange={(e) => {
                 checkedAll(e);
               }}
