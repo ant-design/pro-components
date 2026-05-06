@@ -3,7 +3,7 @@ import { useControlledState } from '@rc-component/util';
 import { ConfigProvider, Skeleton } from 'antd';
 import type { ExpandableConfig } from 'antd/lib/table/interface';
 import { clsx } from 'clsx';
-import React, { useCallback, useContext, useMemo } from 'react';
+import React, { memo, useCallback, useContext, useMemo } from 'react';
 import type { CheckCardProps } from '../card';
 import { CheckCard } from '../card';
 import { ProProvider } from '../provider';
@@ -111,7 +111,7 @@ export type ItemProps<RecordType> = {
     | false;
 };
 
-function ProListItem<RecordType>(props: ItemProps<RecordType>) {
+function ProListItemInner<RecordType>(props: ItemProps<RecordType>) {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const { hashId, token } = useContext(ProProvider);
   const prefixCls = getPrefixCls('pro-list', props.prefixCls);
@@ -230,7 +230,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
         description={
           description &&
           needExpanded && (
-            <div className={clsx(`${className}-description`, hashId)}>
+            <div className={clsx(`${defaultClassName}-description`, hashId)}>
               {description}
             </div>
           )
@@ -355,5 +355,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     </BaseListItem>
   );
 }
+
+const ProListItem = memo(ProListItemInner) as typeof ProListItemInner;
 
 export default ProListItem;

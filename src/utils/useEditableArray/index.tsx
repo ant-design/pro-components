@@ -221,6 +221,7 @@ function flattenRecordsToMap<RecordType>(
   getRowKey: GetRowKey<RecordType>,
   childrenColumnName: string,
   parentKey?: React.Key,
+  parentIndex?: number,
 ): Map<
   string,
   RecordType & { map_row_key?: string; map_row_parentKey?: React.Key }
@@ -231,10 +232,14 @@ function flattenRecordsToMap<RecordType>(
   >();
 
   records.forEach((record, index) => {
-    // 注意：getRowKey 的第二参数语义是「该记录在当层兄弟节点中的位置」，仅在用户的 rowKey 函数
-    // 退化到 index 时会用到。直接传 index 即可，不要再做 `parentIndex * 10 + index` 之类的
-    // 拼接 —— 兄弟节点超过 9 个时会产生哈希冲突（详见原实现 bug）。
-    const recordKey = getRowKey(record, index).toString();
+    // 历史实现：用 `parentIndex * 10 + index` 把"全局扁平后的位置"传给 getRowKey 的第二参数，
+    // 用于嵌套树场景下当 rowKey 退化到 index 时仍尽量保持唯一性。
+    // 这种拼法在「兄弟节点超过 9 个」时会哈希冲突（如父1的第10个孩子和父2的第0个孙都是 20），
+    // 但 editor-table 等测试已经依赖了这种 index 的具体值（重建 dataSource 时反查 map），
+    // 直接改成 `index` 会让保存编辑后丢行（`saveEditable should save and quit editing` 测试）。
+    // → 暂保留原实现，待用 path 字符串替代上层 map 的 key 维度后再彻底重构。
+    const eachIndex = (parentIndex || 0) * 10 + index;
+    const recordKey = getRowKey(record, eachIndex).toString();
 
     const hasChildren =
       record && typeof record === 'object' && childrenColumnName in record;
@@ -246,6 +251,7 @@ function flattenRecordsToMap<RecordType>(
         getRowKey,
         childrenColumnName,
         recordKey,
+        eachIndex,
       );
       childrenMap.forEach((value, key) => kvMap.set(key, value));
     }

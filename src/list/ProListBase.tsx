@@ -486,7 +486,17 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps>(
 
     const contextValue = useMemo(
       () => ({ grid, itemLayout }),
-      [JSON.stringify(grid), itemLayout],
+      [
+        itemLayout,
+        grid?.gutter,
+        grid?.column,
+        grid?.xs,
+        grid?.sm,
+        grid?.md,
+        grid?.lg,
+        grid?.xl,
+        grid?.xxl,
+      ],
     );
 
     const classString = clsx(
