@@ -4,7 +4,7 @@ import { TinyColor } from '@ctrl/tinycolor';
 import { ConfigProvider as AntdConfigProvider, theme as antdTheme } from 'antd';
 import type { GlobalToken } from 'antd/lib/theme/interface';
 import type React from 'react';
-import { useContext, useMemo, useRef } from 'react';
+import { useContext, useEffect, useMemo, useRef } from 'react';
 import { ProProvider } from '../index';
 import type { ProTokenType } from '../typing/layoutToken';
 
@@ -140,27 +140,15 @@ export function useStyle(
     return getProTokenKey(token as ProAliasToken);
   }, [token]);
 
-  // Keep path monotonic across toggles to avoid style order issues
-  // when switching dark -> light (back to an old key).
-  const styleKey = [
-    hashId,
-    (theme as any).id,
-    token.themeId,
-    proTokenKey,
-  ]
+  // 让 style path 对 "dark -> light 切回旧 key" 保持单调递增，
+  // 避免回到历史 key 时触发 antd cssinjs 的样式顺序错乱。
+  const styleKey = [hashId, (theme as any).id, token.themeId, proTokenKey]
     .filter(Boolean)
     .join('-');
 
-  const lastStyleKeyRef = useRef<string>('');
-  const styleVersionRef = useRef(0);
-  if (lastStyleKeyRef.current !== styleKey) {
-    styleVersionRef.current += 1;
-    lastStyleKeyRef.current = styleKey;
-  }
+  const styleVersion = useMonotonicVersion(styleKey);
 
-  const stylePath = [componentName, styleKey, styleVersionRef.current].filter(
-    Boolean,
-  );
+  const stylePath = [componentName, styleKey, styleVersion].filter(Boolean);
 
   useStyleRegister(
     {
@@ -176,7 +164,32 @@ export function useStyle(
   );
 
   return {
+    /**
+     * @deprecated v2 起样式通过 `useStyleRegister` 以副作用方式注入，
+     * SSR 由 antd 的 `extractStyle` 接管。本函数已退化为身份函数，仅为兼容现存调用点，
+     * 下个大版本会从返回值中移除。新代码直接 `return <div className={hashId}>...</div>` 即可。
+     */
     wrapSSR: (node: React.ReactElement) => node,
     hashId: hashed ? hashId : '',
   };
+}
+
+/**
+ * 返回一个只增不减的版本号；每当输入 `key` 变化时递增。
+ *
+ * 为什么不直接在渲染阶段写 ref：React 并发模式下单次提交可能经历多次渲染，
+ * 直接在渲染阶段写 ref 会把版本号推得比预期大。因此这里渲染阶段只读、
+ * 把持久化推迟到 commit 阶段的 `useEffect` 里完成。
+ */
+function useMonotonicVersion(key: string): number {
+  const lastKeyRef = useRef<string>('');
+  const versionRef = useRef(0);
+  // 渲染阶段：只在 key 变化时临时 +1，便于当次渲染拿到新路径。
+  if (lastKeyRef.current !== key) {
+    versionRef.current += 1;
+  }
+  useEffect(() => {
+    lastKeyRef.current = key;
+  }, [key]);
+  return versionRef.current;
 }

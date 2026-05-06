@@ -1,4 +1,6 @@
-export default {
+import type { ProLocale } from './zh_CN';
+
+const ukUA: ProLocale = {
   moneySymbol: '₴',
   deleteThisLine: 'Видалити цей рядок',
   copyThisLine: 'Скопіювати рядок',
@@ -73,3 +75,5 @@ export default {
     close: 'Закрито',
   },
 };
+
+export default ukUA;

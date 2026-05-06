@@ -1,4 +1,6 @@
-export default {
+import type { ProLocale } from './zh_CN';
+
+const esES: ProLocale = {
   moneySymbol: '€',
   deleteThisLine: 'Eliminar esta línea',
   copyThisLine: 'Copiar esta línea',
@@ -73,3 +75,5 @@ export default {
     close: 'cerrar',
   },
 };
+
+export default esES;

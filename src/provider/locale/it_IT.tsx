@@ -1,4 +1,6 @@
-export default {
+import type { ProLocale } from './zh_CN';
+
+const itIT: ProLocale = {
   moneySymbol: '€',
   deleteThisLine: 'Elimina questa riga',
   copyThisLine: 'Copia questa riga',
@@ -73,3 +75,5 @@ export default {
     close: 'Chiudi',
   },
 };
+
+export default itIT;

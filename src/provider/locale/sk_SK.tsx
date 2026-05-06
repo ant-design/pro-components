@@ -1,4 +1,6 @@
-export default {
+import type { ProLocale } from './zh_CN';
+
+const skSK: ProLocale = {
   moneySymbol: '€',
   deleteThisLine: 'Odstrániť tento riadok',
   copyThisLine: 'Skopírujte tento riadok',
@@ -73,3 +75,5 @@ export default {
     close: 'zavrieť',
   },
 };
+
+export default skSK;

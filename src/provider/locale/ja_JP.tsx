@@ -1,4 +1,6 @@
-export default {
+import type { ProLocale } from './zh_CN';
+
+const jaJP: ProLocale = {
   moneySymbol: '¥',
   deleteThisLine: 'この行を削除',
   copyThisLine: 'この行をコピー',
@@ -73,3 +75,5 @@ export default {
     close: '閉じる',
   },
 };
+
+export default jaJP;

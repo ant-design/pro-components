@@ -1,4 +1,6 @@
-export default {
+import type { ProLocale } from './zh_CN';
+
+const roRO: ProLocale = {
   moneySymbol: 'RON',
   deleteThisLine: 'Șterge acest rând',
   copyThisLine: 'Copiază acest rând',
@@ -73,3 +75,5 @@ export default {
     close: 'Închide',
   },
 };
+
+export default roRO;

@@ -1,4 +1,6 @@
-export default {
+import type { ProLocale } from './zh_CN';
+
+const srRS: ProLocale = {
   moneySymbol: 'RSD',
   deleteThisLine: 'Obriši ovaj red',
   copyThisLine: 'Kopiraj ovaj red',
@@ -73,3 +75,5 @@ export default {
     close: 'Zatvori',
   },
 };
+
+export default srRS;

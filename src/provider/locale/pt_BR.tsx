@@ -1,4 +1,6 @@
-export default {
+import type { ProLocale } from './zh_CN';
+
+const ptBR: ProLocale = {
   moneySymbol: 'R$',
   deleteThisLine: 'Excluir esta linha',
   copyThisLine: 'Copiar esta linha',
@@ -73,3 +75,5 @@ export default {
     close: 'fechar',
   },
 };
+
+export default ptBR;

@@ -1,4 +1,6 @@
-export default {
+import type { ProLocale } from './zh_CN';
+
+const hrHR: ProLocale = {
   moneySymbol: 'kn',
   deleteThisLine: 'Izbriši ovaj redak',
   copyThisLine: 'Kopiraj ovaj redak',
@@ -73,3 +75,5 @@ export default {
     close: 'zatvori',
   },
 };
+
+export default hrHR;

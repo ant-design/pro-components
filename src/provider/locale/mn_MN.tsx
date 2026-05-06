@@ -1,4 +1,6 @@
-export default {
+import type { ProLocale } from './zh_CN';
+
+const mnMN: ProLocale = {
   moneySymbol: '₮',
   deleteThisLine: 'Энэ мөрийг устгах',
   copyThisLine: 'Энэ мөрийг хуулах',
@@ -73,3 +75,5 @@ export default {
     close: 'Хаах',
   },
 };
+
+export default mnMN;

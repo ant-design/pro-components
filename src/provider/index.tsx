@@ -2,6 +2,10 @@ import type { Theme } from '@ant-design/cssinjs';
 import { useCacheToken } from '@ant-design/cssinjs';
 import { ConfigProvider as AntdConfigProvider, theme as antdTheme } from 'antd';
 import zh_CN from 'antd/es/locale/zh_CN';
+// dayjs 的中文 locale 在这里按需预注入。
+// 注意：ProProvider 支持 33 种语言，但 dayjs 不会自动引入对应 locale 包；
+// 若业务需要切换到其他语言的 dayjs 行为，需要消费方在应用入口自行 `import 'dayjs/locale/xx'`，
+// 否则运行时 `dayjs.locale(...)` 会静默回退到 en。
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 import React, { useContext, useEffect, useMemo } from 'react';
@@ -11,7 +15,7 @@ import { findIntlKeyByAntdLocaleKey, intlMap, zhCNIntl } from './intl';
 import type { DeepPartial, ProTokenType } from './typing/layoutToken';
 import { getLayoutDesignToken } from './typing/layoutToken';
 import type { ProAliasToken } from './useStyle';
-import { merge } from './utils/merge';
+import { shallowMergeOneLevel } from './utils/merge';
 
 export * from './intl';
 export * from './useStyle';
@@ -22,36 +26,65 @@ type OmitUndefined<T> = {
   [P in keyof T]: NonNullable<T[P]>;
 };
 
+/**
+ * 过滤掉对象中值为 `undefined` 的字段；若过滤后没有任何字段保留，则返回 `undefined`。
+ *
+ * 调用方利用 "空对象 → undefined" 这个副作用，把空配置透传给 antd ConfigProvider，
+ * 从而让 antd 走默认值。因此返回类型必须允许 `undefined`，不能撒谎为 `OmitUndefined<T>`。
+ */
 const omitUndefined = <T extends Record<string, any>>(
   obj: T,
-): OmitUndefined<T> => {
-  const newObj = {} as Record<string, any> as T;
+): OmitUndefined<T> | undefined => {
+  const newObj = {} as Record<string, any>;
   Object.keys(obj || {}).forEach((key) => {
     if (obj[key] !== undefined) {
-      (newObj as any)[key] = obj[key];
+      newObj[key] = obj[key];
     }
   });
-  if (Object.keys(newObj as Record<string, any>).length < 1) {
-    return undefined as any;
+  if (Object.keys(newObj).length < 1) {
+    return undefined;
   }
   return newObj as OmitUndefined<T>;
 };
 
 /**
  * 用于判断当前是否需要开启哈希（Hash）模式。
- * 首先也会判断当前是否处于测试环境中（通过 process.env.NODE_ENV === 'TEST' 判断），
- * 如果是，则返回 false。否则，直接返回 true 表示需要打开。
- * @returns
+ *
+ * 下列场景返回 `false`（关闭 hash，便于快照/调试）：
+ * - `process.env.NODE_ENV === 'test'`（单元测试快照稳定）
+ * - `process.env.NODE_ENV === 'development'`（本地开发时样式调试更直观）
+ *
+ * 其余环境（含生产、未设置 NODE_ENV）一律返回 `true`。
  */
 export const isNeedOpenHash = () => {
-  if (
-    typeof process !== 'undefined' &&
-    (process.env.NODE_ENV?.toUpperCase() === 'TEST' ||
-      process.env.NODE_ENV?.toUpperCase() === 'DEV')
-  ) {
+  if (typeof process === 'undefined') return true;
+  const env = process.env.NODE_ENV?.toLowerCase();
+  if (env === 'test' || env === 'development') {
     return false;
   }
   return true;
+};
+
+/**
+ * 解析最终使用的 intl 实例。优先级从高到低：
+ * 1. 组件 props 显式传入的 `intl`
+ * 2. 父级 Provider 里非 `default` 的 intl（即用户已显式配置过）
+ * 3. 根据 antd 的 locale 推断（zh_CN → zh-CN → zhCNIntl）
+ * 4. 兜底 zh-CN
+ */
+const resolveIntl = (
+  propsIntl: IntlType | undefined,
+  parentIntl: IntlType | undefined,
+  antdLocaleName: string | undefined,
+): IntlType => {
+  if (propsIntl) return propsIntl;
+  if (parentIntl && parentIntl.locale !== 'default') return parentIntl;
+  if (antdLocaleName) {
+    const key = findIntlKeyByAntdLocaleKey(antdLocaleName);
+    const found = key ? intlMap[key as keyof typeof intlMap] : undefined;
+    if (found) return found;
+  }
+  return zhCNIntl;
 };
 
 /**
@@ -257,24 +290,16 @@ const ConfigProviderContainer: React.FC<{
   }, [propsToken, tokenContext.token]);
 
   const proProvideValue = useMemo(() => {
-    const localeName = locale?.locale;
-    const key = findIntlKeyByAntdLocaleKey(localeName);
-    // antd 的 key 存在的时候以 antd 的为主
-    const resolvedIntl =
-      intl ??
-      (localeName && proProvide.intl?.locale === 'default'
-        ? intlMap[key! as 'zh-CN']
-        : proProvide.intl || intlMap[key! as 'zh-CN']);
     return {
       ...proProvide,
       dark: dark ?? proProvide.dark,
-      token: merge(proProvide.token, tokenContext.token, {
+      token: shallowMergeOneLevel(proProvide.token, tokenContext.token, {
         proComponentsCls,
         antCls,
         themeId: tokenContext.theme.id,
         layout: proLayoutTokenMerge,
       }),
-      intl: resolvedIntl || zhCNIntl,
+      intl: resolveIntl(intl, proProvide.intl, locale?.locale),
     };
   }, [
     locale?.locale,
@@ -411,11 +436,18 @@ export const ProConfigProvider: React.FC<{
     AntdConfigProvider.ConfigContext,
   );
 
-  // 是不是不需要渲染 provide
+  // 当开启 needDeps 且外层已存在有效的 ProProvider 时，当前层不必再套一次 Provider。
+  // 只有在"仅传了 children 和 needDeps（其他所有可配置项都没传）"时才允许透传，
+  // 防止外层错过 token/intl/dark/prefixCls 等显式配置。
+  const PASSTHROUGH_ALLOWED_KEYS: readonly (keyof typeof props)[] = [
+    'children',
+    'needDeps',
+  ];
+  const passedKeys = Object.keys(props) as (keyof typeof props)[];
   const isNullProvide =
     needDeps &&
     proProvide.hashId !== undefined &&
-    Object.keys(props).sort().join('-') === 'children-needDeps';
+    passedKeys.every((k) => PASSTHROUGH_ALLOWED_KEYS.includes(k));
 
   if (isNullProvide) return <>{props.children}</>;
 

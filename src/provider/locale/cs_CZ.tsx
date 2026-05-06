@@ -1,4 +1,6 @@
-export default {
+import type { ProLocale } from './zh_CN';
+
+const csCZ: ProLocale = {
   moneySymbol: 'Kč',
   deleteThisLine: 'Smazat tento řádek',
   copyThisLine: 'Kopírovat tento řádek',
@@ -73,3 +75,5 @@ export default {
     close: 'Zavřít',
   },
 };
+
+export default csCZ;

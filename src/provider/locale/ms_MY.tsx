@@ -1,4 +1,6 @@
-export default {
+import type { ProLocale } from './zh_CN';
+
+const msMY: ProLocale = {
   moneySymbol: 'RM',
   deleteThisLine: 'Padam baris ini',
   copyThisLine: 'Salin baris ini',
@@ -73,3 +75,5 @@ export default {
     close: 'Tutup',
   },
 };
+
+export default msMY;

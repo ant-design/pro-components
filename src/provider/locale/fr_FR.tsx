@@ -1,4 +1,6 @@
-export default {
+import type { ProLocale } from './zh_CN';
+
+const frFR: ProLocale = {
   moneySymbol: '€',
   deleteThisLine: 'Supprimer cette ligne',
   copyThisLine: 'Copier cette ligne',
@@ -73,3 +75,5 @@ export default {
     close: 'fermé',
   },
 };
+
+export default frFR;

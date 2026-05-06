@@ -1,4 +1,6 @@
-export default {
+import type { ProLocale } from './zh_CN';
+
+const heIL: ProLocale = {
   moneySymbol: '₪',
   deleteThisLine: 'מחק שורה זו',
   copyThisLine: 'העתק שורה זו',
@@ -73,3 +75,5 @@ export default {
     close: 'סגור',
   },
 };
+
+export default heIL;

@@ -1,4 +1,6 @@
-export default {
+import type { ProLocale } from './zh_CN';
+
+const idID: ProLocale = {
   moneySymbol: 'RP',
   deleteThisLine: 'Hapus baris ini',
   copyThisLine: 'Salin baris ini',
@@ -73,3 +75,5 @@ export default {
     close: 'tutup',
   },
 };
+
+export default idID;

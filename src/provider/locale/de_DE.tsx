@@ -1,4 +1,6 @@
-export default {
+import type { ProLocale } from './zh_CN';
+
+const deDE: ProLocale = {
   moneySymbol: '€',
   deleteThisLine: 'Diese Zeile löschen',
   copyThisLine: 'Diese Zeile kopieren',
@@ -73,3 +75,5 @@ export default {
     close: 'schließen',
   },
 };
+
+export default deDE;
