@@ -228,43 +228,50 @@ function useContainer(props: UseContainerProps = {} as Record<string, any>) {
     columnsMap,
     props.columnsState?.persistenceType,
   ]);
+  /**
+   * Context value：暴露给所有 useContext(TableContext) 的消费者。
+   *
+   * 注意三点设计：
+   * 1. `action` / `prefixName` / `sortKeyColumns` 用 ES6 getter 暴露 ref 的当前值，
+   *    保证消费者每次读取都能拿到最新值（ref 写入不会触发重渲染，但读取必须实时）。
+   *    使用 getter 语法而非 Object.defineProperty，让 TS 推导出的字段类型与 runtime
+   *    行为一致（避免 IDE 类型提示停留在首次值）。
+   * 2. `setSortKeyColumns` / `setPrefixName` 对外是 mutator 函数 API，内部直接写
+   *    对应 ref，不触发重渲染。这是有意的协议，请勿改成 useState。
+   * 3. 不要把 `props.columns` 放进 context —— 所有消费者都直接从 `props.columns`
+   *    或 `columnsMap` 拿数据，加进来只会让 context value 因 columns 引用频繁变化
+   *    而触发整片消费者无意义重渲染。
+   */
   const renderValue = {
-    action: actionRef.current,
     setAction: (newAction?: ActionType) => {
       actionRef.current = newAction;
     },
-    sortKeyColumns: sortKeyColumns.current,
     setSortKeyColumns: (keys: string[]) => {
       sortKeyColumns.current = keys;
     },
     propsRef,
     columnsMap,
     keyWords,
-    setKeyWords: (k: string | undefined) => setKeyWords(k),
+    setKeyWords,
     setTableSize,
     tableSize,
-    prefixName: prefixNameRef.current,
     setPrefixName: (name: any) => {
       prefixNameRef.current = name;
     },
     setColumnsMap,
-    columns: props.columns,
     rootDomRef,
     clearPersistenceStorage,
     defaultColumnKeyMap,
+    get action() {
+      return actionRef.current;
+    },
+    get prefixName(): string {
+      return prefixNameRef.current;
+    },
+    get sortKeyColumns(): string[] {
+      return sortKeyColumns.current;
+    },
   };
-
-  Object.defineProperty(renderValue, 'prefixName', {
-    get: (): string => prefixNameRef.current,
-  });
-
-  Object.defineProperty(renderValue, 'sortKeyColumns', {
-    get: (): string[] => sortKeyColumns.current,
-  });
-
-  Object.defineProperty(renderValue, 'action', {
-    get: () => actionRef.current,
-  });
 
   return renderValue;
 }
