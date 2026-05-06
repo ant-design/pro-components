@@ -1,4 +1,6 @@
-export default {
+import type { ProLocale } from './zh_CN';
+
+const caES: ProLocale = {
   moneySymbol: '€',
   deleteThisLine: 'Suprimeix aquesta línia',
   copyThisLine: 'Copia aquesta línia',
@@ -73,3 +75,5 @@ export default {
     close: 'tancat',
   },
 };
+
+export default caES;

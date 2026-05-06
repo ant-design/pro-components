@@ -39,114 +39,170 @@ export type IntlType = {
 };
 
 /**
- * 创建一个国际化的操作函数
+ * `zh-CN` 的 messages 快照，供 `createIntl` 的跨语言 fallback 使用。
  *
- * @param locale
- * @param localeMap
+ * 这里要显式保存一份 messages 引用，而不是在运行时从 `intlMap['zh-CN'].getMessage` 取值，
+ * 避免"createIntl 自身被改动为其他 fallback 策略时出现递归"的风险。
+ */
+const zhCNMessages: Record<string, any> = zhCN;
+
+/**
+ * 从 locale messages 中按 id 取值的工具。id 支持点号路径和方括号下标：
+ * - `a.b.c`
+ * - `a.b[0].c`
+ */
+const getMessageByPath = (
+  messages: Record<string, any>,
+  id: string,
+): string => {
+  return (get(messages, id.replace(/\[(\d+)\]/g, '.$1').split('.')) ||
+    '') as string;
+};
+
+/**
+ * 创建一个国际化的操作函数。
+ *
+ * 当某 locale 找不到 id 对应的文案时，按以下顺序回退：
+ * 1. zh-CN locale 自身找不到 → 返回 `defaultMessage`
+ * 2. 其他 locale 找不到 → 去 zh-CN messages 里找；还找不到才返回 `defaultMessage`
+ *
+ * @param locale 语言标识，如 `'zh_CN'` / `'en_US'`（注意是下划线形式）
+ * @param localeMap 该语言对应的 messages 对象
  */
 export const createIntl = (
   locale: string,
   localeMap: Record<string, any>,
 ): IntlType => ({
   getMessage: (id: string, defaultMessage: string) => {
-    const msg =
-      get(localeMap, id.replace(/\[(\d+)\]/g, '.$1').split('.')) || '';
+    const msg = getMessageByPath(localeMap, id);
     if (msg) return msg;
-    const localKey = locale.replace('_', '-');
-    if (localKey === 'zh-CN') {
+    const localeKeyDashed = locale.replace('_', '-');
+    if (localeKeyDashed === 'zh-CN') {
       return defaultMessage;
     }
-    // eslint-disable-next-line @typescript-eslint/no-use-before-define
-    const intl = intlMap['zh-CN'];
-    return intl ? intl.getMessage(id, defaultMessage) : defaultMessage;
+    // 使用本模块顶层缓存的 zh-CN messages，而不是反向查 intlMap['zh-CN']，
+    // 避免 createIntl 实现演进时引入潜在递归。
+    const fallback = getMessageByPath(zhCNMessages, id);
+    return fallback || defaultMessage;
   },
   locale,
 });
 
-const mnMNIntl = createIntl('mn_MN', mnMN);
-const arEGIntl = createIntl('ar_EG', arEG);
-const zhCNIntl = createIntl('zh_CN', zhCN);
-const enUSIntl = createIntl('en_US', enUS);
-const enGBIntl = createIntl('en_GB', enGB);
-const viVNIntl = createIntl('vi_VN', viVN);
-const itITIntl = createIntl('it_IT', itIT);
-const jaJPIntl = createIntl('ja_JP', jaJP);
-const esESIntl = createIntl('es_ES', esES);
-const caESIntl = createIntl('ca_ES', caES);
-const ruRUIntl = createIntl('ru_RU', ruRU);
-const srRSIntl = createIntl('sr_RS', srRS);
-const msMYIntl = createIntl('ms_MY', msMY);
-const zhTWIntl = createIntl('zh_TW', zhTW);
-const zhHKIntl = createIntl('zh_HK', zhHK);
-const frFRIntl = createIntl('fr_FR', frFR);
-const ptBRIntl = createIntl('pt_BR', ptBR);
-const koKRIntl = createIntl('ko_KR', koKR);
-const idIDIntl = createIntl('id_ID', idID);
-const deDEIntl = createIntl('de_DE', deDE);
-const faIRIntl = createIntl('fa_IR', faIR);
-const trTRIntl = createIntl('tr_TR', trTR);
-const plPLIntl = createIntl('pl_PL', plPL);
-const hrHRIntl = createIntl('hr_HR', hrHR);
-const thTHIntl = createIntl('th_TH', thTH);
-const csCZIntl = createIntl('cs_CZ', csCZ);
-const skSKIntl = createIntl('sk_SK', skSK);
-const heILIntl = createIntl('he_IL', heIL);
-const ukUAIntl = createIntl('uk_UA', ukUA);
-const uzUZIntl = createIntl('uz_UZ', uzUZ);
-const nlNLIntl = createIntl('nl_NL', nlNL);
-const roROIntl = createIntl('ro_RO', roRO);
-const svSEIntl = createIntl('sv_SE', svSE);
+/**
+ * 所有内置语言的原始 messages 表。新增语言只需在此处追加一项。
+ * Key 使用 antd locale 的 `xx_YY` 形态（带下划线）。
+ */
+const localeMessages = {
+  mn_MN: mnMN,
+  ar_EG: arEG,
+  zh_CN: zhCN,
+  en_US: enUS,
+  en_GB: enGB,
+  vi_VN: viVN,
+  it_IT: itIT,
+  ja_JP: jaJP,
+  es_ES: esES,
+  ca_ES: caES,
+  ru_RU: ruRU,
+  sr_RS: srRS,
+  ms_MY: msMY,
+  zh_TW: zhTW,
+  zh_HK: zhHK,
+  fr_FR: frFR,
+  pt_BR: ptBR,
+  ko_KR: koKR,
+  id_ID: idID,
+  de_DE: deDE,
+  fa_IR: faIR,
+  tr_TR: trTR,
+  pl_PL: plPL,
+  hr_HR: hrHR,
+  th_TH: thTH,
+  cs_CZ: csCZ,
+  sk_SK: skSK,
+  he_IL: heIL,
+  uk_UA: ukUA,
+  uz_UZ: uzUZ,
+  nl_NL: nlNL,
+  ro_RO: roRO,
+  sv_SE: svSE,
+} as const;
 
-const intlMap = {
-  'mn-MN': mnMNIntl,
-  'ar-EG': arEGIntl,
-  'zh-CN': zhCNIntl,
-  'en-US': enUSIntl,
-  'en-GB': enGBIntl,
-  'vi-VN': viVNIntl,
-  'it-IT': itITIntl,
-  'ja-JP': jaJPIntl,
-  'es-ES': esESIntl,
-  'ca-ES': caESIntl,
-  'ru-RU': ruRUIntl,
-  'sr-RS': srRSIntl,
-  'ms-MY': msMYIntl,
-  'zh-TW': zhTWIntl,
-  'zh-HK': zhHKIntl,
-  'fr-FR': frFRIntl,
-  'pt-BR': ptBRIntl,
-  'ko-KR': koKRIntl,
-  'id-ID': idIDIntl,
-  'de-DE': deDEIntl,
-  'fa-IR': faIRIntl,
-  'tr-TR': trTRIntl,
-  'pl-PL': plPLIntl,
-  'hr-HR': hrHRIntl,
-  'th-TH': thTHIntl,
-  'cs-CZ': csCZIntl,
-  'sk-SK': skSKIntl,
-  'he-IL': heILIntl,
-  'uk-UA': ukUAIntl,
-  'uz-UZ': uzUZIntl,
-  'nl-NL': nlNLIntl,
-  'ro-RO': roROIntl,
-  'sv-SE': svSEIntl,
-};
+type LocaleUnderscoreKey = keyof typeof localeMessages;
+/** `zh-CN` 这种短横线形态的 key 类型。 */
+type LocaleDashKey =
+  LocaleUnderscoreKey extends `${infer A}_${infer B}` ? `${A}-${B}` : never;
 
-const intlMapKeys = Object.keys(intlMap);
+/** 将 `zh_CN` 转为 `zh-CN`。 */
+const toDashKey = <K extends LocaleUnderscoreKey>(k: K) =>
+  k.replace('_', '-') as LocaleDashKey;
 
 /**
- * 根据 antd 的 key 来找到的 locale 插件的 key
- *
- * @param localeKey
+ * `antd locale key (xx-YY)` → IntlType 的映射表。
+ * 所有条目都从 `localeMessages` 统一派生，避免手写导致漏项。
  */
-export const findIntlKeyByAntdLocaleKey = <T extends string>(localeKey?: T) => {
-  const localeName = (localeKey || 'zh-CN').toLocaleLowerCase();
-  return intlMapKeys.find((intlKey) => {
-    const LowerCaseKey = intlKey.toLocaleLowerCase();
-    return LowerCaseKey.includes(localeName);
-  }) as T;
+const intlMap = Object.fromEntries(
+  (Object.keys(localeMessages) as LocaleUnderscoreKey[]).map((k) => [
+    toDashKey(k),
+    createIntl(k, localeMessages[k]),
+  ]),
+) as Record<LocaleDashKey, IntlType>;
+
+const intlMapKeys = Object.keys(intlMap) as LocaleDashKey[];
+
+/**
+ * 根据 antd 的 locale key 找到对应 intl 的 key。
+ *
+ * 匹配顺序：
+ * 1. 完全一致（大小写不敏感）
+ * 2. 同语族前缀匹配，例如 `'zh'` → `'zh-CN'`（取 intlMapKeys 中第一个前缀命中的）
+ * 3. 兜底 `'zh-CN'`
+ */
+export const findIntlKeyByAntdLocaleKey = <T extends string>(
+  localeKey?: T,
+): T => {
+  const input = (localeKey || 'zh-CN').toLowerCase();
+  const exact = intlMapKeys.find((k) => k.toLowerCase() === input);
+  if (exact) return exact as unknown as T;
+  const prefix = input.split('-')[0] + '-';
+  const prefixHit = intlMapKeys.find((k) => k.toLowerCase().startsWith(prefix));
+  return ((prefixHit as string) ?? 'zh-CN') as T;
 };
+
+// 所有内置 intl 实例的命名导出；外部代码（table/field 等）依赖这些名字。
+const arEGIntl = intlMap['ar-EG'];
+const caESIntl = intlMap['ca-ES'];
+const csCZIntl = intlMap['cs-CZ'];
+const deDEIntl = intlMap['de-DE'];
+const enGBIntl = intlMap['en-GB'];
+const enUSIntl = intlMap['en-US'];
+const esESIntl = intlMap['es-ES'];
+const faIRIntl = intlMap['fa-IR'];
+const frFRIntl = intlMap['fr-FR'];
+const heILIntl = intlMap['he-IL'];
+const hrHRIntl = intlMap['hr-HR'];
+const idIDIntl = intlMap['id-ID'];
+const itITIntl = intlMap['it-IT'];
+const jaJPIntl = intlMap['ja-JP'];
+const koKRIntl = intlMap['ko-KR'];
+const mnMNIntl = intlMap['mn-MN'];
+const msMYIntl = intlMap['ms-MY'];
+const nlNLIntl = intlMap['nl-NL'];
+const plPLIntl = intlMap['pl-PL'];
+const ptBRIntl = intlMap['pt-BR'];
+const roROIntl = intlMap['ro-RO'];
+const ruRUIntl = intlMap['ru-RU'];
+const skSKIntl = intlMap['sk-SK'];
+const srRSIntl = intlMap['sr-RS'];
+const svSEIntl = intlMap['sv-SE'];
+const thTHIntl = intlMap['th-TH'];
+const trTRIntl = intlMap['tr-TR'];
+const ukUAIntl = intlMap['uk-UA'];
+const uzUZIntl = intlMap['uz-UZ'];
+const viVNIntl = intlMap['vi-VN'];
+const zhCNIntl = intlMap['zh-CN'];
+const zhHKIntl = intlMap['zh-HK'];
+const zhTWIntl = intlMap['zh-TW'];
 
 export {
   arEGIntl,
@@ -182,5 +238,6 @@ export {
   uzUZIntl,
   viVNIntl,
   zhCNIntl,
+  zhHKIntl,
   zhTWIntl,
 };

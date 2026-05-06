@@ -1,4 +1,6 @@
-export default {
+import type { ProLocale } from './zh_CN';
+
+const thTH: ProLocale = {
   moneySymbol: '฿',
   deleteThisLine: 'ลบบรรทัดนี้',
   copyThisLine: 'คัดลอกบรรทัดนี้',
@@ -73,3 +75,5 @@ export default {
     close: 'ปิด',
   },
 };
+
+export default thTH;

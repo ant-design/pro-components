@@ -1,4 +1,6 @@
-export default {
+import type { ProLocale } from './zh_CN';
+
+const nlNL: ProLocale = {
   moneySymbol: '€',
   deleteThisLine: 'Verwijder deze regel',
   copyThisLine: 'Kopieer deze regel',
@@ -73,3 +75,5 @@ export default {
     close: 'Sluiten',
   },
 };
+
+export default nlNL;

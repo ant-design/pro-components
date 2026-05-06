@@ -1,4 +1,6 @@
-export default {
+import type { ProLocale } from './zh_CN';
+
+const viVN: ProLocale = {
   moneySymbol: '₫',
   deleteThisLine: 'Xóa dòng này',
   copyThisLine: 'Sao chép dòng này',
@@ -73,3 +75,5 @@ export default {
     close: 'đóng',
   },
 };
+
+export default viVN;

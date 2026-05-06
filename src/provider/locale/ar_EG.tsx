@@ -1,4 +1,6 @@
-export default {
+import type { ProLocale } from './zh_CN';
+
+const arEG: ProLocale = {
   moneySymbol: '$',
   deleteThisLine: 'احذف هذا السطر',
   copyThisLine: 'انسخ هذا السطر',
@@ -73,3 +75,5 @@ export default {
     close: 'غلق',
   },
 };
+
+export default arEG;

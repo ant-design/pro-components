@@ -1,4 +1,6 @@
-export default {
+import type { ProLocale } from './zh_CN';
+
+const svSE: ProLocale = {
   moneySymbol: 'SEK',
   deleteThisLine: 'Radera denna rad',
   copyThisLine: 'Kopiera denna rad',
@@ -73,3 +75,5 @@ export default {
     close: 'Stäng',
   },
 };
+
+export default svSE;

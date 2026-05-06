@@ -1,4 +1,6 @@
-export default {
+import type { ProLocale } from './zh_CN';
+
+const koKR: ProLocale = {
   moneySymbol: '₩',
   deleteThisLine: '이 행 삭제',
   copyThisLine: '이 행 복사',
@@ -73,3 +75,5 @@ export default {
     close: '닫힘',
   },
 };
+
+export default koKR;

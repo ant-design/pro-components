@@ -1,4 +1,6 @@
-export default {
+import type { ProLocale } from './zh_CN';
+
+const uzUZ: ProLocale = {
   moneySymbol: 'UZS',
   deleteThisLine: 'Bu qatorni oʻchirish',
   copyThisLine: 'Bu qatorni nusxalash',
@@ -73,3 +75,5 @@ export default {
     close: 'Yopish',
   },
 };
+
+export default uzUZ;

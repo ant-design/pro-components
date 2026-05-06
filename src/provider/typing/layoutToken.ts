@@ -108,7 +108,6 @@ export const getLayoutDesignToken: (
   return {
     bgLayout: `linear-gradient(${antdToken.colorBgContainer}, ${antdToken.colorBgLayout} 28%)`,
     colorTextAppListIcon: antdToken.colorTextSecondary,
-    appListIconHoverBgColor: finalDesignTokens?.sider?.colorBgMenuItemSelected,
     colorBgAppListIconHover: setAlpha(antdToken.colorTextBase, 0.04),
     colorTextAppListIconHover: antdToken.colorTextBase,
     ...finalDesignTokens,

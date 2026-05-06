@@ -1,4 +1,6 @@
-export default {
+import type { ProLocale } from './zh_CN';
+
+const zhHK: ProLocale = {
   moneySymbol: 'HK$',
   deleteThisLine: '刪除此項',
   copyThisLine: '複製此項',
@@ -73,3 +75,5 @@ export default {
     close: '關閉',
   },
 };
+
+export default zhHK;

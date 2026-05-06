@@ -1,4 +1,6 @@
-export default {
+import type { ProLocale } from './zh_CN';
+
+const trTR: ProLocale = {
   moneySymbol: '₺',
   deleteThisLine: 'Bu satırı sil',
   copyThisLine: 'Bu satırı kopyala',
@@ -73,3 +75,5 @@ export default {
     close: 'Kapalı',
   },
 };
+
+export default trTR;

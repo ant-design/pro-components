@@ -1,4 +1,6 @@
-export default {
+import type { ProLocale } from './zh_CN';
+
+const faIR: ProLocale = {
   moneySymbol: 'تومان',
   deleteThisLine: 'حذف این خط',
   copyThisLine: 'کپی این خط',
@@ -73,3 +75,5 @@ export default {
     close: 'بسته',
   },
 };
+
+export default faIR;

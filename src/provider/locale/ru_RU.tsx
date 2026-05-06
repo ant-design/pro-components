@@ -1,4 +1,6 @@
-export default {
+import type { ProLocale } from './zh_CN';
+
+const ruRU: ProLocale = {
   moneySymbol: '₽',
   deleteThisLine: 'Удалить эту строку',
   copyThisLine: 'Копировать эту строку',
@@ -73,3 +75,5 @@ export default {
     close: 'Закрыть',
   },
 };
+
+export default ruRU;
