@@ -35,7 +35,7 @@ export type UseContainerProps<T = any> = {
   columnsState?: ProTableProps<any, any, any>['columnsState'];
 };
 
-function useContainer(props: UseContainerProps = {} as Record<string, any>) {
+function useContainer(props: UseContainerProps = {}) {
   const actionRef = useRef<ActionType>();
   const rootDomRef = useRef<HTMLDivElement>(null);
   /** 父 form item 的 name */
@@ -158,31 +158,31 @@ function useContainer(props: UseContainerProps = {} as Record<string, any>) {
    * 不要再误判这是 bug。
    */
   useEffect(() => {
-    const { persistenceType, persistenceKey } = props.columnsState || {};
+    const { persistenceType, persistenceKey, defaultValue } =
+      props.columnsState || {};
 
-    if (persistenceKey && persistenceType && typeof window !== 'undefined') {
-      /** 从持久化中读取数据 */
-      const storage = window[persistenceType];
-      try {
-        const storageValue = storage?.getItem(persistenceKey);
-        if (storageValue) {
-          if (props?.columnsState?.defaultValue) {
-            setColumnsMap(
-              merge(
-                {},
-                props?.columnsState?.defaultValue,
-                JSON.parse(storageValue),
-              ),
-            );
-          } else {
-            setColumnsMap(JSON.parse(storageValue));
-          }
-        } else {
-          setColumnsMap(defaultColumnKeyMap);
-        }
-      } catch (error) {
-        console.warn(error);
+    if (!persistenceKey || !persistenceType || typeof window === 'undefined') {
+      return;
+    }
+
+    /** 从持久化中读取数据 */
+    const storage = window[persistenceType];
+    try {
+      const storageValue = storage?.getItem(persistenceKey);
+      if (!storageValue) {
+        // 切到新的 persistenceKey 且 storage 中没有数据时，回退到默认值
+        // （不能保留旧键的修改痕迹，详见上方注释）
+        setColumnsMap(defaultColumnKeyMap);
+        return;
       }
+      if (defaultValue) {
+        // defaultValue 作为系统方默认配置，优先级低于用户在 storage 中的修改
+        setColumnsMap(merge({}, defaultValue, JSON.parse(storageValue)));
+      } else {
+        setColumnsMap(JSON.parse(storageValue));
+      }
+    } catch (error) {
+      console.warn(error);
     }
   }, [
     props.columnsState?.persistenceKey,
@@ -281,7 +281,7 @@ const TableContext = createContext<ContainerReturnType>({} as any);
 
 export type ContainerType = typeof useContainer;
 
-const Container: React.FC<{
+const TableProvider: React.FC<{
   initValue: UseContainerProps<any>;
   children: React.ReactNode;
 }> = (props) => {
@@ -293,4 +293,11 @@ const Container: React.FC<{
   );
 };
 
-export { Container, TableContext };
+/**
+ * @deprecated 使用 `TableProvider` 替代。`Container` 命名过于通用，与
+ * antd Card.Container / 各种 IoC Container 重名严重，已重命名为 `TableProvider`。
+ * 本别名仅用于向后兼容，将在后续主版本中移除。
+ */
+const Container = TableProvider;
+
+export { Container, TableContext, TableProvider };
