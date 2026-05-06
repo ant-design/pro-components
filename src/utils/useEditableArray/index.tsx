@@ -827,18 +827,22 @@ export function useEditableArray<RecordType extends AnyObject>(
                 ) => React.Key[] | undefined
               )(prev)
             : updater;
-        props?.onChange?.(
-          next?.filter((key) => key !== undefined) ?? [],
-          (next
-            ?.map((key) => getRecordByKey(key))
-            .filter((k): k is RecordType => k !== undefined) ?? []) as
-            | RecordType
-            | RecordType[],
-        );
+        const cleanKeys = next?.filter((key) => key !== undefined) ?? [];
+        const editingRecords = cleanKeys
+          .map((key) => getRecordByKey(key))
+          .filter((k): k is RecordType => k !== undefined);
+        // single 模式 onChange 第二参数语义是「当前编辑中的那一条 record」，
+        // multiple 模式才是数组 —— 否则用户接到的永远是数组，没法靠 Array.isArray 区分。
+        // 单选无在编辑项时回退到 undefined，与早期行为兼容。
+        const editingPayload =
+          editableType === 'single'
+            ? (editingRecords[0] as RecordType | undefined)
+            : editingRecords;
+        props?.onChange?.(cleanKeys, editingPayload as RecordType | RecordType[]);
         return next;
       });
     },
-    [props.onChange, getRecordByKey],
+    [props.onChange, getRecordByKey, editableType],
   );
 
   const editableKeysRef = usePrevious(editableKeys);
@@ -1217,11 +1221,21 @@ export function useEditableArray<RecordType extends AnyObject>(
   >(new Map<React.Key, React.RefObject<SaveEditableActionRef>>());
 
   useEffect(() => {
-    const editableKeysSet = new Set(
-      editableKeys?.map((key) => key?.toString()) ?? [],
-    );
-    saveRefsMap.current.forEach((ref, key) => {
-      if (!editableKeysSet.has(key?.toString())) {
+    // saveRefsMap 的 key 在 tableName 模式下写入的是 mappedKey（indexKey）而非 realKey
+    // （见下方 `actionRender` 内 `dataSourceKeyIndexMapRef.current.get(...) || ...`），
+    // 而 editableKeys 里存的是 realKey ── 直接拿 editableKeys 反查会导致 tableName 模式
+    // 下永远命中不了，缓存只增不减，最终泄漏。
+    // 修复：把 editableKeys 双向展开（自身 + 映射后的 indexKey），都视为「仍在编辑」。
+    const aliveKeysSet = new Set<string>();
+    (editableKeys ?? []).forEach((key) => {
+      const keyStr = key?.toString();
+      if (keyStr == null) return;
+      aliveKeysSet.add(keyStr);
+      const mapped = dataSourceKeyIndexMapRef.current.get(keyStr);
+      if (mapped != null) aliveKeysSet.add(mapped.toString());
+    });
+    saveRefsMap.current.forEach((_ref, key) => {
+      if (!aliveKeysSet.has(key?.toString())) {
         saveRefsMap.current.delete(key);
       }
     });
@@ -1424,10 +1438,18 @@ export function useEditableArray<RecordType extends AnyObject>(
         !options?.parentKey && isSameRecordKey(options?.recordKey, recordKey);
 
       if (isNewLine) {
+        // 新增行：editRow 仅包含用户在 form 中填过的字段，必须 merge 上 originRow
+        // （= recordCreatorProps.record 中设的默认值），否则那些没参与编辑的字段会丢失。
+        // 与 SaveEditableAction.save 内部 `merge({}, row, data)` 语义保持一致。
+        const mergedRow = merge<RecordType & { index?: number }>(
+          {},
+          originRow,
+          editRow,
+        );
         if (options?.position === 'top') {
-          props.setDataSource([editRow, ...props.dataSource]);
+          props.setDataSource([mergedRow, ...props.dataSource]);
         } else {
-          props.setDataSource([...props.dataSource, editRow]);
+          props.setDataSource([...props.dataSource, mergedRow]);
         }
       } else {
         const actionProps = {
