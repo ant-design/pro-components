@@ -1,11 +1,11 @@
 import type { GenerateStyle, ProAliasToken } from '../../../provider';
 import { useStyle as useAntdStyle } from '../../../provider';
 
-export interface ProListToken extends ProAliasToken {
+export interface StatisticCardToken extends ProAliasToken {
   componentCls: string;
 }
 
-const genProStyle: GenerateStyle<ProListToken> = (token) => {
+const genProStyle: GenerateStyle<StatisticCardToken> = (token) => {
   return {
     [token.componentCls]: {
       boxSizing: 'border-box',
@@ -29,9 +29,9 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
         },
       },
       '&-footer': {
-        marginBlockStart: 8,
-        paddingBlockStart: '16px',
-        borderBlockStart: `rgba(0, 0, 0, 0.08) solid ${token.colorBorder}`,
+        marginBlockStart: token.marginXS,
+        paddingBlockStart: token.padding,
+        borderBlockStart: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
       },
     },
   };
@@ -39,11 +39,11 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
 
 export function useStyle(prefixCls: string) {
   return useAntdStyle('StatisticCard', (token) => {
-    const proListToken: ProListToken = {
+    const statisticCardToken: StatisticCardToken = {
       ...token,
       componentCls: `.${prefixCls}`,
     };
 
-    return [genProStyle(proListToken)];
+    return [genProStyle(statisticCardToken)];
   });
 }

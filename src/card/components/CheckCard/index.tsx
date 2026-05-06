@@ -5,7 +5,7 @@ import type { MouseEventHandler } from 'react';
 import React, { useCallback, useContext, useEffect, useMemo } from 'react';
 import ProCardActions from '../Actions';
 import type { CheckCardGroupProps } from './Group';
-import CheckCardGroup, { CardLoading, CheckCardGroupConnext } from './Group';
+import CheckCardGroup, { CardLoading, CheckCardGroupContext } from './Group';
 import { useStyle } from './style';
 
 /**
@@ -166,9 +166,7 @@ export interface CheckCardState {
   checked: boolean;
 }
 
-const CheckCard: React.FC<CheckCardProps> & {
-  Group: typeof CheckCardGroup;
-} = (props) => {
+const CheckCard: React.FC<CheckCardProps> = (props) => {
   const [stateChecked, setStateCheckedInner] = useControlledState<boolean>(
     props.defaultChecked || false,
     props.checked,
@@ -186,7 +184,7 @@ const CheckCard: React.FC<CheckCardProps> & {
     },
     [props.onChange],
   );
-  const checkCardGroup = useContext(CheckCardGroupConnext);
+  const checkCardGroup = useContext(CheckCardGroupContext);
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
   const handleClick = (e: any) => {
@@ -206,7 +204,9 @@ const CheckCard: React.FC<CheckCardProps> & {
   useEffect(() => {
     checkCardGroup?.registerValue?.(props.value);
     return () => checkCardGroup?.cancelValue?.(props.value);
-  }, [props.value]);
+    // checkCardGroup 来自 context，理论上引用稳定；但若上层 Provider value 重建，
+    // 这里需要重新走一遍 register/cancel，避免向已失效的 group 注册。
+  }, [props.value, checkCardGroup]);
 
   const {
     prefixCls: customizePrefixCls,
@@ -254,11 +254,14 @@ const CheckCard: React.FC<CheckCardProps> & {
     checkCardProps.loading = props.loading || checkCardGroup.loading;
     checkCardProps.bordered = props.bordered || checkCardGroup.bordered;
 
-    multiple = checkCardGroup.multiple;
+    // multiple 在 Context 类型上是 boolean | undefined，本地变量需收窄成 boolean
+    multiple = checkCardGroup.multiple ?? false;
 
-    const isChecked = checkCardGroup.multiple
-      ? checkCardGroup.value?.includes(props.value)
-      : checkCardGroup.value === props.value;
+    // 多选时 value 必为数组、单选时为单值；用 Array.isArray 守卫，避免对单值调 includes
+    const groupValue = checkCardGroup.value;
+    const isChecked = multiple
+      ? Array.isArray(groupValue) && groupValue.includes(props.value)
+      : groupValue === props.value;
 
     // loading时check为false
     checkCardProps.checked = checkCardProps.loading ? false : isChecked;
@@ -385,8 +388,12 @@ const CheckCard: React.FC<CheckCardProps> & {
   );
 };
 
-CheckCard.Group = CheckCardGroup;
+// 用 Object.assign 挂载子组件，避免在函数组件类型里手写 typeof 断言。
+// 类型推断由 TS 自动完成（CheckCard 的类型 ∪ { Group: typeof CheckCardGroup }）。
+const CheckCardWithGroup = Object.assign(CheckCard, {
+  Group: CheckCardGroup,
+});
 
 export type { CheckCardGroupProps, CheckCardProps };
 
-export default CheckCard;
+export default CheckCardWithGroup;

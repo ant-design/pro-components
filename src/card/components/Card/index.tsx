@@ -3,6 +3,7 @@ import { omit, useControlledState } from '@rc-component/util';
 import { ConfigProvider, Grid, Tabs } from 'antd';
 import { clsx } from 'clsx';
 import React, { useCallback, useContext } from 'react';
+import { proTheme } from '../../../provider';
 import { LabelIconTip, useRefFunction } from '../../../utils';
 import type { Breakpoint, CardProps, Gutter } from '../../typing';
 import Actions from '../Actions';
@@ -11,7 +12,12 @@ import useStyle from './style';
 
 const { useBreakpoint } = Grid;
 
-type ProCardChildType = React.ReactElement<CardProps, any>;
+// 子卡片元素类型：props 形如 CardProps，组件类型用 React.JSXElementConstructor 收紧，
+// 比 any 安全，但仍允许 React.cloneElement / element.type?.isProCard 这类访问。
+type ProCardChildType = React.ReactElement<
+  CardProps,
+  React.JSXElementConstructor<CardProps> & { isProCard?: boolean }
+>;
 
 const Card = React.forwardRef((props: CardProps, ref: any) => {
   const {
@@ -64,6 +70,8 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     cover: styles?.cover,
   };
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  // 用于 loading 占位 padding 兜底（body padding 被显式置 0 时使用 token.paddingLG）
+  const { token } = proTheme.useToken();
 
   const screens = useBreakpoint() || {
     lg: true,
@@ -135,16 +143,6 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     return results;
   };
 
-  /**
-   * 根据条件返回 style，负责返回空对象
-   *
-   * @param withStyle 是否符合条件
-   * @param appendStyle 如果符合条件要返回的 style 属性
-   */
-  const getStyle = (withStyle: boolean, appendStyle: React.CSSProperties) => {
-    return withStyle ? appendStyle : {};
-  };
-
   const getColSpanStyle = (colSpan: CardProps['colSpan']) => {
     let span = colSpan;
 
@@ -160,13 +158,11 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     }
 
     // 当 colSpan 为 30% 或 300px 时
-    const colSpanStyle = getStyle(
-      typeof span === 'string' && /\d%|\dpx/i.test(span),
-      {
-        width: span as string,
-        flexShrink: 0,
-      },
-    );
+    const isPercentOrPxWidth =
+      typeof span === 'string' && /\d%|\dpx/i.test(span);
+    const colSpanStyle: React.CSSProperties = isPercentOrPxWidth
+      ? { width: span as string, flexShrink: 0 }
+      : {};
 
     return { span, colSpanStyle };
   };
@@ -197,15 +193,19 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
           typeof span === 'number' && span >= 0 && span <= 24,
       });
 
-      const wrappedElement = wrapSSR(
+      // key 直接挂在外层 div 上，避免依赖 wrapSSR 返回结构（v2 起 wrapSSR 是 identity，
+      // 但仍然不应该依赖此细节，否则 wrapSSR 行为变化会导致 key 落到错误的节点上）。
+      // element 直接放入即可，无需 React.cloneElement(element)（不传 props 是无意义调用）。
+      return wrapSSR(
         <div
+          key={`pro-card-col-${element?.key || index}`}
           style={{
             ...colSpanStyle,
-            ...getStyle(horizontalGutter! > 0, {
+            ...(horizontalGutter > 0 && {
               paddingInlineEnd: horizontalGutter / 2,
               paddingInlineStart: horizontalGutter / 2,
             }),
-            ...getStyle(verticalGutter! > 0, {
+            ...(verticalGutter > 0 && {
               paddingBlockStart: verticalGutter / 2,
               paddingBlockEnd: verticalGutter / 2,
             }),
@@ -213,12 +213,9 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
           }}
           className={columnClassName}
         >
-          {React.cloneElement(element)}
+          {element}
         </div>,
       );
-      return React.cloneElement(wrappedElement, {
-        key: `pro-card-col-${element?.key || index}`,
-      });
     }
     return element;
   });
@@ -253,6 +250,8 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
 
   const bodyStylePadding = mergedStyles.body?.padding;
 
+  // body padding 被显式置 0 时，loading 占位需要补回默认 padding，
+  // 否则骨架屏会贴到边缘。这里对齐 body 的默认 padding（token.paddingLG）。
   const loadingDOM = React.isValidElement(loading) ? (
     loading
   ) : (
@@ -260,7 +259,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       prefix={prefixCls}
       style={
         bodyStylePadding === 0 || bodyStylePadding === '0px'
-          ? { padding: 24 }
+          ? { padding: token.paddingLG }
           : undefined
       }
     />
@@ -357,14 +356,18 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
         </div>
       )}
       {tabs ? (
+        // antd v5 Tabs 仅通过 items 渲染，传 children 会被忽略。
+        // loading 状态下，把骨架屏放到 Tabs 容器外层，避免 children 被吞。
         <div className={clsx(`${prefixCls}-tabs`, hashId)}>
-          <Tabs
-            onChange={tabs.onChange}
-            {...omit(tabs, ['cardProps'])}
-            items={ModifyTabItemsContent}
-          >
-            {loading ? loadingDOM : children}
-          </Tabs>
+          {loading ? (
+            loadingDOM
+          ) : (
+            <Tabs
+              onChange={tabs.onChange}
+              {...omit(tabs, ['cardProps'])}
+              items={ModifyTabItemsContent}
+            />
+          )}
         </div>
       ) : (
         <div className={bodyCls} style={mergedStyles.body}>

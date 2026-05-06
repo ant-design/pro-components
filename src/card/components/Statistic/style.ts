@@ -1,11 +1,11 @@
 import type { GenerateStyle, ProAliasToken } from '../../../provider';
 import { useStyle as useAntdStyle } from '../../../provider';
 
-export interface ProListToken extends ProAliasToken {
+export interface StatisticToken extends ProAliasToken {
   componentCls: string;
 }
 
-const genProStyle: GenerateStyle<ProListToken> = (token) => {
+const genProStyle: GenerateStyle<StatisticToken> = (token) => {
   return {
     [token.componentCls]: {
       boxSizing: 'border-box',
@@ -45,19 +45,22 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
       [`${token.antCls}-statistic-title`]: {
         color: token.colorText,
       },
+      // 趋势上涨：默认接 antd 的 colorError（中国金融语义：红涨）
+      // 海外业务可通过 ConfigProvider 覆盖 token.colorError 或自定义类名覆盖
       '&-trend-up': {
         [`${token.antCls}-statistic-content`]: {
-          color: '#f5222d',
+          color: token.colorError,
           [`${token.componentCls}-trend-icon`]: {
-            borderBlockEndColor: '#f5222d',
+            borderBlockEndColor: token.colorError,
           },
         },
       },
+      // 趋势下降：默认接 antd 的 colorSuccess（中国金融语义：绿跌）
       '&-trend-down': {
         [`${token.antCls}-statistic-content`]: {
-          color: '#389e0d',
+          color: token.colorSuccess,
           [`${token.componentCls}-trend-icon`]: {
-            borderBlockEndColor: '#52c41a',
+            borderBlockEndColor: token.colorSuccess,
           },
         },
       },
@@ -96,11 +99,11 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
 
 export function useStyle(prefixCls: string) {
   return useAntdStyle('Statistic', (token) => {
-    const proListToken: ProListToken = {
+    const statisticToken: StatisticToken = {
       ...token,
       componentCls: `.${prefixCls}`,
     };
 
-    return [genProStyle(proListToken)];
+    return [genProStyle(statisticToken)];
   });
 }

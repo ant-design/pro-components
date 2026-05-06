@@ -2,15 +2,15 @@ import { Keyframes } from '@ant-design/cssinjs';
 import type { GenerateStyle, ProAliasToken } from '../../../provider';
 import { useStyle as useAntdStyle } from '../../../provider';
 
-export interface ProListToken extends ProAliasToken {
+export interface CheckCardToken extends ProAliasToken {
   componentCls: string;
 }
 
-const proCheckCardActive = (token: ProListToken) => ({
+const proCheckCardActive = (token: CheckCardToken) => ({
   backgroundColor: token.colorPrimaryBg,
   borderColor: token.colorPrimary,
 });
-const proCheckCardDisabled = (token: ProListToken) => ({
+const proCheckCardDisabled = (token: CheckCardToken) => ({
   backgroundColor: token.colorBgContainerDisabled,
   borderColor: token.colorBorder,
   cursor: 'not-allowed',
@@ -25,21 +25,35 @@ const proCheckCardDisabled = (token: ProListToken) => ({
   },
 });
 
+/**
+ * 选中态右上角小三角的公共形态：宽高 0、定位、圆角等所有 3 个状态共用的部分。
+ * 颜色 / 透明度由调用方覆盖。
+ */
+const genCheckedAfterBase = (token: CheckCardToken) => ({
+  position: 'absolute' as const,
+  insetBlockStart: 2,
+  insetInlineEnd: 2,
+  width: 0,
+  height: 0,
+  borderStartEndRadius: token.borderRadius,
+  content: "''",
+});
+
 export const cardLoading = new Keyframes('card-loading', {
   '0%': { backgroundPosition: '0 50%' },
   '50%': { backgroundPosition: '100% 50%' },
   '100%': { backgroundPosition: '0 50%' },
 });
 
-const genProStyle: GenerateStyle<ProListToken> = (token) => {
+const genProStyle: GenerateStyle<CheckCardToken> = (token) => {
   return {
     [token.componentCls]: {
       boxSizing: 'border-box',
       position: 'relative',
       display: 'inline-block',
-      width: '320px',
-      marginInlineEnd: '16px',
-      marginBlockEnd: '16px',
+      width: 320,
+      marginInlineEnd: token.margin,
+      marginBlockEnd: token.margin,
       color: token.colorText,
       fontSize: token.fontSize,
       lineHeight: token.lineHeight,
@@ -50,17 +64,11 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
       cursor: 'pointer',
       transition: `all 0.3s`,
       '&:after': {
-        position: 'absolute',
-        insetBlockStart: 2,
-        insetInlineEnd: 2,
-        width: 0,
-        height: 0,
+        ...genCheckedAfterBase(token),
         opacity: 0,
-        transition: 'all 0.3s ' + token.motionEaseInOut,
-        borderBlockEnd: `${token.borderRadius + 4}px  solid transparent`,
-        borderInlineStart: `${token.borderRadius + 4}px  solid transparent`,
-        borderStartEndRadius: `${token.borderRadius}px`,
-        content: "''",
+        transition: `all 0.3s ${token.motionEaseInOut}`,
+        borderBlockEnd: `${token.borderRadius + 4}px solid transparent`,
+        borderInlineStart: `${token.borderRadius + 4}px solid transparent`,
       },
 
       '&:last-child': {
@@ -110,27 +118,18 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
         '&:after': {
           opacity: 1,
           border: `${token.borderRadius + 4}px solid ${token.colorPrimary}`,
-          borderBlockEnd: `${token.borderRadius + 4}px  solid transparent`,
-          borderInlineStart: `${token.borderRadius + 4}px  solid transparent`,
-          borderStartEndRadius: `${token.borderRadius}px`,
+          borderBlockEnd: `${token.borderRadius + 4}px solid transparent`,
+          borderInlineStart: `${token.borderRadius + 4}px solid transparent`,
         },
       },
       '&-disabled': proCheckCardDisabled(token),
       '&[disabled]': proCheckCardDisabled(token),
       '&-checked&-disabled': {
         '&:after': {
-          position: 'absolute',
-          insetBlockStart: 2,
-          insetInlineEnd: 2,
-          width: 0,
-          height: 0,
-          border: `${token.borderRadius + 4}px solid ${
-            token.colorTextDisabled
-          }`,
-          borderBlockEnd: `${token.borderRadius + 4}px  solid transparent`,
-          borderInlineStart: `${token.borderRadius + 4}px  solid transparent`,
-          borderStartEndRadius: `${token.borderRadius}px`,
-          content: "''",
+          ...genCheckedAfterBase(token),
+          border: `${token.borderRadius + 4}px solid ${token.colorTextDisabled}`,
+          borderBlockEnd: `${token.borderRadius + 4}px solid transparent`,
+          borderInlineStart: `${token.borderRadius + 4}px solid transparent`,
         },
       },
       '&-lg': {
@@ -207,11 +206,11 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
 
 export function useStyle(prefixCls: string) {
   return useAntdStyle('CheckCard', (token) => {
-    const proListToken: ProListToken = {
+    const checkCardToken: CheckCardToken = {
       ...token,
       componentCls: `.${prefixCls}`,
     };
 
-    return [genProStyle(proListToken)];
+    return [genProStyle(checkCardToken)];
   });
 }

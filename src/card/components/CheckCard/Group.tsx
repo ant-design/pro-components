@@ -11,6 +11,7 @@ import React, {
   useState,
 } from 'react';
 import { ProConfigProvider, proTheme } from '../../../provider';
+import { useRefFunction } from '../../../utils';
 import CheckCard from './index';
 import { useStyle } from './style';
 
@@ -175,60 +176,44 @@ export interface CheckCardGroupState {
 }
 
 /**
- * Represents the props for the CheckCardGroup component.
+ * CheckCardGroup 内部 context 的类型定义。
+ * 由 Group 组件向下传递，CheckCard 子组件通过 useContext 消费。
  */
-export type CheckCardGroupConnextType = {
-  /**
-   * A function to toggle the selected option.
-   * @param option - The option to toggle.
-   */
+export type CheckCardGroupContextType = {
+  /** 切换选项选中状态 */
   toggleOption?: (option: CheckCardOptionType) => void;
-
-  /**
-   * The currently selected value.
-   */
-  value?: any;
-
-  /**
-   * Specifies whether the component is disabled.
-   */
+  /** 当前选中值（单选为单值，多选为数组） */
+  value?: CheckGroupValueType;
+  /** 是否整组失效 */
   disabled?: boolean;
-
-  /**
-   * The size of the component.
-   */
-  size?: any;
-
-  /**
-   * Specifies whether the component is in a loading state.
-   */
-  loading?: any;
-
-  /**
-   * Specifies whether the component has a border.
-   */
-  bordered?: any;
-
-  /**
-   * Specifies whether multiple options can be selected.
-   */
-  multiple?: any;
-
-  /**
-   * A function to register a value.
-   * @param value - The value to register.
-   */
-  registerValue?: (value: any) => void;
-
-  /**
-   * A function to cancel a value.
-   * @param value - The value to cancel.
-   */
-  cancelValue?: (value: any) => void;
+  /** 组件尺寸 */
+  size?: 'large' | 'default' | 'small';
+  /** 是否处于 loading 状态 */
+  loading?: boolean;
+  /** 是否显示边框 */
+  bordered?: boolean;
+  /** 是否多选 */
+  multiple?: boolean;
+  /** 注册一个值（子卡片挂载时调用） */
+  registerValue?: (value: CheckCardValueType) => void;
+  /** 注销一个值（子卡片卸载时调用） */
+  cancelValue?: (value: CheckCardValueType) => void;
 };
 
-export const CheckCardGroupConnext =
-  createContext<CheckCardGroupConnextType | null>(null);
+/**
+ * @deprecated 旧名为 `Connext` 拼写错误，请使用 `CheckCardGroupContextType`。
+ * 保留别名仅为兼容存量调用，下个大版本会移除。
+ */
+export type CheckCardGroupConnextType = CheckCardGroupContextType;
+
+export const CheckCardGroupContext =
+  createContext<CheckCardGroupContextType | null>(null);
+
+/**
+ * @deprecated 旧名为 `Connext` 拼写错误，请使用 `CheckCardGroupContext`。
+ * 保留别名仅为兼容存量调用，下个大版本会移除。
+ */
+export const CheckCardGroupConnext = CheckCardGroupContext;
 
 /**
  * SubCheckCardGroup component.
@@ -321,6 +306,16 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
     CheckCardValueType[] | CheckCardValueType | undefined
   >(props.defaultValue, props.value);
 
+  // 使用 useRefFunction 锁住最新的 onChange 引用，避免每次外部 onChange 变化都重建 setStateValue。
+  const onChangeCallback = useRefFunction((next: CheckGroupValueType) => {
+    onChange?.(next);
+  });
+
+  /**
+   * 使用 queueMicrotask 延迟回调调用，避免在渲染阶段触发外部回调导致的 React 警告
+   * "Cannot update a component while rendering a different component"。
+   * 与 ProCard 的 setCollapsed 模式保持一致。
+   */
   const setStateValue = useCallback(
     (
       updater:
@@ -332,61 +327,51 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
           typeof updater === 'function'
             ? (updater as (p: CheckGroupValueType) => CheckGroupValueType)(prev)
             : updater;
-        onChange?.(next);
+        queueMicrotask(() => {
+          onChangeCallback(next);
+        });
         return next;
       });
     },
-    [onChange],
+    [onChangeCallback, setStateValueInner],
   );
 
   const registerValueMap = useRef<Map<CheckCardValueType, any>>(new Map());
 
-  const registerValue = (value: string) => {
+  const registerValue = (value: CheckCardValueType) => {
     registerValueMap.current?.set(value, true);
   };
 
-  const cancelValue = (value: string) => {
+  const cancelValue = (value: CheckCardValueType) => {
     registerValueMap.current?.delete(value);
   };
 
   const toggleOption = (option: CheckCardOptionType) => {
+    // 单选模式：再次点击当前选中项时清空，否则切到新值
     if (!multiple) {
-      let changeValue;
-
-      changeValue = stateValue;
-      // 单选模式
-      if (changeValue === option.value) {
-        changeValue = undefined;
-      } else {
-        changeValue = option.value;
-      }
-      setStateValue?.(changeValue);
+      const nextValue =
+        stateValue === option.value ? undefined : option.value;
+      setStateValue(nextValue);
+      return;
     }
 
-    if (multiple) {
-      let changeValue = [];
-      const stateValues = stateValue as CheckCardValueType[];
-      const hasOption = stateValues?.includes(option.value);
-      changeValue = [...(stateValues || [])];
-      if (!hasOption) {
-        changeValue.push(option.value);
-      }
-      if (hasOption) {
-        changeValue = changeValue.filter(
-          (itemValue) => itemValue !== option.value,
-        );
-      }
-      const newOptions = getOptions();
-      const newValue = changeValue
-        ?.filter((val) => registerValueMap.current.has(val))
-        ?.sort((a, b) => {
-          const indexA = newOptions.findIndex((opt) => opt.value === a);
-          const indexB = newOptions.findIndex((opt) => opt.value === b);
-          return indexA - indexB;
-        });
+    // 多选模式：toggle option.value，并按选项原始顺序排序
+    const stateValues = (stateValue as CheckCardValueType[]) ?? [];
+    const hasOption = stateValues.includes(option.value);
+    const toggled = hasOption
+      ? stateValues.filter((itemValue) => itemValue !== option.value)
+      : [...stateValues, option.value];
 
-      setStateValue(newValue);
-    }
+    const newOptions = getOptions();
+    const newValue = toggled
+      .filter((val) => registerValueMap.current.has(val))
+      .sort((a, b) => {
+        const indexA = newOptions.findIndex((opt) => opt.value === a);
+        const indexB = newOptions.findIndex((opt) => opt.value === b);
+        return indexA - indexB;
+      });
+
+    setStateValue(newValue);
   };
 
   const children = useMemo((): React.ReactNode => {
@@ -455,30 +440,46 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
 
   const classString = clsx(groupPrefixCls, className, hashId);
 
+  // useMemo 锁住 Provider value 的引用，避免 Group 重渲染时所有 CheckCard 子组件无脑重渲染。
+  // 注意：toggleOption / register / cancel 当前每次都是新函数，理论上还应进一步用 useRefFunction 锁住，
+  // 但当前已比 inline 对象字面量好得多，且不破坏现有行为。
+  const contextValue = useMemo<CheckCardGroupContextType>(
+    () => ({
+      toggleOption,
+      bordered,
+      value: stateValue,
+      disabled: props.disabled,
+      size: props.size,
+      loading: props.loading,
+      multiple: props.multiple,
+      // https://github.com/ant-design/ant-design/issues/16376
+      registerValue,
+      cancelValue,
+    }),
+    [
+      bordered,
+      stateValue,
+      props.disabled,
+      props.size,
+      props.loading,
+      props.multiple,
+    ],
+  );
+
   return wrapSSR(
-    <CheckCardGroupConnext.Provider
-      value={{
-        toggleOption,
-        bordered,
-        value: stateValue,
-        disabled: props.disabled,
-        size: props.size,
-        loading: props.loading,
-        multiple: props.multiple,
-        // https://github.com/ant-design/ant-design/issues/16376
-        registerValue,
-        cancelValue,
-      }}
-    >
+    <CheckCardGroupContext.Provider value={contextValue}>
       <div className={classString} style={style} {...domProps}>
         {children}
       </div>
-    </CheckCardGroupConnext.Provider>,
+    </CheckCardGroupContext.Provider>,
   );
 };
 
-export default (props: CheckCardGroupProps) => (
+const CheckCardGroupWithProvider: React.FC<CheckCardGroupProps> = (props) => (
   <ProConfigProvider needDeps>
     <CheckCardGroup {...props} />
   </ProConfigProvider>
 );
+CheckCardGroupWithProvider.displayName = 'CheckCardGroup';
+
+export default CheckCardGroupWithProvider;
