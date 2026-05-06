@@ -52,6 +52,8 @@ const navVar = {
   colorBgHover: '--pro-layout-nav-color-bg-hover',
   colorTextHover: '--pro-layout-nav-color-text-hover',
   colorBgSelected: '--pro-layout-nav-color-bg-selected',
+  /** 选中 + hover 组合态的背景色：基于选中态同色系再深一档，避免被普通 hover 灰色覆盖 */
+  colorBgSelectedHover: '--pro-layout-nav-color-bg-selected-hover',
   colorTextSelected: '--pro-layout-nav-color-text-selected',
   /** 选中态的图标颜色，与选中态字色解耦（SidebarMenu 使用 primary-text-secondary） */
   colorIconSelected: '--pro-layout-nav-color-icon-selected',
@@ -97,6 +99,9 @@ function layoutNavCssVars(surface: 'sider' | 'header'): Record<string, string> {
         'var(--color-gray-text-default, rgba(9, 30, 66, 0.86))',
       [navVar.colorBgSelected]:
         'var(--color-primary-control-fill-ghost-active, rgba(29, 122, 252, 0.23))',
+      /** 业务侧若有专用"选中 hover"语义 token 可覆盖，否则回落为同色系加深 */
+      [navVar.colorBgSelectedHover]:
+        'var(--color-primary-control-fill-ghost-hover, rgba(29, 122, 252, 0.32))',
       [navVar.colorTextSelected]: 'var(--color-primary-text-default, #0055cc)',
       [navVar.colorIconSelected]:
         'var(--color-primary-text-secondary, var(--color-primary-text-default, #0055cc))',
@@ -135,6 +140,8 @@ function layoutNavCssVars(surface: 'sider' | 'header'): Record<string, string> {
       'var(--color-gray-text-default, var(--ant-color-text))',
     [navVar.colorBgSelected]:
       'var(--color-primary-control-fill-ghost-active, var(--ant-color-fill-tertiary))',
+    [navVar.colorBgSelectedHover]:
+      'var(--color-primary-control-fill-ghost-hover, var(--ant-color-fill-secondary))',
     [navVar.colorTextSelected]:
       'var(--color-primary-text-default, var(--ant-color-text))',
     [navVar.colorIconSelected]:
@@ -166,6 +173,30 @@ function layoutNavCssVars(surface: 'sider' | 'header'): Record<string, string> {
   };
 }
 
+/**
+ * 统一的缓动曲线：
+ * - `easeStandard`：Material "Standard"（in-out），适合"切换式"视觉态（hover/selected 背景色、文字色）
+ * - `easeOut`：Material "Emphasized Decelerate"，适合"入场/冒出"类 motion（指示条 scaleY、icon scale）
+ * 业务侧若想统一放慢/加快，通过 `--ant-motion-duration-mid` 覆盖即可，曲线不变。
+ */
+const easeStandard = 'cubic-bezier(0.4, 0, 0.2, 1)';
+const easeOut = 'cubic-bezier(0.22, 1, 0.36, 1)';
+
+/** 行级视觉态统一 transition：背景/文字/阴影/transform 四轨并发，节奏一致 */
+const rowTransition = [
+  `background-color var(--ant-motion-duration-mid, 0.2s) ${easeStandard}`,
+  `color var(--ant-motion-duration-mid, 0.2s) ${easeStandard}`,
+  `box-shadow var(--ant-motion-duration-mid, 0.2s) ${easeStandard}`,
+  `transform var(--ant-motion-duration-mid, 0.2s) ${easeOut}`,
+  `font-weight var(--ant-motion-duration-mid, 0.2s) ${easeStandard}`,
+].join(', ');
+
+/** icon 的 transition：跟随行级过渡节奏，单独列出方便 popup/主区复用 */
+const iconTransition = [
+  `color var(--ant-motion-duration-mid, 0.2s) ${easeStandard}`,
+  `transform var(--ant-motion-duration-mid, 0.2s) ${easeOut}`,
+].join(', ');
+
 const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
   token,
   mode,
@@ -175,6 +206,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
   const v = (name: keyof typeof navVar) => `var(${navVar[name]})`;
 
   const rowItem: Record<string, unknown> = {
+    position: 'relative',
     boxSizing: 'border-box',
     display: 'flex',
     flexDirection: 'row',
@@ -200,7 +232,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
     border: 'none',
     background: 'transparent',
     textAlign: 'start',
-    transition: `background-color var(--ant-motion-duration-mid, 0.2s), color var(--ant-motion-duration-mid, 0.2s)`,
+    transition: rowTransition,
     '&:focus-visible': {
       outline: `2px solid var(--ant-color-primary)`,
       outlineOffset: 1,
@@ -280,10 +312,55 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           padding: 0,
         },
 
-      /** 选中态：作用在外层 li 的修饰符上，组合选中 button */
+      /**
+       * 选中态指示条（左侧 3px 竖线）：
+       * - 始终存在于 DOM（`::before` 伪元素），通过 `transform: scaleY()` 控制显隐，
+       *   这样 transform 可走 transition，产生"从中间展开"的丝滑动画；
+       * - 非选中态 `scaleY(0)` 隐形；选中态 `scaleY(1)` 展开，`transform-origin: center`
+       *   让它像抽屉一样向上下两端拉开；
+       * - 仅在 inline 模式有意义（horizontal 顶栏选中不需要竖条），通过非 horizontal
+       *   选择器限定。
+       */
+      ...(!isHorizontal
+        ? {
+            [`${c}-item-button::before, ${c}-submenu-title::before`]: {
+              content: '""',
+              position: 'absolute',
+              insetInlineStart: 0,
+              insetBlockStart: '50%',
+              width: 3,
+              height: '60%',
+              borderStartEndRadius: 3,
+              borderEndEndRadius: 3,
+              backgroundColor: v('colorTextSelected'),
+              transform: 'translateY(-50%) scaleY(0)',
+              transformOrigin: 'center',
+              transition: `transform var(--ant-motion-duration-mid, 0.2s) ${easeOut}, opacity var(--ant-motion-duration-mid, 0.2s) ${easeStandard}`,
+              opacity: 0,
+              pointerEvents: 'none',
+            },
+          }
+        : {}),
+
+      /**
+       * 选中态：
+       * - 背景 + 文字色切换（原有行为）；
+       * - 字重微加重至 600，`font-weight` 已纳入 rowTransition 一并过渡；
+       * - 左侧指示条 `scaleY(0) → scaleY(1)` + opacity `0 → 1` 展开。
+       */
       [`${c}-item--selected ${c}-item-button`]: {
         backgroundColor: v('colorBgSelected'),
         color: v('colorTextSelected'),
+        fontWeight: 600,
+        /**
+         * 选中 + hover 组合态：保持淡蓝主色、进一步加深背景，
+         * 特异性 (0,3,0) 高于基础 `&:hover:not(:disabled)` (0,2,1)，
+         * 确保不会被灰色 hover 覆盖。
+         */
+        '&:hover:not(:disabled)': {
+          backgroundColor: v('colorBgSelectedHover'),
+          color: v('colorTextSelected'),
+        },
       },
 
       /** 禁用 li 的兼容（部分场景外层 li 也带 disabled 修饰） */
@@ -348,7 +425,8 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         marginInlineStart: v('itemGap'),
         color: 'currentColor',
         opacity: 0.6,
-        transition: `transform var(--ant-motion-duration-mid, 0.2s)`,
+        /** 与行级视觉节奏一致：走 easeOut，收尾柔和 */
+        transition: `transform var(--ant-motion-duration-mid, 0.2s) ${easeOut}`,
         svg: {
           width: '100%',
           height: '100%',
@@ -481,6 +559,8 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
          */
         fontSize: 'inherit',
         lineHeight: 0,
+        /** 选中态图标需要与父级行视觉节奏一致（色彩 + 轻微放大） */
+        transition: iconTransition,
         span: {
           display: 'inline-flex',
           alignItems: 'center',
@@ -513,9 +593,13 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         height: v('iconBox'),
       },
 
-      /** 选中态图标颜色单独走 token，保持与字色解耦（SidebarMenu 风格） */
+      /**
+       * 选中态图标：颜色单独走 token（与字色解耦，SidebarMenu 风格），
+       * 同时轻微放大 1.08 强化"被选中"的反馈；transition 已写在 item-icon 基础规则上。
+       */
       [`${c}-item--selected ${c}-item-icon`]: {
         color: v('colorIconSelected'),
+        transform: 'scale(1.08)',
       },
 
       [`${c}-divider`]: {
@@ -769,8 +853,9 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         padding: 0,
       },
 
-      /** Item button：完整 reset + rowItem 视觉 */
+      /** Item button：完整 reset + rowItem 视觉（popup 容器内独立一份，与主区保持节奏一致） */
       [`${c}-item-button, ${c}-submenu-title`]: {
+        position: 'relative',
         boxSizing: 'border-box',
         display: 'flex',
         flexDirection: 'row',
@@ -795,7 +880,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         appearance: 'none',
         WebkitAppearance: 'none',
         textAlign: 'start',
-        transition: `background-color var(--ant-motion-duration-mid, 0.2s), color var(--ant-motion-duration-mid, 0.2s)`,
+        transition: rowTransition,
         '&:hover:not(:disabled)': {
           backgroundColor: v('colorBgHover'),
           color: v('colorTextHover'),
@@ -803,6 +888,23 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         '&:disabled': {
           cursor: 'not-allowed',
           opacity: 0.45,
+        },
+        /** 选中态指示条（popup 内同样生效）：左侧 3px 竖线，scaleY 展开 */
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          insetInlineStart: 0,
+          insetBlockStart: '50%',
+          width: 3,
+          height: '60%',
+          borderStartEndRadius: 3,
+          borderEndEndRadius: 3,
+          backgroundColor: v('colorTextSelected'),
+          transform: 'translateY(-50%) scaleY(0)',
+          transformOrigin: 'center',
+          transition: `transform var(--ant-motion-duration-mid, 0.2s) ${easeOut}, opacity var(--ant-motion-duration-mid, 0.2s) ${easeStandard}`,
+          opacity: 0,
+          pointerEvents: 'none',
         },
       },
 
@@ -841,7 +943,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         marginInlineStart: v('itemGap'),
         color: 'currentColor',
         opacity: 0.6,
-        transition: `transform var(--ant-motion-duration-mid, 0.2s)`,
+        transition: `transform var(--ant-motion-duration-mid, 0.2s) ${easeOut}`,
         svg: {
           width: '100%',
           height: '100%',
@@ -852,9 +954,20 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         transform: 'rotate(90deg)',
       },
 
+      /** 选中态：背景 + 字色 + 字重过渡 + 左侧指示条 scaleY 展开 */
       [`${c}-item--selected ${c}-item-button`]: {
         backgroundColor: v('colorBgSelected'),
         color: v('colorTextSelected'),
+        fontWeight: 600,
+        '&::before': {
+          transform: 'translateY(-50%) scaleY(1)',
+          opacity: 1,
+        },
+        /** popup 内也要保证选中 hover 不退化为灰色 */
+        '&:hover:not(:disabled)': {
+          backgroundColor: v('colorBgSelectedHover'),
+          color: v('colorTextSelected'),
+        },
       },
 
       /** Item title 行：icon + label 横向布局 */
@@ -885,6 +998,8 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         color: v('colorIcon'),
         fontSize: 'inherit',
         lineHeight: 0,
+        /** popup 容器独立一份：与主区相同的 color + transform 过渡 */
+        transition: iconTransition,
         span: {
           display: 'inline-flex',
           alignItems: 'center',
@@ -905,8 +1020,10 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         width: v('iconBox'),
         height: v('iconBox'),
       },
+      /** 选中态 icon：颜色 + 微放大 1.08，与主区节奏对齐 */
       [`${c}-item--selected ${c}-item-icon`]: {
         color: v('colorIconSelected'),
+        transform: 'scale(1.08)',
       },
 
       /** Group 块：标题 + 列表 */
