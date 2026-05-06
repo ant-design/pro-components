@@ -141,7 +141,22 @@ function useContainer(props: UseContainerProps = {} as Record<string, any>) {
     [onColumnsMapChange],
   );
 
-  /**  配置或列更改时对columnsMap重新赋值 */
+  /**
+   * 配置或列更改时对 columnsMap 重新赋值。
+   *
+   * 协议（被 `tests/table/dynamic-columns-state.test.tsx#51 columnSetting
+   * columnsState.persistenceKey change` 明确锁定）：
+   *   - persistenceKey / persistenceType 切换到新键时，
+   *     - 新键 storage 中已有数据 → 用 storage 数据（含 defaultValue merge）覆盖；
+   *     - 新键 storage 中无数据 → 必须把 columnsMap 重置回 defaultColumnKeyMap，
+   *       不能保留旧键的修改痕迹。这是「切到新表/新场景应该用默认值打底」
+   *       的有意行为，不是 bug。
+   *   - defaultColumnKeyMap（依赖 props.columns）重算时同样按上述规则同步。
+   *
+   * 历史教训：曾经把 else 分支当成「覆盖用户修改」的 bug 删除，
+   * 立刻击穿上面的测试用例（rerender 切 persistenceKey 后新键应回到默认全选）。
+   * 不要再误判这是 bug。
+   */
   useEffect(() => {
     const { persistenceType, persistenceKey } = props.columnsState || {};
 

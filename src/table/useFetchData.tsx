@@ -16,6 +16,13 @@ import { postDataPipeline } from './utils/index';
 import { usePageInfo } from './utils/usePageInfo';
 
 /**
+ * 轮询的最小间隔（毫秒）。低于此值会被钳制为此值，避免在请求 RTT 较大时
+ * 出现「上一次还没回来就发起下一次」导致一直 loading 的问题。
+ * 该协议被 `tests/table/polling.test.tsx#85 polling min time is 2000` 明确锁定。
+ */
+const MIN_POLLING_INTERVAL_MS = 2000;
+
+/**
  * useFetchData hook 用来获取数据并控制数据的状态和分页
  * @template T
  * @param {(undefined | ((params?: { pageSize: number; current: number }) => Promise<DataSource>))} getData - 获取数据的函数，参数为分页参数，
@@ -304,17 +311,29 @@ const useFetchData = <DataSource extends RequestData<any>>(
       const needPolling = runFunction(polling, msg);
 
       /*
-       * 这段代码是用于控制轮询的。其中，needPolling 参数表明当前是否需要进行轮询，umountRef 是一个 ref，用来记录组件是否被卸载。
-       * 如果需要轮询并且组件没有被卸载，就会调用 setTimeout，等待一定的时间，然后再次调用 fetchListDebounce 函数，并传入需要轮询的时间参数。
-       * 其中 Math.max(needPolling, 2000) 用于确定最小的轮询时间为 2000ms，避免频繁请求导致一直处于 loading 状态。
+       * 控制下一次轮询：
+       *  - needPolling 为 truthy（数字 / boolean true）且组件未卸载时才排期；
+       *  - 排期间隔被 `MIN_POLLING_INTERVAL_MS`（2000ms）钳制为下界，避免请求 RTT
+       *    较大时上一次还没回来就发起下一次导致一直 loading；
+       *  - 当用户传入数字且 < 下界时，仅在开发模式下打一次 warn 提醒被钳制
+       *    （旧实现对此完全沉默，用户排查"为什么我传 500 实际是 2000"困难）。
        */
       if (needPolling && !umountRef.current) {
+        if (
+          process.env.NODE_ENV !== 'production' &&
+          typeof needPolling === 'number' &&
+          needPolling < MIN_POLLING_INTERVAL_MS
+        ) {
+          // eslint-disable-next-line no-console
+          console.warn(
+            `[ProTable] polling=${needPolling}ms is below the minimum interval ${MIN_POLLING_INTERVAL_MS}ms and has been clamped to ${MIN_POLLING_INTERVAL_MS}ms. Lower values are not supported to avoid request pile-up.`,
+          );
+        }
         pollingSetTimeRef.current = setTimeout(
           () => {
             fetchListDebounce.run(needPolling);
-            // 这里判断最小要2000ms，不然一直loading
           },
-          Math.max(needPolling, 2000),
+          Math.max(needPolling as number, MIN_POLLING_INTERVAL_MS),
         );
       }
 
@@ -360,8 +379,9 @@ const useFetchData = <DataSource extends RequestData<any>>(
   /** PageIndex 改变的时候自动刷新 */
   useEffect(() => {
     const { current, pageSize } = pageInfo || {};
-    // 如果上次的页码为空或者两次页码等于是没必要查询的
-    // 如果 pageSize 发生变化是需要查询的，所以又加了 prePageSize
+
+    // 上次的页码为空、或者两次页码相同、且 pageSize 也未变化时，
+    // 说明本次重渲染并非真正的翻页，直接返回不重请求。
     if (
       (!prePage || prePage === current) &&
       (!prePageSize || prePageSize === pageSize)
@@ -369,18 +389,26 @@ const useFetchData = <DataSource extends RequestData<any>>(
       return;
     }
 
+    // 「假分页」守门：
+    // 当用户启用 pageInfo（即 ProTable 自带分页），且当前已加载数据条数超过 pageSize 时，
+    // 说明上游 request 一次性返回了「跨页全量数据」，本地表格自己做切片即可，
+    // 翻页不应该再发起新请求。该协议被 `pagination.test.tsx#227 request call once
+    // when data.length more then pageSize` 锁定。
+    //
+    // 旧实现末尾的 `|| 0` 是 dead expression（`||` 优先级低于整个表达式，最终参与判断的
+    // 只是 0 这个 falsy 值，对条件无影响）。这里直接移除。
     if (
-      (options.pageInfo && tableDataList && tableDataList?.length > pageSize) ||
-      0
+      options.pageInfo &&
+      tableDataList &&
+      tableDataList.length > pageSize
     ) {
       return;
     }
 
-    // 如果 list 的长度大于 pageSize 的长度
-    // 说明是一个假分页
-    // (pageIndex - 1 || 1) 至少要第一页
-    // 在第一页大于 10
-    // 第二页也应该是大于 10
+    // 走到这里说明是真分页（后端按 page 返回数据）：
+    // 当前页码已知，且本地数据条数 <= pageSize，发起新请求拉取下一页。
+    // （旧注释「list 长度大于 pageSize 是假分页」与下面的判断 `<= pageSize` 完全反向，
+    //  实际上「假分页」已在上面那段提前 return 了，这里处理的是「真分页」场景。）
     if (
       current !== undefined &&
       tableDataList &&
@@ -440,17 +468,22 @@ const useFetchData = <DataSource extends RequestData<any>>(
         : tableLoading,
     /**
      * 重新加载表格数据的函数。
-     * @type {function}
+     *
+     * 协议（与 `UseFetchDataAction.reload: () => Promise<void>` 对齐）：
+     *   - 仅作为副作用触发，不向调用方返回数据；
+     *   - 旧 doc 写 `Promise<boolean>`、旧实现把 `fetchListDebounce.run` 的结果（DataSource[]
+     *     | undefined）返回出去，与公共类型 `Promise<void>` 三处不一致。这里统一以
+     *     typing.ts 的公共类型为准，不做返回。
+     *
      * @async
-     * @returns {Promise<boolean>} - 数据重新加载完成后解决为 true 的 Promise。
+     * @returns {Promise<void>} - 数据重新加载完成后 resolve 的 Promise。
      */
     reload: async () => {
       abortFetch();
       // 对于手动 reload，我们需要强制执行请求，即使在 manualRequest 模式下
       manualRequestRef.current = false;
-      const result = await fetchListDebounce.run(false);
+      await fetchListDebounce.run(false);
       // 如果之前是手动模式，不要重置为 true，因为用户已经手动触发了请求
-      return result;
     },
     /**
      * 当前的分页信息。
