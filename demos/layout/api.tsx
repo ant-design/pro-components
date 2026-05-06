@@ -1,4 +1,4 @@
-import { GithubOutlined } from '@ant-design/icons';
+import { GithubFilled } from '@ant-design/icons';
 import {
   DefaultFooter,
   PageContainer,
@@ -126,7 +126,7 @@ const Demo = () => {
                 },
                 {
                   key: 'github',
-                  title: <GithubOutlined />,
+                  title: <GithubFilled />,
                   href: 'https://github.com/ant-design/ant-design-pro',
                   blankTarget: true,
                 },

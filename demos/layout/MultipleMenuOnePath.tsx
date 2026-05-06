@@ -8,170 +8,175 @@ const Demo = () => (
   >
     <ProLayout
       location={{
-        pathname: '/config/template/new',
+        pathname: '/product/template/new',
       }}
       menu={{
         hideMenuWhenCollapsed: true,
       }}
       route={{
+        /**
+         * 本 demo 核心：演示「多个菜单项指向相近 path（new/edit/detail 复用）」的场景。
+         * 数据换成电商业务（商品中心/订单中心/会员中心/系统管理/工具），
+         * 但保留 new / edit / detail / :id 这种同名子路径复用关系。
+         */
         routes: [
           {
-            path: '/config',
-            name: '配置中心',
+            path: '/product',
+            name: '商品中心',
             routes: [
               {
-                path: 'product',
-                name: '产品配置',
+                path: 'list',
+                name: '商品列表',
                 indexRoute: {
-                  component: 'ConfigProduct/index',
+                  component: 'ProductList/index',
                 },
                 routes: [
                   {
                     path: 'new',
-                    component: 'ConfigProduct/NewConfig',
+                    component: 'ProductList/New',
                   },
                   {
                     path: 'edit/:productKey',
-                    component: 'ConfigProduct/NewConfig',
+                    component: 'ProductList/Edit',
                   },
                   {
                     path: 'detail/:productKey',
-                    component: 'ConfigProduct/Detail',
+                    component: 'ProductList/Detail',
                   },
                 ],
               },
               {
-                path: 'productManage',
-                name: '产品管理',
+                path: 'manage',
+                name: '上下架管理',
                 indexRoute: {
-                  component: 'ConfigProductAll/index',
+                  component: 'ProductManage/index',
                 },
                 routes: [
                   {
                     path: 'detail/:productKey',
-                    component: 'ConfigProductAll/Detail',
+                    component: 'ProductManage/Detail',
                   },
                 ],
               },
               {
                 path: 'template',
-                name: '产品模板管理',
+                name: '商品模板管理',
                 indexRoute: {
-                  component: 'ConfigTemplate/index',
+                  component: 'ProductTemplate/index',
                 },
                 routes: [
                   {
                     path: 'new',
-                    component: 'ConfigTemplate/NewConfig',
+                    component: 'ProductTemplate/New',
                   },
                   {
                     path: 'edit/:templateKey',
-                    component: 'ConfigTemplate/NewConfig',
+                    component: 'ProductTemplate/Edit',
                   },
                   {
                     path: 'detail/:templateKey',
-                    component: 'ConfigTemplate/Detail',
+                    component: 'ProductTemplate/Detail',
                   },
                 ],
               },
               {
-                path: 'configItem',
-                name: '配置项模板管理',
+                path: 'attribute',
+                name: '属性模板管理',
                 indexRoute: {
-                  component: 'ConfigItem/index',
+                  component: 'ProductAttribute/index',
                 },
                 routes: [
                   {
                     path: 'new',
-                    component: 'ConfigItem/NewConfig',
+                    component: 'ProductAttribute/New',
                   },
                   {
                     path: 'edit/:productKey',
-                    component: 'ConfigItem/NewConfig',
+                    component: 'ProductAttribute/Edit',
                   },
                   {
                     path: 'detail/:productKey',
-                    component: 'ConfigItem/Detail',
+                    component: 'ProductAttribute/Detail',
                   },
                 ],
               },
               {
-                path: 'meta',
-                name: '元数据管理',
-                component: 'ConfigMeta',
+                path: 'category',
+                name: '商品分类',
+                component: 'ProductCategory',
               },
             ],
           },
           {
-            path: 'asset',
-            name: '资产',
+            path: 'order',
+            name: '订单中心',
             routes: [
               {
-                path: 'query',
-                name: '资产查询',
-                component: 'Asset',
+                path: 'sales',
+                name: '销售订单',
+                component: 'OrderSales',
               },
               {
-                path: 'collateral',
-                name: '抵押查询',
-                component: 'Collateral',
+                path: 'refund',
+                name: '退款售后',
+                component: 'OrderRefund',
               },
             ],
           },
           {
-            path: 'bill',
-            name: '账单',
+            path: 'finance',
+            name: '财务结算',
             routes: [
               {
-                path: 'billNo',
-                name: '账单编号',
-                component: 'BillNo',
+                path: 'invoice',
+                name: '发票管理',
+                component: 'FinanceInvoice',
               },
               {
                 path: 'bill',
-                name: '账单查询',
-                component: 'Bill',
+                name: '对账单',
+                component: 'FinanceBill',
               },
               {
                 path: 'billItem',
-                name: '账单条目',
-                component: 'BillItem',
+                name: '对账明细',
+                component: 'FinanceBillItem',
               },
             ],
           },
           {
-            path: 'cif',
-            name: 'CIF',
+            path: 'member',
+            name: '会员中心',
             routes: [
               {
                 path: 'bankAccount',
-                name: '绑卡信息',
-                component: 'CifBankAccount',
+                name: '会员银行卡',
+                component: 'MemberBankAccount',
               },
               {
                 path: 'userGroup',
-                name: '查询 Group',
-                component: 'CifUserGroup',
+                name: '会员分组',
+                component: 'MemberGroup',
               },
               {
                 path: 'userId',
-                name: '查询 ID',
-                component: 'CifUserId',
+                name: '会员查询',
+                component: 'MemberSearch',
               },
               {
-                path: 'newInstitution',
-                name: '新增机构',
+                path: 'register',
+                name: '新会员注册',
                 indexRoute: {
-                  component: 'CifNewInstitution/index',
+                  component: 'MemberRegister/index',
                 },
                 routes: [
                   {
                     path: 'new',
-                    component: 'CifNewInstitution/ApplyNew',
+                    component: 'MemberRegister/Apply',
                   },
                   {
                     path: 'bind/:id',
-                    component: 'CifNewInstitution/BindAccount',
+                    component: 'MemberRegister/BindAccount',
                   },
                 ],
               },
@@ -182,9 +187,9 @@ const Demo = () => (
             name: '小工具',
             routes: [
               {
-                path: 'ttsql',
-                name: 'MySQL转BlinkTT流表',
-                component: 'ToolTT',
+                path: 'excel-importer',
+                name: 'Excel 批量导入',
+                component: 'ToolExcel',
               },
             ],
           },

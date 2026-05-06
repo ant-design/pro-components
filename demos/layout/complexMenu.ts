@@ -1,99 +1,111 @@
+/**
+ * 复杂菜单模板数据：覆盖多级嵌套、默认展开、相同子路径、hideInMenu 等典型 demo 需求。
+ * 统一使用电商业务语义（工作台 / 商品中心 / 订单中心 / 系统管理），与 `_defaultProps.tsx` 对齐。
+ *
+ * 注意：本数据被多个 demo 共用（DefaultOpenAllMenu / MenuGroup / Nested / TopmenuNested / searchMenu），
+ * 修改路径字段时需同步更新这些 demo 中的 `location.pathname` 以保持默认高亮项可见。
+ */
 export default [
   {
-    path: '/home',
-    name: '首页',
-    locale: 'menu.home',
+    path: '/dashboard',
+    name: '工作台',
+    locale: 'menu.dashboard',
     routes: [
       {
-        path: '/home/overview',
-        name: '概述',
+        path: '/dashboard/overview',
+        name: '业务概览',
         hideInMenu: true,
-        locale: 'menu.home.overview',
+        locale: 'menu.dashboard.overview',
       },
       {
-        path: '/home/search',
-        name: '搜索',
+        path: '/dashboard/search',
+        name: '搜索结果',
         hideInMenu: true,
-        locale: 'menu.home.search',
+        locale: 'menu.dashboard.search',
       },
     ],
   },
   {
-    path: '/data_hui',
-    name: '汇总数据',
-    locale: 'menu.data_hui',
+    path: '/product',
+    name: '商品中心',
+    locale: 'menu.product',
     routes: [
       {
         collapsed: true,
-        menuName: '域买家维度交易',
-        name: '域买家维度交易',
-        path: '/xx',
+        menuName: '商品列表',
+        name: '商品列表',
+        path: '/product/list',
         routes: [
           {
             id: 2,
-            name: '月表',
-            path: '/data_hui2',
+            name: '在售商品',
+            path: '/product/list/on-sale',
           },
           {
-            name: '日表',
-            path: '/data_hui3?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
+            name: '已下架商品',
+            path: '/product/list/off-shelf?category=electronics&source=manual',
           },
         ],
       },
       {
-        name: '维度交易',
-        path: '/',
+        name: '商品分类',
+        path: '/product/category',
         routes: [
           {
-            name: '月表',
-            path: '/data_hui4',
+            name: '一级分类',
+            path: '/product/category/level-1',
           },
           {
-            name: '日表',
-            key: 'tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
-            path: '/data_hui5',
+            name: '二级分类',
+            key: 'level=2&parent=root',
+            path: '/product/category/level-2',
           },
         ],
       },
     ],
   },
   {
-    path: '/data_ming',
-    name: '明细数据',
-    locale: 'menu.data_ming',
+    path: '/order',
+    name: '订单中心',
+    locale: 'menu.order',
     routes: [
       {
-        path: '/other/outLoadMenu',
-        name: '菜单导出',
-        locale: 'menu.other.outLoadMenu',
-        hideInMenu: true,
+        path: '/order/sales',
+        name: '销售订单',
+        locale: 'menu.order.sales',
       },
       {
-        path: '/other/homeEdit',
-        name: '概述导出',
-        locale: 'menu.other.outHomeEdit',
+        path: '/order/refund',
+        name: '退款售后',
+        locale: 'menu.order.refund',
+      },
+      {
+        path: '/order/invoice',
+        name: '发票申请',
+        locale: 'menu.order.invoice',
+        hideInMenu: true,
       },
     ],
   },
   {
-    path: '/other',
-    name: '其他',
-    locale: 'menu.other',
+    path: '/system',
+    name: '系统管理',
+    locale: 'menu.system',
     routes: [
       {
-        path: '/other/upLoad',
-        name: 'odps同步导入',
-        locale: 'menu.other.upLoad',
+        path: '/system/users',
+        name: '用户管理',
+        locale: 'menu.system.users',
       },
       {
-        path: '/other/upLoadMenu',
-        name: '菜单导入',
-        locale: 'menu.other.upLoadMenu',
+        path: '/system/roles',
+        name: '角色权限',
+        locale: 'menu.system.roles',
       },
       {
-        path: '/other/homeEdit',
-        name: '概述编辑',
-        locale: 'menu.other.homeEdit',
+        path: '/system/audit-logs',
+        name: '操作日志',
+        locale: 'menu.system.auditLogs',
         hideInMenu: true,
       },
     ],

@@ -12,7 +12,7 @@ const Demo = () => (
   >
     <ProLayout
       location={{
-        pathname: '/admin/process/edit/123',
+        pathname: '/order/sales/edit/123',
       }}
       layout="side"
       ErrorBoundary={false}
@@ -20,40 +20,40 @@ const Demo = () => (
       breadcrumbRender={(routers = []) => [
         {
           path: '/',
-          title: '主页',
+          title: '首页',
         },
         {
           path: '/',
-          title: '测试页',
+          title: '订单管理',
         },
         ...routers,
       ]}
       menuDataRender={() => [
         {
-          path: '/welcome',
-          name: '欢迎',
+          path: '/workbench',
+          name: '工作台',
         },
         {
-          path: '/admin',
-          name: '管理',
+          path: '/order',
+          name: '订单中心',
           children: [
             {
-              name: '申请单列表',
-              path: '/admin/process',
+              name: '销售订单',
+              path: '/order/sales',
             },
             {
-              name: '申请单详情',
-              path: '/admin/process/detail/:id',
+              name: '订单详情',
+              path: '/order/sales/detail/:id',
               hideInMenu: true,
             },
             {
-              name: '编辑申请单',
-              path: '/admin/process/edit/:id',
+              name: '编辑订单',
+              path: '/order/sales/edit/:id',
               hideInMenu: true,
             },
             {
-              name: '添加申请单',
-              path: '/admin/process/add',
+              name: '新建订单',
+              path: '/order/sales/add',
               hideInMenu: true,
             },
           ],

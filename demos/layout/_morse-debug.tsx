@@ -11,7 +11,7 @@ import { useState } from 'react';
 import { demoOnMenuHeaderClick } from './_demoHandlers';
 
 const Demo = () => {
-  const [pathname, setPathname] = useState('/list/sub-page/sub-sub-page1');
+  const [pathname, setPathname] = useState('/product/list/on-sale');
 
   return (
     <ProLayout
@@ -20,55 +20,59 @@ const Demo = () => {
       route={{
         routes: [
           {
-            path: '/all',
-            name: '总览',
-            parentId: '14',
-            children: [
-              { path: '/all/workbench/index', name: '首页', parentId: '16' },
-            ],
-          },
-          {
-            path: '/sa',
-            name: '隐私计算',
+            path: '/dashboard',
+            name: '工作台',
             parentId: '14',
             children: [
               {
-                path: '/sa/experiment',
-                name: '项目空间',
+                path: '/dashboard/overview',
+                name: '业务概览',
+                parentId: '16',
+              },
+            ],
+          },
+          {
+            path: '/product',
+            name: '商品中心',
+            parentId: '14',
+            children: [
+              {
+                path: '/product/list',
+                name: '商品列表',
                 parentId: '19',
                 children: [
                   {
-                    path: '/sa/experiment/list',
-                    name: '项目列表',
+                    path: '/product/list/on-sale',
+                    name: '在售商品',
                     parentId: '20',
                   },
                 ],
               },
               {
-                path: '/sa/offlinetask',
-                name: '任务管理中心',
+                path: '/product/category',
+                name: '商品分类',
                 parentId: '19',
                 children: [
                   {
-                    path: '/sa/offlinetask/tasklist',
-                    name: '研发任务',
+                    path: '/product/category/level-1',
+                    name: '一级分类',
                     parentId: '27',
                   },
                   {
-                    path: '/sa/offlinetask/dispatchtask',
-                    name: '调度任务',
+                    path: '/product/category/level-2',
+                    name: '二级分类',
                     parentId: '27',
                   },
                 ],
               },
               {
-                path: '/sa/onlinetask',
-                name: '服务管控中心',
+                path: '/product/brand',
+                name: '品牌管理',
                 parentId: '19',
                 children: [
                   {
-                    path: '/sa/onlinetask/anonymousquery',
-                    name: '在线匿名查询服务',
+                    path: '/product/brand/list',
+                    name: '品牌列表',
                     parentId: '34',
                   },
                 ],
@@ -76,49 +80,49 @@ const Demo = () => {
             ],
           },
           {
-            path: '/others',
-            name: '其他',
+            path: '/system',
+            name: '系统管理',
             parentId: '14',
             children: [
               {
-                path: '/others/data',
+                path: '/system/data',
                 name: '数据管理',
                 parentId: '39',
                 children: [
                   {
-                    path: '/others/data/list',
-                    name: '所有数据',
+                    path: '/system/data/list',
+                    name: '数据列表',
                     parentId: '40',
                   },
                   {
-                    path: '/others/data/datadictionary',
+                    path: '/system/data/dictionary',
                     name: '数据字典',
                     parentId: '40',
                   },
                   {
-                    path: '/others/data/outputConfiguration',
-                    name: '输出配置',
+                    path: '/system/data/export-config',
+                    name: '导出配置',
                     parentId: '40',
                   },
                 ],
               },
               {
-                path: '/others/monitormarket',
+                path: '/system/monitor',
                 name: '监控大盘',
                 parentId: '39',
                 children: [
                   {
-                    path: '/others/monitormarket/model',
-                    name: '模型监控',
+                    path: '/system/monitor/service',
+                    name: '服务监控',
                     parentId: '58',
                   },
                   {
-                    path: '/others/monitormarket/alliance',
-                    name: '联盟监控',
+                    path: '/system/monitor/business',
+                    name: '业务监控',
                     parentId: '58',
                   },
                   {
-                    path: '/others/monitormarket/resource',
+                    path: '/system/monitor/resource',
                     name: '资源监控',
                     parentId: '58',
                   },

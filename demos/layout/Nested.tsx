@@ -1,3 +1,4 @@
+// UserOutlined / FacebookOutlined / TwitterOutlined 官方都没有 Filled 版本，保留 Outlined
 import {
   FacebookOutlined,
   TwitterOutlined,
@@ -14,7 +15,7 @@ const Demo = () => (
   >
     <ProLayout
       location={{
-        pathname: '/home',
+        pathname: '/dashboard',
       }}
       fixSiderbar={false}
       collapsedButtonRender={false}
@@ -22,7 +23,7 @@ const Demo = () => (
       route={{
         routes: [
           {
-            path: '/home',
+            path: '/dashboard',
             name: '收藏',
             icon: (
               <img
@@ -34,13 +35,15 @@ const Demo = () => (
             ),
           },
           {
-            path: '/home/overview',
-            name: 'FaceBook',
+            path: '/dashboard/facebook',
+            name: 'Facebook',
+            // Facebook 是品牌 icon，官方无 Filled 版本，保留 Outlined
             icon: <FacebookOutlined />,
           },
           {
-            path: '/home/search',
+            path: '/dashboard/twitter',
             name: 'Twitter',
+            // Twitter 是品牌 icon，官方无 Filled 版本，保留 Outlined
             icon: <TwitterOutlined />,
           },
         ],
@@ -49,7 +52,7 @@ const Demo = () => (
     >
       <ProLayout
         location={{
-          pathname: '/home/overview',
+          pathname: '/dashboard/overview',
         }}
         fixSiderbar={false}
         route={{

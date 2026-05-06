@@ -1,4 +1,5 @@
-import { LikeOutlined, UserOutlined } from '@ant-design/icons';
+// UserOutlined 在 antd icons 里没有 Filled 版本（UserFilled 不存在），保留 Outlined
+import { LikeFilled, UserOutlined } from '@ant-design/icons';
 import type { ProSettings } from '@ant-design/pro-components';
 import { PageContainer, ProLayout } from '@ant-design/pro-components';
 import {
@@ -102,7 +103,7 @@ const Demo = () => {
               <Statistic
                 title="Feedback"
                 value={1128}
-                prefix={<LikeOutlined />}
+                prefix={<LikeFilled />}
               />
               <Statistic title="Unmerged" value={93} suffix="/ 100" />
             </Space>

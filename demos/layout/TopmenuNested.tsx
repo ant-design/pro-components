@@ -10,7 +10,7 @@ const Demo = () => (
   >
     <ProLayout
       location={{
-        pathname: '/articles/new',
+        pathname: '/product/list/on-sale',
       }}
       route={{
         routes: complexMenu,
@@ -19,7 +19,7 @@ const Demo = () => (
     >
       <ProLayout
         location={{
-          pathname: '/home/overview',
+          pathname: '/dashboard/overview',
         }}
         route={{
           routes: complexMenu,

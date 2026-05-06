@@ -1,12 +1,13 @@
-﻿import {
-  CrownFilled,
+import {
+  ContainerFilled,
   GithubFilled,
+  HomeFilled,
   InfoCircleFilled,
   PlusCircleFilled,
   QuestionCircleFilled,
   SearchOutlined,
-  SmileFilled,
-  TabletFilled,
+  SettingFilled,
+  ShopFilled,
 } from '@ant-design/icons';
 import { PageContainer, ProCard, ProLayout } from '@ant-design/pro-components';
 import { Button, Input } from 'antd';
@@ -14,7 +15,7 @@ import { useState } from 'react';
 import { demoOnMenuHeaderClick } from './_demoHandlers';
 
 const Demo = () => {
-  const [pathname, setPathname] = useState('/list/sub-page/sub-sub-page1');
+  const [pathname, setPathname] = useState('/product/list');
 
   return (
     <ProLayout
@@ -22,24 +23,56 @@ const Demo = () => {
       collapsedButtonRender={false}
       layout="side"
       route={{
+        /** 演示 `collapsedShowTitle`：收起态下在图标下方显示文字。
+         *  数据与 `_defaultProps` 对齐的电商业务：工作台 / 商品中心 / 订单中心 / 系统管理。
+         *  为了在收起态也能展示"分组感"，这里在商品中心与订单中心下挂了典型二级菜单。 */
         routes: [
           {
-            path: '/welcome',
-            name: '欢迎',
-            icon: <SmileFilled />,
+            path: '/workbench',
+            name: '工作台',
+            icon: <HomeFilled />,
             component: './Welcome',
           },
           {
-            path: '/admin',
-            name: '管理',
-            icon: <CrownFilled />,
-            access: 'canAdmin',
-            component: './Admin',
+            path: '/product',
+            name: '商品中心',
+            icon: <ShopFilled />,
+            component: './Product',
+            routes: [
+              {
+                path: '/product/list',
+                name: '商品列表',
+                component: './Welcome',
+              },
+              {
+                path: '/product/category',
+                name: '商品分类',
+                component: './Welcome',
+              },
+            ],
           },
           {
-            path: '/list',
-            name: '列表',
-            icon: <TabletFilled />,
+            path: '/order',
+            name: '订单中心',
+            icon: <ContainerFilled />,
+            component: './Order',
+            routes: [
+              {
+                path: '/order/sales',
+                name: '销售订单',
+                component: './Welcome',
+              },
+              {
+                path: '/order/refund',
+                name: '退款售后',
+                component: './Welcome',
+              },
+            ],
+          },
+          {
+            path: '/system',
+            name: '系统管理',
+            icon: <SettingFilled />,
             access: 'canAdmin',
             component: './Admin',
           },

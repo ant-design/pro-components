@@ -1,31 +1,37 @@
 import {
   FacebookOutlined,
-  StarOutlined,
+  StarFilled,
   TwitterOutlined,
 } from '@ant-design/icons';
 import { PageContainer, ProLayout } from '@ant-design/pro-components';
 
-/** 菜单 `icon` 支持 React 节点（含 @ant-design/icons）、或图片/SVG URL 字符串 */
+/**
+ * 菜单 `icon` 支持 React 节点（含 @ant-design/icons）或图片/SVG URL 字符串。
+ *
+ * icon 选型说明：
+ * - `StarFilled`：通用动作类图标，有官方 Filled 版，统一用面性
+ * - `FacebookOutlined` / `TwitterOutlined`：品牌 logo 官方只有单一 Outlined 形态，保留
+ */
 const Demo = () => (
   <div style={{ height: '100vh' }}>
     <ProLayout
       location={{
-        pathname: '/articles/new',
+        pathname: '/favorites',
       }}
       route={{
         routes: [
           {
-            path: '/home',
-            name: '收藏',
-            icon: <StarOutlined />,
+            path: '/favorites',
+            name: '我的收藏',
+            icon: <StarFilled />,
           },
           {
-            path: '/home/overview',
+            path: '/social/facebook',
             name: 'Facebook',
             icon: <FacebookOutlined />,
           },
           {
-            path: '/home/search',
+            path: '/social/twitter',
             name: 'Twitter',
             icon: <TwitterOutlined />,
           },

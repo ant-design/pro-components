@@ -9,7 +9,7 @@ const Demo = () => (
   >
     <ProLayout
       location={{
-        pathname: '/data_hui/data_hui2',
+        pathname: '/product/list/on-sale',
       }}
       route={{
         routes: complexMenu,

@@ -38,7 +38,7 @@ const Demo = () => {
     >
       <ProLayout
         location={{
-          pathname: '/home/overview',
+          pathname: '/dashboard/overview',
         }}
         menu={{
           hideMenuWhenCollapsed: true,

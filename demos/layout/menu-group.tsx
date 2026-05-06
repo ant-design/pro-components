@@ -1,9 +1,10 @@
+// UserOutlined / MergeCellsOutlined 官方无 Filled 版本，保留 Outlined
 import {
-  CrownOutlined,
-  InfoCircleOutlined,
+  ContainerFilled,
+  InfoCircleFilled,
   MergeCellsOutlined,
-  QuestionCircleOutlined,
-  TabletOutlined,
+  QuestionCircleFilled,
+  ShopFilled,
   UserOutlined,
 } from '@ant-design/icons';
 import { PageContainer, ProCard, ProLayout } from '@ant-design/pro-components';
@@ -12,7 +13,7 @@ import { useState } from 'react';
 import { demoOnMenuHeaderClick } from './_demoHandlers';
 
 const Demo = () => {
-  const [pathname, setPathname] = useState('/welcome');
+  const [pathname, setPathname] = useState('/product/list');
   return (
     <div
       id="test-pro-layout"
@@ -26,48 +27,48 @@ const Demo = () => {
           path: '/',
           routes: [
             {
-              path: '/admin',
-              name: '管理页',
-              icon: <CrownOutlined />,
+              path: '/product',
+              name: '商品中心',
+              icon: <ShopFilled />,
               access: 'canAdmin',
-              component: './Admin',
+              component: './Product',
               routes: [
                 {
-                  path: '/admin/sub-page1',
-                  name: '一级页面',
-                  icon: <CrownOutlined />,
+                  path: '/product/list',
+                  name: '商品列表',
+                  icon: <ShopFilled />,
                   component: './Welcome',
                 },
                 {
-                  path: '/admin/sub-page2',
-                  name: '二级页面',
-                  icon: <CrownOutlined />,
+                  path: '/product/category',
+                  name: '商品分类',
+                  icon: <ShopFilled />,
                   component: './Welcome',
                 },
                 {
-                  path: '/admin/sub-page3',
-                  name: '三级页面',
-                  icon: <CrownOutlined />,
+                  path: '/product/brand',
+                  name: '品牌管理',
+                  icon: <ShopFilled />,
                   component: './Welcome',
                 },
               ],
             },
             {
-              name: '列表页',
-              icon: <TabletOutlined />,
-              path: '/list',
-              component: './ListTableList',
+              name: '订单中心',
+              icon: <ContainerFilled />,
+              path: '/order',
+              component: './Order',
               routes: [
                 {
-                  path: '/list/sub-page2',
-                  name: '二级列表页面',
-                  icon: <CrownOutlined />,
+                  path: '/order/sales',
+                  name: '销售订单',
+                  icon: <ContainerFilled />,
                   component: './Welcome',
                 },
                 {
-                  path: '/list/sub-page3',
-                  name: '三级列表页面',
-                  icon: <CrownOutlined />,
+                  path: '/order/refund',
+                  name: '退款售后',
+                  icon: <ContainerFilled />,
                   component: './Welcome',
                 },
               ],
@@ -85,9 +86,10 @@ const Demo = () => {
           size: 'small',
           title: '书琰',
         }}
+        // MergeCells 官方无 Filled 版本，保留 Outlined 维持原 demo 示意语义
         actionsRender={() => [
-          <InfoCircleOutlined key="InfoCircleOutlined" />,
-          <QuestionCircleOutlined key="QuestionCircleOutlined" />,
+          <InfoCircleFilled key="InfoCircleFilled" />,
+          <QuestionCircleFilled key="QuestionCircleFilled" />,
           <MergeCellsOutlined key="MergeCellsOutlined" />,
         ]}
         menuFooterRender={(props) => {
