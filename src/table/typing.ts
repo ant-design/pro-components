@@ -274,7 +274,8 @@ export type ProTableProps<DataSource, U, ValueType = 'text'> = {
    */
   tableViewRender?: (
     props: TableProps<DataSource>,
-    defaultDom: JSX.Element,
+    /** 懒执行：为函数时请在需要默认 Table 时调用，避免 ProList 等仅替换视图时创建未挂载的 Table */
+    defaultDom: JSX.Element | (() => JSX.Element),
   ) => JSX.Element | undefined;
 
   /**

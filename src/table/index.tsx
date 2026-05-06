@@ -41,6 +41,7 @@ import type {
   ProTableProps,
   RequestData,
 } from './typing';
+import { resolveTableViewDefaultDom } from './utils';
 
 type ProColumnsValueType = ProFieldValueType;
 type TableRowEditable<T> = RowEditableConfig<T>;
@@ -54,6 +55,7 @@ export {
   ConfigConsumer as IntlConsumer,
   ListToolBar,
   ProTable,
+  resolveTableViewDefaultDom,
   RowEditorTable,
   Search,
   TableDropdown,

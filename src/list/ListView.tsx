@@ -19,7 +19,9 @@ import ProListItem from './Item';
 import type { ListProps } from './ProListBase';
 import { ProListContainer } from './ProListBase';
 
-type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
+type ListSlotColumn<RecordType> = TableColumnType<RecordType> & {
+  listSlot: string;
+};
 type Key = React.Key;
 type TriggerEventHandler<RecordType> = (record: RecordType) => void;
 
@@ -31,8 +33,8 @@ export type ProListItemRender<RecordType> = (
 ) => React.ReactNode;
 
 export type ListViewProps<RecordType> = Omit<
-  AntdListProps<RecordType>,
-  'renderItem'
+  ListProps<RecordType>,
+  'rowKey' | 'renderItem'
 > &
   Pick<
     TableProps<RecordType>,
@@ -97,6 +99,20 @@ function ListView<RecordType extends AnyObject>(
   }, [rowKey]);
 
   const [getRecordByKey] = useLazyKVMap(dataSource, 'children', getRowKey);
+
+  const listSlotColumns = React.useMemo((): ListSlotColumn<RecordType>[] => {
+    if (!columns?.length) return [];
+    const slots: ListSlotColumn<RecordType>[] = [];
+    for (const column of columns as (TableColumnType<RecordType> & {
+      listSlot?: string;
+    })[]) {
+      const { listSlot } = column;
+      if (listSlot && PRO_LIST_KEYS_MAP.has(listSlot)) {
+        slots.push(column as ListSlotColumn<RecordType>);
+      }
+    }
+    return slots;
+  }, [columns]);
 
   // 合并分页配置，兼容 antd 的分页
   const [mergedPagination] = usePagination(
@@ -189,6 +205,7 @@ function ListView<RecordType extends AnyObject>(
   return (
     <ProListContainer<RecordType>
       {...rest}
+      suppressContainerDataSlice
       hashId={hashId}
       className={clsx(
         getPrefixCls('pro-list-container', customizePrefixCls),
@@ -208,15 +225,8 @@ function ListView<RecordType extends AnyObject>(
               : rowClassName,
         };
 
-        (
-          columns as (TableColumnType<RecordType> & {
-            listSlot: string;
-          })[]
-        )?.forEach((column) => {
+        listSlotColumns.forEach((column) => {
           const { listSlot } = column;
-          if (!PRO_LIST_KEYS_MAP.has(listSlot)) {
-            return;
-          }
           const dataIndex = (column.dataIndex ||
             listSlot ||
             column.key) as string;

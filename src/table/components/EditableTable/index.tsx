@@ -23,6 +23,7 @@ import {
 } from '../../../utils';
 import ProTable from '../../Table';
 import type { ActionType, ProTableProps } from '../../typing';
+import { resolveTableViewDefaultDom } from '../../utils';
 
 export type EditableFormInstance<T = any> = ProFormInstance<T> & {
   /**
@@ -254,9 +255,9 @@ function createBottomButtonProps(
   tableViewRender: ProTableProps<any, any>['tableViewRender'],
 ) {
   return {
-    tableViewRender: (_: any, dom: any) => (
+    tableViewRender: (_: any, dom: JSX.Element | (() => JSX.Element)) => (
       <>
-        {tableViewRender?.(_, dom) ?? dom}
+        {tableViewRender?.(_, dom) ?? resolveTableViewDefaultDom(dom)}
         {creatorButtonDom}
       </>
     ),

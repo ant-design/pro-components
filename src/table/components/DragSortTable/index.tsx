@@ -6,6 +6,7 @@ import React, { useCallback, useContext, useMemo } from 'react';
 import type { ParamsType } from '../../../provider';
 import ProTable from '../../Table';
 import type { ProTableProps } from '../../typing';
+import { resolveTableViewDefaultDom } from '../../utils';
 import { useDragSort } from '../../utils/useDragSort';
 import { useStyle } from './style';
 
@@ -117,7 +118,9 @@ function DragSortTable<
       onLoad={wrapOnload}
       rowKey={rowKey}
       tableViewRender={(_, defaultDom) => {
-        return <DndContext>{defaultDom}</DndContext>;
+        return (
+          <DndContext>{resolveTableViewDefaultDom(defaultDom)}</DndContext>
+        );
       }}
       dataSource={dataSource}
       components={components}

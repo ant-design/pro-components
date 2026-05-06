@@ -5,7 +5,7 @@ import type {
   SortOrder,
 } from 'antd/lib/table/interface';
 import type React from 'react';
-import { Key } from 'react';
+import { type ReactElement, Key } from 'react';
 import type { IntlType } from '../../provider';
 import type { UseEditableUtilType } from '../../utils';
 import type {
@@ -388,3 +388,12 @@ export const parseProFilteredValue = <T>(
   // 返回对应的筛选值
   return filterKey ? proFilter[filterKey] : undefined;
 };
+
+/**
+ * 解析 tableViewRender 的 defaultDom：兼容 Element 或惰性工厂（避免在未使用时构造 Table）。
+ */
+export function resolveTableViewDefaultDom(
+  defaultDom: ReactElement | (() => ReactElement),
+): ReactElement {
+  return typeof defaultDom === 'function' ? defaultDom() : defaultDom;
+}

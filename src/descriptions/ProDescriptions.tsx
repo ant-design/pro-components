@@ -1,11 +1,10 @@
-﻿import type { DescriptionsItemType } from 'antd/es/descriptions';
+import type { DescriptionsItemType } from 'antd/es/descriptions';
 import { ConfigProvider, Descriptions, Space } from 'antd';
 import React, { useContext, useEffect, useMemo } from 'react';
 import ValueTypeToComponent from '../field/ValueTypeToComponent';
 import ProForm from '../form';
 import ProConfigContext, { ProConfigProvider } from '../provider';
 import ProSkeleton from '../skeleton';
-import type { ProCoreActionType } from '../utils';
 import {
   ErrorBoundary,
   LabelIconTip,
@@ -13,7 +12,10 @@ import {
   useEditableMap,
 } from '../utils';
 import { schemaToDescriptionsItem } from './schemaToDescriptionsItem';
-import type { ProDescriptionsColumn, ProDescriptionsProps } from './typing';
+import type {
+  ProDescriptionsActionType,
+  ProDescriptionsProps,
+} from './typing';
 import type { ProDescriptionsRequestResult } from './useFetchData';
 import useFetchData from './useFetchData';
 
@@ -62,11 +64,13 @@ const ProDescriptions = <
     },
   );
 
-  const editableUtils = useEditableMap<any>({
+  const editableUtils = useEditableMap<RecordType>({
     ...props.editable,
     childrenColumnName: undefined,
-    dataSource: action.dataSource,
-    setDataSource: action.setDataSource,
+    dataSource: action.dataSource as RecordType,
+    setDataSource: action.setDataSource as (
+      dataSource: RecordType,
+    ) => void,
   });
 
   const valueTypeMap = useMemo(
@@ -77,16 +81,16 @@ const ProDescriptions = <
     [proContext.valueTypeMap],
   );
 
-  const coreAction = useMemo(() => {
-    const base = {
+  const coreAction = useMemo<ProDescriptionsActionType<RecordType>>(() => {
+    const base: ProDescriptionsActionType<RecordType> = {
       reload: action.reload,
       dataSource: action.dataSource,
       setDataSource: action.setDataSource,
     };
     if (editable && editableUtils) {
-      return { ...base, ...editableUtils } as ProCoreActionType<RecordType>;
+      return { ...base, ...editableUtils };
     }
-    return base as ProCoreActionType<RecordType>;
+    return base;
   }, [
     action.reload,
     action.dataSource,

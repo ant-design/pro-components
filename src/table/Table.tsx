@@ -16,6 +16,7 @@ import isEmpty from 'lodash-es/isEmpty';
 import isEqual from 'lodash-es/isEqual';
 import React, {
   Key,
+  useCallback,
   useContext,
   useEffect,
   useImperativeHandle,
@@ -424,6 +425,11 @@ const ProTable = <
 
   const counter = useContext(TableContext);
 
+  // 设置 name 到 store 中，里面用了 ref ，所以不用担心直接 set
+  // 注意：必须在 render 阶段同步 set，否则首次渲染时 cellRenderToFromItem 拿不到 prefixName，
+  // 会走到非 name 分支，导致 form 字段路径错乱（详见 protable-editable-onsave-record 测试）
+  counter.setPrefixName(props.name);
+
   // ============================ useFetchData ============================
   const fetchData = useMemo(() => {
     if (!request) return undefined;
@@ -442,7 +448,7 @@ const ProTable = <
       );
       return response as RequestData<T>;
     };
-  }, [formSearch, params, proFilter, proSort, request]);
+  }, [params, proFilter, proSort, request]);
 
   const action = useFetchData(fetchData, defaultData, {
     pageInfo: propsPagination === false ? false : fetchPagination,
@@ -503,16 +509,14 @@ const ProTable = <
   // ============================ RowKey ============================
   const getRowKey = useRowKey<T>({ rowKey, name: props.name });
 
-  useMemo(() => {
-    if (action.dataSource?.length) {
-      const keys = action.dataSource.map((data) => {
-        const dataRowKey = getRowKey(data, -1);
-        preserveRecordsRef.current.set(dataRowKey, data);
-        return dataRowKey;
-      });
-      return keys;
+  useEffect(() => {
+    if (!action.dataSource?.length) {
+      return;
     }
-    return [];
+    action.dataSource.forEach((data) => {
+      const dataRowKey = getRowKey(data, -1);
+      preserveRecordsRef.current.set(dataRowKey, data);
+    });
   }, [action.dataSource, getRowKey]);
 
   /** 页面编辑的计算 */
@@ -551,9 +555,6 @@ const ProTable = <
       });
     }
   }, [params]);
-
-  // 设置 name 到 store 中，里面用了 ref ，所以不用担心直接 set
-  counter.setPrefixName(props.name);
 
   // 设置 columnsState 到 store 中（仅在受控 value 时同步，避免在仅传 onChange 时用 {} 覆盖默认 state 导致多余 onChange）
   useEffect(() => {
@@ -712,16 +713,24 @@ const ProTable = <
   ]);
 
   /** 行选择相关的问题 */
-  const rowSelection: TableRowSelection = {
-    selectedRowKeys,
-    ...propsRowSelection,
-    onChange: (keys, rows, info) => {
+  const handleRowSelectionChange = useCallback(
+    (keys: React.Key[], rows: T[], info: any) => {
       if (propsRowSelection && propsRowSelection.onChange) {
-        propsRowSelection.onChange(keys, rows, info);
+        propsRowSelection.onChange(keys as any, rows, info);
       }
-      setSelectedRowKeys(keys);
+      setSelectedRowKeys(keys as any);
     },
-  };
+    [propsRowSelection, setSelectedRowKeys],
+  );
+
+  const rowSelection = useMemo((): TableRowSelection | undefined => {
+    if (propsRowSelection === false) return undefined;
+    return {
+      selectedRowKeys,
+      ...propsRowSelection,
+      onChange: handleRowSelectionChange,
+    };
+  }, [handleRowSelectionChange, propsRowSelection, selectedRowKeys]);
 
   /** LightFilter（轻量筛选）时工具栏把 search 插到左侧 */
   const isLightFilter: boolean =
@@ -869,27 +878,24 @@ const ProTable = <
     return _columns.filter((column) => !!column.filters);
   }, [columns]);
 
-  const onSortChange = (sortConfig?: Record<string, SortOrder>) => {
-    if (isEqual(sortConfig, proSort)) return;
-    setProSort(sortConfig ?? {});
-  };
+  const onSortChange = useCallback(
+    (sortConfig?: Record<string, SortOrder>) => {
+      if (isEqual(sortConfig, proSort)) return;
+      setProSort(sortConfig ?? {});
+    },
+    [proSort],
+  );
 
-  const onFilterChange = (filterConfig: Record<string, FilterValue>) => {
-    if (isEqual(filterConfig, proFilter)) return;
-    setProFilter(filterConfig ?? {});
-  };
+  const onFilterChange = useCallback(
+    (filterConfig: Record<string, FilterValue>) => {
+      if (isEqual(filterConfig, proFilter)) return;
+      setProFilter(filterConfig ?? {});
+    },
+    [proFilter],
+  );
 
-  const getTableProps = () => ({
-    ...rest,
-    size: counter.tableSize,
-    rowSelection: propsRowSelection === false ? undefined : rowSelection,
-    className: tableClassName,
-    style: tableStyle,
-    columns,
-    loading: action.loading,
-    dataSource: mergedDataSource,
-    pagination,
-    onChange: (
+  const handleTableChange = useCallback(
+    (
       changePagination: TablePaginationConfig,
       filters: Record<string, AntFilterValue | null>,
       sorter: SorterResult<T> | SorterResult<T>[],
@@ -903,11 +909,50 @@ const ProTable = <
       const serverSorter = getServerSorterResult(sorter);
       onSortChange(omitUndefined(serverSorter));
     },
-  });
+    [onFilterChange, onSortChange, rest.onChange, useFilterColumns],
+  );
+
+  /** 拆分 memo：仅当对应维度变化时更新引用；合并结果仍受 `...rest` 引用变化影响（父组件每次 render 常为新的 rest 对象） */
+  const tableLayoutProps = useMemo(
+    () => ({
+      size: counter.tableSize,
+      className: tableClassName,
+      style: tableStyle,
+    }),
+    [counter.tableSize, tableClassName, tableStyle],
+  );
+
+  const tableDataProps = useMemo(
+    () => ({
+      loading: action.loading,
+      dataSource: mergedDataSource,
+      pagination,
+    }),
+    [action.loading, mergedDataSource, pagination],
+  );
+
+  const tableColumnInteractionProps = useMemo(
+    () => ({
+      columns,
+      rowSelection,
+      onChange: handleTableChange,
+    }),
+    [columns, rowSelection, handleTableChange],
+  );
+
+  const mergedTableProps = useMemo(
+    () => ({
+      ...rest,
+      ...tableLayoutProps,
+      ...tableDataProps,
+      ...tableColumnInteractionProps,
+    }),
+    [rest, tableLayoutProps, tableDataProps, tableColumnInteractionProps],
+  );
 
   const notNeedCardDom = search === false && !headerTitle && !toolBarRender;
 
-  const baseTableDom = (
+  const getBaseTableDom = () => (
     <GridContext.Provider
       value={{
         grid: false,
@@ -915,19 +960,13 @@ const ProTable = <
         rowProps: undefined,
       }}
     >
-      <Table<T> {...getTableProps()} rowKey={rowKey} ref={antTableRef} />
+      <Table<T> {...mergedTableProps} rowKey={rowKey} ref={antTableRef} />
     </GridContext.Provider>
   );
 
   const tableDom = props.tableViewRender
-    ? props.tableViewRender(
-        {
-          ...getTableProps(),
-          rowSelection: propsRowSelection !== false ? rowSelection : undefined,
-        },
-        baseTableDom,
-      )
-    : baseTableDom;
+    ? props.tableViewRender({ ...mergedTableProps }, getBaseTableDom)
+    : getBaseTableDom();
 
   const tableContentDom =
     props.editable && !isEditorTable ? (

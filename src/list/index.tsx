@@ -3,6 +3,7 @@ import type { PaginationProps } from 'antd';
 import { ConfigProvider } from 'antd';
 import { clsx } from 'clsx';
 import React, {
+  useCallback,
   useContext,
   useEffect,
   useImperativeHandle,
@@ -23,8 +24,6 @@ import type { ItemProps } from './Item';
 import ListView, { type ProListItemRender } from './ListView';
 import type { ListProps } from './ProListBase';
 import { useStyle } from './style/index';
-
-export type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
 
 export type ProListMeta<T> = Pick<
   ProColumnType<T>,
@@ -77,7 +76,7 @@ export type ProListProps<
   Params = Record<string, any>,
   ValueType = 'text',
 > = Omit<ProTableProps<RecordType, Params, ValueType>, 'size' | 'footer'> &
-  AntdListProps<RecordType> & {
+  Omit<ListProps<RecordType>, 'rowKey'> & {
     tooltip?: LabelTooltipType | string;
     /**
      * @deprecated 推荐使用 columns + listSlot 的方式，与 ProTable 共用同一套 API
@@ -212,6 +211,67 @@ function InternalProList<
     [`${prefixCls}-${variant}`]: variant,
   });
 
+  const renderListTableView = useCallback(
+    ({
+      columns,
+      size,
+      pagination,
+      rowSelection,
+      dataSource,
+      loading,
+    }: Parameters<
+      NonNullable<ProTableProps<RecordType, U>['tableViewRender']>
+    >[0]) => (
+      <ListView
+        grid={grid}
+        itemCardProps={itemCardProps}
+        itemTitleRender={itemTitleRender}
+        prefixCls={props.prefixCls}
+        columns={columns}
+        itemRender={itemRender}
+        actionRef={actionRef}
+        dataSource={(dataSource || []) as RecordType[]}
+        size={size as 'large'}
+        footer={footer}
+        split={split}
+        variant={variant}
+        rowKey={rowKey}
+        expandable={expandable}
+        rowSelection={propRowSelection === false ? undefined : rowSelection}
+        pagination={pagination as PaginationProps}
+        itemLayout={itemLayout}
+        loading={loading}
+        itemHeaderRender={itemHeaderRender}
+        onRow={onRow}
+        onItem={onItem}
+        rowClassName={rowClassName}
+        locale={locale}
+        hashId={hashId}
+      />
+    ),
+    [
+      grid,
+      itemCardProps,
+      itemTitleRender,
+      props.prefixCls,
+      itemRender,
+      actionRef,
+      footer,
+      split,
+      variant,
+      rowKey,
+      expandable,
+      propRowSelection,
+      itemLayout,
+      itemHeaderRender,
+      onRow,
+      onItem,
+      rowClassName,
+      locale,
+      hashId,
+    ],
+  );
+
   return wrapSSR(
     <ProTable<RecordType, U>
       tooltip={tooltip}
@@ -225,43 +285,7 @@ function InternalProList<
       className={clsx(className, listClassName)}
       columns={proTableColumns}
       rowKey={rowKey}
-      tableViewRender={({
-        columns,
-        size,
-        pagination,
-        rowSelection,
-        dataSource,
-        loading,
-      }) => {
-        return (
-          <ListView
-            grid={grid}
-            itemCardProps={itemCardProps}
-            itemTitleRender={itemTitleRender}
-            prefixCls={props.prefixCls}
-            columns={columns}
-            itemRender={itemRender}
-            actionRef={actionRef}
-            dataSource={(dataSource || []) as RecordType[]}
-            size={size as 'large'}
-            footer={footer}
-            split={split}
-            variant={variant}
-            rowKey={rowKey}
-            expandable={expandable}
-            rowSelection={propRowSelection === false ? undefined : rowSelection}
-            pagination={pagination as PaginationProps}
-            itemLayout={itemLayout}
-            loading={loading}
-            itemHeaderRender={itemHeaderRender}
-            onRow={onRow}
-            onItem={onItem}
-            rowClassName={rowClassName}
-            locale={locale}
-            hashId={hashId}
-          />
-        );
-      }}
+      tableViewRender={renderListTableView}
     />,
   );
 }

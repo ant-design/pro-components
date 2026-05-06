@@ -200,20 +200,8 @@ export type CheckCardGroupContextType = {
   cancelValue?: (value: CheckCardValueType) => void;
 };
 
-/**
- * @deprecated 旧名为 `Connext` 拼写错误，请使用 `CheckCardGroupContextType`。
- * 保留别名仅为兼容存量调用，下个大版本会移除。
- */
-export type CheckCardGroupConnextType = CheckCardGroupContextType;
-
 export const CheckCardGroupContext =
   createContext<CheckCardGroupContextType | null>(null);
-
-/**
- * @deprecated 旧名为 `Connext` 拼写错误，请使用 `CheckCardGroupContext`。
- * 保留别名仅为兼容存量调用，下个大版本会移除。
- */
-export const CheckCardGroupConnext = CheckCardGroupContext;
 
 /**
  * SubCheckCardGroup component.
@@ -349,8 +337,7 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
   const toggleOption = (option: CheckCardOptionType) => {
     // 单选模式：再次点击当前选中项时清空，否则切到新值
     if (!multiple) {
-      const nextValue =
-        stateValue === option.value ? undefined : option.value;
+      const nextValue = stateValue === option.value ? undefined : option.value;
       setStateValue(nextValue);
       return;
     }
