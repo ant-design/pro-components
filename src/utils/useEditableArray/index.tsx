@@ -24,7 +24,7 @@ import React, {
 import { useDebounceFn, useRefFunction } from '..';
 import { useIntl } from '../../provider';
 import { ProFormContext } from '../components/ProFormContext';
-import { useDeepCompareEffectDebounce } from '../hooks/useDeepCompareEffect';
+import { useDeepCompareEffect } from '../hooks/useDeepCompareEffect';
 import { usePrevious } from '../hooks/usePrevious';
 import { merge } from '../merge';
 import useLazyKVMap from '../useLazyKVMap';
@@ -45,6 +45,25 @@ export type RecordKey = React.Key | React.Key[];
 export const recordKeyToString = (rowKey: RecordKey): React.Key => {
   if (Array.isArray(rowKey)) return rowKey.join(',');
   return rowKey;
+};
+
+/**
+ * 判断两个 RecordKey 是否语义相等（容忍 number/string 与数组顺序差异）。
+ *
+ * 设计动机：直接 `===` 对 RecordKey 不安全：
+ *  - `1` !== `'1'`（number/string 混用场景常见）
+ *  - 数组永远是引用相等，例如 `['a'] !== ['a']`
+ *
+ * 实现：先用 recordKeyToString 拍平为标量，再做 `String(...)` 字符串比较，
+ * 双侧都为 null/undefined 时返回 true 视作"未指定 key"匹配。
+ */
+export const isSameRecordKey = (
+  a: RecordKey | null | undefined,
+  b: RecordKey | null | undefined,
+): boolean => {
+  if (a == null && b == null) return true;
+  if (a == null || b == null) return false;
+  return String(recordKeyToString(a)) === String(recordKeyToString(b));
 };
 
 /**
@@ -197,7 +216,6 @@ function flattenRecordsToMap<RecordType>(
   getRowKey: GetRowKey<RecordType>,
   childrenColumnName: string,
   parentKey?: React.Key,
-  parentIndex?: number,
 ): Map<
   string,
   RecordType & { map_row_key?: string; map_row_parentKey?: React.Key }
@@ -208,8 +226,10 @@ function flattenRecordsToMap<RecordType>(
   >();
 
   records.forEach((record, index) => {
-    const eachIndex = (parentIndex || 0) * 10 + index;
-    const recordKey = getRowKey(record, eachIndex).toString();
+    // 注意：getRowKey 的第二参数语义是「该记录在当层兄弟节点中的位置」，仅在用户的 rowKey 函数
+    // 退化到 index 时会用到。直接传 index 即可，不要再做 `parentIndex * 10 + index` 之类的
+    // 拼接 —— 兄弟节点超过 9 个时会产生哈希冲突（详见原实现 bug）。
+    const recordKey = getRowKey(record, index).toString();
 
     const hasChildren =
       record && typeof record === 'object' && childrenColumnName in record;
@@ -221,7 +241,6 @@ function flattenRecordsToMap<RecordType>(
         getRowKey,
         childrenColumnName,
         recordKey,
-        eachIndex,
       );
       childrenMap.forEach((value, key) => kvMap.set(key, value));
     }
@@ -231,7 +250,7 @@ function flattenRecordsToMap<RecordType>(
       map_row_key: recordKey,
       map_row_parentKey: parentKey,
     };
-    delete (newRecord as any).children;
+    delete (newRecord as any)[childrenColumnName];
     if (!parentKey) {
       delete newRecord.map_row_parentKey;
     }
@@ -317,10 +336,11 @@ function rebuildTreeStructure<RecordType>(
       const children = childrenMap.get(parentKeyStr);
       if (children && children.length > 0) {
         // 找到对应的 record 并添加 children
+        // 注意：第一步插入时 record 一定带有 map_row_key（见 `const record = { ...rest, map_row_key }`），
+        // 这里仅依赖 map_row_key 比较即可。原实现 `|| (r as any).id` 既是死代码，又会在用户字段恰好叫
+        // `id` 时产生误命中，已删除。
         const recordIndex = children.findIndex((r: any) => {
-          // 比较时需要确保类型一致
-          const recordKey = (r as any).map_row_key || (r as any).id;
-          return String(recordKey) === String(map_row_key);
+          return String(r.map_row_key) === String(map_row_key);
         });
 
         if (recordIndex >= 0 && childrenMap.has(map_row_key)) {
@@ -771,7 +791,10 @@ export function useEditableArray<RecordType extends AnyObject>(
     undefined,
   );
 
-  useDeepCompareEffectDebounce(() => {
+  // 注意：必须用同步的 useDeepCompareEffect，不能再用 debounce 版本——后者会让短时间内
+  // 多次更新 dataSource 时 Map 处于过期状态，cancelEditable / saveEditable / validateCanAddRecord
+  // 通过 dataSourceKeyIndexMapRef 反查映射 key 时会拿到旧映射，新增/删除场景下偶发查不到。
+  useDeepCompareEffect(() => {
     dataSourceKeyIndexMapRef.current = buildDataSourceKeyIndexMap();
   }, [props.dataSource]);
 
@@ -933,7 +956,111 @@ export function useEditableArray<RecordType extends AnyObject>(
   });
 
   /**
+   * 拿到当前关联的 form 实例（兼容 props.form / props.formProps.formRef 两种入口）
+   */
+  const resolveFormInstance = useRefFunction((): FormInstance | undefined => {
+    const formRef = props.formProps?.formRef as
+      | React.MutableRefObject<FormInstance | undefined>
+      | undefined;
+    return formRef?.current || props.form;
+  });
+
+  /**
+   * 若当前 recordKey 命中 newLineRecordCache，则返回该缓存供 onCancel 使用
+   */
+  const matchNewLineConfig = useRefFunction(
+    (recordKey: RecordKey): NewLineConfig<RecordType> | undefined => {
+      if (!newLineRecordCache) return undefined;
+      const cacheRecordKey = newLineRecordCache.options?.recordKey;
+      if (cacheRecordKey == null) return undefined;
+      return isSameRecordKey(cacheRecordKey, recordKey)
+        ? newLineRecordCache
+        : undefined;
+    },
+  );
+
+  /**
+   * cancelEditable 子步骤 1：调用用户 onCancel（仅用于测试与外部 actionRef.cancel 入口；
+   * UI 上点取消会走 CancelEditableAction）
+   */
+  const tryRunOnCancel = useRefFunction(async (recordKey: RecordKey) => {
+    if (!props.onCancel) return;
+    const keyForFind = Array.isArray(recordKey) ? recordKey[0] : recordKey;
+    const record = findRecordByKey(keyForFind);
+    const originRow = preEditRowRef.current;
+    const newLineConfig = matchNewLineConfig(recordKey);
+    const fallback =
+      record || (newLineConfig?.defaultValue as any) || ({} as any);
+    try {
+      await props.onCancel(
+        recordKey,
+        fallback,
+        originRow || fallback,
+        newLineConfig,
+      );
+    } catch (error) {
+      // onCancel 抛异常不应阻断后续清理
+      console.error('onCancel error:', error);
+    }
+  });
+
+  /**
+   * cancelEditable 子步骤 2：当本次取消的 recordKey 命中 newLineRecordCache 时清空缓存
+   */
+  const tryClearNewLineCache = useRefFunction((recordKey: RecordKey) => {
+    if (!newLineRecordCache) return;
+    if (isSameRecordKey(newLineRecordCache.options.recordKey, recordKey)) {
+      setNewLineRecordCache(undefined);
+    }
+  });
+
+  /**
+   * cancelEditable 子步骤 3：把 form 中该行的字段恢复为编辑前的快照（name 模式）
+   * 或直接清空（非 name 模式），并重置 preEditRowRef
+   */
+  const tryRestoreFormFields = useRefFunction((recordKey: RecordKey) => {
+    const originRow = preEditRowRef.current;
+    if (!originRow) return;
+    if (!isSameRecordKey(props.getRowKey(originRow, -1), recordKey)) return;
+
+    try {
+      const form = resolveFormInstance();
+      if (!form) return;
+
+      if (props.tableName) {
+        // name 模式：把该行字段值恢复成进入编辑前的快照
+        const namePath = normalizeNamePath(
+          props.tableName,
+          recordKey,
+        ) as string[];
+        form.setFieldsValue(set({}, namePath, originRow));
+      } else {
+        // 非 name 模式：字段以 `{ [recordKey]: { [dataIndex]: value } }` 嵌套存储，
+        // 直接清空整个嵌套对象，避免下次渲染仍展示输入框残留
+        const recordKeyStr = recordKeyToString(recordKey)?.toString();
+        if (!recordKeyStr) return;
+        try {
+          form.resetFields([[recordKeyStr]]);
+          form.setFieldsValue({ [recordKeyStr]: undefined });
+        } catch (error) {
+          console.warn(
+            'Failed to clear form fields in cancelEditable:',
+            error,
+          );
+        }
+      }
+    } catch (error) {
+      console.warn('Failed to reset form fields in cancelEditable:', error);
+    }
+
+    preEditRowRef.current = null;
+  });
+
+  /**
    * 退出编辑状态
+   *
+   * 流程：① 必要时按 mappedKey 重试一次 → ② onCancel → ③ 清 newLineCache
+   *      → ④ 还原 form 字段 → ⑤ 清编辑态
    */
   const cancelEditable = useRefFunction(
     async (recordKey: RecordKey, needReTry?: boolean): Promise<boolean> => {
@@ -943,144 +1070,37 @@ export function useEditableArray<RecordType extends AnyObject>(
         relayKeyStr != null
           ? dataSourceKeyIndexMapRef.current.get(relayKeyStr)
           : undefined;
+      const isInEditableSet = (editableKeys ?? []).some((key) =>
+        isSameRecordKey(key, recordKey),
+      );
 
-      const isInEditableSet = editableKeys?.some((key) => {
-        if (relayKeyStr == null) return false;
-        return key?.toString() === relayKeyStr || key === relayKey;
-      });
-
+      // ① 当传入的 key 不在 editableKeys 内但能在 indexKey↔realKey 映射里找到对应项时，
+      // 用映射后的 key 再试一次（避免 name 模式下用户传错维度的 key 导致取消失败）
       if (
         !isInEditableSet &&
         mappedKey &&
         (needReTry ?? true) &&
         props.tableName
       ) {
-        return await cancelEditable(mappedKey, false);
+        return cancelEditable(mappedKey, false);
       }
 
-      // 如果提供了 onCancel，尝试调用它（用于测试场景）
-      // 注意：在实际使用中，onCancel 应该在 CancelEditableAction 中被调用
-      if (props.onCancel && isInEditableSet) {
-        const keyForFind = Array.isArray(recordKey) ? recordKey[0] : recordKey;
-        const record = findRecordByKey(keyForFind);
-        const originRow = preEditRowRef.current;
-        // 比较 recordKey 时需要考虑类型转换
-        // newLineRecordCache.options.recordKey 是 addEditRecord 时设置的 recordKey
-        // 而 recordKey 是 cancelEditable 的参数，需要确保它们匹配
-        const cacheRecordKey = newLineRecordCache?.options?.recordKey;
-        const cacheKey =
-          cacheRecordKey != null ? recordKeyToString(cacheRecordKey) : null;
-        const cacheKeyStr = cacheKey != null ? cacheKey.toString() : null;
-        // 检查 newLineRecordCache 是否匹配当前的 recordKey
-        const newLineConfig =
-          newLineRecordCache != null &&
-          cacheRecordKey != null &&
-          (cacheRecordKey === recordKey ||
-            (cacheKeyStr != null &&
-              relayKeyStr != null &&
-              cacheKeyStr === relayKeyStr) ||
-            cacheRecordKey?.toString() === recordKey?.toString() ||
-            String(cacheRecordKey) === String(recordKey))
-            ? newLineRecordCache
-            : undefined;
-
-        // 调用 onCancel，即使找不到记录（新行编辑场景）
-        // 对于新行编辑，record 可能为 null，但 newLineConfig 应该包含 defaultValue
-        try {
-          await props.onCancel(
-            recordKey,
-            record || (newLineConfig?.defaultValue as any) || ({} as any),
-            originRow ||
-              record ||
-              (newLineConfig?.defaultValue as any) ||
-              ({} as any),
-            newLineConfig,
-          );
-        } catch (error) {
-          // 如果 onCancel 抛出异常，仍然继续清理状态
-          console.error('onCancel error:', error);
-        }
+      if (isInEditableSet) {
+        // ② 调 onCancel（兼容外部 actionRef.cancel 调用）
+        await tryRunOnCancel(recordKey);
       }
 
-      // 清理 newLineRecordCache，需要比较 recordKey（考虑类型转换）
-      if (newLineRecordCache) {
-        const cacheRecordKey = newLineRecordCache.options.recordKey;
-        // 重用之前计算的 relayKeyStr
-        const cacheKeyStr =
-          cacheRecordKey != null
-            ? recordKeyToString(cacheRecordKey)?.toString()
-            : null;
-        if (
-          cacheRecordKey === recordKey ||
-          (cacheKeyStr != null &&
-            relayKeyStr != null &&
-            cacheKeyStr === relayKeyStr) ||
-          cacheRecordKey?.toString() === recordKey?.toString() ||
-          String(cacheRecordKey) === String(recordKey)
-        ) {
-          setNewLineRecordCache(undefined);
-        }
+      // ③ 清 newLineRecordCache
+      tryClearNewLineCache(recordKey);
+
+      // ④ 还原 form 字段：注意必须在 clearEditableState 之前，
+      // 否则 editableKeys 一变更，行重渲会先于字段重置发生，残留输入框
+      if (isInEditableSet) {
+        tryRestoreFormFields(recordKey);
       }
 
-      // 先清理 preEditRowRef 并重置表单字段，然后再清除编辑状态
-      // 这样在清除编辑状态前，表单字段已经被清除，表格重新渲染时就不会显示输入框
-      const originRow = preEditRowRef.current;
-      if (
-        originRow &&
-        props.getRowKey(originRow, -1) === recordKey &&
-        isInEditableSet
-      ) {
-        try {
-          // 尝试通过 formProps.formRef 访问 form
-          const formRef = props.formProps?.formRef as any;
-          const form = formRef?.current || props.form;
-
-          if (form) {
-            if (props.tableName) {
-              // name 模式：重置为原始值
-              const namePath = normalizeNamePath(
-                props.tableName,
-                recordKey,
-              ) as string[];
-              form.setFieldsValue(set({}, namePath, originRow));
-            } else {
-              // 非 name 模式：清除该行的所有表单字段
-              // 在非 name 模式下，表单字段路径是 [recordKey, columnDataIndex]
-              // 如 [624748504, 'title']，需要清除所有以 recordKey 开头的字段
-              const recordKeyStr = recordKeyToString(recordKey)?.toString();
-              if (recordKeyStr) {
-                try {
-                  // 在非 name 模式下，表单字段以嵌套对象的形式存储
-                  // 比如 { '624748504': { 'title': 'value', 'state': 'value' } }
-                  // 需要清除整个嵌套对象
-                  // 先使用 resetFields 清除字段状态
-                  form.resetFields([[recordKeyStr]]);
-
-                  // 然后使用 setFieldsValue 清除字段值
-                  // 这样可以确保字段被完全清除，表格重新渲染时不会显示输入框
-                  form.setFieldsValue({
-                    [recordKeyStr]: undefined,
-                  });
-                } catch (error) {
-                  // 如果清除失败，忽略错误
-                  console.warn(
-                    'Failed to clear form fields in cancelEditable:',
-                    error,
-                  );
-                }
-              }
-            }
-          }
-        } catch (error) {
-          // 如果访问 form 失败，忽略错误
-          console.warn('Failed to reset form fields in cancelEditable:', error);
-        }
-        preEditRowRef.current = null;
-      }
-
-      // 最后清除编辑状态，这样表格会重新渲染，输入框会消失
+      // ⑤ 最后清除编辑状态，触发表格重新渲染、输入框消失
       clearEditableState(recordKey);
-
       return true;
     },
   );
@@ -1220,6 +1240,11 @@ export function useEditableArray<RecordType extends AnyObject>(
 
   /**
    * 保存编辑行
+   *
+   * 设计：仅作为 `SaveEditableAction.save` 的外部触发入口。所有副作用
+   *  （setDataSource / cancelEditable / 清 saveRefsMap）都由 `actionSaveRef`
+   *  → `cancelEditable` 链路统一处理，这里**绝不再额外调 clearEditableState**，
+   *  否则 `setEditableRowKeys` 会被触发两次。
    */
   const saveEditable = useRefFunction(
     async (recordKey: RecordKey, needReTry?: boolean): Promise<boolean> => {
@@ -1227,8 +1252,8 @@ export function useEditableArray<RecordType extends AnyObject>(
       const relayKeyStr = relayKey.toString();
       const mappedKey = dataSourceKeyIndexMapRef.current.get(relayKeyStr);
 
-      const isInEditableSet = editableKeys?.some(
-        (key) => key?.toString() === relayKeyStr || key === relayKey,
+      const isInEditableSet = (editableKeys ?? []).some((key) =>
+        isSameRecordKey(key, recordKey),
       );
 
       if (
@@ -1237,7 +1262,7 @@ export function useEditableArray<RecordType extends AnyObject>(
         (needReTry ?? true) &&
         props.tableName
       ) {
-        return await saveEditable(mappedKey, false);
+        return saveEditable(mappedKey, false);
       }
 
       const saveRef = getSaveRef(recordKey);
@@ -1246,7 +1271,6 @@ export function useEditableArray<RecordType extends AnyObject>(
       }
 
       await saveRef.current.save();
-      clearEditableState(recordKey);
       return true;
     },
   );
@@ -1394,7 +1418,10 @@ export function useEditableArray<RecordType extends AnyObject>(
       }
 
       const { options } = newLine || newLineRecordRef.current || {};
-      const isNewLine = !options?.parentKey && options?.recordKey === recordKey;
+      // 用 isSameRecordKey 替代 ===：RecordKey 可能是 number/string/array，直接 === 在
+      // number↔string 混用或数组场景下永远 false，会导致新增行被错误地走"更新"分支而非"插入"分支
+      const isNewLine =
+        !options?.parentKey && isSameRecordKey(options?.recordKey, recordKey);
 
       if (isNewLine) {
         if (options?.position === 'top') {
