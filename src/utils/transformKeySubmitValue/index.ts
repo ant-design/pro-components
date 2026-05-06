@@ -1,5 +1,5 @@
-﻿import { get } from '@rc-component/util';
-import { cloneDeep } from 'lodash-es';
+import { get } from '@rc-component/util';
+import { cloneDeep, set } from 'lodash-es';
 import React from 'react';
 import { isNil } from '../isNil';
 import type { SearchTransformKeyFn } from '../typing';
@@ -31,9 +31,14 @@ export function isPlainObj(itemValue: any): boolean {
   if (itemValue.constructor === RegExp) return false;
   if (itemValue instanceof Map) return false;
   if (itemValue instanceof Set) return false;
-  if (itemValue instanceof HTMLElement) return false;
-  if (itemValue instanceof Blob) return false;
-  if (itemValue instanceof File) return false;
+  // SSR 环境下 HTMLElement / Blob / File 这些 BOM 全局不存在，
+  // 直接 instanceof 会抛 ReferenceError。本函数已 export，外部可能在 node 端 import 使用，
+  // 必须用 typeof 守门确保 SSR 安全。
+  if (typeof HTMLElement !== 'undefined' && itemValue instanceof HTMLElement) {
+    return false;
+  }
+  if (typeof Blob !== 'undefined' && itemValue instanceof Blob) return false;
+  if (typeof File !== 'undefined' && itemValue instanceof File) return false;
   if (Array.isArray(itemValue)) return false;
 
   return true;
@@ -165,19 +170,15 @@ function processDotPathTransforms(
         Object.assign(parentObj, transformed);
       }
     } else {
-      // 如果返回原始值，直接替换
-      // 手动设置嵌套路径的值，确保数组索引正确处理
-      let current = result;
-      for (let i = 0; i < pathArray.length - 1; i++) {
-        const key = pathArray[i];
-        if (current[key] === undefined) {
-          // 如果下一个键是数字，创建数组，否则创建对象
-          const nextKey = pathArray[i + 1];
-          current[key] = typeof nextKey === 'number' ? [] : {};
-        }
-        current = current[key];
-      }
-      current[pathArray[pathArray.length - 1]] = transformed;
+      // 如果返回原始值，直接替换。
+      // 用 lodash-es/set 替代手写的 setIn 循环：
+      //  - 旧实现 `if (current[key] === undefined)` 漏判 null / false 等假值，
+      //    遇到 `{ user: null }` + 路径 `'user.profile.name'` 会在 `null['profile']` 抛 TypeError；
+      //  - 旧实现 `typeof nextKey === 'number' ? [] : {}` 决定容器类型也是凭路径推断，
+      //    存在与点号路径段类型不一致时建错容器的问题。
+      // lodash set 内部会按目标路径段做安全合并（已存在则用已有值；为 nil 时按下一段是否数字
+      // 自动建 array/object），与历史行为兼容更稳妥。
+      set(result, pathArray, transformed);
     }
   }
 }
@@ -211,13 +212,24 @@ function findNestedTransformFunction(
 }
 
 /**
- * 检查路径是否包含数组索引
+ * 判断 `parentsKey` 这条路径上是否曾经穿过一个数组节点。
  *
- * @param parentsKey - 父级路径数组
- * @returns 如果包含数组索引返回 true
+ * 旧实现用 `!isNaN(Number(key))` 来判断「这一段看起来像数字」就当成数组索引，会把
+ *  - 年份字段名 `'2024'`
+ *  - ID 字段名 `'0'` / `'007'`
+ *
+ * 这类「字符串字段名恰好可被解析为数字」的合法用户字段误判为数组索引，导致 transform
+ * 返回的对象被错误地合并到当前层而不是 root。这里改为按 `rootValues` 的真实形状逐段下钻，
+ * 只要中途任意一段父节点本身是数组就返回 true。
  */
-function isInArrayPath(parentsKey: React.Key[]): boolean {
-  return parentsKey.some((key) => !isNaN(Number(key)));
+function isInArrayPath(rootValues: any, parentsKey: React.Key[]): boolean {
+  let cursor: any = rootValues;
+  for (const segment of parentsKey) {
+    if (Array.isArray(cursor)) return true;
+    if (cursor == null || typeof cursor !== 'object') return false;
+    cursor = cursor[segment as keyof typeof cursor];
+  }
+  return Array.isArray(cursor);
 }
 
 /**
@@ -284,8 +296,11 @@ function processNestedObjectTransforms(
         transformed !== null &&
         !Array.isArray(transformed)
       ) {
-        // 检查当前项是否在数组中
-        const isInArray = parentsKey ? isInArrayPath(parentsKey) : false;
+        // 检查当前项是否在数组中（按 root values 的真实数据形状判断，
+        // 而不是按路径段「看起来像数字」判断 —— 否则字段名 '2024' 这类会被误判）
+        const isInArray = parentsKey
+          ? isInArrayPath(rootAllValues, parentsKey)
+          : false;
 
         if (isInArray) {
           // 如果是数组元素内的转换，直接合并到当前结果

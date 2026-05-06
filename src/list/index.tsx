@@ -18,7 +18,11 @@ import type {
   ProTableProps,
 } from '../table';
 import ProTable from '../table';
-import type { LabelTooltipType, ProFieldValueType } from '../utils';
+import {
+  useRefFunction,
+  type LabelTooltipType,
+  type ProFieldValueType,
+} from '../utils';
 import type { ItemProps } from './Item';
 import ListView, { type ProListItemRender } from './ListView';
 import type { ListProps } from './ProListBase';
@@ -211,6 +215,46 @@ function InternalProList<
     [`${prefixCls}-no-split`]: !split,
     [`${prefixCls}-${variant}`]: variant,
   });
+
+  const renderListTableView = useRefFunction(
+    ({
+      columns,
+      size,
+      pagination,
+      rowSelection,
+      dataSource,
+      loading,
+    }: Parameters<
+      NonNullable<ProTableProps<RecordType, U>['tableViewRender']>
+    >[0]) => (
+      <ListView
+        grid={grid}
+        itemCardProps={itemCardProps}
+        itemTitleRender={itemTitleRender}
+        prefixCls={props.prefixCls}
+        columns={columns}
+        itemRender={itemRender}
+        actionRef={actionRef}
+        dataSource={(dataSource || []) as RecordType[]}
+        size={size as 'large'}
+        footer={footer}
+        split={split}
+        variant={variant}
+        rowKey={rowKey}
+        expandable={expandable}
+        rowSelection={propRowSelection === false ? undefined : rowSelection}
+        pagination={pagination as PaginationProps}
+        itemLayout={itemLayout}
+        loading={loading}
+        itemHeaderRender={itemHeaderRender}
+        onRow={onRow}
+        onItem={onItem}
+        rowClassName={rowClassName}
+        locale={locale}
+        hashId={hashId}
+      />
+    ),
+  );
 
   return wrapSSR(
     <ProTable<RecordType, U>

@@ -5,10 +5,11 @@ import type { AnyObject } from 'antd/lib/_util/type';
 import type { PaginationConfig } from 'antd/lib/pagination';
 import type { GetRowKey, TableRowSelection } from 'antd/lib/table/interface';
 import { clsx } from 'clsx';
-import React, { useCallback, useContext } from 'react';
+import React, { useContext } from 'react';
 import type { CheckCardProps } from '../card';
 import { ProProvider } from '../provider';
 import type { ActionType } from '../table';
+import { useRefFunction } from '../utils';
 import useLazyKVMap from '../utils/useLazyKVMap';
 import usePagination from '../utils/usePagination';
 import useSelection from '../utils/useSelection';
@@ -181,7 +182,7 @@ function ListView<RecordType extends AnyObject>(
     [expandedRowKeys, innerExpandedKeys],
   );
 
-  const onTriggerExpand = React.useCallback(
+  const onTriggerExpand = useRefFunction(
     (record: RecordType, rowIndex: number) => {
       const key = getRowKey(record, rowIndex);
       const hasKey = mergedExpandedKeys.has(key);
@@ -197,7 +198,6 @@ function ListView<RecordType extends AnyObject>(
       onExpand?.(!hasKey, record);
       onExpandedRowsChange?.(newExpandedKeys);
     },
-    [getRowKey, mergedExpandedKeys, onExpand, onExpandedRowsChange],
   );
 
   /** 展开收起功能区域 end */
@@ -205,8 +205,7 @@ function ListView<RecordType extends AnyObject>(
   /** 这个是 选择框的 render 方法 为了兼容 antd 的 table,用了同样的渲染逻辑 所以看起来有点奇怪 */
   const selectItemDom = selectItemRender([])[0];
 
-  const renderListItem = useCallback(
-    (item: RecordType, index: number) => {
+  const renderListItem = useRefFunction((item: RecordType, index: number) => {
       const listItemProps: Partial<ItemProps<RecordType>> = {
         className:
           typeof rowClassName === 'function'
@@ -282,26 +281,7 @@ function ListView<RecordType extends AnyObject>(
       );
 
       return itemRender ? itemRender(item, index, defaultDom) : defaultDom;
-    },
-    [
-      actionRef,
-      expandableConfig,
-      getRowKey,
-      gridCardStaticProps,
-      itemHeaderRender,
-      itemRender,
-      itemTitleRender,
-      listSlotColumns,
-      mergedExpandedKeys,
-      onRow,
-      onItem,
-      onTriggerExpand,
-      rowClassName,
-      rowExpandable,
-      selectItemDom,
-      selectedKeySet,
-    ],
-  );
+    });
 
   return (
     <ProListContainer<RecordType>

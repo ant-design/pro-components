@@ -3,10 +3,11 @@ import { useControlledState } from '@rc-component/util';
 import { ConfigProvider, Skeleton } from 'antd';
 import type { ExpandableConfig } from 'antd/lib/table/interface';
 import { clsx } from 'clsx';
-import React, { memo, useCallback, useContext, useMemo } from 'react';
+import React, { memo, useContext, useMemo } from 'react';
 import type { CheckCardProps } from '../card';
 import { CheckCard } from '../card';
 import { ProProvider } from '../provider';
+import { useRefFunction } from '../utils';
 import type { GetComponentProps } from './index';
 import type { ListGridType } from './ProListBase';
 import {
@@ -161,7 +162,7 @@ function ProListItemInner<RecordType>(props: ItemProps<RecordType>) {
     !!propsExpand,
     propsExpand,
   );
-  const onExpand = useCallback(
+  const onExpand = useRefFunction(
     (updater: boolean | ((prev: boolean) => boolean)) => {
       onExpandInner((prev) => {
         const next =
@@ -172,7 +173,6 @@ function ProListItemInner<RecordType>(props: ItemProps<RecordType>) {
         return next;
       });
     },
-    [propsOnExpand],
   );
 
   const className = clsx(
