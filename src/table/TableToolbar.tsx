@@ -1,3 +1,4 @@
+import type { TableColumnType } from 'antd';
 import type { Key } from 'react';
 import React, { useMemo } from 'react';
 import type { ActionType } from '.';
@@ -10,7 +11,7 @@ export type TableToolbarProps<T extends Record<string, any>> = {
   hideToolbar: boolean;
   selectedRows: T[];
   selectedRowKeys: (string | number | Key)[] | undefined;
-  tableColumn: any[];
+  tableColumn: (TableColumnType<T> & { index?: number })[];
   tooltip: ProTableProps<T, any, any>['tooltip'];
   toolbar: ProTableProps<T, any, any>['toolbar'];
   isLightFilter: boolean;
