@@ -1,5 +1,5 @@
 import { useControlledState } from '@rc-component/util';
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useMemo, useRef } from 'react';
 import { useRefFunction } from '../utils';
 
 export type ProDescriptionsRequestResult<T = unknown> = {
@@ -101,15 +101,22 @@ const useFetchData = <TData, TResponse extends ProDescriptionsRequestResult<TDat
     setEntity(data);
     setLoading(false);
   };
-  /** 请求数据 */
-  const fetchList = async () => {
-    if (loading) {
+
+  const getDataRef = useRef(getData);
+  getDataRef.current = getData;
+
+  const fetchingRef = useRef(false);
+
+  /** 请求数据（稳定引用，始终读取最新的 getData） */
+  const fetchList = useRefFunction(async () => {
+    if (fetchingRef.current) {
       return;
     }
+    fetchingRef.current = true;
     setLoading(true);
 
     try {
-      const { data, success } = (await getData()) || {};
+      const { data, success } = (await getDataRef.current()) || {};
       if (success !== false) {
         updateDataAndLoading(data);
       }
@@ -121,25 +128,27 @@ const useFetchData = <TData, TResponse extends ProDescriptionsRequestResult<TDat
       onRequestError(e instanceof Error ? e : new Error(String(e)));
       setLoading(false);
     } finally {
+      fetchingRef.current = false;
       setLoading(false);
     }
-  };
+  });
 
   useEffect(() => {
     if (manual) {
       return;
     }
     fetchList();
-  }, [...(effects || []), manual]);
+  }, [...(effects || []), manual, fetchList]);
 
-  return {
-    dataSource: entity,
-    setDataSource: setEntity,
-    loading,
-    reload: () => {
-      return fetchList();
-    },
-  };
+  return useMemo(
+    () => ({
+      dataSource: entity,
+      setDataSource: setEntity,
+      loading,
+      reload: fetchList,
+    }),
+    [entity, setEntity, loading, fetchList],
+  );
 };
 
 export default useFetchData;
