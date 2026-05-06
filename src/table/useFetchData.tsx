@@ -148,8 +148,12 @@ const useFetchData = <DataSource extends RequestData<any>>(
   const setDataAndLoading = (newData: DataSource[], dataTotal: number) => {
     setTableDataList(newData);
     if (pageInfo?.total !== dataTotal) {
+      // 旧实现 `setPageInfo({ ...pageInfo, total: ... })` 会用 fetchList 启动时
+      // 捕获的 pageInfo 快照（含 current / pageSize）覆盖回去：如果用户在 await 期间
+      // 已经改了 current（如点了下一页），await 完成后此处会把 current 倒退回快照值。
+      // setPageInfo 来自 usePageInfo，本身接受 Partial<PageInfo> 并自动 merge 到
+      // 最新 pageInfo ref 上，所以这里只需传 total 这一个真正要变的字段。
       setPageInfo({
-        ...pageInfo,
         total: dataTotal || newData.length,
       });
     }
@@ -272,12 +276,19 @@ const useFetchData = <DataSource extends RequestData<any>>(
       const msg = (await Promise.race([
         fetchList(isPolling, abort.signal),
         new Promise((_, reject) => {
-          abortRef.current?.signal?.addEventListener?.('abort', () => {
-            reject('aborted');
-            // 结束请求，并且清空loading控制
-            fetchListDebounce.cancel();
-            requestFinally();
-          });
+          // { once: true }：abort 是一次性事件，旧实现没有 once / 没有 removeEventListener，
+          // 高频 reload + 长 await getData 的场景下回调（持有 reject / fetchListDebounce / requestFinally
+          // 闭包）会短时间累积，存在轻量内存泄漏风险。
+          abortRef.current?.signal?.addEventListener?.(
+            'abort',
+            () => {
+              reject('aborted');
+              // 结束请求，并且清空loading控制
+              fetchListDebounce.cancel();
+              requestFinally();
+            },
+            { once: true },
+          );
         }),
       ])) as DataSource[];
 
