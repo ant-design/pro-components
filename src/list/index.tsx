@@ -3,7 +3,6 @@ import type { PaginationProps } from 'antd';
 import { ConfigProvider } from 'antd';
 import { clsx } from 'clsx';
 import React, {
-  useCallback,
   useContext,
   useEffect,
   useImperativeHandle,
@@ -19,7 +18,11 @@ import type {
   ProTableProps,
 } from '../table';
 import ProTable from '../table';
-import type { LabelTooltipType, ProFieldValueType } from '../utils';
+import {
+  useRefFunction,
+  type LabelTooltipType,
+  type ProFieldValueType,
+} from '../utils';
 import type { ItemProps } from './Item';
 import ListView, { type ProListItemRender } from './ListView';
 import type { ListProps } from './ProListBase';
@@ -211,7 +214,7 @@ function InternalProList<
     [`${prefixCls}-${variant}`]: variant,
   });
 
-  const renderListTableView = useCallback(
+  const renderListTableView = useRefFunction(
     ({
       columns,
       size,
@@ -249,27 +252,6 @@ function InternalProList<
         hashId={hashId}
       />
     ),
-    [
-      grid,
-      itemCardProps,
-      itemTitleRender,
-      props.prefixCls,
-      itemRender,
-      actionRef,
-      footer,
-      split,
-      variant,
-      rowKey,
-      expandable,
-      propRowSelection,
-      itemLayout,
-      itemHeaderRender,
-      onRow,
-      onItem,
-      rowClassName,
-      locale,
-      hashId,
-    ],
   );
 
   return wrapSSR(
