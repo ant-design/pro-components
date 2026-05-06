@@ -185,6 +185,13 @@ function processDotPathTransforms(
 /**
  * 在嵌套转换配置中查找转换函数
  *
+ * 等价于沿 `[...parentsKey, entityKey]` 路径在 `currentTransforms` 上下钻：
+ *  - 中间任意一段不是对象（缺失 / null / 原始值 / 函数等） → 视为找不到，返回 undefined；
+ *  - 最终落点必须是 function 才返回，否则返回 undefined。
+ *
+ * 旧实现是 28 行手写循环，这里改用 `lodash-es/get` 一行实现：`get` 在路径走不下去时
+ * 返回 undefined，与原循环里 `nestedTransforms = null; break;` 行为等价。
+ *
  * @param currentTransforms - 当前转换配置
  * @param parentsKey - 父级路径
  * @param entityKey - 当前实体键
@@ -195,26 +202,12 @@ function findNestedTransformFunction(
   parentsKey: React.Key[],
   entityKey: string,
 ): SearchTransformKeyFn | undefined {
-  let nestedTransforms: any = currentTransforms;
-
-  for (const parentKey of parentsKey) {
-    const parentKeyStr = String(parentKey);
-    if (
-      nestedTransforms &&
-      typeof nestedTransforms[parentKeyStr] === 'object'
-    ) {
-      nestedTransforms = nestedTransforms[parentKeyStr];
-    } else {
-      nestedTransforms = null;
-      break;
-    }
-  }
-
-  if (nestedTransforms && typeof nestedTransforms[entityKey] === 'function') {
-    return nestedTransforms[entityKey];
-  }
-
-  return undefined;
+  // React.Key = string | number | bigint，但 lodash get 的 path 段不接受 bigint，
+  // 所以这里把整条路径段都用 String() 归一化为字符串再传入。lodash get 内部会按
+  // 数字字符串自动处理数组索引，行为与原循环里 `String(parentKey)` 等价。
+  const path = [...parentsKey.map(String), entityKey];
+  const candidate = get(currentTransforms, path);
+  return typeof candidate === 'function' ? candidate : undefined;
 }
 
 /**
@@ -230,44 +223,41 @@ function isInArrayPath(parentsKey: React.Key[]): boolean {
 /**
  * 递归处理嵌套对象转换（传统格式）
  *
- * @param tempValues - 要处理的值
- * @param parentsKey - 父级路径
- * @param currentTransforms - 当前转换配置
- * @param rootMergeObjects - 存储需要在根级别合并的对象
- * @param visited - 存储已经访问过的对象，防止循环引用
+ * @param currentValues - 当前递归层要处理的 values 子树
+ * @param parentsKey - 当前递归层在 root values 上的父级路径
+ * @param currentTransforms - 当前递归层对应的 transforms 子树
+ * @param rootLevelMerges - 收集所有「应在 root 上合并」的 transform 返回对象
  * @param rootAllValues - 根级表单对象（与 `SearchTransformKeyFn` 第三参一致），整次转换过程中保持不变引用
  * @returns 处理后的结果
+ *
+ * 设计说明：旧实现带有 `visited: Set<any>` 用于防止循环引用，但 `transformKeySubmitValue`
+ * 入口已经做过 `cloneDeep(values)`，且 antd Form 的 values 由用户输入序列化产生，必然
+ * 是 DAG / 树结构（无循环引用），该 Set 是 dead code，已删除以减少递归参数数量。
  */
 function processNestedObjectTransforms(
-  tempValues: any,
+  currentValues: any,
   parentsKey: React.Key[] | undefined,
   currentTransforms: any,
-  rootMergeObjects: any[],
-  visited: Set<any>,
+  rootLevelMerges: any[],
   rootAllValues: any,
 ): any {
-  if (tempValues != null && typeof tempValues === 'object') {
-    if (visited.has(tempValues)) {
-      return tempValues;
-    }
-    visited.add(tempValues);
-  }
+  const isArrayValues = Array.isArray(currentValues);
+  const currentResult: any = isArrayValues ? [] : {};
 
-  const isArrayValues = Array.isArray(tempValues);
-  let tempResult: any = isArrayValues ? [] : {};
-
-  if (tempValues == null || tempValues === undefined) {
-    return tempResult;
+  if (currentValues == null || currentValues === undefined) {
+    return currentResult;
   }
 
   // 确定要处理的键
   const keysToProcess = isArrayValues
-    ? tempValues.map((_, index) => index.toString())
-    : Object.keys(tempValues);
+    ? currentValues.map((_: unknown, index: number) => index.toString())
+    : Object.keys(currentValues);
 
   for (const entityKey of keysToProcess) {
-    const key = parentsKey ? [...parentsKey, entityKey] : [entityKey];
-    const itemValue = tempValues[entityKey];
+    const nextParentsKey = parentsKey
+      ? [...parentsKey, entityKey]
+      : [entityKey];
+    const itemValue = currentValues[entityKey];
 
     // 查找转换函数
     let transformFunction = currentTransforms[entityKey];
@@ -282,7 +272,7 @@ function processNestedObjectTransforms(
     }
 
     if (transformFunction && typeof transformFunction === 'function') {
-      const namePath = key.map((k) => String(k));
+      const namePath = nextParentsKey.map((k) => String(k));
       const transformed = transformFunction(
         itemValue,
         namePath,
@@ -299,14 +289,14 @@ function processNestedObjectTransforms(
 
         if (isInArray) {
           // 如果是数组元素内的转换，直接合并到当前结果
-          Object.assign(tempResult, transformed);
+          Object.assign(currentResult, transformed);
         } else {
-          // 如果不是数组元素，将其存储到 rootMergeObjects 以便在根级别合并
-          rootMergeObjects.push(transformed);
+          // 如果不是数组元素，将其存储到 rootLevelMerges 以便在根级别合并
+          rootLevelMerges.push(transformed);
         }
       } else {
         // 如果返回原始值，用新键替换
-        tempResult[entityKey] = transformed;
+        currentResult[entityKey] = transformed;
       }
     } else if (isPlainObj(itemValue) && !isNil(itemValue)) {
       // 递归处理嵌套对象（但跳过 null 值）
@@ -315,37 +305,38 @@ function processNestedObjectTransforms(
         // 如果当前键有嵌套转换配置，传递嵌套配置
         const nested = processNestedObjectTransforms(
           itemValue,
-          key,
+          nextParentsKey,
           nestedTransforms,
-          rootMergeObjects,
-          visited,
+          rootLevelMerges,
           rootAllValues,
         );
-        // 检查是否有任何子属性被转换为对象（会被添加到 rootMergeObjects）
+        // 检查是否有任何子属性被转换为对象（会被添加到 rootLevelMerges）
         // 如果 nested 为空或只包含被转换的属性，我们不保留这个对象
         const hasRemainingContent = Object.keys(nested).length > 0;
         if (hasRemainingContent) {
-          tempResult[entityKey] = nested;
+          currentResult[entityKey] = nested;
         }
       } else {
         // 否则继续使用当前转换配置递归
         const nested = processNestedObjectTransforms(
           itemValue,
-          key,
+          nextParentsKey,
           currentTransforms,
-          rootMergeObjects,
-          visited,
+          rootLevelMerges,
           rootAllValues,
         );
-        tempResult[entityKey] = nested;
+        currentResult[entityKey] = nested;
       }
     } else if (!isNil(itemValue)) {
-      // 保留非 null/undefined 原始值
-      tempResult[entityKey] = itemValue;
+      // 历史协议（"ignore null"，详见 tests/utils/index.test.tsx#943）：
+      // 没有 transform 配置且值为 null / undefined 的字段会被静默忽略，最终结果里
+      // 该字段为 undefined。如果想改成「保留原 null/undefined」需要先评估外部影响
+      // 并同步更新该测试，本轮不动。
+      currentResult[entityKey] = itemValue;
     }
   }
 
-  return tempResult;
+  return currentResult;
 }
 
 /**
@@ -395,8 +386,8 @@ export const transformKeySubmitValue = <T extends object = any>(
   // 处理点号路径格式的转换（如 'users.0.name'）
   processDotPathTransforms(result, dotPathTransforms);
 
-  // 存储需要在根级别合并的对象
-  const rootMergeObjects: any[] = [];
+  // 收集所有「应在 root 上合并」的 transform 返回对象
+  const rootLevelMerges: any[] = [];
 
   // 处理传统的嵌套对象格式转换（向后兼容）
   if (Object.keys(objectTransforms).length > 0) {
@@ -404,14 +395,13 @@ export const transformKeySubmitValue = <T extends object = any>(
       result,
       undefined,
       objectTransforms,
-      rootMergeObjects,
-      new Set(),
+      rootLevelMerges,
       result,
     );
   }
 
-  // 将所有根级别合并对象合并到最终结果
-  for (const obj of rootMergeObjects) {
+  // 将所有根级合并对象合并到最终结果
+  for (const obj of rootLevelMerges) {
     Object.assign(result, obj);
   }
 
