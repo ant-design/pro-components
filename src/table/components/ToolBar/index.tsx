@@ -69,7 +69,7 @@ export type ToolBarProps<T = unknown> = {
   selectedRows?: T[];
   className?: string;
   onSearch?: (keyWords: string) => void;
-  columns: TableColumnType<T>[];
+  columns: (TableColumnType<T> & { index?: number })[];
 };
 
 function getButtonText(
@@ -108,7 +108,7 @@ function renderDefaultOption<T>(
     intl: IntlType;
   },
   actions: React.MutableRefObject<ActionType | undefined>,
-  columns: TableColumnType<T>[],
+  columns: (TableColumnType<T> & { index?: number })[],
 ) {
   return Object.keys(options)
     .filter((item) => item)

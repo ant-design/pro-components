@@ -29,7 +29,10 @@ import type { SettingOptionType } from '../ToolBar';
 import { useStyle } from './style';
 
 type ColumnSettingProps<T = any> = SettingOptionType & {
-  columns: TableColumnType<T>[];
+  // `columns` 类型与 ToolBar 保持一致（TableColumnType<T> & { index? }），
+  // 使用与 ToolBar 一致的类型，以便消费 index 等字段，
+  // 同时与 GroupCheckboxList / CheckboxList 的内部 any cast 保持兼容。
+  columns: (TableColumnType<T> & { index?: number })[];
 };
 
 const ToolTipIcon: React.FC<{
@@ -403,20 +406,14 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
   const columnRef = useRef(null);
   // 获得当前上下文的 hashID
   const counter = useContext(TableContext);
-  // FIXME（review P0-3）：原写法 `TableColumnType<T> & { ... }[]` 因 `&` 优先级
-  // 低于数组类型后缀 `[]`，实际是「单个对象 & 数组」交叉类型，泛型 T 完全坍塌
-  // 为 any[]。直接加括号修正为 `(TableColumnType<T> & { ... })[]` 会触发整条
-  // 类型链（ToolBar.columns / Table.tsx 传入）的 cascade 错误，因为本组件
-  // 实际消费的是 ProColumns<T> 的扩展字段（如 hideInSetting / valueType /
-  // 嵌套 children），与 antd 的窄类型 TableColumnType<T> 不兼容。
-  // 需要在「补测试 + 整条链统一改为 ProColumns<T>[]」的独立 PR 中处理，
-  // 当前保持原状不引入回归。
-  const localColumns: TableColumnType<T> &
-    {
-      index?: number;
-      fixed?: any;
-      key?: any;
-    }[] = props.columns;
+  // 注意：括号必不可少。`&` 优先级低于数组类型后缀 `[]`，
+  // 若写成 `T & { ... }[]` 实际是「单个对象 & 数组」的交叉类型，
+  // 导致泛型 T 字段信息完全坍塌为 any[]（本轮修复的核心问题）。
+  const localColumns: (TableColumnType<T> & {
+    index?: number;
+    fixed?: any;
+    key?: any;
+  })[] = props.columns;
   const { checkedReset = true } = props;
   const { columnsMap, setColumnsMap, clearPersistenceStorage } = counter;
 
@@ -535,7 +532,7 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
           draggable={props.draggable ?? true}
           showListItemOption={props.showListItemOption ?? true}
           className={className}
-          localColumns={localColumns}
+          localColumns={localColumns as any}
           listsHeight={props.listsHeight}
         />
       }
