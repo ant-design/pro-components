@@ -182,20 +182,58 @@ function layoutNavCssVars(surface: 'sider' | 'header'): Record<string, string> {
 const easeStandard = 'cubic-bezier(0.4, 0, 0.2, 1)';
 const easeOut = 'cubic-bezier(0.22, 1, 0.36, 1)';
 
+/** 统一动效时长：走 antd CSS 变量，提供 0.2s 兜底（业务侧可通过主题 token 覆盖） */
+const DURATION_MID = 'var(--ant-motion-duration-mid, 0.2s)';
+
+/**
+ * 菜单专用语义常量：命名 > 数字。抽出来有两个好处：
+ * 1. 主区 + popup 同一规则复用同一组常量，改一处两处生效；
+ * 2. 把视觉参数集中在顶部声明，读文件时不需要在 300 行下面找某个 0.45 是在说啥。
+ */
+/** 选中态左侧指示条：3px 宽、60% 高、3px 圆角（与 antd Menu 视觉语义一致） */
+const INDICATOR = {
+  width: 3,
+  height: '60%',
+  radius: 3,
+} as const;
+/** 选中态字重（搭配 antd 体系 strong 语义） */
+const FONT_WEIGHT_SELECTED = 600;
+/** 收起态首字 chip 字重：加强但不到选中强度 */
+const FONT_WEIGHT_COLLAPSED = 500;
+/** 选中态 icon 的微放大倍率，与 AppsLogoComponents 的 avatarPulseScale 对齐节奏 */
+const ICON_SCALE_SELECTED = 1.08;
+/** 禁用态透明度：与 antd `disabledAlpha` 节奏一致 */
+const DISABLED_OPACITY = 0.45;
+/** submenu chevron 视觉弱化：不与主文案抢注意力 */
+const ARROW_OPACITY = 0.6;
+/** 键盘焦点环：2px 主色描边 + 1px 偏移，满足 WCAG 可见焦点 */
+const FOCUS_OUTLINE = {
+  width: 2,
+  offset: 1,
+} as const;
+/** 水平顶栏行高/按钮高（与 antd 顶栏菜单一致） */
+const HORIZONTAL_ROW_HEIGHT = 28;
+
 /** 行级视觉态统一 transition：背景/文字/阴影/transform 四轨并发，节奏一致 */
 const rowTransition = [
-  `background-color var(--ant-motion-duration-mid, 0.2s) ${easeStandard}`,
-  `color var(--ant-motion-duration-mid, 0.2s) ${easeStandard}`,
-  `box-shadow var(--ant-motion-duration-mid, 0.2s) ${easeStandard}`,
-  `transform var(--ant-motion-duration-mid, 0.2s) ${easeOut}`,
-  `font-weight var(--ant-motion-duration-mid, 0.2s) ${easeStandard}`,
+  `background-color ${DURATION_MID} ${easeStandard}`,
+  `color ${DURATION_MID} ${easeStandard}`,
+  `box-shadow ${DURATION_MID} ${easeStandard}`,
+  `transform ${DURATION_MID} ${easeOut}`,
+  `font-weight ${DURATION_MID} ${easeStandard}`,
 ].join(', ');
 
 /** icon 的 transition：跟随行级过渡节奏，单独列出方便 popup/主区复用 */
 const iconTransition = [
-  `color var(--ant-motion-duration-mid, 0.2s) ${easeStandard}`,
-  `transform var(--ant-motion-duration-mid, 0.2s) ${easeOut}`,
+  `color ${DURATION_MID} ${easeStandard}`,
+  `transform ${DURATION_MID} ${easeOut}`,
 ].join(', ');
+
+/** 指示条 transition：transform + opacity 双轨，主区 + popup 复用同一串 */
+const indicatorTransition = `transform ${DURATION_MID} ${easeOut}, opacity ${DURATION_MID} ${easeStandard}`;
+
+/** chevron/arrow transition：只需 transform */
+const arrowTransition = `transform ${DURATION_MID} ${easeOut}`;
 
 const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
   token,
@@ -234,8 +272,8 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
     textAlign: 'start',
     transition: rowTransition,
     '&:focus-visible': {
-      outline: `2px solid var(--ant-color-primary)`,
-      outlineOffset: 1,
+      outline: `${FOCUS_OUTLINE.width}px solid var(--ant-color-primary)`,
+      outlineOffset: FOCUS_OUTLINE.offset,
     },
   };
 
@@ -301,7 +339,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         },
         '&:disabled': {
           cursor: 'not-allowed',
-          opacity: 0.45,
+          opacity: DISABLED_OPACITY,
         },
       },
 
@@ -328,14 +366,14 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
               position: 'absolute',
               insetInlineStart: 0,
               insetBlockStart: '50%',
-              width: 3,
-              height: '60%',
-              borderStartEndRadius: 3,
-              borderEndEndRadius: 3,
+              width: INDICATOR.width,
+              height: INDICATOR.height,
+              borderStartEndRadius: INDICATOR.radius,
+              borderEndEndRadius: INDICATOR.radius,
               backgroundColor: v('colorTextSelected'),
               transform: 'translateY(-50%) scaleY(0)',
               transformOrigin: 'center',
-              transition: `transform var(--ant-motion-duration-mid, 0.2s) ${easeOut}, opacity var(--ant-motion-duration-mid, 0.2s) ${easeStandard}`,
+              transition: indicatorTransition,
               opacity: 0,
               pointerEvents: 'none',
             },
@@ -351,7 +389,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
       [`${c}-item--selected ${c}-item-button`]: {
         backgroundColor: v('colorBgSelected'),
         color: v('colorTextSelected'),
-        fontWeight: 600,
+        fontWeight: FONT_WEIGHT_SELECTED,
         /**
          * 选中 + hover 组合态：保持淡蓝主色、进一步加深背景，
          * 特异性 (0,3,0) 高于基础 `&:hover:not(:disabled)` (0,2,1)，
@@ -366,7 +404,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
       /** 禁用 li 的兼容（部分场景外层 li 也带 disabled 修饰） */
       [`${c}-item--disabled ${c}-item-button`]: {
         cursor: 'not-allowed',
-        opacity: 0.45,
+        opacity: DISABLED_OPACITY,
       },
 
       [`${c}-submenu`]: {
@@ -424,9 +462,9 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         height: v('arrowSize'),
         marginInlineStart: v('itemGap'),
         color: 'currentColor',
-        opacity: 0.6,
+        opacity: ARROW_OPACITY,
         /** 与行级视觉节奏一致：走 easeOut，收尾柔和 */
-        transition: `transform var(--ant-motion-duration-mid, 0.2s) ${easeOut}`,
+        transition: arrowTransition,
         svg: {
           width: '100%',
           height: '100%',
@@ -595,11 +633,11 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
 
       /**
        * 选中态图标：颜色单独走 token（与字色解耦，SidebarMenu 风格），
-       * 同时轻微放大 1.08 强化"被选中"的反馈；transition 已写在 item-icon 基础规则上。
+       * 同时轻微放大强化"被选中"的反馈；transition 已写在 item-icon 基础规则上。
        */
       [`${c}-item--selected ${c}-item-icon`]: {
         color: v('colorIconSelected'),
-        transform: 'scale(1.08)',
+        transform: `scale(${ICON_SCALE_SELECTED})`,
       },
 
       [`${c}-divider`]: {
@@ -666,7 +704,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           alignItems: 'center',
           textAlign: 'center',
           gap: 0,
-          fontWeight: 500,
+          fontWeight: FONT_WEIGHT_COLLAPSED,
           /** 无 icon 时展示首字（`collapsedTitleLetter` 已只返回 1 个字符），
            *  用 nowrap 保证不会在 28px 容器里换行；但**不**用 overflow:hidden，
            *  避免 svg 因定位/padding 在 1px 边缘被误裁。 */
@@ -724,38 +762,38 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         alignItems: 'center',
         gap: v('stackGap'),
       },
-      /** 顶部模式行高 28px（与常见顶栏菜单一致） */
+      /** 顶部模式行高固定为 HORIZONTAL_ROW_HEIGHT（与常见顶栏菜单一致） */
       [`${c}-item`]: {
         width: 'auto',
-        minHeight: 28,
-        height: 28,
+        minHeight: HORIZONTAL_ROW_HEIGHT,
+        height: HORIZONTAL_ROW_HEIGHT,
         whiteSpace: 'nowrap',
         paddingBlock: 0,
         paddingInline: 'var(--ant-padding-sm, 12px)',
         [`> *`]: {
-          minHeight: 28,
-          height: 28,
+          minHeight: HORIZONTAL_ROW_HEIGHT,
+          height: HORIZONTAL_ROW_HEIGHT,
         },
       },
       [`${c}-submenu`]: { display: 'inline-block' },
       [`${c}-submenu-title`]: {
         width: 'auto',
-        minHeight: 28,
-        height: 28,
+        minHeight: HORIZONTAL_ROW_HEIGHT,
+        height: HORIZONTAL_ROW_HEIGHT,
         paddingBlock: 0,
         paddingInline: 'var(--ant-padding-sm, 12px)',
         [`> *`]: {
-          minHeight: 28,
-          height: 28,
+          minHeight: HORIZONTAL_ROW_HEIGHT,
+          height: HORIZONTAL_ROW_HEIGHT,
         },
       },
       [`${c}-item-title`]: {
-        minHeight: 28,
-        height: 28,
-        lineHeight: '28px',
+        minHeight: HORIZONTAL_ROW_HEIGHT,
+        height: HORIZONTAL_ROW_HEIGHT,
+        lineHeight: `${HORIZONTAL_ROW_HEIGHT}px`,
       },
       [`${c}-item-title ${c}-item-text`]: {
-        lineHeight: '28px',
+        lineHeight: `${HORIZONTAL_ROW_HEIGHT}px`,
       },
       [`${c}-submenu-popup`]: {
         [`${c}-item-title`]: { alignItems: 'flex-start' },
@@ -887,22 +925,22 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         },
         '&:disabled': {
           cursor: 'not-allowed',
-          opacity: 0.45,
+          opacity: DISABLED_OPACITY,
         },
-        /** 选中态指示条（popup 内同样生效）：左侧 3px 竖线，scaleY 展开 */
+        /** 选中态指示条（popup 内同样生效）：左侧竖线，scaleY 展开 */
         '&::before': {
           content: '""',
           position: 'absolute',
           insetInlineStart: 0,
           insetBlockStart: '50%',
-          width: 3,
-          height: '60%',
-          borderStartEndRadius: 3,
-          borderEndEndRadius: 3,
+          width: INDICATOR.width,
+          height: INDICATOR.height,
+          borderStartEndRadius: INDICATOR.radius,
+          borderEndEndRadius: INDICATOR.radius,
           backgroundColor: v('colorTextSelected'),
           transform: 'translateY(-50%) scaleY(0)',
           transformOrigin: 'center',
-          transition: `transform var(--ant-motion-duration-mid, 0.2s) ${easeOut}, opacity var(--ant-motion-duration-mid, 0.2s) ${easeStandard}`,
+          transition: indicatorTransition,
           opacity: 0,
           pointerEvents: 'none',
         },
@@ -942,8 +980,8 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         height: v('arrowSize'),
         marginInlineStart: v('itemGap'),
         color: 'currentColor',
-        opacity: 0.6,
-        transition: `transform var(--ant-motion-duration-mid, 0.2s) ${easeOut}`,
+        opacity: ARROW_OPACITY,
+        transition: arrowTransition,
         svg: {
           width: '100%',
           height: '100%',
@@ -958,7 +996,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
       [`${c}-item--selected ${c}-item-button`]: {
         backgroundColor: v('colorBgSelected'),
         color: v('colorTextSelected'),
-        fontWeight: 600,
+        fontWeight: FONT_WEIGHT_SELECTED,
         '&::before': {
           transform: 'translateY(-50%) scaleY(1)',
           opacity: 1,
@@ -1020,10 +1058,10 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         width: v('iconBox'),
         height: v('iconBox'),
       },
-      /** 选中态 icon：颜色 + 微放大 1.08，与主区节奏对齐 */
+      /** 选中态 icon：颜色 + 微放大，与主区节奏对齐 */
       [`${c}-item--selected ${c}-item-icon`]: {
         color: v('colorIconSelected'),
-        transform: 'scale(1.08)',
+        transform: `scale(${ICON_SCALE_SELECTED})`,
       },
 
       /** Group 块：标题 + 列表 */
