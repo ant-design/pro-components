@@ -296,7 +296,7 @@ const Demo = () => {
     splitMenus: true,
   });
 
-  const [pathname, setPathname] = useState('/list/sub-page/sub-sub-page1');
+  const [pathname, setPathname] = useState('/product/list/on-sale');
   const [num, setNum] = useState(40);
   if (typeof document === 'undefined') {
     return <div />;

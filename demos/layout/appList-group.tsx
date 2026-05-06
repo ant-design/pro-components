@@ -115,7 +115,7 @@ const Demo = () => {
           {...defaultProps}
           appList={AppGroupList}
           itemClick={itemClick}
-          location={{ pathname: '/list/sub-page/sub-sub-page1' }}
+          location={{ pathname: '/product/list/on-sale' }}
           siderMenuType="group"
           menu={{ collapsedShowGroupTitle: true }}
           avatarProps={{

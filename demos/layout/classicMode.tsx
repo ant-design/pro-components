@@ -23,7 +23,7 @@ const Demo = () => {
     splitMenus: true,
   });
 
-  const [pathname, setPathname] = useState('/list/sub-page/sub-sub-page1');
+  const [pathname, setPathname] = useState('/product/list/on-sale');
 
   return (
     <div

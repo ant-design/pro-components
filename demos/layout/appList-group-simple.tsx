@@ -88,7 +88,7 @@ const Demo = () => {
         <ProLayout
           {...defaultProps}
           appList={AppGroupList}
-          location={{ pathname: '/list/sub-page/sub-sub-page1' }}
+          location={{ pathname: '/product/list/on-sale' }}
           siderMenuType="group"
           menu={{ collapsedShowGroupTitle: true }}
           avatarProps={{

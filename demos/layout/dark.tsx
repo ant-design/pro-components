@@ -17,7 +17,7 @@ import defaultProps from './_defaultProps';
 import { demoOnMenuHeaderClick } from './_demoHandlers';
 
 const Demo = () => {
-  const [pathname, setPathname] = useState('/list/sub-page/sub-sub-page1');
+  const [pathname, setPathname] = useState('/product/list/on-sale');
 
   return (
     <ProConfigProvider dark={true}>
