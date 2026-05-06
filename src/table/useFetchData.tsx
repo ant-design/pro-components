@@ -276,10 +276,17 @@ const useFetchData = <DataSource extends RequestData<any>>(
       const msg = (await Promise.race([
         fetchList(isPolling, abort.signal),
         new Promise((_, reject) => {
+          // 关键修复：监听局部 `abort.signal` 而不是 `abortRef.current.signal`。
+          // 旧实现 `abortRef.current?.signal?.addEventListener(...)` 在 await 期间
+          // 如果再次触发 fetchListDebounce，abortRef.current 被新 abort 覆盖，
+          // 旧 listener 反而监听到新 signal —— 新 abort 触发时旧 Promise 也跟着 reject，
+          // 而且回调里的 `fetchListDebounce.cancel()` 会把刚发起的新请求一并取消。
+          // 用局部 abort 变量保证「listener 与对应的 fetchList 调用绑定的是同一个 signal」。
+          //
           // { once: true }：abort 是一次性事件，旧实现没有 once / 没有 removeEventListener，
-          // 高频 reload + 长 await getData 的场景下回调（持有 reject / fetchListDebounce / requestFinally
-          // 闭包）会短时间累积，存在轻量内存泄漏风险。
-          abortRef.current?.signal?.addEventListener?.(
+          // 高频 reload + 长 await getData 的场景下回调（持有 reject / fetchListDebounce
+          // / requestFinally 闭包）会短时间累积，存在轻量内存泄漏风险。
+          abort.signal.addEventListener?.(
             'abort',
             () => {
               reject('aborted');
