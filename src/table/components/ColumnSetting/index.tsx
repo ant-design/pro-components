@@ -403,6 +403,14 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
   const columnRef = useRef(null);
   // 获得当前上下文的 hashID
   const counter = useContext(TableContext);
+  // FIXME（review P0-3）：原写法 `TableColumnType<T> & { ... }[]` 因 `&` 优先级
+  // 低于数组类型后缀 `[]`，实际是「单个对象 & 数组」交叉类型，泛型 T 完全坍塌
+  // 为 any[]。直接加括号修正为 `(TableColumnType<T> & { ... })[]` 会触发整条
+  // 类型链（ToolBar.columns / Table.tsx 传入）的 cascade 错误，因为本组件
+  // 实际消费的是 ProColumns<T> 的扩展字段（如 hideInSetting / valueType /
+  // 嵌套 children），与 antd 的窄类型 TableColumnType<T> 不兼容。
+  // 需要在「补测试 + 整条链统一改为 ProColumns<T>[]」的独立 PR 中处理，
+  // 当前保持原状不引入回归。
   const localColumns: TableColumnType<T> &
     {
       index?: number;
