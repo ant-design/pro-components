@@ -1402,4 +1402,306 @@ describe('Table ColumnSetting', () => {
     );
     expect(ellipsisList.length).toBe(1);
   });
+
+  // P1-3：treeMap key 一致性 — 子节点 onCheck 能正确触发父子联动
+  it('🎏 columnSetting nested column: uncheck child should make parent indeterminate', async () => {
+    const html = render(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            title: 'Name',
+            key: 'name',
+            dataIndex: 'name',
+            children: [
+              { title: 'Name2', key: 'name2', dataIndex: 'name2' },
+              { title: 'Name3', key: 'name3', dataIndex: 'name3' },
+            ],
+          },
+          { title: 'Age', key: 'age', dataIndex: 'age' },
+        ]}
+        dataSource={[{ key: 1, name: 'foo', name2: 'a', name3: 'b', age: 18 }]}
+        rowKey="key"
+      />,
+    );
+
+    await waitForWaitTime(200);
+
+    // 打开列设置 Popover
+    act(() => {
+      html.baseElement
+        .querySelector<HTMLElement>(
+          '.ant-pro-table-list-toolbar-setting-item .anticon-setting',
+        )
+        ?.click();
+    });
+    await waitForWaitTime(200);
+
+    // 打开父节点，展开子节点
+    act(() => {
+      html.baseElement
+        .querySelector<HTMLElement>('.ant-tree-switcher')
+        ?.click();
+    });
+    await waitForWaitTime(200);
+
+    const treeNodes = html.baseElement.querySelectorAll<HTMLElement>(
+      '.ant-tree-list-holder-inner .ant-tree-treenode',
+    );
+    // treeNodes[0] = Name（父），[1] = Name2，[2] = Name3
+    // 取消第一个子节点（Name2）的勾选
+    act(() => {
+      treeNodes[1]?.querySelector<HTMLElement>('.ant-tree-checkbox')?.click();
+    });
+    await waitForWaitTime(200);
+
+    // 父节点（Name）应该变成 indeterminate（半选）
+    const parentNode = html.baseElement.querySelectorAll<HTMLElement>(
+      '.ant-tree-list-holder-inner .ant-tree-treenode',
+    )[0];
+    expect(
+      parentNode?.querySelector('.ant-tree-checkbox-indeterminate'),
+    ).not.toBeNull();
+  });
+
+  // P1-4：setAllSelectAction 全选/取消时，用户通过 ToolTipIcon 手动 pin 的 fixed 状态应保留
+  it('🎏 columnSetting select all should preserve user pinned fixed state', async () => {
+    const html = render(
+      <ProTable
+        size="small"
+        options={{ setting: { draggable: false } }}
+        columns={[
+          { title: 'Name', key: 'name', dataIndex: 'name' },
+          { title: 'Age', key: 'age', dataIndex: 'age' },
+        ]}
+        dataSource={[{ key: 1, name: 'foo', age: 18 }]}
+        rowKey="key"
+      />,
+    );
+
+    await waitForWaitTime(200);
+
+    // 打开列设置 Popover
+    act(() => {
+      html.baseElement
+        .querySelector<HTMLElement>(
+          '.ant-pro-table-list-toolbar-setting-item .anticon-setting',
+        )
+        ?.click();
+    });
+    await waitForWaitTime(200);
+
+    // 点击 Name 列的「固定在左侧」按钮
+    act(() => {
+      html.baseElement
+        .querySelector<HTMLElement>(
+          '.ant-pro-table-column-setting-list .ant-pro-table-column-setting-list-item:first-child ' +
+            '.anticon-vertical-align-top',
+        )
+        ?.closest('span')
+        ?.click();
+    });
+    await waitForWaitTime(200);
+
+    // 点击全取消（title Checkbox 取消全选）
+    act(() => {
+      const titleCheckbox = html.baseElement.querySelector<HTMLInputElement>(
+        '.ant-pro-table-column-setting-title .ant-checkbox-input',
+      );
+      titleCheckbox?.click();
+    });
+    await waitForWaitTime(200);
+
+    // 再点全选
+    act(() => {
+      const titleCheckbox = html.baseElement.querySelector<HTMLInputElement>(
+        '.ant-pro-table-column-setting-title .ant-checkbox-input',
+      );
+      titleCheckbox?.click();
+    });
+    await waitForWaitTime(200);
+
+    // Name 列的 fixed='left' 状态应该被保留（ToolTipIcon 「不固定」按钮可见 = 已经固定）
+    const nameListItem = html.baseElement.querySelector<HTMLElement>(
+      '.ant-pro-table-column-setting-list .ant-pro-table-column-setting-list-item:first-child',
+    );
+    // 「不固定」图标可见说明该列已处于固定状态（fixed !== undefined）
+    const noPinIcon = nameListItem?.querySelector('.anticon-vertical-align-middle');
+    expect(noPinIcon).not.toBeNull();
+  });
+
+  // P1-8：ToolTipIcon pin 后，GroupCheckboxList 分桶应反映 columnsMap 里的 fixed 状态
+  it('🎏 columnSetting pin column should move it to the correct group', async () => {
+    const html = render(
+      <ProTable
+        size="small"
+        options={{ setting: { draggable: false } }}
+        columns={[
+          { title: 'Name', key: 'name', dataIndex: 'name' },
+          { title: 'Age', key: 'age', dataIndex: 'age' },
+        ]}
+        dataSource={[{ key: 1, name: 'foo', age: 18 }]}
+        rowKey="key"
+      />,
+    );
+
+    await waitForWaitTime(200);
+
+    // 打开列设置 Popover
+    act(() => {
+      html.baseElement
+        .querySelector<HTMLElement>(
+          '.ant-pro-table-list-toolbar-setting-item .anticon-setting',
+        )
+        ?.click();
+    });
+    await waitForWaitTime(200);
+
+    // 初始状态：不应该有「固定在左侧」分组 title（所有列都在「不固定」组）
+    expect(
+      html.baseElement.querySelector('.ant-pro-table-column-setting-list-group'),
+    ).toBeNull();
+
+    // 点击 Name 列的「固定在左侧」图标
+    act(() => {
+      html.baseElement
+        .querySelector<HTMLElement>(
+          '.ant-pro-table-column-setting-list .ant-pro-table-column-setting-list-item ' +
+            '.anticon-vertical-align-top',
+        )
+        ?.closest('span')
+        ?.click();
+    });
+    await waitForWaitTime(200);
+
+    // pin 后应出现「固定在左侧」分组（list-group class 出现）
+    expect(
+      html.baseElement.querySelector('.ant-pro-table-column-setting-list-group'),
+    ).not.toBeNull();
+  });
+
+  // P1-5：取消所有子节点后，父节点 indeterminate 应消失且不再是 checked
+  it('🎏 columnSetting nested column: uncheck all children should uncheck parent too', async () => {
+    const html = render(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            title: 'Name',
+            key: 'name',
+            dataIndex: 'name',
+            children: [
+              { title: 'Name2', key: 'name2', dataIndex: 'name2' },
+              { title: 'Name3', key: 'name3', dataIndex: 'name3' },
+            ],
+          },
+        ]}
+        dataSource={[{ key: 1, name: 'foo', name2: 'a', name3: 'b' }]}
+        rowKey="key"
+      />,
+    );
+
+    await waitForWaitTime(200);
+
+    act(() => {
+      html.baseElement
+        .querySelector<HTMLElement>(
+          '.ant-pro-table-list-toolbar-setting-item .anticon-setting',
+        )
+        ?.click();
+    });
+    await waitForWaitTime(200);
+
+    // 展开父节点，让子节点可见
+    act(() => {
+      html.baseElement
+        .querySelector<HTMLElement>('.ant-tree-switcher')
+        ?.click();
+    });
+    await waitForWaitTime(200);
+
+    const getTreeNodes = () =>
+      html.baseElement.querySelectorAll<HTMLElement>(
+        '.ant-tree-list-holder-inner .ant-tree-treenode',
+      );
+
+    // 取消 Name2（index=1）
+    act(() => {
+      getTreeNodes()[1]?.querySelector<HTMLElement>('.ant-tree-checkbox')?.click();
+    });
+    await waitForWaitTime(200);
+
+    // 取消 Name3（index=2）
+    act(() => {
+      getTreeNodes()[2]?.querySelector<HTMLElement>('.ant-tree-checkbox')?.click();
+    });
+    await waitForWaitTime(200);
+
+    // 父节点（Name）应既不 checked 也不 indeterminate
+    const parentNode = getTreeNodes()[0];
+    expect(parentNode?.querySelector('.ant-tree-checkbox-checked')).toBeNull();
+    expect(parentNode?.querySelector('.ant-tree-checkbox-indeterminate')).toBeNull();
+  });
+
+  // P0-1：父组件动态更新 columnsState.value 后，点重置应回到新值而非 mount 时的旧值
+  it('🎏 columnSetting reset should reflect latest columnsState.value after parent rerender', async () => {
+    const onChange = vi.fn();
+
+    const makeProps = (nameShow: boolean) => ({
+      size: 'small' as const,
+      columnsState: {
+        value: {
+          name: { show: nameShow },
+          age: { show: true },
+        },
+        onChange,
+      },
+      columns: [
+        { title: 'Name', key: 'name', dataIndex: 'name' },
+        { title: 'Age', key: 'age', dataIndex: 'age' },
+      ],
+      dataSource: [{ key: 1, name: 'foo', age: 18 }],
+      rowKey: 'key',
+    });
+
+    const { rerender } = render(<ProTable {...makeProps(true)} />);
+    await waitForWaitTime(200);
+
+    // 父组件更新 columnsState.value：Name 列改为 show: false
+    act(() => {
+      rerender(<ProTable {...makeProps(false)} />);
+    });
+    await waitForWaitTime(200);
+
+    // 打开列设置 Popover
+    act(() => {
+      document.querySelector<HTMLElement>(
+        '.ant-pro-table-list-toolbar-setting-item .anticon-setting',
+      )?.click();
+    });
+    await waitForWaitTime(200);
+
+    // 手动全选（改变 columnsMap）
+    act(() => {
+      document.querySelector<HTMLInputElement>(
+        '.ant-pro-table-column-setting-title .ant-checkbox-input',
+      )?.click();
+    });
+    await waitForWaitTime(200);
+
+    onChange.mockClear();
+
+    // 点重置
+    act(() => {
+      document.querySelector<HTMLElement>(
+        '.ant-pro-table-column-setting-action-rest-button',
+      )?.click();
+    });
+    await waitForWaitTime(200);
+
+    // 重置后应回到父组件最新传入的 value（name: show=false），而非 mount 时的旧值（name: show=true）
+    expect(onChange).toHaveBeenCalled();
+    const lastCallArg = (onChange.mock as any).lastCall?.[0];
+    expect(lastCallArg?.name?.show).toBe(false);
+  });
 });

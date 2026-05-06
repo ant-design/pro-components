@@ -18,7 +18,7 @@ import {
 import type { CheckboxChangeEvent } from 'antd/lib/checkbox';
 import type { DataNode } from 'antd/lib/tree';
 import { clsx } from 'clsx';
-import React, { useContext, useEffect, useMemo, useRef } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { ProProvider, useIntl } from '../../../provider';
 import { runFunction, useRefFunction } from '../../../utils';
 import type { ColumnsState } from '../../Store/Provide';
@@ -189,7 +189,10 @@ const CheckboxList: React.FC<{
             checkedKeys.push(columnKey);
           }
         }
-        treeMap.set(key, { ...item, parentKey: parentConfig?.columnKey });
+        // 必须用 columnKey（Tree 节点的 key）而非原始 column.key 存入 treeMap，
+        // 否则 onCheckTree.loopSetShow 通过 e.node.key（= columnKey）查父子关系时
+        // treeMap.get 永远返回 undefined，导致嵌套列的父子联动全部失效。
+        treeMap.set(columnKey, { ...item, parentKey: parentConfig?.columnKey });
         return item;
       });
     return { list: loopData(list), keys: checkedKeys, map: treeMap };
@@ -235,20 +238,36 @@ const CheckboxList: React.FC<{
     const loopSetShow = (key: string | number) => {
       const newSetting = { ...newColumnMap[key] };
       newSetting.show = e.checked;
-      // 如果含有子节点，也要选中
+
+      // 如果含有子节点，也要同步子节点状态
       if (treeDataConfig.map?.get(key)?.children) {
         treeDataConfig.map
           .get(key)
           ?.children?.forEach((item) => loopSetShow(item.key as string));
       }
 
-      // 如果子节点选择，那父节点也应该选中
+      // 先写入当前节点，再检查父节点 —— 顺序至关重要：
+      // 父节点逻辑需要读取兄弟节点的最新状态，当前节点必须先写入 newColumnMap，
+      // 否则读到的仍是旧值，导致 allSiblingsUnchecked 判断出错。
+      newColumnMap[key] = newSetting;
+
+      // 勾选方向：子节点选中时父节点自动设为 true
+      // 取消方向：检查所有兄弟节点是否已全部取消，若是则父节点也取消
       const parentKey = treeDataConfig.map?.get(key)?.parentKey;
       if (parentKey) {
-        newColumnMap[parentKey] = { ...newColumnMap[parentKey], show: true };
+        if (e.checked) {
+          newColumnMap[parentKey] = { ...newColumnMap[parentKey], show: true };
+        } else {
+          const siblings = treeDataConfig.map?.get(parentKey)?.children ?? [];
+          const allSiblingsUnchecked = siblings.every((sibling) => {
+            const siblingState = newColumnMap[sibling.key as string];
+            return siblingState && siblingState.show === false;
+          });
+          if (allSiblingsUnchecked) {
+            newColumnMap[parentKey] = { ...newColumnMap[parentKey], show: false };
+          }
+        }
       }
-
-      newColumnMap[key] = newSetting;
     };
     loopSetShow(e.node.key);
     setColumnsMap({ ...newColumnMap });
@@ -403,7 +422,6 @@ const GroupCheckboxList: React.FC<{
 };
 
 function ColumnSetting<T>(props: ColumnSettingProps<T>) {
-  const columnRef = useRef(null);
   // 获得当前上下文的 hashID
   const counter = useContext(TableContext);
   // 注意：括号必不可少。`&` 优先级低于数组类型后缀 `[]`，
@@ -416,14 +434,6 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
   })[] = props.columns;
   const { checkedReset = true } = props;
   const { columnsMap, setColumnsMap, clearPersistenceStorage } = counter;
-
-  useEffect(() => {
-    if (counter.propsRef.current?.columnsState?.value) {
-      columnRef.current = JSON.parse(
-        JSON.stringify(counter.propsRef.current?.columnsState?.value || {}),
-      );
-    }
-  }, []);
 
   /**
    * 设置全部选中，或全部未选中
@@ -465,9 +475,12 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
   /** 重置项目 */
   const clearClick = useRefFunction(() => {
     clearPersistenceStorage?.();
+    // 直接从 propsRef 读取最新 columnsState.value，消除 mount-only 缓存的 stale 问题：
+    // 若父组件后续更新 columnsState.value，columnsState.defaultValue 优先，
+    // 然后是 columnsState.value 的当前值，最后 fallback 到 defaultColumnKeyMap。
     setColumnsMap(
       counter.propsRef.current?.columnsState?.defaultValue ||
-        columnRef.current ||
+        counter.propsRef.current?.columnsState?.value ||
         counter.defaultColumnKeyMap!,
     );
   });
