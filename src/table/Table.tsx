@@ -474,28 +474,38 @@ const ProTable = <
   });
   // ============================ END ============================
 
-  /** 聚焦的时候重新请求数据，这样可以保证数据都是最新的。 */
-  useEffect(() => {
-    // 手动模式和 request 为空都不生效
+  /**
+   * 聚焦的时候重新请求数据，这样可以保证数据都是最新的。
+   *
+   * 旧实现的两个闭包陷阱：
+   *  1. effect 依赖为 `[]`，但回调里引用了 `props.manualRequest / props.request /
+   *     revalidateOnFocus / props.form?.ignoreRules / action.reload` 五个会变的值。
+   *     一旦用户运行时把 `revalidateOnFocus` 从 false 改成 true，由于 listener
+   *     是首次 render 绑定的，永远走旧的 if 拒绝；
+   *  2. `action.reload` 是 useFetchData 每次 render 重建的闭包，listener 抓到的
+   *     永远是首次 render 的旧 reload，引用旧的 pageInfo/formSearch。
+   *
+   * 修复策略：把判定条件 + reload 调用都包到 useRefFunction 里 —— ref function
+   * 引用稳定但内部读取永远是最新值。effect 依赖保持 `[]`，listener 也只绑/解绑
+   * 一次，不需要重复 add/remove。
+   */
+  const onVisibilityChange = useRefFunction(() => {
+    if (document.visibilityState !== 'visible') return;
     if (
       props.manualRequest ||
       !props.request ||
       !revalidateOnFocus ||
       props.form?.ignoreRules
-    )
+    ) {
       return;
-
-    // 聚焦时重新请求事件
-    const visibilitychange = () => {
-      if (document.visibilityState === 'visible') {
-        action.reload();
-      }
-    };
-
-    document.addEventListener('visibilitychange', visibilitychange);
+    }
+    action.reload();
+  });
+  useEffect(() => {
+    document.addEventListener('visibilitychange', onVisibilityChange);
     return () =>
-      document.removeEventListener('visibilitychange', visibilitychange);
-  }, []);
+      document.removeEventListener('visibilitychange', onVisibilityChange);
+  }, [onVisibilityChange]);
 
   /** SelectedRowKeys受控处理selectRows */
   const preserveRecordsRef = React.useRef(new Map<any, T>());
