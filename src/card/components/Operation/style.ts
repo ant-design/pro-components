@@ -15,9 +15,10 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
       marginBlock: token.marginLG,
       marginInline: 0,
       color: token.colorText,
-      fontWeight: '500',
-      fontSize: '20px',
-      lineHeight: '38px',
+      fontWeight: token.fontWeightStrong,
+      // 对齐 antd 的 H4 标题字号（默认 20px），与 Card title 视觉层级一致
+      fontSize: token.fontSizeHeading4,
+      lineHeight: token.lineHeightHeading4,
     },
   };
 };

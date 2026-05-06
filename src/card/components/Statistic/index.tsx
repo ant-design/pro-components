@@ -36,7 +36,7 @@ export interface StatisticProps extends AntdStatisticProps {
   /** 趋势 */
   trend?: 'up' | 'down';
 
-  children?: any;
+  children?: React.ReactNode;
 }
 
 const Statistic: React.FC<StatisticProps> = (props) => {

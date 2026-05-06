@@ -30,9 +30,10 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
         },
       },
       [`${token.componentCls}-loading-block`]: {
-        height: '14px',
-        marginBlock: '4px',
-        background: `linear-gradient(90deg, rgba(54, 61, 64, 0.2), rgba(54, 61, 64, 0.4), rgba(54, 61, 64, 0.2))`,
+        height: 14,
+        marginBlock: token.marginXXS,
+        // 用 token.colorFill* 系列色，跟随主题（含 dark 模式）自动反色
+        background: `linear-gradient(90deg, ${token.colorFillSecondary}, ${token.colorFillTertiary}, ${token.colorFillSecondary})`,
         backgroundSize: '600% 600%',
         borderRadius: token.borderRadius,
         animationName: cardLoading as unknown as string,
