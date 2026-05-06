@@ -1,10 +1,11 @@
 import type { DescriptionsItemType } from 'antd/es/descriptions';
 import { ConfigProvider, Descriptions, Space } from 'antd';
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useMemo } from 'react';
 import ValueTypeToComponent from '../field/ValueTypeToComponent';
 import ProForm from '../form';
 import ProConfigContext, { ProConfigProvider } from '../provider';
 import ProSkeleton from '../skeleton';
+import type { ProCoreActionType } from '../utils';
 import {
   ErrorBoundary,
   LabelIconTip,
@@ -81,16 +82,16 @@ const ProDescriptions = <
     [proContext.valueTypeMap],
   );
 
-  const coreAction = useMemo<ProDescriptionsActionType<RecordType>>(() => {
-    const base: ProDescriptionsActionType<RecordType> = {
+  const coreAction = useMemo(() => {
+    const base = {
       reload: action.reload,
       dataSource: action.dataSource,
       setDataSource: action.setDataSource,
     };
     if (editable && editableUtils) {
-      return { ...base, ...editableUtils };
+      return { ...base, ...editableUtils } as ProCoreActionType<RecordType>;
     }
-    return base;
+    return base as ProCoreActionType<RecordType>;
   }, [
     action.reload,
     action.dataSource,
@@ -101,19 +102,12 @@ const ProDescriptions = <
 
   useEffect(() => {
     if (actionRef) {
-      actionRef.current = {
-        reload: action.reload,
-        ...editableUtils,
-      };
+      actionRef.current = coreAction;
     }
-  }, [action, actionRef, editableUtils]);
+  }, [actionRef, coreAction]);
 
-  if (action.loading || (action.loading === undefined && request)) {
-    return <ProSkeleton type="descriptions" list={false} pageHeader={false} />;
-  }
-
-  const getColumns = (): ProDescriptionsColumn<RecordType, ValueType>[] => {
-    return (columns || [])
+  const schemaContent = useMemo(() => {
+    const resolvedColumns = (columns || [])
       .filter((item) => {
         if (!item) return false;
         if (
@@ -125,20 +119,35 @@ const ProDescriptions = <
         return !item?.hideInDescriptions;
       })
       .sort((a, b) => {
-        if (b.order || a.order) {
-          return (b.order || 0) - (a.order || 0);
+        const orderA = a.order;
+        const orderB = b.order;
+        if (orderA != null || orderB != null) {
+          return (orderB ?? 0) - (orderA ?? 0);
         }
         return (b.index || 0) - (a.index || 0);
       });
-  };
 
-  const { options, children } = schemaToDescriptionsItem(
-    getColumns(),
+    return schemaToDescriptionsItem(
+      resolvedColumns,
+      action.dataSource,
+      coreAction,
+      editable ? editableUtils : undefined,
+      props.emptyText,
+    );
+  }, [
+    columns,
     action.dataSource,
-    actionRef?.current || action,
-    editable ? editableUtils : undefined,
+    coreAction,
+    editable,
+    editableUtils,
     props.emptyText,
-  );
+  ]);
+
+  if (action.loading || (action.loading === undefined && request)) {
+    return <ProSkeleton type="descriptions" list={false} pageHeader={false} />;
+  }
+
+  const { options, children } = schemaContent;
 
   const FormComponent = editable ? ProForm : DefaultProDescriptionsDom;
 
@@ -152,9 +161,7 @@ const ProDescriptions = <
   const className = context.getPrefixCls('pro-descriptions');
   return (
     <ErrorBoundary>
-      <ProConfigProvider
-        valueTypeMap={{ ...proContext.valueTypeMap, ...ValueTypeToComponent }}
-      >
+      <ProConfigProvider valueTypeMap={valueTypeMap}>
         <FormComponent
           key="form"
           form={props.editable?.form}
