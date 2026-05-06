@@ -20,6 +20,7 @@ import type {
   ProTableProps,
   RequestData,
 } from './typing';
+import { resolveTableViewDefaultDom } from './utils';
 
 export {
   CellEditorTable,
@@ -27,6 +28,7 @@ export {
   EditableProTable,
   ListToolBar,
   ProTable,
+  resolveTableViewDefaultDom,
   RowEditorTable,
   Search,
   TableDropdown,

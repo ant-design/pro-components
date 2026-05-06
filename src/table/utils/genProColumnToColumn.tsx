@@ -199,7 +199,10 @@ export function genProColumnToColumn<T extends AnyObject>(params: {
         filteredValue,
         sortOrder,
         fixed,
-        width: columnProps.width || (columnProps.fixed ? 200 : undefined),
+        width:
+          context.type === 'list'
+            ? columnProps.width
+            : columnProps.width || (columnProps.fixed ? 200 : undefined),
         children: (columnProps as ProColumns<T, any>).children
           ? genProColumnToColumn({
               columns: (columnProps as ProColumns<T, any>)?.children ?? [],

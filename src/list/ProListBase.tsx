@@ -59,6 +59,10 @@ export interface ListProps<T = any> {
   footer?: React.ReactNode;
   locale?: ListLocale;
   hashId?: string;
+  /**
+   * 为 true 时认为 dataSource 已由上游（ListView）按分页处理好，容器内不再二次 slice。
+   */
+  suppressContainerDataSlice?: boolean;
 }
 
 export const ProListContext = React.createContext<{
@@ -248,6 +252,7 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps>(
       renderItem,
       locale,
       hashId: propHashId,
+      suppressContainerDataSlice,
       ...rest
     } = props;
 
@@ -289,6 +294,9 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps>(
       if (!pagination || !dataSource.length) {
         return dataSource;
       }
+      if (suppressContainerDataSlice) {
+        return dataSource;
+      }
       const pageSize = paginationProps.pageSize ?? 10;
       const total = paginationProps.total ?? 0;
       // 父组件已分页（如 ListView 传入 pageData）时不再二次 slice
@@ -307,6 +315,7 @@ const ProListContainerInner = React.forwardRef<HTMLDivElement, ListProps>(
       currentPage,
       paginationProps.pageSize,
       paginationProps.total,
+      suppressContainerDataSlice,
     ]);
 
     const renderInternalItem = (item: any, index: number) => {

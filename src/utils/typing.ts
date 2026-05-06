@@ -1,4 +1,4 @@
-﻿import type {
+import type {
   AvatarProps,
   CascaderProps,
   CheckboxProps,
@@ -487,9 +487,12 @@ export type ProSchemaComponentTypes =
   | 'cardList'
   | undefined;
 
-/** 操作类型 */
-
-export type ProCoreActionType<T = {}> = {
+/**
+ * Pro 系列组件 Action 公共字段。所有 Pro 组件 actionRef 暴露的最小集合，
+ * 不带任何编辑能力相关字段。table / descriptions 等场景通过第二个泛型 `EditableUtil`
+ * 注入对应的编辑工具方法（Array 编辑用 UseEditableUtilType，Map 编辑用 UseEditableMapUtilType）。
+ */
+export type ProCoreActionBase = {
   /** @name 刷新 */
   reload: (resetPageIndex?: boolean) => Promise<void>;
   /** @name 刷新并清空，只清空页面，不包括表单 */
@@ -500,11 +503,24 @@ export type ProCoreActionType<T = {}> = {
   clearSelected?: () => void;
   /** @name p页面的信息都在里面 */
   pageInfo?: PageInfo;
-} & Omit<
-  UseEditableUtilType,
-  'newLineRecord' | 'editableKeys' | 'actionRender' | 'setEditableRowKeys'
-> &
-  T;
+};
+
+/**
+ * 操作类型
+ *
+ * @template T          业务方扩展字段
+ * @template EditableUtil 编辑能力工具方法集合，默认走 Array 编辑（兼容历史调用方）
+ *   - Array 编辑（ProTable）：默认值 = `Omit<UseEditableUtilType, 'newLineRecord' | 'editableKeys' | 'actionRender' | 'setEditableRowKeys'>`
+ *   - Map 编辑（ProDescriptions）：显式传入 `Partial<UseEditableMapUtilType>`
+ *   - 无编辑（ProForm 等）：显式传入 `{}`
+ */
+export type ProCoreActionType<
+  T = {},
+  EditableUtil = Omit<
+    UseEditableUtilType,
+    'newLineRecord' | 'editableKeys' | 'actionRender' | 'setEditableRowKeys'
+  >,
+> = ProCoreActionBase & EditableUtil & T;
 
 export type ProSchemaFieldProps<T> =
   | Record<string, any>

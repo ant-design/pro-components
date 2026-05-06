@@ -5,7 +5,7 @@ import type {
   SortOrder,
 } from 'antd/lib/table/interface';
 import type React from 'react';
-import { Key } from 'react';
+import { type ReactElement, Key } from 'react';
 import type { IntlType } from '../../provider';
 import type { UseEditableUtilType } from '../../utils';
 import type {

@@ -1,4 +1,4 @@
-﻿import type { DescriptionsItemType } from 'antd/es/descriptions';
+import type { DescriptionsItemType } from 'antd/es/descriptions';
 import { ConfigProvider, Descriptions, Space } from 'antd';
 import React, { useContext, useEffect } from 'react';
 import ValueTypeToComponent from '../field/ValueTypeToComponent';
@@ -12,7 +12,10 @@ import {
   useEditableMap,
 } from '../utils';
 import { schemaToDescriptionsItem } from './schemaToDescriptionsItem';
-import type { ProDescriptionsColumn, ProDescriptionsProps } from './typing';
+import type {
+  ProDescriptionsActionType,
+  ProDescriptionsProps,
+} from './typing';
 import type { ProDescriptionsRequestResult } from './useFetchData';
 import useFetchData from './useFetchData';
 
@@ -61,12 +64,40 @@ const ProDescriptions = <
     },
   );
 
-  const editableUtils = useEditableMap<any>({
+  const editableUtils = useEditableMap<RecordType>({
     ...props.editable,
     childrenColumnName: undefined,
-    dataSource: action.dataSource,
-    setDataSource: action.setDataSource,
+    dataSource: action.dataSource as RecordType,
+    setDataSource: action.setDataSource as (
+      dataSource: RecordType,
+    ) => void,
   });
+
+  const valueTypeMap = useMemo(
+    () => ({
+      ...proContext.valueTypeMap,
+      ...ValueTypeToComponent,
+    }),
+    [proContext.valueTypeMap],
+  );
+
+  const coreAction = useMemo<ProDescriptionsActionType<RecordType>>(() => {
+    const base: ProDescriptionsActionType<RecordType> = {
+      reload: action.reload,
+      dataSource: action.dataSource,
+      setDataSource: action.setDataSource,
+    };
+    if (editable && editableUtils) {
+      return { ...base, ...editableUtils };
+    }
+    return base;
+  }, [
+    action.reload,
+    action.dataSource,
+    action.setDataSource,
+    editable,
+    editableUtils,
+  ]);
 
   useEffect(() => {
     if (actionRef) {

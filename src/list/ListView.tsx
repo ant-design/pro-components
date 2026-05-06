@@ -20,7 +20,9 @@ import ProListItem from './Item';
 import type { ListProps } from './ProListBase';
 import { ProListContainer } from './ProListBase';
 
-type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
+type ListSlotColumn<RecordType> = TableColumnType<RecordType> & {
+  listSlot: string;
+};
 type Key = React.Key;
 
 /** 自定义列表项渲染，defaultDom 为 ProList 默认渲染的列表项元素 */
@@ -31,8 +33,8 @@ export type ProListItemRender<RecordType> = (
 ) => React.ReactNode;
 
 export type ListViewProps<RecordType> = Omit<
-  AntdListProps<RecordType>,
-  'renderItem'
+  ListProps<RecordType>,
+  'rowKey' | 'renderItem'
 > &
   Pick<
     TableProps<RecordType>,
@@ -286,6 +288,7 @@ function ListView<RecordType extends AnyObject>(
   return (
     <ProListContainer<RecordType>
       {...rest}
+      suppressContainerDataSlice
       hashId={hashId}
       className={clsx(
         getPrefixCls('pro-list-container', customizePrefixCls),
