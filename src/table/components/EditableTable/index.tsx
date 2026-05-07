@@ -287,7 +287,7 @@ function useCreatorButton<DataType>({
     if (
       !shouldShowCreatorButton(
         maxLength,
-        value?.length || 0,
+        value?.length ?? 0,
         recordCreatorProps,
       )
     ) {
@@ -346,9 +346,10 @@ function EditableTable<
   const form = Form.useFormInstance();
 
   // 设置 ref
-  useImperativeHandle(rest.actionRef, () => actionRef.current, [
-    actionRef.current,
-  ]);
+  // actionRef 是 useRef 返回的稳定对象，其引用永远不变，
+  // 将 actionRef.current 放入 deps 无效（ref 变化不触发 effect），应使用空数组。
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useImperativeHandle(rest.actionRef, () => actionRef.current, []);
 
   // 在 name 模式下，如果没有传递 value prop，尝试从表单值中获取初始值
   const getInitialValue = () => {
@@ -373,24 +374,23 @@ function EditableTable<
     getInitialValue,
     props.value,
   );
-  const onChangeFn = props.controlled ? props.onChange : undefined;
   const setValue = useCallback(
     (
       updater:
         | readonly DataType[]
         | ((prev: readonly DataType[]) => readonly DataType[]),
     ) => {
-      setValueInner((prev) => {
-        const next =
-          typeof updater === 'function'
-            ? (updater as (p: readonly DataType[]) => readonly DataType[])(prev)
-            : updater;
-        // 在非受控模式下，onChange 应该在 onDataSourceChange 中触发
-        onChangeFn?.(next);
-        return next;
-      });
+      // setValue 仅负责更新内部数据状态，不触发任何 onChange 副作用：
+      //   受控模式的 onChange 由 handleValuesChange 在表单值变化时触发
+      //   非受控模式的 onChange 由 onDataSourceChange 回调在行保存/删除后触发
+      // 这样保证每次用户操作 onChange 只被调用一次，符合 React 纯函数规范。
+      setValueInner(
+        updater as
+          | readonly DataType[]
+          | ((prev: readonly DataType[]) => readonly DataType[]),
+      );
     },
-    [onChangeFn],
+    [],
   );
 
   const getRowKey = React.useMemo<
@@ -496,7 +496,7 @@ function EditableTable<
    * 将 rowKey 转换为数字索引（name 模式）
    */
   const convertRowKeyToIndex = useRefFunction(
-    (rowKey: string | number): number | string | number => {
+    (rowKey: string | number): number | string => {
       const dataLength = value?.length ?? 0;
       if (typeof rowKey === 'string' || rowKey >= dataLength) {
         const rowIndex = value.findIndex((item, index) => {
@@ -586,7 +586,7 @@ function EditableTable<
       if (props.name) {
         const tableName = [props.name].flat(1).filter(Boolean) as NamePath;
         // 优先从 value prop 获取数据（受控模式），否则从表单值获取
-        let currentTableData =
+        const currentTableData =
           (props.value as DataType[] | undefined) ||
           (formRef.current?.getFieldValue(tableName) as DataType[] | undefined);
 
@@ -776,8 +776,8 @@ function EditableTable<
           }}
           dataSource={value}
           onDataSourceChange={(dataSource: readonly DataType[]) => {
-            // setValue 会触发 onChange，但我们需要确保数据已经正确更新
-            // 所以先设置数据，然后手动触发 onChange
+            // setValue 仅更新内部数据状态，不触发任何 onChange 副作用。
+            // 非受控模式的 onChange 由下方路径 B 触发，受控模式由 handleValuesChange 触发。
             setValue(dataSource);
 
             /**
@@ -877,13 +877,10 @@ function FieldEditableTable<
       }}
       shouldUpdate={(prev, next) => {
         const name = [props.name].flat(1) as string[];
-        try {
-          return (
-            JSON.stringify(get(prev, name)) !== JSON.stringify(get(next, name))
-          );
-        } catch (_error) {
-          return true;
-        }
+        // 用 isDeepEqualReact 代替 JSON.stringify：
+        // 1. 避免循环引用导致 JSON.stringify 抛出
+        // 2. 大数据量时性能更优（短路退出）
+        return !isDeepEqualReact(get(prev, name), get(next, name));
       }}
       {...props?.formItemProps}
       name={props.name}
