@@ -2,8 +2,9 @@ import { DownOutlined } from '@ant-design/icons';
 import { useControlledState } from '@rc-component/util';
 import { Dropdown, Space, Tabs } from 'antd';
 import { clsx } from 'clsx';
-import React, { useCallback, useContext } from 'react';
+import React, { useContext } from 'react';
 import { ProProvider } from '../../../provider';
+import { useRefFunction } from '../../../utils';
 
 export type ListToolBarMenuItem = {
   key: React.Key;
@@ -36,23 +37,11 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
     propActiveKey || (defaultActiveKey as React.Key),
     propActiveKey,
   );
-  const setActiveKey = useCallback(
-    (updater: React.Key | ((prev: React.Key) => React.Key)) => {
-      setActiveKeyInner((prev) => {
-        const next =
-          typeof updater === 'function'
-            ? (updater as (p: React.Key) => React.Key)(prev)
-            : updater;
-        (
-          props.onChange as
-            | ((key?: React.Key, prev?: React.Key) => void)
-            | undefined
-        )?.(next, prev);
-        return next;
-      });
-    },
-    [props.onChange],
-  );
+  const setActiveKey = useRefFunction((next: React.Key) => {
+    const prev = activeKey;
+    (props.onChange as ((key?: React.Key, prev?: React.Key) => void) | undefined)?.(next, prev);
+    setActiveKeyInner(next);
+  });
 
   if (items.length < 1) {
     return null;
