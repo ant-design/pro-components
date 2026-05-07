@@ -58,58 +58,27 @@ const FormSearch = <T, U>(props: BaseFormProps<T, U> & { ghost?: boolean }) => {
   );
 
   const onSubmitHandler = useRefFunction((value: U, firstLoad: boolean) => {
-    // 检查是否需要验证
-    if (form?.ignoreRules === false && firstLoad) {
-      formRef?.current?.validateFields().then(() => {
-        const submitParams = {
-          ...value,
-          _timestamp: Date.now(),
-          ...pageInfo,
-        };
-        const omitParams = omit(
-          beforeSearchSubmit(submitParams),
-          Object.keys(pageInfo!),
-        ) as U;
-        onFormSearchSubmit(omitParams);
-        if (!firstLoad) {
-          // back first page
-          action.current?.setPageInfo?.({
-            current: 1,
-          });
-        }
-        // 不是第一次提交就不触发，第一次提交是 js 触发的
+    const runSubmit = () => {
+      const submitParams = { ...value, _timestamp: Date.now(), ...pageInfo };
+      const omitParams = omit(
+        beforeSearchSubmit(submitParams),
+        Object.keys(pageInfo!),
+      ) as U;
+      onFormSearchSubmit(omitParams);
+      if (!firstLoad) {
+        // 不是第一次提交才跳回第一页，并触发 onSubmit
         // 为了解决 https://github.com/ant-design/pro-components/issues/579
-        if (onSubmit && !firstLoad) {
-          onSubmit?.(value);
-        }
-      }).catch((e) => {
-        // 验证失败，不执行后续逻辑
-        // console.error(e);
-      });
+        action.current?.setPageInfo?.({ current: 1 });
+        onSubmit?.(value);
+      }
+    };
+
+    if (form?.ignoreRules === false && firstLoad) {
+      // 首次提交时需要先通过校验再执行
+      formRef?.current?.validateFields().then(runSubmit).catch(() => {});
       return;
     }
-
-    const submitParams = {
-      ...value,
-      _timestamp: Date.now(),
-      ...pageInfo,
-    };
-    const omitParams = omit(
-      beforeSearchSubmit(submitParams),
-      Object.keys(pageInfo!),
-    ) as U;
-    onFormSearchSubmit(omitParams);
-    if (!firstLoad) {
-      // back first page
-      action.current?.setPageInfo?.({
-        current: 1,
-      });
-    }
-    // 不是第一次提交就不触发，第一次提交是 js 触发的
-    // 为了解决 https://github.com/ant-design/pro-components/issues/579
-    if (onSubmit && !firstLoad) {
-      onSubmit?.(value);
-    }
+    runSubmit();
   });
 
   const onResetHandler = useRefFunction((value: Partial<U>) => {

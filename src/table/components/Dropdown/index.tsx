@@ -1,14 +1,14 @@
 import { DownOutlined, EllipsisOutlined } from '@ant-design/icons';
-import type { MenuItemProps } from 'antd';
 import { Button, ConfigProvider, Dropdown } from 'antd';
+import type { ItemType } from 'antd/lib/menu/interface';
 import { clsx } from 'clsx';
 import React, { useContext } from 'react';
 
-interface MenuItems extends MenuItemProps {
+export type MenuItems = {
   name: React.ReactNode;
   key: string;
-  title?: string;
-}
+  disabled?: boolean;
+};
 
 export type DropdownProps = {
   className?: string;
@@ -18,10 +18,17 @@ export type DropdownProps = {
   children?: React.ReactNode;
 };
 
+/** 将 menus 转换为 antd Menu items 格式 */
+function buildMenuItems(menus: MenuItems[] = []): ItemType[] {
+  return menus.map(({ key, name, disabled }) => ({
+    key,
+    label: name,
+    disabled,
+  }));
+}
+
 /**
  * 一个简单的下拉菜单
- *
- * @param param0
  */
 const DropdownButton: React.FC<DropdownProps> = ({
   children,
@@ -31,19 +38,15 @@ const DropdownButton: React.FC<DropdownProps> = ({
   style,
 }) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-
-  const tempClassName = getPrefixCls('pro-table-dropdown');
+  const prefixCls = getPrefixCls('pro-table-dropdown');
 
   return (
     <Dropdown
       menu={{
-        onClick: (params) => onSelect && onSelect(params.key as string),
-        items: menus?.map((item) => ({
-          label: item.name,
-          key: item.key,
-        })),
+        onClick: ({ key }) => onSelect?.(key),
+        items: buildMenuItems(menus),
       }}
-      className={clsx(tempClassName, className)}
+      className={clsx(prefixCls, className)}
     >
       <Button style={style}>
         {children} <DownOutlined />
@@ -54,25 +57,19 @@ const DropdownButton: React.FC<DropdownProps> = ({
 
 const TableDropdown: React.FC<DropdownProps> & {
   Button: typeof DropdownButton;
-} = ({ className: propsClassName, style, onSelect, menus = [], children }) => {
+} = ({ className: propsClassName, style, onSelect, menus, children }) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const className = getPrefixCls('pro-table-dropdown');
+  const prefixCls = getPrefixCls('pro-table-dropdown');
+
   return (
     <Dropdown
       menu={{
-        onClick: (params) => {
-          onSelect?.(params.key as string);
-        },
-        items: menus.map(({ key, name, ...rest }) => ({
-          key,
-          ...rest,
-          title: rest.title as string,
-          label: name,
-        })),
+        onClick: ({ key }) => onSelect?.(key),
+        items: buildMenuItems(menus),
       }}
-      className={clsx(className, propsClassName)}
+      className={clsx(prefixCls, propsClassName)}
     >
-      <a style={style}>{children || <EllipsisOutlined />}</a>
+      <span style={style}>{children || <EllipsisOutlined />}</span>
     </Dropdown>
   );
 };
