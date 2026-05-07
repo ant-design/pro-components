@@ -264,28 +264,19 @@ function useAlertDom<T extends Record<string, any>>({
   tableAlertOptionRender: ProTableProps<T, any, any>['tableAlertOptionRender'];
   tableAlertRender: ProTableProps<T, any, any>['tableAlertRender'];
 }): React.ReactNode {
-  return useMemo(() => {
-    if (propsRowSelection === false) {
-      return null;
-    }
-    return (
-      <Alert<T>
-        selectedRowKeys={selectedRowKeys!}
-        selectedRows={selectedRows}
-        onCleanSelected={onCleanSelected}
-        alertOptionRender={tableAlertOptionRender}
-        alertInfoRender={tableAlertRender}
-        alwaysShowAlert={propsRowSelection?.alwaysShowAlert}
-      />
-    );
-  }, [
-    onCleanSelected,
-    propsRowSelection,
-    selectedRowKeys,
-    selectedRows,
-    tableAlertOptionRender,
-    tableAlertRender,
-  ]);
+  if (propsRowSelection === false) {
+    return null;
+  }
+  return (
+    <Alert<T>
+      selectedRowKeys={selectedRowKeys!}
+      selectedRows={selectedRows}
+      onCleanSelected={onCleanSelected}
+      alertOptionRender={tableAlertOptionRender}
+      alertInfoRender={tableAlertRender}
+      alwaysShowAlert={propsRowSelection?.alwaysShowAlert}
+    />
+  );
 }
 
 const emptyObj = {} as Record<string, any>;
@@ -681,7 +672,7 @@ const ProTable = <
     counter?.columnsMap,
     columnEmptyText,
     type,
-    editableUtils.editableKeys && editableUtils.editableKeys.join(','),
+    editableUtils.editableKeys?.join(','),
     proFilter,
     proSort,
   ]);
