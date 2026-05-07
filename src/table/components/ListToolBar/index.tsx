@@ -2,7 +2,7 @@ import ResizeObserver from '@rc-component/resize-observer';
 import { ConfigProvider, Input, TabPaneProps, Tabs, Tooltip } from 'antd';
 import type { SearchProps } from 'antd/lib/input';
 import { clsx } from 'clsx';
-import React, { useContext, useMemo, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { proTheme, useIntl } from '../../../provider';
 import type { LabelTooltipType } from '../../../utils';
 import { LabelIconTip } from '../../../utils';
@@ -175,52 +175,39 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
    *
    * @param search 搜索框相关配置
    */
-  const searchNode = useMemo(() => {
-    if (!search) {
-      return null;
-    }
+  let searchNode: React.ReactNode = null;
+  if (search) {
     if (React.isValidElement(search)) {
-      return search;
+      searchNode = search;
+    } else {
+      searchNode = (
+        <Input.Search
+          style={{ width: 200 }}
+          placeholder={placeholder}
+          {...(search as SearchProps)}
+          onSearch={async (...restParams) => {
+            const success = await (search as any).onSearch?.(...restParams);
+            if (success !== false) {
+              onSearch?.(restParams?.[0]);
+            }
+          }}
+        />
+      );
     }
-    return (
-      <Input.Search
-        style={{ width: 200 }}
-        placeholder={placeholder}
-        {...(search as SearchProps)}
-        onSearch={async (...restParams) => {
-          const success = await (search as any).onSearch?.(...restParams);
-          if (success !== false) {
-            onSearch?.(restParams?.[0]);
-          }
-        }}
-      />
-    );
-  }, [placeholder, onSearch, search]);
+  }
 
   /** 轻量筛选组件 */
-  const filtersNode = useMemo(() => {
-    if (filter)
-      return (
-        <div className={clsx(`${prefixCls}-filter`, hashId)}>{filter}</div>
-      );
-    return null;
-  }, [filter, hashId, prefixCls]);
+  const filtersNode = filter ? (
+    <div className={clsx(`${prefixCls}-filter`, hashId)}>{filter}</div>
+  ) : null;
 
   /** 有没有 title，需要结合多个场景判断 */
-  const hasTitle = useMemo(
-    () => menu || title || subTitle || tooltip,
-    [menu, subTitle, title, tooltip],
-  );
+  const hasTitle = menu || title || subTitle || tooltip;
 
   /** 没有 key 的时候帮忙加一下 key 不加的话很烦人 */
-  const actionDom = useMemo(() => {
-    if (!Array.isArray(actions)) {
-      return actions;
-    }
-    if (actions.length < 1) {
-      return null;
-    }
-    return (
+  let actionDom: React.ReactNode = null;
+  if (Array.isArray(actions) && actions.length > 0) {
+    actionDom = (
       <div
         style={{
           display: 'flex',
@@ -228,57 +215,41 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
           gap: token.marginXS,
         }}
       >
-        {actions.map((action, index) => {
-          if (!React.isValidElement(action)) {
-            return <React.Fragment key={index}>{action}</React.Fragment>;
-          }
-          return React.cloneElement(action, {
-            key: index,
-            ...action?.props,
-          });
-        })}
+        {actions.map((action, index) => (
+          <React.Fragment key={index}>{action}</React.Fragment>
+        ))}
       </div>
     );
-  }, [actions]);
+  } else if (!Array.isArray(actions)) {
+    actionDom = actions;
+  }
 
-  const hasRight = useMemo(() => {
-    return !!(
-      (hasTitle && searchNode) ||
-      (!multipleLine && filtersNode) ||
-      actionDom ||
-      settings?.length
-    );
-  }, [
-    actionDom,
-    filtersNode,
-    hasTitle,
-    multipleLine,
-    searchNode,
-    settings?.length,
-  ]);
-
-  const hasLeft = useMemo(
-    () => tooltip || title || subTitle || menu || (!hasTitle && searchNode),
-    [hasTitle, menu, searchNode, subTitle, title, tooltip],
+  const hasRight = !!(
+    (hasTitle && searchNode) ||
+    (!multipleLine && filtersNode) ||
+    actionDom ||
+    settings?.length
   );
 
-  const leftTitleDom = useMemo(() => {
-    // 保留dom是为了占位，不然 right 就变到左边了
-    if (!hasLeft && hasRight) {
-      return <div className={clsx(`${prefixCls}-left`, hashId)} />;
-    }
+  const hasLeft = !!(
+    tooltip || title || subTitle || menu || (!hasTitle && searchNode)
+  );
 
+  let leftTitleDom: React.ReactNode;
+  // 保留dom是为了占位，不然 right 就变到左边了
+  if (!hasLeft && hasRight) {
+    leftTitleDom = <div className={clsx(`${prefixCls}-left`, hashId)} />;
+  } else if (!menu && (hasTitle || !searchNode)) {
     // 减少 space 的dom，渲染的时候能节省点性能
-    if (!menu && (hasTitle || !searchNode)) {
-      return (
-        <div className={clsx(`${prefixCls}-left`, hashId)}>
-          <div className={clsx(`${prefixCls}-title`, hashId)}>
-            <LabelIconTip tooltip={tooltip} label={title} subTitle={subTitle} />
-          </div>
+    leftTitleDom = (
+      <div className={clsx(`${prefixCls}-left`, hashId)}>
+        <div className={clsx(`${prefixCls}-title`, hashId)}>
+          <LabelIconTip tooltip={tooltip} label={title} subTitle={subTitle} />
         </div>
-      );
-    }
-    return (
+      </div>
+    );
+  } else {
+    leftTitleDom = (
       <div
         className={clsx(`${prefixCls}-left`, hashId, {
           [`${prefixCls}-left-has-tabs`]: menu?.type === 'tab',
@@ -291,7 +262,6 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
             <LabelIconTip tooltip={tooltip} label={title} subTitle={subTitle} />
           </div>
         )}
-
         {menu && (
           // 这里面实现了 tabs 的逻辑
           <HeaderMenu {...menu} prefixCls={prefixCls} hashId={hashId} />
@@ -303,83 +273,47 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
         ) : null}
       </div>
     );
-  }, [
-    hasLeft,
-    hasRight,
-    hasTitle,
-    hashId,
-    menu,
-    prefixCls,
-    searchNode,
-    subTitle,
-    title,
-    tooltip,
-  ]);
+  }
 
-  const rightTitleDom = useMemo(() => {
-    if (!hasRight) return null;
-    return (
+  const rightTitleDom = hasRight ? (
+    <div
+      className={clsx(`${prefixCls}-right`, hashId)}
+      style={isMobile ? {} : { alignItems: 'center' }}
+    >
+      {!multipleLine ? filtersNode : null}
+      {hasTitle && searchNode ? (
+        <div className={clsx(`${prefixCls}-search`, hashId)}>{searchNode}</div>
+      ) : null}
+      {actionDom}
+      {settings?.length ? (
+        <div className={clsx(`${prefixCls}-setting-items`, hashId)}>
+          {settings.map((setting, index) => {
+            const settingItem = getSettingItem(setting);
+            return (
+              <div
+                key={index}
+                className={clsx(`${prefixCls}-setting-item`, hashId)}
+              >
+                {settingItem}
+              </div>
+            );
+          })}
+        </div>
+      ) : null}
+    </div>
+  ) : null;
+
+  const titleNode =
+    hasRight || hasLeft ? (
       <div
-        className={clsx(`${prefixCls}-right`, hashId)}
-        style={isMobile ? {} : { alignItems: 'center' }}
+        className={clsx(`${prefixCls}-container`, hashId, {
+          [`${prefixCls}-container-mobile`]: isMobile,
+        })}
       >
-        {!multipleLine ? filtersNode : null}
-        {hasTitle && searchNode ? (
-          <div className={clsx(`${prefixCls}-search`, hashId)}>
-            {searchNode}
-          </div>
-        ) : null}
-        {actionDom}
-        {settings?.length ? (
-          <div className={clsx(`${prefixCls}-setting-items`, hashId)}>
-            {settings.map((setting, index) => {
-              const settingItem = getSettingItem(setting);
-              return (
-                <div
-                  key={index}
-                  className={clsx(`${prefixCls}-setting-item`, hashId)}
-                >
-                  {settingItem}
-                </div>
-              );
-            })}
-          </div>
-        ) : null}
-      </div>
-    );
-  }, [
-    hasRight,
-    prefixCls,
-    hashId,
-    isMobile,
-    hasTitle,
-    searchNode,
-    multipleLine,
-    filtersNode,
-    actionDom,
-    settings,
-  ]);
-
-  const titleNode = useMemo(() => {
-    if (!hasRight && !hasLeft) return null;
-    const containerClassName = clsx(`${prefixCls}-container`, hashId, {
-      [`${prefixCls}-container-mobile`]: isMobile,
-    });
-    return (
-      <div className={containerClassName}>
         {leftTitleDom}
         {rightTitleDom}
       </div>
-    );
-  }, [
-    hasLeft,
-    hasRight,
-    hashId,
-    isMobile,
-    leftTitleDom,
-    prefixCls,
-    rightTitleDom,
-  ]);
+    ) : null;
 
   return wrapSSR(
     <ResizeObserver

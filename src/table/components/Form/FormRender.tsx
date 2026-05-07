@@ -1,4 +1,4 @@
-﻿import { omit } from '@rc-component/util';
+import { omit } from '@rc-component/util';
 import type { FormItemProps } from 'antd';
 import { ConfigProvider, Table } from 'antd';
 import { clsx } from 'clsx';
@@ -14,15 +14,8 @@ import type { ProSchemaComponentTypes } from '../../../utils';
 import type { ActionType, ProColumns, ProTableProps } from '../../typing';
 
 function toLowerLine(str: string) {
-  let temp = str.replace(/[A-Z]/g, (match) => {
-    return `-${match.toLowerCase()}`;
-  });
-
-  if (temp.startsWith('-')) {
-    // 如果首字母是大写，执行replace时会多一个_，这里需要去掉
-    temp = temp.slice(1);
-  }
-  return temp;
+  const result = str.replace(/[A-Z]/g, (match) => `-${match.toLowerCase()}`);
+  return result.startsWith('-') ? result.slice(1) : result;
 }
 
 export type SearchConfig = BaseQueryFilterProps & {
@@ -134,12 +127,6 @@ const FormRender = <T, U = any>({
 }: TableFormItem<T, U>) => {
   const { hashId } = useContext(ProProvider);
   const isForm = type === 'form';
-  /** 提交表单，根据两种模式不同，方法不相同 */
-  const submit = async (values: T, firstLoad: boolean) => {
-    if (onSubmit) {
-      onSubmit(values, firstLoad);
-    }
-  };
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
@@ -193,16 +180,13 @@ const FormRender = <T, U = any>({
   }, [columns, type, competentName]);
 
   // 传给每个表单的配置，理论上大家都需要
-  const loadingProps: any = useMemo(
-    () => ({
-      submitter: {
-        submitButtonProps: {
-          loading: submitButtonLoading,
-        },
+  const loadingProps: any = {
+    submitter: {
+      submitButtonProps: {
+        loading: submitButtonLoading,
       },
-    }),
-    [submitButtonLoading],
-  );
+    },
+  };
 
   return (
     <div
@@ -247,14 +231,14 @@ const FormRender = <T, U = any>({
             });
             /** 如果是手动模式不需要提交 */
             if (manualRequest) return;
-            submit(values, true);
+            onSubmit?.(values, true);
           }
         }}
         onReset={(values: T) => {
           onReset?.(values);
         }}
         onFinish={(values: T) => {
-          submit(values, false);
+          onSubmit?.(values, false);
         }}
         initialValues={formConfig?.initialValues}
       />

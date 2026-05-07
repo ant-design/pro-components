@@ -1,5 +1,5 @@
 import type { GetRowKey } from 'antd/lib/table/interface';
-import React from 'react';
+import React, { useMemo } from 'react';
 import { ParamsType } from '../../../provider';
 import { ProColumns } from '../../typing';
 import EditableProTable, { EditableProTableProps } from './index';
@@ -29,6 +29,25 @@ export function RowEditorTable<
       return (record as any)?.[rowKey as string] ?? index?.toString();
     };
   }, [props.name, rowKey]);
+
+  // 缓存 columns 避免每次 render 生成全新数组触发 antd Table 大面积 diff
+  const columns = useMemo(
+    () =>
+      (props?.columns?.map((item) => ({
+        ...item,
+        onCell: (record: any, rowIndex: any) => ({
+          onDoubleClick: () => {
+            setEditableRowKeys([getRowKey(record, rowIndex)]);
+          },
+          onBlur: () => {
+            setEditableRowKeys([]);
+          },
+        }),
+      })) as ProColumns<any, ValueType>[]) ?? [],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [props.columns, getRowKey],
+  );
+
   return (
     <EditableProTable
       bordered
@@ -38,23 +57,7 @@ export function RowEditorTable<
         editableKeys,
         ...props.editable,
       }}
-      columns={
-        (props?.columns?.map((item) => {
-          return {
-            ...item,
-            onCell: (record: any, rowIndex: any) => {
-              return {
-                onDoubleClick: () => {
-                  setEditableRowKeys([getRowKey(record, rowIndex)]);
-                },
-                onBlur: () => {
-                  setEditableRowKeys([]);
-                },
-              };
-            },
-          };
-        }) as ProColumns<any, ValueType>[]) || []
-      }
+      columns={columns}
     />
   );
 }
