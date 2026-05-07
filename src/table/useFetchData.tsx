@@ -1,5 +1,5 @@
 import { useControlledState } from '@rc-component/util';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   runFunction,
   useDebounceFn,
@@ -74,7 +74,7 @@ const useFetchData = <DataSource extends RequestData<any>>(
   const [tableDataList, setTableDataListInner] = useControlledState<
     DataSource[] | undefined
   >(defaultData, options?.dataSource);
-  const setTableDataList = useCallback(
+  const setTableDataList = useRefFunction(
     (
       updater:
         | DataSource[]
@@ -97,7 +97,6 @@ const useFetchData = <DataSource extends RequestData<any>>(
         return next;
       });
     },
-    [options?.onDataSourceChange],
   );
 
   /**
@@ -123,7 +122,7 @@ const useFetchData = <DataSource extends RequestData<any>>(
    * 包装 setTableLoading，使用 queueMicrotask 延迟回调调用
    * 避免在渲染阶段调用外部回调导致的 React 警告
    */
-  const setTableLoading = useCallback(
+  const setTableLoading = useRefFunction(
     (updater: boolean | ((prev: boolean) => boolean)) => {
       setTableLoadingInner((prev) => {
         const next =
@@ -136,7 +135,6 @@ const useFetchData = <DataSource extends RequestData<any>>(
         return next;
       });
     },
-    [onLoadingChange],
   );
 
   /**

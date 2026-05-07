@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import type { ParamsType } from '../provider';
 import FormRender from './components/Form';
 import type { ActionType, ProTableProps } from './typing';
@@ -48,53 +48,32 @@ export function TableSearch<T extends Record<string, any>, U, ValueType>(
     proTableProps,
   } = props;
 
-  return useMemo(() => {
-    const node =
-      search === false && type !== 'form' ? null : (
-        <FormRender<T, U>
-          pagination={pagination}
-          beforeSearchSubmit={beforeSearchSubmit}
-          action={actionRef}
-          columns={columns}
-          onFormSearchSubmit={(values) => {
-            onFormSearchSubmit(values as any);
-          }}
-          ghost={ghost}
-          onReset={onReset}
-          onSubmit={onSubmit}
-          loading={loading}
-          manualRequest={manualRequest}
-          search={search}
-          form={form}
-          formRef={formRef}
-          type={type || 'table'}
-          cardBordered={cardBordered}
-          dateFormatter={dateFormatter}
-        />
-      );
+  const node =
+    search === false && type !== 'form' ? null : (
+      <FormRender<T, U>
+        pagination={pagination}
+        beforeSearchSubmit={beforeSearchSubmit}
+        action={actionRef}
+        columns={columns}
+        onFormSearchSubmit={(values) => {
+          onFormSearchSubmit(values as any);
+        }}
+        ghost={ghost}
+        onReset={onReset}
+        onSubmit={onSubmit}
+        loading={loading}
+        manualRequest={manualRequest}
+        search={search}
+        form={form}
+        formRef={formRef}
+        type={type || 'table'}
+        cardBordered={cardBordered}
+        dateFormatter={dateFormatter}
+      />
+    );
 
-    if (searchFormRender && node) {
-      return <>{searchFormRender(proTableProps, node)}</>;
-    }
-    return node;
-  }, [
-    actionRef,
-    beforeSearchSubmit,
-    cardBordered,
-    columns,
-    dateFormatter,
-    form,
-    formRef,
-    ghost,
-    loading,
-    manualRequest,
-    onFormSearchSubmit,
-    onReset,
-    onSubmit,
-    pagination,
-    proTableProps,
-    search,
-    searchFormRender,
-    type,
-  ]);
+  if (searchFormRender && node) {
+    return <>{searchFormRender(proTableProps, node)}</>;
+  }
+  return node;
 }

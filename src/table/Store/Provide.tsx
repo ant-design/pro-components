@@ -1,18 +1,12 @@
 import { useControlledState } from '@rc-component/util';
 import type { TableColumnType } from 'antd';
 import merge from 'lodash-es/merge';
-import {
-  createContext,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import { createContext, useEffect, useMemo, useRef, useState } from 'react';
 import type { DensitySize } from '../components/ToolBar/DensityIcon';
 import type { ProTableProps } from '../index';
 import type { ActionType, ProColumns } from '../typing';
 import { genColumnKey } from '../utils';
+import { useRefFunction } from '../../utils';
 
 export type ColumnsState = {
   show?: boolean;
@@ -53,7 +47,7 @@ function useContainer(props: UseContainerProps = {}) {
     () => props.size || props.defaultSize || 'middle',
     props.size,
   );
-  const setTableSize = useCallback(
+  const setTableSize = useRefFunction(
     (updater: DensitySize | ((prev: DensitySize) => DensitySize)) => {
       setTableSizeInner((prev) => {
         const next =
@@ -64,7 +58,6 @@ function useContainer(props: UseContainerProps = {}) {
         return next;
       });
     },
-    [props.onSizeChange],
   );
 
   /** 默认全选中 */
@@ -117,7 +110,7 @@ function useContainer(props: UseContainerProps = {}) {
     );
   }, props.columnsState?.value);
   const onColumnsMapChange = props.columnsState?.onChange;
-  const setColumnsMap = useCallback(
+  const setColumnsMap = useRefFunction(
     (
       updater:
         | Record<string, ColumnsState>
@@ -138,7 +131,6 @@ function useContainer(props: UseContainerProps = {}) {
         return next;
       });
     },
-    [onColumnsMapChange],
   );
 
   /**
@@ -191,7 +183,7 @@ function useContainer(props: UseContainerProps = {}) {
   ]);
 
   /** 清空一下当前的 key */
-  const clearPersistenceStorage = useCallback(() => {
+  const clearPersistenceStorage = useRefFunction(() => {
     const { persistenceType, persistenceKey } = props.columnsState || {};
 
     if (!persistenceKey || !persistenceType || typeof window === 'undefined')
@@ -204,7 +196,7 @@ function useContainer(props: UseContainerProps = {}) {
     } catch (error) {
       console.warn(error);
     }
-  }, [props.columnsState]);
+  });
 
   useEffect(() => {
     if (
@@ -242,36 +234,45 @@ function useContainer(props: UseContainerProps = {}) {
    *    或 `columnsMap` 拿数据，加进来只会让 context value 因 columns 引用频繁变化
    *    而触发整片消费者无意义重渲染。
    */
-  const renderValue = {
-    setAction: (newAction?: ActionType) => {
-      actionRef.current = newAction;
-    },
-    setSortKeyColumns: (keys: string[]) => {
-      sortKeyColumns.current = keys;
-    },
-    propsRef,
-    columnsMap,
-    keyWords,
-    setKeyWords,
-    setTableSize,
-    tableSize,
-    setPrefixName: (name: any) => {
-      prefixNameRef.current = name;
-    },
-    setColumnsMap,
-    rootDomRef,
-    clearPersistenceStorage,
-    defaultColumnKeyMap,
-    get action() {
-      return actionRef.current;
-    },
-    get prefixName(): string {
-      return prefixNameRef.current;
-    },
-    get sortKeyColumns(): string[] {
-      return sortKeyColumns.current;
-    },
-  };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const renderValue = useMemo(
+    () => ({
+      setAction: (newAction?: ActionType) => {
+        actionRef.current = newAction;
+      },
+      setSortKeyColumns: (keys: string[]) => {
+        sortKeyColumns.current = keys;
+      },
+      propsRef,
+      columnsMap,
+      keyWords,
+      setKeyWords,
+      setTableSize,
+      tableSize,
+      setPrefixName: (name: any) => {
+        prefixNameRef.current = name;
+      },
+      setColumnsMap,
+      rootDomRef,
+      clearPersistenceStorage,
+      defaultColumnKeyMap,
+      get action() {
+        return actionRef.current;
+      },
+      get prefixName(): string {
+        return prefixNameRef.current;
+      },
+      get sortKeyColumns(): string[] {
+        return sortKeyColumns.current;
+      },
+    }),
+    // setTableSize / setColumnsMap / clearPersistenceStorage 均为 useRefFunction，引用永远稳定
+    // propsRef / rootDomRef 是 useRef，引用永远稳定，不需要加入 deps
+    // setKeyWords 是 useState setter，引用永远稳定
+    // 只有真正的 state 值变化才需要重建 context value
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [columnsMap, keyWords, tableSize, defaultColumnKeyMap],
+  );
 
   return renderValue;
 }
