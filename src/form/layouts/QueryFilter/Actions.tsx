@@ -36,24 +36,12 @@ const defaultCollapseRender: ActionsProps['collapseRender'] = (
   intl,
   hiddenNum,
 ) => {
-  if (collapsed) {
-    return (
-      <>
-        {intl.getMessage('tableForm.collapsed', '展开')}
-        {hiddenNum && `(${hiddenNum})`}
-        <DownOutlined
-          style={{
-            marginInlineStart: '0.5em',
-            transition: '0.3s all',
-            transform: `rotate(${collapsed ? 0 : 0.5}turn)`,
-          }}
-        />
-      </>
-    );
-  }
   return (
     <>
-      {intl.getMessage('tableForm.expand', '收起')}
+      {collapsed
+        ? intl.getMessage('tableForm.collapsed', '展开')
+        : intl.getMessage('tableForm.expand', '收起')}
+      {collapsed && hiddenNum && `(${hiddenNum})`}
       <DownOutlined
         style={{
           marginInlineStart: '0.5em',

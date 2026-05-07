@@ -1,4 +1,4 @@
-﻿import type { FormItemProps } from 'antd';
+import type { FormItemProps } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
 import React from 'react';
 import type { ProFieldProps, SearchTransformKeyFn } from '../utils';
@@ -21,12 +21,12 @@ export type FiledContextProps = {
     },
   ) => void;
   /** Form 组件的类型 */
-  formComponentType?: 'DrawerForm' | 'ModalForm' | 'QueryFilter' | 'LightFilter' | string;
+  formComponentType?: 'DrawerForm' | 'ModalForm' | 'QueryFilter' | 'LightFilter' | (string & {});
   /** 获取表单实例计数器 */
   formKey?: string;
 
   /** 表单的 getPopupContainer 控制 */
-  getPopupContainer?: (e: HTMLElement) => ParentNode;
+  getPopupContainer?: (e: HTMLElement) => HTMLElement | ParentNode;
 } & Pick<CommonFormProps, 'formRef' | 'grid'>;
 
 const FieldContext = React.createContext<FiledContextProps>({});
