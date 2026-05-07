@@ -4,7 +4,6 @@ import { Space } from 'antd';
 import type { GroupProps } from 'antd/lib/input';
 import React, { useCallback, useImperativeHandle } from 'react';
 import { runFunction, useRefFunction } from '../../../utils';
-import type { LightWrapperProps } from '../../layouts/LightFilter/LightWrapper';
 import { useGridHelpers } from '../../helpers';
 import type { ProFormItemProps } from '../FormItem';
 import warpField from '../FormItem/warpField';
@@ -21,7 +20,6 @@ export type ProFormFieldSetProps<T = any> = {
   children?:
     | ((value: T[], props: ProFormFieldSetProps) => React.ReactNode)
     | React.ReactNode;
-  lightProps?: LightWrapperProps;
 };
 
 const FieldSetType = {
@@ -49,7 +47,6 @@ const FieldSet: React.FC<ProFormFieldSetProps> = (props) => {
     type = 'space',
     transform,
     convertValue,
-    lightProps,
     ...rest
   } = props;
   /**

@@ -41,28 +41,6 @@ const CheckboxGroup: React.FC<ProFormCheckboxGroupProps> = React.forwardRef(
           options,
           ...fieldProps,
         }}
-        lightProps={{
-          labelFormatter: () => {
-            return (
-              <ProFormField
-                ref={ref}
-                valueType="checkbox"
-                mode="read"
-                valueEnum={runFunction<[any]>(valueEnum, undefined)}
-                fieldConfig={{
-                  customLightMode: true,
-                }}
-                fieldProps={{
-                  options,
-                  ...fieldProps,
-                }}
-                proFieldProps={proFieldProps}
-                {...rest}
-              />
-            );
-          },
-          ...rest.lightProps,
-        }}
         proFieldProps={proFieldProps}
         {...rest}
       />

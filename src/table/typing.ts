@@ -15,7 +15,6 @@ import type { CSSProperties, Key } from 'react';
 import type { ProCardProps } from '../card';
 import type { ProFieldEmptyText } from '../field';
 import type {
-  LightWrapperProps,
   ProFormProps,
   QueryFilterProps,
 } from '../form';
@@ -185,10 +184,7 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
         };
   },
   ProSchemaComponentTypes,
-  ValueType,
-  {
-    lightProps?: LightWrapperProps;
-  }
+  ValueType
 >;
 
 export type ProColumns<T = any, ValueType = 'text'> = ProColumnType<

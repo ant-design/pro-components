@@ -1,4 +1,4 @@
-﻿import {
+import {
   LightFilter,
   ProFormFieldSet,
   ProFormSelect,
@@ -23,11 +23,6 @@ export function App() {
         <ProFormFieldSet
           label="筛选"
           name={'name'}
-          lightProps={{
-            labelFormatter: (value) => {
-              return value.join(' ');
-            },
-          }}
           transform={(value: any) => {
             return {
               filter: [

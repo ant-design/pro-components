@@ -2,7 +2,7 @@ import { ConfigProvider } from 'antd';
 import type { SizeType as AntdSizeType } from 'antd/lib/config-provider/SizeContext';
 import type { TooltipPlacement } from 'antd/lib/tooltip';
 import { clsx } from 'clsx';
-import React, { useContext, useMemo, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 import {
   dateArrayFormatter,
   dateFormatterMap,
@@ -70,17 +70,22 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-light-wrapper');
   const { wrapSSR, hashId } = useStyle(prefixCls);
-  const [tempValue, setTempValue] = useState<string | undefined | null>(
-    (props as any)[valuePropName!],
-  );
+  const labelValue = (props as any)[valuePropName!];
+  const [tempValue, setTempValue] = useState<string | undefined | null>(labelValue);
   const [open, setOpen] = useState(false);
+
+  // Form 的 initialValues 是异步注入的，初次渲染时 value 可能还是 undefined，
+  // 当 Popover 关闭时同步外部最新值，避免影响编辑中的临时状态
+  useEffect(() => {
+    if (!open) {
+      setTempValue(labelValue);
+    }
+  }, [labelValue, open]);
 
   const onChange = useRefFunction((...restParams: any[]) => {
     otherFieldProps?.onChange?.(...restParams);
     propsOnChange?.(...restParams);
   });
-
-  const labelValue = (props as any)[valuePropName!];
 
   /** DateRange的转化，dayjs 的 toString 有点不好用 */
   const labelValueText = useMemo(() => {
