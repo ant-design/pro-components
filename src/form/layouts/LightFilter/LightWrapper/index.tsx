@@ -8,8 +8,9 @@ import {
   dateFormatterMap,
   FieldLabel,
   FilterDropdown,
-} from '../../../utils';
-import type { LightFilterFooterRender } from '../../typing';
+  useRefFunction,
+} from '../../../../utils';
+import type { LightFilterFooterRender } from '../../../typing';
 import { useStyle } from './style';
 
 export type SizeType = AntdSizeType;
@@ -74,10 +75,10 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
   );
   const [open, setOpen] = useState(false);
 
-  const onChange = (...restParams: any[]) => {
+  const onChange = useRefFunction((...restParams: any[]) => {
     otherFieldProps?.onChange?.(...restParams);
     propsOnChange?.(...restParams);
-  };
+  });
 
   const labelValue = (props as any)[valuePropName!];
 

@@ -12,8 +12,8 @@ import {
   useRefFunction,
 } from '../../../utils';
 import type { ProFieldValueType } from '../../../utils/typing';
-import type { LightWrapperProps } from '../../BaseForm';
-import { LightWrapper } from '../../BaseForm';
+import type { LightWrapperProps } from '../../layouts/LightFilter/LightWrapper';
+import { LightWrapper } from '../../layouts/LightFilter/LightWrapper';
 import FieldContext from '../../FieldContext';
 import { FormListContext } from '../List';
 
