@@ -35,18 +35,24 @@ const defaultAlertOptionRender = (props: {
   ];
 };
 
+/** 提到模块顶层，避免每次渲染重建函数导致 memo 失效 */
+const defaultAlertInfoRender: AlertRenderType<any> = ({
+  intl,
+  selectedRowKeys,
+}) => (
+  <Space>
+    {intl.getMessage('alert.selected', '已选择')}
+    {selectedRowKeys.length}
+    {intl.getMessage('alert.item', '项')}&nbsp;&nbsp;
+  </Space>
+);
+
 function TableAlert<T>({
   selectedRowKeys = [],
   onCleanSelected,
   alwaysShowAlert,
   selectedRows,
-  alertInfoRender = ({ intl }) => (
-    <Space>
-      {intl.getMessage('alert.selected', '已选择')}
-      {selectedRowKeys.length}
-      {intl.getMessage('alert.item', '项')}&nbsp;&nbsp;
-    </Space>
-  ),
+  alertInfoRender = defaultAlertInfoRender,
   alertOptionRender = defaultAlertOptionRender,
 }: TableAlertProps<T>) {
   const intl = useIntl();
