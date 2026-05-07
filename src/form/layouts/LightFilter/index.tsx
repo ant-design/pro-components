@@ -5,7 +5,13 @@ import { ConfigProvider } from 'antd';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import type { TooltipPlacement } from 'antd/lib/tooltip';
 import { clsx } from 'clsx';
-import React, { useContext, useImperativeHandle, useMemo, useRef, useState } from 'react';
+import React, {
+  useContext,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { useIntl } from '../../../provider';
 import { FieldLabel, FilterDropdown } from '../../../utils';
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
@@ -82,7 +88,15 @@ const LightFilterContainer: React.FC<{
         label={intl.getMessage('form.lightFilter.more', '更多筛选')}
       />
     );
-  }, [collapseLabel, collapse, lightFilterClassName, hashId, variant, size, intl]);
+  }, [
+    collapseLabel,
+    collapse,
+    lightFilterClassName,
+    hashId,
+    variant,
+    size,
+    intl,
+  ]);
 
   const { collapseItems, outsideItems } = useMemo(() => {
     const collapseItemsArr: React.ReactNode[] = [];
@@ -308,7 +322,8 @@ function LightFilterComponent<T = Record<string, any>>(
   );
 }
 
-type LightFilterType = typeof LightFilterComponent & typeof lightFilterFieldComponents;
+type LightFilterType = typeof LightFilterComponent &
+  typeof lightFilterFieldComponents;
 const LightFilter = LightFilterComponent as LightFilterType;
 Object.assign(LightFilter, lightFilterFieldComponents);
 (LightFilter as { displayName?: string }).displayName = 'LightFilter';

@@ -1,4 +1,4 @@
-﻿import {
+import {
   get,
   set as namePathSet,
   omit,
@@ -250,6 +250,70 @@ const covertFormName = (name?: NamePath) => {
 
 const defaultExtraUrlParams = {} as Record<string, any>;
 
+/**
+ * 构建 ProForm 格式化方法集合，供 formatValues useMemo 与 useImperativeHandle 共用，
+ * 消除两处完全相同的 ~80 行重复实现。
+ */
+function buildFormatValues(
+  getFormInstance: () => FormInstance<any> | undefined,
+  transformKey: (values: any, paramsOmitNil: boolean, parentKey?: NamePath) => any,
+  omitNil: boolean,
+) {
+  return {
+    getFieldsFormatValue: (allData?: true, omitNilParam?: boolean) => {
+      const instance = getFormInstance();
+      if (!instance) return {};
+      const values = instance.getFieldsValue(allData!);
+      return transformKey(values, omitNilParam !== undefined ? omitNilParam : omitNil);
+    },
+
+    getFieldFormatValue: (paramsNameList: NamePath = [], omitNilParam?: boolean) => {
+      const instance = getFormInstance();
+      if (!instance) return undefined;
+      const nameList = covertFormName(paramsNameList);
+      if (!nameList) throw new Error('nameList is require');
+      const value = instance.getFieldValue(nameList!);
+      const obj = nameList ? set({}, nameList as string[], value) : value;
+      // transformKey 会将 keys 重新和 nameList 拼接，所以要将 nameList 的首个元素弹出
+      const newNameList = [...nameList];
+      newNameList.shift();
+      const transformed = transformKey(
+        obj,
+        omitNilParam !== undefined ? omitNilParam : omitNil,
+        newNameList,
+      );
+      const result = get(transformed, nameList as string[]);
+      // 如果结果是对象，返回对象的值
+      if (result && typeof result === 'object' && !Array.isArray(result)) {
+        const objValue = Object.values(result)[0];
+        return objValue;
+      }
+      return result;
+    },
+
+    getFieldFormatValueObject: (paramsNameList?: NamePath, omitNilParam?: boolean) => {
+      const instance = getFormInstance();
+      if (!instance) return {};
+      const nameList = covertFormName(paramsNameList);
+      const value = instance.getFieldValue(nameList!);
+      const obj = nameList ? set({}, nameList as string[], value) : value;
+      return transformKey(obj, omitNilParam !== undefined ? omitNilParam : omitNil, nameList);
+    },
+
+    validateFieldsReturnFormatValue: async (nameList?: NamePath[], omitNilParam?: boolean) => {
+      const instance = getFormInstance();
+      if (!instance) return {};
+      if (!Array.isArray(nameList) && nameList) throw new Error('nameList must be array');
+      const values = await instance.validateFields(nameList);
+      const transformedKey = transformKey(
+        values,
+        omitNilParam !== undefined ? omitNilParam : omitNil,
+      );
+      return transformedKey ?? {};
+    },
+  };
+}
+
 function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
   props: BaseFormProps<T, U> & {
     loading: boolean;
@@ -302,146 +366,26 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
 
   const getFormInstance = useRefFunction(() => formInstance);
 
+  // 消除 formatValues useMemo 与 useImperativeHandle 里的重复实现，统一由 buildFormatValues 生成
   const formatValues = useMemo(
-    () => ({
-      /**
-       * 获取被 ProForm 格式化后的所有数据
-       * @param allData boolean
-       * @param omitNilParam boolean
-       * @returns T
-       *
-       * @example  getFieldsFormatValue(true) ->返回所有数据，即使没有被 form 托管的
-       */
-      getFieldsFormatValue: (allData?: true, omitNilParam?: boolean) => {
-        const formInstance = getFormInstance();
-        if (!formInstance) {
-          return {};
-        }
-        const values = formInstance.getFieldsValue(allData!);
-        return transformKey(
-          values,
-          omitNilParam !== undefined ? omitNilParam : omitNil,
-        );
-      },
-      /**
-       * 获取被 ProForm 格式化后的单个数据
-       * @param nameList (string|number)[]
-       * @param omitNilParam boolean
-       * @returns T
-       *
-       * @example {a:{b:value}} -> getFieldFormatValue(['a', 'b']) -> value
-       */
-      /** 获取格式化之后的单个数据 */
-      getFieldFormatValue: (
-        paramsNameList: NamePath = [],
-        omitNilParam?: boolean,
-      ) => {
-        const formInstance = getFormInstance();
-        if (!formInstance) {
-          return undefined;
-        }
-        const nameList = covertFormName(paramsNameList);
-        if (!nameList) throw new Error('nameList is require');
-        const value = formInstance.getFieldValue(nameList!);
-        const obj = nameList ? set({}, nameList as string[], value) : value;
-        //transformKey会将keys重新和nameList拼接，所以这里要将nameList的首个元素弹出
-        const newNameList = [...nameList];
-        newNameList.shift();
-        const transformed = transformKey(
-          obj,
-          omitNilParam !== undefined ? omitNilParam : omitNil,
-          newNameList,
-        );
-        const result = get(transformed, nameList as string[]);
-        // 如果结果是对象，返回对象的值
-        if (result && typeof result === 'object' && !Array.isArray(result)) {
-          const objValue = Object.values(result)[0];
-          // 如果对象的值是数组，返回数组
-          if (Array.isArray(objValue)) {
-            return objValue;
-          }
-          return objValue;
-        }
-        return result;
-      },
-      /**
-       * 获取被 ProForm 格式化后的单个数据, 包含他的 name
-       * @param nameList (string|number)[]
-       * @param omitNilParam boolean
-       * @returns T
-       *
-       * @example  {a:{b:value}} -> getFieldFormatValueObject(['a', 'b']) -> {a:{b:value}}
-       */
-      /** 获取格式化之后的单个数据 */
-      getFieldFormatValueObject: (
-        paramsNameList?: NamePath,
-        omitNilParam?: boolean,
-      ) => {
-        const formInstance = getFormInstance();
-        if (!formInstance) {
-          return {};
-        }
-        const nameList = covertFormName(paramsNameList);
-        const value = formInstance.getFieldValue(nameList!);
-        const obj = nameList ? set({}, nameList as string[], value) : value;
-        return transformKey(
-          obj,
-          omitNilParam !== undefined ? omitNilParam : omitNil,
-          nameList,
-        );
-      },
-      /**
-       * 验字段后返回格式化之后的所有数据
-       * @param nameList (string|number)[]
-       * @param omitNilParam boolean
-       * @returns T
-       *
-       * @example validateFieldsReturnFormatValue -> {a:{b:value}}
-       */
-      validateFieldsReturnFormatValue: async (
-        nameList?: NamePath[],
-        omitNilParam?: boolean,
-      ) => {
-        const formInstance = getFormInstance();
-        if (!formInstance) {
-          return {};
-        }
-        if (!Array.isArray(nameList) && nameList)
-          throw new Error('nameList must be array');
-
-        const values = await formInstance.validateFields(nameList);
-        const transformedKey = transformKey(
-          values,
-          omitNilParam !== undefined ? omitNilParam : omitNil,
-        );
-        return transformedKey ? transformedKey : {};
-      },
-    }),
+    () => buildFormatValues(getFormInstance, transformKey, omitNil),
     [omitNil, transformKey, getFormInstance],
   );
 
-  const items = useMemo(() => {
-    return React.Children.toArray(children as any).map((item, index) => {
-      if (index === 0 && React.isValidElement(item) && autoFocusFirstInput) {
-        return autoFocusToFirstChild(
-          item,
-          autoFocusFirstInput,
-        ) as React.ReactElement;
-      }
-      return item;
-    });
-  }, [autoFocusFirstInput, children]);
+  const items = React.Children.toArray(children as any).map((item, index) => {
+    if (index === 0 && React.isValidElement(item) && autoFocusFirstInput) {
+      return autoFocusToFirstChild(item, autoFocusFirstInput) as React.ReactElement;
+    }
+    return item;
+  });
 
   /** 计算 props 的对象 */
-  const submitterProps: SubmitterProps = useMemo(
-    () => (typeof submitter === 'boolean' || !submitter ? {} : submitter),
-    [submitter],
-  );
+  const submitterProps: SubmitterProps =
+    typeof submitter === 'boolean' || !submitter ? {} : submitter;
 
   /** 渲染提交按钮与重置按钮 */
-  const submitterNode = useMemo(() => {
-    if (submitter === false) return undefined;
-    return (
+  const submitterNode =
+    submitter === false ? undefined : (
       <Submitter
         key="submitter"
         {...submitterProps}
@@ -474,25 +418,11 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
         }}
       />
     );
-  }, [
-    submitter,
-    submitterProps,
-    loading,
-    transformKey,
-    omitNil,
-    onReset,
-    syncToUrl,
-    extraUrlParams,
-    onUrlSearchChange,
-  ]);
 
-  const content = useMemo(() => {
-    const wrapItems = grid ? <RowWrapper>{items}</RowWrapper> : items;
-    if (contentRender) {
-      return contentRender(wrapItems as any, submitterNode, formRef.current);
-    }
-    return wrapItems;
-  }, [grid, RowWrapper, items, contentRender, submitterNode, formRef]);
+  const wrapItems = grid ? <RowWrapper>{items}</RowWrapper> : items;
+  const content = contentRender
+    ? contentRender(wrapItems as any, submitterNode, formRef.current)
+    : wrapItems;
 
   const preInitialValues = usePrevious(props.initialValues);
 
@@ -511,90 +441,15 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
     );
   }, [props.initialValues]);
 
-  // 初始化给一个默认的 form
-  useImperativeHandle(propsFormRef, () => {
-    return {
+  // 初始化给一个默认的 form；直接复用 buildFormatValues，消除重复实现
+  useImperativeHandle(
+    propsFormRef,
+    () => ({
       ...formRef.current,
-      getFieldsFormatValue: (allData?: true, omitNilParam?: boolean) => {
-        const formInstance = formRef.current;
-        if (!formInstance) {
-          return {};
-        }
-        const values = formInstance.getFieldsValue(allData!);
-        return transformKey(
-          values,
-          omitNilParam !== undefined ? omitNilParam : omitNil,
-        );
-      },
-      getFieldFormatValue: (
-        paramsNameList: NamePath = [],
-        omitNilParam?: boolean,
-      ) => {
-        const formInstance = formRef.current;
-        if (!formInstance) {
-          return undefined;
-        }
-        const nameList = covertFormName(paramsNameList);
-        if (!nameList) throw new Error('nameList is require');
-        const value = formInstance.getFieldValue(nameList!);
-        const obj = nameList ? set({}, nameList as string[], value) : value;
-        //transformKey会将keys重新和nameList拼接，所以这里要将nameList的首个元素弹出
-        const newNameList = [...nameList];
-        newNameList.shift();
-        const transformed = transformKey(
-          obj,
-          omitNilParam !== undefined ? omitNilParam : omitNil,
-          newNameList,
-        );
-        const result = get(transformed, nameList as string[]);
-        // 如果结果是对象，返回对象的值
-        if (result && typeof result === 'object' && !Array.isArray(result)) {
-          const objValue = Object.values(result)[0];
-          // 如果对象的值是数组，返回数组
-          if (Array.isArray(objValue)) {
-            return objValue;
-          }
-          return objValue;
-        }
-        return result;
-      },
-      getFieldFormatValueObject: (
-        paramsNameList?: NamePath,
-        omitNilParam?: boolean,
-      ) => {
-        const formInstance = formRef.current;
-        if (!formInstance) {
-          return {};
-        }
-        const nameList = covertFormName(paramsNameList);
-        const value = formInstance.getFieldValue(nameList!);
-        const obj = nameList ? set({}, nameList as string[], value) : value;
-        return transformKey(
-          obj,
-          omitNilParam !== undefined ? omitNilParam : omitNil,
-          nameList,
-        );
-      },
-      validateFieldsReturnFormatValue: async (
-        nameList?: NamePath[],
-        omitNilParam?: boolean,
-      ) => {
-        const formInstance = formRef.current;
-        if (!formInstance) {
-          return {};
-        }
-        if (!Array.isArray(nameList) && nameList)
-          throw new Error('nameList must be array');
-
-        const values = await formInstance.validateFields(nameList);
-        const transformedKey = transformKey(
-          values,
-          omitNilParam !== undefined ? omitNilParam : omitNil,
-        );
-        return transformedKey ? transformedKey : {};
-      },
-    };
-  }, [omitNil, transformKey, propsFormRef]);
+      ...buildFormatValues(() => formRef.current, transformKey, omitNil),
+    }),
+    [omitNil, transformKey, propsFormRef],
+  );
   useEffect(() => {
     const finalValues = transformKey(
       formRef.current?.getFieldsValue?.(true),
@@ -685,7 +540,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
    * 包装 setLoading，使用 queueMicrotask 延迟回调调用
    * 避免在渲染阶段调用外部回调导致的 React 警告
    */
-  const setLoading = useCallback(
+  const setLoading = useRefFunction(
     (updater: boolean | ((prev: boolean) => boolean)) => {
       setLoadingInner((prev) => {
         const next =
@@ -698,7 +553,6 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
         return next;
       });
     },
-    [onLoadingChangeCallback],
   );
 
   const [urlSearch, setUrlSearch] = useUrlSearchParams(
@@ -708,7 +562,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
   const curFormKey = useRef<string>(nanoid());
 
   useEffect(() => {
-    requestFormCacheId += 0;
+    requestFormCacheId += 1;
   }, []);
   const [initialData, initialDataLoading] = useFetchData<T, U>({
     request,
