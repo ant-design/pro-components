@@ -1,4 +1,4 @@
-﻿import { omit } from '@rc-component/util';
+import { omit } from '@rc-component/util';
 import type { FormItemProps } from 'antd';
 import { ConfigProvider, Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
@@ -197,82 +197,74 @@ const WarpFormItem: React.FC<
   help,
   ...props
 }) => {
-  const formDom = useMemo(() => {
-    let getValuePropsFunc: any = (value: any) => {
-      const newValue = convertValue?.(value, props.name!) ?? value;
-      if (props.getValueProps) return props.getValueProps(newValue);
-      return {
-        [valuePropName || 'value']: newValue,
-      };
-    };
-    if (!convertValue && !props.getValueProps) {
-      getValuePropsFunc = undefined;
-    }
-    if (!addonAfter && !addonBefore) {
-      return (
-        <Form.Item
-          {...props}
-          valuePropName={valuePropName}
-          getValueProps={getValuePropsFunc}
-        >
-          {children}
-        </Form.Item>
-      );
-    }
+  const getValuePropsFunc =
+    convertValue || props.getValueProps
+      ? (value: any) => {
+          const newValue = convertValue?.(value, props.name!) ?? value;
+          if (props.getValueProps) return props.getValueProps(newValue);
+          return { [valuePropName || 'value']: newValue };
+        }
+      : undefined;
 
-    return (
-      <Form.Item
-        {...props}
-        help={typeof help !== 'function' ? help : undefined}
-        valuePropName={valuePropName}
-        // @ts-ignore
-        _internalItemRender={{
-          mark: 'pro_table_render',
-          render: (
-            inputProps: FormItemProps & {
-              errors: React.ReactNode[];
-              warnings: React.ReactNode[];
-            },
-            doms: {
-              input: React.JSX.Element;
-              errorList: React.JSX.Element;
-              extra: React.JSX.Element;
-            },
-          ) => (
-            <>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  flexWrap: 'wrap',
-                  ...addonWarpStyle,
-                }}
-              >
-                {addonBefore ? (
-                  <div style={{ marginInlineEnd: 8 }}>{addonBefore}</div>
-                ) : null}
-                {doms.input}
-                {addonAfter ? (
-                  <div style={{ marginInlineStart: 8 }}>{addonAfter}</div>
-                ) : null}
-              </div>
-              {typeof help === 'function'
-                ? help({
-                    errors: inputProps.errors,
-                    warnings: inputProps.warnings,
-                  })
-                : doms.errorList}
-              {doms.extra}
-            </>
-          ),
-        }}
-        {...props}
-        getValueProps={getValuePropsFunc}
-      >
-        {children}
-      </Form.Item>
-    );
-  }, [addonAfter, addonBefore, children, convertValue?.toString(), props]);
+  const formDom = !addonAfter && !addonBefore ? (
+    <Form.Item
+      {...props}
+      valuePropName={valuePropName}
+      getValueProps={getValuePropsFunc}
+    >
+      {children}
+    </Form.Item>
+  ) : (
+    <Form.Item
+      {...props}
+      help={typeof help !== 'function' ? help : undefined}
+      valuePropName={valuePropName}
+      // @ts-ignore
+      _internalItemRender={{
+        mark: 'pro_table_render',
+        render: (
+          inputProps: FormItemProps & {
+            errors: React.ReactNode[];
+            warnings: React.ReactNode[];
+          },
+          doms: {
+            input: React.JSX.Element;
+            errorList: React.JSX.Element;
+            extra: React.JSX.Element;
+          },
+        ) => (
+          <>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                flexWrap: 'wrap',
+                ...addonWarpStyle,
+              }}
+            >
+              {addonBefore ? (
+                <div style={{ marginInlineEnd: 8 }}>{addonBefore}</div>
+              ) : null}
+              {doms.input}
+              {addonAfter ? (
+                <div style={{ marginInlineStart: 8 }}>{addonAfter}</div>
+              ) : null}
+            </div>
+            {typeof help === 'function'
+              ? help({
+                  errors: inputProps.errors,
+                  warnings: inputProps.warnings,
+                })
+              : doms.errorList}
+            {doms.extra}
+          </>
+        ),
+      }}
+      getValueProps={getValuePropsFunc}
+    >
+      {children}
+    </Form.Item>
+  );
 
   return (
     <FormItemProvide.Provider
@@ -360,31 +352,22 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
     React.isValidElement(props.children) &&
     isDropdownValueType(valueType || props.children.props.valueType);
 
-  const noLightFormItem = useMemo(() => {
-    if (!lightProps?.light || lightProps?.customLightMode || isDropdown) {
-      return true;
-    }
-    return false;
-  }, [lightProps?.customLightMode, isDropdown, lightProps?.light]);
+  const noLightFormItem =
+    !lightProps?.light || lightProps?.customLightMode || isDropdown;
+
+  const formItemKey = rest.proFormFieldKey || rest.name?.toString();
 
   // formItem 支持function，如果是function 我就直接不管了
   if (typeof props.children === 'function') {
     return (
-      <WarpFormItem
-        {...rest}
-        name={name}
-        key={rest.proFormFieldKey || rest.name?.toString()}
-      >
+      <WarpFormItem {...rest} name={name} key={formItemKey}>
         {props.children}
       </WarpFormItem>
     );
   }
 
   const children = (
-    <WithValueFomFiledProps
-      key={rest.proFormFieldKey || rest.name?.toString()}
-      valuePropName={props.valuePropName}
-    >
+    <WithValueFomFiledProps key={formItemKey} valuePropName={props.valuePropName}>
       {props.children}
     </WithValueFomFiledProps>
   );
@@ -394,11 +377,7 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
   const lightDom = noLightFormItem ? (
     children
   ) : (
-    <LightWrapper
-      {...lightPropsForWrapper}
-      key={rest.proFormFieldKey || rest.name?.toString()}
-      size={size as any}
-    >
+    <LightWrapper {...lightPropsForWrapper} key={formItemKey} size={size as any}>
       {children}
     </LightWrapper>
   );
@@ -409,7 +388,7 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
 
   return (
     <WarpFormItem
-      key={rest.proFormFieldKey || rest.name?.toString()}
+      key={formItemKey}
       {...formItemProps}
       {...rest}
       name={name}

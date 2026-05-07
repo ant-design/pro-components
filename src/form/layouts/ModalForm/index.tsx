@@ -3,11 +3,9 @@ import type { FormProps, ModalProps } from 'antd';
 import { ConfigProvider, Modal } from 'antd';
 import { merge } from 'lodash-es';
 import React, {
-  useCallback,
   useContext,
   useEffect,
   useImperativeHandle,
-  useMemo,
   useRef,
   useState,
 } from 'react';
@@ -93,7 +91,7 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
    * 使用 queueMicrotask 延迟回调调用，避免在渲染阶段调用外部回调导致的 React 警告
    * "Cannot update a component while rendering a different component"
    */
-  const setOpen = useCallback(
+  const setOpen = useRefFunction(
     (updater: boolean | ((prev: boolean) => boolean)) => {
       setOpenInner((prev) => {
         const next =
@@ -106,24 +104,22 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
         return next;
       });
     },
-    [onOpenChangeCallback],
   );
 
   const footerRef = useRef<HTMLDivElement | null>(null);
 
-  const footerDomRef: React.RefCallback<HTMLDivElement> = useCallback(
+  const footerDomRef: React.RefCallback<HTMLDivElement> = useRefFunction(
     (element) => {
       if (footerRef.current === null && element) {
         forceUpdate([]);
       }
       footerRef.current = element;
     },
-    [],
   );
 
   const formRef = useRef<ProFormInstance>();
 
-  const resetFields = useCallback(() => {
+  const resetFields = useRefFunction(() => {
     const form = rest.form ?? rest.formRef?.current ?? formRef.current;
     // 重置表单
     // issue: 8858 form.resetFields is not a function
@@ -134,74 +130,56 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
     ) {
       form.resetFields();
     }
-  }, [modalProps?.destroyOnHidden, rest.form, rest.formRef]);
+  });
 
-  useImperativeHandle(
-    rest.formRef,
-    () => {
-      return formRef.current;
-    },
-    [formRef.current],
-  );
+  // deps 不能用 formRef.current（ref 变化不触发更新），改为空 deps 即可
+  useImperativeHandle(rest.formRef, () => formRef.current, []);
 
+  // 受控 open=true 时通知外部，使外部感知初始打开状态
   useEffect(() => {
     if (propsOpen) {
       onOpenChange?.(true);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [propsOpen]);
 
-  const triggerDom = useMemo(() => {
-    if (!trigger) {
-      return null;
-    }
-
-    return React.cloneElement(trigger, {
-      key: 'trigger',
-      ...trigger.props,
-      onClick: async (e: any) => {
-        setOpen(!open);
-        trigger.props?.onClick?.(e);
-      },
-    });
-  }, [setOpen, trigger, open]);
-
-  const submitterConfig = useMemo(() => {
-    if (rest.submitter === false) {
-      return false;
-    }
-
-    return merge(
-      {
-        searchConfig: {
-          submitText:
-            modalProps?.okText ?? context.locale?.Modal?.okText ?? '确认',
-          resetText:
-            modalProps?.cancelText ??
-            context.locale?.Modal?.cancelText ??
-            '取消',
+  const triggerDom = trigger
+    ? React.cloneElement(trigger, {
+        key: 'trigger',
+        ...trigger.props,
+        onClick: async (e: any) => {
+          setOpen(!open);
+          trigger.props?.onClick?.(e);
         },
-        resetButtonProps: {
-          preventDefault: true,
-          disabled: submitTimeout && loading,
-          onClick: (e: any) => {
-            setOpen(false);
-            modalProps?.onCancel?.(e);
-          },
-        },
-      } as SubmitterProps,
-      rest.submitter ?? {},
-    );
-  }, [
-    context.locale?.Modal?.cancelText,
-    context.locale?.Modal?.okText,
-    modalProps,
-    rest.submitter,
-    setOpen,
-    loading,
-    submitTimeout,
-  ]);
+      })
+    : null;
 
-  const contentRender = useCallback((formDom: any, submitter: any) => {
+  const submitterConfig =
+    rest.submitter === false
+      ? false
+      : merge(
+          {
+            searchConfig: {
+              submitText:
+                modalProps?.okText ?? context.locale?.Modal?.okText ?? '确认',
+              resetText:
+                modalProps?.cancelText ??
+                context.locale?.Modal?.cancelText ??
+                '取消',
+            },
+            resetButtonProps: {
+              preventDefault: true,
+              disabled: submitTimeout && loading,
+              onClick: (e: any) => {
+                setOpen(false);
+                modalProps?.onCancel?.(e);
+              },
+            },
+          } as SubmitterProps,
+          rest.submitter ?? {},
+        );
+
+  const contentRender = useRefFunction((formDom: any, submitter: any) => {
     return (
       <>
         {formDom}
@@ -214,58 +192,35 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
         )}
       </>
     );
-  }, []);
+  });
 
-  const onFinishHandle = useCallback(
-    async (values: T) => {
-      const response = onFinish?.(values);
+  const onFinishHandle = useRefFunction(async (values: T) => {
+    const response = onFinish?.(values);
 
-      if (submitTimeout && response instanceof Promise) {
-        setLoading(true);
-
-        const timer = setTimeout(() => setLoading(false), submitTimeout);
-        try {
-          const result = await response;
-          clearTimeout(timer);
-          setLoading(false);
-          // 返回真值，关闭弹框
-          if (result) {
-            setOpen(false);
-          }
-          return result;
-        } catch (error) {
-          clearTimeout(timer);
-          setLoading(false);
-          throw error;
+    if (submitTimeout) {
+      setLoading(true);
+      const timer = setTimeout(() => setLoading(false), submitTimeout);
+      try {
+        // await 非 Promise 值会直接 resolve，语义安全
+        const result = await response;
+        clearTimeout(timer);
+        setLoading(false);
+        if (result) {
+          setOpen(false);
         }
-      } else if (submitTimeout) {
-        // 如果 submitTimeout 存在但 response 不是 Promise，也要设置 loading
-        setLoading(true);
-        const timer = setTimeout(() => setLoading(false), submitTimeout);
-        try {
-          const result = await response;
-          clearTimeout(timer);
-          setLoading(false);
-          // 返回真值，关闭弹框
-          if (result) {
-            setOpen(false);
-          }
-          return result;
-        } catch (error) {
-          clearTimeout(timer);
-          setLoading(false);
-          throw error;
-        }
+        return result;
+      } catch (error) {
+        clearTimeout(timer);
+        setLoading(false);
+        throw error;
       }
-      const result = await response;
-      // 返回真值，关闭弹框
-      if (result) {
-        setOpen(false);
-      }
-      return result;
-    },
-    [onFinish, setOpen, submitTimeout],
-  );
+    }
+    const result = await response;
+    if (result) {
+      setOpen(false);
+    }
+    return result;
+  });
 
   return (
     <>
