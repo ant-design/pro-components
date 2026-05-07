@@ -12,8 +12,6 @@ import {
   useRefFunction,
 } from '../../../utils';
 import type { ProFieldValueType } from '../../../utils/typing';
-import type { LightWrapperProps } from '../../layouts/LightFilter/LightWrapper';
-import { LightWrapper } from '../../layouts/LightFilter/LightWrapper';
 import FieldContext from '../../FieldContext';
 import { FormListContext } from '../List';
 
@@ -297,23 +295,16 @@ export type ProFormItemProps = FormItemProps & {
    */
   transform?: SearchTransformKeyFn;
   dataFormat?: string;
-  lightProps?: LightWrapperProps;
   proFormFieldKey?: any;
   fieldProps?: Record<string, any>;
 } & WarpFormItemProps;
 
 const ProFormItem: React.FC<ProFormItemProps> = (props) => {
-  /** 从 context 中拿到的值 */
-  const { componentSize } = ConfigProvider?.useConfig?.() || {
-    componentSize: 'middle',
-  };
-  const size = componentSize;
   const {
     valueType,
     transform,
     dataFormat,
     ignoreFormItem,
-    lightProps,
     children: unusedChildren,
     fieldProps,
     ...rest
@@ -348,13 +339,6 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
     });
   }, [name, dataFormat, props.name, setFieldValueType, transform, valueType]);
 
-  const isDropdown =
-    React.isValidElement(props.children) &&
-    isDropdownValueType(valueType || props.children.props.valueType);
-
-  const noLightFormItem =
-    !lightProps?.light || lightProps?.customLightMode || isDropdown;
-
   const formItemKey = rest.proFormFieldKey || rest.name?.toString();
 
   // formItem 支持function，如果是function 我就直接不管了
@@ -372,18 +356,8 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
     </WithValueFomFiledProps>
   );
 
-  const lightPropsForWrapper = omitUndefined(lightProps || {});
-
-  const lightDom = noLightFormItem ? (
-    children
-  ) : (
-    <LightWrapper {...lightPropsForWrapper} key={formItemKey} size={size as any}>
-      {children}
-    </LightWrapper>
-  );
-  // 这里控制是否需要 LightWrapper，为了提升一点点性能
   if (ignoreFormItem) {
-    return <>{lightDom}</>;
+    return <>{children}</>;
   }
 
   return (
@@ -391,10 +365,12 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
       key={formItemKey}
       {...formItemProps}
       {...rest}
+      // 显式覆盖，防止 formItemProps/rest 里的 label 把调用方传入的 undefined 覆盖回来
+      label={rest.label}
       name={name}
       isListField={formListField.name !== undefined}
     >
-      {lightDom}
+      {children}
     </WarpFormItem>
   );
 };

@@ -427,10 +427,6 @@ describe('LightFilter', () => {
         <LightFilter.digitRange
           name="digitRange"
           label="数字范围"
-          lightProps={{
-            // Simulate inconsistent casing from user config
-            valueType: 'DigitRange',
-          }}
         />
       </LightFilter>,
     );
