@@ -1,24 +1,3 @@
-import { FieldIndexColumn, FieldStatus } from '../field';
-import type { IntlType } from '../provider';
-import {
-  ConfigConsumer,
-  arEGIntl,
-  caESIntl,
-  createIntl,
-  enUSIntl,
-  esESIntl,
-  frFRIntl,
-  itITIntl,
-  jaJPIntl,
-  msMYIntl,
-  ptBRIntl,
-  ruRUIntl,
-  thTHIntl,
-  viVNIntl,
-  zhCNIntl,
-  zhTWIntl,
-} from '../provider';
-import type { ProFieldValueType, RowEditableConfig } from '../utils';
 import type { DragTableProps } from './components/DragSortTable';
 import DragSortTable from './components/DragSortTable';
 import TableDropdown from './components/Dropdown';
@@ -42,37 +21,15 @@ import type {
   RequestData,
 } from './typing';
 
-type ProColumnsValueType = ProFieldValueType;
-type TableRowEditable<T> = RowEditableConfig<T>;
-
 export {
   CellEditorTable,
-  ConfigConsumer,
   DragSortTable,
   EditableProTable,
-  FieldIndexColumn as IndexColumn,
-  ConfigConsumer as IntlConsumer,
   ListToolBar,
   ProTable,
   RowEditorTable,
   Search,
   TableDropdown,
-  FieldStatus as TableStatus,
-  arEGIntl,
-  caESIntl,
-  createIntl,
-  enUSIntl,
-  esESIntl,
-  frFRIntl,
-  itITIntl,
-  jaJPIntl,
-  msMYIntl,
-  ptBRIntl,
-  ruRUIntl,
-  thTHIntl,
-  viVNIntl,
-  zhCNIntl,
-  zhTWIntl,
 };
 export type {
   ActionType,
@@ -80,14 +37,11 @@ export type {
   DragTableProps,
   EditableFormInstance,
   EditableProTableProps,
-  IntlType,
   ListToolBarProps,
   ProColumnType,
   ProColumns,
-  ProColumnsValueType,
   ProTableProps,
   RequestData,
-  TableRowEditable,
 };
 
 export default ProTable;

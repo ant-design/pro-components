@@ -1,5 +1,5 @@
 import type { ProColumns } from '@ant-design/pro-components';
-import { TableDropdown, TableStatus } from '@ant-design/pro-components';
+import { FieldStatus, TableDropdown } from '@ant-design/pro-components';
 import { Input, message } from 'antd';
 import dayjs from 'dayjs';
 
@@ -132,13 +132,13 @@ export const columns: ProColumns[] = [
     dataIndex: 'status2',
     render: () => (
       <div>
-        <TableStatus.Success>上线成功</TableStatus.Success>
+        <FieldStatus.Success>上线成功</FieldStatus.Success>
         <br />
-        <TableStatus.Error>上线失败</TableStatus.Error>
+        <FieldStatus.Error>上线失败</FieldStatus.Error>
         <br />
-        <TableStatus.Processing>正在部署</TableStatus.Processing>
+        <FieldStatus.Processing>正在部署</FieldStatus.Processing>
         <br />
-        <TableStatus.Default>正在初始化</TableStatus.Default>
+        <FieldStatus.Default>正在初始化</FieldStatus.Default>
       </div>
     ),
   },
