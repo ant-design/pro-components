@@ -1,4 +1,4 @@
-﻿import { ProField, defaultRenderText } from './AllProField';
+import { ProField, defaultRenderText } from './AllProField';
 import FieldCascader from './components/Cascader';
 import FieldCheckbox from './components/Checkbox';
 import FieldCode from './components/Code';

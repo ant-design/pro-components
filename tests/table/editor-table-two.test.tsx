@@ -2,7 +2,7 @@ import type {
   ActionType,
   EditableFormInstance,
   ProColumns,
-  TableRowEditable,
+  RowEditableConfig,
 } from '@ant-design/pro-components';
 import {
   EditableProTable,
@@ -169,7 +169,7 @@ const EditorProTableDemo = (
     dataSource?: DataSourceType[];
     onDataSourceChange?: (dataSource: readonly DataSourceType[]) => void;
     position?: 'top';
-  } & TableRowEditable<DataSourceType>,
+  } & RowEditableConfig<DataSourceType>,
 ) => {
   const actionRef = useRef<ActionType>();
   const [editableKeys, setEditorRowKeysInner] = useControlledState<React.Key[]>(
