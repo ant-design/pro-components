@@ -307,6 +307,9 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
     ignoreFormItem,
     children: unusedChildren,
     fieldProps,
+    // 显式解构 label/tooltip，防止它们从 ...rest 漏入 WarpFormItem 被覆盖
+    label,
+    tooltip,
     ...rest
   } = props;
   const formListField = useContext(FormListContext);
@@ -365,8 +368,9 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
       key={formItemKey}
       {...formItemProps}
       {...rest}
-      // 显式覆盖，防止 formItemProps/rest 里的 label 把调用方传入的 undefined 覆盖回来
-      label={rest.label}
+      // label/tooltip 已从 props 解构，通过这里显式传入，确保调用方传 undefined 时不被 rest/formItemProps 覆盖
+      label={label}
+      tooltip={tooltip}
       name={name}
       isListField={formListField.name !== undefined}
     >
