@@ -308,17 +308,14 @@ export function warpField<P extends ProFormFieldItemProps = any>(
         );
       }
 
-      // 轻量模式下 Form.Item 不展示 label/tooltip，防止 otherProps 展开时把 label 覆盖回来
-      const otherPropsForFormItem = isLightMode
-        ? { ...otherProps, label: undefined, tooltip: undefined }
-        : otherProps;
       return (
         <ProFormItem
-          label={!isLightMode ? label : undefined}
-          tooltip={!isLightMode ? tooltip : undefined}
           valuePropName={valuePropName}
           key={props.proFormFieldKey || otherProps.name?.toString()}
-          {...otherPropsForFormItem}
+          {...otherProps}
+          // 轻量模式下 Form.Item 不展示 label/tooltip，放在展开之后确保不被覆盖
+          label={isLightMode ? undefined : label}
+          tooltip={isLightMode ? undefined : tooltip}
           ignoreFormItem={ignoreFormItem}
           transform={transform}
           dataFormat={fieldProps?.format}
