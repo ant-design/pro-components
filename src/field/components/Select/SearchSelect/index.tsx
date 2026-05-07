@@ -36,8 +36,6 @@ export interface SearchSelectProps<T = Record<string, any>> extends Omit<
   debounceTime?: number;
   /** 自定义搜索方法, 返回搜索结果的 Promise */
   request?: (params: { query: string }) => Promise<DataValueType<T>[]>;
-  /** 自定义选项渲染 */
-  optionItemRender?: (item: DataValueType<T>) => React.ReactNode;
   /** 指定组件中的值 */
   value?: KeyLabel | KeyLabel[];
   /** 指定默认选中的条目 */
@@ -97,18 +95,10 @@ export interface SearchSelectProps<T = Record<string, any>> extends Omit<
 
   /** 默认搜索关键词 */
   defaultSearchValue?: string;
-
-  /**
-   * 在选择时保留选项的原始标签文本
-   * 当设置为 true 时，选中后回填的内容将使用选项的原始 label，而不是经过 optionItemRender 处理后的内容
-   * @default false
-   */
-  preserveOriginalLabel?: boolean;
 }
 
 const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
   const {
-    optionItemRender,
     mode,
     onSearch,
     onFocus,
@@ -130,7 +120,6 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
     showSearch,
     fieldNames,
     defaultSearchValue,
-    preserveOriginalLabel: _preserveOriginalLabel = false,
     ...restProps
   } = props;
 
@@ -244,7 +233,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
 
       if (optionType === 'optGroup' || item.options) {
         return {
-          label: label,
+          label,
           ...resetItem,
           data_title: label,
           title: label,
@@ -261,7 +250,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
         key: value ?? `${label?.toString()}-${index}-${nanoid()}`,
         'data-item': item,
         className: `${prefixCls}-option ${itemClassName || ''}`.trim(),
-        label: optionItemRender?.(item as any) || label,
+        label,
       } as DefaultOptionType;
     });
   };
