@@ -397,3 +397,38 @@ export function resolveTableViewDefaultDom(
 ): ReactElement {
   return typeof defaultDom === 'function' ? defaultDom() : defaultDom;
 }
+
+/**
+ * 生成可编辑表格的 getRowKey 函数，供 CellEditorTable / RowEditorTable 复用。
+ *
+ * 规则与 Table.tsx useRowKey / EditableTable getRowKey 保持一致：
+ *  - index === -1 时（内部标识新行）直接取字段值，不走 index fallback
+ *  - name 模式下使用 index.toString() 作为 key（便于转换为数组索引）
+ *  - 否则取 rowKey 字段值，fallback 到 index.toString()
+ *
+ * rowKey 类型兼容 antd TableProps.rowKey 的完整联合类型：
+ *   string | number | symbol | GetRowKey<DataType>
+ * number / symbol 类型在运行时作为属性名使用（通过 String() 转换）。
+ */
+export function buildEditableTableRowKey<DataType extends Record<string, any>>(
+  rowKey:
+    | string
+    | number
+    | symbol
+    | import('antd/lib/table/interface').GetRowKey<DataType>,
+  name: any,
+): import('antd/lib/table/interface').GetRowKey<DataType> {
+  if (typeof rowKey === 'function') {
+    return rowKey as import('antd/lib/table/interface').GetRowKey<DataType>;
+  }
+  const rowKeyStr = String(rowKey);
+  return (record: DataType, index?: number): React.Key => {
+    if (index === -1) {
+      return (record as any)?.[rowKeyStr];
+    }
+    if (name) {
+      return index?.toString() ?? '';
+    }
+    return (record as any)?.[rowKeyStr] ?? index?.toString() ?? '';
+  };
+}

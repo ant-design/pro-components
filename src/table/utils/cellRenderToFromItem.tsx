@@ -20,6 +20,7 @@ import type {
 import {
   InlineErrorFormItem,
   getFieldPropsOrFormItemProps,
+  isDeepEqualReact,
   runFunction,
 } from '../../utils';
 import type { ProColumnType } from '../index';
@@ -29,8 +30,15 @@ const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
 
 /**
  * 拼接用于编辑的 key
+ *
+ * @deprecated 请使用 buildNamePath，spellNamePath 是历史命名，保留以兼容外部引用
  */
-export const spellNamePath = (...rest: any[]): React.Key[] => {
+export const spellNamePath = (...rest: any[]): React.Key[] => buildNamePath(...rest);
+
+/**
+ * 拼接用于编辑的表单字段路径（name path）
+ */
+export const buildNamePath = (...rest: any[]): React.Key[] => {
   return rest
     .filter((index) => index !== undefined)
     .map((item) => {
@@ -91,7 +99,7 @@ const CellRenderFromItem = <T extends AnyObject>(
     [editableUtils, index, rowData],
   );
   const [formItemName, setName] = useState<React.Key[]>(() =>
-    spellNamePath(
+    buildNamePath(
       prefixName,
       prefixName ? subName : [],
       prefixName ? realIndex : key,
@@ -104,7 +112,7 @@ const CellRenderFromItem = <T extends AnyObject>(
   }, [formItemName]);
 
   useEffect(() => {
-    const nextName = spellNamePath(
+    const nextName = buildNamePath(
       prefixName,
       prefixName ? subName : [],
       prefixName ? realIndex : key,
@@ -255,15 +263,11 @@ const CellRenderFromItem = <T extends AnyObject>(
           if (shouldName.length === 0) return true;
           const prevValue = get(pre, shouldName);
           const nextValue = get(next, shouldName);
-          // 先做引用浅比较：相同引用则跳过渲染，性能 O(1)。
-          // 只有引用不等时才 fallback 到 JSON.stringify 深比较，
-          // 规避循环引用导致的 throw（catch 返回 true = 总是重渲染）。
-          if (prevValue === nextValue) return false;
-          try {
-            return JSON.stringify(prevValue) !== JSON.stringify(nextValue);
-          } catch (_error) {
-            return true;
-          }
+          // 使用 isDeepEqualReact 做深比较：
+          // 1. 内部先做引用浅比较，相同引用直接返回 true，性能 O(1)
+          // 2. 深比较时自动处理循环引用，不会像 JSON.stringify 一样抛异常
+          // 3. 大数据量时性能优于 JSON.stringify（支持短路退出）
+          return !isDeepEqualReact(prevValue, nextValue);
         }}
       >
         {() => generateFormItem()}

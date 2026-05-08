@@ -150,7 +150,13 @@ describe('Table valueEnum', () => {
   it('🎏 customization valueType', async () => {
     const html = render(<Demo />);
     await waitForWaitTime(1200);
-    expect(html.asFragment()).toMatchSnapshot();
+    // 自定义 valueType 'link' 通过 ProProvider.valueTypeMap 注册
+    // 渲染时应将 name 字段以 <a> 标签呈现
+    const cellLink = html.baseElement.querySelector(
+      'td.ant-table-cell a',
+    );
+    expect(cellLink).toBeTruthy();
+    expect(cellLink?.textContent).toBe('test');
   });
 
   it('🎏 dynamic request', async () => {

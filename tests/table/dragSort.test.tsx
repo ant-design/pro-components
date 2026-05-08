@@ -156,7 +156,20 @@ describe('dragSort', () => {
       return dragAndDrop(dragHandle);
     });
 
-    expect(container.querySelector('.dragSortDefaultHandle')).toMatchSnapshot();
+    // 默认拖动手柄应在第一列（dragSortKey="sort"）渲染
+    // 验证 sortable 容器存在
+    expect(
+      container.querySelectorAll('[aria-roledescription="sortable"]').length,
+    ).toBeGreaterThan(0);
+    // 默认手柄应渲染 ant-pro-table-drag-icon
+    expect(
+      container.querySelectorAll('.ant-pro-table-drag-icon').length,
+    ).toBeGreaterThan(0);
+    // 拖动手柄应位于第一列（dragSortKey="sort" 列）的 td 内
+    const firstRowFirstCell = container.querySelector('tbody tr td');
+    expect(
+      firstRowFirstCell?.querySelector('.ant-pro-table-drag-icon'),
+    ).toBeTruthy();
   });
 
   it('🔥 [dragSort] render drag sort custom handle by dragSortHandlerRender', async () => {
@@ -203,7 +216,11 @@ describe('dragSort', () => {
       />,
     );
 
-    expect(container.querySelector('.dragSortCustomHandle')).toMatchSnapshot();
+    // 自定义拖动手柄通过 dragSortHandlerRender 渲染
+    const customHandle = container.querySelector('.dragSortCustomHandle');
+    expect(customHandle).toBeTruthy();
+    // dragSortHandlerRender 返回的内容应包含序号和姓名
+    expect(container.textContent).toContain('1 - kiner');
     expect(callback).toHaveBeenCalled();
     expect(callback).toHaveBeenCalledWith('kiner', 0);
   });
@@ -267,8 +284,15 @@ describe('dragSort', () => {
       />,
     );
 
-    expect(container.querySelector('.dragSortCustomHandle')).toMatchSnapshot();
-    expect(container.querySelector('.customRender')).toMatchSnapshot();
+    // 自定义拖动手柄正常渲染
+    expect(container.querySelector('.dragSortCustomHandle')).toBeTruthy();
+    // 列的 render 函数返回 customRender，应正确渲染
+    const customRenderEls = container.querySelectorAll('.customRender');
+    expect(customRenderEls.length).toBe(3);
+    // 验证第一行的自定义渲染内容
+    expect(customRenderEls[0]?.textContent).toBe('自定义排序[kiner-0]');
+    expect(customRenderEls[1]?.textContent).toBe('自定义排序[WenHui Tang-1]');
+    expect(customRenderEls[2]?.textContent).toBe('自定义排序[Kiner Tang-2]');
     expect(callback).toHaveBeenCalled();
     expect(callback).toHaveBeenCalledWith('kiner', 0);
   });

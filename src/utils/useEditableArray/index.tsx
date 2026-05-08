@@ -71,7 +71,7 @@ export const isSameRecordKey = (
  *
  * - Preserve `0` (number) and other falsy-but-valid segments
  * - Flatten nested arrays (e.g. `name={['a','b']}`)
- * - Convert number segments to string to align with `spellNamePath` behavior
+ * - Convert number segments to string to align with `buildNamePath` behavior
  */
 const normalizeNamePath = (...segments: any[]): (string | number)[] => {
   return segments
