@@ -303,6 +303,52 @@ export type ProFormListItemProps = ProFromListCommonProps & {
   readonly: boolean;
 };
 
+/**
+ * 统一渲染一个带 Tooltip 的操作 icon，内置 loading 状态。
+ * 消除 copyIcon/deleteIcon/upIcon/downIcon 四处结构重复。
+ *
+ * 这是一个纯渲染辅助函数（不含任何 hook），可以在条件分支中安全调用。
+ */
+function renderActionIcon({
+  iconProps,
+  defaultIcon: DefaultIcon,
+  actionClassName,
+  prefixCls,
+  hashId,
+  loading = false,
+  hidden = false,
+  onClick,
+}: {
+  iconProps: IconConfig | false | undefined;
+  defaultIcon: React.FC<any>;
+  actionClassName: string;
+  prefixCls: string;
+  hashId?: string;
+  loading?: boolean;
+  /** 为 true 时（只读/超限）直接返回 null */
+  hidden?: boolean;
+  onClick: () => void | Promise<void>;
+}): React.ReactNode {
+  if (iconProps === false || hidden) return null;
+  const { Icon = DefaultIcon, tooltipText } = (iconProps as IconConfig) ?? {};
+  return (
+    <Tooltip title={tooltipText}>
+      {loading ? (
+        <LoadingOutlined />
+      ) : (
+        <Icon
+          className={clsx(
+            `${prefixCls}-action-icon`,
+            actionClassName,
+            hashId,
+          )}
+          onClick={onClick}
+        />
+      )}
+    </Tooltip>
+  );
+}
+
 const ProFormListItem: React.FC<
   ProFormListItemProps & {
     field: FormListFieldData;
@@ -355,20 +401,24 @@ const ProFormListItem: React.FC<
       unmountedRef.current = true;
     };
   }, []);
+  /** 当前行的字段路径，供 getCurrentRowData/setCurrentRowData/copyIcon/options.record 复用 */
+  const rowFieldPath = [listContext.listName, originName, field.name]
+    .filter((item) => item !== undefined)
+    .flat(1) as (string | number)[];
+
+  /** 当前行（用 index 字符串，与 set 保持一致）的路径 */
+  const rowKeyPath = [listContext.listName, originName, index?.toString()]
+    .flat(1)
+    .filter((item) => item !== null && item !== undefined);
+
   const getCurrentRowData = () => {
-    return formInstance.getFieldValue(
-      [listContext.listName, originName, index?.toString()]
-        .flat(1)
-        .filter((item) => item !== null && item !== undefined),
-    );
+    return formInstance.getFieldValue(rowKeyPath);
   };
   const formListAction = {
     getCurrentRowData,
     setCurrentRowData: (data: Record<string, any>) => {
       const oldTableDate = formInstance?.getFieldsValue?.() || {};
-      const rowKeyName = [listContext.listName, originName, index?.toString()]
-        .flat(1)
-        .filter((item) => item !== null && item !== undefined);
+      const rowKeyName = rowKeyPath;
       const updateValues = set(oldTableDate, rowKeyName, {
         // 只是简单的覆盖，如果很复杂的话，需要自己处理
         ...getCurrentRowData(),
@@ -402,123 +452,65 @@ const ProFormListItem: React.FC<
       }
       return childrenItem;
     });
-  const copyIcon = useMemo(() => {
-    if (mode === 'read') return null;
-    /** 复制按钮的配置 */
-    if (copyIconProps === false || max === count) return null;
-    const { Icon = CopyOutlined, tooltipText } = copyIconProps as IconConfig;
-    return (
-      <Tooltip title={tooltipText} key="copy">
-        {loadingCopy ? (
-          <LoadingOutlined />
-        ) : (
-          <Icon
-            className={clsx(`${prefixCls}-action-icon action-copy`, hashId)}
-            onClick={async () => {
-              setLoadingCopy(true);
-              const row = formInstance?.getFieldValue(
-                [listContext.listName, originName, field.name]
-                  .filter((item) => item !== undefined)
-                  .flat(1),
-              );
-              await action.add(row, count);
-              setLoadingCopy(false);
-            }}
-          />
-        )}
-      </Tooltip>
-    );
-  }, [
-    copyIconProps,
-    max,
-    count,
-    loadingCopy,
+  const isReadMode = mode === 'read';
+
+  // 4 个操作 icon 无条件调用 renderActionIcon（纯函数，无 hook），通过 hidden 控制是否渲染
+  const copyIcon = renderActionIcon({
+    iconProps: copyIconProps,
+    defaultIcon: CopyOutlined,
+    actionClassName: 'action-copy',
     prefixCls,
     hashId,
-    formInstance,
-    listContext.listName,
-    field.name,
-    originName,
-    action,
-  ]);
+    hidden: isReadMode || max === count,
+    loading: loadingCopy,
+    onClick: async () => {
+      setLoadingCopy(true);
+      const row = formInstance?.getFieldValue(rowFieldPath);
+      await action.add(row, count);
+      setLoadingCopy(false);
+    },
+  });
 
-  const deleteIcon = useMemo(() => {
-    if (mode === 'read') return null;
-    if (deleteIconProps === false || min === count) return null;
-    const { Icon = DeleteOutlined, tooltipText } = deleteIconProps!;
-    return (
-      <Tooltip title={tooltipText} key="delete">
-        {loadingRemove ? (
-          <LoadingOutlined />
-        ) : (
-          <Icon
-            className={clsx(`${prefixCls}-action-icon action-remove`, hashId)}
-            onClick={async () => {
-              setLoadingRemove(true);
-              await action.remove(field.name);
-              if (!unmountedRef.current) {
-                setLoadingRemove(false);
-              }
-            }}
-          />
-        )}
-      </Tooltip>
-    );
-  }, [
-    deleteIconProps,
-    min,
-    count,
-    loadingRemove,
+  const deleteIcon = renderActionIcon({
+    iconProps: deleteIconProps,
+    defaultIcon: DeleteOutlined,
+    actionClassName: 'action-remove',
     prefixCls,
     hashId,
-    action,
-    field.name,
-  ]);
-  const upIcon = useMemo(() => {
-    if (!arrowSort) {
-      return null;
-    }
-    if (mode === 'read') return null;
-    if (upIconProps === false) return null;
-    const toIndex = index - 1;
-    if (toIndex < 0) {
-      return null;
-    }
-    const { Icon = ArrowUpOutlined, tooltipText } = upIconProps!;
-    return (
-      <Tooltip title={tooltipText} key="up">
-        <Icon
-          className={clsx(`${prefixCls}-action-icon action-up`, hashId)}
-          onClick={async () => {
-            await action.move(index, toIndex);
-          }}
-        />
-      </Tooltip>
-    );
-  }, [upIconProps, prefixCls, hashId, action, arrowSort]);
+    hidden: isReadMode || min === count,
+    loading: loadingRemove,
+    onClick: async () => {
+      setLoadingRemove(true);
+      await action.remove(field.name);
+      if (!unmountedRef.current) {
+        setLoadingRemove(false);
+      }
+    },
+  });
 
-  const downIcon = useMemo(() => {
-    if (!arrowSort) {
-      return null;
-    }
-    if (mode === 'read') return null;
-    if (downIconProps === false) return null;
-    const toIndex = index + 1;
-    if (toIndex >= count) {
-      return null;
-    }
-    const { Icon = ArrowDownOutlined, tooltipText } = downIconProps!;
-    return (
-      <Tooltip title={tooltipText} key="down">
-        <Icon
-          className={clsx(`${prefixCls}-action-icon action-down`, hashId)}
-          onClick={async () => {
-            await action.move(index, toIndex);
-          }}
-        />
-      </Tooltip>
-    );
-  }, [upIconProps, prefixCls, hashId, action, arrowSort]);
+  const upIcon = renderActionIcon({
+    iconProps: upIconProps,
+    defaultIcon: ArrowUpOutlined,
+    actionClassName: 'action-up',
+    prefixCls,
+    hashId,
+    hidden: isReadMode || !arrowSort || index <= 0,
+    onClick: async () => {
+      await action.move(index, index - 1);
+    },
+  });
+
+  const downIcon = renderActionIcon({
+    iconProps: downIconProps,
+    defaultIcon: ArrowDownOutlined,
+    actionClassName: 'action-down',
+    prefixCls,
+    hashId,
+    hidden: isReadMode || !arrowSort || index + 1 >= count,
+    onClick: async () => {
+      await action.move(index, index + 1);
+    },
+  });
 
   const defaultActionDom: React.ReactNode[] = useMemo(
     () =>
@@ -550,11 +542,7 @@ const ProFormListItem: React.FC<
     name: rest.name,
     field,
     index,
-    record: formInstance?.getFieldValue?.(
-      [listContext.listName, originName, field.name]
-        .filter((item) => item !== undefined)
-        .flat(1),
-    ),
+    record: formInstance?.getFieldValue?.(rowFieldPath),
     fields,
     operation: action,
     meta,
@@ -609,9 +597,7 @@ const ProFormListItem: React.FC<
     <FormListContext.Provider
       value={{
         ...field,
-        listName: [listContext.listName, originName, field.name]
-          .filter((item) => item !== undefined)
-          .flat(1),
+        listName: rowFieldPath,
       }}
     >
       {contentDom}

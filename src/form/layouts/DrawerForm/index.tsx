@@ -133,22 +133,8 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
       submitText: context.locale?.Modal?.okText ?? '确认',
       resetText: context.locale?.Modal?.cancelText ?? '取消',
     },
-    // trigger 由 hook 处理基础的 setOpen，这里额外需要处理 resize 标记
-    // 所以用 undefined，让 resize 的 triggerDom 在下面单独处理
-    trigger: undefined,
+    trigger,
   });
-
-  // DrawerForm 特有：trigger 除了切换 open，还需要确认 resizeInfo 是否有效
-  const triggerDomWithResize = trigger
-    ? React.cloneElement(trigger, {
-        key: 'trigger',
-        ...trigger.props,
-        onClick: async (e: any) => {
-          setOpen(!open);
-          trigger.props?.onClick?.(e);
-        },
-      })
-    : null;
 
   const cbHandleMouseMove = useCallback(
     (e: MouseEvent) => {
@@ -250,7 +236,7 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
           {children}
         </BaseForm>
       </Drawer>
-      {triggerDomWithResize ?? triggerDom}
+      {triggerDom}
     </>,
   );
 }

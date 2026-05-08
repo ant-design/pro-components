@@ -387,7 +387,7 @@ function StepsForm<T = Record<string, any>>(
           formArrayRef.current.forEach((form) => form.current?.resetFields());
         }
       } catch (error) {
-        console.log(error);
+        console.error('[StepsForm] onFinish error:', error);
       } finally {
         setLoading(false);
       }

@@ -19,7 +19,6 @@ export const genUrlSyncParams = (
 
 export type UseUrlSyncOptions<T> = {
   syncToUrl?: boolean | ((values: T, type: 'get' | 'set') => T);
-  syncToUrlAsImportant?: boolean;
   syncToInitialValues?: boolean;
   extraUrlParams?: Record<string, any>;
 };

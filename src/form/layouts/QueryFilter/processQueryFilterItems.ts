@@ -28,12 +28,6 @@ export type ProcessQueryFilterItemsResult = {
   /** 经过处理的表单项列表 */
   processedList: ProcessedQueryFilterItem[];
   /**
-   * 提交按钮列的 offset（用于对齐到最右列）
-   *
-   * 计算规则：当前行已占用的 span + 提交按钮自身 span，若超过 24 则折行到下一行。
-   */
-  submitterOffset: number;
-  /**
    * 统计当前所有项（含换行填充）占用的总 span，用于判断是否需要展示 collapseRender。
    * 若 totalSpan < 24 且 totalSize <= showLength，则不需要折叠按钮。
    */
@@ -166,8 +160,22 @@ export function processQueryFilterItems({
     totalSpan,
     totalSize,
     lastRowUsedSpan,
-    // submitterOffset 由调用方根据 lastRowUsedSpan + submitterColSpan 决定，
-    // 这里返回一个语义化的中间值给调用方使用
-    submitterOffset: lastRowUsedSpan,
   };
+}
+
+/**
+ * 根据最后一行已占用的 span 和提交按钮自身的 span，计算提交按钮列的 Col offset。
+ *
+ * 规则：lastRowUsedSpan + submitterSpan 若超过 24，则折行，offset = 24 - submitterSpan；
+ * 否则 offset = 24 - lastRowUsedSpan - submitterSpan。
+ */
+export function calcSubmitterOffset(
+  lastRowUsedSpan: number,
+  submitterSpan: number,
+): number {
+  const offsetSpan = lastRowUsedSpan + submitterSpan;
+  if (offsetSpan > 24) {
+    return 24 - submitterSpan;
+  }
+  return 24 - offsetSpan;
 }

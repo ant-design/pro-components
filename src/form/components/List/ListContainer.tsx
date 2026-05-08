@@ -10,6 +10,28 @@ import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
 import type { ProFormListItemProps } from './ListItem';
 import { ProFormListItem } from './ListItem';
 
+/**
+ * 用 guard 函数包装 action 方法：
+ * - 有 guard 时先执行 guard，返回 true 才执行 action 并触发回调
+ * - 无 guard 时直接执行 action 并触发回调
+ */
+async function wrapWithGuard<TArgs extends any[]>(
+  args: TArgs,
+  guard: ((...params: [...TArgs, number]) => boolean | Promise<boolean>) | undefined,
+  count: number,
+  doAction: (...args: TArgs) => any,
+  afterCallback?: (...params: [...TArgs, number]) => void,
+  countDelta: number = 0,
+): Promise<any> {
+  if (guard) {
+    const success = await guard(...args, count);
+    if (!success) return false;
+  }
+  const res = doAction(...args);
+  afterCallback?.(...args, count + countDelta);
+  return res;
+}
+
 const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
   const intl = useIntl();
   const {
@@ -46,47 +68,17 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
   }, [fields]);
 
   /**
-   * 根据行为守卫包装action函数
+   * 根据行为守卫包装 action 函数，复用 wrapWithGuard 消除 add/remove 分支重复
    */
   const wrapperAction = useMemo(() => {
     const wrapAction = { ...action };
     const count = uuidFields.length;
 
-    if (actionGuard?.beforeAddRow) {
-      wrapAction.add = async (...rest) => {
-        const success = await actionGuard.beforeAddRow!(...rest, count);
-        if (success) {
-          const res = action.add(...rest);
-          onAfterAdd?.(...rest, count + 1);
-          return res;
-        }
-        return false;
-      };
-    } else {
-      wrapAction.add = async (...rest) => {
-        const res = action.add(...rest);
-        onAfterAdd?.(...rest, count + 1);
-        return res;
-      };
-    }
+    wrapAction.add = (...args) =>
+      wrapWithGuard(args, actionGuard?.beforeAddRow, count, action.add, onAfterAdd, 1);
 
-    if (actionGuard?.beforeRemoveRow) {
-      wrapAction.remove = async (...rest) => {
-        const success = await actionGuard.beforeRemoveRow!(...rest, count);
-        if (success) {
-          const res = action.remove(...rest);
-          onAfterRemove?.(...rest, count - 1);
-          return res;
-        }
-        return false;
-      };
-    } else {
-      wrapAction.remove = async (...rest) => {
-        const res = action.remove(...rest);
-        onAfterRemove?.(...rest, count - 1);
-        return res;
-      };
-    }
+    wrapAction.remove = (...args) =>
+      wrapWithGuard(args, actionGuard?.beforeRemoveRow, count, action.remove, onAfterRemove, -1);
 
     return wrapAction;
   }, [

@@ -349,8 +349,8 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
     componentSize: 'middle',
   };
 
-  /** 同步 url 上的参数 */
-  const formRef = useRef<ProFormRef<any>>((form || formInstance) as any);
+  /** 内部持有当前 FormInstance，供 useImperativeHandle 和 submitter 使用 */
+  const formInstanceRef = useRef<ProFormRef<any>>((form || formInstance) as any);
 
   /**
    * 获取布局
@@ -384,7 +384,7 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
         {...submitterProps}
         onReset={() => {
           const finalValues = transformKey(
-            formRef.current?.getFieldsValue(),
+            formInstanceRef.current?.getFieldsValue(),
             omitNil,
           );
           submitterProps?.onReset?.(finalValues);
@@ -401,7 +401,7 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
 
   const wrapItems = grid ? <RowWrapper>{items}</RowWrapper> : items;
   const content = contentRender
-    ? contentRender(wrapItems as any, submitterNode, formRef.current)
+    ? contentRender(wrapItems as any, submitterNode, formInstanceRef.current)
     : wrapItems;
 
   const preInitialValues = usePrevious(props.initialValues);
@@ -425,18 +425,18 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
   useImperativeHandle(
     propsFormRef,
     () => ({
-      ...formRef.current,
-      ...buildFormatValues(() => formRef.current, transformKey, omitNil),
+      ...formInstanceRef.current,
+      ...buildFormatValues(() => formInstanceRef.current, transformKey, omitNil),
     }),
     [omitNil, transformKey, propsFormRef],
   );
   useEffect(() => {
     const finalValues = transformKey(
-      formRef.current?.getFieldsValue?.(true),
+      formInstanceRef.current?.getFieldsValue?.(true),
       omitNil,
     );
     onInit?.(finalValues, {
-      ...formRef.current,
+      ...formInstanceRef.current,
       ...formatValues,
     });
   }, []);
@@ -445,7 +445,7 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
     <ProFormContext.Provider
       value={{
         ...formatValues,
-        formRef,
+        formRef: formInstanceRef,
       }}
     >
       <ConfigProvider componentSize={rest.size || componentSize}>
@@ -651,28 +651,31 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
       setLoading(true);
       const finalValues = formRef?.current?.getFieldsFormatValue?.() || {};
       const response = propRest.onFinish(finalValues);
+      let responseResult: any;
       if (
         response &&
         typeof response === 'object' &&
         typeof response.then === 'function'
       ) {
         try {
-          await response;
+          responseResult = await response;
         } catch (error) {
-          // 确保在 Promise 被拒绝时也重置 loading 状态
+          // Promise 被拒绝时重置 loading 并向上抛出，不同步 URL
           setLoading(false);
           throw error;
         }
-        // 只有在 Promise 成功完成时才重置 loading 状态
         setLoading(false);
       } else {
+        responseResult = response;
         setLoading(false);
       }
-      // 如果 syncToUrl，将提交值同步到 URL
-      const allFieldKeys = Object.keys(
-        formRef?.current?.getFieldsFormatValue?.(true, false) || {},
-      );
-      onUrlSyncFinish(finalValues, allFieldKeys, extraUrlParams);
+      // 仅在 onFinish 返回 truthy 时才同步 URL，失败时不更新
+      if (responseResult) {
+        const allFieldKeys = Object.keys(
+          formRef?.current?.getFieldsFormatValue?.(true, false) || {},
+        );
+        onUrlSyncFinish(finalValues, allFieldKeys, extraUrlParams);
+      }
     } catch (error) {
       setLoading(false);
     }
