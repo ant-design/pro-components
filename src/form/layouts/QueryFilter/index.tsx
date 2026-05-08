@@ -12,7 +12,7 @@ import type { CommonFormProps } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import type { ActionsProps } from './Actions';
 import Actions from './Actions';
-import { processQueryFilterItems } from './processQueryFilterItems';
+import { calcSubmitterOffset, processQueryFilterItems } from './processQueryFilterItems';
 import { useStyle } from './style';
 
 type BreakpointsConfig = {
@@ -400,15 +400,10 @@ const QueryFilterContent: React.FC<{
 
   const needCollapseRender = totalSpan >= 24 && totalSize > showLength;
 
-  const offset = (() => {
-    const submitterSpan =
-      props.submitterColSpanProps?.span ?? spanSize.span;
-    const offsetSpan = lastRowUsedSpan + submitterSpan;
-    if (offsetSpan > 24) {
-      return 24 - submitterSpan;
-    }
-    return 24 - offsetSpan;
-  })();
+  const offset = calcSubmitterOffset(
+    lastRowUsedSpan,
+    props.submitterColSpanProps?.span ?? spanSize.span,
+  );
 
   const context = useContext(ConfigProvider.ConfigContext);
   const baseClassName = context.getPrefixCls('pro-query-filter');
