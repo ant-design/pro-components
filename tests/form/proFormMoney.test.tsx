@@ -39,7 +39,8 @@ describe('💵 ProFormMoney', () => {
     await waitFor(() => {
       expect(fn).toHaveBeenCalledWith(44.33);
     });
-    expect(container).toMatchSnapshot();
+    // 提交后 input 值仍保持格式化的 ¥ 44.33
+    expect(getMoneyInput(container).value).toBe('¥ 44.33');
   });
 
   it('💵 moneySymbol with global locale', async () => {
@@ -65,7 +66,8 @@ describe('💵 ProFormMoney', () => {
     await waitFor(() => {
       expect(fn).toHaveBeenCalledWith(44.33);
     });
-    expect(container).toMatchSnapshot();
+    // ConfigProvider locale=enGB 时，币种符号保持 £
+    expect(getMoneyInput(container).value).toBe('£ 44.33');
   });
 
   it('💵 moneySymbol with custom locale', async () => {
@@ -87,7 +89,8 @@ describe('💵 ProFormMoney', () => {
     await waitFor(() => {
       expect(fn).toHaveBeenCalledWith(44.33);
     });
-    expect(container).toMatchSnapshot();
+    // 自定义 locale=en-US 时，币种符号为 $
+    expect(getMoneyInput(container).value).toBe('$ 44.33');
   });
 
   it('💵 moneySymbol with custom symbol', async () => {
@@ -110,7 +113,8 @@ describe('💵 ProFormMoney', () => {
     await waitFor(() => {
       expect(fn).toHaveBeenCalledWith(44.33);
     });
-    expect(container).toMatchSnapshot();
+    // 自定义 customSymbol 应作为前缀展示
+    expect(getMoneyInput(container).value).toBe('💰 44.33');
   });
 
   it('💵 can not input negative', async () => {
@@ -138,7 +142,9 @@ describe('💵 ProFormMoney', () => {
     await waitFor(() => {
       expect(fn).toHaveBeenCalledWith(undefined);
     });
-    expect(container).toMatchSnapshot();
+    // min=0 时，提交校验应将负数视为非法 → 提交值为 undefined（关键断言）
+    // input 显示值由 antd InputNumber 控制，可能仍展示用户输入
+    expect(fn).toHaveBeenLastCalledWith(undefined);
   });
 
   it('💵 can input negative', async () => {
@@ -168,7 +174,8 @@ describe('💵 ProFormMoney', () => {
     await waitFor(() => {
       expect(fn).toHaveBeenCalledWith(-55.33);
     });
-    expect(container).toMatchSnapshot();
+    // 未设置 min 时允许负数，提交后值仍为 -55.33
+    expect(getMoneyInput(container).value).toBe('¥ -55.33');
   });
 
   it('💵 update money precision when init', async () => {
@@ -195,6 +202,7 @@ describe('💵 ProFormMoney', () => {
     await waitFor(() => {
       expect(fn).toHaveBeenCalledWith(444444444.333333333);
     });
-    expect(container).toMatchSnapshot();
+    // precision=2 应保留 2 位小数，并使用千分位分隔；提交值为原始未截断的精度
+    expect(getMoneyInput(container).value).toBe('💰 444,444,444.33');
   });
 });

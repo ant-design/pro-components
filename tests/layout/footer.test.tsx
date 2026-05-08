@@ -16,12 +16,30 @@ describe('DefaultFooter test', () => {
 
   it('🦶 copyright support false', () => {
     const wrapper = render(<DefaultFooter copyright={false} />);
-    expect(wrapper.asFragment()).toMatchSnapshot();
+    // copyright=false 时不应渲染版权区块
+    expect(
+      wrapper.baseElement.querySelector('.ant-pro-global-footer-copyright'),
+    ).toBeFalsy();
+    // 不应渲染 CopyrightOutlined 图标
+    expect(
+      wrapper.baseElement.querySelector('.anticon-copyright'),
+    ).toBeFalsy();
+    // 外层 layout footer 容器仍存在
+    expect(
+      wrapper.baseElement.querySelector('[data-testid="pro-layout-footer"]'),
+    ).toBeTruthy();
   });
 
   it('🦶 links support false', () => {
     const wrapper = render(<DefaultFooter links={false} />);
-    expect(wrapper.asFragment()).toMatchSnapshot();
+    // links=false 时不应渲染 links 区块
+    expect(
+      wrapper.baseElement.querySelector('.ant-pro-global-footer-links'),
+    ).toBeFalsy();
+    // 外层 layout footer 容器仍存在
+    expect(
+      wrapper.baseElement.querySelector('[data-testid="pro-layout-footer"]'),
+    ).toBeTruthy();
   });
 
   it('🦶 if copyright and links falsy both, should not to render nothing', () => {

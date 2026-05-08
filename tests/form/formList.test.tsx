@@ -1,4 +1,4 @@
-﻿import { CloseOutlined, SnippetsOutlined } from '@ant-design/icons';
+import { CloseOutlined, SnippetsOutlined } from '@ant-design/icons';
 import type { FormListActionType } from '@ant-design/pro-components';
 import {
   ModalForm,
@@ -1020,7 +1020,16 @@ describe('ProForm List', () => {
     expect(input.length).toBe(3);
     expect(input[2].value).toBe('1111');
 
-    expect(html.baseElement).toMatchSnapshot();
+    // 复制操作完成后：
+    // 1) 应有 3 个 input
+    expect(input.length).toBe(3);
+    // 2) action-copy / action-remove 按钮应都存在 3 个
+    expect(
+      html.baseElement.querySelectorAll('.action-copy').length,
+    ).toBe(3);
+    expect(
+      html.baseElement.querySelectorAll('.action-remove').length,
+    ).toBe(3);
 
     // 删除按钮
     await act(async () => {

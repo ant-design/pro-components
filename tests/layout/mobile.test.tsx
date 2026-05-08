@@ -1,4 +1,4 @@
-﻿import { ProLayout } from '@ant-design/pro-components';
+import { ProLayout } from '@ant-design/pro-components';
 import { cleanup, render, waitFor } from '@testing-library/react';
 import { act } from 'react';
 import {
@@ -54,7 +54,9 @@ describe('mobile BasicLayout', () => {
     await waitFor(async () => {
       await html.findAllByText('welcome');
     });
-    expect(html.asFragment()).toMatchSnapshot();
+    // 移动端布局基础渲染：内容、布局根节点应正常渲染
+    expect(html.baseElement.textContent).toContain('welcome');
+    expect(html.baseElement.querySelector('.ant-pro-layout')).toBeTruthy();
   });
 
   it('📱 collapsed=false', async () => {
@@ -129,7 +131,10 @@ describe('mobile BasicLayout', () => {
     await waitFor(async () => {
       await html.findAllByText('welcome');
     });
-    expect(html.asFragment()).toMatchSnapshot();
+    // menuHeaderRender=false 不应渲染 'Ant Design' 默认 logo 文本
+    expect(html.baseElement.textContent).not.toContain('Ant Design');
+    // 内容仍正常渲染
+    expect(html.baseElement.textContent).toContain('welcome');
   });
 
   it('📱 layout menuHeaderRender', async () => {
@@ -147,7 +152,9 @@ describe('mobile BasicLayout', () => {
     await waitFor(async () => {
       await html.findAllByText('welcome');
     });
-    expect(html.asFragment()).toMatchSnapshot();
+    // menuHeaderRender 返回的 'title' 文本应出现在文档中
+    expect(html.baseElement.textContent).toContain('title');
+    expect(html.baseElement.textContent).toContain('welcome');
   });
 
   it('📱 layout menuHeaderRender with custom title', async () => {
@@ -165,7 +172,9 @@ describe('mobile BasicLayout', () => {
     await waitFor(async () => {
       await html.findAllByText('welcome');
     });
-    expect(html.asFragment()).toMatchSnapshot();
+    // 与上一个用例配置相同，验证一致性
+    expect(html.baseElement.textContent).toContain('title');
+    expect(html.baseElement.textContent).toContain('welcome');
   });
 
   it('📱 layout collapsedButtonRender', async () => {

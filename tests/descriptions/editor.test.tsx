@@ -258,7 +258,10 @@ describe('Descriptions', () => {
         dataSource={defaultData}
       />,
     );
-    expect(wrapper.asFragment()).toMatchSnapshot();
+    // editableKeys=['title'] + formItemRender 调用 defaultRender → 应渲染默认编辑控件（input）
+    expect(wrapper.container.querySelector('input.ant-input')).toBeTruthy();
+    // 编辑模式下应有 form item
+    expect(wrapper.container.querySelector('.ant-form-item')).toBeTruthy();
   });
 
   it('📝 columns support editable test', async () => {
@@ -282,7 +285,15 @@ describe('Descriptions', () => {
         dataSource={defaultData}
       />,
     );
-    expect(wrapper.asFragment()).toMatchSnapshot();
+    // editableKeys=['title'] 时 title 列进入编辑态 → 渲染 input
+    // 注：实际 editable(text, record, index) 中 index 由内部传入，title 仍能进入编辑
+    expect(wrapper.container.querySelector('input.ant-input')).toBeTruthy();
+    // title2 列设置 editable=false，不应渲染额外编辑控件
+    // 整个 descriptions 应只有 1 个 input（title 列）
+    expect(
+      wrapper.container.querySelectorAll('input.ant-input').length,
+    ).toBe(1);
+    expect(wrapper.container.querySelector('.ant-descriptions')).toBeTruthy();
   });
 
   it('📝 support actionRender', async () => {

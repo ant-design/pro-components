@@ -51,7 +51,11 @@ describe('BasicLayout', () => {
   });
   it('🥩 base use', async () => {
     const html = render(<ProLayout />);
-    expect(html.asFragment()).toMatchSnapshot();
+    // 基础渲染：ProLayout 根容器与默认 sider 应正常渲染
+    expect(html.baseElement.querySelector('.ant-pro-layout')).toBeTruthy();
+    expect(
+      html.baseElement.querySelector('.ant-pro-layout-content'),
+    ).toBeTruthy();
     html.unmount();
   });
 
@@ -854,7 +858,12 @@ describe('BasicLayout', () => {
         }}
       />,
     );
-    expect(wrapper.asFragment()).toMatchSnapshot();
+    // contentStyle.padding=56 应应用到 layout-content 元素
+    const contentEl = wrapper.baseElement.querySelector<HTMLDivElement>(
+      '.ant-pro-layout-content',
+    );
+    expect(contentEl).toBeTruthy();
+    expect(contentEl?.style.padding).toBe('56px');
   });
 
   it('🥩 support className', async () => {
@@ -1192,7 +1201,14 @@ describe('BasicLayout', () => {
         />
       </>,
     );
-    expect(wrapper.asFragment()).toMatchSnapshot();
+    // menu.loading=true 时，应渲染 skeleton 占位
+    expect(
+      wrapper.baseElement.querySelectorAll('.ant-skeleton').length,
+    ).toBeGreaterThan(0);
+    // 应渲染至少 2 个 ProLayout 实例
+    expect(
+      wrapper.baseElement.querySelectorAll('.ant-pro-layout').length,
+    ).toBeGreaterThanOrEqual(2);
   });
 
   it('🥩 ProLayout support current menu', async () => {

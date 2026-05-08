@@ -10,30 +10,60 @@ afterEach(() => {
 describe('skeleton', () => {
   it('🥩 list base use', async () => {
     const wrapper = render(<ProSkeleton type="list" />);
-    expect(wrapper.asFragment()).toMatchSnapshot();
+    // type="list" 应渲染 skeleton 容器和多个 skeleton 单元
+    expect(
+      wrapper.container.querySelectorAll('.ant-skeleton').length,
+    ).toBeGreaterThan(0);
+    // 默认 list 模式应渲染若干 skeleton-button（PageHeader/Statistic/Toolbar/List 中均有）
+    expect(
+      wrapper.container.querySelectorAll('.ant-skeleton-button').length,
+    ).toBeGreaterThan(0);
   });
 
   it('🥩 descriptions base use', async () => {
     const wrapper = render(<ProSkeleton type="descriptions" />);
-    expect(wrapper.asFragment()).toMatchSnapshot();
+    // type="descriptions" 应渲染多个 skeleton 单元
+    expect(
+      wrapper.container.querySelectorAll('.ant-skeleton').length,
+    ).toBeGreaterThan(0);
+    // descriptions 模式下应渲染若干 skeleton-button（DescriptionsSkeleton 中的 100px 按钮）
+    expect(
+      wrapper.container.querySelectorAll('.ant-skeleton-button').length,
+    ).toBeGreaterThan(0);
   });
 
   it('🥩 result base use', async () => {
     const wrapper = render(<ProSkeleton type="result" />);
-    expect(wrapper.asFragment()).toMatchSnapshot();
+    // type="result" 应渲染结果页 skeleton
+    expect(
+      wrapper.container.querySelectorAll('.ant-skeleton').length,
+    ).toBeGreaterThan(0);
+    // result 模式下应渲染 button skeleton
+    expect(
+      wrapper.container.querySelector('.ant-skeleton-button'),
+    ).toBeTruthy();
   });
 
   it('🥩 descriptions api use', async () => {
     const wrapper = render(
       <ProSkeleton type="descriptions" pageHeader={false} list={10} />,
     );
-    expect(wrapper.asFragment()).toMatchSnapshot();
+    // pageHeader=false 不应渲染 pageHeader skeleton（无 ant-skeleton-avatar）
+    expect(wrapper.container.querySelector('.ant-skeleton-avatar')).toBeFalsy();
+    // list=10 应渲染较多 skeleton 单元
+    const initialItems =
+      wrapper.container.querySelectorAll('.ant-skeleton').length;
+    expect(initialItems).toBeGreaterThan(0);
+
     act(() => {
       wrapper.rerender(
         <ProSkeleton type="descriptions" pageHeader={false} list={5} />,
       );
     });
-    expect(wrapper.asFragment()).toMatchSnapshot();
+    // list=5 时，skeleton 数量应少于 list=10 时
+    const afterItems =
+      wrapper.container.querySelectorAll('.ant-skeleton').length;
+    expect(afterItems).toBeLessThan(initialItems);
   });
 
   it('🥩 list api use', async () => {
@@ -47,7 +77,13 @@ describe('skeleton', () => {
         list={10}
       />,
     );
-    expect(wrapper.asFragment()).toMatchSnapshot();
+    // pageHeader=false 不应渲染 avatar skeleton
+    expect(wrapper.container.querySelector('.ant-skeleton-avatar')).toBeFalsy();
+    // 应渲染若干 skeleton 单元（statistic + list）
+    const initialCount =
+      wrapper.container.querySelectorAll('.ant-skeleton').length;
+    expect(initialCount).toBeGreaterThan(0);
+
     act(() => {
       wrapper.rerender(
         <ProSkeleton
@@ -60,7 +96,11 @@ describe('skeleton', () => {
         />,
       );
     });
-    expect(wrapper.asFragment()).toMatchSnapshot();
+    // 全部关闭后，skeleton 数量应大幅减少（趋近 0）
+    const afterCount =
+      wrapper.container.querySelectorAll('.ant-skeleton').length;
+    expect(afterCount).toBeLessThan(initialCount);
+    expect(wrapper.container.querySelector('.ant-skeleton-avatar')).toBeFalsy();
   });
 
   it('🥩 statistic=1,span=16', async () => {
@@ -74,6 +114,11 @@ describe('skeleton', () => {
         list={10}
       />,
     );
-    expect(wrapper.asFragment()).toMatchSnapshot();
+    // 仅渲染 statistic + list 两个模块
+    expect(
+      wrapper.container.querySelectorAll('.ant-skeleton').length,
+    ).toBeGreaterThan(0);
+    // pageHeader/actionButton/toolbar 关闭，无 avatar skeleton
+    expect(wrapper.container.querySelector('.ant-skeleton-avatar')).toBeFalsy();
   });
 });

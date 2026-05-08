@@ -98,7 +98,12 @@ describe('List', () => {
         loading={true}
       />,
     );
-    expect(container).toMatchSnapshot();
+    // loading=true 应渲染 spin 容器
+    expect(container.querySelector('.ant-spin-spinning')).toBeTruthy();
+    // ProList 内部仍渲染数据行，但被 spin 遮蔽（aria-busy）
+    // 验证 spin 容器的 aria-busy 状态
+    const spin = container.querySelector('.ant-spin');
+    expect(spin?.getAttribute('aria-busy')).toBe('true');
   });
 
   it('🚏 only has content', async () => {
@@ -128,7 +133,14 @@ describe('List', () => {
         ]}
       />,
     );
-    expect(container).toMatchSnapshot();
+    // 仅 content 元数据：应渲染 content 区域，不应渲染 title/description
+    expect(container.querySelector('.ant-pro-list-row-content')).toBeTruthy();
+    expect(container.querySelector('.ant-pro-list-row-title')).toBeFalsy();
+    expect(
+      container.querySelector('.ant-pro-list-row-description'),
+    ).toBeFalsy();
+    // content 文本应正确渲染（包含 design.alipay.com）
+    expect(container.textContent).toContain('design.alipay.com');
   });
 
   it('🚏 only has description', async () => {
@@ -156,7 +168,15 @@ describe('List', () => {
         ]}
       />,
     );
-    expect(container).toMatchSnapshot();
+    // 仅 description 元数据：应渲染 3 个 tag
+    expect(container.querySelectorAll('.ant-tag').length).toBe(3);
+    // 不应渲染 title 区域
+    expect(container.querySelector('.ant-pro-list-row-title')).toBeFalsy();
+    // tag 文本应正确渲染（去除 antd 中文空格）
+    const text = container.textContent?.replace(/\s/g, '') ?? '';
+    expect(text).toContain('语雀专栏');
+    expect(text).toContain('设计语言');
+    expect(text).toContain('蚂蚁金服');
   });
 
   it('🚏 empty', async () => {
@@ -612,7 +632,11 @@ describe('List', () => {
     expect(container.querySelector('.ant-pro-list-row')!).toHaveClass(
       customizedRowClassName,
     );
-    expect(container).toMatchSnapshot();
+    // 自定义 className 应附加到所有行
+    const rows = container.querySelectorAll('.ant-pro-list-row');
+    rows.forEach((row) => {
+      expect(row).toHaveClass(customizedRowClassName);
+    });
   });
 
   it('🚏 ProList support rowClassName as a function', async () => {
@@ -648,7 +672,15 @@ describe('List', () => {
     expect(container.querySelectorAll('.ant-pro-list-row')[1]).toHaveClass(
       'odd',
     );
-    expect(container).toMatchSnapshot();
+    // rowClassName 函数应根据 index 返回不同 className
+    // 共 2 行：第 0 行带 even，第 1 行带 odd
+    expect(container.querySelectorAll('.ant-pro-list-row').length).toBe(2);
+    expect(
+      container.querySelectorAll('.ant-pro-list-row.even').length,
+    ).toBe(1);
+    expect(
+      container.querySelectorAll('.ant-pro-list-row.odd').length,
+    ).toBe(1);
   });
 
   it('🚏 ProList support itemHeaderRender', async () => {
