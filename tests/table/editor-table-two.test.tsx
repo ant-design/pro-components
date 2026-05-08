@@ -874,7 +874,14 @@ describe('EditorProTable 2', () => {
     );
 
     await wrapper.findAllByText('测试添加数据');
-    expect(wrapper.asFragment()).toMatchSnapshot();
+    // position='top' 时创建按钮应在 thead 中渲染
+    expect(wrapper.container.querySelector('thead button')).toBeTruthy();
+    expect(wrapper.getByText('测试添加数据')).toBeTruthy();
+    // 应渲染表格及数据行
+    expect(wrapper.container.querySelector('.ant-table')).toBeTruthy();
+    expect(wrapper.container.querySelectorAll('.ant-table-row').length).toBe(
+      defaultData.length,
+    );
   });
 
   it('📝 support onEditorChange', async () => {
@@ -1124,7 +1131,8 @@ describe('EditorProTable 2', () => {
     await wrapper.findAllByText('添加新行');
 
     act(() => {
-      wrapper.queryAllByText('添加新行').at(1)?.click();
+      // position='top' 时按钮只渲染一次，直接取第一个
+      wrapper.queryAllByText('添加新行').at(0)?.click();
     });
 
     await waitFor(

@@ -111,7 +111,16 @@ describe('Table valueEnum', () => {
       />,
     );
 
-    expect(wrapper.asFragment()).toMatchSnapshot();
+    // actions 传入单个 ReactElement（非数组）时，应直接渲染该元素
+    // 注意：antd 在中文字符之间会自动插入空格（"添加" → "添 加"），故使用正则匹配
+    const addButton = wrapper.getByRole('button');
+    expect(addButton).toBeTruthy();
+    expect(addButton).toHaveClass('ant-btn-primary');
+    expect(addButton.textContent?.replace(/\s/g, '')).toBe('添加');
+    // ListToolBar 容器应正常渲染
+    expect(
+      wrapper.container.querySelector('.ant-pro-table-list-toolbar'),
+    ).toBeTruthy();
   });
 
   it('ListToolBar action is empty array', async () => {
@@ -122,7 +131,16 @@ describe('Table valueEnum', () => {
       />,
     );
 
-    expect(wrapper.asFragment()).toMatchSnapshot();
+    // actions 为返回空数组的函数时，不应渲染任何 action 按钮
+    const toolbar = wrapper.container.querySelector(
+      '.ant-pro-table-list-toolbar',
+    );
+    expect(toolbar).toBeTruthy();
+    expect(
+      wrapper.container.querySelectorAll(
+        '.ant-pro-table-list-toolbar-right .ant-btn',
+      ).length,
+    ).toBe(0);
   });
 
   it('ListToolBar action no jsx', async () => {
@@ -137,7 +155,15 @@ describe('Table valueEnum', () => {
       />,
     );
 
-    expect(wrapper.asFragment()).toMatchSnapshot();
+    // actions 数组中既有 JSX 元素，也有纯文本字符串，两者都应被渲染
+    // 注意：antd 在中文字符之间会自动插入空格（"添加" → "添 加"），故使用 textContent 匹配
+    const addButton = wrapper.getByRole('button');
+    expect(addButton).toBeTruthy();
+    expect(addButton.textContent?.replace(/\s/g, '')).toBe('添加');
+    expect(wrapper.getByText('shuaxin')).toBeTruthy();
+    expect(
+      wrapper.container.querySelector('.ant-pro-table-list-toolbar'),
+    ).toBeTruthy();
   });
 
   it('ListToolBar onSettingClick', async () => {

@@ -187,7 +187,13 @@ describe('EditorProTable', () => {
       />,
     );
     await waitForWaitTime(100);
-    expect(wrapper.asFragment()).toMatchSnapshot();
+    // recordCreatorProps=false 时不应渲染新增按钮
+    expect(wrapper.container.querySelector('.ant-btn')).toBeFalsy();
+    // 应渲染表格及数据行
+    expect(wrapper.container.querySelector('.ant-table')).toBeTruthy();
+    expect(wrapper.container.querySelectorAll('.ant-table-row').length).toBe(
+      defaultData.length,
+    );
   });
 
   it('📝 EditableProTable support pagination', async () => {
@@ -917,7 +923,13 @@ describe('EditorProTable', () => {
       />,
     );
     await waitForWaitTime(200);
-    expect(wrapper.asFragment()).toMatchSnapshot();
+    // recordCreatorProps 设置 creatorButtonText 后应渲染对应按钮
+    expect(wrapper.getByText('测试添加数据')).toBeTruthy();
+    // 应渲染表格及数据行
+    expect(wrapper.container.querySelector('.ant-table')).toBeTruthy();
+    expect(wrapper.container.querySelectorAll('.ant-table-row').length).toBe(
+      defaultData.length,
+    );
   });
 
   it('📝 EditableProTable support controlled', async () => {

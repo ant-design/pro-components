@@ -228,13 +228,10 @@ function createTopButtonProps(
         }) => (
           <thead className={className}>
             {children}
-            <tr style={{ position: 'relative' }}>
-              <td colSpan={0} style={{ visibility: 'hidden' }}>
-                {creatorButtonDom}
-              </td>
+            <tr>
               <td
-                style={{ position: 'absolute', left: 0, width: '100%' }}
-                colSpan={columnsLength}
+                colSpan={columnsLength || 1}
+                style={{ padding: 0, border: 'none' }}
               >
                 {creatorButtonDom}
               </td>
@@ -341,6 +338,8 @@ function EditableTable<
   } = props;
 
   const preData = useRef<readonly DataType[] | undefined>(undefined);
+  /** ProFormDependency render 回调写入最新 list，useEffect 读取并处理副作用 */
+  const latestFormListRef = useRef<DataType[] | null>(null);
   const actionRef = useRef<ActionType>();
   const formRef = useRef<ProFormInstance>();
   const form = Form.useFormInstance();
@@ -374,7 +373,8 @@ function EditableTable<
     getInitialValue,
     props.value,
   );
-  const setValue = useCallback(
+  // useRefFunction 等价于 useCallback(fn, [])，引用永远稳定，项目统一约定
+  const setValue = useRefFunction(
     (
       updater:
         | readonly DataType[]
@@ -390,7 +390,6 @@ function EditableTable<
           | ((prev: readonly DataType[]) => readonly DataType[]),
       );
     },
-    [],
   );
 
   const getRowKey = React.useMemo<
@@ -475,7 +474,9 @@ function EditableTable<
           }
         }
       } catch (error) {
-        console.warn('Failed to sync form values:', error);
+        // 不吞掉异常：调用方（onDataSourceChange）需要感知同步失败，
+        // 避免数据不一致时无声静默。
+        throw error;
       }
     },
   );
@@ -509,19 +510,22 @@ function EditableTable<
   );
 
   /**
-   * 根据不同的情况返回不同的 rowKey
+   * 根据不同的模式（name / 非 name）将用户传入的 rowKey 解析为表单可用的 key。
+   * - 非 name 模式 + 数字索引 → 转换为实际 rowKey
+   * - name 模式 → 将 rowKey 转换为数组索引
+   * - 其他情况 → 原样返回
    */
-  const coverRowKey = useRefFunction(
-    (finlayRowKey: number | string): string | number => {
-      if (typeof finlayRowKey === 'number' && !props.name) {
-        return convertIndexToRowKey(finlayRowKey);
+  const resolveRowKey = useRefFunction(
+    (inputKey: number | string): string | number => {
+      if (typeof inputKey === 'number' && !props.name) {
+        return convertIndexToRowKey(inputKey);
       }
 
       if (props.name) {
-        return convertRowKeyToIndex(finlayRowKey);
+        return convertRowKeyToIndex(inputKey);
       }
 
-      return finlayRowKey;
+      return inputKey;
     },
   );
 
@@ -545,8 +549,8 @@ function EditableTable<
         throw new Error('rowIndex is required');
       }
 
-      const finlayRowKey = coverRowKey(rowIndex);
-      const rowKeyName = buildFormFieldPath(finlayRowKey);
+      const resolvedKey = resolveRowKey(rowIndex);
+      const rowKeyName = buildFormFieldPath(resolvedKey);
       return formRef.current?.getFieldValue(rowKeyName) as DataType;
     },
   );
@@ -556,11 +560,14 @@ function EditableTable<
    */
   const getRowsData = useRefFunction((): DataType[] | undefined => {
     const rowKeyName = [props.name].flat(1).filter(Boolean) as NamePath;
-    if (Array.isArray(rowKeyName) && rowKeyName.length === 0) {
-      const rowData = formRef.current?.getFieldsValue();
-      if (Array.isArray(rowData)) return rowData;
+    // 非 name 模式：rowKeyName 为空，从表单顶层拿所有字段，值是 Record<rowKey, DataType>
+    if (rowKeyName.length === 0) {
+      const rowData = formRef.current?.getFieldsValue() as Record<string, DataType> | undefined;
+      if (!rowData) return undefined;
+      // getFieldsValue() 返回的永远是对象，按 key 排列后取 values
       return Object.keys(rowData).map((key) => rowData[key]);
     }
+    // name 模式：直接取数组
     return formRef.current?.getFieldValue(rowKeyName) as DataType[];
   });
 
@@ -573,8 +580,8 @@ function EditableTable<
         throw new Error('rowIndex is required');
       }
 
-      const finlayRowKey = coverRowKey(rowIndex);
-      const rowKeyName = buildFormFieldPath(finlayRowKey) as string[];
+      const resolvedKey = resolveRowKey(rowIndex);
+      const rowKeyName = buildFormFieldPath(resolvedKey) as string[];
 
       const currentRowData = getRowData(rowIndex);
       const newRowData = {
@@ -593,13 +600,13 @@ function EditableTable<
         if (Array.isArray(currentTableData)) {
           // 找到要更新的行的索引
           const rowIndexToUpdate =
-            typeof finlayRowKey === 'number'
-              ? finlayRowKey
+            typeof resolvedKey === 'number'
+              ? resolvedKey
               : currentTableData.findIndex((row, index) => {
                   const rowKey = getRowKey?.(row, index);
                   return (
-                    rowKey === finlayRowKey ||
-                    rowKey?.toString() === finlayRowKey?.toString()
+                    rowKey === resolvedKey ||
+                    rowKey?.toString() === resolvedKey?.toString()
                   );
                 });
 
@@ -645,7 +652,43 @@ function EditableTable<
       getRowsData,
       setRowData,
     } as EditableFormInstance<DataType>;
-  }, [coverRowKey, props.name, getRowData, getRowsData, setRowData]);
+  }, [resolveRowKey, props.name, getRowData, getRowsData, setRowData]);
+
+  /**
+   * 处理 name 模式下表单内部编辑引起的 onValuesChange 副作用。
+   * ProFormDependency 的渲染回调是纯函数，仅把最新 list 写入 latestFormListRef；
+   * 此 effect 在每次渲染后读取 ref，完成真正的副作用（比较 + 回调触发 + preData 更新）。
+   * 这样在 React 严格模式 double-invoke 下也不会出现 preData 被更新两次导致
+   * changeIndex 找错位置的问题。
+   */
+  useEffect(() => {
+    if (!props.name) return;
+
+    const list = latestFormListRef.current;
+
+    // 初始化 preData（首次挂载时 preData 还没有值）
+    if (!preData.current) {
+      preData.current = value;
+      return;
+    }
+
+    if (!list || !Array.isArray(list)) {
+      preData.current = value;
+      return;
+    }
+
+    const changeIndex = list.findIndex((item, index) => {
+      return !isDeepEqualReact(item, preData.current?.[index]);
+    });
+
+    if (changeIndex !== -1) {
+      const changeItem = list[changeIndex];
+      props?.editable?.onValuesChange?.(changeItem, list);
+    }
+
+    // 必须在回调触发之后再更新 preData，保证对比基准正确
+    preData.current = list;
+  });
 
   /**
    * 受控模式下同步表单值
@@ -731,9 +774,12 @@ function EditableTable<
 
   /**
    * 构建可编辑属性
-   * 使用 useMemo 优化性能，避免不必要的重新创建
+   *
+   * 使用 useRefFunction 替代 useMemo：props.editable 是对象，用户通常内联传入
+   * `editable={{ ... }}`，每次父组件 render 都产生新引用导致 useMemo 永远失效。
+   * useRefFunction 返回稳定引用的 getter，内部始终读取最新 props。
    */
-  const editableProps = useMemo(() => {
+  const getEditableProps = useRefFunction(() => {
     const baseProps = { ...props.editable };
     const hasOnValuesChange =
       Boolean(props?.onValuesChange) ||
@@ -745,13 +791,9 @@ function EditableTable<
     }
 
     return baseProps;
-  }, [
-    props.editable,
-    props.onValuesChange,
-    props.controlled,
-    props.onChange,
-    handleValuesChange,
-  ]);
+  });
+
+  const editableProps = getEditableProps();
 
   return (
     <>
@@ -805,40 +847,17 @@ function EditableTable<
           }}
         />
       </EditableTableActionContext.Provider>
-      {/* 模拟 onValuesChange - 用于 name 模式下的值变化监听 */}
+      {/* 模拟 onValuesChange - 用于 name 模式下监听表单内部编辑引起的值变化。
+           注意：渲染回调必须是纯函数（React 严格模式会 double-invoke）。
+           副作用（preData 更新、回调触发）统一放到 useEffect 中处理。 */}
       {props.name ? (
         <ProFormDependency name={[props.name!]}>
           {(changeValue) => {
-            // 初始化 preData
-            if (!preData.current) {
-              preData.current = value;
-              return null;
-            }
-
             const namePath = [props.name].flat(1) as string[];
             const list = get(changeValue, namePath) as DataType[] | undefined;
-
-            // 添加空值检查，避免后续操作出错
-            if (!list || !Array.isArray(list)) {
-              preData.current = value;
-              return null;
-            }
-
-            // 在更新 preData 之前找到变化的项
-            // 使用 findIndex 可以同时获取变化的项和索引
-            const changeIndex = list.findIndex((item, index) => {
-              return !isDeepEqualReact(item, preData.current?.[index]);
-            });
-
-            // 只有在找到变化项时才触发回调
-            if (changeIndex !== -1) {
-              const changeItem = list[changeIndex];
-              props?.editable?.onValuesChange?.(changeItem, list);
-            }
-
-            // 在找到 changeItem 之后再更新 preData，确保后续比较正确
-            preData.current = list;
-
+            // 纯计算：派生出当前 list，通过 latestFormList ref 传给 useEffect
+            // 不在此处修改任何 ref 或触发任何回调
+            latestFormListRef.current = list ?? null;
             return null;
           }}
         </ProFormDependency>

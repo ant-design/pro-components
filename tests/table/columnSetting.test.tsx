@@ -772,19 +772,13 @@ describe('Table ColumnSetting', () => {
     });
 
     expect(onChange).toHaveBeenCalledTimes(2);
-    expect((onChange.mock as any).lastCall[0]).toMatchInlineSnapshot(`
-      {
-        "age": {
-          "show": false,
-        },
-        "name": {
-          "show": false,
-        },
-        "option": {
-          "show": true,
-        },
-      }
-    `);
+    // 重置后 onChange 回调收到的 columnsState 应反映：name/age 隐藏、option 显示
+    const lastCallArg = (onChange.mock as any).lastCall[0];
+    expect(lastCallArg).toEqual({
+      age: { show: false },
+      name: { show: false },
+      option: { show: true },
+    });
   });
 
   it('🎏 columnsState use the column key or dataIndex as index name', async () => {
@@ -868,30 +862,22 @@ describe('Table ColumnSetting', () => {
     await waitFor(() => {
       expect(onChange).toHaveBeenCalledTimes(3);
     });
-    expect((onChange.mock as any).lastCall[0]).toMatchInlineSnapshot(`
-      {
-        "3": {
-          "disable": undefined,
-          "fixed": undefined,
-          "show": true,
-        },
-        "name": {
-          "disable": undefined,
-          "fixed": undefined,
-          "show": true,
-        },
-        "name2": {
-          "disable": undefined,
-          "fixed": undefined,
-          "show": true,
-        },
-        "name3": {
-          "disable": undefined,
-          "fixed": undefined,
-          "show": true,
-        },
-      }
-    `);
+    // 重置后 onChange 回调收到的 columnsState 应包含 4 列（name/name2/name3/option-fallback-key="3"）
+    // 每列均为显示状态，且 disable/fixed 字段为 undefined
+    const lastCallArg = (onChange.mock as any).lastCall[0];
+    expect(Object.keys(lastCallArg).sort()).toEqual([
+      '3',
+      'name',
+      'name2',
+      'name3',
+    ]);
+    Object.keys(lastCallArg).forEach((key) => {
+      expect(lastCallArg[key]).toEqual({
+        disable: undefined,
+        fixed: undefined,
+        show: true,
+      });
+    });
   });
 
   it('🎏 columnSetting select one', async () => {

@@ -1,59 +1,94 @@
-import type { GetRowKey } from 'antd/lib/table/interface';
-import React, { useMemo } from 'react';
+import { useControlledState } from '@rc-component/util';
+import React, { useCallback, useMemo, useRef } from 'react';
 import { ParamsType } from '../../../provider';
+import { useRefFunction } from '../../../utils';
 import { ProColumns } from '../../typing';
+import { buildEditableTableRowKey } from '../../utils';
 import EditableProTable, { EditableProTableProps } from './index';
+
+/**
+ * 生成列的唯一标识，用于精确匹配当前正在编辑的单元格所属列。
+ * 同时使用 columnsIndex 避免 dataIndex/key 缺失或碰撞的问题。
+ */
+function buildColumnIdentifier(
+  columnIndex: number,
+  dataIndex: string | string[] | number | undefined,
+  key: React.Key | undefined,
+): string {
+  const base = dataIndex ?? key;
+  if (base === undefined) return `__col_${columnIndex}`;
+  return `${columnIndex}:${[base].flat(1).join('.')}`;
+}
 
 export function CellEditorTable<
   DataType extends Record<string, any>,
   Params extends ParamsType = ParamsType,
   ValueType = 'text',
 >(props: EditableProTableProps<DataType, Params, ValueType>) {
-  const [editableKeys, setEditableRowKeys] = React.useState<React.Key[]>([]);
-  const [dataIndex, setDataIndex] = React.useState<any[]>([]);
+  const [editableKeys, setEditableRowKeys] = useControlledState<React.Key[]>(
+    () => props.editable?.editableKeys ?? [],
+    props.editable?.editableKeys,
+  );
+  const [activeColumnId, setActiveColumnId] = React.useState<string>('');
+
+  // 用于延迟退出编辑的定时器，避免点击下拉面板等场景误关编辑态
+  const blurTimerRef = useRef<ReturnType<typeof setTimeout>>();
 
   const rowKey = props.rowKey || 'id';
 
   // ============================ RowKey ============================
-  const getRowKey = React.useMemo<GetRowKey<any>>(() => {
-    if (typeof rowKey === 'function') {
-      return rowKey;
-    }
-    return (record: DataType, index?: number) => {
-      if (index === -1) {
-        return (record as any)?.[rowKey as string];
-      }
-      // 如果 props 中有name 的话，用index 来做行号，这样方便转化为 index
-      if (props.name) {
-        return index?.toString();
-      }
-      return (record as any)?.[rowKey as string] ?? index?.toString();
-    };
-  }, [props.name, rowKey]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const getRowKey = useMemo(
+    () => buildEditableTableRowKey<DataType>(rowKey, props.name),
+    [props.name, rowKey],
+  );
 
-  const activeDataIndexKey = dataIndex.flat(1).join('.');
+  const handleEditableKeysChange = useRefFunction(
+    (keys: React.Key[]) => {
+      setEditableRowKeys(keys);
+      props.editable?.onChange?.(keys, props.editable?.editableKeys ?? []);
+    },
+  );
+
+  const scheduleExitEditing = useCallback(() => {
+    blurTimerRef.current = setTimeout(() => {
+      handleEditableKeysChange([]);
+      setActiveColumnId('');
+    }, 150);
+  }, [handleEditableKeysChange]);
+
+  const cancelExitEditing = useCallback(() => {
+    if (blurTimerRef.current) {
+      clearTimeout(blurTimerRef.current);
+      blurTimerRef.current = undefined;
+    }
+  }, []);
 
   // 缓存 columns 避免每次 render 生成全新数组触发 antd Table 大面积 diff
   const columns = useMemo(
     () =>
-      (props?.columns?.map((item) => ({
-        ...item,
-        editable:
-          activeDataIndexKey === [item.dataIndex || item.key].flat(1).join('.')
-            ? undefined
-            : false,
-        onCell: (record: any, rowIndex: any) => ({
-          onDoubleClick: () => {
-            setEditableRowKeys([getRowKey(record, rowIndex)]);
-            setDataIndex([item.dataIndex || (item.key as string)]);
-          },
-          onBlur: () => {
-            setEditableRowKeys([]);
-          },
-        }),
-      })) as ProColumns<any, ValueType>[]) ?? [],
+      (props?.columns?.map((item, columnIndex) => {
+        const columnId = buildColumnIdentifier(
+          columnIndex,
+          item.dataIndex as string | string[] | undefined,
+          item.key,
+        );
+        return {
+          ...item,
+          editable: activeColumnId === columnId ? undefined : false,
+          onCell: (record: any, rowIndex: any) => ({
+            onDoubleClick: () => {
+              cancelExitEditing();
+              handleEditableKeysChange([getRowKey(record, rowIndex)]);
+              setActiveColumnId(columnId);
+            },
+            onBlur: scheduleExitEditing,
+            onFocus: cancelExitEditing,
+          }),
+        };
+      }) as ProColumns<any, ValueType>[]) ?? [],
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [props.columns, activeDataIndexKey, getRowKey],
+    [props.columns, activeColumnId, getRowKey, scheduleExitEditing, cancelExitEditing, handleEditableKeysChange],
   );
 
   return (
@@ -62,8 +97,8 @@ export function CellEditorTable<
       pagination={false}
       {...props}
       editable={{
-        editableKeys,
         ...props.editable,
+        editableKeys,
       }}
       columns={columns}
     />

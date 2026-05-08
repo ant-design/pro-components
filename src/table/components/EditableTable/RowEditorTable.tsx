@@ -1,7 +1,9 @@
-import type { GetRowKey } from 'antd/lib/table/interface';
-import React, { useMemo } from 'react';
+import { useControlledState } from '@rc-component/util';
+import React, { useCallback, useMemo, useRef } from 'react';
 import { ParamsType } from '../../../provider';
+import { useRefFunction } from '../../../utils';
 import { ProColumns } from '../../typing';
+import { buildEditableTableRowKey } from '../../utils';
 import EditableProTable, { EditableProTableProps } from './index';
 
 export function RowEditorTable<
@@ -9,26 +11,45 @@ export function RowEditorTable<
   Params extends ParamsType = ParamsType,
   ValueType = 'text',
 >(props: EditableProTableProps<DataType, Params, ValueType>) {
-  const [editableKeys, setEditableRowKeys] = React.useState<React.Key[]>([]);
+  const [editableKeys, setEditableRowKeys] = useControlledState<React.Key[]>(
+    () => props.editable?.editableKeys ?? [],
+    props.editable?.editableKeys,
+  );
+
+  // 用于延迟退出编辑的定时器，避免 Tab 切换字段时误关编辑态
+  const blurTimerRef = useRef<ReturnType<typeof setTimeout>>();
 
   const rowKey = props.rowKey || 'id';
 
   // ============================ RowKey ============================
-  const getRowKey = React.useMemo<GetRowKey<any>>(() => {
-    if (typeof rowKey === 'function') {
-      return rowKey;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const getRowKey = useMemo(
+    () => buildEditableTableRowKey<DataType>(rowKey, props.name),
+    [props.name, rowKey],
+  );
+
+  const handleEditableKeysChange = useRefFunction(
+    (keys: React.Key[]) => {
+      setEditableRowKeys(keys);
+      props.editable?.onChange?.(keys, props.editable?.editableKeys ?? []);
+    },
+  );
+
+  const scheduleExitEditing = useCallback(() => {
+    // 延迟退出编辑态：如果焦点在同一行内的字段间切换（Tab），
+    // 新字段的 onFocus 会在 blur 的 setTimeout 回调之前触发，
+    // 从而取消定时器、保持编辑态。
+    blurTimerRef.current = setTimeout(() => {
+      handleEditableKeysChange([]);
+    }, 150);
+  }, [handleEditableKeysChange]);
+
+  const cancelExitEditing = useCallback(() => {
+    if (blurTimerRef.current) {
+      clearTimeout(blurTimerRef.current);
+      blurTimerRef.current = undefined;
     }
-    return (record: DataType, index?: number) => {
-      if (index === -1) {
-        return (record as any)?.[rowKey as string];
-      }
-      // 如果 props 中有name 的话，用index 来做行号，这样方便转化为 index
-      if (props.name) {
-        return index?.toString();
-      }
-      return (record as any)?.[rowKey as string] ?? index?.toString();
-    };
-  }, [props.name, rowKey]);
+  }, []);
 
   // 缓存 columns 避免每次 render 生成全新数组触发 antd Table 大面积 diff
   const columns = useMemo(
@@ -37,15 +58,15 @@ export function RowEditorTable<
         ...item,
         onCell: (record: any, rowIndex: any) => ({
           onDoubleClick: () => {
-            setEditableRowKeys([getRowKey(record, rowIndex)]);
+            cancelExitEditing();
+            handleEditableKeysChange([getRowKey(record, rowIndex)]);
           },
-          onBlur: () => {
-            setEditableRowKeys([]);
-          },
+          onBlur: scheduleExitEditing,
+          onFocus: cancelExitEditing,
         }),
       })) as ProColumns<any, ValueType>[]) ?? [],
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [props.columns, getRowKey],
+    [props.columns, getRowKey, scheduleExitEditing, cancelExitEditing, handleEditableKeysChange],
   );
 
   return (
@@ -54,8 +75,8 @@ export function RowEditorTable<
       pagination={false}
       {...props}
       editable={{
-        editableKeys,
         ...props.editable,
+        editableKeys,
       }}
       columns={columns}
     />

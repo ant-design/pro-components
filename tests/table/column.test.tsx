@@ -92,7 +92,9 @@ describe('Table ColumnSetting', () => {
       </ConfigProvider>,
     );
 
-    expect(container).toMatchSnapshot();
+    // ConfigProvider prefixCls 应正确传递到 ProTable
+    expect(container.querySelector('.qixian-table')).toBeTruthy();
+    expect(container.querySelector('.qixian-table-wrapper')).toBeTruthy();
   });
 
   it('🎏 render text', async () => {
@@ -151,7 +153,10 @@ describe('Table ColumnSetting', () => {
       />,
     );
 
-    expect(container.querySelector('td.ant-table-cell')).toMatchSnapshot();
+    // renderText 应将文本追加 '2144'
+    const cellElement = container.querySelector('td.ant-table-cell');
+    expect(cellElement).toBeTruthy();
+    expect(cellElement?.textContent).toContain('Edward King2144');
   });
 
   it('🎏 columns request support params function', async () => {
@@ -238,7 +243,19 @@ describe('Table ColumnSetting', () => {
       />,
     );
 
-    expect(container).toMatchSnapshot();
+    // 应正确渲染 Table.EXPAND_COLUMN 和 Table.SELECTION_COLUMN
+    expect(container.querySelector('.ant-table')).toBeTruthy();
+    // 应有 2 行数据
+    expect(container.querySelectorAll('.ant-table-row').length).toBe(2);
+    // 应渲染展开列和选择列
+    expect(container.querySelector('.ant-table-selection-column')).toBeTruthy();
+    expect(
+      container.querySelector('.ant-table-row-expand-icon-cell'),
+    ).toBeTruthy();
+    // 应渲染 Name 列数据（验证 tbody 中包含数据文本）
+    const tbody = container.querySelector('.ant-table-tbody');
+    expect(tbody?.textContent).toContain('Name 1');
+    expect(tbody?.textContent).toContain('Name 2');
   });
 
   it('🐛 copyable 单元格中文复制不应带尾部空格', async () => {

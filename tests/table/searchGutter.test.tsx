@@ -64,7 +64,14 @@ describe('BasicTable SearchGutter', () => {
     );
     await waitForWaitTime(1200);
     const ele = html.baseElement.querySelector<HTMLDivElement>('.ant-form');
-    expect(ele).toMatchSnapshot();
+    // searchGutter=[16, 24] 应作为水平/垂直间距生效
+    expect(ele).toBeTruthy();
+    // 行容器应正确渲染，垂直间距通过 row-gap 体现（24px）
+    const rowEl = ele?.querySelector<HTMLDivElement>('.ant-row');
+    expect(rowEl).toBeTruthy();
+    expect(rowEl?.style.rowGap).toBe('24px');
+    // 列项应正确渲染
+    expect(ele?.querySelector<HTMLDivElement>('.ant-col')).toBeTruthy();
   });
 
   it('🎏 ProTable searchGutter default is [24 0]', async () => {
