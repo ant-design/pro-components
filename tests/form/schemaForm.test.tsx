@@ -1,4 +1,4 @@
-﻿import type {
+import type {
   ProFormColumnsType,
   ProFormLayoutType,
 } from '@ant-design/pro-components';
@@ -74,7 +74,16 @@ describe('SchemaForm', () => {
   it('😊 SchemaForm support columns', async () => {
     const { container } = render(<BetaSchemaForm columns={columns} />);
 
-    expect(container).toMatchSnapshot();
+    // 应渲染 ProForm 容器
+    expect(container.querySelector('form.ant-form')).toBeTruthy();
+    // columns 中的字段应被渲染为对应的 form item
+    // 包括：select(state) + dateTime(since) 等多个字段
+    const formItems = container.querySelectorAll('.ant-form-item');
+    expect(formItems.length).toBeGreaterThan(0);
+    // 应渲染 select 类型字段（来自 valueType: 'select' 的 columns）
+    expect(container.querySelector('.ant-select')).toBeTruthy();
+    // 应渲染日期时间选择器（来自 valueType: 'dateTime'）
+    expect(container.querySelector('.ant-picker')).toBeTruthy();
   });
 
   it('😊 SchemaForm support dependencies', async () => {

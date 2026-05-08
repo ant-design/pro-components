@@ -1,4 +1,4 @@
-﻿import {
+import {
   ProForm,
   ProFormUploadButton,
   ProFormUploadDragger,
@@ -136,10 +136,17 @@ describe('ProFormUpload', () => {
         />
       </Form>,
     );
+    // disabled=true 时，upload 容器应带 disabled 类
     expect(
-      wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload')
-        ?.innerHTML,
-    ).toMatchSnapshot();
+      wrapper.baseElement
+        .querySelector<HTMLDivElement>('.ant-upload')
+        ?.classList.toString(),
+    ).toContain('ant-upload-disabled');
+    // 上传按钮也应处于 disabled 状态
+    expect(
+      wrapper.baseElement
+        .querySelector<HTMLButtonElement>('.ant-upload button'),
+    ).toBeDisabled();
     act(() => {
       wrapper.rerender(
         <Form>

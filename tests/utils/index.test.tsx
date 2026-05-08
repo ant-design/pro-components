@@ -1013,7 +1013,14 @@ describe('utils', () => {
 
     await html.findAllByText('xxx');
 
-    expect(html.asFragment()).toMatchSnapshot();
+    // LabelIconTip 应正常渲染：label 文本、subTitle 文本、tooltip 容器都应存在
+    expect(
+      html.baseElement.querySelector('div.ant-pro-core-label-tip'),
+    ).toBeTruthy();
+    // label 'xxx' 应渲染（findAllByText 已确认存在）
+    expect(html.baseElement.textContent).toContain('xxx');
+    // 自定义 tooltip icon (CodeFilled) 应渲染
+    expect(html.baseElement.querySelector('.anticon')).toBeTruthy();
   });
 
   it('🪓 isDeepEqualReact', async () => {

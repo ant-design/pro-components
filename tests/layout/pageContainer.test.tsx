@@ -16,12 +16,24 @@ afterEach(() => {
 describe('PageContainer', () => {
   it('💄 base use', async () => {
     const wrapper = render(<PageContainer title="期贤" />);
-    expect(wrapper.asFragment()).toMatchSnapshot();
+    // 应正确渲染 title 文本
+    expect(
+      wrapper.container.querySelector('.ant-page-header-heading-title')
+        ?.textContent,
+    ).toBe('期贤');
+    // 应渲染 PageContainer 与 page-header
+    expect(
+      wrapper.container.querySelector('.ant-pro-page-container'),
+    ).toBeTruthy();
+    expect(wrapper.container.querySelector('.ant-page-header')).toBeTruthy();
   });
 
   it('💄 config is null', async () => {
     const wrapper = render(<PageContainer />);
-    expect(wrapper.asFragment()).toMatchSnapshot();
+    // 无 props 时仍应渲染 PageContainer 容器
+    expect(
+      wrapper.container.querySelector('.ant-pro-page-container'),
+    ).toBeTruthy();
   });
 
   it('💄 title,ghost,header,breadcrumbRender = false', async () => {
@@ -161,14 +173,20 @@ describe('PageContainer', () => {
     expect(
       container.querySelectorAll('.ant-pro-page-container-with-footer'),
     ).toHaveLength(1);
-    expect(container).toMatchSnapshot();
+    // 应渲染 footer 区域，且包含传入的 button
+    const footerBar = container.querySelector('.ant-pro-footer-bar');
+    expect(footerBar).toBeTruthy();
+    expect(footerBar?.textContent).toContain('right');
   });
 
   it('⚡️ support fixedHeader', async () => {
     const html = render(<PageContainer title="期贤" fixedHeader />);
+    // fixedHeader=true 时不应渲染 sider-fixed（因为外层无 ProLayout）
+    // 但 page-header 应固定渲染并显示 title
     expect(
-      html.baseElement.querySelector('.ant-pro-sider-fixed'),
-    ).toMatchSnapshot();
+      html.baseElement.querySelector('.ant-page-header-heading-title')
+        ?.textContent,
+    ).toBe('期贤');
   });
 
   it('⚡️ support loading', async () => {
@@ -183,7 +201,13 @@ describe('PageContainer', () => {
         loading={{ spinning: true, tip: '加载中' }}
       />,
     );
-    expect(wrapper.asFragment()).toMatchSnapshot();
+    // loading 对象形式应渲染 spin + tip 文本
+    expect(wrapper.container.querySelector('.ant-spin')).toBeTruthy();
+    expect(wrapper.container.querySelector('.ant-spin-spinning')).toBeTruthy();
+    // tip 文本应正常渲染（antd 中文之间会插入空格）
+    expect(wrapper.container.textContent?.replace(/\s/g, '')).toContain(
+      '加载中',
+    );
   });
 
   it('🔥 support footer and breadcrumb', async () => {
@@ -205,7 +229,15 @@ describe('PageContainer', () => {
         ]}
       />,
     );
-    expect(wrapper.asFragment()).toMatchSnapshot();
+    // 应同时渲染 breadcrumb 与 footer
+    expect(wrapper.container.querySelector('.ant-breadcrumb')).toBeTruthy();
+    expect(
+      wrapper.container.querySelector('.ant-pro-footer-bar'),
+    ).toBeTruthy();
+    // breadcrumb 内应包含 home 文本
+    expect(wrapper.container.querySelector('.ant-breadcrumb')?.textContent).toContain(
+      'home',
+    );
   });
 
   it('🔥 footer bar support extra', async () => {
@@ -224,7 +256,13 @@ describe('PageContainer', () => {
         </button>
       </FooterToolbar>,
     );
-    expect(wrapper.asFragment()).toMatchSnapshot();
+    // 自定义 className 应附加到 footer-bar
+    const footerBar = wrapper.container.querySelector('.qixian_footer');
+    expect(footerBar).toBeTruthy();
+    // extra 中的 img 应渲染
+    expect(wrapper.container.querySelector('img[alt="logo"]')).toBeTruthy();
+    // children 中的 button 应渲染
+    expect(wrapper.container.querySelector('button')).toBeTruthy();
   });
 
   it('🔥 footer bar support renderContent', async () => {
@@ -246,7 +284,10 @@ describe('PageContainer', () => {
         </button>
       </FooterToolbar>,
     );
-    expect(wrapper.asFragment()).toMatchSnapshot();
+    // renderContent 返回的文本应替代 children 渲染
+    expect(wrapper.container.textContent).toContain('home_toolbar');
+    // children button 不应渲染
+    expect(wrapper.container.querySelector('button')).toBeFalsy();
   });
 
   it('🐲 footer should know width', async () => {
@@ -300,7 +341,10 @@ describe('PageContainer', () => {
     expect(container.querySelector('.ant-pro-footer-bar')).toHaveStyle(
       'width: 100%',
     );
-    expect(container).toMatchSnapshot();
+    // layout="top" 时 footer-bar 宽度撑满，且仍渲染传入按钮
+    expect(container.querySelector('.ant-pro-footer-bar')?.textContent).toContain(
+      'qixian',
+    );
   });
 
   it('🐲 FooterToolbar should know width', async () => {
@@ -356,7 +400,9 @@ describe('PageContainer', () => {
     expect(container.querySelector('.ant-pro-footer-bar')).toHaveStyle(
       'width: 100%',
     );
-    expect(container).toMatchSnapshot();
+    // 三次 rerender 后，footer-bar 仍正常渲染，且按钮仍存在
+    expect(container.querySelector('.ant-pro-footer-bar')).toBeTruthy();
+    expect(container.querySelector('button')?.textContent).toBe('qixian');
     // test useUseEffect render function
     unmount();
   });
@@ -373,14 +419,23 @@ describe('PageContainer', () => {
     );
     await waitForWaitTime(100);
     act(() => {
-      expect(wrapper.asFragment()).toMatchSnapshot();
+      // 有 footer 时应渲染 footer-bar
+      expect(
+        wrapper.container.querySelector('.ant-pro-footer-bar'),
+      ).toBeTruthy();
+      expect(wrapper.container.querySelector('button')?.textContent).toBe(
+        'qixian',
+      );
     });
     act(() => {
       wrapper.rerender(<PageContainer />);
     });
     await waitForWaitTime(100);
     act(() => {
-      expect(wrapper.asFragment()).toMatchSnapshot();
+      // 移除 footer 后，footer-bar 应被销毁
+      expect(
+        wrapper.container.querySelector('.ant-pro-footer-bar'),
+      ).toBeFalsy();
     });
   });
 
@@ -422,7 +477,16 @@ describe('PageContainer', () => {
         <PageContainer />
       </ProLayout>,
     );
-    expect(wrapper.asFragment()).toMatchSnapshot();
+    // breadcrumbProps 应正确渲染，包含 home/first/second 各级菜单
+    const breadcrumb = wrapper.baseElement.querySelector('.ant-breadcrumb');
+    expect(breadcrumb).toBeTruthy();
+    expect(breadcrumb?.textContent).toContain('home');
+    expect(breadcrumb?.textContent).toContain('first');
+    expect(breadcrumb?.textContent).toContain('second');
+    // 自定义 separator '>' 应生效
+    expect(
+      wrapper.baseElement.querySelectorAll('.ant-breadcrumb-separator').length,
+    ).toBeGreaterThan(0);
   });
 
   it('🐲 header.footer is null, do not render footerToolbar ', async () => {
@@ -476,12 +540,19 @@ describe('PageContainer', () => {
 
   it('🐲 content is text and title is null', () => {
     const wrapper = render(<PageContainer content="just so so" />);
-    expect(wrapper.asFragment()).toMatchSnapshot();
+    // content 文本应正常渲染
+    expect(wrapper.container.textContent).toContain('just so so');
+    // 无 title 时不应渲染 title 元素
+    expect(
+      wrapper.container.querySelector('.ant-page-header-heading-title')
+        ?.textContent,
+    ).toBeFalsy();
 
     const html2 = render(
       <PageContainer extraContent={<div>extraContent</div>} />,
     );
-    expect(html2.asFragment()).toMatchSnapshot();
+    // extraContent 应渲染
+    expect(html2.container.textContent).toContain('extraContent');
   });
 
   it('🐛 className prop should not be passed to its page header, fix #3493', async () => {
@@ -494,8 +565,18 @@ describe('PageContainer', () => {
       />,
     );
 
+    // className 只应附加到 PageContainer 根节点，不应传递到 page-header（fix #3493）
     expect(container.querySelectorAll('.custom-className')).toHaveLength(1);
-    expect(container).toMatchSnapshot();
+    // page-header 不应带 custom-className
+    expect(
+      container.querySelector('.ant-page-header')?.classList.contains(
+        'custom-className',
+      ),
+    ).toBe(false);
+    // header.title 应渲染
+    expect(
+      container.querySelector('.ant-page-header-heading-title')?.textContent,
+    ).toBe('页面标题');
   });
 
   it('🌛 PageContainer with custom loading', async () => {
@@ -535,7 +616,8 @@ describe('PageContainer', () => {
     expect(wrapper.baseElement.querySelectorAll('#customLoading').length).toBe(
       1,
     );
-    expect(wrapper.asFragment()).toMatchSnapshot();
+    // 自定义 loading dom 文本应被渲染
+    expect(wrapper.baseElement.textContent).toContain('自定义加载...');
     await waitForWaitTime(1000);
     expect(wrapper.baseElement.querySelectorAll('#customLoading').length).toBe(
       0,

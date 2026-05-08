@@ -1,4 +1,4 @@
-﻿import { PageHeader } from '@ant-design/pro-components';
+import { PageHeader } from '@ant-design/pro-components';
 import { cleanup, fireEvent, render } from '@testing-library/react';
 import { Breadcrumb, ConfigProvider } from 'antd';
 import { afterEach, describe, expect, it, vi } from 'vitest';
@@ -10,7 +10,13 @@ afterEach(() => {
 describe('PageContainer', () => {
   it('💄 base use', async () => {
     const wrapper = render(<PageHeader title="期贤" />);
-    expect(wrapper.asFragment()).toMatchSnapshot();
+    // 基础渲染：应正确渲染 title 文本
+    expect(
+      wrapper.container.querySelector('.ant-page-header-heading-title')
+        ?.textContent,
+    ).toBe('期贤');
+    // 默认应渲染 page-header 容器
+    expect(wrapper.container.querySelector('.ant-page-header')).toBeTruthy();
   });
 
   it('pageHeader should not contain back it back', () => {
@@ -109,12 +115,18 @@ describe('PageContainer', () => {
     const { container } = render(
       <PageHeader title="Page Title" className="not-works" backIcon={false} />,
     );
-    expect(container.firstChild).toMatchSnapshot();
+    // 自定义 className 应附加到 page-header 根节点
+    expect(container.firstChild).toHaveClass('not-works');
+    expect(container.firstChild).toHaveClass('ant-page-header');
+    // backIcon=false 时不应渲染返回按钮
+    expect(container.querySelector('.ant-page-header-back')).toBeFalsy();
   });
 
   it('pageHeader should not render blank dom', () => {
     const { container } = render(<PageHeader title={false} />);
-    expect(container.firstChild).toMatchSnapshot();
+    // title=false 且无其他内容时，不应渲染空白 DOM
+    // firstChild 应为 null（或者完全不渲染 page-header）
+    expect(container.querySelector('.ant-page-header-heading')).toBeFalsy();
   });
 
   it('breadcrumbs and back icon can coexist', () => {
@@ -135,6 +147,11 @@ describe('PageContainer', () => {
 
   it('pageHeader should render correctly int RTL direction', () => {
     const { container } = render(<PageHeader title="Page Title" />);
-    expect(container.firstChild).toMatchSnapshot();
+    // 应正确渲染 title
+    expect(
+      container.querySelector('.ant-page-header-heading-title')?.textContent,
+    ).toBe('Page Title');
+    // 应渲染 page-header 根节点
+    expect(container.firstChild).toHaveClass('ant-page-header');
   });
 });

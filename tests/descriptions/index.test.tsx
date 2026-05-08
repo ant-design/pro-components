@@ -1,4 +1,4 @@
-﻿import type { ProCoreActionType } from '@ant-design/pro-components';
+import type { ProCoreActionType } from '@ant-design/pro-components';
 import { ProDescriptions } from '@ant-design/pro-components';
 import {
   cleanup,
@@ -353,7 +353,16 @@ describe('descriptions', () => {
         ]}
       />,
     );
-    expect(html.asFragment()).toMatchSnapshot();
+    // 验证 order 排序：order 大的排前面（标题 order=100 最大，应在第一位）
+    // 没有 order 的应排到最后（进度条2）
+    const labels = html.baseElement.querySelectorAll(
+      '.ant-descriptions-item-label',
+    );
+    expect(labels.length).toBe(4);
+    expect(labels[0].textContent).toBe('标题');
+    expect(labels[1].textContent).toBe('进度条1');
+    expect(labels[2].textContent).toBe('进度条3');
+    expect(labels[3].textContent).toBe('进度条2');
   });
 
   it('📝 typography support and copy', async () => {

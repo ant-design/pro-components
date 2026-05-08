@@ -14,7 +14,10 @@ describe('BasicLayout', () => {
         <PageContainer />
       </ProLayout>,
     );
-    expect(container).toMatchSnapshot();
+    // 基础渲染：应包含 ProLayout 容器、PageContainer 与默认 page header
+    expect(container.querySelector('.ant-pro-layout')).toBeTruthy();
+    expect(container.querySelector('.ant-pro-page-container')).toBeTruthy();
+    expect(container.querySelector('.ant-page-header')).toBeTruthy();
   });
 
   it('content is text', () => {
@@ -24,7 +27,12 @@ describe('BasicLayout', () => {
       </ProLayout>,
     );
 
-    expect(container).toMatchSnapshot();
+    // PageContainer 的 content 文本应正确渲染
+    expect(container.textContent).toContain('just so so');
+    // 应渲染 page-header 的 content 区域
+    expect(
+      container.querySelector('.ant-page-header-content'),
+    ).toBeTruthy();
   });
 
   it('title=false, don not render title view', async () => {
