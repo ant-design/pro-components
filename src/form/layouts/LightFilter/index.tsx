@@ -260,7 +260,10 @@ function LightFilterComponent<T = Record<string, any>>(
   });
   const formRef = useRef<ProFormInstance>();
 
-  useImperativeHandle(userFormRef, () => formRef.current, [formRef.current]);
+  // deps 必须是 []：formRef.current 是 mutable value，变化不触发 React 更新，
+  // 放入 deps 无意义，且会导致每次渲染都重新执行。
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useImperativeHandle(userFormRef, () => formRef.current, []);
 
   return (
     <BaseForm

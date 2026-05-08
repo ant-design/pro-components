@@ -1,4 +1,4 @@
-﻿import { toArray, useControlledState } from '@rc-component/util';
+import { toArray, useControlledState } from '@rc-component/util';
 import type { FormInstance, StepsProps } from 'antd';
 import { Button, Col, ConfigProvider, Form, Row, Space, Steps } from 'antd';
 import type { FormProviderProps } from 'antd/lib/form/context';
@@ -349,7 +349,9 @@ function StepsForm<T = Record<string, any>>(
         setCurrentStepSafe(index);
       },
       getStepFormInstance: (index: number) => {
-        return formArrayRef.current[index]?.current as ProFormInstance | undefined;
+        return formArrayRef.current[index]?.current as
+          | ProFormInstance
+          | undefined;
       },
       resetSteps: () => {
         formDataRef.current.clear();
@@ -454,104 +456,90 @@ function StepsForm<T = Record<string, any>>(
     setStep(step - 1);
   });
 
-  const next = useMemo(() => {
-    return (
-      submitter !== false && (
-        <Button
-          key="next"
-          type="primary"
-          loading={loading}
-          {...submitter?.submitButtonProps}
-          onClick={() => {
-            submitter?.onSubmit?.();
-            onSubmit();
-          }}
-        >
-          {intl.getMessage('stepsForm.next', '下一步')}
-        </Button>
-      )
-    );
-  }, [intl, loading, onSubmit, submitter]);
-
-  const pre = useMemo(() => {
-    return (
-      submitter !== false && (
-        <Button
-          key="pre"
-          {...submitter?.resetButtonProps}
-          onClick={() => {
-            prePage();
-            submitter?.onReset?.();
-          }}
-        >
-          {intl.getMessage('stepsForm.prev', '上一步')}
-        </Button>
-      )
-    );
-  }, [intl, prePage, submitter]);
-
-  const submit = useMemo(() => {
-    return (
-      submitter !== false && (
-        <Button
-          key="submit"
-          type="primary"
-          loading={loading}
-          {...submitter?.submitButtonProps}
-          onClick={() => {
-            submitter?.onSubmit?.();
-            onSubmit();
-          }}
-        >
-          {intl.getMessage('stepsForm.submit', '提交')}
-        </Button>
-      )
-    );
-  }, [intl, loading, onSubmit, submitter]);
-
   const nextPage = useRefFunction(() => {
-    // Ensure we have forms registered before checking step bounds
     if (formArray.length === 0) return;
     if (step > formArray.length - 2) return;
     setStep(step + 1);
   });
 
+  /**
+   * 合并 next/pre/submit 三个按钮的生成逻辑和 submitterDom 的组合逻辑，
+   * 避免四个 useMemo 互相引用、deps 难以维护的问题。
+   */
   const submitterDom = useMemo(() => {
-    let buttons: (React.ReactElement | false)[] = [];
+    if (submitter === false) return null;
+
+    const nextButton = (
+      <Button
+        key="next"
+        type="primary"
+        loading={loading}
+        {...submitter?.submitButtonProps}
+        onClick={() => {
+          submitter?.onSubmit?.();
+          onSubmit();
+        }}
+      >
+        {intl.getMessage('stepsForm.next', '下一步')}
+      </Button>
+    );
+
+    const preButton = (
+      <Button
+        key="pre"
+        {...submitter?.resetButtonProps}
+        onClick={() => {
+          prePage();
+          submitter?.onReset?.();
+        }}
+      >
+        {intl.getMessage('stepsForm.prev', '上一步')}
+      </Button>
+    );
+
+    const submitButton = (
+      <Button
+        key="submit"
+        type="primary"
+        loading={loading}
+        {...submitter?.submitButtonProps}
+        onClick={() => {
+          submitter?.onSubmit?.();
+          onSubmit();
+        }}
+      >
+        {intl.getMessage('stepsForm.submit', '提交')}
+      </Button>
+    );
+
     const index = step || 0;
+    let buttons: React.ReactElement[];
+
     if (index < 1) {
-      // 如果有且只有一个 StepForm 第一步就应该是提交按钮
-      if (formArray.length === 1) {
-        buttons.push(submit);
-      } else {
-        buttons.push(next);
-      }
+      // 只有一步时第一步直接显示提交按钮
+      buttons = formArray.length === 1 ? [submitButton] : [nextButton];
     } else if (index + 1 === formArray.length) {
-      buttons.push(pre, submit);
+      buttons = [preButton, submitButton];
     } else {
-      buttons.push(pre, next);
+      buttons = [preButton, nextButton];
     }
 
-    buttons = buttons.filter(React.isValidElement);
-
-    if (submitter && submitter.render) {
+    if (submitter?.render) {
       const submitterProps: any = {
         form: formArrayRef.current[step]?.current,
         onSubmit,
         step,
         onPre: prePage,
       };
-
-      return submitter.render(
-        submitterProps,
-        buttons as React.ReactElement[],
-      ) as React.ReactNode;
+      return submitter.render(submitterProps, buttons) as React.ReactNode;
     }
-    if (submitter && submitter?.render === false) {
+
+    if (submitter?.render === false) {
       return null;
     }
-    return buttons as React.ReactElement[];
-  }, [formArray.length, next, onSubmit, pre, prePage, step, submit, submitter]);
+
+    return buttons;
+  }, [formArray.length, intl, loading, onSubmit, prePage, step, submitter]);
 
   const formDom = useMemo(() => {
     return toArray(props.children).map((item, index) => {

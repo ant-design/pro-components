@@ -40,8 +40,8 @@ import {
   usePrevious,
   useRefFunction,
   useStyle,
-  useUrlSearchParams,
 } from '../../utils';
+import { useUrlSync } from './useUrlSync';
 import { FormListContext } from '../components/List';
 import FieldContext from '../FieldContext';
 import { GridContext, useGridHelpers } from '../helpers';
@@ -223,16 +223,6 @@ export type BaseFormProps<T = Record<string, any>, U = Record<string, any>> = {
 } & Omit<FormProps, 'onFinish'> &
   CommonFormProps<T, U>;
 
-const genParams = (
-  syncUrl: BaseFormProps<any>['syncToUrl'],
-  params: Record<string, any>,
-  type: 'get' | 'set',
-) => {
-  if (syncUrl === true) {
-    return params;
-  }
-  return runFunction(syncUrl, params, type);
-};
 
 /**
  * It takes a name path and converts it to an array.
@@ -317,7 +307,10 @@ function buildFormatValues(
 function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
   props: BaseFormProps<T, U> & {
     loading: boolean;
-    onUrlSearchChange: (value: Record<string, string | number>) => void;
+    onUrlSyncReset: (
+      finalValues: Record<string, any>,
+      extraUrlParams?: Record<string, any>,
+    ) => void;
     transformKey: (values: any, omit: boolean, parentKey?: NamePath) => any;
   },
 ) {
@@ -336,7 +329,7 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
     formComponentType,
     extraUrlParams = defaultExtraUrlParams,
     syncToUrl,
-    onUrlSearchChange,
+    onUrlSyncReset,
     onReset,
     omitNil = true,
     isKeyPressSubmit,
@@ -396,21 +389,8 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
           );
           submitterProps?.onReset?.(finalValues);
           onReset?.(finalValues);
-          // 如果 syncToUrl，清空一下数据
-          if (syncToUrl) {
-            // 把没有的值设置为未定义可以删掉 url 的参数
-            const params = Object.keys(
-              transformKey(formRef.current?.getFieldsValue(), false),
-            ).reduce((pre, next) => {
-              return {
-                ...pre,
-                [next]: finalValues[next] || undefined,
-              };
-            }, extraUrlParams);
-
-            /** 在同步到 url 上时对参数进行转化 */
-            onUrlSearchChange(genParams(syncToUrl, params || {}, 'set'));
-          }
+          // 如果 syncToUrl，清空 URL 上对应的参数
+          onUrlSyncReset(finalValues, extraUrlParams);
         }}
         submitButtonProps={{
           loading,
@@ -555,10 +535,9 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     },
   );
 
-  const [urlSearch, setUrlSearch] = useUrlSearchParams(
-    {},
-    { disabled: !syncToUrl },
-  );
+  const { urlParamsMergeInitialValues, onUrlSyncReset, onUrlSyncFinish } =
+    useUrlSync({ syncToUrl, syncToInitialValues, extraUrlParams });
+
   const curFormKey = useRef<string>(nanoid());
 
   useEffect(() => {
@@ -618,15 +597,6 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     };
   });
 
-  // 如果为 false，不需要触发设置进去
-  const [urlParamsMergeInitialValues, setUrlParamsMergeInitialValues] =
-    useState(() => {
-      if (!syncToUrl) {
-        return {};
-      }
-      return genParams(syncToUrl, urlSearch, 'get');
-    });
-
   /** 保存 transformKeyRef，用于对表单key transform */
   const transformKeyRef = useRef<
     Record<string, SearchTransformKeyFn | undefined>
@@ -661,23 +631,6 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
       );
     },
   );
-
-  useEffect(() => {
-    if (syncToInitialValues) return;
-    setUrlParamsMergeInitialValues({});
-  }, [syncToInitialValues]);
-
-  const getGenParams = useRefFunction(() => {
-    return {
-      ...urlSearch,
-      ...extraUrlParams,
-    };
-  });
-
-  useEffect(() => {
-    if (!syncToUrl) return;
-    setUrlSearch(genParams(syncToUrl, getGenParams(), 'set'));
-  }, [extraUrlParams, getGenParams, syncToUrl]);
 
   const getPopupContainer = useMemo(() => {
     if (typeof window === 'undefined') return undefined;
@@ -715,29 +668,11 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
       } else {
         setLoading(false);
       }
-      if (syncToUrl) {
-        // 把没有的值设置为未定义可以删掉 url 的参数
-        const syncToUrlParams = Object.keys(
-          formRef?.current?.getFieldsFormatValue?.(true, false) || {},
-        ).reduce((pre, next) => {
-          return {
-            ...pre,
-            [next]: finalValues[next] ?? undefined,
-          };
-        }, extraUrlParams);
-        // fix #3547: 当原先在url中存在的字段被删除时，应该将 params 中的该字段设置为 undefined,以便触发url同步删除
-        Object.keys(urlSearch).forEach((key) => {
-          if (
-            syncToUrlParams[key] !== false &&
-            syncToUrlParams[key] !== 0 &&
-            !syncToUrlParams[key]
-          ) {
-            syncToUrlParams[key] = undefined;
-          }
-        });
-        /** 在同步到 url 上时对参数进行转化 */
-        setUrlSearch(genParams(syncToUrl, syncToUrlParams, 'set'));
-      }
+      // 如果 syncToUrl，将提交值同步到 URL
+      const allFieldKeys = Object.keys(
+        formRef?.current?.getFieldsFormatValue?.(true, false) || {},
+      );
+      onUrlSyncFinish(finalValues, allFieldKeys, extraUrlParams);
     } catch (error) {
       setLoading(false);
     }
@@ -827,7 +762,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
                   firstInput?.focus();
                 };
               }}
-              // 组合 urlSearch 和 initialValues
+              // 组合 urlParamsMergeInitialValues 和 initialValues
               initialValues={
                 syncToUrlAsImportant
                   ? {
@@ -857,7 +792,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
                 loading={
                   loading || !!(request && !initialData && initialDataLoading)
                 }
-                onUrlSearchChange={setUrlSearch}
+                onUrlSyncReset={onUrlSyncReset}
                 {...props}
                 formRef={formRef}
                 initialValues={{
