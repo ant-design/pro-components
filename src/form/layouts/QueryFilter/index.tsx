@@ -12,6 +12,7 @@ import type { CommonFormProps } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import type { ActionsProps } from './Actions';
 import Actions from './Actions';
+import { processQueryFilterItems } from './processQueryFilterItems';
 import { useStyle } from './style';
 
 type BreakpointsConfig = {
@@ -231,27 +232,6 @@ export type BaseQueryFilterProps = Omit<
   containerStyle?: React.CSSProperties;
 };
 
-const flatMapItems = (
-  items: React.ReactNode[],
-  ignoreRules?: boolean,
-): React.ReactNode[] => {
-  return items?.flatMap((item: any) => {
-    if (item?.type?.displayName === 'ProForm-Group' && !item.props?.title) {
-      return item.props.children;
-    }
-
-    if (ignoreRules && React.isValidElement(item)) {
-      return React.cloneElement(item, {
-        ...(item.props as any),
-        formItemProps: {
-          ...(item.props as any)?.formItemProps,
-          rules: [],
-        },
-      });
-    }
-    return item;
-  });
-};
 
 export type QueryFilterProps<
   T = Record<string, any>,
@@ -366,81 +346,19 @@ const QueryFilterContent: React.FC<{
     });
   }, [props, resetText, searchText, optionRender]);
 
-  // totalSpan 统计控件占的位置，计算 offset 保证查询按钮在最后一列
-  let totalSpan = 0;
-  let itemLength = 0;
-  //首个表单项是否占满第一行
-  let firstRowFull = false;
-  // totalSize 统计控件占的份数
-  let totalSize = 0;
+  // 通过纯函数计算布局信息，消除组件渲染阶段的命令式 let 变量
+  const { processedList, totalSpan, totalSize, lastRowUsedSpan } =
+    processQueryFilterItems({
+      items,
+      spanSize,
+      collapsed,
+      showLength,
+      preserve: props.preserve,
+      ignoreRules: props.ignoreRules,
+    });
 
-  // for split compute
-  let currentSpan = 0;
-
-  // 处理过，包含是否需要隐藏的 数组
-  const processedList = flatMapItems(items, props.ignoreRules).map(
-    (
-      item,
-      index,
-    ): { itemDom: React.ReactNode; hidden: boolean; colSpan: number } => {
-      // 如果 formItem 自己配置了 hidden，默认使用它自己的
-      const colSize = React.isValidElement<any>(item)
-        ? (item?.props?.colSize ?? 1)
-        : 1;
-      const colSpan = Math.min(spanSize.span * (colSize || 1), 24);
-      // 计算总的 totalSpan 长度
-      totalSpan += colSpan;
-      // 计算总的 colSize 长度
-      totalSize += colSize;
-
-      if (index === 0) {
-        firstRowFull =
-          colSpan === 24 &&
-          !(item as ReactElement<{ hidden: boolean }>)?.props?.hidden;
-      }
-
-      const hidden: boolean =
-        (item as ReactElement<{ hidden: boolean }>)?.props?.hidden ||
-        // 如果收起了
-        (collapsed &&
-          (firstRowFull ||
-            // 如果 超过显示长度 且 总长度超过了 24
-            totalSize > showLength) &&
-          !!index);
-
-      itemLength += 1;
-
-      const itemKey =
-        (React.isValidElement(item) &&
-          (item.key || `${(item.props as Record<string, any>)?.name}`)) ||
-        index;
-
-      if (React.isValidElement(item) && hidden) {
-        if (!props.preserve) {
-          return {
-            itemDom: null,
-            colSpan: 0,
-            hidden: true,
-          };
-        }
-        return {
-          itemDom: React.cloneElement(item, {
-            hidden: true,
-            key: itemKey || index,
-          } as Record<string, any>),
-          hidden: true,
-          colSpan,
-        };
-      }
-
-      return {
-        itemDom: item,
-        colSpan,
-        hidden: false,
-      };
-    },
-  );
-
+  // 渲染 Col 列表：根据 processedList 生成带 split 线的布局
+  let renderSpan = 0;
   const doms = processedList.map((itemProps, index: number) => {
     const { itemDom, colSpan } = itemProps;
     const hidden: boolean = (itemDom as ReactElement<{ hidden: boolean }>)
@@ -448,41 +366,29 @@ const QueryFilterContent: React.FC<{
 
     if (hidden) return itemDom;
 
-    // 每一列的key, 一般是存在的
     const itemKey =
       (React.isValidElement(itemDom) &&
         (itemDom.key || `${itemDom.props?.name}`)) ||
       index;
 
-    if (24 - (currentSpan % 24) < colSpan) {
-      // 如果当前行空余位置放不下，那么折行
-      totalSpan += 24 - (currentSpan % 24);
-      currentSpan += 24 - (currentSpan % 24);
+    // 当前行剩余位置放不下时折行
+    if (24 - (renderSpan % 24) < colSpan) {
+      renderSpan += 24 - (renderSpan % 24);
     }
+    renderSpan += colSpan;
 
-    currentSpan += colSpan;
-
-    if (split && currentSpan % 24 === 0 && index < itemLength - 1) {
-      return (
-        <Col
-          key={itemKey}
-          span={colSpan}
-          className={clsx(
-              `${props.baseClassName}-row-split-line`,
-              `${props.baseClassName}-row-split`,
-              hashId,
-            )}
-        >
-          {itemDom}
-        </Col>
-      );
-    }
+    const isSplitLine =
+      split && renderSpan % 24 === 0 && index < processedList.length - 1;
 
     return (
       <Col
         key={itemKey}
-        className={clsx(`${props.baseClassName}-row-split`, hashId)}
         span={colSpan}
+        className={clsx(
+          `${props.baseClassName}-row-split`,
+          isSplitLine && `${props.baseClassName}-row-split-line`,
+          hashId,
+        )}
       >
         {itemDom}
       </Col>
@@ -492,26 +398,17 @@ const QueryFilterContent: React.FC<{
   const hiddenNum =
     showHiddenNum && processedList.filter((item) => item.hidden).length;
 
-  /** 是否需要展示 collapseRender */
-  const needCollapseRender = useMemo(() => {
-    if (totalSpan < 24 || totalSize <= showLength) {
-      return false;
-    }
-    return true;
-  }, [totalSize, showLength, totalSpan]);
+  const needCollapseRender = totalSpan >= 24 && totalSize > showLength;
 
-  const offset = useMemo(() => {
-    const offsetSpan =
-      (currentSpan % 24) + (props.submitterColSpanProps?.span ?? spanSize.span);
+  const offset = (() => {
+    const submitterSpan =
+      props.submitterColSpanProps?.span ?? spanSize.span;
+    const offsetSpan = lastRowUsedSpan + submitterSpan;
     if (offsetSpan > 24) {
-      return 24 - (props.submitterColSpanProps?.span ?? spanSize.span);
+      return 24 - submitterSpan;
     }
     return 24 - offsetSpan;
-  }, [
-    currentSpan,
-    (currentSpan % 24) + (props.submitterColSpanProps?.span ?? spanSize.span),
-    props.submitterColSpanProps?.span,
-  ]);
+  })();
 
   const context = useContext(ConfigProvider.ConfigContext);
   const baseClassName = context.getPrefixCls('pro-query-filter');

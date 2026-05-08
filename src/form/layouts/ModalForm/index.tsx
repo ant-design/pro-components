@@ -1,19 +1,11 @@
-import { useControlledState, warning } from '@rc-component/util';
+import { warning } from '@rc-component/util';
 import type { FormProps, ModalProps } from 'antd';
 import { ConfigProvider, Modal } from 'antd';
-import { merge } from 'lodash-es';
-import React, {
-  useContext,
-  useEffect,
-  useImperativeHandle,
-  useRef,
-  useState,
-} from 'react';
-import { createPortal } from 'react-dom';
-import { useRefFunction } from '../../../utils';
+import React, { useContext, useRef } from 'react';
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
-import { SubmitterProps } from '../../BaseForm/Submitter';
+import { useOverlayForm } from '../_shared/useOverlayForm';
+
 const { noteOnce } = warning;
 
 export type ModalFormProps<
@@ -74,152 +66,38 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
   );
 
   const context = useContext(ConfigProvider.ConfigContext);
-
-  const [, forceUpdate] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  const [open, setOpenInner] = useControlledState<boolean>(false, propsOpen);
-
-  /**
-   * 使用 useRefFunction 包装回调，确保引用稳定
-   */
-  const onOpenChangeCallback = useRefFunction((o: boolean) => {
-    onOpenChange?.(o);
-  });
-
-  /**
-   * 使用 queueMicrotask 延迟回调调用，避免在渲染阶段调用外部回调导致的 React 警告
-   * "Cannot update a component while rendering a different component"
-   */
-  const setOpen = useRefFunction(
-    (updater: boolean | ((prev: boolean) => boolean)) => {
-      setOpenInner((prev) => {
-        const next =
-          typeof updater === 'function'
-            ? (updater as (p: boolean) => boolean)(prev)
-            : updater;
-        queueMicrotask(() => {
-          onOpenChangeCallback(next);
-        });
-        return next;
-      });
-    },
-  );
-
-  const footerRef = useRef<HTMLDivElement | null>(null);
-
-  const footerDomRef: React.RefCallback<HTMLDivElement> = useRefFunction(
-    (element) => {
-      if (footerRef.current === null && element) {
-        forceUpdate([]);
-      }
-      footerRef.current = element;
-    },
-  );
-
   const formRef = useRef<ProFormInstance>();
 
-  const resetFields = useRefFunction(() => {
-    const form = rest.form ?? rest.formRef?.current ?? formRef.current;
-    // 重置表单
-    // issue: 8858 form.resetFields is not a function
-    if (
-      form &&
-      modalProps?.destroyOnHidden &&
-      typeof form.resetFields === 'function'
-    ) {
-      form.resetFields();
-    }
-  });
-
-  // deps 不能用 formRef.current（ref 变化不触发更新），改为空 deps 即可
-  useImperativeHandle(rest.formRef, () => formRef.current, []);
-
-  // 受控 open=true 时通知外部，使外部感知初始打开状态
-  useEffect(() => {
-    if (propsOpen) {
-      onOpenChange?.(true);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [propsOpen]);
-
-  const triggerDom = trigger
-    ? React.cloneElement(trigger, {
-        key: 'trigger',
-        ...trigger.props,
-        onClick: async (e: any) => {
-          setOpen(!open);
-          trigger.props?.onClick?.(e);
-        },
-      })
-    : null;
-
-  const submitterConfig =
-    rest.submitter === false
-      ? false
-      : merge(
-          {
-            searchConfig: {
-              submitText:
-                modalProps?.okText ?? context.locale?.Modal?.okText ?? '确认',
-              resetText:
-                modalProps?.cancelText ??
-                context.locale?.Modal?.cancelText ??
-                '取消',
-            },
-            resetButtonProps: {
-              preventDefault: true,
-              disabled: submitTimeout && loading,
-              onClick: (e: any) => {
-                setOpen(false);
-                modalProps?.onCancel?.(e);
-              },
-            },
-          } as SubmitterProps,
-          rest.submitter ?? {},
-        );
-
-  const contentRender = useRefFunction((formDom: any, submitter: any) => {
-    return (
-      <>
-        {formDom}
-        {footerRef.current && submitter ? (
-          <React.Fragment key="submitter">
-            {createPortal(submitter, footerRef.current)}
-          </React.Fragment>
-        ) : (
-          submitter
-        )}
-      </>
-    );
-  });
-
-  const onFinishHandle = useRefFunction(async (values: T) => {
-    const response = onFinish?.(values);
-
-    if (submitTimeout) {
-      setLoading(true);
-      const timer = setTimeout(() => setLoading(false), submitTimeout);
-      try {
-        // await 非 Promise 值会直接 resolve，语义安全
-        const result = await response;
-        clearTimeout(timer);
-        setLoading(false);
-        if (result) {
-          setOpen(false);
-        }
-        return result;
-      } catch (error) {
-        clearTimeout(timer);
-        setLoading(false);
-        throw error;
-      }
-    }
-    const result = await response;
-    if (result) {
-      setOpen(false);
-    }
-    return result;
+  const {
+    open,
+    setOpen,
+    loading,
+    footerDomRef,
+    footerRef,
+    triggerDom,
+    submitterConfig,
+    contentRender,
+    onFinishHandle,
+    resetFields,
+  } = useOverlayForm<T>({
+    propsOpen,
+    onOpenChange,
+    formRef,
+    propsFormRef: rest.formRef,
+    destroyOnHidden: modalProps?.destroyOnHidden,
+    submitTimeout,
+    onFinish,
+    onCloseExtra: modalProps?.onCancel,
+    submitter: rest.submitter,
+    searchConfig: {
+      submitText: String(
+        modalProps?.okText ?? context.locale?.Modal?.okText ?? '确认',
+      ),
+      resetText: String(
+        modalProps?.cancelText ?? context.locale?.Modal?.cancelText ?? '取消',
+      ),
+    },
+    trigger,
   });
 
   return (
@@ -230,13 +108,13 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
         {...modalProps}
         open={open}
         onCancel={(e) => {
-          // 提交表单loading时，阻止弹框关闭
+          // 提交时 loading，阻止关闭
           if (submitTimeout && loading) return;
           setOpen(false);
           modalProps?.onCancel?.(e);
         }}
         afterClose={() => {
-          // 确保在关闭时立即重置表单
+          // fix: #6006 destroyOnHidden 时在关闭动画结束后重置，避免在关闭过程中闪烁
           if (modalProps?.destroyOnHidden) {
             resetFields();
           }
@@ -249,10 +127,7 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
           rest.submitter !== false ? (
             <div
               ref={footerDomRef}
-              style={{
-                display: 'flex',
-                justifyContent: 'flex-end',
-              }}
+              style={{ display: 'flex', justifyContent: 'flex-end' }}
             />
           ) : null
         }
@@ -261,6 +136,7 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
           formComponentType="ModalForm"
           layout="vertical"
           {...rest}
+          formRef={formRef}
           onInit={(_, form) => {
             if (rest.formRef) {
               (
@@ -270,12 +146,11 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
             rest?.onInit?.(_, form);
             formRef.current = form;
           }}
-          formRef={formRef}
           submitter={submitterConfig}
           onFinish={async (values) => {
-            const result = await onFinishHandle(values);
-            // fix: #6006 如果 result 为 true,那么必然会触发弹窗关闭，我们无需在 此处重置表单，只需在弹窗关闭时重置即可
-            return result;
+            // fix: #6006 result 为 true 时弹窗关闭由 onFinishHandle 内部处理，
+            // 无需在此重置，等 afterClose 触发时再重置
+            return onFinishHandle(values);
           }}
           contentRender={contentRender}
         >

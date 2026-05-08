@@ -1,9 +1,10 @@
 import { ConfigProvider } from 'antd';
 import { clsx } from 'clsx';
-import React, { useContext, useMemo } from 'react';
+import React, { useContext } from 'react';
 import { useIntl } from '../../../provider';
 import type { ProFormProps } from '../ProForm';
 import { ProForm } from '../ProForm';
+import { LoginFormHeader } from '../_shared/LoginFormHeader';
 import { useStyle } from './style';
 
 export type LoginFormPageProps<T> = {
@@ -119,14 +120,6 @@ export function LoginFormPage<T = Record<string, any>>(
 
   const getCls = (className: string) => `${baseClassName}-${className}`;
 
-  /** 生成logo 的dom，如果是string 设置为图片 如果是个 dom 就原样保留 */
-  const logoDom = useMemo(() => {
-    if (!logo) return null;
-    if (typeof logo === 'string') {
-      return <img src={logo} alt="" />;
-    }
-    return logo;
-  }, [logo]);
 
   return wrapSSR(
     <div
@@ -205,27 +198,13 @@ export function LoginFormPage<T = Record<string, any>>(
             className={clsx(getCls('container'), hashId)}
             style={containerStyle}
           >
-            <div className={clsx(getCls('top'), hashId)}>
-              {title || logoDom ? (
-                <div className={clsx(getCls('header'), hashId)}>
-                  {logoDom ? (
-                    <span className={clsx(getCls('logo'), hashId)}>
-                      {logoDom}
-                    </span>
-                  ) : null}
-                  {title ? (
-                    <span className={clsx(getCls('title'), hashId)}>
-                      {title}
-                    </span>
-                  ) : null}
-                </div>
-              ) : null}
-              {subTitle ? (
-                <div className={clsx(getCls('desc'), hashId)}>
-                  {subTitle}
-                </div>
-              ) : null}
-            </div>
+            <LoginFormHeader
+              logo={logo}
+              title={title}
+              subTitle={subTitle}
+              prefixCls={baseClassName}
+              hashId={hashId}
+            />
             <div className={clsx(getCls('main'), hashId)} style={mainStyle}>
               <ProForm isKeyPressSubmit {...proFormProps} submitter={submitter}>
                 {message}
