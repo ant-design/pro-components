@@ -1891,7 +1891,12 @@ describe('ProForm', () => {
       </LightFilter>,
     );
 
-    await wrapper.findByText('查询选择器');
+    // LightSelect 同时渲染 Form.Item label 列和 FieldLabel，用精确选择器等待渲染完成
+    await waitFor(() => {
+      expect(
+        wrapper.baseElement.querySelector('.ant-pro-core-field-label'),
+      ).toBeTruthy();
+    });
 
     act(() => {
       fireEvent.change(
@@ -1929,7 +1934,12 @@ describe('ProForm', () => {
         />
       </LightFilter>,
     );
-    await wrapper.findByText('查询选择器');
+    // LightSelect 同时渲染 Form.Item label 列和 FieldLabel，用精确选择器等待渲染完成
+    await waitFor(() => {
+      expect(
+        wrapper.baseElement.querySelector('.ant-pro-core-field-label'),
+      ).toBeTruthy();
+    });
 
     await waitFor(() => {
       expect(onRequest.mock.calls.length).toBe(1);

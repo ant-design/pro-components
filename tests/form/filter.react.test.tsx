@@ -57,12 +57,20 @@ describe('✔️ LightFilter', () => {
       (await html.findAllByText('确 认')).at(0)?.click();
     });
 
-    const dom = await html.findAllByTitle('qixian');
+    // LightWrapper 提交后 value 同步到 Form.Item 内部的 input，用 findByDisplayValue 确认
+    const inputEl = await html.findByDisplayValue('qixian');
+    expect(inputEl).toBeTruthy();
 
-    expect(dom.length > 0).toBeTruthy();
+    // 点击 FieldLabel 触发 Popover 展开，然后点击清除
+    await act(async () => {
+      html.baseElement.querySelector('.ant-pro-core-field-label')?.dispatchEvent(
+        new MouseEvent('click', { bubbles: true }),
+      );
+    });
+
+    await waitFor(() => html.findAllByText('清除'));
 
     await act(async () => {
-      (await html.findAllByTitle('qixian')).at(0)?.click();
       (await html.findAllByText('清除')).at(0)?.parentElement?.click();
     });
 
