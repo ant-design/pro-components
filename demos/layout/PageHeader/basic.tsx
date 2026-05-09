@@ -11,7 +11,7 @@ const App: React.FC = () => (
 );
 
 export default () => (
-  <div style={{ padding: 24 }}>
+  <div>
     <App />
   </div>
 );
