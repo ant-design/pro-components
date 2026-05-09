@@ -1,4 +1,4 @@
-﻿import type { GenerateStyle, ProAliasToken } from '../../../../provider';
+import type { GenerateStyle, ProAliasToken } from '../../../../provider';
 import { useStyle as useAntdStyle } from '../../../../provider';
 
 export interface ProLayoutHeaderToken extends ProAliasToken {
@@ -14,7 +14,7 @@ const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken> = (
         height: token.layout?.header?.heightLayoutHeader || 56,
         lineHeight: `${token.layout?.header?.heightLayoutHeader || 56}px`,
         // hitu 用了这个属性，不能删除哦 @南取
-        zIndex: 19,
+        zIndex: 101,
         width: '100%',
         paddingBlock: 0,
         paddingInline: 0,
@@ -29,7 +29,7 @@ const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken> = (
           position: 'fixed',
           insetBlockStart: 0,
           width: '100%',
-          zIndex: 100,
+          zIndex: 101,
           insetInlineEnd: 0,
         },
         '&-fixed-header-scroll': {

@@ -115,7 +115,11 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (
   });
 
   const logoDom = (
-    <span className={logoClassNames} key="logo">
+    <span
+      className={logoClassNames}
+      key="logo"
+      data-testid="pro-layout-global-header-logo"
+    >
       <a>{defaultRenderLogo(logo)}</a>
     </span>
   );
@@ -128,6 +132,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (
       {isMobile && (
         <span
           className={clsx(`${baseClassName}-collapsed-button`, hashId)}
+          data-testid="pro-layout-global-header-collapsed-button"
           onClick={() => {
             onCollapse?.(!collapsed);
           }}
@@ -136,7 +141,9 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (
         </span>
       )}
       {isMobile && renderLogo(menuHeaderRender, logoDom)}
-      <div style={{ flex: 1 }}>{children}</div>
+      <div style={{ flex: 1 }} data-testid="pro-layout-global-header-content">
+        {children}
+      </div>
       {(props.actionsRender || props.avatarProps) && (
         <ActionsContent {...props} />
       )}

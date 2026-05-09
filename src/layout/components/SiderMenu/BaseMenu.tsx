@@ -26,7 +26,9 @@ export type {
   ProLayoutNavMenuSelectInfo,
 } from './types';
 
-export type BaseMenuProps = BaseMenuTreeProps;
+export type BaseMenuProps = BaseMenuTreeProps & {
+  'data-testid'?: string;
+};
 
 const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -43,6 +45,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     onSelect: propsOnSelect,
     menuRenderType,
     openKeys: propsOpenKeys,
+    'data-testid': dataTestId,
   } = props;
 
   const renderIcon = useCallback(
@@ -66,6 +69,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
               src={icon}
               alt=""
               className={iconClassName}
+              data-testid="pro-layout-menu-icon-image"
             />
           );
         }
@@ -99,16 +103,14 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         | ((prev: (string | number)[] | false) => (string | number)[] | false),
     ) => {
       setOpenKeysInner((prev) => {
-        const next =
-          typeof updater === 'function' ? updater(prev) : updater;
+        const next = typeof updater === 'function' ? updater(prev) : updater;
         /**
          * 对外回调签名是 `(openKeys: string[]) => void`（`BaseMenuProps.onOpenChange`），
          * 内部 state 同时兼容 `false`（"完全不展开"语义）。这里把 `false` 映射成 `[]`，
          * 把 number key 统一字符串化，再回调，避免向用户透出内部 state 形状。
          */
         if (onOpenChange) {
-          const callbackKeys =
-            next === false ? [] : next.map((k) => String(k));
+          const callbackKeys = next === false ? [] : next.map((k) => String(k));
           onOpenChange(callbackKeys);
         }
         return next;
@@ -281,6 +283,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         ...style,
         ...menuPropsStyle,
       }}
+      data-testid={dataTestId || 'pro-layout-base-menu'}
       className={clsx(className, hashId, baseClassName, menuPropsClassName, {
         'ant-pro-sider-menu':
           mode !== 'horizontal' && props.menuRenderType !== 'header',

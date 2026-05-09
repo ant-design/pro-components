@@ -47,10 +47,14 @@ const GlobalFooter = ({
       data-testid="pro-global-footer"
     >
       {links && (
-        <div className={clsx(`${baseClassName}-list`, hashId)}>
+        <div
+          className={clsx(`${baseClassName}-list`, hashId)}
+          data-testid="pro-global-footer-list"
+        >
           {links.map((link) => (
             <a
               className={clsx(`${baseClassName}-list-link`, hashId)}
+              data-testid="pro-global-footer-list-link"
               key={link.key}
               title={link.key}
               target={link.blankTarget ? '_blank' : '_self'}
@@ -63,7 +67,10 @@ const GlobalFooter = ({
         </div>
       )}
       {copyright && (
-        <div className={clsx(`${baseClassName}-copyright`, hashId)}>
+        <div
+          className={clsx(`${baseClassName}-copyright`, hashId)}
+          data-testid="pro-global-footer-copyright"
+        >
           {copyright}
         </div>
       )}

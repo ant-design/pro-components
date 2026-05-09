@@ -11,8 +11,14 @@ export const DefaultContent: React.FC<{
 }> = (props) => {
   const { appList, baseClassName, hashId, itemClick } = props;
   return (
-    <div className={clsx(`${baseClassName}-content`, hashId)}>
-      <ul className={clsx(`${baseClassName}-content-list`, hashId)}>
+    <div
+      className={clsx(`${baseClassName}-content`, hashId)}
+      data-testid="pro-layout-apps-logo-content"
+    >
+      <ul
+        className={clsx(`${baseClassName}-content-list`, hashId)}
+        data-testid="pro-layout-apps-logo-content-list"
+      >
         {appList?.map((app, index) => {
           const itemKey = (typeof app.title === 'string' && app.title) || index;
           if (app?.children?.length) {
@@ -25,12 +31,14 @@ export const DefaultContent: React.FC<{
                   `${baseClassName}-content-list-item-group`,
                   hashId,
                 )}
+                data-testid="pro-layout-apps-logo-content-list-item-group"
               >
                 <div
                   className={clsx(
                     `${baseClassName}-content-list-item-group-title`,
                     hashId,
                   )}
+                  data-testid="pro-layout-apps-logo-content-list-item-group-title"
                 >
                   {app.title}
                 </div>
@@ -48,6 +56,7 @@ export const DefaultContent: React.FC<{
             <li
               key={itemKey}
               className={clsx(`${baseClassName}-content-list-item`, hashId)}
+              data-testid="pro-layout-apps-logo-content-list-item"
               onClick={(e) => {
                 e.stopPropagation();
                 itemClick?.(app);

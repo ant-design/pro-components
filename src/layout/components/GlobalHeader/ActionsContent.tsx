@@ -56,7 +56,10 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
           if (!doms && !avatarDom) return null;
           if (!Array.isArray(doms))
             return wrapSSR(
-              <div className={clsx(`${prefixCls}-header-actions`, hashId)}>
+              <div
+                className={clsx(`${prefixCls}-header-actions`, hashId)}
+                data-testid="pro-layout-global-header-actions"
+              >
                 {doms}
                 {avatarDom && (
                   <span
@@ -64,6 +67,7 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
                       `${prefixCls}-header-actions-avatar`,
                       hashId,
                     )}
+                    data-testid="pro-layout-global-header-actions-avatar"
                   >
                     {avatarDom}
                   </span>
@@ -71,7 +75,10 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
               </div>,
             );
           return wrapSSR(
-            <div className={clsx(`${prefixCls}-header-actions`, hashId)}>
+            <div
+              className={clsx(`${prefixCls}-header-actions`, hashId)}
+              data-testid="pro-layout-global-header-actions"
+            >
               {doms.filter(Boolean).map((dom, index) => {
                 let hideHover = false;
                 // 如果配置了 hideHover 就不展示 hover 效果了
@@ -88,6 +95,7 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
                         [`${prefixCls}-header-actions-hover`]: !hideHover,
                       },
                     )}
+                    data-testid="pro-layout-global-header-actions-item"
                   >
                     {dom}
                   </div>
@@ -99,6 +107,7 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
                     `${prefixCls}-header-actions-avatar`,
                     hashId,
                   )}
+                  data-testid="pro-layout-global-header-actions-avatar"
                 >
                   {avatarDom}
                 </span>
@@ -120,6 +129,7 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
         minWidth: rightSize,
         height: '100%',
       }}
+      data-testid="pro-layout-global-header-right-content"
     >
       {contentRender ? (
         <div

@@ -223,6 +223,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     avatarProps,
 
     actionsRender,
+    splitMenus,
     onOpenChange,
     stylish,
     logoStyle,
@@ -240,10 +241,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   const linkMenuBaseClassName = `${resolvedPrefixCls}-base-menu-sider`;
   useBaseMenuStyle(linkMenuBaseClassName, 'vertical');
 
-  const siderCssVarsStyle = useMemo(
-    () => getProLayoutSiderCssVarsStyle(),
-    [],
-  );
+  const siderCssVarsStyle = useMemo(() => getProLayoutSiderCssVarsStyle(), []);
 
   // 收起的宽度，从 menu 配置中读取，默认为 64
   const collapsedWidth = props.menu?.collapsedWidth ?? 64;
@@ -290,6 +288,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
             width: '100%',
           }}
           className={clsx(`${baseClassName}-menu`, hashId)}
+          data-testid="pro-layout-sider-menu"
         />
       ),
     [baseClassName, hashId, menuContentRender, onOpenChange, props],
@@ -300,7 +299,10 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     key: `link-${index}`,
     className: `${linkMenuBaseClassName}-link-item`,
     label: (
-      <span className={clsx(`${baseClassName}-link`, hashId)}>
+      <span
+        className={clsx(`${baseClassName}-link`, hashId)}
+        data-testid="pro-layout-sider-link"
+      >
         {node}
       </span>
     ),
@@ -314,7 +316,10 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     if (!avatarProps) return null;
     const { title, render, ...rest } = avatarProps;
     const dom = (
-      <div className={`${baseClassName}-actions-avatar`}>
+      <div
+        className={`${baseClassName}-actions-avatar`}
+        data-testid="pro-layout-sider-actions-avatar"
+      >
         {rest?.src || rest?.srcSet || rest.icon || rest.children ? (
           <Avatar size={28} {...rest} />
         ) : null}
@@ -339,6 +344,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
           collapsed && `${baseClassName}-actions-list-collapsed`,
           hashId,
         ])}
+        data-testid="pro-layout-sider-actions-list"
       >
         {[actionsRender?.(props as HeaderViewProps)]
           .flat(1)
@@ -347,6 +353,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
               <div
                 key={index}
                 className={clsx(`${baseClassName}-actions-list-item`, hashId)}
+                data-testid="pro-layout-sider-actions-list-item"
               >
                 {item}
               </div>
@@ -374,6 +381,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         isMobile={isMobile}
         collapsed={originCollapsed}
         className={`${baseClassName}-collapsed-button`}
+        data-testid="pro-layout-sider-collapsed-button"
         onClick={() => {
           onCollapse?.(!originCollapsed);
         }}
@@ -392,6 +400,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
 
   /** 操作区域的dom */
   const actionAreaDom = useMemo(() => {
+    if (splitMenus && !isMobile) return null;
     if (!avatarDom && !actionsDom) return null;
 
     return (
@@ -401,12 +410,21 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
           hashId,
           collapsed && `${baseClassName}-actions-collapsed`,
         )}
+        data-testid="pro-layout-sider-actions"
       >
         {avatarDom}
         {actionsDom}
       </div>
     );
-  }, [actionsDom, avatarDom, baseClassName, collapsed, hashId]);
+  }, [
+    actionsDom,
+    avatarDom,
+    baseClassName,
+    collapsed,
+    hashId,
+    isMobile,
+    splitMenus,
+  ]);
 
   /* Using the useMemo hook to create a CSS class that will hide the menu when the menu is collapsed. */
   const hideMenuWhenCollapsedClassName = useMemo(() => {
@@ -423,6 +441,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     <>
       {headerDom && (
         <div
+          data-testid="pro-layout-sider-logo"
           className={clsx([
             clsx(`${baseClassName}-logo`, hashId, {
               [`${baseClassName}-logo-collapsed`]: collapsed,
@@ -443,6 +462,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
             !headerDom && `${baseClassName}-extra-no-logo`,
             hashId,
           ])}
+          data-testid="pro-layout-sider-extra"
         >
           {extraDom}
         </div>
@@ -453,12 +473,16 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
           overflowY: 'auto',
           overflowX: 'hidden',
         }}
+        data-testid="pro-layout-sider-menu-content"
       >
         {menuRenderDom}
       </div>
       <SiderContext.Provider value={{}}>
         {links ? (
-          <div className={clsx(`${baseClassName}-links`, hashId)}>
+          <div
+            className={clsx(`${baseClassName}-links`, hashId)}
+            data-testid="pro-layout-sider-links"
+          >
             <ProLayoutNavMenu
               baseClassName={linkMenuBaseClassName}
               hashId={hashId}
@@ -468,6 +492,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
               openKeys={[]}
               nodes={linksNavNodes}
               className={clsx(`${baseClassName}-link-menu`, hashId)}
+              data-testid="pro-layout-sider-link-menu"
             />
           </div>
         ) : null}
@@ -479,6 +504,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
               hashId,
               { [`${baseClassName}-footer-collapsed`]: collapsed },
             ])}
+            data-testid="pro-layout-sider-footer"
           >
             {menuFooterDom}
           </div>
@@ -523,6 +549,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         {hideMenuWhenCollapsedClassName ? (
           <div
             className={clsx(`${baseClassName}-hide-when-collapsed`, hashId)}
+            data-testid="pro-layout-sider-hide-when-collapsed"
             style={{
               height: '100%',
               width: '100%',

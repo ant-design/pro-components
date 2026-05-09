@@ -42,13 +42,17 @@ const renderBack = (
     return null;
   }
   return (
-    <div className={clsx(`${prefixCls}-back`, hashId)}>
+    <div
+      className={clsx(`${prefixCls}-back`, hashId)}
+      data-testid="pro-page-header-back"
+    >
       <div
         role="button"
         onClick={(e) => {
           onBack?.(e);
         }}
         className={clsx(`${prefixCls}-back-button`, hashId)}
+        data-testid="pro-page-header-back-button"
         aria-label="back"
       >
         {backIcon}
@@ -63,6 +67,7 @@ const renderBreadcrumb = (breadcrumb: BreadcrumbProps, prefixCls: string) => {
     <Breadcrumb
       {...breadcrumb}
       className={clsx(`${prefixCls}-breadcrumb`, breadcrumb.className)}
+      data-testid="pro-page-header-breadcrumb"
     />
   );
 };
@@ -94,9 +99,15 @@ const renderTitle = (
   const backIconDom = renderBack(prefixCls, hashId, backIcon, onBack);
   const hasTitle = backIconDom || avatar || hasHeading;
   return (
-    <div className={clsx(headingPrefixCls, hashId)}>
+    <div
+      className={clsx(headingPrefixCls, hashId)}
+      data-testid="pro-page-header-heading"
+    >
       {hasTitle && (
-        <div className={clsx(`${headingPrefixCls}-left`, hashId)}>
+        <div
+          className={clsx(`${headingPrefixCls}-left`, hashId)}
+          data-testid="pro-page-header-heading-left"
+        >
           {backIconDom}
           {avatar && (
             <Avatar
@@ -105,12 +116,14 @@ const renderTitle = (
                 hashId,
                 avatar.className,
               )}
+              data-testid="pro-page-header-heading-avatar"
               {...avatar}
             />
           )}
           {title && (
             <span
               className={clsx(`${headingPrefixCls}-title`, hashId)}
+              data-testid="pro-page-header-heading-title"
               title={typeof title === 'string' ? title : undefined}
             >
               {title}
@@ -119,20 +132,27 @@ const renderTitle = (
           {subTitle && (
             <span
               className={clsx(`${headingPrefixCls}-sub-title`, hashId)}
+              data-testid="pro-page-header-heading-sub-title"
               title={typeof subTitle === 'string' ? subTitle : undefined}
             >
               {subTitle}
             </span>
           )}
           {tags && (
-            <span className={clsx(`${headingPrefixCls}-tags`, hashId)}>
+            <span
+              className={clsx(`${headingPrefixCls}-tags`, hashId)}
+              data-testid="pro-page-header-heading-tags"
+            >
               {tags}
             </span>
           )}
         </div>
       )}
       {extra && (
-        <span className={clsx(`${headingPrefixCls}-extra`, hashId)}>
+        <span
+          className={clsx(`${headingPrefixCls}-extra`, hashId)}
+          data-testid="pro-page-header-heading-extra"
+        >
           <Space>{extra}</Space>
         </span>
       )}
@@ -147,7 +167,12 @@ const renderFooter = (
 ) => {
   if (footer) {
     return (
-      <div className={clsx(`${prefixCls}-footer`, hashId)}>{footer}</div>
+      <div
+        className={clsx(`${prefixCls}-footer`, hashId)}
+        data-testid="pro-page-header-footer"
+      >
+        {footer}
+      </div>
     );
   }
   return null;
@@ -157,7 +182,14 @@ const renderChildren = (
   prefixCls: string,
   children: React.ReactNode,
   hashId: string,
-) => <div className={clsx(`${prefixCls}-content`, hashId)}>{children}</div>;
+) => (
+  <div
+    className={clsx(`${prefixCls}-content`, hashId)}
+    data-testid="pro-page-header-content"
+  >
+    {children}
+  </div>
+);
 
 const PageHeader: React.FC<PageHeaderProps> = (props) => {
   const [compact, updateCompact] = React.useState<boolean>(false);
@@ -221,7 +253,12 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
   const footerDom = renderFooter(prefixCls, footer, hashId);
 
   if (!breadcrumbDom && !title && !footerDom && !childDom) {
-    return <div className={clsx(hashId, [`${prefixCls}-no-children`])} />;
+    return (
+      <div
+        className={clsx(hashId, [`${prefixCls}-no-children`])}
+        data-testid="pro-page-header-no-children"
+      />
+    );
   }
 
   return wrapSSR(

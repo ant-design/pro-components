@@ -140,6 +140,7 @@ const renderFooter: React.FC<
     return (
       <Tabs
         className={clsx(`${prefixedClassName}-tabs`, hashId)}
+        data-testid="pro-page-container-tabs"
         activeKey={tabActiveKey}
         onChange={(key) => {
           if (onTabChange) {
@@ -169,17 +170,30 @@ const renderPageHeader = (
     return null;
   }
   return (
-    <div className={clsx(`${prefixedClassName}-detail`, hashId)}>
-      <div className={clsx(`${prefixedClassName}-main`, hashId)}>
-        <div className={clsx(`${prefixedClassName}-row`, hashId)}>
+    <div
+      className={clsx(`${prefixedClassName}-detail`, hashId)}
+      data-testid="pro-page-container-detail"
+    >
+      <div
+        className={clsx(`${prefixedClassName}-main`, hashId)}
+        data-testid="pro-page-container-main"
+      >
+        <div
+          className={clsx(`${prefixedClassName}-row`, hashId)}
+          data-testid="pro-page-container-row"
+        >
           {content && (
-            <div className={clsx(`${prefixedClassName}-content`, hashId)}>
+            <div
+              className={clsx(`${prefixedClassName}-content`, hashId)}
+              data-testid="pro-page-container-content"
+            >
               {content}
             </div>
           )}
           {extraContent && (
             <div
               className={clsx(`${prefixedClassName}-extraContent`, hashId)}
+              data-testid="pro-page-container-extra-content"
             >
               {extraContent}
             </div>
@@ -297,6 +311,7 @@ const memoRenderPageHeader = (
     <PageHeader
       {...pageHeaderProps}
       className={clsx(`${prefixedClassName}-warp-page-header`, hashId)}
+      data-testid="pro-page-container-warp-page-header"
       breadcrumb={
         breadcrumbRender === false
           ? undefined
@@ -391,6 +406,7 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
               !pageHeaderDom,
           })}
           style={childrenContentStyle}
+          data-testid="pro-page-container-children-container"
         >
           {children}
         </div>
@@ -435,8 +451,12 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
               }
               {...affixProps}
               className={clsx(`${basePageContainer}-affix`, hashId)}
+              data-testid="pro-page-container-affix"
             >
-              <div className={clsx(`${basePageContainer}-warp`, hashId)}>
+              <div
+                className={clsx(`${basePageContainer}-warp`, hashId)}
+                data-testid="pro-page-container-warp"
+              >
                 {pageHeaderDom}
               </div>
             </Affix>

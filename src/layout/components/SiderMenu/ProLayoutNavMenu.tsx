@@ -51,7 +51,11 @@ const SubmenuArrow: React.FC<{ baseClassName: string; hashId: string }> = ({
   baseClassName,
   hashId,
 }) => (
-  <span className={clsx(`${baseClassName}-submenu-arrow`, hashId)} aria-hidden>
+  <span
+    className={clsx(`${baseClassName}-submenu-arrow`, hashId)}
+    aria-hidden
+    data-testid="pro-layout-nav-menu-submenu-arrow"
+  >
     <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M4.5 2.25 8.25 6 4.5 9.75"
@@ -81,6 +85,7 @@ export type ProLayoutNavMenuProps = {
 > & {
     className?: string;
     style?: CSSProperties;
+    'data-testid'?: string;
   };
 
 interface ProLayoutNavMenuRenderContext {
@@ -120,6 +125,7 @@ function renderDivider(
       key={node.key}
       role="separator"
       className={clsx(`${baseClassName}-divider`, hashId, node.className)}
+      data-testid="pro-layout-nav-menu-divider"
       style={node.style}
     />
   );
@@ -156,6 +162,7 @@ function renderLeaf(
         [`${baseClassName}-item--selected`]: selected,
         [`${baseClassName}-item--disabled`]: disabled,
       })}
+      data-testid="pro-layout-nav-menu-item"
       aria-disabled={disabled || undefined}
       aria-selected={selected || undefined}
       style={indentStyle}
@@ -167,6 +174,7 @@ function renderLeaf(
         tabIndex={disabled ? -1 : 0}
         aria-disabled={disabled || undefined}
         className={clsx(`${baseClassName}-item-button`, hashId)}
+        data-testid="pro-layout-nav-menu-item-button"
         onClick={(e) => {
           e.stopPropagation();
           handleLeafActivate(node.key, disabled, node.onClick);
@@ -185,7 +193,10 @@ function renderLeaf(
          * - 收起态可通过 `${c}-item-title { width: collapsedItemSize; overflow: hidden }`
          *   实现「首字 chip」风格，无需关心业务侧 label 的内部 DOM 结构。
          */}
-        <span className={clsx(`${baseClassName}-item-title`, hashId)}>
+        <span
+          className={clsx(`${baseClassName}-item-title`, hashId)}
+          data-testid="pro-layout-nav-menu-item-title"
+        >
           {node.label}
         </span>
       </button>
@@ -207,15 +218,21 @@ function renderGroup(
     <li
       key={node.key}
       className={clsx(`${baseClassName}-group`, hashId, node.className)}
+      data-testid="pro-layout-nav-menu-group"
       role="presentation"
     >
       <h3
         className={clsx(`${baseClassName}-group-title`, hashId)}
         data-pro-layout-nav-group-title
+        data-testid="pro-layout-nav-menu-group-title"
       >
         {node.label}
       </h3>
-      <ul className={clsx(`${baseClassName}-group-list`, hashId)} role="group">
+      <ul
+        className={clsx(`${baseClassName}-group-list`, hashId)}
+        role="group"
+        data-testid="pro-layout-nav-menu-group-list"
+      >
         {/* eslint-disable-next-line @typescript-eslint/no-use-before-define -- renderNode 定义在文件后部 */}
         {node.children.map((child) => renderNode(ctx, child, depth))}
       </ul>
@@ -264,6 +281,7 @@ function renderPopup(
       role="menu"
       className={clsx(`${baseClassName}-list`, hashId)}
       data-pro-layout-nav-popup-panel
+      data-testid="pro-layout-nav-menu-popup-list"
     >
       {node.children.map((child) => {
         // eslint-disable-next-line @typescript-eslint/no-use-before-define -- renderNode 定义在文件后部
@@ -288,6 +306,7 @@ function renderPopup(
         [`${baseClassName}-submenu-open`]: isOpen,
         [`${baseClassName}-submenu-has-icon`]: hasIcon,
       })}
+      data-testid="pro-layout-nav-menu-popup-submenu"
     >
     <Popover
       open={isOpen}
@@ -338,6 +357,7 @@ function renderPopup(
           [`${baseClassName}-submenu-title--open`]: isOpen,
           [`${baseClassName}-submenu-has-icon`]: hasIcon,
         })}
+        data-testid="pro-layout-nav-menu-popup-submenu-title"
         aria-expanded={isOpen}
         aria-haspopup="true"
         onClick={(e) =>
@@ -362,7 +382,10 @@ function renderPopup(
          *   只匹配 element child，会跳过文本节点直接命中 `<SubmenuArrow>`，
          *   导致 arrow 被 `flex:1` 撑满整个 button、label 被挤没。
          */}
-        <span className={clsx(`${baseClassName}-item-title`, hashId)}>
+        <span
+          className={clsx(`${baseClassName}-item-title`, hashId)}
+          data-testid="pro-layout-nav-menu-item-title"
+        >
           {node.label}
         </span>
         <SubmenuArrow baseClassName={baseClassName} hashId={hashId} />
@@ -412,6 +435,7 @@ function renderInlineSubmenu(
       className={clsx(`${baseClassName}-submenu`, hashId, node.className, {
         [`${baseClassName}-submenu-open`]: isOpen,
       })}
+      data-testid="pro-layout-nav-menu-submenu"
       style={indentStyle}
       role="none"
     >
@@ -420,6 +444,7 @@ function renderInlineSubmenu(
         className={clsx(`${baseClassName}-submenu-title`, hashId, {
           [`${baseClassName}-submenu-title--open`]: isOpen,
         })}
+        data-testid="pro-layout-nav-menu-submenu-title"
         aria-expanded={isOpen}
         aria-haspopup="true"
         onClick={(e) => {
@@ -448,7 +473,10 @@ function renderInlineSubmenu(
         }}
       >
         {/** 同 renderPopup：用 span 包裹让 `:first-child` 命中文字容器 */}
-        <span className={clsx(`${baseClassName}-item-title`, hashId)}>
+        <span
+          className={clsx(`${baseClassName}-item-title`, hashId)}
+          data-testid="pro-layout-nav-menu-item-title"
+        >
           {node.label}
         </span>
         <SubmenuArrow baseClassName={baseClassName} hashId={hashId} />
@@ -461,6 +489,7 @@ function renderInlineSubmenu(
             hashId,
           )}
           role="menu"
+          data-testid="pro-layout-nav-menu-submenu-children"
         >
           {/* eslint-disable-next-line @typescript-eslint/no-use-before-define -- renderNode 定义在文件后部 */}
           {node.children.map((child) => renderNode(ctx, child, depth + 1))}
@@ -696,6 +725,7 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
           [`${baseClassName}--horizontal`]: true,
           [`${baseClassName}--collapsed`]: !!collapsed,
         })}
+        data-testid={restNavProps['data-testid'] || 'pro-layout-nav-menu'}
         style={style}
         role="menubar"
       >
@@ -712,6 +742,7 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
       className={clsx(className, hashId, baseClassName, listClassName, {
         [`${baseClassName}--collapsed`]: !!collapsed,
       })}
+      data-testid={restNavProps['data-testid'] || 'pro-layout-nav-menu'}
       style={style}
       role="menu"
     >

@@ -1,4 +1,4 @@
-﻿export const Logo = () => (
+export const Logo = () => (
   <svg width="1em" height="1em" viewBox="0 0 200 200">
     <defs>
       <linearGradient

@@ -1,8 +1,16 @@
 import {
-  CrownFilled,
-  ShopOutlined,
+  AppstoreOutlined,
+  AuditOutlined,
+  BarcodeOutlined,
+  FileTextOutlined,
+  InboxOutlined,
+  MenuOutlined,
+  OrderedListOutlined,
+  RocketOutlined,
+  SafetyOutlined,
   SmileFilled,
-  TabletFilled,
+  StockOutlined,
+  UserOutlined,
 } from '@ant-design/icons';
 
 export default {
@@ -18,12 +26,12 @@ export default {
       {
         path: '/product',
         name: '商品管理',
-        icon: <ShopOutlined />,
         component: './Product',
         routes: [
           {
             path: '/product/list',
             name: '商品列表',
+            icon: <OrderedListOutlined />,
             routes: [
               {
                 path: 'on-sale',
@@ -45,16 +53,19 @@ export default {
           {
             path: '/product/category',
             name: '商品分类',
+            icon: <AppstoreOutlined />,
             component: './Welcome',
           },
           {
             path: '/product/brand',
             name: '品牌管理',
+            icon: <BarcodeOutlined />,
             component: './Welcome',
           },
           {
             path: '/product/inventory',
             name: '库存管理',
+            icon: <InboxOutlined />,
             component: './Welcome',
           },
         ],
@@ -62,12 +73,12 @@ export default {
       {
         path: '/order',
         name: '订单中心',
-        icon: <TabletFilled />,
         component: './Order',
         routes: [
           {
             path: '/order/sales',
             name: '销售订单',
+            icon: <StockOutlined />,
             routes: [
               {
                 path: 'pending',
@@ -94,11 +105,13 @@ export default {
           {
             path: '/order/refund',
             name: '退款售后',
+            icon: <RocketOutlined />,
             component: './Welcome',
           },
           {
             path: '/order/invoice',
             name: '发票申请',
+            icon: <FileTextOutlined />,
             component: './Welcome',
           },
         ],
@@ -106,29 +119,31 @@ export default {
       {
         path: '/admin',
         name: '系统管理',
-        icon: <CrownFilled />,
         access: 'canAdmin',
         component: './Admin',
         routes: [
           {
             path: '/admin/users',
             name: '用户管理',
-            icon: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
+            icon: <UserOutlined />,
             component: './Welcome',
           },
           {
             path: '/admin/roles',
             name: '角色权限',
+            icon: <SafetyOutlined />,
             component: './Welcome',
           },
           {
             path: '/admin/menu',
             name: '菜单管理',
+            icon: <MenuOutlined />,
             component: './Welcome',
           },
           {
             path: '/admin/audit-logs',
             name: '操作日志',
+            icon: <AuditOutlined />,
             component: './Welcome',
           },
         ],

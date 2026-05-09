@@ -187,7 +187,10 @@ function renderLeafRow(
    */
   const iconCell =
     iconNode || fallbackLetter !== null ? (
-      <span className={clsx(`${baseClassName}-item-icon`, ctx.hashId)}>
+      <span
+        className={clsx(`${baseClassName}-item-icon`, ctx.hashId)}
+        data-testid="pro-layout-menu-tree-item-icon"
+      >
         {iconNode || <span>{fallbackLetter}</span>}
       </span>
     ) : null;
@@ -198,6 +201,7 @@ function renderLeafRow(
         [`${baseClassName}-item-text-has-icon`]:
           showIconSlot && (iconNode || fallbackLetter),
       })}
+      data-testid="pro-layout-menu-tree-item-label"
     >
       {titleText}
     </span>
@@ -212,6 +216,7 @@ function renderLeafRow(
       key={path}
       data-pro-layout-nav-item-title
       className={titleClassName}
+      data-testid="pro-layout-menu-tree-item-title"
       onClick={
         isExternalUrl
           ? () => {
@@ -302,9 +307,13 @@ function mapMenuItemToNavNode(
         className={clsx(`${baseClassName}-item-title`, ctx.hashId, {
           [`${baseClassName}-group-item-title`]: rowVariant === 'group',
         })}
+        data-testid="pro-layout-menu-tree-item-title"
       >
         {showIconCell ? (
-          <span className={clsx(`${baseClassName}-item-icon`, ctx.hashId)}>
+          <span
+            className={clsx(`${baseClassName}-item-icon`, ctx.hashId)}
+            data-testid="pro-layout-menu-tree-item-icon"
+          >
             {iconDom ?? fallbackLetter}
           </span>
         ) : null}
@@ -313,6 +322,7 @@ function mapMenuItemToNavNode(
             [`${baseClassName}-item-text-has-icon`]:
               rowVariant !== 'group' && showIconCell,
           })}
+          data-testid="pro-layout-menu-tree-item-label"
         >
           {titleText}
         </span>

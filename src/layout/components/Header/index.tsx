@@ -59,7 +59,8 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
   const { token } = useContext(ProProvider);
   const context = useContext(ConfigProvider.ConfigContext);
   const [isFixedHeaderScroll, setIsFixedHeaderScroll] = useState(false);
-  const needFixedHeader = fixedHeader;
+  const needFixedHeader =
+    fixedHeader || (splitMenus && layout === 'side' && !isMobile);
 
   const renderContent = useCallback(() => {
     const isTop = layout === 'top';
@@ -90,6 +91,8 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
         {...props}
         layout="top"
         splitMenus={false}
+        actionsRender={false}
+        avatarProps={false}
         menuData={headerStripMenuData}
       />
     ) : null;

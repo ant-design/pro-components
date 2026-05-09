@@ -23,9 +23,6 @@ ProLayout provides a standard, yet flexible, middle and backend layout, with one
 <code src="../../demos/layout/topMode.tsx" iframe="650" title="Top Navigation"></code>
 
 <code src="../../demos/layout/mixMode.tsx" iframe="650" title="Top-level strip + sidebar (splitMenus)"></code>
-
-<code src="../../demos/layout/classicMode.tsx" iframe="650" title="Classic Navigation"></code>
-
 ### Menu Configuration
 
 <code src="../../demos/layout/collapsedShowTitle.tsx" iframe="650" title="Show Title When Collapsed"></code>

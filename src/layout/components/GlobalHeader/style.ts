@@ -1,4 +1,4 @@
-﻿import type { GenerateStyle, ProAliasToken } from '../../../provider';
+import type { GenerateStyle, ProAliasToken } from '../../../provider';
 import { useStyle as useAntdStyle } from '../../../provider';
 
 export interface GlobalHeaderToken extends ProAliasToken {
@@ -23,6 +23,8 @@ const genGlobalHeaderStyle: GenerateStyle<GlobalHeaderToken> = (token) => {
         marginInlineEnd: 16,
       },
       '&-collapsed-button': {
+        position: 'relative',
+        zIndex: 102,
         minHeight: '22px',
         color: token.layout?.header?.colorHeaderTitle,
         fontSize: '18px',

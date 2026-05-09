@@ -26,11 +26,23 @@ export const renderLogo = (
     return logo();
   }
   if (logo && typeof logo === 'string') {
-    return <div className={clsx(avatarClassName, hashId)}>{logo}</div>;
+    return (
+      <div
+        className={clsx(avatarClassName, hashId)}
+        data-testid="pro-layout-apps-logo-avatar"
+      >
+        {logo}
+      </div>
+    );
   }
   if (!logo && title && typeof title === 'string') {
     return (
-      <div className={clsx(avatarClassName, hashId)}>{title.substring(0, 1)}</div>
+      <div
+        className={clsx(avatarClassName, hashId)}
+        data-testid="pro-layout-apps-logo-avatar"
+      >
+        {title.substring(0, 1)}
+      </div>
     );
   }
   return logo;
@@ -45,8 +57,14 @@ export const SimpleContent: React.FC<{
   const { appList, baseClassName, hashId, itemClick } = props;
   const avatarClassName = `${baseClassName}-avatar`;
   return (
-    <div className={clsx(`${baseClassName}-content`, hashId)}>
-      <ul className={clsx(`${baseClassName}-content-list`, hashId)}>
+    <div
+      className={clsx(`${baseClassName}-content`, hashId)}
+      data-testid="pro-layout-apps-logo-simple-content"
+    >
+      <ul
+        className={clsx(`${baseClassName}-content-list`, hashId)}
+        data-testid="pro-layout-apps-logo-simple-content-list"
+      >
         {appList?.map((app, index) => {
           const itemKey = (typeof app.title === 'string' && app.title) || index;
           if (app?.children?.length) {
@@ -62,12 +80,14 @@ export const SimpleContent: React.FC<{
                   `${baseClassName}-content-list-item-group`,
                   hashId,
                 )}
+                data-testid="pro-layout-apps-logo-simple-content-list-item-group"
               >
                 <div
                   className={clsx(
                     `${baseClassName}-content-list-item-group-title`,
                     hashId,
                   )}
+                  data-testid="pro-layout-apps-logo-simple-content-list-item-group-title"
                 >
                   {app.title}
                 </div>
@@ -85,6 +105,7 @@ export const SimpleContent: React.FC<{
             <li
               key={itemKey}
               className={clsx(`${baseClassName}-content-list-item`, hashId)}
+              data-testid="pro-layout-apps-logo-simple-content-list-item"
               onClick={(e) => {
                 e.stopPropagation();
                 itemClick?.(app);

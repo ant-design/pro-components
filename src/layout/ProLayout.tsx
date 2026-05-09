@@ -29,8 +29,8 @@ import { DefaultHeader as Header } from './components/Header';
 import { PageLoading } from './components/PageLoading';
 import { SiderMenu } from './components/SiderMenu';
 import type { SiderMenuProps } from './components/SiderMenu/SiderMenu';
-import type { ProLayoutNavMenuSelectInfo } from './components/SiderMenu/types';
 import type { SiderMenuToken } from './components/SiderMenu/style';
+import type { ProLayoutNavMenuSelectInfo } from './components/SiderMenu/types';
 import { RouteContext } from './context/RouteContext';
 import type { ProSettings } from './defaultSettings';
 import { defaultSettings } from './defaultSettings';
@@ -84,7 +84,10 @@ const menuLayoutForPureSettings = (
   layout === 'mix' || layout === undefined ? 'side' : layout;
 
 /** `menuRender` 回调首参：与 Header 一致，不含历史 `mix` */
-export type ProLayoutMenuRenderCallbackProps = Omit<ProLayoutProps, 'layout'> & {
+export type ProLayoutMenuRenderCallbackProps = Omit<
+  ProLayoutProps,
+  'layout'
+> & {
   layout?: NonNullable<ProSettings['layout']>;
 };
 
@@ -98,7 +101,6 @@ const toMenuRenderCallbackProps = (
 export type ProLayoutProps = Omit<GlobalTypes, 'layout'> & {
   /**
    * @name layout 的布局方式（根组件）
-   * @deprecated `layout="mix"` 仍会被接受，运行时按 `side` 处理
    */
   layout?: ProLayoutLayoutMode;
   /** 受控菜单选中项 */
@@ -574,8 +576,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     breadcrumbMap?: Map<string, MenuDataItem>;
     menuData?: MenuDataItem[];
   }>(
-    () =>
-      getMenuData(routeListForMenu, menu, formatMessage, menuDataRender),
+    () => getMenuData(routeListForMenu, menu, formatMessage, menuDataRender),
     [formatMessage, menu, menuDataRender, routeListForMenu],
   );
 
@@ -803,11 +804,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
       return bgLayoutImgList?.map((item, index) => {
         return (
           <img
-            key={
-              item.src
-                ? `${item.src}-${index}`
-                : `bg-layout-${index}`
-            }
+            key={item.src ? `${item.src}-${index}` : `bg-layout-${index}`}
             src={item.src}
             alt=""
             style={{
@@ -850,10 +847,14 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
       ) : (
         <div className={className} data-testid="pro-layout">
           {bgImgStyleList || token.layout?.bgLayout ? (
-            <div className={clsx(`${proLayoutClassName}-bg-list`, hashId)}>
+            <div
+              className={clsx(`${proLayoutClassName}-bg-list`, hashId)}
+              data-testid="pro-layout-bg-list"
+            >
               {bgImgStyleList}
             </div>
           ) : null}
+          {props.splitMenus && propsLayout !== 'top' && !isMobile && headerDom}
           <Layout
             style={{
               minHeight: '100%',
@@ -875,8 +876,10 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
             <div
               style={genLayoutStyle}
               className={clsx(`${proLayoutClassName}-container`, hashId)}
+              data-testid="pro-layout-container"
             >
-              {headerDom}
+              {!(props.splitMenus && propsLayout !== 'top' && !isMobile) &&
+                headerDom}
               <WrapContent
                 hasPageContainer={hasPageContainer}
                 isChildrenLayout={isChildrenLayout}
@@ -891,6 +894,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
               {hasFooterToolbar && (
                 <div
                   className={`${proLayoutClassName}-has-footer`}
+                  data-testid="pro-layout-has-footer"
                   style={{
                     height: 64,
                     marginBlockStart:
@@ -922,12 +926,10 @@ const ProLayout: React.FC<ProLayoutProps> = (props) => {
           : undefined
       }
     >
-      <ProConfigProvider
-        token={props.token}
-        prefixCls={props.prefixCls}
-      >
+      <ProConfigProvider token={props.token} prefixCls={props.prefixCls}>
         <BaseProLayout
           logo={<Logo />}
+        
           {...defaultSettings}
           location={isBrowser() ? window.location : undefined}
           {...props}

@@ -69,8 +69,16 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
   });
   const dom = (
     <>
-      <div className={clsx(`${baseClassName}-left`, hashId)}>{extra}</div>
-      <div className={clsx(`${baseClassName}-right`, hashId)}>
+      <div
+        className={clsx(`${baseClassName}-left`, hashId)}
+        data-testid="pro-layout-footer-toolbar-left"
+      >
+        {extra}
+      </div>
+      <div
+        className={clsx(`${baseClassName}-right`, hashId)}
+        data-testid="pro-layout-footer-toolbar-right"
+      >
         {children}
       </div>
     </>
@@ -93,6 +101,7 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
         [`${baseClassName}-stylish`]: !!props.stylish,
       })}
       style={{ width, ...style }}
+      data-testid="pro-layout-footer-toolbar"
       {...omit(restProps, ['prefixCls'])}
     >
       {renderContent

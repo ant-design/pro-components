@@ -113,6 +113,7 @@ export const AppsLogoComponents: React.FC<AppsLogoComponentsProps> = (
         className={clsx(`${baseClassName}-icon`, hashId, {
           [`${baseClassName}-icon-active`]: open,
         })}
+        data-testid="pro-layout-apps-logo-icon"
       >
         <AppsLogo />
       </span>

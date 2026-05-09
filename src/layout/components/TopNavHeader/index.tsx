@@ -29,21 +29,19 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
     headerContentRender,
     layout,
     actionsRender,
+    avatarProps,
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = `${props.prefixCls || getPrefixCls('pro')}-top-nav-header`;
 
   const { wrapSSR, hashId } = useStyle(prefixCls);
-  let renderKey: HeaderRenderKey | undefined = undefined;
-  if (props.menuHeaderRender !== undefined) {
-    renderKey = 'menuHeaderRender';
-  } else if (layout === 'top') {
-    renderKey = 'headerTitleRender';
-  }
+  let renderKey: HeaderRenderKey | undefined = 'headerTitleRender';
+
   const headerDom = renderLogoAndTitle(
     { ...props, collapsed: false },
     renderKey,
   );
+  const hasActionsContent = actionsRender || avatarProps;
   const contentDom = useMemo(() => {
     const defaultDom = (
       <ConfigProvider
@@ -59,6 +57,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
         <BaseMenu
           {...props}
           className={clsx(`${prefixCls}-base-menu`, hashId)}
+          data-testid="pro-layout-top-nav-header-base-menu"
           style={{
             width: '100%',
             ...props.menuProps?.style,
@@ -89,17 +88,20 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
         className={clsx(`${prefixCls}-main`, hashId, {
           [`${prefixCls}-wide`]: contentWidth === 'Fixed' && layout === 'top',
         })}
+        data-testid="pro-layout-top-nav-header-main"
       >
         {headerDom && (
           <div
             className={clsx(`${prefixCls}-main-left ${hashId}`)}
             onClick={onMenuHeaderClick}
+            data-testid="pro-layout-top-nav-header-main-left"
           >
             <AppsLogoComponents {...props} />
             <div
               className={clsx(`${prefixCls}-logo`, hashId)}
               key="logo"
               id="logo"
+              data-testid="pro-layout-top-nav-header-logo"
             >
               {headerDom}
             </div>
@@ -108,11 +110,14 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
         <div
           style={{ flex: 1 }}
           className={clsx(`${prefixCls}-menu`, hashId)}
+          data-testid="pro-layout-top-nav-header-menu"
         >
           {contentDom}
         </div>
-        {(actionsRender || props.avatarProps) && (
-          <ActionsContent {...props} prefixCls={prefixCls} />
+        {hasActionsContent && (
+          <div data-testid="pro-layout-top-nav-header-actions" style={{ height: '100%' }}>
+            <ActionsContent {...props} prefixCls={prefixCls} />
+          </div>
         )}
       </div>
     </div>,

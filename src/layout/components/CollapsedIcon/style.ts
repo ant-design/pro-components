@@ -11,7 +11,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
       boxSizing: 'border-box',
       position: 'absolute',
       insetBlockStart: '18px',
-      zIndex: '101',
+      zIndex: '102',
       width: '24px',
       height: '24px',
       fontSize: ['14px', '16px'],
