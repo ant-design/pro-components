@@ -39,12 +39,52 @@ export const BaseDatePicker: React.FC<
       (text: any, props: any) => {
         const fieldPropsFromContext =
           (props.fieldProps as any) ?? mergedFieldProps;
-        const format =
-          valueType === 'dateTime'
-            ? (fieldPropsFromContext?.format ?? 'YYYY-MM-DD HH:mm:ss')
-            : fieldPropsFromContext?.format;
+        const fieldFormat = fieldPropsFromContext?.format;
 
-        return <FieldDatePicker {...props} format={format} text={text} />;
+        let format: string;
+        let picker:
+          | 'time'
+          | 'date'
+          | 'week'
+          | 'month'
+          | 'quarter'
+          | 'year'
+          | undefined;
+
+        switch (valueType) {
+          case 'dateTime':
+            format = fieldFormat ?? 'YYYY-MM-DD HH:mm:ss';
+            break;
+          case 'dateWeek':
+            picker = 'week';
+            format = fieldFormat ?? 'YYYY-wo';
+            break;
+          case 'dateMonth':
+            picker = 'month';
+            format = fieldFormat ?? 'YYYY-MM';
+            break;
+          case 'dateQuarter':
+            picker = 'quarter';
+            format = fieldFormat ?? 'YYYY-[Q]Q';
+            break;
+          case 'dateYear':
+            picker = 'year';
+            format = fieldFormat ?? 'YYYY';
+            break;
+          case 'date':
+          default:
+            format = fieldFormat ?? 'YYYY-MM-DD';
+            break;
+        }
+
+        return (
+          <FieldDatePicker
+            {...props}
+            format={format}
+            picker={picker}
+            text={text}
+          />
+        );
       },
       [mergedFieldProps, valueType],
     );
