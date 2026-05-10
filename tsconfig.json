@@ -1,9 +1,8 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
     "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "node",
+    "moduleResolution": "Bundler",
     "jsx": "react-jsx",
     "esModuleInterop": true,
     "experimentalDecorators": true,
@@ -14,8 +13,8 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "paths": {
-      "@@/*": [".dumi/tmp/*"],
-      "@ant-design/pro-components": ["src"]
+      "@@/*": ["./.dumi/tmp/*"],
+      "@ant-design/pro-components": ["./src"]
     }
   },
   "include": [
