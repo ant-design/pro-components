@@ -31,7 +31,8 @@ export const proLayoutTitleHide = new Keyframes('antBadgeLoadingCircle', {
 const MENU_STACK_GAP = 12; // sider-children 内 logo/actions/menu 三块之间的纵向间距
 const SIDER_COLLAPSED_PAD_INLINE = 4; // 收起态 sider-children 水平内边距（配合 28×28 按钮居中）
 const MENU_Z_INDEX = 10; // sider 菜单区 z-index：压过相邻滚动阴影即可，不与 popup(1000+) 冲突
-const FIXED_SIDER_Z_INDEX = 100; // fixed 模式的 sider 层级，仍低于 antd Modal/Drawer
+/** fixed 侧栏整体层级须高于顶栏（header.ts 为 101），否则收起按钮 absolute 伸出侧栏时会被顶栏盖住 */
+const FIXED_SIDER_Z_INDEX = 105;
 
 /** Logo 块尺寸规范（与一级菜单 42px 行高对齐） */
 const LOGO = {
