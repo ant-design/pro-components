@@ -1,6 +1,18 @@
-﻿import type { Dayjs } from 'dayjs';
+﻿import dayjs from 'dayjs';
+import quarterOfYear from 'dayjs/plugin/quarterOfYear';
 
-import { parseValueToDay } from '../../../utils/parseValueToMoment';
+import { parseValueToDay } from '../../../utils';
+import '../../initDayjs';
+
+dayjs.extend(quarterOfYear);
+
+export type DatePickerReadPicker =
+  | 'time'
+  | 'date'
+  | 'week'
+  | 'month'
+  | 'quarter'
+  | 'year';
 
 function pickFormatTemplate(format: unknown): string {
   if (Array.isArray(format)) {
@@ -13,12 +25,20 @@ function pickFormatTemplate(format: unknown): string {
   return 'YYYY-MM-DD';
 }
 
-export function formatDate(text: any, format: any) {
+export function formatDate(
+  text: any,
+  format: any,
+  _picker?: DatePickerReadPicker,
+) {
   if (text === null || text === undefined || text === '') {
     return '-';
   }
 
-  const parsed = parseValueToDay(text) as Dayjs | null | undefined | Dayjs[];
+  const parsed = parseValueToDay(text) as
+    | dayjs.Dayjs
+    | null
+    | undefined
+    | dayjs.Dayjs[];
   if (Array.isArray(parsed) || !parsed || !parsed.isValid()) {
     return '-';
   }
@@ -30,5 +50,6 @@ export function formatDate(text: any, format: any) {
     return format(parsed);
   }
 
-  return parsed.format(pickFormatTemplate(format));
+  const tpl = pickFormatTemplate(format);
+  return parsed.format(tpl);
 }

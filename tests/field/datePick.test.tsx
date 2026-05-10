@@ -162,7 +162,7 @@ describe('DateField', () => {
       <Field
         mode="read"
         fieldProps={{
-          format: () => 'YYYY-MM-DD HH:mm:ss',
+          format: (d: dayjs.Dayjs) => d.format('YYYY-MM-DD HH:mm:ss'),
         }}
         onChange={fn}
         text={[dayjs(), dayjs().add(1, 'd')]}
@@ -172,7 +172,7 @@ describe('DateField', () => {
     );
 
     expect(html.baseElement.textContent).toBe(
-      '2016-11-22 15:22:442016-11-23 15:22:44',
+      '2016-11-22 15:22:44 ~ 2016-11-23 15:22:44',
     );
   });
 

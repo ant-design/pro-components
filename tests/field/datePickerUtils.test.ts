@@ -1,7 +1,11 @@
 import dayjs from 'dayjs';
+import quarterOfYear from 'dayjs/plugin/quarterOfYear';
 import { describe, expect, it } from 'vitest';
 
 import { formatDate } from '../../src/field/components/DatePicker/datePickerUtils';
+import '../../src/field/initDayjs';
+
+dayjs.extend(quarterOfYear);
 
 describe('formatDate', () => {
   it('formats ISO string', () => {
@@ -18,7 +22,9 @@ describe('formatDate', () => {
       $M: 5,
       $D: 1,
     };
-    expect(formatDate(plain, 'YYYY-MM-DD')).toBe(dayjs(raw).format('YYYY-MM-DD'));
+    expect(formatDate(plain, 'YYYY-MM-DD')).toBe(
+      dayjs(raw).format('YYYY-MM-DD'),
+    );
   });
 
   it('uses valueOf when isDayjs-like object lacks clone', () => {
@@ -27,6 +33,8 @@ describe('formatDate', () => {
       $isDayjsObject: true,
       valueOf: () => ms,
     };
-    expect(formatDate(foreign, 'YYYY-MM-DD')).toBe(dayjs(ms).format('YYYY-MM-DD'));
+    expect(formatDate(foreign, 'YYYY-MM-DD')).toBe(
+      dayjs(ms).format('YYYY-MM-DD'),
+    );
   });
 });

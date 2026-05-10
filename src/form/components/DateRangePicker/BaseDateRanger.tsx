@@ -39,7 +39,7 @@ export const BaseDateRanger: React.FC<
         case 'dateTimeRange':
           return 'YYYY-MM-DD HH:mm:ss';
         case 'dateWeekRange':
-          return 'YYYY-wo';
+          return 'gggg-wo';
         case 'dateMonthRange':
           return 'YYYY-MM';
         case 'dateQuarterRange':
@@ -72,7 +72,7 @@ export const BaseDateRanger: React.FC<
             break;
           case 'dateWeekRange':
             picker = 'week';
-            format = fieldFormat ?? 'YYYY-wo';
+            format = fieldFormat ?? 'gggg-wo';
             break;
           case 'dateMonthRange':
             picker = 'month';

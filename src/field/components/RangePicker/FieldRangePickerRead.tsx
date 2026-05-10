@@ -19,18 +19,13 @@ type Props = Parameters<
 export function FieldRangePickerRead(props: Props, ref: React.Ref<unknown>) {
   const { text, mode, render, fieldProps, parsedStartText, parsedEndText } =
     props;
+  const start = parsedStartText;
+  const end = parsedEndText;
+  const content =
+    !start && !end ? '-' : `${start || '-'} ~ ${end || '-'}`;
   const dom = (
-    <div
-      ref={ref as React.Ref<HTMLDivElement>}
-      style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        gap: 8,
-        alignItems: 'center',
-      }}
-    >
-      <div>{parsedStartText || '-'}</div>
-      <div>{parsedEndText || '-'}</div>
+    <div ref={ref as React.Ref<HTMLDivElement>}>
+      {content}
     </div>
   );
   if (render) {
