@@ -242,9 +242,12 @@ const useFetchData = <DataSource extends RequestData<any>>(
         return [];
       }
       // 如果没有传递这个方法的话，需要把错误抛出去，以免吞掉错误
-      if (onRequestError === undefined) throw new Error(e as string);
+      const requestError = e instanceof Error ? e : new Error(String(e));
+      if (onRequestError === undefined) {
+        throw requestError;
+      }
       if (tableDataList === undefined) setTableDataList([]);
-      onRequestError(e as Error);
+      onRequestError(requestError);
     } finally {
       if (!signal?.aborted) {
         requestFinally();
