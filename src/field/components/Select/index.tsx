@@ -26,8 +26,8 @@ import {
 } from '../../internal/fieldMode';
 import type { ProFieldFC } from '../../types';
 import { FieldSelectLightEdit } from './FieldSelectLightEdit';
-import { FieldSelectSearchEdit } from './FieldSelectSearchEdit';
 import { FieldSelectRead } from './FieldSelectRead';
+import { FieldSelectSearchEdit } from './FieldSelectSearchEdit';
 import type { FieldSelectProps } from './types';
 
 export type { FieldSelectProps };
@@ -318,9 +318,10 @@ const FieldSelect: ProFieldFC<
   }, [fieldProps?.searchValue]);
 
   const [loading, options, fetchData, resetData] = useFieldFetchData(props);
-  const { componentSize: componentSizeFromConfig } = ConfigProvider?.useConfig?.() || {
-    componentSize: undefined,
-  };
+  const { componentSize: componentSizeFromConfig } =
+    ConfigProvider?.useConfig?.() || {
+      componentSize: undefined,
+    };
   const componentSize = componentSizeFromConfig ?? 'middle';
   useImperativeHandle(
     ref,

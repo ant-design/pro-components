@@ -1,5 +1,4 @@
-﻿import type { GetRef } from 'antd';
-import type { TreeSelectProps } from 'antd';
+﻿import type { GetRef, TreeSelectProps } from 'antd';
 import { Spin, TreeSelect } from 'antd';
 import { clsx } from 'clsx';
 import React from 'react';
@@ -129,7 +128,12 @@ export function FieldTreeSelectEdit({
   if (formItemRender) {
     dom = formItemRender(
       text,
-      { mode, ...(fieldProps as any), options, loading } as ProFieldFCRenderProps,
+      {
+        mode,
+        ...(fieldProps as any),
+        options,
+        loading,
+      } as ProFieldFCRenderProps,
       dom as React.JSX.Element,
     );
   }

@@ -21,7 +21,10 @@ type Props = Parameters<
   intl: IntlType;
 };
 
-export function FieldTimePickerLightEdit(props: Props, ref: React.Ref<unknown>) {
+export function FieldTimePickerLightEdit(
+  props: Props,
+  ref: React.Ref<unknown>,
+) {
   const {
     text,
     mode,

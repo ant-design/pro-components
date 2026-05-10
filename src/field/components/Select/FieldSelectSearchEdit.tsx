@@ -67,10 +67,7 @@ export function FieldSelectSearchEdit(props: FieldSelectSearchEditProps) {
       optionItemRender={(item) => {
         if (typeof item.label === 'string' && keyWordsRef.current) {
           return (
-            <SelectHighlight
-              label={item.label}
-              words={[keyWordsRef.current]}
-            />
+            <SelectHighlight label={item.label} words={[keyWordsRef.current]} />
           );
         }
         return item.label;
