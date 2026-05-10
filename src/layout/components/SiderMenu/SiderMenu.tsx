@@ -230,7 +230,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const resolvedPrefixCls = prefixCls ?? getPrefixCls('pro');
-  const { hashId: hashIdFromProvider } = useContext(ProProvider);
+  const { hashId: hashIdFromProvider, token: proToken } = useContext(ProProvider);
   const hashId = hashIdFromProvider ?? '';
   const showSiderExtraDom = useMemo(() => {
     if (isMobile) return false;
@@ -241,7 +241,10 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   const linkMenuBaseClassName = `${resolvedPrefixCls}-base-menu-sider`;
   useBaseMenuStyle(linkMenuBaseClassName, 'vertical');
 
-  const siderCssVarsStyle = useMemo(() => getProLayoutSiderCssVarsStyle(), []);
+  const siderCssVarsStyle = useMemo(
+    () => getProLayoutSiderCssVarsStyle(proToken?.layout),
+    [proToken?.layout],
+  );
 
   // 收起的宽度，从 menu 配置中读取，默认为 64
   const collapsedWidth = props.menu?.collapsedWidth ?? 64;
