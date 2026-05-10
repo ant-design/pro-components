@@ -1,0 +1,12 @@
+nodeOptions: --max_old_space_size=8192
+publicHoistPattern:
+  - '@types*'
+autoInstallPeers: false
+allowBuilds:
+  '@parcel/watcher': true
+  '@swc/core': true
+  core-js: true
+  core-js-pure: true
+  esbuild: true
+  less: true
+  yorkie: true
