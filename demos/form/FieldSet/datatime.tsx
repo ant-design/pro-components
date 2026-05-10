@@ -34,8 +34,8 @@ export default () => {
           marginBlockEnd: 16,
         }}
         checked={readonly}
-        checkedChildren="Edit"
-        unCheckedChildren="Read Only"
+        checkedChildren="编辑"
+        unCheckedChildren="只读"
         onChange={setReadonly}
       />
       <ProForm
@@ -62,43 +62,43 @@ export default () => {
           console.log('field-set-datatime-demo submit:', values);
         }}
       >
-        <ProForm.Group title="Date Related Group">
-          <ProFormDatePicker name="date" label="Date" />
-          <ProFormDatePicker
-            name="date"
+        <ProForm.Group title="日期相关">
+          <ProFormDatePicker name="date" label="日期" />
+          <ProFormDatePicker.Month
+            name="dateYm"
+            label="年月"
             fieldProps={{
               format: 'YY-MM',
             }}
-            label="Year-Month"
           />
-          <ProFormTimePicker name="time" label="Time" />
-          <ProFormTimePicker.RangePicker name="timeRange" label="Time Range" />
-          <ProFormDatePicker.Week name="dateWeek" label="Week" />
-          <ProFormDateWeekRangePicker name="dateWeekRange" label="Week Range" />
-          <ProFormDatePicker.Month name="dateMonth" label="Month" />
+          <ProFormTimePicker name="time" label="时间" />
+          <ProFormTimePicker.RangePicker name="timeRange" label="时间范围" />
+          <ProFormDatePicker.Week name="dateWeek" label="周" />
+          <ProFormDateWeekRangePicker name="dateWeekRange" label="周范围" />
+          <ProFormDatePicker.Month name="dateMonth" label="月" />
           <ProFormDateMonthRangePicker
             name="dateMonthRange"
-            label="Month Range"
+            label="月范围"
           />
-          <ProFormDatePicker.Quarter name="dateQuarter" label="Quarter" />
+          <ProFormDatePicker.Quarter name="dateQuarter" label="季度" />
           <ProFormDateQuarterRangePicker
             name="dateQuarterRange"
-            label="Quarter Range"
+            label="季度范围"
           />
-          <ProFormDatePicker.Year name="dateYear" label="Year" />
-          <ProFormDateYearRangePicker name="dateYearRange" label="Year Range" />
+          <ProFormDatePicker.Year name="dateYear" label="年" />
+          <ProFormDateYearRangePicker name="dateYearRange" label="年范围" />
           <ProFormDateTimePicker
             name="dateTime"
-            label="Date Time"
+            label="日期时间"
             fieldProps={{
               showTime: true,
               format: 'YYYY-MM-DD HH:mm:ss',
             }}
           />
-          <ProFormDateRangePicker name="dateRange" label="Date Range" />
+          <ProFormDateRangePicker name="dateRange" label="日期范围" />
           <ProFormDateTimeRangePicker
             name="dateTimeRange"
-            label="Date Time Range"
+            label="日期时间范围"
           />
         </ProForm.Group>
       </ProForm>
