@@ -139,7 +139,9 @@ const WithValueFomFiledProps: React.FC<
         : {}),
       ...(variantFromRest !== undefined && { variant: variantFromRest }),
       onBlur:
-        isProFormComponent && !isValidElementForFiledChildren && typeof onBlur === 'function'
+        isProFormComponent &&
+        !isValidElementForFiledChildren &&
+        typeof onBlur === 'function'
           ? onBlur
           : undefined,
     }),
@@ -316,6 +318,14 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
 
   // ProFromList 的 filed，里面有name和key
   /** 从 context 中拿到的值 */
+  const fieldValueTypeName = useMemo(() => {
+    if (props.name === undefined) return props.name;
+    if (formListField.listName !== undefined) {
+      return [formListField.listName, props.name].flat(1) as string[];
+    }
+    // 确保返回的是数组格式
+    return Array.isArray(props.name) ? props.name : [props.name];
+  }, [formListField.listName, props.name]);
   const name = useMemo(() => {
     if (props.name === undefined) return props.name;
     if (formListField.name !== undefined) {
@@ -335,12 +345,19 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
     }
     // Field.type === 'ProField' 时 props 里面是有 valueType 的，所以要设置一下
     // 写一个 ts 比较麻烦，用 any 顶一下
-    setFieldValueType(name, {
+    setFieldValueType(fieldValueTypeName, {
       valueType: valueType || 'text',
       dateFormat: dataFormat,
       transform,
     });
-  }, [name, dataFormat, props.name, setFieldValueType, transform, valueType]);
+  }, [
+    fieldValueTypeName,
+    dataFormat,
+    props.name,
+    setFieldValueType,
+    transform,
+    valueType,
+  ]);
 
   const formItemKey = rest.proFormFieldKey || rest.name?.toString();
 
