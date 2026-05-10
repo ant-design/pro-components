@@ -287,7 +287,12 @@ function buildFormatValues(
       const nameList = covertFormName(paramsNameList);
       const value = instance.getFieldValue(nameList!);
       const obj = nameList ? set({}, nameList as string[], value) : value;
-      return transformKey(obj, omitNilParam !== undefined ? omitNilParam : omitNil, nameList);
+      // 与 getFieldFormatValue 一致：弹出 nameList 首段再交给 transformKey，
+      // 否则 conversionMomentValue 会得到重复的 parentPath（如可编辑表格行 key），
+      // fieldsValueType 匹配失败且极端情况下日期字段无法格式化为 string/number。
+      const newNameList = nameList ? [...nameList] : [];
+      newNameList.shift();
+      return transformKey(obj, omitNilParam !== undefined ? omitNilParam : omitNil, newNameList);
     },
 
     validateFieldsReturnFormatValue: async (nameList?: NamePath[], omitNilParam?: boolean) => {
