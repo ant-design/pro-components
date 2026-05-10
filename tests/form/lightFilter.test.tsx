@@ -365,7 +365,7 @@ describe('LightFilter', () => {
 
   it(' 🪕 should format date range labels by default', async () => {
     const prevDayjsLocale = dayjs.locale();
-    // 须传入 locale 对象，否则在 Vitest 下 `YYYY-wo` 仍会为英文序数（与 antd 中文展示不一致）
+    // 须传入 locale 对象，否则在 Vitest 下 `gggg-wo` 仍会为英文序数（与 antd 中文展示不一致）
     dayjs.locale('zh-cn', zhCn);
     try {
       const { container } = render(
@@ -416,7 +416,7 @@ describe('LightFilter', () => {
 
       const weekLabel = dateArrayFormatter(
         [dayjs('2023-01-02'), dayjs('2023-01-08')],
-        'YYYY-wo',
+        'gggg-wo',
       );
       const quarterLabel = dateArrayFormatter(
         [dayjs('2023-01-01'), dayjs('2023-03-31')],

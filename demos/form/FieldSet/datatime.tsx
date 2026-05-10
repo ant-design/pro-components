@@ -12,8 +12,14 @@ import {
 } from '@ant-design/pro-components';
 
 import { Switch } from 'antd';
+import dayjs from 'dayjs';
 import { useState } from 'react';
-import { FIXED_BASE_TIMESTAMP } from '../../mockData';
+import { FIXED_BASE_DATE, FIXED_BASE_TIMESTAMP } from '../../mockData';
+
+/** 与 FIXED_BASE_TIMESTAMP（2024-01-15 10:00）对齐：范围一律「起 ≤ 止」 */
+const DAY_MS = 86400000;
+const rangeStartTs = FIXED_BASE_TIMESTAMP - DAY_MS;
+const rangeEndTs = FIXED_BASE_TIMESTAMP;
 
 export default () => {
   const [readonly, setReadonly] = useState(false);
@@ -38,24 +44,22 @@ export default () => {
         initialValues={{
           date: FIXED_BASE_TIMESTAMP,
           dateYm: FIXED_BASE_TIMESTAMP,
-          dateWeek: FIXED_BASE_TIMESTAMP,
+          dateWeek: FIXED_BASE_DATE,
           dateMonth: FIXED_BASE_TIMESTAMP,
           dateQuarter: FIXED_BASE_TIMESTAMP,
           dateYear: FIXED_BASE_TIMESTAMP,
           dateTime: FIXED_BASE_TIMESTAMP,
           time: '00:01:05',
           timeRange: ['05:00:00', '11:00:00'],
-          dateTimeRange: [
-            FIXED_BASE_TIMESTAMP,
-            FIXED_BASE_TIMESTAMP - 1000 * 60 * 60 * 24,
-          ],
-          dateRange: [
-            FIXED_BASE_TIMESTAMP,
-            FIXED_BASE_TIMESTAMP - 1000 * 60 * 60 * 24,
-          ],
+          dateWeekRange: [dayjs('2024-01-01'), dayjs('2024-01-13')],
+          dateMonthRange: [dayjs('2024-01-01'), dayjs('2024-03-01')],
+          dateQuarterRange: [dayjs('2024-01-01'), dayjs('2024-06-30')],
+          dateYearRange: [dayjs('2022-01-01'), dayjs('2024-01-01')],
+          dateTimeRange: [rangeStartTs, rangeEndTs],
+          dateRange: [rangeStartTs, rangeEndTs],
         }}
         onFinish={async (values) => {
-
+          console.log('field-set-datatime-demo submit:', values);
         }}
       >
         <ProForm.Group title="日期相关">
@@ -72,10 +76,7 @@ export default () => {
           <ProFormDatePicker.Week name="dateWeek" label="周" />
           <ProFormDateWeekRangePicker name="dateWeekRange" label="周范围" />
           <ProFormDatePicker.Month name="dateMonth" label="月" />
-          <ProFormDateMonthRangePicker
-            name="dateMonthRange"
-            label="月范围"
-          />
+          <ProFormDateMonthRangePicker name="dateMonthRange" label="月范围" />
           <ProFormDatePicker.Quarter name="dateQuarter" label="季度" />
           <ProFormDateQuarterRangePicker
             name="dateQuarterRange"
@@ -87,7 +88,8 @@ export default () => {
             name="dateTime"
             label="日期时间"
             fieldProps={{
-              format: (value) => value.format('YYYY-MM-DD'),
+              showTime: true,
+              format: 'YYYY-MM-DD HH:mm:ss',
             }}
           />
           <ProFormDateRangePicker name="dateRange" label="日期范围" />

@@ -565,8 +565,8 @@ Same as [upload](https://ant.design/components/upload/). The Button style is pre
 | title      | Dragger's title                                                                                                                                                                                               | `ReactNode`  | Click to upload |
 | max        | Maximum upload quantity. The upload button will be hidden if the maximum quantity is exceeded                                                                                                                 | `number`     | -               |
 | imageProps | Preview the additional configuration of the [Image](https://ant-design.antgroup.com/components/image-cn) component, and you can customize the preview behavior, toolbar and other image component properties. | `ImageProps` | -               |
-| ```tsx     | pure                                                                                                                                                                                                          |
 
+```tsx | pure
 <ProFormUploadButton label="upload" name="upload" action="upload.do" />
 ```
 

@@ -57,7 +57,7 @@ export const BaseDatePicker: React.FC<
             break;
           case 'dateWeek':
             picker = 'week';
-            format = fieldFormat ?? 'YYYY-wo';
+            format = fieldFormat ?? 'gggg-wo';
             break;
           case 'dateMonth':
             picker = 'month';

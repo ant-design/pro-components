@@ -101,14 +101,14 @@ const ValueTypeToComponentMap: Record<
   dateWeek: sameRenderPair((text, props) =>
     wrapProFieldLight(
       props.light,
-      <FieldDatePicker format="YYYY-wo" picker="week" {...props} text={text} />,
+      <FieldDatePicker format="gggg-wo" picker="week" {...props} text={text} />,
     ),
   ),
   dateWeekRange: sameRenderPair((text, props) =>
     wrapProFieldLight(
       props.light,
       <FieldRangePicker
-        format="YYYY-wo"
+        format="gggg-wo"
         showTime
         fieldProps={{ picker: 'week', ...props.fieldProps }}
         {...props}
