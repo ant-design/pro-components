@@ -54,12 +54,52 @@ export const BaseDateRanger: React.FC<
       (text: any, props: any) => {
         const fieldPropsFromContext =
           (props.fieldProps as any) ?? mergedFieldProps;
-        const format =
-          valueType === 'dateTimeRange'
-            ? (fieldPropsFromContext?.format ?? 'YYYY-MM-DD HH:mm:ss')
-            : fieldPropsFromContext?.format;
+        const fieldFormat = fieldPropsFromContext?.format;
 
-        return <FieldRangePicker {...props} format={format} text={text} />;
+        let format: string;
+        let picker:
+          | 'time'
+          | 'date'
+          | 'week'
+          | 'month'
+          | 'quarter'
+          | 'year'
+          | undefined;
+
+        switch (valueType) {
+          case 'dateTimeRange':
+            format = fieldFormat ?? 'YYYY-MM-DD HH:mm:ss';
+            break;
+          case 'dateWeekRange':
+            picker = 'week';
+            format = fieldFormat ?? 'YYYY-wo';
+            break;
+          case 'dateMonthRange':
+            picker = 'month';
+            format = fieldFormat ?? 'YYYY-MM';
+            break;
+          case 'dateQuarterRange':
+            picker = 'quarter';
+            format = fieldFormat ?? 'YYYY-[Q]Q';
+            break;
+          case 'dateYearRange':
+            picker = 'year';
+            format = fieldFormat ?? 'YYYY';
+            break;
+          case 'dateRange':
+          default:
+            format = fieldFormat ?? 'YYYY-MM-DD';
+            break;
+        }
+
+        return (
+          <FieldRangePicker
+            {...props}
+            format={format}
+            picker={picker}
+            text={text}
+          />
+        );
       },
       [mergedFieldProps, valueType],
     );
