@@ -131,7 +131,7 @@ function renderDefaultValueTypeLeaf(
       props.light,
       <FieldRangePicker
         text={dataValue as string[]}
-        format="YYYY-W"
+        format="YYYY-wo"
         showTime
         fieldProps={{
           picker: 'week',
@@ -167,7 +167,7 @@ function renderDefaultValueTypeLeaf(
       props.light,
       <FieldRangePicker
         text={dataValue as string[]}
-        format="YYYY-Q"
+        format="YYYY-[Q]Q"
         showTime
         fieldProps={{
           picker: 'quarter',

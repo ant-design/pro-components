@@ -108,7 +108,7 @@ const ValueTypeToComponentMap: Record<
     wrapProFieldLight(
       props.light,
       <FieldRangePicker
-        format="YYYY-W"
+        format="YYYY-wo"
         showTime
         fieldProps={{ picker: 'week', ...props.fieldProps }}
         {...props}
@@ -132,7 +132,7 @@ const ValueTypeToComponentMap: Record<
     wrapProFieldLight(
       props.light,
       <FieldRangePicker
-        format="YYYY-Q"
+        format="YYYY-[Q]Q"
         showTime
         fieldProps={{ picker: 'quarter', ...props.fieldProps }}
         {...props}

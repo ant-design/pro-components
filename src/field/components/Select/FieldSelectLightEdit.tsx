@@ -4,8 +4,8 @@ import React, { MutableRefObject } from 'react';
 import type { IntlType } from '../../../provider';
 import type { RequestOptionsType } from '../../../utils';
 import type { ProFieldFC } from '../../types';
-import LightSelect from './LightSelect';
 import type { FieldSelectFullProps } from './FieldSelectSearchEdit';
+import LightSelect from './LightSelect';
 
 export type FieldSelectLightEditProps = Parameters<
   ProFieldFC<FieldSelectFullProps>

@@ -16,8 +16,15 @@ type Props = Parameters<
 };
 
 export function FieldTimePickerEdit(props: Props, ref: React.Ref<unknown>) {
-  const { text, mode, format, formItemRender, fieldProps, finalFormat, variant } =
-    props;
+  const {
+    text,
+    mode,
+    format,
+    formItemRender,
+    fieldProps,
+    finalFormat,
+    variant,
+  } = props;
   const { value } = fieldProps;
   const dayValue = parseValueToDay(value, finalFormat) as dayjs.Dayjs;
 
