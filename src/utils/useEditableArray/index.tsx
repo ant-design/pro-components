@@ -24,6 +24,7 @@ import React, {
 import { useDebounceFn, useRefFunction } from '..';
 import { useIntl } from '../../provider';
 import { ProFormContext } from '../components/ProFormContext';
+import { conversionMomentValue } from '../conversionMomentValue';
 import { useDeepCompareEffect } from '../hooks/useDeepCompareEffect';
 import { usePrevious } from '../hooks/usePrevious';
 import { merge } from '../merge';
@@ -177,6 +178,10 @@ export type RowEditableConfig<DataType> = {
    * @link https://github.com/ant-design/pro-components/issues/7790
    */
   getRealIndex?: (record: DataType) => number;
+  /**
+   * 与 ProTable `dateFormatter` 一致；合并到 dataSource 时把行内的 dayjs / 反序列化 dayjs 转为 string 或 number
+   */
+  dateFormatter?: Parameters<typeof conversionMomentValue>[1];
 };
 export type ActionTypeText<T> = {
   deleteText?: React.ReactNode;
@@ -734,6 +739,18 @@ export function useEditableArray<RecordType extends AnyObject>(
     setDataSource: (dataSource: RecordType[]) => void;
   },
 ) {
+  const normalizeRowDateValues = useRefFunction((row: RecordType | null | undefined) => {
+    if (row == null || typeof row !== 'object') {
+      return row as unknown as RecordType;
+    }
+    return conversionMomentValue(
+      row,
+      props.dateFormatter ?? 'string',
+      {},
+      false,
+    ) as RecordType;
+  });
+
   // Internationalization
   const intl = useIntl();
 
@@ -1147,7 +1164,7 @@ export function useEditableArray<RecordType extends AnyObject>(
           {
             data: updatedDataSource,
             getRowKey: props.getRowKey,
-            row: editRow,
+            row: normalizeRowDateValues(editRow),
             key: recordKey,
             childrenColumnName: props.childrenColumnName || 'children',
           },
@@ -1179,10 +1196,10 @@ export function useEditableArray<RecordType extends AnyObject>(
       }
 
       const fieldPath = buildFormFieldPath(recordKey);
-      const newLineRecordData = {
+      const newLineRecordData = normalizeRowDateValues({
         ...newLineRecordCache?.defaultValue,
         ...get(values, fieldPath),
-      };
+      } as RecordType);
 
       const existsInDataSource = dataSourceKeyIndexMapRef.current.has(
         recordKeyToString(recordKey),
@@ -1441,10 +1458,8 @@ export function useEditableArray<RecordType extends AnyObject>(
         // 新增行：editRow 仅包含用户在 form 中填过的字段，必须 merge 上 originRow
         // （= recordCreatorProps.record 中设的默认值），否则那些没参与编辑的字段会丢失。
         // 与 SaveEditableAction.save 内部 `merge({}, row, data)` 语义保持一致。
-        const mergedRow = merge<RecordType & { index?: number }>(
-          {},
-          originRow,
-          editRow,
+        const mergedRow = normalizeRowDateValues(
+          merge<RecordType & { index?: number }>({}, originRow, editRow),
         );
         if (options?.position === 'top') {
           props.setDataSource([mergedRow, ...props.dataSource]);
@@ -1455,14 +1470,16 @@ export function useEditableArray<RecordType extends AnyObject>(
         const actionProps = {
           data: props.dataSource,
           getRowKey: props.getRowKey,
-          row: options
-            ? {
-                ...editRow,
-                map_row_parentKey: recordKeyToString(
-                  options?.parentKey ?? '',
-                )?.toString(),
-              }
-            : editRow,
+          row: normalizeRowDateValues(
+            options
+              ? {
+                  ...editRow,
+                  map_row_parentKey: recordKeyToString(
+                    options?.parentKey ?? '',
+                  )?.toString(),
+                }
+              : editRow,
+          ),
           key: recordKey,
           childrenColumnName: props.childrenColumnName || 'children',
         };

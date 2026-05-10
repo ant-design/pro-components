@@ -579,6 +579,7 @@ const ProTable = <
   const editableUtils = useEditableArray<any>({
     ...props.editable,
     tableName: props.name,
+    dateFormatter: props.editable?.dateFormatter ?? props.dateFormatter,
     getRowKey,
     childrenColumnName: props.expandable?.childrenColumnName || 'children',
     dataSource: action.dataSource || [],
