@@ -1,11 +1,10 @@
 import type { GetRef, SelectProps } from 'antd';
 import { Select, Spin } from 'antd';
-import React, { MutableRefObject } from 'react';
+import React from 'react';
 import type { IntlType } from '../../../provider';
 import type { RequestOptionsType } from '../../../utils';
 import type { ProFieldFC } from '../../types';
 import SearchSelect from './SearchSelect';
-import { SelectHighlight } from './SelectHighlight';
 import type { FieldSelectProps } from './types';
 
 export type FieldSelectFullProps = FieldSelectProps &
@@ -20,7 +19,6 @@ export type FieldSelectSearchEditProps = Parameters<
   fetchData: (keyWord?: string) => void;
   resetData: () => void;
   inputRef: React.RefObject<GetRef<typeof Select>>;
-  keyWordsRef: MutableRefObject<string>;
 };
 
 export function FieldSelectSearchEdit(props: FieldSelectSearchEditProps) {
@@ -36,7 +34,6 @@ export function FieldSelectSearchEdit(props: FieldSelectSearchEditProps) {
     fetchData,
     resetData,
     inputRef,
-    keyWordsRef,
     ...rest
   } = props;
 
@@ -56,22 +53,8 @@ export function FieldSelectSearchEdit(props: FieldSelectSearchEditProps) {
       notFoundContent={
         loading ? <Spin size="small" /> : fieldProps?.notFoundContent
       }
-      fetchData={(keyWord) => {
-        keyWordsRef.current = keyWord ?? '';
-        fetchData(keyWord);
-        if (keyWord === undefined) {
-          keyWordsRef.current = '';
-        }
-      }}
+      fetchData={fetchData}
       resetData={resetData}
-      optionItemRender={(item) => {
-        if (typeof item.label === 'string' && keyWordsRef.current) {
-          return (
-            <SelectHighlight label={item.label} words={[keyWordsRef.current]} />
-          );
-        }
-        return item.label;
-      }}
       placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
       label={label}
       {...fieldProps}
