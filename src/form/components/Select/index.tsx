@@ -35,8 +35,6 @@ export type ProFormSelectProps<
      * @default true
      */
     fetchDataOnSearch?: boolean;
-    /** 自定义选项渲染 */
-    optionItemRender?: (item: ValueType) => React.ReactNode;
   },
   RefSelectProps
 > & {
