@@ -1,8 +1,11 @@
 import { LightFilter, ProFormText } from '@ant-design/pro-components';
+import { ConfigProvider } from 'antd';
+import zhCN from 'antd/locale/zh_CN';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import dayjs from 'dayjs';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
+import zhCn from 'dayjs/locale/zh-cn';
 import { describe, expect, it, vi } from 'vitest';
 import { dateArrayFormatter } from '../../src/utils/dateArrayFormatter';
 
@@ -361,60 +364,74 @@ describe('LightFilter', () => {
   });
 
   it(' 🪕 should format date range labels by default', async () => {
-    const { container } = render(
-      <LightFilter
-        initialValues={{
-          dateRange: [dayjs('2023-01-01'), dayjs('2023-01-03')],
-          dateTimeRange: [
-            dayjs('2023-01-01 08:00:00'),
-            dayjs('2023-01-01 10:30:00'),
-          ],
-          weekRange: [dayjs('2023-01-02'), dayjs('2023-01-08')],
-          quarterRange: [dayjs('2023-01-01'), dayjs('2023-03-31')],
-          yearRange: [dayjs('2022-01-01'), dayjs('2023-01-01')],
-        }}
-      >
-        <LightFilter.dateRange name="dateRange" label="日期" />
-        <LightFilter.dateTimeRange name="dateTimeRange" label="日期时间" />
-        <LightFilter.weekRange name="weekRange" label="周" />
-        <LightFilter.quarterRange name="quarterRange" label="季度" />
-        <LightFilter.yearRange name="yearRange" label="年份" />
-      </LightFilter>,
-    );
+    const prevDayjsLocale = dayjs.locale();
+    // 须传入 locale 对象，否则在 Vitest 下 `YYYY-wo` 仍会为英文序数（与 antd 中文展示不一致）
+    dayjs.locale('zh-cn', zhCn);
+    try {
+      const { container } = render(
+        <ConfigProvider locale={zhCN}>
+          <LightFilter
+            initialValues={{
+              dateRange: [dayjs('2023-01-01'), dayjs('2023-01-03')],
+              dateTimeRange: [
+                dayjs('2023-01-01 08:00:00'),
+                dayjs('2023-01-01 10:30:00'),
+              ],
+              weekRange: [dayjs('2023-01-02'), dayjs('2023-01-08')],
+              quarterRange: [dayjs('2023-01-01'), dayjs('2023-03-31')],
+              yearRange: [dayjs('2022-01-01'), dayjs('2023-01-01')],
+            }}
+          >
+            <LightFilter.dateRange name="dateRange" label="日期" />
+            <LightFilter.dateTimeRange name="dateTimeRange" label="日期时间" />
+            <LightFilter.weekRange name="weekRange" label="周" />
+            <LightFilter.quarterRange name="quarterRange" label="季度" />
+            <LightFilter.yearRange name="yearRange" label="年份" />
+          </LightFilter>
+        </ConfigProvider>,
+      );
 
-    await waitFor(() => {
-      const values = Array.from(
-        container.querySelectorAll<HTMLInputElement>('.ant-picker-input input'),
-      ).map((node) => node.value);
-      expect(values).toEqual(
-        expect.arrayContaining([
+      await waitFor(() => {
+        const values = Array.from(
+          container.querySelectorAll<HTMLInputElement>(
+            '.ant-picker-input input',
+          ),
+        ).map((node) => node.value);
+        expect(values).toEqual([
           '2023-01-01',
           '2023-01-03',
           '2023-01-01 08:00:00',
           '2023-01-01 10:30:00',
-          '2023-01-02',
-          '2023-01-08',
-          '2022-01-01',
-          '2023-01-01',
-        ]),
-      );
-    });
+          '2023-1周',
+          '2023-1周',
+          '2023-Q1',
+          '2023-Q1',
+          '2022',
+          '2023',
+        ]);
+      });
 
-    const weekLabel = dateArrayFormatter(
-      [dayjs('2023-01-02'), dayjs('2023-01-08')],
-      'YYYY-wo',
-    );
-    const quarterLabel = dateArrayFormatter(
-      [dayjs('2023-01-01'), dayjs('2023-03-31')],
-      'YYYY-[Q]Q',
-    );
-    const yearLabel = dateArrayFormatter(
-      [dayjs('2022-01-01'), dayjs('2023-01-01')],
-      'YYYY',
-    );
-    expect(weekLabel).toBe('2023-1st ~ 2023-2nd');
-    expect(quarterLabel).toBe('2023-Q1 ~ 2023-Q1');
-    expect(yearLabel).toBe('2022 ~ 2023');
+      // render 会拉取依赖里的 dayjs 插件，偶发影响全局 locale；断言前再固定一次
+      dayjs.locale('zh-cn', zhCn);
+
+      const weekLabel = dateArrayFormatter(
+        [dayjs('2023-01-02'), dayjs('2023-01-08')],
+        'YYYY-wo',
+      );
+      const quarterLabel = dateArrayFormatter(
+        [dayjs('2023-01-01'), dayjs('2023-03-31')],
+        'YYYY-[Q]Q',
+      );
+      const yearLabel = dateArrayFormatter(
+        [dayjs('2022-01-01'), dayjs('2023-01-01')],
+        'YYYY',
+      );
+      expect(weekLabel).toBe('2023-1周 ~ 2023-1周');
+      expect(quarterLabel).toBe('2023-Q1 ~ 2023-Q1');
+      expect(yearLabel).toBe('2022 ~ 2023');
+    } finally {
+      dayjs.locale(prevDayjsLocale || 'en');
+    }
   });
 
   it(' 🪕 should not format digitRange label as date range', async () => {
