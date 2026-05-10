@@ -310,12 +310,7 @@ const FieldSelect: ProFieldFC<
 
   const inputRef = useRef<GetRef<typeof Select>>(null);
   const intl = useIntl();
-  const keyWordsRef = useRef<string>('');
   const { fieldNames } = fieldProps;
-
-  useEffect(() => {
-    keyWordsRef.current = fieldProps?.searchValue;
-  }, [fieldProps?.searchValue]);
 
   const [loading, options, fetchData, resetData] = useFieldFetchData(props);
   const { componentSize: componentSizeFromConfig } = ConfigProvider?.useConfig?.() || {
@@ -386,7 +381,6 @@ const FieldSelect: ProFieldFC<
       fetchData,
       resetData,
       inputRef,
-      keyWordsRef,
       ...props,
     };
     if (light) {
