@@ -3,6 +3,7 @@ import type { InternalNamePath, NamePath } from 'antd/lib/form/interface';
 import dayjs from 'dayjs';
 import quarterOfYear from 'dayjs/plugin/quarterOfYear';
 import { isNil } from '../isNil';
+import { normalizeSerializedDayjsLike } from '../parseValueToMoment';
 import type { ProFieldValueType } from '../typing';
 
 dayjs.extend(quarterOfYear);
@@ -81,20 +82,28 @@ export const convertMoment = (
     return value;
   }
 
-  if (dayjs.isDayjs(value) || isMoment(value)) {
+  let target: any = value;
+  if (value instanceof Date && !Number.isNaN(value.getTime())) {
+    target = dayjs(value);
+  }
+
+  if (dayjs.isDayjs(target) || isMoment(target)) {
+    if (typeof target.format !== 'function') {
+      return value;
+    }
     if (dateFormatter === 'number') {
-      return value.valueOf();
+      return target.valueOf();
     }
     if (dateFormatter === 'string') {
-      return value.format(
+      return target.format(
         dateFormatterMap[valueType as 'date'] || 'YYYY-MM-DD HH:mm:ss',
       );
     }
     if (typeof dateFormatter === 'string' && dateFormatter !== 'string') {
-      return value.format(dateFormatter);
+      return target.format(dateFormatter);
     }
     if (typeof dateFormatter === 'function') {
-      return dateFormatter(value, valueType);
+      return dateFormatter(target, valueType);
     }
   }
   return value;
@@ -157,6 +166,33 @@ export const conversionMomentValue = <T extends {} = any>(
     if (omitNil && itemValue === '') {
       return;
     }
+    const currentDateFormatter = dateFormatter ?? 'string';
+    let finalDateFormatter: DateFormatter;
+    if (
+      currentDateFormatter === 'number' ||
+      currentDateFormatter === false ||
+      typeof currentDateFormatter === 'function'
+    ) {
+      finalDateFormatter = currentDateFormatter;
+    } else if (currentDateFormatter === 'string') {
+      finalDateFormatter =
+        dateFormat ||
+        dateFormatterMap[valueType as keyof typeof dateFormatterMap];
+    } else {
+      // Custom format string
+      finalDateFormatter = currentDateFormatter;
+    }
+
+    const serializedDayjs = normalizeSerializedDayjsLike(itemValue);
+    if (serializedDayjs) {
+      (tmpValue as any)[valueKey] = convertMoment(
+        serializedDayjs,
+        finalDateFormatter,
+        valueType,
+      );
+      return;
+    }
+
     // 处理嵌套的情况
     if (
       isPlainObject(itemValue) &&
@@ -176,22 +212,6 @@ export const conversionMomentValue = <T extends {} = any>(
       );
       return;
     }
-    const currentDateFormatter = dateFormatter ?? 'string';
-    let finalDateFormatter: DateFormatter;
-    if (
-      currentDateFormatter === 'number' ||
-      currentDateFormatter === false ||
-      typeof currentDateFormatter === 'function'
-    ) {
-      finalDateFormatter = currentDateFormatter;
-    } else if (currentDateFormatter === 'string') {
-      finalDateFormatter =
-        dateFormat ||
-        dateFormatterMap[valueType as keyof typeof dateFormatterMap];
-    } else {
-      // Custom format string
-      finalDateFormatter = currentDateFormatter;
-    }
     // 处理 FormList 的 value
     if (Array.isArray(itemValue)) {
       (tmpValue as any)[valueKey] = itemValue.map((arrayValue, index) => {
@@ -203,6 +223,15 @@ export const conversionMomentValue = <T extends {} = any>(
               ? 'string'
               : finalDateFormatter;
           return convertMoment(arrayValue, arrayDateFormatter, valueType);
+        }
+        const serialized = normalizeSerializedDayjsLike(arrayValue);
+        if (serialized) {
+          const arrayDateFormatter =
+            finalDateFormatter === undefined &&
+            currentDateFormatter === 'string'
+              ? 'string'
+              : finalDateFormatter;
+          return convertMoment(serialized, arrayDateFormatter, valueType);
         }
         return conversionMomentValue(
           arrayValue,
