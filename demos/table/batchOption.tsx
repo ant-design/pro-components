@@ -119,11 +119,11 @@ const Demo = () => {
               </a>
             </span>
             <span>{`容器总数: ${selectedRows.reduce(
-              (pre, item) => pre + item.containers,
+              (pre, item) => pre + (item?.containers ?? 0),
               0,
             )} 个`}</span>
             <span>{`请求总量: ${selectedRows.reduce(
-              (pre, item) => pre + item.callNumber,
+              (pre, item) => pre + (item?.callNumber ?? 0),
               0,
             )} 次`}</span>
           </Space>
