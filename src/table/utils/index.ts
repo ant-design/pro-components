@@ -432,3 +432,41 @@ export function buildEditableTableRowKey<DataType extends Record<string, any>>(
     return (record as any)?.[rowKeyStr] ?? index?.toString() ?? '';
   };
 }
+
+/**
+ * 将 editableKeys 解析为 RowEditableConfig.onChange 的第二参数，
+ * 与 useEditableArray 内 setEditableRowKeys 一致：single 为单条（可为空场景下的 undefined），multiple 为数组。
+ */
+export function resolveEditingPayloadForRowEditableOnChange<
+  DataType extends Record<string, any>,
+>(
+  keys: Key[],
+  dataSource: readonly DataType[] | undefined,
+  getRowKey: import('antd/lib/table/interface').GetRowKey<DataType>,
+  editableType: 'single' | 'multiple' | undefined,
+  childrenColumnName = 'children',
+): DataType | DataType[] {
+  const cleanKeys = keys.filter((key) => key !== undefined);
+  const kvMap = new Map<Key, DataType>();
+  const dig = (records: readonly DataType[]) => {
+    records.forEach((record, index) => {
+      const rowKey = getRowKey(record, index);
+      kvMap.set(rowKey, record);
+      if (
+        record &&
+        typeof record === 'object' &&
+        childrenColumnName in record
+      ) {
+        dig(((record as any)[childrenColumnName] || []) as DataType[]);
+      }
+    });
+  };
+  dig(dataSource ?? []);
+  const editingRecords = cleanKeys
+    .map((key) => kvMap.get(key))
+    .filter((k): k is DataType => k !== undefined);
+  const type = editableType || 'single';
+  const editingPayload =
+    type === 'single' ? editingRecords[0] : editingRecords;
+  return editingPayload as DataType | DataType[];
+}
