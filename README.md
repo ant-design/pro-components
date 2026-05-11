@@ -111,6 +111,18 @@ $ pnpm install
 $ pnpm dev
 ```
 
+Common scripts:
+
+```bash
+$ pnpm build           # library build (father)
+$ pnpm test            # vitest (see also pnpm test:coverage)
+$ pnpm start           # same as pnpm dev — dumi doc dev server
+$ pnpm docs build      # static doc site build (dumi)
+$ pnpm docs check      # @umijs/doctor publish check (same as pnpm checkPublish)
+```
+
+More detail: [CONTRIBUTING.md](./CONTRIBUTING.md).
+
 <br/>
 
 ## 🤝 Contributing

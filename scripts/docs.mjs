@@ -1,11 +1,25 @@
 import { spawnSync } from 'node:child_process';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /**
- * 文档站 CLI 薄封装：与 dumi / umi 工具链对齐。
- * `pnpm docs dev` → `dumi dev`，等。
+ * 文档站 CLI 薄封装：与 dumi 对齐。
+ * `check` → `@umijs/doctor` 的 publish 检查（同 `pnpm checkPublish`）。
  */
 function runPnpmExec(args) {
   const result = spawnSync('pnpm', ['exec', ...args], {
+    stdio: 'inherit',
+    env: process.env,
+    shell: process.platform === 'win32',
+  });
+  process.exit(result.status ?? 1);
+}
+
+function runNodeScript(scriptName, extraArgs) {
+  const scriptPath = path.join(__dirname, scriptName);
+  const result = spawnSync('node', [scriptPath, ...extraArgs], {
     stdio: 'inherit',
     env: process.env,
     shell: process.platform === 'win32',
@@ -27,7 +41,7 @@ switch (sub) {
     runPnpmExec(['dumi', 'preview', ...extra]);
     break;
   case 'check':
-    runPnpmExec(['umi', 'doctor', ...extra]);
+    runNodeScript('checkPublish.mjs', extra);
     break;
   case 'create':
     console.error(
