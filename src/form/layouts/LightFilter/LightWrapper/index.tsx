@@ -71,7 +71,9 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
   const prefixCls = getPrefixCls('pro-field-light-wrapper');
   const { wrapSSR, hashId } = useStyle(prefixCls);
   const labelValue = (props as any)[valuePropName!];
-  const [tempValue, setTempValue] = useState<string | undefined | null>(labelValue);
+  const [tempValue, setTempValue] = useState<string | undefined | null>(
+    labelValue,
+  );
   const [open, setOpen] = useState(false);
 
   // Form 的 initialValues 是异步注入的，初次渲染时 value 可能还是 undefined，
@@ -150,20 +152,30 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
         className={clsx(`${prefixCls}-container`, hashId, className)}
         style={style}
       >
-        {React.cloneElement(children as React.JSX.Element, {
-          ...rest,
-          [valuePropName!]: tempValue,
-          onChange: (e: any) => {
-            setTempValue(e?.target ? e.target.value : e);
-          },
-          ...(children as React.JSX.Element).props,
-          // light 模式下由外层 FilterDropdown 统一描边，内层 Select/TreeSelect/DatePicker 等统一使用 borderless，各 Field 组件无需再根据 light 判断
-          variant: 'borderless' as const,
-          fieldProps: {
-            ...(children as React.JSX.Element).props?.fieldProps,
+        {(() => {
+          const childElement = children as React.JSX.Element;
+          const childProps = childElement.props as Record<string, any>;
+          const mergedFieldProps = {
+            ...childProps?.fieldProps,
             variant: 'borderless' as const,
-          },
-        })}
+            onChange: (...args: any[]) => {
+              const e = args[0];
+              setTempValue(e?.target ? e.target.value : e);
+              childProps?.fieldProps?.onChange?.(...args);
+            },
+          };
+          return React.cloneElement(childElement, {
+            ...rest,
+            ...childProps,
+            [valuePropName!]: tempValue,
+            onChange: (e: any) => {
+              setTempValue(e?.target ? e.target.value : e);
+              childProps?.onChange?.(e);
+            },
+            variant: 'borderless' as const,
+            fieldProps: mergedFieldProps,
+          });
+        })()}
       </div>
     </FilterDropdown>,
   );
