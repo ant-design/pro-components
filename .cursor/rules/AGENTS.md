@@ -1,4 +1,4 @@
-﻿# AGENTS.md
+# AGENTS.md
 
 > Ant Design Pro Components 项目开发指南 - 为 AI 编程助手提供项目上下文和开发规范
 
@@ -490,7 +490,7 @@ export function TestComp() {
 - **编辑器**：VS Code 或支持 TypeScript 的编辑器
 - **代码检查**：ESLint + TypeScript
 - **格式化**：Prettier
-- **Git hooks**：yorkie（pre-commit: pretty-quick，commit-msg: fabric verify-commit）
+- **Git hooks**：yorkie（pre-commit: pretty-quick，commit-msg: node ./scripts/verifyCommit.mjs）
 
 ### 构建工具
 

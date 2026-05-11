@@ -111,6 +111,18 @@ $ pnpm install
 $ pnpm dev
 ```
 
+Comandos frecuentes:
+
+```bash
+$ pnpm build           # compilación de la librería (father)
+$ pnpm test            # Vitest (cobertura: pnpm test:coverage)
+$ pnpm start           # igual que pnpm dev — servidor local dumi
+$ pnpm docs build      # build estático del sitio de documentación (dumi)
+$ pnpm docs check      # chequeo @umijs/doctor antes de publicar (igual que pnpm checkPublish)
+```
+
+Más detalle: [CONTRIBUTING.md](./CONTRIBUTING.md).
+
 <br/>
 
 ## 🤝 Contribuir
