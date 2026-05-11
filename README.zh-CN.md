@@ -113,6 +113,18 @@ $ pnpm install
 $ pnpm dev
 ```
 
+常用命令：
+
+```bash
+$ pnpm build           # 组件库构建（father）
+$ pnpm test            # Vitest 单测（覆盖率见 pnpm test:coverage）
+$ pnpm start           # 与 pnpm dev 相同，启动 dumi 文档本地服务
+$ pnpm docs build      # 文档站静态构建（dumi）
+$ pnpm docs check      # @umijs/doctor 发布前检查（同 pnpm checkPublish）
+```
+
+更多说明见 [CONTRIBUTING.md](./CONTRIBUTING.md)。
+
 <br/>
 
 ## 🤝 贡献

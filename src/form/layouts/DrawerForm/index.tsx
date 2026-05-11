@@ -3,7 +3,7 @@ import type { DrawerProps, FormProps } from 'antd';
 import { ConfigProvider, Drawer } from 'antd';
 import { clsx } from 'clsx';
 import React, { useCallback, useContext, useRef, useState } from 'react';
-import { isBrowser, omitUndefined, useRefFunction } from '../../../utils';
+import { isBrowser, omitUndefined } from '../../../utils';
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import { useOverlayForm } from '../_shared/useOverlayForm';

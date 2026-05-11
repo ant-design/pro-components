@@ -1,11 +1,11 @@
-﻿import dayjs from 'dayjs';
-import React, { useCallback } from 'react';
+﻿import React from 'react';
 import { useIntl } from '../../../provider';
 import {
   isProFieldEditOrUpdateMode,
   isProFieldReadMode,
 } from '../../internal/fieldMode';
 import type { ProFieldFC, ProFieldLightProps } from '../../types';
+import { formatDate } from '../DatePicker/datePickerUtils';
 import { FieldRangePickerEdit } from './FieldRangePickerEdit';
 import { FieldRangePickerLightEdit } from './FieldRangePickerLightEdit';
 import { FieldRangePickerRead } from './FieldRangePickerRead';
@@ -42,20 +42,12 @@ const FieldRangePicker: ProFieldFC<
 
   const [startText, endText] = Array.isArray(text) ? text : [];
   const [open, setOpen] = React.useState<boolean>(false);
-  const genFormatText = useCallback(
-    (formatValue: dayjs.Dayjs) => {
-      if (typeof fieldProps?.format === 'function') {
-        return fieldProps?.format?.(formatValue);
-      }
-      return fieldProps?.format || format || 'YYYY-MM-DD';
-    },
-    [fieldProps, format],
-  );
+  const mergedPicker = fieldProps?.picker ?? picker;
   const parsedStartText: string = startText
-    ? dayjs(startText).format(genFormatText(dayjs(startText)))
+    ? formatDate(startText, fieldProps?.format || format, mergedPicker)
     : '';
   const parsedEndText: string = endText
-    ? dayjs(endText).format(genFormatText(dayjs(endText)))
+    ? formatDate(endText, fieldProps?.format || format, mergedPicker)
     : '';
 
   if (isProFieldReadMode(mode)) {

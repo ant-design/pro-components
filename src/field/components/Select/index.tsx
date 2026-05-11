@@ -26,8 +26,8 @@ import {
 } from '../../internal/fieldMode';
 import type { ProFieldFC } from '../../types';
 import { FieldSelectLightEdit } from './FieldSelectLightEdit';
-import { FieldSelectSearchEdit } from './FieldSelectSearchEdit';
 import { FieldSelectRead } from './FieldSelectRead';
+import { FieldSelectSearchEdit } from './FieldSelectSearchEdit';
 import type { FieldSelectProps } from './types';
 
 export type { FieldSelectProps };
@@ -310,17 +310,13 @@ const FieldSelect: ProFieldFC<
 
   const inputRef = useRef<GetRef<typeof Select>>(null);
   const intl = useIntl();
-  const keyWordsRef = useRef<string>('');
   const { fieldNames } = fieldProps;
 
-  useEffect(() => {
-    keyWordsRef.current = fieldProps?.searchValue;
-  }, [fieldProps?.searchValue]);
-
   const [loading, options, fetchData, resetData] = useFieldFetchData(props);
-  const { componentSize: componentSizeFromConfig } = ConfigProvider?.useConfig?.() || {
-    componentSize: undefined,
-  };
+  const { componentSize: componentSizeFromConfig } =
+    ConfigProvider?.useConfig?.() || {
+      componentSize: undefined,
+    };
   const componentSize = componentSizeFromConfig ?? 'middle';
   useImperativeHandle(
     ref,
@@ -386,7 +382,6 @@ const FieldSelect: ProFieldFC<
       fetchData,
       resetData,
       inputRef,
-      keyWordsRef,
       ...props,
     };
     if (light) {

@@ -1,6 +1,5 @@
 import type { RangePickerProps } from 'antd/lib/date-picker';
 import React from 'react';
-import { dateArrayFormatter } from '../../../utils';
 import type { ProFormFieldItemProps } from '../../typing';
 import { BaseDateRanger } from './BaseDateRanger';
 
@@ -20,12 +19,6 @@ export const ProFormDateTimeRangePicker: React.FC<
       fieldProps={fieldProps}
       valueType={valueType}
       proFieldProps={proFieldProps}
-      fieldConfig={{
-        valueType,
-        customLightMode: true,
-        lightFilterLabelFormatter: (value) =>
-          dateArrayFormatter(value, fieldProps?.format || 'YYYY-MM-DD'),
-      }}
       {...rest}
     />
   );

@@ -3,7 +3,10 @@ import React, { useCallback, useMemo, useRef } from 'react';
 import { ParamsType } from '../../../provider';
 import { useRefFunction } from '../../../utils';
 import { ProColumns } from '../../typing';
-import { buildEditableTableRowKey } from '../../utils';
+import {
+  buildEditableTableRowKey,
+  resolveEditingPayloadForRowEditableOnChange,
+} from '../../utils';
 import EditableProTable, { EditableProTableProps } from './index';
 
 /**
@@ -45,8 +48,15 @@ export function CellEditorTable<
 
   const handleEditableKeysChange = useRefFunction(
     (keys: React.Key[]) => {
-      setEditableRowKeys(keys);
-      props.editable?.onChange?.(keys, props.editable?.editableKeys ?? []);
+      const cleanKeys = keys.filter((key) => key !== undefined);
+      setEditableRowKeys(cleanKeys);
+      const editingPayload = resolveEditingPayloadForRowEditableOnChange(
+        cleanKeys,
+        props.value as readonly DataType[] | undefined,
+        getRowKey,
+        props.editable?.type,
+      );
+      props.editable?.onChange?.(cleanKeys, editingPayload);
     },
   );
 

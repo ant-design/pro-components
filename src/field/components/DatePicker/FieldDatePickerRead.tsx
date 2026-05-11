@@ -16,8 +16,10 @@ type Props = Parameters<
 };
 
 export function FieldDatePickerRead(props: Props) {
-  const { text, mode, render, fieldProps, format } = props;
-  const dom = formatDate(text, fieldProps.format || format);
+  const { text, mode, render, fieldProps, format, picker } = props;
+  const mergedPicker =
+    (fieldProps?.picker as Props['picker'] | undefined) ?? picker;
+  const dom = formatDate(text, fieldProps.format || format, mergedPicker);
   if (render) {
     return render(text, { mode, ...fieldProps }, <>{dom}</>);
   }

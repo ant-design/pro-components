@@ -8,11 +8,26 @@ type FormatType = ((dayjs: any) => string) | string;
  * @param  {FormatType} format
  * @return string
  */
-const formatString = (endText: any, format: FormatType): string => {
-  if (typeof format === 'function') {
-    return format(dayjs(endText));
+const toDayjsInstance = (endText: any) => {
+  if (dayjs.isDayjs(endText)) {
+    return endText;
   }
-  return dayjs(endText).format(format);
+  if (
+    endText != null &&
+    typeof endText.format === 'function' &&
+    typeof endText.isValid === 'function'
+  ) {
+    return endText;
+  }
+  return dayjs(endText);
+};
+
+const formatString = (endText: any, format: FormatType): string => {
+  const d = toDayjsInstance(endText);
+  if (typeof format === 'function') {
+    return format(d);
+  }
+  return d.format(format);
 };
 /**
  * 格式化区域日期,如果是一个数组，会返回 start ~ end

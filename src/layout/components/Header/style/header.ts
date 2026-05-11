@@ -28,9 +28,12 @@ const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken> = (
         '&-fixed-header': {
           position: 'fixed',
           insetBlockStart: 0,
-          width: '100%',
+          insetInlineStart: 'var(--pro-layout-fixed-header-start, 0px)',
+          /** 与 `inset-inline-start` 配合：占满视口剩余主列，避免仅靠 width:auto+双 inset 在部分内核下宽度塌成 0 */
+          width: 'calc(100vw - var(--pro-layout-fixed-header-start, 0px))',
+          boxSizing: 'border-box',
+          maxWidth: 'none',
           zIndex: 101,
-          insetInlineEnd: 0,
         },
         '&-fixed-header-scroll': {
           backgroundColor:

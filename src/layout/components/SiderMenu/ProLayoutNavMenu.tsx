@@ -13,6 +13,38 @@ const MENU_INDENT_PX = 16;
 const keyToString = (key: string | number) => String(key);
 
 /**
+ * 收集所有「包含选中子项」的 submenu key：递归遍历 nodes 子树，
+ * 任一后代 leaf 命中 `selectedSet` 则其所有祖先 submenu key 进入结果集。
+ *
+ * 用途：给 submenu `<li>` 挂 `--child-selected` 类，让 CSS 可通过
+ * `colorTextSubMenuSelected` token 高亮包含选中项的 submenu 标题。
+ */
+function collectSubmenusWithSelectedChild(
+  nodes: NavMenuNode[],
+  selectedSet: Set<string>,
+): Set<string> {
+  const result = new Set<string>();
+  function walk(children: NavMenuNode[]): boolean {
+    let hit = false;
+    for (const node of children) {
+      if (node.kind === 'item') {
+        if (selectedSet.has(node.key)) hit = true;
+      } else if (node.kind === 'submenu') {
+        if (walk(node.children)) {
+          result.add(node.key);
+          hit = true;
+        }
+      } else if (node.kind === 'group') {
+        if (walk(node.children)) hit = true;
+      }
+    }
+    return hit;
+  }
+  walk(nodes);
+  return result;
+}
+
+/**
  * 在 nodes 子树里查找 `targetKey` 的位置，返回从根到该节点路径上**所有 submenu 的 key**
  * （不含目标 leaf 自身、不含 group 节点的 key）。找不到返回 null。
  *
@@ -96,6 +128,8 @@ interface ProLayoutNavMenuRenderContext {
   /** 已在浮动子菜单面板内：嵌套子菜单用内联展开，避免再挂一层 popover 导致三级及以上无法展示 */
   insideSubmenuPopup: boolean;
   selectedSet: Set<string>;
+  /** 包含选中子项的 submenu key 集合，用于挂 `--child-selected` 类 */
+  subMenuSelectedSet: Set<string>;
   openSet: Set<string>;
   /** popup 内 inline submenu 的展开 key 集合（仅在 popup 内使用，与顶级 popupOpenKey 解耦） */
   popupInnerOpenSet: Set<string>;
@@ -259,6 +293,7 @@ function renderPopup(
     baseClassName,
     hashId,
     mode,
+    subMenuSelectedSet,
     popupOpenKey,
     setPopupOpenKey,
     handleSubmenuTitleClick,
@@ -305,6 +340,8 @@ function renderPopup(
       className={clsx(`${baseClassName}-submenu`, hashId, node.className, {
         [`${baseClassName}-submenu-open`]: isOpen,
         [`${baseClassName}-submenu-has-icon`]: hasIcon,
+        [`${baseClassName}-submenu--child-selected`]:
+          subMenuSelectedSet.has(node.key),
       })}
       data-testid="pro-layout-nav-menu-popup-submenu"
     >
@@ -404,6 +441,7 @@ function renderInlineSubmenu(
     baseClassName,
     hashId,
     openSet,
+    subMenuSelectedSet,
     popupMode,
     popupOpenKey,
     handleSubmenuTitleClick,
@@ -434,6 +472,8 @@ function renderInlineSubmenu(
       data-pro-layout-nav-submenu-open={isOpen || undefined}
       className={clsx(`${baseClassName}-submenu`, hashId, node.className, {
         [`${baseClassName}-submenu-open`]: isOpen,
+        [`${baseClassName}-submenu--child-selected`]:
+          subMenuSelectedSet.has(node.key),
       })}
       data-testid="pro-layout-nav-menu-submenu"
       style={indentStyle}
@@ -623,6 +663,11 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
     [selectedKeys],
   );
 
+  const subMenuSelectedSet = useMemo(
+    () => collectSubmenusWithSelectedChild(nodes, selectedSet),
+    [nodes, selectedSet],
+  );
+
   const openSet = useMemo(
     () => new Set(openKeysProp.map(keyToString)),
     [openKeysProp],
@@ -687,6 +732,7 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
     popupMode,
     insideSubmenuPopup: false,
     selectedSet,
+    subMenuSelectedSet,
     openSet,
     popupInnerOpenSet,
     openKeysProp,

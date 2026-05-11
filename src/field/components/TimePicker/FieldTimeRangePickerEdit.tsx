@@ -19,8 +19,15 @@ export function FieldTimeRangePickerEdit(
   props: Props,
   ref: React.Ref<unknown>,
 ) {
-  const { text, mode, format, formItemRender, fieldProps, variant, finalFormat } =
-    props;
+  const {
+    text,
+    mode,
+    format,
+    formItemRender,
+    fieldProps,
+    variant,
+    finalFormat,
+  } = props;
 
   const dayValue = parseValueToDay(
     fieldProps.value,

@@ -1,10 +1,6 @@
 ﻿import React from 'react';
 import type { ProRenderFieldPropsType } from '../provider';
-import {
-  type ProFieldTextType,
-  type ProFieldValueType,
-  type ProFieldValueTypeInput,
-} from '../utils';
+import { type ProFieldTextType, type ProFieldValueTypeInput } from '../utils';
 import type { FieldMoneyProps } from './components/Money';
 import FieldText from './components/Text';
 import { createProField, type ProFieldRenderText } from './ProFieldCore';

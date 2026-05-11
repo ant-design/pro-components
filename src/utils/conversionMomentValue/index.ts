@@ -1,10 +1,15 @@
 import { get } from '@rc-component/util';
 import type { InternalNamePath, NamePath } from 'antd/lib/form/interface';
 import dayjs from 'dayjs';
+import advancedFormat from 'dayjs/plugin/advancedFormat';
+import isoWeek from 'dayjs/plugin/isoWeek';
 import quarterOfYear from 'dayjs/plugin/quarterOfYear';
 import { isNil } from '../isNil';
+import { normalizeSerializedDayjsLike } from '../parseValueToMoment';
 import type { ProFieldValueType } from '../typing';
 
+dayjs.extend(isoWeek);
+dayjs.extend(advancedFormat);
 dayjs.extend(quarterOfYear);
 
 type DateFormatter =
@@ -14,11 +19,13 @@ type DateFormatter =
   | ((value: dayjs.Dayjs, valueType: string) => string | number)
   | false;
 
+/** 周字段：表单提交转字符串用 ISO 周 `GGGG-[W]WW`；选择器/只读展示用 `gggg-wo`（与 rc-picker 一致） */
 export const dateFormatterMap = {
   time: 'HH:mm:ss',
   timeRange: 'HH:mm:ss',
   date: 'YYYY-MM-DD',
-  dateWeek: 'YYYY-wo',
+  dateWeek: 'GGGG-[W]WW',
+  dateWeekRange: 'GGGG-[W]WW',
   dateMonth: 'YYYY-MM',
   dateQuarter: 'YYYY-[Q]Q',
   dateYear: 'YYYY',
@@ -26,6 +33,19 @@ export const dateFormatterMap = {
   dateTime: 'YYYY-MM-DD HH:mm:ss',
   dateTimeRange: 'YYYY-MM-DD HH:mm:ss',
 };
+
+/**
+ * LightFilter 收起态日期范围展示。`dateWeekRange` 在 map 中为 ISO 周（提交用），标签需与周选择器展示一致。
+ */
+export function getLightFilterRangeDisplayFormat(
+  valueType: string | undefined,
+): string {
+  if (valueType && valueType in dateFormatterMap) {
+    return dateFormatterMap[valueType as keyof typeof dateFormatterMap];
+  }
+  return 'YYYY-MM-DD';
+}
+
 /**
  * 判断是不是一个 object
  * @param  {any} o
@@ -40,7 +60,7 @@ function isObject(o: any): boolean {
  * @returns boolean
  */
 export function isPlainObject(o: { constructor: any }): boolean {
-  if (isObject(o) === false) return false;
+  if (!isObject(o)) return false;
 
   // If has modified constructor
   const ctor = o.constructor;
@@ -48,7 +68,7 @@ export function isPlainObject(o: { constructor: any }): boolean {
 
   // If has modified prototype
   const prot = ctor.prototype;
-  if (isObject(prot) === false) return false;
+  if (!isObject(prot)) return false;
 
   // If constructor does not have an Object-specific method
   if (prot.hasOwnProperty('isPrototypeOf') === false) {
@@ -81,20 +101,28 @@ export const convertMoment = (
     return value;
   }
 
-  if (dayjs.isDayjs(value) || isMoment(value)) {
+  let target: any = value;
+  if (value instanceof Date && !Number.isNaN(value.getTime())) {
+    target = dayjs(value);
+  }
+
+  if (dayjs.isDayjs(target) || isMoment(target)) {
+    if (typeof target.format !== 'function') {
+      return value;
+    }
     if (dateFormatter === 'number') {
-      return value.valueOf();
+      return target.valueOf();
     }
     if (dateFormatter === 'string') {
-      return value.format(
+      return target.format(
         dateFormatterMap[valueType as 'date'] || 'YYYY-MM-DD HH:mm:ss',
       );
     }
     if (typeof dateFormatter === 'string' && dateFormatter !== 'string') {
-      return value.format(dateFormatter);
+      return target.format(dateFormatter);
     }
     if (typeof dateFormatter === 'function') {
-      return dateFormatter(value, valueType);
+      return dateFormatter(target, valueType);
     }
   }
   return value;
@@ -105,9 +133,8 @@ export const convertMoment = (
  * @param  {T} value
  * @param  {DateFormatter} dateFormatter
  * @param  {Record<string} valueTypeMap
- * @param  {ProFieldValueType;dateFormat:string;}|any>} |{valueType
- * @param  {boolean} omitNil?
- * @param  {NamePath} parentKey?
+ * @param omitNil
+ * @param parentKey
  */
 export const conversionMomentValue = <T extends {} = any>(
   value: T,
@@ -157,6 +184,33 @@ export const conversionMomentValue = <T extends {} = any>(
     if (omitNil && itemValue === '') {
       return;
     }
+    const currentDateFormatter = dateFormatter ?? 'string';
+    let finalDateFormatter: DateFormatter;
+    if (
+      currentDateFormatter === 'number' ||
+      currentDateFormatter === false ||
+      typeof currentDateFormatter === 'function'
+    ) {
+      finalDateFormatter = currentDateFormatter;
+    } else if (currentDateFormatter === 'string') {
+      finalDateFormatter =
+        dateFormat ||
+        dateFormatterMap[valueType as keyof typeof dateFormatterMap];
+    } else {
+      // Custom format string
+      finalDateFormatter = currentDateFormatter;
+    }
+
+    const serializedDayjs = normalizeSerializedDayjsLike(itemValue);
+    if (serializedDayjs) {
+      (tmpValue as any)[valueKey] = convertMoment(
+        serializedDayjs,
+        finalDateFormatter,
+        valueType,
+      );
+      return;
+    }
+
     // 处理嵌套的情况
     if (
       isPlainObject(itemValue) &&
@@ -176,22 +230,6 @@ export const conversionMomentValue = <T extends {} = any>(
       );
       return;
     }
-    const currentDateFormatter = dateFormatter ?? 'string';
-    let finalDateFormatter: DateFormatter;
-    if (
-      currentDateFormatter === 'number' ||
-      currentDateFormatter === false ||
-      typeof currentDateFormatter === 'function'
-    ) {
-      finalDateFormatter = currentDateFormatter;
-    } else if (currentDateFormatter === 'string') {
-      finalDateFormatter =
-        dateFormat ||
-        dateFormatterMap[valueType as keyof typeof dateFormatterMap];
-    } else {
-      // Custom format string
-      finalDateFormatter = currentDateFormatter;
-    }
     // 处理 FormList 的 value
     if (Array.isArray(itemValue)) {
       (tmpValue as any)[valueKey] = itemValue.map((arrayValue, index) => {
@@ -203,6 +241,15 @@ export const conversionMomentValue = <T extends {} = any>(
               ? 'string'
               : finalDateFormatter;
           return convertMoment(arrayValue, arrayDateFormatter, valueType);
+        }
+        const serialized = normalizeSerializedDayjsLike(arrayValue);
+        if (serialized) {
+          const arrayDateFormatter =
+            finalDateFormatter === undefined &&
+            currentDateFormatter === 'string'
+              ? 'string'
+              : finalDateFormatter;
+          return convertMoment(serialized, arrayDateFormatter, valueType);
         }
         return conversionMomentValue(
           arrayValue,

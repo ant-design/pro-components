@@ -774,6 +774,25 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     menuCollapsedWidth,
   );
 
+  /** 侧栏布局下固定顶栏只盖住主列，不铺满视口盖住侧栏（splitMenus 顶栏整行时仍为 0） */
+  const fixedHeaderInsetStart = useMemo(() => {
+    const splitHeaderFullWidth =
+      props.splitMenus && propsLayout !== 'top' && !isMobile;
+    if (propsLayout !== 'side' || !siderMenuDom || isMobile) {
+      return '0px';
+    }
+    if (splitHeaderFullWidth) {
+      return '0px';
+    }
+    return `${leftSiderWidth ?? 0}px`;
+  }, [
+    props.splitMenus,
+    propsLayout,
+    siderMenuDom,
+    isMobile,
+    leftSiderWidth,
+  ]);
+
   // siderMenuDom 为空的时候，不需要 padding
   const genLayoutStyle: CSSProperties = {
     position: 'relative',
@@ -845,7 +864,15 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
       {props.pure ? (
         <>{children}</>
       ) : (
-        <div className={className} data-testid="pro-layout">
+        <div
+          className={className}
+          data-testid="pro-layout"
+          style={
+            {
+              ['--pro-layout-fixed-header-start']: fixedHeaderInsetStart,
+            } as CSSProperties
+          }
+        >
           {bgImgStyleList || token.layout?.bgLayout ? (
             <div
               className={clsx(`${proLayoutClassName}-bg-list`, hashId)}

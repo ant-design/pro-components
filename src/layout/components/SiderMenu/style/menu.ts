@@ -1,6 +1,7 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import type { CSSProperties } from 'react';
-import type { GenerateStyle } from '../../../../provider';
+import type { DeepPartial, LayoutDesignToken } from '../../../../provider/typing/layoutToken';
+import type { ProAliasToken } from '../../../../provider';
 import { useStyle as useAntdStyle } from '../../../../provider';
 import type { MenuMode } from '../types';
 
@@ -22,16 +23,32 @@ export const proLayoutSiderVar = {
   fontSize: '--pro-layout-sider-font-size',
 } as const;
 
-export function getProLayoutSiderCssVarsStyle(): CSSProperties {
+/**
+ * 侧栏壳层 CSS 变量：与文档 `token.layout.sider` 对齐（无 layout 时保持历史硬编码兜底）
+ */
+export function getProLayoutSiderCssVarsStyle(
+  layout?: DeepPartial<LayoutDesignToken>,
+): CSSProperties {
+  const s = layout?.sider;
   return {
-    [proLayoutSiderVar.bg]: '#f7f8f9',
-    [proLayoutSiderVar.colorText]: 'var(--ant-color-text-secondary)',
-    [proLayoutSiderVar.colorTextTitle]: 'var(--ant-color-text)',
-    [proLayoutSiderVar.colorTextSecondary]: 'var(--ant-color-text-tertiary)',
-    [proLayoutSiderVar.paddingInlineMenu]: '8px',
-    [proLayoutSiderVar.paddingBlockMenu]: '12px',
+    [proLayoutSiderVar.bg]: s?.colorMenuBackground ?? '#f7f8f9',
+    [proLayoutSiderVar.colorText]:
+      s?.colorTextMenu ?? 'var(--ant-color-text-secondary)',
+    [proLayoutSiderVar.colorTextTitle]:
+      s?.colorTextMenuTitle ?? 'var(--ant-color-text)',
+    [proLayoutSiderVar.colorTextSecondary]:
+      s?.colorTextMenuSecondary ?? 'var(--ant-color-text-tertiary)',
+    [proLayoutSiderVar.paddingInlineMenu]:
+      s?.paddingInlineLayoutMenu != null
+        ? `${s.paddingInlineLayoutMenu}px`
+        : '8px',
+    [proLayoutSiderVar.paddingBlockMenu]:
+      s?.paddingBlockLayoutMenu != null
+        ? `${s.paddingBlockLayoutMenu}px`
+        : '12px',
     [proLayoutSiderVar.borderRadius]: 'var(--ant-border-radius)',
-    [proLayoutSiderVar.colorBgHover]: 'var(--ant-color-fill-secondary)',
+    [proLayoutSiderVar.colorBgHover]:
+      s?.colorBgMenuItemHover ?? 'var(--ant-color-fill-secondary)',
     [proLayoutSiderVar.fontSize]: 'var(--ant-font-size)',
   } as CSSProperties;
 }
@@ -51,12 +68,16 @@ const navVar = {
   colorText: '--pro-layout-nav-color-text',
   colorBgHover: '--pro-layout-nav-color-bg-hover',
   colorTextHover: '--pro-layout-nav-color-text-hover',
+  /** 与文档 `colorTextMenuActive` / 按下态对应 */
+  colorTextActive: '--pro-layout-nav-color-text-active',
   colorBgSelected: '--pro-layout-nav-color-bg-selected',
   /** 选中 + hover 组合态的背景色：基于选中态同色系再深一档，避免被普通 hover 灰色覆盖 */
   colorBgSelectedHover: '--pro-layout-nav-color-bg-selected-hover',
   colorTextSelected: '--pro-layout-nav-color-text-selected',
   /** 选中态的图标颜色，与选中态字色解耦（SidebarMenu 使用 primary-text-secondary） */
   colorIconSelected: '--pro-layout-nav-color-icon-selected',
+  /** 与文档 `colorBgMenuItemActive` / 按下态背景对应 */
+  colorBgActive: '--pro-layout-nav-color-bg-active',
   colorDivider: '--pro-layout-nav-color-divider',
   popupBg: '--pro-layout-nav-popup-bg',
   indent: '--pro-layout-nav-indent',
@@ -83,9 +104,13 @@ const navVar = {
   arrowSize: '--pro-layout-nav-arrow-size',
   /** 收起态下一级 button 的整体方形尺寸，默认 28px（icon 居中显示） */
   collapsedItemSize: '--pro-layout-nav-collapsed-item-size',
+  /** submenu 包含选中子项时标题文字色（对应文档 `colorTextSubMenuSelected`） */
+  colorTextSubMenuSelected: '--pro-layout-nav-color-text-submenu-selected',
 } as const;
 
-function layoutNavCssVars(surface: 'sider' | 'header'): Record<string, string> {
+function defaultLayoutNavCssVars(
+  surface: 'sider' | 'header',
+): Record<string, string> {
   const padInline = 8;
   const stackGap = 4;
   const itemH = 32;
@@ -97,6 +122,10 @@ function layoutNavCssVars(surface: 'sider' | 'header'): Record<string, string> {
         'var(--color-gray-control-fill-hover, rgba(0, 0, 0, 0.04))',
       [navVar.colorTextHover]:
         'var(--color-gray-text-default, rgba(9, 30, 66, 0.86))',
+      [navVar.colorTextActive]:
+        'var(--color-gray-text-default, rgba(9, 30, 66, 0.86))',
+      [navVar.colorBgActive]:
+        'var(--color-gray-control-fill-hover, rgba(0, 0, 0, 0.04))',
       [navVar.colorBgSelected]:
         'var(--color-primary-control-fill-ghost-active, rgba(29, 122, 252, 0.23))',
       /** 业务侧若有专用"选中 hover"语义 token 可覆盖，否则回落为同色系加深 */
@@ -129,6 +158,8 @@ function layoutNavCssVars(surface: 'sider' | 'header'): Record<string, string> {
       [navVar.iconSvgSize]: '18px',
       [navVar.arrowSize]: '12px',
       [navVar.collapsedItemSize]: '28px',
+      [navVar.colorTextSubMenuSelected]:
+        'var(--color-gray-text-default, rgba(9, 30, 66, 0.86))',
     };
   }
   return {
@@ -138,6 +169,10 @@ function layoutNavCssVars(surface: 'sider' | 'header'): Record<string, string> {
       'var(--color-gray-control-fill-hover, var(--ant-color-fill-secondary))',
     [navVar.colorTextHover]:
       'var(--color-gray-text-default, var(--ant-color-text))',
+    [navVar.colorTextActive]:
+      'var(--color-gray-text-default, var(--ant-color-text))',
+    [navVar.colorBgActive]:
+      'var(--color-gray-control-fill-hover, var(--ant-color-fill-secondary))',
     [navVar.colorBgSelected]:
       'var(--color-primary-control-fill-ghost-active, var(--ant-color-fill-tertiary))',
     [navVar.colorBgSelectedHover]:
@@ -170,13 +205,83 @@ function layoutNavCssVars(surface: 'sider' | 'header'): Record<string, string> {
     [navVar.iconSvgSize]: '18px',
     [navVar.arrowSize]: '12px',
     [navVar.collapsedItemSize]: '28px',
+    [navVar.colorTextSubMenuSelected]:
+      'var(--color-gray-text-default, var(--ant-color-text))',
   };
+}
+
+/**
+ * 文档 `token.layout` 中 sider/header 的菜单字段 → `--pro-layout-nav-*`
+ *（与站点 layout#token 说明一致，供自研 `ProLayoutNavMenu` 消费）
+ */
+function applyDocMenuTokenToNavVars(
+  surface: 'sider' | 'header',
+  layout?: DeepPartial<LayoutDesignToken>,
+): Record<string, string> {
+  const base = defaultLayoutNavCssVars(surface);
+  if (!layout) return base;
+
+  const out = { ...base };
+  const set = (key: keyof typeof navVar, value: unknown) => {
+    if (value === undefined || value === null) return;
+    const str = String(value);
+    if (str === '') return;
+    out[navVar[key]] = str;
+  };
+
+  if (surface === 'sider') {
+    const s = layout.sider;
+    if (!s) return out;
+
+    set('colorText', s.colorTextMenu);
+    set('colorIcon', s.colorTextMenuSecondary);
+    set('colorSection', s.colorTextMenuSecondary);
+    set('colorTextSelected', s.colorTextMenuSelected);
+    set('colorIconSelected', s.colorTextMenuSelected);
+    set('colorTextHover', s.colorTextMenuItemHover);
+    set('colorTextActive', s.colorTextMenuActive);
+    set('colorBgHover', s.colorBgMenuItemHover);
+    set('colorBgActive', s.colorBgMenuItemActive);
+    set('colorBgSelected', s.colorBgMenuItemSelected);
+    set('colorDivider', s.colorMenuItemDivider);
+    set('popupBg', s.colorBgMenuItemCollapsedElevated);
+    set('colorTextSubMenuSelected', s.colorTextSubMenuSelected);
+
+    if (s.colorBgMenuItemHover && s.colorBgMenuItemSelected) {
+      set('colorBgSelectedHover', s.colorBgMenuItemHover);
+    }
+
+    if (typeof s.menuHeight === 'number' && s.menuHeight > 0) {
+      out[navVar.itemHeight] = `${s.menuHeight}px`;
+    }
+    return out;
+  }
+
+  const h = layout.header;
+  if (!h) return out;
+
+  set('colorText', h.colorTextMenu);
+  set('colorIcon', h.colorTextMenuSecondary);
+  set('colorSection', h.colorTextMenuSecondary);
+  set('colorTextSelected', h.colorTextMenuSelected);
+  set('colorIconSelected', h.colorTextMenuSelected);
+  set('colorTextActive', h.colorTextMenuActive);
+  set('colorTextHover', h.colorTextMenuActive);
+  set('colorBgHover', h.colorBgMenuItemHover);
+  set('colorBgSelected', h.colorBgMenuItemSelected);
+  set('popupBg', h.colorBgMenuElevated);
+
+  if (h.colorBgMenuItemHover && h.colorBgMenuItemSelected) {
+    set('colorBgSelectedHover', h.colorBgMenuItemHover);
+  }
+
+  return out;
 }
 
 /**
  * 统一的缓动曲线：
  * - `easeStandard`：Material "Standard"（in-out），适合"切换式"视觉态（hover/selected 背景色、文字色）
- * - `easeOut`：Material "Emphasized Decelerate"，适合"入场/冒出"类 motion（指示条 scaleY、icon scale）
+ * - `easeOut`：Material "Emphasized Decelerate"，适合"入场/冒出"类 motion（如 icon scale）
  * 业务侧若想统一放慢/加快，通过 `--ant-motion-duration-mid` 覆盖即可，曲线不变。
  */
 const easeStandard = 'cubic-bezier(0.4, 0, 0.2, 1)';
@@ -190,12 +295,6 @@ const DURATION_MID = 'var(--ant-motion-duration-mid, 0.2s)';
  * 1. 主区 + popup 同一规则复用同一组常量，改一处两处生效；
  * 2. 把视觉参数集中在顶部声明，读文件时不需要在 300 行下面找某个 0.45 是在说啥。
  */
-/** 选中态左侧指示条：3px 宽、60% 高、3px 圆角（与 antd Menu 视觉语义一致） */
-const INDICATOR = {
-  width: 3,
-  height: '60%',
-  radius: 3,
-} as const;
 /** 选中态字重（搭配 antd 体系 strong 语义） */
 const FONT_WEIGHT_SELECTED = 600;
 /** 收起态首字 chip 字重：加强但不到选中强度 */
@@ -229,19 +328,21 @@ const iconTransition = [
   `transform ${DURATION_MID} ${easeOut}`,
 ].join(', ');
 
-/** 指示条 transition：transform + opacity 双轨，主区 + popup 复用同一串 */
-const indicatorTransition = `transform ${DURATION_MID} ${easeOut}, opacity ${DURATION_MID} ${easeStandard}`;
-
 /** chevron/arrow transition：只需 transform */
 const arrowTransition = `transform ${DURATION_MID} ${easeOut}`;
 
-const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
-  token,
-  mode,
-) => {
+const genProLayoutBaseMenuStyle = (
+  token: ProLayoutBaseMenuToken,
+  mode: string,
+  layout?: DeepPartial<LayoutDesignToken>,
+): CSSInterpolation => {
   const c = token.componentCls;
   const isHorizontal = mode.includes('horizontal');
   const v = (name: keyof typeof navVar) => `var(${navVar[name]})`;
+  const navCssVars = applyDocMenuTokenToNavVars(
+    isHorizontal ? 'header' : 'sider',
+    layout,
+  );
 
   const rowItem: Record<string, unknown> = {
     position: 'relative',
@@ -286,9 +387,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
 
   return {
     [c]: {
-      ...(isHorizontal
-        ? layoutNavCssVars('header')
-        : layoutNavCssVars('sider')),
+      ...navCssVars,
       background: 'transparent',
       border: 'none',
       width: '100%',
@@ -337,6 +436,10 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           backgroundColor: v('colorBgHover'),
           color: v('colorTextHover'),
         },
+        '&:active:not(:disabled)': {
+          backgroundColor: v('colorBgActive'),
+          color: v('colorTextActive'),
+        },
         '&:disabled': {
           cursor: 'not-allowed',
           opacity: DISABLED_OPACITY,
@@ -351,50 +454,12 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         },
 
       /**
-       * 选中态指示条（左侧 3px 竖线）：
-       * - 始终存在于 DOM（`::before` 伪元素），通过 `transform: scaleY()` 控制显隐，
-       *   这样 transform 可走 transition，产生"从中间展开"的丝滑动画；
-       * - 非选中态 `scaleY(0)` 隐形；选中态 `scaleY(1)` 展开，`transform-origin: center`
-       *   让它像抽屉一样向上下两端拉开；
-       * - 仅在 inline 模式有意义（horizontal 顶栏选中不需要竖条），通过非 horizontal
-       *   选择器限定。
-       */
-      ...(!isHorizontal
-        ? {
-            [`${c}-item-button::before, ${c}-submenu-title::before`]: {
-              content: '""',
-              position: 'absolute',
-              insetInlineStart: 0,
-              insetBlockStart: '50%',
-              width: INDICATOR.width,
-              height: INDICATOR.height,
-              borderStartEndRadius: INDICATOR.radius,
-              borderEndEndRadius: INDICATOR.radius,
-              backgroundColor: v('colorTextSelected'),
-              transform: 'translateY(-50%) scaleY(0)',
-              transformOrigin: 'center',
-              transition: indicatorTransition,
-              opacity: 0,
-              pointerEvents: 'none',
-            },
-          }
-        : {}),
-
-      /**
-       * 选中态：
-       * - 背景 + 文字色切换（原有行为）；
-       * - 字重微加重至 600，`font-weight` 已纳入 rowTransition 一并过渡；
-       * - 左侧指示条 `scaleY(0) → scaleY(1)` + opacity `0 → 1` 展开。
+       * 选中态：背景 + 文字色切换；字重微加重至 600，`font-weight` 已纳入 rowTransition 一并过渡。
        */
       [`${c}-item--selected ${c}-item-button`]: {
         backgroundColor: v('colorBgSelected'),
         color: v('colorTextSelected'),
         fontWeight: FONT_WEIGHT_SELECTED,
-        /**
-         * 选中 + hover 组合态：保持淡蓝主色、进一步加深背景，
-         * 特异性 (0,3,0) 高于基础 `&:hover:not(:disabled)` (0,2,1)，
-         * 确保不会被灰色 hover 覆盖。
-         */
         '&:hover:not(:disabled)': {
           backgroundColor: v('colorBgSelectedHover'),
           color: v('colorTextSelected'),
@@ -441,6 +506,22 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           backgroundColor: v('colorBgHover'),
           color: v('colorTextHover'),
         },
+        '&:active:not(:disabled)': {
+          backgroundColor: v('colorBgActive'),
+          color: v('colorTextActive'),
+        },
+      },
+
+      /**
+       * submenu 包含选中子项时标题加重：文档 `colorTextSubMenuSelected`。
+       * 侧栏收起等场景顶级 submenu 走 Popover，`button` 非 `li` 直接子节点，须用后代选择器。
+       */
+      [`${c}-submenu--child-selected ${c}-submenu-title`]: {
+        color: v('colorTextSubMenuSelected'),
+      },
+      /** 收起态一级多为 icon：`item-icon` 单独写了 color，父级含选中子项时同步字色 */
+      [`${c}-submenu--child-selected ${c}-submenu-title ${c}-item-icon`]: {
+        color: v('colorTextSubMenuSelected'),
       },
 
       /**
@@ -726,6 +807,25 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           borderRadius: v('itemRadius'),
         },
         /**
+         * 收起态：父级 submenu 含选中子项时，标题与 leaf 选中态对齐（背景 + 主色 + 字重），
+         * 便于在窄方块内辨认；左侧竖线仍仅由最终选中的叶子 `item--selected` 展示。
+         * 使用后代选择器：popup 模式下 trigger 与 `li.submenu` 之间还有 Popover 包装层。
+         */
+        [`${c}-submenu--child-selected ${c}-submenu-title`]: {
+          backgroundColor: v('colorBgSelected'),
+          color: v('colorTextSelected'),
+          fontWeight: FONT_WEIGHT_SELECTED,
+          borderRadius: v('itemRadius'),
+          '&:hover:not(:disabled)': {
+            backgroundColor: v('colorBgSelectedHover'),
+            color: v('colorTextSelected'),
+          },
+        },
+        [`${c}-submenu--child-selected ${c}-submenu-title ${c}-item-icon`]: {
+          color: v('colorIconSelected'),
+          transform: `scale(${ICON_SCALE_SELECTED})`,
+        },
+        /**
          * 收起态隐藏 submenu 指示器：
          * - 收起时 button 仅显示 icon，没有文案，箭头会变成视觉噪点；
          * - popup 是否会弹出可由 hover 行为本身体现，不需要额外指示器。
@@ -838,7 +938,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
      *    透传 token，popup 内仍有合理的兜底。
      */
     [`${c}-submenu-popup`]: {
-      ...layoutNavCssVars('sider'),
+      ...applyDocMenuTokenToNavVars(isHorizontal ? 'header' : 'sider', layout),
       color: v('colorText'),
 
       /**
@@ -923,26 +1023,13 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           backgroundColor: v('colorBgHover'),
           color: v('colorTextHover'),
         },
+        '&:active:not(:disabled)': {
+          backgroundColor: v('colorBgActive'),
+          color: v('colorTextActive'),
+        },
         '&:disabled': {
           cursor: 'not-allowed',
           opacity: DISABLED_OPACITY,
-        },
-        /** 选中态指示条（popup 内同样生效）：左侧竖线，scaleY 展开 */
-        '&::before': {
-          content: '""',
-          position: 'absolute',
-          insetInlineStart: 0,
-          insetBlockStart: '50%',
-          width: INDICATOR.width,
-          height: INDICATOR.height,
-          borderStartEndRadius: INDICATOR.radius,
-          borderEndEndRadius: INDICATOR.radius,
-          backgroundColor: v('colorTextSelected'),
-          transform: 'translateY(-50%) scaleY(0)',
-          transformOrigin: 'center',
-          transition: indicatorTransition,
-          opacity: 0,
-          pointerEvents: 'none',
         },
       },
 
@@ -992,20 +1079,26 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         transform: 'rotate(90deg)',
       },
 
-      /** 选中态：背景 + 字色 + 字重过渡 + 左侧指示条 scaleY 展开 */
+      /** 选中态：背景 + 字色 + 字重过渡 */
       [`${c}-item--selected ${c}-item-button`]: {
         backgroundColor: v('colorBgSelected'),
         color: v('colorTextSelected'),
         fontWeight: FONT_WEIGHT_SELECTED,
-        '&::before': {
-          transform: 'translateY(-50%) scaleY(1)',
-          opacity: 1,
-        },
         /** popup 内也要保证选中 hover 不退化为灰色 */
         '&:hover:not(:disabled)': {
           backgroundColor: v('colorBgSelectedHover'),
           color: v('colorTextSelected'),
         },
+      },
+
+      /**
+       * submenu 包含选中子项（popup 内同理；后代选择器兼容 Popover）。
+       */
+      [`${c}-submenu--child-selected ${c}-submenu-title`]: {
+        color: v('colorTextSubMenuSelected'),
+      },
+      [`${c}-submenu--child-selected ${c}-submenu-title ${c}-item-icon`]: {
+        color: v('colorTextSubMenuSelected'),
       },
 
       /** Item title 行：icon + label 横向布局 */
@@ -1106,10 +1199,16 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
 export function useStyle(prefixCls: string, mode: MenuMode | undefined) {
   const resolvedMode = mode ?? 'vertical';
   const styleRegisterName = `ProLayoutBaseMenu-${prefixCls}-${resolvedMode}`;
-  return useAntdStyle(styleRegisterName, () => {
+  return useAntdStyle(styleRegisterName, (proToken: ProAliasToken) => {
     const proLayoutMenuToken: ProLayoutBaseMenuToken = {
       componentCls: `.${prefixCls}`,
     };
-    return [genProLayoutBaseMenuStyle(proLayoutMenuToken, resolvedMode)];
+    return [
+      genProLayoutBaseMenuStyle(
+        proLayoutMenuToken,
+        resolvedMode,
+        proToken.layout,
+      ),
+    ];
   });
 }

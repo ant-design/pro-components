@@ -19,6 +19,7 @@ import {
   conversionMomentValue,
   convertMoment,
   dateFormatterMap,
+  getLightFilterRangeDisplayFormat,
 } from './conversionMomentValue';
 import { dateArrayFormatter } from './dateArrayFormatter';
 import type { ProEllipsis } from './genCopyable';
@@ -85,6 +86,7 @@ export {
   dateArrayFormatter,
   dateFormatterMap,
   DropdownFooter,
+  getLightFilterRangeDisplayFormat,
   editableRowByKey,
   ErrorBoundary,
   FieldLabel,

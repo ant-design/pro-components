@@ -14,64 +14,52 @@ run start
 $ pnpm start
 ```
 
+## Docs site
+
+Same toolchain as [dumi](https://d.umijs.org/); `docs` is a thin wrapper.
+
+```bash
+$ pnpm docs dev       # local doc dev server (same idea as pnpm start)
+$ pnpm docs build
+$ pnpm docs preview
+$ pnpm docs check     # runs @umijs/doctor publish check (same as pnpm checkPublish)
+```
+
 ## Build
 
-Transform with babel and rollup.
+Library build uses [father](https://github.com/umijs/father) (Babel + bundler).
 
 ```bash
 $ pnpm build
 
-# Build and monitor file changes
+# Rebuild when files change
 $ pnpm build --watch
-
-# Build specified package only
-$ PACKAGE=plugin-antd pnpm build --watch
 ```
 
 ## Test
 
-Run test.
+Uses [Vitest](https://vitest.dev/).
 
 ```bash
 $ pnpm test
 
-# Test specified file and watch
-$ pnpm test getMockData.test.js -w
+# Single file (examples)
+$ pnpm exec vitest run tests/table/index.test.tsx
 
-# Test specified package
-$ pnpm test --package core
+# Watch mode while developing
+$ pnpm exec vitest
 
-# Generate coverage
-$ pnpm test --coverage
+# Coverage (Istanbul via Vitest)
+$ pnpm test:coverage
 ```
 
 ## Release
 
-```bash
-$ npm run release
-$ npm run release -- --publish-only
-$ npm run release -- --skip-git-status-check
-$ npm run release -- --skip-build
-$ npm run release -- --conventional-graduate
-$ npm run release -- --conventional-graduate preset-react,plugin-dva
-```
-
-## Create new package
-
-Such as creating package `foo`.
+Maintainers (needs GitHub token and repo permissions):
 
 ```bash
-$ mkdir -p packages/foo
-$ pnpm bootstrap
+$ pnpm changelog
+$ pnpm createRelease
 ```
 
-Then you will find the `README.md` and `package.json` is generated in `packages/foo`.
-
-```bash
-$ tree packages/foo
-packages/foo
-├── README.md
-└── package.json
-```
-
-change the `authors` in package.json
+This repository ships a single package (`@ant-design/pro-components`); there is no multi-package `packages/` workspace or `pnpm bootstrap` step.

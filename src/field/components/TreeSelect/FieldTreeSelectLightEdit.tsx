@@ -1,5 +1,4 @@
-import type { GetRef } from 'antd';
-import type { TreeSelectProps } from 'antd';
+import type { GetRef, TreeSelectProps } from 'antd';
 import { Spin, TreeSelect } from 'antd';
 import { clsx } from 'clsx';
 import React from 'react';
@@ -95,7 +94,9 @@ export function FieldTreeSelectLightEdit({
         tagRender={(item) => {
           if (valuesLength < 2) return <>{item.label}</>;
           const itemIndex = fieldProps?.value?.findIndex(
-            (v: unknown) => v === item.value || (v as { value?: unknown }).value === item.value,
+            (v: unknown) =>
+              v === item.value ||
+              (v as { value?: unknown }).value === item.value,
           );
           return (
             <>
@@ -145,7 +146,12 @@ export function FieldTreeSelectLightEdit({
   if (formItemRender) {
     dom = formItemRender(
       text,
-      { mode, ...(fieldProps as any), options, loading } as ProFieldFCRenderProps,
+      {
+        mode,
+        ...(fieldProps as any),
+        options,
+        loading,
+      } as ProFieldFCRenderProps,
       dom as React.JSX.Element,
     );
   }

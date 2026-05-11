@@ -1,6 +1,6 @@
 import { ProTable } from '@ant-design/pro-components';
 import { cleanup, render, waitFor } from '@testing-library/react';
-import React, { act, useState } from 'react';
+import React, { act, useEffect, useState } from 'react';
 import { afterAll, afterEach, describe, expect, it, vi } from 'vitest';
 import { waitForWaitTime } from '../util';
 import { getFetchData } from './fixtures';
@@ -112,10 +112,13 @@ describe('BasicTable Search', () => {
           id: '002',
         },
       ];
-      const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([
-        '001',
-        '002',
-      ]);
+      // ProTable 在 useEffect 里写入 preserveRecordsRef；若首帧就用 useState 传入
+      // selectedRowKeys，selectedRows 会从尚未填充的 Map 取值得到 undefined。
+      // 子组件 effect 先于父组件执行，延后在此设置选中 key，确保二次渲染时能解析出行数据。
+      const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
+      useEffect(() => {
+        setSelectedRowKeys(['001', '002']);
+      }, []);
       return (
         <ProTable
           columns={columns}
@@ -129,8 +132,13 @@ describe('BasicTable Search', () => {
           }}
           tableAlertOptionRender={false}
           tableAlertRender={({ selectedRows }) => {
-            const text = selectedRows.map((row) => row.name).join(',');
-            fn(text);
+            const text = selectedRows
+              .filter((row): row is NonNullable<(typeof selectedRows)[number]> => row != null)
+              .map((row) => row.name)
+              .join(',');
+            if (text) {
+              fn(text);
+            }
             return <div>{text}</div>;
           }}
         />

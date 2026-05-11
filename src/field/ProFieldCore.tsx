@@ -1,6 +1,8 @@
-﻿import './initDayjs';
-import React, { useContext } from 'react';
-import type { ProFieldFCRenderProps, ProRenderFieldPropsType } from '../provider';
+﻿import React, { useContext } from 'react';
+import type {
+  ProFieldFCRenderProps,
+  ProRenderFieldPropsType,
+} from '../provider';
 import ProConfigContext from '../provider';
 import {
   omitUndefined,
@@ -10,6 +12,7 @@ import {
   useDeepCompareMemo,
   useRefFunction,
 } from '../utils';
+import './initDayjs';
 import type { ProFieldPropsType, ProFieldRenderProps } from './types';
 
 export type ProFieldRenderText = (
@@ -54,7 +57,10 @@ export function createProField(
   const renderRead = isProFieldDualRender(render) ? render.renderRead : render;
   const renderEdit = isProFieldDualRender(render) ? render.renderEdit : render;
 
-  const ProFieldComponent: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
+  const ProFieldComponent: React.ForwardRefRenderFunction<
+    any,
+    ProFieldPropsType
+  > = (
     {
       text,
       valueType = 'text',
@@ -108,7 +114,11 @@ export function createProField(
         ...rest,
         mode: effectiveMode,
         formItemRender: formItemRender
-          ? (curText: any, props: ProFieldFCRenderProps, dom: React.JSX.Element) => {
+          ? (
+              curText: any,
+              props: ProFieldFCRenderProps,
+              dom: React.JSX.Element,
+            ) => {
               const { placeholder: _placeholder, ...restProps } = props;
               const newDom = formItemRender(curText, restProps, dom);
               if (React.isValidElement(newDom)) {

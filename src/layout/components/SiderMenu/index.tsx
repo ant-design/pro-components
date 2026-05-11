@@ -1,7 +1,8 @@
 import { omit } from '@rc-component/util';
 import { ConfigProvider, Drawer } from 'antd';
 import { clsx } from 'clsx';
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect, useMemo } from 'react';
+import { ProProvider } from '../../../provider';
 import type { PrivateSiderMenuProps, SiderMenuProps } from './SiderMenu';
 import { SiderMenu } from './SiderMenu';
 import { useStyle } from './style/index';
@@ -31,6 +32,19 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (
   const omitProps = omit(props, ['className', 'style']);
 
   const { direction } = React.useContext(ConfigProvider.ConfigContext);
+  const { token: proToken } = useContext(ProProvider);
+
+  const drawerBodyStyle = useMemo(
+    () => ({
+      ...getProLayoutSiderCssVarsStyle(proToken?.layout),
+      height: '100vh',
+      padding: 0,
+      display: 'flex',
+      flexDirection: 'row' as const,
+      backgroundColor: 'var(--pro-layout-sider-bg)',
+    }),
+    [proToken?.layout],
+  );
 
   // 从 menu 配置中读取 collapsedWidth，默认为 64
   const collapsedWidth = props.menu?.collapsedWidth ?? 64;
@@ -70,14 +84,7 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (
         getContainer={getContainer || false}
         size={siderWidth}
         styles={{
-          body: {
-            ...getProLayoutSiderCssVarsStyle(),
-            height: '100vh',
-            padding: 0,
-            display: 'flex',
-            flexDirection: 'row',
-            backgroundColor: 'var(--pro-layout-sider-bg)',
-          },
+          body: drawerBodyStyle,
         }}
       >
         <SiderMenu

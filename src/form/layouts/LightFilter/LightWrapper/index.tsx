@@ -5,9 +5,9 @@ import { clsx } from 'clsx';
 import React, { useContext, useEffect, useMemo, useState } from 'react';
 import {
   dateArrayFormatter,
-  dateFormatterMap,
   FieldLabel,
   FilterDropdown,
+  getLightFilterRangeDisplayFormat,
   useRefFunction,
 } from '../../../../utils';
 import type { LightFilterFooterRender } from '../../../typing';
@@ -98,7 +98,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
     ) {
       return dateArrayFormatter(
         labelValue,
-        (valueType && (dateFormatterMap as any)[valueType]) || 'YYYY-MM-DD',
+        getLightFilterRangeDisplayFormat(valueType),
       );
     }
     if (Array.isArray(labelValue))
