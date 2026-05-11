@@ -16,6 +16,18 @@ order: 0
 
 <code src="../../demos/layout/base.tsx" iframe="650" title="基础使用"></code>
 
+### ProLayout 常见属性开关
+
+<code src="../../demos/layout/api.tsx" iframe="720" title="常见属性开关"></code>
+
+### 受控菜单与文案、侧栏 links
+
+<code src="../../demos/layout/controlled-menu-keys.tsx" iframe="720" title="受控 selectedKeys / openKeys"></code>
+
+<code src="../../demos/layout/menu-text-render.tsx" iframe="520" title="menuTextRender"></code>
+
+<code src="../../demos/layout/sidebar-links.tsx" iframe="520" title="侧栏 links"></code>
+
 ### 导航模式
 
 <code src="../../demos/layout/siderMode.tsx" iframe="650" title="侧栏导航（默认推荐）"></code>

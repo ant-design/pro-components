@@ -1,125 +1,152 @@
-﻿const { Octokit } = require('octokit');
-const exec = require('child_process').execSync;
-const fs = require('fs');
-const path = require('path');
+import { readFileSync, existsSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-console.log('开始发布');
-const github = new Octokit({
-  debug: process.env.NODE_ENV === 'development',
-  auth: process.env.GITHUB_TOKEN || process.env.GITHUB_AUTH,
-});
+import { Octokit } from 'octokit';
 
-const getChangelog = (content, version) => {
-  const lines = content.split('\n');
-  const changeLog = [];
-  const stopPattern = /^## /; // 前一个版本
-  const skipPattern = /^`/; // 日期
-  let begin = false;
-  for (let i = 0; i < lines.length; i += 1) {
-    const line = lines[i];
-    if (begin && stopPattern.test(line)) {
-      break;
-    }
-    if (begin && line && !skipPattern.test(line)) {
-      changeLog.push(line);
-    }
-    if (!begin) {
-      begin = `## ${version}`.trim() === line.trim();
-    }
-  }
-  return changeLog.join('\n');
-};
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const root = join(__dirname, '..');
 
-const getMds = async (allVersion = false) => {
-  const info = await github.rest.users
-    .getAuthenticated()
-    .then(({ data: { login } }) => {
-      return 'Hello, ' + login;
-    });
-  console.log(info);
-  const docDir = path.join(__dirname, '..', 'docs');
-  const mdFile = fs
-    .readdirSync(docDir)
-    .filter((name) => name.includes('changelog.md'))
-    .shift();
-  const pkg = 'components';
+function readRootPackage() {
+  return JSON.parse(readFileSync(join(root, 'package.json'), 'utf-8'));
+}
 
-  const content = fs.readFileSync(path.join(docDir, mdFile)).toString();
-  let versions = [
-    require(
-      path.join(path.join(__dirname, '..', 'packages', pkg, 'package.json')),
-    ).version,
+function resolveChangelogFile() {
+  const candidates = [
+    join(root, 'site', 'changelog.md'),
+    join(root, 'site', 'changelog.en-US.md'),
   ];
-  if (allVersion) {
-    versions = exec('git tag')
-      .toString()
-      .split('\n')
-      .filter((tag) => tag.includes(pkg))
-      .map((tag) => tag.split('@').pop());
+  const found = candidates.find((p) => existsSync(p));
+  if (!found) {
+    throw new Error('No changelog at site/changelog.md (or .en-US)');
   }
-  console.log(versions.toString());
-  versions.map(async (version) => {
-    const versionPkg = `@ant-design/pro-${pkg}@${version}`;
-    const changeLog = getChangelog(content, versionPkg);
+  return found;
+}
 
-    if (!changeLog) {
+function getChangelogBody(content, version) {
+  const lines = content.split(/\r?\n/);
+  const escaped = version.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const headerRe = new RegExp(`^## \\[${escaped}\\]`);
+  let i = 0;
+  while (i < lines.length && !headerRe.test(lines[i])) i += 1;
+  if (i >= lines.length) return '';
+  i += 1;
+  const body = [];
+  while (i < lines.length && !/^## \[/.test(lines[i])) {
+    body.push(lines[i]);
+    i += 1;
+  }
+  return body.join('\n').trim();
+}
+
+function listVersionsFromChangelog(content) {
+  const re = /^## \[([^\]]+)\]/gm;
+  const versions = [];
+  let match;
+  while ((match = re.exec(content)) !== null) {
+    versions.push(match[1]);
+  }
+  return versions;
+}
+
+function parseGithubRepo(pkg) {
+  const fromEnv = process.env.GITHUB_REPOSITORY;
+  if (fromEnv) {
+    const [owner, repo] = fromEnv.split('/');
+    return { owner, repo };
+  }
+  const url = pkg.repository?.url ?? '';
+  const m = url.match(/github\.com[/:]([^/]+)\/([^/.]+?)(?:\.git)?$/i);
+  if (!m) {
+    throw new Error(
+      'Cannot resolve GitHub owner/repo: set GITHUB_REPOSITORY or fix package.json repository.url',
+    );
+  }
+  return { owner: m[1], repo: m[2] };
+}
+
+async function ensureRelease(
+  octokit,
+  { owner, repo, tag, name, body, defaultBranch },
+) {
+  if (!body) {
+    console.log(`${tag}: empty changelog section, skip`);
+    return;
+  }
+  try {
+    const { data } = await octokit.rest.repos.getReleaseByTag({
+      owner,
+      repo,
+      tag,
+    });
+    if (data.body?.trim()) {
+      console.log(`${tag}: release exists with body, skip`);
       return;
     }
-
-    let release_id = '';
-
-    try {
-      const tag = await github.rest.repos
-        .getReleaseByTag({
-          owner: 'ant-design',
-          repo: 'pro-components',
-          tag: versionPkg,
-        })
-        .then(({ data }) => {
-          return data;
-        })
-        .catch((e) => {
-          // console.log(versionPkg + '标签不存在');
-        });
-
-      if (tag) {
-        release_id = tag.id;
-      }
-
-      if (!tag.body && tag) {
-        github.rest.repos
-          .updateRelease({
-            owner: 'ant-design',
-            release_id,
-            repo: 'pro-components',
-            tag_name: versionPkg,
-            name: versionPkg,
-            body: changeLog,
-          })
-          .catch((e) => {
-            console.log(versionPkg + '更新失败哦');
-          });
-        return;
-      }
-    } catch (error) {
-      // console.log(versionPkg + '创建失败！');
+    await octokit.rest.repos.updateRelease({
+      owner,
+      repo,
+      release_id: data.id,
+      tag_name: data.tag_name,
+      name: data.name || name,
+      body,
+    });
+    console.log(`${tag}: updated release notes`);
+  } catch (error) {
+    if (error.status !== 404) {
+      console.error(`${tag}:`, error.message);
+      throw error;
     }
+    await octokit.rest.repos.createRelease({
+      owner,
+      repo,
+      tag_name: tag,
+      name,
+      body,
+      target_commitish: defaultBranch,
+    });
+    console.log(`${tag}: created release`);
+  }
+}
 
-    if (!release_id) {
-      console.log(versionPkg + '标签创建中');
-      github.rest.repos
-        .createRelease({
-          owner: 'ant-design',
-          repo: 'pro-components',
-          tag_name: versionPkg,
-          name: versionPkg,
-          body: changeLog,
-        })
-        .catch((e) => {
-          console.log(versionPkg + '创建失败！');
-        });
-    }
+const token = process.env.GITHUB_TOKEN || process.env.GITHUB_AUTH;
+if (!token) {
+  console.error('GITHUB_TOKEN or GITHUB_AUTH is required');
+  process.exit(1);
+}
+
+const pkg = readRootPackage();
+const { owner, repo } = parseGithubRepo(pkg);
+const changelogFile = resolveChangelogFile();
+const changelogContent = readFileSync(changelogFile, 'utf-8');
+const all = process.argv.includes('--all');
+const versions = all
+  ? listVersionsFromChangelog(changelogContent)
+  : [pkg.version];
+
+console.log(
+  '开始发布 | 仓库:',
+  `${owner}/${repo}`,
+  '| changelog:',
+  changelogFile.replace(root + '\\', '').replace(root + '/', ''),
+  '| 版本:',
+  versions.join(', '),
+);
+
+const octokit = new Octokit({ auth: token });
+const {
+  data: { default_branch: defaultBranch },
+} = await octokit.rest.repos.get({ owner, repo });
+
+for (const version of versions) {
+  const tag = `${pkg.name}@${version}`;
+  const body = getChangelogBody(changelogContent, version);
+  await ensureRelease(octokit, {
+    owner,
+    repo,
+    tag,
+    name: tag,
+    body,
+    defaultBranch,
   });
-};
-
-getMds();
+}

@@ -1,10 +1,8 @@
-﻿const docker = require('@umijs/doctor');
-const path = require('path');
+import doctor from '@umijs/doctor';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const repo_path = path.join(__dirname, '..');
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const repoPath = path.join(__dirname, '..');
 
-const checkPublish = () => {
-  docker.checkPublish(repo_path);
-};
-
-checkPublish();
+doctor.checkPublish(repoPath);
