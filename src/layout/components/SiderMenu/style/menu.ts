@@ -21,6 +21,13 @@ export const proLayoutSiderVar = {
   borderRadius: '--pro-layout-sider-border-radius',
   colorBgHover: '--pro-layout-sider-color-bg-hover',
   fontSize: '--pro-layout-sider-font-size',
+  /** thumb 填充色 */
+  scrollbarThumb: '--pro-layout-sider-scrollbar-color-thumb',
+  scrollbarThumbHover: '--pro-layout-sider-scrollbar-color-thumb-hover',
+  /** 轨道背景色 */
+  scrollbarTrack: '--pro-layout-sider-scrollbar-color-track',
+  scrollbarTrackThickness: '--pro-layout-sider-scrollbar-track-thickness',
+  scrollbarThumbRadius: '--pro-layout-sider-scrollbar-thumb-radius',
 } as const;
 
 /**
@@ -50,8 +57,51 @@ export function getProLayoutSiderCssVarsStyle(
     [proLayoutSiderVar.colorBgHover]:
       s?.colorBgMenuItemHover ?? 'var(--ant-color-fill-secondary)',
     [proLayoutSiderVar.fontSize]: 'var(--ant-font-size)',
+    [proLayoutSiderVar.scrollbarThumb]:
+      s?.colorScrollbarThumb ?? 'var(--ant-color-fill-tertiary)',
+    [proLayoutSiderVar.scrollbarThumbHover]:
+      s?.colorScrollbarThumbHover ?? 'var(--ant-color-fill-secondary)',
+    [proLayoutSiderVar.scrollbarTrack]:
+      s?.colorScrollbarTrack ?? 'transparent',
+    [proLayoutSiderVar.scrollbarTrackThickness]:
+      s?.scrollbarTrackThickness != null && s.scrollbarTrackThickness > 0
+        ? `${s.scrollbarTrackThickness}px`
+        : '6px',
+    [proLayoutSiderVar.scrollbarThumbRadius]:
+      s?.scrollbarThumbRadius != null && s.scrollbarThumbRadius >= 0
+        ? `${s.scrollbarThumbRadius}px`
+        : '3px',
   } as CSSProperties;
 }
+
+/**
+ * 侧栏菜单区滚动条写在 `style/index.ts` 的 `genSiderMenuStyle`（`&-menu-scroll`）。
+ * Popover 挂在 body，此处单独一份相同规则；尺寸由 `getProLayoutSiderCssVarsStyle` 注入 `--pro-layout-sider-scrollbar-*`。
+ */
+const submenuPopupScrollbarThumb = `var(${proLayoutSiderVar.scrollbarThumb}, var(--ant-color-fill-tertiary))`;
+const submenuPopupScrollbarThumbHover = `var(${proLayoutSiderVar.scrollbarThumbHover}, var(--ant-color-fill-secondary))`;
+const submenuPopupScrollbarTrack = `var(${proLayoutSiderVar.scrollbarTrack}, transparent)`;
+const submenuPopupTrackSize = `var(${proLayoutSiderVar.scrollbarTrackThickness}, 6px)`;
+const submenuPopupThumbRadius = `var(${proLayoutSiderVar.scrollbarThumbRadius}, 3px)`;
+
+const submenuPopupScrollbar: Record<string, unknown> = {
+  scrollbarWidth: 'thin',
+  scrollbarColor: `${submenuPopupScrollbarThumb} ${submenuPopupScrollbarTrack}`,
+  '&::-webkit-scrollbar': {
+    width: submenuPopupTrackSize,
+    height: submenuPopupTrackSize,
+  },
+  '&::-webkit-scrollbar-track': {
+    backgroundColor: submenuPopupScrollbarTrack,
+  },
+  '&::-webkit-scrollbar-thumb': {
+    backgroundColor: submenuPopupScrollbarThumb,
+    borderRadius: submenuPopupThumbRadius,
+  },
+  '&::-webkit-scrollbar-thumb:hover': {
+    backgroundColor: submenuPopupScrollbarThumbHover,
+  },
+};
 
 /**
  * 主导航语义 token，统一在根 `nav` 上注入，子选择器只用 `var(--pro-layout-nav-*)`
@@ -938,6 +988,7 @@ const genProLayoutBaseMenuStyle = (
      *    透传 token，popup 内仍有合理的兜底。
      */
     [`${c}-submenu-popup`]: {
+      ...submenuPopupScrollbar,
       ...applyDocMenuTokenToNavVars(isHorizontal ? 'header' : 'sider', layout),
       color: v('colorText'),
 

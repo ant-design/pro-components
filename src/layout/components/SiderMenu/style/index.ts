@@ -81,6 +81,32 @@ const MOTION = {
   actionsCollapsedTransition: 'font-size 0.3s ease-in-out',
 } as const;
 
+/** 轨道粗细 / thumb 圆角由 `token.layout.sider` → `getProLayoutSiderCssVarsStyle` 注入；未继承时回退 6px / 3px（如 Popover 挂 body） */
+const siderMenuScrollbarThumb = `var(${proLayoutSiderVar.scrollbarThumb}, var(--ant-color-fill-tertiary))`;
+const siderMenuScrollbarThumbHover = `var(${proLayoutSiderVar.scrollbarThumbHover}, var(--ant-color-fill-secondary))`;
+const siderMenuScrollbarTrack = `var(${proLayoutSiderVar.scrollbarTrack}, transparent)`;
+const siderMenuScrollbarTrackSize = `var(${proLayoutSiderVar.scrollbarTrackThickness}, 6px)`;
+const siderMenuScrollbarThumbRadius = `var(${proLayoutSiderVar.scrollbarThumbRadius}, 3px)`;
+
+const siderMenuScrollbar: Record<string, unknown> = {
+  scrollbarWidth: 'thin',
+  scrollbarColor: `${siderMenuScrollbarThumb} ${siderMenuScrollbarTrack}`,
+  '&::-webkit-scrollbar': {
+    width: siderMenuScrollbarTrackSize,
+    height: siderMenuScrollbarTrackSize,
+  },
+  '&::-webkit-scrollbar-track': {
+    backgroundColor: siderMenuScrollbarTrack,
+  },
+  '&::-webkit-scrollbar-thumb': {
+    backgroundColor: siderMenuScrollbarThumb,
+    borderRadius: siderMenuScrollbarThumbRadius,
+  },
+  '&::-webkit-scrollbar-thumb:hover': {
+    backgroundColor: siderMenuScrollbarThumbHover,
+  },
+};
+
 const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
   const sv = (k: keyof typeof proLayoutSiderVar) =>
     `var(${proLayoutSiderVar[k]})`;
@@ -100,6 +126,13 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
       [token.componentCls]: {
         position: 'relative',
         boxSizing: 'border-box',
+        '&-menu-scroll': {
+          flex: 1,
+          minHeight: 0,
+          overflowY: 'auto',
+          overflowX: 'hidden',
+          ...siderMenuScrollbar,
+        },
         '&-menu': {
           position: 'relative',
           zIndex: MENU_Z_INDEX,

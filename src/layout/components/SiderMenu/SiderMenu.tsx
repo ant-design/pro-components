@@ -471,11 +471,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         </div>
       )}
       <div
-        style={{
-          flex: 1,
-          overflowY: 'auto',
-          overflowX: 'hidden',
-        }}
+        className={clsx(`${baseClassName}-menu-scroll`, hashId)}
         data-testid="pro-layout-sider-menu-content"
       >
         {menuRenderDom}

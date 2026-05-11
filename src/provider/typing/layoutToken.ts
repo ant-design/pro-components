@@ -46,6 +46,16 @@ export type BaseLayoutDesignToken = {
      */
     colorTextMenuTitle: string;
     colorTextSubMenuSelected: string;
+    /** 侧栏区域滚动条 thumb 颜色；省略时使用 antd `colorFillTertiary`（`--ant-color-fill-tertiary`） */
+    colorScrollbarThumb?: string;
+    /** thumb hover；省略时使用 antd `colorFillSecondary` */
+    colorScrollbarThumbHover?: string;
+    /** 滚动条轨道背景；省略时为透明 */
+    colorScrollbarTrack?: string;
+    /** 滚动条轨道粗细（px，`::-webkit-scrollbar` 的 width/height）；省略时为 6 */
+    scrollbarTrackThickness?: number;
+    /** thumb 圆角（px）；省略时为 3 */
+    scrollbarThumbRadius?: number;
   };
   /**
    * header 的 token 设置

@@ -362,6 +362,11 @@ Sider Token is the color value of the side menu, which is different from the top
 | colorBgCollapsedButton           | Collapse button background color                               | `#fff`                   |
 | colorTextCollapsedButton         | Collapse button hover font color                               | `colorTextMenuSecondary` |
 | colorTextCollapsedButtonHover    | Collapsed button font color on hover                           | `colorTextMenu`          |
+| colorScrollbarThumb              | Sider menu scroll area thumb color                             | antd `colorFillTertiary` |
+| colorScrollbarThumbHover         | Sider menu scroll area thumb hover color                       | antd `colorFillSecondary` |
+| colorScrollbarTrack              | Sider menu scroll track background                             | `transparent`            |
+| scrollbarTrackThickness          | Scrollbar track thickness in px (WebKit `::-webkit-scrollbar`) | `6`                      |
+| scrollbarThumbRadius             | Scrollbar thumb border radius in px                            | `3`                      |
 
 ### Header Token
 

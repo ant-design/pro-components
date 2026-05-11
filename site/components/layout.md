@@ -319,6 +319,11 @@ Sider Token 是侧边菜单的色值，与顶部菜单不同。
 | colorBgCollapsedButton           | 展开收起按钮背景颜色                               | `#fff`                   |
 | colorTextCollapsedButton         | 展开收起按钮字体颜色                               | `colorTextMenuSecondary` |
 | colorTextCollapsedButtonHover    | 展开收起按钮 hover 时字体颜色                      | `colorTextMenu`          |
+| colorScrollbarThumb              | 侧栏菜单滚动区 thumb 颜色                          | `colorFillTertiary`（antd） |
+| colorScrollbarThumbHover         | 侧栏菜单滚动区 thumb hover 颜色                    | `colorFillSecondary`（antd） |
+| colorScrollbarTrack              | 侧栏菜单滚动区轨道背景色                           | `transparent`            |
+| scrollbarTrackThickness          | 滚动条轨道粗细（px，WebKit `::-webkit-scrollbar`） | `6`                      |
+| scrollbarThumbRadius             | 滚动条 thumb 圆角（px）                            | `3`                      |
 
 ### Header Token
 
