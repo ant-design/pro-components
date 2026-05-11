@@ -1,10 +1,16 @@
 /* eslint-disable import/no-extraneous-dependencies */
-// Invoked on the commit-msg git hook by yorkie.
+import { readFileSync } from 'node:fs';
+import { chalk } from '@umijs/utils';
 
-const { chalk } = require('@umijs/utils');
+const msgPath = process.env.GIT_PARAMS || process.argv[2];
+if (!msgPath) {
+  console.error(
+    chalk.red('verifyCommit: missing commit message file (GIT_PARAMS or argv[2])'),
+  );
+  process.exit(1);
+}
 
-const msgPath = process.env.GIT_PARAMS;
-const msg = require('fs').readFileSync(msgPath, 'utf-8').trim();
+const msg = readFileSync(msgPath, 'utf-8').trim();
 
 const commitRE =
   /^(((\ud83c[\udf00-\udfff])|(\ud83d[\udc00-\ude4f\ude80-\udeff])|[\u2600-\u2B55]) )?(revert: )?(feat|fix|docs|UI|refactor|⚡perf|workflow|build|CI|typos|chore|tests|types|wip|release|dep)(\(.+\))?: .{1,50}/;

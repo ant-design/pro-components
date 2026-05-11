@@ -47,31 +47,11 @@ $ pnpm test --coverage
 
 ## Release
 
-```bash
-$ npm run release
-$ npm run release -- --publish-only
-$ npm run release -- --skip-git-status-check
-$ npm run release -- --skip-build
-$ npm run release -- --conventional-graduate
-$ npm run release -- --conventional-graduate preset-react,plugin-dva
-```
-
-## Create new package
-
-Such as creating package `foo`.
+Maintainers (needs GitHub token and repo permissions):
 
 ```bash
-$ mkdir -p packages/foo
-$ pnpm bootstrap
+$ pnpm changelog
+$ pnpm createRelease
 ```
 
-Then you will find the `README.md` and `package.json` is generated in `packages/foo`.
-
-```bash
-$ tree packages/foo
-packages/foo
-├── README.md
-└── package.json
-```
-
-change the `authors` in package.json
+This repository ships a single package (`@ant-design/pro-components`); there is no multi-package `packages/` workspace or `pnpm bootstrap` step.

@@ -192,7 +192,7 @@ export function createTableDataSource(
 }
 
 // ============================
-// 可编辑表格数据
+// 可编辑表格
 // ============================
 
 /** 生成 EditableTable 新建行的唯一 ID */
@@ -202,121 +202,11 @@ export function createEditableRowId(): string {
   return String(editableRowIdCounter);
 }
 
-/** 可编辑表格 - 需求管理场景 */
-export interface EditableTaskItem {
-  id: React.Key;
-  title?: string;
-  assignee?: string;
-  priority?: string;
-  status?: string;
-  description?: string;
-  created_at?: number;
-  update_at?: number;
-  children?: EditableTaskItem[];
-}
-
-export const DEMO_EDITABLE_TASKS: EditableTaskItem[] = [
-  {
-    id: 624748504,
-    title: '优化首页加载速度',
-    assignee: '书琰',
-    priority: 'high',
-    status: 'open',
-    description: '首页白屏时间超过 3s，需优化资源加载和首屏渲染',
-    created_at: 1705286400000,
-    update_at: 1705372800000,
-  },
-  {
-    id: 624691229,
-    title: '修复登录超时问题',
-    assignee: '逄一',
-    priority: 'urgent',
-    status: 'closed',
-    description: '用户反馈高峰期登录请求超时，需排查连接池配置',
-    created_at: 1705200000000,
-    update_at: 1705286400000,
-  },
-  {
-    id: 624674560,
-    title: '新增数据导出功能',
-    assignee: '期贤',
-    priority: 'medium',
-    status: 'processing',
-    description: '支持将查询结果导出为 Excel 和 CSV 格式',
-    created_at: 1705113600000,
-    update_at: 1705200000000,
-  },
-];
-
-export const DEMO_PRIORITY_ENUM = {
-  urgent: { text: '紧急', status: 'Error' },
-  high: { text: '高', status: 'Warning' },
-  medium: { text: '中', status: 'Processing' },
-  low: { text: '低', status: 'Default' },
-} as const;
-
 export const DEMO_TASK_STATUS_ENUM = {
   all: { text: '全部', status: 'Default' },
   open: { text: '待处理', status: 'Error' },
   processing: { text: '进行中', status: 'Processing' },
   closed: { text: '已完成', status: 'Success' },
-} as const;
-
-// ============================
-// ProList / 卡片列表数据
-// ============================
-
-export const DEMO_PROJECT_LIST = [
-  {
-    title: '智慧零售平台',
-    description: '面向线下门店的数字化经营解决方案',
-  },
-  {
-    title: 'Ant Design Pro',
-    description: '开箱即用的中台前端解决方案',
-  },
-  {
-    title: '数据可视化引擎',
-    description: '企业级数据看板与可视化分析工具',
-  },
-  {
-    title: '云原生微服务框架',
-    description: '基于 K8s 的微服务开发与治理框架',
-  },
-  {
-    title: '智能客服系统',
-    description: '融合 NLP 的多渠道智能客服平台',
-  },
-  {
-    title: '统一权限管理中心',
-    description: '集中式用户、角色和权限管理系统',
-  },
-  {
-    title: '实时数据仓库',
-    description: '基于 Flink + Hudi 的实时数仓架构',
-  },
-  {
-    title: 'DevOps 工具链',
-    description: 'CI/CD 流水线与自动化运维平台',
-  },
-] as const;
-
-// ============================
-// 描述列表数据
-// ============================
-
-export const DEMO_ORDER_DETAIL = {
-  orderNo: 'ORD-2024-0115-0001',
-  customerName: '杭州星辰科技有限公司',
-  contactPerson: '书琰',
-  contactPhone: '138****6789',
-  productName: '企业版云服务套餐',
-  amount: 128000,
-  discount: 15,
-  status: 'processing',
-  payMethod: '对公转账',
-  contractDate: '2024-01-15',
-  remark: '客户要求 Q1 内完成部署上线，优先安排技术支持',
 } as const;
 
 // ============================

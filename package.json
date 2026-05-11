@@ -28,10 +28,9 @@
     "guidelines"
   ],
   "scripts": {
-    "bootstrap": "node ./scripts/bootstrap.mjs",
     "build": "father build",
     "changelog": "node ./scripts/changelogs.mjs",
-    "checkPublish": "npm run sync:tnpm && node ./scripts/checkPublish.mjs && npm run sync:tnpm",
+    "checkPublish": "node ./scripts/checkPublish.mjs",
     "deploy": "cross-env SITE_DEPLOY='TRUE' npm run site && gh-pages -d ./dist",
     "dev": "dumi dev",
     "dumi": "cross-env SITE_DEPLOY='TRUE' dumi build",
@@ -47,7 +46,6 @@
     "createRelease": "node ./scripts/createRelease.mjs",
     "site": "npm run build && cross-env SITE_DEPLOY='TRUE' dumi build",
     "start": "dumi dev",
-    "sync:tnpm": "node -e 'import(\"./scripts/syncTNPM.mjs\").then(m => m.default())'",
     "test": "cross-env TZ=UTC vitest run",
     "test:coverage": "cross-env TZ=UTC TEST_LOG=none vitest run --coverage",
     "test:ui": "cross-env TZ=UTC vitest --ui",
@@ -78,7 +76,6 @@
     "dayjs": "^1.11.19",
     "lodash-es": "^4.17.23",
     "path-to-regexp": "^8.3.0",
-    "react-draggable": "^4.5.0",
     "safe-stable-stringify": "^2.5.0",
     "swr": "^2.4.1"
   },
@@ -197,6 +194,6 @@
   ],
   "gitHooks": {
     "pre-commit": "pretty-quick --staged",
-    "commit-msg": "fabric verify-commit"
+    "commit-msg": "node ./scripts/verifyCommit.mjs"
   }
 }
