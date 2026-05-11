@@ -422,7 +422,7 @@ function EditableTable<
       namePath?: string[],
     ): void => {
       if (!formRef.current) return;
-
+      // eslint-disable-next-line no-useless-catch
       try {
         if (namePath && namePath.length > 0) {
           // name 模式：需要保留正在编辑的行
