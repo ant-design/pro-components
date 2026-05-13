@@ -244,7 +244,7 @@ export interface MenuDataItem {
 ### Route
 
 ```ts | pure
-// You can get this type by importing { RouterTypes } from '@ant-design/pro-layout/lib/typings';
+// Use `import type { RouterTypes } from '@ant-design/pro-components';`
 // to get this type
 export interface Route {
   path: string;

@@ -15,6 +15,12 @@ When you need a standard list presentation, or need to flexibly switch between l
 
 ## Code demo
 
+### Enum property switch
+
+Toggle `itemLayout`, `variant`, and `split` with a segmented control.
+
+<code src="../../demos/list/enum-switch.tsx" background="var(--main-bg-color)" title="Enum property switch"></code>
+
 ### Basic usage
 
 <code src="../../demos/list/basic.tsx" background="var(--main-bg-color)"></code>

@@ -12,6 +12,12 @@ ProLayout provides a standard, yet flexible, middle and backend layout, with one
 
 ## Code Demo
 
+### Enum property switch
+
+Use a segmented control to toggle `layout`, `contentWidth`, `siderMenuType`, and other enum props side by side.
+
+<code src="../../demos/layout/enum-switch.tsx" iframe="750" title="Enum property switch"></code>
+
 ### Basic Usage
 
 <code src="../../demos/layout/base.tsx" iframe="650" title="Basic Usage"></code>
@@ -41,13 +47,23 @@ ProLayout provides a standard, yet flexible, middle and backend layout, with one
 
 <code src="../../demos/layout/menu-group.tsx" iframe="650" title="Non-grouped Menu"></code>
 
-<code src="../../demos/layout/searchMenu.tsx" iframe="650" title="Search Menu"></code>
+<code src="../../demos/layout/searchMenu.tsx" title="Search Menu" iframe="650"></code>
 
-<code src="../../demos/layout/MultipleMenuOnePath.tsx" iframe="650" title="Multiple Routes for One Menu"></code>
+<code src="../../demos/layout/siteMenu.tsx" iframe="650" title="Expand menu — site map"></code>
+
+<code src="../../demos/layout/MultipleMenuOnePath.tsx" title="Multiple Routes for One Menu" iframe="650"></code>
 
 ### Open All Menus by Default
 
+Set `defaultOpenAll` on `menu` to expand every submenu on first render.
+
 <code src="../../demos/layout/DefaultOpenAllMenu.tsx" iframe="650"></code>
+
+### Always expand all submenus
+
+After toggling collapse repeatedly, `defaultOpenAll` may stop matching user intent. Set `ignoreFlatMenu` on `menu` to ignore manually collapsed state and keep the “expand all” behavior. This runs before render, so it does not apply to async menus.
+
+<code src="../../demos/layout/AlwaysDefaultOpenAllMenu.tsx" iframe="650"></code>
 
 ### Load Menu from Server
 
@@ -81,18 +97,40 @@ ProLayout does not provide footer by default, if you want to have the same style
 
 <code src="../../demos/layout/immersive-navigation-top.tsx" iframe="650" title="Immersive Navigation"></code>
 
+### Cross-site navigation
+
+> For the default card layout, each item should have `desc` set to a truthy value. For grouped layout, each item should include `children` with length greater than 0.
+
+<code src="../../demos/layout/appList-group.tsx" title="App list — grouped mode" iframe="650"></code>
+
 ### Theme & Style Customization
 
 <code src="../../demos/layout/theme.tsx" iframe="650" title="Modify Style via Token"></code>
 
 <code src="../../demos/layout/dark.tsx" iframe="650" title="Dark Theme"></code>
 
+<code src="../../demos/layout/background-context.tsx" iframe="650" title="Page background and overall mood"></code>
+
 <code src="../../demos/layout/designMenuCss.tsx" iframe="650" title="Customize Menu Style"></code>
+
+<code src="../../demos/layout/designSiderMenu.tsx" iframe="650" title="Sider width 256px"></code>
+
+<code src="../../demos/layout/pageSimplify.tsx" iframe="650" title="Simplify hierarchy via page background and cards"></code>
 
 ### Others
 
 <code src="../../demos/layout/customize-collapsed.tsx" iframe="650" title="Customized Collapse"></code>
 
+<code src="../../demos/layout/customSider.tsx" iframe="650" title="Custom area below sider menu"></code>
+
 <code src="../../demos/layout/menuIcons.tsx" iframe="650" title="Menu icons (SVG / React)"></code>
 
 <code src="../../demos/layout/ghost.tsx" iframe="650" title="Ghost Mode"></code>
+
+### Error boundaries
+
+<code src="../../demos/layout/error-boundaries.tsx" title="Built-in error handling to avoid white screens" iframe="650"></code>
+
+<code src="../../demos/layout/_debug-demo.tsx" debug background="var(--main-bg-color)" iframe="550" title="Dark compact theme"></code>
+
+<code src="../../demos/layout/splitMenus.tsx" title="splitMenus" debug iframe="650"></code>

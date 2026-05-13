@@ -59,6 +59,7 @@
   ],
   "dependencies": {
     "@ant-design/cssinjs": "^2.1.2",
+    "@ant-design/cssinjs-utils": "2.1.2",
     "@ant-design/icons": "^6.1.0",
     "@babel/runtime": "^7.28.6",
     "@ctrl/tinycolor": "^4.2.0",

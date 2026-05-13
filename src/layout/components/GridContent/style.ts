@@ -1,30 +1,39 @@
-import type { GenerateStyle, ProAliasToken } from '../../../provider';
-import { useStyle as useAntdStyle } from '../../../provider';
+import type { CSSObject } from '@ant-design/cssinjs';
+import type { AliasToken } from 'antd/es/theme/interface';
+import type { ReactElement } from 'react';
 
-export interface GridContentToken extends ProAliasToken {
+import { genProStyleHooks } from '../../../theme/genProStyleUtils';
+
+type ProGridContentToken = AliasToken & {
   componentCls: string;
-}
-
-const genGridContentStyle: GenerateStyle<GridContentToken> = (token) => {
-  return {
-    [token.componentCls]: {
-      boxSizing: 'border-box',
-      width: '100%',
-      '&-wide': {
-        maxWidth: 1152,
-        margin: '0 auto',
-      },
-    },
-  };
+  wideMaxWidth: number;
 };
 
-export function useStyle(prefixCls: string) {
-  return useAntdStyle('ProLayoutGridContent', (token) => {
-    const GridContentToken: GridContentToken = {
-      ...token,
-      componentCls: `.${prefixCls}`,
-    };
+const genGridContentStyle = (token: ProGridContentToken): CSSObject => ({
+  [token.componentCls]: {
+    boxSizing: 'border-box',
+    width: '100%',
+    '&-wide': {
+      maxWidth: token.wideMaxWidth,
+      margin: '0 auto',
+    },
+  },
+});
 
-    return [genGridContentStyle(GridContentToken)];
-  });
+const prepareProGridContentToken = (): { wideMaxWidth: number } => ({
+  wideMaxWidth: 1152,
+});
+
+export const useProGridContentStyle = genProStyleHooks(
+  'ProGridContent',
+  genGridContentStyle,
+  prepareProGridContentToken,
+);
+
+export function useStyle(prefixCls: string) {
+  const [hashId] = useProGridContentStyle(prefixCls);
+  return {
+    wrapSSR: (node: ReactElement) => node,
+    hashId,
+  };
 }

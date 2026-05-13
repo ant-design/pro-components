@@ -17,6 +17,12 @@ legacy: /table
 
 <code src="../../demos/table/no-title.tsx" id="no-title-table" background="var(--main-bg-color)" title="Table without ToolBar"></code>
 
+### Search filter type switch
+
+Use a segmented control to toggle `search.filterType` between the full query form (`query`) and lightweight filter (`light`).
+
+<code src="../../demos/table/enum-filter-type.tsx" background="var(--main-bg-color)" title="Search filter type switch"></code>
+
 ### Search & Filter
 
 <code src="../../demos/table/no-option.tsx" background="var(--main-bg-color)" title="Query Table (No Buttons)"></code>
@@ -118,6 +124,10 @@ Configure toolbar rendering using the `toolbar` property extension.
 
 <code src="../../demos/table/valueType_select.tsx" background="var(--main-bg-color)"></code>
 
+#### Custom valueType
+
+<code src="../../demos/table/customization-value-type.tsx" background="var(--main-bg-color)"></code>
+
 ### Internationalization
 
 ProTable has built-in support for internationalization, and as a component with a relatively small amount of text, we can implement internationalization ourselves at a low cost.
@@ -189,7 +199,13 @@ RTL means right-to-left.
 
 <code src="../../demos/table/config-provider.tsx" debug background="var(--main-bg-color)"></code>
 
+<code src="../../demos/table/_single-test.tsx" debug background="var(--main-bg-color)"></code>
+
 ## List ToolBar
+
+Customize the table toolbar area.
+
+### Examples
 
 <code src="../../demos/table/ListToolBar/basic.tsx" background="var(--main-bg-color)" title="Basic Usage"></code>
 
@@ -201,6 +217,6 @@ RTL means right-to-left.
 
 <code src="../../demos/table/ListToolBar/menu.tsx" background="var(--main-bg-color)" title="Title Dropdown Menu"></code>
 
-#### TableDropdown
+#### EditableProTable inside ProForm
 
-<code src="../../demos/table/edittable-rules.tsx" background="var(--main-bg-color)" title="TableDropdown" debug></code>
+<code src="../../demos/table/edittable-rules.tsx" background="var(--main-bg-color)" title="Editable table with column validation in ProForm" debug></code>
