@@ -90,7 +90,8 @@ const siderMenuScrollbarThumbRadius = `var(${proLayoutSiderVar.scrollbarThumbRad
 
 const siderMenuScrollbar: Record<string, unknown> = {
   scrollbarWidth: 'thin',
-  scrollbarColor: `${siderMenuScrollbarThumb} ${siderMenuScrollbarTrack}`,
+  scrollbarColor: `transparent ${siderMenuScrollbarTrack}`,
+  transition: 'scrollbar-color 0.3s ease',
   '&::-webkit-scrollbar': {
     width: siderMenuScrollbarTrackSize,
     height: siderMenuScrollbarTrackSize,
@@ -99,11 +100,18 @@ const siderMenuScrollbar: Record<string, unknown> = {
     backgroundColor: siderMenuScrollbarTrack,
   },
   '&::-webkit-scrollbar-thumb': {
-    backgroundColor: siderMenuScrollbarThumb,
+    backgroundColor: 'transparent',
     borderRadius: siderMenuScrollbarThumbRadius,
+    transition: 'background-color 0.3s ease',
   },
-  '&::-webkit-scrollbar-thumb:hover': {
-    backgroundColor: siderMenuScrollbarThumbHover,
+  '&:hover': {
+    scrollbarColor: `${siderMenuScrollbarThumb} ${siderMenuScrollbarTrack}`,
+    '&::-webkit-scrollbar-thumb': {
+      backgroundColor: siderMenuScrollbarThumb,
+    },
+    '&::-webkit-scrollbar-thumb:hover': {
+      backgroundColor: siderMenuScrollbarThumbHover,
+    },
   },
 };
 
