@@ -120,7 +120,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (
       key="logo"
       data-testid="pro-layout-global-header-logo"
     >
-      <a>{defaultRenderLogo(logo)}</a>
+      <span>{defaultRenderLogo(logo)}</span>
     </span>
   );
   return wrapSSR(
