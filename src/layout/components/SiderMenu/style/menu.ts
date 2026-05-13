@@ -349,7 +349,7 @@ const DURATION_MID = 'var(--ant-motion-duration-mid, 0.2s)';
 const FONT_WEIGHT_SELECTED = 600;
 /** 收起态首字 chip 字重：加强但不到选中强度 */
 const FONT_WEIGHT_COLLAPSED = 500;
-/** 选中态 icon 的微放大倍率，与 AppsLogoComponents 的 avatarPulseScale 对齐节奏 */
+/** 选中态 icon 的微放大倍率（与 Apps 列表项内 icon hover 同量级，保持动效节奏一致） */
 const ICON_SCALE_SELECTED = 1.08;
 /** 禁用态透明度：与 antd `disabledAlpha` 节奏一致 */
 const DISABLED_OPACITY = 0.45;

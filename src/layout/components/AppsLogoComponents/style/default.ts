@@ -17,8 +17,6 @@ const layout = {
   groupMarginBottom: 16,
   groupTitleMargin: '16px 0 8px 12px',
   groupTitleFirstChildMarginTop: 12,
-  /** 卡片 hover 浮起幅度 */
-  hoverTranslateY: -2,
   /** icon hover 轻微放大倍数 */
   imgHoverScale: 1.04,
   imgSize: 40,
@@ -40,13 +38,11 @@ const genAppsLogoComponentsDefaultListStyle: GenerateStyle<
   AppsLogoComponentsToken
 > = (token) => {
   /**
-   * 行 hover 过渡：transform / bg / box-shadow 三轨并发，共享 easeOut + mid duration。
-   * 用数组 join 表达多 property transition，避免一长串字面量里的 bezier 魔法字符串。
+   * 行 hover 过渡：背景 + inset 描边，与 simple 列表一致。
    */
   const rowTransition = [
-    `transform ${motionDuration.mid} ${easeOut}`,
     `background-color ${motionDuration.fast} ${easeOut}`,
-    `box-shadow ${motionDuration.mid} ${easeOut}`,
+    `box-shadow ${motionDuration.fast} ${easeOut}`,
   ].join(', ');
 
   return {
@@ -70,10 +66,7 @@ const genAppsLogoComponentsDefaultListStyle: GenerateStyle<
           paddingBlock: layout.itemPadding,
           verticalAlign: 'top',
           listStyleType: 'none',
-          /**
-           * Item 交互过渡：transform / background / box-shadow 三轨并发，
-           * hover 时整张卡轻微浮起 + 阴影，active 下按；曲线 `easeOut` 与根样式统一。
-           */
+          /** 背景 + inset 描边过渡，与 simple 列表一致，避免外阴影在弹层里发糊 */
           transition: rowTransition,
           borderRadius: token.borderRadius,
           cursor: 'pointer',
@@ -94,39 +87,52 @@ const genAppsLogoComponentsDefaultListStyle: GenerateStyle<
 
           '&:hover': {
             backgroundColor: token.colorBgTextHover,
-            transform: `translateY(${layout.hoverTranslateY}px)`,
-            /** 用 antd 标准阴影 token，避免硬编码两层 rgba */
-            boxShadow: token.boxShadowSecondary,
-            /** icon 伴随轻微放大，与卡片浮起协调 */
+            boxShadow: `inset 0 0 0 1px ${token.colorBorderSecondary}`,
             '& > a > img': { transform: `scale(${layout.imgHoverScale})` },
           },
           '&:active': {
-            transform: 'translateY(0)',
-            boxShadow: 'none',
+            backgroundColor: token.colorFillTertiary,
+            boxShadow: `inset 0 0 0 1px ${token.colorBorder}`,
           },
           '* div': resetComponent?.(token),
           a: {
             display: 'flex',
             height: '100%',
+            minWidth: 0,
             fontSize: layout.linkFontSize,
             textDecoration: 'none',
             '& > img': {
+              flexShrink: 0,
               width: layout.imgSize,
               height: layout.imgSize,
               transition: `transform ${motionDuration.mid} ${easeOut}`,
             },
             '& > div': {
+              flex: 1,
+              minWidth: 0,
               marginInlineStart: layout.linkGap,
+              overflow: 'hidden',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+            },
+            '& > div > div': {
+              margin: 0,
               color: token.colorTextHeading,
               fontSize: token.fontSize,
               lineHeight: layout.linkTitleLineHeight,
               whiteSpace: 'nowrap',
               textOverflow: 'ellipsis',
+              overflow: 'hidden',
             },
             '& > div > span': {
+              margin: 0,
               color: token.colorTextSecondary,
               fontSize: layout.linkFontSize,
               lineHeight: layout.linkDescLineHeight,
+              whiteSpace: 'nowrap',
+              textOverflow: 'ellipsis',
+              overflow: 'hidden',
             },
           },
         },
