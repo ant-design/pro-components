@@ -240,6 +240,6 @@ RTL means right-to-left.
 
 <code src="../../demos/table/ListToolBar/menu.tsx" background="var(--main-bg-color)" title="列表工具栏-标题下拉菜单"></code>
 
-#### TableDropdown
+#### ProForm 内 EditableProTable（列校验）
 
-<code src="../../demos/table/edittable-rules.tsx" background="var(--main-bg-color)" title="列表工具栏-标题下拉菜单" debug></code>
+<code src="../../demos/table/edittable-rules.tsx" background="var(--main-bg-color)" title="ProForm 内可编辑表格与列校验" debug></code>
