@@ -33,6 +33,13 @@ const genGlobalHeaderStyle: GenerateStyle<GlobalHeaderToken> = (token) => {
       '&-logo': {
         position: 'relative',
         marginInlineEnd: '16px',
+        '> span': {
+          display: 'flex',
+          alignItems: 'center',
+          height: '100%',
+          minHeight: '22px',
+          fontSize: '20px',
+        },
         a: {
           display: 'flex',
           alignItems: 'center',
