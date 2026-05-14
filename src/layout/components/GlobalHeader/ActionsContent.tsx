@@ -102,10 +102,7 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
               })}
               {avatarDom && (
                 <span
-                  className={clsx(
-                    `${prefixCls}-header-actions-avatar`,
-                    hashId,
-                  )}
+                  className={clsx(`${prefixCls}-header-actions-avatar`, hashId)}
                   data-testid="pro-layout-global-header-actions-avatar"
                 >
                   {avatarDom}

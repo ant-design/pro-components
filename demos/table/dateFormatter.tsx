@@ -40,7 +40,6 @@ const Demo = () => {
         }}
         columns={columns}
         request={(params) => {
-
           return Promise.resolve({
             data: [mockData],
             total: 1,
@@ -67,7 +66,6 @@ const Demo = () => {
         }}
         columns={columns}
         request={(params) => {
-
           return Promise.resolve({
             data: [mockData],
             total: 1,
@@ -93,7 +91,6 @@ const Demo = () => {
         }}
         columns={columns}
         request={(params) => {
-
           return Promise.resolve({
             data: [mockData],
             total: 1,
@@ -111,7 +108,6 @@ const Demo = () => {
         formRef={ref}
         options={false}
         dateFormatter={(value, valueType) => {
-
           return value.format('YYYY-MM-DD HH:mm:ss');
         }}
         headerTitle="使用自定义函数进行日期格式化"

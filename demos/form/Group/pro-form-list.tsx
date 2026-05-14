@@ -82,7 +82,6 @@ const Demo = () => {
           actionGuard={{
             beforeAddRow: async (defaultValue, insertIndex) => {
               return new Promise((resolve) => {
-
                 setTimeout(() => resolve(true), 1000);
               });
             },

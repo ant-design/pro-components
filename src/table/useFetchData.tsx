@@ -7,11 +7,7 @@ import {
   usePrevious,
   useRefFunction,
 } from '../utils';
-import type {
-  RequestData,
-  UseFetchDataAction,
-  UseFetchProps,
-} from './typing';
+import type { RequestData, UseFetchDataAction, UseFetchProps } from './typing';
 import { postDataPipeline } from './utils/index';
 import { usePageInfo } from './utils/usePageInfo';
 
@@ -398,11 +394,7 @@ const useFetchData = <DataSource extends RequestData<any>>(
     //
     // 旧实现末尾的 `|| 0` 是 dead expression（`||` 优先级低于整个表达式，最终参与判断的
     // 只是 0 这个 falsy 值，对条件无影响）。这里直接移除。
-    if (
-      options.pageInfo &&
-      tableDataList &&
-      tableDataList.length > pageSize
-    ) {
+    if (options.pageInfo && tableDataList && tableDataList.length > pageSize) {
       return;
     }
 

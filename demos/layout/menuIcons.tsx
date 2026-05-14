@@ -38,8 +38,7 @@ const Demo = () => (
           {
             path: '/svg-asset',
             name: 'SVG 资源',
-            icon:
-              'https://gw.alipayobjects.com/zos/antfincdn/UCSef1BATc/nice.svg',
+            icon: 'https://gw.alipayobjects.com/zos/antfincdn/UCSef1BATc/nice.svg',
           },
         ],
       }}

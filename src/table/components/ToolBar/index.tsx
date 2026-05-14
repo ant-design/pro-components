@@ -1,14 +1,7 @@
 import { ReloadOutlined } from '@ant-design/icons';
 import type { TableColumnType } from 'antd';
 import { Tooltip } from 'antd';
-import React, {
-  memo,
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-} from 'react';
-import { useRefFunction } from '../../../utils';
+import React, { memo, useCallback, useContext, useEffect } from 'react';
 import type { IntlType } from '../../../provider';
 import { useIntl } from '../../../provider';
 import type { LabelTooltipType } from '../../../utils';

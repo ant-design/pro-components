@@ -785,13 +785,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
       return '0px';
     }
     return `${leftSiderWidth ?? 0}px`;
-  }, [
-    props.splitMenus,
-    propsLayout,
-    siderMenuDom,
-    isMobile,
-    leftSiderWidth,
-  ]);
+  }, [props.splitMenus, propsLayout, siderMenuDom, isMobile, leftSiderWidth]);
 
   // siderMenuDom 为空的时候，不需要 padding
   const genLayoutStyle: CSSProperties = {
@@ -956,7 +950,6 @@ const ProLayout: React.FC<ProLayoutProps> = (props) => {
       <ProConfigProvider token={props.token} prefixCls={props.prefixCls}>
         <BaseProLayout
           logo={<Logo />}
-        
           {...defaultSettings}
           location={isBrowser() ? window.location : undefined}
           {...props}

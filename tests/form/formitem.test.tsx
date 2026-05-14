@@ -79,7 +79,9 @@ describe('ProForm.Item', () => {
         <ProFormText name="primaryOrganizationName" hidden />
         <ProFormText name="affiliatedOrganizationIds" hidden />
 
-        <ProFormDependency name={['primaryOrganizationName', 'primaryOrganizationId']}>
+        <ProFormDependency
+          name={['primaryOrganizationName', 'primaryOrganizationId']}
+        >
           {({ primaryOrganizationName, primaryOrganizationId }) => (
             <ProFormText
               label="组织名称"

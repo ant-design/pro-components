@@ -184,13 +184,10 @@ const Demo = () => {
           title: '第三步',
         },
       ]}
-      onCurrentChange={(current) => {
-
-      }}
+      onCurrentChange={(current) => {}}
       formRef={formRef}
       onFinish={async (values) => {
         return new Promise((resolve) => {
-
           message.success('提交成功');
           setTimeout(() => {
             resolve(true);

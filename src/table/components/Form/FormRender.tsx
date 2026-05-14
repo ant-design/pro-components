@@ -169,7 +169,8 @@ const FormRender = <T, U = any>({
             : {}),
           valueType: finalValueType,
           proFieldProps: {
-            ...(competentName === 'LightFilter' && item.proFieldProps?.light === undefined
+            ...(competentName === 'LightFilter' &&
+            item.proFieldProps?.light === undefined
               ? { light: true }
               : {}),
             ...item.proFieldProps,

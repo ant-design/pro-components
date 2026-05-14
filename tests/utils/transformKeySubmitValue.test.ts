@@ -605,7 +605,11 @@ describe('transformKeySubmitValue', () => {
     const transforms = {
       user: {
         profile: {
-          name: (value: string, namePath: string[], allValues: typeof values) => {
+          name: (
+            value: string,
+            namePath: string[],
+            allValues: typeof values,
+          ) => {
             seenNamePath = namePath;
             seenRoot = allValues;
             return { displayName: value };

@@ -23,7 +23,6 @@ const FormModal = () => {
         </Button>
       }
       onFinish={async (values) => {
-
         alert(JSON.stringify(values));
         return true;
       }}

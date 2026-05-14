@@ -1,13 +1,7 @@
 ﻿import { useControlledState } from '@rc-component/util';
 import type { GetRef, SelectProps } from 'antd';
 import { ConfigProvider, Select } from 'antd';
-import React, {
-  useEffect,
-  useImperativeHandle,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import React, { useImperativeHandle, useMemo, useRef, useState } from 'react';
 import useSWR from 'swr';
 import { useIntl } from '../../../provider';
 import {

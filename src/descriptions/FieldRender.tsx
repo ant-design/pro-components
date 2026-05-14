@@ -4,11 +4,8 @@ import React from 'react';
 import ProForm, { ProFormField } from '../form';
 import { proTheme } from '../provider';
 import type { ProCoreActionType, UseEditableMapUtilType } from '../utils';
+import { InlineErrorFormItem, getFieldPropsOrFormItemProps } from '../utils';
 import type { ProFieldValueTypeInput } from '../utils/typing';
-import {
-  InlineErrorFormItem,
-  getFieldPropsOrFormItemProps,
-} from '../utils';
 import type { ProDescriptionsColumn } from './typing';
 
 /**

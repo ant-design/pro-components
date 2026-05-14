@@ -1,11 +1,11 @@
 import { LightFilter, ProFormText } from '@ant-design/pro-components';
+import { fireEvent, render, waitFor } from '@testing-library/react';
 import { ConfigProvider } from 'antd';
 import zhCN from 'antd/locale/zh_CN';
-import { fireEvent, render, waitFor } from '@testing-library/react';
 import dayjs from 'dayjs';
+import zhCn from 'dayjs/locale/zh-cn';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
-import zhCn from 'dayjs/locale/zh-cn';
 import { describe, expect, it, vi } from 'vitest';
 import { dateArrayFormatter } from '../../src/utils/dateArrayFormatter';
 
@@ -441,10 +441,7 @@ describe('LightFilter', () => {
           digitRange: [12, 34],
         }}
       >
-        <LightFilter.digitRange
-          name="digitRange"
-          label="数字范围"
-        />
+        <LightFilter.digitRange name="digitRange" label="数字范围" />
       </LightFilter>,
     );
 

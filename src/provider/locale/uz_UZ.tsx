@@ -61,7 +61,8 @@ const uzUZ: ProLocale = {
     submitText: 'Kirish',
   },
   editableTable: {
-    onlyOneLineEditor: 'Bir vaqtning oʻzida faqat bitta qator tahrirlanishi mumkin',
+    onlyOneLineEditor:
+      'Bir vaqtning oʻzida faqat bitta qator tahrirlanishi mumkin',
     onlyAddOneLine: 'Bir vaqtning oʻzida faqat bitta qator qoʻshilishi mumkin',
     action: {
       save: 'Saqlash',

@@ -1,5 +1,5 @@
 import { omit } from '@rc-component/util';
-import { ConfigProvider, Drawer } from 'antd';
+import { ConfigProvider, Drawer, theme } from 'antd';
 import { clsx } from 'clsx';
 import React, { useContext, useEffect, useMemo } from 'react';
 import { ProProvider } from '../../../provider';
@@ -33,17 +33,18 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (
 
   const { direction } = React.useContext(ConfigProvider.ConfigContext);
   const { token: proToken } = useContext(ProProvider);
+  const { token: antdToken } = theme.useToken();
 
   const drawerBodyStyle = useMemo(
     () => ({
-      ...getProLayoutSiderCssVarsStyle(proToken?.layout),
+      ...getProLayoutSiderCssVarsStyle(proToken?.layout, antdToken),
       height: '100vh',
       padding: 0,
       display: 'flex',
       flexDirection: 'row' as const,
       backgroundColor: 'var(--pro-layout-sider-bg)',
     }),
-    [proToken?.layout],
+    [proToken?.layout, antdToken],
   );
 
   // 从 menu 配置中读取 collapsedWidth，默认为 64

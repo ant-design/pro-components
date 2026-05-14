@@ -1,5 +1,5 @@
 import type { AvatarProps, SiderProps } from 'antd';
-import { Avatar, ConfigProvider, Layout, Space } from 'antd';
+import { Avatar, ConfigProvider, Layout, Space, theme } from 'antd';
 import { clsx } from 'clsx';
 import type { CSSProperties, FC, ReactNode } from 'react';
 import React, { useContext, useMemo } from 'react';
@@ -228,9 +228,13 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     stylish,
     logoStyle,
   } = props;
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const { getPrefixCls, theme: antdThemeConfig } = useContext(
+    ConfigProvider.ConfigContext,
+  );
   const resolvedPrefixCls = prefixCls ?? getPrefixCls('pro');
-  const { hashId: hashIdFromProvider, token: proToken } = useContext(ProProvider);
+  const { hashId: hashIdFromProvider, token: proToken } =
+    useContext(ProProvider);
+  const { token: antdToken } = theme.useToken();
   const hashId = hashIdFromProvider ?? '';
   const showSiderExtraDom = useMemo(() => {
     if (isMobile) return false;
@@ -242,9 +246,17 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   useBaseMenuStyle(linkMenuBaseClassName, 'vertical');
 
   const siderCssVarsStyle = useMemo(
-    () => getProLayoutSiderCssVarsStyle(proToken?.layout),
-    [proToken?.layout],
+    () => getProLayoutSiderCssVarsStyle(proToken?.layout, antdToken),
+    [proToken?.layout, antdToken],
   );
+
+  /** antd `Layout.Sider` 的 `theme` 与外层 `ConfigProvider` algorithm 对齐（含 `darkAlgorithm` 时为 dark） */
+  const antdSiderTheme = useMemo((): NonNullable<SiderProps['theme']> => {
+    const alg = antdThemeConfig?.algorithm;
+    if (alg == null) return 'light';
+    const list = Array.isArray(alg) ? alg : [alg];
+    return list.includes(theme.darkAlgorithm) ? 'dark' : 'light';
+  }, [antdThemeConfig?.algorithm]);
 
   // 收起的宽度，从 menu 配置中读取，默认为 64
   const collapsedWidth = props.menu?.collapsedWidth ?? 64;
@@ -541,7 +553,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         collapsedWidth={collapsedWidth}
         data-testid="pro-layout-sider"
         style={{ ...siderCssVarsStyle, ...style }}
-        theme="light"
+        theme={antdSiderTheme}
         width={siderWidth}
         className={clsx(siderClassName, hashId, hideMenuWhenCollapsedClassName)}
       >

@@ -5,7 +5,6 @@ import { Button, Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
 import type { GetRowKey } from 'antd/lib/table/interface';
 import React, {
-  useCallback,
   useContext,
   useEffect,
   useImperativeHandle,
@@ -563,7 +562,9 @@ function EditableTable<
     const rowKeyName = [props.name].flat(1).filter(Boolean) as NamePath;
     // 非 name 模式：rowKeyName 为空，从表单顶层拿所有字段，值是 Record<rowKey, DataType>
     if (rowKeyName.length === 0) {
-      const rowData = formRef.current?.getFieldsValue() as Record<string, DataType> | undefined;
+      const rowData = formRef.current?.getFieldsValue() as
+        | Record<string, DataType>
+        | undefined;
       if (!rowData) return undefined;
       // getFieldsValue() 返回的永远是对象，按 key 排列后取 values
       return Object.keys(rowData).map((key) => rowData[key]);

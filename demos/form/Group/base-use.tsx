@@ -23,7 +23,6 @@ const Demo = () => {
         alwaysShowItemLabel
       >
         {(f, index, action) => {
-
           return (
             <>
               <ProFormText

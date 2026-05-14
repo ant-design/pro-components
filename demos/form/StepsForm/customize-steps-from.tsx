@@ -26,7 +26,6 @@ const Demo = () => {
         name: string;
       }>
         onFinish={async (values) => {
-
           await waitTime(1000);
           message.success('提交成功');
         }}
@@ -81,7 +80,6 @@ const Demo = () => {
           name="customize-steps-from-base"
           title="创建实验"
           onFinish={async ({ name }) => {
-
             await waitTime(2000);
             return true;
           }}

@@ -70,8 +70,7 @@ const FOOTER_PADDING_BLOCK_END = 16;
 const HIDE_MENU_COLLAPSED_OFFSET = 12;
 
 /**
- * Sider 内部 motion 规范：title 淡入 / icon 尺寸过渡统一走这套常量，
- * 业务侧如果想整体放慢/加快，可通过 antd `--ant-motion-duration-*` 覆盖 transition 那几行。
+ * Sider 内部 motion 规范：title 淡入 / icon 尺寸过渡统一走这套常量。
  */
 const MOTION = {
   titleHideDuration: '.4s',
@@ -81,41 +80,43 @@ const MOTION = {
   actionsCollapsedTransition: 'font-size 0.3s ease-in-out',
 } as const;
 
-/** 轨道粗细 / thumb 圆角由 `token.layout.sider` → `getProLayoutSiderCssVarsStyle` 注入；未继承时回退 6px / 3px（如 Popover 挂 body） */
-const siderMenuScrollbarThumb = `var(${proLayoutSiderVar.scrollbarThumb}, var(--ant-color-fill-tertiary))`;
-const siderMenuScrollbarThumbHover = `var(${proLayoutSiderVar.scrollbarThumbHover}, var(--ant-color-fill-secondary))`;
-const siderMenuScrollbarTrack = `var(${proLayoutSiderVar.scrollbarTrack}, transparent)`;
-const siderMenuScrollbarTrackSize = `var(${proLayoutSiderVar.scrollbarTrackThickness}, 6px)`;
-const siderMenuScrollbarThumbRadius = `var(${proLayoutSiderVar.scrollbarThumbRadius}, 3px)`;
+function getSiderMenuScrollbar(token: ProAliasToken): Record<string, unknown> {
+  const thumb = `var(${proLayoutSiderVar.scrollbarThumb}, ${token.colorFillTertiary})`;
+  const thumbHover = `var(${proLayoutSiderVar.scrollbarThumbHover}, ${token.colorFillSecondary})`;
+  const track = `var(${proLayoutSiderVar.scrollbarTrack}, transparent)`;
+  const trackSize = `var(${proLayoutSiderVar.scrollbarTrackThickness}, 6px)`;
+  const thumbRadius = `var(${proLayoutSiderVar.scrollbarThumbRadius}, 3px)`;
 
-const siderMenuScrollbar: Record<string, unknown> = {
-  scrollbarWidth: 'thin',
-  scrollbarColor: `transparent ${siderMenuScrollbarTrack}`,
-  transition: 'scrollbar-color 0.3s ease',
-  '&::-webkit-scrollbar': {
-    width: siderMenuScrollbarTrackSize,
-    height: siderMenuScrollbarTrackSize,
-  },
-  '&::-webkit-scrollbar-track': {
-    backgroundColor: siderMenuScrollbarTrack,
-  },
-  '&::-webkit-scrollbar-thumb': {
-    backgroundColor: 'transparent',
-    borderRadius: siderMenuScrollbarThumbRadius,
-    transition: 'background-color 0.3s ease',
-  },
-  '&:hover': {
-    scrollbarColor: `${siderMenuScrollbarThumb} ${siderMenuScrollbarTrack}`,
+  return {
+    scrollbarWidth: 'thin',
+    scrollbarColor: `transparent ${track}`,
+    transition: 'scrollbar-color 0.3s ease',
+    '&::-webkit-scrollbar': {
+      width: trackSize,
+      height: trackSize,
+    },
+    '&::-webkit-scrollbar-track': {
+      backgroundColor: track,
+    },
     '&::-webkit-scrollbar-thumb': {
-      backgroundColor: siderMenuScrollbarThumb,
+      backgroundColor: 'transparent',
+      borderRadius: thumbRadius,
+      transition: 'background-color 0.3s ease',
     },
-    '&::-webkit-scrollbar-thumb:hover': {
-      backgroundColor: siderMenuScrollbarThumbHover,
+    '&:hover': {
+      scrollbarColor: `${thumb} ${track}`,
+      '&::-webkit-scrollbar-thumb': {
+        backgroundColor: thumb,
+      },
+      '&::-webkit-scrollbar-thumb:hover': {
+        backgroundColor: thumbHover,
+      },
     },
-  },
-};
+  };
+}
 
 const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
+  const siderMenuScrollbar = getSiderMenuScrollbar(token);
   const sv = (k: keyof typeof proLayoutSiderVar) =>
     `var(${proLayoutSiderVar[k]})`;
   return {
@@ -129,6 +130,23 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
           [`& ${token.antCls}-layout-sider-children`]: {
             paddingInline: SIDER_COLLAPSED_PAD_INLINE,
             alignItems: 'center',
+          },
+          /** 收起态窄栏：`thin`/webkit 轨道仍会占位，主区改为不占位滚动条 */
+          [`& ${token.componentCls}-menu-scroll`]: {
+            scrollbarWidth: 'none',
+            '&::-webkit-scrollbar': {
+              width: 0,
+              height: 0,
+            },
+            '&:hover': {
+              scrollbarColor: 'transparent transparent',
+              '&::-webkit-scrollbar-thumb': {
+                backgroundColor: 'transparent',
+              },
+              '&::-webkit-scrollbar-thumb:hover': {
+                backgroundColor: 'transparent',
+              },
+            },
           },
         },
       [token.componentCls]: {
@@ -247,7 +265,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
             paddingBlock: ACTIONS.avatarPaddingBlock,
             display: 'flex',
             alignItems: 'center',
-            gap: 'var(--ant-margin-xs, 8px)',
+            gap: `${token.marginXS}px`,
             borderRadius: sv('borderRadius'),
             '& *': {
               cursor: 'pointer',

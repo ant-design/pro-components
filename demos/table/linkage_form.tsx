@@ -110,7 +110,6 @@ const Demo = () => {
     <ProTable<ServiceItem>
       columns={columns}
       request={async (params) => {
-
         return {
           data: [
             {
@@ -136,7 +135,6 @@ const Demo = () => {
             key="export"
             onClick={() => {
               const values = searchConfig?.form?.getFieldsValue();
-
             }}
           >
             导出

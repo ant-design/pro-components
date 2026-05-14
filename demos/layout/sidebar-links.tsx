@@ -23,12 +23,7 @@ export default () => (
     style={{ height: 480 }}
     menu={{ locale: false }}
     links={[
-      <a
-        key="antd"
-        href="https://ant.design"
-        target="_blank"
-        rel="noreferrer"
-      >
+      <a key="antd" href="https://ant.design" target="_blank" rel="noreferrer">
         Ant Design
       </a>,
       <a

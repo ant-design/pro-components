@@ -26,7 +26,8 @@ export const {
     };
   },
   useToken: () => {
-    const [theme, realToken, hashId, token, cssVar, zeroRuntime] = useLocalToken();
+    const [theme, realToken, hashId, token, cssVar, zeroRuntime] =
+      useLocalToken();
     return { theme, realToken, hashId, token, cssVar, zeroRuntime };
   },
   useCSP: () => {

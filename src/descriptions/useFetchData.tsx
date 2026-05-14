@@ -17,7 +17,10 @@ export type UseProDescriptionsFetchAction<TData> = {
   reload: () => Promise<void>;
 };
 
-const useFetchData = <TData, TResponse extends ProDescriptionsRequestResult<TData>>(
+const useFetchData = <
+  TData,
+  TResponse extends ProDescriptionsRequestResult<TData>,
+>(
   getData: () => Promise<TResponse>,
   options?: {
     effects?: unknown[];

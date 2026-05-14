@@ -1,16 +1,109 @@
-import { Popover } from 'antd';
+import { EllipsisOutlined } from '@ant-design/icons';
+import { ConfigProvider, Popover } from 'antd';
 import { clsx } from 'clsx';
 import type { CSSProperties, HTMLAttributes } from 'react';
-import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { useRefFunction } from '../../../utils/hooks/useRefFunction';
+import React, {
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
+import { useRefFunction } from '../../../utils';
 import type { NavMenuNode } from './navMenuTypes';
 import type { MenuMode, ProLayoutNavMenuSelectInfo } from './types';
 
-/* eslint-disable @typescript-eslint/no-unused-vars -- 保留 React 导入，部分构建链需要 React in scope */
-
 const MENU_INDENT_PX = 16;
 
+/**
+ * 与 `style/menu.ts` 中 `navVar.itemPadInline` 默认一致。嵌套缩进必须算在 `<button>` 的
+ * `padding-inline-start` 里，不能写在外层 `<li>`：`li` 的 padding 区不在 button 盒内，
+ * 用户点到「行左侧空白」时既无 hover 也无点击，体感像只有文字/icon 可点。
+ */
+const NAV_ITEM_PAD_INLINE_FALLBACK =
+  'var(--pro-layout-nav-item-padding-inline, 8px)';
+
+function itemMenuDepthIndentStyle(depth: number): CSSProperties | undefined {
+  if (depth <= 0) return undefined;
+  return {
+    paddingInlineStart: `calc(${depth * MENU_INDENT_PX}px + ${NAV_ITEM_PAD_INLINE_FALLBACK})`,
+  };
+}
+
+/**
+ * 横栏 popup / 侧向 flyout 内：`renderInlineSubmenu` / `OverflowVerticalSubmenu` 会给第一层
+ * leaf 传 `depth=1`，若仍按 16px/级缩进，会与 Popover `content` 内边距叠加，首行左侧显得
+ * 过空、icon 与左缘不协调。与 `renderPopup` 将 panel 内子树从 `depth=0` 起算的语义对齐：
+ * 仅 horizontal + 已在 submenu 浮层内时，把用于 `padding-inline-start` 的层级减一档；
+ * 竖向侧栏 popup 等场景不改变原有缩进。
+ */
+function effectiveItemMenuIndentDepth(
+  ctx: Pick<ProLayoutNavMenuRenderContext, 'mode' | 'insideSubmenuPopup'>,
+  depth: number,
+): number {
+  if (ctx.mode === 'horizontal' && ctx.insideSubmenuPopup && depth > 0) {
+    return depth - 1;
+  }
+  return depth;
+}
+
 const keyToString = (key: string | number) => String(key);
+
+/**
+ * `menuItemRender` 常见写法：
+ * - `<Link>` / `<a href>` 默认 `inline(-flex)` 往往不铺满 `${c}-item-button`；
+ * - 官方 demo 用 `<div role="button" onClick={...}>` 包一层；
+ * - 也有人只写 `<div onClick={...}>` 忘加 `role` / 不用 `<a>`。
+ * `closest('a[href]')` 只向上找祖先，点在行右侧空白时 `event.target` 常落在 `item-button`
+ * 或外层 `item-title` 上。用 `eventTarget` 判断：若点击点已落在业务根子树内则不再 `.click()`，
+ * 避免点在文案上时双触发。
+ */
+function tryDelegateLeafRowPrimaryAction(
+  root: Element | null,
+  eventTarget: EventTarget | null,
+) {
+  if (!root?.querySelector) return;
+  const hit = eventTarget instanceof Node ? eventTarget : null;
+
+  const anchor = root.querySelector(
+    'a[href]:not([href^="javascript:"])',
+  ) as HTMLAnchorElement | null;
+  if (anchor) {
+    if (!hit || !anchor.contains(hit)) {
+      anchor.click();
+    }
+    return;
+  }
+
+  const roleButton = root.querySelector(
+    '[role="button"]',
+  ) as HTMLElement | null;
+  if (roleButton) {
+    if (!hit || !roleButton.contains(hit)) {
+      roleButton.click();
+    }
+    return;
+  }
+
+  const titleHost = root.querySelector(
+    '[data-testid="pro-layout-nav-menu-item-title"]',
+  );
+  const primary =
+    titleHost?.firstElementChild instanceof HTMLElement
+      ? titleHost.firstElementChild
+      : null;
+  if (!primary || primary.tagName === 'A' || primary.tagName === 'BUTTON') {
+    return;
+  }
+  if (hit && primary.contains(hit)) {
+    return;
+  }
+  primary.click();
+}
+
+/** 顶栏「更多」触发器预留宽度，与一级 submenu 标题按钮同量级，略宽于图标避免边界误判 */
+const HORIZONTAL_OVERFLOW_MORE_RESERVE_PX = 48;
 
 /**
  * 收集所有「包含选中子项」的 submenu key：递归遍历 nodes 子树，
@@ -42,6 +135,47 @@ function collectSubmenusWithSelectedChild(
   }
   walk(nodes);
   return result;
+}
+
+function navNodesSubtreeHasSelectedLeaf(
+  nodes: NavMenuNode[],
+  selectedSet: Set<string>,
+): boolean {
+  for (const node of nodes) {
+    if (node.kind === 'item' && selectedSet.has(node.key)) {
+      return true;
+    }
+    if (node.kind === 'submenu' || node.kind === 'group') {
+      if (navNodesSubtreeHasSelectedLeaf(node.children, selectedSet)) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+/**
+ * 根据离屏测量的各一级项宽度，计算主栏能放下几个一级项（其余进「更多」）。
+ * 返回值为「可见」的一级项个数；为 `nodeCount` 表示无需「更多」。
+ */
+function computeHorizontalOverflowFromIndex(
+  widths: number[],
+  nodeCount: number,
+  containerWidth: number,
+  gapPx: number,
+  moreReserved: number,
+): number {
+  if (nodeCount === 0 || widths.length !== nodeCount) return nodeCount;
+  if (containerWidth <= 0) return nodeCount;
+  for (let k = nodeCount; k >= 0; k -= 1) {
+    const needMore = k < nodeCount;
+    const gapsBetween = k <= 1 ? 0 : (k - 1) * gapPx;
+    const itemsW =
+      widths.slice(0, k).reduce((sum, w) => sum + w, 0) + gapsBetween;
+    const total = itemsW + (needMore ? gapPx + moreReserved : 0);
+    if (total <= containerWidth) return k;
+  }
+  return 0;
 }
 
 /**
@@ -147,6 +281,13 @@ interface ProLayoutNavMenuRenderContext {
     e: React.MouseEvent | React.KeyboardEvent,
     insideSubmenuPopup: boolean,
   ) => void;
+  /** 文档方向：侧向子菜单 `placement` 镜像用 */
+  layoutDirection?: 'ltr' | 'rtl';
+  /**
+   * 顶栏「更多」及由其弹出的侧向子层：子菜单走 antd `Menu` vertical 式侧向浮层，
+   * 不在首层面板内 inline 展开。
+   */
+  horizontalOverflowVerticalSubmenus?: boolean;
 }
 
 function renderDivider(
@@ -174,19 +315,17 @@ function renderLeaf(
   const selected = selectedSet.has(node.key);
   const { disabled } = node;
   /**
-   * 与 SidebarMenu 对齐：外层 `li` 仅承担列表/role 语义，内层 `button` 承担可聚焦/可点击行为。
-   * 好处：
-   * 1. `button` 自带键盘可达性（Enter/Space），无需在 li 上自行处理；
-   * 2. 行内文案的省略、icon 对齐都由 cssinjs 的 `${c}-item > *` 选择器控制，DOM 与
-   *    SidebarMenu 的 `button.sidebar-menu-item` 视觉规则一致；
-   * 3. 二级 / 三级缩进继续走 `paddingInlineStart`，与原行为保持兼容。
+   * 外层 `li` 承担列表/role 语义，内层 `div[role=menuitem]` 承担可聚焦/可点击行为。
+   * 使用 `<div>` 而非 `<button>`：`menuItemRender` 可能返回 `<a>` / `<Link>`，
+   * `<a>` 嵌套在 `<button>` 内是无效 HTML，浏览器会拆分 DOM 导致点击事件丢失。
+   * 键盘可达性通过 `tabIndex` + `onKeyDown` 保持。
+   *
+   * 点击激活写在 `li` 上：`item-button` 在 flex 布局下右侧常有一块「无子节点」的空白，
+   * 仅绑在 inner div 时，部分浏览器命中子树边缘会只触发 hover 样式却走不到 `onClick`；
+   * 由 `li` 冒泡统一承接，并跳过 label 内嵌的 `<a>` / `<button>` 以免双触发。
+   * 行内 `<a href>` / `role="button"` / 仅 `div onClick` 未铺满时，点在 `item-button` 空白区需委托
+   * `tryDelegateLeafRowPrimaryAction`；点在已包裹的交互控件上则不再委托，避免双触发。
    */
-  /**
-   * 缩进放在外层 `li`：cssinjs 里 `${c}-item` 用了 `paddingInline` shorthand，
-   * 会覆盖内联 `paddingInlineStart`；改在外层 `li` 上做缩进，内层按钮的内边距保持一致。
-   */
-  const indentStyle =
-    depth > 0 ? { paddingInlineStart: depth * MENU_INDENT_PX } : undefined;
   return (
     <li
       key={node.key}
@@ -199,24 +338,37 @@ function renderLeaf(
       data-testid="pro-layout-nav-menu-item"
       aria-disabled={disabled || undefined}
       aria-selected={selected || undefined}
-      style={indentStyle}
+      style={disabled ? undefined : { cursor: 'pointer' }}
+      onClick={(e) => {
+        if (disabled) return;
+        const el = e.target as HTMLElement | null;
+        if (el?.closest?.('a[href],button,[role="link"]')) return;
+        if (!el?.closest?.('[role="button"]')) {
+          tryDelegateLeafRowPrimaryAction(
+            e.currentTarget as HTMLElement,
+            e.target,
+          );
+        }
+        handleLeafActivate(node.key, disabled, node.onClick);
+      }}
     >
-      <button
-        type="button"
+      <div
         role="menuitem"
-        disabled={disabled}
         tabIndex={disabled ? -1 : 0}
         aria-disabled={disabled || undefined}
         className={clsx(`${baseClassName}-item-button`, hashId)}
         data-testid="pro-layout-nav-menu-item-button"
-        onClick={(e) => {
-          e.stopPropagation();
-          handleLeafActivate(node.key, disabled, node.onClick);
-        }}
+        style={itemMenuDepthIndentStyle(
+          effectiveItemMenuIndentDepth(ctx, depth),
+        )}
         onKeyDown={(e) => {
           if (disabled) return;
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
+            const leafLi = (e.currentTarget as HTMLElement).closest?.(
+              '[data-pro-layout-nav-leaf]',
+            );
+            tryDelegateLeafRowPrimaryAction(leafLi, e.target);
             handleLeafActivate(node.key, disabled, node.onClick);
           }
         }}
@@ -233,7 +385,7 @@ function renderLeaf(
         >
           {node.label}
         </span>
-      </button>
+      </div>
     </li>
   );
 }
@@ -287,7 +439,7 @@ function renderGroup(
 function renderPopup(
   ctx: ProLayoutNavMenuRenderContext,
   node: Extract<NavMenuNode, { kind: 'submenu' }>,
-  depth: number,
+  _depth: number,
 ) {
   const {
     baseClassName,
@@ -340,94 +492,91 @@ function renderPopup(
       className={clsx(`${baseClassName}-submenu`, hashId, node.className, {
         [`${baseClassName}-submenu-open`]: isOpen,
         [`${baseClassName}-submenu-has-icon`]: hasIcon,
-        [`${baseClassName}-submenu--child-selected`]:
-          subMenuSelectedSet.has(node.key),
+        [`${baseClassName}-submenu--child-selected`]: subMenuSelectedSet.has(
+          node.key,
+        ),
       })}
       data-testid="pro-layout-nav-menu-popup-submenu"
     >
-    <Popover
-      open={isOpen}
-      arrow={false}
-      destroyOnHidden
-      /**
-       * 只用 hover 触发，**不要加 click**：
-       * - 加上 click 后，Popover 自身的 click trigger 会 toggle 关闭已打开的 popup，
-       *   覆盖我们 `handleSubmenuTitleClick → setPopupOpenKey(key)` 的「保持打开」语义；
-       * - 关闭路径已足够：hover 离开、叶子点击（`handleLeafActivate` 里清 key）、
-       *   切换到其它顶级 submenu（state 互斥）、Esc 键。
-       */
-      trigger="hover"
-      placement={mode === 'horizontal' ? 'bottomLeft' : 'rightTop'}
-      align={{ offset: mode === 'horizontal' ? [0, 4] : [4, 0] }}
-      /**
-       * 通过 antd Popover 原生 API 控制浮层视觉，无需在 cssinjs 里覆盖
-       * `.ant-popover-inner` / `.ant-popover-content`：
-       * - `classNames.root`：把 token 与列表 reset 等规则挂在 popover 根节点上
-       * - `styles.container`：去掉 `.ant-popover-inner` 默认 padding，避免 inner
-       *    与 content 双层 padding 叠加；
-       * - `styles.content`：在 `.ant-popover-content` 上统一给 8px padding，
-       *    让 popup 内部 leaf / submenu 标题有等宽的安全边距（与 SidebarMenu 一致）；
-       * - `styles.root`：限制最大高度 + 滚动，避免长菜单溢出视口。
-       */
-      classNames={{ root: clsx(`${baseClassName}-submenu-popup`, hashId) }}
-      styles={{
-        container: { padding: 0 },
-        content: { padding: 4, minWidth: 140 },
-        root: { maxHeight: 'calc(100vh - 32px)', overflowY: 'auto' },
-      }}
-      onOpenChange={(next) => {
+      <Popover
+        open={isOpen}
+        arrow={false}
+        destroyOnHidden
         /**
-         * Popover 自管 hover/click/外部点击；这里只在「真要关闭」或者「打开当前 key」
-         * 两种情况下同步 `popupOpenKey`，避免把别的 popup 状态误清。
+         * 只用 hover 触发，**不要加 click**：
+         * - 加上 click 后，Popover 自身的 click trigger 会 toggle 关闭已打开的 popup，
+         *   覆盖我们 `handleSubmenuTitleClick → setPopupOpenKey(key)` 的「保持打开」语义；
+         * - 关闭路径已足够：Popover 自带 `mouseLeaveDelay`、叶子点击（`handleLeafActivate` 清 key）、
+         *   切换到其它顶级 submenu（state 互斥）、Esc 键。
          */
-        if (next) {
-          setPopupOpenKey(node.key);
-        } else if (popupOpenKey === node.key) {
-          setPopupOpenKey(null);
-        }
-      }}
-      content={popupContent}
-    >
-      <button
-        type="button"
-        className={clsx(`${baseClassName}-submenu-title`, hashId, {
-          [`${baseClassName}-submenu-title--open`]: isOpen,
-          [`${baseClassName}-submenu-has-icon`]: hasIcon,
-        })}
-        data-testid="pro-layout-nav-menu-popup-submenu-title"
-        aria-expanded={isOpen}
-        aria-haspopup="true"
-        onClick={(e) =>
-          handleSubmenuTitleClick(node.key, node.onTitleClick, e, false)
-        }
-        onKeyDown={(e) => {
-          if (e.key === 'Escape' && isOpen) {
-            e.stopPropagation();
-            setPopupOpenKey(null);
-            return;
-          }
-          /**
-           * 注意：Popover 在 trigger=click 时自身会响应 button click，这里仅处理
-           * Esc 键收起；Enter/Space 让浏览器默认按钮行为触发 click 即可，避免
-           * `handleSubmenuTitleClick` 与 Popover 自身 onOpenChange 双触发抖动。
-           */
+        trigger="hover"
+        placement={mode === 'horizontal' ? 'bottomLeft' : 'rightTop'}
+        align={{ offset: mode === 'horizontal' ? [0, 4] : [4, 0] }}
+        /**
+         * 通过 antd Popover 原生 API 控制浮层视觉，无需在 cssinjs 里覆盖
+         * `.ant-popover-inner` / `.ant-popover-content`：
+         * - `classNames.root`：把 token 与列表 reset 等规则挂在 popover 根节点上
+         * - `styles.container`：去掉 `.ant-popover-inner` 默认 padding，避免 inner
+         *    与 content 双层 padding 叠加；
+         * - `styles.content`：在 `.ant-popover-content` 上统一给 8px padding，
+         *    让 popup 内部 leaf / submenu 标题有等宽的安全边距（与 SidebarMenu 一致）；
+         * - `styles.root`：限制最大高度 + 滚动，避免长菜单溢出视口。
+         */
+        classNames={{ root: clsx(`${baseClassName}-submenu-popup`, hashId) }}
+        styles={{
+          container: { padding: 0 },
+          content: { padding: 4, minWidth: 140 },
+          root: { maxHeight: 'calc(100vh - 32px)', overflowY: 'auto' },
         }}
+        onOpenChange={(next) => {
+          if (next) {
+            setPopupOpenKey(node.key);
+          } else if (popupOpenKey === node.key) {
+            setPopupOpenKey(null);
+          }
+        }}
+        content={popupContent}
       >
-        {/**
-         * 必须用 `<span>` 包裹 label，让 CSS `:first-child` 命中这个 element：
-         * - `{node.label}` 若是字符串会渲染为 Text Node，CSS 的 `:first-child`
-         *   只匹配 element child，会跳过文本节点直接命中 `<SubmenuArrow>`，
-         *   导致 arrow 被 `flex:1` 撑满整个 button、label 被挤没。
-         */}
-        <span
-          className={clsx(`${baseClassName}-item-title`, hashId)}
-          data-testid="pro-layout-nav-menu-item-title"
+        <button
+          type="button"
+          className={clsx(`${baseClassName}-submenu-title`, hashId, {
+            [`${baseClassName}-submenu-title--open`]: isOpen,
+            [`${baseClassName}-submenu-has-icon`]: hasIcon,
+          })}
+          data-testid="pro-layout-nav-menu-popup-submenu-title"
+          aria-expanded={isOpen}
+          aria-haspopup="true"
+          onClick={(e) =>
+            handleSubmenuTitleClick(node.key, node.onTitleClick, e, false)
+          }
+          onKeyDown={(e) => {
+            if (e.key === 'Escape' && isOpen) {
+              e.stopPropagation();
+              setPopupOpenKey(null);
+              return;
+            }
+            /**
+             * 注意：Popover 在 trigger=click 时自身会响应 button click，这里仅处理
+             * Esc 键收起；Enter/Space 让浏览器默认按钮行为触发 click 即可，避免
+             * `handleSubmenuTitleClick` 与 Popover 自身 onOpenChange 双触发抖动。
+             */
+          }}
         >
-          {node.label}
-        </span>
-        <SubmenuArrow baseClassName={baseClassName} hashId={hashId} />
-      </button>
-    </Popover>
+          {/**
+           * 必须用 `<span>` 包裹 label，让 CSS `:first-child` 命中这个 element：
+           * - `{node.label}` 若是字符串会渲染为 Text Node，CSS 的 `:first-child`
+           *   只匹配 element child，会跳过文本节点直接命中 `<SubmenuArrow>`，
+           *   导致 arrow 被 `flex:1` 撑满整个 button、label 被挤没。
+           */}
+          <span
+            className={clsx(`${baseClassName}-item-title`, hashId)}
+            data-testid="pro-layout-nav-menu-item-title"
+          >
+            {node.label}
+          </span>
+          <SubmenuArrow baseClassName={baseClassName} hashId={hashId} />
+        </button>
+      </Popover>
     </li>
   );
 }
@@ -443,7 +592,6 @@ function renderInlineSubmenu(
     openSet,
     subMenuSelectedSet,
     popupMode,
-    popupOpenKey,
     handleSubmenuTitleClick,
   } = ctx;
   /**
@@ -459,12 +607,8 @@ function renderInlineSubmenu(
       ? popupInnerOpenSet.has(node.key)
       : openSet.has(node.key);
   /**
-   * 二级、三级缩进通过外层 `li.paddingInlineStart` 实现，避免与 cssinjs 中
-   * `${c}-item / ${c}-submenu-title` 的 `paddingInline` shorthand 冲突
-   * （shorthand 会把内联 `paddingInlineStart` 一并覆盖掉）。
+   * 二级、三级缩进写在 `<button>` 上（与 leaf 一致），避免外层 `li` padding 成为不可交互死区。
    */
-  const indentStyle =
-    depth > 0 ? { paddingInlineStart: depth * MENU_INDENT_PX } : undefined;
   return (
     <li
       key={node.key}
@@ -472,11 +616,11 @@ function renderInlineSubmenu(
       data-pro-layout-nav-submenu-open={isOpen || undefined}
       className={clsx(`${baseClassName}-submenu`, hashId, node.className, {
         [`${baseClassName}-submenu-open`]: isOpen,
-        [`${baseClassName}-submenu--child-selected`]:
-          subMenuSelectedSet.has(node.key),
+        [`${baseClassName}-submenu--child-selected`]: subMenuSelectedSet.has(
+          node.key,
+        ),
       })}
       data-testid="pro-layout-nav-menu-submenu"
-      style={indentStyle}
       role="none"
     >
       <button
@@ -484,6 +628,9 @@ function renderInlineSubmenu(
         className={clsx(`${baseClassName}-submenu-title`, hashId, {
           [`${baseClassName}-submenu-title--open`]: isOpen,
         })}
+        style={itemMenuDepthIndentStyle(
+          effectiveItemMenuIndentDepth(ctx, depth),
+        )}
         data-testid="pro-layout-nav-menu-submenu-title"
         aria-expanded={isOpen}
         aria-haspopup="true"
@@ -555,10 +702,147 @@ function renderNode(
       if (ctx.popupMode && !ctx.insideSubmenuPopup) {
         return renderPopup(ctx, node, depth);
       }
+      if (
+        ctx.popupMode &&
+        ctx.insideSubmenuPopup &&
+        ctx.horizontalOverflowVerticalSubmenus
+      ) {
+        return (
+          // eslint-disable-next-line @typescript-eslint/no-use-before-define -- OverflowVerticalSubmenu 定义于同文件下文
+          <OverflowVerticalSubmenu
+            key={node.key}
+            ctx={ctx}
+            node={node}
+            depth={depth}
+          />
+        );
+      }
       return renderInlineSubmenu(ctx, node, depth);
     default:
       return null;
   }
+}
+
+/**
+ * 顶栏「更多」内及侧向子层：对齐 antd Menu `mode="vertical"`，子级以侧向 Popover 展开，
+ * 不在当前列 inline 撑开。
+ */
+function OverflowVerticalSubmenu({
+  ctx,
+  node,
+  depth,
+}: {
+  ctx: ProLayoutNavMenuRenderContext;
+  node: Extract<NavMenuNode, { kind: 'submenu' }>;
+  depth: number;
+}) {
+  const {
+    baseClassName,
+    hashId,
+    subMenuSelectedSet,
+    layoutDirection = 'ltr',
+  } = ctx;
+  const isRtl = layoutDirection === 'rtl';
+  const placement = isRtl ? ('leftTop' as const) : ('rightTop' as const);
+  const alignOffset: [number, number] = isRtl ? [-4, 0] : [4, 0];
+  const hasIcon = !!node.hasIcon;
+
+  const [flyoutOpen, setFlyoutOpen] = useState(false);
+
+  const flyoutRenderCtx: ProLayoutNavMenuRenderContext = {
+    ...ctx,
+    insideSubmenuPopup: true,
+    horizontalOverflowVerticalSubmenus: true,
+  };
+
+  const flyoutContent = (
+    <ul
+      role="menu"
+      className={clsx(`${baseClassName}-list`, hashId)}
+      data-pro-layout-nav-popup-panel
+      data-pro-layout-nav-horizontal-overflow-flyout-panel
+      data-testid="pro-layout-nav-menu-overflow-vertical-flyout-list"
+    >
+      {node.children.map((child) =>
+        renderNode(flyoutRenderCtx, child, depth + 1),
+      )}
+    </ul>
+  );
+
+  return (
+    <li
+      role="none"
+      data-pro-layout-nav-submenu
+      data-pro-layout-nav-submenu-open={flyoutOpen || undefined}
+      className={clsx(
+        `${baseClassName}-submenu`,
+        `${baseClassName}-submenu--overflow-vertical-flyout`,
+        hashId,
+        node.className,
+        {
+          [`${baseClassName}-submenu-open`]: flyoutOpen,
+          [`${baseClassName}-submenu-has-icon`]: hasIcon,
+          [`${baseClassName}-submenu--child-selected`]: subMenuSelectedSet.has(
+            node.key,
+          ),
+        },
+      )}
+      data-testid="pro-layout-nav-menu-overflow-vertical-flyout-submenu"
+    >
+      <Popover
+        open={flyoutOpen}
+        onOpenChange={setFlyoutOpen}
+        arrow={false}
+        trigger={['hover', 'focus']}
+        placement={placement}
+        align={{ offset: alignOffset }}
+        destroyOnHidden
+        classNames={{ root: clsx(`${baseClassName}-submenu-popup`, hashId) }}
+        styles={{
+          container: { padding: 0 },
+          content: { padding: 4, minWidth: 140 },
+          root: { maxHeight: 'calc(100vh - 32px)', overflowY: 'auto' },
+        }}
+        content={flyoutContent}
+      >
+        <button
+          type="button"
+          className={clsx(`${baseClassName}-submenu-title`, hashId, {
+            [`${baseClassName}-submenu-title--open`]: flyoutOpen,
+            [`${baseClassName}-submenu-has-icon`]: hasIcon,
+          })}
+          style={itemMenuDepthIndentStyle(depth)}
+          data-testid="pro-layout-nav-menu-overflow-vertical-flyout-submenu-title"
+          aria-expanded={flyoutOpen}
+          aria-haspopup="true"
+          onClick={(e) => {
+            e.stopPropagation();
+            node.onTitleClick?.(e);
+          }}
+          onKeyDown={(e) => {
+            if (e.key === 'Escape' && flyoutOpen) {
+              e.stopPropagation();
+              setFlyoutOpen(false);
+              return;
+            }
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              e.stopPropagation();
+              setFlyoutOpen((open) => !open);
+            }
+          }}
+        >
+          <span
+            className={clsx(`${baseClassName}-item-title`, hashId)}
+            data-testid="pro-layout-nav-menu-item-title"
+          >
+            {node.label}
+          </span>
+          <SubmenuArrow baseClassName={baseClassName} hashId={hashId} />
+        </button>
+      </Popover>
+    </li>
+  );
 }
 
 const isPopupMode = (mode: MenuMode, collapsed?: boolean) =>
@@ -580,7 +864,15 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
   ...restNavProps
 }) => {
   const popupMode = isPopupMode(mode, collapsed);
+  const isHorizontalMode = mode === 'horizontal';
+  const { direction } = useContext(ConfigProvider.ConfigContext);
   const rootNavRef = useRef<HTMLElement>(null);
+  const measureNavRef = useRef<HTMLElement>(null);
+  const [horizontalOverflowOpen, setHorizontalOverflowOpen] = useState(false);
+  const [overflowFromIndex, setOverflowFromIndex] = useState(
+    () => nodes.length,
+  );
+  const [horizontalResizeTick, setHorizontalResizeTick] = useState(0);
   /**
    * `popupOpenKey`：当前打开的顶级 popup 的 key。
    * - Popover 自带定位/外部点击关闭/滚动跟随，无需再维护 placement / anchorRef
@@ -615,6 +907,25 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
     [selectedKeys],
   );
 
+  const nodesLayoutKey = useMemo(
+    () => nodes.map((n) => n.key).join('\u0001'),
+    [nodes],
+  );
+
+  const measureNavStyle = useMemo((): CSSProperties => {
+    if (!style) {
+      return { width: 'max-content', maxWidth: 'none' };
+    }
+    const { width: _w, maxWidth: _mw, ...rest } = style;
+    return { ...rest, width: 'max-content', maxWidth: 'none' };
+  }, [style]);
+
+  useEffect(() => {
+    if (popupOpenKey !== null) {
+      setHorizontalOverflowOpen(false);
+    }
+  }, [popupOpenKey]);
+
   useEffect(() => {
     if (!popupMode) return;
     if (defaultOpenKeys.length > 0) {
@@ -624,39 +935,50 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
   }, [popupMode, defaultOpenKeysSig]);
 
   /**
-   * 顶级 popup 状态联动 popup 内 inline 展开：
-   * - 关闭时：清空 `popupInnerOpenSet`，下次打开仍是初始折叠；
-   * - 打开时：根据当前 `selectedKeys` 自动展开包含选中项的所有祖先 submenu，
-   *   让用户一打开就能看到当前所在路径，无需手动点开三级。
+   * 「更多」浮层：打开时清空 `popupInnerOpenSet`（侧栏收起 popup 内 inline 展开态与
+   * 本组件共享该 set；打开「更多」时归零，避免串状态）。顶栏「更多」内子菜单已改侧向
+   * 浮层，不再依赖该 set。
    */
   useEffect(() => {
-    if (popupOpenKey === null) {
-      setPopupInnerOpenSet((prev) => (prev.size === 0 ? prev : new Set()));
+    if (!horizontalOverflowOpen) return;
+    setPopupInnerOpenSet(new Set());
+  }, [horizontalOverflowOpen]);
+
+  /**
+   * 顶级 popup（非「更多」）联动 popup 内 inline 展开：
+   * - 关闭时：清空 `popupInnerOpenSet`；
+   * - 打开时：按 `selectedKeys` 自动展开包含选中项的祖先 submenu，便于直接看到当前路径。
+   *
+   * 「更多」打开期间本 effect 不写入 inner set（由上一段 effect 仅在 open 时清空），避免
+   * 与用户在面板内的手动展开/收起打架。
+   */
+  useEffect(() => {
+    if (horizontalOverflowOpen) {
       return;
     }
-    const topNode = nodes.find(
-      (n) => n.kind === 'submenu' && n.key === popupOpenKey,
-    );
-    if (!topNode || topNode.kind !== 'submenu') return;
-    /**
-     * 在该顶级 submenu 的子树里逐个 selectedKey 探路，把所有祖先 submenu key
-     * 收进 set。注意：根 popupOpenKey 自身是顶级 popup 的状态，不属于 inner。
-     */
-    const next = new Set<string>();
-    for (const sk of selectedKeys.map(keyToString)) {
-      const ancestors = findAncestorSubmenuKeys(topNode.children, sk);
-      if (ancestors) {
-        for (const k of ancestors) next.add(k);
+    if (popupOpenKey !== null) {
+      const topNode = nodes.find(
+        (n) => n.kind === 'submenu' && n.key === popupOpenKey,
+      );
+      if (!topNode || topNode.kind !== 'submenu') return;
+      const next = new Set<string>();
+      for (const sk of selectedKeys.map(keyToString)) {
+        const ancestors = findAncestorSubmenuKeys(topNode.children, sk);
+        if (ancestors) {
+          for (const k of ancestors) next.add(k);
+        }
       }
+      setPopupInnerOpenSet((prev) => {
+        if (prev.size === next.size && [...next].every((k) => prev.has(k)))
+          return prev;
+        return next;
+      });
+      return;
     }
-    setPopupInnerOpenSet((prev) => {
-      if (prev.size === next.size && [...next].every((k) => prev.has(k))) {
-        return prev;
-      }
-      return next;
-    });
+
+    setPopupInnerOpenSet((prev) => (prev.size === 0 ? prev : new Set()));
     // eslint-disable-next-line react-hooks/exhaustive-deps -- `selectedKeysSig` 已是 selectedKeys 的稳定签名
-  }, [popupOpenKey, nodes, selectedKeysSig]);
+  }, [popupOpenKey, horizontalOverflowOpen, nodes, selectedKeysSig]);
 
   const selectedSet = useMemo(
     () => new Set(selectedKeys.map(keyToString)),
@@ -672,6 +994,46 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
     () => new Set(openKeysProp.map(keyToString)),
     [openKeysProp],
   );
+
+  useLayoutEffect(() => {
+    if (!isHorizontalMode) {
+      setHorizontalOverflowOpen(false);
+      setOverflowFromIndex(nodes.length);
+      return;
+    }
+    if (nodes.length === 0) {
+      setOverflowFromIndex(0);
+      return;
+    }
+    const measure = measureNavRef.current;
+    const nav = rootNavRef.current;
+    if (!measure || !nav) return;
+    const lis = [...measure.querySelectorAll(':scope > li')];
+    if (lis.length !== nodes.length) return;
+    const widths = lis.map((el) => el.getBoundingClientRect().width);
+    const gapPx = parseFloat(getComputedStyle(measure).gap) || 0;
+    const cw = nav.clientWidth;
+    if (cw <= 0) return;
+    const next = computeHorizontalOverflowFromIndex(
+      widths,
+      nodes.length,
+      cw,
+      gapPx,
+      HORIZONTAL_OVERFLOW_MORE_RESERVE_PX,
+    );
+    setOverflowFromIndex((prev) => (prev === next ? prev : next));
+  }, [isHorizontalMode, nodes.length, nodesLayoutKey, horizontalResizeTick]);
+
+  useEffect(() => {
+    if (!isHorizontalMode) return;
+    const nav = rootNavRef.current;
+    if (!nav) return;
+    const ro = new ResizeObserver(() => {
+      setHorizontalResizeTick((t) => t + 1);
+    });
+    ro.observe(nav);
+    return () => ro.disconnect();
+  }, [isHorizontalMode]);
 
   const handleSubmenuTitleClick = useRefFunction(
     (
@@ -704,6 +1066,7 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
          * - 这样反复点击同一个标题不会出现「闪关一下」的视觉抖动。
          */
         setPopupOpenKey(key);
+        setHorizontalOverflowOpen(false);
         return;
       }
       const isOpen = openSet.has(key);
@@ -722,8 +1085,11 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
       if (popupMode) {
         setPopupOpenKey(null);
       }
+      setHorizontalOverflowOpen(false);
     },
   );
+
+  const layoutDirection = direction === 'rtl' ? 'rtl' : 'ltr';
 
   const renderCtx: ProLayoutNavMenuRenderContext = {
     baseClassName,
@@ -731,6 +1097,7 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
     mode,
     popupMode,
     insideSubmenuPopup: false,
+    layoutDirection,
     selectedSet,
     subMenuSelectedSet,
     openSet,
@@ -742,11 +1109,9 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
     handleSubmenuTitleClick,
   };
 
-  const isHorizontal = mode === 'horizontal';
-
   const listClassName = clsx(
     `${baseClassName}-list`,
-    !isHorizontal && `${baseClassName}-list--root`,
+    !isHorizontalMode && `${baseClassName}-list--root`,
     hashId,
   );
 
@@ -761,22 +1126,137 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
     return renderNode(renderCtx, n, 0);
   });
 
-  if (isHorizontal) {
-    return (
-      <nav
-        ref={rootNavRef}
-        data-pro-layout-nav-root
-        {...restNavProps}
-        className={clsx(className, hashId, baseClassName, listClassName, {
-          [`${baseClassName}--horizontal`]: true,
-          [`${baseClassName}--collapsed`]: !!collapsed,
-        })}
-        data-testid={restNavProps['data-testid'] || 'pro-layout-nav-menu'}
-        style={style}
-        role="menubar"
+  if (isHorizontalMode) {
+    const visibleNodes = nodes.slice(0, overflowFromIndex);
+    const overflowNodes = nodes.slice(overflowFromIndex);
+    const overflowCtx: ProLayoutNavMenuRenderContext = {
+      ...renderCtx,
+      insideSubmenuPopup: true,
+      horizontalOverflowVerticalSubmenus: true,
+    };
+    const overflowHighlight =
+      overflowNodes.length > 0 &&
+      navNodesSubtreeHasSelectedLeaf(overflowNodes, selectedSet);
+
+    const overflowPanel = (
+      <ul
+        role="menu"
+        className={clsx(`${baseClassName}-list`, hashId)}
+        data-pro-layout-nav-popup-panel
+        data-pro-layout-nav-horizontal-overflow-panel
+        data-testid="pro-layout-nav-menu-horizontal-overflow-list"
       >
-        {listBody}
-      </nav>
+        {overflowNodes.map((child) => renderNode(overflowCtx, child, 0))}
+      </ul>
+    );
+
+    return (
+      <>
+        {nodes.length > 0 ? (
+          <nav
+            ref={measureNavRef}
+            data-pro-layout-horizontal-measure=""
+            aria-hidden
+            tabIndex={-1}
+            className={clsx(className, hashId, baseClassName, listClassName, {
+              [`${baseClassName}--horizontal`]: true,
+              [`${baseClassName}--collapsed`]: !!collapsed,
+            })}
+            style={measureNavStyle}
+            role="presentation"
+          >
+            {nodes.map((n) => renderNode(renderCtx, n, 0))}
+          </nav>
+        ) : null}
+        <nav
+          ref={rootNavRef}
+          data-pro-layout-nav-root
+          {...restNavProps}
+          className={clsx(className, hashId, baseClassName, listClassName, {
+            [`${baseClassName}--horizontal`]: true,
+            [`${baseClassName}--collapsed`]: !!collapsed,
+          })}
+          data-testid={restNavProps['data-testid'] || 'pro-layout-nav-menu'}
+          style={style}
+          role="menubar"
+        >
+          {visibleNodes.map((n) => renderNode(renderCtx, n, 0))}
+          {overflowNodes.length > 0 ? (
+            <li
+              key="__pro_layout_horizontal_overflow__"
+              role="none"
+              className={clsx(`${baseClassName}-overflow-more`, hashId, {
+                [`${baseClassName}-submenu--child-selected`]: overflowHighlight,
+              })}
+              data-testid="pro-layout-nav-menu-horizontal-overflow"
+            >
+              <Popover
+                open={horizontalOverflowOpen}
+                arrow={false}
+                destroyOnHidden
+                trigger="hover"
+                /** 浮层在「更多」左侧展开（LTR：`bottomLeft`）；RTL 镜像为 `bottomRight` */
+                placement={direction === 'rtl' ? 'bottomRight' : 'bottomLeft'}
+                align={{
+                  offset: [0, 4],
+                  overflow: { adjustX: true, adjustY: true },
+                }}
+                classNames={{
+                  root: clsx(`${baseClassName}-submenu-popup`, hashId),
+                }}
+                styles={{
+                  container: { padding: 0 },
+                  content: { padding: 4, minWidth: 140 },
+                  root: {
+                    maxHeight: 'calc(100vh - 32px)',
+                    overflowY: 'auto',
+                    transformOrigin:
+                      direction === 'rtl' ? 'top right' : 'top left',
+                  },
+                }}
+                onOpenChange={(next) => {
+                  setHorizontalOverflowOpen(next);
+                  if (next) {
+                    setPopupOpenKey(null);
+                  }
+                }}
+                content={overflowPanel}
+              >
+                <button
+                  type="button"
+                  className={clsx(`${baseClassName}-submenu-title`, hashId, {
+                    [`${baseClassName}-submenu-title--open`]:
+                      horizontalOverflowOpen,
+                  })}
+                  aria-expanded={horizontalOverflowOpen}
+                  aria-haspopup="true"
+                  aria-label="展开更多一级菜单"
+                  title="更多"
+                  data-testid="pro-layout-nav-menu-horizontal-overflow-trigger"
+                  onClick={(e) => e.preventDefault()}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Escape' && horizontalOverflowOpen) {
+                      e.stopPropagation();
+                      setHorizontalOverflowOpen(false);
+                    }
+                  }}
+                >
+                  <span
+                    className={clsx(`${baseClassName}-item-title`, hashId)}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    <EllipsisOutlined />
+                  </span>
+                </button>
+              </Popover>
+            </li>
+          ) : null}
+        </nav>
+      </>
     );
   }
 

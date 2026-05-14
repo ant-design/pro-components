@@ -21,10 +21,14 @@ import ProFormText from '../../components/Text';
 import ProFormTextArea from '../../components/TextArea';
 import ProFormTreeSelect from '../../components/TreeSelect';
 
-const createLightFilterField = (Field: React.ComponentType<Record<string, any>>) => {
+const createLightFilterField = (
+  Field: React.ComponentType<Record<string, any>>,
+) => {
   const FieldWrapper = (props: Record<string, any>) => {
     const { proFieldProps, ...rest } = props;
-    return <Field {...rest} proFieldProps={{ light: true, ...proFieldProps }} />;
+    return (
+      <Field {...rest} proFieldProps={{ light: true, ...proFieldProps }} />
+    );
   };
   FieldWrapper.displayName = 'LightFilterField';
   return FieldWrapper;

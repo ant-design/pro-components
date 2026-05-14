@@ -285,11 +285,7 @@ function processNestedObjectTransforms(
 
     if (transformFunction && typeof transformFunction === 'function') {
       const namePath = nextParentsKey.map((k) => String(k));
-      const transformed = transformFunction(
-        itemValue,
-        namePath,
-        rootAllValues,
-      );
+      const transformed = transformFunction(itemValue, namePath, rootAllValues);
 
       if (
         typeof transformed === 'object' &&

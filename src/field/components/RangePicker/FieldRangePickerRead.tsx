@@ -21,13 +21,8 @@ export function FieldRangePickerRead(props: Props, ref: React.Ref<unknown>) {
     props;
   const start = parsedStartText;
   const end = parsedEndText;
-  const content =
-    !start && !end ? '-' : `${start || '-'} ~ ${end || '-'}`;
-  const dom = (
-    <div ref={ref as React.Ref<HTMLDivElement>}>
-      {content}
-    </div>
-  );
+  const content = !start && !end ? '-' : `${start || '-'} ~ ${end || '-'}`;
+  const dom = <div ref={ref as React.Ref<HTMLDivElement>}>{content}</div>;
   if (render) {
     return render(text, { mode, ...fieldProps }, <span>{dom}</span>);
   }

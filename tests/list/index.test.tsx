@@ -675,12 +675,8 @@ describe('List', () => {
     // rowClassName 函数应根据 index 返回不同 className
     // 共 2 行：第 0 行带 even，第 1 行带 odd
     expect(container.querySelectorAll('.ant-pro-list-row').length).toBe(2);
-    expect(
-      container.querySelectorAll('.ant-pro-list-row.even').length,
-    ).toBe(1);
-    expect(
-      container.querySelectorAll('.ant-pro-list-row.odd').length,
-    ).toBe(1);
+    expect(container.querySelectorAll('.ant-pro-list-row.even').length).toBe(1);
+    expect(container.querySelectorAll('.ant-pro-list-row.odd').length).toBe(1);
   });
 
   it('🚏 ProList support itemHeaderRender', async () => {

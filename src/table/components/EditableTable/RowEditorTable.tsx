@@ -31,19 +31,17 @@ export function RowEditorTable<
     [props.name, rowKey],
   );
 
-  const handleEditableKeysChange = useRefFunction(
-    (keys: React.Key[]) => {
-      const cleanKeys = keys.filter((key) => key !== undefined);
-      setEditableRowKeys(cleanKeys);
-      const editingPayload = resolveEditingPayloadForRowEditableOnChange(
-        cleanKeys,
-        props.value as readonly DataType[] | undefined,
-        getRowKey,
-        props.editable?.type,
-      );
-      props.editable?.onChange?.(cleanKeys, editingPayload);
-    },
-  );
+  const handleEditableKeysChange = useRefFunction((keys: React.Key[]) => {
+    const cleanKeys = keys.filter((key) => key !== undefined);
+    setEditableRowKeys(cleanKeys);
+    const editingPayload = resolveEditingPayloadForRowEditableOnChange(
+      cleanKeys,
+      props.value as readonly DataType[] | undefined,
+      getRowKey,
+      props.editable?.type,
+    );
+    props.editable?.onChange?.(cleanKeys, editingPayload);
+  });
 
   const scheduleExitEditing = useCallback(() => {
     // 延迟退出编辑态：如果焦点在同一行内的字段间切换（Tab），
@@ -76,7 +74,13 @@ export function RowEditorTable<
         }),
       })) as ProColumns<any, ValueType>[]) ?? [],
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [props.columns, getRowKey, scheduleExitEditing, cancelExitEditing, handleEditableKeysChange],
+    [
+      props.columns,
+      getRowKey,
+      scheduleExitEditing,
+      cancelExitEditing,
+      handleEditableKeysChange,
+    ],
   );
 
   return (

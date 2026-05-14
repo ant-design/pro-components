@@ -1,9 +1,9 @@
 import { ConfigProvider } from 'antd';
 import { clsx } from 'clsx';
 import React, { useContext } from 'react';
-import { LoginFormHeader } from '../_shared/LoginFormHeader';
 import { useIntl } from '../../../provider';
 import type { SubmitterProps } from '../../BaseForm/Submitter';
+import { LoginFormHeader } from '../_shared/LoginFormHeader';
 import type { ProFormProps } from '../ProForm';
 import { ProForm } from '../ProForm';
 import { useStyle } from './style';
@@ -128,7 +128,10 @@ function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
           {children}
         </ProForm>
         {actions ? (
-          <div className={clsx(getCls('main-other'), hashId)} style={otherStyle}>
+          <div
+            className={clsx(getCls('main-other'), hashId)}
+            style={otherStyle}
+          >
             {actions}
           </div>
         ) : null}

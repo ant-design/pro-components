@@ -12,13 +12,11 @@ import type { NamePath } from 'antd/lib/form/interface';
 import { clsx } from 'clsx';
 import type dayjs from 'dayjs';
 import React, {
-  useCallback,
   useContext,
   useEffect,
   useImperativeHandle,
   useMemo,
   useRef,
-  useState,
 } from 'react';
 import { ProConfigProvider } from '../../provider';
 import type {
@@ -27,21 +25,19 @@ import type {
   ProRequestData,
   SearchTransformKeyFn,
 } from '../../utils';
-import type { ProFieldValueType } from '../../utils/typing';
 import {
   autoFocusToFirstChild,
   conversionMomentValue,
   isDeepEqualReact,
   nanoid,
   ProFormContext,
-  runFunction,
   transformKeySubmitValue,
   useFetchData,
   usePrevious,
   useRefFunction,
   useStyle,
 } from '../../utils';
-import { useUrlSync } from './useUrlSync';
+import type { ProFieldValueType } from '../../utils/typing';
 import { FormListContext } from '../components/List';
 import FieldContext from '../FieldContext';
 import { GridContext, useGridHelpers } from '../helpers';
@@ -53,6 +49,7 @@ import type {
 import { EditOrReadOnlyContext } from './EditOrReadOnlyContext';
 import type { SubmitterProps } from './Submitter';
 import Submitter from './Submitter';
+import { useUrlSync } from './useUrlSync';
 
 const { noteOnce } = warning;
 
@@ -219,10 +216,13 @@ export type BaseFormProps<T = Record<string, any>, U = Record<string, any>> = {
   /** 是否回车提交 */
   isKeyPressSubmit?: boolean;
   /** Form 组件的类型，内部使用 */
-  formComponentType?: 'DrawerForm' | 'ModalForm' | 'QueryFilter' | 'LightFilter';
+  formComponentType?:
+    | 'DrawerForm'
+    | 'ModalForm'
+    | 'QueryFilter'
+    | 'LightFilter';
 } & Omit<FormProps, 'onFinish'> &
   CommonFormProps<T, U>;
-
 
 /**
  * It takes a name path and converts it to an array.
@@ -246,7 +246,11 @@ const defaultExtraUrlParams = {} as Record<string, any>;
  */
 function buildFormatValues(
   getFormInstance: () => FormInstance<any> | undefined,
-  transformKey: (values: any, paramsOmitNil: boolean, parentKey?: NamePath) => any,
+  transformKey: (
+    values: any,
+    paramsOmitNil: boolean,
+    parentKey?: NamePath,
+  ) => any,
   omitNil: boolean,
 ) {
   return {
@@ -254,10 +258,16 @@ function buildFormatValues(
       const instance = getFormInstance();
       if (!instance) return {};
       const values = instance.getFieldsValue(allData!);
-      return transformKey(values, omitNilParam !== undefined ? omitNilParam : omitNil);
+      return transformKey(
+        values,
+        omitNilParam !== undefined ? omitNilParam : omitNil,
+      );
     },
 
-    getFieldFormatValue: (paramsNameList: NamePath = [], omitNilParam?: boolean) => {
+    getFieldFormatValue: (
+      paramsNameList: NamePath = [],
+      omitNilParam?: boolean,
+    ) => {
       const instance = getFormInstance();
       if (!instance) return undefined;
       const nameList = covertFormName(paramsNameList);
@@ -281,7 +291,10 @@ function buildFormatValues(
       return result;
     },
 
-    getFieldFormatValueObject: (paramsNameList?: NamePath, omitNilParam?: boolean) => {
+    getFieldFormatValueObject: (
+      paramsNameList?: NamePath,
+      omitNilParam?: boolean,
+    ) => {
       const instance = getFormInstance();
       if (!instance) return {};
       const nameList = covertFormName(paramsNameList);
@@ -292,13 +305,21 @@ function buildFormatValues(
       // fieldsValueType 匹配失败且极端情况下日期字段无法格式化为 string/number。
       const newNameList = nameList ? [...nameList] : [];
       newNameList.shift();
-      return transformKey(obj, omitNilParam !== undefined ? omitNilParam : omitNil, newNameList);
+      return transformKey(
+        obj,
+        omitNilParam !== undefined ? omitNilParam : omitNil,
+        newNameList,
+      );
     },
 
-    validateFieldsReturnFormatValue: async (nameList?: NamePath[], omitNilParam?: boolean) => {
+    validateFieldsReturnFormatValue: async (
+      nameList?: NamePath[],
+      omitNilParam?: boolean,
+    ) => {
       const instance = getFormInstance();
       if (!instance) return {};
-      if (!Array.isArray(nameList) && nameList) throw new Error('nameList must be array');
+      if (!Array.isArray(nameList) && nameList)
+        throw new Error('nameList must be array');
       const values = await instance.validateFields(nameList);
       const transformedKey = transformKey(
         values,
@@ -355,7 +376,9 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
   };
 
   /** 内部持有当前 FormInstance，供 useImperativeHandle 和 submitter 使用 */
-  const formInstanceRef = useRef<ProFormRef<any>>((form || formInstance) as any);
+  const formInstanceRef = useRef<ProFormRef<any>>(
+    (form || formInstance) as any,
+  );
 
   /**
    * 获取布局
@@ -372,7 +395,10 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
 
   const items = React.Children.toArray(children as any).map((item, index) => {
     if (index === 0 && React.isValidElement(item) && autoFocusFirstInput) {
-      return autoFocusToFirstChild(item, autoFocusFirstInput) as React.ReactElement;
+      return autoFocusToFirstChild(
+        item,
+        autoFocusFirstInput,
+      ) as React.ReactElement;
     }
     return item;
   });
@@ -431,7 +457,11 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
     propsFormRef,
     () => ({
       ...formInstanceRef.current,
-      ...buildFormatValues(() => formInstanceRef.current, transformKey, omitNil),
+      ...buildFormatValues(
+        () => formInstanceRef.current,
+        transformKey,
+        omitNil,
+      ),
     }),
     [omitNil, transformKey, propsFormRef],
   );

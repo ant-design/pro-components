@@ -109,7 +109,6 @@ const Demo = () => {
         selectedRows,
         onCleanSelected,
       }) => {
-
         return (
           <Space size={24}>
             <span>

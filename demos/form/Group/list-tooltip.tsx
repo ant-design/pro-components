@@ -5,7 +5,7 @@ import {
   ProFormList,
   ProFormText,
 } from '@ant-design/pro-components';
-import { message, Segmented } from 'antd';
+import { Segmented } from 'antd';
 import { useState } from 'react';
 
 const Demo = () => {

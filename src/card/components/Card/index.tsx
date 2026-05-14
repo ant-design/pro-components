@@ -275,7 +275,9 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
         role="button"
         tabIndex={collapsible === 'icon' ? 0 : undefined}
         className={clsx(`${prefixCls}-collapsible-icon`, hashId)}
-        onClick={collapsible === 'icon' ? handleCollapsibleIconClick : undefined}
+        onClick={
+          collapsible === 'icon' ? handleCollapsibleIconClick : undefined
+        }
         onKeyDown={
           collapsible === 'icon'
             ? (e) => {
@@ -297,15 +299,10 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       />
     ));
 
-  const headerCls = clsx(
-    `${prefixCls}-header`,
-    hashId,
-    classNames?.header,
-    {
-      [`${prefixCls}-header-border`]: headerBordered || type === 'inner',
-      [`${prefixCls}-header-collapsible`]: collapsibleButton,
-    },
-  );
+  const headerCls = clsx(`${prefixCls}-header`, hashId, classNames?.header, {
+    [`${prefixCls}-header-border`]: headerBordered || type === 'inner',
+    [`${prefixCls}-header-collapsible`]: collapsibleButton,
+  });
 
   const titleCls = clsx(`${prefixCls}-title`, hashId, classNames?.title);
   const extraCls = clsx(`${prefixCls}-extra`, hashId, classNames?.extra);
@@ -374,9 +371,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
           {loading ? loadingDOM : childrenModified}
         </div>
       )}
-      {actions ? (
-        <Actions actions={actions} prefixCls={prefixCls} />
-      ) : null}
+      {actions ? <Actions actions={actions} prefixCls={prefixCls} /> : null}
     </div>,
   );
 });

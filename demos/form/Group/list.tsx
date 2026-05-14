@@ -32,12 +32,7 @@ const Demo = () => {
           },
         ]}
       />
-      <ProForm
-        name="group-list-demo"
-        onFinish={async (values) => {
-
-        }}
-      >
+      <ProForm name="group-list-demo" onFinish={async (values) => {}}>
         <ProFormText width="sm" name="id" label="主合同编号" />
         <ProFormText
           name="project"
@@ -58,7 +53,6 @@ const Demo = () => {
             {
               required: true,
               validator: async (_, value) => {
-
                 if (value && value.length > 0) {
                   return;
                 }

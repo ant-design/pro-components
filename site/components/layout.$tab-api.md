@@ -35,6 +35,7 @@ order: 0
 <code src="../../demos/layout/topMode.tsx" iframe="650" title="顶部导航"></code>
 
 <code src="../../demos/layout/mixMode.tsx" iframe="650" title="顶栏一级 + 侧栏子菜单（splitMenus）"></code>
+
 ### 菜单配置
 
 <code src="../../demos/layout/collapsedShowTitle.tsx" iframe="650" title="收起时展示 title"></code>

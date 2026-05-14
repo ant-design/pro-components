@@ -17,7 +17,9 @@ import { ProFormListItem } from './ListItem';
  */
 async function wrapWithGuard<TArgs extends any[]>(
   args: TArgs,
-  guard: ((...params: [...TArgs, number]) => boolean | Promise<boolean>) | undefined,
+  guard:
+    | ((...params: [...TArgs, number]) => boolean | Promise<boolean>)
+    | undefined,
   count: number,
   doAction: (...args: TArgs) => any,
   afterCallback?: (...params: [...TArgs, number]) => void,
@@ -75,10 +77,24 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
     const count = uuidFields.length;
 
     wrapAction.add = (...args) =>
-      wrapWithGuard(args, actionGuard?.beforeAddRow, count, action.add, onAfterAdd, 1);
+      wrapWithGuard(
+        args,
+        actionGuard?.beforeAddRow,
+        count,
+        action.add,
+        onAfterAdd,
+        1,
+      );
 
     wrapAction.remove = (...args) =>
-      wrapWithGuard(args, actionGuard?.beforeRemoveRow, count, action.remove, onAfterRemove, -1);
+      wrapWithGuard(
+        args,
+        actionGuard?.beforeRemoveRow,
+        count,
+        action.remove,
+        onAfterRemove,
+        -1,
+      );
 
     return wrapAction;
   }, [

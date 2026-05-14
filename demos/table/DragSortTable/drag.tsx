@@ -54,7 +54,6 @@ const Demo = () => {
     afterIndex: number,
     newDataSource: any,
   ) => {
-
     setDataSource(newDataSource);
     message.success('修改列表排序成功');
   };

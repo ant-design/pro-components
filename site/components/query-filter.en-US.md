@@ -69,7 +69,7 @@ Note that the values of the breakpoints are the size of the form container and n
 
 Breakpoints use antd design tokens (xs=576, sm=768, md=992, lg=1200, xl=1600 by default):
 
-| container-width breakpoint  | single-row display form single-column count (including action area) | default layout |
+| container-width breakpoint | single-row display form single-column count (including action area) | default layout |
 | -------------------------- | ------------------------------------------------------------------- | -------------- |
 | `≧ 1600px`                 | 4 columns                                                           | `horizontal`   |
 | `≧ 768px && < 1600px`      | 3 columns                                                           | `horizontal`   |
@@ -78,7 +78,7 @@ Breakpoints use antd design tokens (xs=576, sm=768, md=992, lg=1200, xl=1600 by 
 
 ##### Rules when forcing top and bottom layout
 
-| container width breakpoint  | single row display table single column count (including operation area) |
+| container width breakpoint | single row display table single column count (including operation area) |
 | -------------------------- | ----------------------------------------------------------------------- |
 | `≧ 1600px`                 | 4 columns                                                               |
 | `≧ 992px && < 1600px`      | 3 columns                                                               |

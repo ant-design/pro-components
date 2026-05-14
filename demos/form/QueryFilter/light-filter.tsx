@@ -248,7 +248,11 @@ const Demo = () => {
         <LightFilter.digit name="count" label="数量" min={0} max={9999} />
         <LightFilter.slider name="range" label="范围" range />
         <LightFilter.slider name="slider" label="滑块" />
-        <LightFilter.input name="keyword" label="关键词" placeholder="请输入关键词" />
+        <LightFilter.input
+          name="keyword"
+          label="关键词"
+          placeholder="请输入关键词"
+        />
         <LightFilter.input
           name="address"
           label="地址"

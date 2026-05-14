@@ -177,6 +177,7 @@ export type ProFormFieldRemoteProps = Pick<
   'debounceTime' | 'request' | 'valueEnum' | 'params'
 >;
 
+export { PRO_FIELD_SCHEMA_LAYOUT_VALUE_TYPES } from '../utils/typing';
 export type {
   ProFieldBuiltinValueType,
   ProFieldSchemaLayoutValueType,
@@ -184,4 +185,3 @@ export type {
   ProFieldValueType,
   ProFieldValueTypeInput,
 } from '../utils/typing';
-export { PRO_FIELD_SCHEMA_LAYOUT_VALUE_TYPES } from '../utils/typing';

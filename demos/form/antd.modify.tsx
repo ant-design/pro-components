@@ -1,6 +1,6 @@
 import {
-  WithControlPropsType,
   useControlModel,
+  WithControlPropsType,
 } from '@ant-design/pro-components';
 import { Button, Form, Input, message, Select } from 'antd';
 import React from 'react';

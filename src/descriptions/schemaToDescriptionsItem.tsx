@@ -50,8 +50,7 @@ export function schemaToDescriptionsItem(
         (dataIndex as React.Key) || index,
       );
 
-      const fieldMode =
-        mode != null ? mode : isEditable ? 'edit' : 'read';
+      const fieldMode = mode != null ? mode : isEditable ? 'edit' : 'read';
 
       const showEditIcon =
         editableUtils &&

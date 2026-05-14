@@ -36,7 +36,8 @@ export default () => (
     )}
   >
     <PageContainer title="menuTextRender">
-      左侧菜单文案由 <code>menuTextRender</code> 包了一层，并为「工作台」附加标签。
+      左侧菜单文案由 <code>menuTextRender</code>{' '}
+      包了一层，并为「工作台」附加标签。
     </PageContainer>
   </ProLayout>
 );

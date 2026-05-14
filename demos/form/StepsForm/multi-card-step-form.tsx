@@ -24,7 +24,6 @@ const Demo = () => {
     <>
       <StepsForm
         onFinish={async (values) => {
-
           await waitTime(1000);
           message.success('Submission successful');
         }}
@@ -117,7 +116,10 @@ const Demo = () => {
             />
           </ProCard>
         </StepsForm.StepForm>
-        <StepsForm.StepForm name="multi-card-step-form-checkbox" title="Second Step">
+        <StepsForm.StepForm
+          name="multi-card-step-form-checkbox"
+          title="Second Step"
+        >
           <ProCard
             style={{
               minWidth: 800,

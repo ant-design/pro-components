@@ -30,9 +30,7 @@ describe('BasicLayout', () => {
     // PageContainer 的 content 文本应正确渲染
     expect(container.textContent).toContain('just so so');
     // 应渲染 page-header 的 content 区域
-    expect(
-      container.querySelector('.ant-page-header-content'),
-    ).toBeTruthy();
+    expect(container.querySelector('.ant-page-header-content')).toBeTruthy();
   });
 
   it('title=false, don not render title view', async () => {

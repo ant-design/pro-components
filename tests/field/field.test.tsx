@@ -27,9 +27,7 @@ describe('Field', () => {
   it('🐴 base use', async () => {
     const html = render(<Field text="100" valueType="money" mode="edit" />);
     // mode="edit" + valueType="money" 应渲染 input-number 输入框
-    expect(
-      html.baseElement.querySelector('.ant-input-number'),
-    ).toBeTruthy();
+    expect(html.baseElement.querySelector('.ant-input-number')).toBeTruthy();
     // 输入框默认渲染（具体显示值由 InputNumber 内部 controlled state 决定，初始可能为空）
     expect(
       html.baseElement.querySelector('.ant-input-number-input'),
@@ -1133,9 +1131,7 @@ describe('Field', () => {
         />,
       );
       // mode="edit" + money 类型应渲染 input-number
-      expect(
-        html.baseElement.querySelector('.ant-input-number'),
-      ).toBeTruthy();
+      expect(html.baseElement.querySelector('.ant-input-number')).toBeTruthy();
       // input-number-input 元素存在
       expect(
         html.baseElement.querySelector('.ant-input-number-input'),
@@ -1156,9 +1152,7 @@ describe('Field', () => {
       });
 
       // mode="read" 时不应再渲染 input-number 编辑控件
-      expect(
-        html.baseElement.querySelector('.ant-input-number'),
-      ).toBeFalsy();
+      expect(html.baseElement.querySelector('.ant-input-number')).toBeFalsy();
       // 仍应渲染数字内容
       expect(html.baseElement.textContent).toContain('100');
 
@@ -1880,8 +1874,9 @@ describe('Field', () => {
   it(`🐴 ProFieldBadgeColor status`, async () => {
     const html = render(<ProFieldBadgeColor color="#1890ff" />);
     // 自定义 color 应作为 inline-style 应用到 badge dot 上
-    const dot =
-      html.baseElement.querySelector<HTMLElement>('.ant-badge-status-dot');
+    const dot = html.baseElement.querySelector<HTMLElement>(
+      '.ant-badge-status-dot',
+    );
     expect(dot).toBeTruthy();
     // antd 会把 hex 转为 rgb，因此校验 background 非空且非默认色即可
     expect(dot?.style.background).toBeTruthy();

@@ -93,23 +93,23 @@ API is the same as ProTable
 
 > For more features, see [Descriptions](https://ant.design/components/descriptions-cn/) of antd
 
-| Parameters     | Description                                                                                                                                | Type                                           | Default Value |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------- | ------------- |
-| title          | The title of the description list, displayed at the top                                                                                    | `ReactNode`                                    | -             |
-| tooltip        | Supplementary description of the content, displayed after hover                                                                            | `string`                                       | -             |
-| loading        | Display a loaded skeleton screen, the skeleton screen and dom will not correspond one-to-one                                               | `boolean`                                      | -             |
-| extra          | Describe the operation area of ​​the list, displayed on the upper right                                                                    | `string` \| `ReactNode`                        | -             |
-| bordered       | Whether to display the border                                                                                                              | boolean                                        | false         |
+| Parameters     | Description                                                                                                                          | Type                                           | Default Value |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------- | ------------- |
+| title          | The title of the description list, displayed at the top                                                                              | `ReactNode`                                    | -             |
+| tooltip        | Supplementary description of the content, displayed after hover                                                                      | `string`                                       | -             |
+| loading        | Display a loaded skeleton screen, the skeleton screen and dom will not correspond one-to-one                                         | `boolean`                                      | -             |
+| extra          | Describe the operation area of ​​the list, displayed on the upper right                                                              | `string` \| `ReactNode`                        | -             |
+| bordered       | Whether to display the border                                                                                                        | boolean                                        | false         |
 | column         | The number of description cells per row, can be written as pixel value or support responsive object writing `{ xs: 1, sm: 2, md: 3}` | number                                         | 3             |
-| size           | Set the size of the list. Can be set to `middle`, `small`, or left blank (only setting `bordered={true}` takes effect)                     | `default` \| `middle` \| `small`               | -             |
-| layout         | Description layout                                                                                                                         | `horizontal` \| `vertical`                     | `horizontal`  |
-| colon          | Configure the default `colon` for antd `Descriptions` cells                                 | boolean                                        | true          |
-| request        | Request data; use with `dataIndex` in `columns`                                  | `(params: U) => Promise<RequestData<T>>`       | -             |
-| onRequestError | Handling request errors, by default an error will be thrown directly                                                                       | `(error: Error) => void`                       | -             |
-| columns        | Column definition, used with request [columns](/components/table#columns)                                                                  | `ProColumns<T>[]`                              | -             |
-| editable       | Editable related configuration                                                                                                             | [EditableConfig](#editable-edit-configuration) | -             |
-| dataSource     | Data source                                                                                                                                | `T[]`                                          | -             |
-| actionRef      | Operation reference                                                                                                                        | `MutableRefObject<ActionType>`                 | -             |
+| size           | Set the size of the list. Can be set to `middle`, `small`, or left blank (only setting `bordered={true}` takes effect)               | `default` \| `middle` \| `small`               | -             |
+| layout         | Description layout                                                                                                                   | `horizontal` \| `vertical`                     | `horizontal`  |
+| colon          | Configure the default `colon` for antd `Descriptions` cells                                                                          | boolean                                        | true          |
+| request        | Request data; use with `dataIndex` in `columns`                                                                                      | `(params: U) => Promise<RequestData<T>>`       | -             |
+| onRequestError | Handling request errors, by default an error will be thrown directly                                                                 | `(error: Error) => void`                       | -             |
+| columns        | Column definition, used with request [columns](/components/table#columns)                                                            | `ProColumns<T>[]`                              | -             |
+| editable       | Editable related configuration                                                                                                       | [EditableConfig](#editable-edit-configuration) | -             |
+| dataSource     | Data source                                                                                                                          | `T[]`                                          | -             |
+| actionRef      | Operation reference                                                                                                                  | `MutableRefObject<ActionType>`                 | -             |
 
 ### editable edit configuration
 
@@ -140,7 +140,7 @@ Each item is `ProDescriptionsColumn` (same schema family as ProTable `columns`; 
 | tooltip    | Supplementary description of the content, displayed after hover                                                                | string                                                       | -             |
 | ellipsis   | Whether to abbreviate automatically                                                                                            | `boolean`                                                    | -             |
 | copyable   | Whether to support copying                                                                                                     | `boolean`                                                    | -             |
-| span       | Column span (antd Descriptions cell span)                                                                                                     | number                                                       | 1             |
+| span       | Column span (antd Descriptions cell span)                                                                                      | number                                                       | 1             |
 | valueType  | Formatted type                                                                                                                 | `ValueType`                                                  | -             |
 | valueEnum  | Enumeration of current column values ​​[valueEnum](/components/table#valueenum)                                                | `Record`                                                     | -             |
 | request    | Request enumerated data from the network                                                                                       | `()=>Promise<{[key:string`\|`number]:any}>`                  | -             |

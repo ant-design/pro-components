@@ -113,8 +113,8 @@ export const MediaQueryEnum: MediaQueryEnumShape = new Proxy(
 export const getScreenClassName = (): MediaQueryKey | undefined => {
   if (typeof window === 'undefined') return undefined;
   const enumValue = getMediaQueryEnum();
-  return BREAKPOINT_PRIORITY.find((key) =>
-    window.matchMedia(enumValue[key].matchMedia).matches,
+  return BREAKPOINT_PRIORITY.find(
+    (key) => window.matchMedia(enumValue[key].matchMedia).matches,
   );
 };
 

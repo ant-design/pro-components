@@ -22,7 +22,6 @@ const Demo = () => {
         }}
       >
         {(f, index, action) => {
-
           return (
             <>
               <ProFormText

@@ -46,16 +46,6 @@ export type BaseLayoutDesignToken = {
      */
     colorTextMenuTitle: string;
     colorTextSubMenuSelected: string;
-    /** 侧栏区域滚动条 thumb 颜色；省略时使用 antd `colorFillTertiary`（`--ant-color-fill-tertiary`） */
-    colorScrollbarThumb?: string;
-    /** thumb hover；省略时使用 antd `colorFillSecondary` */
-    colorScrollbarThumbHover?: string;
-    /** 滚动条轨道背景；省略时为透明 */
-    colorScrollbarTrack?: string;
-    /** 滚动条轨道粗细（px，`::-webkit-scrollbar` 的 width/height）；省略时为 6 */
-    scrollbarTrackThickness?: number;
-    /** thumb 圆角（px）；省略时为 3 */
-    scrollbarThumbRadius?: number;
   };
   /**
    * header 的 token 设置
@@ -126,13 +116,18 @@ export const getLayoutDesignToken: (
       colorBgScrollHeader: setAlpha(antdToken.colorBgElevated, 0.8),
       colorHeaderTitle: antdToken.colorText,
       colorBgMenuItemHover: setAlpha(antdToken.colorTextBase, 0.03),
-      colorBgMenuItemSelected: 'transparent',
+      /**
+       * 顶栏横向菜单选中底须可见：`transparent` 会让 ProLayoutNavMenu 的 `--pro-layout-nav-color-bg-selected`
+       * 全透明，用户无法分辨当前路由对应哪一项（与站点 layout 文档默认 `rgba(0,0,0,0.04)` 也不一致）。
+       */
+      colorBgMenuItemSelected: setAlpha(antdToken.colorTextBase, 0.04),
       colorBgMenuElevated:
         (finalDesignTokens?.header?.colorBgHeader ?? defaultColorBgHeader) !==
         defaultColorBgHeader
           ? finalDesignTokens.header?.colorBgHeader
           : antdToken.colorBgElevated,
-      colorTextMenuSelected: setAlpha(antdToken.colorTextBase, 0.95),
+      /** 与常规 `colorTextMenu`（secondary）区分当前选中项 */
+      colorTextMenuSelected: antdToken.colorText,
       colorBgRightActionsItemHover: setAlpha(antdToken.colorTextBase, 0.03),
       colorTextRightActionsItem: antdToken.colorTextTertiary,
       heightLayoutHeader: 56,
@@ -148,7 +143,7 @@ export const getLayoutDesignToken: (
       colorBgCollapsedButton: antdToken.colorBgElevated,
       colorTextCollapsedButtonHover: antdToken.colorTextSecondary,
       colorTextCollapsedButton: setAlpha(antdToken.colorTextBase, 0.25),
-      colorMenuBackground: '#f7f8f9',
+      colorMenuBackground: antdToken.colorBgElevated,
       colorMenuItemDivider: setAlpha(antdToken.colorTextBase, 0.06),
       colorBgMenuItemHover: setAlpha(antdToken.colorTextBase, 0.03),
       colorBgMenuItemSelected: setAlpha(antdToken.colorTextBase, 0.04),

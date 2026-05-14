@@ -130,8 +130,9 @@ const localeMessages = {
 
 type LocaleUnderscoreKey = keyof typeof localeMessages;
 /** `zh-CN` 这种短横线形态的 key 类型。 */
-type LocaleDashKey =
-  LocaleUnderscoreKey extends `${infer A}_${infer B}` ? `${A}-${B}` : never;
+type LocaleDashKey = LocaleUnderscoreKey extends `${infer A}_${infer B}`
+  ? `${A}-${B}`
+  : never;
 
 /** 将 `zh_CN` 转为 `zh-CN`。 */
 const toDashKey = <K extends LocaleUnderscoreKey>(k: K) =>

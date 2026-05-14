@@ -1,8 +1,12 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
+import type { GlobalToken } from 'antd/lib/theme/interface';
 import type { CSSProperties } from 'react';
-import type { DeepPartial, LayoutDesignToken } from '../../../../provider/typing/layoutToken';
 import type { ProAliasToken } from '../../../../provider';
 import { useStyle as useAntdStyle } from '../../../../provider';
+import type {
+  DeepPartial,
+  LayoutDesignToken,
+} from '../../../../provider/typing/layoutToken';
 import type { MenuMode } from '../types';
 
 /** 仅保留类名前缀；菜单视觉全部走 CSS 变量，避免再依赖 ProProvider token 字段 */
@@ -31,20 +35,23 @@ export const proLayoutSiderVar = {
 } as const;
 
 /**
- * 侧栏壳层 CSS 变量：与文档 `token.layout.sider` 对齐（无 layout 时保持历史硬编码兜底）
+ * 侧栏壳层 CSS 变量：`token.layout.sider` 可配项与变量对齐。
+ * 滚动条不设为 `token` 字段，由 `--pro-layout-sider-scrollbar-*` 注入默认值（与 antd 语义色一致），业务可覆盖变量定制。
+ * `antdToken` 须为 `theme.useToken()` 解析结果，避免写死 `var(--ant-*)` 与自定义 `prefixCls` 不一致。
  */
 export function getProLayoutSiderCssVarsStyle(
-  layout?: DeepPartial<LayoutDesignToken>,
+  layout: DeepPartial<LayoutDesignToken> | undefined,
+  antdToken: GlobalToken,
 ): CSSProperties {
   const s = layout?.sider;
   return {
-    [proLayoutSiderVar.bg]: s?.colorMenuBackground ?? '#f7f8f9',
+    [proLayoutSiderVar.bg]: s?.colorMenuBackground ?? antdToken.colorBgElevated,
     [proLayoutSiderVar.colorText]:
-      s?.colorTextMenu ?? 'var(--ant-color-text-secondary)',
+      s?.colorTextMenu ?? antdToken.colorTextSecondary,
     [proLayoutSiderVar.colorTextTitle]:
-      s?.colorTextMenuTitle ?? 'var(--ant-color-text)',
+      s?.colorTextMenuTitle ?? antdToken.colorText,
     [proLayoutSiderVar.colorTextSecondary]:
-      s?.colorTextMenuSecondary ?? 'var(--ant-color-text-tertiary)',
+      s?.colorTextMenuSecondary ?? antdToken.colorTextTertiary,
     [proLayoutSiderVar.paddingInlineMenu]:
       s?.paddingInlineLayoutMenu != null
         ? `${s.paddingInlineLayoutMenu}px`
@@ -53,55 +60,46 @@ export function getProLayoutSiderCssVarsStyle(
       s?.paddingBlockLayoutMenu != null
         ? `${s.paddingBlockLayoutMenu}px`
         : '12px',
-    [proLayoutSiderVar.borderRadius]: 'var(--ant-border-radius)',
+    [proLayoutSiderVar.borderRadius]: `${antdToken.borderRadius}px`,
     [proLayoutSiderVar.colorBgHover]:
-      s?.colorBgMenuItemHover ?? 'var(--ant-color-fill-secondary)',
-    [proLayoutSiderVar.fontSize]: 'var(--ant-font-size)',
-    [proLayoutSiderVar.scrollbarThumb]:
-      s?.colorScrollbarThumb ?? 'var(--ant-color-fill-tertiary)',
-    [proLayoutSiderVar.scrollbarThumbHover]:
-      s?.colorScrollbarThumbHover ?? 'var(--ant-color-fill-secondary)',
-    [proLayoutSiderVar.scrollbarTrack]:
-      s?.colorScrollbarTrack ?? 'transparent',
-    [proLayoutSiderVar.scrollbarTrackThickness]:
-      s?.scrollbarTrackThickness != null && s.scrollbarTrackThickness > 0
-        ? `${s.scrollbarTrackThickness}px`
-        : '6px',
-    [proLayoutSiderVar.scrollbarThumbRadius]:
-      s?.scrollbarThumbRadius != null && s.scrollbarThumbRadius >= 0
-        ? `${s.scrollbarThumbRadius}px`
-        : '3px',
+      s?.colorBgMenuItemHover ?? antdToken.colorFillSecondary,
+    [proLayoutSiderVar.fontSize]: `${antdToken.fontSize}px`,
+    [proLayoutSiderVar.scrollbarThumb]: antdToken.colorFillTertiary,
+    [proLayoutSiderVar.scrollbarThumbHover]: antdToken.colorFillSecondary,
+    [proLayoutSiderVar.scrollbarTrack]: 'transparent',
+    [proLayoutSiderVar.scrollbarTrackThickness]: '6px',
+    [proLayoutSiderVar.scrollbarThumbRadius]: '3px',
   } as CSSProperties;
 }
 
-/**
- * 侧栏菜单区滚动条写在 `style/index.ts` 的 `genSiderMenuStyle`（`&-menu-scroll`）。
- * Popover 挂在 body，此处单独一份相同规则；尺寸由 `getProLayoutSiderCssVarsStyle` 注入 `--pro-layout-sider-scrollbar-*`。
- */
-const submenuPopupScrollbarThumb = `var(${proLayoutSiderVar.scrollbarThumb}, var(--ant-color-fill-tertiary))`;
-const submenuPopupScrollbarThumbHover = `var(${proLayoutSiderVar.scrollbarThumbHover}, var(--ant-color-fill-secondary))`;
-const submenuPopupScrollbarTrack = `var(${proLayoutSiderVar.scrollbarTrack}, transparent)`;
-const submenuPopupTrackSize = `var(${proLayoutSiderVar.scrollbarTrackThickness}, 6px)`;
-const submenuPopupThumbRadius = `var(${proLayoutSiderVar.scrollbarThumbRadius}, 3px)`;
+function createSubmenuPopupScrollbar(
+  token: GlobalToken,
+): Record<string, unknown> {
+  const submenuPopupScrollbarThumb = `var(${proLayoutSiderVar.scrollbarThumb}, ${token.colorFillTertiary})`;
+  const submenuPopupScrollbarThumbHover = `var(${proLayoutSiderVar.scrollbarThumbHover}, ${token.colorFillSecondary})`;
+  const submenuPopupScrollbarTrack = `var(${proLayoutSiderVar.scrollbarTrack}, transparent)`;
+  const submenuPopupTrackSize = `var(${proLayoutSiderVar.scrollbarTrackThickness}, 6px)`;
+  const submenuPopupThumbRadius = `var(${proLayoutSiderVar.scrollbarThumbRadius}, 3px)`;
 
-const submenuPopupScrollbar: Record<string, unknown> = {
-  scrollbarWidth: 'thin',
-  scrollbarColor: `${submenuPopupScrollbarThumb} ${submenuPopupScrollbarTrack}`,
-  '&::-webkit-scrollbar': {
-    width: submenuPopupTrackSize,
-    height: submenuPopupTrackSize,
-  },
-  '&::-webkit-scrollbar-track': {
-    backgroundColor: submenuPopupScrollbarTrack,
-  },
-  '&::-webkit-scrollbar-thumb': {
-    backgroundColor: submenuPopupScrollbarThumb,
-    borderRadius: submenuPopupThumbRadius,
-  },
-  '&::-webkit-scrollbar-thumb:hover': {
-    backgroundColor: submenuPopupScrollbarThumbHover,
-  },
-};
+  return {
+    scrollbarWidth: 'thin',
+    scrollbarColor: `${submenuPopupScrollbarThumb} ${submenuPopupScrollbarTrack}`,
+    '&::-webkit-scrollbar': {
+      width: submenuPopupTrackSize,
+      height: submenuPopupTrackSize,
+    },
+    '&::-webkit-scrollbar-track': {
+      backgroundColor: submenuPopupScrollbarTrack,
+    },
+    '&::-webkit-scrollbar-thumb': {
+      backgroundColor: submenuPopupScrollbarThumb,
+      borderRadius: submenuPopupThumbRadius,
+    },
+    '&::-webkit-scrollbar-thumb:hover': {
+      backgroundColor: submenuPopupScrollbarThumbHover,
+    },
+  };
+}
 
 /**
  * 主导航语义 token，统一在根 `nav` 上注入，子选择器只用 `var(--pro-layout-nav-*)`
@@ -111,7 +109,7 @@ const submenuPopupScrollbar: Record<string, unknown> = {
  * 2. 默认值优先映射到外部「业务语义 token」（如 `--color-gray-text-default`、
  *    `--color-primary-control-fill-ghost-active`、`--font-text-body-emphasized-base`），
  *    业务侧只要在外层注入这套语义 token，菜单视觉就会自动对齐；
- * 3. 业务语义 token 缺失时，再 fallback 到 antd token 或硬编码值，保证 pro-components
+ * 3. 业务语义 token 缺失时，再 fallback 到 antd 派生 token（`GlobalToken`）或硬编码值，保证 pro-components
  *    单跑文档站时仍然可用。
  */
 const navVar = {
@@ -160,6 +158,7 @@ const navVar = {
 
 function defaultLayoutNavCssVars(
   surface: 'sider' | 'header',
+  t: GlobalToken,
 ): Record<string, string> {
   const padInline = 8;
   const stackGap = 4;
@@ -184,8 +183,8 @@ function defaultLayoutNavCssVars(
       [navVar.colorTextSelected]: 'var(--color-primary-text-default, #0055cc)',
       [navVar.colorIconSelected]:
         'var(--color-primary-text-secondary, var(--color-primary-text-default, #0055cc))',
-      [navVar.colorDivider]: 'var(--ant-color-split)',
-      [navVar.popupBg]: 'var(--ant-color-bg-elevated)',
+      [navVar.colorDivider]: t.colorSplit,
+      [navVar.popupBg]: t.colorBgElevated,
       [navVar.indent]: '16px',
       [navVar.colorIcon]:
         'var(--color-gray-text-disabled, rgba(9, 30, 66, 0.31))',
@@ -196,13 +195,12 @@ function defaultLayoutNavCssVars(
       [navVar.itemGap]: '8px',
       [navVar.itemFontSize]: '14px',
       [navVar.itemFontWeight]: 'normal',
-      [navVar.itemFont]:
-        'var(--font-text-body-emphasized-base, 500 14px / 22px var(--ant-font-family))',
+      [navVar.itemFont]: `var(--font-text-body-emphasized-base, 500 14px / 22px ${t.fontFamily})`,
       [navVar.itemPadBlock]: '6px',
       [navVar.itemPadInline]: `${padInline}px`,
       [navVar.stackGap]: `${stackGap}px`,
       [navVar.groupGap]: '12px',
-      [navVar.groupTitleFontSize]: 'calc(var(--ant-font-size, 14px) - 1px)',
+      [navVar.groupTitleFontSize]: `calc(${t.fontSize}px - 1px)`,
       [navVar.groupTitleLineHeight]: '20px',
       [navVar.iconBox]: '18px',
       [navVar.iconSvgSize]: '18px',
@@ -213,50 +211,46 @@ function defaultLayoutNavCssVars(
     };
   }
   return {
-    [navVar.colorText]:
-      'var(--color-gray-text-default, var(--ant-color-text-secondary))',
-    [navVar.colorBgHover]:
-      'var(--color-gray-control-fill-hover, var(--ant-color-fill-secondary))',
-    [navVar.colorTextHover]:
-      'var(--color-gray-text-default, var(--ant-color-text))',
-    [navVar.colorTextActive]:
-      'var(--color-gray-text-default, var(--ant-color-text))',
-    [navVar.colorBgActive]:
-      'var(--color-gray-control-fill-hover, var(--ant-color-fill-secondary))',
-    [navVar.colorBgSelected]:
-      'var(--color-primary-control-fill-ghost-active, var(--ant-color-fill-tertiary))',
-    [navVar.colorBgSelectedHover]:
-      'var(--color-primary-control-fill-ghost-hover, var(--ant-color-fill-secondary))',
-    [navVar.colorTextSelected]:
-      'var(--color-primary-text-default, var(--ant-color-text))',
-    [navVar.colorIconSelected]:
-      'var(--color-primary-text-secondary, var(--color-primary-text-default, var(--ant-color-text)))',
-    [navVar.colorDivider]: 'var(--ant-color-split)',
-    [navVar.popupBg]: 'var(--ant-color-bg-elevated)',
+    [navVar.colorText]: `var(--color-gray-text-default, ${t.colorTextSecondary})`,
+    [navVar.colorBgHover]: `var(--color-gray-control-fill-hover, ${t.colorFillSecondary})`,
+    [navVar.colorTextHover]: `var(--color-gray-text-default, ${t.colorText})`,
+    [navVar.colorTextActive]: `var(--color-gray-text-default, ${t.colorText})`,
+    [navVar.colorBgActive]: `var(--color-gray-control-fill-hover, ${t.colorFillSecondary})`,
+    /**
+     * 顶栏 / 顶栏 popup：勿把选中底绑在 `--color-primary-control-fill-ghost-active` 上——
+     * 该变量在业务主题里常已是极浅灰；一旦存在，`var(ghost, rgba)` 的 rgba 永不生效，
+     * 在 `colorBgElevated` 浮层上二级选中会「看不见」。
+     *
+     * 亦勿用 `color-mix` 作为唯一来源：jsdom / 旧内核无法解析时整条 `background-color`
+     * 会被丢弃，顶栏横向 leaf 选中会退化成透明底。使用 antd 已派生的主色浅底 token，
+     * 与 `prefixCls` / CSS 变量前缀解耦。
+     */
+    [navVar.colorBgSelected]: t.colorPrimaryBg,
+    [navVar.colorBgSelectedHover]: t.colorPrimaryBgHover,
+    [navVar.colorTextSelected]: t.colorPrimary,
+    [navVar.colorIconSelected]: t.colorPrimary,
+    [navVar.colorDivider]: t.colorSplit,
+    [navVar.popupBg]: t.colorBgElevated,
     [navVar.indent]: '16px',
-    [navVar.colorIcon]:
-      'var(--color-gray-text-light, var(--ant-color-text-secondary))',
-    [navVar.colorSection]:
-      'var(--color-gray-text-light, var(--ant-color-text-description))',
+    [navVar.colorIcon]: `var(--color-gray-text-light, ${t.colorTextSecondary})`,
+    [navVar.colorSection]: `var(--color-gray-text-light, ${t.colorTextDescription})`,
     [navVar.itemHeight]: `${itemH}px`,
     [navVar.itemRadius]: '6px',
     [navVar.itemGap]: '8px',
-    [navVar.itemFontSize]: 'var(--ant-font-size)',
+    [navVar.itemFontSize]: `${t.fontSize}px`,
     [navVar.itemFontWeight]: 'normal',
-    [navVar.itemFont]:
-      'var(--font-text-body-emphasized-base, normal var(--ant-font-size) / var(--ant-line-height) var(--ant-font-family))',
+    [navVar.itemFont]: `var(--font-text-body-emphasized-base, normal ${t.fontSize}px / ${t.lineHeight} ${t.fontFamily})`,
     [navVar.itemPadBlock]: '6px',
     [navVar.itemPadInline]: `${padInline}px`,
     [navVar.stackGap]: `${stackGap}px`,
     [navVar.groupGap]: '12px',
-    [navVar.groupTitleFontSize]: 'var(--ant-font-size-sm)',
+    [navVar.groupTitleFontSize]: `${t.fontSizeSM}px`,
     [navVar.groupTitleLineHeight]: '20px',
     [navVar.iconBox]: '18px',
     [navVar.iconSvgSize]: '18px',
     [navVar.arrowSize]: '12px',
     [navVar.collapsedItemSize]: '28px',
-    [navVar.colorTextSubMenuSelected]:
-      'var(--color-gray-text-default, var(--ant-color-text))',
+    [navVar.colorTextSubMenuSelected]: `var(--color-gray-text-default, ${t.colorText})`,
   };
 }
 
@@ -266,9 +260,10 @@ function defaultLayoutNavCssVars(
  */
 function applyDocMenuTokenToNavVars(
   surface: 'sider' | 'header',
-  layout?: DeepPartial<LayoutDesignToken>,
+  layout: DeepPartial<LayoutDesignToken> | undefined,
+  antdToken: GlobalToken,
 ): Record<string, string> {
-  const base = defaultLayoutNavCssVars(surface);
+  const base = defaultLayoutNavCssVars(surface, antdToken);
   if (!layout) return base;
 
   const out = { ...base };
@@ -332,13 +327,10 @@ function applyDocMenuTokenToNavVars(
  * 统一的缓动曲线：
  * - `easeStandard`：Material "Standard"（in-out），适合"切换式"视觉态（hover/selected 背景色、文字色）
  * - `easeOut`：Material "Emphasized Decelerate"，适合"入场/冒出"类 motion（如 icon scale）
- * 业务侧若想统一放慢/加快，通过 `--ant-motion-duration-mid` 覆盖即可，曲线不变。
+ * 动效时长使用 antd `motionDurationMid`（与 `prefixCls` / CSS 变量前缀解耦）。
  */
 const easeStandard = 'cubic-bezier(0.4, 0, 0.2, 1)';
 const easeOut = 'cubic-bezier(0.22, 1, 0.36, 1)';
-
-/** 统一动效时长：走 antd CSS 变量，提供 0.2s 兜底（业务侧可通过主题 token 覆盖） */
-const DURATION_MID = 'var(--ant-motion-duration-mid, 0.2s)';
 
 /**
  * 菜单专用语义常量：命名 > 数字。抽出来有两个好处：
@@ -363,35 +355,36 @@ const FOCUS_OUTLINE = {
 /** 水平顶栏行高/按钮高（与 antd 顶栏菜单一致） */
 const HORIZONTAL_ROW_HEIGHT = 28;
 
-/** 行级视觉态统一 transition：背景/文字/阴影/transform 四轨并发，节奏一致 */
-const rowTransition = [
-  `background-color ${DURATION_MID} ${easeStandard}`,
-  `color ${DURATION_MID} ${easeStandard}`,
-  `box-shadow ${DURATION_MID} ${easeStandard}`,
-  `transform ${DURATION_MID} ${easeOut}`,
-  `font-weight ${DURATION_MID} ${easeStandard}`,
-].join(', ');
-
-/** icon 的 transition：跟随行级过渡节奏，单独列出方便 popup/主区复用 */
-const iconTransition = [
-  `color ${DURATION_MID} ${easeStandard}`,
-  `transform ${DURATION_MID} ${easeOut}`,
-].join(', ');
-
-/** chevron/arrow transition：只需 transform */
-const arrowTransition = `transform ${DURATION_MID} ${easeOut}`;
-
 const genProLayoutBaseMenuStyle = (
   token: ProLayoutBaseMenuToken,
   mode: string,
-  layout?: DeepPartial<LayoutDesignToken>,
+  aliasToken: ProAliasToken,
 ): CSSInterpolation => {
   const c = token.componentCls;
   const isHorizontal = mode.includes('horizontal');
+  const durationMid = aliasToken.motionDurationMid;
+  const rowTransition = [
+    `background-color ${durationMid} ${easeStandard}`,
+    `color ${durationMid} ${easeStandard}`,
+    `box-shadow ${durationMid} ${easeStandard}`,
+    `transform ${durationMid} ${easeOut}`,
+    `font-weight ${durationMid} ${easeStandard}`,
+  ].join(', ');
+  const iconTransition = [
+    `color ${durationMid} ${easeStandard}`,
+    `transform ${durationMid} ${easeOut}`,
+  ].join(', ');
+  const arrowTransition = `transform ${durationMid} ${easeOut}`;
+  const horizontalItemPaddingInline =
+    typeof aliasToken.paddingSM === 'number' &&
+    Number.isFinite(aliasToken.paddingSM)
+      ? `${aliasToken.paddingSM}px`
+      : '12px';
   const v = (name: keyof typeof navVar) => `var(${navVar[name]})`;
   const navCssVars = applyDocMenuTokenToNavVars(
     isHorizontal ? 'header' : 'sider',
-    layout,
+    aliasToken.layout,
+    aliasToken,
   );
 
   const rowItem: Record<string, unknown> = {
@@ -423,7 +416,7 @@ const genProLayoutBaseMenuStyle = (
     textAlign: 'start',
     transition: rowTransition,
     '&:focus-visible': {
-      outline: `${FOCUS_OUTLINE.width}px solid var(--ant-color-primary)`,
+      outline: `${FOCUS_OUTLINE.width}px solid ${v('colorTextSelected')}`,
       outlineOffset: FOCUS_OUTLINE.offset,
     },
   };
@@ -465,15 +458,13 @@ const genProLayoutBaseMenuStyle = (
         padding: 0,
       },
 
-      /** 真正承载点击/键盘交互与视觉的 `<button>`：完整 reset 浏览器默认样式 */
       [`${c}-item-button`]: {
         ...rowItem,
-        /** 显式 reset：避免 UA 默认 `button` 的浅灰背景 / 1px border / 字体继承差异 */
         appearance: 'none',
         WebkitAppearance: 'none',
         font: v('itemFont'),
         fontFamily: 'inherit',
-        /** 标题区（icon+文案）直接作为子节点，省一层 wrapper */
+        cursor: 'pointer',
         [`> *`]: {
           flex: 1,
           minWidth: 0,
@@ -482,15 +473,15 @@ const genProLayoutBaseMenuStyle = (
           alignItems: 'center',
           gap: v('itemGap'),
         },
-        '&:hover:not(:disabled)': {
+        '&:hover:not([aria-disabled="true"])': {
           backgroundColor: v('colorBgHover'),
           color: v('colorTextHover'),
         },
-        '&:active:not(:disabled)': {
+        '&:active:not([aria-disabled="true"])': {
           backgroundColor: v('colorBgActive'),
           color: v('colorTextActive'),
         },
-        '&:disabled': {
+        '&[aria-disabled="true"]': {
           cursor: 'not-allowed',
           opacity: DISABLED_OPACITY,
         },
@@ -510,7 +501,7 @@ const genProLayoutBaseMenuStyle = (
         backgroundColor: v('colorBgSelected'),
         color: v('colorTextSelected'),
         fontWeight: FONT_WEIGHT_SELECTED,
-        '&:hover:not(:disabled)': {
+        '&:hover:not([aria-disabled="true"])': {
           backgroundColor: v('colorBgSelectedHover'),
           color: v('colorTextSelected'),
         },
@@ -698,7 +689,7 @@ const genProLayoutBaseMenuStyle = (
             [`${c}-item-text`]: {
               display: 'inline',
               textAlign: 'start',
-              fontSize: 'calc(var(--ant-font-size, 14px) - 1px)',
+              fontSize: v('groupTitleFontSize'),
               maxHeight: 12,
               lineHeight: '12px',
               marginBlockStart: 4,
@@ -779,8 +770,8 @@ const genProLayoutBaseMenuStyle = (
       },
 
       [`${c}-group-divider`]: {
-        color: `var(--ant-color-text-secondary)`,
-        fontSize: 'calc(var(--ant-font-size, 14px) - 1px)',
+        color: v('colorSection'),
+        fontSize: v('groupTitleFontSize'),
         lineHeight: 20,
       },
 
@@ -798,7 +789,7 @@ const genProLayoutBaseMenuStyle = (
         [`${c}-item, ${c}-submenu`]: {
           width: v('collapsedItemSize'),
           marginInline: 'auto',
-          marginBlock: 'var(--ant-margin-xxs, 4px)',
+          marginBlock: v('stackGap'),
           padding: 0,
         },
         [`${c}-item-button, ${c}-submenu-title`]: {
@@ -897,6 +888,20 @@ const genProLayoutBaseMenuStyle = (
       minHeight: 0,
       /** 根 `nav` 下多个顶级 `li`/片段之间的纵向间距（扁平 DOM 无外包 `ul`） */
       gap: v('stackGap'),
+      /**
+       * 根列表 / 分组列表下的 `li` 必须拉满行宽：`flex` 子项 `min-width:auto` 时
+       * 可能按内容收缩，导致 `<button width:100%>` 仍只有「icon+文字」宽，整行右侧成死区。
+       */
+      [`&${c}-list > li`]: {
+        width: '100%',
+        minWidth: 0,
+        boxSizing: 'border-box',
+      },
+      [`& ${c}-group-list > li`]: {
+        width: '100%',
+        minWidth: 0,
+        boxSizing: 'border-box',
+      },
     },
 
     [`${c}--horizontal`]: {
@@ -904,26 +909,68 @@ const genProLayoutBaseMenuStyle = (
       flexDirection: 'row',
       alignItems: 'center',
       gap: v('stackGap'),
-      /** 水平顶栏：根 `nav` 同时带 `-list`，顶级项横向排布 */
+      minWidth: 0,
+      overflowInline: 'hidden',
+      overflowBlock: 'visible',
+      /** 水平顶栏：根 `nav` 同时带 `-list`，顶级项单行排布；放不下的一级项收入「更多」Popover */
       [`&${c}-list`]: {
         display: 'flex',
         flexDirection: 'row',
-        flexWrap: 'wrap',
+        flexWrap: 'nowrap',
         alignItems: 'center',
         gap: v('stackGap'),
+        minWidth: 0,
       },
-      /** 顶部模式行高固定为 HORIZONTAL_ROW_HEIGHT（与常见顶栏菜单一致） */
+      /** 离屏测量：不占布局、不参与交互 */
+      '&[data-pro-layout-horizontal-measure]': {
+        position: 'fixed',
+        insetInlineStart: -10000,
+        insetBlockStart: 0,
+        zIndex: -1,
+        visibility: 'hidden',
+        pointerEvents: 'none',
+        margin: 0,
+        padding: 0,
+        border: 'none',
+        width: 'max-content',
+        maxWidth: 'none',
+        overflow: 'visible',
+      },
+      /**
+       * 「更多」在子级 `li` 上（`nav` 才带 `--horizontal`），须用后代选择器，勿写 `&-overflow-more`
+       * 否则会变成要求同一元素同时带 `--horizontal` 与 `-overflow-more`，规则永远不命中。
+       */
+      [`${c}-overflow-more`]: {
+        display: 'inline-block',
+        flexShrink: 0,
+        listStyle: 'none',
+        listStyleType: 'none',
+        margin: 0,
+        padding: 0,
+        '&::marker': {
+          content: 'none',
+          display: 'none',
+        },
+      },
+      /**
+       * 顶部一级 leaf：`padding` 必须落在内层 `button` 上，不能写在外层 `li`。
+       * 否则点到 `li` 的 padding 区时事件到不了 `button`，表现为「点了没反应」
+       *（与 `ProLayoutNavMenu` 里「缩进只写 li」的注释同理，只是横向是左右死区）。
+       */
       [`${c}-item`]: {
         width: 'auto',
         minHeight: HORIZONTAL_ROW_HEIGHT,
         height: HORIZONTAL_ROW_HEIGHT,
         whiteSpace: 'nowrap',
         paddingBlock: 0,
-        paddingInline: 'var(--ant-padding-sm, 12px)',
+        paddingInline: 0,
         [`> *`]: {
           minHeight: HORIZONTAL_ROW_HEIGHT,
           height: HORIZONTAL_ROW_HEIGHT,
         },
+      },
+      [`${c}-item ${c}-item-button`]: {
+        paddingInline: horizontalItemPaddingInline,
       },
       [`${c}-submenu`]: { display: 'inline-block' },
       [`${c}-submenu-title`]: {
@@ -931,12 +978,35 @@ const genProLayoutBaseMenuStyle = (
         minHeight: HORIZONTAL_ROW_HEIGHT,
         height: HORIZONTAL_ROW_HEIGHT,
         paddingBlock: 0,
-        paddingInline: 'var(--ant-padding-sm, 12px)',
+        paddingInline: horizontalItemPaddingInline,
         [`> *`]: {
           minHeight: HORIZONTAL_ROW_HEIGHT,
           height: HORIZONTAL_ROW_HEIGHT,
         },
       },
+      /**
+       * 顶栏：一级 submenu 或「更多」在子树含选中项时，标题区与 antd Menu
+       * overflowedIndicator 一致（浅色底 + 主色字），仅靠字色在固定行高内不明显。
+       */
+      [`${c}-submenu${c}-submenu--child-selected ${c}-submenu-title, ${c}-overflow-more${c}-submenu--child-selected ${c}-submenu-title`]:
+        {
+          backgroundColor: v('colorBgSelected'),
+          color: v('colorTextSelected'),
+          fontWeight: FONT_WEIGHT_SELECTED,
+          borderRadius: v('itemRadius'),
+          '&:hover:not(:disabled)': {
+            backgroundColor: v('colorBgSelectedHover'),
+            color: v('colorTextSelected'),
+          },
+        },
+      [`${c}-overflow-more${c}-submenu--child-selected ${c}-submenu-title ${c}-item-title`]:
+        {
+          color: 'inherit',
+        },
+      [`${c}-submenu${c}-submenu--child-selected ${c}-submenu-title ${c}-item-icon`]:
+        {
+          color: v('colorIconSelected'),
+        },
       [`${c}-item-title`]: {
         minHeight: HORIZONTAL_ROW_HEIGHT,
         height: HORIZONTAL_ROW_HEIGHT,
@@ -988,8 +1058,12 @@ const genProLayoutBaseMenuStyle = (
      *    透传 token，popup 内仍有合理的兜底。
      */
     [`${c}-submenu-popup`]: {
-      ...submenuPopupScrollbar,
-      ...applyDocMenuTokenToNavVars(isHorizontal ? 'header' : 'sider', layout),
+      ...createSubmenuPopupScrollbar(aliasToken),
+      ...applyDocMenuTokenToNavVars(
+        isHorizontal ? 'header' : 'sider',
+        aliasToken.layout,
+        aliasToken,
+      ),
       color: v('colorText'),
 
       /**
@@ -1021,6 +1095,9 @@ const genProLayoutBaseMenuStyle = (
         listStyle: 'none',
         margin: 0,
         padding: 0,
+        width: '100%',
+        minWidth: 0,
+        boxSizing: 'border-box',
       },
 
       /** 子菜单 inline 展开（三级及以下）保持 stack */
@@ -1042,7 +1119,6 @@ const genProLayoutBaseMenuStyle = (
         padding: 0,
       },
 
-      /** Item button：完整 reset + rowItem 视觉（popup 容器内独立一份，与主区保持节奏一致） */
       [`${c}-item-button, ${c}-submenu-title`]: {
         position: 'relative',
         boxSizing: 'border-box',
@@ -1070,15 +1146,15 @@ const genProLayoutBaseMenuStyle = (
         WebkitAppearance: 'none',
         textAlign: 'start',
         transition: rowTransition,
-        '&:hover:not(:disabled)': {
+        '&:hover:not([aria-disabled="true"])': {
           backgroundColor: v('colorBgHover'),
           color: v('colorTextHover'),
         },
-        '&:active:not(:disabled)': {
+        '&:active:not([aria-disabled="true"])': {
           backgroundColor: v('colorBgActive'),
           color: v('colorTextActive'),
         },
-        '&:disabled': {
+        '&[aria-disabled="true"]': {
           cursor: 'not-allowed',
           opacity: DISABLED_OPACITY,
         },
@@ -1129,14 +1205,23 @@ const genProLayoutBaseMenuStyle = (
       [`${c}-submenu-title--open ${c}-submenu-arrow`]: {
         transform: 'rotate(90deg)',
       },
+      /**
+       * 「更多」侧向 vertical 子层：箭头保持「向右」示意侧向展开，勿用 inline 展开时的 90° 朝下。
+       */
+      [`${c}-submenu${c}-submenu--overflow-vertical-flyout ${c}-submenu-title ${c}-submenu-arrow`]:
+        {
+          transform: 'none',
+        },
+      [`${c}-submenu${c}-submenu--overflow-vertical-flyout ${c}-submenu-title--open ${c}-submenu-arrow`]:
+        {
+          transform: 'none',
+        },
 
-      /** 选中态：背景 + 字色 + 字重过渡 */
       [`${c}-item--selected ${c}-item-button`]: {
         backgroundColor: v('colorBgSelected'),
         color: v('colorTextSelected'),
         fontWeight: FONT_WEIGHT_SELECTED,
-        /** popup 内也要保证选中 hover 不退化为灰色 */
-        '&:hover:not(:disabled)': {
+        '&:hover:not([aria-disabled="true"])': {
           backgroundColor: v('colorBgSelectedHover'),
           color: v('colorTextSelected'),
         },
@@ -1151,6 +1236,33 @@ const genProLayoutBaseMenuStyle = (
       [`${c}-submenu--child-selected ${c}-submenu-title ${c}-item-icon`]: {
         color: v('colorTextSubMenuSelected'),
       },
+
+      /**
+       * 「更多」首列里 `submenu--overflow-vertical-flyout`：子级在侧向浮层选中时，
+       * 父级标题仍在 `${c}-submenu-popup` 下，吃不到 `${c}--horizontal` 里对
+       * `submenu--child-selected` 的「浅底 + 主色字」规则（那条选择器挂在 nav 上）。
+       * 这里单独补一份，与顶栏一级 / overflow-more 的 child-selected 标题语义对齐；
+       * 不影响普通 bottomLeft 面板内 **inline** 嵌套子菜单（无 `--overflow-vertical-flyout`）。
+       */
+      [`${c}-submenu${c}-submenu--overflow-vertical-flyout${c}-submenu--child-selected ${c}-submenu-title`]:
+        {
+          backgroundColor: v('colorBgSelected'),
+          color: v('colorTextSelected'),
+          fontWeight: FONT_WEIGHT_SELECTED,
+          borderRadius: v('itemRadius'),
+          '&:hover:not(:disabled)': {
+            backgroundColor: v('colorBgSelectedHover'),
+            color: v('colorTextSelected'),
+          },
+        },
+      [`${c}-submenu${c}-submenu--overflow-vertical-flyout${c}-submenu--child-selected ${c}-submenu-title ${c}-item-title`]:
+        {
+          color: 'inherit',
+        },
+      [`${c}-submenu${c}-submenu--overflow-vertical-flyout${c}-submenu--child-selected ${c}-submenu-title ${c}-item-icon`]:
+        {
+          color: v('colorIconSelected'),
+        },
 
       /** Item title 行：icon + label 横向布局 */
       [`${c}-item-title`]: {
@@ -1255,11 +1367,7 @@ export function useStyle(prefixCls: string, mode: MenuMode | undefined) {
       componentCls: `.${prefixCls}`,
     };
     return [
-      genProLayoutBaseMenuStyle(
-        proLayoutMenuToken,
-        resolvedMode,
-        proToken.layout,
-      ),
+      genProLayoutBaseMenuStyle(proLayoutMenuToken, resolvedMode, proToken),
     ];
   });
 }

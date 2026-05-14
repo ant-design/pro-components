@@ -1,4 +1,8 @@
-import { LightFilter, ProFormText, QueryFilter } from '@ant-design/pro-components';
+import {
+  LightFilter,
+  ProFormText,
+  QueryFilter,
+} from '@ant-design/pro-components';
 import { _el, _rs } from '@rc-component/resize-observer/es/utils/observerUtil';
 import {
   act,
@@ -63,9 +67,9 @@ describe('✔️ LightFilter', () => {
 
     // 点击 FieldLabel 触发 Popover 展开，然后点击清除
     await act(async () => {
-      html.baseElement.querySelector('.ant-pro-core-field-label')?.dispatchEvent(
-        new MouseEvent('click', { bubbles: true }),
-      );
+      html.baseElement
+        .querySelector('.ant-pro-core-field-label')
+        ?.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
     await waitFor(() => html.findAllByText('清除'));

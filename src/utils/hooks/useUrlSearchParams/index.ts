@@ -54,17 +54,13 @@ function parseValue(
   if (type === Number) {
     return Number(value);
   }
-  if (
-    type === Boolean ||
-    _value === 'true' ||
-    _value === 'false'
-  ) {
+  if (type === Boolean || _value === 'true' || _value === 'false') {
     return booleanValues[String(value)] as boolean;
   }
   if (Array.isArray(type)) {
-    return (
-      type.find((item) => item == value) ?? defaultParams[key]
-    ) as string | number;
+    return (type.find((item) => item == value) ?? defaultParams[key]) as
+      | string
+      | number;
   }
   return value as string | number | boolean | string[];
 }
@@ -99,9 +95,11 @@ export function useUrlSearchParams(
     }
     type Pair = { key: string; value: string };
     const result: Pair[] = [];
-    (urlSearchParams as URLSearchParams).forEach((value: string, key: string) => {
-      result.push({ key, value });
-    });
+    (urlSearchParams as URLSearchParams).forEach(
+      (value: string, key: string) => {
+        result.push({ key, value });
+      },
+    );
     const grouped = result.reduce<Record<string, Pair[]>>((acc, val) => {
       (acc[val.key] = acc[val.key] || []).push(val);
       return acc;

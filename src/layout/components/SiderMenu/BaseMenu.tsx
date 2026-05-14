@@ -104,20 +104,29 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     ) => {
       setOpenKeysInner((prev) => {
         const next = typeof updater === 'function' ? updater(prev) : updater;
-        /**
-         * 对外回调签名是 `(openKeys: string[]) => void`（`BaseMenuProps.onOpenChange`），
-         * 内部 state 同时兼容 `false`（"完全不展开"语义）。这里把 `false` 映射成 `[]`，
-         * 把 number key 统一字符串化，再回调，避免向用户透出内部 state 形状。
-         */
-        if (onOpenChange) {
-          const callbackKeys = next === false ? [] : next.map((k) => String(k));
-          onOpenChange(callbackKeys);
-        }
         return next;
       });
     },
-    [onOpenChange],
+    [],
   );
+
+  /**
+   * 禁止在 `setState` updater 里调 `onOpenChange`：React 18 Strict Mode 开发环境会双次调用
+   * updater，用户侧会收到两次相同展开变更（例如一次点击 console 两次）。
+   */
+  const openKeysNotifySigRef = useRef<string | null>(null);
+  useEffect(() => {
+    const callbackKeys =
+      openKeys === false ? [] : (openKeys || []).map((k) => String(k));
+    const sig = callbackKeys.join('\u0001');
+    if (openKeysNotifySigRef.current === null) {
+      openKeysNotifySigRef.current = sig;
+      return;
+    }
+    if (openKeysNotifySigRef.current === sig) return;
+    openKeysNotifySigRef.current = sig;
+    onOpenChange?.(callbackKeys);
+  }, [openKeys, onOpenChange]);
 
   const [selectedKeys, setSelectedKeysInner] = useControlledState<
     string[] | undefined

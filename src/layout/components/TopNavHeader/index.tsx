@@ -115,7 +115,10 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
           {contentDom}
         </div>
         {hasActionsContent && (
-          <div data-testid="pro-layout-top-nav-header-actions" style={{ height: '100%' }}>
+          <div
+            data-testid="pro-layout-top-nav-header-actions"
+            style={{ height: '100%' }}
+          >
             <ActionsContent {...props} prefixCls={prefixCls} />
           </div>
         )}

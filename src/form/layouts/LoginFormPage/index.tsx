@@ -120,7 +120,6 @@ export function LoginFormPage<T = Record<string, any>>(
 
   const getCls = (className: string) => `${baseClassName}-${className}`;
 
-
   return wrapSSR(
     <div
       className={clsx(baseClassName, hashId)}
@@ -175,18 +174,13 @@ export function LoginFormPage<T = Record<string, any>>(
               )}
               {activityConfig.subTitle && (
                 <div
-                  className={clsx(
-                    getCls('notice-activity-subTitle'),
-                    hashId,
-                  )}
+                  className={clsx(getCls('notice-activity-subTitle'), hashId)}
                 >
                   {activityConfig.subTitle}
                 </div>
               )}
               {activityConfig.action && (
-                <div
-                  className={clsx(getCls('notice-activity-action'), hashId)}
-                >
+                <div className={clsx(getCls('notice-activity-action'), hashId)}>
                   {activityConfig.action}
                 </div>
               )}

@@ -144,8 +144,9 @@ describe('ProFormUpload', () => {
     ).toContain('ant-upload-disabled');
     // 上传按钮也应处于 disabled 状态
     expect(
-      wrapper.baseElement
-        .querySelector<HTMLButtonElement>('.ant-upload button'),
+      wrapper.baseElement.querySelector<HTMLButtonElement>(
+        '.ant-upload button',
+      ),
     ).toBeDisabled();
     act(() => {
       wrapper.rerender(

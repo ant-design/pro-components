@@ -337,11 +337,7 @@ function renderActionIcon({
         <LoadingOutlined />
       ) : (
         <Icon
-          className={clsx(
-            `${prefixCls}-action-icon`,
-            actionClassName,
-            hashId,
-          )}
+          className={clsx(`${prefixCls}-action-icon`, actionClassName, hashId)}
           onClick={onClick}
         />
       )}

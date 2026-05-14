@@ -41,6 +41,7 @@ Use a segmented control to toggle `layout`, `contentWidth`, `siderMenuType`, and
 <code src="../../demos/layout/topMode.tsx" iframe="650" title="Top Navigation"></code>
 
 <code src="../../demos/layout/mixMode.tsx" iframe="650" title="Top-level strip + sidebar (splitMenus)"></code>
+
 ### Menu Configuration
 
 <code src="../../demos/layout/collapsedShowTitle.tsx" iframe="650" title="Show Title When Collapsed"></code>

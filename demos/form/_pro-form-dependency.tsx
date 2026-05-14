@@ -7,7 +7,6 @@
   ProFormSwitch,
   ProFormText,
 } from '@ant-design/pro-components';
-import { message } from 'antd';
 
 const Demo = () => {
   return (
@@ -63,7 +62,6 @@ const Demo = () => {
           </ProFormGroup>
           <ProFormDependency name={['is_show']}>
             {({ is_show }) => {
-
               if (!is_show) return null;
               return (
                 <ProFormList

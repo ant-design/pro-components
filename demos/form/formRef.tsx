@@ -37,7 +37,9 @@ const Demo = () => {
 
   const validateAndGetFormatValue = () => {
     formRef.current?.validateFieldsReturnFormatValue?.().then((values) => {
-      message.success(`校验表单并返回格式化后的所有数据：${JSON.stringify(values)}`);
+      message.success(
+        `校验表单并返回格式化后的所有数据：${JSON.stringify(values)}`,
+      );
     });
   };
 

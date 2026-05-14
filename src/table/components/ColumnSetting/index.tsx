@@ -264,7 +264,10 @@ const CheckboxList: React.FC<{
             return siblingState && siblingState.show === false;
           });
           if (allSiblingsUnchecked) {
-            newColumnMap[parentKey] = { ...newColumnMap[parentKey], show: false };
+            newColumnMap[parentKey] = {
+              ...newColumnMap[parentKey],
+              show: false,
+            };
           }
         }
       }
@@ -324,7 +327,8 @@ const CheckboxList: React.FC<{
       height={listHeight}
       treeData={treeDataConfig.list?.map(
         ({
-          disabled: _disabled /* 不透传 disabled，使子节点禁用时也可以拖动调整顺序 */,
+          disabled:
+            _disabled /* 不透传 disabled，使子节点禁用时也可以拖动调整顺序 */,
           ...config
         }) => config,
       )}
@@ -497,8 +501,7 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
   }, [columnsMap, localColumns]);
 
   // 是否全部列都已选中
-  const allChecked =
-    unCheckedKeys.length === 0 && localColumns.length > 0;
+  const allChecked = unCheckedKeys.length === 0 && localColumns.length > 0;
 
   // 是否部分选中（indeterminate）
   const indeterminate =

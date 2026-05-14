@@ -172,35 +172,35 @@ The `Steps` component is combined with the `ProCard` component to complete the v
 
 ProCard is compatible with antd Card API. The following props are consistent with antd Card.
 
-| Parameters            | Description                                                                                                                                                                   | Type                                                         | Default      | Version |
-| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ------------ | ------- |
-| cover                 | Card cover                                                                                                                                                                    | `React.ReactNode`                                            | -            |         |
-| classNames            | Semantic classNames, same structure as antd Card                                                                                                                              | `{ root?, header?, body?, extra?, title?, actions?, cover? }` | -            |         |
-| title                 | Card title                                                                                                                                                                    | `React.ReactNode`                                            | -            |         |
-| subTitle              | Subtitle                                                                                                                                                                      | `React.ReactNode`                                            | -            |         |
-| tooltip               | Icon hover prompt information on the right side of the title                                                                                                                  | `string` \| `LabelTooltipType`                                | -            |         |
-| extra                 | Custom area in the upper right corner                                                                                                                                         | `React.ReactNode`                                            | -            |         |
-| layout                | Content layout, supports vertical centering                                                                                                                                   | `default` \| `center`                                        | default      |         |
-| type                  | Card type                                                                                                                                                                     | `default` \| `inner`                                         | default      |         |
-| direction             | Specifies the flex direction, only valid when subcards are nested, the default direction is row horizontal                                                                  | `column` \| `row`                                            | row          |         |
-| wrap                  | Whether to support line wrapping, only valid when subcards are nested                                                                                                         | `boolean`                                                    | false        | 1.12.0  |
-| size                  | Card size                                                                                                                                                                     | `default` \| `small`                                        | default      |         |
-| loading               | Loading, support custom loading style                                                                                                                                         | `boolean` \| `ReactNode`                                     | false        |         |
-| colSpan               | Grid layout width, 24 grid, supports specifying width px or percentage, supports responsive object writing `{ xs: 8, sm: 16, md: 24}`, only set on nested subcards efficient. | `number` \| `string` \| `Partial<Record<Breakpoint, number \| string>>` | 24           |         |
-| colStyle              | Grid style                                                                                                                                                                    | `CSSProperties`                                             | -            |         |
-| gutter                | Number or use array form to set [horizontal spacing, vertical spacing], supports responsive object notation `{ xs: 8, sm: 16, md: 24}`                                       | `number` \| `Partial<Record<Breakpoint, number>>` \| `[number, number]` | 0            |         |
-| split                 | Direction to split the card                                                                                                                                                   | `vertical` \| `horizontal`                                   | -            |         |
-| actions               | Card action group, located at the bottom of the card                                                                                                                          | `React.ReactNode[]` \| `React.ReactNode`                      | -            |         |
-| ghost                 | Ghost mode, that is, whether to cancel the padding of the card content area and the background color of the card.                                                             | `boolean`                                                    | false        |         |
-| headerBordered        | Whether the header has a dividing line                                                                                                                                        | `boolean`                                                    | false        |         |
-| hoverable             | Whether to lift on hover                                                                                                                                                      | `boolean`                                                    | false        |         |
-| collapsed             | Controlled property, whether to collapse                                                                                                                                      | `boolean`                                                    | false        |         |
-| collapsible           | Whether the configuration is collapsible, invalid when controlled. Supports `icon` and `header` for trigger mode                                                            | `icon` \| `header` \| `boolean`                              | false        |         |
-| collapsibleIconRender | Replaces default collapsed icon                                                                                                                                               | `({ collapsed }: { collapsed: boolean }) => React.ReactNode` | -            |         |
-| defaultCollapsed      | Default collapsing, invalid when controlled                                                                                                                                   | `boolean`                                                    | false        |         |
-| onCollapse            | Collapsed card event, invalid when controlled                                                                                                                                 | `(collapsed: boolean) => void`                               | -            |         |
-| tabs                  | Tab configuration                                                                                                                                                             | See below ProCardTabs                                       | -            |         |
-| variant               | Card variants, same as antd Card                                                                                                                                              | `'outlined'` \| `'borderless'`                               | `'outlined'` | 5.24.0  |
+| Parameters            | Description                                                                                                                                                                   | Type                                                                         | Default      | Version |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ------------ | ------- |
+| cover                 | Card cover                                                                                                                                                                    | `React.ReactNode`                                                            | -            |         |
+| classNames            | Semantic classNames, same structure as antd Card                                                                                                                              | `{ root?, header?, body?, extra?, title?, actions?, cover? }`                | -            |         |
+| title                 | Card title                                                                                                                                                                    | `React.ReactNode`                                                            | -            |         |
+| subTitle              | Subtitle                                                                                                                                                                      | `React.ReactNode`                                                            | -            |         |
+| tooltip               | Icon hover prompt information on the right side of the title                                                                                                                  | `string` \| `LabelTooltipType`                                               | -            |         |
+| extra                 | Custom area in the upper right corner                                                                                                                                         | `React.ReactNode`                                                            | -            |         |
+| layout                | Content layout, supports vertical centering                                                                                                                                   | `default` \| `center`                                                        | default      |         |
+| type                  | Card type                                                                                                                                                                     | `default` \| `inner`                                                         | default      |         |
+| direction             | Specifies the flex direction, only valid when subcards are nested, the default direction is row horizontal                                                                    | `column` \| `row`                                                            | row          |         |
+| wrap                  | Whether to support line wrapping, only valid when subcards are nested                                                                                                         | `boolean`                                                                    | false        | 1.12.0  |
+| size                  | Card size                                                                                                                                                                     | `default` \| `small`                                                         | default      |         |
+| loading               | Loading, support custom loading style                                                                                                                                         | `boolean` \| `ReactNode`                                                     | false        |         |
+| colSpan               | Grid layout width, 24 grid, supports specifying width px or percentage, supports responsive object writing `{ xs: 8, sm: 16, md: 24}`, only set on nested subcards efficient. | `number` \| `string` \| `Partial<Record<Breakpoint, number \| string>>`      | 24           |         |
+| colStyle              | Grid style                                                                                                                                                                    | `CSSProperties`                                                              | -            |         |
+| gutter                | Number or use array form to set [horizontal spacing, vertical spacing], supports responsive object notation `{ xs: 8, sm: 16, md: 24}`                                        | `number` \| `Partial<Record<Breakpoint, number>>` \| `[number, number]`      | 0            |         |
+| split                 | Direction to split the card                                                                                                                                                   | `vertical` \| `horizontal`                                                   | -            |         |
+| actions               | Card action group, located at the bottom of the card                                                                                                                          | `React.ReactNode[]` \| `React.ReactNode`                                     | -            |         |
+| ghost                 | Ghost mode, that is, whether to cancel the padding of the card content area and the background color of the card.                                                             | `boolean`                                                                    | false        |         |
+| headerBordered        | Whether the header has a dividing line                                                                                                                                        | `boolean`                                                                    | false        |         |
+| hoverable             | Whether to lift on hover                                                                                                                                                      | `boolean`                                                                    | false        |         |
+| collapsed             | Controlled property, whether to collapse                                                                                                                                      | `boolean`                                                                    | false        |         |
+| collapsible           | Whether the configuration is collapsible, invalid when controlled. Supports `icon` and `header` for trigger mode                                                              | `icon` \| `header` \| `boolean`                                              | false        |         |
+| collapsibleIconRender | Replaces default collapsed icon                                                                                                                                               | `({ collapsed }: { collapsed: boolean }) => React.ReactNode`                 | -            |         |
+| defaultCollapsed      | Default collapsing, invalid when controlled                                                                                                                                   | `boolean`                                                                    | false        |         |
+| onCollapse            | Collapsed card event, invalid when controlled                                                                                                                                 | `(collapsed: boolean) => void`                                               | -            |         |
+| tabs                  | Tab configuration                                                                                                                                                             | See below ProCardTabs                                                        | -            |         |
+| variant               | Card variants, same as antd Card                                                                                                                                              | `'outlined'` \| `'borderless'`                                               | `'outlined'` | 5.24.0  |
 | styles                | Custom styles, same structure as antd Card                                                                                                                                    | `{ root?, header?, body?, extra?, title?, actions?, cover?: CSSProperties }` | -            |         |
 
 ### ProCardTabs
@@ -210,7 +210,7 @@ ProCard is compatible with antd Card API. The following props are consistent wit
 | activeKey | Currently selected item                                                   | string                         | -             |
 | type      | The basic style of the tab, optional `line`, `card`, `editable-card` type | string                         | inline        |
 | onChange  | callback                                                                  | `(activeKey: string) => void;` | -             |
-| items     | Tab items configuration (required)                                        | `ItemsProps`                  | -             |
+| items     | Tab items configuration (required)                                        | `ItemsProps`                   | -             |
 
 - For more properties, see antd [Tab](https://ant.design/components/tabs-cn/#Tabs) API description.
 
@@ -218,9 +218,9 @@ ProCard is compatible with antd Card API. The following props are consistent wit
 
 Supports all properties of [Tabs](https://ant.design/components/tabs-cn/#Tabs.TabPane) tab.
 
-| parameter | description                                       | type        | default value |
-| :-------- | :----------------------------------------------- | :---------- | :------------ |
-| cardProps | ProCard card property passthrough                | `ProCard`   | -             |
+| parameter | description                       | type      | default value |
+| :-------- | :-------------------------------- | :-------- | :------------ |
+| cardProps | ProCard card property passthrough | `ProCard` | -             |
 
 ### ProCard.TabPane
 
@@ -237,15 +237,15 @@ Supports all properties of [Tabs](https://ant.design/components/tabs-cn/#Tabs.Ta
 
 Used to separate when grouping content.
 
-| parameter   | description     | type                     | default value |
-| ----------- | --------------- | ------------------------ | ------------- |
+| parameter   | description     | type                       | default value |
+| ----------- | --------------- | -------------------------- | ------------- |
 | orientation | Separation type | `horizontal` \| `vertical` | -             |
 
 ### ProCard.Group
 
 The property is the same as ProCard, but the card content margin will be cancelled, which is used to group multiple cards.
 
-| parameter  | description                                      | type                        | default value |
-| ---------- | ------------------------------------------------ | --------------------------- | ------------- |
-| split      | Split line direction between child cards         | `'vertical'` \| `'horizontal'` | -             |
-| direction  | Child card arrangement direction                | `'row'` \| `'column'`       | `'row'`       |
+| parameter | description                              | type                           | default value |
+| --------- | ---------------------------------------- | ------------------------------ | ------------- |
+| split     | Split line direction between child cards | `'vertical'` \| `'horizontal'` | -             |
+| direction | Child card arrangement direction         | `'row'` \| `'column'`          | `'row'`       |

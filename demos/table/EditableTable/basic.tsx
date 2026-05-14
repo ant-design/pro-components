@@ -202,7 +202,6 @@ const Demo = () => {
           type: 'multiple',
           editableKeys,
           onSave: async (rowKey, data, row) => {
-
             await waitTime(2000);
           },
           onChange: setEditableRowKeys,

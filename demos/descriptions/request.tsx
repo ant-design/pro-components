@@ -92,8 +92,8 @@ const Demo = () => {
             <strong>valueType</strong>: 值类型，决定如何渲染数据
           </li>
           <li>
-            <strong>render</strong>: 自定义内容，如操作按钮（valueType 为
-            option 时放入 extra 区域）
+            <strong>render</strong>: 自定义内容，如操作按钮（valueType 为 option
+            时放入 extra 区域）
           </li>
         </ul>
         <h4>ActionRef 操作方法：</h4>

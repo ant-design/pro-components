@@ -92,7 +92,6 @@ const Demo = () => {
     afterIndex: number,
     newDataSource: any,
   ) => {
-
     setDatasource1(newDataSource);
     message.success('修改列表排序成功');
   };
@@ -101,7 +100,6 @@ const Demo = () => {
     afterIndex: number,
     newDataSource: any,
   ) => {
-
     setDatasource2(newDataSource);
     message.success('修改列表排序成功');
   };
@@ -110,7 +108,6 @@ const Demo = () => {
     afterIndex: number,
     newDataSource: any,
   ) => {
-
     // 模拟将排序后数据发送到服务器的场景
     remoteData = newDataSource;
     // 请求成功之后刷新列表

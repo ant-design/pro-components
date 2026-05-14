@@ -14,10 +14,7 @@ import type React from 'react';
 import type { CSSProperties, Key } from 'react';
 import type { ProCardProps } from '../card';
 import type { ProFieldEmptyText } from '../field';
-import type {
-  ProFormProps,
-  QueryFilterProps,
-} from '../form';
+import type { ProFormProps, QueryFilterProps } from '../form';
 import type {
   LabelTooltipType,
   ProCoreActionType,

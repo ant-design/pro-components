@@ -12,7 +12,10 @@ import type { CommonFormProps } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import type { ActionsProps } from './Actions';
 import Actions from './Actions';
-import { calcSubmitterOffset, processQueryFilterItems } from './processQueryFilterItems';
+import {
+  calcSubmitterOffset,
+  processQueryFilterItems,
+} from './processQueryFilterItems';
 import { useStyle } from './style';
 
 type BreakpointsConfig = {
@@ -231,7 +234,6 @@ export type BaseQueryFilterProps = Omit<
   };
   containerStyle?: React.CSSProperties;
 };
-
 
 export type QueryFilterProps<
   T = Record<string, any>,

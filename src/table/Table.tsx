@@ -1014,7 +1014,7 @@ const ProTable = <
     return useCardForTable || useCardForList;
   }, [cardProps, props.name, type, notNeedCardDom]);
 
-  const resolvedCardProps = cardProps === false ? {} : cardProps ?? {};
+  const resolvedCardProps = cardProps === false ? {} : (cardProps ?? {});
 
   const tableAreaDom = useCard ? (
     <ProCard

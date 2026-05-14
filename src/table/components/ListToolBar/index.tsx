@@ -232,7 +232,11 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
   );
 
   const hasLeft = !!(
-    tooltip || title || subTitle || menu || (!hasTitle && searchNode)
+    tooltip ||
+    title ||
+    subTitle ||
+    menu ||
+    (!hasTitle && searchNode)
   );
 
   let leftTitleDom: React.ReactNode;

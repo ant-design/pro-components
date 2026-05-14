@@ -1,5 +1,5 @@
 import type { GenerateStyle, ProAliasToken } from '../../../../provider';
-import { useStyle as useAntdStyle } from '../../../../provider';
+import { setAlpha, useStyle as useAntdStyle } from '../../../../provider';
 
 export interface ProLayoutHeaderToken extends ProAliasToken {
   componentCls: string;
@@ -20,11 +20,10 @@ const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken> = (
         paddingInline: 0,
         borderBlockEnd: `1px solid ${token.colorSplit}`,
         backgroundColor:
-          token.layout?.header?.colorBgHeader || 'rgba(255, 255, 255, 0.4)',
+          token.layout?.header?.colorBgHeader ??
+          setAlpha(token.colorBgElevated, 0.6),
         WebkitBackdropFilter: 'blur(8px)',
         backdropFilter: 'blur(8px)',
-        transition:
-          'background-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1)',
         '&-fixed-header': {
           position: 'fixed',
           insetBlockStart: 0,
@@ -37,8 +36,8 @@ const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken> = (
         },
         '&-fixed-header-scroll': {
           backgroundColor:
-            token.layout?.header?.colorBgScrollHeader ||
-            'rgba(255, 255, 255, 0.8)',
+            token.layout?.header?.colorBgScrollHeader ??
+            setAlpha(token.colorBgElevated, 0.8),
         },
         '&-header-actions': {
           display: 'flex',
@@ -53,7 +52,9 @@ const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken> = (
             },
           },
         },
-        '&-header-realDark': { boxShadow: '0 2px 8px 0 rgba(0, 0, 0, 65%)' },
+        '&-header-realDark': {
+          boxShadow: `0 2px 8px 0 ${setAlpha(token.colorTextBase, 0.65)}`,
+        },
         '&-header-actions-header-action': {
           transition: 'width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1)',
         },

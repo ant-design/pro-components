@@ -102,6 +102,68 @@ describe('BasicLayout', () => {
     wrapper.unmount();
   });
 
+  it('🐞 leaf: li click on row blank delegates to inner a[href] when anchor does not fill row', async () => {
+    const onInnerNav = vi.fn((e: React.MouseEvent) => {
+      e.preventDefault();
+    });
+    const wrapper = render(
+      <ProLayout
+        menuDataRender={() => [{ path: '/welcome', name: '欢迎' }]}
+        menuItemRender={(item, dom) => (
+          <a
+            href={item.path}
+            data-testid="inner-nav-anchor"
+            style={{ display: 'inline', width: 'auto' }}
+            onClick={(e) => {
+              e.preventDefault();
+              onInnerNav(e);
+            }}
+          >
+            {dom}
+          </a>
+        )}
+      />,
+    );
+    await waitForWaitTime(100);
+    const li = wrapper.baseElement.querySelector<HTMLElement>(
+      '[data-pro-layout-nav-leaf]',
+    );
+    expect(li).toBeTruthy();
+    act(() => {
+      fireEvent.click(li!);
+    });
+    expect(onInnerNav).toHaveBeenCalled();
+    wrapper.unmount();
+  });
+
+  it('🐞 leaf: li click delegates to plain div onClick when no a/role=button', async () => {
+    const onRow = vi.fn();
+    const wrapper = render(
+      <ProLayout
+        menuDataRender={() => [{ path: '/welcome', name: '欢迎' }]}
+        menuItemRender={(item, dom) => (
+          <div
+            data-testid="plain-row"
+            style={{ display: 'inline-block', width: 'auto' }}
+            onClick={() => onRow(item.path)}
+          >
+            {dom}
+          </div>
+        )}
+      />,
+    );
+    await waitForWaitTime(100);
+    const li = wrapper.baseElement.querySelector<HTMLElement>(
+      '[data-pro-layout-nav-leaf]',
+    );
+    expect(li).toBeTruthy();
+    act(() => {
+      fireEvent.click(li!);
+    });
+    expect(onRow).toHaveBeenCalledWith('/welcome');
+    wrapper.unmount();
+  });
+
   it('🥩 TopNavHeader merges menuProps once on root nav', async () => {
     const wrapper = render(
       <ProLayout
@@ -337,7 +399,10 @@ describe('BasicLayout', () => {
               {
                 title: '前端应用框架',
                 icon: () => (
-                  <img src="https://img.alicdn.com/tfs/TB1zomHwxv1gK0jSZFFXXb0sXXa-200-200.png" alt="" />
+                  <img
+                    src="https://img.alicdn.com/tfs/TB1zomHwxv1gK0jSZFFXXb0sXXa-200-200.png"
+                    alt=""
+                  />
                 ),
                 url: 'https://umijs.org/zh-CN/docs',
               },
@@ -1116,8 +1181,7 @@ describe('BasicLayout', () => {
     expect(
       wrapper.baseElement.querySelector<HTMLDivElement>(
         'li.ant-pro-base-menu-vertical-item',
-      )
-        ?.innerText,
+      )?.innerText,
     ).not.toContain('欢迎');
   });
 
@@ -1311,7 +1375,8 @@ describe('BasicLayout', () => {
     });
     await waitForWaitTime(2000);
     expect(
-      html.baseElement.querySelectorAll('[data-pro-layout-nav-submenu-open]').length,
+      html.baseElement.querySelectorAll('[data-pro-layout-nav-submenu-open]')
+        .length,
     ).toBe(2);
     const domChildMenu = await (await html.findAllByText('二级列表页面')).at(0);
     const domLink = await (await html.findAllByText('AntDesign外链')).at(0);
@@ -1659,7 +1724,8 @@ describe('BasicLayout', () => {
       html.baseElement.querySelectorAll('[data-pro-layout-nav-submenu]').length,
     ).toBe(3);
     expect(
-      html.baseElement.querySelectorAll('[data-pro-layout-nav-submenu-open]').length,
+      html.baseElement.querySelectorAll('[data-pro-layout-nav-submenu-open]')
+        .length,
     ).toBe(3);
   });
 
@@ -1760,14 +1826,16 @@ describe('BasicLayout', () => {
       html.baseElement.querySelectorAll('[data-pro-layout-nav-submenu]').length,
     ).toBe(3);
     expect(
-      html.baseElement.querySelectorAll('[data-pro-layout-nav-submenu-open]').length,
+      html.baseElement.querySelectorAll('[data-pro-layout-nav-submenu-open]')
+        .length,
     ).toBe(3);
     await act(async () => {
       (await html.findByText('月表'))?.parentElement?.click();
     });
     await waitForWaitTime(800);
     expect(
-      html.baseElement.querySelectorAll('[data-pro-layout-nav-submenu-open]').length,
+      html.baseElement.querySelectorAll('[data-pro-layout-nav-submenu-open]')
+        .length,
     ).toBe(0);
   });
 
@@ -1866,7 +1934,8 @@ describe('BasicLayout', () => {
     await waitForWaitTime(1000);
 
     expect(
-      html.baseElement.querySelectorAll('[data-pro-layout-nav-submenu-open]').length,
+      html.baseElement.querySelectorAll('[data-pro-layout-nav-submenu-open]')
+        .length,
     ).toBe(2);
 
     act(() => {
@@ -1880,7 +1949,8 @@ describe('BasicLayout', () => {
     await waitForWaitTime(1000);
 
     expect(
-      html.baseElement.querySelectorAll('[data-pro-layout-nav-submenu-open]').length,
+      html.baseElement.querySelectorAll('[data-pro-layout-nav-submenu-open]')
+        .length,
     ).toBe(0);
 
     act(() => {
@@ -1895,7 +1965,8 @@ describe('BasicLayout', () => {
 
     expect(onCollapse).toHaveBeenCalledTimes(2);
     expect(
-      html.baseElement.querySelectorAll('[data-pro-layout-nav-submenu-open]').length,
+      html.baseElement.querySelectorAll('[data-pro-layout-nav-submenu-open]')
+        .length,
     ).toBe(2);
   });
 
@@ -1965,5 +2036,167 @@ describe('BasicLayout', () => {
     expect(html.baseElement.querySelectorAll('.ant-layout-sider').length).toBe(
       0,
     );
+  });
+
+  it('🥩 horizontal top menu: clicking submenu title opens popup and leaf click navigates', async () => {
+    const onPathChange = vi.fn();
+    const onSelectFn = vi.fn();
+
+    const Demo = () => {
+      const [pathname, setPathname] = useState('/welcome');
+      return (
+        <ProLayout
+          layout="top"
+          location={{ pathname }}
+          onSelect={onSelectFn}
+          menuDataRender={() => [
+            { path: '/welcome', name: '欢迎' },
+            {
+              path: '/account',
+              name: '账户',
+              children: [
+                { path: '/account/user', name: '用户管理' },
+                { path: '/account/org', name: '组织管理' },
+              ],
+            },
+            { path: '/session', name: '会话管理' },
+          ]}
+          menuItemRender={(item, dom) => (
+            <div
+              data-testid={`menu-link-${item.path}`}
+              onClick={() => {
+                setPathname(item.path || '/welcome');
+                onPathChange(item.path);
+              }}
+            >
+              {dom}
+            </div>
+          )}
+        >
+          <div data-testid="page-content">当前路径: {pathname}</div>
+        </ProLayout>
+      );
+    };
+
+    const html = render(<Demo />);
+    await waitForWaitTime(200);
+
+    /* ---- Case 1: Click submenu title → popup opens ---- */
+    const submenuTitle = html.baseElement.querySelector<HTMLElement>(
+      '[data-pro-layout-nav-root] [data-testid="pro-layout-nav-menu-popup-submenu-title"]',
+    );
+    expect(submenuTitle).toBeTruthy();
+
+    act(() => {
+      submenuTitle!.click();
+    });
+    await waitForWaitTime(200);
+
+    await waitFor(() => {
+      const popup = document.body.querySelector('[class*="submenu-popup"]');
+      expect(popup).toBeTruthy();
+      expect(popup!.textContent).toContain('用户管理');
+      expect(popup!.textContent).toContain('组织管理');
+    });
+
+    /* ---- Case 2: Click leaf inside popup → navigates ---- */
+    const userLink = document.body.querySelector<HTMLElement>(
+      '[data-testid="menu-link-/account/user"]',
+    );
+    expect(userLink).toBeTruthy();
+
+    act(() => {
+      userLink!.click();
+    });
+    await waitForWaitTime(100);
+
+    expect(onPathChange).toHaveBeenCalledWith('/account/user');
+    expect(html.getByTestId('page-content').textContent).toContain(
+      '/account/user',
+    );
+
+    /* ---- Case 3: Click first-level leaf → navigates directly ---- */
+    onPathChange.mockClear();
+    const sessionLink = html.baseElement.querySelector<HTMLElement>(
+      '[data-pro-layout-nav-root] [data-testid="menu-link-/session"]',
+    );
+    expect(sessionLink).toBeTruthy();
+
+    act(() => {
+      sessionLink!.click();
+    });
+    await waitForWaitTime(100);
+
+    expect(onPathChange).toHaveBeenCalledWith('/session');
+    expect(html.getByTestId('page-content').textContent).toContain('/session');
+
+    html.unmount();
+  });
+
+  it('🐞 horizontal popup: second-level leaf should have item--selected class', async () => {
+    const Demo = () => {
+      const [pathname, setPathname] = useState('/account/user');
+      return (
+        <ProLayout
+          layout="top"
+          location={{ pathname }}
+          menuDataRender={() => [
+            { path: '/welcome', name: '欢迎' },
+            {
+              path: '/account',
+              name: '账户',
+              children: [
+                { path: '/account/user', name: '用户管理' },
+                { path: '/account/org', name: '组织管理' },
+              ],
+            },
+            { path: '/session', name: '会话管理' },
+          ]}
+          menuItemRender={(item, dom) => (
+            <div
+              data-testid={`menu-link-${item.path}`}
+              onClick={() => setPathname(item.path || '/welcome')}
+            >
+              {dom}
+            </div>
+          )}
+        >
+          <div data-testid="page-content">当前路径: {pathname}</div>
+        </ProLayout>
+      );
+    };
+
+    const { baseElement, unmount } = render(<Demo />);
+    await waitForWaitTime(200);
+
+    const submenuTitle = baseElement.querySelector<HTMLElement>(
+      '[data-pro-layout-nav-root] [data-testid="pro-layout-nav-menu-popup-submenu-title"]',
+    );
+    expect(submenuTitle).toBeTruthy();
+
+    act(() => {
+      submenuTitle!.click();
+    });
+    await waitForWaitTime(200);
+
+    await waitFor(() => {
+      const popup = document.body.querySelector('[class*="submenu-popup"]');
+      expect(popup).toBeTruthy();
+      const selectedItem = popup!.querySelector('[class*="item--selected"]');
+      expect(selectedItem).toBeTruthy();
+      const itemButton = selectedItem!.querySelector(
+        '[data-testid="pro-layout-nav-menu-item-button"]',
+      );
+      expect(itemButton).toBeTruthy();
+      expect(selectedItem!.textContent).toContain('用户管理');
+    });
+
+    const submenuLi = baseElement.querySelector<HTMLElement>(
+      '[data-pro-layout-nav-root] [data-testid="pro-layout-nav-menu-popup-submenu"]',
+    );
+    expect(submenuLi).toBeTruthy();
+    expect(submenuLi!.className).toContain('child-selected');
+
+    unmount();
   });
 });
