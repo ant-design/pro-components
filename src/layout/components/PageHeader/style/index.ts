@@ -1,3 +1,4 @@
+import { proLayoutVar } from '../../../style';
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { GenerateStyle, ProAliasToken } from '../../../../provider';
 import {
@@ -150,8 +151,8 @@ const genPageHeaderStyle: GenerateStyle<PageHeaderToken> = (token) => {
         flexWrap: 'wrap',
       },
       '&-wide': {
-        maxWidth: 1152,
-        margin: '0 auto',
+        maxWidth: `var(${proLayoutVar.contentFixedMaxWidth})`,
+        marginInline: 'auto',
       },
       '&-rtl': {
         direction: 'rtl',

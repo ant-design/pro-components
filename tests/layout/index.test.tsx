@@ -5,6 +5,7 @@ import {
 } from '@ant-design/icons';
 import {
   LoginForm,
+  PageContainer,
   ProFormText,
   ProLayout,
   type ProLayoutNavMenuDomProps,
@@ -2097,6 +2098,12 @@ describe('BasicLayout', () => {
       expect(popup).toBeTruthy();
       expect(popup!.textContent).toContain('用户管理');
       expect(popup!.textContent).toContain('组织管理');
+      /** 离屏测宽 `nav` 不得再挂一层同源 Popover 浮层，否则叠层会挡住真实顶栏二级点击 */
+      expect(
+        document.body.querySelectorAll(
+          '[data-testid="pro-layout-nav-menu-popup-list"]',
+        ).length,
+      ).toBe(1);
     });
 
     /* ---- Case 2: Click leaf inside popup → navigates ---- */
@@ -2197,6 +2204,27 @@ describe('BasicLayout', () => {
     expect(submenuLi).toBeTruthy();
     expect(submenuLi!.className).toContain('child-selected');
 
+    unmount();
+  });
+
+  it('🥩 top + Fixed: PageContainer wraps header and grid in top-fixed-slot', async () => {
+    const { baseElement, unmount } = render(
+      <ProLayout
+        layout="top"
+        contentWidth="Fixed"
+        location={{ pathname: '/welcome' }}
+        menuDataRender={() => [{ path: '/welcome', name: '欢迎' }]}
+      >
+        <PageContainer title="定宽槽">inner</PageContainer>
+      </ProLayout>,
+    );
+    await waitForWaitTime(200);
+    const slot = baseElement.querySelector(
+      '[data-testid="pro-page-container-top-fixed-slot"]',
+    );
+    expect(slot).toBeTruthy();
+    expect(slot?.querySelector('[data-testid="pro-page-header"]')).toBeTruthy();
+    expect(slot?.querySelector('[data-testid="pro-grid-content"]')).toBeTruthy();
     unmount();
   });
 });

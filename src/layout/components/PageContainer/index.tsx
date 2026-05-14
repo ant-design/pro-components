@@ -433,6 +433,49 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
     [`${basePageContainer}-stylish`]: !!restProps.stylish,
   });
 
+  const useTopFixedContentSlot =
+    value?.contentWidth === 'Fixed' && value?.layout === 'top';
+
+  const mainColumn = useMemo(
+    () => (
+      <>
+        {fixedHeader && pageHeaderDom ? (
+          <Affix
+            offsetTop={
+              value.hasHeader && value.fixedHeader
+                ? token.layout?.header?.heightLayoutHeader
+                : 1
+            }
+            {...affixProps}
+            className={clsx(`${basePageContainer}-affix`, hashId)}
+            data-testid="pro-page-container-affix"
+          >
+            <div
+              className={clsx(`${basePageContainer}-warp`, hashId)}
+              data-testid="pro-page-container-warp"
+            >
+              {pageHeaderDom}
+            </div>
+          </Affix>
+        ) : (
+          pageHeaderDom
+        )}
+        {renderContentDom && <GridContent>{renderContentDom}</GridContent>}
+      </>
+    ),
+    [
+      fixedHeader,
+      pageHeaderDom,
+      value.hasHeader,
+      value.fixedHeader,
+      token.layout?.header?.heightLayoutHeader,
+      affixProps,
+      basePageContainer,
+      hashId,
+      renderContentDom,
+    ],
+  );
+
   return wrapSSR(
     stylish.wrapSSR(
       <>
@@ -441,29 +484,16 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
           className={containerClassName}
           data-testid="pro-page-container"
         >
-          {fixedHeader && pageHeaderDom ? (
-            // 在 hasHeader 且 fixedHeader 的情况下，才需要设置高度
-            <Affix
-              offsetTop={
-                value.hasHeader && value.fixedHeader
-                  ? token.layout?.header?.heightLayoutHeader
-                  : 1
-              }
-              {...affixProps}
-              className={clsx(`${basePageContainer}-affix`, hashId)}
-              data-testid="pro-page-container-affix"
+          {useTopFixedContentSlot ? (
+            <div
+              className={clsx(`${basePageContainer}-top-fixed-slot`, hashId)}
+              data-testid="pro-page-container-top-fixed-slot"
             >
-              <div
-                className={clsx(`${basePageContainer}-warp`, hashId)}
-                data-testid="pro-page-container-warp"
-              >
-                {pageHeaderDom}
-              </div>
-            </Affix>
+              {mainColumn}
+            </div>
           ) : (
-            pageHeaderDom
+            mainColumn
           )}
-          {renderContentDom && <GridContent>{renderContentDom}</GridContent>}
         </div>
         {footer && (
           <FooterToolbar

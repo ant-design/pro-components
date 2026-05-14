@@ -1,5 +1,6 @@
 import type { GenerateStyle, ProAliasToken } from '../../../provider';
 import { useStyle as useAntdStyle } from '../../../provider';
+import { proLayoutVar } from '../../style';
 
 export interface GlobalHeaderToken extends ProAliasToken {
   componentCls: string;
@@ -14,7 +15,7 @@ const genGlobalHeaderStyle: GenerateStyle<GlobalHeaderToken> = (token) => {
       alignItems: 'center',
       marginBlock: 0,
       marginInline: 16,
-      height: token.layout?.header?.heightLayoutHeader || 56,
+      height: `var(${proLayoutVar.headerHeight})`,
       boxSizing: 'border-box',
       '> a': {
         height: '100%',

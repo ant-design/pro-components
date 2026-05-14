@@ -38,7 +38,7 @@ import type { GetPageTitleProps } from './getPageTitle';
 import { getPageTitleInfo } from './getPageTitle';
 import type { LocaleType } from './locales';
 import { gLocaleObject } from './locales';
-import { useStyle } from './style';
+import { proLayoutVar, useStyle } from './style';
 import type {
   MenuDataItem,
   MessageDescriptor,
@@ -351,10 +351,12 @@ const renderSiderMenu = (
   if (splitMenus && openKeys !== false && !isMobile) {
     const [key] = selectedKeys || matchMenuKeys;
     if (key) {
+      const selectedItem = props.menuData?.find((item) => item.key === key);
+      const children = selectedItem?.children || [];
       menuData =
-        props.menuData?.find((item) => item.key === key)?.children || [];
+        children.length > 0 ? children : selectedItem ? [selectedItem] : [];
     } else {
-      menuData = [];
+      menuData = props.menuData || [];
     }
   }
   // 这里走了可以少一次循环
@@ -363,7 +365,8 @@ const renderSiderMenu = (
   if (
     clearMenuData &&
     clearMenuData?.length < 1 &&
-    (splitMenus || suppressSiderWhenMenuEmpty)
+    !splitMenus &&
+    suppressSiderWhenMenuEmpty
   ) {
     return null;
   }
@@ -774,18 +777,13 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     menuCollapsedWidth,
   );
 
-  /** 侧栏布局下固定顶栏只盖住主列，不铺满视口盖住侧栏（splitMenus 顶栏整行时仍为 0） */
+  /** 侧栏布局下固定顶栏只盖住主列，不铺满视口盖住侧栏 */
   const fixedHeaderInsetStart = useMemo(() => {
-    const splitHeaderFullWidth =
-      props.splitMenus && propsLayout !== 'top' && !isMobile;
     if (propsLayout !== 'side' || !siderMenuDom || isMobile) {
       return '0px';
     }
-    if (splitHeaderFullWidth) {
-      return '0px';
-    }
     return `${leftSiderWidth ?? 0}px`;
-  }, [props.splitMenus, propsLayout, siderMenuDom, isMobile, leftSiderWidth]);
+  }, [propsLayout, siderMenuDom, isMobile, leftSiderWidth]);
 
   // siderMenuDom 为空的时候，不需要 padding
   const genLayoutStyle: CSSProperties = {
@@ -863,7 +861,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
           data-testid="pro-layout"
           style={
             {
-              ['--pro-layout-fixed-header-start']: fixedHeaderInsetStart,
+              [proLayoutVar.fixedHeaderStart]: fixedHeaderInsetStart,
             } as CSSProperties
           }
         >
@@ -875,7 +873,6 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
               {bgImgStyleList}
             </div>
           ) : null}
-          {props.splitMenus && propsLayout !== 'top' && !isMobile && headerDom}
           <Layout
             style={{
               minHeight: '100%',
@@ -899,8 +896,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
               className={clsx(`${proLayoutClassName}-container`, hashId)}
               data-testid="pro-layout-container"
             >
-              {!(props.splitMenus && propsLayout !== 'top' && !isMobile) &&
-                headerDom}
+              {headerDom}
               <WrapContent
                 hasPageContainer={hasPageContainer}
                 isChildrenLayout={isChildrenLayout}

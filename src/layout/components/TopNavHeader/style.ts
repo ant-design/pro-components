@@ -1,3 +1,4 @@
+import { proLayoutVar } from '../../style';
 import type { GenerateStyle, ProAliasToken } from '../../../provider';
 import { useStyle as useAntdStyle } from '../../../provider';
 
@@ -28,8 +29,8 @@ const genTopNavHeaderStyle: GenerateStyle<TopNavHeaderToken> = (token) => {
         },
       },
       '&-wide': {
-        maxWidth: 1152,
-        margin: '0 auto',
+        maxWidth: `var(${proLayoutVar.contentFixedMaxWidth})`,
+        marginInline: 'auto',
       },
       '&-logo': {
         position: 'relative',

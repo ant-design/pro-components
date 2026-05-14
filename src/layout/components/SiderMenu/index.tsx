@@ -6,7 +6,10 @@ import { ProProvider } from '../../../provider';
 import type { PrivateSiderMenuProps, SiderMenuProps } from './SiderMenu';
 import { SiderMenu } from './SiderMenu';
 import { useStyle } from './style/index';
-import { getProLayoutSiderCssVarsStyle } from './style/menu';
+import {
+  getProLayoutSiderCssVarsStyle,
+  proLayoutSiderVar,
+} from './style/menu';
 
 const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (
   props,
@@ -42,7 +45,7 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (
       padding: 0,
       display: 'flex',
       flexDirection: 'row' as const,
-      backgroundColor: 'var(--pro-layout-sider-bg)',
+      backgroundColor: `var(${proLayoutSiderVar.bg})`,
     }),
     [proToken?.layout, antdToken],
   );

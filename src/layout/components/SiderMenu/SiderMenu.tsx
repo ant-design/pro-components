@@ -12,7 +12,7 @@ import { CollapsedIcon } from '../CollapsedIcon';
 import type { HeaderViewProps } from '../Header';
 import type { BaseMenuProps } from './BaseMenu';
 import { BaseMenu } from './BaseMenu';
-import type { NavMenuNode } from './navMenuTypes';
+import type { NavMenuNode } from './types';
 import { ProLayoutNavMenu } from './ProLayoutNavMenu';
 import {
   getProLayoutSiderCssVarsStyle,

@@ -93,9 +93,10 @@ describe('BasicLayout', () => {
         <PageContainer title="name" />
       </ProLayout>,
     );
-    const domHeader = container.querySelector('.ant-pro-top-nav-header-logo');
-
-    expect(!!domHeader).toBe(true);
+    const domMenu = container.querySelector('.ant-pro-top-nav-header-menu');
+    expect(!!domMenu).toBe(true);
+    const domLogo = container.querySelector('.ant-pro-top-nav-header-logo');
+    expect(domLogo).toBeNull();
   });
 
   it('without custom prefixCls props TopNavHeader', async () => {

@@ -13,13 +13,14 @@ import React, {
 import { isImg, isUrl } from '../../../utils';
 import { getOpenKeysFromMenuData } from '../../utils/utils';
 import {
-  mapMenuDataToNavNodes,
   type BaseMenuTreeContext,
   type BaseMenuProps as BaseMenuTreeProps,
+  mapMenuDataToNavNodes,
 } from './menuTree';
 import { ProLayoutNavMenu } from './ProLayoutNavMenu';
 import type { PrivateSiderMenuProps } from './SiderMenu';
 import { useStyle } from './style/menu';
+
 export type {
   MenuMode,
   ProLayoutNavMenuDomProps,
@@ -103,8 +104,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         | ((prev: (string | number)[] | false) => (string | number)[] | false),
     ) => {
       setOpenKeysInner((prev) => {
-        const next = typeof updater === 'function' ? updater(prev) : updater;
-        return next;
+        return typeof updater === 'function' ? updater(prev) : updater;
       });
     },
     [],
@@ -296,13 +296,6 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       className={clsx(className, hashId, baseClassName, menuPropsClassName, {
         'ant-pro-sider-menu':
           mode !== 'horizontal' && props.menuRenderType !== 'header',
-        /**
-         * 修饰类（`--horizontal` / `--collapsed`）由 `ProLayoutNavMenu` 自身的
-         * 根 `<nav>` 统一加；这里不再重复挂双横线/单横线两套，避免：
-         * 1. DOM 上同一类名出现两次；
-         * 2. 旧的单横线变体（`-horizontal` / `-collapsed`）在 cssinjs 里没有匹配规则，
-         *    属于死类，徒增噪声。
-         */
       })}
       {...restMenuProps}
     />,

@@ -1,3 +1,4 @@
+import { proLayoutVar } from '../../../style';
 import type { GenerateStyle, ProAliasToken } from '../../../../provider';
 import { useStyle as useAntdStyle } from '../../../../provider';
 export interface PageContainerToken extends ProAliasToken {
@@ -111,6 +112,24 @@ const genPageContainerStyle: GenerateStyle<PageContainerToken> = (token) => {
           marginInlineStart: 0,
         },
       },
+    },
+    /**
+     * `layout=top` + `contentWidth=Fixed`：在 PageContainer 内统一「定宽槽」，
+     * 避免 `Layout.Content` flex 等父级导致 `PageHeader-wide` / `GridContent-wide`
+     * 各自 `max-width` 仍被撑成整行、正文区宽到 1200+ 与页头错位。
+     */
+    [`${token.componentCls}-top-fixed-slot`]: {
+      width: '100%',
+      maxWidth: `var(${proLayoutVar.contentFixedMaxWidth})`,
+      marginInline: 'auto',
+      minWidth: 0,
+      [`& ${token.antCls}-page-header${token.antCls}-page-header-wide,
+        & ${token.proComponentsCls}-grid-content${token.proComponentsCls}-grid-content-wide`]:
+        {
+          width: '100%',
+          maxWidth: 'none',
+          marginInline: 0,
+        },
     },
   };
 };

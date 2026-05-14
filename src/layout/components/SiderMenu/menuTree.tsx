@@ -1,6 +1,5 @@
 import { Tooltip } from 'antd';
 import { clsx } from 'clsx';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars -- 保留 React 导入以满足部分构建链对 React in scope 的要求
 import React, { useEffect, useState } from 'react';
 import { isUrl } from '../../../utils';
 import type { PureSettings } from '../../defaultSettings';
@@ -11,9 +10,9 @@ import type {
   WithFalse,
 } from '../../typing';
 import type { PrivateSiderMenuProps } from './SiderMenu';
-import type { NavMenuNode } from './navMenuTypes';
 import type {
   MenuMode,
+  NavMenuNode,
   ProLayoutNavMenuDomProps,
   ProLayoutNavMenuSelectInfo,
 } from './types';
@@ -335,9 +334,7 @@ function mapMenuItemToNavNode(
 
     const nextDepth = depth + 1;
 
-    const childNodes =
-      // eslint-disable-next-line @typescript-eslint/no-use-before-define -- `mapMenuDataToNavNodes` 与 `mapMenuItemToNavNode` 互递归
-      mapMenuDataToNavNodes(ctx, children, nextDepth);
+    const childNodes = mapMenuDataToNavNodes(ctx, children, nextDepth);
 
     /**
      * 分组分隔不再使用 1px divider（与 SidebarMenu 一致），改由 `--pro-layout-nav-group-gap`
@@ -357,7 +354,7 @@ function mapMenuItemToNavNode(
       kind: 'submenu',
       key: String(item.key! || item.path!),
       label: titleCell,
-      onTitleClick: (e) => item.onTitleClick?.(e),
+      onTitleClick: item.onTitleClick,
       children: childNodes,
       /**
        * 这里**不再**自挂 `${c}-submenu` 基础类，由渲染层（`ProLayoutNavMenu`）的

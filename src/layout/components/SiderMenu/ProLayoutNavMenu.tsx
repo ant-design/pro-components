@@ -11,8 +11,8 @@ import React, {
   useState,
 } from 'react';
 import { useRefFunction } from '../../../utils';
-import type { NavMenuNode } from './navMenuTypes';
-import type { MenuMode, ProLayoutNavMenuSelectInfo } from './types';
+import { navVar } from './style/menu';
+import type { MenuMode, NavMenuNode, ProLayoutNavMenuSelectInfo } from './types';
 
 const MENU_INDENT_PX = 16;
 
@@ -21,8 +21,7 @@ const MENU_INDENT_PX = 16;
  * `padding-inline-start` 里，不能写在外层 `<li>`：`li` 的 padding 区不在 button 盒内，
  * 用户点到「行左侧空白」时既无 hover 也无点击，体感像只有文字/icon 可点。
  */
-const NAV_ITEM_PAD_INLINE_FALLBACK =
-  'var(--pro-layout-nav-item-padding-inline, 8px)';
+const NAV_ITEM_PAD_INLINE_FALLBACK = `var(${navVar.itemPadInline}, 8px)`;
 
 function itemMenuDepthIndentStyle(depth: number): CSSProperties | undefined {
   if (depth <= 0) return undefined;
@@ -284,11 +283,19 @@ interface ProLayoutNavMenuRenderContext {
   /** 文档方向：侧向子菜单 `placement` 镜像用 */
   layoutDirection?: 'ltr' | 'rtl';
   /**
-   * 顶栏「更多」及由其弹出的侧向子层：子菜单走 antd `Menu` vertical 式侧向浮层，
-   * 不在首层面板内 inline 展开。
+   * 顶栏水平菜单渲染模式：
+   * - `'normal'`（默认）：正常渲染，popup inline 展开
+   * - `'overflow'`：顶栏「更多」弹出区域，子菜单走 vertical 侧向浮层
+   * - `'measure'`：离屏测宽 nav，不打开任何 Popover 以避免与真实顶栏冲突
    */
-  horizontalOverflowVerticalSubmenus?: boolean;
+  horizontalNavMode?: 'normal' | 'overflow' | 'measure';
 }
+
+type NodeRender = (
+  ctx: ProLayoutNavMenuRenderContext,
+  node: NavMenuNode,
+  depth: number,
+) => React.ReactNode;
 
 function renderDivider(
   ctx: ProLayoutNavMenuRenderContext,
@@ -394,12 +401,9 @@ function renderGroup(
   ctx: ProLayoutNavMenuRenderContext,
   node: Extract<NavMenuNode, { kind: 'group' }>,
   depth: number,
+  nodeRender: NodeRender,
 ) {
   const { baseClassName, hashId } = ctx;
-  /**
-   * 与 SidebarMenu 一致：分组标题使用 `<h3>` 语义元素，子项装在独立的 `<div role="group">`
-   * 包裹中。组与组之间的纵向间距由 `--pro-layout-nav-group-gap` 控制（默认 12px）。
-   */
   return (
     <li
       key={node.key}
@@ -419,8 +423,7 @@ function renderGroup(
         role="group"
         data-testid="pro-layout-nav-menu-group-list"
       >
-        {/* eslint-disable-next-line @typescript-eslint/no-use-before-define -- renderNode 定义在文件后部 */}
-        {node.children.map((child) => renderNode(ctx, child, depth))}
+        {node.children.map((child) => nodeRender(ctx, child, depth))}
       </ul>
     </li>
   );
@@ -440,6 +443,7 @@ function renderPopup(
   ctx: ProLayoutNavMenuRenderContext,
   node: Extract<NavMenuNode, { kind: 'submenu' }>,
   _depth: number,
+  nodeRender: NodeRender,
 ) {
   const {
     baseClassName,
@@ -450,19 +454,14 @@ function renderPopup(
     setPopupOpenKey,
     handleSubmenuTitleClick,
   } = ctx;
+  const measureNav = ctx.horizontalNavMode === 'measure';
   const popupCtx: ProLayoutNavMenuRenderContext = {
     ...ctx,
     insideSubmenuPopup: true,
   };
-  const isOpen = popupOpenKey === node.key;
+  const isOpen = !measureNav && popupOpenKey === node.key;
   const hasIcon = !!node.hasIcon;
 
-  /**
-   * popup 内重置 depth 起算：popup 自身已经把当前 submenu「外移」到浮层里，
-   * 浮层内第一级不应该再继承外部 inline 缩进（外部 depth 可能是 0/1/2…）。
-   * - popup 内最外层 children：depth=0，无缩进；
-   * - popup 内嵌套的 inline submenu/leaf：仍按 0/1/2 递增缩进。
-   */
   const popupContent = (
     <ul
       role="menu"
@@ -470,10 +469,7 @@ function renderPopup(
       data-pro-layout-nav-popup-panel
       data-testid="pro-layout-nav-menu-popup-list"
     >
-      {node.children.map((child) => {
-        // eslint-disable-next-line @typescript-eslint/no-use-before-define -- renderNode 定义在文件后部
-        return renderNode(popupCtx, child, 0);
-      })}
+      {node.children.map((child) => nodeRender(popupCtx, child, 0))}
     </ul>
   );
 
@@ -529,6 +525,7 @@ function renderPopup(
           root: { maxHeight: 'calc(100vh - 32px)', overflowY: 'auto' },
         }}
         onOpenChange={(next) => {
+          if (measureNav) return;
           if (next) {
             setPopupOpenKey(node.key);
           } else if (popupOpenKey === node.key) {
@@ -546,9 +543,13 @@ function renderPopup(
           data-testid="pro-layout-nav-menu-popup-submenu-title"
           aria-expanded={isOpen}
           aria-haspopup="true"
-          onClick={(e) =>
-            handleSubmenuTitleClick(node.key, node.onTitleClick, e, false)
-          }
+          onClick={(e) => {
+            if (measureNav) {
+              e.preventDefault();
+              return;
+            }
+            handleSubmenuTitleClick(node.key, node.onTitleClick, e, false);
+          }}
           onKeyDown={(e) => {
             if (e.key === 'Escape' && isOpen) {
               e.stopPropagation();
@@ -585,6 +586,7 @@ function renderInlineSubmenu(
   ctx: ProLayoutNavMenuRenderContext,
   node: Extract<NavMenuNode, { kind: 'submenu' }>,
   depth: number,
+  nodeRender: NodeRender,
 ) {
   const {
     baseClassName,
@@ -678,50 +680,45 @@ function renderInlineSubmenu(
           role="menu"
           data-testid="pro-layout-nav-menu-submenu-children"
         >
-          {/* eslint-disable-next-line @typescript-eslint/no-use-before-define -- renderNode 定义在文件后部 */}
-          {node.children.map((child) => renderNode(ctx, child, depth + 1))}
+          {node.children.map((child) => nodeRender(ctx, child, depth + 1))}
         </ul>
       ) : null}
     </li>
   );
 }
 
-function renderNode(
-  ctx: ProLayoutNavMenuRenderContext,
-  node: NavMenuNode,
-  depth: number,
-): React.ReactNode {
+const renderNode: NodeRender = (ctx, node, depth) => {
   switch (node.kind) {
     case 'divider':
       return renderDivider(ctx, node);
     case 'item':
       return renderLeaf(ctx, node, depth);
     case 'group':
-      return renderGroup(ctx, node, depth);
+      return renderGroup(ctx, node, depth, renderNode);
     case 'submenu':
       if (ctx.popupMode && !ctx.insideSubmenuPopup) {
-        return renderPopup(ctx, node, depth);
+        return renderPopup(ctx, node, depth, renderNode);
       }
       if (
         ctx.popupMode &&
         ctx.insideSubmenuPopup &&
-        ctx.horizontalOverflowVerticalSubmenus
+        ctx.horizontalNavMode === 'overflow'
       ) {
         return (
-          // eslint-disable-next-line @typescript-eslint/no-use-before-define -- OverflowVerticalSubmenu 定义于同文件下文
           <OverflowVerticalSubmenu
             key={node.key}
             ctx={ctx}
             node={node}
             depth={depth}
+            nodeRender={renderNode}
           />
         );
       }
-      return renderInlineSubmenu(ctx, node, depth);
+      return renderInlineSubmenu(ctx, node, depth, renderNode);
     default:
       return null;
   }
-}
+};
 
 /**
  * 顶栏「更多」内及侧向子层：对齐 antd Menu `mode="vertical"`，子级以侧向 Popover 展开，
@@ -731,10 +728,12 @@ function OverflowVerticalSubmenu({
   ctx,
   node,
   depth,
+  nodeRender,
 }: {
   ctx: ProLayoutNavMenuRenderContext;
   node: Extract<NavMenuNode, { kind: 'submenu' }>;
   depth: number;
+  nodeRender: NodeRender;
 }) {
   const {
     baseClassName,
@@ -752,7 +751,7 @@ function OverflowVerticalSubmenu({
   const flyoutRenderCtx: ProLayoutNavMenuRenderContext = {
     ...ctx,
     insideSubmenuPopup: true,
-    horizontalOverflowVerticalSubmenus: true,
+    horizontalNavMode: 'overflow',
   };
 
   const flyoutContent = (
@@ -764,7 +763,7 @@ function OverflowVerticalSubmenu({
       data-testid="pro-layout-nav-menu-overflow-vertical-flyout-list"
     >
       {node.children.map((child) =>
-        renderNode(flyoutRenderCtx, child, depth + 1),
+        nodeRender(flyoutRenderCtx, child, depth + 1),
       )}
     </ul>
   );
@@ -1121,18 +1120,19 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
    * - 顶栏横向布局的 `display: inline-block` 由 cssinjs 中 `${c}-submenu-title`
    *   规则承担，不依赖外层 `li`
    */
-  const listBody = nodes.map((n) => {
-    // eslint-disable-next-line @typescript-eslint/no-use-before-define -- renderNode 定义在文件后部
-    return renderNode(renderCtx, n, 0);
-  });
+  const listBody = nodes.map((n) => renderNode(renderCtx, n, 0));
 
   if (isHorizontalMode) {
     const visibleNodes = nodes.slice(0, overflowFromIndex);
     const overflowNodes = nodes.slice(overflowFromIndex);
+    const measureRenderCtx: ProLayoutNavMenuRenderContext = {
+      ...renderCtx,
+      horizontalNavMode: 'measure',
+    };
     const overflowCtx: ProLayoutNavMenuRenderContext = {
       ...renderCtx,
       insideSubmenuPopup: true,
-      horizontalOverflowVerticalSubmenus: true,
+      horizontalNavMode: 'overflow',
     };
     const overflowHighlight =
       overflowNodes.length > 0 &&
@@ -1165,7 +1165,7 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
             style={measureNavStyle}
             role="presentation"
           >
-            {nodes.map((n) => renderNode(renderCtx, n, 0))}
+            {nodes.map((n) => renderNode(measureRenderCtx, n, 0))}
           </nav>
         ) : null}
         <nav
@@ -1276,3 +1276,4 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
     </nav>
   );
 };
+

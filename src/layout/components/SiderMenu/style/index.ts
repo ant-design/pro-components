@@ -80,24 +80,19 @@ const MOTION = {
   actionsCollapsedTransition: 'font-size 0.3s ease-in-out',
 } as const;
 
-function getSiderMenuScrollbar(token: ProAliasToken): Record<string, unknown> {
-  const thumb = `var(${proLayoutSiderVar.scrollbarThumb}, ${token.colorFillTertiary})`;
-  const thumbHover = `var(${proLayoutSiderVar.scrollbarThumbHover}, ${token.colorFillSecondary})`;
-  const track = `var(${proLayoutSiderVar.scrollbarTrack}, transparent)`;
-  const trackSize = `var(${proLayoutSiderVar.scrollbarTrackThickness}, 6px)`;
-  const thumbRadius = `var(${proLayoutSiderVar.scrollbarThumbRadius}, 3px)`;
+function getSiderMenuScrollbar(): Record<string, unknown> {
+  const thumb = `var(${proLayoutSiderVar.scrollbarThumb})`;
+  const thumbHover = `var(${proLayoutSiderVar.scrollbarThumbHover})`;
+  const track = `var(${proLayoutSiderVar.scrollbarTrack})`;
+  const trackSize = `var(${proLayoutSiderVar.scrollbarTrackThickness})`;
+  const thumbRadius = `var(${proLayoutSiderVar.scrollbarThumbRadius})`;
 
   return {
     scrollbarWidth: 'thin',
     scrollbarColor: `transparent ${track}`,
     transition: 'scrollbar-color 0.3s ease',
-    '&::-webkit-scrollbar': {
-      width: trackSize,
-      height: trackSize,
-    },
-    '&::-webkit-scrollbar-track': {
-      backgroundColor: track,
-    },
+    '&::-webkit-scrollbar': { width: trackSize, height: trackSize },
+    '&::-webkit-scrollbar-track': { backgroundColor: track },
     '&::-webkit-scrollbar-thumb': {
       backgroundColor: 'transparent',
       borderRadius: thumbRadius,
@@ -105,18 +100,14 @@ function getSiderMenuScrollbar(token: ProAliasToken): Record<string, unknown> {
     },
     '&:hover': {
       scrollbarColor: `${thumb} ${track}`,
-      '&::-webkit-scrollbar-thumb': {
-        backgroundColor: thumb,
-      },
-      '&::-webkit-scrollbar-thumb:hover': {
-        backgroundColor: thumbHover,
-      },
+      '&::-webkit-scrollbar-thumb': { backgroundColor: thumb },
+      '&::-webkit-scrollbar-thumb:hover': { backgroundColor: thumbHover },
     },
   };
 }
 
 const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
-  const siderMenuScrollbar = getSiderMenuScrollbar(token);
+  const siderMenuScrollbar = getSiderMenuScrollbar();
   const sv = (k: keyof typeof proLayoutSiderVar) =>
     `var(${proLayoutSiderVar[k]})`;
   return {

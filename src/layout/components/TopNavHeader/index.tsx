@@ -6,7 +6,6 @@ import type { GlobalHeaderProps } from '../GlobalHeader';
 import { ActionsContent } from '../GlobalHeader/ActionsContent';
 import { BaseMenu } from '../SiderMenu/BaseMenu';
 import type {
-  HeaderRenderKey,
   PrivateSiderMenuProps,
   SiderMenuProps,
 } from '../SiderMenu/SiderMenu';
@@ -35,12 +34,11 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
   const prefixCls = `${props.prefixCls || getPrefixCls('pro')}-top-nav-header`;
 
   const { wrapSSR, hashId } = useStyle(prefixCls);
-  let renderKey: HeaderRenderKey | undefined = 'headerTitleRender';
 
-  const headerDom = renderLogoAndTitle(
-    { ...props, collapsed: false },
-    renderKey,
-  );
+  const headerDom =
+    props.menuHeaderRender === false
+      ? null
+      : renderLogoAndTitle({ ...props, collapsed: false }, 'headerTitleRender');
   const hasActionsContent = actionsRender || avatarProps;
   const contentDom = useMemo(() => {
     const defaultDom = (

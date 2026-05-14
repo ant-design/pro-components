@@ -59,6 +59,7 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
   const { token } = useContext(ProProvider);
   const context = useContext(ConfigProvider.ConfigContext);
   const [isFixedHeaderScroll, setIsFixedHeaderScroll] = useState(false);
+  const headerHeight = token.layout?.header?.heightLayoutHeader || 56;
   const needFixedHeader =
     fixedHeader || (splitMenus && layout === 'side' && !isMobile);
 
@@ -91,6 +92,7 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
         {...props}
         layout="top"
         splitMenus={false}
+        menuHeaderRender={false}
         actionsRender={false}
         avatarProps={false}
         menuData={headerStripMenuData}
@@ -138,10 +140,7 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
     const isFixedHeaderFn = () => {
       const scrollTop = (dom as HTMLElement).scrollTop;
 
-      if (
-        scrollTop > (token.layout?.header?.heightLayoutHeader || 56) &&
-        !isFixedHeaderScroll
-      ) {
+      if (scrollTop > headerHeight && !isFixedHeaderScroll) {
         setIsFixedHeaderScroll(true);
         return true;
       }
@@ -159,11 +158,7 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
     return () => {
       dom.removeEventListener('scroll', isFixedHeaderFn);
     };
-  }, [
-    token.layout?.header?.heightLayoutHeader,
-    needFixedHeader,
-    isFixedHeaderScroll,
-  ]);
+  }, [headerHeight, needFixedHeader, isFixedHeaderScroll]);
 
   const isTop = layout === 'top';
 
@@ -201,10 +196,8 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
           {needFixedHeader && (
             <Header
               style={{
-                height: token.layout?.header?.heightLayoutHeader || 56,
-                lineHeight: `${
-                  token.layout?.header?.heightLayoutHeader || 56
-                }px`,
+                height: headerHeight,
+                lineHeight: `${headerHeight}px`,
                 backgroundColor: 'transparent',
                 zIndex: 19,
                 ...style,
