@@ -61,9 +61,10 @@ describe('✔️ LightFilter', () => {
       (await html.findAllByText('确 认')).at(0)?.click();
     });
 
-    // LightWrapper 提交后 value 同步到 Form.Item 内部的 input，用 findByDisplayValue 确认
-    const inputEl = await html.findByDisplayValue('qixian');
-    expect(inputEl).toBeTruthy();
+    // LightFilter 收起后值在 FieldLabel 上展示（含 title），不再依赖可见 input 的 value
+    await waitFor(() => {
+      expect(html.getByTitle('qixian')).toBeInTheDocument();
+    });
 
     // 点击 FieldLabel 触发 Popover 展开，然后点击清除
     await act(async () => {

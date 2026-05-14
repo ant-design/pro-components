@@ -566,7 +566,7 @@ describe('List', () => {
     );
 
     await waitFor(() => {
-      expect(screen.getByDisplayValue('test')).toBeInTheDocument();
+      expect(screen.getByTitle('test')).toBeInTheDocument();
     });
   });
 
@@ -1362,7 +1362,7 @@ describe('List', () => {
     );
 
     await waitFor(() => {
-      expect(screen.getByDisplayValue('test')).toBeInTheDocument();
+      expect(screen.getByTitle('test')).toBeInTheDocument();
     });
   });
 
