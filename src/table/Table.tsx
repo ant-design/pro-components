@@ -907,7 +907,7 @@ const ProTable = <
     },
   });
 
-  const notNeedCardDom = search === false && !headerTitle && !toolBarRender;
+  const notNeedCardDom = search === false && hideToolbar;
 
   const baseTableDom = (
     <GridContext.Provider

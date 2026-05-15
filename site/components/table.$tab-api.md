@@ -129,6 +129,12 @@ formItemRender: (
 
 <code src="../../demos/table/card-title.tsx" background="var(--main-bg-color)" desc="使用卡片标题，行动点在左侧。"></code>
 
+### 无搜索表格
+
+关闭搜索栏时，只要存在 `options`（刷新、列设置等），表格仍会使用卡片包裹。
+
+<code src="../../demos/table/no-search.tsx" background="var(--main-bg-color)" desc="search={false} 时保留 options 工具栏。"></code>
+
 ### 值类型示例
 
 #### valueType - 日期类

@@ -365,6 +365,7 @@ describe('BasicTable', () => {
         <ProTable
           size="small"
           toolBarRender={false}
+          options={false}
           columns={[
             {
               dataIndex: 'money',
@@ -404,6 +405,51 @@ describe('BasicTable', () => {
 
     await waitFor(() => {
       expect(!!html.baseElement.querySelector('.ant-pro-card')).toBe(true);
+    });
+  });
+
+  it('🎏 ProTable renders card when search=false but options exist', async () => {
+    const html = render(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+        ]}
+        search={false}
+        options={{ reload: true, setting: true }}
+        dataSource={[]}
+        rowKey="key"
+      />,
+    );
+
+    await waitFor(() => {
+      expect(!!html.baseElement.querySelector('.ant-pro-card')).toBe(true);
+    });
+  });
+
+  it('🎏 ProTable does not render card when search=false and all toolbar disabled', async () => {
+    const html = render(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+        ]}
+        search={false}
+        options={false}
+        toolBarRender={false}
+        dataSource={[]}
+        rowKey="key"
+      />,
+    );
+
+    await waitFor(() => {
+      expect(!!html.baseElement.querySelector('.ant-pro-card')).toBe(false);
     });
   });
 
