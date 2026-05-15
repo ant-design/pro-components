@@ -214,7 +214,7 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
   } = props;
 
   const prefixCls = getPrefixCls('page-header', customizePrefixCls);
-  const { wrapSSR, hashId } = useStyle(prefixCls);
+  const { hashId } = useStyle(prefixCls);
 
   const getDefaultBreadcrumbDom = () => {
     if ((breadcrumb as BreadcrumbProps)?.items) {
@@ -261,7 +261,7 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
     );
   }
 
-  return wrapSSR(
+  return (
     <ResizeObserver onResize={onResize}>
       {(ref) => (
         <div
@@ -276,7 +276,7 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
           {footerDom}
         </div>
       )}
-    </ResizeObserver>,
+    </ResizeObserver>
   );
 };
 

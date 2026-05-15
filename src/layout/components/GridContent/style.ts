@@ -1,6 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { AliasToken } from 'antd/es/theme/interface';
-import type { ReactElement } from 'react';
 
 import { genProStyleHooks } from '../../../theme/genProStyleUtils';
 import { proLayoutVar } from '../../style';
@@ -36,8 +35,5 @@ export const useProGridContentStyle = genProStyleHooks(
 
 export function useStyle(prefixCls: string) {
   const [hashId] = useProGridContentStyle(prefixCls);
-  return {
-    wrapSSR: (node: ReactElement) => node,
-    hashId,
-  };
+  return { hashId };
 }

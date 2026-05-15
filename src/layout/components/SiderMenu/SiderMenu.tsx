@@ -262,13 +262,10 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   const collapsedWidth =
     props.menu?.collapsedWidth ?? defaultSettings.menu!.collapsedWidth!;
 
-  const stylishClassName = useStylish(
-    `${baseClassName}.${baseClassName}-stylish`,
-    {
-      stylish,
-      proLayoutCollapsedWidth: collapsedWidth,
-    },
-  );
+  useStylish(`${baseClassName}.${baseClassName}-stylish`, {
+    stylish,
+    proLayoutCollapsedWidth: collapsedWidth,
+  });
 
   const siderClassName = clsx(`${baseClassName}`, hashId, {
     [`${baseClassName}-fixed`]: fixSiderbar,
@@ -525,7 +522,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     </>
   );
 
-  return stylishClassName.wrapSSR(
+  return (
     <>
       {fixSiderbar && !isMobile && !hideMenuWhenCollapsedClassName && (
         <div
@@ -575,7 +572,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         )}
         {collapsedDom}
       </Sider>
-    </>,
+    </>
   );
 };
 

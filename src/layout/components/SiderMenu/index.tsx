@@ -51,7 +51,7 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (
   const collapsedWidth =
     props.menu?.collapsedWidth ?? defaultSettings.menu!.collapsedWidth!;
 
-  const { wrapSSR, hashId } = useStyle(`${prefixCls}-sider`, {
+  const { hashId } = useStyle(`${prefixCls}-sider`, {
     proLayoutCollapsedWidth: collapsedWidth,
   });
 
@@ -61,53 +61,51 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (
     return null;
   }
 
-  return wrapSSR(
-    isMobile ? (
-      <Drawer
-        placement={direction === 'rtl' ? 'right' : 'left'}
-        className={clsx(`${prefixCls}-drawer-sider`, className)}
-        data-testid="pro-layout-sider"
-        open={!collapsed}
-        afterOpenChange={(open) => {
-          if (!open) {
-            onCollapse?.(true);
-          }
-        }}
-        style={{
-          padding: 0,
-          height: '100vh',
-          ...style,
-        }}
-        onClose={() => {
+  return isMobile ? (
+    <Drawer
+      placement={direction === 'rtl' ? 'right' : 'left'}
+      className={clsx(`${prefixCls}-drawer-sider`, className)}
+      data-testid="pro-layout-sider"
+      open={!collapsed}
+      afterOpenChange={(open) => {
+        if (!open) {
           onCollapse?.(true);
-        }}
-        maskClosable
-        closable={false}
-        getContainer={getContainer || false}
-        size={siderWidth}
-        styles={{
-          body: drawerBodyStyle,
-        }}
-      >
-        <SiderMenu
-          {...omitProps}
-          isMobile={true}
-          className={siderClassName}
-          data-testid="pro-layout-mobile-sider-menu"
-          collapsed={false}
-          splitMenus={false}
-          originCollapsed={collapsed}
-        />
-      </Drawer>
-    ) : (
+        }
+      }}
+      style={{
+        padding: 0,
+        height: '100vh',
+        ...style,
+      }}
+      onClose={() => {
+        onCollapse?.(true);
+      }}
+      maskClosable
+      closable={false}
+      getContainer={getContainer || false}
+      size={siderWidth}
+      styles={{
+        body: drawerBodyStyle,
+      }}
+    >
       <SiderMenu
-        className={siderClassName}
-        data-testid="pro-layout-desktop-sider-menu"
-        originCollapsed={collapsed}
         {...omitProps}
-        style={style}
+        isMobile={true}
+        className={siderClassName}
+        data-testid="pro-layout-mobile-sider-menu"
+        collapsed={false}
+        splitMenus={false}
+        originCollapsed={collapsed}
       />
-    ),
+    </Drawer>
+  ) : (
+    <SiderMenu
+      className={siderClassName}
+      data-testid="pro-layout-desktop-sider-menu"
+      originCollapsed={collapsed}
+      {...omitProps}
+      style={style}
+    />
   );
 };
 

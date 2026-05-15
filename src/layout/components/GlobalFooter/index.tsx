@@ -29,7 +29,7 @@ const GlobalFooter = ({
   const context = useContext(ConfigProvider.ConfigContext);
   const baseClassName = context.getPrefixCls(prefixCls || 'pro-global-footer');
 
-  const { wrapSSR, hashId } = useStyle(baseClassName);
+  const { hashId } = useStyle(baseClassName);
 
   if (
     (links == null ||
@@ -40,7 +40,7 @@ const GlobalFooter = ({
     return null;
   }
 
-  return wrapSSR(
+  return (
     <div
       className={clsx(baseClassName, hashId, className)}
       style={style}
@@ -74,7 +74,7 @@ const GlobalFooter = ({
           {copyright}
         </div>
       )}
-    </div>,
+    </div>
   );
 };
 

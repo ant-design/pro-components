@@ -753,7 +753,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
       : contextIsChildrenLayout;
 
   const proLayoutClassName = `${prefixCls}-layout`;
-  const { wrapSSR, hashId } = useStyle(proLayoutClassName);
+  const { hashId } = useStyle(proLayoutClassName);
 
   // gen className
   const className = clsx(
@@ -766,6 +766,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
       [`${proLayoutClassName}-top-menu`]: propsLayout === 'top',
       [`${proLayoutClassName}-is-children`]: isChildrenLayout,
       [`${proLayoutClassName}-fix-siderbar`]: fixSiderbar,
+      [`${proLayoutClassName}-fixed-header`]: rest.fixedHeader,
       [`${proLayoutClassName}-${propsLayout}`]: propsLayout,
     },
   );
@@ -830,7 +831,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     return null;
   }, [bgLayoutImgList]);
 
-  return wrapSSR(
+  return (
     <RouteContext.Provider
       value={{
         ...defaultProps,
@@ -925,7 +926,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
           </Layout>
         </div>
       )}
-    </RouteContext.Provider>,
+    </RouteContext.Provider>
   );
 };
 

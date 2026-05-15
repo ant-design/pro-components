@@ -203,7 +203,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     }
   }, [matchMenuKeys.join('-'), props.collapsed]);
 
-  const { wrapSSR, hashId } = useStyle(baseClassName, mode);
+  const { hashId } = useStyle(baseClassName, mode);
 
   const baseMenuTreeContext = useMemo<BaseMenuTreeContext>(
     () => ({
@@ -264,7 +264,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         ? []
         : (openKeys || []).map((k) => String(k));
 
-  return wrapSSR(
+  return (
     <ProLayoutNavMenu
       key="ProLayoutNavMenu"
       baseClassName={baseClassName}
@@ -298,7 +298,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
           mode !== 'horizontal' && props.menuRenderType !== 'header',
       })}
       {...restMenuProps}
-    />,
+    />
   );
 };
 

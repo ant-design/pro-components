@@ -70,6 +70,11 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken> = (token) => {
         width: '100%',
         background: token.layout?.bgLayout,
       },
+      [`&${token.componentCls}-fixed-header ${token.componentCls}-container`]: {
+        height: '100vh',
+        overflowY: 'auto',
+        overflowX: 'hidden',
+      },
     },
   } as CSSInterpolation;
 };

@@ -49,7 +49,7 @@ export const AppsLogoComponents: React.FC<AppsLogoComponentsProps> = (
   const { appList, appListRender, prefixCls, onItemClick: itemClick } = props;
   const popoverRef = React.useRef<HTMLSpanElement>(null);
   const baseClassName = `${prefixCls}-layout-apps`;
-  const { wrapSSR, hashId } = useStyle(baseClassName);
+  const { hashId } = useStyle(baseClassName);
 
   const [open, setOpen] = useState(false);
 
@@ -93,7 +93,7 @@ export const AppsLogoComponents: React.FC<AppsLogoComponentsProps> = (
     ? appListRender(props?.appList, defaultDomContent)
     : defaultDomContent;
 
-  return wrapSSR(
+  return (
     <Popover
       placement="bottomRight"
       trigger={['click']}
@@ -116,6 +116,6 @@ export const AppsLogoComponents: React.FC<AppsLogoComponentsProps> = (
       >
         <AppsLogo />
       </span>
-    </Popover>,
+    </Popover>
   );
 };

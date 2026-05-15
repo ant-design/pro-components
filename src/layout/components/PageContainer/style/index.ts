@@ -37,42 +37,32 @@ const genPageContainerStyle: GenerateStyle<PageContainerToken> = (token) => {
           },
         },
       },
-      ['& &-warp-page-header']: {
-        paddingBlockStart:
-          (token.layout?.pageContainer?.paddingBlockPageContainerContent ??
-            40) / 4,
-        paddingBlockEnd:
-          (token.layout?.pageContainer?.paddingBlockPageContainerContent ??
-            40) / 2,
-        paddingInlineStart:
-          token.layout?.pageContainer?.paddingInlinePageContainerContent,
-        paddingInlineEnd:
-          token.layout?.pageContainer?.paddingInlinePageContainerContent,
-        [`& ~ ${token.proComponentsCls}-grid-content`]: {
-          [`${token.proComponentsCls}-page-container-children-content`]: {
-            paddingBlock:
-              (token.layout?.pageContainer?.paddingBlockPageContainerContent ??
-                24) / 3,
+      ['& &-warp-page-header']: (() => {
+        const blockPad =
+          token.layout?.pageContainer?.paddingBlockPageContainerContent ?? 24;
+        return {
+          paddingBlockStart: blockPad / 4,
+          paddingBlockEnd: blockPad / 2,
+          paddingInlineStart:
+            token.layout?.pageContainer?.paddingInlinePageContainerContent,
+          paddingInlineEnd:
+            token.layout?.pageContainer?.paddingInlinePageContainerContent,
+          [`& ~ ${token.proComponentsCls}-grid-content`]: {
+            [`${token.proComponentsCls}-page-container-children-content`]: {
+              paddingBlock: blockPad / 3,
+            },
           },
-        },
-        [`${token.antCls}-page-header-breadcrumb`]: {
-          paddingBlockStart:
-            (token.layout?.pageContainer?.paddingBlockPageContainerContent ??
-              40) /
-              4 +
-            10,
-        },
-        [`${token.antCls}-page-header-heading`]: {
-          paddingBlockStart:
-            (token.layout?.pageContainer?.paddingBlockPageContainerContent ??
-              40) / 4,
-        },
-        [`${token.antCls}-page-header-footer`]: {
-          marginBlockStart:
-            (token.layout?.pageContainer?.paddingBlockPageContainerContent ??
-              40) / 4,
-        },
-      },
+          [`${token.antCls}-page-header-breadcrumb`]: {
+            paddingBlockStart: blockPad / 4 + 10,
+          },
+          [`${token.antCls}-page-header-heading`]: {
+            paddingBlockStart: blockPad / 4,
+          },
+          [`${token.antCls}-page-header-footer`]: {
+            marginBlockStart: blockPad / 4,
+          },
+        };
+      })(),
       '&-detail': {
         display: 'flex',
         [sm]: {

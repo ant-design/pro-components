@@ -483,11 +483,12 @@ const genProLayoutBaseMenuStyle = (
   /** Shared: child-selected submenu rules */
   const childSelectedRule = (prefix: string) => ({
     [`${prefix}-submenu--child-selected ${prefix}-submenu-title`]: {
-      color: v('colorTextSubMenuSelected'),
+      color: v('colorTextSelected'),
+      fontWeight: FONT_WEIGHT_SELECTED,
     },
     [`${prefix}-submenu--child-selected ${prefix}-submenu-title ${prefix}-item-icon`]:
       {
-        color: v('colorTextSubMenuSelected'),
+        color: v('colorIconSelected'),
       },
   });
 
@@ -542,6 +543,7 @@ const genProLayoutBaseMenuStyle = (
         ...rowItem,
         ...buttonReset,
         cursor: 'pointer',
+        WebkitTapHighlightColor: 'transparent',
         [`> *`]: {
           flex: 1,
           minWidth: 0,
@@ -578,6 +580,7 @@ const genProLayoutBaseMenuStyle = (
       [`${c}-submenu-title`]: {
         ...rowItem,
         ...buttonReset,
+        WebkitTapHighlightColor: 'transparent',
         [`> :first-child`]: {
           flex: 1,
           minWidth: 0,
@@ -1053,6 +1056,7 @@ const genProLayoutBaseMenuStyle = (
         ...rowItem,
         ...buttonReset,
         ...interactiveStates,
+        WebkitTapHighlightColor: 'transparent',
         transition: rowTransition,
       },
 

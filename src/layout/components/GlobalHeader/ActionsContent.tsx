@@ -18,7 +18,7 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
 }) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = `${getPrefixCls()}-pro-global-header`;
-  const { wrapSSR, hashId } = useStyle(prefixCls);
+  const { hashId } = useStyle(prefixCls);
 
   const [rightSize, setRightSize] = useState<number | string>('auto');
 
@@ -54,7 +54,7 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
 
           if (!doms && !avatarDom) return null;
           if (!Array.isArray(doms))
-            return wrapSSR(
+            return (
               <div
                 className={clsx(`${prefixCls}-header-actions`, hashId)}
                 data-testid="pro-layout-global-header-actions"
@@ -71,9 +71,9 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
                     {avatarDom}
                   </span>
                 )}
-              </div>,
+              </div>
             );
-          return wrapSSR(
+          return (
             <div
               className={clsx(`${prefixCls}-header-actions`, hashId)}
               data-testid="pro-layout-global-header-actions"
@@ -108,7 +108,7 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
                   {avatarDom}
                 </span>
               )}
-            </div>,
+            </div>
           );
         }
       : undefined;

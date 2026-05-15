@@ -163,9 +163,9 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
   const isTop = layout === 'top';
 
   const baseClassName = `${prefixCls}-layout-header`;
-  const { wrapSSR, hashId } = useStyle(baseClassName);
+  const { hashId } = useStyle(baseClassName);
 
-  const stylish = useStylish(`${baseClassName}.${baseClassName}-stylish`, {
+  useStylish(`${baseClassName}.${baseClassName}-stylish`, {
     proLayoutCollapsedWidth: 64,
     stylish: props.stylish,
   });
@@ -179,41 +179,39 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
     [`${baseClassName}-stylish`]: !!props.stylish,
   });
 
-  return stylish.wrapSSR(
-    wrapSSR(
-      <>
-        <ConfigProvider
-          theme={{
-            hashed: isNeedOpenHash(),
-            components: {
-              Layout: {
-                headerBg: 'transparent',
-                bodyBg: 'transparent',
-              },
+  return (
+    <>
+      <ConfigProvider
+        theme={{
+          hashed: isNeedOpenHash(),
+          components: {
+            Layout: {
+              headerBg: 'transparent',
+              bodyBg: 'transparent',
             },
-          }}
-        >
-          {needFixedHeader && (
-            <Header
-              style={{
-                height: headerHeight,
-                lineHeight: `${headerHeight}px`,
-                backgroundColor: 'transparent',
-                zIndex: 19,
-                ...style,
-              }}
-            />
-          )}
+          },
+        }}
+      >
+        {needFixedHeader && (
           <Header
-            className={className}
-            style={style}
-            data-testid="pro-layout-header"
-          >
-            {renderContent()}
-          </Header>
-        </ConfigProvider>
-      </>,
-    ),
+            style={{
+              height: headerHeight,
+              lineHeight: `${headerHeight}px`,
+              backgroundColor: 'transparent',
+              zIndex: 19,
+              ...style,
+            }}
+          />
+        )}
+        <Header
+          className={className}
+          style={style}
+          data-testid="pro-layout-header"
+        >
+          {renderContent()}
+        </Header>
+      </ConfigProvider>
+    </>
   );
 };
 

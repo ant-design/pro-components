@@ -105,7 +105,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (
   const { getPrefixCls, direction } = useContext(ConfigProvider.ConfigContext);
   const baseClassName = `${prefixCls || getPrefixCls('pro')}-global-header`;
 
-  const { wrapSSR, hashId } = useStyle(baseClassName);
+  const { hashId } = useStyle(baseClassName);
 
   const className = clsx(propClassName, baseClassName, hashId);
 
@@ -123,7 +123,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (
       <span>{defaultRenderLogo(logo)}</span>
     </span>
   );
-  return wrapSSR(
+  return (
     <div
       className={className}
       style={{ ...style }}
@@ -147,7 +147,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (
       {(props.actionsRender || props.avatarProps) && (
         <ActionsContent {...props} />
       )}
-    </div>,
+    </div>
   );
 };
 

@@ -25,6 +25,8 @@ import { dateArrayFormatter } from './dateArrayFormatter';
 import type { ProEllipsis } from './genCopyable';
 import { genCopyable } from './genCopyable';
 import { getFieldPropsOrFormItemProps } from './getFieldPropsOrFormItemProps';
+import type { UseAvailableHeightOptions } from './hooks/useAvailableHeight';
+import { useAvailableHeight } from './hooks/useAvailableHeight';
 import { useDebounceFn } from './hooks/useDebounceFn';
 import { useDebounceValue } from './hooks/useDebounceValue';
 import {
@@ -121,6 +123,7 @@ export {
   stringify,
   // function
   transformKeySubmitValue,
+  useAvailableHeight,
   useBreakpoint,
   useDebounceFn,
   useDebounceValue,
@@ -146,6 +149,7 @@ export type {
   ProRequestData,
   RowEditableConfig,
   RowEditableType,
+  UseAvailableHeightOptions,
   UseEditableMapType,
   UseEditableMapUtilType,
   UseEditableType,
