@@ -952,7 +952,7 @@ const ProTable = <
     [rest, tableLayoutProps, tableDataProps, tableColumnInteractionProps],
   );
 
-  const notNeedCardDom = search === false && !headerTitle && !toolBarRender;
+  const notNeedCardDom = search === false && hideToolbar;
 
   const getBaseTableDom = () => (
     <GridContext.Provider
