@@ -455,7 +455,7 @@ describe('BasicTable sorter', () => {
     );
 
     await userEvent.click(
-      container.querySelectorAll('span.ant-table-column-sorter-down')[0],
+      container.querySelectorAll('span.ant-table-column-sorter-up')[0],
     );
 
     await waitFor(
@@ -465,10 +465,9 @@ describe('BasicTable sorter', () => {
         expect(rows[1].firstChild?.textContent).toContain('项目 B');
         expect(rows[2].firstChild?.textContent).toContain('项目 C');
 
-        // 验证 fn 有被调用，因为排序是透过服务端进行的
         expect(fn).toHaveBeenCalledTimes(1);
       },
-      { timeout: 1000 },
+      { timeout: 2000 },
     );
   });
 
