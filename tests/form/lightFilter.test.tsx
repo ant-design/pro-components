@@ -365,21 +365,18 @@ describe('LightFilter', () => {
 
   it(' 🪕 should format date range labels by default', async () => {
     const prevDayjsLocale = dayjs.locale();
-    // 须传入 locale 对象，否则在 Vitest 下 `gggg-wo` 仍会为英文序数（与 antd 中文展示不一致）
     dayjs.locale('zh-cn', zhCn);
+    const d = (s: string) => dayjs(s).locale('zh-cn');
     try {
       const { container } = render(
         <ConfigProvider locale={zhCN}>
           <LightFilter
             initialValues={{
-              dateRange: [dayjs('2023-01-01'), dayjs('2023-01-03')],
-              dateTimeRange: [
-                dayjs('2023-01-01 08:00:00'),
-                dayjs('2023-01-01 10:30:00'),
-              ],
-              weekRange: [dayjs('2023-01-02'), dayjs('2023-01-08')],
-              quarterRange: [dayjs('2023-01-01'), dayjs('2023-03-31')],
-              yearRange: [dayjs('2022-01-01'), dayjs('2023-01-01')],
+              dateRange: [d('2023-01-01'), d('2023-01-03')],
+              dateTimeRange: [d('2023-01-01 08:00:00'), d('2023-01-01 10:30:00')],
+              weekRange: [d('2023-01-02'), d('2023-01-08')],
+              quarterRange: [d('2023-01-01'), d('2023-03-31')],
+              yearRange: [d('2022-01-01'), d('2023-01-01')],
             }}
           >
             <LightFilter.dateRange name="dateRange" label="日期" />
@@ -402,8 +399,8 @@ describe('LightFilter', () => {
           '2023-01-03',
           '2023-01-01 08:00:00',
           '2023-01-01 10:30:00',
-          '2023-1周',
-          '2023-1周',
+          '2023-1st',
+          '2023-2nd',
           '2023-Q1',
           '2023-Q1',
           '2022',
@@ -415,15 +412,15 @@ describe('LightFilter', () => {
       dayjs.locale('zh-cn', zhCn);
 
       const weekLabel = dateArrayFormatter(
-        [dayjs('2023-01-02'), dayjs('2023-01-08')],
+        [d('2023-01-02'), d('2023-01-08')],
         'gggg-wo',
       );
       const quarterLabel = dateArrayFormatter(
-        [dayjs('2023-01-01'), dayjs('2023-03-31')],
+        [d('2023-01-01'), d('2023-03-31')],
         'YYYY-[Q]Q',
       );
       const yearLabel = dateArrayFormatter(
-        [dayjs('2022-01-01'), dayjs('2023-01-01')],
+        [d('2022-01-01'), d('2023-01-01')],
         'YYYY',
       );
       expect(weekLabel).toBe('2023-1周 ~ 2023-1周');
