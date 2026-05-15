@@ -162,21 +162,17 @@ function renderLeafRow(
     onCollapse,
     menuItemRender,
     baseClassName,
-    menu,
     collapsed,
     renderIcon,
   } = ctx;
 
   const titleText = resolveMenuItemTitle(ctx, item);
-  const isGroupLayout = menu?.type === 'group';
-  const showIconSlot = level === 0 || (isGroupLayout && level === 1);
-  const iconNode = !showIconSlot
-    ? null
-    : renderIcon(item.icon, `${baseClassName}-icon ${ctx.hashId}`);
+  const iconNode = item.icon
+    ? renderIcon(item.icon, `${baseClassName}-icon ${ctx.hashId}`)
+    : null;
 
-  /** 收起时无图标场景下用首字母占位（与历史行为一致） */
   const fallbackLetter =
-    collapsed && showIconSlot ? collapsedTitleLetter(titleText) : null;
+    collapsed && level === 0 ? collapsedTitleLetter(titleText) : null;
 
   /**
    * **始终渲染 label 与 icon**：
@@ -198,7 +194,7 @@ function renderLeafRow(
     <span
       className={clsx(`${baseClassName}-item-label`, ctx.hashId, {
         [`${baseClassName}-item-text-has-icon`]:
-          showIconSlot && (iconNode || fallbackLetter),
+          !!(iconNode || fallbackLetter),
       })}
       data-testid="pro-layout-menu-tree-item-label"
     >

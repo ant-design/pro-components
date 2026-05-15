@@ -56,6 +56,10 @@ const genTopNavHeaderStyle: GenerateStyle<ProToken> = (token) => {
                 token.layout?.header?.colorBgRightActionsItemHover,
             },
           },
+          '@media (max-width: 768px)': {
+            paddingInlineStart: 0,
+            paddingInlineEnd: 0,
+          },
         },
       },
     },

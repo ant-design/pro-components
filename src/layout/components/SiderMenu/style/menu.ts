@@ -83,8 +83,8 @@ export function getProLayoutSiderCssVarsStyle(
     [proLayoutSiderVar.scrollbarThumb]: antdToken.colorFillTertiary,
     [proLayoutSiderVar.scrollbarThumbHover]: antdToken.colorFillSecondary,
     [proLayoutSiderVar.scrollbarTrack]: 'transparent',
-    [proLayoutSiderVar.scrollbarTrackThickness]: '6px',
-    [proLayoutSiderVar.scrollbarThumbRadius]: '3px',
+    [proLayoutSiderVar.scrollbarTrackThickness]: '4px',
+    [proLayoutSiderVar.scrollbarThumbRadius]: `${antdToken.borderRadiusSM}px`,
   } as CSSProperties;
 }
 
@@ -543,7 +543,6 @@ const genProLayoutBaseMenuStyle = (
         ...rowItem,
         ...buttonReset,
         cursor: 'pointer',
-        WebkitTapHighlightColor: 'transparent',
         [`> *`]: {
           flex: 1,
           minWidth: 0,
@@ -580,7 +579,6 @@ const genProLayoutBaseMenuStyle = (
       [`${c}-submenu-title`]: {
         ...rowItem,
         ...buttonReset,
-        WebkitTapHighlightColor: 'transparent',
         [`> :first-child`]: {
           flex: 1,
           minWidth: 0,
@@ -1050,13 +1048,16 @@ const genProLayoutBaseMenuStyle = (
         ...stack,
       },
 
-      [`${c}-item`]: { listStyle: 'none', margin: 0, padding: 0 },
+      [`${c}-item`]: {
+        listStyle: 'none',
+        margin: 0,
+        padding: 0,
+      },
 
       [`${c}-item-button, ${c}-submenu-title`]: {
         ...rowItem,
         ...buttonReset,
         ...interactiveStates,
-        WebkitTapHighlightColor: 'transparent',
         transition: rowTransition,
       },
 

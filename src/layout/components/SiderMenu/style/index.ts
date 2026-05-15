@@ -82,14 +82,35 @@ const MOTION = {
 
 function getSiderMenuScrollbar(): Record<string, unknown> {
   const thumb = `var(${proLayoutSiderVar.scrollbarThumb})`;
+  const thumbHover = `var(${proLayoutSiderVar.scrollbarThumbHover})`;
   const track = `var(${proLayoutSiderVar.scrollbarTrack})`;
+  const size = `var(${proLayoutSiderVar.scrollbarTrackThickness})`;
+  const radius = `var(${proLayoutSiderVar.scrollbarThumbRadius})`;
 
   return {
     scrollbarWidth: 'thin',
-    scrollbarColor: `transparent ${track}`,
-    transition: 'scrollbar-color 0.3s ease',
+    scrollbarColor: 'transparent transparent',
     '&:hover': {
-      scrollbarColor: `${thumb} ${track}`,
+      scrollbarColor: `${thumb} transparent`,
+    },
+    '&::-webkit-scrollbar': {
+      width: size,
+      height: size,
+      backgroundColor: 'transparent',
+    },
+    '&::-webkit-scrollbar-track': {
+      backgroundColor: track,
+    },
+    '&::-webkit-scrollbar-thumb': {
+      backgroundColor: 'transparent',
+      borderRadius: radius,
+      transition: 'background-color 0.3s ease',
+    },
+    '&:hover::-webkit-scrollbar-thumb': {
+      backgroundColor: thumb,
+    },
+    '&::-webkit-scrollbar-thumb:hover': {
+      backgroundColor: thumbHover,
     },
   };
 }
@@ -112,6 +133,8 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
           },
           [`& ${token.componentCls}-menu-scroll`]: {
             scrollbarGutter: 'stable both-edges',
+            marginInlineEnd: 0,
+            paddingInlineEnd: 0,
           },
           [`& ${token.componentCls}-logo`]: {
             paddingInline: SIDER_COLLAPSED_PAD_INLINE,
@@ -130,14 +153,19 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
           minHeight: 0,
           overflowY: 'auto',
           overflowX: 'hidden',
+          marginInlineEnd: `calc(-1 * ${sv('paddingInlineMenu')})`,
+          paddingInlineEnd: sv('paddingInlineMenu'),
           ...siderMenuScrollbar,
+          '@media (pointer: coarse)': {
+            scrollbarWidth: 'none',
+            '&::-webkit-scrollbar': { display: 'none' },
+          },
         },
         '&-menu': {
           position: 'relative',
           zIndex: MENU_Z_INDEX,
           flex: 1,
           minHeight: 0,
-          overflowY: 'auto',
         },
         [`& ${token.antCls}-layout-sider-children`]: {
           position: 'relative',
@@ -168,12 +196,12 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
             minHeight: LOGO.linkSize,
             fontSize: LOGO.linkSize,
             '> img': {
-              display: 'inline-block',
+              display: 'block',
               height: LOGO.linkSize,
-              verticalAlign: 'middle',
             },
             '> h1': {
-              display: 'inline-block',
+              display: 'flex',
+              alignItems: 'center',
               height: LOGO.linkSize,
               marginBlock: 0,
               marginInlineEnd: 0,
@@ -185,7 +213,6 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
               fontWeight: LOGO.titleFontWeight,
               fontSize: LOGO.titleFontSize,
               lineHeight: LOGO.titleLineHeight,
-              verticalAlign: 'middle',
             },
           },
           '&-collapsed': {

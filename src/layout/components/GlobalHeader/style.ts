@@ -63,7 +63,13 @@ const genGlobalHeaderStyle: GenerateStyle<GlobalHeaderToken> = (token) => {
       },
       '&-logo-mobile': {
         minWidth: '24px',
+        maxWidth: '120px',
         marginInlineEnd: 0,
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        whiteSpace: 'nowrap',
+        img: { height: '24px' },
+        h1: { display: 'none' },
       },
     },
   };

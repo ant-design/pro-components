@@ -31,6 +31,15 @@ const ProFormTreeSelect: React.ForwardRefRenderFunction<
   any,
   ProFormTreeSelectProps<any>
 > = ({ fieldProps, request, params, proFieldProps, ...rest }, ref) => {
+  const isLight =
+    proFieldProps?.light || fieldProps?.variant === 'borderless';
+  const mergedFieldProps = {
+    ...(isLight && fieldProps?.popupMatchSelectWidth === undefined
+      ? { popupMatchSelectWidth: false }
+      : {}),
+    ...fieldProps,
+  };
+
   return (
     <ProConfigProvider
       valueTypeMap={{
@@ -44,7 +53,7 @@ const ProFormTreeSelect: React.ForwardRefRenderFunction<
     >
       <ProFormField
         valueType="treeSelect"
-        fieldProps={fieldProps}
+        fieldProps={mergedFieldProps}
         ref={ref}
         request={request}
         params={params}
