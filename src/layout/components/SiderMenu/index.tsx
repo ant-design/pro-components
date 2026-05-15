@@ -3,13 +3,11 @@ import { ConfigProvider, Drawer, theme } from 'antd';
 import { clsx } from 'clsx';
 import React, { useContext, useEffect, useMemo } from 'react';
 import { ProProvider } from '../../../provider';
+import { defaultSettings } from '../../defaultSettings';
 import type { PrivateSiderMenuProps, SiderMenuProps } from './SiderMenu';
 import { SiderMenu } from './SiderMenu';
 import { useStyle } from './style/index';
-import {
-  getProLayoutSiderCssVarsStyle,
-  proLayoutSiderVar,
-} from './style/menu';
+import { getProLayoutSiderCssVarsStyle, proLayoutSiderVar } from './style/menu';
 
 const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (
   props,
@@ -50,8 +48,8 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (
     [proToken?.layout, antdToken],
   );
 
-  // 从 menu 配置中读取 collapsedWidth，默认为 64
-  const collapsedWidth = props.menu?.collapsedWidth ?? 64;
+  const collapsedWidth =
+    props.menu?.collapsedWidth ?? defaultSettings.menu!.collapsedWidth!;
 
   const { wrapSSR, hashId } = useStyle(`${prefixCls}-sider`, {
     proLayoutCollapsedWidth: collapsedWidth,

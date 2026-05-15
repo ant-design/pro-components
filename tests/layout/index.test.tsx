@@ -797,7 +797,7 @@ describe('BasicLayout', () => {
       getComputedStyle(
         wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-sider')!,
       )?.width,
-    ).toBe('240px');
+    ).toBe('235px');
 
     await waitForWaitTime(100);
     wrapper.unmount();
@@ -2224,7 +2224,9 @@ describe('BasicLayout', () => {
     );
     expect(slot).toBeTruthy();
     expect(slot?.querySelector('[data-testid="pro-page-header"]')).toBeTruthy();
-    expect(slot?.querySelector('[data-testid="pro-grid-content"]')).toBeTruthy();
+    expect(
+      slot?.querySelector('[data-testid="pro-grid-content"]'),
+    ).toBeTruthy();
     unmount();
   });
 });

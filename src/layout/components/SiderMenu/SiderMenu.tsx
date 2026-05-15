@@ -5,6 +5,7 @@ import type { CSSProperties, FC, ReactNode } from 'react';
 import React, { useContext, useMemo } from 'react';
 import type { GenerateStyle } from '../../../provider';
 import { ProProvider } from '../../../provider';
+import { defaultSettings } from '../../defaultSettings';
 import type { WithFalse } from '../../typing';
 import { AppsLogoComponents, defaultRenderLogo } from '../AppsLogoComponents';
 import type { AppItemProps, AppListProps } from '../AppsLogoComponents/types';
@@ -12,7 +13,6 @@ import { CollapsedIcon } from '../CollapsedIcon';
 import type { HeaderViewProps } from '../Header';
 import type { BaseMenuProps } from './BaseMenu';
 import { BaseMenu } from './BaseMenu';
-import type { NavMenuNode } from './types';
 import { ProLayoutNavMenu } from './ProLayoutNavMenu';
 import {
   getProLayoutSiderCssVarsStyle,
@@ -20,6 +20,7 @@ import {
 } from './style/menu';
 import type { SiderMenuToken } from './style/stylish';
 import { useStylish } from './style/stylish';
+import type { NavMenuNode } from './types';
 
 const _SafetyWarningProvider: FC<{ children: ReactNode }> = React.memo(
   (props) => {
@@ -258,8 +259,8 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     return list.includes(theme.darkAlgorithm) ? 'dark' : 'light';
   }, [antdThemeConfig?.algorithm]);
 
-  // 收起的宽度，从 menu 配置中读取，默认为 64
-  const collapsedWidth = props.menu?.collapsedWidth ?? 64;
+  const collapsedWidth =
+    props.menu?.collapsedWidth ?? defaultSettings.menu!.collapsedWidth!;
 
   const stylishClassName = useStylish(
     `${baseClassName}.${baseClassName}-stylish`,

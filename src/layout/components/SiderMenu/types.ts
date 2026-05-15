@@ -1,4 +1,9 @@
-import type { CSSProperties, HTMLAttributes, MouseEvent, ReactNode } from 'react';
+import type {
+  CSSProperties,
+  HTMLAttributes,
+  MouseEvent,
+  ReactNode,
+} from 'react';
 
 export type NavMenuLeafNode = {
   kind: 'item';

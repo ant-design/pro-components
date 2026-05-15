@@ -82,26 +82,14 @@ const MOTION = {
 
 function getSiderMenuScrollbar(): Record<string, unknown> {
   const thumb = `var(${proLayoutSiderVar.scrollbarThumb})`;
-  const thumbHover = `var(${proLayoutSiderVar.scrollbarThumbHover})`;
   const track = `var(${proLayoutSiderVar.scrollbarTrack})`;
-  const trackSize = `var(${proLayoutSiderVar.scrollbarTrackThickness})`;
-  const thumbRadius = `var(${proLayoutSiderVar.scrollbarThumbRadius})`;
 
   return {
     scrollbarWidth: 'thin',
     scrollbarColor: `transparent ${track}`,
     transition: 'scrollbar-color 0.3s ease',
-    '&::-webkit-scrollbar': { width: trackSize, height: trackSize },
-    '&::-webkit-scrollbar-track': { backgroundColor: track },
-    '&::-webkit-scrollbar-thumb': {
-      backgroundColor: 'transparent',
-      borderRadius: thumbRadius,
-      transition: 'background-color 0.3s ease',
-    },
     '&:hover': {
       scrollbarColor: `${thumb} ${track}`,
-      '&::-webkit-scrollbar-thumb': { backgroundColor: thumb },
-      '&::-webkit-scrollbar-thumb:hover': { backgroundColor: thumbHover },
     },
   };
 }
@@ -119,25 +107,19 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
       [`${token.antCls}-layout-sider${token.componentCls}${token.antCls}-layout-sider-collapsed`]:
         {
           [`& ${token.antCls}-layout-sider-children`]: {
-            paddingInline: SIDER_COLLAPSED_PAD_INLINE,
-            alignItems: 'center',
+            paddingInline: 0,
+            alignItems: 'stretch',
           },
-          /** 收起态窄栏：`thin`/webkit 轨道仍会占位，主区改为不占位滚动条 */
           [`& ${token.componentCls}-menu-scroll`]: {
-            scrollbarWidth: 'none',
-            '&::-webkit-scrollbar': {
-              width: 0,
-              height: 0,
-            },
-            '&:hover': {
-              scrollbarColor: 'transparent transparent',
-              '&::-webkit-scrollbar-thumb': {
-                backgroundColor: 'transparent',
-              },
-              '&::-webkit-scrollbar-thumb:hover': {
-                backgroundColor: 'transparent',
-              },
-            },
+            scrollbarGutter: 'stable both-edges',
+          },
+          [`& ${token.componentCls}-logo`]: {
+            paddingInline: SIDER_COLLAPSED_PAD_INLINE,
+            justifyContent: 'center',
+          },
+          [`& ${token.componentCls}-actions`]: {
+            paddingInline: SIDER_COLLAPSED_PAD_INLINE,
+            justifyContent: 'center',
           },
         },
       [token.componentCls]: {

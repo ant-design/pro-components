@@ -482,10 +482,11 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
 
   const siderWidth = useMemo(() => {
     if (propsSiderWidth) return propsSiderWidth;
-    return 240;
+    return 235;
   }, [propsSiderWidth]);
 
-  const menuCollapsedWidth = menu?.collapsedWidth ?? 48;
+  const menuCollapsedWidth =
+    menu?.collapsedWidth ?? defaultSettings.menu!.collapsedWidth!;
 
   const context = useContext(ConfigProvider.ConfigContext);
 

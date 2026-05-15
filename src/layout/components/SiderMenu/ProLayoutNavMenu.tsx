@@ -12,7 +12,11 @@ import React, {
 } from 'react';
 import { useRefFunction } from '../../../utils';
 import { navVar } from './style/menu';
-import type { MenuMode, NavMenuNode, ProLayoutNavMenuSelectInfo } from './types';
+import type {
+  MenuMode,
+  NavMenuNode,
+  ProLayoutNavMenuSelectInfo,
+} from './types';
 
 const MENU_INDENT_PX = 16;
 
@@ -1276,4 +1280,3 @@ export const ProLayoutNavMenu: React.FC<ProLayoutNavMenuProps> = ({
     </nav>
   );
 };
-

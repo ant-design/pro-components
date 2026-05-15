@@ -14,8 +14,7 @@ const layout = {
   listWidth: 240,
   itemSize: 104,
   itemMargin: 8,
-  /** 窄格内不宜过大，否则标题区过窄、字易被裁成「半行」观感 */
-  itemPaddingInline: 10,
+  itemPaddingInline: 8,
   itemPaddingBlock: 8,
   groupMarginBottom: 16,
   groupTitleMargin: '16px 0 8px 12px',

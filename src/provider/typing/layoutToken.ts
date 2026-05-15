@@ -106,7 +106,7 @@ export const getLayoutDesignToken: (
   const defaultColorBgHeader = setAlpha(antdToken.colorBgElevated, 0.6);
 
   return {
-    bgLayout: `linear-gradient(${antdToken.colorBgContainer}, ${antdToken.colorBgLayout} 28%)`,
+    bgLayout: antdToken.colorBgLayout,
     colorTextAppListIcon: antdToken.colorTextSecondary,
     colorBgAppListIconHover: setAlpha(antdToken.colorTextBase, 0.04),
     colorTextAppListIconHover: antdToken.colorTextBase,
@@ -143,7 +143,7 @@ export const getLayoutDesignToken: (
       colorBgCollapsedButton: antdToken.colorBgElevated,
       colorTextCollapsedButtonHover: antdToken.colorTextSecondary,
       colorTextCollapsedButton: setAlpha(antdToken.colorTextBase, 0.25),
-      colorMenuBackground: antdToken.colorBgElevated,
+      colorMenuBackground: setAlpha(antdToken.colorTextBase, 0.04),
       colorMenuItemDivider: setAlpha(antdToken.colorTextBase, 0.06),
       colorBgMenuItemHover: setAlpha(antdToken.colorTextBase, 0.03),
       colorBgMenuItemSelected: setAlpha(antdToken.colorTextBase, 0.04),
@@ -160,9 +160,9 @@ export const getLayoutDesignToken: (
       colorBgPageContainer: 'transparent',
       paddingInlinePageContainerContent:
         finalDesignTokens.pageContainer?.paddingInlinePageContainerContent ||
-        40,
+        24,
       paddingBlockPageContainerContent:
-        finalDesignTokens.pageContainer?.paddingBlockPageContainerContent || 32,
+        finalDesignTokens.pageContainer?.paddingBlockPageContainerContent || 24,
       colorBgPageContainerFixed: antdToken.colorBgElevated,
       ...finalDesignTokens.pageContainer,
     },

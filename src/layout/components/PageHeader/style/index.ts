@@ -1,4 +1,3 @@
-import { proLayoutVar } from '../../../style';
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { GenerateStyle, ProAliasToken } from '../../../../provider';
 import {
@@ -6,6 +5,7 @@ import {
   resetComponent,
   useStyle as useAntdStyle,
 } from '../../../../utils';
+import { proLayoutVar } from '../../../style';
 export interface PageHeaderToken extends ProAliasToken {
   componentCls: string;
   pageHeaderPadding: number;

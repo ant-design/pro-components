@@ -100,7 +100,10 @@ function createSubmenuPopupScrollbar(): Record<string, unknown> {
     scrollbarColor: `${thumb} ${track}`,
     '&::-webkit-scrollbar': { width: trackSize, height: trackSize },
     '&::-webkit-scrollbar-track': { backgroundColor: track },
-    '&::-webkit-scrollbar-thumb': { backgroundColor: thumb, borderRadius: thumbRadius },
+    '&::-webkit-scrollbar-thumb': {
+      backgroundColor: thumb,
+      borderRadius: thumbRadius,
+    },
     '&::-webkit-scrollbar-thumb:hover': { backgroundColor: thumbHover },
   };
 }
@@ -172,31 +175,31 @@ function defaultLayoutNavCssVars(
       [navVar.colorTextHover]: t.colorText,
       [navVar.colorTextActive]: t.colorText,
       [navVar.colorBgActive]: t.colorFillSecondary,
-      [navVar.colorBgSelected]: t.colorPrimaryBg,
-      [navVar.colorBgSelectedHover]: t.colorPrimaryBgHover,
-      [navVar.colorTextSelected]: t.colorPrimary,
-      [navVar.colorIconSelected]: t.colorPrimary,
+      [navVar.colorBgSelected]: t.colorFillTertiary,
+      [navVar.colorBgSelectedHover]: t.colorFillSecondary,
+      [navVar.colorTextSelected]: t.colorText,
+      [navVar.colorIconSelected]: t.colorText,
       [navVar.colorDivider]: t.colorSplit,
       [navVar.popupBg]: t.colorBgElevated,
       [navVar.indent]: '16px',
       [navVar.colorIcon]: t.colorTextTertiary,
       [navVar.colorSection]: t.colorTextSecondary,
-      [navVar.itemHeight]: `${itemH}px`,
-      [navVar.itemRadius]: `${t.borderRadius}px`,
+      [navVar.itemHeight]: '36px',
+      [navVar.itemRadius]: `${t.borderRadiusLG}px`,
       [navVar.itemGap]: '8px',
-      [navVar.itemFontSize]: `${t.fontSize}px`,
+      [navVar.itemFontSize]: '14px',
       [navVar.itemFontWeight]: 'normal',
-      [navVar.itemFont]: `500 ${t.fontSize}px / ${t.lineHeight} ${t.fontFamily}`,
-      [navVar.itemPadBlock]: '6px',
-      [navVar.itemPadInline]: `${padInline}px`,
+      [navVar.itemFont]: `500 14px / 20px ${t.fontFamily}`,
+      [navVar.itemPadBlock]: '8px',
+      [navVar.itemPadInline]: '10px',
       [navVar.stackGap]: `${stackGap}px`,
       [navVar.groupGap]: '12px',
-      [navVar.groupTitleFontSize]: `${t.fontSizeSM}px`,
+      [navVar.groupTitleFontSize]: '13px',
       [navVar.groupTitleLineHeight]: '20px',
       [navVar.iconBox]: '18px',
       [navVar.iconSvgSize]: '18px',
       [navVar.arrowSize]: '12px',
-      [navVar.collapsedItemSize]: '28px',
+      [navVar.collapsedItemSize]: '32px',
       [navVar.colorTextSubMenuSelected]: t.colorText,
     };
   }
@@ -206,10 +209,10 @@ function defaultLayoutNavCssVars(
     [navVar.colorTextHover]: t.colorText,
     [navVar.colorTextActive]: t.colorText,
     [navVar.colorBgActive]: t.colorFillSecondary,
-    [navVar.colorBgSelected]: t.colorPrimaryBg,
-    [navVar.colorBgSelectedHover]: t.colorPrimaryBgHover,
-    [navVar.colorTextSelected]: t.colorPrimary,
-    [navVar.colorIconSelected]: t.colorPrimary,
+    [navVar.colorBgSelected]: t.colorFillTertiary,
+    [navVar.colorBgSelectedHover]: t.colorFillSecondary,
+    [navVar.colorTextSelected]: t.colorText,
+    [navVar.colorIconSelected]: t.colorText,
     [navVar.colorDivider]: t.colorSplit,
     [navVar.popupBg]: t.colorBgElevated,
     [navVar.indent]: '16px',
@@ -230,7 +233,7 @@ function defaultLayoutNavCssVars(
     [navVar.iconBox]: '18px',
     [navVar.iconSvgSize]: '18px',
     [navVar.arrowSize]: '12px',
-    [navVar.collapsedItemSize]: '28px',
+    [navVar.collapsedItemSize]: '32px',
     [navVar.colorTextSubMenuSelected]: t.colorText,
   };
 }
@@ -273,10 +276,6 @@ function applyDocMenuTokenToNavVars(
     set('popupBg', s.colorBgMenuItemCollapsedElevated);
     set('colorTextSubMenuSelected', s.colorTextSubMenuSelected);
 
-    if (s.colorBgMenuItemHover && s.colorBgMenuItemSelected) {
-      set('colorBgSelectedHover', s.colorBgMenuItemHover);
-    }
-
     if (typeof s.menuHeight === 'number' && s.menuHeight > 0) {
       out[navVar.itemHeight] = `${s.menuHeight}px`;
     }
@@ -296,10 +295,6 @@ function applyDocMenuTokenToNavVars(
   set('colorBgHover', h.colorBgMenuItemHover);
   set('colorBgSelected', h.colorBgMenuItemSelected);
   set('popupBg', h.colorBgMenuElevated);
-
-  if (h.colorBgMenuItemHover && h.colorBgMenuItemSelected) {
-    set('colorBgSelectedHover', h.colorBgMenuItemHover);
-  }
 
   return out;
 }
@@ -322,8 +317,6 @@ const easeOut = 'cubic-bezier(0.22, 1, 0.36, 1)';
 const FONT_WEIGHT_SELECTED = 600;
 /** 收起态首字 chip 字重：加强但不到选中强度 */
 const FONT_WEIGHT_COLLAPSED = 500;
-/** 选中态 icon 的微放大倍率（与 Apps 列表项内 icon hover 同量级，保持动效节奏一致） */
-const ICON_SCALE_SELECTED = 1.08;
 /** 禁用态透明度：与 antd `disabledAlpha` 节奏一致 */
 const DISABLED_OPACITY = 0.45;
 /** submenu chevron 视觉弱化：不与主文案抢注意力 */
@@ -442,7 +435,12 @@ const genProLayoutBaseMenuStyle = (
       lineHeight: 0,
     },
     svg: { width: '1em', height: '1em', display: 'block' },
-    img: { width: '1em', height: '1em', display: 'block', objectFit: 'contain' },
+    img: {
+      width: '1em',
+      height: '1em',
+      display: 'block',
+      objectFit: 'contain',
+    },
   };
 
   /** Shared: item-button & submenu-title interactive states (reused in popup) */
@@ -487,25 +485,26 @@ const genProLayoutBaseMenuStyle = (
     [`${prefix}-submenu--child-selected ${prefix}-submenu-title`]: {
       color: v('colorTextSubMenuSelected'),
     },
-    [`${prefix}-submenu--child-selected ${prefix}-submenu-title ${prefix}-item-icon`]: {
-      color: v('colorTextSubMenuSelected'),
-    },
+    [`${prefix}-submenu--child-selected ${prefix}-submenu-title ${prefix}-item-icon`]:
+      {
+        color: v('colorTextSubMenuSelected'),
+      },
   });
 
   /** Shared: icon size in button/submenu-title context */
   const iconSizeInButton = (prefix: string) => ({
-    [`${prefix}-item-button ${prefix}-item-icon, ${prefix}-submenu-title ${prefix}-item-icon`]: {
-      fontSize: v('iconSvgSize'),
-      width: v('iconBox'),
-      height: v('iconBox'),
-    },
+    [`${prefix}-item-button ${prefix}-item-icon, ${prefix}-submenu-title ${prefix}-item-icon`]:
+      {
+        fontSize: v('iconSvgSize'),
+        width: v('iconBox'),
+        height: v('iconBox'),
+      },
   });
 
   /** Shared: selected icon rule */
   const selectedIconRule = (prefix: string) => ({
     [`${prefix}-item--selected ${prefix}-item-icon`]: {
       color: v('colorIconSelected'),
-      transform: `scale(${ICON_SCALE_SELECTED})`,
     },
   });
 
@@ -739,6 +738,7 @@ const genProLayoutBaseMenuStyle = (
           marginBlock: v('stackGap'),
           padding: 0,
         },
+
         [`${c}-item-button, ${c}-submenu-title`]: {
           width: v('collapsedItemSize'),
           height: v('collapsedItemSize'),
@@ -811,7 +811,6 @@ const genProLayoutBaseMenuStyle = (
         },
         [`${c}-submenu--child-selected ${c}-submenu-title ${c}-item-icon`]: {
           color: v('colorIconSelected'),
-          transform: `scale(${ICON_SCALE_SELECTED})`,
         },
         /**
          * 收起态隐藏 submenu 指示器：
@@ -848,6 +847,13 @@ const genProLayoutBaseMenuStyle = (
         width: '100%',
         minWidth: 0,
         boxSizing: 'border-box',
+      },
+    },
+
+    [`${c}--collapsed:not(${c}--horizontal)`]: {
+      [`&${c}-list > li, & ${c}-group-list > li`]: {
+        width: v('collapsedItemSize'),
+        marginInline: 'auto',
       },
     },
 

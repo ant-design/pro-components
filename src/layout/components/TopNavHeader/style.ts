@@ -1,6 +1,6 @@
-import { proLayoutVar } from '../../style';
 import type { GenerateStyle, ProAliasToken } from '../../../provider';
 import { useStyle as useAntdStyle } from '../../../provider';
+import { proLayoutVar } from '../../style';
 
 export interface TopNavHeaderToken extends ProAliasToken {
   componentCls: string;
