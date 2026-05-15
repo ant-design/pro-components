@@ -373,7 +373,10 @@ describe('LightFilter', () => {
           <LightFilter
             initialValues={{
               dateRange: [d('2023-01-01'), d('2023-01-03')],
-              dateTimeRange: [d('2023-01-01 08:00:00'), d('2023-01-01 10:30:00')],
+              dateTimeRange: [
+                d('2023-01-01 08:00:00'),
+                d('2023-01-01 10:30:00'),
+              ],
               weekRange: [d('2023-01-02'), d('2023-01-08')],
               quarterRange: [d('2023-01-01'), d('2023-03-31')],
               yearRange: [d('2022-01-01'), d('2023-01-01')],
