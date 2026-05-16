@@ -16,29 +16,29 @@ const IndexColumn: React.ForwardRefRenderFunction<
 
   const className = getPrefixCls('pro-field-index-column');
 
-  // css
-  const { wrapSSR, hashId } = useStyle('IndexColumn', () => {
+  const { hashId } = useStyle('IndexColumn', (token) => {
+    const size = token.controlHeightXS + 2;
     return {
       [`.${className}`]: {
         display: 'inline-flex',
         alignItems: 'center',
         justifyContent: 'center',
-        width: '18px',
-        height: '18px',
+        width: size,
+        height: size,
         '&-border': {
-          color: '#fff',
-          fontSize: '12px',
-          lineHeight: '12px',
-          backgroundColor: '#314659',
-          borderRadius: '9px',
+          color: token.colorTextLightSolid,
+          fontSize: token.fontSizeSM,
+          lineHeight: 1,
+          backgroundColor: token.colorTextSecondary,
+          borderRadius: size / 2,
           '&.top-three': {
-            backgroundColor: '#979797',
+            backgroundColor: token.colorTextQuaternary,
           },
         },
       },
     };
   });
-  return wrapSSR(
+  return (
     <div
       ref={ref}
       className={clsx(className, hashId, {
@@ -47,7 +47,7 @@ const IndexColumn: React.ForwardRefRenderFunction<
       })}
     >
       {children}
-    </div>,
+    </div>
   );
 };
 

@@ -172,14 +172,12 @@ const ProDescriptions = <
               },
             }}
             extra={
-              rest.extra ? (
+              options || rest.extra ? (
                 <Space>
                   {options}
                   {rest.extra}
                 </Space>
-              ) : (
-                options
-              )
+              ) : undefined
             }
             title={title}
             items={children as DescriptionsItemType[]}

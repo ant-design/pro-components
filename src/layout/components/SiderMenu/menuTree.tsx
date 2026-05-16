@@ -279,21 +279,14 @@ function mapMenuItemToNavNode(
     useGroupChrome && depth === 0 ? ('group' as const) : undefined;
 
   if (Array.isArray(children) && children.length > 0) {
-    const iconLevel = depth === 0 || (useGroupChrome && depth === 1);
+    const iconDom = item.icon
+      ? renderIcon(item.icon, `${baseClassName}-icon ${ctx.hashId}`)
+      : null;
 
-    const iconDom = renderIcon(
-      item.icon,
-      `${baseClassName}-icon ${ctx.hashId}`,
-    );
     const fallbackLetter =
-      collapsed && iconLevel ? collapsedTitleLetter(titleText) : null;
+      collapsed && depth === 0 ? collapsedTitleLetter(titleText) : null;
 
-    /**
-     * **始终渲染 icon 和文案**，是否隐藏交由 cssinjs 控制：
-     * 同一份 NavMenuNode 会被主区与 popup 共用，数据构造期不能按 collapsed 剃内容，
-     * 否则 popup 内拿到的是空 span，无法恢复。
-     */
-    const showIconCell = iconLevel && (iconDom || fallbackLetter);
+    const showIconCell = !!(iconDom || fallbackLetter);
 
     /** 标题行 DOM：`span.icon? + span.label`，与 leaf 完全对齐 */
     const defaultTitleRow = (
@@ -357,7 +350,7 @@ function mapMenuItemToNavNode(
        * `<li>` 统一加，避免主区/popup 两处都要管的同名 className 重复挂载。
        * `hasIcon` 通过强类型字段透出，渲染层无需再做字符串嗅探。
        */
-      hasIcon: !!(iconLevel && iconDom),
+      hasIcon: !!iconDom,
     };
   }
 

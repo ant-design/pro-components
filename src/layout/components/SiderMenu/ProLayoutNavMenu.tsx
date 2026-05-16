@@ -703,12 +703,9 @@ const renderNode: NodeRender = (ctx, node, depth) => {
       if (ctx.popupMode && !ctx.insideSubmenuPopup) {
         return renderPopup(ctx, node, depth, renderNode);
       }
-      if (
-        ctx.popupMode &&
-        ctx.insideSubmenuPopup &&
-        ctx.horizontalNavMode === 'overflow'
-      ) {
+      if (ctx.popupMode && ctx.insideSubmenuPopup && ctx.mode === 'horizontal') {
         return (
+          // eslint-disable-next-line @typescript-eslint/no-use-before-define
           <OverflowVerticalSubmenu
             key={node.key}
             ctx={ctx}

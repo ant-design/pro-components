@@ -1,11 +1,12 @@
 ﻿import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
 import type { FormInstance } from 'antd';
+import { Space } from 'antd';
 import React from 'react';
 import ProForm, { ProFormField } from '../form';
 import { proTheme } from '../provider';
 import type { ProCoreActionType, UseEditableMapUtilType } from '../utils';
 import { InlineErrorFormItem, getFieldPropsOrFormItemProps } from '../utils';
-import type { ProFieldValueTypeInput } from '../utils/typing';
+import type { ProFieldValueTypeInput } from '../utils';
 import type { ProDescriptionsColumn } from './typing';
 
 /**
@@ -51,10 +52,14 @@ export const FieldRender: React.FC<
       emptyText,
       render: render
         ? (finText: string) => {
-            return render?.(finText, entity, index, action, {
+            const dom = render?.(finText, entity, index, action, {
               ...props,
               type: 'descriptions',
             });
+            if (valueType === 'option' && Array.isArray(dom)) {
+              return <Space>{dom}</Space>;
+            }
+            return dom;
           }
         : undefined,
     },

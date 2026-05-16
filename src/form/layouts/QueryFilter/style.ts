@@ -10,7 +10,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
     [token.componentCls]: {
       boxSizing: 'border-box',
       '&&': {
-        padding: 24,
+        padding: token.paddingLG,
       },
       [`${token.antCls}-form-item`]: {
         marginBlock: 0,
@@ -19,7 +19,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
         marginBlock: 0,
       },
       '&-row': {
-        rowGap: 24,
+        rowGap: token.paddingLG,
         '&-split': {
           [`${token.proComponentsCls}-form-group`]: {
             display: 'flex',
@@ -27,7 +27,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
             gap: token.marginXS,
           },
           '&:last-child': {
-            marginBlockEnd: 12,
+            marginBlockEnd: token.paddingSM,
           },
         },
         '&-split-line': {
@@ -36,7 +36,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
             width: '100%',
             content: '""',
             height: 1,
-            insetBlockEnd: -12,
+            insetBlockEnd: -token.paddingSM,
             borderBlockEnd: `1px dashed ${token.colorSplit}`,
           },
         },
@@ -44,6 +44,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
       '&-collapse-button': {
         display: 'flex',
         alignItems: 'center',
+        padding: token.paddingXXS,
         color: token.colorPrimary,
       },
     },

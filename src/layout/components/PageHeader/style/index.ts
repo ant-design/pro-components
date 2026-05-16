@@ -1,7 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { GenerateStyle, ProAliasToken } from '../../../../provider';
 import {
-  operationUnit,
   resetComponent,
   useStyle as useAntdStyle,
 } from '../../../../utils';
@@ -45,14 +44,28 @@ const genPageHeaderStyle: GenerateStyle<PageHeaderToken> = (token) => {
         paddingBlockEnd: 0,
       },
       '& &-back': {
-        marginInlineEnd: token.margin,
+        marginInlineEnd: token.marginXS,
         fontSize: 16,
         lineHeight: 1,
         '&-button': {
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: token.controlHeight,
+          height: token.controlHeight,
           fontSize: 16,
-          ...operationUnit?.(token),
-          color: token.pageHeaderColorBack,
+          color: token.colorTextSecondary,
+          backgroundColor: 'transparent',
+          borderRadius: token.borderRadiusSM,
           cursor: 'pointer',
+          transition: `all ${token.motionDurationMid}`,
+          '&:hover': {
+            color: token.colorText,
+            backgroundColor: token.colorBgTextHover,
+          },
+          '&:active': {
+            backgroundColor: token.colorBgTextActive,
+          },
         },
         [`${token.componentCls}-rlt &`]: {
           float: 'right',

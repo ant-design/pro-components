@@ -17,6 +17,12 @@ legacy: /table
 
 <code src="../../demos/table/no-title.tsx" id="no-title-table" background="var(--main-bg-color)" title="无 ToolBar 的表格"></code>
 
+### 自适应高度
+
+通过 `scroll={{ y: 'fill' }}` 让表格自动填充父容器高度，搜索栏、工具栏、分页器保持固定，仅数据区域滚动。
+
+<code src="../../demos/table/fill-height.tsx" background="var(--main-bg-color)" title="scroll.y = fill 自适应高度"></code>
+
 ### 搜索栏类型切换
 
 通过 Segmented 切换 `search.filterType`，在查询表单（query）和轻量筛选（light）之间一键切换。

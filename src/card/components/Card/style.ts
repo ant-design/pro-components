@@ -174,6 +174,8 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
       },
 
       [`${componentCls}-title`]: {
+        display: 'flex',
+        alignItems: 'center',
         color: token.colorText,
         fontWeight: token.fontWeightStrong,
         fontSize: token.fontSizeLG,
@@ -191,10 +193,21 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
       },
 
       [`${componentCls}-collapsible-icon`]: {
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
         marginInlineEnd: token.marginXS,
-        color: token.colorIconHover,
-        ':hover': {
-          color: token.colorPrimaryHover,
+        padding: token.paddingXXS,
+        color: token.colorTextSecondary,
+        lineHeight: 1,
+        borderRadius: token.borderRadiusSM,
+        transition: `color ${token.motionDurationMid}, background-color ${token.motionDurationMid}`,
+        '&:hover': {
+          color: token.colorText,
+          backgroundColor: token.colorBgTextHover,
+        },
+        '&:active': {
+          backgroundColor: token.colorBgTextActive,
         },
 
         '& svg': {

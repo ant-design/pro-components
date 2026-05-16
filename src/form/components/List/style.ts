@@ -48,6 +48,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
       },
       '&-action': {
         display: 'flex',
+        alignItems: 'center',
         height: token.controlHeight,
         marginBlockEnd: token.marginLG,
         lineHeight: token.controlHeight + 'px',
@@ -57,11 +58,22 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
         },
       },
       '&-action-icon': {
-        marginInlineStart: 8,
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginInlineStart: token.marginXS,
+        padding: token.paddingXXS,
+        color: token.colorTextSecondary,
+        lineHeight: 1,
         cursor: 'pointer',
-        transition: 'color 0.3s ease-in-out',
+        borderRadius: token.borderRadiusSM,
+        transition: `color ${token.motionDurationMid}, background-color ${token.motionDurationMid}`,
         '&:hover': {
-          color: token.colorPrimaryTextHover,
+          color: token.colorText,
+          backgroundColor: token.colorBgTextHover,
+        },
+        '&:active': {
+          backgroundColor: token.colorBgTextActive,
         },
       },
       [`${token.proComponentsCls}-card ${token.proComponentsCls}-card-extra`]: {

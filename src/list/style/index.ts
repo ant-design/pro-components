@@ -500,6 +500,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           marginInlineEnd: 0,
           wordBreak: 'break-word',
           cursor: 'pointer',
+          transition: `color ${token.motionDurationMid}`,
           '&-editable': {
             paddingBlock: token.paddingSM,
           },

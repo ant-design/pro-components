@@ -20,26 +20,26 @@ const SearchTable = () => (
         search: false,
       },
     ]}
-    request={async (params) => {
+    request={async () => {
+      const names = [
+        '用户认证服务',
+        '订单处理中心',
+        '支付网关',
+        '消息推送平台',
+        '日志分析引擎',
+        '配置管理中心',
+        '文件存储服务',
+        '任务调度系统',
+        '数据同步网关',
+        '监控告警平台',
+      ];
       return {
-        data: [
-          {
-            key: 1,
-            name: '用户认证服务',
-            createdAt: 1705286400000,
-          },
-          {
-            key: 2,
-            name: '订单处理中心',
-            createdAt: 1705200000000,
-          },
-          {
-            key: 3,
-            name: '支付网关',
-            createdAt: 1705113600000,
-          },
-        ],
-        total: 3,
+        data: names.map((name, i) => ({
+          key: i + 1,
+          name,
+          createdAt: 1705286400000 - i * 86400000,
+        })),
+        total: names.length,
         success: true,
       };
     }}

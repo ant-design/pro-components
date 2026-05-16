@@ -216,7 +216,10 @@ const Demo = () => {
           )
         }
       >
-        <PageContainer>
+        <PageContainer
+          title="枚举属性切换"
+          onBack={() => window.history.back()}
+        >
           <ProCard style={{ marginBlockEnd: 16 }} variant="outlined">
             <Space orientation="vertical" size={12} style={{ width: '100%' }}>
               <Space>
