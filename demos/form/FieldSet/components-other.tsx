@@ -18,7 +18,7 @@ import {
   ProFormUploadDragger,
 } from '@ant-design/pro-components';
 import { message, Switch } from 'antd';
-import Mock from 'mockjs';
+import { faker } from '@faker-js/faker';
 import { useState } from 'react';
 
 export const waitTime = (time: number = 100) => {
@@ -106,14 +106,12 @@ const Demo = () => {
             debounceTime={300}
             request={async ({ keyWords }) => {
               await waitTime(100);
-              return Mock.mock({
-                'data|1-10': [
-                  {
-                    value: '@id',
-                    label: '@name',
-                  },
-                ],
-              }).data.concat([
+              const count = faker.number.int({ min: 1, max: 10 });
+              const data = Array.from({ length: count }, () => ({
+                value: faker.string.nanoid(),
+                label: faker.person.fullName(),
+              }));
+              return data.concat([
                 {
                   value: keyWords,
                   label: 'Target',
@@ -125,7 +123,6 @@ const Demo = () => {
                 { value: '500000198703236285', label: 'George Jackson' },
                 { value: '610000199906148074', label: 'Linda Hernandez' },
                 { value: '150000197210168659', label: 'Sandra Hall' },
-                { label: 'Target' },
               ]);
             }}
             placeholder="Please select a country"
