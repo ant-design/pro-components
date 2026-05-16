@@ -9,13 +9,13 @@ group: Form
 
 ProForm adds some syntactic sugar and more layout settings to the original Form to help us develop a form quickly. Also add some default behaviors to make our forms work well by default.
 
-Step-by-step forms, Modal forms, Drawer forms, Query forms, Lightweight filters and many other layouts can cover most of the usage scenarios and get rid of the complicated and tedious form layout work and do more with less code.
+Step-by-step forms, Modal forms, Drawer forms, Query forms, lightweight filters, and other layouts cover most scenarios and help you accomplish more with less layout code.
 
 - If you want to set default values, please use `initialValues`, any direct use of component `value` and `onChange` may cause value binding failure.
 - If you want to link forms or do some dependencies, you can use render props mode, ProFormDependency is definitely the best choice
 - ProForm's onFinish, unlike antd's Form, is a Promise that will automatically set the button to load for you if you return normally.
 - If you want to listen to a value, it is recommended to use `onValuesChange`. Keeping a unidirectional data flow is a great benefit for both developers and maintainers
-- ProForm has no black technology, it's just a wrapper for antd's Form, if you want to use a custom component you can wrap it with Form.Item.
+- ProForm is not magic: it is just a thin wrapper around antd's Form—use `Form.Item` for custom controls and mix freely.
 
 ```tsx | pure
 // Set overall default values
@@ -42,7 +42,7 @@ Step-by-step forms, Modal forms, Drawer forms, Query forms, Lightweight filters 
           ]}
           width="md"
           name="useMode"
-          label={`with${form.getFieldValue("name")}contract agreement effective mode`}
+          label={`Agreement with "${form.getFieldValue('name') || '—'}"`}
         />
       );
     }}
@@ -215,7 +215,7 @@ Supported in `ProForm`, `SchemaForm`, `ModalForm`, `DrawerForm`, `StepsForm`
 
 <code src="../../demos/form/dependency.tsx" title="Form Linkage"></code>
 
-<code src="../../demos/form/formRef.tsx" id="formRef-usage" description="
+<code src="../../demos/form/form-ref.tsx" id="formRef-usage" description="
 You can get a reference to the form instance via `formRef`, through which you can call form methods to implement form reset, set form, get form values, etc." title="Form Method Call"></code>
 
 ### Sync submission results to url
@@ -228,7 +228,7 @@ When opening, the url parameters are also set as default values, supports transf
 
 <code src="../../demos/form/layout-footer.tsx" iframe="580" title="Fixed Footer"></code>
 
-<code src="../../demos/form/pro-form-editableTable.tsx" title="ProForm and EditableTable used together"></code>
+<code src="../../demos/form/pro-form-editable-table.tsx" title="ProForm and EditableTable used together"></code>
 
 ## Components that hijack render functions
 
@@ -246,7 +246,7 @@ Forms are essential in middle and backend projects, and are usually accompanied 
 
 Start with an official example [Customized Form Controls](https://ant.design/components/form/#components-form-demo-customized-form-controls)
 
-<code src="../../demos/form/antd.tsx" description="Official Example"></code> <code src="../../demos/form/antd.modify.tsx" description="Modify using hooks"></code> <code src="../../demos/form/antd.nest.tsx" description="Nested Usage"></code>
+<code src="../../demos/form/antd.tsx" description="Official Example"></code> <code src="../../demos/form/antd-modify.tsx" description="Modify using hooks"></code> <code src="../../demos/form/antd-nest.tsx" description="Nested Usage"></code>
 
 ### FormControlRender
 
@@ -267,6 +267,16 @@ Using FormItemRender or ProFormItemRender makes it easier to write form items in
 <code src="../../demos/form/_pro-form-dependency.tsx"  debug></code>
 
 <code src="../../demos/form/label-col.tsx" debug></code>
+
+### Select `labelInValue`
+
+How `labelInValue` changes option payload shape inside ProForm selects.
+
+<code src="../../demos/form/label-in-value.tsx"></code>
+
+### ProProvider / ConfigProvider (debug)
+
+<code src="../../demos/form/config-provider.tsx" debug background="var(--main-bg-color)"></code>
 
 ## ProForm
 
@@ -409,7 +419,7 @@ While we would prefer not to modify the submitter, it is a common requirement to
 
 This property is a high-level wrapper made by ProForm based on the original Antd's `FormInstance`, adding some more convenient methods. Usage is as follows:
 
-<code src="../../demos/form/formRef.tsx" id="formRef-api" title="Usage of formRef"></code>
+<code src="../../demos/form/form-ref.tsx" id="formRef-api" title="Usage of formRef"></code>
 
 ```tsx | pure
 import type { ProFormInstance } from '@ant-design/pro-components';
@@ -524,4 +534,4 @@ export default () => {
 
 <code src="../../demos/form/_modalform-test.tsx"  debug></code>
 
-<code src="../../demos/form/params-formref.tsx"  debug></code>
+<code src="../../demos/form/params-form-ref.tsx"  debug></code>

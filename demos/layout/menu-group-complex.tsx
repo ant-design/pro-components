@@ -1,5 +1,5 @@
 import { PageContainer, ProLayout } from '@ant-design/pro-components';
-import complexMenu from './complexMenu';
+import complexMenu from './complex-menu';
 
 const Demo = () => (
   <div
@@ -11,12 +11,10 @@ const Demo = () => (
       location={{
         pathname: '/product/list/on-sale',
       }}
-      collapsed={false}
-      collapsedButtonRender={false}
       route={{
         routes: complexMenu,
       }}
-      menu={{ defaultOpenAll: true, hideMenuWhenCollapsed: true }}
+      menu={{ type: 'group' }}
     >
       <PageContainer content="欢迎使用">
         <div>Hello World</div>

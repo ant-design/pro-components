@@ -5,11 +5,12 @@ import {
 } from '@ant-design/icons';
 import type { ProSettings } from '@ant-design/pro-components';
 import { PageContainer, ProCard, ProLayout } from '@ant-design/pro-components';
+import { Avatar, Image, Space } from 'antd';
 import { useState } from 'react';
 import defaultProps from './_defaultProps';
 
 const Demo = () => {
-  const [settings, setSetting] = useState<Partial<ProSettings> | undefined>({
+  const [settings, setSettings] = useState<Partial<ProSettings> | undefined>({
     layout: 'side',
   });
 
@@ -23,7 +24,6 @@ const Demo = () => {
       }}
     >
       <ProLayout
-        siderWidth={256}
         bgLayoutImgList={[
           {
             src: 'https://img.alicdn.com/imgextra/i2/O1CN01O4etvp1DvpFLKfuWq_!!6000000000279-2-tps-609-606.png',
@@ -48,21 +48,53 @@ const Demo = () => {
         location={{
           pathname,
         }}
+        collapsed={false}
         menu={{
           type: 'group',
-        }}
-        avatarProps={{
-          src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
-          title: '书琰',
         }}
         actionsRender={(props) => {
           if (props.isMobile) return [];
           return [
-            <InfoCircleFilled key="InfoCircleFilled" />,
-            <QuestionCircleFilled key="QuestionCircleFilled" />,
-            <GithubFilled key="GithubFilled" />,
+            <div
+              key={1}
+              style={{
+                height: '200px',
+              }}
+            >
+              <Image
+                width={'100%'}
+                preview={false}
+                height={132}
+                src="https://gw.alipayobjects.com/zos/bmw-prod/d283f09a-64d6-4d59-bfc7-37b49ea0da2b.svg"
+              />
+              <Space
+                align="center"
+                size="middle"
+                style={{
+                  width: '100%',
+                  marginBlockStart: '32px',
+                }}
+              >
+                <Avatar
+                  src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                  size="small"
+                />
+                <div
+                  style={{
+                    fontSize: '14px',
+                    marginInlineEnd: '32px',
+                  }}
+                >
+                  书琰
+                </div>
+                <InfoCircleFilled key="InfoCircleFilled" />
+                <QuestionCircleFilled key="QuestionCircleFilled" />
+                <GithubFilled key="GithubFilled" />
+              </Space>
+            </div>,
           ];
         }}
+        menuRender={(_, defaultDom) => defaultDom}
         menuItemRender={(item, dom) => (
           <div
             onClick={() => {

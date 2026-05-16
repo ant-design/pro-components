@@ -1,7 +1,7 @@
 ---
 group: Form
 title: LoginForm/Page
-Order: 2
+order: 2
 atomId: LoginForm,PageForm
 navigation:
   Title: Components
@@ -9,15 +9,15 @@ navigation:
 
 # LoginForm/Page
 
-LoginForm and LoginFormPage are variants of ProForm. They are specially implemented to adapt to common login form layouts. They are suitable for various login scenarios and reduce layout pressure.
+LoginForm and LoginFormPage are ProForm variants tailored for typical login compositions and reduce layout friction.
 
 ## Login form
 
-<code src="../../demos/form/LoginForm/login-form.tsx"  background="var(--main-bg-color)" oldtitle="login-form"></code>
+<code src="../../demos/form/login-form/login-form.tsx" background="var(--main-bg-color)" title="LoginForm"></code>
 
-## page level LoginForm
+## Full-page login shell
 
-<code src="../../demos/form/LoginForm/login-form-page.tsx"  background="var(--main-bg-color)" oldtitle="Page level form"></code>
+<code src="../../demos/form/login-form/login-form-page.tsx" background="var(--main-bg-color)" iframe="887" title="Full-page LoginForm"></code>
 
 ### LoginForm
 

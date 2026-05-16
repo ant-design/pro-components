@@ -35,19 +35,19 @@ The name parameter must be an array. If it is a nested structure, it can be conf
 </ProFormDependency>
 ```
 
-## code example
+## Examples
 
-### Interdependent Forms
+### Interdependent fields
 
-<code src="../../demos/form/Dependency/dependency.tsx" oldtitle="ProForm.List"></code>
+<code src="../../demos/form/dependency-demos/dependency.tsx" title="ProFormDependency"></code>
 
-### Get form dependency values
+### Inside ProFormList
 
-The following examples demonstrate the order in which dependencies are evaluated in different situations:
+The examples below clarify evaluation order inside or outside lists:
 
-- `<ProFormDependency>`\*\* is not in\*\*`<ProFormList>`: according to the dependency declared by `name`, the value is taken from the global (case 1)
-- `<ProFormDependency>`\*\* in \*\*`<ProFormList>`
-  - `ignoreFormListField` of `<ProFormDependency>` is `true`: according to the dependency declared by `name`, the value is taken from the global (case 2)
-  - `ignoreFormListField` of `<ProFormDependency>` is `false`: according to the dependency declared by `name`, the value is taken locally (case 3)
+- `<ProFormDependency>` **not** nested in `<ProFormList>`: values come from global form paths (scenario 1)
+- Nested under `<ProFormList>`
+  - `ignoreFormListField={true}`: still read globals (scenario 2)
+  - `ignoreFormListField={false}`: scoped to row context (scenario 3)
 
-<code src="../../demos/form/Dependency/dependency2.tsx" oldtitle="ProForm.List"></code>
+<code src="../../demos/form/dependency-demos/dependency-2.tsx" title="Scoped dependencies"></code>

@@ -15,7 +15,7 @@ ProForm 在原来的 Form 的基础上增加了一些语法糖和更多的布局
 - 如果想要表单联动或者做一些依赖，可以使用 render props 模式，ProFormDependency 绝对是最好的选择
 - ProForm 的 onFinish 与 antd 的 Form 不同，支持 Promise，如果你正常返回会自动为你设置按钮的加载效果
 - 如果想要监听某个值，建议使用 `onValuesChange`。保持单向的数据流无论对开发者还是维护者都大有裨益
-- ProForm 没有黑科技，只是 antd 的 Form 的封装，如果要使用自定义的组件可以用 Form.Item 包裹后使用，支持混用
+- ProForm 没有「魔法」：`ProForm` 只是对 antd `Form` 的薄封装；自定义控件用 `Form.Item` 包裹后与 Pro 表单项混用即可。
 
 ```tsx | pure
 // 设置整体默认值
@@ -215,7 +215,7 @@ import { set } from '@rc-component/util';
 
 <code src="../../demos/form/dependency.tsx" title="表单联动"></code>
 
-<code src="../../demos/form/formRef.tsx" id="formRef-usage" description="
+<code src="../../demos/form/form-ref.tsx" id="formRef-usage" description="
 你可以通过 `formRef` 获取到表单实例的引用，通过引用可以调用表单方法实现表单重置，设置表单，获取表单值等功能。" title="表单方法调用"></code>
 
 ### 同步提交结果到 url
@@ -228,7 +228,7 @@ import { set } from '@rc-component/util';
 
 <code src="../../demos/form/layout-footer.tsx" iframe="580" title="固定页脚"></code>
 
-<code src="../../demos/form/pro-form-editableTable.tsx" title="ProForm 和 EditableTable 同时使用"></code>
+<code src="../../demos/form/pro-form-editable-table.tsx" title="ProForm 和 EditableTable 同时使用"></code>
 
 ## 劫持渲染函数的组件
 
@@ -246,7 +246,7 @@ FormItemRender 用来专门处理，采用 render props 的方式来组织代码
 
 从一个官网例子开始[自定义表单项](https://ant.design/components/form-cn#components-form-demo-customized-form-controls)
 
-<code src="../../demos/form/antd.tsx" description="官网例子"></code> <code src="../../demos/form/antd.modify.tsx" description="使用和hooks改造"></code> <code src="../../demos/form/antd.nest.tsx" description="嵌套使用"></code>
+<code src="../../demos/form/antd.tsx" description="官网例子"></code> <code src="../../demos/form/antd-modify.tsx" description="使用和hooks改造"></code> <code src="../../demos/form/antd-nest.tsx" description="嵌套使用"></code>
 
 ### FormControlRender
 
@@ -267,6 +267,16 @@ FormItemRender 用来专门处理，采用 render props 的方式来组织代码
 <code src="../../demos/form/_pro-form-dependency.tsx"  debug></code>
 
 <code src="../../demos/form/label-col.tsx" debug></code>
+
+### Select `labelInValue`
+
+演示 `ProFormSelect` 在 `labelInValue={true}` 下与提交值的写法。
+
+<code src="../../demos/form/label-in-value.tsx"></code>
+
+### ProProvider / ConfigProvider（调试）
+
+<code src="../../demos/form/config-provider.tsx" debug background="var(--main-bg-color)"></code>
 
 ## ProForm
 
@@ -409,7 +419,7 @@ ProFormInstance 与 antd 的 form 相比增加了一些能力。
 
 该属性是 ProForm 在原有的 Antd 的 `FormInstance` 的基础上做的一个上层分装，增加了一些更加便捷的方法。使用方式如下：
 
-<code src="../../demos/form/formRef.tsx" id="formRef-api" title="formRef的使用"></code>
+<code src="../../demos/form/form-ref.tsx" id="formRef-api" title="formRef的使用"></code>
 
 ```tsx | pure
 import type { ProFormInstance } from '@ant-design/pro-components';
@@ -522,4 +532,4 @@ export default () => {
 
 <code src="../../demos/form/_modalform-test.tsx"  debug></code>
 
-<code src="../../demos/form/params-formref.tsx"  debug></code>
+<code src="../../demos/form/params-form-ref.tsx"  debug></code>

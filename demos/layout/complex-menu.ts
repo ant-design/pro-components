@@ -2,7 +2,7 @@
  * 复杂菜单模板数据：覆盖多级嵌套、默认展开、相同子路径、hideInMenu 等典型 demo 需求。
  * 统一使用电商业务语义（工作台 / 商品中心 / 订单中心 / 系统管理），与 `_defaultProps.tsx` 对齐。
  *
- * 注意：本数据被多个 demo 共用（DefaultOpenAllMenu / MenuGroup / Nested / TopmenuNested / searchMenu），
+ * 注意：本数据被多个 demo 共用（default-open-all-menu / menu-group-complex / nested-layout / top-menu-nested / search-menu），
  * 修改路径字段时需同步更新这些 demo 中的 `location.pathname` 以保持默认高亮项可见。
  */
 export default [

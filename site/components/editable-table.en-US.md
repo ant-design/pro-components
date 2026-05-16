@@ -10,21 +10,47 @@ EditableProTable is essentially the same as ProTable, with a few presets added t
 
 ## Code Demo
 
-### Editable forms
+### Edit mode switch
 
-<code src="../../demos/table/EditableTable/basic.tsx"  background="var(--main-bg-color)" oldtitle="Editable Form"></code>
+Use a segmented control to toggle `editable.type` between inline single-row editing (`single`) and multi-row editing (`multiple`).
 
-### Link with content outside the edit form
+<code src="../../demos/table/enum-editable-type.tsx" background="var(--main-bg-color)"></code>
 
-<code src="../../demos/table/EditableTable/form-linkage.tsx" background="var(--main-bg-color)" old></code>
+### Editable Table
 
-### Custom Editable Tables
+<code src="../../demos/table/editable-table/basic.tsx" background="var(--main-bg-color)" title="Basic editable table"></code>
 
-<code src="../../demos/table/EditableTable/custom.tsx"  background="var(--main-bg-color)" oldtitle="Custom Editable Form"></code>
+### Cell editing
 
-### Live Saved Editable Forms
+<code src="../../demos/table/editable-table/cell-editor-table.tsx" background="var(--main-bg-color)" title="Cell editor"></code>
 
-<code src="../../demos/table/EditableTable/real-time-editing.tsx"  background="var(--main-bg-color)" oldtitle="Real-time saved editing form"></code>
+### Row editing
+
+<code src="../../demos/table/editable-table/row-editor-table.tsx" background="var(--main-bg-color)" title="Row editor"></code>
+
+### With Form.Item
+
+<code src="../../demos/table/editable-table/form-item.tsx" background="var(--main-bg-color)" title="Editable table inside Form.Item"></code>
+
+### Linked with outer form fields
+
+<code src="../../demos/table/editable-table/form-linkage.tsx" background="var(--main-bg-color)" title="Linkage outside the table"></code>
+
+### Table with grouped child columns
+
+<code src="../../demos/table/editable-table/children.tsx" background="var(--main-bg-color)" title="Nested column headers"></code>
+
+### Custom editable table
+
+<code src="../../demos/table/editable-table/custom.tsx" background="var(--main-bg-color)" title="Custom editable table"></code>
+
+### Real-time persisted editing
+
+<code src="../../demos/table/editable-table/real-time-editing.tsx" background="var(--main-bg-color)" title="Save while editing"></code>
+
+### Advanced sample
+
+<code src="../../demos/table/editable-table/complex.tsx" background="var(--main-bg-color)" title="Complex editable scenarios"></code>
 
 ## EditableProTable
 

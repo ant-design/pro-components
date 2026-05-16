@@ -13,7 +13,7 @@ import defaultProps from './_defaultProps';
 import { demoOnMenuHeaderClick } from './_demoHandlers';
 
 const Demo = () => {
-  const [settings, setSetting] = useState<Partial<ProSettings> | undefined>({
+  const [settings, setSettings] = useState<Partial<ProSettings> | undefined>({
     fixSiderbar: true,
     layout: 'side',
     splitMenus: true,
