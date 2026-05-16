@@ -12,7 +12,7 @@ export interface PageHeaderToken extends ProAliasToken {
   pageHeaderBgGhost: string;
   pageHeaderPaddingBreadCrumb: number;
   pageHeaderColorBack: string;
-  pageHeaderFontSizeHeaderTitle: number;
+  pageHeaderFontSizeHeaderTitle: number | string;
   pageHeaderFontSizeHeaderSubTitle: number;
   pageHeaderPaddingContentPadding: number;
 }
@@ -170,7 +170,7 @@ export default function useStyle(prefixCls: string) {
       pageHeaderPaddingVertical: 4,
       pageHeaderPaddingBreadCrumb: token.paddingSM,
       pageHeaderColorBack: token.colorTextHeading,
-      pageHeaderFontSizeHeaderTitle: Number(token.fontSizeHeading4),
+      pageHeaderFontSizeHeaderTitle: token.fontSizeHeading4,
       pageHeaderFontSizeHeaderSubTitle: 14,
       pageHeaderPaddingContentPadding: token.paddingSM,
     };
