@@ -18,7 +18,6 @@ import {
   ProFormUploadDragger,
 } from '@ant-design/pro-components';
 import { message, Switch } from 'antd';
-import { faker } from '@faker-js/faker';
 import { useState } from 'react';
 
 export const waitTime = (time: number = 100) => {
@@ -106,16 +105,8 @@ const Demo = () => {
             debounceTime={300}
             request={async ({ keyWords }) => {
               await waitTime(100);
-              const count = faker.number.int({ min: 1, max: 10 });
-              const data = Array.from({ length: count }, () => ({
-                value: faker.string.nanoid(),
-                label: faker.person.fullName(),
-              }));
-              return data.concat([
-                {
-                  value: keyWords,
-                  label: 'Target',
-                },
+              return [
+                { value: keyWords, label: 'Target' },
                 { value: '520000201604258831', label: 'Patricia Lopez' },
                 { value: '520000198509222123', label: 'Jose Martinez' },
                 { value: '210000200811194757', label: 'Elizabeth Thomas' },
@@ -123,7 +114,7 @@ const Demo = () => {
                 { value: '500000198703236285', label: 'George Jackson' },
                 { value: '610000199906148074', label: 'Linda Hernandez' },
                 { value: '150000197210168659', label: 'Sandra Hall' },
-              ]);
+              ];
             }}
             placeholder="Please select a country"
             rules={[{ required: true, message: 'Please select your country!' }]}
