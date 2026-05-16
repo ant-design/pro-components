@@ -64,7 +64,7 @@ const ACTIONS = {
 /** Extra 区外边距 */
 const EXTRA_MARGIN = 16;
 /** Footer 区底部内边距 */
-const FOOTER_PADDING_BLOCK_END = 16;
+const FOOTER_PADDING_BLOCK_END = 0;
 
 /** 折叠态 hide-menu 按钮向 sider 外偏移量：让按钮半压在 sider 边缘上 */
 const HIDE_MENU_COLLAPSED_OFFSET = 12;

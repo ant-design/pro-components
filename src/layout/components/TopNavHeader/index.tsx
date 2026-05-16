@@ -29,6 +29,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
     layout,
     actionsRender,
     avatarProps,
+    actionsPlacement,
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = `${props.prefixCls || getPrefixCls('pro')}-top-nav-header`;
@@ -39,7 +40,8 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
     props.menuHeaderRender === false
       ? null
       : renderLogoAndTitle({ ...props, collapsed: false }, 'headerTitleRender');
-  const hasActionsContent = actionsRender || avatarProps;
+  const hasActionsContent =
+    actionsPlacement !== 'sider' && (actionsRender || avatarProps);
   const contentDom = useMemo(() => {
     const defaultDom = (
       <ConfigProvider

@@ -113,6 +113,12 @@ export type SiderMenuProps = {
     (props: HeaderViewProps) => React.ReactNode[] | React.ReactNode
   >;
   /**
+   * @name 控制 actions/avatar 渲染位置
+   * - `'sider'`（默认）：渲染在侧边栏底部
+   * - `'header'`：渲染在顶部 header 中
+   */
+  actionsPlacement?: 'header' | 'sider';
+  /**
    * @name  菜单 logo 和 title 区域的渲染
    *
    * @example 不要logo : menuHeaderRender={(logo,title)=> title}
@@ -224,6 +230,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     avatarProps,
 
     actionsRender,
+    actionsPlacement = 'sider',
     splitMenus,
     onOpenChange,
     stylish,
@@ -299,12 +306,16 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
           onOpenChange={onOpenChange}
           style={{
             width: '100%',
+            minWidth: collapsed
+              ? undefined
+              : (siderWidth ?? 240) -
+                (proToken?.layout?.sider?.paddingInlineLayoutMenu ?? 8) * 2,
           }}
           className={clsx(`${baseClassName}-menu`, hashId)}
           data-testid="pro-layout-sider-menu"
         />
       ),
-    [baseClassName, hashId, menuContentRender, onOpenChange, props],
+    [baseClassName, collapsed, hashId, menuContentRender, onOpenChange, props, siderWidth],
   );
 
   const linksNavNodes: NavMenuNode[] = (links || []).map((node, index) => ({
@@ -413,7 +424,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
 
   /** 操作区域的dom */
   const actionAreaDom = useMemo(() => {
-    if (splitMenus && !isMobile) return null;
+    if (actionsPlacement === 'header') return null;
     if (!avatarDom && !actionsDom) return null;
 
     return (
@@ -431,6 +442,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     );
   }, [
     actionsDom,
+    actionsPlacement,
     avatarDom,
     baseClassName,
     collapsed,

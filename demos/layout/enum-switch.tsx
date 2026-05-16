@@ -13,6 +13,7 @@ import {
   GithubFilled,
   HomeFilled,
   InfoCircleFilled,
+  MoonFilled,
   OrderedListOutlined,
   ProfileFilled,
   QuestionCircleFilled,
@@ -21,13 +22,14 @@ import {
   SettingFilled,
   ShoppingCartOutlined,
   ShoppingFilled,
+  SunFilled,
   TagsFilled,
   TeamOutlined,
   UnorderedListOutlined,
 } from '@ant-design/icons';
 import type { ProSettings } from '@ant-design/pro-components';
 import { PageContainer, ProCard, ProLayout } from '@ant-design/pro-components';
-import { Segmented, Space } from 'antd';
+import { ConfigProvider, Segmented, Space, theme } from 'antd';
 import { useMemo, useState } from 'react';
 import defaultProps from './_defaultProps';
 
@@ -152,7 +154,9 @@ const Demo = () => {
     'default',
   );
   const [fixedHeader, setFixedHeader] = useState(true);
+  const [actionsPlacement, setActionsPlacement] = useState<'header' | 'sider'>('sider');
   const [pathname, setPathname] = useState('/welcome');
+  const [dark, setDark] = useState(false);
 
   const appList = useMemo(() => {
     const list = defaultProps.appList ?? [];
@@ -180,6 +184,7 @@ const Demo = () => {
   }, [siderMenuType]);
 
   return (
+    <ConfigProvider theme={{ algorithm: dark ? theme.darkAlgorithm : theme.defaultAlgorithm }}>
     <div style={{ overflow: 'auto' }}>
       <ProLayout
         {...defaultProps}
@@ -191,30 +196,26 @@ const Demo = () => {
         siderMenuType={siderMenuType}
         fixedHeader={fixedHeader}
         fixSiderbar
+        actionsPlacement={actionsPlacement}
+        actionsRender={() => [
+          dark ? (
+            <SunFilled key="theme" onClick={() => setDark(false)} />
+          ) : (
+            <MoonFilled key="theme" onClick={() => setDark(true)} />
+          ),
+          <InfoCircleFilled key="info" />,
+          <QuestionCircleFilled key="question" />,
+          <GithubFilled key="github" />,
+        ]}
         location={{ pathname }}
         avatarProps={{
           src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
           size: 'small',
           title: '书琰',
         }}
-        actionsRender={() => [
-          <InfoCircleFilled key="info" />,
-          <QuestionCircleFilled key="question" />,
-          <GithubFilled key="github" />,
-        ]}
         menuItemRender={(item, dom) => (
           <div onClick={() => setPathname(item.path || '/welcome')}>{dom}</div>
         )}
-        menuHeaderRender={(logo, title, props) =>
-          props?.collapsed ? (
-            <></>
-          ) : (
-            <a key="title">
-              {logo}
-              {title}
-            </a>
-          )
-        }
       >
         <PageContainer
           title="枚举属性切换"
@@ -290,17 +291,30 @@ const Demo = () => {
                   ]}
                 />
               </Space>
+              <Space>
+                <span>操作区位置：</span>
+                <Segmented
+                  value={actionsPlacement}
+                  onChange={(v) => setActionsPlacement(v as 'header' | 'sider')}
+                  options={[
+                    { label: '侧栏 sider', value: 'sider' },
+                    { label: '顶栏 header', value: 'header' },
+                  ]}
+                />
+              </Space>
             </Space>
           </ProCard>
           <ProCard>
             layout=<b>{layout}</b> · contentWidth=
             <b>{contentWidth}</b> · fixedHeader=
             <b>{String(fixedHeader)}</b> · siderMenuType=
-            <b>{siderMenuType}</b> · appList=<b>{appListType}</b>
+            <b>{siderMenuType}</b> · appList=<b>{appListType}</b> ·
+            actionsPlacement=<b>{actionsPlacement}</b>
           </ProCard>
         </PageContainer>
       </ProLayout>
     </div>
+    </ConfigProvider>
   );
 };
 

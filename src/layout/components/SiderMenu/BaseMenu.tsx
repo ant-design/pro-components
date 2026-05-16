@@ -82,6 +82,9 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
 
   const baseClassName = `${prefixClsProp}-base-menu-${mode}`;
   const defaultOpenKeysRef = useRef<string[]>([]);
+  const prevCollapsedRef = useRef(props.collapsed);
+  /** Sider 宽度过渡时长（ms），与 SiderMenu 的 transition 0.2s 保持一致 */
+  const SIDER_TRANSITION_MS = 200;
 
   const [defaultOpenAll, setDefaultOpenAll] = useState(menu?.defaultOpenAll);
 
@@ -164,43 +167,59 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   }, [matchMenuKeys.join('-')]);
 
   useEffect(() => {
+    const wasCollapsed = prevCollapsedRef.current;
+    prevCollapsedRef.current = props.collapsed;
+    const isExpanding = wasCollapsed && !props.collapsed;
+
     if (
       matchMenuKeys.length > 0 &&
       matchMenuKeys.join('-') !== (selectedKeys || []).join('-')
     ) {
       setSelectedKeys(matchMenuKeys);
     }
-    if (
-      !defaultOpenAll &&
-      propsOpenKeys !== false &&
-      matchMenuKeys.join('-') !== (openKeys || []).join('-')
-    ) {
-      let newKeys: (string | number)[] | false = matchMenuKeys;
-      if (menu?.autoClose === false) {
-        newKeys = Array.from(new Set([...matchMenuKeys, ...(openKeys || [])]));
-      }
+
+    const applyOpenKeys = () => {
       if (
-        matchMenuKeys.length === 0 &&
-        menu?.autoClose === false &&
-        Array.isArray(openKeys) &&
-        openKeys.length > 0
+        !defaultOpenAll &&
+        propsOpenKeys !== false &&
+        matchMenuKeys.join('-') !== (openKeys || []).join('-')
       ) {
-        newKeys = [...openKeys];
-      }
-      if (
-        Array.isArray(newKeys) &&
-        newKeys.length === 0 &&
-        matchMenuKeys.length === 0
-      ) {
-        // 路由无法匹配菜单时保留展开态（如 pathname 被写成外链）
+        let newKeys: (string | number)[] | false = matchMenuKeys;
+        if (menu?.autoClose === false) {
+          newKeys = Array.from(
+            new Set([...matchMenuKeys, ...(openKeys || [])]),
+          );
+        }
+        if (
+          matchMenuKeys.length === 0 &&
+          menu?.autoClose === false &&
+          Array.isArray(openKeys) &&
+          openKeys.length > 0
+        ) {
+          newKeys = [...openKeys];
+        }
+        if (
+          Array.isArray(newKeys) &&
+          newKeys.length === 0 &&
+          matchMenuKeys.length === 0
+        ) {
+          // 路由无法匹配菜单时保留展开态（如 pathname 被写成外链）
+        } else {
+          setOpenKeys(newKeys);
+        }
+      } else if (menu?.ignoreFlatMenu && defaultOpenAll && !props.collapsed) {
+        setOpenKeys(getOpenKeysFromMenuData(menuData));
       } else {
-        setOpenKeys(newKeys);
+        setDefaultOpenAll(false);
       }
-    } else if (menu?.ignoreFlatMenu && defaultOpenAll && !props.collapsed) {
-      setOpenKeys(getOpenKeysFromMenuData(menuData));
-    } else {
-      setDefaultOpenAll(false);
+    };
+
+    if (isExpanding) {
+      const timer = setTimeout(applyOpenKeys, SIDER_TRANSITION_MS);
+      return () => clearTimeout(timer);
     }
+    applyOpenKeys();
+    return undefined;
   }, [matchMenuKeys.join('-'), props.collapsed]);
 
   const { hashId } = useStyle(baseClassName, mode);

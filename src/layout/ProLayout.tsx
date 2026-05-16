@@ -482,8 +482,10 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
 
   const siderWidth = useMemo(() => {
     if (propsSiderWidth) return propsSiderWidth;
-    return 235;
+    return 240;
   }, [propsSiderWidth]);
+
+  const actionsPlacement = props.actionsPlacement ?? (props.layout === 'top' ? 'header' : 'sider');
 
   const menuCollapsedWidth =
     menu?.collapsedWidth ?? defaultSettings.menu!.collapsedWidth!;
@@ -677,6 +679,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
       prefixCls,
       ...props,
       siderWidth,
+      actionsPlacement,
       ...currentMenuLayoutProps,
       formatMessage,
       breadcrumb,

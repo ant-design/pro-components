@@ -60,6 +60,12 @@ export type GlobalHeaderProps = {
   actionsRender?: WithFalse<
     (props: HeaderViewProps) => React.ReactNode[] | React.ReactNode
   >;
+  /**
+   * @name 控制 actions/avatar 渲染位置
+   * - `'sider'`（默认）：渲染在侧边栏底部
+   * - `'header'`：渲染在顶部 header 中
+   */
+  actionsPlacement?: 'header' | 'sider';
 
   /** 头像的设置 */
   avatarProps?: WithFalse<
@@ -144,9 +150,10 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (
       <div style={{ flex: 1 }} data-testid="pro-layout-global-header-content">
         {children}
       </div>
-      {(props.actionsRender || props.avatarProps) && (
-        <ActionsContent {...props} />
-      )}
+      {props.actionsPlacement !== 'sider' &&
+        (props.actionsRender || props.avatarProps) && (
+          <ActionsContent {...props} />
+        )}
     </div>
   );
 };
