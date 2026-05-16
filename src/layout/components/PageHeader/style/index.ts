@@ -184,7 +184,7 @@ export default function useStyle(prefixCls: string) {
       pageHeaderPaddingVertical: 4,
       pageHeaderPaddingBreadCrumb: token.paddingSM,
       pageHeaderColorBack: token.colorTextHeading,
-      pageHeaderFontSizeHeaderTitle: token.fontSizeHeading4,
+      pageHeaderFontSizeHeaderTitle: Number(token.fontSizeHeading4),
       pageHeaderFontSizeHeaderSubTitle: 14,
       pageHeaderPaddingContentPadding: token.paddingSM,
     };
