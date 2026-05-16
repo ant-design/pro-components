@@ -4,13 +4,7 @@ import { ConfigProvider, Flex } from 'antd';
 const Demo = () => (
   <>
     <Flex gap={24} vertical>
-      <CheckCard.Group
-        multiple
-        onChange={(value) => {
-
-        }}
-        defaultValue={['A']}
-      >
+      <CheckCard.Group multiple onChange={(_value) => {}} defaultValue={['A']}>
         <CheckCard
           title="Card A"
           description="选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念"
@@ -29,13 +23,7 @@ const Demo = () => (
           },
         }}
       >
-        <CheckCard.Group
-          multiple
-          onChange={(value) => {
-
-          }}
-          defaultValue={['A']}
-        >
+        <CheckCard.Group multiple onChange={(_value) => {}} defaultValue={['A']}>
           <CheckCard
             title="Card A"
             description="选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念"

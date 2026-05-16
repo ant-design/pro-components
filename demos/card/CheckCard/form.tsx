@@ -3,9 +3,7 @@ import { Avatar, Button, Form } from 'antd';
 
 const Demo = () => {
   const [form] = Form.useForm();
-  const handleSubmit = async (values: any) => {
-
-  };
+  const handleSubmit = async (_values: any) => {};
 
   return (
     <>

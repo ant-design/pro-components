@@ -5,12 +5,7 @@ import { CheckCard } from '@ant-design/pro-components';
 
 const Demo = () => (
   <>
-    <CheckCard.Group
-      onChange={(value) => {
-
-      }}
-      defaultValue="A"
-    >
+    <CheckCard.Group onChange={(_value) => {}} defaultValue="A">
       <CheckCard title="Card A" description="选项一" value="A" />
       <CheckCard title="Card B" description="选项二" value="B" />
       <CheckCard
