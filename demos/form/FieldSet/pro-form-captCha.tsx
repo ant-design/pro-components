@@ -44,7 +44,7 @@ const Demo = () => {
           ];
         },
       }}
-      onFinish={async (values) => {
+      onFinish={async (_values) => {
         await waitTime(2000);
 
         message.success('提交成功');

@@ -15,7 +15,7 @@ const Demo = () => {
   return (
     <ProCard
       tabs={{
-        onChange: (key) => {},
+        onChange: (_key) => {},
         items: items.map((item) => {
           return {
             key: item.key,
