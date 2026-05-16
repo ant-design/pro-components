@@ -14,7 +14,7 @@ import { useState } from 'react';
 import defaultProps from './_defaultProps';
 
 const Demo = () => {
-  const [settings, setSetting] = useState<Partial<ProSettings> | undefined>({
+  const [settings, setSettings] = useState<Partial<ProSettings> | undefined>({
     layout: 'side',
   });
 

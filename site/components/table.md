@@ -10,10 +10,9 @@ atomId: ProTable
 
 ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码的问题，所以在其中封装了很多常用的逻辑。这些封装可以简单的分类为预设行为与预设逻辑。
 
-依托于 ProForm 的能力，ProForm 拥有多种形态，可以切换查询表单类型，设置变形成为一个简单的 Form 表单，执行新建等功能。
+依托于 ProForm 的能力，**ProTable** 的查询区可切换多种形态（如 QueryFilter / LightFilter），也可在 `type="form"` 等场景下更像普通表单使用。
 
-![layout
-](https://gw.alipayobjects.com/zos/antfincdn/Hw%26ryTueTW/bianzu%2525204.png)
+![layout](https://gw.alipayobjects.com/zos/antfincdn/Hw%26ryTueTW/bianzu%2525204.png)
 
 若您是内网用户，欢迎使用我们的 [TechUI Studio](https://techui-studio.antfin-inc.com/) 可视化配置生成初始代码。
 

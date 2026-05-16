@@ -21,7 +21,7 @@ const content = (
   <Descriptions size="small" column={2}>
     <Descriptions.Item label="创建人">书琰</Descriptions.Item>
     <Descriptions.Item label="联系方式">
-      <a>421421</a>
+      <span>421421</span>
     </Descriptions.Item>
     <Descriptions.Item label="创建时间">2017-01-10</Descriptions.Item>
     <Descriptions.Item label="更新时间">2017-10-10</Descriptions.Item>
@@ -32,7 +32,7 @@ const content = (
 );
 
 const Demo = () => {
-  const [settings, setSetting] = useState<Partial<ProSettings> | undefined>(
+  const [settings, setSettings] = useState<Partial<ProSettings> | undefined>(
     undefined,
   );
   const [pathname, setPathname] = useState('/welcome');
@@ -76,13 +76,21 @@ const Demo = () => {
         }}
         onMenuHeaderClick={demoOnMenuHeaderClick}
         menuItemRender={(item, dom) => (
-          <a
+          <div
+            role="button"
+            tabIndex={0}
             onClick={() => {
               setPathname(item.path || '/welcome');
             }}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                setPathname(item.path || '/welcome');
+              }
+            }}
           >
             {dom}
-          </a>
+          </div>
         )}
         avatarProps={{
           icon: <UserOutlined />,

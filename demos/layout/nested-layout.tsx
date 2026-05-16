@@ -1,6 +1,6 @@
 import { UserOutlined } from '@ant-design/icons';
 import { PageContainer, ProLayout } from '@ant-design/pro-components';
-import complexMenu from './complexMenu';
+import complexMenu from './complex-menu';
 
 const Demo = () => (
   <div

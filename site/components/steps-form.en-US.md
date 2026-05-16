@@ -7,38 +7,46 @@ group: Form
 
 # StepsForm
 
-StepsForm manages the data of sub forms through a Provider, each word form is a complete set of data that is combined in StepsForm to form the final data. It also comes with a progress bar and a related API to manage the progress bar.
+StepsForm orchestrates nested step forms via a context Provider: each inner form holds a full snapshot of values, then StepsForm merges them after the final submission. Built-in Steps UI and helpers track progress.
 
-> StepsForm inherits from Form.Provider, see the documentation [here](https://ant.design/components/form/#Form.Provider), the value of the transformed moment is a function provided by ProForm, so `onFormFinish` and `onFormChange` where the values are untransformed.
+> StepsForm extends antd [`Form.Provider`](https://ant.design/components/form/#Form.Provider). Serialization of dates (for example converting `dayjs` for submit) follows ProForm’s pipeline, so payloads in **`onFormFinish` / `onFormChange`** are still the raw Field values managed by Provider.
 
-## Step-by-Step Forms
+## Basic step flow
 
-<code src="../../demos/form/StepsForm/steps-from.tsx" ></code>
+<code src="../../demos/form/steps-form/basic.tsx" title="Basic StepsForm"></code>
 
-## Step-by-Step Forms - Multi-Card
+## Vertical steps layout
 
-<code src="../../demos/form/StepsForm/multi-card-step-form.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../../demos/form/steps-form/steps-form-vertical.tsx" title="StepsForm vertical"></code>
 
-## Step-by-Step Forms - Works with Modal
+## Custom step actions
 
-<code src="../../demos/form/StepsForm/modal-step-form.tsx"  background="var(--main-bg-color)" ></code>
+<code src="../../demos/form/steps-form/customize-steps-form.tsx" title="Custom step buttons"></code>
 
-## StepForm in edit scene
+## Multiple cards layout
 
-<code src="../../demos/form/StepsForm/add-or-edit-step-form.tsx" oldtitle="自定义分步表单按钮"></code>
+<code src="../../demos/form/steps-form/multi-card-step-form.tsx" background="var(--main-bg-color)" title="StepsForm multi-card"></code>
+
+## Embedded in Modal
+
+<code src="../../demos/form/steps-form/modal-step-form.tsx" background="var(--main-bg-color)" title="StepsForm + Modal"></code>
+
+## Create & edit presets
+
+<code src="../../demos/form/steps-form/add-or-edit-step-form.tsx" title="Create/edit scenario"></code>
 
 ## StepsForm
 
-| Parameters      | Description                                                                                                                                 | Type                                                          | Default |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ------- |
-| current         | The number of steps in the current form, starting from `0`                                                                                  | `number`                                                      | 0       |
-| onCurrentChange | current The event that changed                                                                                                              | `(current:number)=>void`                                      | -       |
-| onFinish        | Triggered when the last step is submitted successfully. If returns a truthy value, it will reset all forms and step back to the first step  | `(values: T) => Promise<boolean \| void>`                     | -       |
-| stepsProps      | StepsForm's own props for Steps, used in the same way as [antd](https://ant.design/components/steps/), but without the current and onChange | [ props](https://ant.design/components/steps/#API)            | -       |
-| stepFormRender  | Customize the currently displayed form, return dom inside the form                                                                          | `(formDom: ReactNode) => ReactNode`                           | -       |
-| stepsFormRender | Customize the entire form area, returning the dom on the outside of the form                                                                | `(formDom: ReactNode, submitter: ReactNode) => ReactNode`     | -       |
-| stepsRender     | Customize the stepper                                                                                                                       | `(steps, dom) => ReactNode`                                   | -       |
-| formRef         | A reference to the current step form instance                                                                                               | `MutableRefObject<ProFormInstance<any> \| undefined \| null>` | -       |
+| Parameters       | Description                                                                                                                           | Type                                                         | Default |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ------- |
+| current          | Active step index, starting from `0`                                                                                                  | `number`                                                     | `0`     |
+| onCurrentChange  | Fired when `current` changes                                                                                                         | `(current: number) => void`                                   | -       |
+| onFinish         | Last step succeeds; returning a truthy value resets flows back to step 1                                                            | `(values: T) => Promise<boolean \| void> \| boolean \| void` | -       |
+| stepsProps       | Props forwarded to antd `<Steps>` (without `current` / `onChange`)                                                                      | [`Steps`](https://ant.design/components/steps/#API)          | -       |
+| stepFormRender   | Customize the rendered form body for the active step                                                                                 | `(formDom: ReactNode) => ReactNode`                          | -       |
+| stepsFormRender  | Customize the wrapper around the submitter                                                                                             | `(formDom: ReactNode, submitter: ReactNode) => ReactNode`     | -       |
+| stepsRender      | Completely replace the Steps header/footer region                                                                                       | `(steps, dom) => ReactNode`                                  | -       |
+| formRef          | Latest `ProFormInstance` for the visible step                                                                                          | `MutableRefObject<ProFormInstance<any> \| null \| undefined>` | -       |
 
 ### StepForm
 

@@ -12,11 +12,11 @@ atomId: DragSortTable
 
 ### 拖拽排序
 
-<code src="../../demos/table/DragSortTable/drag.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/table/drag-sort-table/drag.tsx" background="var(--main-bg-color)" title="拖拽排序"></code>
 
 ### 拖拽排序编辑表格
 
-<code src="../../demos/table/DragSortTable/drag-sort-table.tsx"  background="var(--main-bg-color)" title="可编辑表格"></code>
+<code src="../../demos/table/drag-sort-table/drag-sort-table.tsx" background="var(--main-bg-color)" title="可编辑表格"></code>
 
 ## DragSortTable
 

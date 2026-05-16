@@ -10,20 +10,19 @@ atomId: ProTable
 
 ProTable was created to solve the problem of having to write a lot of sample code for tables in a project, so a lot of common logic was encapsulated in it. These wrappers can be simply categorized as pre-defined behaviors and pre-defined logic.
 
-Thanks to ProForm's capabilities, ProForm can take many forms, switch between query form types, set up deformations to become a simple Form form, perform new creation, etc.
+Built on ProForm, **ProTable** can switch query UI modes (for example full `QueryFilter` vs `light` filter) and also behave more like a plain form when using `type="form"`.
 
-![layout
-](https://gw.alipayobjects.com/zos/antfincdn/Hw%26ryTueTW/bianzu%2525204.png)
+![layout](https://gw.alipayobjects.com/zos/antfincdn/Hw%26ryTueTW/bianzu%2525204.png)
 
 If you are an internal network user, you are welcome to use our [TechUI Studio](https://techui-studio.antfin-inc.com/) visual configuration to generate initial code.
 
 ## When to Use
 
-When your forms need to interact with the server or need multiple cell styles, ProTable is the right choice.
+When your **tables** need to interact with the server or need rich cell renderers, ProTable is a good fit.
 
 ## API
 
-ProTable puts a layer of wrapping on top of antd's Table, supports some presets, and encapsulates some behaviors. Only api's that differ from antd Table are listed here.
+ProTable puts a layer of wrapping on top of antd's Table, supports some presets, and encapsulates some behaviors. Only **APIs** that differ from antd Table are listed here.
 
 ### request
 
