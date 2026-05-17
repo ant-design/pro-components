@@ -332,7 +332,11 @@ const ProTable = <
   } = props;
   const { wrapSSR, hashId } = useStyle(props.defaultClassName);
 
-  const className = clsx(defaultClassName, propsClassName, hashId);
+  const isFillHeight = (rest as any).scroll?.y === 'fill';
+
+  const className = clsx(defaultClassName, propsClassName, hashId, {
+    [`${defaultClassName}-fill-height`]: isFillHeight,
+  });
 
   /** 通用的来操作子节点的工具类 */
   const actionRef = useRef<ActionType>();
@@ -942,17 +946,24 @@ const ProTable = <
     [columns, rowSelection, handleTableChange],
   );
 
+  const resolvedRest = useMemo(() => {
+    if (!isFillHeight) return rest;
+    const { scroll, ...otherRest } = rest as any;
+    const { y: _y, ...restScroll } = scroll || {};
+    return { ...otherRest, scroll: { ...restScroll, y: '100%' } };
+  }, [rest, isFillHeight]);
+
   const mergedTableProps = useMemo(
     () => ({
-      ...rest,
+      ...resolvedRest,
       ...tableLayoutProps,
       ...tableDataProps,
       ...tableColumnInteractionProps,
     }),
-    [rest, tableLayoutProps, tableDataProps, tableColumnInteractionProps],
+    [resolvedRest, tableLayoutProps, tableDataProps, tableColumnInteractionProps],
   );
 
-  const notNeedCardDom = search === false && !headerTitle && !toolBarRender;
+  const notNeedCardDom = search === false && hideToolbar;
 
   const getBaseTableDom = () => (
     <GridContext.Provider
@@ -1014,7 +1025,7 @@ const ProTable = <
     return useCardForTable || useCardForList;
   }, [cardProps, props.name, type, notNeedCardDom]);
 
-  const resolvedCardProps = cardProps === false ? {} : cardProps ?? {};
+  const resolvedCardProps = cardProps === false ? {} : (cardProps ?? {});
 
   const tableAreaDom = useCard ? (
     <ProCard

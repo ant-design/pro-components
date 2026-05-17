@@ -1,7 +1,7 @@
 ﻿export { FieldRender } from './FieldRender';
-export { ProDescriptions } from './ProDescriptions';
-export { default } from './ProDescriptions';
+export { ProDescriptions, default } from './ProDescriptions';
 
+export { PRO_FIELD_SCHEMA_LAYOUT_VALUE_TYPES } from './typing';
 export type {
   DescriptionsItemProps,
   ProDescriptionsActionType,
@@ -15,4 +15,3 @@ export type {
   ProFieldValueTypeInput,
 } from './typing';
 export type { ProDescriptionsRequestResult } from './useFetchData';
-export { PRO_FIELD_SCHEMA_LAYOUT_VALUE_TYPES } from './typing';

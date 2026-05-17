@@ -4,7 +4,7 @@ import React, { useCallback, useMemo, useState } from 'react';
 import { AppsLogo } from './AppsLogo';
 import { DefaultContent } from './DefaultContent';
 import { SimpleContent } from './SimpleContent';
-import { useStyle } from './style/index';
+import { useStyle } from './style';
 import type { AppItemProps, AppListProps } from './types';
 
 /**
@@ -40,9 +40,8 @@ export type AppsLogoComponentsProps = {
  * 相关品牌 icon 列表（九宫格按钮 + popover 面板）
  *
  * DOM 结构要点：
- * - 外层 `<span data-apps-popover-container>` 同时承载 popup container 与点击触发区，
- *   避免此前"隐藏 div + 独立触发 span"导致的 portal 容器为 0 尺寸、动画原点偏移问题；
- * - `open` 状态通过受控 `onOpenChange` 维护，驱动 `&-icon-active` 视觉态与 svg 旋转动画。
+ * - 外层 `<span>` 同时作为 Popover 子节点（触发区）与 `popoverRef` 挂载点；
+ * - `open` 受控于 `onOpenChange`，驱动 `&-icon-active` 与内部 svg 旋转态。
  */
 export const AppsLogoComponents: React.FC<AppsLogoComponentsProps> = (
   props,
@@ -50,7 +49,7 @@ export const AppsLogoComponents: React.FC<AppsLogoComponentsProps> = (
   const { appList, appListRender, prefixCls, onItemClick: itemClick } = props;
   const popoverRef = React.useRef<HTMLSpanElement>(null);
   const baseClassName = `${prefixCls}-layout-apps`;
-  const { wrapSSR, hashId } = useStyle(baseClassName);
+  const { hashId } = useStyle(baseClassName);
 
   const [open, setOpen] = useState(false);
 
@@ -94,7 +93,7 @@ export const AppsLogoComponents: React.FC<AppsLogoComponentsProps> = (
     ? appListRender(props?.appList, defaultDomContent)
     : defaultDomContent;
 
-  return wrapSSR(
+  return (
     <Popover
       placement="bottomRight"
       trigger={['click']}
@@ -117,6 +116,6 @@ export const AppsLogoComponents: React.FC<AppsLogoComponentsProps> = (
       >
         <AppsLogo />
       </span>
-    </Popover>,
+    </Popover>
   );
 };

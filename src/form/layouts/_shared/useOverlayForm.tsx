@@ -1,10 +1,5 @@
 import { merge, useControlledState } from '@rc-component/util';
-import React, {
-  useEffect,
-  useImperativeHandle,
-  useRef,
-  useState,
-} from 'react';
+import React, { useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useRefFunction } from '../../../utils';
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';

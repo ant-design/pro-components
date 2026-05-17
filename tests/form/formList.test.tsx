@@ -1024,12 +1024,8 @@ describe('ProForm List', () => {
     // 1) 应有 3 个 input
     expect(input.length).toBe(3);
     // 2) action-copy / action-remove 按钮应都存在 3 个
-    expect(
-      html.baseElement.querySelectorAll('.action-copy').length,
-    ).toBe(3);
-    expect(
-      html.baseElement.querySelectorAll('.action-remove').length,
-    ).toBe(3);
+    expect(html.baseElement.querySelectorAll('.action-copy').length).toBe(3);
+    expect(html.baseElement.querySelectorAll('.action-remove').length).toBe(3);
 
     // 删除按钮
     await act(async () => {

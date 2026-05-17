@@ -1,10 +1,10 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { GenerateStyle, ProAliasToken } from '../../../../provider';
 import {
-  operationUnit,
   resetComponent,
   useStyle as useAntdStyle,
 } from '../../../../utils';
+import { proLayoutVar } from '../../../style';
 export interface PageHeaderToken extends ProAliasToken {
   componentCls: string;
   pageHeaderPadding: number;
@@ -12,7 +12,7 @@ export interface PageHeaderToken extends ProAliasToken {
   pageHeaderBgGhost: string;
   pageHeaderPaddingBreadCrumb: number;
   pageHeaderColorBack: string;
-  pageHeaderFontSizeHeaderTitle: number;
+  pageHeaderFontSizeHeaderTitle: number | string;
   pageHeaderFontSizeHeaderSubTitle: number;
   pageHeaderPaddingContentPadding: number;
 }
@@ -44,14 +44,28 @@ const genPageHeaderStyle: GenerateStyle<PageHeaderToken> = (token) => {
         paddingBlockEnd: 0,
       },
       '& &-back': {
-        marginInlineEnd: token.margin,
+        marginInlineEnd: token.marginXS,
         fontSize: 16,
         lineHeight: 1,
         '&-button': {
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: token.controlHeight,
+          height: token.controlHeight,
           fontSize: 16,
-          ...operationUnit?.(token),
-          color: token.pageHeaderColorBack,
+          color: token.colorTextSecondary,
+          backgroundColor: 'transparent',
+          borderRadius: token.borderRadiusSM,
           cursor: 'pointer',
+          transition: `all ${token.motionDurationMid}`,
+          '&:hover': {
+            color: token.colorText,
+            backgroundColor: token.colorBgTextHover,
+          },
+          '&:active': {
+            backgroundColor: token.colorBgTextActive,
+          },
         },
         [`${token.componentCls}-rlt &`]: {
           float: 'right',
@@ -150,8 +164,8 @@ const genPageHeaderStyle: GenerateStyle<PageHeaderToken> = (token) => {
         flexWrap: 'wrap',
       },
       '&-wide': {
-        maxWidth: 1152,
-        margin: '0 auto',
+        maxWidth: `var(${proLayoutVar.contentFixedMaxWidth})`,
+        marginInline: 'auto',
       },
       '&-rtl': {
         direction: 'rtl',

@@ -1,8 +1,7 @@
 ﻿import React, { useContext, useMemo } from 'react';
 import { PureProField } from '../../../field';
-import type { ProSchema } from '../../../utils';
+import type { ProFieldValueTypeInput, ProSchema } from '../../../utils';
 import { runFunction, useRefFunction } from '../../../utils';
-import type { ProFieldValueTypeInput } from '../../../utils';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
 import type { ProFormFieldItemProps } from '../../typing';
 import warpField from '../FormItem/warpField';

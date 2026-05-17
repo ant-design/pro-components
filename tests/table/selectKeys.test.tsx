@@ -133,7 +133,10 @@ describe('BasicTable Search', () => {
           tableAlertOptionRender={false}
           tableAlertRender={({ selectedRows }) => {
             const text = selectedRows
-              .filter((row): row is NonNullable<(typeof selectedRows)[number]> => row != null)
+              .filter(
+                (row): row is NonNullable<(typeof selectedRows)[number]> =>
+                  row != null,
+              )
               .map((row) => row.name)
               .join(',');
             if (text) {

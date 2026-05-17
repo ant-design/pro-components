@@ -132,7 +132,7 @@ const defaultSettings: ProSettings = {
   colorPrimary: '#1677FF',
   splitMenus: false,
   menu: {
-    collapsedWidth: 48,
+    collapsedWidth: 64,
   },
 };
 export { defaultSettings };

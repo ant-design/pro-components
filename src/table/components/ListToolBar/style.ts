@@ -31,14 +31,24 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         justifyContent: 'flex-start',
       },
       '&-setting-item': {
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
         marginBlock: 0,
-        marginInline: 4,
-        color: token.colorIconHover,
+        marginInline: token.marginXXS,
+        padding: (token.paddingXXS + token.paddingXS) / 2,
+        color: token.colorTextSecondary,
         fontSize: token.fontSizeLG,
+        lineHeight: 1,
         cursor: 'pointer',
-        '> span': { display: 'block', width: '100%', height: '100%' },
+        borderRadius: token.borderRadiusSM,
+        transition: `color ${token.motionDurationMid}, background-color ${token.motionDurationMid}`,
         '&:hover': {
-          color: token.colorPrimary,
+          color: token.colorText,
+          backgroundColor: token.colorBgTextHover,
+        },
+        '&:active': {
+          backgroundColor: token.colorBgTextActive,
         },
       },
       '&-left': {

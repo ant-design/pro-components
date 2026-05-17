@@ -2,11 +2,11 @@ import { useControlledState } from '@rc-component/util';
 import type { TableColumnType } from 'antd';
 import merge from 'lodash-es/merge';
 import { createContext, useEffect, useMemo, useRef, useState } from 'react';
+import { useRefFunction } from '../../utils';
 import type { DensitySize } from '../components/ToolBar/DensityIcon';
 import type { ProTableProps } from '../index';
 import type { ActionType, ProColumns } from '../typing';
 import { genColumnKey } from '../utils';
-import { useRefFunction } from '../../utils';
 
 export type ColumnsState = {
   show?: boolean;

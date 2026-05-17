@@ -1,5 +1,6 @@
 import type { GenerateStyle, ProAliasToken } from '../../../provider';
 import { useStyle as useAntdStyle } from '../../../provider';
+import { proLayoutVar } from '../../style';
 
 export interface GlobalHeaderToken extends ProAliasToken {
   componentCls: string;
@@ -14,7 +15,7 @@ const genGlobalHeaderStyle: GenerateStyle<GlobalHeaderToken> = (token) => {
       alignItems: 'center',
       marginBlock: 0,
       marginInline: 16,
-      height: token.layout?.header?.heightLayoutHeader || 56,
+      height: `var(${proLayoutVar.headerHeight})`,
       boxSizing: 'border-box',
       '> a': {
         height: '100%',
@@ -33,6 +34,13 @@ const genGlobalHeaderStyle: GenerateStyle<GlobalHeaderToken> = (token) => {
       '&-logo': {
         position: 'relative',
         marginInlineEnd: '16px',
+        '> span': {
+          display: 'flex',
+          alignItems: 'center',
+          height: '100%',
+          minHeight: '22px',
+          fontSize: '20px',
+        },
         a: {
           display: 'flex',
           alignItems: 'center',
@@ -55,7 +63,13 @@ const genGlobalHeaderStyle: GenerateStyle<GlobalHeaderToken> = (token) => {
       },
       '&-logo-mobile': {
         minWidth: '24px',
+        maxWidth: '120px',
         marginInlineEnd: 0,
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        whiteSpace: 'nowrap',
+        img: { height: '24px' },
+        h1: { display: 'none' },
       },
     },
   };

@@ -745,17 +745,19 @@ export function useEditableArray<RecordType extends AnyObject>(
     setDataSource: (dataSource: RecordType[]) => void;
   },
 ) {
-  const normalizeRowDateValues = useRefFunction((row: RecordType | null | undefined) => {
-    if (row == null || typeof row !== 'object') {
-      return row as unknown as RecordType;
-    }
-    return conversionMomentValue(
-      row,
-      props.dateFormatter ?? 'string',
-      {},
-      false,
-    ) as RecordType;
-  });
+  const normalizeRowDateValues = useRefFunction(
+    (row: RecordType | null | undefined) => {
+      if (row == null || typeof row !== 'object') {
+        return row as unknown as RecordType;
+      }
+      return conversionMomentValue(
+        row,
+        props.dateFormatter ?? 'string',
+        {},
+        false,
+      ) as RecordType;
+    },
+  );
 
   // Internationalization
   const intl = useIntl();
@@ -861,7 +863,10 @@ export function useEditableArray<RecordType extends AnyObject>(
           editableType === 'single'
             ? (editingRecords[0] as RecordType | undefined)
             : editingRecords;
-        props?.onChange?.(cleanKeys, editingPayload as RecordType | RecordType[]);
+        props?.onChange?.(
+          cleanKeys,
+          editingPayload as RecordType | RecordType[],
+        );
         return next;
       });
     },
@@ -1070,10 +1075,7 @@ export function useEditableArray<RecordType extends AnyObject>(
           form.resetFields([[recordKeyStr]]);
           form.setFieldsValue({ [recordKeyStr]: undefined });
         } catch (error) {
-          console.warn(
-            'Failed to clear form fields in cancelEditable:',
-            error,
-          );
+          console.warn('Failed to clear form fields in cancelEditable:', error);
         }
       }
     } catch (error) {

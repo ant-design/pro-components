@@ -12,31 +12,31 @@ ModalForm and DrawerForm both provide triggers to reduce state usage, if you nee
 
 ## Modal Forms
 
-<code src="../../demos/form/ModalForm/modal-form.tsx" background="var(--main-bg-color)" old></code>
+<code src="../../demos/form/modal-form/modal-form.tsx" background="var(--main-bg-color)" title="ModalForm"></code>
 
 ## Drawer Forms
 
-<code src="../../demos/form/ModalForm/drawer-form.tsx" background="var(--main-bg-color)" old></code>
+<code src="../../demos/form/modal-form/drawer-form.tsx" background="var(--main-bg-color)" title="DrawerForm"></code>
 
 ## Nested Drawer Forms
 
-<code src="../../demos/form/ModalForm/drawer-form-nested.tsx" debug  background="var(--main-bg-color)" oldtitle="Drawer Forms"></code>
+<code src="../../demos/form/modal-form/drawer-form-nested.tsx" debug background="var(--main-bg-color)" title="Nested Drawer Forms"></code>
 
 ### Debug: Close while loading (Modal + Drawer)
 
-<code src="../../demos/form/ModalForm/_modal-form-request-destroy.tsx" debug background="var(--main-bg-color)" title="Debug: destroyOnHidden + request (Modal & Drawer)"></code>
+<code src="../../demos/form/modal-form/_modal-form-request-destroy.tsx" debug background="var(--main-bg-color)" title="Debug: destroyOnHidden + request (Modal & Drawer)"></code>
 
 ## Custom Modal Forms' Button
 
-<code src="../../demos/form/ModalForm/modal-form-submitter.tsx" background="var(--main-bg-color)" old></code>
+<code src="../../demos/form/modal-form/modal-form-submitter.tsx" background="var(--main-bg-color)" title="Custom Modal submitter"></code>
 
 ## Use open and onOpenChange
 
-<code src="../../demos/form/ModalForm/open-on-open-change.tsx" background="var(--main-bg-color)" old></code>
+<code src="../../demos/form/modal-form/open-on-open-change.tsx" background="var(--main-bg-color)" title="Controlled open"></code>
 
 ## Reset Form
 
-<code src="../../demos/form/ModalForm/modal-form-reset.tsx" background="var(--main-bg-color)" old></code>
+<code src="../../demos/form/modal-form/modal-form-reset.tsx" background="var(--main-bg-color)" title="Reset after submit"></code>
 
 ## API
 

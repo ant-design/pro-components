@@ -60,6 +60,12 @@ export type GlobalHeaderProps = {
   actionsRender?: WithFalse<
     (props: HeaderViewProps) => React.ReactNode[] | React.ReactNode
   >;
+  /**
+   * @name 控制 actions/avatar 渲染位置
+   * - `'sider'`（默认）：渲染在侧边栏底部
+   * - `'header'`：渲染在顶部 header 中
+   */
+  actionsPlacement?: 'header' | 'sider';
 
   /** 头像的设置 */
   avatarProps?: WithFalse<
@@ -105,7 +111,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (
   const { getPrefixCls, direction } = useContext(ConfigProvider.ConfigContext);
   const baseClassName = `${prefixCls || getPrefixCls('pro')}-global-header`;
 
-  const { wrapSSR, hashId } = useStyle(baseClassName);
+  const { hashId } = useStyle(baseClassName);
 
   const className = clsx(propClassName, baseClassName, hashId);
 
@@ -120,10 +126,10 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (
       key="logo"
       data-testid="pro-layout-global-header-logo"
     >
-      <a>{defaultRenderLogo(logo)}</a>
+      <span>{defaultRenderLogo(logo)}</span>
     </span>
   );
-  return wrapSSR(
+  return (
     <div
       className={className}
       style={{ ...style }}
@@ -144,10 +150,11 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (
       <div style={{ flex: 1 }} data-testid="pro-layout-global-header-content">
         {children}
       </div>
-      {(props.actionsRender || props.avatarProps) && (
-        <ActionsContent {...props} />
-      )}
-    </div>,
+      {props.actionsPlacement !== 'sider' &&
+        (props.actionsRender || props.avatarProps) && (
+          <ActionsContent {...props} />
+        )}
+    </div>
   );
 };
 

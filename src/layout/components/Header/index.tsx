@@ -59,6 +59,7 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
   const { token } = useContext(ProProvider);
   const context = useContext(ConfigProvider.ConfigContext);
   const [isFixedHeaderScroll, setIsFixedHeaderScroll] = useState(false);
+  const headerHeight = token.layout?.header?.heightLayoutHeader || 56;
   const needFixedHeader =
     fixedHeader || (splitMenus && layout === 'side' && !isMobile);
 
@@ -91,6 +92,7 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
         {...props}
         layout="top"
         splitMenus={false}
+        menuHeaderRender={false}
         actionsRender={false}
         avatarProps={false}
         menuData={headerStripMenuData}
@@ -138,10 +140,7 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
     const isFixedHeaderFn = () => {
       const scrollTop = (dom as HTMLElement).scrollTop;
 
-      if (
-        scrollTop > (token.layout?.header?.heightLayoutHeader || 56) &&
-        !isFixedHeaderScroll
-      ) {
+      if (scrollTop > headerHeight && !isFixedHeaderScroll) {
         setIsFixedHeaderScroll(true);
         return true;
       }
@@ -159,18 +158,14 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
     return () => {
       dom.removeEventListener('scroll', isFixedHeaderFn);
     };
-  }, [
-    token.layout?.header?.heightLayoutHeader,
-    needFixedHeader,
-    isFixedHeaderScroll,
-  ]);
+  }, [headerHeight, needFixedHeader, isFixedHeaderScroll]);
 
   const isTop = layout === 'top';
 
   const baseClassName = `${prefixCls}-layout-header`;
-  const { wrapSSR, hashId } = useStyle(baseClassName);
+  const { hashId } = useStyle(baseClassName);
 
-  const stylish = useStylish(`${baseClassName}.${baseClassName}-stylish`, {
+  useStylish(`${baseClassName}.${baseClassName}-stylish`, {
     proLayoutCollapsedWidth: 64,
     stylish: props.stylish,
   });
@@ -184,43 +179,39 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
     [`${baseClassName}-stylish`]: !!props.stylish,
   });
 
-  return stylish.wrapSSR(
-    wrapSSR(
-      <>
-        <ConfigProvider
-          theme={{
-            hashed: isNeedOpenHash(),
-            components: {
-              Layout: {
-                headerBg: 'transparent',
-                bodyBg: 'transparent',
-              },
+  return (
+    <>
+      <ConfigProvider
+        theme={{
+          hashed: isNeedOpenHash(),
+          components: {
+            Layout: {
+              headerBg: 'transparent',
+              bodyBg: 'transparent',
             },
-          }}
-        >
-          {needFixedHeader && (
-            <Header
-              style={{
-                height: token.layout?.header?.heightLayoutHeader || 56,
-                lineHeight: `${
-                  token.layout?.header?.heightLayoutHeader || 56
-                }px`,
-                backgroundColor: 'transparent',
-                zIndex: 19,
-                ...style,
-              }}
-            />
-          )}
+          },
+        }}
+      >
+        {needFixedHeader && (
           <Header
-            className={className}
-            style={style}
-            data-testid="pro-layout-header"
-          >
-            {renderContent()}
-          </Header>
-        </ConfigProvider>
-      </>,
-    ),
+            style={{
+              height: headerHeight,
+              lineHeight: `${headerHeight}px`,
+              backgroundColor: 'transparent',
+              zIndex: 19,
+              ...style,
+            }}
+          />
+        )}
+        <Header
+          className={className}
+          style={style}
+          data-testid="pro-layout-header"
+        >
+          {renderContent()}
+        </Header>
+      </ConfigProvider>
+    </>
   );
 };
 

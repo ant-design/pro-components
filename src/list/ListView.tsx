@@ -208,82 +208,79 @@ function ListView<RecordType extends AnyObject>(
   const selectItemDom = selectItemRender([])[0];
 
   const renderListItem = useRefFunction((item: RecordType, index: number) => {
-      const listItemProps: Partial<ItemProps<RecordType>> = {
-        className:
-          typeof rowClassName === 'function'
-            ? rowClassName(item, index)
-            : rowClassName,
-      };
+    const listItemProps: Partial<ItemProps<RecordType>> = {
+      className:
+        typeof rowClassName === 'function'
+          ? rowClassName(item, index)
+          : rowClassName,
+    };
 
-      listSlotColumns.forEach((column) => {
-        const dataIndex = (column.dataIndex ||
-          column.listSlot ||
-          column.key) as string;
-        const rawData = Array.isArray(dataIndex)
-          ? get(item, dataIndex as string[])
-          : item[dataIndex];
+    listSlotColumns.forEach((column) => {
+      const dataIndex = (column.dataIndex ||
+        column.listSlot ||
+        column.key) as string;
+      const rawData = Array.isArray(dataIndex)
+        ? get(item, dataIndex as string[])
+        : item[dataIndex];
 
-        const data = column.render
-          ? column.render(rawData, item, index)
-          : rawData;
-        const propKey =
-          column.listSlot === 'aside' ? 'extra' : column.listSlot;
-        if (data !== '-') (listItemProps as any)[propKey] = data;
-      });
-      const checkboxDom = selectItemDom?.render?.(
-        item,
-        item,
-        index,
-      ) as React.ReactNode;
-
-      const { isEditable, recordKey } =
-        actionRef.current?.isEditable({ ...item, index }) || {};
-
-      const itemKey = getRowKey(item, index);
-      const isChecked = selectedKeySet.has(itemKey);
-
-      const cardProps = gridCardStaticProps
-        ? {
-            ...gridCardStaticProps,
-            checked: isChecked,
-            onChange: React.isValidElement(checkboxDom)
-              ? (changeChecked: boolean) =>
-                  (
-                    (checkboxDom as React.JSX.Element)?.props as any
-                  )?.onChange({
-                    nativeEvent: {},
-                    target: { checked: changeChecked },
-                    changeChecked,
-                  })
-              : undefined,
-          }
-        : undefined;
-
-      const defaultDom = (
-        <ProListItem
-          key={recordKey}
-          cardProps={cardProps}
-          {...listItemProps}
-          recordKey={recordKey}
-          isEditable={isEditable || false}
-          expandable={expandableConfig}
-          expand={mergedExpandedKeys.has(itemKey)}
-          onExpand={() => onTriggerExpand(item, index)}
-          index={index}
-          record={item}
-          item={item}
-          itemTitleRender={itemTitleRender}
-          itemHeaderRender={itemHeaderRender}
-          rowSupportExpand={!rowExpandable || rowExpandable(item)}
-          selected={selectedKeySet.has(itemKey)}
-          checkbox={checkboxDom as React.ReactElement}
-          onRow={onRow}
-          onItem={onItem}
-        />
-      );
-
-      return itemRender ? itemRender(item, index, defaultDom) : defaultDom;
+      const data = column.render
+        ? column.render(rawData, item, index)
+        : rawData;
+      const propKey = column.listSlot === 'aside' ? 'extra' : column.listSlot;
+      if (data !== '-') (listItemProps as any)[propKey] = data;
     });
+    const checkboxDom = selectItemDom?.render?.(
+      item,
+      item,
+      index,
+    ) as React.ReactNode;
+
+    const { isEditable, recordKey } =
+      actionRef.current?.isEditable({ ...item, index }) || {};
+
+    const itemKey = getRowKey(item, index);
+    const isChecked = selectedKeySet.has(itemKey);
+
+    const cardProps = gridCardStaticProps
+      ? {
+          ...gridCardStaticProps,
+          checked: isChecked,
+          onChange: React.isValidElement(checkboxDom)
+            ? (changeChecked: boolean) =>
+                ((checkboxDom as React.JSX.Element)?.props as any)?.onChange({
+                  nativeEvent: {},
+                  target: { checked: changeChecked },
+                  changeChecked,
+                })
+            : undefined,
+        }
+      : undefined;
+
+    const defaultDom = (
+      <ProListItem
+        key={recordKey}
+        cardProps={cardProps}
+        {...listItemProps}
+        recordKey={recordKey}
+        isEditable={isEditable || false}
+        expandable={expandableConfig}
+        expand={mergedExpandedKeys.has(itemKey)}
+        onExpand={() => onTriggerExpand(item, index)}
+        index={index}
+        record={item}
+        item={item}
+        itemTitleRender={itemTitleRender}
+        itemHeaderRender={itemHeaderRender}
+        rowSupportExpand={!rowExpandable || rowExpandable(item)}
+        selected={selectedKeySet.has(itemKey)}
+        checkbox={checkboxDom as React.ReactElement}
+        onRow={onRow}
+        onItem={onItem}
+      />
+    );
+
+    return itemRender ? itemRender(item, index, defaultDom) : defaultDom;
+  });
 
   return (
     <ProListContainer<RecordType>

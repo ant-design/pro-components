@@ -33,45 +33,44 @@ export default () => {
   const [openKeys, setOpenKeys] = useState<string[]>(['/list']);
 
   return (
-    <div>
-      <Space wrap style={{ marginBottom: 12 }}>
-        <Button
-          type={selectedKeys[0] === '/welcome' ? 'primary' : 'default'}
-          onClick={() => setSelectedKeys(['/welcome'])}
-        >
-          选中工作台
-        </Button>
-        <Button
-          type={selectedKeys[0] === '/list/a' ? 'primary' : 'default'}
-          onClick={() => {
-            setOpenKeys((k) => (k.includes('/list') ? k : [...k, '/list']));
-            setSelectedKeys(['/list/a']);
-          }}
-        >
-          选中「项目 A」
-        </Button>
-        <Button onClick={() => setOpenKeys([])}>收起列表子菜单</Button>
-        <Button onClick={() => setOpenKeys(['/list'])}>展开列表子菜单</Button>
-      </Space>
-      <ProLayout
-        route={route}
-        location={{ pathname }}
-        breakpoint={false}
-        style={{ height: 480 }}
-        selectedKeys={selectedKeys}
-        openKeys={openKeys}
-        onOpenChange={(keys) => {
-          if (Array.isArray(keys)) setOpenKeys(keys);
-        }}
-        onSelect={(info) => setSelectedKeys(info.selectedKeys)}
-        menu={{ locale: false }}
-      >
-        <PageContainer title="受控菜单">
-          当前 selectedKeys：<code>{JSON.stringify(selectedKeys)}</code>
-          <br />
-          当前 openKeys：<code>{JSON.stringify(openKeys)}</code>
-        </PageContainer>
-      </ProLayout>
-    </div>
+    <ProLayout
+      route={route}
+      location={{ pathname }}
+      breakpoint={false}
+      style={{ height: 480 }}
+      selectedKeys={selectedKeys}
+      openKeys={openKeys}
+      onOpenChange={(keys) => {
+        if (Array.isArray(keys)) setOpenKeys(keys);
+      }}
+      onSelect={(info) => setSelectedKeys(info.selectedKeys)}
+      menu={{ locale: false }}
+    >
+      <PageContainer title="受控菜单">
+        <Space wrap style={{ marginBottom: 12 }}>
+          <Button
+            type={selectedKeys[0] === '/welcome' ? 'primary' : 'default'}
+            onClick={() => setSelectedKeys(['/welcome'])}
+          >
+            选中工作台
+          </Button>
+          <Button
+            type={selectedKeys[0] === '/list/a' ? 'primary' : 'default'}
+            onClick={() => {
+              setOpenKeys((k) => (k.includes('/list') ? k : [...k, '/list']));
+              setSelectedKeys(['/list/a']);
+            }}
+          >
+            选中「项目 A」
+          </Button>
+          <Button onClick={() => setOpenKeys([])}>收起列表子菜单</Button>
+          <Button onClick={() => setOpenKeys(['/list'])}>展开列表子菜单</Button>
+        </Space>
+        <br />
+        当前 selectedKeys：<code>{JSON.stringify(selectedKeys)}</code>
+        <br />
+        当前 openKeys：<code>{JSON.stringify(openKeys)}</code>
+      </PageContainer>
+    </ProLayout>
   );
 };

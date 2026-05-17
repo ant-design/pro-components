@@ -110,9 +110,7 @@ export function processQueryFilterItems({
       const hidden: boolean =
         (item as ReactElement<{ hidden: boolean }>)?.props?.hidden ||
         // 折叠时，超出 showLength 的项隐藏（第一项始终展示）
-        (collapsed &&
-          (firstRowFull || totalSize > showLength) &&
-          !!index);
+        (collapsed && (firstRowFull || totalSize > showLength) && !!index);
 
       itemLength += 1;
 

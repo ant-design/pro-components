@@ -2,26 +2,37 @@ import {
   AppstoreFilled,
   AuditOutlined,
   BranchesOutlined,
+  CarOutlined,
+  CheckCircleOutlined,
   ContainerFilled,
+  CreditCardOutlined,
+  DeleteOutlined,
+  DollarOutlined,
+  EditOutlined,
   FileDoneOutlined,
   GithubFilled,
   HomeFilled,
   InfoCircleFilled,
+  MoonFilled,
   OrderedListOutlined,
   ProfileFilled,
   QuestionCircleFilled,
+  RocketOutlined,
   SafetyCertificateFilled,
+  SettingFilled,
+  ShoppingCartOutlined,
+  ShoppingFilled,
+  SunFilled,
   TagsFilled,
   TeamOutlined,
   UnorderedListOutlined,
 } from '@ant-design/icons';
 import type { ProSettings } from '@ant-design/pro-components';
 import { PageContainer, ProCard, ProLayout } from '@ant-design/pro-components';
-import { Segmented, Space, theme } from 'antd';
-import { useState } from 'react';
+import { ConfigProvider, Segmented, Space, theme } from 'antd';
+import { useMemo, useState } from 'react';
 import defaultProps from './_defaultProps';
 
-// enum-switch 专用路由：一级菜单不带 icon，二级菜单带 icon
 const routeWithSecondLevelIcons = {
   path: '/',
   routes: [
@@ -34,6 +45,7 @@ const routeWithSecondLevelIcons = {
     {
       path: '/product',
       name: '商品管理',
+      icon: <ShoppingFilled />,
       component: './Product',
       routes: [
         {
@@ -41,9 +53,9 @@ const routeWithSecondLevelIcons = {
           name: '商品列表',
           icon: <UnorderedListOutlined />,
           routes: [
-            { path: 'on-sale', name: '在售商品', component: './Welcome' },
-            { path: 'draft', name: '草稿箱', component: './Welcome' },
-            { path: 'off-shelf', name: '已下架', component: './Welcome' },
+            { path: 'on-sale', name: '在售商品', icon: <RocketOutlined />, component: './Welcome' },
+            { path: 'draft', name: '草稿箱', icon: <EditOutlined />, component: './Welcome' },
+            { path: 'off-shelf', name: '已下架', icon: <DeleteOutlined />, component: './Welcome' },
           ],
         },
         {
@@ -69,6 +81,7 @@ const routeWithSecondLevelIcons = {
     {
       path: '/order',
       name: '订单中心',
+      icon: <ShoppingCartOutlined />,
       component: './Order',
       routes: [
         {
@@ -76,10 +89,10 @@ const routeWithSecondLevelIcons = {
           name: '销售订单',
           icon: <OrderedListOutlined />,
           routes: [
-            { path: 'pending', name: '待付款', component: './Welcome' },
-            { path: 'paid', name: '已付款', component: './Welcome' },
-            { path: 'shipped', name: '已发货', component: './Welcome' },
-            { path: 'completed', name: '已完成', component: './Welcome' },
+            { path: 'pending', name: '待付款', icon: <DollarOutlined />, component: './Welcome' },
+            { path: 'paid', name: '已付款', icon: <CreditCardOutlined />, component: './Welcome' },
+            { path: 'shipped', name: '已发货', icon: <CarOutlined />, component: './Welcome' },
+            { path: 'completed', name: '已完成', icon: <CheckCircleOutlined />, component: './Welcome' },
           ],
         },
         {
@@ -99,6 +112,7 @@ const routeWithSecondLevelIcons = {
     {
       path: '/admin',
       name: '系统管理',
+      icon: <SettingFilled />,
       access: 'canAdmin',
       component: './Admin',
       routes: [
@@ -132,52 +146,85 @@ const routeWithSecondLevelIcons = {
 };
 
 const Demo = () => {
-  const { token } = theme.useToken();
-
   const [layout, setLayout] = useState<ProSettings['layout']>('side');
   const [splitMenus, setSplitMenus] = useState(false);
   const [contentWidth, setContentWidth] = useState<'Fluid' | 'Fixed'>('Fluid');
   const [siderMenuType, setSiderMenuType] = useState<'sub' | 'group'>('group');
-
+  const [appListType, setAppListType] = useState<'default' | 'simple'>(
+    'default',
+  );
+  const [fixedHeader, setFixedHeader] = useState(true);
+  const [actionsPlacement, setActionsPlacement] = useState<'header' | 'sider'>('sider');
   const [pathname, setPathname] = useState('/welcome');
+  const [dark, setDark] = useState(false);
+
+  const appList = useMemo(() => {
+    const list = defaultProps.appList ?? [];
+    if (appListType === 'simple') {
+      return list.map((item) => {
+        const { desc: _omitDesc, ...rest } = item;
+        return rest;
+      });
+    }
+    return list;
+  }, [appListType]);
+
+  const route = useMemo(() => {
+    if (siderMenuType !== 'group') return routeWithSecondLevelIcons;
+    return {
+      ...routeWithSecondLevelIcons,
+      routes: routeWithSecondLevelIcons.routes.map((item) => {
+        if (item.routes) {
+          const { icon: _icon, ...rest } = item;
+          return rest;
+        }
+        return item;
+      }),
+    };
+  }, [siderMenuType]);
 
   return (
-    <div
-      style={{
-        height: 500,
-        overflow: 'auto',
-        border: `1px solid ${token.colorBorderSecondary}`,
-        borderRadius: token.borderRadius,
-      }}
-    >
+    <ConfigProvider theme={{ algorithm: dark ? theme.darkAlgorithm : theme.defaultAlgorithm }}>
+    <div style={{ overflow: 'auto' }}>
       <ProLayout
         {...defaultProps}
-        route={routeWithSecondLevelIcons}
+        appList={appList}
+        route={route}
         layout={layout}
         splitMenus={layout === 'side' ? splitMenus : false}
         contentWidth={contentWidth}
         siderMenuType={siderMenuType}
+        fixedHeader={fixedHeader}
         fixSiderbar
+        actionsPlacement={actionsPlacement}
+        actionsRender={() => [
+          dark ? (
+            <SunFilled key="theme" onClick={() => setDark(false)} />
+          ) : (
+            <MoonFilled key="theme" onClick={() => setDark(true)} />
+          ),
+          <InfoCircleFilled key="info" />,
+          <QuestionCircleFilled key="question" />,
+          <GithubFilled key="github" />,
+        ]}
         location={{ pathname }}
         avatarProps={{
           src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
           size: 'small',
           title: '书琰',
         }}
-        actionsRender={() => [
-          <InfoCircleFilled key="info" />,
-          <QuestionCircleFilled key="question" />,
-          <GithubFilled key="github" />,
-        ]}
         menuItemRender={(item, dom) => (
           <div onClick={() => setPathname(item.path || '/welcome')}>{dom}</div>
         )}
       >
-        <PageContainer>
+        <PageContainer
+          title="枚举属性切换"
+          onBack={() => window.history.back()}
+        >
           <ProCard style={{ marginBlockEnd: 16 }} variant="outlined">
             <Space orientation="vertical" size={12} style={{ width: '100%' }}>
               <Space>
-                <span>layout 导航模式：</span>
+                <span>导航模式：</span>
                 <Segmented
                   value={layout}
                   onChange={(v) => setLayout(v as ProSettings['layout'])}
@@ -189,7 +236,7 @@ const Demo = () => {
               </Space>
               {layout === 'side' ? (
                 <Space>
-                  <span>顶栏一级菜单 splitMenus：</span>
+                  <span>顶栏一级菜单：</span>
                   <Segmented
                     value={splitMenus ? 'on' : 'off'}
                     onChange={(v) => setSplitMenus(v === 'on')}
@@ -201,7 +248,7 @@ const Demo = () => {
                 </Space>
               ) : null}
               <Space>
-                <span>contentWidth 内容宽度：</span>
+                <span>内容宽度：</span>
                 <Segmented
                   value={contentWidth}
                   onChange={(v) => setContentWidth(v as 'Fluid' | 'Fixed')}
@@ -212,7 +259,18 @@ const Demo = () => {
                 />
               </Space>
               <Space>
-                <span>siderMenuType 菜单模式：</span>
+                <span>固定顶栏：</span>
+                <Segmented
+                  value={fixedHeader ? 'on' : 'off'}
+                  onChange={(v) => setFixedHeader(v === 'on')}
+                  options={[
+                    { label: '关闭', value: 'off' },
+                    { label: '开启', value: 'on' },
+                  ]}
+                />
+              </Space>
+              <Space>
+                <span>菜单模式：</span>
                 <Segmented
                   value={siderMenuType}
                   onChange={(v) => setSiderMenuType(v as any)}
@@ -222,18 +280,41 @@ const Demo = () => {
                   ]}
                 />
               </Space>
+              <Space>
+                <span>应用列表：</span>
+                <Segmented
+                  value={appListType}
+                  onChange={(v) => setAppListType(v as 'default' | 'simple')}
+                  options={[
+                    { label: '默认（default）', value: 'default' },
+                    { label: '简洁（simple）', value: 'simple' },
+                  ]}
+                />
+              </Space>
+              <Space>
+                <span>操作区位置：</span>
+                <Segmented
+                  value={actionsPlacement}
+                  onChange={(v) => setActionsPlacement(v as 'header' | 'sider')}
+                  options={[
+                    { label: '侧栏 sider', value: 'sider' },
+                    { label: '顶栏 header', value: 'header' },
+                  ]}
+                />
+              </Space>
             </Space>
           </ProCard>
-          <ProCard style={{ minHeight: 300 }}>
-            <div>
-              当前配置：layout=<b>{layout}</b>、contentWidth=
-              <b>{contentWidth}</b>
-              、siderMenuType=<b>{siderMenuType}</b>
-            </div>
+          <ProCard>
+            layout=<b>{layout}</b> · contentWidth=
+            <b>{contentWidth}</b> · fixedHeader=
+            <b>{String(fixedHeader)}</b> · siderMenuType=
+            <b>{siderMenuType}</b> · appList=<b>{appListType}</b> ·
+            actionsPlacement=<b>{actionsPlacement}</b>
           </ProCard>
         </PageContainer>
       </ProLayout>
     </div>
+    </ConfigProvider>
   );
 };
 

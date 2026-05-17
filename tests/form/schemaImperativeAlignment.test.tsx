@@ -46,7 +46,9 @@ async function readSchemaFieldsValue(
       initialValues={initialValues}
     />,
   );
-  await waitFor(() => expect(schemaRef.current?.getFieldsValue?.()).toBeDefined());
+  await waitFor(() =>
+    expect(schemaRef.current?.getFieldsValue?.()).toBeDefined(),
+  );
   const values = schemaRef.current!.getFieldsValue(true);
   unmount();
   cleanup();
@@ -81,9 +83,10 @@ describe('Schema vs imperative alignment', () => {
     ];
 
     const schemaValues = await readSchemaFieldsValue(columns, initialValues);
-    const imperativeValues = await readImperativeFieldsValue(initialValues, (
-      <ProFormText name="fieldA" />
-    ));
+    const imperativeValues = await readImperativeFieldsValue(
+      initialValues,
+      <ProFormText name="fieldA" />,
+    );
 
     expect(schemaValues.fieldA).toBe(imperativeValues.fieldA);
     expect(schemaValues.fieldA).toBe('hello');
@@ -96,9 +99,10 @@ describe('Schema vs imperative alignment', () => {
     ];
 
     const schemaValues = await readSchemaFieldsValue(columns, initialValues);
-    const imperativeValues = await readImperativeFieldsValue(initialValues, (
-      <ProFormDigit name="fieldNum" />
-    ));
+    const imperativeValues = await readImperativeFieldsValue(
+      initialValues,
+      <ProFormDigit name="fieldNum" />,
+    );
 
     expect(schemaValues.fieldNum).toBe(imperativeValues.fieldNum);
     expect(schemaValues.fieldNum).toBe(42);
@@ -120,9 +124,10 @@ describe('Schema vs imperative alignment', () => {
     ];
 
     const schemaValues = await readSchemaFieldsValue(columns, initialValues);
-    const imperativeValues = await readImperativeFieldsValue(initialValues, (
-      <ProFormSelect name="fieldSel" valueEnum={valueEnum} />
-    ));
+    const imperativeValues = await readImperativeFieldsValue(
+      initialValues,
+      <ProFormSelect name="fieldSel" valueEnum={valueEnum} />,
+    );
 
     expect(schemaValues.fieldSel).toBe(imperativeValues.fieldSel);
     expect(schemaValues.fieldSel).toBe('open');
@@ -136,9 +141,10 @@ describe('Schema vs imperative alignment', () => {
     ];
 
     const schemaValues = await readSchemaFieldsValue(columns, initialValues);
-    const imperativeValues = await readImperativeFieldsValue(initialValues, (
-      <ProFormDateTimePicker name="fieldDt" />
-    ));
+    const imperativeValues = await readImperativeFieldsValue(
+      initialValues,
+      <ProFormDateTimePicker name="fieldDt" />,
+    );
 
     expectAlignedFieldValue(schemaValues.fieldDt, imperativeValues.fieldDt);
     expect(dayjs.isDayjs(schemaValues.fieldDt)).toBe(true);
@@ -151,9 +157,10 @@ describe('Schema vs imperative alignment', () => {
     ];
 
     const schemaValues = await readSchemaFieldsValue(columns, initialValues);
-    const imperativeValues = await readImperativeFieldsValue(initialValues, (
-      <ProFormSwitch name="fieldSw" />
-    ));
+    const imperativeValues = await readImperativeFieldsValue(
+      initialValues,
+      <ProFormSwitch name="fieldSw" />,
+    );
 
     expectAlignedFieldValue(schemaValues.fieldSw, imperativeValues.fieldSw);
     expect(schemaValues.fieldSw).toBe(true);
@@ -167,9 +174,10 @@ describe('Schema vs imperative alignment', () => {
     ];
 
     const schemaValues = await readSchemaFieldsValue(columns, initialValues);
-    const imperativeValues = await readImperativeFieldsValue(initialValues, (
-      <ProFormDatePicker name="fieldDay" />
-    ));
+    const imperativeValues = await readImperativeFieldsValue(
+      initialValues,
+      <ProFormDatePicker name="fieldDay" />,
+    );
 
     expectAlignedFieldValue(schemaValues.fieldDay, imperativeValues.fieldDay);
     expect(dayjs.isDayjs(schemaValues.fieldDay)).toBe(true);
@@ -182,9 +190,10 @@ describe('Schema vs imperative alignment', () => {
     ];
 
     const schemaValues = await readSchemaFieldsValue(columns, initialValues);
-    const imperativeValues = await readImperativeFieldsValue(initialValues, (
-      <ProFormCheckbox name="fieldCk" />
-    ));
+    const imperativeValues = await readImperativeFieldsValue(
+      initialValues,
+      <ProFormCheckbox name="fieldCk" />,
+    );
 
     expectAlignedFieldValue(schemaValues.fieldCk, imperativeValues.fieldCk);
     expect(schemaValues.fieldCk).toBe(true);
@@ -197,9 +206,10 @@ describe('Schema vs imperative alignment', () => {
     ];
 
     const schemaValues = await readSchemaFieldsValue(columns, initialValues);
-    const imperativeValues = await readImperativeFieldsValue(initialValues, (
-      <ProFormTextArea name="fieldTa" />
-    ));
+    const imperativeValues = await readImperativeFieldsValue(
+      initialValues,
+      <ProFormTextArea name="fieldTa" />,
+    );
 
     expect(schemaValues.fieldTa).toBe(imperativeValues.fieldTa);
     expect(schemaValues.fieldTa).toBe('line1\nline2');
@@ -212,9 +222,10 @@ describe('Schema vs imperative alignment', () => {
     ];
 
     const schemaValues = await readSchemaFieldsValue(columns, initialValues);
-    const imperativeValues = await readImperativeFieldsValue(initialValues, (
-      <ProFormField name="fieldPw" valueType="password" />
-    ));
+    const imperativeValues = await readImperativeFieldsValue(
+      initialValues,
+      <ProFormField name="fieldPw" valueType="password" />,
+    );
 
     expect(schemaValues.fieldPw).toBe(imperativeValues.fieldPw);
     expect(schemaValues.fieldPw).toBe('secret');

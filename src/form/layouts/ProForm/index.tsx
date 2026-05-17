@@ -17,11 +17,7 @@ function ProForm<T = Record<string, any>>(
   },
 ) {
   const contentRender = useCallback(
-    (
-      items: React.ReactNode[],
-      submitter: React.ReactNode,
-      _form: unknown,
-    ) => (
+    (items: React.ReactNode[], submitter: React.ReactNode, _form: unknown) => (
       <>
         {items}
         {submitter}
@@ -31,11 +27,7 @@ function ProForm<T = Record<string, any>>(
   );
 
   return (
-    <BaseForm
-      layout="vertical"
-      contentRender={contentRender}
-      {...props}
-    />
+    <BaseForm layout="vertical" contentRender={contentRender} {...props} />
   );
 }
 

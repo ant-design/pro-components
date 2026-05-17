@@ -86,9 +86,7 @@ function TableAlert<T>({
     <div className={clsx(className, hashId)}>
       <div className={clsx(`${className}-container`, hashId)}>
         <div className={clsx(`${className}-info`, hashId)}>
-          <div className={clsx(`${className}-info-content`, hashId)}>
-            {dom}
-          </div>
+          <div className={clsx(`${className}-info-content`, hashId)}>{dom}</div>
           {option ? (
             <div className={clsx(`${className}-info-option`, hashId)}>
               {option}

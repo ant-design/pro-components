@@ -204,7 +204,9 @@ const Demo = () => {
           pagination={{
             pageSize: 5,
             onChange: (page, pageSize) => {
-              message.info(`第 ${page} 页${pageSize ? `，每页 ${pageSize} 条` : ''}`);
+              message.info(
+                `第 ${page} 页${pageSize ? `，每页 ${pageSize} 条` : ''}`,
+              );
             },
           }}
           dateFormatter="string"

@@ -6,7 +6,6 @@ import type { GlobalHeaderProps } from '../GlobalHeader';
 import { ActionsContent } from '../GlobalHeader/ActionsContent';
 import { BaseMenu } from '../SiderMenu/BaseMenu';
 import type {
-  HeaderRenderKey,
   PrivateSiderMenuProps,
   SiderMenuProps,
 } from '../SiderMenu/SiderMenu';
@@ -30,18 +29,19 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
     layout,
     actionsRender,
     avatarProps,
+    actionsPlacement,
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = `${props.prefixCls || getPrefixCls('pro')}-top-nav-header`;
 
-  const { wrapSSR, hashId } = useStyle(prefixCls);
-  let renderKey: HeaderRenderKey | undefined = 'headerTitleRender';
+  const { hashId } = useStyle(prefixCls);
 
-  const headerDom = renderLogoAndTitle(
-    { ...props, collapsed: false },
-    renderKey,
-  );
-  const hasActionsContent = actionsRender || avatarProps;
+  const headerDom =
+    props.menuHeaderRender === false
+      ? null
+      : renderLogoAndTitle({ ...props, collapsed: false }, 'headerTitleRender');
+  const hasActionsContent =
+    actionsPlacement !== 'sider' && (actionsRender || avatarProps);
   const contentDom = useMemo(() => {
     const defaultDom = (
       <ConfigProvider
@@ -75,7 +75,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
     return defaultDom;
   }, [props, prefixCls, hashId, headerContentRender]);
 
-  return wrapSSR(
+  return (
     <div
       className={clsx(prefixCls, hashId, propsClassName, {
         [`${prefixCls}-light`]: true,
@@ -115,12 +115,15 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
           {contentDom}
         </div>
         {hasActionsContent && (
-          <div data-testid="pro-layout-top-nav-header-actions" style={{ height: '100%' }}>
+          <div
+            data-testid="pro-layout-top-nav-header-actions"
+            style={{ height: '100%' }}
+          >
             <ActionsContent {...props} prefixCls={prefixCls} />
           </div>
         )}
       </div>
-    </div>,
+    </div>
   );
 };
 

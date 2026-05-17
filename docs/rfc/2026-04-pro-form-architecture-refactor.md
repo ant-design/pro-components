@@ -1,13 +1,11 @@
 # RFC: ProForm 架构重构
 
-
-| 元数据      | 内容                                                                                                                                                                                                                                             |
-| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **状态**   | **Accepted**（实施完成，2026-04-06；对外 API 无 intentional breaking）                                                                                                                                                                                                                 |
-| **创建日期** | 2026-04-06                                                                                                                                                                                                                                     |
-| **范围**   | `@ant-design/pro-form` / `src/form`                                                                                                                                                                                                            |
-| **相关文件** | `src/form/BaseForm/BaseForm.tsx`、`src/form/components/FormItem/warpField.tsx`（导出函数名为 `**warpField`**，与英文 *wrap* 拼写不同，**禁止**在 non-major 中重命名）、`src/form/layouts/SchemaForm`、`src/form/BetaSchemaForm`、`src/form/typing/`（入口 `index.ts`）、`src/form/index.tsx` |
-
+| 元数据       | 内容                                                                                                                                                                                                                                                                                           |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **状态**     | **Accepted**（实施完成，2026-04-06；对外 API 无 intentional breaking）                                                                                                                                                                                                                         |
+| **创建日期** | 2026-04-06                                                                                                                                                                                                                                                                                     |
+| **范围**     | `@ant-design/pro-form` / `src/form`                                                                                                                                                                                                                                                            |
+| **相关文件** | `src/form/BaseForm/BaseForm.tsx`、`src/form/components/FormItem/warpField.tsx`（导出函数名为 `**warpField`**，与英文 *wrap* 拼写不同，**禁止\*\*在 non-major 中重命名）、`src/form/layouts/SchemaForm`、`src/form/BetaSchemaForm`、`src/form/typing/`（入口 `index.ts`）、`src/form/index.tsx` |
 
 ## 摘要
 
@@ -15,15 +13,13 @@
 
 ## 背景：复杂度从哪来
 
-
-| 来源          | 说明                                                                                                                     |
-| ----------- | ---------------------------------------------------------------------------------------------------------------------- |
+| 来源               | 说明                                                                                                                                                          |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **单文件职责过多** | `BaseForm.tsx`（约近千行）集中：URL 同步、`request`/初始值、`transformKey` 提交、日期转换、`submitter`、网格布局、`FieldContext`、只读/编辑、`formRef` 增强等 |
-| **字段包装层厚**  | `warpField` 合并 `fieldConfig`、`LightFilter`、宽度、`FormItem`、依赖等，`props` 分叉多                                               |
-| **上下文叠加**   | `FieldContext`、`ProFormContext`、`GridContext`、`EditOrReadOnlyContext`、`FormListContext`、`RcFieldContext` 等，阅读成本高       |
-| **两条建单路径**  | 手写 `ProFormXxx` vs `SchemaForm` / `BetaSchemaForm`（`columns` + `valueType`），行为要对齐但实现分叉                                 |
-| **类型面宽**    | `typing.ts` 与各组件 props 交叉引用，改动牵一发而动全身                                                                                  |
-
+| **字段包装层厚**   | `warpField` 合并 `fieldConfig`、`LightFilter`、宽度、`FormItem`、依赖等，`props` 分叉多                                                                       |
+| **上下文叠加**     | `FieldContext`、`ProFormContext`、`GridContext`、`EditOrReadOnlyContext`、`FormListContext`、`RcFieldContext` 等，阅读成本高                                  |
+| **两条建单路径**   | 手写 `ProFormXxx` vs `SchemaForm` / `BetaSchemaForm`（`columns` + `valueType`），行为要对齐但实现分叉                                                         |
+| **类型面宽**       | `typing.ts` 与各组件 props 交叉引用，改动牵一发而动全身                                                                                                       |
 
 ### 建议厘清的一条主数据流（摸底用）
 
@@ -56,31 +52,27 @@ onFinish → transformKey → conversionMomentValue → 返回值（及可选 UR
 
 ### 阶段 0：摸底与基线（约 1～2 天）
 
-
-| 工作项    | 说明                                                                                        |
-| ------ | ----------------------------------------------------------------------------------------- |
+| 工作项       | 说明                                                                                         |
+| ------------ | -------------------------------------------------------------------------------------------- |
 | 数据流文档化 | 固化 `params → request → initialValues` 与 `onFinish → transformKey → conversionMomentValue` |
-| 副作用清单  | 列出 `BaseForm` 内所有 `useEffect` 及依赖，标出顺序敏感点（避免双请求、死循环）                                      |
-| 回归基线   | 跑通并固定现有 form 相关测试 + 关键 demos                                                              |
-
+| 副作用清单   | 列出 `BaseForm` 内所有 `useEffect` 及依赖，标出顺序敏感点（避免双请求、死循环）              |
+| 回归基线     | 跑通并固定现有 form 相关测试 + 关键 demos                                                    |
 
 **交付物**：`docs/internal/form-architecture.md`（或等价说明）+ CI 绿作为基线。**当前**：已提供 `form-architecture.md`（数据流 + `useEffect` 清单 + 路径索引）。
 
 ### 阶段 1：拆分 `BaseForm`（优先，收益最大）
 
-将 `src/form/BaseForm/BaseForm.tsx` 拆为 **纯逻辑模块 + 薄 UI 组装**。下表「建议路径」均相对于 `**src/form/`**（**不要**在仓库根目录单独建顶层 `form/`）。RFC 初稿中的模块名与实现文件名略有差异，**以下「实际路径」为代码真值**。
+将 `src/form/BaseForm/BaseForm.tsx` 拆为 **纯逻辑模块 + 薄 UI 组装**。下表「建议路径」均相对于 `**src/form/`**（**不要**在仓库根目录单独建顶层 `form/`）。RFC 初稿中的模块名与实现文件名略有差异，**以下「实际路径」为代码真值\*\*。
 
-
-| 职责 | RFC 初稿名 | 实际路径（`src/form/` 下） |
-| ---- | ---------- | ------------------------- |
-| URL 与 `initialValues` 合并状态 | `sync/useUrlFormState` | `sync/useUrlFormSync.ts` + `sync/genParams.ts` |
-| 提交、`onFinish`、`syncToUrl` #3547 | `submit/useFormSubmitPipeline` | `submit/useProFormFinishHandler.ts` |
-| `transformKey` 管线、`setFieldValueType` | （同上合并） | `submit/useProFormTransformKey.ts` |
-| `request` / `params` / 初始值合并 | `initial/useFormInitialData` | `initial/useProFormRequestData.ts`、`initial/useProFormInitialValuesMerge.ts`、`initial/defaultFormKey.ts`、`initial/useRequestFormCacheBump.ts` |
-| Provider 聚合 | （可选）独立 `ProFormFieldProviders` | 当前仍在 `BaseForm` 内联 Provider |
-| `NamePath` 归一化 | — | `BaseForm/covertFormName.ts` |
-| 子树组件 | — | `BaseForm/BaseFormComponents.tsx`、`BaseForm/BaseFormTypes.ts` |
-
+| 职责                                     | RFC 初稿名                           | 实际路径（`src/form/` 下）                                                                                                                       |
+| ---------------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| URL 与 `initialValues` 合并状态          | `sync/useUrlFormState`               | `sync/useUrlFormSync.ts` + `sync/genParams.ts`                                                                                                   |
+| 提交、`onFinish`、`syncToUrl` #3547      | `submit/useFormSubmitPipeline`       | `submit/useProFormFinishHandler.ts`                                                                                                              |
+| `transformKey` 管线、`setFieldValueType` | （同上合并）                         | `submit/useProFormTransformKey.ts`                                                                                                               |
+| `request` / `params` / 初始值合并        | `initial/useFormInitialData`         | `initial/useProFormRequestData.ts`、`initial/useProFormInitialValuesMerge.ts`、`initial/defaultFormKey.ts`、`initial/useRequestFormCacheBump.ts` |
+| Provider 聚合                            | （可选）独立 `ProFormFieldProviders` | 当前仍在 `BaseForm` 内联 Provider                                                                                                                |
+| `NamePath` 归一化                        | —                                    | `BaseForm/covertFormName.ts`                                                                                                                     |
+| 子树组件                                 | —                                    | `BaseForm/BaseFormComponents.tsx`、`BaseForm/BaseFormTypes.ts`                                                                                   |
 
 **BaseForm 本体**（仍可置于 `src/form/BaseForm/BaseForm.tsx` 或邻近文件）只保留：`Form` 壳、`contentRender`、`Submitter`、组合上述 hooks。
 
@@ -88,13 +80,11 @@ onFinish → transformKey → conversionMomentValue → 返回值（及可选 UR
 
 ### 阶段 2：收敛字段层（`warpField` + `FormItem`）
 
-
-| 工作项  | 说明                                                                                        |
-| ---- | ----------------------------------------------------------------------------------------- |
-| 职责拆分 | 将「LightFilter 专用」「宽度 `width`」「`ignoreFormItem`」等拆成独立小函数或子组件，避免单函数内多层分支                    |
+| 工作项   | 说明                                                                                                                       |
+| -------- | -------------------------------------------------------------------------------------------------------------------------- |
+| 职责拆分 | 将「LightFilter 专用」「宽度 `width`」「`ignoreFormItem`」等拆成独立小函数或子组件，避免单函数内多层分支                   |
 | 统一入口 | 明确 `pickProFormItemProps` / `omitUndefined` 的调用顺序，用简短注释或类型固定，减少「仅 Schema 才走函数 props」的隐式规则 |
-| 可选   | `FieldContext` 类型修正（如 `FiledContextProps` 拼写）与字段收敛一起做，避免大范围重命名冲突                          |
-
+| 可选     | `FieldContext` 类型修正（如 `FiledContextProps` 拼写）与字段收敛一起做，避免大范围重命名冲突                               |
 
 **验收**：单测覆盖「带/不带 LightFilter」「`ignoreFormItem`」「`dependency`」各一条；bundle 无明显上涨或说明原因。
 
@@ -108,13 +98,11 @@ onFinish → transformKey → conversionMomentValue → 返回值（及可选 UR
 
 ### 阶段 3：`SchemaForm` 与命令式路径对齐
 
-
-| 工作项    | 说明                                                                        |
-| ------ | ------------------------------------------------------------------------- |
-| 纯函数抽象  | `column → 表单项描述` 的不依赖 React 的纯函数；`SchemaForm` 与文档化示例共用同一套规则               |
-| 收敛专用分支 | 对仅 Schema 才有的能力（如 `getFieldProps`）：要么提升为通用能力并文档化，要么收紧为 Schema 私有并隔离目录     |
-| 目录分组   | `SchemaForm` / `valueType/*` 按类别分组（布局类 / 表单控件类 / 容器类），便于按需加载与 Code Review |
-
+| 工作项       | 说明                                                                                                       |
+| ------------ | ---------------------------------------------------------------------------------------------------------- |
+| 纯函数抽象   | `column → 表单项描述` 的不依赖 React 的纯函数；`SchemaForm` 与文档化示例共用同一套规则                     |
+| 收敛专用分支 | 对仅 Schema 才有的能力（如 `getFieldProps`）：要么提升为通用能力并文档化，要么收紧为 Schema 私有并隔离目录 |
+| 目录分组     | `SchemaForm` / `valueType/*` 按类别分组（布局类 / 表单控件类 / 容器类），便于按需加载与 Code Review        |
 
 **验收**：同一组 `columns` 在「Schema 渲染」与「手写 `ProFormXxx`」上行为一致（至少关键用例对齐测试）。
 
@@ -134,39 +122,33 @@ onFinish → transformKey → conversionMomentValue → 返回值（及可选 UR
 
 ### 阶段 4：类型与导出整理
 
-
-| 工作项              | 说明                                                                        |
-| ---------------- | ------------------------------------------------------------------------- |
-| 按域拆分 `typing.ts` | `layout.ts`（`ProFormGridConfig`）、`fieldItem.ts`（字段扩展类型），`typing/index.ts` 统一 re-export |
-| 对外兼容             | `src/form/index.tsx` 仍从 `./typing` 引入；**不**改包入口导出名称 |
+| 工作项               | 说明                                                                                                                                               |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 按域拆分 `typing.ts` | `layout.ts`（`ProFormGridConfig`）、`fieldItem.ts`（字段扩展类型），`typing/index.ts` 统一 re-export                                               |
+| 对外兼容             | `src/form/index.tsx` 仍从 `./typing` 引入；**不**改包入口导出名称                                                                                  |
 | submit / schema 类型 | **不**在 `typing/index` 中二次 re-export：`BaseForm/BaseFormTypes` 与 `SchemaForm/typing` 互引 `typing` 会形成循环；提交/Schema 类型仍在原文件查阅 |
 
 **阶段 4 当前**：已完成目录拆分；`npm run build` / `tsc` 通过即可。
 
-
 ## 风险与顺序建议
 
-
-| 风险                     | 缓解                                   |
-| ---------------------- | ------------------------------------ |
+| 风险                            | 缓解                                               |
+| ------------------------------- | -------------------------------------------------- |
 | 第一步大改 `warpField` 对外行为 | **先拆 `BaseForm`**，再动字段层，风险更可控        |
-| URL 同步与 `request` 竞态   | 阶段 1 重点补测试；重构时保持副作用顺序可观测             |
+| URL 同步与 `request` 竞态       | 阶段 1 重点补测试；重构时保持副作用顺序可观测      |
 | 类型大挪移引发下游 breakage     | 阶段 4 以 re-export 为主，避免用户 import 路径断裂 |
-
 
 **每阶段结束**：若对外行为或类型有变，更新 changelog 与迁移提示。
 
 ## 排期（粗略，视人力调整）
 
-
-| 阶段  | 内容                       | 周期     |
-| --- | ------------------------ | ------ |
-| 0   | 摸底 + 基线                  | 1～2 天  |
-| 1   | 拆分 `BaseForm`            | 3～7 天  |
-| 2   | `warpField` / `FormItem` | 3～5 天  |
-| 3   | Schema 对齐                | 5～10 天 |
-| 4   | 类型整理                     | 2～4 天  |
-
+| 阶段 | 内容                     | 周期     |
+| ---- | ------------------------ | -------- |
+| 0    | 摸底 + 基线              | 1～2 天  |
+| 1    | 拆分 `BaseForm`          | 3～7 天  |
+| 2    | `warpField` / `FormItem` | 3～5 天  |
+| 3    | Schema 对齐              | 5～10 天 |
+| 4    | 类型整理                 | 2～4 天  |
 
 ## 成功标准
 
@@ -176,13 +158,13 @@ onFinish → transformKey → conversionMomentValue → 返回值（及可选 UR
 
 ## 实施进度总览（维护者更新）
 
-| 阶段 | 状态 | 备注 |
-| --- | --- | --- |
-| 0 | 完成 | `docs/internal/form-architecture.md` |
-| 1 | 完成 | `BaseForm` 拆模块 + `genParams` / `base` 等单测 |
-| 2 | 基本完成（条文级） | 结构拆分、总流程注释、LightFilter 命名单测、bundle/Schema 备忘、`FieldContextProps` 别名；目录级收敛 Schema 留在阶段 3 |
-| 3 | 基本完成 | `normalizeColumnToItemType`、`valueType/pipeline`、对齐测试与文档 |
-| 4 | 完成 | `src/form/typing/{layout,fieldItem,index}.ts`；submit/schema 类型保留在原模块防循环 |
+| 阶段 | 状态               | 备注                                                                                                                   |
+| ---- | ------------------ | ---------------------------------------------------------------------------------------------------------------------- |
+| 0    | 完成               | `docs/internal/form-architecture.md`                                                                                   |
+| 1    | 完成               | `BaseForm` 拆模块 + `genParams` / `base` 等单测                                                                        |
+| 2    | 基本完成（条文级） | 结构拆分、总流程注释、LightFilter 命名单测、bundle/Schema 备忘、`FieldContextProps` 别名；目录级收敛 Schema 留在阶段 3 |
+| 3    | 基本完成           | `normalizeColumnToItemType`、`valueType/pipeline`、对齐测试与文档                                                      |
+| 4    | 完成               | `src/form/typing/{layout,fieldItem,index}.ts`；submit/schema 类型保留在原模块防循环                                    |
 
 ## 开放问题
 
@@ -200,18 +182,16 @@ onFinish → transformKey → conversionMomentValue → 返回值（及可选 UR
 
 ### 路径锚点（仓库根：`pro-components/`）
 
-
-| 概念        | 路径                                                                           |
-| --------- | ---------------------------------------------------------------------------- |
-| 表单公共入口    | `src/form/index.tsx`                                                         |
-| BaseForm  | `src/form/BaseForm/BaseForm.tsx`                                             |
-| 字段包装      | `src/form/components/FormItem/warpField.tsx`                                 |
-| 字段包装拆分    | `warpFieldLayout.ts`、`warpFieldMerge.ts`、`warpFieldLightProps.ts`、`warpFieldNodes.tsx`、`warpFieldDependency.tsx` |
-| Schema 列归一化 | `src/form/components/SchemaForm/normalizeColumnToItemType.ts`              |
-| Schema valueType 管道 | `src/form/components/SchemaForm/valueType/pipeline/*`                  |
-| 类型聚合      | `src/form/typing/`（`layout.ts`、`fieldItem.ts`、`index.ts`）              |
-| Form 相关测试 | `tests/form/`（如 `base.test.tsx`、`genParams.test.ts`、`warpField*.test.ts`、`schemaImperativeAlignment.test.tsx`、`dependency.test.tsx`） |
-
+| 概念                  | 路径                                                                                                                                        |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| 表单公共入口          | `src/form/index.tsx`                                                                                                                        |
+| BaseForm              | `src/form/BaseForm/BaseForm.tsx`                                                                                                            |
+| 字段包装              | `src/form/components/FormItem/warpField.tsx`                                                                                                |
+| 字段包装拆分          | `warpFieldLayout.ts`、`warpFieldMerge.ts`、`warpFieldLightProps.ts`、`warpFieldNodes.tsx`、`warpFieldDependency.tsx`                        |
+| Schema 列归一化       | `src/form/components/SchemaForm/normalizeColumnToItemType.ts`                                                                               |
+| Schema valueType 管道 | `src/form/components/SchemaForm/valueType/pipeline/*`                                                                                       |
+| 类型聚合              | `src/form/typing/`（`layout.ts`、`fieldItem.ts`、`index.ts`）                                                                               |
+| Form 相关测试         | `tests/form/`（如 `base.test.tsx`、`genParams.test.ts`、`warpField*.test.ts`、`schemaImperativeAlignment.test.tsx`、`dependency.test.tsx`） |
 
 ### MUST
 
@@ -255,15 +235,13 @@ npm run test:update -- tests/form
 
 ### 与人读章节的对应关系
 
-
-| 正文阶段 | AI 额外自检                                      |
-| ---- | -------------------------------------------- |
-| 0    | 是否产出副作用清单与数据流笔记（可放在 PR 描述或 `docs/internal/`） |
-| 1    | 新 hook 是否单测覆盖；`useEffect` 是否有顺序注释或测试         |
-| 2    | `warpField` 分支是否用单测矩阵覆盖，而非仅 snapshot         |
-| 3    | Schema 与命令式路径是否共享同一套纯函数或对齐测试                 |
-| 4    | 是否仅移动类型 + re-export，未改对外类型名                  |
-
+| 正文阶段 | AI 额外自检                                                         |
+| -------- | ------------------------------------------------------------------- |
+| 0        | 是否产出副作用清单与数据流笔记（可放在 PR 描述或 `docs/internal/`） |
+| 1        | 新 hook 是否单测覆盖；`useEffect` 是否有顺序注释或测试              |
+| 2        | `warpField` 分支是否用单测矩阵覆盖，而非仅 snapshot                 |
+| 3        | Schema 与命令式路径是否共享同一套纯函数或对齐测试                   |
+| 4        | 是否仅移动类型 + re-export，未改对外类型名                          |
 
 ---
 
@@ -273,4 +251,4 @@ npm run test:update -- tests/form
 - 合并前请以附录 **Definition of Done** 跑 `npm test -- tests/form` 与 `npm run lint`；快照类测试以当前 antd 版本为准按需更新。
 - 后续增量：仅 **对齐测试矩阵**、**Changelog** 与局部优化，不再扩展本 RFC 范围。
 
-*本 RFC 为架构与阶段规划，实施时以具体 PR 与代码审阅为准。*
+_本 RFC 为架构与阶段规划，实施时以具体 PR 与代码审阅为准。_

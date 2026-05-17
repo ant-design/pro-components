@@ -15,6 +15,12 @@ When you need a standard list presentation, or need to flexibly switch between l
 
 ## Code demo
 
+### Enum property switch
+
+Toggle `itemLayout`, `variant`, and `split` with a segmented control.
+
+<code src="../../demos/list/enum-switch.tsx" background="var(--main-bg-color)" title="Enum property switch"></code>
+
 ### Basic usage
 
 <code src="../../demos/list/basic.tsx" background="var(--main-bg-color)"></code>
@@ -142,7 +148,7 @@ For other APIs, refer to [ProTable](/en-US/components/table).
 | tooltip            | Tooltip next to the title                                                                                                                                                                            | `string \| LabelTooltipType`                                                                                                                                                                                 | -                      |
 | loading            | Whether loading                                                                                                                                                                                      | `boolean \| (item: any) => boolean`                                                                                                                                                                          | `false`                |
 | split              | Whether to show a split line                                                                                                                                                                         | `boolean`                                                                                                                                                                                                    | `false`                |
-| variant            | List appearance variant                                                                                                                                                                              | `'outlined'` \| `'borderless'` \| `'filled'`                                                                                                                                                                  | `'borderless'`         |
+| variant            | List appearance variant                                                                                                                                                                              | `'outlined'` \| `'borderless'` \| `'filled'`                                                                                                                                                                 | `'borderless'`         |
 | footer             | List footer                                                                                                                                                                                          | `ReactNode`                                                                                                                                                                                                  | -                      |
 | grid               | Grid configuration, enables card mode when set                                                                                                                                                       | `ListGridType`                                                                                                                                                                                               | -                      |
 | itemLayout         | List item layout direction                                                                                                                                                                           | `'horizontal'` \| `'vertical'`                                                                                                                                                                               | `'horizontal'`         |
@@ -355,11 +361,11 @@ ProList generates a search form based on fields with `search` configured in colu
 #### Migration Reference
 
 | metas syntax                                            | columns syntax                                                       |
-|---------------------------------------------------------| -------------------------------------------------------------------- |
+| ------------------------------------------------------- | -------------------------------------------------------------------- |
 | `title: { dataIndex: 'name' }`                          | `{ dataIndex: 'name', listSlot: 'title' }`                           |
 | `avatar: { dataIndex: 'img' }`                          | `{ dataIndex: 'img', listSlot: 'avatar' }`                           |
 | `description: { dataIndex: 'desc' }`                    | `{ dataIndex: 'desc', listSlot: 'description' }`                     |
-| `content: {}`                                           | `{ dataIndex: 'content', listSlot: 'content' }`  |
+| `content: {}`                                           | `{ dataIndex: 'content', listSlot: 'content' }`                      |
 | `extra: { render: ... }`                                | `{ listSlot: 'aside', render: ... }`                                 |
 | `status: { title: 'Status', valueType: 'select', ... }` | `{ title: 'Status', dataIndex: 'status', valueType: 'select', ... }` |
 

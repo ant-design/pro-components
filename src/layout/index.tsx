@@ -45,7 +45,7 @@ import { getMenuData } from './utils/getMenuData';
 
 // WaterMark component has been removed, please use antd Watermark directly
 export type { ProSettings, ProSettings as Settings } from './defaultSettings';
-export type { MenuDataItem } from './typing';
+export type { MenuDataItem, RouterTypes } from './typing';
 export {
   BaseMenu,
   DefaultFooter,
@@ -77,11 +77,11 @@ export type {
   NavMenuSubmenuNode,
   PageContainerProps,
   PageHeaderProps,
+  ProLayoutLayoutMode,
+  ProLayoutMenuRenderCallbackProps,
   ProLayoutNavMenuDomProps,
   ProLayoutNavMenuProps,
   ProLayoutNavMenuSelectInfo,
-  ProLayoutLayoutMode,
-  ProLayoutMenuRenderCallbackProps,
   ProLayoutProps,
   RouteContextType,
   TopNavHeaderProps,

@@ -1,12 +1,12 @@
 import {
   FormControlFC,
   FormItemRender,
-  ProForm,
-  ProFormItemRender,
-  WithControlPropsType,
   pickControlProps,
   pickControlPropsWithId,
+  ProForm,
+  ProFormItemRender,
   useControlModel,
+  WithControlPropsType,
 } from '@ant-design/pro-components';
 import { Checkbox, Input, message, Select } from 'antd';
 

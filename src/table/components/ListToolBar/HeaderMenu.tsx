@@ -39,7 +39,11 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
   );
   const setActiveKey = useRefFunction((next: React.Key) => {
     const prev = activeKey;
-    (props.onChange as ((key?: React.Key, prev?: React.Key) => void) | undefined)?.(next, prev);
+    (
+      props.onChange as
+        | ((key?: React.Key, prev?: React.Key) => void)
+        | undefined
+    )?.(next, prev);
     setActiveKeyInner(next);
   });
 
@@ -97,11 +101,7 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
 
   return (
     <div
-      className={clsx(
-        `${prefixCls}-menu`,
-        `${prefixCls}-dropdownmenu`,
-        hashId,
-      )}
+      className={clsx(`${prefixCls}-menu`, `${prefixCls}-dropdownmenu`, hashId)}
     >
       <Dropdown
         trigger={['click']}

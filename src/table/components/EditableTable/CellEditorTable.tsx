@@ -46,19 +46,17 @@ export function CellEditorTable<
     [props.name, rowKey],
   );
 
-  const handleEditableKeysChange = useRefFunction(
-    (keys: React.Key[]) => {
-      const cleanKeys = keys.filter((key) => key !== undefined);
-      setEditableRowKeys(cleanKeys);
-      const editingPayload = resolveEditingPayloadForRowEditableOnChange(
-        cleanKeys,
-        props.value as readonly DataType[] | undefined,
-        getRowKey,
-        props.editable?.type,
-      );
-      props.editable?.onChange?.(cleanKeys, editingPayload);
-    },
-  );
+  const handleEditableKeysChange = useRefFunction((keys: React.Key[]) => {
+    const cleanKeys = keys.filter((key) => key !== undefined);
+    setEditableRowKeys(cleanKeys);
+    const editingPayload = resolveEditingPayloadForRowEditableOnChange(
+      cleanKeys,
+      props.value as readonly DataType[] | undefined,
+      getRowKey,
+      props.editable?.type,
+    );
+    props.editable?.onChange?.(cleanKeys, editingPayload);
+  });
 
   const scheduleExitEditing = useCallback(() => {
     blurTimerRef.current = setTimeout(() => {
@@ -98,7 +96,14 @@ export function CellEditorTable<
         };
       }) as ProColumns<any, ValueType>[]) ?? [],
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [props.columns, activeColumnId, getRowKey, scheduleExitEditing, cancelExitEditing, handleEditableKeysChange],
+    [
+      props.columns,
+      activeColumnId,
+      getRowKey,
+      scheduleExitEditing,
+      cancelExitEditing,
+      handleEditableKeysChange,
+    ],
   );
 
   return (

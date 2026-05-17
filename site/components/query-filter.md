@@ -7,37 +7,39 @@ atomId: QueryFilter,LightFilter
 
 # QueryFilter / LightFilter 筛选表单
 
-有些是时候表单要与别的组件组合使用，常见的有 Table ，List 等，这时候就需要一些特殊形态的表单。QueryFilter 和 LightFilter 解决了配合组件使用的问题，避免了复杂的样式设置。ProTable 中默认 支持了 QueryFilter 和 LightFilter 作为自己的筛选表单。
+有些**时候**表单要与别的组件组合使用，常见的有 Table ，List 等，这时候就需要一些特殊形态的表单。QueryFilter 和 LightFilter 解决了配合组件使用的问题，避免了复杂的样式设置。ProTable 中默认 支持了 QueryFilter 和 LightFilter 作为自己的筛选表单。
 
 ## 查询筛选
 
-<code src="../../demos/form/QueryFilter/query-filter.tsx" title="基本使用"></code>
+<code src="../../demos/form/query-filter/query-filter.tsx" title="基本使用"></code>
 
-<code src="../../demos/form/QueryFilter/_query-filter-test.tsx" title="基本使用" debug></code>
+<code src="../../demos/form/query-filter/_query-filter-test.tsx" title="基本使用" debug></code>
 
-<code src="../../demos/form/QueryFilter/query-filter-collapsed.tsx" title="查询筛选-默认收起"></code>
+<code src="../../demos/form/query-filter/query-filter-collapsed.tsx" title="查询筛选-默认收起"></code>
 
-<code src="../../demos/form/QueryFilter/query-filter-vertical.tsx" title="查询筛选-垂直布局"></code>
+<code src="../../demos/form/query-filter/query-filter-vertical.tsx" title="查询筛选-垂直布局"></code>
 
-<code src="../../demos/form/QueryFilter/search-filter.tsx" background="var(--main-bg-color)" title="查询筛选-搜索"></code>
+<code src="../../demos/form/query-filter/search-filter.tsx" background="var(--main-bg-color)" title="查询筛选-搜索"></code>
 
-<code src="../../demos/form/QueryFilter/query-filter-defaultFormItemsNumber.tsx" background="var(--main-bg-color)" title="查询筛选-自定义渲染的控件数量"></code>
+<code src="../../demos/form/query-filter/query-filter-default-form-items-number.tsx" background="var(--main-bg-color)" title="查询筛选-自定义渲染的控件数量"></code>
+
+<code src="../../demos/form/query-filter/query-filter-default-cols-number.tsx" background="var(--main-bg-color)" title="查询筛选-折叠下一行控件数量"></code>
 
 ## 轻量筛选
 
-<code src="../../demos/form/QueryFilter/light-filter.tsx" title="基本使用"></code>
+<code src="../../demos/form/query-filter/light-filter.tsx" title="基本使用"></code>
 
-<code src="../../demos/form/QueryFilter/light-filter-footer.tsx" title="轻量筛选-自定义footer"></code>
+<code src="../../demos/form/query-filter/light-filter-footer.tsx" title="轻量筛选-自定义footer"></code>
 
-<code src="../../demos/form/QueryFilter/light-filter-bordered.tsx" title="轻量筛选-边框模式"></code>
+<code src="../../demos/form/query-filter/light-filter-bordered.tsx" title="轻量筛选-边框模式"></code>
 
 折叠模式下所有的选项都会默认折叠，不管是否有值，控件的 `secondary` 将不再有效。
 
-<code src="../../demos/form/QueryFilter/light-filter-collapse.tsx" title="轻量筛选-折叠模式"></code>
+<code src="../../demos/form/query-filter/light-filter-collapse.tsx" title="轻量筛选-折叠模式"></code>
 
 手动设置轻量筛选的弹出框，默认为 `bottomLeft`
 
-<code src="../../demos/form/QueryFilter/light-filter-placement.tsx" title="轻量筛选-弹出框对齐方式"></code>
+<code src="../../demos/form/query-filter/light-filter-placement.tsx" title="轻量筛选-弹出框对齐方式"></code>
 
 ## API
 
@@ -66,21 +68,21 @@ QueryFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
 
 断点继承自 antd 设计 token（默认 xs=576、sm=768、md=992、lg=1200、xl=1600）：
 
-| 容器宽度断点             | 单行展示表单列数（包含操作区域） | 默认布局     |
-| ------------------------ | -------------------------------- | ------------ |
-| `≧ 1600px`               | 4 列                             | `horizontal` |
-| `≧ 768px && < 1600px`    | 3 列                             | `horizontal` |
-| `≧ 576px && < 768px`     | 2 列                             | `vertical`   |
-| `< 576px`                | 1 列                             | `vertical`   |
+| 容器宽度断点          | 单行展示表单列数（包含操作区域） | 默认布局     |
+| --------------------- | -------------------------------- | ------------ |
+| `≧ 1600px`            | 4 列                             | `horizontal` |
+| `≧ 768px && < 1600px` | 3 列                             | `horizontal` |
+| `≧ 576px && < 768px`  | 2 列                             | `vertical`   |
+| `< 576px`             | 1 列                             | `vertical`   |
 
 ##### 强制上下布局时的规则
 
-| 容器宽度断点             | 单行展示表单列数（包含操作区域） |
-| ------------------------ | -------------------------------- |
-| `≧ 1600px`               | 4 列                             |
-| `≧ 992px && < 1600px`    | 3 列                             |
-| `≧ 576px && < 992px`     | 2 列                             |
-| `< 576px`                | 1 列                             |
+| 容器宽度断点          | 单行展示表单列数（包含操作区域） |
+| --------------------- | -------------------------------- |
+| `≧ 1600px`            | 4 列                             |
+| `≧ 992px && < 1600px` | 3 列                             |
+| `≧ 576px && < 992px`  | 2 列                             |
+| `< 576px`             | 1 列                             |
 
 ### LightFilter
 

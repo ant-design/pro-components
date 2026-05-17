@@ -290,9 +290,9 @@ describe('Descriptions', () => {
     expect(wrapper.container.querySelector('input.ant-input')).toBeTruthy();
     // title2 列设置 editable=false，不应渲染额外编辑控件
     // 整个 descriptions 应只有 1 个 input（title 列）
-    expect(
-      wrapper.container.querySelectorAll('input.ant-input').length,
-    ).toBe(1);
+    expect(wrapper.container.querySelectorAll('input.ant-input').length).toBe(
+      1,
+    );
     expect(wrapper.container.querySelector('.ant-descriptions')).toBeTruthy();
   });
 

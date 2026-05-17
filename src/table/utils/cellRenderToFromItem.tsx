@@ -33,7 +33,8 @@ const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
  *
  * @deprecated 请使用 buildNamePath，spellNamePath 是历史命名，保留以兼容外部引用
  */
-export const spellNamePath = (...rest: any[]): React.Key[] => buildNamePath(...rest);
+export const spellNamePath = (...rest: any[]): React.Key[] =>
+  buildNamePath(...rest);
 
 /**
  * 拼接用于编辑的表单字段路径（name path）
@@ -214,8 +215,10 @@ const CellRenderFromItem = <T extends AnyObject>(
     return (
       <InlineErrorFormItem
         popoverProps={{
-          getPopupContainer: (formContext.getPopupContainer as PopoverProps['getPopupContainer']) ||
-            (() => (counter.rootDomRef.current || document.body) as HTMLElement),
+          getPopupContainer:
+            (formContext.getPopupContainer as PopoverProps['getPopupContainer']) ||
+            (() =>
+              (counter.rootDomRef.current || document.body) as HTMLElement),
         }}
         key={formItemName.join('-')}
         errorType="popover"

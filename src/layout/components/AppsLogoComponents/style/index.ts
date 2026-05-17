@@ -57,9 +57,6 @@ const popoverIn = {
   fromScale: 0.98,
 };
 
-/** 字符头像呼吸动画振幅 */
-const avatarPulseScale = 1.04;
-
 const genAppsLogoComponentsStyle: GenerateStyle<AppsLogoComponentsToken> = (
   token,
 ) => {
@@ -153,7 +150,6 @@ const genAppsLogoComponentsStyle: GenerateStyle<AppsLogoComponentsToken> = (
       /**
        * 全局 keyframes（挂在根 componentCls 下，命名带前缀避免与业务冲突）
        * - popover-in：面板入场
-       * - avatar-pulse：simple 模式字符头像 hover 微呼吸（幅度很小，避免干扰阅读）
        */
       [`@keyframes ${token.componentCls}-popover-in`.replace(/\./, '')]: {
         '0%': {
@@ -164,10 +160,6 @@ const genAppsLogoComponentsStyle: GenerateStyle<AppsLogoComponentsToken> = (
           opacity: 1,
           transform: 'translateY(0) scale(1)',
         },
-      },
-      [`@keyframes ${token.componentCls}-avatar-pulse`.replace(/\./, '')]: {
-        '0%, 100%': { transform: 'scale(1)' },
-        '50%': { transform: `scale(${avatarPulseScale})` },
       },
 
       '&-simple': genAppsLogoComponentsSimpleListStyle(token),

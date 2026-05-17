@@ -1,3 +1,4 @@
+import './theme/augmentComponentTokenMap';
 export * from './card';
 export * from './descriptions';
 export * from './field';
@@ -8,5 +9,11 @@ export * from './provider';
 export * from './skeleton';
 export * from './table';
 export * from './utils';
+
+export {
+  genProComponentStyleHook,
+  genProStyleHooks,
+  genProSubStyleComponent,
+} from './theme/genProStyleUtils';
 
 export { version } from './version';

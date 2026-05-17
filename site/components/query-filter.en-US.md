@@ -10,37 +10,49 @@ QueryFilter and LightFilter solve the problem of using the form with other compo
 
 ### Query Filter
 
-<code src="../../demos/form/QueryFilter/query-filter.tsx" ></code>
+<code src="../../demos/form/query-filter/query-filter.tsx" title="Basic Usage"></code>
 
-### Query filter - put away by default
+<code src="../../demos/form/query-filter/_query-filter-test.tsx" title="Basic Usage (debug)" debug></code>
 
-<code src="../../demos/form/QueryFilter/query-filter-collapsed.tsx" ></code>
+### Collapsed by default
 
-### query-filter-vertical-layout
+<code src="../../demos/form/query-filter/query-filter-collapsed.tsx" title="QueryFilter — collapsed by default"></code>
 
-<code src="../../demos/form/QueryFilter/query-filter-vertical.tsx" ></code>
+### Vertical layout
 
-### query-filter-search
+<code src="../../demos/form/query-filter/query-filter-vertical.tsx" title="QueryFilter — vertical layout"></code>
 
-<code src="../../demos/form/QueryFilter/search-filter.tsx" background="var(--main-bg-color)" ></code>
+### Search field
 
-### query-filter-defaultFormItemsNumber
+<code src="../../demos/form/query-filter/search-filter.tsx" background="var(--main-bg-color)" title="QueryFilter — search input"></code>
 
-<code src="../../demos/form/QueryFilter/query-filter-defaultFormItemsNumber.tsx" background="var(--main-bg-color)"></code>
+### Default visible field count
 
-### Lightweight filtering
+<code src="../../demos/form/query-filter/query-filter-default-form-items-number.tsx" background="var(--main-bg-color)" title="QueryFilter — default visible items (defaultFormItemsNumber)"></code>
 
-<code src="../../demos/form/QueryFilter/light-filter.tsx" ></code>
+<code src="../../demos/form/query-filter/query-filter-default-cols-number.tsx" background="var(--main-bg-color)" title="QueryFilter — default columns when collapsed"></code>
 
-### Light filtering - border mode
+## Light Filter
 
-<code src="../../demos/form/QueryFilter/light-filter-bordered.tsx" ></code>
+<code src="../../demos/form/query-filter/light-filter.tsx" title="LightFilter — Basic"></code>
 
-### Light filtering - collapsed mode
+### Custom footer
 
-All options in collapsed mode are collapsed by default, with or without values, and the control's `secondary` will no longer be valid.
+<code src="../../demos/form/query-filter/light-filter-footer.tsx" title="LightFilter — custom footer"></code>
 
-<code src="../../demos/form/QueryFilter/light-filter-collapse.tsx" ></code>
+<code src="../../demos/form/query-filter/light-filter-bordered.tsx" title="LightFilter — border mode"></code>
+
+### Collapsed overlay
+
+All filters are collapsed initially regardless of value; field `secondary` is ignored while collapsed.
+
+<code src="../../demos/form/query-filter/light-filter-collapse.tsx" title="LightFilter — collapsed mode"></code>
+
+### Popover placement
+
+Defaults to `bottomLeft`.
+
+<code src="../../demos/form/query-filter/light-filter-placement.tsx" title="LightFilter — popover placement"></code>
 
 ## API
 
@@ -69,7 +81,7 @@ Note that the values of the breakpoints are the size of the form container and n
 
 Breakpoints use antd design tokens (xs=576, sm=768, md=992, lg=1200, xl=1600 by default):
 
-| container-width breakpoint  | single-row display form single-column count (including action area) | default layout |
+| container-width breakpoint | single-row display form single-column count (including action area) | default layout |
 | -------------------------- | ------------------------------------------------------------------- | -------------- |
 | `≧ 1600px`                 | 4 columns                                                           | `horizontal`   |
 | `≧ 768px && < 1600px`      | 3 columns                                                           | `horizontal`   |
@@ -78,7 +90,7 @@ Breakpoints use antd design tokens (xs=576, sm=768, md=992, lg=1200, xl=1600 by 
 
 ##### Rules when forcing top and bottom layout
 
-| container width breakpoint  | single row display table single column count (including operation area) |
+| container width breakpoint | single row display table single column count (including operation area) |
 | -------------------------- | ----------------------------------------------------------------------- |
 | `≧ 1600px`                 | 4 columns                                                               |
 | `≧ 992px && < 1600px`      | 3 columns                                                               |

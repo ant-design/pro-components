@@ -11,7 +11,6 @@ import {
   vi,
 } from 'vitest';
 import defaultProps from './defaultProps';
-import { waitForWaitTime } from '../util';
 
 afterEach(() => {
   cleanup();
@@ -76,7 +75,8 @@ describe('mobile BasicLayout', () => {
         {...defaultProps}
         collapsed
         getContainer={false}
-        layout="side" splitMenus
+        layout="side"
+        splitMenus
         menuHeaderRender={false}
       >
         welcome
@@ -97,7 +97,8 @@ describe('mobile BasicLayout', () => {
         {...defaultProps}
         collapsed
         getContainer={false}
-        layout="side" splitMenus
+        layout="side"
+        splitMenus
         menuHeaderRender={() => 'title'}
       >
         welcome
@@ -117,7 +118,8 @@ describe('mobile BasicLayout', () => {
         {...defaultProps}
         collapsed
         getContainer={false}
-        layout="side" splitMenus
+        layout="side"
+        splitMenus
         menuHeaderRender={() => 'title'}
       >
         welcome
@@ -142,7 +144,8 @@ describe('mobile BasicLayout', () => {
           return 'div';
         }}
         getContainer={false}
-        layout="side" splitMenus
+        layout="side"
+        splitMenus
       >
         welcome
       </ProLayout>,

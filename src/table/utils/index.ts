@@ -466,7 +466,6 @@ export function resolveEditingPayloadForRowEditableOnChange<
     .map((key) => kvMap.get(key))
     .filter((k): k is DataType => k !== undefined);
   const type = editableType || 'single';
-  const editingPayload =
-    type === 'single' ? editingRecords[0] : editingRecords;
+  const editingPayload = type === 'single' ? editingRecords[0] : editingRecords;
   return editingPayload as DataType | DataType[];
 }

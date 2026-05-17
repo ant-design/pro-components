@@ -29,22 +29,22 @@ URL (syncToUrl)    → urlSearch / urlParamsMergeInitialValues → 与 initialVa
 
 ### `BaseFormComponents`（与 `BaseForm.tsx` 同文件，Form 子树内）
 
-| 位置 | 依赖 / 说明 |
-|------|-------------|
-| `useEffect` | `props.initialValues`：在非 syncToUrl、无 request 时，用 `noteOnce` 提示 initialValues 仅初始化生效 |
+| 位置                  | 依赖 / 说明                                                                                                       |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `useEffect`           | `props.initialValues`：在非 syncToUrl、无 request 时，用 `noteOnce` 提示 initialValues 仅初始化生效               |
 | `useImperativeHandle` | `[omitNil, transformKey, formRef.current]`：向 `formRef` 暴露 `getFieldsFormatValue` 等（基于 `formRef.current`） |
-| `useEffect` | `[]`：挂载后调用 `onInit(finalValues, { ...formRef, ...formatValues })` |
+| `useEffect`           | `[]`：挂载后调用 `onInit(finalValues, { ...formRef, ...formatValues })`                                           |
 
 顺序敏感：`onInit` 仅在挂载跑一次；与外层 `request` 导致的重渲染无关（仍在 mount 后首次执行）。
 
 ### `BaseForm`（外层）
 
-| 位置 | 依赖 / 说明 |
-|------|-------------|
-| `useEffect` | `[]`：`requestFormCacheId` 缓存（等同原 `requestFormCacheId += 0`） |
-| `useEffect` | `syncToInitialValues`：为 false 时清空 `urlParamsMergeInitialValues` |
-| `useEffect` | `extraUrlParams`, `getGenParams`, `syncToUrl`：当 `syncToUrl` 时，将 `genParams(syncToUrl, getGenParams(), 'set')` 写回 URL（**与 extraUrlParams 同步相关**） |
-| `useImperativeHandle` | `[!initialData]`：将 `formRef` 暴露给 `propsFormRef` |
+| 位置                  | 依赖 / 说明                                                                                                                                                   |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `useEffect`           | `[]`：`requestFormCacheId` 缓存（等同原 `requestFormCacheId += 0`）                                                                                           |
+| `useEffect`           | `syncToInitialValues`：为 false 时清空 `urlParamsMergeInitialValues`                                                                                          |
+| `useEffect`           | `extraUrlParams`, `getGenParams`, `syncToUrl`：当 `syncToUrl` 时，将 `genParams(syncToUrl, getGenParams(), 'set')` 写回 URL（**与 extraUrlParams 同步相关**） |
+| `useImperativeHandle` | `[!initialData]`：将 `formRef` 暴露给 `propsFormRef`                                                                                                          |
 
 顺序敏感：
 

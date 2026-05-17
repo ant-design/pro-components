@@ -1,18 +1,12 @@
 import type {
   AffixProps,
   BreadcrumbProps,
+  SpinProps,
   TabPaneProps,
   TabsProps,
-} from 'antd';
-import {
-  Affix,
-  Breadcrumb,
-  ConfigProvider,
-  SpinProps,
-  Tabs,
-  Watermark,
   WatermarkProps,
 } from 'antd';
+import { Affix, Breadcrumb, ConfigProvider, Tabs, Watermark } from 'antd';
 import { clsx } from 'clsx';
 import type { ReactNode } from 'react';
 import React, { useContext, useEffect, useMemo } from 'react';
@@ -243,8 +237,8 @@ const memoRenderPageHeader = (
     header,
     prefixedClassName,
     extraContent,
-    childrenContentStyle,
-    style,
+    childrenContentStyle: _childrenContentStyle,
+    style: _style,
     prefixCls,
     hashId,
     value,
@@ -358,13 +352,15 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
 
   const basePageContainer = `${prefixCls}-page-container`;
 
-  const { wrapSSR, hashId } = useStyle(basePageContainer, propsToken);
+  const { hashId } = useStyle(basePageContainer, propsToken);
 
-  const stylish = useStylish(
+  const stylishOptions = useMemo(
+    () => ({ stylish: props.stylish }),
+    [props.stylish],
+  );
+  useStylish(
     `${basePageContainer}.${basePageContainer}-stylish`,
-    {
-      stylish: props.stylish,
-    },
+    stylishOptions,
   );
 
   const memoBreadcrumbRender = useMemo(() => {
@@ -372,15 +368,19 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
     return breadcrumbRender || restProps?.header?.breadcrumbRender;
   }, [breadcrumbRender, restProps?.header?.breadcrumbRender]);
 
-  const pageHeaderDom = memoRenderPageHeader({
-    ...restProps,
-    breadcrumbRender: memoBreadcrumbRender,
-    ghost: true,
-    hashId,
-    prefixCls: undefined,
-    prefixedClassName: basePageContainer,
-    value,
-  });
+  const pageHeaderDom = useMemo(
+    () =>
+      memoRenderPageHeader({
+        ...restProps,
+        breadcrumbRender: memoBreadcrumbRender,
+        ghost: true,
+        hashId,
+        prefixCls: undefined,
+        prefixedClassName: basePageContainer,
+        value,
+      }),
+    [restProps, memoBreadcrumbRender, hashId, basePageContainer, value],
+  );
 
   const loadingDom = useMemo(() => {
     // 当loading时一个合法的ReactNode时，说明用户使用了自定义loading,直接返回改自定义loading
@@ -399,20 +399,23 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
 
   const content = useMemo(() => {
     return children ? (
-      <>
-        <div
-          className={clsx(hashId, `${basePageContainer}-children-container`, {
-            [`${basePageContainer}-children-container-no-header`]:
-              !pageHeaderDom,
-          })}
-          style={childrenContentStyle}
-          data-testid="pro-page-container-children-container"
-        >
-          {children}
-        </div>
-      </>
+      <div
+        className={clsx(hashId, `${basePageContainer}-children-container`, {
+          [`${basePageContainer}-children-container-no-header`]: !pageHeaderDom,
+        })}
+        style={childrenContentStyle}
+        data-testid="pro-page-container-children-container"
+      >
+        {children}
+      </div>
     ) : null;
-  }, [children, basePageContainer, childrenContentStyle, hashId]);
+  }, [
+    children,
+    basePageContainer,
+    childrenContentStyle,
+    hashId,
+    pageHeaderDom,
+  ]);
 
   const renderContentDom = useMemo(() => {
     // 只要loadingDom非空我们就渲染loadingDom,否则渲染内容
@@ -427,55 +430,95 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
     return dom;
   }, [props.waterMarkProps, value.waterMarkProps, loadingDom, content]);
 
-  const containerClassName = clsx(basePageContainer, hashId, className, {
-    [`${basePageContainer}-with-footer`]: footer,
-    [`${basePageContainer}-with-affix`]: fixedHeader && pageHeaderDom,
-    [`${basePageContainer}-stylish`]: !!restProps.stylish,
-  });
+  const containerClassName = useMemo(
+    () =>
+      clsx(basePageContainer, hashId, className, {
+        [`${basePageContainer}-with-footer`]: footer,
+        [`${basePageContainer}-with-affix`]: fixedHeader && pageHeaderDom,
+        [`${basePageContainer}-stylish`]: !!restProps.stylish,
+      }),
+    [
+      basePageContainer,
+      hashId,
+      className,
+      footer,
+      fixedHeader,
+      pageHeaderDom,
+      restProps.stylish,
+    ],
+  );
 
-  return wrapSSR(
-    stylish.wrapSSR(
+  const useTopFixedContentSlot =
+    value?.contentWidth === 'Fixed' && value?.layout === 'top';
+
+  const mainColumn = useMemo(
+    () => (
       <>
-        <div
-          style={style}
-          className={containerClassName}
-          data-testid="pro-page-container"
-        >
-          {fixedHeader && pageHeaderDom ? (
-            // 在 hasHeader 且 fixedHeader 的情况下，才需要设置高度
-            <Affix
-              offsetTop={
-                value.hasHeader && value.fixedHeader
-                  ? token.layout?.header?.heightLayoutHeader
-                  : 1
-              }
-              {...affixProps}
-              className={clsx(`${basePageContainer}-affix`, hashId)}
-              data-testid="pro-page-container-affix"
-            >
-              <div
-                className={clsx(`${basePageContainer}-warp`, hashId)}
-                data-testid="pro-page-container-warp"
-              >
-                {pageHeaderDom}
-              </div>
-            </Affix>
-          ) : (
-            pageHeaderDom
-          )}
-          {renderContentDom && <GridContent>{renderContentDom}</GridContent>}
-        </div>
-        {footer && (
-          <FooterToolbar
-            stylish={restProps.footerStylish}
-            prefixCls={prefixCls}
-            {...footerToolBarProps}
+        {fixedHeader && pageHeaderDom ? (
+          <Affix
+            offsetTop={
+              value.hasHeader && value.fixedHeader
+                ? token.layout?.header?.heightLayoutHeader
+                : 1
+            }
+            {...affixProps}
+            className={clsx(`${basePageContainer}-affix`, hashId)}
+            data-testid="pro-page-container-affix"
           >
-            {footer}
-          </FooterToolbar>
+            <div
+              className={clsx(`${basePageContainer}-warp`, hashId)}
+              data-testid="pro-page-container-warp"
+            >
+              {pageHeaderDom}
+            </div>
+          </Affix>
+        ) : (
+          pageHeaderDom
         )}
-      </>,
+        {renderContentDom && <GridContent>{renderContentDom}</GridContent>}
+      </>
     ),
+    [
+      fixedHeader,
+      pageHeaderDom,
+      value.hasHeader,
+      value.fixedHeader,
+      token.layout?.header?.heightLayoutHeader,
+      affixProps,
+      basePageContainer,
+      hashId,
+      renderContentDom,
+    ],
+  );
+
+  return (
+    <>
+      <div
+        style={style}
+        className={containerClassName}
+        data-testid="pro-page-container"
+      >
+        {useTopFixedContentSlot ? (
+          <div
+            className={clsx(`${basePageContainer}-top-fixed-slot`, hashId)}
+            data-testid="pro-page-container-top-fixed-slot"
+          >
+            {mainColumn}
+          </div>
+        ) : (
+          mainColumn
+        )}
+      </div>
+      {footer && (
+        <FooterToolbar
+          stylish={restProps.footerStylish}
+          prefixCls={prefixCls}
+          {...footerToolBarProps}
+        >
+          {footer}
+        </FooterToolbar>
+      )}
+    </>
   );
 };
 

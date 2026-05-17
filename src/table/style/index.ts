@@ -121,6 +121,74 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           opacity: '0.85',
         },
       },
+
+      // scroll.y = 'fill': auto-height, only tbody scrolls
+      '&-fill-height': {
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        overflow: 'hidden',
+
+        [`${token.proComponentsCls}-card:not(${token.componentCls}-search)`]: {
+          flex: 1,
+          minHeight: 0,
+          display: 'flex',
+          flexDirection: 'column',
+          [`${token.proComponentsCls}-card-body`]: {
+            flex: 1,
+            minHeight: 0,
+            display: 'flex',
+            flexDirection: 'column',
+            overflow: 'hidden',
+          },
+        },
+
+        [`${token.antCls}-table-wrapper`]: {
+          flex: 1,
+          minHeight: 0,
+          display: 'flex',
+          flexDirection: 'column',
+        },
+        [`${token.antCls}-spin`]: {
+          flex: 1,
+          minHeight: 0,
+          display: 'flex',
+          flexDirection: 'column',
+        },
+        [`${token.antCls}-spin-container`]: {
+          flex: 1,
+          minHeight: 0,
+          display: 'flex',
+          flexDirection: 'column',
+        },
+        [`${token.antCls}-table`]: {
+          flex: 1,
+          minHeight: 0,
+          display: 'flex',
+          flexDirection: 'column',
+        },
+        [`${token.antCls}-table-container`]: {
+          flex: 1,
+          minHeight: 0,
+          display: 'flex',
+          flexDirection: 'column',
+        },
+        [`${token.antCls}-table-header`]: {
+          flexShrink: 0,
+        },
+        [`${token.antCls}-table-body`]: {
+          flex: 1,
+          minHeight: 0,
+        },
+        [`${token.antCls}-table-content`]: {
+          flex: 1,
+          minHeight: 0,
+          overflowY: 'auto',
+        },
+        [`${token.antCls}-table-pagination, ${token.antCls}-pagination${token.antCls}-table-pagination`]: {
+          flexShrink: 0,
+        },
+      },
     },
 
     [`@media (max-width: ${token.screenXS})px`]: {

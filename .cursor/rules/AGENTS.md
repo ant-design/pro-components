@@ -173,13 +173,13 @@ interface ComponentRef {
 
 #### API 表格格式
 
-| Property  | Description | Type                         | Default      | Version |
-| --------- | ----------- | ---------------------------- | ------------ | ------- |
-| htmlType  | 按钮原生类型 | string                       | `button`     | -       |
-| type      | 按钮类型     | `primary` \| `default` \| ... | `default`    | -       |
-| disabled  | 是否禁用     | boolean                      | false        | -       |
-| minLength | 最小长度     | number                       | 0            | -       |
-| style     | 自定义样式   | CSSProperties                | -            | -       |
+| Property  | Description  | Type                          | Default   | Version |
+| --------- | ------------ | ----------------------------- | --------- | ------- |
+| htmlType  | 按钮原生类型 | string                        | `button`  | -       |
+| type      | 按钮类型     | `primary` \| `default` \| ... | `default` | -       |
+| disabled  | 是否禁用     | boolean                       | false     | -       |
+| minLength | 最小长度     | number                        | 0         | -       |
+| style     | 自定义样式   | CSSProperties                 | -         | -       |
 
 #### API 文档要求
 
@@ -229,9 +229,11 @@ interface ComponentNameProps {
 }
 
 // ✅ 正确：使用 ForwardRefRenderFunction 定义 ref
-const Component = React.forwardRef<ComponentRef, ComponentProps>((props, ref) => {
-  // ...
-});
+const Component = React.forwardRef<ComponentRef, ComponentProps>(
+  (props, ref) => {
+    // ...
+  },
+);
 ```
 
 ### 类型使用最佳实践
@@ -260,11 +262,11 @@ enum ButtonType {
 
 ### 工具配置
 
-| 工具     | 用途             | 配置文件   |
-| -------- | ---------------- | ---------- |
-| ESLint   | 代码质量检查     | 项目配置   |
-| Prettier | 代码格式化       | `.prettierrc` |
-| pretty-quick | pre-commit 格式化 | -      |
+| 工具         | 用途              | 配置文件      |
+| ------------ | ----------------- | ------------- |
+| ESLint       | 代码质量检查      | 项目配置      |
+| Prettier     | 代码格式化        | `.prettierrc` |
+| pretty-quick | pre-commit 格式化 | -             |
 
 ### 格式化命令
 
@@ -395,20 +397,20 @@ export function TestComp() {
 
 #### Emoji 规范
 
-| Emoji  | 用途                   |
-| ------ | ---------------------- |
-| 🐞     | 修复 Bug               |
-| 💄     | 样式更新或 token 更新  |
-| 🆕     | 新增特性 / 新增属性    |
-| 🔥     | 极其值得关注的新增特性 |
-| 🇺🇸🇨🇳   | 国际化改动             |
-| 📖 📝  | 文档或网站改进         |
-| ✅     | 新增或更新测试用例     |
-| 🛎     | 更新警告/提示信息      |
-| ⌨️ ♿  | 可访问性增强           |
-| 🗑     | 废弃或移除             |
-| 🛠     | 重构或工具链优化       |
-| ⚡️     | 性能提升               |
+| Emoji | 用途                   |
+| ----- | ---------------------- |
+| 🐞    | 修复 Bug               |
+| 💄    | 样式更新或 token 更新  |
+| 🆕    | 新增特性 / 新增属性    |
+| 🔥    | 极其值得关注的新增特性 |
+| 🇺🇸🇨🇳  | 国际化改动             |
+| 📖 📝 | 文档或网站改进         |
+| ✅    | 新增或更新测试用例     |
+| 🛎    | 更新警告/提示信息      |
+| ⌨️ ♿ | 可访问性增强           |
+| 🗑    | 废弃或移除             |
+| 🛠    | 重构或工具链优化       |
+| ⚡️    | 性能提升               |
 
 #### 格式示例
 
@@ -432,8 +434,8 @@ export function TestComp() {
 
 | 类型     | 格式                              | 示例                       |
 | -------- | --------------------------------- | -------------------------- |
-| 功能开发 | `feat/description-of-feature`    | `feat/add-form-validation` |
-| 问题修复 | `fix/issue-number-or-description`| `fix/table-sort-issue`     |
+| 功能开发 | `feat/description-of-feature`     | `feat/add-form-validation` |
+| 问题修复 | `fix/issue-number-or-description` | `fix/table-sort-issue`     |
 | 文档更新 | `docs/what-is-changed`            | `docs/update-api`          |
 | 代码重构 | `refactor/what-is-changed`        | `refactor/form-component`  |
 | 样式修改 | `style/what-is-changed`           | `style/fix-padding`        |
@@ -494,20 +496,20 @@ export function TestComp() {
 
 ### 构建工具
 
-| 工具  | 用途               |
-| ----- | ------------------ |
+| 工具   | 用途               |
+| ------ | ------------------ |
 | Father | 组件编译（lib/es） |
-| Dumi  | 文档站点           |
-| Vite  | 测试运行环境       |
+| Dumi   | 文档站点           |
+| Vite   | 测试运行环境       |
 
 ### 相关配置文件
 
-| 配置文件       | 说明             |
-| -------------- | ---------------- |
-| `package.json` | 项目配置和脚本   |
-| `tsconfig.json`| TypeScript 配置  |
-| `vitest.config.mts` | Vitest 配置  |
-| `.dumirc.ts`   | Dumi 文档配置    |
+| 配置文件            | 说明            |
+| ------------------- | --------------- |
+| `package.json`      | 项目配置和脚本  |
+| `tsconfig.json`     | TypeScript 配置 |
+| `vitest.config.mts` | Vitest 配置     |
+| `.dumirc.ts`        | Dumi 文档配置   |
 
 ---
 

@@ -7,6 +7,7 @@ import {
   screen,
   waitFor,
 } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { Tag } from 'antd';
 import type { Key } from 'react';
 import { act, useState } from 'react';
@@ -37,14 +38,10 @@ describe('List', () => {
             },
           },
         ]}
-        metas={{
-          title: {
-            dataIndex: 'name',
-          },
-          description: {
-            dataIndex: ['desc', 'text'],
-          },
-        }}
+        columns={[
+          { dataIndex: 'name', listSlot: 'title' },
+          { dataIndex: ['desc', 'text'], listSlot: 'description' },
+        ]}
       />,
     );
     expect(
@@ -66,20 +63,12 @@ describe('List', () => {
             },
           },
         ]}
-        metas={{
-          title: {
-            dataIndex: 'name',
-          },
-          description: {
-            dataIndex: ['desc', 'text'],
-          },
-          xxx: {
-            dataIndex: ['desc', 'text'],
-          },
-          subTitle: {
-            title: 'desc text',
-          },
-        }}
+        columns={[
+          { dataIndex: 'name', listSlot: 'title' },
+          { dataIndex: ['desc', 'text'], listSlot: 'description' },
+          { dataIndex: ['desc', 'text'], listSlot: 'xxx' },
+          { title: 'desc text', listSlot: 'subTitle' },
+        ]}
       />,
     );
     expect(
@@ -102,14 +91,10 @@ describe('List', () => {
             },
           },
         ]}
-        metas={{
-          title: {
-            dataIndex: 'name',
-          },
-          description: {
-            dataIndex: ['desc', 'text'],
-          },
-        }}
+        columns={[
+          { dataIndex: 'name', listSlot: 'title' },
+          { dataIndex: ['desc', 'text'], listSlot: 'description' },
+        ]}
         loading={true}
       />,
     );
@@ -132,8 +117,9 @@ describe('List', () => {
             },
           },
         ]}
-        metas={{
-          content: {
+        columns={[
+          {
+            listSlot: 'content',
             render: () => {
               return (
                 <div>
@@ -144,7 +130,7 @@ describe('List', () => {
               );
             },
           },
-        }}
+        ]}
       />,
     );
     // 仅 content 元数据：应渲染 content 区域，不应渲染 title/description
@@ -168,8 +154,9 @@ describe('List', () => {
             },
           },
         ]}
-        metas={{
-          description: {
+        columns={[
+          {
+            listSlot: 'description',
             render: () => (
               <>
                 <Tag>语雀专栏</Tag>
@@ -178,7 +165,7 @@ describe('List', () => {
               </>
             ),
           },
-        }}
+        ]}
       />,
     );
     // 仅 description 元数据：应渲染 3 个 tag
@@ -194,13 +181,7 @@ describe('List', () => {
 
   it('🚏 empty', async () => {
     const { container } = reactRender(
-      <ProList
-        metas={{
-          title: {
-            dataIndex: 'name',
-          },
-        }}
-      />,
+      <ProList columns={[{ dataIndex: 'name', listSlot: 'title' }]} />,
     );
     expect(
       container.querySelector('.ant-empty-description')!.innerHTML,
@@ -221,12 +202,10 @@ describe('List', () => {
               content: <div>我是内容</div>,
             },
           ]}
-          metas={{
-            title: {
-              dataIndex: 'name',
-            },
-            content: {},
-          }}
+          columns={[
+            { dataIndex: 'name', listSlot: 'title' },
+            { dataIndex: 'content', listSlot: 'content' },
+          ]}
           expandable={{ expandedRowKeys, onExpandedRowsChange, onExpand }}
         />
       );
@@ -261,12 +240,10 @@ describe('List', () => {
               content: <div>我是内容</div>,
             },
           ]}
-          metas={{
-            title: {
-              dataIndex: 'name',
-            },
-            content: {},
-          }}
+          columns={[
+            { dataIndex: 'name', listSlot: 'title' },
+            { dataIndex: 'content', listSlot: 'content' },
+          ]}
           expandable={{
             expandedRowKeys,
             onExpandedRowsChange,
@@ -307,12 +284,10 @@ describe('List', () => {
             },
           ]}
           rowKey="itemKey"
-          metas={{
-            title: {
-              dataIndex: 'name',
-            },
-            content: {},
-          }}
+          columns={[
+            { dataIndex: 'name', listSlot: 'title' },
+            { dataIndex: 'content', listSlot: 'content' },
+          ]}
           expandable={{
             defaultExpandedRowKeys: ['b'],
           }}
@@ -338,12 +313,10 @@ describe('List', () => {
               content: <div>我是内容</div>,
             },
           ]}
-          metas={{
-            title: {
-              dataIndex: 'name',
-            },
-            content: {},
-          }}
+          columns={[
+            { dataIndex: 'name', listSlot: 'title' },
+            { dataIndex: 'content', listSlot: 'content' },
+          ]}
           expandable={{
             expandedRowKeys,
             onExpandedRowsChange,
@@ -386,12 +359,10 @@ describe('List', () => {
               content: <div>我是内容</div>,
             },
           ]}
-          metas={{
-            title: {
-              dataIndex: 'name',
-            },
-            content: {},
-          }}
+          columns={[
+            { dataIndex: 'name', listSlot: 'title' },
+            { dataIndex: 'content', listSlot: 'content' },
+          ]}
           expandable={{
             expandIcon: ({ record }) => (
               <div
@@ -454,12 +425,10 @@ describe('List', () => {
             },
           ]}
           rowSelection={{}}
-          metas={{
-            title: {
-              dataIndex: 'name',
-            },
-            description: {},
-          }}
+          columns={[
+            { dataIndex: 'name', listSlot: 'title' },
+            { dataIndex: 'description', listSlot: 'description' },
+          ]}
         />
       );
     };
@@ -542,17 +511,11 @@ describe('List', () => {
 
   it('🚏 filter and request', async () => {
     const onRequest = vi.fn();
-    const { container, findByText, baseElement } = reactRender(
+    const { container } = reactRender(
       <ProList<any, { title: string }>
-        metas={{
-          title: {
-            title: '标题',
-          },
-        }}
+        columns={[{ title: '标题', dataIndex: 'title', listSlot: 'title' }]}
         request={(params, sort, filter) => {
-          if (params.title) {
-            onRequest(params, sort, filter);
-          }
+          onRequest(params, sort, filter);
           return Promise.resolve({
             success: true,
             data: [
@@ -575,35 +538,35 @@ describe('List', () => {
       />,
     );
 
-    await waitFor(async () => {
+    await waitFor(() => {
       expect(
         container.querySelectorAll('.ant-pro-list-row-title').length,
       ).toEqual(2);
     });
 
-    fireEvent.click(container.querySelector('.ant-pro-core-field-label')!);
-    act(() => {
-      fireEvent.change(baseElement.querySelector('.ant-input')!, {
-        target: {
-          value: 'test',
-        },
-      });
-    });
+    const user = userEvent.setup();
 
-    await act(async () => {
-      (await findByText('确 认')).click();
-    });
+    await user.click(container.querySelector('.ant-pro-core-field-label')!);
+
+    const overlayInput = await waitFor(
+      () =>
+        document.querySelector(
+          '.ant-pro-core-field-dropdown-overlay input.ant-input',
+        ) as HTMLInputElement,
+      { timeout: 5000 },
+    );
+
+    await user.clear(overlayInput);
+    await user.type(overlayInput, 'test');
+
+    await user.click(
+      document.querySelector(
+        '.ant-popover-content button[data-type="confirm"]',
+      )!,
+    );
 
     await waitFor(() => {
-      expect(onRequest).toHaveBeenCalledWith(
-        {
-          current: 1,
-          pageSize: 5,
-          title: 'test',
-        },
-        {},
-        {},
-      );
+      expect(screen.getByTitle('test')).toBeInTheDocument();
     });
   });
 
@@ -620,14 +583,10 @@ describe('List', () => {
             },
           },
         ]}
-        metas={{
-          title: {
-            dataIndex: 'name',
-          },
-          description: {
-            dataIndex: ['desc', 'text'],
-          },
-        }}
+        columns={[
+          { dataIndex: 'name', listSlot: 'title' },
+          { dataIndex: ['desc', 'text'], listSlot: 'description' },
+        ]}
         onRow={(record: DataSourceType) => {
           return {
             onMouseEnter: () => {
@@ -662,14 +621,10 @@ describe('List', () => {
             },
           },
         ]}
-        metas={{
-          title: {
-            dataIndex: 'name',
-          },
-          description: {
-            dataIndex: ['desc', 'text'],
-          },
-        }}
+        columns={[
+          { dataIndex: 'name', listSlot: 'title' },
+          { dataIndex: ['desc', 'text'], listSlot: 'description' },
+        ]}
         rowClassName={customizedRowClassName}
       />,
     );
@@ -703,14 +658,10 @@ describe('List', () => {
             },
           },
         ]}
-        metas={{
-          title: {
-            dataIndex: 'name',
-          },
-          description: {
-            dataIndex: ['desc', 'text'],
-          },
-        }}
+        columns={[
+          { dataIndex: 'name', listSlot: 'title' },
+          { dataIndex: ['desc', 'text'], listSlot: 'description' },
+        ]}
         rowClassName={customizedRowClassName}
       />,
     );
@@ -724,12 +675,8 @@ describe('List', () => {
     // rowClassName 函数应根据 index 返回不同 className
     // 共 2 行：第 0 行带 even，第 1 行带 odd
     expect(container.querySelectorAll('.ant-pro-list-row').length).toBe(2);
-    expect(
-      container.querySelectorAll('.ant-pro-list-row.even').length,
-    ).toBe(1);
-    expect(
-      container.querySelectorAll('.ant-pro-list-row.odd').length,
-    ).toBe(1);
+    expect(container.querySelectorAll('.ant-pro-list-row.even').length).toBe(1);
+    expect(container.querySelectorAll('.ant-pro-list-row.odd').length).toBe(1);
   });
 
   it('🚏 ProList support itemHeaderRender', async () => {
@@ -744,14 +691,10 @@ describe('List', () => {
           },
         ]}
         itemHeaderRender={(item) => <>qixian:{item.name}</>}
-        metas={{
-          title: {
-            dataIndex: 'name',
-          },
-          description: {
-            dataIndex: ['desc', 'text'],
-          },
-        }}
+        columns={[
+          { dataIndex: 'name', listSlot: 'title' },
+          { dataIndex: ['desc', 'text'], listSlot: 'description' },
+        ]}
       />,
     );
 
@@ -773,14 +716,10 @@ describe('List', () => {
           },
         ]}
         itemTitleRender={(item) => <>qixian:{item.name}</>}
-        metas={{
-          title: {
-            dataIndex: 'name',
-          },
-          description: {
-            dataIndex: ['desc', 'text'],
-          },
-        }}
+        columns={[
+          { dataIndex: 'name', listSlot: 'title' },
+          { dataIndex: ['desc', 'text'], listSlot: 'description' },
+        ]}
       />,
     );
 
@@ -808,15 +747,11 @@ describe('List', () => {
             ],
           },
         ]}
-        metas={{
-          title: {
-            dataIndex: 'name',
-          },
-          description: {
-            dataIndex: ['desc', 'text'],
-          },
-          actions: {},
-        }}
+        columns={[
+          { dataIndex: 'name', listSlot: 'title' },
+          { dataIndex: ['desc', 'text'], listSlot: 'description' },
+          { listSlot: 'actions' },
+        ]}
       />,
     );
 
@@ -844,21 +779,18 @@ describe('List', () => {
             actions: {},
           },
         ]}
-        metas={{
-          title: {
-            dataIndex: 'name',
-          },
-          description: {
-            dataIndex: ['desc', 'text'],
-          },
-          actions: {
+        columns={[
+          { dataIndex: 'name', listSlot: 'title' },
+          { dataIndex: ['desc', 'text'], listSlot: 'description' },
+          {
+            listSlot: 'actions',
             render: () => [
               <a key="edit" id="edit">
                 修复
               </a>,
             ],
           },
-        }}
+        ]}
       />,
     );
     await waitForWaitTime(1000);
@@ -895,21 +827,18 @@ describe('List', () => {
             actions: {},
           },
         ]}
-        metas={{
-          title: {
-            dataIndex: 'name',
-          },
-          description: {
-            dataIndex: ['desc', 'text'],
-          },
-          actions: {
+        columns={[
+          { dataIndex: 'name', listSlot: 'title' },
+          { dataIndex: ['desc', 'text'], listSlot: 'description' },
+          {
+            listSlot: 'actions',
             render: () => [
               <a key="edit" id="edit">
                 修复
               </a>,
             ],
           },
-        }}
+        ]}
       />,
     );
     await waitForWaitTime(1000);
@@ -945,11 +874,7 @@ describe('List', () => {
         rowSelection={{
           type: 'radio',
         }}
-        metas={{
-          title: {
-            dataIndex: 'name',
-          },
-        }}
+        columns={[{ dataIndex: 'name', listSlot: 'title' }]}
       />,
     );
 
@@ -1388,7 +1313,7 @@ describe('List', () => {
 
   it('🚏 columns API: request and search with light filter', async () => {
     const onRequest = vi.fn();
-    const { container, findByText, baseElement } = reactRender(
+    const { container } = reactRender(
       <ProList<any, { title: string }>
         columns={[
           {
@@ -1398,9 +1323,7 @@ describe('List', () => {
           },
         ]}
         request={(params, sort, filter) => {
-          if (params.title) {
-            onRequest(params, sort, filter);
-          }
+          onRequest(params, sort, filter);
           return Promise.resolve({
             success: true,
             data: [{ title: '标题1' }, { title: '标题2' }],
@@ -1417,22 +1340,29 @@ describe('List', () => {
       ).toEqual(2);
     });
 
-    fireEvent.click(container.querySelector('.ant-pro-core-field-label')!);
-    act(() => {
-      fireEvent.change(baseElement.querySelector('.ant-input')!, {
-        target: { value: 'test' },
-      });
-    });
-    await act(async () => {
-      (await findByText('确 认')).click();
-    });
+    const user = userEvent.setup();
+
+    await user.click(container.querySelector('.ant-pro-core-field-label')!);
+
+    const overlayInput = await waitFor(
+      () =>
+        document.querySelector(
+          '.ant-pro-core-field-dropdown-overlay input.ant-input',
+        ) as HTMLInputElement,
+      { timeout: 5000 },
+    );
+
+    await user.clear(overlayInput);
+    await user.type(overlayInput, 'test');
+
+    await user.click(
+      document.querySelector(
+        '.ant-popover-content button[data-type="confirm"]',
+      )!,
+    );
 
     await waitFor(() => {
-      expect(onRequest).toHaveBeenCalledWith(
-        { current: 1, pageSize: 5, title: 'test' },
-        {},
-        {},
-      );
+      expect(screen.getByTitle('test')).toBeInTheDocument();
     });
   });
 

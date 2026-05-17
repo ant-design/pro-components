@@ -1512,7 +1512,9 @@ describe('Table ColumnSetting', () => {
       '.ant-pro-table-column-setting-list .ant-pro-table-column-setting-list-item:first-child',
     );
     // 「不固定」图标可见说明该列已处于固定状态（fixed !== undefined）
-    const noPinIcon = nameListItem?.querySelector('.anticon-vertical-align-middle');
+    const noPinIcon = nameListItem?.querySelector(
+      '.anticon-vertical-align-middle',
+    );
     expect(noPinIcon).not.toBeNull();
   });
 
@@ -1545,7 +1547,9 @@ describe('Table ColumnSetting', () => {
 
     // 初始状态：不应该有「固定在左侧」分组 title（所有列都在「不固定」组）
     expect(
-      html.baseElement.querySelector('.ant-pro-table-column-setting-list-group'),
+      html.baseElement.querySelector(
+        '.ant-pro-table-column-setting-list-group',
+      ),
     ).toBeNull();
 
     // 点击 Name 列的「固定在左侧」图标
@@ -1562,7 +1566,9 @@ describe('Table ColumnSetting', () => {
 
     // pin 后应出现「固定在左侧」分组（list-group class 出现）
     expect(
-      html.baseElement.querySelector('.ant-pro-table-column-setting-list-group'),
+      html.baseElement.querySelector(
+        '.ant-pro-table-column-setting-list-group',
+      ),
     ).not.toBeNull();
   });
 
@@ -1613,20 +1619,26 @@ describe('Table ColumnSetting', () => {
 
     // 取消 Name2（index=1）
     act(() => {
-      getTreeNodes()[1]?.querySelector<HTMLElement>('.ant-tree-checkbox')?.click();
+      getTreeNodes()[1]
+        ?.querySelector<HTMLElement>('.ant-tree-checkbox')
+        ?.click();
     });
     await waitForWaitTime(200);
 
     // 取消 Name3（index=2）
     act(() => {
-      getTreeNodes()[2]?.querySelector<HTMLElement>('.ant-tree-checkbox')?.click();
+      getTreeNodes()[2]
+        ?.querySelector<HTMLElement>('.ant-tree-checkbox')
+        ?.click();
     });
     await waitForWaitTime(200);
 
     // 父节点（Name）应既不 checked 也不 indeterminate
     const parentNode = getTreeNodes()[0];
     expect(parentNode?.querySelector('.ant-tree-checkbox-checked')).toBeNull();
-    expect(parentNode?.querySelector('.ant-tree-checkbox-indeterminate')).toBeNull();
+    expect(
+      parentNode?.querySelector('.ant-tree-checkbox-indeterminate'),
+    ).toBeNull();
   });
 
   // P0-1：父组件动态更新 columnsState.value 后，点重置应回到新值而非 mount 时的旧值
@@ -1661,17 +1673,21 @@ describe('Table ColumnSetting', () => {
 
     // 打开列设置 Popover
     act(() => {
-      document.querySelector<HTMLElement>(
-        '.ant-pro-table-list-toolbar-setting-item .anticon-setting',
-      )?.click();
+      document
+        .querySelector<HTMLElement>(
+          '.ant-pro-table-list-toolbar-setting-item .anticon-setting',
+        )
+        ?.click();
     });
     await waitForWaitTime(200);
 
     // 手动全选（改变 columnsMap）
     act(() => {
-      document.querySelector<HTMLInputElement>(
-        '.ant-pro-table-column-setting-title .ant-checkbox-input',
-      )?.click();
+      document
+        .querySelector<HTMLInputElement>(
+          '.ant-pro-table-column-setting-title .ant-checkbox-input',
+        )
+        ?.click();
     });
     await waitForWaitTime(200);
 
@@ -1679,9 +1695,11 @@ describe('Table ColumnSetting', () => {
 
     // 点重置
     act(() => {
-      document.querySelector<HTMLElement>(
-        '.ant-pro-table-column-setting-action-rest-button',
-      )?.click();
+      document
+        .querySelector<HTMLElement>(
+          '.ant-pro-table-column-setting-action-rest-button',
+        )
+        ?.click();
     });
     await waitForWaitTime(200);
 

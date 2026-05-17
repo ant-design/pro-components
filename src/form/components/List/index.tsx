@@ -311,7 +311,7 @@ function ProFormList<T>(props: ProFormListProps<T>) {
                     min={min}
                     max={max}
                     count={fields.length}
-        onAfterAdd={(defaultValue, insertIndex, count) => {
+                    onAfterAdd={(defaultValue, insertIndex, count) => {
                       validateIfNeeded();
                       onAfterAdd?.(defaultValue, insertIndex, count);
                     }}

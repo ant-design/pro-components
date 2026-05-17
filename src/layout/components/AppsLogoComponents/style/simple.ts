@@ -4,7 +4,9 @@ import { easeOut, motionDuration } from './index';
 
 /**
  * Simple 模式（仅 icon + title）的视觉参数。
- * 单个 item 实际占位 = `itemSize + itemMargin × 2`（宽高都是 104 + 16 = 120）。
+ * 水平方向：`itemSize` 为每个格子的 border-box 宽度；外加左右 margin 各 `itemMargin`，
+ * 即单格占宽 `itemSize + itemMargin × 2`（104 + 16 = 120），两列总宽 `listWidth` 240。
+ * `li` 必须使用 border-box，否则 width 只包住 content、padding 外扩会破坏两列换行。
  */
 const layout = {
   contentMaxOffset: 48,
@@ -12,22 +14,22 @@ const layout = {
   listWidth: 240,
   itemSize: 104,
   itemMargin: 8,
-  itemPadding: 24,
+  itemPaddingInline: 8,
+  itemPaddingBlock: 8,
   groupMarginBottom: 16,
   groupTitleMargin: '16px 0 8px 12px',
   groupTitleFirstChildMarginTop: 12,
-  hoverTranslateY: -2,
   avatarSize: 40,
   avatarFontSize: 22,
   avatarLineHeight: '40px',
-  avatarHoverScale: 1.06,
-  imgHoverScale: 1.06,
+  /** 与 img 一致略放大，避免无限 keyframes 抢视觉 */
+  avatarHoverScale: 1.05,
+  imgHoverScale: 1.05,
   linkFontSize: 12,
-  linkTitleMarginBlockStart: 5,
-  linkTitleLineHeight: '22px',
+  linkTitleMarginBlockStart: 4,
+  /** 单行标题与 12px 字号匹配；多行若以后加回需同步调大 */
+  linkTitleLineHeight: 1.25,
   linkDescLineHeight: '20px',
-  /** 字符头像呼吸循环周期 */
-  avatarPulseDuration: '1.6s',
   /** 字符头像背景渐变两端色（避免散落硬编码 hex） */
   avatarGradient: 'linear-gradient(180deg, #E8F0FB 0%, #F6F8FC 100%)',
 };
@@ -43,9 +45,8 @@ const genAppsLogoComponentsSimpleListStyle: GenerateStyle<
   AppsLogoComponentsToken
 > = (token) => {
   const rowTransition = [
-    `transform ${motionDuration.mid} ${easeOut}`,
     `background-color ${motionDuration.fast} ${easeOut}`,
-    `box-shadow ${motionDuration.mid} ${easeOut}`,
+    `box-shadow ${motionDuration.fast} ${easeOut}`,
   ].join(', ');
 
   return {
@@ -69,15 +70,15 @@ const genAppsLogoComponentsSimpleListStyle: GenerateStyle<
         '&-item': {
           position: 'relative',
           display: 'inline-block',
+          boxSizing: 'border-box',
           width: layout.itemSize,
-          height: layout.itemSize,
           marginBlock: layout.itemMargin,
           marginInline: layout.itemMargin,
-          paddingInline: layout.itemPadding,
-          paddingBlock: layout.itemPadding,
+          paddingInline: layout.itemPaddingInline,
+          paddingBlock: layout.itemPaddingBlock,
           verticalAlign: 'top',
           listStyleType: 'none',
-          /** 与 default 列表共享的 hover 过渡：transform + 背景 + 阴影 */
+          /** 紧凑格：只做背景 + inset 描边过渡，避免整格位移 + 外阴影裁切/发糊 */
           transition: rowTransition,
           borderRadius: token.borderRadius,
           cursor: 'pointer',
@@ -97,29 +98,26 @@ const genAppsLogoComponentsSimpleListStyle: GenerateStyle<
           },
           '&:hover': {
             backgroundColor: token.colorBgTextHover,
-            transform: `translateY(${layout.hoverTranslateY}px)`,
-            boxShadow: token.boxShadowSecondary,
-            /** 字符 chip 头像：hover 时跑呼吸动画 */
+            boxShadow: `inset 0 0 0 1px ${token.colorBorderSecondary}`,
             [`& > a > ${token.componentCls}-simple-avatar`]: {
-              animationName: `${token.componentCls}-avatar-pulse`.replace(
-                /^\./,
-                '',
-              ),
-              animationDuration: layout.avatarPulseDuration,
-              animationTimingFunction: 'ease-in-out',
-              animationIterationCount: 'infinite',
+              transform: `scale(${layout.avatarHoverScale})`,
             },
             '& > a > img': { transform: `scale(${layout.imgHoverScale})` },
           },
           '&:active': {
-            transform: 'translateY(0)',
-            boxShadow: 'none',
+            backgroundColor: token.colorFillTertiary,
+            boxShadow: `inset 0 0 0 1px ${token.colorBorder}`,
           },
           a: {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            height: '100%',
+            boxSizing: 'border-box',
+            width: '100%',
+            minWidth: 0,
+            margin: 0,
+            /** 与 `li` 内边距二选一：留白在 `li`，避免主题给 `a` 再叠一层 padding */
+            padding: 0,
             fontSize: layout.linkFontSize,
             textDecoration: 'none',
             /**
@@ -136,7 +134,8 @@ const genAppsLogoComponentsSimpleListStyle: GenerateStyle<
               textAlign: 'center',
               backgroundImage: layout.avatarGradient,
               borderRadius: token.borderRadius,
-              transition: `transform ${motionDuration.slow} ${easeOut}`,
+              transform: 'scale(1)',
+              transition: `transform ${motionDuration.mid} ${easeOut}`,
             },
             '& > img': {
               width: layout.avatarSize,
@@ -145,10 +144,20 @@ const genAppsLogoComponentsSimpleListStyle: GenerateStyle<
             },
             '& > div': {
               marginBlockStart: layout.linkTitleMarginBlockStart,
-              marginInlineStart: 0,
+              width: '100%',
+              minWidth: 0,
+            },
+            /**
+             * 标题：九宫格场景默认单行 + 省略，与图标居中对齐、格内更整齐；
+             * 若业务名普遍很长需要折行，可改为两行 `line-clamp`（勿与 nowrap 同开）。
+             */
+            '& > div > div': {
+              margin: 0,
               color: token.colorTextHeading,
-              fontSize: token.fontSize,
+              fontSize: layout.linkFontSize,
               lineHeight: layout.linkTitleLineHeight,
+              textAlign: 'center',
+              overflow: 'hidden',
               whiteSpace: 'nowrap',
               textOverflow: 'ellipsis',
             },

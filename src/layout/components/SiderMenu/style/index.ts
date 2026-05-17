@@ -64,14 +64,13 @@ const ACTIONS = {
 /** Extra 区外边距 */
 const EXTRA_MARGIN = 16;
 /** Footer 区底部内边距 */
-const FOOTER_PADDING_BLOCK_END = 16;
+const FOOTER_PADDING_BLOCK_END = 0;
 
 /** 折叠态 hide-menu 按钮向 sider 外偏移量：让按钮半压在 sider 边缘上 */
 const HIDE_MENU_COLLAPSED_OFFSET = 12;
 
 /**
- * Sider 内部 motion 规范：title 淡入 / icon 尺寸过渡统一走这套常量，
- * 业务侧如果想整体放慢/加快，可通过 antd `--ant-motion-duration-*` 覆盖 transition 那几行。
+ * Sider 内部 motion 规范：title 淡入 / icon 尺寸过渡统一走这套常量。
  */
 const MOTION = {
   titleHideDuration: '.4s',
@@ -81,7 +80,43 @@ const MOTION = {
   actionsCollapsedTransition: 'font-size 0.3s ease-in-out',
 } as const;
 
+function getSiderMenuScrollbar(): Record<string, unknown> {
+  const thumb = `var(${proLayoutSiderVar.scrollbarThumb})`;
+  const thumbHover = `var(${proLayoutSiderVar.scrollbarThumbHover})`;
+  const track = `var(${proLayoutSiderVar.scrollbarTrack})`;
+  const size = `var(${proLayoutSiderVar.scrollbarTrackThickness})`;
+  const radius = `var(${proLayoutSiderVar.scrollbarThumbRadius})`;
+
+  return {
+    scrollbarWidth: 'thin',
+    scrollbarColor: 'transparent transparent',
+    '&:hover': {
+      scrollbarColor: `${thumb} transparent`,
+    },
+    '&::-webkit-scrollbar': {
+      width: size,
+      height: size,
+      backgroundColor: 'transparent',
+    },
+    '&::-webkit-scrollbar-track': {
+      backgroundColor: track,
+    },
+    '&::-webkit-scrollbar-thumb': {
+      backgroundColor: 'transparent',
+      borderRadius: radius,
+      transition: 'background-color 0.3s ease',
+    },
+    '&:hover::-webkit-scrollbar-thumb': {
+      backgroundColor: thumb,
+    },
+    '&::-webkit-scrollbar-thumb:hover': {
+      backgroundColor: thumbHover,
+    },
+  };
+}
+
 const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
+  const siderMenuScrollbar = getSiderMenuScrollbar();
   const sv = (k: keyof typeof proLayoutSiderVar) =>
     `var(${proLayoutSiderVar[k]})`;
   return {
@@ -93,19 +128,44 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
       [`${token.antCls}-layout-sider${token.componentCls}${token.antCls}-layout-sider-collapsed`]:
         {
           [`& ${token.antCls}-layout-sider-children`]: {
+            paddingInline: 0,
+            alignItems: 'stretch',
+          },
+          [`& ${token.componentCls}-menu-scroll`]: {
+            scrollbarGutter: 'stable both-edges',
+            marginInlineEnd: 0,
+            paddingInlineEnd: 0,
+          },
+          [`& ${token.componentCls}-logo`]: {
             paddingInline: SIDER_COLLAPSED_PAD_INLINE,
-            alignItems: 'center',
+            justifyContent: 'center',
+          },
+          [`& ${token.componentCls}-actions`]: {
+            paddingInline: SIDER_COLLAPSED_PAD_INLINE,
+            justifyContent: 'center',
           },
         },
       [token.componentCls]: {
         position: 'relative',
         boxSizing: 'border-box',
+        '&-menu-scroll': {
+          flex: 1,
+          minHeight: 0,
+          overflowY: 'auto',
+          overflowX: 'hidden',
+          marginInlineEnd: `calc(-1 * ${sv('paddingInlineMenu')})`,
+          paddingInlineEnd: sv('paddingInlineMenu'),
+          ...siderMenuScrollbar,
+          '@media (pointer: coarse)': {
+            scrollbarWidth: 'none',
+            '&::-webkit-scrollbar': { display: 'none' },
+          },
+        },
         '&-menu': {
           position: 'relative',
           zIndex: MENU_Z_INDEX,
           flex: 1,
           minHeight: 0,
-          overflowY: 'auto',
         },
         [`& ${token.antCls}-layout-sider-children`]: {
           position: 'relative',
@@ -136,12 +196,12 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
             minHeight: LOGO.linkSize,
             fontSize: LOGO.linkSize,
             '> img': {
-              display: 'inline-block',
+              display: 'block',
               height: LOGO.linkSize,
-              verticalAlign: 'middle',
             },
             '> h1': {
-              display: 'inline-block',
+              display: 'flex',
+              alignItems: 'center',
               height: LOGO.linkSize,
               marginBlock: 0,
               marginInlineEnd: 0,
@@ -153,7 +213,6 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
               fontWeight: LOGO.titleFontWeight,
               fontSize: LOGO.titleFontSize,
               lineHeight: LOGO.titleLineHeight,
-              verticalAlign: 'middle',
             },
           },
           '&-collapsed': {
@@ -206,7 +265,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
             paddingBlock: ACTIONS.avatarPaddingBlock,
             display: 'flex',
             alignItems: 'center',
-            gap: 'var(--ant-margin-xs, 8px)',
+            gap: `${token.marginXS}px`,
             borderRadius: sv('borderRadius'),
             '& *': {
               cursor: 'pointer',

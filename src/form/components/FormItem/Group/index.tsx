@@ -3,7 +3,11 @@ import { useControlledState } from '@rc-component/util';
 import { ConfigProvider, Space } from 'antd';
 import { clsx } from 'clsx';
 import React, { useCallback, useContext, useMemo } from 'react';
-import { autoFocusToFirstChild, LabelIconTip, useRefFunction } from '../../../../utils';
+import {
+  autoFocusToFirstChild,
+  LabelIconTip,
+  useRefFunction,
+} from '../../../../utils';
 import FieldContext from '../../../FieldContext';
 import { useGridHelpers } from '../../../helpers/grid';
 import { ProFormGroupProps } from '../../../typing';

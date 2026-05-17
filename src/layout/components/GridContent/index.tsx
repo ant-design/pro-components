@@ -33,10 +33,10 @@ const GridContent: React.FC<GridContentProps> = (props) => {
   const prefixCls = props.prefixCls || getPrefixCls('pro');
   const contentWidth = propsContentWidth || value.contentWidth;
   const className = `${prefixCls}-grid-content`;
-  const { wrapSSR, hashId } = useStyle(className);
+  const { hashId } = useStyle(className);
   const isWide = contentWidth === 'Fixed' && value.layout === 'top';
 
-  return wrapSSR(
+  return (
     <div
       className={clsx(className, hashId, propsClassName, {
         [`${className}-wide`]: isWide,
@@ -50,7 +50,7 @@ const GridContent: React.FC<GridContentProps> = (props) => {
       >
         {children}
       </div>
-    </div>,
+    </div>
   );
 };
 

@@ -13,9 +13,15 @@ legacy: /table
 
 <code src="../../demos/table/normal.tsx" background="var(--main-bg-color)" title="无查询表单"></code>
 
-<code src="../../demos/table/dataSource.tsx" background="var(--main-bg-color)" title="使用 DataSource"></code>
+<code src="../../demos/table/data-source.tsx" background="var(--main-bg-color)" title="使用 DataSource" debug></code>
 
 <code src="../../demos/table/no-title.tsx" id="no-title-table" background="var(--main-bg-color)" title="无 ToolBar 的表格"></code>
+
+### 自适应高度
+
+通过 `scroll={{ y: 'fill' }}` 让表格自动填充父容器高度，搜索栏、工具栏、分页器保持固定，仅数据区域滚动。
+
+<code src="../../demos/table/fill-height.tsx" background="var(--main-bg-color)" title="scroll.y = fill 自适应高度"></code>
 
 ### 搜索栏类型切换
 
@@ -27,11 +33,11 @@ legacy: /table
 
 <code src="../../demos/table/no-option.tsx" background="var(--main-bg-color)" title="查询（无按钮）表格"></code>
 
-<code src="../../demos/table/lightfilter.tsx" background="var(--main-bg-color)" title="轻量筛选替换查询表单"></code>
+<code src="../../demos/table/light-filter.tsx" background="var(--main-bg-color)" title="轻量筛选替换查询表单"></code>
 
 <code src="../../demos/table/search.tsx" background="var(--main-bg-color)" title="使用自带 keyWords 搜索的 table"></code>
 
-<code src="../../demos/table/search_option.tsx" background="var(--main-bg-color)" title="搜索选项自定义"></code>
+<code src="../../demos/table/search-option.tsx" background="var(--main-bg-color)" title="搜索选项自定义"></code>
 
 <code src="../../demos/table/open-rules.tsx" background="var(--main-bg-color)" title="必填的查询表单"></code>
 
@@ -85,7 +91,7 @@ formItemRender: (
   ) => JSX.Element | false | null;
 ```
 
-<code src="../../demos/table/linkage_form.tsx" background="var(--main-bg-color)" title="动态联动搜索栏"></code>
+<code src="../../demos/table/linkage-form.tsx" background="var(--main-bg-color)" title="动态联动搜索栏"></code>
 
 <code src="../../demos/table/form.tsx" background="var(--main-bg-color)" title="通过 formRef 来操作查询表单"></code>
 
@@ -105,7 +111,7 @@ formItemRender: (
 
 ### 表格功能
 
-<code src="../../demos/table/batchOption.tsx" background="var(--main-bg-color)" title="表格批量操作"></code>
+<code src="../../demos/table/batch-option.tsx" background="var(--main-bg-color)" title="表格批量操作"></code>
 
 <code src="../../demos/table/table-nested.tsx" background="var(--main-bg-color)" title="嵌套表格"></code>
 
@@ -113,39 +119,45 @@ formItemRender: (
 
 <code src="../../demos/table/polling.tsx" background="var(--main-bg-color)" title="表格轮询"></code>
 
-<code src="../../demos/table/dateFormatter.tsx" background="var(--main-bg-color)" title="dateFormatter - 日期格式化"></code>
+<code src="../../demos/table/date-formatter.tsx" background="var(--main-bg-color)" title="dateFormatter - 日期格式化"></code>
 
 ### Toolbar 自定义
 
 使用 `toolbar` 属性扩展配置工具栏渲染。
 
-<code src="../../demos/table/listToolBar.tsx" background="var(--main-bg-color)" title="Toolbar 自定义"></code>
+<code src="../../demos/table/list-toolbar.tsx" background="var(--main-bg-color)" title="Toolbar 自定义"></code>
 
-<code src="../../demos/table/renderTable.tsx" background="var(--main-bg-color)" title="表格主体自定义"></code>
+<code src="../../demos/table/render-table.tsx" background="var(--main-bg-color)" title="表格主体自定义"></code>
 
 ### 卡片表格
 
-有些业务有自己的定制逻辑，可以不完全遵循 ProTable 的设计规则，但可以利用 ProTable 的 API 实现。如通过 `cardProps` 配置卡片属性，通过 `headTitle` 配置行动点在左侧。
+有些业务有自己的定制逻辑，可以不完全遵循 ProTable 的设计规则，但可以利用 ProTable 的 API 实现：例如通过 `cardProps.title`（或 `cardProps` 其他字段）配置卡片标题区域，通过 `headerTitle` 在左上角放置主按钮等操作区（见示例）。
 
 <code src="../../demos/table/card-title.tsx" background="var(--main-bg-color)" desc="使用卡片标题，行动点在左侧。"></code>
+
+### 无搜索表格
+
+关闭搜索栏时，只要存在 `options`（刷新、列设置等），表格仍会使用卡片包裹。
+
+<code src="../../demos/table/no-search.tsx" background="var(--main-bg-color)" desc="search={false} 时保留 options 工具栏。"></code>
 
 ### 值类型示例
 
 #### valueType - 日期类
 
-<code src="../../demos/table/valueTypeDate.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/table/value-type-date.tsx" background="var(--main-bg-color)"></code>
 
 #### valueType - 数字类
 
-<code src="../../demos/table/valueTypeNumber.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/table/value-type-number.tsx" background="var(--main-bg-color)"></code>
 
 #### valueType - 样式类
 
-<code src="../../demos/table/valueType.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/table/value-type.tsx" background="var(--main-bg-color)"></code>
 
 #### valueType - 选择类
 
-<code src="../../demos/table/valueType_select.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/table/value-type-select.tsx" background="var(--main-bg-color)"></code>
 
 #### 自定义 valueType
 
@@ -153,12 +165,11 @@ formItemRender: (
 
 ### 国际化相关的配置
 
-ProTable 内置了国际化的支持，作为一个文本量比较少的组件，我们可以自行实现国际化，成本也很低。
-
-这里是全量的文本
+ProTable 内置国际化相关文案。下面是 **可被 `createIntl` 合并覆盖** 的文案结构示意；与 antd `ConfigProvider` 的 `locale` 配合的完整切换方式，请直接参考下方 `intl.tsx` 示例。
 
 ```typescript | pure
-const enLocale = {
+/** ProTable / 工具栏等区域会用到的文案 key，仅供结构参考 */
+export const proTableIntlShape = {
   tableForm: {
     search: 'Query',
     reset: 'Reset',
@@ -168,9 +179,7 @@ const enLocale = {
     inputPlaceholder: 'Please enter',
     selectPlaceholder: 'Please select',
   },
-  alert: {
-    clear: 'Clear',
-  },
+  alert: { clear: 'Clear' },
   tableToolBar: {
     leftPin: 'Pin to left',
     rightPin: 'Pin to right',
@@ -191,15 +200,6 @@ const enLocale = {
     densitySmall: 'Compact',
   },
 };
-
-import { ProProvider } from '@ant-design/pro-components';
-const enUSIntl = createIntl('en_US', enUS);
-const values = useContext(ProProvider)
-
-// 使用
-<ProProvider.Provider value={{ ...values, intl: enUSIntl }}>
-  <ProTable />
-</ProProvider.Provider>;
 ```
 
 <code src="../../demos/table/intl.tsx" background="var(--main-bg-color)" title="国际化相关的配置"></code>
@@ -208,7 +208,7 @@ const values = useContext(ProProvider)
 
 RTL means right-to-left.
 
-<code src="../../demos/table/rtl_table.tsx" background="var(--main-bg-color)"></code>
+<code src="../../demos/table/rtl-table.tsx" background="var(--main-bg-color)"></code>
 
 ### 主题
 
@@ -224,22 +224,32 @@ RTL means right-to-left.
 
 <code src="../../demos/table/_single-test.tsx" debug background="var(--main-bg-color)"></code>
 
+### 其它示例
+
+列状态受控与动态列、自定义列设置图标、基于 `hideInSearch` 的内容类搜索项（contentWords）等。
+
+<code src="../../demos/table/dynamic-columns-state.tsx" background="var(--main-bg-color)" title="列状态 columnsState"></code>
+
+<code src="../../demos/table/columns-setting-custom-icon.tsx" background="var(--main-bg-color)" title="自定义列设置图标"></code>
+
+<code src="../../demos/table/content-words-item.tsx" background="var(--main-bg-color)" title="内容类查询项"></code>
+
 ## 列表工具栏
 
 用于自定义表格的工具栏部分。
 
 ### 代码演示
 
-<code src="../../demos/table/ListToolBar/basic.tsx" background="var(--main-bg-color)" title="列表工具栏-基本使用"></code>
+<code src="../../demos/table/list-toolbar/basic.tsx" background="var(--main-bg-color)" title="列表工具栏-基本使用"></code>
 
-<code src="../../demos/table/ListToolBar/no-title.tsx" id="listToolBar-no-title" background="var(--main-bg-color)" title="无标题" desc="列表工具栏-没有标题的情况下搜索框会前置。"></code>
+<code src="../../demos/table/list-toolbar/no-title.tsx" id="listToolBar-no-title" background="var(--main-bg-color)" title="无标题" desc="列表工具栏-没有标题的情况下搜索框会前置。"></code>
 
-<code src="../../demos/table/ListToolBar/multipleLine.tsx" background="var(--main-bg-color)" title="双行布局" desc="列表工具栏-双行的情况下会有双行的布局形式。"></code>
+<code src="../../demos/table/list-toolbar/multiple-line.tsx" background="var(--main-bg-color)" title="双行布局" desc="列表工具栏-双行的情况下会有双行的布局形式。"></code>
 
-<code src="../../demos/table/ListToolBar/tabs.tsx" background="var(--main-bg-color)" title="带标签" desc="列表工具栏-标签需配合 `multipleLine` 为 `true` 时使用。"></code>
+<code src="../../demos/table/list-toolbar/tabs.tsx" background="var(--main-bg-color)" title="带标签" desc="列表工具栏-标签需配合 `multipleLine` 为 `true` 时使用。"></code>
 
-<code src="../../demos/table/ListToolBar/menu.tsx" background="var(--main-bg-color)" title="列表工具栏-标题下拉菜单"></code>
+<code src="../../demos/table/list-toolbar/menu.tsx" background="var(--main-bg-color)" title="列表工具栏-标题下拉菜单"></code>
 
-#### TableDropdown
+#### ProForm 内 EditableProTable（列校验）
 
-<code src="../../demos/table/edittable-rules.tsx" background="var(--main-bg-color)" title="列表工具栏-标题下拉菜单" debug></code>
+<code src="../../demos/table/edit-table-rules.tsx" background="var(--main-bg-color)" title="ProForm 内可编辑表格与列校验" debug></code>

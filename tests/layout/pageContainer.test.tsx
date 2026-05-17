@@ -231,13 +231,11 @@ describe('PageContainer', () => {
     );
     // 应同时渲染 breadcrumb 与 footer
     expect(wrapper.container.querySelector('.ant-breadcrumb')).toBeTruthy();
-    expect(
-      wrapper.container.querySelector('.ant-pro-footer-bar'),
-    ).toBeTruthy();
+    expect(wrapper.container.querySelector('.ant-pro-footer-bar')).toBeTruthy();
     // breadcrumb 内应包含 home 文本
-    expect(wrapper.container.querySelector('.ant-breadcrumb')?.textContent).toContain(
-      'home',
-    );
+    expect(
+      wrapper.container.querySelector('.ant-breadcrumb')?.textContent,
+    ).toContain('home');
   });
 
   it('🔥 footer bar support extra', async () => {
@@ -305,7 +303,7 @@ describe('PageContainer', () => {
     );
 
     expect(container.querySelector('.ant-pro-footer-bar')).toHaveStyle(
-      'width: calc(100% - 240px)',
+      'width: calc(100% - 235px)',
     );
 
     rerender(
@@ -322,7 +320,7 @@ describe('PageContainer', () => {
     );
 
     expect(container.querySelector('.ant-pro-footer-bar')).toHaveStyle(
-      'width: calc(100% - 48px)',
+      'width: calc(100% - 64px)',
     );
 
     rerender(
@@ -342,9 +340,9 @@ describe('PageContainer', () => {
       'width: 100%',
     );
     // layout="top" 时 footer-bar 宽度撑满，且仍渲染传入按钮
-    expect(container.querySelector('.ant-pro-footer-bar')?.textContent).toContain(
-      'qixian',
-    );
+    expect(
+      container.querySelector('.ant-pro-footer-bar')?.textContent,
+    ).toContain('qixian');
   });
 
   it('🐲 FooterToolbar should know width', async () => {
@@ -366,7 +364,7 @@ describe('PageContainer', () => {
       </ProLayout>,
     );
     expect(container.querySelector('.ant-pro-footer-bar')).toHaveStyle(
-      'width: calc(100% - 240px)',
+      'width: calc(100% - 235px)',
     );
 
     rerender(
@@ -382,7 +380,7 @@ describe('PageContainer', () => {
     );
 
     expect(container.querySelector('.ant-pro-footer-bar')).toHaveStyle(
-      'width: calc(100% - 48px)',
+      'width: calc(100% - 64px)',
     );
 
     rerender(
@@ -569,9 +567,9 @@ describe('PageContainer', () => {
     expect(container.querySelectorAll('.custom-className')).toHaveLength(1);
     // page-header 不应带 custom-className
     expect(
-      container.querySelector('.ant-page-header')?.classList.contains(
-        'custom-className',
-      ),
+      container
+        .querySelector('.ant-page-header')
+        ?.classList.contains('custom-className'),
     ).toBe(false);
     // header.title 应渲染
     expect(

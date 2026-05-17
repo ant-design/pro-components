@@ -72,8 +72,12 @@ function DragSortTable<
   const DragHandle = useMemo(() => {
     const dragHandlePrefixCls = getPrefixCls('pro-table-drag-icon');
     return function DragHandleInner(dragHandleProps: any) {
-      const { rowData: _rowData, index: _index, className, ...rest } =
-        dragHandleProps;
+      const {
+        rowData: _rowData,
+        index: _index,
+        className,
+        ...rest
+      } = dragHandleProps;
       const defaultDom = (
         <HolderOutlined
           {...rest}
@@ -81,7 +85,10 @@ function DragSortTable<
         />
       );
       const handel = dragSortHandlerRender
-        ? dragSortHandlerRender(dragHandleProps?.rowData, dragHandleProps?.index)
+        ? dragSortHandlerRender(
+            dragHandleProps?.rowData,
+            dragHandleProps?.index,
+          )
         : defaultDom;
       return <div {...rest}>{handel}</div>;
     };

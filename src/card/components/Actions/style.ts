@@ -30,7 +30,7 @@ const genActionsStyle: GenerateStyle<ProCardActionsToken> = (token) => {
         display: 'flex',
         cursor: 'pointer',
         color: token.colorTextSecondary,
-        transition: 'color 0.3s',
+        transition: `color ${token.motionDurationMid}`,
         '&:hover': {
           color: token.colorPrimaryHover,
         },
@@ -44,7 +44,7 @@ const genActionsStyle: GenerateStyle<ProCardActionsToken> = (token) => {
         textAlign: 'center',
         a: {
           color: token.colorTextSecondary,
-          transition: 'color 0.3s',
+          transition: `color ${token.motionDurationMid}`,
           '&:hover': {
             color: token.colorPrimaryHover,
           },
@@ -53,14 +53,14 @@ const genActionsStyle: GenerateStyle<ProCardActionsToken> = (token) => {
         div: {
           position: 'relative',
           display: 'block',
-          minWidth: 32,
+          minWidth: token.controlHeight,
           fontSize: token.fontSize,
           lineHeight: token.lineHeight,
           cursor: 'pointer',
+          transition: `color ${token.motionDurationMid}`,
 
           '&:hover': {
             color: token.colorPrimaryHover,
-            transition: 'color 0.3s',
           },
 
           [`a:not(${antCls}-btn),
@@ -69,7 +69,7 @@ const genActionsStyle: GenerateStyle<ProCardActionsToken> = (token) => {
             width: '100%',
             color: token.colorTextSecondary,
             lineHeight: '22px',
-            transition: 'color 0.3s',
+            transition: `color ${token.motionDurationMid}`,
 
             '&:hover': {
               color: token.colorPrimaryHover,
@@ -95,7 +95,7 @@ export default function useStyle(prefixCls?: string) {
     const proCardActionsToken: ProCardActionsToken = {
       ...token,
       componentCls: `.${prefixCls}`,
-      cardActionIconSize: 16,
+      cardActionIconSize: token.fontSizeLG,
     };
 
     return [genActionsStyle(proCardActionsToken)];

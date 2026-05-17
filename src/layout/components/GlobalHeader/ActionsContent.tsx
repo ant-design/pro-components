@@ -1,25 +1,24 @@
+import { EllipsisOutlined } from '@ant-design/icons';
 import ResizeObserver from '@rc-component/resize-observer';
-import { Avatar, ConfigProvider } from 'antd';
+import { Avatar, ConfigProvider, Dropdown } from 'antd';
 import { clsx } from 'clsx';
 import React, { useContext, useMemo, useState } from 'react';
 import type { GlobalHeaderProps } from '.';
 import { useDebounceFn } from '../../../utils';
 import { useStyle } from './rightContentStyle';
 
-/**
- * 抽离出来是为了防止 rightSize 经常改变导致菜单 render
- *
- * @param param0
- */
+const MAX_VISIBLE_MOBILE_ACTIONS = 2;
+
 export const ActionsContent: React.FC<GlobalHeaderProps> = ({
   avatarProps,
   actionsRender,
-  headerContentRender,
+  headerContentRender: _headerContentRender,
   ...props
 }) => {
+  const { isMobile } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = `${getPrefixCls()}-pro-global-header`;
-  const { wrapSSR, hashId } = useStyle(prefixCls);
+  const { hashId } = useStyle(prefixCls);
 
   const [rightSize, setRightSize] = useState<number | string>('auto');
 
@@ -30,7 +29,7 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
       rest?.src || rest?.srcSet || rest.icon || rest.children ? (
         <Avatar {...rest} size={28} key="avatar" />
       ) : null,
-      title ? (
+      !isMobile && title ? (
         <span
           key="name"
           style={{
@@ -46,7 +45,7 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
       return render(avatarProps, <div>{domList}</div>, props);
     }
     return <div>{domList}</div>;
-  }, [avatarProps]);
+  }, [avatarProps, isMobile]);
 
   const rightActionsRender =
     actionsRender || avatarDom
@@ -55,7 +54,7 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
 
           if (!doms && !avatarDom) return null;
           if (!Array.isArray(doms))
-            return wrapSSR(
+            return (
               <div
                 className={clsx(`${prefixCls}-header-actions`, hashId)}
                 data-testid="pro-layout-global-header-actions"
@@ -72,16 +71,26 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
                     {avatarDom}
                   </span>
                 )}
-              </div>,
+              </div>
             );
-          return wrapSSR(
+
+          const validDoms = doms.filter(Boolean);
+          const needCollapse =
+            isMobile && validDoms.length > MAX_VISIBLE_MOBILE_ACTIONS;
+          const visibleDoms = needCollapse
+            ? validDoms.slice(0, MAX_VISIBLE_MOBILE_ACTIONS)
+            : validDoms;
+          const overflowDoms = needCollapse
+            ? validDoms.slice(MAX_VISIBLE_MOBILE_ACTIONS)
+            : [];
+
+          return (
             <div
               className={clsx(`${prefixCls}-header-actions`, hashId)}
               data-testid="pro-layout-global-header-actions"
             >
-              {doms.filter(Boolean).map((dom, index) => {
+              {visibleDoms.map((dom, index) => {
                 let hideHover = false;
-                // 如果配置了 hideHover 就不展示 hover 效果了
                 if (React.isValidElement(dom)) {
                   hideHover = !!dom?.props?.['aria-hidden'];
                 }
@@ -101,22 +110,41 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
                   </div>
                 );
               })}
+              {overflowDoms.length > 0 && (
+                <Dropdown
+                  trigger={['click']}
+                  menu={{
+                    items: overflowDoms.map((dom, index) => ({
+                      key: `overflow-${index}`,
+                      label: dom,
+                    })),
+                  }}
+                >
+                  <div
+                    className={clsx(
+                      `${prefixCls}-header-actions-item`,
+                      `${prefixCls}-header-actions-hover`,
+                      hashId,
+                    )}
+                    data-testid="pro-layout-global-header-actions-more"
+                  >
+                    <EllipsisOutlined />
+                  </div>
+                </Dropdown>
+              )}
               {avatarDom && (
                 <span
-                  className={clsx(
-                    `${prefixCls}-header-actions-avatar`,
-                    hashId,
-                  )}
+                  className={clsx(`${prefixCls}-header-actions-avatar`, hashId)}
                   data-testid="pro-layout-global-header-actions-avatar"
                 >
                   {avatarDom}
                 </span>
               )}
-            </div>,
+            </div>
           );
         }
       : undefined;
-  /** 减少一下渲染的次数 */
+
   const setRightSizeDebounceFn = useDebounceFn(async (width: number) => {
     setRightSize(width);
   }, 160);
@@ -155,7 +183,6 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
                 {contentRender
                   ? contentRender({
                       ...props,
-                      // 测试专用
                       rightContentSize: rightSize,
                     })
                   : null}

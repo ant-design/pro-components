@@ -1,4 +1,3 @@
-import { omit } from '@rc-component/util';
 import type { ButtonProps } from 'antd';
 import { Button, Form } from 'antd';
 import React from 'react';
@@ -47,7 +46,12 @@ function renderActionButton(
   extraProps?: ButtonProps,
 ): React.JSX.Element {
   // 剥离非原生 ButtonProps 的扩展字段，避免透传给 antd Button 导致警告
-  const { preventDefault, onClick, fieldProps: _fieldProps, ...restButtonProps } = buttonProps as ActionButtonProps & { fieldProps?: unknown };
+  const {
+    preventDefault,
+    onClick,
+    fieldProps: _fieldProps,
+    ...restButtonProps
+  } = buttonProps as ActionButtonProps & { fieldProps?: unknown };
   return (
     <Button
       {...extraProps}
@@ -121,7 +125,9 @@ const Submitter: React.FC<SubmitterProps> = (props) => {
     );
   }
 
-  const renderDom = render ? render({ ...props, form, submit, reset }, dom) : dom;
+  const renderDom = render
+    ? render({ ...props, form, submit, reset }, dom)
+    : dom;
   if (!renderDom) return null;
 
   if (Array.isArray(renderDom)) {

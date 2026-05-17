@@ -21,9 +21,7 @@ describe('DefaultFooter test', () => {
       wrapper.baseElement.querySelector('.ant-pro-global-footer-copyright'),
     ).toBeFalsy();
     // 不应渲染 CopyrightOutlined 图标
-    expect(
-      wrapper.baseElement.querySelector('.anticon-copyright'),
-    ).toBeFalsy();
+    expect(wrapper.baseElement.querySelector('.anticon-copyright')).toBeFalsy();
     // 外层 layout footer 容器仍存在
     expect(
       wrapper.baseElement.querySelector('[data-testid="pro-layout-footer"]'),

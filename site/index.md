@@ -13,10 +13,10 @@ footer: Open-source MIT Licensed | © 2017-present
 
 如果你正在从 ProComponents 2.0 升级到 3.0，我们为你准备了详细的迁移指南：
 
-- [📋 API 变更总结](./api-changes.md) - 快速查看所有变更
-- [🚀 详细迁移指南](./migration-guide.md) - 完整的迁移步骤和示例
-- [📋 API Changes Summary (EN)](./api-changes.en-US.md) - API changes in English
-- [🚀 Migration Guide (EN)](./migration-guide.en-US.md) - Complete migration guide in English
+- [📋 API 变更总结](./docs/api-changes.md) - 快速查看所有变更
+- [🚀 详细迁移指南](./docs/migration-guide.md) - 完整的迁移步骤和示例
+- [📋 API Changes Summary (EN)](./docs/api-changes.en-US.md) - API changes in English
+- [🚀 Migration Guide (EN)](./docs/migration-guide.en-US.md) - Complete migration guide in English
 
 ## 🎯 什么是 ProComponents？
 
@@ -60,13 +60,11 @@ ProComponents 是一个专为企业级应用打造的 React UI 组件库。我�
 
 ## 📊 组件看板
 
-## 📊 组件看板
-
 看看我们的组件有多受欢迎：
 
-| 组件           | 下载量                                                                                                                              | 版本                                                                                                                                                                        |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| pro-components | [![layout](https://img.shields.io/npm/dw/@ant-design/pro-components.svg)](https://www.npmjs.com/package/@ant-design/pro-components) | [![npm package](https://img.shields.io/npm/v/@ant-design/pro-components.svg?style=flat-square?style=flat-square)](https://www.npmjs.com/package/@ant-design/pro-components) |
+| 组件           | 下载量                                                                                                                              | 版本                                                                                                                                                      |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| pro-components | [![layout](https://img.shields.io/npm/dw/@ant-design/pro-components.svg)](https://www.npmjs.com/package/@ant-design/pro-components) | [![npm package](https://img.shields.io/npm/v/@ant-design/pro-components.svg?style=flat-square)](https://www.npmjs.com/package/@ant-design/pro-components) |
 
 ## 🖥 浏览器兼容性
 

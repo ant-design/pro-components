@@ -109,6 +109,26 @@ const getProTokenKey = (token: ProAliasToken): string => {
 };
 
 /**
+ * 返回一个只增不减的版本号；每当输入 `key` 变化时递增。
+ *
+ * 为什么不直接在渲染阶段写 ref：React 并发模式下单次提交可能经历多次渲染，
+ * 直接在渲染阶段写 ref 会把版本号推得比预期大。因此这里渲染阶段只读、
+ * 把持久化推迟到 commit 阶段的 `useEffect` 里完成。
+ */
+function useMonotonicVersion(key: string): number {
+  const lastKeyRef = useRef<string>('');
+  const versionRef = useRef(0);
+  // 渲染阶段：只在 key 变化时临时 +1，便于当次渲染拿到新路径。
+  if (lastKeyRef.current !== key) {
+    versionRef.current += 1;
+  }
+  useEffect(() => {
+    lastKeyRef.current = key;
+  }, [key]);
+  return versionRef.current;
+}
+
+/**
  * 封装了一下 antd 的 useStyle
  * @param componentName {string} 组件的名字
  * @param styleFn {GenerateStyle} 生成样式的函数
@@ -172,24 +192,4 @@ export function useStyle(
     wrapSSR: (node: React.ReactElement) => node,
     hashId: hashed ? hashId : '',
   };
-}
-
-/**
- * 返回一个只增不减的版本号；每当输入 `key` 变化时递增。
- *
- * 为什么不直接在渲染阶段写 ref：React 并发模式下单次提交可能经历多次渲染，
- * 直接在渲染阶段写 ref 会把版本号推得比预期大。因此这里渲染阶段只读、
- * 把持久化推迟到 commit 阶段的 `useEffect` 里完成。
- */
-function useMonotonicVersion(key: string): number {
-  const lastKeyRef = useRef<string>('');
-  const versionRef = useRef(0);
-  // 渲染阶段：只在 key 变化时临时 +1，便于当次渲染拿到新路径。
-  if (lastKeyRef.current !== key) {
-    versionRef.current += 1;
-  }
-  useEffect(() => {
-    lastKeyRef.current = key;
-  }, [key]);
-  return versionRef.current;
 }

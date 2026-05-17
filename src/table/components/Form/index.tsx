@@ -1,7 +1,11 @@
 import { omit } from '@rc-component/util';
 import type { TablePaginationConfig } from 'antd';
 import React, { memo, useMemo } from 'react';
-import { isDeepEqualReact, omitUndefined, useRefFunction } from '../../../utils';
+import {
+  isDeepEqualReact,
+  omitUndefined,
+  useRefFunction,
+} from '../../../utils';
 import type { ActionType, ProTableProps } from '../../typing';
 import { isBordered } from '../../utils/index';
 import FormRender from './FormRender';
@@ -75,7 +79,10 @@ const FormSearch = <T, U>(props: BaseFormProps<T, U> & { ghost?: boolean }) => {
 
     if (form?.ignoreRules === false && firstLoad) {
       // 首次提交时需要先通过校验再执行
-      formRef?.current?.validateFields().then(runSubmit).catch(() => {});
+      formRef?.current
+        ?.validateFields()
+        .then(runSubmit)
+        .catch(() => {});
       return;
     }
     runSubmit();
@@ -96,7 +103,10 @@ const FormSearch = <T, U>(props: BaseFormProps<T, U> & { ghost?: boolean }) => {
     };
 
     if (form?.ignoreRules === false) {
-      formRef?.current?.validateFields().then(resetLogic).catch(() => {});
+      formRef?.current
+        ?.validateFields()
+        .then(resetLogic)
+        .catch(() => {});
       return;
     }
     resetLogic();

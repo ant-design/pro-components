@@ -268,44 +268,35 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     if (collapsible === 'icon') setCollapsed((prev) => !prev);
   }, [collapsible, setCollapsed]);
 
-  const collapsibleButton =
-    collapsible &&
-    (collapsibleIconRender ? (
-      <span
-        role="button"
-        tabIndex={collapsible === 'icon' ? 0 : undefined}
-        className={clsx(`${prefixCls}-collapsible-icon`, hashId)}
-        onClick={collapsible === 'icon' ? handleCollapsibleIconClick : undefined}
-        onKeyDown={
-          collapsible === 'icon'
-            ? (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  handleCollapsibleIconClick();
-                }
+  const collapsibleButton = collapsible && (
+    <span
+      role="button"
+      tabIndex={collapsible === 'icon' ? 0 : undefined}
+      className={clsx(`${prefixCls}-collapsible-icon`, hashId)}
+      onClick={collapsible === 'icon' ? handleCollapsibleIconClick : undefined}
+      onKeyDown={
+        collapsible === 'icon'
+          ? (e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                handleCollapsibleIconClick();
               }
-            : undefined
-        }
-      >
-        {collapsibleIconRender({ collapsed })}
-      </span>
-    ) : (
-      <RightOutlined
-        onClick={handleCollapsibleIconClick}
-        rotate={!collapsed ? 90 : undefined}
-        className={clsx(`${prefixCls}-collapsible-icon`, hashId)}
-      />
-    ));
-
-  const headerCls = clsx(
-    `${prefixCls}-header`,
-    hashId,
-    classNames?.header,
-    {
-      [`${prefixCls}-header-border`]: headerBordered || type === 'inner',
-      [`${prefixCls}-header-collapsible`]: collapsibleButton,
-    },
+            }
+          : undefined
+      }
+    >
+      {collapsibleIconRender ? (
+        collapsibleIconRender({ collapsed })
+      ) : (
+        <RightOutlined rotate={!collapsed ? 90 : undefined} />
+      )}
+    </span>
   );
+
+  const headerCls = clsx(`${prefixCls}-header`, hashId, classNames?.header, {
+    [`${prefixCls}-header-border`]: headerBordered || type === 'inner',
+    [`${prefixCls}-header-collapsible`]: collapsibleButton,
+  });
 
   const titleCls = clsx(`${prefixCls}-title`, hashId, classNames?.title);
   const extraCls = clsx(`${prefixCls}-extra`, hashId, classNames?.extra);
@@ -374,9 +365,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
           {loading ? loadingDOM : childrenModified}
         </div>
       )}
-      {actions ? (
-        <Actions actions={actions} prefixCls={prefixCls} />
-      ) : null}
+      {actions ? <Actions actions={actions} prefixCls={prefixCls} /> : null}
     </div>,
   );
 });

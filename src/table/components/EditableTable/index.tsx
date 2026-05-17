@@ -5,7 +5,6 @@ import { Button, Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
 import type { GetRowKey } from 'antd/lib/table/interface';
 import React, {
-  useCallback,
   useContext,
   useEffect,
   useImperativeHandle,
@@ -422,62 +421,56 @@ function EditableTable<
       namePath?: string[],
     ): void => {
       if (!formRef.current) return;
-      // eslint-disable-next-line no-useless-catch
-      try {
-        if (namePath && namePath.length > 0) {
-          // name 模式：需要保留正在编辑的行
-          const currentFormValues = formRef.current.getFieldsValue() || {};
-          const currentList = get(currentFormValues, namePath) as
-            | DataType[]
-            | undefined;
 
-          if (currentList && Array.isArray(currentList)) {
-            // 构建新的表单值，保留正在编辑的行
-            // 使用 Map 优化查找性能，将 O(n²) 降低到 O(n)
-            const currentListMap = new Map<string, DataType>();
-            currentList.forEach((item, idx) => {
-              const key = getRowKey(item, idx);
-              currentListMap.set(String(key), item);
-            });
+      if (namePath && namePath.length > 0) {
+        // name 模式：需要保留正在编辑的行
+        const currentFormValues = formRef.current.getFieldsValue() || {};
+        const currentList = get(currentFormValues, namePath) as
+          | DataType[]
+          | undefined;
 
-            const newList = dataSource.map((item, index) => {
-              const key = getRowKey(item, index);
-              const keyStr = String(key);
-
-              // 如果该行正在编辑，保留表单中的值
-              if (editingKeysSet.has(keyStr)) {
-                return currentListMap.get(keyStr) || item;
-              }
-
-              return item;
-            });
-
-            const newValue = set({}, namePath, newList);
-            formRef.current.setFieldsValue(newValue);
-          } else {
-            const newValue = set({}, namePath, dataSource);
-            formRef.current.setFieldsValue(newValue);
-          }
-        } else {
-          // 非 name 模式：直接设置值
-          const formValues: Record<string, DataType> = {};
-          dataSource.forEach((current, index) => {
-            const key = getRowKey(current, index);
-            const keyStr = String(key);
-
-            if (!editingKeysSet.has(keyStr)) {
-              formValues[keyStr] = current;
-            }
+        if (currentList && Array.isArray(currentList)) {
+          // 构建新的表单值，保留正在编辑的行
+          // 使用 Map 优化查找性能，将 O(n²) 降低到 O(n)
+          const currentListMap = new Map<string, DataType>();
+          currentList.forEach((item, idx) => {
+            const key = getRowKey(item, idx);
+            currentListMap.set(String(key), item);
           });
 
-          if (Object.keys(formValues).length > 0) {
-            formRef.current.setFieldsValue(formValues);
-          }
+          const newList = dataSource.map((item, index) => {
+            const key = getRowKey(item, index);
+            const keyStr = String(key);
+
+            // 如果该行正在编辑，保留表单中的值
+            if (editingKeysSet.has(keyStr)) {
+              return currentListMap.get(keyStr) || item;
+            }
+
+            return item;
+          });
+
+          const newValue = set({}, namePath, newList);
+          formRef.current.setFieldsValue(newValue);
+        } else {
+          const newValue = set({}, namePath, dataSource);
+          formRef.current.setFieldsValue(newValue);
         }
-      } catch (error) {
-        // 不吞掉异常：调用方（onDataSourceChange）需要感知同步失败，
-        // 避免数据不一致时无声静默。
-        throw error;
+      } else {
+        // 非 name 模式：直接设置值
+        const formValues: Record<string, DataType> = {};
+        dataSource.forEach((current, index) => {
+          const key = getRowKey(current, index);
+          const keyStr = String(key);
+
+          if (!editingKeysSet.has(keyStr)) {
+            formValues[keyStr] = current;
+          }
+        });
+
+        if (Object.keys(formValues).length > 0) {
+          formRef.current.setFieldsValue(formValues);
+        }
       }
     },
   );
@@ -563,7 +556,9 @@ function EditableTable<
     const rowKeyName = [props.name].flat(1).filter(Boolean) as NamePath;
     // 非 name 模式：rowKeyName 为空，从表单顶层拿所有字段，值是 Record<rowKey, DataType>
     if (rowKeyName.length === 0) {
-      const rowData = formRef.current?.getFieldsValue() as Record<string, DataType> | undefined;
+      const rowData = formRef.current?.getFieldsValue() as
+        | Record<string, DataType>
+        | undefined;
       if (!rowData) return undefined;
       // getFieldsValue() 返回的永远是对象，按 key 排列后取 values
       return Object.keys(rowData).map((key) => rowData[key]);

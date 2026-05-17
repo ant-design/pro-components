@@ -42,7 +42,7 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
   const prefixCls = props.prefixCls || getPrefixCls('pro');
 
   const baseClassName = `${prefixCls}-footer-bar`;
-  const { wrapSSR, hashId } = useStyle(baseClassName);
+  const { hashId } = useStyle(baseClassName);
 
   const value = useContext(RouteContext);
   const width = useMemo(() => {
@@ -64,7 +64,7 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
     return getTargetContainer?.() || document.body;
   }, []);
 
-  const stylish = useStylish(`${baseClassName}.${baseClassName}-stylish`, {
+  useStylish(`${baseClassName}.${baseClassName}-stylish`, {
     stylish: props.stylish,
   });
   const dom = (
@@ -121,9 +121,7 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
       ? renderDom
       : createPortal(renderDom, containerDom as Element, baseClassName);
 
-  return stylish.wrapSSR(
-    wrapSSR(<React.Fragment key={baseClassName}>{ssrDom}</React.Fragment>),
-  );
+  return <React.Fragment key={baseClassName}>{ssrDom}</React.Fragment>;
 };
 
 export { FooterToolbar };

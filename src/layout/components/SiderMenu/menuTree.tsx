@@ -1,6 +1,5 @@
 import { Tooltip } from 'antd';
 import { clsx } from 'clsx';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars -- 保留 React 导入以满足部分构建链对 React in scope 的要求
 import React, { useEffect, useState } from 'react';
 import { isUrl } from '../../../utils';
 import type { PureSettings } from '../../defaultSettings';
@@ -11,9 +10,9 @@ import type {
   WithFalse,
 } from '../../typing';
 import type { PrivateSiderMenuProps } from './SiderMenu';
-import type { NavMenuNode } from './navMenuTypes';
 import type {
   MenuMode,
+  NavMenuNode,
   ProLayoutNavMenuDomProps,
   ProLayoutNavMenuSelectInfo,
 } from './types';
@@ -163,21 +162,17 @@ function renderLeafRow(
     onCollapse,
     menuItemRender,
     baseClassName,
-    menu,
     collapsed,
     renderIcon,
   } = ctx;
 
   const titleText = resolveMenuItemTitle(ctx, item);
-  const isGroupLayout = menu?.type === 'group';
-  const showIconSlot = level === 0 || (isGroupLayout && level === 1);
-  const iconNode = !showIconSlot
-    ? null
-    : renderIcon(item.icon, `${baseClassName}-icon ${ctx.hashId}`);
+  const iconNode = item.icon
+    ? renderIcon(item.icon, `${baseClassName}-icon ${ctx.hashId}`)
+    : null;
 
-  /** 收起时无图标场景下用首字母占位（与历史行为一致） */
   const fallbackLetter =
-    collapsed && showIconSlot ? collapsedTitleLetter(titleText) : null;
+    collapsed && level === 0 ? collapsedTitleLetter(titleText) : null;
 
   /**
    * **始终渲染 label 与 icon**：
@@ -199,7 +194,7 @@ function renderLeafRow(
     <span
       className={clsx(`${baseClassName}-item-label`, ctx.hashId, {
         [`${baseClassName}-item-text-has-icon`]:
-          showIconSlot && (iconNode || fallbackLetter),
+          !!(iconNode || fallbackLetter),
       })}
       data-testid="pro-layout-menu-tree-item-label"
     >
@@ -284,21 +279,14 @@ function mapMenuItemToNavNode(
     useGroupChrome && depth === 0 ? ('group' as const) : undefined;
 
   if (Array.isArray(children) && children.length > 0) {
-    const iconLevel = depth === 0 || (useGroupChrome && depth === 1);
+    const iconDom = item.icon
+      ? renderIcon(item.icon, `${baseClassName}-icon ${ctx.hashId}`)
+      : null;
 
-    const iconDom = renderIcon(
-      item.icon,
-      `${baseClassName}-icon ${ctx.hashId}`,
-    );
     const fallbackLetter =
-      collapsed && iconLevel ? collapsedTitleLetter(titleText) : null;
+      collapsed && depth === 0 ? collapsedTitleLetter(titleText) : null;
 
-    /**
-     * **始终渲染 icon 和文案**，是否隐藏交由 cssinjs 控制：
-     * 同一份 NavMenuNode 会被主区与 popup 共用，数据构造期不能按 collapsed 剃内容，
-     * 否则 popup 内拿到的是空 span，无法恢复。
-     */
-    const showIconCell = iconLevel && (iconDom || fallbackLetter);
+    const showIconCell = !!(iconDom || fallbackLetter);
 
     /** 标题行 DOM：`span.icon? + span.label`，与 leaf 完全对齐 */
     const defaultTitleRow = (
@@ -335,9 +323,7 @@ function mapMenuItemToNavNode(
 
     const nextDepth = depth + 1;
 
-    const childNodes =
-      // eslint-disable-next-line @typescript-eslint/no-use-before-define -- `mapMenuDataToNavNodes` 与 `mapMenuItemToNavNode` 互递归
-      mapMenuDataToNavNodes(ctx, children, nextDepth);
+    const childNodes = mapMenuDataToNavNodes(ctx, children, nextDepth);
 
     /**
      * 分组分隔不再使用 1px divider（与 SidebarMenu 一致），改由 `--pro-layout-nav-group-gap`
@@ -357,14 +343,14 @@ function mapMenuItemToNavNode(
       kind: 'submenu',
       key: String(item.key! || item.path!),
       label: titleCell,
-      onTitleClick: (e) => item.onTitleClick?.(e),
+      onTitleClick: item.onTitleClick,
       children: childNodes,
       /**
        * 这里**不再**自挂 `${c}-submenu` 基础类，由渲染层（`ProLayoutNavMenu`）的
        * `<li>` 统一加，避免主区/popup 两处都要管的同名 className 重复挂载。
        * `hasIcon` 通过强类型字段透出，渲染层无需再做字符串嗅探。
        */
-      hasIcon: !!(iconLevel && iconDom),
+      hasIcon: !!iconDom,
     };
   }
 

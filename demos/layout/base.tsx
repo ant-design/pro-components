@@ -14,7 +14,7 @@ import {
   ProLayout,
 } from '@ant-design/pro-components';
 import { Button, ConfigProvider, Dropdown, Input, theme } from 'antd';
-import { useState } from 'react';
+import { type ReactNode, useState } from 'react';
 import defaultProps from './_defaultProps';
 import { demoOnMenuHeaderClick } from './_demoHandlers';
 
@@ -61,7 +61,7 @@ const SearchInput = () => {
 };
 
 const Demo = () => {
-  const [settings, setSetting] = useState<Partial<ProSettings> | undefined>({
+  const [settings, setSettings] = useState<Partial<ProSettings> | undefined>({
     fixSiderbar: true,
     layout: 'side',
   });
@@ -145,20 +145,28 @@ const Demo = () => {
             actionsRender={(props) => {
               if (props.isMobile) return [];
               if (typeof window === 'undefined') return [];
-              return [
-                props.layout !== 'side' && document.body.clientWidth > 1400 ? (
-                  <SearchInput key="SearchInput" />
-                ) : undefined,
+              const items: ReactNode[] = [];
+              if (
+                props.layout !== 'side' &&
+                document.body.clientWidth > 1400
+              ) {
+                items.push(<SearchInput key="SearchInput" />);
+              }
+              items.push(
                 <InfoCircleFilled key="InfoCircleFilled" />,
                 <QuestionCircleFilled key="QuestionCircleFilled" />,
                 <GithubFilled key="GithubFilled" />,
-              ];
+              );
+              return items;
             }}
             headerTitleRender={(logo, title) => (
               <a
+                href="https://procomponents.ant.design/"
+                rel="noreferrer"
                 style={{
                   display: 'flex',
                   alignItems: 'center',
+                  color: 'inherit',
                 }}
               >
                 {logo}
@@ -174,7 +182,7 @@ const Demo = () => {
                     paddingBlockStart: 12,
                   }}
                 >
-                  <div>© 2021 Made with love</div>
+                  <div>© 2026 Made with love</div>
                   <div>by Ant Design</div>
                 </div>
               );

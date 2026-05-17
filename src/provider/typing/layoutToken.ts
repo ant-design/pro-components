@@ -106,7 +106,7 @@ export const getLayoutDesignToken: (
   const defaultColorBgHeader = setAlpha(antdToken.colorBgElevated, 0.6);
 
   return {
-    bgLayout: `linear-gradient(${antdToken.colorBgContainer}, ${antdToken.colorBgLayout} 28%)`,
+    bgLayout: antdToken.colorBgLayout,
     colorTextAppListIcon: antdToken.colorTextSecondary,
     colorBgAppListIconHover: setAlpha(antdToken.colorTextBase, 0.04),
     colorTextAppListIconHover: antdToken.colorTextBase,
@@ -116,13 +116,18 @@ export const getLayoutDesignToken: (
       colorBgScrollHeader: setAlpha(antdToken.colorBgElevated, 0.8),
       colorHeaderTitle: antdToken.colorText,
       colorBgMenuItemHover: setAlpha(antdToken.colorTextBase, 0.03),
-      colorBgMenuItemSelected: 'transparent',
+      /**
+       * 顶栏横向菜单选中底须可见：`transparent` 会让 ProLayoutNavMenu 的 `--pro-layout-nav-color-bg-selected`
+       * 全透明，用户无法分辨当前路由对应哪一项（与站点 layout 文档默认 `rgba(0,0,0,0.04)` 也不一致）。
+       */
+      colorBgMenuItemSelected: setAlpha(antdToken.colorTextBase, 0.04),
       colorBgMenuElevated:
         (finalDesignTokens?.header?.colorBgHeader ?? defaultColorBgHeader) !==
         defaultColorBgHeader
           ? finalDesignTokens.header?.colorBgHeader
           : antdToken.colorBgElevated,
-      colorTextMenuSelected: setAlpha(antdToken.colorTextBase, 0.95),
+      /** 与常规 `colorTextMenu`（secondary）区分当前选中项 */
+      colorTextMenuSelected: antdToken.colorText,
       colorBgRightActionsItemHover: setAlpha(antdToken.colorTextBase, 0.03),
       colorTextRightActionsItem: antdToken.colorTextTertiary,
       heightLayoutHeader: 56,
@@ -138,7 +143,7 @@ export const getLayoutDesignToken: (
       colorBgCollapsedButton: antdToken.colorBgElevated,
       colorTextCollapsedButtonHover: antdToken.colorTextSecondary,
       colorTextCollapsedButton: setAlpha(antdToken.colorTextBase, 0.25),
-      colorMenuBackground: '#f7f8f9',
+      colorMenuBackground: setAlpha(antdToken.colorTextBase, 0.04),
       colorMenuItemDivider: setAlpha(antdToken.colorTextBase, 0.06),
       colorBgMenuItemHover: setAlpha(antdToken.colorTextBase, 0.03),
       colorBgMenuItemSelected: setAlpha(antdToken.colorTextBase, 0.04),
@@ -155,9 +160,9 @@ export const getLayoutDesignToken: (
       colorBgPageContainer: 'transparent',
       paddingInlinePageContainerContent:
         finalDesignTokens.pageContainer?.paddingInlinePageContainerContent ||
-        40,
+        24,
       paddingBlockPageContainerContent:
-        finalDesignTokens.pageContainer?.paddingBlockPageContainerContent || 32,
+        finalDesignTokens.pageContainer?.paddingBlockPageContainerContent || 24,
       colorBgPageContainerFixed: antdToken.colorBgElevated,
       ...finalDesignTokens.pageContainer,
     },

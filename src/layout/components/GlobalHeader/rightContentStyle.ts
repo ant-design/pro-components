@@ -1,4 +1,4 @@
-﻿import type { GenerateStyle, ProAliasToken } from '../../../provider';
+import type { GenerateStyle, ProAliasToken } from '../../../provider';
 import { useStyle as useAntdStyle } from '../../../utils';
 
 export interface ProToken extends ProAliasToken {
@@ -55,6 +55,10 @@ const genTopNavHeaderStyle: GenerateStyle<ProToken> = (token) => {
               backgroundColor:
                 token.layout?.header?.colorBgRightActionsItemHover,
             },
+          },
+          '@media (max-width: 768px)': {
+            paddingInlineStart: 0,
+            paddingInlineEnd: 0,
           },
         },
       },
