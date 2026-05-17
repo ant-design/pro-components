@@ -162,7 +162,7 @@
     "timezone-mock": "^1.4.2",
     "ts-node": "^10.9.2",
     "tsx": "^4.22.0",
-    "typescript": "^5.9.3",
+    "typescript": "^6.0.3",
     "umi": "^4.6.55",
     "umi-request": "^1.4.0",
     "unified": "^11.0.5",
