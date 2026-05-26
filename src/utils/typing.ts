@@ -362,7 +362,7 @@ export type RequestOptionsType = {
   /**
    * 选项的值，可以是一个字符串或数字类型。
    */
-  value?: string | number | boolean;
+  value?: string | number;
   /** 渲染的节点类型 */
   optionType?: 'optGroup' | 'option';
   /**
@@ -446,7 +446,7 @@ export type ProFieldValueTypeInput =
  * @name ValueEnum 的类型
  */
 export type ProSchemaValueEnumMap = Map<
-  string | number | boolean,
+  string | number,
   ProSchemaValueEnumType | ReactNode
 >;
 

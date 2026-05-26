@@ -1199,7 +1199,10 @@ describe('ProForm', () => {
           name="userQuery"
           label="查询选择器"
           fieldProps={{
-            onSearch: (e) => onSearch(e),
+            showSearch: {
+              optionFilterProp: 'label',
+              onSearch: (e) => onSearch(e),
+            },
           }}
           options={[
             { label: '全部', value: 'all' },
@@ -1273,7 +1276,10 @@ describe('ProForm', () => {
           name="userQuery"
           label="查询选择器"
           fieldProps={{
-            onSearch: (e) => onSearch(e),
+            showSearch: {
+              optionFilterProp: 'label',
+              onSearch: (e) => onSearch(e),
+            },
           }}
           valueEnum={{
             all: { text: '全部', status: 'Default' },
@@ -1371,7 +1377,10 @@ describe('ProForm', () => {
           name="userQuery"
           label="查询选择器"
           fieldProps={{
-            onSearch: (e) => onSearch(e),
+            showSearch: {
+              optionFilterProp: 'label',
+              onSearch: (e) => onSearch(e),
+            },
           }}
           valueEnum={{
             all: { text: '全部', status: 'Default' },
@@ -1458,7 +1467,10 @@ describe('ProForm', () => {
           label="查询选择器"
           fieldProps={{
             searchOnFocus: true,
-            onSearch: (e) => onSearch(e),
+            showSearch: {
+              optionFilterProp: 'label',
+              onSearch: (e) => onSearch(e),
+            },
           }}
           valueEnum={{
             all: { text: '全部', status: 'Default' },
@@ -1547,7 +1559,10 @@ describe('ProForm', () => {
           showSearch
           fieldProps={{
             searchOnFocus: true,
-            onSearch: (e) => onSearch(e),
+            showSearch: {
+              optionFilterProp: 'label',
+              onSearch: (e) => onSearch(e),
+            },
           }}
           valueEnum={{
             all: { text: '全部', status: 'Default' },
@@ -1656,7 +1671,10 @@ describe('ProForm', () => {
           label="查询选择器"
           fieldProps={{
             searchOnFocus: true,
-            onSearch: (e) => onSearch(e),
+            showSearch: {
+              optionFilterProp: 'label',
+              onSearch: (e) => onSearch(e),
+            },
           }}
           valueEnum={{
             all: { text: '全部', status: 'Default' },
@@ -1839,6 +1857,7 @@ describe('ProForm', () => {
           label="查询选择器"
           fieldProps={{
             fetchDataOnSearch: true,
+            showSearch: true,
           }}
           request={async () => {
             onRequest();
@@ -2105,7 +2124,8 @@ describe('ProForm', () => {
           showSearch
           fieldProps={{
             allowClear: false,
-            showSearch: true,
+            fieldNames: { options: 'children' },
+            showSearch: { optionFilterProp: 'label' },
           }}
         />
       </ProForm>,
@@ -2233,7 +2253,8 @@ describe('ProForm', () => {
           showSearch
           fieldProps={{
             allowClear: false,
-            showSearch: true,
+            fieldNames: { options: 'children' },
+            showSearch: { optionFilterProp: 'label' },
           }}
         />
       </ProForm>,
@@ -2299,9 +2320,12 @@ describe('ProForm', () => {
           placeholder="测试 placeholder"
           fieldProps={{
             mode: 'multiple',
-            autoClearSearchValue: false,
             searchOnFocus: true,
-            onSearch: (e) => onSearch(e),
+            showSearch: {
+              autoClearSearchValue: false,
+              optionFilterProp: 'label',
+              onSearch: (e) => onSearch(e),
+            },
           }}
           options={[
             { label: '全部', value: 'all' },
@@ -2551,7 +2575,7 @@ describe('ProForm', () => {
           name="userQuery"
           label="查询选择器"
           fieldProps={{
-            showSearch: true,
+            showSearch: { optionFilterProp: 'label' },
             options: [
               { value: 1, label: 'Aa' },
               { value: 2, label: 'Bb' },

@@ -1,5 +1,4 @@
-﻿import { useControlledState } from '@rc-component/util';
-import type { GetRef, SelectProps } from 'antd';
+﻿import type { GetRef, SelectProps } from 'antd';
 import { ConfigProvider, Select } from 'antd';
 import React, { useImperativeHandle, useMemo, useRef, useState } from 'react';
 import useSWR from 'swr';
@@ -10,8 +9,6 @@ import {
   ProFieldValueEnumType,
   RequestOptionsType,
   useDebounceValue,
-  useDeepCompareEffect,
-  useDeepCompareMemo,
   useRefFunction,
 } from '../../../utils';
 import {
@@ -29,43 +26,7 @@ export type { FieldSelectProps };
 type SelectOptionType = Partial<RequestOptionsType>[];
 
 /**
- * 递归筛选 item
- *
- * @param item
- * @param keyWords
- * @returns
- */
-function filerByItem(
-  item: {
-    label: string;
-    value: string;
-    optionType: string;
-    children: any[];
-    options: any[];
-  },
-  keyWords?: string,
-) {
-  if (!keyWords) return true;
-  if (
-    item?.label?.toString().toLowerCase().includes(keyWords.toLowerCase()) ||
-    item?.value?.toString().toLowerCase().includes(keyWords.toLowerCase())
-  ) {
-    return true;
-  }
-  if (item.children || item.options) {
-    const findItem = [...(item.children || []), item.options || []].find(
-      (mapItem) => {
-        return filerByItem(mapItem, keyWords);
-      },
-    );
-    if (findItem) return true;
-  }
-  return false;
-}
-
-/**
  * 把 value 的枚举转化为数组
- *
  * @param valueEnumParams
  */
 export const proFieldParsingValueEnumToArray = (
@@ -107,6 +68,9 @@ export const proFieldParsingValueEnumToArray = (
   return enumArray;
 };
 
+/**
+ * @description options 优先级 request > valueEnum > fieldProps.options
+ */
 export const useFieldFetchData = (
   props: FieldSelectProps & {
     proFieldKey?: React.Key;
@@ -114,7 +78,7 @@ export const useFieldFetchData = (
     cacheForSwr?: boolean;
   },
 ): [boolean, SelectOptionType, (keyWord?: string) => void, () => void] => {
-  const { cacheForSwr, fieldProps } = props;
+  const { cacheForSwr, fieldProps, valueEnum } = props;
 
   const [keyWords, setKeyWords] = useState<string | undefined>(
     props.defaultKeyWords,
@@ -145,54 +109,14 @@ export const useFieldFetchData = (
     },
   );
 
-  const defaultOptions = useDeepCompareMemo(() => {
-    if (!fieldProps) return undefined;
-    const data = fieldProps?.options || fieldProps?.treeData;
-    if (!data) return undefined;
-    const { children, label, value } = fieldProps.fieldNames || {};
-    const traverseFieldKey = (
-      _options: typeof options,
-      type: 'children' | 'label' | 'value',
-    ) => {
-      if (!_options?.length) return;
-      const length = _options.length;
-      let i = 0;
-      while (i < length) {
-        const cur = _options[i++];
-        if (cur[children] || cur[label] || cur[value]) {
-          cur[type] =
-            cur[
-              type === 'children' ? children : type === 'label' ? label : value
-            ];
-          traverseFieldKey(cur[children], type);
-        }
-      }
-    };
-
-    if (children) traverseFieldKey(data, 'children');
-    if (label) traverseFieldKey(data, 'label');
-    if (value) traverseFieldKey(data, 'value');
-    return data;
-  }, [fieldProps]);
-
-  const [options, setOptions] = useControlledState<SelectOptionType>(
-    () => (props.valueEnum ? getOptionsFormValueEnum(props.valueEnum) : []),
-    defaultOptions,
+  const options = useMemo(
+    () =>
+      valueEnum ? getOptionsFormValueEnum(valueEnum) : fieldProps?.options,
+    [valueEnum, fieldProps?.options],
   );
 
-  useDeepCompareEffect(() => {
-    // 优先使用 fieldProps?.options
-    if (
-      !props.valueEnum ||
-      props.fieldProps?.options ||
-      props.fieldProps?.treeData
-    )
-      return;
-    setOptions(getOptionsFormValueEnum(props.valueEnum));
-  }, [props.valueEnum]);
-
   const swrKey = useDebounceValue(
-    [proFieldKeyRef.current, props.params, keyWords] as const,
+    [proFieldKeyRef.current, props.params, keyWords],
     props.debounceTime ?? props?.fieldProps?.debounceTime ?? 0,
     [props.params, keyWords],
   );
@@ -225,48 +149,9 @@ export const useFieldFetchData = (
     },
   );
 
-  const resOptions = useMemo(() => {
-    const opt = options?.map((item) => {
-      if (typeof item === 'string') {
-        return {
-          label: item,
-          value: item,
-        };
-      }
-      if (item.children || item.options) {
-        const childrenOptions = [
-          ...(item.children || []),
-          ...(item.options || []),
-        ].filter((mapItem) => {
-          return filerByItem(mapItem, keyWords);
-        });
-        return {
-          ...item,
-          children: childrenOptions,
-          options: childrenOptions,
-        };
-      }
-      return item;
-    });
-
-    // filterOption 为 true 时 filter数据, filterOption 默认为true
-    if (
-      props.fieldProps?.filterOption === true ||
-      props.fieldProps?.filterOption === undefined
-    ) {
-      return opt?.filter((item) => {
-        if (!item) return false;
-        if (!keyWords) return true;
-        return filerByItem(item as any, keyWords);
-      });
-    }
-
-    return opt;
-  }, [options, keyWords, props.fieldProps?.filterOption]);
-
   return [
     isValidating,
-    props.request ? (data as SelectOptionType) : resOptions,
+    props.request ? (data ?? []) : options,
     (fetchKeyWords?: string) => {
       setKeyWords(fetchKeyWords);
     },
@@ -279,8 +164,6 @@ export const useFieldFetchData = (
 
 /**
  * 可以根据 valueEnum 来进行类型的设置
- *
- * @param
  */
 const FieldSelect: ProFieldFC<
   FieldSelectProps & Pick<SelectProps, 'fieldNames' | 'style' | 'className'>
