@@ -89,13 +89,11 @@ const SearchSelect: React.ForwardRefRenderFunction<
   SearchSelectProps
 > = (props, ref) => {
   const {
-    mode,
     onFocus,
     onChange,
     searchOnFocus = false,
     resetAfterSelect = false,
     fetchDataOnSearch = true,
-    optionLabelProp = 'label',
     className,
     disabled,
     options,
@@ -148,9 +146,7 @@ const SearchSelect: React.ForwardRefRenderFunction<
       className={classString}
       allowClear
       disabled={disabled}
-      mode={mode}
       showSearch={showSearch}
-      optionLabelProp={optionLabelProp}
       onClear={() => {
         onClear?.();
         fetchData(undefined);
@@ -165,15 +161,7 @@ const SearchSelect: React.ForwardRefRenderFunction<
           fetchData(undefined);
           showSearch.onSearch?.('');
         }
-        // 当 autoClearSearchValue 为 false 时，保持搜索值不变
-        // 但是需要确保我们的状态与 Ant Design 的内部状态同步
-        // 在 multiple 模式下，Ant Design 可能会自动清除搜索值，我们需要重新设置它
-        // 在 multiple 模式下，即使 autoClearSearchValue 为 false，
-        // Ant Design 仍可能会清除搜索值，这是正常行为
-        // 我们不需要做任何特殊处理，让 Ant Design 自然处理
-
         onChange?.(value, optionList, ...rest);
-        // 将搜索结果置空，重新搜索
         if (resetAfterSelect) resetData();
       }}
       onFocus={(e) => {

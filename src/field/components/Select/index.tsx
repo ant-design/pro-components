@@ -9,7 +9,6 @@ import {
   ProFieldValueEnumType,
   RequestOptionsType,
   useDebounceValue,
-  useRefFunction,
 } from '../../../utils';
 import {
   isProFieldEditOrUpdateMode,
@@ -68,6 +67,15 @@ export const proFieldParsingValueEnumToArray = (
   return enumArray;
 };
 
+const getOptionsFormValueEnum = (coverValueEnum: ProFieldValueEnumType) =>
+  proFieldParsingValueEnumToArray(objectToMap(coverValueEnum)).map(
+    ({ value, text, ...rest }) => ({
+      label: text,
+      value,
+      ...rest,
+    }),
+  );
+
 /**
  * @description options 优先级 request > valueEnum > fieldProps.options
  */
@@ -95,19 +103,6 @@ export const useFieldFetchData = (
   });
 
   const proFieldKeyRef = useRef(cacheKey);
-
-  const getOptionsFormValueEnum = useRefFunction(
-    (coverValueEnum: ProFieldValueEnumType) => {
-      return proFieldParsingValueEnumToArray(objectToMap(coverValueEnum)).map(
-        ({ value, text, ...rest }) => ({
-          label: text,
-          value,
-          key: value,
-          ...rest,
-        }),
-      );
-    },
-  );
 
   const options = useMemo(
     () =>
