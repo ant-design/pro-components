@@ -111,16 +111,13 @@ const SearchSelect: React.ForwardRefRenderFunction<
 
   useEffect(() => {
     if (restProps.autoFocus) {
-      selectRef?.current?.focus();
+      selectRef.current?.focus();
     }
   }, [restProps.autoFocus]);
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-
   const prefixCls = getPrefixCls('pro-filed-search-select', customizePrefixCls);
-
   // 兼容 renderXXX API。
-
   const classString = clsx(prefixCls, className, {
     [`${prefixCls}-disabled`]: disabled,
   });
@@ -144,7 +141,6 @@ const SearchSelect: React.ForwardRefRenderFunction<
     <Select
       ref={selectRef}
       className={classString}
-      allowClear
       disabled={disabled}
       showSearch={showSearch}
       onClear={() => {
@@ -169,8 +165,8 @@ const SearchSelect: React.ForwardRefRenderFunction<
           // 当 searchOnFocus 为 true 时，应该清空搜索关键词以显示所有选项
           fetchData(undefined);
           // 同时清空搜索值
-          if (isObject(showSearch) && showSearch.onSearch) {
-            showSearch.onSearch?.('');
+          if (isObject(showSearch)) {
+            showSearch.onSearch('');
           }
         }
         onFocus?.(e);
