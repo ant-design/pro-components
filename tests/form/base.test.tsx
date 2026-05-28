@@ -3480,6 +3480,7 @@ describe('ProForm', () => {
         <ProFormSelect
           fieldProps={{
             labelInValue: true,
+            allowClear: true,
             onChange(value) {
               onChange(value);
             },
