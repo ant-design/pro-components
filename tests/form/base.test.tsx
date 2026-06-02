@@ -1200,7 +1200,6 @@ describe('ProForm', () => {
           label="查询选择器"
           fieldProps={{
             showSearch: {
-              optionFilterProp: 'label',
               onSearch: (e) => onSearch(e),
             },
           }}
@@ -1277,7 +1276,6 @@ describe('ProForm', () => {
           label="查询选择器"
           fieldProps={{
             showSearch: {
-              optionFilterProp: 'label',
               onSearch: (e) => onSearch(e),
             },
           }}
@@ -1378,7 +1376,6 @@ describe('ProForm', () => {
           label="查询选择器"
           fieldProps={{
             showSearch: {
-              optionFilterProp: 'label',
               onSearch: (e) => onSearch(e),
             },
           }}
@@ -1468,7 +1465,6 @@ describe('ProForm', () => {
           fieldProps={{
             searchOnFocus: true,
             showSearch: {
-              optionFilterProp: 'label',
               onSearch: (e) => onSearch(e),
             },
           }}
@@ -1560,7 +1556,6 @@ describe('ProForm', () => {
           fieldProps={{
             searchOnFocus: true,
             showSearch: {
-              optionFilterProp: 'label',
               onSearch: (e) => onSearch(e),
             },
           }}
@@ -1672,7 +1667,6 @@ describe('ProForm', () => {
           fieldProps={{
             searchOnFocus: true,
             showSearch: {
-              optionFilterProp: 'label',
               onSearch: (e) => onSearch(e),
             },
           }}
@@ -2125,7 +2119,6 @@ describe('ProForm', () => {
           fieldProps={{
             allowClear: false,
             fieldNames: { options: 'children' },
-            showSearch: { optionFilterProp: 'label' },
           }}
         />
       </ProForm>,
@@ -2254,7 +2247,6 @@ describe('ProForm', () => {
           fieldProps={{
             allowClear: false,
             fieldNames: { options: 'children' },
-            showSearch: { optionFilterProp: 'label' },
           }}
         />
       </ProForm>,
@@ -2323,7 +2315,6 @@ describe('ProForm', () => {
             searchOnFocus: true,
             showSearch: {
               autoClearSearchValue: false,
-              optionFilterProp: 'label',
               onSearch: (e) => onSearch(e),
             },
           }}
@@ -2575,7 +2566,7 @@ describe('ProForm', () => {
           name="userQuery"
           label="查询选择器"
           fieldProps={{
-            showSearch: { optionFilterProp: 'label' },
+            showSearch: true,
             options: [
               { value: 1, label: 'Aa' },
               { value: 2, label: 'Bb' },
