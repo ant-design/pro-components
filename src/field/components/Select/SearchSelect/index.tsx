@@ -138,7 +138,6 @@ const SearchSelect: React.ForwardRefRenderFunction<
       searchValue: searchValue ?? defaultSearchValue,
     };
   }, [_showSearch, fetchDataOnSearch, defaultSearchValue]);
-  console.log(options);
 
   return (
     <Select
