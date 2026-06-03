@@ -34,7 +34,7 @@ export function FieldSelectSearchEdit(props: FieldSelectSearchEditProps) {
     fetchData,
     resetData,
     inputRef,
-    defaultKeyWords,
+    defaultKeyWords: _defaultKeyWords,
     ...rest
   } = props;
 
@@ -49,7 +49,6 @@ export function FieldSelectSearchEdit(props: FieldSelectSearchEditProps) {
       id={id}
       loading={loading}
       ref={inputRef}
-      defaultSearchValue={defaultKeyWords}
       notFoundContent={
         loading ? <Spin size="small" /> : fieldProps?.notFoundContent
       }

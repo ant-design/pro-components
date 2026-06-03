@@ -78,8 +78,6 @@ export interface SearchSelectProps<T = Record<string, any>> extends Omit<
    * @default true
    */
   fetchDataOnSearch?: boolean;
-  /** 默认搜索关键词 */
-  defaultSearchValue?: string;
 }
 
 type SearchSelectRef = GetRef<typeof Select>;
@@ -136,7 +134,6 @@ const SearchSelect: React.ForwardRefRenderFunction<
       },
     };
   }, [_showSearch, fetchDataOnSearch]);
-
   return (
     <Select
       ref={selectRef}
