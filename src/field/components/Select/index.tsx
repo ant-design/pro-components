@@ -106,7 +106,7 @@ export const useFieldFetchData = (
 
   const options = useMemo(
     () =>
-      valueEnum ? getOptionsFormValueEnum(valueEnum) : fieldProps?.options,
+      valueEnum ? getOptionsFormValueEnum(valueEnum) : fieldProps?.options ?? [],
     [valueEnum, fieldProps?.options],
   );
 
