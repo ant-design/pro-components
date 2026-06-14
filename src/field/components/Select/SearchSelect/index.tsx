@@ -100,6 +100,7 @@ const SearchSelect: React.ForwardRefRenderFunction<
     prefixCls: customizePrefixCls,
     onClear,
     showSearch: _showSearch,
+    request,
     ...restProps
   } = props;
 
@@ -122,7 +123,7 @@ const SearchSelect: React.ForwardRefRenderFunction<
   const showSearch = useMemo(() => {
     if (!_showSearch) return _showSearch;
     const userConfig = isObject(_showSearch) ? _showSearch : {};
-    const { optionFilterProp = 'label', onSearch } = userConfig;
+    const { optionFilterProp = 'label', onSearch, filterOption } = userConfig;
     return {
       ...userConfig,
       optionFilterProp,
@@ -132,6 +133,7 @@ const SearchSelect: React.ForwardRefRenderFunction<
         }
         onSearch?.(value);
       },
+      filterOption: fetchDataOnSearch && request ? false : filterOption,
     };
   }, [_showSearch, fetchDataOnSearch]);
   return (

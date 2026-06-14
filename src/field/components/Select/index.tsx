@@ -86,17 +86,24 @@ export const useFieldFetchData = (
     cacheForSwr?: boolean;
   },
 ): [boolean, SelectOptionType, (keyWord?: string) => void, () => void] => {
-  const { cacheForSwr, fieldProps, valueEnum } = props;
+  const {
+    cacheForSwr,
+    fieldProps,
+    valueEnum,
+    defaultKeyWords,
+    proFieldKey,
+    request,
+    params,
+    debounceTime,
+  } = props;
 
-  const [keyWords, setKeyWords] = useState<string | undefined>(
-    props.defaultKeyWords,
-  );
+  const [keyWords, setKeyWords] = useState(defaultKeyWords);
   /** Key 是用来缓存请求的，如果不在是有问题 */
   const [cacheKey] = useState(() => {
-    if (props.proFieldKey) {
-      return props.proFieldKey.toString();
+    if (proFieldKey) {
+      return proFieldKey.toString();
     }
-    if (props.request) {
+    if (request) {
       return nanoid();
     }
     return 'no-fetch';
@@ -106,14 +113,16 @@ export const useFieldFetchData = (
 
   const options = useMemo(
     () =>
-      valueEnum ? getOptionsFormValueEnum(valueEnum) : fieldProps?.options ?? [],
+      valueEnum
+        ? getOptionsFormValueEnum(valueEnum)
+        : (fieldProps?.options ?? []),
     [valueEnum, fieldProps?.options],
   );
 
   const swrKey = useDebounceValue(
-    [proFieldKeyRef.current, props.params, keyWords],
-    props.debounceTime ?? props?.fieldProps?.debounceTime ?? 0,
-    [props.params, keyWords],
+    [proFieldKeyRef.current, params, keyWords],
+    debounceTime ?? fieldProps?.debounceTime ?? 0,
+    [params, keyWords],
   );
 
   const {
@@ -122,14 +131,13 @@ export const useFieldFetchData = (
     isValidating,
   } = useSWR(
     () => {
-      if (!props.request) {
+      if (!request) {
         return null;
       }
-
       return swrKey;
     },
     ([, params, kw]) =>
-      props.request!(
+      request!(
         {
           ...params,
           keyWords: kw,
@@ -146,7 +154,7 @@ export const useFieldFetchData = (
 
   return [
     isValidating,
-    props.request ? (data ?? []) : options,
+    request ? (data ?? []) : options,
     (fetchKeyWords?: string) => {
       setKeyWords(fetchKeyWords);
     },
@@ -168,7 +176,6 @@ const FieldSelect: ProFieldFC<
     valueEnum,
     render,
     formItemRender,
-    request: _request,
     fieldProps,
     light,
     proFieldKey: _proFieldKey,

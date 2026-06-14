@@ -35,9 +35,9 @@ export function FieldSelectSearchEdit(props: FieldSelectSearchEditProps) {
     resetData,
     inputRef,
     defaultKeyWords: _defaultKeyWords,
+    request,
     ...rest
   } = props;
-
   const dom = (
     <SearchSelect
       key="SearchSelect"
@@ -54,6 +54,7 @@ export function FieldSelectSearchEdit(props: FieldSelectSearchEditProps) {
       }
       fetchData={fetchData}
       resetData={resetData}
+      request={request}
       placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
       label={label}
       {...fieldProps}
