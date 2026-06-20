@@ -111,6 +111,9 @@ export const useFieldFetchData = (
 
   const proFieldKeyRef = useRef(cacheKey);
 
+  /** 请求时序控制，保证只有最新一次请求的结果会被采用，避免晚回来的旧数据覆盖新数据 */
+  const fetchDataRef = useRef(0);
+
   const options = useMemo(
     () =>
       valueEnum
@@ -136,14 +139,18 @@ export const useFieldFetchData = (
       }
       return swrKey;
     },
-    ([, params, kw]) =>
-      request!(
+    async ([, params, kw]) => {
+      const fetchId = (fetchDataRef.current += 1);
+      const result = await request!(
         {
           ...params,
           keyWords: kw,
         },
         props,
-      ),
+      );
+      if (fetchId !== fetchDataRef.current) return;
+      return result;
+    },
     {
       revalidateIfStale: !cacheForSwr,
       revalidateOnReconnect: cacheForSwr,
