@@ -135,7 +135,7 @@ const SearchSelect: React.ForwardRefRenderFunction<
       },
       filterOption: fetchDataOnSearch && request ? false : filterOption,
     };
-  }, [_showSearch, fetchDataOnSearch]);
+  }, [_showSearch, fetchDataOnSearch, fetchData, request]);
   return (
     <Select
       ref={selectRef}
