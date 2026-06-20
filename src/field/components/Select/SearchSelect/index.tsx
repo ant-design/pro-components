@@ -154,20 +154,14 @@ const SearchSelect: React.ForwardRefRenderFunction<
       onChange={(value, optionList, ...rest) => {
         // 将搜索框置空 和 antd 行为保持一致
         if (isObject(showSearch) && showSearch.autoClearSearchValue) {
-          fetchData(undefined);
-          showSearch.onSearch?.('');
+          showSearch.onSearch('');
         }
         onChange?.(value, optionList, ...rest);
         if (resetAfterSelect) resetData();
       }}
       onFocus={(e) => {
-        if (searchOnFocus) {
-          // 当 searchOnFocus 为 true 时，应该清空搜索关键词以显示所有选项
-          fetchData(undefined);
-          // 同时清空搜索值
-          if (isObject(showSearch)) {
-            showSearch.onSearch('');
-          }
+        if (searchOnFocus && isObject(showSearch)) {
+          showSearch.onSearch('');
         }
         onFocus?.(e);
       }}
