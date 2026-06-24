@@ -152,8 +152,6 @@ const SearchSelect: React.ForwardRefRenderFunction<
         onClear?.();
         if (isObject(showSearch) && showSearch.onSearch) {
           showSearch.onSearch('');
-        } else {
-          fetchData(undefined);
         }
       }}
       {...restProps}

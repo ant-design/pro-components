@@ -155,9 +155,7 @@ export const useFieldFetchData = (
   return [
     isValidating,
     request ? (data ?? []) : options,
-    (fetchKeyWords?: string) => {
-      setKeyWords(fetchKeyWords);
-    },
+    setKeyWords,
     () => {
       setKeyWords(undefined);
       setLocaleData([], false);
