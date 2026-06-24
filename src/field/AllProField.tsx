@@ -6,6 +6,7 @@ import {
   type ProFieldValueObjectType,
   type ProFieldValueType,
 } from '../utils';
+import FieldAutoComplete from './components/AutoComplete';
 import FieldCascader from './components/Cascader';
 import FieldCheckbox from './components/Checkbox';
 import FieldCode from './components/Code';
@@ -409,6 +410,10 @@ function renderDefaultValueTypeLeaf(
 
   if (valueType === 'segmented') {
     return <FieldSegmented text={dataValue as string} {...props} />;
+  }
+
+  if (valueType === 'autoComplete') {
+    return <FieldAutoComplete text={dataValue as string} {...props} />;
   }
 
   return <FieldText text={dataValue as string} {...props} />;

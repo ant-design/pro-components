@@ -83,6 +83,7 @@ The most important part of SchemaForm is the Schema type definition. We use the 
 | ValueType    | Description        |
 | ------------ | ------------------ |
 | `text`       | Text input         |
+| `autoComplete` | Auto complete input |
 | `textarea`   | Text area          |
 | `password`   | Password input     |
 | `digit`      | Digit input        |

@@ -30,6 +30,7 @@ const ProFormText = (props) => {
 | 组件                                                                           | 使用场景                                                                                                    |
 | ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------- |
 | [ProFormText](https://ant.design/components/input-cn/#Input.Password)          | 用于输入各类文本                                                                                            |
+| [ProFormAutoComplete](https://ant.design/components/auto-complete-cn/)         | 输入时给出推荐候选项的自动完成输入框                                                                        |
 | [ProFormDigit](https://ant.design/components/input-number-cn/)                 | 用于输入数字，它自带了一个格式化 (保留 2 位小数，最小值为 0)，有需要你可以关掉它。                          |
 | [ProFormText.Password](https://ant.design/components/input-cn/#Input.Password) | 用于输入密码                                                                                                |
 | [ProFormTextArea](https://ant.design/components/input-cn/#Input.Password)      | 用于输入多行文本                                                                                            |
@@ -102,6 +103,23 @@ ProForm 自带的 Filed , 与 valueType 基本上一一对应。
   label="名称"
   placeholder="请输入名称"
   fieldProps={inputProps}
+/>
+```
+
+### ProFormAutoComplete
+
+与 [AutoComplete](https://ant.design/components/auto-complete-cn/) 相同。
+
+```tsx | pure
+<ProFormAutoComplete
+  name="autoComplete"
+  label="AutoComplete"
+  options={[
+    { value: 'Burns Bay Road' },
+    { value: 'Downing Street' },
+    { value: 'Wall Street' },
+  ]}
+  placeholder="请输入内容"
 />
 ```
 

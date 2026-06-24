@@ -1,4 +1,5 @@
 import type {
+  AutoCompleteProps,
   AvatarProps,
   CascaderProps,
   CheckboxProps,
@@ -123,6 +124,8 @@ export type ProFormBaseGroupProps = {
 export type ProFieldValueTypeWithFieldProps = {
   /** 文本输入框 */
   text: InputProps;
+  /** 自动完成 */
+  autoComplete: AutoCompleteProps;
   /** 密码输入框 */
   password: PasswordProps;
   /** 金额 */

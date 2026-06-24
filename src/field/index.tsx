@@ -1,4 +1,5 @@
 import { ProField, defaultRenderText } from './AllProField';
+import FieldAutoComplete from './components/AutoComplete';
 import FieldCascader from './components/Cascader';
 import FieldCheckbox from './components/Checkbox';
 import FieldCode from './components/Code';
@@ -44,6 +45,7 @@ export type {
 };
 
 export {
+  FieldAutoComplete,
   FieldCascader,
   FieldCheckbox,
   FieldCode,

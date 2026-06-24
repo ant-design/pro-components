@@ -1,3 +1,5 @@
+export { default as ProFormAutoComplete } from './AutoComplete';
+export type { ProFormAutoCompleteProps } from './AutoComplete';
 export { default as ProFormCaptcha } from './Captcha';
 export type { CaptFieldRef, ProFormCaptchaProps } from './Captcha';
 export { default as ProFormCascader } from './Cascader';

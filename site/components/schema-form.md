@@ -83,6 +83,7 @@ SchemaForm 表单最重要就是 Schema 的类型定义，我们使用了与 tab
 | 值类型       | 描述           |
 | ------------ | -------------- |
 | `text`       | 文本输入框     |
+| `autoComplete` | 自动完成输入框 |
 | `textarea`   | 多行文本域     |
 | `password`   | 密码输入框     |
 | `digit`      | 数字输入框     |

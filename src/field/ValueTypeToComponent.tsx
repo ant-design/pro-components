@@ -4,6 +4,7 @@ import { FieldText } from '.';
 import { ProRenderFieldPropsType } from '../provider';
 import { pickProProps } from '../utils';
 import type { ProFieldBuiltinValueType } from '../utils/typing';
+import FieldAutoComplete from './components/AutoComplete';
 import FieldCascader from './components/Cascader';
 import FieldCheckbox from './components/Checkbox';
 import FieldCode from './components/Code';
@@ -273,6 +274,9 @@ const ValueTypeToComponentMap: Record<
       <FieldText {...props} text={text as string} />
     ),
   ),
+  autoComplete: sameRenderPair((text, props) => (
+    <FieldAutoComplete {...props} text={text} />
+  )),
   checkbox: sameRenderPair((text, props) => (
     <FieldCheckbox {...props} text={text} />
   )),
