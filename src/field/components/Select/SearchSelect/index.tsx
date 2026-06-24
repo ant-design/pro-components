@@ -123,17 +123,23 @@ const SearchSelect: React.ForwardRefRenderFunction<
   const showSearch = useMemo(() => {
     if (!_showSearch) return _showSearch;
     const userConfig = isObject(_showSearch) ? _showSearch : {};
-    const { optionFilterProp = 'label', onSearch, filterOption } = userConfig;
+    const {
+      optionFilterProp = 'label',
+      onSearch,
+      filterOption: _filterOption,
+    } = userConfig;
+    const filterOption = fetchDataOnSearch && request ? false : _filterOption;
+
     return {
       ...userConfig,
       optionFilterProp,
+      filterOption,
       onSearch: (value: string) => {
         if (fetchDataOnSearch) {
           fetchData(value);
         }
         onSearch?.(value);
       },
-      filterOption: fetchDataOnSearch && request ? false : filterOption,
     };
   }, [_showSearch, fetchDataOnSearch, fetchData, request]);
   return (
