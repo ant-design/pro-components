@@ -249,6 +249,7 @@ Same as [select](https://ant.design/components/select/). Both request and valueE
 | request      | Enumerate data from network requests                                            | `()=>Promise<{[key:string`\|`number]:any}>` | -       |
 | debounceTime | Debounce time, used in conjunction with `request`                               | `number`                                    | -       |
 | params       | Parameters for initiating network requests, used in conjunction with `request`. | `Record`                                    | -       |
+| fetchDataOnSearch | Whether to re-trigger `request` for server-side search on keyword input (instead of local filtering). | `boolean`                  | `true`  |
 | fieldProps   | Props of Ant Design component                                                   | `SelectProps `                              | -       |
 
 > Why support valueEnum when you have options? valueEnum can be used with tables, descriptions, and has engineering advantages.
@@ -298,28 +299,6 @@ Related ProFormSelect
       { label: 'Resolving', value: 'processing' },
     ]}
   />
-```
-
-Customize options：
-
-```tsx | pure
-<ProFormSelect
-  name="select"
-  label="Select"
-  options={[
-    { label: '全部', value: 'all' },
-    { label: '未解决', value: 'open' },
-    { label: '已解决', value: 'closed' },
-    { label: '解决中', value: 'processing' },
-  ]}
-  fieldProps={{
-    optionItemRender(item) {
-      return item.label + ' - ' + item.value;
-    },
-  }}
-  placeholder="Please select a country"
-  rules={[{ required: true, message: 'Please select your country!' }]}
-/>
 ```
 
 ### ProFormTreeSelect

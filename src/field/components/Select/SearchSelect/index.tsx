@@ -28,7 +28,7 @@ export type DataValueType<T> = KeyLabel & T;
 /** 可能单选，可能多选 */
 export type DataValuesType<T> = DataValueType<T> | DataValueType<T>[];
 
-export interface SearchSelectProps<T = Record<string, any>> extends Omit<
+export interface SearchSelectProps extends Omit<
   SelectProps<KeyLabel | KeyLabel[]>,
   'options'
 > {
