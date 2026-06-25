@@ -14,13 +14,15 @@ export type FieldSelectProps<FieldProps = any> = {
   request?: ProFieldRequestData;
   /** 重新触发的时机 */
   params?: any;
-
   /** 组件的全局设置 */
   fieldProps?: FieldProps;
-
   variant?: 'outlined' | 'filled' | 'borderless';
   id?: string;
-
   /** 默认搜素条件 */
   defaultKeyWords?: string;
+  /**
+   * 当搜索关键词发生变化时是否请求远程数据
+   * @default true
+   */
+  fetchDataOnSearch?: boolean;
 } & ProFieldLightProps;

@@ -75,7 +75,6 @@ export interface SearchSelectProps<T = Record<string, any>> extends Omit<
   resetData: () => void;
   /**
    * 当搜索关键词发生变化时是否请求远程数据
-   * @default true
    */
   fetchDataOnSearch?: boolean;
 }
@@ -91,7 +90,7 @@ const SearchSelect: React.ForwardRefRenderFunction<
     onChange,
     searchOnFocus = false,
     resetAfterSelect = false,
-    fetchDataOnSearch = true,
+    fetchDataOnSearch,
     className,
     disabled,
     options,
@@ -128,7 +127,10 @@ const SearchSelect: React.ForwardRefRenderFunction<
       onSearch,
       filterOption: _filterOption,
     } = userConfig;
-    const filterOption = fetchDataOnSearch && request ? false : _filterOption;
+
+    // 传入 request 且 fetchDataOnSearch 为 true 时，搜索走远程请求，结果已由服务端过滤，关闭本地过滤；
+    // 其余情况（无 request 或 fetchDataOnSearch 为 false）沿用 _filterOption，由 antd 进行本地过滤
+    const filterOption = request && fetchDataOnSearch ? false : _filterOption;
 
     return {
       ...userConfig,
