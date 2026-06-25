@@ -34,8 +34,8 @@ export interface SearchSelectProps<T = Record<string, any>> extends Omit<
 > {
   /** 防抖动时间 默认10 单位ms */
   debounceTime?: number;
-  /** 自定义搜索方法, 返回搜索结果的 Promise */
-  request?: (params: { query: string }) => Promise<DataValueType<T>[]>;
+  /** 是否存在远程数据源（用于决定是否关闭本地过滤） */
+  hasRequest?: boolean;
   /** 指定组件中的值 */
   value?: KeyLabel | KeyLabel[];
   /** 指定默认选中的条目 */
@@ -99,7 +99,7 @@ const SearchSelect: React.ForwardRefRenderFunction<
     prefixCls: customizePrefixCls,
     onClear,
     showSearch: _showSearch,
-    request,
+    hasRequest,
     ...restProps
   } = props;
 
@@ -128,9 +128,10 @@ const SearchSelect: React.ForwardRefRenderFunction<
       filterOption: _filterOption,
     } = userConfig;
 
-    // 传入 request 且 fetchDataOnSearch 为 true 时，搜索走远程请求，结果已由服务端过滤，关闭本地过滤；
+    // 存在远程数据源且 fetchDataOnSearch 为 true 时，搜索走远程请求，结果已由服务端过滤，关闭本地过滤；
     // 其余情况（无 request 或 fetchDataOnSearch 为 false）沿用 _filterOption，由 antd 进行本地过滤
-    const filterOption = request && fetchDataOnSearch ? false : _filterOption;
+    const filterOption =
+      hasRequest && fetchDataOnSearch ? false : _filterOption;
 
     return {
       ...userConfig,
@@ -143,7 +144,7 @@ const SearchSelect: React.ForwardRefRenderFunction<
         onSearch?.(value);
       },
     };
-  }, [_showSearch, fetchDataOnSearch, fetchData, request]);
+  }, [_showSearch, fetchDataOnSearch, fetchData, hasRequest]);
   return (
     <Select
       ref={selectRef}

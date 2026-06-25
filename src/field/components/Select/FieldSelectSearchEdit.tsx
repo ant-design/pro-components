@@ -55,7 +55,7 @@ export function FieldSelectSearchEdit(props: FieldSelectSearchEditProps) {
       }
       fetchData={fetchData}
       resetData={resetData}
-      request={request}
+      hasRequest={!!request}
       fetchDataOnSearch={fetchDataOnSearch}
       placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
       label={label}
