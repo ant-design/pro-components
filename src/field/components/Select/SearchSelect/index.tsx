@@ -158,12 +158,12 @@ const SearchSelect: React.ForwardRefRenderFunction<
         }
       }}
       {...restProps}
-      onChange={(value, optionList, ...rest) => {
+      onChange={(value, optionList) => {
         // 将搜索框置空 和 antd 行为保持一致
         if (isObject(showSearch) && showSearch.autoClearSearchValue) {
           showSearch.onSearch('');
         }
-        onChange?.(value, optionList, ...rest);
+        onChange?.(value, optionList);
         if (resetAfterSelect) resetData();
       }}
       onFocus={(e) => {
