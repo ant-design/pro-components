@@ -15,8 +15,7 @@ const FieldAutoComplete: ProFieldFC<{
   text: string;
   emptyText?: React.ReactNode;
 }> = (props, ref) => {
-  const { text, mode, render, formItemRender, fieldProps, emptyText = '-' } =
-    props;
+  const { text, mode, render, fieldProps, emptyText = '-' } = props;
   const inputRef = useRef<any>(null);
 
   useImperativeHandle(ref, () => inputRef.current, []);
@@ -27,7 +26,6 @@ const FieldAutoComplete: ProFieldFC<{
         text={text}
         mode={mode}
         render={render}
-        formItemRender={formItemRender}
         fieldProps={fieldProps}
         emptyText={emptyText}
       />
@@ -35,7 +33,7 @@ const FieldAutoComplete: ProFieldFC<{
   }
   if (isProFieldEditOrUpdateMode(mode)) {
     return (
-      <FieldAutoCompleteEdit {...props} emptyText={emptyText} inputRef={inputRef} />
+      <FieldAutoCompleteEdit {...props} inputRef={inputRef} />
     );
   }
   return null;
