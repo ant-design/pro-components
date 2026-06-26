@@ -243,14 +243,14 @@ Same as [select](https://ant.design/components/select/). Both request and valueE
 
 > Requesting remote data is more complicated, see [here](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params) for details.
 
-| Parameters   | Description                                                                     | Type                                        | Default |
-| ------------ | ------------------------------------------------------------------------------- | ------------------------------------------- | ------- |
-| valueEnum    | Enumeration of current values [valueEnum](/components/table#valueenum)          | `Record`                                    | -       |
-| request      | Enumerate data from network requests                                            | `()=>Promise<{[key:string`\|`number]:any}>` | -       |
-| debounceTime | Debounce time, used in conjunction with `request`                               | `number`                                    | -       |
-| params       | Parameters for initiating network requests, used in conjunction with `request`. | `Record`                                    | -       |
-| fetchDataOnSearch | Whether to re-trigger `request` for server-side search on keyword input (instead of local filtering). | `boolean`                  | `true`  |
-| fieldProps   | Props of Ant Design component                                                   | `SelectProps `                              | -       |
+| Parameters        | Description                                                                                      | Type                                        | Default |
+| ----------------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------- | ------- |
+| valueEnum         | Enumeration of current values [valueEnum](/components/table#valueenum)                           | `Record`                                    | -       |
+| request           | Enumerate data from network requests                                                             | `()=>Promise<{[key:string`\|`number]:any}>` | -       |
+| debounceTime      | Debounce time, used in conjunction with `request`                                                | `number`                                    | -       |
+| params            | Parameters for initiating network requests, used in conjunction with `request`.                  | `Record`                                    | -       |
+| fetchDataOnSearch | Whether to re-call `request` when the input value changes (local filtering is used when `false`) | `boolean`                                   | `true`  |
+| fieldProps        | Props of Ant Design component                                                                    | `SelectProps `                              | -       |
 
 > Why support valueEnum when you have options? valueEnum can be used with tables, descriptions, and has engineering advantages.
 
