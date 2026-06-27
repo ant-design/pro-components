@@ -3,6 +3,7 @@ import {
   isProFieldEditOrUpdateMode,
   isProFieldReadMode,
 } from '../../internal/fieldMode';
+
 import type { ProFieldFC } from '../../types';
 import { FieldAutoCompleteEdit } from './FieldAutoCompleteEdit';
 import { FieldAutoCompleteRead } from './FieldAutoCompleteRead';
@@ -16,7 +17,7 @@ const FieldAutoComplete: ProFieldFC<{
   emptyText?: React.ReactNode;
 }> = (props, ref) => {
   const { text, mode, render, fieldProps, emptyText = '-' } = props;
-  const inputRef = useRef<any>(null);
+  const inputRef = useRef();
 
   useImperativeHandle(ref, () => inputRef.current);
 
@@ -32,9 +33,7 @@ const FieldAutoComplete: ProFieldFC<{
     );
   }
   if (isProFieldEditOrUpdateMode(mode)) {
-    return (
-      <FieldAutoCompleteEdit {...props} inputRef={inputRef} />
-    );
+    return <FieldAutoCompleteEdit {...props} inputRef={inputRef} />;
   }
   return null;
 };
