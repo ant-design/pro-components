@@ -18,7 +18,7 @@ const FieldAutoComplete: ProFieldFC<{
   const { text, mode, render, fieldProps, emptyText = '-' } = props;
   const inputRef = useRef<any>(null);
 
-  useImperativeHandle(ref, () => inputRef.current, []);
+  useImperativeHandle(ref, () => inputRef.current);
 
   if (isProFieldReadMode(mode)) {
     return (
