@@ -14,8 +14,6 @@ export type ProFormAutoCompleteProps = ProFormFieldItemProps<
   options?: AutoCompleteProps['options'];
 };
 
-const valueType = 'autoComplete' as const;
-
 /**
  * 自动完成
  * 基于 antd AutoComplete，候选项通过 `options` 或 `fieldProps.options` 传入。
