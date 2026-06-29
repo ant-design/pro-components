@@ -1,6 +1,8 @@
 import type { AutoCompleteProps } from 'antd';
 import type { RefSelectProps } from 'antd/lib/select';
 import React, { useContext } from 'react';
+import { FieldAutoComplete } from '../../../field';
+import { ProConfigProvider } from '../../../provider';
 import FieldContext from '../../FieldContext';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProFormField from '../Field';
@@ -24,18 +26,31 @@ const ProFormAutoCompleteComponents: React.ForwardRefRenderFunction<
 > = ({ fieldProps, children, options, ...rest }, ref) => {
   const context = useContext(FieldContext);
   return (
-    <ProFormField
-      valueType={valueType}
-      fieldProps={{
-        options,
-        getPopupContainer: context.getPopupContainer,
-        ...fieldProps,
+    <ProConfigProvider
+      valueTypeMap={{
+        autoComplete: {
+          render: (text, props) => (
+            <FieldAutoComplete {...props} text={text as string} />
+          ),
+          formItemRender: (text, props) => (
+            <FieldAutoComplete {...props} text={text as string} />
+          ),
+        },
       }}
-      ref={ref}
-      {...rest}
     >
-      {children}
-    </ProFormField>
+      <ProFormField
+        valueType="autoComplete"
+        fieldProps={{
+          options,
+          getPopupContainer: context.getPopupContainer,
+          ...fieldProps,
+        }}
+        ref={ref}
+        {...rest}
+      >
+        {children}
+      </ProFormField>
+    </ProConfigProvider>
   );
 };
 
