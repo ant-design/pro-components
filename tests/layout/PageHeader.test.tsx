@@ -106,7 +106,7 @@ describe('PageContainer', () => {
       <PageHeader title="Page Title" onBack={callback} />,
     );
     fireEvent.click(
-      container.querySelector('div.ant-page-header-back-button')!,
+      container.querySelector('.ant-page-header-back-button')!,
     );
     expect(callback).toHaveBeenCalled();
   });
