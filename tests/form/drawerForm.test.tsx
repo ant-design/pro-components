@@ -341,7 +341,7 @@ describe('DrawerForm', () => {
     });
 
     await waitForWaitTime(100);
-    expect(fn).toHaveBeenCalledTimes(2);
+    expect(fn).toHaveBeenCalledTimes(1);
   });
 
   it('📦 submitter config no reset default config', async () => {

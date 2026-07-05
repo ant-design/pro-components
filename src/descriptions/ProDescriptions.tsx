@@ -1,11 +1,10 @@
-import type { DescriptionsItemType } from 'antd/es/descriptions';
 import { ConfigProvider, Descriptions, Space } from 'antd';
-import React, { useContext, useEffect, useMemo } from 'react';
+import type { DescriptionsItemType } from 'antd/es/descriptions';
+import { useContext, useEffect, useMemo } from 'react';
 import ValueTypeToComponent from '../field/ValueTypeToComponent';
 import ProForm from '../form';
 import ProConfigContext, { ProConfigProvider } from '../provider';
 import ProSkeleton from '../skeleton';
-import type { ProCoreActionType } from '../utils';
 import {
   ErrorBoundary,
   LabelIconTip,
@@ -13,10 +12,7 @@ import {
   useEditableMap,
 } from '../utils';
 import { schemaToDescriptionsItem } from './schemaToDescriptionsItem';
-import type {
-  ProDescriptionsActionType,
-  ProDescriptionsProps,
-} from './typing';
+import type { ProDescriptionsActionType, ProDescriptionsProps } from './typing';
 import type { ProDescriptionsRequestResult } from './useFetchData';
 import useFetchData from './useFetchData';
 
@@ -47,11 +43,12 @@ const ProDescriptions = <
   const proContext = useContext(ProConfigContext);
   const context = useContext(ConfigProvider.ConfigContext);
 
-  const action = useFetchData<RecordType, ProDescriptionsRequestResult<RecordType>>(
+  const action = useFetchData<
+    RecordType,
+    ProDescriptionsRequestResult<RecordType>
+  >(
     async () => {
-      const data = request
-        ? await request(params)
-        : { data: {} as RecordType };
+      const data = request ? await request(params) : { data: {} as RecordType };
       return data;
     },
     {
@@ -69,9 +66,7 @@ const ProDescriptions = <
     ...props.editable,
     childrenColumnName: undefined,
     dataSource: action.dataSource as RecordType,
-    setDataSource: action.setDataSource as (
-      dataSource: RecordType,
-    ) => void,
+    setDataSource: action.setDataSource as (dataSource: RecordType) => void,
   });
 
   const valueTypeMap = useMemo(
@@ -89,9 +84,12 @@ const ProDescriptions = <
       setDataSource: action.setDataSource,
     };
     if (editable && editableUtils) {
-      return { ...base, ...editableUtils } as ProCoreActionType<RecordType>;
+      return {
+        ...base,
+        ...editableUtils,
+      } as ProDescriptionsActionType<RecordType>;
     }
-    return base as ProCoreActionType<RecordType>;
+    return base as ProDescriptionsActionType<RecordType>;
   }, [
     action.reload,
     action.dataSource,
@@ -153,9 +151,7 @@ const ProDescriptions = <
 
   let title = null;
   if (rest.title || rest.tooltip) {
-    title = (
-      <LabelIconTip label={rest.title} tooltip={rest.tooltip} />
-    );
+    title = <LabelIconTip label={rest.title} tooltip={rest.tooltip} />;
   }
 
   const className = context.getPrefixCls('pro-descriptions');

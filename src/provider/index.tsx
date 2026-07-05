@@ -459,6 +459,13 @@ export const ProConfigProvider: React.FC<{
         .flat(1)
         .filter(Boolean);
     }
+    // dark 被显式传为 false 时，必须返回一个非 undefined 的 algorithm
+    // 来覆盖先前可能已注入的 darkAlgorithm；
+    // 如果不显式设置，omitUndefined 会丢弃 algorithm 键，
+    // 导致 AntdConfigProvider 不重置主题。
+    if (dark === false) {
+      return theme?.algorithm ?? antdTheme.defaultAlgorithm;
+    }
     return theme?.algorithm;
   };
   // 自动注入 antd 的配置
@@ -481,8 +488,6 @@ export const ProConfigProvider: React.FC<{
 /**
  * It returns the intl object from the context if it exists, otherwise it returns the intl object for
  * 获取国际化的方法
- * @param locale
- * @param localeMap
  * the current locale
  * @returns The return value of the function is the intl object.
  */

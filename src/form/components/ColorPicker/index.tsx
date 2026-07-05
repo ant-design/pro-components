@@ -51,4 +51,5 @@ const ProFormColorPicker: React.ForwardRefRenderFunction<
   );
 };
 
-export default React.forwardRef(ProFormColorPicker);
+const ForwardedProFormColorPicker = React.forwardRef(ProFormColorPicker) as any;
+export default ForwardedProFormColorPicker;
