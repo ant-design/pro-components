@@ -30,6 +30,7 @@ module.exports = {
     'typings.d.ts',
     '.eslintrc.cjs',
     'webpack.config.js',
+    'site-dumi-plugin.ts',
   ],
   plugins: ['react', 'react-hooks', '@typescript-eslint'],
   settings: {
