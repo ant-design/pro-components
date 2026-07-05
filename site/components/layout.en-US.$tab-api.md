@@ -26,14 +26,6 @@ Use a segmented control to toggle `layout`, `contentWidth`, `siderMenuType`, and
 
 <code src="../../demos/layout/api.tsx" iframe="720" title="Layout prop toggles"></code>
 
-### Controlled keys, menu text, sidebar links
-
-<code src="../../demos/layout/controlled-menu-keys.tsx" iframe="720" title="Controlled selectedKeys / openKeys"></code>
-
-<code src="../../demos/layout/menu-text-render.tsx" iframe="520" title="menuTextRender"></code>
-
-<code src="../../demos/layout/sidebar-links.tsx" iframe="520" title="Sidebar links"></code>
-
 ### Navigation Modes
 
 <code src="../../demos/layout/sider-mode.tsx" iframe="650" title="Sidebar Navigation (Default)"></code>

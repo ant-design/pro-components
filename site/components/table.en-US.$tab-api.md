@@ -17,12 +17,6 @@ legacy: /table
 
 <code src="../../demos/table/no-title.tsx" id="no-title-table" background="var(--main-bg-color)" title="Table without ToolBar"></code>
 
-### Fill Height
-
-Use `scroll={{ y: 'fill' }}` to make the table body fill the remaining height of its parent container. The search bar, toolbar and pagination stay fixed while only the data area scrolls.
-
-<code src="../../demos/table/fill-height.tsx" background="var(--main-bg-color)" title="scroll.y = fill (Auto Height)"></code>
-
 ### Search filter type switch
 
 Use a segmented control to toggle `search.filterType` between the full query form (`query`) and lightweight filter (`light`).
