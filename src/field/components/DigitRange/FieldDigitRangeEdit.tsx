@@ -71,10 +71,7 @@ export function FieldDigitRangeEdit(props: Props, _ref: React.Ref<unknown>) {
       <InputNumber<number>
         {...fieldProps}
         placeholder={getInputNumberPlaceholder(0)}
-        style={{
-          width: `calc((100% - ${separatorWidth}px) / 2)`,
-          borderInlineEnd: 0,
-        }}
+        style={{ width: `calc((100% - ${separatorWidth}px) / 2)` }}
         value={valuePair?.[0]}
         defaultValue={defaultValue?.[0]}
         onChange={(changedValue) => handleChange(0, changedValue)}
@@ -86,8 +83,8 @@ export function FieldDigitRangeEdit(props: Props, _ref: React.Ref<unknown>) {
           alignItems: 'center',
           justifyContent: 'center',
           width: separatorWidth,
-          height: 32,
-          borderBlock: `1px solid ${token?.colorBorder}`,
+          boxSizing: 'border-box',
+          border: `1px solid ${token?.colorBorder}`,
           backgroundColor: token?.colorBgContainer,
           color: token?.colorTextSecondary,
           pointerEvents: 'none',
