@@ -12,7 +12,7 @@ function getType(obj: any) {
   // @ts-ignore
   const type = Object.prototype.toString
     .call(obj)
-    .match(/^\[object (.*)\]$/)[1]
+    .match(/^\[object (.*)]$/)[1]
     .toLowerCase();
   if (type === 'string' && typeof obj === 'object') return 'object'; // Let "new String('')" return 'object'
   if (obj === null) return 'null'; // PhantomJS has type "DOMWindow" for null
@@ -83,8 +83,11 @@ type ProFieldStatusType =
  * @param valueEnumParams
  * @param key
  */
+type LabelInValueItem = { label?: ReactNode; title?: ReactNode; value?: unknown };
+type ProFieldTextValue = string | number | LabelInValueItem | (string | number | LabelInValueItem)[];
+
 export const proFieldParsingText = (
-  text: string | number | (string | number)[],
+  text: ProFieldTextValue,
   valueEnumParams: ProFieldValueEnumType,
   key?: number | string,
 ): React.ReactNode => {
@@ -98,11 +101,14 @@ export const proFieldParsingText = (
     );
   }
 
+  if (typeof text === 'object' && text !== null) {
+    return (text.label ?? text.title ?? '') as React.ReactNode;
+  }
+
   const valueEnum = objectToMap(valueEnumParams);
 
   if (!valueEnum.has(text) && !valueEnum.has(`${text}`)) {
-    // @ts-ignore
-    return text?.label || text;
+    return text;
   }
 
   const domText = (valueEnum.get(text) || valueEnum.get(`${text}`)) as {
@@ -112,8 +118,7 @@ export const proFieldParsingText = (
   };
 
   if (!domText) {
-    // @ts-ignore
-    return <React.Fragment key={key}>{text?.label || text}</React.Fragment>;
+    return <React.Fragment key={key}>{text}</React.Fragment>;
   }
 
   const { status, color } = domText;
