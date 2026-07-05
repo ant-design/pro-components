@@ -104,6 +104,12 @@ When adding a divider it automatically increases the height of the header to sep
 
 <code src="../../demos/card/collapsible-mode.tsx" background="var(--main-bg-color)" title="Collapse trigger mode" description="collapsible supports icon (click icon) and header (click title) modes"></code>
 
+### Ghost mode
+
+Set `ghost` to `true` to remove the card's background, border, and padding, turning it into a transparent layout container for in-page nested layouts.
+
+<code src="../../demos/card/ghost.tsx" background="var(--main-bg-color)"></code>
+
 ### Deck expansion
 
 With the `ghost` ghost mode and collapsible ability, the card deck can be expanded.

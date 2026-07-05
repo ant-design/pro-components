@@ -79,7 +79,7 @@ const Demo = () => {
           </li>
           <li>
             <strong>variant</strong>: 卡片变体样式，可选值：'outlined' |
-            'filled' | 'elevated'
+            'borderless'
           </li>
           <li>
             <strong>style</strong>: 卡片的样式对象

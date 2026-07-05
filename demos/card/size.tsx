@@ -2,7 +2,7 @@
 
 const Demo = () => {
   return (
-    <>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
       <ProCard
         title="默认尺寸"
         tooltip="size: default"
@@ -13,12 +13,12 @@ const Demo = () => {
       <ProCard
         title="紧凑尺寸"
         tooltip="size: small"
-        style={{ maxWidth: 300, marginBlockStart: 24 }}
+        style={{ maxWidth: 300 }}
         size="small"
       >
         <div>这是紧凑尺寸的卡片</div>
       </ProCard>
-    </>
+    </div>
   );
 };
 

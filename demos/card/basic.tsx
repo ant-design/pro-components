@@ -6,7 +6,7 @@ import {
 
 const Demo = () => {
   return (
-    <>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
       <ProCard
         title="用户认证服务"
         variant="outlined"
@@ -42,14 +42,14 @@ const Demo = () => {
         title="支付网关"
         extra="v1.8.0"
         tooltip="对接第三方支付渠道的统一网关"
-        style={{ maxWidth: 300, marginBlockStart: 24 }}
+        style={{ maxWidth: 300 }}
         size="small"
       >
         <div>微信支付：已接入</div>
         <div>支付宝：已接入</div>
         <div>银联：接入中</div>
       </ProCard>
-    </>
+    </div>
   );
 };
 

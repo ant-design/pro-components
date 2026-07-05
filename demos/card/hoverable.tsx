@@ -48,10 +48,7 @@ const Demo = () => {
             <strong>outlined</strong>: 带边框的卡片样式
           </li>
           <li>
-            <strong>filled</strong>: 填充式卡片样式
-          </li>
-          <li>
-            <strong>elevated</strong>: 提升式卡片样式，带有阴影
+            <strong>borderless</strong>: 无边框卡片样式，带浅阴影
           </li>
         </ul>
         <h4>悬停效果：</h4>

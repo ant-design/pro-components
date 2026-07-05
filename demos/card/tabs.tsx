@@ -28,6 +28,7 @@ const Demo = () => {
         </Space>
         <ProCard
           tabs={{
+            size:'medium',
             tabPlacement,
             activeKey: tab,
             items: [

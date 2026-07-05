@@ -1,5 +1,14 @@
 # Changelog
 
+## [3.1.14-0] - 2026-07-05
+
+### 🐛 Bug Fixes
+
+- ProCard
+  - 🐞 Align ProCard styles with antd v6 native Card: borders use `colorBorderSecondary`, shadows use `boxShadowTertiary`, border-radius unified to `borderRadiusLG`, header / body get matching corner radii
+  - 🐞 `variant="borderless"` now defaults to `boxShadowTertiary` light shadow to match antd v6 Card (note: this is an API behavior change; code relying on "borderless = no shadow" must override explicitly)
+  - 🐞 Fix `ghost` mode UI: the ghost card's own padding is now zeroed, `-border` and default shadow are overridden, and the selector is broadened from `> ${componentCls}` to `> *` so custom child nodes inherit the reset too
+
 ## [3.1.13-0] - 2026-07-05
 
 ### 🐛 Bug Fixes
@@ -34,10 +43,6 @@
   - 🐞 Fix `nanoid` window access crash in SSR/Workers [#9596](https://github.com/ant-design/pro-components/pull/9596)
 - ProList
   - 🐞 Fix LightWrapper child props merge order causing light filter input to not take effect
-- ProCard
-  - 🐞 Align ProCard styles with antd v6 native Card: borders use `colorBorderSecondary`, shadows use `token.boxShadowCard` (theme-aware), border-radius unified to `borderRadiusLG`, header / body get matching corner radii
-  - 🐞 `variant="borderless"` now defaults to `boxShadowTertiary` light shadow to match antd v6 Card (note: this is an API behavior change; code relying on "borderless = no shadow" must override explicitly)
-  - 🆕 Add `variant="filled"` to align with antd v6 Card three variants (outlined / borderless / filled)
 
 ### ⚡️ Performance
 

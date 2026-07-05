@@ -92,9 +92,15 @@ atomId: ProCard
 
 <code src="../../demos/card/collapsible-mode.tsx" background="var(--main-bg-color)" title="折叠触发模式" description="collapsible 支持 icon（图标触发）和 header（标题触发）两种模式"></code>
 
+### 幽灵模式
+
+配置 `ghost` 属性为 `true`，卡片将移除自身的背景色、边框、间距，变为透明布局容器，常用于页面内嵌套布局。
+
+<code src="../../demos/card/ghost.tsx" background="var(--main-bg-color)"></code>
+
 ### 卡片组展开
 
-配合 `ghost`幽灵模式和可折叠能力可以实现卡片组展开。
+配合 `ghost` 幽灵模式和可折叠能力可以实现卡片组展开。
 
 <code src="../../demos/card/group.tsx" background="var(--main-bg-color)"  ></code>
 

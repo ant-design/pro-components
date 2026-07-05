@@ -115,6 +115,7 @@ const Demo = () => {
         type={type}
         direction={direction}
         split={split}
+        gutter={[16, 16]}
         collapsible={collapsible || undefined}
         defaultCollapsed={false}
       >

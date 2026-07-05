@@ -34,10 +34,6 @@
   - 🐞 修复 `nanoid` 在 SSR/Workers 环境下 window 访问崩溃的问题 [#9596](https://github.com/ant-design/pro-components/pull/9596)
 - ProList
   - 🐞 修复 LightWrapper 子节点 props 合并顺序导致轻量筛选输入不生效的问题
-- ProCard
-  - 🐞 修复 ProCard 样式与 antd v6 原生 Card 不一致：边框色改用 `colorBorderSecondary`、阴影改用 `token.boxShadowCard`（跟随主题）、圆角统一为 `borderRadiusLG`、header / body 补齐对应圆角
-  - 🐞 `variant="borderless"` 默认带上 `boxShadowTertiary` 浅阴影，对齐 antd v6 Card 行为（注意：是 API 行为变更，依赖"borderless = 无阴影"的样式需自行覆盖）
-  - 🆕 新增 `variant="filled"` 变体，对齐 antd v6 Card 三种变体（outlined / borderless / filled）
 
 ### ⚡️ 性能提升
 
