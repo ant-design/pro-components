@@ -228,6 +228,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     classNames?.root,
     {
       [`${prefixCls}-border`]: variant === 'outlined',
+      [`${prefixCls}-filled`]: variant === 'filled',
       [`${prefixCls}-box-shadow`]: boxShadow,
       [`${prefixCls}-contain-card`]: containProCard,
       [`${prefixCls}-loading`]: loading,

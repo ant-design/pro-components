@@ -69,7 +69,7 @@ type CardPropsBase = Pick<AntdCardProps, 'rootClassName' | 'cover'> & {
   /** 拆分卡片方式 */
   split?: 'vertical' | 'horizontal';
   /** 卡片变体，与 antd Card variant 一致 */
-  variant?: 'outlined' | 'borderless';
+  variant?: 'outlined' | 'borderless' | 'filled';
   /**
    * 鼠标移过时可浮起
    *

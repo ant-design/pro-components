@@ -3,6 +3,11 @@ import { resetComponent, useStyle as useAntdStyle } from '../../../utils';
 
 interface ProCardToken extends ProAliasToken {
   componentCls: string;
+  /**
+   * 卡片专用阴影。antd v6 在运行时注入了这个 token，但 `GlobalToken` 类型里没声明。
+   * 这里手动扩展，避免 `token.boxShadowCard` 报 TS2551。
+   */
+  boxShadowCard: string;
 }
 
 const genActiveStyle = (token: ProCardToken) => ({
@@ -27,13 +32,19 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
       paddingBlock: 0,
       paddingInline: 0,
       backgroundColor: token.colorBgContainer,
-      borderRadius: token.borderRadius,
+      borderRadius: token.borderRadiusLG,
       transition: 'all 0.3s',
       ...resetComponent?.(token),
 
+      // 对齐 antd v6 Card：variant='borderless' 默认就有 boxShadowTertiary 浅阴影。
+      // 用 :not(&-border):not(&-box-shadow) 把显式 -box-shadow（boxShadowCard 重阴影）
+      // 和 -hoverable:hover（hover 也走 boxShadowCard）排除掉，确保它们的优先级更高。
+      '&&:not(&-border):not(&-box-shadow):not(&-filled)': {
+        boxShadow: token.boxShadowTertiary,
+      },
+
       '&-box-shadow': {
-        boxShadow:
-          '0 1px 2px -2px #00000029, 0 3px 6px #0000001f, 0 5px 12px 4px #00000017',
+        boxShadow: token.boxShadowCard,
         borderColor: 'transparent',
       },
       '&-col': {
@@ -66,7 +77,13 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
       },
 
       '&-border': {
-        border: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+        border: `${token.lineWidth}px ${token.lineType} ${token.colorBorderSecondary}`,
+      },
+
+      '&-filled': {
+        backgroundColor: token.colorFillAlter,
+        borderColor: 'transparent',
+        boxShadow: 'none',
       },
 
       '&-hoverable': {
@@ -75,8 +92,7 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
 
         '&:hover': {
           borderColor: 'transparent',
-          boxShadow:
-            '0 1px 2px -2px #00000029, 0 3px 6px #0000001f, 0 5px 12px 4px #00000017',
+          boxShadow: token.boxShadowCard,
         },
 
         [`&${componentCls}-checked:hover`]: {
@@ -161,11 +177,12 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         paddingInline: token.paddingLG,
         paddingBlock: token.padding,
         paddingBlockEnd: 0,
+        borderRadius: `${token.borderRadiusLG}px ${token.borderRadiusLG}px 0 0`,
         '&-border': {
           '&': {
             paddingBlockEnd: token.padding,
           },
-          borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+          borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorBorderSecondary}`,
         },
 
         '&-collapsible': {
@@ -204,7 +221,7 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
 
       [`${componentCls}-cover`]: {
         overflow: 'hidden',
-        borderRadius: `${token.borderRadius}px ${token.borderRadius}px 0 0`,
+        borderRadius: `${token.borderRadiusLG}px ${token.borderRadiusLG}px 0 0`,
         '& > *': {
           width: '100%',
           display: 'block',
@@ -220,6 +237,7 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         height: '100%',
         paddingInline: token.paddingLG,
         paddingBlock: token.padding,
+        borderRadius: `0 0 ${token.borderRadiusLG}px ${token.borderRadiusLG}px`,
         '&-center': {
           display: 'flex',
           alignItems: 'center',
@@ -353,6 +371,10 @@ export default function useStyle(prefixCls: string) {
     const proCardToken: ProCardToken = {
       ...token,
       componentCls: `.${prefixCls}`,
+      // antd v6 运行时注入了 boxShadowCard，但 GlobalToken 类型里没有声明，
+      // 这里从原始 token 上透传一次。
+      boxShadowCard: (token as ProAliasToken & { boxShadowCard?: string })
+        .boxShadowCard ?? token.boxShadow,
     };
 
     return [
