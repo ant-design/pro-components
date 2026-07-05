@@ -1,5 +1,89 @@
 # Changelog
 
+## [3.1.13-0] - 2026-07-05
+
+### 🐛 Bug Fixes
+
+- ProLayout
+  - 🐞 Fix TS2322 build error in PageHeader `fontSizeHeading4` type cast
+- ProTable
+  - 🐞 Fix card wrapper not rendering when search is disabled but toolbar options exist
+  - 🐞 Fix EditableTable `onChange` firing repeatedly and `useImperativeHandle` deps issue
+  - 🐞 Fix ColumnSetting nested column parent-child sync and stale cache on reset
+  - 🐞 Fix column type definition collapse caused by `&` operator precedence
+  - 🐞 Fix abort signal binding error causing requests to be incorrectly cancelled on rapid reload
+  - 🐞 Fix `visibilitychange` event closure trap and `pageInfo` snapshot overwrite in `useFetchData`
+- ProForm
+  - 🐞 Fix FormItem label and tooltip being incorrectly overridden in light mode
+  - 🐞 Fix DrawerForm redundant `onOpenChange` callback
+  - 🐞 Fix date picker alignment with `valueType` picker and default format
+  - 🐞 Fix FormList date type not properly converting to string on submit [#9631](https://github.com/ant-design/pro-components/pull/9631)
+  - 🐞 Fix week format and submission semantics, unify date range readonly display
+- ProField
+  - 🐞 Fix read-mode date formatting and week/quarter range default format
+  - 🐞 Fix ColorPicker to use antd `ColorPickerProps` type [#9566](https://github.com/ant-design/pro-components/pull/9566)
+  - 🐞 Fix `proFieldParsingText` crashing when rendering `labelInValue` objects in read mode
+  - 🛠 Replace `Input` separator with semantic `span` in DigitRange for better style consistency
+- Provider
+  - 🐞 Fix `dark=false` not properly resetting `darkAlgorithm`
+  - 🐞 Align locale keys and fix i18n strings [#9595](https://github.com/ant-design/pro-components/pull/9595)
+- Utils
+  - 🐞 Fix serialized dayjs parsing, submission conversion, and range text formatting
+  - 🐞 Fix `transformKeySubmitValue` breaking array shape when transforming objects under array parents
+  - 🐞 Fix `useEditableArray` saveRefs leak and missing default values for new rows in `tableName` mode
+  - 🐞 Fix `nanoid` window access crash in SSR/Workers [#9596](https://github.com/ant-design/pro-components/pull/9596)
+- ProList
+  - 🐞 Fix LightWrapper child props merge order causing light filter input to not take effect
+- ProCard
+  - 🐞 Align ProCard styles with antd v6 native Card: borders use `colorBorderSecondary`, shadows use `token.boxShadowCard` (theme-aware), border-radius unified to `borderRadiusLG`, header / body get matching corner radii
+  - 🐞 `variant="borderless"` now defaults to `boxShadowTertiary` light shadow to match antd v6 Card (note: this is an API behavior change; code relying on "borderless = no shadow" must override explicitly)
+  - 🆕 Add `variant="filled"` to align with antd v6 Card three variants (outlined / borderless / filled)
+
+### ⚡️ Performance
+
+- ProDescriptions
+  - ⚡️ Stabilize fetch action and memoize schema
+- ProTable
+  - ⚡️ Optimize table rendering with `useMemo` and `useRefFunction`
+- ProList
+  - ⚡️ Extract `renderItem` and add memo for list rendering optimization
+
+### 🛠 Refactoring
+
+- ProCard
+  - 🛠 Refactor component, fix ref forwarding and loading state
+- ProList
+  - 🛠 Replace `useCallback` with `useRefFunction` and fix SSR compatibility
+- ProTable
+  - 🛠 Rename Container to `TableProvider` and optimize persistence logic
+  - 🛠 Clean unused exports and rename `TableStatus` to `FieldStatus`
+- ProForm
+  - 🛠 Extract URL sync logic into standalone hook `useUrlSync`
+  - 🛠 Extract common formatting methods to eliminate duplication
+  - 🛠 LightFilter with explicit field helpers [#9604](https://github.com/ant-design/pro-components/pull/9604)
+  - 🛠 Split ProField light edit into dedicated components [#9598](https://github.com/ant-design/pro-components/pull/9598)
+- ProField
+  - 🛠 Remove `SelectHighlight` from Select [#9633](https://github.com/ant-design/pro-components/pull/9633)
+  - 🛠 Remove `proxyChange` from Digit [#9610](https://github.com/ant-design/pro-components/pull/9610)
+- Provider
+  - 🛠 Refactor i18n and Provider logic, optimize dayjs locale loading
+
+### 🐛 Packaging Fix
+
+- 🐞 Remove `"type": "module"` from `package.json` to fix Node-native ESM loaders (e.g. Vitest) failing to load the CJS `lib/` build [#9656](https://github.com/ant-design/pro-components/issues/9656)
+
+### 📦 Dependencies
+
+- 🔒 Replace `mockjs` with `@faker-js/faker` (fixes CVE-2023-26158)
+- ⬆️ Upgrade `@ant-design/icons`, `@babel/runtime`, `@rc-component/form`, `@rc-component/table`, `@rc-component/util`, `dayjs`
+
+### 📖 Documentation
+
+- 📖 Unify demo filenames to kebab-case naming convention
+- 📖 Fix multiple demo path references in site documentation
+
+---
+
 ## [3.1.3-0] - 2026-04-06
 
 ### 🗑 Breaking Changes
