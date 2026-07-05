@@ -3,11 +3,6 @@ import { resetComponent, useStyle as useAntdStyle } from '../../../utils';
 
 interface ProCardToken extends ProAliasToken {
   componentCls: string;
-  /**
-   * 卡片专用阴影。antd v6 在运行时注入了这个 token，但 `GlobalToken` 类型里没声明。
-   * 这里手动扩展，避免 `token.boxShadowCard` 报 TS2551。
-   */
-  boxShadowCard: string;
 }
 
 const genActiveStyle = (token: ProCardToken) => ({
@@ -37,14 +32,12 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
       ...resetComponent?.(token),
 
       // 对齐 antd v6 Card：variant='borderless' 默认就有 boxShadowTertiary 浅阴影。
-      // 用 :not(&-border):not(&-box-shadow) 把显式 -box-shadow（boxShadowCard 重阴影）
-      // 和 -hoverable:hover（hover 也走 boxShadowCard）排除掉，确保它们的优先级更高。
-      '&&:not(&-border):not(&-box-shadow):not(&-filled)': {
+      '&&:not(&-border):not(&-box-shadow)': {
         boxShadow: token.boxShadowTertiary,
       },
 
       '&-box-shadow': {
-        boxShadow: token.boxShadowCard,
+        boxShadow: token.boxShadowTertiary,
         borderColor: 'transparent',
       },
       '&-col': {
@@ -80,19 +73,13 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
         border: `${token.lineWidth}px ${token.lineType} ${token.colorBorderSecondary}`,
       },
 
-      '&-filled': {
-        backgroundColor: token.colorFillAlter,
-        borderColor: 'transparent',
-        boxShadow: 'none',
-      },
-
       '&-hoverable': {
         cursor: 'pointer',
         transition: 'box-shadow 0.3s, border-color 0.3s',
 
         '&:hover': {
           borderColor: 'transparent',
-          boxShadow: token.boxShadowCard,
+          boxShadow: token.boxShadowTertiary,
         },
 
         [`&${componentCls}-checked:hover`]: {
@@ -124,6 +111,8 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
 
       '&&-ghost': {
         backgroundColor: 'transparent',
+        border: 'none',
+        boxShadow: 'none',
 
         [`> ${componentCls}`]: {
           '&-header': {
@@ -278,50 +267,59 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
           paddingBlock: token.paddingXS,
         },
       },
+
     },
 
     [`${componentCls}-tabs`]: {
-      [`${token.antCls}-tabs-top > ${token.antCls}-tabs-nav`]: {
-        marginBlockEnd: 0,
-        [`${token.antCls}-tabs-nav-list`]: {
-          marginBlockStart: token.marginXS,
-          paddingInlineStart: token.padding,
+      [`&${token.antCls}-tabs-top`]: {
+        [`> ${token.antCls}-tabs-nav`]: {
+          marginBlockEnd: 0,
+          [`${token.antCls}-tabs-nav-list`]: {
+            paddingInlineStart: token.paddingLG,
+          },
         },
-      },
-      [`${token.antCls}-tabs-bottom > ${token.antCls}-tabs-nav`]: {
-        marginBlockEnd: 0,
-        [`${token.antCls}-tabs-nav-list`]: {
-          paddingInlineStart: token.padding,
-        },
-      },
-      [`${token.antCls}-tabs-left`]: {
-        [`${token.antCls}-tabs-content-holder`]: {
+        [`> ${token.antCls}-tabs-body-holder`]: {
           [`${token.antCls}-tabs-content`]: {
-            [`${token.antCls}-tabs-tabpane`]: {
-              paddingInlineStart: 0,
-            },
+            padding: token.paddingLG,
           },
         },
       },
-      // 这里是为了保证 tabs 的高度和左侧的一致
-      [`${token.antCls}-tabs-left > ${token.antCls}-tabs-nav`]: {
-        marginInlineEnd: 0,
-        [`${token.antCls}-tabs-nav-list`]: {
-          paddingBlockStart: token.padding,
+      [`&${token.antCls}-tabs-bottom`]: {
+        [`> ${token.antCls}-tabs-nav`]: {
+          marginBlockEnd: 0,
+          [`${token.antCls}-tabs-nav-list`]: {
+            paddingInlineStart: token.paddingLG,
+          },
         },
-      },
-      [`${token.antCls}-tabs-right`]: {
-        [`${token.antCls}-tabs-content-holder`]: {
+        [`> ${token.antCls}-tabs-body-holder`]: {
           [`${token.antCls}-tabs-content`]: {
-            [`${token.antCls}-tabs-tabpane`]: {
-              paddingInlineStart: 0,
-            },
+            padding: token.paddingLG,
           },
         },
       },
-      [`${token.antCls}-tabs-right > ${token.antCls}-tabs-nav`]: {
-        [`${token.antCls}-tabs-nav-list`]: {
-          paddingBlockStart: token.padding,
+      [`&${token.antCls}-tabs-left`]: {
+        [`> ${token.antCls}-tabs-nav`]: {
+          marginInlineEnd: 0,
+          [`${token.antCls}-tabs-nav-list`]: {
+            paddingBlockStart: token.padding,
+          },
+        },
+        [`> ${token.antCls}-tabs-body-holder`]: {
+          [`${token.antCls}-tabs-content`]: {
+            padding: token.paddingLG,
+          },
+        },
+      },
+      [`&${token.antCls}-tabs-right`]: {
+        [`> ${token.antCls}-tabs-nav`]: {
+          [`${token.antCls}-tabs-nav-list`]: {
+            paddingBlockStart: token.padding,
+          },
+        },
+        [`> ${token.antCls}-tabs-body-holder`]: {
+          [`${token.antCls}-tabs-content`]: {
+            padding: token.paddingLG,
+          },
         },
       },
     },
@@ -371,10 +369,6 @@ export default function useStyle(prefixCls: string) {
     const proCardToken: ProCardToken = {
       ...token,
       componentCls: `.${prefixCls}`,
-      // antd v6 运行时注入了 boxShadowCard，但 GlobalToken 类型里没有声明，
-      // 这里从原始 token 上透传一次。
-      boxShadowCard: (token as ProAliasToken & { boxShadowCard?: string })
-        .boxShadowCard ?? token.boxShadow,
     };
 
     return [

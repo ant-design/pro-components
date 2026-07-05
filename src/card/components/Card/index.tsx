@@ -122,7 +122,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   /**
    * 根据响应式获取 gutter, 参考 antd 实现
    *
-   * @param gutter Gutter
+   * @param gut
    */
   const getNormalizedGutter = (gut: Gutter | Gutter[]) => {
     const results: [number, number] = [0, 0];
@@ -228,7 +228,6 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     classNames?.root,
     {
       [`${prefixCls}-border`]: variant === 'outlined',
-      [`${prefixCls}-filled`]: variant === 'filled',
       [`${prefixCls}-box-shadow`]: boxShadow,
       [`${prefixCls}-contain-card`]: containProCard,
       [`${prefixCls}-loading`]: loading,
@@ -357,19 +356,18 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
         </div>
       )}
       {tabs ? (
-        // antd v5 Tabs 仅通过 items 渲染，传 children 会被忽略。
-        // loading 状态下，把骨架屏放到 Tabs 容器外层，避免 children 被吞。
-        <div className={clsx(`${prefixCls}-tabs`, hashId)}>
-          {loading ? (
-            loadingDOM
-          ) : (
-            <Tabs
-              onChange={tabs.onChange}
-              {...omit(tabs, ['cardProps'])}
-              items={ModifyTabItemsContent}
-            />
-          )}
-        </div>
+        loading ? (
+          <div className={bodyCls} style={mergedStyles.body}>
+            {loadingDOM}
+          </div>
+        ) : (
+          <Tabs
+            onChange={tabs.onChange}
+            {...omit(tabs, ['cardProps'])}
+            items={ModifyTabItemsContent}
+            className={clsx(`${prefixCls}-tabs`, hashId)}
+          />
+        )
       ) : (
         <div className={bodyCls} style={mergedStyles.body}>
           {loading ? loadingDOM : childrenModified}
