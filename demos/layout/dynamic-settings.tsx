@@ -155,7 +155,7 @@ const Demo = () => {
         getContainer={() => document.getElementById('test-pro-layout')}
         settings={settings}
         onSettingChange={(changeSetting) => {
-          setSetting(changeSetting);
+          setSettings(changeSetting);
         }}
         disableUrlParams
       />

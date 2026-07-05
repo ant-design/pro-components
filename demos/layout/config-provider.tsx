@@ -155,7 +155,7 @@ const Demo = () => {
       <SettingDrawer
         getContainer={() => document.getElementById('test-pro-layout')}
         settings={settings}
-        onSettingChange={(changeSetting) => setSetting(changeSetting)}
+        onSettingChange={(changeSetting) => setSettings(changeSetting)}
       />
     </ConfigProvider>
   );
