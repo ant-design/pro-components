@@ -3,7 +3,6 @@ import type { PaginationProps } from 'antd';
 import { ConfigProvider } from 'antd';
 import { clsx } from 'clsx';
 import React, {
-  useCallback,
   useContext,
   useEffect,
   useImperativeHandle,

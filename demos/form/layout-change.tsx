@@ -74,7 +74,7 @@ const Demo = () => {
           ]}
         />
         <StepsForm
-          onFinish={async (values: any) => {
+          onFinish={async () => {
             await waitTime(2000);
 
             message.success('Submission successful');
@@ -263,7 +263,7 @@ const Demo = () => {
               New Form
             </Button>
           }
-          onFinish={async (values: any) => {
+          onFinish={async () => {
             await waitTime(500);
             message.success('Submission successful');
           }}

@@ -39,7 +39,7 @@ const Demo = () => {
           margin: '16px',
         }}
         columns={columns}
-        request={(params) => {
+        request={(_params) => {
 
           return Promise.resolve({
             data: [mockData],
@@ -66,7 +66,7 @@ const Demo = () => {
           margin: '16px',
         }}
         columns={columns}
-        request={(params) => {
+        request={(_params) => {
 
           return Promise.resolve({
             data: [mockData],
@@ -92,7 +92,7 @@ const Demo = () => {
           margin: '16px',
         }}
         columns={columns}
-        request={(params) => {
+        request={(_params) => {
 
           return Promise.resolve({
             data: [mockData],
@@ -110,7 +110,7 @@ const Demo = () => {
         }}
         formRef={ref}
         options={false}
-        dateFormatter={(value, valueType) => {
+        dateFormatter={(value, _valueType) => {
 
           return value.format('YYYY-MM-DD HH:mm:ss');
         }}

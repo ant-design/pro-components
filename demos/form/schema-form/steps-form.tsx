@@ -184,11 +184,11 @@ const Demo = () => {
           title: '第三步',
         },
       ]}
-      onCurrentChange={(current) => {
+      onCurrentChange={(_current) => {
 
       }}
       formRef={formRef}
-      onFinish={async (values) => {
+      onFinish={async () => {
         return new Promise((resolve) => {
 
           message.success('提交成功');

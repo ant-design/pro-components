@@ -38,7 +38,7 @@ const Demo = () => {
         name="schema-form-modal-and-drawer-form-demo"
         trigger={<Button>点击我</Button>}
         layoutType={layoutType as 'ModalForm'}
-        onFinish={async (values) => {
+        onFinish={async () => {
 
         }}
         {...(layoutType === 'ModalForm'

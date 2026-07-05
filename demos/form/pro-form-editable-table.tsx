@@ -96,7 +96,7 @@ const Demo = () => {
       company: string;
     }>
       grid
-      onFinish={async (values) => {
+      onFinish={async () => {
         await waitTime(2000);
 
         message.success('提交成功');

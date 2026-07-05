@@ -23,7 +23,7 @@ const Demo = () => {
   return (
     <>
       <StepsForm
-        onFinish={async (values) => {
+        onFinish={async () => {
 
           await waitTime(1000);
           message.success('Submission successful');

@@ -34,7 +34,7 @@ const Demo = () => {
       />
       <ProForm
         name="group-list-demo"
-        onFinish={async (values) => {
+        onFinish={async () => {
 
         }}
       >

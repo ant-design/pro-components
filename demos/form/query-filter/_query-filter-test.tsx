@@ -34,7 +34,7 @@ const Demo = () => {
         name: string;
         company: string;
       }>
-        onFinish={async (values) => {
+        onFinish={async () => {
 
         }}
         span={6}
@@ -54,7 +54,7 @@ const Demo = () => {
         name: string;
         company: string;
       }>
-        onFinish={async (values) => {
+        onFinish={async () => {
 
         }}
         span={6}
@@ -72,7 +72,7 @@ const Demo = () => {
         name: string;
         company: string;
       }>
-        onFinish={async (values) => {
+        onFinish={async () => {
 
         }}
         defaultCollapsed={false}
@@ -92,7 +92,7 @@ const Demo = () => {
         name: string;
         company: string;
       }>
-        onFinish={async (values) => {
+        onFinish={async () => {
 
         }}
         span={12}
@@ -113,7 +113,7 @@ const Demo = () => {
         name: string;
         company: string;
       }>
-        onFinish={async (values) => {
+        onFinish={async () => {
 
         }}
         span={8}
@@ -134,7 +134,7 @@ const Demo = () => {
         name: string;
         company: string;
       }>
-        onFinish={async (values) => {
+        onFinish={async () => {
 
         }}
         span={4}

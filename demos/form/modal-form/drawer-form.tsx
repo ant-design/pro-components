@@ -42,7 +42,7 @@ const Demo = () => {
         destroyOnHidden: true,
       }}
       submitTimeout={2000}
-      onFinish={async (values) => {
+      onFinish={async () => {
         await waitTime(2000);
 
         message.success('Submission successful');

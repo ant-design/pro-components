@@ -156,7 +156,7 @@ const MemberList: React.FC = () => {
   return (
     <ProTable<Member>
       columns={columns}
-      request={(params, sorter, filter) => {
+      request={(_params, _sorter, _filter) => {
         // 表单搜索项会从 params 传入，传递给后端接口。
         return Promise.resolve({
           data: tableListDataSource,

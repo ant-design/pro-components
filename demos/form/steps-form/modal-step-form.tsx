@@ -29,7 +29,7 @@ const Demo = () => {
         分步表单新建
       </Button>
       <StepsForm
-        onFinish={async (values) => {
+        onFinish={async () => {
 
           await waitTime(1000);
           setVisible(false);

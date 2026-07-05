@@ -66,7 +66,7 @@ const Demo = () => {
     <>
       <h1>普通json表单</h1>
       <BetaSchemaForm<DataItem>
-        onFinish={async (values) => {
+        onFinish={async () => {
 
         }}
         columns={columns}
@@ -80,7 +80,7 @@ const Demo = () => {
       >
         <BetaSchemaForm<DataItem>
           layoutType="Embed"
-          onFinish={async (values) => {
+          onFinish={async () => {
 
           }}
           columns={columns}

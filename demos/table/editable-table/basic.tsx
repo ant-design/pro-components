@@ -17,7 +17,6 @@ const waitTime = (time: number = 100) => {
   });
 };
 
-let demoNewRecordId = 9_000_000;
 
 type DataSourceType = {
   id: React.Key;
@@ -201,7 +200,7 @@ const Demo = () => {
         editable={{
           type: 'multiple',
           editableKeys,
-          onSave: async (rowKey, data, row) => {
+          onSave: async (_rowKey, _data, _row) => {
 
             await waitTime(2000);
           },

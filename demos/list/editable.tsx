@@ -43,7 +43,7 @@ const Demo = () => {
       headerTitle="基础列表"
       dataSource={dataSource}
       editable={{
-        onSave: async (key, record, originRow) => {
+        onSave: async (_key, _record, _originRow) => {
 
           return true;
         },

@@ -6,9 +6,8 @@ import React, {
   useCallback,
   useContext,
   useEffect,
-  useMemo,
 } from 'react';
-import { useRefFunction } from '../../../utils';
+
 import type { IntlType } from '../../../provider';
 import { useIntl } from '../../../provider';
 import type { LabelTooltipType } from '../../../utils';

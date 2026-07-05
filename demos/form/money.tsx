@@ -41,7 +41,7 @@ const Demo = () => {
         useMode?: string;
       }>
         name="money-demo"
-        onFinish={async (values) => {
+        onFinish={async () => {
           await waitTime(2000);
           await formRef.current?.validateFields();
           await formRef.current?.validateFieldsReturnFormatValue?.();
