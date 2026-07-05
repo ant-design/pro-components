@@ -1,4 +1,4 @@
-﻿import { Input, InputNumber, Space } from 'antd';
+﻿import { InputNumber, Space } from 'antd';
 import React, { MutableRefObject } from 'react';
 import type { ProFieldFC } from '../../types';
 import type { FieldDigitRangeProps, Value, ValuePair } from './types';
@@ -12,11 +12,15 @@ type Props = Parameters<ProFieldFC<FieldDigitRangeProps>>[0] & {
       | undefined
       | ((prev: ValuePair | undefined) => ValuePair | undefined),
   ) => void;
-  token: { colorBgContainer?: string };
+  token: {
+    colorBgContainer?: string;
+    colorBorder?: string;
+    colorTextSecondary?: string;
+  };
   placeholderValue: string | string[];
 };
 
-export function FieldDigitRangeEdit(props: Props, ref: React.Ref<unknown>) {
+export function FieldDigitRangeEdit(props: Props, _ref: React.Ref<unknown>) {
   const {
     text,
     mode: type,
@@ -30,7 +34,7 @@ export function FieldDigitRangeEdit(props: Props, ref: React.Ref<unknown>) {
     token,
     placeholderValue,
   } = props;
-  const { value, defaultValue, onChange, id } = fieldProps;
+  const { defaultValue } = fieldProps;
 
   const handleGroupBlur = () => {
     if (Array.isArray(valuePairRef.current)) {
@@ -67,28 +71,34 @@ export function FieldDigitRangeEdit(props: Props, ref: React.Ref<unknown>) {
       <InputNumber<number>
         {...fieldProps}
         placeholder={getInputNumberPlaceholder(0)}
-        id={id ?? `${id}-0`}
-        style={{ width: `calc((100% - ${separatorWidth}px) / 2)` }}
+        style={{
+          width: `calc((100% - ${separatorWidth}px) / 2)`,
+          borderInlineEnd: 0,
+        }}
         value={valuePair?.[0]}
         defaultValue={defaultValue?.[0]}
         onChange={(changedValue) => handleChange(0, changedValue)}
       />
-      <Input
+      <span
+        aria-hidden
         style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
           width: separatorWidth,
-          textAlign: 'center',
-          borderInlineStart: 0,
-          borderInlineEnd: 0,
-          pointerEvents: 'none',
+          height: 32,
+          borderBlock: `1px solid ${token?.colorBorder}`,
           backgroundColor: token?.colorBgContainer,
+          color: token?.colorTextSecondary,
+          pointerEvents: 'none',
+          userSelect: 'none',
         }}
-        placeholder={separator}
-        disabled
-      />
+      >
+        {separator}
+      </span>
       <InputNumber<number>
         {...fieldProps}
         placeholder={getInputNumberPlaceholder(1)}
-        id={id ?? `${id}-1`}
         style={{
           width: `calc((100% - ${separatorWidth}px) / 2)`,
           borderInlineStart: 0,
