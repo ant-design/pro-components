@@ -40,9 +40,9 @@ const FieldOptions: ProFieldFC = (
       <></>,
     ) as unknown as React.ReactNode[];
 
-    if (!doms || doms?.length < 1 || !Array.isArray(doms)) {
-      return null;
-    }
+    if (!doms) return null;
+    if (!Array.isArray(doms)) return doms as unknown as React.ReactElement;
+    if (doms.length < 1) return null;
 
     return (
       <div

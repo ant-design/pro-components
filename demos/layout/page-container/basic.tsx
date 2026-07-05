@@ -9,6 +9,7 @@ const Demo = () => (
     }}
   >
     <PageContainer
+      onBack={()=>{}}
       header={{
         title: 'Page Title',
         ghost: true,

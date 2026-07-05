@@ -1,7 +1,7 @@
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import ResizeObserver from '@rc-component/resize-observer';
 import type { AvatarProps, BreadcrumbProps, TagType } from 'antd';
-import { Avatar, Breadcrumb, ConfigProvider, Space } from 'antd';
+import { Avatar, Breadcrumb, Button, ConfigProvider, Space } from 'antd';
 import type { DirectionType } from 'antd/lib/config-provider';
 import { clsx } from 'clsx';
 import React from 'react';
@@ -43,16 +43,14 @@ const renderBack = (
   }
   return (
     <div className={clsx(`${prefixCls}-back`, hashId)}>
-      <div
-        role="button"
-        onClick={(e) => {
-          onBack?.(e);
-        }}
+      <Button
+        type="text"
+        size="small"
+        onClick={onBack}
         className={clsx(`${prefixCls}-back-button`, hashId)}
         aria-label="back"
-      >
-        {backIcon}
-      </div>
+        icon={backIcon}
+      />
     </div>
   );
 };

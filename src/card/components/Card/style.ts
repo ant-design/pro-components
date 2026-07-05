@@ -31,11 +31,6 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
       transition: 'all 0.3s',
       ...resetComponent?.(token),
 
-      // 对齐 antd v6 Card：variant='borderless' 默认就有 boxShadowTertiary 浅阴影。
-      '&&:not(&-border):not(&-box-shadow)': {
-        boxShadow: token.boxShadowTertiary,
-      },
-
       '&-box-shadow': {
         boxShadow: token.boxShadowTertiary,
         borderColor: 'transparent',

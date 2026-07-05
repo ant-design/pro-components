@@ -71,7 +71,7 @@ export const pureRenderRead: ProFieldRenderText = (
       },
       <>{dataValue}</>,
     );
-    if (props?.render) {
+    if (props?.render && valueType !== 'option') {
       return props.render?.(
         dataValue,
         {

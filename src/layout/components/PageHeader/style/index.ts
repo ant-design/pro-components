@@ -1,7 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { GenerateStyle, ProAliasToken } from '../../../../provider';
 import {
-  operationUnit,
   resetComponent,
   useStyle as useAntdStyle,
 } from '../../../../utils';
@@ -49,9 +48,7 @@ const genPageHeaderStyle: GenerateStyle<PageHeaderToken> = (token) => {
         lineHeight: 1,
         '&-button': {
           fontSize: 16,
-          ...operationUnit?.(token),
           color: token.pageHeaderColorBack,
-          cursor: 'pointer',
         },
         [`${token.componentCls}-rlt &`]: {
           float: 'right',
