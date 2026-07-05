@@ -310,6 +310,7 @@ export type ProFormListItemProps = ProFromListCommonProps & {
  * 这是一个纯渲染辅助函数（不含任何 hook），可以在条件分支中安全调用。
  */
 function renderActionIcon({
+  key,
   iconProps,
   defaultIcon: DefaultIcon,
   actionClassName,
@@ -319,6 +320,7 @@ function renderActionIcon({
   hidden = false,
   onClick,
 }: {
+  key: string;
   iconProps: IconConfig | false | undefined;
   defaultIcon: React.FC<any>;
   actionClassName: string;
@@ -332,7 +334,7 @@ function renderActionIcon({
   if (iconProps === false || hidden) return null;
   const { Icon = DefaultIcon, tooltipText } = (iconProps as IconConfig) ?? {};
   return (
-    <Tooltip title={tooltipText}>
+    <Tooltip title={tooltipText} key={key}>
       {loading ? (
         <LoadingOutlined />
       ) : (
@@ -456,6 +458,7 @@ const ProFormListItem: React.FC<
 
   // 4 个操作 icon 无条件调用 renderActionIcon（纯函数，无 hook），通过 hidden 控制是否渲染
   const copyIcon = renderActionIcon({
+    key: 'copy',
     iconProps: copyIconProps,
     defaultIcon: CopyOutlined,
     actionClassName: 'action-copy',
@@ -472,6 +475,7 @@ const ProFormListItem: React.FC<
   });
 
   const deleteIcon = renderActionIcon({
+    key: 'delete',
     iconProps: deleteIconProps,
     defaultIcon: DeleteOutlined,
     actionClassName: 'action-remove',
@@ -489,6 +493,7 @@ const ProFormListItem: React.FC<
   });
 
   const upIcon = renderActionIcon({
+    key: 'up',
     iconProps: upIconProps,
     defaultIcon: ArrowUpOutlined,
     actionClassName: 'action-up',
@@ -501,6 +506,7 @@ const ProFormListItem: React.FC<
   });
 
   const downIcon = renderActionIcon({
+    key: 'down',
     iconProps: downIconProps,
     defaultIcon: ArrowDownOutlined,
     actionClassName: 'action-down',
