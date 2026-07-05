@@ -18,7 +18,7 @@ const Demo = () => {
   return (
     <ProForm
       name="form-dependency-demo"
-      onFinish={async (values) => {
+      onFinish={async () => {
         await waitTime(2000);
 
         message.success('Submission successful');

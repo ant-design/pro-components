@@ -2,15 +2,14 @@ import {
   FormControlRender,
   pickControlPropsWithId,
 } from '@ant-design/pro-components';
-import { Button, Checkbox, Form, message } from 'antd';
+import { Button, Checkbox, Form } from 'antd';
 import React, { useEffect } from 'react';
 
 const App: React.FC = () => {
   const [form] = Form.useForm();
 
   useEffect(() => {
-    form.validateFields();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    void form.validateFields();
   }, []);
 
   return (
