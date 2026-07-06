@@ -42,3 +42,4 @@ packages/components/src/version.ts
 .dumi/tmp
 .dumi/tmp-production
 server
+.turbopack
