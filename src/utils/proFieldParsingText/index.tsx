@@ -102,6 +102,9 @@ export const proFieldParsingText = (
   }
 
   if (typeof text === 'object' && text !== null) {
+    if (React.isValidElement(text)) {
+      return text;
+    }
     return (text.label ?? text.title ?? '') as React.ReactNode;
   }
 
