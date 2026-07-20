@@ -1,19 +1,44 @@
 ﻿// do not edit .js files directly - edit src/index.jst
 
+type EqualStack = { val: object; next: EqualStack | null } | null;
+
 export function isDeepEqualReact(
   a: any,
   b: any,
   ignoreKeys?: string[],
-  seen: WeakMap<object, object> = new WeakMap(),
+  stackA: EqualStack = null,
+  stackB: EqualStack = null,
 ) {
   if (a === b) return true;
 
   if (a && b && typeof a === 'object' && typeof b === 'object') {
     if (a.constructor !== b.constructor) return false;
 
-    const seenB = seen.get(a);
-    if (seenB) return seenB === b;
-    seen.set(a, b);
+    // Track ancestor path only (not all visited nodes) so shared DAG refs
+    // across sibling branches can still compare structurally.
+    let currA = stackA;
+    let currB = stackB;
+    let hasA = false;
+    let hasB = false;
+    while (currA) {
+      if (currA.val === a) {
+        hasA = true;
+        break;
+      }
+      currA = currA.next;
+    }
+    while (currB) {
+      if (currB.val === b) {
+        hasB = true;
+        break;
+      }
+      currB = currB.next;
+    }
+    if (hasA && hasB) return true;
+    if (hasA || hasB) return false;
+
+    const nextStackA: EqualStack = { val: a, next: stackA };
+    const nextStackB: EqualStack = { val: b, next: stackB };
 
     let length;
     let i;
@@ -22,7 +47,8 @@ export function isDeepEqualReact(
       length = a.length;
       if (length != b.length) return false;
       for (i = length; i-- !== 0; )
-        if (!isDeepEqualReact(a[i], b[i], ignoreKeys, seen)) return false;
+        if (!isDeepEqualReact(a[i], b[i], ignoreKeys, nextStackA, nextStackB))
+          return false;
       return true;
     }
 
@@ -30,7 +56,10 @@ export function isDeepEqualReact(
       if (a.size !== b.size) return false;
       for (i of a.entries()) if (!b.has(i[0])) return false;
       for (i of a.entries())
-        if (!isDeepEqualReact(i[1], b.get(i[0]), ignoreKeys, seen)) return false;
+        if (
+          !isDeepEqualReact(i[1], b.get(i[0]), ignoreKeys, nextStackA, nextStackB)
+        )
+          return false;
       return true;
     }
 
@@ -76,7 +105,9 @@ export function isDeepEqualReact(
         continue;
       }
 
-      if (!isDeepEqualReact(a[key], b[key], ignoreKeys, seen)) {
+      if (
+        !isDeepEqualReact(a[key], b[key], ignoreKeys, nextStackA, nextStackB)
+      ) {
         return false;
       }
     }

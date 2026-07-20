@@ -1118,6 +1118,15 @@ describe('utils', () => {
     expect(isDeepEqualReact(projectA, projectB)).toBe(false);
   });
 
+  it('🪓 isDeepEqualReact should handle shared references (DAG) without false negatives', () => {
+    const shared = { x: 1 };
+    const a = { left: shared, right: shared };
+    const b = { left: { x: 1 }, right: { x: 1 } };
+
+    expect(isDeepEqualReact(a, b)).toBe(true);
+  });
+
+
   it('🪓 nanoid', () => {
     if (!window.crypto.randomUUID) {
       window.crypto.randomUUID = () => '1' as any;
