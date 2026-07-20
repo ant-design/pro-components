@@ -1,10 +1,19 @@
 ﻿// do not edit .js files directly - edit src/index.jst
 
-export function isDeepEqualReact(a: any, b: any, ignoreKeys?: string[]) {
+export function isDeepEqualReact(
+  a: any,
+  b: any,
+  ignoreKeys?: string[],
+  seen: WeakMap<object, object> = new WeakMap(),
+) {
   if (a === b) return true;
 
   if (a && b && typeof a === 'object' && typeof b === 'object') {
     if (a.constructor !== b.constructor) return false;
+
+    const seenB = seen.get(a);
+    if (seenB) return seenB === b;
+    seen.set(a, b);
 
     let length;
     let i;
@@ -13,7 +22,7 @@ export function isDeepEqualReact(a: any, b: any, ignoreKeys?: string[]) {
       length = a.length;
       if (length != b.length) return false;
       for (i = length; i-- !== 0; )
-        if (!isDeepEqualReact(a[i], b[i], ignoreKeys)) return false;
+        if (!isDeepEqualReact(a[i], b[i], ignoreKeys, seen)) return false;
       return true;
     }
 
@@ -21,7 +30,7 @@ export function isDeepEqualReact(a: any, b: any, ignoreKeys?: string[]) {
       if (a.size !== b.size) return false;
       for (i of a.entries()) if (!b.has(i[0])) return false;
       for (i of a.entries())
-        if (!isDeepEqualReact(i[1], b.get(i[0]), ignoreKeys)) return false;
+        if (!isDeepEqualReact(i[1], b.get(i[0]), ignoreKeys, seen)) return false;
       return true;
     }
 
@@ -67,7 +76,7 @@ export function isDeepEqualReact(a: any, b: any, ignoreKeys?: string[]) {
         continue;
       }
 
-      if (!isDeepEqualReact(a[key], b[key], ignoreKeys)) {
+      if (!isDeepEqualReact(a[key], b[key], ignoreKeys, seen)) {
         return false;
       }
     }

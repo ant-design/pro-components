@@ -1102,6 +1102,22 @@ describe('utils', () => {
     await html.findByText('not equal');
   });
 
+  it('🪓 isDeepEqualReact should handle circular references', () => {
+    const projectA: any = { id: '1', name: 'A' };
+    const paymentA: any = { id: 'p1', amount: 100, project: projectA };
+    projectA.payments = [paymentA];
+
+    const projectB: any = { id: '1', name: 'A' };
+    const paymentB: any = { id: 'p1', amount: 100, project: projectB };
+    projectB.payments = [paymentB];
+
+    expect(() => isDeepEqualReact(projectA, projectB)).not.toThrow();
+    expect(isDeepEqualReact(projectA, projectB)).toBe(true);
+
+    projectB.name = 'B';
+    expect(isDeepEqualReact(projectA, projectB)).toBe(false);
+  });
+
   it('🪓 nanoid', () => {
     if (!window.crypto.randomUUID) {
       window.crypto.randomUUID = () => '1' as any;
