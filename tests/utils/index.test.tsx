@@ -1126,6 +1126,19 @@ describe('utils', () => {
     expect(isDeepEqualReact(a, b)).toBe(true);
   });
 
+  it('🪓 isDeepEqualReact should reject cycles at different ancestor depths', () => {
+    const aRoot: any = { id: 'r' };
+    const aChild: any = { id: 'c', up: aRoot };
+    aRoot.down = aChild;
+
+    const bRoot: any = { id: 'r' };
+    const bChild: any = { id: 'c' };
+    bRoot.down = bChild;
+    bChild.up = bChild;
+
+    expect(isDeepEqualReact(aRoot, bRoot)).toBe(false);
+  });
+
 
   it('🪓 nanoid', () => {
     if (!window.crypto.randomUUID) {

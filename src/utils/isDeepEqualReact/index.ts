@@ -16,26 +16,15 @@ export function isDeepEqualReact(
 
     // Track ancestor path only (not all visited nodes) so shared DAG refs
     // across sibling branches can still compare structurally.
+    // Cycle edges must point to ancestors at the same relative depth.
     let currA = stackA;
     let currB = stackB;
-    let hasA = false;
-    let hasB = false;
-    while (currA) {
-      if (currA.val === a) {
-        hasA = true;
-        break;
-      }
+    while (currA && currB) {
+      if (currA.val === a) return currB.val === b;
+      if (currB.val === b) return false;
       currA = currA.next;
-    }
-    while (currB) {
-      if (currB.val === b) {
-        hasB = true;
-        break;
-      }
       currB = currB.next;
     }
-    if (hasA && hasB) return true;
-    if (hasA || hasB) return false;
 
     const nextStackA: EqualStack = { val: a, next: stackA };
     const nextStackB: EqualStack = { val: b, next: stackB };
