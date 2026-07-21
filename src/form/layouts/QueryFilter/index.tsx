@@ -466,7 +466,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
     onCollapse,
     labelWidth = '80',
     style,
-
+    containerStyle,
     split,
     preserve = true,
     ignoreRules,
@@ -547,7 +547,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
         <div
           ref={ref}
           className={clsx(`${baseClassName}-container`, hashId)}
-          style={props.containerStyle}
+          style={containerStyle}
         >
           <BaseForm
             isKeyPressSubmit
