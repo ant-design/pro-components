@@ -1690,4 +1690,59 @@ describe('Table ColumnSetting', () => {
     const lastCallArg = (onChange.mock as any).lastCall?.[0];
     expect(lastCallArg?.name?.show).toBe(false);
   });
+
+  // 验证 https://github.com/ant-design/pro-components/issues/9556
+  // 固定列后 order 应按固定分组重新分配
+  it('🎏 columnSetting pin column should reorder order values by fixed group', async () => {
+    const onChange = vi.fn();
+    const html = render(
+      <ProTable
+        size="small"
+        columnsState={{ onChange }}
+        columns={[
+          { title: 'Col1', key: 'col1', dataIndex: 'col1' },
+          { title: 'Col2', key: 'col2', dataIndex: 'col2' },
+          { title: 'Col3', key: 'col3', dataIndex: 'col3' },
+        ]}
+        dataSource={[{ key: 1, col1: 'a', col2: 'b', col3: 'c' }]}
+        rowKey="key"
+      />,
+    );
+
+    await waitForWaitTime(200);
+
+    // 打开列设置 Popover
+    act(() => {
+      html.baseElement
+        .querySelector<HTMLElement>(
+          '.ant-pro-table-list-toolbar-setting-item .anticon-setting',
+        )
+        ?.click();
+    });
+    await waitForWaitTime(200);
+
+    onChange.mockClear();
+
+    // 将 Col3 固定到左侧（点击第三个列项的「固定在列首」图标）
+    act(() => {
+      html.baseElement
+        .querySelectorAll<HTMLElement>(
+          '.ant-pro-table-column-setting-list .ant-pro-table-column-setting-list-item',
+        )[2]
+        ?.querySelector('.anticon-vertical-align-top')
+        ?.closest('span')
+        ?.click();
+    });
+    await waitForWaitTime(200);
+
+    // 固定 Col3 到左侧后：
+    // - Col3 应为 order=0（左组第一个）
+    // - Col1 应为 order=1
+    // - Col2 应为 order=2
+    const lastCallArg = (onChange.mock as any).lastCall?.[0];
+    expect(lastCallArg?.col3?.fixed).toBe('left');
+    expect(lastCallArg?.col3?.order).toBe(0);
+    expect(lastCallArg?.col1?.order).toBe(1);
+    expect(lastCallArg?.col2?.order).toBe(2);
+  });
 });

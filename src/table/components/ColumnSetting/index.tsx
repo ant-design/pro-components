@@ -42,7 +42,8 @@ const ToolTipIcon: React.FC<{
   fixed: 'left' | 'right' | undefined;
   children?: React.ReactNode;
 }> = ({ title, show, children, columnKey, fixed }) => {
-  const { columnsMap, setColumnsMap } = useContext(TableContext);
+  const { columnsMap, setColumnsMap, sortKeyColumns, setSortKeyColumns } =
+    useContext(TableContext);
   if (!show) {
     return null;
   }
@@ -53,11 +54,28 @@ const ToolTipIcon: React.FC<{
           e.stopPropagation();
           e.preventDefault();
           const config = columnsMap?.[columnKey] || {};
-          const columnKeyMap = {
+          const newColumnsMap = {
             ...columnsMap,
             [columnKey]: { ...config, fixed } as ColumnsState,
           };
-          setColumnsMap(columnKeyMap);
+          // 固定/取消固定后，按 sortKeyColumns 顺序结合新的 fixed 值重新分组并分配 order
+          // fix https://github.com/ant-design/pro-components/issues/9556
+          const sortKeys = sortKeyColumns.filter((k) => newColumnsMap[k]);
+          const orderedKeys = sortKeys
+            .map((key) => ({
+              key,
+              fixed: newColumnsMap[key]?.fixed,
+            }))
+            .sort((a, b) => {
+              const aFixed = a.fixed === 'left' ? -1 : a.fixed === 'right' ? 1 : 0;
+              const bFixed = b.fixed === 'left' ? -1 : b.fixed === 'right' ? 1 : 0;
+              return aFixed - bFixed;
+            });
+          orderedKeys.forEach(({ key }, order) => {
+            newColumnsMap[key] = { ...newColumnsMap[key], order } as ColumnsState;
+          });
+          setColumnsMap(newColumnsMap);
+          setSortKeyColumns(orderedKeys.map(({ key }) => key));
         }}
       >
         {children}
