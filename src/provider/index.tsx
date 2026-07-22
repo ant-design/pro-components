@@ -1,7 +1,7 @@
 ﻿import type { Theme } from '@ant-design/cssinjs';
 import { useCacheToken } from '@ant-design/cssinjs';
 import { ConfigProvider as AntdConfigProvider, theme as antdTheme } from 'antd';
-import zh_CN from 'antd/es/locale/zh_CN';
+import zh_CN from 'antd/lib/locale/zh_CN';
 // dayjs 的中文 locale 在这里按需预注入。
 // 注意：ProProvider 支持 34 种语言，但 dayjs 不会自动引入对应 locale 包；
 // 若业务需要切换到其他语言的 dayjs 行为，需要消费方在应用入口自行 `import 'dayjs/locale/xx'`，
