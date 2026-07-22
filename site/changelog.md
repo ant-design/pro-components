@@ -1,5 +1,19 @@
 # Changelog
 
+## [3.1.14-4] - 2026-07-22
+
+### 🐛 问题修复
+
+- ProTable
+  - 🐞 修复 ColumnSetting 固定列排序顺序错误的问题，并完善固定列与列顺序的同步逻辑 [#9556](https://github.com/ant-design/pro-components/pull/9556)
+  - 🐞 修复卡片边框（cardBordered）模式下 ListToolBar 内边距未动态适配的问题
+- Provider
+  - 🐞 修复 CJS 产物引用 `antd/es` 导致的 CommonJS 兼容性问题，改用 `antd/lib`
+
+### 🛠 其他
+
+- 🛠 依赖例行升级到最新 minor 版本 [#9670](https://github.com/ant-design/pro-components/pull/9670)
+
 ## [3.1.14-3] - 2026-07-22
 
 ### 🐛 问题修复

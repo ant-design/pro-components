@@ -1,5 +1,19 @@
 # Changelog
 
+## [3.1.14-4] - 2026-07-22
+
+### 🐛 Bug Fixes
+
+- ProTable
+  - 🐞 Fix ColumnSetting fixed column sort order and refine the sync between fixed columns and column order [#9556](https://github.com/ant-design/pro-components/pull/9556)
+  - 🐞 Fix ListToolBar padding not adapting dynamically in cardBordered mode
+- Provider
+  - 🐞 Fix CommonJS compatibility by importing from `antd/lib` instead of `antd/es` in CJS output
+
+### 🛠 Misc
+
+- 🛠 Bump dependencies to latest minor versions [#9670](https://github.com/ant-design/pro-components/pull/9670)
+
 ## [3.1.14-3] - 2026-07-22
 
 ### 🐛 Bug Fixes
