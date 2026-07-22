@@ -12,6 +12,11 @@ const svSE: ProLocale = {
       itemUnit: 'objekt',
     },
   },
+  field: {
+    colorPicker: {
+      recommended: 'Rekommenderat',
+    },
+  },
   tableForm: {
     search: 'Sök',
     reset: 'Återställ',

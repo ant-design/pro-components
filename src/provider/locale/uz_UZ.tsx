@@ -12,6 +12,11 @@ const uzUZ: ProLocale = {
       itemUnit: 'Pozitsiyalar',
     },
   },
+  field: {
+    colorPicker: {
+      recommended: 'Tavsiya etilgan',
+    },
+  },
   tableForm: {
     search: 'Qidirish',
     reset: 'Qayta tiklash',

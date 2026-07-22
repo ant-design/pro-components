@@ -2,10 +2,11 @@
 import { ColorPicker, ConfigProvider } from 'antd';
 import { clsx } from 'clsx';
 import { useContext } from 'react';
+import { useIntl } from '../../../provider';
 import type { ProFieldFC } from '../../types';
 
 const DEFAULT_PRESETS = {
-  label: 'Recommended',
+  label: '推荐',
   colors: [
     '#F5222D',
     '#FA8C16',
@@ -43,12 +44,19 @@ export function FieldColorPickerEdit(props: Props, ref: any) {
   const { text, mode: type, formItemRender, fieldProps } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-color-picker');
+  const intl = useIntl();
 
   const style = { display: 'table-cell', ...fieldProps.style };
+  const presets = [
+    {
+      label: intl.getMessage('field.colorPicker.recommended', '推荐'),
+      colors: DEFAULT_PRESETS.colors,
+    },
+  ];
   const dom = (
     <ColorPicker
       ref={ref}
-      presets={[DEFAULT_PRESETS]}
+      presets={presets}
       {...fieldProps}
       style={style}
       className={clsx({ [prefixCls]: true })}

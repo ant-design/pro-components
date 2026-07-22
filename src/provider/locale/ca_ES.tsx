@@ -12,6 +12,11 @@ const caES: ProLocale = {
       itemUnit: 'Elements',
     },
   },
+  field: {
+    colorPicker: {
+      recommended: 'Recomanat',
+    },
+  },
   tableForm: {
     search: 'Cercar',
     reset: 'Netejar',

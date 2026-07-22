@@ -12,6 +12,11 @@ const itIT: ProLocale = {
       itemUnit: 'elementi',
     },
   },
+  field: {
+    colorPicker: {
+      recommended: 'Consigliato',
+    },
+  },
   tableForm: {
     search: 'Filtra',
     reset: 'Pulisci',

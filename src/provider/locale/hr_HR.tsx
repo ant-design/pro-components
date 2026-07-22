@@ -12,6 +12,11 @@ const hrHR: ProLocale = {
       itemUnit: 'Stavke',
     },
   },
+  field: {
+    colorPicker: {
+      recommended: 'Preporučeno',
+    },
+  },
   tableForm: {
     search: 'Pretraži',
     reset: 'Poništi',

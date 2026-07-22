@@ -12,6 +12,11 @@ const urPK: ProLocale = {
       itemUnit: 'اشیاء',
     },
   },
+  field: {
+    colorPicker: {
+      recommended: 'تجویز کردہ',
+    },
+  },
   tableForm: {
     search: 'تلاش کریں',
     reset: 'ری سیٹ کریں',

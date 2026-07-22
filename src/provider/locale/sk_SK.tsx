@@ -12,6 +12,11 @@ const skSK: ProLocale = {
       itemUnit: 'Položky',
     },
   },
+  field: {
+    colorPicker: {
+      recommended: 'Odporúčané',
+    },
+  },
   tableForm: {
     search: 'Vyhladať',
     reset: 'Resetovať',

@@ -12,6 +12,11 @@ const jaJP: ProLocale = {
       itemUnit: 'アイテム',
     },
   },
+  field: {
+    colorPicker: {
+      recommended: 'おすすめ',
+    },
+  },
   tableForm: {
     search: '検索',
     reset: 'リセット',

@@ -12,6 +12,11 @@ const nlNL: ProLocale = {
       itemUnit: 'item',
     },
   },
+  field: {
+    colorPicker: {
+      recommended: 'Aanbevolen',
+    },
+  },
   tableForm: {
     search: 'Zoeken',
     reset: 'Resetten',

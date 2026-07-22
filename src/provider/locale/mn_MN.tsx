@@ -12,6 +12,11 @@ const mnMN: ProLocale = {
       itemUnit: 'Нэгжүүд',
     },
   },
+  field: {
+    colorPicker: {
+      recommended: 'Санал болгосон',
+    },
+  },
   tableForm: {
     search: 'Хайх',
     reset: 'Шинэчлэх',

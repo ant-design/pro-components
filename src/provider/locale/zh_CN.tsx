@@ -17,6 +17,11 @@ const zhCN = {
       itemUnit: '项',
     },
   },
+  field: {
+    colorPicker: {
+      recommended: '推荐',
+    },
+  },
   tableForm: {
     search: '查询',
     reset: '重置',

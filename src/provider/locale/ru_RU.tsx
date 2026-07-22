@@ -12,6 +12,11 @@ const ruRU: ProLocale = {
       itemUnit: 'Позиции',
     },
   },
+  field: {
+    colorPicker: {
+      recommended: 'Рекомендуемые',
+    },
+  },
   tableForm: {
     search: 'Найти',
     reset: 'Сброс',

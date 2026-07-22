@@ -3240,6 +3240,90 @@ describe('ProForm', () => {
     expect(onFinish).toHaveBeenCalledWith('#f5222d');
   });
 
+  // 验证 https://github.com/ant-design/pro-components/issues/9668
+  // 默认 preset 的 label 通过 i18n 国际化（默认 en 为 Recommended，zh 为 推荐）
+  it('📦 ColorPicker default preset label uses i18n', async () => {
+    const wrapper = render(
+      <ProForm>
+        <ProFormColorPicker name="color" label="颜色选择" />
+      </ProForm>,
+    );
+
+    act(() => {
+      wrapper.baseElement
+        .querySelectorAll<HTMLElement>('.ant-pro-field-color-picker')[0]
+        .click();
+    });
+
+    // 面板里应显示当前语言的 label
+    expect(
+      wrapper.baseElement.querySelector('.ant-color-picker-presets-label')?.textContent,
+    ).toBeTruthy();
+    // 仍能点击预设颜色
+    act(() => {
+      wrapper.baseElement
+        .querySelectorAll<HTMLElement>('.ant-color-picker-presets-color')[0]
+        .click();
+    });
+    expect(wrapper.baseElement.querySelector('.ant-color-picker-presets-color')).toBeTruthy();
+  });
+
+  // 验证 fieldProps.presets 能覆盖默认预设（来自 issue 的核心诉求之一）
+  it('📦 ColorPicker fieldProps.presets overrides default presets', async () => {
+    const wrapper = render(
+      <ProForm>
+        <ProFormColorPicker
+          name="color"
+          label="颜色选择"
+          fieldProps={{
+            presets: [
+              {
+                label: '推荐色',
+                colors: ['#ff0000'],
+              },
+            ],
+          }}
+        />
+      </ProForm>,
+    );
+
+    act(() => {
+      wrapper.baseElement
+        .querySelectorAll<HTMLElement>('.ant-pro-field-color-picker')[0]
+        .click();
+    });
+
+    // 应显示自定义 label
+    const labelEle = wrapper.baseElement.querySelector(
+      '.ant-color-picker-presets-label',
+    );
+    expect(labelEle?.textContent).toBe('推荐色');
+  });
+
+  // 验证 fieldProps.presets 传 null 可以去掉默认预设（issue 的另一个诉求）
+  it('📦 ColorPicker fieldProps.presets=null removes default presets', async () => {
+    const wrapper = render(
+      <ProForm>
+        <ProFormColorPicker
+          name="color"
+          label="颜色选择"
+          fieldProps={{ presets: null as any }}
+        />
+      </ProForm>,
+    );
+
+    act(() => {
+      wrapper.baseElement
+        .querySelectorAll<HTMLElement>('.ant-pro-field-color-picker')[0]
+        .click();
+    });
+
+    // 面板里不应有 presets 区块
+    expect(
+      wrapper.baseElement.querySelector('.ant-color-picker-presets'),
+    ).toBeFalsy();
+  });
+
   it('📦 validateFieldsReturnFormatValue', async () => {
     const fn1 = vi.fn();
     const fn2 = vi.fn();

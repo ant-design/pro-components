@@ -12,6 +12,11 @@ const deDE: ProLocale = {
       itemUnit: 'Einträge',
     },
   },
+  field: {
+    colorPicker: {
+      recommended: 'Empfohlen',
+    },
+  },
   tableForm: {
     search: 'Suchen',
     reset: 'Zurücksetzen',

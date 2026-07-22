@@ -12,6 +12,11 @@ const ukUA: ProLocale = {
       itemUnit: 'Позиції',
     },
   },
+  field: {
+    colorPicker: {
+      recommended: 'Рекомендовано',
+    },
+  },
   tableForm: {
     search: 'Пошук',
     reset: 'Очистити',

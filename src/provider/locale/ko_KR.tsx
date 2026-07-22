@@ -12,6 +12,11 @@ const koKR: ProLocale = {
       itemUnit: '건수',
     },
   },
+  field: {
+    colorPicker: {
+      recommended: '추천',
+    },
+  },
   tableForm: {
     search: '조회',
     reset: '초기화',

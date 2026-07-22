@@ -12,6 +12,11 @@ const srRS: ProLocale = {
       itemUnit: 'Stavke',
     },
   },
+  field: {
+    colorPicker: {
+      recommended: 'Препоручено',
+    },
+  },
   tableForm: {
     search: 'Pronađi',
     reset: 'Resetuj',

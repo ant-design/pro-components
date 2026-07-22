@@ -12,6 +12,11 @@ const trTR: ProLocale = {
       itemUnit: 'Öğeler',
     },
   },
+  field: {
+    colorPicker: {
+      recommended: 'Önerilen',
+    },
+  },
   tableForm: {
     search: 'Filtrele',
     reset: 'Sıfırla',

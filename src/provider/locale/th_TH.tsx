@@ -12,6 +12,11 @@ const thTH: ProLocale = {
       itemUnit: 'รายการ',
     },
   },
+  field: {
+    colorPicker: {
+      recommended: 'แนะนำ',
+    },
+  },
   tableForm: {
     search: 'สอบถาม',
     reset: 'รีเซ็ต',

@@ -12,6 +12,11 @@ const frFR: ProLocale = {
       itemUnit: 'Items',
     },
   },
+  field: {
+    colorPicker: {
+      recommended: 'Recommandé',
+    },
+  },
   tableForm: {
     search: 'Rechercher',
     reset: 'Réinitialiser',

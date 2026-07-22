@@ -12,6 +12,11 @@ const ptBR: ProLocale = {
       itemUnit: 'Itens',
     },
   },
+  field: {
+    colorPicker: {
+      recommended: 'Recomendado',
+    },
+  },
   tableForm: {
     search: 'Filtrar',
     reset: 'Limpar',

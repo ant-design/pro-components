@@ -12,6 +12,11 @@ const arEG: ProLocale = {
       itemUnit: 'عناصر',
     },
   },
+  field: {
+    colorPicker: {
+      recommended: 'موصى به',
+    },
+  },
   tableForm: {
     search: 'ابحث',
     reset: 'إعادة تعيين',

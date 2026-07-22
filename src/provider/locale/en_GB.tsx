@@ -12,6 +12,11 @@ const enGB: ProLocale = {
       itemUnit: 'Items',
     },
   },
+  field: {
+    colorPicker: {
+      recommended: 'Recommended',
+    },
+  },
   tableForm: {
     search: 'Query',
     reset: 'Reset',

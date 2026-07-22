@@ -12,6 +12,11 @@ const viVN: ProLocale = {
       itemUnit: 'Mục',
     },
   },
+  field: {
+    colorPicker: {
+      recommended: 'Đề xuất',
+    },
+  },
   tableForm: {
     search: 'Tìm kiếm',
     reset: 'Làm lại',

@@ -12,6 +12,11 @@ const zhTW: ProLocale = {
       itemUnit: '項',
     },
   },
+  field: {
+    colorPicker: {
+      recommended: '推薦',
+    },
+  },
   tableForm: {
     search: '查詢',
     reset: '重置',

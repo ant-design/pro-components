@@ -12,6 +12,11 @@ const idID: ProLocale = {
       itemUnit: 'Unit',
     },
   },
+  field: {
+    colorPicker: {
+      recommended: 'Direkomendasikan',
+    },
+  },
   tableForm: {
     search: 'Cari',
     reset: 'Atur ulang',

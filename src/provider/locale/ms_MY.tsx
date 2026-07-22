@@ -12,6 +12,11 @@ const msMY: ProLocale = {
       itemUnit: 'Item',
     },
   },
+  field: {
+    colorPicker: {
+      recommended: 'Disyorkan',
+    },
+  },
   tableForm: {
     search: 'Cari',
     reset: 'Menetapkan semula',

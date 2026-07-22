@@ -12,6 +12,11 @@ const roRO: ProLocale = {
       itemUnit: 'elemente',
     },
   },
+  field: {
+    colorPicker: {
+      recommended: 'Recomandat',
+    },
+  },
   tableForm: {
     search: 'Caută',
     reset: 'Resetează',

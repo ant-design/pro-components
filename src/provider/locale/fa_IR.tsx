@@ -12,6 +12,11 @@ const faIR: ProLocale = {
       itemUnit: 'مورد',
     },
   },
+  field: {
+    colorPicker: {
+      recommended: 'پیشنهاد شده',
+    },
+  },
   tableForm: {
     search: 'جستجو',
     reset: 'بازنشانی',

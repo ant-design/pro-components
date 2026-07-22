@@ -12,6 +12,11 @@ const csCZ: ProLocale = {
       itemUnit: 'Položky',
     },
   },
+  field: {
+    colorPicker: {
+      recommended: 'Doporučeno',
+    },
+  },
   tableForm: {
     search: 'Hledat',
     reset: 'Resetovat',

@@ -12,6 +12,11 @@ const heIL: ProLocale = {
       itemUnit: 'פריטים',
     },
   },
+  field: {
+    colorPicker: {
+      recommended: 'מומלץ',
+    },
+  },
   tableForm: {
     search: 'חיפוש',
     reset: 'איפוס',

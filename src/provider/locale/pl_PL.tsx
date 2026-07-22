@@ -12,6 +12,11 @@ const plPL: ProLocale = {
       itemUnit: 'Ilość',
     },
   },
+  field: {
+    colorPicker: {
+      recommended: 'Polecane',
+    },
+  },
   tableForm: {
     search: 'Szukaj',
     reset: 'Reset',

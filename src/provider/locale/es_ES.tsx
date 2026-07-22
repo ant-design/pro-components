@@ -12,6 +12,11 @@ const esES: ProLocale = {
       itemUnit: 'artículos',
     },
   },
+  field: {
+    colorPicker: {
+      recommended: 'Recomendado',
+    },
+  },
   tableForm: {
     search: 'Buscar',
     reset: 'Limpiar',
