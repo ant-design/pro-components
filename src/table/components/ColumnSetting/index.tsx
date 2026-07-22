@@ -433,7 +433,8 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
     key?: any;
   })[] = props.columns;
   const { checkedReset = true } = props;
-  const { columnsMap, setColumnsMap, clearPersistenceStorage } = counter;
+  const { columnsMap, setColumnsMap, clearPersistenceStorage, setSortKeyColumns } =
+    counter;
 
   /**
    * 设置全部选中，或全部未选中
@@ -483,6 +484,12 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
         counter.propsRef.current?.columnsState?.value ||
         counter.defaultColumnKeyMap!,
     );
+    // 同步重置排序数组，否则拖拽 move 仍基于旧顺序计算
+    // fix https://github.com/ant-design/pro-components/issues/9558
+    const defaultKeys = localColumns.map(({ key, index }) =>
+      genColumnKey(key, index),
+    );
+    setSortKeyColumns(defaultKeys);
   });
 
   // 未选中的 key 列表 —— 从 localColumns（当前可见列）派生，而非从 columnsMap 全量
