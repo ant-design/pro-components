@@ -13,6 +13,8 @@ legacy: /table
 
 <code src="../../demos/table/normal.tsx" background="var(--main-bg-color)" title="无查询表单"></code>
 
+<code src="../../demos/table/card-bordered.tsx" background="var(--main-bg-color)" title="卡片边框"></code>
+
 <code src="../../demos/table/data-source.tsx" background="var(--main-bg-color)" title="使用 DataSource" debug></code>
 
 <code src="../../demos/table/no-title.tsx" id="no-title-table" background="var(--main-bg-color)" title="无 ToolBar 的表格"></code>

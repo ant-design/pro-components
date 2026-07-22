@@ -46,7 +46,7 @@ import {
   useRefFunction,
 } from '../utils';
 import Alert from './components/Alert';
-import { Container, TableContext } from './Store/Provide';
+import { TableContext, TableProvider } from './Store/Provide';
 import { useStyle } from './style';
 import { TableSearch } from './TableSearch';
 import { TableToolbar } from './TableToolbar';
@@ -823,7 +823,15 @@ const ProTable = <
       selectedRowKeys={selectedRowKeys}
       tableColumn={tableColumn}
       tooltip={tooltip}
-      toolbar={toolbar}
+      toolbar={{
+        ...toolbar,
+        style: {
+          paddingInline: isBordered('table', cardBordered)
+            ? undefined
+            : 0,
+          ...toolbar?.style,
+        },
+      }}
       isLightFilter={isLightFilter}
       searchNode={searchNode}
       options={options}
@@ -1107,7 +1115,7 @@ const ProviderTableContainer = <
 
   const context = useContext(ProConfigContext);
   return (
-    <Container
+    <TableProvider
       initValue={{
         ...props,
         columnsState: props.columnsState,
@@ -1128,7 +1136,7 @@ const ProviderTableContainer = <
           />
         </ErrorComponent>
       </ProConfigProvider>
-    </Container>
+    </TableProvider>
   );
 };
 
