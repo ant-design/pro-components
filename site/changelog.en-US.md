@@ -1,5 +1,23 @@
 # Changelog
 
+## [3.1.14-3] - 2026-07-22
+
+### 🐛 Bug Fixes
+
+- ProTable
+  - 🐞 Fix TS2322 type error when passing ReactNode to `options.search`
+  - 🐞 Fix syncToUrl not writing search fields to URL [#9665](https://github.com/ant-design/pro-components/issues/9665)
+  - 🐞 Fix syncToUrl not triggering when request lacks macrotask [#9096](https://github.com/ant-design/pro-components/issues/9096)
+  - 🐞 Fix ColumnSetting reset not restoring drag order
+  - 🐞 Fix pagination change not triggering syncToUrl [#6967](https://github.com/ant-design/pro-components/issues/6967)
+  - 🐞 Fix EditableTable cancel edit error when form is undefined [#9640](https://github.com/ant-design/pro-components/issues/9640)
+- ProField
+  - 🐞 Fix ColorPicker default preset label hardcoded in English, now uses i18n [#9668](https://github.com/ant-design/pro-components/issues/9668)
+- Utils
+  - 🐞 Fix `isDeepEqualReact` stack overflow on circular refs [#9666](https://github.com/ant-design/pro-components/issues/9666) [#9667](https://github.com/ant-design/pro-components/pull/9667) [@lblblong](https://github.com/lblblong)
+- Provider
+  - 🐞 Add Urdu (ur-PK) locale support [#9218](https://github.com/ant-design/pro-components/issues/9218)
+
 ## [3.1.14-0] - 2026-07-05
 
 ### 🐛 Bug Fixes

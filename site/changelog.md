@@ -1,5 +1,23 @@
 # Changelog
 
+## [3.1.14-3] - 2026-07-22
+
+### 🐛 问题修复
+
+- ProTable
+  - 🐞 修复 `options.search` 传入 ReactNode 时 TS2322 类型错误
+  - 🐞 修复 syncToUrl 搜索字段不写入 URL 的问题 [#9665](https://github.com/ant-design/pro-components/issues/9665)
+  - 🐞 修复 syncToUrl 在 request 不含宏任务时不触发的问题 [#9096](https://github.com/ant-design/pro-components/issues/9096)
+  - 🐞 修复 ColumnSetting 重置后未恢复拖拽顺序的问题
+  - 🐞 修复分页变化未触发 syncToUrl 的问题 [#6967](https://github.com/ant-design/pro-components/issues/6967)
+  - 🐞 修复 EditableTable 取消编辑时 form 为 undefined 报错的问题 [#9640](https://github.com/ant-design/pro-components/issues/9640)
+- ProField
+  - 🐞 修复 ColorPicker 默认预设 label 硬编码英文的问题，改为国际化读取 [#9668](https://github.com/ant-design/pro-components/issues/9668)
+- Utils
+  - 🐞 修复 `isDeepEqualReact` 循环引用导致栈溢出的问题 [#9666](https://github.com/ant-design/pro-components/issues/9666) [#9667](https://github.com/ant-design/pro-components/pull/9667) [@lblblong](https://github.com/lblblong)
+- Provider
+  - 🐞 新增乌尔都语（ur-PK）locale 支持 [#9218](https://github.com/ant-design/pro-components/issues/9218)
+
 ## [3.1.13-0] - 2026-07-05
 
 ### 🐛 问题修复
