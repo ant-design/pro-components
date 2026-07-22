@@ -1102,6 +1102,44 @@ describe('utils', () => {
     await html.findByText('not equal');
   });
 
+  it('🪓 isDeepEqualReact should handle circular references', () => {
+    const projectA: any = { id: '1', name: 'A' };
+    const paymentA: any = { id: 'p1', amount: 100, project: projectA };
+    projectA.payments = [paymentA];
+
+    const projectB: any = { id: '1', name: 'A' };
+    const paymentB: any = { id: 'p1', amount: 100, project: projectB };
+    projectB.payments = [paymentB];
+
+    expect(() => isDeepEqualReact(projectA, projectB)).not.toThrow();
+    expect(isDeepEqualReact(projectA, projectB)).toBe(true);
+
+    projectB.name = 'B';
+    expect(isDeepEqualReact(projectA, projectB)).toBe(false);
+  });
+
+  it('🪓 isDeepEqualReact should handle shared references (DAG) without false negatives', () => {
+    const shared = { x: 1 };
+    const a = { left: shared, right: shared };
+    const b = { left: { x: 1 }, right: { x: 1 } };
+
+    expect(isDeepEqualReact(a, b)).toBe(true);
+  });
+
+  it('🪓 isDeepEqualReact should reject cycles at different ancestor depths', () => {
+    const aRoot: any = { id: 'r' };
+    const aChild: any = { id: 'c', up: aRoot };
+    aRoot.down = aChild;
+
+    const bRoot: any = { id: 'r' };
+    const bChild: any = { id: 'c' };
+    bRoot.down = bChild;
+    bChild.up = bChild;
+
+    expect(isDeepEqualReact(aRoot, bRoot)).toBe(false);
+  });
+
+
   it('🪓 nanoid', () => {
     if (!window.crypto.randomUUID) {
       window.crypto.randomUUID = () => '1' as any;
