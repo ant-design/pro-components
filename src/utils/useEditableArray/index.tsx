@@ -680,7 +680,7 @@ const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
         if (shouldDeleteNewRow) {
           // 如果不存在历史值，说明是新的行，干掉他
           await props.onDelete?.(recordKey, row);
-        } else if (restoreRow != null) {
+        } else if (restoreRow != null && form) {
           form.setFieldsValue(set({}, namePath, restoreRow));
         }
 
