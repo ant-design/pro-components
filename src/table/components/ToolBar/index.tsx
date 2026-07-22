@@ -39,7 +39,14 @@ export type OptionConfig = {
   fullScreen?: OptionsType;
   reload?: OptionsType;
   setting?: boolean | SettingOptionType;
-  search?: (OptionSearchProps & { name?: string }) | boolean;
+  /**
+   * 工具栏搜索框配置，支持传入自定义 ReactNode 完全接管渲染，
+   * 自定义节点时内置的 keyword 提交逻辑不再生效
+   */
+  search?:
+    | (OptionSearchProps & { name?: string })
+    | boolean
+    | React.ReactNode;
   reloadIcon?: React.ReactNode;
   densityIcon?: React.ReactNode;
 };
@@ -223,24 +230,33 @@ function ToolBar<T>({
 
   let searchConfig: any = false;
   if (propsOptions && propsOptions.search) {
-    /** 受控的value 和 onChange */
-    const defaultSearchConfig = {
-      value: counter.keyWords,
-      onChange: (e: React.ChangeEvent<HTMLInputElement>) =>
-        counter.setKeyWords(e.target.value),
-    };
-    searchConfig =
-      propsOptions.search === true
-        ? defaultSearchConfig
-        : { ...defaultSearchConfig, ...propsOptions.search };
+    // 自定义节点直接透传给 ListToolBar 渲染，不注入受控 keyword 逻辑
+    if (React.isValidElement(propsOptions.search)) {
+      searchConfig = propsOptions.search;
+    } else {
+      /** 受控的value 和 onChange */
+      const defaultSearchConfig = {
+        value: counter.keyWords,
+        onChange: (e: React.ChangeEvent<HTMLInputElement>) =>
+          counter.setKeyWords(e.target.value),
+      };
+      searchConfig =
+        propsOptions.search === true
+          ? defaultSearchConfig
+          : {
+              ...defaultSearchConfig,
+              ...(propsOptions.search as OptionSearchProps & {
+                name?: string;
+              }),
+            };
+    }
   }
 
   useEffect(() => {
     if (counter.keyWords === undefined) {
       onSearch?.('');
     }
-    // onSearch 用 useRefFunction 稳定后，这里只需跟踪 keyWords 变化
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // 只在 keyWords 变化时触发（onSearch 引用不稳定，不作为依赖）
   }, [counter.keyWords]);
 
   return (
@@ -298,8 +314,11 @@ const ToolbarRender = <T,>(props: ToolbarRenderProps<T>) => {
       if (!options || !options.search) {
         return;
       }
-      const { name = 'keyword' } =
-        options.search === true ? {} : options.search;
+      const { name = 'keyword' } = (
+        options.search === true || React.isValidElement(options.search)
+          ? {}
+          : options.search
+      ) as { name?: string };
 
       /** 如果传入的 onSearch 返回值为 false，应该直接拦截请求 */
       const success = (options.search as OptionSearchProps)?.onSearch?.(

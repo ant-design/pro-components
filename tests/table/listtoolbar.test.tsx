@@ -99,6 +99,61 @@ describe('Table valueEnum', () => {
     );
   });
 
+  it('ProTable options.search support ReactNode', async () => {
+    const onSearch = vi.fn();
+    const wrapper = render(
+      <ProTable<{
+        name: string;
+      }>
+        columns={[
+          {
+            title: '应用名称',
+            dataIndex: 'name',
+          },
+        ]}
+        request={() => {
+          return Promise.resolve({
+            data: [],
+            success: true,
+          });
+        }}
+        search={false}
+        options={{
+          search: (
+            <Input.Search
+              placeholder="自定义搜索框"
+              onSearch={(value) => onSearch(value)}
+            />
+          ),
+        }}
+        rowKey="key"
+      />,
+    );
+
+    await waitForWaitTime(200);
+
+    // 自定义节点应被原样渲染，而不是内置的受控 Input.Search
+    const inputEle = (await wrapper.findByPlaceholderText(
+      '自定义搜索框',
+    )) as HTMLInputElement;
+    expect(inputEle).toBeTruthy();
+
+    act(() => {
+      fireEvent.change(inputEle, { target: { value: 'qixy' } });
+    });
+
+    act(() => {
+      fireEvent.keyDown(inputEle, { key: 'Enter', keyCode: 13 });
+    });
+
+    await waitFor(
+      () => {
+        expect(onSearch).toHaveBeenCalledWith('qixy');
+      },
+      { timeout: 2000 },
+    );
+  });
+
   it('ListToolBar action no array', async () => {
     const wrapper = render(
       <ListToolBar

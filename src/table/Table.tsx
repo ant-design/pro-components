@@ -740,10 +740,16 @@ const ProTable = <
 
   const onFormSearchSubmit = useRefFunction(
     <Y extends ParamsType>(values: Y): any => {
+      // 自定义节点不走内置 keyword 合并逻辑，直接提交表单值
+      if (options && options.search && React.isValidElement(options.search)) {
+        setFormSearchWithRef(values);
+        return;
+      }
       // 判断search.onSearch返回值决定是否更新formSearch
       if (options && options.search) {
-        const { name = 'keyword' } =
-          options.search === true ? {} : options.search;
+        const { name = 'keyword' } = (options.search === true
+          ? {}
+          : options.search) as { name?: string };
 
         /** 如果传入的 onSearch 返回值为 false，则不要把options.search.name对应的值set到formSearch */
         const success = (options.search as OptionSearchProps)?.onSearch?.(
