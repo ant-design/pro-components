@@ -27,6 +27,7 @@ import svSE from './locale/sv_SE';
 import thTH from './locale/th_TH';
 import trTR from './locale/tr_TR';
 import ukUA from './locale/uk_UA';
+import urPK from './locale/ur_PK';
 import uzUZ from './locale/uz_UZ';
 import viVN from './locale/vi_VN';
 import zhCN from './locale/zh_CN';
@@ -122,6 +123,7 @@ const localeMessages = {
   sk_SK: skSK,
   he_IL: heIL,
   uk_UA: ukUA,
+  ur_PK: urPK,
   uz_UZ: uzUZ,
   nl_NL: nlNL,
   ro_RO: roRO,
@@ -198,6 +200,7 @@ const svSEIntl = intlMap['sv-SE'];
 const thTHIntl = intlMap['th-TH'];
 const trTRIntl = intlMap['tr-TR'];
 const ukUAIntl = intlMap['uk-UA'];
+const urPKIntl = intlMap['ur-PK'];
 const uzUZIntl = intlMap['uz-UZ'];
 const viVNIntl = intlMap['vi-VN'];
 const zhCNIntl = intlMap['zh-CN'];
@@ -235,6 +238,7 @@ export {
   thTHIntl,
   trTRIntl,
   ukUAIntl,
+  urPKIntl,
   uzUZIntl,
   viVNIntl,
   zhCNIntl,
