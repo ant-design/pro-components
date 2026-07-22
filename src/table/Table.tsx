@@ -825,12 +825,7 @@ const ProTable = <
       tooltip={tooltip}
       toolbar={{
         ...toolbar,
-        style: {
-          paddingInline: isBordered('table', cardBordered)
-            ? undefined
-            : 0,
-          ...toolbar?.style,
-        },
+        style: toolbar?.style,
       }}
       isLightFilter={isLightFilter}
       searchNode={searchNode}
