@@ -54,11 +54,15 @@ const ToolTipIcon: React.FC<{
           e.stopPropagation();
           e.preventDefault();
           const config = columnsMap?.[columnKey] || {};
+          // 目标 fixed 与当前一致时无需任何更新
+          if (config.fixed === fixed) return;
           const newColumnsMap = {
             ...columnsMap,
             [columnKey]: { ...config, fixed } as ColumnsState,
           };
-          // 固定/取消固定后，按 sortKeyColumns 顺序结合新的 fixed 值重新分组并分配 order
+          // 固定状态变化后，按 [左固定, 不固定, 右固定] 稳定重排 sortKeyColumns
+          // （组内保留原相对序），并据新顺序全局重写 order，使 order 始终等于
+          // 列在排序数组中的下标，保证 columnSort 的分组与组内顺序自洽。
           // fix https://github.com/ant-design/pro-components/issues/9556
           const sortKeys = sortKeyColumns.filter((k) => newColumnsMap[k]);
           const orderedKeys = sortKeys
@@ -67,12 +71,17 @@ const ToolTipIcon: React.FC<{
               fixed: newColumnsMap[key]?.fixed,
             }))
             .sort((a, b) => {
-              const aFixed = a.fixed === 'left' ? -1 : a.fixed === 'right' ? 1 : 0;
-              const bFixed = b.fixed === 'left' ? -1 : b.fixed === 'right' ? 1 : 0;
+              const aFixed =
+                a.fixed === 'left' ? -1 : a.fixed === 'right' ? 1 : 0;
+              const bFixed =
+                b.fixed === 'left' ? -1 : b.fixed === 'right' ? 1 : 0;
               return aFixed - bFixed;
             });
           orderedKeys.forEach(({ key }, order) => {
-            newColumnsMap[key] = { ...newColumnsMap[key], order } as ColumnsState;
+            newColumnsMap[key] = {
+              ...newColumnsMap[key],
+              order,
+            } as ColumnsState;
           });
           setColumnsMap(newColumnsMap);
           setSortKeyColumns(orderedKeys.map(({ key }) => key));
