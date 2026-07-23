@@ -49,11 +49,14 @@ export interface CreateProFieldOptions {
 
 /**
  * @param render 单函数时读写共用（兼容旧用法）；对象时分别指定只读 / 编辑渲染
+ * 显式返回组件类型，避免 PropsWithoutRef 对带索引签名的 ProFieldPropsType 执行 Omit 后丢失具名属性。
  */
 export function createProField(
   render: ProFieldRenderText | ProFieldDualRender,
   options: CreateProFieldOptions,
-) {
+): React.ForwardRefExoticComponent<
+  ProFieldPropsType & React.RefAttributes<any>
+> {
   const renderRead = isProFieldDualRender(render) ? render.renderRead : render;
   const renderEdit = isProFieldDualRender(render) ? render.renderEdit : render;
 
@@ -149,5 +152,5 @@ export function createProField(
     return <React.Fragment>{renderedDom}</React.Fragment>;
   };
 
-  return React.forwardRef(ProFieldComponent) as typeof ProFieldComponent;
+  return React.forwardRef(ProFieldComponent);
 }
