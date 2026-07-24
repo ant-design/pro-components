@@ -1,4 +1,5 @@
 import { FieldContext as RcFieldContext } from '@rc-component/form';
+import { useComposeRef } from '@rc-component/util';
 import type { FormItemProps } from 'antd';
 import { clsx } from 'clsx';
 import React, { useContext, useMemo, useState } from 'react';
@@ -41,7 +42,9 @@ const WIDTH_SIZE_ENUM = {
 
 const ignoreWidthValueType = ['switch', 'radioButton', 'radio', 'rate'];
 
-type ProFormComponent<P, Extends> = React.ComponentType<P & Extends>;
+type ProFormComponent<P, Extends> = React.ForwardRefExoticComponent<
+  React.PropsWithoutRef<P & Extends> & React.RefAttributes<any>
+>;
 
 /**
  * 处理fieldProps和formItemProps为function时传进来的方法
@@ -65,9 +68,10 @@ export function warpField<P extends ProFormFieldItemProps = any>(
   // 标记是否是 ProForm 的组件
   Field.displayName = 'ProFormComponent';
 
-  const FieldWithContext: React.FC<P & ExtendsProps & FunctionFieldProps> = (
-    props,
-  ) => {
+  const FieldWithContext = React.forwardRef<
+    any,
+    P & ExtendsProps & FunctionFieldProps
+  >((props, forwardedRef) => {
     const {
       valueType: tmpValueType,
       customLightMode,
@@ -254,6 +258,13 @@ export function warpField<P extends ProFormFieldItemProps = any>(
       };
     }, [allowClear, className, onChange, fieldProps, style]);
 
+    // 合并 Form.Item 经 WithValueFomFiledProps 注入的 itemRef（供 getFieldInstance）
+    // 与用户传入的 fieldRef，useComposeRef 保证引用稳定避免函数 ref 抖动
+    const mergedFieldRef = useComposeRef(
+      forwardedRef as any,
+      props?.fieldRef as any,
+    );
+
     const field = useDeepCompareMemo(() => {
       return (
         <Field
@@ -263,10 +274,10 @@ export function warpField<P extends ProFormFieldItemProps = any>(
           {...(rest as P)}
           fieldProps={fieldFieldProps}
           proFieldProps={fieldProFieldProps}
-          ref={props?.fieldRef}
+          ref={mergedFieldRef}
         />
       );
-    }, [fieldProFieldProps, fieldFieldProps, rest]);
+    }, [fieldProFieldProps, fieldFieldProps, rest, mergedFieldRef]);
 
     const isLightMode = proFieldProps?.light === true && !customLightMode;
 
@@ -353,15 +364,17 @@ export function warpField<P extends ProFormFieldItemProps = any>(
     const { ColWrapper } = useGridHelpers(rest);
 
     return <ColWrapper>{formItem}</ColWrapper>;
-  };
+  });
+  FieldWithContext.displayName = 'ProFormComponent';
 
-  const DependencyWrapper: React.FC<
+  const DependencyWrapper = React.forwardRef<
+    any,
     P &
       ExtendsProps &
       FunctionFieldProps & {
         originDependencies?: string[];
       }
-  > = (props) => {
+  >((props, forwardedRef) => {
     const { dependencies } = props;
     return dependencies ? (
       <ProFormDependency
@@ -371,6 +384,7 @@ export function warpField<P extends ProFormFieldItemProps = any>(
         {(values) => {
           return (
             <FieldWithContext
+              ref={forwardedRef}
               dependenciesValues={values}
               dependencies={dependencies}
               {...props}
@@ -379,9 +393,14 @@ export function warpField<P extends ProFormFieldItemProps = any>(
         }}
       </ProFormDependency>
     ) : (
-      <FieldWithContext dependencies={dependencies} {...props} />
+      <FieldWithContext
+        ref={forwardedRef}
+        dependencies={dependencies}
+        {...props}
+      />
     );
-  };
+  });
+  DependencyWrapper.displayName = 'ProFormComponent';
 
   return DependencyWrapper;
 }

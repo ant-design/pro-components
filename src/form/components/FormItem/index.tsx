@@ -1,4 +1,4 @@
-import { omit } from '@rc-component/util';
+import { composeRef, getNodeRef, omit, supportRef } from '@rc-component/util';
 import type { FormItemProps } from 'antd';
 import { Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
@@ -25,11 +25,12 @@ const FormItemProvide = React.createContext<{
  * @returns
  * @param formFieldProps
  */
-const WithValueFomFiledProps: React.FC<
+const WithValueFomFiledProps = React.forwardRef<
+  any,
   Record<string, any> & {
     children?: React.ReactNode;
   }
-> = (formFieldProps) => {
+>((formFieldProps, forwardedRef) => {
   const {
     children: filedChildren,
     onChange,
@@ -117,12 +118,22 @@ const WithValueFomFiledProps: React.FC<
   const variantFromRest = restProps.variant;
   const fieldPropsFromRest = restProps.fieldProps;
 
+  // 只有子组件支持 ref 时才注入，与 antd Form.Item 的 supportRef 判断一致，
+  // 避免给普通函数组件（如 FieldEditableTable）传 ref 触发警告
+  const mergedRef = supportRef(filedChildren)
+    ? composeRef(forwardedRef as any, getNodeRef(filedChildren))
+    : undefined;
+
   return React.cloneElement(
     filedChildren,
     omitUndefined({
       ...restProps,
       [valuePropName]: formFieldProps[valuePropName],
       ...filedChildrenElementProps,
+      // Form.Item 注入的 itemRef 与 Field 已有的 ref（warpField 传入的 fieldRef）合并，
+      // 供 getFieldInstance 取值的同时不破坏用户 fieldRef
+      // getNodeRef 兼容 React 18（element.ref）与 React 19（props.ref）
+      ref: mergedRef,
       onChange: finalChange,
       // 只有当子组件是 ProFormComponent 时才传递 fieldProps，避免传递给原生 DOM 元素
       ...(!isProFormComponent && fieldProps
@@ -143,7 +154,8 @@ const WithValueFomFiledProps: React.FC<
           : undefined,
     }),
   );
-};
+});
+WithValueFomFiledProps.displayName = 'WithValueFomFiledProps';
 
 type WarpFormItemProps = {
   /** @name 前置的dom * */

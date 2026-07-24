@@ -61,7 +61,6 @@ export const pureRenderRead: ProFieldRenderText = (
     valueTypeMap && valueTypeMap[valueType as string];
 
   if (customValueTypeConfig) {
-    delete props.ref;
     const readDom = customValueTypeConfig.render?.(
       dataValue,
       {
@@ -111,7 +110,6 @@ export const pureRenderEdit: ProFieldRenderText = (
     valueTypeMap && valueTypeMap[valueType as string];
 
   if (customValueTypeConfig) {
-    delete props.ref;
     const dom = customValueTypeConfig.formItemRender?.(
       dataValue,
       {

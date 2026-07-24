@@ -30,12 +30,13 @@ export type ProFormFieldProps<
   any
 >;
 
-const BaseProFormField: React.FC<
+const BaseProFormField = React.forwardRef<
+  any,
   ProFormFieldProps & {
     onChange?: (...args: any) => any;
     autoFocus?: boolean;
   }
-> = (props) => {
+>((props, forwardedRef) => {
   const {
     fieldProps,
     children,
@@ -114,6 +115,7 @@ const BaseProFormField: React.FC<
 
   return (
     <PureProField
+      ref={forwardedRef}
       text={fieldProps?.[valuePropName]}
       render={render as any}
       formItemRender={formItemRender as any}
@@ -127,7 +129,8 @@ const BaseProFormField: React.FC<
       params={propsParams}
     />
   );
-};
+});
+BaseProFormField.displayName = 'ProFormComponent';
 
 const ProFormField = warpField<ProFormFieldProps>?.(BaseProFormField) as <
   FiledProps,
