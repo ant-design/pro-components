@@ -1,5 +1,18 @@
 # Changelog
 
+## [3.1.14-5] - 2026-07-24
+
+### 🐛 问题修复
+
+- ProForm
+  - 🐞 修复 ProFormField 组件无法通过 `form.getFieldInstance` 获取实例的问题，ProFormText、ProFormText.Password、ProFormTextArea、ProFormDigit 等组件现在均可正确返回实例 [#9673](https://github.com/ant-design/pro-components/issues/9673)
+- ProField
+  - 🐞 修复 ProField forwardRef 类型声明，返回 `ForwardRefExoticComponent` 以兼容 React 19 + TypeScript 6 [#9671](https://github.com/ant-design/pro-components/issues/9671) [#9672](https://github.com/ant-design/pro-components/pull/9672) [@Phecda](https://github.com/Phecda)
+
+### ✅ 测试
+
+- ✅ 新增 `getFieldInstance` 回归测试，覆盖 text、password、textarea、digit、数组 name 路径、dependencies 及 fieldRef 共存场景
+
 ## [3.1.14-4] - 2026-07-22
 
 ### 🐛 问题修复

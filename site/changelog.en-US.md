@@ -1,5 +1,18 @@
 # Changelog
 
+## [3.1.14-5] - 2026-07-24
+
+### 🐛 Bug Fixes
+
+- ProForm
+  - 🐞 Fix ProFormField components not returning instance via `form.getFieldInstance`. ProFormText, ProFormText.Password, ProFormTextArea, ProFormDigit and other components now correctly return instances [#9673](https://github.com/ant-design/pro-components/issues/9673)
+- ProField
+  - 🐞 Fix ProField forwardRef type declaration, return `ForwardRefExoticComponent` for React 19 + TypeScript 6 compatibility [#9671](https://github.com/ant-design/pro-components/issues/9671) [#9672](https://github.com/ant-design/pro-components/pull/9672) [@Phecda](https://github.com/Phecda)
+
+### ✅ Tests
+
+- ✅ Add `getFieldInstance` regression tests covering text, password, textarea, digit, array name paths, dependencies, and fieldRef coexistence
+
 ## [3.1.14-4] - 2026-07-22
 
 ### 🐛 Bug Fixes
