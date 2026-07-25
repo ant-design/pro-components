@@ -15,6 +15,46 @@ afterEach(() => {
 });
 
 describe('BasicTable Search', () => {
+  it('🎏 syncs submitted search fields to URL', async () => {
+    window.history.replaceState(
+      {},
+      '',
+      'http://localhost?current=1&pageSize=20',
+    );
+
+    const { container } = render(
+      <ProTable
+        rowKey="id"
+        columns={[
+          {
+            title: '用户 ID',
+            dataIndex: 'pid',
+          },
+        ]}
+        request={async () => ({ data: [], success: true, total: 0 })}
+        form={{
+          syncToUrl: true,
+          syncToUrlAsImportant: true,
+          syncToInitialValues: true,
+        }}
+      />,
+    );
+
+    const input = container.querySelector<HTMLInputElement>('input#pid');
+    expect(input).toBeTruthy();
+
+    fireEvent.change(input!, { target: { value: '10001' } });
+    fireEvent.click(
+      container.querySelector('.ant-form button.ant-btn-primary')!,
+    );
+
+    await waitFor(() => {
+      expect(new URLSearchParams(window.location.search).get('pid')).toBe(
+        '10001',
+      );
+    });
+  });
+
   it('🎏 table type=form', async () => {
     const fn = vi.fn();
     const { container } = render(
