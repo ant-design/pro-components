@@ -89,7 +89,7 @@ const getFormConfigs = (isForm: boolean, formConfig: any) => {
 };
 
 export type TableFormItem<T, U = any> = {
-  onSubmit?: (value: T, firstLoad: boolean) => void;
+  onSubmit?: (value: T, firstLoad: boolean) => boolean | void;
   onReset?: (value: T) => void;
   form?: Omit<ProFormProps, 'form'>;
   type?: ProSchemaComponentTypes;
@@ -238,7 +238,7 @@ const FormRender = <T, U = any>({
           onReset?.(values);
         }}
         onFinish={(values: T) => {
-          onSubmit?.(values, false);
+          return onSubmit?.(values, false);
         }}
         initialValues={formConfig?.initialValues}
       />
